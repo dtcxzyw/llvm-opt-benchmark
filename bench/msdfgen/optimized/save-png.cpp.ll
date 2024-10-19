@@ -78,23 +78,23 @@ if.then.i.i.i.i.i:                                ; preds = %if.end14
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store ptr null, ptr %call5.i.i.i.i2.i.i27, align 8
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %height, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.lr.ph, label %if.end.i.i.i.i.i.i.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont17, label %if.end.i.i.i.i.i.i.i
 
 if.end.i.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i2.i.i.noexc
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i27, i64 8
   %0 = add nsw i64 %mul.i.i.i.i.i.i, -8
   call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i.i.i, i8 0, i64 %0, i1 false)
-  br label %for.body.lr.ph
+  br label %invoke.cont17
 
-for.body.lr.ph:                                   ; preds = %call5.i.i.i.i2.i.i.noexc, %if.end.i.i.i.i.i.i.i
+invoke.cont17:                                    ; preds = %if.end.i.i.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %mul = mul nsw i32 %channels, %width
   %1 = zext nneg i32 %height to i64
   %2 = sext i32 %mul to i64
   %wide.trip.count = zext nneg i32 %height to i64
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
+for.body:                                         ; preds = %invoke.cont17, %for.body
+  %indvars.iv = phi i64 [ 0, %invoke.cont17 ], [ %indvars.iv.next, %for.body ]
   %3 = xor i64 %indvars.iv, -1
   %4 = add nsw i64 %1, %3
   %5 = mul nsw i64 %4, %2
@@ -247,14 +247,10 @@ if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i
 
 invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i
   %cmp25.not = icmp eq i32 %mul4, 0
-  br i1 %cmp25.not, label %for.end, label %invoke.cont6.preheader
+  br i1 %cmp25.not, label %for.end, label %invoke.cont6
 
-invoke.cont6.preheader:                           ; preds = %invoke.cont
-  %wide.trip.count = zext nneg i32 %mul4 to i64
-  br label %invoke.cont6
-
-invoke.cont6:                                     ; preds = %invoke.cont6.preheader, %invoke.cont6
-  %indvars.iv = phi i64 [ 0, %invoke.cont6.preheader ], [ %indvars.iv.next, %invoke.cont6 ]
+invoke.cont6:                                     ; preds = %invoke.cont, %invoke.cont6
+  %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont6 ], [ 0, %invoke.cont ]
   %arrayidx = getelementptr inbounds float, ptr %pixels, i64 %indvars.iv
   %0 = load float, ptr %arrayidx, align 4
   %mul.i = fmul float %0, 2.560000e+02
@@ -269,7 +265,7 @@ invoke.cont6:                                     ; preds = %invoke.cont6.prehea
   %add.ptr.i = getelementptr inbounds i8, ptr %call5.i.i.i.i1.i.i13, i64 %indvars.iv
   store i8 %conv.i, ptr %add.ptr.i, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %conv
   br i1 %exitcond.not, label %for.end, label %invoke.cont6, !llvm.loop !7
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %for.end

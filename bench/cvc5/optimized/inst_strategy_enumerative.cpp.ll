@@ -285,7 +285,11 @@ for.body.lr.ph:                                   ; preds = %if.end49
   %cmp133530.not = icmp eq i32 %conv61, 0
   %d_qreg = getelementptr inbounds i8, ptr %this, i64 32
   %d_qstate186 = getelementptr inbounds i8, ptr %this, i64 16
-  br i1 %cmp133530.not, label %for.body, label %for.body.us
+  br i1 %cmp133530.not, label %for.body.preheader, label %for.body.us
+
+for.body.preheader:                               ; preds = %for.body.lr.ph
+  %exitcond548.not.old = icmp eq i32 %cond58, 0
+  br label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc210.us
   %r.0536.us = phi i32 [ %inc211.us, %for.inc210.us ], [ %cond53, %for.body.lr.ph ]
@@ -679,8 +683,8 @@ terminate.lpad.i330.split.us:                     ; preds = %if.then13.i.i329.us
   call void @__clang_call_terminate(ptr %51) #15
   unreachable
 
-for.body:                                         ; preds = %for.body.lr.ph, %for.body.backedge
-  %r.0536 = phi i32 [ %r.0536.be, %for.body.backedge ], [ %cond53, %for.body.lr.ph ]
+for.body:                                         ; preds = %for.body.backedge, %for.body.preheader
+  %r.0536 = phi i32 [ %cond53, %for.body.preheader ], [ %r.0536.be, %for.body.backedge ]
   %52 = load ptr, ptr %d_rd, align 8
   %tobool63 = icmp ne ptr %52, null
   %cmp64 = icmp ne i32 %r.0536, 0
@@ -725,7 +729,6 @@ invoke.cont197:                                   ; preds = %if.end131
   br i1 %or.cond552, label %if.end282, label %for.body.backedge
 
 for.inc210:                                       ; preds = %for.body
-  %exitcond548.not.old = icmp eq i32 %r.0536, %cond58
   br i1 %exitcond548.not.old, label %if.end282, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.inc210, %invoke.cont197

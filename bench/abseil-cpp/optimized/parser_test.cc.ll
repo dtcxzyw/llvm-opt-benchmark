@@ -17414,8 +17414,7 @@ entry:
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %entry, %for.inc189
-  %cmp8 = phi i1 [ false, %entry ], [ true, %for.inc189 ]
-  %cmp = phi i1 [ true, %entry ], [ false, %for.inc189 ]
+  %cmp8.not = phi i1 [ true, %entry ], [ false, %for.inc189 ]
   br label %for.body4
 
 for.body4:                                        ; preds = %for.cond2.preheader, %_ZN7testing15AssertionResultD2Ev.exit170
@@ -17453,7 +17452,7 @@ for.inc:                                          ; preds = %for.body7, %if.then
   br i1 %exitcond.not, label %for.end, label %for.body7, !llvm.loop !164
 
 for.end:                                          ; preds = %for.inc
-  br i1 %cmp8, label %if.then9, label %if.end17
+  br i1 %cmp8.not, label %if.end17, label %if.then9
 
 if.then9:                                         ; preds = %for.end
   %call10 = call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %fmt) #20
@@ -18204,7 +18203,7 @@ ehcleanup185:                                     ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn27
 
 for.inc189:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit170
-  br i1 %cmp, label %for.cond2.preheader, label %for.end191, !llvm.loop !167
+  br i1 %cmp8.not, label %for.cond2.preheader, label %for.end191, !llvm.loop !167
 
 for.end191:                                       ; preds = %for.inc189
   ret void

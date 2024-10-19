@@ -42,12 +42,12 @@ define void @_ZN6google8protobuf13StringAppendVEPNSt7__cxx1112basic_stringIcSt11
 
 8:                                                ; preds = %3
   %9 = icmp sgt i32 %6, -1
-  br i1 %9, label %10, label %22
+  br i1 %9, label %10, label %23
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %6 to i64
   %12 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %4, i64 noundef %11)
-  br label %22
+  br label %23
 
 13:                                               ; preds = %3
   %14 = add nuw nsw i32 %6, 1
@@ -56,19 +56,21 @@ define void @_ZN6google8protobuf13StringAppendVEPNSt7__cxx1112basic_stringIcSt11
   call void @llvm.va_copy.p0(ptr nonnull %5, ptr %2)
   %17 = call i32 @vsnprintf(ptr noundef nonnull %16, i64 noundef %15, ptr noundef %1, ptr noundef nonnull %5) #9
   call void @llvm.va_end.p0(ptr nonnull %5)
-  %or.cond = icmp ugt i32 %17, %6
-  br i1 %or.cond, label %21, label %18
+  %18 = icmp slt i32 %17, 0
+  %.not = icmp samesign ugt i32 %17, %6
+  %or.cond = select i1 %18, i1 true, i1 %.not
+  br i1 %or.cond, label %22, label %19
 
-18:                                               ; preds = %13
-  %19 = zext nneg i32 %17 to i64
-  %20 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %16, i64 noundef %19)
-  br label %21
-
-21:                                               ; preds = %13, %18
-  call void @_ZdaPv(ptr noundef nonnull %16) #11
+19:                                               ; preds = %13
+  %20 = zext nneg i32 %17 to i64
+  %21 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %16, i64 noundef %20)
   br label %22
 
-22:                                               ; preds = %8, %21, %10
+22:                                               ; preds = %13, %19
+  call void @_ZdaPv(ptr noundef nonnull %16) #11
+  br label %23
+
+23:                                               ; preds = %8, %22, %10
   ret void
 }
 

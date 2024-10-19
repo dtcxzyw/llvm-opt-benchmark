@@ -44,10 +44,10 @@ while.cond.outer.split.us:                        ; preds = %while.cond.outer.sp
   br label %while.cond.us
 
 if.else7.us:                                      ; preds = %while.cond.us
-  %add.us = add i64 %bitidx.0.ph24.us, 1
+  %add.us = add nuw nsw i64 %bitidx.0.ph24.us, 1
   %shl12.us = shl i64 %m.0.ph23.us, 1
-  %cmp2.not.us = icmp ugt i64 %add.us, %sub
-  br i1 %cmp2.not.us, label %return, label %while.cond.outer.split.us, !llvm.loop !4
+  %exitcond = icmp eq i64 %add.us, 64
+  br i1 %exitcond, label %return, label %while.cond.outer.split.us, !llvm.loop !4
 
 if.then4.us:                                      ; preds = %while.cond.us
   %or.us = or i64 %map.0.us, %m.0.ph23.us
@@ -124,15 +124,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx.i.us = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us
   %0 = load atomic i64, ptr %arrayidx.i.us monotonic, align 8
   %cmp.i.us = icmp eq i64 %0, -1
-  br i1 %cmp.i.us, label %for.inc.us, label %if.end.i.us
+  br i1 %cmp.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
-if.end.i.us:                                      ; preds = %for.body.us
+while.cond.outer.split.lr.ph.i.us:                ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
   %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
-  %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
-  br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
-
-while.cond.outer.split.lr.ph.i.us:                ; preds = %if.end.i.us
   %shl.i.us = shl nuw i64 1, %1
   br label %while.cond.outer.split.us.i.us
 
@@ -149,10 +145,10 @@ while.cond.us.i.us:                               ; preds = %if.then4.us.i.us, %
   br i1 %cmp3.us.i.us, label %if.then4.us.i.us, label %if.else7.us.i.us
 
 if.else7.us.i.us:                                 ; preds = %while.cond.us.i.us
-  %add.us.i.us = add i64 %bitidx.0.ph24.us.i.us, 1
+  %add.us.i.us = add nuw nsw i64 %bitidx.0.ph24.us.i.us, 1
   %shl12.us.i.us = shl i64 %m.0.ph23.us.i.us, 1
-  %cmp2.not.us.i.us = icmp ugt i64 %add.us.i.us, %sub.i
-  br i1 %cmp2.not.us.i.us, label %for.inc.us, label %while.cond.outer.split.us.i.us, !llvm.loop !4
+  %exitcond.i.us = icmp eq i64 %add.us.i.us, 64
+  br i1 %exitcond.i.us, label %for.inc.us, label %while.cond.outer.split.us.i.us, !llvm.loop !4
 
 if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
   %or.us.i.us = or i64 %map.0.us.i.us, %m.0.ph23.us.i.us
@@ -161,7 +157,7 @@ if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
   %4 = extractvalue { i64, i1 } %2, 0
   br i1 %3, label %_mi_bitmap_try_find_claim_field.exit, label %while.cond.us.i.us, !llvm.loop !4
 
-for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end.i.us, %for.body.us
+for.inc.us:                                       ; preds = %if.else7.us.i.us, %for.body.us
   %inc.us = add nuw i64 %visited.022.us, 1
   %inc4.us = add i64 %spec.store.select.us, 1
   %exitcond118.not = icmp eq i64 %inc.us, %bitmap_fields
@@ -236,16 +232,12 @@ for.body.us50:                                    ; preds = %for.body.lr.ph.spli
   %arrayidx.i.us56 = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us55
   %12 = load atomic i64, ptr %arrayidx.i.us56 monotonic, align 8
   %cmp.i.us57 = icmp eq i64 %12, -1
-  br i1 %cmp.i.us57, label %for.inc.us85, label %if.end.i.us58
+  br i1 %cmp.i.us57, label %for.inc.us85, label %while.cond.outer.split.i.us65.preheader
 
-if.end.i.us58:                                    ; preds = %for.body.us50
+while.cond.outer.split.i.us65.preheader:          ; preds = %for.body.us50
+  %arrayidx.i.us56.le = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us55
   %not.i.us61 = xor i64 %12, -1
   %13 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us61, i1 true)
-  %cmp2.not22.i.us62 = icmp ugt i64 %13, %sub.i
-  br i1 %cmp2.not22.i.us62, label %for.inc.us85, label %while.cond.outer.split.i.us65.preheader
-
-while.cond.outer.split.i.us65.preheader:          ; preds = %if.end.i.us58
-  %arrayidx.i.us56.le = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us55
   br label %if.then4.i.us83
 
 if.then4.i.us83:                                  ; preds = %while.cond.outer.split.i.us65.preheader, %if.then4.i.us83
@@ -255,7 +247,7 @@ if.then4.i.us83:                                  ; preds = %while.cond.outer.sp
   %16 = extractvalue { i64, i1 } %14, 0
   br i1 %15, label %_mi_bitmap_try_find_claim_field.exit, label %if.then4.i.us83, !llvm.loop !4
 
-for.inc.us85:                                     ; preds = %if.end.i.us58, %for.body.us50
+for.inc.us85:                                     ; preds = %for.body.us50
   %inc.us86 = add nuw i64 %visited.022.us52, 1
   %inc4.us87 = add i64 %spec.store.select.us55, 1
   %exitcond116.not = icmp eq i64 %inc.us86, %bitmap_fields
@@ -274,7 +266,7 @@ for.body:                                         ; preds = %for.body.lr.ph.spli
 if.end.i:                                         ; preds = %for.body
   %not.i = xor i64 %17, -1
   %18 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i, i1 true)
-  %cmp2.not22.i = icmp ugt i64 %18, %sub.i
+  %cmp2.not22.i = icmp samesign ugt i64 %18, %sub.i
   br i1 %cmp2.not22.i, label %for.inc, label %while.cond.outer.split.lr.ph.i
 
 while.cond.outer.split.lr.ph.i:                   ; preds = %if.end.i
@@ -352,15 +344,11 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %fo
   %arrayidx.i.us = getelementptr inbounds i64, ptr %bitmap, i64 %spec.store.select.us
   %0 = load atomic i64, ptr %arrayidx.i.us monotonic, align 8
   %cmp.i.us = icmp eq i64 %0, -1
-  br i1 %cmp.i.us, label %for.inc.us, label %if.end.i.us
+  br i1 %cmp.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
 
-if.end.i.us:                                      ; preds = %for.body.us
+while.cond.outer.split.lr.ph.i.us:                ; preds = %for.body.us
   %not.i.us = xor i64 %0, -1
   %1 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us, i1 true)
-  %cmp2.not22.i.us = icmp ugt i64 %1, %sub.i
-  br i1 %cmp2.not22.i.us, label %for.inc.us, label %while.cond.outer.split.lr.ph.i.us
-
-while.cond.outer.split.lr.ph.i.us:                ; preds = %if.end.i.us
   %shl.i.us = shl nuw i64 1, %1
   br label %while.cond.outer.split.us.i.us
 
@@ -377,10 +365,10 @@ while.cond.us.i.us:                               ; preds = %if.then4.us.i.us, %
   br i1 %cmp3.us.i.us, label %if.then4.us.i.us, label %if.else7.us.i.us
 
 if.else7.us.i.us:                                 ; preds = %while.cond.us.i.us
-  %add.us.i.us = add i64 %bitidx.0.ph24.us.i.us, 1
+  %add.us.i.us = add nuw nsw i64 %bitidx.0.ph24.us.i.us, 1
   %shl12.us.i.us = shl i64 %m.0.ph23.us.i.us, 1
-  %cmp2.not.us.i.us = icmp ugt i64 %add.us.i.us, %sub.i
-  br i1 %cmp2.not.us.i.us, label %for.inc.us, label %while.cond.outer.split.us.i.us, !llvm.loop !4
+  %exitcond.i.us = icmp eq i64 %add.us.i.us, 64
+  br i1 %exitcond.i.us, label %for.inc.us, label %while.cond.outer.split.us.i.us, !llvm.loop !4
 
 if.then4.us.i.us:                                 ; preds = %while.cond.us.i.us
   %or.us.i.us = or i64 %map.0.us.i.us, %m.0.ph23.us.i.us
@@ -403,7 +391,7 @@ if.end6.us:                                       ; preds = %lor.lhs.false.us
   %7 = atomicrmw and ptr %arrayidx.i19.us, i64 %6 acq_rel, align 8
   br label %for.inc.us
 
-for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end6.us, %if.end.i.us, %for.body.us
+for.inc.us:                                       ; preds = %if.else7.us.i.us, %if.end6.us, %for.body.us
   %inc.us = add nuw i64 %visited.034.us, 1
   %inc9.us = add i64 %spec.store.select.us, 1
   %exitcond98.not = icmp eq i64 %inc.us, %bitmap_fields
@@ -495,7 +483,7 @@ for.body.us40:                                    ; preds = %for.body.lr.ph.spli
 if.end.i.us48:                                    ; preds = %for.body.us40
   %not.i.us53 = xor i64 %16, -1
   %17 = tail call range(i64 0, 64) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %not.i.us53, i1 true)
-  %cmp2.not22.i.us54 = icmp ugt i64 %17, %sub.i
+  %cmp2.not22.i.us54 = icmp samesign ugt i64 %17, %sub.i
   br i1 %cmp2.not22.i.us54, label %for.inc.us57, label %while.cond.outer.split.lr.ph.i.us55
 
 while.cond.outer.split.lr.ph.i.us55:              ; preds = %if.end.i.us48

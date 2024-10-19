@@ -3091,7 +3091,7 @@ if.then1:                                         ; preds = %if.end
   br i1 %cmp3, label %if.then4, label %return
 
 if.then4:                                         ; preds = %if.then1
-  %cmp.i = icmp ugt i32 %call2, -901
+  %cmp.i = icmp samesign ugt i32 %call2, -901
   br i1 %cmp.i, label %if.else, label %if.end8
 
 if.else:                                          ; preds = %if.then4
@@ -3789,8 +3789,10 @@ if.end.i:                                         ; preds = %if.end278.i
   br i1 %cmp10.i, label %if.then20, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i
-  %cmp15.i = icmp ugt i64 %call.i169, %spec.select.i167
-  br i1 %cmp15.i, label %if.then20, label %if.end18.i
+  %cmp13.i = icmp slt i64 %call.i169, 0
+  %cmp15.i = icmp samesign ugt i64 %call.i169, %spec.select.i167
+  %or.cond.i = select i1 %cmp13.i, i1 true, i1 %cmp15.i
+  br i1 %or.cond.i, label %if.then20, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end12.i
   store i64 %call.i169, ptr %call5, align 8
@@ -4154,7 +4156,7 @@ if.else169:                                       ; preds = %do.end166
   br i1 %cmp171, label %if.then173, label %if.end180
 
 if.then173:                                       ; preds = %if.else169
-  %cmp.i138 = icmp ugt i32 %call170, -901
+  %cmp.i138 = icmp samesign ugt i32 %call170, -901
   br i1 %cmp.i138, label %if.else177, label %if.end178
 
 if.else177:                                       ; preds = %if.then173
@@ -4296,7 +4298,7 @@ if.end222:                                        ; preds = %if.end200, %if.end2
   br i1 %cmp226, label %if.then228, label %if.end235
 
 if.then228:                                       ; preds = %if.end222
-  %cmp.i162 = icmp ugt i32 %call225, -901
+  %cmp.i162 = icmp samesign ugt i32 %call225, -901
   br i1 %cmp.i162, label %if.else232, label %if.end233
 
 if.else232:                                       ; preds = %if.then228
@@ -12579,7 +12581,7 @@ while.body:                                       ; preds = %if.end, %entry
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.body
-  %cmp1.i = icmp ugt i64 %call.i, 16384
+  %cmp1.i = icmp samesign ugt i64 %call.i, 16384
   br i1 %cmp1.i, label %if.then22, label %if.then
 
 if.else.i:                                        ; preds = %while.body

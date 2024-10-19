@@ -1802,8 +1802,9 @@ rb_float_value_inline.exit7.thread:               ; preds = %18, %rb_float_value
   br i1 %32, label %double_div_double.exit, label %33
 
 33:                                               ; preds = %rb_float_value_inline.exit7.thread
-  %34 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0.i411)
-  %35 = fmul double %.0.i, %34
+  %.not.i = tail call i1 @llvm.is.fpclass.f64(double %.0.i411, i32 64)
+  %34 = fneg double %.0.i
+  %35 = select i1 %.not.i, double %.0.i, double %34
   %36 = fmul double %35, 0x7FF0000000000000
   br label %double_div_double.exit
 
@@ -1956,8 +1957,9 @@ rb_float_value_inline.exit36.thread:              ; preds = %34, %rb_float_value
   br i1 %50, label %double_div_double.exit, label %51
 
 51:                                               ; preds = %rb_float_value_inline.exit36.thread
-  %52 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.03044)
-  %53 = fmul double %.0.i, %52
+  %.not.i = tail call i1 @llvm.is.fpclass.f64(double %.03044, i32 64)
+  %52 = fneg double %.0.i
+  %53 = select i1 %.not.i, double %.0.i, double %52
   %54 = fmul double %53, 0x7FF0000000000000
   br label %double_div_double.exit
 
@@ -2478,6 +2480,9 @@ define dso_local range(i64 -1, 5) i64 @rb_dbl_cmp(double noundef %0, double noun
   %.0 = phi i64 [ 4, %2 ], [ 1, %3 ], [ 3, %5 ], [ %., %7 ]
   ret i64 %.0
 }
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i32 @rb_float_cmp(i64 noundef %0, i64 noundef %1) local_unnamed_addr #2 {
@@ -4029,7 +4034,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
 
 29:                                               ; preds = %28
   %30 = udiv i64 4611686018427387903, %.253.lcssa
-  %31 = icmp ult i64 %30, %.1
+  %31 = icmp samesign ult i64 %30, %.1
   br i1 %31, label %.loopexit, label %42
 
 32:                                               ; preds = %28
@@ -4044,7 +4049,7 @@ define internal fastcc i64 @int_pow(i64 noundef %0, i64 noundef %1) unnamed_addr
 
 36:                                               ; preds = %35
   %37 = udiv i64 4611686018427387904, %.253.nonneg
-  %38 = icmp ult i64 %37, %.1
+  %38 = icmp samesign ult i64 %37, %.1
   br i1 %38, label %.loopexit, label %42
 
 39:                                               ; preds = %35
@@ -4794,7 +4799,7 @@ define hidden i64 @ruby_num_interval_step_size(i64 noundef %0, i64 noundef %1, i
   %.045 = tail call i64 @llvm.abs.i64(i64 %18, i1 true)
   %27 = udiv i64 %.1, %.045
   %28 = add nuw i64 %27, 1
-  %29 = icmp ult i64 %27, 4611686018427387903
+  %29 = icmp samesign ult i64 %27, 4611686018427387903
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %26
@@ -5484,7 +5489,7 @@ rb_num2uint.exit:                                 ; preds = %7, %11
   br i1 %.not.i, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %16, -2147483648
+  %18 = icmp samesign ult i64 %16, -2147483648
   br i1 %18, label %19, label %check_uint.exit
 
 19:                                               ; preds = %17
@@ -5493,7 +5498,7 @@ rb_num2uint.exit:                                 ; preds = %7, %11
   unreachable
 
 21:                                               ; preds = %15
-  %22 = icmp ugt i64 %16, 4294967295
+  %22 = icmp samesign ugt i64 %16, 4294967295
   br i1 %22, label %23, label %check_uint.exit
 
 23:                                               ; preds = %21
@@ -5624,7 +5629,7 @@ rb_num2ushort.exit:                               ; preds = %7, %11
   br i1 %.not.i, label %21, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %16, -32768
+  %18 = icmp samesign ult i64 %16, -32768
   br i1 %18, label %19, label %check_ushort.exit
 
 19:                                               ; preds = %17
@@ -5633,7 +5638,7 @@ rb_num2ushort.exit:                               ; preds = %7, %11
   unreachable
 
 21:                                               ; preds = %15
-  %22 = icmp ugt i64 %16, 65535
+  %22 = icmp samesign ugt i64 %16, 65535
   br i1 %22, label %23, label %check_ushort.exit
 
 23:                                               ; preds = %21
@@ -6324,7 +6329,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   unreachable
 
 11:                                               ; preds = %5
-  %12 = icmp ult i64 %0, 2
+  %12 = icmp eq i64 %0, 1
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -6905,20 +6910,21 @@ rb_integer_type_p.exit.thread42:                  ; preds = %16, %16, %6, %18, %
 33:                                               ; preds = %24
   %34 = sitofp i64 %28 to double
   %35 = sitofp i64 %25 to double
-  %.not47.i = icmp ult i64 %.035, 2
-  br i1 %.not47.i, label %38, label %36
+  %.not48.i = icmp eq i64 %.035, 1
+  br i1 %.not48.i, label %38, label %36
 
 36:                                               ; preds = %33
   %37 = fdiv double %34, %35
   br label %.critedge
 
 38:                                               ; preds = %33
-  %39 = icmp ult i64 %.036, 2
+  %39 = icmp eq i64 %.036, 1
   br i1 %39, label %.critedge, label %40
 
 40:                                               ; preds = %38
-  %41 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %35)
-  %42 = fmul double %41, %34
+  %.not.i.i = tail call i1 @llvm.is.fpclass.f64(double %35, i32 64)
+  %41 = fneg double %34
+  %42 = select i1 %.not.i.i, double %34, double %41
   %43 = fmul double %42, 0x7FF0000000000000
   br label %.critedge
 
@@ -6933,7 +6939,7 @@ rb_integer_type_p.exit.thread42:                  ; preds = %16, %16, %6, %18, %
   %50 = inttoptr i64 %.035 to ptr
   %51 = load i64, ptr %50, align 8
   %52 = and i64 %51, 31
-  switch i64 %52, label %RB_FLOAT_TYPE_P.exit.thread41.i [
+  switch i64 %52, label %RB_FLOAT_TYPE_P.exit.thread42.i [
     i64 10, label %53
     i64 4, label %67
   ]
@@ -6946,8 +6952,8 @@ rb_integer_type_p.exit.thread42:                  ; preds = %16, %16, %6, %18, %
 
 .critedge.i:                                      ; preds = %44
   %57 = and i64 %.035, 2
-  %.not46.i = icmp eq i64 %57, 0
-  br i1 %.not46.i, label %RB_FLOAT_TYPE_P.exit.thread41.i, label %58
+  %.not47.i = icmp eq i64 %57, 0
+  br i1 %.not47.i, label %RB_FLOAT_TYPE_P.exit.thread42.i, label %58
 
 58:                                               ; preds = %.critedge.i
   %59 = ashr i64 %.036, 1
@@ -6982,18 +6988,19 @@ rb_float_value_inline.exit.i:                     ; preds = %67, %61
   br label %.critedge
 
 rb_float_value_inline.exit.thread.i:              ; preds = %rb_float_value_inline.exit.i, %58
-  %.0.i3745.i = phi double [ %.0.i37.i, %rb_float_value_inline.exit.i ], [ 0.000000e+00, %58 ]
+  %.0.i3746.i = phi double [ %.0.i37.i, %rb_float_value_inline.exit.i ], [ 0.000000e+00, %58 ]
   %76 = phi double [ %72, %rb_float_value_inline.exit.i ], [ %60, %58 ]
   %77 = fcmp oeq double %76, 0.000000e+00
   br i1 %77, label %.critedge, label %78
 
 78:                                               ; preds = %rb_float_value_inline.exit.thread.i
-  %79 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %.0.i3745.i)
-  %80 = fmul double %76, %79
+  %.not.i38.i = tail call i1 @llvm.is.fpclass.f64(double %.0.i3746.i, i32 64)
+  %79 = fneg double %76
+  %80 = select i1 %.not.i38.i, double %76, double %79
   %81 = fmul double %80, 0x7FF0000000000000
   br label %.critedge
 
-RB_FLOAT_TYPE_P.exit.thread41.i:                  ; preds = %.critedge.i, %49
+RB_FLOAT_TYPE_P.exit.thread42.i:                  ; preds = %.critedge.i, %49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i64 %.036, ptr %3, align 8
@@ -7025,8 +7032,8 @@ RB_FLOAT_TYPE_P.exit.thread41.i:                  ; preds = %.critedge.i, %49
   %97 = tail call double @rb_big_fdiv_double(i64 noundef %.036, i64 noundef %.035) #23
   br label %.critedge
 
-.critedge:                                        ; preds = %RB_FLOAT_TYPE_P.exit.thread41.i, %78, %rb_float_value_inline.exit.thread.i, %74, %53, %40, %38, %36, %29, %91, %86, %96
-  %.037 = phi double [ %97, %96 ], [ 0x7FF8000000000000, %86 ], [ 0x7FF8000000000000, %91 ], [ %32, %29 ], [ %56, %53 ], [ %85, %RB_FLOAT_TYPE_P.exit.thread41.i ], [ %37, %36 ], [ %43, %40 ], [ 0x7FF8000000000000, %38 ], [ %75, %74 ], [ %81, %78 ], [ 0x7FF8000000000000, %rb_float_value_inline.exit.thread.i ]
+.critedge:                                        ; preds = %RB_FLOAT_TYPE_P.exit.thread42.i, %78, %rb_float_value_inline.exit.thread.i, %74, %53, %40, %38, %36, %29, %91, %86, %96
+  %.037 = phi double [ %97, %96 ], [ 0x7FF8000000000000, %86 ], [ 0x7FF8000000000000, %91 ], [ %32, %29 ], [ %56, %53 ], [ %85, %RB_FLOAT_TYPE_P.exit.thread42.i ], [ %37, %36 ], [ %43, %40 ], [ 0x7FF8000000000000, %38 ], [ %75, %74 ], [ %81, %78 ], [ 0x7FF8000000000000, %rb_float_value_inline.exit.thread.i ]
   ret double %.037
 }
 
@@ -7554,7 +7561,7 @@ rb_float_value_inline.exit.i:                     ; preds = %58, %52
   unreachable
 
 ._crit_edge.i.i:                                  ; preds = %63
-  %65 = icmp ugt i64 %0, 1
+  %65 = icmp ne i64 %0, 1
   %66 = tail call double @llvm.fabs.f64(double %.0.i35.i) #28
   %67 = fcmp une double %66, 0x7FF0000000000000
   %or.cond.i = and i1 %65, %67
@@ -7744,7 +7751,7 @@ fix_uminus.exit:                                  ; preds = %19, %22
   br label %.critedge
 
 27:                                               ; preds = %25
-  %28 = icmp ult i64 %0, 2
+  %28 = icmp eq i64 %0, 1
   br i1 %28, label %.critedge, label %29
 
 29:                                               ; preds = %27
@@ -7790,7 +7797,7 @@ int_even_p.exit:                                  ; preds = %40
   br label %.critedge
 
 48:                                               ; preds = %43
-  %49 = icmp ult i64 %0, 2
+  %49 = icmp eq i64 %0, 1
   br i1 %49, label %.critedge, label %50
 
 50:                                               ; preds = %48
@@ -8500,7 +8507,7 @@ define hidden i64 @rb_int_lshift(i64 noundef %0, i64 noundef %1) #2 {
 
 rb_num2long_inline.exit.i:                        ; preds = %2
   %4 = ashr i64 %0, 1
-  %.not.i = icmp ult i64 %0, 2
+  %.not.i = icmp eq i64 %0, 1
   br i1 %.not.i, label %5, label %7
 
 5:                                                ; preds = %rb_num2long_inline.exit.i
@@ -8624,7 +8631,7 @@ define hidden range(i64 1, 4) i64 @rb_fix_aref(i64 noundef %0, i64 noundef %1) l
   br i1 %17, label %25, label %18
 
 18:                                               ; preds = %15
-  %19 = icmp ugt i64 %16, 62
+  %19 = icmp samesign ugt i64 %16, 62
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
@@ -10160,7 +10167,7 @@ define internal i64 @rb_int_s_isqrt(i64 %0, i64 noundef %1) #2 {
 
 9:                                                ; preds = %5
   %10 = lshr i64 %3, 1
-  %11 = icmp ult i64 %3, 18014398509481984
+  %11 = icmp samesign ult i64 %3, 18014398509481984
   br i1 %11, label %31, label %12
 
 12:                                               ; preds = %9
@@ -10534,7 +10541,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
   ]
 
 14:                                               ; preds = %12
-  %15 = icmp ugt i64 %7, 255
+  %15 = icmp samesign ugt i64 %7, 255
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -10550,7 +10557,7 @@ define internal i64 @int_chr(i32 noundef %0, ptr nocapture noundef readonly %1, 
 20:                                               ; preds = %14
   %21 = trunc nuw i64 %7 to i8
   store i8 %21, ptr %4, align 1
-  %22 = icmp ult i64 %7, 128
+  %22 = icmp samesign ult i64 %7, 128
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
@@ -11624,7 +11631,7 @@ rb_int_plus.exit55.i:                             ; preds = %.critedge.i54.i, %1
   br i1 %149, label %int_aref1.exit, label %150
 
 150:                                              ; preds = %147
-  %151 = icmp ugt i64 %148, 62
+  %151 = icmp samesign ugt i64 %148, 62
   br i1 %151, label %152, label %154
 
 152:                                              ; preds = %150
@@ -11677,7 +11684,7 @@ define internal i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
 
 4:                                                ; preds = %2
   %5 = ashr i64 %0, 1
-  %.not.i = icmp ult i64 %0, 2
+  %.not.i = icmp eq i64 %0, 1
   br i1 %.not.i, label %6, label %8
 
 6:                                                ; preds = %4
@@ -11696,7 +11703,7 @@ define internal i64 @rb_int_rshift(i64 noundef %0, i64 noundef %1) #2 {
 
 13:                                               ; preds = %8
   %14 = ashr i64 %1, 1
-  %15 = icmp ult i64 %1, 2
+  %15 = icmp eq i64 %1, 1
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %13
@@ -11870,7 +11877,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %9, %rb_integer_type
   unreachable
 
 37:                                               ; preds = %.critedge
-  %38 = icmp ult i64 %33, 2
+  %38 = icmp samesign ult i64 %33, 2
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
@@ -11885,7 +11892,7 @@ rb_integer_type_p.exit.thread:                    ; preds = %9, %rb_integer_type
   br i1 %.not68, label %60, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i64 %2, 2
+  %44 = icmp eq i64 %2, 1
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
@@ -12058,7 +12065,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %37, %45
   br label %ruby_nonempty_memcpy.exit55
 
 59:                                               ; preds = %48
-  %60 = icmp ult i32 %46, 16
+  %60 = icmp samesign ult i32 %46, 16
   br i1 %60, label %61, label %111
 
 61:                                               ; preds = %59
@@ -13393,7 +13400,7 @@ float_round_overflow.exit.thread:                 ; preds = %145
   %.nonneg.i = sub i32 0, %147
   %151 = udiv i32 %.nonneg.i, 3
   %152 = add nuw nsw i32 %151, 18
-  %.not.i5365.not = icmp ult i32 %.038, %152
+  %.not.i5365.not = icmp samesign ult i32 %.038, %152
   br i1 %.not.i5365.not, label %.thread, label %rb_float_new_inline.exit
 
 153:                                              ; preds = %float_round_overflow.exit
@@ -13411,7 +13418,7 @@ float_round_underflow.exit:                       ; preds = %153, %.thread
   br i1 %.not71, label %rb_float_new_inline.exit, label %155
 
 155:                                              ; preds = %float_round_underflow.exit
-  %156 = icmp ugt i32 %.038, 14
+  %156 = icmp samesign ugt i32 %.038, 14
   br i1 %156, label %157, label %159
 
 157:                                              ; preds = %155
@@ -16224,9 +16231,6 @@ int_neg_p.exit:                                   ; preds = %5, %17
   %20 = select i1 %.022.in.i, i64 1, i64 %0
   ret i64 %20
 }
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.copysign.f64(double, double) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #20

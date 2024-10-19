@@ -382,7 +382,7 @@ _ZN5Eigen15SelfAdjointViewINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELj2EE10rankUpda
   br i1 %68, label %69, label %.sink.split.i58
 
 69:                                               ; preds = %67
-  %70 = icmp ugt i64 %65, 2305843009213693951
+  %70 = icmp samesign ugt i64 %65, 2305843009213693951
   br i1 %70, label %.invoke74, label %71
 
 71:                                               ; preds = %69
@@ -1406,8 +1406,8 @@ _ZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_.exit: ; preds = %4,
 
 122:                                              ; preds = %118
   %123 = icmp ne i64 %15, 0
-  %124 = icmp ult i64 %120, 32769
-  %or.cond3 = and i1 %123, %124
+  %124 = icmp samesign ult i64 %120, 32769
+  %or.cond3 = select i1 %123, i1 %124, i1 false
   br i1 %or.cond3, label %125, label %126
 
 125:                                              ; preds = %122
@@ -2098,7 +2098,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40general_matrix_matrix_trian
 
 32:                                               ; preds = %30
   %33 = shl nuw i64 %25, 3
-  %34 = icmp ult i64 %25, 16385
+  %34 = icmp samesign ult i64 %25, 16385
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %32
@@ -2120,7 +2120,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal40general_matrix_matrix_trian
 _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %38, %30, %35
   %43 = phi ptr [ %37, %35 ], [ null, %30 ], [ %39, %38 ]
   %44 = phi ptr [ %37, %35 ], [ %31, %30 ], [ %39, %38 ]
-  %45 = icmp ugt i64 %25, 16384
+  %45 = icmp samesign ugt i64 %25, 16384
   %46 = icmp ugt i64 %26, 2305843009213693951
   br i1 %46, label %.invoke, label %47
 
@@ -2132,7 +2132,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %38, %30, %35
 
 50:                                               ; preds = %47
   %51 = shl nuw i64 %26, 3
-  %52 = icmp ult i64 %26, 16385
+  %52 = icmp samesign ult i64 %26, 16385
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %50
@@ -2157,7 +2157,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %38, %30, %35
 _ZN5Eigen8internal14aligned_mallocEm.exit155:     ; preds = %56, %47, %53
   %60 = phi ptr [ %55, %53 ], [ null, %47 ], [ %57, %56 ]
   %61 = phi ptr [ %55, %53 ], [ %49, %47 ], [ %57, %56 ]
-  %62 = icmp ugt i64 %26, 16384
+  %62 = icmp samesign ugt i64 %26, 16384
   %63 = icmp sgt i64 %1, 0
   br i1 %63, label %.lr.ph234, label %._crit_edge
 
@@ -2221,7 +2221,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit155:     ; preds = %56, %47, %53
 
 ._crit_edge.us.i:                                 ; preds = %80
   %96 = add nuw nsw i64 %.05365.us.i, 4
-  %97 = icmp slt i64 %96, %65
+  %97 = icmp samesign ult i64 %96, %65
   br i1 %97, label %.preheader61.us.i, label %.preheader60.i, !llvm.loop !24
 
 .preheader60.i:                                   ; preds = %._crit_edge.us.i, %73
@@ -2307,7 +2307,7 @@ _ZN5Eigen8internal13gemm_pack_rhsIdlNS0_22const_blas_data_mapperIdlLi1EEELi4ELi1
 
 ._crit_edge.us.i161:                              ; preds = %121
   %131 = add nuw nsw i64 %.07992.us.i, 4
-  %132 = icmp slt i64 %131, %112
+  %132 = icmp samesign ult i64 %131, %112
   br i1 %132, label %.preheader88.us.i, label %.preheader87.i, !llvm.loop !29
 
 .preheader87.i:                                   ; preds = %._crit_edge.us.i161, %108
@@ -2401,7 +2401,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc166 ], [ %110, %156 ]
   %.085.i = phi i64 [ %192, %.noexc166 ], [ 0, %156 ]
   %smin.i = call i64 @llvm.smin.i64(i64 %indvars.iv.i, i64 4)
-  %smax.i163 = call i64 @llvm.smax.i64(i64 %smin.i, i64 1)
+  %umax.i163 = call i64 @llvm.umax.i64(i64 %smin.i, i64 1)
   %164 = sub nsw i64 %110, %.085.i
   %.sroa.speculated.i = call i64 @llvm.smin.i64(i64 %164, i64 4)
   %165 = mul nsw i64 %.085.i, %75
@@ -2440,12 +2440,12 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
   %179 = fadd double %176, %178
   store double %179, ptr %177, align 8
   %180 = add nuw nsw i64 %.07083.i, 1
-  %181 = icmp slt i64 %180, %.sroa.speculated.i
+  %181 = icmp samesign ult i64 %180, %.sroa.speculated.i
   br i1 %181, label %175, label %182, !llvm.loop !34
 
 182:                                              ; preds = %175
   %183 = add nuw nsw i64 %.07184.i, 1
-  %exitcond.not.i164 = icmp eq i64 %183, %smax.i163
+  %exitcond.not.i164 = icmp eq i64 %183, %umax.i163
   br i1 %exitcond.not.i164, label %._crit_edge.i, label %171, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %182, %.noexc165
@@ -2464,7 +2464,7 @@ _ZN5Eigen8internal13gemm_pack_lhsIdlNS0_22const_blas_data_mapperIdlLi0EEELi4ELi2
 
 .noexc166:                                        ; preds = %._crit_edge.i
   %192 = add nuw nsw i64 %.085.i, 4
-  %193 = icmp slt i64 %192, %110
+  %193 = icmp samesign ult i64 %192, %110
   %indvars.iv.next.i = add i64 %indvars.iv.i, -4
   br i1 %193, label %.lr.ph87.i, label %.loopexit224, !llvm.loop !36
 
@@ -2580,14 +2580,14 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   br label %48
 
 .loopexit858:                                     ; preds = %._crit_edge924.split.split.us.us.us, %._crit_edge924.split.split.us950, %._crit_edge924.split.us.us.us, %.preheader857
-  %47 = icmp slt i64 %49, %19
+  %47 = icmp samesign ult i64 %49, %19
   br i1 %47, label %48, label %._crit_edge, !llvm.loop !38
 
 48:                                               ; preds = %.lr.ph, %.loopexit858
   %.0386957 = phi i64 [ 0, %.lr.ph ], [ %49, %.loopexit858 ]
   %49 = add nuw nsw i64 %.0386957, %38
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %19, i64 %49)
-  %50 = icmp sgt i64 %19, %.0386957
+  %50 = icmp samesign ugt i64 %19, %.0386957
   %or.cond = select i1 %40, i1 %50, i1 false
   br i1 %or.cond, label %.preheader856.us, label %.preheader857
 
@@ -2673,7 +2673,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   store <2 x double> %97, ptr %67, align 1
   store <2 x double> %99, ptr %90, align 1
   %100 = add nuw nsw i64 %.0389899.us, 4
-  %101 = icmp slt i64 %100, %.sroa.speculated
+  %101 = icmp samesign ult i64 %100, %.sroa.speculated
   br i1 %101, label %55, label %._crit_edge901.us, !llvm.loop !39
 
 .lr.ph890.us:                                     ; preds = %.preheader854.us, %.lr.ph890.us
@@ -3017,7 +3017,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %393 = getelementptr inbounds i8, ptr %.0403867.us, i64 256
   tail call void asm sideeffect "#end gebp micro kernel 2pX4", "~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !60
   %394 = add nuw nsw i64 %.0400869.us, 8
-  %395 = icmp slt i64 %394, %34
+  %395 = icmp samesign ult i64 %394, %34
   br i1 %395, label %.lr.ph.us, label %.preheader854.us, !llvm.loop !61
 
 .preheader854.us:                                 ; preds = %.lr.ph.us, %55
@@ -3035,11 +3035,11 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
 
 ._crit_edge901.us:                                ; preds = %._crit_edge.us
   %396 = add nuw nsw i64 %.0387902.us, 4
-  %397 = icmp slt i64 %396, %17
+  %397 = icmp samesign ult i64 %396, %17
   br i1 %397, label %.preheader856.us, label %.preheader857, !llvm.loop !62
 
 .preheader857:                                    ; preds = %._crit_edge901.us, %48
-  %398 = icmp sgt i64 %19, %.0386957
+  %398 = icmp samesign ugt i64 %19, %.0386957
   %or.cond1082 = select i1 %45, i1 %398, i1 false
   br i1 %or.cond1082, label %.preheader855.lr.ph.split.us, label %.loopexit858
 
@@ -3079,7 +3079,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   store <2 x double> %411, ptr %405, align 1
   store <2 x double> %413, ptr %408, align 1
   %414 = add nuw nsw i64 %.0397922.us.us.us, 4
-  %415 = icmp slt i64 %414, %.sroa.speculated
+  %415 = icmp samesign ult i64 %414, %.sroa.speculated
   br i1 %415, label %.lr.ph.us927.us.us, label %._crit_edge924.split.us.us.us, !llvm.loop !63
 
 .lr.ph918.us.us.us:                               ; preds = %..preheader853_crit_edge.us.us.us, %.lr.ph918.us.us.us
@@ -3236,7 +3236,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   %526 = getelementptr inbounds i8, ptr %.0395907.us.us.us, i64 256
   tail call void asm sideeffect "#end gebp micro kernel 2pX1", "~{dirflag},~{fpsr},~{flags}"() #24, !srcloc !93
   %527 = add nuw nsw i64 %.0393909.us.us.us, 8
-  %528 = icmp slt i64 %527, %34
+  %528 = icmp samesign ult i64 %527, %34
   br i1 %528, label %430, label %..preheader853_crit_edge.us.us.us, !llvm.loop !94
 
 ..preheader853_crit_edge.us.us.us:                ; preds = %430
@@ -3306,7 +3306,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   store <2 x double> %557, ptr %536, align 1
   store <2 x double> %559, ptr %554, align 1
   %560 = add nuw nsw i64 %.0397922.us931.us.us, 4
-  %561 = icmp slt i64 %560, %.sroa.speculated
+  %561 = icmp samesign ult i64 %560, %.sroa.speculated
   br i1 %561, label %.preheader853.us930.us.us, label %._crit_edge924.split.split.us.us.us, !llvm.loop !63
 
 ._crit_edge924.split.split.us.us.us:              ; preds = %._crit_edge.us941.us.us
@@ -3338,7 +3338,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
   store <2 x double> %573, ptr %568, align 1
   store <2 x double> %574, ptr %571, align 1
   %575 = add nuw nsw i64 %.0397922.us947, 4
-  %576 = icmp slt i64 %575, %.sroa.speculated
+  %576 = icmp samesign ult i64 %575, %.sroa.speculated
   br i1 %576, label %.preheader853.us, label %._crit_edge924.split.split.us950, !llvm.loop !63
 
 ._crit_edge924.split.split.us950:                 ; preds = %.preheader853.us
@@ -3447,7 +3447,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
 
 ._crit_edge973.split.us.us.us:                    ; preds = %._crit_edge966.us.us.us
   %637 = add nuw nsw i64 %.0391976.us.us, 4
-  %638 = icmp slt i64 %637, %17
+  %638 = icmp samesign ult i64 %637, %17
   br i1 %638, label %.preheader851.us.us, label %.preheader850, !llvm.loop !98
 
 .preheader851.us:                                 ; preds = %.preheader851.lr.ph.split.us, %._crit_edge973.split.us982
@@ -3500,7 +3500,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal11gebp_kernelIddlNS0_16blas_d
 
 ._crit_edge973.split.us982:                       ; preds = %642
   %674 = add nuw nsw i64 %.0391976.us, 4
-  %675 = icmp slt i64 %674, %17
+  %675 = icmp samesign ult i64 %674, %17
   br i1 %675, label %.preheader851.us, label %.preheader850, !llvm.loop !98
 
 .preheader850:                                    ; preds = %._crit_edge973.split.us982, %._crit_edge973.split.us.us.us, %.preheader852
@@ -3955,7 +3955,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22lhs_process_one_packetILi4E
   store <2 x double> %269, ptr %40, align 1
   store <2 x double> %271, ptr %43, align 1
   %272 = add nuw nsw i64 %.0222548, 4
-  %273 = icmp slt i64 %272, %16
+  %273 = icmp samesign ult i64 %272, %16
   br i1 %273, label %29, label %.preheader512, !llvm.loop !109
 
 274:                                              ; preds = %.lr.ph569, %._crit_edge564
@@ -4134,7 +4134,7 @@ define linkonce_odr hidden void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6re
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 2305843009213693951
+  %11 = icmp samesign ugt i64 %1, 2305843009213693951
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -4286,7 +4286,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   br label %24
 
 .loopexit:                                        ; preds = %._crit_edge606, %266
-  %23 = icmp slt i64 %25, %1
+  %23 = icmp samesign ult i64 %25, %1
   br i1 %23, label %24, label %._crit_edge612, !llvm.loop !150
 
 24:                                               ; preds = %.lr.ph611, %.loopexit
@@ -4365,7 +4365,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %80 = fmul <2 x double> %48, %79
   %81 = fadd <2 x double> %.0537552, %80
   %82 = add nuw nsw i64 %.0335560, 1
-  %83 = icmp slt i64 %82, %.sroa.speculated
+  %83 = icmp samesign ult i64 %82, %.sroa.speculated
   br i1 %83, label %43, label %._crit_edge, !llvm.loop !151
 
 ._crit_edge:                                      ; preds = %43
@@ -4459,7 +4459,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %149 = fmul <2 x double> %133, %148
   %150 = fadd <2 x double> %.0541571, %149
   %151 = add nuw nsw i64 %.0334575, 1
-  %152 = icmp slt i64 %151, %.sroa.speculated
+  %152 = icmp samesign ult i64 %151, %.sroa.speculated
   br i1 %152, label %128, label %._crit_edge577, !llvm.loop !153
 
 ._crit_edge577:                                   ; preds = %128
@@ -4523,7 +4523,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %194 = fmul <2 x double> %182, %193
   %195 = fadd <2 x double> %.0546582, %194
   %196 = add nuw nsw i64 %.0333585, 1
-  %197 = icmp slt i64 %196, %.sroa.speculated
+  %197 = icmp samesign ult i64 %196, %.sroa.speculated
   br i1 %197, label %177, label %._crit_edge587, !llvm.loop !154
 
 ._crit_edge587:                                   ; preds = %177
@@ -4576,7 +4576,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %230 = fmul <2 x double> %229, %222
   %231 = fadd <2 x double> %.0543592, %230
   %232 = add nuw nsw i64 %.0332593, 1
-  %233 = icmp slt i64 %232, %.sroa.speculated
+  %233 = icmp samesign ult i64 %232, %.sroa.speculated
   br i1 %233, label %217, label %._crit_edge595, !llvm.loop !155
 
 ._crit_edge595:                                   ; preds = %217
@@ -4618,7 +4618,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %257 = fmul <2 x double> %256, %253
   %258 = fadd <2 x double> %.0534598, %257
   %259 = add nuw nsw i64 %.0331599, 1
-  %260 = icmp slt i64 %259, %.sroa.speculated
+  %260 = icmp samesign ult i64 %259, %.sroa.speculated
   br i1 %260, label %248, label %._crit_edge601, !llvm.loop !156
 
 ._crit_edge601:                                   ; preds = %248
@@ -4654,7 +4654,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal29general_matrix_vector_produ
   %278 = fmul double %276, %277
   %279 = fadd double %.0330603, %278
   %280 = add nuw nsw i64 %.0604, 1
-  %281 = icmp slt i64 %280, %.sroa.speculated
+  %281 = icmp samesign ult i64 %280, %.sroa.speculated
   br i1 %281, label %271, label %._crit_edge606, !llvm.loop !157
 
 ._crit_edge606:                                   ; preds = %271
@@ -5459,6 +5459,9 @@ declare i64 @llvm.smax.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #22
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

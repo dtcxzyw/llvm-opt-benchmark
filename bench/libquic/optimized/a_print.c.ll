@@ -101,10 +101,6 @@ if.end3:                                          ; preds = %if.end
   %cmp522 = icmp sgt i32 %1, 0
   br i1 %cmp522, label %for.body, label %for.end34
 
-for.cond25.preheader:                             ; preds = %if.else
-  %cmp2725 = icmp sgt i32 %1, 3
-  br i1 %cmp2725, label %for.body29, label %for.end34
-
 for.body:                                         ; preds = %if.end3, %if.else
   %p.024 = phi ptr [ %add.ptr, %if.else ], [ %3, %if.end3 ]
   %i.023 = phi i32 [ %add, %if.else ], [ 0, %if.end3 ]
@@ -127,12 +123,12 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false
 if.else:                                          ; preds = %lor.lhs.false12
   %add.ptr = getelementptr inbounds i8, ptr %p.024, i64 4
   %add = add nuw nsw i32 %i.023, 4
-  %cmp5 = icmp slt i32 %add, %1
-  br i1 %cmp5, label %for.body, label %for.cond25.preheader, !llvm.loop !9
+  %cmp5 = icmp samesign ult i32 %add, %1
+  br i1 %cmp5, label %for.body, label %for.body29, !llvm.loop !9
 
-for.body29:                                       ; preds = %for.cond25.preheader, %for.body29
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body29 ], [ 3, %for.cond25.preheader ]
-  %p.127 = phi ptr [ %incdec.ptr, %for.body29 ], [ %3, %for.cond25.preheader ]
+for.body29:                                       ; preds = %if.else, %for.body29
+  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body29 ], [ 3, %if.else ]
+  %p.127 = phi ptr [ %incdec.ptr, %for.body29 ], [ %3, %if.else ]
   %7 = load ptr, ptr %data, align 8
   %arrayidx31 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
   %8 = load i8, ptr %arrayidx31, align 1
@@ -144,8 +140,8 @@ for.body29:                                       ; preds = %for.cond25.preheade
   %cmp27 = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp27, label %for.body29, label %for.end34, !llvm.loop !10
 
-for.end34:                                        ; preds = %for.body29, %if.end3, %for.cond25.preheader
-  %p.1.lcssa = phi ptr [ %3, %for.cond25.preheader ], [ %3, %if.end3 ], [ %incdec.ptr, %for.body29 ]
+for.end34:                                        ; preds = %for.body29, %if.end3
+  %p.1.lcssa = phi ptr [ %3, %if.end3 ], [ %incdec.ptr, %for.body29 ]
   store i8 0, ptr %p.1.lcssa, align 1
   %11 = load i32, ptr %s, align 8
   %div = sdiv i32 %11, 4

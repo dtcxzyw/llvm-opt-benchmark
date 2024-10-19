@@ -770,7 +770,7 @@ for.body:                                         ; preds = %lpGetIntegerIfValid
   %lp_ele.063 = phi ptr [ %call7, %for.body ], [ %call5, %lpGetIntegerIfValid.exit ]
   %i.062 = phi i64 [ %inc, %for.body ], [ 0, %lpGetIntegerIfValid.exit ]
   %call7 = call ptr @lpNext(ptr noundef nonnull %lp, ptr noundef %lp_ele.063) #16
-  %inc = add nuw nsw i64 %i.062, 1
+  %inc = add nuw i64 %i.062, 1
   %exitcond.not = icmp eq i64 %inc, %1
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 
@@ -1665,7 +1665,7 @@ for.body220:                                      ; preds = %for.body220.prehead
   %62 = load ptr, ptr %lp, align 8
   %call223 = call ptr @lpNext(ptr noundef %62, ptr noundef %61) #16
   store ptr %call223, ptr %lp_ele, align 8
-  %inc226 = add nuw nsw i64 %i216.0202, 1
+  %inc226 = add nuw i64 %i216.0202, 1
   %exitcond.not = icmp eq i64 %inc226, %spec.select184
   br i1 %exitcond.not, label %while.body72.backedge, label %for.body220, !llvm.loop !17
 
@@ -1815,22 +1815,18 @@ streamCompareID.exit:                             ; preds = %if.end15.thread287,
   %last_id16252 = phi ptr [ %last_id16, %if.end15 ], [ %last_id16251, %if.else6.i ], [ %last_id16290, %if.end15.thread287 ]
   %id.sroa.15.0250 = phi i64 [ %id.sroa.15.0, %if.end15 ], [ %id.sroa.15.0249, %if.else6.i ], [ 0, %if.end15.thread287 ]
   %id.sroa.0.0248 = phi i64 [ %id.sroa.0.0, %if.end15 ], [ %id.sroa.0.0247, %if.else6.i ], [ %inc.i.i, %if.end15.thread287 ]
+  %mul = shl i64 %numfields, 1
   %cmp22263 = icmp sgt i64 %numfields, 0
-  br i1 %cmp22263, label %for.body.preheader, label %if.end28
-
-for.body.preheader:                               ; preds = %streamCompareID.exit
-  %mul = shl nuw i64 %numfields, 1
-  %smax = tail call i64 @llvm.smax.i64(i64 %mul, i64 1)
-  br label %for.body
+  br i1 %cmp22263, label %for.body, label %if.end28
 
 if.then19:                                        ; preds = %if.then.i.i, %if.else6.i, %if.else.i91
   %call20 = tail call ptr @__errno_location() #19
   store i32 33, ptr %call20, align 4
   br label %return
 
-for.body:                                         ; preds = %for.body.preheader, %sdslen.exit
-  %totelelen.0265 = phi i64 [ %add, %sdslen.exit ], [ 0, %for.body.preheader ]
-  %i.0264 = phi i64 [ %inc24, %sdslen.exit ], [ 0, %for.body.preheader ]
+for.body:                                         ; preds = %streamCompareID.exit, %sdslen.exit
+  %totelelen.0265 = phi i64 [ %add, %sdslen.exit ], [ 0, %streamCompareID.exit ]
+  %i.0264 = phi i64 [ %inc24, %sdslen.exit ], [ 0, %streamCompareID.exit ]
   %arrayidx = getelementptr inbounds ptr, ptr %argv, i64 %i.0264
   %7 = load ptr, ptr %arrayidx, align 8
   %ptr = getelementptr inbounds i8, ptr %7, i64 8
@@ -1879,7 +1875,7 @@ sdslen.exit:                                      ; preds = %for.body, %sw.bb.i,
   %retval.0.i93 = phi i64 [ %13, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %for.body ]
   %add = add i64 %retval.0.i93, %totelelen.0265
   %inc24 = add nuw nsw i64 %i.0264, 1
-  %exitcond.not = icmp eq i64 %inc24, %smax
+  %exitcond.not = icmp eq i64 %inc24, %mul
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !19
 
 for.end:                                          ; preds = %sdslen.exit
@@ -2061,7 +2057,7 @@ sdslen.exit130:                                   ; preds = %for.body81, %sw.bb.
   %retval.0.i117 = phi i64 [ %36, %sw.bb13.i115 ], [ %conv12.i120, %sw.bb9.i118 ], [ %conv8.i123, %sw.bb5.i121 ], [ %conv4.i126, %sw.bb3.i124 ], [ %conv2.i129, %sw.bb.i127 ], [ 0, %for.body81 ]
   %conv = trunc i64 %retval.0.i117 to i32
   %call86 = call ptr @lpAppend(ptr noundef %lp.2273, ptr noundef nonnull %31, i32 noundef %conv) #16
-  %inc88 = add nuw nsw i64 %i78.0272, 1
+  %inc88 = add nuw i64 %i78.0272, 1
   %exitcond280.not = icmp eq i64 %inc88, %numfields
   br i1 %exitcond280.not, label %for.end89, label %for.body81, !llvm.loop !20
 
@@ -2218,7 +2214,7 @@ if.end135:                                        ; preds = %lor.lhs.false130
   %55 = load ptr, ptr %lp_ele103, align 8
   %call136 = call ptr @lpNext(ptr noundef %call108, ptr noundef %55) #16
   store ptr %call136, ptr %lp_ele103, align 8
-  %inc138 = add nuw nsw i64 %i116.0267, 1
+  %inc138 = add nuw i64 %i116.0267, 1
   %exitcond279.not = icmp eq i64 %inc138, %numfields
   br i1 %exitcond279.not, label %for.end139, label %for.body120, !llvm.loop !21
 
@@ -2357,7 +2353,7 @@ sdslen.exit214:                                   ; preds = %if.end179, %sw.bb.i
   %retval.0.i201 = phi i64 [ %69, %sw.bb13.i199 ], [ %conv12.i204, %sw.bb9.i202 ], [ %conv8.i207, %sw.bb5.i205 ], [ %conv4.i210, %sw.bb3.i208 ], [ %conv2.i213, %sw.bb.i211 ], [ 0, %if.end179 ]
   %conv181 = trunc i64 %retval.0.i201 to i32
   %call182 = call ptr @lpAppend(ptr noundef %lp.6, ptr noundef nonnull %57, i32 noundef %conv181) #16
-  %inc184 = add nuw nsw i64 %i160.0277, 1
+  %inc184 = add nuw i64 %i160.0277, 1
   %exitcond281.not = icmp eq i64 %inc184, %numfields
   br i1 %exitcond281.not, label %for.end185, label %for.body164, !llvm.loop !22
 
@@ -2619,7 +2615,7 @@ for.body:                                         ; preds = %lpGetIntegerIfValid
   %23 = phi ptr [ %call46, %for.body ], [ %call43, %lpGetIntegerIfValid.exit86 ]
   %j.0190 = phi i64 [ %inc, %for.body ], [ 0, %lpGetIntegerIfValid.exit86 ]
   %call46 = call ptr @lpNext(ptr noundef %6, ptr noundef %23) #16
-  %inc = add nuw nsw i64 %j.0190, 1
+  %inc = add nuw i64 %j.0190, 1
   %exitcond.not = icmp eq i64 %inc, %22
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !24
 
@@ -7257,7 +7253,7 @@ entry:
 if.then:                                          ; preds = %entry
   %call1 = tail call i32 @strcasecmp(ptr noundef %2, ptr noundef nonnull @.str.42) #18
   %tobool2.not = icmp eq i32 %call1, 0
-  %cmp6190 = icmp ugt i32 %3, 5
+  %cmp6190 = icmp samesign ugt i32 %3, 5
   br i1 %cmp6190, label %while.body.lr.ph, label %while.end
 
 while.body.lr.ph:                                 ; preds = %if.then
@@ -11828,7 +11824,7 @@ for.cond.preheader:                               ; preds = %if.end31
   br i1 %cmp84, label %for.body, label %for.end
 
 for.cond:                                         ; preds = %for.body
-  %inc = add nuw nsw i64 %j.085, 1
+  %inc = add nuw i64 %j.085, 1
   %exitcond.not = icmp eq i64 %inc, %12
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !57
 
@@ -11927,7 +11923,7 @@ for.cond88.preheader:                             ; preds = %if.end82
   br i1 %cmp8986, label %for.body90, label %for.end97
 
 for.cond88:                                       ; preds = %for.body90
-  %inc96 = add nuw nsw i64 %j87.087, 1
+  %inc96 = add nuw i64 %j87.087, 1
   %exitcond98.not = icmp eq i64 %inc96, %call79
   br i1 %exitcond98.not, label %for.end97, label %for.body90, !llvm.loop !58
 
@@ -11951,7 +11947,7 @@ if.end100:                                        ; preds = %for.end97, %if.end7
   br i1 %cmp10389, label %for.body104, label %for.end111
 
 for.cond102:                                      ; preds = %for.body104
-  %inc110 = add nuw nsw i64 %j101.090, 1
+  %inc110 = add nuw i64 %j101.090, 1
   %exitcond99.not = icmp eq i64 %inc110, %fields.0
   br i1 %exitcond99.not, label %for.end111, label %for.body104, !llvm.loop !59
 

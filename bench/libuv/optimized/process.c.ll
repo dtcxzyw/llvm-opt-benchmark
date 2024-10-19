@@ -855,8 +855,10 @@ for.body11:                                       ; preds = %for.body11.preheade
   %indvars.iv = phi i64 [ 0, %for.body11.preheader ], [ %indvars.iv.next, %for.inc28 ]
   %arrayidx12 = getelementptr inbounds [2 x i32], ptr %pipes, i64 %indvars.iv, i64 1
   %3 = load i32, ptr %arrayidx12, align 4
+  %cmp13 = icmp sgt i32 %3, -1
   %4 = zext i32 %3 to i64
-  %or.cond = icmp samesign ugt i64 %indvars.iv, %4
+  %cmp15.not = icmp samesign ugt i64 %indvars.iv, %4
+  %or.cond = select i1 %cmp13, i1 %cmp15.not, i1 false
   br i1 %or.cond, label %if.end17, label %for.inc28
 
 if.end17:                                         ; preds = %for.body11

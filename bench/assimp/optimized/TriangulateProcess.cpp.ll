@@ -692,11 +692,7 @@ for.body268.preheader:                            ; preds = %if.end262
   %wide.trip.count521 = zext nneg i32 %13 to i64
   br label %for.body268
 
-while.cond.preheader:                             ; preds = %_ZNK10aiVector3tIfEixEj.exit272
-  %cmp293475 = icmp sgt i32 %13, 3
-  br i1 %cmp293475, label %for.cond294.preheader.preheader, label %if.then405
-
-for.cond294.preheader.preheader:                  ; preds = %while.cond.preheader
+for.cond294.preheader.preheader:                  ; preds = %_ZNK10aiVector3tIfEixEj.exit272
   %wide.trip.count526 = zext nneg i32 %13 to i64
   br label %for.cond294.preheader
 
@@ -749,7 +745,7 @@ _ZNK10aiVector3tIfEixEj.exit272:                  ; preds = %_ZNK10aiVector3tIfE
   store i8 0, ptr %arrayidx.i, align 1
   %indvars.iv.next519 = add nuw nsw i64 %indvars.iv518, 1
   %exitcond522.not = icmp eq i64 %indvars.iv.next519, %wide.trip.count521
-  br i1 %exitcond522.not, label %while.cond.preheader, label %for.body268, !llvm.loop !11
+  br i1 %exitcond522.not, label %for.cond294.preheader.preheader, label %for.body268, !llvm.loop !11
 
 for.cond294.preheader:                            ; preds = %for.cond294.preheader.preheader, %if.end394
   %curOut.2479 = phi ptr [ %incdec.ptr386, %if.end394 ], [ %curOut.0489, %for.cond294.preheader.preheader ]
@@ -972,11 +968,10 @@ if.end394:                                        ; preds = %invoke.cont391, %if
   %cmp293 = icmp sgt i32 %num.0478, 4
   br i1 %cmp293, label %for.cond294.preheader, label %if.then405, !llvm.loop !15
 
-if.then405:                                       ; preds = %if.end394, %while.cond.preheader
-  %curOut.2.lcssa557 = phi ptr [ %curOut.0489, %while.cond.preheader ], [ %incdec.ptr386, %if.end394 ]
-  %incdec.ptr407 = getelementptr inbounds i8, ptr %curOut.2.lcssa557, i64 16
-  store i32 3, ptr %curOut.2.lcssa557, align 8
-  %mIndices409 = getelementptr inbounds i8, ptr %curOut.2.lcssa557, i64 8
+if.then405:                                       ; preds = %if.end394
+  %incdec.ptr407 = getelementptr inbounds i8, ptr %curOut.2479, i64 32
+  store i32 3, ptr %incdec.ptr386, align 8
+  %mIndices409 = getelementptr inbounds i8, ptr %curOut.2479, i64 24
   %135 = load ptr, ptr %mIndices409, align 8
   %tobool410.not = icmp eq ptr %135, null
   br i1 %tobool410.not, label %if.then411, label %if.end415

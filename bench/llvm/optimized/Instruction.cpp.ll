@@ -1886,7 +1886,11 @@ define dso_local void @_ZN4llvm11Instruction17copyFastMathFlagsENS_13FastMathFla
 define dso_local noundef zeroext i1 @_ZNK4llvm11Instruction6isFastEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
-  %spec.select.i = icmp ugt i8 %3, -3
+  %4 = and i8 %3, 126
+  %or.cond9.not.i = icmp eq i8 %4, 126
+  %.mask.i = and i8 %3, -2
+  %5 = icmp ne i8 %.mask.i, 126
+  %spec.select.i = and i1 %or.cond9.not.i, %5
   ret i1 %spec.select.i
 }
 

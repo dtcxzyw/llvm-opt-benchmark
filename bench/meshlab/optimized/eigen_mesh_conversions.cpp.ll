@@ -1039,7 +1039,7 @@ define void @_ZN7meshlab16meshFromMatricesERKN5Eigen6MatrixIfLin1ELi3ELi0ELin1EL
   br i1 %48, label %49, label %702
 
 49:                                               ; preds = %12
-  %50 = icmp ugt i64 %47, 1152921504606846975
+  %50 = icmp samesign ugt i64 %47, 1152921504606846975
   br i1 %50, label %51, label %_ZNSt6vectorIP8CVertexOSaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
 
 51:                                               ; preds = %49
@@ -7065,7 +7065,7 @@ define void @_ZN7meshlab20polyMeshFromMatricesERKN5Eigen6MatrixIfLin1ELi3ELi0ELi
   br i1 %39, label %40, label %525
 
 40:                                               ; preds = %36
-  %41 = icmp ugt i64 %38, 1152921504606846975
+  %41 = icmp samesign ugt i64 %38, 1152921504606846975
   br i1 %41, label %42, label %_ZNSt6vectorIPN3vcg7PVertexESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
 
 42:                                               ; preds = %40
@@ -7777,7 +7777,7 @@ _ZN3vcg4face10vector_ocfI6CFaceOE11EnableColorEv.exit: ; preds = %._ZN3vcg4face1
 _ZN3vcg4face6PFVAdjINS_6Arity1INS_8FaceBaseINS_10PUsedTypesEEENS0_8PolyInfoEEEE9__DeallocEv.exit.i.i.i.i.i.i: ; preds = %325, %316
   store ptr null, ptr %322, align 8
   %sext = shl i64 %320, 32
-  %326 = ashr exact i64 %sext, 32
+  %326 = and i64 %320, 2147483647
   %327 = icmp slt i32 %321, 0
   %328 = ashr exact i64 %sext, 29
   %329 = select i1 %327, i64 -1, i64 %328
@@ -7787,15 +7787,19 @@ _ZN3vcg4face6PFVAdjINS_6Arity1INS_8FaceBaseINS_10PUsedTypesEEENS0_8PolyInfoEEEE9
 .noexc229:                                        ; preds = %_ZN3vcg4face6PFVAdjINS_6Arity1INS_8FaceBaseINS_10PUsedTypesEEENS0_8PolyInfoEEEE9__DeallocEv.exit.i.i.i.i.i.i
   store ptr %330, ptr %322, align 8
   %331 = icmp sgt i32 %321, 0
-  br i1 %331, label %.lr.ph.i.i.i.i.i.i, label %.loopexit
+  br i1 %331, label %.lr.ph.i.i.i.i.i.i.preheader, label %.loopexit
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc229, %.lr.ph.i.i.i.i.i.i
-  %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %.noexc229 ]
+.lr.ph.i.i.i.i.i.i.preheader:                     ; preds = %.noexc229
+  %umax = call i64 @llvm.umax.i64(i64 %326, i64 1)
+  br label %.lr.ph.i.i.i.i.i.i
+
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i.i
+  %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.i.preheader ]
   %332 = load ptr, ptr %322, align 8
   %333 = getelementptr inbounds ptr, ptr %332, i64 %indvars.iv.i.i.i.i.i.i
   store ptr null, ptr %333, align 8
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %326
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, %umax
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !123
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc229
@@ -15613,7 +15617,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi3ELi0EE6resizeEll
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i64 %1, 4611686018427387903
+  %12 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -15999,7 +16003,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi3ELi0EE6resizeEll
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i64 %1, 4611686018427387903
+  %12 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -16083,7 +16087,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.
   %28 = load <2 x i64>, ptr %27, align 16
   store <2 x i64> %28, ptr %26, align 16
   %29 = add nuw nsw i64 %.011.i, 4
-  %30 = icmp slt i64 %29, %24
+  %30 = icmp samesign ult i64 %29, %24
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !210
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %19
@@ -16314,7 +16318,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIiLin1ELin1ELi2ELi0EE6resizeEll
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i64 %1, 4611686018427387903
+  %12 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -16398,7 +16402,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.
   %28 = load <2 x i64>, ptr %27, align 16
   store <2 x i64> %28, ptr %26, align 16
   %29 = add nuw nsw i64 %.011.i, 4
-  %30 = icmp slt i64 %29, %24
+  %30 = icmp samesign ult i64 %29, %24
   br i1 %30, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !213
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %19
@@ -19069,7 +19073,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIjLin1ELin1ELi1ELi0EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 4611686018427387903
+  %11 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -19799,7 +19803,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi4ELi0EE6resizeEll
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i64 %1, 4611686018427387903
+  %12 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11
@@ -20144,7 +20148,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeEll
   br i1 %9, label %10, label %.sink.split
 
 10:                                               ; preds = %7
-  %11 = icmp ugt i64 %1, 4611686018427387903
+  %11 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %10
@@ -20428,7 +20432,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi2ELi0EE6resizeEll
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %8
-  %12 = icmp ugt i64 %1, 4611686018427387903
+  %12 = icmp samesign ugt i64 %1, 4611686018427387903
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %11

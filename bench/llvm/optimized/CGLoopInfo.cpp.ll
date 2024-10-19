@@ -1141,7 +1141,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE9push_backES2_.exit91: ; pr
   ]
 
 182:                                              ; preds = %180
-  br i1 %.not72, label %183, label %202
+  %.not73.not = icmp eq i32 %178, 0
+  br i1 %.not73.not, label %183, label %202
 
 183:                                              ; preds = %180, %177, %182, %175
   %184 = icmp ne i32 %176, 2

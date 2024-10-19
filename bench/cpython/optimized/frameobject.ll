@@ -1782,7 +1782,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true.i46
   br i1 %tobool3.not20.i, label %if.end16, label %if.end28.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i47
-  %tobool12.i = icmp ugt i8 %16, 63
+  %tobool12.i = icmp samesign ugt i8 %16, 63
   %cmp.i50 = icmp ne ptr %18, null
   %or.cond.i = select i1 %tobool12.i, i1 %cmp.i50, i1 false
   br i1 %or.cond.i, label %if.then15.i, label %if.end16
@@ -2212,7 +2212,7 @@ if.end.thread.i:                                  ; preds = %land.lhs.true.i12
   br i1 %tobool3.not20.i, label %frame_get_var.exit, label %if.end28.sink.split.i
 
 if.else.i:                                        ; preds = %if.end.i13
-  %tobool12.i = icmp ugt i8 %24, 63
+  %tobool12.i = icmp samesign ugt i8 %24, 63
   %cmp.i = icmp ne ptr %26, null
   %or.cond.i = select i1 %tobool12.i, i1 %cmp.i, i1 false
   br i1 %or.cond.i, label %if.then15.i, label %frame_get_var.exit
@@ -4491,9 +4491,10 @@ pop_to_level.exit:                                ; preds = %while.cond.i
   br label %pop_to_level.exit.thread
 
 pop_to_level.exit.thread:                         ; preds = %if.then198, %pop_to_level.exit
+  %tobool203.not285.in = phi i32 [ %and188, %pop_to_level.exit ], [ %val.0.lcssa.i230, %if.then198 ]
   %retval.0.i239284 = phi i64 [ %stack.addr.0.i, %pop_to_level.exit ], [ 0, %if.then198 ]
   %45 = phi i64 [ %spec.select, %pop_to_level.exit ], [ 5, %if.then198 ]
-  %tobool203.not285 = icmp eq i32 %and188, 0
+  %tobool203.not285 = icmp eq i32 %tobool203.not285.in, 0
   %target_stack199.0 = select i1 %tobool203.not285, i64 %retval.0.i239284, i64 %45
   %cmp.i244 = icmp ugt i64 %target_stack199.0, 1152921504606846975
   %shl.i245 = shl nuw nsw i64 %target_stack199.0, 3

@@ -1122,11 +1122,11 @@ if.end:                                           ; preds = %entry
   %cmp5.not = icmp eq ptr %2, null
   %entry23.phi.trans.insert = getelementptr inbounds i8, ptr %block2, i64 8
   %.pre = load ptr, ptr %entry23.phi.trans.insert, align 8
+  %cmp24.not = icmp eq ptr %.pre, null
   br i1 %cmp5.not, label %if.else, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %cmp8.not = icmp eq ptr %.pre, null
-  br i1 %cmp8.not, label %return, label %if.then9
+  br i1 %cmp24.not, label %return, label %if.then9
 
 if.then9:                                         ; preds = %land.lhs.true
   %conv = zext i32 %0 to i64
@@ -1135,7 +1135,6 @@ if.then9:                                         ; preds = %land.lhs.true
   br i1 %cmp16.not, label %if.end28, label %return
 
 if.else:                                          ; preds = %if.end
-  %cmp24.not = icmp eq ptr %2, %.pre
   br i1 %cmp24.not, label %if.end28, label %return
 
 if.end28:                                         ; preds = %if.else, %if.then9
@@ -1166,11 +1165,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp38.not = icmp eq ptr %6, null
   %entry74.phi.trans.insert = getelementptr inbounds %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %.pre36.pre, i64 %indvars.iv, i32 1
   %.pre37 = load ptr, ptr %entry74.phi.trans.insert, align 8
+  %cmp75.not = icmp eq ptr %.pre37, null
   br i1 %cmp38.not, label %if.else66, label %land.lhs.true40
 
 land.lhs.true40:                                  ; preds = %for.body
-  %cmp45.not = icmp eq ptr %.pre37, null
-  br i1 %cmp45.not, label %return, label %if.then47
+  br i1 %cmp75.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %land.lhs.true40
   %7 = load i32, ptr %arrayidx, align 8
@@ -1180,7 +1179,6 @@ if.then47:                                        ; preds = %land.lhs.true40
   br i1 %cmp62.not, label %for.inc, label %return
 
 if.else66:                                        ; preds = %for.body
-  %cmp75.not = icmp eq ptr %6, %.pre37
   br i1 %cmp75.not, label %for.inc, label %return
 
 for.inc:                                          ; preds = %if.then47, %if.else66
@@ -1230,11 +1228,11 @@ if.end14:                                         ; preds = %if.end10
   %cmp15.not = icmp eq ptr %6, null
   %tracks178.phi.trans.insert = getelementptr inbounds i8, ptr %block2, i64 152
   %.pre69 = load ptr, ptr %tracks178.phi.trans.insert, align 8
+  %cmp179.not = icmp eq ptr %.pre69, null
   br i1 %cmp15.not, label %if.else176, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end14
-  %cmp17.not = icmp eq ptr %.pre69, null
-  br i1 %cmp17.not, label %return, label %for.cond.preheader
+  br i1 %cmp179.not, label %return, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %land.lhs.true
   %cmp2064.not = icmp eq i32 %4, 0
@@ -1328,7 +1326,7 @@ if.end139:                                        ; preds = %for.body121
 if.else:                                          ; preds = %if.end99
   %indices167.phi.trans.insert = getelementptr inbounds %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre69, i64 %idxprom, i32 5
   %.pre = load ptr, ptr %indices167.phi.trans.insert, align 8
-  %cmp168.not = icmp eq ptr %15, %.pre
+  %cmp168.not = icmp eq ptr %.pre, null
   br i1 %cmp168.not, label %for.inc173, label %return
 
 for.inc173:                                       ; preds = %for.cond113, %for.cond113.preheader, %if.else
@@ -1337,7 +1335,6 @@ for.inc173:                                       ; preds = %for.cond113, %for.c
   br i1 %exitcond68.not, label %if.end183, label %for.body, !llvm.loop !12
 
 if.else176:                                       ; preds = %if.end14
-  %cmp179.not = icmp eq ptr %6, %.pre69
   br i1 %cmp179.not, label %if.end183, label %return
 
 if.end183:                                        ; preds = %for.inc173, %for.cond.preheader, %if.else176

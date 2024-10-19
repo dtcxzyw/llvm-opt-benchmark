@@ -2020,7 +2020,7 @@ _ZN5ZXing10DataMatrixL12IsValidPointERKNS_11ResultPointEii.exit.thread.i.i: ; pr
   br label %886
 
 872:                                              ; preds = %771
-  %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %761, i32 %763)
+  %.sroa.speculated.i = call i32 @llvm.umin.i32(i32 %761, i32 %763)
   %.val56.i = load double, ptr %.0.i.i23, align 8, !noalias !21
   %873 = getelementptr i8, ptr %.0.i.i23, i64 8
   %.val57.i = load double, ptr %873, align 8, !noalias !21
@@ -6379,6 +6379,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #16
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

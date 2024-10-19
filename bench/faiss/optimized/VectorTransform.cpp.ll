@@ -5298,6 +5298,7 @@ define void @_ZN5faiss18CenteringTransform5trainElPKf(ptr noundef nonnull align 
 36:                                               ; preds = %23
   %37 = sub nuw nsw i64 %27, %34
   call void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPfS1_EEmRKf(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr %29, i64 noundef %37, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %.pre.pre = load i32, ptr %25, align 8
   br label %.preheader22.preheader
 
 38:                                               ; preds = %23
@@ -5313,13 +5314,13 @@ define void @_ZN5faiss18CenteringTransform5trainElPKf(ptr noundef nonnull align 
   store ptr %41, ptr %28, align 8
   br label %.preheader22.preheader
 
-.preheader22.preheader:                           ; preds = %42, %40, %38, %36
-  %.pre = load i32, ptr %25, align 8
+.preheader22.preheader:                           ; preds = %36, %38, %40, %42
+  %.ph36 = phi i32 [ %26, %42 ], [ %26, %40 ], [ %26, %38 ], [ %.pre.pre, %36 ]
   br label %.preheader22
 
 .preheader22:                                     ; preds = %.preheader22.preheader, %._crit_edge
-  %43 = phi i32 [ %56, %._crit_edge ], [ %.pre, %.preheader22.preheader ]
-  %44 = phi i32 [ %57, %._crit_edge ], [ %.pre, %.preheader22.preheader ]
+  %43 = phi i32 [ %56, %._crit_edge ], [ %.ph36, %.preheader22.preheader ]
+  %44 = phi i32 [ %57, %._crit_edge ], [ %.ph36, %.preheader22.preheader ]
   %.01626 = phi i64 [ %58, %._crit_edge ], [ 0, %.preheader22.preheader ]
   %.01925 = phi ptr [ %.1.lcssa, %._crit_edge ], [ %2, %.preheader22.preheader ]
   %.not = icmp eq i32 %44, 0
@@ -6353,7 +6354,7 @@ define void @_ZNK5faiss15LinearTransform16print_if_verboseEPKcRKSt6vectorIdSaIdE
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
   %.01926 = phi i32 [ %47, %.preheader ], [ 0, %.preheader.lr.ph ]
   %putchar = tail call i32 @putchar(i32 10)
-  %47 = add nuw nsw i32 %.01926, 1
+  %47 = add nuw i32 %.01926, 1
   %exitcond.not = icmp eq i32 %47, %3
   br i1 %exitcond.not, label %._crit_edge27, label %.preheader, !llvm.loop !66
 

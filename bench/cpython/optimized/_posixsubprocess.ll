@@ -353,8 +353,8 @@ if.end.i102:                                      ; preds = %for.body.i
 
 lor.lhs.false.i:                                  ; preds = %if.end.i102
   %cmp5.i = icmp sle i64 %call3.i, %prev_fd.010.i
-  %cmp7.i = icmp ugt i64 %call3.i, 2147483647
-  %or.cond.i = or i1 %cmp5.i, %cmp7.i
+  %cmp7.i = icmp samesign ugt i64 %call3.i, 2147483647
+  %or.cond.i = select i1 %cmp5.i, i1 true, i1 %cmp7.i
   br i1 %or.cond.i, label %if.then15, label %for.cond.i
 
 if.then15:                                        ; preds = %if.end.i102, %lor.lhs.false.i, %for.body.i
@@ -444,7 +444,7 @@ if.end65:                                         ; preds = %cond.end60
   %17 = load ptr, ptr %converted_arg, align 8
   %arrayidx.i112 = getelementptr [1 x ptr], ptr %ob_item.i111, i64 0, i64 %arg_num.087
   store ptr %17, ptr %arrayidx.i112, align 8
-  %inc = add nuw nsw i64 %arg_num.087, 1
+  %inc = add nuw i64 %arg_num.087, 1
   %exitcond.not = icmp eq i64 %inc, %cond
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !6
 
@@ -535,7 +535,7 @@ if.end102:                                        ; preds = %if.then97
   br i1 %cmp104, label %Py_XDECREF.exit, label %if.end106
 
 if.end106:                                        ; preds = %if.end102
-  %cmp107 = icmp ugt i64 %call103, 65536
+  %cmp107 = icmp samesign ugt i64 %call103, 65536
   br i1 %cmp107, label %if.then108, label %if.end109
 
 if.then108:                                       ; preds = %if.end106
@@ -637,7 +637,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %for.inc134
 
 for.inc134:                                       ; preds = %if.end.i, %if.then1.i, %if.end131
-  %inc135 = add nuw nsw i64 %i.089, 1
+  %inc135 = add nuw i64 %i.089, 1
   %exitcond94.not = icmp eq i64 %inc135, %call103
   br i1 %exitcond94.not, label %if.end137, label %for.body119, !llvm.loop !7
 
@@ -1031,7 +1031,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end.i, %if.then1.i, %if.end27
-  %inc = add nuw nsw i64 %i.037, 1
+  %inc = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %call
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
 
@@ -1143,7 +1143,7 @@ if.end7:                                          ; preds = %if.end
   %conv = trunc nuw nsw i64 %call1 to i32
   %arrayidx8 = getelementptr i32, ptr %c_fds_to_keep, i64 %i.010
   store i32 %conv, ptr %arrayidx8, align 4
-  %inc = add nuw nsw i64 %i.010, 1
+  %inc = add nuw i64 %i.010, 1
   %exitcond.not = icmp eq i64 %inc, %py_fds_to_keep.val
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !10
 
@@ -1756,9 +1756,11 @@ _pos_int_from_ascii.exit.us.us.i:                 ; preds = %while.body.i.us.us.
   %.lcssa.i.us.us.i = phi i8 [ %1, %for.body.us.us.i ], [ %4, %while.body.i.us.us.i ]
   %tobool.not.i.us.us.i = icmp eq i8 %.lcssa.i.us.us.i, 0
   %num.0..i.us.us.i = select i1 %tobool.not.i.us.us.i, i32 %num.0.lcssa.i.us.us.i, i32 -1
+  %cmp11.us.us.i = icmp sgt i32 %num.0..i.us.us.i, -1
   %cmp14.not.us.us.i = icmp ne i32 %num.0..i.us.us.i, %call.i
-  %cmp16.us.us.i = icmp sgt i32 %num.0..i.us.us.i, 2
-  %or.cond13.us.us.i = and i1 %cmp16.us.us.i, %cmp14.not.us.us.i
+  %or.cond.not33.us.us.i = and i1 %cmp11.us.us.i, %cmp14.not.us.us.i
+  %cmp16.us.us.i = icmp samesign ugt i32 %num.0..i.us.us.i, 2
+  %or.cond13.us.us.i = select i1 %or.cond.not33.us.us.i, i1 %cmp16.us.us.i, i1 false
   br i1 %or.cond13.us.us.i, label %land.lhs.true18.us.us.i, label %for.inc.us.us.i
 
 land.lhs.true18.us.us.i:                          ; preds = %_pos_int_from_ascii.exit.us.us.i
@@ -1876,9 +1878,11 @@ _pos_int_from_ascii.exit.i:                       ; preds = %while.body.i.i, %fo
   %.lcssa.i.i = phi i8 [ %10, %for.body.i4 ], [ %13, %while.body.i.i ]
   %tobool.not.i.i = icmp eq i8 %.lcssa.i.i, 0
   %num.0..i.i = select i1 %tobool.not.i.i, i32 %num.0.lcssa.i.i, i32 -1
+  %cmp11.i = icmp sgt i32 %num.0..i.i, -1
   %cmp14.not.i = icmp ne i32 %num.0..i.i, %call.i
-  %cmp16.i = icmp sgt i32 %num.0..i.i, 2
-  %or.cond13.i = and i1 %cmp16.i, %cmp14.not.i
+  %or.cond.not33.i = and i1 %cmp11.i, %cmp14.not.i
+  %cmp16.i = icmp samesign ugt i32 %num.0..i.i, 2
+  %or.cond13.i = select i1 %or.cond.not33.i, i1 %cmp16.i, i1 false
   br i1 %or.cond13.i, label %do.body.i.i, label %for.inc.i5
 
 do.body.i.i:                                      ; preds = %_pos_int_from_ascii.exit.i, %if.end5.i.i

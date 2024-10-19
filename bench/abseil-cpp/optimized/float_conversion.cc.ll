@@ -197,7 +197,7 @@ if.then2.i53.i:                                   ; preds = %_ZN4absl19str_forma
   br label %_ZN4absl19str_format_internal12_GLOBAL__N_111FloatToSinkIeEEbT_RKNS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE.exit
 
 if.else.i51.i:                                    ; preds = %if.then17.i
-  %cmp4.i.i = icmp ult i32 %sub.i.i, -128
+  %cmp4.i.i = icmp samesign ult i32 %sub.i.i, -128
   br i1 %cmp4.i.i, label %if.then5.i.i, label %if.else.i.i.i
 
 if.then5.i.i:                                     ; preds = %if.else.i51.i
@@ -290,8 +290,8 @@ if.else.i.i.i:                                    ; preds = %if.else.i51.i
   store i8 46, ptr %arrayidx.i.i.i, align 2
   %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %buffer.i.i.i, i64 43
   %sub11.i.i.i = sub nsw i32 64, %16
-  %cmp13.i.not.i.i = icmp eq i32 %sub.i.i, -128
-  br i1 %cmp13.i.not.i.i, label %do.body.i.i66.i.i.i.preheader, label %cond.end18.i.i.i
+  %cmp13.i.i.i = icmp samesign ult i32 %sub11.i.i.i, 128
+  br i1 %cmp13.i.i.i, label %cond.end18.i.i.i, label %do.body.i.i66.i.i.i.preheader
 
 cond.end18.i.i.i:                                 ; preds = %if.else.i.i.i
   %coerce.sroa.2.0.insert.ext.i33.i.i.i = zext i64 %agg.tmp.sroa.2.0.copyload.i to i128
@@ -494,7 +494,7 @@ lor.lhs.false54.i:                                ; preds = %if.end52.i
   br i1 %cmp56.i, label %if.else68.i, label %if.end80.i
 
 land.lhs.true57.i:                                ; preds = %if.end52.i
-  %cmp58.old.i = icmp ugt i32 %46, -5
+  %cmp58.old.i = icmp samesign ugt i32 %46, -5
   br i1 %cmp58.old.i, label %if.then61.i, label %if.end80.i
 
 if.then61.i:                                      ; preds = %land.lhs.true57.i
@@ -1099,7 +1099,7 @@ if.then2.i60:                                     ; preds = %if.then.i59
   br label %return
 
 if.else.i58:                                      ; preds = %if.then18
-  %cmp3.i = icmp ult i32 %sub.i, -128
+  %cmp3.i = icmp samesign ult i32 %sub.i, -128
   br i1 %cmp3.i, label %if.then4.i, label %if.else.i.i
 
 if.then4.i:                                       ; preds = %if.else.i58
@@ -1187,7 +1187,7 @@ if.else.i.i:                                      ; preds = %if.else.i58
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 42
   store i8 46, ptr %arrayidx.i.i, align 2
   %sub9.i.i = sub nsw i32 53, %15
-  %cmp10.i.i = icmp ugt i32 %sub.i, -64
+  %cmp10.i.i = icmp samesign ult i32 %sub9.i.i, 64
   %sh_prom12.i.i = zext nneg i32 %sub9.i.i to i64
   %shr.i.i = lshr i64 %conv.i, %sh_prom12.i.i
   %spec.select156 = select i1 %cmp10.i.i, i64 %shr.i.i, i64 0
@@ -1209,7 +1209,7 @@ _ZN4absl19str_format_internal12_GLOBAL__N_132PrintIntegralDigitsFromRightFastEmP
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %buffer.i.i, i64 43
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %p.addr.0.i39.i.i, i64 -2
   store i8 48, ptr %arrayidx17.i.i, align 1
-  %cmp18.i.i = icmp sgt i32 %15, -12
+  %cmp18.i.i = icmp samesign ult i32 %sub9.i.i, 65
   br i1 %cmp18.i.i, label %cond.true19.i.i, label %cond.false21.i.i
 
 cond.true19.i.i:                                  ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_132PrintIntegralDigitsFromRightFastEmPc.exit45.i.i
@@ -1451,7 +1451,7 @@ lor.lhs.false54:                                  ; preds = %if.end52
   br i1 %cmp56, label %if.else68, label %if.end80
 
 land.lhs.true57:                                  ; preds = %if.end52
-  %cmp58.old = icmp ugt i32 %47, -5
+  %cmp58.old = icmp samesign ugt i32 %47, -5
   br i1 %cmp58.old, label %if.then61, label %if.end80
 
 if.then61:                                        ; preds = %land.lhs.true57
@@ -1840,11 +1840,11 @@ for.body.i:                                       ; preds = %if.end10.i, %for.bo
   br i1 %cmp13.not.i, label %return, label %for.body.i, !llvm.loop !22
 
 if.end14.i:                                       ; preds = %if.end
-  %cmp16.i = icmp ult i32 %1, -60
+  %sub15.i = sub nsw i32 0, %1
+  %cmp16.i = icmp samesign ugt i32 %sub15.i, 60
   br i1 %cmp16.i, label %if.end3, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end14.i
-  %sub15.i = sub nsw i32 0, %1
   %sh_prom19.i = zext nneg i32 %sub15.i to i64
   %notmask.i = shl nsw i64 -1, %sh_prom19.i
   %sub21.i = xor i64 %notmask.i, -1
@@ -2059,7 +2059,7 @@ if.end3:                                          ; preds = %if.end14.i, %if.the
   br i1 %cmp.i, label %if.then.i49, label %if.end15.i
 
 if.then.i49:                                      ; preds = %if.end3
-  %cmp4.i = icmp ugt i32 %1, 64
+  %cmp4.i = icmp samesign ugt i32 %1, 64
   br i1 %cmp4.i, label %return, label %if.end.i50
 
 if.end.i50:                                       ; preds = %if.then.i49
@@ -2128,11 +2128,11 @@ for.body.i65:                                     ; preds = %if.end11.i, %for.bo
   br i1 %cmp14.not.i, label %return, label %for.body.i65, !llvm.loop !27
 
 if.end15.i:                                       ; preds = %if.end3
-  %cmp17.i = icmp ult i32 %1, -124
+  %sub16.i = sub nsw i32 0, %1
+  %cmp17.i = icmp samesign ugt i32 %sub16.i, 124
   br i1 %cmp17.i, label %return, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %sub16.i = sub nsw i32 0, %1
   %sh_prom20.i = zext nneg i32 %sub16.i to i128
   %notmask.i8 = shl nsw i128 -1, %sh_prom20.i
   %sub22.i = xor i128 %notmask.i8, -1
@@ -5993,7 +5993,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then.i, label %if.end14.i
 
 if.then.i:                                        ; preds = %if.end
-  %cmp3.i = icmp ugt i32 %decomposed.coerce1, 11
+  %cmp3.i = icmp samesign ugt i32 %decomposed.coerce1, 11
   br i1 %cmp3.i, label %if.then.i51, label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i
@@ -6060,11 +6060,11 @@ for.body.i:                                       ; preds = %if.end10.i, %for.bo
   br i1 %cmp13.not.i, label %return, label %for.body.i, !llvm.loop !62
 
 if.end14.i:                                       ; preds = %if.end
-  %cmp16.i = icmp ult i32 %decomposed.coerce1, -60
+  %sub15.i = sub nsw i32 0, %decomposed.coerce1
+  %cmp16.i = icmp samesign ugt i32 %sub15.i, 60
   br i1 %cmp16.i, label %if.end15.i, label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.end14.i
-  %sub15.i = sub nsw i32 0, %decomposed.coerce1
   %sh_prom19.i = zext nneg i32 %sub15.i to i64
   %notmask.i = shl nsw i64 -1, %sh_prom19.i
   %sub21.i = xor i64 %notmask.i, -1
@@ -6270,7 +6270,7 @@ if.else.i.i:                                      ; preds = %land.rhs.i.i
   br label %return
 
 if.then.i51:                                      ; preds = %if.then.i
-  %cmp4.i = icmp ugt i32 %decomposed.coerce1, 75
+  %cmp4.i = icmp samesign ugt i32 %decomposed.coerce1, 75
   br i1 %cmp4.i, label %return, label %if.end.i52
 
 if.end.i52:                                       ; preds = %if.then.i51
@@ -6341,12 +6341,11 @@ for.body.i69:                                     ; preds = %if.end11.i, %for.bo
 
 if.end15.i:                                       ; preds = %if.end14.i
   %int_mantissa.sroa.0.0.insert.ext.i = zext i64 %decomposed.coerce0 to i128
-  %cmp17.i = icmp ult i32 %decomposed.coerce1, -124
+  %cmp17.i = icmp samesign ugt i32 %sub15.i, 124
   br i1 %cmp17.i, label %return, label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.end15.i
-  %sub16.i = sub nsw i32 0, %decomposed.coerce1
-  %sh_prom20.i = zext nneg i32 %sub16.i to i128
+  %sh_prom20.i = zext nneg i32 %sub15.i to i128
   %notmask.i10 = shl nsw i128 -1, %sh_prom20.i
   %sub22.i = xor i128 %notmask.i10, -1
   %shr.i11 = lshr i128 %int_mantissa.sroa.0.0.insert.ext.i, %sh_prom20.i

@@ -3077,7 +3077,7 @@ trace_usb_ohci_iso_td_relative_frame_number_neg.exit.i: ; preds = %if.else.i.i19
   br label %ohci_service_iso_td.exit.thread
 
 if.else.i88:                                      ; preds = %trace_usb_ohci_iso_td_head_offset.exit.i
-  %cmp47.i = icmp slt i32 %shr7.i, %conv18.i
+  %cmp47.i = icmp samesign ult i32 %shr7.i, %conv18.i
   br i1 %cmp47.i, label %if.then49.i, label %if.end83.i
 
 if.then49.i:                                      ; preds = %if.else.i88
@@ -3312,7 +3312,7 @@ if.end96.i92:                                     ; preds = %sw.epilog.i
   %arrayidx98.i = getelementptr [8 x i16], ptr %offset.i.i, i64 0, i64 %idxprom.i
   %238 = load i16, ptr %arrayidx98.i, align 2
   %conv99.i = zext i16 %238 to i32
-  %cmp101.i = icmp sgt i32 %shr7.i, %conv18.i
+  %cmp101.i = icmp samesign ugt i32 %shr7.i, %conv18.i
   br i1 %cmp101.i, label %if.then103.i101, label %if.end111.i
 
 if.then103.i101:                                  ; preds = %if.end96.i92
@@ -3535,8 +3535,9 @@ if.end238.i:                                      ; preds = %if.then235.i, %if.e
   call void @g_free(ptr noundef nonnull %call216.i) #8
   call fastcc void @trace_usb_ohci_iso_td_so(i32 noundef %conv99.i, i32 noundef %end_offset.0.i, i32 noundef %or146.i, i32 noundef %end_addr.0.i, ptr noundef nonnull %str.0.i90, i64 noundef %spec.store.select.i96, i32 noundef %ret.0.i99)
   %cmp242.i = icmp slt i32 %ret.0.i99, 0
-  %cmp246.not.i = icmp ugt i32 %ret.0.i99, %254
-  %or.cond159.i = select i1 %cmp194.i, i1 true, i1 %cmp246.not.i
+  %or.cond2.not272.i = select i1 %cmp194.i, i1 true, i1 %cmp242.i
+  %cmp246.not.i = icmp samesign ugt i32 %ret.0.i99, %254
+  %or.cond159.i = select i1 %or.cond2.not272.i, i1 true, i1 %cmp246.not.i
   br i1 %or.cond159.i, label %if.else283.i, label %if.then248.i
 
 if.then248.i:                                     ; preds = %if.end238.i

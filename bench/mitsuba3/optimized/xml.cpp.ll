@@ -9155,7 +9155,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %.not.i.i1070, label %.preheader.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit
 
 .preheader.i:                                     ; preds = %926
-  %.not1924.i = icmp ult i8 %914, 2
+  %.not1924.i = icmp eq i8 %914, 0
   br i1 %.not1924.i, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %931
@@ -9912,7 +9912,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br i1 %.not.i.i1120, label %.preheader.i1125, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit1134
 
 .preheader.i1125:                                 ; preds = %1194
-  %.not1924.i1126 = icmp ult i8 %1187, 2
+  %.not1924.i1126 = icmp eq i8 %1187, 0
   br i1 %.not1924.i1126, label %_ZNSt3__1eqB8ne190000INS_9allocatorIcEEEEbRKNS_12basic_stringIcNS_11char_traitsIcEET_EES9_.exit1134.thread1475.thread, label %.lr.ph.i1127
 
 .lr.ph.i1127:                                     ; preds = %.preheader.i1125, %1197
@@ -16357,7 +16357,7 @@ _ZNK7mitsuba10filesystem4path6nativeEv.exit:      ; preds = %3
 38:                                               ; preds = %.lr.ph, %36
   %.220 = phi i32 [ %30, %36 ], [ %.11932, %.lr.ph ]
   %.2 = phi i32 [ %37, %36 ], [ %.133, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %indvars.iv.next = add nuw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %22
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !191
 
@@ -21245,21 +21245,22 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 203:                                              ; preds = %201
   %204 = add nsw i64 %31, -2
   %205 = lshr i64 %204, 1
-  %206 = getelementptr inbounds i8, ptr %5, i64 24
-  %207 = getelementptr inbounds i8, ptr %5, i64 48
-  %208 = getelementptr inbounds i8, ptr %5, i64 8
-  %209 = getelementptr inbounds i8, ptr %5, i64 1
-  %210 = getelementptr inbounds i8, ptr %5, i64 25
-  br label %211
+  %206 = icmp samesign ult i64 %31, 2
+  %207 = getelementptr inbounds i8, ptr %5, i64 24
+  %208 = getelementptr inbounds i8, ptr %5, i64 48
+  %209 = getelementptr inbounds i8, ptr %5, i64 8
+  %210 = getelementptr inbounds i8, ptr %5, i64 1
+  %211 = getelementptr inbounds i8, ptr %5, i64 25
+  br i1 %206, label %.lr.ph.i.i.i, label %.split
 
-211:                                              ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit", %203
-  %.01.i.i.i = phi i64 [ %205, %203 ], [ %315, %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit" ]
+.split:                                           ; preds = %203, %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit"
+  %.01.i.i.i = phi i64 [ %315, %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit" ], [ %205, %203 ]
   %212 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %.01.i.i.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   %213 = icmp slt i64 %205, %.01.i.i.i
   br i1 %213, label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit", label %214
 
-214:                                              ; preds = %211
+214:                                              ; preds = %.split
   %215 = shl nsw i64 %.01.i.i.i, 1
   %216 = or disjoint i64 %215, 1
   %217 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %216
@@ -21321,11 +21322,11 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %212, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %212, i8 0, i64 24, i1 false)
   %247 = getelementptr inbounds i8, ptr %212, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, ptr noundef nonnull align 8 dereferenceable(24) %247, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %207, ptr noundef nonnull align 8 dereferenceable(24) %247, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %247, i8 0, i64 24, i1 false)
   %248 = getelementptr inbounds i8, ptr %212, i64 48
   %249 = load i8, ptr %248, align 8
-  store i8 %249, ptr %207, align 8
+  store i8 %249, ptr %208, align 8
   br label %250
 
 250:                                              ; preds = %290, %246
@@ -21417,7 +21418,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
   %291 = getelementptr i8, ptr %.212.i, i64 8
   %.val28.i130 = load i64, ptr %291, align 8
   %.val29.i131 = load i8, ptr %5, align 8
-  %.val30.i132 = load i64, ptr %208, align 8
+  %.val30.i132 = load i64, ptr %209, align 8
   %292 = and i8 %.val.i128, 1
   %.not.i.i.i47.i = icmp eq i8 %292, 0
   %293 = lshr i8 %.val.i128, 1
@@ -21447,7 +21448,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i50.i: ; preds = %305, %301
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.111.i, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 24, i1 false)
   store i8 0, ptr %5, align 8
-  store i8 0, ptr %209, align 1
+  store i8 0, ptr %210, align 1
   %308 = load i8, ptr %263, align 8
   %309 = and i8 %308, 1
   %.not16.i.i6.i.i51.i = icmp eq i8 %309, 0
@@ -21460,23 +21461,23 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   br label %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit52.i
 
 _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit52.i: ; preds = %310, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_.exit.i.i50.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %263, ptr noundef nonnull align 8 dereferenceable(24) %206, i64 24, i1 false)
-  store i8 0, ptr %206, align 8
-  store i8 0, ptr %210, align 1
-  %313 = load i8, ptr %207, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %263, ptr noundef nonnull align 8 dereferenceable(24) %207, i64 24, i1 false)
+  store i8 0, ptr %207, align 8
+  store i8 0, ptr %211, align 1
+  %313 = load i8, ptr %208, align 8
   %314 = and i8 %313, 1
   store i8 %314, ptr %302, align 1
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %206) #29
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %207) #29
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #29
   br label %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit"
 
-"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit": ; preds = %211, %234, %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit52.i
+"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit": ; preds = %.split, %234, %_ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bEEaSB8ne190000EOS7_.exit52.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   %315 = add nsw i64 %.01.i.i.i, -1
   %.not.i.i.i72 = icmp eq i64 %.01.i.i.i, 0
-  br i1 %.not.i.i.i72, label %.lr.ph.i.i.i, label %211, !llvm.loop !338
+  br i1 %.not.i.i.i72, label %.lr.ph.i.i.i, label %.split, !llvm.loop !338
 
-.lr.ph.i.i.i:                                     ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit"
+.lr.ph.i.i.i:                                     ; preds = %"_ZNSt3__111__sift_downB8ne190000INS_17_ClassicAlgPolicyERZN7mitsuba3xml6detailL9parse_xmlERNS4_9XMLSourceERNS4_15XMLParseContextERN4pugi8xml_nodeENS3_3TagERNS2_10PropertiesERNS_6vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEESM_bEEENSK_ISN_EEEERmibbE3$_0PSN_EEvT1_OT0_NS_15iterator_traitsISV_E15difference_typeESV_.exit", %203
   %316 = udiv exact i64 %30, 56
   %317 = getelementptr inbounds i8, ptr %9, i64 24
   %318 = getelementptr inbounds i8, ptr %.021, i64 24
@@ -21856,7 +21857,7 @@ _ZNSt3__15tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES6_bE
 487:                                              ; preds = %199
   %488 = add nsw i64 %.0, -1
   %489 = lshr i64 %31, 1
-  %490 = icmp ugt i64 %30, 7168
+  %490 = icmp samesign ugt i64 %31, 128
   %491 = getelementptr inbounds %"class.std::__1::tuple", ptr %.021, i64 %489
   br i1 %490, label %492, label %507
 
@@ -23269,7 +23270,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %50, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -23330,7 +23331,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %77, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -23372,11 +23373,11 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__121__murmur2_or_cityhashImLm64E
   br i1 %4, label %5, label %91
 
 5:                                                ; preds = %3
-  %6 = icmp ult i64 %2, 17
+  %6 = icmp samesign ult i64 %2, 17
   br i1 %6, label %7, label %64
 
 7:                                                ; preds = %5
-  %8 = icmp ugt i64 %2, 8
+  %8 = icmp samesign ugt i64 %2, 8
   br i1 %8, label %9, label %24
 
 9:                                                ; preds = %7
@@ -23399,7 +23400,7 @@ define linkonce_odr hidden noundef i64 @_ZNKSt3__121__murmur2_or_cityhashImLm64E
   br label %_ZNSt3__121__murmur2_or_cityhashImLm64EE18__hash_len_0_to_16B8ne190000EPKcm.exit
 
 24:                                               ; preds = %7
-  %25 = icmp ugt i64 %2, 3
+  %25 = icmp samesign ugt i64 %2, 3
   br i1 %25, label %26, label %42
 
 26:                                               ; preds = %24
@@ -26085,7 +26086,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %50, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -26146,7 +26147,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %77, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -26536,7 +26537,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -26597,7 +26598,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -27468,7 +27469,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -27529,7 +27530,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml6detail9XMLObjectEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -27818,7 +27819,7 @@ _ZNKSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocato
   br i1 %24, label %_ZNSt3__114__split_bufferINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEERNS5_IS8_EEEC2EmmSA_.exit, label %25
 
 25:                                               ; preds = %_ZNKSt3__16vectorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEES7_bEEENS5_IS8_EEE11__recommendB8ne190000Em.exit
-  %26 = icmp ugt i64 %.0.i, 329406144173384850
+  %26 = icmp samesign ugt i64 %.0.i, 329406144173384850
   br i1 %26, label %27, label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5tupleIJNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEES7_bEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSC_m.exit.i
 
 27:                                               ; preds = %25
@@ -28893,7 +28894,7 @@ _ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_
   br i1 %22, label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEEC2EmmS8_.exit, label %23
 
 23:                                               ; preds = %_ZNKSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE11__recommendB8ne190000Em.exit
-  %24 = icmp ugt i64 %.0.i, 768614336404564650
+  %24 = icmp samesign ugt i64 %.0.i, 768614336404564650
   br i1 %24, label %25, label %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSA_m.exit.i
 
 25:                                               ; preds = %23
@@ -30559,7 +30560,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %50, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -30620,7 +30621,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %77, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -30770,7 +30771,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %62, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %59
-  %.not1924.i.i.i.us = icmp ult i8 %52, 2
+  %.not1924.i.i.i.us = icmp eq i8 %52, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %65
@@ -30831,7 +30832,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit53:  ; preds = %71, %73
   br i1 %.not.i.i.i.i54, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %86
-  %.not1924.i.i.i = icmp ult i8 %79, 2
+  %.not1924.i.i.i = icmp eq i8 %79, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_P4TaskEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSA_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %89
@@ -32109,7 +32110,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -32170,7 +32171,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -32726,7 +32727,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %60, label %.critedge, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %57
-  %.not1924.i.i.i.us = icmp ult i8 %50, 2
+  %.not1924.i.i.i.us = icmp eq i8 %50, 0
   br i1 %.not1924.i.i.i.us, label %.critedge, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %63
@@ -32787,7 +32788,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit26:  ; preds = %69, %71
   br i1 %.not.i.i.i.i27, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %84
-  %.not1924.i.i.i = icmp ult i8 %77, 2
+  %.not1924.i.i.i = icmp eq i8 %77, 0
   br i1 %.not1924.i.i.i, label %.critedge, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %87
@@ -32937,7 +32938,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -32998,7 +32999,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_N7mitsuba3xml3TagEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSB_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91
@@ -33355,7 +33356,7 @@ _ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9all
   br i1 %64, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.critedge2.us
 
 .preheader.i.i.i.us:                              ; preds = %61
-  %.not1924.i.i.i.us = icmp ult i8 %54, 2
+  %.not1924.i.i.i.us = icmp eq i8 %54, 0
   br i1 %.not1924.i.i.i.us, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i.us
 
 .lr.ph.i.i.i.us:                                  ; preds = %.preheader.i.i.i.us, %67
@@ -33416,7 +33417,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit55:  ; preds = %73, %75
   br i1 %.not.i.i.i.i56, label %.preheader.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit
 
 .preheader.i.i.i:                                 ; preds = %88
-  %.not1924.i.i.i = icmp ult i8 %81, 2
+  %.not1924.i.i.i = icmp eq i8 %81, 0
   br i1 %.not1924.i.i.i, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_PKN7mitsuba5ClassEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSC_RKS6_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %91

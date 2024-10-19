@@ -7623,7 +7623,7 @@ _ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIfEEc
   %79 = sub nsw i32 1, %49
   %80 = select i1 %78, i32 %79, i32 %50
   %81 = icmp sgt i32 %80, 99
-  %82 = icmp sgt i32 %80, 999
+  %82 = icmp samesign ugt i32 %80, 999
   %83 = select i1 %82, i64 4, i64 3
   %.054 = select i1 %81, i64 %83, i64 2
   %84 = add nuw nsw i64 %.0, %.054
@@ -8523,7 +8523,7 @@ _ZNSt20back_insert_iteratorIN3fmt2v86detail6bufferIcEEEaSEOc.exit18: ; preds = %
   %32 = shl nuw nsw i32 %30, 1
   %33 = zext nneg i32 %32 to i64
   %34 = getelementptr inbounds [201 x i8], ptr @.str.3, i64 0, i64 %33
-  %35 = icmp ugt i32 %.0, 999
+  %35 = icmp samesign ugt i32 %.0, 999
   br i1 %35, label %36, label %51
 
 36:                                               ; preds = %29
@@ -10494,7 +10494,7 @@ _ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEc
   %80 = sub nsw i32 1, %50
   %81 = select i1 %79, i32 %80, i32 %51
   %82 = icmp sgt i32 %81, 99
-  %83 = icmp sgt i32 %81, 999
+  %83 = icmp samesign ugt i32 %81, 999
   %84 = select i1 %83, i64 4, i64 3
   %.054 = select i1 %82, i64 %84, i64 2
   %85 = add nuw nsw i64 %.0, %.054
@@ -13750,7 +13750,7 @@ _ZZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_14big_decimal_fpEcNS1_14dig
   %71 = sub nsw i32 1, %41
   %72 = select i1 %70, i32 %71, i32 %42
   %73 = icmp sgt i32 %72, 99
-  %74 = icmp sgt i32 %72, 999
+  %74 = icmp samesign ugt i32 %72, 999
   %75 = select i1 %74, i64 4, i64 3
   %.054 = select i1 %73, i64 %75, i64 2
   %76 = add nuw nsw i64 %.0, %.054
@@ -16505,7 +16505,7 @@ _ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_E
   br i1 %41, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i
 
 42:                                               ; preds = %_ZZN3fmt2v86detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS0_17basic_format_argsINS0_20basic_format_contextINSt11conditionalIXsr3std7is_sameINS0_13type_identityIS4_E4typeEcEE5valueENS0_8appenderESt20back_insert_iteratorINS3_ISE_EEEE4typeESE_EEEENS1_10locale_refEEN14format_handler9on_arg_idEv.exit
-  %43 = icmp ugt i32 %30, 14
+  %43 = icmp samesign ugt i32 %30, 14
   br i1 %43, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i, label %44
 
 44:                                               ; preds = %42
@@ -17716,7 +17716,7 @@ _ZN3fmt2v86detail11parse_alignIcRNS1_13specs_checkerINS1_13specs_handlerIcEEEEEE
   unreachable
 
 _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i: ; preds = %130
-  %133 = icmp ult i32 %59, 9
+  %133 = icmp samesign ult i32 %59, 9
   br i1 %133, label %134, label %.sink.split
 
 134:                                              ; preds = %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i
@@ -17741,7 +17741,7 @@ _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i351: ; preds = %136
-  %139 = icmp ult i32 %59, 9
+  %139 = icmp samesign ult i32 %59, 9
   br i1 %139, label %140, label %.sink.split
 
 140:                                              ; preds = %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i351
@@ -17766,7 +17766,7 @@ _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argum
   unreachable
 
 _ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i353: ; preds = %142
-  %145 = icmp ult i32 %59, 9
+  %145 = icmp samesign ult i32 %59, 9
   br i1 %145, label %146, label %.sink.split
 
 146:                                              ; preds = %_ZN3fmt2v86detail13specs_checkerINS1_13specs_handlerIcEEE24require_numeric_argumentEv.exit.i353
@@ -18430,7 +18430,6 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
 
 .lr.ph.i.i.i.i:                                   ; preds = %71
   %78 = load ptr, ptr %75, align 8
-  %.old.i.i.i.i = icmp eq ptr %.lcssa48, %0
   br label %79
 
 79:                                               ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i, %.lr.ph.i.i.i.i
@@ -18439,7 +18438,7 @@ _ZZN3fmt2v86detail23parse_replacement_fieldIcRZNS1_10vformat_toIcEEvRNS1_6buffer
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #17
   %83 = icmp eq i64 %82, 0
-  br i1 %83, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
+  br i1 %83, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %79
   %..i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %82, i64 %66)
@@ -18449,15 +18448,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %79
   %or.cond.i.i.i.i = and i1 %85, %84
   br i1 %or.cond.i.i.i.i, label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i
 
-_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i: ; preds = %79
-  br i1 %.old.i.i.i.i, label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i
-
-_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i: ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
+_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.thread.i.i.i.i: ; preds = %79, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
   %86 = add nuw i64 %.01316.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %86, %77
   br i1 %exitcond.not.i.i.i.i, label %_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.thread.i.i, label %79, !llvm.loop !88
 
-_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i: ; preds = %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
+_ZN3fmt2v820basic_format_contextINS0_8appenderEcE6arg_idENS0_17basic_string_viewIcEE.exit.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i
   %87 = getelementptr inbounds %"struct.fmt::v8::detail::named_arg_info", ptr %78, i64 %.01316.i.i.i.i, i32 1
   %88 = load i32, ptr %87, align 8
   %89 = icmp slt i32 %88, 0
@@ -18683,7 +18679,7 @@ _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %65, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 66:                                               ; preds = %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %67 = icmp ugt i32 %55, 14
+  %67 = icmp samesign ugt i32 %55, 14
   br i1 %67, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %68
 
 68:                                               ; preds = %66
@@ -18889,7 +18885,7 @@ _ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_i
   br i1 %71, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.i.i.i.i, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i
 
 72:                                               ; preds = %_ZN3fmt2v826basic_format_parse_contextIcNS0_6detail13error_handlerEE11next_arg_idEv.exit.i.i.i
-  %73 = icmp ugt i32 %61, 14
+  %73 = icmp samesign ugt i32 %61, 14
   br i1 %73, label %_ZNK3fmt2v820basic_format_contextINS0_8appenderEcE3argEi.exit.thread.i.i.i.i, label %74
 
 74:                                               ; preds = %72
@@ -19416,7 +19412,7 @@ _ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE6get
   br label %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit
 
 35:                                               ; preds = %26
-  %36 = icmp ugt i32 %24, 14
+  %36 = icmp samesign ugt i32 %24, 14
   br i1 %36, label %_ZNK3fmt2v817basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEE3getEi.exit, label %37
 
 37:                                               ; preds = %35

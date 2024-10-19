@@ -1081,7 +1081,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
 
 5:                                                ; preds = %3
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef null, i32 noundef -21, i32 noundef 837, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4)
-  br label %116
+  br label %117
 
 6:                                                ; preds = %3
   %7 = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -1139,7 +1139,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   store i32 0, ptr %8, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 1376
   store ptr null, ptr %37, align 8
-  br label %116
+  br label %117
 
 38:                                               ; preds = %33
   %39 = icmp eq i32 %7, %34
@@ -1149,7 +1149,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   %41 = getelementptr inbounds i8, ptr %0, i64 1376
   %42 = load ptr, ptr %41, align 8
   %.not137 = icmp eq ptr %2, %42
-  br i1 %.not137, label %116, label %43
+  br i1 %.not137, label %117, label %43
 
 43:                                               ; preds = %40
   %44 = icmp eq ptr %2, null
@@ -1191,11 +1191,11 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   %65 = sub nsw i64 %64, %59
   store i64 %65, ptr %63, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 902, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14)
-  br label %116
+  br label %117
 
 66:                                               ; preds = %43
   store ptr %2, ptr %41, align 8
-  br label %116
+  br label %117
 
 67:                                               ; preds = %38
   store i32 %7, ptr %8, align 8
@@ -1204,7 +1204,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
 
 69:                                               ; preds = %67
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 919, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14)
-  br label %116
+  br label %117
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds i8, ptr %0, i64 1376
@@ -1219,7 +1219,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
 
 77:                                               ; preds = %70
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 930, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %116
+  br label %117
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds i8, ptr %0, i64 1440
@@ -1232,7 +1232,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %75) #13
   store ptr null, ptr %72, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 941, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %116
+  br label %117
 
 83:                                               ; preds = %78
   %84 = getelementptr inbounds i8, ptr %0, i64 1448
@@ -1247,7 +1247,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %80) #13
   store ptr null, ptr %79, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 954, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %116
+  br label %117
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds i8, ptr %0, i64 1392
@@ -1265,7 +1265,7 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %85) #13
   store ptr null, ptr %84, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 969, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %116
+  br label %117
 
 94:                                               ; preds = %88
   %95 = getelementptr inbounds i8, ptr %0, i64 1400
@@ -1284,18 +1284,18 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %91) #13
   store ptr null, ptr %89, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 986, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %116
+  br label %117
 
 99:                                               ; preds = %94
   %100 = getelementptr inbounds i8, ptr %0, i64 1488
   %101 = tail call noalias ptr @malloc(i64 noundef %90) #14
   store ptr %101, ptr %100, align 8
   %102 = icmp eq ptr %101, null
-  br i1 %102, label %103, label %.lr.ph.preheader
+  br i1 %102, label %103, label %.preheader138.preheader
 
-.lr.ph.preheader:                                 ; preds = %99
+.preheader138.preheader:                          ; preds = %99
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.lr.ph
+  br label %.preheader138
 
 103:                                              ; preds = %99
   tail call void @free(ptr noundef nonnull %75) #13
@@ -1309,46 +1309,41 @@ define range(i32 -22, 1) i32 @CVodeRootInit(ptr noundef %0, i32 noundef %1, ptr 
   tail call void @free(ptr noundef nonnull %96) #13
   store ptr null, ptr %95, align 8
   tail call void (ptr, i32, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -20, i32 noundef 1005, ptr noundef nonnull @__func__.CVodeRootInit, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8)
-  br label %116
+  br label %117
 
-.lr.ph141.preheader:                              ; preds = %.lr.ph
-  %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count146 = zext nneg i32 %smax to i64
-  br label %.lr.ph141
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+.preheader138:                                    ; preds = %.preheader138.preheader, %.preheader138
+  %indvars.iv = phi i64 [ 0, %.preheader138.preheader ], [ %indvars.iv.next, %.preheader138 ]
   %104 = load ptr, ptr %95, align 8
   %105 = getelementptr inbounds i32, ptr %104, i64 %indvars.iv
   store i32 0, ptr %105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph141.preheader, label %.lr.ph
+  br i1 %exitcond.not, label %.preheader, label %.preheader138
 
-.lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.lr.ph141
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph141.preheader ], [ %indvars.iv.next144, %.lr.ph141 ]
+.preheader:                                       ; preds = %.preheader138, %.preheader
+  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.preheader ], [ 0, %.preheader138 ]
   %106 = load ptr, ptr %100, align 8
-  %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv143
+  %107 = getelementptr inbounds i32, ptr %106, i64 %indvars.iv142
   store i32 1, ptr %107, align 4
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %._crit_edge, label %.lr.ph141
+  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
+  %exitcond146.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
+  br i1 %exitcond146.not, label %108, label %.preheader
 
-._crit_edge:                                      ; preds = %.lr.ph141
-  %108 = mul nuw nsw i32 %7, 3
-  %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds i8, ptr %0, i64 960
-  %111 = load i64, ptr %110, align 8
-  %112 = add nsw i64 %111, %109
-  store i64 %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 968
-  %114 = load i64, ptr %113, align 8
-  %115 = add nsw i64 %114, %109
-  store i64 %115, ptr %113, align 8
-  br label %116
+108:                                              ; preds = %.preheader
+  %109 = mul nuw nsw i32 %7, 3
+  %110 = zext nneg i32 %109 to i64
+  %111 = getelementptr inbounds i8, ptr %0, i64 960
+  %112 = load i64, ptr %111, align 8
+  %113 = add nsw i64 %112, %110
+  store i64 %113, ptr %111, align 8
+  %114 = getelementptr inbounds i8, ptr %0, i64 968
+  %115 = load i64, ptr %114, align 8
+  %116 = add nsw i64 %115, %110
+  store i64 %116, ptr %114, align 8
+  br label %117
 
-116:                                              ; preds = %40, %._crit_edge, %103, %98, %93, %87, %82, %77, %69, %66, %45, %36, %5
-  %.0 = phi i32 [ -21, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ -22, %69 ], [ -20, %77 ], [ -20, %82 ], [ -20, %87 ], [ -20, %93 ], [ -20, %98 ], [ -20, %103 ], [ 0, %._crit_edge ], [ 0, %40 ]
+117:                                              ; preds = %40, %108, %103, %98, %93, %87, %82, %77, %69, %66, %45, %36, %5
+  %.0 = phi i32 [ -21, %5 ], [ 0, %36 ], [ -22, %45 ], [ 0, %66 ], [ -22, %69 ], [ -20, %77 ], [ -20, %82 ], [ -20, %87 ], [ -20, %93 ], [ -20, %98 ], [ -20, %103 ], [ 0, %108 ], [ 0, %40 ]
   ret i32 %.0
 }
 
@@ -2172,7 +2167,7 @@ thread-pre-split:                                 ; preds = %218, %209
 494:                                              ; preds = %477, %472
   %495 = load i64, ptr %352, align 8
   %496 = icmp slt i64 %495, 1
-  %.not380 = icmp slt i64 %.0352, %495
+  %.not380 = icmp samesign ult i64 %.0352, %495
   %or.cond392 = select i1 %496, i1 true, i1 %.not380
   br i1 %or.cond392, label %502, label %497
 

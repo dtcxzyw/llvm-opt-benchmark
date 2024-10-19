@@ -22009,8 +22009,8 @@ define internal void @_ZL21DOCTEST_ANON_FUNC_152v() #4 personality ptr @__gxx_pe
   br label %75
 
 75:                                               ; preds = %73, %168
-  %.0140 = phi i32 [ 0, %73 ], [ %169, %168 ]
-  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.0140) #37
+  %.0137 = phi i32 [ 0, %73 ], [ %169, %168 ]
+  call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %.0137) #37
   %76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, ptr noundef nonnull @.str.534)
           to label %77 unwind label %136
 
@@ -22120,7 +22120,6 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i88:  ; preds = %110
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #37
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %1)
-  %spec.select = select i1 %87, i64 1, i64 2
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %1) #37, !noalias !178
   %112 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %.noexc.i93 unwind label %127
@@ -22130,7 +22129,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i88:  ; preds = %110
           to label %.noexc11.i94 unwind label %127
 
 .noexc11.i94:                                     ; preds = %.noexc.i93
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %spec.select, i8 noundef signext 45)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %12, i64 noundef %.0.i.i, i8 noundef signext 45)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i95 unwind label %113
 
 113:                                              ; preds = %.noexc11.i94
@@ -22304,9 +22303,9 @@ _ZNSt7__cxx119to_stringEi.exit103:                ; preds = %116, %124
           to label %168 unwind label %.loopexit
 
 168:                                              ; preds = %166
-  %169 = add nuw nsw i32 %.0140, 1
-  %exitcond145.not = icmp eq i32 %169, 100
-  br i1 %exitcond145.not, label %170, label %75, !llvm.loop !182
+  %169 = add nuw nsw i32 %.0137, 1
+  %exitcond139.not = icmp eq i32 %169, 100
+  br i1 %exitcond139.not, label %170, label %75, !llvm.loop !182
 
 170:                                              ; preds = %168
   %171 = invoke noundef ptr @_Z13luaL_newstatev()
