@@ -7151,8 +7151,8 @@ declare double @llvm.round.f64(double) #2
 ; Function Attrs: nounwind
 declare double @scalb(double noundef, double noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind
-declare double @scalbln(double noundef, i64 noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @scalbln(double noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare double @significand(double noundef) local_unnamed_addr #5
