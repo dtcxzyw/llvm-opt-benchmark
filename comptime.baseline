@@ -7249,7 +7249,7 @@ git/sha1.ll 2996478513
 git/sha1dc_git.ll 40595793
 git/sha256.ll 899472605
 git/shallow.ll 619729089
-git/shell.ll 100177551
+git/shell.ll 100286189
 git/shortlog.ll 292198935
 git/show-branch.ll 938063437
 git/show-index.ll 100966629
@@ -12260,7 +12260,7 @@ linux/dump_stack.ll 54138346
 linux/dumpstack.ll 136518838
 linux/dumpstack_64.ll 55142898
 linux/dvo_ch7017.ll 141964764
-linux/dvo_ch7xxx.ll 162112977
+linux/dvo_ch7xxx.ll 162275379
 linux/dvo_ivch.ll 286941892
 linux/dvo_ns2501.ll 281293676
 linux/dvo_sil164.ll 120551596
@@ -21690,7 +21690,7 @@ openjdk/AccelGlyphCache.ll 103230211
 openjdk/AccessController.ll 35549798
 openjdk/Adler32.ll 38986336
 openjdk/AlphaMath.ll 61475047
-openjdk/Any3Byte.ll 281668692
+openjdk/Any3Byte.ll 281953917
 openjdk/Any4Byte.ll 304729558
 openjdk/AnyByte.ll 221404938
 openjdk/AnyInt.ll 225072366
@@ -23916,7 +23916,7 @@ openmpi/libmpi_c_profile_la-alltoallv.ll 123648986
 openmpi/libmpi_c_profile_la-alltoallv_init.ll 120334269
 openmpi/libmpi_c_profile_la-alltoallw.ll 124006089
 openmpi/libmpi_c_profile_la-alltoallw_init.ll 120270973
-openmpi/libmpi_c_profile_la-attr_get.ll 62139759
+openmpi/libmpi_c_profile_la-attr_get.ll 62205581
 openmpi/libmpi_c_profile_la-barrier.ll 77443860
 openmpi/libmpi_c_profile_la-barrier_init.ll 66414695
 openmpi/libmpi_c_profile_la-bcast.ll 96235945
@@ -24503,7 +24503,7 @@ openmpi/pif_base_components.ll 68358461
 openmpi/pif_posix.ll 148478174
 openmpi/pinfo_delete_f.ll 61123899
 openmpi/pinfo_get_f.ll 81724492
-openmpi/pinfo_get_nthkey_f.ll 70969410
+openmpi/pinfo_get_nthkey_f.ll 71041886
 openmpi/pinfo_get_string_f.ll 84815243
 openmpi/pinfo_get_valuelen_f.ll 61460943
 openmpi/pinfo_set_f.ll 63430526
@@ -28387,7 +28387,7 @@ postgres/datetime.ll 177624238
 postgres/datum.ll 101191090
 postgres/dbcommands.ll 827381863
 postgres/dbsize.ll 286991955
-postgres/deadlock.ll 400450201
+postgres/deadlock.ll 400856030
 postgres/decode.ll 274374848
 postgres/define.ll 92662183
 postgres/dependencies.ll 538834601
