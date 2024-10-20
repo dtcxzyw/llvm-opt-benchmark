@@ -9407,7 +9407,7 @@ hermes/DummyObject.cpp.ll 230439517
 hermes/Dumper.cpp.ll 1680380923
 hermes/ES6Class.cpp.ll 6716440337
 hermes/ESTreeIRGen-except.cpp.ll 516569696
-hermes/ESTreeIRGen-expr.cpp.ll 2331225655
+hermes/ESTreeIRGen-expr.cpp.ll 2328888629
 hermes/ESTreeIRGen-func.cpp.ll 1394684151
 hermes/ESTreeIRGen-stmt.cpp.ll 848124325
 hermes/ESTreeIRGen.cpp.ll 4694905795
@@ -15619,7 +15619,7 @@ llvm/SimplifyLibCalls.cpp.ll 5397669285
 llvm/Sink.cpp.ll 856621143
 llvm/SipHash.cpp.ll 209639561
 llvm/SizeOpts.cpp.ll 427645349
-llvm/SjLjEHPrepare.cpp.ll 2597919492
+llvm/SjLjEHPrepare.cpp.ll 2595320989
 llvm/SlotIndexes.cpp.ll 1639488346
 llvm/SlowDynamicAPInt.cpp.ll 350149181
 llvm/SmallPtrSet.cpp.ll 189007518
