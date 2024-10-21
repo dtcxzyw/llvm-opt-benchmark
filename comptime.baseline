@@ -18193,7 +18193,7 @@ ncnn/unaryop_x86_fma.cpp.ll 1674032348
 ncnn/unfold.cpp.ll 163982849
 ncnn/yolodetectionoutput.cpp.ll 1207460141
 ncnn/yolov3detectionoutput.cpp.ll 778241936
-ncnn/yolov3detectionoutput_x86.cpp.ll 541466045
+ncnn/yolov3detectionoutput_x86.cpp.ll 542007515
 ncnn/yolov3detectionoutput_x86_avx.cpp.ll 542978481
 ncnn/yolov3detectionoutput_x86_avx512.cpp.ll 568111092
 ncnn/yolov3detectionoutput_x86_fma.cpp.ll 543219509
@@ -22011,7 +22011,7 @@ openjdk/awt_Insets.ll 32120534
 openjdk/awt_LoadLibrary.ll 51708039
 openjdk/awt_Mlib.ll 53607380
 openjdk/awt_Robot.ll 203345217
-openjdk/awt_Taskbar.ll 91227549
+openjdk/awt_Taskbar.ll 91318918
 openjdk/awt_UNIXToolkit.ll 74152382
 openjdk/awt_parseImage.ll 417373509
 openjdk/awt_util.ll 40205235
@@ -24020,7 +24020,7 @@ openmpi/libmpi_c_profile_la-file_write_at.ll 75257603
 openmpi/libmpi_c_profile_la-file_write_at_all.ll 75288285
 openmpi/libmpi_c_profile_la-file_write_at_all_begin.ll 75053380
 openmpi/libmpi_c_profile_la-file_write_at_all_end.ll 67839795
-openmpi/libmpi_c_profile_la-file_write_ordered.ll 75130981
+openmpi/libmpi_c_profile_la-file_write_ordered.ll 75206245
 openmpi/libmpi_c_profile_la-file_write_ordered_begin.ll 75016122
 openmpi/libmpi_c_profile_la-file_write_ordered_end.ll 67799746
 openmpi/libmpi_c_profile_la-file_write_shared.ll 75225929
@@ -25678,7 +25678,7 @@ openssl/libcrypto-lib-x509_att.ll 143538111
 openssl/libcrypto-lib-x509_cmp.ll 224912457
 openssl/libcrypto-lib-x509_lu.ll 311364615
 openssl/libcrypto-lib-x509_req.ll 96004004
-openssl/libcrypto-lib-x509_set.ll 100557795
+openssl/libcrypto-lib-x509_set.ll 100658357
 openssl/libcrypto-lib-x509_v3.ll 95022913
 openssl/libcrypto-lib-x509_vfy.ll 1405822692
 openssl/libcrypto-lib-x509_vpm.ll 192502398
@@ -32283,7 +32283,7 @@ ruby/ossl.ll 188895448
 ruby/ossl_asn1.ll 553339939
 ruby/ossl_bn.ll 378584709
 ruby/ossl_cipher.ll 243463620
-ruby/ossl_digest.ll 116477323
+ruby/ossl_digest.ll 116593825
 ruby/ossl_kdf.ll 106357013
 ruby/ossl_ocsp.ll 407721545
 ruby/ossl_pkcs12.ll 113628190
