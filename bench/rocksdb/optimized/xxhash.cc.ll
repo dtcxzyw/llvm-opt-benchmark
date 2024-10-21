@@ -3143,14 +3143,14 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %seed = getelementptr inbounds i8, ptr %state, i64 552
   %5 = load i64, ptr %seed, align 8
-  %call.i = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef %5, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #32
+  %call.i = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr nocapture noundef nonnull %buffer11, i64 noundef %1, i64 noundef %5, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL26XXH3_hashLong_64b_withSeedPKvmmPKhm) #32
   br label %return
 
 if.end10:                                         ; preds = %if.end
   %secretLimit = getelementptr inbounds i8, ptr %state, i64 544
   %6 = load i64, ptr %secretLimit, align 32
   %add = add i64 %6, 64
-  %call.i16 = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr noundef nonnull %buffer11, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #32
+  %call.i16 = tail call fastcc noundef i64 @_ZL20XXH3_64bits_internalPKvmmS0_mPFmS0_mmPKhmE(ptr nocapture noundef nonnull %buffer11, i64 noundef %1, i64 noundef 0, ptr nocapture noundef nonnull %cond, i64 noundef %add, ptr noundef nonnull @_ZL28XXH3_hashLong_64b_withSecretPKvmmPKhm) #32
   br label %return
 
 return:                                           ; preds = %if.end10, %if.then6, %_ZL14XXH3_mergeAccsPKmPKhm.exit
@@ -4098,7 +4098,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define { i64, i64 } @ROCKSDB_XXH128(ptr nocapture noundef %input, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #1 {
 entry:
-  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
+  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr nocapture noundef %input, i64 noundef %len, i64 noundef %seed, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   ret { i64, i64 } %call.i
 }
 
@@ -4448,7 +4448,7 @@ if.end17:                                         ; preds = %entry
   br i1 %tobool.not, label %if.end23, label %if.then18
 
 if.then18:                                        ; preds = %if.end17
-  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef %8, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
+  %call.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr nocapture noundef nonnull %buffer24, i64 noundef %1, i64 noundef %8, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   %9 = extractvalue { i64, i64 } %call.i, 0
   %10 = extractvalue { i64, i64 } %call.i, 1
   br label %return
@@ -4457,7 +4457,7 @@ if.end23:                                         ; preds = %if.end17
   %secretLimit27 = getelementptr inbounds i8, ptr %state, i64 544
   %11 = load i64, ptr %secretLimit27, align 32
   %add28 = add i64 %11, 64
-  %call.i48 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #32
+  %call.i48 = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr nocapture noundef nonnull %buffer24, i64 noundef %1, i64 noundef 0, ptr nocapture noundef nonnull %cond, i64 noundef %add28, ptr noundef nonnull @_ZL29XXH3_hashLong_128b_withSecretPKvmmS0_m) #32
   %12 = extractvalue { i64, i64 } %call.i48, 0
   %13 = extractvalue { i64, i64 } %call.i48, 1
   br label %return
@@ -4566,7 +4566,7 @@ while.body:                                       ; preds = %if.end3, %while.bod
 
 while.end:                                        ; preds = %while.body
   %div22 = lshr i64 %secretSize, 4
-  %call.i.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %spec.select23, i64 noundef %spec.select, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
+  %call.i.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr nocapture noundef nonnull %spec.select23, i64 noundef %spec.select, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   %0 = extractvalue { i64, i64 } %call.i.i, 0
   %1 = extractvalue { i64, i64 } %call.i.i, 1
   %or19.i2.i = tail call noundef i64 @llvm.bswap.i64(i64 %0)

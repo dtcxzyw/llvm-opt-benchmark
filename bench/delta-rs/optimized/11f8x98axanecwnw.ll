@@ -89109,7 +89109,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.82263
   store i64 %985, ptr %.sroa.19.0..sroa_idx.i, align 8, !alias.scope !17938, !noalias !17939
   store i8 %987, ptr %890, align 8, !alias.scope !17938, !noalias !17939
   %988 = getelementptr inbounds i8, ptr %1, i64 2984
-  invoke void @"_ZN14deltalake_core10operations8optimize1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$deltalake_core..operations..optimize..Metrics$GT$9serialize17h323f982d95267b6aE"(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %988, ptr noalias noundef nonnull readonly align 8 dereferenceable(136) %58)
+  invoke void @"_ZN14deltalake_core10operations8optimize1_97_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$deltalake_core..operations..optimize..Metrics$GT$9serialize17h323f982d95267b6aE"(ptr noalias nocapture noundef nonnull sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %988, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(136) %58)
           to label %_ZN10serde_json5value8to_value17hb7677f61ed912fb0E.exit.i unwind label %989, !noalias !17569
 
 989:                                              ; preds = %953

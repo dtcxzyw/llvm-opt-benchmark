@@ -3721,7 +3721,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %47, 
   store ptr %49, ptr %4, align 8, !noalias !585
   store ptr %59, ptr %15, align 8, !noalias !585
   store i8 0, ptr %16, align 8, !noalias !585
-  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !585
+  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !585
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !585
   %61 = icmp ult i64 %60, %2
   br i1 %61, label %.thread, label %43
@@ -3866,7 +3866,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %47, 
   store ptr %49, ptr %4, align 8, !noalias !618
   store ptr %59, ptr %15, align 8, !noalias !618
   store i8 0, ptr %16, align 8, !noalias !618
-  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !618
+  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !618
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !618
   %61 = icmp ult i64 %60, %2
   br i1 %61, label %.thread, label %43
@@ -4011,7 +4011,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %47, 
   store ptr %49, ptr %4, align 8, !noalias !650
   store ptr %59, ptr %15, align 8, !noalias !650
   store i8 0, ptr %16, align 8, !noalias !650
-  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !650
+  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !650
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !650
   %61 = icmp ult i64 %60, %2
   br i1 %61, label %.thread, label %43
@@ -4161,7 +4161,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %50, 
   store ptr %52, ptr %4, align 8, !noalias !685
   store ptr %62, ptr %15, align 8, !noalias !685
   store i8 0, ptr %16, align 8, !noalias !685
-  %63 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !685
+  %63 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !685
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !685
   %64 = icmp ult i64 %63, %2
   br i1 %64, label %65, label %46
@@ -4289,7 +4289,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %43, 
   store ptr %45, ptr %4, align 8, !noalias !717
   store ptr %55, ptr %15, align 8, !noalias !717
   store i8 0, ptr %16, align 8, !noalias !717
-  %56 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !717
+  %56 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !717
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !717
   %57 = icmp ult i64 %56, %2
   br i1 %57, label %._crit_edge, label %39
@@ -4443,7 +4443,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %53, 
   store ptr %55, ptr %4, align 8, !noalias !749
   store ptr %65, ptr %15, align 8, !noalias !749
   store i8 0, ptr %16, align 8, !noalias !749
-  %66 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !749
+  %66 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !749
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !749
   %67 = icmp ult i64 %66, %2
   br i1 %67, label %68, label %49
@@ -4597,7 +4597,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %53, 
   store ptr %55, ptr %4, align 8, !noalias !781
   store ptr %65, ptr %15, align 8, !noalias !781
   store i8 0, ptr %16, align 8, !noalias !781
-  %66 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !781
+  %66 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !781
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !781
   %67 = icmp ult i64 %66, %2
   br i1 %67, label %68, label %49
@@ -4742,7 +4742,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %47, 
   store ptr %49, ptr %4, align 8, !noalias !813
   store ptr %59, ptr %15, align 8, !noalias !813
   store i8 0, ptr %16, align 8, !noalias !813
-  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !813
+  %60 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !813
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !813
   %61 = icmp ult i64 %60, %2
   br i1 %61, label %.thread, label %43
@@ -4896,7 +4896,7 @@ _ZN12typst_syntax6parser6Parser6column17h83b854ecc5783b5bE.exit: ; preds = %53, 
   store ptr %55, ptr %4, align 8, !noalias !845
   store ptr %65, ptr %15, align 8, !noalias !845
   store i8 0, ptr %16, align 8, !noalias !845
-  %66 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !845
+  %66 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd393fcbb840a81baE.llvm.17794941744620341598"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0), !noalias !845
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !845
   %67 = icmp ult i64 %66, %2
   br i1 %67, label %68, label %49

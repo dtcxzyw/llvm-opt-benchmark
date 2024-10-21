@@ -94809,7 +94809,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %29, ptr %216, align 8, !alias.scope !16086, !noalias !16089
   %217 = getelementptr inbounds i8, ptr %30, i64 24
   store i64 3, ptr %217, align 8, !alias.scope !16086, !noalias !16089
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %31, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %30)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %31, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %30)
           to label %"_ZN14deltalake_core8protocol12parquet_read83_$LT$impl$u20$deltalake_core..kernel..models..actions..DeletionVectorDescriptor$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h7e7d99087d405641E.exit.i" unwind label %218, !noalias !16076
 
 218:                                              ; preds = %205
@@ -94925,7 +94925,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %21, ptr %248, align 8, !alias.scope !16121, !noalias !16124
   %249 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 3, ptr %249, align 8, !alias.scope !16121, !noalias !16124
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %23, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %23, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %22)
           to label %"_ZN14deltalake_core8protocol12parquet_read83_$LT$impl$u20$deltalake_core..kernel..models..actions..DeletionVectorDescriptor$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hfb318f322e9ce219E.exit.i" unwind label %250, !noalias !16111
 
 250:                                              ; preds = %237
@@ -95034,7 +95034,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %14, ptr %276, align 8, !alias.scope !16145, !noalias !16148
   %277 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 3, ptr %277, align 8, !alias.scope !16145, !noalias !16148
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %16, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %15)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %16, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %15)
           to label %"_ZN14deltalake_core8protocol12parquet_read83_$LT$impl$u20$deltalake_core..kernel..models..actions..DeletionVectorDescriptor$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hd93d64c67386e6b2E.exit.i" unwind label %278, !noalias !16135
 
 278:                                              ; preds = %265
@@ -95158,7 +95158,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %6, ptr %309, align 8, !alias.scope !16178, !noalias !16181
   %310 = getelementptr inbounds i8, ptr %7, i64 24
   store i64 3, ptr %310, align 8, !alias.scope !16178, !noalias !16181
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %7)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %8, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %7)
           to label %"_ZN14deltalake_core8protocol12parquet_read83_$LT$impl$u20$deltalake_core..kernel..models..actions..DeletionVectorDescriptor$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17ha824db6268dd6b4bE.exit.i" unwind label %311, !noalias !16168
 
 311:                                              ; preds = %298
@@ -96546,7 +96546,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %40, ptr %453, align 8, !alias.scope !16413, !noalias !16416
   %454 = getelementptr inbounds i8, ptr %41, i64 24
   store i64 3, ptr %454, align 8, !alias.scope !16413, !noalias !16416
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %42, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %41)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %42, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %41)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Add$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hcb4e3a68520d65f7E.exit.i" unwind label %455, !noalias !16403
 
 455:                                              ; preds = %442
@@ -96681,7 +96681,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %30, ptr %487, align 8, !alias.scope !16457, !noalias !16460
   %488 = getelementptr inbounds i8, ptr %31, i64 24
   store i64 3, ptr %488, align 8, !alias.scope !16457, !noalias !16460
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %32, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %31)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %32, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %31)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Add$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h54a0f772f2176595E.exit.i" unwind label %489, !noalias !16447
 
 489:                                              ; preds = %476
@@ -96774,7 +96774,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %23, ptr %511, align 8, !alias.scope !16481, !noalias !16484
   %512 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 3, ptr %512, align 8, !alias.scope !16481, !noalias !16484
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %24)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Add$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h81ca878980fb65d9E.exit.i" unwind label %513, !noalias !16471
 
 513:                                              ; preds = %500
@@ -96867,7 +96867,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %16, ptr %535, align 8, !alias.scope !16505, !noalias !16508
   %536 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 3, ptr %536, align 8, !alias.scope !16505, !noalias !16508
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %17)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Add$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hb54ded1b6052c7faE.exit.i" unwind label %537, !noalias !16495
 
 537:                                              ; preds = %524
@@ -96960,7 +96960,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %9, ptr %559, align 8, !alias.scope !16529, !noalias !16532
   %560 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 3, ptr %560, align 8, !alias.scope !16529, !noalias !16532
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %11, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %11, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %10)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Add$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h3f4188fe7f427756E.exit.i" unwind label %561, !noalias !16519
 
 561:                                              ; preds = %548
@@ -100108,7 +100108,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %59, ptr %303, align 8, !alias.scope !16866, !noalias !16869
   %304 = getelementptr inbounds i8, ptr %60, i64 24
   store i64 3, ptr %304, align 8, !alias.scope !16866, !noalias !16869
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %61, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %60)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %61, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %60)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h70d313510a1f5276E.exit.i" unwind label %305, !noalias !16856
 
 305:                                              ; preds = %292
@@ -100203,7 +100203,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %52, ptr %327, align 8, !alias.scope !16890, !noalias !16893
   %328 = getelementptr inbounds i8, ptr %53, i64 24
   store i64 3, ptr %328, align 8, !alias.scope !16890, !noalias !16893
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %54, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %53)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %54, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %53)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hb83333d41eac893aE.exit.i" unwind label %329, !noalias !16880
 
 329:                                              ; preds = %316
@@ -100563,7 +100563,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %41, ptr %421, align 8, !alias.scope !16996, !noalias !16999
   %422 = getelementptr inbounds i8, ptr %42, i64 24
   store i64 3, ptr %422, align 8, !alias.scope !16996, !noalias !16999
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %43, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %42)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %43, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %42)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hbcc5b295c95fc3ffE.exit.i" unwind label %423, !noalias !16986
 
 423:                                              ; preds = %410
@@ -100718,7 +100718,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %31, ptr %460, align 8, !alias.scope !17040, !noalias !17043
   %461 = getelementptr inbounds i8, ptr %32, i64 24
   store i64 3, ptr %461, align 8, !alias.scope !17040, !noalias !17043
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %33, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %32)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %33, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %32)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hfc1e06e6eb77ae7bE.exit.i" unwind label %462, !noalias !17030
 
 462:                                              ; preds = %449
@@ -100844,7 +100844,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %23, ptr %494, align 8, !alias.scope !17073, !noalias !17076
   %495 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 3, ptr %495, align 8, !alias.scope !17073, !noalias !17076
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %24)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h75758b51a131a197E.exit.i" unwind label %496, !noalias !17063
 
 496:                                              ; preds = %483
@@ -100947,7 +100947,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %16, ptr %521, align 8, !alias.scope !17097, !noalias !17100
   %522 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 3, ptr %522, align 8, !alias.scope !17097, !noalias !17100
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %17)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h366720f7414c2244E.exit.i" unwind label %523, !noalias !17087
 
 523:                                              ; preds = %510
@@ -101325,7 +101325,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %5, ptr %638, align 8, !alias.scope !17186, !noalias !17189
   %639 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 3, ptr %639, align 8, !alias.scope !17186, !noalias !17189
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %7, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %7, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %6)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Metadata$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h7bce918072b881acE.exit.i" unwind label %640, !noalias !17176
 
 640:                                              ; preds = %627
@@ -102295,7 +102295,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %33, ptr %318, align 8, !alias.scope !17324, !noalias !17327
   %319 = getelementptr inbounds i8, ptr %34, i64 24
   store i64 3, ptr %319, align 8, !alias.scope !17324, !noalias !17327
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %35, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %34)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %35, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %34)
           to label %"_ZN14deltalake_core8protocol12parquet_read65_$LT$impl$u20$deltalake_core..kernel..models..actions..Remove$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17ha3b43d93e16913d4E.exit.i" unwind label %320, !noalias !17314
 
 320:                                              ; preds = %307
@@ -102549,7 +102549,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %23, ptr %381, align 8, !alias.scope !17386, !noalias !17389
   %382 = getelementptr inbounds i8, ptr %24, i64 24
   store i64 3, ptr %382, align 8, !alias.scope !17386, !noalias !17389
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %24)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %25, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %24)
           to label %"_ZN14deltalake_core8protocol12parquet_read65_$LT$impl$u20$deltalake_core..kernel..models..actions..Remove$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h67083a8ce88652abE.exit.i" unwind label %383, !noalias !17376
 
 383:                                              ; preds = %370
@@ -102672,7 +102672,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %16, ptr %412, align 8, !alias.scope !17416, !noalias !17419
   %413 = getelementptr inbounds i8, ptr %17, i64 24
   store i64 3, ptr %413, align 8, !alias.scope !17416, !noalias !17419
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %17)
           to label %"_ZN14deltalake_core8protocol12parquet_read65_$LT$impl$u20$deltalake_core..kernel..models..actions..Remove$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h40c32850f8c7145eE.exit.i" unwind label %414, !noalias !17406
 
 414:                                              ; preds = %401
@@ -102765,7 +102765,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %9, ptr %436, align 8, !alias.scope !17440, !noalias !17443
   %437 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 3, ptr %437, align 8, !alias.scope !17440, !noalias !17443
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %11, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %11, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %10)
           to label %"_ZN14deltalake_core8protocol12parquet_read65_$LT$impl$u20$deltalake_core..kernel..models..actions..Remove$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hd7c233c423dda993E.exit.i" unwind label %438, !noalias !17430
 
 438:                                              ; preds = %425
@@ -103501,7 +103501,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %12, ptr %193, align 8, !alias.scope !17538, !noalias !17541
   %194 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 3, ptr %194, align 8, !alias.scope !17538, !noalias !17541
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %14, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %14, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %13)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Txn$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h11addfcc4039dafbE.exit.i" unwind label %195, !noalias !17528
 
 195:                                              ; preds = %182
@@ -103617,7 +103617,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %4, ptr %225, align 8, !alias.scope !17573, !noalias !17576
   %226 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 3, ptr %226, align 8, !alias.scope !17573, !noalias !17576
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %5)
           to label %"_ZN14deltalake_core8protocol12parquet_read62_$LT$impl$u20$deltalake_core..kernel..models..actions..Txn$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17hff554c40c4ca799eE.exit.i" unwind label %227, !noalias !17563
 
 227:                                              ; preds = %214
@@ -104422,7 +104422,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.38015
   store ptr %11, ptr %249, align 8, !alias.scope !17688, !noalias !17691
   %250 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 3, ptr %250, align 8, !alias.scope !17688, !noalias !17691
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %12)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Protocol$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h712330c36c4479faE.exit.i" unwind label %251, !noalias !17678
 
 251:                                              ; preds = %238
@@ -104523,7 +104523,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.38015
   store ptr %4, ptr %274, align 8, !alias.scope !17712, !noalias !17715
   %275 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 3, ptr %275, align 8, !alias.scope !17712, !noalias !17715
-  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
+  invoke void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.5991570310944373761"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %5)
           to label %"_ZN14deltalake_core8protocol12parquet_read67_$LT$impl$u20$deltalake_core..kernel..models..actions..Protocol$GT$19from_parquet_record28_$u7b$$u7b$closure$u7d$$u7d$17h08bc9240ff195030E.exit.i" unwind label %276, !noalias !17702
 
 276:                                              ; preds = %263

@@ -99359,7 +99359,7 @@ default.unreachable36:                            ; preds = %2
   store ptr %3, ptr %47, align 8, !alias.scope !15031, !noalias !15034
   %48 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 2, ptr %48, align 8, !alias.scope !15031, !noalias !15034
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.240573438051967091"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.4.i, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4), !noalias !15028
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.240573438051967091"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.4.i, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %4), !noalias !15028
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !15028
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !15028
   %.sroa.5.8.copyload = load i8, ptr %.sroa.4.i, align 8
@@ -106688,7 +106688,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot8log_data17FileStatsAcces
   %36 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 1, ptr %36, align 8, !alias.scope !16030, !noalias !16033
   %37 = getelementptr inbounds i8, ptr %23, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %37, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %22), !noalias !16029
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %37, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %22), !noalias !16029
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %22), !noalias !16024
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21), !noalias !16024
   store i64 40, ptr %23, align 8, !noalias !16024
@@ -106720,7 +106720,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot8log_data17FileStatsAcces
   %45 = getelementptr inbounds i8, ptr %18, i64 24
   store i64 1, ptr %45, align 8, !alias.scope !16042, !noalias !16045
   %46 = getelementptr inbounds i8, ptr %19, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %46, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %18), !noalias !16041
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %46, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %18), !noalias !16041
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18), !noalias !16036
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !16036
   store i64 40, ptr %19, align 8, !noalias !16036
@@ -106767,7 +106767,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot8log_data17FileStatsAcces
   %56 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 1, ptr %56, align 8, !alias.scope !16055, !noalias !16058
   %57 = getelementptr inbounds i8, ptr %15, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %57, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14), !noalias !16054
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %57, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %14), !noalias !16054
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14), !noalias !16049
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !16049
   store i64 40, ptr %15, align 8, !noalias !16049
@@ -106814,7 +106814,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot8log_data17FileStatsAcces
   %67 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 1, ptr %67, align 8, !alias.scope !16068, !noalias !16071
   %68 = getelementptr inbounds i8, ptr %11, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %68, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %10), !noalias !16067
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %68, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %10), !noalias !16067
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10), !noalias !16062
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !16062
   store i64 40, ptr %11, align 8, !noalias !16062
@@ -106861,7 +106861,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot8log_data17FileStatsAcces
   %78 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 1, ptr %78, align 8, !alias.scope !16081, !noalias !16084
   %79 = getelementptr inbounds i8, ptr %7, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %79, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %6), !noalias !16080
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %79, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %6), !noalias !16080
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !16075
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !16075
   store i64 40, ptr %7, align 8, !noalias !16075
@@ -107070,7 +107070,7 @@ define internal fastcc void @"_ZN14deltalake_core6kernel8snapshot8log_data17File
   %29 = getelementptr inbounds i8, ptr %16, i64 24
   store i64 1, ptr %29, align 8, !alias.scope !16103, !noalias !16106
   %30 = getelementptr inbounds i8, ptr %17, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %30, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %16), !noalias !16102
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %30, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %16), !noalias !16102
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %16), !noalias !16097
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !16097
   store i64 40, ptr %17, align 8, !noalias !16097
@@ -107124,7 +107124,7 @@ _ZN14deltalake_core6kernel5arrow7extract16extract_and_cast17hc8fb1a6caea0c2dbE.e
   %38 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 1, ptr %38, align 8, !alias.scope !16116, !noalias !16119
   %39 = getelementptr inbounds i8, ptr %13, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %39, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12), !noalias !16115
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %39, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %12), !noalias !16115
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12), !noalias !16110
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !16110
   store i64 40, ptr %13, align 8, !noalias !16110
@@ -107178,7 +107178,7 @@ _ZN14deltalake_core6kernel5arrow7extract16extract_and_cast17hc8fb1a6caea0c2dbE.e
   %47 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 1, ptr %47, align 8, !alias.scope !16129, !noalias !16132
   %48 = getelementptr inbounds i8, ptr %9, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %48, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %8), !noalias !16128
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %48, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %8), !noalias !16128
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !16123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !16123
   store i64 40, ptr %9, align 8, !noalias !16123
@@ -107233,7 +107233,7 @@ _ZN14deltalake_core6kernel5arrow7extract16extract_and_cast17h71a4d4e8478bb601E.e
   %56 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %56, align 8, !alias.scope !16142, !noalias !16145
   %57 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %57, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4), !noalias !16136
+  call void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h1bf68ac364c20ebaE.llvm.1318268667020908976"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %57, ptr noalias noundef readonly align 1 null, i64 undef, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %4), !noalias !16136
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !16139
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !16139
   store i64 40, ptr %5, align 8, !noalias !16139

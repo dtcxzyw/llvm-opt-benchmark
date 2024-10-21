@@ -3041,7 +3041,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit: ; pre
   store i8 0, ptr %29, align 8, !noalias !467
   store ptr %9, ptr %8, align 8, !noalias !467
   store ptr %10, ptr %30, align 8, !noalias !467
-  %57 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd363c41b01a8df8bE.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
+  %57 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd363c41b01a8df8bE.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !467
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -3343,7 +3343,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h697b7af777eba1b5E.exit181: ; 
   store i8 0, ptr %26, align 8, !noalias !505
   store ptr %6, ptr %5, align 8, !noalias !505
   store ptr %7, ptr %27, align 8, !noalias !505
-  %185 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd363c41b01a8df8bE.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5, i64 noundef 0)
+  %185 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd363c41b01a8df8bE.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %5, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !505
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -3719,7 +3719,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
   store i8 0, ptr %35, align 8, !noalias !544
   store ptr %11, ptr %10, align 8, !noalias !544
   store ptr %12, ptr %36, align 8, !noalias !544
-  %63 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf2df052ff9dab041E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %10, i64 noundef 0)
+  %63 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf2df052ff9dab041E.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %10, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !544
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -4023,7 +4023,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit181: ; 
   store i8 0, ptr %30, align 8, !noalias !582
   store ptr %8, ptr %7, align 8, !noalias !582
   store ptr %9, ptr %31, align 8, !noalias !582
-  %191 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf2df052ff9dab041E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7, i64 noundef 0)
+  %191 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hf2df052ff9dab041E.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %7, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !582
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -4403,7 +4403,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit: ; pre
   store i8 0, ptr %30, align 8, !noalias !621
   store ptr %9, ptr %8, align 8, !noalias !621
   store ptr %10, ptr %31, align 8, !noalias !621
-  %59 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8ca9bbf7b7d2c2afE.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
+  %59 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8ca9bbf7b7d2c2afE.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %8, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !621
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
@@ -4716,7 +4716,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17hc4938aa613958440E.exit193: ; 
   store i8 0, ptr %27, align 8, !noalias !664
   store ptr %6, ptr %5, align 8, !noalias !664
   store ptr %7, ptr %28, align 8, !noalias !664
-  %189 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8ca9bbf7b7d2c2afE.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %5, i64 noundef 0)
+  %189 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h8ca9bbf7b7d2c2afE.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %5, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !664
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
@@ -5109,7 +5109,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit: ; pre
   store i8 0, ptr %36, align 8, !noalias !708
   store ptr %11, ptr %10, align 8, !noalias !708
   store ptr %12, ptr %37, align 8, !noalias !708
-  %65 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1988383222acaae2E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %10, i64 noundef 0)
+  %65 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1988383222acaae2E.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %10, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %10), !noalias !708
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
@@ -5424,7 +5424,7 @@ _ZN7similar10algorithms5utils17common_prefix_len17he716fe98a22671a8E.exit193: ; 
   store i8 0, ptr %31, align 8, !noalias !751
   store ptr %8, ptr %7, align 8, !noalias !751
   store ptr %9, ptr %32, align 8, !noalias !751
-  %195 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1988383222acaae2E.llvm.1648887574124572298"(ptr noalias noundef nonnull align 8 dereferenceable(80) %7, i64 noundef 0)
+  %195 = call noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1988383222acaae2E.llvm.1648887574124572298"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %7, i64 noundef 0)
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !751
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)

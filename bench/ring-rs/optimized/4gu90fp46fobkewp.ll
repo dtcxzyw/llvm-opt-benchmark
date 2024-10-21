@@ -344,7 +344,7 @@ define void @_ZN4ring4aead17chacha20_poly130522chacha20_poly1305_seal17h5a135518
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %15, i8 0, i64 32, i1 false), !noalias !33
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !33
   store <4 x i32> %.sroa.0.12.vec.insert.i.i, ptr %14, align 16, !alias.scope !38, !noalias !41
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %15, ptr noundef nonnull %15, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %43, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %14), !noalias !43
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %15, ptr noundef nonnull %15, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %43, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %14), !noalias !43
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !33
   %44 = load <32 x i8>, ptr %15, align 1, !noalias !33
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !33
@@ -373,7 +373,7 @@ define void @_ZN4ring4aead17chacha20_poly130522chacha20_poly1305_seal17h5a135518
 _ZN4ring4aead17chacha20_poly130525poly1305_update_padded_1617h9f1d08ac20d8bb8aE.exit: ; preds = %37, %46, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.4505101779727634190.exit.i"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
   store <4 x i32> %.sroa.0.0.vec.insert, ptr %21, align 16
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %5, ptr noundef nonnull %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %43, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %21)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %5, ptr noundef nonnull %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %43, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %21)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
   %50 = icmp eq i64 %6, 0
   br i1 %50, label %_ZN4ring4aead17chacha20_poly130525poly1305_update_padded_1617h9f1d08ac20d8bb8aE.exit12, label %51
@@ -579,7 +579,7 @@ define void @_ZN4ring4aead17chacha20_poly130522chacha20_poly1305_open17hc8ff8d7f
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %16, i8 0, i64 32, i1 false), !noalias !72
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15), !noalias !72
   store <4 x i32> %.sroa.0.12.vec.insert.i.i, ptr %15, align 16, !alias.scope !77, !noalias !80
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %16, ptr noundef nonnull %16, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %48, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %15), !noalias !82
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %16, ptr noundef nonnull %16, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %48, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %15), !noalias !82
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15), !noalias !72
   %49 = load <32 x i8>, ptr %16, align 1, !noalias !72
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !72
@@ -627,7 +627,7 @@ _ZN4ring4aead17chacha20_poly130525poly1305_update_padded_1617h9f1d08ac20d8bb8aE.
 _ZN4ring4aead17chacha20_poly130525poly1305_update_padded_1617h9f1d08ac20d8bb8aE.exit30: ; preds = %_ZN4ring4aead17chacha20_poly130525poly1305_update_padded_1617h9f1d08ac20d8bb8aE.exit, %58, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.4505101779727634190.exit.i29"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
   store <4 x i32> %.sroa.0.0.vec.insert, ptr %22, align 16
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %5, ptr noundef nonnull %56, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %48, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %22)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %5, ptr noundef nonnull %56, i64 noundef %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %48, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.035)
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %21)
@@ -736,7 +736,7 @@ define hidden void @_ZN4ring4aead17chacha20_poly130519derive_poly1305_key17h5170
   tail call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %6 = load <4 x i32>, ptr %2, align 4, !alias.scope !106, !noalias !103
   store <4 x i32> %6, ptr %4, align 16, !alias.scope !103, !noalias !106
-  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %5, ptr noundef nonnull %5, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %4)
+  call void @ring_core_0_17_8__ChaCha20_ctr32(ptr noundef nonnull align 1 %5, ptr noundef nonnull %5, i64 noundef 32, ptr noalias noundef nonnull readonly align 4 dereferenceable(32) %1, ptr noalias nocapture noundef nonnull readonly align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %7 = load <32 x i8>, ptr %5, align 1
   store <32 x i8> %7, ptr %0, align 1
