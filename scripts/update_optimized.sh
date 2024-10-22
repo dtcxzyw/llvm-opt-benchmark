@@ -24,9 +24,7 @@ then
   git commit -m "llvm: Update baseline to $llvm_commit"
   if [ $? -eq 0 ] || [ $ret -ne 0 ]
   then
-    git pull --rebase
-    git submodule update
-    git push -f
+    git push
     git show --name-only | grep -E "bench|stats.baseline"
     if [ $? -eq 0 ] || [ $ret -ne 0 ] || [ $ctret -ne 0 ]
     then
@@ -44,7 +42,7 @@ else
   diff_stat=$(git diff --shortstat)
   ./scripts/filter_pr_changes.py
   git commit -m "pre-commit: Update"
-  git push -f
+  git push
   echo "runner: $GH_RUNNER" > scripts/pr-comment.md
   echo "baseline runner: cseadmin-PowerEdge-R830" >> scripts/pr-comment.md
   echo "baseline: https://github.com/llvm/llvm-project/commit/$LLVM_REVISION" >> scripts/pr-comment.md

@@ -19,6 +19,7 @@ jobs:
         with:
           submodules: false
           fetch-depth: 0
+          ref: main
 
       - name: Set up Git
         run: ${{ github.workspace }}/scripts/setup_git.sh
