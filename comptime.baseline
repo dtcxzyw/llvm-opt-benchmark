@@ -28781,7 +28781,7 @@ postgres/pg_constraint.ll 388070381
 postgres/pg_controldata.ll 94375031
 postgres/pg_crc32c_sb8.ll 73622491
 postgres/pg_crc32c_sb8_shlib.ll 73603370
-postgres/pg_crc32c_sb8_srv.ll 73603737
+postgres/pg_crc32c_sb8_srv.ll 73677385
 postgres/pg_crc32c_sse42.ll 41383319
 postgres/pg_crc32c_sse42_shlib.ll 41340329
 postgres/pg_crc32c_sse42_srv.ll 41384131
