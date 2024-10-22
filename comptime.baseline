@@ -5093,7 +5093,7 @@ cvc5/output_channel.cpp.ll 319808135
 cvc5/parallel_options.cpp.ll 105189585
 cvc5/parse.cpp.ll 2106542369
 cvc5/parser.cpp.ll 393250971
-cvc5/parser_state.cpp.ll 2152365450
+cvc5/parser_state.cpp.ll 2154517993
 cvc5/partial_model.cpp.ll 2153538140
 cvc5/partition_generator.cpp.ll 2515792466
 cvc5/pattern_term_info.cpp.ll 507902002
@@ -9940,7 +9940,7 @@ icu/chnsecal.ll 265382549
 icu/choicfmt.ll 252916852
 icu/coleitr.ll 300269012
 icu/coll.ll 395997469
-icu/collation.ll 78915882
+icu/collation.ll 78994881
 icu/collationbuilder.ll 1054988545
 icu/collationcompare.ll 249002049
 icu/collationdata.ll 278313922
@@ -15315,7 +15315,7 @@ llvm/PublicsStream.cpp.ll 726568425
 llvm/PutenvStackArrayChecker.cpp.ll 548453930
 llvm/QualTypeNames.cpp.ll 924133380
 llvm/QualifierAlignmentFixer.cpp.ll 1460346598
-llvm/RDFGraph.cpp.ll 5839916951
+llvm/RDFGraph.cpp.ll 5845757650
 llvm/RDFLiveness.cpp.ll 10394529705
 llvm/RDFRegisters.cpp.ll 1932375954
 llvm/RISCV.cpp.ll 2113500741
@@ -33449,7 +33449,7 @@ spike/bclri.ll 449434924
 spike/beq.ll 356675149
 spike/bext.ll 448595411
 spike/bexti.ll 439315157
-spike/bge.ll 356276465
+spike/bge.ll 356632831
 spike/bgeu.ll 356148682
 spike/binv.ll 457325317
 spike/binvi.ll 447067509
