@@ -9038,7 +9038,7 @@ hdf5/H5Dvirtual.c.ll 912086174
 hdf5/H5E.c.ll 219022622
 hdf5/H5EA.c.ll 187051032
 hdf5/H5EAcache.c.ll 448965293
-hdf5/H5EAdbg.c.ll 130053109
+hdf5/H5EAdbg.c.ll 130183245
 hdf5/H5EAdblkpage.c.ll 68783162
 hdf5/H5EAdblock.c.ll 113784762
 hdf5/H5EAhdr.c.ll 139129367
@@ -11550,7 +11550,7 @@ libzmq/dish.cpp.ll 299029139
 libzmq/dist.cpp.ll 242950136
 libzmq/epoll.cpp.ll 190361509
 libzmq/fq.cpp.ll 183833471
-libzmq/gather.cpp.ll 64147368
+libzmq/gather.cpp.ll 64211622
 libzmq/inproc_lat.cpp.ll 69271964
 libzmq/inproc_thr.cpp.ll 70504760
 libzmq/io_object.cpp.ll 58483109
@@ -19172,7 +19172,7 @@ ocio/MatrixOpData.cpp.ll 1042148676
 ocio/MatrixTransform.cpp.ll 351310540
 ocio/MixingHelpers.cpp.ll 639025043
 ocio/NamedTransform.cpp.ll 1018195671
-ocio/NoOps.cpp.ll 1098912278
+ocio/NoOps.cpp.ll 1100011192
 ocio/OCIOYaml.cpp.ll 14994645434
 ocio/OCIOZArchive.cpp.ll 538642558
 ocio/Op.cpp.ll 3012875954
@@ -25824,7 +25824,7 @@ openssl/libcrypto-shlib-ctype.ll 43859529
 openssl/libcrypto-shlib-curve25519.ll 2837034194
 openssl/libcrypto-shlib-curve448.ll 635863119
 openssl/libcrypto-shlib-decoder_lib.ll 271120037
-openssl/libcrypto-shlib-decoder_meth.ll 191819131
+openssl/libcrypto-shlib-decoder_meth.ll 192010999
 openssl/libcrypto-shlib-decoder_pkey.ll 209478749
 openssl/libcrypto-shlib-der_writer.ll 115442698
 openssl/libcrypto-shlib-des_enc.ll 1343386068
