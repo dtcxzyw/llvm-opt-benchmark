@@ -45258,10 +45258,7 @@ init.check:                                       ; preds = %entry
 init:                                             ; preds = %init.check
   %call.i = tail call double @erf(double noundef 0x3FF6A09E667F3BCD) #33
   %call4.i = tail call double @erf(double noundef 0xBFF6A09E667F3BCD) #33
-  %sub5.i = fsub double %call.i, %call4.i
-  %mul6.i = fmul double %sub5.i, 5.000000e-01
-  %mul.i = fmul double %mul6.i, %mul6.i
-  store double %mul.i, ptr @_ZZN4pbrt5funcsL8gaussianENS_6Point2IfEEE3nrm, align 8
+  store double 0x3FED277BBD8CBDD3, ptr @_ZZN4pbrt5funcsL8gaussianENS_6Point2IfEEE3nrm, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4pbrt5funcsL8gaussianENS_6Point2IfEEE3nrm) #33
   br label %init.end
 
