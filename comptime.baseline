@@ -727,7 +727,7 @@ abc/mapperLib.c.ll 90225540
 abc/mapperMatch.c.ll 235511567
 abc/mapperRefs.c.ll 165842074
 abc/mapperSuper.c.ll 140406627
-abc/mapperSwitch.c.ll 89402576
+abc/mapperSwitch.c.ll 89492089
 abc/mapperTable.c.ll 150219234
 abc/mapperTime.c.ll 192528226
 abc/mapperTree.c.ll 383868813
@@ -11504,7 +11504,7 @@ libwebp/sharpyuv_cpu.c.ll 61798131
 libwebp/sharpyuv_csp.c.ll 48669526
 libwebp/sharpyuv_dsp.c.ll 69452160
 libwebp/sharpyuv_gamma.c.ll 149459358
-libwebp/sharpyuv_neon.c.ll 31787822
+libwebp/sharpyuv_neon.c.ll 31819637
 libwebp/sharpyuv_sse2.c.ll 209535961
 libwebp/ssim.c.ll 155929861
 libwebp/ssim_sse2.c.ll 140957548
@@ -31706,7 +31706,7 @@ redis/thread_event.sym.ll 146137196
 redis/timeout.ll 71910656
 redis/tls.ll 42409859
 redis/tracking.ll 240233150
-redis/tsd.ll 166753402
+redis/tsd.ll 166920179
 redis/tsd.sym.ll 166920994
 redis/unix.ll 73301518
 redis/util.ll 598363750
