@@ -6359,7 +6359,7 @@ egg-rs/55a7hv010cxk6f68.ll 246513628
 egg-rs/c6cke9vz8fsxl18.ll 103839549
 egg-rs/i24fd5330vzzupn.ll 126094993
 egg-rs/oegfwufxyvm4x2w.ll 227016726
-egg-rs/ptoyfq63qf7sowp.ll 217631669
+egg-rs/ptoyfq63qf7sowp.ll 217849460
 entt/adjacency_matrix.cpp.ll 3150146312
 entt/algorithm.cpp.ll 621922499
 entt/any.cpp.ll 15935352265
@@ -6718,7 +6718,7 @@ folly/JemallocHugePageAllocator.cpp.ll 170239640
 folly/JemallocNodumpAllocator.cpp.ll 145260653
 folly/JsonTestUtil.cpp.ll 289044318
 folly/Load.cpp.ll 376242439
-folly/LogCategory.cpp.ll 501833305
+folly/LogCategory.cpp.ll 502335322
 folly/LogConfig.cpp.ll 453046579
 folly/LogConfigParser.cpp.ll 2439352862
 folly/LogLevel.cpp.ll 352577493
@@ -9048,7 +9048,7 @@ hdf5/H5EAsblock.c.ll 93458263
 hdf5/H5EAstat.c.ll 33390445
 hdf5/H5EAtest.c.ll 76013138
 hdf5/H5ES.c.ll 169243547
-hdf5/H5ESevent.c.ll 45412559
+hdf5/H5ESevent.c.ll 45458050
 hdf5/H5ESint.c.ll 151673656
 hdf5/H5ESlist.c.ll 47822100
 hdf5/H5Edeprec.c.ll 110732010
@@ -27334,7 +27334,7 @@ openusd/smoothNormals.cpp.ll 1209920790
 openusd/sortedIds.cpp.ll 1668267194
 openusd/sparseSelector.cpp.ll 73975554
 openusd/sparseValueWriter.cpp.ll 1779999980
-openusd/spatialAudio.cpp.ll 793795128
+openusd/spatialAudio.cpp.ll 794589047
 openusd/spec.cpp.ll 1851928469
 openusd/specType.cpp.ll 914539879
 openusd/specializes.cpp.ll 976692545
