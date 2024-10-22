@@ -11495,7 +11495,7 @@ libwebp/random_utils.c.ll 35230664
 libwebp/rescaler.c.ll 130805583
 libwebp/rescaler_mips32.c.ll 31790519
 libwebp/rescaler_mips_dsp_r2.c.ll 31792351
-libwebp/rescaler_msa.c.ll 31788959
+libwebp/rescaler_msa.c.ll 31820935
 libwebp/rescaler_neon.c.ll 31821042
 libwebp/rescaler_sse2.c.ll 236676669
 libwebp/rescaler_utils.c.ll 88201904
@@ -24206,7 +24206,7 @@ openmpi/libmpi_c_profile_la-win_allocate_shared.ll 74365003
 openmpi/libmpi_c_profile_la-win_attach.ll 68141512
 openmpi/libmpi_c_profile_la-win_call_errhandler.ll 64397920
 openmpi/libmpi_c_profile_la-win_complete.ll 65721824
-openmpi/libmpi_c_profile_la-win_detach.ll 68016527
+openmpi/libmpi_c_profile_la-win_detach.ll 68084648
 openmpi/libmpi_c_profile_la-win_f2c.ll 46529774
 openmpi/libmpi_c_profile_la-win_fence.ll 67455426
 openmpi/libmpi_c_profile_la-win_flush.ll 66260831
