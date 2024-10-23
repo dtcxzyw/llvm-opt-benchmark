@@ -19907,7 +19907,7 @@ openblas/dtrmm_olnncopy.c.ll 85882985
 openblas/dtrmm_olnucopy.c.ll 84883091
 openblas/dtrmm_oltncopy.c.ll 80098014
 openblas/dtrmm_oltucopy.c.ll 83829021
-openblas/dtrmm_ounncopy.c.ll 85343962
+openblas/dtrmm_ounncopy.c.ll 85429311
 openblas/dtrmm_ounucopy.c.ll 84998076
 openblas/dtrmm_outncopy.c.ll 83553473
 openblas/dtrmm_outucopy.c.ll 83626739
