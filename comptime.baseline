@@ -21901,7 +21901,7 @@ openjdk/SdpSupport.ll 51009048
 openjdk/SecurityManager.ll 43659819
 openjdk/ShapeSpanIterator.ll 608667716
 openjdk/Shutdown.ll 33357271
-openjdk/Signal.ll 38039445
+openjdk/Signal.ll 38001316
 openjdk/SocketDispatcher.ll 42167043
 openjdk/SpanClipRenderer.ll 158583394
 openjdk/StackFrameImpl.ll 187662462
