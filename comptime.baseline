@@ -8458,7 +8458,7 @@ gromacs/slarrbx.cpp.ll 194861365
 gromacs/slarrex.cpp.ll 331202472
 gromacs/slarrvx.cpp.ll 297203621
 gromacs/slas2.cpp.ll 45019386
-gromacs/slascl.cpp.ll 141068868
+gromacs/slascl.cpp.ll 141209995
 gromacs/slasd2.cpp.ll 197704210
 gromacs/slasd4.cpp.ll 390739041
 gromacs/slasd5.cpp.ll 56070914
@@ -25580,7 +25580,7 @@ openssl/libcrypto-lib-pem_pkey.ll 161701619
 openssl/libcrypto-lib-pk7_doit.ll 357896310
 openssl/libcrypto-lib-pk7_lib.ll 203748011
 openssl/libcrypto-lib-pk7_smime.ll 212279131
-openssl/libcrypto-lib-pmeth_check.ll 71134993
+openssl/libcrypto-lib-pmeth_check.ll 71063767
 openssl/libcrypto-lib-pmeth_gn.ll 112934445
 openssl/libcrypto-lib-pmeth_lib.ll 485886981
 openssl/libcrypto-lib-property.ll 243863964
