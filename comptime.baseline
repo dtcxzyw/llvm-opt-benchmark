@@ -18948,7 +18948,7 @@ nuttx/lib_timingsafe_bcmp.c.ll 39467153
 nuttx/lib_ultoa_invert.c.ll 43078816
 nuttx/lib_ungetwc.c.ll 43396881
 nuttx/lib_uuid_create.c.ll 55233705
-nuttx/lib_wcschr.c.ll 37677786
+nuttx/lib_wcschr.c.ll 37640013
 nuttx/lib_wcscmp.c.ll 36646096
 nuttx/lib_wcscpy.c.ll 34785873
 nuttx/lib_wcslcat.c.ll 46876753
@@ -20217,7 +20217,7 @@ opencv/cascadedetect_convert.cpp.ll 833575341
 opencv/ccalib.cpp.ll 1411849540
 opencv/ccm.cpp.ll 1297735628
 opencv/cfg_params.cpp.ll 680459985
-opencv/cfg_params_parser.cpp.ll 33776473
+opencv/cfg_params_parser.cpp.ll 33742548
 opencv/changing_contrast_brightness_image.cpp.ll 167360359
 opencv/channels.cpp.ll 567417379
 opencv/character_recognition.cpp.ll 123206081
@@ -23874,7 +23874,7 @@ openmpi/io_ompio.ll 249267706
 openmpi/io_ompio_component.ll 53279104
 openmpi/io_ompio_file_open.ll 174385813
 openmpi/io_ompio_file_read.ll 93470017
-openmpi/io_ompio_file_write.ll 93653833
+openmpi/io_ompio_file_write.ll 93560055
 openmpi/io_romio341_component.ll 67775052
 openmpi/io_romio341_file_open.ll 113294229
 openmpi/io_romio341_file_read.ll 84779679
@@ -23980,7 +23980,7 @@ openmpi/libmpi_c_profile_la-file_get_position_shared.ll 68497946
 openmpi/libmpi_c_profile_la-file_get_size.ll 68536530
 openmpi/libmpi_c_profile_la-file_get_type_extent.ll 74702123
 openmpi/libmpi_c_profile_la-file_get_view.ll 70799986
-openmpi/libmpi_c_profile_la-file_iread.ll 75944001
+openmpi/libmpi_c_profile_la-file_iread.ll 75868049
 openmpi/libmpi_c_profile_la-file_iread_all.ll 76731166
 openmpi/libmpi_c_profile_la-file_iread_at.ll 76017972
 openmpi/libmpi_c_profile_la-file_iread_at_all.ll 76820258
