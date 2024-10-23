@@ -1019,8 +1019,7 @@ if.end28.i:                                       ; preds = %if.end21.i
 if.end38.i:                                       ; preds = %if.end28.i
   %incdec.ptr39.i = getelementptr inbounds i8, ptr %source_ptr.addr.0, i64 3
   %5 = load i8, ptr %incdec.ptr39.i, align 1
-  %6 = and i8 %5, -64
-  %cmp42.not.i = icmp eq i8 %6, -128
+  %cmp42.not.i = icmp slt i8 %5, -64
   %cmp51.i = icmp ult i8 %0, -11
   %or.cond.i = and i1 %cmp51.i, %cmp42.not.i
   br i1 %or.cond.i, label %if.then53.i, label %return
@@ -1032,18 +1031,18 @@ if.then53.i:                                      ; preds = %if.end38.i
   br i1 %cmp55.i, label %if.then57.i, label %return
 
 if.then57.i:                                      ; preds = %if.then53.i
-  %7 = icmp samesign ugt i32 %shl46.masked.i, 65535
-  %8 = zext i1 %7 to i64
+  %6 = icmp samesign ugt i32 %shl46.masked.i, 65535
+  %7 = zext i1 %6 to i64
   br label %if.end
 
 if.end:                                           ; preds = %if.end28.i, %if.end13.i, %if.then57.i, %do.body
-  %9 = phi i8 [ %0, %do.body ], [ %5, %if.then57.i ], [ %1, %if.end13.i ], [ %2, %if.end28.i ]
+  %8 = phi i8 [ %0, %do.body ], [ 1, %if.then57.i ], [ %1, %if.end13.i ], [ %2, %if.end28.i ]
   %source_ptr.addr.1 = phi ptr [ %source_ptr.addr.0, %do.body ], [ %incdec.ptr39.i, %if.then57.i ], [ %incdec.ptr.i, %if.end13.i ], [ %incdec.ptr22.i, %if.end28.i ]
-  %retval.0.i = phi i64 [ 0, %do.body ], [ %8, %if.then57.i ], [ 0, %if.end13.i ], [ 0, %if.end28.i ]
+  %retval.0.i = phi i64 [ 0, %do.body ], [ %7, %if.then57.i ], [ 0, %if.end13.i ], [ 0, %if.end28.i ]
   %spec.select = add i64 %w_target_len.0, 1
   %inc4 = add i64 %spec.select, %retval.0.i
   %incdec.ptr = getelementptr inbounds i8, ptr %source_ptr.addr.1, i64 1
-  %tobool.not = icmp eq i8 %9, 0
+  %tobool.not = icmp eq i8 %8, 0
   br i1 %tobool.not, label %return, label %do.body
 
 return:                                           ; preds = %if.then53.i, %if.end38.i, %if.end21.i, %if.end7.i, %if.end.i, %if.end

@@ -5418,8 +5418,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %if
   %idxprom.i.pn.i = phi i64 [ %idxprom.i.i, %if.then10.i ], [ %idxprom.i.i.i, %while.cond.i.i ]
   %ct.i.0.i = getelementptr inbounds %struct.CType, ptr %18, i64 %idxprom.i.pn.i
   %19 = load i32, ptr %ct.i.0.i, align 8
-  %shr.i.mask.i = and i32 %19, -268435456
-  %cmp.i.i = icmp eq i32 %shr.i.mask.i, -2147483648
+  %cmp.i.i = icmp slt i32 %19, -1879048192
   %and.i.i = and i32 %19, 65535
   %idxprom.i.i.i = zext nneg i32 %and.i.i to i64
   br i1 %cmp.i.i, label %while.cond.i.i, label %ctype_raw.exit.i, !llvm.loop !25

@@ -3115,8 +3115,7 @@ if.else.i.i213.i:                                 ; preds = %if.then.i.i211.i
 trace_usb_ohci_iso_td_relative_frame_number_big.exit.i: ; preds = %if.else.i.i213.i, %if.then8.i.i214.i, %land.lhs.true5.i.i208.i, %if.then49.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i204.i)
   %211 = load i32, ptr %iso_td.i, align 4
-  %shr53.mask.i = and i32 %211, -268435456
-  %cmp54.i = icmp eq i32 %shr53.mask.i, -2147483648
+  %cmp54.i = icmp slt i32 %211, -1879048192
   br i1 %cmp54.i, label %ohci_service_iso_td.exit.thread, label %do.body.i
 
 do.body.i:                                        ; preds = %trace_usb_ohci_iso_td_relative_frame_number_big.exit.i

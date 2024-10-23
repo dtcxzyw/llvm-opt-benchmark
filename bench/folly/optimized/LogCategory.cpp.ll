@@ -1231,19 +1231,18 @@ invoke.cont30:                                    ; preds = %catch
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont30
-  %47 = and i8 %46, -64
-  %cmp.i = icmp eq i8 %47, -128
-  %48 = load ptr, ptr %ref.tmp, align 8, !tbaa !34
+  %cmp.i = icmp slt i8 %46, -64
+  %47 = load ptr, ptr %ref.tmp, align 8, !tbaa !34
   br i1 %cmp.i, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %48, i64 -8
-  %49 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i7 = icmp eq i64 %49, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %47, i64 -8
+  %48 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i7 = icmp eq i64 %48, 1
   br i1 %cmp.i.i7, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i
-  %add.ptr.i.i.sink.i = phi ptr [ %48, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %47, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #24
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
@@ -1258,19 +1257,19 @@ for.inc37:                                        ; preds = %_ZN5folly14basic_fb
   br i1 %exitcond81.not, label %for.cond.cleanup22, label %for.body23, !llvm.loop !80
 
 lpad29:                                           ; preds = %catch
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp) #24
   invoke void @__cxa_end_catch()
           to label %ehcleanup41 unwind label %terminate.lpad
 
 lpad32:                                           ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
-  %51 = landingpad { ptr, i32 }
+  %50 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup41
 
 ehcleanup41:                                      ; preds = %lpad25, %lpad32, %lpad29, %ehcleanup18
-  %lpad.val50.merged = phi { ptr, i32 } [ %.pn, %ehcleanup18 ], [ %51, %lpad32 ], [ %50, %lpad29 ], [ %41, %lpad25 ]
+  %lpad.val50.merged = phi { ptr, i32 } [ %.pn, %ehcleanup18 ], [ %50, %lpad32 ], [ %49, %lpad29 ], [ %41, %lpad25 ]
   call void @_ZNSt6vectorISt10shared_ptrIN5folly10LogHandlerEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %handlersVector) #24
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handlersVector) #24
   call void @_ZNSt5arrayISt10shared_ptrIN5folly10LogHandlerEELm5EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %handlersArray) #24
@@ -1278,10 +1277,10 @@ ehcleanup41:                                      ; preds = %lpad25, %lpad32, %l
   resume { ptr, i32 } %lpad.val50.merged
 
 terminate.lpad:                                   ; preds = %lpad29
-  %52 = landingpad { ptr, i32 }
+  %51 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  call void @__clang_call_terminate(ptr %53) #25
+  %52 = extractvalue { ptr, i32 } %51, 0
+  call void @__clang_call_terminate(ptr %52) #25
   unreachable
 }
 

@@ -1082,7 +1082,7 @@ define dso_local i32 @nfs4_inode_return_delegation(ptr noundef %0) local_unnamed
   %3 = tail call fastcc ptr @nfs_start_delegation_return_locked(ptr noundef %2)
   tail call void @__rcu_read_unlock() #12
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %27, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %1
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !39
@@ -1110,21 +1110,20 @@ define dso_local i32 @nfs4_inode_return_delegation(ptr noundef %0) local_unnamed
 
 19:                                               ; preds = %17, %13, %5
   %20 = load i16, ptr %0, align 8
-  %21 = and i16 %20, -4096
-  %22 = icmp eq i16 %21, -32768
-  br i1 %22, label %23, label %25
+  %21 = icmp slt i16 %20, -28672
+  br i1 %21, label %22, label %24
 
-23:                                               ; preds = %19
-  %24 = tail call i32 @nfs_wb_all(ptr noundef %0) #12
-  br label %25
+22:                                               ; preds = %19
+  %23 = tail call i32 @nfs_wb_all(ptr noundef %0) #12
+  br label %24
 
-25:                                               ; preds = %23, %19
-  %26 = tail call fastcc i32 @nfs_end_delegation_return(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1)
-  br label %27
+24:                                               ; preds = %22, %19
+  %25 = tail call fastcc i32 @nfs_end_delegation_return(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1)
+  br label %26
 
-27:                                               ; preds = %25, %1
-  %28 = phi i32 [ %26, %25 ], [ 0, %1 ]
-  ret i32 %28
+26:                                               ; preds = %24, %1
+  %27 = phi i32 [ %25, %24 ], [ 0, %1 ]
+  ret i32 %27
 }
 
 ; Function Attrs: null_pointer_is_valid

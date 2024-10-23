@@ -146,19 +146,18 @@ invoke.cont6:                                     ; preds = %catch
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont6
-  %7 = and i8 %6, -64
-  %cmp.i = icmp eq i8 %7, -128
-  %8 = load ptr, ptr %ref.tmp4, align 8, !tbaa !22
+  %cmp.i = icmp slt i8 %6, -64
+  %7 = load ptr, ptr %ref.tmp4, align 8, !tbaa !22
   br i1 %cmp.i, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %8, i64 -8
-  %9 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i1 = icmp eq i64 %9, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %7, i64 -8
+  %8 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i1 = icmp eq i64 %8, 1
   br i1 %cmp.i.i1, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i
-  %add.ptr.i.i.sink.i = phi ptr [ %8, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %7, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #21
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
@@ -172,7 +171,7 @@ try.cont:                                         ; preds = %_ZN5folly14basic_fb
   ret void
 
 lpad5:                                            ; preds = %catch
-  %10 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp4) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp) #21
@@ -180,14 +179,14 @@ lpad5:                                            ; preds = %catch
           to label %eh.resume unwind label %terminate.lpad
 
 eh.resume:                                        ; preds = %lpad5, %lpad
-  %lpad.val11.merged = phi { ptr, i32 } [ %0, %lpad ], [ %10, %lpad5 ]
+  %lpad.val11.merged = phi { ptr, i32 } [ %0, %lpad ], [ %9, %lpad5 ]
   resume { ptr, i32 } %lpad.val11.merged
 
 terminate.lpad:                                   ; preds = %lpad5
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #23
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #23
   unreachable
 }
 

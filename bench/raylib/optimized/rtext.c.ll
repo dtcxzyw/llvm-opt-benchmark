@@ -11383,22 +11383,21 @@ define range(i32 0, 2097152) i32 @GetCodepointPrevious(ptr nocapture noundef rea
   %.0 = phi ptr [ %0, %2 ], [ %5, %4 ]
   %5 = getelementptr inbounds i8, ptr %.0, i64 -1
   %6 = load i8, ptr %5, align 1
-  %7 = and i8 %6, -64
-  %or.cond = icmp eq i8 %7, -128
+  %or.cond = icmp slt i8 %6, -64
   br i1 %or.cond, label %4, label %.critedge
 
 .critedge:                                        ; preds = %4
-  %8 = call i32 @GetCodepointNext(ptr noundef nonnull %5, ptr noundef nonnull %3)
-  %.not8 = icmp eq i32 %8, 0
-  br i1 %.not8, label %11, label %9
+  %7 = call i32 @GetCodepointNext(ptr noundef nonnull %5, ptr noundef nonnull %3)
+  %.not8 = icmp eq i32 %7, 0
+  br i1 %.not8, label %10, label %8
 
-9:                                                ; preds = %.critedge
-  %10 = load i32, ptr %3, align 4
-  store i32 %10, ptr %1, align 4
-  br label %11
+8:                                                ; preds = %.critedge
+  %9 = load i32, ptr %3, align 4
+  store i32 %9, ptr %1, align 4
+  br label %10
 
-11:                                               ; preds = %9, %.critedge
-  ret i32 %8
+10:                                               ; preds = %8, %.critedge
+  ret i32 %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

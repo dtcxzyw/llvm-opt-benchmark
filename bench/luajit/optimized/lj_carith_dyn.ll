@@ -113,8 +113,7 @@ do.body.i.i:                                      ; preds = %cdata_getptr.exit.i
   %idxprom.i.i.i.i = zext nneg i32 %and.i.i.i to i64
   %arrayidx.i.i.i.i = getelementptr inbounds %struct.CType, ptr %9, i64 %idxprom.i.i.i.i
   %16 = load i32, ptr %arrayidx.i.i.i.i, align 8
-  %shr.i209.mask.i = and i32 %16, -268435456
-  %cmp.i210.i = icmp eq i32 %shr.i209.mask.i, -2147483648
+  %cmp.i210.i = icmp slt i32 %16, -1879048192
   br i1 %cmp.i210.i, label %do.body.i.i, label %if.end35.i, !llvm.loop !5
 
 if.then23.i:                                      ; preds = %ctype_raw.exit174.i
@@ -194,8 +193,7 @@ while.cond.i.i:                                   ; preds = %while.cond.i.i, %if
   %idxprom.i.i.pn.i = phi i64 [ %idxprom.i.i.i, %if.then77.i ], [ %idxprom.i.i187.i, %while.cond.i.i ]
   %ct.i.0.i = getelementptr inbounds %struct.CType, ptr %28, i64 %idxprom.i.i.pn.i
   %29 = load i32, ptr %ct.i.0.i, align 8
-  %shr.i.mask.i = and i32 %29, -268435456
-  %cmp.i.i = icmp eq i32 %shr.i.mask.i, -2147483648
+  %cmp.i.i = icmp slt i32 %29, -1879048192
   %and.i185.i = and i32 %29, 65535
   %idxprom.i.i187.i = zext nneg i32 %and.i185.i to i64
   br i1 %cmp.i.i, label %while.cond.i.i, label %ctype_raw.exit.i, !llvm.loop !3
@@ -207,7 +205,8 @@ ctype_raw.exit.i:                                 ; preds = %while.cond.i.i
   %30 = inttoptr i64 %and96.i to ptr
   %add.ptr97.i = getelementptr inbounds i8, ptr %30, i64 24
   store ptr %add.ptr97.i, ptr %indvars.iv.i.sroa.phi, align 8
-  %cmp103.i = icmp eq i32 %shr.i.mask.i, 1342177280
+  %shr102.mask.i = and i32 %29, -268435456
+  %cmp103.i = icmp eq i32 %shr102.mask.i, 1342177280
   br i1 %cmp103.i, label %if.then105.i, label %for.inc.i
 
 if.then105.i:                                     ; preds = %ctype_raw.exit.i
@@ -231,11 +230,11 @@ carith_checkarg.exit.thread:                      ; preds = %if.then105.i, %land
   br label %if.end9
 
 for.inc.i.sink.split:                             ; preds = %if.else72.i, %if.end35.i, %if.then53.i, %if.then64.i
-  %.sink136 = phi ptr [ %arrayidx.i.i, %if.then64.i ], [ %arrayidx.i148.i, %if.then53.i ], [ %ct.1.i, %if.end35.i ], [ null, %if.else72.i ]
+  %.sink139 = phi ptr [ %arrayidx.i.i, %if.then64.i ], [ %arrayidx.i148.i, %if.then53.i ], [ %ct.1.i, %if.end35.i ], [ null, %if.else72.i ]
   %.sink = phi ptr [ null, %if.then64.i ], [ %o.098.i, %if.then53.i ], [ %p.0.i, %if.end35.i ], [ inttoptr (i64 1 to ptr), %if.else72.i ]
   %ok.2.i.ph = phi i32 [ %ok.097.i, %if.then64.i ], [ %ok.097.i, %if.then53.i ], [ %ok.097.i, %if.end35.i ], [ 0, %if.else72.i ]
   %arrayidx136.i = getelementptr inbounds [2 x ptr], ptr %ct134.i, i64 0, i64 %indvars.iv.i
-  store ptr %.sink136, ptr %arrayidx136.i, align 8
+  store ptr %.sink139, ptr %arrayidx136.i, align 8
   store ptr %.sink, ptr %indvars.iv.i.sroa.phi, align 8
   br label %for.inc.i
 
@@ -256,9 +255,9 @@ for.inc.i.thread:                                 ; preds = %land.lhs.true.i
   store ptr %arrayidx.i.i196.i, ptr %arrayidx94.i, align 8
   %size119.i = getelementptr inbounds i8, ptr %call108.i, i64 4
   store ptr %size119.i, ptr %indvars.iv.i.sroa.phi, align 8
-  br i1 %tobool.not.i, label %for.body.i.backedge, label %carith_checkarg.exit.thread128
+  br i1 %tobool.not.i, label %for.body.i.backedge, label %carith_checkarg.exit.thread130
 
-carith_checkarg.exit.thread128:                   ; preds = %for.inc.i.thread
+carith_checkarg.exit.thread130:                   ; preds = %for.inc.i.thread
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ofs.i)
   br label %switch.early.test
 
@@ -267,7 +266,7 @@ carith_checkarg.exit:                             ; preds = %for.inc.i
   %tobool.not = icmp eq i32 %ok.2.i, 0
   br i1 %tobool.not, label %if.end9, label %switch.early.test
 
-switch.early.test:                                ; preds = %carith_checkarg.exit.thread128, %carith_checkarg.exit
+switch.early.test:                                ; preds = %carith_checkarg.exit.thread130, %carith_checkarg.exit
   switch i32 %mm, label %if.then [
     i32 8, label %if.end9
     i32 5, label %if.end9

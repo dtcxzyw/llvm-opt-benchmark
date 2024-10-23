@@ -253,8 +253,7 @@ while.body.i:                                     ; preds = %if.end79.i, %while.
   %idxprom.i.i = zext i16 %fid.0.in73.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %32, i64 %idxprom.i.i
   %33 = load i32, ptr %arrayidx.i.i, align 8
-  %shr.mask.i = and i32 %33, -268435456
-  %cmp41.i = icmp eq i32 %shr.mask.i, -2147483648
+  %cmp41.i = icmp slt i32 %33, -1879048192
   br i1 %cmp41.i, label %if.end79.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %while.body.i, %do.body.i.i
@@ -263,8 +262,7 @@ do.body.i.i:                                      ; preds = %while.body.i, %do.b
   %idxprom.i.i.i = zext nneg i32 %and.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds %struct.CType, ptr %32, i64 %idxprom.i.i.i
   %35 = load i32, ptr %arrayidx.i.i.i, align 8
-  %shr.i.mask.i = and i32 %35, -268435456
-  %cmp.i108.i = icmp eq i32 %shr.i.mask.i, -2147483648
+  %cmp.i108.i = icmp slt i32 %35, -1879048192
   br i1 %cmp.i108.i, label %do.body.i.i, label %ctype_rawchild.exit.i, !llvm.loop !4
 
 ctype_rawchild.exit.i:                            ; preds = %do.body.i.i
@@ -570,8 +568,7 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %idxprom.i.i = zext i16 %fid.0.in43.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.CType, ptr %2, i64 %idxprom.i.i
   %9 = load i32, ptr %arrayidx.i.i, align 8
-  %shr37.mask.i = and i32 %9, -268435456
-  %cmp38.i = icmp eq i32 %shr37.mask.i, -2147483648
+  %cmp38.i = icmp slt i32 %9, -1879048192
   br i1 %cmp38.i, label %if.end65.i, label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %while.body.i, %do.body.i.i

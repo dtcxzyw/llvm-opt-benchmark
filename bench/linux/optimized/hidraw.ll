@@ -614,13 +614,13 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %12 = getelementptr [64 x ptr], ptr @hidraw_table, i64 0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %157, label %15
+  br i1 %14, label %156, label %15
 
 15:                                               ; preds = %3
   %16 = getelementptr inbounds i8, ptr %13, i64 4
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, 0
-  br i1 %18, label %157, label %19
+  br i1 %18, label %156, label %19
 
 19:                                               ; preds = %15
   switch i32 %1, label %74 [
@@ -643,7 +643,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %30 = and i64 %29, 4294967295
   %31 = icmp eq i64 %30, 0
   %32 = select i1 %31, i64 0, i64 -14
-  br label %157
+  br label %156
 
 33:                                               ; preds = %19
   %34 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -655,11 +655,11 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   tail call void @llvm.write_register.i64(metadata !0, i64 %38)
   %40 = and i64 %39, 4294967295
   %41 = icmp eq i64 %40, 0
-  br i1 %41, label %42, label %157
+  br i1 %41, label %42, label %156
 
 42:                                               ; preds = %33
   %43 = icmp ugt i32 %37, 4095
-  br i1 %43, label %157, label %44
+  br i1 %43, label %156, label %44
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds i8, ptr %13, i64 40
@@ -674,7 +674,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %54 = tail call i64 @_copy_to_user(ptr noundef %53, ptr noundef %52, i64 noundef %50) #13
   %55 = icmp eq i64 %54, 0
   %56 = select i1 %55, i64 0, i64 -14
-  br label %157
+  br label %156
 
 57:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -698,14 +698,14 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %72 = icmp eq i64 %71, 0
   %73 = select i1 %72, i64 0, i64 -14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  br label %157
+  br label %156
 
 74:                                               ; preds = %19
   %75 = getelementptr inbounds i8, ptr %13, i64 40
   %76 = load ptr, ptr %75, align 8
   %77 = and i32 %1, 65280
   %78 = icmp eq i32 %77, 18432
-  br i1 %78, label %79, label %157
+  br i1 %78, label %79, label %156
 
 79:                                               ; preds = %74
   %80 = trunc i32 %1 to i8
@@ -726,7 +726,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %85 = getelementptr i8, ptr %.val, i64 76
   %.val.val = load i32, ptr %85, align 4
   %86 = tail call fastcc i64 @hidraw_send_report(i32 %.val.val, ptr noundef %10, i64 noundef %84, i8 noundef zeroext 2)
-  br label %157
+  br label %156
 
 87:                                               ; preds = %79
   %88 = lshr i32 %1, 16
@@ -736,7 +736,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %91 = getelementptr i8, ptr %.val4, i64 76
   %.val4.val = load i32, ptr %91, align 4
   %92 = tail call fastcc i64 @hidraw_get_report(i32 %.val4.val, ptr noundef %10, i64 noundef %90, i8 noundef zeroext 2)
-  br label %157
+  br label %156
 
 93:                                               ; preds = %79
   %94 = lshr i32 %1, 16
@@ -746,7 +746,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %97 = getelementptr i8, ptr %.val2, i64 76
   %.val2.val = load i32, ptr %97, align 4
   %98 = tail call fastcc i64 @hidraw_send_report(i32 %.val2.val, ptr noundef %10, i64 noundef %96, i8 noundef zeroext 0)
-  br label %157
+  br label %156
 
 99:                                               ; preds = %79
   %100 = lshr i32 %1, 16
@@ -756,7 +756,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %103 = getelementptr i8, ptr %.val5, i64 76
   %.val5.val = load i32, ptr %103, align 4
   %104 = tail call fastcc i64 @hidraw_get_report(i32 %.val5.val, ptr noundef %10, i64 noundef %102, i8 noundef zeroext 0)
-  br label %157
+  br label %156
 
 105:                                              ; preds = %79
   %106 = lshr i32 %1, 16
@@ -766,7 +766,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %109 = getelementptr i8, ptr %.val3, i64 76
   %.val3.val = load i32, ptr %109, align 4
   %110 = tail call fastcc i64 @hidraw_send_report(i32 %.val3.val, ptr noundef %10, i64 noundef %108, i8 noundef zeroext 1)
-  br label %157
+  br label %156
 
 111:                                              ; preds = %79
   %112 = lshr i32 %1, 16
@@ -776,66 +776,65 @@ define internal range(i64 -2147483648, 2147483648) i64 @hidraw_ioctl(ptr nocaptu
   %115 = getelementptr i8, ptr %.val6, i64 76
   %.val6.val = load i32, ptr %115, align 4
   %116 = tail call fastcc i64 @hidraw_get_report(i32 %.val6.val, ptr noundef %10, i64 noundef %114, i8 noundef zeroext 1)
-  br label %157
+  br label %156
 
 117:                                              ; preds = %79
-  %118 = and i32 %1, -1073741824
-  %119 = icmp eq i32 %118, -2147483648
-  br i1 %119, label %120, label %157
+  %118 = icmp slt i32 %1, -1073741824
+  br i1 %118, label %119, label %156
 
-120:                                              ; preds = %117
-  switch i8 %80, label %157 [
-    i8 4, label %121
-    i8 5, label %133
-    i8 8, label %145
+119:                                              ; preds = %117
+  switch i8 %80, label %156 [
+    i8 4, label %120
+    i8 5, label %132
+    i8 8, label %144
   ]
 
-121:                                              ; preds = %120
-  %122 = getelementptr inbounds i8, ptr %76, i64 7200
-  %123 = tail call i64 @strlen(ptr noundef %122) #13
-  %124 = trunc i64 %123 to i32
-  %125 = add i32 %124, 1
-  %126 = lshr i32 %1, 16
-  %127 = and i32 %126, 16383
-  %128 = tail call i32 @llvm.umin.i32(i32 %125, i32 %127)
-  %129 = zext nneg i32 %128 to i64
-  %130 = tail call i64 @_copy_to_user(ptr noundef %10, ptr noundef %122, i64 noundef %129) #13
-  %131 = icmp eq i64 %130, 0
-  %132 = select i1 %131, i64 %129, i64 -14
-  br label %157
+120:                                              ; preds = %119
+  %121 = getelementptr inbounds i8, ptr %76, i64 7200
+  %122 = tail call i64 @strlen(ptr noundef %121) #13
+  %123 = trunc i64 %122 to i32
+  %124 = add i32 %123, 1
+  %125 = lshr i32 %1, 16
+  %126 = and i32 %125, 16383
+  %127 = tail call i32 @llvm.umin.i32(i32 %124, i32 %126)
+  %128 = zext nneg i32 %127 to i64
+  %129 = tail call i64 @_copy_to_user(ptr noundef %10, ptr noundef %121, i64 noundef %128) #13
+  %130 = icmp eq i64 %129, 0
+  %131 = select i1 %130, i64 %128, i64 -14
+  br label %156
 
-133:                                              ; preds = %120
-  %134 = getelementptr inbounds i8, ptr %76, i64 7328
-  %135 = tail call i64 @strlen(ptr noundef %134) #13
-  %136 = trunc i64 %135 to i32
-  %137 = add i32 %136, 1
-  %138 = lshr i32 %1, 16
-  %139 = and i32 %138, 16383
-  %140 = tail call i32 @llvm.umin.i32(i32 %137, i32 %139)
-  %141 = zext nneg i32 %140 to i64
-  %142 = tail call i64 @_copy_to_user(ptr noundef %10, ptr noundef %134, i64 noundef %141) #13
-  %143 = icmp eq i64 %142, 0
-  %144 = select i1 %143, i64 %141, i64 -14
-  br label %157
+132:                                              ; preds = %119
+  %133 = getelementptr inbounds i8, ptr %76, i64 7328
+  %134 = tail call i64 @strlen(ptr noundef %133) #13
+  %135 = trunc i64 %134 to i32
+  %136 = add i32 %135, 1
+  %137 = lshr i32 %1, 16
+  %138 = and i32 %137, 16383
+  %139 = tail call i32 @llvm.umin.i32(i32 %136, i32 %138)
+  %140 = zext nneg i32 %139 to i64
+  %141 = tail call i64 @_copy_to_user(ptr noundef %10, ptr noundef %133, i64 noundef %140) #13
+  %142 = icmp eq i64 %141, 0
+  %143 = select i1 %142, i64 %140, i64 -14
+  br label %156
 
-145:                                              ; preds = %120
-  %146 = getelementptr inbounds i8, ptr %76, i64 7392
-  %147 = tail call i64 @strlen(ptr noundef %146) #13
-  %148 = trunc i64 %147 to i32
-  %149 = add i32 %148, 1
-  %150 = lshr i32 %1, 16
-  %151 = and i32 %150, 16383
-  %152 = tail call i32 @llvm.umin.i32(i32 %149, i32 %151)
-  %153 = zext nneg i32 %152 to i64
-  %154 = tail call i64 @_copy_to_user(ptr noundef %10, ptr noundef %146, i64 noundef %153) #13
-  %155 = icmp eq i64 %154, 0
-  %156 = select i1 %155, i64 %153, i64 -14
-  br label %157
+144:                                              ; preds = %119
+  %145 = getelementptr inbounds i8, ptr %76, i64 7392
+  %146 = tail call i64 @strlen(ptr noundef %145) #13
+  %147 = trunc i64 %146 to i32
+  %148 = add i32 %147, 1
+  %149 = lshr i32 %1, 16
+  %150 = and i32 %149, 16383
+  %151 = tail call i32 @llvm.umin.i32(i32 %148, i32 %150)
+  %152 = zext nneg i32 %151 to i64
+  %153 = tail call i64 @_copy_to_user(ptr noundef %10, ptr noundef %145, i64 noundef %152) #13
+  %154 = icmp eq i64 %153, 0
+  %155 = select i1 %154, i64 %152, i64 -14
+  br label %156
 
-157:                                              ; preds = %145, %133, %121, %120, %117, %111, %105, %99, %93, %87, %81, %74, %57, %44, %42, %33, %20, %15, %3
-  %158 = phi i64 [ %73, %57 ], [ -19, %15 ], [ -19, %3 ], [ %32, %20 ], [ -14, %33 ], [ -22, %42 ], [ %56, %44 ], [ %86, %81 ], [ %92, %87 ], [ %98, %93 ], [ %104, %99 ], [ %110, %105 ], [ %116, %111 ], [ %132, %121 ], [ %144, %133 ], [ %156, %145 ], [ -22, %74 ], [ -22, %117 ], [ -25, %120 ]
+156:                                              ; preds = %144, %132, %120, %119, %117, %111, %105, %99, %93, %87, %81, %74, %57, %44, %42, %33, %20, %15, %3
+  %157 = phi i64 [ %73, %57 ], [ -19, %15 ], [ -19, %3 ], [ %32, %20 ], [ -14, %33 ], [ -22, %42 ], [ %56, %44 ], [ %86, %81 ], [ %92, %87 ], [ %98, %93 ], [ %104, %99 ], [ %110, %105 ], [ %116, %111 ], [ %131, %120 ], [ %143, %132 ], [ %155, %144 ], [ -22, %74 ], [ -22, %117 ], [ -25, %119 ]
   call void @up_read(ptr noundef nonnull @minors_rwsem) #13
-  ret i64 %158
+  ret i64 %157
 }
 
 ; Function Attrs: null_pointer_is_valid

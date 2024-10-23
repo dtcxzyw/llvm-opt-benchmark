@@ -13706,7 +13706,7 @@ __gm_phy_read.exit6.thread:                       ; preds = %147, %156, %__gm_ph
   %191 = and i16 %.011, -16384
   %192 = icmp eq i16 %191, 16384
   %193 = select i1 %192, i16 100, i16 10
-  %194 = icmp eq i16 %191, -32768
+  %194 = icmp slt i16 %.011, -16384
   %195 = select i1 %194, i16 1000, i16 %193
   br label %196
 
@@ -13835,7 +13835,7 @@ __gm_phy_read.exit6.thread:                       ; preds = %147, %156, %__gm_ph
   %275 = and i16 %.011, -16384
   %276 = icmp eq i16 %275, 16384
   %277 = select i1 %276, i16 100, i16 10
-  %278 = icmp eq i16 %275, -32768
+  %278 = icmp slt i16 %.011, -16384
   %279 = select i1 %278, i16 1000, i16 %277
   br label %280
 

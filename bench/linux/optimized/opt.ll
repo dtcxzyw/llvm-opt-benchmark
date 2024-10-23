@@ -416,42 +416,41 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   %49 = inttoptr i64 %48 to ptr
   store ptr %49, ptr %26, align 8
   %50 = load i8, ptr %28, align 8
-  switch i8 %50, label %55 [
-    i8 -32, label %63
-    i8 -31, label %63
-    i8 -30, label %63
-    i8 -29, label %63
-    i8 -23, label %63
-    i8 -21, label %63
+  switch i8 %50, label %54 [
+    i8 -32, label %62
+    i8 -31, label %62
+    i8 -30, label %62
+    i8 -29, label %62
+    i8 -23, label %62
+    i8 -21, label %62
     i8 15, label %51
   ]
 
 51:                                               ; preds = %44
   %52 = load i8, ptr %29, align 1
-  %53 = and i8 %52, -16
-  %54 = icmp eq i8 %53, -128
-  br i1 %54, label %63, label %.backedge
+  %53 = icmp slt i8 %52, -112
+  br i1 %53, label %62, label %.backedge
 
-55:                                               ; preds = %44
-  %56 = and i8 %50, -16
-  %57 = icmp eq i8 %56, 112
-  br i1 %57, label %63, label %.backedge
+54:                                               ; preds = %44
+  %55 = and i8 %50, -16
+  %56 = icmp eq i8 %55, 112
+  br i1 %56, label %62, label %.backedge
 
-.backedge:                                        ; preds = %55, %51, %63
-  %58 = load i64, ptr %5, align 8
-  %59 = sub i64 %10, %58
-  %60 = load i64, ptr %4, align 8
-  %61 = add i64 %59, %60
-  %62 = icmp ult i64 %48, %61
-  br i1 %62, label %.lr.ph, label %._crit_edge, !llvm.loop !21
+.backedge:                                        ; preds = %54, %51, %62
+  %57 = load i64, ptr %5, align 8
+  %58 = sub i64 %10, %57
+  %59 = load i64, ptr %4, align 8
+  %60 = add i64 %58, %59
+  %61 = icmp ult i64 %48, %60
+  br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
-63:                                               ; preds = %44, %44, %44, %44, %44, %44, %51, %55
-  %64 = load i32, ptr %30, align 8
-  %65 = sext i32 %64 to i64
-  %66 = add i64 %48, %65
-  %67 = icmp ult i64 %66, %27
-  %68 = icmp ugt i64 %66, %31
-  %.not10 = or i1 %67, %68
+62:                                               ; preds = %44, %44, %44, %44, %44, %44, %51, %54
+  %63 = load i32, ptr %30, align 8
+  %64 = sext i32 %63 to i64
+  %65 = add i64 %48, %64
+  %66 = icmp ult i64 %65, %27
+  %67 = icmp ugt i64 %65, %31
+  %.not10 = or i1 %66, %67
   br i1 %.not10, label %.backedge, label %.thread13
 
 ._crit_edge:                                      ; preds = %.backedge, %22
@@ -459,147 +458,147 @@ define dso_local range(i32 -84, 1) i32 @arch_prepare_optimized_kprobe(ptr nounde
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  %69 = call noalias align 8 ptr @__kmalloc(i64 noundef add (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 24), i32 noundef 3520) #12
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %145, label %71
+  %68 = call noalias align 8 ptr @__kmalloc(i64 noundef add (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 24), i32 noundef 3520) #12
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %144, label %70
 
-71:                                               ; preds = %._crit_edge
-  %72 = call ptr @__get_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots) #10
-  %73 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr %72, ptr %73, align 8
-  %74 = icmp eq ptr %72, null
-  br i1 %74, label %140, label %75
+70:                                               ; preds = %._crit_edge
+  %71 = call ptr @__get_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots) #10
+  %72 = getelementptr inbounds i8, ptr %0, i64 152
+  store ptr %71, ptr %72, align 8
+  %73 = icmp eq ptr %71, null
+  br i1 %73, label %139, label %74
 
-75:                                               ; preds = %71
-  %76 = ptrtoint ptr %72 to i64
-  %77 = load ptr, ptr %8, align 8
-  %78 = ptrtoint ptr %77 to i64
-  %79 = sub i64 %76, %78
-  %80 = add i64 %79, 5
-  %81 = icmp slt i64 %80, 0
-  %82 = sub i64 -5, %79
-  %83 = select i1 %81, i64 %82, i64 %80
-  %84 = icmp sgt i64 %83, 2147483647
-  br i1 %84, label %.thread, label %85
+74:                                               ; preds = %70
+  %75 = ptrtoint ptr %71 to i64
+  %76 = load ptr, ptr %8, align 8
+  %77 = ptrtoint ptr %76 to i64
+  %78 = sub i64 %75, %77
+  %79 = add i64 %78, 5
+  %80 = icmp slt i64 %79, 0
+  %81 = sub i64 -5, %78
+  %82 = select i1 %80, i64 %81, i64 %79
+  %83 = icmp sgt i64 %82, 2147483647
+  br i1 %83, label %.thread, label %84
 
-85:                                               ; preds = %75
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %69, ptr nonnull align 1 @optprobe_template_entry, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i1 false)
-  %86 = getelementptr i8, ptr %69, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
-  %87 = getelementptr i8, ptr %72, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
+84:                                               ; preds = %74
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %68, ptr nonnull align 1 @optprobe_template_entry, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i1 false)
+  %85 = getelementptr i8, ptr %68, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
+  %86 = getelementptr i8, ptr %71, i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, i8 0, i64 112, i1 false), !annotation !20
-  br label %91
+  br label %90
 
-88:                                               ; preds = %99
-  %89 = add i32 %97, %92
-  %90 = icmp slt i32 %89, 5
-  br i1 %90, label %91, label %102, !llvm.loop !22
+87:                                               ; preds = %98
+  %88 = add i32 %96, %91
+  %89 = icmp slt i32 %88, 5
+  br i1 %89, label %90, label %101, !llvm.loop !22
 
-91:                                               ; preds = %88, %85
-  %92 = phi i32 [ 0, %85 ], [ %89, %88 ]
-  %93 = sext i32 %92 to i64
-  %94 = getelementptr i8, ptr %86, i64 %93
-  %95 = getelementptr i8, ptr %77, i64 %93
-  %96 = getelementptr i8, ptr %87, i64 %93
-  %97 = call i32 @__copy_instruction(ptr noundef %94, ptr noundef %95, ptr noundef %96, ptr noundef nonnull %3) #10
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %.loopexit, label %99
+90:                                               ; preds = %87, %84
+  %91 = phi i32 [ 0, %84 ], [ %88, %87 ]
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr i8, ptr %85, i64 %92
+  %94 = getelementptr i8, ptr %76, i64 %92
+  %95 = getelementptr i8, ptr %86, i64 %92
+  %96 = call i32 @__copy_instruction(ptr noundef %93, ptr noundef %94, ptr noundef %95, ptr noundef nonnull %3) #10
+  %97 = icmp eq i32 %96, 0
+  br i1 %97, label %.loopexit, label %98
 
-99:                                               ; preds = %91
-  %100 = call i32 @can_boost(ptr noundef nonnull %3, ptr noundef %95) #10
-  %101 = icmp eq i32 %100, 0
-  br i1 %101, label %.loopexit, label %88
+98:                                               ; preds = %90
+  %99 = call i32 @can_boost(ptr noundef nonnull %3, ptr noundef %94) #10
+  %100 = icmp eq i32 %99, 0
+  br i1 %100, label %.loopexit, label %87
 
-102:                                              ; preds = %88
-  %103 = zext nneg i32 %89 to i64
-  %104 = getelementptr i8, ptr %77, i64 %103
-  %105 = getelementptr i8, ptr %104, i64 -1
-  %106 = call i32 @alternatives_text_reserved(ptr noundef %77, ptr noundef %105) #10
-  %107 = icmp eq i32 %106, 0
-  br i1 %107, label %108, label %.loopexit
+101:                                              ; preds = %87
+  %102 = zext nneg i32 %88 to i64
+  %103 = getelementptr i8, ptr %76, i64 %102
+  %104 = getelementptr i8, ptr %103, i64 -1
+  %105 = call i32 @alternatives_text_reserved(ptr noundef %76, ptr noundef %104) #10
+  %106 = icmp eq i32 %105, 0
+  br i1 %106, label %107, label %.loopexit
 
-108:                                              ; preds = %102
-  %109 = call i32 @jump_label_text_reserved(ptr noundef %77, ptr noundef %105) #10
-  %110 = icmp eq i32 %109, 0
-  br i1 %110, label %111, label %.loopexit
+107:                                              ; preds = %101
+  %108 = call i32 @jump_label_text_reserved(ptr noundef %76, ptr noundef %104) #10
+  %109 = icmp eq i32 %108, 0
+  br i1 %109, label %110, label %.loopexit
 
-111:                                              ; preds = %108
-  %112 = call i32 @static_call_text_reserved(ptr noundef %77, ptr noundef %105) #10
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %114, label %.loopexit
+110:                                              ; preds = %107
+  %111 = call i32 @static_call_text_reserved(ptr noundef %76, ptr noundef %104) #10
+  %112 = icmp eq i32 %111, 0
+  br i1 %112, label %113, label %.loopexit
 
-114:                                              ; preds = %111
+113:                                              ; preds = %110
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #10
-  %115 = getelementptr inbounds i8, ptr %0, i64 160
-  store i64 %103, ptr %115, align 8
-  %116 = add i32 %89, trunc (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)) to i32)
-  %117 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
-  %118 = and i64 %117, 4503599627370496
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %124, label %120
+  %114 = getelementptr inbounds i8, ptr %0, i64 160
+  store i64 %102, ptr %114, align 8
+  %115 = add i32 %88, trunc (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)) to i32)
+  %116 = load volatile i64, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 72), align 8
+  %117 = and i64 %116, 4503599627370496
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %123, label %119
 
-120:                                              ; preds = %114
-  %121 = getelementptr i8, ptr %69, i64 sub (i64 ptrtoint (ptr @optprobe_template_clac to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
-  store i8 15, ptr %121, align 1
-  %122 = getelementptr i8, ptr %69, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_clac to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 1)
-  store i8 1, ptr %122, align 1
-  %123 = getelementptr i8, ptr %69, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_clac to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 2)
-  store i8 -54, ptr %123, align 1
-  br label %124
+119:                                              ; preds = %113
+  %120 = getelementptr i8, ptr %68, i64 sub (i64 ptrtoint (ptr @optprobe_template_clac to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
+  store i8 15, ptr %120, align 1
+  %121 = getelementptr i8, ptr %68, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_clac to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 1)
+  store i8 1, ptr %121, align 1
+  %122 = getelementptr i8, ptr %68, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_clac to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 2)
+  store i8 -54, ptr %122, align 1
+  br label %123
 
-124:                                              ; preds = %120, %114
-  %125 = getelementptr i8, ptr %69, i64 sub (i64 ptrtoint (ptr @optprobe_template_val to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
-  %126 = ptrtoint ptr %0 to i64
-  %127 = getelementptr i8, ptr %69, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_val to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 1)
-  store i8 72, ptr %125, align 1
-  %128 = getelementptr i8, ptr %69, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_val to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 2)
-  store i8 -65, ptr %127, align 1
-  store i64 %126, ptr %128, align 8
-  %129 = getelementptr i8, ptr %69, i64 sub (i64 ptrtoint (ptr @optprobe_template_call to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
-  %130 = getelementptr i8, ptr %72, i64 sub (i64 ptrtoint (ptr @optprobe_template_call to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
-  call void @synthesize_relcall(ptr noundef %129, ptr noundef %130, ptr noundef nonnull @optimized_callback) #10
-  %131 = sext i32 %116 to i64
-  %132 = getelementptr i8, ptr %69, i64 %131
-  %133 = getelementptr i8, ptr %72, i64 %131
-  %134 = load ptr, ptr %8, align 8
-  %135 = load i64, ptr %115, align 8
-  %136 = getelementptr i8, ptr %134, i64 %135
-  call void @synthesize_reljump(ptr noundef %132, ptr noundef %133, ptr noundef %136) #10
-  %137 = add i32 %89, add (i32 trunc (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)) to i32), i32 5)
-  %138 = sext i32 %137 to i64
-  call void @perf_event_text_poke(ptr noundef nonnull %72, ptr noundef null, i64 noundef 0, ptr noundef nonnull %69, i64 noundef %138) #10
-  %139 = call ptr @text_poke(ptr noundef nonnull %72, ptr noundef nonnull %69, i64 noundef %138) #10
-  br label %140
+123:                                              ; preds = %119, %113
+  %124 = getelementptr i8, ptr %68, i64 sub (i64 ptrtoint (ptr @optprobe_template_val to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
+  %125 = ptrtoint ptr %0 to i64
+  %126 = getelementptr i8, ptr %68, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_val to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 1)
+  store i8 72, ptr %124, align 1
+  %127 = getelementptr i8, ptr %68, i64 add (i64 sub (i64 ptrtoint (ptr @optprobe_template_val to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)), i64 2)
+  store i8 -65, ptr %126, align 1
+  store i64 %125, ptr %127, align 8
+  %128 = getelementptr i8, ptr %68, i64 sub (i64 ptrtoint (ptr @optprobe_template_call to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
+  %129 = getelementptr i8, ptr %71, i64 sub (i64 ptrtoint (ptr @optprobe_template_call to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64))
+  call void @synthesize_relcall(ptr noundef %128, ptr noundef %129, ptr noundef nonnull @optimized_callback) #10
+  %130 = sext i32 %115 to i64
+  %131 = getelementptr i8, ptr %68, i64 %130
+  %132 = getelementptr i8, ptr %71, i64 %130
+  %133 = load ptr, ptr %8, align 8
+  %134 = load i64, ptr %114, align 8
+  %135 = getelementptr i8, ptr %133, i64 %134
+  call void @synthesize_reljump(ptr noundef %131, ptr noundef %132, ptr noundef %135) #10
+  %136 = add i32 %88, add (i32 trunc (i64 sub (i64 ptrtoint (ptr @optprobe_template_end to i64), i64 ptrtoint (ptr @optprobe_template_entry to i64)) to i32), i32 5)
+  %137 = sext i32 %136 to i64
+  call void @perf_event_text_poke(ptr noundef nonnull %71, ptr noundef null, i64 noundef 0, ptr noundef nonnull %68, i64 noundef %137) #10
+  %138 = call ptr @text_poke(ptr noundef nonnull %71, ptr noundef nonnull %68, i64 noundef %137) #10
+  br label %139
 
-140:                                              ; preds = %.thread, %.loopexit, %124, %71
-  %141 = phi i32 [ 0, %124 ], [ -12, %71 ], [ %.ph, %.loopexit ], [ %143, %.thread ]
-  call void @kfree(ptr noundef nonnull %69) #10
-  br label %145
+139:                                              ; preds = %.thread, %.loopexit, %123, %70
+  %140 = phi i32 [ 0, %123 ], [ -12, %70 ], [ %.ph, %.loopexit ], [ %142, %.thread ]
+  call void @kfree(ptr noundef nonnull %68) #10
+  br label %144
 
-.loopexit:                                        ; preds = %91, %99, %111, %102, %108
-  %.ph = phi i32 [ -16, %111 ], [ -16, %102 ], [ -16, %108 ], [ -22, %99 ], [ -22, %91 ]
+.loopexit:                                        ; preds = %90, %98, %110, %101, %107
+  %.ph = phi i32 [ -16, %110 ], [ -16, %101 ], [ -16, %107 ], [ -22, %98 ], [ -22, %90 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %3) #10
-  %.pre = load ptr, ptr %73, align 8
-  %142 = icmp eq ptr %.pre, null
-  br i1 %142, label %140, label %.thread
+  %.pre = load ptr, ptr %72, align 8
+  %141 = icmp eq ptr %.pre, null
+  br i1 %141, label %139, label %.thread
 
-.thread:                                          ; preds = %75, %.loopexit
-  %143 = phi i32 [ %.ph, %.loopexit ], [ -34, %75 ]
-  %144 = phi ptr [ %.pre, %.loopexit ], [ %72, %75 ]
-  call void @__free_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots, ptr noundef nonnull %144, i32 noundef 0) #10
-  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %73, i8 0, i64 16, i1 false)
-  br label %140
+.thread:                                          ; preds = %74, %.loopexit
+  %142 = phi i32 [ %.ph, %.loopexit ], [ -34, %74 ]
+  %143 = phi ptr [ %.pre, %.loopexit ], [ %71, %74 ]
+  call void @__free_insn_slot(ptr noundef nonnull @kprobe_optinsn_slots, ptr noundef nonnull %143, i32 noundef 0) #10
+  call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
+  br label %139
 
-.thread13:                                        ; preds = %63, %40, %37, %.lr.ph, %17, %13, %2
+.thread13:                                        ; preds = %62, %40, %37, %.lr.ph, %17, %13, %2
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #10
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %6) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
-  br label %145
+  br label %144
 
-145:                                              ; preds = %.thread13, %140, %._crit_edge
-  %146 = phi i32 [ %141, %140 ], [ -12, %._crit_edge ], [ -84, %.thread13 ]
-  ret i32 %146
+144:                                              ; preds = %.thread13, %139, %._crit_edge
+  %145 = phi i32 [ %140, %139 ], [ -12, %._crit_edge ], [ -84, %.thread13 ]
+  ret i32 %145
 }
 
 ; Function Attrs: null_pointer_is_valid

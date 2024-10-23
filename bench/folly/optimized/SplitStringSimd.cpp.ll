@@ -21408,24 +21408,23 @@ if.then:                                          ; preds = %lpad
   br i1 %cmp.i.i.i.i, label %invoke.cont21, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.then
-  %15 = and i8 %14, -64
-  %cmp.i3 = icmp eq i8 %15, -128
-  %16 = load ptr, ptr %add.ptr, align 8, !tbaa !7
+  %cmp.i3 = icmp slt i8 %14, -64
+  %15 = load ptr, ptr %add.ptr, align 8, !tbaa !7
   br i1 %cmp.i3, label %if.end.sink.split.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i.i.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 -8
-  %17 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i4 = icmp eq i64 %17, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %15, i64 -8
+  %16 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i4 = icmp eq i64 %16, 1
   br i1 %cmp.i.i4, label %if.end.sink.split.i, label %invoke.cont21
 
 if.end.sink.split.i:                              ; preds = %if.else.i, %if.end.i.i.i.i
-  %add.ptr.i.i.sink.i = phi ptr [ %16, %if.end.i.i.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
+  %add.ptr.i.i.sink.i = phi ptr [ %15, %if.end.i.i.i.i ], [ %add.ptr.i.i.i, %if.else.i ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #26
   br label %invoke.cont21
 
 lpad19:                                           ; preds = %invoke.cont21
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %invoke.cont22 unwind label %terminate.lpad
@@ -21439,13 +21438,13 @@ invoke.cont21:                                    ; preds = %if.end.sink.split.i
           to label %unreachable unwind label %lpad19
 
 invoke.cont22:                                    ; preds = %lpad19
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %17
 
 terminate.lpad:                                   ; preds = %lpad19
-  %19 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #27
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #27
   unreachable
 
 unreachable:                                      ; preds = %invoke.cont21

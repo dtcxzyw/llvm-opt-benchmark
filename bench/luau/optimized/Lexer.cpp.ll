@@ -6017,7 +6017,7 @@ define dso_local void @_ZN4Luau5Lexer13readUtf8ErrorEv(ptr dead_on_unwind noalia
   store i32 0, ptr %29, align 4
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %30, align 8
-  br label %60
+  br label %59
 
 .critedge:                                        ; preds = %14, %2
   %.020.shrunk = phi i8 [ 0, %2 ], [ %17, %14 ]
@@ -6036,10 +6036,10 @@ define dso_local void @_ZN4Luau5Lexer13readUtf8ErrorEv(ptr dead_on_unwind noalia
   %34 = load ptr, ptr %1, align 8
   br label %35
 
-35:                                               ; preds = %.lr.ph, %48
-  %.063 = phi i32 [ 1, %.lr.ph ], [ %54, %48 ]
-  %.162 = phi i32 [ %.02068, %.lr.ph ], [ %52, %48 ]
-  %36 = phi i32 [ %33, %.lr.ph ], [ %53, %48 ]
+35:                                               ; preds = %.lr.ph, %47
+  %.063 = phi i32 [ 1, %.lr.ph ], [ %53, %47 ]
+  %.162 = phi i32 [ %.02068, %.lr.ph ], [ %51, %47 ]
+  %36 = phi i32 [ %33, %.lr.ph ], [ %52, %47 ]
   %37 = zext i32 %36 to i64
   %38 = icmp ugt i64 %12, %37
   br i1 %38, label %39, label %.critedge38
@@ -6047,57 +6047,56 @@ define dso_local void @_ZN4Luau5Lexer13readUtf8ErrorEv(ptr dead_on_unwind noalia
 39:                                               ; preds = %35
   %40 = getelementptr inbounds i8, ptr %34, i64 %37
   %41 = load i8, ptr %40, align 1
-  %42 = and i8 %41, -64
-  %43 = icmp eq i8 %42, -128
-  br i1 %43, label %48, label %.critedge38
+  %42 = icmp slt i8 %41, -64
+  br i1 %42, label %47, label %.critedge38
 
 .critedge38:                                      ; preds = %35, %39
-  %44 = sub i32 %36, %8
-  %.sroa.2.0.insert.ext.i43 = zext i32 %44 to i64
+  %43 = sub i32 %36, %8
+  %.sroa.2.0.insert.ext.i43 = zext i32 %43 to i64
   %.sroa.2.0.insert.shift.i44 = shl nuw i64 %.sroa.2.0.insert.ext.i43, 32
   %.sroa.0.0.insert.insert.i46 = or disjoint i64 %.sroa.2.0.insert.shift.i44, %.sroa.0.0.insert.ext.i
   store i32 287, ptr %0, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.0.0.insert.insert.i, ptr %45, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.0.0.insert.insert.i, ptr %44, align 4
   %.sroa.254.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i64 %.sroa.0.0.insert.insert.i46, ptr %.sroa.254.0..sroa_idx, align 4
-  %46 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 0, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr null, ptr %47, align 8
-  br label %60
+  %45 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr null, ptr %46, align 8
+  br label %59
 
-48:                                               ; preds = %39
-  %49 = shl i32 %.162, 6
-  %50 = and i8 %41, 63
-  %51 = zext nneg i8 %50 to i32
-  %52 = or disjoint i32 %49, %51
-  %53 = add i32 %36, 1
-  store i32 %53, ptr %5, align 8
-  %54 = add nuw nsw i32 %.063, 1
-  %exitcond.not = icmp eq i32 %54, %.019.ph
+47:                                               ; preds = %39
+  %48 = shl i32 %.162, 6
+  %49 = and i8 %41, 63
+  %50 = zext nneg i8 %49 to i32
+  %51 = or disjoint i32 %48, %50
+  %52 = add i32 %36, 1
+  store i32 %52, ptr %5, align 8
+  %53 = add nuw nsw i32 %.063, 1
+  %exitcond.not = icmp eq i32 %53, %.019.ph
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !31
 
-._crit_edge:                                      ; preds = %48, %.critedge
-  %55 = phi i32 [ %31, %.critedge ], [ %53, %48 ]
-  %.1.lcssa = phi i32 [ %.020, %.critedge ], [ %52, %48 ]
-  %56 = sub i32 %55, %8
-  %.sroa.2.0.insert.ext.i47 = zext i32 %56 to i64
+._crit_edge:                                      ; preds = %47, %.critedge
+  %54 = phi i32 [ %31, %.critedge ], [ %52, %47 ]
+  %.1.lcssa = phi i32 [ %.020, %.critedge ], [ %51, %47 ]
+  %55 = sub i32 %54, %8
+  %.sroa.2.0.insert.ext.i47 = zext i32 %55 to i64
   %.sroa.2.0.insert.shift.i48 = shl nuw i64 %.sroa.2.0.insert.ext.i47, 32
   %.sroa.0.0.insert.insert.i50 = or disjoint i64 %.sroa.2.0.insert.shift.i48, %.sroa.0.0.insert.ext.i
   store i32 287, ptr %0, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 4
-  store i64 %.sroa.0.0.insert.insert.i, ptr %57, align 4
+  %56 = getelementptr inbounds i8, ptr %0, i64 4
+  store i64 %.sroa.0.0.insert.insert.i, ptr %56, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i64 %.sroa.0.0.insert.insert.i50, ptr %.sroa.2.0..sroa_idx, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 0, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr null, ptr %59, align 8
-  store i32 %.1.lcssa, ptr %59, align 8
-  br label %60
+  %57 = getelementptr inbounds i8, ptr %0, i64 20
+  store i32 0, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %0, i64 24
+  store ptr null, ptr %58, align 8
+  store i32 %.1.lcssa, ptr %58, align 8
+  br label %59
 
-60:                                               ; preds = %._crit_edge, %.critedge38, %.critedge36
+59:                                               ; preds = %._crit_edge, %.critedge38, %.critedge36
   ret void
 }
 

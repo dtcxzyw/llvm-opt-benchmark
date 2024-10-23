@@ -1775,8 +1775,7 @@ define internal range(i32 0, 2) i32 @dissect_rtcp_heur(ptr noundef %0, ptr nound
 
 7:                                                ; preds = %4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #7
-  %.mask = and i8 %8, -64
-  %.not = icmp eq i8 %.mask, -128
+  %.not = icmp slt i8 %8, -64
   br i1 %.not, label %9, label %17
 
 9:                                                ; preds = %7

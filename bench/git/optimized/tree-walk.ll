@@ -1768,14 +1768,8 @@ if.end72:                                         ; preds = %if.end41.tail, %sub
 if.end77:                                         ; preds = %if.end72
   %28 = load i16, ptr %mode, align 2
   %29 = and i16 %28, -4096
-  switch i16 %29, label %while.body.outer.backedge [
-    i16 16384, label %if.then81
-    i16 -32768, label %if.then93
-    i16 -24576, label %if.then103
-  ]
-
-while.body.outer.backedge:                        ; preds = %if.end77, %if.end84
-  br label %while.body.outer
+  %cmp79 = icmp eq i16 %29, 16384
+  br i1 %cmp79, label %if.then81, label %if.else88
 
 if.then81:                                        ; preds = %if.end77
   br i1 %tobool39.not, label %if.then83, label %if.end84
@@ -1797,7 +1791,11 @@ if.end84:                                         ; preds = %if.then81
   call void @strbuf_remove(ptr noundef nonnull %namebuf, i64 noundef 0, i64 noundef %sub.ptr.sub) #14
   br label %while.body.outer.backedge
 
-if.then93:                                        ; preds = %if.end77
+if.else88:                                        ; preds = %if.end77
+  %cmp91 = icmp slt i16 %28, -28672
+  br i1 %cmp91, label %if.then93, label %if.else98
+
+if.then93:                                        ; preds = %if.else88
   br i1 %tobool39.not, label %if.then95, label %done
 
 if.then95:                                        ; preds = %if.then93
@@ -1807,7 +1805,14 @@ if.then95:                                        ; preds = %if.then93
   store i32 %32, ptr %algo3.i83, align 4
   br label %done
 
-if.then103:                                       ; preds = %if.end77
+if.else98:                                        ; preds = %if.else88
+  %cmp101 = icmp eq i16 %29, -24576
+  br i1 %cmp101, label %if.then103, label %while.body.outer.backedge
+
+while.body.outer.backedge:                        ; preds = %if.else98, %if.end84
+  br label %while.body.outer
+
+if.then103:                                       ; preds = %if.else98
   %dec106 = add nsw i32 %follows_remaining.0.ph.ph, -1
   %cmp107 = icmp eq i32 %follows_remaining.0.ph.ph, 0
   br i1 %cmp107, label %done, label %if.end110

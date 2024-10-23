@@ -205,19 +205,18 @@ invoke.cont8:                                     ; preds = %invoke.cont7
   br i1 %cmp.i.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %invoke.cont8
-  %5 = and i8 %4, -64
-  %cmp.i = icmp eq i8 %5, -128
-  %6 = load ptr, ptr %ref.tmp6, align 8, !tbaa !20
+  %cmp.i = icmp slt i8 %4, -64
+  %5 = load ptr, ptr %ref.tmp6, align 8, !tbaa !20
   br i1 %cmp.i, label %if.end.sink.split.i, label %if.else.i1
 
 if.else.i1:                                       ; preds = %if.end.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 -8
-  %7 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
-  %cmp.i.i2 = icmp eq i64 %7, 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %5, i64 -8
+  %6 = atomicrmw sub ptr %add.ptr.i.i.i, i64 1 acq_rel, align 8
+  %cmp.i.i2 = icmp eq i64 %6, 1
   br i1 %cmp.i.i2, label %if.end.sink.split.i, label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
 if.end.sink.split.i:                              ; preds = %if.else.i1, %if.end.i.i
-  %add.ptr.i.i.sink.i = phi ptr [ %6, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i1 ]
+  %add.ptr.i.i.sink.i = phi ptr [ %5, %if.end.i.i ], [ %add.ptr.i.i.i, %if.else.i1 ]
   call void @free(ptr noundef %add.ptr.i.i.sink.i) #23
   br label %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
 
@@ -225,8 +224,8 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp6) #23
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp) #23
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp) #23
-  %8 = load ptr, ptr %ep, align 8, !tbaa !21
-  %tobool.not.i17 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %ep, align 8, !tbaa !21
+  %tobool.not.i17 = icmp eq ptr %7, null
   br i1 %tobool.not.i17, label %_ZNSt15__exception_ptr13exception_ptrD2Ev.exit, label %if.then.i18
 
 if.then.i18:                                      ; preds = %_ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.exit
@@ -238,10 +237,10 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %if.then.i18, %_ZN5f
   ret void
 
 terminate.lpad:                                   ; preds = %invoke.cont7, %invoke.cont4, %invoke.cont2, %if.else.i, %if.then.i, %invoke.cont, %entry
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           catch ptr null
-  %10 = extractvalue { ptr, i32 } %9, 0
-  call void @__clang_call_terminate(ptr %10) #22
+  %9 = extractvalue { ptr, i32 } %8, 0
+  call void @__clang_call_terminate(ptr %9) #22
   unreachable
 }
 

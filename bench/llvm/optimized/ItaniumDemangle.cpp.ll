@@ -11147,8 +11147,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle24Forw
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
-  %.mask.i = and i8 %12, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %12, -64
   br i1 %.not.i, label %15, label %13
 
 13:                                               ; preds = %6
@@ -22557,8 +22556,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle24NonTypeTemplatePar
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %10 = load i16, ptr %9, align 1
   %11 = trunc i16 %10 to i8
-  %.mask.i = and i8 %11, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %11, -64
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit, label %12
 
 12:                                               ; preds = %2
@@ -30204,8 +30202,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 9
   %22 = load i16, ptr %21, align 1
   %23 = trunc i16 %22 to i8
-  %.mask.i = and i8 %23, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %23, -64
   br i1 %.not.i, label %26, label %24
 
 24:                                               ; preds = %16
@@ -31087,8 +31084,7 @@ define linkonce_odr hidden void @_ZNK4llvm16itanium_demangle16FunctionEncoding9p
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %11 = load i16, ptr %10, align 1
   %12 = trunc i16 %11 to i8
-  %.mask.i = and i8 %12, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %12, -64
   br i1 %.not.i, label %_ZNK4llvm16itanium_demangle4Node15hasRHSComponentERNS0_12OutputBufferE.exit, label %13
 
 13:                                               ; preds = %5
@@ -34820,8 +34816,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle8QualT
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
-  %.mask.i = and i8 %7, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %7, -64
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %2
@@ -36162,8 +36157,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle19Poin
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
-  %.mask.i = and i8 %7, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %7, -64
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %2
@@ -36593,8 +36587,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle11Poin
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
-  %.mask.i = and i8 %7, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %7, -64
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %2
@@ -37080,8 +37073,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16itanium_demangle13Refe
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i16, ptr %5, align 1
   %7 = trunc i16 %6 to i8
-  %.mask.i = and i8 %7, -64
-  %.not.i = icmp eq i8 %.mask.i, -128
+  %.not.i = icmp slt i8 %7, -64
   br i1 %.not.i, label %10, label %8
 
 8:                                                ; preds = %2

@@ -48839,8 +48839,7 @@ for.body.i.i:                                     ; preds = %if.else.i74, %for.c
   %sub.i.i = sub nuw i64 %sub.i, %i.07.i.i
   %arrayidx.i.i76 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %sub.i.i
   %29 = load i8, ptr %arrayidx.i.i76, align 1
-  %30 = and i8 %29, -64
-  %cmp2.not.i.i = icmp eq i8 %30, -128
+  %cmp2.not.i.i = icmp slt i8 %29, -64
   br i1 %cmp2.not.i.i, label %for.cond.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i: ; preds = %for.body.i.i, %for.cond.i.i, %if.else.i74
@@ -48856,25 +48855,25 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i: ; preds = %for.
   br i1 %cmp.i193, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246, label %if.end.i194
 
 if.end.i194:                                      ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i
-  %31 = load i32, ptr %encoding.i87, align 8
-  %cmp2.i196 = icmp eq i32 %31, 1
+  %30 = load i32, ptr %encoding.i87, align 8
+  %cmp2.i196 = icmp eq i32 %30, 1
   br i1 %cmp2.i196, label %if.then3.i242, label %if.else.i197
 
 if.then3.i242:                                    ; preds = %if.end.i194
-  %32 = load ptr, ptr %writer12.i98, align 8
-  %vtable.i244 = load ptr, ptr %32, align 8
+  %31 = load ptr, ptr %writer12.i98, align 8
+  %vtable.i244 = load ptr, ptr %31, align 8
   %vfn.i245 = getelementptr inbounds i8, ptr %vtable.i244, i64 16
-  %33 = load ptr, ptr %vfn.i245, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %sub6.i)
+  %32 = load ptr, ptr %vfn.i245, align 8
+  tail call void %32(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %sub6.i)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246
 
 if.else.i197:                                     ; preds = %if.end.i194
-  %34 = and i32 %31, -2
-  %or.cond.i.i199 = icmp eq i32 %34, 2
+  %33 = and i32 %30, -2
+  %or.cond.i.i199 = icmp eq i32 %33, 2
   br i1 %or.cond.i.i199, label %if.then.i.i228, label %if.end.i.i200
 
 if.then.i.i228:                                   ; preds = %if.else.i197
-  %cmp3.i.i229 = icmp ne i32 %31, 2
+  %cmp3.i.i229 = icmp ne i32 %30, 2
   %call.i.i.i230 = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %sub6.i, ptr noundef nonnull %scratch.i90)
   %cmp.not7.i.i.i231 = icmp ne ptr %scratch.i90, %call.i.i.i230
   %or.cond.not.i.i.i232 = and i1 %cmp3.i.i229, %cmp.not7.i.i.i231
@@ -48882,8 +48881,8 @@ if.then.i.i228:                                   ; preds = %if.else.i197
 
 for.body.i.i.i237:                                ; preds = %if.then.i.i228, %for.body.i.i.i237
   %i.08.i.i.i238 = phi ptr [ %incdec.ptr.i.i.i240, %for.body.i.i.i237 ], [ %scratch.i90, %if.then.i.i228 ]
-  %35 = load i16, ptr %i.08.i.i.i238, align 2
-  %rev.i.i.i.i239 = tail call noundef i16 @llvm.bswap.i16(i16 %35)
+  %34 = load i16, ptr %i.08.i.i.i238, align 2
+  %rev.i.i.i.i239 = tail call noundef i16 @llvm.bswap.i16(i16 %34)
   store i16 %rev.i.i.i.i239, ptr %i.08.i.i.i238, align 2
   %incdec.ptr.i.i.i240 = getelementptr inbounds i8, ptr %i.08.i.i.i238, i64 2
   %cmp.not.i.i.i241 = icmp eq ptr %incdec.ptr.i.i.i240, %call.i.i.i230
@@ -48895,12 +48894,12 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i204
 
 if.end.i.i200:                                    ; preds = %if.else.i197
-  %36 = add i32 %31, -5
-  %or.cond1.i.i201 = icmp ult i32 %36, 2
+  %35 = add i32 %30, -5
+  %or.cond1.i.i201 = icmp ult i32 %35, 2
   br i1 %or.cond1.i.i201, label %if.then8.i.i214, label %if.end16.i.i202
 
 if.then8.i.i214:                                  ; preds = %if.end.i.i200
-  %cmp14.i.i215 = icmp ne i32 %31, 5
+  %cmp14.i.i215 = icmp ne i32 %30, 5
   %call.i12.i.i216 = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %sub6.i, ptr noundef nonnull %scratch.i90)
   %cmp.not7.i13.i.i217 = icmp ne ptr %scratch.i90, %call.i12.i.i216
   %or.cond.not.i14.i.i218 = and i1 %cmp14.i.i215, %cmp.not7.i13.i.i217
@@ -48908,8 +48907,8 @@ if.then8.i.i214:                                  ; preds = %if.end.i.i200
 
 for.body.i18.i.i223:                              ; preds = %if.then8.i.i214, %for.body.i18.i.i223
   %i.08.i19.i.i224 = phi ptr [ %incdec.ptr.i20.i.i226, %for.body.i18.i.i223 ], [ %scratch.i90, %if.then8.i.i214 ]
-  %37 = load i32, ptr %i.08.i19.i.i224, align 4
-  %or6.i.i.i.i225 = tail call noundef i32 @llvm.bswap.i32(i32 %37)
+  %36 = load i32, ptr %i.08.i19.i.i224, align 4
+  %or6.i.i.i.i225 = tail call noundef i32 @llvm.bswap.i32(i32 %36)
   store i32 %or6.i.i.i.i225, ptr %i.08.i19.i.i224, align 4
   %incdec.ptr.i20.i.i226 = getelementptr inbounds i8, ptr %i.08.i19.i.i224, i64 4
   %cmp.not.i21.i.i227 = icmp eq ptr %incdec.ptr.i20.i.i226, %call.i12.i.i216
@@ -48921,7 +48920,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i204
 
 if.end16.i.i202:                                  ; preds = %if.end.i.i200
-  %cmp17.i.i203 = icmp eq i32 %31, 9
+  %cmp17.i.i203 = icmp eq i32 %30, 9
   br i1 %cmp17.i.i203, label %if.then18.i.i209, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i204
 
 if.then18.i.i209:                                 ; preds = %if.end16.i.i202
@@ -48932,11 +48931,11 @@ if.then18.i.i209:                                 ; preds = %if.end16.i.i202
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i204: ; preds = %if.then18.i.i209, %if.end16.i.i202, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i219, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i233
   %retval.0.i.i205 = phi i64 [ %sub.ptr.sub.i.i.i236, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i233 ], [ %sub.ptr.sub.i17.i.i222, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i219 ], [ %sub.ptr.sub.i25.i.i213, %if.then18.i.i209 ], [ 0, %if.end16.i.i202 ]
-  %38 = load ptr, ptr %writer12.i98, align 8
-  %vtable15.i207 = load ptr, ptr %38, align 8
+  %37 = load ptr, ptr %writer12.i98, align 8
+  %vtable15.i207 = load ptr, ptr %37, align 8
   %vfn16.i208 = getelementptr inbounds i8, ptr %vtable15.i207, i64 16
-  %39 = load ptr, ptr %vfn16.i208, align 8
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull %scratch.i90, i64 noundef %retval.0.i.i205)
+  %38 = load ptr, ptr %vfn16.i208, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull %scratch.i90, i64 noundef %retval.0.i.i205)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i, %if.then3.i242, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i204
@@ -48945,16 +48944,16 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246: ; pre
   br i1 %cmp.i14.i, label %if.then.i.i79, label %if.end7.i.i
 
 if.then.i.i79:                                    ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246
-  %40 = load i32, ptr %encoding.i87, align 8
-  %cmp3.i.i80 = icmp eq i32 %40, 1
+  %39 = load i32, ptr %encoding.i87, align 8
+  %cmp3.i.i80 = icmp eq i32 %39, 1
   br i1 %cmp3.i.i80, label %if.then4.i.i, label %for.body.i.preheader.i.i
 
 if.then4.i.i:                                     ; preds = %if.then.i.i79
-  %41 = load ptr, ptr %writer12.i98, align 8
-  %vtable.i.i = load ptr, ptr %41, align 8
+  %40 = load ptr, ptr %writer12.i98, align 8
+  %vtable.i.i = load ptr, ptr %40, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
-  %42 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %42(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull %add.ptr9.i, i64 noundef %add.i)
+  %41 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef nonnull %add.ptr9.i, i64 noundef %add.i)
   %.pr = load i64, ptr %bufsize.i, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit
 
@@ -48972,9 +48971,8 @@ for.body.i.i.i81:                                 ; preds = %for.cond.i.i.i, %fo
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.cond.i.i.i ], [ 1, %for.body.i.preheader.i.i ]
   %sub.i.i.i = sub nuw nsw i64 2048, %i.07.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data.addr.114.i.i, i64 %sub.i.i.i
-  %43 = load i8, ptr %arrayidx.i.i.i, align 1
-  %44 = and i8 %43, -64
-  %cmp2.not.i.i.i = icmp eq i8 %44, -128
+  %42 = load i8, ptr %arrayidx.i.i.i, align 1
+  %cmp2.not.i.i.i = icmp slt i8 %42, -64
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %for.body.i.i.i81
@@ -48983,21 +48981,21 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %fo
 
 if.end.i140:                                      ; preds = %for.cond.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
   %retval.0.i.i.i367 = phi i64 [ %sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i ], [ 2048, %for.cond.i.i.i ]
-  %45 = load i32, ptr %encoding.i87, align 8
-  %cmp2.i142 = icmp eq i32 %45, 1
+  %43 = load i32, ptr %encoding.i87, align 8
+  %cmp2.i142 = icmp eq i32 %43, 1
   br i1 %cmp2.i142, label %if.then3.i188, label %if.else.i143
 
 if.then3.i188:                                    ; preds = %if.end.i140
-  %46 = load ptr, ptr %writer12.i98, align 8
-  %vtable.i190 = load ptr, ptr %46, align 8
+  %44 = load ptr, ptr %writer12.i98, align 8
+  %vtable.i190 = load ptr, ptr %44, align 8
   %vfn.i191 = getelementptr inbounds i8, ptr %vtable.i190, i64 16
-  %47 = load ptr, ptr %vfn.i191, align 8
-  tail call void %47(ptr noundef nonnull align 8 dereferenceable(8) %46, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i367)
+  %45 = load ptr, ptr %vfn.i191, align 8
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i367)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit192
 
 if.else.i143:                                     ; preds = %if.end.i140
-  %48 = and i32 %45, -2
-  %or.cond.i.i145 = icmp eq i32 %48, 2
+  %46 = and i32 %43, -2
+  %or.cond.i.i145 = icmp eq i32 %46, 2
   br i1 %or.cond.i.i145, label %while.body.i256, label %if.end.i.i146
 
 while.body.i256:                                  ; preds = %if.else.i143, %if.end120.i274
@@ -49005,19 +49003,19 @@ while.body.i256:                                  ; preds = %if.else.i143, %if.e
   %size.addr.070.i = phi i64 [ %size.addr.2.i276, %if.end120.i274 ], [ %retval.0.i.i.i367, %if.else.i143 ]
   %result.addr.069.i.idx = phi i64 [ %result.addr.2.i275.idx, %if.end120.i274 ], [ 2048, %if.else.i143 ]
   %result.addr.069.i.ptr = getelementptr inbounds i8, ptr %writer, i64 %result.addr.069.i.idx
-  %49 = load i8, ptr %data.addr.071.i, align 1
-  %conv.i257 = zext i8 %49 to i32
-  %cmp.i258 = icmp sgt i8 %49, -1
+  %47 = load i8, ptr %data.addr.071.i, align 1
+  %conv.i257 = zext i8 %47 to i32
+  %cmp.i258 = icmp sgt i8 %47, -1
   br i1 %cmp.i258, label %if.then.i341, label %if.else.i259
 
 if.then.i341:                                     ; preds = %while.body.i256
-  %conv.i.i = zext nneg i8 %49 to i16
+  %conv.i.i = zext nneg i8 %47 to i16
   store i16 %conv.i.i, ptr %result.addr.069.i.ptr, align 2
   %result.addr.069.i.add374 = add nsw i64 %result.addr.069.i.idx, 2
   %add.ptr.i343 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 1
   %sub.i344 = add i64 %size.addr.070.i, -1
-  %50 = ptrtoint ptr %add.ptr.i343 to i64
-  %and.i345 = and i64 %50, 3
+  %48 = ptrtoint ptr %add.ptr.i343 to i64
+  %and.i345 = and i64 %48, 3
   %cmp2.i346 = icmp eq i64 %and.i345, 0
   %cmp5.i347 = icmp ugt i64 %sub.i344, 3
   %or.cond3.i348 = and i1 %cmp5.i347, %cmp2.i346
@@ -49027,30 +49025,30 @@ land.rhs.i349:                                    ; preds = %if.then.i341, %whil
   %result.addr.1.i350.idx = phi i64 [ %result.addr.1.i350.add, %while.body8.i355 ], [ %result.addr.069.i.add374, %if.then.i341 ]
   %size.addr.1.i351 = phi i64 [ %sub21.i363, %while.body8.i355 ], [ %sub.i344, %if.then.i341 ]
   %data.addr.1.i352 = phi ptr [ %add.ptr20.i362, %while.body8.i355 ], [ %add.ptr.i343, %if.then.i341 ]
-  %51 = load i32, ptr %data.addr.1.i352, align 4
-  %and6.i353 = and i32 %51, -2139062144
+  %49 = load i32, ptr %data.addr.1.i352, align 4
+  %and6.i353 = and i32 %49, -2139062144
   %cmp7.i354 = icmp eq i32 %and6.i353, 0
   br i1 %cmp7.i354, label %while.body8.i355, label %if.end120.i274
 
 while.body8.i355:                                 ; preds = %land.rhs.i349
   %result.addr.1.i350.ptr = getelementptr inbounds i8, ptr %writer, i64 %result.addr.1.i350.idx
-  %52 = trunc i32 %51 to i16
-  %conv.i54.i = and i16 %52, 127
+  %50 = trunc i32 %49 to i16
+  %conv.i54.i = and i16 %50, 127
   store i16 %conv.i54.i, ptr %result.addr.1.i350.ptr, align 2
   %add.ptr.i55.i356 = getelementptr inbounds i8, ptr %result.addr.1.i350.ptr, i64 2
   %arrayidx11.i357 = getelementptr inbounds i8, ptr %data.addr.1.i352, i64 1
-  %53 = load i8, ptr %arrayidx11.i357, align 1
-  %conv.i56.i = zext i8 %53 to i16
+  %51 = load i8, ptr %arrayidx11.i357, align 1
+  %conv.i56.i = zext i8 %51 to i16
   store i16 %conv.i56.i, ptr %add.ptr.i55.i356, align 2
   %add.ptr.i57.i358 = getelementptr inbounds i8, ptr %result.addr.1.i350.ptr, i64 4
   %arrayidx14.i359 = getelementptr inbounds i8, ptr %data.addr.1.i352, i64 2
-  %54 = load i8, ptr %arrayidx14.i359, align 1
-  %conv.i58.i = zext i8 %54 to i16
+  %52 = load i8, ptr %arrayidx14.i359, align 1
+  %conv.i58.i = zext i8 %52 to i16
   store i16 %conv.i58.i, ptr %add.ptr.i57.i358, align 2
   %add.ptr.i59.i360 = getelementptr inbounds i8, ptr %result.addr.1.i350.ptr, i64 6
   %arrayidx17.i361 = getelementptr inbounds i8, ptr %data.addr.1.i352, i64 3
-  %55 = load i8, ptr %arrayidx17.i361, align 1
-  %conv.i60.i = zext i8 %55 to i16
+  %53 = load i8, ptr %arrayidx17.i361, align 1
+  %conv.i60.i = zext i8 %53 to i16
   store i16 %conv.i60.i, ptr %add.ptr.i59.i360, align 2
   %result.addr.1.i350.add = add nsw i64 %result.addr.1.i350.idx, 8
   %add.ptr20.i362 = getelementptr inbounds i8, ptr %data.addr.1.i352, i64 4
@@ -49059,16 +49057,16 @@ while.body8.i355:                                 ; preds = %land.rhs.i349
   br i1 %cmp5.old.i364, label %land.rhs.i349, label %if.end120.i274
 
 if.else.i259:                                     ; preds = %while.body.i256
-  %56 = and i32 %conv.i257, 224
-  %cmp24.i260 = icmp eq i32 %56, 192
+  %54 = and i32 %conv.i257, 224
+  %cmp24.i260 = icmp eq i32 %54, 192
   %cmp25.i261 = icmp ne i64 %size.addr.070.i, 1
   %or.cond.i262 = and i1 %cmp25.i261, %cmp24.i260
   br i1 %or.cond.i262, label %land.lhs.true26.i329, label %if.else40.i263
 
 land.lhs.true26.i329:                             ; preds = %if.else.i259
   %arrayidx27.i330 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 1
-  %57 = load i8, ptr %arrayidx27.i330, align 1
-  %conv28.i331 = zext i8 %57 to i32
+  %55 = load i8, ptr %arrayidx27.i330, align 1
+  %conv28.i331 = zext i8 %55 to i32
   %and29.i332 = and i32 %conv28.i331, 192
   %cmp30.i333 = icmp eq i32 %and29.i332, 128
   br i1 %cmp30.i333, label %if.then31.i334, label %if.else40.i263
@@ -49086,24 +49084,24 @@ if.then31.i334:                                   ; preds = %land.lhs.true26.i32
   br label %if.end120.i274
 
 if.else40.i263:                                   ; preds = %land.lhs.true26.i329, %if.else.i259
-  %58 = and i32 %conv.i257, 240
-  %cmp43.i264 = icmp eq i32 %58, 224
+  %56 = and i32 %conv.i257, 240
+  %cmp43.i264 = icmp eq i32 %56, 224
   %cmp45.i265 = icmp ugt i64 %size.addr.070.i, 2
   %or.cond1.i266 = and i1 %cmp45.i265, %cmp43.i264
   br i1 %or.cond1.i266, label %land.lhs.true46.i310, label %if.else72.i267
 
 land.lhs.true46.i310:                             ; preds = %if.else40.i263
   %arrayidx47.i311 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 1
-  %59 = load i8, ptr %arrayidx47.i311, align 1
-  %conv48.i312 = zext i8 %59 to i32
+  %57 = load i8, ptr %arrayidx47.i311, align 1
+  %conv48.i312 = zext i8 %57 to i32
   %and49.i313 = and i32 %conv48.i312, 192
   %cmp50.i314 = icmp eq i32 %and49.i313, 128
   br i1 %cmp50.i314, label %land.lhs.true51.i315, label %if.else72.i267
 
 land.lhs.true51.i315:                             ; preds = %land.lhs.true46.i310
   %arrayidx52.i316 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 2
-  %60 = load i8, ptr %arrayidx52.i316, align 1
-  %conv53.i317 = zext i8 %60 to i32
+  %58 = load i8, ptr %arrayidx52.i316, align 1
+  %conv53.i317 = zext i8 %58 to i32
   %and54.i318 = and i32 %conv53.i317, 192
   %cmp55.i319 = icmp eq i32 %and54.i318, 128
   br i1 %cmp55.i319, label %if.then56.i320, label %if.else72.i267
@@ -49123,32 +49121,32 @@ if.then56.i320:                                   ; preds = %land.lhs.true51.i31
   br label %if.end120.i274
 
 if.else72.i267:                                   ; preds = %land.lhs.true51.i315, %land.lhs.true46.i310, %if.else40.i263
-  %61 = and i32 %conv.i257, 248
-  %cmp75.i268 = icmp eq i32 %61, 240
+  %59 = and i32 %conv.i257, 248
+  %cmp75.i268 = icmp eq i32 %59, 240
   %cmp77.i269 = icmp ugt i64 %size.addr.070.i, 3
   %or.cond2.i270 = and i1 %cmp77.i269, %cmp75.i268
   br i1 %or.cond2.i270, label %land.lhs.true78.i280, label %if.else114.i271
 
 land.lhs.true78.i280:                             ; preds = %if.else72.i267
   %arrayidx79.i281 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 1
-  %62 = load i8, ptr %arrayidx79.i281, align 1
-  %conv80.i282 = zext i8 %62 to i32
+  %60 = load i8, ptr %arrayidx79.i281, align 1
+  %conv80.i282 = zext i8 %60 to i32
   %and81.i283 = and i32 %conv80.i282, 192
   %cmp82.i284 = icmp eq i32 %and81.i283, 128
   br i1 %cmp82.i284, label %land.lhs.true83.i285, label %if.else114.i271
 
 land.lhs.true83.i285:                             ; preds = %land.lhs.true78.i280
   %arrayidx84.i286 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 2
-  %63 = load i8, ptr %arrayidx84.i286, align 1
-  %conv85.i287 = zext i8 %63 to i32
+  %61 = load i8, ptr %arrayidx84.i286, align 1
+  %conv85.i287 = zext i8 %61 to i32
   %and86.i288 = and i32 %conv85.i287, 192
   %cmp87.i289 = icmp eq i32 %and86.i288, 128
   br i1 %cmp87.i289, label %land.lhs.true88.i290, label %if.else114.i271
 
 land.lhs.true88.i290:                             ; preds = %land.lhs.true83.i285
   %arrayidx89.i291 = getelementptr inbounds i8, ptr %data.addr.071.i, i64 3
-  %64 = load i8, ptr %arrayidx89.i291, align 1
-  %conv90.i292 = zext i8 %64 to i32
+  %62 = load i8, ptr %arrayidx89.i291, align 1
+  %conv90.i292 = zext i8 %62 to i32
   %and91.i293 = and i32 %conv90.i292, 192
   %cmp92.i294 = icmp eq i32 %and91.i293, 128
   br i1 %cmp92.i294, label %if.then93.i295, label %if.else114.i271
@@ -49166,12 +49164,12 @@ if.then93.i295:                                   ; preds = %land.lhs.true88.i29
   %or106.i305 = add nuw nsw i32 %or101.i300, %shl100.i299
   %sub.i.i306 = or disjoint i32 %or106.i305, %shl105.i302
   %shr.i.i = lshr exact i32 %sub.i.i306, 10
-  %65 = trunc i32 %shr.i.i to i16
-  %conv.i66.i = add nsw i16 %65, -10240
+  %63 = trunc i32 %shr.i.i to i16
+  %conv.i66.i = add nsw i16 %63, -10240
   store i16 %conv.i66.i, ptr %result.addr.069.i.ptr, align 2
-  %66 = trunc nuw nsw i32 %or110.i304 to i16
-  %67 = and i16 %66, 1023
-  %conv3.i.i = or disjoint i16 %67, -9216
+  %64 = trunc nuw nsw i32 %or110.i304 to i16
+  %65 = and i16 %64, 1023
+  %conv3.i.i = or disjoint i16 %65, -9216
   %arrayidx4.i.i307 = getelementptr inbounds i8, ptr %result.addr.069.i.ptr, i64 2
   store i16 %conv3.i.i, ptr %arrayidx4.i.i307, align 2
   %result.addr.069.i.add = add nsw i64 %result.addr.069.i.idx, 4
@@ -49192,7 +49190,7 @@ if.end120.i274:                                   ; preds = %while.body8.i355, %
   br i1 %tobool.not.i278, label %_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_.exit, label %while.body.i256, !llvm.loop !453
 
 _ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_.exit: ; preds = %if.end120.i274
-  %cmp3.i.i175 = icmp ne i32 %45, 2
+  %cmp3.i.i175 = icmp ne i32 %43, 2
   %result.addr.2.i275.ptr.le = getelementptr inbounds i8, ptr %writer, i64 %result.addr.2.i275.idx
   %cmp.not7.i.i.i177 = icmp ne i64 %result.addr.2.i275.idx, 2048
   %or.cond.not.i.i.i178 = and i1 %cmp3.i.i175, %cmp.not7.i.i.i177
@@ -49200,8 +49198,8 @@ _ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_
 
 for.body.i.i.i183:                                ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_.exit, %for.body.i.i.i183
   %i.08.i.i.i184 = phi ptr [ %incdec.ptr.i.i.i186, %for.body.i.i.i183 ], [ %scratch.i90, %_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_.exit ]
-  %68 = load i16, ptr %i.08.i.i.i184, align 2
-  %rev.i.i.i.i185 = tail call noundef i16 @llvm.bswap.i16(i16 %68)
+  %66 = load i16, ptr %i.08.i.i.i184, align 2
+  %rev.i.i.i.i185 = tail call noundef i16 @llvm.bswap.i16(i16 %66)
   store i16 %rev.i.i.i.i185, ptr %i.08.i.i.i184, align 2
   %incdec.ptr.i.i.i186 = getelementptr inbounds i8, ptr %i.08.i.i.i184, i64 2
   %cmp.not.i.i.i187 = icmp eq ptr %incdec.ptr.i.i.i186, %result.addr.2.i275.ptr.le
@@ -49212,8 +49210,8 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i150
 
 if.end.i.i146:                                    ; preds = %if.else.i143
-  %69 = add i32 %45, -5
-  %or.cond1.i.i147 = icmp ult i32 %69, 2
+  %67 = add i32 %43, -5
+  %or.cond1.i.i147 = icmp ult i32 %67, 2
   br i1 %or.cond1.i.i147, label %while.body.i247, label %if.end16.i.i148
 
 while.body.i247:                                  ; preds = %if.end.i.i146, %if.end120.i
@@ -49221,9 +49219,9 @@ while.body.i247:                                  ; preds = %if.end.i.i146, %if.
   %size.addr.063.i = phi i64 [ %size.addr.2.i, %if.end120.i ], [ %retval.0.i.i.i367, %if.end.i.i146 ]
   %result.addr.062.i.idx = phi i64 [ %result.addr.2.i.idx, %if.end120.i ], [ 2048, %if.end.i.i146 ]
   %result.addr.062.i.ptr = getelementptr inbounds i8, ptr %writer, i64 %result.addr.062.i.idx
-  %70 = load i8, ptr %data.addr.064.i, align 1
-  %conv.i = zext i8 %70 to i32
-  %cmp.i248 = icmp sgt i8 %70, -1
+  %68 = load i8, ptr %data.addr.064.i, align 1
+  %conv.i = zext i8 %68 to i32
+  %cmp.i248 = icmp sgt i8 %68, -1
   br i1 %cmp.i248, label %if.then.i251, label %if.else.i249
 
 if.then.i251:                                     ; preds = %while.body.i247
@@ -49231,8 +49229,8 @@ if.then.i251:                                     ; preds = %while.body.i247
   %result.addr.062.i.add371 = add nsw i64 %result.addr.062.i.idx, 4
   %add.ptr.i253 = getelementptr inbounds i8, ptr %data.addr.064.i, i64 1
   %sub.i254 = add i64 %size.addr.063.i, -1
-  %71 = ptrtoint ptr %add.ptr.i253 to i64
-  %and.i = and i64 %71, 3
+  %69 = ptrtoint ptr %add.ptr.i253 to i64
+  %and.i = and i64 %69, 3
   %cmp2.i255 = icmp eq i64 %and.i, 0
   %cmp5.i = icmp ugt i64 %sub.i254, 3
   %or.cond3.i = and i1 %cmp5.i, %cmp2.i255
@@ -49242,29 +49240,29 @@ land.rhs.i:                                       ; preds = %if.then.i251, %whil
   %result.addr.1.i.idx = phi i64 [ %result.addr.1.i.add, %while.body8.i ], [ %result.addr.062.i.add371, %if.then.i251 ]
   %size.addr.1.i = phi i64 [ %sub21.i, %while.body8.i ], [ %sub.i254, %if.then.i251 ]
   %data.addr.1.i = phi ptr [ %add.ptr20.i, %while.body8.i ], [ %add.ptr.i253, %if.then.i251 ]
-  %72 = load i32, ptr %data.addr.1.i, align 4
-  %and6.i = and i32 %72, -2139062144
+  %70 = load i32, ptr %data.addr.1.i, align 4
+  %and6.i = and i32 %70, -2139062144
   %cmp7.i = icmp eq i32 %and6.i, 0
   br i1 %cmp7.i, label %while.body8.i, label %if.end120.i
 
 while.body8.i:                                    ; preds = %land.rhs.i
   %result.addr.1.i.ptr = getelementptr inbounds i8, ptr %writer, i64 %result.addr.1.i.idx
-  %conv9.i = and i32 %72, 127
+  %conv9.i = and i32 %70, 127
   store i32 %conv9.i, ptr %result.addr.1.i.ptr, align 4
   %add.ptr.i54.i = getelementptr inbounds i8, ptr %result.addr.1.i.ptr, i64 4
   %arrayidx11.i = getelementptr inbounds i8, ptr %data.addr.1.i, i64 1
-  %73 = load i8, ptr %arrayidx11.i, align 1
-  %conv12.i = zext i8 %73 to i32
+  %71 = load i8, ptr %arrayidx11.i, align 1
+  %conv12.i = zext i8 %71 to i32
   store i32 %conv12.i, ptr %add.ptr.i54.i, align 4
   %add.ptr.i55.i = getelementptr inbounds i8, ptr %result.addr.1.i.ptr, i64 8
   %arrayidx14.i = getelementptr inbounds i8, ptr %data.addr.1.i, i64 2
-  %74 = load i8, ptr %arrayidx14.i, align 1
-  %conv15.i = zext i8 %74 to i32
+  %72 = load i8, ptr %arrayidx14.i, align 1
+  %conv15.i = zext i8 %72 to i32
   store i32 %conv15.i, ptr %add.ptr.i55.i, align 4
   %add.ptr.i56.i = getelementptr inbounds i8, ptr %result.addr.1.i.ptr, i64 12
   %arrayidx17.i = getelementptr inbounds i8, ptr %data.addr.1.i, i64 3
-  %75 = load i8, ptr %arrayidx17.i, align 1
-  %conv18.i = zext i8 %75 to i32
+  %73 = load i8, ptr %arrayidx17.i, align 1
+  %conv18.i = zext i8 %73 to i32
   store i32 %conv18.i, ptr %add.ptr.i56.i, align 4
   %result.addr.1.i.add = add nsw i64 %result.addr.1.i.idx, 16
   %add.ptr20.i = getelementptr inbounds i8, ptr %data.addr.1.i, i64 4
@@ -49273,16 +49271,16 @@ while.body8.i:                                    ; preds = %land.rhs.i
   br i1 %cmp5.old.i, label %land.rhs.i, label %if.end120.i
 
 if.else.i249:                                     ; preds = %while.body.i247
-  %76 = and i32 %conv.i, 224
-  %cmp24.i = icmp eq i32 %76, 192
+  %74 = and i32 %conv.i, 224
+  %cmp24.i = icmp eq i32 %74, 192
   %cmp25.i = icmp ne i64 %size.addr.063.i, 1
   %or.cond.i = and i1 %cmp25.i, %cmp24.i
   br i1 %or.cond.i, label %land.lhs.true26.i, label %if.else40.i
 
 land.lhs.true26.i:                                ; preds = %if.else.i249
   %arrayidx27.i = getelementptr inbounds i8, ptr %data.addr.064.i, i64 1
-  %77 = load i8, ptr %arrayidx27.i, align 1
-  %conv28.i = zext i8 %77 to i32
+  %75 = load i8, ptr %arrayidx27.i, align 1
+  %conv28.i = zext i8 %75 to i32
   %and29.i = and i32 %conv28.i, 192
   %cmp30.i = icmp eq i32 %and29.i, 128
   br i1 %cmp30.i, label %if.then31.i, label %if.else40.i
@@ -49299,24 +49297,24 @@ if.then31.i:                                      ; preds = %land.lhs.true26.i
   br label %if.end120.i
 
 if.else40.i:                                      ; preds = %land.lhs.true26.i, %if.else.i249
-  %78 = and i32 %conv.i, 240
-  %cmp43.i = icmp eq i32 %78, 224
+  %76 = and i32 %conv.i, 240
+  %cmp43.i = icmp eq i32 %76, 224
   %cmp45.i = icmp ugt i64 %size.addr.063.i, 2
   %or.cond1.i = and i1 %cmp45.i, %cmp43.i
   br i1 %or.cond1.i, label %land.lhs.true46.i, label %if.else72.i
 
 land.lhs.true46.i:                                ; preds = %if.else40.i
   %arrayidx47.i = getelementptr inbounds i8, ptr %data.addr.064.i, i64 1
-  %79 = load i8, ptr %arrayidx47.i, align 1
-  %conv48.i = zext i8 %79 to i32
+  %77 = load i8, ptr %arrayidx47.i, align 1
+  %conv48.i = zext i8 %77 to i32
   %and49.i = and i32 %conv48.i, 192
   %cmp50.i = icmp eq i32 %and49.i, 128
   br i1 %cmp50.i, label %land.lhs.true51.i, label %if.else72.i
 
 land.lhs.true51.i:                                ; preds = %land.lhs.true46.i
   %arrayidx52.i = getelementptr inbounds i8, ptr %data.addr.064.i, i64 2
-  %80 = load i8, ptr %arrayidx52.i, align 1
-  %conv53.i = zext i8 %80 to i32
+  %78 = load i8, ptr %arrayidx52.i, align 1
+  %conv53.i = zext i8 %78 to i32
   %and54.i = and i32 %conv53.i, 192
   %cmp55.i = icmp eq i32 %and54.i, 128
   br i1 %cmp55.i, label %if.then56.i, label %if.else72.i
@@ -49336,32 +49334,32 @@ if.then56.i:                                      ; preds = %land.lhs.true51.i
   br label %if.end120.i
 
 if.else72.i:                                      ; preds = %land.lhs.true51.i, %land.lhs.true46.i, %if.else40.i
-  %81 = and i32 %conv.i, 248
-  %cmp75.i = icmp eq i32 %81, 240
+  %79 = and i32 %conv.i, 248
+  %cmp75.i = icmp eq i32 %79, 240
   %cmp77.i = icmp ugt i64 %size.addr.063.i, 3
   %or.cond2.i = and i1 %cmp77.i, %cmp75.i
   br i1 %or.cond2.i, label %land.lhs.true78.i, label %if.else114.i
 
 land.lhs.true78.i:                                ; preds = %if.else72.i
   %arrayidx79.i = getelementptr inbounds i8, ptr %data.addr.064.i, i64 1
-  %82 = load i8, ptr %arrayidx79.i, align 1
-  %conv80.i = zext i8 %82 to i32
+  %80 = load i8, ptr %arrayidx79.i, align 1
+  %conv80.i = zext i8 %80 to i32
   %and81.i = and i32 %conv80.i, 192
   %cmp82.i = icmp eq i32 %and81.i, 128
   br i1 %cmp82.i, label %land.lhs.true83.i, label %if.else114.i
 
 land.lhs.true83.i:                                ; preds = %land.lhs.true78.i
   %arrayidx84.i = getelementptr inbounds i8, ptr %data.addr.064.i, i64 2
-  %83 = load i8, ptr %arrayidx84.i, align 1
-  %conv85.i = zext i8 %83 to i32
+  %81 = load i8, ptr %arrayidx84.i, align 1
+  %conv85.i = zext i8 %81 to i32
   %and86.i = and i32 %conv85.i, 192
   %cmp87.i = icmp eq i32 %and86.i, 128
   br i1 %cmp87.i, label %land.lhs.true88.i, label %if.else114.i
 
 land.lhs.true88.i:                                ; preds = %land.lhs.true83.i
   %arrayidx89.i = getelementptr inbounds i8, ptr %data.addr.064.i, i64 3
-  %84 = load i8, ptr %arrayidx89.i, align 1
-  %conv90.i = zext i8 %84 to i32
+  %82 = load i8, ptr %arrayidx89.i, align 1
+  %conv90.i = zext i8 %82 to i32
   %and91.i = and i32 %conv90.i, 192
   %cmp92.i = icmp eq i32 %and91.i, 128
   br i1 %cmp92.i, label %if.then93.i, label %if.else114.i
@@ -49396,7 +49394,7 @@ if.end120.i:                                      ; preds = %while.body8.i, %lan
   br i1 %tobool.not.i250, label %_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_.exit, label %while.body.i247, !llvm.loop !454
 
 _ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_.exit: ; preds = %if.end120.i
-  %cmp14.i.i161 = icmp ne i32 %45, 5
+  %cmp14.i.i161 = icmp ne i32 %43, 5
   %result.addr.2.i.ptr.le = getelementptr inbounds i8, ptr %writer, i64 %result.addr.2.i.idx
   %cmp.not7.i13.i.i163 = icmp ne i64 %result.addr.2.i.idx, 2048
   %or.cond.not.i14.i.i164 = and i1 %cmp14.i.i161, %cmp.not7.i13.i.i163
@@ -49404,8 +49402,8 @@ _ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_
 
 for.body.i18.i.i169:                              ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_.exit, %for.body.i18.i.i169
   %i.08.i19.i.i170 = phi ptr [ %incdec.ptr.i20.i.i172, %for.body.i18.i.i169 ], [ %scratch.i90, %_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_.exit ]
-  %85 = load i32, ptr %i.08.i19.i.i170, align 4
-  %or6.i.i.i.i171 = tail call noundef i32 @llvm.bswap.i32(i32 %85)
+  %83 = load i32, ptr %i.08.i19.i.i170, align 4
+  %or6.i.i.i.i171 = tail call noundef i32 @llvm.bswap.i32(i32 %83)
   store i32 %or6.i.i.i.i171, ptr %i.08.i19.i.i170, align 4
   %incdec.ptr.i20.i.i172 = getelementptr inbounds i8, ptr %i.08.i19.i.i170, i64 4
   %cmp.not.i21.i.i173 = icmp eq ptr %incdec.ptr.i20.i.i172, %result.addr.2.i.ptr.le
@@ -49416,7 +49414,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i150
 
 if.end16.i.i148:                                  ; preds = %if.end.i.i146
-  %cmp17.i.i149 = icmp eq i32 %45, 9
+  %cmp17.i.i149 = icmp eq i32 %43, 9
   br i1 %cmp17.i.i149, label %if.then18.i.i155, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i150
 
 if.then18.i.i155:                                 ; preds = %if.end16.i.i148
@@ -49427,11 +49425,11 @@ if.then18.i.i155:                                 ; preds = %if.end16.i.i148
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i150: ; preds = %if.then18.i.i155, %if.end16.i.i148, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i165, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i179
   %retval.0.i.i151 = phi i64 [ %gepdiff375, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i179 ], [ %gepdiff, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i165 ], [ %sub.ptr.sub.i25.i.i159, %if.then18.i.i155 ], [ 0, %if.end16.i.i148 ]
-  %86 = load ptr, ptr %writer12.i98, align 8
-  %vtable15.i153 = load ptr, ptr %86, align 8
+  %84 = load ptr, ptr %writer12.i98, align 8
+  %vtable15.i153 = load ptr, ptr %84, align 8
   %vfn16.i154 = getelementptr inbounds i8, ptr %vtable15.i153, i64 16
-  %87 = load ptr, ptr %vfn16.i154, align 8
-  tail call void %87(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull %scratch.i90, i64 noundef %retval.0.i.i151)
+  %85 = load ptr, ptr %vfn16.i154, align 8
+  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull %scratch.i90, i64 noundef %retval.0.i.i151)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit192
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit192: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i, %if.then3.i188, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i150
@@ -49449,45 +49447,45 @@ if.end7.i.i:                                      ; preds = %while.end.i.i, %_ZN
   %length.addr.0.i.i = phi i64 [ %sub.i15.i, %while.end.i.i ], [ %add.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246 ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %add.ptr9.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit246 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
-  %88 = load i64, ptr %bufsize.i, align 8
-  %add.i.i = add i64 %88, %length.addr.0.i.i
+  %86 = load i64, ptr %bufsize.i, align 8
+  %add.i.i = add i64 %86, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit: ; preds = %if.then.i82, %if.then4.i.i, %if.end7.i.i
-  %89 = phi i64 [ %offset.0.lcssa.i, %if.then.i82 ], [ %.pr, %if.then4.i.i ], [ %add.i.i, %if.end7.i.i ]
-  %cmp.i5.i = icmp ugt i64 %89, 2047
+  %87 = phi i64 [ %offset.0.lcssa.i, %if.then.i82 ], [ %.pr, %if.then4.i.i ], [ %add.i.i, %if.end7.i.i ]
+  %cmp.i5.i = icmp ugt i64 %87, 2047
   br i1 %cmp.i5.i, label %if.end.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl15node_output_endERNS1_19xml_buffered_writerEPNS0_15xml_node_structE.exit
 
 if.end.i:                                         ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit
-  %90 = load i32, ptr %encoding.i87, align 8
-  %cmp2.i = icmp eq i32 %90, 1
+  %88 = load i32, ptr %encoding.i87, align 8
+  %cmp2.i = icmp eq i32 %88, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %91 = load ptr, ptr %writer12.i98, align 8
-  %vtable.i = load ptr, ptr %91, align 8
+  %89 = load ptr, ptr %writer12.i98, align 8
+  %vtable.i = load ptr, ptr %89, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %92 = load ptr, ptr %vfn.i, align 8
-  tail call void %92(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %89)
+  %90 = load ptr, ptr %vfn.i, align 8
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %87)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl15node_output_endERNS1_19xml_buffered_writerEPNS0_15xml_node_structE.exit
 
 if.else.i:                                        ; preds = %if.end.i
-  %93 = and i32 %90, -2
-  %or.cond.i.i = icmp eq i32 %93, 2
+  %91 = and i32 %88, -2
+  %or.cond.i.i = icmp eq i32 %91, 2
   br i1 %or.cond.i.i, label %if.then.i.i72, label %if.end.i.i
 
 if.then.i.i72:                                    ; preds = %if.else.i
-  %cmp3.i.i = icmp ne i32 %90, 2
-  %call.i.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %89, ptr noundef nonnull %scratch.i90)
+  %cmp3.i.i = icmp ne i32 %88, 2
+  %call.i.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %87, ptr noundef nonnull %scratch.i90)
   %cmp.not7.i.i.i = icmp ne ptr %scratch.i90, %call.i.i.i
   %or.cond.not.i.i.i = and i1 %cmp3.i.i, %cmp.not7.i.i.i
   br i1 %or.cond.not.i.i.i, label %for.body.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
 
 for.body.i.i.i:                                   ; preds = %if.then.i.i72, %for.body.i.i.i
   %i.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %scratch.i90, %if.then.i.i72 ]
-  %94 = load i16, ptr %i.08.i.i.i, align 2
-  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %94)
+  %92 = load i16, ptr %i.08.i.i.i, align 2
+  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %92)
   store i16 %rev.i.i.i.i, ptr %i.08.i.i.i, align 2
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.08.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call.i.i.i
@@ -49499,21 +49497,21 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else.i
-  %95 = add i32 %90, -5
-  %or.cond1.i.i = icmp ult i32 %95, 2
+  %93 = add i32 %88, -5
+  %or.cond1.i.i = icmp ult i32 %93, 2
   br i1 %or.cond1.i.i, label %if.then8.i.i, label %if.end16.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %cmp14.i.i = icmp ne i32 %90, 5
-  %call.i12.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %89, ptr noundef nonnull %scratch.i90)
+  %cmp14.i.i = icmp ne i32 %88, 5
+  %call.i12.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %87, ptr noundef nonnull %scratch.i90)
   %cmp.not7.i13.i.i = icmp ne ptr %scratch.i90, %call.i12.i.i
   %or.cond.not.i14.i.i = and i1 %cmp14.i.i, %cmp.not7.i13.i.i
   br i1 %or.cond.not.i14.i.i, label %for.body.i18.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
 
 for.body.i18.i.i:                                 ; preds = %if.then8.i.i, %for.body.i18.i.i
   %i.08.i19.i.i = phi ptr [ %incdec.ptr.i20.i.i, %for.body.i18.i.i ], [ %scratch.i90, %if.then8.i.i ]
-  %96 = load i32, ptr %i.08.i19.i.i, align 4
-  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %96)
+  %94 = load i32, ptr %i.08.i19.i.i, align 4
+  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %94)
   store i32 %or6.i.i.i.i, ptr %i.08.i19.i.i, align 4
   %incdec.ptr.i20.i.i = getelementptr inbounds i8, ptr %i.08.i19.i.i, i64 4
   %cmp.not.i21.i.i = icmp eq ptr %incdec.ptr.i20.i.i, %call.i12.i.i
@@ -49525,26 +49523,26 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end16.i.i:                                     ; preds = %if.end.i.i
-  %cmp17.i.i = icmp eq i32 %90, 9
+  %cmp17.i.i = icmp eq i32 %88, 9
   br i1 %cmp17.i.i, label %if.then18.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.then18.i.i:                                    ; preds = %if.end16.i.i
-  %call.i22.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_13latin1_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %89, ptr noundef nonnull %scratch.i90)
+  %call.i22.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_13latin1_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %87, ptr noundef nonnull %scratch.i90)
   %sub.ptr.lhs.cast.i23.i.i = ptrtoint ptr %call.i22.i.i to i64
   %sub.ptr.sub.i25.i.i = sub i64 %sub.ptr.lhs.cast.i23.i.i, %sub.ptr.rhs.cast.i24.i.i104
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i: ; preds = %if.then18.i.i, %if.end16.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
   %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i17.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i25.i.i, %if.then18.i.i ], [ 0, %if.end16.i.i ]
-  %97 = load ptr, ptr %writer12.i98, align 8
-  %vtable15.i = load ptr, ptr %97, align 8
+  %95 = load ptr, ptr %writer12.i98, align 8
+  %vtable15.i = load ptr, ptr %95, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 16
-  %98 = load ptr, ptr %vfn16.i, align 8
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(8) %97, ptr noundef nonnull %scratch.i90, i64 noundef %retval.0.i.i)
+  %96 = load ptr, ptr %vfn16.i, align 8
+  tail call void %96(ptr noundef nonnull align 8 dereferenceable(8) %95, ptr noundef nonnull %scratch.i90, i64 noundef %retval.0.i.i)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl15node_output_endERNS1_19xml_buffered_writerEPNS0_15xml_node_structE.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl15node_output_endERNS1_19xml_buffered_writerEPNS0_15xml_node_structE.exit: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i, %if.then3.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit
-  %offset.0.i6.i = phi i64 [ %89, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit ], [ 0, %if.then3.i ], [ 0, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i ]
+  %offset.0.i6.i = phi i64 [ %87, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_stringEPKc.exit ], [ 0, %if.then3.i ], [ 0, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i ]
   %arrayidx.i7.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i6.i
   store i8 62, ptr %arrayidx.i7.i, align 1
   %add2.i.i = add nuw nsw i64 %offset.0.i6.i, 1
@@ -49571,16 +49569,16 @@ do.end:                                           ; preds = %do.cond
   br i1 %or.cond56, label %if.then76, label %if.end77
 
 if.then76:                                        ; preds = %do.end
-  %99 = load i64, ptr %bufsize.i, align 8
-  %cmp.i65 = icmp ugt i64 %99, 2047
+  %97 = load i64, ptr %bufsize.i, align 8
+  %cmp.i65 = icmp ugt i64 %97, 2047
   br i1 %cmp.i65, label %if.then.i69, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit70
 
 if.then.i69:                                      ; preds = %if.then76
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %99)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %97)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit70
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit70: ; preds = %if.then76, %if.then.i69
-  %offset.0.i66 = phi i64 [ 0, %if.then.i69 ], [ %99, %if.then76 ]
+  %offset.0.i66 = phi i64 [ 0, %if.then.i69 ], [ %97, %if.then76 ]
   %arrayidx.i67 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i66
   store i8 10, ptr %arrayidx.i67, align 1
   %add2.i68 = add nuw nsw i64 %offset.0.i66, 1
@@ -50060,8 +50058,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %sub.i.i.i = sub nuw nsw i64 2048, %i.07.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data.addr.114.i.i, i64 %sub.i.i.i
   %18 = load i8, ptr %arrayidx.i.i.i, align 1
-  %19 = and i8 %18, -64
-  %cmp2.not.i.i.i = icmp eq i8 %19, -128
+  %cmp2.not.i.i.i = icmp slt i8 %18, -64
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %for.body.i.i.i, %for.cond.i.i.i
@@ -50080,8 +50077,8 @@ if.end7.i.i:                                      ; preds = %while.end.i.i, %if.
   %length.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %indent_length, %if.else.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %indent, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
-  %20 = load i64, ptr %bufsize.i46, align 8
-  %add.i.i = add i64 %20, %length.addr.0.i.i
+  %19 = load i64, ptr %bufsize.i46, align 8
+  %add.i.i = add i64 %19, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i46, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
 
@@ -50455,8 +50452,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %sub.i.i.i = sub nuw nsw i64 2048, %i.07.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data.addr.114.i.i, i64 %sub.i.i.i
   %7 = load i8, ptr %arrayidx.i.i.i, align 1
-  %8 = and i8 %7, -64
-  %cmp2.not.i.i.i = icmp eq i8 %8, -128
+  %cmp2.not.i.i.i = icmp slt i8 %7, -64
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %for.body.i.i.i
@@ -50465,25 +50461,25 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %fo
 
 if.end.i:                                         ; preds = %for.cond.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
   %retval.0.i.i.i44 = phi i64 [ %sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i ], [ 2048, %for.cond.i.i.i ]
-  %9 = load i32, ptr %encoding.i.i, align 8
-  %cmp2.i = icmp eq i32 %9, 1
+  %8 = load i32, ptr %encoding.i.i, align 8
+  %cmp2.i = icmp eq i32 %8, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i38
 
 if.then3.i:                                       ; preds = %if.end.i
-  %10 = load ptr, ptr %writer12.i, align 8
-  %vtable.i = load ptr, ptr %10, align 8
+  %9 = load ptr, ptr %writer12.i, align 8
+  %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i44)
+  %10 = load ptr, ptr %vfn.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i44)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 if.else.i38:                                      ; preds = %if.end.i
-  %12 = and i32 %9, -2
-  %or.cond.i.i = icmp eq i32 %12, 2
+  %11 = and i32 %8, -2
+  %or.cond.i.i = icmp eq i32 %11, 2
   br i1 %or.cond.i.i, label %if.then.i.i39, label %if.end.i.i
 
 if.then.i.i39:                                    ; preds = %if.else.i38
-  %cmp3.i.i40 = icmp ne i32 %9, 2
+  %cmp3.i.i40 = icmp ne i32 %8, 2
   %call.i.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i44, ptr noundef nonnull %scratch.i)
   %cmp.not7.i.i.i = icmp ne ptr %scratch.i, %call.i.i.i
   %or.cond.not.i.i.i = and i1 %cmp3.i.i40, %cmp.not7.i.i.i
@@ -50491,8 +50487,8 @@ if.then.i.i39:                                    ; preds = %if.else.i38
 
 for.body.i.i.i41:                                 ; preds = %if.then.i.i39, %for.body.i.i.i41
   %i.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i41 ], [ %scratch.i, %if.then.i.i39 ]
-  %13 = load i16, ptr %i.08.i.i.i, align 2
-  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %13)
+  %12 = load i16, ptr %i.08.i.i.i, align 2
+  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %12)
   store i16 %rev.i.i.i.i, ptr %i.08.i.i.i, align 2
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.08.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call.i.i.i
@@ -50504,12 +50500,12 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else.i38
-  %14 = add i32 %9, -5
-  %or.cond1.i.i = icmp ult i32 %14, 2
+  %13 = add i32 %8, -5
+  %or.cond1.i.i = icmp ult i32 %13, 2
   br i1 %or.cond1.i.i, label %if.then8.i.i, label %if.end16.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %cmp14.i.i = icmp ne i32 %9, 5
+  %cmp14.i.i = icmp ne i32 %8, 5
   %call.i12.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i44, ptr noundef nonnull %scratch.i)
   %cmp.not7.i13.i.i = icmp ne ptr %scratch.i, %call.i12.i.i
   %or.cond.not.i14.i.i = and i1 %cmp14.i.i, %cmp.not7.i13.i.i
@@ -50517,8 +50513,8 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i18.i.i:                                 ; preds = %if.then8.i.i, %for.body.i18.i.i
   %i.08.i19.i.i = phi ptr [ %incdec.ptr.i20.i.i, %for.body.i18.i.i ], [ %scratch.i, %if.then8.i.i ]
-  %15 = load i32, ptr %i.08.i19.i.i, align 4
-  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %15)
+  %14 = load i32, ptr %i.08.i19.i.i, align 4
+  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %14)
   store i32 %or6.i.i.i.i, ptr %i.08.i19.i.i, align 4
   %incdec.ptr.i20.i.i = getelementptr inbounds i8, ptr %i.08.i19.i.i, i64 4
   %cmp.not.i21.i.i = icmp eq ptr %incdec.ptr.i20.i.i, %call.i12.i.i
@@ -50530,7 +50526,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end16.i.i:                                     ; preds = %if.end.i.i
-  %cmp17.i.i = icmp eq i32 %9, 9
+  %cmp17.i.i = icmp eq i32 %8, 9
   br i1 %cmp17.i.i, label %if.then18.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.then18.i.i:                                    ; preds = %if.end16.i.i
@@ -50541,11 +50537,11 @@ if.then18.i.i:                                    ; preds = %if.end16.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i: ; preds = %if.then18.i.i, %if.end16.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
   %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i17.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i25.i.i, %if.then18.i.i ], [ 0, %if.end16.i.i ]
-  %16 = load ptr, ptr %writer12.i, align 8
-  %vtable15.i = load ptr, ptr %16, align 8
+  %15 = load ptr, ptr %writer12.i, align 8
+  %vtable15.i = load ptr, ptr %15, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 16
-  %17 = load ptr, ptr %vfn16.i, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
+  %16 = load ptr, ptr %vfn16.i, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i, %if.then3.i, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
@@ -50563,22 +50559,22 @@ if.end7.i.i:                                      ; preds = %while.end.i.i, %if.
   %length.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %sub.ptr.sub, %if.else.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %s.addr.0, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
-  %18 = load i64, ptr %bufsize.i, align 8
-  %add.i.i = add i64 %18, %length.addr.0.i.i
+  %17 = load i64, ptr %bufsize.i, align 8
+  %add.i.i = add i64 %17, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit: ; preds = %if.then.i27, %if.then4.i.i, %if.end7.i.i
-  %19 = phi i64 [ %add.i, %if.then.i27 ], [ %.pr, %if.then4.i.i ], [ %add.i.i, %if.end7.i.i ]
-  %cmp.i29 = icmp ugt i64 %19, 2045
+  %18 = phi i64 [ %add.i, %if.then.i27 ], [ %.pr, %if.then4.i.i ], [ %add.i.i, %if.end7.i.i ]
+  %cmp.i29 = icmp ugt i64 %18, 2045
   br i1 %cmp.i29, label %if.then.i36, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit
 
 if.then.i36:                                      ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %19)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %18)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit, %if.then.i36
-  %offset.0.i30 = phi i64 [ 0, %if.then.i36 ], [ %19, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit ]
+  %offset.0.i30 = phi i64 [ 0, %if.then.i36 ], [ %18, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit ]
   %arrayidx.i31 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i30
   store i8 93, ptr %arrayidx.i31, align 1
   %add3.i32 = add nuw nsw i64 %offset.0.i30, 1
@@ -50589,8 +50585,8 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit: ; preds =
   store i8 62, ptr %arrayidx7.i35, align 1
   %add8.i = add nuw nsw i64 %offset.0.i30, 3
   store i64 %add8.i, ptr %bufsize.i, align 8
-  %20 = load i8, ptr %spec.select, align 1
-  %tobool10.not = icmp eq i8 %20, 0
+  %19 = load i8, ptr %spec.select, align 1
+  %tobool10.not = icmp eq i8 %19, 0
   br i1 %tobool10.not, label %do.end, label %do.body, !llvm.loop !464
 
 do.end:                                           ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit
@@ -50715,8 +50711,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %sub.i.i.i = sub nuw nsw i64 2048, %i.07.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data.addr.114.i.i, i64 %sub.i.i.i
   %9 = load i8, ptr %arrayidx.i.i.i, align 1
-  %10 = and i8 %9, -64
-  %cmp2.not.i.i.i = icmp eq i8 %10, -128
+  %cmp2.not.i.i.i = icmp slt i8 %9, -64
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %for.body.i.i.i
@@ -50725,25 +50720,25 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %fo
 
 if.end.i:                                         ; preds = %for.cond.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
   %retval.0.i.i.i40 = phi i64 [ %sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i ], [ 2048, %for.cond.i.i.i ]
-  %11 = load i32, ptr %encoding.i.i, align 8
-  %cmp2.i = icmp eq i32 %11, 1
+  %10 = load i32, ptr %encoding.i.i, align 8
+  %cmp2.i = icmp eq i32 %10, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i34
 
 if.then3.i:                                       ; preds = %if.end.i
-  %12 = load ptr, ptr %writer12.i, align 8
-  %vtable.i = load ptr, ptr %12, align 8
+  %11 = load ptr, ptr %writer12.i, align 8
+  %vtable.i = load ptr, ptr %11, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %13 = load ptr, ptr %vfn.i, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i40)
+  %12 = load ptr, ptr %vfn.i, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i40)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 if.else.i34:                                      ; preds = %if.end.i
-  %14 = and i32 %11, -2
-  %or.cond.i.i = icmp eq i32 %14, 2
+  %13 = and i32 %10, -2
+  %or.cond.i.i = icmp eq i32 %13, 2
   br i1 %or.cond.i.i, label %if.then.i.i35, label %if.end.i.i
 
 if.then.i.i35:                                    ; preds = %if.else.i34
-  %cmp3.i.i36 = icmp ne i32 %11, 2
+  %cmp3.i.i36 = icmp ne i32 %10, 2
   %call.i.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i40, ptr noundef nonnull %scratch.i)
   %cmp.not7.i.i.i = icmp ne ptr %scratch.i, %call.i.i.i
   %or.cond.not.i.i.i = and i1 %cmp3.i.i36, %cmp.not7.i.i.i
@@ -50751,8 +50746,8 @@ if.then.i.i35:                                    ; preds = %if.else.i34
 
 for.body.i.i.i37:                                 ; preds = %if.then.i.i35, %for.body.i.i.i37
   %i.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i37 ], [ %scratch.i, %if.then.i.i35 ]
-  %15 = load i16, ptr %i.08.i.i.i, align 2
-  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %15)
+  %14 = load i16, ptr %i.08.i.i.i, align 2
+  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %14)
   store i16 %rev.i.i.i.i, ptr %i.08.i.i.i, align 2
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.08.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call.i.i.i
@@ -50764,12 +50759,12 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else.i34
-  %16 = add i32 %11, -5
-  %or.cond1.i.i = icmp ult i32 %16, 2
+  %15 = add i32 %10, -5
+  %or.cond1.i.i = icmp ult i32 %15, 2
   br i1 %or.cond1.i.i, label %if.then8.i.i, label %if.end16.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %cmp14.i.i = icmp ne i32 %11, 5
+  %cmp14.i.i = icmp ne i32 %10, 5
   %call.i12.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i40, ptr noundef nonnull %scratch.i)
   %cmp.not7.i13.i.i = icmp ne ptr %scratch.i, %call.i12.i.i
   %or.cond.not.i14.i.i = and i1 %cmp14.i.i, %cmp.not7.i13.i.i
@@ -50777,8 +50772,8 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i18.i.i:                                 ; preds = %if.then8.i.i, %for.body.i18.i.i
   %i.08.i19.i.i = phi ptr [ %incdec.ptr.i20.i.i, %for.body.i18.i.i ], [ %scratch.i, %if.then8.i.i ]
-  %17 = load i32, ptr %i.08.i19.i.i, align 4
-  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %17)
+  %16 = load i32, ptr %i.08.i19.i.i, align 4
+  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %16)
   store i32 %or6.i.i.i.i, ptr %i.08.i19.i.i, align 4
   %incdec.ptr.i20.i.i = getelementptr inbounds i8, ptr %i.08.i19.i.i, i64 4
   %cmp.not.i21.i.i = icmp eq ptr %incdec.ptr.i20.i.i, %call.i12.i.i
@@ -50790,7 +50785,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end16.i.i:                                     ; preds = %if.end.i.i
-  %cmp17.i.i = icmp eq i32 %11, 9
+  %cmp17.i.i = icmp eq i32 %10, 9
   br i1 %cmp17.i.i, label %if.then18.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.then18.i.i:                                    ; preds = %if.end16.i.i
@@ -50801,11 +50796,11 @@ if.then18.i.i:                                    ; preds = %if.end16.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i: ; preds = %if.then18.i.i, %if.end16.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
   %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i17.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i25.i.i, %if.then18.i.i ], [ 0, %if.end16.i.i ]
-  %18 = load ptr, ptr %writer12.i, align 8
-  %vtable15.i = load ptr, ptr %18, align 8
+  %17 = load ptr, ptr %writer12.i, align 8
+  %vtable15.i = load ptr, ptr %17, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 16
-  %19 = load ptr, ptr %vfn16.i, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
+  %18 = load ptr, ptr %vfn16.i, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i, %if.then3.i, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
@@ -50823,27 +50818,27 @@ if.end7.i.i:                                      ; preds = %while.end.i.i, %if.
   %length.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %sub.ptr.sub, %if.else.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %s.addr.045, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
-  %20 = load i64, ptr %bufsize.i, align 8
-  %add.i.i = add i64 %20, %length.addr.0.i.i
+  %19 = load i64, ptr %bufsize.i, align 8
+  %add.i.i = add i64 %19, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit: ; preds = %if.then.i16, %if.then4.i.i, %if.end7.i.i
-  %21 = load i8, ptr %s.addr.1, align 1
-  %tobool12.not = icmp eq i8 %21, 0
+  %20 = load i8, ptr %s.addr.1, align 1
+  %tobool12.not = icmp eq i8 %20, 0
   br i1 %tobool12.not, label %while.end14.loopexit, label %if.then
 
 if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %22 = load i64, ptr %bufsize.i, align 8
-  %cmp.i18 = icmp ugt i64 %22, 2046
+  %21 = load i64, ptr %bufsize.i, align 8
+  %cmp.i18 = icmp ugt i64 %21, 2046
   br i1 %cmp.i18, label %if.then.i23, label %if.end
 
 if.then.i23:                                      ; preds = %if.then
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %22)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %21)
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i23, %if.then
-  %offset.0.i19 = phi i64 [ 0, %if.then.i23 ], [ %22, %if.then ]
+  %offset.0.i19 = phi i64 [ 0, %if.then.i23 ], [ %21, %if.then ]
   %arrayidx.i20 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i19
   store i8 45, ptr %arrayidx.i20, align 1
   %add3.i21 = add nuw nsw i64 %offset.0.i19, 1
@@ -50861,16 +50856,16 @@ while.end14.loopexit:                             ; preds = %_ZN18OpenImageIO_v2
   br label %while.end14
 
 while.end14:                                      ; preds = %while.end14.loopexit, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit
-  %23 = phi i64 [ %.pre49, %while.end14.loopexit ], [ %add11.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit ]
-  %cmp.i25 = icmp ugt i64 %23, 2045
+  %22 = phi i64 [ %.pre49, %while.end14.loopexit ], [ %add11.i, %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit ]
+  %cmp.i25 = icmp ugt i64 %22, 2045
   br i1 %cmp.i25, label %if.then.i32, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit
 
 if.then.i32:                                      ; preds = %while.end14
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %23)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %22)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccc.exit: ; preds = %while.end14, %if.then.i32
-  %offset.0.i26 = phi i64 [ 0, %if.then.i32 ], [ %23, %while.end14 ]
+  %offset.0.i26 = phi i64 [ 0, %if.then.i32 ], [ %22, %while.end14 ]
   %arrayidx.i27 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i26
   store i8 45, ptr %arrayidx.i27, align 1
   %add3.i28 = add nuw nsw i64 %offset.0.i26, 1
@@ -50937,8 +50932,7 @@ for.body.i:                                       ; preds = %if.else, %for.cond.
   %sub.i = sub nuw i64 %sub, %i.07.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %sub.i
   %7 = load i8, ptr %arrayidx.i, align 1
-  %8 = and i8 %7, -64
-  %cmp2.not.i = icmp eq i8 %8, -128
+  %cmp2.not.i = icmp slt i8 %7, -64
   br i1 %cmp2.not.i, label %for.cond.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit: ; preds = %for.cond.i, %for.body.i, %if.else
@@ -50957,17 +50951,17 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit: ; preds = %for.co
 
 if.then.i:                                        ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit
   %encoding.i = getelementptr inbounds i8, ptr %this, i64 10256
-  %9 = load i32, ptr %encoding.i, align 8
-  %cmp3.i = icmp eq i32 %9, 1
+  %8 = load i32, ptr %encoding.i, align 8
+  %cmp3.i = icmp eq i32 %8, 1
   br i1 %cmp3.i, label %if.then4.i, label %for.body.i.preheader.i
 
 if.then4.i:                                       ; preds = %if.then.i
   %writer.i = getelementptr inbounds i8, ptr %this, i64 10240
-  %10 = load ptr, ptr %writer.i, align 8
-  %vtable.i = load ptr, ptr %10, align 8
+  %9 = load ptr, ptr %writer.i, align 8
+  %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %11 = load ptr, ptr %vfn.i, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %add.ptr9, i64 noundef %add)
+  %10 = load ptr, ptr %vfn.i, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %add.ptr9, i64 noundef %add)
   br label %if.end
 
 for.body.i.preheader.i:                           ; preds = %if.then.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i
@@ -50984,9 +50978,8 @@ for.body.i.i:                                     ; preds = %for.cond.i.i, %for.
   %i.07.i.i = phi i64 [ %inc.i.i, %for.cond.i.i ], [ 1, %for.body.i.preheader.i ]
   %sub.i.i = sub nuw nsw i64 2048, %i.07.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data.addr.114.i, i64 %sub.i.i
-  %12 = load i8, ptr %arrayidx.i.i, align 1
-  %13 = and i8 %12, -64
-  %cmp2.not.i.i = icmp eq i8 %13, -128
+  %11 = load i8, ptr %arrayidx.i.i, align 1
+  %cmp2.not.i.i = icmp slt i8 %11, -64
   br i1 %cmp2.not.i.i, label %for.cond.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i: ; preds = %for.body.i.i, %for.cond.i.i
@@ -51005,8 +50998,8 @@ if.end7.i:                                        ; preds = %while.end.i, %_ZN18
   %length.addr.0.i = phi i64 [ %sub.i15, %while.end.i ], [ %add, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit ]
   %data.addr.0.i = phi ptr [ %add.ptr.i, %while.end.i ], [ %add.ptr9, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %this, ptr align 1 %data.addr.0.i, i64 %length.addr.0.i, i1 false)
-  %14 = load i64, ptr %bufsize, align 8
-  %add.i = add i64 %14, %length.addr.0.i
+  %12 = load i64, ptr %bufsize, align 8
+  %add.i = add i64 %12, %length.addr.0.i
   store i64 %add.i, ptr %bufsize, align 8
   br label %if.end
 
@@ -51107,8 +51100,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %sub.i.i.i = sub nuw nsw i64 2048, %i.07.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data.addr.114.i.i, i64 %sub.i.i.i
   %8 = load i8, ptr %arrayidx.i.i.i, align 1
-  %9 = and i8 %8, -64
-  %cmp2.not.i.i.i = icmp eq i8 %9, -128
+  %cmp2.not.i.i.i = icmp slt i8 %8, -64
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %for.body.i.i.i
@@ -51117,25 +51109,25 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %fo
 
 if.end.i:                                         ; preds = %for.cond.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
   %retval.0.i.i.i21 = phi i64 [ %sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i ], [ 2048, %for.cond.i.i.i ]
-  %10 = load i32, ptr %encoding.i.i, align 8
-  %cmp2.i = icmp eq i32 %10, 1
+  %9 = load i32, ptr %encoding.i.i, align 8
+  %cmp2.i = icmp eq i32 %9, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i15
 
 if.then3.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr %writer12.i, align 8
-  %vtable.i = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %writer12.i, align 8
+  %vtable.i = load ptr, ptr %10, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %12 = load ptr, ptr %vfn.i, align 8
-  tail call void %12(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i21)
+  %11 = load ptr, ptr %vfn.i, align 8
+  tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i21)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 if.else.i15:                                      ; preds = %if.end.i
-  %13 = and i32 %10, -2
-  %or.cond.i.i = icmp eq i32 %13, 2
+  %12 = and i32 %9, -2
+  %or.cond.i.i = icmp eq i32 %12, 2
   br i1 %or.cond.i.i, label %if.then.i.i16, label %if.end.i.i
 
 if.then.i.i16:                                    ; preds = %if.else.i15
-  %cmp3.i.i17 = icmp ne i32 %10, 2
+  %cmp3.i.i17 = icmp ne i32 %9, 2
   %call.i.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i21, ptr noundef nonnull %scratch.i)
   %cmp.not7.i.i.i = icmp ne ptr %scratch.i, %call.i.i.i
   %or.cond.not.i.i.i = and i1 %cmp3.i.i17, %cmp.not7.i.i.i
@@ -51143,8 +51135,8 @@ if.then.i.i16:                                    ; preds = %if.else.i15
 
 for.body.i.i.i18:                                 ; preds = %if.then.i.i16, %for.body.i.i.i18
   %i.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i18 ], [ %scratch.i, %if.then.i.i16 ]
-  %14 = load i16, ptr %i.08.i.i.i, align 2
-  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %14)
+  %13 = load i16, ptr %i.08.i.i.i, align 2
+  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %13)
   store i16 %rev.i.i.i.i, ptr %i.08.i.i.i, align 2
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.08.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call.i.i.i
@@ -51156,12 +51148,12 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else.i15
-  %15 = add i32 %10, -5
-  %or.cond1.i.i = icmp ult i32 %15, 2
+  %14 = add i32 %9, -5
+  %or.cond1.i.i = icmp ult i32 %14, 2
   br i1 %or.cond1.i.i, label %if.then8.i.i, label %if.end16.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %cmp14.i.i = icmp ne i32 %10, 5
+  %cmp14.i.i = icmp ne i32 %9, 5
   %call.i12.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i21, ptr noundef nonnull %scratch.i)
   %cmp.not7.i13.i.i = icmp ne ptr %scratch.i, %call.i12.i.i
   %or.cond.not.i14.i.i = and i1 %cmp14.i.i, %cmp.not7.i13.i.i
@@ -51169,8 +51161,8 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i18.i.i:                                 ; preds = %if.then8.i.i, %for.body.i18.i.i
   %i.08.i19.i.i = phi ptr [ %incdec.ptr.i20.i.i, %for.body.i18.i.i ], [ %scratch.i, %if.then8.i.i ]
-  %16 = load i32, ptr %i.08.i19.i.i, align 4
-  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %16)
+  %15 = load i32, ptr %i.08.i19.i.i, align 4
+  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %15)
   store i32 %or6.i.i.i.i, ptr %i.08.i19.i.i, align 4
   %incdec.ptr.i20.i.i = getelementptr inbounds i8, ptr %i.08.i19.i.i, i64 4
   %cmp.not.i21.i.i = icmp eq ptr %incdec.ptr.i20.i.i, %call.i12.i.i
@@ -51182,7 +51174,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end16.i.i:                                     ; preds = %if.end.i.i
-  %cmp17.i.i = icmp eq i32 %10, 9
+  %cmp17.i.i = icmp eq i32 %9, 9
   br i1 %cmp17.i.i, label %if.then18.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.then18.i.i:                                    ; preds = %if.end16.i.i
@@ -51193,11 +51185,11 @@ if.then18.i.i:                                    ; preds = %if.end16.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i: ; preds = %if.then18.i.i, %if.end16.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
   %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i17.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i25.i.i, %if.then18.i.i ], [ 0, %if.end16.i.i ]
-  %17 = load ptr, ptr %writer12.i, align 8
-  %vtable15.i = load ptr, ptr %17, align 8
+  %16 = load ptr, ptr %writer12.i, align 8
+  %vtable15.i = load ptr, ptr %16, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 16
-  %18 = load ptr, ptr %vfn16.i, align 8
-  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
+  %17 = load ptr, ptr %vfn16.i, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i, %if.then3.i, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
@@ -51215,27 +51207,27 @@ if.end7.i.i:                                      ; preds = %while.end.i.i, %if.
   %length.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %sub.ptr.sub, %if.else.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %s.addr.026, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
-  %19 = load i64, ptr %bufsize.i, align 8
-  %add.i.i = add i64 %19, %length.addr.0.i.i
+  %18 = load i64, ptr %bufsize.i, align 8
+  %add.i.i = add i64 %18, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit: ; preds = %if.then.i, %if.then4.i.i, %if.end7.i.i
-  %20 = load i8, ptr %s.addr.1, align 1
-  %tobool9.not = icmp eq i8 %20, 0
+  %19 = load i8, ptr %s.addr.1, align 1
+  %tobool9.not = icmp eq i8 %19, 0
   br i1 %tobool9.not, label %while.end10, label %if.then
 
 if.then:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %21 = load i64, ptr %bufsize.i, align 8
-  %cmp.i12 = icmp ugt i64 %21, 2045
+  %20 = load i64, ptr %bufsize.i, align 8
+  %cmp.i12 = icmp ugt i64 %20, 2045
   br i1 %cmp.i12, label %if.then.i13, label %if.end
 
 if.then.i13:                                      ; preds = %if.then
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %21)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %20)
   br label %if.end
 
 if.end:                                           ; preds = %if.then.i13, %if.then
-  %offset.0.i = phi i64 [ 0, %if.then.i13 ], [ %21, %if.then ]
+  %offset.0.i = phi i64 [ 0, %if.then.i13 ], [ %20, %if.then ]
   %arrayidx.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i
   store i8 63, ptr %arrayidx.i, align 1
   %add3.i = add nuw nsw i64 %offset.0.i, 1
@@ -51516,8 +51508,7 @@ for.body.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   %sub.i.i.i = sub nuw nsw i64 2048, %i.07.i.i.i
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %data.addr.114.i.i, i64 %sub.i.i.i
   %15 = load i8, ptr %arrayidx.i.i.i, align 1
-  %16 = and i8 %15, -64
-  %cmp2.not.i.i.i = icmp eq i8 %16, -128
+  %cmp2.not.i.i.i = icmp slt i8 %15, -64
   br i1 %cmp2.not.i.i.i, label %for.cond.i.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %for.body.i.i.i
@@ -51526,25 +51517,25 @@ _ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i: ; preds = %fo
 
 if.end.i:                                         ; preds = %for.cond.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i
   %retval.0.i.i.i127 = phi i64 [ %sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i ], [ 2048, %for.cond.i.i.i ]
-  %17 = load i32, ptr %encoding.i.i, align 8
-  %cmp2.i = icmp eq i32 %17, 1
+  %16 = load i32, ptr %encoding.i.i, align 8
+  %cmp2.i = icmp eq i32 %16, 1
   br i1 %cmp2.i, label %if.then3.i, label %if.else.i121
 
 if.then3.i:                                       ; preds = %if.end.i
-  %18 = load ptr, ptr %writer12.i, align 8
-  %vtable.i = load ptr, ptr %18, align 8
+  %17 = load ptr, ptr %writer12.i, align 8
+  %vtable.i = load ptr, ptr %17, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
-  %19 = load ptr, ptr %vfn.i, align 8
-  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i127)
+  %18 = load ptr, ptr %vfn.i, align 8
+  tail call void %18(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i127)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 if.else.i121:                                     ; preds = %if.end.i
-  %20 = and i32 %17, -2
-  %or.cond.i.i = icmp eq i32 %20, 2
+  %19 = and i32 %16, -2
+  %or.cond.i.i = icmp eq i32 %19, 2
   br i1 %or.cond.i.i, label %if.then.i.i122, label %if.end.i.i
 
 if.then.i.i122:                                   ; preds = %if.else.i121
-  %cmp3.i.i123 = icmp ne i32 %17, 2
+  %cmp3.i.i123 = icmp ne i32 %16, 2
   %call.i.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf16_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i127, ptr noundef nonnull %scratch.i)
   %cmp.not7.i.i.i = icmp ne ptr %scratch.i, %call.i.i.i
   %or.cond.not.i.i.i = and i1 %cmp3.i.i123, %cmp.not7.i.i.i
@@ -51552,8 +51543,8 @@ if.then.i.i122:                                   ; preds = %if.else.i121
 
 for.body.i.i.i124:                                ; preds = %if.then.i.i122, %for.body.i.i.i124
   %i.08.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i124 ], [ %scratch.i, %if.then.i.i122 ]
-  %21 = load i16, ptr %i.08.i.i.i, align 2
-  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %21)
+  %20 = load i16, ptr %i.08.i.i.i, align 2
+  %rev.i.i.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %20)
   store i16 %rev.i.i.i.i, ptr %i.08.i.i.i, align 2
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %i.08.i.i.i, i64 2
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %call.i.i.i
@@ -51565,12 +51556,12 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end.i.i:                                       ; preds = %if.else.i121
-  %22 = add i32 %17, -5
-  %or.cond1.i.i = icmp ult i32 %22, 2
+  %21 = add i32 %16, -5
+  %or.cond1.i.i = icmp ult i32 %21, 2
   br i1 %or.cond1.i.i, label %if.then8.i.i, label %if.end16.i.i
 
 if.then8.i.i:                                     ; preds = %if.end.i.i
-  %cmp14.i.i = icmp ne i32 %17, 5
+  %cmp14.i.i = icmp ne i32 %16, 5
   %call.i12.i.i = tail call noundef ptr @_ZN18OpenImageIO_v2_6_04pugi4impl12utf8_decoder7processINS1_12utf32_writerEEENT_10value_typeEPKhmS6_S5_(ptr noundef nonnull %data.addr.114.i.i, i64 noundef %retval.0.i.i.i127, ptr noundef nonnull %scratch.i)
   %cmp.not7.i13.i.i = icmp ne ptr %scratch.i, %call.i12.i.i
   %or.cond.not.i14.i.i = and i1 %cmp14.i.i, %cmp.not7.i13.i.i
@@ -51578,8 +51569,8 @@ if.then8.i.i:                                     ; preds = %if.end.i.i
 
 for.body.i18.i.i:                                 ; preds = %if.then8.i.i, %for.body.i18.i.i
   %i.08.i19.i.i = phi ptr [ %incdec.ptr.i20.i.i, %for.body.i18.i.i ], [ %scratch.i, %if.then8.i.i ]
-  %23 = load i32, ptr %i.08.i19.i.i, align 4
-  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %23)
+  %22 = load i32, ptr %i.08.i19.i.i, align 4
+  %or6.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %22)
   store i32 %or6.i.i.i.i, ptr %i.08.i19.i.i, align 4
   %incdec.ptr.i20.i.i = getelementptr inbounds i8, ptr %i.08.i19.i.i, i64 4
   %cmp.not.i21.i.i = icmp eq ptr %incdec.ptr.i20.i.i, %call.i12.i.i
@@ -51591,7 +51582,7 @@ _ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_deco
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.end16.i.i:                                     ; preds = %if.end.i.i
-  %cmp17.i.i = icmp eq i32 %17, 9
+  %cmp17.i.i = icmp eq i32 %16, 9
   br i1 %cmp17.i.i, label %if.then18.i.i, label %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
 
 if.then18.i.i:                                    ; preds = %if.end16.i.i
@@ -51602,11 +51593,11 @@ if.then18.i.i:                                    ; preds = %if.end16.i.i
 
 _ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i: ; preds = %if.then18.i.i, %if.end16.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i
   %retval.0.i.i = phi i64 [ %sub.ptr.sub.i.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf16_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i17.i.i, %_ZN18OpenImageIO_v2_6_04pugi4impl29convert_buffer_output_genericINS1_12utf8_decoderENS1_12utf32_writerEEEmNT0_10value_typeEPKcmT_S5_b.exit.i.i ], [ %sub.ptr.sub.i25.i.i, %if.then18.i.i ], [ 0, %if.end16.i.i ]
-  %24 = load ptr, ptr %writer12.i, align 8
-  %vtable15.i = load ptr, ptr %24, align 8
+  %23 = load ptr, ptr %writer12.i, align 8
+  %vtable15.i = load ptr, ptr %23, align 8
   %vfn16.i = getelementptr inbounds i8, ptr %vtable15.i, i64 16
-  %25 = load ptr, ptr %vfn16.i, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
+  %24 = load ptr, ptr %vfn16.i, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull %scratch.i, i64 noundef %retval.0.i.i)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm.exit: ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl16get_valid_lengthEPKcm.exit.i.i, %if.then3.i, %_ZN18OpenImageIO_v2_6_04pugi4impl21convert_buffer_outputEPcPhPtPjPKcmNS0_12xml_encodingE.exit.i
@@ -51624,15 +51615,15 @@ if.end7.i.i:                                      ; preds = %while.end.i.i, %if.
   %length.addr.0.i.i = phi i64 [ %sub.i.i, %while.end.i.i ], [ %sub.ptr.sub, %if.else.i ]
   %data.addr.0.i.i = phi ptr [ %add.ptr.i.i, %while.end.i.i ], [ %s.addr.0147, %if.else.i ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(10260) %writer, ptr align 1 %data.addr.0.i.i, i64 %length.addr.0.i.i, i1 false)
-  %26 = load i64, ptr %bufsize.i, align 8
-  %add.i.i = add i64 %26, %length.addr.0.i.i
+  %25 = load i64, ptr %bufsize.i, align 8
+  %add.i.i = add i64 %25, %length.addr.0.i.i
   store i64 %add.i.i, ptr %bufsize.i, align 8
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit: ; preds = %if.then.i, %if.then4.i.i, %if.end7.i.i
-  %27 = load i8, ptr %s.addr.2, align 1
-  %conv41 = sext i8 %27 to i32
-  switch i8 %27, label %sw.default [
+  %26 = load i8, ptr %s.addr.2, align 1
+  %conv41 = sext i8 %26 to i32
+  switch i8 %26, label %sw.default [
     i8 0, label %while.end
     i8 38, label %sw.bb42
     i8 60, label %sw.bb43
@@ -51642,16 +51633,16 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit: 
   ]
 
 sw.bb42:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %28 = load i64, ptr %bufsize.i, align 8
-  %cmp.i37 = icmp ugt i64 %28, 2043
+  %27 = load i64, ptr %bufsize.i, align 8
+  %cmp.i37 = icmp ugt i64 %27, 2043
   br i1 %cmp.i37, label %if.then.i38, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit
 
 if.then.i38:                                      ; preds = %sw.bb42
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %28)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %27)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit: ; preds = %sw.bb42, %if.then.i38
-  %offset.0.i = phi i64 [ 0, %if.then.i38 ], [ %28, %sw.bb42 ]
+  %offset.0.i = phi i64 [ 0, %if.then.i38 ], [ %27, %sw.bb42 ]
   %arrayidx.i = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i
   store i8 38, ptr %arrayidx.i, align 1
   %add3.i = add nuw nsw i64 %offset.0.i, 1
@@ -51670,16 +51661,16 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit: ; preds
   br label %sw.epilog.sink.split
 
 sw.bb43:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %29 = load i64, ptr %bufsize.i, align 8
-  %cmp.i40 = icmp ugt i64 %29, 2044
+  %28 = load i64, ptr %bufsize.i, align 8
+  %cmp.i40 = icmp ugt i64 %28, 2044
   br i1 %cmp.i40, label %if.then.i49, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit
 
 if.then.i49:                                      ; preds = %sw.bb43
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %29)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %28)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit: ; preds = %sw.bb43, %if.then.i49
-  %offset.0.i41 = phi i64 [ 0, %if.then.i49 ], [ %29, %sw.bb43 ]
+  %offset.0.i41 = phi i64 [ 0, %if.then.i49 ], [ %28, %sw.bb43 ]
   %arrayidx.i42 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i41
   store i8 38, ptr %arrayidx.i42, align 1
   %add3.i43 = add nuw nsw i64 %offset.0.i41, 1
@@ -51695,16 +51686,16 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit: ; preds 
   br label %sw.epilog.sink.split
 
 sw.bb45:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %30 = load i64, ptr %bufsize.i, align 8
-  %cmp.i51 = icmp ugt i64 %30, 2044
+  %29 = load i64, ptr %bufsize.i, align 8
+  %cmp.i51 = icmp ugt i64 %29, 2044
   br i1 %cmp.i51, label %if.then.i61, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit62
 
 if.then.i61:                                      ; preds = %sw.bb45
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %30)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %29)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit62
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit62: ; preds = %sw.bb45, %if.then.i61
-  %offset.0.i52 = phi i64 [ 0, %if.then.i61 ], [ %30, %sw.bb45 ]
+  %offset.0.i52 = phi i64 [ 0, %if.then.i61 ], [ %29, %sw.bb45 ]
   %arrayidx.i53 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i52
   store i8 38, ptr %arrayidx.i53, align 1
   %add3.i54 = add nuw nsw i64 %offset.0.i52, 1
@@ -51720,34 +51711,34 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccc.exit62: ; pred
   br label %sw.epilog.sink.split
 
 sw.bb47:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %31 = load i64, ptr %bufsize.i, align 8
+  %30 = load i64, ptr %bufsize.i, align 8
   br i1 %tobool55.not, label %if.else, label %if.then50
 
 if.then50:                                        ; preds = %sw.bb47
-  %cmp.i64 = icmp ugt i64 %31, 2047
+  %cmp.i64 = icmp ugt i64 %30, 2047
   br i1 %cmp.i64, label %if.then.i67, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit
 
 if.then.i67:                                      ; preds = %if.then50
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %31)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %30)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit: ; preds = %if.then50, %if.then.i67
-  %offset.0.i65 = phi i64 [ 0, %if.then.i67 ], [ %31, %if.then50 ]
+  %offset.0.i65 = phi i64 [ 0, %if.then.i67 ], [ %30, %if.then50 ]
   %arrayidx.i66 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i65
   store i8 34, ptr %arrayidx.i66, align 1
   %add2.i = add nuw nsw i64 %offset.0.i65, 1
   br label %sw.epilog.sink.split
 
 if.else:                                          ; preds = %sw.bb47
-  %cmp.i69 = icmp ugt i64 %31, 2042
+  %cmp.i69 = icmp ugt i64 %30, 2042
   br i1 %cmp.i69, label %if.then.i80, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit
 
 if.then.i80:                                      ; preds = %if.else
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %31)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %30)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit: ; preds = %if.else, %if.then.i80
-  %offset.0.i70 = phi i64 [ 0, %if.then.i80 ], [ %31, %if.else ]
+  %offset.0.i70 = phi i64 [ 0, %if.then.i80 ], [ %30, %if.else ]
   %arrayidx.i71 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i70
   store i8 38, ptr %arrayidx.i71, align 1
   %add3.i72 = add nuw nsw i64 %offset.0.i70, 1
@@ -51769,19 +51760,19 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit: ; pred
   br label %sw.epilog.sink.split
 
 sw.bb53:                                          ; preds = %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer12write_bufferEPKcm.exit
-  %32 = load i64, ptr %bufsize.i, align 8
+  %31 = load i64, ptr %bufsize.i, align 8
   br i1 %tobool55.not, label %if.else57, label %if.then56
 
 if.then56:                                        ; preds = %sw.bb53
-  %cmp.i82 = icmp ugt i64 %32, 2042
+  %cmp.i82 = icmp ugt i64 %31, 2042
   br i1 %cmp.i82, label %if.then.i96, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit97
 
 if.then.i96:                                      ; preds = %if.then56
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %32)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %31)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit97
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit97: ; preds = %if.then56, %if.then.i96
-  %offset.0.i83 = phi i64 [ 0, %if.then.i96 ], [ %32, %if.then56 ]
+  %offset.0.i83 = phi i64 [ 0, %if.then.i96 ], [ %31, %if.then56 ]
   %arrayidx.i84 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i83
   store i8 38, ptr %arrayidx.i84, align 1
   %add3.i85 = add nuw nsw i64 %offset.0.i83, 1
@@ -51803,15 +51794,15 @@ _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEcccccc.exit97: ; pr
   br label %sw.epilog.sink.split
 
 if.else57:                                        ; preds = %sw.bb53
-  %cmp.i99 = icmp ugt i64 %32, 2047
+  %cmp.i99 = icmp ugt i64 %31, 2047
   br i1 %cmp.i99, label %if.then.i103, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit104
 
 if.then.i103:                                     ; preds = %if.else57
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %32)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %31)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit104
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEc.exit104: ; preds = %if.else57, %if.then.i103
-  %offset.0.i100 = phi i64 [ 0, %if.then.i103 ], [ %32, %if.else57 ]
+  %offset.0.i100 = phi i64 [ 0, %if.then.i103 ], [ %31, %if.else57 ]
   %arrayidx.i101 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i100
   store i8 39, ptr %arrayidx.i101, align 1
   %add2.i102 = add nuw nsw i64 %offset.0.i100, 1
@@ -51822,21 +51813,21 @@ sw.default:                                       ; preds = %_ZN18OpenImageIO_v2
 
 if.then64:                                        ; preds = %sw.default
   %div = udiv i32 %conv41, 10
-  %33 = trunc i32 %div to i8
-  %conv65 = add i8 %33, 48
+  %32 = trunc i32 %div to i8
+  %conv65 = add i8 %32, 48
   %rem = urem i32 %conv41, 10
-  %34 = trunc nuw nsw i32 %rem to i8
-  %conv67 = or disjoint i8 %34, 48
-  %35 = load i64, ptr %bufsize.i, align 8
-  %cmp.i106 = icmp ugt i64 %35, 2043
+  %33 = trunc nuw nsw i32 %rem to i8
+  %conv67 = or disjoint i8 %33, 48
+  %34 = load i64, ptr %bufsize.i, align 8
+  %cmp.i106 = icmp ugt i64 %34, 2043
   br i1 %cmp.i106, label %if.then.i118, label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit119
 
 if.then.i118:                                     ; preds = %if.then64
-  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %35)
+  tail call void @_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5flushEPKcm(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef nonnull align 8 dereferenceable(10260) %writer, i64 noundef %34)
   br label %_ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit119
 
 _ZN18OpenImageIO_v2_6_04pugi4impl19xml_buffered_writer5writeEccccc.exit119: ; preds = %if.then64, %if.then.i118
-  %offset.0.i107 = phi i64 [ 0, %if.then.i118 ], [ %35, %if.then64 ]
+  %offset.0.i107 = phi i64 [ 0, %if.then.i118 ], [ %34, %if.then64 ]
   %arrayidx.i108 = getelementptr inbounds [2048 x i8], ptr %writer, i64 0, i64 %offset.0.i107
   store i8 38, ptr %arrayidx.i108, align 1
   %add3.i109 = add nuw nsw i64 %offset.0.i107, 1
@@ -52425,16 +52416,15 @@ if.else:                                          ; preds = %while.body
 land.lhs.true26:                                  ; preds = %if.else
   %arrayidx27 = getelementptr inbounds i8, ptr %data.addr.066, i64 1
   %8 = load i8, ptr %arrayidx27, align 1
-  %9 = and i8 %8, -64
-  %cmp30 = icmp eq i8 %9, -128
+  %cmp30 = icmp slt i8 %8, -64
   br i1 %cmp30, label %if.then31, label %if.else40
 
 if.then31:                                        ; preds = %land.lhs.true26
   %and33 = shl i8 %0, 6
   %and36 = and i8 %8, 63
   %or = or disjoint i8 %and36, %and33
-  %10 = and i32 %conv, 28
-  %cmp.i.not = icmp eq i32 %10, 0
+  %9 = and i32 %conv, 28
+  %cmp.i.not = icmp eq i32 %9, 0
   %conv.i = select i1 %cmp.i.not, i8 %or, i8 63
   store i8 %conv.i, ptr %result.addr.064, align 1
   %add.ptr.i58 = getelementptr inbounds i8, ptr %result.addr.064, i64 1
@@ -52443,24 +52433,24 @@ if.then31:                                        ; preds = %land.lhs.true26
   br label %if.end120
 
 if.else40:                                        ; preds = %land.lhs.true26, %if.else
-  %11 = and i32 %conv, 240
-  %cmp43 = icmp eq i32 %11, 224
+  %10 = and i32 %conv, 240
+  %cmp43 = icmp eq i32 %10, 224
   %cmp45 = icmp ugt i64 %size.addr.065, 2
   %or.cond1 = and i1 %cmp45, %cmp43
   br i1 %or.cond1, label %land.lhs.true46, label %if.else72
 
 land.lhs.true46:                                  ; preds = %if.else40
   %arrayidx47 = getelementptr inbounds i8, ptr %data.addr.066, i64 1
-  %12 = load i8, ptr %arrayidx47, align 1
-  %conv48 = zext i8 %12 to i32
+  %11 = load i8, ptr %arrayidx47, align 1
+  %conv48 = zext i8 %11 to i32
   %and49 = and i32 %conv48, 192
   %cmp50 = icmp eq i32 %and49, 128
   br i1 %cmp50, label %land.lhs.true51, label %if.else72
 
 land.lhs.true51:                                  ; preds = %land.lhs.true46
   %arrayidx52 = getelementptr inbounds i8, ptr %data.addr.066, i64 2
-  %13 = load i8, ptr %arrayidx52, align 1
-  %conv53 = zext i8 %13 to i32
+  %12 = load i8, ptr %arrayidx52, align 1
+  %conv53 = zext i8 %12 to i32
   %and54 = and i32 %conv53, 192
   %cmp55 = icmp eq i32 %and54, 128
   br i1 %cmp55, label %if.then56, label %if.else72
@@ -52474,8 +52464,8 @@ if.then56:                                        ; preds = %land.lhs.true51
   %and67 = and i32 %conv53, 63
   %or68 = or disjoint i32 %and67, %and62
   %cmp.i59.not = icmp eq i32 %or64, 0
-  %14 = trunc i32 %or68 to i8
-  %conv.i60 = select i1 %cmp.i59.not, i8 %14, i8 63
+  %13 = trunc i32 %or68 to i8
+  %conv.i60 = select i1 %cmp.i59.not, i8 %13, i8 63
   store i8 %conv.i60, ptr %result.addr.064, align 1
   %add.ptr.i61 = getelementptr inbounds i8, ptr %result.addr.064, i64 1
   %add.ptr70 = getelementptr inbounds i8, ptr %data.addr.066, i64 3
@@ -52483,31 +52473,28 @@ if.then56:                                        ; preds = %land.lhs.true51
   br label %if.end120
 
 if.else72:                                        ; preds = %land.lhs.true51, %land.lhs.true46, %if.else40
-  %15 = and i32 %conv, 248
-  %cmp75 = icmp eq i32 %15, 240
+  %14 = and i32 %conv, 248
+  %cmp75 = icmp eq i32 %14, 240
   %cmp77 = icmp ugt i64 %size.addr.065, 3
   %or.cond2 = and i1 %cmp77, %cmp75
   br i1 %or.cond2, label %land.lhs.true78, label %if.else114
 
 land.lhs.true78:                                  ; preds = %if.else72
   %arrayidx79 = getelementptr inbounds i8, ptr %data.addr.066, i64 1
-  %16 = load i8, ptr %arrayidx79, align 1
-  %17 = and i8 %16, -64
-  %cmp82 = icmp eq i8 %17, -128
+  %15 = load i8, ptr %arrayidx79, align 1
+  %cmp82 = icmp slt i8 %15, -64
   br i1 %cmp82, label %land.lhs.true83, label %if.else114
 
 land.lhs.true83:                                  ; preds = %land.lhs.true78
   %arrayidx84 = getelementptr inbounds i8, ptr %data.addr.066, i64 2
-  %18 = load i8, ptr %arrayidx84, align 1
-  %19 = and i8 %18, -64
-  %cmp87 = icmp eq i8 %19, -128
+  %16 = load i8, ptr %arrayidx84, align 1
+  %cmp87 = icmp slt i8 %16, -64
   br i1 %cmp87, label %land.lhs.true88, label %if.else114
 
 land.lhs.true88:                                  ; preds = %land.lhs.true83
   %arrayidx89 = getelementptr inbounds i8, ptr %data.addr.066, i64 3
-  %20 = load i8, ptr %arrayidx89, align 1
-  %21 = and i8 %20, -64
-  %cmp92 = icmp eq i8 %21, -128
+  %17 = load i8, ptr %arrayidx89, align 1
+  %cmp92 = icmp slt i8 %17, -64
   br i1 %cmp92, label %if.then93, label %if.else114
 
 if.then93:                                        ; preds = %land.lhs.true88

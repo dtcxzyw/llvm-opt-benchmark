@@ -1405,8 +1405,7 @@ define internal fastcc void @dissect_juniper_atm(ptr noundef %0, ptr noundef %1,
   %18 = load i32, ptr @hf_juniper_atm1_cookie, align 4
   %19 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %18, ptr noundef %0, i32 noundef %11, i32 noundef 4, i32 noundef %15) #2
   %20 = add nuw nsw i32 %11, 4
-  %.mask = and i32 %15, -16777216
-  %21 = icmp eq i32 %.mask, -2147483648
+  %21 = icmp slt i32 %15, -2130706432
   %22 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %20) #2
   br i1 %21, label %30, label %45
 

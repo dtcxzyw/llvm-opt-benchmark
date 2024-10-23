@@ -307,7 +307,7 @@ strTo16.exit:                                     ; preds = %4, %7
 strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   %.0.i23 = phi i16 [ %23, %16 ], [ 0, %strTo16.exit ]
   %24 = icmp eq ptr %0, null
-  br i1 %24, label %94, label %25
+  br i1 %24, label %92, label %25
 
 25:                                               ; preds = %strTo16.exit24
   %26 = load i8, ptr %3, align 1
@@ -317,7 +317,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
 28:                                               ; preds = %25
   store i32 0, ptr %5, align 4
   %29 = call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef 4, ptr noundef %5, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
-  br label %94
+  br label %92
 
 .lr.ph.i:                                         ; preds = %25, %49
   %30 = phi i8 [ %51, %49 ], [ %26, %25 ]
@@ -362,100 +362,98 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
   %.123.i = phi i32 [ %38, %35 ], [ %42, %41 ], [ %46, %45 ], [ %48, %47 ], [ %31, %.lr.ph.i ]
   %50 = getelementptr inbounds i8, ptr %.02430.i, i64 1
   %51 = load i8, ptr %50, align 1
-  %52 = and i8 %51, -64
-  %53 = icmp ne i8 %52, -128
-  %54 = icmp ult i32 %.123.i, 1114112
-  %or.cond.i = select i1 %53, i1 %54, i1 false
-  %55 = zext i1 %or.cond.i to i32
-  %spec.select = add i32 %.02032.i, %55
+  %52 = icmp sgt i8 %51, -65
+  %53 = icmp ult i32 %.123.i, 1114112
+  %or.cond.i = select i1 %52, i1 %53, i1 false
+  %54 = zext i1 %or.cond.i to i32
+  %spec.select = add i32 %.02032.i, %54
   %.not.i = icmp eq i8 %51, 0
   br i1 %.not.i, label %decodeUTF8.exit, label %.lr.ph.i, !llvm.loop !10
 
 decodeUTF8.exit:                                  ; preds = %49
-  %56 = load ptr, ptr %0, align 8
-  %57 = tail call ptr @_cmsCalloc(ptr noundef %56, i32 noundef %spec.select, i32 noundef 4) #13
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %94, label %59
+  %55 = load ptr, ptr %0, align 8
+  %56 = tail call ptr @_cmsCalloc(ptr noundef %55, i32 noundef %spec.select, i32 noundef 4) #13
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %92, label %58
 
-59:                                               ; preds = %decodeUTF8.exit
-  %60 = load i8, ptr %3, align 1
-  %.not29.i25 = icmp eq i8 %60, 0
+58:                                               ; preds = %decodeUTF8.exit
+  %59 = load i8, ptr %3, align 1
+  %.not29.i25 = icmp eq i8 %59, 0
   br i1 %.not29.i25, label %decodeUTF8.exit41, label %.lr.ph.i26
 
-.lr.ph.i26:                                       ; preds = %59, %89
-  %61 = phi i8 [ %90, %89 ], [ %60, %59 ]
-  %.033.i27 = phi ptr [ %.1.i34, %89 ], [ %57, %59 ]
-  %.02231.i29 = phi i32 [ %.123.i31, %89 ], [ 0, %59 ]
-  %.02430.i30 = phi ptr [ %81, %89 ], [ %3, %59 ]
-  %62 = zext i8 %61 to i32
-  %63 = icmp sgt i8 %61, -1
-  br i1 %63, label %80, label %64
+.lr.ph.i26:                                       ; preds = %58, %87
+  %60 = phi i8 [ %88, %87 ], [ %59, %58 ]
+  %.033.i27 = phi ptr [ %.1.i34, %87 ], [ %56, %58 ]
+  %.02231.i29 = phi i32 [ %.123.i31, %87 ], [ 0, %58 ]
+  %.02430.i30 = phi ptr [ %80, %87 ], [ %3, %58 ]
+  %61 = zext i8 %60 to i32
+  %62 = icmp sgt i8 %60, -1
+  br i1 %62, label %79, label %63
 
-64:                                               ; preds = %.lr.ph.i26
-  %65 = icmp ult i8 %61, -64
-  br i1 %65, label %66, label %70
+63:                                               ; preds = %.lr.ph.i26
+  %64 = icmp ult i8 %60, -64
+  br i1 %64, label %65, label %69
 
-66:                                               ; preds = %64
-  %67 = shl i32 %.02231.i29, 6
-  %68 = and i32 %62, 63
-  %69 = or disjoint i32 %67, %68
-  br label %80
+65:                                               ; preds = %63
+  %66 = shl i32 %.02231.i29, 6
+  %67 = and i32 %61, 63
+  %68 = or disjoint i32 %66, %67
+  br label %79
 
-70:                                               ; preds = %64
-  %71 = icmp ult i8 %61, -32
-  br i1 %71, label %72, label %74
+69:                                               ; preds = %63
+  %70 = icmp ult i8 %60, -32
+  br i1 %70, label %71, label %73
 
-72:                                               ; preds = %70
-  %73 = and i32 %62, 31
-  br label %80
+71:                                               ; preds = %69
+  %72 = and i32 %61, 31
+  br label %79
 
-74:                                               ; preds = %70
-  %75 = icmp ult i8 %61, -16
-  br i1 %75, label %76, label %78
+73:                                               ; preds = %69
+  %74 = icmp ult i8 %60, -16
+  br i1 %74, label %75, label %77
 
-76:                                               ; preds = %74
-  %77 = and i32 %62, 15
-  br label %80
+75:                                               ; preds = %73
+  %76 = and i32 %61, 15
+  br label %79
 
-78:                                               ; preds = %74
-  %79 = and i32 %62, 7
-  br label %80
+77:                                               ; preds = %73
+  %78 = and i32 %61, 7
+  br label %79
 
-80:                                               ; preds = %78, %76, %72, %66, %.lr.ph.i26
-  %.123.i31 = phi i32 [ %69, %66 ], [ %73, %72 ], [ %77, %76 ], [ %79, %78 ], [ %62, %.lr.ph.i26 ]
-  %81 = getelementptr inbounds i8, ptr %.02430.i30, i64 1
-  %82 = load i8, ptr %81, align 1
-  %83 = and i8 %82, -64
-  %84 = icmp ne i8 %83, -128
-  %85 = icmp ult i32 %.123.i31, 1114112
-  %or.cond.i32 = select i1 %84, i1 %85, i1 false
-  br i1 %or.cond.i32, label %86, label %89
+79:                                               ; preds = %77, %75, %71, %65, %.lr.ph.i26
+  %.123.i31 = phi i32 [ %68, %65 ], [ %72, %71 ], [ %76, %75 ], [ %78, %77 ], [ %61, %.lr.ph.i26 ]
+  %80 = getelementptr inbounds i8, ptr %.02430.i30, i64 1
+  %81 = load i8, ptr %80, align 1
+  %82 = icmp sgt i8 %81, -65
+  %83 = icmp ult i32 %.123.i31, 1114112
+  %or.cond.i32 = select i1 %82, i1 %83, i1 false
+  br i1 %or.cond.i32, label %84, label %87
 
-86:                                               ; preds = %80
+84:                                               ; preds = %79
   %.not28.i37 = icmp eq ptr %.033.i27, null
-  br i1 %.not28.i37, label %89, label %87
+  br i1 %.not28.i37, label %87, label %85
 
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %.033.i27, i64 4
+85:                                               ; preds = %84
+  %86 = getelementptr inbounds i8, ptr %.033.i27, i64 4
   store i32 %.123.i31, ptr %.033.i27, align 4
-  %.pre.pre.i38 = load i8, ptr %81, align 1
-  br label %89
+  %.pre.pre.i38 = load i8, ptr %80, align 1
+  br label %87
 
-89:                                               ; preds = %86, %87, %80
-  %90 = phi i8 [ %82, %80 ], [ %.pre.pre.i38, %87 ], [ %82, %86 ]
-  %.1.i34 = phi ptr [ %.033.i27, %80 ], [ %88, %87 ], [ null, %86 ]
-  %.not.i35 = icmp eq i8 %90, 0
+87:                                               ; preds = %84, %85, %79
+  %88 = phi i8 [ %81, %79 ], [ %.pre.pre.i38, %85 ], [ %81, %84 ]
+  %.1.i34 = phi ptr [ %.033.i27, %79 ], [ %86, %85 ], [ null, %84 ]
+  %.not.i35 = icmp eq i8 %88, 0
   br i1 %.not.i35, label %decodeUTF8.exit41, label %.lr.ph.i26, !llvm.loop !10
 
-decodeUTF8.exit41:                                ; preds = %89, %59
-  %91 = shl i32 %spec.select, 2
-  %92 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %91, ptr noundef %57, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
-  %93 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %93, ptr noundef nonnull %57) #13
-  br label %94
+decodeUTF8.exit41:                                ; preds = %87, %58
+  %89 = shl i32 %spec.select, 2
+  %90 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %89, ptr noundef %56, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
+  %91 = load ptr, ptr %0, align 8
+  tail call void @_cmsFree(ptr noundef %91, ptr noundef nonnull %56) #13
+  br label %92
 
-94:                                               ; preds = %decodeUTF8.exit, %strTo16.exit24, %decodeUTF8.exit41, %28
-  %.0 = phi i32 [ %29, %28 ], [ %92, %decodeUTF8.exit41 ], [ 0, %strTo16.exit24 ], [ 0, %decodeUTF8.exit ]
+92:                                               ; preds = %decodeUTF8.exit, %strTo16.exit24, %decodeUTF8.exit41, %28
+  %.0 = phi i32 [ %29, %28 ], [ %90, %decodeUTF8.exit41 ], [ 0, %strTo16.exit24 ], [ 0, %decodeUTF8.exit ]
   ret i32 %.0
 }
 

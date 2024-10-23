@@ -2019,8 +2019,7 @@ return:                                           ; preds = %nvme_sg_unmap.exit,
 define internal fastcc zeroext range(i16 0, 16403) i16 @nvme_map_mptr(ptr noundef %n, ptr noundef %sg, i64 noundef %len, i8 %cmd.1.val, i64 %cmd.16.val) unnamed_addr #0 {
 entry:
   %sgl = alloca %struct.NvmeSglDescriptor, align 8
-  %.mask = and i8 %cmd.1.val, -64
-  %cmp = icmp eq i8 %.mask, -128
+  %cmp = icmp slt i8 %cmd.1.val, -64
   br i1 %cmp, label %if.then, label %if.end14
 
 if.then:                                          ; preds = %entry

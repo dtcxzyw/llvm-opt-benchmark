@@ -151,8 +151,7 @@ define internal i32 @dissect_brdwlk(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %or.cond8, label %.sink.split, label %14
 
 14:                                               ; preds = %4
-  %.mask = and i8 %9, -16
-  %15 = icmp eq i8 %.mask, -128
+  %15 = icmp slt i8 %9, -112
   br i1 %15, label %.sink.split, label %16
 
 .sink.split:                                      ; preds = %14, %4

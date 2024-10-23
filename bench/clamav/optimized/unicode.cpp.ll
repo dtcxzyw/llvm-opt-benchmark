@@ -794,8 +794,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKh(ptr nocapture noundef readonly %0) 
 
 18:                                               ; preds = %17
   %19 = load i8, ptr %.118.i, align 1
-  %20 = and i8 %19, -64
-  %.not21.i = icmp eq i8 %20, -128
+  %.not21.i = icmp slt i8 %19, -64
   br i1 %.not21.i, label %.preheader.i, label %_Z10IsTextUtf8PKhm.exit, !llvm.loop !14
 
 _Z10IsTextUtf8PKhm.exit:                          ; preds = %.loopexit.i, %._crit_edge.i, %17, %18, %1
@@ -853,8 +852,7 @@ define noundef zeroext i1 @_Z10IsTextUtf8PKhm(ptr nocapture noundef readonly %0,
 
 18:                                               ; preds = %17
   %19 = load i8, ptr %.118, align 1
-  %20 = and i8 %19, -64
-  %.not21 = icmp eq i8 %20, -128
+  %.not21 = icmp slt i8 %19, -64
   br i1 %.not21, label %.preheader, label %.loopexit22, !llvm.loop !14
 
 .loopexit22:                                      ; preds = %._crit_edge, %.loopexit, %17, %18, %2

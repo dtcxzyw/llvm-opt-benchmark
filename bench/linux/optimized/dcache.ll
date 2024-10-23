@@ -3151,7 +3151,7 @@ define internal fastcc void @__d_instantiate(ptr noundef %0, ptr noundef nonnull
   br label %29
 
 29:                                               ; preds = %27, %18
-  %30 = icmp eq i16 %4, -32768
+  %30 = icmp slt i16 %3, -28672
   br i1 %30, label %32, label %31, !prof !6
 
 31:                                               ; preds = %29
@@ -3452,7 +3452,7 @@ define internal fastcc ptr @__d_obtain_alias(ptr noundef %0, i1 noundef zeroext 
   br label %53
 
 53:                                               ; preds = %51, %42
-  %54 = icmp eq i16 %28, -32768
+  %54 = icmp slt i16 %27, -28672
   br i1 %54, label %56, label %55, !prof !6
 
 55:                                               ; preds = %53
@@ -5506,7 +5506,7 @@ define internal fastcc void @__d_add(ptr noundef %0, ptr noundef %1) unnamed_add
   br label %57
 
 57:                                               ; preds = %55, %46
-  %58 = icmp eq i16 %32, -32768
+  %58 = icmp slt i16 %31, -28672
   br i1 %58, label %60, label %59, !prof !6
 
 59:                                               ; preds = %57

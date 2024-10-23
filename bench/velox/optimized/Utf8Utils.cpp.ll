@@ -65,22 +65,21 @@ if.end18:                                         ; preds = %if.end10
 if.end21:                                         ; preds = %if.end18
   %arrayidx22 = getelementptr inbounds i8, ptr %input, i64 2
   %2 = load i8, ptr %arrayidx22, align 1
-  %3 = and i8 %2, -64
-  %cmp25 = icmp eq i8 %3, -128
+  %cmp25 = icmp slt i8 %2, -64
   br i1 %cmp25, label %if.end27, label %return
 
 if.end27:                                         ; preds = %if.end21
   br i1 %cmp28, label %if.then29, label %if.end47
 
 if.then29:                                        ; preds = %if.end27
-  %4 = and i8 %input.val, 15
-  %and32 = zext nneg i8 %4 to i32
+  %3 = and i8 %input.val, 15
+  %and32 = zext nneg i8 %3 to i32
   %shl33 = shl nuw nsw i32 %and32, 12
   %and35 = shl nsw i32 %conv, 6
   %shl36 = and i32 %and35, 4032
   %or37 = or disjoint i32 %shl36, %shl33
   %cmp41 = icmp samesign ugt i32 %or37, 55295
-  %cmp42 = icmp samesign ult i8 %4, 14
+  %cmp42 = icmp samesign ult i8 %3, 14
   %or.cond = select i1 %cmp41, i1 %cmp42, i1 false
   br i1 %or.cond, label %return, label %if.end44
 
@@ -95,23 +94,22 @@ if.end47:                                         ; preds = %if.end27
 
 if.end50:                                         ; preds = %if.end47
   %arrayidx51 = getelementptr inbounds i8, ptr %input, i64 3
-  %5 = load i8, ptr %arrayidx51, align 1
-  %6 = and i8 %5, -64
-  %cmp54 = icmp eq i8 %6, -128
+  %4 = load i8, ptr %arrayidx51, align 1
+  %cmp54 = icmp slt i8 %4, -64
   br i1 %cmp54, label %if.end56, label %return
 
 if.end56:                                         ; preds = %if.end50
   br i1 %cmp57, label %if.then58, label %if.end79
 
 if.then58:                                        ; preds = %if.end56
-  %7 = and i8 %input.val, 7
-  %and61 = zext nneg i8 %7 to i32
+  %5 = and i8 %input.val, 7
+  %and61 = zext nneg i8 %5 to i32
   %shl62 = shl nuw nsw i32 %and61, 18
   %and64 = shl nsw i32 %conv, 12
   %shl65 = and i32 %and64, 196608
   %or66 = add nsw i32 %shl62, -65536
-  %8 = add nsw i32 %or66, %shl65
-  %or.cond1 = icmp ult i32 %8, 1048576
+  %6 = add nsw i32 %or66, %shl65
+  %or.cond1 = icmp ult i32 %6, 1048576
   %. = select i1 %or.cond1, i32 4, i32 -4
   br label %return
 
@@ -121,9 +119,8 @@ if.end79:                                         ; preds = %if.end56
 
 if.end82:                                         ; preds = %if.end79
   %arrayidx83 = getelementptr inbounds i8, ptr %input, i64 4
-  %9 = load i8, ptr %arrayidx83, align 1
-  %10 = and i8 %9, -64
-  %cmp86 = icmp eq i8 %10, -128
+  %7 = load i8, ptr %arrayidx83, align 1
+  %cmp86 = icmp slt i8 %7, -64
   br i1 %cmp86, label %if.end88, label %return
 
 if.end88:                                         ; preds = %if.end82
@@ -133,9 +130,8 @@ if.end88:                                         ; preds = %if.end82
 
 if.end94:                                         ; preds = %if.end88
   %arrayidx95 = getelementptr inbounds i8, ptr %input, i64 5
-  %11 = load i8, ptr %arrayidx95, align 1
-  %12 = and i8 %11, -64
-  %cmp98 = icmp eq i8 %12, -128
+  %8 = load i8, ptr %arrayidx95, align 1
+  %cmp98 = icmp slt i8 %8, -64
   %spec.select = select i1 %cmp98, i32 -6, i32 -5
   br label %return
 

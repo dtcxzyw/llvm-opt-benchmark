@@ -7624,8 +7624,7 @@ _ZN21AdapterHandlerLibrary18get_simple_adapterERK12methodHandle.exit.thread: ; p
   %66 = load volatile i64, ptr %43, align 8
   %67 = and i64 %66, 4294967295
   %68 = icmp eq i64 %67, 0
-  %.mask.i = and i64 %65, -4294967296
-  %69 = icmp eq i64 %.mask.i, -9223372036854775808
+  %69 = icmp slt i64 %65, -9223372032559808512
   %or.cond.i = select i1 %68, i1 true, i1 %69
   br i1 %or.cond.i, label %_ZNK11ConstMethod11fingerprintEv.exit.thread, label %_ZNK11ConstMethod11fingerprintEv.exit
 
@@ -8259,8 +8258,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %1, %21
   %77 = load volatile i64, ptr %65, align 8
   %78 = and i64 %77, 4294967295
   %79 = icmp eq i64 %78, 0
-  %.mask.i = and i64 %76, -4294967296
-  %80 = icmp eq i64 %.mask.i, -9223372036854775808
+  %80 = icmp slt i64 %76, -9223372032559808512
   %or.cond.i = select i1 %79, i1 true, i1 %80
   br i1 %or.cond.i, label %_ZNK11ConstMethod11fingerprintEv.exit, label %81
 

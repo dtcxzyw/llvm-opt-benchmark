@@ -7856,8 +7856,7 @@ define dso_local range(i32 0, 2) i32 @bf_get_int32(ptr nocapture noundef writeon
   %45 = getelementptr i64, ptr %42, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load i64, ptr %46, align 8
-  %.mask = and i64 %47, -4294967296
-  %48 = icmp ne i64 %.mask, -9223372036854775808
+  %48 = icmp sgt i64 %47, -9223372032559808513
   %spec.select32 = zext i1 %48 to i32
   br label %82
 

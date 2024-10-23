@@ -2806,8 +2806,7 @@ while.end10.i.i.i327:                             ; preds = %while.end.i.i.i334,
 invoke.cont301:                                   ; preds = %while.end10.i.i.i327
   %add.ptr.i.pn.i.i.i332 = getelementptr inbounds i8, ptr %view.sroa.4.0.i.i.i329, i64 %start.addr.0.i.i.i330
   %146 = load i8, ptr %add.ptr.i.pn.i.i.i332, align 1
-  %.mask = and i8 %146, -64
-  %cmp304.not = icmp eq i8 %.mask, -128
+  %cmp304.not = icmp slt i8 %146, -64
   br i1 %cmp304.not, label %if.end315, label %if.then305
 
 if.then305:                                       ; preds = %invoke.cont301

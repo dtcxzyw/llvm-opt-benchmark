@@ -2640,76 +2640,75 @@ define dso_local i64 @ext4_inode_to_goal_block(ptr nocapture noundef readonly %0
   %9 = getelementptr i8, ptr %0, i64 -224
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %8, 3
-  br i1 %11, label %12, label %20
+  br i1 %11, label %12, label %19
 
 12:                                               ; preds = %1
   %13 = sub nsw i32 0, %8
   %14 = and i32 %10, %13
   %15 = load i16, ptr %0, align 8
-  %16 = and i16 %15, -4096
-  %17 = icmp eq i16 %16, -32768
-  %18 = zext i1 %17 to i32
-  %19 = add nuw i32 %14, %18
-  br label %20
+  %16 = icmp slt i16 %15, -28672
+  %17 = zext i1 %16 to i32
+  %18 = add nuw i32 %14, %17
+  br label %19
 
-20:                                               ; preds = %12, %1
-  %21 = phi i32 [ %10, %1 ], [ %19, %12 ]
-  %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds i8, ptr %5, i64 16
-  %24 = load i64, ptr %23, align 16
-  %25 = mul i64 %24, %22
-  %26 = getelementptr inbounds i8, ptr %5, i64 104
-  %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 20
-  %29 = load i32, ptr %28, align 4
-  %30 = zext i32 %29 to i64
-  %31 = add i64 %25, %30
-  %32 = getelementptr inbounds i8, ptr %27, i64 96
-  %33 = load i32, ptr %32, align 8
-  %34 = and i32 %33, 128
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %41, label %36
+19:                                               ; preds = %12, %1
+  %20 = phi i32 [ %10, %1 ], [ %18, %12 ]
+  %21 = zext i32 %20 to i64
+  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %23 = load i64, ptr %22, align 16
+  %24 = mul i64 %23, %21
+  %25 = getelementptr inbounds i8, ptr %5, i64 104
+  %26 = load ptr, ptr %25, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 20
+  %28 = load i32, ptr %27, align 4
+  %29 = zext i32 %28 to i64
+  %30 = add i64 %24, %29
+  %31 = getelementptr inbounds i8, ptr %26, i64 96
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %32, 128
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %40, label %35
 
-36:                                               ; preds = %20
-  %37 = getelementptr inbounds i8, ptr %27, i64 336
-  %38 = load i32, ptr %37, align 8
-  %39 = zext i32 %38 to i64
-  %40 = shl nuw i64 %39, 32
-  br label %41
+35:                                               ; preds = %19
+  %36 = getelementptr inbounds i8, ptr %26, i64 336
+  %37 = load i32, ptr %36, align 8
+  %38 = zext i32 %37 to i64
+  %39 = shl nuw i64 %38, 32
+  br label %40
 
-41:                                               ; preds = %36, %20
-  %42 = phi i64 [ %40, %36 ], [ 0, %20 ]
-  %43 = getelementptr inbounds i8, ptr %5, i64 120
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 134217728
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %67
+40:                                               ; preds = %35, %19
+  %41 = phi i64 [ %39, %35 ], [ 0, %19 ]
+  %42 = getelementptr inbounds i8, ptr %5, i64 120
+  %43 = load i32, ptr %42, align 8
+  %44 = and i32 %43, 134217728
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %66
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %27, i64 4
-  %49 = load i32, ptr %48, align 4
-  %50 = zext i32 %49 to i64
-  %51 = or disjoint i64 %42, %50
-  %52 = add i64 %51, -1
-  %53 = add i64 %31, %24
-  %54 = icmp ugt i64 %53, %52
-  %55 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16
-  %56 = inttoptr i64 %55 to ptr
-  %57 = getelementptr inbounds i8, ptr %56, i64 1320
-  %58 = load i32, ptr %57, align 8
-  %59 = srem i32 %58, 16
-  %60 = sub i64 %52, %31
-  %61 = select i1 %54, i64 %60, i64 %24
-  %62 = lshr i64 %61, 4
-  %63 = trunc i64 %62 to i32
-  %64 = mul i32 %59, %63
-  %65 = sext i32 %64 to i64
-  %66 = add i64 %31, %65
-  br label %67
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds i8, ptr %26, i64 4
+  %48 = load i32, ptr %47, align 4
+  %49 = zext i32 %48 to i64
+  %50 = or disjoint i64 %41, %49
+  %51 = add i64 %50, -1
+  %52 = add i64 %30, %23
+  %53 = icmp ugt i64 %52, %51
+  %54 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16
+  %55 = inttoptr i64 %54 to ptr
+  %56 = getelementptr inbounds i8, ptr %55, i64 1320
+  %57 = load i32, ptr %56, align 8
+  %58 = srem i32 %57, 16
+  %59 = sub i64 %51, %30
+  %60 = select i1 %53, i64 %59, i64 %23
+  %61 = lshr i64 %60, 4
+  %62 = trunc i64 %61 to i32
+  %63 = mul i32 %58, %62
+  %64 = sext i32 %63 to i64
+  %65 = add i64 %30, %64
+  br label %66
 
-67:                                               ; preds = %47, %41
-  %68 = phi i64 [ %66, %47 ], [ %31, %41 ]
-  ret i64 %68
+66:                                               ; preds = %46, %40
+  %67 = phi i64 [ %65, %46 ], [ %30, %40 ]
+  ret i64 %67
 }
 
 ; Function Attrs: null_pointer_is_valid

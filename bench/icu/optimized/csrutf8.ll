@@ -120,12 +120,11 @@ for.cond32:                                       ; preds = %if.end45, %if.end31
 if.end37:                                         ; preds = %for.cond32
   %arrayidx39 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.next
   %8 = load i8, ptr %arrayidx39, align 1
-  %9 = and i8 %8, -64
-  %cmp42.not = icmp eq i8 %9, -128
+  %cmp42.not = icmp slt i8 %8, -64
   br i1 %cmp42.not, label %if.end45, label %if.then43
 
 if.then43:                                        ; preds = %if.end37
-  %10 = trunc nsw i64 %indvars.iv.next to i32
+  %9 = trunc nsw i64 %indvars.iv.next to i32
   %add44 = add nsw i32 %numInvalid.042, 1
   br label %for.inc
 
@@ -139,13 +138,13 @@ if.then47:                                        ; preds = %if.end45
   br label %for.inc
 
 for.inc.loopexit:                                 ; preds = %for.cond32
-  %11 = trunc nsw i64 %indvars.iv.next to i32
+  %10 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.loopexit, %if.then43, %if.then47, %for.body, %if.else28
   %numValid.1 = phi i32 [ %numValid.041, %for.body ], [ %numValid.041, %if.then43 ], [ %add48, %if.then47 ], [ %numValid.041, %if.else28 ], [ %numValid.041, %for.inc.loopexit ]
   %numInvalid.1 = phi i32 [ %numInvalid.042, %for.body ], [ %add44, %if.then43 ], [ %numInvalid.042, %if.then47 ], [ %add, %if.else28 ], [ %numInvalid.042, %for.inc.loopexit ]
-  %i.1 = phi i32 [ %i.043, %for.body ], [ %10, %if.then43 ], [ %7, %if.then47 ], [ %i.043, %if.else28 ], [ %11, %for.inc.loopexit ]
+  %i.1 = phi i32 [ %i.043, %for.body ], [ %9, %if.then43 ], [ %7, %if.then47 ], [ %i.043, %if.else28 ], [ %10, %for.inc.loopexit ]
   %add50 = add nsw i32 %i.1, 1
   %cmp12 = icmp slt i32 %add50, %1
   br i1 %cmp12, label %for.body, label %for.end51, !llvm.loop !6
