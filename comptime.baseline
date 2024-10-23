@@ -2703,7 +2703,7 @@ clamav/regcomp.c.ll 1234925692
 clamav/regerror.c.ll 52875728
 clamav/regex_list.c.ll 315410631
 clamav/regex_pcre.c.ll 107111584
-clamav/regex_suffix.c.ll 245005923
+clamav/regex_suffix.c.ll 245251211
 clamav/regexec.c.ll 994531912
 clamav/rijndael.c.ll 759811596
 clamav/rijndael.cpp.ll 427146884
@@ -7256,7 +7256,7 @@ git/show-index.ll 101018777
 git/show-ref.ll 227462864
 git/sideband.ll 135252152
 git/sigchain.ll 79497839
-git/skipping.ll 145740975
+git/skipping.ll 145886813
 git/sparse-checkout.ll 400877768
 git/sparse-index.ll 198015918
 git/split-index.ll 219385312
