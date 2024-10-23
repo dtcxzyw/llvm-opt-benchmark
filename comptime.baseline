@@ -19787,7 +19787,7 @@ openblas/dorbdb1.c.ll 84129844
 openblas/dorbdb2.c.ll 96473324
 openblas/dorcsd2by1.c.ll 300004014
 openblas/dorg2r.c.ll 79196622
-openblas/dorgbr.c.ll 102430300
+openblas/dorgbr.c.ll 102532750
 openblas/dorgql.c.ll 118575762
 openblas/dorgtsqr.c.ll 58827808
 openblas/dorgtsqr_row.c.ll 93225708
@@ -36976,7 +36976,7 @@ wireshark/packet-isi.c.ll 323750879
 wireshark/packet-isis-clv.c.ll 149802842
 wireshark/packet-isis-hello.c.ll 254679986
 wireshark/packet-isis-lsp.c.ll 1114039335
-wireshark/packet-isis-snp.c.ll 105663916
+wireshark/packet-isis-snp.c.ll 105558252
 wireshark/packet-ismacryp.c.ll 260155617
 wireshark/packet-ismp.c.ll 145144233
 wireshark/packet-isns.c.ll 310584071
