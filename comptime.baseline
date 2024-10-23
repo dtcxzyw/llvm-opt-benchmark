@@ -24058,7 +24058,7 @@ openmpi/libmpi_c_profile_la-ialltoallv.ll 120085907
 openmpi/libmpi_c_profile_la-ialltoallw.ll 120055779
 openmpi/libmpi_c_profile_la-ibarrier.ll 66237594
 openmpi/libmpi_c_profile_la-ibcast.ll 91370305
-openmpi/libmpi_c_profile_la-ibsend.ll 91882322
+openmpi/libmpi_c_profile_la-ibsend.ll 91974233
 openmpi/libmpi_c_profile_la-iexscan.ll 90849635
 openmpi/libmpi_c_profile_la-igather.ll 109419701
 openmpi/libmpi_c_profile_la-igatherv.ll 129529443
