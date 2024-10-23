@@ -5852,7 +5852,7 @@ _ZN3std4sync6poison4Flag5guard17h41ba6071143aa264E.llvm.8996713715750268326.exit
   store ptr %2, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %8, ptr %41, align 8
-  invoke void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb12575acddE.llvm.13402347524827553107(ptr noalias noundef nonnull align 8 dereferenceable(112) %38, ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
+  invoke void @_ZN2h25proto7streams5store5Store12try_for_each17h8cf68fb12575acddE.llvm.13402347524827553107(ptr noalias noundef nonnull align 8 dereferenceable(112) %38, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %7)
           to label %_ZN2h25proto7streams5store5Store8for_each17h423d6f5bdf8e615fE.exit unwind label %43
 
 42:                                               ; preds = %72, %43
@@ -6162,7 +6162,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.1472373081438710728.exit.
   store ptr %10, ptr %74, align 8
   %75 = getelementptr inbounds i8, ptr %8, i64 32
   store ptr %13, ptr %75, align 8
-  invoke void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980aee599dE.llvm.13402347524827553107(ptr noalias noundef nonnull align 8 dereferenceable(112) %71, ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
+  invoke void @_ZN2h25proto7streams5store5Store12try_for_each17hb096cc980aee599dE.llvm.13402347524827553107(ptr noalias noundef nonnull align 8 dereferenceable(112) %71, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %8)
           to label %_ZN2h25proto7streams5store5Store8for_each17h883b31aa2f04e732E.exit unwind label %118
 
 76:                                               ; preds = %89, %92, %97
@@ -9605,7 +9605,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit.th
   store ptr %23, ptr %147, align 8
   %148 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %21, ptr %148, align 8
-  invoke void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b20a8bE.llvm.13402347524827553107(ptr noalias noundef nonnull align 8 dereferenceable(112) %146, ptr noalias noundef nonnull align 8 dereferenceable(24) %8)
+  invoke void @_ZN2h25proto7streams5store5Store12try_for_each17hef44caf1a5b20a8bE.llvm.13402347524827553107(ptr noalias noundef nonnull align 8 dereferenceable(112) %146, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8)
           to label %_ZN2h25proto7streams5store5Store8for_each17hed8fc82631e34483E.exit unwind label %51
 
 .invoke:                                          ; preds = %96, %127

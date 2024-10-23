@@ -420,7 +420,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %66, i32 noundef 127774922, i1 noundef zeroext true), !noalias !13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !13
-  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !13
+  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !13
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !21
@@ -431,7 +431,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %67, i32 noundef %68, i1 noundef zeroext true), !noalias !21
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !21
-  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !21
+  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !21
   %70 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65)
@@ -624,7 +624,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %43, i32 noundef 752184744, i1 noundef zeroext true), !noalias !30
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !30
-  %44 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !30
+  %44 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !30
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !30
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !30
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
@@ -1288,7 +1288,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %6, i32 noundef %193, i32 noundef 127774922, i1 noundef zeroext true), !noalias !52
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6, i64 64, i1 false), !noalias !52
-  %195 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5), !noalias !52
+  %195 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %5), !noalias !52
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !52
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6), !noalias !52
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !60
@@ -1299,7 +1299,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i.i
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, i32 noundef %194, i32 noundef %195, i1 noundef zeroext true), !noalias !60
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false), !noalias !60
-  %196 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3), !noalias !60
+  %196 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %3), !noalias !60
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !60
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !60
   %197 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %192, i32 noundef %192)
@@ -1480,7 +1480,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %42, i32 noundef 857130606, i1 noundef zeroext true), !noalias !69
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !69
-  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !69
+  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !69
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !69
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !69
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5)
@@ -1775,7 +1775,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %74, i32 noundef -13885841, i1 noundef zeroext true), !noalias !83
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !83
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !83
-  %76 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !83
+  %76 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !83
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !83
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !83
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !91
@@ -1786,7 +1786,7 @@ _ZN9softposit5p32e25P32E215calculate_scale17h23828a4b6407a1edE.llvm.164196413843
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %75, i32 noundef %76, i1 noundef zeroext true), !noalias !91
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !91
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !91
-  %77 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !91
+  %77 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !91
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !91
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !91
   %78 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %77, i32 noundef %spec.select)
@@ -2057,7 +2057,7 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %129, i32 noundef -13885841, i1 noundef zeroext true), !noalias !105
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !105
-  %131 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !105
+  %131 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !105
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !105
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !105
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !113
@@ -2068,7 +2068,7 @@ _ZN9softposit5p32e27convert22convert_u32_to_p32bits17h615e043045e072d1E.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %130, i32 noundef %131, i1 noundef zeroext true), !noalias !113
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !113
-  %132 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !113
+  %132 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !113
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !113
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !113
   %133 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %132, i32 noundef %spec.select)
@@ -2251,7 +2251,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %80, i32 noundef -13885841, i1 noundef zeroext true), !noalias !127
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !127
-  %82 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !127
+  %82 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !127
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !127
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !127
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !135
@@ -2262,7 +2262,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %81, i32 noundef %82, i1 noundef zeroext true), !noalias !135
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !135
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !135
-  %83 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !135
+  %83 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !135
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !135
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !135
   %84 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %83, i32 noundef %78)
@@ -2715,7 +2715,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4acos17h8bdbcf687ea59c95E(i32 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %19, i32 noundef 482689413, i1 noundef zeroext true), !noalias !158
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !158
-  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !158
+  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !158
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !158
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !158
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !166
@@ -2726,7 +2726,7 @@ define noundef i32 @_ZN9softposit5p32e24math5sleef4acos17h8bdbcf687ea59c95E(i32 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %20, i32 noundef %21, i1 noundef zeroext true), !noalias !166
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !166
-  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !166
+  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !166
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !166
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !166
   %23 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.037, i32 noundef %.03954)
@@ -2923,7 +2923,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %40, i32 noundef -966787600, i1 noundef zeroext true), !noalias !175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !175
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !175
-  %42 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !175
+  %42 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !175
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !175
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !175
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !183
@@ -2934,7 +2934,7 @@ _ZN9softposit5p32e24math5sleef6kernel5ilogb17ha7a236f09951602dE.exit: ; preds = 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %41, i32 noundef %42, i1 noundef zeroext true), !noalias !183
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !183
-  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !183
+  %43 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !183
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !183
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !183
   %44 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %.0, i32 noundef %43)
@@ -3469,7 +3469,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %66, i32 noundef 127774922, i1 noundef zeroext true), !noalias !205
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !205
-  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !205
+  %68 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !205
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !205
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !205
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !213
@@ -3480,7 +3480,7 @@ _ZN9softposit5p32e27convert22convert_p32bits_to_u3217h036161cc6e46248cE.exit.i: 
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %67, i32 noundef %68, i1 noundef zeroext true), !noalias !213
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !213
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !213
-  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !213
+  %69 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !213
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !213
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !213
   %70 = call noundef i32 @"_ZN9softposit5p32e23ops41_$LT$impl$u20$softposit..p32e2..P32E2$GT$3mul17heda7a0367370492dE"(i32 noundef %65, i32 noundef %65)
@@ -3704,7 +3704,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly2kt17hc6182c55e07
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull align 8 dereferenceable(64) %7, i64 64, i1 false)
-  %13 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %6)
+  %13 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   ret i32 %13
@@ -3735,7 +3735,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
-  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
+  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   ret i32 %16
@@ -3766,7 +3766,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a1965
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
-  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7)
+  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   ret i32 %16
@@ -3800,7 +3800,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
-  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8)
+  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   ret i32 %19
@@ -3834,7 +3834,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly7poly4kt17h74ebe4cced2
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false)
-  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8)
+  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9)
   ret i32 %19
@@ -3869,7 +3869,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly5k17h46a5a2d118b8
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %10, i32 noundef %1, i32 noundef %3, i1 noundef zeroext true), !noalias !238
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9), !noalias !238
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(64) %10, i64 64, i1 false), !noalias !238
-  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9), !noalias !238
+  %16 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %9), !noalias !238
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !238
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !238
   %17 = add i64 %5, -2
@@ -3896,7 +3896,7 @@ _ZN9softposit7polynom4poly4Poly6poly3k17h9e067b2a19653192E.llvm.1096133858278408
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %8, i32 noundef %2, i32 noundef %16, i1 noundef zeroext true), !noalias !244
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false), !noalias !244
-  %26 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %7), !noalias !244
+  %26 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %7), !noalias !244
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7), !noalias !244
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !244
   ret i32 %26
@@ -3930,7 +3930,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly7k17h37a5fe4b7ac3
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %2, i32 noundef %4, i1 noundef zeroext true), !noalias !253
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !253
-  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !253
+  %19 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !253
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !253
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !253
   %20 = add i64 %6, -3
@@ -3960,7 +3960,7 @@ _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.1096133858278408
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %19, i1 noundef zeroext true), !noalias !259
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !259
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !259
-  %31 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !259
+  %31 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !259
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !259
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !259
   ret i32 %31
@@ -3997,7 +3997,7 @@ define hidden noundef i32 @_ZN9softposit7polynom4poly4Poly6poly8k17hefd6015b8a1a
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %11, i32 noundef %3, i32 noundef %4, i1 noundef zeroext true), !noalias !268
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !268
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull align 8 dereferenceable(64) %11, i64 64, i1 false), !noalias !268
-  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !268
+  %21 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %10), !noalias !268
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %10), !noalias !268
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11), !noalias !268
   %22 = add i64 %6, -4
@@ -4027,7 +4027,7 @@ _ZN9softposit7polynom4poly4Poly6poly4k17h8ac4f25f467f9e17E.llvm.1096133858278408
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %9, i32 noundef %3, i32 noundef %21, i1 noundef zeroext true), !noalias !274
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8), !noalias !274
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9, i64 64, i1 false), !noalias !274
-  %33 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !274
+  %33 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %8), !noalias !274
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8), !noalias !274
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9), !noalias !274
   ret i32 %33
@@ -4056,7 +4056,7 @@ _ZN9softposit7polynom4poly4Poly7poly3kt17hf5d6e687720c54d9E.llvm.109613385827840
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %5, i32 noundef %6, i1 noundef zeroext true), !noalias !280
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !280
-  %13 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !280
+  %13 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !280
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !280
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !280
   ret i32 %13
@@ -4098,7 +4098,7 @@ _ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE.exit:
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %7, i32 noundef %8, i1 noundef zeroext true), !noalias !292
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4), !noalias !292
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false), !noalias !292
-  %15 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !292
+  %15 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %4), !noalias !292
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !292
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !292
   call void @llvm.experimental.noalias.scope.decl(metadata !296)
@@ -4116,7 +4116,7 @@ _ZN9softposit7polynom4poly4Poly6poly6k17h02654a10a8ced8fcE.exit:
   call void @_ZN9softposit7quire323ops3fdp17hff26f46db2bab75eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %7, i32 noundef %15, i1 noundef zeroext true), !noalias !299
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2), !noalias !299
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false), !noalias !299
-  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !299
+  %22 = call noundef i32 @"_ZN9softposit7quire327convert43_$LT$impl$u20$softposit..quire32..Q32E2$GT$8to_posit17hb1dd72d059b8f6f8E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %2), !noalias !299
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2), !noalias !299
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !299
   ret i32 %22

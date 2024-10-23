@@ -1591,7 +1591,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !152
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %.sroa.0.07.i, ptr %3, align 8, !noalias !155
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h8e4952134bc92417E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h8e4952134bc92417E.llvm.8318809290061399519"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9)
           to label %15 unwind label %13, !noalias !152
 
 13:                                               ; preds = %10
@@ -5582,7 +5582,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !1077
   %12 = getelementptr inbounds i8, ptr %11, i64 32
   store i64 %.sroa.0.07.i, ptr %3, align 8, !noalias !1080
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h8e4952134bc92417E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h8e4952134bc92417E.llvm.8318809290061399519"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %9)
           to label %15 unwind label %13, !noalias !1077
 
 13:                                               ; preds = %10
@@ -116637,29 +116637,25 @@ _ZN10serde_json5value8to_value17h7f4a104c3461a0f9E.exit: ; preds = %2
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN8schemars8_private30MaybeSerializeWrapper$LT$T$GT$14maybe_to_value17h2db5b1777350aac4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %3 = alloca [56 x i8], align 8
-  %4 = alloca [72 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
-  call void @"_ZN7project16project_settings1_90_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$project..project_settings..GitSettings$GT$9serialize17h2e20eeff24188d61E"(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %3)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  %5 = load i64, ptr %4, align 8, !range !1229, !noundef !4
-  %6 = icmp eq i64 %5, -9223372036854775803
-  br i1 %6, label %9, label %7
+  %3 = alloca [72 x i8], align 8
+  call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
+  call void @"_ZN7project16project_settings1_90_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$project..project_settings..GitSettings$GT$9serialize17h2e20eeff24188d61E"(ptr noalias nocapture noundef nonnull sret([72 x i8]) align 8 dereferenceable(72) %3, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(56) %1)
+  %4 = load i64, ptr %3, align 8, !range !1229, !noundef !4
+  %5 = icmp eq i64 %4, -9223372036854775803
+  br i1 %5, label %8, label %6
 
-7:                                                ; preds = %2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %4, i64 72, i1 false)
-  br label %8
+6:                                                ; preds = %2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
+  br label %7
 
-8:                                                ; preds = %7, %9
-  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
+7:                                                ; preds = %6, %8
+  call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
   ret void
 
-9:                                                ; preds = %2
+8:                                                ; preds = %2
   store i64 -9223372036854775803, ptr %0, align 8
-  call void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17h78b80f47e01ae5faE.llvm.6482399857099888620"(ptr noalias noundef nonnull align 8 dereferenceable(72) %4)
-  br label %8
+  call void @"_ZN4core3ptr100drop_in_place$LT$core..result..Result$LT$serde_json..value..Value$C$serde_json..error..Error$GT$$GT$17h78b80f47e01ae5faE.llvm.6482399857099888620"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3)
+  br label %7
 }
 
 ; Function Attrs: nonlazybind uwtable

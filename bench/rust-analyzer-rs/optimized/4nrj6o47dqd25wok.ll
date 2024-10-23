@@ -59356,23 +59356,19 @@ define hidden noundef align 16 dereferenceable_or_null(64) ptr @"_ZN4core3ops8fu
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h54c7e05adc281e60E"(ptr noalias nocapture noundef sret({ i128, [6 x i64] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %2) unnamed_addr #3 {
-  %4 = alloca { { { i128, [2 x i64] }, { i128, [2 x i64] } } }, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 64, i1 false)
-  %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !158, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !158, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16019)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !16019, !noalias !16022, !nonnull !4, !align !8478, !noundef !4
-  call void @_ZN28ra_ap_rustc_pattern_analysis11constructor8IntRange12intersection17hc8edfbbbc5082abaE(ptr noalias nocapture noundef nonnull sret({ i128, [6 x i64] }) align 16 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %4), !noalias !16019
+  %5 = load ptr, ptr %4, align 8, !alias.scope !16019, !noalias !16022, !nonnull !4, !align !8478, !noundef !4
+  tail call void @_ZN28ra_ap_rustc_pattern_analysis11constructor8IntRange12intersection17hc8edfbbbc5082abaE(ptr noalias nocapture noundef nonnull sret({ i128, [6 x i64] }) align 16 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(64) %2), !noalias !16019
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h848cd9954f33d05fE"(ptr noalias nocapture noundef sret({ i128, [6 x i64] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %2) unnamed_addr #3 {
-  %4 = alloca { { { i128, [2 x i64] }, { i128, [2 x i64] } } }, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 16 dereferenceable(64) %2, i64 64, i1 false)
-  %5 = load ptr, ptr %1, align 8, !nonnull !4, !align !158, !noundef !4
+  %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !158, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16025)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !16025, !noalias !16028, !nonnull !4, !align !8478, !noundef !4
-  call void @_ZN28ra_ap_rustc_pattern_analysis11constructor8IntRange12intersection17hc8edfbbbc5082abaE(ptr noalias nocapture noundef nonnull sret({ i128, [6 x i64] }) align 16 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %6, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %4), !noalias !16025
+  %5 = load ptr, ptr %4, align 8, !alias.scope !16025, !noalias !16028, !nonnull !4, !align !8478, !noundef !4
+  tail call void @_ZN28ra_ap_rustc_pattern_analysis11constructor8IntRange12intersection17hc8edfbbbc5082abaE(ptr noalias nocapture noundef nonnull sret({ i128, [6 x i64] }) align 16 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 16 dereferenceable(64) %5, ptr noalias nocapture noundef nonnull readonly align 16 dereferenceable(64) %2), !noalias !16025
   ret void
 }
 

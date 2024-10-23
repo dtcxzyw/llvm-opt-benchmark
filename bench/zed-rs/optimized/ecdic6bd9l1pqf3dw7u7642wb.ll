@@ -1570,9 +1570,7 @@ define hidden { ptr, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17he693379edf31bb1fE"(ptr dead_on_unwind noalias nocapture noundef writable sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #4 {
-  %4 = alloca [32 x i8], align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
-  call void @_ZN11tree_sitter4Node5range17h2fe2571e89a853e0E(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
+  tail call void @_ZN11tree_sitter4Node5range17h2fe2571e89a853e0E(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %2)
   ret void
 }
 

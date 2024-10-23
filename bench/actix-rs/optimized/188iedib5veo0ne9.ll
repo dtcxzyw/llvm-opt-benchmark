@@ -7287,7 +7287,7 @@ common.resume:                                    ; preds = %229, %202, %.body.t
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %27, ptr noundef nonnull readonly align 8 dereferenceable(88) %30, i64 88, i1 false), !noalias !1129
   %77 = getelementptr inbounds i8, ptr %27, i64 80
   %78 = load ptr, ptr %77, align 8, !alias.scope !1135, !noalias !1134, !nonnull !21, !noundef !21
-  call void @"_ZN4core3ptr119drop_in_place$LT$zstd..stream..zio..writer..Writer$LT$actix_http..encoding..Writer$C$zstd..stream..raw..Encoder$GT$$GT$17hde86234e0370b793E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %27), !noalias !1134
+  call void @"_ZN4core3ptr119drop_in_place$LT$zstd..stream..zio..writer..Writer$LT$actix_http..encoding..Writer$C$zstd..stream..raw..Encoder$GT$$GT$17hde86234e0370b793E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %27), !noalias !1134
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %27), !noalias !1134
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %30)
   br label %244
@@ -7818,7 +7818,7 @@ _ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.exit57: ; preds = %207, 
 244:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc606a3a5f239f72cE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc606a3a5f239f72cE.exit"
   %.sroa.6107.0139 = phi ptr [ %78, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc606a3a5f239f72cE.exit.thread" ], [ %.sroa.6107.0.copyload108, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc606a3a5f239f72cE.exit" ]
   %245 = icmp ne ptr %.sroa.6107.0139, null
-  call void @llvm.assume(i1 %245)
+  tail call void @llvm.assume(i1 %245)
   %246 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.6107.0139, ptr %246, align 8
   store ptr null, ptr %0, align 8

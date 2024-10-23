@@ -547,7 +547,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h04eed5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !142
   store i64 %.0.i.i, ptr %3, align 8, !noalias !145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !145
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !139
 
 14:                                               ; preds = %13
@@ -615,7 +615,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h15314d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !151
   store i64 %.0.i.i, ptr %3, align 8, !noalias !154
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !154
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !148
 
 14:                                               ; preds = %13
@@ -677,7 +677,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h2a8517
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !160
   store i64 %.0.i.i, ptr %3, align 8, !noalias !163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !163
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !157
 
 14:                                               ; preds = %13
@@ -751,7 +751,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3bcb69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !169
   store i64 %.0.i.i, ptr %3, align 8, !noalias !172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !172
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !166
 
 14:                                               ; preds = %13
@@ -813,7 +813,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4126f5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !178
   store i64 %.0.i.i, ptr %3, align 8, !noalias !181
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !181
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !175
 
 14:                                               ; preds = %13
@@ -875,7 +875,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h418645
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !187
   store i64 %.0.i.i, ptr %3, align 8, !noalias !190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !190
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !184
 
 14:                                               ; preds = %13
@@ -937,7 +937,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h425be1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !196
   store i64 %.0.i.i, ptr %3, align 8, !noalias !199
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !199
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !193
 
 14:                                               ; preds = %13
@@ -999,7 +999,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h448934
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !205
   store i64 %.0.i.i, ptr %3, align 8, !noalias !208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !208
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !202
 
 14:                                               ; preds = %13
@@ -1055,7 +1055,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h481129
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !217
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !214
   store i64 %.0.i.i, ptr %2, align 8, !noalias !217
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E.llvm.774313995428851812"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E.llvm.774313995428851812"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %7, !noalias !211
 
 12:                                               ; preds = %11
@@ -1123,7 +1123,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h541c1e
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !223
   store i64 %.0.i.i, ptr %3, align 8, !noalias !226
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !226
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !220
 
 14:                                               ; preds = %13
@@ -1185,7 +1185,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h89e0c3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !232
   store i64 %.0.i.i, ptr %3, align 8, !noalias !235
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !235
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !229
 
 14:                                               ; preds = %13
@@ -1253,7 +1253,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h947425
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !241
   store i64 %.0.i.i, ptr %3, align 8, !noalias !244
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !244
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !238
 
 14:                                               ; preds = %13
@@ -1315,7 +1315,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9b327b
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !250
   store i64 %.0.i.i, ptr %3, align 8, !noalias !253
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !253
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !247
 
 14:                                               ; preds = %13
@@ -1383,7 +1383,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha1dfc1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !259
   store i64 %.0.i.i, ptr %3, align 8, !noalias !262
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !262
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !256
 
 14:                                               ; preds = %13
@@ -1451,7 +1451,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcd3e52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !268
   store i64 %.0.i.i, ptr %3, align 8, !noalias !271
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !271
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !265
 
 14:                                               ; preds = %13
@@ -1513,7 +1513,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hed109d
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !277
   store i64 %.0.i.i, ptr %3, align 8, !noalias !280
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !280
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !274
 
 14:                                               ; preds = %13
@@ -1581,7 +1581,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf5d383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false), !noalias !286
   store i64 %.0.i.i, ptr %3, align 8, !noalias !289
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !289
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %7)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %7)
           to label %14 unwind label %.body.i.i, !noalias !283
 
 14:                                               ; preds = %13
@@ -2526,7 +2526,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !306
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !309
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !309
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !301
 
 18:                                               ; preds = %17
@@ -2649,7 +2649,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !323
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !326
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !326
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !318
 
 18:                                               ; preds = %17
@@ -2772,7 +2772,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !340
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !343
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !343
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !335
 
 18:                                               ; preds = %17
@@ -2895,7 +2895,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !357
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !360
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !352
 
 18:                                               ; preds = %17
@@ -3018,7 +3018,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !374
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !377
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !377
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !369
 
 18:                                               ; preds = %17
@@ -3141,7 +3141,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !391
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !394
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !394
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !386
 
 18:                                               ; preds = %17
@@ -3264,7 +3264,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !408
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !411
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !411
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !403
 
 18:                                               ; preds = %17
@@ -3387,7 +3387,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !425
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !428
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !420
 
 18:                                               ; preds = %17
@@ -3568,7 +3568,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !442
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !445
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !445
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !437
 
 18:                                               ; preds = %17
@@ -3778,7 +3778,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !459
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !462
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !462
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !454
 
 18:                                               ; preds = %17
@@ -3901,7 +3901,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !476
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !479
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !479
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !471
 
 18:                                               ; preds = %17
@@ -4024,7 +4024,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !493
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !496
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !496
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !488
 
 18:                                               ; preds = %17
@@ -4147,7 +4147,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !510
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !513
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !513
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !505
 
 18:                                               ; preds = %17
@@ -4270,7 +4270,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !527
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !530
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !530
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !522
 
 18:                                               ; preds = %17
@@ -4393,7 +4393,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !544
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !547
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !547
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !539
 
 18:                                               ; preds = %17
@@ -4516,7 +4516,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28MapDeserializer$LT$I$C$E
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !561
   store i64 %.0.i.i.i, ptr %3, align 8, !noalias !564
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false), !noalias !564
-  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
+  invoke void @"_ZN4core3ptr196drop_in_place$LT$$LP$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$C$serde..__private..de..content..ContentDeserializer$LT$serde_json..error..Error$GT$$RP$$GT$17hb45e29c4c79d4d66E.llvm.11964692271494333599"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
           to label %18 unwind label %.body.i.i.i, !noalias !556
 
 18:                                               ; preds = %17
@@ -4661,7 +4661,7 @@ define hidden noundef align 8 ptr @"_ZN5serde2de5value28SeqDeserializer$LT$I$C$E
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2), !noalias !581
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !578
   store i64 %.0.i.i.i, ptr %2, align 8, !noalias !581
-  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E.llvm.774313995428851812"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
+  invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17h403e1e77a0cad8c6E.llvm.774313995428851812"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %8)
           to label %15 unwind label %10, !noalias !573
 
 15:                                               ; preds = %14
