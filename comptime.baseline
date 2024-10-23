@@ -30331,7 +30331,7 @@ qemu/stats_stats-qmp-cmds.c.ll 87934118
 qemu/stubs_colo.c.ll 36189938
 qemu/stubs_icount.c.ll 38639650
 qemu/stubs_io_uring.c.ll 34820693
-qemu/stubs_monitor-core.c.ll 35622049
+qemu/stubs_monitor-core.c.ll 35586417
 qemu/stubs_replay-tools.c.ll 44042172
 qemu/stubs_trace-control.c.ll 41453066
 qemu/system.c.ll 238982858
@@ -33588,7 +33588,7 @@ spike/f16_sqrt.ll 65148836
 spike/f32_div.ll 51908523
 spike/f32_mul.ll 55512869
 spike/f32_rem.ll 77674564
-spike/f32_roundToInt.ll 56404809
+spike/f32_roundToInt.ll 56348289
 spike/f32_sqrt.ll 50907196
 spike/f32_to_bf16.ll 42776608
 spike/f32_to_i32.ll 45901618
