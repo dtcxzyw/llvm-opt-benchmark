@@ -16129,7 +16129,7 @@ logos-rs/591gacy1tm1ijbew.ll 55022945
 logos-rs/5f38ll801i7djw99.ll 151124490
 logos-rs/5g7mgn2gzfzcfbsf.ll 83564567
 logos-rs/8ce99eqzu17ptra.ll 79190880
-logos-rs/b5hidl2ahl1tksi.ll 35277380
+logos-rs/b5hidl2ahl1tksi.ll 35312877
 logos-rs/bt773r0511h3mpz.ll 56139416
 logos-rs/c1wmn335sjbonly.ll 202817919
 logos-rs/f8j7k4fzt8jpxp1.ll 348030357
@@ -34022,7 +34022,7 @@ spike/s_roundPackMToI64.ll 44845087
 spike/s_roundPackToBF16.ll 58343962
 spike/s_roundPackToF128.ll 63923819
 spike/s_roundPackToF16.ll 58339933
-spike/s_roundPackToF32.ll 58313208
+spike/s_roundPackToF32.ll 58371580
 spike/s_roundPackToI32.ll 45876234
 spike/s_roundPackToI64.ll 43084297
 spike/s_roundPackToUI32.ll 41329244
@@ -36894,7 +36894,7 @@ wireshark/packet-gssapi.c.ll 161950403
 wireshark/packet-gtp.c.ll 2466068850
 wireshark/packet-gtpv2.c.ll 1412029107
 wireshark/packet-gvcp.c.ll 549399987
-wireshark/packet-gvrp.c.ll 74700423
+wireshark/packet-gvrp.c.ll 74775164
 wireshark/packet-gvsp.c.ll 473460105
 wireshark/packet-h223.c.ll 403657022
 wireshark/packet-h224.c.ll 97322439
