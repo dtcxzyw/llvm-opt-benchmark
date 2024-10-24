@@ -35544,7 +35544,7 @@ velox/VeloxException.cpp.ll 485786845
 velox/WidthBucketArray.cpp.ll 3838576481
 velox/Zip.cpp.ll 4561398191
 velox/ZipWith.cpp.ll 4812605415
-velox/flags.cpp.ll 76851627
+velox/flags.cpp.ll 76928587
 velox/md5.cpp.ll 1488850810
 velox/tz.cpp.ll 2517951261
 verilator/V3Active.cpp.ll 1284739708
