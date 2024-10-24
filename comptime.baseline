@@ -2550,7 +2550,7 @@ clamav/XzIn.c.ll 206997696
 clamav/actions.c.ll 105819969
 clamav/allow_list.c.ll 119432250
 clamav/apm.c.ll 136797349
-clamav/arc4.c.ll 55555890
+clamav/arc4.c.ll 55611460
 clamav/archive.cpp.ll 382749938
 clamav/arcread.cpp.ll 793773841
 clamav/asn1.c.ll 772147371
@@ -9298,7 +9298,7 @@ hdf5/H5VLnative_link.c.ll 104340960
 hdf5/H5VLnative_object.c.ll 123285531
 hdf5/H5VLnative_token.c.ll 43434021
 hdf5/H5VLpassthru.c.ll 303513079
-hdf5/H5VLtest.c.ll 34153774
+hdf5/H5VLtest.c.ll 34187940
 hdf5/H5VM.c.ll 500850669
 hdf5/H5WB.c.ll 51180633
 hdf5/H5Z.c.ll 456239366
@@ -10336,7 +10336,7 @@ icu/uresdata.ll 593884848
 icu/usc_impl.ll 130680131
 icu/uscanf_p.ll 339997751
 icu/uscript.ll 132229017
-icu/uscript_props.ll 62546846
+icu/uscript_props.ll 62609393
 icu/usearch.ll 891447158
 icu/uset.ll 182478343
 icu/uset_props.ll 82026968
@@ -11501,7 +11501,7 @@ libwebp/rescaler_sse2.c.ll 236676669
 libwebp/rescaler_utils.c.ll 88177155
 libwebp/sharpyuv.c.ll 579444098
 libwebp/sharpyuv_cpu.c.ll 61718101
-libwebp/sharpyuv_csp.c.ll 48614008
+libwebp/sharpyuv_csp.c.ll 48662662
 libwebp/sharpyuv_dsp.c.ll 69452160
 libwebp/sharpyuv_gamma.c.ll 149260068
 libwebp/sharpyuv_neon.c.ll 31816448
@@ -16626,7 +16626,7 @@ memcached/memcached_debug-memcached.ll 2058704136
 memcached/memcached_debug-murmur3_hash.ll 52983942
 memcached/memcached_debug-proto_bin.ll 442846658
 memcached/memcached_debug-proto_text.ll 891248107
-memcached/memcached_debug-restart.ll 136845739
+memcached/memcached_debug-restart.ll 136982663
 memcached/memcached_debug-slab_automove.ll 92496522
 memcached/memcached_debug-slab_automove_extstore.ll 102374279
 memcached/memcached_debug-slabs.ll 530351653
@@ -26065,7 +26065,7 @@ openssl/libcrypto-shlib-x509_vfy.ll 1405823182
 openssl/libcrypto-shlib-x509_vpm.ll 192216784
 openssl/libcrypto-shlib-x509name.ll 137028954
 openssl/libcrypto-shlib-x86_64-gcc.ll 233742053
-openssl/libcrypto-shlib-x_crl.ll 212570537
+openssl/libcrypto-shlib-x_crl.ll 212783175
 openssl/libcrypto-shlib-x_long.ll 78669498
 openssl/libcrypto-shlib-x_name.ll 209760280
 openssl/libcrypto-shlib-x_pubkey.ll 245236060
