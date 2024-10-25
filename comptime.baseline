@@ -11257,7 +11257,7 @@ libjpeg-turbo/jcdctmgr.c.ll 201103800
 libjpeg-turbo/jcdiffct.c.ll 136775462
 libjpeg-turbo/jchuff.c.ll 7359373701
 libjpeg-turbo/jcicc.c.ll 51726144
-libjpeg-turbo/jcinit.c.ll 55388289
+libjpeg-turbo/jcinit.c.ll 55443883
 libjpeg-turbo/jclhuff.c.ll 253869993
 libjpeg-turbo/jclossls.c.ll 137399837
 libjpeg-turbo/jcmainct.c.ll 59303419
@@ -18449,7 +18449,7 @@ msdfgen/render-sdf.cpp.ll 342402990
 msdfgen/save-png.cpp.ll 188687300
 msdfgen/save-tiff.cpp.ll 167130668
 msdfgen/sdf-error-estimation.cpp.ll 431956210
-msdfgen/shape-description.cpp.ll 374588084
+msdfgen/shape-description.cpp.ll 374962881
 msgpack/asio_send_recv.cpp.ll 6371059503
 msgpack/asio_send_recv_zlib.cpp.ll 6339022305
 msgpack/class_intrusive.cpp.ll 1843501229
@@ -21910,7 +21910,7 @@ opencv/rlof_localflow.cpp.ll 4505725824
 opencv/rlofflow.cpp.ll 1549656873
 opencv/rmat.cpp.ll 444945307
 opencv/roiSelector.cpp.ll 250173735
-opencv/rolling_guidance_filter.cpp.ll 85981677
+opencv/rolling_guidance_filter.cpp.ll 86067720
 opencv/rotcalipers.cpp.ll 219609175
 opencv/rtrees.cpp.ll 1334760794
 opencv/run_length_morphology.cpp.ll 1971736195
@@ -25331,7 +25331,7 @@ openmpi/pstat_base_open.ll 37215836
 openmpi/pstat_base_select.ll 35590975
 openmpi/pstat_linux_module.ll 729089736
 openmpi/pstrg_base_frame.ll 86111750
-openmpi/pstrg_base_select.ll 72475919
+openmpi/pstrg_base_select.ll 72548821
 openmpi/pstrg_base_stubs.ll 103338324
 openmpi/pstrg_vfs.ll 38238296
 openmpi/pterm.ll 190052388
