@@ -13512,7 +13512,7 @@ linux/urb.ll 233376033
 linux/usb.ll 282037394
 linux/usblp.ll 262366224
 linux/user.ll 99832729
-linux/usercopy.ll 60536717
+linux/usercopy.ll 60597303
 linux/usercopy_64.ll 84410185
 linux/utaddress.ll 64556098
 linux/utascii.ll 54503003
