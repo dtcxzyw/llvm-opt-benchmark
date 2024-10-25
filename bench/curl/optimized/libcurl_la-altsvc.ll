@@ -980,8 +980,7 @@ if.then305:                                       ; preds = %if.end300
   %expires = getelementptr inbounds i8, ptr %call303, i64 32
   store i64 %add307, ptr %expires, align 8
   %persist309 = getelementptr inbounds i8, ptr %call303, i64 40
-  %frombool = and i8 %persist.0.ph269, 1
-  store i8 %frombool, ptr %persist309, align 8
+  store i8 %persist.0.ph269, ptr %persist309, align 8
   %29 = load ptr, ptr %tail, align 8
   %node = getelementptr inbounds i8, ptr %call303, i64 48
   call void @Curl_llist_insert_next(ptr noundef nonnull %list, ptr noundef %29, ptr noundef nonnull %call303, ptr noundef nonnull %node) #12

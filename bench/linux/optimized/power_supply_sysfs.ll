@@ -284,20 +284,20 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
 
 21:                                               ; preds = %17
   switch i32 %18, label %22 [
-    i32 -61, label %89
-    i32 -11, label %89
-    i32 -19, label %89
+    i32 -61, label %88
+    i32 -11, label %88
+    i32 -19, label %88
   ]
 
 22:                                               ; preds = %21
   %23 = call i32 @___ratelimit(ptr noundef nonnull @power_supply_show_property._rs, ptr noundef nonnull @__func__.power_supply_show_property) #9
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %89, label %25
+  br i1 %24, label %88, label %25
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %1, align 8
   call void (ptr, ptr, ...) @_dev_err(ptr noundef %0, ptr noundef nonnull @.str.133, ptr noundef %26, i64 noundef %19) #8
-  br label %89
+  br label %88
 
 27:                                               ; preds = %17, %13
   %28 = getelementptr i8, ptr %1, i64 40
@@ -318,14 +318,14 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %39) #9
   %41 = sext i32 %40 to i64
-  br label %89
+  br label %88
 
 42:                                               ; preds = %31, %27
-  switch i32 %11, label %85 [
+  switch i32 %11, label %84 [
     i32 65, label %43
-    i32 73, label %81
-    i32 74, label %81
-    i32 75, label %81
+    i32 73, label %80
+    i32 74, label %80
+    i32 75, label %80
   ]
 
 43:                                               ; preds = %42
@@ -365,40 +365,39 @@ define internal i64 @power_supply_show_property(ptr noundef %0, ptr noundef %1, 
   br i1 %72, label %50, label %73, !llvm.loop !10
 
 73:                                               ; preds = %50
-  %74 = and i8 %65, 1
-  %75 = icmp eq i8 %74, 0
-  br i1 %75, label %.thread, label %76
+  %74 = icmp eq i8 %65, 0
+  br i1 %74, label %.thread, label %75
 
 .thread:                                          ; preds = %43, %73
   call void (ptr, ptr, ...) @_dev_warn(ptr noundef %0, ptr noundef nonnull @.str.136) #8
-  br label %89
+  br label %88
 
-76:                                               ; preds = %73
-  %77 = icmp eq i64 %68, 0
-  br i1 %77, label %89, label %78
+75:                                               ; preds = %73
+  %76 = icmp eq i64 %68, 0
+  br i1 %76, label %88, label %77
 
-78:                                               ; preds = %76
-  %79 = getelementptr i8, ptr %2, i64 %68
-  %80 = getelementptr i8, ptr %79, i64 -1
-  store i8 10, ptr %80, align 1
-  br label %89
+77:                                               ; preds = %75
+  %78 = getelementptr i8, ptr %2, i64 %68
+  %79 = getelementptr i8, ptr %78, i64 -1
+  store i8 10, ptr %79, align 1
+  br label %88
 
-81:                                               ; preds = %42, %42, %42
-  %82 = load ptr, ptr %4, align 8
-  %83 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %82) #9
-  %84 = sext i32 %83 to i64
-  br label %89
+80:                                               ; preds = %42, %42, %42
+  %81 = load ptr, ptr %4, align 8
+  %82 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.134, ptr noundef %81) #9
+  %83 = sext i32 %82 to i64
+  br label %88
 
-85:                                               ; preds = %42
-  %86 = load i32, ptr %4, align 8
-  %87 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.135, i32 noundef %86) #9
-  %88 = sext i32 %87 to i64
-  br label %89
+84:                                               ; preds = %42
+  %85 = load i32, ptr %4, align 8
+  %86 = call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %2, ptr noundef nonnull @.str.135, i32 noundef %85) #9
+  %87 = sext i32 %86 to i64
+  br label %88
 
-89:                                               ; preds = %85, %81, %78, %76, %.thread, %34, %25, %22, %21, %21, %21
-  %90 = phi i64 [ %41, %34 ], [ %19, %25 ], [ %19, %22 ], [ %19, %21 ], [ %88, %85 ], [ %84, %81 ], [ %19, %21 ], [ %19, %21 ], [ -22, %.thread ], [ %68, %78 ], [ 0, %76 ]
+88:                                               ; preds = %84, %80, %77, %75, %.thread, %34, %25, %22, %21, %21, %21
+  %89 = phi i64 [ %41, %34 ], [ %19, %25 ], [ %19, %22 ], [ %19, %21 ], [ %87, %84 ], [ %83, %80 ], [ %19, %21 ], [ %19, %21 ], [ -22, %.thread ], [ %68, %77 ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
-  ret i64 %90
+  ret i64 %89
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

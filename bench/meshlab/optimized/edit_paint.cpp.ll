@@ -15801,7 +15801,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
 .preheader69:                                     ; preds = %43, %.preheader69
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %.preheader69 ], [ 1, %43 ]
   %.075 = phi i32 [ %.1, %.preheader69 ], [ 0, %43 ]
-  %45 = sext i32 %.075 to i64
+  %45 = zext nneg i32 %.075 to i64
   %46 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %45
   %47 = load float, ptr %46, align 4
   %48 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %indvars.iv82
@@ -15814,54 +15814,53 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg19IntersectionLineBoxIfEEbRKNS_4B
   br i1 %exitcond85.not, label %52, label %.preheader69, !llvm.loop !187
 
 52:                                               ; preds = %.preheader69
-  %53 = sext i32 %.1 to i64
+  %53 = zext i32 %.1 to i64
   %54 = getelementptr inbounds [3 x float], ptr %5, i64 0, i64 %53
   %55 = load float, ptr %54, align 4
   %56 = fcmp olt float %55, 0.000000e+00
   br i1 %56, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %52
-  %57 = zext i32 %.1 to i64
-  %58 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %57
-  %59 = getelementptr inbounds [3 x float], ptr %2, i64 0, i64 %57
-  br label %60
+  %57 = getelementptr inbounds [3 x float], ptr %6, i64 0, i64 %53
+  %58 = getelementptr inbounds [3 x float], ptr %2, i64 0, i64 %53
+  br label %59
 
-60:                                               ; preds = %.preheader, %77
-  %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %77 ]
-  %.not67 = icmp eq i64 %indvars.iv86, %57
-  br i1 %.not67, label %75, label %61
+59:                                               ; preds = %.preheader, %76
+  %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %76 ]
+  %.not67 = icmp eq i64 %indvars.iv86, %53
+  br i1 %.not67, label %74, label %60
 
-61:                                               ; preds = %60
-  %62 = getelementptr inbounds [3 x float], ptr %1, i64 0, i64 %indvars.iv86
-  %63 = load float, ptr %62, align 4
-  %64 = getelementptr inbounds [3 x float], ptr %27, i64 0, i64 %indvars.iv86
-  %65 = load float, ptr %64, align 4
-  %66 = tail call float @llvm.fmuladd.f32(float %55, float %65, float %63)
-  %67 = getelementptr inbounds [3 x float], ptr %2, i64 0, i64 %indvars.iv86
-  store float %66, ptr %67, align 4
-  %68 = getelementptr inbounds [3 x float], ptr %0, i64 0, i64 %indvars.iv86
-  %69 = load float, ptr %68, align 4
-  %70 = fcmp olt float %66, %69
-  br i1 %70, label %.loopexit, label %71
+60:                                               ; preds = %59
+  %61 = getelementptr inbounds [3 x float], ptr %1, i64 0, i64 %indvars.iv86
+  %62 = load float, ptr %61, align 4
+  %63 = getelementptr inbounds [3 x float], ptr %27, i64 0, i64 %indvars.iv86
+  %64 = load float, ptr %63, align 4
+  %65 = tail call float @llvm.fmuladd.f32(float %55, float %64, float %62)
+  %66 = getelementptr inbounds [3 x float], ptr %2, i64 0, i64 %indvars.iv86
+  store float %65, ptr %66, align 4
+  %67 = getelementptr inbounds [3 x float], ptr %0, i64 0, i64 %indvars.iv86
+  %68 = load float, ptr %67, align 4
+  %69 = fcmp olt float %65, %68
+  br i1 %69, label %.loopexit, label %70
 
-71:                                               ; preds = %61
-  %72 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %indvars.iv86
-  %73 = load float, ptr %72, align 4
-  %74 = fcmp ogt float %66, %73
-  br i1 %74, label %.loopexit, label %77
+70:                                               ; preds = %60
+  %71 = getelementptr inbounds [3 x float], ptr %7, i64 0, i64 %indvars.iv86
+  %72 = load float, ptr %71, align 4
+  %73 = fcmp ogt float %65, %72
+  br i1 %73, label %.loopexit, label %76
 
-75:                                               ; preds = %60
-  %76 = load float, ptr %58, align 4
-  store float %76, ptr %59, align 4
-  br label %77
+74:                                               ; preds = %59
+  %75 = load float, ptr %57, align 4
+  store float %75, ptr %58, align 4
+  br label %76
 
-77:                                               ; preds = %75, %71
+76:                                               ; preds = %74, %70
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %exitcond89.not = icmp eq i64 %indvars.iv.next87, 3
-  br i1 %exitcond89.not, label %.loopexit, label %60, !llvm.loop !188
+  br i1 %exitcond89.not, label %.loopexit, label %59, !llvm.loop !188
 
-.loopexit:                                        ; preds = %77, %61, %71, %52, %28
-  %.066 = phi i1 [ true, %28 ], [ false, %52 ], [ true, %77 ], [ false, %61 ], [ false, %71 ]
+.loopexit:                                        ; preds = %76, %60, %70, %52, %28
+  %.066 = phi i1 [ true, %28 ], [ false, %52 ], [ true, %76 ], [ false, %60 ], [ false, %70 ]
   ret i1 %.066
 }
 

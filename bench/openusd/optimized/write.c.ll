@@ -3109,9 +3109,9 @@ define internal fastcc i32 @avifRWStreamWriteProperties(ptr noundef nonnull %0, 
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %19
 
-19:                                               ; preds = %.lr.ph242, %147
-  %indvars.iv311 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next312, %147 ]
-  %20 = phi ptr [ %11, %.lr.ph242 ], [ %148, %147 ]
+19:                                               ; preds = %.lr.ph242, %145
+  %indvars.iv311 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next312, %145 ]
+  %20 = phi ptr [ %11, %.lr.ph242 ], [ %146, %145 ]
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds %struct.avifEncoderItem, ptr %21, i64 %indvars.iv311
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 136
@@ -3127,7 +3127,7 @@ define internal fastcc i32 @avifRWStreamWriteProperties(ptr noundef nonnull %0, 
   %30 = icmp ne ptr %29, null
   %or.cond = select i1 %30, i1 true, i1 %25
   %or.cond3 = select i1 %or.cond, i1 true, i1 %.not
-  br i1 %or.cond3, label %31, label %147
+  br i1 %or.cond3, label %31, label %145
 
 31:                                               ; preds = %19
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 156
@@ -3190,7 +3190,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %49, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %27, ptr noundef nonnull align 8 dereferenceable(84) %58, i64 84, i1 false)
-  br label %147
+  br label %145
 
 59:                                               ; preds = %.lr.ph, %53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3332,7 +3332,7 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
   %116 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %117 = load i32, ptr %116, align 8
   %.not209 = icmp eq i32 %117, 0
-  br i1 %.not209, label %147, label %118
+  br i1 %.not209, label %145, label %118
 
 118:                                              ; preds = %115
   call void @avifRWStreamStart(ptr noundef nonnull %15, ptr noundef nonnull %16) #13
@@ -3365,72 +3365,68 @@ avifEncoderDataFindItemByID.exit:                 ; preds = %44
   %spec.select = select i1 %130, i32 1, i32 %.0163232
   %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
   %exitcond302.not = icmp eq i64 %indvars.iv.next299, %wide.trip.count301
-  br i1 %exitcond302.not, label %._crit_edge.loopexit, label %125, !llvm.loop !32
+  br i1 %exitcond302.not, label %._crit_edge, label %125, !llvm.loop !32
 
-._crit_edge.loopexit:                             ; preds = %125
-  %131 = icmp ne i32 %spec.select, 0
-  br label %._crit_edge
+._crit_edge:                                      ; preds = %125, %120
+  %.0163.lcssa = phi i32 [ 0, %120 ], [ %spec.select, %125 ]
+  %131 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef 0, i64 noundef 7) #13
+  %.not211 = icmp eq i32 %131, 0
+  br i1 %.not211, label %132, label %.loopexit
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %120
-  %.0163.lcssa = phi i1 [ false, %120 ], [ %131, %._crit_edge.loopexit ]
-  %132 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef 0, i64 noundef 7) #13
-  %.not211 = icmp eq i32 %132, 0
-  br i1 %.not211, label %133, label %.loopexit
-
-133:                                              ; preds = %._crit_edge
-  %134 = zext i1 %.0163.lcssa to i32
-  %135 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef %134, i64 noundef 1) #13
-  %.not213 = icmp eq i32 %135, 0
+132:                                              ; preds = %._crit_edge
+  %133 = call i32 @avifRWStreamWriteBits(ptr noundef nonnull %15, i32 noundef %.0163.lcssa, i64 noundef 1) #13
+  %.not213 = icmp eq i32 %133, 0
   br i1 %.not213, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %133
-  br i1 %.0163.lcssa, label %.preheader.split.us, label %.preheader.split
+.preheader:                                       ; preds = %132
+  %.not212.not = icmp eq i32 %.0163.lcssa, 0
+  br i1 %.not212.not, label %.preheader.split.us, label %.preheader.split
 
-.preheader.split.us:                              ; preds = %.preheader, %139
-  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %139 ], [ 0, %.preheader ]
-  %136 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv307
-  %137 = load i32, ptr %136, align 4
-  %138 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %15, i32 noundef %137) #13
-  %.not216.us = icmp eq i32 %138, 0
-  br i1 %.not216.us, label %139, label %.loopexit
+.preheader.split.us:                              ; preds = %.preheader, %138
+  %indvars.iv307 = phi i64 [ %indvars.iv.next308, %138 ], [ 0, %.preheader ]
+  %134 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv307
+  %135 = load i32, ptr %134, align 4
+  %136 = trunc i32 %135 to i16
+  %137 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %15, i16 noundef zeroext %136) #13
+  %.not215.us = icmp eq i32 %137, 0
+  br i1 %.not215.us, label %138, label %.loopexit
 
-139:                                              ; preds = %.preheader.split.us
+138:                                              ; preds = %.preheader.split.us
   %indvars.iv.next308 = add nuw nsw i64 %indvars.iv307, 1
   %exitcond310.not = icmp eq i64 %indvars.iv.next308, 3
   br i1 %exitcond310.not, label %.split.us, label %.preheader.split.us, !llvm.loop !33
 
-.preheader.split:                                 ; preds = %.preheader, %144
-  %indvars.iv303 = phi i64 [ %indvars.iv.next304, %144 ], [ 0, %.preheader ]
-  %140 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv303
-  %141 = load i32, ptr %140, align 4
-  %142 = trunc i32 %141 to i16
-  %143 = call i32 @avifRWStreamWriteU16(ptr noundef nonnull %15, i16 noundef zeroext %142) #13
-  %.not215 = icmp eq i32 %143, 0
-  br i1 %.not215, label %144, label %.loopexit
+.preheader.split:                                 ; preds = %.preheader, %142
+  %indvars.iv303 = phi i64 [ %indvars.iv.next304, %142 ], [ 0, %.preheader ]
+  %139 = getelementptr inbounds [3 x i32], ptr %9, i64 0, i64 %indvars.iv303
+  %140 = load i32, ptr %139, align 4
+  %141 = call i32 @avifRWStreamWriteU32(ptr noundef nonnull %15, i32 noundef %140) #13
+  %.not216 = icmp eq i32 %141, 0
+  br i1 %.not216, label %142, label %.loopexit
 
-144:                                              ; preds = %.preheader.split
+142:                                              ; preds = %.preheader.split
   %indvars.iv.next304 = add nuw nsw i64 %indvars.iv303, 1
   %exitcond306.not = icmp eq i64 %indvars.iv.next304, 3
   br i1 %exitcond306.not, label %.split.us, label %.preheader.split, !llvm.loop !33
 
-.split.us:                                        ; preds = %144, %139
-  %145 = load i64, ptr %8, align 8
-  call void @avifRWStreamFinishBox(ptr noundef nonnull %15, i64 noundef %145) #13
-  %146 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %27, i32 noundef 0)
-  %.not214 = icmp eq i32 %146, 0
-  br i1 %.not214, label %147, label %.loopexit
+.split.us:                                        ; preds = %142, %138
+  %143 = load i64, ptr %8, align 8
+  call void @avifRWStreamFinishBox(ptr noundef nonnull %15, i64 noundef %143) #13
+  %144 = call fastcc i32 @avifItemPropertyDedupFinish(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %27, i32 noundef 0)
+  %.not214 = icmp eq i32 %144, 0
+  br i1 %.not214, label %145, label %.loopexit
 
-147:                                              ; preds = %57, %115, %.split.us, %19
+145:                                              ; preds = %57, %115, %.split.us, %19
   %indvars.iv.next312 = add nuw nsw i64 %indvars.iv311, 1
-  %148 = load ptr, ptr %10, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 12
-  %150 = load i32, ptr %149, align 4
-  %151 = zext i32 %150 to i64
-  %152 = icmp samesign ult i64 %indvars.iv.next312, %151
-  br i1 %152, label %19, label %.loopexit, !llvm.loop !34
+  %146 = load ptr, ptr %10, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
+  %148 = load i32, ptr %147, align 4
+  %149 = zext i32 %148 to i64
+  %150 = icmp samesign ult i64 %indvars.iv.next312, %149
+  br i1 %150, label %19, label %.loopexit, !llvm.loop !34
 
-.loopexit:                                        ; preds = %.critedge, %63, %65, %67, %78, %81, %88, %93, %99, %103, %105, %107, %110, %113, %118, %._crit_edge, %133, %.split.us, %147, %.preheader220, %.preheader.split, %.preheader.split.us, %4
-  %.0 = phi i32 [ 0, %4 ], [ %138, %.preheader.split.us ], [ %143, %.preheader.split ], [ %87, %.preheader220 ], [ %62, %.critedge ], [ %64, %63 ], [ %66, %65 ], [ %69, %67 ], [ %80, %78 ], [ %82, %81 ], [ %90, %88 ], [ %98, %93 ], [ %100, %99 ], [ %104, %103 ], [ %106, %105 ], [ %109, %107 ], [ %111, %110 ], [ %114, %113 ], [ %119, %118 ], [ %132, %._crit_edge ], [ %135, %133 ], [ %146, %.split.us ], [ 0, %147 ]
+.loopexit:                                        ; preds = %.critedge, %63, %65, %67, %78, %81, %88, %93, %99, %103, %105, %107, %110, %113, %118, %._crit_edge, %132, %.split.us, %145, %.preheader220, %.preheader.split, %.preheader.split.us, %4
+  %.0 = phi i32 [ 0, %4 ], [ %137, %.preheader.split.us ], [ %141, %.preheader.split ], [ %87, %.preheader220 ], [ %62, %.critedge ], [ %64, %63 ], [ %66, %65 ], [ %69, %67 ], [ %80, %78 ], [ %82, %81 ], [ %90, %88 ], [ %98, %93 ], [ %100, %99 ], [ %104, %103 ], [ %106, %105 ], [ %109, %107 ], [ %111, %110 ], [ %114, %113 ], [ %119, %118 ], [ %131, %._crit_edge ], [ %133, %132 ], [ %144, %.split.us ], [ 0, %145 ]
   ret i32 %.0
 }
 

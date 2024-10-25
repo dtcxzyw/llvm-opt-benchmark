@@ -5856,7 +5856,7 @@ if.then15:                                        ; preds = %lor.lhs.false, %lor
   br i1 %or.cond29.i.i, label %while.body.i.i, label %if.else13.i.thread
 
 while.body.i.i:                                   ; preds = %if.then15, %while.body.i.i
-  %8 = phi i8 [ %10, %while.body.i.i ], [ %6, %if.then15 ]
+  %8 = phi i8 [ %9, %while.body.i.i ], [ %6, %if.then15 ]
   %unsignedValue.032.i.i = phi i32 [ %unsignedValue.2.i.i, %while.body.i.i ], [ 0, %if.then15 ]
   %overflow.031.i.i = phi i8 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then15 ]
   %in.addr.030.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %in.addr.0.i, %if.then15 ]
@@ -5867,13 +5867,12 @@ while.body.i.i:                                   ; preds = %if.then15, %while.b
   %cmp7.i.i = icmp ult i32 %add.i.i, %unsignedValue.032.i.i
   %spec.select.i.i = select i1 %cmp7.i.i, i8 1, i8 %overflow.031.i.i
   %spec.select28.i.i = select i1 %cmp7.i.i, i32 -1, i32 %unsignedValue.032.i.i
-  %9 = and i8 %spec.select.i.i, 1
-  %tobool10.not.i.i = icmp eq i8 %9, 0
+  %tobool10.not.i.i = icmp eq i8 %spec.select.i.i, 0
   %unsignedValue.2.i.i = select i1 %tobool10.not.i.i, i32 %add.i.i, i32 %spec.select28.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.030.i.i, i64 1
-  %10 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !28
-  %11 = add i8 %10, -48
-  %or.cond.i.i = icmp ult i8 %11, 10
+  %9 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !28
+  %10 = add i8 %9, -48
+  %or.cond.i.i = icmp ult i8 %10, 10
   br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !231
 
 while.end.i.i:                                    ; preds = %while.body.i.i
@@ -5906,7 +5905,7 @@ _ZN3irr4core8strtol10EPKcPS2_.exit.thread:        ; preds = %if.else13.i.thread,
   %idxprom1995 = zext i32 %idxType.0111 to i64
   %arrayidx2096 = getelementptr inbounds i32, ptr %idx, i64 %idxprom1995
   store i32 %retval.1.i.ph, ptr %arrayidx2096, align 4, !tbaa !90
-  %12 = add nsw i32 %retval.1.i.ph, -1
+  %11 = add nsw i32 %retval.1.i.ph, -1
   br label %if.else35
 
 _ZN3irr4core8strtol10EPKcPS2_.exit:               ; preds = %if.else13.i
@@ -5943,14 +5942,14 @@ sw.bb31:                                          ; preds = %if.then24
 
 if.else35:                                        ; preds = %_ZN3irr4core8strtol10EPKcPS2_.exit, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122
   %arrayidx2099 = phi ptr [ %arrayidx2096, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread ], [ %arrayidx20, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ %arrayidx20126, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122 ]
-  %retval.1.i98 = phi i32 [ %12, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread ], [ -1, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ -1, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122 ]
+  %retval.1.i98 = phi i32 [ %11, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread ], [ -1, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ -1, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122 ]
   store i32 %retval.1.i98, ptr %arrayidx2099, align 4, !tbaa !90
   br label %if.end38
 
 if.end38:                                         ; preds = %if.else35, %sw.bb31, %sw.bb27, %sw.bb, %if.then24
   store i8 0, ptr %word, align 16, !tbaa !28
-  %13 = load i8, ptr %p.0110, align 1, !tbaa !28
-  %cmp41 = icmp eq i8 %13, 47
+  %12 = load i8, ptr %p.0110, align 1, !tbaa !28
+  %cmp41 = icmp eq i8 %12, 47
   %inc43 = add i32 %idxType.0111, 1
   br i1 %cmp41, label %if.then42, label %while.cond48.preheader
 
@@ -5959,14 +5958,14 @@ while.cond48.preheader:                           ; preds = %if.end38
   br i1 %cmp50115, label %while.body51.preheader, label %cleanup
 
 while.body51.preheader:                           ; preds = %while.cond48.preheader
-  %14 = shl nuw nsw i32 %inc43, 2
-  %15 = zext nneg i32 %14 to i64
-  %scevgep = getelementptr i8, ptr %idx, i64 %15
-  %16 = sub nsw i32 1, %idxType.0111
-  %17 = zext nneg i32 %16 to i64
-  %18 = shl nuw nsw i64 %17, 2
-  %19 = add nuw nsw i64 %18, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 -1, i64 %19, i1 false), !tbaa !90
+  %13 = shl nuw nsw i32 %inc43, 2
+  %14 = zext nneg i32 %13 to i64
+  %scevgep = getelementptr i8, ptr %idx, i64 %14
+  %15 = sub nsw i32 1, %idxType.0111
+  %16 = zext nneg i32 %15 to i64
+  %17 = shl nuw nsw i64 %16, 2
+  %18 = add nuw nsw i64 %17, 4
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 -1, i64 %18, i1 false), !tbaa !90
   br label %cleanup
 
 if.then42:                                        ; preds = %if.end38
@@ -11146,7 +11145,7 @@ if.then24:                                        ; preds = %if.end18, %if.end18
   br i1 %or.cond29.i.i, label %while.body.i.i, label %if.else13.i
 
 while.body.i.i:                                   ; preds = %if.then24, %while.body.i.i
-  %23 = phi i8 [ %25, %while.body.i.i ], [ %21, %if.then24 ]
+  %23 = phi i8 [ %24, %while.body.i.i ], [ %21, %if.then24 ]
   %unsignedValue.032.i.i = phi i32 [ %unsignedValue.2.i.i, %while.body.i.i ], [ 0, %if.then24 ]
   %overflow.031.i.i = phi i8 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then24 ]
   %in.addr.030.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %in.addr.0.i, %if.then24 ]
@@ -11157,13 +11156,12 @@ while.body.i.i:                                   ; preds = %if.then24, %while.b
   %cmp7.i.i = icmp ult i32 %add.i.i, %unsignedValue.032.i.i
   %spec.select.i.i = select i1 %cmp7.i.i, i8 1, i8 %overflow.031.i.i
   %spec.select28.i.i = select i1 %cmp7.i.i, i32 -1, i32 %unsignedValue.032.i.i
-  %24 = and i8 %spec.select.i.i, 1
-  %tobool10.not.i.i = icmp eq i8 %24, 0
+  %tobool10.not.i.i = icmp eq i8 %spec.select.i.i, 0
   %unsignedValue.2.i.i = select i1 %tobool10.not.i.i, i32 %add.i.i, i32 %spec.select28.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.030.i.i, i64 1
-  %25 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !28
-  %26 = add i8 %25, -48
-  %or.cond.i.i = icmp ult i8 %26, 10
+  %24 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !28
+  %25 = add i8 %24, -48
+  %or.cond.i.i = icmp ult i8 %25, 10
   br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !231
 
 while.end.i.i:                                    ; preds = %while.body.i.i

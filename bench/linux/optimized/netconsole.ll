@@ -145,12 +145,12 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   store ptr @config, ptr %1, align 8
   %2 = load i8, ptr @config, align 16
   %3 = icmp eq i8 %2, 0
-  br i1 %3, label %74, label %4
+  br i1 %3, label %73, label %4
 
 4:                                                ; preds = %0
   %5 = call ptr @strsep(ptr noundef nonnull %1, ptr noundef nonnull @.str.9) #11
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %74, label %.preheader8
+  br i1 %6, label %73, label %.preheader8
 
 .preheader8:                                      ; preds = %4, %57
   %7 = phi ptr [ %69, %57 ], [ %5, %4 ]
@@ -236,7 +236,7 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
 54:                                               ; preds = %51
   %55 = ptrtoint ptr %52 to i64
   %56 = trunc i64 %55 to i32
-  br label %82
+  br label %81
 
 57:                                               ; preds = %51
   %58 = getelementptr inbounds i8, ptr %52, i64 17
@@ -261,55 +261,54 @@ define internal i32 @init_netconsole() #0 section ".init.text" align 16 {
   br i1 %70, label %71, label %.preheader8, !llvm.loop !10
 
 71:                                               ; preds = %57
-  %72 = and i8 %62, 1
-  %73 = icmp eq i8 %72, 0
-  br label %74
+  %72 = icmp eq i8 %62, 0
+  br label %73
 
-74:                                               ; preds = %71, %4, %0
-  %75 = phi i1 [ true, %0 ], [ true, %4 ], [ %73, %71 ]
-  %76 = call i32 @register_netdevice_notifier(ptr noundef nonnull @netconsole_netdev_notifier) #11
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %82
+73:                                               ; preds = %71, %4, %0
+  %74 = phi i1 [ true, %0 ], [ true, %4 ], [ %72, %71 ]
+  %75 = call i32 @register_netdevice_notifier(ptr noundef nonnull @netconsole_netdev_notifier) #11
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %81
 
-78:                                               ; preds = %74
-  br i1 %75, label %80, label %79
+77:                                               ; preds = %73
+  br i1 %74, label %79, label %78
 
-79:                                               ; preds = %78
+78:                                               ; preds = %77
   call void @register_console(ptr noundef nonnull @netconsole_ext) #11
-  br label %80
+  br label %79
 
-80:                                               ; preds = %79, %78
+79:                                               ; preds = %78, %77
   call void @register_console(ptr noundef nonnull @netconsole) #11
-  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #13
+  %80 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10) #13
   br label %.loopexit
 
-82:                                               ; preds = %74, %54
-  %83 = phi i32 [ %56, %54 ], [ %76, %74 ]
-  %84 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #13
-  %85 = load ptr, ptr @target_list, align 8
-  %86 = icmp eq ptr %85, @target_list
-  br i1 %86, label %.loopexit, label %.preheader
+81:                                               ; preds = %73, %54
+  %82 = phi i32 [ %56, %54 ], [ %75, %73 ]
+  %83 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #13
+  %84 = load ptr, ptr @target_list, align 8
+  %85 = icmp eq ptr %84, @target_list
+  br i1 %85, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %82, %.preheader
-  %87 = phi ptr [ %88, %.preheader ], [ %85, %82 ]
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %87, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i8, ptr %88, i64 8
-  store ptr %90, ptr %91, align 8
-  store volatile ptr %88, ptr %90, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %87, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %89, align 8
-  %92 = getelementptr inbounds i8, ptr %87, i64 24
-  call void @netpoll_cleanup(ptr noundef %92) #11
-  call void @kfree(ptr noundef %87) #11
-  %93 = icmp eq ptr %88, @target_list
-  br i1 %93, label %.loopexit, label %.preheader, !llvm.loop !11
+.preheader:                                       ; preds = %81, %.preheader
+  %86 = phi ptr [ %87, %.preheader ], [ %84, %81 ]
+  %87 = load ptr, ptr %86, align 8
+  %88 = getelementptr inbounds i8, ptr %86, i64 8
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds i8, ptr %87, i64 8
+  store ptr %89, ptr %90, align 8
+  store volatile ptr %87, ptr %89, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %86, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %88, align 8
+  %91 = getelementptr inbounds i8, ptr %86, i64 24
+  call void @netpoll_cleanup(ptr noundef %91) #11
+  call void @kfree(ptr noundef %86) #11
+  %92 = icmp eq ptr %87, @target_list
+  br i1 %92, label %.loopexit, label %.preheader, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.preheader, %82, %80
-  %94 = phi i32 [ 0, %80 ], [ %83, %82 ], [ %83, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %81, %79
+  %93 = phi i32 [ 0, %79 ], [ %82, %81 ], [ %82, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #11
-  ret i32 %94
+  ret i32 %93
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -37617,8 +37617,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit33.us: ; preds = %.preheader.split.
 
 88:                                               ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit33.us
   %89 = trunc nuw i8 %.0.us to i1
-  %.mask.us = and i8 %.0.us, 1
-  %90 = zext nneg i8 %.mask.us to i32
+  %90 = zext nneg i8 %.0.us to i32
   %91 = icmp eq i64 %85, %1
   br i1 %91, label %92, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit.us
 
@@ -37697,8 +37696,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit33:  ; preds = %114, %118
 
 122:                                              ; preds = %_ZNSt3__116__constrain_hashB8ne190000Emm.exit33
   %123 = trunc nuw i8 %.0 to i1
-  %.mask = and i8 %.0, 1
-  %124 = zext nneg i8 %.mask to i32
+  %124 = zext nneg i8 %.0 to i32
   %125 = icmp eq i64 %116, %1
   br i1 %125, label %126, label %_ZNKSt3__121__unordered_map_equalINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS_17__hash_value_typeIS6_NS_4pairIS6_PKN7mitsuba6Struct5FieldEEEEENS_8equal_toIS6_EENS_4hashIS6_EELb1EEclB8ne190000ERKSF_SM_.exit
 

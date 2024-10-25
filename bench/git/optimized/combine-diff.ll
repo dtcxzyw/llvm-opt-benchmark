@@ -2143,15 +2143,11 @@ if.end89.i:                                       ; preds = %for.body81.i
 for.end101.i:                                     ; preds = %if.end89.i, %for.body81.i, %for.body81.i
   %comment_end.0.lcssa.i = phi i32 [ %comment_end.0137.i, %for.body81.i ], [ %comment_end.0137.i, %for.body81.i ], [ %spec.select90.i, %if.end89.i ]
   %tobool102.not.i = icmp eq i32 %comment_end.0.lcssa.i, 0
-  br i1 %tobool102.not.i, label %if.end117.i, label %if.end105.i
+  br i1 %tobool102.not.i, label %if.end117.i, label %for.body109.preheader.i
 
-if.end105.i:                                      ; preds = %for.end101.i
+for.body109.preheader.i:                          ; preds = %for.end101.i
   %call104.i = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.42, ptr noundef %call7.i219, ptr noundef %call6.i, ptr noundef %call7.i219, ptr noundef %call3.i)
-  %cmp107139.i = icmp sgt i32 %comment_end.0.lcssa.i, 0
-  br i1 %cmp107139.i, label %for.body109.preheader.i, label %if.end117.i
-
-for.body109.preheader.i:                          ; preds = %if.end105.i
-  %wide.trip.count168.i = zext nneg i32 %comment_end.0.lcssa.i to i64
+  %wide.trip.count168.i = zext i32 %comment_end.0.lcssa.i to i64
   br label %for.body109.i
 
 for.body109.i:                                    ; preds = %for.body109.i, %for.body109.preheader.i
@@ -2164,7 +2160,7 @@ for.body109.i:                                    ; preds = %for.body109.i, %for
   %exitcond169.not.i = icmp eq i64 %indvars.iv.next166.i, %wide.trip.count168.i
   br i1 %exitcond169.not.i, label %if.end117.i, label %for.body109.i, !llvm.loop !57
 
-if.end117.i:                                      ; preds = %for.body109.i, %if.end105.i, %for.end101.i, %for.end75.i
+if.end117.i:                                      ; preds = %for.body109.i, %for.end101.i, %for.end75.i
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %call7.i219)
   %cmp120148.i = icmp ult i64 %lno.1120.i, %hunk_end.0.lcssa.i
   br i1 %cmp120148.i, label %while.body122.i, label %while.end184.i
@@ -2292,8 +2288,8 @@ for.body170.i:                                    ; preds = %if.end166.i, %for.b
   %234 = load i64, ptr %flag126.i, align 8
   %and172.i = and i64 %234, %p_mask.0147.i
   %tobool173.not.i = icmp eq i64 %and172.i, 0
-  %.186.i = select i1 %tobool173.not.i, i32 32, i32 43
-  %call177.i = call i32 @putchar(i32 noundef %.186.i)
+  %.185.i = select i1 %tobool173.not.i, i32 32, i32 43
+  %call177.i = call i32 @putchar(i32 noundef %.185.i)
   %shl179.i = shl i64 %p_mask.0147.i, 1
   %inc181.i = add nuw nsw i32 %j123.1146.i, 1
   %exitcond175.not.i = icmp eq i32 %inc181.i, %num_parent

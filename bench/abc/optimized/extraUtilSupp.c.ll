@@ -962,7 +962,7 @@ Abc_SuppGenProfile.exit:                          ; preds = %._crit_edge.us.i, %
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.012 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %23 = sext i32 %.012 to i64
+  %23 = zext nneg i32 %.012 to i64
   %24 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %indvars.iv
@@ -976,7 +976,7 @@ Abc_SuppGenProfile.exit:                          ; preds = %._crit_edge.us.i, %
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph20.i, %Abc_SuppGenProfile.exit
   %.0.lcssa = phi i32 [ 0, %Abc_SuppGenProfile.exit ], [ 0, %.lr.ph20.i ], [ %spec.select, %.lr.ph ]
-  %30 = sext i32 %.0.lcssa to i64
+  %30 = zext nneg i32 %.0.lcssa to i64
   %31 = getelementptr inbounds [64 x i32], ptr %4, i64 0, i64 %30
   %32 = load i32, ptr %31, align 4
   store i32 %32, ptr %2, align 4
@@ -1079,12 +1079,12 @@ define i64 @Abc_SuppFindOne(ptr nocapture noundef readonly %0, i32 noundef %1) l
   br i1 %6, label %.split.us, label %.split.split
 
 .split.us:                                        ; preds = %2
-  %.not54 = icmp eq i32 %1, 1
-  br i1 %.not54, label %.split.us.split, label %.split.us.split.us
+  %.not46 = icmp eq i32 %1, 1
+  br i1 %.not46, label %.split.us.split, label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us, %Abc_SuppGenSelectVar.exit.us.us
-  %.08.us.us = phi i32 [ %44, %Abc_SuppGenSelectVar.exit.us.us ], [ -1, %.split.us ]
-  %.0.us.us = phi i64 [ %41, %Abc_SuppGenSelectVar.exit.us.us ], [ 0, %.split.us ]
+  %.08.us.us = phi i32 [ %43, %Abc_SuppGenSelectVar.exit.us.us ], [ -1, %.split.us ]
+  %.0.us.us = phi i64 [ %40, %Abc_SuppGenSelectVar.exit.us.us ], [ 0, %.split.us ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %.val17.i.i.us.us = load i32, ptr %4, align 4
@@ -1128,7 +1128,7 @@ define i64 @Abc_SuppFindOne(ptr nocapture noundef readonly %0, i32 noundef %1) l
 .lr.ph.i.us.us:                                   ; preds = %.lr.ph.i.us.us.preheader, %.lr.ph.i.us.us
   %indvars.iv.i.us.us = phi i64 [ %indvars.iv.next.i.us.us, %.lr.ph.i.us.us ], [ 1, %.lr.ph.i.us.us.preheader ]
   %.012.i.us.us = phi i32 [ %spec.select.i.us.us, %.lr.ph.i.us.us ], [ 0, %.lr.ph.i.us.us.preheader ]
-  %22 = sext i32 %.012.i.us.us to i64
+  %22 = zext nneg i32 %.012.i.us.us to i64
   %23 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %indvars.iv.i.us.us
@@ -1144,145 +1144,144 @@ define i64 @Abc_SuppFindOne(ptr nocapture noundef readonly %0, i32 noundef %1) l
   %.val9.i.us.us = load ptr, ptr %7, align 8
   %30 = zext nneg i32 %.val17.i.i.us.us to i64
   %31 = getelementptr inbounds i64, ptr %.val9.i.us.us, i64 %30
-  %32 = zext nneg i32 %spec.select.i.us.us to i64
-  %33 = shl nuw i64 1, %32
+  %32 = shl nuw i64 1, %41
   br i1 %9, label %.lr.ph.i10.us.us, label %Abc_SuppGenSelectVar.exit.us.us
 
-.lr.ph.i10.us.us:                                 ; preds = %29, %38
-  %.010.i.us.us = phi ptr [ %39, %38 ], [ %.val9.i.us.us, %29 ]
-  %34 = load i64, ptr %.010.i.us.us, align 8
-  %35 = and i64 %34, %33
-  %.not.i.us.us = icmp eq i64 %35, 0
-  br i1 %.not.i.us.us, label %38, label %36
+.lr.ph.i10.us.us:                                 ; preds = %29, %37
+  %.010.i.us.us = phi ptr [ %38, %37 ], [ %.val9.i.us.us, %29 ]
+  %33 = load i64, ptr %.010.i.us.us, align 8
+  %34 = and i64 %33, %32
+  %.not.i.us.us = icmp eq i64 %34, 0
+  br i1 %.not.i.us.us, label %37, label %35
 
-36:                                               ; preds = %.lr.ph.i10.us.us
-  %37 = xor i64 %34, %8
-  store i64 %37, ptr %.010.i.us.us, align 8
-  br label %38
+35:                                               ; preds = %.lr.ph.i10.us.us
+  %36 = xor i64 %33, %8
+  store i64 %36, ptr %.010.i.us.us, align 8
+  br label %37
 
-38:                                               ; preds = %36, %.lr.ph.i10.us.us
-  %39 = getelementptr inbounds i8, ptr %.010.i.us.us, i64 8
-  %40 = icmp ult ptr %39, %31
-  br i1 %40, label %.lr.ph.i10.us.us, label %Abc_SuppGenSelectVar.exit.us.us, !llvm.loop !20
+37:                                               ; preds = %35, %.lr.ph.i10.us.us
+  %38 = getelementptr inbounds i8, ptr %.010.i.us.us, i64 8
+  %39 = icmp ult ptr %38, %31
+  br i1 %39, label %.lr.ph.i10.us.us, label %Abc_SuppGenSelectVar.exit.us.us, !llvm.loop !20
 
-Abc_SuppGenSelectVar.exit.us.us:                  ; preds = %38, %29
-  %41 = or i64 %33, %.0.us.us
+Abc_SuppGenSelectVar.exit.us.us:                  ; preds = %37, %29
+  %40 = or i64 %32, %.0.us.us
   br label %.split.us.split.us
 
 Abc_SuppGenFindBest.exit.loopexit.us.us:          ; preds = %.lr.ph.i.us.us
-  %42 = sext i32 %spec.select.i.us.us to i64
-  %43 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4
+  %41 = zext nneg i32 %spec.select.i.us.us to i64
+  %42 = getelementptr inbounds [64 x i32], ptr %3, i64 0, i64 %41
+  %43 = load i32, ptr %42, align 4
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  %.not.us.us = icmp slt i32 %.08.us.us, %44
-  br i1 %.not.us.us, label %29, label %.split20.us
+  %.not.us.us = icmp slt i32 %.08.us.us, %43
+  br i1 %.not.us.us, label %29, label %.split16.us
 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split.backedge
   %.08.us = phi i32 [ %.08.us.be, %.split.us.split.backedge ], [ -1, %.split.us ]
   %.0.us = phi i64 [ 1, %.split.us.split.backedge ], [ 0, %.split.us ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   %.val17.i.i.us = load i32, ptr %4, align 4
-  %45 = icmp sgt i32 %.val17.i.i.us, 0
-  br i1 %45, label %.lr.ph20.i.i.us, label %Abc_SuppGenProfile.exit.i.us.thread
+  %44 = icmp sgt i32 %.val17.i.i.us, 0
+  br i1 %44, label %.lr.ph20.i.i.us, label %Abc_SuppGenProfile.exit.i.us.thread
 
 .lr.ph20.i.i.us:                                  ; preds = %.split.us.split
   %.val15.us.i.i.us = load ptr, ptr %7, align 8
-  %46 = zext nneg i32 %.val17.i.i.us to i64
+  %45 = zext nneg i32 %.val17.i.i.us to i64
   br label %.lr.ph.us.i.i.us
 
 .lr.ph.us.i.i.us:                                 ; preds = %.lr.ph.us.i.i.us, %.lr.ph20.i.i.us
-  %47 = phi i32 [ %54, %.lr.ph.us.i.i.us ], [ 0, %.lr.ph20.i.i.us ]
+  %46 = phi i32 [ %53, %.lr.ph.us.i.i.us ], [ 0, %.lr.ph20.i.i.us ]
   %indvars.iv23.i.i.us = phi i64 [ %indvars.iv.next24.i.i.us, %.lr.ph.us.i.i.us ], [ 0, %.lr.ph20.i.i.us ]
-  %48 = getelementptr inbounds i64, ptr %.val15.us.i.i.us, i64 %indvars.iv23.i.i.us
-  %49 = load i64, ptr %48, align 8
-  %50 = lshr i64 %49, %5
-  %51 = xor i64 %49, %50
-  %52 = trunc i64 %51 to i32
-  %53 = and i32 %52, 1
-  %54 = add i32 %53, %47
+  %47 = getelementptr inbounds i64, ptr %.val15.us.i.i.us, i64 %indvars.iv23.i.i.us
+  %48 = load i64, ptr %47, align 8
+  %49 = lshr i64 %48, %5
+  %50 = xor i64 %48, %49
+  %51 = trunc i64 %50 to i32
+  %52 = and i32 %51, 1
+  %53 = add i32 %52, %46
   %indvars.iv.next24.i.i.us = add nuw nsw i64 %indvars.iv23.i.i.us, 1
-  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next24.i.i.us, %46
+  %exitcond.not.i.us = icmp eq i64 %indvars.iv.next24.i.i.us, %45
   br i1 %exitcond.not.i.us, label %Abc_SuppGenProfile.exit.i.us, label %.lr.ph.us.i.i.us, !llvm.loop !17
 
 Abc_SuppGenProfile.exit.i.us:                     ; preds = %.lr.ph.us.i.i.us
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  %.not.us = icmp slt i32 %.08.us, %54
-  br i1 %.not.us, label %55, label %.split20.us
+  %.not.us = icmp slt i32 %.08.us, %53
+  br i1 %.not.us, label %54, label %.split16.us
 
 Abc_SuppGenProfile.exit.i.us.thread:              ; preds = %.split.us.split
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  %.not.us55 = icmp slt i32 %.08.us, 0
-  br i1 %.not.us55, label %.split.us.split.backedge, label %.split20.us
+  %.not.us47 = icmp slt i32 %.08.us, 0
+  br i1 %.not.us47, label %.split.us.split.backedge, label %.split16.us
 
-.split.us.split.backedge:                         ; preds = %62, %Abc_SuppGenProfile.exit.i.us.thread
-  %.08.us.be = phi i32 [ 0, %Abc_SuppGenProfile.exit.i.us.thread ], [ %54, %62 ]
+.split.us.split.backedge:                         ; preds = %61, %Abc_SuppGenProfile.exit.i.us.thread
+  %.08.us.be = phi i32 [ 0, %Abc_SuppGenProfile.exit.i.us.thread ], [ %53, %61 ]
   br label %.split.us.split
 
-55:                                               ; preds = %Abc_SuppGenProfile.exit.i.us
+54:                                               ; preds = %Abc_SuppGenProfile.exit.i.us
   %.val9.i.us = load ptr, ptr %7, align 8
-  %56 = zext nneg i32 %.val17.i.i.us to i64
-  %57 = getelementptr inbounds i64, ptr %.val9.i.us, i64 %56
+  %55 = zext nneg i32 %.val17.i.i.us to i64
+  %56 = getelementptr inbounds i64, ptr %.val9.i.us, i64 %55
   br label %.lr.ph.i10.us
 
-.lr.ph.i10.us:                                    ; preds = %55, %62
-  %.010.i.us = phi ptr [ %63, %62 ], [ %.val9.i.us, %55 ]
-  %58 = load i64, ptr %.010.i.us, align 8
-  %59 = and i64 %58, 1
-  %.not.i.us = icmp eq i64 %59, 0
-  br i1 %.not.i.us, label %62, label %60
+.lr.ph.i10.us:                                    ; preds = %54, %61
+  %.010.i.us = phi ptr [ %62, %61 ], [ %.val9.i.us, %54 ]
+  %57 = load i64, ptr %.010.i.us, align 8
+  %58 = and i64 %57, 1
+  %.not.i.us = icmp eq i64 %58, 0
+  br i1 %.not.i.us, label %61, label %59
 
-60:                                               ; preds = %.lr.ph.i10.us
-  %61 = xor i64 %58, 2
-  store i64 %61, ptr %.010.i.us, align 8
-  br label %62
+59:                                               ; preds = %.lr.ph.i10.us
+  %60 = xor i64 %57, 2
+  store i64 %60, ptr %.010.i.us, align 8
+  br label %61
 
-62:                                               ; preds = %60, %.lr.ph.i10.us
-  %63 = getelementptr inbounds i8, ptr %.010.i.us, i64 8
-  %64 = icmp ult ptr %63, %57
-  br i1 %64, label %.lr.ph.i10.us, label %.split.us.split.backedge, !llvm.loop !20
+61:                                               ; preds = %59, %.lr.ph.i10.us
+  %62 = getelementptr inbounds i8, ptr %.010.i.us, i64 8
+  %63 = icmp ult ptr %62, %56
+  br i1 %63, label %.lr.ph.i10.us, label %.split.us.split.backedge, !llvm.loop !20
 
 .split.split:                                     ; preds = %2, %.split.split.backedge
   %.not = phi i1 [ false, %.split.split.backedge ], [ true, %2 ]
   %.0 = phi i64 [ 1, %.split.split.backedge ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3)
   %.val17.i.i = load i32, ptr %4, align 4
-  %65 = icmp sgt i32 %.val17.i.i, 0
+  %64 = icmp sgt i32 %.val17.i.i, 0
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3)
-  br i1 %65, label %.lr.ph20.i.i, label %Abc_SuppGenProfile.exit.i
+  br i1 %64, label %.lr.ph20.i.i, label %Abc_SuppGenProfile.exit.i
 
 .lr.ph20.i.i:                                     ; preds = %.split.split
-  br i1 %.not, label %.lr.ph.i10, label %.split20.us
+  br i1 %.not, label %.lr.ph.i10, label %.split16.us
 
 Abc_SuppGenProfile.exit.i:                        ; preds = %.split.split
-  br i1 %.not, label %.split.split.backedge, label %.split20.us
+  br i1 %.not, label %.split.split.backedge, label %.split16.us
 
-.split.split.backedge:                            ; preds = %73, %Abc_SuppGenProfile.exit.i
+.split.split.backedge:                            ; preds = %72, %Abc_SuppGenProfile.exit.i
   br label %.split.split
 
 .lr.ph.i10:                                       ; preds = %.lr.ph20.i.i
-  %.val9.i15 = load ptr, ptr %7, align 8
-  %66 = zext nneg i32 %.val17.i.i to i64
-  %67 = getelementptr inbounds i64, ptr %.val9.i15, i64 %66
-  br label %68
+  %.val9.i13 = load ptr, ptr %7, align 8
+  %65 = zext nneg i32 %.val17.i.i to i64
+  %66 = getelementptr inbounds i64, ptr %.val9.i13, i64 %65
+  br label %67
 
-68:                                               ; preds = %73, %.lr.ph.i10
-  %.010.i = phi ptr [ %.val9.i15, %.lr.ph.i10 ], [ %74, %73 ]
-  %69 = load i64, ptr %.010.i, align 8
-  %70 = and i64 %69, 1
-  %.not.i = icmp eq i64 %70, 0
-  br i1 %.not.i, label %73, label %71
+67:                                               ; preds = %72, %.lr.ph.i10
+  %.010.i = phi ptr [ %.val9.i13, %.lr.ph.i10 ], [ %73, %72 ]
+  %68 = load i64, ptr %.010.i, align 8
+  %69 = and i64 %68, 1
+  %.not.i = icmp eq i64 %69, 0
+  br i1 %.not.i, label %72, label %70
 
-71:                                               ; preds = %68
-  %72 = xor i64 %69, %8
-  store i64 %72, ptr %.010.i, align 8
-  br label %73
+70:                                               ; preds = %67
+  %71 = xor i64 %68, %8
+  store i64 %71, ptr %.010.i, align 8
+  br label %72
 
-73:                                               ; preds = %71, %68
-  %74 = getelementptr inbounds i8, ptr %.010.i, i64 8
-  %75 = icmp ult ptr %74, %67
-  br i1 %75, label %68, label %.split.split.backedge, !llvm.loop !20
+72:                                               ; preds = %70, %67
+  %73 = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %74 = icmp ult ptr %73, %66
+  br i1 %74, label %67, label %.split.split.backedge, !llvm.loop !20
 
-.split20.us:                                      ; preds = %.lr.ph20.i.i, %Abc_SuppGenProfile.exit.i, %Abc_SuppGenFindBest.exit.loopexit.us.us, %Abc_SuppGenProfile.exit.i.us, %Abc_SuppGenProfile.exit.i.us.thread
+.split16.us:                                      ; preds = %.lr.ph20.i.i, %Abc_SuppGenProfile.exit.i, %Abc_SuppGenFindBest.exit.loopexit.us.us, %Abc_SuppGenProfile.exit.i.us, %Abc_SuppGenProfile.exit.i.us.thread
   %.us-phi = phi i64 [ %.0.us, %Abc_SuppGenProfile.exit.i.us.thread ], [ %.0.us, %Abc_SuppGenProfile.exit.i.us ], [ %.0.us.us, %Abc_SuppGenFindBest.exit.loopexit.us.us ], [ %.0, %Abc_SuppGenProfile.exit.i ], [ %.0, %.lr.ph20.i.i ]
   ret i64 %.us-phi
 }

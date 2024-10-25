@@ -395,13 +395,11 @@ define ptr @CmdSplitLine(ptr nocapture noundef readonly %0, ptr noundef %1, ptr 
 
 29:                                               ; preds = %26, %21
   %30 = icmp eq i8 %20, 39
-  %.not73 = icmp eq i32 %.058, 0
-  %31 = zext i1 %.not73 to i32
-  %.159 = select i1 %30, i32 %31, i32 %.058
+  %31 = zext i1 %30 to i32
+  %.159 = xor i32 %.058, %31
   %32 = icmp eq i8 %20, 34
-  %.not74 = icmp eq i32 %.0, 0
-  %33 = zext i1 %.not74 to i32
-  %.1 = select i1 %32, i32 %33, i32 %.0
+  %33 = zext i1 %32 to i32
+  %.1 = xor i32 %.0, %33
   %34 = getelementptr inbounds i8, ptr %.2, i64 1
   %indvars.iv.next82 = add i64 %indvars.iv81, 1
   %.pre = load i8, ptr %34, align 1

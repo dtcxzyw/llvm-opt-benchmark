@@ -5664,8 +5664,8 @@ _ZN12regex_syntax7unicode14canonical_prop17hfd1549437477a757E.exit.thread: ; pre
   %25 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   %26 = add nuw nsw i64 %14, 1
   %.022.i.i.i.i = select i1 %25, i64 %26, i64 %.0192.i.i.i.i
-  %27 = sub i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %28 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %27 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
+  %28 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %28, label %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h5b15d29981e3414dE.exit81.thread", label %_ZN12regex_syntax7unicode14canonical_prop17hfd1549437477a757E.exit.thread
 
 29:                                               ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17h5b15d29981e3414dE.exit81.thread"
@@ -6048,8 +6048,8 @@ common.resume:                                    ; preds = %446, %398, %355, %9
   %127 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i, 0
   %128 = add nuw nsw i64 %116, 1
   %.022.i.i.i.i.i = select i1 %127, i64 %128, i64 %.0192.i.i.i.i.i
-  %129 = sub i64 %.021.i.i.i.i.i, %.022.i.i.i.i.i
-  %130 = icmp ult i64 %.022.i.i.i.i.i, %.021.i.i.i.i.i
+  %129 = sub nsw i64 %.021.i.i.i.i.i, %.022.i.i.i.i.i
+  %130 = icmp samesign ult i64 %.022.i.i.i.i.i, %.021.i.i.i.i.i
   br i1 %130, label %114, label %.loopexit
 
 131:                                              ; preds = %161, %139
@@ -6118,7 +6118,7 @@ common.resume:                                    ; preds = %446, %398, %355, %9
   %158 = add nuw nsw i64 %146, 1
   %.022.i.i.i.i101.i = select i1 %157, i64 %158, i64 %.0193.i.i.i.i.i
   %159 = sub nsw i64 %.021.i.i.i.i100.i, %.022.i.i.i.i101.i
-  %160 = icmp ult i64 %.022.i.i.i.i101.i, %.021.i.i.i.i100.i
+  %160 = icmp samesign ult i64 %.022.i.i.i.i101.i, %.021.i.i.i.i100.i
   br i1 %160, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit95.thread.i", label %192
 
 161:                                              ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit95.i"
@@ -6429,8 +6429,8 @@ default.unreachable:                              ; preds = %253
   %277 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i68, 0
   %278 = add nuw nsw i64 %266, 1
   %.022.i.i.i.i.i70 = select i1 %277, i64 %278, i64 %.01927.i.i.i.i.i
-  %279 = sub i64 %.021.i.i.i.i.i69, %.022.i.i.i.i.i70
-  %280 = icmp ult i64 %.022.i.i.i.i.i70, %.021.i.i.i.i.i69
+  %279 = sub nsw i64 %.021.i.i.i.i.i69, %.022.i.i.i.i.i70
+  %280 = icmp samesign ult i64 %.022.i.i.i.i.i70, %.021.i.i.i.i.i69
   br i1 %280, label %264, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %275
@@ -6556,8 +6556,8 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   %313 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   %314 = add nuw nsw i64 %302, 1
   %.022.i.i.i.i = select i1 %313, i64 %314, i64 %.01927.i.i.i.i
-  %315 = sub i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %316 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %315 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
+  %316 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %316, label %300, label %.thread31.i
 
 .thread31.i:                                      ; preds = %311
@@ -6600,8 +6600,8 @@ _ZN12regex_syntax7unicode13bool_property3imp17h4d562adbad544adaE.exit.i: ; preds
   %332 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i81, 0
   %333 = add nuw nsw i64 %321, 1
   %.022.i.i.i.i.i83 = select i1 %332, i64 %333, i64 %.01927.i.i.i.i.i76
-  %334 = sub i64 %.021.i.i.i.i.i82, %.022.i.i.i.i.i83
-  %335 = icmp ult i64 %.022.i.i.i.i.i83, %.021.i.i.i.i.i82
+  %334 = sub nsw i64 %.021.i.i.i.i.i82, %.022.i.i.i.i.i83
+  %335 = icmp samesign ult i64 %.022.i.i.i.i.i83, %.021.i.i.i.i.i82
   br i1 %335, label %319, label %.thread31.i.i
 
 .thread31.i.i:                                    ; preds = %330
@@ -6733,8 +6733,8 @@ _ZN12regex_syntax7unicode6gencat17h7a12ab031675e367E.exit: ; preds = %297, %299,
   %374 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i93, 0
   %375 = add nuw nsw i64 %363, 1
   %.022.i.i.i.i.i95 = select i1 %374, i64 %375, i64 %.01927.i.i.i.i.i88
-  %376 = sub i64 %.021.i.i.i.i.i94, %.022.i.i.i.i.i95
-  %377 = icmp ult i64 %.022.i.i.i.i.i95, %.021.i.i.i.i.i94
+  %376 = sub nsw i64 %.021.i.i.i.i.i94, %.022.i.i.i.i.i95
+  %377 = icmp samesign ult i64 %.022.i.i.i.i.i95, %.021.i.i.i.i.i94
   br i1 %377, label %361, label %.thread.i.i96
 
 .thread.i.i96:                                    ; preds = %372
@@ -6899,8 +6899,8 @@ _ZN12regex_syntax3hir12ClassUnicode5empty17h26d5991a0702163dE.exit: ; preds = %3
   %423 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i.i119, 0
   %424 = add nuw nsw i64 %412, 1
   %.022.i.i.i.i.i121 = select i1 %423, i64 %424, i64 %.01927.i.i.i.i.i114
-  %425 = sub i64 %.021.i.i.i.i.i120, %.022.i.i.i.i.i121
-  %426 = icmp ult i64 %.022.i.i.i.i.i121, %.021.i.i.i.i.i120
+  %425 = sub nsw i64 %.021.i.i.i.i.i120, %.022.i.i.i.i.i121
+  %426 = icmp samesign ult i64 %.022.i.i.i.i.i121, %.021.i.i.i.i.i120
   br i1 %426, label %410, label %.thread.i.i122
 
 .thread.i.i122:                                   ; preds = %421
@@ -7379,7 +7379,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_gencat17hda57f
   %20 = add nuw nsw i64 %8, 1
   %.022.i.i.i.i = select i1 %19, i64 %20, i64 %.0193.i.i.i.i
   %21 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %22 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %22 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %22, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h126adc2fec64e17fE.exit27.thread", label %23
 
 23:                                               ; preds = %17
@@ -7486,7 +7486,7 @@ define internal fastcc void @_ZN12regex_syntax7unicode16canonical_script17hb0626
   %18 = add nuw nsw i64 %6, 1
   %.022.i.i.i.i = select i1 %17, i64 %18, i64 %.0193.i.i.i.i
   %19 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %20 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %20 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %20, label %4, label %21
 
 21:                                               ; preds = %15
@@ -7599,8 +7599,8 @@ define internal fastcc void @_ZN12regex_syntax7unicode3gcb17hb8ef32ba6d8eed21E(p
   %18 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   %19 = add nuw nsw i64 %7, 1
   %.022.i.i.i.i = select i1 %18, i64 %19, i64 %.01927.i.i.i.i
-  %20 = sub i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %21 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %20 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
+  %21 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %21, label %5, label %.thread.i
 
 .thread.i:                                        ; preds = %16
@@ -7677,8 +7677,8 @@ define internal fastcc void @_ZN12regex_syntax7unicode2wb17hc0a5a8cc8ed468edE(pt
   %18 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   %19 = add nuw nsw i64 %7, 1
   %.022.i.i.i.i = select i1 %18, i64 %19, i64 %.01927.i.i.i.i
-  %20 = sub i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %21 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %20 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
+  %21 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %21, label %5, label %.thread.i
 
 .thread.i:                                        ; preds = %16
@@ -7755,8 +7755,8 @@ define internal fastcc void @_ZN12regex_syntax7unicode2sb17h2baa8a68179ef89cE(pt
   %18 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   %19 = add nuw nsw i64 %7, 1
   %.022.i.i.i.i = select i1 %18, i64 %19, i64 %.01927.i.i.i.i
-  %20 = sub i64 %.021.i.i.i.i, %.022.i.i.i.i
-  %21 = icmp ult i64 %.022.i.i.i.i, %.021.i.i.i.i
+  %20 = sub nsw i64 %.021.i.i.i.i, %.022.i.i.i.i
+  %21 = icmp samesign ult i64 %.022.i.i.i.i, %.021.i.i.i.i
   br i1 %21, label %5, label %.thread.i
 
 .thread.i:                                        ; preds = %16

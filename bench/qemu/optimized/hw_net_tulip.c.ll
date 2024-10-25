@@ -2013,17 +2013,13 @@ if.end:                                           ; preds = %lor.lhs.false3
 
 for.body.i:                                       ; preds = %for.body.i, %if.end
   %indvars.iv.i = phi i64 [ 0, %if.end ], [ %indvars.iv.next.i, %for.body.i ]
-  %ret.014.i = phi i8 [ 0, %if.end ], [ %spec.select.i, %for.body.i ]
   %arrayidx.i = getelementptr [16 x [6 x i8]], ptr %filter.i, i64 0, i64 %indvars.iv.i
   %bcmp12.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %arrayidx.i, ptr noundef nonnull readonly dereferenceable(6) %buf, i64 6)
   %tobool3.not.i = icmp eq i32 %bcmp12.i, 0
-  %spec.select.i = select i1 %tobool3.not.i, i8 1, i8 %ret.014.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %cmp.i38 = icmp samesign ult i64 %indvars.iv.i, 15
-  %10 = and i8 %spec.select.i, 1
-  %cmp1.i = icmp eq i8 %10, 0
-  %11 = select i1 %cmp.i38, i1 %cmp1.i, i1 false
-  br i1 %11, label %for.body.i, label %for.end.i, !llvm.loop !14
+  %cmp.i38 = icmp samesign ugt i64 %indvars.iv.i, 14
+  %.not.i = select i1 %cmp.i38, i1 true, i1 %tobool3.not.i
+  br i1 %.not.i, label %for.end.i, label %for.body.i, !llvm.loop !14
 
 for.end.i:                                        ; preds = %for.body.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(6) %buf, ptr noundef nonnull dereferenceable(6) @tulip_filter_address.broadcast, i64 6)
@@ -2032,8 +2028,8 @@ for.end.i:                                        ; preds = %for.body.i
 
 if.end7.i:                                        ; preds = %for.end.i
   %arrayidx8.i = getelementptr i8, ptr %s, i64 11416
-  %12 = load i32, ptr %arrayidx8.i, align 8
-  %conv9.i = zext i32 %12 to i64
+  %10 = load i32, ptr %arrayidx8.i, align 8
+  %conv9.i = zext i32 %10 to i64
   %and.i = and i64 %conv9.i, 1073741888
   %tobool10.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool10.not.i, label %if.end14.i, label %do.body.preheader.sink.split
@@ -2044,30 +2040,29 @@ if.end14.i:                                       ; preds = %if.end7.i
   br i1 %tobool19.not.i, label %if.end29.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.end14.i
-  %13 = load i8, ptr %buf, align 1
-  %14 = and i8 %13, 1
-  %tobool23.not.i = icmp eq i8 %14, 0
+  %11 = load i8, ptr %buf, align 1
+  %12 = and i8 %11, 1
+  %tobool23.not.i = icmp eq i8 %12, 0
   br i1 %tobool23.not.i, label %if.end29.i, label %do.body.preheader.sink.split
 
 if.end29.i:                                       ; preds = %land.lhs.true.i, %if.end14.i
-  %15 = trunc i32 %12 to i8
-  %16 = lshr i8 %15, 4
-  %spec.select13.i = xor i8 %16, %spec.select.i
-  %tobool40.i = trunc i8 %spec.select13.i to i1
+  %13 = and i32 %10, 16
+  %14 = icmp ne i32 %13, 0
+  %tobool40.i = xor i1 %tobool3.not.i, %14
   br i1 %tobool40.i, label %do.body.preheader, label %return
 
 do.body.preheader.sink.split:                     ; preds = %land.lhs.true.i, %if.end7.i
   %.sink47 = phi i32 [ 1073741824, %if.end7.i ], [ 1024, %land.lhs.true.i ]
   %rx_status.i = getelementptr inbounds i8, ptr %s, i64 15592
-  %17 = load i32, ptr %rx_status.i, align 8
-  %18 = or i32 %17, %.sink47
-  store i32 %18, ptr %rx_status.i, align 8
+  %15 = load i32, ptr %rx_status.i, align 8
+  %16 = or i32 %15, %.sink47
+  store i32 %16, ptr %rx_status.i, align 8
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.sink.split, %if.end29.i, %for.end.i
   %current_rx_desc = getelementptr inbounds i8, ptr %s, i64 11472
-  %19 = trunc nuw i64 %size to i16
-  %conv22 = add nuw nsw i16 %19, 4
+  %17 = trunc nuw i64 %size to i16
+  %conv22 = add nuw nsw i16 %17, 4
   %rx_frame_size23 = getelementptr inbounds i8, ptr %s, i64 15588
   %conv25 = zext nneg i16 %conv22 to i32
   %shl = shl nuw nsw i32 %conv25, 16
@@ -2084,30 +2079,30 @@ do.body.preheader:                                ; preds = %do.body.preheader.s
   br label %do.body
 
 do.body:                                          ; preds = %do.body.preheader, %tulip_next_rx_descriptor.exit
-  %20 = phi i64 [ %.pre, %do.body.preheader ], [ %and18.i44, %tulip_next_rx_descriptor.exit ]
-  call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %20, ptr noundef %desc)
+  %18 = phi i64 [ %.pre, %do.body.preheader ], [ %and18.i44, %tulip_next_rx_descriptor.exit ]
+  call fastcc void @tulip_desc_read(ptr noundef nonnull %s, i64 noundef %18, ptr noundef %desc)
   %s.val35 = load i64, ptr %current_rx_desc, align 16
   call fastcc void @tulip_dump_rx_descriptor(i64 %s.val35, ptr noundef %desc)
-  %21 = load i32, ptr %desc, align 4
-  %tobool9.not = icmp sgt i32 %21, -1
+  %19 = load i32, ptr %desc, align 4
+  %tobool9.not = icmp sgt i32 %19, -1
   br i1 %tobool9.not, label %if.then10, label %if.end17
 
 if.then10:                                        ; preds = %do.body
-  %22 = load i32, ptr %8, align 4
-  %23 = or i32 %22, 128
-  store i32 %23, ptr %8, align 4
+  %20 = load i32, ptr %8, align 4
+  %21 = or i32 %20, 128
+  store i32 %21, ptr %8, align 4
   call fastcc void @tulip_update_int(ptr noundef nonnull %s)
-  %24 = load i16, ptr %rx_frame_size23, align 4
-  %conv13 = zext i16 %24 to i64
-  %25 = load i16, ptr %rx_frame_len, align 2
-  %conv15 = zext i16 %25 to i64
+  %22 = load i16, ptr %rx_frame_size23, align 4
+  %conv13 = zext i16 %22 to i64
+  %23 = load i16, ptr %rx_frame_len, align 2
+  %conv15 = zext i16 %23 to i64
   %sub = sub nsw i64 %conv13, %conv15
   br label %return
 
 if.end17:                                         ; preds = %do.body
   store i32 0, ptr %desc, align 4
-  %26 = load i16, ptr %rx_frame_len, align 2
-  %tobool20.not = icmp eq i16 %26, 0
+  %24 = load i16, ptr %rx_frame_len, align 2
+  %tobool20.not = icmp eq i16 %24, 0
   br i1 %tobool20.not, label %if.then21, label %if.end36
 
 if.then21:                                        ; preds = %if.end17
@@ -2115,43 +2110,43 @@ if.then21:                                        ; preds = %if.end17
   store i32 %or28, ptr %rx_status, align 8
   store i32 512, ptr %desc, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %rx_frame, ptr align 1 %buf, i64 %size, i1 false)
-  %27 = load i16, ptr %rx_frame_size23, align 4
-  store i16 %27, ptr %rx_frame_len, align 2
+  %25 = load i16, ptr %rx_frame_size23, align 4
+  store i16 %25, ptr %rx_frame_len, align 2
   br label %if.end36
 
 if.end36:                                         ; preds = %if.then21, %if.end17
-  %28 = phi i16 [ %27, %if.then21 ], [ %26, %if.end17 ]
-  %29 = load i32, ptr %control.i, align 4
-  %and.i39 = and i32 %29, 2047
-  %shr2.i = lshr i32 %29, 11
+  %26 = phi i16 [ %25, %if.then21 ], [ %24, %if.end17 ]
+  %27 = load i32, ptr %control.i, align 4
+  %and.i39 = and i32 %27, 2047
+  %shr2.i = lshr i32 %27, 11
   %and3.i = and i32 %shr2.i, 2047
-  %tobool.i = icmp ne i16 %28, 0
+  %tobool.i = icmp ne i16 %26, 0
   %tobool4.i = icmp ne i32 %and.i39, 0
   %or.cond.i = select i1 %tobool.i, i1 %tobool4.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.end20.i
 
 if.then.i:                                        ; preds = %if.end36
-  %conv.i = zext i16 %28 to i32
+  %conv.i = zext i16 %26 to i32
   %and.conv.i = call i32 @llvm.umin.i32(i32 %and.i39, i32 %conv.i)
-  %30 = load i32, ptr %buf_addr1.i, align 4
-  %conv11.i = zext i32 %30 to i64
-  %31 = load i16, ptr %rx_frame_size23, align 4
-  %conv12.i = zext i16 %31 to i64
-  %conv14.i = zext i16 %28 to i64
+  %28 = load i32, ptr %buf_addr1.i, align 4
+  %conv11.i = zext i32 %28 to i64
+  %29 = load i16, ptr %rx_frame_size23, align 4
+  %conv12.i = zext i16 %29 to i64
+  %conv14.i = zext i16 %26 to i64
   %sub.i = sub nsw i64 %conv12.i, %conv14.i
   %add.ptr.i = getelementptr i8, ptr %rx_frame, i64 %sub.i
   %conv15.i = zext nneg i32 %and.conv.i to i64
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv11.i, i32 range(i32 1, 33) 1, ptr noundef %add.ptr.i, i64 noundef range(i64 1, 2048) %conv15.i, i1 noundef zeroext true) #8
-  %32 = load i16, ptr %rx_frame_len, align 2
-  %33 = trunc nuw nsw i32 %and.conv.i to i16
-  %conv19.i = sub i16 %32, %33
+  %30 = load i16, ptr %rx_frame_len, align 2
+  %31 = trunc nuw nsw i32 %and.conv.i to i16
+  %conv19.i = sub i16 %30, %31
   store i16 %conv19.i, ptr %rx_frame_len, align 2
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.then.i, %if.end36
-  %.pr = phi i16 [ %conv19.i, %if.then.i ], [ %28, %if.end36 ]
+  %.pr = phi i16 [ %conv19.i, %if.then.i ], [ %26, %if.end36 ]
   %tobool23.i = icmp ne i16 %.pr, 0
   %tobool25.i = icmp ne i32 %and3.i, 0
   %or.cond1.i = select i1 %tobool23.i, i1 %tobool25.i, i1 false
@@ -2160,10 +2155,10 @@ if.end20.i:                                       ; preds = %if.then.i, %if.end3
 if.then26.i:                                      ; preds = %if.end20.i
   %conv22.i = zext i16 %.pr to i32
   %and3.conv22.i = call i32 @llvm.umin.i32(i32 %and3.i, i32 %conv22.i)
-  %34 = load i32, ptr %buf_addr2.i, align 4
-  %conv37.i = zext i32 %34 to i64
-  %35 = load i16, ptr %rx_frame_size23, align 4
-  %conv41.i = zext i16 %35 to i64
+  %32 = load i32, ptr %buf_addr2.i, align 4
+  %conv37.i = zext i32 %32 to i64
+  %33 = load i16, ptr %rx_frame_size23, align 4
+  %conv41.i = zext i16 %33 to i64
   %conv43.i = zext i16 %.pr to i64
   %sub44.i = sub nsw i64 %conv41.i, %conv43.i
   %add.ptr46.i = getelementptr i8, ptr %rx_frame, i64 %sub44.i
@@ -2171,33 +2166,33 @@ if.then26.i:                                      ; preds = %if.end20.i
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !11
   fence seq_cst
   %call.i.i.i.i28.i = call i32 @address_space_rw(ptr noundef nonnull %bus_master_as.i.i.i.i, i64 noundef range(i64 0, 4294967296) %conv37.i, i32 range(i32 1, 33) 1, ptr noundef %add.ptr46.i, i64 noundef range(i64 1, 2048) %conv47.i, i1 noundef zeroext true) #8
-  %36 = load i16, ptr %rx_frame_len, align 2
-  %37 = trunc nuw nsw i32 %and3.conv22.i to i16
-  %conv52.i = sub i16 %36, %37
+  %34 = load i16, ptr %rx_frame_len, align 2
+  %35 = trunc nuw nsw i32 %and3.conv22.i to i16
+  %conv52.i = sub i16 %34, %35
   store i16 %conv52.i, ptr %rx_frame_len, align 2
   br label %tulip_copy_rx_bytes.exit
 
 tulip_copy_rx_bytes.exit:                         ; preds = %if.end20.i, %if.then26.i
-  %38 = phi i16 [ %conv52.i, %if.then26.i ], [ %.pr, %if.end20.i ]
-  %tobool38.not = icmp eq i16 %38, 0
+  %36 = phi i16 [ %conv52.i, %if.then26.i ], [ %.pr, %if.end20.i ]
+  %tobool38.not = icmp eq i16 %36, 0
   br i1 %tobool38.not, label %if.then39, label %if.end48
 
 if.then39:                                        ; preds = %tulip_copy_rx_bytes.exit
-  %39 = load i32, ptr %rx_status, align 8
-  %40 = load i32, ptr %desc, align 4
-  %or42 = or i32 %40, %39
+  %37 = load i32, ptr %rx_status, align 8
+  %38 = load i32, ptr %desc, align 4
+  %or42 = or i32 %38, %37
   store i32 %or42, ptr %desc, align 4
-  %41 = load i32, ptr %8, align 4
-  %42 = or i32 %41, 64
-  store i32 %42, ptr %8, align 4
+  %39 = load i32, ptr %8, align 4
+  %40 = or i32 %39, 64
+  store i32 %40, ptr %8, align 4
   call fastcc void @tulip_update_int(ptr noundef nonnull %s)
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then39, %tulip_copy_rx_bytes.exit
   %s.val36 = load i64, ptr %current_rx_desc, align 16
   call fastcc void @tulip_dump_rx_descriptor(i64 %s.val36, ptr noundef %desc)
-  %43 = load i64, ptr %current_rx_desc, align 16
-  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %43, ptr noundef %desc)
+  %41 = load i64, ptr %current_rx_desc, align 16
+  call fastcc void @tulip_desc_write(ptr noundef nonnull %s, i64 noundef %41, ptr noundef %desc)
   %desc.val = load i32, ptr %control.i, align 4
   %desc.val37 = load i32, ptr %buf_addr2.i, align 4
   %conv.i40 = zext i32 %desc.val to i64
@@ -2206,8 +2201,8 @@ if.end48:                                         ; preds = %if.then39, %tulip_c
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i42
 
 if.then.i42:                                      ; preds = %if.end48
-  %44 = load i32, ptr %arrayidx.i43, align 4
-  %conv1.i = zext i32 %44 to i64
+  %42 = load i32, ptr %arrayidx.i43, align 4
+  %conv1.i = zext i32 %42 to i64
   br label %tulip_next_rx_descriptor.exit
 
 if.else.i:                                        ; preds = %if.end48
@@ -2220,20 +2215,20 @@ if.then6.i:                                       ; preds = %if.else.i
   br label %tulip_next_rx_descriptor.exit
 
 if.else9.i:                                       ; preds = %if.else.i
-  %45 = load i32, ptr %csr10.i, align 16
-  %and12.i = and i32 %45, 124
+  %43 = load i32, ptr %csr10.i, align 16
+  %and12.i = and i32 %43, 124
   %narrow.i = add nuw nsw i32 %and12.i, 16
   %add.i = zext nneg i32 %narrow.i to i64
-  %46 = load i64, ptr %current_rx_desc, align 16
-  %add15.i = add i64 %46, %add.i
+  %44 = load i64, ptr %current_rx_desc, align 16
+  %add15.i = add i64 %44, %add.i
   br label %tulip_next_rx_descriptor.exit
 
 tulip_next_rx_descriptor.exit:                    ; preds = %if.then.i42, %if.then6.i, %if.else9.i
-  %47 = phi i64 [ %conv7.i, %if.then6.i ], [ %add15.i, %if.else9.i ], [ %conv1.i, %if.then.i42 ]
-  %and18.i44 = and i64 %47, -4
+  %45 = phi i64 [ %conv7.i, %if.then6.i ], [ %add15.i, %if.else9.i ], [ %conv1.i, %if.then.i42 ]
+  %and18.i44 = and i64 %45, -4
   store i64 %and18.i44, ptr %current_rx_desc, align 16
-  %48 = load i16, ptr %rx_frame_len, align 2
-  %tobool51.not = icmp eq i16 %48, 0
+  %46 = load i16, ptr %rx_frame_len, align 2
+  %tobool51.not = icmp eq i16 %46, 0
   br i1 %tobool51.not, label %return, label %do.body, !llvm.loop !15
 
 return:                                           ; preds = %tulip_next_rx_descriptor.exit, %if.end29.i, %trace_tulip_receive.exit, %lor.lhs.false2, %lor.lhs.false3, %if.then10

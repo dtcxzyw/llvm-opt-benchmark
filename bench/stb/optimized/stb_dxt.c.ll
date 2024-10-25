@@ -342,9 +342,9 @@ for.body4:                                        ; preds = %for.body, %for.body
   %1 = load i8, ptr %arrayidx5, align 1
   %conv6 = zext i8 %1 to i32
   %add = add nuw nsw i32 %muv.0114, %conv6
-  %cmp10 = icmp sgt i32 %minv.0115, %conv6
+  %cmp10 = icmp samesign ugt i32 %minv.0115, %conv6
   %spec.select = tail call i32 @llvm.smax.i32(i32 %maxv.0116, i32 %conv6)
-  %minv.1 = tail call i32 @llvm.smin.i32(i32 %minv.0115, i32 %conv6)
+  %minv.1 = tail call i32 @llvm.umin.i32(i32 %minv.0115, i32 %conv6)
   %maxv.1 = select i1 %cmp10, i32 %maxv.0116, i32 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %cmp2 = icmp samesign ult i64 %indvars.iv, 60
@@ -1224,9 +1224,9 @@ for.body:                                         ; preds = %entry, %for.body
   %arrayidx2 = getelementptr inbounds i8, ptr %src, i64 %2
   %3 = load i8, ptr %arrayidx2, align 1
   %conv3 = zext i8 %3 to i32
-  %cmp4 = icmp sgt i32 %mn.051, %conv3
+  %cmp4 = icmp samesign ugt i32 %mn.051, %conv3
   %spec.select = tail call i32 @llvm.smax.i32(i32 %mx.052, i32 %conv3)
-  %mn.1 = tail call i32 @llvm.smin.i32(i32 %mn.051, i32 %conv3)
+  %mn.1 = tail call i32 @llvm.umin.i32(i32 %mn.051, i32 %conv3)
   %mx.1 = select i1 %cmp4, i32 %mx.052, i32 %spec.select
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1324,9 +1324,9 @@ for.body.i:                                       ; preds = %for.body.i, %if.the
   %arrayidx2.i = getelementptr inbounds i8, ptr %add.ptr, i64 %1
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %2 to i32
-  %cmp4.i = icmp sgt i32 %mn.051.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i32 %mn.051.i, %conv3.i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mx.052.i, i32 %conv3.i)
-  %mn.1.i = tail call i32 @llvm.smin.i32(i32 %mn.051.i, i32 %conv3.i)
+  %mn.1.i = tail call i32 @llvm.umin.i32(i32 %mn.051.i, i32 %conv3.i)
   %mx.1.i = select i1 %cmp4.i, i32 %mx.052.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1436,9 +1436,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %arrayidx2.i = getelementptr inbounds i8, ptr %src, i64 %indvars.iv.i
   %1 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %1 to i32
-  %cmp4.i = icmp sgt i32 %mn.051.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i32 %mn.051.i, %conv3.i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mx.052.i, i32 %conv3.i)
-  %mn.1.i = tail call i32 @llvm.smin.i32(i32 %mn.051.i, i32 %conv3.i)
+  %mn.1.i = tail call i32 @llvm.umin.i32(i32 %mn.051.i, i32 %conv3.i)
   %mx.1.i = select i1 %cmp4.i, i32 %mx.052.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1529,9 +1529,9 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   %arrayidx2.i = getelementptr inbounds i8, ptr %src, i64 %1
   %2 = load i8, ptr %arrayidx2.i, align 1
   %conv3.i = zext i8 %2 to i32
-  %cmp4.i = icmp sgt i32 %mn.051.i, %conv3.i
+  %cmp4.i = icmp samesign ugt i32 %mn.051.i, %conv3.i
   %spec.select.i = tail call i32 @llvm.smax.i32(i32 %mx.052.i, i32 %conv3.i)
-  %mn.1.i = tail call i32 @llvm.smin.i32(i32 %mn.051.i, i32 %conv3.i)
+  %mn.1.i = tail call i32 @llvm.umin.i32(i32 %mn.051.i, i32 %conv3.i)
   %mx.1.i = select i1 %cmp4.i, i32 %mx.052.i, i32 %spec.select.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 16
@@ -1618,9 +1618,9 @@ for.body.i4:                                      ; preds = %for.body.i4, %stb__
   %arrayidx2.i8 = getelementptr inbounds i8, ptr %add.ptr1, i64 %6
   %7 = load i8, ptr %arrayidx2.i8, align 1
   %conv3.i9 = zext i8 %7 to i32
-  %cmp4.i10 = icmp sgt i32 %mn.051.i7, %conv3.i9
+  %cmp4.i10 = icmp samesign ugt i32 %mn.051.i7, %conv3.i9
   %spec.select.i11 = tail call i32 @llvm.smax.i32(i32 %mx.052.i6, i32 %conv3.i9)
-  %mn.1.i12 = tail call i32 @llvm.smin.i32(i32 %mn.051.i7, i32 %conv3.i9)
+  %mn.1.i12 = tail call i32 @llvm.umin.i32(i32 %mn.051.i7, i32 %conv3.i9)
   %mx.1.i13 = select i1 %cmp4.i10, i32 %mx.052.i6, i32 %spec.select.i11
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i5, 1
   %exitcond.not.i15 = icmp eq i64 %indvars.iv.next.i14, 16
@@ -1703,6 +1703,9 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #8

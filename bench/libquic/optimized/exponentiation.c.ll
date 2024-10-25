@@ -319,7 +319,6 @@ for.cond83.preheader.i:                           ; preds = %if.end77.i
 for.cond83.outer.i:                               ; preds = %if.end133.i, %for.cond83.preheader.i
   %wstart.0.ph.i = phi i32 [ %sub78.i, %for.cond83.preheader.i ], [ %sub135.i, %if.end133.i ]
   %tobool87.not.i = phi i1 [ false, %for.cond83.preheader.i ], [ true, %if.end133.i ]
-  %tobool115.not.i = phi i1 [ true, %for.cond83.preheader.i ], [ false, %if.end133.i ]
   %call8496.i = call i32 @BN_is_bit_set(ptr noundef %p, i32 noundef %wstart.0.ph.i) #7
   %cmp8597.i = icmp eq i32 %call8496.i, 0
   br i1 %cmp8597.i, label %if.then86.lr.ph.i, label %for.cond98.preheader.i
@@ -389,17 +388,15 @@ for.end114.i:                                     ; preds = %for.end114.loopexit
   %wvalue.0.lcssa.i = phi i64 [ 0, %for.cond98.preheader.i ], [ %9, %for.end114.loopexit.i ]
   %wend.0.lcssa.i = phi i32 [ 0, %for.cond98.preheader.i ], [ %wend.0.lcssa.ph.i, %for.end114.loopexit.i ]
   %add.neg.i = xor i32 %wend.0.lcssa.i, -1
-  %cmp118.not108.i = icmp slt i32 %wend.0.lcssa.i, 0
-  %or.cond110.i = select i1 %tobool115.not.i, i1 true, i1 %cmp118.not108.i
-  br i1 %or.cond110.i, label %if.end127.i, label %for.body119.i
+  br i1 %tobool87.not.i, label %for.body119.i, label %if.end127.i
 
 for.cond117.i:                                    ; preds = %for.body119.i
-  %inc125.i = add nuw i32 %i.2109.i, 1
-  %exitcond119.not.i = icmp eq i32 %i.2109.i, %wend.0.lcssa.i
-  br i1 %exitcond119.not.i, label %if.end127.i, label %for.body119.i, !llvm.loop !11
+  %inc125.i = add nuw i32 %i.2108.i, 1
+  %exitcond117.not.i = icmp eq i32 %i.2108.i, %wend.0.lcssa.i
+  br i1 %exitcond117.not.i, label %if.end127.i, label %for.body119.i, !llvm.loop !11
 
 for.body119.i:                                    ; preds = %for.end114.i, %for.cond117.i
-  %i.2109.i = phi i32 [ %inc125.i, %for.cond117.i ], [ 0, %for.end114.i ]
+  %i.2108.i = phi i32 [ %inc125.i, %for.cond117.i ], [ 0, %for.end114.i ]
   %call120.i = call fastcc i32 @BN_mod_mul_reciprocal(ptr noundef %r, ptr noundef %r, ptr noundef %r, ptr noundef %recp.i, ptr noundef %ctx)
   %tobool121.not.i = icmp eq i32 %call120.i, 0
   br i1 %tobool121.not.i, label %err.i, label %for.cond117.i
@@ -871,16 +868,16 @@ for.body112.preheader:                            ; preds = %if.end102
   br label %for.body112
 
 for.body112:                                      ; preds = %for.body112.preheader, %for.body112
-  %indvars.iv145 = phi i64 [ 1, %for.body112.preheader ], [ %indvars.iv.next146, %for.body112 ]
+  %indvars.iv143 = phi i64 [ 1, %for.body112.preheader ], [ %indvars.iv.next144, %for.body112 ]
   %12 = load ptr, ptr %m, align 8
-  %arrayidx115 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv145
+  %arrayidx115 = getelementptr inbounds i64, ptr %12, i64 %indvars.iv143
   %13 = load i64, ptr %arrayidx115, align 8
   %not = xor i64 %13, -1
   %14 = load ptr, ptr %call15, align 8
-  %arrayidx119 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv145
+  %arrayidx119 = getelementptr inbounds i64, ptr %14, i64 %indvars.iv143
   store i64 %not, ptr %arrayidx119, align 8
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next146, %wide.trip.count
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count
   br i1 %exitcond.not, label %for.end122, label %for.body112, !llvm.loop !14
 
 for.end122:                                       ; preds = %for.body112, %if.end102
@@ -902,7 +899,6 @@ if.end130:                                        ; preds = %if.else124, %for.en
 for.cond131.outer:                                ; preds = %if.end184, %if.end130
   %wstart.0.ph = phi i32 [ %sub186, %if.end184 ], [ %sub91, %if.end130 ]
   %tobool136.not = phi i1 [ true, %if.end184 ], [ false, %if.end130 ]
-  %tobool165.not = phi i1 [ false, %if.end184 ], [ true, %if.end130 ]
   %call132123 = tail call i32 @BN_is_bit_set(ptr noundef %p, i32 noundef %wstart.0.ph) #7
   %cmp133124 = icmp eq i32 %call132123, 0
   br i1 %cmp133124, label %if.then135.lr.ph, label %for.cond146.preheader
@@ -958,8 +954,8 @@ if.end154:                                        ; preds = %for.body149
   %wvalue.1 = select i1 %tobool157.not, i32 %wvalue.0128, i32 %or
   %wend.1 = select i1 %tobool157.not, i32 %wend.0129, i32 %i.2127
   %inc163 = add nuw nsw i32 %i.2127, 1
-  %exitcond148.not = icmp eq i32 %inc163, %cond67110
-  br i1 %exitcond148.not, label %for.end164.loopexit, label %for.body149, !llvm.loop !15
+  %exitcond146.not = icmp eq i32 %inc163, %cond67110
+  br i1 %exitcond146.not, label %for.end164.loopexit, label %for.body149, !llvm.loop !15
 
 for.end164.loopexit:                              ; preds = %for.body149, %if.end154
   %wvalue.0.lcssa.ph = phi i32 [ %wvalue.1, %if.end154 ], [ %wvalue.0128, %for.body149 ]
@@ -972,17 +968,15 @@ for.end164:                                       ; preds = %for.end164.loopexit
   %wvalue.0.lcssa = phi i64 [ 0, %for.cond146.preheader ], [ %16, %for.end164.loopexit ]
   %wend.0.lcssa = phi i32 [ 0, %for.cond146.preheader ], [ %wend.0.lcssa.ph, %for.end164.loopexit ]
   %add.neg = xor i32 %wend.0.lcssa, -1
-  %cmp168.not134 = icmp slt i32 %wend.0.lcssa, 0
-  %or.cond136 = select i1 %tobool165.not, i1 true, i1 %cmp168.not134
-  br i1 %or.cond136, label %if.end178, label %for.body170
+  br i1 %tobool136.not, label %for.body170, label %if.end178
 
 for.cond167:                                      ; preds = %for.body170
-  %inc176 = add nuw i32 %i.3135, 1
-  %exitcond149.not = icmp eq i32 %i.3135, %wend.0.lcssa
-  br i1 %exitcond149.not, label %if.end178, label %for.body170, !llvm.loop !16
+  %inc176 = add nuw i32 %i.3134, 1
+  %exitcond147.not = icmp eq i32 %i.3134, %wend.0.lcssa
+  br i1 %exitcond147.not, label %if.end178, label %for.body170, !llvm.loop !16
 
 for.body170:                                      ; preds = %for.end164, %for.cond167
-  %i.3135 = phi i32 [ %inc176, %for.cond167 ], [ 0, %for.end164 ]
+  %i.3134 = phi i32 [ %inc176, %for.cond167 ], [ 0, %for.end164 ]
   %call171 = tail call i32 @BN_mod_mul_montgomery(ptr noundef nonnull %call15, ptr noundef nonnull %call15, ptr noundef nonnull %call15, ptr noundef nonnull %mont.addr.0, ptr noundef %ctx) #7
   %tobool172.not = icmp eq i32 %call171, 0
   br i1 %tobool172.not, label %err, label %for.cond167

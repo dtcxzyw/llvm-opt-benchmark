@@ -6243,8 +6243,8 @@ if.then29:                                        ; preds = %ehci_get_pid.exit
   %as.i = getelementptr inbounds i8, ptr %32, i64 480
   %34 = load ptr, ptr %as.i, align 16
   tail call void @qemu_sglist_init(ptr noundef nonnull %sgl.i, ptr noundef %33, i32 noundef 5, ptr noundef %34) #17
-  %cmp.not20.i = icmp eq i32 %shr4.i, 0
-  br i1 %cmp.not20.i, label %if.end33, label %while.body.preheader.i
+  %cmp.not21.i = icmp eq i32 %shr4.i, 0
+  br i1 %cmp.not21.i, label %if.end33, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %if.then29
   %and6.i = and i32 %30, 4095
@@ -6253,35 +6253,34 @@ while.body.preheader.i:                           ; preds = %if.then29
   br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end.i39, %while.body.preheader.i
-  %bytes.023.i = phi i32 [ %sub23.i, %if.end.i39 ], [ %shr4.i, %while.body.preheader.i ]
-  %offset.022.i = phi i32 [ %offset.1.i, %if.end.i39 ], [ %and6.i, %while.body.preheader.i ]
-  %cpage.021.i = phi i32 [ %cpage.1.i, %if.end.i39 ], [ %shr.i38, %while.body.preheader.i ]
-  %cmp9.i = icmp samesign ugt i32 %cpage.021.i, 4
+  %bytes.024.i = phi i32 [ %sub23.i, %if.end.i39 ], [ %shr4.i, %while.body.preheader.i ]
+  %offset.023.i = phi i32 [ %offset.1.i, %if.end.i39 ], [ %and6.i, %while.body.preheader.i ]
+  %cpage.022.i = phi i32 [ %cpage.1.i, %if.end.i39 ], [ %shr.i38, %while.body.preheader.i ]
+  %cmp9.i = icmp samesign ugt i32 %cpage.022.i, 4
   br i1 %cmp9.i, label %ehci_init_transfer.exit, label %if.end.i39
 
 if.end.i39:                                       ; preds = %while.body.i
-  %idxprom.i = zext nneg i32 %cpage.021.i to i64
+  %idxprom.i = zext nneg i32 %cpage.022.i to i64
   %arrayidx13.i = getelementptr [5 x i32], ptr %bufptr.i, i64 0, i64 %idxprom.i
   %35 = load i32, ptr %arrayidx13.i, align 4
   %and14.i = and i32 %35, -4096
-  %conv.i = zext i32 %and14.i to i64
-  %conv15.i = zext nneg i32 %offset.022.i to i64
-  %add.i = add nuw nsw i64 %conv.i, %conv15.i
-  %sub.i = sub nuw nsw i32 4096, %offset.022.i
-  %cmp16.i = icmp ugt i32 %bytes.023.i, %sub.i
+  %add19.i = or disjoint i32 %and14.i, %offset.023.i
+  %add.i = zext i32 %add19.i to i64
+  %sub.i = sub nuw nsw i32 4096, %offset.023.i
+  %cmp16.i = icmp ugt i32 %bytes.024.i, %sub.i
   %inc.i = zext i1 %cmp16.i to i32
-  %cpage.1.i = add nuw nsw i32 %cpage.021.i, %inc.i
-  %offset.1.i = select i1 %cmp16.i, i32 0, i32 %offset.022.i
-  %plen.0.i = tail call i32 @llvm.umin.i32(i32 %bytes.023.i, i32 %sub.i)
+  %cpage.1.i = add nuw nsw i32 %cpage.022.i, %inc.i
+  %offset.1.i = select i1 %cmp16.i, i32 0, i32 %offset.023.i
+  %plen.0.i = tail call i32 @llvm.umin.i32(i32 %bytes.024.i, i32 %sub.i)
   %conv22.i = zext nneg i32 %plen.0.i to i64
   tail call void @qemu_sglist_add(ptr noundef nonnull %sgl.i, i64 noundef %add.i, i64 noundef %conv22.i) #17
-  %sub23.i = sub i32 %bytes.023.i, %plen.0.i
+  %sub23.i = sub i32 %bytes.024.i, %plen.0.i
   %cmp.not.i = icmp eq i32 %sub23.i, 0
   br i1 %cmp.not.i, label %if.end33, label %while.body.i, !llvm.loop !29
 
 ehci_init_transfer.exit:                          ; preds = %while.body.i
   %36 = load ptr, ptr @stderr, align 8
-  %call.i41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.136, i32 noundef %cpage.021.i) #19
+  %call.i41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.136, i32 noundef %cpage.022.i) #19
   tail call void @qemu_sglist_destroy(ptr noundef nonnull %sgl.i) #17
   br label %return
 

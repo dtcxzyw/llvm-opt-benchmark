@@ -759,23 +759,19 @@ if.then21:                                        ; preds = %for.end
 if.end22:                                         ; preds = %for.end
   %21 = zext i32 %pivot.1 to i64
   %cmp23.not = icmp eq i64 %indvars.iv161, %21
-  br i1 %cmp23.not, label %for.body76.preheader, label %for.cond25.preheader
+  br i1 %cmp23.not, label %for.body76.preheader, label %for.body27
 
-for.cond25.preheader:                             ; preds = %if.end22
-  %idxprom35 = sext i32 %pivot.1 to i64
-  br label %for.body27
-
-for.body27:                                       ; preds = %for.cond25.preheader, %for.body27
-  %indvars.iv149 = phi i64 [ 0, %for.cond25.preheader ], [ %indvars.iv.next150, %for.body27 ]
+for.body27:                                       ; preds = %if.end22, %for.body27
+  %indvars.iv149 = phi i64 [ %indvars.iv.next150, %for.body27 ], [ 0, %if.end22 ]
   %arrayidx33 = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 %indvars.iv161, i64 %indvars.iv149
   %22 = load float, ptr %arrayidx33, align 4
-  %arrayidx38 = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 %idxprom35, i64 %indvars.iv149
+  %arrayidx38 = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 %21, i64 %indvars.iv149
   %23 = load float, ptr %arrayidx38, align 4
   store float %23, ptr %arrayidx33, align 4
   store float %22, ptr %arrayidx38, align 4
   %arrayidx53 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 %indvars.iv161, i64 %indvars.iv149
   %24 = load float, ptr %arrayidx53, align 4
-  %arrayidx58 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 %idxprom35, i64 %indvars.iv149
+  %arrayidx58 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 %21, i64 %indvars.iv149
   %25 = load float, ptr %arrayidx58, align 4
   store float %25, ptr %arrayidx53, align 4
   store float %24, ptr %arrayidx58, align 4

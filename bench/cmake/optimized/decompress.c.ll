@@ -4062,8 +4062,8 @@ makeMaps_d.exit:                                  ; preds = %2167
   %2880 = getelementptr inbounds [6 x [258 x i8]], ptr %2520, i64 0, i64 %indvars.iv2524, i64 %indvars.iv2518
   %2881 = load i8, ptr %2880, align 1
   %2882 = zext i8 %2881 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.014012236, i32 %2882)
-  %.1 = tail call i32 @llvm.smin.i32(i32 %.014002237, i32 %2882)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.014012236, i32 %2882)
+  %.1 = tail call i32 @llvm.umin.i32(i32 %.014002237, i32 %2882)
   %indvars.iv.next2519 = add nuw nsw i64 %indvars.iv2518, 1
   %exitcond2523.not = icmp eq i64 %indvars.iv.next2519, %wide.trip.count2522
   br i1 %exitcond2523.not, label %._crit_edge2239, label %.lr.ph2238, !llvm.loop !16
@@ -7253,10 +7253,16 @@ declare i32 @llvm.smin.i32(i32, i32) #3
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #3
+declare i32 @llvm.umax.i32(i32, i32) #3
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

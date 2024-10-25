@@ -1300,14 +1300,13 @@ define void @_ZN3gmx22SelectionOptionManager11initOptionsEPNS_17IOptionsContaine
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %14 = and i8 %spec.select, 1
-  %15 = zext nneg i8 %14 to i32
+  %14 = zext nneg i8 %spec.select to i32
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.0.lcssa = phi i32 [ 1, %2 ], [ %15, %._crit_edge.loopexit ]
-  %16 = load ptr, ptr %4, align 8
-  tail call void @_ZN3gmx19SelectionCollection11initOptionsEPNS_17IOptionsContainerENS0_19SelectionTypeOptionE(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef %1, i32 noundef %.0.lcssa)
+  %.0.lcssa = phi i32 [ 1, %2 ], [ %14, %._crit_edge.loopexit ]
+  %15 = load ptr, ptr %4, align 8
+  tail call void @_ZN3gmx19SelectionCollection11initOptionsEPNS_17IOptionsContainerENS0_19SelectionTypeOptionE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %1, i32 noundef %.0.lcssa)
   ret void
 }
 

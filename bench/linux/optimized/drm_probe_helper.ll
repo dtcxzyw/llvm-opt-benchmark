@@ -171,13 +171,13 @@ define dso_local void @drm_kms_helper_poll_enable(ptr noundef %0) #0 align 16 {
   %6 = load i8, ptr @drm_kms_helper_poll, align 1, !range !5
   %7 = icmp eq i8 %6, 0
   %8 = select i1 %5, i1 true, i1 %7
-  br i1 %8, label %50, label %9
+  br i1 %8, label %49, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %0, i64 809
   %11 = load i8, ptr %10, align 1, !range !5, !noundef !6
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %13, label %50
+  br i1 %12, label %13, label %49
 
 13:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #6
@@ -185,7 +185,7 @@ define dso_local void @drm_kms_helper_poll_enable(ptr noundef %0) #0 align 16 {
   call void @drm_connector_list_iter_begin(ptr noundef %0, ptr noundef nonnull %2) #6
   %14 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #6
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %39, label %.preheader
+  br i1 %15, label %38, label %.preheader
 
 .preheader:                                       ; preds = %13, %26
   %16 = phi ptr [ %32, %26 ], [ %14, %13 ]
@@ -216,42 +216,41 @@ define dso_local void @drm_kms_helper_poll_enable(ptr noundef %0) #0 align 16 {
   br i1 %33, label %34, label %.preheader, !llvm.loop !8
 
 34:                                               ; preds = %26
-  %35 = and i8 %31, 1
-  %36 = icmp eq i8 %35, 0
+  %35 = icmp eq i8 %31, 0
   call void @drm_connector_list_iter_end(ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  br i1 %36, label %40, label %._crit_edge
+  br i1 %35, label %39, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %34
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 810
   %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !5
-  %37 = icmp eq i8 %.pre, 0
-  %38 = select i1 %37, i64 10000, i64 1000
-  br label %44
+  %36 = icmp eq i8 %.pre, 0
+  %37 = select i1 %36, i64 10000, i64 1000
+  br label %43
 
-39:                                               ; preds = %13
+38:                                               ; preds = %13
   call void @drm_connector_list_iter_end(ptr noundef nonnull %2) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #6
-  br label %40
+  br label %39
 
-40:                                               ; preds = %39, %34
-  %41 = getelementptr inbounds i8, ptr %0, i64 810
-  %42 = load i8, ptr %41, align 2, !range !5, !noundef !6
-  %43 = icmp eq i8 %42, 0
-  br i1 %43, label %49, label %44
+39:                                               ; preds = %38, %34
+  %40 = getelementptr inbounds i8, ptr %0, i64 810
+  %41 = load i8, ptr %40, align 2, !range !5, !noundef !6
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %48, label %43
 
-44:                                               ; preds = %._crit_edge, %40
-  %45 = phi i64 [ %38, %._crit_edge ], [ 1000, %40 ]
-  %46 = getelementptr inbounds i8, ptr %0, i64 816
-  %47 = load ptr, ptr @system_wq, align 8
-  %48 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %47, ptr noundef %46, i64 noundef %45) #6
+43:                                               ; preds = %._crit_edge, %39
+  %44 = phi i64 [ %37, %._crit_edge ], [ 1000, %39 ]
+  %45 = getelementptr inbounds i8, ptr %0, i64 816
+  %46 = load ptr, ptr @system_wq, align 8
+  %47 = call zeroext i1 @queue_delayed_work_on(i32 noundef 64, ptr noundef %46, ptr noundef %45, i64 noundef %44) #6
+  br label %48
+
+48:                                               ; preds = %43, %39
+  store i8 1, ptr %10, align 1
   br label %49
 
-49:                                               ; preds = %44, %40
-  store i8 1, ptr %10, align 1
-  br label %50
-
-50:                                               ; preds = %49, %9, %1
+49:                                               ; preds = %48, %9, %1
   ret void
 }
 

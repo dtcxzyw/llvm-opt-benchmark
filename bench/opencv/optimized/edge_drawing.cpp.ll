@@ -5570,10 +5570,10 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl11TestSegmentEiii(ptr nocapt
   %34 = getelementptr inbounds i16, ptr %23, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = zext i16 %35 to i32
-  %37 = icmp sgt i32 %.081, %36
+  %37 = icmp samesign ugt i32 %.081, %36
   %38 = trunc nsw i64 %indvars.iv to i32
   %spec.select = select i1 %37, i32 %38, i32 %.05880
-  %spec.select70 = tail call i32 @llvm.smin.i32(i32 %.081, i32 %36)
+  %spec.select70 = tail call i32 @llvm.umin.i32(i32 %.081, i32 %36)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %17, %lftr.wideiv
@@ -24806,6 +24806,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #36
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #34
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
