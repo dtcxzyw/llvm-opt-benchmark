@@ -15165,7 +15165,7 @@ llvm/PDBSymbol.cpp.ll 397148756
 llvm/PDBSymbolAnnotation.cpp.ll 35891885
 llvm/PDBSymbolBlock.cpp.ll 35916061
 llvm/PDBSymbolCompiland.cpp.ll 382419494
-llvm/PDBSymbolCompilandDetails.cpp.ll 35940900
+llvm/PDBSymbolCompilandDetails.cpp.ll 35904919
 llvm/PDBSymbolCompilandEnv.cpp.ll 53688433
 llvm/PDBSymbolCustom.cpp.ll 37143210
 llvm/PDBSymbolData.cpp.ll 157655947
@@ -21259,7 +21259,7 @@ opencv/randpattern.cpp.ll 1500848727
 opencv/ransac_solvers.cpp.ll 7937527829
 opencv/rapid.cpp.ll 1673371532
 opencv/reader.cpp.ll 54973479
-opencv/recurrent_layers.cpp.ll 2841195017
+opencv/recurrent_layers.cpp.ll 2838353817
 opencv/reduce_layer.cpp.ll 9768187017
 opencv/reed_solomon_decoder.cpp.ll 599728778
 opencv/region_layer.cpp.ll 978830439
