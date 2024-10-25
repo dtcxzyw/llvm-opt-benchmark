@@ -663,3 +663,6 @@
 [submodule "bench/boost/boost"]
 	path = bench/boost/boost
 	url = https://github.com/boostorg/boost.git
+[submodule "bench/lvgl/lvgl"]
+	path = bench/lvgl/lvgl
+	url = https://github.com/lvgl/lvgl.git
