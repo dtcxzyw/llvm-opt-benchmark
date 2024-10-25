@@ -12846,7 +12846,7 @@ linux/mcast.ll 1049943714
 linux/md-bitmap.ll 899881645
 linux/md.ll 3038808698
 linux/md5.ll 257932869
-linux/mdio-boardinfo.ll 49515839
+linux/mdio-boardinfo.ll 49565520
 linux/mdio_bus.ll 256147469
 linux/mdio_device.ll 78191427
 linux/mei-trace.ll 121983516
