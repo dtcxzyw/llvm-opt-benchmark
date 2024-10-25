@@ -16046,7 +16046,7 @@ llvm/cc1as_main.cpp.ll 2312392257
 llvm/cc1gen_reproducer_main.cpp.ll 1614433688
 llvm/circular_raw_ostream.cpp.ll 72200860
 llvm/clang-driver.cpp.ll 36312085
-llvm/driver.cpp.ll 1271918101
+llvm/driver.cpp.ll 1273190028
 llvm/raw_os_ostream.cpp.ll 43684789
 llvm/raw_ostream.cpp.ll 1275666899
 llvm/raw_socket_stream.cpp.ll 625300495
@@ -29459,7 +29459,7 @@ protobuf/message_differencer.cc.ll 7269628864
 protobuf/message_field.cc.ll 4083228064
 protobuf/message_field_lite.cc.ll 2177850865
 protobuf/message_lite.cc.ll 877852182
-protobuf/message_serialization.cc.ll 763730508
+protobuf/message_serialization.cc.ll 764494372
 protobuf/name_resolver.cc.ll 640952442
 protobuf/names.cc.ll 687780371
 protobuf/naming.cc.ll 1048528692
