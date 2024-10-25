@@ -24459,7 +24459,7 @@ openmpi/gds_shmem_fetch.ll 622497259
 openmpi/gds_shmem_store.ll 2180927658
 openmpi/gds_shmem_utils.ll 149538530
 openmpi/gds_utils.ll 530118758
-openmpi/get_extent.ll 37504164
+openmpi/get_extent.ll 37541675
 openmpi/get_fp_posn.ll 53199011
 openmpi/grequest.ll 106903250
 openmpi/group.ll 323978100
