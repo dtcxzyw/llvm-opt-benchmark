@@ -84,6 +84,7 @@ Currently, this repository contains the following libraries/applications:
 |[linux](https://github.com/torvalds/linux)|C|![stars](https://img.shields.io/github/stars/torvalds/linux?style=flat)|
 |[lua](https://github.com/lua/lua)|C|![stars](https://img.shields.io/github/stars/lua/lua?style=flat)|
 |[luajit](https://github.com/LuaJIT/LuaJIT)|C|![stars](https://img.shields.io/github/stars/LuaJIT/LuaJIT?style=flat)|
+|[lvgl](https://github.com/lvgl/lvgl)|C|![stars](https://img.shields.io/github/stars/lvgl/lvgl?style=flat)|
 |[lz4](https://github.com/lz4/lz4)|C|![stars](https://img.shields.io/github/stars/lz4/lz4?style=flat)|
 |[memcached](https://github.com/memcached/memcached)|C|![stars](https://img.shields.io/github/stars/memcached/memcached?style=flat)|
 |[mimalloc](https://github.com/microsoft/mimalloc)|C|![stars](https://img.shields.io/github/stars/microsoft/mimalloc?style=flat)|
@@ -120,6 +121,7 @@ Currently, this repository contains the following libraries/applications:
 |[annoy](https://github.com/spotify/annoy)|C++|![stars](https://img.shields.io/github/stars/spotify/annoy?style=flat)|
 |[arrow](https://github.com/apache/arrow)|C++|![stars](https://img.shields.io/github/stars/apache/arrow?style=flat)|
 |[assimp](https://github.com/assimp/assimp)|C++|![stars](https://img.shields.io/github/stars/assimp/assimp?style=flat)|
+|[boost](https://github.com/boostorg/boost)|C++|![stars](https://img.shields.io/github/stars/boostorg/boost?style=flat)|
 |[box2d](https://github.com/erincatto/box2d)|C++|![stars](https://img.shields.io/github/stars/erincatto/box2d?style=flat)|
 |[bullet3](https://github.com/bulletphysics/bullet3)|C++|![stars](https://img.shields.io/github/stars/bulletphysics/bullet3?style=flat)|
 |[casadi](https://github.com/casadi/casadi)|C++|![stars](https://img.shields.io/github/stars/casadi/casadi?style=flat)|
