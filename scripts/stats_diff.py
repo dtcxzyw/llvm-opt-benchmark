@@ -38,8 +38,8 @@ regressions = regressions[:topk]
 print('\n```')
 print('Improvements:')
 for k, origin, new, diff in improvements:
-    print(f'{k} {origin} -> {new} {diff:+.2f}%')
+    print(f'  {k} {origin} -> {new} {diff:+.2f}%')
 print('Regressions:')
 for k, origin, new, diff in regressions:
-    print(f'{k} {origin} -> {new} {diff:+.2f}%')
+    print(f'  {k} {origin} -> {new} {diff:+.2f}%')
 print('```')
