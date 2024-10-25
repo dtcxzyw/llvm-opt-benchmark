@@ -660,3 +660,6 @@
 [submodule "bench/zed-rs/zed"]
 	path = bench/zed-rs/zed
 	url = https://github.com/zed-industries/zed.git
+[submodule "bench/boost/boost"]
+	path = bench/boost/boost
+	url = https://github.com/boostorg/boost.git
