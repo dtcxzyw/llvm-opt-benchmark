@@ -12636,7 +12636,7 @@ linux/dma-buf.ll 280854303
 linux/dma-fence-chain.ll 150069515
 linux/dma-fence.ll 261108564
 linux/dma-iommu.ll 504351722
-linux/dma-resv.ll 328358911
+linux/dma-resv.ll 328687294
 linux/dma-ring.ll 76613327
 linux/dmaengine.ll 398917445
 linux/dmapool.ll 101081286
