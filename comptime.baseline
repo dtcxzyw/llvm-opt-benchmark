@@ -34434,7 +34434,7 @@ spike/htif_pthread.ll 1026544096
 spike/insb.ll 519164887
 spike/interactive.ll 2929819052
 spike/isa_parser.ll 860408865
-spike/jal.ll 478472266
+spike/jal.ll 478950955
 spike/jalr.ll 470837772
 spike/kabs16.ll 631772077
 spike/kabs32.ll 481765180
