@@ -23759,7 +23759,7 @@ openjdk/shenandoahLock.ll 148835594
 openjdk/shenandoahMark.ll 5410406595
 openjdk/shenandoahMarkBitMap.ll 159139895
 openjdk/shenandoahMarkingContext.ll 210600958
-openjdk/shenandoahMemoryPool.ll 52870772
+openjdk/shenandoahMemoryPool.ll 52923779
 openjdk/shenandoahMetrics.ll 94862861
 openjdk/shenandoahMonitoringSupport.ll 111388536
 openjdk/shenandoahNMethod.ll 646404221
