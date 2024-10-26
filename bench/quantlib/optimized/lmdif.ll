@@ -532,7 +532,7 @@ for.body24:                                       ; preds = %for.body18, %for.bo
   %kmax.0322 = phi i32 [ %kmax.1, %for.body24 ], [ %.pre419, %for.body18 ]
   %arrayidx26 = getelementptr inbounds double, ptr %rdiag, i64 %indvars.iv362
   %17 = load double, ptr %arrayidx26, align 8, !tbaa !3
-  %idxprom27 = sext i32 %kmax.0322 to i64
+  %idxprom27 = zext nneg i32 %kmax.0322 to i64
   %arrayidx28 = getelementptr inbounds double, ptr %rdiag, i64 %idxprom27
   %18 = load double, ptr %arrayidx28, align 8, !tbaa !3
   %cmp29 = fcmp ogt double %17, %18
@@ -571,16 +571,15 @@ for.body41:                                       ; preds = %for.body41.preheade
 for.end54:                                        ; preds = %for.body41
   %arrayidx56 = getelementptr inbounds double, ptr %rdiag, i64 %indvars.iv360
   %24 = load double, ptr %arrayidx56, align 8, !tbaa !3
-  %idxprom57 = sext i32 %kmax.1 to i64
-  %arrayidx58 = getelementptr inbounds double, ptr %rdiag, i64 %idxprom57
+  %arrayidx58 = getelementptr inbounds double, ptr %rdiag, i64 %20
   store double %24, ptr %arrayidx58, align 8, !tbaa !3
   %arrayidx60 = getelementptr inbounds double, ptr %wa, i64 %indvars.iv360
   %25 = load double, ptr %arrayidx60, align 8, !tbaa !3
-  %arrayidx62 = getelementptr inbounds double, ptr %wa, i64 %idxprom57
+  %arrayidx62 = getelementptr inbounds double, ptr %wa, i64 %20
   store double %25, ptr %arrayidx62, align 8, !tbaa !3
   %arrayidx64 = getelementptr inbounds i32, ptr %ipvt, i64 %indvars.iv360
   %26 = load i32, ptr %arrayidx64, align 4, !tbaa !9
-  %arrayidx66 = getelementptr inbounds i32, ptr %ipvt, i64 %idxprom57
+  %arrayidx66 = getelementptr inbounds i32, ptr %ipvt, i64 %20
   %27 = load i32, ptr %arrayidx66, align 4, !tbaa !9
   store i32 %27, ptr %arrayidx64, align 4, !tbaa !9
   store i32 %26, ptr %arrayidx66, align 4, !tbaa !9

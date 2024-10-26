@@ -383,7 +383,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
 199:                                              ; preds = %189, %193, %194, %195, %196, %197, %198
   %200 = phi ptr [ @.str.8, %198 ], [ @.str.7, %197 ], [ @.str.6, %196 ], [ @.str.5, %195 ], [ @.str.4, %194 ], [ @.str.3, %193 ], [ @.str.2, %189 ]
   %201 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %180, i32 noundef %182, i64 noundef %3, i64 noundef %5, ptr noundef nonnull %190, ptr noundef nonnull %200) #9
-  br label %237
+  br label %236
 
 202:                                              ; preds = %.thread
   store i32 %174, ptr %1, align 4
@@ -404,7 +404,7 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
   %209 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %209, i8 0, i64 24, i1 false)
   store ptr %209, ptr @memtype_rbroot, align 8
-  br label %233
+  br label %232
 
 .preheader:                                       ; preds = %.thread33, %217
   %210 = phi ptr [ %223, %217 ], [ %206, %.thread33 ]
@@ -432,30 +432,29 @@ define dso_local noundef range(i32 -16, 1) i32 @memtype_check_insert(ptr noundef
 225:                                              ; preds = %217
   %226 = getelementptr inbounds i8, ptr %210, i64 %221
   %227 = ptrtoint ptr %210 to i64
-  %228 = and i8 %220, 1
-  %229 = icmp eq i8 %228, 0
-  %230 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %205, ptr %230, align 8
-  %231 = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %227, ptr %231, align 8
-  %232 = getelementptr inbounds i8, ptr %0, i64 40
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %232, i8 0, i64 16, i1 false)
-  store ptr %231, ptr %226, align 8
-  br i1 %229, label %235, label %233
+  %228 = icmp eq i8 %220, 0
+  %229 = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %205, ptr %229, align 8
+  %230 = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %227, ptr %230, align 8
+  %231 = getelementptr inbounds i8, ptr %0, i64 40
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %231, i8 0, i64 16, i1 false)
+  store ptr %230, ptr %226, align 8
+  br i1 %228, label %234, label %232
 
-233:                                              ; preds = %.thread34, %225
-  %234 = phi ptr [ %209, %.thread34 ], [ %231, %225 ]
-  store ptr %234, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
-  br label %235
+232:                                              ; preds = %.thread34, %225
+  %233 = phi ptr [ %209, %.thread34 ], [ %230, %225 ]
+  store ptr %233, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
+  br label %234
 
-235:                                              ; preds = %233, %225
-  %236 = phi ptr [ %234, %233 ], [ %231, %225 ]
-  tail call void @__rb_insert_augmented(ptr noundef %236, ptr noundef nonnull @memtype_rbroot, ptr noundef nonnull @interval_augment_rotate) #11
-  br label %237
+234:                                              ; preds = %232, %225
+  %235 = phi ptr [ %233, %232 ], [ %230, %225 ]
+  tail call void @__rb_insert_augmented(ptr noundef %235, ptr noundef nonnull @memtype_rbroot, ptr noundef nonnull @interval_augment_rotate) #11
+  br label %236
 
-237:                                              ; preds = %199, %235
-  %238 = phi i32 [ 0, %235 ], [ -16, %199 ]
-  ret i32 %238
+236:                                              ; preds = %199, %234
+  %237 = phi i32 [ 0, %234 ], [ -16, %199 ]
+  ret i32 %237
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -467,7 +466,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
 5:                                                ; preds = %2
   %6 = tail call fastcc ptr @memtype_match(i64 noundef %0, i64 noundef %1, i32 noundef 1)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %211, label %8
+  br i1 %7, label %210, label %8
 
 8:                                                ; preds = %5, %2
   %9 = phi ptr [ %3, %2 ], [ %6, %5 ]
@@ -748,7 +747,7 @@ define dso_local noundef ptr @memtype_erase(i64 noundef %0, i64 noundef %1) loca
   br label %interval_remove.exit
 
 interval_remove.exit:                             ; preds = %.thread17.i, %180
-  br i1 %11, label %211, label %181
+  br i1 %11, label %210, label %181
 
 181:                                              ; preds = %interval_remove.exit
   %182 = getelementptr inbounds i8, ptr %9, i64 8
@@ -764,7 +763,7 @@ interval_remove.exit:                             ; preds = %.thread17.i, %180
   store i64 %184, ptr %187, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
   store ptr %12, ptr @memtype_rbroot, align 8
-  br label %209
+  br label %208
 
 .preheader:                                       ; preds = %181, %195
   %188 = phi ptr [ %201, %195 ], [ %185, %181 ]
@@ -792,26 +791,25 @@ interval_remove.exit:                             ; preds = %.thread17.i, %180
 203:                                              ; preds = %195
   %204 = getelementptr inbounds i8, ptr %188, i64 %199
   %205 = ptrtoint ptr %188 to i64
-  %206 = and i8 %198, 1
-  %207 = icmp eq i8 %206, 0
-  %208 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %184, ptr %208, align 8
+  %206 = icmp eq i8 %198, 0
+  %207 = getelementptr inbounds i8, ptr %9, i64 16
+  store i64 %184, ptr %207, align 8
   store i64 %205, ptr %12, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   store ptr %12, ptr %204, align 8
-  br i1 %207, label %210, label %209
+  br i1 %206, label %209, label %208
 
-209:                                              ; preds = %.thread, %203
+208:                                              ; preds = %.thread, %203
   store ptr %12, ptr getelementptr inbounds (i8, ptr @memtype_rbroot, i64 8), align 8
+  br label %209
+
+209:                                              ; preds = %208, %203
+  tail call void @__rb_insert_augmented(ptr noundef %12, ptr noundef nonnull @memtype_rbroot, ptr noundef nonnull @interval_augment_rotate) #11
   br label %210
 
-210:                                              ; preds = %209, %203
-  tail call void @__rb_insert_augmented(ptr noundef %12, ptr noundef nonnull @memtype_rbroot, ptr noundef nonnull @interval_augment_rotate) #11
-  br label %211
-
-211:                                              ; preds = %210, %interval_remove.exit, %5
-  %212 = phi ptr [ null, %210 ], [ inttoptr (i64 -22 to ptr), %5 ], [ %9, %interval_remove.exit ]
-  ret ptr %212
+210:                                              ; preds = %209, %interval_remove.exit, %5
+  %211 = phi ptr [ null, %209 ], [ inttoptr (i64 -22 to ptr), %5 ], [ %9, %interval_remove.exit ]
+  ret ptr %211
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)

@@ -2421,9 +2421,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %7 = load i16, ptr %arrayidx.i.i.i, align 2
   %.fr.i = freeze i16 %7
   %cmp4.i = icmp eq i16 %.fr.i, 39
-  %tobool.not.i = icmp eq i8 %inQuote.019.i, 0
-  %conv5.i = zext i1 %tobool.not.i to i8
-  %spec.select.i = select i1 %cmp4.i, i8 %conv5.i, i8 %inQuote.019.i
+  %conv5.i = zext i1 %cmp4.i to i8
+  %spec.select.i = xor i8 %inQuote.019.i, %conv5.i
   %cmp7.i = icmp eq i16 %.fr.i, 24180
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
@@ -2433,7 +2432,7 @@ if.then8.i:                                       ; preds = %for.body.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %for.body.i
   %8 = phi i8 [ 1, %if.then8.i ], [ %6, %for.body.i ]
-  %tobool11.not.i = icmp eq i8 %spec.select.i, 0
+  %tobool11.not.i = icmp eq i8 %inQuote.019.i, %conv5.i
   br i1 %tobool11.not.i, label %if.then12.i, label %for.inc.i
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -5159,9 +5158,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %5 = load i16, ptr %arrayidx.i.i, align 2
   %.fr = freeze i16 %5
   %cmp4 = icmp eq i16 %.fr, 39
-  %tobool.not = icmp eq i8 %inQuote.019, 0
-  %conv5 = zext i1 %tobool.not to i8
-  %spec.select = select i1 %cmp4, i8 %conv5, i8 %inQuote.019
+  %conv5 = zext i1 %cmp4 to i8
+  %spec.select = xor i8 %inQuote.019, %conv5
   %cmp7 = icmp eq i16 %.fr, 24180
   br i1 %cmp7, label %if.then8, label %if.end10
 
@@ -5170,7 +5168,7 @@ if.then8:                                         ; preds = %for.body
   br label %if.end10
 
 if.end10:                                         ; preds = %if.then8, %for.body
-  %tobool11.not = icmp eq i8 %spec.select, 0
+  %tobool11.not = icmp eq i8 %inQuote.019, %conv5
   br i1 %tobool11.not, label %if.then12, label %for.inc
 
 if.then12:                                        ; preds = %if.end10
@@ -13594,9 +13592,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %5 = load i16, ptr %arrayidx.i.i.i, align 2
   %.fr.i = freeze i16 %5
   %cmp4.i = icmp eq i16 %.fr.i, 39
-  %tobool.not.i = icmp eq i8 %inQuote.019.i, 0
-  %conv5.i = zext i1 %tobool.not.i to i8
-  %spec.select.i = select i1 %cmp4.i, i8 %conv5.i, i8 %inQuote.019.i
+  %conv5.i = zext i1 %cmp4.i to i8
+  %spec.select.i = xor i8 %inQuote.019.i, %conv5.i
   %cmp7.i = icmp eq i16 %.fr.i, 24180
   br i1 %cmp7.i, label %if.then8.i, label %if.end10.i
 
@@ -13605,7 +13602,7 @@ if.then8.i:                                       ; preds = %for.body.i
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %for.body.i
-  %tobool11.not.i = icmp eq i8 %spec.select.i, 0
+  %tobool11.not.i = icmp eq i8 %inQuote.019.i, %conv5.i
   br i1 %tobool11.not.i, label %if.then12.i, label %for.inc.i
 
 if.then12.i:                                      ; preds = %if.end10.i
@@ -13654,8 +13651,8 @@ if.then:                                          ; preds = %land.lhs.true6
   %fUnion.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %8 = load i16, ptr %fUnion.i.i, align 8
   %conv2.i14.i = and i16 %8, 1
-  %tobool.not.i4 = icmp eq i16 %conv2.i14.i, 0
-  br i1 %tobool.not.i4, label %if.else.i, label %if.then.i
+  %tobool.not.i = icmp eq i16 %conv2.i14.i, 0
+  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
   %fUnion.i5.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -13665,12 +13662,12 @@ if.then.i:                                        ; preds = %if.then
   br i1 %tobool3.i.not, label %if.else.critedge, label %land.rhs
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i.i5 = icmp slt i16 %8, 0
+  %cmp.i.i.i4 = icmp slt i16 %8, 0
   %10 = ashr i16 %8, 5
-  %shr.i.i.i6 = sext i16 %10 to i32
-  %fLength.i.i7 = getelementptr inbounds i8, ptr %this, i64 428
-  %11 = load i32, ptr %fLength.i.i7, align 4
-  %cond.i.i8 = select i1 %cmp.i.i.i5, i32 %11, i32 %shr.i.i.i6
+  %shr.i.i.i5 = sext i16 %10 to i32
+  %fLength.i.i6 = getelementptr inbounds i8, ptr %this, i64 428
+  %11 = load i32, ptr %fLength.i.i6, align 4
+  %cond.i.i7 = select i1 %cmp.i.i.i4, i32 %11, i32 %shr.i.i.i5
   %fUnion.i.i7.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %12 = load i16, ptr %fUnion.i.i7.i, align 8
   %cmp.i.i8.i = icmp slt i16 %12, 0
@@ -13681,16 +13678,16 @@ if.else.i:                                        ; preds = %if.then
   %cond.i11.i = select i1 %cmp.i.i8.i, i32 %14, i32 %shr.i.i9.i
   %conv2.i1316.i = and i16 %12, 1
   %tobool7.not.i = icmp eq i16 %conv2.i1316.i, 0
-  %cmp.i = icmp eq i32 %cond.i.i8, %cond.i11.i
+  %cmp.i = icmp eq i32 %cond.i.i7, %cond.i11.i
   %or.cond.i = and i1 %tobool7.not.i, %cmp.i
   br i1 %or.cond.i, label %land.rhs.i, label %if.else.critedge
 
 land.rhs.i:                                       ; preds = %if.else.i
-  %call8.i9 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64) %fDateOverride, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %cond.i.i8)
+  %call8.i8 = invoke noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64) %fDateOverride, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, i32 noundef %cond.i.i7)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %land.rhs.i
-  %tobool9.i.not = icmp eq i8 %call8.i9, 0
+  %tobool9.i.not = icmp eq i8 %call8.i8, 0
   br i1 %tobool9.i.not, label %if.else.critedge, label %land.rhs
 
 land.rhs:                                         ; preds = %if.then.i, %invoke.cont
@@ -13726,8 +13723,8 @@ if.else.critedge:                                 ; preds = %if.else.i, %if.then
 
 if.else:                                          ; preds = %if.else.critedge, %land.rhs
   %18 = load i16, ptr %fUnion.i.i, align 8
-  %conv2.i14 = and i16 %18, 1
-  %tobool19.not = icmp eq i16 %conv2.i14, 0
+  %conv2.i13 = and i16 %18, 1
+  %tobool19.not = icmp eq i16 %conv2.i13, 0
   %19 = load i8, ptr %fHasHanYearChar.i, align 2
   %tobool22.not = icmp eq i8 %19, 0
   %or.cond = select i1 %tobool19.not, i1 true, i1 %tobool22.not
@@ -13742,8 +13739,8 @@ if.then23:                                        ; preds = %if.else
 
 if.then26:                                        ; preds = %if.then23
   %call.i = call noalias dereferenceable_or_null(304) ptr @uprv_malloc_75(i64 noundef 304) #22
-  %cmp.i10 = icmp eq ptr %call.i, null
-  br i1 %cmp.i10, label %_ZN6icu_75L27allocSharedNumberFormattersEv.exit, label %for.body.preheader.i
+  %cmp.i9 = icmp eq ptr %call.i, null
+  br i1 %cmp.i9, label %_ZN6icu_75L27allocSharedNumberFormattersEv.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.then26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %call.i, i8 0, i64 304, i1 false)
@@ -13774,8 +13771,8 @@ if.then32:                                        ; preds = %if.end29
 
 invoke.cont40:                                    ; preds = %if.then32
   %24 = load i32, ptr %status, align 4
-  %cmp.i12 = icmp sgt i32 %24, 0
-  br i1 %cmp.i12, label %if.end54, label %if.then45
+  %cmp.i11 = icmp sgt i32 %24, 0
+  br i1 %cmp.i11, label %if.end54, label %if.then45
 
 if.then45:                                        ; preds = %invoke.cont40
   %call47 = invoke noundef i32 @_ZN6icu_7517DateFormatSymbols19getPatternCharIndexEDs(i16 noundef zeroext 121)

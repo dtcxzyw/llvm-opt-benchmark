@@ -84,8 +84,8 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   %19 = getelementptr i8, ptr %2, i64 2
   br label %20
 
-20:                                               ; preds = %78, %3
-  %21 = phi i32 [ 3, %3 ], [ %79, %78 ]
+20:                                               ; preds = %76, %3
+  %21 = phi i32 [ 3, %3 ], [ %77, %76 ]
   call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %5)
   call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %7)
   call fastcc void @cypress_ps2_ext_cmd(ptr noundef %0, i8 noundef zeroext %8)
@@ -137,16 +137,16 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   store i32 %22, ptr %10, align 8
   store i8 0, ptr %11, align 1
   call void @ps2_end_command(ptr noundef %9) #8
-  br i1 %24, label %45, label %78
+  br i1 %24, label %45, label %76
 
 45:                                               ; preds = %44
-  br i1 %17, label %81, label %46
+  br i1 %17, label %79, label %46
 
 46:                                               ; preds = %45
   %47 = load i8, ptr %2, align 1
   %48 = and i8 %47, -56
   %49 = icmp eq i8 %48, 0
-  br i1 %49, label %50, label %78
+  br i1 %49, label %50, label %76
 
 50:                                               ; preds = %46
   %51 = load i8, ptr %18, align 1
@@ -179,21 +179,19 @@ define internal fastcc noundef range(i32 -5, 1) i32 @cypress_send_ext_cmd(ptr no
   br i1 %71, label %72, label %63, !llvm.loop !10
 
 72:                                               ; preds = %63
-  %73 = and i8 %60, 1
-  %74 = icmp eq i8 %73, 0
-  %75 = and i8 %69, 1
-  %76 = icmp eq i8 %75, 0
-  %77 = select i1 %74, i1 true, i1 %76
-  br i1 %77, label %78, label %81
+  %73 = icmp eq i8 %60, 0
+  %74 = icmp eq i8 %69, 0
+  %75 = select i1 %73, i1 true, i1 %74
+  br i1 %75, label %76, label %79
 
-78:                                               ; preds = %72, %46, %44
-  %79 = add nsw i32 %21, -1
-  %80 = icmp ugt i32 %21, 1
-  br i1 %80, label %20, label %81, !llvm.loop !11
+76:                                               ; preds = %72, %46, %44
+  %77 = add nsw i32 %21, -1
+  %78 = icmp ugt i32 %21, 1
+  br i1 %78, label %20, label %79, !llvm.loop !11
 
-81:                                               ; preds = %78, %72, %45
-  %82 = phi i32 [ -5, %78 ], [ 0, %45 ], [ 0, %72 ]
-  ret i32 %82
+79:                                               ; preds = %76, %72, %45
+  %80 = phi i32 [ -5, %76 ], [ 0, %45 ], [ 0, %72 ]
+  ret i32 %80
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

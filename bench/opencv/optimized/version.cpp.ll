@@ -16269,9 +16269,9 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
   br i1 %41, label %42, label %._crit_edge.thread
 
 42:                                               ; preds = %._crit_edge
-  %43 = trunc i64 %.120 to i32
+  %43 = trunc nuw i64 %.120 to i32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)
-  %44 = icmp slt i32 %43, 1
+  %44 = icmp eq i64 %.120, 0
   %45 = load i32, ptr @_ZN5zxing6qrcodeL10N_VERSIONSE, align 4
   %46 = icmp slt i32 %45, %43
   %or.cond.i27 = select i1 %44, i1 true, i1 %46
@@ -16292,7 +16292,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %2, align 8
   %51 = getelementptr inbounds i8, ptr %2, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %51) #18
-  br label %61
+  br label %60
 
 52:                                               ; preds = %.noexc29
   %53 = landingpad { ptr, i32 }
@@ -16304,26 +16304,25 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version24decodeVersionInformationEj(
 
 55:                                               ; preds = %42
   %56 = load ptr, ptr @_ZN5zxing6qrcode7Version8VERSIONSE, align 8
-  %57 = and i64 %.120, 2147483647
-  %58 = getelementptr %"class.zxing::Ref", ptr %56, i64 %57
-  %59 = getelementptr i8, ptr %58, i64 -8
-  %60 = load ptr, ptr %59, align 8
-  br label %61
+  %57 = getelementptr %"class.zxing::Ref", ptr %56, i64 %.120
+  %58 = getelementptr i8, ptr %57, i64 -8
+  %59 = load ptr, ptr %58, align 8
+  br label %60
 
-61:                                               ; preds = %55, %50
-  %.0.i28 = phi ptr [ null, %50 ], [ %60, %55 ]
+60:                                               ; preds = %55, %50
+  %.0.i28 = phi ptr [ null, %50 ], [ %59, %55 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2)
-  %62 = getelementptr inbounds i8, ptr %4, i64 12
-  %63 = load i32, ptr %62, align 4
-  %.not = icmp eq i32 %63, 0
+  %61 = getelementptr inbounds i8, ptr %4, i64 12
+  %62 = load i32, ptr %61, align 4
+  %.not = icmp eq i32 %62, 0
   %.26 = select i1 %.not, ptr %.0.i28, ptr null
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %1, %._crit_edge, %61, %29
-  %.0 = phi ptr [ %., %29 ], [ %.26, %61 ], [ null, %._crit_edge ], [ null, %1 ]
+._crit_edge.thread:                               ; preds = %1, %._crit_edge, %60, %29
+  %.0 = phi ptr [ %., %29 ], [ %.26, %60 ], [ null, %._crit_edge ], [ null, %1 ]
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
-  %64 = getelementptr inbounds i8, ptr %4, i64 16
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %64) #18
+  %63 = getelementptr inbounds i8, ptr %4, i64 16
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %63) #18
   ret ptr %.0
 }
 

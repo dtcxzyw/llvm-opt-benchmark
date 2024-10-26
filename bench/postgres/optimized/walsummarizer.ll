@@ -676,7 +676,7 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
   %6 = alloca i32, align 4
   %7 = load i8, ptr @summarize_wal, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %.preheader, label %107
+  br i1 %8, label %.preheader, label %106
 
 .preheader:                                       ; preds = %3
   %not. = xor i1 %2, true
@@ -726,7 +726,7 @@ define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr nou
   %31 = load ptr, ptr @MainLWLockArray, align 8
   %32 = getelementptr i8, ptr %31, i64 6272
   tail call void @LWLockRelease(ptr noundef %32) #11
-  br label %107
+  br label %106
 
 .lr.ph:                                           ; preds = %.preheader
   br i1 %2, label %.critedge, label %33
@@ -853,50 +853,46 @@ list_length.exit:                                 ; preds = %GetLatestLSN.exit, 
   %spec.select58 = call i64 @llvm.umax.i64(i64 %91, i64 %.16983)
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge73.loopexit, label %87
+  br i1 %exitcond.not, label %._crit_edge73, label %87
 
-._crit_edge73.loopexit:                           ; preds = %87
-  %93 = and i8 %spec.select, 1
-  br label %._crit_edge73
-
-._crit_edge73:                                    ; preds = %._crit_edge73.loopexit, %.lr.ph72, %77
-  %.043.lcssa = phi i8 [ 0, %77 ], [ 0, %.lr.ph72 ], [ %93, %._crit_edge73.loopexit ]
-  %.1.lcssa = phi i64 [ %80, %77 ], [ %80, %.lr.ph72 ], [ %spec.select58, %._crit_edge73.loopexit ]
-  %94 = load ptr, ptr @WalSummarizerCtl, align 8
-  store i8 1, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 8
-  store i64 %.1.lcssa, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %94, i64 4
-  store i32 %71, ptr %96, align 4
-  %97 = getelementptr inbounds i8, ptr %94, i64 16
-  store i8 %.043.lcssa, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %94, i64 24
-  store i64 %.1.lcssa, ptr %98, align 8
+._crit_edge73:                                    ; preds = %87, %.lr.ph72, %77
+  %.043.lcssa = phi i8 [ 0, %77 ], [ 0, %.lr.ph72 ], [ %spec.select, %87 ]
+  %.1.lcssa = phi i64 [ %80, %77 ], [ %80, %.lr.ph72 ], [ %spec.select58, %87 ]
+  %93 = load ptr, ptr @WalSummarizerCtl, align 8
+  store i8 1, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 8
+  store i64 %.1.lcssa, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %93, i64 4
+  store i32 %71, ptr %95, align 4
+  %96 = getelementptr inbounds i8, ptr %93, i64 16
+  store i8 %.043.lcssa, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %93, i64 24
+  store i64 %.1.lcssa, ptr %97, align 8
   %.not54 = icmp eq ptr %0, null
-  br i1 %.not54, label %100, label %99
+  br i1 %.not54, label %99, label %98
 
-99:                                               ; preds = %._crit_edge73
+98:                                               ; preds = %._crit_edge73
   store i32 %71, ptr %0, align 4
-  br label %100
+  br label %99
 
-100:                                              ; preds = %99, %._crit_edge73
+99:                                               ; preds = %98, %._crit_edge73
   %.not55 = icmp eq ptr %1, null
-  br i1 %.not55, label %104, label %101
+  br i1 %.not55, label %103, label %100
 
-101:                                              ; preds = %100
-  %102 = load i8, ptr %97, align 8
-  %103 = and i8 %102, 1
-  store i8 %103, ptr %1, align 1
-  br label %104
+100:                                              ; preds = %99
+  %101 = load i8, ptr %96, align 8
+  %102 = and i8 %101, 1
+  store i8 %102, ptr %1, align 1
+  br label %103
 
-104:                                              ; preds = %101, %100
-  %105 = load ptr, ptr @MainLWLockArray, align 8
-  %106 = getelementptr i8, ptr %105, i64 6272
-  call void @LWLockRelease(ptr noundef %106) #11
-  br label %107
+103:                                              ; preds = %100, %99
+  %104 = load ptr, ptr @MainLWLockArray, align 8
+  %105 = getelementptr i8, ptr %104, i64 6272
+  call void @LWLockRelease(ptr noundef %105) #11
+  br label %106
 
-107:                                              ; preds = %3, %104, %30
-  %.0 = phi i64 [ %17, %30 ], [ %.1.lcssa, %104 ], [ 0, %3 ]
+106:                                              ; preds = %3, %103, %30
+  %.0 = phi i64 [ %17, %30 ], [ %.1.lcssa, %103 ], [ 0, %3 ]
   ret i64 %.0
 }
 
