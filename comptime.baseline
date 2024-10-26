@@ -18775,7 +18775,7 @@ ncnn/shrink.cpp.ll 64065133
 ncnn/shufflechannel.cpp.ll 77916939
 ncnn/shufflechannel_x86.cpp.ll 348032362
 ncnn/shufflechannel_x86_avx.cpp.ll 653447240
-ncnn/shufflechannel_x86_avx512.cpp.ll 1008538175
+ncnn/shufflechannel_x86_avx512.cpp.ll 1009547112
 ncnn/shufflechannel_x86_fma.cpp.ll 653457888
 ncnn/sigmoid.cpp.ll 63441829
 ncnn/sigmoid_x86.cpp.ll 90537252
