@@ -2309,7 +2309,7 @@ box2d/b2_friction_joint.cpp.ll 142291813
 box2d/b2_gear_joint.cpp.ll 227170025
 box2d/b2_island.cpp.ll 227622486
 box2d/b2_joint.cpp.ll 82824603
-box2d/b2_math.cpp.ll 64787934
+box2d/b2_math.cpp.ll 64852763
 box2d/b2_motor_joint.cpp.ll 157515293
 box2d/b2_mouse_joint.cpp.ll 124984839
 box2d/b2_polygon_circle_contact.cpp.ll 41779846
