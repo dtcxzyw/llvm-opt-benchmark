@@ -28786,15 +28786,15 @@ entry:
 if.else:                                          ; preds = %entry
   %start_time10 = getelementptr inbounds i8, ptr %call, i64 40
   %2 = load <2 x i64>, ptr %start_time10, align 8, !tbaa !63
+  %3 = shufflevector <2 x i64> %2, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %entry
-  %3 = phi <2 x i64> [ %2, %if.else ], [ <i64 -1, i64 -1>, %entry ]
+  %4 = phi <2 x i64> [ %3, %if.else ], [ <i64 -1, i64 -1>, %entry ]
   %transaction = getelementptr inbounds i8, ptr %this, i64 16
   %context2 = getelementptr inbounds i8, ptr %this, i64 8
-  %4 = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = shufflevector <2 x i64> %3, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x i64> %5, ptr %4, align 8
+  %5 = getelementptr inbounds i8, ptr %this, i64 24
+  store <2 x i64> %4, ptr %5, align 8
   %6 = ptrtoint ptr %call to i64
   store i64 %6, ptr %transaction, align 8, !tbaa !62
   %7 = ptrtoint ptr %context to i64

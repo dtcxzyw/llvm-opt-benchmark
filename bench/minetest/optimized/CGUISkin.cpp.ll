@@ -133,14 +133,13 @@ if.end:                                           ; preds = %entry, %if.else
   %18 = phi <4 x i32> [ <i32 -1060384039, i32 -253697824, i32 -252645136, i32 -803858922>, %if.else ], [ <i32 -922746911, i32 1709631206, i32 1711276031, i32 -938866166>, %entry ]
   %19 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %entry ]
   %20 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
-  %21 = phi <2 x i32> [ <i32 3, i32 2>, %if.else ], [ <i32 2, i32 0>, %entry ]
+  %21 = phi <4 x i32> [ <i32 3, i32 2, i32 3, i32 2>, %if.else ], [ <i32 2, i32 0, i32 2, i32 0>, %entry ]
   %Colors.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %.sink2, ptr %Colors.ptr, align 8
   %22 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %.sink1, ptr %22, align 4
   %23 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %.sink, ptr %23, align 8
-  %24 = shufflevector <2 x i32> %21, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %arrayidx58 = getelementptr inbounds i8, ptr %this, i64 68
   %arrayidx46 = getelementptr inbounds i8, ptr %this, i64 52
   %arrayidx34 = getelementptr inbounds i8, ptr %this, i64 36
@@ -164,7 +163,7 @@ if.end:                                           ; preds = %entry, %if.else
   %arrayidx199 = getelementptr inbounds i8, ptr %this, i64 136
   store i32 30, ptr %arrayidx199, align 8, !tbaa !22
   %arrayidx201 = getelementptr inbounds i8, ptr %this, i64 140
-  store <4 x i32> %24, ptr %arrayidx201, align 4
+  store <4 x i32> %21, ptr %arrayidx201, align 4
   %arrayidx209 = getelementptr inbounds i8, ptr %this, i64 156
   store <4 x i32> <i32 15, i32 0, i32 500, i32 0>, ptr %arrayidx209, align 4, !tbaa !22
   %arrayidx217 = getelementptr inbounds i8, ptr %this, i64 172
@@ -176,52 +175,52 @@ if.end:                                           ; preds = %entry, %if.else
   %arrayidx229 = getelementptr inbounds i8, ptr %this, i64 196
   store i32 0, ptr %arrayidx229, align 4, !tbaa !22
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr, i64 noundef 2, i32 noundef signext 0) #16
-  %25 = load ptr, ptr %arrayctor.cur6.ptr, align 8, !tbaa !24
-  store i32 79, ptr %25, align 4, !tbaa !18
-  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %25, i64 4
+  %24 = load ptr, ptr %arrayctor.cur6.ptr, align 8, !tbaa !24
+  store i32 79, ptr %24, align 4, !tbaa !18
+  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %24, i64 4
   store i32 75, ptr %arrayidx.i.i.1, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.1, i64 noundef 6, i32 noundef signext 0) #16
-  %26 = load ptr, ptr %arrayctor.cur6.ptr.1, align 8, !tbaa !24
-  store <4 x i32> <i32 67, i32 97, i32 110, i32 99>, ptr %26, align 4, !tbaa !18
-  %arrayidx.i.i314.4 = getelementptr inbounds i8, ptr %26, i64 16
+  %25 = load ptr, ptr %arrayctor.cur6.ptr.1, align 8, !tbaa !24
+  store <4 x i32> <i32 67, i32 97, i32 110, i32 99>, ptr %25, align 4, !tbaa !18
+  %arrayidx.i.i314.4 = getelementptr inbounds i8, ptr %25, i64 16
   store i32 101, ptr %arrayidx.i.i314.4, align 4, !tbaa !18
-  %arrayidx.i.i314.5 = getelementptr inbounds i8, ptr %26, i64 20
+  %arrayidx.i.i314.5 = getelementptr inbounds i8, ptr %25, i64 20
   store i32 108, ptr %arrayidx.i.i314.5, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.2, i64 noundef 3, i32 noundef signext 0) #16
-  %27 = load ptr, ptr %arrayctor.cur6.ptr.2, align 8, !tbaa !24
-  store i32 89, ptr %27, align 4, !tbaa !18
-  %arrayidx.i.i326.1 = getelementptr inbounds i8, ptr %27, i64 4
+  %26 = load ptr, ptr %arrayctor.cur6.ptr.2, align 8, !tbaa !24
+  store i32 89, ptr %26, align 4, !tbaa !18
+  %arrayidx.i.i326.1 = getelementptr inbounds i8, ptr %26, i64 4
   store i32 101, ptr %arrayidx.i.i326.1, align 4, !tbaa !18
-  %arrayidx.i.i326.2 = getelementptr inbounds i8, ptr %27, i64 8
+  %arrayidx.i.i326.2 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 115, ptr %arrayidx.i.i326.2, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.3, i64 noundef 2, i32 noundef signext 0) #16
-  %28 = load ptr, ptr %arrayctor.cur6.ptr.3, align 8, !tbaa !24
-  store i32 78, ptr %28, align 4, !tbaa !18
-  %arrayidx.i.i338.1 = getelementptr inbounds i8, ptr %28, i64 4
+  %27 = load ptr, ptr %arrayctor.cur6.ptr.3, align 8, !tbaa !24
+  store i32 78, ptr %27, align 4, !tbaa !18
+  %arrayidx.i.i338.1 = getelementptr inbounds i8, ptr %27, i64 4
   store i32 111, ptr %arrayidx.i.i338.1, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.4, i64 noundef 5, i32 noundef signext 0) #16
-  %29 = load ptr, ptr %arrayctor.cur6.ptr.4, align 8, !tbaa !24
-  store <4 x i32> <i32 67, i32 108, i32 111, i32 115>, ptr %29, align 4, !tbaa !18
-  %arrayidx.i.i350.4 = getelementptr inbounds i8, ptr %29, i64 16
+  %28 = load ptr, ptr %arrayctor.cur6.ptr.4, align 8, !tbaa !24
+  store <4 x i32> <i32 67, i32 108, i32 111, i32 115>, ptr %28, align 4, !tbaa !18
+  %arrayidx.i.i350.4 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 101, ptr %arrayidx.i.i350.4, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.7, i64 noundef 7, i32 noundef signext 0) #16
-  %30 = load ptr, ptr %arrayctor.cur6.ptr.7, align 8, !tbaa !24
-  store <4 x i32> <i32 82, i32 101, i32 115, i32 116>, ptr %30, align 4, !tbaa !18
-  %arrayidx.i.i362.4 = getelementptr inbounds i8, ptr %30, i64 16
+  %29 = load ptr, ptr %arrayctor.cur6.ptr.7, align 8, !tbaa !24
+  store <4 x i32> <i32 82, i32 101, i32 115, i32 116>, ptr %29, align 4, !tbaa !18
+  %arrayidx.i.i362.4 = getelementptr inbounds i8, ptr %29, i64 16
   store i32 111, ptr %arrayidx.i.i362.4, align 4, !tbaa !18
-  %arrayidx.i.i362.5 = getelementptr inbounds i8, ptr %30, i64 20
+  %arrayidx.i.i362.5 = getelementptr inbounds i8, ptr %29, i64 20
   store i32 114, ptr %arrayidx.i.i362.5, align 4, !tbaa !18
-  %arrayidx.i.i362.6 = getelementptr inbounds i8, ptr %30, i64 24
+  %arrayidx.i.i362.6 = getelementptr inbounds i8, ptr %29, i64 24
   store i32 101, ptr %arrayidx.i.i362.6, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.6, i64 noundef 8, i32 noundef signext 0) #16
-  %31 = load ptr, ptr %arrayctor.cur6.ptr.6, align 8, !tbaa !24
-  store <4 x i32> <i32 77, i32 105, i32 110, i32 105>, ptr %31, align 4, !tbaa !18
-  %arrayidx.i.i374.4 = getelementptr inbounds i8, ptr %31, i64 16
+  %30 = load ptr, ptr %arrayctor.cur6.ptr.6, align 8, !tbaa !24
+  store <4 x i32> <i32 77, i32 105, i32 110, i32 105>, ptr %30, align 4, !tbaa !18
+  %arrayidx.i.i374.4 = getelementptr inbounds i8, ptr %30, i64 16
   store <4 x i32> <i32 109, i32 105, i32 122, i32 101>, ptr %arrayidx.i.i374.4, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur6.ptr.5, i64 noundef 8, i32 noundef signext 0) #16
-  %32 = load ptr, ptr %arrayctor.cur6.ptr.5, align 8, !tbaa !24
-  store <4 x i32> <i32 77, i32 97, i32 120, i32 105>, ptr %32, align 4, !tbaa !18
-  %arrayidx.i.i386.4 = getelementptr inbounds i8, ptr %32, i64 16
+  %31 = load ptr, ptr %arrayctor.cur6.ptr.5, align 8, !tbaa !24
+  store <4 x i32> <i32 77, i32 97, i32 120, i32 105>, ptr %31, align 4, !tbaa !18
+  %arrayidx.i.i386.4 = getelementptr inbounds i8, ptr %31, i64 16
   store <4 x i32> <i32 109, i32 105, i32 122, i32 101>, ptr %arrayidx.i.i386.4, align 4, !tbaa !18
   %Icons = getelementptr inbounds i8, ptr %this, i64 200
   store <4 x i32> <i32 225, i32 226, i32 227, i32 228>, ptr %Icons, align 8, !tbaa !22
@@ -241,9 +240,9 @@ if.end:                                           ; preds = %entry, %if.else
   store i32 246, ptr %arrayidx297, align 8, !tbaa !22
   %Fonts = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Fonts, i8 0, i64 40, i1 false), !tbaa !25
-  %33 = load i32, ptr %Type, align 4, !tbaa !21
-  %34 = add i32 %33, -1
-  %narrow = icmp ult i32 %34, 2
+  %32 = load i32, ptr %Type, align 4, !tbaa !21
+  %33 = add i32 %32, -1
+  %narrow = icmp ult i32 %33, 2
   %frombool = zext i1 %narrow to i8
   %UseGradient = getelementptr inbounds i8, ptr %this, i64 608
   store i8 %frombool, ptr %UseGradient, align 8, !tbaa !26
@@ -340,14 +339,13 @@ if.end:                                           ; preds = %entry, %if.else
   %12 = phi <4 x i32> [ <i32 -1060384039, i32 -253697824, i32 -252645136, i32 -803858922>, %if.else ], [ <i32 -922746911, i32 1709631206, i32 1711276031, i32 -938866166>, %entry ]
   %13 = phi <4 x i32> [ <i32 -803858922, i32 -798990240, i32 1007685648, i32 -251658241>, %if.else ], [ <i32 -922746881, i32 -938990485, i32 -261856156, i32 -1>, %entry ]
   %14 = phi <2 x i32> [ <i32 -255013684, i32 -251658256>, %if.else ], [ <i32 -8882056, i32 -986881>, %entry ]
-  %15 = phi <2 x i32> [ <i32 3, i32 2>, %if.else ], [ <i32 2, i32 0>, %entry ]
+  %15 = phi <4 x i32> [ <i32 3, i32 2, i32 3, i32 2>, %if.else ], [ <i32 2, i32 0, i32 2, i32 0>, %entry ]
   %Colors.ptr = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %.sink2, ptr %Colors.ptr, align 8
   %16 = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %.sink1, ptr %16, align 4
   %17 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %.sink, ptr %17, align 8
-  %18 = shufflevector <2 x i32> %15, <2 x i32> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %arrayidx57 = getelementptr inbounds i8, ptr %this, i64 68
   %arrayidx45 = getelementptr inbounds i8, ptr %this, i64 52
   %arrayidx33 = getelementptr inbounds i8, ptr %this, i64 36
@@ -371,7 +369,7 @@ if.end:                                           ; preds = %entry, %if.else
   %arrayidx198 = getelementptr inbounds i8, ptr %this, i64 136
   store i32 30, ptr %arrayidx198, align 8, !tbaa !22
   %arrayidx200 = getelementptr inbounds i8, ptr %this, i64 140
-  store <4 x i32> %18, ptr %arrayidx200, align 4
+  store <4 x i32> %15, ptr %arrayidx200, align 4
   %arrayidx208 = getelementptr inbounds i8, ptr %this, i64 156
   store <4 x i32> <i32 15, i32 0, i32 500, i32 0>, ptr %arrayidx208, align 4, !tbaa !22
   %arrayidx216 = getelementptr inbounds i8, ptr %this, i64 172
@@ -383,52 +381,52 @@ if.end:                                           ; preds = %entry, %if.else
   %arrayidx228 = getelementptr inbounds i8, ptr %this, i64 196
   store i32 0, ptr %arrayidx228, align 4, !tbaa !22
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr, i64 noundef 2, i32 noundef signext 0) #16
-  %19 = load ptr, ptr %arrayctor.cur5.ptr, align 8, !tbaa !24
-  store i32 79, ptr %19, align 4, !tbaa !18
-  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %19, i64 4
+  %18 = load ptr, ptr %arrayctor.cur5.ptr, align 8, !tbaa !24
+  store i32 79, ptr %18, align 4, !tbaa !18
+  %arrayidx.i.i.1 = getelementptr inbounds i8, ptr %18, i64 4
   store i32 75, ptr %arrayidx.i.i.1, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.1, i64 noundef 6, i32 noundef signext 0) #16
-  %20 = load ptr, ptr %arrayctor.cur5.ptr.1, align 8, !tbaa !24
-  store <4 x i32> <i32 67, i32 97, i32 110, i32 99>, ptr %20, align 4, !tbaa !18
-  %arrayidx.i.i313.4 = getelementptr inbounds i8, ptr %20, i64 16
+  %19 = load ptr, ptr %arrayctor.cur5.ptr.1, align 8, !tbaa !24
+  store <4 x i32> <i32 67, i32 97, i32 110, i32 99>, ptr %19, align 4, !tbaa !18
+  %arrayidx.i.i313.4 = getelementptr inbounds i8, ptr %19, i64 16
   store i32 101, ptr %arrayidx.i.i313.4, align 4, !tbaa !18
-  %arrayidx.i.i313.5 = getelementptr inbounds i8, ptr %20, i64 20
+  %arrayidx.i.i313.5 = getelementptr inbounds i8, ptr %19, i64 20
   store i32 108, ptr %arrayidx.i.i313.5, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.2, i64 noundef 3, i32 noundef signext 0) #16
-  %21 = load ptr, ptr %arrayctor.cur5.ptr.2, align 8, !tbaa !24
-  store i32 89, ptr %21, align 4, !tbaa !18
-  %arrayidx.i.i325.1 = getelementptr inbounds i8, ptr %21, i64 4
+  %20 = load ptr, ptr %arrayctor.cur5.ptr.2, align 8, !tbaa !24
+  store i32 89, ptr %20, align 4, !tbaa !18
+  %arrayidx.i.i325.1 = getelementptr inbounds i8, ptr %20, i64 4
   store i32 101, ptr %arrayidx.i.i325.1, align 4, !tbaa !18
-  %arrayidx.i.i325.2 = getelementptr inbounds i8, ptr %21, i64 8
+  %arrayidx.i.i325.2 = getelementptr inbounds i8, ptr %20, i64 8
   store i32 115, ptr %arrayidx.i.i325.2, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.3, i64 noundef 2, i32 noundef signext 0) #16
-  %22 = load ptr, ptr %arrayctor.cur5.ptr.3, align 8, !tbaa !24
-  store i32 78, ptr %22, align 4, !tbaa !18
-  %arrayidx.i.i337.1 = getelementptr inbounds i8, ptr %22, i64 4
+  %21 = load ptr, ptr %arrayctor.cur5.ptr.3, align 8, !tbaa !24
+  store i32 78, ptr %21, align 4, !tbaa !18
+  %arrayidx.i.i337.1 = getelementptr inbounds i8, ptr %21, i64 4
   store i32 111, ptr %arrayidx.i.i337.1, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.4, i64 noundef 5, i32 noundef signext 0) #16
-  %23 = load ptr, ptr %arrayctor.cur5.ptr.4, align 8, !tbaa !24
-  store <4 x i32> <i32 67, i32 108, i32 111, i32 115>, ptr %23, align 4, !tbaa !18
-  %arrayidx.i.i349.4 = getelementptr inbounds i8, ptr %23, i64 16
+  %22 = load ptr, ptr %arrayctor.cur5.ptr.4, align 8, !tbaa !24
+  store <4 x i32> <i32 67, i32 108, i32 111, i32 115>, ptr %22, align 4, !tbaa !18
+  %arrayidx.i.i349.4 = getelementptr inbounds i8, ptr %22, i64 16
   store i32 101, ptr %arrayidx.i.i349.4, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.7, i64 noundef 7, i32 noundef signext 0) #16
-  %24 = load ptr, ptr %arrayctor.cur5.ptr.7, align 8, !tbaa !24
-  store <4 x i32> <i32 82, i32 101, i32 115, i32 116>, ptr %24, align 4, !tbaa !18
-  %arrayidx.i.i361.4 = getelementptr inbounds i8, ptr %24, i64 16
+  %23 = load ptr, ptr %arrayctor.cur5.ptr.7, align 8, !tbaa !24
+  store <4 x i32> <i32 82, i32 101, i32 115, i32 116>, ptr %23, align 4, !tbaa !18
+  %arrayidx.i.i361.4 = getelementptr inbounds i8, ptr %23, i64 16
   store i32 111, ptr %arrayidx.i.i361.4, align 4, !tbaa !18
-  %arrayidx.i.i361.5 = getelementptr inbounds i8, ptr %24, i64 20
+  %arrayidx.i.i361.5 = getelementptr inbounds i8, ptr %23, i64 20
   store i32 114, ptr %arrayidx.i.i361.5, align 4, !tbaa !18
-  %arrayidx.i.i361.6 = getelementptr inbounds i8, ptr %24, i64 24
+  %arrayidx.i.i361.6 = getelementptr inbounds i8, ptr %23, i64 24
   store i32 101, ptr %arrayidx.i.i361.6, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.6, i64 noundef 8, i32 noundef signext 0) #16
-  %25 = load ptr, ptr %arrayctor.cur5.ptr.6, align 8, !tbaa !24
-  store <4 x i32> <i32 77, i32 105, i32 110, i32 105>, ptr %25, align 4, !tbaa !18
-  %arrayidx.i.i373.4 = getelementptr inbounds i8, ptr %25, i64 16
+  %24 = load ptr, ptr %arrayctor.cur5.ptr.6, align 8, !tbaa !24
+  store <4 x i32> <i32 77, i32 105, i32 110, i32 105>, ptr %24, align 4, !tbaa !18
+  %arrayidx.i.i373.4 = getelementptr inbounds i8, ptr %24, i64 16
   store <4 x i32> <i32 109, i32 105, i32 122, i32 101>, ptr %arrayidx.i.i373.4, align 4, !tbaa !18
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32) %arrayctor.cur5.ptr.5, i64 noundef 8, i32 noundef signext 0) #16
-  %26 = load ptr, ptr %arrayctor.cur5.ptr.5, align 8, !tbaa !24
-  store <4 x i32> <i32 77, i32 97, i32 120, i32 105>, ptr %26, align 4, !tbaa !18
-  %arrayidx.i.i385.4 = getelementptr inbounds i8, ptr %26, i64 16
+  %25 = load ptr, ptr %arrayctor.cur5.ptr.5, align 8, !tbaa !24
+  store <4 x i32> <i32 77, i32 97, i32 120, i32 105>, ptr %25, align 4, !tbaa !18
+  %arrayidx.i.i385.4 = getelementptr inbounds i8, ptr %25, i64 16
   store <4 x i32> <i32 109, i32 105, i32 122, i32 101>, ptr %arrayidx.i.i385.4, align 4, !tbaa !18
   %Icons = getelementptr inbounds i8, ptr %this, i64 200
   store <4 x i32> <i32 225, i32 226, i32 227, i32 228>, ptr %Icons, align 8, !tbaa !22
@@ -448,9 +446,9 @@ if.end:                                           ; preds = %entry, %if.else
   store i32 246, ptr %arrayidx296, align 8, !tbaa !22
   %Fonts = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %Fonts, i8 0, i64 40, i1 false), !tbaa !25
-  %27 = load i32, ptr %Type, align 4, !tbaa !21
-  %28 = add i32 %27, -1
-  %narrow = icmp ult i32 %28, 2
+  %26 = load i32, ptr %Type, align 4, !tbaa !21
+  %27 = add i32 %26, -1
+  %narrow = icmp ult i32 %27, 2
   %frombool = zext i1 %narrow to i8
   %UseGradient = getelementptr inbounds i8, ptr %this, i64 608
   store i8 %frombool, ptr %UseGradient, align 8, !tbaa !26
