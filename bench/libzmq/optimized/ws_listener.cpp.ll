@@ -475,7 +475,7 @@ new.notnull:                                      ; preds = %if.then
 cleanup.action:                                   ; preds = %new.notnull
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp5) #15
-  br label %do.end
+  br label %if.then36
 
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
@@ -502,7 +502,7 @@ lpad7:                                            ; preds = %new.notnull
 if.else:                                          ; preds = %invoke.cont4
   %call17 = call noalias noundef dereferenceable_or_null(25696) ptr @_ZnwmRKSt9nothrow_t(i64 noundef 25696, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #19
   %new.isnull18 = icmp eq ptr %call17, null
-  br i1 %new.isnull18, label %if.then36, label %new.notnull19
+  br i1 %new.isnull18, label %new.cont30, label %new.notnull19
 
 new.notnull19:                                    ; preds = %if.else
   %options22 = getelementptr inbounds i8, ptr %this, i64 24
@@ -510,9 +510,10 @@ new.notnull19:                                    ; preds = %if.else
   invoke void @_ZN3zmq11ws_engine_tC1EiRKNS_9options_tERKNS_19endpoint_uri_pair_tERKNS_12ws_address_tEb(ptr noundef nonnull align 8 dereferenceable(25696) %call17, i32 noundef %fd_, ptr noundef nonnull align 8 dereferenceable(1336) %options22, ptr noundef nonnull align 8 dereferenceable(68) %endpoint_pair, ptr noundef nonnull align 8 dereferenceable(96) %_address23, i1 noundef zeroext false)
           to label %new.cont30 unwind label %lpad24
 
-new.cont30:                                       ; preds = %new.notnull19
+new.cont30:                                       ; preds = %new.notnull19, %if.else
   %add.ptr32 = getelementptr inbounds i8, ptr %call17, i64 16
-  br label %do.end
+  %spec.select1 = select i1 %new.isnull18, ptr null, ptr %add.ptr32
+  br label %if.then36
 
 lpad24:                                           ; preds = %new.notnull19
   %6 = landingpad { ptr, i32 }
@@ -520,7 +521,8 @@ lpad24:                                           ; preds = %new.notnull19
   call void @_ZdlPvRKSt9nothrow_t(ptr noundef nonnull %call17, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt7nothrow) #17
   br label %ehcleanup81
 
-if.then36:                                        ; preds = %if.else, %if.then
+if.then36:                                        ; preds = %if.then, %cleanup.action, %new.cont30
+  %engine.0 = phi ptr [ %add.ptr, %cleanup.action ], [ %spec.select1, %new.cont30 ], [ null, %if.then ]
   %7 = load ptr, ptr @stderr, align 8
   %call39 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.2, i32 noundef 295) #14
   %8 = load ptr, ptr @stderr, align 8
@@ -533,8 +535,7 @@ lpad37:                                           ; preds = %invoke.cont78, %inv
           cleanup
   br label %ehcleanup81
 
-do.end:                                           ; preds = %new.cont30, %cleanup.action, %if.then36
-  %engine.022 = phi ptr [ null, %if.then36 ], [ %add.ptr, %cleanup.action ], [ %add.ptr32, %new.cont30 ]
+do.end:                                           ; preds = %if.then36
   %options44 = getelementptr inbounds i8, ptr %this, i64 24
   %affinity = getelementptr inbounds i8, ptr %this, i64 32
   %10 = load i64, ptr %affinity, align 8
@@ -583,7 +584,7 @@ invoke.cont76:                                    ; preds = %do.end75
           to label %invoke.cont77 unwind label %lpad37
 
 invoke.cont77:                                    ; preds = %invoke.cont76
-  invoke void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %call61, ptr noundef %engine.022, i1 noundef zeroext false)
+  invoke void @_ZN3zmq8object_t11send_attachEPNS_14session_base_tEPNS_8i_engineEb(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull %call61, ptr noundef %engine.0, i1 noundef zeroext false)
           to label %invoke.cont78 unwind label %lpad37
 
 invoke.cont78:                                    ; preds = %invoke.cont77

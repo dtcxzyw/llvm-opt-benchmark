@@ -987,25 +987,20 @@ land.lhs.true71:                                  ; preds = %if.end68
 if.end89:                                         ; preds = %land.lhs.true71
   %call82 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %g72, ptr noundef %g.addr.065, i32 noundef %gSz.addr.067) #13
   %cmp83.not = icmp eq i32 %call82, 0
-  %.55 = select i1 %cmp83.not, i32 0, i32 -158
   %cmp93 = icmp ne ptr %q.addr.069, null
   %or.cond6 = select i1 %cmp83.not, i1 %cmp93, i1 false
-  br i1 %or.cond6, label %if.then95, label %if.end102
+  br i1 %or.cond6, label %if.end102.thread, label %if.end102
 
-if.then95:                                        ; preds = %if.end89
+if.end102.thread:                                 ; preds = %if.end89
   %q96 = getelementptr inbounds i8, ptr %key, i64 2080
   %call97 = call i32 @sp_init(ptr noundef nonnull %q96) #13
-  %cmp98.not = icmp eq i32 %call97, 0
-  %spec.select56 = select i1 %cmp98.not, i32 0, i32 -110
-  br label %if.end102
+  br label %if.then108
 
-if.end102:                                        ; preds = %if.then95, %if.end89
-  %ret.7 = phi i32 [ %.55, %if.end89 ], [ %spec.select56, %if.then95 ]
-  %cmp103 = icmp eq i32 %ret.7, 0
-  %or.cond7 = select i1 %cmp103, i1 %cmp93, i1 false
-  br i1 %or.cond7, label %if.then108, label %if.end116
+if.end102:                                        ; preds = %if.end89
+  %.55 = select i1 %cmp83.not, i32 0, i32 -158
+  br i1 %cmp93, label %if.then108, label %if.end116
 
-if.then108:                                       ; preds = %if.end102
+if.then108:                                       ; preds = %if.end102.thread, %if.end102
   %q109 = getelementptr inbounds i8, ptr %key, i64 2080
   %call110 = call i32 @sp_read_unsigned_bin(ptr noundef nonnull %q109, ptr noundef nonnull %q.addr.069, i32 noundef %qSz.addr.071) #13
   %cmp111.not = icmp eq i32 %call110, 0
@@ -1017,7 +1012,7 @@ if.end116.thread:                                 ; preds = %if.then108
   br label %do.end131
 
 if.end116:                                        ; preds = %if.then108, %if.end102
-  %ret.8 = phi i32 [ %ret.7, %if.end102 ], [ -110, %if.then108 ]
+  %ret.8 = phi i32 [ %.55, %if.end102 ], [ -110, %if.then108 ]
   %cmp117 = icmp ne i32 %ret.8, 0
   %or.cond8 = and i1 %cmp, %cmp117
   br i1 %or.cond8, label %if.then122, label %do.end131

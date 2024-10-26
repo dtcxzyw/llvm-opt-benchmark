@@ -5574,7 +5574,7 @@ define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1,
 
 10:                                               ; preds = %27, %4
   %11 = phi i64 [ 0, %4 ], [ %25, %27 ]
-  %.032 = phi ptr [ null, %4 ], [ %30, %27 ]
+  %.032 = phi ptr [ null, %4 ], [ %31, %27 ]
   %.031 = phi i64 [ 0, %4 ], [ %28, %27 ]
   %.030 = phi i64 [ 0, %4 ], [ %spec.store.select, %27 ]
   %12 = sub i64 %1, %.031
@@ -5612,10 +5612,11 @@ define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1,
 
 27:                                               ; preds = %21
   %28 = add i64 %22, %.031
-  %29 = shl i64 %.030, 1
-  %spec.store.select = call i64 @llvm.umax.i64(i64 %29, i64 128)
-  %30 = call ptr @realloc(ptr noundef %.032, i64 noundef %spec.store.select) #49
-  %.not35 = icmp eq ptr %30, null
+  %29 = shl nuw nsw i64 %.030, 1
+  %30 = icmp eq i64 %.030, 0
+  %spec.store.select = select i1 %30, i64 128, i64 %29
+  %31 = call ptr @realloc(ptr noundef %.032, i64 noundef %spec.store.select) #49
+  %.not35 = icmp eq ptr %31, null
   br i1 %.not35, label %.loopexit.sink.split, label %10, !llvm.loop !92
 
 .loopexit.sink.split:                             ; preds = %27, %18
@@ -16599,8 +16600,8 @@ define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place(ptr noundef 
 
 _ZL35mz_zip_writer_validate_archive_namePKc.exit: ; preds = %.preheader.i
   %27 = call i32 @stat64(ptr noundef nonnull %0, ptr noundef nonnull %9) #43
-  %.not35 = icmp ne i32 %27, 0
-  br i1 %.not35, label %28, label %30
+  %.not35.not = icmp eq i32 %27, 0
+  br i1 %.not35.not, label %30, label %28
 
 28:                                               ; preds = %_ZL35mz_zip_writer_validate_archive_namePKc.exit
   %29 = call i32 @mz_zip_writer_init_file(ptr noundef nonnull %8, ptr noundef nonnull %0, i64 noundef 0)
@@ -16706,16 +16707,14 @@ mz_zip_writer_end.exit:                           ; preds = %67, %71, %74
 
 79:                                               ; preds = %37, %44, %47, %mz_zip_writer_end.exit
   %80 = phi i32 [ %spec.select, %mz_zip_writer_end.exit ], [ 0, %47 ], [ 0, %44 ], [ 0, %37 ]
-  %81 = icmp eq i32 %80, 0
-  %or.cond7 = and i1 %.not35, %81
-  br i1 %or.cond7, label %82, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
+  br i1 %.not35.not, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %81
 
-82:                                               ; preds = %79
-  %83 = call i32 @remove(ptr noundef nonnull %0) #43
+81:                                               ; preds = %79
+  %82 = call i32 @remove(ptr noundef nonnull %0) #43
   br label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
-_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i, %.preheader.i, %21, %79, %82, %30, %28, %7, %13, %16, %35
-  %.0 = phi i32 [ 0, %35 ], [ 0, %16 ], [ 0, %13 ], [ 0, %7 ], [ 0, %28 ], [ 0, %30 ], [ 0, %82 ], [ %80, %79 ], [ 0, %21 ], [ 0, %.preheader.i ], [ 0, %.preheader.i ]
+_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i, %.preheader.i, %21, %79, %81, %30, %28, %7, %13, %16, %35
+  %.0 = phi i32 [ 0, %35 ], [ 0, %16 ], [ 0, %13 ], [ 0, %7 ], [ 0, %28 ], [ 0, %30 ], [ 0, %81 ], [ %80, %79 ], [ 0, %21 ], [ 0, %.preheader.i ], [ 0, %.preheader.i ]
   ret i32 %.0
 }
 
@@ -32046,13 +32045,13 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 declare void @llvm.assume(i1 noundef) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #38
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #38
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #38
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #38

@@ -383,17 +383,13 @@ define internal fastcc ptr @module_name(ptr nocapture noundef readonly %0) unnam
   %exitcond.not = icmp eq i64 %17, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %16
-  %18 = trunc nuw i8 %.1 to i1
-  br i1 %18, label %19, label %._crit_edge.thread
-
-._crit_edge.thread:                               ; preds = %1, %._crit_edge
+._crit_edge.thread:                               ; preds = %1
   tail call void @scratch_buffer_append(ptr noundef nonnull @.str.47) #9
-  br label %19
+  br label %._crit_edge
 
-19:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %20 = tail call ptr @scratch_buffer_to_string() #9
-  ret ptr %20
+._crit_edge:                                      ; preds = %16, %._crit_edge.thread
+  %18 = tail call ptr @scratch_buffer_to_string() #9
+  ret ptr %18
 }
 
 declare ptr @scratch_buffer_to_string() local_unnamed_addr #3

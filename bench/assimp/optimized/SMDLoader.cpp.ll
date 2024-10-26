@@ -5074,15 +5074,10 @@ entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 152
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 160
   %asTriangles = getelementptr inbounds i8, ptr %this, i64 144
-  br label %for.cond.outer
-
-for.cond.outer:                                   ; preds = %if.end14, %entry
-  %.ph102 = phi ptr [ %.pre.pre, %if.end14 ], [ %szCurrent, %entry ]
-  %iCurIndex.0.ph = phi i32 [ %spec.store.select, %if.end14 ], [ 0, %entry ]
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.outer, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit
-  %0 = phi ptr [ %in.addr.1.i.i, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit ], [ %.ph102, %for.cond.outer ]
+for.cond:                                         ; preds = %for.cond.backedge, %entry
+  %0 = phi ptr [ %szCurrent, %entry ], [ %.be, %for.cond.backedge ]
   %1 = load i32, ptr %iLineNumber.i, align 4
   %inc.i = add i32 %1, 1
   store i32 %inc.i, ptr %iLineNumber.i, align 4
@@ -5105,7 +5100,7 @@ while.body.i.i:                                   ; preds = %while.cond.i.i, %wh
 _ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_.exit: ; preds = %while.cond.i.i
   store ptr %2, ptr %szCurrent.addr, align 8
   %cmp9.i.i.not = icmp eq i8 %3, 0
-  br i1 %cmp9.i.i.not, label %for.end, label %sub_0
+  br i1 %cmp9.i.i.not, label %land.lhs.true, label %sub_0
 
 sub_0:                                            ; preds = %_ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_.exit
   %4 = zext i8 %3 to i32
@@ -5150,7 +5145,7 @@ _ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit:       ; preds = %land.lhs.true.i, %l
   %storemerge.i.v = select i1 %cmp.not.i, i64 3, i64 4
   %storemerge.i = getelementptr inbounds i8, ptr %2, i64 %storemerge.i.v
   store ptr %storemerge.i, ptr %szCurrent.addr, align 8
-  br label %for.end
+  br label %land.lhs.true
 
 if.end4:                                          ; preds = %if.end.tail, %land.lhs.true.i
   %call.i4 = call i32 @strncmp(ptr noundef nonnull dereferenceable(5) @.str.36, ptr noundef nonnull dereferenceable(1) %2, i64 noundef 4) #30
@@ -5182,10 +5177,10 @@ while.cond.i.i.i:                                 ; preds = %while.body.i.i.i, %
   switch i8 %17, label %if.end.i [
     i8 32, label %while.body.i.i.i
     i8 9, label %while.body.i.i.i
-    i8 13, label %for.end
-    i8 10, label %for.end
-    i8 0, label %for.end
-    i8 12, label %for.end
+    i8 13, label %land.lhs.true
+    i8 10, label %land.lhs.true
+    i8 0, label %land.lhs.true
+    i8 12, label %land.lhs.true
   ]
 
 while.body.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.i.i.i
@@ -5257,7 +5252,7 @@ lor.lhs.false:                                    ; preds = %for.end.i.i.i, %if.
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %in.addr.i.i)
   %26 = load i32, ptr %configFrameID, align 8
   %cmp.not = icmp eq i32 %26, %value.0.i.i
-  br i1 %cmp.not, label %while.cond.i.i15, label %for.end
+  br i1 %cmp.not, label %while.cond.i.i15, label %land.lhs.true
 
 while.cond.i.i15:                                 ; preds = %lor.lhs.false, %while.body.i.i20
   %in.addr.0.i.i16 = phi ptr [ %incdec.ptr.i.i21, %while.body.i.i20 ], [ %25, %lor.lhs.false ]
@@ -5293,19 +5288,15 @@ _ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit:    ; preds = %while.cond5.i.i
   %29 = load i32, ptr %iLineNumber.i, align 4
   %inc.i19 = add i32 %29, 1
   store i32 %inc.i19, ptr %iLineNumber.i, align 4
-  br label %for.cond, !llvm.loop !47
+  br label %for.cond.backedge
 
 if.else:                                          ; preds = %if.end4, %land.lhs.true.i7
-  %cmp11 = icmp eq i32 %iCurIndex.0.ph, 0
   %.pre75 = load ptr, ptr %_M_finish.i, align 8
-  br i1 %cmp11, label %if.then12, label %if.end14
-
-if.then12:                                        ; preds = %if.else
   %30 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i22 = icmp eq ptr %.pre75, %30
   br i1 %cmp.not.i22, label %if.else.i, label %if.then.i23
 
-if.then.i23:                                      ; preds = %if.then12
+if.then.i23:                                      ; preds = %if.else
   store i32 0, ptr %.pre75, align 8
   br label %arrayctor.loop.i.i.i.i
 
@@ -5327,29 +5318,24 @@ _ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %if.end14
 
-if.else.i:                                        ; preds = %if.then12
+if.else.i:                                        ; preds = %if.else
   call void @_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %asTriangles, ptr %.pre75)
   %.pre74 = load ptr, ptr %_M_finish.i, align 8
   br label %if.end14
 
-if.end14:                                         ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i, %if.else
-  %32 = phi ptr [ %.pre74, %if.else.i ], [ %incdec.ptr.i, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i ], [ %.pre75, %if.else ]
-  %inc = add i32 %iCurIndex.0.ph, 1
-  %cmp15 = icmp eq i32 %inc, 3
-  %spec.store.select = select i1 %cmp15, i32 0, i32 %inc
-  %avVertices = getelementptr inbounds i8, ptr %32, i64 -192
-  %idxprom = zext i32 %spec.store.select to i64
-  %arrayidx = getelementptr inbounds [3 x %"struct.Assimp::SMD::Vertex"], ptr %avVertices, i64 0, i64 %idxprom
+if.end14:                                         ; preds = %if.else.i, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i
+  %32 = phi ptr [ %.pre74, %if.else.i ], [ %incdec.ptr.i, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i ]
+  %arrayidx = getelementptr inbounds i8, ptr %32, i64 -128
   call void @_ZN6Assimp11SMDImporter11ParseVertexEPKcPS2_RNS_3SMD6VertexEb(ptr noundef nonnull align 8 dereferenceable(218) %this, ptr noundef nonnull %2, ptr noundef nonnull %szCurrent.addr, ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i1 noundef zeroext true)
   %.pre.pre = load ptr, ptr %szCurrent.addr, align 8
-  br label %for.cond.outer, !llvm.loop !47
+  br label %for.cond.backedge
 
-for.end:                                          ; preds = %lor.lhs.false, %_ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_.exit, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit
+for.cond.backedge:                                ; preds = %if.end14, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit
+  %.be = phi ptr [ %in.addr.1.i.i, %_ZN6Assimp11SMDImporter8SkipLineEPKcPS2_.exit ], [ %.pre.pre, %if.end14 ]
+  br label %for.cond, !llvm.loop !47
+
+land.lhs.true:                                    ; preds = %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %while.cond.i.i.i, %_ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_.exit, %lor.lhs.false
   %33 = phi ptr [ %storemerge.i, %_ZN6Assimp10TokenMatchIKcEEbRPT_PS1_j.exit ], [ %storemerge.i12, %while.cond.i.i.i ], [ %storemerge.i12, %while.cond.i.i.i ], [ %storemerge.i12, %while.cond.i.i.i ], [ %storemerge.i12, %while.cond.i.i.i ], [ %25, %lor.lhs.false ], [ %2, %_ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_.exit ]
-  %cmp21.not = icmp eq i32 %iCurIndex.0.ph, 2
-  br i1 %cmp21.not, label %if.end26, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %for.end
   %34 = load ptr, ptr %asTriangles, align 8
   %35 = load ptr, ptr %_M_finish.i, align 8
   %cmp.i.i26 = icmp eq ptr %34, %35
@@ -5377,7 +5363,7 @@ _ZN6Assimp3SMD6VertexD2Ev.exit.i.i.i.i:           ; preds = %if.then.i.i.i.i.i.i
   %arraydestroy.done.i.i.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i.i.i, 8
   br i1 %arraydestroy.done.i.i.i.i, label %if.end26, label %arraydestroy.body.i.i.i.i
 
-if.end26:                                         ; preds = %_ZN6Assimp3SMD6VertexD2Ev.exit.i.i.i.i, %land.lhs.true, %for.end
+if.end26:                                         ; preds = %_ZN6Assimp3SMD6VertexD2Ev.exit.i.i.i.i, %land.lhs.true
   %37 = load i32, ptr %iLineNumber.i, align 4
   %inc.i30 = add i32 %37, 1
   store i32 %inc.i30, ptr %iLineNumber.i, align 4

@@ -15976,7 +15976,7 @@ _ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEEC2EmRKS4_.exit
   %57 = trunc i64 %56 to i32
   %58 = lshr i32 %57, 25
   %59 = and i32 %58, 7
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.02022, i32 %59)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.02022, i32 %59)
   %60 = add i32 %.023, 1
   %61 = zext i32 %60 to i64
   %62 = icmp ugt i64 %43, %61
@@ -15992,30 +15992,29 @@ _ZNSt12_Vector_baseIP11TIntermNodeN7glslang14pool_allocatorIS1_EEEC2EmRKS4_.exit
   %68 = getelementptr inbounds i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8
   %70 = shl nuw nsw i32 %.020.lcssa, 25
-  %71 = and i32 %70, 234881024
-  %72 = zext nneg i32 %71 to i64
-  %73 = and i64 %69, -234881025
-  %74 = or disjoint i64 %73, %72
-  store i64 %74, ptr %68, align 8
+  %71 = zext nneg i32 %70 to i64
+  %72 = and i64 %69, -234881025
+  %73 = or disjoint i64 %72, %71
+  store i64 %73, ptr %68, align 8
   br i1 %.not8.i.i.i, label %.loopexit, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %._crit_edge, %.lr.ph27
-  %75 = phi i64 [ %86, %.lr.ph27 ], [ 0, %._crit_edge ]
-  %.0825 = phi i32 [ %85, %.lr.ph27 ], [ 0, %._crit_edge ]
-  %76 = getelementptr inbounds ptr, ptr %34, i64 %75
+  %74 = phi i64 [ %85, %.lr.ph27 ], [ 0, %._crit_edge ]
+  %.0825 = phi i32 [ %84, %.lr.ph27 ], [ 0, %._crit_edge ]
+  %75 = getelementptr inbounds ptr, ptr %34, i64 %74
+  %76 = load ptr, ptr %75, align 8
   %77 = load ptr, ptr %76, align 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 24
-  %80 = load ptr, ptr %79, align 8
-  %81 = tail call noundef ptr %80(ptr noundef nonnull align 8 dereferenceable(32) %77) #17
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 296
-  %84 = load ptr, ptr %83, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(184) %81, i32 noundef %.020.lcssa) #17
-  %85 = add i32 %.0825, 1
-  %86 = zext i32 %85 to i64
-  %87 = icmp ugt i64 %63, %86
-  br i1 %87, label %.lr.ph27, label %.loopexit, !llvm.loop !60
+  %78 = getelementptr inbounds i8, ptr %77, i64 24
+  %79 = load ptr, ptr %78, align 8
+  %80 = tail call noundef ptr %79(ptr noundef nonnull align 8 dereferenceable(32) %76) #17
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 296
+  %83 = load ptr, ptr %82, align 8
+  tail call void %83(ptr noundef nonnull align 8 dereferenceable(184) %80, i32 noundef %.020.lcssa) #17
+  %84 = add i32 %.0825, 1
+  %85 = zext i32 %84 to i64
+  %86 = icmp ugt i64 %63, %85
+  br i1 %86, label %.lr.ph27, label %.loopexit, !llvm.loop !60
 
 .loopexit:                                        ; preds = %.lr.ph27, %._crit_edge, %13
   ret void
@@ -23586,6 +23585,9 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -23593,9 +23595,6 @@ declare i64 @llvm.smin.i64(i64, i64) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

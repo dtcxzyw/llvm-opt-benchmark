@@ -2439,19 +2439,14 @@ if.end.i.i286:                                    ; preds = %if.then7.i.i, %call
 
 if.else.i.i258:                                   ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.thread23.i
   %add.i304 = add i32 %50, 1
-  %cmp.i.i252305 = icmp ult i32 %add.i304, 3
-  %mul.i.i253306 = shl i32 %add.i304, 1
-  %cond.i.i254307 = select i1 %cmp.i.i252305, i32 4, i32 %mul.i.i253306
   br label %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i261
 
 _ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i261: ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i, %if.else.i.i258
-  %cond.i.i254307317 = phi i32 [ %cond.i.i254307, %if.else.i.i258 ], [ 4, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i ]
   %add.i304316 = phi i32 [ %add.i304, %if.else.i.i258 ], [ 1, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i ]
   %idxprom.i.i.i.i267 = phi i64 [ %idxprom.i.i.i, %if.else.i.i258 ], [ 4294967295, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i ]
   %retval.0.i.i262 = phi i32 [ %50, %if.else.i.i258 ], [ 0, %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE4sizeEv.exit.i ]
   %58 = load i32, ptr %capacity.i.i.i, align 4
-  %div5.i = lshr i32 %58, 1
-  %cmp2.not.i = icmp ult i32 %div5.i, %cond.i.i254307317
+  %cmp2.not.i = icmp ult i32 %58, 8
   br i1 %cmp2.not.i, label %lor.lhs.false.i, label %if.else.i.i.i264
 
 lor.lhs.false.i:                                  ; preds = %_ZNK4toku3omtIPNS_18txnid_range_bufferES2_Lb0EE7nweightERKNS_12omt_internal17subtree_templatedILb0EEE.exit.i261

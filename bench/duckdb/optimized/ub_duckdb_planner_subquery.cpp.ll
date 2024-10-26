@@ -815,9 +815,8 @@ for.body:                                         ; preds = %entry, %for.body
 invoke.cont23:                                    ; preds = %for.cond.i.i.i.i, %cleanup.cont.i.i, %if.end.i.i.i.i
   %call7.pn.i.i = phi ptr [ %9, %if.end.i.i.i.i ], [ %call7.i.i, %cleanup.cont.i.i ], [ %11, %for.cond.i.i.i.i ]
   %retval.1.i.i = getelementptr inbounds i8, ptr %call7.pn.i.i, i64 16
-  %16 = and i8 %has_correlation.0.lcssa, 1
-  %tobool20 = icmp ne i8 %16, 0
-  store i8 %16, ptr %retval.1.i.i, align 1, !tbaa !73
+  %tobool20 = icmp ne i8 %has_correlation.0.lcssa, 0
+  store i8 %has_correlation.0.lcssa, ptr %retval.1.i.i, align 1, !tbaa !73
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %visitor) #24
   ret i1 %tobool20
 }

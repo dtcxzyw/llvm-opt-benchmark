@@ -9280,8 +9280,8 @@ define internal fastcc i64 @af_cjk_compute_stem_width(i32 %.5148.val, ptr nocapt
   %48 = load i64, ptr %47, align 8
   %49 = sub nsw i64 %spec.select, %48
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %49, i1 true)
-  %50 = icmp slt i64 %spec.select.i, %.02633.i
-  %.127.i = tail call i64 @llvm.smin.i64(i64 %spec.select.i, i64 %.02633.i)
+  %50 = icmp samesign ult i64 %spec.select.i, %.02633.i
+  %.127.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %.02633.i)
   %.1.i = select i1 %50, i64 %48, i64 %.02534.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -10996,7 +10996,7 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   br label %121
 
 35:                                               ; preds = %29
-  %36 = icmp ult i64 %.2, 192
+  %36 = icmp samesign ult i64 %.2, 192
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %35
@@ -11087,8 +11087,8 @@ define internal fastcc i64 @af_latin_compute_stem_width(i32 %.5148.val, ptr noca
   %77 = load i64, ptr %76, align 8
   %78 = sub nsw i64 %spec.select, %77
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %78, i1 true)
-  %79 = icmp slt i64 %spec.select.i, %.02633.i
-  %.127.i = tail call i64 @llvm.smin.i64(i64 %spec.select.i, i64 %.02633.i)
+  %79 = icmp samesign ult i64 %spec.select.i, %.02633.i
+  %.127.i = tail call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %.02633.i)
   %.1.i = select i1 %79, i64 %77, i64 %.02534.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -12545,6 +12545,9 @@ declare i16 @llvm.smax.i16(i16, i16) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

@@ -16318,8 +16318,7 @@ _ZNK8seq_util3rex4info6concatERKS1_b.exit:        ; preds = %sw.bb18, %if.then.i
   %retval.sroa.0.sroa.4.0.i = phi i64 [ %frombool.i.i89, %if.then3.i ], [ %frombool.i73, %if.then.i ], [ %14, %sw.bb18 ]
   %retval.sroa.0.sroa.0.0.i = phi i64 [ 1, %if.then3.i ], [ %17, %if.then.i ], [ %13, %sw.bb18 ]
   %retval.sroa.5.0.i = phi i64 [ %retval.sroa.5.12.insert.insert.i, %if.then3.i ], [ %18, %if.then.i ], [ %15, %sw.bb18 ]
-  %retval.sroa.0.sroa.0.0.insert.insert.i = or i64 %retval.sroa.0.sroa.0.0.i, %retval.sroa.0.sroa.4.0.i
-  %retval.sroa.0.sroa.18.0.extract.shift707 = lshr i64 %retval.sroa.0.sroa.4.0.i, 32
+  %retval.sroa.0.sroa.18.0.extract.shift707 = lshr exact i64 %retval.sroa.0.sroa.4.0.i, 32
   br label %return
 
 sw.bb31:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16370,10 +16369,9 @@ if.else.i111:                                     ; preds = %sw.bb31
 
 _ZNK8seq_util3rex4info4disjERKS1_.exit:           ; preds = %if.then.i118, %if.else.i111
   %retval.sroa.0.sroa.3.0.i = phi i64 [ %frombool.i.i128, %if.then.i118 ], [ %retval.sroa.0.sroa.3.0.extract.trunc.i, %if.else.i111 ]
-  %retval.sroa.0.sroa.0.0.i114 = phi i64 [ 1, %if.then.i118 ], [ %28, %if.else.i111 ]
+  %retval.sroa.0.sroa.0.0.i114 = phi i64 [ 1, %if.then.i118 ], [ %25, %if.else.i111 ]
   %retval.sroa.4.0.i = phi i64 [ %retval.sroa.4.12.insert.insert.i, %if.then.i118 ], [ %26, %if.else.i111 ]
-  %retval.sroa.0.sroa.0.0.insert.insert.i115 = or disjoint i64 %retval.sroa.0.sroa.0.0.i114, %retval.sroa.0.sroa.3.0.i
-  %retval.sroa.0.sroa.18.0.extract.shift709 = lshr i64 %retval.sroa.0.sroa.3.0.i, 32
+  %retval.sroa.0.sroa.18.0.extract.shift709 = lshr exact i64 %retval.sroa.0.sroa.3.0.i, 32
   br label %return
 
 sw.bb41:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16425,8 +16423,7 @@ _ZNK8seq_util3rex4info4conjERKS1_.exit:           ; preds = %sw.bb41, %if.then.i
   %retval.sroa.0.sroa.4.0.i152 = phi i64 [ %frombool.i.i181, %if.then3.i170 ], [ %frombool.i144, %if.then.i162 ], [ %36, %sw.bb41 ]
   %retval.sroa.0.sroa.0.0.i153 = phi i64 [ 1, %if.then3.i170 ], [ %39, %if.then.i162 ], [ %35, %sw.bb41 ]
   %retval.sroa.5.0.i154 = phi i64 [ %retval.sroa.5.12.insert.insert.i184, %if.then3.i170 ], [ %40, %if.then.i162 ], [ %37, %sw.bb41 ]
-  %retval.sroa.0.sroa.0.0.insert.insert.i159 = or i64 %retval.sroa.0.sroa.0.0.i153, %retval.sroa.0.sroa.4.0.i152
-  %retval.sroa.0.sroa.18.0.extract.shift711 = lshr i64 %retval.sroa.0.sroa.4.0.i152, 32
+  %retval.sroa.0.sroa.18.0.extract.shift711 = lshr exact i64 %retval.sroa.0.sroa.4.0.i152, 32
   br label %return
 
 sw.bb51:                                          ; preds = %_ZNK4decl13get_decl_kindEv.exit
@@ -16711,7 +16708,7 @@ if.end119:                                        ; preds = %_ZNK3app13get_famil
 
 return:                                           ; preds = %_ZNK4decl13get_decl_kindEv.exit, %if.end119, %_ZNK8seq_util3rex4info6orelseERKS1_.exit, %sw.epilog, %_ZNK8seq_util3rex4info4diffERKS1_.exit, %_ZNK8seq_util3rex4info4loopEjj.exit, %sw.bb70, %sw.bb64, %sw.bb61, %sw.bb51, %_ZNK8seq_util3rex4info4conjERKS1_.exit, %_ZNK8seq_util3rex4info4disjERKS1_.exit, %_ZNK8seq_util3rex4info6concatERKS1_b.exit, %sw.bb17, %sw.bb11, %sw.bb6, %sw.bb5
   %retval.sroa.22.0 = phi i64 [ %retval.sroa.22.0.copyload, %sw.epilog ], [ %retval.sroa.5.0.i345, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.4.0.i304, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.4.0.i244, %sw.bb70 ], [ %54, %sw.bb64 ], [ %51, %sw.bb61 ], [ %retval.sroa.22.12.insert.insert692, %sw.bb51 ], [ %retval.sroa.5.0.i154, %_ZNK8seq_util3rex4info4conjERKS1_.exit ], [ %retval.sroa.4.0.i, %_ZNK8seq_util3rex4info4disjERKS1_.exit ], [ %retval.sroa.5.0.i, %_ZNK8seq_util3rex4info6concatERKS1_b.exit ], [ 8589934591, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.5.0.i400, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.22.0.copyload674, %if.end119 ], [ -1, %_ZNK4decl13get_decl_kindEv.exit ]
-  %retval.sroa.0.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %sw.epilog ], [ %retval.sroa.0.sroa.0.0.i344, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.i303, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.0.0.i243, %sw.bb70 ], [ %spec.select, %sw.bb64 ], [ %50, %sw.bb61 ], [ 1, %sw.bb51 ], [ %retval.sroa.0.sroa.0.0.insert.insert.i159, %_ZNK8seq_util3rex4info4conjERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.insert.insert.i115, %_ZNK8seq_util3rex4info4disjERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.insert.insert.i, %_ZNK8seq_util3rex4info6concatERKS1_b.exit ], [ 1, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.0.0.i399, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.0.copyload673, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ]
+  %retval.sroa.0.sroa.0.0 = phi i64 [ %retval.sroa.0.0.copyload, %sw.epilog ], [ %retval.sroa.0.sroa.0.0.i344, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.i303, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.0.0.i243, %sw.bb70 ], [ %spec.select, %sw.bb64 ], [ %50, %sw.bb61 ], [ 1, %sw.bb51 ], [ %retval.sroa.0.sroa.0.0.i153, %_ZNK8seq_util3rex4info4conjERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.i114, %_ZNK8seq_util3rex4info4disjERKS1_.exit ], [ %retval.sroa.0.sroa.0.0.i, %_ZNK8seq_util3rex4info6concatERKS1_b.exit ], [ 1, %sw.bb17 ], [ 1, %sw.bb11 ], [ 1, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.0.0.i399, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.0.copyload673, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ]
   %retval.sroa.0.sroa.18.0 = phi i64 [ %retval.sroa.0.sroa.18.0.extract.shift725, %sw.epilog ], [ %retval.sroa.0.sroa.18.0.extract.trunc722, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.trunc720, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ %retval.sroa.0.sroa.18.0.extract.trunc718, %sw.bb70 ], [ %retval.sroa.0.sroa.18.0.extract.trunc716, %sw.bb64 ], [ %retval.sroa.0.sroa.18.0.extract.shift713, %sw.bb61 ], [ %frombool.i189, %sw.bb51 ], [ %retval.sroa.0.sroa.18.0.extract.shift711, %_ZNK8seq_util3rex4info4conjERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.shift709, %_ZNK8seq_util3rex4info4disjERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.shift707, %_ZNK8seq_util3rex4info6concatERKS1_b.exit ], [ 1, %sw.bb17 ], [ %frombool.i45, %sw.bb11 ], [ %frombool.i, %sw.bb6 ], [ 1, %sw.bb5 ], [ %retval.sroa.0.sroa.18.0.extract.shift723, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.sroa.18.0.extract.shift727, %if.end119 ], [ 1, %_ZNK4decl13get_decl_kindEv.exit ]
   %retval.sroa.0.sroa.22.sroa.0.0 = phi i64 [ %retval.sroa.0.sroa.22.0.extract.shift749, %sw.epilog ], [ 0, %_ZNK8seq_util3rex4info4diffERKS1_.exit ], [ 0, %_ZNK8seq_util3rex4info4loopEjj.exit ], [ 0, %sw.bb70 ], [ 0, %sw.bb64 ], [ %retval.sroa.0.sroa.22.0.extract.shift737, %sw.bb61 ], [ 0, %sw.bb51 ], [ 0, %_ZNK8seq_util3rex4info4conjERKS1_.exit ], [ 0, %_ZNK8seq_util3rex4info4disjERKS1_.exit ], [ 0, %_ZNK8seq_util3rex4info6concatERKS1_b.exit ], [ 0, %sw.bb17 ], [ 0, %sw.bb11 ], [ 0, %sw.bb6 ], [ 0, %sw.bb5 ], [ 0, %_ZNK8seq_util3rex4info6orelseERKS1_.exit ], [ %retval.sroa.0.sroa.22.0.extract.shift751, %if.end119 ], [ 0, %_ZNK4decl13get_decl_kindEv.exit ]
   %retval.sroa.0.sroa.18.0.insert.ext = shl nuw i64 %retval.sroa.0.sroa.18.0, 32

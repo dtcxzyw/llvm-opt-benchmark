@@ -1150,13 +1150,9 @@ if.end104:                                        ; preds = %if.else95, %if.else
   %hz.1 = phi i64 [ 1000, %if.else ], [ 300, %if.else85 ], [ 250, %if.else90 ], [ %spec.select, %if.else95 ]
   %call65 = call ptr @fgets(ptr noundef nonnull %buf, i32 noundef 1024, ptr noundef nonnull %call46)
   %cmp66.not = icmp eq ptr %call65, null
-  br i1 %cmp66.not, label %while.end, label %while.body, !llvm.loop !70
+  br i1 %cmp66.not, label %"_ZN5folly6detail14ScopeGuardImplIZNS_L23determineSchedstatUnitsEvE3$_0Lb1EED2Ev.exit", label %while.body, !llvm.loop !70
 
-while.end:                                        ; preds = %if.end104
-  %cmp105 = icmp eq i64 %hz.1, -1
-  br i1 %cmp105, label %if.then106, label %"_ZN5folly6detail14ScopeGuardImplIZNS_L23determineSchedstatUnitsEvE3$_0Lb1EED2Ev.exit"
-
-if.then106:                                       ; preds = %while.end, %if.end60
+if.then106:                                       ; preds = %if.end60
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %ref.tmp107) #25
   invoke void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp107, ptr noundef nonnull @.str.6, i32 noundef 144, i32 noundef 2)
           to label %invoke.cont109 unwind label %lpad108
@@ -1195,8 +1191,8 @@ ehcleanup119:                                     ; preds = %lpad110, %lpad108
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %ref.tmp107) #25
   br label %"_ZN5folly6detail14ScopeGuardImplIZNS_L23determineSchedstatUnitsEvE3$_0Lb1EED2Ev.exit226"
 
-"_ZN5folly6detail14ScopeGuardImplIZNS_L23determineSchedstatUnitsEvE3$_0Lb1EED2Ev.exit": ; preds = %invoke.cont116, %while.end, %invoke.cont77
-  %retval.0 = phi i64 [ -1, %invoke.cont77 ], [ -1, %invoke.cont116 ], [ %hz.1, %while.end ]
+"_ZN5folly6detail14ScopeGuardImplIZNS_L23determineSchedstatUnitsEvE3$_0Lb1EED2Ev.exit": ; preds = %if.end104, %invoke.cont116, %invoke.cont77
+  %retval.0 = phi i64 [ -1, %invoke.cont77 ], [ -1, %invoke.cont116 ], [ %hz.1, %if.end104 ]
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %buf) #25
   %call.i.i.i220 = call i32 @fclose(ptr noundef nonnull %call46)
   br label %cleanup128

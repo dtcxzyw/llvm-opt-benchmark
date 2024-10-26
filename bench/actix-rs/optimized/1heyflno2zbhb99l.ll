@@ -6741,7 +6741,7 @@ define hidden void @_ZN6brotli3enc9metablock34BrotliBuildMetaBlockGreedyInternal
 
 58:                                               ; preds = %58, %54
   %.1.i = phi i64 [ %spec.select.i, %54 ], [ %59, %58 ]
-  %.not21.i = icmp ugt i64 %.1.i, %.032.lcssa
+  %.not21.i = icmp samesign ugt i64 %.1.i, %.032.lcssa
   %59 = shl nuw nsw i64 %.1.i, 1
   br i1 %.not21.i, label %.noexc.i, label %58
 
@@ -6865,7 +6865,7 @@ common.resume:                                    ; preds = %310, %339, %"_ZN63_
 
 94:                                               ; preds = %94, %73
   %.113.i = phi i64 [ %spec.select19.i, %73 ], [ %95, %94 ]
-  %.not23.i = icmp ugt i64 %.113.i, %.032.lcssa
+  %.not23.i = icmp samesign ugt i64 %.113.i, %.032.lcssa
   %95 = shl nuw nsw i64 %.113.i, 1
   br i1 %.not23.i, label %96, label %94
 
@@ -6989,7 +6989,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = 
 
 134:                                              ; preds = %134, %130
   %.1.i57 = phi i64 [ %spec.select.i56, %130 ], [ %135, %134 ]
-  %.not26.i = icmp ugt i64 %.1.i57, %.032.lcssa
+  %.not26.i = icmp samesign ugt i64 %.1.i57, %.032.lcssa
   %135 = shl nuw nsw i64 %.1.i57, 1
   br i1 %.not26.i, label %136, label %134
 
@@ -7108,7 +7108,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h19674f15767ad67bE.exit: ; preds = 
 
 172:                                              ; preds = %172, %150
   %.118.i = phi i64 [ %spec.select9.i, %150 ], [ %173, %172 ]
-  %.not28.i = icmp ugt i64 %.118.i, %.032.lcssa
+  %.not28.i = icmp samesign ugt i64 %.118.i, %.032.lcssa
   %173 = shl nuw nsw i64 %.118.i, 1
   br i1 %.not28.i, label %174, label %172
 
@@ -7290,7 +7290,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17hb2d66d2627967bceE.exit: ; p
 
 218:                                              ; preds = %218, %214
   %.1.i77 = phi i64 [ %spec.select.i76, %214 ], [ %219, %218 ]
-  %.not21.i78 = icmp ugt i64 %.1.i77, %211
+  %.not21.i78 = icmp samesign ugt i64 %.1.i77, %211
   %219 = shl nuw nsw i64 %.1.i77, 1
   br i1 %.not21.i78, label %.noexc.i79, label %218
 
@@ -7410,7 +7410,7 @@ _ZN6brotli3enc9metablock24InitContextBlockSplitter17hb2d66d2627967bceE.exit: ; p
 
 254:                                              ; preds = %254, %233
   %.113.i89 = phi i64 [ %spec.select19.i88, %233 ], [ %255, %254 ]
-  %.not23.i90 = icmp ugt i64 %.113.i89, %211
+  %.not23.i90 = icmp samesign ugt i64 %.113.i89, %211
   %255 = shl nuw nsw i64 %.113.i89, 1
   br i1 %.not23.i90, label %256, label %254
 
@@ -7524,7 +7524,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = 
 
 287:                                              ; preds = %287, %283
   %.1.i110 = phi i64 [ %spec.select.i109, %283 ], [ %288, %287 ]
-  %.not21.i111 = icmp ugt i64 %.1.i110, %280
+  %.not21.i111 = icmp samesign ugt i64 %.1.i110, %280
   %288 = shl nuw nsw i64 %.1.i110, 1
   br i1 %.not21.i111, label %.noexc.i112, label %287
 
@@ -7644,7 +7644,7 @@ _ZN6brotli3enc9metablock17InitBlockSplitter17h4b5063fd3a1c0956E.exit: ; preds = 
 
 323:                                              ; preds = %323, %302
   %.113.i122 = phi i64 [ %spec.select19.i121, %302 ], [ %324, %323 ]
-  %.not23.i123 = icmp ugt i64 %.113.i122, %280
+  %.not23.i123 = icmp samesign ugt i64 %.113.i122, %280
   %324 = shl nuw nsw i64 %.113.i122, 1
   br i1 %.not23.i123, label %325, label %323
 
@@ -9389,15 +9389,9 @@ define { i64, i32 } @"_ZN129_$LT$actix_http..keep_alive..KeepAlive$u20$as$u20$co
   %or.cond4.i.i = and i1 %4, %5
   %6 = select i1 %3, i1 true, i1 %or.cond4.i.i
   %.sroa.5.0 = select i1 %6, i32 1000000001, i32 %1
-  %7 = and i32 %.sroa.5.0, -2
-  %8 = icmp ne i32 %7, 1000000000
-  %or.cond.i = select i1 %8, i1 %4, i1 false
-  %9 = icmp eq i32 %.sroa.5.0, 0
-  %or.cond4.i = and i1 %9, %or.cond.i
-  %..i = select i1 %or.cond4.i, i32 1000000001, i32 %.sroa.5.0
-  %10 = insertvalue { i64, i32 } poison, i64 %0, 0
-  %11 = insertvalue { i64, i32 } %10, i32 %..i, 1
-  ret { i64, i32 } %11
+  %7 = insertvalue { i64, i32 } poison, i64 %0, 0
+  %8 = insertvalue { i64, i32 } %7, i32 %.sroa.5.0, 1
+  ret { i64, i32 } %8
 }
 
 ; Function Attrs: nonlazybind uwtable

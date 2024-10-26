@@ -1684,11 +1684,7 @@ entry.cond.end_crit_edge:                         ; preds = %entry
   %_M_finish.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 24
   %.pre = load ptr, ptr %_M_finish.i.i.phi.trans.insert, align 8
   %table_.i.phi.trans.insert = getelementptr inbounds i8, ptr %this, i64 16
-  %.pre23 = load ptr, ptr %table_.i.phi.trans.insert, align 8
-  %.pre24 = ptrtoint ptr %.pre to i64
-  %.pre25 = ptrtoint ptr %.pre23 to i64
-  %.pre26 = sub i64 %.pre24, %.pre25
-  %.pre27 = ashr exact i64 %.pre26, 5
+  %.pre19 = load ptr, ptr %table_.i.phi.trans.insert, align 8
   br label %cond.end
 
 cond.true:                                        ; preds = %entry
@@ -1712,81 +1708,34 @@ cond.true:                                        ; preds = %entry
   br label %cond.end
 
 cond.end:                                         ; preds = %entry.cond.end_crit_edge, %cond.true
-  %sub.ptr.div.i.i.pre-phi = phi i64 [ %.pre27, %entry.cond.end_crit_edge ], [ %sub.ptr.div.i.i.i, %cond.true ]
-  %cond = phi i32 [ 0, %entry.cond.end_crit_edge ], [ %conv18.i, %cond.true ]
-  %table_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
+  %4 = phi ptr [ %3, %cond.true ], [ %.pre19, %entry.cond.end_crit_edge ]
+  %5 = phi ptr [ %2, %cond.true ], [ %.pre, %entry.cond.end_crit_edge ]
+  %cond = phi i32 [ %conv18.i, %cond.true ], [ 0, %entry.cond.end_crit_edge ]
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
-  %4 = load ptr, ptr %vfn, align 8
-  tail call void %4(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %newLength)
-  %5 = load i32, ptr %size_, align 8
-  %cmp15.not = icmp ne i32 %5, 0
+  %6 = load ptr, ptr %vfn, align 8
+  tail call void %6(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %newLength)
+  %7 = load i32, ptr %size_, align 8
+  %cmp15.not = icmp ne i32 %7, 0
   %head_ = getelementptr inbounds i8, ptr %this, i64 44
-  %6 = load i32, ptr %head_, align 4
-  %cmp16 = icmp ugt i32 %cond, %6
+  %8 = load i32, ptr %head_, align 4
+  %cmp16 = icmp ugt i32 %cond, %8
   %or.cond = select i1 %cmp15.not, i1 %cmp16, i1 false
   br i1 %or.cond, label %if.then, label %if.end63
 
 if.then:                                          ; preds = %cond.end
-  %conv = trunc i64 %sub.ptr.div.i.i.pre-phi to i32
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
+  %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
+  %sub.ptr.div.i.i = lshr exact i64 %sub.ptr.sub.i.i, 5
+  %conv = trunc i64 %sub.ptr.div.i.i to i32
   %vtable17 = load ptr, ptr %this, align 8
   %vfn18 = getelementptr inbounds i8, ptr %vtable17, i64 48
-  %7 = load ptr, ptr %vfn18, align 8
-  tail call void %7(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %cond, i32 noundef %conv, i32 noundef %newLength)
-  %indexNames_ = getelementptr inbounds i8, ptr %this, i64 52
-  %8 = load i8, ptr %indexNames_, align 4
-  %tobool = trunc i8 %8 to i1
-  br i1 %tobool, label %if.then19, label %if.end63
+  %9 = load ptr, ptr %vfn18, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %cond, i32 noundef %conv, i32 noundef %newLength)
+  br label %if.end63
 
-if.then19:                                        ; preds = %if.then
-  %names_ = getelementptr inbounds i8, ptr %this, i64 56
-  %sizeAndChunkShiftAndPackedBegin_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
-  %9 = load i64, ptr %sizeAndChunkShiftAndPackedBegin_.i.i.i, align 8
-  %cmp.not.i.i = icmp ugt i64 %9, 255
-  %10 = load ptr, ptr %names_, align 8
-  br i1 %cmp.not.i.i, label %for.body.preheader, label %if.end63
-
-for.body.preheader:                               ; preds = %if.then19
-  %shr.i.i.i.i.i = lshr i64 %9, 8
-  %add.ptr.i.i = getelementptr inbounds %"struct.std::pair.8", ptr %10, i64 %shr.i.i.i.i.i
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc59
-  %__begin3.sroa.0.022.pn = phi ptr [ %__begin3.sroa.0.022, %for.inc59 ], [ %add.ptr.i.i, %for.body.preheader ]
-  %__begin3.sroa.0.022 = getelementptr inbounds i8, ptr %__begin3.sroa.0.022.pn, i64 -32
-  %second = getelementptr inbounds i8, ptr %__begin3.sroa.0.022.pn, i64 -24
-  %__begin4.sroa.0.019 = load ptr, ptr %second, align 8
-  %cmp.i.not20 = icmp eq ptr %__begin4.sroa.0.019, %second
-  br i1 %cmp.i.not20, label %for.inc59, label %for.body29
-
-for.body29:                                       ; preds = %for.body, %while.end52
-  %__begin4.sroa.0.021 = phi ptr [ %__begin4.sroa.0.0, %while.end52 ], [ %__begin4.sroa.0.019, %for.body ]
-  %_M_storage.i.i = getelementptr inbounds i8, ptr %__begin4.sroa.0.021, i64 16
-  %11 = load i32, ptr %_M_storage.i.i, align 4
-  %cmp31.not = icmp ult i32 %11, %cond
-  br i1 %cmp31.not, label %for.inc59, label %while.end52
-
-while.end52:                                      ; preds = %for.body29
-  %12 = load ptr, ptr %_M_finish.i.i, align 8
-  %13 = load ptr, ptr %table_.i, align 8
-  %sub.ptr.lhs.cast.i.i10 = ptrtoint ptr %12 to i64
-  %sub.ptr.rhs.cast.i.i11 = ptrtoint ptr %13 to i64
-  %sub.ptr.sub.i.i12 = sub i64 %sub.ptr.lhs.cast.i.i10, %sub.ptr.rhs.cast.i.i11
-  %sub.ptr.div.i.i13 = lshr exact i64 %sub.ptr.sub.i.i12, 5
-  %sub54 = sub nsw i64 %sub.ptr.div.i.i13, %sub.ptr.div.i.i.pre-phi
-  %14 = trunc i64 %sub54 to i32
-  %conv57 = add i32 %11, %14
-  store i32 %conv57, ptr %_M_storage.i.i, align 4
-  %__begin4.sroa.0.0 = load ptr, ptr %__begin4.sroa.0.021, align 8
-  %cmp.i.not = icmp eq ptr %__begin4.sroa.0.0, %second
-  br i1 %cmp.i.not, label %for.inc59, label %for.body29
-
-for.inc59:                                        ; preds = %for.body29, %while.end52, %for.body
-  %cmp.i1428 = icmp eq ptr %10, %__begin3.sroa.0.022
-  br i1 %cmp.i1428, label %if.end63, label %for.body
-
-if.end63:                                         ; preds = %for.inc59, %if.then19, %if.then, %cond.end
+if.end63:                                         ; preds = %if.then, %cond.end
   ret void
 }
 

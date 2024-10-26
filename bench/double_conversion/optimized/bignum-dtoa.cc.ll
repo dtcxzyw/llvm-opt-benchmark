@@ -56,25 +56,22 @@ if.end:                                           ; preds = %if.else, %if.then
   %lower_boundary_is_closer.0.in = phi i1 [ %2, %if.then ], [ %6, %if.else ]
   %exponent.0 = phi i32 [ %retval.0.i29, %if.then ], [ %retval.0.i40, %if.else ]
   %significand.0 = phi i64 [ %conv1, %if.then ], [ %retval.0.i35, %if.else ]
-  %7 = icmp ult i32 %mode, 2
   %and = and i64 %significand.0, 1
-  %cmp16 = icmp eq i64 %and, 0
-  %and3.i = and i64 %significand.0, 4503599627370496
-  %cmp4.i = icmp eq i64 %and3.i, 0
-  br i1 %cmp4.i, label %while.body.i, label %_ZN17double_conversionL18NormalizedExponentEmi.exit
+  br label %while.body.i
 
 while.body.i:                                     ; preds = %if.end, %while.body.i
   %exponent.addr.06.i = phi i32 [ %sub.i44, %while.body.i ], [ %exponent.0, %if.end ]
   %significand.addr.05.i = phi i64 [ %shl.i, %while.body.i ], [ %significand.0, %if.end ]
   %shl.i = shl i64 %significand.addr.05.i, 1
   %sub.i44 = add nsw i32 %exponent.addr.06.i, -1
-  %8 = and i64 %significand.addr.05.i, 2251799813685248
-  %cmp.i45 = icmp eq i64 %8, 0
+  %7 = and i64 %significand.addr.05.i, 2251799813685248
+  %cmp.i45 = icmp eq i64 %7, 0
   br i1 %cmp.i45, label %while.body.i, label %_ZN17double_conversionL18NormalizedExponentEmi.exit, !llvm.loop !4
 
-_ZN17double_conversionL18NormalizedExponentEmi.exit: ; preds = %while.body.i, %if.end
-  %exponent.addr.0.lcssa.i = phi i32 [ %exponent.0, %if.end ], [ %sub.i44, %while.body.i ]
-  %sub.i46 = add nsw i32 %exponent.addr.0.lcssa.i, 52
+_ZN17double_conversionL18NormalizedExponentEmi.exit: ; preds = %while.body.i
+  %8 = icmp ult i32 %mode, 2
+  %cmp16 = icmp eq i64 %and, 0
+  %sub.i46 = add nsw i32 %exponent.addr.06.i, 51
   %conv.i47 = sitofp i32 %sub.i46 to double
   %9 = tail call double @llvm.fmuladd.f64(double %conv.i47, double 0x3FD34413509F79FE, double -1.000000e-10)
   %10 = tail call double @llvm.ceil.f64(double %9)
@@ -105,34 +102,15 @@ if.end26:                                         ; preds = %_ZN17double_convers
   store i16 0, ptr %delta_plus, align 4
   %exponent_.i50 = getelementptr inbounds i8, ptr %delta_plus, i64 2
   store i16 0, ptr %exponent_.i50, align 2
-  %cmp.i51 = icmp sgt i32 %exponent.0, -1
-  br i1 %cmp.i51, label %if.then.i, label %if.else.i
-
-if.then.i:                                        ; preds = %if.end26
-  call void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i64 noundef %significand.0)
-  call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef range(i32 0, -2147483648) %exponent.0)
-  call void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i16 noundef zeroext 10, i32 noundef %conv1.i)
-  br i1 %7, label %if.then.i.i, label %_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit
-
-if.then.i.i:                                      ; preds = %if.then.i
-  call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i32 noundef 1)
-  call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i32 noundef 1)
-  call void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, i16 noundef zeroext 1)
-  call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, i32 noundef range(i32 0, -2147483648) %exponent.0)
-  call void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i16 noundef zeroext 1)
-  call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i32 noundef range(i32 0, -2147483648) %exponent.0)
-  br label %if.end7.i
-
-if.else.i:                                        ; preds = %if.end26
   %cmp2.i = icmp sgt i32 %conv1.i, -1
   br i1 %cmp2.i, label %if.then3.i, label %if.else5.i
 
-if.then3.i:                                       ; preds = %if.else.i
+if.then3.i:                                       ; preds = %if.end26
   call void @_ZN17double_conversion6Bignum12AssignUInt64Em(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i64 noundef %significand.0)
   call void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i16 noundef zeroext 10, i32 noundef range(i32 0, -2147483648) %conv1.i)
   %sub.i.i = sub nsw i32 0, %exponent.0
   call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i32 noundef %sub.i.i)
-  br i1 %7, label %if.then.i23.i, label %_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit
+  br i1 %8, label %if.then.i23.i, label %_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit
 
 if.then.i23.i:                                    ; preds = %if.then3.i
   call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i32 noundef 1)
@@ -141,10 +119,10 @@ if.then.i23.i:                                    ; preds = %if.then3.i
   call void @_ZN17double_conversion6Bignum12AssignUInt16Et(ptr noundef nonnull align 4 dereferenceable(516) %delta_minus, i16 noundef zeroext 1)
   br label %if.end7.i
 
-if.else5.i:                                       ; preds = %if.else.i
+if.else5.i:                                       ; preds = %if.end26
   %sub.i24.i = sub nsw i32 0, %conv1.i
   call void @_ZN17double_conversion6Bignum17AssignPowerUInt16Eti(ptr noundef nonnull align 4 dereferenceable(516) %numerator, i16 noundef zeroext 10, i32 noundef %sub.i24.i)
-  br i1 %7, label %if.then.i25.i, label %if.end4.critedge.i.i
+  br i1 %8, label %if.then.i25.i, label %if.end4.critedge.i.i
 
 if.then.i25.i:                                    ; preds = %if.else5.i
   call void @_ZN17double_conversion6Bignum12AssignBignumERKS0_(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, ptr noundef nonnull align 4 dereferenceable(516) %numerator)
@@ -167,8 +145,8 @@ _ZN17double_conversionL53InitialScaledStartValuesNegativeExponentNegativePowerEm
   call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %denominator, i32 noundef %sub1.c.sink.i.i)
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %_ZN17double_conversionL53InitialScaledStartValuesNegativeExponentNegativePowerEmiibPNS_6BignumES1_S1_S1_.exit.i, %if.then.i23.i, %if.then.i.i
-  %brmerge.demorgan.i = and i1 %7, %lower_boundary_is_closer.0.in
+if.end7.i:                                        ; preds = %_ZN17double_conversionL53InitialScaledStartValuesNegativeExponentNegativePowerEmiibPNS_6BignumES1_S1_S1_.exit.i, %if.then.i23.i
+  %brmerge.demorgan.i = and i1 %8, %lower_boundary_is_closer.0.in
   br i1 %brmerge.demorgan.i, label %if.then10.i, label %_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit
 
 if.then10.i:                                      ; preds = %if.end7.i
@@ -177,7 +155,7 @@ if.then10.i:                                      ; preds = %if.end7.i
   call void @_ZN17double_conversion6Bignum9ShiftLeftEi(ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, i32 noundef 1)
   br label %_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit
 
-_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit: ; preds = %if.then.i, %if.then3.i, %if.end7.i, %if.then10.i
+_ZN17double_conversionL24InitialScaledStartValuesEmibibPNS_6BignumES1_S1_S1_.exit: ; preds = %if.then3.i, %if.end7.i, %if.then10.i
   %call.i = call noundef i32 @_ZN17double_conversion6Bignum11PlusCompareERKS0_S2_S2_(ptr noundef nonnull align 4 dereferenceable(516) %numerator, ptr noundef nonnull align 4 dereferenceable(516) %delta_plus, ptr noundef nonnull align 4 dereferenceable(516) %denominator)
   br i1 %cmp16, label %if.then.i55, label %if.end.i
 

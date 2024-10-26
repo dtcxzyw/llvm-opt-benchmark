@@ -693,7 +693,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %61 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
   %62 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
@@ -827,7 +827,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %61 = or disjoint i64 %.sroa.411.0.insert.shift, %.sroa.010.0
   %62 = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.010.0
@@ -1071,7 +1071,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
@@ -1214,7 +1214,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
@@ -1469,7 +1469,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
@@ -1612,7 +1612,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
@@ -1756,7 +1756,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
@@ -2110,7 +2110,7 @@ switch.lookup:
   %.sroa.613.1 = phi i32 [ %.0..sroa.613.0, %55 ], [ %.sroa.613.053, %51 ]
   %.sroa.613.0.insert.ext = zext i32 %.sroa.613.1 to i64
   %.sroa.613.0.insert.shift = shl nuw i64 %.sroa.613.0.insert.ext, 32
-  %.sroa.411.0.insert.ext = zext i8 %.sroa.411.1 to i64
+  %.sroa.411.0.insert.ext = zext nneg i8 %.sroa.411.1 to i64
   %.sroa.411.0.insert.shift = shl nuw nsw i64 %.sroa.411.0.insert.ext, 8
   %.sroa.411.0.insert.insert = or disjoint i64 %.sroa.613.0.insert.shift, %.sroa.411.0.insert.shift
   %.sroa.010.0.insert.insert = or disjoint i64 %.sroa.411.0.insert.insert, %.sroa.010.0
@@ -4691,6 +4691,7 @@ switch.lookup:
 
 .critedge:                                        ; preds = %66, %103
   %106 = call fastcc i64 @_ZN17ra_ap_rustc_lexer8unescape11scan_escape17h5a44938103c2f520E(ptr noalias noundef align 8 dereferenceable(16) %4, i8 noundef %2)
+  %.sroa.440.0.extract.shift = and i64 %106, -256
   %.sroa.541.0.extract.shift = lshr i64 %106, 16
   %.sroa.541.0.extract.trunc = trunc nuw i64 %.sroa.541.0.extract.shift to i48
   br label %.loopexit
@@ -4934,7 +4935,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
 .loopexit:                                        ; preds = %60, %.loopexit.loopexit, %65, %.critedge
   %.sroa.619.1 = phi i32 [ %.0..sroa.619.0, %65 ], [ %.sroa.619.0.ph107, %.critedge ], [ %.sroa.619.0.ph107, %.loopexit.loopexit ], [ %.sroa.619.0.ph107, %60 ]
   %.sroa.10.sroa.0.1 = phi i48 [ %.sroa.544.0.extract.trunc, %65 ], [ %.sroa.541.0.extract.trunc, %.critedge ], [ %.sroa.10.sroa.0.0.ph108, %.loopexit.loopexit ], [ %.sroa.10.sroa.0.0.ph108, %60 ]
-  %.sroa.8.0 = phi i64 [ %.sroa.34.0.insert.insert.i, %65 ], [ %106, %.critedge ], [ 1536, %.loopexit.loopexit ], [ 1024, %60 ]
+  %.sroa.8.0 = phi i64 [ %.sroa.34.0.insert.insert.i, %65 ], [ %.sroa.440.0.extract.shift, %.critedge ], [ 1536, %.loopexit.loopexit ], [ 1024, %60 ]
   %.sroa.0.0 = phi i64 [ %.sroa.03.0.insert.insert.i, %65 ], [ %106, %.critedge ], [ 2, %.loopexit.loopexit ], [ 2, %60 ]
   %.sroa.529.0.insert.ext = zext i48 %.sroa.10.sroa.0.1 to i64
   %.sroa.529.0.insert.shift = shl nuw i64 %.sroa.529.0.insert.ext, 16
@@ -4950,7 +4951,7 @@ _ZN17ra_ap_rustc_lexer8unescape21skip_ascii_whitespace17h02f45b36973fe20fE.exit:
   %.not.i = icmp ne i64 %.sroa.027.0.insert.ext, 2
   %or.cond18.i = and i1 %.not.i, %or.cond.i61
   %.val.i = load ptr, ptr %.val.i.i, align 8, !nonnull !7, !noundef !7
-  %215 = lshr i64 %.sroa.8.0, 8
+  %215 = lshr exact i64 %.sroa.8.0, 8
   %216 = trunc i64 %215 to i8
   %.sroa.4.0.extract.trunc.i.i = select i1 %or.cond18.i, i8 20, i8 %216
   call void @"_ZN6syntax10validation16validate_literal28_$u7b$$u7b$closure$u7d$$u7d$17h71b543bdaad99925E.llvm.11162169574061779932"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val.i, i64 noundef 1, i64 noundef %64, i8 noundef %.sroa.4.0.extract.trunc.i.i)

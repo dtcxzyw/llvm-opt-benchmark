@@ -2764,20 +2764,11 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %3 = load ptr, ptr @tcaches, align 8
   %idxprom = zext i32 %ind to i64
   %arrayidx = getelementptr inbounds %struct.tcaches_s, ptr %3, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %switch = icmp ult ptr %4, inttoptr (i64 2 to ptr)
-  %5 = load ptr, ptr @tcaches_avail, align 8
-  store ptr %5, ptr %arrayidx, align 8
+  %4 = load ptr, ptr @tcaches_avail, align 8
+  store ptr %4, ptr %arrayidx, align 8
   store ptr %arrayidx, ptr @tcaches_avail, align 8
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tcaches_mtx, i64 104) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tcaches_mtx, i64 64)) #13
-  br i1 %switch, label %if.end, label %if.then
-
-if.then:                                          ; preds = %malloc_mutex_lock.exit
-  tail call fastcc void @tcache_destroy(ptr noundef %tsd, ptr noundef nonnull %4)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %malloc_mutex_lock.exit
   ret void
 }
 

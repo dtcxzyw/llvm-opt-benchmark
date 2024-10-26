@@ -1825,50 +1825,33 @@ define dso_local noundef ptr @_ZNK7AstNode6abovepEv(ptr noundef nonnull align 8 
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 16
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.not.i3 = icmp eq ptr %.pre, null
   br i1 %.not, label %.critedge, label %4
 
 4:                                                ; preds = %1
-  br i1 %.not.i3, label %select.unfold, label %5
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %select.unfold, label %7
 
-5:                                                ; preds = %4
-  %6 = getelementptr inbounds i8, ptr %.pre, i64 8
-  %7 = load ptr, ptr %6, align 8
-  %.not1.i = icmp eq ptr %7, %0
-  br i1 %.not1.i, label %select.unfold, label %_ZNK7AstNode11firstAbovepEv.exit6
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %9 = load ptr, ptr %8, align 8
+  %.not1.i = icmp eq ptr %9, %0
+  br i1 %.not1.i, label %select.unfold, label %.critedge
 
-select.unfold:                                    ; preds = %5, %4
-  %8 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 92, i1 noundef zeroext false)
-  %9 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %10 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull @.str.558)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(112) %10) #26
+select.unfold:                                    ; preds = %7, %4
+  %10 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 92, i1 noundef zeroext false)
+  %11 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.558)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(112) %12) #26
   unreachable
 
-.critedge:                                        ; preds = %1
-  br i1 %.not.i3, label %_ZNK7AstNode11firstAbovepEv.exit6.thread, label %_ZNK7AstNode11firstAbovepEv.exit6
-
-_ZNK7AstNode11firstAbovepEv.exit6.thread:         ; preds = %.critedge
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = load ptr, ptr %11, align 8
-  br label %17
-
-_ZNK7AstNode11firstAbovepEv.exit6:                ; preds = %5, %.critedge
-  %13 = getelementptr inbounds i8, ptr %.pre, i64 8
+.critedge:                                        ; preds = %7, %1
+  %13 = getelementptr inbounds i8, ptr %0, i64 80
   %14 = load ptr, ptr %13, align 8
-  %.fr = freeze ptr %14
-  %.not1.i4 = icmp eq ptr %.fr, %0
-  %15 = getelementptr inbounds i8, ptr %0, i64 80
+  %15 = getelementptr inbounds i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
-  %spec.select = select i1 %.not1.i4, ptr %16, ptr %0
-  br label %17
-
-17:                                               ; preds = %_ZNK7AstNode11firstAbovepEv.exit6, %_ZNK7AstNode11firstAbovepEv.exit6.thread
-  %18 = phi ptr [ %12, %_ZNK7AstNode11firstAbovepEv.exit6.thread ], [ %spec.select, %_ZNK7AstNode11firstAbovepEv.exit6 ]
-  %19 = getelementptr inbounds i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  ret ptr %20
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress noreturn uwtable

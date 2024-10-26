@@ -54,81 +54,78 @@ define void @init_by_array(ptr nocapture noundef readonly %0, i32 noundef %1) lo
 init_genrand.exit:                                ; preds = %3
   store i32 624, ptr @mti, align 4
   %11 = tail call i32 @llvm.smax.i32(i32 %1, i32 624)
-  br label %12
+  %12 = icmp sgt i32 %1, 1
+  %spec.store.select = zext i1 %12 to i64
+  br label %13
 
-12:                                               ; preds = %init_genrand.exit, %35
-  %.035 = phi i32 [ %11, %init_genrand.exit ], [ %36, %35 ]
-  %.02634 = phi i32 [ 0, %init_genrand.exit ], [ %spec.store.select, %35 ]
-  %.02733 = phi i32 [ 1, %init_genrand.exit ], [ %.128, %35 ]
-  %13 = sext i32 %.02733 to i64
-  %14 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %13
-  %15 = load i64, ptr %14, align 8
-  %16 = add nsw i32 %.02733, -1
-  %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %17
-  %19 = load i64, ptr %18, align 8
-  %20 = lshr i64 %19, 30
-  %21 = xor i64 %20, %19
-  %22 = mul i64 %21, 1664525
-  %23 = xor i64 %22, %15
-  %24 = sext i32 %.02634 to i64
-  %25 = getelementptr inbounds i64, ptr %0, i64 %24
+13:                                               ; preds = %init_genrand.exit, %33
+  %.034 = phi i32 [ %11, %init_genrand.exit ], [ %34, %33 ]
+  %.02633 = phi i64 [ 0, %init_genrand.exit ], [ %spec.store.select, %33 ]
+  %.02732 = phi i32 [ 1, %init_genrand.exit ], [ %.128, %33 ]
+  %14 = sext i32 %.02732 to i64
+  %15 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %14
+  %16 = load i64, ptr %15, align 8
+  %17 = add nsw i32 %.02732, -1
+  %18 = sext i32 %17 to i64
+  %19 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %18
+  %20 = load i64, ptr %19, align 8
+  %21 = lshr i64 %20, 30
+  %22 = xor i64 %21, %20
+  %23 = mul i64 %22, 1664525
+  %24 = xor i64 %23, %16
+  %25 = getelementptr inbounds i64, ptr %0, i64 %.02633
   %26 = load i64, ptr %25, align 8
-  %27 = add i64 %26, %24
-  %28 = add i64 %27, %23
-  %29 = and i64 %28, 4294967295
-  store i64 %29, ptr %14, align 8
-  %30 = add nsw i32 %.02733, 1
-  %31 = add nsw i32 %.02634, 1
-  %32 = icmp sgt i32 %.02733, 622
-  br i1 %32, label %33, label %35
+  %27 = add i64 %24, %26
+  %28 = and i64 %27, 4294967295
+  store i64 %28, ptr %15, align 8
+  %29 = add nsw i32 %.02732, 1
+  %30 = icmp sgt i32 %.02732, 622
+  br i1 %30, label %31, label %33
 
-33:                                               ; preds = %12
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
-  store i64 %34, ptr @mt, align 16
-  br label %35
+31:                                               ; preds = %13
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
+  store i64 %32, ptr @mt, align 16
+  br label %33
 
-35:                                               ; preds = %33, %12
-  %.128 = phi i32 [ 1, %33 ], [ %30, %12 ]
-  %.not32 = icmp slt i32 %31, %1
-  %spec.store.select = select i1 %.not32, i32 %31, i32 0
-  %36 = add nsw i32 %.035, -1
-  %.not = icmp eq i32 %36, 0
-  br i1 %.not, label %.preheader, label %12
+33:                                               ; preds = %31, %13
+  %.128 = phi i32 [ 1, %31 ], [ %29, %13 ]
+  %34 = add nsw i32 %.034, -1
+  %.not = icmp eq i32 %34, 0
+  br i1 %.not, label %.preheader, label %13
 
-.preheader:                                       ; preds = %35, %54
-  %.137 = phi i32 [ %55, %54 ], [ 623, %35 ]
-  %.236 = phi i32 [ %.3, %54 ], [ %.128, %35 ]
-  %37 = sext i32 %.236 to i64
-  %38 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %37
-  %39 = load i64, ptr %38, align 8
-  %40 = add nsw i32 %.236, -1
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %41
-  %43 = load i64, ptr %42, align 8
-  %44 = lshr i64 %43, 30
-  %45 = xor i64 %44, %43
-  %46 = mul i64 %45, 1566083941
-  %47 = xor i64 %46, %39
-  %48 = sub i64 %47, %37
-  %49 = and i64 %48, 4294967295
-  store i64 %49, ptr %38, align 8
-  %50 = add nsw i32 %.236, 1
-  %51 = icmp sgt i32 %.236, 622
-  br i1 %51, label %52, label %54
+.preheader:                                       ; preds = %33, %52
+  %.136 = phi i32 [ %53, %52 ], [ 623, %33 ]
+  %.235 = phi i32 [ %.3, %52 ], [ %.128, %33 ]
+  %35 = sext i32 %.235 to i64
+  %36 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %35
+  %37 = load i64, ptr %36, align 8
+  %38 = add nsw i32 %.235, -1
+  %39 = sext i32 %38 to i64
+  %40 = getelementptr inbounds [624 x i64], ptr @mt, i64 0, i64 %39
+  %41 = load i64, ptr %40, align 8
+  %42 = lshr i64 %41, 30
+  %43 = xor i64 %42, %41
+  %44 = mul i64 %43, 1566083941
+  %45 = xor i64 %44, %37
+  %46 = sub i64 %45, %35
+  %47 = and i64 %46, 4294967295
+  store i64 %47, ptr %36, align 8
+  %48 = add nsw i32 %.235, 1
+  %49 = icmp sgt i32 %.235, 622
+  br i1 %49, label %50, label %52
 
-52:                                               ; preds = %.preheader
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
-  store i64 %53, ptr @mt, align 16
-  br label %54
+50:                                               ; preds = %.preheader
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @mt, i64 4984), align 8
+  store i64 %51, ptr @mt, align 16
+  br label %52
 
-54:                                               ; preds = %.preheader, %52
-  %.3 = phi i32 [ 1, %52 ], [ %50, %.preheader ]
-  %55 = add nsw i32 %.137, -1
-  %.not31 = icmp eq i32 %55, 0
-  br i1 %.not31, label %56, label %.preheader
+52:                                               ; preds = %.preheader, %50
+  %.3 = phi i32 [ 1, %50 ], [ %48, %.preheader ]
+  %53 = add nsw i32 %.136, -1
+  %.not31 = icmp eq i32 %53, 0
+  br i1 %.not31, label %54, label %.preheader
 
-56:                                               ; preds = %54
+54:                                               ; preds = %52
   store i64 2147483648, ptr @mt, align 16
   ret void
 }

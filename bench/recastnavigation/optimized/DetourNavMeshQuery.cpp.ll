@@ -30,7 +30,6 @@ $_ZGVZ8dtVequalPKfS0_E3thr = comdat any
 @.str.2 = private unnamed_addr constant [11 x i8] c"m_nodePool\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"m_openList\00", align 1
 @.str.4 = private unnamed_addr constant [8 x i8] c"curNode\00", align 1
-@.str.5 = private unnamed_addr constant [9 x i8] c"!curNode\00", align 1
 @.str.6 = private unnamed_addr constant [21 x i8] c"m_query.lastBestNode\00", align 1
 @.str.7 = private unnamed_addr constant [15 x i8] c"m_tinyNodePool\00", align 1
 @_ZTV11dtPolyQuery = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI11dtPolyQuery, ptr @_ZN11dtPolyQueryD1Ev, ptr @_ZN11dtPolyQueryD0Ev, ptr @__cxa_pure_virtual] }, align 8
@@ -1711,15 +1710,15 @@ _Z11dtVisfinitePKf.exit:                          ; preds = %22
 ._crit_edge53:                                    ; preds = %.lr.ph52, %62
   %.032.lcssa6466 = phi i32 [ 1, %62 ], [ %54, %.lr.ph52 ]
   %.034.lcssa = phi i32 [ 0, %62 ], [ %.1, %.lr.ph52 ]
-  %68 = mul nsw i32 %.034.lcssa, 3
-  %69 = sext i32 %68 to i64
+  %68 = mul nuw nsw i32 %.034.lcssa, 3
+  %69 = zext nneg i32 %68 to i64
   %70 = getelementptr inbounds [18 x float], ptr %7, i64 0, i64 %69
-  %71 = add nsw i32 %.034.lcssa, 1
-  %72 = srem i32 %71, %.032.lcssa6466
-  %73 = mul nsw i32 %72, 3
-  %74 = sext i32 %73 to i64
+  %71 = add nuw nsw i32 %.034.lcssa, 1
+  %72 = urem i32 %71, %.032.lcssa6466
+  %73 = mul nuw nsw i32 %72, 3
+  %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds [18 x float], ptr %7, i64 0, i64 %74
-  %76 = sext i32 %.034.lcssa to i64
+  %76 = zext nneg i32 %.034.lcssa to i64
   %77 = getelementptr inbounds [6 x float], ptr %9, i64 0, i64 %76
   %78 = load float, ptr %77, align 4
   %79 = load float, ptr %70, align 4
@@ -3348,20 +3347,9 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
   br i1 %48, label %.lr.ph60, label %._crit_edge, !llvm.loop !31
 
 ._crit_edge:                                      ; preds = %36, %.preheader
-  %.2.lcssa = phi ptr [ %.0.i47, %.preheader ], [ %.0.i49, %36 ]
   %49 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
-  %50 = icmp ne ptr %49, null
-  %51 = icmp ne ptr %.2.lcssa, null
-  %or.cond5 = and i1 %51, %50
-  br i1 %or.cond5, label %52, label %53
-
-52:                                               ; preds = %._crit_edge
-  tail call void %49(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.1, i32 noundef 1197)
-  br label %53
-
-53:                                               ; preds = %52, %._crit_edge
-  %54 = tail call noundef i32 @llvm.smin.i32(i32 %.us-phi53, i32 %4)
-  store i32 %54, ptr %3, align 4
+  %50 = tail call noundef i32 @llvm.smin.i32(i32 %.us-phi53, i32 %4)
+  store i32 %50, ptr %3, align 4
   %.not45 = icmp slt i32 %.us-phi, %4
   %. = select i1 %.not45, i32 1073741824, i32 1073741840
   ret i32 %.

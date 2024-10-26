@@ -17130,7 +17130,7 @@ nvme_parse_pid.exit.i:                            ; preds = %lor.lhs.false.i
   %spec.select.i = select i1 %cmp.i13.i.i, i16 %retval.0.i12.i.i, i16 0
   %spec.select25.i = select i1 %cmp.i13.i.i, i16 %retval.0.i.i.i, i16 0
   %71 = zext i16 %spec.select.i to i64
-  %72 = zext i16 %spec.select25.i to i64
+  %72 = zext nneg i16 %spec.select25.i to i64
   br label %if.end.i130
 
 if.end.i130:                                      ; preds = %nvme_parse_pid.exit.i, %lor.lhs.false.i, %if.then148
@@ -18817,7 +18817,7 @@ while.body.us:                                    ; preds = %while.body.lr.ph, %
   %cond16.us = load i64, ptr %iov_len.us, align 8
   %conv17.us = zext i32 %count.046.us to i64
   %cond22.us = tail call i64 @llvm.umin.i64(i64 %sg_len.044.us, i64 %conv17.us)
-  %sub.us = sub i64 %cond16.us, %offset.045.us
+  %sub.us = sub nuw nsw i64 %cond16.us, %offset.045.us
   %cond31.us = tail call i64 @llvm.umin.i64(i64 %cond22.us, i64 %sub.us)
   %conv32.us = trunc nuw i64 %cond31.us to i32
   %tobool33.not.us = icmp eq ptr %dst.047.us, null
@@ -18834,7 +18834,6 @@ if.then34.us:                                     ; preds = %while.body.us
 if.end47.us:                                      ; preds = %if.then34.us, %while.body.us
   %sub49.us = sub i64 %sg_len.044.us, %cond31.us
   %sub50.us = sub i32 %count.046.us, %conv32.us
-  %add52.us = add i64 %cond31.us, %offset.045.us
   %cmp53.us = icmp eq i32 %sub50.us, 0
   br i1 %cmp53.us, label %if.then55.us, label %if.end71.us
 
@@ -18861,10 +18860,10 @@ cond.end68.us:                                    ; preds = %cond.true64.us, %co
 if.end71.us:                                      ; preds = %cond.end68.us, %if.end47.us
   %count.1.us = phi i32 [ %conv70.us, %cond.end68.us ], [ %sub50.us, %if.end47.us ]
   %dst.1.us = phi ptr [ %cond61.us, %cond.end68.us ], [ %dst.047.us, %if.end47.us ]
-  %cmp72.us = icmp eq i64 %cond16.us, %add52.us
+  %cmp72.us = icmp eq i64 %cond16.us, %cond31.us
   %inc.us = zext i1 %cmp72.us to i32
   %spec.select.us = add i32 %sg_idx.043.us, %inc.us
-  %spec.select41.us = select i1 %cmp72.us, i64 0, i64 %add52.us
+  %spec.select41.us = select i1 %cmp72.us, i64 0, i64 %cond31.us
   %tobool7.not.us = icmp eq i64 %sub49.us, 0
   br i1 %tobool7.not.us, label %while.end, label %while.body.us, !llvm.loop !50
 
@@ -18884,7 +18883,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %cond16 = load i64, ptr %len, align 8
   %conv17 = zext i32 %count.046 to i64
   %cond22 = tail call i64 @llvm.umin.i64(i64 %sg_len.044, i64 %conv17)
-  %sub = sub i64 %cond16, %offset.045
+  %sub = sub nuw nsw i64 %cond16, %offset.045
   %cond31 = tail call i64 @llvm.umin.i64(i64 %cond22, i64 %sub)
   %conv32 = trunc nuw i64 %cond31 to i32
   %tobool33.not = icmp eq ptr %dst.047, null
@@ -18894,14 +18893,12 @@ if.then34:                                        ; preds = %while.body
   %9 = getelementptr inbounds i8, ptr %dst.047, i64 8
   %arrayidx39 = getelementptr %struct.ScatterGatherEntry, ptr %8, i64 %idxprom
   %10 = load i64, ptr %arrayidx39, align 8
-  %add = add i64 %10, %offset.045
-  tail call void @qemu_sglist_add(ptr noundef nonnull %9, i64 noundef %add, i64 noundef %cond31) #19
+  tail call void @qemu_sglist_add(ptr noundef nonnull %9, i64 noundef %10, i64 noundef %cond31) #19
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then34, %while.body
   %sub49 = sub i64 %sg_len.044, %cond31
   %sub50 = sub i32 %count.046, %conv32
-  %add52 = add i64 %cond31, %offset.045
   %cmp53 = icmp eq i32 %sub50, 0
   br i1 %cmp53, label %if.then55, label %if.end71
 
@@ -18928,10 +18925,10 @@ cond.end68:                                       ; preds = %cond.false66, %cond
 if.end71:                                         ; preds = %cond.end68, %if.end47
   %count.1 = phi i32 [ %conv70, %cond.end68 ], [ %sub50, %if.end47 ]
   %dst.1 = phi ptr [ %cond61, %cond.end68 ], [ %dst.047, %if.end47 ]
-  %cmp72 = icmp eq i64 %cond16, %add52
+  %cmp72 = icmp eq i64 %cond16, %cond31
   %inc = zext i1 %cmp72 to i32
   %spec.select = add i32 %sg_idx.043, %inc
-  %spec.select41 = select i1 %cmp72, i64 0, i64 %add52
+  %spec.select41 = select i1 %cmp72, i64 0, i64 %cond31
   %tobool7.not = icmp eq i64 %sub49, 0
   br i1 %tobool7.not, label %while.end, label %while.body, !llvm.loop !50
 

@@ -5396,21 +5396,10 @@ sw.bb30:                                          ; preds = %for.cond, %for.cond
   br i1 %cmp38, label %if.then39, label %for.inc
 
 if.then39:                                        ; preds = %sw.bb30
-  %12 = and i8 %1, -33
-  %13 = icmp eq i8 %12, 67
-  %conv44 = select i1 %13, i32 6, i32 0
-  %14 = icmp eq i8 %12, 77
-  %conv51 = select i1 %14, i32 5, i32 0
-  %or = or i32 %conv44, %conv51
-  %15 = icmp eq i8 %12, 89
-  %conv59 = select i1 %15, i32 3, i32 0
-  %or61 = or i32 %or, %conv59
-  %16 = icmp eq i8 %12, 87
-  %or70 = select i1 %16, i32 7, i32 %or61
   %add.ptr.i46 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %11, i64 %conv35
   %call74 = tail call noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i46)
   %color75 = getelementptr inbounds i8, ptr %call74, i64 8
-  store i32 %or70, ptr %color75, align 8
+  store i32 7, ptr %color75, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.cond, %if.end25, %sw.bb29, %if.then39, %sw.bb30

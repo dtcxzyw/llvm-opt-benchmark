@@ -3596,52 +3596,43 @@ if.else:                                          ; preds = %entry
   %cond59 = select i1 %cmp58, i32 2, i32 0
   %cond60 = select i1 %cmp44, i32 %cond, i32 %cond59
   %cond60.fr = freeze i32 %cond60
-  %add61 = add nuw nsw i32 %cond60.fr, 1
-  %9 = icmp eq i32 %add61, 3
-  %rem = select i1 %9, i32 0, i32 %add61
-  %add62 = add nuw nsw i32 %cond60.fr, 2
-  %rem63 = urem i32 %add62, 3
+  %rem63.urem = add nsw i32 %cond60.fr, -1
+  %rem63.cmp = icmp eq i32 %cond60.fr, 0
+  %rem63 = select i1 %rem63.cmp, i32 2, i32 %rem63.urem
   %idxprom = zext nneg i32 %cond60.fr to i64
   %arrayidx66 = getelementptr inbounds [3 x %class.b3Vector3], ptr %this, i64 0, i64 %idxprom
   %arrayidx69 = getelementptr inbounds float, ptr %arrayidx66, i64 %idxprom
-  %10 = load float, ptr %arrayidx69, align 4
-  %idxprom71 = sext i32 %rem to i64
-  %arrayidx72 = getelementptr inbounds [3 x %class.b3Vector3], ptr %this, i64 0, i64 %idxprom71
-  %arrayidx75 = getelementptr inbounds float, ptr %arrayidx72, i64 %idxprom71
-  %11 = load float, ptr %arrayidx75, align 4
-  %sub76 = fsub float %10, %11
+  %9 = load float, ptr %arrayidx69, align 4
+  %sub76 = fsub float %9, %0
   %idxprom78 = zext nneg i32 %rem63 to i64
   %arrayidx79 = getelementptr inbounds [3 x %class.b3Vector3], ptr %this, i64 0, i64 %idxprom78
   %arrayidx82 = getelementptr inbounds float, ptr %arrayidx79, i64 %idxprom78
-  %12 = load float, ptr %arrayidx82, align 4
-  %sub83 = fsub float %sub76, %12
+  %10 = load float, ptr %arrayidx82, align 4
+  %sub83 = fsub float %sub76, %10
   %add84 = fadd float %sub83, 1.000000e+00
   %call.i39 = tail call noundef float @sqrtf(float noundef %add84) #17
   %mul86 = fmul float %call.i39, 5.000000e-01
   %arrayidx88 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 %idxprom
   store float %mul86, ptr %arrayidx88, align 4
   %div89 = fdiv float 5.000000e-01, %call.i39
-  %arrayidx95 = getelementptr inbounds float, ptr %arrayidx79, i64 %idxprom71
-  %13 = load float, ptr %arrayidx95, align 4
-  %arrayidx101 = getelementptr inbounds float, ptr %arrayidx72, i64 %idxprom78
-  %14 = load float, ptr %arrayidx101, align 4
-  %sub102 = fsub float %13, %14
+  %11 = load float, ptr %arrayidx79, align 16
+  %arrayidx101 = getelementptr inbounds float, ptr %this, i64 %idxprom78
+  %12 = load float, ptr %arrayidx101, align 4
+  %sub102 = fsub float %11, %12
   %mul103 = fmul float %div89, %sub102
   %arrayidx104 = getelementptr inbounds i8, ptr %temp, i64 12
   store float %mul103, ptr %arrayidx104, align 4
-  %arrayidx110 = getelementptr inbounds float, ptr %arrayidx72, i64 %idxprom
-  %15 = load float, ptr %arrayidx110, align 4
-  %arrayidx116 = getelementptr inbounds float, ptr %arrayidx66, i64 %idxprom71
-  %16 = load float, ptr %arrayidx116, align 4
-  %add117 = fadd float %15, %16
+  %arrayidx110 = getelementptr inbounds float, ptr %this, i64 %idxprom
+  %13 = load float, ptr %arrayidx110, align 4
+  %14 = load float, ptr %arrayidx66, align 16
+  %add117 = fadd float %13, %14
   %mul118 = fmul float %div89, %add117
-  %arrayidx120 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 %idxprom71
-  store float %mul118, ptr %arrayidx120, align 4
+  store float %mul118, ptr %temp, align 16
   %arrayidx126 = getelementptr inbounds float, ptr %arrayidx79, i64 %idxprom
-  %17 = load float, ptr %arrayidx126, align 4
+  %15 = load float, ptr %arrayidx126, align 4
   %arrayidx132 = getelementptr inbounds float, ptr %arrayidx66, i64 %idxprom78
-  %18 = load float, ptr %arrayidx132, align 4
-  %add133 = fadd float %17, %18
+  %16 = load float, ptr %arrayidx132, align 4
+  %add133 = fadd float %15, %16
   %mul134 = fmul float %div89, %add133
   %arrayidx136 = getelementptr inbounds [4 x float], ptr %temp, i64 0, i64 %idxprom78
   store float %mul134, ptr %arrayidx136, align 4
@@ -3654,17 +3645,17 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %19 = phi float [ %.pre42, %if.else ], [ %mul, %if.then ]
-  %20 = phi float [ %.pre41, %if.else ], [ %mul36, %if.then ]
-  %21 = phi float [ %.pre40, %if.else ], [ %mul27, %if.then ]
-  %22 = phi float [ %.pre, %if.else ], [ %mul18, %if.then ]
-  store float %22, ptr %q, align 16
+  %17 = phi float [ %.pre42, %if.else ], [ %mul, %if.then ]
+  %18 = phi float [ %.pre41, %if.else ], [ %mul36, %if.then ]
+  %19 = phi float [ %.pre40, %if.else ], [ %mul27, %if.then ]
+  %20 = phi float [ %.pre, %if.else ], [ %mul18, %if.then ]
+  store float %20, ptr %q, align 16
   %arrayidx2.i = getelementptr inbounds i8, ptr %q, i64 4
-  store float %21, ptr %arrayidx2.i, align 4
+  store float %19, ptr %arrayidx2.i, align 4
   %arrayidx3.i = getelementptr inbounds i8, ptr %q, i64 8
-  store float %20, ptr %arrayidx3.i, align 8
+  store float %18, ptr %arrayidx3.i, align 8
   %arrayidx4.i = getelementptr inbounds i8, ptr %q, i64 12
-  store float %19, ptr %arrayidx4.i, align 4
+  store float %17, ptr %arrayidx4.i, align 4
   ret void
 }
 

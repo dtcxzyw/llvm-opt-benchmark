@@ -5447,14 +5447,14 @@ if.end13:                                         ; preds = %if.else, %if.then9
   %cmp.i62.sink = icmp slt i64 %limit, 0
   %4 = trunc nuw nsw i64 %spec.select71.sink to i32
   %conv.i65 = select i1 %cmp.i62.sink, i32 0, i32 %4
-  %cmp1476 = icmp slt i32 %2, %conv.i65
+  %cmp1476 = icmp slt i32 %2, 0
   br i1 %cmp1476, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end13
   %cmp15 = icmp slt i32 %conv, 0
   %5 = sext i32 %2 to i64
   %6 = zext nneg i32 %destCapacity to i64
-  %7 = sub i32 %conv.i65, %2
+  %7 = sub i32 0, %2
   %wide.trip.count124 = zext i32 %7 to i64
   br i1 %cmp15, label %for.body.us, label %for.body.us84
 
@@ -5485,7 +5485,7 @@ for.body.us84:                                    ; preds = %for.body.lr.ph, %if
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %if.then25.us89 ], [ 0, %for.body.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %if.then25.us89 ], [ %5, %for.body.lr.ph ]
   %exitcond.not = icmp eq i64 %indvars.iv110, %6
-  br i1 %exitcond.not, label %for.end, label %if.then25.us89
+  br i1 %exitcond.not, label %if.then32, label %if.then25.us89
 
 if.then25.us89:                                   ; preds = %for.body.us84
   %arrayidx27.us91 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
@@ -5509,6 +5509,10 @@ if.then19:                                        ; preds = %for.body.us
   store i32 %11, ptr %nativeIndexingLimit, align 4
   br label %for.end
 
+if.then32:                                        ; preds = %for.body.us84
+  %sub = sub nsw i32 %conv.i65, %2
+  br label %for.end
+
 for.end.loopexit:                                 ; preds = %if.end34.us
   %12 = trunc nsw i64 %indvars.iv.next118 to i32
   br label %for.end
@@ -5517,10 +5521,10 @@ for.end.loopexit106:                              ; preds = %if.then25.us89
   %13 = trunc nsw i64 %indvars.iv.next to i32
   br label %for.end
 
-for.end:                                          ; preds = %for.body.us84, %for.end.loopexit106, %for.end.loopexit, %if.end13, %if.then19
-  %di.1 = phi i32 [ %10, %if.then19 ], [ 0, %if.end13 ], [ %7, %for.end.loopexit ], [ %7, %for.end.loopexit106 ], [ %7, %for.body.us84 ]
-  %si.1 = phi i32 [ %11, %if.then19 ], [ %2, %if.end13 ], [ %12, %for.end.loopexit ], [ %13, %for.end.loopexit106 ], [ %conv.i65, %for.body.us84 ]
-  %strLength.0 = phi i32 [ %11, %if.then19 ], [ %conv, %if.end13 ], [ %conv, %for.end.loopexit ], [ %conv, %for.end.loopexit106 ], [ %conv, %for.body.us84 ]
+for.end:                                          ; preds = %for.end.loopexit106, %for.end.loopexit, %if.end13, %if.then32, %if.then19
+  %di.1 = phi i32 [ %10, %if.then19 ], [ %sub, %if.then32 ], [ 0, %if.end13 ], [ %7, %for.end.loopexit ], [ %7, %for.end.loopexit106 ]
+  %si.1 = phi i32 [ %11, %if.then19 ], [ %conv.i65, %if.then32 ], [ %2, %if.end13 ], [ %12, %for.end.loopexit ], [ %13, %for.end.loopexit106 ]
+  %strLength.0 = phi i32 [ %11, %if.then19 ], [ %conv, %if.then32 ], [ %conv, %if.end13 ], [ %conv, %for.end.loopexit ], [ %conv, %for.end.loopexit106 ]
   %cmp36 = icmp sgt i32 %si.1, 0
   br i1 %cmp36, label %land.lhs.true37, label %if.end63
 
@@ -5866,7 +5870,7 @@ land.lhs.true11:                                  ; preds = %if.end6.thread.land
   %2 = phi i64 [ %.pre, %if.end6.thread.land.lhs.true11_crit_edge ], [ %1, %if.else9 ]
   %clippedIndex.06470 = phi i32 [ 0, %if.end6.thread.land.lhs.true11_crit_edge ], [ %spec.select, %if.else9 ]
   %cmp76768 = phi i1 [ false, %if.end6.thread.land.lhs.true11_crit_edge ], [ %cmp7, %if.else9 ]
-  %conv12 = sext i32 %clippedIndex.06470 to i64
+  %conv12 = zext nneg i32 %clippedIndex.06470 to i64
   %cmp14 = icmp eq i64 %2, %conv12
   %or.cond1 = and i1 %cmp76768, %cmp14
   %dec18 = sext i1 %or.cond1 to i32

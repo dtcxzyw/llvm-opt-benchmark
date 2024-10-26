@@ -3,94 +3,20 @@ source_filename = "bench/cmake/original/archive_options.c.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-@.str = private unnamed_addr constant [13 x i8] c"Empty option\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"Unknown module name: `%s'\00", align 1
-@.str.2 = private unnamed_addr constant [33 x i8] c"Undefined option: `%s%s%s%s%s%s'\00", align 1
 @.str.3 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@.str.4 = private unnamed_addr constant [2 x i8] c"!\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@.str.6 = private unnamed_addr constant [2 x i8] c"=\00", align 1
 @.str.7 = private unnamed_addr constant [34 x i8] c"Out of memory adding file to list\00", align 1
 @.str.8 = private unnamed_addr constant [29 x i8] c"__ignore_wrong_module_name__\00", align 1
 @.str.9 = private unnamed_addr constant [27 x i8] c"Undefined option: `%s%s%s'\00", align 1
 @.str.10 = private unnamed_addr constant [2 x i8] c"1\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_archive_set_option(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @_archive_set_option(ptr noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
   %8 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef %4, i32 noundef 1, ptr noundef %5) #6
   %9 = icmp eq i32 %8, -30
-  br i1 %9, label %36, label %10
-
-10:                                               ; preds = %7
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %13, label %11
-
-11:                                               ; preds = %10
-  %12 = load i8, ptr %1, align 1
-  %.not44 = icmp eq i8 %12, 0
-  %spec.select = select i1 %.not44, ptr null, ptr %1
-  br label %13
-
-13:                                               ; preds = %11, %10
-  %14 = phi ptr [ null, %10 ], [ %spec.select, %11 ]
-  %.not45 = icmp eq ptr %2, null
-  br i1 %.not45, label %17, label %15
-
-15:                                               ; preds = %13
-  %16 = load i8, ptr %2, align 1
-  %.not46 = icmp eq i8 %16, 0
-  %spec.select2 = select i1 %.not46, ptr null, ptr %2
-  br label %17
-
-17:                                               ; preds = %15, %13
-  %18 = phi ptr [ null, %13 ], [ %spec.select2, %15 ]
-  %.not47 = icmp eq ptr %3, null
-  br i1 %.not47, label %21, label %19
-
-19:                                               ; preds = %17
-  %20 = load i8, ptr %3, align 1
-  %.not48 = icmp eq i8 %20, 0
-  %spec.select3 = select i1 %.not48, ptr null, ptr %3
-  br label %21
-
-21:                                               ; preds = %19, %17
-  %22 = phi ptr [ null, %17 ], [ %spec.select3, %19 ]
-  %23 = icmp eq ptr %18, null
-  %24 = icmp eq ptr %22, null
-  %or.cond = select i1 %23, i1 %24, i1 false
-  br i1 %or.cond, label %36, label %25
-
-25:                                               ; preds = %21
-  br i1 %23, label %26, label %27
-
-26:                                               ; preds = %25
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str) #6
-  br label %36
-
-27:                                               ; preds = %25
-  %28 = tail call i32 %6(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %18, ptr noundef %22) #6
-  switch i32 %28, label %36 [
-    i32 -21, label %29
-    i32 -20, label %30
-  ]
-
-29:                                               ; preds = %27
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.1, ptr noundef %14) #6
-  br label %36
-
-30:                                               ; preds = %27
-  %31 = select i1 %24, ptr @.str.4, ptr @.str.3
-  %.not50 = icmp eq ptr %14, null
-  %32 = select i1 %.not50, ptr @.str.3, ptr %14
-  %33 = select i1 %.not50, ptr @.str.3, ptr @.str.5
-  %34 = select i1 %24, ptr @.str.3, ptr @.str.6
-  %35 = select i1 %24, ptr @.str.3, ptr %22
-  tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.2, ptr noundef nonnull %31, ptr noundef nonnull %32, ptr noundef nonnull %33, ptr noundef nonnull %18, ptr noundef nonnull %34, ptr noundef nonnull %35) #6
-  br label %36
-
-36:                                               ; preds = %27, %21, %7, %30, %29, %26
-  %.0 = phi i32 [ -25, %26 ], [ -25, %29 ], [ -25, %30 ], [ -30, %7 ], [ 0, %21 ], [ %28, %27 ]
-  ret i32 %.0
+  %spec.select = select i1 %9, i32 -30, i32 0
+  ret i32 %spec.select
 }
 
 declare i32 @__archive_check_magic(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

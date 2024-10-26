@@ -230,11 +230,11 @@ if.then89:                                        ; preds = %if.then86
   br label %return
 
 if.end91:                                         ; preds = %if.end83
-  switch i32 %outform.0, label %sw.epilog98 [
+  switch i32 %outform.0, label %if.end91.unreachabledefault [
     i32 4097, label %sw.bb92
     i32 4098, label %sw.bb93
-    i32 4100, label %sw.bb94
     i32 4096, label %sw.bb96
+    i32 4099, label %sw.epilog98
   ]
 
 sw.bb92:                                          ; preds = %if.end91
@@ -246,20 +246,18 @@ sw.bb93:                                          ; preds = %if.end91
   store i32 %shl, ptr %outlen, align 4
   br label %sw.epilog98
 
-sw.bb94:                                          ; preds = %if.end91
-  %shl95 = shl i32 %nchar.0, 2
-  store i32 %shl95, ptr %outlen, align 4
-  br label %sw.epilog98
-
 sw.bb96:                                          ; preds = %if.end91
   store i32 0, ptr %outlen, align 4
   %call97 = call fastcc i32 @traverse_string(ptr noundef %in, i32 noundef %len.addr.0, i32 noundef %inform, ptr noundef nonnull @out_utf8, ptr noundef %outlen)
   %.pre = load i32, ptr %outlen, align 4
   br label %sw.epilog98
 
-sw.epilog98:                                      ; preds = %sw.bb96, %sw.bb94, %sw.bb93, %sw.bb92, %if.end91
-  %3 = phi i32 [ 0, %if.end91 ], [ %.pre, %sw.bb96 ], [ %shl95, %sw.bb94 ], [ %shl, %sw.bb93 ], [ %nchar.0, %sw.bb92 ]
-  %cpyfunc.0 = phi ptr [ null, %if.end91 ], [ @cpy_utf8, %sw.bb96 ], [ @cpy_univ, %sw.bb94 ], [ @cpy_bmp, %sw.bb93 ], [ @cpy_asc, %sw.bb92 ]
+if.end91.unreachabledefault:                      ; preds = %if.end91
+  unreachable
+
+sw.epilog98:                                      ; preds = %if.end91, %sw.bb96, %sw.bb93, %sw.bb92
+  %3 = phi i32 [ 0, %if.end91 ], [ %.pre, %sw.bb96 ], [ %shl, %sw.bb93 ], [ %nchar.0, %sw.bb92 ]
+  %cpyfunc.0 = phi ptr [ null, %if.end91 ], [ @cpy_utf8, %sw.bb96 ], [ @cpy_bmp, %sw.bb93 ], [ @cpy_asc, %sw.bb92 ]
   %add = add nsw i32 %3, 1
   %conv99 = sext i32 %add to i64
   %call100 = call noalias ptr @malloc(i64 noundef %conv99) #10
@@ -525,30 +523,6 @@ entry:
   store i8 %conv2, ptr %incdec.ptr, align 1
   %1 = load ptr, ptr %arg, align 8
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 2
-  store ptr %add.ptr, ptr %arg, align 8
-  ret i32 1
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cpy_univ(i64 noundef %value, ptr nocapture noundef %arg) #5 {
-entry:
-  %0 = load ptr, ptr %arg, align 8
-  %shr = lshr i64 %value, 24
-  %conv = trunc i64 %shr to i8
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %conv, ptr %0, align 1
-  %shr1 = lshr i64 %value, 16
-  %conv3 = trunc i64 %shr1 to i8
-  %incdec.ptr4 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %conv3, ptr %incdec.ptr, align 1
-  %shr5 = lshr i64 %value, 8
-  %conv7 = trunc i64 %shr5 to i8
-  %incdec.ptr8 = getelementptr inbounds i8, ptr %0, i64 3
-  store i8 %conv7, ptr %incdec.ptr4, align 1
-  %conv10 = trunc i64 %value to i8
-  store i8 %conv10, ptr %incdec.ptr8, align 1
-  %1 = load ptr, ptr %arg, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 4
   store ptr %add.ptr, ptr %arg, align 8
   ret i32 1
 }

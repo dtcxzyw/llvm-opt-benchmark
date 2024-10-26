@@ -3904,38 +3904,37 @@ _ZL6at_tagP4ffio.exit.thread:                     ; preds = %12, %_ZL6at_tagP4ff
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %4, 2
   %23 = add i64 %22, %7
-  %24 = sub i64 %23, %.023
-  %25 = icmp ult i64 %21, %24
-  br i1 %25, label %26, label %33
+  %24 = icmp ult i64 %21, %23
+  br i1 %24, label %25, label %32
 
-26:                                               ; preds = %_ZL6at_tagP4ffio.exit.thread
-  %27 = shl i64 %21, 1
-  %28 = tail call ptr @realloc(ptr noundef %6, i64 noundef %27) #31
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %43, label %30
+25:                                               ; preds = %_ZL6at_tagP4ffio.exit.thread
+  %26 = shl i64 %21, 1
+  %27 = tail call ptr @realloc(ptr noundef %6, i64 noundef %26) #31
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %42, label %29
 
-30:                                               ; preds = %26
-  store ptr %28, ptr %5, align 8
-  %31 = load i64, ptr %20, align 8
-  %32 = shl i64 %31, 1
-  store i64 %32, ptr %20, align 8
-  br label %33
+29:                                               ; preds = %25
+  store ptr %27, ptr %5, align 8
+  %30 = load i64, ptr %20, align 8
+  %31 = shl i64 %30, 1
+  store i64 %31, ptr %20, align 8
+  br label %32
 
-33:                                               ; preds = %30, %_ZL6at_tagP4ffio.exit.thread
-  %34 = phi ptr [ %28, %30 ], [ %6, %_ZL6at_tagP4ffio.exit.thread ]
-  %35 = getelementptr inbounds i8, ptr %34, i64 %7
-  store i8 32, ptr %35, align 1
-  %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 %7
-  %38 = getelementptr inbounds i8, ptr %37, i64 1
-  %39 = load ptr, ptr %2, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 %.023
-  %41 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %40) #25
-  %42 = load ptr, ptr %2, align 8
-  store i8 0, ptr %42, align 1
-  br label %43
+32:                                               ; preds = %29, %_ZL6at_tagP4ffio.exit.thread
+  %33 = phi ptr [ %27, %29 ], [ %6, %_ZL6at_tagP4ffio.exit.thread ]
+  %34 = getelementptr inbounds i8, ptr %33, i64 %7
+  store i8 32, ptr %34, align 1
+  %35 = load ptr, ptr %5, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 %7
+  %37 = getelementptr inbounds i8, ptr %36, i64 1
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 %.023
+  %40 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %39) #25
+  %41 = load ptr, ptr %2, align 8
+  store i8 0, ptr %41, align 1
+  br label %42
 
-43:                                               ; preds = %26, %33
+42:                                               ; preds = %25, %32
   ret void
 }
 

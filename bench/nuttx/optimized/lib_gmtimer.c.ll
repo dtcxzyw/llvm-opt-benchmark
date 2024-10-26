@@ -16,21 +16,24 @@ define noundef ptr @gmtime_r(ptr nocapture noundef readonly %0, ptr noundef retu
   %10 = add nsw i32 %9, 1970
   %11 = tail call i32 @clock_isleapyear(i32 noundef %10) #3
   %12 = icmp ne i32 %11, 0
-  %13 = select i1 %12, i64 366, i64 365
-  %.not44.i = icmp ult i64 %8, %13
-  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not44.i = icmp ult i64 %8, 366
+  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %2, %.lr.ph.i
-  %.03647.i = phi i64 [ %19, %.lr.ph.i ], [ %13, %2 ]
-  %.04046.i = phi i32 [ %14, %.lr.ph.i ], [ %9, %2 ]
-  %.04245.i = phi i64 [ %15, %.lr.ph.i ], [ %8, %2 ]
+.lr.ph.preheader.i:                               ; preds = %2
+  %13 = select i1 %12, i64 366, i64 365
+  br label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
+  %.03647.i = phi i64 [ %19, %.lr.ph.i ], [ %13, %.lr.ph.preheader.i ]
+  %.04046.i = phi i32 [ %14, %.lr.ph.i ], [ %9, %.lr.ph.preheader.i ]
+  %.04245.i = phi i64 [ %15, %.lr.ph.i ], [ %8, %.lr.ph.preheader.i ]
   %14 = add nsw i32 %.04046.i, 1
   %15 = sub nuw i64 %.04245.i, %.03647.i
   %16 = add nsw i32 %.04046.i, 1971
   %17 = tail call i32 @clock_isleapyear(i32 noundef %16) #3
   %18 = icmp ne i32 %17, 0
   %19 = select i1 %18, i64 366, i64 365
-  %.not.i = icmp ult i64 %15, %19
+  %.not.i = icmp ult i64 %15, 366
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %2
@@ -87,8 +90,8 @@ clock_utc2calendar.exit:                          ; preds = %27, %._crit_edge52.
   %43 = trunc i64 %39 to i32
   %44 = trunc i64 %36 to i32
   %45 = tail call i32 @clock_daysbeforemonth(i32 noundef %.141.i, i1 noundef zeroext %.0.in.lcssa.i) #3
-  %46 = trunc i64 %.042.lcssa.i to i32
-  %47 = add i32 %46, 1
+  %46 = trunc nuw i64 %.042.lcssa.i to i32
+  %47 = add nuw nsw i32 %46, 1
   %48 = sub i32 %47, %45
   %49 = add nsw i32 %.pre-phi.i, -1900
   %50 = getelementptr inbounds i8, ptr %1, i64 20

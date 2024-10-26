@@ -5007,16 +5007,12 @@ if.end:                                           ; preds = %if.then, %_ZNK3sat4
 
 if.then4:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 10000, ptr nonnull %buffer.i)
-  %cond = icmp eq i32 %.sink.i, 2
-  br i1 %cond, label %if.end5.i, label %_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit
-
-if.end5.i:                                        ; preds = %if.then4
   store i8 97, ptr %buffer.i, align 16
   br label %do.body.i
 
-do.body.i:                                        ; preds = %do.cond.i, %if.end5.i
-  %len.1.i = phi i32 [ 1, %if.end5.i ], [ %len.2.i, %do.cond.i ]
-  %v.0.i = phi i32 [ %l.coerce, %if.end5.i ], [ %shr.i, %do.cond.i ]
+do.body.i:                                        ; preds = %do.cond.i, %if.then4
+  %len.1.i = phi i32 [ 1, %if.then4 ], [ %len.2.i, %do.cond.i ]
+  %v.0.i = phi i32 [ %l.coerce, %if.then4 ], [ %shr.i, %do.cond.i ]
   %conv.i = trunc i32 %v.0.i to i8
   %shr.i = lshr i32 %v.0.i, 7
   %tobool.not.i = icmp ult i32 %v.0.i, 128
@@ -5046,13 +5042,10 @@ for.inc.i:                                        ; preds = %do.cond.i
   %6 = load ptr, ptr %m_bout, align 8
   %conv30.i = sext i32 %inc25.i to i64
   %call31.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %buffer.i, i64 noundef %conv30.i)
-  br label %_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit
-
-_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit: ; preds = %if.then4, %for.inc.i
   call void @llvm.lifetime.end.p0(i64 10000, ptr nonnull %buffer.i)
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZN3sat4drat5bdumpEjPKNS_7literalENS_6statusE.exit, %if.end
+if.end6:                                          ; preds = %for.inc.i, %if.end
   %m_check = getelementptr inbounds i8, ptr %this, i64 643
   %7 = load i8, ptr %m_check, align 1
   %tobool7 = trunc i8 %7 to i1

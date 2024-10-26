@@ -258,7 +258,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %89, %92
   %98 = load ptr, ptr %21, align 8
   %99 = getelementptr inbounds i8, ptr %98, i64 40
   %100 = load i64, ptr %99, align 8
-  %101 = or i64 %.057, %.058
+  %101 = or disjoint i64 %.057, %.058
   %102 = or i64 %101, %100
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %98, i64 noundef %102) #15
   ret i64 %97
@@ -434,7 +434,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %72, %75
   %79 = load ptr, ptr %21, align 8
   %80 = getelementptr inbounds i8, ptr %79, i64 40
   %81 = load i64, ptr %80, align 8
-  %82 = or i64 %.053, %.054
+  %82 = or disjoint i64 %.053, %.054
   %83 = or i64 %82, %81
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %79, i64 noundef %83) #15
   ret i64 %78
@@ -679,10 +679,9 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
   %123 = load ptr, ptr %21, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 40
   %125 = load i64, ptr %124, align 8
-  %126 = and i64 %.062, 1
-  %127 = or disjoint i64 %.061, %126
-  %128 = or i64 %127, %125
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %123, i64 noundef %128) #15
+  %126 = or disjoint i64 %.061, %.062
+  %127 = or i64 %126, %125
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %123, i64 noundef %127) #15
   ret i64 %122
 }
 
@@ -893,10 +892,9 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %_ZNSt13unordered_ma
   %104 = load ptr, ptr %21, align 8
   %105 = getelementptr inbounds i8, ptr %104, i64 40
   %106 = load i64, ptr %105, align 8
-  %107 = and i64 %.060, 1
-  %108 = or disjoint i64 %.058, %107
-  %109 = or i64 %108, %106
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %104, i64 noundef %109) #15
+  %107 = or disjoint i64 %.058, %.060
+  %108 = or i64 %107, %106
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %104, i64 noundef %108) #15
   ret i64 %103
 }
 
@@ -1115,7 +1113,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %106, %107
   %113 = load ptr, ptr %21, align 8
   %114 = getelementptr inbounds i8, ptr %113, i64 40
   %115 = load i64, ptr %114, align 8
-  %116 = or i64 %.063, %.064
+  %116 = or disjoint i64 %.063, %.064
   %117 = or i64 %116, %115
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %113, i64 noundef %117) #15
   ret i64 %112
@@ -1287,7 +1285,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %81, %82
   %86 = load ptr, ptr %21, align 8
   %87 = getelementptr inbounds i8, ptr %86, i64 40
   %88 = load i64, ptr %87, align 8
-  %89 = or i64 %.055, %.056
+  %89 = or disjoint i64 %.055, %.056
   %90 = or i64 %89, %88
   tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %86, i64 noundef %90) #15
   ret i64 %85
@@ -1565,10 +1563,9 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %131, %132
   %138 = load ptr, ptr %21, align 8
   %139 = getelementptr inbounds i8, ptr %138, i64 40
   %140 = load i64, ptr %139, align 8
-  %141 = and i64 %.068, 1
-  %142 = or disjoint i64 %.067, %141
-  %143 = or i64 %142, %140
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %138, i64 noundef %143) #15
+  %141 = or disjoint i64 %.067, %.068
+  %142 = or i64 %141, %140
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %138, i64 noundef %142) #15
   ret i64 %137
 }
 
@@ -1795,10 +1792,9 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %106, %107
   %111 = load ptr, ptr %21, align 8
   %112 = getelementptr inbounds i8, ptr %111, i64 40
   %113 = load i64, ptr %112, align 8
-  %114 = and i64 %.060, 1
-  %115 = or disjoint i64 %114, %.062
-  %116 = or i64 %115, %113
-  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %111, i64 noundef %116) #15
+  %114 = or disjoint i64 %.060, %.062
+  %115 = or i64 %114, %113
+  tail call void @_ZN5csr_t5writeEm(ptr noundef nonnull align 8 dereferenceable(37) %111, i64 noundef %115) #15
   ret i64 %110
 }
 

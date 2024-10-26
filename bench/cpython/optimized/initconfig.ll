@@ -6737,7 +6737,7 @@ if.end14.i:                                       ; preds = %if.then10.i, %if.en
 if.then17.i121:                                   ; preds = %if.end14.i
   %76 = load ptr, ptr %stdio_encoding.i, align 8, !noalias !201
   %cmp19.i = icmp eq ptr %76, null
-  br i1 %cmp19.i, label %if.then20.i, label %if.end26.i
+  br i1 %cmp19.i, label %if.then20.i, label %if.end30.i
 
 if.then20.i:                                      ; preds = %if.then17.i121
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %status.i.i113), !noalias !201
@@ -6777,7 +6777,7 @@ config_set_bytes_string.exit.i:                   ; preds = %if.then2.i.i154
   store ptr %call.i43.i155, ptr %stdio_encoding.i, align 8, !noalias !204
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %status.i.i113), !noalias !201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %len.i.i), !noalias !201
-  br label %if.end26.i
+  br label %if.end30.i
 
 if.then24.i:                                      ; preds = %if.then4.i.i157, %if.then.i.i141
   %tmp.sroa.0.0.ph.i145 = phi i32 [ %77, %if.then.i.i141 ], [ 1, %if.then4.i.i157 ]
@@ -6791,13 +6791,8 @@ if.then24.i:                                      ; preds = %if.then4.i.i157, %i
   call void @PyMem_RawFree(ptr noundef nonnull %call3.i) #21, !noalias !201
   br label %if.then55
 
-if.end26.i:                                       ; preds = %config_set_bytes_string.exit.i, %if.then17.i121
-  %tobool27.not.i = icmp eq ptr %errors.0.i, null
-  %spec.store.select1.i = select i1 %tobool27.not.i, ptr @.str.179, ptr %errors.0.i
-  br label %if.end30.i
-
-if.end30.i:                                       ; preds = %if.end26.i, %if.end14.i
-  %errors.1.i = phi ptr [ %spec.store.select1.i, %if.end26.i ], [ %errors.0.i, %if.end14.i ]
+if.end30.i:                                       ; preds = %config_set_bytes_string.exit.i, %if.then17.i121, %if.end14.i
+  %errors.1.i = phi ptr [ %errors.0.i, %if.end14.i ], [ @.str.179, %config_set_bytes_string.exit.i ], [ @.str.179, %if.then17.i121 ]
   %stdio_errors31.i = getelementptr inbounds i8, ptr %config, i64 240
   %80 = load ptr, ptr %stdio_errors31.i, align 8, !noalias !201
   %cmp32.i = icmp eq ptr %80, null

@@ -4798,8 +4798,9 @@ if.end:                                           ; preds = %cond.end
 
 if.end7:                                          ; preds = %if.end
   %add = add i64 %1, %src_buf_ofs.0
-  %mul = shl i64 %out_buf_capacity.0, 1
-  %spec.store.select = call i64 @llvm.umax.i64(i64 %mul, i64 128)
+  %mul = shl nuw nsw i64 %out_buf_capacity.0, 1
+  %cmp8 = icmp eq i64 %out_buf_capacity.0, 0
+  %spec.store.select = select i1 %cmp8, i64 128, i64 %mul
   %call11 = call ptr @realloc(ptr noundef %pBuf.0, i64 noundef %spec.store.select) #32
   %tobool12.not = icmp eq ptr %call11, null
   br i1 %tobool12.not, label %return.sink.split, label %for.cond
@@ -13183,8 +13184,8 @@ if.end9.i:                                        ; preds = %while.cond.i
 
 if.end16:                                         ; preds = %while.cond.i
   %call17 = call i32 @stat(ptr noundef nonnull %pZip_filename, ptr noundef nonnull %file_stat) #30
-  %cmp18.not = icmp ne i32 %call17, 0
-  br i1 %cmp18.not, label %if.then20, label %if.else
+  %cmp18.not.not = icmp eq i32 %call17, 0
+  br i1 %cmp18.not.not, label %if.else, label %if.then20
 
 if.then20:                                        ; preds = %if.end16
   %call21 = call i32 @mz_zip_writer_init_file(ptr noundef nonnull %zip_archive, ptr noundef nonnull %pZip_filename, i64 noundef 0)
@@ -13290,9 +13291,7 @@ mz_zip_writer_end.exit:                           ; preds = %if.end15.i, %land.l
 
 22:                                               ; preds = %if.end34, %lor.lhs.false4.i, %lor.lhs.false6.i, %mz_zip_writer_end.exit
   %23 = phi i32 [ %spec.select, %mz_zip_writer_end.exit ], [ 0, %lor.lhs.false6.i ], [ 0, %lor.lhs.false4.i ], [ 0, %if.end34 ]
-  %tobool44 = icmp eq i32 %23, 0
-  %or.cond3 = and i1 %cmp18.not, %tobool44
-  br i1 %or.cond3, label %if.then47, label %return
+  br i1 %cmp18.not.not, label %return, label %if.then47
 
 if.then47:                                        ; preds = %22
   %call48 = call i32 @remove(ptr noundef nonnull %pZip_filename) #30

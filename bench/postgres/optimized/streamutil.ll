@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [37 x i8] c"WAL segment size could not be parsed\00", align 1
 @.str.23 = private unnamed_addr constant [3 x i8] c"MB\00", align 1
 @.str.24 = private unnamed_addr constant [3 x i8] c"GB\00", align 1
-@.str.25 = private unnamed_addr constant [58 x i8] c"remote server reported invalid WAL segment size (%d byte)\00", align 1
 @.str.26 = private unnamed_addr constant [59 x i8] c"remote server reported invalid WAL segment size (%d bytes)\00", align 1
 @.str.27 = private unnamed_addr constant [67 x i8] c"The WAL segment size must be a power of two between 1 MB and 1 GB.\00", align 1
 @.str.28 = private unnamed_addr constant [16 x i8] c"IDENTIFY_SYSTEM\00", align 1
@@ -505,7 +504,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
 
 6:                                                ; preds = %1
   store i32 16777216, ptr @WalSegSz, align 4
-  br label %40
+  br label %38
 
 7:                                                ; preds = %1
   %8 = tail call ptr @PQexec(ptr noundef %0, ptr noundef nonnull @.str.18) #15
@@ -517,7 +516,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
   %11 = tail call ptr @PQerrorMessage(ptr noundef %0) #15
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.18, ptr noundef %11) #15
   tail call void @PQclear(ptr noundef %8) #15
-  br label %40
+  br label %38
 
 12:                                               ; preds = %7
   %13 = tail call i32 @PQntuples(ptr noundef %8) #15
@@ -534,7 +533,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
   %19 = tail call i32 @PQnfields(ptr noundef %8) #15
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.20, i32 noundef %18, i32 noundef %19, i32 noundef 1, i32 noundef 1) #15
   tail call void @PQclear(ptr noundef %8) #15
-  br label %40
+  br label %38
 
 20:                                               ; preds = %14
   %21 = tail call ptr @PQgetvalue(ptr noundef %8, i32 noundef 0, i32 noundef 0) #15
@@ -545,7 +544,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
 23:                                               ; preds = %20
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.22) #15
   call void @PQclear(ptr noundef %8) #15
-  br label %40
+  br label %38
 
 24:                                               ; preds = %20
   call void @PQclear(ptr noundef %8) #15
@@ -568,21 +567,19 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %28
-  %33 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
+  %33 = call range(i32 1, 12) i32 @llvm.ctpop.i32(i32 %30)
   %34 = icmp samesign ult i32 %33, 2
   %35 = add nsw i32 %30, -1048576
   %36 = icmp ult i32 %35, 1072693249
   %or.cond3 = and i1 %34, %36
-  br i1 %or.cond3, label %40, label %37
+  br i1 %or.cond3, label %38, label %37
 
 37:                                               ; preds = %32, %28
-  %38 = icmp eq i32 %30, 1
-  %39 = select i1 %38, ptr @.str.25, ptr @.str.26
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull %39, i32 noundef %30) #15
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.26, i32 noundef %30) #15
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 1, ptr noundef nonnull @.str.27) #15
-  br label %40
+  br label %38
 
-40:                                               ; preds = %32, %37, %23, %17, %10, %6
+38:                                               ; preds = %32, %37, %23, %17, %10, %6
   %.017 = phi i1 [ true, %6 ], [ false, %10 ], [ false, %17 ], [ false, %23 ], [ false, %37 ], [ true, %32 ]
   ret i1 %.017
 }

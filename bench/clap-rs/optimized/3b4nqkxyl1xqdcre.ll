@@ -2014,7 +2014,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN12clap_builder6output13help_templa
   %19 = icmp ne i128 %18, 150386940411188751217043345048958912678
   %20 = icmp eq ptr %14, null
   %21 = or i1 %20, %19
-  br i1 %21, label %22, label %47
+  br i1 %21, label %22, label %43
 
 22:                                               ; preds = %7
   call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.37.llvm.2531363454801242601, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.39.llvm.2531363454801242601) #20, !noalias !350
@@ -2026,7 +2026,7 @@ define hidden noundef range(i64 1, 0) i64 @_ZN12clap_builder6output13help_templa
   store i128 89112216542684686001844060841048690714, ptr %2, align 16, !noalias !356
   %24 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17h1e1e07fa67619203E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %44, label %26
+  br i1 %25, label %42, label %26
 
 26:                                               ; preds = %23
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
@@ -2053,29 +2053,21 @@ define hidden noundef range(i64 1, 0) i64 @_ZN12clap_builder6output13help_templa
 
 _ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit: ; preds = %26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !356
-  %42 = load i64, ptr %33, align 8, !noundef !12
-  %43 = icmp eq i64 %42, 0
-  %spec.select = select i1 %43, i64 -1, i64 %42
-  br label %45
+  br label %46
 
-44:                                               ; preds = %23
+42:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !356
-  br label %45
+  br label %46
 
-45:                                               ; preds = %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit, %44
-  %46 = phi i64 [ -1, %44 ], [ %spec.select, %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit ]
-  %.0.sroa.speculated.i = call noundef i64 @llvm.umin.i64(i64 %46, i64 range(i64 1, 0) 100)
-  br label %50
-
-47:                                               ; preds = %7
+43:                                               ; preds = %7
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !345
-  %48 = load i64, ptr %14, align 8, !noundef !12
-  %49 = icmp eq i64 %48, 0
-  %..fca.1.extract = select i1 %49, i64 -1, i64 %48
-  br label %50
+  %44 = load i64, ptr %14, align 8, !noundef !12
+  %45 = icmp eq i64 %44, 0
+  %..fca.1.extract = select i1 %45, i64 -1, i64 %44
+  br label %46
 
-50:                                               ; preds = %47, %45
-  %.0 = phi i64 [ %.0.sroa.speculated.i, %45 ], [ %..fca.1.extract, %47 ]
+46:                                               ; preds = %42, %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit, %43
+  %.0 = phi i64 [ %..fca.1.extract, %43 ], [ 100, %_ZN12clap_builder7builder7command7Command18get_max_term_width17h3039cb1bd41eb4f5E.exit ], [ 100, %42 ]
   ret i64 %.0
 }
 
@@ -10612,9 +10604,6 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

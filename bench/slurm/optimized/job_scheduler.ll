@@ -8166,14 +8166,13 @@ define internal fastcc range(i32 0, 2030) i32 @_valid_feature_list(ptr nocapture
 
 .lr.ph:                                           ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 216
-  br label %._crit_edge105
+  br label %._crit_edge104
 
-._crit_edge105:                                   ; preds = %.lr.ph, %95
+._crit_edge104:                                   ; preds = %.lr.ph, %95
   %21 = phi ptr [ %19, %.lr.ph ], [ %99, %95 ]
-  %.0104 = phi i1 [ false, %.lr.ph ], [ %.2, %95 ]
-  %.061103 = phi i1 [ false, %.lr.ph ], [ %spec.select94, %95 ]
-  %.064102 = phi i32 [ 0, %.lr.ph ], [ %.4, %95 ]
-  %.067101 = phi i32 [ 0, %.lr.ph ], [ %.269, %95 ]
+  %.0103 = phi i1 [ false, %.lr.ph ], [ %.2, %95 ]
+  %.061102 = phi i1 [ false, %.lr.ph ], [ %spec.select94, %95 ]
+  %.064101 = phi i32 [ 0, %.lr.ph ], [ %.4, %95 ]
   %.070100 = phi i32 [ 0, %.lr.ph ], [ %.272, %95 ]
   %22 = getelementptr inbounds i8, ptr %21, i64 14
   %23 = load i8, ptr %22, align 2
@@ -8184,12 +8183,10 @@ define internal fastcc range(i32 0, 2030) i32 @_valid_feature_list(ptr nocapture
   %27 = zext i16 %26 to i32
   %28 = add nuw nsw i32 %27, 1
   %.171 = select i1 %switch, i32 %28, i32 %.070100
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.067101, i32 %27)
-  %.269 = tail call i32 @llvm.umin.i32(i32 %spec.select, i32 %27)
-  %29 = icmp eq i32 %.064102, 0
+  %29 = icmp eq i32 %.064101, 0
   br i1 %29, label %30, label %50
 
-30:                                               ; preds = %._crit_edge105
+30:                                               ; preds = %._crit_edge104
   %.b85 = load i1, ptr @_valid_feature_list.ignore_prefer_val, align 1
   br i1 %.b85, label %31, label %35
 
@@ -8235,8 +8232,8 @@ _valid_node_feature.exit.thread:                  ; preds = %41
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.130, ptr noundef %3, ptr noundef %49, ptr noundef nonnull %4) #16
   br label %50
 
-50:                                               ; preds = %_valid_node_feature.exit.thread, %48, %45, %31, %._crit_edge105
-  %.165 = phi i32 [ 2029, %48 ], [ 2029, %45 ], [ 0, %31 ], [ %.064102, %._crit_edge105 ], [ 0, %_valid_node_feature.exit.thread ]
+50:                                               ; preds = %_valid_node_feature.exit.thread, %48, %45, %31, %._crit_edge104
+  %.165 = phi i32 [ 2029, %48 ], [ 2029, %45 ], [ 0, %31 ], [ %.064101, %._crit_edge104 ], [ 0, %_valid_node_feature.exit.thread ]
   %51 = load i8, ptr %22, align 2
   %52 = icmp eq i8 %51, 3
   br i1 %52, label %53, label %61
@@ -8286,7 +8283,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
 
 72:                                               ; preds = %67, %70, %64, %61
   %.3 = phi i32 [ %.266, %64 ], [ %.266, %61 ], [ 2029, %70 ], [ 2029, %67 ]
-  %73 = icmp sgt i32 %.171, %.269
+  %73 = icmp sgt i32 %.171, %27
   br i1 %73, label %74, label %95
 
 74:                                               ; preds = %72
@@ -8296,7 +8293,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
   br i1 %switch96, label %95, label %77
 
 77:                                               ; preds = %74
-  br i1 %.061103, label %78, label %86
+  br i1 %.061102, label %78, label %86
 
 78:                                               ; preds = %77
   %79 = getelementptr inbounds i8, ptr %21, i64 12
@@ -8316,7 +8313,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
 
 86:                                               ; preds = %81, %84, %78, %77
   %.5 = phi i32 [ %.3, %78 ], [ 2029, %84 ], [ 2029, %81 ], [ %.3, %77 ]
-  br i1 %.0104, label %87, label %95
+  br i1 %.0103, label %87, label %95
 
 87:                                               ; preds = %86
   %88 = getelementptr inbounds i8, ptr %21, i64 12
@@ -8337,8 +8334,8 @@ thread-pre-split:                                 ; preds = %53, %59, %56
 95:                                               ; preds = %74, %86, %87, %93, %90, %72
   %.272 = phi i32 [ %.171, %72 ], [ %.171, %74 ], [ 0, %90 ], [ 0, %93 ], [ 0, %87 ], [ 0, %86 ]
   %.4 = phi i32 [ %.3, %72 ], [ %.3, %74 ], [ 2029, %90 ], [ 2029, %93 ], [ %.5, %87 ], [ %.5, %86 ]
-  %.162 = phi i1 [ %.061103, %72 ], [ %.061103, %74 ], [ false, %90 ], [ false, %93 ], [ false, %87 ], [ false, %86 ]
-  %.1 = phi i1 [ %.0104, %72 ], [ %.0104, %74 ], [ false, %90 ], [ false, %93 ], [ false, %87 ], [ false, %86 ]
+  %.162 = phi i1 [ %.061102, %72 ], [ %.061102, %74 ], [ false, %90 ], [ false, %93 ], [ false, %87 ], [ false, %86 ]
+  %.1 = phi i1 [ %.0103, %72 ], [ %.0103, %74 ], [ false, %90 ], [ false, %93 ], [ false, %87 ], [ false, %86 ]
   %96 = load i8, ptr %22, align 2
   %97 = icmp eq i8 %96, 3
   %spec.select94 = select i1 %97, i1 true, i1 %.162
@@ -8346,7 +8343,7 @@ thread-pre-split:                                 ; preds = %53, %59, %56
   %.2 = select i1 %98, i1 true, i1 %.1
   %99 = tail call ptr @list_next(ptr noundef %18) #16
   %.not84 = icmp eq ptr %99, null
-  br i1 %.not84, label %._crit_edge, label %._crit_edge105, !llvm.loop !38
+  br i1 %.not84, label %._crit_edge, label %._crit_edge104, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %95
   tail call void @list_iterator_destroy(ptr noundef %18) #16
@@ -11763,9 +11760,6 @@ declare i64 @llvm.smax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umin.i16(i16, i16) #14
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

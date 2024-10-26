@@ -68,7 +68,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.47 = private unnamed_addr constant [5 x i8] c"\0D%0D\00", align 1
 @.str.48 = private unnamed_addr constant [5 x i8] c"\0A%0A\00", align 1
 @.str.49 = private unnamed_addr constant [21 x i8] c"Content-Type: %s%s%s\00", align 1
-@.str.50 = private unnamed_addr constant [12 x i8] c"; boundary=\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @Curl_mime_cleanpart(ptr noundef %part) local_unnamed_addr #0 {
@@ -2605,9 +2604,6 @@ if.end25:                                         ; preds = %for.inc.i137, %Curl
 if.then28:                                        ; preds = %if.end25
   %arg = getelementptr inbounds i8, ptr %part, i64 56
   %21 = load ptr, ptr %arg, align 8
-  %tobool29.not = icmp eq ptr %21, null
-  %boundary31 = getelementptr inbounds i8, ptr %21, i64 24
-  %spec.select92 = select i1 %tobool29.not, ptr null, ptr %boundary31
   br label %if.end45
 
 if.else:                                          ; preds = %if.end25
@@ -2648,7 +2644,6 @@ if.then42:                                        ; preds = %lor.lhs.false, %if.
 if.end45:                                         ; preds = %if.then.i145, %land.lhs.true.i142, %if.then28, %if.else, %if.then42, %lor.lhs.false
   %contenttype.addr.3 = phi ptr [ %contenttype.addr.1, %if.else ], [ null, %if.then42 ], [ %contenttype.addr.1, %lor.lhs.false ], [ %contenttype.addr.1, %if.then28 ], [ %contenttype.addr.1, %land.lhs.true.i142 ], [ %contenttype.addr.1, %if.then.i145 ]
   %mime.0 = phi ptr [ null, %if.else ], [ null, %if.then42 ], [ null, %lor.lhs.false ], [ %21, %if.then28 ], [ null, %land.lhs.true.i142 ], [ null, %if.then.i145 ]
-  %boundary.0 = phi ptr [ null, %if.else ], [ null, %if.then42 ], [ null, %lor.lhs.false ], [ %spec.select92, %if.then28 ], [ null, %land.lhs.true.i142 ], [ null, %if.then.i145 ]
   %userheaders46 = getelementptr inbounds i8, ptr %part, i64 80
   %24 = load ptr, ptr %userheaders46, align 8
   %tobool14.not.i148 = icmp eq ptr %24, null
@@ -2766,10 +2761,7 @@ if.end125:                                        ; preds = %land.lhs.true.i.i15
   br i1 %tobool126.not, label %if.end133, label %if.then127
 
 if.then127:                                       ; preds = %land.lhs.true58, %if.end125
-  %tobool.not.i167 = icmp eq ptr %boundary.0, null
-  %cond.i = select i1 %tobool.not.i167, ptr @.str.26, ptr @.str.50
-  %cond2.i = select i1 %tobool.not.i167, ptr @.str.26, ptr %boundary.0
-  %call.i168 = tail call range(i32 0, 28) i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %curlheaders, ptr noundef nonnull @.str.49, ptr noundef nonnull %contenttype.addr.3, ptr noundef nonnull %cond.i, ptr noundef nonnull %cond2.i)
+  %call.i168 = tail call range(i32 0, 28) i32 (ptr, ptr, ...) @Curl_mime_add_header(ptr noundef nonnull %curlheaders, ptr noundef nonnull @.str.49, ptr noundef nonnull %contenttype.addr.3, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.26)
   %tobool130.not = icmp eq i32 %call.i168, 0
   br i1 %tobool130.not, label %if.end133, label %return
 

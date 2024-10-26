@@ -2219,7 +2219,7 @@ rbimpl_rstring_getmem.exit2523:                   ; preds = %buffer_size_check.e
   %997 = sub i64 %995, %996
   %998 = load ptr, ptr %12, align 8
   %.not2193 = icmp ult ptr %80, %998
-  %999 = sext i32 %993 to i64
+  %999 = zext nneg i32 %993 to i64
   br i1 %.not2193, label %1000, label %._crit_edge3821
 
 1000:                                             ; preds = %986
@@ -2230,7 +2230,7 @@ rbimpl_rstring_getmem.exit2523:                   ; preds = %buffer_size_check.e
   br i1 %.not2194, label %buffer_size_check.exit2532, label %._crit_edge3821
 
 ._crit_edge3821:                                  ; preds = %986, %1000
-  %1004 = shl nsw i64 %999, 1
+  %1004 = shl nuw nsw i64 %999, 1
   %1005 = add i64 %997, %1004
   %1006 = icmp ult i64 %1005, %997
   %1007 = icmp ugt i64 %1005, %9
@@ -2628,14 +2628,12 @@ rb_num2long_inline.exit.thread:                   ; preds = %1092, %rb_num2long_
 
 .sink.split:                                      ; preds = %1119, %1132, %1145, %1177, %1189, %1161
   %.sink = phi i32 [ %1162, %1161 ], [ %1190, %1189 ], [ %1178, %1177 ], [ %1146, %1145 ], [ %1133, %1132 ], [ %1120, %1119 ]
-  %.21891.ph = phi i32 [ %1153, %1161 ], [ %1182, %1189 ], [ %1170, %1177 ], [ %1137, %1145 ], [ %1124, %1132 ], [ %1111, %1119 ]
   %1191 = sext i32 %.sink to i64
   %1192 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef %11, ptr noundef %12, i64 noundef %1191, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1192, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
   br label %1193
 
 1193:                                             ; preds = %.sink.split, %1155, %1183, %1171, %1139, %1126, %1113
-  %.21891 = phi i32 [ %1153, %1155 ], [ %1170, %1171 ], [ %1182, %1183 ], [ %1137, %1139 ], [ %1124, %1126 ], [ %1111, %1113 ], [ %.21891.ph, %.sink.split ]
   %.13 = phi ptr [ %80, %1155 ], [ %80, %1171 ], [ %80, %1183 ], [ %80, %1139 ], [ %80, %1126 ], [ %80, %1113 ], [ %1192, %.sink.split ]
   %1194 = load ptr, ptr %12, align 8
   %1195 = ptrtoint ptr %1194 to i64
@@ -2644,7 +2642,7 @@ rb_num2long_inline.exit.thread:                   ; preds = %1092, %rb_num2long_
   %1198 = icmp eq i8 %.019033423, 32
   %1199 = select i1 %1198, ptr @.str.9, ptr @.str.10
   %1200 = zext i1 %1198 to i32
-  %1201 = add nsw i32 %.21891, %1200
+  %1201 = or disjoint i32 %1200, 2
   %1202 = sdiv i64 %.11882, 3600
   %1203 = srem i64 %.11882, 3600
   %1204 = mul nsw i64 %1202, %.01906
@@ -4502,7 +4500,7 @@ rbimpl_rstring_getmem.exit2780:                   ; preds = %buffer_size_check.e
   %2043 = sub i64 %2041, %2042
   %2044 = load ptr, ptr %12, align 8
   %.not2096 = icmp ult ptr %80, %2044
-  %2045 = sext i32 %2039 to i64
+  %2045 = zext nneg i32 %2039 to i64
   br i1 %.not2096, label %2046, label %._crit_edge3806
 
 2046:                                             ; preds = %2032
@@ -4513,7 +4511,7 @@ rbimpl_rstring_getmem.exit2780:                   ; preds = %buffer_size_check.e
   br i1 %.not2097, label %buffer_size_check.exit2789, label %._crit_edge3806
 
 ._crit_edge3806:                                  ; preds = %2032, %2046
-  %2050 = shl nsw i64 %2045, 1
+  %2050 = shl nuw nsw i64 %2045, 1
   %2051 = add i64 %2043, %2050
   %2052 = icmp ult i64 %2051, %2043
   %2053 = icmp ugt i64 %2051, %9

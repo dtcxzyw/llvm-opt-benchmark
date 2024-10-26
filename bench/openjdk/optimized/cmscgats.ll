@@ -6334,7 +6334,7 @@ define hidden i32 @cmsIT8TableCount(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8SetTableByLabel(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8SetTableByLabel(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca i32, align 4
@@ -6361,50 +6361,36 @@ define hidden i32 @cmsIT8SetTableByLabel(ptr nocapture noundef %0, ptr noundef %
   br i1 %.not22, label %16, label %cmsIT8SetTable.exit
 
 16:                                               ; preds = %14
-  %.not23 = icmp eq ptr %3, null
-  br i1 %.not23, label %.thread, label %17
+  %17 = load i32, ptr %7, align 4
+  %18 = load i32, ptr %0, align 8
+  %.not.i = icmp ult i32 %17, %18
+  br i1 %.not.i, label %27, label %19
 
-17:                                               ; preds = %16
-  %18 = load i8, ptr %3, align 1
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %.thread, label %20
+19:                                               ; preds = %16
+  %20 = icmp eq i32 %17, %18
+  br i1 %20, label %21, label %26
 
-20:                                               ; preds = %17
-  %21 = call i32 @cmsstrcasecmp(ptr noundef nonnull %5, ptr noundef nonnull %3) #17
-  %.not25 = icmp eq i32 %21, 0
-  br i1 %.not25, label %.thread, label %cmsIT8SetTable.exit
+21:                                               ; preds = %19
+  %22 = zext i32 %17 to i64
+  %.idx.i.i = mul nuw nsw i64 %22, 1064
+  %23 = getelementptr i8, ptr %0, i64 1056
+  %24 = getelementptr i8, ptr %23, i64 %.idx.i.i
+  %25 = add i32 %17, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
+  store i32 %25, ptr %0, align 8
+  br label %27
 
-.thread:                                          ; preds = %17, %16, %20
-  %22 = load i32, ptr %7, align 4
-  %23 = load i32, ptr %0, align 8
-  %.not.i = icmp ult i32 %22, %23
-  br i1 %.not.i, label %32, label %24
-
-24:                                               ; preds = %.thread
-  %25 = icmp eq i32 %22, %23
-  br i1 %25, label %26, label %31
-
-26:                                               ; preds = %24
-  %27 = zext i32 %22 to i64
-  %.idx.i.i = mul nuw nsw i64 %27, 1064
-  %28 = getelementptr i8, ptr %0, i64 1056
-  %29 = getelementptr i8, ptr %28, i64 %.idx.i.i
-  %30 = add i32 %22, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, i8 0, i64 24, i1 false)
-  store i32 %30, ptr %0, align 8
-  br label %32
-
-31:                                               ; preds = %24
-  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %22)
+26:                                               ; preds = %19
+  call void (ptr, ptr, ...) @SynError(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef %17)
   br label %cmsIT8SetTable.exit
 
-32:                                               ; preds = %26, %.thread
-  %33 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %22, ptr %33, align 4
+27:                                               ; preds = %21, %16
+  %28 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %17, ptr %28, align 4
   br label %cmsIT8SetTable.exit
 
-cmsIT8SetTable.exit:                              ; preds = %32, %31, %20, %14, %11
-  %.0 = phi i32 [ -1, %11 ], [ -1, %14 ], [ -1, %20 ], [ %22, %32 ], [ -1, %31 ]
+cmsIT8SetTable.exit:                              ; preds = %27, %26, %14, %11
+  %.0 = phi i32 [ -1, %11 ], [ -1, %14 ], [ %17, %27 ], [ -1, %26 ]
   ret i32 %.0
 }
 

@@ -7325,7 +7325,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h24d4d9ead3a662a0E.llvm.5593464411486612011"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h24d4d9ead3a662a0E.llvm.5593464411486612011"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %4 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %5 = alloca { i64, i64, i64, i64 }, align 8
@@ -7333,7 +7333,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %74, label %10
+  br i1 %9, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h890795fd915c7ad7E.llvm.5593464411486612011.exit", label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7460,23 +7460,12 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %71 = add i64 %.sroa.01.0.i.i.i, %70
   br label %49
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h890795fd915c7ad7E.llvm.5593464411486612011.exit": ; preds = %53, %56
-  %.0.i.i = phi ptr [ %64, %56 ], [ null, %53 ]
-  %72 = icmp eq ptr %.0.i.i, null
-  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 -40
-  %.0.i = select i1 %72, ptr null, ptr %73
-  br label %74
-
-74:                                               ; preds = %2, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h890795fd915c7ad7E.llvm.5593464411486612011.exit"
-  %.04 = phi ptr [ %.0.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h890795fd915c7ad7E.llvm.5593464411486612011.exit" ], [ null, %2 ]
-  %75 = icmp eq ptr %.04, null
-  %76 = getelementptr inbounds i8, ptr %.04, i64 24
-  %.0 = select i1 %75, ptr null, ptr %76
-  ret ptr %.0
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h890795fd915c7ad7E.llvm.5593464411486612011.exit": ; preds = %53, %56, %2
+  ret ptr null
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3aa5e4efdc1403e8E.llvm.5593464411486612011"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3aa5e4efdc1403e8E.llvm.5593464411486612011"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %4 = alloca { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }, align 8
   %5 = alloca { i64, i64, i64, i64 }, align 8
@@ -7484,7 +7473,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ma
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %74, label %10
+  br i1 %9, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h1ea024fbc0851ef0E.llvm.5593464411486612011.exit", label %10
 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7611,30 +7600,19 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ma
   %71 = add i64 %.sroa.01.0.i.i.i, %70
   br label %49
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h1ea024fbc0851ef0E.llvm.5593464411486612011.exit": ; preds = %53, %56
-  %.0.i.i = phi ptr [ %64, %56 ], [ null, %53 ]
-  %72 = icmp eq ptr %.0.i.i, null
-  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 -72
-  %.0.i = select i1 %72, ptr null, ptr %73
-  br label %74
-
-74:                                               ; preds = %2, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h1ea024fbc0851ef0E.llvm.5593464411486612011.exit"
-  %.04 = phi ptr [ %.0.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h1ea024fbc0851ef0E.llvm.5593464411486612011.exit" ], [ null, %2 ]
-  %75 = icmp eq ptr %.04, null
-  %76 = getelementptr inbounds i8, ptr %.04, i64 24
-  %.0 = select i1 %75, ptr null, ptr %76
-  ret ptr %.0
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h1ea024fbc0851ef0E.llvm.5593464411486612011.exit": ; preds = %53, %56, %2
+  ret ptr null
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h57ae9aac432f5122E.llvm.5593464411486612011"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 dereferenceable_or_null(56) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h57ae9aac432f5122E.llvm.5593464411486612011"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca [1 x i8], align 1
   %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %71, label %10
+  br i1 %9, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h8084b3c06c61302bE.llvm.5593464411486612011.exit", label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7765,19 +7743,8 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN9hashbrown3ma
   %68 = add i64 %.sroa.01.0.i.i.i, %67
   br label %45
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h8084b3c06c61302bE.llvm.5593464411486612011.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge.i.i", %61
-  %.0.i.i = phi ptr [ %59, %61 ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge.i.i" ]
-  %69 = icmp eq ptr %.0.i.i, null
-  %70 = getelementptr inbounds i8, ptr %.0.i.i, i64 -72
-  %.0.i = select i1 %69, ptr null, ptr %70
-  br label %71
-
-71:                                               ; preds = %3, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h8084b3c06c61302bE.llvm.5593464411486612011.exit"
-  %.03 = phi ptr [ %.0.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h8084b3c06c61302bE.llvm.5593464411486612011.exit" ], [ null, %3 ]
-  %72 = icmp eq ptr %.03, null
-  %73 = getelementptr inbounds i8, ptr %.03, i64 16
-  %.0 = select i1 %72, ptr null, ptr %73
-  ret ptr %.0
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h8084b3c06c61302bE.llvm.5593464411486612011.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd276ce11003d0a9eE.exit._crit_edge.i.i", %61, %3
+  ret ptr null
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -16445,7 +16412,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h8e91e8f0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4just11compilation11Compilation8root_ast17h1cc9cf16f3298688E(ptr noalias nocapture noundef readonly align 8 dereferenceable(496) %0) unnamed_addr #1 {
+define hidden noalias noundef nonnull align 8 dereferenceable(48) ptr @_ZN4just11compilation11Compilation8root_ast17h1cc9cf16f3298688E(ptr noalias nocapture noundef readonly align 8 dereferenceable(496) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   %3 = getelementptr inbounds i8, ptr %0, i64 400
   %4 = tail call noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3aa5e4efdc1403e8E.llvm.5593464411486612011"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)

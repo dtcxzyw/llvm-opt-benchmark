@@ -8915,9 +8915,10 @@ _ZL20MatchRegisterAltNameN4llvm9StringRefE.exit:  ; preds = %switch.lookup17, %s
   %93 = load i64, ptr %92, align 8
   %94 = and i64 %93, 70368744177664
   %95 = icmp ne i64 %94, 0
-  %96 = add nsw i32 %.sroa.06.0, -59
-  %97 = icmp ult i32 %96, 16
-  %or.cond10 = select i1 %95, i1 %97, i1 false
+  %96 = icmp samesign ugt i32 %.sroa.06.0, 58
+  %or.cond = select i1 %95, i1 %96, i1 false
+  %97 = icmp samesign ult i32 %.sroa.06.0, 75
+  %or.cond10 = select i1 %or.cond, i1 %97, i1 false
   %.sroa.06.1 = select i1 %or.cond10, i32 0, i32 %.sroa.06.0
   ret i32 %.sroa.06.1
 }

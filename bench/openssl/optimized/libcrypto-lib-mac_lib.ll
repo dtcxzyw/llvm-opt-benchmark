@@ -390,7 +390,7 @@ EVP_MAC_CTX_get_mac_size.exit:                    ; preds = %if.end5, %if.then2.
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %params.i.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %tmp.i.i)
   %cmp6 = icmp eq ptr %out, null
-  br i1 %cmp6, label %if.then7, label %if.end11
+  br i1 %cmp6, label %if.then7, label %if.end14
 
 if.then7:                                         ; preds = %EVP_MAC_CTX_get_mac_size.exit
   %cmp8 = icmp eq ptr %outl, null
@@ -406,17 +406,7 @@ if.end10:                                         ; preds = %if.then7
   store i64 %retval.0.i.i, ptr %outl, align 8
   br label %return
 
-if.end11:                                         ; preds = %EVP_MAC_CTX_get_mac_size.exit
-  %cmp12 = icmp ult i64 %outsize, %retval.0.i.i
-  br i1 %cmp12, label %if.then13, label %if.end14
-
-if.then13:                                        ; preds = %if.end11
-  call void @ERR_new() #6
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 153, ptr noundef nonnull @__func__.evp_mac_final) #6
-  call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 155, ptr noundef null) #6
-  br label %return
-
-if.end14:                                         ; preds = %if.end11
+if.end14:                                         ; preds = %EVP_MAC_CTX_get_mac_size.exit
   %tobool.not = icmp eq i32 %xof, 0
   br i1 %tobool.not, label %if.end22, label %if.then15
 
@@ -458,8 +448,8 @@ if.then27:                                        ; preds = %if.end22
   store i64 %16, ptr %outl, align 8
   br label %return
 
-return:                                           ; preds = %if.end22, %if.then27, %if.then20, %if.then13, %if.end10, %if.then9, %if.then4, %if.then
-  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then9 ], [ 1, %if.end10 ], [ 0, %if.then13 ], [ 0, %if.then20 ], [ %call25, %if.then27 ], [ %call25, %if.end22 ]
+return:                                           ; preds = %if.end22, %if.then27, %if.then20, %if.end10, %if.then9, %if.then4, %if.then
+  %retval.0 = phi i32 [ 0, %if.then ], [ 0, %if.then4 ], [ 0, %if.then9 ], [ 1, %if.end10 ], [ 0, %if.then20 ], [ %call25, %if.then27 ], [ %call25, %if.end22 ]
   ret i32 %retval.0
 }
 

@@ -309,7 +309,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.6c5507757c8b1c864a673afc90c467c5.345.llvm.3458943816331328394 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr59drop_in_place$LT$wasmtime..runtime..module..ModuleInner$GT$17hf6774ce0183f5c88E", [16 x i8] c"H\01\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN91_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20$wasmtime_runtime..gc..ModuleInfo$GT$16lookup_stack_map17hce7609d97e190074E" }>, align 8
 @anon.6c5507757c8b1c864a673afc90c467c5.346 = private unnamed_addr constant <{ [36 x i8] }> <{ [36 x i8] c"bad module-level interned type index" }>, align 1
 @anon.6c5507757c8b1c864a673afc90c467c5.347 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.6c5507757c8b1c864a673afc90c467c5.341, [16 x i8] c"%\00\00\00\00\00\00\000\04\00\00\0E\00\00\00" }>, align 8
-@anon.6c5507757c8b1c864a673afc90c467c5.350 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.6c5507757c8b1c864a673afc90c467c5.341, [16 x i8] c"%\00\00\00\00\00\00\00Z\04\00\00 \00\00\00" }>, align 8
 @anon.6c5507757c8b1c864a673afc90c467c5.352.llvm.3458943816331328394 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr62drop_in_place$LT$wasmtime..runtime..module..BareModuleInfo$GT$17h09a1e65489e728b8E", [16 x i8] c"\88\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$6module17h477815d3aff20eeeE", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$17engine_type_index17hfbcb3986e1991ffeE", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$8function17h324c08453cdeaf1cE", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$25native_to_wasm_trampoline17h057d2afcaf175114E", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$24array_to_wasm_trampoline17h661cac042ca2508eE", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$25wasm_to_native_trampoline17hb38a2acda19b1722E", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$12memory_image17ha30435449a66f45bE", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$9unique_id17h7b2b27494e2b31b9E", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$9wasm_data17hf6a69909cc7aca41E", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$8type_ids17h52d0e06e1059c360E", ptr @"_ZN97_$LT$wasmtime..runtime..module..BareModuleInfo$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$7offsets17h432f3c2a82fc32b4E" }>, align 8
 @anon.6c5507757c8b1c864a673afc90c467c5.353 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.6c5507757c8b1c864a673afc90c467c5.341, [16 x i8] c"%\00\00\00\00\00\00\00\B5\04\00\00\09\00\00\00" }>, align 8
 @anon.6c5507757c8b1c864a673afc90c467c5.354 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.6c5507757c8b1c864a673afc90c467c5.341, [16 x i8] c"%\00\00\00\00\00\00\00\B9\04\00\00\09\00\00\00" }>, align 8
@@ -25895,7 +25894,7 @@ define noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$25wasm_to_native_trampoline17h6a80f846423e1ff0E"(ptr noundef nonnull align 8 %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noalias noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20$wasmtime_runtime..ModuleRuntimeInfo$GT$25wasm_to_native_trampoline17h6a80f846423e1ff0E"(ptr nocapture noundef nonnull readonly align 8 %0, i32 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
   %5 = alloca i32, align 4
@@ -25908,7 +25907,7 @@ define noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20
   %8 = getelementptr inbounds i8, ptr %7, i64 96
   %9 = load i64, ptr %8, align 8, !alias.scope !5894, !noalias !5895, !noundef !4
   %10 = icmp eq i64 %9, 0
-  br i1 %10, label %_ZN8wasmtime7runtime13type_registry14TypeCollection17module_local_type17h262dc4daca03e943E.exit.thread, label %11
+  br i1 %10, label %16, label %11
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds i8, ptr %7, i64 72
@@ -25922,29 +25921,11 @@ define noundef ptr @"_ZN94_$LT$wasmtime..runtime..module..ModuleInner$u20$as$u20
   %14 = call noundef i64 @"_ZN71_$LT$core..hash..sip..Hasher$LT$S$GT$$u20$as$u20$core..hash..Hasher$GT$6finish17h74f5d911aae8c457E.llvm.15361297093319246575"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %4), !noalias !5901
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !5897
   %15 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6cf7d1d1207b2f89E.llvm.15361297093319246575"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, i64 noundef %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %_ZN8wasmtime7runtime13type_registry14TypeCollection17module_local_type17h262dc4daca03e943E.exit.thread, label %17
+  br label %16
 
-_ZN8wasmtime7runtime13type_registry14TypeCollection17module_local_type17h262dc4daca03e943E.exit.thread: ; preds = %2, %11
+16:                                               ; preds = %11, %2
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %24
-
-17:                                               ; preds = %11
-  %18 = getelementptr inbounds i8, ptr %15, i64 -4
-  %19 = load i32, ptr %18, align 4, !noundef !4
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %20 = call { ptr, i64 } @_ZN8wasmtime7runtime11instantiate14CompiledModule25wasm_to_native_trampoline17h6cd2a866553dc9f1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %0, i32 noundef %19)
-  %21 = extractvalue { ptr, i64 } %20, 0
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
-
-23:                                               ; preds = %17
-  call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.6c5507757c8b1c864a673afc90c467c5.350) #51
-  unreachable
-
-24:                                               ; preds = %_ZN8wasmtime7runtime13type_registry14TypeCollection17module_local_type17h262dc4daca03e943E.exit.thread, %17
-  %.0 = phi ptr [ %21, %17 ], [ null, %_ZN8wasmtime7runtime13type_registry14TypeCollection17module_local_type17h262dc4daca03e943E.exit.thread ]
-  ret ptr %.0
+  ret ptr null
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37430,9 +37411,6 @@ declare hidden { i64, ptr } @"_ZN9once_cell4sync17OnceCell$LT$T$GT$15get_or_try_
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @_ZN8wasmtime7runtime11instantiate14CompiledModule24array_to_wasm_trampoline17h2bb8792f4f1d33d9E(ptr noalias noundef readonly align 8 dereferenceable(160), i32 noundef) unnamed_addr #2
-
-; Function Attrs: nonlazybind uwtable
-declare { ptr, i64 } @_ZN8wasmtime7runtime11instantiate14CompiledModule25wasm_to_native_trampoline17h6cd2a866553dc9f1E(ptr noalias noundef readonly align 8 dereferenceable(160), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable_or_null(8) ptr @_ZN16wasmtime_runtime3cow18ModuleMemoryImages16get_memory_image17hb9a926d5ddcccfa5E(ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef) unnamed_addr #2

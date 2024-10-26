@@ -2499,7 +2499,7 @@ if.else24.i:                                      ; preds = %while.body.i
   br i1 %cmp.i, label %while.body.i, label %if.then, !llvm.loop !13
 
 if.then:                                          ; preds = %if.else24.i, %entry
-  %not = phi i32 [ 0, %entry ], [ %start.1.i, %if.else24.i ]
+  %start.0.lcssa.i = phi i32 [ 0, %entry ], [ %start.1.i, %if.else24.i ]
   %itemMax.i = getelementptr inbounds i8, ptr %this, i64 1176
   %3 = load i32, ptr %itemMax.i, align 8
   %cmp.not.i = icmp slt i32 %0, %3
@@ -2545,29 +2545,29 @@ if.end15.i.i:                                     ; preds = %do.body.i.i, %land.
 
 _ZN6icu_757Package18ensureItemCapacityEv.exit:    ; preds = %if.then, %if.end15.i.i
   %7 = phi i32 [ %0, %if.then ], [ %.pre, %if.end15.i.i ]
-  %cmp2 = icmp sgt i32 %7, %not
+  %cmp2 = icmp sgt i32 %7, %start.0.lcssa.i
   br i1 %cmp2, label %if.then3, label %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge
 
 _ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge: ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit
-  %.pre32 = zext nneg i32 %not to i64
+  %.pre26 = zext nneg i32 %start.0.lcssa.i to i64
   br label %if.end
 
 if.then3:                                         ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit
   %items = getelementptr inbounds i8, ptr %this, i64 1184
   %8 = load ptr, ptr %items, align 8
-  %idx.ext = zext nneg i32 %not to i64
+  %idx.ext = zext nneg i32 %start.0.lcssa.i to i64
   %add.ptr = getelementptr inbounds %"struct.icu_75::Item", ptr %8, i64 %idx.ext
   %add.ptr4 = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %sub = sub nsw i32 %7, %not
+  %sub = sub nsw i32 %7, %start.0.lcssa.i
   %conv = sext i32 %sub to i64
   %mul = mul nsw i64 %conv, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr4, ptr align 8 %add.ptr, i64 %mul, i1 false)
-  %.pre30 = load i32, ptr %itemCount.i, align 4
+  %.pre25 = load i32, ptr %itemCount.i, align 4
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge, %if.then3
-  %idx.ext11.pre-phi = phi i64 [ %.pre32, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %idx.ext, %if.then3 ]
-  %9 = phi i32 [ %7, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %.pre30, %if.then3 ]
+  %idx.ext11.pre-phi = phi i64 [ %.pre26, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %idx.ext, %if.then3 ]
+  %9 = phi i32 [ %7, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %.pre25, %if.then3 ]
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %itemCount.i, align 4
   %items10 = getelementptr inbounds i8, ptr %this, i64 1184
@@ -2604,14 +2604,13 @@ _ZN6icu_757Package11allocStringEai.exit:          ; preds = %if.end
   br label %if.end33
 
 if.else:                                          ; preds = %while.body.i
-  %arrayidx25 = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
-  %isDataOwned26 = getelementptr inbounds i8, ptr %arrayidx25, i64 20
+  %isDataOwned26 = getelementptr inbounds i8, ptr %arrayidx6.i, i64 20
   %17 = load i8, ptr %isDataOwned26, align 4
   %tobool.not = icmp eq i8 %17, 0
   br i1 %tobool.not, label %if.end33, label %if.then27
 
 if.then27:                                        ; preds = %if.else
-  %data31 = getelementptr inbounds i8, ptr %arrayidx25, i64 8
+  %data31 = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
   %18 = load ptr, ptr %data31, align 8
   tail call void @uprv_free_75(ptr noundef %18)
   br label %if.end33

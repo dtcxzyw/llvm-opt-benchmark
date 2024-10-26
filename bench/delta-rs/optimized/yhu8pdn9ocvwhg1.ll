@@ -31415,7 +31415,7 @@ define internal { ptr, i64 } @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std11collections4hash3map24HashMap$LT$K$C$V$C$S$GT$3get17hb839f00579ca0462E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std11collections4hash3map24HashMap$LT$K$C$V$C$S$GT$3get17hb839f00579ca0462E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca [8 x i8], align 8
   %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
@@ -31517,7 +31517,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std
   %49 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %50 = bitcast <16 x i1> %49 to i16
   %.not.i.i.i.i = icmp eq i16 %50, 0
-  br i1 %.not.i.i.i.i, label %64, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf258910119b77dfeE.exit.i"
+  br i1 %.not.i.i.i.i, label %64, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5da542e5600089dbE.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit.backedge.i.i.i", %.lr.ph.preheader.i.i.i
   %51 = phi i16 [ %63, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit.backedge.i.i.i" ], [ %48, %.lr.ph.preheader.i.i.i ]
@@ -31538,7 +31538,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std
   %.val5.i.i.i.i = load ptr, ptr %60, align 8, !noalias !4250, !nonnull !5, !noundef !5
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %1, ptr nonnull readonly align 1 %.val5.i.i.i.i, i64 %2), !alias.scope !4251, !noalias !4258
   %61 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %61, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf258910119b77dfeE.exit.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit.backedge.i.i.i"
+  br i1 %61, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5da542e5600089dbE.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit.backedge.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit.backedge.i.i.i": ; preds = %59, %.lr.ph.i.i.i
   %.not.i4.not.i.i.i = icmp eq i16 %51, 0
@@ -31551,19 +31551,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN3std
   %66 = add i64 %.sroa.01.0.i.i.i.i, %65
   br label %43
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf258910119b77dfeE.exit.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit._crit_edge.i.i.i", %59
-  %.0.i.i.i = phi ptr [ %57, %59 ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit._crit_edge.i.i.i" ]
-  %67 = icmp eq ptr %.0.i.i.i, null
-  %68 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 -48
-  %.0.i.i = select i1 %67, ptr null, ptr %68
-  br label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5da542e5600089dbE.exit"
-
-"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5da542e5600089dbE.exit": ; preds = %3, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf258910119b77dfeE.exit.i"
-  %.03.i = phi ptr [ %.0.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf258910119b77dfeE.exit.i" ], [ null, %3 ]
-  %69 = icmp eq ptr %.03.i, null
-  %70 = getelementptr inbounds i8, ptr %.03.i, i64 24
-  %.0.i = select i1 %69, ptr null, ptr %70
-  ret ptr %.0.i
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5da542e5600089dbE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha38e1170676f4c29E.exit._crit_edge.i.i.i", %59, %3
+  ret ptr null
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

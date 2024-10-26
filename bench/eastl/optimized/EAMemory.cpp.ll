@@ -1920,25 +1920,17 @@ while.cond.preheader.i:                           ; preds = %entry
   br i1 %cmp643.i, label %for.body.us.i, label %while.end.i
 
 for.body.us.i:                                    ; preds = %for.body.us.i, %while.cond.preheader.i
-  %cmp7.us.i = phi i1 [ true, %while.cond.preheader.i ], [ %.not, %for.body.us.i ]
-  %i.140.us.i = phi i64 [ 4, %while.cond.preheader.i ], [ %.mux, %for.body.us.i ]
-  %s.sroa.0.039.us.i = phi ptr [ %c.addr, %while.cond.preheader.i ], [ %incdec.ptr.us.i.mux, %for.body.us.i ]
+  %i.140.us.i = phi i64 [ 4, %while.cond.preheader.i ], [ 8, %for.body.us.i ]
+  %s.sroa.0.039.us.i = phi ptr [ %c.addr, %while.cond.preheader.i ], [ %incdec.ptr.us.i, %for.body.us.i ]
   %d.sroa.0.138.us.i = phi ptr [ %pDestination, %while.cond.preheader.i ], [ %incdec.ptr9.us.i, %for.body.us.i ]
   %destByteCount.addr.137.us.i = phi i64 [ %byteCount, %while.cond.preheader.i ], [ %sub.us.i, %for.body.us.i ]
-  %cmp7.us.i.not = xor i1 %cmp7.us.i, true
   %incdec.ptr.us.i = getelementptr inbounds i8, ptr %s.sroa.0.039.us.i, i64 4
   %5 = load i32, ptr %s.sroa.0.039.us.i, align 4
   %incdec.ptr9.us.i = getelementptr inbounds i8, ptr %d.sroa.0.138.us.i, i64 4
   store i32 %5, ptr %d.sroa.0.138.us.i, align 4
   %sub.us.i = add i64 %destByteCount.addr.137.us.i, -4
   %cmp8.us.i = icmp ult i64 %sub.us.i, 4
-  %.not = select i1 %cmp7.us.i.not, i1 true, i1 %cmp8.us.i
-  %.not.not = xor i1 %.not, true
-  %cmp8.us.i.not = xor i1 %cmp8.us.i, true
-  %brmerge = select i1 %.not.not, i1 true, i1 %cmp8.us.i.not
-  %.mux = select i1 %.not.not, i64 8, i64 4
-  %incdec.ptr.us.i.mux = select i1 %.not.not, ptr %incdec.ptr.us.i, ptr %c.addr
-  br i1 %brmerge, label %for.body.us.i, label %while.end.i, !llvm.loop !17
+  br i1 %cmp8.us.i, label %while.end.i, label %for.body.us.i, !llvm.loop !17
 
 while.end.i:                                      ; preds = %for.body.us.i, %while.cond.preheader.i
   %destByteCount.addr.0.lcssa.i = phi i64 [ %byteCount, %while.cond.preheader.i ], [ %sub.us.i, %for.body.us.i ]

@@ -16568,14 +16568,11 @@ if.then.i:                                        ; preds = %entry
   store ptr null, ptr %m_hint.i.i.i, align 8, !alias.scope !118
   %call8.i = call noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4408) %5, i32 noundef 1, ptr noundef nonnull %m_true.i, ptr noundef nonnull %agg.tmp.i)
   %.pre.i = load i32, ptr %m_true.i, align 8
-  %.pre3.i.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %.pre3.i = select i1 %.pre3.i.b, i32 -2, i32 0
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %6 = phi i32 [ %.pre3.i, %if.then.i ], [ %1, %entry ]
-  %7 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
-  %cmp.i2.not.i = icmp eq i32 %7, %6
+  %6 = phi i32 [ %.pre.i, %if.then.i ], [ %0, %entry ]
+  %cmp.i2.not.i = icmp eq i32 %6, -2
   br i1 %cmp.i2.not.i, label %if.then11.i, label %_ZN2pb6solver7ba_sort7mk_trueEv.exit
 
 if.then11.i:                                      ; preds = %if.end.i
@@ -16585,7 +16582,7 @@ if.then11.i:                                      ; preds = %if.end.i
 
 _ZN2pb6solver7ba_sort7mk_trueEv.exit:             ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i)
-  %xor.i = xor i32 %7, 1
+  %xor.i = xor i32 %6, 1
   ret i32 %xor.i
 }
 
@@ -16617,14 +16614,11 @@ if.then:                                          ; preds = %entry
   store ptr null, ptr %m_hint.i.i, align 8, !alias.scope !121
   %call8 = call noundef ptr @_ZN3sat6solver9mk_clauseEjPNS_7literalENS_6statusE(ptr noundef nonnull align 8 dereferenceable(4408) %5, i32 noundef 1, ptr noundef nonnull %m_true, ptr noundef nonnull %agg.tmp)
   %.pre = load i32, ptr %m_true, align 8
-  %.pre3.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4
-  %.pre3 = select i1 %.pre3.b, i32 -2, i32 0
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %6 = phi i32 [ %.pre3, %if.then ], [ %1, %entry ]
-  %7 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
-  %cmp.i2.not = icmp eq i32 %7, %6
+  %6 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
+  %cmp.i2.not = icmp eq i32 %6, -2
   br i1 %cmp.i2.not, label %if.then11, label %if.end12
 
 if.then11:                                        ; preds = %if.end
@@ -16633,7 +16627,7 @@ if.then11:                                        ; preds = %if.end
   unreachable
 
 if.end12:                                         ; preds = %if.end
-  ret i32 %7
+  ret i32 %6
 }
 
 declare noundef i32 @_ZN3sat6solver6mk_varEbb(ptr noundef nonnull align 8 dereferenceable(4408), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0

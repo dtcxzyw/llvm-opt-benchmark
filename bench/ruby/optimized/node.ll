@@ -185,7 +185,7 @@ define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noun
   %16 = icmp eq i64 %14, 0
   %17 = select i1 %16, i64 0, i64 %15
   %18 = add i64 %11, %2
-  %19 = add i64 %18, %17
+  %19 = add i64 %17, %18
   %20 = getelementptr inbounds i8, ptr %8, i64 16
   %21 = load i64, ptr %20, align 8
   %22 = icmp ugt i64 %19, %21
@@ -209,30 +209,27 @@ define dso_local ptr @rb_ast_newnode(ptr nocapture noundef readonly %0, i32 noun
   store ptr %33, ptr %25, align 8
   store ptr %25, ptr %7, align 8
   %.pre.i = load i64, ptr %27, align 8
-  %.pre = add i64 %.pre.i, %2
+  %.pre1.i = add i64 %.pre.i, %2
   br label %ast_newnode_in_bucket.exit
 
 ast_newnode_in_bucket.exit:                       ; preds = %4, %23
-  %.pre-phi = phi i64 [ %18, %4 ], [ %.pre, %23 ]
-  %34 = phi i64 [ %11, %4 ], [ %.pre.i, %23 ]
-  %35 = phi ptr [ %8, %4 ], [ %25, %23 ]
-  %.0.i = phi i64 [ %17, %4 ], [ 0, %23 ]
+  %.pre-phi.i = phi i64 [ %.pre1.i, %23 ], [ %18, %4 ]
+  %34 = phi i64 [ %.pre.i, %23 ], [ %11, %4 ]
+  %35 = phi ptr [ %25, %23 ], [ %8, %4 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 40
   %37 = getelementptr inbounds i8, ptr %35, i64 24
   %38 = getelementptr i8, ptr %36, i64 %34
-  %39 = getelementptr i8, ptr %38, i64 %.0.i
-  %40 = add i64 %.pre-phi, %.0.i
-  store i64 %40, ptr %37, align 8
-  %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 32
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 8
-  %45 = load i64, ptr %44, align 8
-  %46 = add i64 %45, 1
-  store i64 %46, ptr %44, align 8
-  %47 = getelementptr ptr, ptr %43, i64 %45
-  store ptr %39, ptr %47, align 8
-  ret ptr %39
+  store i64 %.pre-phi.i, ptr %37, align 8
+  %39 = load ptr, ptr %7, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 32
+  %41 = load ptr, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %43 = load i64, ptr %42, align 8
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %42, align 8
+  %45 = getelementptr ptr, ptr %41, i64 %43
+  store ptr %38, ptr %45, align 8
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

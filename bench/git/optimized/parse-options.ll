@@ -3627,19 +3627,14 @@ if.end17:                                         ; preds = %for.end
 if.then.i26:                                      ; preds = %if.end17
   %short_name.i = getelementptr inbounds i8, ptr %opt, i64 4
   %94 = load i32, ptr %short_name.i, align 4
-  %tobool1.not.i = icmp eq ptr %arg.1, null
-  %cond.i27 = select i1 %tobool1.not.i, ptr @.str.59, ptr %arg.1
-  %call.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.58, i32 noundef %94, ptr noundef nonnull %cond.i27) #17
+  %call.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.58, i32 noundef %94, ptr noundef nonnull @.str.59) #17
   br label %optnamearg.exit
 
 if.end.i:                                         ; preds = %if.end17
   %cond4.i = select i1 %tobool.not.i, ptr @.str.59, ptr @.str.61
   %long_name.i = getelementptr inbounds i8, ptr %opt, i64 8
   %95 = load ptr, ptr %long_name.i, align 8
-  %tobool5.not.i = icmp eq ptr %arg.1, null
-  %cond6.i = select i1 %tobool5.not.i, ptr @.str.59, ptr @.str.62
-  %cond11.i = select i1 %tobool5.not.i, ptr @.str.59, ptr %arg.1
-  %call12.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond4.i, ptr noundef %95, ptr noundef nonnull %cond6.i, ptr noundef nonnull %cond11.i) #17
+  %call12.i = tail call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.60, ptr noundef nonnull %cond4.i, ptr noundef %95, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.59) #17
   br label %optnamearg.exit
 
 optnamearg.exit:                                  ; preds = %if.then.i26, %if.end.i

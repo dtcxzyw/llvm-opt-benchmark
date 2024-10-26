@@ -866,15 +866,12 @@ if.else28:                                        ; preds = %invoke.cont24
 if.else32:                                        ; preds = %invoke.cont4
   %second34 = getelementptr inbounds i8, ptr %retval.sroa.0.0.i.i, i64 48
   %13 = load ptr, ptr %second34, align 8
-  %cmp35 = icmp eq ptr %histogram, %13
-  %spec.select = select i1 %cmp35, ptr null, ptr %histogram
   br label %if.end57
 
 if.end57:                                         ; preds = %if.else32, %invoke.cont15, %if.else28, %if.then26, %if.end
-  %histogram_to_delete.0 = phi ptr [ null, %if.end ], [ null, %if.then26 ], [ null, %if.else28 ], [ null, %invoke.cont15 ], [ %spec.select, %if.else32 ]
   %histogram_to_return.0 = phi ptr [ %histogram, %if.end ], [ %histogram, %if.then26 ], [ %histogram, %if.else28 ], [ %histogram, %invoke.cont15 ], [ %13, %if.else32 ]
   invoke void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
-          to label %_ZN4base8AutoLockD2Ev.exit unwind label %terminate.lpad.i
+          to label %return unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.end57
   %14 = landingpad { ptr, i32 }
@@ -882,17 +879,6 @@ terminate.lpad.i:                                 ; preds = %if.end57
   %15 = extractvalue { ptr, i32 } %14, 0
   call void @__clang_call_terminate(ptr %15) #18
   unreachable
-
-_ZN4base8AutoLockD2Ev.exit:                       ; preds = %if.end57
-  %isnull = icmp eq ptr %histogram_to_delete.0, null
-  br i1 %isnull, label %return, label %delete.notnull
-
-delete.notnull:                                   ; preds = %_ZN4base8AutoLockD2Ev.exit
-  %vtable = load ptr, ptr %histogram_to_delete.0, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 8
-  %16 = load ptr, ptr %vfn, align 8
-  call void %16(ptr noundef nonnull align 8 dereferenceable(44) %histogram_to_delete.0) #20
-  br label %return
 
 ehcleanup.loopexit:                               ; preds = %while.body.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -915,17 +901,17 @@ ehcleanup:                                        ; preds = %ehcleanup.loopexit.
           to label %_ZN4base8AutoLockD2Ev.exit39 unwind label %terminate.lpad.i38
 
 terminate.lpad.i38:                               ; preds = %ehcleanup
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #18
+  %17 = extractvalue { ptr, i32 } %16, 0
+  call void @__clang_call_terminate(ptr %17) #18
   unreachable
 
 _ZN4base8AutoLockD2Ev.exit39:                     ; preds = %ehcleanup
   resume { ptr, i32 } %lpad.phi
 
-return:                                           ; preds = %_ZN4base8AutoLockD2Ev.exit, %delete.notnull, %entry
-  %retval.0 = phi ptr [ %histogram, %entry ], [ %histogram_to_return.0, %delete.notnull ], [ %histogram_to_return.0, %_ZN4base8AutoLockD2Ev.exit ]
+return:                                           ; preds = %if.end57, %entry
+  %retval.0 = phi ptr [ %histogram, %entry ], [ %histogram_to_return.0, %if.end57 ]
   ret ptr %retval.0
 }
 

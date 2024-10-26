@@ -207,7 +207,6 @@ for.cond127.outer:                                ; preds = %if.end250, %for.con
   %curr.0.ph = phi i32 [ %curr.2.lcssa, %if.end250 ], [ %spec.select145, %for.cond127.preheader ]
   %drop.0.ph = phi i32 [ %spec.select146, %if.end250 ], [ 0, %for.cond127.preheader ]
   %used.0.ph = phi i32 [ %add237, %if.end250 ], [ %shl112161235, %for.cond127.preheader ]
-  %huff.0.ph = phi i32 [ %huff.1, %if.end250 ], [ 0, %for.cond127.preheader ]
   %low.0.ph = phi i32 [ %and209, %if.end250 ], [ -1, %for.cond127.preheader ]
   %next.0.ph = phi ptr [ %add.ptr, %if.end250 ], [ %13, %for.cond127.preheader ]
   %shl170 = shl nuw i32 1, %curr.0.ph
@@ -216,7 +215,6 @@ for.cond127.outer:                                ; preds = %if.end250, %for.con
 for.cond127:                                      ; preds = %for.cond127.backedge, %for.cond127.outer
   %len.3 = phi i32 [ %len.3.ph, %for.cond127.outer ], [ %len.4, %for.cond127.backedge ]
   %sym.2 = phi i32 [ %sym.2.ph, %for.cond127.outer ], [ %inc188, %for.cond127.backedge ]
-  %huff.0 = phi i32 [ %huff.0.ph, %for.cond127.outer ], [ %huff.1, %for.cond127.backedge ]
   %sub128 = sub i32 %len.3, %drop.0.ph
   %conv129 = trunc i32 %sub128 to i8
   %idxprom131 = zext i32 %sym.2 to i64
@@ -245,14 +243,12 @@ if.end167:                                        ; preds = %if.else, %for.cond1
   %here.sroa.12.0 = phi i16 [ %16, %if.then147 ], [ %14, %for.cond127 ], [ 0, %if.else ]
   %here.sroa.0.0 = phi i8 [ %conv154, %if.then147 ], [ 0, %for.cond127 ], [ 96, %if.else ]
   %shl169.neg = shl nsw i32 -1, %sub128
-  %shr = lshr i32 %huff.0, %drop.0.ph
   br label %do.body
 
 do.body:                                          ; preds = %do.body, %if.end167
   %fill.0 = phi i32 [ %shl170, %if.end167 ], [ %sub171, %do.body ]
   %sub171 = add i32 %fill.0, %shl169.neg
-  %add172 = add i32 %sub171, %shr
-  %idxprom173 = zext i32 %add172 to i64
+  %idxprom173 = zext i32 %sub171 to i64
   %arrayidx174 = getelementptr inbounds %struct.code, ptr %next.0.ph, i64 %idxprom173
   store i8 %here.sroa.0.0, ptr %arrayidx174, align 2
   %here.sroa.9.0.arrayidx174.sroa_idx = getelementptr inbounds i8, ptr %arrayidx174, i64 1
@@ -265,21 +261,6 @@ do.body:                                          ; preds = %do.body, %if.end167
 do.end:                                           ; preds = %do.body
   %sub177 = add i32 %len.3, -1
   %shl178 = shl nuw i32 1, %sub177
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.cond, %do.end
-  %incr.0 = phi i32 [ %shl178, %do.end ], [ %shr179, %while.cond ]
-  %and = and i32 %incr.0, %huff.0
-  %tobool.not = icmp eq i32 %and, 0
-  %shr179 = lshr i32 %incr.0, 1
-  br i1 %tobool.not, label %while.end, label %while.cond, !llvm.loop !12
-
-while.end:                                        ; preds = %while.cond
-  %cmp180.not = icmp eq i32 %incr.0, 0
-  %sub183 = add i32 %incr.0, -1
-  %and184 = and i32 %sub183, %huff.0
-  %add185 = add i32 %and184, %incr.0
-  %huff.1 = select i1 %cmp180.not, i32 0, i32 %add185
   %inc188 = add i32 %sym.2, 1
   %idxprom189 = zext i32 %len.3 to i64
   %arrayidx190 = getelementptr inbounds [16 x i16], ptr %count, i64 0, i64 %idxprom189
@@ -289,9 +270,9 @@ while.end:                                        ; preds = %while.cond
   %cmp193 = icmp eq i16 %dec191, 0
   br i1 %cmp193, label %if.then195, label %if.end205
 
-if.then195:                                       ; preds = %while.end
+if.then195:                                       ; preds = %do.end
   %cmp196 = icmp eq i32 %len.3, %max.0175
-  br i1 %cmp196, label %for.end265, label %if.end199
+  br i1 %cmp196, label %if.then268, label %if.end199
 
 if.end199:                                        ; preds = %if.then195
   %idxprom200 = zext i32 %inc188 to i64
@@ -303,13 +284,13 @@ if.end199:                                        ; preds = %if.then195
   %conv204 = zext i16 %19 to i32
   br label %if.end205
 
-if.end205:                                        ; preds = %if.end199, %while.end
-  %len.4 = phi i32 [ %conv204, %if.end199 ], [ %len.3, %while.end ]
+if.end205:                                        ; preds = %if.end199, %do.end
+  %len.4 = phi i32 [ %conv204, %if.end199 ], [ %len.3, %do.end ]
   %cmp206 = icmp ugt i32 %len.4, %spec.select145
   br i1 %cmp206, label %land.lhs.true208, label %for.cond127.backedge
 
 land.lhs.true208:                                 ; preds = %if.end205
-  %and209 = and i32 %huff.1, %sub113162236
+  %and209 = and i32 %shl178, %sub113162236
   %cmp210.not = icmp eq i32 %and209, %low.0.ph
   br i1 %cmp210.not, label %for.cond127.backedge, label %if.then212
 
@@ -348,7 +329,7 @@ if.end232:                                        ; preds = %while.body223
   %shl234 = shl nuw i32 %sub228, 1
   %add220.reass = add i32 %curr.2185, %invariant.op
   %cmp221 = icmp ult i32 %add220.reass, %max.0175
-  br i1 %cmp221, label %while.body223, label %while.end235.loopexit, !llvm.loop !13
+  br i1 %cmp221, label %while.body223, label %while.end235.loopexit, !llvm.loop !12
 
 while.end235.loopexit:                            ; preds = %while.body223, %if.end232
   %curr.2.lcssa.ph = phi i32 [ %20, %if.end232 ], [ %curr.2185, %while.body223 ]
@@ -385,29 +366,22 @@ if.end250:                                        ; preds = %while.end235
   store i16 %conv260, ptr %val263, align 2
   br label %for.cond127.outer
 
-for.end265:                                       ; preds = %if.then195
-  %cmp266.not = icmp eq i32 %huff.1, 0
-  br i1 %cmp266.not, label %if.end276, label %if.then268
-
-if.then268:                                       ; preds = %for.end265
-  %idxprom274 = zext i32 %huff.1 to i64
+if.then268:                                       ; preds = %if.then195
+  %idxprom274 = zext i32 %shl178 to i64
   %arrayidx275 = getelementptr inbounds %struct.code, ptr %next.0.ph, i64 %idxprom274
   store i8 64, ptr %arrayidx275, align 2
   %here.sroa.9.0.arrayidx275.sroa_idx = getelementptr inbounds i8, ptr %arrayidx275, i64 1
   store i8 %conv129, ptr %here.sroa.9.0.arrayidx275.sroa_idx, align 1
   %here.sroa.12.0.arrayidx275.sroa_idx = getelementptr inbounds i8, ptr %arrayidx275, i64 2
   store i16 0, ptr %here.sroa.12.0.arrayidx275.sroa_idx, align 2
-  br label %if.end276
-
-if.end276:                                        ; preds = %if.then268, %for.end265
   %25 = load ptr, ptr %table, align 8
   %idx.ext277 = zext i32 %used.0.ph to i64
   %add.ptr278 = getelementptr inbounds %struct.code, ptr %25, i64 %idx.ext277
   store ptr %add.ptr278, ptr %table, align 8
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %if.then27, %if.end276
-  %spec.select145.sink = phi i32 [ %spec.select145, %if.end276 ], [ 1, %if.then27 ]
+return.sink.split:                                ; preds = %if.then27, %if.then268
+  %spec.select145.sink = phi i32 [ %spec.select145, %if.then268 ], [ 1, %if.then27 ]
   store i32 %spec.select145.sink, ptr %bits, align 4
   br label %return
 
@@ -444,4 +418,3 @@ attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}

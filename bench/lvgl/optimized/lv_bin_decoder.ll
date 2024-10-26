@@ -1079,12 +1079,12 @@ define internal fastcc range(i32 0, 2) i32 @decode_alpha_only(ptr nocapture noun
   %8 = lshr i32 %7, 8
   %9 = and i32 %8, 255
   %10 = tail call zeroext i8 @lv_color_format_get_bpp(i32 noundef %9) #4
-  %.fr12 = freeze i8 %10
+  %.fr11 = freeze i8 %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 65535
   %14 = shl nuw nsw i32 %13, 3
-  %15 = zext i8 %.fr12 to i32
+  %15 = zext i8 %.fr11 to i32
   %16 = udiv i32 %14, %15
   %17 = load i64, ptr %5, align 8
   %18 = lshr i64 %17, 48
@@ -1096,7 +1096,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_alpha_only(ptr nocapture noun
   %24 = and i32 %23, 65535
   %25 = tail call ptr @lv_draw_buf_create_ex(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 448), i32 noundef %24, i32 noundef %19, i32 noundef 14, i32 noundef %16) #4
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %88, label %27
+  br i1 %26, label %79, label %27
 
 27:                                               ; preds = %1
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1135,7 +1135,7 @@ fs_read_file_at.exit:                             ; preds = %37
 
 fs_read_file_at.exit.thread:                      ; preds = %37, %fs_read_file_at.exit
   call void @lv_draw_buf_destroy(ptr noundef nonnull %25) #4
-  br label %88
+  br label %79
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1154,9 +1154,9 @@ fs_read_file_at.exit.thread:                      ; preds = %37, %fs_read_file_a
   %49 = load i64, ptr %5, align 8
   %50 = and i64 %49, 65280
   %.not63 = icmp eq i64 %50, 3584
-  %.not11 = icmp eq i32 %20, 0
-  %or.cond17 = or i1 %.not63, %.not11
-  br i1 %or.cond17, label %.loopexit, label %.lr.ph
+  %.not10 = icmp eq i32 %20, 0
+  %or.cond16 = or i1 %.not63, %.not10
+  br i1 %or.cond16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %48
   %51 = zext i32 %20 to i64
@@ -1167,84 +1167,72 @@ fs_read_file_at.exit.thread:                      ; preds = %37, %fs_read_file_a
   %54 = getelementptr inbounds nuw i8, ptr %29, i64 %53
   %55 = getelementptr inbounds i8, ptr %54, i64 -1
   %56 = xor i32 %notmask, -1
-  %57 = icmp ult i8 %.fr12, 8
-  %58 = zext nneg i8 %.fr12 to i16
-  br i1 %57, label %.lr.ph.split.us, label %.lr.ph.split
+  %57 = icmp ult i8 %.fr11, 8
+  %58 = zext nneg i8 %.fr11 to i16
+  %.not64 = icmp ugt i8 %.fr11, 7
+  %spec.select.idx = sext i1 %.not64 to i64
+  br i1 %57, label %.lr.ph.split.us, label %.lr.ph.split.preheader
+
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %59 = trunc i32 %56 to i8
+  br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %bit_extend.exit.us
-  %.0569.us = phi ptr [ %.056.us, %bit_extend.exit.us ], [ %.0565, %.lr.ph ]
-  %.0538.us = phi i32 [ %74, %bit_extend.exit.us ], [ 0, %.lr.ph ]
-  %.0547.us = phi i32 [ %spec.select65.us, %bit_extend.exit.us ], [ 0, %.lr.ph ]
+  %.0568.us = phi ptr [ %.056.us, %bit_extend.exit.us ], [ %.0565, %.lr.ph ]
+  %.0537.us = phi i32 [ %71, %bit_extend.exit.us ], [ 0, %.lr.ph ]
   %.0576.us = phi ptr [ %spec.select.us, %bit_extend.exit.us ], [ %55, %.lr.ph ]
-  %59 = load i8, ptr %.0576.us, align 1, !tbaa !27
-  %60 = zext i8 %59 to i32
-  %61 = and i32 %.0547.us, 255
-  %62 = lshr i32 %60, %61
-  %63 = and i32 %62, %56
-  %64 = trunc nuw nsw i32 %63 to i16
-  %65 = icmp eq i32 %63, 0
-  br i1 %65, label %bit_extend.exit.us, label %.lr.ph.i.us.preheader
+  %60 = load i8, ptr %.0576.us, align 1, !tbaa !27
+  %61 = zext i8 %60 to i32
+  %62 = and i32 %61, %56
+  %63 = trunc nuw nsw i32 %62 to i16
+  %64 = icmp eq i32 %62, 0
+  br i1 %64, label %bit_extend.exit.us, label %.lr.ph.i.us.preheader
 
 .lr.ph.i.us.preheader:                            ; preds = %.lr.ph.split.us
-  %66 = trunc nuw i32 %63 to i8
+  %65 = trunc nuw i32 %62 to i8
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.us.preheader, %.lr.ph.i.us
   %indvars.iv.i.us = phi i16 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ %58, %.lr.ph.i.us.preheader ]
-  %.01115.i.us = phi i8 [ %70, %.lr.ph.i.us ], [ %66, %.lr.ph.i.us.preheader ]
-  %67 = sub nuw nsw i16 8, %indvars.iv.i.us
-  %68 = shl nuw i16 %64, %67
-  %69 = trunc i16 %68 to i8
-  %70 = or i8 %.01115.i.us, %69
+  %.01115.i.us = phi i8 [ %69, %.lr.ph.i.us ], [ %65, %.lr.ph.i.us.preheader ]
+  %66 = sub nuw nsw i16 8, %indvars.iv.i.us
+  %67 = shl nuw i16 %63, %66
+  %68 = trunc i16 %67 to i8
+  %69 = or i8 %.01115.i.us, %68
   %indvars.iv.next.i.us = add nuw nsw i16 %indvars.iv.i.us, %58
-  %71 = icmp samesign ult i16 %indvars.iv.next.i.us, 8
-  br i1 %71, label %.lr.ph.i.us, label %bit_extend.exit.us, !llvm.loop !54
+  %70 = icmp samesign ult i16 %indvars.iv.next.i.us, 8
+  br i1 %70, label %.lr.ph.i.us, label %bit_extend.exit.us, !llvm.loop !54
 
 bit_extend.exit.us:                               ; preds = %.lr.ph.i.us, %.lr.ph.split.us
-  %.012.i.us = phi i8 [ 0, %.lr.ph.split.us ], [ %70, %.lr.ph.i.us ]
-  store i8 %.012.i.us, ptr %.0569.us, align 1, !tbaa !27
-  %72 = add nuw nsw i32 %61, %15
-  %73 = and i32 %72, 248
-  %.not64.us = icmp ne i32 %73, 0
-  %spec.select.idx.us = sext i1 %.not64.us to i64
-  %spec.select.us = getelementptr inbounds i8, ptr %.0576.us, i64 %spec.select.idx.us
-  %spec.select65.us = select i1 %.not64.us, i32 0, i32 %72
-  %74 = add nuw i32 %.0538.us, 1
-  %.056.us = getelementptr inbounds i8, ptr %.0569.us, i64 -1
-  %75 = icmp ult i32 %74, %20
-  br i1 %75, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !55
+  %.012.i.us = phi i8 [ 0, %.lr.ph.split.us ], [ %69, %.lr.ph.i.us ]
+  store i8 %.012.i.us, ptr %.0568.us, align 1, !tbaa !27
+  %spec.select.us = getelementptr inbounds i8, ptr %.0576.us, i64 %spec.select.idx
+  %71 = add nuw i32 %.0537.us, 1
+  %.056.us = getelementptr inbounds i8, ptr %.0568.us, i64 -1
+  %72 = icmp ult i32 %71, %20
+  br i1 %72, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !55
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.0569 = phi ptr [ %.056, %.lr.ph.split ], [ %.0565, %.lr.ph ]
-  %.0538 = phi i32 [ %84, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.0547 = phi i32 [ %spec.select65, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %.0576 = phi ptr [ %spec.select, %.lr.ph.split ], [ %55, %.lr.ph ]
-  %76 = load i8, ptr %.0576, align 1, !tbaa !27
-  %77 = zext i8 %76 to i32
-  %78 = and i32 %.0547, 255
-  %79 = lshr i32 %77, %78
-  %80 = and i32 %79, %56
-  %81 = trunc nuw i32 %80 to i8
-  store i8 %81, ptr %.0569, align 1, !tbaa !27
-  %82 = add nuw nsw i32 %78, %15
-  %83 = and i32 %82, 248
-  %.not64 = icmp ne i32 %83, 0
-  %spec.select.idx = sext i1 %.not64 to i64
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %.0568 = phi ptr [ %.056, %.lr.ph.split ], [ %.0565, %.lr.ph.split.preheader ]
+  %.0537 = phi i32 [ %75, %.lr.ph.split ], [ 0, %.lr.ph.split.preheader ]
+  %.0576 = phi ptr [ %spec.select, %.lr.ph.split ], [ %55, %.lr.ph.split.preheader ]
+  %73 = load i8, ptr %.0576, align 1, !tbaa !27
+  %74 = and i8 %73, %59
+  store i8 %74, ptr %.0568, align 1, !tbaa !27
   %spec.select = getelementptr inbounds i8, ptr %.0576, i64 %spec.select.idx
-  %spec.select65 = select i1 %.not64, i32 0, i32 %82
-  %84 = add nuw i32 %.0538, 1
-  %.056 = getelementptr inbounds i8, ptr %.0569, i64 -1
-  %85 = icmp ult i32 %84, %20
-  br i1 %85, label %.lr.ph.split, label %.loopexit, !llvm.loop !55
+  %75 = add nuw i32 %.0537, 1
+  %.056 = getelementptr inbounds i8, ptr %.0568, i64 -1
+  %76 = icmp ult i32 %75, %20
+  br i1 %76, label %.lr.ph.split, label %.loopexit, !llvm.loop !55
 
 .loopexit:                                        ; preds = %.lr.ph.split, %bit_extend.exit.us, %48
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %25, ptr %86, align 8, !tbaa !31
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %25, ptr %87, align 8, !tbaa !30
-  br label %88
+  %77 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr %25, ptr %77, align 8, !tbaa !31
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %25, ptr %78, align 8, !tbaa !30
+  br label %79
 
-88:                                               ; preds = %fs_read_file_at.exit.thread, %.loopexit, %1
+79:                                               ; preds = %fs_read_file_at.exit.thread, %.loopexit, %1
   %.0 = phi i32 [ 0, %1 ], [ 1, %.loopexit ], [ 0, %fs_read_file_at.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #4
   ret i32 %.0

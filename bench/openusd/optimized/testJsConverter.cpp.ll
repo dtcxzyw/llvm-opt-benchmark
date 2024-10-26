@@ -14209,52 +14209,32 @@ define linkonce_odr dso_local void @_ZNK32pxrInternal_v0_24__pxrReserved__7JsVal
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %19, i8 0, i64 %.idx.i.i, i1 false)
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZNSt14_Bit_referenceaSEb.exit.i
-  %.sroa.07.014.i = phi ptr [ %40, %_ZNSt14_Bit_referenceaSEb.exit.i ], [ %6, %.lr.ph.i.preheader ]
-  %.sroa.5.013.i = phi i32 [ %spec.select10.i, %_ZNSt14_Bit_referenceaSEb.exit.i ], [ 0, %.lr.ph.i.preheader ]
-  %.sroa.02.012.i = phi ptr [ %spec.select.i, %_ZNSt14_Bit_referenceaSEb.exit.i ], [ %19, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.noexc
+  %.sroa.07.014.i = phi ptr [ %33, %.noexc ], [ %6, %.lr.ph.i.preheader ]
   %30 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7JsValue7GetBoolEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.07.014.i)
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %31 = zext nneg i32 %.sroa.5.013.i to i64
-  %32 = shl nuw i64 1, %31
-  br i1 %30, label %33, label %36
-
-33:                                               ; preds = %.noexc
-  %34 = load i64, ptr %.sroa.02.012.i, align 8
-  %35 = or i64 %34, %32
-  br label %_ZNSt14_Bit_referenceaSEb.exit.i
-
-36:                                               ; preds = %.noexc
-  %37 = xor i64 %32, -1
-  %38 = load i64, ptr %.sroa.02.012.i, align 8
-  %39 = and i64 %38, %37
-  br label %_ZNSt14_Bit_referenceaSEb.exit.i
-
-_ZNSt14_Bit_referenceaSEb.exit.i:                 ; preds = %36, %33
-  %storemerge.i = phi i64 [ %39, %36 ], [ %35, %33 ]
-  store i64 %storemerge.i, ptr %.sroa.02.012.i, align 8
-  %40 = getelementptr inbounds i8, ptr %.sroa.07.014.i, i64 16
-  %41 = add i32 %.sroa.5.013.i, 1
-  %42 = icmp eq i32 %.sroa.5.013.i, 63
-  %spec.select.idx.i = select i1 %42, i64 8, i64 0
-  %spec.select.i = getelementptr inbounds i8, ptr %.sroa.02.012.i, i64 %spec.select.idx.i
-  %spec.select10.i = select i1 %42, i32 0, i32 %41
-  %.not.i = icmp eq ptr %40, %5
+  %31 = load i64, ptr %19, align 8
+  %32 = and i64 %31, -2
+  %masksel = zext i1 %30 to i64
+  %storemerge.i = or disjoint i64 %32, %masksel
+  store i64 %storemerge.i, ptr %19, align 8
+  %33 = getelementptr inbounds i8, ptr %.sroa.07.014.i, i64 16
+  %.not.i = icmp eq ptr %33, %5
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !130
 
-43:                                               ; preds = %.lr.ph.i
-  %44 = landingpad { ptr, i32 }
+34:                                               ; preds = %.lr.ph.i
+  %35 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #23
   br label %.body
 
-.loopexit:                                        ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i, %2
+.loopexit:                                        ; preds = %.noexc, %2
   ret void
 
-.body:                                            ; preds = %20, %43
-  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %21, %20 ]
+.body:                                            ; preds = %20, %34
+  %.pn = phi { ptr, i32 } [ %35, %34 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn
 }
 

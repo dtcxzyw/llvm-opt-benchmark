@@ -941,33 +941,28 @@ invoke.cont11:                                    ; preds = %invoke.cont6
 invoke.cont13:                                    ; preds = %invoke.cont11
   %7 = load i64, ptr %_M_node_count.i.i.i, align 8
   %cmp16.not = icmp ugt i64 %7, %5
-  %8 = load i32, ptr %result, align 4
-  %9 = zext i32 %8 to i64
-  %10 = select i1 %cmp16.not, i64 0, i64 4294967296
-  %11 = select i1 %cmp16.not, i64 0, i64 %9
+  %8 = select i1 %cmp16.not, i64 0, i64 4294967296
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont13, %invoke.cont6
-  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %10, %invoke.cont13 ]
-  %retval.sroa.0.0 = phi i64 [ 0, %invoke.cont6 ], [ %11, %invoke.cont13 ]
-  %12 = load ptr, ptr %error_field, align 8
-  %cmp.not.i = icmp eq ptr %12, null
+  %retval.sroa.2.0 = phi i64 [ 0, %invoke.cont6 ], [ %8, %invoke.cont13 ]
+  %9 = load ptr, ptr %error_field, align 8
+  %cmp.not.i = icmp eq ptr %9, null
   br i1 %cmp.not.i, label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit, label %if.then.i
 
 if.then.i:                                        ; preds = %cleanup
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %12)
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %9)
           to label %_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i
-  %13 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  call void @__clang_call_terminate(ptr %14) #22
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #22
   unreachable
 
 _ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev.exit: ; preds = %cleanup, %if.then.i
-  %retval.sroa.0.0.insert.insert = or i64 %retval.sroa.0.0, %retval.sroa.2.0
-  ret i64 %retval.sroa.0.0.insert.insert
+  ret i64 %retval.sroa.2.0
 
 eh.resume:                                        ; preds = %lpad5, %lpad
   %.pn = phi { ptr, i32 } [ %4, %lpad5 ], [ %3, %lpad ]

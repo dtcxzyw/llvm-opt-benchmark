@@ -10614,11 +10614,7 @@ if.end25:                                         ; preds = %if.end18
   %cmp.i13 = icmp eq i32 %div3.i, 128
   %spec.select = select i1 %cmp.i13, i32 256, i32 %div3.i
   %cmp28.not35 = icmp eq i32 %spec.select, 0
-  br i1 %cmp28.not35, label %for.end.thread, label %for.body
-
-for.end.thread:                                   ; preds = %if.end36, %if.end25
-  %call3930 = tail call noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1MaybeSupportedILNS0_25ConstructionFailureChanceE1ELm128ELb0ELb0ELb1EE11GetNumToAddEj(i32 noundef 0)
-  br label %if.then41
+  br i1 %cmp28.not35, label %if.then41, label %for.body
 
 for.body:                                         ; preds = %if.end25, %if.end36
   %i.037 = phi i32 [ %inc, %if.end36 ], [ 0, %if.end25 ]
@@ -10644,12 +10640,12 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   %sub7.i.i = fsub double %div.i, %ldexp14.i.i
   %sub8.i.i = fsub double %ldexp.i.i, %ldexp14.i.i
   %div.i.i = fdiv double %sub7.i.i, %sub8.i.i
-  %add13.i.i = add i32 %slots.036, -127
+  %add13.i.i = add nsw i32 %slots.036, -127
   %conv14.i.i = uitofp i32 %add13.i.i to double
   %6 = tail call double @llvm.fmuladd.f64(double %div.i.i, double %conv14.i.i, double 0x3DE0000000000000)
   %div15.i.i = fmul double %6, 7.812500e-03
   %conv16.i.i = fptoui double %div15.i.i to i32
-  %div1711.i.i = lshr i32 %slots.036, 7
+  %div1711.i.i = lshr exact i32 %slots.036, 7
   %mul15.i.i = sub nuw nsw i32 32, %5
   %sub18.i.i = mul nuw nsw i32 %mul15.i.i, %div1711.i.i
   %add19.i.i = sub i32 %sub18.i.i, %conv16.i.i
@@ -10658,8 +10654,8 @@ if.then3.i.i:                                     ; preds = %if.then.i.i
   br label %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit
 
 if.else.i.i:                                      ; preds = %if.then.i.i
-  %conv22.i.i = zext i32 %slots.036 to i64
-  %mul23.i.i = shl nuw nsw i64 %conv22.i.i, 2
+  %7 = shl nuw nsw i32 %slots.036, 2
+  %mul23.i.i = zext nneg i32 %7 to i64
   br label %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit
 
 _ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit: ; preds = %for.body, %if.then3.i.i, %if.else.i.i
@@ -10667,22 +10663,18 @@ _ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapte
   %cmp31 = icmp ule i64 %retval.0.i.i, %sub
   %cmp34 = icmp samesign ugt i32 %i.037, 1
   %or.cond = select i1 %cmp31, i1 true, i1 %cmp34
-  br i1 %or.cond, label %for.end, label %if.end36
+  br i1 %or.cond, label %if.then41, label %if.end36
 
 if.end36:                                         ; preds = %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit
-  %sub37 = add i32 %slots.036, -1
+  %sub37 = add nsw i32 %slots.036, -1
   %div2.i = and i32 %sub37, -128
+  %cmp.i14 = icmp eq i32 %div2.i, 128
   %inc = add nuw nsw i32 %i.037, 1
-  %cmp28.not = icmp ult i32 %sub37, 256
-  br i1 %cmp28.not, label %for.end.thread, label %for.body
+  br i1 %cmp.i14, label %if.then41, label %for.body
 
-for.end:                                          ; preds = %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit
-  %call39 = tail call noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1MaybeSupportedILNS0_25ConstructionFailureChanceE1ELm128ELb0ELb0ELb1EE11GetNumToAddEj(i32 noundef %slots.036)
-  %cmp40 = icmp ult i32 %slots.036, 1024
-  br i1 %cmp40, label %if.then41, label %if.else48
-
-if.then41:                                        ; preds = %for.end.thread, %for.end
-  %call3932 = phi i32 [ %call3930, %for.end.thread ], [ %call39, %for.end ]
+if.then41:                                        ; preds = %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit, %if.end36, %if.end25
+  %slots.036.lcssa.sink = phi i32 [ 0, %if.end25 ], [ 0, %if.end36 ], [ %slots.036, %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE22GetBytesForOneInFpRateEjdj.exit ]
+  %call39 = tail call noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1MaybeSupportedILNS0_25ConstructionFailureChanceE1ELm128ELb0ELb0ELb1EE11GetNumToAddEj(i32 noundef %slots.036.lcssa.sink)
   %cmp.i15 = icmp ugt i64 %bytes, 4
   br i1 %cmp.i15, label %cond.true.i, label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit
 
@@ -10690,29 +10682,24 @@ cond.true.i:                                      ; preds = %if.then41
   %bloom_fallback_ = getelementptr inbounds i8, ptr %this, i64 304
   %vtable.i = load ptr, ptr %bloom_fallback_, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 80
-  %7 = load ptr, ptr %vfn.i, align 8
-  %call.i18 = tail call noundef i64 %7(ptr noundef nonnull align 8 dereferenceable(292) %bloom_fallback_, i64 noundef %bytes)
-  %8 = mul i64 %call.i18, 8000
-  %9 = add i64 %8, -40000
+  %8 = load ptr, ptr %vfn.i, align 8
+  %call.i18 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(292) %bloom_fallback_, i64 noundef %bytes)
+  %9 = mul i64 %call.i18, 8000
+  %10 = add i64 %9, -40000
   br label %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit
 
 _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit: ; preds = %if.then41, %cond.true.i
-  %cond.i = phi i64 [ %9, %cond.true.i ], [ 0, %if.then41 ]
+  %cond.i = phi i64 [ %10, %cond.true.i ], [ 0, %if.then41 ]
   %millibits_per_key_.i = getelementptr inbounds i8, ptr %this, i64 592
-  %10 = load i32, ptr %millibits_per_key_.i, align 8
-  %conv.i16 = sext i32 %10 to i64
+  %11 = load i32, ptr %millibits_per_key_.i, align 8
+  %conv.i16 = sext i32 %11 to i64
   %div.i17 = udiv i64 %cond.i, %conv.i16
-  %conv43 = zext i32 %call3932 to i64
+  %conv43 = zext i32 %call39 to i64
   %call42.conv43 = tail call i64 @llvm.umax.i64(i64 %div.i17, i64 %conv43)
   br label %return
 
-if.else48:                                        ; preds = %for.end
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %call39, i32 950000000)
-  %conv50 = zext nneg i32 %.sroa.speculated to i64
-  br label %return
-
-return:                                           ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit, %if.end18, %entry, %if.else48
-  %retval.0 = phi i64 [ %conv50, %if.else48 ], [ 950000000, %entry ], [ 950000000, %if.end18 ], [ %call42.conv43, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit ]
+return:                                           ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit, %if.end18, %entry
+  %retval.0 = phi i64 [ 950000000, %entry ], [ 950000000, %if.end18 ], [ %call42.conv43, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder21ApproximateNumEntriesEm.exit ]
   ret i64 %retval.0
 }
 

@@ -9956,27 +9956,20 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h22f01b0361e0a17dE"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 {
+define hidden noalias noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$7get_mut17h22f01b0361e0a17dE"(ptr noalias noundef align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !10
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %12, label %6
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h04918cf6e56903c9E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1)
   %9 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h6a1dabb3086b518fE.llvm.10165051650595261532"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %1)
-  %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %9, i64 -40
-  %.0.i = select i1 %10, ptr null, ptr %11
-  br label %12
+  br label %10
 
-12:                                               ; preds = %2, %6
-  %.04 = phi ptr [ %.0.i, %6 ], [ null, %2 ]
-  %13 = icmp eq ptr %.04, null
-  %14 = getelementptr inbounds i8, ptr %.04, i64 16
-  %.0 = select i1 %13, ptr null, ptr %14
-  ret ptr %.0
+10:                                               ; preds = %2, %6
+  ret ptr null
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable

@@ -1964,11 +1964,11 @@ lookup_power_well.exit3:                          ; preds = %.preheader.i2, %67
   %116 = phi i32 [ %99, %88 ], [ %114, %102 ]
   %117 = and i32 %96, 6144
   %118 = icmp eq i32 %117, 6144
-  %119 = or i32 %116, 256
+  %119 = or disjoint i32 %116, 256
   %120 = select i1 %118, i32 %119, i32 %116
   %121 = and i32 %96, 24576
   %122 = icmp eq i32 %121, 24576
-  %123 = or i32 %120, 128
+  %123 = or disjoint i32 %120, 128
   %124 = select i1 %122, i32 %123, i32 %120
   %125 = and i32 %96, 98304
   %126 = icmp eq i32 %125, 98304
@@ -2130,7 +2130,7 @@ define dso_local void @chv_phy_powergate_lanes(ptr noundef %0, i1 noundef zeroex
   %54 = getelementptr [2 x i8], ptr %52, i64 0, i64 %53
   %55 = load i8, ptr %54, align 1, !range !19, !noundef !20
   %56 = icmp eq i8 %55, 0
-  br i1 %56, label %95, label %57
+  br i1 %56, label %92, label %57
 
 57:                                               ; preds = %49
   %58 = icmp eq i32 %21, 0
@@ -2160,7 +2160,7 @@ define dso_local void @chv_phy_powergate_lanes(ptr noundef %0, i1 noundef zeroex
   %74 = lshr i32 %60, %73
   %75 = and i32 %74, 3
   %76 = icmp eq i32 %75, %72
-  br i1 %76, label %95, label %77, !prof !21
+  br i1 %76, label %92, label %77, !prof !21
 
 77:                                               ; preds = %71
   tail call void asm sideeffect "993: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 993b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 993) #9, !srcloc !104
@@ -2182,17 +2182,14 @@ define dso_local void @chv_phy_powergate_lanes(ptr noundef %0, i1 noundef zeroex
   %89 = lshr i32 %74, 1
   %90 = and i32 %89, 1
   %91 = and i32 %74, 1
-  %92 = icmp samesign ugt i32 %72, 1
-  %93 = zext i1 %92 to i32
-  %94 = and i32 %72, 1
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.41, ptr noundef %80, ptr noundef %88, i32 noundef %90, i32 noundef %91, i32 noundef %93, i32 noundef %94, i32 noundef %59, i32 noundef %60) #9
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.41, ptr noundef %80, ptr noundef %88, i32 noundef %90, i32 noundef %91, i32 noundef 0, i32 noundef %72, i32 noundef %59, i32 noundef %60) #9
   tail call void asm sideeffect "994: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 994b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 994) #9, !srcloc !105
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 1555, i32 2313, i64 12) #9, !srcloc !106
   tail call void asm sideeffect "995: nop\0A\09.pushsection .discard.instr_end\0A\09.long 995b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 995) #9, !srcloc !107
   tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_end\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #9, !srcloc !108
-  br label %95
+  br label %92
 
-95:                                               ; preds = %87, %71, %49
+92:                                               ; preds = %87, %71, %49
   tail call void @mutex_unlock(ptr noundef %22) #9
   ret void
 }

@@ -31421,7 +31421,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnul
   %20 = lshr i64 %19, 3
   %21 = and i64 %20, 2305843009213693944
   %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29
-          to label %.noexc unwind label %57
+          to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %18
   %23 = lshr i64 %19, 6
@@ -31442,13 +31442,13 @@ define linkonce_odr hidden void @_ZNSt6vectorIbSaIbEEC2ERKS1_(ptr noundef nonnul
   %.pre = load ptr, ptr %1, align 8
   %.pre15 = load ptr, ptr %7, align 8
   %.pre16 = load i32, ptr %9, align 8
-  %.pre17 = ptrtoint ptr %.pre15 to i64
-  %.pre18 = ptrtoint ptr %.pre to i64
-  %.pre20 = sub i64 %.pre17, %.pre18
+  %.pre18 = ptrtoint ptr %.pre15 to i64
+  %.pre19 = ptrtoint ptr %.pre to i64
+  %.pre21 = sub i64 %.pre18, %.pre19
   br label %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit
 
 _ZNSt6vectorIbSaIbEE13_M_initializeEm.exit:       ; preds = %.noexc, %2
-  %.pre-phi21 = phi i64 [ %.pre20, %.noexc ], [ %14, %2 ]
+  %.pre-phi22 = phi i64 [ %.pre21, %.noexc ], [ %14, %2 ]
   %31 = phi ptr [ %22, %.noexc ], [ null, %2 ]
   %32 = phi i32 [ %.pre16, %.noexc ], [ %10, %2 ]
   %33 = phi ptr [ %.pre15, %.noexc ], [ %8, %2 ]
@@ -31457,69 +31457,38 @@ _ZNSt6vectorIbSaIbEE13_M_initializeEm.exit:       ; preds = %.noexc, %2
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, label %35
 
 35:                                               ; preds = %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %34, i64 %.pre-phi21, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %31, ptr align 8 %34, i64 %.pre-phi22, i1 false)
   br label %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
 
 _ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i:               ; preds = %35, %_ZNSt6vectorIbSaIbEE13_M_initializeEm.exit
+  %36 = getelementptr inbounds i8, ptr %31, i64 %.pre-phi22
   %.not.i13 = icmp eq i32 %32, 0
   br i1 %.not.i13, label %.loopexit, label %.lr.ph.i.i.i.i.i.preheader.i
 
 .lr.ph.i.i.i.i.i.preheader.i:                     ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
-  %36 = getelementptr inbounds i8, ptr %31, i64 %.pre-phi21
   %37 = zext i32 %32 to i64
+  %.pre17 = load i64, ptr %36, align 8
+  %38 = and i64 %.pre17, -2
   br label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
-  %.019.i.i.i.i.i.i = phi i64 [ %55, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.511.018.i.i.i.i.i.i = phi i32 [ %spec.select14.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.08.017.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %33, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.03.016.i.i.i.i.i.i = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ %36, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %.sroa.5.015.i.i.i.i.i.i = phi i32 [ %.sroa.5.1.i.i.i.i.i.i, %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.i.preheader.i ]
-  %38 = zext nneg i32 %.sroa.511.018.i.i.i.i.i.i to i64
-  %39 = shl nuw i64 1, %38
-  %40 = load i64, ptr %.sroa.08.017.i.i.i.i.i.i, align 8
-  %41 = and i64 %40, %39
-  %.not.i.i.i.i.i7.i = icmp eq i64 %41, 0
-  %42 = zext nneg i32 %.sroa.5.015.i.i.i.i.i.i to i64
-  %43 = shl nuw i64 1, %42
-  br i1 %.not.i.i.i.i.i7.i, label %47, label %44
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.preheader.i
+  %.019.i.i.i.i.i.i = phi i64 [ %41, %.lr.ph.i.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i.preheader.i ]
+  %39 = load i64, ptr %33, align 8
+  %40 = and i64 %39, 1
+  %storemerge.i.i.i.i.i.i = or disjoint i64 %38, %40
+  store i64 %storemerge.i.i.i.i.i.i, ptr %36, align 8
+  %41 = add nsw i64 %.019.i.i.i.i.i.i, -1
+  %42 = icmp ugt i64 %.019.i.i.i.i.i.i, 1
+  br i1 %42, label %.lr.ph.i.i.i.i.i.i, label %.loopexit, !llvm.loop !277
 
-44:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %45 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
-  %46 = or i64 %45, %43
-  br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
-
-47:                                               ; preds = %.lr.ph.i.i.i.i.i.i
-  %48 = xor i64 %43, -1
-  %49 = load i64, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
-  %50 = and i64 %49, %48
-  br label %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i
-
-_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i:       ; preds = %47, %44
-  %storemerge.i.i.i.i.i.i = phi i64 [ %50, %47 ], [ %46, %44 ]
-  store i64 %storemerge.i.i.i.i.i.i, ptr %.sroa.03.016.i.i.i.i.i.i, align 8
-  %51 = add i32 %.sroa.511.018.i.i.i.i.i.i, 1
-  %52 = icmp eq i32 %.sroa.511.018.i.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i.i = select i1 %52, i64 8, i64 0
-  %spec.select.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.08.017.i.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i.i
-  %spec.select14.i.i.i.i.i.i = select i1 %52, i32 0, i32 %51
-  %53 = add i32 %.sroa.5.015.i.i.i.i.i.i, 1
-  %54 = icmp eq i32 %.sroa.5.015.i.i.i.i.i.i, 63
-  %.sroa.5.1.i.i.i.i.i.i = select i1 %54, i32 0, i32 %53
-  %.sroa.03.1.idx.i.i.i.i.i.i = select i1 %54, i64 8, i64 0
-  %.sroa.03.1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %.sroa.03.016.i.i.i.i.i.i, i64 %.sroa.03.1.idx.i.i.i.i.i.i
-  %55 = add nsw i64 %.019.i.i.i.i.i.i, -1
-  %56 = icmp sgt i64 %.019.i.i.i.i.i.i, 1
-  br i1 %56, label %.lr.ph.i.i.i.i.i.i, label %.loopexit, !llvm.loop !277
-
-.loopexit:                                        ; preds = %_ZNSt14_Bit_referenceaSEb.exit.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i
   ret void
 
-57:                                               ; preds = %18
-  %58 = landingpad { ptr, i32 }
+43:                                               ; preds = %18
+  %44 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #27
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %44
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -12572,13 +12572,24 @@ define internal fastcc noundef zeroext i1 @_handle_core_select(ptr nocapture nou
   br i1 %.not155, label %.loopexit98.sink.split, label %.thread.split.us
 
 .thread.split.us:                                 ; preds = %.thread
-  %wide.trip.count175 = zext i16 %4 to i64
-  br i1 %7, label %.preheader.us.us, label %.preheader.us
+  br i1 %7, label %.preheader.us.us.preheader, label %.preheader.us.preheader
 
-.preheader.us.us:                                 ; preds = %.thread.split.us, %._crit_edge.split.us.us.us148.us
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174.mux, %._crit_edge.split.us.us.us148.us ], [ 0, %.thread.split.us ]
-  %.1131.us.us.us = phi i1 [ %.4.us.us.us.mux, %._crit_edge.split.us.us.us148.us ], [ true, %.thread.split.us ]
-  %.174130.us.us.us = phi i32 [ %.477.us.us.us, %._crit_edge.split.us.us.us148.us ], [ 0, %.thread.split.us ]
+.preheader.us.preheader:                          ; preds = %.thread.split.us
+  %exitcond171.not = icmp eq i16 %4, 1
+  %not.exitcond171.not = xor i1 %exitcond171.not, true
+  %indvars.iv.next.mux = zext i1 %not.exitcond171.not to i64
+  br label %.preheader.us
+
+.preheader.us.us.preheader:                       ; preds = %.thread.split.us
+  %exitcond176.not = icmp eq i16 %4, 1
+  %not.exitcond176.not = xor i1 %exitcond176.not, true
+  %indvars.iv.next174.mux = zext i1 %not.exitcond176.not to i64
+  br label %.preheader.us.us
+
+.preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge.split.us.us.us148.us
+  %indvars.iv173 = phi i64 [ %indvars.iv.next174.mux, %._crit_edge.split.us.us.us148.us ], [ 0, %.preheader.us.us.preheader ]
+  %.1131.us.us.us = phi i1 [ %.4.us.us.us.mux, %._crit_edge.split.us.us.us148.us ], [ true, %.preheader.us.us.preheader ]
+  %.174130.us.us.us = phi i32 [ %.477.us.us.us, %._crit_edge.split.us.us.us148.us ], [ 0, %.preheader.us.us.preheader ]
   %72 = load ptr, ptr %11, align 8
   %73 = getelementptr inbounds i32, ptr %72, i64 %indvars.iv173
   %74 = load i32, ptr %73, align 4
@@ -12592,10 +12603,7 @@ define internal fastcc noundef zeroext i1 @_handle_core_select(ptr nocapture nou
 ._crit_edge.split.us.us.us148.us:                 ; preds = %91, %88, %.preheader.us.us
   %.477.us.us.us = phi i32 [ %.174130.us.us.us, %.preheader.us.us ], [ 0, %88 ], [ %.376.us.us.us.us, %91 ]
   %.4.us.us.us = phi i1 [ %.1131.us.us.us, %.preheader.us.us ], [ false, %88 ], [ %.3.us.us.us.us, %91 ]
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %exitcond176.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count175
   %brmerge.not = select i1 %exitcond176.not, i1 %.4.us.us.us, i1 false
-  %indvars.iv.next174.mux = select i1 %exitcond176.not, i64 0, i64 %indvars.iv.next174
   %.4.us.us.us.mux = select i1 %exitcond176.not, i1 true, i1 %.4.us.us.us
   br i1 %brmerge.not, label %.loopexit98.sink.split, label %.preheader.us.us, !llvm.loop !41
 
@@ -12631,10 +12639,10 @@ define internal fastcc noundef zeroext i1 @_handle_core_select(ptr nocapture nou
   %exitcond172.not = icmp eq i32 %80, %70
   br i1 %exitcond172.not, label %._crit_edge.split.us.us.us148.us, label %.lr.ph.us134.us.us, !llvm.loop !42
 
-.preheader.us:                                    ; preds = %.thread.split.us, %._crit_edge.split.us
-  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %._crit_edge.split.us ], [ 0, %.thread.split.us ]
-  %.1131.us138 = phi i1 [ %.4.us142.mux, %._crit_edge.split.us ], [ true, %.thread.split.us ]
-  %.174130.us139 = phi i32 [ %.477.us141, %._crit_edge.split.us ], [ 0, %.thread.split.us ]
+.preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.split.us
+  %indvars.iv = phi i64 [ %indvars.iv.next.mux, %._crit_edge.split.us ], [ 0, %.preheader.us.preheader ]
+  %.1131.us138 = phi i1 [ %.4.us142.mux, %._crit_edge.split.us ], [ true, %.preheader.us.preheader ]
+  %.174130.us139 = phi i32 [ %.477.us141, %._crit_edge.split.us ], [ 0, %.preheader.us.preheader ]
   %92 = load ptr, ptr %11, align 8
   %93 = getelementptr inbounds i32, ptr %92, i64 %indvars.iv
   %94 = load i32, ptr %93, align 4
@@ -12677,10 +12685,7 @@ define internal fastcc noundef zeroext i1 @_handle_core_select(ptr nocapture nou
 ._crit_edge.split.us:                             ; preds = %108, %105, %.preheader.us
   %.477.us141 = phi i32 [ %.174130.us139, %.preheader.us ], [ 0, %105 ], [ %.376.us, %108 ]
   %.4.us142 = phi i1 [ %.1131.us138, %.preheader.us ], [ false, %105 ], [ %.3.us, %108 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond171.not = icmp eq i64 %indvars.iv.next, %wide.trip.count175
   %brmerge192.not = select i1 %exitcond171.not, i1 %.4.us142, i1 false
-  %indvars.iv.next.mux = select i1 %exitcond171.not, i64 0, i64 %indvars.iv.next
   %.4.us142.mux = select i1 %exitcond171.not, i1 true, i1 %.4.us142
   br i1 %brmerge192.not, label %.loopexit98.sink.split, label %.preheader.us, !llvm.loop !41
 

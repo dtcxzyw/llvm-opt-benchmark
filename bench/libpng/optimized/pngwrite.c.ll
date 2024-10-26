@@ -1738,7 +1738,7 @@ declare void @png_destroy_png_struct(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %87, label %5
+  br i1 %4, label %83, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 992
@@ -1749,7 +1749,7 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %or.cond = and i1 %10, %9
   %11 = icmp eq i32 %1, 0
   %12 = or i1 %11, %or.cond
-  br i1 %12, label %13, label %86
+  br i1 %12, label %13, label %82
 
 13:                                               ; preds = %5
   %trunc = trunc i32 %2 to i8
@@ -1790,7 +1790,7 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %22 = getelementptr inbounds i8, ptr %0, i64 552
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %83, label %24
+  br i1 %.not, label %79, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %0, i64 508
@@ -1825,77 +1825,71 @@ define void @png_set_filter(ptr noalias noundef %0, i32 noundef %1, i32 noundef 
   %42 = lshr i32 %.353, 5
   %43 = and i32 %42, 1
   %.1 = add nuw nsw i32 %.lobit, %43
-  %44 = lshr i32 %.353, 6
-  %45 = and i32 %44, 1
-  %.2 = add nuw nsw i32 %.1, %45
-  %46 = lshr i32 %.353, 7
-  %47 = and i32 %46, 1
-  %.3 = add nuw nsw i32 %.2, %47
-  %48 = getelementptr inbounds i8, ptr %0, i64 620
-  %49 = load i8, ptr %48, align 4
-  %50 = zext i8 %49 to i32
-  %51 = getelementptr inbounds i8, ptr %0, i64 617
-  %52 = load i8, ptr %51, align 1
-  %53 = zext i8 %52 to i32
-  %54 = mul nuw nsw i32 %53, %50
-  %55 = icmp samesign ugt i32 %54, 7
-  %56 = load i32, ptr %29, align 8
-  %57 = zext i32 %56 to i64
-  br i1 %55, label %58, label %62
+  %44 = getelementptr inbounds i8, ptr %0, i64 620
+  %45 = load i8, ptr %44, align 4
+  %46 = zext i8 %45 to i32
+  %47 = getelementptr inbounds i8, ptr %0, i64 617
+  %48 = load i8, ptr %47, align 1
+  %49 = zext i8 %48 to i32
+  %50 = mul nuw nsw i32 %49, %46
+  %51 = icmp samesign ugt i32 %50, 7
+  %52 = load i32, ptr %29, align 8
+  %53 = zext i32 %52 to i64
+  br i1 %51, label %54, label %58
+
+54:                                               ; preds = %40
+  %55 = lshr i32 %50, 3
+  %56 = zext nneg i32 %55 to i64
+  %57 = mul nuw nsw i64 %53, %56
+  br label %63
 
 58:                                               ; preds = %40
-  %59 = lshr i32 %54, 3
-  %60 = zext nneg i32 %59 to i64
-  %61 = mul nuw nsw i64 %57, %60
-  br label %67
+  %59 = zext nneg i32 %50 to i64
+  %60 = mul nuw nsw i64 %53, %59
+  %61 = add nuw nsw i64 %60, 7
+  %62 = lshr i64 %61, 3
+  br label %63
 
-62:                                               ; preds = %40
-  %63 = zext nneg i32 %54 to i64
-  %64 = mul nuw nsw i64 %57, %63
-  %65 = add nuw nsw i64 %64, 7
-  %66 = lshr i64 %65, 3
-  br label %67
+63:                                               ; preds = %58, %54
+  %64 = phi i64 [ %57, %54 ], [ %62, %58 ]
+  %65 = add nuw nsw i64 %64, 1
+  %66 = getelementptr inbounds i8, ptr %0, i64 560
+  %67 = load ptr, ptr %66, align 8
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %69, label %71
 
-67:                                               ; preds = %62, %58
-  %68 = phi i64 [ %61, %58 ], [ %66, %62 ]
-  %69 = add nuw nsw i64 %68, 1
-  %70 = getelementptr inbounds i8, ptr %0, i64 560
-  %71 = load ptr, ptr %70, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %75
+69:                                               ; preds = %63
+  %70 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %65) #15
+  store ptr %70, ptr %66, align 8
+  br label %71
 
-73:                                               ; preds = %67
-  %74 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %69) #15
-  store ptr %74, ptr %70, align 8
-  br label %75
+71:                                               ; preds = %69, %63
+  %72 = icmp samesign ugt i32 %.1, 1
+  br i1 %72, label %73, label %79
 
-75:                                               ; preds = %73, %67
-  %76 = icmp samesign ugt i32 %.3, 1
-  br i1 %76, label %77, label %83
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds i8, ptr %0, i64 568
+  %75 = load ptr, ptr %74, align 8
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %77, label %79
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds i8, ptr %0, i64 568
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, null
-  br i1 %80, label %81, label %83
+77:                                               ; preds = %73
+  %78 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %65) #15
+  store ptr %78, ptr %74, align 8
+  br label %79
 
-81:                                               ; preds = %77
-  %82 = tail call noalias ptr @png_malloc(ptr noundef nonnull %0, i64 noundef %69) #15
-  store ptr %82, ptr %78, align 8
+79:                                               ; preds = %71, %77, %73, %20
+  %.050 = phi i32 [ %.353, %77 ], [ %.353, %73 ], [ %.353, %71 ], [ %2, %20 ]
+  %80 = trunc i32 %.050 to i8
+  %81 = getelementptr inbounds i8, ptr %0, i64 614
+  store i8 %80, ptr %81, align 2
   br label %83
 
-83:                                               ; preds = %75, %81, %77, %20
-  %.050 = phi i32 [ %.353, %81 ], [ %.353, %77 ], [ %.353, %75 ], [ %2, %20 ]
-  %84 = trunc i32 %.050 to i8
-  %85 = getelementptr inbounds i8, ptr %0, i64 614
-  store i8 %84, ptr %85, align 2
-  br label %87
-
-86:                                               ; preds = %5
+82:                                               ; preds = %5
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.9) #16
   unreachable
 
-87:                                               ; preds = %3, %83
+83:                                               ; preds = %3, %79
   ret void
 }
 

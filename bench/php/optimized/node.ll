@@ -4722,7 +4722,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   %10 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %11 = icmp ne ptr %10, null
   call void @llvm.assume(i1 %11)
-  br label %145
+  br label %141
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4742,7 +4742,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   %24 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %25 = icmp ne ptr %24, null
   call void @llvm.assume(i1 %25)
-  br label %145
+  br label %141
 
 26:                                               ; preds = %12
   %27 = load ptr, ptr %16, align 8
@@ -4763,7 +4763,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   %39 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
   %40 = icmp ne ptr %39, null
   call void @llvm.assume(i1 %40)
-  br label %145
+  br label %141
 
 41:                                               ; preds = %26
   %42 = load ptr, ptr %31, align 8
@@ -4774,7 +4774,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 0, ptr %1, align 8
   %45 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %45, align 8
-  br label %145
+  br label %141
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds i8, ptr %42, i64 8
@@ -4826,7 +4826,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 34, ptr %1, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %69, align 8
-  br label %145
+  br label %141
 
 70:                                               ; preds = %.lr.ph
   %71 = call fastcc zeroext i1 @php_dom_is_equal_attr(ptr noundef %.0139176, ptr noundef %27)
@@ -4836,7 +4836,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 36, ptr %1, align 8
   %73 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %73, align 8
-  br label %145
+  br label %141
 
 .loopexit172:                                     ; preds = %65, %63, %57, %53
   %.0138 = phi ptr [ %27, %57 ], [ null, %53 ], [ %27, %63 ], [ %27, %65 ]
@@ -4907,7 +4907,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 10, ptr %1, align 8
   %96 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %96, align 8
-  br label %145
+  br label %141
 
 97:                                               ; preds = %92
   %98 = icmp eq ptr %.0138, null
@@ -4923,7 +4923,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 20, ptr %1, align 8
   %102 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %102, align 8
-  br label %145
+  br label %141
 
 103:                                              ; preds = %99
   br i1 %.0147.lcssa, label %104, label %106
@@ -4933,7 +4933,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 2, ptr %1, align 8
   %105 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %105, align 8
-  br label %145
+  br label %141
 
 106:                                              ; preds = %103
   br i1 %.0140.lcssa, label %107, label %109
@@ -4943,7 +4943,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 4, ptr %1, align 8
   %108 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %108, align 8
-  br label %145
+  br label %141
 
 109:                                              ; preds = %106
   %110 = icmp ugt i64 %.0142.lcssa, %.0145.lcssa
@@ -5002,7 +5002,7 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 2, ptr %1, align 8
   %132 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %132, align 8
-  br label %145
+  br label %141
 
 133:                                              ; preds = %127
   %.not165 = icmp eq ptr %129, null
@@ -5012,30 +5012,23 @@ define hidden void @zim_DOMNode_compareDocumentPosition(ptr nocapture noundef re
   store i64 4, ptr %1, align 8
   %135 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 4, ptr %135, align 8
-  br label %145
+  br label %141
 
 136:                                              ; preds = %._crit_edge, %.loopexit172
   %137 = icmp eq ptr %.0, %.0133
-  br i1 %137, label %138, label %140
+  br i1 %137, label %138, label %139
 
 138:                                              ; preds = %136
   call void @llvm.assume(i1 %74)
-  %139 = icmp ult ptr %29, %14
-  br label %142
+  br label %139
 
-140:                                              ; preds = %136
-  %141 = icmp ult ptr %.0, %.0133
-  br label %142
+139:                                              ; preds = %136, %138
+  store i64 35, ptr %1, align 8
+  %140 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 4, ptr %140, align 8
+  br label %141
 
-142:                                              ; preds = %140, %138
-  %.sink = phi i1 [ %141, %140 ], [ %139, %138 ]
-  %143 = select i1 %.sink, i64 35, i64 37
-  store i64 %143, ptr %1, align 8
-  %144 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 4, ptr %144, align 8
-  br label %145
-
-145:                                              ; preds = %142, %134, %131, %107, %104, %101, %95, %72, %68, %44, %33, %18, %9
+141:                                              ; preds = %139, %134, %131, %107, %104, %101, %95, %72, %68, %44, %33, %18, %9
   ret void
 }
 

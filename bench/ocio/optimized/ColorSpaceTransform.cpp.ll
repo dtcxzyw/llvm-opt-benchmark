@@ -4843,7 +4843,6 @@ invoke.cont7:                                     ; preds = %entry
   %2 = load ptr, ptr %m_impl.i.i, align 8
   %m_src.i32 = getelementptr inbounds i8, ptr %2, i64 8
   %call2.i33 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_src.i32) #22
-  %call6 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call2, ptr noundef nonnull dereferenceable(1) %call2.i33) #26
   %3 = load ptr, ptr %m_impl.i.i, align 8
   %m_dst.i = getelementptr inbounds i8, ptr %3, i64 40
   %call2.i35 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_dst.i) #22
@@ -4853,15 +4852,11 @@ invoke.cont7:                                     ; preds = %entry
           to label %invoke.cont15 unwind label %lpad11
 
 invoke.cont15:                                    ; preds = %invoke.cont7
-  %cmp.not = icmp ne i32 %call6, 0
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp10) #22
   %call13 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %dstName) #22
   %4 = load ptr, ptr %m_impl.i.i, align 8
   %m_dst.i37 = getelementptr inbounds i8, ptr %4, i64 40
   %call2.i38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %m_dst.i37) #22
-  %call17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call13, ptr noundef nonnull dereferenceable(1) %call2.i38) #26
-  %cmp18.not = icmp ne i32 %call17, 0
-  %narrow = select i1 %cmp18.not, i1 true, i1 %cmp.not
   %call21 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %srcName) #22
   invoke void @_ZNK19OpenColorIO_v2_4dev6Config13getColorSpaceEPKc(ptr nonnull sret(%"class.std::shared_ptr.4") align 8 %src, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %call21)
           to label %invoke.cont22 unwind label %lpad14
@@ -4884,11 +4879,7 @@ invoke.cont22:                                    ; preds = %invoke.cont15
 
 if.then24:                                        ; preds = %invoke.cont22
   %call27 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev23CollectContextVariablesERKNS_6ConfigERKNS_7ContextERSt10shared_ptrIKNS_10ColorSpaceEERS6_IS3_E(ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(8) %context, ptr noundef nonnull align 8 dereferenceable(16) %src, ptr noundef nonnull align 8 dereferenceable(16) %usedContextVars)
-          to label %invoke.cont26 unwind label %lpad25
-
-invoke.cont26:                                    ; preds = %if.then24
-  %spec.select27 = select i1 %call27, i1 true, i1 %narrow
-  br label %if.end36
+          to label %if.end36 unwind label %lpad25
 
 lpad25:                                           ; preds = %if.end36, %if.then24
   %8 = landingpad { ptr, i32 }
@@ -4902,7 +4893,6 @@ if.else:                                          ; preds = %invoke.cont22
           to label %invoke.cont32 unwind label %lpad31
 
 invoke.cont32:                                    ; preds = %if.else
-  %spec.select28 = select i1 %call33, i1 true, i1 %narrow
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %nt_src, i64 8
   %9 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %9, null
@@ -4982,8 +4972,7 @@ lpad31:                                           ; preds = %if.else
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14NamedTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt_src) #22
   br label %ehcleanup54
 
-if.end36:                                         ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont32, %invoke.cont26
-  %foundContextVars.2 = phi i1 [ %spec.select27, %invoke.cont26 ], [ %spec.select28, %invoke.cont32 ], [ %spec.select28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %spec.select28, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %spec.select28, %if.end8.sink.split.i.i.i.i ]
+if.end36:                                         ; preds = %if.then24, %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %invoke.cont32
   %call37 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %dstName) #22
   invoke void @_ZNK19OpenColorIO_v2_4dev6Config13getColorSpaceEPKc(ptr nonnull sret(%"class.std::shared_ptr.4") align 8 %dst, ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef %call37)
           to label %invoke.cont38 unwind label %lpad25
@@ -4995,11 +4984,7 @@ invoke.cont38:                                    ; preds = %if.end36
 
 if.then40:                                        ; preds = %invoke.cont38
   %call43 = invoke noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev23CollectContextVariablesERKNS_6ConfigERKNS_7ContextERSt10shared_ptrIKNS_10ColorSpaceEERS6_IS3_E(ptr noundef nonnull align 8 dereferenceable(8) %config, ptr noundef nonnull align 8 dereferenceable(8) %context, ptr noundef nonnull align 8 dereferenceable(16) %dst, ptr noundef nonnull align 8 dereferenceable(16) %usedContextVars)
-          to label %invoke.cont42 unwind label %lpad41
-
-invoke.cont42:                                    ; preds = %if.then40
-  %spec.select29 = select i1 %call43, i1 true, i1 %foundContextVars.2
-  br label %if.end53
+          to label %if.end53 unwind label %lpad41
 
 lpad41:                                           ; preds = %if.then40
   %22 = landingpad { ptr, i32 }
@@ -5013,7 +4998,6 @@ if.else46:                                        ; preds = %invoke.cont38
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %if.else46
-  %spec.select30 = select i1 %call50, i1 true, i1 %foundContextVars.2
   %_M_refcount.i.i40 = getelementptr inbounds i8, ptr %nt_dst, i64 8
   %23 = load ptr, ptr %_M_refcount.i.i40, align 8
   %cmp.not.i.i.i41 = icmp eq ptr %23, null
@@ -5093,8 +5077,7 @@ lpad48:                                           ; preds = %if.else46
   call void @_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev14NamedTransformEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %nt_dst) #22
   br label %ehcleanup
 
-if.end53:                                         ; preds = %if.end8.sink.split.i.i.i.i62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49, %invoke.cont49, %invoke.cont42
-  %foundContextVars.4 = phi i1 [ %spec.select29, %invoke.cont42 ], [ %spec.select30, %invoke.cont49 ], [ %spec.select30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49 ], [ %spec.select30, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59 ], [ %spec.select30, %if.end8.sink.split.i.i.i.i62 ]
+if.end53:                                         ; preds = %if.then40, %if.end8.sink.split.i.i.i.i62, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i59, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i49, %invoke.cont49
   %_M_refcount.i.i72 = getelementptr inbounds i8, ptr %dst, i64 8
   %35 = load ptr, ptr %_M_refcount.i.i72, align 8
   %cmp.not.i.i.i73 = icmp eq ptr %35, null
@@ -5245,7 +5228,7 @@ if.end8.sink.split.i.i.i.i125:                    ; preds = %_ZN9__gnu_cxx27__ex
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit134: ; preds = %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev10ColorSpaceEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i112, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i122, %if.end8.sink.split.i.i.i.i125
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %dstName) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %srcName) #22
-  ret i1 %foundContextVars.4
+  ret i1 true
 
 ehcleanup:                                        ; preds = %lpad48, %lpad41
   %.pn = phi { ptr, i32 } [ %22, %lpad41 ], [ %34, %lpad48 ]
@@ -5532,7 +5515,6 @@ attributes #22 = { nounwind }
 attributes #23 = { noreturn }
 attributes #24 = { noreturn nounwind }
 attributes #25 = { builtin nounwind }
-attributes #26 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -250,14 +250,13 @@ if.end17:                                         ; preds = %for.end14
 if.then19:                                        ; preds = %if.end17
   %arrayidx21 = getelementptr inbounds i32, ptr %P, i64 %indvars.iv70
   %9 = load i32, ptr %arrayidx21, align 4
-  %idxprom22 = sext i32 %imax.1 to i64
-  %arrayidx23 = getelementptr inbounds i32, ptr %P, i64 %idxprom22
+  %arrayidx23 = getelementptr inbounds i32, ptr %P, i64 %8
   %10 = load i32, ptr %arrayidx23, align 4
   store i32 %10, ptr %arrayidx21, align 4
   store i32 %9, ptr %arrayidx23, align 4
   %arrayidx29 = getelementptr inbounds ptr, ptr %A, i64 %indvars.iv70
   %11 = load ptr, ptr %arrayidx29, align 8
-  %arrayidx31 = getelementptr inbounds ptr, ptr %A, i64 %idxprom22
+  %arrayidx31 = getelementptr inbounds ptr, ptr %A, i64 %8
   %12 = load ptr, ptr %arrayidx31, align 8
   store ptr %12, ptr %arrayidx29, align 8
   store ptr %11, ptr %arrayidx31, align 8
@@ -1170,14 +1169,13 @@ if.end17.i:                                       ; preds = %for.end14.i
 if.then19.i:                                      ; preds = %if.end17.i
   %arrayidx21.i = getelementptr inbounds i32, ptr %P, i64 %indvars.iv70.i
   %13 = load i32, ptr %arrayidx21.i, align 4
-  %idxprom22.i = sext i32 %imax.1.i to i64
-  %arrayidx23.i = getelementptr inbounds i32, ptr %P, i64 %idxprom22.i
+  %arrayidx23.i = getelementptr inbounds i32, ptr %P, i64 %12
   %14 = load i32, ptr %arrayidx23.i, align 4
   store i32 %14, ptr %arrayidx21.i, align 4
   store i32 %13, ptr %arrayidx23.i, align 4
   %arrayidx29.i29 = getelementptr inbounds ptr, ptr %J, i64 %indvars.iv70.i
   %15 = load ptr, ptr %arrayidx29.i29, align 8
-  %arrayidx31.i30 = getelementptr inbounds ptr, ptr %J, i64 %idxprom22.i
+  %arrayidx31.i30 = getelementptr inbounds ptr, ptr %J, i64 %12
   %16 = load ptr, ptr %arrayidx31.i30, align 8
   store ptr %16, ptr %arrayidx29.i29, align 8
   store ptr %15, ptr %arrayidx31.i30, align 8

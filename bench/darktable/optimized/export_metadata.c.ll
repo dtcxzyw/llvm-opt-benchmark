@@ -375,7 +375,7 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %207 = call ptr @g_type_check_instance_cast(ptr noundef %16, i64 noundef %17) #9
   %208 = call i32 @gtk_dialog_run(ptr noundef %207) #9
   %209 = icmp eq i32 %208, -3
-  br i1 %209, label %210, label %284
+  br i1 %209, label %210, label %280
 
 210:                                              ; preds = %194
   %211 = call ptr @g_type_check_instance_cast(ptr noundef %42, i64 noundef %164) #9
@@ -425,60 +425,56 @@ define hidden ptr @dt_lib_export_metadata_configuration_dialog(ptr noundef %0, i
   %255 = icmp eq i32 %254, 0
   %256 = select i1 %255, i32 0, i32 32
   %257 = or i32 %252, %256
-  br i1 %49, label %258, label %263
+  br i1 %49, label %258, label %261
 
 258:                                              ; preds = %210
   %259 = call ptr @g_type_check_instance_cast(ptr noundef %60, i64 noundef %164) #9
   %260 = call i32 @gtk_toggle_button_get_active(ptr noundef %259) #9
-  %261 = icmp eq i32 %260, 0
-  %262 = select i1 %261, i32 0, i32 524288
-  br label %263
+  br label %261
 
-263:                                              ; preds = %258, %210
-  %264 = phi i32 [ %262, %258 ], [ 0, %210 ]
-  %265 = or i32 %257, %264
-  %266 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %265) #9
+261:                                              ; preds = %258, %210
+  %262 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.38, i32 noundef %257) #9
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #9
-  %267 = load ptr, ptr %134, align 8, !tbaa !31
-  %268 = call ptr @g_type_check_instance_cast(ptr noundef %267, i64 noundef %137) #9
-  %269 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %268, ptr noundef nonnull %4) #9
-  %270 = icmp eq i32 %269, 0
-  br i1 %270, label %.loopexit, label %.preheader
+  %263 = load ptr, ptr %134, align 8, !tbaa !31
+  %264 = call ptr @g_type_check_instance_cast(ptr noundef %263, i64 noundef %137) #9
+  %265 = call i32 @gtk_tree_model_get_iter_first(ptr noundef %264, ptr noundef nonnull %4) #9
+  %266 = icmp eq i32 %265, 0
+  br i1 %266, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %263, %.preheader
-  %271 = phi ptr [ %276, %.preheader ], [ %266, %263 ]
+.preheader:                                       ; preds = %261, %.preheader
+  %267 = phi ptr [ %272, %.preheader ], [ %262, %261 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
-  %272 = load ptr, ptr %134, align 8, !tbaa !31
-  %273 = call ptr @g_type_check_instance_cast(ptr noundef %272, i64 noundef %137) #9
-  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %273, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %6, i32 noundef -1) #9
-  %274 = load ptr, ptr %5, align 8, !tbaa !36
-  %275 = load ptr, ptr %6, align 8, !tbaa !36
-  %276 = call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %271, ptr noundef nonnull @.str.39, ptr noundef %274, ptr noundef %275) #9
-  %277 = load ptr, ptr %5, align 8, !tbaa !36
-  call void @g_free(ptr noundef %277) #9
-  %278 = load ptr, ptr %6, align 8, !tbaa !36
-  call void @g_free(ptr noundef %278) #9
-  %279 = load ptr, ptr %134, align 8, !tbaa !31
-  %280 = call ptr @g_type_check_instance_cast(ptr noundef %279, i64 noundef %137) #9
-  %281 = call i32 @gtk_tree_model_iter_next(ptr noundef %280, ptr noundef nonnull %4) #9
+  %268 = load ptr, ptr %134, align 8, !tbaa !31
+  %269 = call ptr @g_type_check_instance_cast(ptr noundef %268, i64 noundef %137) #9
+  call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %269, ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %5, i32 noundef 2, ptr noundef nonnull %6, i32 noundef -1) #9
+  %270 = load ptr, ptr %5, align 8, !tbaa !36
+  %271 = load ptr, ptr %6, align 8, !tbaa !36
+  %272 = call ptr (ptr, ptr, ...) @dt_util_dstrcat(ptr noundef %267, ptr noundef nonnull @.str.39, ptr noundef %270, ptr noundef %271) #9
+  %273 = load ptr, ptr %5, align 8, !tbaa !36
+  call void @g_free(ptr noundef %273) #9
+  %274 = load ptr, ptr %6, align 8, !tbaa !36
+  call void @g_free(ptr noundef %274) #9
+  %275 = load ptr, ptr %134, align 8, !tbaa !31
+  %276 = call ptr @g_type_check_instance_cast(ptr noundef %275, i64 noundef %137) #9
+  %277 = call i32 @gtk_tree_model_iter_next(ptr noundef %276, ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
-  %282 = icmp eq i32 %281, 0
-  br i1 %282, label %.loopexit, label %.preheader
+  %278 = icmp eq i32 %277, 0
+  br i1 %278, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %.preheader, %263
-  %283 = phi ptr [ %266, %263 ], [ %276, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %261
+  %279 = phi ptr [ %262, %261 ], [ %272, %.preheader ]
   call void @g_free(ptr noundef %0) #9
-  call void @dt_lib_export_metadata_set_conf(ptr noundef %283) #9
+  call void @dt_lib_export_metadata_set_conf(ptr noundef %279) #9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #9
-  br label %284
+  br label %280
 
-284:                                              ; preds = %.loopexit, %194
-  %285 = phi ptr [ %283, %.loopexit ], [ %0, %194 ]
+280:                                              ; preds = %.loopexit, %194
+  %281 = phi ptr [ %279, %.loopexit ], [ %0, %194 ]
   call void @gtk_widget_destroy(ptr noundef %16) #9
   call void @free(ptr noundef nonnull %7) #9
-  ret ptr %285
+  ret ptr %281
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

@@ -1355,8 +1355,7 @@ if.end192:                                        ; preds = %if.then178, %if.els
   store i32 0, ptr %arrayidx194, align 4
   %idx.ext195 = sext i32 %written.5476587 to i64
   %add.ptr196 = getelementptr inbounds i32, ptr %dest, i64 %idx.ext195
-  %mul198 = shl nuw nsw i64 %idxprom193, 2
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %add.ptr196, ptr noundef nonnull align 16 dereferenceable(1) %text, i64 %mul198, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr196, ptr noundef nonnull align 16 dereferenceable(12) %text, i64 12, i1 false)
   %cmp207.not = icmp eq i64 %indvars.iv586, 3
   br i1 %cmp207.not, label %if.end464, label %if.then209
 

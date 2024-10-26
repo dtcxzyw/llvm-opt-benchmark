@@ -1048,16 +1048,12 @@ _ZL23getMSMemberPointerSlotsPKN5clang17MemberPointerTypeE.exit: ; preds = %89, %
   %112 = udiv i64 %111, %.sroa.5.0.shrunk
   %113 = add i64 %112, %110
   %114 = mul i64 %113, %.sroa.5.0.shrunk
-  %.not13 = icmp eq i64 %114, %96
-  %115 = select i1 %.not13, i64 0, i64 4294967296
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %105, %108
   %.sroa.0.0 = phi i64 [ %114, %108 ], [ %96, %105 ]
-  %.sroa.10.0 = phi i64 [ %115, %108 ], [ 0, %105 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.sroa.5.8.insert.insert = or disjoint i64 %.sroa.10.0, %.sroa.5.0.shrunk
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.5.8.insert.insert, 1
+  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.5.0.shrunk, 1
   ret { i64, i64 } %.fca.1.insert
 }
 

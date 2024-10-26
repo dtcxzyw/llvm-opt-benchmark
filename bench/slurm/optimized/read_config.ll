@@ -3217,35 +3217,36 @@ define range(i32 0, 23) i32 @job_defaults_list(ptr noundef %0, ptr nocapture nou
   %11 = tail call ptr @xstrdup(ptr noundef nonnull %0) #18
   store ptr %11, ptr %4, align 8
   %12 = call ptr @strtok_r(ptr noundef %11, ptr noundef nonnull @.str.229, ptr noundef nonnull %5) #18
-  %.not3748 = icmp eq ptr %12, null
-  br i1 %.not3748, label %._crit_edge, label %.lr.ph
+  %.not3744 = icmp eq ptr %12, null
+  br i1 %.not3744, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %25
-  %.03149 = phi ptr [ %28, %25 ], [ %12, %9 ]
-  %13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03149, i32 noundef 61) #19
+  %.03145 = phi ptr [ %28, %25 ], [ %12, %9 ]
+  %13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.03145, i32 noundef 61) #19
   %.not38 = icmp eq ptr %13, null
   br i1 %.not38, label %29, label %14
 
 14:                                               ; preds = %.lr.ph
   store i8 0, ptr %13, align 1
-  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.03149, ptr noundef nonnull @.str.391) #18
+  %15 = call i32 @xstrcasecmp(ptr noundef nonnull %.03145, ptr noundef nonnull @.str.391) #18
   %.not.i = icmp eq i32 %15, 0
-  br i1 %.not.i, label %select.unfold, label %16
+  br i1 %.not.i, label %_job_def_type.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.03149, ptr noundef nonnull @.str.45) #18
+  %17 = call i32 @xstrcasecmp(ptr noundef nonnull %.03145, ptr noundef nonnull @.str.45) #18
   %.not2.i = icmp eq i32 %17, 0
-  br i1 %.not2.i, label %select.unfold, label %29
+  %..i = select i1 %.not2.i, i16 2, i16 -2
+  br label %_job_def_type.exit
 
-select.unfold:                                    ; preds = %16, %14
-  %.0.i.ph = phi i16 [ 1, %14 ], [ 2, %16 ]
+_job_def_type.exit:                               ; preds = %16, %14
+  %.0.i = phi i16 [ 1, %14 ], [ %..i, %16 ]
   %18 = getelementptr inbounds i8, ptr %13, i64 1
   %19 = call i64 @strtoll(ptr noundef nonnull %18, ptr noundef nonnull %3, i32 noundef 10) #18
   %20 = load ptr, ptr %3, align 8
   %.not39 = icmp eq ptr %20, null
   br i1 %.not39, label %29, label %21
 
-21:                                               ; preds = %select.unfold
+21:                                               ; preds = %_job_def_type.exit
   %22 = load i8, ptr %20, align 1
   %23 = icmp ne i8 %22, 0
   %24 = icmp ugt i64 %19, 9223372036854775806
@@ -3254,7 +3255,7 @@ select.unfold:                                    ; preds = %16, %14
 
 25:                                               ; preds = %21
   %26 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.228, i32 noundef 1280, ptr noundef nonnull @__func__.job_defaults_list) #18
-  store i16 %.0.i.ph, ptr %26, align 8
+  store i16 %.0.i, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   store i64 %19, ptr %27, align 8
   call void @list_append(ptr noundef %10, ptr noundef nonnull %26) #18
@@ -3262,7 +3263,7 @@ select.unfold:                                    ; preds = %16, %14
   %.not37 = icmp eq ptr %28, null
   br i1 %.not37, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
-29:                                               ; preds = %16, %select.unfold, %21, %.lr.ph
+29:                                               ; preds = %_job_def_type.exit, %21, %.lr.ph
   call void @slurm_xfree(ptr noundef nonnull %4) #18
   %.not41 = icmp eq ptr %10, null
   br i1 %.not41, label %31, label %30

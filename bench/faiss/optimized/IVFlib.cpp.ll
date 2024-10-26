@@ -2930,21 +2930,13 @@ _ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit: ; preds = %99, %86
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %116, %117
   %.not.i.i.i80 = icmp eq ptr %.sroa.095.0110, null
-  br i1 %.not.i.i.i80, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %118
+  br i1 %.not.i.i.i80, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit, label %118
 
 118:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.095.0110) #25
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
-
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %118
-  %.not.i81 = icmp eq ptr %.sroa.0104.2, null
-  br i1 %.not.i81, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
-
-_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0104.2) #25
   br label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
+_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %118, %_ZNSt6vectorIfSaIfEED2Ev.exit
   ret void
 
 119:                                              ; preds = %.loopexit, %.loopexit.split-lp, %78
@@ -3279,21 +3271,13 @@ _ZN5faiss6ivflibL10count_ndisEPKNS_8IndexIVFEmPKl.exit: ; preds = %98, %85
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %115, %116
   %.not.i.i.i79 = icmp eq ptr %.sroa.094.0109, null
-  br i1 %.not.i.i.i79, label %_ZNSt6vectorIlSaIlEED2Ev.exit, label %117
+  br i1 %.not.i.i.i79, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit, label %117
 
 117:                                              ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit
   tail call void @_ZdlPv(ptr noundef nonnull %.sroa.094.0109) #25
-  br label %_ZNSt6vectorIlSaIlEED2Ev.exit
-
-_ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit, %117
-  %.not.i80 = icmp eq ptr %.sroa.0103.2, null
-  br i1 %.not.i80, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
-
-_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0103.2) #25
   br label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit, %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i
+_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit: ; preds = %117, %_ZNSt6vectorIfSaIfEED2Ev.exit
   ret void
 
 118:                                              ; preds = %.loopexit, %.loopexit.split-lp, %77

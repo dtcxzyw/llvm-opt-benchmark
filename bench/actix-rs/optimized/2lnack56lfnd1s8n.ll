@@ -83,7 +83,7 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit.i: ; preds = %36, %
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap3get17h5b67b31985bbda53E(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %3 = tail call fastcc noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1)
+  %3 = tail call fastcc noalias noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %7, label %5
 
@@ -97,7 +97,7 @@ define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap3get17h5b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap9get_value17hdf9851661affa7fbE.llvm.9685123688785817458(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef align 8 ptr @_ZN10actix_http6header3map9HeaderMap9get_value17hdf9851661affa7fbE.llvm.9685123688785817458(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = tail call fastcc noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1)
   ret ptr %3
 }
@@ -118,12 +118,12 @@ define hidden void @"_ZN90_$LT$$RF$http..header..name..HeaderName$u20$as$u20$act
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1c1ae2b654c417a5E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [2 x i64], i64, i64 }, align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !7
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %72, label %7
+  br i1 %6, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit", label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -226,30 +226,15 @@ _ZN4core4hash11BuildHasher8hash_one17h569881dcf9df09a6E.exit: ; preds = %26, %36
   %63 = sub nsw i64 0, %62
   %gep.i.i = getelementptr { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %invariant.gep.i.i, i64 %63
   %64 = call noundef zeroext i1 @"_ZN74_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h8be7f8af3713d029E.llvm.14508081899341677224"(ptr noundef nonnull align 8 %1, ptr noundef nonnull align 8 %gep.i.i), !noalias !82
-  br i1 %64, label %68, label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
+  br i1 %64, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit", label %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
 
 65:                                               ; preds = %53
   %66 = add i64 %.sroa.9.0.i.i.i, 16
   %67 = add i64 %.sroa.01.0.i.i.i, %66
   br label %49
 
-68:                                               ; preds = %56
-  %69 = getelementptr inbounds { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %.val, i64 %63
-  br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit"
-
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit": ; preds = %53, %68
-  %.0.i.i = phi ptr [ %69, %68 ], [ null, %53 ]
-  %70 = icmp eq ptr %.0.i.i, null
-  %71 = getelementptr inbounds i8, ptr %.0.i.i, i64 -208
-  %.0.i = select i1 %70, ptr null, ptr %71
-  br label %72
-
-72:                                               ; preds = %2, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit"
-  %.04 = phi ptr [ %.0.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit" ], [ null, %2 ]
-  %73 = icmp eq ptr %.04, null
-  %74 = getelementptr inbounds i8, ptr %.04, i64 32
-  %.0 = select i1 %73, ptr null, ptr %74
-  ret ptr %.0
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h70031f13b85daba8E.exit": ; preds = %53, %56, %2
+  ret ptr null
 }
 
 ; Function Attrs: nonlazybind uwtable

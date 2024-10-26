@@ -42,7 +42,7 @@ define dso_local range(i32 0, 12) i32 @lzma_block_compressed_size(ptr noundef %0
 21:                                               ; preds = %16
   %22 = zext nneg i32 %9 to i64
   %23 = add nuw i64 %14, %22
-  %24 = tail call i32 @lzma_check_size(i32 noundef %19) #3
+  %24 = tail call i32 @lzma_check_size(i32 noundef %19) #4
   %25 = zext i32 %24 to i64
   %26 = add nuw i64 %23, %25
   %27 = icmp ugt i64 %26, 9223372036854775804
@@ -52,7 +52,7 @@ lzma_block_unpadded_size.exit:                    ; preds = %16
   br i1 %20, label %lzma_block_unpadded_size.exit.thread, label %lzma_block_unpadded_size.exit.lzma_block_unpadded_size.exit.thread18_crit_edge
 
 lzma_block_unpadded_size.exit.lzma_block_unpadded_size.exit.thread18_crit_edge: ; preds = %lzma_block_unpadded_size.exit
-  %.pre = tail call i32 @lzma_check_size(i32 noundef %19) #3
+  %.pre = tail call i32 @lzma_check_size(i32 noundef %19) #4
   br label %lzma_block_unpadded_size.exit.thread18
 
 lzma_block_unpadded_size.exit.thread18:           ; preds = %lzma_block_unpadded_size.exit.lzma_block_unpadded_size.exit.thread18_crit_edge, %21
@@ -118,7 +118,7 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
 20:                                               ; preds = %15
   %21 = zext nneg i32 %8 to i64
   %22 = add nuw i64 %13, %21
-  %23 = tail call i32 @lzma_check_size(i32 noundef %18) #3
+  %23 = tail call i32 @lzma_check_size(i32 noundef %18) #4
   %24 = zext i32 %23 to i64
   %25 = add nuw i64 %22, %24
   %26 = icmp ugt i64 %25, 9223372036854775804
@@ -133,8 +133,8 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_unpadded_siz
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @lzma_check_size(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(ptr noundef readonly %0) local_unnamed_addr #1 {
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local range(i64 -1, 1) i64 @lzma_block_total_size(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %lzma_block_unpadded_size.exit.thread, label %3
 
@@ -162,39 +162,26 @@ define dso_local range(i64 -1, 9223372036854775805) i64 @lzma_block_total_size(p
   br i1 %or.cond23.i, label %lzma_block_unpadded_size.exit.thread, label %15
 
 15:                                               ; preds = %11
-  %16 = icmp eq i64 %13, -1
+  %16 = icmp ne i64 %13, -1
   %17 = getelementptr inbounds i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp ugt i32 %18, 15
-  %brmerge.i = or i1 %16, %19
-  br i1 %brmerge.i, label %lzma_block_unpadded_size.exit, label %20
+  %brmerge = or i1 %19, %16
+  br i1 %brmerge, label %lzma_block_unpadded_size.exit.thread, label %20
 
-20:                                               ; preds = %15
-  %21 = zext nneg i32 %8 to i64
-  %22 = add nuw i64 %13, %21
-  %23 = tail call i32 @lzma_check_size(i32 noundef %18) #3
-  %24 = zext i32 %23 to i64
-  %25 = add nuw i64 %22, %24
-  %26 = icmp ugt i64 %25, 9223372036854775804
-  %27 = add nuw nsw i64 %25, 3
-  %28 = and i64 %27, 9223372036854775804
-  %29 = select i1 %26, i64 0, i64 %28
-  br label %lzma_block_unpadded_size.exit.thread
+lzma_block_unpadded_size.exit.thread:             ; preds = %15, %1, %3, %6, %11
+  br label %20
 
-lzma_block_unpadded_size.exit:                    ; preds = %15
-  %not. = xor i1 %19, true
-  %spec.select = sext i1 %not. to i64
-  br label %lzma_block_unpadded_size.exit.thread
-
-lzma_block_unpadded_size.exit.thread:             ; preds = %lzma_block_unpadded_size.exit, %11, %6, %3, %1, %20
-  %.0 = phi i64 [ %29, %20 ], [ 0, %1 ], [ 0, %3 ], [ 0, %6 ], [ 0, %11 ], [ %spec.select, %lzma_block_unpadded_size.exit ]
+20:                                               ; preds = %15, %lzma_block_unpadded_size.exit.thread
+  %.0 = phi i64 [ 0, %lzma_block_unpadded_size.exit.thread ], [ -1, %15 ]
   ret i64 %.0
 }
 
 attributes #0 = { mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(none) }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

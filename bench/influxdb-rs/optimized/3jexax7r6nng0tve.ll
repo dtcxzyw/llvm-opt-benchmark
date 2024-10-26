@@ -8819,14 +8819,14 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN9hashbrown11r
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hfb0536b1478825b6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hfb0536b1478825b6E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = alloca { i64, i64, i64, i64 }, align 8
   %5 = alloca [1 x i8], align 1
   %6 = alloca { { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8, !noundef !4
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %66, label %10
+  br i1 %9, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h2a3ee33d9077dfdcE.exit", label %10
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8948,19 +8948,8 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   %63 = add i64 %.sroa.01.0.i.i.i, %62
   br label %43
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h2a3ee33d9077dfdcE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc24d24fdeb32a2edE.exit._crit_edge.i.i", %58
-  %.0.i.i = phi ptr [ %56, %58 ], [ null, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc24d24fdeb32a2edE.exit._crit_edge.i.i" ]
-  %64 = icmp eq ptr %.0.i.i, null
-  %65 = getelementptr inbounds i8, ptr %.0.i.i, i64 -32
-  %.0.i = select i1 %64, ptr null, ptr %65
-  br label %66
-
-66:                                               ; preds = %3, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h2a3ee33d9077dfdcE.exit"
-  %.03 = phi ptr [ %.0.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h2a3ee33d9077dfdcE.exit" ], [ null, %3 ]
-  %67 = icmp eq ptr %.03, null
-  %68 = getelementptr inbounds i8, ptr %.03, i64 24
-  %.0 = select i1 %67, ptr null, ptr %68
-  ret ptr %.0
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h2a3ee33d9077dfdcE.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc24d24fdeb32a2edE.exit._crit_edge.i.i", %58, %3
+  ret ptr null
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11164,7 +11153,7 @@ define noundef i32 @_ZN15influxdb3_write7catalog12InnerCatalog15sequence_number1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef align 8 dereferenceable_or_null(8) ptr @_ZN15influxdb3_write7catalog14DatabaseSchema16get_table_schema17h3ec4986c414606e1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
+define noalias noundef align 8 dereferenceable_or_null(8) ptr @_ZN15influxdb3_write7catalog14DatabaseSchema16get_table_schema17h3ec4986c414606e1E(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #5 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1389)
@@ -11177,24 +11166,11 @@ define noundef align 8 dereferenceable_or_null(8) ptr @_ZN15influxdb3_write7cata
   %10 = load i64, ptr %9, align 8, !alias.scope !1389, !noalias !1392, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1394
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h0b6151103236a30dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noundef nonnull %6, i64 noundef %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !1389
-  %11 = load i64, ptr %4, align 8, !range !259, !noalias !1394, !noundef !4
-  %trunc.i = trunc nuw i64 %11 to i1
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
-  %.sroa.0.0.copyload.i = load ptr, ptr %12, align 8, !noalias !1394, !nonnull !4
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 24
-  %.sroa.28.0.copyload.i = load i64, ptr %.sroa.28.0..sroa_idx.i, align 8, !noalias !1394
-  %13 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %14 = getelementptr inbounds { [7 x i64] }, ptr %13, i64 %.sroa.28.0.copyload.i
-  %.1.i = select i1 %trunc.i, ptr null, ptr %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1394
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hfda676cf0ccc7ca0E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hfda676cf0ccc7ca0E.exit": ; preds = %3, %8
-  %.0.i = phi ptr [ %.1.i, %8 ], [ null, %3 ]
-  %15 = icmp eq ptr %.0.i, null
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 24
-  %.0 = select i1 %15, ptr null, ptr %16
-  ret ptr %.0
+  ret ptr null
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11277,15 +11253,11 @@ define noundef zeroext i1 @_ZN15influxdb3_write7catalog14DatabaseSchema12table_e
   %10 = load i64, ptr %9, align 8, !alias.scope !1406, !noalias !1409, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1411
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h0b6151103236a30dE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noundef nonnull %6, i64 noundef %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !1406
-  %11 = load i64, ptr %4, align 8, !range !259, !noalias !1411, !noundef !4
-  %trunc.i = trunc nuw i64 %11 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1411
-  %not.trunc.i = xor i1 %trunc.i, true
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hfda676cf0ccc7ca0E.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17hfda676cf0ccc7ca0E.exit": ; preds = %3, %8
-  %.0.i = phi i1 [ %not.trunc.i, %8 ], [ false, %3 ]
-  ret i1 %.0.i
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -11308,15 +11280,11 @@ define hidden noundef zeroext i1 @_ZN15influxdb3_write7catalog15TableDefinition1
   %10 = load i64, ptr %9, align 8, !alias.scope !1412, !noalias !1415, !noundef !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !1417
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h2ecf7d8f2e398478E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noundef nonnull %6, i64 noundef %10, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !1412
-  %11 = load i64, ptr %4, align 8, !range !259, !noalias !1417, !noundef !4
-  %trunc.i = trunc nuw i64 %11 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !1417
-  %not.trunc.i = xor i1 %trunc.i, true
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha1c47440c58fe35dE.exit"
 
 "_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17ha1c47440c58fe35dE.exit": ; preds = %3, %8
-  %.0.i = phi i1 [ %not.trunc.i, %8 ], [ false, %3 ]
-  ret i1 %.0.i
+  ret i1 false
 }
 
 ; Function Attrs: nonlazybind uwtable

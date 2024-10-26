@@ -5047,13 +5047,18 @@ for.cond179.preheader.us.preheader:               ; preds = %for.end164
   %wide.trip.count = and i64 %.sroa.speculated, 4294967295
   br label %for.cond179.preheader.us
 
-for.cond179.preheader.us:                         ; preds = %for.cond179.preheader.us.preheader, %for.inc321.us
-  %cmp182.us = phi i1 [ false, %for.inc321.us ], [ true, %for.cond179.preheader.us.preheader ]
-  %cmp235.not.us = phi i1 [ true, %for.inc321.us ], [ false, %for.cond179.preheader.us.preheader ]
+for.cond179.preheader.us:                         ; preds = %for.cond179.preheader.us.preheader, %for.cond179.for.inc321_crit_edge.us
+  %cmp182.us = phi i1 [ false, %for.cond179.for.inc321_crit_edge.us ], [ true, %for.cond179.preheader.us.preheader ]
+  %cmp235.not.us = phi i1 [ true, %for.cond179.for.inc321_crit_edge.us ], [ false, %for.cond179.preheader.us.preheader ]
   br label %for.body181.us
 
-for.body181.us:                                   ; preds = %for.cond179.preheader.us, %for.inc318.us
-  %indvars.iv3036 = phi i64 [ 0, %for.cond179.preheader.us ], [ %indvars.iv.next3037, %for.inc318.us ]
+for.cond179.us:                                   ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1129.us
+  %indvars.iv.next3037 = add nuw nsw i64 %indvars.iv3036, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next3037, %wide.trip.count
+  br i1 %exitcond.not, label %for.cond179.for.inc321_crit_edge.us, label %for.body181.us, !llvm.loop !78
+
+for.body181.us:                                   ; preds = %for.cond179.preheader.us, %for.cond179.us
+  %indvars.iv3036 = phi i64 [ 0, %for.cond179.preheader.us ], [ %indvars.iv.next3037, %for.cond179.us ]
   %.pre = load ptr, ptr %c, align 16
   br i1 %cmp182.us, label %cond.end199.us, label %cond.false193.us
 
@@ -5317,11 +5322,10 @@ if.end307.us:                                     ; preds = %cleanup.done283.us,
   %198 = load ptr, ptr %s, align 8
   %199 = load ptr, ptr %t, align 8
   %cmp.i1107.not.us = icmp eq ptr %198, %199
-  %..us = select i1 %cmp.i1107.not.us, i32 0, i32 14
   br label %cleanup312.us
 
 cleanup312.us:                                    ; preds = %if.end307.us, %if.then13.i.i1104.us, %if.then.i.i1098.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1095.us
-  %cleanup.dest.slot.1.us = phi i32 [ %..us, %if.end307.us ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1095.us ], [ 1, %if.then.i.i1098.us ], [ 1, %if.then13.i.i1104.us ]
+  %cleanup.dest.slot.1.us = phi i1 [ %cmp.i1107.not.us, %if.end307.us ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1095.us ], [ false, %if.then.i.i1098.us ], [ false, %if.then13.i.i1104.us ]
   %200 = load ptr, ptr %t, align 8
   %bf.load.i.i1108.us = load i64, ptr %200, align 8
   %201 = and i64 %bf.load.i.i1108.us, 1152920405095219200
@@ -5362,18 +5366,10 @@ if.then13.i.i1127.us:                             ; preds = %if.then.i.i1121.us
           to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1129.us unwind label %terminate.lpad.i1128.split.us
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1129.us: ; preds = %if.then13.i.i1127.us, %if.then.i.i1121.us, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1118.us
-  switch i32 %cleanup.dest.slot.1.us, label %arraydestroy.body2067.preheader [
-    i32 0, label %for.inc318.us
-    i32 14, label %for.inc321.us
-  ]
+  br i1 %cleanup.dest.slot.1.us, label %for.cond179.us, label %arraydestroy.body2067.preheader
 
-for.inc321.us:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1129.us, %for.inc318.us
-  br i1 %cmp182.us, label %for.cond179.preheader.us, label %for.end323, !llvm.loop !78
-
-for.inc318.us:                                    ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1129.us
-  %indvars.iv.next3037 = add nuw nsw i64 %indvars.iv3036, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next3037, %wide.trip.count
-  br i1 %exitcond.not, label %for.inc321.us, label %for.body181.us, !llvm.loop !79
+for.cond179.for.inc321_crit_edge.us:              ; preds = %for.cond179.us
+  br i1 %cmp182.us, label %for.cond179.preheader.us, label %for.end323, !llvm.loop !79
 
 lpad157.loopexit.split.us:                        ; preds = %if.then13.i.i1019.us
   %lpad.loopexit2864.us = landingpad { ptr, i32 }
@@ -5481,7 +5477,7 @@ ehcleanup317:                                     ; preds = %ehcleanup313, %lpad
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %s) #23
   br label %ehcleanup2072
 
-for.end323:                                       ; preds = %for.inc321.us, %for.end164
+for.end323:                                       ; preds = %for.cond179.for.inc321_crit_edge.us, %for.end164
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %new_ret)
           to label %for.cond326.preheader unwind label %lpad157.loopexit.split-lp.loopexit.split-lp
 

@@ -323,10 +323,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %4 = load ptr, ptr %cmask2.i.i, align 16
   %add.ptr7.i.i = getelementptr i8, ptr %4, i64 %idx.ext.i.i
   %add.ptr8.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 2
-  %5 = shl nuw i8 %type.0, 4
-  %6 = or disjoint i8 %5, 1
-  %or.i.i = zext i8 %6 to i16
-  store i16 %or.i.i, ptr %add.ptr8.i.i, align 1
+  store i16 1, ptr %add.ptr8.i.i, align 1
   %add.ptr12.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 4
   store i32 32768, ptr %add.ptr12.i.i, align 1
   %add.ptr13.i.i = getelementptr i8, ptr %add.ptr.i.i, i64 12
@@ -347,8 +344,8 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp8, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.else
-  %7 = load ptr, ptr %local_err, align 8
-  call void @error_report_err(ptr noundef %7) #10
+  %5 = load ptr, ptr %local_err, align 8
+  call void @error_report_err(ptr noundef %5) #10
   br label %return
 
 return:                                           ; preds = %if.else, %if.then10, %pcie_cap_v1_init.exit

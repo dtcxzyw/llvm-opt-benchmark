@@ -787,7 +787,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 define dso_local void @drm_dp_link_train_clock_recovery_delay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp ugt i8 %3, 19
-  br i1 %4, label %25, label %5
+  br i1 %4, label %26, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr i8, ptr %1, i64 14
@@ -817,15 +817,13 @@ define dso_local void @drm_dp_link_train_clock_recovery_delay(ptr nocapture noun
 21:                                               ; preds = %18, %5
   %22 = icmp eq i8 %8, 0
   %23 = mul nuw nsw i32 %9, 4000
-  %24 = select i1 %22, i32 100, i32 %23
-  br label %25
+  %24 = zext nneg i32 %23 to i64
+  %25 = select i1 %22, i64 100, i64 %24
+  br label %26
 
-25:                                               ; preds = %21, %2
-  %26 = phi i32 [ %24, %21 ], [ 100, %2 ]
-  %27 = zext nneg i32 %26 to i64
-  %28 = shl nuw nsw i32 %26, 1
-  %29 = zext nneg i32 %28 to i64
-  tail call void @usleep_range_state(i64 noundef %27, i64 noundef %29, i32 noundef 2) #18
+26:                                               ; preds = %21, %2
+  %27 = phi i64 [ %25, %21 ], [ 100, %2 ]
+  tail call void @usleep_range_state(i64 noundef %27, i64 noundef 200, i32 noundef 2) #18
   ret void
 }
 

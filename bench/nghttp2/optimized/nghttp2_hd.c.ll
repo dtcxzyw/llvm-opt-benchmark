@@ -4453,9 +4453,8 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp37.i, label %for.inc.i, label %if.end.i19.thread
 
 if.end.i19.thread:                                ; preds = %if.end.i
-  %conv8.i37 = select i1 %cmp.not, i8 -1, i8 127
-  store i8 %conv8.i37, ptr %sb, align 16
-  %buf.addr.020.i38 = getelementptr inbounds i8, ptr %sb, i64 1
+  store i8 -1, ptr %sb, align 16
+  %buf.addr.020.i36 = getelementptr inbounds i8, ptr %sb, i64 1
   br label %for.end.i
 
 for.inc.i:                                        ; preds = %if.end.i, %for.inc.i
@@ -4472,8 +4471,7 @@ count_encoded_length.exit:                        ; preds = %for.inc.i
 
 if.end.i19:                                       ; preds = %count_encoded_length.exit
   %1 = add nuw nsw i64 %len.09.i, 2
-  %conv8.i = select i1 %cmp.not, i8 -1, i8 127
-  store i8 %conv8.i, ptr %sb, align 16
+  store i8 -1, ptr %sb, align 16
   %buf.addr.020.i = getelementptr inbounds i8, ptr %sb, i64 1
   br label %for.body.i
 
@@ -4489,15 +4487,15 @@ for.body.i:                                       ; preds = %if.end.i19, %for.bo
   br i1 %cmp10.i, label %for.body.i, label %for.end.i, !llvm.loop !9
 
 for.end.i:                                        ; preds = %for.body.i, %if.end.i19.thread
-  %retval.0.i243339 = phi i64 [ 2, %if.end.i19.thread ], [ %1, %for.body.i ]
+  %retval.0.i243337 = phi i64 [ 2, %if.end.i19.thread ], [ %1, %for.body.i ]
   %n.addr.0.lcssa.i = phi i64 [ %sub2.i, %if.end.i19.thread ], [ %shr.i21, %for.body.i ]
-  %buf.addr.0.lcssa.i = phi ptr [ %buf.addr.020.i38, %if.end.i19.thread ], [ %buf.addr.0.i, %for.body.i ]
+  %buf.addr.0.lcssa.i = phi ptr [ %buf.addr.020.i36, %if.end.i19.thread ], [ %buf.addr.0.i, %for.body.i ]
   %conv16.i = trunc nuw nsw i64 %n.addr.0.lcssa.i to i8
   store i8 %conv16.i, ptr %buf.addr.0.lcssa.i, align 1
   br label %encode_length.exit
 
 encode_length.exit:                               ; preds = %if.end4.thread, %for.end.i
-  %retval.0.i2427 = phi i64 [ 1, %if.end4.thread ], [ %retval.0.i243339, %for.end.i ]
+  %retval.0.i2427 = phi i64 [ 1, %if.end4.thread ], [ %retval.0.i243337, %for.end.i ]
   %call7 = call i32 @nghttp2_bufs_add(ptr noundef %bufs, ptr noundef nonnull %sb, i64 noundef %retval.0.i2427) #12
   %cmp8.not = icmp eq i32 %call7, 0
   br i1 %cmp8.not, label %if.end11, label %return

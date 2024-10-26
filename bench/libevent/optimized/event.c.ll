@@ -3249,8 +3249,8 @@ if.then41:                                        ; preds = %if.end35
 
 if.end42:                                         ; preds = %if.then41, %if.end35
   %12 = phi i16 [ %.pre, %if.then41 ], [ %10, %if.end35 ]
-  %conv4591 = zext i16 %12 to i32
-  %and46 = and i32 %conv4591, 8
+  %conv4589 = zext i16 %12 to i32
+  %and46 = and i32 %conv4589, 8
   %tobool47.not = icmp eq i32 %and46, 0
   br i1 %tobool47.not, label %if.else, label %if.then48
 
@@ -3292,7 +3292,7 @@ if.else.i:                                        ; preds = %if.then48
   br label %if.end57.sink.split
 
 if.else:                                          ; preds = %if.end42
-  %and52 = and i32 %conv4591, 32
+  %and52 = and i32 %conv4589, 32
   %tobool53.not = icmp eq i32 %and52, 0
   br i1 %tobool53.not, label %if.end57, label %if.then54
 
@@ -3329,9 +3329,9 @@ if.else.i67:                                      ; preds = %if.then54
   br label %if.end57.sink.split
 
 if.end57.sink.split:                              ; preds = %if.else.i67, %if.then11.i65, %if.else.i, %if.then11.i
-  %.sink93 = phi ptr [ %20, %if.then11.i ], [ %20, %if.else.i ], [ %30, %if.then11.i65 ], [ %30, %if.else.i67 ]
+  %.sink91 = phi ptr [ %20, %if.then11.i ], [ %20, %if.else.i ], [ %30, %if.then11.i65 ], [ %30, %if.else.i67 ]
   %31 = load ptr, ptr %ev, align 8
-  store ptr %31, ptr %.sink93, align 8
+  store ptr %31, ptr %.sink91, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end57.sink.split, %if.else
@@ -3390,11 +3390,9 @@ land.lhs.true81:                                  ; preds = %event_haveevents.ex
 
 if.end85:                                         ; preds = %if.end74, %land.lhs.true81, %event_haveevents.exit
   %notify.0 = phi i1 [ %cmp75, %event_haveevents.exit ], [ %45, %land.lhs.true81 ], [ %cmp75, %if.end74 ]
-  %cmp86 = icmp ne i32 %spec.select, -1
-  %or.cond1 = and i1 %cmp86, %notify.0
   %46 = load ptr, ptr @evthread_id_fn_, align 8
   %cmp91 = icmp ne ptr %46, null
-  %or.cond2 = select i1 %or.cond1, i1 %cmp91, i1 false
+  %or.cond2 = select i1 %notify.0, i1 %cmp91, i1 false
   br i1 %or.cond2, label %land.lhs.true93, label %if.end101
 
 land.lhs.true93:                                  ; preds = %if.end85
@@ -3428,7 +3426,7 @@ if.end9.i:                                        ; preds = %if.end6.i
   br label %if.end101
 
 if.end101:                                        ; preds = %if.end57, %if.end9.i, %if.end6.i, %if.then99, %land.lhs.true95, %land.lhs.true93, %if.end85
-  %res.088 = phi i32 [ %spec.select, %land.lhs.true95 ], [ %spec.select, %land.lhs.true93 ], [ %spec.select, %if.end85 ], [ %spec.select, %if.then99 ], [ %spec.select, %if.end6.i ], [ %spec.select, %if.end9.i ], [ 0, %if.end57 ]
+  %res.086 = phi i32 [ %spec.select, %land.lhs.true95 ], [ %spec.select, %land.lhs.true93 ], [ %spec.select, %if.end85 ], [ %spec.select, %if.then99 ], [ %spec.select, %if.end6.i ], [ %spec.select, %if.end9.i ], [ 0, %if.end57 ]
   %51 = load i32, ptr @event_debug_mode_on_, align 4
   %tobool.not.i = icmp eq i32 %51, 0
   br i1 %tobool.not.i, label %event_debug_note_del_.exit, label %if.end.i
@@ -3543,7 +3541,7 @@ cond.true:                                        ; preds = %if.then123
   br label %return
 
 return:                                           ; preds = %event_debug_note_del_.exit, %land.lhs.true104, %lor.lhs.false, %lor.lhs.false118, %if.then123, %cond.true, %if.then13, %do.end
-  %retval.0 = phi i32 [ -1, %do.end ], [ 0, %if.then13 ], [ %res.088, %cond.true ], [ %res.088, %if.then123 ], [ %res.088, %lor.lhs.false118 ], [ %res.088, %lor.lhs.false ], [ %res.088, %land.lhs.true104 ], [ %res.088, %event_debug_note_del_.exit ]
+  %retval.0 = phi i32 [ -1, %do.end ], [ 0, %if.then13 ], [ %res.086, %cond.true ], [ %res.086, %if.then123 ], [ %res.086, %lor.lhs.false118 ], [ %res.086, %lor.lhs.false ], [ %res.086, %land.lhs.true104 ], [ %res.086, %event_debug_note_del_.exit ]
   ret i32 %retval.0
 }
 

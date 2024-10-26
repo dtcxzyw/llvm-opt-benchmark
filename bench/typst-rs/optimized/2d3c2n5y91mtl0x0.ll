@@ -2877,21 +2877,13 @@ define hidden void @"_ZN136_$LT$palette..alpha..alpha..Alpha$LT$C2$C$T$GT$$u20$a
   %.0.i6.i.i = select i1 %5, float %.sroa.5.0.copyload, float %6
   %7 = fmul float %.sroa.4.0.copyload, %.0.i6.i.i
   %8 = fadd float %.sroa.5.0.copyload, %7
-  %or.cond1.i.i.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 408)
-  %9 = bitcast float %8 to i32
-  %10 = and i32 %9, 2139095040
-  %11 = icmp ne i32 %10, 0
-  %.0.i.i.i.i = and i1 %or.cond1.i.i.i, %11
-  %12 = fmul float %7, 2.000000e+00
-  %13 = fdiv float %12, %8
-  %.0.i.i.i = select i1 %.0.i.i.i.i, float %13, float 0.000000e+00
   store float %.sroa.01.0.copyload, ptr %0, align 4
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store float %.0.i.i.i, ptr %.sroa.43.0..sroa_idx, align 4
+  store float 0.000000e+00, ptr %.sroa.43.0..sroa_idx, align 4
   %.sroa.54.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store float %8, ptr %.sroa.54.0..sroa_idx, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
-  store float %4, ptr %14, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 12
+  store float %4, ptr %9, align 4
   ret void
 }
 
@@ -4273,7 +4265,7 @@ define hidden void @"_ZN145_$LT$wasmi..module..init_expr..ConstExpr..eval_with_c
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..hsl..Hsl$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17h6240aa7dcc79477aE.llvm.3683678558897460461"(ptr noalias nocapture noundef writeonly sret({ { float }, float, float, {} }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
-"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17hf221bef93475121cE.exit":
+"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17hdeff3b891d22421dE.exit":
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load float, ptr %2, align 4, !noundef !7
   %3 = fcmp olt float %.val, 5.000000e-01
@@ -4283,20 +4275,12 @@ define hidden void @"_ZN152_$LT$palette..hsv..Hsv$LT$S$C$T$GT$$u20$as$u20$palett
   %6 = load float, ptr %5, align 4, !noundef !7
   %7 = fmul float %6, %.0.i6
   %8 = fadd float %.val, %7
-  %or.cond1.i = tail call i1 @llvm.is.fpclass.f32(float %8, i32 408)
-  %9 = bitcast float %8 to i32
-  %10 = and i32 %9, 2139095040
-  %11 = icmp ne i32 %10, 0
-  %.0.i.i = and i1 %or.cond1.i, %11
-  %12 = fmul float %7, 2.000000e+00
-  %13 = fdiv float %12, %8
-  %.0.i = select i1 %.0.i.i, float %13, float 0.000000e+00
   %.sroa.02.0.copyload = load float, ptr %1, align 4
   store float %.sroa.02.0.copyload, ptr %0, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %.0.i, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %8, ptr %15, align 4
+  %9 = getelementptr inbounds i8, ptr %0, i64 4
+  store float 0.000000e+00, ptr %9, align 4
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %8, ptr %10, align 4
   ret void
 }
 
@@ -31386,20 +31370,12 @@ define hidden void @"_ZN94_$LT$T$u20$as$u20$palette..convert..from_into_color_un
   %7 = load float, ptr %6, align 4, !alias.scope !6219, !noalias !6216, !noundef !7
   %8 = fmul float %7, %.0.i6.i
   %9 = fadd float %.val.i, %8
-  %or.cond1.i.i = tail call i1 @llvm.is.fpclass.f32(float %9, i32 408)
-  %10 = bitcast float %9 to i32
-  %11 = and i32 %10, 2139095040
-  %12 = icmp ne i32 %11, 0
-  %.0.i.i.i = and i1 %or.cond1.i.i, %12
-  %13 = fmul float %8, 2.000000e+00
-  %14 = fdiv float %13, %9
-  %.0.i.i = select i1 %.0.i.i.i, float %14, float 0.000000e+00
   %.sroa.02.0.copyload.i = load float, ptr %1, align 4, !alias.scope !6219, !noalias !6216
   store float %.sroa.02.0.copyload.i, ptr %0, align 4, !alias.scope !6216, !noalias !6219
-  %15 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %.0.i.i, ptr %15, align 4, !alias.scope !6216, !noalias !6219
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %9, ptr %16, align 4, !alias.scope !6216, !noalias !6219
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  store float 0.000000e+00, ptr %10, align 4, !alias.scope !6216, !noalias !6219
+  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %9, ptr %11, align 4, !alias.scope !6216, !noalias !6219
   ret void
 }
 
@@ -175036,32 +175012,29 @@ declare hidden void @_ZN5typst4diag16SourceDiagnostic9with_hint17hdec3f3e8bb2d98
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN84_$LT$typst..text..raw..RawContent$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17hd2b6fabe491faab1E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #53
-
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #54
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #53
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #53
+declare i64 @llvm.umax.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #53
+declare i8 @llvm.umin.i8(i8, i8) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #53
+declare double @llvm.fabs.f64(double) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #53
+declare i64 @llvm.umin.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #55
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.ucmp.i8.i64(i64, i64) #53
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #54
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.scmp.i8.i64(i64, i64) #53
+declare i8 @llvm.scmp.i8.i64(i64, i64) #54
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -175116,8 +175089,8 @@ attributes #49 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"
 attributes #50 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #51 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #52 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #53 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #54 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #53 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #54 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #55 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #56 = { cold }
 attributes #57 = { nounwind }

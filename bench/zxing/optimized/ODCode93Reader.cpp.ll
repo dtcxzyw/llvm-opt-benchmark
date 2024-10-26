@@ -1035,7 +1035,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL14CheckChecksumsERKNSt
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %6, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01114.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %15, %.lr.ph.i ]
-  %.01213.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %spec.store.select.i, %.lr.ph.i ]
+  %.01213.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %7 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv.next.i) #15
   %8 = load i8, ptr %7, align 1
@@ -1046,78 +1046,74 @@ define internal fastcc noundef zeroext i1 @_ZN5ZXing4OneDL14CheckChecksumsERKNSt
   %11 = trunc i64 %10 to i32
   %12 = sub i32 %11, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
   %13 = select i1 %.not.i.i, i32 -1, i32 %12
-  %14 = mul nsw i32 %13, %.01213.i
+  %14 = mul nuw nsw i32 %13, %.01213.i
   %15 = add nsw i32 %14, %.01114.i
-  %16 = add nsw i32 %.01213.i, 1
-  %.not.i = icmp slt i32 %.01213.i, 20
-  %spec.store.select.i = select i1 %.not.i, i32 %16, i32 1
-  %17 = icmp ugt i64 %indvars.iv.i, 1
-  br i1 %17, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !24
+  %16 = add nuw nsw i32 %.01213.i, 1
+  %exitcond.not.i = icmp eq i32 %.01213.i, %4
+  br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !24
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %18 = srem i32 %15, 47
-  %19 = sext i32 %18 to i64
+  %17 = srem i32 %15, 47
+  %18 = sext i32 %17 to i64
   br label %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
 
 _ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit: ; preds = %1, %._crit_edge.loopexit.i
-  %.011.lcssa.i = phi i64 [ 0, %1 ], [ %19, %._crit_edge.loopexit.i ]
-  %20 = sext i32 %4 to i64
-  %21 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %20) #15
-  %22 = load i8, ptr %21, align 1
-  %23 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
-  %24 = load i8, ptr %23, align 1
-  %25 = icmp eq i8 %22, %24
-  br i1 %25, label %26, label %49
+  %.011.lcssa.i = phi i64 [ 0, %1 ], [ %18, %._crit_edge.loopexit.i ]
+  %19 = sext i32 %4 to i64
+  %20 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %19) #15
+  %21 = load i8, ptr %20, align 1
+  %22 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %21, %23
+  br i1 %24, label %25, label %47
 
-26:                                               ; preds = %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
-  %27 = add nsw i32 %3, -1
-  %28 = icmp sgt i32 %3, 1
-  br i1 %28, label %.lr.ph.preheader.i5, label %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit16
+25:                                               ; preds = %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
+  %26 = add nsw i32 %3, -1
+  %27 = icmp sgt i32 %3, 1
+  br i1 %27, label %.lr.ph.preheader.i5, label %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit15
 
-.lr.ph.preheader.i5:                              ; preds = %26
-  %29 = zext nneg i32 %27 to i64
+.lr.ph.preheader.i5:                              ; preds = %25
+  %28 = zext nneg i32 %26 to i64
   br label %.lr.ph.i6
 
 .lr.ph.i6:                                        ; preds = %.lr.ph.i6, %.lr.ph.preheader.i5
-  %indvars.iv.i7 = phi i64 [ %29, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i10, %.lr.ph.i6 ]
-  %.01114.i8 = phi i32 [ 0, %.lr.ph.preheader.i5 ], [ %38, %.lr.ph.i6 ]
-  %.01213.i9 = phi i32 [ 1, %.lr.ph.preheader.i5 ], [ %spec.store.select.i14, %.lr.ph.i6 ]
+  %indvars.iv.i7 = phi i64 [ %28, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i10, %.lr.ph.i6 ]
+  %.01114.i8 = phi i32 [ 0, %.lr.ph.preheader.i5 ], [ %37, %.lr.ph.i6 ]
+  %.01213.i9 = phi i32 [ 1, %.lr.ph.preheader.i5 ], [ %38, %.lr.ph.i6 ]
   %indvars.iv.next.i10 = add nsw i64 %indvars.iv.i7, -1
-  %30 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv.next.i10) #15
-  %31 = load i8, ptr %30, align 1
-  %32 = sext i8 %31 to i32
-  %memchr.i11 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN5ZXing4OneDL8ALPHABETE, i32 %32, i64 49)
+  %29 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %indvars.iv.next.i10) #15
+  %30 = load i8, ptr %29, align 1
+  %31 = sext i8 %30 to i32
+  %memchr.i11 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @_ZN5ZXing4OneDL8ALPHABETE, i32 %31, i64 49)
   %.not.i.i12 = icmp eq ptr %memchr.i11, null
-  %33 = ptrtoint ptr %memchr.i11 to i64
-  %34 = trunc i64 %33 to i32
-  %35 = sub i32 %34, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
-  %36 = select i1 %.not.i.i12, i32 -1, i32 %35
-  %37 = mul nsw i32 %36, %.01213.i9
-  %38 = add nsw i32 %37, %.01114.i8
-  %39 = add nsw i32 %.01213.i9, 1
-  %.not.i13 = icmp slt i32 %.01213.i9, 15
-  %spec.store.select.i14 = select i1 %.not.i13, i32 %39, i32 1
-  %40 = icmp ugt i64 %indvars.iv.i7, 1
-  br i1 %40, label %.lr.ph.i6, label %._crit_edge.loopexit.i15, !llvm.loop !24
+  %32 = ptrtoint ptr %memchr.i11 to i64
+  %33 = trunc i64 %32 to i32
+  %34 = sub i32 %33, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i32)
+  %35 = select i1 %.not.i.i12, i32 -1, i32 %34
+  %36 = mul nuw nsw i32 %35, %.01213.i9
+  %37 = add nsw i32 %36, %.01114.i8
+  %38 = add nuw nsw i32 %.01213.i9, 1
+  %exitcond.not.i13 = icmp eq i32 %.01213.i9, %26
+  br i1 %exitcond.not.i13, label %._crit_edge.loopexit.i14, label %.lr.ph.i6, !llvm.loop !24
 
-._crit_edge.loopexit.i15:                         ; preds = %.lr.ph.i6
-  %41 = srem i32 %38, 47
-  %42 = sext i32 %41 to i64
-  br label %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit16
+._crit_edge.loopexit.i14:                         ; preds = %.lr.ph.i6
+  %39 = srem i32 %37, 47
+  %40 = sext i32 %39 to i64
+  br label %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit15
 
-_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit16: ; preds = %26, %._crit_edge.loopexit.i15
-  %.011.lcssa.i4 = phi i64 [ 0, %26 ], [ %42, %._crit_edge.loopexit.i15 ]
-  %43 = sext i32 %27 to i64
-  %44 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %43) #15
+_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit15: ; preds = %25, %._crit_edge.loopexit.i14
+  %.011.lcssa.i4 = phi i64 [ 0, %25 ], [ %40, %._crit_edge.loopexit.i14 ]
+  %41 = sext i32 %26 to i64
+  %42 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %41) #15
+  %43 = load i8, ptr %42, align 1
+  %44 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i4
   %45 = load i8, ptr %44, align 1
-  %46 = getelementptr inbounds [49 x i8], ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 0, i64 %.011.lcssa.i4
-  %47 = load i8, ptr %46, align 1
-  %48 = icmp eq i8 %45, %47
-  br label %49
+  %46 = icmp eq i8 %43, %45
+  br label %47
 
-49:                                               ; preds = %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit16, %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
-  %50 = phi i1 [ false, %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit ], [ %48, %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit16 ]
-  ret i1 %50
+47:                                               ; preds = %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit15, %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit
+  %48 = phi i1 [ false, %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit ], [ %46, %_ZN5ZXing4OneDL16CheckOneChecksumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEii.exit15 ]
+  ret i1 %48
 }
 
 ; Function Attrs: nounwind

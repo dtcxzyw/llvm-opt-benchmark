@@ -1081,14 +1081,12 @@ _Z13VulnerDefSideii.exit.us:                      ; preds = %318
 _Z13VulnerDefSideii.exit.thread.us:               ; preds = %_Z13VulnerDefSideii.exit.us, %318
   %319 = icmp slt i32 %.reass653, 4
   %.807 = select i1 %319, i32 200, i32 300
-  %.808 = select i1 %319, i32 -100, i32 -400
   br label %_Z8rawscoreiii.exit506.us
 
 _Z8rawscoreiii.exit506.us:                        ; preds = %_Z13VulnerDefSideii.exit.thread.us, %318, %_Z13VulnerDefSideii.exit.us
   %.sink800 = phi i32 [ 300, %_Z13VulnerDefSideii.exit.us ], [ 300, %318 ], [ %.807, %_Z13VulnerDefSideii.exit.thread.us ]
-  %.sink799 = phi i32 [ -100, %_Z13VulnerDefSideii.exit.us ], [ -100, %318 ], [ %.808, %_Z13VulnerDefSideii.exit.thread.us ]
   %.neg579.us = mul i32 %.reass653, %.sink800
-  %.neg580.us = add i32 %.neg579.us, %.sink799
+  %.neg580.us = add i32 %.neg579.us, -100
   %320 = icmp slt i32 %262, %.neg580.us
   br i1 %320, label %.lr.ph656, label %321
 
@@ -1120,14 +1118,12 @@ _Z13VulnerDefSideii.exit510:                      ; preds = %324
 _Z13VulnerDefSideii.exit510.thread:               ; preds = %324, %_Z13VulnerDefSideii.exit510
   %325 = icmp slt i32 %.reass, 3
   %.809 = select i1 %325, i32 200, i32 300
-  %.810 = select i1 %325, i32 -100, i32 -400
   br label %_Z8rawscoreiii.exit506
 
 _Z8rawscoreiii.exit506:                           ; preds = %_Z13VulnerDefSideii.exit510.thread, %_Z13VulnerDefSideii.exit510, %324
   %.sink802 = phi i32 [ 300, %324 ], [ 300, %_Z13VulnerDefSideii.exit510 ], [ %.809, %_Z13VulnerDefSideii.exit510.thread ]
-  %.sink801 = phi i32 [ -100, %324 ], [ -100, %_Z13VulnerDefSideii.exit510 ], [ %.810, %_Z13VulnerDefSideii.exit510.thread ]
   %.neg587 = mul i32 %.reass651, %.sink802
-  %.neg588 = add i32 %.neg587, %.sink801
+  %.neg588 = add i32 %.neg587, -100
   %326 = icmp slt i32 %262, %.neg588
   br i1 %326, label %.lr.ph656, label %327
 
@@ -1162,14 +1158,12 @@ _Z13VulnerDefSideii.exit518:                      ; preds = %.lr.ph656.split
 _Z13VulnerDefSideii.exit518.thread:               ; preds = %.lr.ph656.split, %_Z13VulnerDefSideii.exit518
   %337 = icmp slt i32 %.reass661, 4
   %.811 = select i1 %337, i32 200, i32 300
-  %.812 = select i1 %337, i32 -100, i32 -400
   br label %_Z8rawscoreiii.exit521
 
 _Z8rawscoreiii.exit521:                           ; preds = %_Z13VulnerDefSideii.exit518.thread, %_Z13VulnerDefSideii.exit518, %.lr.ph656.split
   %.sink804 = phi i32 [ 300, %.lr.ph656.split ], [ 300, %_Z13VulnerDefSideii.exit518 ], [ %.811, %_Z13VulnerDefSideii.exit518.thread ]
-  %.sink803 = phi i32 [ -100, %.lr.ph656.split ], [ -100, %_Z13VulnerDefSideii.exit518 ], [ %.812, %_Z13VulnerDefSideii.exit518.thread ]
   %.neg590 = mul i32 %.reass661, %.sink804
-  %.neg591 = add i32 %.neg590, %.sink803
+  %.neg591 = add i32 %.neg590, -100
   %338 = icmp sgt i32 %262, %.neg591
   br i1 %338, label %339, label %_Z8rawscoreiii.exit521._crit_edge
 

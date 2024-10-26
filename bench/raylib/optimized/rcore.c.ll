@@ -35578,7 +35578,7 @@ sdefl_fnd.exit152:                                ; preds = %124, %127, %92
   %.087366372 = phi i32 [ %spec.select, %.preheader ], [ 1, %.thread360 ]
   %.086367371 = phi i32 [ %spec.select108, %.preheader ], [ 1, %.thread360 ]
   %197 = sext i32 %.189282 to i64
-  %198 = sext i32 %.086367371 to i64
+  %198 = zext nneg i32 %.086367371 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -44622,7 +44622,7 @@ define noundef nonnull ptr @GetDirectoryPath(ptr noundef readonly %0) local_unna
 
 strprbrk.exit:                                    ; preds = %7
   %.not28 = icmp eq ptr %.0.i, null
-  br i1 %.not28, label %35, label %10
+  br i1 %.not28, label %27, label %10
 
 10:                                               ; preds = %strprbrk.exit
   %11 = icmp eq ptr %.0.i, %0
@@ -44632,7 +44632,7 @@ strprbrk.exit:                                    ; preds = %7
   %13 = load i8, ptr %0, align 1
   store i8 %13, ptr @GetDirectoryPath.dirPath, align 16
   store i8 0, ptr getelementptr inbounds (i8, ptr @GetDirectoryPath.dirPath, i64 1), align 1
-  br label %35
+  br label %27
 
 14:                                               ; preds = %10
   %15 = load i8, ptr %2, align 1
@@ -44653,32 +44653,15 @@ strprbrk.exit:                                    ; preds = %7
   %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #55
   %.neg35 = add i64 %20, 1
   %22 = sub i64 %.neg35, %21
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0, ptr nonnull align 1 %0, i64 %22, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %.0, ptr nonnull align 1 %0, i64 %22, i1 false)
   %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #55
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i) #55
   %25 = sub i64 %23, %24
-  %26 = load i8, ptr %2, align 1
-  %.not32 = icmp eq i8 %26, 58
-  br i1 %.not32, label %31, label %27
+  %26 = getelementptr inbounds [4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 %25
+  store i8 0, ptr %26, align 1
+  br label %27
 
-27:                                               ; preds = %19
-  %28 = load i8, ptr %0, align 1
-  %.not33 = icmp eq i8 %28, 92
-  br i1 %.not33, label %31, label %29
-
-29:                                               ; preds = %27
-  %.not34 = icmp eq i8 %28, 47
-  %30 = select i1 %.not34, i64 0, i64 2
-  br label %31
-
-31:                                               ; preds = %29, %27, %19
-  %32 = phi i64 [ 0, %27 ], [ 0, %19 ], [ %30, %29 ]
-  %33 = add i64 %25, %32
-  %34 = getelementptr inbounds [4096 x i8], ptr @GetDirectoryPath.dirPath, i64 0, i64 %33
-  store i8 0, ptr %34, align 1
-  br label %35
-
-35:                                               ; preds = %12, %31, %strprbrk.exit
+27:                                               ; preds = %12, %19, %strprbrk.exit
   ret ptr @GetDirectoryPath.dirPath
 }
 

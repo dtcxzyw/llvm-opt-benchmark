@@ -5358,33 +5358,32 @@ entry:
 
 for.cond.cleanup.loopexit:                        ; preds = %for.body
   %2 = shl nuw nsw i8 %spec.select, 1
-  %3 = and i8 %2, 2
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %entry
-  %all_const.0.lcssa = phi i8 [ 2, %entry ], [ %3, %for.cond.cleanup.loopexit ]
+  %all_const.0.lcssa = phi i8 [ 2, %entry ], [ %2, %for.cond.cleanup.loopexit ]
   tail call void @_ZN6duckdb6Vector13SetVectorTypeENS_10VectorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %result, i8 noundef zeroext %all_const.0.lcssa)
   %count.i = getelementptr inbounds i8, ptr %args, i64 24
-  %4 = load i64, ptr %count.i, align 8, !tbaa !55
-  tail call void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %4)
+  %3 = load i64, ptr %count.i, align 8, !tbaa !55
+  tail call void @_ZN6duckdb6Vector6VerifyEm(ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %3)
   ret void
 
 for.body:                                         ; preds = %entry, %for.body
   %i.025 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %all_const.024 = phi i8 [ %spec.select, %for.body ], [ 1, %entry ]
   %call2 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %args, i64 noundef %i.025)
-  %5 = load i8, ptr %call2, align 8, !tbaa !170
-  %cmp4.not = icmp eq i8 %5, 2
+  %4 = load i8, ptr %call2, align 8, !tbaa !170
+  %cmp4.not = icmp eq i8 %4, 2
   %spec.select = select i1 %cmp4.not, i8 %all_const.024, i8 0
   %call5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_6VectorESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %call, i64 noundef %i.025)
   %call6 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_6VectorESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %call5)
   %call8 = tail call noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %args, i64 noundef %i.025)
   tail call void @_ZN6duckdb6Vector9ReferenceERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %call6, ptr noundef nonnull align 8 dereferenceable(104) %call8)
   %inc = add nuw i64 %i.025, 1
-  %6 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !70
-  %7 = load ptr, ptr %args, align 8, !tbaa !71
-  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %7 to i64
+  %5 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !70
+  %6 = load ptr, ptr %args, align 8, !tbaa !71
+  %sub.ptr.lhs.cast.i.i = ptrtoint ptr %5 to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = sdiv exact i64 %sub.ptr.sub.i.i, 104
   %cmp = icmp ult i64 %inc, %sub.ptr.div.i.i

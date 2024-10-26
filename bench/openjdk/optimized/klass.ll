@@ -1625,12 +1625,12 @@ define hidden void @_ZNK5Klass25print_secondary_supers_onEP12outputStream(ptr no
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %75, label %5
+  br i1 %.not, label %72, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr @UseSecondarySupersTable, align 1
   %7 = trunc i8 %6 to i1
-  br i1 %7, label %8, label %76
+  br i1 %7, label %8, label %73
 
 8:                                                ; preds = %5
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.45) #21
@@ -1642,8 +1642,8 @@ define hidden void @_ZNK5Klass25print_secondary_supers_onEP12outputStream(ptr no
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.47, i64 noundef %12) #21
   %13 = load i64, ptr %11, align 8
   switch i64 %13, label %14 [
-    i64 0, label %76
-    i64 -1, label %76
+    i64 0, label %73
+    i64 -1, label %73
   ]
 
 14:                                               ; preds = %8
@@ -1690,16 +1690,16 @@ _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
   %35 = add nuw nsw i32 %34, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %36 = add i32 %35, %.sroa.12.030.i
-  %.not.i = icmp ugt i32 %.sroa.5.026.i, %34
+  %.not.i = icmp samesign ugt i32 %.sroa.5.026.i, %34
   %37 = icmp eq i32 %.sroa.5.026.i, %35
   %38 = zext i1 %37 to i32
   %spec.select.i = add i32 %.sroa.8.027.i, %38
   %.sroa.5.1.i = select i1 %.not.i, i32 %.sroa.5.026.i, i32 %35
   %.sroa.8.1.i = select i1 %.not.i, i32 %spec.select.i, i32 1
-  %39 = icmp ugt i32 %.sroa.15.029.i, %35
+  %39 = icmp samesign ugt i32 %.sroa.15.029.i, %35
   %40 = icmp eq i32 %.sroa.15.029.i, %35
   %41 = zext i1 %40 to i32
-  %spec.select24.i = add i32 %.sroa.19.028.i, %41
+  %spec.select24.i = add nuw nsw i32 %.sroa.19.028.i, %41
   %.sroa.19.1.i = select i1 %39, i32 1, i32 %spec.select24.i
   %.sroa.15.1.i = tail call i32 @llvm.umin.i32(i32 %.sroa.15.029.i, i32 %35)
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1707,8 +1707,8 @@ _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
 
 ._crit_edge.loopexit.i:                           ; preds = %_ZN5Klass17compute_home_slotEPS_m.exit.i
   %42 = uitofp i32 %36 to double
-  %43 = uitofp i32 %.sroa.8.1.i to double
-  %44 = fmul double %43, 1.000000e+02
+  %43 = mul nuw i32 %.sroa.8.1.i, 100
+  %44 = uitofp nneg i32 %43 to double
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %14
@@ -1719,8 +1719,8 @@ _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
   %.sroa.15.0.lcssa.i = phi i32 [ 2147483647, %14 ], [ %.sroa.15.1.i, %._crit_edge.loopexit.i ]
   %.sroa.12.0.lcssa.i = phi double [ 0.000000e+00, %14 ], [ %42, %._crit_edge.loopexit.i ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.62) #21
-  %45 = uitofp i32 %.sroa.19.0.lcssa.i to double
-  %46 = fmul double %45, 1.000000e+02
+  %45 = mul nuw nsw i32 %.sroa.19.0.lcssa.i, 100
+  %46 = uitofp nneg i32 %45 to double
   %47 = uitofp nneg i32 %.sroa.0.0.lcssa.i to double
   %48 = fdiv double %46, %47
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.63, i32 noundef %.sroa.15.0.lcssa.i, double noundef %48) #21
@@ -1752,48 +1752,41 @@ _ZN11LookupStats6sampleEj.exit.i:                 ; preds = %_ZN11LookupStats6sa
   %56 = trunc nuw nsw i64 %55 to i32
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i13, 1
   %57 = add i32 %.sroa.12.024.i, %56
-  %58 = icmp ult i32 %.sroa.5.020.i, %56
+  %58 = icmp samesign ult i32 %.sroa.5.020.i, %56
   %59 = icmp eq i32 %.sroa.5.020.i, %56
   %60 = zext i1 %59 to i32
-  %spec.select.i15 = add i32 %.sroa.8.021.i, %60
+  %spec.select.i15 = add nuw nsw i32 %.sroa.8.021.i, %60
   %.sroa.5.1.i16 = tail call i32 @llvm.umax.i32(i32 %.sroa.5.020.i, i32 %56)
   %.sroa.8.1.i17 = select i1 %58, i32 1, i32 %spec.select.i15
-  %61 = icmp ugt i32 %.sroa.15.023.i, %56
+  %61 = icmp samesign ugt i32 %.sroa.15.023.i, %56
   %62 = icmp eq i32 %.sroa.15.023.i, %56
   %63 = zext i1 %62 to i32
-  %spec.select18.i = add i32 %.sroa.19.022.i, %63
+  %spec.select18.i = add nuw nsw i32 %.sroa.19.022.i, %63
   %.sroa.19.1.i18 = select i1 %61, i32 1, i32 %spec.select18.i
   %.sroa.15.1.i19 = tail call i32 @llvm.umin.i32(i32 %.sroa.15.023.i, i32 %56)
   %exitcond.not.i20 = icmp eq i64 %indvars.iv.next.i14, 64
-  br i1 %exitcond.not.i20, label %64, label %_ZN11LookupStats6sampleEj.exit.i, !llvm.loop !17
+  br i1 %exitcond.not.i20, label %_ZL27print_negative_lookup_statsmP12outputStream.exit, label %_ZN11LookupStats6sampleEj.exit.i, !llvm.loop !17
 
-64:                                               ; preds = %_ZN11LookupStats6sampleEj.exit.i
+_ZL27print_negative_lookup_statsmP12outputStream.exit: ; preds = %_ZN11LookupStats6sampleEj.exit.i
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.65) #21
-  %65 = uitofp i32 %.sroa.19.1.i18 to double
-  %66 = fmul double %65, 1.000000e+02
-  %67 = fmul double %66, 1.562500e-02
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.63, i32 noundef %.sroa.15.1.i19, double noundef %67) #21
-  %68 = icmp ult i32 %.sroa.19.1.i18, 64
-  br i1 %68, label %69, label %_ZL27print_negative_lookup_statsmP12outputStream.exit
-
-69:                                               ; preds = %64
-  %70 = uitofp i32 %57 to double
+  %64 = mul nuw nsw i32 %.sroa.19.1.i18, 100
+  %65 = uitofp nneg i32 %64 to double
+  %66 = fmul double %65, 1.562500e-02
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.63, i32 noundef %.sroa.15.1.i19, double noundef %66) #21
+  %67 = uitofp i32 %57 to double
+  %68 = fmul double %67, 1.562500e-02
+  %69 = mul nuw nsw i32 %.sroa.8.1.i17, 100
+  %70 = uitofp nneg i32 %69 to double
   %71 = fmul double %70, 1.562500e-02
-  %72 = uitofp i32 %.sroa.8.1.i17 to double
-  %73 = fmul double %72, 1.000000e+02
-  %74 = fmul double %73, 1.562500e-02
-  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.64, double noundef %71, i32 noundef %.sroa.5.1.i16, double noundef %74) #21
-  br label %_ZL27print_negative_lookup_statsmP12outputStream.exit
-
-_ZL27print_negative_lookup_statsmP12outputStream.exit: ; preds = %64, %69
+  tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.64, double noundef %68, i32 noundef %.sroa.5.1.i16, double noundef %71) #21
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #21
-  br label %76
+  br label %73
 
-75:                                               ; preds = %2
+72:                                               ; preds = %2
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.48) #21
-  br label %76
+  br label %73
 
-76:                                               ; preds = %8, %8, %5, %_ZL27print_negative_lookup_statsmP12outputStream.exit, %75
+73:                                               ; preds = %8, %8, %5, %_ZL27print_negative_lookup_statsmP12outputStream.exit, %72
   ret void
 }
 

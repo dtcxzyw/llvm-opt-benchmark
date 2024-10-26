@@ -1612,7 +1612,7 @@ define hidden void @_ZN7nanogui10RenderPass7blit_toERKNS_5ArrayIiLm2EEES4_PNS_6O
   %47 = getelementptr inbounds i8, ptr %34, i64 8
   %48 = load ptr, ptr %47, align 8
   %.not40 = icmp eq ptr %48, null
-  br i1 %.not40, label %55, label %49
+  br i1 %.not40, label %54, label %49
 
 49:                                               ; preds = %46
   %50 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1620,75 +1620,74 @@ define hidden void @_ZN7nanogui10RenderPass7blit_toERKNS_5ArrayIiLm2EEES4_PNS_6O
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not41 = icmp eq ptr %53, null
-  %54 = or disjoint i32 %.2, 1024
-  %spec.select48 = select i1 %.not41, i32 %.2, i32 %54
-  br label %55
+  %spec.select48 = select i1 %.not41, i32 %.2, i32 1024
+  br label %54
 
-55:                                               ; preds = %49, %46
+54:                                               ; preds = %49, %46
   %.3 = phi i32 [ %.2, %46 ], [ %spec.select48, %49 ]
   %.not67 = icmp eq i64 %37, 16
-  br i1 %.not67, label %.thread65, label %56
+  br i1 %.not67, label %.thread65, label %55
 
-56:                                               ; preds = %55
-  %57 = getelementptr inbounds i8, ptr %34, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %.not42 = icmp eq ptr %58, null
-  br i1 %.not42, label %.thread65, label %59
+55:                                               ; preds = %54
+  %56 = getelementptr inbounds i8, ptr %34, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %.not42 = icmp eq ptr %57, null
+  br i1 %.not42, label %.thread65, label %58
 
-59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %0, i64 16
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %.not43 = icmp eq ptr %63, null
-  %64 = or i32 %.3, 16384
-  %spec.select49 = select i1 %.not43, i32 %.3, i32 %64
+58:                                               ; preds = %55
+  %59 = getelementptr inbounds i8, ptr %0, i64 16
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %.not43 = icmp eq ptr %62, null
+  %63 = or i32 %.3, 16384
+  %spec.select49 = select i1 %.not43, i32 %.3, i32 %63
   br label %.thread65
 
 .thread61:                                        ; preds = %5, %27
-  %65 = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull @.str.12)
-          to label %66 unwind label %67
+  %64 = tail call ptr @__cxa_allocate_exception(i64 16) #20
+  invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %64, ptr noundef nonnull @.str.12)
+          to label %65 unwind label %66
 
-66:                                               ; preds = %.thread61
-  tail call void @__cxa_throw(ptr nonnull %65, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #18
+65:                                               ; preds = %.thread61
+  tail call void @__cxa_throw(ptr nonnull %64, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #18
   unreachable
 
-67:                                               ; preds = %.thread61
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %.thread61
+  %67 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr %65) #20
-  resume { ptr, i32 } %68
+  tail call void @__cxa_free_exception(ptr %64) #20
+  resume { ptr, i32 } %67
 
-.thread65:                                        ; preds = %28, %44, %59, %22, %56, %55, %18
-  %.1 = phi i32 [ %.031, %18 ], [ %.3, %56 ], [ %.3, %55 ], [ %spec.select46, %22 ], [ %spec.select49, %59 ], [ %.2, %44 ], [ 0, %28 ]
-  %.0 = phi i32 [ 0, %18 ], [ %30, %56 ], [ %30, %55 ], [ 0, %22 ], [ %30, %59 ], [ %30, %44 ], [ %30, %28 ]
-  %69 = getelementptr inbounds i8, ptr %0, i64 132
-  %70 = load i32, ptr %69, align 4
-  tail call void @glBindFramebuffer(i32 noundef 36008, i32 noundef %70)
+.thread65:                                        ; preds = %28, %44, %58, %22, %55, %54, %18
+  %.1 = phi i32 [ %.031, %18 ], [ %.3, %55 ], [ %.3, %54 ], [ %spec.select46, %22 ], [ %spec.select49, %58 ], [ %.2, %44 ], [ 0, %28 ]
+  %.0 = phi i32 [ 0, %18 ], [ %30, %55 ], [ %30, %54 ], [ 0, %22 ], [ %30, %58 ], [ %30, %44 ], [ %30, %28 ]
+  %68 = getelementptr inbounds i8, ptr %0, i64 132
+  %69 = load i32, ptr %68, align 4
+  tail call void @glBindFramebuffer(i32 noundef 36008, i32 noundef %69)
   tail call void @glBindFramebuffer(i32 noundef 36009, i32 noundef %.0)
-  %71 = icmp eq i32 %.0, 0
-  br i1 %71, label %72, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
+  %70 = icmp eq i32 %.0, 0
+  br i1 %70, label %71, label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
 
-72:                                               ; preds = %.thread65
+71:                                               ; preds = %.thread65
   tail call void @glDrawBuffer(i32 noundef 1029)
   br label %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
 
-_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %72, %.thread65
-  %73 = load i32, ptr %1, align 4
-  %74 = load i32, ptr %2, align 4
-  %75 = add nsw i32 %74, %73
-  %76 = getelementptr inbounds i8, ptr %1, i64 4
-  %77 = load i32, ptr %76, align 4
-  %78 = getelementptr inbounds i8, ptr %2, i64 4
-  %79 = load i32, ptr %78, align 4
-  %80 = add nsw i32 %79, %77
-  %81 = load i32, ptr %4, align 4
-  %82 = add nsw i32 %74, %81
-  %83 = getelementptr inbounds i8, ptr %4, i64 4
-  %84 = load i32, ptr %83, align 4
-  %85 = add nsw i32 %79, %84
-  tail call void @glBlitFramebuffer(i32 noundef %73, i32 noundef %77, i32 noundef %75, i32 noundef %80, i32 noundef %81, i32 noundef %84, i32 noundef %82, i32 noundef %85, i32 noundef %.1, i32 noundef 9728)
+_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %71, %.thread65
+  %72 = load i32, ptr %1, align 4
+  %73 = load i32, ptr %2, align 4
+  %74 = add nsw i32 %73, %72
+  %75 = getelementptr inbounds i8, ptr %1, i64 4
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds i8, ptr %2, i64 4
+  %78 = load i32, ptr %77, align 4
+  %79 = add nsw i32 %78, %76
+  %80 = load i32, ptr %4, align 4
+  %81 = add nsw i32 %73, %80
+  %82 = getelementptr inbounds i8, ptr %4, i64 4
+  %83 = load i32, ptr %82, align 4
+  %84 = add nsw i32 %78, %83
+  tail call void @glBlitFramebuffer(i32 noundef %72, i32 noundef %76, i32 noundef %74, i32 noundef %79, i32 noundef %80, i32 noundef %83, i32 noundef %81, i32 noundef %84, i32 noundef %.1, i32 noundef 9728)
   tail call void @glBindFramebuffer(i32 noundef 36160, i32 noundef 0)
   ret void
 }

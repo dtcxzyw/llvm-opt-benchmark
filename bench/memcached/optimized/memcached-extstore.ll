@@ -1763,9 +1763,9 @@ for.body.i:                                       ; preds = %if.else.i, %for.bod
 
 if.else.i:                                        ; preds = %for.body.i
   %conv.i = zext i32 %3 to i64
-  %cmp6.i = icmp sgt i64 %low.016.i, %conv.i
+  %cmp6.i = icmp samesign ugt i64 %low.016.i, %conv.i
   %spec.select.i = select i1 %cmp6.i, i32 %4, i32 %tid.015.i
-  %spec.select13.i = tail call i64 @llvm.smin.i64(i64 %low.016.i, i64 %conv.i)
+  %spec.select13.i = tail call i64 @llvm.umin.i64(i64 %low.016.i, i64 %conv.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.loopexit.i, label %for.body.i, !llvm.loop !18
@@ -1990,9 +1990,6 @@ declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #11
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #10

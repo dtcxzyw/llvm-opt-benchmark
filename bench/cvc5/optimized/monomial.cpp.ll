@@ -1109,10 +1109,6 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEES
   %retval.sroa.0.0.in.sroa.speculated.i.i.i = phi ptr [ %__first.sroa.0.0.lcssa.i.i.i, %sw.bb.i.i.i ], [ %__first.sroa.0.1.i.i.i, %sw.bb31.i.i.i ], [ %.pre651, %for.end.i.i.i ], [ %spec.select.i.i.i, %sw.bb38.i.i.i ], [ %incdec.ptr.i.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit ], [ %incdec.ptr.i10.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit659 ], [ %incdec.ptr.i12.i.i.i.le, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit.loopexit.split.loop.exit661 ], [ %__first.sroa.0.051.i.i.i, %for.body.i.i.i ]
   %cmp.i65 = icmp eq ptr %retval.sroa.0.0.in.sroa.speculated.i.i.i, %.pre651
   %cond47 = select i1 %cmp.i65, i32 %cond, i32 %cond45
-  %cmp48.not = icmp eq i32 %cond47, -2
-  br i1 %cmp48.not, label %for.inc, label %if.then49
-
-if.then49:                                        ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
   %second = getelementptr inbounds i8, ptr %it.sroa.0.0639, i64 40
   %35 = load ptr, ptr %n, align 8
   store ptr %35, ptr %agg.tmp51, align 8
@@ -1123,7 +1119,7 @@ if.then49:                                        ; preds = %_ZSt4findIN9__gnu_c
   %cmp.i.i70 = icmp samesign ult i32 %bf.cast.i.i69, 1048574
   br i1 %cmp.i.i70, label %if.then.i.i75, label %if.else.i.i71
 
-if.then.i.i75:                                    ; preds = %if.then49
+if.then.i.i75:                                    ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
   %bf.value.i.i76 = add i64 %bf.load.i.i67, 1099511627776
   %bf.shl.i.i77 = and i64 %bf.value.i.i76, 1152920405095219200
   %bf.clear7.i.i78 = and i64 %bf.load.i.i67, -1152920405095219201
@@ -1131,7 +1127,7 @@ if.then.i.i75:                                    ; preds = %if.then49
   store i64 %bf.set.i.i79, ptr %35, align 8
   br label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit80
 
-if.else.i.i71:                                    ; preds = %if.then49
+if.else.i.i71:                                    ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
   %cmp12.i.i72 = icmp eq i32 %bf.cast.i.i69, 1048574
   br i1 %cmp12.i.i72, label %if.then13.i.i73, label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit80
 
@@ -1177,7 +1173,7 @@ lpad52:                                           ; preds = %_ZN4cvc58internal12
           cleanup
   br label %eh.resume
 
-for.inc:                                          ; preds = %if.then13.i.i89, %if.then.i.i83, %invoke.cont53, %lor.lhs.false18, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN4cvc58internal12NodeTemplateILb1EEESt6vectorIS5_SaIS5_EEEES5_ET_SC_SC_RKT0_.exit
+for.inc:                                          ; preds = %if.then13.i.i89, %if.then.i.i83, %invoke.cont53, %lor.lhs.false18
   %call.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %it.sroa.0.0639) #24
   %cmp.i.not = icmp eq ptr %call.i, %add.ptr.i.i
   br i1 %cmp.i.not, label %for.cond57.preheader, label %for.body, !llvm.loop !12

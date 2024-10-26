@@ -49991,7 +49991,6 @@ sw.bb15:                                          ; preds = %entry
 
 sw.epilog:                                        ; preds = %sw.bb15, %sw.bb5, %sw.bb
   %.pn = phi i64 [ 3, %sw.bb ], [ 6, %sw.bb5 ], [ 9, %sw.bb15 ]
-  %omitted.0 = sub nuw nsw i64 %.pn, %length
   %cmp25 = icmp eq i64 %.pn, %length
   br i1 %cmp25, label %if.then28, label %if.else
 
@@ -50002,70 +50001,10 @@ if.then28:                                        ; preds = %sw.epilog
 if.else:                                          ; preds = %sw.epilog
   store i32 0, ptr %subseconds, align 4
   %call29 = call noundef zeroext i1 @_ZN5arrow8internal13ParseUnsignedEPKcmPj(ptr noundef %s, i64 noundef %length, ptr noundef nonnull %subseconds)
-  br i1 %call29, label %if.then32, label %return
-
-if.then32:                                        ; preds = %if.else
-  switch i64 %omitted.0, label %return [
-    i64 1, label %sw.bb33
-    i64 2, label %sw.bb34
-    i64 3, label %sw.bb36
-    i64 4, label %sw.bb38
-    i64 5, label %sw.bb40
-    i64 6, label %sw.bb42
-    i64 7, label %sw.bb44
-    i64 8, label %sw.bb46
-  ]
-
-sw.bb33:                                          ; preds = %if.then32
-  %0 = load i32, ptr %subseconds, align 4
-  %mul = mul i32 %0, 10
-  store i32 %mul, ptr %out, align 4
   br label %return
 
-sw.bb34:                                          ; preds = %if.then32
-  %1 = load i32, ptr %subseconds, align 4
-  %mul35 = mul i32 %1, 100
-  store i32 %mul35, ptr %out, align 4
-  br label %return
-
-sw.bb36:                                          ; preds = %if.then32
-  %2 = load i32, ptr %subseconds, align 4
-  %mul37 = mul i32 %2, 1000
-  store i32 %mul37, ptr %out, align 4
-  br label %return
-
-sw.bb38:                                          ; preds = %if.then32
-  %3 = load i32, ptr %subseconds, align 4
-  %mul39 = mul i32 %3, 10000
-  store i32 %mul39, ptr %out, align 4
-  br label %return
-
-sw.bb40:                                          ; preds = %if.then32
-  %4 = load i32, ptr %subseconds, align 4
-  %mul41 = mul i32 %4, 100000
-  store i32 %mul41, ptr %out, align 4
-  br label %return
-
-sw.bb42:                                          ; preds = %if.then32
-  %5 = load i32, ptr %subseconds, align 4
-  %mul43 = mul i32 %5, 1000000
-  store i32 %mul43, ptr %out, align 4
-  br label %return
-
-sw.bb44:                                          ; preds = %if.then32
-  %6 = load i32, ptr %subseconds, align 4
-  %mul45 = mul i32 %6, 10000000
-  store i32 %mul45, ptr %out, align 4
-  br label %return
-
-sw.bb46:                                          ; preds = %if.then32
-  %7 = load i32, ptr %subseconds, align 4
-  %mul47 = mul i32 %7, 100000000
-  store i32 %mul47, ptr %out, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %sw.bb33, %sw.bb34, %sw.bb36, %sw.bb38, %sw.bb40, %sw.bb42, %sw.bb44, %sw.bb46, %if.then32, %entry, %sw.bb15, %sw.bb5, %sw.bb, %if.then28
-  %retval.0 = phi i1 [ %call, %if.then28 ], [ false, %sw.bb ], [ false, %sw.bb5 ], [ false, %sw.bb15 ], [ false, %entry ], [ true, %if.then32 ], [ true, %sw.bb46 ], [ true, %sw.bb44 ], [ true, %sw.bb42 ], [ true, %sw.bb40 ], [ true, %sw.bb38 ], [ true, %sw.bb36 ], [ true, %sw.bb34 ], [ true, %sw.bb33 ], [ false, %if.else ]
+return:                                           ; preds = %if.else, %entry, %sw.bb15, %sw.bb5, %sw.bb, %if.then28
+  %retval.0 = phi i1 [ %call, %if.then28 ], [ false, %sw.bb ], [ false, %sw.bb5 ], [ false, %sw.bb15 ], [ false, %entry ], [ %call29, %if.else ]
   ret i1 %retval.0
 }
 

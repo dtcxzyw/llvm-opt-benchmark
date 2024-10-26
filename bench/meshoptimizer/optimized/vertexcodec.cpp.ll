@@ -253,26 +253,18 @@ for.end.i.i:                                      ; preds = %_ZN7meshoptL23encod
   %div2830.i.i = lshr i64 %i.044.i.i, 6
   %arrayidx.i.i = getelementptr inbounds i8, ptr %data.addr.032.i, i64 %div2830.i.i
   %17 = load i8, ptr %arrayidx.i.i, align 1
-  %18 = trunc nuw i32 %shl.i18.i to i8
+  %18 = trunc nuw nsw i32 %shl.i18.i to i8
   %conv29.i.i = or i8 %17, %18
   store i8 %conv29.i.i, ptr %arrayidx.i.i, align 1
-  switch i32 %spec.select31.i.i, label %if.end3.i33.i.i [
-    i32 1, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
-    i32 8, label %if.then2.i.i.i
-  ]
-
-if.then2.i.i.i:                                   ; preds = %for.end.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %data.addr.045.i.i, ptr noundef nonnull readonly align 16 dereferenceable(16) %add.ptr9.i.i, i64 16, i1 false)
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %data.addr.045.i.i, i64 16
-  br label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i
+  br i1 %cmp18.i.i, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, label %if.end3.i33.i.i
 
 if.end3.i33.i.i:                                  ; preds = %for.end.i.i
-  %div.i.i.i = sdiv i32 8, %spec.select31.i.i
-  %conv.i34.i.i = sext i32 %div.i.i.i to i64
+  %div.i.i.i = udiv i32 8, %spec.select31.i.i
+  %conv.i34.i.i = zext nneg i32 %div.i.i.i to i64
   %notmask.i35.i.i = shl nsw i32 -1, %spec.select31.i.i
   %19 = trunc i32 %notmask.i35.i.i to i8
   %conv4.i36.i.i = xor i8 %19, -1
-  %cmp728.not.i.i.i = icmp eq i32 %div.i.i.i, 0
+  %cmp728.not.i.i.i = icmp samesign ugt i32 %spec.select31.i.i, 8
   br i1 %cmp728.not.i.i.i, label %for.cond6.preheader.i.i.i, label %for.cond6.preheader.us.i.i.i
 
 for.cond6.preheader.us.i.i.i:                     ; preds = %if.end3.i33.i.i, %for.cond6.for.end_crit_edge.us.i.i.i
@@ -288,18 +280,18 @@ for.body8.us.i.i.i:                               ; preds = %for.body8.us.i.i.i,
   %21 = load i8, ptr %arrayidx.us.i.i.i, align 1
   %.conv4.us.i.i.i = tail call i8 @llvm.umin.i8(i8 %21, i8 %conv4.i36.i.i)
   %conv14.us.i.i.i = zext i8 %byte.029.us.i.i.i to i32
-  %shl15.us.i.i.i = shl i32 %conv14.us.i.i.i, %spec.select31.i.i
+  %shl15.us.i.i.i = shl nuw nsw i32 %conv14.us.i.i.i, %spec.select31.i.i
   %22 = trunc i32 %shl15.us.i.i.i to i8
   %conv19.us.i.i.i = or i8 %.conv4.us.i.i.i, %22
-  %inc.us.i.i.i = add nuw i64 %k.030.us.i.i.i, 1
+  %inc.us.i.i.i = add nuw nsw i64 %k.030.us.i.i.i, 1
   %exitcond.not.i37.i.i = icmp eq i64 %inc.us.i.i.i, %conv.i34.i.i
   br i1 %exitcond.not.i37.i.i, label %for.cond6.for.end_crit_edge.us.i.i.i, label %for.body8.us.i.i.i, !llvm.loop !11
 
 for.cond6.for.end_crit_edge.us.i.i.i:             ; preds = %for.body8.us.i.i.i
   %incdec.ptr.us.i.i.i = getelementptr inbounds i8, ptr %data.addr.031.us.i.i.i, i64 1
   store i8 %conv19.us.i.i.i, ptr %data.addr.031.us.i.i.i, align 1
-  %add21.us.i.i.i = add nsw i64 %i.032.us.i.i.i, %conv.i34.i.i
-  %cmp5.us.i.i.i = icmp ult i64 %add21.us.i.i.i, 16
+  %add21.us.i.i.i = add nuw nsw i64 %i.032.us.i.i.i, %conv.i34.i.i
+  %cmp5.us.i.i.i = icmp samesign ult i64 %add21.us.i.i.i, 16
   br i1 %cmp5.us.i.i.i, label %for.cond6.preheader.us.i.i.i, label %for.body26.i.i.i, !llvm.loop !12
 
 for.cond6.preheader.i.i.i:                        ; preds = %if.end3.i33.i.i, %for.cond6.preheader.i.i.i
@@ -327,8 +319,8 @@ for.inc35.i.i.i:                                  ; preds = %if.then31.i.i.i, %f
   %exitcond36.not.i.i.i = icmp eq i64 %inc36.i.i.i, 16
   br i1 %exitcond36.not.i.i.i, label %_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i, label %for.body26.i.i.i, !llvm.loop !13
 
-_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %for.inc35.i.i.i, %if.then2.i.i.i, %for.end.i.i
-  %retval.0.i32.i.i = phi ptr [ %add.ptr.i.i.i, %if.then2.i.i.i ], [ %data.addr.045.i.i, %for.end.i.i ], [ %data.addr.2.i.i.i, %for.inc35.i.i.i ]
+_ZN7meshoptL16encodeBytesGroupEPhPKhi.exit.i.i:   ; preds = %for.inc35.i.i.i, %for.end.i.i
+  %retval.0.i32.i.i = phi ptr [ %data.addr.045.i.i, %for.end.i.i ], [ %data.addr.2.i.i.i, %for.inc35.i.i.i ]
   %add33.i.i = add nuw i64 %i.044.i.i, 16
   %cmp2.i.i = icmp ult i64 %add33.i.i, %and.i36
   br i1 %cmp2.i.i, label %for.body.i.i, label %_ZN7meshoptL11encodeBytesEPhS0_PKhm.exit.loopexit.i, !llvm.loop !14

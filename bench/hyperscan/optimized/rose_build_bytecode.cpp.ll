@@ -5410,7 +5410,6 @@ if.then32.i.i.i.i.i:                              ; preds = %_ZNKSt4lessIN3ue29s
   %_M_right.i149.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i860, i64 24
   %439 = load ptr, ptr %_M_right.i149.i.i.i.i.i, align 8
   %cmp35.i.i.i.i.i = icmp eq ptr %439, null
-  %spec.select.i.i.i.i.i = select i1 %cmp35.i.i.i.i.i, ptr null, ptr %__y.addr.0.lcssa.i.i.i55.i.i.i
   %spec.select249.i.i.i.i.i = select i1 %cmp35.i.i.i.i.i, ptr %call.i.i.i.i.i.i860, ptr %__y.addr.0.lcssa.i.i.i55.i.i.i
   br label %if.then.i.i.i.i854
 
@@ -5474,7 +5473,6 @@ if.then64.i.i.i.i.i:                              ; preds = %_ZNKSt4lessIN3ue29s
   %_M_right.i212.i.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i55.i.i.i, i64 24
   %446 = load ptr, ptr %_M_right.i212.i.i.i.i.i, align 8
   %cmp67.i.i.i.i.i = icmp eq ptr %446, null
-  %spec.select250.i.i.i.i.i = select i1 %cmp67.i.i.i.i.i, ptr null, ptr %call.i183.i.i.i.i.i
   %spec.select251.i.i.i.i.i = select i1 %cmp67.i.i.i.i.i, ptr %__y.addr.0.lcssa.i.i.i55.i.i.i, ptr %call.i183.i.i.i.i.i
   br label %if.then.i.i.i.i854
 
@@ -5605,11 +5603,8 @@ _ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit53.i.i.i.i: ; preds = %if.end36.i.i
 
 if.then.i.i.i.i854:                               ; preds = %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit53.i.i.i.i, %do.body32.i.i42.i.i.i.i, %do.body20.i.i36.i.i.i.i, %do.body8.i.i30.i.i.i.i, %if.end12.i.i.i.i, %if.then.i48.i.i.i, %if.then64.i.i.i.i.i, %if.then50.i.i.i.i.i, %if.then32.i.i.i.i.i, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i.i.i.i.i, %do.body32.i.i.i.i.i.i.i, %do.body20.i.i.i.i.i.i.i, %do.body8.i.i.i.i.i.i.i, %land.lhs.true.i.i.i.i.i
   %retval.sroa.12.2.i30.i.i.i.i = phi ptr [ %spec.select251.i.i.i.i.i, %if.then64.i.i.i.i.i ], [ %spec.select249.i.i.i.i.i, %if.then32.i.i.i.i.i ], [ %422, %do.body32.i.i.i.i.i.i.i ], [ %422, %do.body20.i.i.i.i.i.i.i ], [ %422, %do.body8.i.i.i.i.i.i.i ], [ %422, %land.lhs.true.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i55.i.i.i, %if.then50.i.i.i.i.i ], [ %422, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i.i.i.i.i ], [ %__y.0.lcssa83.i.i.i.i, %do.body32.i.i42.i.i.i.i ], [ %__y.0.lcssa83.i.i.i.i, %do.body20.i.i36.i.i.i.i ], [ %__y.0.lcssa83.i.i.i.i, %do.body8.i.i30.i.i.i.i ], [ %__y.0.lcssa83.i.i.i.i, %if.end12.i.i.i.i ], [ %__y.0.lcssa83.i.i.i.i, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit53.i.i.i.i ], [ %__y.0.lcssa84.i.i.i.i, %if.then.i48.i.i.i ]
-  %retval.sroa.0.2.i29.i.i.i.i = phi ptr [ %spec.select250.i.i.i.i.i, %if.then64.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %if.then32.i.i.i.i.i ], [ null, %do.body32.i.i.i.i.i.i.i ], [ null, %do.body20.i.i.i.i.i.i.i ], [ null, %do.body8.i.i.i.i.i.i.i ], [ null, %land.lhs.true.i.i.i.i.i ], [ null, %if.then50.i.i.i.i.i ], [ null, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit.i.i.i.i.i ], [ null, %do.body32.i.i42.i.i.i.i ], [ null, %do.body20.i.i36.i.i.i.i ], [ null, %do.body8.i.i30.i.i.i.i ], [ null, %if.end12.i.i.i.i ], [ null, %_ZNKSt4lessIN3ue29suffix_idEEclERKS1_S4_.exit53.i.i.i.i ], [ null, %if.then.i48.i.i.i ]
-  %cmp.not.i.i.i20.i.i.i = icmp ne ptr %retval.sroa.0.2.i29.i.i.i.i, null
   %cmp2.i.i.i.i.i.i855 = icmp eq ptr %393, %retval.sroa.12.2.i30.i.i.i.i
-  %or.cond.i.i.i.i.i.i = select i1 %cmp.not.i.i.i20.i.i.i, i1 true, i1 %cmp2.i.i.i.i.i.i855
-  br i1 %or.cond.i.i.i.i.i.i, label %cleanup.thread.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
+  br i1 %cmp2.i.i.i.i.i.i855, label %cleanup.thread.i.i.i.i, label %lor.rhs.i.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i854
   %_M_storage.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i30.i.i.i.i, i64 32
@@ -23355,7 +23350,6 @@ if.then32.i.i.i.i:                                ; preds = %_ZNKSt4lessIN3ue27l
   %_M_right.i137.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i, i64 24
   %32 = load ptr, ptr %_M_right.i137.i.i.i.i, align 8
   %cmp35.i.i.i.i = icmp eq ptr %32, null
-  %spec.select.i.i.i.i = select i1 %cmp35.i.i.i.i, ptr null, ptr %__y.addr.0.lcssa.i.i.i49.i.i
   %spec.select225.i.i.i.i = select i1 %cmp35.i.i.i.i, ptr %call.i.i.i.i.i, ptr %__y.addr.0.lcssa.i.i.i49.i.i
   br label %if.then.i.i.i
 
@@ -23409,7 +23403,6 @@ if.then64.i.i.i.i:                                ; preds = %_ZNKSt4lessIN3ue27l
   %_M_right.i188.i.i.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i49.i.i, i64 24
   %38 = load ptr, ptr %_M_right.i188.i.i.i.i, align 8
   %cmp67.i.i.i.i = icmp eq ptr %38, null
-  %spec.select226.i.i.i.i = select i1 %cmp67.i.i.i.i, ptr null, ptr %call.i165.i.i.i.i
   %spec.select227.i.i.i.i = select i1 %cmp67.i.i.i.i, ptr %__y.addr.0.lcssa.i.i.i49.i.i, ptr %call.i165.i.i.i.i
   br label %if.then.i.i.i
 
@@ -23520,11 +23513,8 @@ _ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit47.i.i.i: ; preds = %if.end24.i.i40.i
 
 if.then.i.i.i:                                    ; preds = %_ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit47.i.i.i, %do.body20.i.i36.i.i.i, %do.body8.i.i30.i.i.i, %if.end12.i.i.i, %if.then.i42.i.i, %if.then64.i.i.i.i, %if.then50.i.i.i.i, %if.then32.i.i.i.i, %_ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit.i.i.i.i, %do.body20.i.i.i.i.i.i, %do.body8.i.i.i.i.i.i, %land.lhs.true.i.i.i.i
   %retval.sroa.12.2.i30.i.i.i = phi ptr [ %spec.select227.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select225.i.i.i.i, %if.then32.i.i.i.i ], [ %18, %do.body20.i.i.i.i.i.i ], [ %18, %do.body8.i.i.i.i.i.i ], [ %18, %land.lhs.true.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i49.i.i, %if.then50.i.i.i.i ], [ %18, %_ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit.i.i.i.i ], [ %__y.0.lcssa77.i.i.i, %do.body20.i.i36.i.i.i ], [ %__y.0.lcssa77.i.i.i, %do.body8.i.i30.i.i.i ], [ %__y.0.lcssa77.i.i.i, %if.end12.i.i.i ], [ %__y.0.lcssa77.i.i.i, %_ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit47.i.i.i ], [ %__y.0.lcssa78.i.i.i, %if.then.i42.i.i ]
-  %retval.sroa.0.2.i29.i.i.i = phi ptr [ %spec.select226.i.i.i.i, %if.then64.i.i.i.i ], [ %spec.select.i.i.i.i, %if.then32.i.i.i.i ], [ null, %do.body20.i.i.i.i.i.i ], [ null, %do.body8.i.i.i.i.i.i ], [ null, %land.lhs.true.i.i.i.i ], [ null, %if.then50.i.i.i.i ], [ null, %_ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit.i.i.i.i ], [ null, %do.body20.i.i36.i.i.i ], [ null, %do.body8.i.i30.i.i.i ], [ null, %if.end12.i.i.i ], [ null, %_ZNKSt4lessIN3ue27left_idEEclERKS1_S4_.exit47.i.i.i ], [ null, %if.then.i42.i.i ]
-  %cmp.not.i.i.i20.i.i = icmp ne ptr %retval.sroa.0.2.i29.i.i.i, null
   %cmp2.i.i.i.i.i = icmp eq ptr %1, %retval.sroa.12.2.i30.i.i.i
-  %or.cond.i.i.i.i.i = select i1 %cmp.not.i.i.i20.i.i, i1 true, i1 %cmp2.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i, label %cleanup.thread.i.i.i, label %lor.rhs.i.i.i.i.i
+  br i1 %cmp2.i.i.i.i.i, label %cleanup.thread.i.i.i, label %lor.rhs.i.i.i.i.i
 
 lor.rhs.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   %_M_storage.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.12.2.i30.i.i.i, i64 32

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [23 x i8] c"Recognized ASCII text\0A\00", align 1
 @.str.1 = private unnamed_addr constant [33 x i8] c"Recognized UTF-8 character data\0A\00", align 1
 @.str.2 = private unnamed_addr constant [30 x i8] c"Recognized %s character data\0A\00", align 1
-@.str.3 = private unnamed_addr constant [9 x i8] c"UTF-16LE\00", align 1
 @.str.4 = private unnamed_addr constant [9 x i8] c"UTF-16BE\00", align 1
 @.str.5 = private unnamed_addr constant [24 x i8] c"Recognized binary data\0A\00", align 1
 @text_chars = internal unnamed_addr constant [256 x i8] c"\00\00\00\00\00\00\00\01\01\01\01\00\01\01\00\00\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\00\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\01\00\03\03\03\03\03\01\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\03\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02", align 16
@@ -37,7 +36,7 @@ define range(i32 500, 505) i32 @cli_texttype(ptr nocapture noundef readonly %0, 
 
 .loopexit:                                        ; preds = %3, %2
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #2
-  br label %134
+  br label %131
 
 .lr.ph.i11:                                       ; preds = %.lr.ph.i, %.loopexit.i
   %.03046.i = phi i32 [ %.1.i, %.loopexit.i ], [ 0, %.lr.ph.i ]
@@ -122,7 +121,7 @@ td_isutf8.exit:                                   ; preds = %.loopexit.i, %41
 
 47:                                               ; preds = %td_isutf8.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #2
-  br label %134
+  br label %131
 
 td_isutf8.exit.thread:                            ; preds = %34, %19, %15, %td_isutf8.exit
   %48 = icmp eq i32 %1, 1
@@ -267,26 +266,21 @@ td_isutf8.exit.thread.thread23:                   ; preds = %42, %td_isutf8.exit
   br i1 %129, label %.lr.ph.split.split.i, label %td_isutf16.exit
 
 ._crit_edge.i:                                    ; preds = %104, %81, %.thread62.i, %58
-  %.03367.i = phi i32 [ 2, %58 ], [ 1, %.thread62.i ], [ 1, %81 ], [ 2, %104 ]
   %.028.lcssa.i = phi i32 [ 0, %58 ], [ 0, %.thread62.i ], [ %.129.us.us.i, %81 ], [ %.129.us51.i, %104 ]
   %130 = lshr i32 %1, 1
   %.not37.i.not = icmp ult i32 %.028.lcssa.i, %130
   br i1 %.not37.i.not, label %td_isutf16.exit, label %select.unfold
 
 td_isutf16.exit:                                  ; preds = %126, %.thread, %._crit_edge.i
-  %.034.i16 = phi i32 [ %.03367.i, %._crit_edge.i ], [ 2, %.thread ], [ 2, %126 ]
-  %131 = icmp eq i32 %.034.i16, 1
-  %132 = select i1 %131, ptr @.str.3, ptr @.str.4
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull %132) #2
-  %133 = select i1 %131, i32 502, i32 503
-  br label %134
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.4) #2
+  br label %131
 
 select.unfold:                                    ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.split.us.i, %.lr.ph.split.split.i, %122, %._crit_edge.i, %td_isutf8.exit.thread
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5) #2
-  br label %134
+  br label %131
 
-134:                                              ; preds = %select.unfold, %td_isutf16.exit, %47, %.loopexit
-  %.0 = phi i32 [ 500, %.loopexit ], [ 501, %47 ], [ %133, %td_isutf16.exit ], [ 504, %select.unfold ]
+131:                                              ; preds = %select.unfold, %td_isutf16.exit, %47, %.loopexit
+  %.0 = phi i32 [ 500, %.loopexit ], [ 501, %47 ], [ 503, %td_isutf16.exit ], [ 504, %select.unfold ]
   ret i32 %.0
 }
 

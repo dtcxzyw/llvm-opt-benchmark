@@ -7565,7 +7565,7 @@ define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1,
 
 10:                                               ; preds = %27, %4
   %11 = phi i64 [ 0, %4 ], [ %25, %27 ]
-  %.032 = phi ptr [ null, %4 ], [ %30, %27 ]
+  %.032 = phi ptr [ null, %4 ], [ %31, %27 ]
   %.031 = phi i64 [ 0, %4 ], [ %28, %27 ]
   %.030 = phi i64 [ 0, %4 ], [ %spec.store.select, %27 ]
   %12 = sub i64 %1, %.031
@@ -7603,10 +7603,11 @@ define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1,
 
 27:                                               ; preds = %21
   %28 = add i64 %22, %.031
-  %29 = shl i64 %.030, 1
-  %spec.store.select = call i64 @llvm.umax.i64(i64 %29, i64 128)
-  %30 = call ptr @realloc(ptr noundef %.032, i64 noundef %spec.store.select) #32
-  %.not35 = icmp eq ptr %30, null
+  %29 = shl nuw nsw i64 %.030, 1
+  %30 = icmp eq i64 %.030, 0
+  %spec.store.select = select i1 %30, i64 128, i64 %29
+  %31 = call ptr @realloc(ptr noundef %.032, i64 noundef %spec.store.select) #32
+  %.not35 = icmp eq ptr %31, null
   br i1 %.not35, label %.loopexit.sink.split, label %10
 
 .loopexit.sink.split:                             ; preds = %27, %18
@@ -18101,11 +18102,11 @@ define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr nound
 
 22:                                               ; preds = %17, %14, %8
   %.not73 = icmp eq ptr %7, null
-  br i1 %.not73, label %171, label %23
+  br i1 %.not73, label %170, label %23
 
 23:                                               ; preds = %22
   store i32 24, ptr %7, align 4
-  br label %171
+  br label %170
 
 24:                                               ; preds = %17
   %25 = load i8, ptr %1, align 1
@@ -18128,16 +18129,16 @@ define range(i32 0, 2) i32 @mz_zip_add_mem_to_archive_file_in_place_v2(ptr nound
 
 .loopexit.loopexit.i:                             ; preds = %.preheader.i, %.preheader.i, %24
   %.not60 = icmp eq ptr %7, null
-  br i1 %.not60, label %171, label %30
+  br i1 %.not60, label %170, label %30
 
 30:                                               ; preds = %.loopexit.loopexit.i
   store i32 25, ptr %7, align 4
-  br label %171
+  br label %170
 
 mz_zip_writer_validate_archive_name.exit:         ; preds = %.preheader.i
   %31 = call i32 @stat(ptr noundef nonnull %0, ptr noundef nonnull %10) #30
-  %.not61 = icmp ne i32 %31, 0
-  br i1 %.not61, label %32, label %91
+  %.not61.not = icmp eq i32 %31, 0
+  br i1 %.not61.not, label %91, label %32
 
 32:                                               ; preds = %mz_zip_writer_validate_archive_name.exit
   %33 = getelementptr inbounds i8, ptr %9, i64 80
@@ -18261,11 +18262,11 @@ mz_zip_writer_init_file_v2.exit:                  ; preds = %71
 mz_zip_writer_init_v2.exit.thread:                ; preds = %66, %49, %46, %38, %43, %85
   %89 = phi i32 [ 17, %85 ], [ 24, %43 ], [ 24, %38 ], [ 24, %46 ], [ 24, %49 ], [ 16, %66 ]
   %.not67 = icmp eq ptr %7, null
-  br i1 %.not67, label %171, label %90
+  br i1 %.not67, label %170, label %90
 
 90:                                               ; preds = %mz_zip_writer_init_v2.exit.thread
   store i32 %89, ptr %7, align 4
-  br label %171
+  br label %170
 
 91:                                               ; preds = %mz_zip_writer_validate_archive_name.exit
   %92 = or i32 %spec.store.select, 2048
@@ -18275,13 +18276,13 @@ mz_zip_writer_init_v2.exit.thread:                ; preds = %66, %49, %46, %38, 
 
 94:                                               ; preds = %91
   %.not63 = icmp eq ptr %7, null
-  br i1 %.not63, label %171, label %95
+  br i1 %.not63, label %170, label %95
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds i8, ptr %9, i64 28
   %97 = load i32, ptr %96, align 4
   store i32 %97, ptr %7, align 4
-  br label %171
+  br label %170
 
 98:                                               ; preds = %91
   %99 = call i32 @mz_zip_writer_init_from_reader_v2(ptr noundef nonnull %9, ptr noundef nonnull %0, i32 noundef %spec.store.select)
@@ -18300,7 +18301,7 @@ mz_zip_writer_init_v2.exit.thread:                ; preds = %66, %49, %46, %38, 
 
 104:                                              ; preds = %101, %100
   %105 = call fastcc i32 @mz_zip_reader_end_internal(ptr noundef nonnull %9, i32 noundef 0)
-  br label %171
+  br label %170
 
 106:                                              ; preds = %mz_zip_writer_init_file_v2.exit, %98
   %107 = call range(i32 0, 2) i32 @mz_zip_writer_add_mem_ex_v2(ptr noundef nonnull %9, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i16 noundef zeroext %5, i32 noundef %spec.store.select, i64 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 0, ptr noundef null, i32 noundef 0)
@@ -18427,24 +18428,22 @@ mz_zip_writer_end_internal.exit.thread:           ; preds = %125, %124, %mz_zip_
   %.not71100 = icmp eq i32 %.049, 0
   %165 = select i1 %.051.i98, i1 %.not71100, i1 false
   %.2 = select i1 %165, i32 %163, i32 %.049
-  %166 = icmp eq i32 %164, 0
-  %or.cond7 = and i1 %.not61, %166
-  br i1 %or.cond7, label %167, label %169
+  br i1 %.not61.not, label %168, label %166
 
-167:                                              ; preds = %mz_zip_writer_end_internal.exit.thread
-  %168 = call i32 @remove(ptr noundef nonnull %0) #30
-  br label %169
+166:                                              ; preds = %mz_zip_writer_end_internal.exit.thread
+  %167 = call i32 @remove(ptr noundef nonnull %0) #30
+  br label %168
 
-169:                                              ; preds = %167, %mz_zip_writer_end_internal.exit.thread
+168:                                              ; preds = %166, %mz_zip_writer_end_internal.exit.thread
   %.not72 = icmp eq ptr %7, null
-  br i1 %.not72, label %171, label %170
+  br i1 %.not72, label %170, label %169
 
-170:                                              ; preds = %169
+169:                                              ; preds = %168
   store i32 %.2, ptr %7, align 4
-  br label %171
+  br label %170
 
-171:                                              ; preds = %169, %170, %94, %95, %mz_zip_writer_init_v2.exit.thread, %90, %.loopexit.loopexit.i, %30, %22, %23, %104
-  %.0 = phi i32 [ 0, %104 ], [ 0, %23 ], [ 0, %22 ], [ 0, %30 ], [ 0, %.loopexit.loopexit.i ], [ 0, %90 ], [ 0, %mz_zip_writer_init_v2.exit.thread ], [ 0, %95 ], [ 0, %94 ], [ %164, %170 ], [ %164, %169 ]
+170:                                              ; preds = %168, %169, %94, %95, %mz_zip_writer_init_v2.exit.thread, %90, %.loopexit.loopexit.i, %30, %22, %23, %104
+  %.0 = phi i32 [ 0, %104 ], [ 0, %23 ], [ 0, %22 ], [ 0, %30 ], [ 0, %.loopexit.loopexit.i ], [ 0, %90 ], [ 0, %mz_zip_writer_init_v2.exit.thread ], [ 0, %95 ], [ 0, %94 ], [ %164, %169 ], [ %164, %168 ]
   ret i32 %.0
 }
 

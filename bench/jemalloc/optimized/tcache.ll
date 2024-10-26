@@ -1957,7 +1957,7 @@ if.then3.i:                                       ; preds = %sz_sa2u.exit
 
 arena_get.exit:                                   ; preds = %sz_sa2u.exit, %if.then3.i
   %ret.0.i = phi ptr [ %call4.i, %if.then3.i ], [ %11, %sz_sa2u.exit ]
-  %cmp.i50 = icmp ult i64 %retval.i.0, 14337
+  %cmp.i50 = icmp samesign ult i64 %retval.i.0, 14337
   %call12.i = call ptr @arena_palloc(ptr noundef %tsd, ptr noundef %ret.0.i, i64 noundef %retval.i.0, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext %cmp.i50, ptr noundef null) #14
   %magicptr = ptrtoint ptr %call12.i to i64
   %cond = icmp eq ptr %call12.i, null
@@ -2301,7 +2301,7 @@ if.then3.i.i:                                     ; preds = %sz_sa2u.exit.i
 
 arena_get.exit.i:                                 ; preds = %if.then3.i.i, %sz_sa2u.exit.i
   %ret.0.i.i = phi ptr [ %call4.i.i, %if.then3.i.i ], [ %11, %sz_sa2u.exit.i ]
-  %cmp.i75.i = icmp ult i64 %retval.i.0.i, 14337
+  %cmp.i75.i = icmp samesign ult i64 %retval.i.0.i, 14337
   %call12.i.i = call ptr @arena_palloc(ptr noundef nonnull %tsd, ptr noundef %ret.0.i.i, i64 noundef %retval.i.0.i, i64 noundef %2, i1 noundef zeroext true, i1 noundef zeroext %cmp.i75.i, ptr noundef null) #14
   %cmp.i69.not.i = icmp eq ptr %call12.i.i, null
   br i1 %cmp.i69.not.i, label %tsd_tcache_data_init_impl.exit, label %if.end.thread98.i
@@ -3359,20 +3359,11 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
   %3 = load ptr, ptr @tcaches, align 8
   %idxprom = zext i32 %ind to i64
   %arrayidx = getelementptr inbounds %struct.tcaches_s, ptr %3, i64 %idxprom
-  %4 = load ptr, ptr %arrayidx, align 8
-  %switch = icmp ult ptr %4, inttoptr (i64 2 to ptr)
-  %5 = load ptr, ptr @tcaches_avail, align 8
-  store ptr %5, ptr %arrayidx, align 8
+  %4 = load ptr, ptr @tcaches_avail, align 8
+  store ptr %4, ptr %arrayidx, align 8
   store ptr %arrayidx, ptr @tcaches_avail, align 8
   store atomic i8 0, ptr getelementptr inbounds (i8, ptr @tcaches_mtx, i64 64) monotonic, align 8
   %call1.i = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds (i8, ptr @tcaches_mtx, i64 72)) #14
-  br i1 %switch, label %if.end, label %if.then
-
-if.then:                                          ; preds = %malloc_mutex_lock.exit
-  tail call fastcc void @tcache_destroy(ptr noundef %tsd, ptr noundef nonnull %4, i1 noundef zeroext false)
-  br label %if.end
-
-if.end:                                           ; preds = %if.then, %malloc_mutex_lock.exit
   ret void
 }
 

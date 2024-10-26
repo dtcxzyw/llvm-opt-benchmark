@@ -858,7 +858,7 @@ define void @"_ZN3mbe8expander11transcriber41_$LT$impl$u20$mbe..expander..Bindin
   %6 = getelementptr inbounds i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8, !alias.scope !272, !noalias !275, !noundef !7
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %select.unfold, label %9
+  br i1 %8, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h932065480f4e3b61E.exit", label %9
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !277
@@ -899,7 +899,7 @@ define void @"_ZN3mbe8expander11transcriber41_$LT$impl$u20$mbe..expander..Bindin
   %23 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
   %24 = bitcast <16 x i1> %23 to i16
   %.not.i.i.i.i = icmp eq i16 %24, 0
-  br i1 %.not.i.i.i.i, label %39, label %select.unfold
+  br i1 %.not.i.i.i.i, label %39, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h932065480f4e3b61E.exit"
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit.backedge.i.i.i", %.lr.ph.preheader.i.i.i
   %25 = phi i16 [ %38, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit.backedge.i.i.i" ], [ %22, %.lr.ph.preheader.i.i.i ]
@@ -921,7 +921,7 @@ define void @"_ZN3mbe8expander11transcriber41_$LT$impl$u20$mbe..expander..Bindin
 35:                                               ; preds = %.lr.ph.i.i.i
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %32, i64 %3), !alias.scope !318, !noalias !317
   %36 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %36, label %54, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit.backedge.i.i.i"
+  br i1 %36, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h932065480f4e3b61E.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit.backedge.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit.backedge.i.i.i": ; preds = %35, %.lr.ph.i.i.i
   %.not.i4.not.i.i.i = icmp eq i16 %25, 0
@@ -934,7 +934,7 @@ define void @"_ZN3mbe8expander11transcriber41_$LT$impl$u20$mbe..expander..Bindin
   %41 = add i64 %.sroa.01.0.i.i.i.i, %40
   br label %17
 
-select.unfold:                                    ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit._crit_edge.i.i.i", %4
+"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h932065480f4e3b61E.exit": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h489ace089b124084E.exit._crit_edge.i.i.i", %35, %4
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.4)
   %42 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hc8fc4710b112630bE"(i64 noundef %3, i1 noundef zeroext false), !noalias !325
   %43 = extractvalue { i64, ptr } %42, 1
@@ -944,9 +944,9 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
   %45 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %46 = call noundef align 8 dereferenceable_or_null(16) ptr @__rust_alloc(i64 noundef 16, i64 noundef 8) #22
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h619a90b86afc776eE.exit"
+  br i1 %47, label %48, label %53
 
-48:                                               ; preds = %select.unfold
+48:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h932065480f4e3b61E.exit"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 16) #23
           to label %.noexc unwind label %49
 
@@ -966,27 +966,16 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
 "_ZN4core3ptr49drop_in_place$LT$alloc..boxed..Box$LT$str$GT$$GT$17hbac3ed97a0602907E.exit": ; preds = %52, %49
   resume { ptr, i32 } %50
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h619a90b86afc776eE.exit": ; preds = %select.unfold
+53:                                               ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h932065480f4e3b61E.exit"
   store ptr %43, ptr %46, align 8
-  %53 = getelementptr inbounds i8, ptr %46, i64 8
-  store i64 %3, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %46, i64 8
+  store i64 %3, ptr %54, align 8
   store i8 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %46, ptr %.sroa.42.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4)
-  br label %58
-
-54:                                               ; preds = %35
-  %55 = getelementptr inbounds { { { i8, [23 x i8] } }, { i64, [8 x i64] } }, ptr %.val.i, i64 %30
-  %56 = getelementptr inbounds i8, ptr %55, i64 -72
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %56, ptr %57, align 8
-  store i8 8, ptr %0, align 8
-  br label %58
-
-58:                                               ; preds = %54, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h619a90b86afc776eE.exit"
   ret void
 }
 

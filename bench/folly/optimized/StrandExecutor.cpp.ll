@@ -9057,7 +9057,6 @@ _ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6at
   %61 = load i64, ptr %executor.i, align 16, !tbaa !21
   %and.i222 = and i64 %61, -4
   %cmp55.not = icmp eq i64 %and.i, %and.i222
-  %not.cmp55.not = xor i1 %cmp55.not, true
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit, %if.then.cleanup_crit_edge
@@ -9065,7 +9064,6 @@ cleanup:                                          ; preds = %_ZN5folly14Unbounde
   %62 = phi i64 [ %.pre, %if.then.cleanup_crit_edge ], [ %61, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %pendingCount.2 = phi i64 [ %queueSize.0271, %if.then.cleanup_crit_edge ], [ %pendingCount.1, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %cond153 = phi i1 [ false, %if.then.cleanup_crit_edge ], [ %cmp55.not, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
-  %cleanup.dest.slot.0 = phi i1 [ false, %if.then.cleanup_crit_edge ], [ %not.cmp55.not, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %queueSize.2 = phi i64 [ 0, %if.then.cleanup_crit_edge ], [ %queueSize.1, %_ZN5folly14UnboundedQueueINS_13StrandContext9QueueItemELb0ELb1ELb0ELm6ELm7ESt6atomicE5Entry8peekItemEv.exit ]
   %.pre-phi = inttoptr i64 %and.i.i.i.i224.pre-phi to ptr
   %tobool.not.i.i.i225 = icmp eq i64 %and.i.i.i.i224.pre-phi, 0
@@ -9095,12 +9093,9 @@ if.end.i.i.i232:                                  ; preds = %_ZN5folly8Executor9
 
 _ZN5folly13StrandContext9QueueItemD2Ev.exit237:   ; preds = %if.end.i.i.i232, %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit.i229
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %item) #26
-  br i1 %cond153, label %for.cond, label %cleanup60
+  br i1 %cond153, label %for.cond, label %cleanup147
 
-cleanup60:                                        ; preds = %_ZN5folly13StrandContext9QueueItemD2Ev.exit237
-  br i1 %cleanup.dest.slot.0, label %while.end115, label %cleanup147
-
-while.end115:                                     ; preds = %for.cond, %cleanup60
+while.end115:                                     ; preds = %for.cond
   %65 = load ptr, ptr %thisPtr, align 8, !tbaa !23
   %scheduled_117 = getelementptr inbounds i8, ptr %65, i64 16
   %66 = atomicrmw sub ptr %scheduled_117, i64 %pendingCount.2 monotonic, align 8
@@ -9159,7 +9154,7 @@ if.then7.i.i.i:                                   ; preds = %invoke.cont.i.i.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %68) #26
   br label %cleanup147
 
-cleanup147:                                       ; preds = %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i241, %while.end115, %cleanup60
+cleanup147:                                       ; preds = %_ZN5folly13StrandContext9QueueItemD2Ev.exit237, %if.then7.i.i.i, %invoke.cont.i.i.i, %if.then.i.i.i241, %while.end115
   ret void
 }
 

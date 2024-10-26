@@ -16731,12 +16731,10 @@ terminate.lpad.i330:                              ; preds = %if.then13.i.i329
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331: ; preds = %cleanup101, %if.then.i.i322, %if.then13.i.i329
-  switch i32 %cleanup.dest.slot.0, label %cleanup104.loopexit [
-    i32 0, label %for.inc
-    i32 5, label %for.inc
-  ]
+  %cond = icmp eq i32 %cleanup.dest.slot.0, 5
+  br i1 %cond, label %for.inc, label %cleanup104.loopexit
 
-for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331
+for.inc:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit331
   %call.i332 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %__begin4.sroa.0.0383) #27
   %cmp.i.not = icmp eq ptr %call.i332, %add.ptr.i.i104
   br i1 %cmp.i.not, label %cleanup104.loopexit, label %for.body31

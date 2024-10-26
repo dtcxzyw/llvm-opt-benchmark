@@ -1445,7 +1445,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   br i1 %97, label %resolve_default_seg.exit, label %98
 
 98:                                               ; preds = %96
-  switch i32 %.ph, label %.thread20 [
+  switch i32 %.ph, label %.unreachabledefault [
     i32 0, label %.thread14
     i32 2, label %99
     i32 3, label %103
@@ -1453,6 +1453,7 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
     i32 5, label %109
     i32 6, label %111
     i32 7, label %113
+    i32 1, label %.thread20
   ]
 
 99:                                               ; preds = %98
@@ -1584,11 +1585,14 @@ define internal fastcc range(i32 -22, 1) i32 @get_seg_base_limit(ptr noundef non
   %178 = or disjoint i64 %177, 4095
   br i1 %176, label %179, label %.thread24
 
+.unreachabledefault:                              ; preds = %98
+  unreachable
+
 .thread20.sink.split:                             ; preds = %153, %.thread18
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %6) #7
   br label %.thread20
 
-.thread20:                                        ; preds = %.thread20.sink.split, %115, %131, %98, %.thread14
+.thread20:                                        ; preds = %.thread20.sink.split, %98, %115, %131, %.thread14
   store i64 0, ptr %4, align 8
   br label %181
 

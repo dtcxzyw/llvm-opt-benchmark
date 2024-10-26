@@ -3236,27 +3236,20 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h9350e7833c18f860E.llvm.5435959977682051014"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 {
+define hidden noalias noundef align 4 dereferenceable_or_null(8) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h9350e7833c18f860E.llvm.5435959977682051014"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !16
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %12, label %6
+  br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hec0addd9ed09a606E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
   %9 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9a990ad0ab165f75E.llvm.5435959977682051014"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1)
-  %10 = icmp eq ptr %9, null
-  %11 = getelementptr inbounds i8, ptr %9, i64 -56
-  %.0.i = select i1 %10, ptr null, ptr %11
-  br label %12
+  br label %10
 
-12:                                               ; preds = %2, %6
-  %.04 = phi ptr [ %.0.i, %6 ], [ null, %2 ]
-  %13 = icmp eq ptr %.04, null
-  %14 = getelementptr inbounds i8, ptr %.04, i64 48
-  %.0 = select i1 %13, ptr null, ptr %14
-  ret ptr %.0
+10:                                               ; preds = %2, %6
+  ret ptr null
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -7283,32 +7276,16 @@ define void @_ZN6diesel2pg15metadata_lookup15PgMetadataCache11lookup_type17h1fa5
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8, !alias.scope !1536, !noalias !1539, !noundef !16
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %select.unfold, label %7
+  br i1 %6, label %11, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = tail call noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hec0addd9ed09a606E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
   %10 = tail call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h9a990ad0ab165f75E.llvm.5435959977682051014"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %2)
-  %11 = icmp eq ptr %10, null
-  br i1 %11, label %select.unfold, label %12
+  br label %11
 
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %10, i64 -8
-  %14 = load i32, ptr %13, align 4, !noundef !16
-  %15 = getelementptr inbounds i8, ptr %10, i64 -4
-  %16 = load i32, ptr %15, align 4, !noundef !16
-  store i32 0, ptr %0, align 8
-  %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %14, ptr %.sroa.0.sroa.5.0..sroa_idx, align 4
-  %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %16, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
-  br label %17
-
-select.unfold:                                    ; preds = %7, %3
+11:                                               ; preds = %3, %7
   store i32 2, ptr %0, align 8
-  br label %17
-
-17:                                               ; preds = %select.unfold, %12
   ret void
 }
 

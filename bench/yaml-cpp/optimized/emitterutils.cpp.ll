@@ -1238,23 +1238,22 @@ if.end48:                                         ; preds = %if.then5, %if.else2
 define noundef zeroext i1 @_ZN4YAML5Utils23WriteDoubleQuotedStringERNS_15ostream_wrapperERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14StringEscaping5valueE(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %stringEscaping) local_unnamed_addr #3 {
 entry:
   %ch.addr.i.i24 = alloca i8, align 1
-  %ch.addr.i.i = alloca i8, align 1
   tail call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.2, i64 noundef 1)
   %call1 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
-  %call270 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
-  %cmp.i.i.not71 = icmp eq ptr %call1, %call270
-  br i1 %cmp.i.i.not71, label %for.end, label %if.end.i.lr.ph
+  %call269 = tail call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
+  %cmp.i.i.not70 = icmp eq ptr %call1, %call269
+  br i1 %cmp.i.i.not70, label %for.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %entry
   %cmp24 = icmp eq i32 %stringEscaping, 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end.i.lr.ph, %sw.epilog
-  %call273 = phi ptr [ %call270, %if.end.i.lr.ph ], [ %call2, %sw.epilog ]
-  %i.sroa.0.072 = phi ptr [ %call1, %if.end.i.lr.ph ], [ %i.sroa.0.34450, %sw.epilog ]
-  %call27377 = ptrtoint ptr %call273 to i64
-  %i.sroa.0.07278 = ptrtoint ptr %i.sroa.0.072 to i64
-  %0 = load i8, ptr %i.sroa.0.072, align 1
+  %call272 = phi ptr [ %call269, %if.end.i.lr.ph ], [ %call2, %sw.epilog ]
+  %i.sroa.0.071 = phi ptr [ %call1, %if.end.i.lr.ph ], [ %i.sroa.0.34450, %sw.epilog ]
+  %call27275 = ptrtoint ptr %call272 to i64
+  %i.sroa.0.07176 = ptrtoint ptr %i.sroa.0.071 to i64
+  %0 = load i8, ptr %i.sroa.0.071, align 1
   %1 = lshr i8 %0, 4
   switch i8 %1, label %if.else.thread [
     i8 0, label %if.then7.i
@@ -1278,7 +1277,7 @@ sw.bb3.i.i:                                       ; preds = %if.end.i
   br label %if.end11.i
 
 if.then7.i:                                       ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.end.i
-  %incdec.ptr.i32.i = getelementptr inbounds i8, ptr %i.sroa.0.072, i64 1
+  %incdec.ptr.i32.i = getelementptr inbounds i8, ptr %i.sroa.0.071, i64 1
   %conv.i = sext i8 %0 to i32
   br label %for.body
 
@@ -1289,27 +1288,27 @@ if.end11.i:                                       ; preds = %sw.bb3.i.i, %sw.bb2
   %shl.i = shl nuw nsw i32 255, %sub.i
   %not.i = xor i32 %shl.i, -1
   %and.i = and i32 %not.i, %conv13.i
-  %2 = sub i64 %call27377, %i.sroa.0.07278
-  %scevgep = getelementptr i8, ptr %i.sroa.0.072, i64 %2
-  %scevgep79 = getelementptr i8, ptr %i.sroa.0.072, i64 2
+  %2 = sub i64 %call27275, %i.sroa.0.07176
+  %scevgep = getelementptr i8, ptr %i.sroa.0.071, i64 %2
+  %scevgep77 = getelementptr i8, ptr %i.sroa.0.071, i64 2
   %3 = zext nneg i32 %retval.0.i.ph.ph.i to i64
-  %4 = getelementptr i8, ptr %scevgep79, i64 %3
-  %scevgep80 = getelementptr i8, ptr %4, i64 -2
+  %4 = getelementptr i8, ptr %scevgep77, i64 %3
+  %scevgep78 = getelementptr i8, ptr %4, i64 -2
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end20.i, %if.end11.i
   %codePoint.1 = phi i32 [ %and.i, %if.end11.i ], [ %or.i, %if.end20.i ]
-  %i.sroa.0.072.pn = phi ptr [ %i.sroa.0.072, %if.end11.i ], [ %i.sroa.0.1, %if.end20.i ]
+  %i.sroa.0.071.pn = phi ptr [ %i.sroa.0.071, %if.end11.i ], [ %i.sroa.0.1, %if.end20.i ]
   %nBytes.058.in.i = phi i32 [ %retval.0.i.ph.ph.i, %if.end11.i ], [ %nBytes.058.i, %if.end20.i ]
-  %i.sroa.0.1 = getelementptr inbounds i8, ptr %i.sroa.0.072.pn, i64 1
+  %i.sroa.0.1 = getelementptr inbounds i8, ptr %i.sroa.0.071.pn, i64 1
   %nBytes.058.i = add nsw i32 %nBytes.058.in.i, -1
-  %cmp.i34.i = icmp eq ptr %i.sroa.0.1, %call273
-  br i1 %cmp.i34.i, label %if.else23, label %lor.lhs.false.i
+  %cmp.i34.i = icmp eq ptr %i.sroa.0.1, %call272
+  br i1 %cmp.i34.i, label %sw.default, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i
   %5 = load i8, ptr %i.sroa.0.1, align 1
   %cmp.i35.i = icmp slt i8 %5, -64
-  br i1 %cmp.i35.i, label %if.end20.i, label %if.else23
+  br i1 %cmp.i35.i, label %if.end20.i, label %sw.default
 
 if.end20.i:                                       ; preds = %lor.lhs.false.i
   %shl21.i = shl i32 %codePoint.1, 6
@@ -1330,10 +1329,10 @@ for.end.i:                                        ; preds = %if.end20.i
   %8 = add i32 %or.i, -64976
   %or.cond31.i = icmp ult i32 %8, 32
   %or.cond61.i = or i1 %or.cond31.i, %or.cond60.i
-  br i1 %or.cond61.i, label %if.else23, label %for.body
+  br i1 %or.cond61.i, label %sw.default, label %for.body
 
 for.body:                                         ; preds = %for.end.i, %if.then7.i
-  %i.sroa.0.344 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep80, %for.end.i ]
+  %i.sroa.0.344 = phi ptr [ %incdec.ptr.i32.i, %if.then7.i ], [ %scevgep78, %for.end.i ]
   %codePoint.243 = phi i32 [ %conv.i, %if.then7.i ], [ %or.i, %for.end.i ]
   switch i32 %codePoint.243, label %sw.default [
     i32 34, label %sw.bb
@@ -1373,50 +1372,26 @@ sw.bb17:                                          ; preds = %for.body
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.9, i64 noundef 2)
   br label %sw.epilog
 
-sw.default:                                       ; preds = %for.body
-  %cmp = icmp slt i32 %codePoint.243, 32
-  %9 = add nsw i32 %codePoint.243, -128
+sw.default:                                       ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %for.body
+  %codePoint.24382 = phi i32 [ %codePoint.243, %for.body ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
+  %i.sroa.0.34481 = phi ptr [ %i.sroa.0.344, %for.body ], [ %scevgep78, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
+  %cmp = icmp slt i32 %codePoint.24382, 32
+  %9 = add nsw i32 %codePoint.24382, -128
   %or.cond = icmp ult i32 %9, 33
   %or.cond18 = select i1 %cmp, i1 true, i1 %or.cond
-  br i1 %or.cond18, label %if.then, label %if.else
+  br i1 %or.cond18, label %if.then, label %if.else23
 
 if.else.thread:                                   ; preds = %if.end.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.sroa.0.072, i64 1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %i.sroa.0.071, i64 1
   br label %if.else23
 
 if.then:                                          ; preds = %sw.default
-  call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE(ptr noundef nonnull align 8 dereferenceable(57) %out, i32 noundef %codePoint.243, i32 noundef %stringEscaping)
+  call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueE(ptr noundef nonnull align 8 dereferenceable(57) %out, i32 noundef %codePoint.24382, i32 noundef %stringEscaping)
   br label %sw.epilog
 
-if.else:                                          ; preds = %sw.default
-  %cmp21 = icmp eq i32 %codePoint.243, 65279
-  br i1 %cmp21, label %if.then22, label %if.else23
-
-if.then22:                                        ; preds = %if.else
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.34, i64 noundef 1)
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull @.str.36, i64 noundef 1)
-  br label %for.body.i19
-
-for.body.i19:                                     ; preds = %for.body.i19, %if.then22
-  %digits.128.i = phi i32 [ 4, %if.then22 ], [ %dec.i, %for.body.i19 ]
-  %sub.i20 = shl i32 %digits.128.i, 2
-  %mul.i = add nsw i32 %sub.i20, -4
-  %shr.i = lshr i32 65279, %mul.i
-  %and.i21 = and i32 %shr.i, 15
-  %idxprom.i = zext nneg i32 %and.i21 to i64
-  %arrayidx.i = getelementptr inbounds [17 x i8], ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 0, i64 %idxprom.i
-  %10 = load i8, ptr %arrayidx.i, align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i.i)
-  store i8 %10, ptr %ch.addr.i.i, align 1
-  call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i.i, i64 noundef 1)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i.i)
-  %dec.i = add nsw i32 %digits.128.i, -1
-  %cmp15.i22 = icmp ugt i32 %digits.128.i, 1
-  br i1 %cmp15.i22, label %for.body.i19, label %sw.epilog, !llvm.loop !11
-
-if.else23:                                        ; preds = %lor.lhs.false.i, %for.body.i, %for.end.i, %if.else.thread, %if.else
-  %codePoint.243525866 = phi i32 [ 65533, %if.else.thread ], [ %codePoint.243, %if.else ], [ 65533, %for.end.i ], [ 65533, %for.body.i ], [ 65533, %lor.lhs.false.i ]
-  %i.sroa.0.344516065 = phi ptr [ %incdec.ptr.i.i, %if.else.thread ], [ %i.sroa.0.344, %if.else ], [ %scevgep80, %for.end.i ], [ %i.sroa.0.1, %lor.lhs.false.i ], [ %scevgep, %for.body.i ]
+if.else23:                                        ; preds = %sw.default, %if.else.thread
+  %codePoint.243525866 = phi i32 [ 65533, %if.else.thread ], [ %codePoint.24382, %sw.default ]
+  %i.sroa.0.344516065 = phi ptr [ %incdec.ptr.i.i, %if.else.thread ], [ %i.sroa.0.34481, %sw.default ]
   %cmp26 = icmp ugt i32 %codePoint.243525866, 126
   %or.cond1 = and i1 %cmp24, %cmp26
   br i1 %or.cond1, label %if.then27, label %if.else28
@@ -1440,9 +1415,9 @@ for.body.i25:                                     ; preds = %for.body.i25, %if.t
   %and.i30 = and i32 %shr.i29, 15
   %idxprom.i31 = zext nneg i32 %and.i30 to i64
   %arrayidx.i32 = getelementptr inbounds [17 x i8], ptr @_ZZN4YAML5Utils12_GLOBAL__N_130WriteDoubleQuoteEscapeSequenceERNS_15ostream_wrapperEiNS_14StringEscaping5valueEE9hexDigits, i64 0, i64 %idxprom.i31
-  %11 = load i8, ptr %arrayidx.i32, align 1
+  %10 = load i8, ptr %arrayidx.i32, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ch.addr.i.i24)
-  store i8 %11, ptr %ch.addr.i.i24, align 1
+  store i8 %10, ptr %ch.addr.i.i24, align 1
   call void @_ZN4YAML15ostream_wrapper5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(57) %out, ptr noundef nonnull %ch.addr.i.i24, i64 noundef 1)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ch.addr.i.i24)
   %dec.i33 = add nsw i32 %digits.128.i26, -1
@@ -1453,8 +1428,8 @@ if.else28:                                        ; preds = %if.else23
   call fastcc void @_ZN4YAML5Utils12_GLOBAL__N_114WriteCodePointERNS_15ostream_wrapperEi(ptr noundef nonnull align 8 dereferenceable(57) %out, i32 noundef %codePoint.243525866)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %for.body.i19, %for.body.i25, %if.then, %if.else28, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb
-  %i.sroa.0.34450 = phi ptr [ %i.sroa.0.344, %if.then ], [ %i.sroa.0.344516065, %if.else28 ], [ %i.sroa.0.344, %sw.bb17 ], [ %i.sroa.0.344, %sw.bb15 ], [ %i.sroa.0.344, %sw.bb13 ], [ %i.sroa.0.344, %sw.bb11 ], [ %i.sroa.0.344, %sw.bb9 ], [ %i.sroa.0.344, %sw.bb7 ], [ %i.sroa.0.344, %sw.bb ], [ %i.sroa.0.344516065, %for.body.i25 ], [ %i.sroa.0.344, %for.body.i19 ]
+sw.epilog:                                        ; preds = %for.body.i25, %if.then, %if.else28, %sw.bb17, %sw.bb15, %sw.bb13, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb
+  %i.sroa.0.34450 = phi ptr [ %i.sroa.0.34481, %if.then ], [ %i.sroa.0.344516065, %if.else28 ], [ %i.sroa.0.344, %sw.bb17 ], [ %i.sroa.0.344, %sw.bb15 ], [ %i.sroa.0.344, %sw.bb13 ], [ %i.sroa.0.344, %sw.bb11 ], [ %i.sroa.0.344, %sw.bb9 ], [ %i.sroa.0.344, %sw.bb7 ], [ %i.sroa.0.344, %sw.bb ], [ %i.sroa.0.344516065, %for.body.i25 ]
   %call2 = call ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #14
   %cmp.i.i.not = icmp eq ptr %i.sroa.0.34450, %call2
   br i1 %cmp.i.i.not, label %for.end, label %if.end.i, !llvm.loop !12

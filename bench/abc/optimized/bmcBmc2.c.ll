@@ -57,7 +57,8 @@ define range(i32 1, 4) i32 @Abs_ManExtendOneEval_rec(ptr noundef %0, ptr noundef
   br i1 %.not68, label %34, label %47
 
 common.ret.sink.split:                            ; preds = %58, %56, %47, %34
-  %.043.sink = phi i32 [ %46, %34 ], [ %.043, %47 ], [ %.0.i, %58 ], [ 1, %56 ]
+  %.043.sink = phi i32 [ %46, %34 ], [ %.043, %47 ], [ 1, %56 ], [ 1, %58 ]
+  %common.ret.op.ph = phi i32 [ %46, %34 ], [ %.043, %47 ], [ 1, %56 ], [ %.0.i, %58 ]
   %.val55 = load ptr, ptr %5, align 8
   %.val56 = load i32, ptr %6, align 4
   %21 = getelementptr inbounds ptr, ptr %.val55, i64 %7
@@ -77,7 +78,7 @@ common.ret.sink.split:                            ; preds = %58, %56, %47, %34
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %4
-  %common.ret.op = phi i32 [ %17, %4 ], [ %.043.sink, %common.ret.sink.split ]
+  %common.ret.op = phi i32 [ %17, %4 ], [ %common.ret.op.ph, %common.ret.sink.split ]
   ret i32 %common.ret.op
 
 34:                                               ; preds = %18

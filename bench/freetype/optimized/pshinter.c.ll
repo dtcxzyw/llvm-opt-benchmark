@@ -5771,50 +5771,40 @@ ps_mask_ensure.exit.i:                            ; preds = %78
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   store i32 %3, ptr %.08.i.ph.i, align 8
   %.not4150.i = icmp eq i32 %3, 0
-  br i1 %.not4150.i, label %ps_mask_table_set_bits.exit, label %.lr.ph.preheader.i
+  br i1 %.not4150.i, label %ps_mask_table_set_bits.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %89
+.lr.ph.i:                                         ; preds = %89
   %91 = and i32 %2, 7
   %92 = lshr exact i32 128, %91
   %93 = lshr i32 %2, 3
   %94 = zext nneg i32 %93 to i64
   %95 = getelementptr inbounds i8, ptr %1, i64 %94
-  br label %.lr.ph.i
+  %.promoted.i = load i8, ptr %90, align 1
+  %96 = and i8 %.promoted.i, 127
+  br label %97
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.02655.i = phi i32 [ %.1.i, %.lr.ph.i ], [ 128, %.lr.ph.preheader.i ]
-  %.02754.i = phi ptr [ %.128.i, %.lr.ph.i ], [ %90, %.lr.ph.preheader.i ]
-  %.02953.i = phi i32 [ %.130.i, %.lr.ph.i ], [ %92, %.lr.ph.preheader.i ]
-  %.03152.i = phi ptr [ %.132.i, %.lr.ph.i ], [ %95, %.lr.ph.preheader.i ]
-  %.03451.i = phi i32 [ %109, %.lr.ph.i ], [ %3, %.lr.ph.preheader.i ]
-  %96 = load i8, ptr %.02754.i, align 1
-  %97 = zext i8 %96 to i32
-  %98 = xor i32 %.02655.i, -1
-  %99 = and i32 %97, %98
-  %100 = load i8, ptr %.03152.i, align 1
-  %101 = zext i8 %100 to i32
-  %102 = and i32 %.02953.i, %101
-  %.not42.i = icmp eq i32 %102, 0
-  %103 = or i32 %.02655.i, %97
-  %spec.select.i = select i1 %.not42.i, i32 %99, i32 %103
-  %104 = trunc i32 %spec.select.i to i8
-  store i8 %104, ptr %.02754.i, align 1
-  %105 = lshr i32 %.02953.i, 1
-  %106 = icmp ult i32 %.02953.i, 2
-  %.132.idx.i = zext i1 %106 to i64
+97:                                               ; preds = %97, %.lr.ph.i
+  %.02953.i = phi i32 [ %92, %.lr.ph.i ], [ %.130.i, %97 ]
+  %.03152.i = phi ptr [ %95, %.lr.ph.i ], [ %.132.i, %97 ]
+  %.03451.i = phi i32 [ %3, %.lr.ph.i ], [ %103, %97 ]
+  %98 = load i8, ptr %.03152.i, align 1
+  %99 = zext i8 %98 to i32
+  %100 = and i32 %.02953.i, %99
+  %.not42.i = icmp eq i32 %100, 0
+  %masksel.i = select i1 %.not42.i, i8 0, i8 -128
+  %spec.select.i = or disjoint i8 %masksel.i, %96
+  store i8 %spec.select.i, ptr %90, align 1
+  %101 = lshr i32 %.02953.i, 1
+  %102 = icmp samesign ult i32 %.02953.i, 2
+  %.132.idx.i = zext i1 %102 to i64
   %.132.i = getelementptr inbounds i8, ptr %.03152.i, i64 %.132.idx.i
-  %.130.i = select i1 %106, i32 128, i32 %105
-  %107 = ashr i32 %.02655.i, 1
-  %108 = icmp ult i32 %.02655.i, 2
-  %.128.idx.i = zext i1 %108 to i64
-  %.128.i = getelementptr inbounds i8, ptr %.02754.i, i64 %.128.idx.i
-  %.1.i = select i1 %108, i32 128, i32 %107
-  %109 = add i32 %.03451.i, -1
-  %.not41.i = icmp eq i32 %109, 0
-  br i1 %.not41.i, label %ps_mask_table_set_bits.exit, label %.lr.ph.i, !llvm.loop !89
+  %.130.i = select i1 %102, i32 128, i32 %101
+  %103 = add i32 %.03451.i, -1
+  %.not41.i = icmp eq i32 %103, 0
+  br i1 %.not41.i, label %ps_mask_table_set_bits.exit, label %97, !llvm.loop !89
 
-ps_mask_table_set_bits.exit:                      ; preds = %.lr.ph.i, %89, %ps_mask_ensure.exit.i, %ps_mask_table_last.exit.i, %ps_dimension_reset_mask.exit
-  %.0 = phi i32 [ %31, %ps_dimension_reset_mask.exit ], [ %54, %ps_mask_table_last.exit.i ], [ %86, %ps_mask_ensure.exit.i ], [ 0, %89 ], [ 0, %.lr.ph.i ]
+ps_mask_table_set_bits.exit:                      ; preds = %97, %89, %ps_mask_ensure.exit.i, %ps_mask_table_last.exit.i, %ps_dimension_reset_mask.exit
+  %.0 = phi i32 [ %31, %ps_dimension_reset_mask.exit ], [ %54, %ps_mask_table_last.exit.i ], [ %86, %ps_mask_ensure.exit.i ], [ 0, %89 ], [ 0, %97 ]
   ret i32 %.0
 }
 

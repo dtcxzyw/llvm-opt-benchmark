@@ -1096,38 +1096,17 @@ entry:
   %write_offset_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %write_offset_, align 8
   %cmp = icmp sgt i32 %data_len, 3
-  br i1 %cmp, label %if.end, label %if.end9
+  br i1 %cmp, label %if.end, label %if.then17
 
 if.end:                                           ; preds = %entry
   %0 = load i32, ptr %data, align 4
-  %sub = sub i32 %data_len, %0
-  %conv = zext i32 %sub to i64
-  %cmp6 = icmp ugt i32 %0, %data_len
-  %spec.store.select = select i1 %cmp6, i64 0, i64 %conv
+  %narrow = tail call i32 @llvm.usub.sat.i32(i32 %data_len, i32 %0)
+  %spec.store.select = zext nneg i32 %narrow to i64
   store i64 %spec.store.select, ptr %header_size_, align 8
-  %spec.select = select i1 %cmp6, i64 0, i64 %conv
-  br label %if.end9
-
-if.end9:                                          ; preds = %if.end, %entry
-  %1 = phi i64 [ 0, %entry ], [ %spec.select, %if.end ]
-  %sub.i = add nuw nsw i64 %1, 3
-  %and.i = and i64 %sub.i, -4
-  %cmp12.not = icmp eq i64 %1, %and.i
-  br i1 %cmp12.not, label %if.end15, label %if.end15.thread
-
-if.end15.thread:                                  ; preds = %if.end9
-  store i64 0, ptr %header_size_, align 8
   br label %if.then17
 
-if.end15:                                         ; preds = %if.end9
-  %tobool.not = icmp eq i64 %1, 0
-  br i1 %tobool.not, label %if.then17, label %if.end19
-
-if.then17:                                        ; preds = %if.end15.thread, %if.end15
+if.then17:                                        ; preds = %if.end, %entry
   store ptr null, ptr %header_, align 8
-  br label %if.end19
-
-if.end19:                                         ; preds = %if.then17, %if.end15
   ret void
 }
 
@@ -1730,6 +1709,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.usub.sat.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #15

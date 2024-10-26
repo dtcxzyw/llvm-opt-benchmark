@@ -8091,32 +8091,22 @@ _ZN5boost15source_locationC2ERKSt15source_location.exit.i: ; preds = %_ZN5boost6
   store i32 66, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 5, ptr %28, align 4, !tbaa !91
-  %29 = and i64 %24, 1
-  %.not.i.i.i.i = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
-
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost15source_locationC2ERKSt15source_location.exit.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #32
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str.64)
   invoke void @_ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %6) #35
-          to label %30 unwind label %.body
+          to label %29 unwind label %.body
 
-30:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
+29:                                               ; preds = %_ZN5boost15source_locationC2ERKSt15source_location.exit.i
   unreachable
 
-.body:                                            ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
-  %31 = landingpad { ptr, i32 }
+.body:                                            ; preds = %_ZN5boost15source_locationC2ERKSt15source_location.exit.i
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #32
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #32
-  resume { ptr, i32 } %31
+  resume { ptr, i32 } %30
 
-_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit.i: ; preds = %_ZN5boost15source_locationC2ERKSt15source_location.exit.i
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #32
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #32
-  br label %_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE.exit
-
-_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE.exit: ; preds = %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit.i, %3
+_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE.exit: ; preds = %3
   ret void
 }
 

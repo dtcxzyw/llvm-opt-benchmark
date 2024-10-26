@@ -688,11 +688,9 @@ if.end27:                                         ; preds = %lor.lhs.false, %if.
 
 if.end45.thread:                                  ; preds = %if.end27
   %add44 = add i64 %cond34, %cond.i
-  %cond3937 = select i1 %cmp.i.i36.not, i64 0, i64 %cond.i.i33
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
 if.end45:                                         ; preds = %if.end27
-  %cond39 = select i1 %cmp.i.i36.not, i64 0, i64 %cond.i.i33
   %cmp.i43 = icmp eq i64 %cond34, 0
   br i1 %cmp.i43, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit, label %if.end.i44
 
@@ -752,7 +750,6 @@ while.end.i:                                      ; preds = %if.end8.i, %if.end.
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %if.end45.thread, %if.end45, %while.end.i
-  %cond3940 = phi i64 [ %cond3937, %if.end45.thread ], [ %cond39, %if.end45 ], [ %cond39, %while.end.i ]
   %num_zeroes.039 = phi i64 [ %add44, %if.end45.thread ], [ %cond.i, %if.end45 ], [ %cond.i, %while.end.i ]
   %cmp.i46 = icmp eq i64 %retval.sroa.0.0.i, 0
   br i1 %cmp.i46, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %if.end.i47
@@ -891,7 +888,7 @@ while.end.i84:                                    ; preds = %if.end8.i100, %if.e
 
 _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit73, %while.end.i84
   %cmp.i105 = icmp eq i64 %as_digits.8.val, %conv2.i
-  br i1 %cmp.i105, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122, label %if.end.i106
+  br i1 %cmp.i105, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153, label %if.end.i106
 
 if.end.i106:                                      ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104
   %size_.i107 = getelementptr inbounds i8, ptr %sink, i64 16
@@ -919,75 +916,16 @@ if.then4.i115:                                    ; preds = %if.end.i106
   %37 = load ptr, ptr %write_.i.i.i119, align 8
   %38 = load ptr, ptr %sink, align 8
   tail call void %37(ptr noundef %38, i64 %sub.i, ptr nonnull %add.ptr.i)
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122
+  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153
 
 if.end5.i120:                                     ; preds = %if.end.i106
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %add.ptr.i, i64 %sub.i, i1 false)
   %39 = load ptr, ptr %pos_.i.i110, align 8
   %add.ptr.i121 = getelementptr inbounds i8, ptr %39, i64 %sub.i
   store ptr %add.ptr.i121, ptr %pos_.i.i110, align 8
-  br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122
-
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104, %if.then4.i115, %if.end5.i120
-  %cmp.i123 = icmp eq i64 %cond3940, 0
-  br i1 %cmp.i123, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153, label %if.end.i124
-
-if.end.i124:                                      ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122
-  %size_.i125 = getelementptr inbounds i8, ptr %sink, i64 16
-  %40 = load i64, ptr %size_.i125, align 8
-  %add.i126 = add i64 %40, %cond3940
-  store i64 %add.i126, ptr %size_.i125, align 8
-  %add.ptr.i.i127 = getelementptr inbounds i8, ptr %sink, i64 1056
-  %pos_.i.i128 = getelementptr inbounds i8, ptr %sink, i64 24
-  %sub.ptr.lhs.cast.i.i129 = ptrtoint ptr %add.ptr.i.i127 to i64
-  %41 = load ptr, ptr %pos_.i.i128, align 8
-  %sub.ptr.rhs.cast.i31.i130 = ptrtoint ptr %41 to i64
-  %sub.ptr.sub.i32.i131 = sub i64 %sub.ptr.lhs.cast.i.i129, %sub.ptr.rhs.cast.i31.i130
-  %cmp233.i132 = icmp ugt i64 %cond3940, %sub.ptr.sub.i32.i131
-  br i1 %cmp233.i132, label %while.body.lr.ph.i137, label %while.end.i133
-
-while.body.lr.ph.i137:                            ; preds = %if.end.i124
-  %buf_.i.i138 = getelementptr inbounds i8, ptr %sink, i64 32
-  %sub.ptr.rhs.cast.i24.i139 = ptrtoint ptr %buf_.i.i138 to i64
-  %write_.i.i.i140 = getelementptr inbounds i8, ptr %sink, i64 8
-  br label %while.body.i141
-
-while.body.i141:                                  ; preds = %if.end8.i149, %while.body.lr.ph.i137
-  %sub.ptr.sub.i35.i142 = phi i64 [ %sub.ptr.sub.i32.i131, %while.body.lr.ph.i137 ], [ 1024, %if.end8.i149 ]
-  %42 = phi ptr [ %41, %while.body.lr.ph.i137 ], [ %buf_.i.i138, %if.end8.i149 ]
-  %n.addr.034.i143 = phi i64 [ %cond3940, %while.body.lr.ph.i137 ], [ %sub.i144, %if.end8.i149 ]
-  %sub.i144 = sub nuw i64 %n.addr.034.i143, %sub.ptr.sub.i35.i142
-  %cmp5.not.i145 = icmp eq ptr %add.ptr.i.i127, %42
-  br i1 %cmp5.not.i145, label %if.end8.i149, label %if.then6.i146
-
-if.then6.i146:                                    ; preds = %while.body.i141
-  tail call void @llvm.memset.p0.i64(ptr align 1 %42, i8 32, i64 %sub.ptr.sub.i35.i142, i1 false)
-  %43 = load ptr, ptr %pos_.i.i128, align 8
-  %add.ptr.i21.i147 = getelementptr inbounds i8, ptr %43, i64 %sub.ptr.sub.i35.i142
-  store ptr %add.ptr.i21.i147, ptr %pos_.i.i128, align 8
-  %.pre.i148 = ptrtoint ptr %add.ptr.i21.i147 to i64
-  br label %if.end8.i149
-
-if.end8.i149:                                     ; preds = %if.then6.i146, %while.body.i141
-  %sub.ptr.lhs.cast.i23.pre-phi.i150 = phi i64 [ %.pre.i148, %if.then6.i146 ], [ %sub.ptr.lhs.cast.i.i129, %while.body.i141 ]
-  %sub.ptr.sub.i25.i151 = sub i64 %sub.ptr.lhs.cast.i23.pre-phi.i150, %sub.ptr.rhs.cast.i24.i139
-  %44 = load ptr, ptr %write_.i.i.i140, align 8
-  %45 = load ptr, ptr %sink, align 8
-  tail call void %44(ptr noundef %45, i64 %sub.ptr.sub.i25.i151, ptr nonnull %buf_.i.i138)
-  store ptr %buf_.i.i138, ptr %pos_.i.i128, align 8
-  %cmp2.i152 = icmp ugt i64 %sub.i144, 1024
-  br i1 %cmp2.i152, label %while.body.i141, label %while.end.i133, !llvm.loop !8
-
-while.end.i133:                                   ; preds = %if.end8.i149, %if.end.i124
-  %n.addr.0.lcssa.i134 = phi i64 [ %cond3940, %if.end.i124 ], [ %sub.i144, %if.end8.i149 ]
-  %.lcssa.i135 = phi ptr [ %41, %if.end.i124 ], [ %buf_.i.i138, %if.end8.i149 ]
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i135, i8 32, i64 %n.addr.0.lcssa.i134, i1 false)
-  %46 = load ptr, ptr %pos_.i.i128, align 8
-  %add.ptr.i27.i136 = getelementptr inbounds i8, ptr %46, i64 %n.addr.0.lcssa.i134
-  store ptr %add.ptr.i27.i136, ptr %pos_.i.i128, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153: ; preds = %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit122, %while.end.i133
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153: ; preds = %if.end5.i120, %if.then4.i115, %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit104
   ret void
 }
 

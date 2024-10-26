@@ -169,7 +169,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.157 = private unnamed_addr constant [10 x i8] c"invalid U\00", align 1
 @.str.158 = private unnamed_addr constant [11 x i8] c"too long U\00", align 1
 @.str.159 = private unnamed_addr constant [49 x i8] c"pdf_handle_enc: Encrypt R: %d, P %x, length: %u\0A\00", align 1
-@.str.160 = private unnamed_addr constant [53 x i8] c"pdf_handle_enc: wrong key length, not multiple of 8\0A\00", align 1
 @.str.161 = private unnamed_addr constant [57 x i8] c"pdf_find_and_parse_objs_in_objstm: Empty object stream.\0A\00", align 1
 @.str.162 = private unnamed_addr constant [107 x i8] c"pdf_find_and_parse_objs_in_objstm: Invalid objstm values. Offset of first obj greater than stream length.\0A\00", align 1
 @.str.163 = private unnamed_addr constant [64 x i8] c"Timeout reached in the PDF parser while parsing object stream.\0A\00", align 1
@@ -5055,7 +5054,7 @@ define void @pdf_handle_enc(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 100
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %191, label %14
+  br i1 %13, label %188, label %14
 
 14:                                               ; preds = %1
   %15 = getelementptr inbounds i8, ptr %0, i64 104
@@ -5065,7 +5064,7 @@ define void @pdf_handle_enc(ptr nocapture noundef %0) local_unnamed_addr #0 {
 
 17:                                               ; preds = %14
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.128) #23
-  br label %191
+  br label %188
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %0, align 8
@@ -5146,7 +5145,7 @@ define void @pdf_handle_enc(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %45 = lshr i32 %12, 8
   %46 = and i32 %12, 255
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.129, i32 noundef %45, i32 noundef %46) #23
-  br label %191
+  br label %188
 
 find_obj.exit:                                    ; preds = %32, %39
   %.024.i = phi ptr [ %41, %39 ], [ %34, %32 ]
@@ -5176,7 +5175,7 @@ find_obj.exit:                                    ; preds = %32, %39
 
 62:                                               ; preds = %find_obj.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.131) #23
-  br label %190
+  br label %187
 
 63:                                               ; preds = %find_obj.exit
   %64 = ptrtoint ptr %61 to i64
@@ -5281,7 +5280,7 @@ pdf_readint.exit203:                              ; preds = %91
 
 97:                                               ; preds = %pdf_readint.exit203.thread, %pdf_readint.exit203
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.134) #23
-  br label %190
+  br label %187
 
 98:                                               ; preds = %pdf_readint.exit203
   %99 = add i32 %95, -7
@@ -5290,7 +5289,7 @@ pdf_readint.exit203:                              ; preds = %91
 
 100:                                              ; preds = %98
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.135) #23
-  br label %190
+  br label %187
 
 101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
@@ -5324,7 +5323,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
 
 112:                                              ; preds = %pdf_readint.exit207
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.137) #23
-  br label %190
+  br label %187
 
 113:                                              ; preds = %pdf_readint.exit207
   %114 = icmp ult i32 %95, 5
@@ -5441,7 +5440,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.152, i32 noundef %158) #23
   %162 = load i32, ptr %10, align 4
   call fastcc void @dbg_printhex(ptr noundef nonnull @.str.153, ptr noundef nonnull %157, i32 noundef %162)
-  br label %190
+  br label %187
 
 163:                                              ; preds = %159
   %164 = icmp ugt i32 %158, %.
@@ -5466,7 +5465,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
 
 169:                                              ; preds = %.preheader229
   call fastcc void @dbg_printhex(ptr noundef nonnull @.str.154, ptr noundef nonnull %157, i32 noundef %158)
-  br label %190
+  br label %187
 
 .loopexit230:                                     ; preds = %166, %163
   store i32 0, ptr %10, align 4
@@ -5483,7 +5482,7 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.156, i32 noundef %171) #23
   %175 = load i32, ptr %10, align 4
   call fastcc void @dbg_printhex(ptr noundef nonnull @.str.157, ptr noundef nonnull %170, i32 noundef %175)
-  br label %190
+  br label %187
 
 176:                                              ; preds = %172
   %177 = icmp ugt i32 %171, %.
@@ -5508,45 +5507,36 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
 
 182:                                              ; preds = %.preheader
   call fastcc void @dbg_printhex(ptr noundef nonnull @.str.158, ptr noundef nonnull %170, i32 noundef %171)
-  br label %190
+  br label %187
 
 .loopexit:                                        ; preds = %179, %176
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.159, i32 noundef %95, i32 noundef %109, i32 noundef %156) #23
-  %183 = and i32 %156, 7
-  %.not189 = icmp eq i32 %183, 0
-  br i1 %.not189, label %185, label %184
-
-184:                                              ; preds = %.loopexit
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.160) #23
-  br label %190
-
-185:                                              ; preds = %.loopexit
   call fastcc void @check_owner_password(ptr noundef nonnull %0, i32 noundef %95, ptr noundef %157, ptr noundef %170, ptr noundef %.1156220, i64 noundef %.0154221)
-  %186 = getelementptr inbounds i8, ptr %0, i64 120
-  %187 = load ptr, ptr %186, align 8
-  %188 = icmp eq ptr %187, null
-  br i1 %188, label %189, label %190
+  %183 = getelementptr inbounds i8, ptr %0, i64 120
+  %184 = load ptr, ptr %183, align 8
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %186, label %187
 
-189:                                              ; preds = %185
+186:                                              ; preds = %.loopexit
   call fastcc void @check_user_password(ptr noundef nonnull %0, i32 noundef %95, ptr noundef %157, ptr noundef %170, i32 noundef %109, i32 noundef %.0143227, ptr noundef %.1152222, i64 noundef %.0150223, i32 noundef %156)
-  br label %190
+  br label %187
 
 .critedge:                                        ; preds = %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.152, i32 noundef %158) #23
-  br label %190
+  br label %187
 
 .critedge193:                                     ; preds = %.loopexit230
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.156, i32 noundef %171) #23
-  br label %190
+  br label %187
 
-190:                                              ; preds = %.critedge193, %.critedge, %185, %189, %174, %161, %184, %182, %169, %112, %100, %97, %62
-  %.0157 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %157, %161 ], [ %157, %169 ], [ %157, %174 ], [ %157, %182 ], [ %157, %184 ], [ %157, %189 ], [ %157, %185 ], [ null, %62 ], [ null, %.critedge ], [ %157, %.critedge193 ]
-  %.0155 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1156220, %161 ], [ %.1156220, %169 ], [ %.1156220, %174 ], [ %.1156220, %182 ], [ %.1156220, %184 ], [ %.1156220, %189 ], [ %.1156220, %185 ], [ null, %62 ], [ %.1156220, %.critedge ], [ %.1156220, %.critedge193 ]
-  %.0153 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ null, %161 ], [ null, %169 ], [ %170, %174 ], [ %170, %182 ], [ %170, %184 ], [ %170, %189 ], [ %170, %185 ], [ null, %62 ], [ null, %.critedge ], [ null, %.critedge193 ]
-  %.0151 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1152222, %161 ], [ %.1152222, %169 ], [ %.1152222, %174 ], [ %.1152222, %182 ], [ %.1152222, %184 ], [ %.1152222, %189 ], [ %.1152222, %185 ], [ null, %62 ], [ %.1152222, %.critedge ], [ %.1152222, %.critedge193 ]
-  %.0148 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1149224, %161 ], [ %.1149224, %169 ], [ %.1149224, %174 ], [ %.1149224, %182 ], [ %.1149224, %184 ], [ %.1149224, %189 ], [ %.1149224, %185 ], [ null, %62 ], [ %.1149224, %.critedge ], [ %.1149224, %.critedge193 ]
-  %.0146 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1147225, %161 ], [ %.1147225, %169 ], [ %.1147225, %174 ], [ %.1147225, %182 ], [ %.1147225, %184 ], [ %.1147225, %189 ], [ %.1147225, %185 ], [ null, %62 ], [ %.1147225, %.critedge ], [ %.1147225, %.critedge193 ]
-  %.0144 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1145226, %161 ], [ %.1145226, %169 ], [ %.1145226, %174 ], [ %.1145226, %182 ], [ %.1145226, %184 ], [ %.1145226, %189 ], [ %.1145226, %185 ], [ null, %62 ], [ %.1145226, %.critedge ], [ %.1145226, %.critedge193 ]
+187:                                              ; preds = %.critedge193, %.critedge, %.loopexit, %186, %174, %161, %182, %169, %112, %100, %97, %62
+  %.0157 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %157, %161 ], [ %157, %169 ], [ %157, %174 ], [ %157, %182 ], [ %157, %186 ], [ %157, %.loopexit ], [ null, %62 ], [ null, %.critedge ], [ %157, %.critedge193 ]
+  %.0155 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1156220, %161 ], [ %.1156220, %169 ], [ %.1156220, %174 ], [ %.1156220, %182 ], [ %.1156220, %186 ], [ %.1156220, %.loopexit ], [ null, %62 ], [ %.1156220, %.critedge ], [ %.1156220, %.critedge193 ]
+  %.0153 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ null, %161 ], [ null, %169 ], [ %170, %174 ], [ %170, %182 ], [ %170, %186 ], [ %170, %.loopexit ], [ null, %62 ], [ null, %.critedge ], [ null, %.critedge193 ]
+  %.0151 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1152222, %161 ], [ %.1152222, %169 ], [ %.1152222, %174 ], [ %.1152222, %182 ], [ %.1152222, %186 ], [ %.1152222, %.loopexit ], [ null, %62 ], [ %.1152222, %.critedge ], [ %.1152222, %.critedge193 ]
+  %.0148 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1149224, %161 ], [ %.1149224, %169 ], [ %.1149224, %174 ], [ %.1149224, %182 ], [ %.1149224, %186 ], [ %.1149224, %.loopexit ], [ null, %62 ], [ %.1149224, %.critedge ], [ %.1149224, %.critedge193 ]
+  %.0146 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1147225, %161 ], [ %.1147225, %169 ], [ %.1147225, %174 ], [ %.1147225, %182 ], [ %.1147225, %186 ], [ %.1147225, %.loopexit ], [ null, %62 ], [ %.1147225, %.critedge ], [ %.1147225, %.critedge193 ]
+  %.0144 = phi ptr [ null, %97 ], [ null, %100 ], [ null, %112 ], [ %.1145226, %161 ], [ %.1145226, %169 ], [ %.1145226, %174 ], [ %.1145226, %182 ], [ %.1145226, %186 ], [ %.1145226, %.loopexit ], [ null, %62 ], [ %.1145226, %.critedge ], [ %.1145226, %.critedge193 ]
   call void @free(ptr noundef %.0157) #23
   call void @free(ptr noundef %.0155) #23
   call void @free(ptr noundef %.0153) #23
@@ -5554,9 +5544,9 @@ pdf_readint.exit207:                              ; preds = %101, %104, %._crit_
   call void @free(ptr noundef %.0148) #23
   call void @free(ptr noundef %.0146) #23
   call void @free(ptr noundef %.0144) #23
-  br label %191
+  br label %188
 
-191:                                              ; preds = %1, %190, %.loopexit231, %17
+188:                                              ; preds = %1, %187, %.loopexit231, %17
   ret void
 }
 

@@ -4577,7 +4577,7 @@ define range(i32 -5, 1) i32 @ompi_comm_compare(ptr noundef readonly %0, ptr noun
   %7 = getelementptr inbounds i8, ptr %1, i64 336
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %6, %8
-  br i1 %.not, label %9, label %58
+  br i1 %.not, label %9, label %56
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 168
@@ -4659,27 +4659,15 @@ ompi_comm_remote_size.exit50:                     ; preds = %ompi_comm_remote_si
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 @ompi_group_compare(ptr noundef %51, ptr noundef %53, ptr noundef nonnull %4) #19
   %55 = load i32, ptr %4, align 4
-  switch i32 %55, label %58 [
-    i32 0, label %.sink.split
-    i32 1, label %.sink.split
-    i32 2, label %56
-    i32 3, label %57
-  ]
+  %switch = icmp ult i32 %55, 2
+  br i1 %switch, label %.sink.split, label %56
 
-56:                                               ; preds = %49
-  %or.cond3 = icmp ult i32 %47, 3
-  %.52 = select i1 %or.cond3, i32 2, i32 3
-  br label %.sink.split
-
-57:                                               ; preds = %49
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %56, %45, %49, %49, %ompi_comm_remote_size.exit50, %ompi_comm_compare_cids.exit.thread, %ompi_comm_compare_cids.exit, %57
-  %..sink = phi i32 [ 3, %57 ], [ 0, %ompi_comm_compare_cids.exit ], [ 3, %ompi_comm_compare_cids.exit.thread ], [ 3, %ompi_comm_remote_size.exit50 ], [ %., %49 ], [ %., %49 ], [ %., %45 ], [ %.52, %56 ]
+.sink.split:                                      ; preds = %45, %49, %ompi_comm_remote_size.exit50, %ompi_comm_compare_cids.exit.thread, %ompi_comm_compare_cids.exit
+  %..sink = phi i32 [ 0, %ompi_comm_compare_cids.exit ], [ 3, %ompi_comm_compare_cids.exit.thread ], [ 3, %ompi_comm_remote_size.exit50 ], [ %., %49 ], [ %., %45 ]
   store i32 %..sink, ptr %2, align 4
-  br label %58
+  br label %56
 
-58:                                               ; preds = %.sink.split, %49, %3
+56:                                               ; preds = %.sink.split, %49, %3
   %.038 = phi i32 [ -5, %3 ], [ 0, %49 ], [ 0, %.sink.split ]
   ret i32 %.038
 }

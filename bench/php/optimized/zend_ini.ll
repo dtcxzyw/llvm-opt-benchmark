@@ -1237,39 +1237,11 @@ define ptr @zend_ini_string_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2, p
 
 ; Function Attrs: nounwind uwtable
 define ptr @zend_ini_string(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
-  %5 = tail call ptr @zend_hash_str_find(ptr noundef %4, ptr noundef %0, i64 noundef %1) #20
-  %.not.i.not = icmp eq ptr %5, null
-  br i1 %.not.i.not, label %zend_ini_string_ex.exit, label %6
-
-6:                                                ; preds = %3
-  %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %.not28.i = icmp eq i32 %2, 0
-  br i1 %.not28.i, label %11, label %8
-
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds i8, ptr %7, i64 70
-  %10 = load i8, ptr %9, align 2
-  %.not29.i = icmp eq i8 %10, 0
-  br i1 %.not29.i, label %11, label %zend_ini_string_ex.exit.sink.split
-
-11:                                               ; preds = %8, %6
-  br label %zend_ini_string_ex.exit.sink.split
-
-zend_ini_string_ex.exit.sink.split:               ; preds = %8, %11
-  %.sink = phi i64 [ 40, %11 ], [ 48, %8 ]
-  %12 = getelementptr inbounds i8, ptr %7, i64 %.sink
-  %13 = load ptr, ptr %12, align 8
-  %.not31.i = icmp eq ptr %13, null
-  %14 = getelementptr inbounds i8, ptr %13, i64 24
-  %spec.select.i = select i1 %.not31.i, ptr null, ptr %14
-  br label %zend_ini_string_ex.exit
-
-zend_ini_string_ex.exit:                          ; preds = %zend_ini_string_ex.exit.sink.split, %3
-  %.020.i = phi ptr [ null, %3 ], [ %spec.select.i, %zend_ini_string_ex.exit.sink.split ]
-  %.not = icmp eq ptr %.020.i, null
-  %spec.store.select = select i1 %.not, ptr @.str, ptr %.020.i
-  %.0 = select i1 %.not.i.not, ptr null, ptr %spec.store.select
+zend_ini_string_ex.exit:
+  %3 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 816), align 8
+  %4 = tail call ptr @zend_hash_str_find(ptr noundef %3, ptr noundef %0, i64 noundef %1) #20
+  %.not.i.not = icmp eq ptr %4, null
+  %.0 = select i1 %.not.i.not, ptr null, ptr @.str
   ret ptr %.0
 }
 

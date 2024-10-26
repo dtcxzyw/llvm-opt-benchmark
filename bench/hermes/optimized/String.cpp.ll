@@ -11990,38 +11990,23 @@ if.then20:                                        ; preds = %if.end17
 while.cond:                                       ; preds = %if.end17, %if.end28
   %__p.sroa.5.0 = phi ptr [ %__p.sroa.5.1, %if.end28 ], [ %__p1.sroa.5.0, %if.end17 ]
   %__p.sroa.0.0 = phi ptr [ %__p.sroa.0.1, %if.end28 ], [ %__p1.sroa.0.0, %if.end17 ]
-  %__current.sroa.0.0 = phi ptr [ %__current.sroa.0.2, %if.end28 ], [ %__current.sroa.0.1, %if.end17 ]
-  %__current.sroa.9.0 = phi ptr [ %__current.sroa.9.2, %if.end28 ], [ %__current.sroa.9.1, %if.end17 ]
-  %tobool.not.i.i.i = icmp eq ptr %__current.sroa.0.0, null
-  br i1 %tobool.not.i.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
-
-cond.true.i.i.i:                                  ; preds = %while.cond
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__current.sroa.0.0, i64 -1
-  %0 = load i8, ptr %incdec.ptr.i.i.i, align 1
-  %1 = sext i8 %0 to i16
-  br label %_ZNKSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEdeEv.exit.i
-
-cond.false.i.i.i:                                 ; preds = %while.cond
+  %__current.sroa.9.0 = phi ptr [ %incdec.ptr3.i.i.i, %if.end28 ], [ %__current.sroa.9.1, %if.end17 ]
   %incdec.ptr3.i.i.i = getelementptr inbounds i8, ptr %__current.sroa.9.0, i64 -2
-  %2 = load i16, ptr %incdec.ptr3.i.i.i, align 2
-  br label %_ZNKSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEdeEv.exit.i
-
-_ZNKSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEdeEv.exit.i: ; preds = %cond.false.i.i.i, %cond.true.i.i.i
-  %cond.i.i.i = phi i16 [ %1, %cond.true.i.i.i ], [ %2, %cond.false.i.i.i ]
+  %0 = load i16, ptr %incdec.ptr3.i.i.i, align 2
   %tobool.not.i.i2.i = icmp eq ptr %__p.sroa.0.0, null
   br i1 %tobool.not.i.i2.i, label %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit, label %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit.thread
 
-_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit: ; preds = %_ZNKSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEdeEv.exit.i
+_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit: ; preds = %while.cond
   %incdec.ptr3.i.i9.i = getelementptr inbounds i8, ptr %__p.sroa.5.0, i64 -2
-  %3 = load i16, ptr %incdec.ptr3.i.i9.i, align 2
-  %cmp.i = icmp eq i16 %cond.i.i.i, %3
+  %1 = load i16, ptr %incdec.ptr3.i.i9.i, align 2
+  %cmp.i = icmp eq i16 %0, %1
   br i1 %cmp.i, label %_ZNSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEppEv.exit58, label %while.end
 
-_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit.thread: ; preds = %_ZNKSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEdeEv.exit.i
+_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit.thread: ; preds = %while.cond
   %incdec.ptr.i.i4.i = getelementptr inbounds i8, ptr %__p.sroa.0.0, i64 -1
-  %4 = load i8, ptr %incdec.ptr.i.i4.i, align 1
-  %5 = sext i8 %4 to i16
-  %cmp.i99 = icmp eq i16 %cond.i.i.i, %5
+  %2 = load i8, ptr %incdec.ptr.i.i4.i, align 1
+  %3 = sext i8 %2 to i16
+  %cmp.i99 = icmp eq i16 %0, %3
   br i1 %cmp.i99, label %_ZNSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEppEv.exit58, label %while.end
 
 _ZNSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEppEv.exit58: ; preds = %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit, %_ZNK9__gnu_cxx5__ops19_Iter_equal_to_iterclISt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEES8_EEbT_T0_.exit.thread
@@ -12040,14 +12025,8 @@ if.then27:                                        ; preds = %_ZNSt16reverse_iter
   br label %return
 
 if.end28:                                         ; preds = %_ZNSt16reverse_iteratorIN6hermes2vm10StringView14const_iteratorEEppEv.exit58
-  %incdec.ptr.i.i71 = getelementptr inbounds i8, ptr %__current.sroa.0.0, i64 -1
-  %__current.sroa.0.2 = select i1 %tobool.not.i.i.i, ptr null, ptr %incdec.ptr.i.i71
-  %__current.sroa.9.2.idx = select i1 %tobool.not.i.i.i, i64 -2, i64 0
-  %__current.sroa.9.2 = getelementptr inbounds i8, ptr %__current.sroa.9.0, i64 %__current.sroa.9.2.idx
-  %cmp.i.i83 = icmp eq ptr %__current.sroa.0.2, %retval.sroa.0.0.copyload.i1.i28
-  %cmp5.i.i84 = icmp eq ptr %__current.sroa.9.2, %retval.sroa.2.0.copyload.i3.i30
-  %retval.0.i.i85 = select i1 %tobool.not.i.i.i, i1 %cmp5.i.i84, i1 %cmp.i.i83
-  br i1 %retval.0.i.i85, label %if.then31, label %while.cond, !llvm.loop !161
+  %cmp5.i.i84 = icmp eq ptr %incdec.ptr3.i.i.i, %retval.sroa.2.0.copyload.i3.i30
+  br i1 %cmp5.i.i84, label %if.then31, label %while.cond, !llvm.loop !161
 
 if.then31:                                        ; preds = %if.end28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__last1, i64 16, i1 false)

@@ -1203,9 +1203,7 @@ if.then.i.i.i61:                                  ; preds = %if.end.thread, %if.
   %15 = phi i32 [ %8, %if.then.i.i59 ], [ 0, %if.end.thread ]
   %16 = phi ptr [ %7, %if.then.i.i59 ], [ null, %if.end.thread ]
   %17 = phi i32 [ %spec.select, %if.then.i.i59 ], [ 1, %if.end.thread ]
-  %conv.i.i.i.i62 = sext i32 %17 to i64
-  %mul.i.i.i.i63 = shl nsw i64 %conv.i.i.i.i62, 4
-  %call.i.i.i.i88 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %mul.i.i.i.i63, i32 noundef 16)
+  %call.i.i.i.i88 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %_ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i65 unwind label %lpad25.loopexit.split-lp.loopexit.split-lp
 
 _ZN20btAlignedObjectArrayI9btVector3E8allocateEi.exit.i.i65: ; preds = %if.then.i.i.i61, %if.then.i.i59

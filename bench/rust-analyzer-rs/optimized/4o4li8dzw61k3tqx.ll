@@ -22748,34 +22748,20 @@ define void @_ZN3hir11term_search11LookupTable9new_types17h574ac0780a0563c3E(ptr
   %6 = getelementptr inbounds i8, ptr %1, i64 56
   %7 = load i64, ptr %6, align 8, !alias.scope !5692, !noalias !5695, !noundef !9
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %select.unfold, label %9
+  br i1 %8, label %13, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = select i1 %2, i64 5871781006564002453, i64 0
   %12 = call noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h023395474f256f7aE.llvm.1832755805191578588"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10, i64 noundef %11, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %4)
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %select.unfold, label %16
+  br label %13
 
-select.unfold:                                    ; preds = %9, %3
+13:                                               ; preds = %3, %9
   store i64 0, ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %15, align 8
-  br label %18
-
-16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %12, i64 -24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
-  store i64 0, ptr %17, align 8
-  %.sroa.2.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %12, i64 -16
-  store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..0.1.sroa_idx, align 8
-  %.sroa.3.0..0.1.sroa_idx = getelementptr inbounds i8, ptr %12, i64 -8
-  store i64 0, ptr %.sroa.3.0..0.1.sroa_idx, align 8
-  br label %18
-
-18:                                               ; preds = %16, %select.unfold
   ret void
 }
 

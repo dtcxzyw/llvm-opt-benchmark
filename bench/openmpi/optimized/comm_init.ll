@@ -108,31 +108,22 @@ define internal void @ompi_comm_construct(ptr noundef %0) #0 {
   store ptr null, ptr %13, align 8
   %14 = load ptr, ptr @ompi_mpi_comm_world_addr, align 8
   %15 = icmp eq ptr %0, %14
-  br i1 %15, label %.thread, label %16
+  br i1 %15, label %23, label %16
 
 16:                                               ; preds = %1
   %17 = load ptr, ptr @ompi_mpi_comm_self_addr, align 8
   %18 = icmp eq ptr %0, %17
-  br i1 %18, label %.thread, label %19
+  %19 = load ptr, ptr @ompi_mpi_comm_null_addr, align 8
+  %20 = icmp eq ptr %0, %19
+  %21 = select i1 %20, i32 2, i32 -1
+  %22 = select i1 %18, i32 1, i32 %21
+  br label %23
 
-19:                                               ; preds = %16
-  %20 = load ptr, ptr @ompi_mpi_comm_null_addr, align 8
-  %.not37 = icmp eq ptr %0, %20
-  br i1 %.not37, label %.thread, label %21
-
-21:                                               ; preds = %19
-  %22 = tail call i32 @opal_pointer_array_add(ptr noundef nonnull @ompi_comm_f_to_c_table, ptr noundef nonnull %0) #12
-  br label %25
-
-.thread:                                          ; preds = %16, %1, %19
-  %23 = phi i32 [ 2, %19 ], [ 0, %1 ], [ 1, %16 ]
-  %24 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_comm_f_to_c_table, i32 noundef %23, ptr noundef nonnull %0) #12
-  br label %25
-
-25:                                               ; preds = %.thread, %21
-  %.sink = phi i32 [ %23, %.thread ], [ %22, %21 ]
+23:                                               ; preds = %16, %1
+  %24 = phi i32 [ %22, %16 ], [ 0, %1 ]
+  %25 = tail call i32 @opal_pointer_array_set_item(ptr noundef nonnull @ompi_comm_f_to_c_table, i32 noundef %24, ptr noundef nonnull %0) #12
   %26 = getelementptr inbounds i8, ptr %0, i64 244
-  store i32 %.sink, ptr %26, align 4
+  store i32 %24, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 272
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 304
@@ -145,11 +136,11 @@ define internal void @ompi_comm_construct(ptr noundef %0) #0 {
   %.not = icmp eq i32 %30, %31
   br i1 %.not, label %33, label %32
 
-32:                                               ; preds = %25
+32:                                               ; preds = %23
   tail call void @opal_class_initialize(ptr noundef nonnull @opal_mutex_t_class) #12
   br label %33
 
-33:                                               ; preds = %32, %25
+33:                                               ; preds = %32, %23
   %34 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr @opal_mutex_t_class, ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 104
@@ -1818,8 +1809,6 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #9
-
-declare i32 @opal_pointer_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @mca_coll_base_comm_unselect(ptr noundef) local_unnamed_addr #1
 

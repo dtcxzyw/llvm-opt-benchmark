@@ -20060,9 +20060,7 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %68
   %133 = and i32 %132, 1
   %.not.i = icmp eq i32 %133, 0
   %134 = add i32 %.0, 1
-  %.not4145 = icmp eq i32 %134, 0
-  %.not41 = or i1 %.not4145, %.not.i
-  br i1 %.not41, label %.loopexit, label %121, !llvm.loop !303
+  br i1 %.not.i, label %.loopexit, label %121, !llvm.loop !303
 
 .loopexit:                                        ; preds = %129, %_ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit
   ret void
@@ -20363,7 +20361,7 @@ _ZN5Darts7Details8AutoPoolIhE6resizeEm.exit:      ; preds = %4, %.lr.ph.preheade
 
 15:                                               ; preds = %.lr.ph, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit
   %.044 = phi i32 [ %13, %.lr.ph ], [ %33, %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit ]
-  %16 = zext i32 %.044 to i64
+  %16 = zext nneg i32 %.044 to i64
   %17 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 %16
   %19 = load i8, ptr %18, align 1
@@ -20390,10 +20388,8 @@ _ZN5Darts7Details8AutoPoolIhE6appendERKh.exit:    ; preds = %15, %23
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 1
   %.not.i = icmp eq i32 %32, 0
-  %33 = add i32 %.044, 1
-  %.not61 = icmp eq i32 %33, 0
-  %.not = or i1 %.not.i, %.not61
-  br i1 %.not, label %select.unfold._crit_edge, label %15
+  %33 = add nuw nsw i32 %.044, 1
+  br i1 %.not.i, label %select.unfold._crit_edge, label %15
 
 select.unfold._crit_edge:                         ; preds = %_ZN5Darts7Details8AutoPoolIhE6appendERKh.exit, %_ZN5Darts7Details8AutoPoolIhE6resizeEm.exit
   %34 = getelementptr inbounds i8, ptr %0, i64 72
@@ -20528,8 +20524,8 @@ _ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit: ; preds = %_ZNK5Da
   %storemerge.i = or i32 %100, %.pn.i
   store i32 %storemerge.i, ptr %98, align 4
   %105 = load i64, ptr %6, align 8
-  %.not48 = icmp eq i64 %105, 0
-  br i1 %.not48, label %._crit_edge, label %.lr.ph47
+  %.not = icmp eq i64 %105, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph47
 
 .lr.ph47:                                         ; preds = %_ZN5Darts7Details22DoubleArrayBuilderUnit10set_offsetEj.exit
   %106 = load ptr, ptr %8, align 8
@@ -20607,7 +20603,7 @@ _ZN5Darts7Details18DoubleArrayBuilder10reserve_idEj.exit: ; preds = %._crit_edge
   %150 = load ptr, ptr %110, align 8
   %151 = getelementptr inbounds %"class.Darts::Details::DoubleArrayBuilderExtraUnit", ptr %150, i64 %.pre-phi11.i, i32 2
   store i8 1, ptr %151, align 4
-  %152 = zext i32 %.146 to i64
+  %152 = zext nneg i32 %.146 to i64
   %153 = load ptr, ptr %111, align 8
   %154 = getelementptr inbounds i8, ptr %153, i64 %152
   %155 = load i8, ptr %154, align 1
@@ -20648,7 +20644,7 @@ _ZN5Darts7Details18DoubleArrayBuilder10reserve_idEj.exit: ; preds = %._crit_edge
   %180 = load i32, ptr %179, align 4
   %181 = and i32 %180, 1
   %.not.i35 = icmp eq i32 %181, 0
-  %182 = add i32 %.146, 1
+  %182 = add nuw nsw i32 %.146, 1
   %183 = select i1 %.not.i35, i32 0, i32 %182
   %184 = add nuw i64 %.03045, 1
   %185 = load i64, ptr %6, align 8

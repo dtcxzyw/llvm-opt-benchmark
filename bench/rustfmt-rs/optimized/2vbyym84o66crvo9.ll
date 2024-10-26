@@ -18083,53 +18083,41 @@ define hidden noundef i64 @_ZN15rustfmt_nightly5lists16total_item_width17h38a687
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8, !noundef !10
   %9 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8)
-  %10 = extractvalue { ptr, i64 } %9, 1
-  %.not.i = icmp eq i64 %10, 0
-  %11 = add i64 %10, 6
-  %spec.select.i = select i1 %.not.i, i64 0, i64 %11
   br label %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit
 
 _ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit: ; preds = %1, %4
-  %.0.i = phi i64 [ %spec.select.i, %4 ], [ 0, %1 ]
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
-  %13 = load i64, ptr %12, align 8, !range !99, !noundef !10
-  %14 = icmp eq i64 %13, -9223372036854775808
-  br i1 %14, label %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21, label %15
+  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %11 = load i64, ptr %10, align 8, !range !99, !noundef !10
+  %12 = icmp eq i64 %11, -9223372036854775808
+  br i1 %12, label %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21, label %13
 
-15:                                               ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
-  %17 = load ptr, ptr %16, align 8, !nonnull !10, !noundef !10
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
-  %19 = load i64, ptr %18, align 8, !noundef !10
-  %20 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %17, i64 noundef %19)
-  %21 = extractvalue { ptr, i64 } %20, 1
-  %.not.i18 = icmp eq i64 %21, 0
-  %22 = add i64 %21, 6
-  %spec.select.i19 = select i1 %.not.i18, i64 0, i64 %22
+13:                                               ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit
+  %14 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
+  %16 = getelementptr inbounds i8, ptr %0, i64 64
+  %17 = load i64, ptr %16, align 8, !noundef !10
+  %18 = tail call { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h145c2abaaf4f1a22E"(ptr noalias noundef nonnull readonly align 1 %15, i64 noundef %17)
   br label %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21
 
-_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21: ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit, %15
-  %.0.i20 = phi i64 [ %spec.select.i19, %15 ], [ 0, %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit ]
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
-  %24 = load i64, ptr %23, align 8, !range !99, !noundef !10
-  %25 = icmp eq i64 %24, -9223372036854775808
+_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21: ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit, %13
+  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %20 = load i64, ptr %19, align 8, !range !99, !noundef !10
+  %21 = icmp eq i64 %20, -9223372036854775808
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2755)
-  br i1 %25, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hff0ed6bc6d418b5dE.exit", label %26
+  br i1 %21, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hff0ed6bc6d418b5dE.exit", label %22
 
-26:                                               ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %.val.i = load ptr, ptr %27, align 8, !alias.scope !2755, !nonnull !10, !noundef !10
-  %28 = getelementptr inbounds i8, ptr %0, i64 40
-  %.val3.i = load i64, ptr %28, align 8, !alias.scope !2755, !noundef !10
-  %29 = getelementptr inbounds i8, ptr %.val.i, i64 %.val3.i
-  %30 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val.i, ptr noundef nonnull readonly %29, i64 noundef 0), !noalias !2755
+22:                                               ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21
+  %23 = getelementptr inbounds i8, ptr %0, i64 32
+  %.val.i = load ptr, ptr %23, align 8, !alias.scope !2755, !nonnull !10, !noundef !10
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %.val3.i = load i64, ptr %24, align 8, !alias.scope !2755, !noundef !10
+  %25 = getelementptr inbounds i8, ptr %.val.i, i64 %.val3.i
+  %26 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h03edcd25a6097e97E.llvm.13396924176064657314(ptr noundef nonnull readonly align 1 %.val.i, ptr noundef nonnull readonly %25, i64 noundef 0), !noalias !2755
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hff0ed6bc6d418b5dE.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hff0ed6bc6d418b5dE.exit": ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21, %26
-  %.0.i22 = phi i64 [ %30, %26 ], [ 0, %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21 ]
-  %31 = add i64 %.0.i20, %.0.i
-  %32 = add i64 %31, %.0.i22
-  ret i64 %32
+"_ZN4core6option15Option$LT$T$GT$6map_or17hff0ed6bc6d418b5dE.exit": ; preds = %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21, %22
+  %.0.i22 = phi i64 [ %26, %22 ], [ 0, %_ZN15rustfmt_nightly5lists11comment_len17hcad0a0a33f2f8e23E.exit21 ]
+  ret i64 %.0.i22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable

@@ -3787,7 +3787,7 @@ while.end.i.i237:                                 ; preds = %while.body.i.i234.2
 while.cond3.i.i240:                               ; preds = %land.rhs5.i.i253, %while.end.i.i237
   %back.0.i.i241 = phi i64 [ 14, %while.end.i.i237 ], [ %sub.i.i254, %land.rhs5.i.i253 ]
   %cmp4.i.i242 = icmp ugt i64 %back.0.i.i241, %front.0.lcssa.i.i238
-  br i1 %cmp4.i.i242, label %land.rhs5.i.i253, label %_Z4trimPKc.exit259
+  br i1 %cmp4.i.i242, label %land.rhs5.i.i253, label %land.rhs.i.i278.preheader
 
 land.rhs5.i.i253:                                 ; preds = %while.cond3.i.i240
   %sub.i.i254 = add nsw i64 %back.0.i.i241, -1
@@ -3796,22 +3796,14 @@ land.rhs5.i.i253:                                 ; preds = %while.cond3.i.i240
   %conv7.i.i256 = sext i8 %12 to i32
   %call8.i.i257 = tail call i32 @isspace(i32 noundef %conv7.i.i256) #33
   %tobool9.not.i.i258 = icmp eq i32 %call8.i.i257, 0
-  br i1 %tobool9.not.i.i258, label %_Z4trimPKc.exit259, label %while.cond3.i.i240, !llvm.loop !43
+  br i1 %tobool9.not.i.i258, label %if.then55, label %while.cond3.i.i240, !llvm.loop !43
 
-_Z4trimPKc.exit259:                               ; preds = %land.rhs5.i.i253, %while.cond3.i.i240
-  %back.0.lcssa.i.i244 = phi i64 [ %front.0.lcssa.i.i238, %while.cond3.i.i240 ], [ %back.0.i.i241, %land.rhs5.i.i253 ]
-  %sub13.i.i246 = sub i64 %back.0.lcssa.i.i244, %front.0.lcssa.i.i238
-  %sub.i.i.i247 = sub nuw nsw i64 14, %front.0.lcssa.i.i238
-  %.sroa.speculated.i.i.i248 = tail call i64 @llvm.umin.i64(i64 %sub.i.i.i247, i64 %sub13.i.i246)
-  %cmp.i262 = icmp eq i64 %.sroa.speculated.i.i.i248, 0
-  br i1 %cmp.i262, label %land.rhs.i.i278.preheader, label %if.then55
-
-land.rhs.i.i278.preheader:                        ; preds = %_Z4trimPKc.exit259
+land.rhs.i.i278.preheader:                        ; preds = %while.cond3.i.i240
   %call2.i.i282 = tail call i32 @isspace(i32 noundef 32) #33
   %tobool.not.i.i283 = icmp eq i32 %call2.i.i282, 0
   br i1 %tobool.not.i.i283, label %while.end.i.i287, label %while.body.i.i284.1
 
-if.then55:                                        ; preds = %_Z4trimPKc.exit259
+if.then55:                                        ; preds = %land.rhs5.i.i253
   %exception56 = tail call ptr @__cxa_allocate_exception(i64 72) #30
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp58) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp57, ptr noundef nonnull @.str.60, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp58)

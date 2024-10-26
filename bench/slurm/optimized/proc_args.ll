@@ -3473,7 +3473,7 @@ define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 130:                                              ; preds = %127
   %131 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.119, ptr noundef %0, ptr noundef %1) #20
-  br label %144
+  br label %142
 
 132:                                              ; preds = %127, %122, %119, %115, %111, %89, %83, %76, %71, %65, %60, %55, %50, %45, %40, %35, %26, %24
   %.sink = phi i64 [ %., %24 ], [ 16384, %26 ], [ %.252, %35 ], [ %.253, %40 ], [ %.254, %45 ], [ %.255, %50 ], [ %.256, %55 ], [ %.257, %60 ], [ %.258, %65 ], [ %.259, %71 ], [ %.260, %76 ], [ %.261, %83 ], [ %.262, %89 ], [ %.263, %111 ], [ 131072, %115 ], [ 262144, %119 ], [ 1073741824, %122 ], [ 536870912, %127 ]
@@ -3486,26 +3486,24 @@ define i64 @parse_resv_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
   br label %7, !llvm.loop !22
 
 136:                                              ; preds = %7
-  %137 = icmp ne ptr %2, null
-  %138 = icmp ne i64 %.0207, -1
-  %or.cond13 = select i1 %137, i1 %138, i1 false
-  br i1 %or.cond13, label %.sink.split, label %143
+  %.not = icmp eq ptr %2, null
+  br i1 %.not, label %141, label %.sink.split
 
 .sink.split:                                      ; preds = %136
-  %139 = getelementptr inbounds i8, ptr %2, i64 48
-  %140 = load i64, ptr %139, align 8
-  %141 = icmp eq i64 %140, -2
-  %142 = select i1 %141, i64 0, i64 %140
-  %.0207.lcssa.sink = or i64 %.0207, %142
-  store i64 %.0207.lcssa.sink, ptr %139, align 8
-  br label %143
+  %137 = getelementptr inbounds i8, ptr %2, i64 48
+  %138 = load i64, ptr %137, align 8
+  %139 = icmp eq i64 %138, -2
+  %140 = select i1 %139, i64 0, i64 %138
+  %.0207.lcssa.sink = or i64 %.0207, %140
+  store i64 %.0207.lcssa.sink, ptr %137, align 8
+  br label %141
 
-143:                                              ; preds = %.sink.split, %136
+141:                                              ; preds = %.sink.split, %136
   call void @slurm_xfree(ptr noundef nonnull %4) #20
-  br label %144
+  br label %142
 
-144:                                              ; preds = %143, %130
-  %.0211 = phi i64 [ -1, %130 ], [ %.0207, %143 ]
+142:                                              ; preds = %141, %130
+  %.0211 = phi i64 [ -1, %130 ], [ %.0207, %141 ]
   ret i64 %.0211
 }
 

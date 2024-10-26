@@ -2581,21 +2581,16 @@ if.else:                                          ; preds = %if.then57
   %and72 = and i32 %conv53, 31
   %10 = and i32 %conv45, 29
   %or.cond1 = icmp eq i32 %10, 16
-  %spec.select65 = select i1 %or.cond1, i32 19, i32 %and63
   %spec.select66 = select i1 %or.cond1, i32 %and63, i32 %and72
   br label %if.end85
 
 if.end85:                                         ; preds = %if.else, %if.then77
-  %dt.0 = phi i32 [ 19, %if.then77 ], [ %spec.select65, %if.else ]
   %st.0 = phi i32 [ %or, %if.then77 ], [ %spec.select66, %if.else ]
-  %11 = trunc nuw nsw i32 %dt.0 to i16
-  %conv87 = or disjoint i16 %11, 23296
-  store i16 %conv87, ptr %t, align 4
-  %12 = load i16, ptr %op248, align 2
-  store i16 %12, ptr %fold, align 8
-  %shl = shl nuw nsw i32 %dt.0, 5
-  %or94 = or i32 %shl, %st.0
-  %conv95 = trunc nuw nsw i32 %or94 to i16
+  store i16 23315, ptr %t, align 4
+  %11 = load i16, ptr %op248, align 2
+  store i16 %11, ptr %fold, align 8
+  %12 = trunc nuw nsw i32 %st.0 to i16
+  %conv95 = or i16 %12, 608
   store i16 %conv95, ptr %op2, align 2
   br label %return
 

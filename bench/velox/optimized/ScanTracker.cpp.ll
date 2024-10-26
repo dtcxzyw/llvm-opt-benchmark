@@ -60,9 +60,6 @@ $_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20sa
 $_ZZN5folly3f146detail8F14ChunkIjE6setTagEmmE30__folly_detail_safe_assert_arg_0 = comdat any
 
 @.str = private unnamed_addr constant [17 x i8] c"ScanTracker for \00", align 1
-@.str.1 = private unnamed_addr constant [3 x i8] c": \00", align 1
-@.str.2 = private unnamed_addr constant [3 x i8] c"% \00", align 1
-@.str.3 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 @_ZTISt9bad_alloc = external constant ptr
 @_ZTVSt9bad_alloc = external unnamed_addr constant { [5 x ptr] }, align 8
@@ -260,98 +257,26 @@ entry:
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out)
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 16
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, ptr noundef nonnull @.str)
-          to label %invoke.cont unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
   %id_ = getelementptr inbounds i8, ptr %this, i64 40
   %call3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull align 8 dereferenceable(32) %id_)
-          to label %invoke.cont2 unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call3, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %invoke.cont8 unwind label %lpad.loopexit.split-lp
+          to label %for.end unwind label %lpad
 
-invoke.cont8:                                     ; preds = %invoke.cont2
-  %data_ = getelementptr inbounds i8, ptr %this, i64 104
-  %sizeAndPackedBegin_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 124
-  %0 = load i32, ptr %sizeAndPackedBegin_.i.i.i.i, align 4
-  %cmp.not.i.i.i = icmp eq i32 %0, 0
-  %1 = load ptr, ptr %data_, align 8
-  br i1 %cmp.not.i.i.i, label %for.end, label %for.body.preheader
-
-for.body.preheader:                               ; preds = %invoke.cont8
-  %conv.i.i.i = zext i32 %0 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %1, i64 %conv.i.i.i
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %__begin2.sroa.0.010.pn = phi ptr [ %__begin2.sroa.0.010, %for.inc ], [ %add.ptr.i.i.i, %for.body.preheader ]
-  %__begin2.sroa.0.010 = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.pn, i64 -32
-  %second = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.pn, i64 -24
-  %readBytes = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.pn, i64 -16
-  %2 = load i64, ptr %readBytes, align 8
-  %mul = mul nsw i64 %2, 100
-  %3 = load i64, ptr %second, align 8
-  %add = add nsw i64 %3, 1
-  %div = sdiv i64 %mul, %add
-  %conv = trunc i64 %div to i32
-  %4 = load i32, ptr %__begin2.sroa.0.010, align 4
-  %call19 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, i32 noundef %4)
-          to label %invoke.cont18 unwind label %lpad.loopexit
-
-invoke.cont18:                                    ; preds = %for.body
-  %call21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call19, ptr noundef nonnull @.str.1)
-          to label %invoke.cont20 unwind label %lpad.loopexit
-
-invoke.cont20:                                    ; preds = %invoke.cont18
-  %call23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call21, i32 noundef %conv)
-          to label %invoke.cont22 unwind label %lpad.loopexit
-
-invoke.cont22:                                    ; preds = %invoke.cont20
-  %call25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call23, ptr noundef nonnull @.str.2)
-          to label %invoke.cont24 unwind label %lpad.loopexit
-
-invoke.cont24:                                    ; preds = %invoke.cont22
-  %5 = load i64, ptr %readBytes, align 8
-  %call29 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8) %call25, i64 noundef %5)
-          to label %invoke.cont28 unwind label %lpad.loopexit
-
-invoke.cont28:                                    ; preds = %invoke.cont24
-  %call31 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call29, ptr noundef nonnull @.str.3)
-          to label %invoke.cont30 unwind label %lpad.loopexit
-
-invoke.cont30:                                    ; preds = %invoke.cont28
-  %numReads = getelementptr inbounds i8, ptr %__begin2.sroa.0.010.pn, i64 -4
-  %6 = load i32, ptr %numReads, align 4
-  %call34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %call31, i32 noundef %6)
-          to label %invoke.cont33 unwind label %lpad.loopexit
-
-invoke.cont33:                                    ; preds = %invoke.cont30
-  %call36 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call34, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
-          to label %for.inc unwind label %lpad.loopexit
-
-for.inc:                                          ; preds = %invoke.cont33
-  %cmp.i = icmp eq ptr %__begin2.sroa.0.010, %1
-  br i1 %cmp.i, label %for.end, label %for.body
-
-lpad.loopexit:                                    ; preds = %for.body, %invoke.cont18, %invoke.cont20, %invoke.cont22, %invoke.cont24, %invoke.cont28, %invoke.cont30, %invoke.cont33
-  %lpad.loopexit8 = landingpad { ptr, i32 }
+lpad:                                             ; preds = %for.end, %invoke.cont2, %invoke.cont, %entry
+  %0 = landingpad { ptr, i32 }
           cleanup
-  br label %lpad
-
-lpad.loopexit.split-lp:                           ; preds = %entry, %invoke.cont, %invoke.cont2, %for.end
-  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
-          cleanup
-  br label %lpad
-
-lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #19
-  resume { ptr, i32 } %lpad.phi
+  resume { ptr, i32 } %0
 
-for.end:                                          ; preds = %for.inc, %invoke.cont8
+for.end:                                          ; preds = %invoke.cont2
   invoke void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %out)
-          to label %invoke.cont39 unwind label %lpad.loopexit.split-lp
+          to label %invoke.cont39 unwind label %lpad
 
 invoke.cont39:                                    ; preds = %for.end
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #19
@@ -367,10 +292,6 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #2
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
-
-declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 

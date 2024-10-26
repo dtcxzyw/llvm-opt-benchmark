@@ -359,7 +359,7 @@ define hidden range(i32 0, 4) i32 @av1_get_intra_inter_context(ptr nocapture nou
   %10 = load i8, ptr %9, align 1
   %11 = trunc i8 %10 to i1
   %or.cond = select i1 %8, i1 %11, i1 false
-  br i1 %or.cond, label %12, label %28
+  br i1 %or.cond, label %12, label %is_inter_block.exit28
 
 12:                                               ; preds = %1
   %13 = getelementptr i8, ptr %3, i64 175
@@ -396,27 +396,8 @@ is_inter_block.exit25:                            ; preds = %is_inter_block.exit
   %27 = select i1 %or.cond3, i32 3, i32 %26
   br label %is_inter_block.exit28
 
-28:                                               ; preds = %1
-  %or.cond5 = select i1 %8, i1 true, i1 %11
-  br i1 %or.cond5, label %29, label %is_inter_block.exit28
-
-29:                                               ; preds = %28
-  %30 = select i1 %8, ptr %3, ptr %5
-  %31 = getelementptr i8, ptr %30, i64 175
-  %.val.i26 = load i16, ptr %31, align 1
-  %32 = and i16 %.val.i26, 128
-  %.not.i27 = icmp eq i16 %32, 0
-  br i1 %.not.i27, label %33, label %is_inter_block.exit28
-
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %35 = load i8, ptr %34, align 8
-  %36 = icmp sgt i8 %35, 0
-  %37 = select i1 %36, i32 0, i32 2
-  br label %is_inter_block.exit28
-
-is_inter_block.exit28:                            ; preds = %33, %29, %28, %is_inter_block.exit25
-  %.0 = phi i32 [ %27, %is_inter_block.exit25 ], [ 0, %28 ], [ 0, %29 ], [ %37, %33 ]
+is_inter_block.exit28:                            ; preds = %1, %is_inter_block.exit25
+  %.0 = phi i32 [ %27, %is_inter_block.exit25 ], [ 0, %1 ]
   ret i32 %.0
 }
 

@@ -19209,7 +19209,7 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail12posix_threadC2INS1_9sche
 
 _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i: ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br label %23
+  br label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
 
 _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i: ; preds = %11
   %18 = load ptr, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, align 8, !tbaa !18
@@ -19218,49 +19218,39 @@ _ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i: ; preds = %11
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(52) @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i32 noundef %10) #35
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %spec.select.i = select i1 %21, i64 3, i64 2
-  br label %23
+  br label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
 
-23:                                               ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i
-  %24 = phi ptr [ %17, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ], [ %22, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ]
-  %25 = phi i64 [ 3, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ], [ %spec.select.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ]
-  store i64 %25, ptr %24, align 8, !tbaa !417
+_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i
+  %23 = phi ptr [ %17, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ], [ %22, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ]
+  %24 = phi i64 [ 3, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.thread.i ], [ %spec.select.i, %_ZN5boost6system10error_codeC2EiRKNS0_14error_categoryE.exit.i ]
+  store i64 %24, ptr %23, align 8, !tbaa !417
   store i32 %10, ptr %5, align 8, !tbaa !15
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %26, align 8, !tbaa !15
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, ptr %25, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #35
   store ptr @.str.116, ptr %6, align 8, !tbaa !439
-  %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr @.str.117, ptr %27, align 8, !tbaa !441
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 66, ptr %28, align 8, !tbaa !442
-  %29 = getelementptr inbounds nuw i8, ptr %6, i64 20
-  store i32 5, ptr %29, align 4, !tbaa !443
-  %30 = and i64 %25, 1
-  %.not.i.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not.i.i.i.i, label %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit.i, label %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
-
-_ZNK5boost6system10error_codecvbEv.exit.thread.i.i: ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr @.str.117, ptr %26, align 8, !tbaa !441
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 66, ptr %27, align 8, !tbaa !442
+  %28 = getelementptr inbounds nuw i8, ptr %6, i64 20
+  store i32 5, ptr %28, align 4, !tbaa !443
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #35
   call void @_ZN5boost6system12system_errorC2ERKNS0_10error_codeEPKc(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull @.str.115)
   invoke void @_ZN5boost15throw_exceptionINS_6system12system_errorEEEvRKT_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %6) #39
-          to label %31 unwind label %.body
+          to label %29 unwind label %.body
 
-31:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
+29:                                               ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
   unreachable
 
 .body:                                            ; preds = %_ZNK5boost6system10error_codecvbEv.exit.thread.i.i
-  %32 = landingpad { ptr, i32 }
+  %30 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #35
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #35
-  resume { ptr, i32 } %32
+  resume { ptr, i32 } %30
 
-_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit.i: ; preds = %23
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #35
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #35
-  br label %_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE.exit
-
-_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE.exit: ; preds = %_ZN5boost4asio6detail11throw_errorERKNS_6system10error_codeEPKcRKNS_15source_locationE.exit.i, %3
+_ZN5boost4asio6detail12posix_thread12start_threadEPNS2_9func_baseE.exit: ; preds = %3
   ret void
 }
 

@@ -3592,23 +3592,19 @@ define internal fastcc noundef zeroext i1 @_ZN10ockam_core12flow_control14access
   %12 = load i64, ptr %11, align 8, !alias.scope !366, !noalias !367, !noundef !8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6), !noalias !370
   invoke void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17hca39e3fa9f4005fdE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noundef nonnull %8, i64 noundef %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
-          to label %.noexc unwind label %14
+          to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %10
-  %13 = load i64, ptr %6, align 8, !range !4, !noalias !370, !noundef !8
-  %trunc.i.i = trunc nuw i64 %13 to i1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6), !noalias !370
-  %not.trunc.i.i = xor i1 %trunc.i.i, true
   br label %_ZN10ockam_core12flow_control13flow_controls14consumers_info13ConsumersInfo8contains17h80cf80ce52dbe7efE.exit
 
-14:                                               ; preds = %10
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %10
+  %14 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr91drop_in_place$LT$ockam_core..flow_control..flow_controls..consumers_info..ConsumersInfo$GT$17h9e0e5a1a542e242eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #23
-          to label %18 unwind label %16
+          to label %17 unwind label %15
 
 _ZN10ockam_core12flow_control13flow_controls14consumers_info13ConsumersInfo8contains17h80cf80ce52dbe7efE.exit: ; preds = %.noexc, %3
-  %.0.i.i = phi i1 [ %not.trunc.i.i, %.noexc ], [ false, %3 ]
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5), !noalias !371
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !371
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -3617,16 +3613,16 @@ _ZN10ockam_core12flow_control13flow_controls14consumers_info13ConsumersInfo8cont
   call void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h611f3fd1899e8239E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5), !noalias !371
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !371
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
-  ret i1 %.0.i.i
+  ret i1 false
 
-16:                                               ; preds = %14
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %13
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #24
   unreachable
 
-18:                                               ; preds = %14
-  resume { ptr, i32 } %15
+17:                                               ; preds = %13
+  resume { ptr, i32 } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

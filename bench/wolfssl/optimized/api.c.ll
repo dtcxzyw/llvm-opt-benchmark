@@ -33837,9 +33837,7 @@ for.body:                                         ; preds = %entry, %for.body
 for.end:                                          ; preds = %for.body
   tail call void @wolfSSL_free(ptr noundef %call2) #25
   tail call void @wolfSSL_CTX_free(ptr noundef %call1) #25
-  %cmp5 = icmp eq i32 %spec.select, 1
-  %cond = zext i1 %cmp5 to i32
-  ret i32 %cond
+  ret i32 %spec.select
 }
 
 ; Function Attrs: nounwind uwtable
@@ -33862,9 +33860,7 @@ for.body:                                         ; preds = %entry, %for.body
 
 for.end:                                          ; preds = %for.body
   tail call void @wolfSSL_CTX_free(ptr noundef %call1) #25
-  %cmp4 = icmp eq i32 %spec.select, 1
-  %cond = zext i1 %cmp4 to i32
-  ret i32 %cond
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
