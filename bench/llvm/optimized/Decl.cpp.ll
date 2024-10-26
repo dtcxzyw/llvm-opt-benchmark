@@ -9807,7 +9807,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK5clang7VarDecl13hasDefinitionE
   %.sroa.6.018 = phi i1 [ %.sroa.6.0.mux, %10 ], [ false, %2 ]
   %.sroa.07.017 = phi ptr [ %11, %10 ], [ %4, %2 ]
   %5 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.07.017, ptr noundef nonnull align 8 dereferenceable(23096) %1)
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.019, i32 %5)
+  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.019, i32 %5)
   %6 = icmp eq i32 %.sroa.speculated, 2
   br i1 %6, label %._crit_edge, label %7
 
@@ -12454,7 +12454,7 @@ _ZNK5clang4Decl7hasAttrINS_14CUDASharedAttrEEEbv.exit: ; preds = %.lr.ph.i4.i.i.
   %.sroa.6.018.i.i = phi i1 [ %.sroa.6.0.mux.i.i, %55 ], [ false, %.critedge ]
   %.sroa.07.017.i.i = phi ptr [ %56, %55 ], [ %49, %.critedge ]
   %50 = tail call noundef i32 @_ZNK5clang7VarDecl28isThisDeclarationADefinitionERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %.sroa.07.017.i.i, ptr noundef nonnull readonly align 8 dereferenceable(23096) %47)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.019.i.i, i32 %50)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.019.i.i, i32 %50)
   %51 = icmp eq i32 %.sroa.speculated.i.i, 2
   br i1 %51, label %_ZNK5clang7VarDecl13hasDefinitionEv.exit.loopexit, label %52
 
@@ -30995,9 +30995,6 @@ declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #23
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

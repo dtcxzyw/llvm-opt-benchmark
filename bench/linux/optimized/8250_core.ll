@@ -2171,9 +2171,7 @@ define internal range(i32 0, 2) i32 @serial8250_interrupt(i32 %0, ptr noundef %1
 
 29:                                               ; preds = %6
   tail call void @_raw_spin_unlock(ptr noundef %3) #12
-  %30 = icmp ne i32 %18, 0
-  %31 = zext i1 %30 to i32
-  ret i32 %31
+  ret i32 %18
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)

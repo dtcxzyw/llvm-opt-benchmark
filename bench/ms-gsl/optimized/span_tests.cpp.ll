@@ -37553,32 +37553,32 @@ lpad:                                             ; preds = %_ZNSt6vectorINSt7__
 
 for.end:                                          ; preds = %for.inc, %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit
   %23 = load i8, ptr %_M_has_sol, align 4
-  %24 = select i1 %cmp, i8 %23, i8 0
-  %__ret.2 = or i8 %__ret.0, %24
-  %25 = load ptr, ptr %_M_current, align 8
-  %26 = load ptr, ptr %_M_end, align 8
-  %cmp.i12 = icmp eq ptr %25, %26
-  %27 = load ptr, ptr %end_.i, align 8
-  %28 = load ptr, ptr %end_3.i, align 8
-  %cmp4.i = icmp eq ptr %27, %28
-  %29 = select i1 %cmp.i12, i1 %cmp4.i, i1 false
-  br i1 %29, label %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit, label %cond.false.i
+  %or6 = select i1 %cmp, i8 %23, i8 0
+  %__ret.2 = or i8 %or6, %__ret.0
+  %24 = load ptr, ptr %_M_current, align 8
+  %25 = load ptr, ptr %_M_end, align 8
+  %cmp.i12 = icmp eq ptr %24, %25
+  %26 = load ptr, ptr %end_.i, align 8
+  %27 = load ptr, ptr %end_3.i, align 8
+  %cmp4.i = icmp eq ptr %26, %27
+  %28 = select i1 %cmp.i12, i1 %cmp4.i, i1 false
+  br i1 %28, label %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit, label %cond.false.i
 
 cond.false.i:                                     ; preds = %for.end
   call void @_ZN3gsl7details9terminateEv() #31
   unreachable
 
 _ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit: ; preds = %for.end
-  %30 = load ptr, ptr %current_.i, align 8
-  %31 = load ptr, ptr %current_6.i, align 8
-  %cmp7.i.not = icmp eq ptr %30, %31
+  %29 = load ptr, ptr %current_.i, align 8
+  %30 = load ptr, ptr %current_6.i, align 8
+  %cmp7.i.not = icmp eq ptr %29, %30
   br i1 %cmp7.i.not, label %cleanup, label %if.end24
 
 if.end24:                                         ; preds = %_ZNK3gsl7details13span_iteratorIcEeqIcTnNSt9enable_ifIXsr3std7is_sameINSt9remove_cvIT_E4typeEcEE5valueEiE4typeELi0EEEbRKNS1_IS6_EE.exit
-  %tobool.not.i = icmp ne ptr %25, null
-  %tobool2.not.i = icmp ne ptr %30, null
+  %tobool.not.i = icmp ne ptr %24, null
+  %tobool2.not.i = icmp ne ptr %29, null
   %or.cond.not2.i = and i1 %tobool.not.i, %tobool2.not.i
-  %tobool3.i = icmp ne ptr %27, null
+  %tobool3.i = icmp ne ptr %26, null
   %or.cond1.i = select i1 %or.cond.not2.i, i1 %tobool3.i, i1 false
   br i1 %or.cond1.i, label %cond.end.i, label %cond.false.i15
 
@@ -37587,7 +37587,7 @@ cond.false.i15:                                   ; preds = %if.end24
   unreachable
 
 cond.end.i:                                       ; preds = %if.end24
-  %cmp.i16 = icmp ult ptr %30, %27
+  %cmp.i16 = icmp ult ptr %29, %26
   br i1 %cmp.i16, label %_ZN3gsl7details13span_iteratorIcEppEv.exit, label %cond.false10.i
 
 cond.false10.i:                                   ; preds = %cond.end.i
@@ -37595,7 +37595,7 @@ cond.false10.i:                                   ; preds = %cond.end.i
   unreachable
 
 _ZN3gsl7details13span_iteratorIcEppEv.exit:       ; preds = %cond.end.i
-  %incdec.ptr.i17 = getelementptr inbounds i8, ptr %30, i64 1
+  %incdec.ptr.i17 = getelementptr inbounds i8, ptr %29, i64 1
   store ptr %incdec.ptr.i17, ptr %current_.i, align 8
   br label %cleanup
 
@@ -37605,12 +37605,12 @@ cleanup:                                          ; preds = %_ZNK3gsl7details13s
 for.body.i.i.i.i:                                 ; preds = %cleanup, %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i ], [ %.pr.i, %cleanup ]
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %32 = load ptr, ptr %second.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
+  %31 = load ptr, ptr %second.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %for.body.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %32) #30
+  call void @_ZdlPv(ptr noundef nonnull %31) #30
   br label %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i
@@ -37639,12 +37639,12 @@ while.end:                                        ; preds = %_ZNSt6vectorISt4pai
 for.body.i.i.i.i.i:                               ; preds = %while.end, %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i.i
   %__first.addr.04.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i.i ], [ %.pre30, %while.end ]
   %second.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 8
-  %33 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %second.i.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i:                      ; preds = %for.body.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %33) #30
+  call void @_ZdlPv(ptr noundef nonnull %32) #30
   br label %_ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i.i
 
 _ZSt8_DestroyISt4pairIlSt6vectorINSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS8_EEEEvPT_.exit.i.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i
@@ -37658,9 +37658,9 @@ invoke.cont.i.i:                                  ; preds = %_ZSt8_DestroyISt4pa
 
 _ZNSt6vectorISt4pairIlS_INSt7__cxx119sub_matchIN3gsl7details13span_iteratorIcEEEESaIS7_EEESaISA_EE5clearEv.exit: ; preds = %while.body, %while.end, %invoke.cont.i.i
   %__ret.134 = phi i8 [ %__ret.2, %while.end ], [ %__ret.2, %invoke.cont.i.i ], [ %__ret.0, %while.body ]
-  %34 = phi i8 [ %.pre29, %while.end ], [ %.pre29, %invoke.cont.i.i ], [ 0, %while.body ]
+  %33 = phi i8 [ %.pre29, %while.end ], [ %.pre29, %invoke.cont.i.i ], [ 0, %while.body ]
   %cmp27 = icmp eq i8 %__match_mode, 0
-  %__ret.3 = select i1 %cmp27, i8 %34, i8 %__ret.134
+  %__ret.3 = select i1 %cmp27, i8 %33, i8 %__ret.134
   %tobool35 = trunc i8 %__ret.3 to i1
   ret i1 %tobool35
 }

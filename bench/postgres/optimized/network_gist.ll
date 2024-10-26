@@ -438,12 +438,12 @@ define dso_local i64 @inet_gist_union(ptr nocapture noundef readonly %0) local_u
   %24 = getelementptr inbounds i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.03757.i, i32 %26)
-  %.144.i = tail call i32 @llvm.smax.i32(i32 %.04354.i, i32 %26)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.03757.i, i32 %26)
+  %.144.i = tail call i32 @llvm.umax.i32(i32 %.04354.i, i32 %26)
   %27 = getelementptr inbounds i8, ptr %23, i64 2
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i32
-  %.141.i = tail call i32 @llvm.smin.i32(i32 %.04055.i, i32 %29)
+  %.141.i = tail call i32 @llvm.umin.i32(i32 %.04055.i, i32 %29)
   %30 = getelementptr inbounds i8, ptr %23, i64 3
   %31 = load i8, ptr %30, align 1
   %32 = zext i8 %31 to i32
@@ -773,8 +773,8 @@ define dso_local i64 @inet_gist_picksplit(ptr nocapture noundef readonly %0) loc
   %32 = getelementptr inbounds i8, ptr %31, i64 1
   %33 = load i8, ptr %32, align 1
   %34 = zext i8 %33 to i32
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.03757.i, i32 %34)
-  %.144.i = tail call i32 @llvm.smax.i32(i32 %.04354.i, i32 %34)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.03757.i, i32 %34)
+  %.144.i = tail call i32 @llvm.umax.i32(i32 %.04354.i, i32 %34)
   %35 = getelementptr inbounds i8, ptr %31, i64 3
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i32
@@ -991,12 +991,12 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   %133 = getelementptr inbounds i8, ptr %132, i64 1
   %134 = load i8, ptr %133, align 1
   %135 = zext i8 %134 to i32
-  %spec.select.i102 = tail call i32 @llvm.smin.i32(i32 %.03754.i, i32 %135)
-  %.144.i103 = tail call i32 @llvm.smax.i32(i32 %.04351.i, i32 %135)
+  %spec.select.i102 = tail call i32 @llvm.umin.i32(i32 %.03754.i, i32 %135)
+  %.144.i103 = tail call i32 @llvm.umax.i32(i32 %.04351.i, i32 %135)
   %136 = getelementptr inbounds i8, ptr %132, i64 2
   %137 = load i8, ptr %136, align 1
   %138 = zext i8 %137 to i32
-  %.141.i104 = tail call i32 @llvm.smin.i32(i32 %.04052.i, i32 %138)
+  %.141.i104 = tail call i32 @llvm.umin.i32(i32 %.04052.i, i32 %138)
   %139 = getelementptr inbounds i8, ptr %132, i64 3
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i32
@@ -1117,12 +1117,12 @@ build_inet_union_key.exit:                        ; preds = %167, %170
   %206 = getelementptr inbounds i8, ptr %205, i64 1
   %207 = load i8, ptr %206, align 1
   %208 = zext i8 %207 to i32
-  %spec.select.i123 = tail call i32 @llvm.smin.i32(i32 %.03754.i119, i32 %208)
-  %.144.i124 = tail call i32 @llvm.smax.i32(i32 %.04351.i122, i32 %208)
+  %spec.select.i123 = tail call i32 @llvm.umin.i32(i32 %.03754.i119, i32 %208)
+  %.144.i124 = tail call i32 @llvm.umax.i32(i32 %.04351.i122, i32 %208)
   %209 = getelementptr inbounds i8, ptr %205, i64 2
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i32
-  %.141.i125 = tail call i32 @llvm.smin.i32(i32 %.04052.i121, i32 %211)
+  %.141.i125 = tail call i32 @llvm.umin.i32(i32 %.04052.i121, i32 %211)
   %212 = getelementptr inbounds i8, ptr %205, i64 3
   %213 = load i8, ptr %212, align 1
   %214 = zext i8 %213 to i32
@@ -1270,10 +1270,13 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
 declare i8 @llvm.umin.i8(i8, i8) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.umax.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

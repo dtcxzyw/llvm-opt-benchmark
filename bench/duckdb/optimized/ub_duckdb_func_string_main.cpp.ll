@@ -12986,17 +12986,15 @@ if.else:                                          ; preds = %if.end84
 cleanup123:                                       ; preds = %if.else, %if.end93
   %pidx.8 = phi i64 [ %add105, %if.end93 ], [ %add, %if.else ]
   %matches.0.in = phi i1 [ %18, %if.end93 ], [ %cmp108, %if.else ]
-  %19 = and i8 %found_match.0279, 1
-  %20 = icmp eq i8 %19, 0
-  %cmp116.not.not = xor i1 %cmp66, %20
+  %19 = icmp eq i8 %found_match.0279, 0
+  %cmp116.not.not = xor i1 %cmp66, %19
   %brmerge.not = select i1 %cmp116.not.not, i1 %matches.0.in, i1 false
   %found_match.1 = select i1 %brmerge.not, i8 %frombool121, i8 %found_match.0279
   %cmp73 = icmp ult i64 %pidx.8, %plen
   br i1 %cmp73, label %while.body74, label %cleanup141
 
 while.end126:                                     ; preds = %while.body74
-  %21 = and i8 %found_match.0279, 1
-  %tobool130.not = icmp eq i8 %21, 0
+  %tobool130.not = icmp eq i8 %found_match.0279, 0
   br i1 %tobool130.not, label %cleanup141, label %cleanup134
 
 cleanup134:                                       ; preds = %while.end126
@@ -13004,8 +13002,8 @@ cleanup134:                                       ; preds = %while.end126
   %inc133 = add i64 %.us-phi266, 1
   %cmp257 = icmp ult i64 %inc133, %slen
   %cmp1258 = icmp ult i64 %inc80, %plen
-  %22 = select i1 %cmp257, i1 %cmp1258, i1 false
-  br i1 %22, label %while.body.lr.ph, label %while.cond44.preheader
+  %20 = select i1 %cmp257, i1 %cmp1258, i1 false
+  br i1 %20, label %while.body.lr.ph, label %while.cond44.preheader
 
 cleanup141:                                       ; preds = %while.end126, %if.end60, %parse_bracket, %sw.default, %if.end28, %sw.bb24, %sw.default.us, %if.end28.us, %sw.bb24.us, %cleanup123, %if.then89, %if.end81, %for.body, %while.end53, %for.cond.preheader, %while.end
   %retval.4 = phi i1 [ %12, %while.end53 ], [ true, %while.end ], [ false, %for.cond.preheader ], [ %call, %for.body ], [ false, %if.end81 ], [ false, %if.then89 ], [ false, %cleanup123 ], [ false, %sw.bb24.us ], [ false, %if.end28.us ], [ false, %sw.default.us ], [ false, %sw.bb24 ], [ false, %if.end28 ], [ false, %sw.default ], [ false, %parse_bracket ], [ false, %if.end60 ], [ false, %while.end126 ]

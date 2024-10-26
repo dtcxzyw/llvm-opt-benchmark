@@ -507,7 +507,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %69 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0136246) #5
   %70 = and i32 %69, 1
   %71 = icmp ne i32 %70, 0
-  %72 = trunc i8 %..0139 to i1
+  %72 = trunc nuw i8 %..0139 to i1
   %73 = and i32 %69, 2
   %74 = icmp eq i32 %73, 0
   %.0154 = select i1 %74, i8 0, i8 %..0139
@@ -603,11 +603,11 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
 .thread283:                                       ; preds = %98, %107
   %108 = phi i1 [ %.2131, %107 ], [ true, %98 ]
   %109 = phi i1 [ %.2134, %107 ], [ true, %98 ]
-  %110 = trunc i8 %.0160 to i1
+  %110 = trunc nuw i8 %.0160 to i1
   %111 = load i32, ptr %19, align 4
   %.not175 = icmp sge i32 %111, %6
   %or.cond185.not = select i1 %110, i1 %.not175, i1 false
-  %112 = trunc i8 %.0158 to i1
+  %112 = trunc nuw i8 %.0158 to i1
   %.not176 = icmp sle i32 %111, %20
   %or.cond212.not = select i1 %112, i1 %.not176, i1 false
   %or.cond257 = select i1 %or.cond185.not, i1 true, i1 %or.cond212.not
@@ -628,7 +628,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   %117 = select i1 %71, i1 %72, i1 false
   %.not177 = icmp sge i32 %.pre270, %6
   %or.cond187.not = select i1 %117, i1 %.not177, i1 false
-  %118 = trunc i8 %.0154 to i1
+  %118 = trunc nuw i8 %.0154 to i1
   %.not178 = icmp sle i32 %.pre270, %20
   %or.cond214.not = select i1 %118, i1 %.not178, i1 false
   %or.cond258 = select i1 %or.cond187.not, i1 true, i1 %or.cond214.not
@@ -640,7 +640,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   br i1 %or.cond190.not, label %129, label %120
 
 120:                                              ; preds = %116
-  %121 = trunc i8 %.0154 to i1
+  %121 = trunc nuw i8 %.0154 to i1
   %122 = select i1 %.2143, i1 %121, i1 false
   %.not180 = icmp sle i32 %.pre270, %20
   %or.cond216.not = select i1 %122, i1 %.not180, i1 false
@@ -649,7 +649,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
 .thread297:                                       ; preds = %113, %120
   %.4128293303 = phi i16 [ %spec.select261, %120 ], [ %.3127, %113 ]
   %.4295302 = phi ptr [ %spec.select262, %120 ], [ %.3, %113 ]
-  %123 = trunc i8 %.0160 to i1
+  %123 = trunc nuw i8 %.0160 to i1
   %124 = select i1 %115, i1 %123, i1 false
   %125 = load i32, ptr %19, align 4
   %.not181 = icmp sge i32 %125, %6
@@ -657,7 +657,7 @@ define ptr @lv_indev_find_scroll_obj(ptr nocapture noundef %0) local_unnamed_add
   br i1 %or.cond192.not, label %129, label %126
 
 126:                                              ; preds = %.thread297
-  %127 = trunc i8 %.0158 to i1
+  %127 = trunc nuw i8 %.0158 to i1
   %128 = select i1 %114, i1 %127, i1 false
   %.not182 = icmp sle i32 %125, %20
   %or.cond218.not = select i1 %128, i1 %.not182, i1 false

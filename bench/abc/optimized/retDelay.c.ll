@@ -517,7 +517,7 @@ Vec_IntFillExtra.exit:                            ; preds = %95, %._crit_edge.i
   %194 = getelementptr inbounds ptr, ptr %.val180.val.val.i, i64 %193
   %195 = load ptr, ptr %194, align 8
   %196 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %195, i32 noundef 0)
-  %spec.select146.i = tail call i32 @llvm.smax.i32(i32 %.7306.i, i32 %196)
+  %spec.select146.i = tail call i32 @llvm.umax.i32(i32 %.7306.i, i32 %196)
   %indvars.iv.next345.i = add nuw nsw i64 %indvars.iv344.i, 1
   %exitcond348.not.i = icmp eq i64 %indvars.iv.next345.i, %wide.trip.count347.i
   br i1 %exitcond348.not.i, label %.critedge10.preheader.i, label %187, !llvm.loop !12
@@ -1494,7 +1494,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
   %33 = getelementptr inbounds ptr, ptr %.val40.val.val, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %34, i32 noundef %1)
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.050, i32 %35)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.050, i32 %35)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val39 = load i32, ptr %21, align 4
   %36 = sext i32 %.val39 to i64
@@ -1516,7 +1516,7 @@ define internal fastcc range(i32 0, 1048576) i32 @Abc_NtkRetimeTiming_rec(ptr no
   %44 = getelementptr inbounds ptr, ptr %.val43.val.val, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = tail call fastcc i32 @Abc_NtkRetimeTiming_rec(ptr noundef %45, i32 noundef 0)
-  %spec.select37 = tail call i32 @llvm.smax.i32(i32 %.353, i32 %46)
+  %spec.select37 = tail call i32 @llvm.umax.i32(i32 %.353, i32 %46)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
   %.val42 = load i32, ptr %24, align 4
   %47 = sext i32 %.val42 to i64
@@ -1643,6 +1643,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

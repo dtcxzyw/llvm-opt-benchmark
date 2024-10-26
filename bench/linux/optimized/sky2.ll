@@ -3558,7 +3558,7 @@ define internal noundef range(i32 -95, 1) i32 @sky2_set_wol(ptr nocapture nounde
   %11 = select i1 %10, i32 -34, i32 -1
   %12 = and i32 %11, %6
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %49
+  br i1 %13, label %14, label %48
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds i8, ptr %4, i64 8
@@ -3567,7 +3567,7 @@ define internal noundef range(i32 -95, 1) i32 @sky2_set_wol(ptr nocapture nounde
   %18 = load i16, ptr %17, align 4
   %19 = and i16 %18, 1
   %20 = icmp eq i16 %19, 0
-  br i1 %20, label %49, label %21
+  br i1 %20, label %48, label %21
 
 21:                                               ; preds = %14
   %22 = trunc i32 %6 to i8
@@ -3576,7 +3576,7 @@ define internal noundef range(i32 -95, 1) i32 @sky2_set_wol(ptr nocapture nounde
   %24 = getelementptr inbounds i8, ptr %4, i64 443
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 0
-  br i1 %26, label %44, label %27
+  br i1 %26, label %43, label %27
 
 27:                                               ; preds = %21
   %28 = getelementptr inbounds i8, ptr %4, i64 416
@@ -3597,20 +3597,19 @@ define internal noundef range(i32 -95, 1) i32 @sky2_set_wol(ptr nocapture nounde
   br i1 %40, label %41, label %30, !llvm.loop !39
 
 41:                                               ; preds = %30
-  %42 = and i8 %38, 1
-  %43 = icmp ne i8 %42, 0
-  br label %44
+  %42 = icmp ne i8 %38, 0
+  br label %43
 
-44:                                               ; preds = %41, %21
-  %45 = phi i1 [ false, %21 ], [ %43, %41 ]
-  %46 = load ptr, ptr %15, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 184
-  %48 = tail call i32 @device_set_wakeup_enable(ptr noundef %47, i1 noundef zeroext %45) #23
-  br label %49
+43:                                               ; preds = %41, %21
+  %44 = phi i1 [ false, %21 ], [ %42, %41 ]
+  %45 = load ptr, ptr %15, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 184
+  %47 = tail call i32 @device_set_wakeup_enable(ptr noundef %46, i1 noundef zeroext %44) #23
+  br label %48
 
-49:                                               ; preds = %44, %14, %2
-  %50 = phi i32 [ 0, %44 ], [ -95, %14 ], [ -95, %2 ]
-  ret i32 %50
+48:                                               ; preds = %43, %14, %2
+  %49 = phi i32 [ 0, %43 ], [ -95, %14 ], [ -95, %2 ]
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)

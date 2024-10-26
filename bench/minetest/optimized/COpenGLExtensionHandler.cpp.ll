@@ -7765,7 +7765,7 @@ if.then24:                                        ; preds = %if.end18, %if.end18
   br i1 %or.cond29.i.i, label %while.body.i.i, label %if.else13.i
 
 while.body.i.i:                                   ; preds = %if.then24, %while.body.i.i
-  %23 = phi i8 [ %25, %while.body.i.i ], [ %21, %if.then24 ]
+  %23 = phi i8 [ %24, %while.body.i.i ], [ %21, %if.then24 ]
   %unsignedValue.032.i.i = phi i32 [ %unsignedValue.2.i.i, %while.body.i.i ], [ 0, %if.then24 ]
   %overflow.031.i.i = phi i8 [ %spec.select.i.i, %while.body.i.i ], [ 0, %if.then24 ]
   %in.addr.030.i.i = phi ptr [ %incdec.ptr.i.i, %while.body.i.i ], [ %in.addr.0.i, %if.then24 ]
@@ -7776,13 +7776,12 @@ while.body.i.i:                                   ; preds = %if.then24, %while.b
   %cmp7.i.i = icmp ult i32 %add.i.i, %unsignedValue.032.i.i
   %spec.select.i.i = select i1 %cmp7.i.i, i8 1, i8 %overflow.031.i.i
   %spec.select28.i.i = select i1 %cmp7.i.i, i32 -1, i32 %unsignedValue.032.i.i
-  %24 = and i8 %spec.select.i.i, 1
-  %tobool10.not.i.i = icmp eq i8 %24, 0
+  %tobool10.not.i.i = icmp eq i8 %spec.select.i.i, 0
   %unsignedValue.2.i.i = select i1 %tobool10.not.i.i, i32 %add.i.i, i32 %spec.select28.i.i
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %in.addr.030.i.i, i64 1
-  %25 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !3
-  %26 = add i8 %25, -48
-  %or.cond.i.i = icmp ult i8 %26, 10
+  %24 = load i8, ptr %incdec.ptr.i.i, align 1, !tbaa !3
+  %25 = add i8 %24, -48
+  %or.cond.i.i = icmp ult i8 %25, 10
   br i1 %or.cond.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !214
 
 while.end.i.i:                                    ; preds = %while.body.i.i
