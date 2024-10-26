@@ -16560,7 +16560,7 @@ define range(i32 -1, 1) i32 @H5T__conv_float__Float16(ptr noundef readonly %0, p
   %10 = alloca float, align 4
   %11 = alloca half, align 2
   %12 = load i32, ptr %2, align 8
-  switch i32 %12, label %358 [
+  switch i32 %12, label %299 [
     i32 0, label %13
     i32 2, label %.loopexit363
     i32 1, label %37
@@ -16675,649 +16675,517 @@ define range(i32 -1, 1) i32 @H5T__conv_float__Float16(ptr noundef readonly %0, p
   %71 = getelementptr inbounds i8, ptr %3, i64 24
   %72 = getelementptr inbounds i8, ptr %3, i64 32
   %73 = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %brmerge.demorgan, label %.lr.ph.split.us, label %.lr.ph.split
+  br label %74
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit350.us
-  %.0392.us = phi i64 [ %124, %.loopexit350.us ], [ %4, %.lr.ph ]
-  %.1297391.us = phi i64 [ %.2298.us, %.loopexit350.us ], [ %.346, %.lr.ph ]
-  %.1300390.us = phi i64 [ %.2301.us, %.loopexit350.us ], [ %., %.lr.ph ]
-  %74 = icmp sgt i64 %.1297391.us, %.1300390.us
-  br i1 %74, label %75, label %95
+74:                                               ; preds = %.lr.ph, %.loopexit350
+  %.0392 = phi i64 [ %4, %.lr.ph ], [ %298, %.loopexit350 ]
+  %.1297391 = phi i64 [ %.346, %.lr.ph ], [ %.2298, %.loopexit350 ]
+  %.1300390 = phi i64 [ %., %.lr.ph ], [ %.2301, %.loopexit350 ]
+  %75 = icmp sgt i64 %.1297391, %.1300390
+  br i1 %75, label %76, label %96
 
-75:                                               ; preds = %.lr.ph.split.us
-  %76 = mul i64 %.0392.us, %.1300390.us
-  %77 = add nsw i64 %.1297391.us, -1
-  %78 = add i64 %77, %76
-  %79 = udiv i64 %78, %.1297391.us
-  %80 = sub i64 %.0392.us, %79
-  %81 = icmp ult i64 %80, 2
-  br i1 %81, label %87, label %82
+76:                                               ; preds = %74
+  %77 = mul i64 %.0392, %.1300390
+  %78 = add nsw i64 %.1297391, -1
+  %79 = add i64 %78, %77
+  %80 = udiv i64 %79, %.1297391
+  %81 = sub i64 %.0392, %80
+  %82 = icmp ult i64 %81, 2
+  br i1 %82, label %83, label %91
 
-82:                                               ; preds = %75
-  %83 = mul i64 %79, %.1300390.us
-  %84 = getelementptr inbounds i8, ptr %7, i64 %83
-  %85 = mul nuw i64 %79, %.1297391.us
+83:                                               ; preds = %76
+  %84 = add i64 %.0392, -1
+  %85 = mul i64 %84, %.1300390
   %86 = getelementptr inbounds i8, ptr %7, i64 %85
-  br label %95
+  %87 = mul i64 %84, %.1297391
+  %88 = getelementptr inbounds i8, ptr %7, i64 %87
+  %89 = sub nsw i64 0, %.1300390
+  %90 = sub nsw i64 0, %.1297391
+  br label %96
 
-87:                                               ; preds = %75
-  %88 = add i64 %.0392.us, -1
-  %89 = mul i64 %88, %.1300390.us
-  %90 = getelementptr inbounds i8, ptr %7, i64 %89
-  %91 = mul i64 %88, %.1297391.us
-  %92 = getelementptr inbounds i8, ptr %7, i64 %91
-  %93 = sub nsw i64 0, %.1300390.us
-  %94 = sub nsw i64 0, %.1297391.us
-  br label %95
+91:                                               ; preds = %76
+  %92 = mul i64 %80, %.1300390
+  %93 = getelementptr inbounds i8, ptr %7, i64 %92
+  %94 = mul nuw i64 %80, %.1297391
+  %95 = getelementptr inbounds i8, ptr %7, i64 %94
+  br label %96
 
-95:                                               ; preds = %87, %82, %.lr.ph.split.us
-  %.2301.us = phi i64 [ %93, %87 ], [ %.1300390.us, %82 ], [ %.1300390.us, %.lr.ph.split.us ]
-  %.2298.us = phi i64 [ %94, %87 ], [ %.1297391.us, %82 ], [ %.1297391.us, %.lr.ph.split.us ]
-  %.0295.us = phi i64 [ %.0392.us, %87 ], [ %80, %82 ], [ %.0392.us, %.lr.ph.split.us ]
-  %.0277.us = phi ptr [ %92, %87 ], [ %86, %82 ], [ %7, %.lr.ph.split.us ]
-  %.0269.us = phi ptr [ %90, %87 ], [ %84, %82 ], [ %7, %.lr.ph.split.us ]
-  %96 = load ptr, ptr %3, align 8
-  %.not341.us = icmp eq ptr %96, null
-  br i1 %.not341.us, label %.preheader.us, label %.preheader349.us
+96:                                               ; preds = %74, %83, %91
+  %.2301 = phi i64 [ %89, %83 ], [ %.1300390, %91 ], [ %.1300390, %74 ]
+  %.2298 = phi i64 [ %90, %83 ], [ %.1297391, %91 ], [ %.1297391, %74 ]
+  %.0295 = phi i64 [ %.0392, %83 ], [ %81, %91 ], [ %.0392, %74 ]
+  %.0277 = phi ptr [ %88, %83 ], [ %95, %91 ], [ %7, %74 ]
+  %.0269 = phi ptr [ %86, %83 ], [ %93, %91 ], [ %7, %74 ]
+  %97 = load ptr, ptr %3, align 8
+  %.not341 = icmp eq ptr %97, null
+  br i1 %brmerge.demorgan, label %98, label %148
 
-.preheader349.us:                                 ; preds = %95, %119
-  %.0268384.us = phi i64 [ %123, %119 ], [ 0, %95 ]
-  %.1270383.us = phi ptr [ %121, %119 ], [ %.0269.us, %95 ]
-  %.1278382.us = phi ptr [ %122, %119 ], [ %.0277.us, %95 ]
-  %97 = load i32, ptr %.1270383.us, align 1
-  store i32 %97, ptr %10, align 4
-  %.cast343.us = bitcast i32 %97 to float
-  %98 = fcmp ogt float %.cast343.us, 6.550400e+04
-  br i1 %98, label %111, label %99
+98:                                               ; preds = %96
+  br i1 %.not341, label %.preheader, label %.preheader349
 
-99:                                               ; preds = %.preheader349.us
-  %100 = fcmp olt float %.cast343.us, -6.550400e+04
-  br i1 %100, label %103, label %101
+.preheader349:                                    ; preds = %98, %129
+  %.0268384 = phi i64 [ %133, %129 ], [ 0, %98 ]
+  %.1270383 = phi ptr [ %131, %129 ], [ %.0269, %98 ]
+  %.1278382 = phi ptr [ %132, %129 ], [ %.0277, %98 ]
+  %99 = load i32, ptr %.1270383, align 1
+  store i32 %99, ptr %10, align 4
+  %.cast343 = bitcast i32 %99 to float
+  %100 = fcmp ogt float %.cast343, 6.550400e+04
+  br i1 %100, label %101, label %113
 
-101:                                              ; preds = %99
-  %102 = fptrunc float %.cast343.us to half
-  br label %.sink.split
-
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %3, align 8
-  %105 = load i64, ptr %71, align 8
-  %106 = load i64, ptr %72, align 8
-  %107 = load ptr, ptr %73, align 8
-  %108 = call i32 %104(i32 noundef 1, i64 noundef %105, i64 noundef %106, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %107) #8
-  switch i32 %108, label %119 [
-    i32 0, label %109
-    i32 -1, label %.split.us
+101:                                              ; preds = %.preheader349
+  %102 = load ptr, ptr %3, align 8
+  %103 = load i64, ptr %71, align 8
+  %104 = load i64, ptr %72, align 8
+  %105 = load ptr, ptr %73, align 8
+  %106 = call i32 %102(i32 noundef 0, i64 noundef %103, i64 noundef %104, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %105) #8
+  switch i32 %106, label %129 [
+    i32 0, label %107
+    i32 -1, label %109
   ]
 
-109:                                              ; preds = %103
-  %110 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+107:                                              ; preds = %101
+  %108 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
   br label %.sink.split
 
-111:                                              ; preds = %.preheader349.us
-  %112 = load ptr, ptr %3, align 8
-  %113 = load i64, ptr %71, align 8
-  %114 = load i64, ptr %72, align 8
-  %115 = load ptr, ptr %73, align 8
-  %116 = call i32 %112(i32 noundef 0, i64 noundef %113, i64 noundef %114, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %115) #8
-  switch i32 %116, label %119 [
-    i32 0, label %117
-    i32 -1, label %.split394.us
+109:                                              ; preds = %101
+  %110 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %111 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+113:                                              ; preds = %.preheader349
+  %114 = fcmp olt float %.cast343, -6.550400e+04
+  br i1 %114, label %115, label %127
+
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %3, align 8
+  %117 = load i64, ptr %71, align 8
+  %118 = load i64, ptr %72, align 8
+  %119 = load ptr, ptr %73, align 8
+  %120 = call i32 %116(i32 noundef 1, i64 noundef %117, i64 noundef %118, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %119) #8
+  switch i32 %120, label %129 [
+    i32 0, label %121
+    i32 -1, label %123
   ]
 
-117:                                              ; preds = %111
-  %118 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+121:                                              ; preds = %115
+  %122 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %101, %109, %117
-  %.sink = phi half [ %118, %117 ], [ %110, %109 ], [ %102, %101 ]
+123:                                              ; preds = %115
+  %124 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %125 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+127:                                              ; preds = %113
+  %128 = fptrunc float %.cast343 to half
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %107, %121, %127
+  %.sink = phi half [ %128, %127 ], [ %122, %121 ], [ %108, %107 ]
   store half %.sink, ptr %11, align 2
-  br label %119
+  br label %129
 
-119:                                              ; preds = %.sink.split, %111, %103
-  %120 = load i16, ptr %11, align 2
-  store i16 %120, ptr %.1278382.us, align 1
-  %121 = getelementptr inbounds i8, ptr %.1270383.us, i64 %.2301.us
-  %122 = getelementptr inbounds i8, ptr %.1278382.us, i64 %.2298.us
-  %123 = add nuw i64 %.0268384.us, 1
-  %exitcond436.not = icmp eq i64 %123, %.0295.us
-  br i1 %exitcond436.not, label %.loopexit350.us, label %.preheader349.us
+129:                                              ; preds = %.sink.split, %115, %101
+  %130 = load i16, ptr %11, align 2
+  store i16 %130, ptr %.1278382, align 1
+  %131 = getelementptr inbounds i8, ptr %.1270383, i64 %.2301
+  %132 = getelementptr inbounds i8, ptr %.1278382, i64 %.2298
+  %133 = add nuw i64 %.0268384, 1
+  %exitcond410.not = icmp eq i64 %133, %.0295
+  br i1 %exitcond410.not, label %.loopexit350, label %.preheader349
 
-.loopexit350.us:                                  ; preds = %119, %.loopexit.us
-  %124 = sub i64 %.0392.us, %.0295.us
-  %.not336.us = icmp eq i64 %124, 0
-  br i1 %.not336.us, label %.loopexit363, label %.lr.ph.split.us
+.preheader:                                       ; preds = %98, %144
+  %.1388 = phi i64 [ %147, %144 ], [ 0, %98 ]
+  %.2271387 = phi ptr [ %145, %144 ], [ %.0269, %98 ]
+  %.2279386 = phi ptr [ %146, %144 ], [ %.0277, %98 ]
+  %134 = load i32, ptr %.2271387, align 1
+  %.cast342 = bitcast i32 %134 to float
+  %135 = fcmp ogt float %.cast342, 6.550400e+04
+  br i1 %135, label %136, label %138
 
-.preheader.us:                                    ; preds = %95, %135
-  %.1388.us = phi i64 [ %138, %135 ], [ 0, %95 ]
-  %.2271387.us = phi ptr [ %136, %135 ], [ %.0269.us, %95 ]
-  %.2279386.us = phi ptr [ %137, %135 ], [ %.0277.us, %95 ]
-  %125 = load i32, ptr %.2271387.us, align 1
-  %.cast342.us = bitcast i32 %125 to float
-  %126 = fcmp ogt float %.cast342.us, 6.550400e+04
-  br i1 %126, label %133, label %127
+136:                                              ; preds = %.preheader
+  %137 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %144
 
-127:                                              ; preds = %.preheader.us
-  %128 = fcmp olt float %.cast342.us, -6.550400e+04
-  br i1 %128, label %131, label %129
+138:                                              ; preds = %.preheader
+  %139 = fcmp olt float %.cast342, -6.550400e+04
+  br i1 %139, label %140, label %142
 
-129:                                              ; preds = %127
-  %130 = fptrunc float %.cast342.us to half
-  br label %135
+140:                                              ; preds = %138
+  %141 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %144
 
-131:                                              ; preds = %127
-  %132 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %135
+142:                                              ; preds = %138
+  %143 = fptrunc float %.cast342 to half
+  br label %144
 
-133:                                              ; preds = %.preheader.us
-  %134 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %135
+144:                                              ; preds = %140, %142, %136
+  %.sink420 = phi half [ %141, %140 ], [ %143, %142 ], [ %137, %136 ]
+  store half %.sink420, ptr %.2279386, align 1
+  %145 = getelementptr inbounds i8, ptr %.2271387, i64 %.2301
+  %146 = getelementptr inbounds i8, ptr %.2279386, i64 %.2298
+  %147 = add nuw i64 %.1388, 1
+  %exitcond412.not = icmp eq i64 %147, %.0295
+  br i1 %exitcond412.not, label %.loopexit350.sink.split.loopexit, label %.preheader
 
-135:                                              ; preds = %133, %131, %129
-  %.sink446 = phi half [ %134, %133 ], [ %132, %131 ], [ %130, %129 ]
-  store half %.sink446, ptr %.2279386.us, align 1
-  %136 = getelementptr inbounds i8, ptr %.2271387.us, i64 %.2301.us
-  %137 = getelementptr inbounds i8, ptr %.2279386.us, i64 %.2298.us
-  %138 = add nuw i64 %.1388.us, 1
-  %exitcond438.not = icmp eq i64 %138, %.0295.us
-  br i1 %exitcond438.not, label %.loopexit.us, label %.preheader.us
+148:                                              ; preds = %96
+  br i1 %60, label %149, label %198
 
-.loopexit.us:                                     ; preds = %135
-  store half %.sink446, ptr %11, align 2
-  store i32 %125, ptr %10, align 4
-  br label %.loopexit350.us
+149:                                              ; preds = %148
+  br i1 %.not341, label %.preheader351, label %.preheader353
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %60, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+.preheader353:                                    ; preds = %149, %180
+  %.2378 = phi i64 [ %183, %180 ], [ 0, %149 ]
+  %.3272377 = phi ptr [ %181, %180 ], [ %.0269, %149 ]
+  %.3280376 = phi ptr [ %182, %180 ], [ %.0277, %149 ]
+  %150 = load i32, ptr %.3272377, align 1
+  store i32 %150, ptr %10, align 4
+  %.cast340 = bitcast i32 %150 to float
+  %151 = fcmp ogt float %.cast340, 6.550400e+04
+  br i1 %151, label %152, label %164
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.loopexit354.us
-  %.0392.us395 = phi i64 [ %202, %.loopexit354.us ], [ %4, %.lr.ph.split ]
-  %.1297391.us396 = phi i64 [ %.2298.us399, %.loopexit354.us ], [ %.346, %.lr.ph.split ]
-  %.1300390.us397 = phi i64 [ %.2301.us398, %.loopexit354.us ], [ %., %.lr.ph.split ]
-  %139 = icmp sgt i64 %.1297391.us396, %.1300390.us397
-  br i1 %139, label %140, label %160
+152:                                              ; preds = %.preheader353
+  %153 = load ptr, ptr %3, align 8
+  %154 = load i64, ptr %71, align 8
+  %155 = load i64, ptr %72, align 8
+  %156 = load ptr, ptr %73, align 8
+  %157 = call i32 %153(i32 noundef 0, i64 noundef %154, i64 noundef %155, ptr noundef nonnull %10, ptr noundef %.3280376, ptr noundef %156) #8
+  switch i32 %157, label %180 [
+    i32 0, label %158
+    i32 -1, label %160
+  ]
 
-140:                                              ; preds = %.lr.ph.split.split.us
-  %141 = mul i64 %.0392.us395, %.1300390.us397
-  %142 = add nsw i64 %.1297391.us396, -1
-  %143 = add i64 %142, %141
-  %144 = udiv i64 %143, %.1297391.us396
-  %145 = sub i64 %.0392.us395, %144
-  %146 = icmp ult i64 %145, 2
-  br i1 %146, label %152, label %147
+158:                                              ; preds = %152
+  %159 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split421
 
-147:                                              ; preds = %140
-  %148 = mul i64 %144, %.1300390.us397
-  %149 = getelementptr inbounds i8, ptr %7, i64 %148
-  %150 = mul nuw i64 %144, %.1297391.us396
-  %151 = getelementptr inbounds i8, ptr %7, i64 %150
-  br label %160
+160:                                              ; preds = %152
+  %161 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %162 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %163 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %161, i64 noundef %162, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
 
-152:                                              ; preds = %140
-  %153 = add i64 %.0392.us395, -1
-  %154 = mul i64 %153, %.1300390.us397
-  %155 = getelementptr inbounds i8, ptr %7, i64 %154
-  %156 = mul i64 %153, %.1297391.us396
-  %157 = getelementptr inbounds i8, ptr %7, i64 %156
-  %158 = sub nsw i64 0, %.1300390.us397
-  %159 = sub nsw i64 0, %.1297391.us396
-  br label %160
-
-160:                                              ; preds = %152, %147, %.lr.ph.split.split.us
-  %.2301.us398 = phi i64 [ %158, %152 ], [ %.1300390.us397, %147 ], [ %.1300390.us397, %.lr.ph.split.split.us ]
-  %.2298.us399 = phi i64 [ %159, %152 ], [ %.1297391.us396, %147 ], [ %.1297391.us396, %.lr.ph.split.split.us ]
-  %.0295.us400 = phi i64 [ %.0392.us395, %152 ], [ %145, %147 ], [ %.0392.us395, %.lr.ph.split.split.us ]
-  %.0277.us401 = phi ptr [ %157, %152 ], [ %151, %147 ], [ %7, %.lr.ph.split.split.us ]
-  %.0269.us402 = phi ptr [ %155, %152 ], [ %149, %147 ], [ %7, %.lr.ph.split.split.us ]
-  %161 = load ptr, ptr %3, align 8
-  %.not339.us = icmp eq ptr %161, null
-  br i1 %.not339.us, label %.preheader351.us, label %.preheader353.us
-
-.preheader353.us:                                 ; preds = %160, %184
-  %.2378.us = phi i64 [ %187, %184 ], [ 0, %160 ]
-  %.3272377.us = phi ptr [ %185, %184 ], [ %.0269.us402, %160 ]
-  %.3280376.us = phi ptr [ %186, %184 ], [ %.0277.us401, %160 ]
-  %162 = load i32, ptr %.3272377.us, align 1
-  store i32 %162, ptr %10, align 4
-  %.cast340.us = bitcast i32 %162 to float
-  %163 = fcmp ogt float %.cast340.us, 6.550400e+04
-  br i1 %163, label %176, label %164
-
-164:                                              ; preds = %.preheader353.us
-  %165 = fcmp olt float %.cast340.us, -6.550400e+04
-  br i1 %165, label %168, label %166
+164:                                              ; preds = %.preheader353
+  %165 = fcmp olt float %.cast340, -6.550400e+04
+  br i1 %165, label %166, label %178
 
 166:                                              ; preds = %164
-  %167 = fptrunc float %.cast340.us to half
-  br label %.sink.split447
-
-168:                                              ; preds = %164
-  %169 = load ptr, ptr %3, align 8
-  %170 = load i64, ptr %71, align 8
-  %171 = load i64, ptr %72, align 8
-  %172 = load ptr, ptr %73, align 8
-  %173 = call i32 %169(i32 noundef 1, i64 noundef %170, i64 noundef %171, ptr noundef nonnull %10, ptr noundef %.3280376.us, ptr noundef %172) #8
-  switch i32 %173, label %184 [
-    i32 0, label %174
-    i32 -1, label %.split.us404
+  %167 = load ptr, ptr %3, align 8
+  %168 = load i64, ptr %71, align 8
+  %169 = load i64, ptr %72, align 8
+  %170 = load ptr, ptr %73, align 8
+  %171 = call i32 %167(i32 noundef 1, i64 noundef %168, i64 noundef %169, ptr noundef nonnull %10, ptr noundef %.3280376, ptr noundef %170) #8
+  switch i32 %171, label %180 [
+    i32 0, label %172
+    i32 -1, label %174
   ]
 
-174:                                              ; preds = %168
-  %175 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split447
+172:                                              ; preds = %166
+  %173 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split421
 
-176:                                              ; preds = %.preheader353.us
-  %177 = load ptr, ptr %3, align 8
-  %178 = load i64, ptr %71, align 8
-  %179 = load i64, ptr %72, align 8
-  %180 = load ptr, ptr %73, align 8
-  %181 = call i32 %177(i32 noundef 0, i64 noundef %178, i64 noundef %179, ptr noundef nonnull %10, ptr noundef %.3280376.us, ptr noundef %180) #8
-  switch i32 %181, label %184 [
-    i32 0, label %182
-    i32 -1, label %.split406.us
-  ]
-
-182:                                              ; preds = %176
-  %183 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split447
-
-.sink.split447:                                   ; preds = %166, %174, %182
-  %.sink448 = phi half [ %183, %182 ], [ %175, %174 ], [ %167, %166 ]
-  store half %.sink448, ptr %.3280376.us, align 2
-  br label %184
-
-184:                                              ; preds = %.sink.split447, %176, %168
-  %185 = getelementptr inbounds i8, ptr %.3272377.us, i64 %.2301.us398
-  %186 = getelementptr inbounds i8, ptr %.3280376.us, i64 %.2298.us399
-  %187 = add nuw i64 %.2378.us, 1
-  %exitcond432.not = icmp eq i64 %187, %.0295.us400
-  br i1 %exitcond432.not, label %.loopexit354.us, label %.preheader353.us
-
-.preheader351.us:                                 ; preds = %160, %198
-  %.3381.us = phi i64 [ %201, %198 ], [ 0, %160 ]
-  %.4273380.us = phi ptr [ %199, %198 ], [ %.0269.us402, %160 ]
-  %.4281379.us = phi ptr [ %200, %198 ], [ %.0277.us401, %160 ]
-  %188 = load i32, ptr %.4273380.us, align 1
-  %.cast.us = bitcast i32 %188 to float
-  %189 = fcmp ogt float %.cast.us, 6.550400e+04
-  br i1 %189, label %196, label %190
-
-190:                                              ; preds = %.preheader351.us
-  %191 = fcmp olt float %.cast.us, -6.550400e+04
-  br i1 %191, label %194, label %192
-
-192:                                              ; preds = %190
-  %193 = fptrunc float %.cast.us to half
-  br label %198
-
-194:                                              ; preds = %190
-  %195 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %198
-
-196:                                              ; preds = %.preheader351.us
-  %197 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %198
-
-198:                                              ; preds = %196, %194, %192
-  %.sink449 = phi half [ %197, %196 ], [ %195, %194 ], [ %193, %192 ]
-  store half %.sink449, ptr %.4281379.us, align 2
-  %199 = getelementptr inbounds i8, ptr %.4273380.us, i64 %.2301.us398
-  %200 = getelementptr inbounds i8, ptr %.4281379.us, i64 %.2298.us399
-  %201 = add nuw i64 %.3381.us, 1
-  %exitcond434.not = icmp eq i64 %201, %.0295.us400
-  br i1 %exitcond434.not, label %.loopexit352.us, label %.preheader351.us
-
-.loopexit354.us:                                  ; preds = %184, %.loopexit352.us
-  %202 = sub i64 %.0392.us395, %.0295.us400
-  %.not336.us403 = icmp eq i64 %202, 0
-  br i1 %.not336.us403, label %.loopexit363, label %.lr.ph.split.split.us
-
-.loopexit352.us:                                  ; preds = %198
-  store i32 %188, ptr %10, align 4
-  br label %.loopexit354.us
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %70, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
-
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.loopexit356.us
-  %.0392.us407 = phi i64 [ %267, %.loopexit356.us ], [ %4, %.lr.ph.split.split ]
-  %.1297391.us408 = phi i64 [ %.2298.us411, %.loopexit356.us ], [ %.346, %.lr.ph.split.split ]
-  %.1300390.us409 = phi i64 [ %.2301.us410, %.loopexit356.us ], [ %., %.lr.ph.split.split ]
-  %203 = icmp sgt i64 %.1297391.us408, %.1300390.us409
-  br i1 %203, label %204, label %224
-
-204:                                              ; preds = %.lr.ph.split.split.split.us
-  %205 = mul i64 %.0392.us407, %.1300390.us409
-  %206 = add nsw i64 %.1297391.us408, -1
-  %207 = add i64 %206, %205
-  %208 = udiv i64 %207, %.1297391.us408
-  %209 = sub i64 %.0392.us407, %208
-  %210 = icmp ult i64 %209, 2
-  br i1 %210, label %216, label %211
-
-211:                                              ; preds = %204
-  %212 = mul i64 %208, %.1300390.us409
-  %213 = getelementptr inbounds i8, ptr %7, i64 %212
-  %214 = mul nuw i64 %208, %.1297391.us408
-  %215 = getelementptr inbounds i8, ptr %7, i64 %214
-  br label %224
-
-216:                                              ; preds = %204
-  %217 = add i64 %.0392.us407, -1
-  %218 = mul i64 %217, %.1300390.us409
-  %219 = getelementptr inbounds i8, ptr %7, i64 %218
-  %220 = mul i64 %217, %.1297391.us408
-  %221 = getelementptr inbounds i8, ptr %7, i64 %220
-  %222 = sub nsw i64 0, %.1300390.us409
-  %223 = sub nsw i64 0, %.1297391.us408
-  br label %224
-
-224:                                              ; preds = %216, %211, %.lr.ph.split.split.split.us
-  %.2301.us410 = phi i64 [ %222, %216 ], [ %.1300390.us409, %211 ], [ %.1300390.us409, %.lr.ph.split.split.split.us ]
-  %.2298.us411 = phi i64 [ %223, %216 ], [ %.1297391.us408, %211 ], [ %.1297391.us408, %.lr.ph.split.split.split.us ]
-  %.0295.us412 = phi i64 [ %.0392.us407, %216 ], [ %209, %211 ], [ %.0392.us407, %.lr.ph.split.split.split.us ]
-  %.0277.us413 = phi ptr [ %221, %216 ], [ %215, %211 ], [ %7, %.lr.ph.split.split.split.us ]
-  %.0269.us414 = phi ptr [ %219, %216 ], [ %213, %211 ], [ %7, %.lr.ph.split.split.split.us ]
-  %225 = load ptr, ptr %3, align 8
-  %.not338.us = icmp eq ptr %225, null
-  br i1 %.not338.us, label %.preheader355.us, label %.preheader357.us
-
-.preheader357.us:                                 ; preds = %224, %248
-  %.4372.us = phi i64 [ %252, %248 ], [ 0, %224 ]
-  %.5274371.us = phi ptr [ %250, %248 ], [ %.0269.us414, %224 ]
-  %.5282370.us = phi ptr [ %251, %248 ], [ %.0277.us413, %224 ]
-  %226 = load float, ptr %.5274371.us, align 4
-  %227 = fcmp ogt float %226, 6.550400e+04
-  br i1 %227, label %240, label %228
-
-228:                                              ; preds = %.preheader357.us
-  %229 = fcmp olt float %226, -6.550400e+04
-  br i1 %229, label %232, label %230
-
-230:                                              ; preds = %228
-  %231 = fptrunc float %226 to half
-  br label %.sink.split450
-
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %3, align 8
-  %234 = load i64, ptr %71, align 8
-  %235 = load i64, ptr %72, align 8
-  %236 = load ptr, ptr %73, align 8
-  %237 = call i32 %233(i32 noundef 1, i64 noundef %234, i64 noundef %235, ptr noundef nonnull %.5274371.us, ptr noundef nonnull %11, ptr noundef %236) #8
-  switch i32 %237, label %248 [
-    i32 0, label %238
-    i32 -1, label %.split.us416
-  ]
-
-238:                                              ; preds = %232
-  %239 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split450
-
-240:                                              ; preds = %.preheader357.us
-  %241 = load ptr, ptr %3, align 8
-  %242 = load i64, ptr %71, align 8
-  %243 = load i64, ptr %72, align 8
-  %244 = load ptr, ptr %73, align 8
-  %245 = call i32 %241(i32 noundef 0, i64 noundef %242, i64 noundef %243, ptr noundef nonnull %.5274371.us, ptr noundef nonnull %11, ptr noundef %244) #8
-  switch i32 %245, label %248 [
-    i32 0, label %246
-    i32 -1, label %.split418.us
-  ]
-
-246:                                              ; preds = %240
-  %247 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split450
-
-.sink.split450:                                   ; preds = %230, %238, %246
-  %.sink451 = phi half [ %247, %246 ], [ %239, %238 ], [ %231, %230 ]
-  store half %.sink451, ptr %11, align 2
-  br label %248
-
-248:                                              ; preds = %.sink.split450, %240, %232
-  %249 = load i16, ptr %11, align 2
-  store i16 %249, ptr %.5282370.us, align 1
-  %250 = getelementptr inbounds i8, ptr %.5274371.us, i64 %.2301.us410
-  %251 = getelementptr inbounds i8, ptr %.5282370.us, i64 %.2298.us411
-  %252 = add nuw i64 %.4372.us, 1
-  %exitcond428.not = icmp eq i64 %252, %.0295.us412
-  br i1 %exitcond428.not, label %.loopexit356.us, label %.preheader357.us
-
-.preheader355.us:                                 ; preds = %224, %263
-  %.5375.us = phi i64 [ %266, %263 ], [ 0, %224 ]
-  %.6275374.us = phi ptr [ %264, %263 ], [ %.0269.us414, %224 ]
-  %.6283373.us = phi ptr [ %265, %263 ], [ %.0277.us413, %224 ]
-  %253 = load float, ptr %.6275374.us, align 4
-  %254 = fcmp ogt float %253, 6.550400e+04
-  br i1 %254, label %261, label %255
-
-255:                                              ; preds = %.preheader355.us
-  %256 = fcmp olt float %253, -6.550400e+04
-  br i1 %256, label %259, label %257
-
-257:                                              ; preds = %255
-  %258 = fptrunc float %253 to half
-  br label %263
-
-259:                                              ; preds = %255
-  %260 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %263
-
-261:                                              ; preds = %.preheader355.us
-  %262 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %263
-
-263:                                              ; preds = %261, %259, %257
-  %.sink452 = phi half [ %262, %261 ], [ %260, %259 ], [ %258, %257 ]
-  store half %.sink452, ptr %.6283373.us, align 1
-  %264 = getelementptr inbounds i8, ptr %.6275374.us, i64 %.2301.us410
-  %265 = getelementptr inbounds i8, ptr %.6283373.us, i64 %.2298.us411
-  %266 = add nuw i64 %.5375.us, 1
-  %exitcond430.not = icmp eq i64 %266, %.0295.us412
-  br i1 %exitcond430.not, label %.loopexit356.us.loopexit, label %.preheader355.us
-
-.loopexit356.us.loopexit:                         ; preds = %263
-  store half %.sink452, ptr %11, align 2
-  br label %.loopexit356.us
-
-.loopexit356.us:                                  ; preds = %248, %.loopexit356.us.loopexit
-  %267 = sub i64 %.0392.us407, %.0295.us412
-  %.not336.us415 = icmp eq i64 %267, 0
-  br i1 %.not336.us415, label %.loopexit363, label %.lr.ph.split.split.split.us
-
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.loopexit360
-  %.0392 = phi i64 [ %357, %.loopexit360 ], [ %4, %.lr.ph.split.split ]
-  %.1297391 = phi i64 [ %.2298, %.loopexit360 ], [ %.346, %.lr.ph.split.split ]
-  %.1300390 = phi i64 [ %.2301, %.loopexit360 ], [ %., %.lr.ph.split.split ]
-  %268 = icmp sgt i64 %.1297391, %.1300390
-  br i1 %268, label %269, label %289
-
-269:                                              ; preds = %.lr.ph.split.split.split
-  %270 = mul i64 %.0392, %.1300390
-  %271 = add nsw i64 %.1297391, -1
-  %272 = add i64 %271, %270
-  %273 = udiv i64 %272, %.1297391
-  %274 = sub i64 %.0392, %273
-  %275 = icmp ult i64 %274, 2
-  br i1 %275, label %276, label %284
-
-276:                                              ; preds = %269
-  %277 = add i64 %.0392, -1
-  %278 = mul i64 %277, %.1300390
-  %279 = getelementptr inbounds i8, ptr %7, i64 %278
-  %280 = mul i64 %277, %.1297391
-  %281 = getelementptr inbounds i8, ptr %7, i64 %280
-  %282 = sub nsw i64 0, %.1300390
-  %283 = sub nsw i64 0, %.1297391
-  br label %289
-
-284:                                              ; preds = %269
-  %285 = mul i64 %273, %.1300390
-  %286 = getelementptr inbounds i8, ptr %7, i64 %285
-  %287 = mul nuw i64 %273, %.1297391
-  %288 = getelementptr inbounds i8, ptr %7, i64 %287
-  br label %289
-
-289:                                              ; preds = %.lr.ph.split.split.split, %276, %284
-  %.2301 = phi i64 [ %282, %276 ], [ %.1300390, %284 ], [ %.1300390, %.lr.ph.split.split.split ]
-  %.2298 = phi i64 [ %283, %276 ], [ %.1297391, %284 ], [ %.1297391, %.lr.ph.split.split.split ]
-  %.0295 = phi i64 [ %.0392, %276 ], [ %274, %284 ], [ %.0392, %.lr.ph.split.split.split ]
-  %.0277 = phi ptr [ %281, %276 ], [ %288, %284 ], [ %7, %.lr.ph.split.split.split ]
-  %.0269 = phi ptr [ %279, %276 ], [ %286, %284 ], [ %7, %.lr.ph.split.split.split ]
-  %290 = load ptr, ptr %3, align 8
-  %.not337 = icmp eq ptr %290, null
-  br i1 %.not337, label %.preheader359, label %.preheader361
-
-.split394.us:                                     ; preds = %111
-  %291 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %292 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %293 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %291, i64 noundef %292, ptr noundef nonnull @.str.6) #8
+174:                                              ; preds = %166
+  %175 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %176 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %177 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %175, i64 noundef %176, ptr noundef nonnull @.str.6) #8
   br label %.loopexit363
 
-.split.us:                                        ; preds = %103
-  %294 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %295 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %296 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %294, i64 noundef %295, ptr noundef nonnull @.str.6) #8
+178:                                              ; preds = %164
+  %179 = fptrunc float %.cast340 to half
+  br label %.sink.split421
+
+.sink.split421:                                   ; preds = %158, %172, %178
+  %.sink422 = phi half [ %179, %178 ], [ %173, %172 ], [ %159, %158 ]
+  store half %.sink422, ptr %.3280376, align 2
+  br label %180
+
+180:                                              ; preds = %.sink.split421, %166, %152
+  %181 = getelementptr inbounds i8, ptr %.3272377, i64 %.2301
+  %182 = getelementptr inbounds i8, ptr %.3280376, i64 %.2298
+  %183 = add nuw i64 %.2378, 1
+  %exitcond406.not = icmp eq i64 %183, %.0295
+  br i1 %exitcond406.not, label %.loopexit350, label %.preheader353
+
+.preheader351:                                    ; preds = %149, %194
+  %.3381 = phi i64 [ %197, %194 ], [ 0, %149 ]
+  %.4273380 = phi ptr [ %195, %194 ], [ %.0269, %149 ]
+  %.4281379 = phi ptr [ %196, %194 ], [ %.0277, %149 ]
+  %184 = load i32, ptr %.4273380, align 1
+  %.cast = bitcast i32 %184 to float
+  %185 = fcmp ogt float %.cast, 6.550400e+04
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %.preheader351
+  %187 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %194
+
+188:                                              ; preds = %.preheader351
+  %189 = fcmp olt float %.cast, -6.550400e+04
+  br i1 %189, label %190, label %192
+
+190:                                              ; preds = %188
+  %191 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %194
+
+192:                                              ; preds = %188
+  %193 = fptrunc float %.cast to half
+  br label %194
+
+194:                                              ; preds = %190, %192, %186
+  %.sink423 = phi half [ %191, %190 ], [ %193, %192 ], [ %187, %186 ]
+  store half %.sink423, ptr %.4281379, align 2
+  %195 = getelementptr inbounds i8, ptr %.4273380, i64 %.2301
+  %196 = getelementptr inbounds i8, ptr %.4281379, i64 %.2298
+  %197 = add nuw i64 %.3381, 1
+  %exitcond408.not = icmp eq i64 %197, %.0295
+  br i1 %exitcond408.not, label %.loopexit350.sink.split, label %.preheader351
+
+198:                                              ; preds = %148
+  br i1 %70, label %199, label %249
+
+199:                                              ; preds = %198
+  br i1 %.not341, label %.preheader355, label %.preheader357
+
+.preheader357:                                    ; preds = %199, %230
+  %.4372 = phi i64 [ %234, %230 ], [ 0, %199 ]
+  %.5274371 = phi ptr [ %232, %230 ], [ %.0269, %199 ]
+  %.5282370 = phi ptr [ %233, %230 ], [ %.0277, %199 ]
+  %200 = load float, ptr %.5274371, align 4
+  %201 = fcmp ogt float %200, 6.550400e+04
+  br i1 %201, label %202, label %214
+
+202:                                              ; preds = %.preheader357
+  %203 = load ptr, ptr %3, align 8
+  %204 = load i64, ptr %71, align 8
+  %205 = load i64, ptr %72, align 8
+  %206 = load ptr, ptr %73, align 8
+  %207 = call i32 %203(i32 noundef 0, i64 noundef %204, i64 noundef %205, ptr noundef nonnull %.5274371, ptr noundef nonnull %11, ptr noundef %206) #8
+  switch i32 %207, label %230 [
+    i32 0, label %208
+    i32 -1, label %210
+  ]
+
+208:                                              ; preds = %202
+  %209 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split424
+
+210:                                              ; preds = %202
+  %211 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %212 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %213 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.6) #8
   br label %.loopexit363
 
-.split406.us:                                     ; preds = %176
-  %297 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %298 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %299 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %297, i64 noundef %298, ptr noundef nonnull @.str.6) #8
+214:                                              ; preds = %.preheader357
+  %215 = fcmp olt float %200, -6.550400e+04
+  br i1 %215, label %216, label %228
+
+216:                                              ; preds = %214
+  %217 = load ptr, ptr %3, align 8
+  %218 = load i64, ptr %71, align 8
+  %219 = load i64, ptr %72, align 8
+  %220 = load ptr, ptr %73, align 8
+  %221 = call i32 %217(i32 noundef 1, i64 noundef %218, i64 noundef %219, ptr noundef nonnull %.5274371, ptr noundef nonnull %11, ptr noundef %220) #8
+  switch i32 %221, label %230 [
+    i32 0, label %222
+    i32 -1, label %224
+  ]
+
+222:                                              ; preds = %216
+  %223 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split424
+
+224:                                              ; preds = %216
+  %225 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %226 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %227 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %225, i64 noundef %226, ptr noundef nonnull @.str.6) #8
   br label %.loopexit363
 
-.split.us404:                                     ; preds = %168
+228:                                              ; preds = %214
+  %229 = fptrunc float %200 to half
+  br label %.sink.split424
+
+.sink.split424:                                   ; preds = %208, %222, %228
+  %.sink425 = phi half [ %229, %228 ], [ %223, %222 ], [ %209, %208 ]
+  store half %.sink425, ptr %11, align 2
+  br label %230
+
+230:                                              ; preds = %.sink.split424, %216, %202
+  %231 = load i16, ptr %11, align 2
+  store i16 %231, ptr %.5282370, align 1
+  %232 = getelementptr inbounds i8, ptr %.5274371, i64 %.2301
+  %233 = getelementptr inbounds i8, ptr %.5282370, i64 %.2298
+  %234 = add nuw i64 %.4372, 1
+  %exitcond402.not = icmp eq i64 %234, %.0295
+  br i1 %exitcond402.not, label %.loopexit350, label %.preheader357
+
+.preheader355:                                    ; preds = %199, %245
+  %.5375 = phi i64 [ %248, %245 ], [ 0, %199 ]
+  %.6275374 = phi ptr [ %246, %245 ], [ %.0269, %199 ]
+  %.6283373 = phi ptr [ %247, %245 ], [ %.0277, %199 ]
+  %235 = load float, ptr %.6275374, align 4
+  %236 = fcmp ogt float %235, 6.550400e+04
+  br i1 %236, label %237, label %239
+
+237:                                              ; preds = %.preheader355
+  %238 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %245
+
+239:                                              ; preds = %.preheader355
+  %240 = fcmp olt float %235, -6.550400e+04
+  br i1 %240, label %241, label %243
+
+241:                                              ; preds = %239
+  %242 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %245
+
+243:                                              ; preds = %239
+  %244 = fptrunc float %235 to half
+  br label %245
+
+245:                                              ; preds = %241, %243, %237
+  %.sink426 = phi half [ %242, %241 ], [ %244, %243 ], [ %238, %237 ]
+  store half %.sink426, ptr %.6283373, align 1
+  %246 = getelementptr inbounds i8, ptr %.6275374, i64 %.2301
+  %247 = getelementptr inbounds i8, ptr %.6283373, i64 %.2298
+  %248 = add nuw i64 %.5375, 1
+  %exitcond404.not = icmp eq i64 %248, %.0295
+  br i1 %exitcond404.not, label %.loopexit350.loopexit439, label %.preheader355
+
+249:                                              ; preds = %198
+  br i1 %.not341, label %.preheader359, label %.preheader361
+
+.preheader361:                                    ; preds = %249, %280
+  %.6366 = phi i64 [ %283, %280 ], [ 0, %249 ]
+  %.7276365 = phi ptr [ %281, %280 ], [ %.0269, %249 ]
+  %.7284364 = phi ptr [ %282, %280 ], [ %.0277, %249 ]
+  %250 = load float, ptr %.7276365, align 4
+  %251 = fcmp ogt float %250, 6.550400e+04
+  br i1 %251, label %252, label %264
+
+252:                                              ; preds = %.preheader361
+  %253 = load ptr, ptr %3, align 8
+  %254 = load i64, ptr %71, align 8
+  %255 = load i64, ptr %72, align 8
+  %256 = load ptr, ptr %73, align 8
+  %257 = call i32 %253(i32 noundef 0, i64 noundef %254, i64 noundef %255, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %256) #8
+  switch i32 %257, label %280 [
+    i32 0, label %258
+    i32 -1, label %260
+  ]
+
+258:                                              ; preds = %252
+  %259 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split427
+
+260:                                              ; preds = %252
+  %261 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %262 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %263 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %261, i64 noundef %262, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+264:                                              ; preds = %.preheader361
+  %265 = fcmp olt float %250, -6.550400e+04
+  br i1 %265, label %266, label %278
+
+266:                                              ; preds = %264
+  %267 = load ptr, ptr %3, align 8
+  %268 = load i64, ptr %71, align 8
+  %269 = load i64, ptr %72, align 8
+  %270 = load ptr, ptr %73, align 8
+  %271 = call i32 %267(i32 noundef 1, i64 noundef %268, i64 noundef %269, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %270) #8
+  switch i32 %271, label %280 [
+    i32 0, label %272
+    i32 -1, label %274
+  ]
+
+272:                                              ; preds = %266
+  %273 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split427
+
+274:                                              ; preds = %266
+  %275 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %276 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %277 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %275, i64 noundef %276, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+278:                                              ; preds = %264
+  %279 = fptrunc float %250 to half
+  br label %.sink.split427
+
+.sink.split427:                                   ; preds = %258, %272, %278
+  %.sink428 = phi half [ %279, %278 ], [ %273, %272 ], [ %259, %258 ]
+  store half %.sink428, ptr %.7284364, align 2
+  br label %280
+
+280:                                              ; preds = %.sink.split427, %266, %252
+  %281 = getelementptr inbounds i8, ptr %.7276365, i64 %.2301
+  %282 = getelementptr inbounds i8, ptr %.7284364, i64 %.2298
+  %283 = add nuw i64 %.6366, 1
+  %exitcond.not = icmp eq i64 %283, %.0295
+  br i1 %exitcond.not, label %.loopexit350, label %.preheader361
+
+.preheader359:                                    ; preds = %249, %294
+  %.7369 = phi i64 [ %297, %294 ], [ 0, %249 ]
+  %.8368 = phi ptr [ %295, %294 ], [ %.0269, %249 ]
+  %.8285367 = phi ptr [ %296, %294 ], [ %.0277, %249 ]
+  %284 = load float, ptr %.8368, align 4
+  %285 = fcmp ogt float %284, 6.550400e+04
+  br i1 %285, label %286, label %288
+
+286:                                              ; preds = %.preheader359
+  %287 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %294
+
+288:                                              ; preds = %.preheader359
+  %289 = fcmp olt float %284, -6.550400e+04
+  br i1 %289, label %290, label %292
+
+290:                                              ; preds = %288
+  %291 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %294
+
+292:                                              ; preds = %288
+  %293 = fptrunc float %284 to half
+  br label %294
+
+294:                                              ; preds = %290, %292, %286
+  %.sink429 = phi half [ %291, %290 ], [ %293, %292 ], [ %287, %286 ]
+  store half %.sink429, ptr %.8285367, align 2
+  %295 = getelementptr inbounds i8, ptr %.8368, i64 %.2301
+  %296 = getelementptr inbounds i8, ptr %.8285367, i64 %.2298
+  %297 = add nuw i64 %.7369, 1
+  %exitcond400.not = icmp eq i64 %297, %.0295
+  br i1 %exitcond400.not, label %.loopexit350, label %.preheader359
+
+.loopexit350.sink.split.loopexit:                 ; preds = %144
+  store half %.sink420, ptr %11, align 2
+  br label %.loopexit350.sink.split
+
+.loopexit350.sink.split:                          ; preds = %194, %.loopexit350.sink.split.loopexit
+  %.lcssa.sink = phi i32 [ %134, %.loopexit350.sink.split.loopexit ], [ %184, %194 ]
+  store i32 %.lcssa.sink, ptr %10, align 4
+  br label %.loopexit350
+
+.loopexit350.loopexit439:                         ; preds = %245
+  store half %.sink426, ptr %11, align 2
+  br label %.loopexit350
+
+.loopexit350:                                     ; preds = %280, %294, %230, %180, %129, %.loopexit350.loopexit439, %.loopexit350.sink.split
+  %298 = sub i64 %.0392, %.0295
+  %.not336 = icmp eq i64 %298, 0
+  br i1 %.not336, label %.loopexit363, label %74
+
+299:                                              ; preds = %9
   %300 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %301 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %302 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.6) #8
+  %301 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
+  %302 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.8) #8
   br label %.loopexit363
 
-.split418.us:                                     ; preds = %240
-  %303 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %304 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %305 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %303, i64 noundef %304, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-.split.us416:                                     ; preds = %232
-  %306 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %307 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %308 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %306, i64 noundef %307, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-.preheader361:                                    ; preds = %289, %339
-  %.6366 = phi i64 [ %342, %339 ], [ 0, %289 ]
-  %.7276365 = phi ptr [ %340, %339 ], [ %.0269, %289 ]
-  %.7284364 = phi ptr [ %341, %339 ], [ %.0277, %289 ]
-  %309 = load float, ptr %.7276365, align 4
-  %310 = fcmp ogt float %309, 6.550400e+04
-  br i1 %310, label %311, label %323
-
-311:                                              ; preds = %.preheader361
-  %312 = load ptr, ptr %3, align 8
-  %313 = load i64, ptr %71, align 8
-  %314 = load i64, ptr %72, align 8
-  %315 = load ptr, ptr %73, align 8
-  %316 = tail call i32 %312(i32 noundef 0, i64 noundef %313, i64 noundef %314, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %315) #8
-  switch i32 %316, label %339 [
-    i32 0, label %317
-    i32 -1, label %319
-  ]
-
-317:                                              ; preds = %311
-  %318 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split453
-
-319:                                              ; preds = %311
-  %320 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %321 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %322 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %320, i64 noundef %321, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-323:                                              ; preds = %.preheader361
-  %324 = fcmp olt float %309, -6.550400e+04
-  br i1 %324, label %325, label %337
-
-325:                                              ; preds = %323
-  %326 = load ptr, ptr %3, align 8
-  %327 = load i64, ptr %71, align 8
-  %328 = load i64, ptr %72, align 8
-  %329 = load ptr, ptr %73, align 8
-  %330 = tail call i32 %326(i32 noundef 1, i64 noundef %327, i64 noundef %328, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %329) #8
-  switch i32 %330, label %339 [
-    i32 0, label %331
-    i32 -1, label %333
-  ]
-
-331:                                              ; preds = %325
-  %332 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split453
-
-333:                                              ; preds = %325
-  %334 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %335 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %336 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %334, i64 noundef %335, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-337:                                              ; preds = %323
-  %338 = fptrunc float %309 to half
-  br label %.sink.split453
-
-.sink.split453:                                   ; preds = %317, %331, %337
-  %.sink454 = phi half [ %338, %337 ], [ %332, %331 ], [ %318, %317 ]
-  store half %.sink454, ptr %.7284364, align 2
-  br label %339
-
-339:                                              ; preds = %.sink.split453, %325, %311
-  %340 = getelementptr inbounds i8, ptr %.7276365, i64 %.2301
-  %341 = getelementptr inbounds i8, ptr %.7284364, i64 %.2298
-  %342 = add nuw i64 %.6366, 1
-  %exitcond.not = icmp eq i64 %342, %.0295
-  br i1 %exitcond.not, label %.loopexit360, label %.preheader361
-
-.preheader359:                                    ; preds = %289, %353
-  %.7369 = phi i64 [ %356, %353 ], [ 0, %289 ]
-  %.8368 = phi ptr [ %354, %353 ], [ %.0269, %289 ]
-  %.8285367 = phi ptr [ %355, %353 ], [ %.0277, %289 ]
-  %343 = load float, ptr %.8368, align 4
-  %344 = fcmp ogt float %343, 6.550400e+04
-  br i1 %344, label %345, label %347
-
-345:                                              ; preds = %.preheader359
-  %346 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %353
-
-347:                                              ; preds = %.preheader359
-  %348 = fcmp olt float %343, -6.550400e+04
-  br i1 %348, label %349, label %351
-
-349:                                              ; preds = %347
-  %350 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %353
-
-351:                                              ; preds = %347
-  %352 = fptrunc float %343 to half
-  br label %353
-
-353:                                              ; preds = %349, %351, %345
-  %.sink455 = phi half [ %350, %349 ], [ %352, %351 ], [ %346, %345 ]
-  store half %.sink455, ptr %.8285367, align 2
-  %354 = getelementptr inbounds i8, ptr %.8368, i64 %.2301
-  %355 = getelementptr inbounds i8, ptr %.8285367, i64 %.2298
-  %356 = add nuw i64 %.7369, 1
-  %exitcond426.not = icmp eq i64 %356, %.0295
-  br i1 %exitcond426.not, label %.loopexit360, label %.preheader359
-
-.loopexit360:                                     ; preds = %339, %353
-  %357 = sub i64 %.0392, %.0295
-  %.not336 = icmp eq i64 %357, 0
-  br i1 %.not336, label %.loopexit363, label %.lr.ph.split.split.split
-
-358:                                              ; preds = %9
-  %359 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %360 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %361 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_float__Float16, i32 noundef 1735, i64 noundef %359, i64 noundef %360, ptr noundef nonnull @.str.8) #8
-  br label %.loopexit363
-
-.loopexit363:                                     ; preds = %.loopexit360, %.loopexit356.us, %.loopexit354.us, %.loopexit350.us, %69, %35, %9, %358, %333, %319, %.split.us416, %.split418.us, %.split.us404, %.split406.us, %.split.us, %.split394.us, %46, %40, %31, %17
-  %.0267 = phi i32 [ -1, %358 ], [ -1, %40 ], [ -1, %46 ], [ -1, %.split394.us ], [ -1, %.split.us ], [ -1, %.split406.us ], [ -1, %.split.us404 ], [ -1, %.split418.us ], [ -1, %.split.us416 ], [ -1, %319 ], [ -1, %333 ], [ 0, %9 ], [ -1, %17 ], [ -1, %31 ], [ 0, %35 ], [ 0, %69 ], [ 0, %.loopexit350.us ], [ 0, %.loopexit354.us ], [ 0, %.loopexit356.us ], [ 0, %.loopexit360 ]
+.loopexit363:                                     ; preds = %.loopexit350, %69, %35, %9, %299, %274, %260, %224, %210, %174, %160, %123, %109, %46, %40, %31, %17
+  %.0267 = phi i32 [ -1, %299 ], [ -1, %40 ], [ -1, %46 ], [ -1, %109 ], [ -1, %123 ], [ -1, %160 ], [ -1, %174 ], [ -1, %210 ], [ -1, %224 ], [ -1, %260 ], [ -1, %274 ], [ 0, %9 ], [ -1, %17 ], [ -1, %31 ], [ 0, %35 ], [ 0, %69 ], [ 0, %.loopexit350 ]
   ret i32 %.0267
 }
 
@@ -25920,7 +25788,7 @@ define range(i32 -1, 1) i32 @H5T__conv_double__Float16(ptr noundef readonly %0, 
   %10 = alloca double, align 8
   %11 = alloca half, align 2
   %12 = load i32, ptr %2, align 8
-  switch i32 %12, label %358 [
+  switch i32 %12, label %299 [
     i32 0, label %13
     i32 2, label %.loopexit363
     i32 1, label %37
@@ -26035,649 +25903,517 @@ define range(i32 -1, 1) i32 @H5T__conv_double__Float16(ptr noundef readonly %0, 
   %71 = getelementptr inbounds i8, ptr %3, i64 24
   %72 = getelementptr inbounds i8, ptr %3, i64 32
   %73 = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %brmerge.demorgan, label %.lr.ph.split.us, label %.lr.ph.split
+  br label %74
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit350.us
-  %.0392.us = phi i64 [ %124, %.loopexit350.us ], [ %4, %.lr.ph ]
-  %.1297391.us = phi i64 [ %.2298.us, %.loopexit350.us ], [ %.346, %.lr.ph ]
-  %.1300390.us = phi i64 [ %.2301.us, %.loopexit350.us ], [ %., %.lr.ph ]
-  %74 = icmp sgt i64 %.1297391.us, %.1300390.us
-  br i1 %74, label %75, label %95
+74:                                               ; preds = %.lr.ph, %.loopexit350
+  %.0392 = phi i64 [ %4, %.lr.ph ], [ %298, %.loopexit350 ]
+  %.1297391 = phi i64 [ %.346, %.lr.ph ], [ %.2298, %.loopexit350 ]
+  %.1300390 = phi i64 [ %., %.lr.ph ], [ %.2301, %.loopexit350 ]
+  %75 = icmp sgt i64 %.1297391, %.1300390
+  br i1 %75, label %76, label %96
 
-75:                                               ; preds = %.lr.ph.split.us
-  %76 = mul i64 %.0392.us, %.1300390.us
-  %77 = add nsw i64 %.1297391.us, -1
-  %78 = add i64 %77, %76
-  %79 = udiv i64 %78, %.1297391.us
-  %80 = sub i64 %.0392.us, %79
-  %81 = icmp ult i64 %80, 2
-  br i1 %81, label %87, label %82
+76:                                               ; preds = %74
+  %77 = mul i64 %.0392, %.1300390
+  %78 = add nsw i64 %.1297391, -1
+  %79 = add i64 %78, %77
+  %80 = udiv i64 %79, %.1297391
+  %81 = sub i64 %.0392, %80
+  %82 = icmp ult i64 %81, 2
+  br i1 %82, label %83, label %91
 
-82:                                               ; preds = %75
-  %83 = mul i64 %79, %.1300390.us
-  %84 = getelementptr inbounds i8, ptr %7, i64 %83
-  %85 = mul nuw i64 %79, %.1297391.us
+83:                                               ; preds = %76
+  %84 = add i64 %.0392, -1
+  %85 = mul i64 %84, %.1300390
   %86 = getelementptr inbounds i8, ptr %7, i64 %85
-  br label %95
+  %87 = mul i64 %84, %.1297391
+  %88 = getelementptr inbounds i8, ptr %7, i64 %87
+  %89 = sub nsw i64 0, %.1300390
+  %90 = sub nsw i64 0, %.1297391
+  br label %96
 
-87:                                               ; preds = %75
-  %88 = add i64 %.0392.us, -1
-  %89 = mul i64 %88, %.1300390.us
-  %90 = getelementptr inbounds i8, ptr %7, i64 %89
-  %91 = mul i64 %88, %.1297391.us
-  %92 = getelementptr inbounds i8, ptr %7, i64 %91
-  %93 = sub nsw i64 0, %.1300390.us
-  %94 = sub nsw i64 0, %.1297391.us
-  br label %95
+91:                                               ; preds = %76
+  %92 = mul i64 %80, %.1300390
+  %93 = getelementptr inbounds i8, ptr %7, i64 %92
+  %94 = mul nuw i64 %80, %.1297391
+  %95 = getelementptr inbounds i8, ptr %7, i64 %94
+  br label %96
 
-95:                                               ; preds = %87, %82, %.lr.ph.split.us
-  %.2301.us = phi i64 [ %93, %87 ], [ %.1300390.us, %82 ], [ %.1300390.us, %.lr.ph.split.us ]
-  %.2298.us = phi i64 [ %94, %87 ], [ %.1297391.us, %82 ], [ %.1297391.us, %.lr.ph.split.us ]
-  %.0295.us = phi i64 [ %.0392.us, %87 ], [ %80, %82 ], [ %.0392.us, %.lr.ph.split.us ]
-  %.0277.us = phi ptr [ %92, %87 ], [ %86, %82 ], [ %7, %.lr.ph.split.us ]
-  %.0269.us = phi ptr [ %90, %87 ], [ %84, %82 ], [ %7, %.lr.ph.split.us ]
-  %96 = load ptr, ptr %3, align 8
-  %.not341.us = icmp eq ptr %96, null
-  br i1 %.not341.us, label %.preheader.us, label %.preheader349.us
+96:                                               ; preds = %74, %83, %91
+  %.2301 = phi i64 [ %89, %83 ], [ %.1300390, %91 ], [ %.1300390, %74 ]
+  %.2298 = phi i64 [ %90, %83 ], [ %.1297391, %91 ], [ %.1297391, %74 ]
+  %.0295 = phi i64 [ %.0392, %83 ], [ %81, %91 ], [ %.0392, %74 ]
+  %.0277 = phi ptr [ %88, %83 ], [ %95, %91 ], [ %7, %74 ]
+  %.0269 = phi ptr [ %86, %83 ], [ %93, %91 ], [ %7, %74 ]
+  %97 = load ptr, ptr %3, align 8
+  %.not341 = icmp eq ptr %97, null
+  br i1 %brmerge.demorgan, label %98, label %148
 
-.preheader349.us:                                 ; preds = %95, %119
-  %.0268384.us = phi i64 [ %123, %119 ], [ 0, %95 ]
-  %.1270383.us = phi ptr [ %121, %119 ], [ %.0269.us, %95 ]
-  %.1278382.us = phi ptr [ %122, %119 ], [ %.0277.us, %95 ]
-  %97 = load i64, ptr %.1270383.us, align 1
-  store i64 %97, ptr %10, align 8
-  %.cast343.us = bitcast i64 %97 to double
-  %98 = fcmp ogt double %.cast343.us, 6.550400e+04
-  br i1 %98, label %111, label %99
+98:                                               ; preds = %96
+  br i1 %.not341, label %.preheader, label %.preheader349
 
-99:                                               ; preds = %.preheader349.us
-  %100 = fcmp olt double %.cast343.us, -6.550400e+04
-  br i1 %100, label %103, label %101
+.preheader349:                                    ; preds = %98, %129
+  %.0268384 = phi i64 [ %133, %129 ], [ 0, %98 ]
+  %.1270383 = phi ptr [ %131, %129 ], [ %.0269, %98 ]
+  %.1278382 = phi ptr [ %132, %129 ], [ %.0277, %98 ]
+  %99 = load i64, ptr %.1270383, align 1
+  store i64 %99, ptr %10, align 8
+  %.cast343 = bitcast i64 %99 to double
+  %100 = fcmp ogt double %.cast343, 6.550400e+04
+  br i1 %100, label %101, label %113
 
-101:                                              ; preds = %99
-  %102 = fptrunc double %.cast343.us to half
-  br label %.sink.split
-
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %3, align 8
-  %105 = load i64, ptr %71, align 8
-  %106 = load i64, ptr %72, align 8
-  %107 = load ptr, ptr %73, align 8
-  %108 = call i32 %104(i32 noundef 1, i64 noundef %105, i64 noundef %106, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %107) #8
-  switch i32 %108, label %119 [
-    i32 0, label %109
-    i32 -1, label %.split.us
+101:                                              ; preds = %.preheader349
+  %102 = load ptr, ptr %3, align 8
+  %103 = load i64, ptr %71, align 8
+  %104 = load i64, ptr %72, align 8
+  %105 = load ptr, ptr %73, align 8
+  %106 = call i32 %102(i32 noundef 0, i64 noundef %103, i64 noundef %104, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %105) #8
+  switch i32 %106, label %129 [
+    i32 0, label %107
+    i32 -1, label %109
   ]
 
-109:                                              ; preds = %103
-  %110 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+107:                                              ; preds = %101
+  %108 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
   br label %.sink.split
 
-111:                                              ; preds = %.preheader349.us
-  %112 = load ptr, ptr %3, align 8
-  %113 = load i64, ptr %71, align 8
-  %114 = load i64, ptr %72, align 8
-  %115 = load ptr, ptr %73, align 8
-  %116 = call i32 %112(i32 noundef 0, i64 noundef %113, i64 noundef %114, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %115) #8
-  switch i32 %116, label %119 [
-    i32 0, label %117
-    i32 -1, label %.split394.us
+109:                                              ; preds = %101
+  %110 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %111 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+113:                                              ; preds = %.preheader349
+  %114 = fcmp olt double %.cast343, -6.550400e+04
+  br i1 %114, label %115, label %127
+
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %3, align 8
+  %117 = load i64, ptr %71, align 8
+  %118 = load i64, ptr %72, align 8
+  %119 = load ptr, ptr %73, align 8
+  %120 = call i32 %116(i32 noundef 1, i64 noundef %117, i64 noundef %118, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %119) #8
+  switch i32 %120, label %129 [
+    i32 0, label %121
+    i32 -1, label %123
   ]
 
-117:                                              ; preds = %111
-  %118 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+121:                                              ; preds = %115
+  %122 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %101, %109, %117
-  %.sink = phi half [ %118, %117 ], [ %110, %109 ], [ %102, %101 ]
+123:                                              ; preds = %115
+  %124 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %125 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+127:                                              ; preds = %113
+  %128 = fptrunc double %.cast343 to half
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %107, %121, %127
+  %.sink = phi half [ %128, %127 ], [ %122, %121 ], [ %108, %107 ]
   store half %.sink, ptr %11, align 2
-  br label %119
+  br label %129
 
-119:                                              ; preds = %.sink.split, %111, %103
-  %120 = load i16, ptr %11, align 2
-  store i16 %120, ptr %.1278382.us, align 1
-  %121 = getelementptr inbounds i8, ptr %.1270383.us, i64 %.2301.us
-  %122 = getelementptr inbounds i8, ptr %.1278382.us, i64 %.2298.us
-  %123 = add nuw i64 %.0268384.us, 1
-  %exitcond436.not = icmp eq i64 %123, %.0295.us
-  br i1 %exitcond436.not, label %.loopexit350.us, label %.preheader349.us
+129:                                              ; preds = %.sink.split, %115, %101
+  %130 = load i16, ptr %11, align 2
+  store i16 %130, ptr %.1278382, align 1
+  %131 = getelementptr inbounds i8, ptr %.1270383, i64 %.2301
+  %132 = getelementptr inbounds i8, ptr %.1278382, i64 %.2298
+  %133 = add nuw i64 %.0268384, 1
+  %exitcond410.not = icmp eq i64 %133, %.0295
+  br i1 %exitcond410.not, label %.loopexit350, label %.preheader349
 
-.loopexit350.us:                                  ; preds = %119, %.loopexit.us
-  %124 = sub i64 %.0392.us, %.0295.us
-  %.not336.us = icmp eq i64 %124, 0
-  br i1 %.not336.us, label %.loopexit363, label %.lr.ph.split.us
+.preheader:                                       ; preds = %98, %144
+  %.1388 = phi i64 [ %147, %144 ], [ 0, %98 ]
+  %.2271387 = phi ptr [ %145, %144 ], [ %.0269, %98 ]
+  %.2279386 = phi ptr [ %146, %144 ], [ %.0277, %98 ]
+  %134 = load i64, ptr %.2271387, align 1
+  %.cast342 = bitcast i64 %134 to double
+  %135 = fcmp ogt double %.cast342, 6.550400e+04
+  br i1 %135, label %136, label %138
 
-.preheader.us:                                    ; preds = %95, %135
-  %.1388.us = phi i64 [ %138, %135 ], [ 0, %95 ]
-  %.2271387.us = phi ptr [ %136, %135 ], [ %.0269.us, %95 ]
-  %.2279386.us = phi ptr [ %137, %135 ], [ %.0277.us, %95 ]
-  %125 = load i64, ptr %.2271387.us, align 1
-  %.cast342.us = bitcast i64 %125 to double
-  %126 = fcmp ogt double %.cast342.us, 6.550400e+04
-  br i1 %126, label %133, label %127
+136:                                              ; preds = %.preheader
+  %137 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %144
 
-127:                                              ; preds = %.preheader.us
-  %128 = fcmp olt double %.cast342.us, -6.550400e+04
-  br i1 %128, label %131, label %129
+138:                                              ; preds = %.preheader
+  %139 = fcmp olt double %.cast342, -6.550400e+04
+  br i1 %139, label %140, label %142
 
-129:                                              ; preds = %127
-  %130 = fptrunc double %.cast342.us to half
-  br label %135
+140:                                              ; preds = %138
+  %141 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %144
 
-131:                                              ; preds = %127
-  %132 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %135
+142:                                              ; preds = %138
+  %143 = fptrunc double %.cast342 to half
+  br label %144
 
-133:                                              ; preds = %.preheader.us
-  %134 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %135
+144:                                              ; preds = %140, %142, %136
+  %.sink420 = phi half [ %141, %140 ], [ %143, %142 ], [ %137, %136 ]
+  store half %.sink420, ptr %.2279386, align 1
+  %145 = getelementptr inbounds i8, ptr %.2271387, i64 %.2301
+  %146 = getelementptr inbounds i8, ptr %.2279386, i64 %.2298
+  %147 = add nuw i64 %.1388, 1
+  %exitcond412.not = icmp eq i64 %147, %.0295
+  br i1 %exitcond412.not, label %.loopexit350.sink.split.loopexit, label %.preheader
 
-135:                                              ; preds = %133, %131, %129
-  %.sink446 = phi half [ %134, %133 ], [ %132, %131 ], [ %130, %129 ]
-  store half %.sink446, ptr %.2279386.us, align 1
-  %136 = getelementptr inbounds i8, ptr %.2271387.us, i64 %.2301.us
-  %137 = getelementptr inbounds i8, ptr %.2279386.us, i64 %.2298.us
-  %138 = add nuw i64 %.1388.us, 1
-  %exitcond438.not = icmp eq i64 %138, %.0295.us
-  br i1 %exitcond438.not, label %.loopexit.us, label %.preheader.us
+148:                                              ; preds = %96
+  br i1 %60, label %149, label %198
 
-.loopexit.us:                                     ; preds = %135
-  store half %.sink446, ptr %11, align 2
-  store i64 %125, ptr %10, align 8
-  br label %.loopexit350.us
+149:                                              ; preds = %148
+  br i1 %.not341, label %.preheader351, label %.preheader353
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %60, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+.preheader353:                                    ; preds = %149, %180
+  %.2378 = phi i64 [ %183, %180 ], [ 0, %149 ]
+  %.3272377 = phi ptr [ %181, %180 ], [ %.0269, %149 ]
+  %.3280376 = phi ptr [ %182, %180 ], [ %.0277, %149 ]
+  %150 = load i64, ptr %.3272377, align 1
+  store i64 %150, ptr %10, align 8
+  %.cast340 = bitcast i64 %150 to double
+  %151 = fcmp ogt double %.cast340, 6.550400e+04
+  br i1 %151, label %152, label %164
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.loopexit354.us
-  %.0392.us395 = phi i64 [ %202, %.loopexit354.us ], [ %4, %.lr.ph.split ]
-  %.1297391.us396 = phi i64 [ %.2298.us399, %.loopexit354.us ], [ %.346, %.lr.ph.split ]
-  %.1300390.us397 = phi i64 [ %.2301.us398, %.loopexit354.us ], [ %., %.lr.ph.split ]
-  %139 = icmp sgt i64 %.1297391.us396, %.1300390.us397
-  br i1 %139, label %140, label %160
+152:                                              ; preds = %.preheader353
+  %153 = load ptr, ptr %3, align 8
+  %154 = load i64, ptr %71, align 8
+  %155 = load i64, ptr %72, align 8
+  %156 = load ptr, ptr %73, align 8
+  %157 = call i32 %153(i32 noundef 0, i64 noundef %154, i64 noundef %155, ptr noundef nonnull %10, ptr noundef %.3280376, ptr noundef %156) #8
+  switch i32 %157, label %180 [
+    i32 0, label %158
+    i32 -1, label %160
+  ]
 
-140:                                              ; preds = %.lr.ph.split.split.us
-  %141 = mul i64 %.0392.us395, %.1300390.us397
-  %142 = add nsw i64 %.1297391.us396, -1
-  %143 = add i64 %142, %141
-  %144 = udiv i64 %143, %.1297391.us396
-  %145 = sub i64 %.0392.us395, %144
-  %146 = icmp ult i64 %145, 2
-  br i1 %146, label %152, label %147
+158:                                              ; preds = %152
+  %159 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split421
 
-147:                                              ; preds = %140
-  %148 = mul i64 %144, %.1300390.us397
-  %149 = getelementptr inbounds i8, ptr %7, i64 %148
-  %150 = mul nuw i64 %144, %.1297391.us396
-  %151 = getelementptr inbounds i8, ptr %7, i64 %150
-  br label %160
+160:                                              ; preds = %152
+  %161 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %162 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %163 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %161, i64 noundef %162, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
 
-152:                                              ; preds = %140
-  %153 = add i64 %.0392.us395, -1
-  %154 = mul i64 %153, %.1300390.us397
-  %155 = getelementptr inbounds i8, ptr %7, i64 %154
-  %156 = mul i64 %153, %.1297391.us396
-  %157 = getelementptr inbounds i8, ptr %7, i64 %156
-  %158 = sub nsw i64 0, %.1300390.us397
-  %159 = sub nsw i64 0, %.1297391.us396
-  br label %160
-
-160:                                              ; preds = %152, %147, %.lr.ph.split.split.us
-  %.2301.us398 = phi i64 [ %158, %152 ], [ %.1300390.us397, %147 ], [ %.1300390.us397, %.lr.ph.split.split.us ]
-  %.2298.us399 = phi i64 [ %159, %152 ], [ %.1297391.us396, %147 ], [ %.1297391.us396, %.lr.ph.split.split.us ]
-  %.0295.us400 = phi i64 [ %.0392.us395, %152 ], [ %145, %147 ], [ %.0392.us395, %.lr.ph.split.split.us ]
-  %.0277.us401 = phi ptr [ %157, %152 ], [ %151, %147 ], [ %7, %.lr.ph.split.split.us ]
-  %.0269.us402 = phi ptr [ %155, %152 ], [ %149, %147 ], [ %7, %.lr.ph.split.split.us ]
-  %161 = load ptr, ptr %3, align 8
-  %.not339.us = icmp eq ptr %161, null
-  br i1 %.not339.us, label %.preheader351.us, label %.preheader353.us
-
-.preheader353.us:                                 ; preds = %160, %184
-  %.2378.us = phi i64 [ %187, %184 ], [ 0, %160 ]
-  %.3272377.us = phi ptr [ %185, %184 ], [ %.0269.us402, %160 ]
-  %.3280376.us = phi ptr [ %186, %184 ], [ %.0277.us401, %160 ]
-  %162 = load i64, ptr %.3272377.us, align 1
-  store i64 %162, ptr %10, align 8
-  %.cast340.us = bitcast i64 %162 to double
-  %163 = fcmp ogt double %.cast340.us, 6.550400e+04
-  br i1 %163, label %176, label %164
-
-164:                                              ; preds = %.preheader353.us
-  %165 = fcmp olt double %.cast340.us, -6.550400e+04
-  br i1 %165, label %168, label %166
+164:                                              ; preds = %.preheader353
+  %165 = fcmp olt double %.cast340, -6.550400e+04
+  br i1 %165, label %166, label %178
 
 166:                                              ; preds = %164
-  %167 = fptrunc double %.cast340.us to half
-  br label %.sink.split447
-
-168:                                              ; preds = %164
-  %169 = load ptr, ptr %3, align 8
-  %170 = load i64, ptr %71, align 8
-  %171 = load i64, ptr %72, align 8
-  %172 = load ptr, ptr %73, align 8
-  %173 = call i32 %169(i32 noundef 1, i64 noundef %170, i64 noundef %171, ptr noundef nonnull %10, ptr noundef %.3280376.us, ptr noundef %172) #8
-  switch i32 %173, label %184 [
-    i32 0, label %174
-    i32 -1, label %.split.us404
+  %167 = load ptr, ptr %3, align 8
+  %168 = load i64, ptr %71, align 8
+  %169 = load i64, ptr %72, align 8
+  %170 = load ptr, ptr %73, align 8
+  %171 = call i32 %167(i32 noundef 1, i64 noundef %168, i64 noundef %169, ptr noundef nonnull %10, ptr noundef %.3280376, ptr noundef %170) #8
+  switch i32 %171, label %180 [
+    i32 0, label %172
+    i32 -1, label %174
   ]
 
-174:                                              ; preds = %168
-  %175 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split447
+172:                                              ; preds = %166
+  %173 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split421
 
-176:                                              ; preds = %.preheader353.us
-  %177 = load ptr, ptr %3, align 8
-  %178 = load i64, ptr %71, align 8
-  %179 = load i64, ptr %72, align 8
-  %180 = load ptr, ptr %73, align 8
-  %181 = call i32 %177(i32 noundef 0, i64 noundef %178, i64 noundef %179, ptr noundef nonnull %10, ptr noundef %.3280376.us, ptr noundef %180) #8
-  switch i32 %181, label %184 [
-    i32 0, label %182
-    i32 -1, label %.split406.us
-  ]
-
-182:                                              ; preds = %176
-  %183 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split447
-
-.sink.split447:                                   ; preds = %166, %174, %182
-  %.sink448 = phi half [ %183, %182 ], [ %175, %174 ], [ %167, %166 ]
-  store half %.sink448, ptr %.3280376.us, align 2
-  br label %184
-
-184:                                              ; preds = %.sink.split447, %176, %168
-  %185 = getelementptr inbounds i8, ptr %.3272377.us, i64 %.2301.us398
-  %186 = getelementptr inbounds i8, ptr %.3280376.us, i64 %.2298.us399
-  %187 = add nuw i64 %.2378.us, 1
-  %exitcond432.not = icmp eq i64 %187, %.0295.us400
-  br i1 %exitcond432.not, label %.loopexit354.us, label %.preheader353.us
-
-.preheader351.us:                                 ; preds = %160, %198
-  %.3381.us = phi i64 [ %201, %198 ], [ 0, %160 ]
-  %.4273380.us = phi ptr [ %199, %198 ], [ %.0269.us402, %160 ]
-  %.4281379.us = phi ptr [ %200, %198 ], [ %.0277.us401, %160 ]
-  %188 = load i64, ptr %.4273380.us, align 1
-  %.cast.us = bitcast i64 %188 to double
-  %189 = fcmp ogt double %.cast.us, 6.550400e+04
-  br i1 %189, label %196, label %190
-
-190:                                              ; preds = %.preheader351.us
-  %191 = fcmp olt double %.cast.us, -6.550400e+04
-  br i1 %191, label %194, label %192
-
-192:                                              ; preds = %190
-  %193 = fptrunc double %.cast.us to half
-  br label %198
-
-194:                                              ; preds = %190
-  %195 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %198
-
-196:                                              ; preds = %.preheader351.us
-  %197 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %198
-
-198:                                              ; preds = %196, %194, %192
-  %.sink449 = phi half [ %197, %196 ], [ %195, %194 ], [ %193, %192 ]
-  store half %.sink449, ptr %.4281379.us, align 2
-  %199 = getelementptr inbounds i8, ptr %.4273380.us, i64 %.2301.us398
-  %200 = getelementptr inbounds i8, ptr %.4281379.us, i64 %.2298.us399
-  %201 = add nuw i64 %.3381.us, 1
-  %exitcond434.not = icmp eq i64 %201, %.0295.us400
-  br i1 %exitcond434.not, label %.loopexit352.us, label %.preheader351.us
-
-.loopexit354.us:                                  ; preds = %184, %.loopexit352.us
-  %202 = sub i64 %.0392.us395, %.0295.us400
-  %.not336.us403 = icmp eq i64 %202, 0
-  br i1 %.not336.us403, label %.loopexit363, label %.lr.ph.split.split.us
-
-.loopexit352.us:                                  ; preds = %198
-  store i64 %188, ptr %10, align 8
-  br label %.loopexit354.us
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %70, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
-
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.loopexit356.us
-  %.0392.us407 = phi i64 [ %267, %.loopexit356.us ], [ %4, %.lr.ph.split.split ]
-  %.1297391.us408 = phi i64 [ %.2298.us411, %.loopexit356.us ], [ %.346, %.lr.ph.split.split ]
-  %.1300390.us409 = phi i64 [ %.2301.us410, %.loopexit356.us ], [ %., %.lr.ph.split.split ]
-  %203 = icmp sgt i64 %.1297391.us408, %.1300390.us409
-  br i1 %203, label %204, label %224
-
-204:                                              ; preds = %.lr.ph.split.split.split.us
-  %205 = mul i64 %.0392.us407, %.1300390.us409
-  %206 = add nsw i64 %.1297391.us408, -1
-  %207 = add i64 %206, %205
-  %208 = udiv i64 %207, %.1297391.us408
-  %209 = sub i64 %.0392.us407, %208
-  %210 = icmp ult i64 %209, 2
-  br i1 %210, label %216, label %211
-
-211:                                              ; preds = %204
-  %212 = mul i64 %208, %.1300390.us409
-  %213 = getelementptr inbounds i8, ptr %7, i64 %212
-  %214 = mul nuw i64 %208, %.1297391.us408
-  %215 = getelementptr inbounds i8, ptr %7, i64 %214
-  br label %224
-
-216:                                              ; preds = %204
-  %217 = add i64 %.0392.us407, -1
-  %218 = mul i64 %217, %.1300390.us409
-  %219 = getelementptr inbounds i8, ptr %7, i64 %218
-  %220 = mul i64 %217, %.1297391.us408
-  %221 = getelementptr inbounds i8, ptr %7, i64 %220
-  %222 = sub nsw i64 0, %.1300390.us409
-  %223 = sub nsw i64 0, %.1297391.us408
-  br label %224
-
-224:                                              ; preds = %216, %211, %.lr.ph.split.split.split.us
-  %.2301.us410 = phi i64 [ %222, %216 ], [ %.1300390.us409, %211 ], [ %.1300390.us409, %.lr.ph.split.split.split.us ]
-  %.2298.us411 = phi i64 [ %223, %216 ], [ %.1297391.us408, %211 ], [ %.1297391.us408, %.lr.ph.split.split.split.us ]
-  %.0295.us412 = phi i64 [ %.0392.us407, %216 ], [ %209, %211 ], [ %.0392.us407, %.lr.ph.split.split.split.us ]
-  %.0277.us413 = phi ptr [ %221, %216 ], [ %215, %211 ], [ %7, %.lr.ph.split.split.split.us ]
-  %.0269.us414 = phi ptr [ %219, %216 ], [ %213, %211 ], [ %7, %.lr.ph.split.split.split.us ]
-  %225 = load ptr, ptr %3, align 8
-  %.not338.us = icmp eq ptr %225, null
-  br i1 %.not338.us, label %.preheader355.us, label %.preheader357.us
-
-.preheader357.us:                                 ; preds = %224, %248
-  %.4372.us = phi i64 [ %252, %248 ], [ 0, %224 ]
-  %.5274371.us = phi ptr [ %250, %248 ], [ %.0269.us414, %224 ]
-  %.5282370.us = phi ptr [ %251, %248 ], [ %.0277.us413, %224 ]
-  %226 = load double, ptr %.5274371.us, align 8
-  %227 = fcmp ogt double %226, 6.550400e+04
-  br i1 %227, label %240, label %228
-
-228:                                              ; preds = %.preheader357.us
-  %229 = fcmp olt double %226, -6.550400e+04
-  br i1 %229, label %232, label %230
-
-230:                                              ; preds = %228
-  %231 = fptrunc double %226 to half
-  br label %.sink.split450
-
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %3, align 8
-  %234 = load i64, ptr %71, align 8
-  %235 = load i64, ptr %72, align 8
-  %236 = load ptr, ptr %73, align 8
-  %237 = call i32 %233(i32 noundef 1, i64 noundef %234, i64 noundef %235, ptr noundef nonnull %.5274371.us, ptr noundef nonnull %11, ptr noundef %236) #8
-  switch i32 %237, label %248 [
-    i32 0, label %238
-    i32 -1, label %.split.us416
-  ]
-
-238:                                              ; preds = %232
-  %239 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split450
-
-240:                                              ; preds = %.preheader357.us
-  %241 = load ptr, ptr %3, align 8
-  %242 = load i64, ptr %71, align 8
-  %243 = load i64, ptr %72, align 8
-  %244 = load ptr, ptr %73, align 8
-  %245 = call i32 %241(i32 noundef 0, i64 noundef %242, i64 noundef %243, ptr noundef nonnull %.5274371.us, ptr noundef nonnull %11, ptr noundef %244) #8
-  switch i32 %245, label %248 [
-    i32 0, label %246
-    i32 -1, label %.split418.us
-  ]
-
-246:                                              ; preds = %240
-  %247 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split450
-
-.sink.split450:                                   ; preds = %230, %238, %246
-  %.sink451 = phi half [ %247, %246 ], [ %239, %238 ], [ %231, %230 ]
-  store half %.sink451, ptr %11, align 2
-  br label %248
-
-248:                                              ; preds = %.sink.split450, %240, %232
-  %249 = load i16, ptr %11, align 2
-  store i16 %249, ptr %.5282370.us, align 1
-  %250 = getelementptr inbounds i8, ptr %.5274371.us, i64 %.2301.us410
-  %251 = getelementptr inbounds i8, ptr %.5282370.us, i64 %.2298.us411
-  %252 = add nuw i64 %.4372.us, 1
-  %exitcond428.not = icmp eq i64 %252, %.0295.us412
-  br i1 %exitcond428.not, label %.loopexit356.us, label %.preheader357.us
-
-.preheader355.us:                                 ; preds = %224, %263
-  %.5375.us = phi i64 [ %266, %263 ], [ 0, %224 ]
-  %.6275374.us = phi ptr [ %264, %263 ], [ %.0269.us414, %224 ]
-  %.6283373.us = phi ptr [ %265, %263 ], [ %.0277.us413, %224 ]
-  %253 = load double, ptr %.6275374.us, align 8
-  %254 = fcmp ogt double %253, 6.550400e+04
-  br i1 %254, label %261, label %255
-
-255:                                              ; preds = %.preheader355.us
-  %256 = fcmp olt double %253, -6.550400e+04
-  br i1 %256, label %259, label %257
-
-257:                                              ; preds = %255
-  %258 = fptrunc double %253 to half
-  br label %263
-
-259:                                              ; preds = %255
-  %260 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %263
-
-261:                                              ; preds = %.preheader355.us
-  %262 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %263
-
-263:                                              ; preds = %261, %259, %257
-  %.sink452 = phi half [ %262, %261 ], [ %260, %259 ], [ %258, %257 ]
-  store half %.sink452, ptr %.6283373.us, align 1
-  %264 = getelementptr inbounds i8, ptr %.6275374.us, i64 %.2301.us410
-  %265 = getelementptr inbounds i8, ptr %.6283373.us, i64 %.2298.us411
-  %266 = add nuw i64 %.5375.us, 1
-  %exitcond430.not = icmp eq i64 %266, %.0295.us412
-  br i1 %exitcond430.not, label %.loopexit356.us.loopexit, label %.preheader355.us
-
-.loopexit356.us.loopexit:                         ; preds = %263
-  store half %.sink452, ptr %11, align 2
-  br label %.loopexit356.us
-
-.loopexit356.us:                                  ; preds = %248, %.loopexit356.us.loopexit
-  %267 = sub i64 %.0392.us407, %.0295.us412
-  %.not336.us415 = icmp eq i64 %267, 0
-  br i1 %.not336.us415, label %.loopexit363, label %.lr.ph.split.split.split.us
-
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.loopexit360
-  %.0392 = phi i64 [ %357, %.loopexit360 ], [ %4, %.lr.ph.split.split ]
-  %.1297391 = phi i64 [ %.2298, %.loopexit360 ], [ %.346, %.lr.ph.split.split ]
-  %.1300390 = phi i64 [ %.2301, %.loopexit360 ], [ %., %.lr.ph.split.split ]
-  %268 = icmp sgt i64 %.1297391, %.1300390
-  br i1 %268, label %269, label %289
-
-269:                                              ; preds = %.lr.ph.split.split.split
-  %270 = mul i64 %.0392, %.1300390
-  %271 = add nsw i64 %.1297391, -1
-  %272 = add i64 %271, %270
-  %273 = udiv i64 %272, %.1297391
-  %274 = sub i64 %.0392, %273
-  %275 = icmp ult i64 %274, 2
-  br i1 %275, label %276, label %284
-
-276:                                              ; preds = %269
-  %277 = add i64 %.0392, -1
-  %278 = mul i64 %277, %.1300390
-  %279 = getelementptr inbounds i8, ptr %7, i64 %278
-  %280 = mul i64 %277, %.1297391
-  %281 = getelementptr inbounds i8, ptr %7, i64 %280
-  %282 = sub nsw i64 0, %.1300390
-  %283 = sub nsw i64 0, %.1297391
-  br label %289
-
-284:                                              ; preds = %269
-  %285 = mul i64 %273, %.1300390
-  %286 = getelementptr inbounds i8, ptr %7, i64 %285
-  %287 = mul nuw i64 %273, %.1297391
-  %288 = getelementptr inbounds i8, ptr %7, i64 %287
-  br label %289
-
-289:                                              ; preds = %.lr.ph.split.split.split, %276, %284
-  %.2301 = phi i64 [ %282, %276 ], [ %.1300390, %284 ], [ %.1300390, %.lr.ph.split.split.split ]
-  %.2298 = phi i64 [ %283, %276 ], [ %.1297391, %284 ], [ %.1297391, %.lr.ph.split.split.split ]
-  %.0295 = phi i64 [ %.0392, %276 ], [ %274, %284 ], [ %.0392, %.lr.ph.split.split.split ]
-  %.0277 = phi ptr [ %281, %276 ], [ %288, %284 ], [ %7, %.lr.ph.split.split.split ]
-  %.0269 = phi ptr [ %279, %276 ], [ %286, %284 ], [ %7, %.lr.ph.split.split.split ]
-  %290 = load ptr, ptr %3, align 8
-  %.not337 = icmp eq ptr %290, null
-  br i1 %.not337, label %.preheader359, label %.preheader361
-
-.split394.us:                                     ; preds = %111
-  %291 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %292 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %293 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %291, i64 noundef %292, ptr noundef nonnull @.str.6) #8
+174:                                              ; preds = %166
+  %175 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %176 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %177 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %175, i64 noundef %176, ptr noundef nonnull @.str.6) #8
   br label %.loopexit363
 
-.split.us:                                        ; preds = %103
-  %294 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %295 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %296 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %294, i64 noundef %295, ptr noundef nonnull @.str.6) #8
+178:                                              ; preds = %164
+  %179 = fptrunc double %.cast340 to half
+  br label %.sink.split421
+
+.sink.split421:                                   ; preds = %158, %172, %178
+  %.sink422 = phi half [ %179, %178 ], [ %173, %172 ], [ %159, %158 ]
+  store half %.sink422, ptr %.3280376, align 2
+  br label %180
+
+180:                                              ; preds = %.sink.split421, %166, %152
+  %181 = getelementptr inbounds i8, ptr %.3272377, i64 %.2301
+  %182 = getelementptr inbounds i8, ptr %.3280376, i64 %.2298
+  %183 = add nuw i64 %.2378, 1
+  %exitcond406.not = icmp eq i64 %183, %.0295
+  br i1 %exitcond406.not, label %.loopexit350, label %.preheader353
+
+.preheader351:                                    ; preds = %149, %194
+  %.3381 = phi i64 [ %197, %194 ], [ 0, %149 ]
+  %.4273380 = phi ptr [ %195, %194 ], [ %.0269, %149 ]
+  %.4281379 = phi ptr [ %196, %194 ], [ %.0277, %149 ]
+  %184 = load i64, ptr %.4273380, align 1
+  %.cast = bitcast i64 %184 to double
+  %185 = fcmp ogt double %.cast, 6.550400e+04
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %.preheader351
+  %187 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %194
+
+188:                                              ; preds = %.preheader351
+  %189 = fcmp olt double %.cast, -6.550400e+04
+  br i1 %189, label %190, label %192
+
+190:                                              ; preds = %188
+  %191 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %194
+
+192:                                              ; preds = %188
+  %193 = fptrunc double %.cast to half
+  br label %194
+
+194:                                              ; preds = %190, %192, %186
+  %.sink423 = phi half [ %191, %190 ], [ %193, %192 ], [ %187, %186 ]
+  store half %.sink423, ptr %.4281379, align 2
+  %195 = getelementptr inbounds i8, ptr %.4273380, i64 %.2301
+  %196 = getelementptr inbounds i8, ptr %.4281379, i64 %.2298
+  %197 = add nuw i64 %.3381, 1
+  %exitcond408.not = icmp eq i64 %197, %.0295
+  br i1 %exitcond408.not, label %.loopexit350.sink.split, label %.preheader351
+
+198:                                              ; preds = %148
+  br i1 %70, label %199, label %249
+
+199:                                              ; preds = %198
+  br i1 %.not341, label %.preheader355, label %.preheader357
+
+.preheader357:                                    ; preds = %199, %230
+  %.4372 = phi i64 [ %234, %230 ], [ 0, %199 ]
+  %.5274371 = phi ptr [ %232, %230 ], [ %.0269, %199 ]
+  %.5282370 = phi ptr [ %233, %230 ], [ %.0277, %199 ]
+  %200 = load double, ptr %.5274371, align 8
+  %201 = fcmp ogt double %200, 6.550400e+04
+  br i1 %201, label %202, label %214
+
+202:                                              ; preds = %.preheader357
+  %203 = load ptr, ptr %3, align 8
+  %204 = load i64, ptr %71, align 8
+  %205 = load i64, ptr %72, align 8
+  %206 = load ptr, ptr %73, align 8
+  %207 = call i32 %203(i32 noundef 0, i64 noundef %204, i64 noundef %205, ptr noundef nonnull %.5274371, ptr noundef nonnull %11, ptr noundef %206) #8
+  switch i32 %207, label %230 [
+    i32 0, label %208
+    i32 -1, label %210
+  ]
+
+208:                                              ; preds = %202
+  %209 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split424
+
+210:                                              ; preds = %202
+  %211 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %212 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %213 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.6) #8
   br label %.loopexit363
 
-.split406.us:                                     ; preds = %176
-  %297 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %298 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %299 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %297, i64 noundef %298, ptr noundef nonnull @.str.6) #8
+214:                                              ; preds = %.preheader357
+  %215 = fcmp olt double %200, -6.550400e+04
+  br i1 %215, label %216, label %228
+
+216:                                              ; preds = %214
+  %217 = load ptr, ptr %3, align 8
+  %218 = load i64, ptr %71, align 8
+  %219 = load i64, ptr %72, align 8
+  %220 = load ptr, ptr %73, align 8
+  %221 = call i32 %217(i32 noundef 1, i64 noundef %218, i64 noundef %219, ptr noundef nonnull %.5274371, ptr noundef nonnull %11, ptr noundef %220) #8
+  switch i32 %221, label %230 [
+    i32 0, label %222
+    i32 -1, label %224
+  ]
+
+222:                                              ; preds = %216
+  %223 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split424
+
+224:                                              ; preds = %216
+  %225 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %226 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %227 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %225, i64 noundef %226, ptr noundef nonnull @.str.6) #8
   br label %.loopexit363
 
-.split.us404:                                     ; preds = %168
+228:                                              ; preds = %214
+  %229 = fptrunc double %200 to half
+  br label %.sink.split424
+
+.sink.split424:                                   ; preds = %208, %222, %228
+  %.sink425 = phi half [ %229, %228 ], [ %223, %222 ], [ %209, %208 ]
+  store half %.sink425, ptr %11, align 2
+  br label %230
+
+230:                                              ; preds = %.sink.split424, %216, %202
+  %231 = load i16, ptr %11, align 2
+  store i16 %231, ptr %.5282370, align 1
+  %232 = getelementptr inbounds i8, ptr %.5274371, i64 %.2301
+  %233 = getelementptr inbounds i8, ptr %.5282370, i64 %.2298
+  %234 = add nuw i64 %.4372, 1
+  %exitcond402.not = icmp eq i64 %234, %.0295
+  br i1 %exitcond402.not, label %.loopexit350, label %.preheader357
+
+.preheader355:                                    ; preds = %199, %245
+  %.5375 = phi i64 [ %248, %245 ], [ 0, %199 ]
+  %.6275374 = phi ptr [ %246, %245 ], [ %.0269, %199 ]
+  %.6283373 = phi ptr [ %247, %245 ], [ %.0277, %199 ]
+  %235 = load double, ptr %.6275374, align 8
+  %236 = fcmp ogt double %235, 6.550400e+04
+  br i1 %236, label %237, label %239
+
+237:                                              ; preds = %.preheader355
+  %238 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %245
+
+239:                                              ; preds = %.preheader355
+  %240 = fcmp olt double %235, -6.550400e+04
+  br i1 %240, label %241, label %243
+
+241:                                              ; preds = %239
+  %242 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %245
+
+243:                                              ; preds = %239
+  %244 = fptrunc double %235 to half
+  br label %245
+
+245:                                              ; preds = %241, %243, %237
+  %.sink426 = phi half [ %242, %241 ], [ %244, %243 ], [ %238, %237 ]
+  store half %.sink426, ptr %.6283373, align 1
+  %246 = getelementptr inbounds i8, ptr %.6275374, i64 %.2301
+  %247 = getelementptr inbounds i8, ptr %.6283373, i64 %.2298
+  %248 = add nuw i64 %.5375, 1
+  %exitcond404.not = icmp eq i64 %248, %.0295
+  br i1 %exitcond404.not, label %.loopexit350.loopexit439, label %.preheader355
+
+249:                                              ; preds = %198
+  br i1 %.not341, label %.preheader359, label %.preheader361
+
+.preheader361:                                    ; preds = %249, %280
+  %.6366 = phi i64 [ %283, %280 ], [ 0, %249 ]
+  %.7276365 = phi ptr [ %281, %280 ], [ %.0269, %249 ]
+  %.7284364 = phi ptr [ %282, %280 ], [ %.0277, %249 ]
+  %250 = load double, ptr %.7276365, align 8
+  %251 = fcmp ogt double %250, 6.550400e+04
+  br i1 %251, label %252, label %264
+
+252:                                              ; preds = %.preheader361
+  %253 = load ptr, ptr %3, align 8
+  %254 = load i64, ptr %71, align 8
+  %255 = load i64, ptr %72, align 8
+  %256 = load ptr, ptr %73, align 8
+  %257 = call i32 %253(i32 noundef 0, i64 noundef %254, i64 noundef %255, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %256) #8
+  switch i32 %257, label %280 [
+    i32 0, label %258
+    i32 -1, label %260
+  ]
+
+258:                                              ; preds = %252
+  %259 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split427
+
+260:                                              ; preds = %252
+  %261 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %262 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %263 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %261, i64 noundef %262, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+264:                                              ; preds = %.preheader361
+  %265 = fcmp olt double %250, -6.550400e+04
+  br i1 %265, label %266, label %278
+
+266:                                              ; preds = %264
+  %267 = load ptr, ptr %3, align 8
+  %268 = load i64, ptr %71, align 8
+  %269 = load i64, ptr %72, align 8
+  %270 = load ptr, ptr %73, align 8
+  %271 = call i32 %267(i32 noundef 1, i64 noundef %268, i64 noundef %269, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %270) #8
+  switch i32 %271, label %280 [
+    i32 0, label %272
+    i32 -1, label %274
+  ]
+
+272:                                              ; preds = %266
+  %273 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split427
+
+274:                                              ; preds = %266
+  %275 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %276 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %277 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %275, i64 noundef %276, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit363
+
+278:                                              ; preds = %264
+  %279 = fptrunc double %250 to half
+  br label %.sink.split427
+
+.sink.split427:                                   ; preds = %258, %272, %278
+  %.sink428 = phi half [ %279, %278 ], [ %273, %272 ], [ %259, %258 ]
+  store half %.sink428, ptr %.7284364, align 2
+  br label %280
+
+280:                                              ; preds = %.sink.split427, %266, %252
+  %281 = getelementptr inbounds i8, ptr %.7276365, i64 %.2301
+  %282 = getelementptr inbounds i8, ptr %.7284364, i64 %.2298
+  %283 = add nuw i64 %.6366, 1
+  %exitcond.not = icmp eq i64 %283, %.0295
+  br i1 %exitcond.not, label %.loopexit350, label %.preheader361
+
+.preheader359:                                    ; preds = %249, %294
+  %.7369 = phi i64 [ %297, %294 ], [ 0, %249 ]
+  %.8368 = phi ptr [ %295, %294 ], [ %.0269, %249 ]
+  %.8285367 = phi ptr [ %296, %294 ], [ %.0277, %249 ]
+  %284 = load double, ptr %.8368, align 8
+  %285 = fcmp ogt double %284, 6.550400e+04
+  br i1 %285, label %286, label %288
+
+286:                                              ; preds = %.preheader359
+  %287 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %294
+
+288:                                              ; preds = %.preheader359
+  %289 = fcmp olt double %284, -6.550400e+04
+  br i1 %289, label %290, label %292
+
+290:                                              ; preds = %288
+  %291 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %294
+
+292:                                              ; preds = %288
+  %293 = fptrunc double %284 to half
+  br label %294
+
+294:                                              ; preds = %290, %292, %286
+  %.sink429 = phi half [ %291, %290 ], [ %293, %292 ], [ %287, %286 ]
+  store half %.sink429, ptr %.8285367, align 2
+  %295 = getelementptr inbounds i8, ptr %.8368, i64 %.2301
+  %296 = getelementptr inbounds i8, ptr %.8285367, i64 %.2298
+  %297 = add nuw i64 %.7369, 1
+  %exitcond400.not = icmp eq i64 %297, %.0295
+  br i1 %exitcond400.not, label %.loopexit350, label %.preheader359
+
+.loopexit350.sink.split.loopexit:                 ; preds = %144
+  store half %.sink420, ptr %11, align 2
+  br label %.loopexit350.sink.split
+
+.loopexit350.sink.split:                          ; preds = %194, %.loopexit350.sink.split.loopexit
+  %.lcssa.sink = phi i64 [ %134, %.loopexit350.sink.split.loopexit ], [ %184, %194 ]
+  store i64 %.lcssa.sink, ptr %10, align 8
+  br label %.loopexit350
+
+.loopexit350.loopexit439:                         ; preds = %245
+  store half %.sink426, ptr %11, align 2
+  br label %.loopexit350
+
+.loopexit350:                                     ; preds = %280, %294, %230, %180, %129, %.loopexit350.loopexit439, %.loopexit350.sink.split
+  %298 = sub i64 %.0392, %.0295
+  %.not336 = icmp eq i64 %298, 0
+  br i1 %.not336, label %.loopexit363, label %74
+
+299:                                              ; preds = %9
   %300 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %301 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %302 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.6) #8
+  %301 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
+  %302 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.8) #8
   br label %.loopexit363
 
-.split418.us:                                     ; preds = %240
-  %303 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %304 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %305 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %303, i64 noundef %304, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-.split.us416:                                     ; preds = %232
-  %306 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %307 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %308 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %306, i64 noundef %307, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-.preheader361:                                    ; preds = %289, %339
-  %.6366 = phi i64 [ %342, %339 ], [ 0, %289 ]
-  %.7276365 = phi ptr [ %340, %339 ], [ %.0269, %289 ]
-  %.7284364 = phi ptr [ %341, %339 ], [ %.0277, %289 ]
-  %309 = load double, ptr %.7276365, align 8
-  %310 = fcmp ogt double %309, 6.550400e+04
-  br i1 %310, label %311, label %323
-
-311:                                              ; preds = %.preheader361
-  %312 = load ptr, ptr %3, align 8
-  %313 = load i64, ptr %71, align 8
-  %314 = load i64, ptr %72, align 8
-  %315 = load ptr, ptr %73, align 8
-  %316 = tail call i32 %312(i32 noundef 0, i64 noundef %313, i64 noundef %314, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %315) #8
-  switch i32 %316, label %339 [
-    i32 0, label %317
-    i32 -1, label %319
-  ]
-
-317:                                              ; preds = %311
-  %318 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split453
-
-319:                                              ; preds = %311
-  %320 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %321 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %322 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %320, i64 noundef %321, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-323:                                              ; preds = %.preheader361
-  %324 = fcmp olt double %309, -6.550400e+04
-  br i1 %324, label %325, label %337
-
-325:                                              ; preds = %323
-  %326 = load ptr, ptr %3, align 8
-  %327 = load i64, ptr %71, align 8
-  %328 = load i64, ptr %72, align 8
-  %329 = load ptr, ptr %73, align 8
-  %330 = tail call i32 %326(i32 noundef 1, i64 noundef %327, i64 noundef %328, ptr noundef nonnull %.7276365, ptr noundef %.7284364, ptr noundef %329) #8
-  switch i32 %330, label %339 [
-    i32 0, label %331
-    i32 -1, label %333
-  ]
-
-331:                                              ; preds = %325
-  %332 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split453
-
-333:                                              ; preds = %325
-  %334 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %335 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %336 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %334, i64 noundef %335, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit363
-
-337:                                              ; preds = %323
-  %338 = fptrunc double %309 to half
-  br label %.sink.split453
-
-.sink.split453:                                   ; preds = %317, %331, %337
-  %.sink454 = phi half [ %338, %337 ], [ %332, %331 ], [ %318, %317 ]
-  store half %.sink454, ptr %.7284364, align 2
-  br label %339
-
-339:                                              ; preds = %.sink.split453, %325, %311
-  %340 = getelementptr inbounds i8, ptr %.7276365, i64 %.2301
-  %341 = getelementptr inbounds i8, ptr %.7284364, i64 %.2298
-  %342 = add nuw i64 %.6366, 1
-  %exitcond.not = icmp eq i64 %342, %.0295
-  br i1 %exitcond.not, label %.loopexit360, label %.preheader361
-
-.preheader359:                                    ; preds = %289, %353
-  %.7369 = phi i64 [ %356, %353 ], [ 0, %289 ]
-  %.8368 = phi ptr [ %354, %353 ], [ %.0269, %289 ]
-  %.8285367 = phi ptr [ %355, %353 ], [ %.0277, %289 ]
-  %343 = load double, ptr %.8368, align 8
-  %344 = fcmp ogt double %343, 6.550400e+04
-  br i1 %344, label %345, label %347
-
-345:                                              ; preds = %.preheader359
-  %346 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %353
-
-347:                                              ; preds = %.preheader359
-  %348 = fcmp olt double %343, -6.550400e+04
-  br i1 %348, label %349, label %351
-
-349:                                              ; preds = %347
-  %350 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %353
-
-351:                                              ; preds = %347
-  %352 = fptrunc double %343 to half
-  br label %353
-
-353:                                              ; preds = %349, %351, %345
-  %.sink455 = phi half [ %350, %349 ], [ %352, %351 ], [ %346, %345 ]
-  store half %.sink455, ptr %.8285367, align 2
-  %354 = getelementptr inbounds i8, ptr %.8368, i64 %.2301
-  %355 = getelementptr inbounds i8, ptr %.8285367, i64 %.2298
-  %356 = add nuw i64 %.7369, 1
-  %exitcond426.not = icmp eq i64 %356, %.0295
-  br i1 %exitcond426.not, label %.loopexit360, label %.preheader359
-
-.loopexit360:                                     ; preds = %339, %353
-  %357 = sub i64 %.0392, %.0295
-  %.not336 = icmp eq i64 %357, 0
-  br i1 %.not336, label %.loopexit363, label %.lr.ph.split.split.split
-
-358:                                              ; preds = %9
-  %359 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %360 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %361 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_double__Float16, i32 noundef 1994, i64 noundef %359, i64 noundef %360, ptr noundef nonnull @.str.8) #8
-  br label %.loopexit363
-
-.loopexit363:                                     ; preds = %.loopexit360, %.loopexit356.us, %.loopexit354.us, %.loopexit350.us, %69, %35, %9, %358, %333, %319, %.split.us416, %.split418.us, %.split.us404, %.split406.us, %.split.us, %.split394.us, %46, %40, %31, %17
-  %.0267 = phi i32 [ -1, %358 ], [ -1, %40 ], [ -1, %46 ], [ -1, %.split394.us ], [ -1, %.split.us ], [ -1, %.split406.us ], [ -1, %.split.us404 ], [ -1, %.split418.us ], [ -1, %.split.us416 ], [ -1, %319 ], [ -1, %333 ], [ 0, %9 ], [ -1, %17 ], [ -1, %31 ], [ 0, %35 ], [ 0, %69 ], [ 0, %.loopexit350.us ], [ 0, %.loopexit354.us ], [ 0, %.loopexit356.us ], [ 0, %.loopexit360 ]
+.loopexit363:                                     ; preds = %.loopexit350, %69, %35, %9, %299, %274, %260, %224, %210, %174, %160, %123, %109, %46, %40, %31, %17
+  %.0267 = phi i32 [ -1, %299 ], [ -1, %40 ], [ -1, %46 ], [ -1, %109 ], [ -1, %123 ], [ -1, %160 ], [ -1, %174 ], [ -1, %210 ], [ -1, %224 ], [ -1, %260 ], [ -1, %274 ], [ 0, %9 ], [ -1, %17 ], [ -1, %31 ], [ 0, %35 ], [ 0, %69 ], [ 0, %.loopexit350 ]
   ret i32 %.0267
 }
 
@@ -36322,7 +36058,7 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble__Float16(ptr noundef readonly %0,
   %10 = alloca x86_fp80, align 16
   %11 = alloca half, align 2
   %12 = load i32, ptr %2, align 8
-  switch i32 %12, label %358 [
+  switch i32 %12, label %299 [
     i32 0, label %13
     i32 2, label %.loopexit360
     i32 1, label %37
@@ -36437,642 +36173,510 @@ define range(i32 -1, 1) i32 @H5T__conv_ldouble__Float16(ptr noundef readonly %0,
   %71 = getelementptr inbounds i8, ptr %3, i64 24
   %72 = getelementptr inbounds i8, ptr %3, i64 32
   %73 = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %brmerge.demorgan, label %.lr.ph.split.us, label %.lr.ph.split
+  br label %74
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.loopexit.us
-  %.0388.us = phi i64 [ %124, %.loopexit.us ], [ %4, %.lr.ph ]
-  %.1297387.us = phi i64 [ %.2298.us, %.loopexit.us ], [ %.343, %.lr.ph ]
-  %.1300386.us = phi i64 [ %.2301.us, %.loopexit.us ], [ %., %.lr.ph ]
-  %74 = icmp sgt i64 %.1297387.us, %.1300386.us
-  br i1 %74, label %75, label %95
+74:                                               ; preds = %.lr.ph, %.loopexit
+  %.0388 = phi i64 [ %4, %.lr.ph ], [ %298, %.loopexit ]
+  %.1297387 = phi i64 [ %.343, %.lr.ph ], [ %.2298, %.loopexit ]
+  %.1300386 = phi i64 [ %., %.lr.ph ], [ %.2301, %.loopexit ]
+  %75 = icmp sgt i64 %.1297387, %.1300386
+  br i1 %75, label %76, label %96
 
-75:                                               ; preds = %.lr.ph.split.us
-  %76 = mul i64 %.0388.us, %.1300386.us
-  %77 = add nsw i64 %.1297387.us, -1
-  %78 = add i64 %77, %76
-  %79 = udiv i64 %78, %.1297387.us
-  %80 = sub i64 %.0388.us, %79
-  %81 = icmp ult i64 %80, 2
-  br i1 %81, label %87, label %82
+76:                                               ; preds = %74
+  %77 = mul i64 %.0388, %.1300386
+  %78 = add nsw i64 %.1297387, -1
+  %79 = add i64 %78, %77
+  %80 = udiv i64 %79, %.1297387
+  %81 = sub i64 %.0388, %80
+  %82 = icmp ult i64 %81, 2
+  br i1 %82, label %83, label %91
 
-82:                                               ; preds = %75
-  %83 = mul i64 %79, %.1300386.us
-  %84 = getelementptr inbounds i8, ptr %7, i64 %83
-  %85 = mul nuw i64 %79, %.1297387.us
+83:                                               ; preds = %76
+  %84 = add i64 %.0388, -1
+  %85 = mul i64 %84, %.1300386
   %86 = getelementptr inbounds i8, ptr %7, i64 %85
-  br label %95
+  %87 = mul i64 %84, %.1297387
+  %88 = getelementptr inbounds i8, ptr %7, i64 %87
+  %89 = sub nsw i64 0, %.1300386
+  %90 = sub nsw i64 0, %.1297387
+  br label %96
 
-87:                                               ; preds = %75
-  %88 = add i64 %.0388.us, -1
-  %89 = mul i64 %88, %.1300386.us
-  %90 = getelementptr inbounds i8, ptr %7, i64 %89
-  %91 = mul i64 %88, %.1297387.us
-  %92 = getelementptr inbounds i8, ptr %7, i64 %91
-  %93 = sub nsw i64 0, %.1300386.us
-  %94 = sub nsw i64 0, %.1297387.us
-  br label %95
+91:                                               ; preds = %76
+  %92 = mul i64 %80, %.1300386
+  %93 = getelementptr inbounds i8, ptr %7, i64 %92
+  %94 = mul nuw i64 %80, %.1297387
+  %95 = getelementptr inbounds i8, ptr %7, i64 %94
+  br label %96
 
-95:                                               ; preds = %87, %82, %.lr.ph.split.us
-  %.2301.us = phi i64 [ %93, %87 ], [ %.1300386.us, %82 ], [ %.1300386.us, %.lr.ph.split.us ]
-  %.2298.us = phi i64 [ %94, %87 ], [ %.1297387.us, %82 ], [ %.1297387.us, %.lr.ph.split.us ]
-  %.0295.us = phi i64 [ %.0388.us, %87 ], [ %80, %82 ], [ %.0388.us, %.lr.ph.split.us ]
-  %.0277.us = phi ptr [ %92, %87 ], [ %86, %82 ], [ %7, %.lr.ph.split.us ]
-  %.0269.us = phi ptr [ %90, %87 ], [ %84, %82 ], [ %7, %.lr.ph.split.us ]
-  %96 = load ptr, ptr %3, align 8
-  %.not340.us = icmp eq ptr %96, null
-  br i1 %.not340.us, label %.preheader.us, label %.preheader346.us
+96:                                               ; preds = %74, %83, %91
+  %.2301 = phi i64 [ %89, %83 ], [ %.1300386, %91 ], [ %.1300386, %74 ]
+  %.2298 = phi i64 [ %90, %83 ], [ %.1297387, %91 ], [ %.1297387, %74 ]
+  %.0295 = phi i64 [ %.0388, %83 ], [ %81, %91 ], [ %.0388, %74 ]
+  %.0277 = phi ptr [ %88, %83 ], [ %95, %91 ], [ %7, %74 ]
+  %.0269 = phi ptr [ %86, %83 ], [ %93, %91 ], [ %7, %74 ]
+  %97 = load ptr, ptr %3, align 8
+  %.not340 = icmp eq ptr %97, null
+  br i1 %brmerge.demorgan, label %98, label %148
 
-.preheader346.us:                                 ; preds = %95, %119
-  %.0268381.us = phi i64 [ %123, %119 ], [ 0, %95 ]
-  %.1270380.us = phi ptr [ %121, %119 ], [ %.0269.us, %95 ]
-  %.1278379.us = phi ptr [ %122, %119 ], [ %.0277.us, %95 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.1270380.us, i64 16, i1 false)
-  %97 = load x86_fp80, ptr %10, align 16
-  %98 = fcmp ogt x86_fp80 %97, 0xK400EFFE0000000000000
-  br i1 %98, label %111, label %99
+98:                                               ; preds = %96
+  br i1 %.not340, label %.preheader, label %.preheader346
 
-99:                                               ; preds = %.preheader346.us
-  %100 = fcmp olt x86_fp80 %97, 0xKC00EFFE0000000000000
-  br i1 %100, label %103, label %101
+.preheader346:                                    ; preds = %98, %129
+  %.0268381 = phi i64 [ %133, %129 ], [ 0, %98 ]
+  %.1270380 = phi ptr [ %131, %129 ], [ %.0269, %98 ]
+  %.1278379 = phi ptr [ %132, %129 ], [ %.0277, %98 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.1270380, i64 16, i1 false)
+  %99 = load x86_fp80, ptr %10, align 16
+  %100 = fcmp ogt x86_fp80 %99, 0xK400EFFE0000000000000
+  br i1 %100, label %101, label %113
 
-101:                                              ; preds = %99
-  %102 = fptrunc x86_fp80 %97 to half
-  br label %.sink.split
-
-103:                                              ; preds = %99
-  %104 = load ptr, ptr %3, align 8
-  %105 = load i64, ptr %71, align 8
-  %106 = load i64, ptr %72, align 8
-  %107 = load ptr, ptr %73, align 8
-  %108 = call i32 %104(i32 noundef 1, i64 noundef %105, i64 noundef %106, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %107) #8
-  switch i32 %108, label %119 [
-    i32 0, label %109
-    i32 -1, label %.split.us
+101:                                              ; preds = %.preheader346
+  %102 = load ptr, ptr %3, align 8
+  %103 = load i64, ptr %71, align 8
+  %104 = load i64, ptr %72, align 8
+  %105 = load ptr, ptr %73, align 8
+  %106 = call i32 %102(i32 noundef 0, i64 noundef %103, i64 noundef %104, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %105) #8
+  switch i32 %106, label %129 [
+    i32 0, label %107
+    i32 -1, label %109
   ]
 
-109:                                              ; preds = %103
-  %110 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+107:                                              ; preds = %101
+  %108 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
   br label %.sink.split
 
-111:                                              ; preds = %.preheader346.us
-  %112 = load ptr, ptr %3, align 8
-  %113 = load i64, ptr %71, align 8
-  %114 = load i64, ptr %72, align 8
-  %115 = load ptr, ptr %73, align 8
-  %116 = call i32 %112(i32 noundef 0, i64 noundef %113, i64 noundef %114, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %115) #8
-  switch i32 %116, label %119 [
-    i32 0, label %117
-    i32 -1, label %.split390.us
+109:                                              ; preds = %101
+  %110 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %111 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %112 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %110, i64 noundef %111, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit360
+
+113:                                              ; preds = %.preheader346
+  %114 = fcmp olt x86_fp80 %99, 0xKC00EFFE0000000000000
+  br i1 %114, label %115, label %127
+
+115:                                              ; preds = %113
+  %116 = load ptr, ptr %3, align 8
+  %117 = load i64, ptr %71, align 8
+  %118 = load i64, ptr %72, align 8
+  %119 = load ptr, ptr %73, align 8
+  %120 = call i32 %116(i32 noundef 1, i64 noundef %117, i64 noundef %118, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef %119) #8
+  switch i32 %120, label %129 [
+    i32 0, label %121
+    i32 -1, label %123
   ]
 
-117:                                              ; preds = %111
-  %118 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+121:                                              ; preds = %115
+  %122 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %101, %109, %117
-  %.sink = phi half [ %118, %117 ], [ %110, %109 ], [ %102, %101 ]
+123:                                              ; preds = %115
+  %124 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %125 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %126 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %124, i64 noundef %125, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit360
+
+127:                                              ; preds = %113
+  %128 = fptrunc x86_fp80 %99 to half
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %107, %121, %127
+  %.sink = phi half [ %128, %127 ], [ %122, %121 ], [ %108, %107 ]
   store half %.sink, ptr %11, align 2
-  br label %119
+  br label %129
 
-119:                                              ; preds = %.sink.split, %111, %103
-  %120 = load i16, ptr %11, align 2
-  store i16 %120, ptr %.1278379.us, align 1
-  %121 = getelementptr inbounds i8, ptr %.1270380.us, i64 %.2301.us
-  %122 = getelementptr inbounds i8, ptr %.1278379.us, i64 %.2298.us
-  %123 = add nuw i64 %.0268381.us, 1
-  %exitcond433.not = icmp eq i64 %123, %.0295.us
-  br i1 %exitcond433.not, label %.loopexit.us, label %.preheader346.us
+129:                                              ; preds = %.sink.split, %115, %101
+  %130 = load i16, ptr %11, align 2
+  store i16 %130, ptr %.1278379, align 1
+  %131 = getelementptr inbounds i8, ptr %.1270380, i64 %.2301
+  %132 = getelementptr inbounds i8, ptr %.1278379, i64 %.2298
+  %133 = add nuw i64 %.0268381, 1
+  %exitcond407.not = icmp eq i64 %133, %.0295
+  br i1 %exitcond407.not, label %.loopexit, label %.preheader346
 
-.loopexit.us.loopexit:                            ; preds = %135
-  store half %.sink444, ptr %11, align 2
-  br label %.loopexit.us
+.preheader:                                       ; preds = %98, %144
+  %.1384 = phi i64 [ %147, %144 ], [ 0, %98 ]
+  %.2271383 = phi ptr [ %145, %144 ], [ %.0269, %98 ]
+  %.2279382 = phi ptr [ %146, %144 ], [ %.0277, %98 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.2271383, i64 16, i1 false)
+  %134 = load x86_fp80, ptr %10, align 16
+  %135 = fcmp ogt x86_fp80 %134, 0xK400EFFE0000000000000
+  br i1 %135, label %136, label %138
 
-.loopexit.us:                                     ; preds = %119, %.loopexit.us.loopexit
-  %124 = sub i64 %.0388.us, %.0295.us
-  %.not336.us = icmp eq i64 %124, 0
-  br i1 %.not336.us, label %.loopexit360, label %.lr.ph.split.us
+136:                                              ; preds = %.preheader
+  %137 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %144
 
-.preheader.us:                                    ; preds = %95, %135
-  %.1384.us = phi i64 [ %138, %135 ], [ 0, %95 ]
-  %.2271383.us = phi ptr [ %136, %135 ], [ %.0269.us, %95 ]
-  %.2279382.us = phi ptr [ %137, %135 ], [ %.0277.us, %95 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.2271383.us, i64 16, i1 false)
-  %125 = load x86_fp80, ptr %10, align 16
-  %126 = fcmp ogt x86_fp80 %125, 0xK400EFFE0000000000000
-  br i1 %126, label %133, label %127
+138:                                              ; preds = %.preheader
+  %139 = fcmp olt x86_fp80 %134, 0xKC00EFFE0000000000000
+  br i1 %139, label %140, label %142
 
-127:                                              ; preds = %.preheader.us
-  %128 = fcmp olt x86_fp80 %125, 0xKC00EFFE0000000000000
-  br i1 %128, label %131, label %129
+140:                                              ; preds = %138
+  %141 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %144
 
-129:                                              ; preds = %127
-  %130 = fptrunc x86_fp80 %125 to half
-  br label %135
+142:                                              ; preds = %138
+  %143 = fptrunc x86_fp80 %134 to half
+  br label %144
 
-131:                                              ; preds = %127
-  %132 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %135
+144:                                              ; preds = %140, %142, %136
+  %.sink418 = phi half [ %141, %140 ], [ %143, %142 ], [ %137, %136 ]
+  store half %.sink418, ptr %.2279382, align 1
+  %145 = getelementptr inbounds i8, ptr %.2271383, i64 %.2301
+  %146 = getelementptr inbounds i8, ptr %.2279382, i64 %.2298
+  %147 = add nuw i64 %.1384, 1
+  %exitcond409.not = icmp eq i64 %147, %.0295
+  br i1 %exitcond409.not, label %.loopexit.loopexit, label %.preheader
 
-133:                                              ; preds = %.preheader.us
-  %134 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %135
+148:                                              ; preds = %96
+  br i1 %60, label %149, label %198
 
-135:                                              ; preds = %133, %131, %129
-  %.sink444 = phi half [ %134, %133 ], [ %132, %131 ], [ %130, %129 ]
-  store half %.sink444, ptr %.2279382.us, align 1
-  %136 = getelementptr inbounds i8, ptr %.2271383.us, i64 %.2301.us
-  %137 = getelementptr inbounds i8, ptr %.2279382.us, i64 %.2298.us
-  %138 = add nuw i64 %.1384.us, 1
-  %exitcond435.not = icmp eq i64 %138, %.0295.us
-  br i1 %exitcond435.not, label %.loopexit.us.loopexit, label %.preheader.us
+149:                                              ; preds = %148
+  br i1 %.not340, label %.preheader348, label %.preheader350
 
-.lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %60, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+.preheader350:                                    ; preds = %149, %180
+  %.2375 = phi i64 [ %183, %180 ], [ 0, %149 ]
+  %.3272374 = phi ptr [ %181, %180 ], [ %.0269, %149 ]
+  %.3280373 = phi ptr [ %182, %180 ], [ %.0277, %149 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.3272374, i64 16, i1 false)
+  %150 = load x86_fp80, ptr %10, align 16
+  %151 = fcmp ogt x86_fp80 %150, 0xK400EFFE0000000000000
+  br i1 %151, label %152, label %164
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %.loopexit349.us
-  %.0388.us391 = phi i64 [ %202, %.loopexit349.us ], [ %4, %.lr.ph.split ]
-  %.1297387.us392 = phi i64 [ %.2298.us395, %.loopexit349.us ], [ %.343, %.lr.ph.split ]
-  %.1300386.us393 = phi i64 [ %.2301.us394, %.loopexit349.us ], [ %., %.lr.ph.split ]
-  %139 = icmp sgt i64 %.1297387.us392, %.1300386.us393
-  br i1 %139, label %140, label %160
+152:                                              ; preds = %.preheader350
+  %153 = load ptr, ptr %3, align 8
+  %154 = load i64, ptr %71, align 8
+  %155 = load i64, ptr %72, align 8
+  %156 = load ptr, ptr %73, align 8
+  %157 = call i32 %153(i32 noundef 0, i64 noundef %154, i64 noundef %155, ptr noundef nonnull %10, ptr noundef %.3280373, ptr noundef %156) #8
+  switch i32 %157, label %180 [
+    i32 0, label %158
+    i32 -1, label %160
+  ]
 
-140:                                              ; preds = %.lr.ph.split.split.us
-  %141 = mul i64 %.0388.us391, %.1300386.us393
-  %142 = add nsw i64 %.1297387.us392, -1
-  %143 = add i64 %142, %141
-  %144 = udiv i64 %143, %.1297387.us392
-  %145 = sub i64 %.0388.us391, %144
-  %146 = icmp ult i64 %145, 2
-  br i1 %146, label %152, label %147
+158:                                              ; preds = %152
+  %159 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split419
 
-147:                                              ; preds = %140
-  %148 = mul i64 %144, %.1300386.us393
-  %149 = getelementptr inbounds i8, ptr %7, i64 %148
-  %150 = mul nuw i64 %144, %.1297387.us392
-  %151 = getelementptr inbounds i8, ptr %7, i64 %150
-  br label %160
+160:                                              ; preds = %152
+  %161 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %162 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %163 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %161, i64 noundef %162, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit360
 
-152:                                              ; preds = %140
-  %153 = add i64 %.0388.us391, -1
-  %154 = mul i64 %153, %.1300386.us393
-  %155 = getelementptr inbounds i8, ptr %7, i64 %154
-  %156 = mul i64 %153, %.1297387.us392
-  %157 = getelementptr inbounds i8, ptr %7, i64 %156
-  %158 = sub nsw i64 0, %.1300386.us393
-  %159 = sub nsw i64 0, %.1297387.us392
-  br label %160
-
-160:                                              ; preds = %152, %147, %.lr.ph.split.split.us
-  %.2301.us394 = phi i64 [ %158, %152 ], [ %.1300386.us393, %147 ], [ %.1300386.us393, %.lr.ph.split.split.us ]
-  %.2298.us395 = phi i64 [ %159, %152 ], [ %.1297387.us392, %147 ], [ %.1297387.us392, %.lr.ph.split.split.us ]
-  %.0295.us396 = phi i64 [ %.0388.us391, %152 ], [ %145, %147 ], [ %.0388.us391, %.lr.ph.split.split.us ]
-  %.0277.us397 = phi ptr [ %157, %152 ], [ %151, %147 ], [ %7, %.lr.ph.split.split.us ]
-  %.0269.us398 = phi ptr [ %155, %152 ], [ %149, %147 ], [ %7, %.lr.ph.split.split.us ]
-  %161 = load ptr, ptr %3, align 8
-  %.not339.us = icmp eq ptr %161, null
-  br i1 %.not339.us, label %.preheader348.us, label %.preheader350.us
-
-.preheader350.us:                                 ; preds = %160, %184
-  %.2375.us = phi i64 [ %187, %184 ], [ 0, %160 ]
-  %.3272374.us = phi ptr [ %185, %184 ], [ %.0269.us398, %160 ]
-  %.3280373.us = phi ptr [ %186, %184 ], [ %.0277.us397, %160 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.3272374.us, i64 16, i1 false)
-  %162 = load x86_fp80, ptr %10, align 16
-  %163 = fcmp ogt x86_fp80 %162, 0xK400EFFE0000000000000
-  br i1 %163, label %176, label %164
-
-164:                                              ; preds = %.preheader350.us
-  %165 = fcmp olt x86_fp80 %162, 0xKC00EFFE0000000000000
-  br i1 %165, label %168, label %166
+164:                                              ; preds = %.preheader350
+  %165 = fcmp olt x86_fp80 %150, 0xKC00EFFE0000000000000
+  br i1 %165, label %166, label %178
 
 166:                                              ; preds = %164
-  %167 = fptrunc x86_fp80 %162 to half
-  br label %.sink.split445
-
-168:                                              ; preds = %164
-  %169 = load ptr, ptr %3, align 8
-  %170 = load i64, ptr %71, align 8
-  %171 = load i64, ptr %72, align 8
-  %172 = load ptr, ptr %73, align 8
-  %173 = call i32 %169(i32 noundef 1, i64 noundef %170, i64 noundef %171, ptr noundef nonnull %10, ptr noundef %.3280373.us, ptr noundef %172) #8
-  switch i32 %173, label %184 [
-    i32 0, label %174
-    i32 -1, label %.split.us400
+  %167 = load ptr, ptr %3, align 8
+  %168 = load i64, ptr %71, align 8
+  %169 = load i64, ptr %72, align 8
+  %170 = load ptr, ptr %73, align 8
+  %171 = call i32 %167(i32 noundef 1, i64 noundef %168, i64 noundef %169, ptr noundef nonnull %10, ptr noundef %.3280373, ptr noundef %170) #8
+  switch i32 %171, label %180 [
+    i32 0, label %172
+    i32 -1, label %174
   ]
 
-174:                                              ; preds = %168
-  %175 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split445
+172:                                              ; preds = %166
+  %173 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split419
 
-176:                                              ; preds = %.preheader350.us
-  %177 = load ptr, ptr %3, align 8
-  %178 = load i64, ptr %71, align 8
-  %179 = load i64, ptr %72, align 8
-  %180 = load ptr, ptr %73, align 8
-  %181 = call i32 %177(i32 noundef 0, i64 noundef %178, i64 noundef %179, ptr noundef nonnull %10, ptr noundef %.3280373.us, ptr noundef %180) #8
-  switch i32 %181, label %184 [
-    i32 0, label %182
-    i32 -1, label %.split402.us
-  ]
-
-182:                                              ; preds = %176
-  %183 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split445
-
-.sink.split445:                                   ; preds = %166, %174, %182
-  %.sink446 = phi half [ %183, %182 ], [ %175, %174 ], [ %167, %166 ]
-  store half %.sink446, ptr %.3280373.us, align 2
-  br label %184
-
-184:                                              ; preds = %.sink.split445, %176, %168
-  %185 = getelementptr inbounds i8, ptr %.3272374.us, i64 %.2301.us394
-  %186 = getelementptr inbounds i8, ptr %.3280373.us, i64 %.2298.us395
-  %187 = add nuw i64 %.2375.us, 1
-  %exitcond429.not = icmp eq i64 %187, %.0295.us396
-  br i1 %exitcond429.not, label %.loopexit349.us, label %.preheader350.us
-
-.preheader348.us:                                 ; preds = %160, %198
-  %.3378.us = phi i64 [ %201, %198 ], [ 0, %160 ]
-  %.4273377.us = phi ptr [ %199, %198 ], [ %.0269.us398, %160 ]
-  %.4281376.us = phi ptr [ %200, %198 ], [ %.0277.us397, %160 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.4273377.us, i64 16, i1 false)
-  %188 = load x86_fp80, ptr %10, align 16
-  %189 = fcmp ogt x86_fp80 %188, 0xK400EFFE0000000000000
-  br i1 %189, label %196, label %190
-
-190:                                              ; preds = %.preheader348.us
-  %191 = fcmp olt x86_fp80 %188, 0xKC00EFFE0000000000000
-  br i1 %191, label %194, label %192
-
-192:                                              ; preds = %190
-  %193 = fptrunc x86_fp80 %188 to half
-  br label %198
-
-194:                                              ; preds = %190
-  %195 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %198
-
-196:                                              ; preds = %.preheader348.us
-  %197 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %198
-
-198:                                              ; preds = %196, %194, %192
-  %.sink447 = phi half [ %197, %196 ], [ %195, %194 ], [ %193, %192 ]
-  store half %.sink447, ptr %.4281376.us, align 2
-  %199 = getelementptr inbounds i8, ptr %.4273377.us, i64 %.2301.us394
-  %200 = getelementptr inbounds i8, ptr %.4281376.us, i64 %.2298.us395
-  %201 = add nuw i64 %.3378.us, 1
-  %exitcond431.not = icmp eq i64 %201, %.0295.us396
-  br i1 %exitcond431.not, label %.loopexit349.us, label %.preheader348.us
-
-.loopexit349.us:                                  ; preds = %184, %198
-  %202 = sub i64 %.0388.us391, %.0295.us396
-  %.not336.us399 = icmp eq i64 %202, 0
-  br i1 %.not336.us399, label %.loopexit360, label %.lr.ph.split.split.us
-
-.lr.ph.split.split:                               ; preds = %.lr.ph.split
-  br i1 %70, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
-
-.lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.loopexit353.us
-  %.0388.us403 = phi i64 [ %267, %.loopexit353.us ], [ %4, %.lr.ph.split.split ]
-  %.1297387.us404 = phi i64 [ %.2298.us407, %.loopexit353.us ], [ %.343, %.lr.ph.split.split ]
-  %.1300386.us405 = phi i64 [ %.2301.us406, %.loopexit353.us ], [ %., %.lr.ph.split.split ]
-  %203 = icmp sgt i64 %.1297387.us404, %.1300386.us405
-  br i1 %203, label %204, label %224
-
-204:                                              ; preds = %.lr.ph.split.split.split.us
-  %205 = mul i64 %.0388.us403, %.1300386.us405
-  %206 = add nsw i64 %.1297387.us404, -1
-  %207 = add i64 %206, %205
-  %208 = udiv i64 %207, %.1297387.us404
-  %209 = sub i64 %.0388.us403, %208
-  %210 = icmp ult i64 %209, 2
-  br i1 %210, label %216, label %211
-
-211:                                              ; preds = %204
-  %212 = mul i64 %208, %.1300386.us405
-  %213 = getelementptr inbounds i8, ptr %7, i64 %212
-  %214 = mul nuw i64 %208, %.1297387.us404
-  %215 = getelementptr inbounds i8, ptr %7, i64 %214
-  br label %224
-
-216:                                              ; preds = %204
-  %217 = add i64 %.0388.us403, -1
-  %218 = mul i64 %217, %.1300386.us405
-  %219 = getelementptr inbounds i8, ptr %7, i64 %218
-  %220 = mul i64 %217, %.1297387.us404
-  %221 = getelementptr inbounds i8, ptr %7, i64 %220
-  %222 = sub nsw i64 0, %.1300386.us405
-  %223 = sub nsw i64 0, %.1297387.us404
-  br label %224
-
-224:                                              ; preds = %216, %211, %.lr.ph.split.split.split.us
-  %.2301.us406 = phi i64 [ %222, %216 ], [ %.1300386.us405, %211 ], [ %.1300386.us405, %.lr.ph.split.split.split.us ]
-  %.2298.us407 = phi i64 [ %223, %216 ], [ %.1297387.us404, %211 ], [ %.1297387.us404, %.lr.ph.split.split.split.us ]
-  %.0295.us408 = phi i64 [ %.0388.us403, %216 ], [ %209, %211 ], [ %.0388.us403, %.lr.ph.split.split.split.us ]
-  %.0277.us409 = phi ptr [ %221, %216 ], [ %215, %211 ], [ %7, %.lr.ph.split.split.split.us ]
-  %.0269.us410 = phi ptr [ %219, %216 ], [ %213, %211 ], [ %7, %.lr.ph.split.split.split.us ]
-  %225 = load ptr, ptr %3, align 8
-  %.not338.us = icmp eq ptr %225, null
-  br i1 %.not338.us, label %.preheader352.us, label %.preheader354.us
-
-.preheader354.us:                                 ; preds = %224, %248
-  %.4369.us = phi i64 [ %252, %248 ], [ 0, %224 ]
-  %.5274368.us = phi ptr [ %250, %248 ], [ %.0269.us410, %224 ]
-  %.5282367.us = phi ptr [ %251, %248 ], [ %.0277.us409, %224 ]
-  %226 = load x86_fp80, ptr %.5274368.us, align 16
-  %227 = fcmp ogt x86_fp80 %226, 0xK400EFFE0000000000000
-  br i1 %227, label %240, label %228
-
-228:                                              ; preds = %.preheader354.us
-  %229 = fcmp olt x86_fp80 %226, 0xKC00EFFE0000000000000
-  br i1 %229, label %232, label %230
-
-230:                                              ; preds = %228
-  %231 = fptrunc x86_fp80 %226 to half
-  br label %.sink.split448
-
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %3, align 8
-  %234 = load i64, ptr %71, align 8
-  %235 = load i64, ptr %72, align 8
-  %236 = load ptr, ptr %73, align 8
-  %237 = call i32 %233(i32 noundef 1, i64 noundef %234, i64 noundef %235, ptr noundef nonnull %.5274368.us, ptr noundef nonnull %11, ptr noundef %236) #8
-  switch i32 %237, label %248 [
-    i32 0, label %238
-    i32 -1, label %.split.us412
-  ]
-
-238:                                              ; preds = %232
-  %239 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split448
-
-240:                                              ; preds = %.preheader354.us
-  %241 = load ptr, ptr %3, align 8
-  %242 = load i64, ptr %71, align 8
-  %243 = load i64, ptr %72, align 8
-  %244 = load ptr, ptr %73, align 8
-  %245 = call i32 %241(i32 noundef 0, i64 noundef %242, i64 noundef %243, ptr noundef nonnull %.5274368.us, ptr noundef nonnull %11, ptr noundef %244) #8
-  switch i32 %245, label %248 [
-    i32 0, label %246
-    i32 -1, label %.split414.us
-  ]
-
-246:                                              ; preds = %240
-  %247 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split448
-
-.sink.split448:                                   ; preds = %230, %238, %246
-  %.sink449 = phi half [ %247, %246 ], [ %239, %238 ], [ %231, %230 ]
-  store half %.sink449, ptr %11, align 2
-  br label %248
-
-248:                                              ; preds = %.sink.split448, %240, %232
-  %249 = load i16, ptr %11, align 2
-  store i16 %249, ptr %.5282367.us, align 1
-  %250 = getelementptr inbounds i8, ptr %.5274368.us, i64 %.2301.us406
-  %251 = getelementptr inbounds i8, ptr %.5282367.us, i64 %.2298.us407
-  %252 = add nuw i64 %.4369.us, 1
-  %exitcond425.not = icmp eq i64 %252, %.0295.us408
-  br i1 %exitcond425.not, label %.loopexit353.us, label %.preheader354.us
-
-.preheader352.us:                                 ; preds = %224, %263
-  %.5372.us = phi i64 [ %266, %263 ], [ 0, %224 ]
-  %.6275371.us = phi ptr [ %264, %263 ], [ %.0269.us410, %224 ]
-  %.6283370.us = phi ptr [ %265, %263 ], [ %.0277.us409, %224 ]
-  %253 = load x86_fp80, ptr %.6275371.us, align 16
-  %254 = fcmp ogt x86_fp80 %253, 0xK400EFFE0000000000000
-  br i1 %254, label %261, label %255
-
-255:                                              ; preds = %.preheader352.us
-  %256 = fcmp olt x86_fp80 %253, 0xKC00EFFE0000000000000
-  br i1 %256, label %259, label %257
-
-257:                                              ; preds = %255
-  %258 = fptrunc x86_fp80 %253 to half
-  br label %263
-
-259:                                              ; preds = %255
-  %260 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %263
-
-261:                                              ; preds = %.preheader352.us
-  %262 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %263
-
-263:                                              ; preds = %261, %259, %257
-  %.sink450 = phi half [ %262, %261 ], [ %260, %259 ], [ %258, %257 ]
-  store half %.sink450, ptr %.6283370.us, align 1
-  %264 = getelementptr inbounds i8, ptr %.6275371.us, i64 %.2301.us406
-  %265 = getelementptr inbounds i8, ptr %.6283370.us, i64 %.2298.us407
-  %266 = add nuw i64 %.5372.us, 1
-  %exitcond427.not = icmp eq i64 %266, %.0295.us408
-  br i1 %exitcond427.not, label %.loopexit353.us.loopexit, label %.preheader352.us
-
-.loopexit353.us.loopexit:                         ; preds = %263
-  store half %.sink450, ptr %11, align 2
-  br label %.loopexit353.us
-
-.loopexit353.us:                                  ; preds = %248, %.loopexit353.us.loopexit
-  %267 = sub i64 %.0388.us403, %.0295.us408
-  %.not336.us411 = icmp eq i64 %267, 0
-  br i1 %.not336.us411, label %.loopexit360, label %.lr.ph.split.split.split.us
-
-.lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.loopexit357
-  %.0388 = phi i64 [ %357, %.loopexit357 ], [ %4, %.lr.ph.split.split ]
-  %.1297387 = phi i64 [ %.2298, %.loopexit357 ], [ %.343, %.lr.ph.split.split ]
-  %.1300386 = phi i64 [ %.2301, %.loopexit357 ], [ %., %.lr.ph.split.split ]
-  %268 = icmp sgt i64 %.1297387, %.1300386
-  br i1 %268, label %269, label %289
-
-269:                                              ; preds = %.lr.ph.split.split.split
-  %270 = mul i64 %.0388, %.1300386
-  %271 = add nsw i64 %.1297387, -1
-  %272 = add i64 %271, %270
-  %273 = udiv i64 %272, %.1297387
-  %274 = sub i64 %.0388, %273
-  %275 = icmp ult i64 %274, 2
-  br i1 %275, label %276, label %284
-
-276:                                              ; preds = %269
-  %277 = add i64 %.0388, -1
-  %278 = mul i64 %277, %.1300386
-  %279 = getelementptr inbounds i8, ptr %7, i64 %278
-  %280 = mul i64 %277, %.1297387
-  %281 = getelementptr inbounds i8, ptr %7, i64 %280
-  %282 = sub nsw i64 0, %.1300386
-  %283 = sub nsw i64 0, %.1297387
-  br label %289
-
-284:                                              ; preds = %269
-  %285 = mul i64 %273, %.1300386
-  %286 = getelementptr inbounds i8, ptr %7, i64 %285
-  %287 = mul nuw i64 %273, %.1297387
-  %288 = getelementptr inbounds i8, ptr %7, i64 %287
-  br label %289
-
-289:                                              ; preds = %.lr.ph.split.split.split, %276, %284
-  %.2301 = phi i64 [ %282, %276 ], [ %.1300386, %284 ], [ %.1300386, %.lr.ph.split.split.split ]
-  %.2298 = phi i64 [ %283, %276 ], [ %.1297387, %284 ], [ %.1297387, %.lr.ph.split.split.split ]
-  %.0295 = phi i64 [ %.0388, %276 ], [ %274, %284 ], [ %.0388, %.lr.ph.split.split.split ]
-  %.0277 = phi ptr [ %281, %276 ], [ %288, %284 ], [ %7, %.lr.ph.split.split.split ]
-  %.0269 = phi ptr [ %279, %276 ], [ %286, %284 ], [ %7, %.lr.ph.split.split.split ]
-  %290 = load ptr, ptr %3, align 8
-  %.not337 = icmp eq ptr %290, null
-  br i1 %.not337, label %.preheader356, label %.preheader358
-
-.split390.us:                                     ; preds = %111
-  %291 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %292 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %293 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %291, i64 noundef %292, ptr noundef nonnull @.str.6) #8
+174:                                              ; preds = %166
+  %175 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %176 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %177 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %175, i64 noundef %176, ptr noundef nonnull @.str.6) #8
   br label %.loopexit360
 
-.split.us:                                        ; preds = %103
-  %294 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %295 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %296 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %294, i64 noundef %295, ptr noundef nonnull @.str.6) #8
+178:                                              ; preds = %164
+  %179 = fptrunc x86_fp80 %150 to half
+  br label %.sink.split419
+
+.sink.split419:                                   ; preds = %158, %172, %178
+  %.sink420 = phi half [ %179, %178 ], [ %173, %172 ], [ %159, %158 ]
+  store half %.sink420, ptr %.3280373, align 2
+  br label %180
+
+180:                                              ; preds = %.sink.split419, %166, %152
+  %181 = getelementptr inbounds i8, ptr %.3272374, i64 %.2301
+  %182 = getelementptr inbounds i8, ptr %.3280373, i64 %.2298
+  %183 = add nuw i64 %.2375, 1
+  %exitcond403.not = icmp eq i64 %183, %.0295
+  br i1 %exitcond403.not, label %.loopexit, label %.preheader350
+
+.preheader348:                                    ; preds = %149, %194
+  %.3378 = phi i64 [ %197, %194 ], [ 0, %149 ]
+  %.4273377 = phi ptr [ %195, %194 ], [ %.0269, %149 ]
+  %.4281376 = phi ptr [ %196, %194 ], [ %.0277, %149 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, ptr noundef nonnull align 1 dereferenceable(16) %.4273377, i64 16, i1 false)
+  %184 = load x86_fp80, ptr %10, align 16
+  %185 = fcmp ogt x86_fp80 %184, 0xK400EFFE0000000000000
+  br i1 %185, label %186, label %188
+
+186:                                              ; preds = %.preheader348
+  %187 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %194
+
+188:                                              ; preds = %.preheader348
+  %189 = fcmp olt x86_fp80 %184, 0xKC00EFFE0000000000000
+  br i1 %189, label %190, label %192
+
+190:                                              ; preds = %188
+  %191 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %194
+
+192:                                              ; preds = %188
+  %193 = fptrunc x86_fp80 %184 to half
+  br label %194
+
+194:                                              ; preds = %190, %192, %186
+  %.sink421 = phi half [ %191, %190 ], [ %193, %192 ], [ %187, %186 ]
+  store half %.sink421, ptr %.4281376, align 2
+  %195 = getelementptr inbounds i8, ptr %.4273377, i64 %.2301
+  %196 = getelementptr inbounds i8, ptr %.4281376, i64 %.2298
+  %197 = add nuw i64 %.3378, 1
+  %exitcond405.not = icmp eq i64 %197, %.0295
+  br i1 %exitcond405.not, label %.loopexit, label %.preheader348
+
+198:                                              ; preds = %148
+  br i1 %70, label %199, label %249
+
+199:                                              ; preds = %198
+  br i1 %.not340, label %.preheader352, label %.preheader354
+
+.preheader354:                                    ; preds = %199, %230
+  %.4369 = phi i64 [ %234, %230 ], [ 0, %199 ]
+  %.5274368 = phi ptr [ %232, %230 ], [ %.0269, %199 ]
+  %.5282367 = phi ptr [ %233, %230 ], [ %.0277, %199 ]
+  %200 = load x86_fp80, ptr %.5274368, align 16
+  %201 = fcmp ogt x86_fp80 %200, 0xK400EFFE0000000000000
+  br i1 %201, label %202, label %214
+
+202:                                              ; preds = %.preheader354
+  %203 = load ptr, ptr %3, align 8
+  %204 = load i64, ptr %71, align 8
+  %205 = load i64, ptr %72, align 8
+  %206 = load ptr, ptr %73, align 8
+  %207 = call i32 %203(i32 noundef 0, i64 noundef %204, i64 noundef %205, ptr noundef nonnull %.5274368, ptr noundef nonnull %11, ptr noundef %206) #8
+  switch i32 %207, label %230 [
+    i32 0, label %208
+    i32 -1, label %210
+  ]
+
+208:                                              ; preds = %202
+  %209 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split422
+
+210:                                              ; preds = %202
+  %211 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %212 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %213 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %211, i64 noundef %212, ptr noundef nonnull @.str.6) #8
   br label %.loopexit360
 
-.split402.us:                                     ; preds = %176
-  %297 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %298 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %299 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %297, i64 noundef %298, ptr noundef nonnull @.str.6) #8
+214:                                              ; preds = %.preheader354
+  %215 = fcmp olt x86_fp80 %200, 0xKC00EFFE0000000000000
+  br i1 %215, label %216, label %228
+
+216:                                              ; preds = %214
+  %217 = load ptr, ptr %3, align 8
+  %218 = load i64, ptr %71, align 8
+  %219 = load i64, ptr %72, align 8
+  %220 = load ptr, ptr %73, align 8
+  %221 = call i32 %217(i32 noundef 1, i64 noundef %218, i64 noundef %219, ptr noundef nonnull %.5274368, ptr noundef nonnull %11, ptr noundef %220) #8
+  switch i32 %221, label %230 [
+    i32 0, label %222
+    i32 -1, label %224
+  ]
+
+222:                                              ; preds = %216
+  %223 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split422
+
+224:                                              ; preds = %216
+  %225 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %226 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %227 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %225, i64 noundef %226, ptr noundef nonnull @.str.6) #8
   br label %.loopexit360
 
-.split.us400:                                     ; preds = %168
+228:                                              ; preds = %214
+  %229 = fptrunc x86_fp80 %200 to half
+  br label %.sink.split422
+
+.sink.split422:                                   ; preds = %208, %222, %228
+  %.sink423 = phi half [ %229, %228 ], [ %223, %222 ], [ %209, %208 ]
+  store half %.sink423, ptr %11, align 2
+  br label %230
+
+230:                                              ; preds = %.sink.split422, %216, %202
+  %231 = load i16, ptr %11, align 2
+  store i16 %231, ptr %.5282367, align 1
+  %232 = getelementptr inbounds i8, ptr %.5274368, i64 %.2301
+  %233 = getelementptr inbounds i8, ptr %.5282367, i64 %.2298
+  %234 = add nuw i64 %.4369, 1
+  %exitcond399.not = icmp eq i64 %234, %.0295
+  br i1 %exitcond399.not, label %.loopexit, label %.preheader354
+
+.preheader352:                                    ; preds = %199, %245
+  %.5372 = phi i64 [ %248, %245 ], [ 0, %199 ]
+  %.6275371 = phi ptr [ %246, %245 ], [ %.0269, %199 ]
+  %.6283370 = phi ptr [ %247, %245 ], [ %.0277, %199 ]
+  %235 = load x86_fp80, ptr %.6275371, align 16
+  %236 = fcmp ogt x86_fp80 %235, 0xK400EFFE0000000000000
+  br i1 %236, label %237, label %239
+
+237:                                              ; preds = %.preheader352
+  %238 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %245
+
+239:                                              ; preds = %.preheader352
+  %240 = fcmp olt x86_fp80 %235, 0xKC00EFFE0000000000000
+  br i1 %240, label %241, label %243
+
+241:                                              ; preds = %239
+  %242 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %245
+
+243:                                              ; preds = %239
+  %244 = fptrunc x86_fp80 %235 to half
+  br label %245
+
+245:                                              ; preds = %241, %243, %237
+  %.sink424 = phi half [ %242, %241 ], [ %244, %243 ], [ %238, %237 ]
+  store half %.sink424, ptr %.6283370, align 1
+  %246 = getelementptr inbounds i8, ptr %.6275371, i64 %.2301
+  %247 = getelementptr inbounds i8, ptr %.6283370, i64 %.2298
+  %248 = add nuw i64 %.5372, 1
+  %exitcond401.not = icmp eq i64 %248, %.0295
+  br i1 %exitcond401.not, label %.loopexit.loopexit438, label %.preheader352
+
+249:                                              ; preds = %198
+  br i1 %.not340, label %.preheader356, label %.preheader358
+
+.preheader358:                                    ; preds = %249, %280
+  %.6363 = phi i64 [ %283, %280 ], [ 0, %249 ]
+  %.7276362 = phi ptr [ %281, %280 ], [ %.0269, %249 ]
+  %.7284361 = phi ptr [ %282, %280 ], [ %.0277, %249 ]
+  %250 = load x86_fp80, ptr %.7276362, align 16
+  %251 = fcmp ogt x86_fp80 %250, 0xK400EFFE0000000000000
+  br i1 %251, label %252, label %264
+
+252:                                              ; preds = %.preheader358
+  %253 = load ptr, ptr %3, align 8
+  %254 = load i64, ptr %71, align 8
+  %255 = load i64, ptr %72, align 8
+  %256 = load ptr, ptr %73, align 8
+  %257 = call i32 %253(i32 noundef 0, i64 noundef %254, i64 noundef %255, ptr noundef nonnull %.7276362, ptr noundef %.7284361, ptr noundef %256) #8
+  switch i32 %257, label %280 [
+    i32 0, label %258
+    i32 -1, label %260
+  ]
+
+258:                                              ; preds = %252
+  %259 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %.sink.split425
+
+260:                                              ; preds = %252
+  %261 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %262 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %263 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %261, i64 noundef %262, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit360
+
+264:                                              ; preds = %.preheader358
+  %265 = fcmp olt x86_fp80 %250, 0xKC00EFFE0000000000000
+  br i1 %265, label %266, label %278
+
+266:                                              ; preds = %264
+  %267 = load ptr, ptr %3, align 8
+  %268 = load i64, ptr %71, align 8
+  %269 = load i64, ptr %72, align 8
+  %270 = load ptr, ptr %73, align 8
+  %271 = call i32 %267(i32 noundef 1, i64 noundef %268, i64 noundef %269, ptr noundef nonnull %.7276362, ptr noundef %.7284361, ptr noundef %270) #8
+  switch i32 %271, label %280 [
+    i32 0, label %272
+    i32 -1, label %274
+  ]
+
+272:                                              ; preds = %266
+  %273 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %.sink.split425
+
+274:                                              ; preds = %266
+  %275 = load i64, ptr @H5E_DATATYPE_g, align 8
+  %276 = load i64, ptr @H5E_CANTCONVERT_g, align 8
+  %277 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %275, i64 noundef %276, ptr noundef nonnull @.str.6) #8
+  br label %.loopexit360
+
+278:                                              ; preds = %264
+  %279 = fptrunc x86_fp80 %250 to half
+  br label %.sink.split425
+
+.sink.split425:                                   ; preds = %258, %272, %278
+  %.sink426 = phi half [ %279, %278 ], [ %273, %272 ], [ %259, %258 ]
+  store half %.sink426, ptr %.7284361, align 2
+  br label %280
+
+280:                                              ; preds = %.sink.split425, %266, %252
+  %281 = getelementptr inbounds i8, ptr %.7276362, i64 %.2301
+  %282 = getelementptr inbounds i8, ptr %.7284361, i64 %.2298
+  %283 = add nuw i64 %.6363, 1
+  %exitcond.not = icmp eq i64 %283, %.0295
+  br i1 %exitcond.not, label %.loopexit, label %.preheader358
+
+.preheader356:                                    ; preds = %249, %294
+  %.7366 = phi i64 [ %297, %294 ], [ 0, %249 ]
+  %.8365 = phi ptr [ %295, %294 ], [ %.0269, %249 ]
+  %.8285364 = phi ptr [ %296, %294 ], [ %.0277, %249 ]
+  %284 = load x86_fp80, ptr %.8365, align 16
+  %285 = fcmp ogt x86_fp80 %284, 0xK400EFFE0000000000000
+  br i1 %285, label %286, label %288
+
+286:                                              ; preds = %.preheader356
+  %287 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
+  br label %294
+
+288:                                              ; preds = %.preheader356
+  %289 = fcmp olt x86_fp80 %284, 0xKC00EFFE0000000000000
+  br i1 %289, label %290, label %292
+
+290:                                              ; preds = %288
+  %291 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
+  br label %294
+
+292:                                              ; preds = %288
+  %293 = fptrunc x86_fp80 %284 to half
+  br label %294
+
+294:                                              ; preds = %290, %292, %286
+  %.sink427 = phi half [ %291, %290 ], [ %293, %292 ], [ %287, %286 ]
+  store half %.sink427, ptr %.8285364, align 2
+  %295 = getelementptr inbounds i8, ptr %.8365, i64 %.2301
+  %296 = getelementptr inbounds i8, ptr %.8285364, i64 %.2298
+  %297 = add nuw i64 %.7366, 1
+  %exitcond397.not = icmp eq i64 %297, %.0295
+  br i1 %exitcond397.not, label %.loopexit, label %.preheader356
+
+.loopexit.loopexit:                               ; preds = %144
+  store half %.sink418, ptr %11, align 2
+  br label %.loopexit
+
+.loopexit.loopexit438:                            ; preds = %245
+  store half %.sink424, ptr %11, align 2
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %280, %294, %230, %180, %194, %129, %.loopexit.loopexit438, %.loopexit.loopexit
+  %298 = sub i64 %.0388, %.0295
+  %.not336 = icmp eq i64 %298, 0
+  br i1 %.not336, label %.loopexit360, label %74
+
+299:                                              ; preds = %9
   %300 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %301 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %302 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.6) #8
+  %301 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
+  %302 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %300, i64 noundef %301, ptr noundef nonnull @.str.8) #8
   br label %.loopexit360
 
-.split414.us:                                     ; preds = %240
-  %303 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %304 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %305 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %303, i64 noundef %304, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit360
-
-.split.us412:                                     ; preds = %232
-  %306 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %307 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %308 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %306, i64 noundef %307, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit360
-
-.preheader358:                                    ; preds = %289, %339
-  %.6363 = phi i64 [ %342, %339 ], [ 0, %289 ]
-  %.7276362 = phi ptr [ %340, %339 ], [ %.0269, %289 ]
-  %.7284361 = phi ptr [ %341, %339 ], [ %.0277, %289 ]
-  %309 = load x86_fp80, ptr %.7276362, align 16
-  %310 = fcmp ogt x86_fp80 %309, 0xK400EFFE0000000000000
-  br i1 %310, label %311, label %323
-
-311:                                              ; preds = %.preheader358
-  %312 = load ptr, ptr %3, align 8
-  %313 = load i64, ptr %71, align 8
-  %314 = load i64, ptr %72, align 8
-  %315 = load ptr, ptr %73, align 8
-  %316 = tail call i32 %312(i32 noundef 0, i64 noundef %313, i64 noundef %314, ptr noundef nonnull %.7276362, ptr noundef %.7284361, ptr noundef %315) #8
-  switch i32 %316, label %339 [
-    i32 0, label %317
-    i32 -1, label %319
-  ]
-
-317:                                              ; preds = %311
-  %318 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %.sink.split451
-
-319:                                              ; preds = %311
-  %320 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %321 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %322 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %320, i64 noundef %321, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit360
-
-323:                                              ; preds = %.preheader358
-  %324 = fcmp olt x86_fp80 %309, 0xKC00EFFE0000000000000
-  br i1 %324, label %325, label %337
-
-325:                                              ; preds = %323
-  %326 = load ptr, ptr %3, align 8
-  %327 = load i64, ptr %71, align 8
-  %328 = load i64, ptr %72, align 8
-  %329 = load ptr, ptr %73, align 8
-  %330 = tail call i32 %326(i32 noundef 1, i64 noundef %327, i64 noundef %328, ptr noundef nonnull %.7276362, ptr noundef %.7284361, ptr noundef %329) #8
-  switch i32 %330, label %339 [
-    i32 0, label %331
-    i32 -1, label %333
-  ]
-
-331:                                              ; preds = %325
-  %332 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %.sink.split451
-
-333:                                              ; preds = %325
-  %334 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %335 = load i64, ptr @H5E_CANTCONVERT_g, align 8
-  %336 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %334, i64 noundef %335, ptr noundef nonnull @.str.6) #8
-  br label %.loopexit360
-
-337:                                              ; preds = %323
-  %338 = fptrunc x86_fp80 %309 to half
-  br label %.sink.split451
-
-.sink.split451:                                   ; preds = %317, %331, %337
-  %.sink452 = phi half [ %338, %337 ], [ %332, %331 ], [ %318, %317 ]
-  store half %.sink452, ptr %.7284361, align 2
-  br label %339
-
-339:                                              ; preds = %.sink.split451, %325, %311
-  %340 = getelementptr inbounds i8, ptr %.7276362, i64 %.2301
-  %341 = getelementptr inbounds i8, ptr %.7284361, i64 %.2298
-  %342 = add nuw i64 %.6363, 1
-  %exitcond.not = icmp eq i64 %342, %.0295
-  br i1 %exitcond.not, label %.loopexit357, label %.preheader358
-
-.preheader356:                                    ; preds = %289, %353
-  %.7366 = phi i64 [ %356, %353 ], [ 0, %289 ]
-  %.8365 = phi ptr [ %354, %353 ], [ %.0269, %289 ]
-  %.8285364 = phi ptr [ %355, %353 ], [ %.0277, %289 ]
-  %343 = load x86_fp80, ptr %.8365, align 16
-  %344 = fcmp ogt x86_fp80 %343, 0xK400EFFE0000000000000
-  br i1 %344, label %345, label %347
-
-345:                                              ; preds = %.preheader356
-  %346 = load half, ptr @H5T_NATIVE_FLOAT16_POS_INF_g, align 2
-  br label %353
-
-347:                                              ; preds = %.preheader356
-  %348 = fcmp olt x86_fp80 %343, 0xKC00EFFE0000000000000
-  br i1 %348, label %349, label %351
-
-349:                                              ; preds = %347
-  %350 = load half, ptr @H5T_NATIVE_FLOAT16_NEG_INF_g, align 2
-  br label %353
-
-351:                                              ; preds = %347
-  %352 = fptrunc x86_fp80 %343 to half
-  br label %353
-
-353:                                              ; preds = %349, %351, %345
-  %.sink453 = phi half [ %350, %349 ], [ %352, %351 ], [ %346, %345 ]
-  store half %.sink453, ptr %.8285364, align 2
-  %354 = getelementptr inbounds i8, ptr %.8365, i64 %.2301
-  %355 = getelementptr inbounds i8, ptr %.8285364, i64 %.2298
-  %356 = add nuw i64 %.7366, 1
-  %exitcond423.not = icmp eq i64 %356, %.0295
-  br i1 %exitcond423.not, label %.loopexit357, label %.preheader356
-
-.loopexit357:                                     ; preds = %339, %353
-  %357 = sub i64 %.0388, %.0295
-  %.not336 = icmp eq i64 %357, 0
-  br i1 %.not336, label %.loopexit360, label %.lr.ph.split.split.split
-
-358:                                              ; preds = %9
-  %359 = load i64, ptr @H5E_DATATYPE_g, align 8
-  %360 = load i64, ptr @H5E_UNSUPPORTED_g, align 8
-  %361 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5T__conv_ldouble__Float16, i32 noundef 2258, i64 noundef %359, i64 noundef %360, ptr noundef nonnull @.str.8) #8
-  br label %.loopexit360
-
-.loopexit360:                                     ; preds = %.loopexit357, %.loopexit353.us, %.loopexit349.us, %.loopexit.us, %69, %35, %9, %358, %333, %319, %.split.us412, %.split414.us, %.split.us400, %.split402.us, %.split.us, %.split390.us, %46, %40, %31, %17
-  %.0267 = phi i32 [ -1, %358 ], [ -1, %40 ], [ -1, %46 ], [ -1, %.split390.us ], [ -1, %.split.us ], [ -1, %.split402.us ], [ -1, %.split.us400 ], [ -1, %.split414.us ], [ -1, %.split.us412 ], [ -1, %319 ], [ -1, %333 ], [ 0, %9 ], [ -1, %17 ], [ -1, %31 ], [ 0, %35 ], [ 0, %69 ], [ 0, %.loopexit.us ], [ 0, %.loopexit349.us ], [ 0, %.loopexit353.us ], [ 0, %.loopexit357 ]
+.loopexit360:                                     ; preds = %.loopexit, %69, %35, %9, %299, %274, %260, %224, %210, %174, %160, %123, %109, %46, %40, %31, %17
+  %.0267 = phi i32 [ -1, %299 ], [ -1, %40 ], [ -1, %46 ], [ -1, %109 ], [ -1, %123 ], [ -1, %160 ], [ -1, %174 ], [ -1, %210 ], [ -1, %224 ], [ -1, %260 ], [ -1, %274 ], [ 0, %9 ], [ -1, %17 ], [ -1, %31 ], [ 0, %35 ], [ 0, %69 ], [ 0, %.loopexit ]
   ret i32 %.0267
 }
 
