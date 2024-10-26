@@ -2022,7 +2022,7 @@ boost/ids.ll 94896102
 boost/info.ll 159403454
 boost/init_from_settings.ll 8817696239
 boost/init_from_stream.ll 142515207
-boost/instantiate_cpp_exprgrammar.ll 5881984697
+boost/instantiate_cpp_exprgrammar.ll 5875294616
 boost/instantiate_cpp_grammar.ll 6188502085
 boost/instantiate_cpp_literalgrs.ll 4365264242
 boost/instantiate_defined_grammar.ll 3505384682
@@ -6173,7 +6173,7 @@ delta-rs/4tvyyucy3nagk0z8.ll 2491770006
 delta-rs/4uexgcs2m8ycm9lg.ll 160457879
 delta-rs/4upguevc2d5e8prs.ll 6374512240
 delta-rs/4yzqn3zldbxccs8p.ll 6439085226
-delta-rs/4zvphat0q9a964bz.ll 39396568947
+delta-rs/4zvphat0q9a964bz.ll 39457352631
 delta-rs/500dbd8v54dhxhp6.ll 3711409437
 delta-rs/50rbvq6ph7mfbkls.ll 6335714835
 delta-rs/50ulyw4u3j3q45m6.ll 6152534442
@@ -6878,7 +6878,7 @@ entt/scheduler.cpp.ll 1564200024
 entt/sigh.cpp.ll 1919995309
 entt/sigh_mixin.cpp.ll 12364471939
 entt/signal_less.cpp.ll 818225098
-entt/snapshot.cpp.ll 8559520338
+entt/snapshot.cpp.ll 8549406431
 entt/sparse_set.cpp.ll 40283485148
 entt/storage.cpp.ll 35500655073
 entt/storage_entity.cpp.ll 5499815396
@@ -10238,7 +10238,7 @@ hyperscan/limex_64.c.ll 2060320696
 hyperscan/limex_compile.cpp.ll 27786998050
 hyperscan/limex_native.c.ll 1956136594
 hyperscan/limex_simd128.c.ll 2659503467
-hyperscan/limex_simd256.c.ll 4172349797
+hyperscan/limex_simd256.c.ll 4179026030
 hyperscan/limex_simd384.c.ll 5439703569
 hyperscan/limex_simd512.c.ll 7411032528
 hyperscan/literals.cpp.ll 1613762279
@@ -10848,11 +10848,11 @@ image-rs/1njpscpjlgoe3i07.ll 8034724897
 image-rs/244uszkx0e8t5ie1.ll 8895494061
 image-rs/249ukonr3l56u09i.ll 8972486598
 image-rs/254ue5dpb10tdnze.ll 9391296610
-image-rs/2mngkegtim1o10y3.ll 12529692867
+image-rs/2mngkegtim1o10y3.ll 12544861730
 image-rs/2ndzmzcdt55acj4k.ll 8419310262
 image-rs/2s4mh02dvph60euq.ll 10707466504
 image-rs/30755d6iao7ojcvl.ll 6637646561
-image-rs/34r8dryqmufipcqz.ll 13731932822
+image-rs/34r8dryqmufipcqz.ll 13713912325
 image-rs/4srzh4wujeew249y.ll 11707939127
 image-rs/5ez7udly19o3uj1p.ll 8591892201
 image-rs/5oy2v8fghrh79s8.ll 10798082082
@@ -17202,7 +17202,7 @@ meilisearch-rs/4spgntyrk3g2e624.ll 1626740880
 meilisearch-rs/4tsjgmg5dc8wpnes.ll 3580452631
 meilisearch-rs/50l87gnpqq82g6pe.ll 1023471987
 meilisearch-rs/54ajasddlqavlxt2.ll 1810771567
-meilisearch-rs/55beptyn1v6yeqaz.ll 15391108959
+meilisearch-rs/55beptyn1v6yeqaz.ll 15374086925
 meilisearch-rs/564p8f6yhi59w8h9.ll 1183117482
 meilisearch-rs/5788mfqwwp628q0b.ll 1093300517
 meilisearch-rs/58fku9bygcs6t7yq.ll 713225995
@@ -17873,7 +17873,7 @@ minetest/test_profiler.cpp.ll 206161071
 minetest/test_random.cpp.ll 303957816
 minetest/test_sao.cpp.ll 1042874026
 minetest/test_schematic.cpp.ll 539356397
-minetest/test_serialization.cpp.ll 1391128545
+minetest/test_serialization.cpp.ll 1392563509
 minetest/test_server_shutdown_state.cpp.ll 444555616
 minetest/test_serveractiveobjectmgr.cpp.ll 675462975
 minetest/test_servermodmanager.cpp.ll 661217750
@@ -18464,7 +18464,7 @@ msgpack/protocol_new.cpp.ll 1979204489
 msgpack/reuse_zone.cpp.ll 1658710354
 msgpack/simple.cpp.ll 1708879687
 msgpack/speed_test.cpp.ll 1137662831
-msgpack/speed_test_nested_array.cpp.ll 1521591039
+msgpack/speed_test_nested_array.cpp.ll 1519442432
 msgpack/stream.cpp.ll 1743204558
 nanobind/common.cpp.ll 650473559
 nanobind/error.cpp.ll 357140110
@@ -19840,7 +19840,7 @@ ockam-rs/14m30vbbwzpy4dn0.ll 18858540748
 ockam-rs/163cfhil6gtgs034.ll 239334922
 ockam-rs/16eth4dr0rzwo5zh.ll 1080452793
 ockam-rs/171r5uojbe4i8x3z.ll 2670635220
-ockam-rs/17lrt90yj9gplgzp.ll 12193598014
+ockam-rs/17lrt90yj9gplgzp.ll 12207211246
 ockam-rs/189wgg1obirl4k4t.ll 1289657239
 ockam-rs/18drj88gqh6dyxft.ll 3611139154
 ockam-rs/197vp0af1p3e6q7f.ll 3041316532
@@ -19850,7 +19850,7 @@ ockam-rs/1e5oqa6s9mthz3yq.ll 9275454088
 ockam-rs/1fsy5ihkfk2uw2z3.ll 1151507107
 ockam-rs/1gc4y6newn78g6fr.ll 4254031474
 ockam-rs/1gjay75gp38o8e4p.ll 475887346
-ockam-rs/1j8f46ag92qmaepd.ll 75227043011
+ockam-rs/1j8f46ag92qmaepd.ll 75064893119
 ockam-rs/1jnbxr9i8m0nukdf.ll 736471817
 ockam-rs/1jxqq0c8ppka0dgc.ll 2101291848
 ockam-rs/1kf3nciefeyq4tfp.ll 7813724565
@@ -19904,9 +19904,9 @@ ockam-rs/2cpf09j9we15y4k3.ll 3222410700
 ockam-rs/2cqk2bthd7hdsbp.ll 1069951656
 ockam-rs/2du6nahlp8ywbcuy.ll 385072287
 ockam-rs/2f3dirlrqkj4irco.ll 498667952
-ockam-rs/2ffdkde2ipa00t7y.ll 4536992179
+ockam-rs/2ffdkde2ipa00t7y.ll 4530940410
 ockam-rs/2j1nspj6sq4ph8p4.ll 998704895
-ockam-rs/2jdafynperrjfnwp.ll 64231747275
+ockam-rs/2jdafynperrjfnwp.ll 64164917297
 ockam-rs/2kfsy1g3v370u61t.ll 2128707869
 ockam-rs/2kn3t03vxm4q238t.ll 1152796697
 ockam-rs/2l947gsuqi8rck2p.ll 164629732
@@ -20083,7 +20083,7 @@ ockam-rs/8oe7xo67uolatn4.ll 656994212
 ockam-rs/8vw3dw8isly7xg2.ll 41020147976
 ockam-rs/96cf98834y6yscu.ll 1650468406
 ockam-rs/aq9jti6tz0dykb7.ll 2746585600
-ockam-rs/bnoag1yx4g38hzj.ll 5408112336
+ockam-rs/bnoag1yx4g38hzj.ll 5400515240
 ockam-rs/bws0hnih6ct4ces.ll 1167121010
 ockam-rs/cahtbyi0e0azi7k.ll 43301439858
 ockam-rs/cd833f4p6cpvkv4.ll 420899254
@@ -30667,7 +30667,7 @@ qemu/hw_net_cadence_gem.c.ll 813897550
 qemu/hw_net_can_can_kvaser_pci.c.ll 67494302
 qemu/hw_net_can_can_sja1000.c.ll 365366563
 qemu/hw_net_can_ctucan_core.c.ll 270167017
-qemu/hw_net_e1000.c.ll 979306723
+qemu/hw_net_e1000.c.ll 976677784
 qemu/hw_net_e1000e.c.ll 323868510
 qemu/hw_net_e1000e_core.c.ll 2695650474
 qemu/hw_net_e1000x_common.c.ll 294070117
@@ -31233,7 +31233,7 @@ quantlib/caphelper.ll 2471903853
 quantlib/capletcoterminalalphacalibration.ll 1445547159
 quantlib/capletcoterminalmaxhomogeneity.ll 1601092871
 quantlib/capletcoterminalperiodic.ll 1004075486
-quantlib/capletcoterminalswaptioncalibration.ll 1537368247
+quantlib/capletcoterminalswaptioncalibration.ll 1539040062
 quantlib/cashflow.ll 113148177
 quantlib/cashflows.ll 3031691628
 quantlib/cashflowvectors.ll 68586094
@@ -31770,7 +31770,7 @@ quantlib/normaldistribution.ll 671420935
 quantlib/normalfwdratepc.ll 733033413
 quantlib/norway.ll 189301324
 quantlib/nothingexercisevalue.ll 558015523
-quantlib/nthorderderivativeop.ll 1119323548
+quantlib/nthorderderivativeop.ll 1120465680
 quantlib/nthtodefault.ll 1786384191
 quantlib/numericaldifferentiation.ll 669372124
 quantlib/observable.ll 358844355
@@ -32345,7 +32345,7 @@ regex-rs/1ezs5fkqov3a1527.ll 1810237998
 regex-rs/1hmlfcakzz33fnei.ll 203428044
 regex-rs/1hv7a9vv5ulvjrv1.ll 2728857633
 regex-rs/1pxsmct4oxs5dlep.ll 1606315315
-regex-rs/1rguw48xrsv49k4z.ll 6075054989
+regex-rs/1rguw48xrsv49k4z.ll 6081943679
 regex-rs/1ri0nxve2ijarfwj.ll 188254529
 regex-rs/1wjkhjqt3xgxgj7z.ll 1286317853
 regex-rs/1x04d8372kemp7hd.ll 3181484225
@@ -33185,7 +33185,7 @@ rust-analyzer-rs/2wf1h421mbja7by0.ll 62889673
 rust-analyzer-rs/2x2kerk2zp1rhvsq.ll 70118610
 rust-analyzer-rs/2xc4k213s11rexpc.ll 415007661
 rust-analyzer-rs/2yanmyixx1f6nf0b.ll 1405780133
-rust-analyzer-rs/2ydioyxkoxez3z9r.ll 25395505580
+rust-analyzer-rs/2ydioyxkoxez3z9r.ll 25364439334
 rust-analyzer-rs/2z79z3pj3t0p2c2c.ll 3476462009
 rust-analyzer-rs/2z8yitblr1xxwxav.ll 5792109754
 rust-analyzer-rs/2zm9eul0ycl9zsz3.ll 7958465181
@@ -36660,7 +36660,7 @@ wasmtime-rs/48u1yxddj5mcgq85.ll 231126944
 wasmtime-rs/49rlnnlt9cxf81l.ll 5935652719
 wasmtime-rs/4ab4rlryc5h7bf6z.ll 10072478057
 wasmtime-rs/4af55u1829ejxdc8.ll 45081836
-wasmtime-rs/4aijogcjfl814gfb.ll 11246114629
+wasmtime-rs/4aijogcjfl814gfb.ll 11257703482
 wasmtime-rs/4al7oca9w649qan1.ll 322692081
 wasmtime-rs/4albus0v4agkowf2.ll 128131043
 wasmtime-rs/4ay297qasj36tbqo.ll 557888843
@@ -36724,7 +36724,7 @@ wasmtime-rs/4z02b278nscq7j1a.ll 2951269600
 wasmtime-rs/4zfyij6ubn2ogcve.ll 163330800
 wasmtime-rs/4zgi7yxvi0e8lh1l.ll 96937783
 wasmtime-rs/4zpfk2x34146qelg.ll 275356454
-wasmtime-rs/504voril3a5lulnh.ll 4448520884
+wasmtime-rs/504voril3a5lulnh.ll 4443845874
 wasmtime-rs/5079e95b7v1wxko.ll 7344650034
 wasmtime-rs/50oljwux3amwt8rq.ll 389155698
 wasmtime-rs/50u67af3arszrd38.ll 307995030
@@ -39831,7 +39831,7 @@ zed-rs/1g7ffyslw7h05jnzatj3j27sh.ll 228863623
 zed-rs/1i7qzw3x0brpuvmm674e62mm0.ll 7844565559
 zed-rs/1iclhw87evxdlo4w8mftuzy1q.ll 2979583702
 zed-rs/1iq0g2gon2yudclk0gxnuypla.ll 12587892149
-zed-rs/1j4zsx5ep6sgayh5fdkarbyql.ll 44532703605
+zed-rs/1j4zsx5ep6sgayh5fdkarbyql.ll 44477202303
 zed-rs/1jbe4zqf10fi4dnkcvibaggjj.ll 6980001368
 zed-rs/1jfwd31zu9mxnid4fbavxtsbx.ll 51459278743
 zed-rs/1kvfz4vxu123bq0qsauyrtl3j.ll 1376139332
