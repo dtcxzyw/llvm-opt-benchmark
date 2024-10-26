@@ -3491,7 +3491,7 @@ cmake/cmCursesBoolWidget.cxx.ll 71280210
 cmake/cmCursesCacheEntryComposite.cxx.ll 480824271
 cmake/cmCursesColor.cxx.ll 221362307
 cmake/cmCursesDummyWidget.cxx.ll 38118418
-cmake/cmCursesFilePathWidget.cxx.ll 40287151
+cmake/cmCursesFilePathWidget.cxx.ll 40327502
 cmake/cmCursesForm.cxx.ll 51793089
 cmake/cmCursesLabelWidget.cxx.ll 39900581
 cmake/cmCursesLongMessageForm.cxx.ll 121756475
@@ -21103,7 +21103,7 @@ opencv/facemark_demo_aam.cpp.ll 870982505
 opencv/facemark_demo_lbf.cpp.ll 386726598
 opencv/facemark_lbf_fitting.cpp.ll 552775582
 opencv/facerec.cpp.ll 351014672
-opencv/facerec_demo.cpp.ll 572061668
+opencv/facerec_demo.cpp.ll 572633826
 opencv/facerec_eigenfaces.cpp.ll 406306262
 opencv/facerec_fisherfaces.cpp.ll 405577641
 opencv/facerec_lbph.cpp.ll 292433040
