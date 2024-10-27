@@ -3202,7 +3202,7 @@ clamav/text.c.ll 133662218
 clamav/textdet.c.ll 127523847
 clamav/textnorm.c.ll 70947618
 clamav/thread.c.ll 136857256
-clamav/thrmgr.c.ll 278633306
+clamav/thrmgr.c.ll 278911957
 clamav/tiff.c.ll 103278093
 clamav/timefn.cpp.ll 99141439
 clamav/tnef.c.ll 154946406
@@ -28474,7 +28474,7 @@ php/cdatasection.ll 39618770
 php/cdf.ll 704314027
 php/cdf_time.ll 104561417
 php/cgi_main.ll 989992712
-php/characterdata.ll 132220564
+php/characterdata.ll 132352786
 php/comment.ll 39394173
 php/compact_literals.ll 616044849
 php/compact_vars.ll 151908185
