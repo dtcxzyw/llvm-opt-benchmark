@@ -25548,7 +25548,7 @@ openspiel/Timer.cpp.ll 109822789
 openspiel/TimerGroup.cpp.ll 351011829
 openspiel/TimerList.cpp.ll 462725695
 openspiel/TransTableL.cpp.ll 1432363974
-openspiel/TransTableS.cpp.ll 524337514
+openspiel/TransTableS.cpp.ll 524862672
 openspiel/action_view.cc.ll 370117330
 openspiel/afcce.cc.ll 2061788787
 openspiel/afce.cc.ll 2558494167
@@ -26376,7 +26376,7 @@ openssl/libcrypto-shlib-bn_prime.ll 428297065
 openssl/libcrypto-shlib-bn_rand.ll 123661961
 openssl/libcrypto-shlib-bn_rsa_fips186_4.ll 107920047
 openssl/libcrypto-shlib-bn_shift.ll 102198419
-openssl/libcrypto-shlib-bn_sqr.ll 75800162
+openssl/libcrypto-shlib-bn_sqr.ll 75876067
 openssl/libcrypto-shlib-bn_sqrt.ll 133563215
 openssl/libcrypto-shlib-bn_word.ll 89947734
 openssl/libcrypto-shlib-bn_x931p.ll 83482219
