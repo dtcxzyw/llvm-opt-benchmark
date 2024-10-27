@@ -12757,7 +12757,7 @@ linux/error.ll 108229408
 linux/error_report-traces.ll 57156357
 linux/errseq.ll 53001593
 linux/esp6.ll 327514449
-linux/espfix_64.ll 81896525
+linux/espfix_64.ll 81978458
 linux/esrt.ll 94249132
 linux/eth.ll 131584797
 linux/ethtool.ll 563433215
