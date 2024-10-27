@@ -11149,7 +11149,7 @@ jq/euc_kr.ll 60058386
 jq/euc_tw.ll 70088046
 jq/execute.ll 1013056208
 jq/gb18030.ll 113993860
-jq/iso8859_1.ll 78173877
+jq/iso8859_1.ll 78252183
 jq/jq_test.ll 265899293
 jq/jv.ll 1205045708
 jq/jv_alloc.ll 58472820
