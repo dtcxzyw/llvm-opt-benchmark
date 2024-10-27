@@ -22036,7 +22036,7 @@ opencv/tensor.pb.cc.ll 664662800
 opencv/tensor_shape.pb.cc.ll 588165082
 opencv/termination.cpp.ll 800476531
 opencv/testset.cpp.ll 398736987
-opencv/text_detection.cpp.ll 624344637
+opencv/text_detection.cpp.ll 624969098
 opencv/text_detectorCNN.cpp.ll 529590035
 opencv/text_detector_swt.cpp.ll 6008050892
 opencv/text_recognition_cnn.cpp.ll 288235902
