@@ -84817,7 +84817,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL31stbi__jpeg_decode_block
   %15 = getelementptr inbounds i8, ptr %0, i64 18492
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %134
+  br i1 %17, label %18, label %135
 
 18:                                               ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(128) %1, i8 0, i64 128, i1 false)
@@ -84989,7 +84989,7 @@ _ZL19stbi__addints_validii.exit.thread:           ; preds = %_ZL20stbi__extend_r
   %110 = add nsw i32 %100, %96
   store i32 %110, ptr %99, align 8
   %111 = icmp sgt i32 %110, 32767
-  br i1 %111, label %130, label %112
+  br i1 %111, label %131, label %112
 
 112:                                              ; preds = %_ZL19stbi__addints_validii.exit.thread
   %113 = trunc i32 %110 to i16
@@ -85008,71 +85008,72 @@ _ZL19stbi__addints_validii.exit.thread:           ; preds = %_ZL20stbi__extend_r
   %121 = ashr exact i32 %sext54, 16
   %122 = xor i16 %117, %113
   %123 = icmp sgt i16 %122, -1
-  br i1 %123, label %124, label %126
+  br i1 %123, label %124, label %127
 
 124:                                              ; preds = %120
-  %125 = udiv i16 32767, %117
-  %.not57 = icmp slt i16 %125, %113
-  br i1 %.not57, label %130, label %_ZL22stbi__mul2shorts_validss.exit.thread
+  %125 = trunc i32 %115 to i16
+  %126 = lshr i16 32767, %125
+  %.not57 = icmp slt i16 %126, %113
+  br i1 %.not57, label %131, label %_ZL22stbi__mul2shorts_validss.exit.thread
 
-126:                                              ; preds = %120
-  %127 = icmp slt i16 %117, 0
-  %128 = sdiv i32 -32768, %118
-  br i1 %127, label %129, label %_ZL22stbi__mul2shorts_validss.exit
+127:                                              ; preds = %120
+  %128 = icmp slt i16 %117, 0
+  %129 = sdiv i32 -32768, %118
+  br i1 %128, label %130, label %_ZL22stbi__mul2shorts_validss.exit
 
-129:                                              ; preds = %126
-  %.not56 = icmp slt i32 %128, %121
-  br i1 %.not56, label %130, label %_ZL22stbi__mul2shorts_validss.exit.thread
+130:                                              ; preds = %127
+  %.not56 = icmp slt i32 %129, %121
+  br i1 %.not56, label %131, label %_ZL22stbi__mul2shorts_validss.exit.thread
 
-_ZL22stbi__mul2shorts_validss.exit:               ; preds = %126
-  %.not55 = icmp sgt i32 %128, %121
-  br i1 %.not55, label %130, label %_ZL22stbi__mul2shorts_validss.exit.thread
+_ZL22stbi__mul2shorts_validss.exit:               ; preds = %127
+  %.not55 = icmp sgt i32 %129, %121
+  br i1 %.not55, label %131, label %_ZL22stbi__mul2shorts_validss.exit.thread
 
-130:                                              ; preds = %129, %124, %_ZL22stbi__mul2shorts_validss.exit, %_ZL19stbi__addints_validii.exit.thread
-  %131 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
-  store ptr @.str.179, ptr %131, align 8
+131:                                              ; preds = %130, %124, %_ZL22stbi__mul2shorts_validss.exit, %_ZL19stbi__addints_validii.exit.thread
+  %132 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
+  store ptr @.str.179, ptr %132, align 8
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread
 
-_ZL22stbi__mul2shorts_validss.exit.thread:        ; preds = %129, %124, %112, %_ZL22stbi__mul2shorts_validss.exit
-  %132 = shl i32 %110, %115
-  %133 = trunc i32 %132 to i16
-  store i16 %133, ptr %1, align 2
+_ZL22stbi__mul2shorts_validss.exit.thread:        ; preds = %130, %124, %112, %_ZL22stbi__mul2shorts_validss.exit
+  %133 = shl i32 %110, %115
+  %134 = trunc i32 %133 to i16
+  store i16 %134, ptr %1, align 2
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread
 
-134:                                              ; preds = %14
-  %135 = load i32, ptr %10, align 4
-  %136 = icmp slt i32 %135, 1
-  br i1 %136, label %137, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
+135:                                              ; preds = %14
+  %136 = load i32, ptr %10, align 4
+  %137 = icmp slt i32 %136, 1
+  br i1 %137, label %138, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
 
-137:                                              ; preds = %134
+138:                                              ; preds = %135
   tail call fastcc void @_ZL24stbi__grow_buffer_unsafeP10stbi__jpeg(ptr noundef nonnull %0)
   %.pr.i = load i32, ptr %10, align 4
-  %138 = icmp slt i32 %.pr.i, 1
-  br i1 %138, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
+  %139 = icmp slt i32 %.pr.i, 1
+  br i1 %139, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
 
-_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit:        ; preds = %134, %137
-  %139 = phi i32 [ %.pr.i, %137 ], [ %135, %134 ]
-  %140 = getelementptr inbounds i8, ptr %0, i64 18464
-  %141 = load i32, ptr %140, align 8
-  %142 = shl i32 %141, 1
-  store i32 %142, ptr %140, align 8
-  %143 = add nsw i32 %139, -1
-  store i32 %143, ptr %10, align 4
-  %.not33 = icmp sgt i32 %141, -1
-  br i1 %.not33, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread, label %144
+_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit:        ; preds = %135, %138
+  %140 = phi i32 [ %.pr.i, %138 ], [ %136, %135 ]
+  %141 = getelementptr inbounds i8, ptr %0, i64 18464
+  %142 = load i32, ptr %141, align 8
+  %143 = shl i32 %142, 1
+  store i32 %143, ptr %141, align 8
+  %144 = add nsw i32 %140, -1
+  store i32 %144, ptr %10, align 4
+  %.not33 = icmp sgt i32 %142, -1
+  br i1 %.not33, label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread, label %145
 
-144:                                              ; preds = %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
-  %145 = getelementptr inbounds i8, ptr %0, i64 18496
-  %146 = load i32, ptr %145, align 8
-  %147 = shl nuw i32 1, %146
-  %148 = load i16, ptr %1, align 2
-  %149 = trunc i32 %147 to i16
-  %150 = add i16 %148, %149
-  store i16 %150, ptr %1, align 2
+145:                                              ; preds = %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit
+  %146 = getelementptr inbounds i8, ptr %0, i64 18496
+  %147 = load i32, ptr %146, align 8
+  %148 = shl nuw i32 1, %147
+  %149 = load i16, ptr %1, align 2
+  %150 = trunc i32 %148 to i16
+  %151 = add i16 %149, %150
+  store i16 %151, ptr %1, align 2
   br label %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread
 
-_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread: ; preds = %137, %_ZL22stbi__mul2shorts_validss.exit.thread, %144, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit, %130, %108, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.thread, %7
-  %.0 = phi i32 [ 0, %7 ], [ 0, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.thread ], [ 0, %130 ], [ 0, %108 ], [ 1, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit ], [ 1, %144 ], [ 1, %_ZL22stbi__mul2shorts_validss.exit.thread ], [ 1, %137 ]
+_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit.thread: ; preds = %138, %_ZL22stbi__mul2shorts_validss.exit.thread, %145, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit, %131, %108, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.thread, %7
+  %.0 = phi i32 [ 0, %7 ], [ 0, %_ZL22stbi__jpeg_huff_decodeP10stbi__jpegP13stbi__huffman.exit.thread ], [ 0, %131 ], [ 0, %108 ], [ 1, %_ZL18stbi__jpeg_get_bitP10stbi__jpeg.exit ], [ 1, %145 ], [ 1, %_ZL22stbi__mul2shorts_validss.exit.thread ], [ 1, %138 ]
   ret i32 %.0
 }
 

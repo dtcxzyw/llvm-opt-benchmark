@@ -2200,7 +2200,7 @@ define hidden range(i32 0, 2) i32 @avifCleanApertureBoxConvertCropRect(ptr nocap
 avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %32, %36
   %.str.63.sink.i = phi ptr [ @.str.60, %12 ], [ @.str.60, %6 ], [ @.str.61, %22 ], [ @.str.61, %16 ], [ @.str.62, %32 ], [ @.str.63, %36 ]
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull %.str.63.sink.i) #14
-  br label %87
+  br label %89
 
 39:                                               ; preds = %35, %29, %36
   %40 = or i32 %3, %2
@@ -2209,7 +2209,7 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
 
 41:                                               ; preds = %39
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.42, i32 noundef %2, i32 noundef %3) #14
-  br label %87
+  br label %89
 
 42:                                               ; preds = %39
   %43 = and i32 %2, 1
@@ -2232,92 +2232,92 @@ avifCropRectIsValid.exit:                         ; preds = %6, %12, %16, %22, %
 
 48:                                               ; preds = %42
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.50, i32 noundef %10, i32 noundef %14) #14
-  br label %87
+  br label %89
 
 49:                                               ; preds = %42
   %50 = and i32 %10, 1
-  %.not.i60 = icmp eq i32 %50, 0
+  %.not.i60.not = icmp eq i32 %50, 0
   %51 = xor i32 %50, 1
   %spec.select.i61 = lshr i32 %10, %51
-  %spec.select3.i62 = select i1 %.not.i60, i64 4294967296, i64 8589934592
+  %spec.select3.i62 = select i1 %.not.i60.not, i64 4294967296, i64 8589934592
   %.sroa.0.0.insert.ext.i63 = zext nneg i32 %spec.select.i61 to i64
-  %.sroa.48.0.extract.shift = lshr exact i64 %spec.select3.i62, 32
   %52 = zext i32 %17 to i64
-  %53 = mul nuw nsw i64 %.sroa.48.0.extract.shift, %52
-  %54 = add nuw nsw i64 %53, %.sroa.0.0.insert.ext.i63
-  %55 = icmp samesign ult i64 %54, 2147483648
-  br i1 %55, label %57, label %56
-
-56:                                               ; preds = %49
-  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.43) #14
-  br label %87
+  %53 = zext nneg i32 %50 to i64
+  %54 = shl nuw nsw i64 %52, %53
+  %55 = add nuw nsw i64 %54, %.sroa.0.0.insert.ext.i63
+  %56 = icmp samesign ult i64 %55, 2147483648
+  br i1 %56, label %58, label %57
 
 57:                                               ; preds = %49
-  %58 = and i32 %14, 1
-  %.not.i65 = icmp eq i32 %58, 0
-  %59 = xor i32 %58, 1
-  %spec.select.i66 = lshr i32 %14, %59
-  %spec.select3.i67 = select i1 %.not.i65, i64 4294967296, i64 8589934592
+  tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.43) #14
+  br label %89
+
+58:                                               ; preds = %49
+  %59 = and i32 %14, 1
+  %.not.i65.not = icmp eq i32 %59, 0
+  %60 = xor i32 %59, 1
+  %spec.select.i66 = lshr i32 %14, %60
+  %spec.select3.i67 = select i1 %.not.i65.not, i64 4294967296, i64 8589934592
   %.sroa.0.0.insert.ext.i68 = zext nneg i32 %spec.select.i66 to i64
-  %.sroa.4.0.extract.shift = lshr exact i64 %spec.select3.i67, 32
-  %60 = zext i32 %24 to i64
-  %61 = mul nuw nsw i64 %.sroa.4.0.extract.shift, %60
-  %62 = add nuw nsw i64 %61, %.sroa.0.0.insert.ext.i68
-  %63 = icmp samesign ult i64 %62, 2147483648
-  br i1 %63, label %65, label %64
+  %61 = zext i32 %24 to i64
+  %62 = zext nneg i32 %59 to i64
+  %63 = shl nuw nsw i64 %61, %62
+  %64 = add nuw nsw i64 %63, %.sroa.0.0.insert.ext.i68
+  %65 = icmp samesign ult i64 %64, 2147483648
+  br i1 %65, label %67, label %66
 
-64:                                               ; preds = %57
+66:                                               ; preds = %58
   tail call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.44) #14
-  br label %87
+  br label %89
 
-65:                                               ; preds = %57
-  %.sroa.06.0.insert.insert = or disjoint i64 %54, %spec.select3.i62
-  %66 = call i32 @avifFractionSub(i64 %.sroa.06.0.insert.insert, i64 %.sroa.0.0.insert.insert.i, ptr noundef nonnull %7) #14
-  %.not53 = icmp eq i32 %66, 0
-  br i1 %.not53, label %67, label %68
+67:                                               ; preds = %58
+  %.sroa.06.0.insert.insert = or disjoint i64 %55, %spec.select3.i62
+  %68 = call i32 @avifFractionSub(i64 %.sroa.06.0.insert.insert, i64 %.sroa.0.0.insert.insert.i, ptr noundef nonnull %7) #14
+  %.not53 = icmp eq i32 %68, 0
+  br i1 %.not53, label %69, label %70
 
-67:                                               ; preds = %65
+69:                                               ; preds = %67
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.51) #14
-  br label %87
+  br label %89
 
-68:                                               ; preds = %65
-  %.sroa.0.0.insert.insert = or disjoint i64 %62, %spec.select3.i67
-  %69 = call i32 @avifFractionSub(i64 %.sroa.0.0.insert.insert, i64 %.sroa.0.0.insert.insert.i59, ptr noundef nonnull %8) #14
-  %.not54 = icmp eq i32 %69, 0
-  br i1 %.not54, label %70, label %71
+70:                                               ; preds = %67
+  %.sroa.0.0.insert.insert = or disjoint i64 %64, %spec.select3.i67
+  %71 = call i32 @avifFractionSub(i64 %.sroa.0.0.insert.insert, i64 %.sroa.0.0.insert.insert.i59, ptr noundef nonnull %8) #14
+  %.not54 = icmp eq i32 %71, 0
+  br i1 %.not54, label %72, label %73
 
-70:                                               ; preds = %68
+72:                                               ; preds = %70
   call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %5, ptr noundef nonnull @.str.52) #14
-  br label %87
+  br label %89
 
-71:                                               ; preds = %68
-  %72 = load i32, ptr %9, align 4
-  store i32 %72, ptr %0, align 4
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 1, ptr %73, align 4
-  %74 = load i32, ptr %13, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %74, ptr %75, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1, ptr %76, align 4
-  %77 = load i32, ptr %7, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %77, ptr %78, align 4
-  %79 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %80, ptr %81, align 4
-  %82 = load i32, ptr %8, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
+73:                                               ; preds = %70
+  %74 = load i32, ptr %9, align 4
+  store i32 %74, ptr %0, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 1, ptr %75, align 4
+  %76 = load i32, ptr %13, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %76, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1, ptr %78, align 4
+  %79 = load i32, ptr %7, align 4
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 %79, ptr %80, align 4
+  %81 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %82, ptr %83, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %85 = load i32, ptr %84, align 4
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %85, ptr %86, align 4
-  br label %87
+  %84 = load i32, ptr %8, align 4
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 %84, ptr %85, align 4
+  %86 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %87, ptr %88, align 4
+  br label %89
 
-87:                                               ; preds = %avifCropRectIsValid.exit, %71, %70, %67, %64, %56, %48, %41
-  %.0 = phi i32 [ 0, %41 ], [ 0, %48 ], [ 0, %56 ], [ 0, %64 ], [ 1, %71 ], [ 0, %70 ], [ 0, %67 ], [ 0, %avifCropRectIsValid.exit ]
+89:                                               ; preds = %avifCropRectIsValid.exit, %73, %72, %69, %66, %57, %48, %41
+  %.0 = phi i32 [ 0, %41 ], [ 0, %48 ], [ 0, %57 ], [ 0, %66 ], [ 1, %73 ], [ 0, %72 ], [ 0, %69 ], [ 0, %avifCropRectIsValid.exit ]
   ret i32 %.0
 }
 

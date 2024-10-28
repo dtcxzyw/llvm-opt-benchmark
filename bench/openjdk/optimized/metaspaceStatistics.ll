@@ -71,8 +71,8 @@ define hidden noundef i64 @_ZNK9metaspace17ChunkManagerStats15total_word_sizeEv(
   %3 = getelementptr inbounds [15 x i32], ptr %0, i64 0, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
-  %6 = lshr exact i64 2097152, %indvars.iv
-  %7 = mul nsw i64 %6, %5
+  %6 = sub nuw nsw i64 21, %indvars.iv
+  %7 = shl nsw i64 %5, %6
   %8 = add i64 %7, %.067
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 15
@@ -121,8 +121,8 @@ define hidden void @_ZNK9metaspace17ChunkManagerStats8print_onEP12outputStreamm(
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %8 to i64
-  %12 = lshr exact i64 2097152, %indvars.iv
-  %13 = mul nuw nsw i64 %12, %11
+  %12 = sub nuw nsw i64 21, %indvars.iv
+  %13 = shl nuw nsw i64 %11, %12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4, i32 noundef %8) #6
   tail call void @_ZN9metaspace18print_scaled_wordsEP12outputStreammmi(ptr noundef nonnull %1, i64 noundef %13, i64 noundef %2, i32 noundef -1) #6
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5) #6

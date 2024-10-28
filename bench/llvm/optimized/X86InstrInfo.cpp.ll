@@ -29236,7 +29236,7 @@ define internal fastcc void @"_ZZNK4llvm12X86InstrInfo24setExecutionDomainCustom
   %15 = load i32, ptr %14, align 8
   %16 = and i32 %15, 255
   %17 = icmp eq i32 %16, 1
-  br i1 %17, label %18, label %194
+  br i1 %17, label %18, label %197
 
 18:                                               ; preds = %3
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -29293,8 +29293,8 @@ _ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit:          ; preds = %.lr.ph.i, %45, %.lr
   %48 = load i32, ptr %47, align 4
   switch i32 %48, label %_ZL15AdjustBlendMaskjjjPj.exit [
     i32 1, label %49
-    i32 2, label %78
-    i32 3, label %107
+    i32 2, label %79
+    i32 3, label %109
   ]
 
 49:                                               ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
@@ -29304,295 +29304,298 @@ _ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit:          ; preds = %.lr.ph.i, %45, %.lr
   %51 = add nuw nsw i8 %.rhs.trunc.i, 31
   %52 = and i8 %51, %.lhs.trunc.i
   %53 = icmp eq i8 %52, 0
-  br i1 %53, label %54, label %68
+  br i1 %53, label %54, label %69
 
 54:                                               ; preds = %49
-  %55 = udiv i8 %.lhs.trunc.i, %.rhs.trunc.i
-  %.zext44.i = zext nneg i8 %55 to i32
+  %55 = select i1 %2, i8 3, i8 2
+  %56 = lshr i8 %.lhs.trunc.i, %55
+  %.zext44.i = zext nneg i8 %56 to i32
   %notmask38.i = shl nsw i32 -1, %.zext44.i
-  %56 = xor i32 %notmask38.i, -1
-  br label %57
+  %57 = xor i32 %notmask38.i, -1
+  br label %58
 
-57:                                               ; preds = %66, %54
-  %.03354.i = phi i32 [ 0, %54 ], [ %.1.i, %66 ]
-  %.03453.i = phi i32 [ 0, %54 ], [ %67, %66 ]
-  %58 = mul nuw nsw i32 %.03453.i, %.zext44.i
-  %59 = lshr i32 %26, %58
-  %60 = and i32 %59, %56
-  %61 = icmp eq i32 %60, %56
-  br i1 %61, label %62, label %65
+58:                                               ; preds = %67, %54
+  %.03354.i = phi i32 [ 0, %54 ], [ %.1.i, %67 ]
+  %.03453.i = phi i32 [ 0, %54 ], [ %68, %67 ]
+  %59 = mul nuw nsw i32 %.03453.i, %.zext44.i
+  %60 = lshr i32 %26, %59
+  %61 = and i32 %60, %57
+  %62 = icmp eq i32 %61, %57
+  br i1 %62, label %63, label %66
 
-62:                                               ; preds = %57
-  %63 = shl nuw i32 1, %.03453.i
-  %64 = or i32 %63, %.03354.i
-  br label %66
+63:                                               ; preds = %58
+  %64 = shl nuw i32 1, %.03453.i
+  %65 = or i32 %64, %.03354.i
+  br label %67
 
-65:                                               ; preds = %57
-  %.not41.i = icmp eq i32 %60, 0
-  br i1 %.not41.i, label %66, label %_ZL15AdjustBlendMaskjjjPj.exit
+66:                                               ; preds = %58
+  %.not41.i = icmp eq i32 %61, 0
+  br i1 %.not41.i, label %67, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-66:                                               ; preds = %65, %62
-  %.1.i = phi i32 [ %64, %62 ], [ %.03354.i, %65 ]
-  %67 = add nuw nsw i32 %.03453.i, 1
-  %.not39.i = icmp eq i32 %67, %50
-  br i1 %.not39.i, label %_ZL15AdjustBlendMaskjjjPj.exit, label %57, !llvm.loop !585
+67:                                               ; preds = %66, %63
+  %.1.i = phi i32 [ %65, %63 ], [ %.03354.i, %66 ]
+  %68 = add nuw nsw i32 %.03453.i, 1
+  %.not39.i = icmp eq i32 %68, %50
+  br i1 %.not39.i, label %_ZL15AdjustBlendMaskjjjPj.exit, label %58, !llvm.loop !585
 
-68:                                               ; preds = %49
-  %69 = udiv i8 %.rhs.trunc.i, %.lhs.trunc.i
-  %.zext47.i = zext nneg i8 %69 to i32
+69:                                               ; preds = %49
+  %70 = udiv i8 %.rhs.trunc.i, %.lhs.trunc.i
+  %.zext47.i = zext nneg i8 %70 to i32
   %notmask.i = shl nsw i32 -1, %.zext47.i
-  %70 = xor i32 %notmask.i, -1
-  br label %71
+  %71 = xor i32 %notmask.i, -1
+  br label %72
 
-71:                                               ; preds = %71, %68
-  %.052.i = phi i32 [ 0, %68 ], [ %77, %71 ]
-  %.351.i = phi i32 [ 0, %68 ], [ %.4.i, %71 ]
-  %72 = shl nuw i32 1, %.052.i
-  %73 = and i32 %72, %26
-  %.not37.i = icmp eq i32 %73, 0
-  %74 = mul nuw nsw i32 %.052.i, %.zext47.i
-  %75 = shl i32 %70, %74
-  %76 = select i1 %.not37.i, i32 0, i32 %75
-  %.4.i = or i32 %76, %.351.i
-  %77 = add nuw nsw i32 %.052.i, 1
-  %.not.i29 = icmp eq i32 %77, %1
-  br i1 %.not.i29, label %_ZL15AdjustBlendMaskjjjPj.exit, label %71, !llvm.loop !586
+72:                                               ; preds = %72, %69
+  %.052.i = phi i32 [ 0, %69 ], [ %78, %72 ]
+  %.351.i = phi i32 [ 0, %69 ], [ %.4.i, %72 ]
+  %73 = shl nuw i32 1, %.052.i
+  %74 = and i32 %73, %26
+  %.not37.i = icmp eq i32 %74, 0
+  %75 = mul nuw nsw i32 %.052.i, %.zext47.i
+  %76 = shl i32 %71, %75
+  %77 = select i1 %.not37.i, i32 0, i32 %76
+  %.4.i = or i32 %77, %.351.i
+  %78 = add nuw nsw i32 %.052.i, 1
+  %.not.i29 = icmp eq i32 %78, %1
+  br i1 %.not.i29, label %_ZL15AdjustBlendMaskjjjPj.exit, label %72, !llvm.loop !586
 
-78:                                               ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
-  %79 = select i1 %2, i32 4, i32 2
+79:                                               ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
+  %80 = select i1 %2, i32 4, i32 2
   %.lhs.trunc.i30 = trunc nuw nsw i32 %1 to i8
-  %.rhs.trunc.i31 = trunc nuw nsw i32 %79 to i8
-  %80 = add nuw nsw i8 %.rhs.trunc.i31, 31
-  %81 = and i8 %80, %.lhs.trunc.i30
-  %82 = icmp eq i8 %81, 0
-  br i1 %82, label %83, label %97
+  %.rhs.trunc.i31 = trunc nuw nsw i32 %80 to i8
+  %81 = add nuw nsw i8 %.rhs.trunc.i31, 31
+  %82 = and i8 %81, %.lhs.trunc.i30
+  %83 = icmp eq i8 %82, 0
+  br i1 %83, label %84, label %99
 
-83:                                               ; preds = %78
-  %84 = udiv i8 %.lhs.trunc.i30, %.rhs.trunc.i31
-  %.zext44.i42 = zext nneg i8 %84 to i32
+84:                                               ; preds = %79
+  %85 = select i1 %2, i8 2, i8 1
+  %86 = lshr i8 %.lhs.trunc.i30, %85
+  %.zext44.i42 = zext nneg i8 %86 to i32
   %notmask38.i43 = shl nsw i32 -1, %.zext44.i42
-  %85 = xor i32 %notmask38.i43, -1
-  br label %86
+  %87 = xor i32 %notmask38.i43, -1
+  br label %88
 
-86:                                               ; preds = %95, %83
-  %.03354.i44 = phi i32 [ 0, %83 ], [ %.1.i47, %95 ]
-  %.03453.i45 = phi i32 [ 0, %83 ], [ %96, %95 ]
-  %87 = mul nuw nsw i32 %.03453.i45, %.zext44.i42
-  %88 = lshr i32 %26, %87
-  %89 = and i32 %88, %85
-  %90 = icmp eq i32 %89, %85
-  br i1 %90, label %91, label %94
+88:                                               ; preds = %97, %84
+  %.03354.i44 = phi i32 [ 0, %84 ], [ %.1.i47, %97 ]
+  %.03453.i45 = phi i32 [ 0, %84 ], [ %98, %97 ]
+  %89 = mul nuw nsw i32 %.03453.i45, %.zext44.i42
+  %90 = lshr i32 %26, %89
+  %91 = and i32 %90, %87
+  %92 = icmp eq i32 %91, %87
+  br i1 %92, label %93, label %96
 
-91:                                               ; preds = %86
-  %92 = shl nuw i32 1, %.03453.i45
-  %93 = or i32 %92, %.03354.i44
-  br label %95
+93:                                               ; preds = %88
+  %94 = shl nuw i32 1, %.03453.i45
+  %95 = or i32 %94, %.03354.i44
+  br label %97
 
-94:                                               ; preds = %86
-  %.not41.i46 = icmp eq i32 %89, 0
-  br i1 %.not41.i46, label %95, label %_ZL15AdjustBlendMaskjjjPj.exit
+96:                                               ; preds = %88
+  %.not41.i46 = icmp eq i32 %91, 0
+  br i1 %.not41.i46, label %97, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-95:                                               ; preds = %94, %91
-  %.1.i47 = phi i32 [ %93, %91 ], [ %.03354.i44, %94 ]
-  %96 = add nuw nsw i32 %.03453.i45, 1
-  %.not39.i48 = icmp eq i32 %96, %79
-  br i1 %.not39.i48, label %_ZL15AdjustBlendMaskjjjPj.exit, label %86, !llvm.loop !585
+97:                                               ; preds = %96, %93
+  %.1.i47 = phi i32 [ %95, %93 ], [ %.03354.i44, %96 ]
+  %98 = add nuw nsw i32 %.03453.i45, 1
+  %.not39.i48 = icmp eq i32 %98, %80
+  br i1 %.not39.i48, label %_ZL15AdjustBlendMaskjjjPj.exit, label %88, !llvm.loop !585
 
-97:                                               ; preds = %78
-  %98 = udiv i8 %.rhs.trunc.i31, %.lhs.trunc.i30
-  %.zext47.i32 = zext nneg i8 %98 to i32
+99:                                               ; preds = %79
+  %100 = udiv i8 %.rhs.trunc.i31, %.lhs.trunc.i30
+  %.zext47.i32 = zext nneg i8 %100 to i32
   %notmask.i33 = shl nsw i32 -1, %.zext47.i32
-  %99 = xor i32 %notmask.i33, -1
-  br label %100
+  %101 = xor i32 %notmask.i33, -1
+  br label %102
 
-100:                                              ; preds = %100, %97
-  %.052.i34 = phi i32 [ 0, %97 ], [ %106, %100 ]
-  %.351.i35 = phi i32 [ 0, %97 ], [ %.4.i37, %100 ]
-  %101 = shl nuw i32 1, %.052.i34
-  %102 = and i32 %101, %26
-  %.not37.i36 = icmp eq i32 %102, 0
-  %103 = mul nuw nsw i32 %.052.i34, %.zext47.i32
-  %104 = shl i32 %99, %103
-  %105 = select i1 %.not37.i36, i32 0, i32 %104
-  %.4.i37 = or i32 %105, %.351.i35
-  %106 = add nuw nsw i32 %.052.i34, 1
-  %.not.i38 = icmp eq i32 %106, %1
-  br i1 %.not.i38, label %_ZL15AdjustBlendMaskjjjPj.exit, label %100, !llvm.loop !586
+102:                                              ; preds = %102, %99
+  %.052.i34 = phi i32 [ 0, %99 ], [ %108, %102 ]
+  %.351.i35 = phi i32 [ 0, %99 ], [ %.4.i37, %102 ]
+  %103 = shl nuw i32 1, %.052.i34
+  %104 = and i32 %103, %26
+  %.not37.i36 = icmp eq i32 %104, 0
+  %105 = mul nuw nsw i32 %.052.i34, %.zext47.i32
+  %106 = shl i32 %101, %105
+  %107 = select i1 %.not37.i36, i32 0, i32 %106
+  %.4.i37 = or i32 %107, %.351.i35
+  %108 = add nuw nsw i32 %.052.i34, 1
+  %.not.i38 = icmp eq i32 %108, %1
+  br i1 %.not.i38, label %_ZL15AdjustBlendMaskjjjPj.exit, label %102, !llvm.loop !586
 
-107:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
-  %108 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 304
-  %111 = load i32, ptr %110, align 8
-  %112 = icmp sgt i32 %111, 7
-  br i1 %112, label %113, label %149
+109:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit
+  %110 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 304
+  %113 = load i32, ptr %112, align 8
+  %114 = icmp sgt i32 %113, 7
+  br i1 %114, label %115, label %152
 
-113:                                              ; preds = %107
-  %114 = zext i1 %2 to i32
-  %115 = lshr i32 %1, %114
-  %.not22 = icmp eq i32 %115, 8
+115:                                              ; preds = %109
+  %116 = zext i1 %2 to i32
+  %117 = lshr i32 %1, %116
+  %.not22 = icmp eq i32 %117, 8
   br i1 %.not22, label %_ZL15AdjustBlendMaskjjjPj.exit, label %.lr.ph.i51
 
-.lr.ph.i51:                                       ; preds = %113, %120
-  %.01013.i52.idx = phi i64 [ %.01013.i52.add, %120 ], [ 0, %113 ]
+.lr.ph.i51:                                       ; preds = %115, %122
+  %.01013.i52.idx = phi i64 [ %.01013.i52.add, %122 ], [ 0, %115 ]
   %.01013.i52.ptr = getelementptr inbounds i8, ptr @_ZL26ReplaceableBlendAVX2Instrs, i64 %.01013.i52.idx
-  %116 = getelementptr inbounds [3 x i16], ptr %.01013.i52.ptr, i64 0, i64 %35
-  %117 = load i16, ptr %116, align 2
-  %118 = zext i16 %117 to i32
-  %119 = icmp eq i32 %29, %118
-  br i1 %119, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55, label %120
+  %118 = getelementptr inbounds [3 x i16], ptr %.01013.i52.ptr, i64 0, i64 %35
+  %119 = load i16, ptr %118, align 2
+  %120 = zext i16 %119 to i32
+  %121 = icmp eq i32 %29, %120
+  br i1 %121, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55, label %122
 
-120:                                              ; preds = %.lr.ph.i51
+122:                                              ; preds = %.lr.ph.i51
   %.01013.i52.add = add nuw nsw i64 %.01013.i52.idx, 6
   %.not.i53 = icmp eq i64 %.01013.i52.add, 24
   br i1 %.not.i53, label %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55, label %.lr.ph.i51
 
-_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55:        ; preds = %.lr.ph.i51, %120
-  %.0.i54 = phi ptr [ null, %120 ], [ %.01013.i52.ptr, %.lr.ph.i51 ]
-  %121 = select i1 %2, i32 8, i32 4
+_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55:        ; preds = %.lr.ph.i51, %122
+  %.0.i54 = phi ptr [ null, %122 ], [ %.01013.i52.ptr, %.lr.ph.i51 ]
+  %123 = select i1 %2, i32 8, i32 4
   %.lhs.trunc.i56 = trunc nuw nsw i32 %1 to i8
-  %.rhs.trunc.i57 = trunc nuw nsw i32 %121 to i8
-  %122 = add nuw nsw i8 %.rhs.trunc.i57, 31
-  %123 = and i8 %122, %.lhs.trunc.i56
-  %124 = icmp eq i8 %123, 0
-  br i1 %124, label %125, label %139
+  %.rhs.trunc.i57 = trunc nuw nsw i32 %123 to i8
+  %124 = add nuw nsw i8 %.rhs.trunc.i57, 31
+  %125 = and i8 %124, %.lhs.trunc.i56
+  %126 = icmp eq i8 %125, 0
+  br i1 %126, label %127, label %142
 
-125:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55
-  %126 = udiv i8 %.lhs.trunc.i56, %.rhs.trunc.i57
-  %.zext44.i68 = zext nneg i8 %126 to i32
+127:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55
+  %128 = select i1 %2, i8 3, i8 2
+  %129 = lshr i8 %.lhs.trunc.i56, %128
+  %.zext44.i68 = zext nneg i8 %129 to i32
   %notmask38.i69 = shl nsw i32 -1, %.zext44.i68
-  %127 = xor i32 %notmask38.i69, -1
-  br label %128
+  %130 = xor i32 %notmask38.i69, -1
+  br label %131
 
-128:                                              ; preds = %137, %125
-  %.03354.i70 = phi i32 [ 0, %125 ], [ %.1.i73, %137 ]
-  %.03453.i71 = phi i32 [ 0, %125 ], [ %138, %137 ]
-  %129 = mul nuw nsw i32 %.03453.i71, %.zext44.i68
-  %130 = lshr i32 %26, %129
-  %131 = and i32 %130, %127
-  %132 = icmp eq i32 %131, %127
-  br i1 %132, label %133, label %136
+131:                                              ; preds = %140, %127
+  %.03354.i70 = phi i32 [ 0, %127 ], [ %.1.i73, %140 ]
+  %.03453.i71 = phi i32 [ 0, %127 ], [ %141, %140 ]
+  %132 = mul nuw nsw i32 %.03453.i71, %.zext44.i68
+  %133 = lshr i32 %26, %132
+  %134 = and i32 %133, %130
+  %135 = icmp eq i32 %134, %130
+  br i1 %135, label %136, label %139
 
-133:                                              ; preds = %128
-  %134 = shl nuw i32 1, %.03453.i71
-  %135 = or i32 %134, %.03354.i70
-  br label %137
+136:                                              ; preds = %131
+  %137 = shl nuw i32 1, %.03453.i71
+  %138 = or i32 %137, %.03354.i70
+  br label %140
 
-136:                                              ; preds = %128
-  %.not41.i72 = icmp eq i32 %131, 0
-  br i1 %.not41.i72, label %137, label %_ZL15AdjustBlendMaskjjjPj.exit
+139:                                              ; preds = %131
+  %.not41.i72 = icmp eq i32 %134, 0
+  br i1 %.not41.i72, label %140, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-137:                                              ; preds = %136, %133
-  %.1.i73 = phi i32 [ %135, %133 ], [ %.03354.i70, %136 ]
-  %138 = add nuw nsw i32 %.03453.i71, 1
-  %.not39.i74 = icmp eq i32 %138, %121
-  br i1 %.not39.i74, label %_ZL15AdjustBlendMaskjjjPj.exit, label %128, !llvm.loop !585
+140:                                              ; preds = %139, %136
+  %.1.i73 = phi i32 [ %138, %136 ], [ %.03354.i70, %139 ]
+  %141 = add nuw nsw i32 %.03453.i71, 1
+  %.not39.i74 = icmp eq i32 %141, %123
+  br i1 %.not39.i74, label %_ZL15AdjustBlendMaskjjjPj.exit, label %131, !llvm.loop !585
 
-139:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55
-  %140 = udiv i8 %.rhs.trunc.i57, %.lhs.trunc.i56
-  %.zext47.i58 = zext nneg i8 %140 to i32
+142:                                              ; preds = %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit55
+  %143 = udiv i8 %.rhs.trunc.i57, %.lhs.trunc.i56
+  %.zext47.i58 = zext nneg i8 %143 to i32
   %notmask.i59 = shl nsw i32 -1, %.zext47.i58
-  %141 = xor i32 %notmask.i59, -1
-  br label %142
+  %144 = xor i32 %notmask.i59, -1
+  br label %145
 
-142:                                              ; preds = %142, %139
-  %.052.i60 = phi i32 [ 0, %139 ], [ %148, %142 ]
-  %.351.i61 = phi i32 [ 0, %139 ], [ %.4.i63, %142 ]
-  %143 = shl nuw i32 1, %.052.i60
-  %144 = and i32 %143, %26
-  %.not37.i62 = icmp eq i32 %144, 0
-  %145 = mul nuw nsw i32 %.052.i60, %.zext47.i58
-  %146 = shl i32 %141, %145
-  %147 = select i1 %.not37.i62, i32 0, i32 %146
-  %.4.i63 = or i32 %147, %.351.i61
-  %148 = add nuw nsw i32 %.052.i60, 1
-  %.not.i64 = icmp eq i32 %148, %1
-  br i1 %.not.i64, label %_ZL15AdjustBlendMaskjjjPj.exit, label %142, !llvm.loop !586
+145:                                              ; preds = %145, %142
+  %.052.i60 = phi i32 [ 0, %142 ], [ %151, %145 ]
+  %.351.i61 = phi i32 [ 0, %142 ], [ %.4.i63, %145 ]
+  %146 = shl nuw i32 1, %.052.i60
+  %147 = and i32 %146, %26
+  %.not37.i62 = icmp eq i32 %147, 0
+  %148 = mul nuw nsw i32 %.052.i60, %.zext47.i58
+  %149 = shl i32 %144, %148
+  %150 = select i1 %.not37.i62, i32 0, i32 %149
+  %.4.i63 = or i32 %150, %.351.i61
+  %151 = add nuw nsw i32 %.052.i60, 1
+  %.not.i64 = icmp eq i32 %151, %1
+  br i1 %.not.i64, label %_ZL15AdjustBlendMaskjjjPj.exit, label %145, !llvm.loop !586
 
-149:                                              ; preds = %107
+152:                                              ; preds = %109
   %.lhs.trunc.i76 = trunc nuw nsw i32 %1 to i8
-  %150 = and i8 %.lhs.trunc.i76, 7
-  %151 = icmp eq i8 %150, 0
-  br i1 %151, label %152, label %165
+  %153 = and i8 %.lhs.trunc.i76, 7
+  %154 = icmp eq i8 %153, 0
+  br i1 %154, label %155, label %168
 
-152:                                              ; preds = %149
+155:                                              ; preds = %152
   %.zext44.i87 = lshr i32 %1, 3
   %notmask38.i88 = shl nsw i32 -1, %.zext44.i87
-  %153 = xor i32 %notmask38.i88, -1
-  br label %154
+  %156 = xor i32 %notmask38.i88, -1
+  br label %157
 
-154:                                              ; preds = %163, %152
-  %.03354.i89 = phi i32 [ 0, %152 ], [ %.1.i92, %163 ]
-  %.03453.i90 = phi i32 [ 0, %152 ], [ %164, %163 ]
-  %155 = mul nuw nsw i32 %.03453.i90, %.zext44.i87
-  %156 = lshr i32 %26, %155
-  %157 = and i32 %156, %153
-  %158 = icmp eq i32 %157, %153
-  br i1 %158, label %159, label %162
+157:                                              ; preds = %166, %155
+  %.03354.i89 = phi i32 [ 0, %155 ], [ %.1.i92, %166 ]
+  %.03453.i90 = phi i32 [ 0, %155 ], [ %167, %166 ]
+  %158 = mul nuw nsw i32 %.03453.i90, %.zext44.i87
+  %159 = lshr i32 %26, %158
+  %160 = and i32 %159, %156
+  %161 = icmp eq i32 %160, %156
+  br i1 %161, label %162, label %165
 
-159:                                              ; preds = %154
-  %160 = shl nuw i32 1, %.03453.i90
-  %161 = or i32 %160, %.03354.i89
-  br label %163
+162:                                              ; preds = %157
+  %163 = shl nuw i32 1, %.03453.i90
+  %164 = or i32 %163, %.03354.i89
+  br label %166
 
-162:                                              ; preds = %154
-  %.not41.i91 = icmp eq i32 %157, 0
-  br i1 %.not41.i91, label %163, label %_ZL15AdjustBlendMaskjjjPj.exit
+165:                                              ; preds = %157
+  %.not41.i91 = icmp eq i32 %160, 0
+  br i1 %.not41.i91, label %166, label %_ZL15AdjustBlendMaskjjjPj.exit
 
-163:                                              ; preds = %162, %159
-  %.1.i92 = phi i32 [ %161, %159 ], [ %.03354.i89, %162 ]
-  %164 = add nuw nsw i32 %.03453.i90, 1
-  %.not39.i93 = icmp eq i32 %164, 8
-  br i1 %.not39.i93, label %_ZL15AdjustBlendMaskjjjPj.exit, label %154, !llvm.loop !585
+166:                                              ; preds = %165, %162
+  %.1.i92 = phi i32 [ %164, %162 ], [ %.03354.i89, %165 ]
+  %167 = add nuw nsw i32 %.03453.i90, 1
+  %.not39.i93 = icmp eq i32 %167, 8
+  br i1 %.not39.i93, label %_ZL15AdjustBlendMaskjjjPj.exit, label %157, !llvm.loop !585
 
-165:                                              ; preds = %149
-  %166 = udiv i8 8, %.lhs.trunc.i76
-  %.zext47.i77 = zext nneg i8 %166 to i32
+168:                                              ; preds = %152
+  %169 = udiv i8 8, %.lhs.trunc.i76
+  %.zext47.i77 = zext nneg i8 %169 to i32
   %notmask.i78 = shl nsw i32 -1, %.zext47.i77
-  %167 = xor i32 %notmask.i78, -1
-  br label %168
+  %170 = xor i32 %notmask.i78, -1
+  br label %171
 
-168:                                              ; preds = %168, %165
-  %.052.i79 = phi i32 [ 0, %165 ], [ %174, %168 ]
-  %.351.i80 = phi i32 [ 0, %165 ], [ %.4.i82, %168 ]
-  %169 = shl nuw i32 1, %.052.i79
-  %170 = and i32 %169, %26
-  %.not37.i81 = icmp eq i32 %170, 0
-  %171 = mul nuw nsw i32 %.052.i79, %.zext47.i77
-  %172 = shl i32 %167, %171
-  %173 = select i1 %.not37.i81, i32 0, i32 %172
-  %.4.i82 = or i32 %173, %.351.i80
-  %174 = add nuw nsw i32 %.052.i79, 1
-  %.not.i83 = icmp eq i32 %174, %1
-  br i1 %.not.i83, label %_ZL15AdjustBlendMaskjjjPj.exit, label %168, !llvm.loop !586
+171:                                              ; preds = %171, %168
+  %.052.i79 = phi i32 [ 0, %168 ], [ %177, %171 ]
+  %.351.i80 = phi i32 [ 0, %168 ], [ %.4.i82, %171 ]
+  %172 = shl nuw i32 1, %.052.i79
+  %173 = and i32 %172, %26
+  %.not37.i81 = icmp eq i32 %173, 0
+  %174 = mul nuw nsw i32 %.052.i79, %.zext47.i77
+  %175 = shl i32 %170, %174
+  %176 = select i1 %.not37.i81, i32 0, i32 %175
+  %.4.i82 = or i32 %176, %.351.i80
+  %177 = add nuw nsw i32 %.052.i79, 1
+  %.not.i83 = icmp eq i32 %177, %1
+  br i1 %.not.i83, label %_ZL15AdjustBlendMaskjjjPj.exit, label %171, !llvm.loop !586
 
-_ZL15AdjustBlendMaskjjjPj.exit:                   ; preds = %168, %162, %163, %142, %136, %137, %100, %94, %95, %71, %65, %66, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit, %113
-  %.099 = phi i32 [ %26, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %26, %113 ], [ %.1.i, %66 ], [ %26, %65 ], [ %.4.i, %71 ], [ %.1.i47, %95 ], [ %26, %94 ], [ %.4.i37, %100 ], [ %.1.i73, %137 ], [ %26, %136 ], [ %.4.i63, %142 ], [ %.1.i92, %163 ], [ %26, %162 ], [ %.4.i82, %168 ]
-  %.1 = phi ptr [ %.0, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %.0, %113 ], [ %.0, %66 ], [ %.0, %65 ], [ %.0, %71 ], [ %.0, %95 ], [ %.0, %94 ], [ %.0, %100 ], [ %.0.i54, %137 ], [ %.0.i54, %136 ], [ %.0.i54, %142 ], [ %.0, %163 ], [ %.0, %162 ], [ %.0, %168 ]
-  %175 = getelementptr inbounds i8, ptr %5, i64 8
-  %176 = add i32 %48, -1
-  %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds i16, ptr %.1, i64 %177
-  %179 = load i16, ptr %178, align 2
-  %180 = load ptr, ptr %175, align 8
-  %181 = zext i16 %179 to i64
-  %182 = sub nsw i64 0, %181
-  %183 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %180, i64 %182
-  tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %6, ptr noundef nonnull align 8 dereferenceable(32) %183) #29
-  %184 = load ptr, ptr %0, align 8
-  %185 = load ptr, ptr %7, align 8
-  %186 = load i32, ptr %185, align 4
-  %187 = add i32 %186, -1
-  %188 = getelementptr inbounds nuw i8, ptr %184, i64 32
-  %189 = load ptr, ptr %188, align 8
-  %190 = zext i32 %187 to i64
-  %191 = and i32 %.099, 255
-  %192 = zext nneg i32 %191 to i64
-  %193 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %189, i64 %190, i32 3
-  store i64 %192, ptr %193, align 8
-  br label %194
+_ZL15AdjustBlendMaskjjjPj.exit:                   ; preds = %171, %165, %166, %145, %139, %140, %102, %96, %97, %72, %66, %67, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit, %115
+  %.099 = phi i32 [ %26, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %26, %115 ], [ %.1.i, %67 ], [ %26, %66 ], [ %.4.i, %72 ], [ %.1.i47, %97 ], [ %26, %96 ], [ %.4.i37, %102 ], [ %.1.i73, %140 ], [ %26, %139 ], [ %.4.i63, %145 ], [ %.1.i92, %166 ], [ %26, %165 ], [ %.4.i82, %171 ]
+  %.1 = phi ptr [ %.0, %_ZL6lookupjjN4llvm8ArrayRefIA3_tEE.exit ], [ %.0, %115 ], [ %.0, %67 ], [ %.0, %66 ], [ %.0, %72 ], [ %.0, %97 ], [ %.0, %96 ], [ %.0, %102 ], [ %.0.i54, %140 ], [ %.0.i54, %139 ], [ %.0.i54, %145 ], [ %.0, %166 ], [ %.0, %165 ], [ %.0, %171 ]
+  %178 = getelementptr inbounds i8, ptr %5, i64 8
+  %179 = add i32 %48, -1
+  %180 = zext i32 %179 to i64
+  %181 = getelementptr inbounds i16, ptr %.1, i64 %180
+  %182 = load i16, ptr %181, align 2
+  %183 = load ptr, ptr %178, align 8
+  %184 = zext i16 %182 to i64
+  %185 = sub nsw i64 0, %184
+  %186 = getelementptr inbounds %"class.llvm::MCInstrDesc", ptr %183, i64 %185
+  tail call void @_ZN4llvm12MachineInstr7setDescERKNS_11MCInstrDescE(ptr noundef nonnull align 8 dereferenceable(70) %6, ptr noundef nonnull align 8 dereferenceable(32) %186) #29
+  %187 = load ptr, ptr %0, align 8
+  %188 = load ptr, ptr %7, align 8
+  %189 = load i32, ptr %188, align 4
+  %190 = add i32 %189, -1
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 32
+  %192 = load ptr, ptr %191, align 8
+  %193 = zext i32 %190 to i64
+  %194 = and i32 %.099, 255
+  %195 = zext nneg i32 %194 to i64
+  %196 = getelementptr inbounds %"class.llvm::MachineOperand", ptr %192, i64 %193, i32 3
+  store i64 %195, ptr %196, align 8
+  br label %197
 
-194:                                              ; preds = %_ZL15AdjustBlendMaskjjjPj.exit, %3
+197:                                              ; preds = %_ZL15AdjustBlendMaskjjjPj.exit, %3
   ret void
 }
 

@@ -5355,9 +5355,9 @@ if.end46:                                         ; preds = %if.then36
   %conv38 = zext i8 %4 to i32
   %shr39 = lshr i32 %conv38, 3
   %shl47 = shl nuw nsw i32 1024, %shr39
-  %shr48 = lshr exact i32 %shl47, 3
   %and50 = and i32 %conv38, 7
-  %mul = mul nuw nsw i32 %shr48, %and50
+  %5 = add nuw nsw i32 %shr39, 7
+  %mul = shl nuw nsw i32 %and50, %5
   %add51 = add nuw nsw i32 %mul, %shl47
   br label %if.end52
 
@@ -5373,8 +5373,8 @@ if.end52:                                         ; preds = %if.end46, %if.end34
 
 sw.bb53:                                          ; preds = %if.end52
   %arrayidx54 = getelementptr inbounds i8, ptr %src, i64 %pos.0
-  %5 = load i8, ptr %arrayidx54, align 1
-  %conv55 = zext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx54, align 1
+  %conv55 = zext i8 %6 to i32
   %inc56 = add nuw nsw i64 %pos.0, 1
   br label %sw.epilog
 
@@ -5409,8 +5409,8 @@ sw.bb67:                                          ; preds = %sw.epilog
 
 if.then69:                                        ; preds = %sw.bb67
   %arrayidx70 = getelementptr inbounds i8, ptr %src, i64 %pos.1
-  %6 = load i8, ptr %arrayidx70, align 1
-  %conv71 = zext i8 %6 to i64
+  %7 = load i8, ptr %arrayidx70, align 1
+  %conv71 = zext i8 %7 to i64
   br label %sw.epilog86
 
 sw.bb73:                                          ; preds = %sw.epilog
