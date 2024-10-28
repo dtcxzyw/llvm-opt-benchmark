@@ -1834,11 +1834,11 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %tobool17.not, label %return, label %for.cond
 
 if.end23.loopexit:                                ; preds = %for.cond
-  %.pre895 = load ptr, ptr %args, align 8
+  %.pre892 = load ptr, ptr %args, align 8
   br label %if.end23
 
 if.end23:                                         ; preds = %if.end23.loopexit, %for.cond.preheader, %if.end5
-  %15 = phi ptr [ %.pre895, %if.end23.loopexit ], [ %10, %for.cond.preheader ], [ %10, %if.end5 ]
+  %15 = phi ptr [ %.pre892, %if.end23.loopexit ], [ %10, %for.cond.preheader ], [ %10, %if.end5 ]
   %kw_defaults = getelementptr inbounds i8, ptr %15, i64 32
   %16 = load ptr, ptr %kw_defaults, align 8
   %tobool26.not = icmp eq ptr %16, null
@@ -1868,11 +1868,11 @@ if.end51:                                         ; preds = %for.body44
   br i1 %tobool53.not, label %return, label %if.end51.for.inc58_crit_edge
 
 if.end51.for.inc58_crit_edge:                     ; preds = %if.end51
-  %.pre896 = load i64, ptr %16, align 8
+  %.pre893 = load i64, ptr %16, align 8
   br label %for.inc58
 
 for.inc58:                                        ; preds = %if.end51.for.inc58_crit_edge, %for.body44
-  %20 = phi i64 [ %.pre896, %if.end51.for.inc58_crit_edge ], [ %18, %for.body44 ]
+  %20 = phi i64 [ %.pre893, %if.end51.for.inc58_crit_edge ], [ %18, %for.body44 ]
   %inc59 = add i32 %i28.0863, 1
   %conv34 = sext i32 %inc59 to i64
   %cmp42 = icmp sgt i64 %20, %conv34
@@ -3688,11 +3688,11 @@ if.end1749:                                       ; preds = %for.body1742
   br i1 %tobool1751.not, label %return, label %if.end1749.for.inc1756_crit_edge
 
 if.end1749.for.inc1756_crit_edge:                 ; preds = %if.end1749
-  %.pre893 = load i64, ptr %316, align 8
+  %.pre891 = load i64, ptr %316, align 8
   br label %for.inc1756
 
 for.inc1756:                                      ; preds = %if.end1749.for.inc1756_crit_edge, %for.body1742
-  %320 = phi i64 [ %.pre893, %if.end1749.for.inc1756_crit_edge ], [ %318, %for.body1742 ]
+  %320 = phi i64 [ %.pre891, %if.end1749.for.inc1756_crit_edge ], [ %318, %for.body1742 ]
   %inc1757 = add i32 %i1726.0839, 1
   %conv1732 = sext i32 %inc1757 to i64
   %cmp1740 = icmp sgt i64 %320, %conv1732
@@ -4040,10 +4040,10 @@ sw.epilog:                                        ; preds = %cond.end1654, %cond
   br label %return
 
 return:                                           ; preds = %for.body1629, %if.then2.i758, %for.body1658, %for.body1706, %if.end1749, %for.body1779, %for.body1850, %for.body1914, %for.body1971, %if.then2.i784, %for.body2000, %for.body2046, %for.body2079, %if.end1590, %if.end1580, %symtable_lookup.exit751, %if.end1508, %if.end1498, %symtable_lookup.exit, %for.body1426, %for.body1396, %for.body1259, %for.body1288, %for.body1317, %for.body1346, %for.body1144, %for.body1172, %for.body1201, %for.body1229, %for.body1089, %if.then2.i, %for.body.i719, %for.body1019, %for.body1052, %for.body947, %for.body980, %for.body877, %for.body909, %for.body705, %for.body675, %for.body575, %for.body280, %for.body339, %for.body368, %for.body396, %for.body475, %for.body, %if.end51, %for.body80, %for.body149, %for.body207, %if.end2022, %sw.bb2014, %if.then1947, %for.end1927, %if.end1886, %if.end1874, %if.end1864, %has_kwonlydefaults.exit778, %sw.bb1672, %sw.bb1604, %if.then1371, %sw.bb1360, %if.then1117, %if.then1106, %sw.bb1067, %sw.bb995, %sw.bb924, %if.end854, %sw.bb846, %if.end837, %sw.bb829, %if.then819, %if.end808, %if.else799, %land.lhs.true785, %land.lhs.true770, %if.then732, %for.end718, %if.then646, %if.then634, %if.end626, %if.end618, %land.lhs.true, %if.end589, %if.then546, %sw.bb517, %if.then509, %for.end488, %if.end448, %if.then438, %for.end409, %if.then308, %sw.bb248, %if.then240, %for.end220, %if.end184, %if.end172, %if.end163, %has_kwonlydefaults.exit, %sw.bb, %sw.epilog, %if.end1569, %if.end1487, %if.then752, %if.then
-  %.sink940 = phi i32 [ -1, %sw.epilog ], [ -1, %if.end1569 ], [ -1, %if.end1487 ], [ -1, %if.then752 ], [ -1, %if.then ], [ -1, %sw.bb ], [ -1, %has_kwonlydefaults.exit ], [ -1, %if.end163 ], [ -1, %if.end172 ], [ -1, %if.end184 ], [ -1, %for.end220 ], [ -1, %if.then240 ], [ -1, %sw.bb248 ], [ -1, %if.then308 ], [ -1, %for.end409 ], [ -1, %if.then438 ], [ -1, %if.end448 ], [ -1, %for.end488 ], [ -1, %if.then509 ], [ -1, %sw.bb517 ], [ -1, %if.then546 ], [ -1, %if.end589 ], [ -1, %land.lhs.true ], [ -1, %if.end618 ], [ -1, %if.end626 ], [ -1, %if.then634 ], [ -1, %if.then646 ], [ -1, %for.end718 ], [ -1, %if.then732 ], [ -1, %land.lhs.true770 ], [ -1, %land.lhs.true785 ], [ -1, %if.else799 ], [ -1, %if.end808 ], [ -1, %if.then819 ], [ -1, %sw.bb829 ], [ -1, %if.end837 ], [ -1, %sw.bb846 ], [ -1, %if.end854 ], [ -1, %sw.bb924 ], [ -1, %sw.bb995 ], [ -1, %sw.bb1067 ], [ -1, %if.then1106 ], [ -1, %if.then1117 ], [ -1, %sw.bb1360 ], [ -1, %if.then1371 ], [ -1, %sw.bb1604 ], [ -1, %sw.bb1672 ], [ -1, %has_kwonlydefaults.exit778 ], [ -1, %if.end1864 ], [ -1, %if.end1874 ], [ -1, %if.end1886 ], [ -1, %for.end1927 ], [ -1, %if.then1947 ], [ -1, %sw.bb2014 ], [ -1, %if.end2022 ], [ -1, %for.body207 ], [ -1, %for.body149 ], [ -1, %for.body80 ], [ -1, %if.end51 ], [ -1, %for.body ], [ -1, %for.body475 ], [ -2, %for.body396 ], [ -1, %for.body368 ], [ -1, %for.body339 ], [ -1, %for.body280 ], [ -1, %for.body575 ], [ -1, %for.body675 ], [ -1, %for.body705 ], [ -1, %for.body909 ], [ -1, %for.body877 ], [ -1, %for.body980 ], [ -1, %for.body947 ], [ -1, %for.body1052 ], [ -1, %for.body1019 ], [ -2, %for.body.i719 ], [ -2, %if.then2.i ], [ -2, %for.body1089 ], [ -1, %for.body1229 ], [ -1, %for.body1201 ], [ -1, %for.body1172 ], [ -1, %for.body1144 ], [ -1, %for.body1346 ], [ -1, %for.body1317 ], [ -1, %for.body1288 ], [ -1, %for.body1259 ], [ -1, %for.body1396 ], [ -1, %for.body1426 ], [ -1, %symtable_lookup.exit ], [ -1, %if.end1498 ], [ -1, %if.end1508 ], [ -1, %symtable_lookup.exit751 ], [ -1, %if.end1580 ], [ -1, %if.end1590 ], [ -1, %for.body2079 ], [ -1, %for.body2046 ], [ -1, %for.body2000 ], [ -2, %if.then2.i784 ], [ -2, %for.body1971 ], [ -1, %for.body1914 ], [ -1, %for.body1850 ], [ -1, %for.body1779 ], [ -1, %if.end1749 ], [ -1, %for.body1706 ], [ -1, %for.body1658 ], [ -2, %if.then2.i758 ], [ -2, %for.body1629 ]
+  %.sink937 = phi i32 [ -1, %sw.epilog ], [ -1, %if.end1569 ], [ -1, %if.end1487 ], [ -1, %if.then752 ], [ -1, %if.then ], [ -1, %sw.bb ], [ -1, %has_kwonlydefaults.exit ], [ -1, %if.end163 ], [ -1, %if.end172 ], [ -1, %if.end184 ], [ -1, %for.end220 ], [ -1, %if.then240 ], [ -1, %sw.bb248 ], [ -1, %if.then308 ], [ -1, %for.end409 ], [ -1, %if.then438 ], [ -1, %if.end448 ], [ -1, %for.end488 ], [ -1, %if.then509 ], [ -1, %sw.bb517 ], [ -1, %if.then546 ], [ -1, %if.end589 ], [ -1, %land.lhs.true ], [ -1, %if.end618 ], [ -1, %if.end626 ], [ -1, %if.then634 ], [ -1, %if.then646 ], [ -1, %for.end718 ], [ -1, %if.then732 ], [ -1, %land.lhs.true770 ], [ -1, %land.lhs.true785 ], [ -1, %if.else799 ], [ -1, %if.end808 ], [ -1, %if.then819 ], [ -1, %sw.bb829 ], [ -1, %if.end837 ], [ -1, %sw.bb846 ], [ -1, %if.end854 ], [ -1, %sw.bb924 ], [ -1, %sw.bb995 ], [ -1, %sw.bb1067 ], [ -1, %if.then1106 ], [ -1, %if.then1117 ], [ -1, %sw.bb1360 ], [ -1, %if.then1371 ], [ -1, %sw.bb1604 ], [ -1, %sw.bb1672 ], [ -1, %has_kwonlydefaults.exit778 ], [ -1, %if.end1864 ], [ -1, %if.end1874 ], [ -1, %if.end1886 ], [ -1, %for.end1927 ], [ -1, %if.then1947 ], [ -1, %sw.bb2014 ], [ -1, %if.end2022 ], [ -1, %for.body207 ], [ -1, %for.body149 ], [ -1, %for.body80 ], [ -1, %if.end51 ], [ -1, %for.body ], [ -1, %for.body475 ], [ -2, %for.body396 ], [ -1, %for.body368 ], [ -1, %for.body339 ], [ -1, %for.body280 ], [ -1, %for.body575 ], [ -1, %for.body675 ], [ -1, %for.body705 ], [ -1, %for.body909 ], [ -1, %for.body877 ], [ -1, %for.body980 ], [ -1, %for.body947 ], [ -1, %for.body1052 ], [ -1, %for.body1019 ], [ -2, %for.body.i719 ], [ -2, %if.then2.i ], [ -2, %for.body1089 ], [ -1, %for.body1229 ], [ -1, %for.body1201 ], [ -1, %for.body1172 ], [ -1, %for.body1144 ], [ -1, %for.body1346 ], [ -1, %for.body1317 ], [ -1, %for.body1288 ], [ -1, %for.body1259 ], [ -1, %for.body1396 ], [ -1, %for.body1426 ], [ -1, %symtable_lookup.exit ], [ -1, %if.end1498 ], [ -1, %if.end1508 ], [ -1, %symtable_lookup.exit751 ], [ -1, %if.end1580 ], [ -1, %if.end1590 ], [ -1, %for.body2079 ], [ -1, %for.body2046 ], [ -1, %for.body2000 ], [ -2, %if.then2.i784 ], [ -2, %for.body1971 ], [ -1, %for.body1914 ], [ -1, %for.body1850 ], [ -1, %for.body1779 ], [ -1, %if.end1749 ], [ -1, %for.body1706 ], [ -1, %for.body1658 ], [ -2, %if.then2.i758 ], [ -2, %for.body1629 ]
   %retval.0 = phi i32 [ 1, %sw.epilog ], [ 0, %if.end1569 ], [ 0, %if.end1487 ], [ 0, %if.then752 ], [ 0, %if.then ], [ 0, %sw.bb ], [ 0, %has_kwonlydefaults.exit ], [ 0, %if.end163 ], [ 0, %if.end172 ], [ 0, %if.end184 ], [ 0, %for.end220 ], [ 0, %if.then240 ], [ 0, %sw.bb248 ], [ 0, %if.then308 ], [ 0, %for.end409 ], [ 0, %if.then438 ], [ 0, %if.end448 ], [ 0, %for.end488 ], [ 0, %if.then509 ], [ 0, %sw.bb517 ], [ 0, %if.then546 ], [ 0, %if.end589 ], [ 0, %land.lhs.true ], [ 0, %if.end618 ], [ 0, %if.end626 ], [ 0, %if.then634 ], [ 0, %if.then646 ], [ 0, %for.end718 ], [ 0, %if.then732 ], [ 0, %land.lhs.true770 ], [ 0, %land.lhs.true785 ], [ 0, %if.else799 ], [ 0, %if.end808 ], [ 0, %if.then819 ], [ 0, %sw.bb829 ], [ 0, %if.end837 ], [ 0, %sw.bb846 ], [ 0, %if.end854 ], [ 0, %sw.bb924 ], [ 0, %sw.bb995 ], [ 0, %sw.bb1067 ], [ 0, %if.then1106 ], [ 0, %if.then1117 ], [ 0, %sw.bb1360 ], [ 0, %if.then1371 ], [ 0, %sw.bb1604 ], [ 0, %sw.bb1672 ], [ 0, %has_kwonlydefaults.exit778 ], [ 0, %if.end1864 ], [ 0, %if.end1874 ], [ 0, %if.end1886 ], [ 0, %for.end1927 ], [ 0, %if.then1947 ], [ 0, %sw.bb2014 ], [ 0, %if.end2022 ], [ 0, %for.body207 ], [ 0, %for.body149 ], [ 0, %for.body80 ], [ 0, %if.end51 ], [ 0, %for.body ], [ 0, %for.body475 ], [ 0, %for.body396 ], [ 0, %for.body368 ], [ 0, %for.body339 ], [ 0, %for.body280 ], [ 0, %for.body575 ], [ 0, %for.body675 ], [ 0, %for.body705 ], [ 0, %for.body909 ], [ 0, %for.body877 ], [ 0, %for.body980 ], [ 0, %for.body947 ], [ 0, %for.body1052 ], [ 0, %for.body1019 ], [ 0, %for.body.i719 ], [ 0, %if.then2.i ], [ 0, %for.body1089 ], [ 0, %for.body1229 ], [ 0, %for.body1201 ], [ 0, %for.body1172 ], [ 0, %for.body1144 ], [ 0, %for.body1346 ], [ 0, %for.body1317 ], [ 0, %for.body1288 ], [ 0, %for.body1259 ], [ 0, %for.body1396 ], [ 0, %for.body1426 ], [ 0, %symtable_lookup.exit ], [ 0, %if.end1498 ], [ 0, %if.end1508 ], [ 0, %symtable_lookup.exit751 ], [ 0, %if.end1580 ], [ 0, %if.end1590 ], [ 0, %for.body2079 ], [ 0, %for.body2046 ], [ 0, %for.body2000 ], [ 0, %if.then2.i784 ], [ 0, %for.body1971 ], [ 0, %for.body1914 ], [ 0, %for.body1850 ], [ 0, %for.body1779 ], [ 0, %if.end1749 ], [ 0, %for.body1706 ], [ 0, %for.body1658 ], [ 0, %if.then2.i758 ], [ 0, %for.body1629 ]
   %375 = load i32, ptr %recursion_depth, align 8
-  %dec2095 = add i32 %375, %.sink940
+  %dec2095 = add i32 %375, %.sink937
   store i32 %dec2095, ptr %recursion_depth, align 8
   ret i32 %retval.0
 }
@@ -8686,68 +8686,60 @@ entry:
 if.then:                                          ; preds = %entry
   %call = tail call fastcc i32 @symtable_visit_expr(ptr noundef %st, ptr noundef nonnull %0)
   %tobool3.not = icmp eq i32 %call, 0
-  br i1 %tobool3.not, label %if.then4, label %if.end5
-
-if.then4:                                         ; preds = %if.then
-  %recursion_depth = getelementptr inbounds i8, ptr %st, i64 72
-  %1 = load i32, ptr %recursion_depth, align 8
-  %dec = add i32 %1, -1
-  store i32 %dec, ptr %recursion_depth, align 8
-  br label %return
+  br i1 %tobool3.not, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.then, %entry
   %name = getelementptr inbounds i8, ptr %eh, i64 16
-  %2 = load ptr, ptr %name, align 8
-  %tobool7.not = icmp eq ptr %2, null
+  %1 = load ptr, ptr %name, align 8
+  %tobool7.not = icmp eq ptr %1, null
   br i1 %tobool7.not, label %if.end15, label %if.then8
 
 if.then8:                                         ; preds = %if.end5
   %lineno = getelementptr inbounds i8, ptr %eh, i64 32
-  %3 = load i32, ptr %lineno, align 8
+  %2 = load i32, ptr %lineno, align 8
   %col_offset = getelementptr inbounds i8, ptr %eh, i64 36
-  %4 = load i32, ptr %col_offset, align 4
+  %3 = load i32, ptr %col_offset, align 4
   %end_lineno = getelementptr inbounds i8, ptr %eh, i64 40
-  %5 = load i32, ptr %end_lineno, align 8
+  %4 = load i32, ptr %end_lineno, align 8
   %end_col_offset = getelementptr inbounds i8, ptr %eh, i64 44
-  %6 = load i32, ptr %end_col_offset, align 4
+  %5 = load i32, ptr %end_col_offset, align 4
   %st_cur.i = getelementptr inbounds i8, ptr %st, i64 8
-  %7 = load ptr, ptr %st_cur.i, align 8
-  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull %2, i32 noundef 2, ptr noundef %7, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6)
+  %6 = load ptr, ptr %st_cur.i, align 8
+  %call.i = tail call fastcc range(i32 0, 2) i32 @symtable_add_def_helper(ptr noundef nonnull readonly %st, ptr noundef nonnull %1, i32 noundef 2, ptr noundef %6, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5)
   %tobool12.not = icmp eq i32 %call.i, 0
   br i1 %tobool12.not, label %return, label %if.end15
 
 if.end15:                                         ; preds = %if.then8, %if.end5
   %body = getelementptr inbounds i8, ptr %eh, i64 24
-  %8 = load ptr, ptr %body, align 8
-  %cmp = icmp eq ptr %8, null
-  %typed_elements = getelementptr inbounds i8, ptr %8, i64 16
+  %7 = load ptr, ptr %body, align 8
+  %cmp = icmp eq ptr %7, null
+  %typed_elements = getelementptr inbounds i8, ptr %7, i64 16
   br i1 %cmp, label %return, label %for.cond
 
 for.cond:                                         ; preds = %if.end15, %for.body
   %i.0 = phi i32 [ %inc, %for.body ], [ 0, %if.end15 ]
   %conv = sext i32 %i.0 to i64
-  %9 = load i64, ptr %8, align 8
-  %cmp18 = icmp sgt i64 %9, %conv
+  %8 = load i64, ptr %7, align 8
+  %cmp18 = icmp sgt i64 %8, %conv
   br i1 %cmp18, label %for.body, label %return
 
 for.body:                                         ; preds = %for.cond
   %arrayidx = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv
-  %10 = load ptr, ptr %arrayidx, align 8
-  %call20 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %st, ptr noundef %10)
+  %9 = load ptr, ptr %arrayidx, align 8
+  %call20 = tail call fastcc i32 @symtable_visit_stmt(ptr noundef %st, ptr noundef %9)
   %tobool21.not = icmp eq i32 %call20, 0
   %inc = add i32 %i.0, 1
-  br i1 %tobool21.not, label %if.then22, label %for.cond, !llvm.loop !77
+  br i1 %tobool21.not, label %return.sink.split, label %for.cond, !llvm.loop !77
 
-if.then22:                                        ; preds = %for.body
-  %recursion_depth23.phi.trans.insert = getelementptr inbounds i8, ptr %st, i64 72
-  %.pre = load i32, ptr %recursion_depth23.phi.trans.insert, align 8
+return.sink.split:                                ; preds = %for.body, %if.then
   %recursion_depth23 = getelementptr inbounds i8, ptr %st, i64 72
-  %dec24 = add i32 %.pre, -1
+  %10 = load i32, ptr %recursion_depth23, align 8
+  %dec24 = add i32 %10, -1
   store i32 %dec24, ptr %recursion_depth23, align 8
   br label %return
 
-return:                                           ; preds = %for.cond, %if.end15, %if.then8, %if.then22, %if.then4
-  %retval.0 = phi i32 [ 0, %if.then22 ], [ 0, %if.then4 ], [ 0, %if.then8 ], [ 1, %if.end15 ], [ 1, %for.cond ]
+return:                                           ; preds = %for.cond, %return.sink.split, %if.end15, %if.then8
+  %retval.0 = phi i32 [ 0, %if.then8 ], [ 1, %if.end15 ], [ 0, %return.sink.split ], [ 1, %for.cond ]
   ret i32 %retval.0
 }
 
@@ -10028,10 +10020,9 @@ for.body:                                         ; preds = %for.cond
   br i1 %tobool65.not, label %if.then66, label %for.cond, !llvm.loop !85
 
 if.then66:                                        ; preds = %for.body
-  %recursion_depth67.phi.trans.insert = getelementptr inbounds i8, ptr %st, i64 72
-  %.pre88 = load i32, ptr %recursion_depth67.phi.trans.insert, align 8
   %recursion_depth67 = getelementptr inbounds i8, ptr %st, i64 72
-  %dec68 = add i32 %.pre88, -1
+  %45 = load i32, ptr %recursion_depth67, align 8
+  %dec68 = add i32 %45, -1
   store i32 %dec68, ptr %recursion_depth67, align 8
   br label %return
 
@@ -10041,90 +10032,90 @@ for.cond73:                                       ; preds = %for.cond73.preheade
   br i1 %cmp75, label %cond.end80, label %cond.false78
 
 cond.false78:                                     ; preds = %for.cond73
-  %45 = load i64, ptr %generators, align 8
+  %46 = load i64, ptr %generators, align 8
   br label %cond.end80
 
 cond.end80:                                       ; preds = %for.cond73, %cond.false78
-  %cond81 = phi i64 [ %45, %cond.false78 ], [ 0, %for.cond73 ]
+  %cond81 = phi i64 [ %46, %cond.false78 ], [ 0, %for.cond73 ]
   %cmp82 = icmp sgt i64 %cond81, %conv74
   br i1 %cmp82, label %for.body84, label %for.end97
 
 for.body84:                                       ; preds = %cond.end80
   %arrayidx88 = getelementptr [1 x ptr], ptr %typed_elements, i64 0, i64 %conv74
-  %46 = load ptr, ptr %arrayidx88, align 8
-  %47 = load ptr, ptr %st_cur, align 8
-  %ste_comp_iter_target.i = getelementptr inbounds i8, ptr %47, i64 80
+  %47 = load ptr, ptr %arrayidx88, align 8
+  %48 = load ptr, ptr %st_cur, align 8
+  %ste_comp_iter_target.i = getelementptr inbounds i8, ptr %48, i64 80
   %bf.load.i = load i8, ptr %ste_comp_iter_target.i, align 8
   %bf.set.i = or i8 %bf.load.i, 64
   store i8 %bf.set.i, ptr %ste_comp_iter_target.i, align 8
-  %48 = load ptr, ptr %46, align 8
-  %call.i63 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %48)
+  %49 = load ptr, ptr %47, align 8
+  %call.i63 = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %49)
   %tobool.not.i64 = icmp eq i32 %call.i63, 0
   br i1 %tobool.not.i64, label %if.then91, label %if.end.i65
 
 if.end.i65:                                       ; preds = %for.body84
-  %49 = load ptr, ptr %st_cur, align 8
-  %ste_comp_iter_target2.i = getelementptr inbounds i8, ptr %49, i64 80
+  %50 = load ptr, ptr %st_cur, align 8
+  %ste_comp_iter_target2.i = getelementptr inbounds i8, ptr %50, i64 80
   %bf.load3.i = load i8, ptr %ste_comp_iter_target2.i, align 8
   %bf.clear4.i = and i8 %bf.load3.i, -65
   store i8 %bf.clear4.i, ptr %ste_comp_iter_target2.i, align 8
-  %50 = load ptr, ptr %st_cur, align 8
-  %ste_comp_iter_expr.i = getelementptr inbounds i8, ptr %50, i64 84
-  %51 = load i32, ptr %ste_comp_iter_expr.i, align 4
-  %inc.i = add i32 %51, 1
+  %51 = load ptr, ptr %st_cur, align 8
+  %ste_comp_iter_expr.i = getelementptr inbounds i8, ptr %51, i64 84
+  %52 = load i32, ptr %ste_comp_iter_expr.i, align 4
+  %inc.i = add i32 %52, 1
   store i32 %inc.i, ptr %ste_comp_iter_expr.i, align 4
-  %iter.i = getelementptr inbounds i8, ptr %46, i64 8
-  %52 = load ptr, ptr %iter.i, align 8
-  %call7.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %52)
+  %iter.i = getelementptr inbounds i8, ptr %47, i64 8
+  %53 = load ptr, ptr %iter.i, align 8
+  %call7.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %53)
   %tobool8.not.i = icmp eq i32 %call7.i, 0
   br i1 %tobool8.not.i, label %if.then91, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.end.i65
-  %53 = load ptr, ptr %st_cur, align 8
-  %ste_comp_iter_expr14.i = getelementptr inbounds i8, ptr %53, i64 84
-  %54 = load i32, ptr %ste_comp_iter_expr14.i, align 4
-  %dec15.i = add i32 %54, -1
+  %54 = load ptr, ptr %st_cur, align 8
+  %ste_comp_iter_expr14.i = getelementptr inbounds i8, ptr %54, i64 84
+  %55 = load i32, ptr %ste_comp_iter_expr14.i, align 4
+  %dec15.i = add i32 %55, -1
   store i32 %dec15.i, ptr %ste_comp_iter_expr14.i, align 4
-  %ifs.i = getelementptr inbounds i8, ptr %46, i64 16
-  %55 = load ptr, ptr %ifs.i, align 8
-  %cmp.i66 = icmp eq ptr %55, null
-  %typed_elements.i = getelementptr inbounds i8, ptr %55, i64 16
+  %ifs.i = getelementptr inbounds i8, ptr %47, i64 16
+  %56 = load ptr, ptr %ifs.i, align 8
+  %cmp.i66 = icmp eq ptr %56, null
+  %typed_elements.i = getelementptr inbounds i8, ptr %56, i64 16
   br i1 %cmp.i66, label %for.end.i, label %for.cond.i
 
 for.cond.i:                                       ; preds = %if.end12.i, %for.body.i
   %i.0.i = phi i32 [ %inc25.i, %for.body.i ], [ 0, %if.end12.i ]
   %conv.i = sext i32 %i.0.i to i64
-  %56 = load i64, ptr %55, align 8
-  %cmp17.i = icmp sgt i64 %56, %conv.i
+  %57 = load i64, ptr %56, align 8
+  %cmp17.i = icmp sgt i64 %57, %conv.i
   br i1 %cmp17.i, label %for.body.i, label %for.end.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i68 = getelementptr [1 x ptr], ptr %typed_elements.i, i64 0, i64 %conv.i
-  %57 = load ptr, ptr %arrayidx.i68, align 8
-  %call19.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %57)
+  %58 = load ptr, ptr %arrayidx.i68, align 8
+  %call19.i = tail call fastcc i32 @symtable_visit_expr(ptr noundef nonnull %st, ptr noundef %58)
   %tobool20.not.i = icmp eq i32 %call19.i, 0
   %inc25.i = add i32 %i.0.i, 1
   br i1 %tobool20.not.i, label %if.then91, label %for.cond.i, !llvm.loop !86
 
 for.end.i:                                        ; preds = %for.cond.i, %if.end12.i
-  %is_async.i = getelementptr inbounds i8, ptr %46, i64 24
-  %58 = load i32, ptr %is_async.i, align 8
-  %tobool26.not.i = icmp eq i32 %58, 0
+  %is_async.i = getelementptr inbounds i8, ptr %47, i64 24
+  %59 = load i32, ptr %is_async.i, align 8
+  %tobool26.not.i = icmp eq i32 %59, 0
   br i1 %tobool26.not.i, label %for.inc95, label %if.then27.i
 
 if.then27.i:                                      ; preds = %for.end.i
-  %59 = load ptr, ptr %st_cur, align 8
-  %ste_coroutine.i = getelementptr inbounds i8, ptr %59, i64 72
+  %60 = load ptr, ptr %st_cur, align 8
+  %ste_coroutine.i = getelementptr inbounds i8, ptr %60, i64 72
   %bf.load29.i = load i8, ptr %ste_coroutine.i, align 8
   %bf.set31.i = or i8 %bf.load29.i, 8
   store i8 %bf.set31.i, ptr %ste_coroutine.i, align 8
   br label %for.inc95
 
 if.then91:                                        ; preds = %if.end.i65, %for.body84, %for.body.i
-  %recursion_depth22.i.phi.trans.insert = getelementptr inbounds i8, ptr %st, i64 72
-  %.pre = load i32, ptr %recursion_depth22.i.phi.trans.insert, align 8
+  %recursion_depth22.i = getelementptr inbounds i8, ptr %st, i64 72
+  %61 = load i32, ptr %recursion_depth22.i, align 8
   %recursion_depth92 = getelementptr inbounds i8, ptr %st, i64 72
-  %dec93 = add i32 %.pre, -2
+  %dec93 = add i32 %61, -2
   store i32 %dec93, ptr %recursion_depth92, align 8
   br label %return
 
@@ -10143,8 +10134,8 @@ if.then99:                                        ; preds = %for.end97
 
 if.then102:                                       ; preds = %if.then99
   %recursion_depth103 = getelementptr inbounds i8, ptr %st, i64 72
-  %60 = load i32, ptr %recursion_depth103, align 8
-  %dec104 = add i32 %60, -1
+  %62 = load i32, ptr %recursion_depth103, align 8
+  %dec104 = add i32 %62, -1
   store i32 %dec104, ptr %recursion_depth103, align 8
   br label %return
 
@@ -10155,35 +10146,35 @@ if.end106:                                        ; preds = %if.then99, %for.end
 
 if.then109:                                       ; preds = %if.end106
   %recursion_depth110 = getelementptr inbounds i8, ptr %st, i64 72
-  %61 = load i32, ptr %recursion_depth110, align 8
-  %dec111 = add i32 %61, -1
+  %63 = load i32, ptr %recursion_depth110, align 8
+  %dec111 = add i32 %63, -1
   store i32 %dec111, ptr %recursion_depth110, align 8
   br label %return
 
 if.end112:                                        ; preds = %if.end106
-  %62 = load ptr, ptr %st_cur, align 8
-  %ste_generator = getelementptr inbounds i8, ptr %62, i64 72
+  %64 = load ptr, ptr %st_cur, align 8
+  %ste_generator = getelementptr inbounds i8, ptr %64, i64 72
   %bf.load114 = load i8, ptr %ste_generator, align 8
   %bf.shl = select i1 %cmp, i8 0, i8 4
   %bf.clear115 = and i8 %bf.load114, -5
   %bf.set116 = or disjoint i8 %bf.clear115, %bf.shl
   store i8 %bf.set116, ptr %ste_generator, align 8
-  %63 = load ptr, ptr %st_cur, align 8
-  %ste_coroutine119 = getelementptr inbounds i8, ptr %63, i64 72
+  %65 = load ptr, ptr %st_cur, align 8
+  %ste_coroutine119 = getelementptr inbounds i8, ptr %65, i64 72
   %bf.load120 = load i8, ptr %ste_coroutine119, align 8
   %call126 = tail call fastcc i32 @symtable_exit_block(ptr noundef %st)
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %return, label %if.end129
 
 if.end129:                                        ; preds = %if.end112
-  %64 = and i8 %bf.load120, 8
-  %tobool124 = icmp ne i8 %64, 0
-  %65 = select i1 %tobool124, i1 %cmp, i1 false
-  br i1 %65, label %if.then131, label %return
+  %66 = and i8 %bf.load120, 8
+  %tobool124 = icmp ne i8 %66, 0
+  %67 = select i1 %tobool124, i1 %cmp, i1 false
+  br i1 %67, label %if.then131, label %return
 
 if.then131:                                       ; preds = %if.end129
-  %66 = load ptr, ptr %st_cur, align 8
-  %ste_coroutine133 = getelementptr inbounds i8, ptr %66, i64 72
+  %68 = load ptr, ptr %st_cur, align 8
+  %ste_coroutine133 = getelementptr inbounds i8, ptr %68, i64 72
   %bf.load134 = load i8, ptr %ste_coroutine133, align 8
   %bf.set136 = or i8 %bf.load134, 8
   store i8 %bf.set136, ptr %ste_coroutine133, align 8

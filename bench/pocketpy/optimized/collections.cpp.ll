@@ -6738,19 +6738,19 @@ _ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit.i: ; preds = %73, %70
   %.sroa.11.1.i = phi ptr [ %74, %73 ], [ %.sroa.11.013.i, %70 ]
   %77 = load ptr, ptr %9, align 8, !noalias !133
   %.not8.i = icmp eq ptr %.sroa.01.1.i, %77
-  br i1 %.not8.i, label %._crit_edge.i, label %39, !llvm.loop !136
+  br i1 %.not8.i, label %_ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i, label %39, !llvm.loop !136
 
-._crit_edge.i:                                    ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit.i
+_ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i: ; preds = %_ZNSt15_Deque_iteratorIPN4pkpy8PyObjectERS2_PS2_EppEv.exit.i
   %78 = zext nneg i32 %spec.select.i to i64
   %79 = shl nuw nsw i64 %78, 2
   %80 = or disjoint i64 %79, 2
   br label %"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_NS_8ArgsViewE.exit"
 
-"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_NS_8ArgsViewE.exit": ; preds = %3, %._crit_edge.i
-  %81 = phi i64 [ %80, %._crit_edge.i ], [ 2, %3 ]
-  %82 = inttoptr i64 %81 to ptr
+"_ZZN4pkpy7PyDeque9_registerEPNS_2VMEPNS_8PyObjectES4_ENK4$_15clES2_NS_8ArgsViewE.exit": ; preds = %3, %_ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i
+  %.0.lcssa.i = phi i64 [ 2, %3 ], [ %80, %_ZN4pkpy6py_varIRiEEPNS_8PyObjectEPNS_2VMEOT_.exit.loopexit.i ]
+  %81 = inttoptr i64 %.0.lcssa.i to ptr
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
-  ret ptr %82
+  ret ptr %81
 }
 
 ; Function Attrs: mustprogress uwtable

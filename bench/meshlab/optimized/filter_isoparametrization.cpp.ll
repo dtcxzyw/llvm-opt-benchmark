@@ -36233,15 +36233,15 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
-  %.not114 = icmp eq ptr %5, %6
-  br i1 %.not114, label %.preheader93, label %.lr.ph
+  %.not115 = icmp eq ptr %5, %6
+  br i1 %.not115, label %.preheader94, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 72
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   br label %13
 
-.preheader93:                                     ; preds = %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit, %2
+.preheader94:                                     ; preds = %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit, %2
   %.059.lcssa = phi i32 [ 0, %2 ], [ %spec.select, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
   %.056.lcssa = phi i32 [ 0, %2 ], [ %.1577784, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
   %.052.lcssa = phi i32 [ 0, %2 ], [ %.15386, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
@@ -36250,17 +36250,17 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %9, align 8
-  %.not115 = icmp eq ptr %11, %12
-  br i1 %.not115, label %._crit_edge, label %.lr.ph111
+  %.not116 = icmp eq ptr %11, %12
+  br i1 %.not116, label %._crit_edge, label %.lr.ph112
 
 13:                                               ; preds = %.lr.ph, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
   %14 = phi ptr [ %6, %.lr.ph ], [ %102, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
   %15 = phi i64 [ 0, %.lr.ph ], [ %100, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
-  %.098 = phi i1 [ true, %.lr.ph ], [ %.4, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
-  %.05297 = phi i32 [ 0, %.lr.ph ], [ %.15386, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
-  %.05696 = phi i32 [ 0, %.lr.ph ], [ %.1577784, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
-  %.05895 = phi i32 [ 0, %.lr.ph ], [ %99, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
-  %.05994 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
+  %.099 = phi i1 [ true, %.lr.ph ], [ %.4, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
+  %.05298 = phi i32 [ 0, %.lr.ph ], [ %.15386, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
+  %.05697 = phi i32 [ 0, %.lr.ph ], [ %.1577784, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
+  %.05896 = phi i32 [ 0, %.lr.ph ], [ %99, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
+  %.05995 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit ]
   %16 = getelementptr inbounds %class.BaseVertex, ptr %14, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 88
   %18 = load ptr, ptr %17, align 8
@@ -36277,21 +36277,21 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %28 = ashr exact i64 %sext, 32
   %.not69 = icmp sge i64 %23, %28
   %29 = zext i1 %.not69 to i32
-  %spec.select = add nuw nsw i32 %.05994, %29
+  %spec.select = add nuw nsw i32 %.05995, %29
   br i1 %.not69, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit, label %30
 
 30:                                               ; preds = %13
   %31 = icmp eq ptr %18, null
   %32 = zext i1 %31 to i32
-  %spec.select71 = add nsw i32 %.05696, %32
+  %spec.select71 = add nsw i32 %.05697, %32
   %not. = xor i1 %31, true
   %33 = getelementptr inbounds i8, ptr %18, i64 88
   %34 = load i32, ptr %33, align 8
   %35 = and i32 %34, 1
-  %.not92 = icmp eq i32 %35, 0
-  %spec.select73 = add i32 %35, %.05297
-  %36 = and i1 %.not92, %not.
-  %spec.select74 = select i1 %36, i1 %.098, i1 false
+  %.not93 = icmp eq i32 %35, 0
+  %spec.select73 = add i32 %35, %.05298
+  %36 = and i1 %.not93, %not.
+  %spec.select74 = select i1 %36, i1 %.099, i1 false
   %37 = getelementptr inbounds i8, ptr %16, i64 96
   %38 = load float, ptr %37, align 4
   %39 = fcmp ult float %38, 0.000000e+00
@@ -36299,13 +36299,13 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %or.cond = or i1 %39, %40
   %.phi.trans.insert = getelementptr inbounds i8, ptr %16, i64 100
   %.pre = load float, ptr %.phi.trans.insert, align 4
-  br i1 %or.cond, label %._crit_edge117, label %41
+  br i1 %or.cond, label %._crit_edge118, label %41
 
 41:                                               ; preds = %30
   %42 = fcmp ult float %.pre, 0.000000e+00
   %43 = fcmp ugt float %.pre, 1.000000e+00
   %or.cond89 = or i1 %42, %43
-  br i1 %or.cond89, label %._crit_edge117, label %44
+  br i1 %or.cond89, label %._crit_edge118, label %44
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %16, i64 104
@@ -36313,9 +36313,9 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %47 = fcmp ult float %46, 0.000000e+00
   %48 = fcmp ugt float %46, 1.000000e+00
   %or.cond90 = or i1 %47, %48
-  br i1 %or.cond90, label %._crit_edge117, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
+  br i1 %or.cond90, label %._crit_edge118, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
-._crit_edge117:                                   ; preds = %30, %44, %41
+._crit_edge118:                                   ; preds = %30, %44, %41
   %49 = fpext float %38 to double
   %50 = getelementptr inbounds i8, ptr %16, i64 100
   %51 = fpext float %.pre to double
@@ -36346,7 +36346,7 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   %or.cond18.not.i.i = select i1 %or.cond16.not20.i.i, i1 %.not32.i.i, i1 false
   br i1 %or.cond18.not.i.i, label %71, label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
-71:                                               ; preds = %._crit_edge117
+71:                                               ; preds = %._crit_edge118
   %72 = fcmp olt float %56, 0.000000e+00
   %73 = select i1 %72, float 0x3E45798EE0000000, float %56
   %74 = fcmp olt float %57, 0.000000e+00
@@ -36400,11 +36400,11 @@ define linkonce_odr noundef zeroext i1 @_Z19testParametrizationI8BaseMeshEbRT_S2
   store float 0x3E45798EE0000000, ptr %37, align 4
   br label %_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit
 
-_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %44, %98, %90, %._crit_edge117, %13
-  %.15386 = phi i32 [ %.05297, %13 ], [ %spec.select73, %._crit_edge117 ], [ %spec.select73, %90 ], [ %spec.select73, %98 ], [ %spec.select73, %44 ]
-  %.1577784 = phi i32 [ %.05696, %13 ], [ %spec.select71, %._crit_edge117 ], [ %spec.select71, %90 ], [ %spec.select71, %98 ], [ %spec.select71, %44 ]
-  %.4 = phi i1 [ false, %13 ], [ false, %._crit_edge117 ], [ false, %90 ], [ false, %98 ], [ %spec.select74, %44 ]
-  %99 = add i32 %.05895, 1
+_Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %44, %98, %90, %._crit_edge118, %13
+  %.15386 = phi i32 [ %.05298, %13 ], [ %spec.select73, %._crit_edge118 ], [ %spec.select73, %90 ], [ %spec.select73, %98 ], [ %spec.select73, %44 ]
+  %.1577784 = phi i32 [ %.05697, %13 ], [ %spec.select71, %._crit_edge118 ], [ %spec.select71, %90 ], [ %spec.select71, %98 ], [ %spec.select71, %44 ]
+  %.4 = phi i1 [ false, %13 ], [ false, %._crit_edge118 ], [ false, %90 ], [ false, %98 ], [ %spec.select74, %44 ]
+  %99 = add i32 %.05896, 1
   %100 = zext i32 %99 to i64
   %101 = load ptr, ptr %4, align 8
   %102 = load ptr, ptr %3, align 8
@@ -36413,15 +36413,15 @@ _Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %44, %98, %90, %._
   %105 = sub i64 %103, %104
   %106 = sdiv exact i64 %105, 120
   %107 = icmp ugt i64 %106, %100
-  br i1 %107, label %13, label %.preheader93, !llvm.loop !430
+  br i1 %107, label %13, label %.preheader94, !llvm.loop !430
 
-.lr.ph111:                                        ; preds = %.preheader93, %.loopexit
-  %108 = phi ptr [ %138, %.loopexit ], [ %12, %.preheader93 ]
-  %109 = phi ptr [ %139, %.loopexit ], [ %11, %.preheader93 ]
-  %110 = phi i64 [ %141, %.loopexit ], [ 0, %.preheader93 ]
-  %.5110 = phi i1 [ %.8, %.loopexit ], [ %.0.lcssa, %.preheader93 ]
-  %.054109 = phi i32 [ %140, %.loopexit ], [ 0, %.preheader93 ]
-  %.061108 = phi i32 [ %.364, %.loopexit ], [ 0, %.preheader93 ]
+.lr.ph112:                                        ; preds = %.preheader94, %.loopexit
+  %108 = phi ptr [ %138, %.loopexit ], [ %12, %.preheader94 ]
+  %109 = phi ptr [ %139, %.loopexit ], [ %11, %.preheader94 ]
+  %110 = phi i64 [ %141, %.loopexit ], [ 0, %.preheader94 ]
+  %.5111 = phi i1 [ %.8, %.loopexit ], [ %.0.lcssa, %.preheader94 ]
+  %.054110 = phi i32 [ %140, %.loopexit ], [ 0, %.preheader94 ]
+  %.061109 = phi i32 [ %.364, %.loopexit ], [ 0, %.preheader94 ]
   %111 = getelementptr inbounds %class.BaseFace, ptr %108, i64 %110
   %112 = getelementptr inbounds i8, ptr %111, i64 88
   %113 = load i32, ptr %112, align 8
@@ -36429,21 +36429,21 @@ _Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %44, %98, %90, %._
   %.not91 = icmp eq i32 %114, 0
   br i1 %.not91, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %.lr.ph111
+.preheader:                                       ; preds = %.lr.ph112
   %115 = getelementptr inbounds i8, ptr %111, i64 184
   %116 = getelementptr inbounds i8, ptr %111, i64 192
   %117 = load ptr, ptr %116, align 8
   %118 = load ptr, ptr %115, align 8
-  %.not116 = icmp eq ptr %117, %118
-  br i1 %.not116, label %.loopexit, label %.lr.ph105
+  %.not117 = icmp eq ptr %117, %118
+  br i1 %.not117, label %.loopexit, label %.lr.ph106
 
-.lr.ph105:                                        ; preds = %.preheader, %128
+.lr.ph106:                                        ; preds = %.preheader, %128
   %119 = phi ptr [ %129, %128 ], [ %118, %.preheader ]
   %120 = phi ptr [ %130, %128 ], [ %117, %.preheader ]
   %121 = phi i64 [ %132, %128 ], [ 0, %.preheader ]
-  %.6104 = phi i1 [ %.7, %128 ], [ %.5110, %.preheader ]
-  %.051103 = phi i32 [ %131, %128 ], [ 0, %.preheader ]
-  %.162102 = phi i32 [ %.263, %128 ], [ %.061108, %.preheader ]
+  %.6105 = phi i1 [ %.7, %128 ], [ %.5111, %.preheader ]
+  %.051104 = phi i32 [ %131, %128 ], [ 0, %.preheader ]
+  %.162103 = phi i32 [ %.263, %128 ], [ %.061109, %.preheader ]
   %122 = getelementptr inbounds %"struct.std::pair.647", ptr %119, i64 %121
   %123 = load ptr, ptr %122, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 88
@@ -36451,49 +36451,49 @@ _Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %44, %98, %90, %._
   %.not = icmp eq ptr %125, %111
   br i1 %.not, label %128, label %126
 
-126:                                              ; preds = %.lr.ph105
-  %127 = add nsw i32 %.162102, 1
+126:                                              ; preds = %.lr.ph106
+  %127 = add nsw i32 %.162103, 1
   store ptr %111, ptr %124, align 8
-  %.pre118 = load ptr, ptr %116, align 8
-  %.pre119 = load ptr, ptr %115, align 8
+  %.pre119 = load ptr, ptr %116, align 8
+  %.pre120 = load ptr, ptr %115, align 8
   br label %128
 
-128:                                              ; preds = %.lr.ph105, %126
-  %129 = phi ptr [ %.pre119, %126 ], [ %119, %.lr.ph105 ]
-  %130 = phi ptr [ %.pre118, %126 ], [ %120, %.lr.ph105 ]
-  %.263 = phi i32 [ %127, %126 ], [ %.162102, %.lr.ph105 ]
-  %.7 = phi i1 [ false, %126 ], [ %.6104, %.lr.ph105 ]
-  %131 = add i32 %.051103, 1
+128:                                              ; preds = %.lr.ph106, %126
+  %129 = phi ptr [ %.pre120, %126 ], [ %119, %.lr.ph106 ]
+  %130 = phi ptr [ %.pre119, %126 ], [ %120, %.lr.ph106 ]
+  %.263 = phi i32 [ %127, %126 ], [ %.162103, %.lr.ph106 ]
+  %.7 = phi i1 [ false, %126 ], [ %.6105, %.lr.ph106 ]
+  %131 = add i32 %.051104, 1
   %132 = zext i32 %131 to i64
   %133 = ptrtoint ptr %130 to i64
   %134 = ptrtoint ptr %129 to i64
   %135 = sub i64 %133, %134
   %136 = sdiv exact i64 %135, 24
   %137 = icmp ugt i64 %136, %132
-  br i1 %137, label %.lr.ph105, label %.loopexit.loopexit, !llvm.loop !431
+  br i1 %137, label %.lr.ph106, label %.loopexit.loopexit, !llvm.loop !431
 
 .loopexit.loopexit:                               ; preds = %128
-  %.pre120 = load ptr, ptr %10, align 8
-  %.pre121 = load ptr, ptr %9, align 8
+  %.pre121 = load ptr, ptr %10, align 8
+  %.pre122 = load ptr, ptr %9, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.lr.ph111
-  %138 = phi ptr [ %108, %.lr.ph111 ], [ %108, %.preheader ], [ %.pre121, %.loopexit.loopexit ]
-  %139 = phi ptr [ %109, %.lr.ph111 ], [ %109, %.preheader ], [ %.pre120, %.loopexit.loopexit ]
-  %.364 = phi i32 [ %.061108, %.lr.ph111 ], [ %.061108, %.preheader ], [ %.263, %.loopexit.loopexit ]
-  %.8 = phi i1 [ %.5110, %.lr.ph111 ], [ %.5110, %.preheader ], [ %.7, %.loopexit.loopexit ]
-  %140 = add i32 %.054109, 1
+.loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %.lr.ph112
+  %138 = phi ptr [ %108, %.lr.ph112 ], [ %108, %.preheader ], [ %.pre122, %.loopexit.loopexit ]
+  %139 = phi ptr [ %109, %.lr.ph112 ], [ %109, %.preheader ], [ %.pre121, %.loopexit.loopexit ]
+  %.364 = phi i32 [ %.061109, %.lr.ph112 ], [ %.061109, %.preheader ], [ %.263, %.loopexit.loopexit ]
+  %.8 = phi i1 [ %.5111, %.lr.ph112 ], [ %.5111, %.preheader ], [ %.7, %.loopexit.loopexit ]
+  %140 = add i32 %.054110, 1
   %141 = zext i32 %140 to i64
   %142 = ptrtoint ptr %139 to i64
   %143 = ptrtoint ptr %138 to i64
   %144 = sub i64 %142, %143
   %145 = sdiv exact i64 %144, 224
   %146 = icmp ugt i64 %145, %141
-  br i1 %146, label %.lr.ph111, label %._crit_edge, !llvm.loop !432
+  br i1 %146, label %.lr.ph112, label %._crit_edge, !llvm.loop !432
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader93
-  %.061.lcssa = phi i32 [ 0, %.preheader93 ], [ %.364, %.loopexit ]
-  %.5.lcssa = phi i1 [ %.0.lcssa, %.preheader93 ], [ %.8, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader94
+  %.061.lcssa = phi i32 [ 0, %.preheader94 ], [ %.364, %.loopexit ]
+  %.5.lcssa = phi i1 [ %.0.lcssa, %.preheader94 ], [ %.8, %.loopexit ]
   %147 = icmp sgt i32 %.052.lcssa, 0
   br i1 %147, label %148, label %150
 
@@ -36518,16 +36518,16 @@ _Z19NormalizeBaryCoordsIN3vcg6Point3IfEEEbRT_.exit: ; preds = %44, %98, %90, %._
   br label %158
 
 158:                                              ; preds = %156, %154
-  %159 = icmp sgt i32 %.059.lcssa, 0
-  br i1 %159, label %160, label %164
+  %.not92 = icmp eq i32 %.059.lcssa, 0
+  br i1 %.not92, label %163, label %159
 
-160:                                              ; preds = %158
-  %161 = getelementptr inbounds i8, ptr %0, i64 96
-  %162 = load i32, ptr %161, align 8
-  %163 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.117, i32 noundef %.059.lcssa, i32 noundef %162)
-  br label %164
+159:                                              ; preds = %158
+  %160 = getelementptr inbounds i8, ptr %0, i64 96
+  %161 = load i32, ptr %160, align 8
+  %162 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.117, i32 noundef %.059.lcssa, i32 noundef %161)
+  br label %163
 
-164:                                              ; preds = %160, %158
+163:                                              ; preds = %159, %158
   ret i1 %.5.lcssa
 }
 

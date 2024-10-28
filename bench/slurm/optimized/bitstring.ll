@@ -1777,93 +1777,92 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
   %.051 = phi i64 [ %35, %34 ], [ %39, %36 ]
   %41 = or disjoint i64 %indvars.iv, 3
   %42 = icmp sgt i64 %8, %41
-  br i1 %42, label %43, label %52
+  br i1 %42, label %43, label %51
 
 43:                                               ; preds = %40
   %44 = and i64 %.051, 15
-  %45 = trunc nuw nsw i64 %indvars.iv to i32
-  %46 = and i64 %indvars.iv, 60
-  %47 = shl nuw i64 %44, %46
-  %48 = ashr i32 %45, 6
-  %49 = sext i32 %48 to i64
-  %gep80 = getelementptr i64, ptr %invariant.gep.i, i64 %49
-  %50 = load i64, ptr %gep80, align 8
-  %51 = or i64 %50, %47
-  store i64 %51, ptr %gep80, align 8
+  %45 = and i64 %indvars.iv, 60
+  %46 = shl nuw i64 %44, %45
+  %47 = lshr i64 %indvars.iv, 6
+  %48 = and i64 %47, 67108863
+  %gep80 = getelementptr i64, ptr %invariant.gep.i, i64 %48
+  %49 = load i64, ptr %gep80, align 8
+  %50 = or i64 %49, %46
+  store i64 %50, ptr %gep80, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %84, %43
+.backedge:                                        ; preds = %83, %43
   %.052.be = getelementptr inbounds i8, ptr %.05283, i64 -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
   %.not = icmp ult ptr %.052.be, %spec.select
   br i1 %.not, label %.loopexit, label %23, !llvm.loop !28
 
-52:                                               ; preds = %40
-  %53 = and i64 %.051, 1
-  %.not65 = icmp eq i64 %53, 0
-  br i1 %.not65, label %62, label %54
+51:                                               ; preds = %40
+  %52 = and i64 %.051, 1
+  %.not65 = icmp eq i64 %52, 0
+  br i1 %.not65, label %61, label %53
 
-54:                                               ; preds = %52
-  %55 = icmp sgt i64 %8, %indvars.iv
-  br i1 %55, label %56, label %.loopexit
+53:                                               ; preds = %51
+  %54 = icmp sgt i64 %8, %indvars.iv
+  br i1 %54, label %55, label %.loopexit
 
-56:                                               ; preds = %54
-  %57 = and i64 %indvars.iv, 60
-  %58 = shl nuw nsw i64 1, %57
-  %59 = lshr i64 %indvars.iv, 6
-  %gep = getelementptr i64, ptr %invariant.gep.i, i64 %59
-  %60 = load i64, ptr %gep, align 8
-  %61 = or i64 %60, %58
-  store i64 %61, ptr %gep, align 8
-  br label %62
+55:                                               ; preds = %53
+  %56 = and i64 %indvars.iv, 60
+  %57 = shl nuw nsw i64 1, %56
+  %58 = lshr i64 %indvars.iv, 6
+  %gep = getelementptr i64, ptr %invariant.gep.i, i64 %58
+  %59 = load i64, ptr %gep, align 8
+  %60 = or i64 %59, %57
+  store i64 %60, ptr %gep, align 8
+  br label %61
 
-62:                                               ; preds = %56, %52
-  %63 = and i64 %.051, 2
-  %.not66 = icmp eq i64 %63, 0
-  br i1 %.not66, label %73, label %64
+61:                                               ; preds = %55, %51
+  %62 = and i64 %.051, 2
+  %.not66 = icmp eq i64 %62, 0
+  br i1 %.not66, label %72, label %63
 
-64:                                               ; preds = %62
-  %65 = or disjoint i64 %indvars.iv, 1
-  %66 = icmp sgt i64 %8, %65
-  br i1 %66, label %67, label %.loopexit
+63:                                               ; preds = %61
+  %64 = or disjoint i64 %indvars.iv, 1
+  %65 = icmp sgt i64 %8, %64
+  br i1 %65, label %66, label %.loopexit
 
-67:                                               ; preds = %64
-  %68 = and i64 %65, 61
-  %69 = shl nuw nsw i64 1, %68
-  %70 = lshr i64 %indvars.iv, 6
-  %gep74 = getelementptr i64, ptr %invariant.gep.i, i64 %70
-  %71 = load i64, ptr %gep74, align 8
-  %72 = or i64 %71, %69
-  store i64 %72, ptr %gep74, align 8
-  br label %73
+66:                                               ; preds = %63
+  %67 = and i64 %64, 61
+  %68 = shl nuw nsw i64 1, %67
+  %69 = lshr i64 %indvars.iv, 6
+  %gep74 = getelementptr i64, ptr %invariant.gep.i, i64 %69
+  %70 = load i64, ptr %gep74, align 8
+  %71 = or i64 %70, %68
+  store i64 %71, ptr %gep74, align 8
+  br label %72
 
-73:                                               ; preds = %67, %62
-  %74 = and i64 %.051, 4
-  %.not67 = icmp eq i64 %74, 0
-  br i1 %.not67, label %84, label %75
+72:                                               ; preds = %66, %61
+  %73 = and i64 %.051, 4
+  %.not67 = icmp eq i64 %73, 0
+  br i1 %.not67, label %83, label %74
 
-75:                                               ; preds = %73
-  %76 = or disjoint i64 %indvars.iv, 2
-  %77 = icmp sgt i64 %8, %76
-  br i1 %77, label %78, label %.loopexit
+74:                                               ; preds = %72
+  %75 = or disjoint i64 %indvars.iv, 2
+  %76 = icmp sgt i64 %8, %75
+  br i1 %76, label %77, label %.loopexit
 
-78:                                               ; preds = %75
-  %79 = and i64 %76, 62
-  %80 = shl nuw nsw i64 1, %79
-  %81 = lshr i64 %indvars.iv, 6
-  %gep76 = getelementptr i64, ptr %invariant.gep.i, i64 %81
-  %82 = load i64, ptr %gep76, align 8
-  %83 = or i64 %82, %80
-  store i64 %83, ptr %gep76, align 8
-  br label %84
+77:                                               ; preds = %74
+  %78 = and i64 %75, 62
+  %79 = shl nuw nsw i64 1, %78
+  %80 = lshr i64 %indvars.iv, 6
+  %gep76 = getelementptr i64, ptr %invariant.gep.i, i64 %80
+  %81 = load i64, ptr %gep76, align 8
+  %82 = or i64 %81, %79
+  store i64 %82, ptr %gep76, align 8
+  br label %83
 
-84:                                               ; preds = %78, %73
-  %85 = and i64 %.051, 8
-  %.not68 = icmp eq i64 %85, 0
+83:                                               ; preds = %77, %72
+  %84 = and i64 %.051, 8
+  %.not68 = icmp eq i64 %84, 0
   br i1 %.not68, label %.backedge, label %.loopexit
 
-.loopexit:                                        ; preds = %75, %64, %54, %23, %.backedge, %84, %bit_nclear.exit, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %bit_nclear.exit ], [ -1, %84 ], [ -1, %75 ], [ -1, %64 ], [ -1, %54 ], [ -1, %23 ], [ 0, %.backedge ]
+.loopexit:                                        ; preds = %74, %63, %53, %23, %.backedge, %83, %bit_nclear.exit, %2
+  %.0 = phi i32 [ -1, %2 ], [ 0, %bit_nclear.exit ], [ -1, %83 ], [ -1, %74 ], [ -1, %63 ], [ -1, %53 ], [ -1, %23 ], [ 0, %.backedge ]
   ret i32 %.0
 }
 

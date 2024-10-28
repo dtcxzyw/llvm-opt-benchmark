@@ -4070,8 +4070,8 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.us: ; preds
   %117 = getelementptr inbounds i32, ptr %101, i64 %116
   %118 = load i32, ptr %117, align 4
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 3
-  %gep.us = getelementptr inbounds i32, ptr %51, i64 %indvars.iv98
-  store i32 %118, ptr %gep.us, align 4
+  %119 = getelementptr inbounds i8, ptr %107, i64 8
+  store i32 %118, ptr %119, align 4
   %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
   %exitcond105.not = icmp eq i64 %indvars.iv.next101, 4
   br i1 %exitcond105.not, label %.split91.us, label %.split.us, !llvm.loop !49
@@ -4079,83 +4079,83 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit.us: ; preds
 .split:                                           ; preds = %35, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit ], [ 0, %35 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit ], [ 4, %35 ]
-  %119 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv93
-  %120 = load i32, ptr %119, align 4
-  %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %18, i64 %121
-  %123 = load i32, ptr %122, align 4
-  %124 = load ptr, ptr %58, align 8
-  %125 = shl nsw i32 %123, 1
-  %126 = or disjoint i32 %125, 1
-  %127 = sext i32 %126 to i64
-  %128 = load ptr, ptr %59, align 8
-  %129 = getelementptr inbounds i32, ptr %128, i64 %127
-  %130 = load i32, ptr %129, align 4
-  %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i32, ptr %124, i64 %131
-  %133 = load ptr, ptr %60, align 8
-  %134 = getelementptr inbounds i16, ptr %133, i64 %131
-  %135 = load i32, ptr %132, align 4
-  %136 = icmp eq i32 %1, %135
-  br i1 %136, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %137
+  %120 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv93
+  %121 = load i32, ptr %120, align 4
+  %122 = sext i32 %121 to i64
+  %123 = getelementptr inbounds i32, ptr %18, i64 %122
+  %124 = load i32, ptr %123, align 4
+  %125 = load ptr, ptr %58, align 8
+  %126 = shl nsw i32 %124, 1
+  %127 = or disjoint i32 %126, 1
+  %128 = sext i32 %127 to i64
+  %129 = load ptr, ptr %59, align 8
+  %130 = getelementptr inbounds i32, ptr %129, i64 %128
+  %131 = load i32, ptr %130, align 4
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i32, ptr %125, i64 %132
+  %134 = load ptr, ptr %60, align 8
+  %135 = getelementptr inbounds i16, ptr %134, i64 %132
+  %136 = load i32, ptr %133, align 4
+  %137 = icmp eq i32 %1, %136
+  br i1 %137, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %138
 
-137:                                              ; preds = %.split
-  %138 = getelementptr inbounds i8, ptr %132, i64 4
-  %139 = load i32, ptr %138, align 4
-  %140 = icmp eq i32 %1, %139
-  br i1 %140, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %141
+138:                                              ; preds = %.split
+  %139 = getelementptr inbounds i8, ptr %133, i64 4
+  %140 = load i32, ptr %139, align 4
+  %141 = icmp eq i32 %1, %140
+  br i1 %141, label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit, label %142
 
-141:                                              ; preds = %137
-  %142 = getelementptr inbounds i8, ptr %132, i64 8
-  %143 = load i32, ptr %142, align 4
-  %144 = icmp ne i32 %1, %143
-  %spec.select = zext i1 %144 to i64
+142:                                              ; preds = %138
+  %143 = getelementptr inbounds i8, ptr %133, i64 8
+  %144 = load i32, ptr %143, align 4
+  %145 = icmp ne i32 %1, %144
+  %spec.select = zext i1 %145 to i64
   br label %_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit
 
-_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit: ; preds = %141, %.split, %137
-  %.0.i = phi i64 [ 2, %.split ], [ 3, %137 ], [ %spec.select, %141 ]
-  %145 = getelementptr inbounds i32, ptr %132, i64 %.0.i
-  %146 = load i32, ptr %145, align 4
-  %147 = getelementptr inbounds i16, ptr %134, i64 %.0.i
-  %148 = load i16, ptr %147, align 2
-  %149 = zext i16 %148 to i32
-  %150 = load ptr, ptr %61, align 8
-  %151 = getelementptr inbounds ptr, ptr %150, i64 %.pre-phi
-  %152 = load ptr, ptr %151, align 8
+_ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE17FindIndexIn4TupleEi.exit: ; preds = %142, %.split, %138
+  %.0.i = phi i64 [ 2, %.split ], [ 3, %138 ], [ %spec.select, %142 ]
+  %146 = getelementptr inbounds i32, ptr %133, i64 %.0.i
+  %147 = load i32, ptr %146, align 4
+  %148 = getelementptr inbounds i16, ptr %135, i64 %.0.i
+  %149 = load i16, ptr %148, align 2
+  %150 = zext i16 %149 to i32
+  %151 = load ptr, ptr %61, align 8
+  %152 = getelementptr inbounds ptr, ptr %151, i64 %.pre-phi
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  %155 = shl nsw i32 %146, 1
-  %156 = load ptr, ptr %154, align 8
-  %157 = or disjoint i32 %155, 1
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %156, i64 %158
-  %160 = load i32, ptr %159, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  %162 = sext i32 %160 to i64
-  %163 = load ptr, ptr %161, align 8
-  %164 = getelementptr inbounds i32, ptr %163, i64 %162
-  %165 = add nuw nsw i32 %149, 1
-  %166 = and i32 %165, 3
-  %167 = zext nneg i32 %166 to i64
-  %168 = getelementptr inbounds i32, ptr %164, i64 %167
-  %169 = load i32, ptr %168, align 4
-  %170 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
-  store i32 %169, ptr %170, align 4
-  %171 = and i32 %149, 3
-  %172 = xor i32 %171, 2
-  %173 = zext nneg i32 %172 to i64
-  %174 = getelementptr inbounds i32, ptr %164, i64 %173
-  %175 = load i32, ptr %174, align 4
-  %176 = getelementptr i8, ptr %170, i64 4
-  store i32 %175, ptr %176, align 4
-  %177 = add nuw nsw i32 %149, 3
-  %178 = and i32 %177, 3
-  %179 = zext nneg i32 %178 to i64
-  %180 = getelementptr inbounds i32, ptr %164, i64 %179
-  %181 = load i32, ptr %180, align 4
+  %154 = load ptr, ptr %153, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %156 = shl nsw i32 %147, 1
+  %157 = load ptr, ptr %155, align 8
+  %158 = or disjoint i32 %156, 1
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr inbounds i32, ptr %157, i64 %159
+  %161 = load i32, ptr %160, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %153, i64 24
+  %163 = sext i32 %161 to i64
+  %164 = load ptr, ptr %162, align 8
+  %165 = getelementptr inbounds i32, ptr %164, i64 %163
+  %166 = add nuw nsw i32 %150, 1
+  %167 = and i32 %166, 3
+  %168 = zext nneg i32 %167 to i64
+  %169 = getelementptr inbounds i32, ptr %165, i64 %168
+  %170 = load i32, ptr %169, align 4
+  %171 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv
+  store i32 %170, ptr %171, align 4
+  %172 = and i32 %150, 3
+  %173 = xor i32 %172, 2
+  %174 = zext nneg i32 %173 to i64
+  %175 = getelementptr inbounds i32, ptr %165, i64 %174
+  %176 = load i32, ptr %175, align 4
+  %177 = getelementptr i8, ptr %171, i64 4
+  store i32 %176, ptr %177, align 4
+  %178 = add nuw nsw i32 %150, 3
+  %179 = and i32 %178, 3
+  %180 = zext nneg i32 %179 to i64
+  %181 = getelementptr inbounds i32, ptr %165, i64 %180
+  %182 = load i32, ptr %181, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %gep = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
-  store i32 %181, ptr %gep, align 4
+  %183 = getelementptr inbounds i8, ptr %171, i64 8
+  store i32 %182, ptr %183, align 4
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next94, 4
   br i1 %exitcond.not, label %.split91.us, label %.split, !llvm.loop !49

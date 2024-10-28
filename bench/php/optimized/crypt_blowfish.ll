@@ -3021,7 +3021,6 @@ define internal fastcc void @BF_set_key(ptr nocapture noundef readonly %0, ptr n
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #5 {
-  %invariant.gep = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %1, align 1
   %4 = zext i8 %3 to i32
   %5 = add nsw i32 %4, -32
@@ -3059,7 +3058,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef non
   %25 = shl nuw i8 %10, 2
   %26 = lshr i8 %22, 4
   %27 = or disjoint i8 %26, %25
-  %gep = getelementptr inbounds i8, ptr %invariant.gep, i64 %.039.idx2
+  %.ptr = getelementptr inbounds i8, ptr %.039.ptr3, i64 1
   store i8 %27, ptr %.039.ptr3, align 1
   %.not = icmp samesign ult i64 %.039.idx2, 15
   br i1 %.not, label %28, label %split
@@ -3084,7 +3083,7 @@ define internal fastcc range(i32 -1, 1) i32 @BF_decode(ptr nocapture noundef non
   %41 = lshr i8 %37, 2
   %42 = or disjoint i8 %41, %40
   %.ptr54 = getelementptr inbounds i8, ptr %.039.ptr3, i64 2
-  store i8 %42, ptr %gep, align 1
+  store i8 %42, ptr %.ptr, align 1
   %43 = getelementptr inbounds i8, ptr %.0401, i64 4
   %44 = load i8, ptr %29, align 1
   %45 = zext i8 %44 to i32

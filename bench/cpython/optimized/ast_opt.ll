@@ -4105,7 +4105,7 @@ cond.end11.i:                                     ; preds = %for.cond.i20
 
 cond.end11.thread.i:                              ; preds = %if.then
   store i32 26, ptr %arg, align 8
-  %call30.i = tail call ptr @PyTuple_New(i64 noundef 0) #7
+  %call29.i = tail call ptr @PyTuple_New(i64 noundef 0) #7
   br label %if.end23
 
 for.cond18.preheader.i:                           ; preds = %cond.end11.i
@@ -4201,12 +4201,12 @@ _Py_NewRef.exit.i47:                              ; preds = %if.end.i.i.i46, %fo
   br i1 %cmp27.i51, label %for.body29.i39, label %do.body, !llvm.loop !64
 
 make_const_tuple.exit58:                          ; preds = %if.then13
-  %call30.i57 = tail call ptr @PyTuple_New(i64 noundef 0) #7
-  %tobool17.not = icmp eq ptr %call30.i57, null
+  %call29.i57 = tail call ptr @PyTuple_New(i64 noundef 0) #7
+  %tobool17.not = icmp eq ptr %call29.i57, null
   br i1 %tobool17.not, label %if.then.i, label %do.body
 
 do.body:                                          ; preds = %_Py_NewRef.exit.i47, %for.cond18.preheader.i35, %make_const_tuple.exit58
-  %retval.0.i3812 = phi ptr [ %call30.i57, %make_const_tuple.exit58 ], [ %call.i33, %for.cond18.preheader.i35 ], [ %call.i33, %_Py_NewRef.exit.i47 ]
+  %retval.0.i3812 = phi ptr [ %call29.i57, %make_const_tuple.exit58 ], [ %call.i33, %for.cond18.preheader.i35 ], [ %call.i33, %_Py_NewRef.exit.i47 ]
   %call19 = tail call ptr @PyFrozenSet_New(ptr noundef nonnull %retval.0.i3812) #7
   %22 = load i64, ptr %retval.0.i3812, align 8
   %23 = and i64 %22, 2147483648
@@ -4224,7 +4224,7 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %if.end23
 
 if.end23:                                         ; preds = %cond.end11.thread.i, %do.body, %if.then1.i, %if.end.i
-  %newval.0 = phi ptr [ %call19, %do.body ], [ %call19, %if.then1.i ], [ %call19, %if.end.i ], [ %call30.i, %cond.end11.thread.i ]
+  %newval.0 = phi ptr [ %call19, %do.body ], [ %call19, %if.then1.i ], [ %call19, %if.end.i ], [ %call29.i, %cond.end11.thread.i ]
   %cmp.i59 = icmp eq ptr %newval.0, null
   br i1 %cmp.i59, label %if.then.i, label %if.end2.i
 
@@ -5935,8 +5935,8 @@ _Py_NewRef.exit.i:                                ; preds = %if.end.i.i.i, %for.
   br i1 %cmp27.i, label %for.body29.i, label %if.end2.i, !llvm.loop !64
 
 make_const_tuple.exit:                            ; preds = %if.end
-  %call30.i = tail call ptr @PyTuple_New(i64 noundef 0) #7
-  %cmp.i3 = icmp eq ptr %call30.i, null
+  %call29.i = tail call ptr @PyTuple_New(i64 noundef 0) #7
+  %cmp.i3 = icmp eq ptr %call29.i, null
   br i1 %cmp.i3, label %if.then.i, label %if.end2.i
 
 if.then.i:                                        ; preds = %for.body.i, %cond.end11.i, %make_const_tuple.exit
@@ -5950,7 +5950,7 @@ if.end.i:                                         ; preds = %if.then.i
   br label %return
 
 if.end2.i:                                        ; preds = %_Py_NewRef.exit.i, %for.cond18.preheader.i, %make_const_tuple.exit
-  %retval.0.i7 = phi ptr [ %call30.i, %make_const_tuple.exit ], [ %call.i, %for.cond18.preheader.i ], [ %call.i, %_Py_NewRef.exit.i ]
+  %retval.0.i7 = phi ptr [ %call29.i, %make_const_tuple.exit ], [ %call.i, %for.cond18.preheader.i ], [ %call.i, %_Py_NewRef.exit.i ]
   %call3.i = tail call i32 @_PyArena_AddPyObject(ptr noundef %arena, ptr noundef nonnull %retval.0.i7) #7
   %cmp4.i = icmp slt i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end6.i

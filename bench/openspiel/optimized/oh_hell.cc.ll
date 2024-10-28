@@ -6658,12 +6658,12 @@ define void @_ZNK10open_spiel7oh_hell11OhHellState19BiddingLegalActionsEv(ptr de
 
 11:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.034 = phi i32 [ 0, %.lr.ph ], [ %21, %19 ]
-  %.01633 = phi i8 [ 1, %.lr.ph ], [ %.1, %19 ]
+  %.035 = phi i32 [ 0, %.lr.ph ], [ %21, %19 ]
+  %.01634 = phi i8 [ 1, %.lr.ph ], [ %.1, %19 ]
   %.not21 = icmp eq i64 %indvars.iv, %10
-  br i1 %.not21, label %._crit_edge53, label %12
+  br i1 %.not21, label %._crit_edge54, label %12
 
-._crit_edge53:                                    ; preds = %11
+._crit_edge54:                                    ; preds = %11
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %19
 
@@ -6671,17 +6671,17 @@ define void @_ZNK10open_spiel7oh_hell11OhHellState19BiddingLegalActionsEv(ptr de
   %13 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %.not22 = icmp ne i32 %14, -1
-  %15 = and i8 %.01633, 1
+  %15 = and i8 %.01634, 1
   %16 = icmp ne i8 %15, 0
   %17 = select i1 %.not22, i1 %16, i1 false
   %18 = zext i1 %17 to i8
   br label %19
 
-19:                                               ; preds = %._crit_edge53, %12
-  %20 = phi i32 [ %14, %12 ], [ %.pre, %._crit_edge53 ]
-  %.1 = phi i8 [ %18, %12 ], [ %.01633, %._crit_edge53 ]
+19:                                               ; preds = %._crit_edge54, %12
+  %20 = phi i32 [ %14, %12 ], [ %.pre, %._crit_edge54 ]
+  %.1 = phi i8 [ %18, %12 ], [ %.01634, %._crit_edge54 ]
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %20, i32 0)
-  %21 = add nuw nsw i32 %.sroa.speculated, %.034
+  %21 = add nuw nsw i32 %.sroa.speculated, %.035
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %11, !llvm.loop !84
@@ -6697,10 +6697,10 @@ define void @_ZNK10open_spiel7oh_hell11OhHellState19BiddingLegalActionsEv(ptr de
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %25 = load i32, ptr %24, align 8
-  %.not39 = icmp slt i32 %25, 0
-  br i1 %.not39, label %._crit_edge43, label %.lr.ph42
+  %.not40 = icmp slt i32 %25, 0
+  br i1 %.not40, label %._crit_edge44, label %.lr.ph43
 
-.lr.ph42:                                         ; preds = %._crit_edge
+.lr.ph43:                                         ; preds = %._crit_edge
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6708,12 +6708,12 @@ define void @_ZNK10open_spiel7oh_hell11OhHellState19BiddingLegalActionsEv(ptr de
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %31
 
-31:                                               ; preds = %.lr.ph42, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
-  %32 = phi ptr [ null, %.lr.ph42 ], [ %69, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %33 = phi i64 [ %26, %.lr.ph42 ], [ %73, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %.01740 = phi i64 [ 0, %.lr.ph42 ], [ %71, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %34 = phi ptr [ null, %.lr.ph42 ], [ %70, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  %35 = add nuw nsw i64 %.01740, %.0.lcssa
+31:                                               ; preds = %.lr.ph43, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
+  %32 = phi ptr [ null, %.lr.ph43 ], [ %69, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %33 = phi i64 [ %26, %.lr.ph43 ], [ %73, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %.01741 = phi i64 [ 0, %.lr.ph43 ], [ %71, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %34 = phi ptr [ null, %.lr.ph43 ], [ %70, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  %35 = add nuw nsw i64 %.01741, %.0.lcssa
   %.not20 = icmp eq i64 %35, %33
   %or.cond = select i1 %.016.lcssa, i1 %.not20, i1 false
   br i1 %or.cond, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, label %36
@@ -6723,7 +6723,7 @@ define void @_ZNK10open_spiel7oh_hell11OhHellState19BiddingLegalActionsEv(ptr de
   %38 = load i32, ptr %28, align 8
   %39 = mul nsw i32 %38, %37
   %40 = sext i32 %39 to i64
-  %41 = add nsw i64 %.01740, %40
+  %41 = add nsw i64 %.01741, %40
   %42 = load ptr, ptr %30, align 8
   %.not.i.i = icmp eq ptr %32, %42
   br i1 %.not.i.i, label %45, label %43
@@ -6815,17 +6815,17 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %67, %68
   resume { ptr, i32 } %lpad.phi
 
 _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %31, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i, %43
-  %69 = phi ptr [ %64, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %44, %43 ], [ %32, %31 ]
-  %70 = phi ptr [ %59, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %34, %43 ], [ %34, %31 ]
-  %71 = add nuw nsw i64 %.01740, 1
+  %69 = phi ptr [ %32, %31 ], [ %64, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %44, %43 ]
+  %70 = phi ptr [ %34, %31 ], [ %59, %_ZNSt6vectorIlSaIlEE17_M_realloc_insertIJlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i.i ], [ %34, %43 ]
+  %71 = add nuw nsw i64 %.01741, 1
   %72 = load i32, ptr %24, align 8
   %73 = sext i32 %72 to i64
-  %.not.not = icmp slt i64 %.01740, %73
-  br i1 %.not.not, label %31, label %._crit_edge43, !llvm.loop !85
+  %.not.not = icmp slt i64 %.01741, %73
+  br i1 %.not.not, label %31, label %._crit_edge44, !llvm.loop !85
 
-._crit_edge43:                                    ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %._crit_edge
-  %.lcssa36 = phi ptr [ null, %._crit_edge ], [ %70, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
-  store ptr %.lcssa36, ptr %0, align 8
+._crit_edge44:                                    ; preds = %_ZNSt6vectorIlSaIlEE9push_backEOl.exit, %._crit_edge
+  %.lcssa37 = phi ptr [ null, %._crit_edge ], [ %70, %_ZNSt6vectorIlSaIlEE9push_backEOl.exit ]
+  store ptr %.lcssa37, ptr %0, align 8
   ret void
 }
 

@@ -38304,7 +38304,7 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %if.end12
   %i.051 = phi i32 [ 0, %while.body.lr.ph ], [ %add14, %if.end12 ]
   %base_y.050 = phi float [ 0.000000e+00, %while.body.lr.ph ], [ %add9, %if.end12 ]
-  %idx.ext.i = sext i32 %i.051 to i64
+  %idx.ext.i = zext nneg i32 %i.051 to i64
   %add.ptr.i = getelementptr inbounds i16, ptr %1, i64 %idx.ext.i
   br label %while.cond.outer16.us.i.i
 
@@ -38396,7 +38396,6 @@ if.end22:                                         ; preds = %if.end18
   br i1 %cmp24, label %for.body.lr.ph, label %if.end41
 
 for.body.lr.ph:                                   ; preds = %if.end22
-  %9 = zext nneg i32 %i.051 to i64
   %wide.trip.count = and i64 %sub.ptr.div.i, 2147483647
   br label %for.body
 
@@ -38408,19 +38407,19 @@ for.cond:                                         ; preds = %_ZN5ImStbL21STB_TEX
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.cond ]
   %prev_x.055 = phi float [ 0.000000e+00, %for.body.lr.ph ], [ %add30, %for.cond ]
-  %10 = add nuw nsw i64 %indvars.iv, %9
-  %arrayidx.i.i = getelementptr inbounds i16, ptr %1, i64 %10
-  %11 = load i16, ptr %arrayidx.i.i, align 2
-  %cmp.i = icmp eq i16 %11, 10
+  %9 = add nuw nsw i64 %indvars.iv, %idx.ext.i
+  %arrayidx.i.i = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = load i16, ptr %arrayidx.i.i, align 2
+  %cmp.i = icmp eq i16 %10, 10
   br i1 %cmp.i, label %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %for.body
-  %conv.i.i = zext i16 %11 to i32
-  %12 = load i32, ptr %.val.i, align 8
-  %cmp.i.i = icmp sgt i32 %12, %conv.i.i
-  %13 = load ptr, ptr %Data.i.i.i.i, align 8
-  %idxprom.i.i.i = zext i16 %11 to i64
-  %arrayidx.i.i.i = getelementptr inbounds float, ptr %13, i64 %idxprom.i.i.i
+  %conv.i.i = zext i16 %10 to i32
+  %11 = load i32, ptr %.val.i, align 8
+  %cmp.i.i = icmp sgt i32 %11, %conv.i.i
+  %12 = load ptr, ptr %Data.i.i.i.i, align 8
+  %idxprom.i.i.i = zext i16 %10 to i64
+  %arrayidx.i.i.i = getelementptr inbounds float, ptr %12, i64 %idxprom.i.i.i
   %cond.in.i.i = select i1 %cmp.i.i, ptr %arrayidx.i.i.i, ptr %FallbackAdvanceX.i.i.i
   %cond.i.i = load float, ptr %cond.in.i.i, align 4
   %mul.i = fmul float %cond.i.i, %div.i.i
@@ -38433,14 +38432,14 @@ _ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit: ; preds = %for.
   br i1 %cmp31, label %if.then32, label %for.cond
 
 if.then32:                                        ; preds = %_ZN5ImStbL21STB_TEXTEDIT_GETWIDTHEP19ImGuiInputTextStateii.exit
-  %14 = trunc nuw i64 %10 to i32
+  %13 = trunc nuw i64 %9 to i32
   %div = fmul float %retval.0.i, 5.000000e-01
   %add33 = fadd float %prev_x.055, %div
   %cmp34 = fcmp olt float %x, %add33
   br i1 %cmp34, label %return, label %if.else
 
 if.else:                                          ; preds = %if.then32
-  %add38 = add nuw nsw i32 %14, 1
+  %add38 = add nuw nsw i32 %13, 1
   br label %return
 
 if.end41:                                         ; preds = %for.cond, %if.end22
@@ -38448,13 +38447,13 @@ if.end41:                                         ; preds = %for.cond, %if.end22
   %sub = add nsw i32 %add43, -1
   %idxprom.i.i33 = sext i32 %sub to i64
   %arrayidx.i.i34 = getelementptr inbounds i16, ptr %1, i64 %idxprom.i.i33
-  %15 = load i16, ptr %arrayidx.i.i34, align 2
-  %cmp46 = icmp eq i16 %15, 10
+  %14 = load i16, ptr %arrayidx.i.i34, align 2
+  %cmp46 = icmp eq i16 %14, 10
   %spec.select = select i1 %cmp46, i32 %sub, i32 %add43
   br label %return
 
 return:                                           ; preds = %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit, %if.end12, %if.end, %entry, %if.end41, %if.then32, %if.end18, %if.else
-  %retval.0 = phi i32 [ %add38, %if.else ], [ %i.051, %if.end18 ], [ %14, %if.then32 ], [ %spec.select, %if.end41 ], [ %str.val, %entry ], [ %str.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %str.val, %if.end12 ], [ 0, %if.end ]
+  %retval.0 = phi i32 [ %add38, %if.else ], [ %i.051, %if.end18 ], [ %13, %if.then32 ], [ %spec.select, %if.end41 ], [ %str.val, %entry ], [ %str.val, %_ZN5ImStbL22STB_TEXTEDIT_LAYOUTROWEPNS_14StbTexteditRowEP19ImGuiInputTextStatei.exit ], [ %str.val, %if.end12 ], [ 0, %if.end ]
   ret i32 %retval.0
 }
 
