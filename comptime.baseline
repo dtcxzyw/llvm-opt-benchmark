@@ -9696,7 +9696,7 @@ hdf5/H5Rint.c.ll 259947930
 hdf5/H5S.c.ll 440940636
 hdf5/H5SL.c.ll 2469906118
 hdf5/H5SM.c.ll 703298782
-hdf5/H5SMbtree2.c.ll 41852883
+hdf5/H5SMbtree2.c.ll 41894762
 hdf5/H5SMcache.c.ll 151591206
 hdf5/H5SMmessage.c.ll 80612720
 hdf5/H5SMtest.c.ll 40691545
@@ -25091,7 +25091,7 @@ openmpi/pcomm_ack_failed.ll 69457573
 openmpi/pcomm_agree.ll 79679117
 openmpi/pcomm_create_from_group_f.ll 65162014
 openmpi/pcomm_failure_ack.ll 66286383
-openmpi/pcomm_failure_get_acked.ll 66527494
+openmpi/pcomm_failure_get_acked.ll 66594062
 openmpi/pcomm_get_failed.ll 66558033
 openmpi/pcomm_iagree.ll 70682590
 openmpi/pcomm_is_revoked.ll 47607040
