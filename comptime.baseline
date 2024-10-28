@@ -7210,7 +7210,7 @@ folly/OpenSSLThreading.cpp.ll 93053181
 folly/OpenSSLUtils.cpp.ll 272778381
 folly/PasswordInFile.cpp.ll 74830538
 folly/PerfScoped.cpp.ll 338286772
-folly/Phase.cpp.ll 37748493
+folly/Phase.cpp.ll 37786402
 folly/Pid.cpp.ll 47638784
 folly/PriorityThreadFactory.cpp.ll 133434068
 folly/ProcessLocalUniqueId.cpp.ll 35338624
@@ -13737,7 +13737,7 @@ linux/semaphore.ll 88745082
 linux/seq_buf.ll 128360872
 linux/seq_clientmgr.ll 524621526
 linux/seq_device.ll 70989362
-linux/seq_dummy.ll 67054545
+linux/seq_dummy.ll 67121613
 linux/seq_fifo.ll 91693423
 linux/seq_file.ll 342795706
 linux/seq_memory.ll 215416067
@@ -24342,7 +24342,7 @@ openmpi/coll_tuned_allreduce_decision.ll 58762451
 openmpi/coll_tuned_alltoall_decision.ll 61395954
 openmpi/coll_tuned_alltoallv_decision.ll 52747056
 openmpi/coll_tuned_barrier_decision.ll 52731895
-openmpi/coll_tuned_bcast_decision.ll 60125988
+openmpi/coll_tuned_bcast_decision.ll 60186221
 openmpi/coll_tuned_component.ll 49843718
 openmpi/coll_tuned_decision_dynamic.ll 137271855
 openmpi/coll_tuned_decision_fixed.ll 364573207
@@ -28515,7 +28515,7 @@ php/engine_user.ll 45204249
 php/engine_xoshiro256starstar.ll 178218060
 php/entityreference.ll 40708910
 php/escape_analysis.ll 517071447
-php/exec.ll 349383696
+php/exec.ll 349733095
 php/fastcgi.ll 736974455
 php/file.ll 1593135173
 php/fileinfo.ll 162178742
