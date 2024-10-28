@@ -77,17 +77,17 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
   store ptr null, ptr %1, align 8, !tbaa !22
   %6 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder7flattenEv(ptr noundef nonnull align 8 dereferenceable(336) %2) #6
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %112
+  br i1 %7, label %8, label %110
 
 8:                                                ; preds = %3
   %9 = tail call noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder22resolveUnresolvedLinksEv(ptr noundef nonnull align 8 dereferenceable(336) %2) #6
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %11, label %112
+  br i1 %10, label %11, label %110
 
 11:                                               ; preds = %8
   %12 = tail call noundef i64 @_ZNK6asmjit9_abi_1_1010CodeHolder8codeSizeEv(ptr noundef nonnull align 8 dereferenceable(336) %2) #6
   %13 = icmp eq i64 %12, 0
-  br i1 %13, label %112, label %14, !prof !24
+  br i1 %13, label %110, label %14, !prof !24
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
@@ -95,7 +95,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = call noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator5allocEPPvS3_m(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %12) #6
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %110
+  br i1 %17, label %18, label %108
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %4, align 8, !tbaa !22
@@ -107,7 +107,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
 23:                                               ; preds = %18
   %24 = load ptr, ptr %4, align 8, !tbaa !22
   %25 = call noundef i32 @_ZN6asmjit9_abi_1_1012JitAllocator7releaseEPv(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef %24) #6
-  br label %110
+  br label %108
 
 26:                                               ; preds = %18
   %27 = call noundef i64 @_ZNK6asmjit9_abi_1_1010CodeHolder8codeSizeEv(ptr noundef nonnull align 8 dereferenceable(336) %2) #6
@@ -132,116 +132,114 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010JitRuntime4_addEPPvPNS0_10Co
   br i1 %40, label %.loopexit, label %41
 
 41:                                               ; preds = %32
-  %42 = add nuw nsw i64 %38, 2305843009213693951
-  %43 = and i64 %42, 2305843009213693951
-  %44 = and i64 %38, 1
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %66, label %46
+  %42 = and i64 %38, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %64, label %44
 
-46:                                               ; preds = %41
-  %47 = load ptr, ptr %35, align 8, !tbaa !22
-  %48 = getelementptr inbounds i8, ptr %47, i64 16
-  %49 = load i64, ptr %48, align 8, !tbaa !30
-  %50 = getelementptr inbounds i8, ptr %47, i64 80
-  %51 = load i64, ptr %50, align 8, !tbaa !36
-  %52 = getelementptr inbounds i8, ptr %47, i64 24
-  %53 = load i64, ptr %52, align 8, !tbaa !37
-  %54 = load ptr, ptr %5, align 8, !tbaa !22
-  %55 = getelementptr inbounds i8, ptr %54, i64 %49
-  %56 = getelementptr inbounds i8, ptr %47, i64 72
-  %57 = load ptr, ptr %56, align 8, !tbaa !38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %57, i64 %51, i1 false)
-  %58 = icmp ugt i64 %53, %51
-  br i1 %58, label %59, label %64
+44:                                               ; preds = %41
+  %45 = load ptr, ptr %35, align 8, !tbaa !22
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = load i64, ptr %46, align 8, !tbaa !30
+  %48 = getelementptr inbounds i8, ptr %45, i64 80
+  %49 = load i64, ptr %48, align 8, !tbaa !36
+  %50 = getelementptr inbounds i8, ptr %45, i64 24
+  %51 = load i64, ptr %50, align 8, !tbaa !37
+  %52 = load ptr, ptr %5, align 8, !tbaa !22
+  %53 = getelementptr inbounds i8, ptr %52, i64 %47
+  %54 = getelementptr inbounds i8, ptr %45, i64 72
+  %55 = load ptr, ptr %54, align 8, !tbaa !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr align 1 %55, i64 %49, i1 false)
+  %56 = icmp ugt i64 %51, %49
+  br i1 %56, label %57, label %62
 
-59:                                               ; preds = %46
-  %60 = load ptr, ptr %5, align 8, !tbaa !22
-  %61 = getelementptr inbounds i8, ptr %60, i64 %49
-  %62 = getelementptr inbounds i8, ptr %61, i64 %51
-  %63 = sub nuw i64 %53, %51
-  call void @llvm.memset.p0.i64(ptr align 1 %62, i8 0, i64 %63, i1 false)
+57:                                               ; preds = %44
+  %58 = load ptr, ptr %5, align 8, !tbaa !22
+  %59 = getelementptr inbounds i8, ptr %58, i64 %47
+  %60 = getelementptr inbounds i8, ptr %59, i64 %49
+  %61 = sub nuw i64 %51, %49
+  call void @llvm.memset.p0.i64(ptr align 1 %60, i8 0, i64 %61, i1 false)
+  br label %62
+
+62:                                               ; preds = %57, %44
+  %63 = getelementptr inbounds i8, ptr %35, i64 8
   br label %64
 
-64:                                               ; preds = %59, %46
-  %65 = getelementptr inbounds i8, ptr %35, i64 8
-  br label %66
+64:                                               ; preds = %62, %41
+  %65 = phi ptr [ %35, %41 ], [ %63, %62 ]
+  %66 = icmp eq i32 %37, 1
+  br i1 %66, label %.loopexit, label %.preheader
 
-66:                                               ; preds = %64, %41
-  %67 = phi ptr [ %35, %41 ], [ %65, %64 ]
-  %68 = icmp eq i64 %43, 0
-  br i1 %68, label %.loopexit, label %.preheader
-
-.loopexit:                                        ; preds = %107, %66, %32
+.loopexit:                                        ; preds = %105, %64, %32
   call void @_ZN6asmjit9_abi_1_107VirtMem16protectJitMemoryENS1_16ProtectJitAccessE(i32 noundef 1) #6
   call void @_ZN6asmjit9_abi_1_107VirtMem21flushInstructionCacheEPvm(ptr noundef %33, i64 noundef %27) #6
-  %69 = load ptr, ptr %4, align 8, !tbaa !22
-  store ptr %69, ptr %1, align 8, !tbaa !22
-  br label %110
+  %67 = load ptr, ptr %4, align 8, !tbaa !22
+  store ptr %67, ptr %1, align 8, !tbaa !22
+  br label %108
 
-.preheader:                                       ; preds = %66, %107
-  %70 = phi ptr [ %108, %107 ], [ %67, %66 ]
-  %71 = load ptr, ptr %70, align 8, !tbaa !22
-  %72 = getelementptr inbounds i8, ptr %71, i64 16
-  %73 = load i64, ptr %72, align 8, !tbaa !30
-  %74 = getelementptr inbounds i8, ptr %71, i64 80
-  %75 = load i64, ptr %74, align 8, !tbaa !36
-  %76 = getelementptr inbounds i8, ptr %71, i64 24
-  %77 = load i64, ptr %76, align 8, !tbaa !37
-  %78 = load ptr, ptr %5, align 8, !tbaa !22
-  %79 = getelementptr inbounds i8, ptr %78, i64 %73
-  %80 = getelementptr inbounds i8, ptr %71, i64 72
-  %81 = load ptr, ptr %80, align 8, !tbaa !38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr align 1 %81, i64 %75, i1 false)
-  %82 = icmp ugt i64 %77, %75
-  br i1 %82, label %83, label %88
+.preheader:                                       ; preds = %64, %105
+  %68 = phi ptr [ %106, %105 ], [ %65, %64 ]
+  %69 = load ptr, ptr %68, align 8, !tbaa !22
+  %70 = getelementptr inbounds i8, ptr %69, i64 16
+  %71 = load i64, ptr %70, align 8, !tbaa !30
+  %72 = getelementptr inbounds i8, ptr %69, i64 80
+  %73 = load i64, ptr %72, align 8, !tbaa !36
+  %74 = getelementptr inbounds i8, ptr %69, i64 24
+  %75 = load i64, ptr %74, align 8, !tbaa !37
+  %76 = load ptr, ptr %5, align 8, !tbaa !22
+  %77 = getelementptr inbounds i8, ptr %76, i64 %71
+  %78 = getelementptr inbounds i8, ptr %69, i64 72
+  %79 = load ptr, ptr %78, align 8, !tbaa !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr align 1 %79, i64 %73, i1 false)
+  %80 = icmp ugt i64 %75, %73
+  br i1 %80, label %81, label %86
 
-83:                                               ; preds = %.preheader
-  %84 = load ptr, ptr %5, align 8, !tbaa !22
-  %85 = getelementptr inbounds i8, ptr %84, i64 %73
-  %86 = getelementptr inbounds i8, ptr %85, i64 %75
-  %87 = sub nuw i64 %77, %75
-  call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %87, i1 false)
-  br label %88
+81:                                               ; preds = %.preheader
+  %82 = load ptr, ptr %5, align 8, !tbaa !22
+  %83 = getelementptr inbounds i8, ptr %82, i64 %71
+  %84 = getelementptr inbounds i8, ptr %83, i64 %73
+  %85 = sub nuw i64 %75, %73
+  call void @llvm.memset.p0.i64(ptr align 1 %84, i8 0, i64 %85, i1 false)
+  br label %86
 
-88:                                               ; preds = %83, %.preheader
-  %89 = getelementptr inbounds i8, ptr %70, i64 8
-  %90 = load ptr, ptr %89, align 8, !tbaa !22
-  %91 = getelementptr inbounds i8, ptr %90, i64 16
-  %92 = load i64, ptr %91, align 8, !tbaa !30
-  %93 = getelementptr inbounds i8, ptr %90, i64 80
-  %94 = load i64, ptr %93, align 8, !tbaa !36
-  %95 = getelementptr inbounds i8, ptr %90, i64 24
-  %96 = load i64, ptr %95, align 8, !tbaa !37
-  %97 = load ptr, ptr %5, align 8, !tbaa !22
-  %98 = getelementptr inbounds i8, ptr %97, i64 %92
-  %99 = getelementptr inbounds i8, ptr %90, i64 72
-  %100 = load ptr, ptr %99, align 8, !tbaa !38
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 1 %100, i64 %94, i1 false)
-  %101 = icmp ugt i64 %96, %94
-  br i1 %101, label %102, label %107
+86:                                               ; preds = %81, %.preheader
+  %87 = getelementptr inbounds i8, ptr %68, i64 8
+  %88 = load ptr, ptr %87, align 8, !tbaa !22
+  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !30
+  %91 = getelementptr inbounds i8, ptr %88, i64 80
+  %92 = load i64, ptr %91, align 8, !tbaa !36
+  %93 = getelementptr inbounds i8, ptr %88, i64 24
+  %94 = load i64, ptr %93, align 8, !tbaa !37
+  %95 = load ptr, ptr %5, align 8, !tbaa !22
+  %96 = getelementptr inbounds i8, ptr %95, i64 %90
+  %97 = getelementptr inbounds i8, ptr %88, i64 72
+  %98 = load ptr, ptr %97, align 8, !tbaa !38
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %96, ptr align 1 %98, i64 %92, i1 false)
+  %99 = icmp ugt i64 %94, %92
+  br i1 %99, label %100, label %105
 
-102:                                              ; preds = %88
-  %103 = load ptr, ptr %5, align 8, !tbaa !22
-  %104 = getelementptr inbounds i8, ptr %103, i64 %92
-  %105 = getelementptr inbounds i8, ptr %104, i64 %94
-  %106 = sub nuw i64 %96, %94
-  call void @llvm.memset.p0.i64(ptr align 1 %105, i8 0, i64 %106, i1 false)
-  br label %107
+100:                                              ; preds = %86
+  %101 = load ptr, ptr %5, align 8, !tbaa !22
+  %102 = getelementptr inbounds i8, ptr %101, i64 %90
+  %103 = getelementptr inbounds i8, ptr %102, i64 %92
+  %104 = sub nuw i64 %94, %92
+  call void @llvm.memset.p0.i64(ptr align 1 %103, i8 0, i64 %104, i1 false)
+  br label %105
 
-107:                                              ; preds = %102, %88
-  %108 = getelementptr inbounds i8, ptr %70, i64 16
-  %109 = icmp eq ptr %108, %39
-  br i1 %109, label %.loopexit, label %.preheader
+105:                                              ; preds = %100, %86
+  %106 = getelementptr inbounds i8, ptr %68, i64 16
+  %107 = icmp eq ptr %106, %39
+  br i1 %107, label %.loopexit, label %.preheader
 
-110:                                              ; preds = %.loopexit, %23, %14
-  %111 = phi i32 [ %16, %14 ], [ %21, %23 ], [ 0, %.loopexit ]
+108:                                              ; preds = %.loopexit, %23, %14
+  %109 = phi i32 [ %16, %14 ], [ %21, %23 ], [ 0, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #6
-  br label %112
+  br label %110
 
-112:                                              ; preds = %110, %11, %8, %3
-  %113 = phi i32 [ %6, %3 ], [ %9, %8 ], [ %111, %110 ], [ 10, %11 ]
-  ret i32 %113
+110:                                              ; preds = %108, %11, %8, %3
+  %111 = phi i32 [ %6, %3 ], [ %9, %8 ], [ %109, %108 ], [ 10, %11 ]
+  ret i32 %111
 }
 
 ; Function Attrs: nounwind

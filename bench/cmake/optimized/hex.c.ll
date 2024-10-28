@@ -96,7 +96,7 @@ define dso_local void @rhash_byte_to_base32(ptr nocapture noundef writeonly %0, 
   %34 = lshr i32 %32, %33
   %35 = trunc nuw i32 %34 to i8
   %36 = and i8 %35, 31
-  %37 = icmp eq i32 %30, 0
+  %37 = icmp eq i32 %.02840, 3
   %spec.select.idx = zext i1 %37 to i64
   %spec.select = getelementptr inbounds i8, ptr %.03039, i64 %spec.select.idx
   br label %38
@@ -167,7 +167,7 @@ define dso_local void @rhash_byte_to_base64(ptr nocapture noundef writeonly %0, 
   %31 = lshr i32 %29, %30
   %32 = trunc nuw i32 %31 to i8
   %33 = and i8 %32, 63
-  %34 = icmp eq i32 %27, 0
+  %34 = icmp eq i32 %.03344, 2
   %spec.select.idx = zext i1 %34 to i64
   %spec.select = getelementptr inbounds i8, ptr %.03543, i64 %spec.select.idx
   br label %35
@@ -291,7 +291,7 @@ define dso_local i64 @rhash_base64_url_encoded_helper(ptr noundef %0, ptr nounde
   %36 = lshr i32 %34, %35
   %37 = trunc nuw i32 %36 to i8
   %38 = and i8 %37, 63
-  %39 = icmp eq i32 %32, 0
+  %39 = icmp eq i32 %.03344.i, 2
   %spec.select.idx.i = zext i1 %39 to i64
   %spec.select.i = getelementptr inbounds i8, ptr %.03543.i, i64 %spec.select.idx.i
   br label %40
@@ -495,7 +495,7 @@ rhash_urlencode.exit:                             ; preds = %77, %._crit_edge.i2
   %140 = lshr i32 %138, %139
   %141 = trunc nuw i32 %140 to i8
   %142 = and i8 %141, 63
-  %143 = icmp eq i32 %136, 0
+  %143 = icmp eq i32 %.03344.i33, 2
   %spec.select.idx.i35 = zext i1 %143 to i64
   %spec.select.i36 = getelementptr inbounds i8, ptr %.03543.i34, i64 %spec.select.idx.i35
   br label %144

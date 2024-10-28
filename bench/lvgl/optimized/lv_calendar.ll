@@ -42,75 +42,69 @@ define internal void @lv_calendar_constructor(ptr nocapture readnone %0, ptr nou
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %12
 
-12:                                               ; preds = %2, %29
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next.pre-phi, %29 ]
-  %.048 = phi i8 [ 0, %2 ], [ %.1, %29 ]
-  %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %.thread, label %13
+12:                                               ; preds = %2, %28
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %28 ]
+  %.049 = phi i8 [ 0, %2 ], [ %.1, %28 ]
+  %13 = and i64 %indvars.iv, 7
+  %14 = icmp eq i64 %13, 7
+  br i1 %14, label %15, label %17
 
-13:                                               ; preds = %12
-  %14 = add nuw nsw i64 %indvars.iv, 1
-  %15 = and i64 %14, 7
-  %16 = icmp eq i64 %15, 0
-  br i1 %16, label %17, label %19
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  store ptr @.str.2, ptr %16, align 8, !tbaa !20
+  br label %28
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  store ptr @.str.2, ptr %18, align 8, !tbaa !20
-  br label %29
+17:                                               ; preds = %12
+  %18 = icmp samesign ult i64 %indvars.iv, 7
+  br i1 %18, label %19, label %23
 
-19:                                               ; preds = %13
-  %20 = icmp samesign ult i64 %indvars.iv, 7
-  br i1 %20, label %.thread, label %24
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw [7 x ptr], ptr @day_names_def, i64 0, i64 %indvars.iv
+  %21 = load ptr, ptr %20, align 8, !tbaa !20
+  %22 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  store ptr %21, ptr %22, align 8, !tbaa !20
+  br label %28
 
-.thread:                                          ; preds = %12, %19
-  %.pre.pre-phi = phi i64 [ %14, %19 ], [ 1, %12 ]
-  %21 = getelementptr inbounds nuw [7 x ptr], ptr @day_names_def, i64 0, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !20
-  %23 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  store ptr %22, ptr %23, align 8, !tbaa !20
-  br label %29
+23:                                               ; preds = %17
+  %24 = zext i8 %.049 to i64
+  %25 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %10, i64 0, i64 %24
+  store i8 120, ptr %25, align 1, !tbaa !21
+  %26 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
+  store ptr %25, ptr %26, align 8, !tbaa !20
+  %27 = add i8 %.049, 1
+  br label %28
 
-24:                                               ; preds = %19
-  %25 = zext i8 %.048 to i64
-  %26 = getelementptr inbounds nuw [42 x [20 x i8]], ptr %10, i64 0, i64 %25
-  store i8 120, ptr %26, align 1, !tbaa !21
-  %27 = getelementptr inbounds nuw [56 x ptr], ptr %11, i64 0, i64 %indvars.iv
-  store ptr %26, ptr %27, align 8, !tbaa !20
-  %28 = add i8 %.048, 1
-  br label %29
+28:                                               ; preds = %15, %23, %19
+  %.1 = phi i8 [ %.049, %15 ], [ %.049, %19 ], [ %27, %23 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 56
+  br i1 %exitcond.not, label %29, label %12, !llvm.loop !22
 
-29:                                               ; preds = %17, %24, %.thread
-  %indvars.iv.next.pre-phi = phi i64 [ %14, %17 ], [ %14, %24 ], [ %.pre.pre-phi, %.thread ]
-  %.1 = phi i8 [ %.048, %17 ], [ %28, %24 ], [ %.048, %.thread ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next.pre-phi, 56
-  br i1 %exitcond.not, label %30, label %12, !llvm.loop !22
-
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %1, i64 536
-  store ptr @.str.3, ptr %31, align 8, !tbaa !20
-  %32 = tail call ptr @lv_buttonmatrix_create(ptr noundef nonnull %1) #5
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  store ptr %32, ptr %33, align 8, !tbaa !24
-  tail call void @lv_buttonmatrix_set_map(ptr noundef %32, ptr noundef nonnull %11) #5
-  %34 = load ptr, ptr %33, align 8, !tbaa !24
-  tail call void @lv_buttonmatrix_set_button_ctrl_all(ptr noundef %34, i32 noundef 544) #5
-  %35 = load ptr, ptr %33, align 8, !tbaa !24
-  %36 = tail call ptr @lv_obj_add_event_cb(ptr noundef %35, ptr noundef nonnull @draw_task_added_event_cb, i32 noundef 34, ptr noundef null) #5
-  %37 = load ptr, ptr %33, align 8, !tbaa !24
-  %38 = tail call i32 @lv_pct(i32 noundef 100) #5
-  tail call void @lv_obj_set_width(ptr noundef %37, i32 noundef %38) #5
-  %39 = load ptr, ptr %33, align 8, !tbaa !24
-  tail call void @lv_obj_add_flag(ptr noundef %39, i32 noundef 540672) #5
+29:                                               ; preds = %28
+  %30 = getelementptr inbounds i8, ptr %1, i64 536
+  store ptr @.str.3, ptr %30, align 8, !tbaa !20
+  %31 = tail call ptr @lv_buttonmatrix_create(ptr noundef nonnull %1) #5
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  store ptr %31, ptr %32, align 8, !tbaa !24
+  tail call void @lv_buttonmatrix_set_map(ptr noundef %31, ptr noundef nonnull %11) #5
+  %33 = load ptr, ptr %32, align 8, !tbaa !24
+  tail call void @lv_buttonmatrix_set_button_ctrl_all(ptr noundef %33, i32 noundef 544) #5
+  %34 = load ptr, ptr %32, align 8, !tbaa !24
+  %35 = tail call ptr @lv_obj_add_event_cb(ptr noundef %34, ptr noundef nonnull @draw_task_added_event_cb, i32 noundef 34, ptr noundef null) #5
+  %36 = load ptr, ptr %32, align 8, !tbaa !24
+  %37 = tail call i32 @lv_pct(i32 noundef 100) #5
+  tail call void @lv_obj_set_width(ptr noundef %36, i32 noundef %37) #5
+  %38 = load ptr, ptr %32, align 8, !tbaa !24
+  tail call void @lv_obj_add_flag(ptr noundef %38, i32 noundef 540672) #5
   tail call void @lv_obj_set_flex_flow(ptr noundef nonnull %1, i32 noundef 1) #5
-  %40 = load ptr, ptr %33, align 8, !tbaa !24
-  tail call void @lv_obj_set_flex_grow(ptr noundef %40, i8 noundef zeroext 1) #5
+  %39 = load ptr, ptr %32, align 8, !tbaa !24
+  tail call void @lv_obj_set_flex_grow(ptr noundef %39, i8 noundef zeroext 1) #5
   tail call void @lv_obj_set_style_text_align(ptr noundef nonnull %1, i32 noundef 2, i32 noundef 0) #5
-  %41 = load i16, ptr %6, align 4, !tbaa !17
-  %42 = zext i16 %41 to i32
-  %43 = load i8, ptr %7, align 2, !tbaa !18
-  %44 = sext i8 %43 to i32
-  tail call void @lv_calendar_set_showed_date(ptr noundef nonnull %1, i32 noundef %42, i32 noundef %44)
+  %40 = load i16, ptr %6, align 4, !tbaa !17
+  %41 = zext i16 %40 to i32
+  %42 = load i8, ptr %7, align 2, !tbaa !18
+  %43 = sext i8 %42 to i32
+  tail call void @lv_calendar_set_showed_date(ptr noundef nonnull %1, i32 noundef %41, i32 noundef %43)
   tail call fastcc void @highlight_update(ptr noundef nonnull %1)
   ret void
 }

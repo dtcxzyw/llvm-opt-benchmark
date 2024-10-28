@@ -11132,12 +11132,13 @@ define internal fastcc void @Ins_PUSHW(ptr nocapture noundef %0, ptr nocapture n
   %19 = load i64, ptr %18, align 8
   %20 = add nsw i64 %19, 1
   store i64 %20, ptr %18, align 8
-  %.not14 = icmp eq i32 %7, 0
+  %.not14 = icmp eq i8 %4, -73
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17
   %21 = getelementptr inbounds i8, ptr %0, i64 640
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
+  %wide.trip.count = zext nneg i32 %umax to i64
   br label %22
 
 22:                                               ; preds = %.lr.ph, %22
@@ -11189,7 +11190,7 @@ define internal fastcc void @Ins_PUSHB(ptr nocapture noundef %0, ptr nocapture n
 
 .preheader:                                       ; preds = %2
   %invariant.gep = getelementptr i8, ptr %1, i64 -8
-  %.not1415 = icmp eq i32 %7, 0
+  %.not1415 = icmp eq i8 %4, -81
   br i1 %.not1415, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
@@ -23684,10 +23685,10 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
 declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #19
+declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #19
+declare i64 @llvm.umax.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19

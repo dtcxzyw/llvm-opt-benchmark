@@ -1112,15 +1112,16 @@ for.body.i:                                       ; preds = %if.then, %for.body.
 tdb_hash.exit:                                    ; preds = %for.body.i, %if.then
   %value.0.lcssa.i = phi i32 [ %conv.i, %if.then ], [ %add.i, %for.body.i ]
   %mul5.i = mul i32 %value.0.lcssa.i, 107
-  %add6.i = add i32 %mul5.i, 57
-  %rem = and i32 %add6.i, 511
   %table.i = getelementptr inbounds i8, ptr %qdict, i64 24
-  %cmp5.i.not = icmp eq i32 %rem, 511
+  %6 = and i32 %mul5.i, 511
+  %cmp5.i.not = icmp eq i32 %6, 454
   br i1 %cmp5.i.not, label %if.end, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %tdb_hash.exit
+  %add6.i = add i32 %mul5.i, 57
+  %rem = and i32 %add6.i, 511
   %add = add nuw nsw i32 %rem, 1
-  %6 = zext nneg i32 %add to i64
+  %7 = zext nneg i32 %add to i64
   br label %for.body.i3
 
 for.cond.i:                                       ; preds = %for.body.i3
@@ -1129,14 +1130,14 @@ for.cond.i:                                       ; preds = %for.body.i3
   br i1 %exitcond.not.i, label %if.end, label %for.body.i3, !llvm.loop !8
 
 for.body.i3:                                      ; preds = %for.cond.i, %for.body.preheader.i
-  %indvars.iv.i = phi i64 [ %6, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
+  %indvars.iv.i = phi i64 [ %7, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
   %arrayidx.i4 = getelementptr [512 x %struct.anon], ptr %table.i, i64 0, i64 %indvars.iv.i
-  %7 = load ptr, ptr %arrayidx.i4, align 8
-  %cmp1.i = icmp eq ptr %7, null
+  %8 = load ptr, ptr %arrayidx.i4, align 8
+  %cmp1.i = icmp eq ptr %8, null
   br i1 %cmp1.i, label %for.cond.i, label %if.end
 
 if.end:                                           ; preds = %for.body.i3, %for.cond.i, %tdb_hash.exit, %entry
-  %ret.0 = phi ptr [ %0, %entry ], [ null, %tdb_hash.exit ], [ %7, %for.body.i3 ], [ null, %for.cond.i ]
+  %ret.0 = phi ptr [ %0, %entry ], [ null, %tdb_hash.exit ], [ %8, %for.body.i3 ], [ null, %for.cond.i ]
   ret ptr %ret.0
 }
 
@@ -1665,7 +1666,7 @@ for.inc:                                          ; preds = %qdict_get.exit
   br i1 %tobool.not.i22, label %if.then.i, label %for.body.backedge
 
 for.body.backedge:                                ; preds = %for.body.i3.i, %for.inc
-  %e.051.be = phi ptr [ %13, %for.inc ], [ %20, %for.body.i3.i ]
+  %e.051.be = phi ptr [ %13, %for.inc ], [ %21, %for.body.i3.i ]
   br label %for.body, !llvm.loop !11
 
 if.then.i:                                        ; preds = %for.inc
@@ -1696,14 +1697,15 @@ for.body.i.i26:                                   ; preds = %if.then.i, %for.bod
 tdb_hash.exit.i38:                                ; preds = %for.body.i.i26, %if.then.i
   %value.0.lcssa.i.i39 = phi i32 [ %conv.i.i24, %if.then.i ], [ %add.i.i33, %for.body.i.i26 ]
   %mul5.i.i40 = mul i32 %value.0.lcssa.i.i39, 107
-  %add6.i.i41 = add i32 %mul5.i.i40, 57
-  %rem.i42 = and i32 %add6.i.i41, 511
-  %cmp5.i.not.i = icmp eq i32 %rem.i42, 511
+  %19 = and i32 %mul5.i.i40, 511
+  %cmp5.i.not.i = icmp eq i32 %19, 454
   br i1 %cmp5.i.not.i, label %return, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %tdb_hash.exit.i38
-  %add.i = add nuw nsw i32 %rem.i42, 1
-  %19 = zext nneg i32 %add.i to i64
+  %add6.i.i42 = add i32 %mul5.i.i40, 57
+  %rem.i43 = and i32 %add6.i.i42, 511
+  %add.i = add nuw nsw i32 %rem.i43, 1
+  %20 = zext nneg i32 %add.i to i64
   br label %for.body.i3.i
 
 for.cond.i.i:                                     ; preds = %for.body.i3.i
@@ -1712,10 +1714,10 @@ for.cond.i.i:                                     ; preds = %for.body.i3.i
   br i1 %exitcond.not.i.i48, label %return, label %for.body.i3.i, !llvm.loop !8
 
 for.body.i3.i:                                    ; preds = %for.cond.i.i, %for.body.preheader.i.i
-  %indvars.iv.i.i44 = phi i64 [ %19, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i47, %for.cond.i.i ]
+  %indvars.iv.i.i44 = phi i64 [ %20, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i47, %for.cond.i.i ]
   %arrayidx.i4.i45 = getelementptr [512 x %struct.anon], ptr %table.i.i, i64 0, i64 %indvars.iv.i.i44
-  %20 = load ptr, ptr %arrayidx.i4.i45, align 8
-  %cmp1.i.i46 = icmp eq ptr %20, null
+  %21 = load ptr, ptr %arrayidx.i4.i45, align 8
+  %cmp1.i.i46 = icmp eq ptr %21, null
   br i1 %cmp1.i.i46, label %for.cond.i.i, label %for.body.backedge, !llvm.loop !11
 
 return:                                           ; preds = %tdb_hash.exit.i38, %qdict_get.exit, %for.cond.i.i, %for.cond.preheader, %qobject_check_type.exit16

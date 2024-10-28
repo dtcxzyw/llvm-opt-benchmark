@@ -485,7 +485,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %9 = add i8 %5, 1
   %10 = and i8 %9, 63
   store i8 %10, ptr %4, align 8
-  %11 = icmp eq i8 %10, 0
+  %11 = icmp eq i8 %6, 63
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %2
@@ -535,7 +535,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %41 = add i8 %34, 1
   %42 = and i8 %41, 63
   store i8 %42, ptr %4, align 8
-  %43 = icmp eq i8 %42, 0
+  %43 = icmp eq i8 %35, 63
   br i1 %43, label %44, label %45
 
 44:                                               ; preds = %29
@@ -554,7 +554,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %52 = add i8 %46, 1
   %53 = and i8 %52, 63
   store i8 %53, ptr %4, align 8
-  %54 = icmp eq i8 %53, 0
+  %54 = icmp eq i8 %49, 63
   br i1 %54, label %55, label %56
 
 55:                                               ; preds = %45
@@ -573,7 +573,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %63 = add i8 %57, 1
   %64 = and i8 %63, 63
   store i8 %64, ptr %4, align 8
-  %65 = icmp eq i8 %64, 0
+  %65 = icmp eq i8 %60, 63
   br i1 %65, label %66, label %67
 
 66:                                               ; preds = %56
@@ -592,7 +592,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %74 = add i8 %68, 1
   %75 = and i8 %74, 63
   store i8 %75, ptr %4, align 8
-  %76 = icmp eq i8 %75, 0
+  %76 = icmp eq i8 %71, 63
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %67
@@ -611,7 +611,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %85 = add i8 %79, 1
   %86 = and i8 %85, 63
   store i8 %86, ptr %4, align 8
-  %87 = icmp eq i8 %86, 0
+  %87 = icmp eq i8 %82, 63
   br i1 %87, label %88, label %89
 
 88:                                               ; preds = %78
@@ -630,7 +630,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %96 = add i8 %90, 1
   %97 = and i8 %96, 63
   store i8 %97, ptr %4, align 8
-  %98 = icmp eq i8 %97, 0
+  %98 = icmp eq i8 %93, 63
   br i1 %98, label %99, label %100
 
 99:                                               ; preds = %89
@@ -649,7 +649,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %107 = add i8 %101, 1
   %108 = and i8 %107, 63
   store i8 %108, ptr %4, align 8
-  %109 = icmp eq i8 %108, 0
+  %109 = icmp eq i8 %104, 63
   br i1 %109, label %110, label %111
 
 110:                                              ; preds = %100
@@ -667,7 +667,7 @@ define void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) l
   %117 = add i8 %112, 1
   %118 = and i8 %117, 63
   store i8 %118, ptr %4, align 8
-  %119 = icmp eq i8 %118, 0
+  %119 = icmp eq i8 %114, 63
   br i1 %119, label %120, label %sha1_pad.exit
 
 120:                                              ; preds = %111

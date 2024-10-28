@@ -3454,12 +3454,13 @@ for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.spli
   %13 = add i32 %reass.sub, 1
   %14 = sub nsw i32 %conv32, %conv16.i
   %xtraiter = and i32 %13, 3
-  %lcmp.mod.not = icmp eq i32 %xtraiter, 0
-  %15 = icmp ult i32 %14, 3
-  br i1 %15, label %for.body.lr.ph.split.split.split.us, label %for.body.preheader
+  %15 = and i32 %reass.sub, 3
+  %lcmp.mod.not = icmp eq i32 %15, 3
+  %16 = icmp ult i32 %14, 3
+  br i1 %16, label %for.body.lr.ph.split.split.split.us, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph.split.split
-  %16 = add nsw i32 %conv16.i, %xtraiter
+  %17 = add nsw i32 %conv16.i, %xtraiter
   br label %for.body
 
 for.body.lr.ph.split.split.split.us:              ; preds = %for.body.lr.ph.split.split
@@ -3490,7 +3491,7 @@ for.body35.prol.us.us:                            ; preds = %for.body35.prol.us.
   %param1.prol.us.us = getelementptr inbounds %struct.MapNode, ptr %12, i64 %idxprom.prol.us.us, i32 1
   store i8 %light, ptr %param1.prol.us.us, align 2, !tbaa !170
   %inc37.prol.us.us = add i32 %i.082.prol.us.us, 1
-  %prol.iter.next.us.us = add nuw nsw i32 %prol.iter.us.us, 1
+  %prol.iter.next.us.us = add i32 %prol.iter.us.us, 1
   %prol.iter.cmp.not.us.us = icmp eq i32 %prol.iter.next.us.us, %xtraiter
   br i1 %prol.iter.cmp.not.us.us, label %for.body35.prol.loopexit.loopexit.us.us, label %for.body35.prol.us.us, !llvm.loop !171
 
@@ -3510,26 +3511,26 @@ for.cond.cleanup:                                 ; preds = %for.cond14.for.cond
   ret void
 
 lpad4:                                            ; preds = %entry
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %cmp.i.i.i62 = icmp eq ptr %18, %1
+  %19 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
+  %cmp.i.i.i62 = icmp eq ptr %19, %1
   br i1 %cmp.i.i.i62, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i64, label %if.then.i.i63
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i64: ; preds = %lpad4
-  %19 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
-  %cmp3.i.i.i66 = icmp ult i64 %19, 16
+  %20 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !14
+  %cmp3.i.i.i66 = icmp ult i64 %20, 16
   call void @llvm.assume(i1 %cmp3.i.i.i66)
   br label %ehcleanup
 
 if.then.i.i63:                                    ; preds = %lpad4
-  call void @_ZdlPv(ptr noundef %18) #33
+  call void @_ZdlPv(ptr noundef %19) #33
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %if.then.i.i63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i64
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %sp) #32
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %18
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond14.for.cond.cleanup19_crit_edge.split.split
   %z.087 = phi i32 [ %inc44, %for.cond14.for.cond.cleanup19_crit_edge.split.split ], [ %conv, %for.body.preheader ]
@@ -3555,7 +3556,7 @@ for.body20:                                       ; preds = %for.cond29.for.cond
   br i1 %lcmp.mod.not, label %for.body35.preheader, label %for.body35.prol
 
 for.body35.preheader:                             ; preds = %for.body35.prol, %for.body20
-  %x.083.ph = phi i32 [ %conv16.i, %for.body20 ], [ %16, %for.body35.prol ]
+  %x.083.ph = phi i32 [ %conv16.i, %for.body20 ], [ %17, %for.body35.prol ]
   %i.082.ph = phi i32 [ %add21.i, %for.body20 ], [ %inc37.prol, %for.body35.prol ]
   br label %for.body35
 
@@ -3566,7 +3567,7 @@ for.body35.prol:                                  ; preds = %for.body20, %for.bo
   %param1.prol = getelementptr inbounds %struct.MapNode, ptr %12, i64 %idxprom.prol, i32 1
   store i8 %light, ptr %param1.prol, align 2, !tbaa !170
   %inc37.prol = add i32 %i.082.prol, 1
-  %prol.iter.next = add nuw nsw i32 %prol.iter, 1
+  %prol.iter.next = add i32 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i32 %prol.iter.next, %xtraiter
   br i1 %prol.iter.cmp.not, label %for.body35.preheader, label %for.body35.prol, !llvm.loop !171
 

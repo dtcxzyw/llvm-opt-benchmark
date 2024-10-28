@@ -503,135 +503,136 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EEC2Emmm(ptr n
   %47 = udiv i64 %46, 80
   %48 = add nuw nsw i64 %47, 1
   %49 = and i64 %48, 7
-  %50 = icmp eq i64 %49, 0
-  br i1 %50, label %.loopexit3, label %.preheader2
+  %50 = and i64 %47, 7
+  %51 = icmp eq i64 %50, 7
+  br i1 %51, label %.loopexit3, label %.preheader2
 
 .preheader2:                                      ; preds = %44, %.preheader2
-  %51 = phi ptr [ %57, %.preheader2 ], [ %40, %44 ]
-  %52 = phi i64 [ %58, %.preheader2 ], [ 0, %44 ]
-  %53 = getelementptr inbounds i8, ptr %51, i64 56
-  %54 = getelementptr inbounds i8, ptr %51, i64 24
-  store i64 0, ptr %54, align 8, !tbaa !49
-  %55 = getelementptr inbounds i8, ptr %51, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  store i64 1, ptr %55, align 8, !tbaa !50
-  %56 = getelementptr inbounds i8, ptr %51, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, i8 0, i64 16, i1 false)
-  %57 = getelementptr inbounds i8, ptr %51, i64 80
-  %58 = add nuw nsw i64 %52, 1
-  %59 = icmp eq i64 %58, %49
-  br i1 %59, label %.loopexit3, label %.preheader2, !llvm.loop !51
+  %52 = phi ptr [ %58, %.preheader2 ], [ %40, %44 ]
+  %53 = phi i64 [ %59, %.preheader2 ], [ 0, %44 ]
+  %54 = getelementptr inbounds i8, ptr %52, i64 56
+  %55 = getelementptr inbounds i8, ptr %52, i64 24
+  store i64 0, ptr %55, align 8, !tbaa !49
+  %56 = getelementptr inbounds i8, ptr %52, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
+  store i64 1, ptr %56, align 8, !tbaa !50
+  %57 = getelementptr inbounds i8, ptr %52, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
+  %58 = getelementptr inbounds i8, ptr %52, i64 80
+  %59 = add i64 %53, 1
+  %60 = icmp eq i64 %59, %49
+  br i1 %60, label %.loopexit3, label %.preheader2, !llvm.loop !51
 
 .loopexit3:                                       ; preds = %.preheader2, %44
-  %60 = phi ptr [ %40, %44 ], [ %57, %.preheader2 ]
-  %61 = icmp ult i64 %46, 560
-  br i1 %61, label %.loopexit1, label %.preheader
+  %61 = phi ptr [ %40, %44 ], [ %58, %.preheader2 ]
+  %62 = icmp ult i64 %46, 560
+  br i1 %62, label %.loopexit1, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit3, %.preheader
-  %62 = phi ptr [ %102, %.preheader ], [ %60, %.loopexit3 ]
-  %63 = getelementptr inbounds i8, ptr %62, i64 56
-  %64 = getelementptr inbounds i8, ptr %62, i64 24
-  store i64 0, ptr %64, align 8, !tbaa !49
-  %65 = getelementptr inbounds i8, ptr %62, i64 48
+  %63 = phi ptr [ %103, %.preheader ], [ %61, %.loopexit3 ]
+  %64 = getelementptr inbounds i8, ptr %63, i64 56
+  %65 = getelementptr inbounds i8, ptr %63, i64 24
+  store i64 0, ptr %65, align 8, !tbaa !49
+  %66 = getelementptr inbounds i8, ptr %63, i64 48
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, i8 0, i64 24, i1 false)
+  store i64 1, ptr %66, align 8, !tbaa !50
+  %67 = getelementptr inbounds i8, ptr %63, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, i8 0, i64 24, i1 false)
-  store i64 1, ptr %65, align 8, !tbaa !50
-  %66 = getelementptr inbounds i8, ptr %62, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %66, i8 0, i64 16, i1 false)
-  %67 = getelementptr inbounds i8, ptr %62, i64 80
-  %68 = getelementptr inbounds i8, ptr %62, i64 136
-  %69 = getelementptr inbounds i8, ptr %62, i64 104
-  store i64 0, ptr %69, align 8, !tbaa !49
-  %70 = getelementptr inbounds i8, ptr %62, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  %68 = getelementptr inbounds i8, ptr %63, i64 80
+  %69 = getelementptr inbounds i8, ptr %63, i64 136
+  %70 = getelementptr inbounds i8, ptr %63, i64 104
+  store i64 0, ptr %70, align 8, !tbaa !49
+  %71 = getelementptr inbounds i8, ptr %63, i64 128
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %69, i8 0, i64 24, i1 false)
+  store i64 1, ptr %71, align 8, !tbaa !50
+  %72 = getelementptr inbounds i8, ptr %63, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %68, i8 0, i64 24, i1 false)
-  store i64 1, ptr %70, align 8, !tbaa !50
-  %71 = getelementptr inbounds i8, ptr %62, i64 112
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %67, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
-  %72 = getelementptr inbounds i8, ptr %62, i64 160
-  %73 = getelementptr inbounds i8, ptr %62, i64 216
-  %74 = getelementptr inbounds i8, ptr %62, i64 184
-  store i64 0, ptr %74, align 8, !tbaa !49
-  %75 = getelementptr inbounds i8, ptr %62, i64 208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
+  %73 = getelementptr inbounds i8, ptr %63, i64 160
+  %74 = getelementptr inbounds i8, ptr %63, i64 216
+  %75 = getelementptr inbounds i8, ptr %63, i64 184
+  store i64 0, ptr %75, align 8, !tbaa !49
+  %76 = getelementptr inbounds i8, ptr %63, i64 208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, i8 0, i64 24, i1 false)
+  store i64 1, ptr %76, align 8, !tbaa !50
+  %77 = getelementptr inbounds i8, ptr %63, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %73, i8 0, i64 24, i1 false)
-  store i64 1, ptr %75, align 8, !tbaa !50
-  %76 = getelementptr inbounds i8, ptr %62, i64 192
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, i8 0, i64 16, i1 false)
-  %77 = getelementptr inbounds i8, ptr %62, i64 240
-  %78 = getelementptr inbounds i8, ptr %62, i64 296
-  %79 = getelementptr inbounds i8, ptr %62, i64 264
-  store i64 0, ptr %79, align 8, !tbaa !49
-  %80 = getelementptr inbounds i8, ptr %62, i64 288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  %78 = getelementptr inbounds i8, ptr %63, i64 240
+  %79 = getelementptr inbounds i8, ptr %63, i64 296
+  %80 = getelementptr inbounds i8, ptr %63, i64 264
+  store i64 0, ptr %80, align 8, !tbaa !49
+  %81 = getelementptr inbounds i8, ptr %63, i64 288
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, i8 0, i64 24, i1 false)
+  store i64 1, ptr %81, align 8, !tbaa !50
+  %82 = getelementptr inbounds i8, ptr %63, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %78, i8 0, i64 24, i1 false)
-  store i64 1, ptr %80, align 8, !tbaa !50
-  %81 = getelementptr inbounds i8, ptr %62, i64 272
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %77, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
-  %82 = getelementptr inbounds i8, ptr %62, i64 320
-  %83 = getelementptr inbounds i8, ptr %62, i64 376
-  %84 = getelementptr inbounds i8, ptr %62, i64 344
-  store i64 0, ptr %84, align 8, !tbaa !49
-  %85 = getelementptr inbounds i8, ptr %62, i64 368
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
+  %83 = getelementptr inbounds i8, ptr %63, i64 320
+  %84 = getelementptr inbounds i8, ptr %63, i64 376
+  %85 = getelementptr inbounds i8, ptr %63, i64 344
+  store i64 0, ptr %85, align 8, !tbaa !49
+  %86 = getelementptr inbounds i8, ptr %63, i64 368
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %84, i8 0, i64 24, i1 false)
+  store i64 1, ptr %86, align 8, !tbaa !50
+  %87 = getelementptr inbounds i8, ptr %63, i64 352
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %83, i8 0, i64 24, i1 false)
-  store i64 1, ptr %85, align 8, !tbaa !50
-  %86 = getelementptr inbounds i8, ptr %62, i64 352
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
-  %87 = getelementptr inbounds i8, ptr %62, i64 400
-  %88 = getelementptr inbounds i8, ptr %62, i64 456
-  %89 = getelementptr inbounds i8, ptr %62, i64 424
-  store i64 0, ptr %89, align 8, !tbaa !49
-  %90 = getelementptr inbounds i8, ptr %62, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %87, i8 0, i64 16, i1 false)
+  %88 = getelementptr inbounds i8, ptr %63, i64 400
+  %89 = getelementptr inbounds i8, ptr %63, i64 456
+  %90 = getelementptr inbounds i8, ptr %63, i64 424
+  store i64 0, ptr %90, align 8, !tbaa !49
+  %91 = getelementptr inbounds i8, ptr %63, i64 448
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
+  store i64 1, ptr %91, align 8, !tbaa !50
+  %92 = getelementptr inbounds i8, ptr %63, i64 432
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %88, i8 0, i64 24, i1 false)
-  store i64 1, ptr %90, align 8, !tbaa !50
-  %91 = getelementptr inbounds i8, ptr %62, i64 432
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %87, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %91, i8 0, i64 16, i1 false)
-  %92 = getelementptr inbounds i8, ptr %62, i64 480
-  %93 = getelementptr inbounds i8, ptr %62, i64 536
-  %94 = getelementptr inbounds i8, ptr %62, i64 504
-  store i64 0, ptr %94, align 8, !tbaa !49
-  %95 = getelementptr inbounds i8, ptr %62, i64 528
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %92, i8 0, i64 16, i1 false)
+  %93 = getelementptr inbounds i8, ptr %63, i64 480
+  %94 = getelementptr inbounds i8, ptr %63, i64 536
+  %95 = getelementptr inbounds i8, ptr %63, i64 504
+  store i64 0, ptr %95, align 8, !tbaa !49
+  %96 = getelementptr inbounds i8, ptr %63, i64 528
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %94, i8 0, i64 24, i1 false)
+  store i64 1, ptr %96, align 8, !tbaa !50
+  %97 = getelementptr inbounds i8, ptr %63, i64 512
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %93, i8 0, i64 24, i1 false)
-  store i64 1, ptr %95, align 8, !tbaa !50
-  %96 = getelementptr inbounds i8, ptr %62, i64 512
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %92, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
-  %97 = getelementptr inbounds i8, ptr %62, i64 560
-  %98 = getelementptr inbounds i8, ptr %62, i64 616
-  %99 = getelementptr inbounds i8, ptr %62, i64 584
-  store i64 0, ptr %99, align 8, !tbaa !49
-  %100 = getelementptr inbounds i8, ptr %62, i64 608
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
+  %98 = getelementptr inbounds i8, ptr %63, i64 560
+  %99 = getelementptr inbounds i8, ptr %63, i64 616
+  %100 = getelementptr inbounds i8, ptr %63, i64 584
+  store i64 0, ptr %100, align 8, !tbaa !49
+  %101 = getelementptr inbounds i8, ptr %63, i64 608
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %99, i8 0, i64 24, i1 false)
+  store i64 1, ptr %101, align 8, !tbaa !50
+  %102 = getelementptr inbounds i8, ptr %63, i64 592
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %98, i8 0, i64 24, i1 false)
-  store i64 1, ptr %100, align 8, !tbaa !50
-  %101 = getelementptr inbounds i8, ptr %62, i64 592
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %97, i8 0, i64 24, i1 false)
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  %102 = getelementptr inbounds i8, ptr %62, i64 640
-  %103 = icmp eq ptr %102, %45
-  br i1 %103, label %.loopexit1, label %.preheader
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %102, i8 0, i64 16, i1 false)
+  %103 = getelementptr inbounds i8, ptr %63, i64 640
+  %104 = icmp eq ptr %103, %45
+  br i1 %104, label %.loopexit1, label %.preheader
 
 .loopexit1:                                       ; preds = %.preheader, %.loopexit3
-  %104 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %40, ptr %104, align 8, !tbaa !48
-  br label %105
+  %105 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %40, ptr %105, align 8, !tbaa !48
+  br label %106
 
-.loopexit:                                        ; preds = %105, %42
+.loopexit:                                        ; preds = %106, %42
   ret void
 
-105:                                              ; preds = %.loopexit1, %105
-  %106 = phi i64 [ %112, %105 ], [ %2, %.loopexit1 ]
-  %107 = phi i64 [ %111, %105 ], [ 0, %.loopexit1 ]
-  %108 = load ptr, ptr %104, align 8, !tbaa !48
-  %109 = getelementptr inbounds %class.HashTablePermutohedral, ptr %108, i64 %107
-  %110 = udiv i64 %33, %106
-  tail call void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %109, i64 noundef %110)
-  %111 = add nuw i64 %107, 1
-  %112 = load i64, ptr %5, align 8, !tbaa !44
-  %113 = icmp ult i64 %111, %112
-  br i1 %113, label %105, label %.loopexit, !llvm.loop !53
+106:                                              ; preds = %.loopexit1, %106
+  %107 = phi i64 [ %113, %106 ], [ %2, %.loopexit1 ]
+  %108 = phi i64 [ %112, %106 ], [ 0, %.loopexit1 ]
+  %109 = load ptr, ptr %105, align 8, !tbaa !48
+  %110 = getelementptr inbounds %class.HashTablePermutohedral, ptr %109, i64 %108
+  %111 = udiv i64 %33, %107
+  tail call void @_ZN22HashTablePermutohedralILi3ELi2EE7setSizeEm(ptr noundef nonnull align 8 dereferenceable(80) %110, i64 noundef %111)
+  %112 = add nuw i64 %108, 1
+  %113 = load i64, ptr %5, align 8, !tbaa !44
+  %114 = icmp ult i64 %112, %113
+  br i1 %114, label %106, label %.loopexit, !llvm.loop !53
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)

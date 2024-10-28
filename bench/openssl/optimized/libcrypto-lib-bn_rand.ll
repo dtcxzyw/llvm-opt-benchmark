@@ -132,46 +132,47 @@ if.then66:                                        ; preds = %if.end63
   br i1 %tobool.not, label %if.else83, label %if.then67
 
 if.then67:                                        ; preds = %if.then66
-  %cmp68 = icmp eq i32 %rem, 0
+  %3 = and i32 %bits, 7
+  %cmp68 = icmp eq i32 %3, 1
   br i1 %cmp68, label %if.then70, label %if.else75
 
 if.then70:                                        ; preds = %if.then67
   %arrayidx72 = getelementptr inbounds i8, ptr %call12, i64 1
-  %3 = load i8, ptr %arrayidx72, align 1
-  %4 = or i8 %3, -128
-  store i8 %4, ptr %arrayidx72, align 1
+  %4 = load i8, ptr %arrayidx72, align 1
+  %5 = or i8 %4, -128
+  store i8 %5, ptr %arrayidx72, align 1
   br label %if.end90
 
 if.else75:                                        ; preds = %if.then67
   %sub76 = add nsw i32 %rem, -1
   %shl77 = shl nuw nsw i32 3, %sub76
-  %5 = load i8, ptr %call12, align 1
-  %6 = trunc i32 %shl77 to i8
-  %conv81 = or i8 %5, %6
+  %6 = load i8, ptr %call12, align 1
+  %7 = trunc i32 %shl77 to i8
+  %conv81 = or i8 %6, %7
   br label %if.end90
 
 if.else83:                                        ; preds = %if.then66
   %shl84 = shl nuw nsw i32 1, %rem
-  %7 = load i8, ptr %call12, align 1
-  %8 = trunc nuw i32 %shl84 to i8
-  %conv88 = or i8 %7, %8
+  %8 = load i8, ptr %call12, align 1
+  %9 = trunc nuw i32 %shl84 to i8
+  %conv88 = or i8 %8, %9
   br label %if.end90
 
 if.end90:                                         ; preds = %if.end63.if.end90_crit_edge, %if.else83, %if.else75, %if.then70
-  %9 = phi i8 [ %.pre, %if.end63.if.end90_crit_edge ], [ %conv88, %if.else83 ], [ %conv81, %if.else75 ], [ 1, %if.then70 ]
-  %10 = trunc i32 %shl to i8
-  %11 = xor i8 %10, -1
-  %conv93 = and i8 %9, %11
+  %10 = phi i8 [ %.pre, %if.end63.if.end90_crit_edge ], [ %conv88, %if.else83 ], [ %conv81, %if.else75 ], [ 1, %if.then70 ]
+  %11 = trunc i32 %shl to i8
+  %12 = xor i8 %11, -1
+  %conv93 = and i8 %10, %12
   store i8 %conv93, ptr %call12, align 1
   %tobool94.not = icmp eq i32 %bottom, 0
   br i1 %tobool94.not, label %if.end102, label %if.then95
 
 if.then95:                                        ; preds = %if.end90
-  %12 = getelementptr i8, ptr %call12, i64 %conv
-  %arrayidx98 = getelementptr i8, ptr %12, i64 -1
-  %13 = load i8, ptr %arrayidx98, align 1
-  %14 = or i8 %13, 1
-  store i8 %14, ptr %arrayidx98, align 1
+  %13 = getelementptr i8, ptr %call12, i64 %conv
+  %arrayidx98 = getelementptr i8, ptr %13, i64 -1
+  %14 = load i8, ptr %arrayidx98, align 1
+  %15 = or i8 %14, 1
+  store i8 %15, ptr %arrayidx98, align 1
   br label %if.end102
 
 if.end102:                                        ; preds = %if.then95, %if.end90

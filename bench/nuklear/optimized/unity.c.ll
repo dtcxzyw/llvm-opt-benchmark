@@ -51140,13 +51140,13 @@ if.end23.i:                                       ; preds = %if.then21.i, %if.en
   store i32 %3, ptr %index8.i, align 4
   %.pre = load <4 x float>, ptr %bounds, align 16
   %9 = extractelement <4 x float> %.pre, i64 1
+  %10 = shufflevector <4 x float> %.pre, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   br label %nk_layout_peek.exit
 
 nk_layout_peek.exit:                              ; preds = %lor.lhs.false2.i, %if.end23.i
-  %10 = phi float [ %9, %if.end23.i ], [ 0.000000e+00, %lor.lhs.false2.i ]
-  %11 = phi <4 x float> [ %.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
-  %retval.sroa.0.0.vec.insert.i = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %10, i64 1
+  %11 = phi float [ %9, %if.end23.i ], [ 0.000000e+00, %lor.lhs.false2.i ]
+  %retval.sroa.0.0.vec.insert.i = phi <2 x float> [ %10, %if.end23.i ], [ <float 0.000000e+00, float undef>, %lor.lhs.false2.i ]
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %11, i64 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %nk_layout_peek.exit
@@ -51210,13 +51210,13 @@ if.end23.i:                                       ; preds = %if.then21.i, %if.en
   store i32 %3, ptr %index8.i, align 4
   %.pre = load <4 x float>, ptr %bounds, align 16
   %9 = extractelement <4 x float> %.pre, i64 3
+  %10 = shufflevector <4 x float> %.pre, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
   br label %nk_layout_peek.exit
 
 nk_layout_peek.exit:                              ; preds = %lor.lhs.false2.i, %if.end23.i
-  %10 = phi float [ %9, %if.end23.i ], [ 0.000000e+00, %lor.lhs.false2.i ]
-  %11 = phi <4 x float> [ %.pre, %if.end23.i ], [ zeroinitializer, %lor.lhs.false2.i ]
-  %retval.sroa.0.0.vec.insert.i = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 2, i32 poison>
-  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %10, i64 1
+  %11 = phi float [ %9, %if.end23.i ], [ 0.000000e+00, %lor.lhs.false2.i ]
+  %retval.sroa.0.0.vec.insert.i = phi <2 x float> [ %10, %if.end23.i ], [ <float 0.000000e+00, float undef>, %lor.lhs.false2.i ]
+  %retval.sroa.0.4.vec.insert.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i, float %11, i64 1
   br label %return
 
 return:                                           ; preds = %entry, %lor.lhs.false, %nk_layout_peek.exit

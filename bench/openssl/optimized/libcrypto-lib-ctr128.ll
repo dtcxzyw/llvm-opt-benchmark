@@ -40,10 +40,11 @@ while.body:                                       ; preds = %entry, %while.body
   %dec = add i64 %len.addr.049, -1
   %add = add i32 %n.051, 1
   %rem = and i32 %add, 15
-  %tobool = icmp ne i32 %rem, 0
+  %4 = and i32 %n.051, 15
+  %tobool = icmp ne i32 %4, 15
   %tobool1 = icmp ne i64 %dec, 0
-  %4 = select i1 %tobool, i1 %tobool1, i1 false
-  br i1 %4, label %while.body, label %while.cond5.preheader, !llvm.loop !4
+  %5 = select i1 %tobool, i1 %tobool1, i1 false
+  br i1 %5, label %while.body, label %while.cond5.preheader, !llvm.loop !4
 
 while.body7:                                      ; preds = %while.body7.preheader, %for.body
   %in.addr.160 = phi ptr [ %add.ptr19, %for.body ], [ %in.addr.0.lcssa, %while.body7.preheader ]
@@ -57,8 +58,8 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %while
   %c.0.i.i = phi i32 [ %shr.i.i, %do.body.i.i ], [ 1, %while.body7 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %arrayidx.i.i = getelementptr inbounds i8, ptr %ivec, i64 %indvars.iv.next.i.i
-  %5 = load i8, ptr %arrayidx.i.i, align 1
-  %conv.i.i = zext i8 %5 to i32
+  %6 = load i8, ptr %arrayidx.i.i, align 1
+  %conv.i.i = zext i8 %6 to i32
   %add.i.i = add nuw nsw i32 %c.0.i.i, %conv.i.i
   %conv1.i.i = trunc i32 %add.i.i to i8
   store i8 %conv1.i.i, ptr %arrayidx.i.i, align 1
@@ -67,14 +68,14 @@ do.body.i.i:                                      ; preds = %do.body.i.i, %while
   br i1 %tobool.not.i.i, label %for.body, label %do.body.i.i, !llvm.loop !6
 
 for.body:                                         ; preds = %do.body.i.i
-  %6 = load i64, ptr %in.addr.160, align 1
-  %7 = load i64, ptr %ecount_buf, align 1
-  %xor12 = xor i64 %7, %6
+  %7 = load i64, ptr %in.addr.160, align 1
+  %8 = load i64, ptr %ecount_buf, align 1
+  %xor12 = xor i64 %8, %7
   store i64 %xor12, ptr %out.addr.159, align 1
   %add.ptr.c = getelementptr inbounds i8, ptr %in.addr.160, i64 8
-  %8 = load i64, ptr %add.ptr.c, align 1
-  %9 = load i64, ptr %add.ptr11.c, align 1
-  %xor12.c = xor i64 %9, %8
+  %9 = load i64, ptr %add.ptr.c, align 1
+  %10 = load i64, ptr %add.ptr11.c, align 1
+  %xor12.c = xor i64 %10, %9
   %add.ptr14.c = getelementptr inbounds i8, ptr %out.addr.159, i64 8
   store i64 %xor12.c, ptr %add.ptr14.c, align 1
   %sub = add i64 %len.addr.158, -16
@@ -100,8 +101,8 @@ do.body.i.i36:                                    ; preds = %do.body.i.i36, %if.
   %c.0.i.i38 = phi i32 [ %shr.i.i44, %do.body.i.i36 ], [ 1, %if.then ]
   %indvars.iv.next.i.i39 = add nsw i64 %indvars.iv.i.i37, -1
   %arrayidx.i.i40 = getelementptr inbounds i8, ptr %ivec, i64 %indvars.iv.next.i.i39
-  %10 = load i8, ptr %arrayidx.i.i40, align 1
-  %conv.i.i41 = zext i8 %10 to i32
+  %11 = load i8, ptr %arrayidx.i.i40, align 1
+  %conv.i.i41 = zext i8 %11 to i32
   %add.i.i42 = add nuw nsw i32 %c.0.i.i38, %conv.i.i41
   %conv1.i.i43 = trunc i32 %add.i.i42 to i8
   store i8 %conv1.i.i43, ptr %arrayidx.i.i40, align 1
@@ -115,10 +116,10 @@ while.body25:                                     ; preds = %do.body.i.i36, %whi
   %dec23 = add i64 %len.addr.265, -1
   %idxprom26 = zext i32 %n.466 to i64
   %arrayidx27 = getelementptr inbounds i8, ptr %in.addr.1.lcssa, i64 %idxprom26
-  %11 = load i8, ptr %arrayidx27, align 1
+  %12 = load i8, ptr %arrayidx27, align 1
   %arrayidx30 = getelementptr inbounds i8, ptr %ecount_buf, i64 %idxprom26
-  %12 = load i8, ptr %arrayidx30, align 1
-  %xor3234 = xor i8 %12, %11
+  %13 = load i8, ptr %arrayidx30, align 1
+  %xor3234 = xor i8 %13, %12
   %arrayidx35 = getelementptr inbounds i8, ptr %out.addr.1.lcssa, i64 %idxprom26
   store i8 %xor3234, ptr %arrayidx35, align 1
   %inc = add i32 %n.466, 1
@@ -156,10 +157,11 @@ while.body:                                       ; preds = %entry, %while.body
   %dec = add i64 %len.addr.069, -1
   %add = add i32 %n.068, 1
   %rem = and i32 %add, 15
-  %tobool = icmp ne i32 %rem, 0
+  %4 = and i32 %n.068, 15
+  %tobool = icmp ne i32 %4, 15
   %tobool1 = icmp ne i64 %dec, 0
-  %4 = select i1 %tobool, i1 %tobool1, i1 false
-  br i1 %4, label %while.body, label %while.end, !llvm.loop !9
+  %5 = select i1 %tobool, i1 %tobool1, i1 false
+  br i1 %5, label %while.body, label %while.end, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %entry
   %n.0.lcssa = phi i32 [ %0, %entry ], [ %rem, %while.body ]
@@ -167,8 +169,8 @@ while.end:                                        ; preds = %while.body, %entry
   %out.addr.0.lcssa = phi ptr [ %out, %entry ], [ %incdec.ptr4, %while.body ]
   %in.addr.0.lcssa = phi ptr [ %in, %entry ], [ %incdec.ptr, %while.body ]
   %add.ptr = getelementptr inbounds i8, ptr %ivec, i64 12
-  %5 = load i32, ptr %add.ptr, align 4
-  %6 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %5) #4, !srcloc !10
+  %6 = load i32, ptr %add.ptr, align 4
+  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %6) #4, !srcloc !10
   %cmp75 = icmp ugt i64 %len.addr.0.lcssa, 15
   br i1 %cmp75, label %while.body7, label %while.end28
 
@@ -176,7 +178,7 @@ while.body7:                                      ; preds = %while.end, %if.end2
   %in.addr.179 = phi ptr [ %add.ptr27, %if.end24 ], [ %in.addr.0.lcssa, %while.end ]
   %out.addr.178 = phi ptr [ %add.ptr26, %if.end24 ], [ %out.addr.0.lcssa, %while.end ]
   %len.addr.177 = phi i64 [ %sub25, %if.end24 ], [ %len.addr.0.lcssa, %while.end ]
-  %ctr32.076 = phi i32 [ %spec.select, %if.end24 ], [ %6, %while.end ]
+  %ctr32.076 = phi i32 [ %spec.select, %if.end24 ], [ %7, %while.end ]
   %div52 = lshr i64 %len.addr.177, 4
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %div52, i64 268435456)
   %conv10 = trunc nuw nsw i64 %spec.store.select to i32
@@ -187,8 +189,8 @@ while.body7:                                      ; preds = %while.end, %if.end2
   %sub = select i1 %cmp13, i64 %conv12, i64 0
   %spec.select54 = sub nuw nsw i64 %spec.store.select, %sub
   tail call void %func(ptr noundef %in.addr.179, ptr noundef %out.addr.178, i64 noundef %spec.select54, ptr noundef %key, ptr noundef nonnull %ivec) #3
-  %7 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %spec.select) #4, !srcloc !11
-  store i32 %7, ptr %add.ptr, align 4
+  %8 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %spec.select) #4, !srcloc !11
+  store i32 %8, ptr %add.ptr, align 4
   %cmp21 = icmp eq i32 %spec.select, 0
   br i1 %cmp21, label %do.body.i, label %if.end24
 
@@ -197,8 +199,8 @@ do.body.i:                                        ; preds = %while.body7, %do.bo
   %c.0.i = phi i32 [ %shr.i, %do.body.i ], [ 1, %while.body7 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %arrayidx.i = getelementptr inbounds i8, ptr %ivec, i64 %indvars.iv.next.i
-  %8 = load i8, ptr %arrayidx.i, align 1
-  %conv.i = zext i8 %8 to i32
+  %9 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %9 to i32
   %add.i = add nuw nsw i32 %c.0.i, %conv.i
   %conv1.i = trunc i32 %add.i to i8
   store i8 %conv1.i, ptr %arrayidx.i, align 1
@@ -215,7 +217,7 @@ if.end24:                                         ; preds = %do.body.i, %while.b
   br i1 %cmp, label %while.body7, label %while.end28, !llvm.loop !13
 
 while.end28:                                      ; preds = %if.end24, %while.end
-  %ctr32.0.lcssa = phi i32 [ %6, %while.end ], [ %spec.select, %if.end24 ]
+  %ctr32.0.lcssa = phi i32 [ %7, %while.end ], [ %spec.select, %if.end24 ]
   %len.addr.1.lcssa = phi i64 [ %len.addr.0.lcssa, %while.end ], [ %sub25, %if.end24 ]
   %out.addr.1.lcssa = phi ptr [ %out.addr.0.lcssa, %while.end ], [ %add.ptr26, %if.end24 ]
   %in.addr.1.lcssa = phi ptr [ %in.addr.0.lcssa, %while.end ], [ %add.ptr27, %if.end24 ]
@@ -226,8 +228,8 @@ if.then30:                                        ; preds = %while.end28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %ecount_buf, i8 0, i64 16, i1 false)
   tail call void %func(ptr noundef %ecount_buf, ptr noundef %ecount_buf, i64 noundef 1, ptr noundef %key, ptr noundef nonnull %ivec) #3
   %inc = add i32 %ctr32.0.lcssa, 1
-  %9 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %inc) #4, !srcloc !14
-  store i32 %9, ptr %add.ptr, align 4
+  %10 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %inc) #4, !srcloc !14
+  store i32 %10, ptr %add.ptr, align 4
   %cmp34 = icmp eq i32 %inc, 0
   br i1 %cmp34, label %do.body.i55, label %while.body41.preheader
 
@@ -236,8 +238,8 @@ do.body.i55:                                      ; preds = %if.then30, %do.body
   %c.0.i57 = phi i32 [ %shr.i63, %do.body.i55 ], [ 1, %if.then30 ]
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i56, -1
   %arrayidx.i59 = getelementptr inbounds i8, ptr %ivec, i64 %indvars.iv.next.i58
-  %10 = load i8, ptr %arrayidx.i59, align 1
-  %conv.i60 = zext i8 %10 to i32
+  %11 = load i8, ptr %arrayidx.i59, align 1
+  %conv.i60 = zext i8 %11 to i32
   %add.i61 = add nuw nsw i32 %c.0.i57, %conv.i60
   %conv1.i62 = trunc i32 %add.i61 to i8
   store i8 %conv1.i62, ptr %arrayidx.i59, align 1
@@ -254,10 +256,10 @@ while.body41:                                     ; preds = %while.body41.prehea
   %dec39 = add i64 %len.addr.285, -1
   %idxprom42 = zext i32 %n.284 to i64
   %arrayidx43 = getelementptr inbounds i8, ptr %in.addr.1.lcssa, i64 %idxprom42
-  %11 = load i8, ptr %arrayidx43, align 1
+  %12 = load i8, ptr %arrayidx43, align 1
   %arrayidx46 = getelementptr inbounds i8, ptr %ecount_buf, i64 %idxprom42
-  %12 = load i8, ptr %arrayidx46, align 1
-  %xor4851 = xor i8 %12, %11
+  %13 = load i8, ptr %arrayidx46, align 1
+  %xor4851 = xor i8 %13, %12
   %arrayidx51 = getelementptr inbounds i8, ptr %out.addr.1.lcssa, i64 %idxprom42
   store i8 %xor4851, ptr %arrayidx51, align 1
   %inc52 = add i32 %n.284, 1

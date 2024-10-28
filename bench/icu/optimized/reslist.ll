@@ -2424,28 +2424,29 @@ if.end:                                           ; preds = %if.else, %if.then
 define dso_local void @_ZN14BinaryResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
 entry:
   %0 = load i32, ptr %byteOffset, align 4
-  %add = add i32 %0, 4
-  %rem = and i32 %add, 15
-  %tobool.not = icmp eq i32 %rem, 0
+  %1 = and i32 %0, 15
+  %tobool.not = icmp eq i32 %1, 12
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %add = add i32 %0, 4
+  %rem = and i32 %add, 15
   %reass.sub = add i32 %0, 16
   %add4 = sub i32 %reass.sub, %rem
   store i32 %add4, ptr %byteOffset, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %1 = phi i32 [ %add4, %if.then ], [ %0, %entry ]
-  %shr = lshr i32 %1, 2
+  %2 = phi i32 [ %add4, %if.then ], [ %0, %entry ]
+  %shr = lshr i32 %2, 2
   %or = or i32 %shr, 268435456
   %fRes = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %or, ptr %fRes, align 4
   %fLength = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %fLength, align 8
-  %add5 = add i32 %2, 4
-  %3 = load i32, ptr %byteOffset, align 4
-  %add6 = add i32 %add5, %3
+  %3 = load i32, ptr %fLength, align 8
+  %add5 = add i32 %3, 4
+  %4 = load i32, ptr %byteOffset, align 4
+  %add6 = add i32 %add5, %4
   store i32 %add6, ptr %byteOffset, align 4
   ret void
 }
@@ -2924,39 +2925,40 @@ for.end:                                          ; preds = %for.end.loopexit, %
 define dso_local void @_ZN14BinaryResource11handleWriteEP14UNewDataMemoryPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %mem, ptr nocapture noundef %byteOffset) unnamed_addr #7 align 2 {
 entry:
   %0 = load i32, ptr %byteOffset, align 4
-  %add = add i32 %0, 4
-  %rem = and i32 %add, 15
-  %tobool.not = icmp eq i32 %rem, 0
+  %1 = and i32 %0, 15
+  %tobool.not = icmp eq i32 %1, 12
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
+  %add = add i32 %0, 4
+  %rem = and i32 %add, 15
   %sub = sub nuw nsw i32 16, %rem
   tail call void @udata_writePadding(ptr noundef %mem, i32 noundef %sub)
-  %1 = load i32, ptr %byteOffset, align 4
-  %add4 = add i32 %1, %sub
+  %2 = load i32, ptr %byteOffset, align 4
+  %add4 = add i32 %2, %sub
   store i32 %add4, ptr %byteOffset, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
   %fLength = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i32, ptr %fLength, align 8
-  tail call void @udata_write32(ptr noundef %mem, i32 noundef %2)
   %3 = load i32, ptr %fLength, align 8
-  %cmp.not = icmp eq i32 %3, 0
+  tail call void @udata_write32(ptr noundef %mem, i32 noundef %3)
+  %4 = load i32, ptr %fLength, align 8
+  %cmp.not = icmp eq i32 %4, 0
   br i1 %cmp.not, label %if.end8, label %if.then6
 
 if.then6:                                         ; preds = %if.end
   %fData = getelementptr inbounds i8, ptr %this, i64 64
-  %4 = load ptr, ptr %fData, align 8
-  tail call void @udata_writeBlock(ptr noundef %mem, ptr noundef %4, i32 noundef %3)
+  %5 = load ptr, ptr %fData, align 8
+  tail call void @udata_writeBlock(ptr noundef %mem, ptr noundef %5, i32 noundef %4)
   %.pre = load i32, ptr %fLength, align 8
-  %5 = add i32 %.pre, 4
+  %6 = add i32 %.pre, 4
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.end
-  %add10 = phi i32 [ %5, %if.then6 ], [ 4, %if.end ]
-  %6 = load i32, ptr %byteOffset, align 4
-  %add11 = add i32 %add10, %6
+  %add10 = phi i32 [ %6, %if.then6 ], [ 4, %if.end ]
+  %7 = load i32, ptr %byteOffset, align 4
+  %add11 = add i32 %add10, %7
   store i32 %add11, ptr %byteOffset, align 4
   ret void
 }

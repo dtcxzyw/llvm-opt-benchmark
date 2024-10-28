@@ -107,11 +107,11 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   store i32 -2, ptr @gmlchar, align 4
   br label %5
 
-3:                                                ; preds = %._crit_edge, %385, %71
-  %.1186 = phi ptr [ %405, %._crit_edge ], [ %365, %385 ], [ %72, %71 ]
-  %.1173 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %364, %385 ], [ %.2174, %71 ]
-  %.1165 = phi i32 [ 3, %._crit_edge ], [ %.0164, %385 ], [ %spec.select, %71 ]
-  %.1 = phi i32 [ 1, %._crit_edge ], [ %386, %385 ], [ %67, %71 ]
+3:                                                ; preds = %415, %385, %71
+  %.1186 = phi ptr [ %417, %415 ], [ %365, %385 ], [ %72, %71 ]
+  %.1173 = phi ptr [ %.4, %415 ], [ %364, %385 ], [ %.2174, %71 ]
+  %.1165 = phi i32 [ 3, %415 ], [ %.0164, %385 ], [ %spec.select, %71 ]
+  %.1 = phi i32 [ %416, %415 ], [ %386, %385 ], [ %67, %71 ]
   %4 = getelementptr inbounds i8, ptr %.1173, i64 1
   br label %5
 
@@ -136,7 +136,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %12 = sub i64 %10, %11
   %13 = add nsw i64 %12, 1
   %14 = icmp sgt i64 %.0167, 9999
-  br i1 %14, label %407, label %15
+  br i1 %14, label %419, label %15
 
 15:                                               ; preds = %9
   %16 = shl nsw i64 %.0167, 1
@@ -145,7 +145,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
   %18 = add nsw i64 %17, 7
   %19 = call noalias ptr @malloc(i64 noundef %18) #19
   %.not208 = icmp eq ptr %19, null
-  br i1 %.not208, label %407, label %20
+  br i1 %.not208, label %419, label %20
 
 20:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0169, i64 %13, i1 false)
@@ -210,7 +210,7 @@ define dso_local range(i32 0, 3) i32 @gmlparse() local_unnamed_addr #0 {
 
 49:                                               ; preds = %47
   store i32 257, ptr @gmlchar, align 4
-  br label %397
+  br label %.preheader
 
 50:                                               ; preds = %47
   %51 = icmp ult i32 %44, 290
@@ -875,7 +875,7 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
 
 387:                                              ; preds = %74
   %388 = load i32, ptr @gmlchar, align 4
-  switch i32 %.0164, label %397 [
+  switch i32 %.0164, label %.preheader [
     i32 0, label %389
     i32 3, label %392
   ]
@@ -885,7 +885,7 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
   %391 = add nsw i32 %390, 1
   store i32 %391, ptr @gmlnerrs, align 4
   call void @gmlerror(ptr noundef nonnull @.str.2) #20
-  br label %397
+  br label %.preheader
 
 392:                                              ; preds = %387
   %393 = icmp slt i32 %388, 1
@@ -893,54 +893,72 @@ setDir.exit.thread:                               ; preds = %143, %.preheader.i,
 
 394:                                              ; preds = %392
   %395 = icmp eq i32 %388, 0
-  br i1 %395, label %.loopexit238, label %397
+  br i1 %395, label %.loopexit238, label %.preheader
 
 396:                                              ; preds = %392
   store i32 -2, ptr @gmlchar, align 4
+  br label %.preheader
+
+.preheader:                                       ; preds = %389, %387, %394, %396, %49
   br label %397
 
-397:                                              ; preds = %389, %387, %394, %396, %49
-  %398 = icmp eq i32 %.0, 0
-  br i1 %398, label %._crit_edge, label %.lr.ph
+397:                                              ; preds = %.preheader, %411
+  %398 = phi i16 [ %.pre, %411 ], [ %35, %.preheader ]
+  %.4189 = phi ptr [ %412, %411 ], [ %.2187, %.preheader ]
+  %.4 = phi ptr [ %413, %411 ], [ %.2174, %.preheader ]
+  %399 = icmp sgt i16 %398, -2
+  br i1 %399, label %400, label %409
 
-.lr.ph:                                           ; preds = %397, %400
-  %.4410 = phi ptr [ %402, %400 ], [ %.2174, %397 ]
-  %.4189409 = phi ptr [ %401, %400 ], [ %.2187, %397 ]
-  %399 = icmp eq ptr %.4410, %.1170
-  br i1 %399, label %.loopexit238, label %400
+400:                                              ; preds = %397
+  %401 = sext i16 %398 to i64
+  %402 = and i64 %401, 4294967295
+  %403 = icmp eq i64 %402, 1
+  br i1 %403, label %404, label %409
 
-400:                                              ; preds = %.lr.ph
-  %401 = getelementptr inbounds i8, ptr %.4189409, i64 -8
-  %402 = getelementptr inbounds i8, ptr %.4410, i64 -1
-  %403 = load i8, ptr %402, align 1
-  %404 = icmp eq i8 %403, 0
-  br i1 %404, label %._crit_edge, label %.lr.ph
+404:                                              ; preds = %400
+  %405 = add nuw nsw i64 %401, 1
+  %406 = getelementptr inbounds [227 x i8], ptr @yytable, i64 0, i64 %405
+  %407 = load i8, ptr %406, align 1
+  %408 = icmp sgt i8 %407, 0
+  br i1 %408, label %415, label %409
 
-._crit_edge:                                      ; preds = %400, %397
-  %.4189.lcssa = phi ptr [ %.2187, %397 ], [ %401, %400 ]
-  %.4.lcssa = phi ptr [ %.2174, %397 ], [ %402, %400 ]
-  %405 = getelementptr inbounds i8, ptr %.4189.lcssa, i64 8
-  %406 = load i64, ptr @gmllval, align 8
-  store i64 %406, ptr %405, align 8
+409:                                              ; preds = %400, %404, %397
+  %410 = icmp eq ptr %.4, %.1170
+  br i1 %410, label %.loopexit238, label %411
+
+411:                                              ; preds = %409
+  %412 = getelementptr inbounds i8, ptr %.4189, i64 -8
+  %413 = getelementptr inbounds i8, ptr %.4, i64 -1
+  %414 = load i8, ptr %413, align 1
+  %.phi.trans.insert = sext i8 %414 to i64
+  %.phi.trans.insert352 = getelementptr inbounds [102 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert352, align 2
+  br label %397
+
+415:                                              ; preds = %404
+  %416 = zext nneg i8 %407 to i32
+  %417 = getelementptr inbounds i8, ptr %.4189, i64 8
+  %418 = load i64, ptr @gmllval, align 8
+  store i64 %418, ptr %417, align 8
   br label %3
 
-407:                                              ; preds = %15, %9
+419:                                              ; preds = %15, %9
   call void @gmlerror(ptr noundef nonnull @.str.5) #20
   br label %.loopexit238
 
-.loopexit238:                                     ; preds = %30, %394, %.lr.ph, %91, %setDir.exit, %407
-  %.0183 = phi i32 [ 2, %407 ], [ 1, %setDir.exit ], [ 1, %91 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %394 ]
-  %.3 = phi ptr [ %.0169, %407 ], [ %.1170, %setDir.exit ], [ %.1170, %91 ], [ %.1170, %.lr.ph ], [ %.1170, %394 ], [ %.1170, %30 ]
+.loopexit238:                                     ; preds = %30, %394, %409, %91, %setDir.exit, %419
+  %.0183 = phi i32 [ 2, %419 ], [ 1, %setDir.exit ], [ 1, %91 ], [ 1, %409 ], [ 0, %30 ], [ 1, %394 ]
+  %.3 = phi ptr [ %.0169, %419 ], [ %.1170, %setDir.exit ], [ %.1170, %91 ], [ %.1170, %409 ], [ %.1170, %394 ], [ %.1170, %30 ]
   %.not218 = icmp eq ptr %.3, %1
-  br i1 %.not218, label %408, label %.loopexit238.thread
+  br i1 %.not218, label %420, label %.loopexit238.thread
 
 .loopexit238.thread:                              ; preds = %26, %.loopexit238
   %.3358 = phi ptr [ %.3, %.loopexit238 ], [ %19, %26 ]
   %.0183356 = phi i32 [ %.0183, %.loopexit238 ], [ 1, %26 ]
   call void @free(ptr noundef %.3358) #20
-  br label %408
+  br label %420
 
-408:                                              ; preds = %.loopexit238.thread, %.loopexit238
+420:                                              ; preds = %.loopexit238.thread, %.loopexit238
   %.0183357 = phi i32 [ %.0183356, %.loopexit238.thread ], [ %.0183, %.loopexit238 ]
   ret i32 %.0183357
 }

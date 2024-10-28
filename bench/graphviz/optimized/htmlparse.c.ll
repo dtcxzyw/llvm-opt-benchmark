@@ -55,11 +55,11 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   store i32 -2, ptr @htmlchar, align 4
   br label %5
 
-3:                                                ; preds = %._crit_edge, %432, %71
-  %.1191 = phi ptr [ %452, %._crit_edge ], [ %412, %432 ], [ %72, %71 ]
-  %.1178 = phi ptr [ %.4.lcssa, %._crit_edge ], [ %411, %432 ], [ %.2179, %71 ]
-  %.1170 = phi i32 [ 3, %._crit_edge ], [ %.0169, %432 ], [ %spec.select, %71 ]
-  %.1 = phi i32 [ 1, %._crit_edge ], [ %433, %432 ], [ %67, %71 ]
+3:                                                ; preds = %462, %432, %71
+  %.1191 = phi ptr [ %464, %462 ], [ %412, %432 ], [ %72, %71 ]
+  %.1178 = phi ptr [ %.4, %462 ], [ %411, %432 ], [ %.2179, %71 ]
+  %.1170 = phi i32 [ 3, %462 ], [ %.0169, %432 ], [ %spec.select, %71 ]
+  %.1 = phi i32 [ %463, %462 ], [ %433, %432 ], [ %67, %71 ]
   %4 = getelementptr inbounds i8, ptr %.1178, i64 1
   br label %5
 
@@ -84,7 +84,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   %12 = sub i64 %10, %11
   %13 = add nsw i64 %12, 1
   %14 = icmp sgt i64 %.0172, 9999
-  br i1 %14, label %454, label %15
+  br i1 %14, label %466, label %15
 
 15:                                               ; preds = %9
   %16 = shl nsw i64 %.0172, 1
@@ -93,7 +93,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
   %18 = add nsw i64 %17, 7
   %19 = call noalias ptr @malloc(i64 noundef %18) #16
   %.not213 = icmp eq ptr %19, null
-  br i1 %.not213, label %454, label %20
+  br i1 %.not213, label %466, label %20
 
 20:                                               ; preds = %15
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr align 1 %.0174, i64 %13, i1 false)
@@ -158,7 +158,7 @@ define range(i32 0, 3) i32 @htmlparse() local_unnamed_addr #0 {
 
 49:                                               ; preds = %47
   store i32 257, ptr @htmlchar, align 4
-  br label %444
+  br label %.preheader
 
 50:                                               ; preds = %47
   %51 = icmp ult i32 %44, 296
@@ -954,7 +954,7 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
 
 434:                                              ; preds = %74
   %435 = load i32, ptr @htmlchar, align 4
-  switch i32 %.0169, label %444 [
+  switch i32 %.0169, label %.preheader [
     i32 0, label %436
     i32 3, label %439
   ]
@@ -964,7 +964,7 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
   %438 = add nsw i32 %437, 1
   store i32 %438, ptr @htmlnerrs, align 4
   call void @htmlerror(ptr noundef nonnull @.str.2) #17
-  br label %444
+  br label %.preheader
 
 439:                                              ; preds = %434
   %440 = icmp slt i32 %435, 1
@@ -972,54 +972,72 @@ setCell.exit247:                                  ; preds = %gv_alloc.exit.i245,
 
 441:                                              ; preds = %439
   %442 = icmp eq i32 %435, 0
-  br i1 %442, label %.loopexit254, label %444
+  br i1 %442, label %.loopexit254, label %.preheader
 
 443:                                              ; preds = %439
   store i32 -2, ptr @htmlchar, align 4
+  br label %.preheader
+
+.preheader:                                       ; preds = %436, %434, %441, %443, %49
   br label %444
 
-444:                                              ; preds = %436, %434, %441, %443, %49
-  %445 = icmp eq i32 %.0, 0
-  br i1 %445, label %._crit_edge, label %.lr.ph
+444:                                              ; preds = %.preheader, %458
+  %445 = phi i16 [ %.pre, %458 ], [ %35, %.preheader ]
+  %.4194 = phi ptr [ %459, %458 ], [ %.2192, %.preheader ]
+  %.4 = phi ptr [ %460, %458 ], [ %.2179, %.preheader ]
+  %446 = icmp sgt i16 %445, -2
+  br i1 %446, label %447, label %456
 
-.lr.ph:                                           ; preds = %444, %447
-  %.4472 = phi ptr [ %449, %447 ], [ %.2179, %444 ]
-  %.4194471 = phi ptr [ %448, %447 ], [ %.2192, %444 ]
-  %446 = icmp eq ptr %.4472, %.1175
-  br i1 %446, label %.loopexit254, label %447
+447:                                              ; preds = %444
+  %448 = sext i16 %445 to i64
+  %449 = and i64 %448, 4294967295
+  %450 = icmp eq i64 %449, 8
+  br i1 %450, label %451, label %456
 
-447:                                              ; preds = %.lr.ph
-  %448 = getelementptr inbounds i8, ptr %.4194471, i64 -8
-  %449 = getelementptr inbounds i8, ptr %.4472, i64 -1
-  %450 = load i8, ptr %449, align 1
-  %451 = icmp eq i8 %450, 0
-  br i1 %451, label %._crit_edge, label %.lr.ph
+451:                                              ; preds = %447
+  %452 = or disjoint i64 %448, 1
+  %453 = getelementptr inbounds [272 x i8], ptr @yytable, i64 0, i64 %452
+  %454 = load i8, ptr %453, align 1
+  %455 = icmp sgt i8 %454, 0
+  br i1 %455, label %462, label %456
 
-._crit_edge:                                      ; preds = %447, %444
-  %.4194.lcssa = phi ptr [ %.2192, %444 ], [ %448, %447 ]
-  %.4.lcssa = phi ptr [ %.2179, %444 ], [ %449, %447 ]
-  %452 = getelementptr inbounds i8, ptr %.4194.lcssa, i64 8
-  %453 = load i64, ptr @htmllval, align 8
-  store i64 %453, ptr %452, align 8
+456:                                              ; preds = %447, %451, %444
+  %457 = icmp eq ptr %.4, %.1175
+  br i1 %457, label %.loopexit254, label %458
+
+458:                                              ; preds = %456
+  %459 = getelementptr inbounds i8, ptr %.4194, i64 -8
+  %460 = getelementptr inbounds i8, ptr %.4, i64 -1
+  %461 = load i8, ptr %460, align 1
+  %.phi.trans.insert = sext i8 %461 to i64
+  %.phi.trans.insert400 = getelementptr inbounds [116 x i16], ptr @yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert400, align 2
+  br label %444
+
+462:                                              ; preds = %451
+  %463 = zext nneg i8 %454 to i32
+  %464 = getelementptr inbounds i8, ptr %.4194, i64 8
+  %465 = load i64, ptr @htmllval, align 8
+  store i64 %465, ptr %464, align 8
   br label %3
 
-454:                                              ; preds = %15, %9
+466:                                              ; preds = %15, %9
   call void @htmlerror(ptr noundef nonnull @.str.5) #17
   br label %.loopexit254
 
-.loopexit254:                                     ; preds = %30, %441, %.lr.ph, %104, %nonSpace.exit, %nonSpace.exit235, %454
-  %.0188 = phi i32 [ 2, %454 ], [ 1, %nonSpace.exit235 ], [ 1, %nonSpace.exit ], [ 1, %104 ], [ 1, %.lr.ph ], [ 0, %30 ], [ 1, %441 ]
-  %.3 = phi ptr [ %.0174, %454 ], [ %.1175, %nonSpace.exit235 ], [ %.1175, %nonSpace.exit ], [ %.1175, %104 ], [ %.1175, %.lr.ph ], [ %.1175, %441 ], [ %.1175, %30 ]
+.loopexit254:                                     ; preds = %30, %441, %456, %104, %nonSpace.exit, %nonSpace.exit235, %466
+  %.0188 = phi i32 [ 2, %466 ], [ 1, %nonSpace.exit235 ], [ 1, %nonSpace.exit ], [ 1, %104 ], [ 1, %456 ], [ 0, %30 ], [ 1, %441 ]
+  %.3 = phi ptr [ %.0174, %466 ], [ %.1175, %nonSpace.exit235 ], [ %.1175, %nonSpace.exit ], [ %.1175, %104 ], [ %.1175, %456 ], [ %.1175, %441 ], [ %.1175, %30 ]
   %.not223 = icmp eq ptr %.3, %1
-  br i1 %.not223, label %455, label %.loopexit254.thread
+  br i1 %.not223, label %467, label %.loopexit254.thread
 
 .loopexit254.thread:                              ; preds = %26, %.loopexit254
   %.3406 = phi ptr [ %.3, %.loopexit254 ], [ %19, %26 ]
   %.0188404 = phi i32 [ %.0188, %.loopexit254 ], [ 1, %26 ]
   call void @free(ptr noundef %.3406) #17
-  br label %455
+  br label %467
 
-455:                                              ; preds = %.loopexit254.thread, %.loopexit254
+467:                                              ; preds = %.loopexit254.thread, %.loopexit254
   %.0188405 = phi i32 [ %.0188404, %.loopexit254.thread ], [ %.0188, %.loopexit254 ]
   ret i32 %.0188405
 }

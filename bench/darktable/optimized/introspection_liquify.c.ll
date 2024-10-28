@@ -4201,24 +4201,24 @@ define internal fastcc void @smooth_paths_linsys(ptr noundef %0) unnamed_addr #1
   %3 = icmp eq ptr %0, null
   br label %4
 
-4:                                                ; preds = %508, %1
-  %5 = phi i64 [ 0, %1 ], [ %509, %508 ]
+4:                                                ; preds = %509, %1
+  %5 = phi i64 [ 0, %1 ], [ %510, %509 ]
   %6 = getelementptr inbounds [100 x %struct.dt_liquify_path_data_t], ptr %0, i64 0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !116
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %511, label %9
+  br i1 %8, label %512, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i8, ptr %10, align 4, !tbaa !112
   %12 = icmp eq i8 %11, -1
-  br i1 %12, label %13, label %508
+  br i1 %12, label %13, label %509
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %6, i64 18
   %15 = load i8, ptr %14, align 2, !tbaa !150
   %16 = icmp eq i8 %15, -1
-  br i1 %16, label %508, label %.preheader16
+  br i1 %16, label %509, label %.preheader16
 
 .preheader16:                                     ; preds = %13, %.preheader16
   %17 = phi i64 [ %25, %.preheader16 ], [ 0, %13 ]
@@ -4455,7 +4455,7 @@ define internal fastcc void @smooth_paths_linsys(ptr noundef %0) unnamed_addr #1
 
 158:                                              ; preds = %152
   %159 = and i64 %17, -2
-  br label %313
+  br label %314
 
 160:                                              ; preds = %142, %251
   %161 = phi i64 [ %252, %251 ], [ 0, %142 ]
@@ -4619,14 +4619,14 @@ define internal fastcc void @smooth_paths_linsys(ptr noundef %0) unnamed_addr #1
   %253 = icmp eq i64 %252, %143
   br i1 %253, label %150, label %160
 
-254:                                              ; preds = %313
+254:                                              ; preds = %314
   %255 = icmp eq i64 %156, 0
   br i1 %255, label %274, label %.thread
 
 .thread:                                          ; preds = %152, %254
-  %256 = phi <2 x float> [ %348, %254 ], [ %154, %152 ]
-  %257 = phi i64 [ %349, %254 ], [ 1, %152 ]
-  %258 = phi float [ %342, %254 ], [ %153, %152 ]
+  %256 = phi <2 x float> [ %349, %254 ], [ %154, %152 ]
+  %257 = phi i64 [ %350, %254 ], [ 1, %152 ]
+  %258 = phi float [ %343, %254 ], [ %153, %152 ]
   %259 = getelementptr inbounds float, ptr %145, i64 %257
   %260 = load float, ptr %259, align 4, !tbaa !11
   %261 = fdiv reassoc nsz arcp contract afn float %260, %258
@@ -4665,335 +4665,336 @@ define internal fastcc void @smooth_paths_linsys(ptr noundef %0) unnamed_addr #1
   %287 = zext i32 %286 to i64
   %288 = add nuw nsw i64 %287, 1
   %289 = and i64 %288, 3
-  %290 = icmp eq i64 %289, 0
-  br i1 %290, label %.loopexit15, label %.preheader14.preheader
+  %290 = and i64 %287, 3
+  %291 = icmp eq i64 %290, 3
+  br i1 %291, label %.loopexit15, label %.preheader14.preheader
 
 .preheader14.preheader:                           ; preds = %285
   %scevgep = getelementptr i8, ptr %29, i64 8
-  %291 = shl nuw nsw i64 %287, 3
-  %scevgep43 = getelementptr i8, ptr %scevgep, i64 %291
+  %292 = shl nuw nsw i64 %287, 3
+  %scevgep43 = getelementptr i8, ptr %scevgep, i64 %292
   %load_initial = load <2 x float>, ptr %scevgep43, align 4
   br label %.preheader14
 
 .preheader14:                                     ; preds = %.preheader14.preheader, %.preheader14
-  %store_forwarded = phi <2 x float> [ %load_initial, %.preheader14.preheader ], [ %307, %.preheader14 ]
-  %292 = phi i64 [ %287, %.preheader14.preheader ], [ %308, %.preheader14 ]
-  %293 = phi i64 [ 0, %.preheader14.preheader ], [ %309, %.preheader14 ]
-  %294 = getelementptr inbounds { float, float }, ptr %149, i64 %292
-  %295 = getelementptr inbounds float, ptr %147, i64 %292
-  %296 = load float, ptr %295, align 4, !tbaa !11
-  %297 = getelementptr { float, float }, ptr %29, i64 %292
-  %298 = getelementptr inbounds float, ptr %146, i64 %292
-  %299 = load float, ptr %298, align 4, !tbaa !11
-  %300 = load <2 x float>, ptr %294, align 4
-  %301 = insertelement <2 x float> poison, float %296, i64 0
-  %302 = shufflevector <2 x float> %301, <2 x float> poison, <2 x i32> zeroinitializer
-  %303 = fmul reassoc nsz arcp contract afn <2 x float> %store_forwarded, %302
-  %304 = fsub reassoc nsz arcp contract afn <2 x float> %300, %303
-  %305 = insertelement <2 x float> poison, float %299, i64 0
-  %306 = shufflevector <2 x float> %305, <2 x float> poison, <2 x i32> zeroinitializer
-  %307 = fdiv reassoc nsz arcp contract afn <2 x float> %304, %306
-  store <2 x float> %307, ptr %297, align 4
-  %308 = add nsw i64 %292, -1
-  %309 = add nuw nsw i64 %293, 1
-  %310 = icmp eq i64 %309, %289
-  br i1 %310, label %.loopexit15, label %.preheader14, !llvm.loop !151
+  %store_forwarded = phi <2 x float> [ %load_initial, %.preheader14.preheader ], [ %308, %.preheader14 ]
+  %293 = phi i64 [ %287, %.preheader14.preheader ], [ %309, %.preheader14 ]
+  %294 = phi i64 [ 0, %.preheader14.preheader ], [ %310, %.preheader14 ]
+  %295 = getelementptr inbounds { float, float }, ptr %149, i64 %293
+  %296 = getelementptr inbounds float, ptr %147, i64 %293
+  %297 = load float, ptr %296, align 4, !tbaa !11
+  %298 = getelementptr { float, float }, ptr %29, i64 %293
+  %299 = getelementptr inbounds float, ptr %146, i64 %293
+  %300 = load float, ptr %299, align 4, !tbaa !11
+  %301 = load <2 x float>, ptr %295, align 4
+  %302 = insertelement <2 x float> poison, float %297, i64 0
+  %303 = shufflevector <2 x float> %302, <2 x float> poison, <2 x i32> zeroinitializer
+  %304 = fmul reassoc nsz arcp contract afn <2 x float> %store_forwarded, %303
+  %305 = fsub reassoc nsz arcp contract afn <2 x float> %301, %304
+  %306 = insertelement <2 x float> poison, float %300, i64 0
+  %307 = shufflevector <2 x float> %306, <2 x float> poison, <2 x i32> zeroinitializer
+  %308 = fdiv reassoc nsz arcp contract afn <2 x float> %305, %307
+  store <2 x float> %308, ptr %298, align 4
+  %309 = add nsw i64 %293, -1
+  %310 = add i64 %294, 1
+  %311 = icmp eq i64 %310, %289
+  br i1 %311, label %.loopexit15, label %.preheader14, !llvm.loop !151
 
 .loopexit15:                                      ; preds = %.preheader14, %285
-  %311 = phi i64 [ %287, %285 ], [ %308, %.preheader14 ]
-  %312 = icmp ult i32 %286, 3
-  br i1 %312, label %.loopexit13, label %.preheader12
+  %312 = phi i64 [ %287, %285 ], [ %309, %.preheader14 ]
+  %313 = icmp ult i32 %286, 3
+  br i1 %313, label %.loopexit13, label %.preheader12
 
-313:                                              ; preds = %313, %158
-  %314 = phi float [ %153, %158 ], [ %342, %313 ]
-  %315 = phi i64 [ 1, %158 ], [ %349, %313 ]
-  %316 = phi <2 x float> [ %154, %158 ], [ %348, %313 ]
-  %317 = phi i64 [ 0, %158 ], [ %350, %313 ]
-  %318 = getelementptr inbounds float, ptr %145, i64 %315
-  %319 = load float, ptr %318, align 4, !tbaa !11
-  %320 = fdiv reassoc nsz arcp contract afn float %319, %314
-  %321 = getelementptr inbounds float, ptr %146, i64 %315
-  %322 = load float, ptr %321, align 4, !tbaa !11
-  %323 = getelementptr float, ptr %155, i64 %315
-  %324 = load float, ptr %323, align 4, !tbaa !11
-  %325 = fmul reassoc nsz arcp contract afn float %324, %320
-  %326 = fsub reassoc nsz arcp contract afn float %322, %325
-  store float %326, ptr %321, align 4, !tbaa !11
-  %327 = getelementptr inbounds { float, float }, ptr %149, i64 %315
-  %328 = load <2 x float>, ptr %327, align 4
-  %329 = insertelement <2 x float> poison, float %320, i64 0
-  %330 = shufflevector <2 x float> %329, <2 x float> poison, <2 x i32> zeroinitializer
-  %331 = fmul reassoc nsz arcp contract afn <2 x float> %330, %316
-  %332 = fsub reassoc nsz arcp contract afn <2 x float> %328, %331
-  store <2 x float> %332, ptr %327, align 4
-  %333 = add nuw nsw i64 %315, 1
-  %334 = getelementptr inbounds float, ptr %145, i64 %333
-  %335 = load float, ptr %334, align 4, !tbaa !11
-  %336 = fdiv reassoc nsz arcp contract afn float %335, %326
-  %337 = getelementptr inbounds float, ptr %146, i64 %333
-  %338 = load float, ptr %337, align 4, !tbaa !11
-  %339 = getelementptr float, ptr %147, i64 %315
-  %340 = load float, ptr %339, align 4, !tbaa !11
-  %341 = fmul reassoc nsz arcp contract afn float %340, %336
-  %342 = fsub reassoc nsz arcp contract afn float %338, %341
-  store float %342, ptr %337, align 4, !tbaa !11
-  %343 = getelementptr inbounds { float, float }, ptr %149, i64 %333
-  %344 = load <2 x float>, ptr %343, align 4
-  %345 = insertelement <2 x float> poison, float %336, i64 0
-  %346 = shufflevector <2 x float> %345, <2 x float> poison, <2 x i32> zeroinitializer
-  %347 = fmul reassoc nsz arcp contract afn <2 x float> %346, %332
-  %348 = fsub reassoc nsz arcp contract afn <2 x float> %344, %347
-  store <2 x float> %348, ptr %343, align 4
-  %349 = add nuw nsw i64 %315, 2
-  %350 = add nuw i64 %317, 2
-  %351 = icmp eq i64 %350, %159
-  br i1 %351, label %254, label %313
+314:                                              ; preds = %314, %158
+  %315 = phi float [ %153, %158 ], [ %343, %314 ]
+  %316 = phi i64 [ 1, %158 ], [ %350, %314 ]
+  %317 = phi <2 x float> [ %154, %158 ], [ %349, %314 ]
+  %318 = phi i64 [ 0, %158 ], [ %351, %314 ]
+  %319 = getelementptr inbounds float, ptr %145, i64 %316
+  %320 = load float, ptr %319, align 4, !tbaa !11
+  %321 = fdiv reassoc nsz arcp contract afn float %320, %315
+  %322 = getelementptr inbounds float, ptr %146, i64 %316
+  %323 = load float, ptr %322, align 4, !tbaa !11
+  %324 = getelementptr float, ptr %155, i64 %316
+  %325 = load float, ptr %324, align 4, !tbaa !11
+  %326 = fmul reassoc nsz arcp contract afn float %325, %321
+  %327 = fsub reassoc nsz arcp contract afn float %323, %326
+  store float %327, ptr %322, align 4, !tbaa !11
+  %328 = getelementptr inbounds { float, float }, ptr %149, i64 %316
+  %329 = load <2 x float>, ptr %328, align 4
+  %330 = insertelement <2 x float> poison, float %321, i64 0
+  %331 = shufflevector <2 x float> %330, <2 x float> poison, <2 x i32> zeroinitializer
+  %332 = fmul reassoc nsz arcp contract afn <2 x float> %331, %317
+  %333 = fsub reassoc nsz arcp contract afn <2 x float> %329, %332
+  store <2 x float> %333, ptr %328, align 4
+  %334 = add nuw nsw i64 %316, 1
+  %335 = getelementptr inbounds float, ptr %145, i64 %334
+  %336 = load float, ptr %335, align 4, !tbaa !11
+  %337 = fdiv reassoc nsz arcp contract afn float %336, %327
+  %338 = getelementptr inbounds float, ptr %146, i64 %334
+  %339 = load float, ptr %338, align 4, !tbaa !11
+  %340 = getelementptr float, ptr %147, i64 %316
+  %341 = load float, ptr %340, align 4, !tbaa !11
+  %342 = fmul reassoc nsz arcp contract afn float %341, %337
+  %343 = fsub reassoc nsz arcp contract afn float %339, %342
+  store float %343, ptr %338, align 4, !tbaa !11
+  %344 = getelementptr inbounds { float, float }, ptr %149, i64 %334
+  %345 = load <2 x float>, ptr %344, align 4
+  %346 = insertelement <2 x float> poison, float %337, i64 0
+  %347 = shufflevector <2 x float> %346, <2 x float> poison, <2 x i32> zeroinitializer
+  %348 = fmul reassoc nsz arcp contract afn <2 x float> %347, %333
+  %349 = fsub reassoc nsz arcp contract afn <2 x float> %345, %348
+  store <2 x float> %349, ptr %344, align 4
+  %350 = add nuw nsw i64 %316, 2
+  %351 = add nuw i64 %318, 2
+  %352 = icmp eq i64 %351, %159
+  br i1 %352, label %254, label %314
 
 .loopexit13:                                      ; preds = %.preheader12, %274, %.loopexit15
-  %352 = and i64 %143, 1
-  %353 = icmp eq i64 %17, 0
-  br i1 %353, label %.loopexit11, label %354
+  %353 = and i64 %143, 1
+  %354 = icmp eq i64 %17, 0
+  br i1 %354, label %.loopexit11, label %355
 
-354:                                              ; preds = %.loopexit13
-  %355 = and i64 %143, 4294967294
-  %356 = getelementptr i8, ptr %28, i64 8
-  br label %421
+355:                                              ; preds = %.loopexit13
+  %356 = and i64 %143, 4294967294
+  %357 = getelementptr i8, ptr %28, i64 8
+  br label %422
 
 .preheader12:                                     ; preds = %.loopexit15, %.preheader12
-  %357 = phi i64 [ %419, %.preheader12 ], [ %311, %.loopexit15 ]
-  %358 = getelementptr inbounds { float, float }, ptr %149, i64 %357
-  %359 = getelementptr inbounds float, ptr %147, i64 %357
-  %360 = load float, ptr %359, align 4, !tbaa !11
-  %361 = getelementptr { float, float }, ptr %29, i64 %357
-  %362 = getelementptr i8, ptr %361, i64 8
-  %363 = getelementptr inbounds float, ptr %146, i64 %357
-  %364 = load float, ptr %363, align 4, !tbaa !11
-  %365 = load <2 x float>, ptr %358, align 4
-  %366 = load <2 x float>, ptr %362, align 4
-  %367 = insertelement <2 x float> poison, float %360, i64 0
-  %368 = shufflevector <2 x float> %367, <2 x float> poison, <2 x i32> zeroinitializer
-  %369 = fmul reassoc nsz arcp contract afn <2 x float> %366, %368
-  %370 = fsub reassoc nsz arcp contract afn <2 x float> %365, %369
-  %371 = insertelement <2 x float> poison, float %364, i64 0
-  %372 = shufflevector <2 x float> %371, <2 x float> poison, <2 x i32> zeroinitializer
-  %373 = fdiv reassoc nsz arcp contract afn <2 x float> %370, %372
-  store <2 x float> %373, ptr %361, align 4
-  %374 = add nsw i64 %357, -1
-  %375 = getelementptr inbounds { float, float }, ptr %149, i64 %374
-  %376 = getelementptr inbounds float, ptr %147, i64 %374
-  %377 = load float, ptr %376, align 4, !tbaa !11
-  %378 = getelementptr { float, float }, ptr %29, i64 %374
-  %379 = getelementptr inbounds float, ptr %146, i64 %374
-  %380 = load float, ptr %379, align 4, !tbaa !11
-  %381 = load <2 x float>, ptr %375, align 4
-  %382 = insertelement <2 x float> poison, float %377, i64 0
-  %383 = shufflevector <2 x float> %382, <2 x float> poison, <2 x i32> zeroinitializer
-  %384 = fmul reassoc nsz arcp contract afn <2 x float> %373, %383
-  %385 = fsub reassoc nsz arcp contract afn <2 x float> %381, %384
-  %386 = insertelement <2 x float> poison, float %380, i64 0
-  %387 = shufflevector <2 x float> %386, <2 x float> poison, <2 x i32> zeroinitializer
-  %388 = fdiv reassoc nsz arcp contract afn <2 x float> %385, %387
-  store <2 x float> %388, ptr %378, align 4
-  %389 = add nsw i64 %357, -2
-  %390 = getelementptr inbounds { float, float }, ptr %149, i64 %389
-  %391 = getelementptr inbounds float, ptr %147, i64 %389
-  %392 = load float, ptr %391, align 4, !tbaa !11
-  %393 = getelementptr { float, float }, ptr %29, i64 %389
-  %394 = getelementptr inbounds float, ptr %146, i64 %389
-  %395 = load float, ptr %394, align 4, !tbaa !11
-  %396 = load <2 x float>, ptr %390, align 4
-  %397 = insertelement <2 x float> poison, float %392, i64 0
-  %398 = shufflevector <2 x float> %397, <2 x float> poison, <2 x i32> zeroinitializer
-  %399 = fmul reassoc nsz arcp contract afn <2 x float> %388, %398
-  %400 = fsub reassoc nsz arcp contract afn <2 x float> %396, %399
-  %401 = insertelement <2 x float> poison, float %395, i64 0
-  %402 = shufflevector <2 x float> %401, <2 x float> poison, <2 x i32> zeroinitializer
-  %403 = fdiv reassoc nsz arcp contract afn <2 x float> %400, %402
-  store <2 x float> %403, ptr %393, align 4
-  %404 = add nsw i64 %357, -3
-  %405 = getelementptr inbounds { float, float }, ptr %149, i64 %404
-  %406 = getelementptr inbounds float, ptr %147, i64 %404
-  %407 = load float, ptr %406, align 4, !tbaa !11
-  %408 = getelementptr { float, float }, ptr %29, i64 %404
-  %409 = getelementptr inbounds float, ptr %146, i64 %404
-  %410 = load float, ptr %409, align 4, !tbaa !11
-  %411 = load <2 x float>, ptr %405, align 4
-  %412 = insertelement <2 x float> poison, float %407, i64 0
-  %413 = shufflevector <2 x float> %412, <2 x float> poison, <2 x i32> zeroinitializer
-  %414 = fmul reassoc nsz arcp contract afn <2 x float> %403, %413
-  %415 = fsub reassoc nsz arcp contract afn <2 x float> %411, %414
-  %416 = insertelement <2 x float> poison, float %410, i64 0
-  %417 = shufflevector <2 x float> %416, <2 x float> poison, <2 x i32> zeroinitializer
-  %418 = fdiv reassoc nsz arcp contract afn <2 x float> %415, %417
-  store <2 x float> %418, ptr %408, align 4
-  %419 = add nsw i64 %357, -4
-  %420 = icmp eq i64 %404, 0
-  br i1 %420, label %.loopexit13, label %.preheader12
+  %358 = phi i64 [ %420, %.preheader12 ], [ %312, %.loopexit15 ]
+  %359 = getelementptr inbounds { float, float }, ptr %149, i64 %358
+  %360 = getelementptr inbounds float, ptr %147, i64 %358
+  %361 = load float, ptr %360, align 4, !tbaa !11
+  %362 = getelementptr { float, float }, ptr %29, i64 %358
+  %363 = getelementptr i8, ptr %362, i64 8
+  %364 = getelementptr inbounds float, ptr %146, i64 %358
+  %365 = load float, ptr %364, align 4, !tbaa !11
+  %366 = load <2 x float>, ptr %359, align 4
+  %367 = load <2 x float>, ptr %363, align 4
+  %368 = insertelement <2 x float> poison, float %361, i64 0
+  %369 = shufflevector <2 x float> %368, <2 x float> poison, <2 x i32> zeroinitializer
+  %370 = fmul reassoc nsz arcp contract afn <2 x float> %367, %369
+  %371 = fsub reassoc nsz arcp contract afn <2 x float> %366, %370
+  %372 = insertelement <2 x float> poison, float %365, i64 0
+  %373 = shufflevector <2 x float> %372, <2 x float> poison, <2 x i32> zeroinitializer
+  %374 = fdiv reassoc nsz arcp contract afn <2 x float> %371, %373
+  store <2 x float> %374, ptr %362, align 4
+  %375 = add nsw i64 %358, -1
+  %376 = getelementptr inbounds { float, float }, ptr %149, i64 %375
+  %377 = getelementptr inbounds float, ptr %147, i64 %375
+  %378 = load float, ptr %377, align 4, !tbaa !11
+  %379 = getelementptr { float, float }, ptr %29, i64 %375
+  %380 = getelementptr inbounds float, ptr %146, i64 %375
+  %381 = load float, ptr %380, align 4, !tbaa !11
+  %382 = load <2 x float>, ptr %376, align 4
+  %383 = insertelement <2 x float> poison, float %378, i64 0
+  %384 = shufflevector <2 x float> %383, <2 x float> poison, <2 x i32> zeroinitializer
+  %385 = fmul reassoc nsz arcp contract afn <2 x float> %374, %384
+  %386 = fsub reassoc nsz arcp contract afn <2 x float> %382, %385
+  %387 = insertelement <2 x float> poison, float %381, i64 0
+  %388 = shufflevector <2 x float> %387, <2 x float> poison, <2 x i32> zeroinitializer
+  %389 = fdiv reassoc nsz arcp contract afn <2 x float> %386, %388
+  store <2 x float> %389, ptr %379, align 4
+  %390 = add nsw i64 %358, -2
+  %391 = getelementptr inbounds { float, float }, ptr %149, i64 %390
+  %392 = getelementptr inbounds float, ptr %147, i64 %390
+  %393 = load float, ptr %392, align 4, !tbaa !11
+  %394 = getelementptr { float, float }, ptr %29, i64 %390
+  %395 = getelementptr inbounds float, ptr %146, i64 %390
+  %396 = load float, ptr %395, align 4, !tbaa !11
+  %397 = load <2 x float>, ptr %391, align 4
+  %398 = insertelement <2 x float> poison, float %393, i64 0
+  %399 = shufflevector <2 x float> %398, <2 x float> poison, <2 x i32> zeroinitializer
+  %400 = fmul reassoc nsz arcp contract afn <2 x float> %389, %399
+  %401 = fsub reassoc nsz arcp contract afn <2 x float> %397, %400
+  %402 = insertelement <2 x float> poison, float %396, i64 0
+  %403 = shufflevector <2 x float> %402, <2 x float> poison, <2 x i32> zeroinitializer
+  %404 = fdiv reassoc nsz arcp contract afn <2 x float> %401, %403
+  store <2 x float> %404, ptr %394, align 4
+  %405 = add nsw i64 %358, -3
+  %406 = getelementptr inbounds { float, float }, ptr %149, i64 %405
+  %407 = getelementptr inbounds float, ptr %147, i64 %405
+  %408 = load float, ptr %407, align 4, !tbaa !11
+  %409 = getelementptr { float, float }, ptr %29, i64 %405
+  %410 = getelementptr inbounds float, ptr %146, i64 %405
+  %411 = load float, ptr %410, align 4, !tbaa !11
+  %412 = load <2 x float>, ptr %406, align 4
+  %413 = insertelement <2 x float> poison, float %408, i64 0
+  %414 = shufflevector <2 x float> %413, <2 x float> poison, <2 x i32> zeroinitializer
+  %415 = fmul reassoc nsz arcp contract afn <2 x float> %404, %414
+  %416 = fsub reassoc nsz arcp contract afn <2 x float> %412, %415
+  %417 = insertelement <2 x float> poison, float %411, i64 0
+  %418 = shufflevector <2 x float> %417, <2 x float> poison, <2 x i32> zeroinitializer
+  %419 = fdiv reassoc nsz arcp contract afn <2 x float> %416, %418
+  store <2 x float> %419, ptr %409, align 4
+  %420 = add nsw i64 %358, -4
+  %421 = icmp eq i64 %405, 0
+  br i1 %421, label %.loopexit13, label %.preheader12
 
-421:                                              ; preds = %463, %354
-  %422 = phi i64 [ 0, %354 ], [ %464, %463 ]
-  %423 = getelementptr inbounds i32, ptr %31, i64 %422
-  %424 = load i32, ptr %423, align 4, !tbaa !7
-  switch i32 %424, label %433 [
-    i32 5, label %442
-    i32 6, label %442
-    i32 9, label %442
-    i32 3, label %425
-    i32 7, label %425
-    i32 8, label %425
+422:                                              ; preds = %464, %355
+  %423 = phi i64 [ 0, %355 ], [ %465, %464 ]
+  %424 = getelementptr inbounds i32, ptr %31, i64 %423
+  %425 = load i32, ptr %424, align 4, !tbaa !7
+  switch i32 %425, label %434 [
+    i32 5, label %443
+    i32 6, label %443
+    i32 9, label %443
+    i32 3, label %426
+    i32 7, label %426
+    i32 8, label %426
   ]
 
-425:                                              ; preds = %421, %421, %421
-  %426 = getelementptr inbounds { float, float }, ptr %29, i64 %422
-  %427 = getelementptr { float, float }, ptr %356, i64 %422
-  %428 = getelementptr inbounds { float, float }, ptr %30, i64 %422
-  %429 = load <2 x float>, ptr %426, align 4
+426:                                              ; preds = %422, %422, %422
+  %427 = getelementptr inbounds { float, float }, ptr %29, i64 %423
+  %428 = getelementptr { float, float }, ptr %357, i64 %423
+  %429 = getelementptr inbounds { float, float }, ptr %30, i64 %423
   %430 = load <2 x float>, ptr %427, align 4
-  %431 = fadd reassoc nsz arcp contract afn <2 x float> %430, %429
-  %432 = fmul reassoc nsz arcp contract afn <2 x float> %431, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %432, ptr %428, align 4
-  br label %442
+  %431 = load <2 x float>, ptr %428, align 4
+  %432 = fadd reassoc nsz arcp contract afn <2 x float> %431, %430
+  %433 = fmul reassoc nsz arcp contract afn <2 x float> %432, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %433, ptr %429, align 4
+  br label %443
 
-433:                                              ; preds = %421
-  %434 = or disjoint i64 %422, 1
-  %435 = getelementptr inbounds { float, float }, ptr %28, i64 %434
-  %436 = getelementptr inbounds { float, float }, ptr %29, i64 %434
-  %437 = getelementptr inbounds { float, float }, ptr %30, i64 %422
-  %438 = load <2 x float>, ptr %435, align 4
-  %439 = fmul reassoc nsz arcp contract afn <2 x float> %438, <float 2.000000e+00, float 2.000000e+00>
-  %440 = load <2 x float>, ptr %436, align 4
-  %441 = fsub reassoc nsz arcp contract afn <2 x float> %439, %440
-  store <2 x float> %441, ptr %437, align 4
-  br label %442
+434:                                              ; preds = %422
+  %435 = or disjoint i64 %423, 1
+  %436 = getelementptr inbounds { float, float }, ptr %28, i64 %435
+  %437 = getelementptr inbounds { float, float }, ptr %29, i64 %435
+  %438 = getelementptr inbounds { float, float }, ptr %30, i64 %423
+  %439 = load <2 x float>, ptr %436, align 4
+  %440 = fmul reassoc nsz arcp contract afn <2 x float> %439, <float 2.000000e+00, float 2.000000e+00>
+  %441 = load <2 x float>, ptr %437, align 4
+  %442 = fsub reassoc nsz arcp contract afn <2 x float> %440, %441
+  store <2 x float> %442, ptr %438, align 4
+  br label %443
 
-442:                                              ; preds = %433, %425, %421, %421, %421
-  %443 = or disjoint i64 %422, 1
-  %444 = getelementptr inbounds i32, ptr %31, i64 %443
-  %445 = load i32, ptr %444, align 4, !tbaa !7
-  switch i32 %445, label %454 [
-    i32 5, label %463
-    i32 6, label %463
-    i32 9, label %463
-    i32 3, label %446
-    i32 7, label %446
-    i32 8, label %446
+443:                                              ; preds = %434, %426, %422, %422, %422
+  %444 = or disjoint i64 %423, 1
+  %445 = getelementptr inbounds i32, ptr %31, i64 %444
+  %446 = load i32, ptr %445, align 4, !tbaa !7
+  switch i32 %446, label %455 [
+    i32 5, label %464
+    i32 6, label %464
+    i32 9, label %464
+    i32 3, label %447
+    i32 7, label %447
+    i32 8, label %447
   ]
 
-446:                                              ; preds = %442, %442, %442
-  %447 = getelementptr inbounds { float, float }, ptr %29, i64 %443
-  %448 = getelementptr { float, float }, ptr %356, i64 %443
-  %449 = getelementptr inbounds { float, float }, ptr %30, i64 %443
-  %450 = load <2 x float>, ptr %447, align 4
+447:                                              ; preds = %443, %443, %443
+  %448 = getelementptr inbounds { float, float }, ptr %29, i64 %444
+  %449 = getelementptr { float, float }, ptr %357, i64 %444
+  %450 = getelementptr inbounds { float, float }, ptr %30, i64 %444
   %451 = load <2 x float>, ptr %448, align 4
-  %452 = fadd reassoc nsz arcp contract afn <2 x float> %451, %450
-  %453 = fmul reassoc nsz arcp contract afn <2 x float> %452, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %453, ptr %449, align 4
-  br label %463
+  %452 = load <2 x float>, ptr %449, align 4
+  %453 = fadd reassoc nsz arcp contract afn <2 x float> %452, %451
+  %454 = fmul reassoc nsz arcp contract afn <2 x float> %453, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %454, ptr %450, align 4
+  br label %464
 
-454:                                              ; preds = %442
-  %455 = add nuw nsw i64 %422, 2
-  %456 = getelementptr inbounds { float, float }, ptr %28, i64 %455
-  %457 = getelementptr inbounds { float, float }, ptr %29, i64 %455
-  %458 = getelementptr inbounds { float, float }, ptr %30, i64 %443
-  %459 = load <2 x float>, ptr %456, align 4
-  %460 = fmul reassoc nsz arcp contract afn <2 x float> %459, <float 2.000000e+00, float 2.000000e+00>
-  %461 = load <2 x float>, ptr %457, align 4
-  %462 = fsub reassoc nsz arcp contract afn <2 x float> %460, %461
-  store <2 x float> %462, ptr %458, align 4
-  br label %463
+455:                                              ; preds = %443
+  %456 = add nuw nsw i64 %423, 2
+  %457 = getelementptr inbounds { float, float }, ptr %28, i64 %456
+  %458 = getelementptr inbounds { float, float }, ptr %29, i64 %456
+  %459 = getelementptr inbounds { float, float }, ptr %30, i64 %444
+  %460 = load <2 x float>, ptr %457, align 4
+  %461 = fmul reassoc nsz arcp contract afn <2 x float> %460, <float 2.000000e+00, float 2.000000e+00>
+  %462 = load <2 x float>, ptr %458, align 4
+  %463 = fsub reassoc nsz arcp contract afn <2 x float> %461, %462
+  store <2 x float> %463, ptr %459, align 4
+  br label %464
 
-463:                                              ; preds = %454, %446, %442, %442, %442
-  %464 = add nuw i64 %422, 2
-  %465 = icmp eq i64 %464, %355
-  br i1 %465, label %.loopexit11, label %421
+464:                                              ; preds = %455, %447, %443, %443, %443
+  %465 = add nuw i64 %423, 2
+  %466 = icmp eq i64 %465, %356
+  br i1 %466, label %.loopexit11, label %422
 
-.loopexit11:                                      ; preds = %463, %.loopexit13
-  %466 = phi i64 [ 0, %.loopexit13 ], [ %355, %463 ]
-  %467 = icmp eq i64 %352, 0
-  br i1 %467, label %489, label %468
+.loopexit11:                                      ; preds = %464, %.loopexit13
+  %467 = phi i64 [ 0, %.loopexit13 ], [ %356, %464 ]
+  %468 = icmp eq i64 %353, 0
+  br i1 %468, label %490, label %469
 
-468:                                              ; preds = %.loopexit11
-  %469 = getelementptr inbounds i32, ptr %31, i64 %466
-  %470 = load i32, ptr %469, align 4, !tbaa !7
-  switch i32 %470, label %480 [
-    i32 5, label %489
-    i32 6, label %489
-    i32 9, label %489
-    i32 3, label %471
-    i32 7, label %471
-    i32 8, label %471
+469:                                              ; preds = %.loopexit11
+  %470 = getelementptr inbounds i32, ptr %31, i64 %467
+  %471 = load i32, ptr %470, align 4, !tbaa !7
+  switch i32 %471, label %481 [
+    i32 5, label %490
+    i32 6, label %490
+    i32 9, label %490
+    i32 3, label %472
+    i32 7, label %472
+    i32 8, label %472
   ]
 
-471:                                              ; preds = %468, %468, %468
-  %472 = getelementptr inbounds { float, float }, ptr %29, i64 %466
-  %473 = getelementptr { float, float }, ptr %28, i64 %466
-  %474 = getelementptr i8, ptr %473, i64 8
-  %475 = getelementptr inbounds { float, float }, ptr %30, i64 %466
-  %476 = load <2 x float>, ptr %472, align 4
-  %477 = load <2 x float>, ptr %474, align 4
-  %478 = fadd reassoc nsz arcp contract afn <2 x float> %477, %476
-  %479 = fmul reassoc nsz arcp contract afn <2 x float> %478, <float 5.000000e-01, float 5.000000e-01>
-  store <2 x float> %479, ptr %475, align 4
-  br label %489
+472:                                              ; preds = %469, %469, %469
+  %473 = getelementptr inbounds { float, float }, ptr %29, i64 %467
+  %474 = getelementptr { float, float }, ptr %28, i64 %467
+  %475 = getelementptr i8, ptr %474, i64 8
+  %476 = getelementptr inbounds { float, float }, ptr %30, i64 %467
+  %477 = load <2 x float>, ptr %473, align 4
+  %478 = load <2 x float>, ptr %475, align 4
+  %479 = fadd reassoc nsz arcp contract afn <2 x float> %478, %477
+  %480 = fmul reassoc nsz arcp contract afn <2 x float> %479, <float 5.000000e-01, float 5.000000e-01>
+  store <2 x float> %480, ptr %476, align 4
+  br label %490
 
-480:                                              ; preds = %468
-  %481 = or disjoint i64 %466, 1
-  %482 = getelementptr inbounds { float, float }, ptr %28, i64 %481
-  %483 = getelementptr inbounds { float, float }, ptr %29, i64 %481
-  %484 = getelementptr inbounds { float, float }, ptr %30, i64 %466
-  %485 = load <2 x float>, ptr %482, align 4
-  %486 = fmul reassoc nsz arcp contract afn <2 x float> %485, <float 2.000000e+00, float 2.000000e+00>
-  %487 = load <2 x float>, ptr %483, align 4
-  %488 = fsub reassoc nsz arcp contract afn <2 x float> %486, %487
-  store <2 x float> %488, ptr %484, align 4
-  br label %489
+481:                                              ; preds = %469
+  %482 = or disjoint i64 %467, 1
+  %483 = getelementptr inbounds { float, float }, ptr %28, i64 %482
+  %484 = getelementptr inbounds { float, float }, ptr %29, i64 %482
+  %485 = getelementptr inbounds { float, float }, ptr %30, i64 %467
+  %486 = load <2 x float>, ptr %483, align 4
+  %487 = fmul reassoc nsz arcp contract afn <2 x float> %486, <float 2.000000e+00, float 2.000000e+00>
+  %488 = load <2 x float>, ptr %484, align 4
+  %489 = fsub reassoc nsz arcp contract afn <2 x float> %487, %488
+  store <2 x float> %489, ptr %485, align 4
+  br label %490
 
-489:                                              ; preds = %480, %471, %468, %468, %468, %.loopexit11
+490:                                              ; preds = %481, %472, %469, %469, %469, %.loopexit11
   tail call void @free(ptr noundef %145) #29
   tail call void @free(ptr noundef %146) #29
   tail call void @free(ptr noundef %147) #29
   tail call void @free(ptr noundef %149) #29
   br i1 %3, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %489, %503
-  %490 = phi i8 [ %506, %503 ], [ %15, %489 ]
-  %491 = phi i64 [ %504, %503 ], [ 0, %489 ]
-  %492 = sext i8 %490 to i64
-  %493 = getelementptr inbounds [100 x %struct.dt_liquify_path_data_t], ptr %0, i64 0, i64 %492
-  %494 = load i32, ptr %493, align 4, !tbaa !116
-  %495 = icmp eq i32 %494, 3
-  br i1 %495, label %496, label %503
+.preheader:                                       ; preds = %490, %504
+  %491 = phi i8 [ %507, %504 ], [ %15, %490 ]
+  %492 = phi i64 [ %505, %504 ], [ 0, %490 ]
+  %493 = sext i8 %491 to i64
+  %494 = getelementptr inbounds [100 x %struct.dt_liquify_path_data_t], ptr %0, i64 0, i64 %493
+  %495 = load i32, ptr %494, align 4, !tbaa !116
+  %496 = icmp eq i32 %495, 3
+  br i1 %496, label %497, label %504
 
-496:                                              ; preds = %.preheader
-  %497 = getelementptr inbounds { float, float }, ptr %29, i64 %491
-  %498 = load <2 x float>, ptr %497, align 4
-  %499 = getelementptr inbounds i8, ptr %493, i64 60
-  %500 = getelementptr inbounds { float, float }, ptr %30, i64 %491
-  %501 = load <2 x float>, ptr %500, align 4
-  %502 = shufflevector <2 x float> %498, <2 x float> %501, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  store <4 x float> %502, ptr %499, align 4
-  br label %503
+497:                                              ; preds = %.preheader
+  %498 = getelementptr inbounds { float, float }, ptr %29, i64 %492
+  %499 = load <2 x float>, ptr %498, align 4
+  %500 = getelementptr inbounds i8, ptr %494, i64 60
+  %501 = getelementptr inbounds { float, float }, ptr %30, i64 %492
+  %502 = load <2 x float>, ptr %501, align 4
+  %503 = shufflevector <2 x float> %499, <2 x float> %502, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  store <4 x float> %503, ptr %500, align 4
+  br label %504
 
-503:                                              ; preds = %496, %.preheader
-  %504 = add i64 %491, 1
-  %505 = getelementptr i8, ptr %493, i64 18
-  %506 = load i8, ptr %505, align 2, !tbaa !150
-  %507 = icmp eq i8 %506, -1
-  br i1 %507, label %.loopexit, label %.preheader
+504:                                              ; preds = %497, %.preheader
+  %505 = add i64 %492, 1
+  %506 = getelementptr i8, ptr %494, i64 18
+  %507 = load i8, ptr %506, align 2, !tbaa !150
+  %508 = icmp eq i8 %507, -1
+  br i1 %508, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %503, %489
+.loopexit:                                        ; preds = %504, %490
   tail call void @free(ptr noundef %28) #29
   tail call void @free(ptr noundef %29) #29
   tail call void @free(ptr noundef %30) #29
   tail call void @free(ptr noundef %31) #29
-  br label %508
+  br label %509
 
-508:                                              ; preds = %.loopexit, %13, %9
-  %509 = add nuw nsw i64 %5, 1
-  %510 = icmp eq i64 %509, 100
-  br i1 %510, label %511, label %4
+509:                                              ; preds = %.loopexit, %13, %9
+  %510 = add nuw nsw i64 %5, 1
+  %511 = icmp eq i64 %510, 100
+  br i1 %511, label %512, label %4
 
-511:                                              ; preds = %508, %4
+512:                                              ; preds = %509, %4
   ret void
 }
 

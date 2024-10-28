@@ -269,21 +269,23 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec = add nsw i64 %len.addr.144, -1
   %add16 = add i32 %n.145, 1
   %rem = and i32 %add16, 15
-  %tobool11 = icmp ne i32 %rem, 0
+  %5 = and i32 %n.145, 15
+  %tobool11 = icmp ne i32 %5, 15
   %tobool12 = icmp ne i64 %dec, 0
-  %5 = select i1 %tobool11, i1 %tobool12, i1 false
-  br i1 %5, label %while.body, label %while.end, !llvm.loop !13
+  %6 = select i1 %tobool11, i1 %tobool12, i1 false
+  br i1 %6, label %while.body, label %while.end, !llvm.loop !13
 
 while.end:                                        ; preds = %while.body
-  %cmp17 = icmp eq i32 %rem, 0
+  %7 = and i32 %n.145, 15
+  %cmp17 = icmp eq i32 %7, 15
   br i1 %cmp17, label %if.then19, label %return.sink.split
 
 if.then19:                                        ; preds = %while.end
   %gmult = getelementptr inbounds i8, ptr %ctx, i64 368
-  %6 = load ptr, ptr %gmult, align 8
+  %8 = load ptr, ptr %gmult, align 8
   %Xi20 = getelementptr inbounds i8, ptr %ctx, i64 64
   %Htable = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void %6(ptr noundef nonnull %Xi20, ptr noundef nonnull %Htable) #6
+  tail call void %8(ptr noundef nonnull %Xi20, ptr noundef nonnull %Htable) #6
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %if.end6
@@ -295,10 +297,10 @@ if.end24:                                         ; preds = %if.then19, %if.end6
 
 if.then26:                                        ; preds = %if.end24
   %ghash = getelementptr inbounds i8, ptr %ctx, i64 360
-  %7 = load ptr, ptr %ghash, align 8
+  %9 = load ptr, ptr %ghash, align 8
   %Xi28 = getelementptr inbounds i8, ptr %ctx, i64 64
   %Htable30 = getelementptr inbounds i8, ptr %ctx, i64 96
-  tail call void %7(ptr noundef nonnull %Xi28, ptr noundef nonnull %Htable30, ptr noundef %aad.addr.0, i64 noundef %and) #6
+  tail call void %9(ptr noundef nonnull %Xi28, ptr noundef nonnull %Htable30, ptr noundef %aad.addr.0, i64 noundef %and) #6
   %add.ptr = getelementptr inbounds i8, ptr %aad.addr.0, i64 %and
   %sub = and i64 %len.addr.0, 15
   br label %if.end32
@@ -316,10 +318,10 @@ if.then34:                                        ; preds = %if.end32
 for.body:                                         ; preds = %if.then34, %for.body
   %i.048 = phi i64 [ 0, %if.then34 ], [ %inc, %for.body ]
   %arrayidx38 = getelementptr inbounds i8, ptr %aad.addr.2, i64 %i.048
-  %8 = load i8, ptr %arrayidx38, align 1
+  %10 = load i8, ptr %arrayidx38, align 1
   %arrayidx41 = getelementptr inbounds [16 x i8], ptr %Xi40, i64 0, i64 %i.048
-  %9 = load i8, ptr %arrayidx41, align 1
-  %xor4340 = xor i8 %9, %8
+  %11 = load i8, ptr %arrayidx41, align 1
+  %xor4340 = xor i8 %11, %10
   store i8 %xor4340, ptr %arrayidx41, align 1
   %inc = add nuw i64 %i.048, 1
   %exitcond.not = icmp eq i64 %inc, %len.addr.2
@@ -423,13 +425,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec = add nsw i64 %len.addr.1130, -1
   %add35 = add nuw nsw i32 %n.1129, 1
   %rem36 = and i32 %add35, 15
-  %tobool26 = icmp ne i32 %rem36, 0
+  %tobool26 = icmp ne i32 %n.1129, 15
   %tobool27 = icmp ne i64 %dec, 0
   %10 = select i1 %tobool26, i1 %tobool27, i1 false
   br i1 %10, label %while.body, label %while.end, !llvm.loop !16
 
 while.end:                                        ; preds = %while.body
-  %11 = icmp eq i32 %rem36, 0
+  %11 = icmp eq i32 %n.1129, 15
   br i1 %11, label %if.end64.sink.split, label %if.else
 
 if.else:                                          ; preds = %while.cond.preheader, %while.end
@@ -694,13 +696,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec = add nsw i64 %len.addr.1129, -1
   %add35 = add nuw nsw i32 %n.1128, 1
   %rem36 = and i32 %add35, 15
-  %tobool26 = icmp ne i32 %rem36, 0
+  %tobool26 = icmp ne i32 %n.1128, 15
   %tobool27 = icmp ne i64 %dec, 0
   %10 = select i1 %tobool26, i1 %tobool27, i1 false
   br i1 %10, label %while.body, label %while.end, !llvm.loop !25
 
 while.end:                                        ; preds = %while.body
-  %11 = icmp eq i32 %rem36, 0
+  %11 = icmp eq i32 %n.1128, 15
   br i1 %11, label %if.end64.sink.split, label %if.else
 
 if.else:                                          ; preds = %while.cond.preheader, %while.end
@@ -957,13 +959,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec = add nsw i64 %len.addr.1118, -1
   %add34 = add nuw nsw i32 %n.1117, 1
   %rem35 = and i32 %add34, 15
-  %tobool25 = icmp ne i32 %rem35, 0
+  %tobool25 = icmp ne i32 %n.1117, 15
   %tobool26 = icmp ne i64 %dec, 0
   %9 = select i1 %tobool25, i1 %tobool26, i1 false
   br i1 %9, label %while.body, label %while.end, !llvm.loop !34
 
 while.end:                                        ; preds = %while.body
-  %10 = icmp eq i32 %rem35, 0
+  %10 = icmp eq i32 %n.1117, 15
   br i1 %10, label %if.end63.sink.split, label %if.else
 
 if.else:                                          ; preds = %while.cond.preheader, %while.end
@@ -1180,13 +1182,13 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %dec = add nsw i64 %len.addr.1118, -1
   %add34 = add nuw nsw i32 %n.1117, 1
   %rem35 = and i32 %add34, 15
-  %tobool25 = icmp ne i32 %rem35, 0
+  %tobool25 = icmp ne i32 %n.1117, 15
   %tobool26 = icmp ne i64 %dec, 0
   %9 = select i1 %tobool25, i1 %tobool26, i1 false
   br i1 %9, label %while.body, label %while.end, !llvm.loop !41
 
 while.end:                                        ; preds = %while.body
-  %10 = icmp eq i32 %rem35, 0
+  %10 = icmp eq i32 %n.1117, 15
   br i1 %10, label %if.end63.sink.split, label %if.else
 
 if.else:                                          ; preds = %while.cond.preheader, %while.end

@@ -193,7 +193,7 @@ define ptr @agstrdup_html(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 define range(i32 -1, 1) i32 @agstrfree(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.refstr_t, align 8
   %4 = icmp eq ptr %1, null
-  br i1 %4, label %34, label %5
+  br i1 %4, label %35, label %5
 
 5:                                                ; preds = %2
   %.not.i = icmp eq ptr %0, null
@@ -226,13 +226,13 @@ refdict.exit:                                     ; preds = %10, %13
   %19 = call ptr %18(ptr noundef nonnull %16, ptr noundef nonnull %3, i32 noundef 4) #8
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   %cond = icmp eq ptr %19, null
-  br i1 %cond, label %34, label %20
+  br i1 %cond, label %35, label %20
 
 20:                                               ; preds = %refdict.exit
   %21 = getelementptr inbounds i8, ptr %19, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
-  br i1 %23, label %24, label %34
+  br i1 %23, label %24, label %35
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds i8, ptr %19, i64 16
@@ -242,15 +242,16 @@ refdict.exit:                                     ; preds = %10, %13
   %29 = and i64 %26, -9223372036854775808
   %30 = or disjoint i64 %28, %29
   store i64 %30, ptr %25, align 8
-  %31 = icmp eq i64 %28, 0
-  br i1 %31, label %32, label %34
+  %31 = and i64 %26, 9223372036854775807
+  %32 = icmp eq i64 %31, 1
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %24
-  %33 = call i32 @agdtdelete(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %19) #8
-  br label %34
+33:                                               ; preds = %24
+  %34 = call i32 @agdtdelete(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %19) #8
+  br label %35
 
-34:                                               ; preds = %20, %32, %24, %refdict.exit, %2
-  %.0 = phi i32 [ -1, %2 ], [ -1, %refdict.exit ], [ 0, %24 ], [ 0, %32 ], [ 0, %20 ]
+35:                                               ; preds = %20, %33, %24, %refdict.exit, %2
+  %.0 = phi i32 [ -1, %2 ], [ -1, %refdict.exit ], [ 0, %24 ], [ 0, %33 ], [ 0, %20 ]
   ret i32 %.0
 }
 

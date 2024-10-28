@@ -4883,13 +4883,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %74 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8
   store i64 %75, ptr %2, align 8
-  %76 = add i32 %.sroa.010.0.extract.trunc.i, 1
-  %77 = and i32 %76, 131071
-  %78 = icmp eq i32 %77, 0
+  %76 = add i64 %66, 1
+  %.sroa.09.0.insert.ext.i = and i64 %76, 131071
+  %77 = and i32 %.sroa.010.0.extract.trunc.i, 131071
+  %78 = icmp eq i32 %77, 131071
   %79 = select i1 %78, i64 4294967296, i64 0
   %.sroa.6.0.extract.shift21.i = add i64 %79, %66
   %.sroa.3.0.insert.ext.i = and i64 %.sroa.6.0.extract.shift21.i, -4294967296
-  %.sroa.09.0.insert.ext.i = zext nneg i32 %77 to i64
   %.sroa.09.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.ext.i, %.sroa.09.0.insert.ext.i
   %80 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i, i64 %66, ptr nonnull %58) #10, !srcloc !9
   %81 = icmp eq i64 %80, %66
@@ -4919,14 +4919,14 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %92 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %90, i64 %91
   %93 = load i64, ptr %92, align 8
   store i64 %93, ptr %2, align 8
-  %94 = add i32 %.sroa.010.0.extract.trunc.i42, 1
-  %95 = and i32 %94, 131071
-  %96 = icmp eq i32 %95, 0
+  %94 = add i64 %84, 1
+  %.sroa.09.0.insert.ext.i44 = and i64 %94, 131071
+  %95 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
+  %96 = icmp eq i32 %95, 131071
   %97 = select i1 %96, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i44 = add i64 %97, %84
-  %.sroa.3.0.insert.ext.i45 = and i64 %.sroa.6.0.extract.shift21.i44, -4294967296
-  %.sroa.09.0.insert.ext.i46 = zext nneg i32 %95 to i64
-  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i45, %.sroa.09.0.insert.ext.i46
+  %.sroa.6.0.extract.shift21.i45 = add i64 %97, %84
+  %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
+  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
   %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %84, ptr nonnull %47) #10, !srcloc !9
   %99 = icmp eq i64 %98, %84
   br i1 %99, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
@@ -4972,14 +4972,14 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0
   %119 = getelementptr inbounds %class.ShenandoahMarkTask, ptr %117, i64 %118
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr %2, align 8
-  %121 = add i32 %.sroa.010.0.extract.trunc.i49, 1
-  %122 = and i32 %121, 131071
-  %123 = icmp eq i32 %122, 0
+  %121 = add i64 %110, 1
+  %.sroa.09.0.insert.ext.i51 = and i64 %121, 131071
+  %122 = and i32 %.sroa.010.0.extract.trunc.i49, 131071
+  %123 = icmp eq i32 %122, 131071
   %124 = select i1 %123, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i51 = add i64 %124, %110
-  %.sroa.3.0.insert.ext.i52 = and i64 %.sroa.6.0.extract.shift21.i51, -4294967296
-  %.sroa.09.0.insert.ext.i53 = zext nneg i32 %122 to i64
-  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i52, %.sroa.09.0.insert.ext.i53
+  %.sroa.6.0.extract.shift21.i52 = add i64 %124, %110
+  %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
+  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
   %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %110, ptr nonnull %109) #10, !srcloc !9
   %126 = icmp eq i64 %125, %110
   %127 = select i1 %126, i32 2, i32 1

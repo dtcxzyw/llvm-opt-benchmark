@@ -2980,7 +2980,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %601, %._crit_edge9.
   %792 = add i16 %.44.us.i, 8
   %793 = add nuw nsw i32 %788, 65535
   %794 = and i32 %793, 65535
-  %.not510.us.i = icmp eq i32 %794, 0
+  %.not510.us.i = icmp eq i32 %788, 1
   br i1 %.not510.us.i, label %.loopexit2.i, label %.lr.ph.split.us.i, !llvm.loop !10
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i177
@@ -2997,7 +2997,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %601, %._crit_edge9.
   %800 = add i16 %.44.us5.i, 4
   %801 = add nuw nsw i32 %796, 65535
   %802 = and i32 %801, 65535
-  %.not510.us7.i = icmp eq i32 %802, 0
+  %.not510.us7.i = icmp eq i32 %796, 1
   br i1 %.not510.us7.i, label %.loopexit2.i, label %.lr.ph.split.split.us.i, !llvm.loop !10
 
 .loopexit2.i:                                     ; preds = %.lr.ph.split.split.us.i, %.lr.ph.split.us.i, %.lr.ph.split.i, %773
@@ -3341,7 +3341,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %601, %._crit_edge9.
   %1053 = add i16 %.1816.i, 8
   %1054 = add nuw nsw i32 %1044, 65535
   %1055 = and i32 %1054, 65535
-  %.not518.i = icmp eq i32 %1055, 0
+  %.not518.i = icmp eq i32 %1044, 1
   br i1 %.not518.i, label %.loopexit1.i, label %.lr.ph19.i, !llvm.loop !12
 
 .loopexit1.i:                                     ; preds = %.lr.ph19.i, %1037, %1031
@@ -3452,7 +3452,7 @@ cdma2k_message_DATA_BURST_IND.exit:               ; preds = %601, %._crit_edge9.
   %1133 = add i16 %.2223.i, 8
   %1134 = add nuw nsw i32 %1126, 65535
   %1135 = and i32 %1134, 65535
-  %.not521.i = icmp eq i32 %1135, 0
+  %.not521.i = icmp eq i32 %1126, 1
   br i1 %.not521.i, label %.loopexit.i, label %.lr.ph25.i, !llvm.loop !13
 
 .loopexit.i:                                      ; preds = %.lr.ph25.i, %1119, %1113
@@ -5320,7 +5320,7 @@ cdma2k_message_DATA_BURST_CMD.exit:               ; preds = %1904, %._crit_edge9
   store i32 %2472, ptr %2, align 4
   %2473 = add nuw nsw i32 %2430, 65535
   %2474 = and i32 %2473, 65535
-  %.not379.i = icmp eq i32 %2474, 0
+  %.not379.i = icmp eq i32 %2430, 1
   br i1 %.not379.i, label %._crit_edge.i237, label %.lr.ph.i236, !llvm.loop !25
 
 ._crit_edge.i237:                                 ; preds = %.lr.ph.i236, %2414
@@ -5709,7 +5709,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %226 = add i16 %.4375, 8
   %227 = add nuw nsw i32 %222, 65535
   %228 = and i32 %227, 65535
-  %.not = icmp eq i32 %228, 0
+  %.not = icmp eq i32 %222, 1
   br i1 %.not, label %.loopexit367, label %.lr.ph, !llvm.loop !27
 
 .loopexit367:                                     ; preds = %.lr.ph, %196, %184
@@ -5757,7 +5757,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %261 = add i16 %.6377, 8
   %262 = add nuw nsw i32 %257, 65535
   %263 = and i32 %262, 65535
-  %.not574 = icmp eq i32 %263, 0
+  %.not574 = icmp eq i32 %257, 1
   br i1 %.not574, label %.loopexit366, label %.lr.ph378, !llvm.loop !28
 
 .loopexit366:                                     ; preds = %.lr.ph378, %236, %.loopexit367, %103
@@ -6133,7 +6133,7 @@ define internal fastcc void @cdma2k_message_HANDOFF_DIR(ptr noundef %0, ptr noun
   %511 = add i16 %.21, 8
   %512 = add nuw nsw i32 %507, 65535
   %513 = and i32 %512, 65535
-  %.not495.i = icmp eq i32 %513, 0
+  %.not495.i = icmp eq i32 %507, 1
   br i1 %.not495.i, label %.loopexit8.i, label %.lr.ph.i, !llvm.loop !33
 
 .loopexit8.i:                                     ; preds = %.lr.ph.i, %491, %484

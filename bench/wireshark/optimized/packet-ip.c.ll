@@ -2744,88 +2744,87 @@ define internal i32 @dissect_ipopt_timestamp(ptr noundef %0, ptr noundef %1, ptr
   %11 = zext i8 %10 to i32
   %12 = load i32, ptr @hf_ip_opt_ptr, align 4
   %13 = icmp eq i8 %10, 1
-  br i1 %13, label %20, label %14
+  br i1 %13, label %19, label %14
 
 14:                                               ; preds = %4
   %15 = icmp ult i8 %10, 5
-  br i1 %15, label %20, label %16
+  br i1 %15, label %19, label %16
 
 16:                                               ; preds = %14
-  %17 = add nuw nsw i32 %11, 3
-  %18 = and i32 %17, 3
-  %.not = icmp eq i32 %18, 0
-  %19 = select i1 %.not, ptr @.str.568, ptr @.str.584
-  br label %20
+  %17 = and i32 %11, 3
+  %.not = icmp eq i32 %17, 1
+  %18 = select i1 %.not, ptr @.str.568, ptr @.str.584
+  br label %19
 
-20:                                               ; preds = %16, %14, %4
-  %21 = phi ptr [ @.str.582, %4 ], [ %19, %16 ], [ @.str.583, %14 ]
-  %22 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %11, ptr noundef nonnull @.str.581, i32 noundef %11, ptr noundef nonnull %21) #8
-  %23 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #8
-  %24 = load i32, ptr @hf_ip_opt_overflow, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %24, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #8
-  %26 = load i32, ptr @hf_ip_opt_flag, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %26, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #8
-  %28 = add i32 %6, -4
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph, label %.loopexit
+19:                                               ; preds = %16, %14, %4
+  %20 = phi ptr [ @.str.582, %4 ], [ %18, %16 ], [ @.str.583, %14 ]
+  %21 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %9, i32 noundef %12, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef %11, ptr noundef nonnull @.str.581, i32 noundef %11, ptr noundef nonnull %20) #8
+  %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 3) #8
+  %23 = load i32, ptr @hf_ip_opt_overflow, align 4
+  %24 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %23, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #8
+  %25 = load i32, ptr @hf_ip_opt_flag, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %25, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #8
+  %27 = add i32 %6, -4
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %20
-  %30 = and i8 %23, 13
-  %or.cond = icmp eq i8 %30, 1
+.lr.ph:                                           ; preds = %19
+  %29 = and i8 %22, 13
+  %or.cond = icmp eq i8 %29, 1
   br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %.087.us = phi i32 [ %45, %38 ], [ %28, %.lr.ph ]
-  %.07886.us = phi i32 [ %44, %38 ], [ 4, %.lr.ph ]
-  %31 = icmp ult i32 %.087.us, 8
-  br i1 %31, label %.split.us, label %32
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %37
+  %.087.us = phi i32 [ %44, %37 ], [ %27, %.lr.ph ]
+  %.07886.us = phi i32 [ %43, %37 ], [ 4, %.lr.ph ]
+  %30 = icmp ult i32 %.087.us, 8
+  br i1 %30, label %.split.us, label %31
 
-32:                                               ; preds = %.lr.ph.split.us
-  %33 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.07886.us) #8
-  %34 = load i32, ptr @hf_ip_opt_time_stamp_addr, align 4
-  %35 = icmp eq i32 %33, 0
-  br i1 %35, label %38, label %36
+31:                                               ; preds = %.lr.ph.split.us
+  %32 = tail call i32 @tvb_get_ipv4(ptr noundef %0, i32 noundef %.07886.us) #8
+  %33 = load i32, ptr @hf_ip_opt_time_stamp_addr, align 4
+  %34 = icmp eq i32 %32, 0
+  br i1 %34, label %37, label %35
 
-36:                                               ; preds = %32
-  %37 = tail call ptr @get_hostname(i32 noundef %33) #8
-  br label %38
+35:                                               ; preds = %31
+  %36 = tail call ptr @get_hostname(i32 noundef %32) #8
+  br label %37
 
-38:                                               ; preds = %36, %32
-  %39 = phi ptr [ %37, %36 ], [ @.str.586, %32 ]
-  %40 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format_value(ptr noundef %9, i32 noundef %34, ptr noundef %0, i32 noundef %.07886.us, i32 noundef 4, i32 noundef %33, ptr noundef nonnull @.str.585, ptr noundef %39) #8
-  %41 = add nuw i32 %.07886.us, 4
-  %42 = load i32, ptr @hf_ip_opt_time_stamp, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %42, ptr noundef %0, i32 noundef %41, i32 noundef 4, i32 noundef 0) #8
-  %44 = add nuw i32 %.07886.us, 8
-  %45 = add nsw i32 %.087.us, -8
+37:                                               ; preds = %35, %31
+  %38 = phi ptr [ %36, %35 ], [ @.str.586, %31 ]
+  %39 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format_value(ptr noundef %9, i32 noundef %33, ptr noundef %0, i32 noundef %.07886.us, i32 noundef 4, i32 noundef %32, ptr noundef nonnull @.str.585, ptr noundef %38) #8
+  %40 = add nuw i32 %.07886.us, 4
+  %41 = load i32, ptr @hf_ip_opt_time_stamp, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %41, ptr noundef %0, i32 noundef %40, i32 noundef 4, i32 noundef 0) #8
+  %43 = add nuw i32 %.07886.us, 8
+  %44 = add nsw i32 %.087.us, -8
   %.not100 = icmp eq i32 %.087.us, 8
   br i1 %.not100, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !8
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %50
-  %.087 = phi i32 [ %54, %50 ], [ %28, %.lr.ph ]
-  %.07886 = phi i32 [ %53, %50 ], [ 4, %.lr.ph ]
-  %46 = icmp ult i32 %.087, 4
-  br i1 %46, label %48, label %50
+.lr.ph.split:                                     ; preds = %.lr.ph, %49
+  %.087 = phi i32 [ %53, %49 ], [ %27, %.lr.ph ]
+  %.07886 = phi i32 [ %52, %49 ], [ 4, %.lr.ph ]
+  %45 = icmp ult i32 %.087, 4
+  br i1 %45, label %47, label %49
 
 .split.us:                                        ; preds = %.lr.ph.split.us
-  %47 = tail call ptr @proto_tree_add_expert(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_ip_subopt_too_long, ptr noundef %0, i32 noundef %.07886.us, i32 noundef %.087.us) #8
+  %46 = tail call ptr @proto_tree_add_expert(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_ip_subopt_too_long, ptr noundef %0, i32 noundef %.07886.us, i32 noundef %.087.us) #8
   br label %.loopexit
 
-48:                                               ; preds = %.lr.ph.split
-  %49 = tail call ptr @proto_tree_add_expert(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_ip_subopt_too_long, ptr noundef %0, i32 noundef %.07886, i32 noundef %.087) #8
+47:                                               ; preds = %.lr.ph.split
+  %48 = tail call ptr @proto_tree_add_expert(ptr noundef %9, ptr noundef %1, ptr noundef nonnull @ei_ip_subopt_too_long, ptr noundef %0, i32 noundef %.07886, i32 noundef %.087) #8
   br label %.loopexit
 
-50:                                               ; preds = %.lr.ph.split
-  %51 = load i32, ptr @hf_ip_opt_time_stamp, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %51, ptr noundef %0, i32 noundef %.07886, i32 noundef 4, i32 noundef 0) #8
-  %53 = add nuw i32 %.07886, 4
-  %54 = add nsw i32 %.087, -4
+49:                                               ; preds = %.lr.ph.split
+  %50 = load i32, ptr @hf_ip_opt_time_stamp, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %9, i32 noundef %50, ptr noundef %0, i32 noundef %.07886, i32 noundef 4, i32 noundef 0) #8
+  %52 = add nuw i32 %.07886, 4
+  %53 = add nsw i32 %.087, -4
   %.not99 = icmp eq i32 %.087, 4
   br i1 %.not99, label %.loopexit, label %.lr.ph.split, !llvm.loop !8
 
-.loopexit:                                        ; preds = %50, %38, %20, %48, %.split.us
-  %55 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
-  ret i32 %55
+.loopexit:                                        ; preds = %49, %37, %19, %47, %.split.us
+  %54 = tail call i32 @tvb_captured_length(ptr noundef %0) #8
+  ret i32 %54
 }
 
 ; Function Attrs: nounwind uwtable

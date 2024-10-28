@@ -12321,7 +12321,7 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
   %57 = zext i8 %55 to i32
   %58 = and i32 %53, %57
   %.not = icmp eq i32 %58, 0
-  br i1 %.not, label %186, label %59
+  br i1 %.not, label %166, label %59
 
 59:                                               ; preds = %49
   %60 = ashr i32 %50, 3
@@ -12349,164 +12349,144 @@ define internal fastcc i32 @de_rr_rest_oct_gprs_cell_options(ptr noundef %0, ptr
   %80 = and i32 %75, %79
   %.not185 = icmp eq i32 %80, 0
   %81 = icmp eq i8 %63, 0
-  br i1 %.not185, label %96, label %82
+  br i1 %.not185, label %94, label %82
 
 82:                                               ; preds = %59
-  br i1 %81, label %186, label %83
+  br i1 %81, label %166, label %83
 
 83:                                               ; preds = %82
   %84 = load i32, ptr @hf_gsm_a_rr_egprs_packet_channel_request, align 4
   %85 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %84, ptr noundef %0, i32 noundef %69, i32 noundef 1, i32 noundef 0) #10
   %86 = add i32 %.0166, 9
-  %87 = add nuw nsw i32 %65, 65535
-  %88 = and i32 %87, 65535
-  %89 = icmp eq i32 %88, 0
-  br i1 %89, label %186, label %90
+  %87 = icmp eq i8 %63, 1
+  br i1 %87, label %166, label %88
 
-90:                                               ; preds = %83
-  %91 = load i32, ptr @hf_gsm_a_rr_bep_period, align 4
-  %92 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %91, ptr noundef %0, i32 noundef %86, i32 noundef 4, i32 noundef 0) #10
-  %93 = add i32 %.0166, 13
-  %94 = add nsw i32 %65, -5
-  %95 = icmp ult i8 %63, 6
-  br i1 %95, label %186, label %97
+88:                                               ; preds = %83
+  %89 = load i32, ptr @hf_gsm_a_rr_bep_period, align 4
+  %90 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %89, ptr noundef %0, i32 noundef %86, i32 noundef 4, i32 noundef 0) #10
+  %91 = add i32 %.0166, 13
+  %92 = add nsw i32 %65, -5
+  %93 = icmp ult i8 %63, 6
+  br i1 %93, label %166, label %95
 
-96:                                               ; preds = %59
-  br i1 %81, label %186, label %97
+94:                                               ; preds = %59
+  br i1 %81, label %166, label %95
 
-97:                                               ; preds = %96, %90
-  %.2 = phi i32 [ %93, %90 ], [ %69, %96 ]
-  %.0 = phi i32 [ %94, %90 ], [ %65, %96 ]
-  %98 = load i32, ptr @hf_gsm_a_rr_pfc_feature_mode, align 4
-  %99 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %98, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #10
-  %100 = add i32 %.2, 1
-  %101 = icmp slt i32 %.0, 2
-  br i1 %101, label %186, label %102
+95:                                               ; preds = %94, %88
+  %.2 = phi i32 [ %91, %88 ], [ %69, %94 ]
+  %.0 = phi i32 [ %92, %88 ], [ %65, %94 ]
+  %96 = load i32, ptr @hf_gsm_a_rr_pfc_feature_mode, align 4
+  %97 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %96, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef 0) #10
+  %98 = add i32 %.2, 1
+  %99 = icmp slt i32 %.0, 2
+  br i1 %99, label %166, label %100
 
-102:                                              ; preds = %97
-  %103 = load i32, ptr @hf_gsm_a_rr_dtm_support, align 4
-  %104 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %103, ptr noundef %0, i32 noundef %100, i32 noundef 1, i32 noundef 0) #10
-  %105 = add i32 %.2, 2
-  %106 = add nuw nsw i32 %.0, 65534
-  %107 = and i32 %106, 65535
-  %108 = icmp eq i32 %107, 0
-  br i1 %108, label %186, label %109
+100:                                              ; preds = %95
+  %101 = load i32, ptr @hf_gsm_a_rr_dtm_support, align 4
+  %102 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %101, ptr noundef %0, i32 noundef %98, i32 noundef 1, i32 noundef 0) #10
+  %103 = add i32 %.2, 2
+  %104 = icmp eq i32 %.0, 2
+  br i1 %104, label %166, label %105
 
-109:                                              ; preds = %102
-  %110 = load i32, ptr @hf_gsm_a_rr_bss_paging_coordination, align 4
-  %111 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %110, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0) #10
-  %112 = add i32 %.2, 3
-  %113 = add nuw nsw i32 %.0, 65533
-  %114 = and i32 %113, 65535
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %186, label %116
+105:                                              ; preds = %100
+  %106 = load i32, ptr @hf_gsm_a_rr_bss_paging_coordination, align 4
+  %107 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %106, ptr noundef %0, i32 noundef %103, i32 noundef 1, i32 noundef 0) #10
+  %108 = add i32 %.2, 3
+  %109 = icmp eq i32 %.0, 3
+  br i1 %109, label %166, label %110
 
-116:                                              ; preds = %109
-  %117 = load i32, ptr @hf_gsm_a_rr_ccn_active, align 4
-  %118 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %117, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0) #10
-  %119 = add i32 %.2, 4
-  %120 = add nuw nsw i32 %.0, 65532
-  %121 = and i32 %120, 65535
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %186, label %123
+110:                                              ; preds = %105
+  %111 = load i32, ptr @hf_gsm_a_rr_ccn_active, align 4
+  %112 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %111, ptr noundef %0, i32 noundef %108, i32 noundef 1, i32 noundef 0) #10
+  %113 = add i32 %.2, 4
+  %114 = icmp eq i32 %.0, 4
+  br i1 %114, label %166, label %115
 
-123:                                              ; preds = %116
-  %124 = load i32, ptr @hf_gsm_a_rr_nw_ext_utbf, align 4
-  %125 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %124, ptr noundef %0, i32 noundef %119, i32 noundef 1, i32 noundef 0) #10
-  %126 = add i32 %.2, 5
-  %127 = add nuw nsw i32 %.0, 65531
-  %128 = and i32 %127, 65535
-  %129 = icmp eq i32 %128, 0
-  br i1 %129, label %186, label %130
+115:                                              ; preds = %110
+  %116 = load i32, ptr @hf_gsm_a_rr_nw_ext_utbf, align 4
+  %117 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %116, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0) #10
+  %118 = add i32 %.2, 5
+  %119 = icmp eq i32 %.0, 5
+  br i1 %119, label %166, label %120
 
-130:                                              ; preds = %123
-  %131 = load i32, ptr @hf_gsm_a_rr_multiple_tbf_capability, align 4
-  %132 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %131, ptr noundef %0, i32 noundef %126, i32 noundef 1, i32 noundef 0) #10
-  %133 = add i32 %.2, 6
-  %134 = add nuw nsw i32 %.0, 65530
-  %135 = and i32 %134, 65535
-  %136 = icmp eq i32 %135, 0
-  br i1 %136, label %186, label %137
+120:                                              ; preds = %115
+  %121 = load i32, ptr @hf_gsm_a_rr_multiple_tbf_capability, align 4
+  %122 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %121, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0) #10
+  %123 = add i32 %.2, 6
+  %124 = icmp eq i32 %.0, 6
+  br i1 %124, label %166, label %125
 
-137:                                              ; preds = %130
-  %138 = load i32, ptr @hf_gsm_a_rr_ext_utbf_no_data, align 4
-  %139 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %138, ptr noundef %0, i32 noundef %133, i32 noundef 1, i32 noundef 0) #10
-  %140 = add i32 %.2, 7
-  %141 = add nuw nsw i32 %.0, 65529
-  %142 = and i32 %141, 65535
-  %143 = icmp eq i32 %142, 0
-  br i1 %143, label %186, label %144
+125:                                              ; preds = %120
+  %126 = load i32, ptr @hf_gsm_a_rr_ext_utbf_no_data, align 4
+  %127 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %126, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0) #10
+  %128 = add i32 %.2, 7
+  %129 = icmp eq i32 %.0, 7
+  br i1 %129, label %166, label %130
 
-144:                                              ; preds = %137
-  %145 = load i32, ptr @hf_gsm_a_rr_dtm_enhancements_capability, align 4
-  %146 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %145, ptr noundef %0, i32 noundef %140, i32 noundef 1, i32 noundef 0) #10
-  %147 = add i32 %.2, 8
-  %148 = add nuw nsw i32 %.0, 65528
-  %149 = and i32 %148, 65535
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %186, label %151
+130:                                              ; preds = %125
+  %131 = load i32, ptr @hf_gsm_a_rr_dtm_enhancements_capability, align 4
+  %132 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %131, ptr noundef %0, i32 noundef %128, i32 noundef 1, i32 noundef 0) #10
+  %133 = add i32 %.2, 8
+  %134 = icmp eq i32 %.0, 8
+  br i1 %134, label %166, label %135
 
-151:                                              ; preds = %144
-  %152 = load i32, ptr @hf_gsm_a_rr_msms_procedures, align 4
-  %153 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %62, i32 noundef %147, i32 noundef %152)
-  %.not183 = icmp eq i32 %153, 0
-  %154 = add i32 %.2, 9
-  br i1 %.not183, label %173, label %155
+135:                                              ; preds = %130
+  %136 = load i32, ptr @hf_gsm_a_rr_msms_procedures, align 4
+  %137 = call fastcc i32 @gsm_rr_csn_flag(ptr noundef %0, ptr noundef %62, i32 noundef %133, i32 noundef %136)
+  %.not183 = icmp eq i32 %137, 0
+  %138 = add i32 %.2, 9
+  br i1 %.not183, label %153, label %139
 
-155:                                              ; preds = %151
-  %156 = add nuw nsw i32 %.0, 65527
-  %157 = and i32 %156, 65535
-  %158 = icmp eq i32 %157, 0
-  br i1 %158, label %186, label %159
+139:                                              ; preds = %135
+  %140 = icmp eq i32 %.0, 9
+  br i1 %140, label %166, label %141
 
-159:                                              ; preds = %155
-  %160 = load i32, ptr @hf_gsm_a_rr_dedicated_mode_mbms_notification_support, align 4
-  %161 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %160, ptr noundef %0, i32 noundef %154, i32 noundef 1, i32 noundef 0) #10
-  %162 = add i32 %.2, 10
-  %163 = add nuw nsw i32 %.0, 65526
-  %164 = and i32 %163, 65535
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %186, label %166
+141:                                              ; preds = %139
+  %142 = load i32, ptr @hf_gsm_a_rr_dedicated_mode_mbms_notification_support, align 4
+  %143 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %142, ptr noundef %0, i32 noundef %138, i32 noundef 1, i32 noundef 0) #10
+  %144 = add i32 %.2, 10
+  %145 = icmp eq i32 %.0, 10
+  br i1 %145, label %166, label %146
 
-166:                                              ; preds = %159
-  %167 = load i32, ptr @hf_gsm_a_rr_mnci_support, align 4
-  %168 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %167, ptr noundef %0, i32 noundef %162, i32 noundef 1, i32 noundef 0) #10
-  %169 = add i32 %.2, 11
-  %170 = trunc nsw i32 %.0 to i16
-  %171 = add nsw i16 %170, -11
-  %172 = icmp eq i16 %171, 0
-  br i1 %172, label %186, label %177
+146:                                              ; preds = %141
+  %147 = load i32, ptr @hf_gsm_a_rr_mnci_support, align 4
+  %148 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %147, ptr noundef %0, i32 noundef %144, i32 noundef 1, i32 noundef 0) #10
+  %149 = add i32 %.2, 11
+  %150 = trunc nsw i32 %.0 to i16
+  %151 = add nsw i16 %150, -11
+  %152 = icmp eq i16 %151, 0
+  br i1 %152, label %166, label %157
 
-173:                                              ; preds = %151
-  %174 = trunc nsw i32 %.0 to i16
-  %175 = add nsw i16 %174, -9
-  %176 = icmp eq i16 %175, 0
-  br i1 %176, label %186, label %177
+153:                                              ; preds = %135
+  %154 = trunc nsw i32 %.0 to i16
+  %155 = add nsw i16 %154, -9
+  %156 = icmp eq i16 %155, 0
+  br i1 %156, label %166, label %157
 
-177:                                              ; preds = %173, %166
-  %.3 = phi i32 [ %169, %166 ], [ %154, %173 ]
-  %.1 = phi i16 [ %171, %166 ], [ %175, %173 ]
-  %178 = load i32, ptr @hf_gsm_a_rr_reduced_latency_access, align 4
-  %179 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %178, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #10
-  %180 = add i32 %.3, 1
-  %181 = icmp slt i16 %.1, 2
-  br i1 %181, label %186, label %182
+157:                                              ; preds = %153, %146
+  %.3 = phi i32 [ %149, %146 ], [ %138, %153 ]
+  %.1 = phi i16 [ %151, %146 ], [ %155, %153 ]
+  %158 = load i32, ptr @hf_gsm_a_rr_reduced_latency_access, align 4
+  %159 = call ptr @proto_tree_add_bits_item(ptr noundef %62, i32 noundef %158, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef 0) #10
+  %160 = add i32 %.3, 1
+  %161 = icmp ult i16 %.1, 2
+  br i1 %161, label %166, label %162
 
-182:                                              ; preds = %177
-  %183 = add nsw i16 %.1, -1
-  %184 = zext nneg i16 %183 to i32
-  %185 = add i32 %180, %184
-  br label %186
+162:                                              ; preds = %157
+  %163 = add nsw i16 %.1, -1
+  %164 = zext nneg i16 %163 to i32
+  %165 = add i32 %160, %164
+  br label %166
 
-186:                                              ; preds = %49, %182, %177, %173, %166, %159, %155, %144, %137, %130, %123, %116, %109, %102, %97, %96, %90, %83, %82
-  %.1167 = phi i32 [ %69, %82 ], [ %86, %83 ], [ %93, %90 ], [ %100, %97 ], [ %105, %102 ], [ %112, %109 ], [ %119, %116 ], [ %126, %123 ], [ %133, %130 ], [ %140, %137 ], [ %147, %144 ], [ %154, %155 ], [ %162, %159 ], [ %169, %166 ], [ %180, %177 ], [ %185, %182 ], [ %154, %173 ], [ %69, %96 ], [ %50, %49 ]
-  %187 = load ptr, ptr %4, align 8
-  %188 = ashr i32 %.1167, 3
-  %reass.sub187 = sub nsw i32 %188, %6
-  %189 = add nsw i32 %reass.sub187, 1
-  call void @proto_item_set_len(ptr noundef %187, i32 noundef %189) #10
-  %190 = sub i32 %.1167, %2
-  ret i32 %190
+166:                                              ; preds = %49, %162, %157, %153, %146, %141, %139, %130, %125, %120, %115, %110, %105, %100, %95, %94, %88, %83, %82
+  %.1167 = phi i32 [ %69, %82 ], [ %86, %83 ], [ %91, %88 ], [ %98, %95 ], [ %103, %100 ], [ %108, %105 ], [ %113, %110 ], [ %118, %115 ], [ %123, %120 ], [ %128, %125 ], [ %133, %130 ], [ %138, %139 ], [ %144, %141 ], [ %149, %146 ], [ %160, %157 ], [ %165, %162 ], [ %138, %153 ], [ %69, %94 ], [ %50, %49 ]
+  %167 = load ptr, ptr %4, align 8
+  %168 = ashr i32 %.1167, 3
+  %reass.sub187 = sub nsw i32 %168, %6
+  %169 = add nsw i32 %reass.sub187, 1
+  call void @proto_item_set_len(ptr noundef %167, i32 noundef %169) #10
+  %170 = sub i32 %.1167, %2
+  ret i32 %170
 }
 
 ; Function Attrs: nounwind uwtable

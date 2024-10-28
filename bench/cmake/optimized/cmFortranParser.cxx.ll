@@ -93,19 +93,19 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   store i8 0, ptr %3, align 16
   br label %9
 
-7:                                                ; preds = %._crit_edge410, %204, %46
-  %.1282 = phi ptr [ %.3284, %._crit_edge410 ], [ %.0281350, %204 ], [ %.0281350, %46 ]
-  %.1226 = phi ptr [ %249, %._crit_edge410 ], [ %183, %204 ], [ %47, %46 ]
-  %.1220.idx = phi i64 [ %.3222.idx.lcssa, %._crit_edge410 ], [ %.0219.add, %204 ], [ %.0219.idx352, %46 ]
-  %.1217 = phi i32 [ 3, %._crit_edge410 ], [ %.0216353, %204 ], [ %spec.select, %46 ]
-  %.1214 = phi i32 [ 3, %._crit_edge410 ], [ %206, %204 ], [ %42, %46 ]
-  %.1 = phi i32 [ %.6, %._crit_edge410 ], [ %.7, %204 ], [ -2, %46 ]
+7:                                                ; preds = %260, %204, %46
+  %.1282 = phi ptr [ %.3284, %260 ], [ %.0281350, %204 ], [ %.0281350, %46 ]
+  %.1226 = phi ptr [ %262, %260 ], [ %183, %204 ], [ %47, %46 ]
+  %.1220.idx = phi i64 [ %.3222.idx, %260 ], [ %.0219.add, %204 ], [ %.0219.idx352, %46 ]
+  %.1217 = phi i32 [ 3, %260 ], [ %.0216353, %204 ], [ %spec.select, %46 ]
+  %.1214 = phi i32 [ %261, %260 ], [ %206, %204 ], [ %42, %46 ]
+  %.1 = phi i32 [ %.6, %260 ], [ %.7, %204 ], [ -2, %46 ]
   %.1220.add = add nsw i64 %.1220.idx, 1
   %.0219.ptr = getelementptr inbounds i8, ptr %3, i64 %.1220.add
   %8 = trunc nsw i32 %.1214 to i8
   store i8 %8, ptr %.0219.ptr, align 1
   %.not = icmp slt i64 %.1220.idx, 198
-  br i1 %.not, label %9, label %251
+  br i1 %.not, label %9, label %264
 
 9:                                                ; preds = %1, %7
   %.0219.ptr357 = phi ptr [ %3, %1 ], [ %.0219.ptr, %7 ]
@@ -554,7 +554,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
   %.0 = phi i1 [ true, %217 ], [ true, %228 ], [ %227, %225 ], [ false, %219 ]
   %230 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
   call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %230, ptr noundef %.0207)
-  br i1 %.0, label %251, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  br i1 %.0, label %264, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
 
 231:                                              ; preds = %215
   %232 = icmp slt i32 %.3, 1
@@ -577,62 +577,80 @@ define dso_local noundef range(i32 0, 3) i32 @_Z17cmFortran_yyparsePv(ptr nounde
 _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit: ; preds = %215, %229, %.sink.split.i, %235, %23, %233
   %.3284 = phi ptr [ %.0281350, %233 ], [ %.0281350, %23 ], [ %.0281350, %235 ], [ %.0281350, %.sink.split.i ], [ %.5286, %229 ], [ %.0281350, %215 ]
   %.6 = phi i32 [ %.3, %233 ], [ 257, %23 ], [ -2, %235 ], [ -2, %.sink.split.i ], [ %.3, %229 ], [ %.3, %215 ]
-  %237 = icmp eq i32 %.0213354, 1
-  br i1 %237, label %._crit_edge410, label %.lr.ph409
+  br label %237
 
-.lr.ph409:                                        ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268
-  %.in412 = phi i32 [ %247, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ], [ %.0213354, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
-  %.3222.idx408 = phi i64 [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ], [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
-  %.3228407 = phi ptr [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ], [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ]
-  %238 = icmp eq i64 %.3222.idx408, 0
-  br i1 %238, label %.loopexit333, label %239
+237:                                              ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
+  %238 = phi i16 [ %14, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.pre, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
+  %.3228 = phi ptr [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %257, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
+  %.3222.idx = phi i64 [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
+  %.2215 = phi i32 [ %.0213354, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %259, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
+  %239 = sext i32 %.2215 to i64
+  %240 = icmp sgt i16 %238, -2
+  br i1 %240, label %241, label %250
 
-239:                                              ; preds = %.lr.ph409
-  %240 = sext i32 %.in412 to i64
-  %241 = getelementptr inbounds [123 x i8], ptr @_ZL6yystos, i64 0, i64 %240
-  %242 = load i8, ptr %241, align 1
-  %243 = sext i8 %242 to i32
-  %.off.i265 = add nsw i32 %243, -32
+241:                                              ; preds = %237
+  %242 = sext i16 %238 to i64
+  %243 = and i64 %242, 4294967295
+  %244 = icmp eq i64 %243, 21
+  br i1 %244, label %245, label %250
+
+245:                                              ; preds = %241
+  %246 = add nuw nsw i64 %242, 1
+  %247 = getelementptr inbounds [434 x i8], ptr @_ZL7yytable, i64 0, i64 %246
+  %248 = load i8, ptr %247, align 1
+  %249 = icmp sgt i8 %248, 0
+  br i1 %249, label %260, label %250
+
+250:                                              ; preds = %241, %245, %237
+  %251 = icmp eq i64 %.3222.idx, 0
+  br i1 %251, label %.loopexit333, label %252
+
+252:                                              ; preds = %250
+  %253 = getelementptr inbounds [123 x i8], ptr @_ZL6yystos, i64 0, i64 %239
+  %254 = load i8, ptr %253, align 1
+  %255 = sext i8 %254 to i32
+  %.off.i265 = add nsw i32 %255, -32
   %switch.i266 = icmp ult i32 %.off.i265, 3
   br i1 %switch.i266, label %.sink.split.i267, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268
 
-.sink.split.i267:                                 ; preds = %239
-  %244 = load ptr, ptr %.3228407, align 8
-  call void @free(ptr noundef %244) #8
+.sink.split.i267:                                 ; preds = %252
+  %256 = load ptr, ptr %.3228, align 8
+  call void @free(ptr noundef %256) #8
   br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268
 
-_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %239, %.sink.split.i267
-  %245 = getelementptr inbounds i8, ptr %.3228407, i64 -8
-  %.3222.add = add nsw i64 %.3222.idx408, -1
+_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %252, %.sink.split.i267
+  %257 = getelementptr inbounds i8, ptr %.3228, i64 -8
+  %.3222.add = add nsw i64 %.3222.idx, -1
   %.ptr251 = getelementptr inbounds i8, ptr %3, i64 %.3222.add
-  %246 = load i8, ptr %.ptr251, align 1
-  %247 = sext i8 %246 to i32
-  %248 = icmp eq i8 %246, 1
-  br i1 %248, label %._crit_edge410, label %.lr.ph409, !llvm.loop !5
+  %258 = load i8, ptr %.ptr251, align 1
+  %259 = sext i8 %258 to i32
+  %.phi.trans.insert = sext i8 %258 to i64
+  %.phi.trans.insert375 = getelementptr inbounds [123 x i16], ptr @_ZL6yypact, i64 0, i64 %.phi.trans.insert
+  %.pre = load i16, ptr %.phi.trans.insert375, align 2
+  br label %237, !llvm.loop !5
 
-._crit_edge410:                                   ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit
-  %.3228.lcssa = phi ptr [ %.0225351, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %245, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
-  %.3222.idx.lcssa = phi i64 [ %.0219.idx352, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit ], [ %.3222.add, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268 ]
-  %249 = getelementptr inbounds i8, ptr %.3228.lcssa, i64 8
-  %250 = load i64, ptr %2, align 8
-  store i64 %250, ptr %249, align 8
+260:                                              ; preds = %245
+  %261 = zext nneg i8 %248 to i32
+  %262 = getelementptr inbounds i8, ptr %.3228, i64 8
+  %263 = load i64, ptr %2, align 8
+  store i64 %263, ptr %262, align 8
   br label %7
 
-251:                                              ; preds = %229, %7
+264:                                              ; preds = %229, %7
   %.0225.lcssa = phi ptr [ %.0225351, %229 ], [ %.1226, %7 ]
   %.0219.ptr.lcssa = phi ptr [ %.0219.ptr357, %229 ], [ %.0219.ptr, %7 ]
   %.2283 = phi ptr [ %.5286, %229 ], [ %.1282, %7 ]
   %.2 = phi i32 [ %.3, %229 ], [ %.1, %7 ]
-  %252 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
-  call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %252, ptr noundef nonnull @.str.5)
+  %265 = call noundef ptr @_Z21cmFortran_yyget_extraPv(ptr noundef %0)
+  call void @_Z21cmFortranParser_ErrorP17cmFortranParser_sPKc(ptr noundef %265, ptr noundef nonnull @.str.5)
   br label %.loopexit333
 
-.loopexit333:                                     ; preds = %9, %.lr.ph409, %251
-  %.6287 = phi ptr [ %.2283, %251 ], [ %.3284, %.lr.ph409 ], [ %.0281350, %9 ]
-  %.0232 = phi i32 [ 2, %251 ], [ 1, %.lr.ph409 ], [ 0, %9 ]
-  %.4229 = phi ptr [ %.0225.lcssa, %251 ], [ %.3228407, %.lr.ph409 ], [ %.0225351, %9 ]
-  %.4223 = phi ptr [ %.0219.ptr.lcssa, %251 ], [ %3, %.lr.ph409 ], [ %.0219.ptr357, %9 ]
-  %.9 = phi i32 [ %.2, %251 ], [ %.6, %.lr.ph409 ], [ %.0208356, %9 ]
+.loopexit333:                                     ; preds = %9, %250, %264
+  %.6287 = phi ptr [ %.2283, %264 ], [ %.3284, %250 ], [ %.0281350, %9 ]
+  %.0232 = phi i32 [ 2, %264 ], [ 1, %250 ], [ 0, %9 ]
+  %.4229 = phi ptr [ %.0225.lcssa, %264 ], [ %.3228, %250 ], [ %.0225351, %9 ]
+  %.4223 = phi ptr [ %.0219.ptr.lcssa, %264 ], [ %3, %250 ], [ %.0219.ptr357, %9 ]
+  %.9 = phi i32 [ %.2, %264 ], [ %.6, %250 ], [ %.0208356, %9 ]
   %or.cond11 = icmp ult i32 %.9, 296
   br i1 %or.cond11, label %.thread306, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
 
@@ -642,17 +660,17 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit268: ; preds = %23
   %.4229301317 = phi ptr [ %.4229, %.loopexit333 ], [ %.0225351, %233 ]
   %.4223303315 = phi ptr [ %.4223, %.loopexit333 ], [ %.0219.ptr357, %233 ]
   %.9305313 = phi i32 [ %.9, %.loopexit333 ], [ 0, %233 ]
-  %253 = zext nneg i32 %.9305313 to i64
-  %254 = getelementptr inbounds [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %253
-  %255 = load i8, ptr %254, align 1
-  %256 = sext i8 %255 to i32
-  %.off.i269 = add nsw i32 %256, -32
+  %266 = zext nneg i32 %.9305313 to i64
+  %267 = getelementptr inbounds [296 x i8], ptr @_ZL11yytranslate, i64 0, i64 %266
+  %268 = load i8, ptr %267, align 1
+  %269 = sext i8 %268 to i32
+  %.off.i269 = add nsw i32 %269, -32
   %switch.i270 = icmp ult i32 %.off.i269, 3
   br i1 %switch.i270, label %.sink.split.i271, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
 
 .sink.split.i271:                                 ; preds = %.thread306
-  %257 = load ptr, ptr %2, align 8
-  call void @free(ptr noundef %257) #8
+  %270 = load ptr, ptr %2, align 8
+  call void @free(ptr noundef %270) #8
   br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
 
 _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272: ; preds = %.sink.split.i271, %.thread306, %.loopexit333
@@ -664,37 +682,37 @@ _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272: ; preds = %.s
   br i1 %.not258358, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
-  %.5224360 = phi ptr [ %265, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ], [ %.4223304, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
-  %.5230359 = phi ptr [ %264, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ], [ %.4229302, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
-  %258 = load i8, ptr %.5224360, align 1
-  %259 = sext i8 %258 to i64
-  %260 = getelementptr inbounds [123 x i8], ptr @_ZL6yystos, i64 0, i64 %259
-  %261 = load i8, ptr %260, align 1
-  %262 = sext i8 %261 to i32
-  %.off.i273 = add nsw i32 %262, -32
+  %.5224360 = phi ptr [ %278, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ], [ %.4223304, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
+  %.5230359 = phi ptr [ %277, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276 ], [ %.4229302, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272 ]
+  %271 = load i8, ptr %.5224360, align 1
+  %272 = sext i8 %271 to i64
+  %273 = getelementptr inbounds [123 x i8], ptr @_ZL6yystos, i64 0, i64 %272
+  %274 = load i8, ptr %273, align 1
+  %275 = sext i8 %274 to i32
+  %.off.i273 = add nsw i32 %275, -32
   %switch.i274 = icmp ult i32 %.off.i273, 3
   br i1 %switch.i274, label %.sink.split.i275, label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
 
 .sink.split.i275:                                 ; preds = %.lr.ph
-  %263 = load ptr, ptr %.5230359, align 8
-  call void @free(ptr noundef %263) #8
+  %276 = load ptr, ptr %.5230359, align 8
+  call void @free(ptr noundef %276) #8
   br label %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276
 
 _ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276: ; preds = %.lr.ph, %.sink.split.i275
-  %264 = getelementptr inbounds i8, ptr %.5230359, i64 -8
-  %265 = getelementptr inbounds i8, ptr %.5224360, i64 -1
-  %.not258 = icmp eq ptr %265, %3
+  %277 = getelementptr inbounds i8, ptr %.5230359, i64 -8
+  %278 = getelementptr inbounds i8, ptr %.5224360, i64 -1
+  %.not258 = icmp eq ptr %278, %3
   br i1 %.not258, label %._crit_edge, label %.lr.ph, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit276, %_ZL10yydestructPKc15yysymbol_kind_tP17cmFortran_yystypePv.exit272
   %.not259 = icmp eq ptr %.6287298, %5
-  br i1 %.not259, label %267, label %266
+  br i1 %.not259, label %280, label %279
 
-266:                                              ; preds = %._crit_edge
+279:                                              ; preds = %._crit_edge
   call void @free(ptr noundef %.6287298) #8
-  br label %267
+  br label %280
 
-267:                                              ; preds = %266, %._crit_edge
+280:                                              ; preds = %279, %._crit_edge
   ret i32 %.0232300
 }
 

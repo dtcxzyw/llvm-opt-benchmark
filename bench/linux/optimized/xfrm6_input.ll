@@ -492,7 +492,7 @@ define dso_local ptr @xfrm6_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, pt
 
 7:                                                ; preds = %3
   %8 = tail call ptr @xfrm4_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, ptr noundef %2) #6
-  br label %70
+  br label %69
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %2, i64 56
@@ -508,13 +508,13 @@ define dso_local ptr @xfrm6_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, pt
 
 19:                                               ; preds = %9
   %20 = icmp ult i32 %14, %12
-  br i1 %20, label %70, label %21, !prof !8
+  br i1 %20, label %69, label %21, !prof !8
 
 21:                                               ; preds = %19
   %22 = sub i32 %12, %17
   %23 = tail call ptr @__pskb_pull_tail(ptr noundef %2, i32 noundef %22) #6
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %70, label %._crit_edge
+  br i1 %24, label %69, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %21
   %.pre = load i32, ptr %13, align 8
@@ -530,24 +530,24 @@ define dso_local ptr @xfrm6_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, pt
   %31 = getelementptr i8, ptr %29, i64 %30
   store ptr %31, ptr %28, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %70, label %33
+  br i1 %32, label %69, label %33
 
 33:                                               ; preds = %25
   tail call void @__rcu_read_lock() #6
   %34 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @inet6_offloads, i64 400), align 16
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %64, label %36
+  br i1 %35, label %63, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %64, label %40
+  br i1 %39, label %63, label %40
 
 40:                                               ; preds = %36
   %41 = tail call fastcc i32 @__xfrm6_udp_encap_rcv(ptr noundef %0, ptr noundef %2, i1 noundef zeroext false), !range !7
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %64
+  br i1 %42, label %43, label %63
 
 43:                                               ; preds = %40
   %44 = tail call ptr @skb_push(ptr noundef %2, i32 noundef %12) #6
@@ -556,46 +556,45 @@ define dso_local ptr @xfrm6_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, pt
   %46 = load ptr, ptr %37, align 8
   %47 = getelementptr inbounds i8, ptr %2, i64 70
   %48 = load i16, ptr %47, align 2
-  %49 = lshr i16 %48, 11
-  %50 = add nuw nsw i16 %49, 1
-  %51 = and i16 %50, 15
-  %52 = shl nuw nsw i16 %51, 11
-  %53 = and i16 %48, -30721
-  %54 = or disjoint i16 %52, %53
-  store i16 %54, ptr %47, align 2
-  %55 = icmp eq i16 %51, 15
-  br i1 %55, label %56, label %60, !prof !8
+  %49 = add i16 %48, 2048
+  %50 = and i16 %49, 30720
+  %51 = and i16 %48, -30721
+  %52 = or disjoint i16 %50, %51
+  store i16 %52, ptr %47, align 2
+  %53 = and i16 %48, 30720
+  %54 = icmp eq i16 %53, 28672
+  br i1 %54, label %55, label %59, !prof !8
 
-56:                                               ; preds = %43
-  %57 = getelementptr inbounds i8, ptr %2, i64 60
-  %58 = load i16, ptr %57, align 4
-  %59 = or i16 %58, 1
-  store i16 %59, ptr %57, align 4
-  br label %62
+55:                                               ; preds = %43
+  %56 = getelementptr inbounds i8, ptr %2, i64 60
+  %57 = load i16, ptr %56, align 4
+  %58 = or i16 %57, 1
+  store i16 %58, ptr %56, align 4
+  br label %61
 
-60:                                               ; preds = %43
-  %61 = tail call ptr %46(ptr noundef %1, ptr noundef %2) #6
-  br label %62
+59:                                               ; preds = %43
+  %60 = tail call ptr %46(ptr noundef %1, ptr noundef %2) #6
+  br label %61
 
-62:                                               ; preds = %60, %56
-  %63 = phi ptr [ null, %56 ], [ %61, %60 ]
+61:                                               ; preds = %59, %55
+  %62 = phi ptr [ null, %55 ], [ %60, %59 ]
   tail call void @__rcu_read_unlock() #6
-  br label %70
+  br label %69
 
-64:                                               ; preds = %40, %36, %33
+63:                                               ; preds = %40, %36, %33
   tail call void @__rcu_read_unlock() #6
-  %65 = tail call ptr @skb_push(ptr noundef %2, i32 noundef %12) #6
-  %66 = getelementptr inbounds i8, ptr %2, i64 70
-  %67 = load i16, ptr %66, align 2
-  %68 = and i16 %67, -2
-  store i16 %68, ptr %66, align 2
-  %69 = getelementptr inbounds i8, ptr %2, i64 60
-  store i16 1, ptr %69, align 4
-  br label %70
+  %64 = tail call ptr @skb_push(ptr noundef %2, i32 noundef %12) #6
+  %65 = getelementptr inbounds i8, ptr %2, i64 70
+  %66 = load i16, ptr %65, align 2
+  %67 = and i16 %66, -2
+  store i16 %67, ptr %65, align 2
+  %68 = getelementptr inbounds i8, ptr %2, i64 60
+  store i16 1, ptr %68, align 4
+  br label %69
 
-70:                                               ; preds = %64, %62, %25, %21, %19, %7
-  %71 = phi ptr [ %8, %7 ], [ null, %64 ], [ %63, %62 ], [ null, %25 ], [ null, %19 ], [ null, %21 ]
-  ret ptr %71
+69:                                               ; preds = %63, %61, %25, %21, %19, %7
+  %70 = phi ptr [ %8, %7 ], [ null, %63 ], [ %62, %61 ], [ null, %25 ], [ null, %19 ], [ null, %21 ]
+  ret ptr %70
 }
 
 ; Function Attrs: null_pointer_is_valid

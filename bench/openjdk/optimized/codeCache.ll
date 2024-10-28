@@ -3080,7 +3080,9 @@ define hidden void @_ZN9CodeCache25increment_unloading_cycleEv() local_unnamed_a
   %1 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
   %2 = add i8 %1, 1
   %3 = and i8 %2, 3
-  %spec.store.select = tail call i8 @llvm.umax.i8(i8 %3, i8 1)
+  %4 = and i8 %1, 3
+  %5 = icmp eq i8 %4, 3
+  %spec.store.select = select i1 %5, i8 1, i8 %3
   store i8 %spec.store.select, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
   ret void
 }
@@ -3097,7 +3099,9 @@ define hidden void @_ZN9CodeCache14UnlinkingScopeC2EP17BoolObjectClosure(ptr nou
   %6 = load i8, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
   %7 = add i8 %6, 1
   %8 = and i8 %7, 3
-  %spec.store.select.i = tail call i8 @llvm.umax.i8(i8 %8, i8 1)
+  %9 = and i8 %6, 3
+  %10 = icmp eq i8 %9, 3
+  %spec.store.select.i = select i1 %10, i8 1, i8 %8
   store i8 %spec.store.select.i, ptr @_ZN9CodeCache16_unloading_cycleE, align 1
   tail call void @_ZN17DependencyContext14cleaning_startEv() #20
   ret void
@@ -8874,9 +8878,6 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umax.i8(i8, i8) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #15

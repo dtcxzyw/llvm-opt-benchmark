@@ -1442,7 +1442,8 @@ if.end:                                           ; preds = %entry
   %bf.clear7 = and i32 %bf.load4, -65536
   %bf.set = or disjoint i32 %bf.value, %bf.clear7
   store i32 %bf.set, ptr %container, align 8
-  %cmp11.not = icmp eq i32 %bf.value, 0
+  %3 = and i32 %bf.load4, 65535
+  %cmp11.not = icmp eq i32 %3, 1
   br i1 %cmp11.not, label %if.then13, label %do.body
 
 if.then13:                                        ; preds = %if.end
@@ -1457,8 +1458,8 @@ do.body:                                          ; preds = %if.end
 
 if.end16:                                         ; preds = %do.body, %if.then13
   %count17 = getelementptr inbounds i8, ptr %quicklist, i64 16
-  %3 = load i64, ptr %count17, align 8
-  %dec18 = add i64 %3, -1
+  %4 = load i64, ptr %count17, align 8
+  %dec18 = add i64 %4, -1
   store i64 %dec18, ptr %count17, align 8
   %cond = zext i1 %cmp11.not to i32
   br label %return
@@ -1502,7 +1503,8 @@ if.end.i:                                         ; preds = %entry
   %bf.clear7.i = and i32 %bf.load4.i, -65536
   %bf.set.i = or disjoint i32 %bf.value.i, %bf.clear7.i
   store i32 %bf.set.i, ptr %container.i, align 8
-  %cmp11.not.i = icmp eq i32 %bf.value.i, 0
+  %7 = and i32 %bf.load4.i, 65535
+  %cmp11.not.i = icmp eq i32 %7, 1
   br i1 %cmp11.not.i, label %quicklistDelIndex.exit, label %quicklistDelIndex.exit.thread14
 
 quicklistDelIndex.exit.thread14:                  ; preds = %if.end.i
@@ -1510,8 +1512,8 @@ quicklistDelIndex.exit.thread14:                  ; preds = %if.end.i
   %sz.i = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %call15.i, ptr %sz.i, align 8
   %count17.i15 = getelementptr inbounds i8, ptr %3, i64 16
-  %7 = load i64, ptr %count17.i15, align 8
-  %dec18.i16 = add i64 %7, -1
+  %8 = load i64, ptr %count17.i15, align 8
+  %dec18.i16 = add i64 %8, -1
   store i64 %dec18.i16, ptr %count17.i15, align 8
   %zi618 = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr null, ptr %zi618, align 8
@@ -1520,8 +1522,8 @@ quicklistDelIndex.exit.thread14:                  ; preds = %if.end.i
 quicklistDelIndex.exit:                           ; preds = %if.end.i
   tail call void @__quicklistDelNode(ptr noundef %3, ptr noundef nonnull %0)
   %count17.i = getelementptr inbounds i8, ptr %3, i64 16
-  %8 = load i64, ptr %count17.i, align 8
-  %dec18.i = add i64 %8, -1
+  %9 = load i64, ptr %count17.i, align 8
+  %dec18.i = add i64 %9, -1
   store i64 %dec18.i, ptr %count17.i, align 8
   br label %if.then
 
@@ -1529,8 +1531,8 @@ if.then:                                          ; preds = %quicklistDelIndex.e
   %zi6 = getelementptr inbounds i8, ptr %iter, i64 16
   store ptr null, ptr %zi6, align 8
   %direction = getelementptr inbounds i8, ptr %iter, i64 32
-  %9 = load i32, ptr %direction, align 8
-  switch i32 %9, label %if.end14 [
+  %10 = load i32, ptr %direction, align 8
+  switch i32 %10, label %if.end14 [
     i32 0, label %if.then7
     i32 1, label %if.then10
   ]
@@ -1694,7 +1696,8 @@ if.end.i:                                         ; preds = %if.else102
   %bf.clear7.i = and i32 %bf.load4.i, -65536
   %bf.set.i = or disjoint i32 %bf.value.i, %bf.clear7.i
   store i32 %bf.set.i, ptr %container.i, align 8
-  %cmp11.not.i = icmp eq i32 %bf.value.i, 0
+  %27 = and i32 %bf.load4.i, 65535
+  %cmp11.not.i = icmp eq i32 %27, 1
   br i1 %cmp11.not.i, label %if.then13.i, label %do.body.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -1709,58 +1712,58 @@ do.body.i:                                        ; preds = %if.end.i
 
 if.end16.i:                                       ; preds = %do.body.i, %if.then13.i
   %count17.i = getelementptr inbounds i8, ptr %0, i64 16
-  %27 = load i64, ptr %count17.i, align 8
-  %dec18.i = add i64 %27, -1
+  %28 = load i64, ptr %count17.i, align 8
+  %dec18.i = add i64 %28, -1
   store i64 %dec18.i, ptr %count17.i, align 8
   br label %quicklistDelIndex.exit
 
 quicklistDelIndex.exit:                           ; preds = %if.then.i, %if.end16.i
-  %28 = load ptr, ptr %node, align 8
-  %dont_compress109 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = load ptr, ptr %node, align 8
+  %dont_compress109 = getelementptr inbounds i8, ptr %29, i64 32
   %bf.load110 = load i32, ptr %dont_compress109, align 8
   %bf.clear111 = and i32 %bf.load110, -4194305
   store i32 %bf.clear111, ptr %dont_compress109, align 8
-  %29 = load ptr, ptr %node, align 8
-  %recompress115 = getelementptr inbounds i8, ptr %29, i64 32
+  %30 = load ptr, ptr %node, align 8
+  %recompress115 = getelementptr inbounds i8, ptr %30, i64 32
   %bf.load116 = load i32, ptr %recompress115, align 8
-  %30 = and i32 %bf.load116, 1048576
-  %tobool119.not = icmp eq i32 %30, 0
+  %31 = and i32 %bf.load116, 1048576
+  %tobool119.not = icmp eq i32 %31, 0
   br i1 %tobool119.not, label %if.else137, label %do.body121
 
 do.body121:                                       ; preds = %quicklistDelIndex.exit
-  %31 = and i32 %bf.load116, 196608
-  %cmp130 = icmp eq i32 %31, 65536
+  %32 = and i32 %bf.load116, 196608
+  %cmp130 = icmp eq i32 %32, 65536
   br i1 %cmp130, label %if.then132, label %do.body141
 
 if.then132:                                       ; preds = %do.body121
-  %call134 = call i32 @__quicklistCompressNode(ptr noundef nonnull %29)
+  %call134 = call i32 @__quicklistCompressNode(ptr noundef nonnull %30)
   br label %do.body141
 
 if.else137:                                       ; preds = %quicklistDelIndex.exit
-  call void @__quicklistCompress(ptr noundef %0, ptr noundef nonnull %29)
+  call void @__quicklistCompress(ptr noundef %0, ptr noundef nonnull %30)
   br label %do.body141
 
 do.body141:                                       ; preds = %if.then132, %do.body121, %if.else137
-  %32 = load ptr, ptr %node, align 8
-  %next = getelementptr inbounds i8, ptr %32, i64 8
-  %33 = load ptr, ptr %next, align 8
-  %recompress143 = getelementptr inbounds i8, ptr %33, i64 32
+  %33 = load ptr, ptr %node, align 8
+  %next = getelementptr inbounds i8, ptr %33, i64 8
+  %34 = load ptr, ptr %next, align 8
+  %recompress143 = getelementptr inbounds i8, ptr %34, i64 32
   %bf.load144 = load i32, ptr %recompress143, align 8
-  %34 = and i32 %bf.load144, 1048576
-  %tobool147.not = icmp eq i32 %34, 0
+  %35 = and i32 %bf.load144, 1048576
+  %tobool147.not = icmp eq i32 %35, 0
   br i1 %tobool147.not, label %if.else168, label %do.body149
 
 do.body149:                                       ; preds = %do.body141
-  %35 = and i32 %bf.load144, 196608
-  %cmp160 = icmp eq i32 %35, 65536
+  %36 = and i32 %bf.load144, 196608
+  %cmp160 = icmp eq i32 %36, 65536
   br i1 %cmp160, label %if.then162, label %do.body176
 
 if.then162:                                       ; preds = %do.body149
-  %call165 = call i32 @__quicklistCompressNode(ptr noundef nonnull %33)
+  %call165 = call i32 @__quicklistCompressNode(ptr noundef nonnull %34)
   br label %do.body176
 
 if.else168:                                       ; preds = %do.body141
-  call void @__quicklistCompress(ptr noundef %0, ptr noundef nonnull %33)
+  call void @__quicklistCompress(ptr noundef %0, ptr noundef nonnull %34)
   br label %do.body176
 
 do.body176:                                       ; preds = %if.else, %do.body23, %if.then32, %if.then100, %if.else168, %do.body149, %if.then162, %if.else88, %if.else84, %do.body68, %if.then79
@@ -3980,7 +3983,8 @@ if.end.i:                                         ; preds = %if.end30
   %bf.clear7.i = and i32 %bf.load4.i, -65536
   %bf.set.i = or disjoint i32 %bf.value.i, %bf.clear7.i
   store i32 %bf.set.i, ptr %container.i, align 8
-  %cmp11.not.i = icmp eq i32 %bf.value.i, 0
+  %18 = and i32 %bf.load4.i, 65535
+  %cmp11.not.i = icmp eq i32 %18, 1
   br i1 %cmp11.not.i, label %if.then13.i, label %do.body.i
 
 if.then13.i:                                      ; preds = %if.end.i
@@ -3994,8 +3998,8 @@ do.body.i:                                        ; preds = %if.end.i
   br label %if.end16.i
 
 if.end16.i:                                       ; preds = %do.body.i, %if.then13.i
-  %18 = load i64, ptr %count, align 8
-  %dec18.i = add i64 %18, -1
+  %19 = load i64, ptr %count, align 8
+  %dec18.i = add i64 %19, -1
   store i64 %dec18.i, ptr %count, align 8
   br label %quicklistDelIndex.exit
 
@@ -4183,7 +4187,8 @@ if.end.i37:                                       ; preds = %if.end70
   %bf.clear7.i43 = and i32 %bf.load4.i40, -65536
   %bf.set.i44 = or disjoint i32 %bf.value.i42, %bf.clear7.i43
   store i32 %bf.set.i44, ptr %encoding, align 8
-  %cmp11.not.i45 = icmp eq i32 %bf.value.i42, 0
+  %15 = and i32 %bf.load4.i40, 65535
+  %cmp11.not.i45 = icmp eq i32 %15, 1
   br i1 %cmp11.not.i45, label %if.then13.i54, label %do.body.i46
 
 if.then13.i54:                                    ; preds = %if.end.i37
@@ -4197,8 +4202,8 @@ do.body.i46:                                      ; preds = %if.end.i37
   br label %if.end16.i49
 
 if.end16.i49:                                     ; preds = %do.body.i46, %if.then13.i54
-  %15 = load i64, ptr %count, align 8
-  %dec18.i51 = add i64 %15, -1
+  %16 = load i64, ptr %count, align 8
+  %dec18.i51 = add i64 %16, -1
   store i64 %dec18.i51, ptr %count, align 8
   br label %return
 

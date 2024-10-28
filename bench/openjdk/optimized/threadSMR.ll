@@ -2578,8 +2578,8 @@ _ZN18SafeThreadsListPtr29acquire_stable_list_fast_pathEv.exit.i.i.i: ; preds = %
   %69 = call ptr asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %66, ptr nonnull %68) #15, !srcloc !7
   %70 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
-  %.not.i.i54 = icmp eq ptr %70, %63
-  br i1 %.not.i.i54, label %71, label %.backedge.i.i.backedge
+  %.not.i.i50 = icmp eq ptr %70, %63
+  br i1 %.not.i.i50, label %71, label %.backedge.i.i.backedge
 
 71:                                               ; preds = %.backedge.i.i
   %72 = load ptr, ptr %7, align 8
@@ -2594,8 +2594,8 @@ _ZN18SafeThreadsListPtr29acquire_stable_list_fast_pathEv.exit.i.i.i: ; preds = %
 _ZN18SafeThreadsListPtr29acquire_stable_list_fast_pathEv.exit.i: ; preds = %71
   store ptr %63, ptr %8, align 8
   %76 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE159ELS1_137ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i55 = icmp eq ptr %76, null
-  br i1 %.not.i55, label %_ZN18SafeThreadsListPtrC2EP6Threadb.exit.i, label %77
+  %.not.i51 = icmp eq ptr %76, null
+  br i1 %.not.i51, label %_ZN18SafeThreadsListPtrC2EP6Threadb.exit.i, label %77
 
 77:                                               ; preds = %_ZN18SafeThreadsListPtr29acquire_stable_list_fast_pathEv.exit.i
   %78 = call noundef i64 @_ZN2os17current_thread_idEv() #15
@@ -2631,44 +2631,43 @@ _ZN17ThreadsListHandleC2EP6Thread.exit:           ; preds = %_ZN18SafeThreadsLis
   br i1 %.not12.i, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN17ThreadsListHandleC2EP6Thread.exit, %_ZN18JavaThreadIterator4nextEv.exit.i
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN18JavaThreadIterator4nextEv.exit.i ], [ 0, %_ZN17ThreadsListHandleC2EP6Thread.exit ]
   %.015.i = phi ptr [ %109, %_ZN18JavaThreadIterator4nextEv.exit.i ], [ %92, %_ZN17ThreadsListHandleC2EP6Thread.exit ]
-  %.01014.i = phi i32 [ %.pre-phi.i, %_ZN18JavaThreadIterator4nextEv.exit.i ], [ 0, %_ZN17ThreadsListHandleC2EP6Thread.exit ]
   %93 = ptrtoint ptr %.015.i to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33, i64 noundef %93) #15
   %94 = load i32, ptr %88, align 4
   %95 = add i32 %94, -1
-  %96 = icmp ult i32 %.01014.i, %95
-  br i1 %96, label %97, label %103
+  %96 = zext i32 %95 to i64
+  %97 = icmp samesign ult i64 %indvars.iv, %96
+  br i1 %97, label %98, label %103
 
-97:                                               ; preds = %.lr.ph.i
-  %98 = add nuw i32 %.01014.i, 1
-  %99 = and i32 %98, 3
-  %100 = icmp eq i32 %99, 0
+98:                                               ; preds = %.lr.ph.i
+  %99 = and i64 %indvars.iv, 3
+  %100 = icmp eq i64 %99, 3
   br i1 %100, label %101, label %102
 
-101:                                              ; preds = %97
+101:                                              ; preds = %98
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #15
   br label %104
 
-102:                                              ; preds = %97
+102:                                              ; preds = %98
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #15
   br label %104
 
 103:                                              ; preds = %.lr.ph.i
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
-  %.pre.i = add i32 %.01014.i, 1
   br label %104
 
 104:                                              ; preds = %103, %102, %101
-  %.pre-phi.i = phi i32 [ %98, %101 ], [ %98, %102 ], [ %.pre.i, %103 ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %105 = load i32, ptr %88, align 4
-  %.not.i.i = icmp ult i32 %.pre-phi.i, %105
+  %106 = zext i32 %105 to i64
+  %.not.i.i = icmp samesign ult i64 %indvars.iv.next, %106
   br i1 %.not.i.i, label %_ZN18JavaThreadIterator4nextEv.exit.i, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit
 
 _ZN18JavaThreadIterator4nextEv.exit.i:            ; preds = %104
-  %106 = load ptr, ptr %90, align 8
-  %107 = zext i32 %.pre-phi.i to i64
-  %108 = getelementptr inbounds ptr, ptr %106, i64 %107
+  %107 = load ptr, ptr %90, align 8
+  %108 = getelementptr inbounds ptr, ptr %107, i64 %indvars.iv.next
   %109 = load ptr, ptr %108, align 8
   %.not.i = icmp eq ptr %109, null
   br i1 %.not.i, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit, label %.lr.ph.i, !llvm.loop !30
@@ -2727,121 +2726,119 @@ _ZN17ThreadsListHandleD2Ev.exit:                  ; preds = %_ZN17ThreadsSMRSupp
   %136 = load ptr, ptr %135, align 8
   %137 = load ptr, ptr %136, align 8
   %.not12.i34 = icmp eq ptr %137, null
-  br i1 %.not12.i34, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43, label %.lr.ph.i35
+  br i1 %.not12.i34, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41, label %.lr.ph.i35
 
 .lr.ph.i35:                                       ; preds = %131
   %138 = getelementptr inbounds i8, ptr %134, i64 4
   br label %139
 
-139:                                              ; preds = %_ZN18JavaThreadIterator4nextEv.exit.i41, %.lr.ph.i35
-  %.015.i36 = phi ptr [ %137, %.lr.ph.i35 ], [ %156, %_ZN18JavaThreadIterator4nextEv.exit.i41 ]
-  %.01014.i37 = phi i32 [ 0, %.lr.ph.i35 ], [ %.pre-phi.i39, %_ZN18JavaThreadIterator4nextEv.exit.i41 ]
+139:                                              ; preds = %_ZN18JavaThreadIterator4nextEv.exit.i39, %.lr.ph.i35
+  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %_ZN18JavaThreadIterator4nextEv.exit.i39 ], [ 0, %.lr.ph.i35 ]
+  %.015.i36 = phi ptr [ %156, %_ZN18JavaThreadIterator4nextEv.exit.i39 ], [ %137, %.lr.ph.i35 ]
   %140 = ptrtoint ptr %.015.i36 to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33, i64 noundef %140) #15
   %141 = load i32, ptr %138, align 4
   %142 = add i32 %141, -1
-  %143 = icmp ult i32 %.01014.i37, %142
-  br i1 %143, label %144, label %150
+  %143 = zext i32 %142 to i64
+  %144 = icmp samesign ult i64 %indvars.iv59, %143
+  br i1 %144, label %145, label %150
 
-144:                                              ; preds = %139
-  %145 = add nuw i32 %.01014.i37, 1
-  %146 = and i32 %145, 3
-  %147 = icmp eq i32 %146, 0
+145:                                              ; preds = %139
+  %146 = and i64 %indvars.iv59, 3
+  %147 = icmp eq i64 %146, 3
   br i1 %147, label %148, label %149
 
-148:                                              ; preds = %144
+148:                                              ; preds = %145
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #15
   br label %151
 
-149:                                              ; preds = %144
+149:                                              ; preds = %145
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #15
   br label %151
 
 150:                                              ; preds = %139
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
-  %.pre.i38 = add i32 %.01014.i37, 1
   br label %151
 
 151:                                              ; preds = %150, %149, %148
-  %.pre-phi.i39 = phi i32 [ %145, %148 ], [ %145, %149 ], [ %.pre.i38, %150 ]
+  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
   %152 = load i32, ptr %138, align 4
-  %.not.i.i40 = icmp ult i32 %.pre-phi.i39, %152
-  br i1 %.not.i.i40, label %_ZN18JavaThreadIterator4nextEv.exit.i41, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43
+  %153 = zext i32 %152 to i64
+  %.not.i.i38 = icmp samesign ult i64 %indvars.iv.next60, %153
+  br i1 %.not.i.i38, label %_ZN18JavaThreadIterator4nextEv.exit.i39, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41
 
-_ZN18JavaThreadIterator4nextEv.exit.i41:          ; preds = %151
-  %153 = load ptr, ptr %135, align 8
-  %154 = zext i32 %.pre-phi.i39 to i64
-  %155 = getelementptr inbounds ptr, ptr %153, i64 %154
+_ZN18JavaThreadIterator4nextEv.exit.i39:          ; preds = %151
+  %154 = load ptr, ptr %135, align 8
+  %155 = getelementptr inbounds ptr, ptr %154, i64 %indvars.iv.next60
   %156 = load ptr, ptr %155, align 8
-  %.not.i42 = icmp eq ptr %156, null
-  br i1 %.not.i42, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43, label %139, !llvm.loop !30
+  %.not.i40 = icmp eq ptr %156, null
+  br i1 %.not.i40, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41, label %139, !llvm.loop !30
 
-_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43: ; preds = %151, %_ZN18JavaThreadIterator4nextEv.exit.i41, %131
+_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41: ; preds = %151, %_ZN18JavaThreadIterator4nextEv.exit.i39, %131
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #15
   %157 = load ptr, ptr @_ZN17ThreadsSMRSupport15_to_delete_listE, align 8
-  %.0.in58 = getelementptr inbounds i8, ptr %157, i64 8
-  %.059 = load ptr, ptr %.0.in58, align 8
-  %.not3060 = icmp eq ptr %.059, null
-  br i1 %.not3060, label %.loopexit, label %.lr.ph
+  %.0.in53 = getelementptr inbounds i8, ptr %157, i64 8
+  %.054 = load ptr, ptr %.0.in53, align 8
+  %.not3055 = icmp eq ptr %.054, null
+  br i1 %.not3055, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53
-  %.061 = phi ptr [ %.0, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53 ], [ %.059, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43 ]
-  %158 = ptrtoint ptr %.061 to i64
-  %159 = getelementptr inbounds i8, ptr %.061, i64 4
+.lr.ph:                                           ; preds = %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49
+  %.056 = phi ptr [ %.0, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49 ], [ %.054, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41 ]
+  %158 = ptrtoint ptr %.056 to i64
+  %159 = getelementptr inbounds i8, ptr %.056, i64 4
   %160 = load i32, ptr %159, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.24, i64 noundef %158, i32 noundef %160) #15
-  %161 = getelementptr inbounds i8, ptr %.061, i64 16
+  %161 = getelementptr inbounds i8, ptr %.056, i64 16
   %162 = load ptr, ptr %161, align 8
   %163 = load ptr, ptr %162, align 8
-  %.not12.i44 = icmp eq ptr %163, null
-  br i1 %.not12.i44, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53, label %.lr.ph.i45
+  %.not12.i42 = icmp eq ptr %163, null
+  br i1 %.not12.i42, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49, label %.lr.ph.i43
 
-.lr.ph.i45:                                       ; preds = %.lr.ph, %_ZN18JavaThreadIterator4nextEv.exit.i51
-  %.015.i46 = phi ptr [ %180, %_ZN18JavaThreadIterator4nextEv.exit.i51 ], [ %163, %.lr.ph ]
-  %.01014.i47 = phi i32 [ %.pre-phi.i49, %_ZN18JavaThreadIterator4nextEv.exit.i51 ], [ 0, %.lr.ph ]
-  %164 = ptrtoint ptr %.015.i46 to i64
+.lr.ph.i43:                                       ; preds = %.lr.ph, %_ZN18JavaThreadIterator4nextEv.exit.i47
+  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %_ZN18JavaThreadIterator4nextEv.exit.i47 ], [ 0, %.lr.ph ]
+  %.015.i44 = phi ptr [ %180, %_ZN18JavaThreadIterator4nextEv.exit.i47 ], [ %163, %.lr.ph ]
+  %164 = ptrtoint ptr %.015.i44 to i64
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33, i64 noundef %164) #15
   %165 = load i32, ptr %159, align 4
   %166 = add i32 %165, -1
-  %167 = icmp ult i32 %.01014.i47, %166
-  br i1 %167, label %168, label %174
+  %167 = zext i32 %166 to i64
+  %168 = icmp samesign ult i64 %indvars.iv62, %167
+  br i1 %168, label %169, label %174
 
-168:                                              ; preds = %.lr.ph.i45
-  %169 = add nuw i32 %.01014.i47, 1
-  %170 = and i32 %169, 3
-  %171 = icmp eq i32 %170, 0
+169:                                              ; preds = %.lr.ph.i43
+  %170 = and i64 %indvars.iv62, 3
+  %171 = icmp eq i64 %170, 3
   br i1 %171, label %172, label %173
 
-172:                                              ; preds = %168
+172:                                              ; preds = %169
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #15
   br label %175
 
-173:                                              ; preds = %168
+173:                                              ; preds = %169
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #15
   br label %175
 
-174:                                              ; preds = %.lr.ph.i45
+174:                                              ; preds = %.lr.ph.i43
   call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
-  %.pre.i48 = add i32 %.01014.i47, 1
   br label %175
 
 175:                                              ; preds = %174, %173, %172
-  %.pre-phi.i49 = phi i32 [ %169, %172 ], [ %169, %173 ], [ %.pre.i48, %174 ]
+  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %176 = load i32, ptr %159, align 4
-  %.not.i.i50 = icmp ult i32 %.pre-phi.i49, %176
-  br i1 %.not.i.i50, label %_ZN18JavaThreadIterator4nextEv.exit.i51, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53
+  %177 = zext i32 %176 to i64
+  %.not.i.i46 = icmp samesign ult i64 %indvars.iv.next63, %177
+  br i1 %.not.i.i46, label %_ZN18JavaThreadIterator4nextEv.exit.i47, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49
 
-_ZN18JavaThreadIterator4nextEv.exit.i51:          ; preds = %175
-  %177 = load ptr, ptr %161, align 8
-  %178 = zext i32 %.pre-phi.i49 to i64
-  %179 = getelementptr inbounds ptr, ptr %177, i64 %178
+_ZN18JavaThreadIterator4nextEv.exit.i47:          ; preds = %175
+  %178 = load ptr, ptr %161, align 8
+  %179 = getelementptr inbounds ptr, ptr %178, i64 %indvars.iv.next63
   %180 = load ptr, ptr %179, align 8
-  %.not.i52 = icmp eq ptr %180, null
-  br i1 %.not.i52, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53, label %.lr.ph.i45, !llvm.loop !30
+  %.not.i48 = icmp eq ptr %180, null
+  br i1 %.not.i48, label %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49, label %.lr.ph.i43, !llvm.loop !30
 
-_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53: ; preds = %175, %_ZN18JavaThreadIterator4nextEv.exit.i51, %.lr.ph
+_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49: ; preds = %175, %_ZN18JavaThreadIterator4nextEv.exit.i47, %.lr.ph
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.22) #15
-  %.0.in = getelementptr inbounds i8, ptr %.061, i64 8
+  %.0.in = getelementptr inbounds i8, ptr %.056, i64 8
   %.0 = load ptr, ptr %.0.in, align 8
   %.not30 = icmp eq ptr %.0, null
   br i1 %.not30, label %.loopexit, label %.lr.ph, !llvm.loop !31
@@ -2851,7 +2848,7 @@ _ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exi
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.26) #15
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit53, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit43, %181, %_ZN17ThreadsListHandleD2Ev.exit
+.loopexit:                                        ; preds = %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit49, %_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStreamP11ThreadsList.exit41, %181, %_ZN17ThreadsListHandleD2Ev.exit
   %182 = load i8, ptr @EnableThreadSMRStatistics, align 1
   %183 = trunc i8 %182 to i1
   br i1 %183, label %184, label %215
@@ -3021,48 +3018,46 @@ define hidden void @_ZN17ThreadsSMRSupport22print_info_elements_onEP12outputStre
 
 7:                                                ; preds = %.lr.ph, %_ZN18JavaThreadIterator4nextEv.exit
   %.015 = phi ptr [ %5, %.lr.ph ], [ %24, %_ZN18JavaThreadIterator4nextEv.exit ]
-  %.01014 = phi i32 [ 0, %.lr.ph ], [ %.pre-phi, %_ZN18JavaThreadIterator4nextEv.exit ]
+  %.01014 = phi i32 [ 0, %.lr.ph ], [ %19, %_ZN18JavaThreadIterator4nextEv.exit ]
   %8 = ptrtoint ptr %.015 to i64
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.33, i64 noundef %8) #15
   %9 = load i32, ptr %6, align 4
   %10 = add i32 %9, -1
   %11 = icmp ult i32 %.01014, %10
-  br i1 %11, label %12, label %18
+  br i1 %11, label %12, label %17
 
 12:                                               ; preds = %7
-  %13 = add nuw i32 %.01014, 1
-  %14 = and i32 %13, 3
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %16, label %17
+  %13 = and i32 %.01014, 3
+  %14 = icmp eq i32 %13, 3
+  br i1 %14, label %15, label %16
+
+15:                                               ; preds = %12
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #15
+  br label %18
 
 16:                                               ; preds = %12
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34) #15
-  br label %19
-
-17:                                               ; preds = %12
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35) #15
-  br label %19
+  br label %18
 
-18:                                               ; preds = %7
+17:                                               ; preds = %7
   tail call void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #15
-  %.pre = add i32 %.01014, 1
-  br label %19
+  br label %18
 
-19:                                               ; preds = %16, %17, %18
-  %.pre-phi = phi i32 [ %13, %16 ], [ %13, %17 ], [ %.pre, %18 ]
+18:                                               ; preds = %15, %16, %17
+  %19 = add i32 %.01014, 1
   %20 = load i32, ptr %6, align 4
-  %.not.i = icmp ult i32 %.pre-phi, %20
+  %.not.i = icmp ult i32 %19, %20
   br i1 %.not.i, label %_ZN18JavaThreadIterator4nextEv.exit, label %._crit_edge
 
-_ZN18JavaThreadIterator4nextEv.exit:              ; preds = %19
+_ZN18JavaThreadIterator4nextEv.exit:              ; preds = %18
   %21 = load ptr, ptr %3, align 8
-  %22 = zext i32 %.pre-phi to i64
+  %22 = zext i32 %19 to i64
   %23 = getelementptr inbounds ptr, ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %19, %_ZN18JavaThreadIterator4nextEv.exit, %2
+._crit_edge:                                      ; preds = %18, %_ZN18JavaThreadIterator4nextEv.exit, %2
   ret void
 }
 

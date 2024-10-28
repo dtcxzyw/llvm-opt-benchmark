@@ -5074,7 +5074,7 @@ st_mult.exit.i369:                                ; preds = %land.lhs.true.i.i, 
   %add.i371 = add i64 %284, 16
   %conv52.i = and i64 %add.i371, 4294967295
   %304 = load i64, ptr %nr, align 8
-  %tobool.not.i126.i = icmp eq i64 %conv52.i, 0
+  %tobool.not.i126.i = icmp eq i64 %conv50.i, 4294967280
   br i1 %tobool.not.i126.i, label %st_mult.exit132.i, label %land.lhs.true.i127.i
 
 land.lhs.true.i127.i:                             ; preds = %st_mult.exit.i369

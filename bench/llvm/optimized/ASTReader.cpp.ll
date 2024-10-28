@@ -91172,8 +91172,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123IdentifierLookupVi
   br label %42
 
 42:                                               ; preds = %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i, %.lr.ph.i
-  %43 = phi ptr [ %41, %.lr.ph.i ], [ %55, %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i ]
-  %.02137.i = phi i32 [ 0, %.lr.ph.i ], [ %56, %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i ]
+  %43 = phi ptr [ %41, %.lr.ph.i ], [ %56, %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i ]
+  %.02137.i = phi i32 [ 0, %.lr.ph.i ], [ %57, %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i ]
   call void @llvm.assume(i1 true) [ "align"(ptr %43, i64 1) ]
   %.0.copyload.i.i.i29.i = load i32, ptr %43, align 1, !noalias !1377
   %44 = getelementptr inbounds i8, ptr %43, i64 4
@@ -91194,20 +91194,21 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_123IdentifierLookupVi
   br i1 %.not.i.i.i, label %51, label %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i
 
 51:                                               ; preds = %48
-  %52 = icmp eq i64 %50, 0
-  br i1 %52, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit, label %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.i
+  %52 = and i64 %45, 4294967295
+  %53 = icmp eq i64 %52, 1
+  br i1 %53, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit, label %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.i
 
 _ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.i: ; preds = %51
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %47, ptr %.sroa.0.0.copyload.i.i, i64 %50), !noalias !1377
-  %53 = icmp eq i32 %bcmp.i.i.i, 0
-  br i1 %53, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit, label %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i
+  %54 = icmp eq i32 %bcmp.i.i.i, 0
+  br i1 %54, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit, label %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i
 
 _ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i: ; preds = %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.i, %48, %42
-  %54 = and i64 %46, 4294967295
-  %55 = getelementptr inbounds i8, ptr %47, i64 %54
-  store ptr %55, ptr %3, align 8, !noalias !1377
-  %56 = add nuw nsw i32 %.02137.i, 1
-  %exitcond.not.i = icmp eq i32 %56, %40
+  %55 = and i64 %46, 4294967295
+  %56 = getelementptr inbounds i8, ptr %47, i64 %55
+  store ptr %56, ptr %3, align 8, !noalias !1377
+  %57 = add nuw nsw i32 %.02137.i, 1
+  %exitcond.not.i = icmp eq i32 %57, %40
   br i1 %exitcond.not.i, label %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit.thread, label %42, !llvm.loop !1380
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit.thread: ; preds = %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.thread33.i, %35, %13
@@ -91216,8 +91217,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLoo
 
 _ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader24ASTIdentifierLookupTraitEE11find_hashedERKNS_9StringRefEjPS4_.exit: ; preds = %51, %_ZN5clang13serialization6reader28ASTIdentifierLookupTraitBase8EqualKeyERKN4llvm9StringRefES6_.exit.i
   %.sroa.4.0.extract.trunc.i.le = trunc nuw i64 %.sroa.4.0.extract.shift.i to i32
-  %57 = and i64 %45, 4294967295
-  %58 = getelementptr inbounds i8, ptr %47, i64 %57
+  %58 = getelementptr inbounds i8, ptr %47, i64 %52
   store ptr %47, ptr %5, align 8, !alias.scope !1377
   %.sroa.2.0..sroa_idx.i30.i = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %50, ptr %.sroa.2.0..sroa_idx.i30.i, align 8, !alias.scope !1377

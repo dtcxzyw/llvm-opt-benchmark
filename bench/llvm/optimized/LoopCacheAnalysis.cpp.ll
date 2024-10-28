@@ -1079,7 +1079,7 @@ define dso_local range(i16 0, 512) i16 @_ZNK4llvm16IndexedReference15hasSpacialR
 27:                                               ; preds = %21
   %28 = add i64 %23, 4294967295
   %29 = and i64 %28, 4294967295
-  %.not2829 = icmp eq i64 %29, 0
+  %.not2829 = icmp eq i64 %24, 1
   %.pre = load ptr, ptr %22, align 8
   br i1 %.not2829, label %._crit_edge, label %.lr.ph
 
@@ -1088,7 +1088,7 @@ define dso_local range(i16 0, 512) i16 @_ZNK4llvm16IndexedReference15hasSpacialR
   br label %33
 
 31:                                               ; preds = %33
-  %32 = add nuw nsw i64 %.sroa.021.030, 1
+  %32 = add i64 %.sroa.021.030, 1
   %.not28 = icmp eq i64 %32, %29
   br i1 %.not28, label %._crit_edge, label %33
 

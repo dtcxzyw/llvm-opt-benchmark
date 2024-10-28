@@ -3993,7 +3993,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   store i32 %.pre236.i, ptr %arrayidx149.i, align 4
   %add150.i = add nuw nsw i32 %and3.0184.i, 1
   %and151.i = and i32 %add150.i, 3
-  %cmp143.not.i = icmp eq i32 %and151.i, 2
+  %cmp143.not.i = icmp eq i32 %and3.0184.i, 1
   br i1 %cmp143.not.i, label %while.end.loopexit.i, label %while.body.i, !llvm.loop !55
 
 while.end.loopexit.i:                             ; preds = %while.body.i

@@ -13655,59 +13655,57 @@ Mf_CutArea.exit:                                  ; preds = %2
   %27 = getelementptr i8, ptr %0, i64 40
   br label %28
 
-28:                                               ; preds = %.lr.ph, %56
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %.029 = phi i32 [ %.0.i33, %.lr.ph ], [ %.1, %56 ]
+28:                                               ; preds = %.lr.ph, %54
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %54 ]
+  %.029 = phi i32 [ %.0.i33, %.lr.ph ], [ %.1, %54 ]
   %29 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %.val25 = load ptr, ptr %26, align 8
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val25, i64 %31, i32 3
   %33 = load i32, ptr %32, align 4
-  %34 = lshr i32 %33, 16
-  %35 = add nuw nsw i32 %34, 65535
-  %36 = and i32 %35, 65535
-  %37 = shl nuw i32 %36, 16
-  %38 = and i32 %33, 65535
-  %39 = or disjoint i32 %37, %38
-  store i32 %39, ptr %32, align 4
-  %.not18 = icmp eq i32 %36, 0
-  br i1 %.not18, label %40, label %56
+  %34 = and i32 %33, -65536
+  %35 = add i32 %34, -65536
+  %36 = and i32 %33, 65535
+  %37 = or disjoint i32 %35, %36
+  store i32 %37, ptr %32, align 4
+  %.not18 = icmp eq i32 %34, 65536
+  br i1 %.not18, label %38, label %54
 
-40:                                               ; preds = %28
-  %41 = load i32, ptr %29, align 4
+38:                                               ; preds = %28
+  %39 = load i32, ptr %29, align 4
   %.val = load ptr, ptr %26, align 8
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %.not19 = icmp eq i32 %44, 0
-  br i1 %.not19, label %56, label %45
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %.not19 = icmp eq i32 %42, 0
+  br i1 %.not19, label %54, label %43
 
-45:                                               ; preds = %40
+43:                                               ; preds = %38
   %.val21 = load ptr, ptr %27, align 8
-  %46 = ashr i32 %44, 16
-  %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %.val21, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = and i32 %44, 65535
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %49, i64 %51
-  %53 = getelementptr inbounds i8, ptr %52, i64 4
-  %54 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %53)
-  %55 = add nsw i32 %54, %.029
-  br label %56
+  %44 = ashr i32 %42, 16
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds ptr, ptr %.val21, i64 %45
+  %47 = load ptr, ptr %46, align 8
+  %48 = and i32 %42, 65535
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds i32, ptr %47, i64 %49
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %51)
+  %53 = add nsw i32 %52, %.029
+  br label %54
 
-56:                                               ; preds = %28, %40, %45
-  %.1 = phi i32 [ %.029, %28 ], [ %55, %45 ], [ %.029, %40 ]
+54:                                               ; preds = %28, %38, %43
+  %.1 = phi i32 [ %.029, %28 ], [ %53, %43 ], [ %.029, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val23 = load i32, ptr %1, align 4
-  %57 = and i32 %.val23, 31
-  %58 = zext nneg i32 %57 to i64
-  %.not.not = icmp samesign ult i64 %indvars.iv, %58
+  %55 = and i32 %.val23, 31
+  %56 = zext nneg i32 %55 to i64
+  %.not.not = icmp samesign ult i64 %indvars.iv, %56
   br i1 %.not.not, label %28, label %._crit_edge, !llvm.loop !121
 
-._crit_edge:                                      ; preds = %56, %Mf_CutArea.exit
-  %.0.lcssa = phi i32 [ 0, %Mf_CutArea.exit ], [ %.1, %56 ]
+._crit_edge:                                      ; preds = %54, %Mf_CutArea.exit
+  %.0.lcssa = phi i32 [ 0, %Mf_CutArea.exit ], [ %.1, %54 ]
   ret i32 %.0.lcssa
 }
 
@@ -13942,9 +13940,9 @@ Mf_CutArea.exit:                                  ; preds = %4, %16, %21, %24
   %32 = add nsw i32 %3, -1
   br label %33
 
-33:                                               ; preds = %.lr.ph, %90
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %90 ]
-  %.039 = phi i32 [ %.0.i, %.lr.ph ], [ %.1, %90 ]
+33:                                               ; preds = %.lr.ph, %88
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %88 ]
+  %.039 = phi i32 [ %.0.i, %.lr.ph ], [ %.1, %88 ]
   %34 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %29, align 4
@@ -14014,50 +14012,48 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val35, i64 %65, i32 3
   %67 = load i32, ptr %66, align 4
-  %68 = lshr i32 %67, 16
-  %69 = add nuw nsw i32 %68, 65535
-  %70 = and i32 %69, 65535
-  %71 = shl nuw i32 %70, 16
-  %72 = and i32 %67, 65535
-  %73 = or disjoint i32 %71, %72
-  store i32 %73, ptr %66, align 4
-  %.not28 = icmp eq i32 %70, 0
-  br i1 %.not28, label %74, label %90
+  %68 = and i32 %67, -65536
+  %69 = add i32 %68, -65536
+  %70 = and i32 %67, 65535
+  %71 = or disjoint i32 %69, %70
+  store i32 %71, ptr %66, align 4
+  %.not28 = icmp eq i32 %68, 65536
+  br i1 %.not28, label %72, label %88
 
-74:                                               ; preds = %Vec_IntPush.exit
-  %75 = load i32, ptr %34, align 4
+72:                                               ; preds = %Vec_IntPush.exit
+  %73 = load i32, ptr %34, align 4
   %.val = load ptr, ptr %30, align 8
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %76
-  %78 = load i32, ptr %77, align 4
-  %.not29 = icmp eq i32 %78, 0
-  br i1 %.not29, label %90, label %79
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %.not29 = icmp eq i32 %76, 0
+  br i1 %.not29, label %88, label %77
 
-79:                                               ; preds = %74
+77:                                               ; preds = %72
   %.val31 = load ptr, ptr %31, align 8
-  %80 = ashr i32 %78, 16
-  %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %.val31, i64 %81
-  %83 = load ptr, ptr %82, align 8
-  %84 = and i32 %78, 65535
-  %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds i32, ptr %83, i64 %85
-  %87 = getelementptr inbounds i8, ptr %86, i64 4
-  %88 = tail call i32 @Mf_CutDeref2_rec(ptr noundef nonnull %0, ptr noundef nonnull %87, ptr noundef nonnull %2, i32 noundef %32)
-  %89 = add nsw i32 %88, %.039
-  br label %90
+  %78 = ashr i32 %76, 16
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds ptr, ptr %.val31, i64 %79
+  %81 = load ptr, ptr %80, align 8
+  %82 = and i32 %76, 65535
+  %83 = zext nneg i32 %82 to i64
+  %84 = getelementptr inbounds i32, ptr %81, i64 %83
+  %85 = getelementptr inbounds i8, ptr %84, i64 4
+  %86 = tail call i32 @Mf_CutDeref2_rec(ptr noundef nonnull %0, ptr noundef nonnull %85, ptr noundef nonnull %2, i32 noundef %32)
+  %87 = add nsw i32 %86, %.039
+  br label %88
 
-90:                                               ; preds = %Vec_IntPush.exit, %74, %79
-  %.1 = phi i32 [ %.039, %Vec_IntPush.exit ], [ %89, %79 ], [ %.039, %74 ]
+88:                                               ; preds = %Vec_IntPush.exit, %72, %77
+  %.1 = phi i32 [ %.039, %Vec_IntPush.exit ], [ %87, %77 ], [ %.039, %72 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val33 = load i32, ptr %1, align 4
-  %91 = and i32 %.val33, 31
-  %92 = zext nneg i32 %91 to i64
-  %.not.not = icmp samesign ult i64 %indvars.iv, %92
+  %89 = and i32 %.val33, 31
+  %90 = zext nneg i32 %89 to i64
+  %.not.not = icmp samesign ult i64 %indvars.iv, %90
   br i1 %.not.not, label %33, label %.loopexit, !llvm.loop !123
 
-.loopexit:                                        ; preds = %90, %Mf_CutArea.exit
-  %.026 = phi i32 [ %.0.i, %Mf_CutArea.exit ], [ %.1, %90 ]
+.loopexit:                                        ; preds = %88, %Mf_CutArea.exit
+  %.026 = phi i32 [ %.0.i, %Mf_CutArea.exit ], [ %.1, %88 ]
   ret i32 %.026
 }
 

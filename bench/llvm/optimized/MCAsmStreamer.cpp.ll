@@ -4417,48 +4417,47 @@ _ZN4llvm9StringRefC2EPKc.exit.i22:                ; preds = %41, %39
 
 _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %59, %61
   %64 = icmp eq i64 %4, 0
-  br i1 %64, label %79, label %65
+  br i1 %64, label %78, label %65
 
 65:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit25
   %66 = add i64 %4, 4294967295
   %67 = and i64 %66, 4294967292
   %reass.sub = sub i64 %67, %4
-  %68 = add i64 %reass.sub, 4
   store i32 0, ptr %9, align 4
   store ptr %9, ptr %10, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %0, ptr %69, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %6, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %7, ptr %71, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store ptr %0, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store ptr %6, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  store ptr %7, ptr %70, align 8
   %.not27 = icmp ult i64 %4, 4
   br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %.lr.ph
-  %72 = phi i64 [ %74, %.lr.ph ], [ 4, %65 ]
-  %.028 = phi i64 [ %72, %.lr.ph ], [ 0, %65 ]
-  %73 = getelementptr inbounds i8, ptr %3, i64 %.028
-  call fastcc void @"_ZZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_ENK3$_0clEPKh"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %73)
-  %74 = add i64 %72, 4
-  %.not = icmp ugt i64 %74, %4
+  %71 = phi i64 [ %73, %.lr.ph ], [ 4, %65 ]
+  %.028 = phi i64 [ %71, %.lr.ph ], [ 0, %65 ]
+  %72 = getelementptr inbounds i8, ptr %3, i64 %.028
+  call fastcc void @"_ZZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_ENK3$_0clEPKh"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %72)
+  %73 = add i64 %71, 4
+  %.not = icmp ugt i64 %73, %4
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %65
-  %.0.lcssa = phi i64 [ 0, %65 ], [ %72, %.lr.ph ]
-  %75 = and i64 %68, 4294967295
-  %.not17 = icmp eq i64 %75, 0
-  br i1 %.not17, label %79, label %76
+  %.0.lcssa = phi i64 [ 0, %65 ], [ %71, %.lr.ph ]
+  %74 = and i64 %reass.sub, 4294967295
+  %.not17 = icmp eq i64 %74, 4294967292
+  br i1 %.not17, label %78, label %75
 
-76:                                               ; preds = %._crit_edge
+75:                                               ; preds = %._crit_edge
   store i32 0, ptr %11, align 4
-  %77 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa
-  %78 = sub i64 %4, %.0.lcssa
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 1 %77, i64 %78, i1 false)
+  %76 = getelementptr inbounds i8, ptr %3, i64 %.0.lcssa
+  %77 = sub i64 %4, %.0.lcssa
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %11, ptr align 1 %76, i64 %77, i1 false)
   call fastcc void @"_ZZN12_GLOBAL__N_113MCAsmStreamer17emitXCOFFCInfoSymEN4llvm9StringRefES2_ENK3$_0clEPKh"(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %11)
-  br label %79
+  br label %78
 
-79:                                               ; preds = %._crit_edge, %76, %_ZN4llvm11raw_ostreamlsEPKc.exit25
+78:                                               ; preds = %._crit_edge, %75, %_ZN4llvm11raw_ostreamlsEPKc.exit25
   call fastcc void @_ZN12_GLOBAL__N_113MCAsmStreamer7EmitEOLEv(ptr noundef nonnull align 8 dereferenceable(744) %0)
   ret void
 }

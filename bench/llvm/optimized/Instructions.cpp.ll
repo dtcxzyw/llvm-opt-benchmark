@@ -948,19 +948,20 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %_ZN4llvm7PHINode18c
   %67 = and i32 %64, -134217728
   %68 = or disjoint i32 %66, %67
   store i32 %68, ptr %10, align 4
-  %69 = icmp eq i32 %66, 0
-  %brmerge.not = and i1 %2, %69
-  br i1 %brmerge.not, label %70, label %75
+  %69 = and i32 %64, 134217727
+  %70 = icmp eq i32 %69, 1
+  %brmerge.not = and i1 %2, %70
+  br i1 %brmerge.not, label %71, label %76
 
-70:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %72) #30
-  tail call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %73) #30
-  %74 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #30
-  br label %75
+71:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = tail call noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef %73) #30
+  tail call void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %74) #30
+  %75 = tail call { ptr, i64 } @_ZN4llvm11Instruction15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(72) %0) #30
+  br label %76
 
-75:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit, %70
+76:                                               ; preds = %_ZN4llvm3Use3setEPNS_5ValueE.exit, %71
   ret ptr %8
 }
 

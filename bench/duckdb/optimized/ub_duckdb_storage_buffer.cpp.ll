@@ -2718,9 +2718,8 @@ entry:
   %1 = atomicrmw add ptr %eviction_timestamp, i64 1 seq_cst, align 8
   %queue_insertions = getelementptr inbounds i8, ptr %this, i64 72
   %2 = atomicrmw add ptr %queue_insertions, i32 1 seq_cst, align 4
-  %3 = add i32 %2, 1
-  %rem = and i32 %3, 1023
-  %cmp = icmp eq i32 %rem, 0
+  %3 = and i32 %2, 1023
+  %cmp = icmp eq i32 %3, 1023
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry

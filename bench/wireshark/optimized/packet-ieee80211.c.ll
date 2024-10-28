@@ -44685,7 +44685,7 @@ define internal fastcc void @dissect_ht_control(ptr noundef %0, ptr noundef %1, 
   %37 = add nsw i32 %.0247, 4
   %38 = icmp ne i32 %36, 0
   %39 = and i32 %37, 255
-  %40 = icmp eq i32 %39, 6
+  %40 = icmp eq i32 %23, 2
   %or.cond = or i1 %40, %38
   br i1 %or.cond, label %41, label %.thread
 
@@ -44713,7 +44713,7 @@ define internal fastcc void @dissect_ht_control(ptr noundef %0, ptr noundef %1, 
 
 45:                                               ; preds = %.thread
   %46 = tail call i32 @tvb_get_letohl(ptr noundef %2, i32 noundef range(i32 -4, 65532) %3) #22
-  %47 = lshr i32 %46, 6
+  %47 = lshr i32 %46, %39
   %48 = load i32, ptr @ett_ieee80211_triggered_response_schedule, align 4
   %49 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %2, i32 noundef range(i32 -4, 65532) %3, i32 noundef 4, i32 noundef %48, ptr noundef null, ptr noundef nonnull @.str.9396, i32 noundef %47) #22
   %50 = load i32, ptr @hf_ieee80211_he_trs_he_tb_ppdu_len, align 4
@@ -44905,7 +44905,7 @@ define internal fastcc void @dissect_ht_control(ptr noundef %0, ptr noundef %1, 
 
 212:                                              ; preds = %211
   %213 = tail call i32 @tvb_get_letohl(ptr noundef %2, i32 noundef range(i32 -4, 65532) %3) #22
-  %214 = lshr i32 %213, 6
+  %214 = lshr i32 %213, %39
   %215 = load i32, ptr @ett_ieee80211_a_control_ones, align 4
   %216 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %20, ptr noundef %2, i32 noundef range(i32 -4, 65532) %3, i32 noundef 4, i32 noundef %215, ptr noundef null, ptr noundef nonnull @.str.9406, i32 noundef %214) #22
   %217 = load i32, ptr @hf_ieee80211_he_a_control_ones, align 4

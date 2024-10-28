@@ -3794,7 +3794,7 @@ dissect_dmflag.exit:                              ; preds = %27
 43:                                               ; preds = %40, %dissect_dmflag.exit
   %.078 = phi i32 [ %42, %40 ], [ %35, %dissect_dmflag.exit ]
   %.not = icmp eq i32 %.078, 0
-  br i1 %.not, label %85, label %44
+  br i1 %.not, label %86, label %44
 
 44:                                               ; preds = %43
   %45 = load i32, ptr @hf_reload_diagnosticrequest_extensions, align 4
@@ -3821,9 +3821,9 @@ dissect_dmflag.exit:                              ; preds = %27
   %.not87 = icmp eq i32 %.076, 0
   br i1 %.not87, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %56, %81
-  %.084 = phi i32 [ %83, %81 ], [ 0, %56 ]
-  %.07783 = phi i32 [ %82, %81 ], [ 0, %56 ]
+.lr.ph:                                           ; preds = %56, %80
+  %.084 = phi i32 [ %84, %80 ], [ 0, %56 ]
+  %.07783 = phi i32 [ %83, %80 ], [ 0, %56 ]
   %60 = add i32 %59, %.07783
   %61 = sub nuw i32 %.076, %.07783
   %62 = and i32 %60, 65535
@@ -3842,26 +3842,27 @@ dissect_dmflag.exit:                              ; preds = %27
   %75 = and i32 %61, 65535
   %76 = add nsw i32 %75, -2
   %77 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %1, ptr noundef %2, ptr noundef %70, i32 noundef %73, i16 noundef zeroext %74, i16 noundef zeroext 4, i32 noundef %76, i32 noundef 0)
-  %78 = add i32 %77, 2
-  %79 = and i32 %78, 65535
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %._crit_edge, label %81
+  %78 = and i32 %77, 65535
+  %79 = icmp eq i32 %78, 65534
+  br i1 %79, label %._crit_edge, label %80
 
-81:                                               ; preds = %.lr.ph
-  %82 = add i32 %79, %.07783
-  %83 = add i32 %.084, 1
-  %84 = icmp ult i32 %82, %.076
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !23
+80:                                               ; preds = %.lr.ph
+  %81 = add i32 %77, 2
+  %82 = and i32 %81, 65535
+  %83 = add i32 %82, %.07783
+  %84 = add i32 %.084, 1
+  %85 = icmp ult i32 %83, %.076
+  br i1 %85, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %81, %.lr.ph, %56
-  %.0.lcssa = phi i32 [ 0, %56 ], [ %.084, %.lr.ph ], [ %83, %81 ]
+._crit_edge:                                      ; preds = %80, %.lr.ph, %56
+  %.0.lcssa = phi i32 [ 0, %56 ], [ %.084, %.lr.ph ], [ %84, %80 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %47, ptr noundef nonnull @.str.776, i32 noundef %.0.lcssa) #5
-  br label %85
+  br label %86
 
-85:                                               ; preds = %._crit_edge, %43
-  %86 = add i32 %.078, 28
-  %87 = and i32 %86, 65535
-  ret i32 %87
+86:                                               ; preds = %._crit_edge, %43
+  %87 = add i32 %.078, 28
+  %88 = and i32 %87, 65535
+  ret i32 %88
 }
 
 ; Function Attrs: nounwind uwtable

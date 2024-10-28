@@ -1939,9 +1939,9 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %38 = getelementptr inbounds i8, ptr %2, i64 22
   br label %39
 
-39:                                               ; preds = %203, %20
-  %40 = phi ptr [ %23, %20 ], [ %205, %203 ]
-  %41 = phi i32 [ %22, %20 ], [ %204, %203 ]
+39:                                               ; preds = %201, %20
+  %40 = phi ptr [ %23, %20 ], [ %203, %201 ]
+  %41 = phi i32 [ %22, %20 ], [ %202, %201 ]
   %42 = getelementptr i8, ptr %40, i64 1
   %43 = load i8, ptr %40, align 1
   switch i8 %43, label %46 [
@@ -1951,7 +1951,7 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
 
 44:                                               ; preds = %39
   %45 = add nsw i32 %41, -1
-  br label %203, !llvm.loop !37
+  br label %201, !llvm.loop !37
 
 46:                                               ; preds = %39
   %47 = icmp eq i32 %41, 1
@@ -1967,32 +1967,32 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   br i1 %54, label %.thread, label %55
 
 55:                                               ; preds = %48
-  switch i8 %43, label %195 [
+  switch i8 %43, label %193 [
     i8 2, label %56
     i8 3, label %72
     i8 8, label %100
     i8 4, label %118
     i8 5, label %132
-    i8 19, label %198
-    i8 34, label %146
-    i8 -2, label %166
+    i8 19, label %196
+    i8 34, label %144
+    i8 -2, label %164
   ]
 
 56:                                               ; preds = %55
   %57 = icmp eq i8 %50, 4
-  br i1 %57, label %58, label %198
+  br i1 %57, label %58, label %196
 
 58:                                               ; preds = %56
   %59 = load i16, ptr %12, align 4
   %60 = and i16 %59, 512
   %61 = icmp eq i16 %60, 0
   %62 = or i1 %29, %61
-  br i1 %62, label %198, label %63
+  br i1 %62, label %196, label %63
 
 63:                                               ; preds = %58
   %64 = load i16, ptr %49, align 1
   %65 = icmp eq i16 %64, 0
-  br i1 %65, label %198, label %66
+  br i1 %65, label %196, label %66
 
 66:                                               ; preds = %63
   %67 = tail call i16 @llvm.bswap.i16(i16 %64)
@@ -2001,23 +2001,23 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %70 = tail call i16 @llvm.umin.i16(i16 %68, i16 %67)
   %71 = select i1 %69, i16 %67, i16 %70
   store i16 %71, ptr %38, align 2
-  br label %198
+  br label %196
 
 72:                                               ; preds = %55
   %73 = icmp eq i8 %50, 3
-  br i1 %73, label %74, label %198
+  br i1 %73, label %74, label %196
 
 74:                                               ; preds = %72
   %75 = load i16, ptr %12, align 4
   %76 = and i16 %75, 512
   %77 = icmp eq i16 %76, 0
   %78 = or i1 %29, %77
-  br i1 %78, label %198, label %79
+  br i1 %78, label %196, label %79
 
 79:                                               ; preds = %74
   %80 = load volatile i8, ptr %36, align 1
   %81 = icmp eq i8 %80, 0
-  br i1 %81, label %198, label %82
+  br i1 %81, label %196, label %82
 
 82:                                               ; preds = %79
   %83 = load i8, ptr %49, align 1
@@ -2045,11 +2045,11 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %98 = and i24 %96, -3841
   %99 = or disjoint i24 %98, %97
   store i24 %99, ptr %16, align 4
-  br label %198
+  br label %196
 
 100:                                              ; preds = %55
   %101 = icmp eq i8 %50, 10
-  br i1 %101, label %102, label %198
+  br i1 %101, label %102, label %196
 
 102:                                              ; preds = %100
   br i1 %32, label %107, label %103
@@ -2058,12 +2058,12 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %104 = load i24, ptr %16, align 4
   %105 = and i24 %104, 2
   %106 = icmp eq i24 %105, 0
-  br i1 %106, label %198, label %110
+  br i1 %106, label %196, label %110
 
 107:                                              ; preds = %102
   %108 = load volatile i8, ptr %33, align 2
   %109 = icmp eq i8 %108, 0
-  br i1 %109, label %198, label %._crit_edge
+  br i1 %109, label %196, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %107
   %.pre = load i24, ptr %16, align 4
@@ -2080,23 +2080,23 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %116 = load i32, ptr %115, align 1
   %117 = tail call i32 @llvm.bswap.i32(i32 %116)
   store i32 %117, ptr %35, align 4
-  br label %198
+  br label %196
 
 118:                                              ; preds = %55
   %119 = icmp eq i8 %50, 2
-  br i1 %119, label %120, label %198
+  br i1 %119, label %120, label %196
 
 120:                                              ; preds = %118
   %121 = load i16, ptr %12, align 4
   %122 = and i16 %121, 512
   %123 = icmp eq i16 %122, 0
   %124 = or i1 %29, %123
-  br i1 %124, label %198, label %125
+  br i1 %124, label %196, label %125
 
 125:                                              ; preds = %120
   %126 = load volatile i8, ptr %30, align 4
   %127 = icmp eq i8 %126, 0
-  br i1 %127, label %198, label %128
+  br i1 %127, label %196, label %128
 
 128:                                              ; preds = %125
   %129 = load i24, ptr %16, align 4
@@ -2104,133 +2104,130 @@ define dso_local void @tcp_parse_options(ptr noundef %0, ptr nocapture noundef %
   %131 = or disjoint i24 %130, 16
   store i24 %131, ptr %16, align 4
   store i8 0, ptr %31, align 1
-  br label %198
+  br label %196
 
 132:                                              ; preds = %55
   %133 = icmp ugt i8 %50, 9
-  br i1 %133, label %134, label %198
+  %134 = and i32 %51, 7
+  %135 = icmp eq i32 %134, 2
+  %or.cond = and i1 %133, %135
+  br i1 %or.cond, label %136, label %196
 
-134:                                              ; preds = %132
-  %135 = add nuw nsw i32 %51, 6
-  %136 = and i32 %135, 7
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %198
+136:                                              ; preds = %132
+  %137 = load i24, ptr %16, align 4
+  %138 = and i24 %137, 112
+  %139 = icmp eq i24 %138, 0
+  br i1 %139, label %196, label %140
 
-138:                                              ; preds = %134
-  %139 = load i24, ptr %16, align 4
-  %140 = and i24 %139, 112
-  %141 = icmp eq i24 %140, 0
-  br i1 %141, label %198, label %142
+140:                                              ; preds = %136
+  %141 = ptrtoint ptr %40 to i64
+  %142 = sub i64 %141, %27
+  %143 = trunc i64 %142 to i8
+  store i8 %143, ptr %28, align 1
+  br label %196
 
-142:                                              ; preds = %138
-  %143 = ptrtoint ptr %40 to i64
-  %144 = sub i64 %143, %27
-  %145 = trunc i64 %144 to i8
-  store i8 %145, ptr %28, align 1
-  br label %198
+144:                                              ; preds = %55
+  %145 = add nsw i32 %51, -2
+  %146 = load i16, ptr %12, align 4
+  %147 = and i16 %146, 512
+  %148 = icmp ne i16 %147, 0
+  %149 = and i32 %51, 1
+  %150 = icmp eq i32 %149, 0
+  %151 = and i1 %150, %148
+  %152 = and i1 %24, %151
+  br i1 %152, label %153, label %196
 
-146:                                              ; preds = %55
-  %147 = add nsw i32 %51, -2
-  %148 = load i16, ptr %12, align 4
-  %149 = and i16 %148, 512
-  %150 = icmp ne i16 %149, 0
-  %151 = and i32 %51, 1
-  %152 = icmp eq i32 %151, 0
-  %153 = and i1 %152, %150
-  %154 = and i1 %24, %153
-  br i1 %154, label %155, label %198
+153:                                              ; preds = %144
+  %154 = add nsw i32 %51, -6
+  %155 = icmp ult i32 %154, 13
+  br i1 %155, label %156, label %158
 
-155:                                              ; preds = %146
-  %156 = add nsw i32 %51, -6
-  %157 = icmp ult i32 %156, 13
-  br i1 %157, label %158, label %160
+156:                                              ; preds = %153
+  %157 = zext nneg i32 %145 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %49, i64 %157, i1 false)
+  br label %161
 
-158:                                              ; preds = %155
-  %159 = zext nneg i32 %147 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %49, i64 %159, i1 false)
-  br label %163
+158:                                              ; preds = %153
+  %159 = icmp ne i32 %145, 0
+  %160 = sext i1 %159 to i32
+  br label %161
 
-160:                                              ; preds = %155
-  %161 = icmp ne i32 %147, 0
-  %162 = sext i1 %161 to i32
-  br label %163
-
-163:                                              ; preds = %160, %158
-  %164 = phi i32 [ %147, %158 ], [ %162, %160 ]
-  %165 = trunc nsw i32 %164 to i8
-  store i8 %165, ptr %25, align 8
+161:                                              ; preds = %158, %156
+  %162 = phi i32 [ %145, %156 ], [ %160, %158 ]
+  %163 = trunc nsw i32 %162 to i8
+  store i8 %163, ptr %25, align 8
   store i8 0, ptr %26, align 1
-  br label %198
+  br label %196
 
-166:                                              ; preds = %55
-  %167 = icmp ugt i8 %50, 3
-  br i1 %167, label %168, label %192
+164:                                              ; preds = %55
+  %165 = icmp ugt i8 %50, 3
+  br i1 %165, label %166, label %190
 
-168:                                              ; preds = %166
-  %169 = load i16, ptr %49, align 1
-  %170 = icmp eq i16 %169, -30215
-  br i1 %170, label %171, label %192
+166:                                              ; preds = %164
+  %167 = load i16, ptr %49, align 1
+  %168 = icmp eq i16 %167, -30215
+  br i1 %168, label %169, label %190
 
-171:                                              ; preds = %168
-  %172 = add nsw i32 %51, -4
-  %173 = getelementptr i8, ptr %40, i64 4
-  %174 = load i16, ptr %12, align 4
-  %175 = and i16 %174, 512
-  %176 = icmp ne i16 %175, 0
-  %177 = and i32 %51, 1
-  %178 = icmp eq i32 %177, 0
-  %179 = and i1 %178, %176
-  %180 = and i1 %24, %179
-  br i1 %180, label %181, label %198
+169:                                              ; preds = %166
+  %170 = add nsw i32 %51, -4
+  %171 = getelementptr i8, ptr %40, i64 4
+  %172 = load i16, ptr %12, align 4
+  %173 = and i16 %172, 512
+  %174 = icmp ne i16 %173, 0
+  %175 = and i32 %51, 1
+  %176 = icmp eq i32 %175, 0
+  %177 = and i1 %176, %174
+  %178 = and i1 %24, %177
+  br i1 %178, label %179, label %196
 
-181:                                              ; preds = %171
-  %182 = add nsw i32 %51, -8
-  %183 = icmp ult i32 %182, 13
-  br i1 %183, label %184, label %186
+179:                                              ; preds = %169
+  %180 = add nsw i32 %51, -8
+  %181 = icmp ult i32 %180, 13
+  br i1 %181, label %182, label %184
 
-184:                                              ; preds = %181
-  %185 = zext nneg i32 %172 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %173, i64 %185, i1 false)
-  br label %189
+182:                                              ; preds = %179
+  %183 = zext nneg i32 %170 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %4, ptr align 1 %171, i64 %183, i1 false)
+  br label %187
 
-186:                                              ; preds = %181
-  %187 = icmp ne i32 %172, 0
-  %188 = sext i1 %187 to i32
-  br label %189
+184:                                              ; preds = %179
+  %185 = icmp ne i32 %170, 0
+  %186 = sext i1 %185 to i32
+  br label %187
 
-189:                                              ; preds = %186, %184
-  %190 = phi i32 [ %172, %184 ], [ %188, %186 ]
-  %191 = trunc nsw i32 %190 to i8
-  store i8 %191, ptr %25, align 8
+187:                                              ; preds = %184, %182
+  %188 = phi i32 [ %170, %182 ], [ %186, %184 ]
+  %189 = trunc nsw i32 %188 to i8
+  store i8 %189, ptr %25, align 8
   store i8 1, ptr %26, align 1
-  br label %198
+  br label %196
 
-192:                                              ; preds = %168, %166
-  %193 = load i24, ptr %16, align 4
-  %194 = or i24 %193, 65536
-  store i24 %194, ptr %16, align 4
-  br label %198
+190:                                              ; preds = %166, %164
+  %191 = load i24, ptr %16, align 4
+  %192 = or i24 %191, 65536
+  store i24 %192, ptr %16, align 4
+  br label %196
 
-195:                                              ; preds = %55
-  %196 = load i24, ptr %16, align 4
-  %197 = or i24 %196, 65536
-  store i24 %197, ptr %16, align 4
-  br label %198
+193:                                              ; preds = %55
+  %194 = load i24, ptr %16, align 4
+  %195 = or i24 %194, 65536
+  store i24 %195, ptr %16, align 4
+  br label %196
 
-198:                                              ; preds = %195, %192, %189, %171, %163, %146, %142, %138, %134, %132, %128, %125, %120, %118, %110, %107, %103, %100, %93, %79, %74, %72, %66, %63, %58, %56, %55
-  %199 = zext i8 %50 to i64
-  %200 = getelementptr i8, ptr %49, i64 %199
-  %201 = getelementptr i8, ptr %200, i64 -2
-  %202 = sub nsw i32 %41, %51
-  br label %203
+196:                                              ; preds = %193, %190, %187, %169, %161, %144, %140, %136, %132, %128, %125, %120, %118, %110, %107, %103, %100, %93, %79, %74, %72, %66, %63, %58, %56, %55
+  %197 = zext i8 %50 to i64
+  %198 = getelementptr i8, ptr %49, i64 %197
+  %199 = getelementptr i8, ptr %198, i64 -2
+  %200 = sub nsw i32 %41, %51
+  br label %201
 
-203:                                              ; preds = %44, %198
-  %204 = phi i32 [ %202, %198 ], [ %45, %44 ]
-  %205 = phi ptr [ %201, %198 ], [ %42, %44 ]
-  %206 = icmp sgt i32 %204, 0
-  br i1 %206, label %39, label %.thread, !llvm.loop !37
+201:                                              ; preds = %44, %196
+  %202 = phi i32 [ %200, %196 ], [ %45, %44 ]
+  %203 = phi ptr [ %199, %196 ], [ %42, %44 ]
+  %204 = icmp sgt i32 %202, 0
+  br i1 %204, label %39, label %.thread, !llvm.loop !37
 
-.thread:                                          ; preds = %48, %46, %39, %203, %5
+.thread:                                          ; preds = %48, %46, %39, %201, %5
   ret void
 }
 

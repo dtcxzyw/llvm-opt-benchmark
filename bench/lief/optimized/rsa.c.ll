@@ -2075,7 +2075,7 @@ define internal fastcc i32 @rsa_rsassa_pss_sign(ptr noundef %0, ptr noundef %1, 
   %.not = icmp ne i32 %11, 1
   %12 = icmp eq ptr %1, null
   %or.cond = or i1 %12, %.not
-  br i1 %or.cond, label %89, label %13
+  br i1 %or.cond, label %88, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2086,20 +2086,20 @@ define internal fastcc i32 @rsa_rsassa_pss_sign(ptr noundef %0, ptr noundef %1, 
 16:                                               ; preds = %13
   %17 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %3) #14
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %89, label %19
+  br i1 %18, label %88, label %19
 
 19:                                               ; preds = %16
   %20 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %17) #14
   %21 = zext i8 %20 to i32
   %.not91 = icmp eq i32 %4, %21
-  br i1 %.not91, label %22, label %89
+  br i1 %.not91, label %22, label %88
 
 22:                                               ; preds = %19, %13
   %23 = getelementptr inbounds i8, ptr %0, i64 332
   %24 = load i32, ptr %23, align 4
   %25 = tail call ptr @mbedtls_md_info_from_type(i32 noundef %24) #14
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %89, label %27
+  br i1 %26, label %88, label %27
 
 27:                                               ; preds = %22
   %28 = tail call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %25) #14
@@ -2110,7 +2110,7 @@ define internal fastcc i32 @rsa_rsassa_pss_sign(ptr noundef %0, ptr noundef %1, 
 31:                                               ; preds = %27
   %reass.add = shl nuw nsw i64 %29, 1
   %32 = icmp ult i64 %15, %reass.add
-  br i1 %32, label %89, label %33
+  br i1 %32, label %88, label %33
 
 33:                                               ; preds = %31
   %34 = add nuw nsw i64 %reass.add, 2
@@ -2124,103 +2124,102 @@ define internal fastcc i32 @rsa_rsassa_pss_sign(ptr noundef %0, ptr noundef %1, 
 
 38:                                               ; preds = %27
   %39 = icmp slt i32 %6, 0
-  br i1 %39, label %89, label %40
+  br i1 %39, label %88, label %40
 
 40:                                               ; preds = %38
   %41 = zext nneg i32 %6 to i64
   %42 = add nuw nsw i64 %41, 2
   %43 = add nuw nsw i64 %42, %29
   %44 = icmp ugt i64 %43, %15
-  br i1 %44, label %89, label %45
+  br i1 %44, label %88, label %45
 
 45:                                               ; preds = %40, %33, %35
   %.075 = phi i64 [ %37, %35 ], [ %29, %33 ], [ %41, %40 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %7, i8 0, i64 %15, i1 false)
   %46 = getelementptr inbounds i8, ptr %0, i64 16
   %47 = tail call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %46) #14
-  %48 = add i64 %47, 7
-  %49 = sub i64 %15, %29
-  %50 = sub i64 %49, %.075
-  %51 = getelementptr i8, ptr %7, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 -2
-  %53 = getelementptr i8, ptr %51, i64 -1
-  store i8 1, ptr %52, align 1
-  %54 = tail call i32 %1(ptr noundef %2, ptr noundef %53, i64 noundef %.075) #14
-  %.not93 = icmp eq i32 %54, 0
-  br i1 %.not93, label %57, label %55
+  %48 = sub i64 %15, %29
+  %49 = sub i64 %48, %.075
+  %50 = getelementptr i8, ptr %7, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -2
+  %52 = getelementptr i8, ptr %50, i64 -1
+  store i8 1, ptr %51, align 1
+  %53 = tail call i32 %1(ptr noundef %2, ptr noundef %52, i64 noundef %.075) #14
+  %.not93 = icmp eq i32 %53, 0
+  br i1 %.not93, label %56, label %54
 
-55:                                               ; preds = %45
-  %56 = add nsw i32 %54, -17536
-  br label %89
+54:                                               ; preds = %45
+  %55 = add nsw i32 %53, -17536
+  br label %88
 
-57:                                               ; preds = %45
-  %58 = getelementptr inbounds i8, ptr %53, i64 %.075
+56:                                               ; preds = %45
+  %57 = getelementptr inbounds i8, ptr %52, i64 %.075
   call void @mbedtls_md_init(ptr noundef nonnull %9) #14
-  %59 = call i32 @mbedtls_md_setup(ptr noundef nonnull %9, ptr noundef nonnull %25, i32 noundef 0) #14
-  %.not94 = icmp eq i32 %59, 0
-  br i1 %.not94, label %60, label %.thread
+  %58 = call i32 @mbedtls_md_setup(ptr noundef nonnull %9, ptr noundef nonnull %25, i32 noundef 0) #14
+  %.not94 = icmp eq i32 %58, 0
+  br i1 %.not94, label %59, label %.thread
 
-60:                                               ; preds = %57
-  %61 = call i32 @mbedtls_md_starts(ptr noundef nonnull %9) #14
-  %.not95 = icmp eq i32 %61, 0
-  br i1 %.not95, label %62, label %.thread
+59:                                               ; preds = %56
+  %60 = call i32 @mbedtls_md_starts(ptr noundef nonnull %9) #14
+  %.not95 = icmp eq i32 %60, 0
+  br i1 %.not95, label %61, label %.thread
 
-62:                                               ; preds = %60
-  %63 = call i32 @mbedtls_md_update(ptr noundef nonnull %9, ptr noundef %58, i64 noundef 8) #14
-  %.not96 = icmp eq i32 %63, 0
-  br i1 %.not96, label %64, label %.thread
+61:                                               ; preds = %59
+  %62 = call i32 @mbedtls_md_update(ptr noundef nonnull %9, ptr noundef %57, i64 noundef 8) #14
+  %.not96 = icmp eq i32 %62, 0
+  br i1 %.not96, label %63, label %.thread
 
-64:                                               ; preds = %62
-  %65 = zext i32 %4 to i64
-  %66 = call i32 @mbedtls_md_update(ptr noundef nonnull %9, ptr noundef %5, i64 noundef %65) #14
-  %.not97 = icmp eq i32 %66, 0
-  br i1 %.not97, label %67, label %.thread
+63:                                               ; preds = %61
+  %64 = zext i32 %4 to i64
+  %65 = call i32 @mbedtls_md_update(ptr noundef nonnull %9, ptr noundef %5, i64 noundef %64) #14
+  %.not97 = icmp eq i32 %65, 0
+  br i1 %.not97, label %66, label %.thread
 
-67:                                               ; preds = %64
-  %68 = call i32 @mbedtls_md_update(ptr noundef nonnull %9, ptr noundef %53, i64 noundef %.075) #14
-  %.not98 = icmp eq i32 %68, 0
-  br i1 %.not98, label %69, label %.thread
+66:                                               ; preds = %63
+  %67 = call i32 @mbedtls_md_update(ptr noundef nonnull %9, ptr noundef %52, i64 noundef %.075) #14
+  %.not98 = icmp eq i32 %67, 0
+  br i1 %.not98, label %68, label %.thread
 
-69:                                               ; preds = %67
-  %70 = call i32 @mbedtls_md_finish(ptr noundef nonnull %9, ptr noundef %58) #14
-  %.not99 = icmp eq i32 %70, 0
-  br i1 %.not99, label %71, label %.thread
+68:                                               ; preds = %66
+  %69 = call i32 @mbedtls_md_finish(ptr noundef nonnull %9, ptr noundef %57) #14
+  %.not99 = icmp eq i32 %69, 0
+  br i1 %.not99, label %70, label %.thread
 
-71:                                               ; preds = %69
-  %72 = and i64 %48, 7
-  %73 = icmp eq i64 %72, 0
-  %spec.select = zext i1 %73 to i64
-  %74 = getelementptr inbounds i8, ptr %7, i64 %spec.select
-  %75 = xor i64 %spec.select, -1
-  %76 = add i64 %49, %75
-  %77 = call fastcc i32 @mgf_mask(ptr noundef %74, i64 noundef %76, ptr noundef %58, i64 noundef %29, ptr noundef %9)
-  %.not100 = icmp eq i32 %77, 0
-  br i1 %.not100, label %78, label %.thread
+70:                                               ; preds = %68
+  %71 = and i64 %47, 7
+  %72 = icmp eq i64 %71, 1
+  %spec.select = zext i1 %72 to i64
+  %73 = getelementptr inbounds i8, ptr %7, i64 %spec.select
+  %74 = xor i64 %spec.select, -1
+  %75 = add i64 %48, %74
+  %76 = call fastcc i32 @mgf_mask(ptr noundef %73, i64 noundef %75, ptr noundef %57, i64 noundef %29, ptr noundef %9)
+  %.not100 = icmp eq i32 %76, 0
+  br i1 %.not100, label %77, label %.thread
 
-.thread:                                          ; preds = %57, %60, %62, %64, %67, %69, %71
-  %.0.ph = phi i32 [ %77, %71 ], [ %70, %69 ], [ %68, %67 ], [ %66, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %57 ]
+.thread:                                          ; preds = %56, %59, %61, %63, %66, %68, %70
+  %.0.ph = phi i32 [ %76, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %56 ]
   call void @mbedtls_md_free(ptr noundef nonnull %9) #14
-  br label %89
+  br label %88
 
-78:                                               ; preds = %71
-  %79 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %46) #14
-  %80 = shl i64 %15, 3
-  %.neg105 = or disjoint i64 %80, 1
-  %81 = sub i64 %.neg105, %79
-  %82 = trunc i64 %81 to i32
-  %83 = lshr i32 255, %82
-  %84 = load i8, ptr %7, align 1
-  %85 = trunc nuw i32 %83 to i8
-  %86 = and i8 %84, %85
-  store i8 %86, ptr %7, align 1
-  %87 = getelementptr inbounds i8, ptr %58, i64 %29
-  store i8 -68, ptr %87, align 1
+77:                                               ; preds = %70
+  %78 = call i64 @mbedtls_mpi_bitlen(ptr noundef nonnull %46) #14
+  %79 = shl i64 %15, 3
+  %.neg105 = or disjoint i64 %79, 1
+  %80 = sub i64 %.neg105, %78
+  %81 = trunc i64 %80 to i32
+  %82 = lshr i32 255, %81
+  %83 = load i8, ptr %7, align 1
+  %84 = trunc nuw i32 %82 to i8
+  %85 = and i8 %83, %84
+  store i8 %85, ptr %7, align 1
+  %86 = getelementptr inbounds i8, ptr %57, i64 %29
+  store i8 -68, ptr %86, align 1
   call void @mbedtls_md_free(ptr noundef nonnull %9) #14
-  %88 = call i32 @mbedtls_rsa_private(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %7)
-  br label %89
+  %87 = call i32 @mbedtls_rsa_private(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %7, ptr noundef nonnull %7)
+  br label %88
 
-89:                                               ; preds = %.thread, %38, %40, %31, %22, %19, %16, %8, %78, %55
-  %.074 = phi i32 [ %56, %55 ], [ %88, %78 ], [ -16512, %8 ], [ -16512, %16 ], [ -16512, %19 ], [ -16512, %22 ], [ -16512, %31 ], [ -16512, %40 ], [ -16512, %38 ], [ %.0.ph, %.thread ]
+88:                                               ; preds = %.thread, %38, %40, %31, %22, %19, %16, %8, %77, %54
+  %.074 = phi i32 [ %55, %54 ], [ %87, %77 ], [ -16512, %8 ], [ -16512, %16 ], [ -16512, %19 ], [ -16512, %22 ], [ -16512, %31 ], [ -16512, %40 ], [ -16512, %38 ], [ %.0.ph, %.thread ]
   ret i32 %.074
 }
 

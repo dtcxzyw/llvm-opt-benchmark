@@ -798,63 +798,69 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.p
   %146 = shl nuw i32 1, %145
   %147 = and i32 %146, %.0158
   %.not186 = icmp eq i32 %147, 0
-  br i1 %.not186, label %.thread199, label %149
+  br i1 %.not186, label %.thread199, label %151
 
 .thread199:                                       ; preds = %141
   %148 = lshr i32 %.0158, %144
-  br label %164
+  %149 = and i32 %148, 8388607
+  %150 = icmp eq i32 %149, 0
+  br label %171
 
-149:                                              ; preds = %141
+151:                                              ; preds = %141
   %notmask = shl nsw i32 -1, %145
-  %150 = xor i32 %notmask, -1
-  %151 = and i32 %150, %.0158
-  %152 = icmp eq i32 %151, 0
-  %153 = and i1 %.0157, %152
-  br i1 %153, label %157, label %.thread
+  %152 = xor i32 %notmask, -1
+  %153 = and i32 %152, %.0158
+  %154 = icmp eq i32 %153, 0
+  %155 = and i1 %.0157, %154
+  br i1 %155, label %162, label %.thread
 
-.thread:                                          ; preds = %149
-  %154 = lshr i32 %.0158, %144
-  %155 = add i32 %154, 1
-  %156 = add nuw nsw i32 %.sroa.speculated, 1
-  br label %164
+.thread:                                          ; preds = %151
+  %156 = lshr i32 %.0158, %144
+  %157 = add i32 %156, 1
+  %158 = and i32 %157, 8388607
+  %159 = and i32 %156, 8388607
+  %160 = icmp eq i32 %159, 8388607
+  %161 = add nuw nsw i32 %.sroa.speculated, 1
+  br label %171
 
-157:                                              ; preds = %149
-  %158 = shl nuw i32 1, %144
-  %159 = and i32 %158, %.0158
-  %.fr = freeze i32 %159
-  %160 = icmp ne i32 %.fr, 0
-  %161 = lshr i32 %.0158, %144
-  %162 = zext i1 %160 to i32
-  %163 = add i32 %161, %162
-  %spec.select203 = add nuw nsw i32 %.sroa.speculated, %162
-  br label %164
+162:                                              ; preds = %151
+  %163 = shl nuw i32 1, %144
+  %164 = and i32 %163, %.0158
+  %.fr = freeze i32 %164
+  %165 = icmp ne i32 %.fr, 0
+  %166 = lshr i32 %.0158, %144
+  %167 = zext i1 %165 to i32
+  %168 = add i32 %166, %167
+  %169 = and i32 %168, 8388607
+  %170 = icmp eq i32 %169, 0
+  %spec.select203 = add nuw nsw i32 %.sroa.speculated, %167
+  br label %171
 
-164:                                              ; preds = %157, %.thread, %.thread199
-  %.in = phi i32 [ %148, %.thread199 ], [ %155, %.thread ], [ %163, %157 ]
-  %165 = phi i32 [ %.sroa.speculated, %.thread199 ], [ %156, %.thread ], [ %spec.select203, %157 ]
-  %166 = and i32 %.in, 8388607
-  %167 = icmp eq i32 %166, 0
-  %.0152 = select i1 %167, i32 %165, i32 %.sroa.speculated
-  %168 = select i1 %7, i32 256, i32 0
-  %169 = or i32 %.0152, %168
-  %170 = shl nuw i32 %169, 23
-  %171 = or disjoint i32 %170, %166
-  store i32 %171, ptr %2, align 4
+171:                                              ; preds = %162, %.thread, %.thread199
+  %172 = phi i1 [ %150, %.thread199 ], [ %160, %.thread ], [ %170, %162 ]
+  %173 = phi i32 [ %149, %.thread199 ], [ %158, %.thread ], [ %169, %162 ]
+  %174 = phi i32 [ %.sroa.speculated, %.thread199 ], [ %161, %.thread ], [ %spec.select203, %162 ]
+  %.0152 = select i1 %172, i32 %174, i32 %.sroa.speculated
+  %175 = select i1 %7, i32 256, i32 0
+  %176 = or i32 %.0152, %175
+  %177 = shl nuw i32 %176, 23
+  %178 = or disjoint i32 %177, %173
+  store i32 %178, ptr %2, align 4
   br label %.loopexit
 
 .loopexit.loopexit:                               ; preds = %.lr.ph238, %43
   %.sroa.12.0.ph = phi i32 [ 22, %.lr.ph238 ], [ 34, %43 ]
-  %172 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv264
+  %179 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv264
   br label %.loopexit
 
 .loopexit.loopexit291:                            ; preds = %13, %17
   %.sroa.12.0.ph292 = phi i32 [ 22, %13 ], [ 34, %17 ]
-  %173 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %180 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit291, %.loopexit.loopexit, %3, %164, %139, %71, %67, %62, %51
-  %.sroa.0.0 = phi ptr [ %53, %51 ], [ null, %62 ], [ null, %67 ], [ null, %71 ], [ null, %139 ], [ null, %164 ], [ %0, %3 ], [ %172, %.loopexit.loopexit ], [ %173, %.loopexit.loopexit291 ]
-  %.sroa.12.0 = phi i32 [ 22, %51 ], [ 0, %62 ], [ 0, %67 ], [ 0, %71 ], [ 0, %139 ], [ 0, %164 ], [ 22, %3 ], [ %.sroa.12.0.ph, %.loopexit.loopexit ], [ %.sroa.12.0.ph292, %.loopexit.loopexit291 ]
+.loopexit:                                        ; preds = %.loopexit.loopexit291, %.loopexit.loopexit, %3, %171, %139, %71, %67, %62, %51
+  %.sroa.0.0 = phi ptr [ %53, %51 ], [ null, %62 ], [ null, %67 ], [ null, %71 ], [ null, %139 ], [ null, %171 ], [ %0, %3 ], [ %179, %.loopexit.loopexit ], [ %180, %.loopexit.loopexit291 ]
+  %.sroa.12.0 = phi i32 [ 22, %51 ], [ 0, %62 ], [ 0, %67 ], [ 0, %71 ], [ 0, %139 ], [ 0, %171 ], [ 22, %3 ], [ %.sroa.12.0.ph, %.loopexit.loopexit ], [ %.sroa.12.0.ph292, %.loopexit.loopexit291 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.12.0, 1
   ret { ptr, i32 } %.fca.1.insert

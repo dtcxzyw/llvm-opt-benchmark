@@ -2644,7 +2644,7 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %154, %152
-  %157 = phi <8 x i1> [ <i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false, i1 false>, %152 ], [ zeroinitializer, %154 ]
+  %157 = phi <4 x i1> [ <i1 true, i1 true, i1 true, i1 false>, %152 ], [ zeroinitializer, %154 ]
   %158 = load i32, ptr %11, align 4
   %159 = getelementptr inbounds i8, ptr %0, i64 224
   store i32 %158, ptr %159, align 16
@@ -2756,12 +2756,11 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28fin
   %236 = insertelement <4 x float> %233, float 0.000000e+00, i64 3
   %237 = shufflevector <4 x float> %236, <4 x float> %234, <4 x i32> <i32 0, i32 4, i32 poison, i32 3>
   %238 = shufflevector <4 x float> %237, <4 x float> %235, <4 x i32> <i32 0, i32 1, i32 4, i32 3>
-  %239 = shufflevector <8 x i1> %157, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %240 = select contract <4 x i1> %239, <4 x float> %238, <4 x float> %232
-  %241 = getelementptr inbounds i8, ptr %0, i64 208
-  store <4 x float> %240, ptr %241, align 16
-  %242 = getelementptr inbounds i8, ptr %0, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %242, i8 0, i64 16, i1 false)
+  %239 = select contract <4 x i1> %157, <4 x float> %238, <4 x float> %232
+  %240 = getelementptr inbounds i8, ptr %0, i64 208
+  store <4 x float> %239, ptr %240, align 16
+  %241 = getelementptr inbounds i8, ptr %0, i64 192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %241, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -2782,7 +2781,7 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds = %5, %6
-  %15 = phi <8 x i1> [ <i1 true, i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false>, %6 ], [ zeroinitializer, %5 ]
+  %15 = phi <4 x i1> [ <i1 true, i1 true, i1 true, i1 true>, %6 ], [ zeroinitializer, %5 ]
   %16 = phi i32 [ %14, %6 ], [ 0, %5 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 504
   %18 = zext i32 %16 to i64
@@ -2790,147 +2789,146 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %20 = load ptr, ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %20, i64 %19
   %22 = load <4 x float>, ptr %21, align 1
-  %23 = shufflevector <8 x i1> %15, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %24 = select contract <4 x i1> %23, <4 x float> %22, <4 x float> zeroinitializer
-  %25 = add i32 %16, 1
-  %26 = zext i32 %25 to i64
-  %27 = shl nuw nsw i64 %26, 4
-  %28 = getelementptr inbounds i8, ptr %20, i64 %27
-  %29 = load <4 x float>, ptr %28, align 1
-  %30 = select contract <4 x i1> %23, <4 x float> %29, <4 x float> zeroinitializer
-  %31 = add i32 %16, 2
-  %32 = zext i32 %31 to i64
-  %33 = shl nuw nsw i64 %32, 4
-  %34 = getelementptr inbounds i8, ptr %20, i64 %33
-  %35 = load <4 x float>, ptr %34, align 1
-  %36 = select contract <4 x i1> %23, <4 x float> %35, <4 x float> zeroinitializer
-  %37 = add i32 %16, 3
-  %38 = zext i32 %37 to i64
-  %39 = shl nuw nsw i64 %38, 4
-  %40 = getelementptr inbounds i8, ptr %20, i64 %39
-  %41 = load <4 x float>, ptr %40, align 1
-  %42 = select contract <4 x i1> %23, <4 x float> %41, <4 x float> zeroinitializer
-  %43 = insertelement <4 x float> %24, float 0.000000e+00, i64 3
-  %44 = insertelement <4 x float> %30, float 0.000000e+00, i64 3
-  %45 = insertelement <4 x float> %36, float 0.000000e+00, i64 3
-  %46 = insertelement <4 x float> %42, float 0.000000e+00, i64 3
-  %.sroa.0473.12.vec.extract = extractelement <4 x float> %24, i64 3
-  %.sroa.0474.12.vec.extract = extractelement <4 x float> %30, i64 3
-  %.sroa.0475.12.vec.extract = extractelement <4 x float> %36, i64 3
-  %.sroa.0476.12.vec.extract = extractelement <4 x float> %42, i64 3
-  %47 = fmul contract float %2, %2
-  %48 = fmul contract float %2, %47
-  %49 = fmul contract float %47, 3.000000e+00
-  %50 = fsub contract float %49, %48
-  %51 = fmul contract float %2, 3.000000e+00
-  %52 = fsub contract float %50, %51
-  %53 = fadd contract float %52, 1.000000e+00
-  %54 = insertelement <4 x float> poison, float %53, i64 0
-  %55 = shufflevector <4 x float> %54, <4 x float> poison, <4 x i32> zeroinitializer
-  %56 = fmul contract <4 x float> %55, %43
-  %57 = fmul contract float %48, 3.000000e+00
-  %58 = fmul contract float %47, 6.000000e+00
-  %59 = fsub contract float %57, %58
-  %60 = fadd contract float %59, 4.000000e+00
-  %61 = insertelement <4 x float> poison, float %60, i64 0
-  %62 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> zeroinitializer
-  %63 = fmul contract <4 x float> %62, %44
-  %64 = fadd contract <4 x float> %56, %63
-  %65 = fsub contract float %49, %57
-  %66 = fadd contract float %51, %65
-  %67 = fadd contract float %66, 1.000000e+00
-  %68 = insertelement <4 x float> poison, float %67, i64 0
-  %69 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> zeroinitializer
-  %70 = fmul contract <4 x float> %69, %45
-  %71 = fadd contract <4 x float> %64, %70
-  %72 = insertelement <4 x float> poison, float %48, i64 0
-  %73 = shufflevector <4 x float> %72, <4 x float> poison, <4 x i32> zeroinitializer
-  %74 = fmul contract <4 x float> %73, %46
-  %75 = fadd contract <4 x float> %71, %74
-  %76 = fmul contract <4 x float> %75, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
-  %77 = fmul contract float %2, 6.000000e+00
-  %78 = fsub contract float %77, %49
-  %79 = fadd contract float %78, -3.000000e+00
-  %80 = insertelement <4 x float> poison, float %79, i64 0
-  %81 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> zeroinitializer
-  %82 = fmul contract <4 x float> %81, %43
-  %83 = fmul contract float %47, 9.000000e+00
-  %84 = fmul contract float %2, 1.200000e+01
-  %85 = fsub contract float %83, %84
-  %86 = insertelement <4 x float> poison, float %85, i64 0
-  %87 = shufflevector <4 x float> %86, <4 x float> poison, <4 x i32> zeroinitializer
-  %88 = fmul contract <4 x float> %87, %44
-  %89 = fadd contract <4 x float> %82, %88
-  %90 = fsub contract float %77, %83
-  %91 = fadd contract float %90, 3.000000e+00
-  %92 = insertelement <4 x float> poison, float %91, i64 0
-  %93 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> zeroinitializer
-  %94 = fmul contract <4 x float> %93, %45
-  %95 = fadd contract <4 x float> %89, %94
-  %96 = insertelement <4 x float> poison, float %49, i64 0
-  %97 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> zeroinitializer
-  %98 = fmul contract <4 x float> %97, %46
-  %99 = fadd contract <4 x float> %95, %98
-  %100 = fmul contract <4 x float> %99, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
-  %101 = fsub contract float 1.000000e+00, %2
-  %102 = insertelement <4 x float> poison, float %101, i64 0
-  %103 = shufflevector <4 x float> %102, <4 x float> poison, <4 x i32> zeroinitializer
-  %104 = fmul contract <4 x float> %103, %43
-  %105 = fadd contract float %51, -2.000000e+00
-  %106 = insertelement <4 x float> poison, float %105, i64 0
-  %107 = shufflevector <4 x float> %106, <4 x float> poison, <4 x i32> zeroinitializer
-  %108 = fmul contract <4 x float> %107, %44
-  %109 = fadd contract <4 x float> %104, %108
-  %110 = fsub contract float 1.000000e+00, %51
-  %111 = insertelement <4 x float> poison, float %110, i64 0
-  %112 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> zeroinitializer
-  %113 = fmul contract <4 x float> %112, %45
-  %114 = fadd contract <4 x float> %109, %113
-  %115 = insertelement <4 x float> poison, float %2, i64 0
-  %116 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> zeroinitializer
-  %117 = fmul contract <4 x float> %116, %46
-  %118 = fadd contract <4 x float> %114, %117
-  %119 = fmul contract <4 x float> %44, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
-  %120 = fsub contract <4 x float> %119, %43
-  %121 = fmul contract <4 x float> %45, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
-  %122 = fsub contract <4 x float> %120, %121
-  %123 = fadd contract <4 x float> %46, %122
-  %124 = fmul contract float %53, %.sroa.0473.12.vec.extract
-  %125 = fmul contract float %60, %.sroa.0474.12.vec.extract
-  %126 = fadd contract float %124, %125
-  %127 = fmul contract float %67, %.sroa.0475.12.vec.extract
-  %128 = fadd contract float %126, %127
-  %129 = fmul contract float %48, %.sroa.0476.12.vec.extract
-  %130 = fadd contract float %128, %129
-  %131 = fmul contract float %130, 0x3FC5555560000000
-  %132 = fmul contract float %79, %.sroa.0473.12.vec.extract
-  %133 = fmul contract float %85, %.sroa.0474.12.vec.extract
-  %134 = fadd contract float %132, %133
-  %135 = fmul contract float %91, %.sroa.0475.12.vec.extract
-  %136 = fadd contract float %134, %135
-  %137 = fmul contract float %49, %.sroa.0476.12.vec.extract
-  %138 = fadd contract float %136, %137
-  %139 = fmul contract float %138, 0x3FC5555560000000
-  %140 = fmul contract float %101, %.sroa.0473.12.vec.extract
-  %141 = fmul contract float %105, %.sroa.0474.12.vec.extract
-  %142 = fadd contract float %140, %141
-  %143 = fmul contract float %110, %.sroa.0475.12.vec.extract
-  %144 = fadd contract float %142, %143
-  %145 = fmul contract float %2, %.sroa.0476.12.vec.extract
-  %146 = fadd contract float %144, %145
-  store <4 x float> %76, ptr %0, align 16
-  %147 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> %100, ptr %147, align 16
-  %148 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x float> %118, ptr %148, align 16
-  %149 = getelementptr inbounds i8, ptr %0, i64 48
-  store <4 x float> %123, ptr %149, align 16
-  %150 = getelementptr inbounds i8, ptr %0, i64 64
-  store float %131, ptr %150, align 16
-  %151 = getelementptr inbounds i8, ptr %0, i64 68
-  store float %139, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %0, i64 72
-  store float %146, ptr %152, align 8
+  %23 = select contract <4 x i1> %15, <4 x float> %22, <4 x float> zeroinitializer
+  %24 = add i32 %16, 1
+  %25 = zext i32 %24 to i64
+  %26 = shl nuw nsw i64 %25, 4
+  %27 = getelementptr inbounds i8, ptr %20, i64 %26
+  %28 = load <4 x float>, ptr %27, align 1
+  %29 = select contract <4 x i1> %15, <4 x float> %28, <4 x float> zeroinitializer
+  %30 = add i32 %16, 2
+  %31 = zext i32 %30 to i64
+  %32 = shl nuw nsw i64 %31, 4
+  %33 = getelementptr inbounds i8, ptr %20, i64 %32
+  %34 = load <4 x float>, ptr %33, align 1
+  %35 = select contract <4 x i1> %15, <4 x float> %34, <4 x float> zeroinitializer
+  %36 = add i32 %16, 3
+  %37 = zext i32 %36 to i64
+  %38 = shl nuw nsw i64 %37, 4
+  %39 = getelementptr inbounds i8, ptr %20, i64 %38
+  %40 = load <4 x float>, ptr %39, align 1
+  %41 = select contract <4 x i1> %15, <4 x float> %40, <4 x float> zeroinitializer
+  %42 = insertelement <4 x float> %23, float 0.000000e+00, i64 3
+  %43 = insertelement <4 x float> %29, float 0.000000e+00, i64 3
+  %44 = insertelement <4 x float> %35, float 0.000000e+00, i64 3
+  %45 = insertelement <4 x float> %41, float 0.000000e+00, i64 3
+  %.sroa.0473.12.vec.extract = extractelement <4 x float> %23, i64 3
+  %.sroa.0474.12.vec.extract = extractelement <4 x float> %29, i64 3
+  %.sroa.0475.12.vec.extract = extractelement <4 x float> %35, i64 3
+  %.sroa.0476.12.vec.extract = extractelement <4 x float> %41, i64 3
+  %46 = fmul contract float %2, %2
+  %47 = fmul contract float %2, %46
+  %48 = fmul contract float %46, 3.000000e+00
+  %49 = fsub contract float %48, %47
+  %50 = fmul contract float %2, 3.000000e+00
+  %51 = fsub contract float %49, %50
+  %52 = fadd contract float %51, 1.000000e+00
+  %53 = insertelement <4 x float> poison, float %52, i64 0
+  %54 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> zeroinitializer
+  %55 = fmul contract <4 x float> %54, %42
+  %56 = fmul contract float %47, 3.000000e+00
+  %57 = fmul contract float %46, 6.000000e+00
+  %58 = fsub contract float %56, %57
+  %59 = fadd contract float %58, 4.000000e+00
+  %60 = insertelement <4 x float> poison, float %59, i64 0
+  %61 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> zeroinitializer
+  %62 = fmul contract <4 x float> %61, %43
+  %63 = fadd contract <4 x float> %55, %62
+  %64 = fsub contract float %48, %56
+  %65 = fadd contract float %50, %64
+  %66 = fadd contract float %65, 1.000000e+00
+  %67 = insertelement <4 x float> poison, float %66, i64 0
+  %68 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> zeroinitializer
+  %69 = fmul contract <4 x float> %68, %44
+  %70 = fadd contract <4 x float> %63, %69
+  %71 = insertelement <4 x float> poison, float %47, i64 0
+  %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> zeroinitializer
+  %73 = fmul contract <4 x float> %72, %45
+  %74 = fadd contract <4 x float> %70, %73
+  %75 = fmul contract <4 x float> %74, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
+  %76 = fmul contract float %2, 6.000000e+00
+  %77 = fsub contract float %76, %48
+  %78 = fadd contract float %77, -3.000000e+00
+  %79 = insertelement <4 x float> poison, float %78, i64 0
+  %80 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> zeroinitializer
+  %81 = fmul contract <4 x float> %80, %42
+  %82 = fmul contract float %46, 9.000000e+00
+  %83 = fmul contract float %2, 1.200000e+01
+  %84 = fsub contract float %82, %83
+  %85 = insertelement <4 x float> poison, float %84, i64 0
+  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> zeroinitializer
+  %87 = fmul contract <4 x float> %86, %43
+  %88 = fadd contract <4 x float> %81, %87
+  %89 = fsub contract float %76, %82
+  %90 = fadd contract float %89, 3.000000e+00
+  %91 = insertelement <4 x float> poison, float %90, i64 0
+  %92 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> zeroinitializer
+  %93 = fmul contract <4 x float> %92, %44
+  %94 = fadd contract <4 x float> %88, %93
+  %95 = insertelement <4 x float> poison, float %48, i64 0
+  %96 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> zeroinitializer
+  %97 = fmul contract <4 x float> %96, %45
+  %98 = fadd contract <4 x float> %94, %97
+  %99 = fmul contract <4 x float> %98, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
+  %100 = fsub contract float 1.000000e+00, %2
+  %101 = insertelement <4 x float> poison, float %100, i64 0
+  %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
+  %103 = fmul contract <4 x float> %102, %42
+  %104 = fadd contract float %50, -2.000000e+00
+  %105 = insertelement <4 x float> poison, float %104, i64 0
+  %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> zeroinitializer
+  %107 = fmul contract <4 x float> %106, %43
+  %108 = fadd contract <4 x float> %103, %107
+  %109 = fsub contract float 1.000000e+00, %50
+  %110 = insertelement <4 x float> poison, float %109, i64 0
+  %111 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> zeroinitializer
+  %112 = fmul contract <4 x float> %111, %44
+  %113 = fadd contract <4 x float> %108, %112
+  %114 = insertelement <4 x float> poison, float %2, i64 0
+  %115 = shufflevector <4 x float> %114, <4 x float> poison, <4 x i32> zeroinitializer
+  %116 = fmul contract <4 x float> %115, %45
+  %117 = fadd contract <4 x float> %113, %116
+  %118 = fmul contract <4 x float> %43, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
+  %119 = fsub contract <4 x float> %118, %42
+  %120 = fmul contract <4 x float> %44, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
+  %121 = fsub contract <4 x float> %119, %120
+  %122 = fadd contract <4 x float> %45, %121
+  %123 = fmul contract float %52, %.sroa.0473.12.vec.extract
+  %124 = fmul contract float %59, %.sroa.0474.12.vec.extract
+  %125 = fadd contract float %123, %124
+  %126 = fmul contract float %66, %.sroa.0475.12.vec.extract
+  %127 = fadd contract float %125, %126
+  %128 = fmul contract float %47, %.sroa.0476.12.vec.extract
+  %129 = fadd contract float %127, %128
+  %130 = fmul contract float %129, 0x3FC5555560000000
+  %131 = fmul contract float %78, %.sroa.0473.12.vec.extract
+  %132 = fmul contract float %84, %.sroa.0474.12.vec.extract
+  %133 = fadd contract float %131, %132
+  %134 = fmul contract float %90, %.sroa.0475.12.vec.extract
+  %135 = fadd contract float %133, %134
+  %136 = fmul contract float %48, %.sroa.0476.12.vec.extract
+  %137 = fadd contract float %135, %136
+  %138 = fmul contract float %137, 0x3FC5555560000000
+  %139 = fmul contract float %100, %.sroa.0473.12.vec.extract
+  %140 = fmul contract float %104, %.sroa.0474.12.vec.extract
+  %141 = fadd contract float %139, %140
+  %142 = fmul contract float %109, %.sroa.0475.12.vec.extract
+  %143 = fadd contract float %141, %142
+  %144 = fmul contract float %2, %.sroa.0476.12.vec.extract
+  %145 = fadd contract float %143, %144
+  store <4 x float> %75, ptr %0, align 16
+  %146 = getelementptr inbounds i8, ptr %0, i64 16
+  store <4 x float> %99, ptr %146, align 16
+  %147 = getelementptr inbounds i8, ptr %0, i64 32
+  store <4 x float> %117, ptr %147, align 16
+  %148 = getelementptr inbounds i8, ptr %0, i64 48
+  store <4 x float> %122, ptr %148, align 16
+  %149 = getelementptr inbounds i8, ptr %0, i64 64
+  store float %130, ptr %149, align 16
+  %150 = getelementptr inbounds i8, ptr %0, i64 68
+  store float %138, ptr %150, align 4
+  %151 = getelementptr inbounds i8, ptr %0, i64 72
+  store float %145, ptr %151, align 8
   ret void
 }
 

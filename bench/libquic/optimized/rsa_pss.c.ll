@@ -115,14 +115,13 @@ if.then14:                                        ; preds = %if.end
   %conv19 = sub i32 %8, %7
   store i32 %conv19, ptr %saltlen, align 4
   %call20 = call i32 @EVP_PKEY_bits(ptr noundef %call9) #3
-  %sub21 = add i32 %call20, 7
-  %and = and i32 %sub21, 7
-  %cmp22 = icmp eq i32 %and, 0
+  %9 = and i32 %call20, 7
+  %cmp22 = icmp eq i32 %9, 1
   br i1 %cmp22, label %if.then24, label %if.end28
 
 if.then24:                                        ; preds = %if.then14
-  %9 = load i32, ptr %saltlen, align 4
-  %dec = add nsw i32 %9, -1
+  %10 = load i32, ptr %saltlen, align 4
+  %dec = add nsw i32 %10, -1
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %if.then10, %if.then24
@@ -137,8 +136,8 @@ if.end28:                                         ; preds = %if.end28.sink.split
   br i1 %tobool30.not, label %err, label %if.end32
 
 if.end32:                                         ; preds = %if.end28
-  %10 = load i32, ptr %saltlen, align 4
-  %cmp33.not = icmp eq i32 %10, 20
+  %11 = load i32, ptr %saltlen, align 4
+  %cmp33.not = icmp eq i32 %11, 20
   br i1 %cmp33.not, label %if.end46, label %if.then35
 
 if.then35:                                        ; preds = %if.end32
@@ -149,15 +148,15 @@ if.then35:                                        ; preds = %if.end32
   br i1 %tobool38.not, label %err, label %lor.lhs.false39
 
 lor.lhs.false39:                                  ; preds = %if.then35
-  %11 = load i32, ptr %saltlen, align 4
-  %conv41 = sext i32 %11 to i64
+  %12 = load i32, ptr %saltlen, align 4
+  %conv41 = sext i32 %12 to i64
   %call42 = call i32 @ASN1_INTEGER_set(ptr noundef nonnull %call36, i64 noundef %conv41) #3
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %err, label %if.end46
 
 if.end46:                                         ; preds = %lor.lhs.false39, %if.end32
-  %12 = load ptr, ptr %sigmd, align 8
-  %call.i12 = call i32 @EVP_MD_type(ptr noundef %12) #3
+  %13 = load ptr, ptr %sigmd, align 8
+  %call.i12 = call i32 @EVP_MD_type(ptr noundef %13) #3
   %cmp.i = icmp eq i32 %call.i12, 64
   br i1 %cmp.i, label %lor.lhs.false49, label %if.end.i
 
@@ -168,16 +167,16 @@ if.end.i:                                         ; preds = %if.end46
   br i1 %cmp2.i, label %err, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i, ptr noundef %12) #3
+  call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i, ptr noundef %13) #3
   br label %lor.lhs.false49
 
 lor.lhs.false49:                                  ; preds = %if.end4.i, %if.end46
   %maskGenAlgorithm = getelementptr inbounds i8, ptr %call.i, i64 8
-  %13 = load ptr, ptr %mgf1md, align 8
+  %14 = load ptr, ptr %mgf1md, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %stmp.i)
   store ptr null, ptr %stmp.i, align 8
   store ptr null, ptr %maskGenAlgorithm, align 8
-  %call.i13 = call i32 @EVP_MD_type(ptr noundef %13) #3
+  %call.i13 = call i32 @EVP_MD_type(ptr noundef %14) #3
   %cmp.i14 = icmp eq i32 %call.i13, 64
   br i1 %cmp.i14, label %rsa_md_to_mgf1.exit.thread, label %if.end.i15
 
@@ -186,7 +185,7 @@ rsa_md_to_mgf1.exit.thread:                       ; preds = %lor.lhs.false49
   br label %if.end53
 
 if.end.i15:                                       ; preds = %lor.lhs.false49
-  %call.i.i = call i32 @EVP_MD_type(ptr noundef %13) #3
+  %call.i.i = call i32 @EVP_MD_type(ptr noundef %14) #3
   %cmp.i.i = icmp eq i32 %call.i.i, 64
   br i1 %cmp.i.i, label %lor.lhs.false.i, label %if.end.i.i
 
@@ -196,7 +195,7 @@ if.end.i.i:                                       ; preds = %if.end.i15
   br i1 %cmp2.i.i, label %rsa_md_to_mgf1.exit, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i.i
-  call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i.i, ptr noundef %13) #3
+  call void @X509_ALGOR_set_md(ptr noundef nonnull %call1.i.i, ptr noundef %14) #3
   br label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %if.end4.i.i, %if.end.i15
@@ -213,18 +212,18 @@ if.end5.i:                                        ; preds = %lor.lhs.false.i
 
 if.end9.i:                                        ; preds = %if.end5.i
   %call10.i = call ptr @OBJ_nid2obj(i32 noundef 911) #3
-  %14 = load ptr, ptr %stmp.i, align 8
-  %call11.i = call i32 @X509_ALGOR_set0(ptr noundef nonnull %call6.i, ptr noundef %call10.i, i32 noundef 16, ptr noundef %14) #3
+  %15 = load ptr, ptr %stmp.i, align 8
+  %call11.i = call i32 @X509_ALGOR_set0(ptr noundef nonnull %call6.i, ptr noundef %call10.i, i32 noundef 16, ptr noundef %15) #3
   store ptr null, ptr %stmp.i, align 8
   br label %rsa_md_to_mgf1.exit
 
 rsa_md_to_mgf1.exit:                              ; preds = %if.end.i.i, %lor.lhs.false.i, %if.end5.i, %if.end9.i
   %algtmp.011.i = phi ptr [ %algtmp.0.ph.i, %if.end5.i ], [ %algtmp.0.ph.i, %lor.lhs.false.i ], [ %algtmp.0.ph.i, %if.end9.i ], [ null, %if.end.i.i ]
-  %15 = load ptr, ptr %stmp.i, align 8
-  call void @ASN1_STRING_free(ptr noundef %15) #3
+  %16 = load ptr, ptr %stmp.i, align 8
+  call void @ASN1_STRING_free(ptr noundef %16) #3
   call void @X509_ALGOR_free(ptr noundef %algtmp.011.i) #3
-  %16 = load ptr, ptr %maskGenAlgorithm, align 8
-  %tobool12.not.i.not = icmp eq ptr %16, null
+  %17 = load ptr, ptr %maskGenAlgorithm, align 8
+  %tobool12.not.i.not = icmp eq ptr %17, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %stmp.i)
   br i1 %tobool12.not.i.not, label %err, label %if.end53
 
@@ -235,16 +234,16 @@ if.end53:                                         ; preds = %rsa_md_to_mgf1.exit
 
 if.end57:                                         ; preds = %if.end53
   %call58 = call ptr @OBJ_nid2obj(i32 noundef 912) #3
-  %17 = load ptr, ptr %os, align 8
-  %call59 = call i32 @X509_ALGOR_set0(ptr noundef %algor, ptr noundef %call58, i32 noundef 16, ptr noundef %17) #3
+  %18 = load ptr, ptr %os, align 8
+  %call59 = call i32 @X509_ALGOR_set0(ptr noundef %algor, ptr noundef %call58, i32 noundef 16, ptr noundef %18) #3
   store ptr null, ptr %os, align 8
   br label %err
 
 err:                                              ; preds = %if.end.i, %if.end53, %rsa_md_to_mgf1.exit, %if.then35, %lor.lhs.false39, %if.end28, %if.end57
   %ret.0 = phi i32 [ 1, %if.end57 ], [ 0, %if.end53 ], [ 0, %rsa_md_to_mgf1.exit ], [ 0, %lor.lhs.false39 ], [ 0, %if.then35 ], [ 0, %if.end28 ], [ 0, %if.end.i ]
   call void @ASN1_item_free(ptr noundef %call.i, ptr noundef nonnull @RSA_PSS_PARAMS_it) #3
-  %18 = load ptr, ptr %os, align 8
-  call void @ASN1_STRING_free(ptr noundef %18) #3
+  %19 = load ptr, ptr %os, align 8
+  call void @ASN1_STRING_free(ptr noundef %19) #3
   br label %return
 
 return:                                           ; preds = %if.end, %entry, %lor.lhs.false, %lor.lhs.false4, %err

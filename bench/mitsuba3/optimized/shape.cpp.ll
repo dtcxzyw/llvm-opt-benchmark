@@ -879,7 +879,7 @@ define linkonce_odr hidden void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5Shape
   store i32 0, ptr %.sroa.23.0..sroa_idx, align 16
   %.sroa.24162.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
   store ptr null, ptr %.sroa.24162.0..sroa_idx, align 8
-  br label %120
+  br label %119
 
 15:                                               ; preds = %5
   %16 = getelementptr inbounds i8, ptr %1, i64 32
@@ -904,7 +904,7 @@ define linkonce_odr hidden void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5Shape
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %26, %15
-  %29 = phi <8 x i1> [ <i1 true, i1 true, i1 true, i1 false, i1 false, i1 false, i1 false, i1 false>, %15 ], [ zeroinitializer, %26 ]
+  %29 = phi <4 x i1> [ <i1 true, i1 true, i1 true, i1 false>, %15 ], [ zeroinitializer, %26 ]
   %30 = getelementptr inbounds i8, ptr %1, i64 12
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds i8, ptr %6, i64 224
@@ -1020,16 +1020,15 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19ini
   %113 = insertelement <4 x float> %110, float 0.000000e+00, i64 3
   %114 = shufflevector <4 x float> %113, <4 x float> %111, <4 x i32> <i32 0, i32 4, i32 poison, i32 3>
   %115 = shufflevector <4 x float> %114, <4 x float> %112, <4 x i32> <i32 0, i32 1, i32 4, i32 3>
-  %116 = shufflevector <8 x i1> %29, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %117 = select contract <4 x i1> %116, <4 x float> %115, <4 x float> %109
-  %118 = getelementptr inbounds i8, ptr %6, i64 208
-  store <4 x float> %117, ptr %118, align 16
-  %119 = getelementptr inbounds i8, ptr %6, i64 192
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %119, i8 0, i64 16, i1 false)
+  %116 = select contract <4 x i1> %29, <4 x float> %115, <4 x float> %109
+  %117 = getelementptr inbounds i8, ptr %6, i64 208
+  store <4 x float> %116, ptr %117, align 16
+  %118 = getelementptr inbounds i8, ptr %6, i64 192
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %118, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %0, ptr noundef nonnull align 16 dereferenceable(240) %6, i64 240, i1 false)
-  br label %120
+  br label %119
 
-120:                                              ; preds = %102, %10
+119:                                              ; preds = %102, %10
   ret void
 }
 

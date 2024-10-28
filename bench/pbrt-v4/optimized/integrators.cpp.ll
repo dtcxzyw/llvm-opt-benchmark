@@ -41625,8 +41625,8 @@ lor.lhs.false:                                    ; preds = %_ZNSt8functionIFvN4
   %184 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %add229)
   %185 = icmp eq i32 %184, 1
   %or.cond660 = select i1 %cmp232, i1 %185, i1 false
-  %186 = and i32 %add229, 63
-  %cmp239 = icmp eq i32 %186, 0
+  %186 = and i32 %183, 63
+  %cmp239 = icmp eq i32 %186, 63
   %or.cond661 = or i1 %cmp239, %or.cond660
   br i1 %or.cond661, label %invoke.cont248, label %if.end498
 

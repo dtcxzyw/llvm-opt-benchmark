@@ -83,20 +83,22 @@ land.lhs.true:                                    ; preds = %for.end
   %10 = load i8, ptr %add.ptr.i58, align 1, !tbaa !4
   %call7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22base64_chars_padding_1B5cxx11, i8 noundef signext %10, i64 noundef 0) #11
   %cmp8 = icmp eq i64 %call7, -1
-  %cmp18.old = icmp eq i32 %8, 0
+  %11 = and i32 %6, 3
+  %cmp18.old = icmp eq i32 %11, 1
   %or.cond = or i1 %cmp18.old, %cmp8
   br i1 %or.cond, label %cleanup41, label %if.end20
 
 land.lhs.true11:                                  ; preds = %for.end
-  %11 = getelementptr i8, ptr %s.coerce1, i64 %i.0.lcssa
-  %add.ptr.i60 = getelementptr i8, ptr %11, i64 -1
-  %12 = load i8, ptr %add.ptr.i60, align 1, !tbaa !4
-  %call14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22base64_chars_padding_2B5cxx11, i8 noundef signext %12, i64 noundef 0) #11
+  %12 = getelementptr i8, ptr %s.coerce1, i64 %i.0.lcssa
+  %add.ptr.i60 = getelementptr i8, ptr %12, i64 -1
+  %13 = load i8, ptr %add.ptr.i60, align 1, !tbaa !4
+  %call14 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) @_ZL22base64_chars_padding_2B5cxx11, i8 noundef signext %13, i64 noundef 0) #11
   %cmp15 = icmp eq i64 %call14, -1
   br i1 %cmp15, label %cleanup41, label %if.end20
 
 lor.lhs.false16:                                  ; preds = %for.end
-  %cmp18.old.old = icmp eq i32 %8, 0
+  %14 = and i32 %6, 3
+  %cmp18.old.old = icmp eq i32 %14, 1
   br i1 %cmp18.old.old, label %cleanup41, label %if.end20
 
 if.end20:                                         ; preds = %lor.lhs.false16, %land.lhs.true11, %land.lhs.true
@@ -117,8 +119,8 @@ for.cond27:                                       ; preds = %for.body30
 for.body30:                                       ; preds = %for.cond27.preheader, %for.cond27
   %i.172 = phi i64 [ %inc37, %for.cond27 ], [ %i.0.lcssa, %for.cond27.preheader ]
   %add.ptr.i62 = getelementptr inbounds i8, ptr %s.coerce1, i64 %i.172
-  %13 = load i8, ptr %add.ptr.i62, align 1, !tbaa !4
-  %cmp33.not = icmp eq i8 %13, 61
+  %15 = load i8, ptr %add.ptr.i62, align 1, !tbaa !4
+  %cmp33.not = icmp eq i8 %15, 61
   br i1 %cmp33.not, label %for.cond27, label %cleanup41
 
 for.end38:                                        ; preds = %for.cond27, %for.cond27.preheader

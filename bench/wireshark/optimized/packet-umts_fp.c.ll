@@ -7689,24 +7689,24 @@ define internal fastcc range(i32 0, 2) i32 @heur_dissect_fp_pch(ptr noundef %0, 
   br label %108
 
 108:                                              ; preds = %107, %106
-  %109 = add i32 %58, 65530
-  %trunc10 = trunc i32 %109 to i16
+  %trunc10 = trunc i32 %58 to i16
   switch i16 %trunc10, label %.thread5 [
-    i16 30, label %110
-    i16 10, label %110
+    i16 36, label %109
+    i16 16, label %109
   ]
 
-110:                                              ; preds = %108, %108
-  %111 = shl i32 %109, 3
-  %112 = and i32 %111, 524280
+109:                                              ; preds = %108, %108
+  %110 = shl i32 %58, 3
+  %111 = add i32 %110, 524240
+  %112 = and i32 %111, 524272
   %113 = getelementptr i8, ptr %.3, i64 1112
   store i32 %112, ptr %113, align 4
   tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef nonnull %1, ptr noundef %.3)
   br label %114
 
-114:                                              ; preds = %100, %110, %81, %96, %82
-  %.1123 = phi i32 [ 1, %96 ], [ %.0122, %82 ], [ %.0122, %81 ], [ %.0122, %100 ], [ 1, %110 ]
-  %.1121 = phi i32 [ 1, %96 ], [ %.0120, %82 ], [ 1, %81 ], [ %.0120, %100 ], [ %.0120, %110 ]
+114:                                              ; preds = %100, %109, %81, %96, %82
+  %.1123 = phi i32 [ 1, %96 ], [ %.0122, %82 ], [ %.0122, %81 ], [ %.0122, %100 ], [ 1, %109 ]
+  %.1121 = phi i32 [ 1, %96 ], [ %.0120, %82 ], [ 1, %81 ], [ %.0120, %100 ], [ %.0120, %109 ]
   %115 = icmp ne i32 %.1121, 0
   %116 = icmp ne i32 %.1123, 0
   %or.cond24 = select i1 %115, i1 %116, i1 false

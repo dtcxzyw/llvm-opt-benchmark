@@ -719,22 +719,22 @@ pcapng_count_string_option.exit121:               ; preds = %pcapng_count_string
 write_to_file.exit:                               ; preds = %84, %86
   %storemerge.i = phi i32 [ %88, %86 ], [ 0, %84 ]
   store i32 %storemerge.i, ptr %12, align 4
-  br label %157
+  br label %158
 
 89:                                               ; preds = %pcapng_count_string_option.exit121
   %90 = load i64, ptr %9, align 8
   %91 = add i64 %90, 16
   store i64 %91, ptr %9, align 8
   %92 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 1, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %92, label %93, label %157
+  br i1 %92, label %93, label %158
 
 93:                                               ; preds = %89
   %94 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 2, ptr noundef %2, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %94, label %95, label %157
+  br i1 %94, label %95, label %158
 
 95:                                               ; preds = %93
   %96 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 3, ptr noundef %3, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %96, label %97, label %157
+  br i1 %96, label %97, label %158
 
 97:                                               ; preds = %95
   br i1 %.not, label %110, label %98
@@ -760,14 +760,14 @@ write_to_file.exit:                               ; preds = %84, %86
 write_to_file.exit126:                            ; preds = %101, %103
   %storemerge.i125 = phi i32 [ %105, %103 ], [ 0, %101 ]
   store i32 %storemerge.i125, ptr %12, align 4
-  br label %157
+  br label %158
 
 106:                                              ; preds = %98
   %107 = load i64, ptr %9, align 8
   %108 = add i64 %107, 4
   store i64 %108, ptr %9, align 8
   %109 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %14, i64 noundef 8, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %109, label %110, label %157
+  br i1 %109, label %110, label %158
 
 110:                                              ; preds = %106, %97
   br i1 %.not95, label %125, label %111
@@ -793,27 +793,27 @@ write_to_file.exit126:                            ; preds = %101, %103
 write_to_file.exit130:                            ; preds = %114, %116
   %storemerge.i129 = phi i32 [ %118, %116 ], [ 0, %114 ]
   store i32 %storemerge.i129, ptr %12, align 4
-  br label %157
+  br label %158
 
 119:                                              ; preds = %111
   %120 = load i64, ptr %9, align 8
   %121 = add i64 %120, 4
   store i64 %121, ptr %9, align 8
   %122 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 1, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %122, label %123, label %157
+  br i1 %122, label %123, label %158
 
 123:                                              ; preds = %119
   %124 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %19, i64 noundef 3, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %124, label %125, label %157
+  br i1 %124, label %125, label %158
 
 125:                                              ; preds = %123, %110
-  br i1 %.not96, label %147, label %126
+  br i1 %.not96, label %148, label %126
 
 126:                                              ; preds = %125
   %127 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %128 = add i64 %127, -1
   %or.cond105 = icmp ult i64 %128, 65533
-  br i1 %or.cond105, label %129, label %147
+  br i1 %or.cond105, label %129, label %148
 
 129:                                              ; preds = %126
   store i16 11, ptr %17, align 2
@@ -822,55 +822,56 @@ write_to_file.exit130:                            ; preds = %114, %116
   %132 = getelementptr inbounds i8, ptr %17, i64 2
   store i16 %131, ptr %132, align 2
   %133 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %133, label %134, label %157
+  br i1 %133, label %134, label %158
 
 134:                                              ; preds = %129
   %135 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %19, i64 noundef 1, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %135, label %136, label %157
+  br i1 %135, label %136, label %158
 
 136:                                              ; preds = %134
   %137 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
   %sext = shl i64 %137, 32
   %138 = ashr exact i64 %sext, 32
   %139 = tail call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %138, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %139, label %140, label %157
+  br i1 %139, label %140, label %158
 
 140:                                              ; preds = %136
   %141 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #8
-  %142 = add i64 %141, 1
-  %143 = and i64 %142, 3
-  %.not102 = icmp eq i64 %143, 0
-  br i1 %.not102, label %147, label %144
+  %142 = and i64 %141, 3
+  %.not102 = icmp eq i64 %142, 3
+  br i1 %.not102, label %148, label %143
 
-144:                                              ; preds = %140
-  %145 = sub nuw nsw i64 4, %143
-  %146 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %19, i64 noundef %145, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %146, label %147, label %157
+143:                                              ; preds = %140
+  %144 = add i64 %141, 1
+  %145 = and i64 %144, 3
+  %146 = sub nuw nsw i64 4, %145
+  %147 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %19, i64 noundef %146, ptr noundef nonnull %9, ptr noundef %12)
+  br i1 %147, label %148, label %158
 
-147:                                              ; preds = %140, %144, %126, %125
-  %148 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 12, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %148, label %149, label %157
+148:                                              ; preds = %140, %143, %126, %125
+  %149 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 12, ptr noundef %5, ptr noundef nonnull %9, ptr noundef %12)
+  br i1 %149, label %150, label %158
 
-149:                                              ; preds = %147
-  %150 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 15, ptr noundef %6, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %150, label %151, label %157
+150:                                              ; preds = %148
+  %151 = tail call fastcc zeroext i1 @pcapng_write_string_option(ptr noundef %0, i16 noundef zeroext 15, ptr noundef %6, ptr noundef nonnull %9, ptr noundef %12)
+  br i1 %151, label %152, label %158
 
-151:                                              ; preds = %149
-  br i1 %.not98, label %155, label %152
+152:                                              ; preds = %150
+  br i1 %.not98, label %156, label %153
 
-152:                                              ; preds = %151
+153:                                              ; preds = %152
   store i16 0, ptr %17, align 2
-  %153 = getelementptr inbounds i8, ptr %17, i64 2
-  store i16 0, ptr %153, align 2
-  %154 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
-  br i1 %154, label %155, label %157
+  %154 = getelementptr inbounds i8, ptr %17, i64 2
+  store i16 0, ptr %154, align 2
+  %155 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %17, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
+  br i1 %155, label %156, label %158
 
-155:                                              ; preds = %152, %151
-  %156 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
-  br label %157
+156:                                              ; preds = %153, %152
+  %157 = call fastcc zeroext i1 @write_to_file(ptr noundef %0, ptr noundef nonnull %18, i64 noundef 4, ptr noundef nonnull %9, ptr noundef %12)
+  br label %158
 
-157:                                              ; preds = %write_to_file.exit130, %write_to_file.exit126, %write_to_file.exit, %152, %149, %147, %144, %136, %134, %129, %123, %119, %106, %95, %93, %89, %155
-  %.087 = phi i1 [ %156, %155 ], [ false, %write_to_file.exit ], [ false, %89 ], [ false, %93 ], [ false, %95 ], [ false, %write_to_file.exit126 ], [ false, %106 ], [ false, %write_to_file.exit130 ], [ false, %119 ], [ false, %123 ], [ false, %129 ], [ false, %134 ], [ false, %136 ], [ false, %144 ], [ false, %147 ], [ false, %149 ], [ false, %152 ]
+158:                                              ; preds = %write_to_file.exit130, %write_to_file.exit126, %write_to_file.exit, %153, %150, %148, %143, %136, %134, %129, %123, %119, %106, %95, %93, %89, %156
+  %.087 = phi i1 [ %157, %156 ], [ false, %write_to_file.exit ], [ false, %89 ], [ false, %93 ], [ false, %95 ], [ false, %write_to_file.exit126 ], [ false, %106 ], [ false, %write_to_file.exit130 ], [ false, %119 ], [ false, %123 ], [ false, %129 ], [ false, %134 ], [ false, %136 ], [ false, %143 ], [ false, %148 ], [ false, %150 ], [ false, %153 ]
   ret i1 %.087
 }
 
