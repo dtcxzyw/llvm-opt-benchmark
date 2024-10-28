@@ -17246,7 +17246,7 @@ memcached/memcached_debug-items.ll 845314546
 memcached/memcached_debug-itoa_ljust.ll 106379727
 memcached/memcached_debug-logger.ll 344994715
 memcached/memcached_debug-memcached.ll 2060796208
-memcached/memcached_debug-murmur3_hash.ll 53002099
+memcached/memcached_debug-murmur3_hash.ll 53055216
 memcached/memcached_debug-proto_bin.ll 443205673
 memcached/memcached_debug-proto_text.ll 892626264
 memcached/memcached_debug-restart.ll 137239735
@@ -29082,7 +29082,7 @@ postgres/extension.ll 1036674624
 postgres/f2s.ll 364874105
 postgres/f2s_shlib.ll 364794597
 postgres/f2s_srv.ll 365123710
-postgres/fastpath.ll 144353804
+postgres/fastpath.ll 144498177
 postgres/fd.ll 778670601
 postgres/fe-auth-scram.ll 220579479
 postgres/fe-auth.ll 175644281
@@ -32491,7 +32491,7 @@ ripgrep-rs/vfmkapehee5qzol.ll 228695715
 ripgrep-rs/vl3xtxp2gkkxa6o.ll 314146709
 ripgrep-rs/w48b1qsmd8jodkv.ll 1336306051
 ripgrep-rs/wnx0txtc665thu4.ll 298730932
-ripgrep-rs/zkmvc8t0ugwyp2g.ll 352831711
+ripgrep-rs/zkmvc8t0ugwyp2g.ll 353184659
 rocksdb/adaptive_table_factory.cc.ll 580778280
 rocksdb/agg_merge.cc.ll 690254400
 rocksdb/alloc_tracker.cc.ll 70594608
@@ -36371,7 +36371,7 @@ wasmedge/sort.cpp.ll 5547705663
 wasmedge/spdlog.cpp.ll 34662853
 wasmedge/start.cpp.ll 5606484883
 wasmedge/table.cpp.ll 5604743538
-wasmedge/tableInstr.cpp.ll 6157058967
+wasmedge/tableInstr.cpp.ll 6163216361
 wasmedge/tag.cpp.ll 264882123
 wasmedge/threadInstr.cpp.ll 5782681826
 wasmedge/type.cpp.ll 6328716196
