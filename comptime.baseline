@@ -11575,7 +11575,7 @@ libquic/p_rsa_asn1.c.ll 64630153
 libquic/pacing_sender.cc.ll 83243670
 libquic/packeted_bio.cc.ll 124119770
 libquic/padding.c.ll 244387719
-libquic/pair.c.ll 171168289
+libquic/pair.c.ll 171339616
 libquic/params.c.ll 58300444
 libquic/pbkdf_test.cc.ll 70284715
 libquic/pcy_tree.c.ll 372101309
@@ -17159,7 +17159,7 @@ lvgl/lv_theme_default.ll 534720156
 lvgl/lv_theme_mono.ll 185511234
 lvgl/lv_theme_simple.ll 128072195
 lvgl/lv_tick.ll 64936719
-lvgl/lv_tileview.ll 68933366
+lvgl/lv_tileview.ll 69002343
 lvgl/lv_timer.ll 121658781
 lvgl/lv_tlsf.ll 504258668
 lvgl/lv_tree.ll 86960530
@@ -30617,7 +30617,7 @@ qemu/hw_char_virtio-serial-bus.c.ll 493259469
 qemu/hw_core_bus.c.ll 137440155
 qemu/hw_core_cpu-common.c.ll 109813179
 qemu/hw_core_cpu-sysemu.c.ll 63156264
-qemu/hw_core_gpio.c.ll 113901694
+qemu/hw_core_gpio.c.ll 114015647
 qemu/hw_core_irq.c.ll 73057633
 qemu/hw_core_loader.c.ll 2052317347
 qemu/hw_core_machine-qmp-cmds.c.ll 143244036
