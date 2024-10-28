@@ -3015,7 +3015,7 @@ clamav/apm.c.ll 137016105
 clamav/arc4.c.ll 55713029
 clamav/archive.cpp.ll 384459406
 clamav/arcread.cpp.ll 797158454
-clamav/asn1.c.ll 773100736
+clamav/asn1.c.ll 773874032
 clamav/aspack.c.ll 493888229
 clamav/autoit.c.ll 1216519250
 clamav/bcrun.c.ll 171919356
