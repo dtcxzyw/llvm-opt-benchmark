@@ -149,7 +149,7 @@ abc/acecUtil.c.ll 140613412
 abc/acecXor.c.ll 740216738
 abc/adler32.c.ll 188443292
 abc/aigCanon.c.ll 378232999
-abc/aigCheck.c.ll 92130542
+abc/aigCheck.c.ll 92038343
 abc/aigCuts.c.ll 529656009
 abc/aigDfs.c.ll 582423257
 abc/aigDup.c.ll 894258615
