@@ -9299,7 +9299,7 @@ grpc/promise_based_filter.cc.ll 7843836716
 grpc/proxy_mapper_registry.cc.ll 267249343
 grpc/random_early_detection.cc.ll 77862034
 grpc/rbac_filter.cc.ll 1265896933
-grpc/rbac_policy.cc.ll 988990783
+grpc/rbac_policy.cc.ll 988001722
 grpc/rbac_service_config_parser.cc.ll 4513421146
 grpc/resolve_address.cc.ll 109667617
 grpc/resolve_address_posix.cc.ll 729980579
