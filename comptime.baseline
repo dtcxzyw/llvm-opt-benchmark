@@ -736,7 +736,7 @@ abc/mapperUtils.c.ll 318130573
 abc/mem.c.ll 171154757
 abc/mfsCore.c.ll 302577361
 abc/mfsDiv.c.ll 316729126
-abc/mfsInter.c.ll 180110985
+abc/mfsInter.c.ll 180291782
 abc/mfsMan.c.ll 150386287
 abc/mfsResub.c.ll 484555088
 abc/mfsStrash.c.ll 235179284
@@ -881,7 +881,7 @@ abc/sclBuffer.c.ll 1126561674
 abc/sclDnsize.c.ll 971620811
 abc/sclLibScl.c.ll 1762663298
 abc/sclLibUtil.c.ll 2768408115
-abc/sclLiberty.c.ll 1936609556
+abc/sclLiberty.c.ll 1938546178
 abc/sclLoad.c.ll 227382756
 abc/sclSize.c.ll 1577837653
 abc/sclUpsize.c.ll 1485330850
@@ -3230,7 +3230,7 @@ clamav/yara_arena.c.ll 157233866
 clamav/yara_exec.c.ll 333420662
 clamav/yara_grammar.c.ll 547395660
 clamav/yara_lexer.c.ll 570887233
-clamav/yara_parser.c.ll 150809869
+clamav/yara_parser.c.ll 150960915
 clamav/yc.c.ll 126631209
 clap-rs/12lunjyzw3envsrt.ll 1087510483
 clap-rs/13k6b4wdt6zxx7x5.ll 122460516
@@ -8045,7 +8045,7 @@ graphviz/output.c.ll 601265479
 graphviz/pack.c.ll 975057130
 graphviz/parse.c.ll 310987312
 graphviz/partition.c.ll 407791573
-graphviz/patchwork.c.ll 133247964
+graphviz/patchwork.c.ll 133381787
 graphviz/patchworkinit.c.ll 128351972
 graphviz/pathaccess.c.ll 99195514
 graphviz/pathcat.c.ll 104620051
@@ -11670,7 +11670,7 @@ libquic/sequence_token.cc.ll 90885505
 libquic/server.cc.ll 277063275
 libquic/sha1.c.ll 76418330
 libquic/sha256.c.ll 111840048
-libquic/sha512.c.ll 105652555
+libquic/sha512.c.ll 105758648
 libquic/shared_memory_posix.cc.ll 307983612
 libquic/shift.c.ll 125276862
 libquic/simple.c.ll 295630565
@@ -12688,7 +12688,7 @@ linux/drm_gem_framebuffer_helper.ll 165112685
 linux/drm_gem_shmem_helper.ll 188899373
 linux/drm_hdcp_helper.ll 113705300
 linux/drm_ioc32.ll 81047558
-linux/drm_ioctl.ll 154216743
+linux/drm_ioctl.ll 154371191
 linux/drm_lease.ll 213859373
 linux/drm_mipi_dsi.ll 299717924
 linux/drm_mm.ll 304532496
@@ -13982,7 +13982,7 @@ linux/utcksum.ll 56622078
 linux/utcopy.ll 99308082
 linux/uteval.ll 60061977
 linux/utids.ll 82758033
-linux/util.ll 267225262
+linux/util.ll 267492831
 linux/utils.ll 50343487
 linux/utimes.ll 152485516
 linux/utinit.ll 55523532
@@ -20269,7 +20269,7 @@ openblas/dgelsx.c.ll 124517041
 openblas/dgelsy.c.ll 120888005
 openblas/dgemm_beta.c.ll 81777963
 openblas/dgemm_incopy.c.ll 190868199
-openblas/dgemm_itcopy.c.ll 147845199
+openblas/dgemm_itcopy.c.ll 147993587
 openblas/dgemm_kernel.c.ll 101568974
 openblas/dgemm_oncopy.c.ll 95106698
 openblas/dgemm_otcopy.c.ll 74459748
@@ -20658,7 +20658,7 @@ opencv/CsvWriter.cpp.ll 80470398
 opencv/Drawing_1.cpp.ll 134793573
 opencv/Drawing_2.cpp.ll 368754739
 opencv/EqualizeHist_Demo.cpp.ll 72497692
-opencv/FilterTIG.cpp.ll 227813060
+opencv/FilterTIG.cpp.ll 228041941
 opencv/Geometric_Transforms_Demo.cpp.ll 128891759
 opencv/HitMiss.cpp.ll 372942601
 opencv/HoughCircle_Demo.cpp.ll 147190228
@@ -24539,7 +24539,7 @@ openmpi/libmpi_c_profile_la-alltoallv.ll 123975823
 openmpi/libmpi_c_profile_la-alltoallv_init.ll 120547928
 openmpi/libmpi_c_profile_la-alltoallw.ll 124443651
 openmpi/libmpi_c_profile_la-alltoallw_init.ll 120480100
-openmpi/libmpi_c_profile_la-attr_get.ll 62326363
+openmpi/libmpi_c_profile_la-attr_get.ll 62389685
 openmpi/libmpi_c_profile_la-barrier.ll 77573250
 openmpi/libmpi_c_profile_la-barrier_init.ll 66568819
 openmpi/libmpi_c_profile_la-bcast.ll 96517685
@@ -25281,7 +25281,7 @@ openmpi/ppack_external_size_f.ll 61648383
 openmpi/pps.ll 97761237
 openmpi/pquery.ll 250653768
 openmpi/preg_base_frame.ll 85789781
-openmpi/preg_base_select.ll 81922503
+openmpi/preg_base_select.ll 82004764
 openmpi/preg_base_stubs.ll 85931358
 openmpi/preg_compress.ll 85977531
 openmpi/preg_compress_component.ll 35518333
@@ -28373,7 +28373,7 @@ ozz-animation/skeleton.cc.ll 209326253
 ozz-animation/skeleton_builder.cc.ll 286361720
 ozz-animation/skeleton_utils.cc.ll 67197585
 ozz-animation/skinning_job.cc.ll 1769362037
-ozz-animation/soa_math_archive.cc.ll 195939720
+ozz-animation/soa_math_archive.cc.ll 196136453
 ozz-animation/stream.cc.ll 94730779
 ozz-animation/string_archive.cc.ll 175281481
 ozz-animation/track.cc.ll 666763361
@@ -28647,7 +28647,7 @@ php/pdo_sqlite.ll 239376258
 php/pdo_stmt.ll 1346042934
 php/phar.ll 2332341683
 php/phar_object.ll 2446151781
-php/phar_path_check.ll 82466788
+php/phar_path_check.ll 82549489
 php/php_cli.ll 422854243
 php/php_cli_process_title.ll 76334967
 php/php_cli_server.ll 1740620512
@@ -29496,7 +29496,7 @@ postgres/pquery.ll 270367792
 postgres/predicate.ll 1050035630
 postgres/predtest.ll 395491824
 postgres/prepagg.ll 252837197
-postgres/prepare.ll 235304483
+postgres/prepare.ll 235540278
 postgres/prepjointree.ll 713698319
 postgres/prepqual.ll 214961537
 postgres/preproc.ll 5620303815
@@ -30682,7 +30682,7 @@ qemu/hw_net_rocker_rocker-hmp-cmds.c.ll 130821359
 qemu/hw_net_rocker_rocker.c.ll 747937800
 qemu/hw_net_rocker_rocker_desc.c.ll 129855917
 qemu/hw_net_rocker_rocker_fp.c.ll 80415166
-qemu/hw_net_rocker_rocker_of_dpa.c.ll 710344934
+qemu/hw_net_rocker_rocker_of_dpa.c.ll 711055817
 qemu/hw_net_rtl8139.c.ll 862635095
 qemu/hw_net_tulip.c.ll 547688139
 qemu/hw_net_vhost_net.c.ll 209228070
@@ -31365,7 +31365,7 @@ quantlib/equitycashflow.ll 2174631820
 quantlib/equityfxvolsurface.ll 335596962
 quantlib/equityindex.ll 1202955051
 quantlib/equitytotalreturnswap.ll 2028368020
-quantlib/errorfunction.ll 58038434
+quantlib/errorfunction.ll 58097150
 quantlib/errors.ll 373193096
 quantlib/escroweddividendadjustment.ll 225955238
 quantlib/estr.ll 665667518
@@ -33413,7 +33413,7 @@ rust-analyzer-rs/5g6noj2biwdy0go5.ll 283583988
 rust-analyzer-rs/5tc27igfpd8lxn0.ll 5858565980
 rust-analyzer-rs/6218mmeycy2lka1.ll 19414861908
 rust-analyzer-rs/62jls0djfkqesn3.ll 108630729
-rust-analyzer-rs/635ry91nhs2ocdh.ll 600872340
+rust-analyzer-rs/635ry91nhs2ocdh.ll 601473352
 rust-analyzer-rs/68ytxs4wk5ncclk.ll 23209446086
 rust-analyzer-rs/6geurunh5eorswv.ll 5790472306
 rust-analyzer-rs/6ix1w6o1enhavym.ll 294541190
@@ -37151,7 +37151,7 @@ wireshark/packet-amp.c.ll 172136294
 wireshark/packet-amqp.c.ll 2266521021
 wireshark/packet-amr.c.ll 159558814
 wireshark/packet-ams.c.ll 156197428
-wireshark/packet-ancp.c.ll 137484529
+wireshark/packet-ancp.c.ll 137622069
 wireshark/packet-ansi_637.c.ll 529987906
 wireshark/packet-ansi_683.c.ll 722988009
 wireshark/packet-ansi_801.c.ll 437823923
@@ -37165,7 +37165,7 @@ wireshark/packet-arcnet.c.ll 79438164
 wireshark/packet-arinc615a.c.ll 189662031
 wireshark/packet-armagetronad.c.ll 76157326
 wireshark/packet-arp.c.ll 426145322
-wireshark/packet-artnet.c.ll 775936329
+wireshark/packet-artnet.c.ll 776712339
 wireshark/packet-aruba-adp.c.ll 43905899
 wireshark/packet-aruba-papi.c.ll 133317214
 wireshark/packet-aruba-ubt.c.ll 252535823
@@ -37848,7 +37848,7 @@ wireshark/packet-pn-rsi.c.ll 171355252
 wireshark/packet-pn-rt.c.ll 244555347
 wireshark/packet-pn-rtc-one.c.ll 306531723
 wireshark/packet-pn.c.ll 177342556
-wireshark/packet-pnrp.c.ll 418595261
+wireshark/packet-pnrp.c.ll 419014270
 wireshark/packet-pop.c.ll 102797436
 wireshark/packet-ppcap.c.ll 198632834
 wireshark/packet-ppi-antenna.c.ll 140106238
