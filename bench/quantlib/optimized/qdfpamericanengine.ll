@@ -19638,7 +19638,7 @@ fpclassify_not_zero.i.i.i:                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %fpclassify_not_zero.i.i.i
-  %2 = tail call double @llvm.fabs.f64(double %1) #43
+  %2 = tail call double @llvm.fabs.f64(double %1)
   %isinf.i.i.i = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf.i.i.i, label %if.then, label %if.end6.thread
 
@@ -20353,7 +20353,7 @@ fpclassify_not_zero.i.i.i:                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %fpclassify_not_zero.i.i.i
-  %2 = tail call double @llvm.fabs.f64(double %1) #43
+  %2 = tail call double @llvm.fabs.f64(double %1)
   %isinf.i.i.i = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf.i.i.i, label %if.then, label %if.end6.thread
 
@@ -22737,7 +22737,6 @@ attributes #39 = { noreturn }
 attributes #40 = { builtin nounwind }
 attributes #41 = { builtin allocsize(0) }
 attributes #42 = { nounwind willreturn memory(read) }
-attributes #43 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

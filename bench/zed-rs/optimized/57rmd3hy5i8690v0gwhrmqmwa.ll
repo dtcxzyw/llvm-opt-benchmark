@@ -7154,7 +7154,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h9f3cbbc6
   %7 = getelementptr i8, ptr %1, i64 -40
   %.val14 = load i64, ptr %7, align 8, !alias.scope !648, !noalias !645, !noundef !4
   %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val14, i64 %.val13)
-  %spec.select.i.i4.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val12, i64 %.val)
+  %spec.select.i.i4.i.i = tail call i64 @llvm.usub.sat.i64(i64 %.val12, i64 %.val)
   %8 = icmp ult i64 %spec.select.i.i.i.i, %spec.select.i.i4.i.i
   br i1 %8, label %9, label %10
 
@@ -13952,7 +13952,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   %13 = getelementptr i8, ptr %.sroa.0.05, i64 -40
   %.val14.i = load i64, ptr %13, align 8, !alias.scope !3887, !noalias !3884, !noundef !4
   %spec.select.i.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val14.i, i64 %.val13.i)
-  %spec.select.i.i4.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val12.i, i64 %.val.i)
+  %spec.select.i.i4.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %.val12.i, i64 %.val.i)
   %14 = icmp ult i64 %spec.select.i.i.i.i.i, %spec.select.i.i4.i.i.i
   br i1 %14, label %15, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9f3cbbc6cfd1b245E.llvm.6402956965700860852.exit
 
@@ -16067,7 +16067,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h07c8e03cc896637aE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h85f284cc18f80a24E.exit, label %211
 
 211:                                              ; preds = %208
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %182, i64 %183)
+  %.sroa.0.0.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %182, i64 %183)
   %212 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %212, label %_ZN4core5slice4sort6stable5merge5merge17h85f284cc18f80a24E.exit, label %213
 
@@ -16619,7 +16619,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h82b1c57a473311a6E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h5d5e39fc08fc4dbbE.exit, label %133
 
 133:                                              ; preds = %130
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %104, i64 %105)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %104, i64 %105)
   %134 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %134, label %_ZN4core5slice4sort6stable5merge5merge17h5d5e39fc08fc4dbbE.exit, label %135
 
@@ -17050,7 +17050,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha4db2accf59bb68dE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h9041ba736a239d90E.exit, label %130
 
 130:                                              ; preds = %127
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %101, i64 %102)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %101, i64 %102)
   %131 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %131, label %_ZN4core5slice4sort6stable5merge5merge17h9041ba736a239d90E.exit, label %132
 
@@ -17465,7 +17465,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hd4faa98696709e3fE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17hc5ec1c5615aca5ccE.exit, label %128
 
 128:                                              ; preds = %125
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %99, i64 %100)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %99, i64 %100)
   %129 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %129, label %_ZN4core5slice4sort6stable5merge5merge17hc5ec1c5615aca5ccE.exit, label %130
 
@@ -17900,7 +17900,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hbfacfec1378634dbE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17haedeb306fac3056aE.exit, label %115
 
 115:                                              ; preds = %112
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %86, i64 %87)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %86, i64 %87)
   %116 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %116, label %_ZN4core5slice4sort6stable5merge5merge17haedeb306fac3056aE.exit, label %117
 
@@ -18313,7 +18313,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hbc4a0acfc3c0d222E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17hb164c69e61d7a65bE.exit, label %133
 
 133:                                              ; preds = %130
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %104, i64 %105)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %104, i64 %105)
   %134 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %134, label %_ZN4core5slice4sort6stable5merge5merge17hb164c69e61d7a65bE.exit, label %135
 
@@ -18705,7 +18705,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h6c9b73451643cb71E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17hd1ab9755148698deE.exit, label %113
 
 113:                                              ; preds = %110
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %84, i64 %85)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %84, i64 %85)
   %114 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %114, label %_ZN4core5slice4sort6stable5merge5merge17hd1ab9755148698deE.exit, label %115
 
@@ -19078,7 +19078,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha82c3d71c33e449dE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h46c8fcc0a78b7fa4E.exit, label %112
 
 112:                                              ; preds = %109
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %83, i64 %84)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %83, i64 %84)
   %113 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %113, label %_ZN4core5slice4sort6stable5merge5merge17h46c8fcc0a78b7fa4E.exit, label %114
 
@@ -19459,7 +19459,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h39f2620ad58493e7E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h164b149cd5170cccE.exit, label %118
 
 118:                                              ; preds = %115
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %89, i64 %90)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %89, i64 %90)
   %119 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %119, label %_ZN4core5slice4sort6stable5merge5merge17h164b149cd5170cccE.exit, label %120
 
@@ -19911,7 +19911,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h0f068b7b885e09beE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h2475f29dc7741934E.exit, label %155
 
 155:                                              ; preds = %152
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %126, i64 %127)
+  %.sroa.0.0.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %126, i64 %127)
   %156 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %156, label %_ZN4core5slice4sort6stable5merge5merge17h2475f29dc7741934E.exit, label %157
 
@@ -20345,7 +20345,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h2cbf556f2db0b5d5E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h2915aac13a972215E.exit, label %110
 
 110:                                              ; preds = %107
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %81, i64 %82)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %81, i64 %82)
   %111 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %111, label %_ZN4core5slice4sort6stable5merge5merge17h2915aac13a972215E.exit, label %112
 
@@ -20745,7 +20745,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hc6c0322f0112db47E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17hc66a05990d6c88a4E.exit, label %121
 
 121:                                              ; preds = %118
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %92, i64 %93)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %92, i64 %93)
   %122 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %122, label %_ZN4core5slice4sort6stable5merge5merge17hc66a05990d6c88a4E.exit, label %123
 
@@ -21143,7 +21143,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h055f55392ebd9fb9E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h34696ddbfbc7ccb9E.exit, label %114
 
 114:                                              ; preds = %111
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %85, i64 %86)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %85, i64 %86)
   %115 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %115, label %_ZN4core5slice4sort6stable5merge5merge17h34696ddbfbc7ccb9E.exit, label %116
 
@@ -21622,7 +21622,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h3989fe55579357f3E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h3b3da1ecd8553fe8E.exit, label %155
 
 155:                                              ; preds = %152
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %126, i64 %127)
+  %.sroa.0.0.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %126, i64 %127)
   %156 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %156, label %_ZN4core5slice4sort6stable5merge5merge17h3b3da1ecd8553fe8E.exit, label %157
 
@@ -22096,7 +22096,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he821d521a94e7836E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h356162be96055efaE.exit, label %133
 
 133:                                              ; preds = %130
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %104, i64 %105)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %104, i64 %105)
   %134 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %134, label %_ZN4core5slice4sort6stable5merge5merge17h356162be96055efaE.exit, label %135
 
@@ -22509,7 +22509,7 @@ _ZN4core5slice4sort6stable5drift10create_run17ha175f6604df3c13eE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h5f11a21430c1b864E.exit, label %128
 
 128:                                              ; preds = %125
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %99, i64 %100)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %99, i64 %100)
   %129 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %129, label %_ZN4core5slice4sort6stable5merge5merge17h5f11a21430c1b864E.exit, label %130
 
@@ -22944,7 +22944,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h91acdc1dd39dcb2aE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h197b2af09028bacfE.exit, label %115
 
 115:                                              ; preds = %112
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %86, i64 %87)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %86, i64 %87)
   %116 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %116, label %_ZN4core5slice4sort6stable5merge5merge17h197b2af09028bacfE.exit, label %117
 
@@ -23647,7 +23647,7 @@ _ZN4core5slice4sort6stable5drift10create_run17h631d47c6ec1a2ff2E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17hf207b14376127514E.exit, label %227
 
 227:                                              ; preds = %224
-  %.sroa.0.0.sroa.speculated.i.i = call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %198, i64 %199)
+  %.sroa.0.0.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %198, i64 %199)
   %228 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %228, label %_ZN4core5slice4sort6stable5merge5merge17hf207b14376127514E.exit, label %229
 
@@ -24275,7 +24275,7 @@ _ZN4core5slice4sort6stable5drift10create_run17hb07a99be7259ab12E.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17hd3f1fd7fb2043165E.exit, label %128
 
 128:                                              ; preds = %125
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %99, i64 %100)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %99, i64 %100)
   %129 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i
   br i1 %129, label %_ZN4core5slice4sort6stable5merge5merge17hd3f1fd7fb2043165E.exit, label %130
 
@@ -31582,7 +31582,7 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h71
   %170 = getelementptr i8, ptr %166, i64 -40
   %.val14.i.i = load i64, ptr %170, align 8, !alias.scope !6766, !noalias !6767, !noundef !4
   %spec.select.i.i.i.i.i66.i = call noundef i64 @llvm.usub.sat.i64(i64 %.val14.i.i, i64 %.val13.i.i)
-  %spec.select.i.i4.i.i.i67.i = call noundef i64 @llvm.usub.sat.i64(i64 %.val12.i.i, i64 %.val.i65.i)
+  %spec.select.i.i4.i.i.i67.i = call i64 @llvm.usub.sat.i64(i64 %.val12.i.i, i64 %.val.i65.i)
   %171 = icmp ult i64 %spec.select.i.i.i.i.i66.i, %spec.select.i.i4.i.i.i67.i
   br i1 %171, label %172, label %_ZN4core5slice4sort6shared9smallsort11insert_tail17h9f3cbbc6cfd1b245E.llvm.6402956965700860852.exit.i
 

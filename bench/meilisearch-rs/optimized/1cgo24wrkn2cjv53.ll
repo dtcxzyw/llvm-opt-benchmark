@@ -201,7 +201,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   %.val4 = load i64, ptr %8, align 8
   %.not.i.not.i.not.not = icmp eq i64 %.val, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val, i64 %.val4)
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
   %.sroa.5.0 = select i1 %.not.i.not.i.not.not, i64 %4, i64 %.sroa.0.0.sroa.speculated.i
   br label %10
 
@@ -253,7 +253,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val4.i.i = load i64, ptr %8, align 8, !alias.scope !20, !noalias !21
   %.not.i.not.i.not.not.i.i = icmp eq i64 %.val.i.i, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i, i64 %.val4.i.i)
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
   %.sroa.5.0.i.i = select i1 %.not.i.not.i.not.not.i.i, i64 %4, i64 %.sroa.0.0.sroa.speculated.i.i.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h84f007475d56a1d6E.llvm.5336188084572713014.exit"
 
@@ -310,7 +310,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val4.i = load i64, ptr %8, align 8, !alias.scope !33, !noalias !30
   %.not.i.not.i.not.not.i = icmp eq i64 %.val.i, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i, i64 %.val4.i)
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
   %.sroa.5.0.i = select i1 %.not.i.not.i.not.not.i, i64 %4, i64 %.sroa.0.0.sroa.speculated.i.i
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h06554d5020ceb88fE.llvm.5336188084572713014.exit"
 
@@ -372,7 +372,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %.val4.i.i.i = load i64, ptr %8, align 8, !alias.scope !65, !noalias !66
   %.not.i.not.i.not.not.i.i.i = icmp eq i64 %.val.i.i.i, -1
   %9 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i.i, i64 %.val4.i.i.i)
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %4)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %9, i64 %4)
   %.sroa.5.0.i.i.i = select i1 %.not.i.not.i.not.not.i.i.i, i64 %4, i64 %.sroa.0.0.sroa.speculated.i.i.i.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h46becdad417b2bc1E.llvm.5336188084572713014.exit"
 
@@ -1672,7 +1672,7 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %.val4.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !618, !noalias !627
   %.not.i.not.i.not.not.i.i.i.i = icmp eq i64 %.val.i.i.i.i, -1
   %14 = tail call i64 @llvm.usub.sat.i64(i64 %.val.i.i.i.i, i64 %.val4.i.i.i.i)
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %9)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %9)
   %.sroa.5.0.i.i.i.i = select i1 %.not.i.not.i.not.not.i.i.i.i, i64 %9, i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc609831e04b5c56eE.llvm.5336188084572713014.exit"
 

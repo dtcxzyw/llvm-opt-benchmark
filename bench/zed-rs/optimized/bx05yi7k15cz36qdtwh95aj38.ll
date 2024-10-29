@@ -34962,7 +34962,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h02295d7122169bd3E(p
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %45, label %12
 
@@ -35097,7 +35097,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h08e54d7b497bcfb1E(p
 
 18:                                               ; preds = %6
   %19 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %19)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %19)
   %20 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %20, label %107, label %21
 
@@ -35405,7 +35405,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h0ea423ceed54fe7aE(p
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %49, label %12
 
@@ -35492,7 +35492,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h38a20816557bd7dfE(p
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %101, label %12
 
@@ -35720,7 +35720,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h4a1dd41f2e02d7b6E(p
 
 13:                                               ; preds = %6
   %14 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %14)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %14)
   %15 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %15, label %99, label %16
 
@@ -35964,7 +35964,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h75177d0731e7d066E(p
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %49, label %12
 
@@ -36051,7 +36051,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hcbf854859ea505e0E(p
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %57, label %12
 
@@ -36160,7 +36160,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17he382566b7504b1a1E(p
 
 13:                                               ; preds = %6
   %14 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %14)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %14)
   %15 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %15, label %66, label %16
 
