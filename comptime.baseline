@@ -5187,7 +5187,7 @@ curl/libcurl_la-curl_addrinfo.ll 103452611
 curl/libcurl_la-curl_ntlm_core.ll 110056286
 curl/libcurl_la-curl_sasl.ll 164321415
 curl/libcurl_la-dict.ll 94021664
-curl/libcurl_la-digest.ll 378663215
+curl/libcurl_la-digest.ll 379041951
 curl/libcurl_la-doh.ll 477891006
 curl/libcurl_la-dynbuf.ll 80407456
 curl/libcurl_la-dynhds.ll 121934420
@@ -36553,7 +36553,7 @@ wasmtime-rs/30grvq3ik5vq8b2f.ll 292845955
 wasmtime-rs/320v7ko74ke0k4k4.ll 5361985499
 wasmtime-rs/322ukxfdvnm2wdbn.ll 44088042
 wasmtime-rs/322yw2dra6hhv794.ll 51432660
-wasmtime-rs/32ocpkosjxmve1yg.ll 248654536
+wasmtime-rs/32ocpkosjxmve1yg.ll 248903350
 wasmtime-rs/33560kyrqz2cm6nd.ll 61327335
 wasmtime-rs/33slbp9da8waph2q.ll 4440866912
 wasmtime-rs/33w9rk1eu7q34s82.ll 48867765
