@@ -3201,7 +3201,7 @@ clamav/tcpserver.c.ll 73240720
 clamav/text.c.ll 133799382
 clamav/textdet.c.ll 127536263
 clamav/textnorm.c.ll 71058496
-clamav/thread.c.ll 137156436
+clamav/thread.c.ll 137019248
 clamav/thrmgr.c.ll 279193438
 clamav/tiff.c.ll 103384599
 clamav/timefn.cpp.ll 99300080
