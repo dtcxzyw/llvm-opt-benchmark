@@ -32997,7 +32997,7 @@ ruby/utf_32le.ll 60387488
 ruby/utf_8.ll 95953748
 ruby/util.ll 1378978317
 ruby/variable.ll 1464091202
-ruby/version.ll 52994835
+ruby/version.ll 53047831
 ruby/vm.ll 9986811874
 ruby/vm_backtrace.ll 766740575
 ruby/vm_dump.ll 419420258
