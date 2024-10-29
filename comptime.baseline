@@ -1537,7 +1537,7 @@ arrow/kernel.cc.ll 1422864562
 arrow/key_hash.cc.ll 1706672149
 arrow/key_hash_avx2.cc.ll 448435669
 arrow/key_map.cc.ll 866614902
-arrow/key_map_avx2.cc.ll 315066959
+arrow/key_map_avx2.cc.ll 313999186
 arrow/key_value_metadata.cc.ll 1604821975
 arrow/light_array.cc.ll 2699834233
 arrow/list_util.cc.ll 822177908
@@ -6018,6 +6018,7 @@ darktable/introspection_globaltonemap.c.ll 163028741
 darktable/introspection_graduatednd.c.ll 349911989
 darktable/introspection_grain.c.ll 307578120
 darktable/introspection_hazeremoval.c.ll 330630841
+darktable/introspection_highlights.c.ll 5120425356
 darktable/introspection_highpass.c.ll 121139591
 darktable/introspection_hotpixels.c.ll 480658643
 darktable/introspection_invert.c.ll 311212838
@@ -31069,7 +31070,7 @@ qemu/util_reserved-region.c.ll 94872469
 qemu/util_systemd.c.ll 46537677
 qemu/util_thread-context.c.ll 130852944
 qemu/util_throttle.c.ll 214753234
-qemu/util_timed-average.c.ll 84169568
+qemu/util_timed-average.c.ll 84253740
 qemu/util_unicode.c.ll 85736567
 qemu/util_uri.c.ll 932948791
 qemu/util_userfaultfd.c.ll 142066420
@@ -36325,6 +36326,7 @@ wasmedge/controlInstr.cpp.ll 6389889919
 wasmedge/data.cpp.ll 158729919
 wasmedge/description.cpp.ll 5619897957
 wasmedge/elem.cpp.ll 5984329765
+wasmedge/engine.cpp.ll 14040261459
 wasmedge/environ-linux.cpp.ll 74260030
 wasmedge/environ.cpp.ll 6759102570
 wasmedge/errinfo.cpp.ll 6131231908
