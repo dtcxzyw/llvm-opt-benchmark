@@ -11172,7 +11172,7 @@ jq/regexec.ll 2503976150
 jq/regext.ll 39068289
 jq/reggnu.ll 50487002
 jq/regparse.ll 3382069990
-jq/sjis.ll 105078305
+jq/sjis.ll 105183415
 jq/st.ll 218214147
 jq/unicode.ll 1101340322
 jq/utf16_be.ll 84124660
