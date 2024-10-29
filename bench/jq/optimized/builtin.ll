@@ -7065,8 +7065,8 @@ declare double @tan(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @tanh(double noundef) local_unnamed_addr #3
 
-; Function Attrs: nounwind
-declare double @tgamma(double noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @tgamma(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare double @y0(double noundef) local_unnamed_addr #5

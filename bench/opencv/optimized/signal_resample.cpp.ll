@@ -874,8 +874,8 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @sinf(float noundef) local_unnamed_addr #6
 
-; Function Attrs: nounwind
-declare float @tgammaf(float noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare float @tgammaf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare void @_ZN2cv3MatD2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3

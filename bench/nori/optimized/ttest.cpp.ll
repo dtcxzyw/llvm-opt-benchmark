@@ -4109,8 +4109,8 @@ define internal fastcc noundef double @_ZN6cephesL7pseriesEddd(double noundef %0
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log(double noundef) local_unnamed_addr #13
 
-; Function Attrs: nounwind
-declare double @tgamma(double noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @tgamma(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare double @lgamma(double noundef) local_unnamed_addr #1

@@ -114390,8 +114390,8 @@ if.end22:                                         ; preds = %if.end, %if.end.us,
   ret void
 }
 
-; Function Attrs: nounwind
-declare double @tgamma(double noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @tgamma(double noundef) local_unnamed_addr #17
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb13UnaryExecutor15ExecuteStandardIddNS_20UnaryOperatorWrapperENS_16LogGammaOperatorEEEvRNS_6VectorES5_mPvb(ptr noundef nonnull align 8 dereferenceable(104) %input, ptr noundef nonnull align 8 dereferenceable(104) %result, i64 noundef %count, ptr noundef %dataptr, i1 noundef zeroext %adds_nulls) local_unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
