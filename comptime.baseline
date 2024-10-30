@@ -6547,7 +6547,7 @@ draco/quantization_utils.cc.ll 40583661
 draco/rans_bit_decoder.cc.ll 105899364
 draco/rans_bit_encoder.cc.ll 517720576
 draco/sequential_attribute_decoder.cc.ll 350255163
-draco/sequential_attribute_decoders_controller.cc.ll 408112344
+draco/sequential_attribute_decoders_controller.cc.ll 408520950
 draco/sequential_attribute_encoder.cc.ll 384806370
 draco/sequential_attribute_encoders_controller.cc.ll 944300158
 draco/sequential_integer_attribute_decoder.cc.ll 4173672502
@@ -7840,7 +7840,7 @@ glslang/hlslOpMap.cpp.ll 46116558
 glslang/hlslParseHelper.cpp.ll 18223575268
 glslang/hlslParseables.cpp.ll 2415197551
 glslang/hlslScanContext.cpp.ll 1385968177
-glslang/hlslTokenStream.cpp.ll 277875059
+glslang/hlslTokenStream.cpp.ll 278153514
 glslang/intermOut.cpp.ll 2835487404
 glslang/iomapper.cpp.ll 8546060435
 glslang/limits.cpp.ll 221609647
@@ -14639,7 +14639,7 @@ llvm/DIExpressionOptimizer.cpp.ll 514431309
 llvm/DIPrinter.cpp.ll 1392968886
 llvm/DJB.cpp.ll 100361697
 llvm/DLangDemangle.cpp.ll 611058443
-llvm/DWARFAbbreviationDeclaration.cpp.ll 522676158
+llvm/DWARFAbbreviationDeclaration.cpp.ll 523199003
 llvm/DWARFAcceleratorTable.cpp.ll 3932182559
 llvm/DWARFAddressRange.cpp.ll 107761227
 llvm/DWARFCompileUnit.cpp.ll 220162156
@@ -19016,7 +19016,7 @@ nix/memory-source-accessor.ll 3522029894
 nix/mercurial.ll 6382033443
 nix/misc-store-flags.ll 676328962
 nix/misc.ll 10177721885
-nix/mounted-input-accessor.ll 810128688
+nix/mounted-input-accessor.ll 810939012
 nix/names.ll 6169723839
 nix/namespaces.ll 2497962741
 nix/nar-accessor.ll 6922509286
@@ -22958,7 +22958,7 @@ openjdk/g1ConcurrentMark.ll 4498741923
 openjdk/g1ConcurrentMarkBitMap.ll 2460677880
 openjdk/g1ConcurrentMarkObjArrayProcessor.ll 2627175030
 openjdk/g1ConcurrentMarkThread.ll 2666438425
-openjdk/g1ConcurrentRebuildAndScrub.ll 3882947627
+openjdk/g1ConcurrentRebuildAndScrub.ll 3886836330
 openjdk/g1ConcurrentRefine.ll 2714359245
 openjdk/g1ConcurrentRefineStats.ll 63580824
 openjdk/g1ConcurrentRefineThread.ll 169720162
@@ -27468,7 +27468,7 @@ openusd/fileIO_Common.cpp.ll 2663961513
 openusd/fileSystem.cpp.ll 448631538
 openusd/fileUtils.cpp.ll 1008445521
 openusd/filesystemAsset.cpp.ll 274053226
-openusd/filesystemDiscovery.cpp.ll 446857300
+openusd/filesystemDiscovery.cpp.ll 447304650
 openusd/filesystemDiscoveryHelpers.cpp.ll 1126514886
 openusd/filesystemWritableAsset.cpp.ll 123386423
 openusd/filteredPairsAPI.cpp.ll 503189328
@@ -32536,7 +32536,7 @@ rocksdb/bytesxor.cc.ll 213896564
 rocksdb/c.cc.ll 8263986194
 rocksdb/cache.cc.ll 1127586469
 rocksdb/cache_dump_load.cc.ll 646618510
-rocksdb/cache_dump_load_impl.cc.ll 775050787
+rocksdb/cache_dump_load_impl.cc.ll 775826035
 rocksdb/cache_entry_roles.cc.ll 251217252
 rocksdb/cache_helpers.cc.ll 79619273
 rocksdb/cache_key.cc.ll 107036448
@@ -34800,7 +34800,7 @@ spike/srl8_u.ll 663096528
 spike/srli.ll 424792544
 spike/srli16.ll 561477822
 spike/srli16_u.ll 635600026
-spike/srli32.ll 448394043
+spike/srli32.ll 448843042
 spike/srli32_u.ll 490720730
 spike/srli8.ll 564673031
 spike/srli8_u.ll 643067310
