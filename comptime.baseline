@@ -11888,7 +11888,7 @@ libwebp/dec_mips_dsp_r2.c.ll 31830169
 libwebp/dec_msa.c.ll 31827258
 libwebp/dec_neon.c.ll 31827622
 libwebp/dec_sse2.c.ll 908108248
-libwebp/dec_sse41.c.ll 43153195
+libwebp/dec_sse41.c.ll 43110003
 libwebp/demux.c.ll 386541861
 libwebp/dwebp.c.ll 249504974
 libwebp/enc.c.ll 705333079
