@@ -49,7 +49,7 @@ define hidden noundef ptr @pj_eqdc(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_eqdcP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #6
+  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -87,7 +87,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_eqdcP8PJconsts(ptr n
 24:                                               ; preds = %21
   %25 = getelementptr inbounds i8, ptr %22, i64 48
   %26 = load ptr, ptr %25, align 8
-  tail call void @free(ptr noundef %26) #7
+  tail call void @free(ptr noundef %26) #8
   br label %_ZL18pj_eqdc_destructorP8PJconstsi.exit
 
 _ZL18pj_eqdc_destructorP8PJconstsi.exit:          ; preds = %21, %24
@@ -108,7 +108,7 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit:          ; preds = %21, %24
 34:                                               ; preds = %31
   %35 = getelementptr inbounds i8, ptr %32, i64 48
   %36 = load ptr, ptr %35, align 8
-  tail call void @free(ptr noundef %36) #7
+  tail call void @free(ptr noundef %36) #8
   br label %_ZL18pj_eqdc_destructorP8PJconstsi.exit96
 
 _ZL18pj_eqdc_destructorP8PJconstsi.exit96:        ; preds = %31, %34
@@ -130,7 +130,7 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit96:        ; preds = %31, %34
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %43, i64 48
   %47 = load ptr, ptr %46, align 8
-  tail call void @free(ptr noundef %47) #7
+  tail call void @free(ptr noundef %47) #8
   br label %_ZL18pj_eqdc_destructorP8PJconstsi.exit99
 
 _ZL18pj_eqdc_destructorP8PJconstsi.exit99:        ; preds = %42, %45
@@ -154,7 +154,7 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit99:        ; preds = %42, %45
 57:                                               ; preds = %54
   %58 = getelementptr inbounds i8, ptr %55, i64 48
   %59 = load ptr, ptr %58, align 8
-  tail call void @free(ptr noundef %59) #7
+  tail call void @free(ptr noundef %59) #8
   br label %_ZL18pj_eqdc_destructorP8PJconstsi.exit102
 
 _ZL18pj_eqdc_destructorP8PJconstsi.exit102:       ; preds = %54, %57
@@ -163,11 +163,11 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit102:       ; preds = %54, %57
 
 61:                                               ; preds = %49
   %62 = load double, ptr %2, align 8
-  %63 = tail call double @sin(double noundef %62) #7
+  %63 = tail call double @sin(double noundef %62) #8
   %64 = getelementptr inbounds i8, ptr %2, i64 16
   store double %63, ptr %64, align 8
   %65 = load double, ptr %2, align 8
-  %66 = tail call double @cos(double noundef %65) #7
+  %66 = tail call double @cos(double noundef %65) #8
   %67 = load double, ptr %2, align 8
   %68 = load double, ptr %17, align 8
   %69 = fsub double %67, %68
@@ -194,9 +194,9 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit102:       ; preds = %54, %57
 
 82:                                               ; preds = %77
   %83 = load double, ptr %17, align 8
-  %84 = tail call double @sin(double noundef %83) #7
+  %84 = tail call double @sin(double noundef %83) #8
   %85 = load double, ptr %17, align 8
-  %86 = tail call double @cos(double noundef %85) #7
+  %86 = tail call double @cos(double noundef %85) #8
   %87 = load double, ptr %17, align 8
   %88 = load ptr, ptr %53, align 8
   %89 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %87, double noundef %84, double noundef %86, ptr noundef %88)
@@ -231,9 +231,9 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit102:       ; preds = %54, %57
   store double %105, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 448
   %108 = load double, ptr %107, align 8
-  %109 = tail call double @sin(double noundef %108) #7
+  %109 = tail call double @sin(double noundef %108) #8
   %110 = load double, ptr %107, align 8
-  %111 = tail call double @cos(double noundef %110) #7
+  %111 = tail call double @cos(double noundef %110) #8
   %112 = load ptr, ptr %53, align 8
   %113 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %108, double noundef %109, double noundef %111, ptr noundef %112)
   %114 = fsub double %105, %113
@@ -243,7 +243,7 @@ _ZL18pj_eqdc_destructorP8PJconstsi.exit102:       ; preds = %54, %57
   br i1 %71, label %116, label %thread-pre-split
 
 116:                                              ; preds = %115
-  %117 = tail call double @cos(double noundef %68) #7
+  %117 = tail call double @cos(double noundef %68) #8
   %118 = fsub double %66, %117
   %119 = load double, ptr %17, align 8
   %120 = load double, ptr %2, align 8
@@ -268,7 +268,7 @@ thread-pre-split:                                 ; preds = %115
   br label %142
 
 129:                                              ; preds = %123
-  %130 = tail call double @cos(double noundef %124) #7
+  %130 = tail call double @cos(double noundef %124) #8
   %131 = load double, ptr %64, align 8
   %132 = fdiv double %130, %131
   %133 = fadd double %124, %132
@@ -315,7 +315,7 @@ define internal noundef ptr @_ZL18pj_eqdc_destructorP8PJconstsi(ptr noundef %0, 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 48
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef %10) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %8
@@ -353,7 +353,7 @@ define internal { double, double } @_ZL14eqdc_e_inverse5PJ_XYP8PJconsts(double %
   %6 = getelementptr inbounds i8, ptr %5, i64 32
   %7 = load double, ptr %6, align 8
   %8 = fsub double %7, %1
-  %9 = tail call double @hypot(double noundef %0, double noundef %8) #7
+  %9 = tail call double @hypot(double noundef %0, double noundef %8) #8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   store double %9, ptr %10, align 8
   %11 = fcmp une double %9, 0.000000e+00
@@ -392,7 +392,7 @@ define internal { double, double } @_ZL14eqdc_e_inverse5PJ_XYP8PJconsts(double %
 
 31:                                               ; preds = %27, %20
   %.sroa.4.0 = phi double [ %30, %27 ], [ %24, %20 ]
-  %32 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.5.0) #7
+  %32 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.5.0) #8
   %33 = load double, ptr %12, align 8
   %34 = fdiv double %32, %33
   br label %38
@@ -422,8 +422,8 @@ define internal { double, double } @_ZL14eqdc_e_forward5PJ_LPP8PJconsts(double %
   br i1 %.not, label %16, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call double @sin(double noundef %1) #7
-  %12 = tail call double @cos(double noundef %1) #7
+  %11 = tail call double @sin(double noundef %1) #8
+  %12 = tail call double @cos(double noundef %1) #8
   %13 = getelementptr inbounds i8, ptr %5, i64 48
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef double @_Z7pj_mlfndddPKd(double noundef %1, double noundef %11, double noundef %12, ptr noundef %14)
@@ -437,12 +437,12 @@ define internal { double, double } @_ZL14eqdc_e_forward5PJ_LPP8PJconsts(double %
   %20 = getelementptr inbounds i8, ptr %5, i64 16
   %21 = load double, ptr %20, align 8
   %22 = fmul double %0, %21
-  %23 = tail call double @sin(double noundef %22) #7
+  %23 = tail call double @sin(double noundef %22) #8
   %24 = fmul double %18, %23
   %25 = getelementptr inbounds i8, ptr %5, i64 32
   %26 = load double, ptr %25, align 8
   %27 = load double, ptr %19, align 8
-  %28 = tail call double @cos(double noundef %22) #7
+  %28 = tail call double @cos(double noundef %22) #8
   %29 = fneg double %27
   %30 = tail call double @llvm.fmuladd.f64(double %29, double %28, double %26)
   %.fca.0.insert = insertvalue { double, double } poison, double %24, 0
@@ -453,8 +453,8 @@ define internal { double, double } @_ZL14eqdc_e_forward5PJ_LPP8PJconsts(double %
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 
 declare noundef double @_Z11pj_inv_mlfndPKd(double noundef, ptr noundef) local_unnamed_addr #1
 
@@ -470,8 +470,9 @@ attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0,1) }
-attributes #7 = { nounwind }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

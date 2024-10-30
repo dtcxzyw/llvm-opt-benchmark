@@ -41486,8 +41486,8 @@ define linkonce_odr hidden void @_ZN2cv4gapi5fluid17GFluidCartToPolar3runERKNS1_
   resume { ptr, i32 } %.pn44.pn
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #17
+; Function Attrs: nounwind
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @atan2f(float noundef, float noundef) local_unnamed_addr #17

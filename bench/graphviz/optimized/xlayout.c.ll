@@ -864,8 +864,8 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 ; Function Attrs: nounwind
 declare i32 @rand() local_unnamed_addr #7
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8

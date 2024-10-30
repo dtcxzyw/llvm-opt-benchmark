@@ -41182,8 +41182,8 @@ declare double @log1p(double noundef) local_unnamed_addr #15
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @expm1(double noundef) local_unnamed_addr #15
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #15
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6casadi16operation_getterINS_13SmoothCheckerEbEET0_x(i64 noundef %0) local_unnamed_addr #4 comdat {

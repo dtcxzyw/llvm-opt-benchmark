@@ -1924,37 +1924,45 @@ define hidden void @zif_hypot(ptr noundef %0, ptr nocapture noundef writeonly %1
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load i8, ptr %18, align 8
   %20 = icmp eq i8 %19, 5
-  br i1 %20, label %.thread115, label %21
+  br i1 %20, label %.thread99, label %22
 
-21:                                               ; preds = %16
-  %22 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 2) #15
-  %.fr = freeze i1 %22
-  br i1 %.fr, label %.thread115, label %.thread103
+.thread99:                                        ; preds = %16
+  %21 = load double, ptr %17, align 8
+  store double %21, ptr %4, align 8
+  br label %.thread115
 
-.thread103:                                       ; preds = %21, %14, %7
-  %.077112 = phi i32 [ 9, %14 ], [ 1, %7 ], [ 9, %21 ]
-  %.079111 = phi i32 [ 1, %14 ], [ 0, %7 ], [ 2, %21 ]
-  %.080110 = phi i32 [ 20, %14 ], [ 0, %7 ], [ 20, %21 ]
-  %.081109 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %21 ]
+22:                                               ; preds = %16
+  %23 = call zeroext i1 @zend_parse_arg_double_slow(ptr noundef nonnull %17, ptr noundef nonnull %4, i32 noundef 2) #15
+  %.fr = freeze i1 %23
+  br i1 %.fr, label %..thread115_crit_edge, label %.thread103
+
+..thread115_crit_edge:                            ; preds = %22
+  %.pre = load double, ptr %4, align 8
+  br label %.thread115
+
+.thread103:                                       ; preds = %22, %14, %7
+  %.077112 = phi i32 [ 9, %14 ], [ 1, %7 ], [ 9, %22 ]
+  %.079111 = phi i32 [ 1, %14 ], [ 0, %7 ], [ 2, %22 ]
+  %.080110 = phi i32 [ 20, %14 ], [ 0, %7 ], [ 20, %22 ]
+  %.081109 = phi ptr [ %9, %14 ], [ null, %7 ], [ %17, %22 ]
   call void @zend_wrong_parameter_error(i32 noundef %.077112, i32 noundef %.079111, ptr noundef null, i32 noundef %.080110, ptr noundef %.081109) #15
-  br label %27
+  br label %28
 
-.thread115:                                       ; preds = %21, %16
-  %.in = phi ptr [ %17, %16 ], [ %4, %21 ]
-  %23 = load double, ptr %.in, align 8
-  %24 = load double, ptr %3, align 8
-  %25 = call double @hypot(double noundef %24, double noundef %23) #15
-  store double %25, ptr %1, align 8
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 5, ptr %26, align 8
-  br label %27
+.thread115:                                       ; preds = %..thread115_crit_edge, %.thread99
+  %24 = phi double [ %.pre, %..thread115_crit_edge ], [ %21, %.thread99 ]
+  %25 = load double, ptr %3, align 8
+  %26 = call double @hypot(double noundef %25, double noundef %24) #15
+  store double %26, ptr %1, align 8
+  %27 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 5, ptr %27, align 8
+  br label %28
 
-27:                                               ; preds = %.thread115, %.thread103
+28:                                               ; preds = %.thread115, %.thread103
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_deg2rad(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {

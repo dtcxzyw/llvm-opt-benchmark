@@ -173748,8 +173748,8 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #24
 
 declare noundef double @_ZNK8V3Number8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(56)) #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #24
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number11opCountBitsERKS_S1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 

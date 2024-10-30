@@ -173361,8 +173361,8 @@ declare double @llvm.sin.f64(double) #37
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #37
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
-declare noundef double @hypot(double noundef, double noundef) unnamed_addr #27
+; Function Attrs: nonlazybind uwtable
+declare noundef double @hypot(double noundef, double noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #37

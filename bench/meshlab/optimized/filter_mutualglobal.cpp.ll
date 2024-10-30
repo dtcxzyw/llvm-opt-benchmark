@@ -7677,8 +7677,8 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #19
+; Function Attrs: nounwind
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #19

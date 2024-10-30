@@ -25000,8 +25000,8 @@ declare double @log1p(double noundef) local_unnamed_addr #22
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @expm1(double noundef) local_unnamed_addr #22
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #22
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

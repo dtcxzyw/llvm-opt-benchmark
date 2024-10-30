@@ -42599,8 +42599,8 @@ declare double @atan(double noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #14
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sinh(double noundef) local_unnamed_addr #14

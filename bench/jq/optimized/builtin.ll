@@ -7026,8 +7026,8 @@ declare double @exp2(double noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare double @j0(double noundef) local_unnamed_addr #5

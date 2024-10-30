@@ -12743,8 +12743,8 @@ define internal noundef double @nonefunc(double %0, double %1, double noundef %2
   ret double %4
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #18
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @nodeIntersect(ptr noundef %0, double %1, double %2, i1 noundef zeroext %3, ptr noundef readnone %4, i1 noundef zeroext %5) unnamed_addr #0 {

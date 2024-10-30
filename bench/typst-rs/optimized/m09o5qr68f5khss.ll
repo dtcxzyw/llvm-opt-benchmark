@@ -157035,8 +157035,8 @@ declare noundef zeroext i1 @"_ZN67_$LT$typst..foundations..ty..Type$u20$as$u20$c
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core7unicode12unicode_data1n6lookup17h747a753d8c4c1834E(i32 noundef) unnamed_addr #7
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
-declare noundef double @hypot(double noundef, double noundef) unnamed_addr #61
+; Function Attrs: nonlazybind uwtable
+declare noundef double @hypot(double noundef, double noundef) unnamed_addr #7
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN82_$LT$typst..introspection..Meta$u20$as$u20$typst..foundations..cast..FromValue$GT$10from_value17he3ccca21302f2c03E"(ptr noalias nocapture noundef sret({ i64, [5 x i64] }) align 16 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #7

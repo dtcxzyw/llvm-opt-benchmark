@@ -42,7 +42,7 @@ define hidden noundef ptr @pj_laea(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_laeaP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #6
+  %2 = tail call noalias dereferenceable_or_null(80) ptr @calloc(i64 noundef 1, i64 noundef 80) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -70,7 +70,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_laeaP8PJconsts(ptr n
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %14, i64 64
   %18 = load ptr, ptr %17, align 8
-  tail call void @free(ptr noundef %18) #7
+  tail call void @free(ptr noundef %18) #8
   br label %_ZL18pj_laea_destructorP8PJconstsi.exit
 
 _ZL18pj_laea_destructorP8PJconstsi.exit:          ; preds = %13, %16
@@ -115,7 +115,7 @@ _ZL18pj_laea_destructorP8PJconstsi.exit:          ; preds = %13, %16
 39:                                               ; preds = %.thread, %32
   %40 = phi double [ %37, %.thread ], [ %34, %32 ]
   %41 = phi ptr [ %36, %.thread ], [ %33, %32 ]
-  %42 = tail call double @sqrt(double noundef %40) #7
+  %42 = tail call double @sqrt(double noundef %40) #8
   %43 = getelementptr inbounds i8, ptr %0, i64 208
   store double %42, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 256
@@ -142,7 +142,7 @@ _ZL18pj_laea_destructorP8PJconstsi.exit:          ; preds = %13, %16
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %56, i64 64
   %60 = load ptr, ptr %59, align 8
-  tail call void @free(ptr noundef %60) #7
+  tail call void @free(ptr noundef %60) #8
   br label %_ZL18pj_laea_destructorP8PJconstsi.exit75
 
 _ZL18pj_laea_destructorP8PJconstsi.exit75:        ; preds = %55, %58
@@ -167,7 +167,7 @@ _ZL18pj_laea_destructorP8PJconstsi.exit75:        ; preds = %55, %58
 67:                                               ; preds = %62
   %68 = load double, ptr %47, align 8
   %69 = fmul double %68, 5.000000e-01
-  %70 = tail call double @sqrt(double noundef %69) #7
+  %70 = tail call double @sqrt(double noundef %69) #8
   %71 = getelementptr inbounds i8, ptr %2, i64 56
   store double %70, ptr %71, align 8
   %72 = fdiv double 1.000000e+00, %70
@@ -184,11 +184,11 @@ _ZL18pj_laea_destructorP8PJconstsi.exit75:        ; preds = %55, %58
 78:                                               ; preds = %62
   %79 = load double, ptr %47, align 8
   %80 = fmul double %79, 5.000000e-01
-  %81 = tail call double @sqrt(double noundef %80) #7
+  %81 = tail call double @sqrt(double noundef %80) #8
   %82 = getelementptr inbounds i8, ptr %2, i64 56
   store double %81, ptr %82, align 8
   %83 = load double, ptr %9, align 8
-  %84 = tail call double @sin(double noundef %83) #7
+  %84 = tail call double @sin(double noundef %83) #8
   %85 = load double, ptr %43, align 8
   %86 = load double, ptr %44, align 8
   %87 = tail call noundef double @_Z7pj_qsfnddd(double noundef %84, double noundef %85, double noundef %86)
@@ -197,16 +197,16 @@ _ZL18pj_laea_destructorP8PJconstsi.exit75:        ; preds = %55, %58
   store double %89, ptr %2, align 8
   %90 = fneg double %89
   %91 = tail call double @llvm.fmuladd.f64(double %90, double %89, double 1.000000e+00)
-  %92 = tail call double @sqrt(double noundef %91) #7
+  %92 = tail call double @sqrt(double noundef %91) #8
   %93 = getelementptr inbounds i8, ptr %2, i64 8
   store double %92, ptr %93, align 8
   %94 = load double, ptr %9, align 8
-  %95 = tail call double @cos(double noundef %94) #7
+  %95 = tail call double @cos(double noundef %94) #8
   %96 = load double, ptr %41, align 8
   %97 = fneg double %84
   %98 = fmul double %96, %97
   %99 = tail call double @llvm.fmuladd.f64(double %98, double %84, double 1.000000e+00)
-  %100 = tail call double @sqrt(double noundef %99) #7
+  %100 = tail call double @sqrt(double noundef %99) #8
   %101 = load double, ptr %82, align 8
   %102 = fmul double %100, %101
   %103 = load double, ptr %93, align 8
@@ -230,10 +230,10 @@ _ZL18pj_laea_destructorP8PJconstsi.exit75:        ; preds = %55, %58
   br label %122
 
 114:                                              ; preds = %.thread
-  %115 = tail call double @sin(double noundef %10) #7
+  %115 = tail call double @sin(double noundef %10) #8
   store double %115, ptr %2, align 8
   %116 = load double, ptr %9, align 8
-  %117 = tail call double @cos(double noundef %116) #7
+  %117 = tail call double @cos(double noundef %116) #8
   %118 = getelementptr inbounds i8, ptr %2, i64 8
   store double %117, ptr %118, align 8
   br label %119
@@ -271,7 +271,7 @@ define internal noundef ptr @_ZL18pj_laea_destructorP8PJconstsi(ptr noundef %0, 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 64
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #7
+  tail call void @free(ptr noundef %10) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %8
@@ -322,7 +322,7 @@ define internal { double, double } @_ZL14laea_e_inverse5PJ_XYP8PJconsts(double %
   %10 = load double, ptr %9, align 8
   %11 = fdiv double %0, %10
   %12 = fmul double %1, %10
-  %13 = tail call double @hypot(double noundef %11, double noundef %12) #7
+  %13 = tail call double @hypot(double noundef %11, double noundef %12) #8
   %14 = fcmp olt double %13, 1.000000e-10
   br i1 %14, label %15, label %18
 
@@ -344,10 +344,10 @@ define internal { double, double } @_ZL14laea_e_inverse5PJ_XYP8PJconsts(double %
   br label %74
 
 26:                                               ; preds = %18
-  %27 = tail call double @asin(double noundef %22) #7
+  %27 = tail call double @asin(double noundef %22) #8
   %28 = fmul double %27, 2.000000e+00
-  %29 = tail call double @cos(double noundef %28) #7
-  %30 = tail call double @sin(double noundef %28) #7
+  %29 = tail call double @cos(double noundef %28) #8
+  %30 = tail call double @sin(double noundef %28) #8
   %31 = fmul double %11, %30
   %32 = load i32, ptr %6, align 8
   %33 = icmp eq i32 %32, 3
@@ -406,8 +406,8 @@ define internal { double, double } @_ZL14laea_e_inverse5PJ_XYP8PJconsts(double %
   %.sroa.0.0 = phi double [ %0, %3 ], [ %0, %66 ], [ %0, %60 ], [ %31, %34 ], [ %31, %47 ]
   %.sroa.9.0 = phi double [ %1, %3 ], [ %.sroa.9.1, %66 ], [ %.sroa.9.1, %60 ], [ %46, %34 ], [ %50, %47 ]
   %.0 = phi double [ 0.000000e+00, %3 ], [ %67, %66 ], [ %64, %60 ], [ %41, %34 ], [ %49, %47 ]
-  %69 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #7
-  %70 = tail call double @asin(double noundef %.0) #7
+  %69 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #8
+  %70 = tail call double @asin(double noundef %.0) #8
   %71 = getelementptr inbounds i8, ptr %5, i64 64
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef double @_Z10pj_authlatdPd(double noundef %70, ptr noundef %72)
@@ -425,9 +425,9 @@ define internal { double, double } @_ZL14laea_e_inverse5PJ_XYP8PJconsts(double %
 define internal { double, double } @_ZL14laea_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @cos(double noundef %0) #7
-  %7 = tail call double @sin(double noundef %0) #7
-  %8 = tail call double @sin(double noundef %1) #7
+  %6 = tail call double @cos(double noundef %0) #8
+  %7 = tail call double @sin(double noundef %0) #8
+  %8 = tail call double @sin(double noundef %1) #8
   %9 = getelementptr inbounds i8, ptr %2, i64 208
   %10 = load double, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 256
@@ -449,7 +449,7 @@ define internal { double, double } @_ZL14laea_e_forward5PJ_LPP8PJconsts(double %
   br i1 %23, label %24, label %thread-pre-split
 
 24:                                               ; preds = %17
-  %25 = tail call double @sqrt(double noundef %22) #7
+  %25 = tail call double @sqrt(double noundef %22) #8
   %.pr.pre = load i32, ptr %14, align 8
   br label %thread-pre-split
 
@@ -512,7 +512,7 @@ thread-pre-split:                                 ; preds = %24, %17, %3
 
 52:                                               ; preds = %51
   %53 = fdiv double 2.000000e+00, %.0
-  %54 = tail call double @sqrt(double noundef %53) #7
+  %54 = tail call double @sqrt(double noundef %53) #8
   %55 = getelementptr inbounds i8, ptr %5, i64 24
   %56 = load double, ptr %55, align 8
   %57 = fmul double %54, %56
@@ -529,7 +529,7 @@ thread-pre-split:                                 ; preds = %24, %17, %3
 66:                                               ; preds = %51
   %67 = tail call double @llvm.fmuladd.f64(double %.056, double %6, double 1.000000e+00)
   %68 = fdiv double 2.000000e+00, %67
-  %69 = tail call double @sqrt(double noundef %68) #7
+  %69 = tail call double @sqrt(double noundef %68) #8
   %70 = fmul double %.057, %69
   %71 = getelementptr inbounds i8, ptr %5, i64 24
   %72 = load double, ptr %71, align 8
@@ -551,7 +551,7 @@ thread-pre-split:                                 ; preds = %24, %17, %3
   br i1 %81, label %90, label %82
 
 82:                                               ; preds = %80
-  %83 = tail call double @sqrt(double noundef %.058) #7
+  %83 = tail call double @sqrt(double noundef %.058) #8
   %84 = fmul double %7, %83
   %85 = load i32, ptr %14, align 8
   %86 = icmp eq i32 %85, 1
@@ -572,7 +572,7 @@ thread-pre-split:                                 ; preds = %24, %17, %3
 define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @hypot(double noundef %0, double noundef %1) #7
+  %6 = tail call double @hypot(double noundef %0, double noundef %1) #8
   %7 = fmul double %6, 5.000000e-01
   %8 = fcmp ogt double %7, 1.000000e+00
   br i1 %8, label %9, label %11
@@ -582,7 +582,7 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   br label %71
 
 11:                                               ; preds = %3
-  %12 = tail call double @asin(double noundef %7) #7
+  %12 = tail call double @asin(double noundef %7) #8
   %13 = fmul double %12, 2.000000e+00
   %14 = getelementptr inbounds i8, ptr %5, i64 72
   %15 = load i32, ptr %14, align 8
@@ -591,8 +591,8 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   br i1 %switch, label %17, label %20
 
 17:                                               ; preds = %11
-  %18 = tail call double @sin(double noundef %13) #7
-  %19 = tail call double @cos(double noundef %13) #7
+  %18 = tail call double @sin(double noundef %13) #8
+  %19 = tail call double @cos(double noundef %13) #8
   %.pr = load i32, ptr %14, align 8
   br label %20
 
@@ -615,7 +615,7 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
 25:                                               ; preds = %22
   %26 = fmul double %1, %.0
   %27 = fdiv double %26, %6
-  %28 = tail call double @asin(double noundef %27) #7
+  %28 = tail call double @asin(double noundef %27) #8
   br label %29
 
 29:                                               ; preds = %22, %25
@@ -642,7 +642,7 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   %44 = fmul double %41, %43
   %45 = fdiv double %44, %6
   %46 = tail call double @llvm.fmuladd.f64(double %.040, double %40, double %45)
-  %47 = tail call double @asin(double noundef %46) #7
+  %47 = tail call double @asin(double noundef %46) #8
   br label %48
 
 48:                                               ; preds = %39, %36
@@ -651,7 +651,7 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   %51 = load double, ptr %50, align 8
   %52 = fmul double %.0, %51
   %53 = fmul double %0, %52
-  %54 = tail call double @sin(double noundef %49) #7
+  %54 = tail call double @sin(double noundef %49) #8
   %55 = load double, ptr %5, align 8
   %56 = fneg double %54
   %57 = tail call double @llvm.fmuladd.f64(double %56, double %55, double %.040)
@@ -681,7 +681,7 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
   br i1 %switch45, label %71, label %69
 
 69:                                               ; preds = %66, %64
-  %70 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.7.0) #7
+  %70 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.7.0) #8
   br label %71
 
 71:                                               ; preds = %66, %69, %9
@@ -696,9 +696,9 @@ define internal { double, double } @_ZL14laea_s_inverse5PJ_XYP8PJconsts(double %
 define internal { double, double } @_ZL14laea_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @sin(double noundef %1) #7
-  %7 = tail call double @cos(double noundef %1) #7
-  %8 = tail call double @cos(double noundef %0) #7
+  %6 = tail call double @sin(double noundef %1) #8
+  %7 = tail call double @cos(double noundef %1) #8
+  %8 = tail call double @cos(double noundef %0) #8
   %9 = getelementptr inbounds i8, ptr %5, i64 72
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %67 [
@@ -732,9 +732,9 @@ define internal { double, double } @_ZL14laea_s_forward5PJ_LPP8PJconsts(double %
 
 24:                                               ; preds = %20
   %25 = fdiv double 2.000000e+00, %.sroa.429.0
-  %26 = tail call double @sqrt(double noundef %25) #7
+  %26 = tail call double @sqrt(double noundef %25) #8
   %27 = fmul double %7, %26
-  %28 = tail call double @sin(double noundef %0) #7
+  %28 = tail call double @sin(double noundef %0) #8
   %29 = fmul double %27, %28
   %30 = load i32, ptr %9, align 8
   %31 = icmp eq i32 %30, 2
@@ -779,17 +779,17 @@ define internal { double, double } @_ZL14laea_s_forward5PJ_LPP8PJconsts(double %
   br i1 %56, label %57, label %59
 
 57:                                               ; preds = %53
-  %58 = tail call double @cos(double noundef %55) #7
+  %58 = tail call double @cos(double noundef %55) #8
   br label %61
 
 59:                                               ; preds = %53
-  %60 = tail call double @sin(double noundef %55) #7
+  %60 = tail call double @sin(double noundef %55) #8
   br label %61
 
 61:                                               ; preds = %59, %57
   %62 = phi double [ %58, %57 ], [ %60, %59 ]
   %63 = fmul double %62, 2.000000e+00
-  %64 = tail call double @sin(double noundef %0) #7
+  %64 = tail call double @sin(double noundef %0) #8
   %65 = fmul double %63, %64
   %66 = fmul double %.0, %63
   br label %67
@@ -805,8 +805,8 @@ define internal { double, double } @_ZL14laea_s_forward5PJ_LPP8PJconsts(double %
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 
 declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -824,8 +824,9 @@ attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0,1) }
-attributes #7 = { nounwind }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

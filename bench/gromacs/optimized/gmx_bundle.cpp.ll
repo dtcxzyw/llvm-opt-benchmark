@@ -2685,8 +2685,8 @@ declare float @acosf(float noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @asinf(float noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #12
+; Function Attrs: nounwind
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #13

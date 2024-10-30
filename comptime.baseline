@@ -68,7 +68,7 @@ abc/abcMiter.c.ll 1028751106
 abc/abcMulti.c.ll 350623212
 abc/abcNames.c.ll 562151993
 abc/abcNpn.c.ll 247429278
-abc/abcNpnSave.c.ll 298879784
+abc/abcNpnSave.c.ll 298580601
 abc/abcNtbdd.c.ll 387394560
 abc/abcNtk.c.ll 1799488531
 abc/abcObj.c.ll 431746790
@@ -3740,7 +3740,7 @@ cmake/cmTargetCompileOptionsCommand.cxx.ll 185206267
 cmake/cmTargetIncludeDirectoriesCommand.cxx.ll 344563448
 cmake/cmTargetLinkDirectoriesCommand.cxx.ll 277908539
 cmake/cmTargetLinkLibrariesCommand.cxx.ll 871638151
-cmake/cmTargetLinkOptionsCommand.cxx.ll 183932416
+cmake/cmTargetLinkOptionsCommand.cxx.ll 183748124
 cmake/cmTargetPrecompileHeadersCommand.cxx.ll 332109578
 cmake/cmTargetPropCommandBase.cxx.ll 336772052
 cmake/cmTargetSourcesCommand.cxx.ll 1460781875
@@ -3751,7 +3751,7 @@ cmake/cmTransformDepfile.cxx.ll 343618910
 cmake/cmTryCompileCommand.cxx.ll 375164723
 cmake/cmTryRunCommand.cxx.ll 947375456
 cmake/cmUVHandlePtr.cxx.ll 1357190301
-cmake/cmUVJobServerClient.cxx.ll 712426041
+cmake/cmUVJobServerClient.cxx.ll 711713493
 cmake/cmUVProcessChain.cxx.ll 850258629
 cmake/cmUnsetCommand.cxx.ll 101087726
 cmake/cmUseMangledMesaCommand.cxx.ll 271757293
@@ -7861,7 +7861,7 @@ graphviz/adjust.c.ll 485262880
 graphviz/agerror.c.ll 69636502
 graphviz/apply.c.ll 46887636
 graphviz/args.c.ll 131725818
-graphviz/arrows.c.ll 418860939
+graphviz/arrows.c.ll 416771079
 graphviz/attr.c.ll 262131906
 graphviz/bcomps.c.ll 274597029
 graphviz/bfs.c.ll 85698415
@@ -8044,7 +8044,7 @@ graphviz/osageinit.c.ll 268567400
 graphviz/output.c.ll 601891757
 graphviz/pack.c.ll 975057130
 graphviz/parse.c.ll 310987312
-graphviz/partition.c.ll 408337793
+graphviz/partition.c.ll 407759307
 graphviz/patchwork.c.ll 133114769
 graphviz/patchworkinit.c.ll 128181409
 graphviz/pathaccess.c.ll 99090502
@@ -8069,7 +8069,7 @@ graphviz/rec.c.ll 134115963
 graphviz/rectangle.c.ll 59426622
 graphviz/red_black_tree.c.ll 167567099
 graphviz/refstr.c.ll 67425561
-graphviz/route.c.ll 420956038
+graphviz/route.c.ll 419849572
 graphviz/routespl.c.ll 641149980
 graphviz/sameport.c.ll 223197925
 graphviz/scan.c.ll 694805691
@@ -8079,7 +8079,7 @@ graphviz/sfdpinit.c.ll 173408878
 graphviz/sfprint.c.ll 898116924
 graphviz/sftable.c.ll 40508192
 graphviz/sfvscanf.c.ll 484584346
-graphviz/sgd.c.ll 333589863
+graphviz/sgd.c.ll 332934546
 graphviz/sgraph.c.ll 102453402
 graphviz/shapes.c.ll 1489954223
 graphviz/shortest.c.ll 346541871
@@ -8113,7 +8113,7 @@ graphviz/voronoi.c.ll 56808068
 graphviz/write.c.ll 456701694
 graphviz/xdot.c.ll 1320935031
 graphviz/xlabels.c.ll 485243046
-graphviz/xlayout.c.ll 301793533
+graphviz/xlayout.c.ll 300881206
 graphviz/xml.c.ll 126484801
 gromacs/abstractdata.cpp.ll 420966406
 gromacs/abstractoption.cpp.ll 272827137
@@ -14011,7 +14011,7 @@ linux/vgaarb.ll 351206161
 linux/vgacon.ll 308479521
 linux/vht.ll 230131083
 linux/via-rng.ll 62515285
-linux/virtgpu_display.ll 89437075
+linux/virtgpu_display.ll 89347156
 linux/virtgpu_fence.ll 77949894
 linux/virtgpu_gem.ll 120669452
 linux/virtgpu_ioctl.ll 205328660
@@ -18563,7 +18563,7 @@ ncnn/deconvolutiondepthwise1d.cpp.ll 483235740
 ncnn/deconvolutiondepthwise3d.cpp.ll 744012628
 ncnn/deconvolutiondepthwise_x86.cpp.ll 1066064834
 ncnn/deconvolutiondepthwise_x86_avx.cpp.ll 1267159032
-ncnn/deconvolutiondepthwise_x86_avx512.cpp.ll 1458679796
+ncnn/deconvolutiondepthwise_x86_avx512.cpp.ll 1457220632
 ncnn/deconvolutiondepthwise_x86_fma.cpp.ll 1259595505
 ncnn/deepcopy.cpp.ll 64494003
 ncnn/deformableconv2d.cpp.ll 361420189
@@ -21759,7 +21759,7 @@ opencv/perf_net.cpp.ll 3105352687
 opencv/perf_norm.cpp.ll 8167329341
 opencv/perf_optflow_dualTVL1.cpp.ll 52696952
 opencv/perf_optflow_farneback.cpp.ll 52730013
-opencv/perf_optflow_pyrlk.cpp.ll 52746157
+opencv/perf_optflow_pyrlk.cpp.ll 52693318
 opencv/perf_optflowpyrlk.cpp.ll 6264277646
 opencv/perf_output.cpp.ll 1381767917
 opencv/perf_phasecorr.cpp.ll 880968963
@@ -23116,7 +23116,7 @@ openjdk/hb-ot-shaper-use.ll 3014240453
 openjdk/hb-ot-shaper-vowel-constraints.ll 430571913
 openjdk/hb-ot-tag.ll 1427228510
 openjdk/hb-ot-var.ll 1133764203
-openjdk/hb-outline.ll 384961283
+openjdk/hb-outline.ll 384484685
 openjdk/hb-paint-extents.ll 331727623
 openjdk/hb-paint.ll 523127382
 openjdk/hb-set.ll 2210906704
@@ -28157,7 +28157,7 @@ openusd/textParserContext.cpp.ll 614279562
 openusd/textParserHelpers.cpp.ll 10239311644
 openusd/texture.cpp.ll 104237021
 openusd/textureUtils.cpp.ll 268108046
-openusd/threadLimits.cpp.ll 84743919
+openusd/threadLimits.cpp.ll 84659020
 openusd/thread_common.c.ll 550746930
 openusd/threads.cpp.ll 39883781
 openusd/tile_common.c.ll 145863074
@@ -29867,7 +29867,7 @@ proj/emess.cpp.ll 45230385
 proj/eqc.cpp.ll 46565853
 proj/eqdc.cpp.ll 74116742
 proj/eqearth.cpp.ll 64302484
-proj/factors.cpp.ll 57692683
+proj/factors.cpp.ll 57550182
 proj/factory.cpp.ll 22648995608
 proj/filemanager.cpp.ll 754785883
 proj/fouc_s.cpp.ll 56131347
@@ -29879,12 +29879,12 @@ proj/geocent.cpp.ll 41678068
 proj/geod.cpp.ll 176433550
 proj/geod_interface.cpp.ll 40535770
 proj/geod_set.cpp.ll 70031449
-proj/geodesic.c.ll 1043801306
-proj/geos.cpp.ll 78840744
+proj/geodesic.c.ll 1039533128
+proj/geos.cpp.ll 78569722
 proj/gie.cpp.ll 1306559134
 proj/gins8.cpp.ll 40462000
 proj/gn_sinu.cpp.ll 98099438
-proj/gnom.cpp.ll 87367918
+proj/gnom.cpp.ll 87224997
 proj/goode.cpp.ll 56767857
 proj/grids.cpp.ll 5726273025
 proj/gridshift.cpp.ll 1001377919
@@ -29971,7 +29971,7 @@ proj/som.cpp.ll 158762821
 proj/somerc.cpp.ll 64457095
 proj/sqlite3_utils.cpp.ll 109796642
 proj/static.cpp.ll 948729250
-proj/stere.cpp.ll 120205251
+proj/stere.cpp.ll 120059551
 proj/sterea.cpp.ll 60775764
 proj/strerrno.cpp.ll 49556627
 proj/sts.cpp.ll 75052597
@@ -29981,7 +29981,7 @@ proj/tinshift.cpp.ll 4624025923
 proj/tmerc.cpp.ll 199280902
 proj/tobmerc.cpp.ll 43440769
 proj/topocentric.cpp.ll 72097524
-proj/tpeqd.cpp.ll 72539669
+proj/tpeqd.cpp.ll 72456527
 proj/transformation.cpp.ll 2323953089
 proj/tsfn.cpp.ll 34303912
 proj/unitconvert.cpp.ll 263042212

@@ -444,7 +444,7 @@ define hidden noundef float @_ZNK12hb_outline_t12control_areaEv(ptr nocapture no
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN12hb_outline_t8emboldenEffff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #5 align 2 {
   %6 = fcmp une float %1, 0.000000e+00
   %7 = fcmp une float %2, 0.000000e+00
@@ -643,7 +643,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EEixEi.exit101: ; preds = %86, %87
   %91 = getelementptr inbounds i8, ptr %.0.i100, i64 4
   %92 = load float, ptr %91, align 4
   %93 = fsub float %85, %92
-  %94 = tail call float @hypotf(float noundef %77, float noundef %93) #11
+  %94 = tail call float @hypotf(float noundef %77, float noundef %93) #10
   %95 = fcmp une float %94, 0.000000e+00
   %96 = fdiv float %77, %94
   %97 = fdiv float %93, %94
@@ -810,7 +810,7 @@ define hidden noundef ptr @_Z34hb_outline_recording_pen_get_funcsv() local_unnam
   ret ptr %1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: nounwind
 declare float @hypotf(float noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
@@ -876,7 +876,7 @@ declare ptr @hb_draw_funcs_create() local_unnamed_addr #7
 declare void @hb_draw_funcs_set_move_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL32hb_outline_recording_pen_move_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #8 {
+define internal void @_ZL32hb_outline_recording_pen_move_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #5 {
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %1, align 8
@@ -909,7 +909,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %20 = load ptr, ptr %19, align 8
   %21 = zext nneg i32 %16 to i64
   %22 = mul nuw nsw i64 %21, 12
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #12
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #11
   %.not42.i.i = icmp eq ptr %23, null
   br i1 %.not42.i.i, label %24, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
@@ -955,7 +955,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
 declare void @hb_draw_funcs_set_line_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL32hb_outline_recording_pen_line_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #8 {
+define internal void @_ZL32hb_outline_recording_pen_line_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #5 {
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = load i32, ptr %1, align 8
@@ -988,7 +988,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %20 = load ptr, ptr %19, align 8
   %21 = zext nneg i32 %16 to i64
   %22 = mul nuw nsw i64 %21, 12
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #12
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #11
   %.not42.i.i = icmp eq ptr %23, null
   br i1 %.not42.i.i, label %24, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
@@ -1034,7 +1034,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit: ; preds =
 declare void @hb_draw_funcs_set_quadratic_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL37hb_outline_recording_pen_quadratic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #8 {
+define internal void @_ZL37hb_outline_recording_pen_quadratic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #5 {
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = load i32, ptr %1, align 8
@@ -1067,7 +1067,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %22 = load ptr, ptr %21, align 8
   %23 = zext nneg i32 %18 to i64
   %24 = mul nuw nsw i64 %23, 12
-  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #12
+  %25 = tail call ptr @realloc(ptr noundef %22, i64 noundef %24) #11
   %.not42.i.i = icmp eq ptr %25, null
   br i1 %.not42.i.i, label %26, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
@@ -1138,7 +1138,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %46 = load ptr, ptr %45, align 8
   %47 = zext nneg i32 %42 to i64
   %48 = mul nuw nsw i64 %47, 12
-  %49 = tail call ptr @realloc(ptr noundef %46, i64 noundef %48) #12
+  %49 = tail call ptr @realloc(ptr noundef %46, i64 noundef %48) #11
   %.not42.i.i15 = icmp eq ptr %49, null
   br i1 %.not42.i.i15, label %50, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i16
 
@@ -1184,7 +1184,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit22: ; preds
 declare void @hb_draw_funcs_set_cubic_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL33hb_outline_recording_pen_cubic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr nocapture readnone %9) #8 {
+define internal void @_ZL33hb_outline_recording_pen_cubic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr nocapture readnone %9) #5 {
   %11 = getelementptr inbounds i8, ptr %1, i64 4
   %12 = load i32, ptr %11, align 4
   %13 = load i32, ptr %1, align 8
@@ -1217,7 +1217,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %24 = load ptr, ptr %23, align 8
   %25 = zext nneg i32 %20 to i64
   %26 = mul nuw nsw i64 %25, 12
-  %27 = tail call ptr @realloc(ptr noundef %24, i64 noundef %26) #12
+  %27 = tail call ptr @realloc(ptr noundef %24, i64 noundef %26) #11
   %.not42.i.i = icmp eq ptr %27, null
   br i1 %.not42.i.i, label %28, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i
 
@@ -1288,7 +1288,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %48 = load ptr, ptr %47, align 8
   %49 = zext nneg i32 %44 to i64
   %50 = mul nuw nsw i64 %49, 12
-  %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #12
+  %51 = tail call ptr @realloc(ptr noundef %48, i64 noundef %50) #11
   %.not42.i.i18 = icmp eq ptr %51, null
   br i1 %.not42.i.i18, label %52, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i19
 
@@ -1359,7 +1359,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE14realloc_vectorIS0_TnPN12hb_enable_if
   %72 = load ptr, ptr %71, align 8
   %73 = zext nneg i32 %68 to i64
   %74 = mul nuw nsw i64 %73, 12
-  %75 = tail call ptr @realloc(ptr noundef %72, i64 noundef %74) #12
+  %75 = tail call ptr @realloc(ptr noundef %72, i64 noundef %74) #11
   %.not42.i.i34 = icmp eq ptr %75, null
   br i1 %.not42.i.i34, label %76, label %_ZN11hb_vector_tI18hb_outline_point_tLb0EE5allocEjb.exit.i35
 
@@ -1405,7 +1405,7 @@ _ZN11hb_vector_tI18hb_outline_point_tLb0EE4pushIJS0_EEEPS0_DpOT_.exit41: ; preds
 declare void @hb_draw_funcs_set_close_path_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL35hb_outline_recording_pen_close_pathP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #8 {
+define internal void @_ZL35hb_outline_recording_pen_close_pathP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #5 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = getelementptr inbounds i8, ptr %1, i64 20
@@ -1440,7 +1440,7 @@ _ZN11hb_vector_tIjLb0EE14realloc_vectorIjTnPN12hb_enable_ifIXsr3std28is_triviall
   %20 = load ptr, ptr %19, align 8
   %21 = shl nuw i32 %16, 2
   %22 = zext i32 %21 to i64
-  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #12
+  %23 = tail call ptr @realloc(ptr noundef %20, i64 noundef %22) #11
   %.not42.i.i = icmp eq ptr %23, null
   br i1 %.not42.i.i, label %24, label %_ZN11hb_vector_tIjLb0EE5allocEjb.exit.i
 
@@ -1484,29 +1484,28 @@ _ZN11hb_vector_tIjLb0EE4pushIJRjEEEPjDpOT_.exit:  ; preds = %_ZN11hb_vector_tIjL
 declare void @hb_draw_funcs_make_immutable(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 declare void @hb_draw_funcs_destroy(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #10
+declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(1) }
+attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(1) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

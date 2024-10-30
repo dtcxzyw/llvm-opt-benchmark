@@ -1426,8 +1426,8 @@ declare noundef double @_Z11pj_inv_mlfndPKd(double noundef, ptr noundef) local_u
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sinh(double noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #8
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @asinh(double noundef) local_unnamed_addr #8

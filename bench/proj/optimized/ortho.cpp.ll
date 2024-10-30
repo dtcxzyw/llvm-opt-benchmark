@@ -42,7 +42,7 @@ define hidden noundef ptr @pj_ortho(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z34pj_projection_specific_setup_orthoP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #5
+  %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #6
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -55,10 +55,10 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_orthoP8PJconsts(ptr 
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 448
   %9 = load double, ptr %8, align 8
-  %10 = tail call double @sin(double noundef %9) #6
+  %10 = tail call double @sin(double noundef %9) #7
   store double %10, ptr %2, align 8
   %11 = load double, ptr %8, align 8
-  %12 = tail call double @cos(double noundef %11) #6
+  %12 = tail call double @cos(double noundef %11) #7
   %13 = getelementptr inbounds i8, ptr %2, i64 8
   store double %12, ptr %13, align 8
   %14 = load double, ptr %8, align 8
@@ -106,7 +106,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_orthoP8PJconsts(ptr 
   %37 = fneg double %36
   %38 = fmul double %30, %37
   %39 = tail call double @llvm.fmuladd.f64(double %38, double %36, double 1.000000e+00)
-  %40 = tail call double @sqrt(double noundef %39) #6
+  %40 = tail call double @sqrt(double noundef %39) #7
   %41 = fdiv double 1.000000e+00, %40
   %42 = getelementptr inbounds i8, ptr %2, i64 16
   store double %41, ptr %42, align 8
@@ -121,7 +121,7 @@ define hidden noundef ptr @_Z34pj_projection_specific_setup_orthoP8PJconsts(ptr 
   %50 = fneg double %47
   %51 = fmul double %43, %50
   %52 = tail call double @llvm.fmuladd.f64(double %51, double %47, double 1.000000e+00)
-  %53 = tail call double @sqrt(double noundef %52) #6
+  %53 = tail call double @sqrt(double noundef %52) #7
   %54 = fdiv double 1.000000e+00, %53
   %55 = getelementptr inbounds i8, ptr %2, i64 32
   store double %54, ptr %55, align 8
@@ -156,7 +156,7 @@ declare double @llvm.fabs.f64(double) #4
 define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @hypot(double noundef %0, double noundef %1) #6
+  %6 = tail call double @hypot(double noundef %0, double noundef %1) #7
   %7 = fcmp ogt double %6, 1.000000e+00
   br i1 %7, label %8, label %13
 
@@ -173,7 +173,7 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   %.0 = phi double [ %6, %3 ], [ 1.000000e+00, %8 ]
   %14 = fneg double %.0
   %15 = tail call double @llvm.fmuladd.f64(double %14, double %.0, double 1.000000e+00)
-  %16 = tail call double @sqrt(double noundef %15) #6
+  %16 = tail call double @sqrt(double noundef %15) #7
   %17 = tail call double @llvm.fabs.f64(double %6)
   %18 = fcmp ugt double %17, 1.000000e-10
   br i1 %18, label %22, label %19
@@ -195,11 +195,11 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
 
 25:                                               ; preds = %22
   %26 = fneg double %1
-  %27 = tail call double @acos(double noundef %.0) #6
+  %27 = tail call double @acos(double noundef %.0) #7
   br label %53
 
 28:                                               ; preds = %22
-  %29 = tail call double @acos(double noundef %.0) #6
+  %29 = tail call double @acos(double noundef %.0) #7
   %30 = fneg double %29
   br label %53
 
@@ -237,7 +237,7 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   br label %53
 
 51:                                               ; preds = %45
-  %52 = tail call double @asin(double noundef %.sroa.4.2) #6
+  %52 = tail call double @asin(double noundef %.sroa.4.2) #7
   br label %53
 
 53:                                               ; preds = %48, %51, %28, %25, %22
@@ -263,7 +263,7 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
   br label %65
 
 63:                                               ; preds = %55, %53
-  %64 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #6
+  %64 = tail call double @atan2(double noundef %.sroa.0.0, double noundef %.sroa.9.0) #7
   br label %65
 
 65:                                               ; preds = %63, %58, %60, %19, %11
@@ -278,8 +278,8 @@ define internal { double, double } @_ZL15ortho_s_inverse5PJ_XYP8PJconsts(double 
 define internal { double, double } @_ZL15ortho_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @cos(double noundef %1) #6
-  %7 = tail call double @cos(double noundef %0) #6
+  %6 = tail call double @cos(double noundef %1) #7
+  %7 = tail call double @cos(double noundef %0) #7
   %8 = getelementptr inbounds i8, ptr %5, i64 40
   %9 = load i32, ptr %8, align 8
   switch i32 %9, label %52 [
@@ -302,11 +302,11 @@ define internal { double, double } @_ZL15ortho_s_forward5PJ_LPP8PJconsts(double 
   br label %55
 
 17:                                               ; preds = %10
-  %18 = tail call double @sin(double noundef %1) #6
+  %18 = tail call double @sin(double noundef %1) #7
   br label %52
 
 19:                                               ; preds = %3
-  %20 = tail call double @sin(double noundef %1) #6
+  %20 = tail call double @sin(double noundef %1) #7
   %21 = load double, ptr %5, align 8
   %22 = getelementptr inbounds i8, ptr %5, i64 8
   %23 = load double, ptr %22, align 8
@@ -357,7 +357,7 @@ define internal { double, double } @_ZL15ortho_s_forward5PJ_LPP8PJconsts(double 
 
 52:                                               ; preds = %50, %32, %17, %3
   %.sroa.6.0 = phi double [ 0x7FF0000000000000, %3 ], [ %51, %50 ], [ %36, %32 ], [ %18, %17 ]
-  %53 = tail call double @sin(double noundef %0) #6
+  %53 = tail call double @sin(double noundef %0) #7
   %54 = fmul double %6, %53
   br label %55
 
@@ -412,8 +412,8 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   %24 = fneg double %23
   %25 = tail call double @llvm.fmuladd.f64(double %24, double %11, double 1.000000e+00)
   %26 = fdiv double %21, %25
-  %27 = tail call double @sqrt(double noundef %26) #6
-  %28 = tail call double @acos(double noundef %27) #6
+  %27 = tail call double @sqrt(double noundef %26) #7
+  %28 = tail call double @acos(double noundef %27) #7
   %29 = load i32, ptr %6, align 8
   %30 = icmp eq i32 %29, 0
   %31 = select i1 %30, i32 1, i32 -1
@@ -428,7 +428,7 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   %37 = select i1 %36, i32 -1, i32 1
   %38 = sitofp i32 %37 to double
   %39 = fmul double %1, %38
-  %40 = tail call double @atan2(double noundef %0, double noundef %39) #6
+  %40 = tail call double @atan2(double noundef %0, double noundef %39) #7
   br label %.loopexit
 
 41:                                               ; preds = %3
@@ -470,8 +470,8 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
 
 .thread:                                          ; preds = %54, %56
   %68 = phi double [ %63, %56 ], [ 0.000000e+00, %54 ]
-  %69 = tail call double @sqrt(double noundef %68) #6
-  %70 = tail call double @asin(double noundef %69) #6
+  %69 = tail call double @sqrt(double noundef %68) #7
+  %70 = tail call double @asin(double noundef %69) #7
   %71 = fcmp ogt double %1, 0.000000e+00
   %72 = fneg double %70
   %73 = select i1 %71, double %70, double %72
@@ -481,7 +481,7 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   %77 = tail call double @llvm.fmuladd.f64(double %76, double %68, double 1.000000e+00)
   %78 = fsub double 1.000000e+00, %68
   %79 = fdiv double %77, %78
-  %80 = tail call double @sqrt(double noundef %79) #6
+  %80 = tail call double @sqrt(double noundef %79) #7
   %81 = fmul double %0, %80
   %82 = tail call double @llvm.fabs.f64(double %81)
   %83 = fadd double %82, -1.000000e+00
@@ -494,7 +494,7 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   br label %.loopexit
 
 88:                                               ; preds = %.thread
-  %89 = tail call double @asin(double noundef %81) #6
+  %89 = tail call double @asin(double noundef %81) #7
   br label %.loopexit
 
 90:                                               ; preds = %3
@@ -532,15 +532,15 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
   %.sroa.17.2131 = phi double [ %106, %103 ], [ %.sroa.17.3, %110 ]
   %.sroa.0109.1130 = phi double [ %105, %103 ], [ %177, %110 ]
   %.0129 = phi i32 [ 0, %103 ], [ %111, %110 ]
-  %113 = tail call double @cos(double noundef %.sroa.17.2131) #6
-  %114 = tail call double @sin(double noundef %.sroa.17.2131) #6
-  %115 = tail call double @cos(double noundef %.sroa.0109.1130) #6
-  %116 = tail call double @sin(double noundef %.sroa.0109.1130) #6
+  %113 = tail call double @cos(double noundef %.sroa.17.2131) #7
+  %114 = tail call double @sin(double noundef %.sroa.17.2131) #7
+  %115 = tail call double @cos(double noundef %.sroa.0109.1130) #7
+  %116 = tail call double @sin(double noundef %.sroa.0109.1130) #7
   %117 = load double, ptr %107, align 8
   %118 = fneg double %114
   %119 = fmul double %117, %118
   %120 = tail call double @llvm.fmuladd.f64(double %119, double %114, double 1.000000e+00)
-  %121 = tail call double @sqrt(double noundef %120) #6
+  %121 = tail call double @sqrt(double noundef %120) #7
   %122 = fdiv double 1.000000e+00, %121
   %123 = fmul double %113, %122
   %124 = fmul double %116, %123
@@ -635,10 +635,10 @@ define internal { double, double } @_ZL15ortho_e_inverse5PJ_XYP8PJconsts(double 
 define internal { double, double } @_ZL15ortho_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @cos(double noundef %1) #6
-  %7 = tail call double @sin(double noundef %1) #6
-  %8 = tail call double @cos(double noundef %0) #6
-  %9 = tail call double @sin(double noundef %0) #6
+  %6 = tail call double @cos(double noundef %1) #7
+  %7 = tail call double @sin(double noundef %1) #7
+  %8 = tail call double @cos(double noundef %0) #7
+  %9 = tail call double @sin(double noundef %0) #7
   %10 = load double, ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load double, ptr %11, align 8
@@ -661,7 +661,7 @@ define internal { double, double } @_ZL15ortho_e_forward5PJ_LPP8PJconsts(double 
   %24 = fneg double %7
   %25 = fmul double %23, %24
   %26 = tail call double @llvm.fmuladd.f64(double %25, double %7, double 1.000000e+00)
-  %27 = tail call double @sqrt(double noundef %26) #6
+  %27 = tail call double @sqrt(double noundef %26) #7
   %28 = fdiv double 1.000000e+00, %27
   %29 = fmul double %6, %28
   %30 = fmul double %9, %29
@@ -689,8 +689,8 @@ define internal { double, double } @_ZL15ortho_e_forward5PJ_LPP8PJconsts(double 
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 
 declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -716,8 +716,9 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { nounwind allocsize(0,1) }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind allocsize(0,1) }
+attributes #7 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -45,7 +45,7 @@ define hidden noundef ptr @pj_geos(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #7
+  %2 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -135,7 +135,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_geosP8PJconsts(ptr n
 49:                                               ; preds = %41
   %50 = getelementptr inbounds i8, ptr %0, i64 256
   %51 = load double, ptr %50, align 8
-  %52 = tail call double @sqrt(double noundef %51) #8
+  %52 = tail call double @sqrt(double noundef %51) #9
   %53 = getelementptr inbounds i8, ptr %2, i64 8
   store double %52, ptr %53, align 8
   %54 = load double, ptr %50, align 8
@@ -199,21 +199,21 @@ define internal { double, double } @_ZL14geos_e_inverse5PJ_XYP8PJconsts(double %
 
 10:                                               ; preds = %3
   %11 = fdiv double %1, %9
-  %12 = tail call double @tan(double noundef %11) #8
+  %12 = tail call double @tan(double noundef %11) #9
   %13 = load double, ptr %8, align 8
   %14 = fdiv double %0, %13
-  %15 = tail call double @tan(double noundef %14) #8
-  %16 = tail call double @hypot(double noundef 1.000000e+00, double noundef %12) #8
+  %15 = tail call double @tan(double noundef %14) #9
+  %16 = tail call double @hypot(double noundef 1.000000e+00, double noundef %12) #9
   %17 = fmul double %15, %16
   br label %26
 
 18:                                               ; preds = %3
   %19 = fdiv double %0, %9
-  %20 = tail call double @tan(double noundef %19) #8
+  %20 = tail call double @tan(double noundef %19) #9
   %21 = load double, ptr %8, align 8
   %22 = fdiv double %1, %21
-  %23 = tail call double @tan(double noundef %22) #8
-  %24 = tail call double @hypot(double noundef 1.000000e+00, double noundef %20) #8
+  %23 = tail call double @tan(double noundef %22) #9
+  %24 = tail call double @hypot(double noundef 1.000000e+00, double noundef %20) #9
   %25 = fmul double %23, %24
   br label %26
 
@@ -244,7 +244,7 @@ define internal { double, double } @_ZL14geos_e_inverse5PJ_XYP8PJconsts(double %
 
 45:                                               ; preds = %26
   %46 = fneg double %35
-  %47 = tail call double @sqrt(double noundef %41) #8
+  %47 = tail call double @sqrt(double noundef %41) #9
   %48 = fsub double %46, %47
   %49 = fmul double %32, 2.000000e+00
   %50 = fdiv double %48, %49
@@ -252,16 +252,16 @@ define internal { double, double } @_ZL14geos_e_inverse5PJ_XYP8PJconsts(double %
   %52 = fsub double %51, %50
   %53 = fmul double %.042, %50
   %54 = fmul double %.0, %50
-  %55 = tail call double @atan2(double noundef %53, double noundef %52) #8
-  %56 = tail call double @cos(double noundef %55) #8
+  %55 = tail call double @atan2(double noundef %53, double noundef %52) #9
+  %56 = tail call double @cos(double noundef %55) #9
   %57 = fmul double %54, %56
   %58 = fdiv double %57, %52
-  %59 = tail call double @atan(double noundef %58) #8
+  %59 = tail call double @atan(double noundef %58) #9
   %60 = getelementptr inbounds i8, ptr %5, i64 24
   %61 = load double, ptr %60, align 8
-  %62 = tail call double @tan(double noundef %59) #8
+  %62 = tail call double @tan(double noundef %59) #9
   %63 = fmul double %61, %62
-  %64 = tail call double @atan(double noundef %63) #8
+  %64 = tail call double @atan(double noundef %63) #9
   br label %65
 
 65:                                               ; preds = %45, %43
@@ -278,25 +278,25 @@ define internal { double, double } @_ZL14geos_e_forward5PJ_LPP8PJconsts(double %
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load double, ptr %6, align 8
-  %8 = tail call double @tan(double noundef %1) #8
+  %8 = tail call double @tan(double noundef %1) #9
   %9 = fmul double %7, %8
-  %10 = tail call double @atan(double noundef %9) #8
+  %10 = tail call double @atan(double noundef %9) #9
   %11 = getelementptr inbounds i8, ptr %5, i64 8
   %12 = load double, ptr %11, align 8
-  %13 = tail call double @cos(double noundef %10) #8
+  %13 = tail call double @cos(double noundef %10) #9
   %14 = fmul double %12, %13
-  %15 = tail call double @sin(double noundef %10) #8
-  %16 = tail call double @hypot(double noundef %14, double noundef %15) #8
+  %15 = tail call double @sin(double noundef %10) #9
+  %16 = tail call double @hypot(double noundef %14, double noundef %15) #9
   %17 = fdiv double %12, %16
-  %18 = tail call double @cos(double noundef %0) #8
+  %18 = tail call double @cos(double noundef %0) #9
   %19 = fmul double %17, %18
-  %20 = tail call double @cos(double noundef %10) #8
+  %20 = tail call double @cos(double noundef %10) #9
   %21 = fmul double %19, %20
-  %22 = tail call double @sin(double noundef %0) #8
+  %22 = tail call double @sin(double noundef %0) #9
   %23 = fmul double %17, %22
-  %24 = tail call double @cos(double noundef %10) #8
+  %24 = tail call double @cos(double noundef %10) #9
   %25 = fmul double %23, %24
-  %26 = tail call double @sin(double noundef %10) #8
+  %26 = tail call double @sin(double noundef %10) #9
   %27 = fmul double %17, %26
   %28 = getelementptr inbounds i8, ptr %5, i64 32
   %29 = load double, ptr %28, align 8
@@ -325,24 +325,24 @@ define internal { double, double } @_ZL14geos_e_forward5PJ_LPP8PJconsts(double %
   br i1 %.not, label %56, label %47
 
 47:                                               ; preds = %42
-  %48 = tail call double @hypot(double noundef %27, double noundef %30) #8
+  %48 = tail call double @hypot(double noundef %27, double noundef %30) #9
   %49 = fdiv double %25, %48
-  %50 = tail call double @atan(double noundef %49) #8
+  %50 = tail call double @atan(double noundef %49) #9
   %51 = fmul double %46, %50
   %52 = load double, ptr %45, align 8
   %53 = fdiv double %27, %30
-  %54 = tail call double @atan(double noundef %53) #8
+  %54 = tail call double @atan(double noundef %53) #9
   %55 = fmul double %52, %54
   br label %65
 
 56:                                               ; preds = %42
   %57 = fdiv double %25, %30
-  %58 = tail call double @atan(double noundef %57) #8
+  %58 = tail call double @atan(double noundef %57) #9
   %59 = fmul double %46, %58
   %60 = load double, ptr %45, align 8
-  %61 = tail call double @hypot(double noundef %25, double noundef %30) #8
+  %61 = tail call double @hypot(double noundef %25, double noundef %30) #9
   %62 = fdiv double %27, %61
-  %63 = tail call double @atan(double noundef %62) #8
+  %63 = tail call double @atan(double noundef %62) #9
   %64 = fmul double %60, %63
   br label %65
 
@@ -367,10 +367,10 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
 
 10:                                               ; preds = %3
   %11 = fdiv double %1, %9
-  %12 = tail call double @tan(double noundef %11) #8
+  %12 = tail call double @tan(double noundef %11) #9
   %13 = load double, ptr %8, align 8
   %14 = fdiv double %0, %13
-  %15 = tail call double @tan(double noundef %14) #8
+  %15 = tail call double @tan(double noundef %14) #9
   %16 = tail call double @llvm.fmuladd.f64(double %12, double %12, double 1.000000e+00)
   %sqrt = tail call double @llvm.sqrt.f64(double %16)
   %17 = fmul double %15, %sqrt
@@ -378,10 +378,10 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
 
 18:                                               ; preds = %3
   %19 = fdiv double %0, %9
-  %20 = tail call double @tan(double noundef %19) #8
+  %20 = tail call double @tan(double noundef %19) #9
   %21 = load double, ptr %8, align 8
   %22 = fdiv double %1, %21
-  %23 = tail call double @tan(double noundef %22) #8
+  %23 = tail call double @tan(double noundef %22) #9
   %24 = tail call double @llvm.fmuladd.f64(double %20, double %20, double 1.000000e+00)
   %sqrt43 = tail call double @llvm.sqrt.f64(double %24)
   %25 = fmul double %23, %sqrt43
@@ -411,7 +411,7 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
 
 42:                                               ; preds = %26
   %43 = fneg double %32
-  %44 = tail call double @sqrt(double noundef %38) #8
+  %44 = tail call double @sqrt(double noundef %38) #9
   %45 = fsub double %43, %44
   %46 = fmul double %29, 2.000000e+00
   %47 = fdiv double %45, %46
@@ -419,11 +419,11 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
   %49 = fsub double %48, %47
   %50 = fmul double %.0, %47
   %51 = fmul double %.041, %47
-  %52 = tail call double @atan2(double noundef %50, double noundef %49) #8
-  %53 = tail call double @cos(double noundef %52) #8
+  %52 = tail call double @atan2(double noundef %50, double noundef %49) #9
+  %53 = tail call double @cos(double noundef %52) #9
   %54 = fmul double %51, %53
   %55 = fdiv double %54, %49
-  %56 = tail call double @atan(double noundef %55) #8
+  %56 = tail call double @atan(double noundef %55) #9
   br label %57
 
 57:                                               ; preds = %42, %40
@@ -434,16 +434,16 @@ define internal { double, double } @_ZL14geos_s_inverse5PJ_XYP8PJconsts(double %
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nounwind uwtable
 define internal { double, double } @_ZL14geos_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call double @cos(double noundef %1) #8
-  %7 = tail call double @cos(double noundef %0) #8
+  %6 = tail call double @cos(double noundef %1) #9
+  %7 = tail call double @cos(double noundef %0) #9
   %8 = fmul double %6, %7
-  %9 = tail call double @sin(double noundef %0) #8
+  %9 = tail call double @sin(double noundef %0) #9
   %10 = fmul double %6, %9
-  %11 = tail call double @sin(double noundef %1) #8
+  %11 = tail call double @sin(double noundef %1) #9
   %12 = getelementptr inbounds i8, ptr %5, i64 32
   %13 = load double, ptr %12, align 8
   %14 = fsub double %13, %8
@@ -455,17 +455,17 @@ define internal { double, double } @_ZL14geos_s_forward5PJ_LPP8PJconsts(double %
   br i1 %.not, label %24, label %19
 
 19:                                               ; preds = %3
-  %20 = tail call double @hypot(double noundef %11, double noundef %14) #8
+  %20 = tail call double @hypot(double noundef %11, double noundef %14) #9
   %21 = fdiv double %10, %20
-  %22 = tail call double @atan(double noundef %21) #8
+  %22 = tail call double @atan(double noundef %21) #9
   %23 = load double, ptr %17, align 8
   br label %29
 
 24:                                               ; preds = %3
   %25 = fdiv double %10, %14
-  %26 = tail call double @atan(double noundef %25) #8
+  %26 = tail call double @atan(double noundef %25) #9
   %27 = load double, ptr %17, align 8
-  %28 = tail call double @hypot(double noundef %10, double noundef %14) #8
+  %28 = tail call double @hypot(double noundef %10, double noundef %14) #9
   br label %29
 
 29:                                               ; preds = %24, %19
@@ -474,7 +474,7 @@ define internal { double, double } @_ZL14geos_s_forward5PJ_LPP8PJconsts(double %
   %.pn = phi double [ %26, %24 ], [ %22, %19 ]
   %.sroa.022.0 = fmul double %18, %.pn
   %30 = fdiv double %11, %.sink25
-  %31 = tail call double @atan(double noundef %30) #8
+  %31 = tail call double @atan(double noundef %30) #9
   %32 = fmul double %.sink, %31
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.022.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %32, 1
@@ -484,8 +484,8 @@ define internal { double, double } @_ZL14geos_s_forward5PJ_LPP8PJconsts(double %
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @tan(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+; Function Attrs: nounwind
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 
 declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -502,17 +502,18 @@ declare double @cos(double noundef) local_unnamed_addr #4
 declare double @sin(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #6
+declare double @llvm.sqrt.f64(double) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind allocsize(0,1) }
-attributes #8 = { nounwind }
+attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind allocsize(0,1) }
+attributes #9 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
