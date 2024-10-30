@@ -106,18 +106,18 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   br label %136
 
 49:                                               ; preds = %45
-  %50 = call double @cos(double noundef %.sroa.10.1) #6
+  %50 = call double @cos(double noundef %.sroa.10.1) #5
   %51 = getelementptr inbounds i8, ptr %4, i64 8
   %52 = load double, ptr %51, align 8
   %53 = getelementptr inbounds i8, ptr %4, i64 24
   %54 = load double, ptr %53, align 8
-  %55 = call double @hypot(double noundef %52, double noundef %54) #6
+  %55 = call double @hypot(double noundef %52, double noundef %54) #5
   %56 = getelementptr inbounds i8, ptr %4, i64 32
   store double %55, ptr %56, align 8
   %57 = load double, ptr %4, align 8
   %58 = getelementptr inbounds i8, ptr %4, i64 16
   %59 = load double, ptr %58, align 8
-  %60 = call double @hypot(double noundef %57, double noundef %59) #6
+  %60 = call double @hypot(double noundef %57, double noundef %59) #5
   %61 = fdiv double %60, %50
   %62 = getelementptr inbounds i8, ptr %4, i64 40
   store double %61, ptr %62, align 8
@@ -127,12 +127,12 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   br i1 %65, label %66, label %84
 
 66:                                               ; preds = %49
-  %67 = call double @sin(double noundef %.sroa.10.1) #6
+  %67 = call double @sin(double noundef %.sroa.10.1) #5
   %68 = load double, ptr %63, align 8
   %69 = fneg double %67
   %70 = fmul double %68, %69
   %71 = call double @llvm.fmuladd.f64(double %70, double %67, double 1.000000e+00)
-  %72 = call double @sqrt(double noundef %71) #6
+  %72 = call double @sqrt(double noundef %71) #5
   %73 = fmul double %72, %71
   %74 = getelementptr inbounds i8, ptr %2, i64 256
   %75 = load double, ptr %74, align 8
@@ -152,7 +152,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %.094 = phi double [ %83, %66 ], [ 1.000000e+00, %49 ]
   %85 = load double, ptr %51, align 8
   %86 = load double, ptr %53, align 8
-  %87 = call double @atan2(double noundef %85, double noundef %86) #6
+  %87 = call double @atan2(double noundef %85, double noundef %86) #5
   %88 = fneg double %87
   %89 = getelementptr inbounds i8, ptr %4, i64 64
   store double %88, ptr %89, align 8
@@ -181,7 +181,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   %110 = call double @llvm.fmuladd.f64(double %107, double %107, double %109)
   %111 = load double, ptr %99, align 8
   %112 = call double @llvm.fmuladd.f64(double %111, double 2.000000e+00, double %110)
-  %113 = call double @sqrt(double noundef %112) #6
+  %113 = call double @sqrt(double noundef %112) #5
   %114 = getelementptr inbounds i8, ptr %4, i64 80
   store double %113, ptr %114, align 8
   %115 = load double, ptr %99, align 8
@@ -190,7 +190,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z10pj_factors5PJ_LPPK8PJconstsdP7FAC
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %84
-  %119 = call double @sqrt(double noundef %116) #6
+  %119 = call double @sqrt(double noundef %116) #5
   %.pre = load double, ptr %114, align 8
   br label %120
 
@@ -241,8 +241,8 @@ declare noundef i32 @_Z8pj_deriv5PJ_LPdPK8PJconstsP6DERIVS(double, double, doubl
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @cos(double noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sin(double noundef) local_unnamed_addr #4
@@ -265,8 +265,7 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

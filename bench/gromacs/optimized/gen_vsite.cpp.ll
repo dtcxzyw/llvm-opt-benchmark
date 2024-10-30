@@ -18913,8 +18913,8 @@ declare float @sinf(float noundef) local_unnamed_addr #16
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare float @cosf(float noundef) local_unnamed_addr #16
 
-; Function Attrs: nounwind
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #16
 
 declare void @_Z16add_vsite2_paramP18InteractionsOfTypeiiif(ptr noundef, i32 noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #3
 

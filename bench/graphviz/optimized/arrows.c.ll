@@ -50,8 +50,8 @@ define void @arrow_flags(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 0, ptr %1, align 4
-  %6 = tail call ptr @agraphof(ptr noundef %0) #11
-  %7 = tail call i32 @agisdirected(ptr noundef %6) #11
+  %6 = tail call ptr @agraphof(ptr noundef %0) #12
+  %7 = tail call i32 @agisdirected(ptr noundef %6) #12
   %.not = icmp ne i32 %7, 0
   %8 = zext i1 %.not to i32
   store i32 %8, ptr %2, align 4
@@ -60,7 +60,7 @@ define void @arrow_flags(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture
   br i1 %.not43, label %24, label %10
 
 10:                                               ; preds = %3
-  %11 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %9) #11
+  %11 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %9) #12
   %12 = load i8, ptr %11, align 1
   %.not44 = icmp eq i8 %12, 0
   br i1 %.not44, label %thread-pre-split, label %.preheader
@@ -68,7 +68,7 @@ define void @arrow_flags(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture
 .preheader:                                       ; preds = %10, %21
   %13 = phi ptr [ %23, %21 ], [ @.str.2, %10 ]
   %.051 = phi ptr [ %22, %21 ], [ @Arrowdirs, %10 ]
-  %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %13) #12
+  %14 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull readonly dereferenceable(1) %13) #13
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
 
@@ -97,13 +97,13 @@ thread-pre-split:                                 ; preds = %21, %10
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @agraphof(ptr noundef %0) #11
-  %29 = tail call ptr @agattr(ptr noundef %28, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef null) #11
+  %28 = tail call ptr @agraphof(ptr noundef %0) #12
+  %29 = tail call ptr @agattr(ptr noundef %28, i32 noundef 2, ptr noundef nonnull @.str, ptr noundef null) #12
   %.not46 = icmp eq ptr %29, null
   br i1 %.not46, label %34, label %30
 
 30:                                               ; preds = %27
-  %31 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %29) #11
+  %31 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %29) #12
   %32 = load i8, ptr %31, align 1
   %.not47 = icmp eq i8 %32, 0
   br i1 %.not47, label %34, label %33
@@ -118,13 +118,13 @@ thread-pre-split:                                 ; preds = %21, %10
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %34
-  %38 = tail call ptr @agraphof(ptr noundef %0) #11
-  %39 = tail call ptr @agattr(ptr noundef %38, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef null) #11
+  %38 = tail call ptr @agraphof(ptr noundef %0) #12
+  %39 = tail call ptr @agattr(ptr noundef %38, i32 noundef 2, ptr noundef nonnull @.str.1, ptr noundef null) #12
   %.not48 = icmp eq ptr %39, null
   br i1 %.not48, label %44, label %40
 
 40:                                               ; preds = %37
-  %41 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %39) #11
+  %41 = tail call ptr @agxget(ptr noundef %0, ptr noundef nonnull %39) #12
   %42 = load i8, ptr %41, align 1
   %.not49 = icmp eq i8 %42, 0
   br i1 %.not49, label %44, label %43
@@ -149,7 +149,7 @@ thread-pre-split:                                 ; preds = %21, %10
   %55 = select i1 %53, ptr %0, ptr %54
   %56 = getelementptr inbounds i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8
-  %58 = tail call ptr @agraphof(ptr noundef %57) #11
+  %58 = tail call ptr @agraphof(ptr noundef %57) #12
   %59 = load i32, ptr %0, align 8
   %60 = and i32 %59, 3
   %61 = icmp eq i32 %60, 2
@@ -161,7 +161,7 @@ thread-pre-split:                                 ; preds = %21, %10
   %66 = getelementptr inbounds i8, ptr %0, i64 %.idx
   %67 = getelementptr inbounds i8, ptr %66, i64 56
   %68 = load ptr, ptr %67, align 8
-  %69 = tail call ptr @agedge(ptr noundef %58, ptr noundef %64, ptr noundef %68, ptr noundef null, i32 noundef 0) #11
+  %69 = tail call ptr @agedge(ptr noundef %58, ptr noundef %64, ptr noundef %68, ptr noundef null, i32 noundef 0) #12
   call void @arrow_flags(ptr noundef %69, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %70 = load i32, ptr %4, align 4
   %71 = load i32, ptr %2, align 4
@@ -196,7 +196,7 @@ define internal fastcc void @arrow_match_name(ptr noundef %0, ptr nocapture noun
   %4 = phi i32 [ %50, %.thread23 ], [ 0, %2 ]
   %.033 = phi i32 [ %.1, %.thread23 ], [ 0, %2 ]
   %.01432 = phi ptr [ %.0.i, %.thread23 ], [ %0, %2 ]
-  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.01432, ptr noundef nonnull readonly dereferenceable(9) @.str.7, i64 noundef 8) #12
+  %5 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %.01432, ptr noundef nonnull readonly dereferenceable(9) @.str.7, i64 noundef 8) #13
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %arrow_match_name_frag.exit.i, label %.preheader.i
 
@@ -212,8 +212,8 @@ arrow_match_name_frag.exit.i:                     ; preds = %.lr.ph
 .lr.ph.i16.i:                                     ; preds = %17, %.preheader.i
   %8 = phi ptr [ %19, %17 ], [ @.str.8, %.preheader.i ]
   %.015.i17.i = phi ptr [ %18, %17 ], [ @Arrowmods, %.preheader.i ]
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #12
-  %10 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %8, i64 noundef %9) #12
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #13
+  %10 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %8, i64 noundef %9) #13
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
 
@@ -239,8 +239,8 @@ arrow_match_name_frag.exit20.i:                   ; preds = %17, %12
 .lr.ph.i21.i:                                     ; preds = %arrow_match_name_frag.exit20.i, %29
   %20 = phi ptr [ %31, %29 ], [ @.str.13, %arrow_match_name_frag.exit20.i ]
   %.015.i22.i = phi ptr [ %30, %29 ], [ @Arrownames, %arrow_match_name_frag.exit20.i ]
-  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #12
-  %22 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %20, i64 noundef %21) #12
+  %21 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #13
+  %22 = tail call i32 @strncmp(ptr noundef readonly %.1.i, ptr noundef nonnull readonly %20, i64 noundef %21) #13
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %29
 
@@ -270,7 +270,7 @@ arrow_match_shape.exit:                           ; preds = %29, %arrow_match_na
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %arrow_match_shape.exit
-  %36 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.01432) #11
+  %36 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef nonnull %.01432) #12
   br label %.loopexit
 
 37:                                               ; preds = %arrow_match_shape.exit
@@ -318,9 +318,9 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr nocapture noundef %1, i64 n
   %8 = alloca [4 x %struct.pointf_s], align 16
   %9 = alloca double, align 8
   %10 = load ptr, ptr @E_penwidth, align 8
-  %11 = tail call double @late_double(ptr noundef %0, ptr noundef %10, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %11 = tail call double @late_double(ptr noundef %0, ptr noundef %10, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %12 = load ptr, ptr @E_arrowsz, align 8
-  %13 = tail call double @late_double(ptr noundef %0, ptr noundef %12, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %13 = tail call double @late_double(ptr noundef %0, ptr noundef %12, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %14 = fcmp oeq double %13, 0.000000e+00
   br i1 %14, label %arrow_length.exit, label %.preheader.i
 
@@ -350,7 +350,7 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr nocapture noundef %1, i64 n
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
-  %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #11
+  %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #12
   %31 = fadd double %.02128.i, %30
   br label %.loopexit.i
 
@@ -410,7 +410,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   store ptr %8, ptr %7, align 8
   %62 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %62, align 8
-  call void @bezier_clip(ptr noundef nonnull %7, ptr noundef nonnull @inside, ptr noundef nonnull %8, i1 noundef zeroext true) #11
+  call void @bezier_clip(ptr noundef nonnull %7, ptr noundef nonnull @inside, ptr noundef nonnull %8, i1 noundef zeroext true) #12
   br label %63
 
 63:                                               ; preds = %61, %53
@@ -453,9 +453,9 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr nocapture noundef %1, i64
   %8 = alloca [4 x %struct.pointf_s], align 16
   %9 = alloca double, align 8
   %10 = load ptr, ptr @E_penwidth, align 8
-  %11 = tail call double @late_double(ptr noundef %0, ptr noundef %10, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %11 = tail call double @late_double(ptr noundef %0, ptr noundef %10, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %12 = load ptr, ptr @E_arrowsz, align 8
-  %13 = tail call double @late_double(ptr noundef %0, ptr noundef %12, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %13 = tail call double @late_double(ptr noundef %0, ptr noundef %12, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %14 = fcmp oeq double %13, 0.000000e+00
   br i1 %14, label %arrow_length.exit, label %.preheader.i
 
@@ -485,7 +485,7 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr nocapture noundef %1, i64
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   %29 = load double, ptr %28, align 8
-  %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #11
+  %30 = tail call double %27(double noundef %29, double noundef %13, double noundef %11, i32 noundef %25) #12
   %31 = fadd double %.02128.i, %30
   br label %.loopexit.i
 
@@ -546,7 +546,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   store ptr %60, ptr %7, align 8
   %63 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %9, ptr %63, align 8
-  call void @bezier_clip(ptr noundef nonnull %7, ptr noundef nonnull @inside, ptr noundef nonnull %8, i1 noundef zeroext false) #11
+  call void @bezier_clip(ptr noundef nonnull %7, ptr noundef nonnull @inside, ptr noundef nonnull %8, i1 noundef zeroext false) #12
   br label %64
 
 64:                                               ; preds = %62, %53
@@ -576,9 +576,9 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
   %.sroa.19.0..sroa_idx = getelementptr i8, ptr %13, i64 56
   %.sroa.19.0.copyload = load double, ptr %.sroa.19.0..sroa_idx, align 8
   %15 = load ptr, ptr @E_penwidth, align 8
-  %16 = tail call double @late_double(ptr noundef %0, ptr noundef %15, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %16 = tail call double @late_double(ptr noundef %0, ptr noundef %15, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %17 = load ptr, ptr @E_arrowsz, align 8
-  %18 = tail call double @late_double(ptr noundef %0, ptr noundef %17, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %18 = tail call double @late_double(ptr noundef %0, ptr noundef %17, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %19 = fcmp oeq double %18, 0.000000e+00
   br i1 %19, label %arrow_length.exit, label %.preheader.i
 
@@ -608,7 +608,7 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %26, i64 8
   %34 = load double, ptr %33, align 8
-  %35 = tail call double %32(double noundef %34, double noundef %18, double noundef %16, i32 noundef %30) #11
+  %35 = tail call double %32(double noundef %34, double noundef %18, double noundef %16, i32 noundef %30) #12
   %36 = fadd double %.02128.i, %35
   br label %.loopexit.i
 
@@ -621,9 +621,9 @@ define void @arrowOrthoClip(ptr noundef %0, ptr nocapture noundef %1, i64 nounde
 arrow_length.exit:                                ; preds = %.loopexit.i, %12
   %.0.i = phi double [ 0.000000e+00, %12 ], [ %.1.i, %.loopexit.i ]
   %38 = load ptr, ptr @E_penwidth, align 8
-  %39 = tail call double @late_double(ptr noundef %0, ptr noundef %38, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %39 = tail call double @late_double(ptr noundef %0, ptr noundef %38, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %40 = load ptr, ptr @E_arrowsz, align 8
-  %41 = tail call double @late_double(ptr noundef %0, ptr noundef %40, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %41 = tail call double @late_double(ptr noundef %0, ptr noundef %40, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %42 = fcmp oeq double %41, 0.000000e+00
   br i1 %42, label %arrow_length.exit206, label %.preheader.i197
 
@@ -653,7 +653,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
   %55 = load ptr, ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %49, i64 8
   %57 = load double, ptr %56, align 8
-  %58 = tail call double %55(double noundef %57, double noundef %41, double noundef %39, i32 noundef %53) #11
+  %58 = tail call double %55(double noundef %57, double noundef %41, double noundef %39, i32 noundef %53) #12
   %59 = fadd double %.02128.i198, %58
   br label %.loopexit.i202
 
@@ -735,9 +735,9 @@ arrow_length.exit206:                             ; preds = %.loopexit.i202, %ar
 
 92:                                               ; preds = %91
   %93 = load ptr, ptr @E_penwidth, align 8
-  %94 = tail call double @late_double(ptr noundef %0, ptr noundef %93, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %94 = tail call double @late_double(ptr noundef %0, ptr noundef %93, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %95 = load ptr, ptr @E_arrowsz, align 8
-  %96 = tail call double @late_double(ptr noundef %0, ptr noundef %95, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %96 = tail call double @late_double(ptr noundef %0, ptr noundef %95, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %97 = fcmp oeq double %96, 0.000000e+00
   br i1 %97, label %arrow_length.exit216, label %.preheader.i207
 
@@ -767,7 +767,7 @@ arrow_length.exit206:                             ; preds = %.loopexit.i202, %ar
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds i8, ptr %104, i64 8
   %112 = load double, ptr %111, align 8
-  %113 = tail call double %110(double noundef %112, double noundef %96, double noundef %94, i32 noundef %108) #11
+  %113 = tail call double %110(double noundef %112, double noundef %96, double noundef %94, i32 noundef %108) #12
   %114 = fadd double %.02128.i208, %113
   br label %.loopexit.i212
 
@@ -846,9 +846,9 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %92
 
 142:                                              ; preds = %141
   %143 = load ptr, ptr @E_penwidth, align 8
-  %144 = tail call double @late_double(ptr noundef %0, ptr noundef %143, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %144 = tail call double @late_double(ptr noundef %0, ptr noundef %143, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %145 = load ptr, ptr @E_arrowsz, align 8
-  %146 = tail call double @late_double(ptr noundef %0, ptr noundef %145, double noundef 1.000000e+00, double noundef 0.000000e+00) #11
+  %146 = tail call double @late_double(ptr noundef %0, ptr noundef %145, double noundef 1.000000e+00, double noundef 0.000000e+00) #12
   %147 = fcmp oeq double %146, 0.000000e+00
   br i1 %147, label %arrow_length.exit226, label %.preheader.i217
 
@@ -878,7 +878,7 @@ arrow_length.exit216:                             ; preds = %.loopexit.i212, %92
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds i8, ptr %154, i64 8
   %162 = load double, ptr %161, align 8
-  %163 = tail call double %160(double noundef %162, double noundef %146, double noundef %144, i32 noundef %158) #11
+  %163 = tail call double %160(double noundef %162, double noundef %146, double noundef %144, i32 noundef %158) #12
   %164 = fadd double %.02128.i218, %163
   br label %.loopexit.i222
 
@@ -964,12 +964,12 @@ arrow_length.exit226:                             ; preds = %.loopexit.i222, %14
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 %0, double %1, double %2, double %3, double %4, double noundef %5) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 %0, double %1, double %2, double %3, double %4, double noundef %5) local_unnamed_addr #5 {
   %7 = fsub double %3, %1
   %8 = fsub double %4, %2
   %9 = fmul double %5, 1.000000e+01
-  %10 = tail call double @hypot(double noundef %7, double noundef %8) #11
+  %10 = tail call double @hypot(double noundef %7, double noundef %8) #12
   %11 = fadd double %10, 1.000000e-04
   %12 = fdiv double %9, %11
   %13 = fcmp oge double %7, 0.000000e+00
@@ -1024,8 +1024,8 @@ define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sr
   ret void
 }
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, double %4, double %5, double noundef %6, double noundef %7, i32 noundef %8) local_unnamed_addr #0 {
@@ -1037,11 +1037,11 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 528
   %16 = load ptr, ptr %15, align 8
-  tail call void @gvrender_set_style(ptr noundef nonnull %0, ptr noundef %16) #11
-  tail call void @gvrender_set_penwidth(ptr noundef nonnull %0, double noundef %7) #11
+  tail call void @gvrender_set_style(ptr noundef nonnull %0, ptr noundef %16) #12
+  tail call void @gvrender_set_penwidth(ptr noundef nonnull %0, double noundef %7) #12
   %17 = fsub double %4, %2
   %18 = fsub double %5, %3
-  %19 = tail call double @hypot(double noundef %17, double noundef %18) #11
+  %19 = tail call double @hypot(double noundef %17, double noundef %18) #12
   %20 = fadd double %19, 1.000000e-04
   %21 = fdiv double 1.000000e+01, %20
   %22 = fcmp oge double %17, 0.000000e+00
@@ -1088,7 +1088,7 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   %48 = fmul double %29, %46
   %49 = getelementptr inbounds i8, ptr %40, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = tail call { double, double } %50(ptr noundef nonnull %0, double %.sroa.031.037, double %.sroa.4.038, double %47, double %48, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #11
+  %51 = tail call { double, double } %50(ptr noundef nonnull %0, double %.sroa.031.037, double %.sroa.4.038, double %47, double %48, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #12
   %52 = extractvalue { double, double } %51, 0
   %53 = extractvalue { double, double } %51, 1
   br label %arrow_gen_type.exit
@@ -1110,15 +1110,15 @@ declare void @gvrender_set_style(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @gvrender_set_penwidth(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 declare double @late_double(ptr noundef, ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
@@ -1134,7 +1134,7 @@ define internal { double, double } @arrow_type_normal(ptr noundef %0, double %1,
   %13 = lshr i32 %7, 4
   %.lobit18 = and i32 %13, 1
   %14 = xor i32 %.lobit18, 1
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 3, i32 noundef %14) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 3, i32 noundef %14) #12
   br label %23
 
 15:                                               ; preds = %8
@@ -1147,20 +1147,20 @@ define internal { double, double } @arrow_type_normal(ptr noundef %0, double %1,
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %9, i64 32
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 3, i32 noundef %18) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %20, i64 noundef 3, i32 noundef %18) #12
   br label %23
 
 21:                                               ; preds = %15
   %22 = getelementptr inbounds i8, ptr %9, i64 16
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 3, i32 noundef %18) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 3, i32 noundef %18) #12
   br label %23
 
 23:                                               ; preds = %19, %21, %12
   ret { double, double } %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @arrow_length_normal(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define internal double @arrow_length_normal(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #5 {
   %5 = alloca [5 x %struct.pointf_s], align 16
   %6 = fmul double %0, %1
   %7 = fmul double %6, 1.000000e+01
@@ -1198,7 +1198,7 @@ define internal { double, double } @arrow_type_crow(ptr noundef %0, double %1, d
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %8
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 5, i32 noundef 1) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 5, i32 noundef 1) #12
   br label %18
 
 13:                                               ; preds = %8
@@ -1208,19 +1208,19 @@ define internal { double, double } @arrow_type_crow(ptr noundef %0, double %1, d
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds i8, ptr %9, i64 64
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 5, i32 noundef 1) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %16, i64 noundef 5, i32 noundef 1) #12
   br label %18
 
 17:                                               ; preds = %13
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 8, i32 noundef 1) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 8, i32 noundef 1) #12
   br label %18
 
 18:                                               ; preds = %15, %17, %12
   ret { double, double } %10
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @arrow_length_crow(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define internal double @arrow_length_crow(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #5 {
   %5 = alloca [9 x %struct.pointf_s], align 16
   %6 = fmul double %0, %1
   %7 = fmul double %6, 1.000000e+01
@@ -1261,7 +1261,7 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   %13 = tail call double @llvm.fmuladd.f64(double %4, double 2.000000e-01, double %2)
   %14 = tail call double @llvm.fmuladd.f64(double %3, double 6.000000e-01, double %1)
   %15 = tail call double @llvm.fmuladd.f64(double %4, double 6.000000e-01, double %2)
-  %16 = tail call double @hypot(double noundef %3, double noundef %4) #11
+  %16 = tail call double @hypot(double noundef %3, double noundef %4) #12
   %17 = fmul double %6, 5.000000e-01
   %18 = tail call double @llvm.fmuladd.f64(double %16, double -2.000000e-01, double %17)
   %19 = fcmp ogt double %16, 0.000000e+00
@@ -1272,9 +1272,9 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
 21:                                               ; preds = %8
   %22 = fneg double %4
   %23 = fneg double %3
-  %24 = tail call double @hypot(double noundef %23, double noundef %22) #11
+  %24 = tail call double @hypot(double noundef %23, double noundef %22) #12
   %25 = fdiv double %23, %24
-  %26 = tail call double @hypot(double noundef %23, double noundef %22) #11
+  %26 = tail call double @hypot(double noundef %23, double noundef %22) #12
   %27 = fdiv double %22, %26
   %28 = fmul double %18, %25
   %29 = fmul double %18, %27
@@ -1344,19 +1344,19 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   br label %59
 
 59:                                               ; preds = %56, %58, %55
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #12
   store double %.sroa.067.0, ptr %9, align 16
   store double %.sroa.771.0, ptr %41, align 8
   store double %.sroa.075.0, ptr %43, align 16
   store double %.sroa.576.0, ptr %45, align 8
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #11
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #12
   %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.075.0, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.576.0, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal double @arrow_length_tee(double noundef %0, double noundef %1, double noundef %2, i32 %3) #7 {
+define internal double @arrow_length_tee(double noundef %0, double noundef %1, double noundef %2, i32 %3) #8 {
   %5 = fmul double %0, %1
   %6 = fmul double %5, 1.000000e+01
   %7 = fmul double %2, 5.000000e-01
@@ -1384,9 +1384,9 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
 16:                                               ; preds = %8
   %17 = fneg double %4
   %18 = fneg double %3
-  %19 = tail call double @hypot(double noundef %18, double noundef %17) #11
+  %19 = tail call double @hypot(double noundef %18, double noundef %17) #12
   %20 = fdiv double %18, %19
-  %21 = tail call double @hypot(double noundef %18, double noundef %17) #11
+  %21 = tail call double @hypot(double noundef %18, double noundef %17) #12
   %22 = fdiv double %17, %21
   %23 = fmul double %6, 5.000000e-01
   %24 = fmul double %23, %20
@@ -1454,19 +1454,19 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   %56 = lshr i32 %7, 4
   %.lobit = and i32 %56, 1
   %57 = xor i32 %.lobit, 1
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %57) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %57) #12
   store double %29, ptr %9, align 16
   store double %30, ptr %33, align 8
   store double %55, ptr %35, align 16
   store double %53, ptr %37, align 8
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #11
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #12
   %.fca.0.insert = insertvalue { double, double } poison, double %55, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %53, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @arrow_length_box(double noundef %0, double noundef %1, double noundef %2, i32 %3) #7 {
+define internal noundef double @arrow_length_box(double noundef %0, double noundef %1, double noundef %2, i32 %3) #8 {
   %5 = fmul double %0, %1
   %6 = fmul double %2, 5.000000e-01
   %7 = tail call double @llvm.fmuladd.f64(double %5, double 1.000000e+01, double %6)
@@ -1542,18 +1542,18 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   br i1 %.not83.i, label %50, label %49
 
 49:                                               ; preds = %8
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %42, i64 noundef 3, i32 noundef %48) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %42, i64 noundef 3, i32 noundef %48) #12
   br label %53
 
 50:                                               ; preds = %8
   br i1 %.not.i, label %52, label %51
 
 51:                                               ; preds = %50
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 3, i32 noundef %48) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 3, i32 noundef %48) #12
   br label %53
 
 52:                                               ; preds = %50
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, i32 noundef %48) #11
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 4, i32 noundef %48) #12
   br label %53
 
 53:                                               ; preds = %51, %52, %49
@@ -1564,8 +1564,8 @@ define internal { double, double } @arrow_type_diamond(ptr noundef %0, double %1
   ret { double, double } %.fca.1.insert.i101.i
 }
 
-; Function Attrs: nounwind uwtable
-define internal double @arrow_length_diamond(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define internal double @arrow_length_diamond(double noundef %0, double noundef %1, double noundef %2, i32 noundef %3) #5 {
   %5 = alloca %struct.triangle, align 8
   %6 = fmul double %0, %1
   %7 = fmul double %6, 1.000000e+01
@@ -1615,7 +1615,7 @@ define internal double @arrow_length_diamond(double noundef %0, double noundef %
 ; Function Attrs: nounwind uwtable
 define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, double %2, double %3, double %4, double %5, double noundef %6, i32 noundef %7) #0 {
   %9 = alloca [2 x %struct.pointf_s], align 16
-  %10 = tail call double @hypot(double noundef %3, double noundef %4) #11
+  %10 = tail call double @hypot(double noundef %3, double noundef %4) #12
   %11 = fcmp une double %3, 0.000000e+00
   %12 = fcmp une double %4, 0.000000e+00
   %or.cond = or i1 %11, %12
@@ -1624,9 +1624,9 @@ define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, do
 13:                                               ; preds = %8
   %14 = fneg double %3
   %15 = fneg double %4
-  %16 = tail call double @hypot(double noundef %14, double noundef %15) #11
+  %16 = tail call double @hypot(double noundef %14, double noundef %15) #12
   %17 = fdiv double %14, %16
-  %18 = tail call double @hypot(double noundef %14, double noundef %15) #11
+  %18 = tail call double @hypot(double noundef %14, double noundef %15) #12
   %19 = fdiv double %15, %18
   %20 = fmul double %6, 5.000000e-01
   %21 = fmul double %20, %17
@@ -1659,7 +1659,7 @@ define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, do
   %38 = lshr i32 %7, 4
   %.lobit = and i32 %38, 1
   %39 = xor i32 %.lobit, 1
-  call void @gvrender_ellipse(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %39) #11
+  call void @gvrender_ellipse(ptr noundef %0, ptr noundef nonnull %9, i32 noundef %39) #12
   %40 = fadd double %3, %.sroa.031.0
   %41 = fadd double %4, %.sroa.6.0
   %42 = fsub double %40, %.sroa.09.0
@@ -1670,7 +1670,7 @@ define internal { double, double } @arrow_type_dot(ptr noundef %0, double %1, do
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @arrow_length_dot(double noundef %0, double noundef %1, double noundef %2, i32 %3) #7 {
+define internal noundef double @arrow_length_dot(double noundef %0, double noundef %1, double noundef %2, i32 %3) #8 {
   %5 = fmul double %0, %1
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 1.000000e+01, double %2)
   ret double %6
@@ -1700,9 +1700,9 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
 19:                                               ; preds = %16
   %20 = fneg double %3
   %21 = fneg double %4
-  %22 = tail call double @hypot(double noundef %20, double noundef %21) #11
+  %22 = tail call double @hypot(double noundef %20, double noundef %21) #12
   %23 = fdiv double %20, %22
-  %24 = tail call double @hypot(double noundef %20, double noundef %21) #11
+  %24 = tail call double @hypot(double noundef %20, double noundef %21) #12
   %25 = fdiv double %21, %24
   %26 = fmul double %12, %23
   %27 = fmul double %12, %25
@@ -1774,13 +1774,13 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   store double %.sink69, ptr %69, align 16
   %70 = getelementptr inbounds i8, ptr %9, i64 40
   store double %.sink, ptr %70, align 8
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2) #11
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2) #12
   %71 = and i32 %7, 64
   %.not67 = icmp eq i32 %71, 0
   br i1 %.not67, label %74, label %72
 
 72:                                               ; preds = %66
-  %73 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef null, ptr noundef nonnull %9) #11
+  %73 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef null, ptr noundef nonnull %9) #12
   br label %78
 
 74:                                               ; preds = %66
@@ -1789,18 +1789,18 @@ define internal { double, double } @arrow_type_curve(ptr noundef %0, double %1, 
   br i1 %.not68, label %78, label %76
 
 76:                                               ; preds = %74
-  %77 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef nonnull %9, ptr noundef null) #11
+  %77 = call { double, double } @Bezier(ptr noundef nonnull %9, double noundef 5.000000e-01, ptr noundef nonnull %9, ptr noundef null) #12
   br label %78
 
 78:                                               ; preds = %74, %76, %72
-  call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 0) #11
+  call void @gvrender_beziercurve(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 0) #12
   %.fca.0.insert = insertvalue { double, double } poison, double %31, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %32, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @arrow_length_curve(double noundef %0, double noundef %1, double noundef %2, i32 %3) #7 {
+define internal noundef double @arrow_length_curve(double noundef %0, double noundef %1, double noundef %2, i32 %3) #8 {
   %5 = fmul double %0, %1
   %6 = fmul double %2, 5.000000e-01
   %7 = tail call double @llvm.fmuladd.f64(double %5, double 1.000000e+01, double %6)
@@ -1819,21 +1819,21 @@ define internal { double, double } @arrow_type_gap(ptr noundef %0, double %1, do
   store double %10, ptr %12, align 16
   %.sroa.33.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
   store double %11, ptr %.sroa.33.0..sroa_idx, align 8
-  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #11
+  call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #12
   %.fca.0.insert = insertvalue { double, double } poison, double %10, 0
   %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %11, 1
   ret { double, double } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @arrow_length_generic(double noundef %0, double noundef %1, double %2, i32 %3) #7 {
+define internal noundef double @arrow_length_generic(double noundef %0, double noundef %1, double %2, i32 %3) #8 {
   %5 = fmul double %0, %1
   %6 = fmul double %5, 1.000000e+01
   ret double %6
 }
 
-; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @arrow_type_normal0(double %0, double %1, double %2, double %3, double noundef %4, i32 noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+define internal fastcc { double, double } @arrow_type_normal0(double %0, double %1, double %2, double %3, double noundef %4, i32 noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #9 {
   %8 = alloca %struct.triangle, align 8
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
@@ -1871,12 +1871,12 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   br i1 %or.cond, label %27, label %74
 
 27:                                               ; preds = %7
-  %28 = tail call double @hypot(double noundef %.sroa.053.0, double noundef %.sroa.11.0) #11
+  %28 = tail call double @hypot(double noundef %.sroa.053.0, double noundef %.sroa.11.0) #12
   %29 = fdiv double %.sroa.053.0, %28
-  %30 = tail call double @hypot(double noundef %.sroa.053.0, double noundef %.sroa.11.0) #11
+  %30 = tail call double @hypot(double noundef %.sroa.053.0, double noundef %.sroa.11.0) #12
   %31 = fdiv double %.sroa.11.0, %30
   %32 = fcmp ogt double %.sroa.11.0, 0.000000e+00
-  %33 = tail call double @acos(double noundef %29) #11
+  %33 = tail call double @acos(double noundef %29) #12
   %34 = fneg double %33
   %35 = select i1 %32, double %33, double %34
   br i1 %.not188, label %51, label %36
@@ -1889,14 +1889,14 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %.sroa.237.0.copyload = load double, ptr %.sroa.237.0..sroa_idx, align 8
   %38 = fsub double %.sroa.036.0.copyload, %.sroa.053.0
   %39 = fsub double %.sroa.237.0.copyload, %.sroa.11.0
-  %40 = tail call double @hypot(double noundef %38, double noundef %39) #11
+  %40 = tail call double @hypot(double noundef %38, double noundef %39) #12
   %41 = fdiv double %38, %40
   %42 = fcmp ogt double %39, 0.000000e+00
-  %43 = tail call double @acos(double noundef %41) #11
+  %43 = tail call double @acos(double noundef %41) #12
   %44 = fneg double %43
   %45 = select i1 %42, double %43, double %44
   %46 = fsub double %45, %35
-  %47 = tail call double @cos(double noundef %46) #11
+  %47 = tail call double @cos(double noundef %46) #12
   %48 = fmul double %40, %47
   %49 = fmul double %29, %48
   %50 = fmul double %31, %48
@@ -1913,14 +1913,14 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %.sroa.221.0.copyload = load double, ptr %.sroa.221.0..sroa_idx, align 8
   %54 = fsub double %.sroa.020.0.copyload, %.sroa.053.0
   %55 = fsub double %.sroa.221.0.copyload, %.sroa.11.0
-  %56 = tail call double @hypot(double noundef %54, double noundef %55) #11
+  %56 = tail call double @hypot(double noundef %54, double noundef %55) #12
   %57 = fdiv double %54, %56
   %58 = fcmp ogt double %55, 0.000000e+00
-  %59 = tail call double @acos(double noundef %57) #11
+  %59 = tail call double @acos(double noundef %57) #12
   %60 = fneg double %59
   %61 = select i1 %58, double %59, double %60
   %62 = fsub double %61, %35
-  %63 = tail call double @cos(double noundef %62) #11
+  %63 = tail call double @cos(double noundef %62) #12
   %64 = fmul double %56, %63
   %65 = fmul double %29, %64
   %66 = fmul double %31, %64
@@ -2007,10 +2007,10 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
 declare void @gvrender_polygon(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @acos(double noundef) local_unnamed_addr #8
+declare double @acos(double noundef) local_unnamed_addr #6
 
-; Function Attrs: nounwind uwtable
-define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, double %1, double %2, double %3, double %4, double %5, double %6, double noundef %7) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, double %1, double %2, double %3, double %4, double %5, double %6, double noundef %7) unnamed_addr #5 {
   %9 = fcmp oeq double %1, %3
   %10 = fcmp oeq double %2, %4
   %or.cond = select i1 %9, i1 %10, i1 false
@@ -2039,11 +2039,11 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
 17:                                               ; preds = %11
   %18 = fsub double %3, %1
   %19 = fsub double %4, %2
-  %20 = tail call double @hypot(double noundef %18, double noundef %19) #11
+  %20 = tail call double @hypot(double noundef %18, double noundef %19) #12
   %21 = fdiv double %18, %20
   %22 = fdiv double %19, %20
   %23 = fcmp ogt double %19, 0.000000e+00
-  %24 = tail call double @acos(double noundef %21) #11
+  %24 = tail call double @acos(double noundef %21) #12
   %25 = fneg double %24
   %26 = select i1 %23, double %24, double %25
   %27 = fmul double %7, 5.000000e-01
@@ -2052,10 +2052,10 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
   %30 = tail call double @llvm.fmuladd.f64(double %27, double %21, double %4)
   %31 = fsub double %5, %3
   %32 = fsub double %6, %4
-  %33 = tail call double @hypot(double noundef %31, double noundef %32) #11
+  %33 = tail call double @hypot(double noundef %31, double noundef %32) #12
   %34 = fdiv double %31, %33
   %35 = fcmp ogt double %32, 0.000000e+00
-  %36 = tail call double @acos(double noundef %34) #11
+  %36 = tail call double @acos(double noundef %34) #12
   %37 = fneg double %36
   %38 = select i1 %35, double %36, double %37
   %39 = fadd double %38, 0xC00921FB54442D18
@@ -2064,7 +2064,7 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
   %42 = select i1 %41, double 0x401921FB54442D18, double 0.000000e+00
   %43 = fadd double %40, %42
   %44 = fmul double %43, 5.000000e-01
-  %45 = tail call double @sin(double noundef %44) #11
+  %45 = tail call double @sin(double noundef %44) #12
   %46 = fdiv double 1.000000e+00, %45
   %47 = fneg double %32
   %48 = fdiv double %47, %33
@@ -2092,7 +2092,7 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
   br label %64
 
 59:                                               ; preds = %17
-  %60 = tail call double @tan(double noundef %44) #11
+  %60 = tail call double @tan(double noundef %44) #12
   %61 = fdiv double %27, %60
   %62 = tail call double @llvm.fmuladd.f64(double %61, double %21, double %29)
   %63 = tail call double @llvm.fmuladd.f64(double %61, double %22, double %30)
@@ -2109,19 +2109,19 @@ define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #8
+declare double @cos(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #8
+declare double @sin(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @tan(double noundef) local_unnamed_addr #8
+declare double @tan(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
-; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1, double %2, double %3, double noundef %4, double noundef %5, i32 noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1, double %2, double %3, double noundef %4, double noundef %5, i32 noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #9 {
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
   %11 = alloca %struct.triangle, align 8
@@ -2172,12 +2172,12 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   br i1 %or.cond, label %38, label %108
 
 38:                                               ; preds = %8
-  %39 = tail call double @hypot(double noundef %.sroa.083.0, double noundef %.sroa.11.0) #11
+  %39 = tail call double @hypot(double noundef %.sroa.083.0, double noundef %.sroa.11.0) #12
   %40 = fdiv double %.sroa.083.0, %39
-  %41 = tail call double @hypot(double noundef %.sroa.083.0, double noundef %.sroa.11.0) #11
+  %41 = tail call double @hypot(double noundef %.sroa.083.0, double noundef %.sroa.11.0) #12
   %42 = fdiv double %.sroa.11.0, %41
   %43 = fcmp ogt double %.sroa.11.0, 0.000000e+00
-  %44 = tail call double @acos(double noundef %40) #11
+  %44 = tail call double @acos(double noundef %40) #12
   %45 = fneg double %44
   %46 = select i1 %43, double %44, double %45
   %47 = and i32 %6, 96
@@ -2195,14 +2195,14 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.sroa.264.0.copyload = load double, ptr %.sroa.264.0..sroa_idx, align 8
   %50 = fsub double %.sroa.063.0.copyload, %.sroa.083.0
   %51 = fsub double %.sroa.264.0.copyload, %.sroa.11.0
-  %52 = tail call double @hypot(double noundef %50, double noundef %51) #11
+  %52 = tail call double @hypot(double noundef %50, double noundef %51) #12
   %53 = fdiv double %50, %52
   %54 = fcmp ogt double %51, 0.000000e+00
-  %55 = tail call double @acos(double noundef %53) #11
+  %55 = tail call double @acos(double noundef %53) #12
   %56 = fneg double %55
   %57 = select i1 %54, double %55, double %56
   %58 = fsub double %57, %46
-  %59 = tail call double @cos(double noundef %58) #11
+  %59 = tail call double @cos(double noundef %58) #12
   %60 = fmul double %52, %59
   %61 = fmul double %40, %60
   %62 = fmul double %42, %60
@@ -2223,14 +2223,14 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.sroa.248.0.copyload = load double, ptr %.sroa.248.0..sroa_idx, align 8
   %67 = fsub double %.sroa.047.0.copyload, %.sroa.083.0
   %68 = fsub double %.sroa.248.0.copyload, %.sroa.11.0
-  %69 = tail call double @hypot(double noundef %67, double noundef %68) #11
+  %69 = tail call double @hypot(double noundef %67, double noundef %68) #12
   %70 = fdiv double %67, %69
   %71 = fcmp ogt double %68, 0.000000e+00
-  %72 = tail call double @acos(double noundef %70) #11
+  %72 = tail call double @acos(double noundef %70) #12
   %73 = fneg double %72
   %74 = select i1 %71, double %72, double %73
   %75 = fsub double %74, %46
-  %76 = tail call double @cos(double noundef %75) #11
+  %76 = tail call double @cos(double noundef %75) #12
   %77 = fmul double %69, %76
   %78 = fmul double %40, %77
   %79 = fmul double %42, %77
@@ -2270,15 +2270,15 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.sroa.217.0.copyload = load double, ptr %.sroa.217.0..sroa_idx, align 8
   %94 = fsub double %.sroa.016.0.copyload, %91
   %95 = fsub double %.sroa.217.0.copyload, %92
-  %96 = tail call double @hypot(double noundef %94, double noundef %95) #11
+  %96 = tail call double @hypot(double noundef %94, double noundef %95) #12
   %97 = fdiv double %94, %96
   %98 = fcmp ogt double %95, 0.000000e+00
-  %99 = tail call double @acos(double noundef %97) #11
+  %99 = tail call double @acos(double noundef %97) #12
   %100 = fneg double %99
   %101 = select i1 %98, double %99, double %100
   %102 = fsub double %101, %46
   %103 = fneg double %96
-  %104 = tail call double @cos(double noundef %102) #11
+  %104 = tail call double @cos(double noundef %102) #12
   %105 = fmul double %104, %103
   %106 = fmul double %40, %105
   %107 = fmul double %42, %105
@@ -2418,27 +2418,28 @@ declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr
 declare void @gvrender_beziercurve(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #10
+declare double @llvm.sqrt.f64(double) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

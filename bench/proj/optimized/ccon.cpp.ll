@@ -43,7 +43,7 @@ define hidden noundef ptr @pj_ccon(ptr noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z33pj_projection_specific_setup_cconP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #9
+  %2 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #7
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -75,7 +75,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_cconP8PJconsts(ptr n
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i8, ptr %17, i64 32
   %21 = load ptr, ptr %20, align 8
-  tail call void @free(ptr noundef %21) #10
+  tail call void @free(ptr noundef %21) #8
   br label %_ZL18pj_ccon_destructorP8PJconstsi.exit
 
 _ZL18pj_ccon_destructorP8PJconstsi.exit:          ; preds = %16, %19
@@ -99,7 +99,7 @@ _ZL18pj_ccon_destructorP8PJconstsi.exit:          ; preds = %16, %19
 31:                                               ; preds = %28
   %32 = getelementptr inbounds i8, ptr %29, i64 32
   %33 = load ptr, ptr %32, align 8
-  tail call void @free(ptr noundef %33) #10
+  tail call void @free(ptr noundef %33) #8
   br label %_ZL18pj_ccon_destructorP8PJconstsi.exit28
 
 _ZL18pj_ccon_destructorP8PJconstsi.exit28:        ; preds = %28, %31
@@ -108,11 +108,11 @@ _ZL18pj_ccon_destructorP8PJconstsi.exit28:        ; preds = %28, %31
 
 35:                                               ; preds = %23
   %36 = load double, ptr %2, align 8
-  %37 = tail call double @sin(double noundef %36) #10
+  %37 = tail call double @sin(double noundef %36) #8
   %38 = getelementptr inbounds i8, ptr %2, i64 16
   store double %37, ptr %38, align 8
   %39 = load double, ptr %2, align 8
-  %40 = tail call double @cos(double noundef %39) #10
+  %40 = tail call double @cos(double noundef %39) #8
   %41 = getelementptr inbounds i8, ptr %2, i64 24
   store double %40, ptr %41, align 8
   %42 = load double, ptr %38, align 8
@@ -151,7 +151,7 @@ define internal noundef ptr @_ZL18pj_ccon_destructorP8PJconstsi(ptr noundef %0, 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #10
+  tail call void @free(ptr noundef %10) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %8
@@ -178,7 +178,7 @@ declare double @sin(double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @cos(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define internal { double, double } @_ZL12ccon_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -186,12 +186,12 @@ define internal { double, double } @_ZL12ccon_inverse5PJ_XYP8PJconsts(double %0,
   %7 = load double, ptr %6, align 8
   %8 = fsub double %7, %1
   %9 = load double, ptr %5, align 8
-  %10 = tail call double @hypot(double noundef %0, double noundef %8) #10
+  %10 = tail call double @hypot(double noundef %0, double noundef %8) #8
   %11 = load double, ptr %6, align 8
   %12 = fsub double %10, %11
-  %13 = tail call double @atan(double noundef %12) #10
+  %13 = tail call double @atan(double noundef %12) #8
   %14 = fsub double %9, %13
-  %15 = tail call double @atan2(double noundef %0, double noundef %8) #10
+  %15 = tail call double @atan2(double noundef %0, double noundef %8) #8
   %16 = getelementptr inbounds i8, ptr %5, i64 16
   %17 = load double, ptr %16, align 8
   %18 = fdiv double %15, %17
@@ -201,24 +201,24 @@ define internal { double, double } @_ZL12ccon_inverse5PJ_XYP8PJconsts(double %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal { double, double } @_ZL12ccon_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #6 {
+define internal { double, double } @_ZL12ccon_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
   %8 = load double, ptr %5, align 8
   %9 = fsub double %1, %8
-  %10 = tail call double @tan(double noundef %9) #10
+  %10 = tail call double @tan(double noundef %9) #8
   %11 = fsub double %7, %10
   %12 = getelementptr inbounds i8, ptr %5, i64 16
   %13 = load double, ptr %12, align 8
   %14 = fmul double %0, %13
-  %15 = tail call double @sin(double noundef %14) #10
+  %15 = tail call double @sin(double noundef %14) #8
   %16 = fmul double %11, %15
   %17 = load double, ptr %6, align 8
   %18 = load double, ptr %12, align 8
   %19 = fmul double %0, %18
-  %20 = tail call double @cos(double noundef %19) #10
+  %20 = tail call double @cos(double noundef %19) #8
   %21 = fneg double %11
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %20, double %17)
   %.fca.0.insert = insertvalue { double, double } poison, double %16, 0
@@ -227,13 +227,13 @@ define internal { double, double } @_ZL12ccon_forward5PJ_LPP8PJconsts(double %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @atan(double noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #8
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
@@ -249,12 +249,10 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0,1) }
-attributes #10 = { nounwind }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
