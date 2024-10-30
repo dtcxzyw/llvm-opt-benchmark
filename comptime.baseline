@@ -24567,7 +24567,7 @@ openmpi/libmpi_c_profile_la-comm_dup_with_info.ll 79152392
 openmpi/libmpi_c_profile_la-comm_f2c.ll 46644915
 openmpi/libmpi_c_profile_la-comm_free.ll 67595953
 openmpi/libmpi_c_profile_la-comm_get_name.ll 51912820
-openmpi/libmpi_c_profile_la-comm_group.ll 67096896
+openmpi/libmpi_c_profile_la-comm_group.ll 67029782
 openmpi/libmpi_c_profile_la-comm_idup.ll 67229714
 openmpi/libmpi_c_profile_la-comm_idup_with_info.ll 79441275
 openmpi/libmpi_c_profile_la-comm_join.ll 118141098
