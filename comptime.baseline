@@ -12377,7 +12377,7 @@ linux/acct.ll 203762022
 linux/acpi-cpufreq.ll 247571174
 linux/acpi-dma.ll 104470468
 linux/acpi.ll 92330856
-linux/acpi_apd.ll 45435048
+linux/acpi_apd.ll 45481577
 linux/acpi_lpat.ll 72711499
 linux/acpi_lpit.ll 77379846
 linux/acpi_pcc.ll 52758907
@@ -12422,7 +12422,7 @@ linux/api.ll 209145501
 linux/apic.ll 387183522
 linux/apic_common.ll 49974316
 linux/apic_flat_64.ll 63670183
-linux/apic_noop.ll 50667334
+linux/apic_noop.ll 50730508
 linux/apple.ll 79522868
 linux/arc4.ll 54850233
 linux/arp.ll 303242157
@@ -12575,9 +12575,9 @@ linux/cpuidle.ll 209030403
 linux/cpuset.ll 1042858801
 linux/crash.ll 65406292
 linux/crash_core.ll 201360278
-linux/crash_core_64.ll 40273320
-linux/crc-ccitt.ll 45185492
-linux/crc16.ll 45170900
+linux/crash_core_64.ll 40321244
+linux/crc-ccitt.ll 45235443
+linux/crc16.ll 45220941
 linux/cred.ll 209359926
 linux/cs.ll 193308896
 linux/cstate.ll 141354717
@@ -12737,7 +12737,7 @@ linux/early-quirks.ll 150452207
 linux/early_ioremap.ll 109597210
 linux/early_printk.ll 135982109
 linux/earlycon.ll 75582944
-linux/ebda.ll 42220392
+linux/ebda.ll 42268754
 linux/ebitmap.ll 312899147
 linux/ec.ll 441592393
 linux/ecb.ll 71684615
@@ -12949,7 +12949,7 @@ linux/i2c-core-smbus.ll 340941888
 linux/i2c-i801.ll 378393466
 linux/i386.ll 108617821
 linux/i8042.ll 437787240
-linux/i8253.ll 40160028
+linux/i8253.ll 40208427
 linux/i8259.ll 81159467
 linux/i915_active.ll 320183999
 linux/i915_cmd_parser.ll 256830777
@@ -13023,7 +13023,7 @@ linux/inflate.ll 576884344
 linux/info.ll 186613382
 linux/inftrees.ll 126501837
 linux/infutil.ll 44096513
-linux/init-mm.ll 39738483
+linux/init-mm.ll 39787887
 linux/init.ll 42710052
 linux/init_64.ll 483017919
 linux/initramfs.ll 203365178
@@ -13243,7 +13243,7 @@ linux/knc.ll 91948316
 linux/kobject.ll 243410126
 linux/kobject_uevent.ll 168629607
 linux/kprobes.ll 698712570
-linux/kqid.ll 50355708
+linux/kqid.ll 50407495
 linux/kstrtox.ll 174061406
 linux/ksysfs.ll 108328310
 linux/kthread.ll 284671017
@@ -13289,7 +13289,7 @@ linux/lzo1x_compress.ll 263982372
 linux/lzo1x_decompress_safe.ll 145010920
 linux/mac.ll 253817933
 linux/mac_hid.ll 59796988
-linux/maccess.ll 42423232
+linux/maccess.ll 42472550
 linux/machine_kexec_64.ll 126778768
 linux/madvise.ll 414703392
 linux/mailbox.ll 130091497
@@ -13556,7 +13556,7 @@ linux/pkcs7_parser.ll 122433339
 linux/pkcs7_verify.ll 104454671
 linux/pkeys.ll 72344064
 linux/platform-msi.ll 73791504
-linux/platform-quirks.ll 42459416
+linux/platform-quirks.ll 42507478
 linux/platform.ll 332059305
 linux/pme.ll 111375775
 linux/pmsr.ll 338946822
@@ -13604,7 +13604,7 @@ linux/protocol.ll 67164494
 linux/psargs.ll 150480724
 linux/psmouse-base.ll 471229421
 linux/psmouse-smbus.ll 81977809
-linux/psopinfo.ll 41987910
+linux/psopinfo.ll 42035431
 linux/psparse.ll 100074005
 linux/pt.ll 428764466
 linux/ptdump.ll 58892042
@@ -13756,7 +13756,7 @@ linux/setup-bus.ll 739115729
 linux/setup-res.ll 125033845
 linux/setup.ll 153703999
 linux/setup_percpu.ll 62214865
-linux/severity.ll 131631062
+linux/severity.ll 131778870
 linux/sg.ll 697665431
 linux/sha3_generic.ll 154725625
 linux/sha512_generic.ll 226594220
@@ -13804,7 +13804,7 @@ linux/sqpoll.ll 187980044
 linux/sr.ll 193649026
 linux/sr_ioctl.ll 155514674
 linux/sr_vendor.ll 106609743
-linux/srcutree.ll 459895359
+linux/srcutree.ll 460366654
 linux/sta_info.ll 1094316905
 linux/stackdepot.ll 237464627
 linux/stacktrace.ll 65183291
@@ -13988,7 +13988,7 @@ linux/utimes.ll 152485516
 linux/utinit.ll 55467331
 linux/utmath.ll 47868030
 linux/utmutex.ll 61234073
-linux/utnonansi.ll 52431670
+linux/utnonansi.ll 52486495
 linux/utosi.ll 85502144
 linux/utresrc.ll 98033657
 linux/utstrsuppt.ll 97472416
@@ -13999,7 +13999,7 @@ linux/vc.ll 140565179
 linux/vc_screen.ll 255394360
 linux/vclock_gettime.ll 201752167
 linux/vector.ll 382053301
-linux/version.ll 40173404
+linux/version.ll 40222111
 linux/vfs_addr.ll 64589571
 linux/vfs_dentry.ll 55662865
 linux/vfs_dir.ll 83130149
@@ -14054,7 +14054,7 @@ linux/waitq.ll 146955756
 linux/waitwake.ll 256428463
 linux/wakeirq.ll 78590595
 linux/wakeup.ll 72572256
-linux/wakeup_stats.ll 69021473
+linux/wakeup_stats.ll 69113372
 linux/wmi.ll 259719528
 linux/workingset.ll 105168493
 linux/workqueue.ll 1593558140
@@ -15069,7 +15069,7 @@ llvm/InstrRefBasedImpl.cpp.ll 33769593346
 llvm/Instruction.cpp.ll 2683692851
 llvm/InstructionCombining.cpp.ll 17100337474
 llvm/InstructionCost.cpp.ll 46672160
-llvm/InstructionNamer.cpp.ll 167896280
+llvm/InstructionNamer.cpp.ll 168069329
 llvm/InstructionPrecedenceTracking.cpp.ll 434478610
 llvm/InstructionSelect.cpp.ll 1753384762
 llvm/InstructionSelector.cpp.ll 41858382
@@ -17127,7 +17127,7 @@ lvgl/lv_obj_style_gen.ll 171389122
 lvgl/lv_obj_tree.ll 330836927
 lvgl/lv_observer.ll 231861328
 lvgl/lv_os.ll 33583751
-lvgl/lv_os_none.ll 42252623
+lvgl/lv_os_none.ll 42295559
 lvgl/lv_palette.ll 45323364
 lvgl/lv_rb.ll 251020147
 lvgl/lv_refr.ll 489521494
@@ -17987,7 +17987,7 @@ mitsuba3/distant.cpp.ll 1428429508
 mitsuba3/dstream.cpp.ll 375265065
 mitsuba3/emitter.cpp.ll 100277488
 mitsuba3/endpoint.cpp.ll 511512206
-mitsuba3/environment.cpp.ll 41424722
+mitsuba3/environment.cpp.ll 41469919
 mitsuba3/envmap.cpp.ll 2329097450
 mitsuba3/errorhandler.cpp.ll 38902732
 mitsuba3/filesystem.cpp.ll 783198818
@@ -18886,7 +18886,7 @@ ninja/parser.cc.ll 84980160
 ninja/state.cc.ll 1054420880
 ninja/state_test.cc.ll 353396741
 ninja/status.cc.ll 326301391
-ninja/string_piece_util.cc.ll 261364280
+ninja/string_piece_util.cc.ll 261627262
 ninja/string_piece_util_test.cc.ll 708194612
 ninja/subprocess-posix.cc.ll 432247505
 ninja/subprocess_test.cc.ll 1155144998
@@ -24614,7 +24614,7 @@ openmpi/libmpi_c_profile_la-file_iwrite_at.ll 76102849
 openmpi/libmpi_c_profile_la-file_iwrite_at_all.ll 76900699
 openmpi/libmpi_c_profile_la-file_iwrite_shared.ll 76064890
 openmpi/libmpi_c_profile_la-file_open.ll 79781617
-openmpi/libmpi_c_profile_la-file_preallocate.ll 67587682
+openmpi/libmpi_c_profile_la-file_preallocate.ll 67656165
 openmpi/libmpi_c_profile_la-file_read.ll 75373773
 openmpi/libmpi_c_profile_la-file_read_all.ll 75254022
 openmpi/libmpi_c_profile_la-file_read_all_begin.ll 75135208
@@ -24643,7 +24643,7 @@ openmpi/libmpi_c_profile_la-file_write_at.ll 75463850
 openmpi/libmpi_c_profile_la-file_write_at_all.ll 75386005
 openmpi/libmpi_c_profile_la-file_write_at_all_begin.ll 75164461
 openmpi/libmpi_c_profile_la-file_write_at_all_end.ll 67988308
-openmpi/libmpi_c_profile_la-file_write_ordered.ll 75277083
+openmpi/libmpi_c_profile_la-file_write_ordered.ll 75352428
 openmpi/libmpi_c_profile_la-file_write_ordered_begin.ll 75046779
 openmpi/libmpi_c_profile_la-file_write_ordered_end.ll 67913345
 openmpi/libmpi_c_profile_la-file_write_shared.ll 75340695
@@ -24767,7 +24767,7 @@ openmpi/libmpi_c_profile_la-rget.ll 89281232
 openmpi/libmpi_c_profile_la-rget_accumulate.ll 107591932
 openmpi/libmpi_c_profile_la-rput.ll 89431751
 openmpi/libmpi_c_profile_la-rsend.ll 98370408
-openmpi/libmpi_c_profile_la-rsend_init.ll 86031357
+openmpi/libmpi_c_profile_la-rsend_init.ll 86117504
 openmpi/libmpi_c_profile_la-scan.ll 112093515
 openmpi/libmpi_c_profile_la-scan_init.ll 93447979
 openmpi/libmpi_c_profile_la-scatter.ll 115249687
@@ -24787,7 +24787,7 @@ openmpi/libmpi_c_profile_la-session_get_num_psets.ll 65549601
 openmpi/libmpi_c_profile_la-session_get_pset_info.ll 67381116
 openmpi/libmpi_c_profile_la-session_init.ll 76687612
 openmpi/libmpi_c_profile_la-ssend.ll 98370659
-openmpi/libmpi_c_profile_la-ssend_init.ll 86031631
+openmpi/libmpi_c_profile_la-ssend_init.ll 86117798
 openmpi/libmpi_c_profile_la-start.ll 65414242
 openmpi/libmpi_c_profile_la-status_c2f08.ll 46452662
 openmpi/libmpi_c_profile_la-status_f082c.ll 47889541
@@ -25842,7 +25842,7 @@ openssl/bftest-bin-bftest.ll 156461212
 openssl/bignum-test-bin-bignum.ll 53345346
 openssl/bio_addr_test-bin-bio_addr_test.ll 67059664
 openssl/bio_callback_test-bin-bio_callback_test.ll 180134727
-openssl/bio_dgram_test-bin-bio_dgram_test.ll 321847514
+openssl/bio_dgram_test-bin-bio_dgram_test.ll 322171653
 openssl/bio_enc_test-bin-bio_enc_test.ll 114759719
 openssl/bio_prefix_text-bin-bio_prefix_text.ll 117210798
 openssl/bioprinttest-bin-bioprinttest.ll 101070899
@@ -29158,7 +29158,7 @@ postgres/guc-file.ll 556456698
 postgres/guc.ll 1690947836
 postgres/guc_funcs.ll 250764061
 postgres/hash.ll 211850255
-postgres/hash_xlog.ll 355069014
+postgres/hash_xlog.ll 355425768
 postgres/hashfn.ll 279734090
 postgres/hashfn_shlib.ll 279622539
 postgres/hashfn_srv.ll 279735017
@@ -32579,7 +32579,7 @@ rocksdb/cuckoo_table_factory.cc.ll 585035547
 rocksdb/cuckoo_table_reader.cc.ll 1312734913
 rocksdb/customizable.cc.ll 444517167
 rocksdb/data_block_hash_index.cc.ll 201808603
-rocksdb/data_structure.cc.ll 38178065
+rocksdb/data_structure.cc.ll 38220708
 rocksdb/db_dump_tool.cc.ll 486626169
 rocksdb/db_filesnapshot.cc.ll 891510021
 rocksdb/db_impl.cc.ll 20915923098
@@ -37781,7 +37781,7 @@ wireshark/packet-nhrp.c.ll 289088795
 wireshark/packet-nlm.c.ll 185664938
 wireshark/packet-nntp.c.ll 55867113
 wireshark/packet-noe.c.ll 251049827
-wireshark/packet-nordic_ble.c.ll 370513155
+wireshark/packet-nordic_ble.c.ll 370886952
 wireshark/packet-nr-rrc.c.ll 13487958109
 wireshark/packet-nsip.c.ll 263764933
 wireshark/packet-ntlmssp.c.ll 614245720
