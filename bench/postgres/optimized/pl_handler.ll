@@ -604,19 +604,19 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   switch i32 %34, label %36 [
     i32 2279, label %42
     i32 3838, label %35
-    i32 2249, label %.fold.split
-    i32 2278, label %.fold.split138
-    i32 2283, label %.fold.split139
-    i32 2277, label %.fold.split140
-    i32 2776, label %.fold.split141
-    i32 3500, label %.fold.split142
-    i32 3831, label %.fold.split143
-    i32 4537, label %.fold.split144
+    i32 2249, label %.fold.split145
+    i32 2278, label %.fold.split144
+    i32 2283, label %.fold.split145
+    i32 2277, label %.fold.split144
+    i32 2776, label %.fold.split145
+    i32 3500, label %.fold.split144
+    i32 3831, label %.fold.split145
+    i32 4537, label %.fold.split145
     i32 5077, label %.fold.split145
-    i32 5078, label %.fold.split146
-    i32 5079, label %.fold.split147
-    i32 5080, label %.fold.split148
-    i32 4538, label %.fold.split149
+    i32 5078, label %.fold.split145
+    i32 5079, label %.fold.split144
+    i32 5080, label %.fold.split145
+    i32 4538, label %.fold.split145
   ]
 
 35:                                               ; preds = %33
@@ -632,48 +632,15 @@ define noundef i64 @plpgsql_validator(ptr nocapture noundef readonly %0) local_u
   tail call void @errfinish(ptr noundef nonnull @.str.15, i32 noundef 481, ptr noundef nonnull @__func__.plpgsql_validator) #10
   unreachable
 
-.fold.split:                                      ; preds = %33
+.fold.split144:                                   ; preds = %33, %33, %33, %33
   br label %42
 
-.fold.split138:                                   ; preds = %33
+.fold.split145:                                   ; preds = %33, %33, %33, %33, %33, %33, %33, %33, %33
   br label %42
 
-.fold.split139:                                   ; preds = %33
-  br label %42
-
-.fold.split140:                                   ; preds = %33
-  br label %42
-
-.fold.split141:                                   ; preds = %33
-  br label %42
-
-.fold.split142:                                   ; preds = %33
-  br label %42
-
-.fold.split143:                                   ; preds = %33
-  br label %42
-
-.fold.split144:                                   ; preds = %33
-  br label %42
-
-.fold.split145:                                   ; preds = %33
-  br label %42
-
-.fold.split146:                                   ; preds = %33
-  br label %42
-
-.fold.split147:                                   ; preds = %33
-  br label %42
-
-.fold.split148:                                   ; preds = %33
-  br label %42
-
-.fold.split149:                                   ; preds = %33
-  br label %42
-
-42:                                               ; preds = %33, %.fold.split149, %.fold.split148, %.fold.split147, %.fold.split146, %.fold.split145, %.fold.split144, %.fold.split143, %.fold.split142, %.fold.split141, %.fold.split140, %.fold.split139, %.fold.split138, %.fold.split, %35, %22
-  %.0124 = phi i1 [ true, %35 ], [ false, %22 ], [ false, %33 ], [ false, %.fold.split ], [ false, %.fold.split138 ], [ false, %.fold.split139 ], [ false, %.fold.split140 ], [ false, %.fold.split141 ], [ false, %.fold.split142 ], [ false, %.fold.split143 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ], [ false, %.fold.split146 ], [ false, %.fold.split147 ], [ false, %.fold.split148 ], [ false, %.fold.split149 ]
-  %.0123 = phi i1 [ false, %35 ], [ false, %22 ], [ true, %33 ], [ false, %.fold.split ], [ false, %.fold.split138 ], [ false, %.fold.split139 ], [ false, %.fold.split140 ], [ false, %.fold.split141 ], [ false, %.fold.split142 ], [ false, %.fold.split143 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ], [ false, %.fold.split146 ], [ false, %.fold.split147 ], [ false, %.fold.split148 ], [ false, %.fold.split149 ]
+42:                                               ; preds = %33, %.fold.split145, %.fold.split144, %35, %22
+  %.0124 = phi i1 [ true, %35 ], [ false, %22 ], [ false, %33 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ]
+  %.0123 = phi i1 [ false, %35 ], [ false, %22 ], [ true, %33 ], [ false, %.fold.split144 ], [ false, %.fold.split145 ]
   %43 = call i32 @get_func_arg_info(ptr noundef nonnull %18, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4) #10
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge

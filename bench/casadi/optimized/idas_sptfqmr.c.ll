@@ -318,7 +318,7 @@ define internal range(i32 -1, 2) i32 @IDASptfqmrSolve(ptr noundef %0, ptr nounde
 .thread:                                          ; preds = %6
   %48 = getelementptr inbounds i8, ptr %11, i64 200
   store i64 0, ptr %48, align 8
-  br label %62
+  br label %59
 
 49:                                               ; preds = %6
   %50 = getelementptr inbounds i8, ptr %11, i64 72
@@ -328,41 +328,32 @@ define internal range(i32 -1, 2) i32 @IDASptfqmrSolve(ptr noundef %0, ptr nounde
   %53 = sext i32 %34 to i64
   %54 = getelementptr inbounds i8, ptr %11, i64 200
   store i64 %53, ptr %54, align 8
-  switch i32 %34, label %62 [
-    i32 -3, label %61
+  switch i32 %34, label %59 [
+    i32 -3, label %58
     i32 1, label %55
-    i32 2, label %56
-    i32 3, label %57
-    i32 4, label %58
-    i32 -1, label %59
-    i32 -2, label %60
+    i32 2, label %55
+    i32 3, label %55
+    i32 4, label %55
+    i32 -1, label %56
+    i32 -2, label %57
   ]
 
-55:                                               ; preds = %49
-  br label %62
+55:                                               ; preds = %49, %49, %49, %49
+  br label %59
 
 56:                                               ; preds = %49
-  br label %62
+  br label %59
 
 57:                                               ; preds = %49
-  br label %62
+  call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #7
+  br label %59
 
 58:                                               ; preds = %49
-  br label %62
-
-59:                                               ; preds = %49
-  br label %62
-
-60:                                               ; preds = %49
-  call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11) #7
-  br label %62
-
-61:                                               ; preds = %49
   call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.12) #7
-  br label %62
+  br label %59
 
-62:                                               ; preds = %.thread, %49, %61, %60, %59, %58, %57, %56, %55
-  %.0 = phi i32 [ -1, %61 ], [ -1, %60 ], [ %34, %59 ], [ 1, %58 ], [ 1, %57 ], [ 1, %56 ], [ %34, %55 ], [ 0, %49 ], [ 0, %.thread ]
+59:                                               ; preds = %.thread, %49, %58, %57, %56, %55
+  %.0 = phi i32 [ -1, %58 ], [ -1, %57 ], [ -1, %56 ], [ 1, %55 ], [ 0, %49 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

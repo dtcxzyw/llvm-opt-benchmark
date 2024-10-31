@@ -9438,16 +9438,16 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h7e71e958a4adb03dE.llvm.
     i64 2, label %11
     i64 3, label %13
     i64 4, label %15
-    i64 5, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
-    i64 6, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
-    i64 7, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
-    i64 8, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
-    i64 9, label %17
-    i64 10, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
-    i64 11, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
+    i64 5, label %17
+    i64 6, label %17
+    i64 7, label %17
+    i64 8, label %17
+    i64 9, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
+    i64 10, label %17
+    i64 11, label %17
     i64 12, label %18
     i64 13, label %23
-    i64 14, label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
+    i64 14, label %17
   ]
 
 6:                                                ; preds = %1
@@ -9473,7 +9473,7 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h7e71e958a4adb03dE.llvm.
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   br label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
 
-17:                                               ; preds = %1
+17:                                               ; preds = %1, %1, %1, %1, %1, %1, %1
   br label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
 
 18:                                               ; preds = %1
@@ -9488,9 +9488,9 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h7e71e958a4adb03dE.llvm.
   %25 = load ptr, ptr %24, align 8, !alias.scope !2010, !nonnull !23, !align !57, !noundef !23
   br label %"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit"
 
-"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit": ; preds = %1, %1, %1, %1, %1, %1, %1, %7, %9, %11, %13, %15, %17, %18, %23
-  %.sroa.16.0.i = phi ptr [ @anon.45ca28eacd16980a982db8040ceab1d4.303.llvm.10820452972315511531, %23 ], [ %22, %18 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.301, %17 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.299, %15 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.124, %13 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.297.llvm.10820452972315511531, %11 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.295.llvm.10820452972315511531, %9 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.293, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %25, %23 ], [ %20, %18 ], [ %0, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+"_ZN80_$LT$datafusion_common..error..DataFusionError$u20$as$u20$core..error..Error$GT$6source17h42941c4f3e0e48f6E.llvm.10820452972315511531.exit": ; preds = %1, %7, %9, %11, %13, %15, %17, %18, %23
+  %.sroa.16.0.i = phi ptr [ @anon.45ca28eacd16980a982db8040ceab1d4.303.llvm.10820452972315511531, %23 ], [ %22, %18 ], [ undef, %17 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.299, %15 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.124, %13 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.297.llvm.10820452972315511531, %11 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.295.llvm.10820452972315511531, %9 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.293, %7 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.301, %1 ]
+  %.sroa.0.0.i = phi ptr [ %25, %23 ], [ %20, %18 ], [ null, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %0, %1 ]
   %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
   %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.16.0.i, 1
   ret { ptr, ptr } %27
@@ -9918,14 +9918,14 @@ define hidden { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..erro
   switch i64 %5, label %6 [
     i64 0, label %7
     i64 1, label %12
-    i64 2, label %41
+    i64 2, label %40
     i64 3, label %17
     i64 4, label %19
     i64 5, label %24
     i64 6, label %29
     i64 7, label %34
     i64 8, label %39
-    i64 9, label %40
+    i64 9, label %39
   ]
 
 6:                                                ; preds = %1
@@ -9936,59 +9936,56 @@ define hidden { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..erro
   %9 = load ptr, ptr %8, align 8, !nonnull !23, !align !56, !noundef !23
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !23, !align !56, !noundef !23
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %41
+  br label %40
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !23, !align !56, !noundef !23
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !nonnull !23, !align !56, !noundef !23
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !nonnull !23, !align !56, !noundef !23
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !nonnull !23, !align !56, !noundef !23
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
-39:                                               ; preds = %1
-  br label %41
+39:                                               ; preds = %1, %1
+  br label %40
 
-40:                                               ; preds = %1
-  br label %41
-
-41:                                               ; preds = %1, %40, %39, %34, %29, %24, %19, %17, %12, %7
-  %.sroa.11.0 = phi ptr [ undef, %40 ], [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.75, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.73, %1 ]
-  %.sroa.0.0 = phi ptr [ null, %40 ], [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.11.0, 1
-  ret { ptr, ptr } %43
+40:                                               ; preds = %1, %39, %34, %29, %24, %19, %17, %12, %7
+  %.sroa.11.0 = phi ptr [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.75, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.73, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
+  %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %42 = insertvalue { ptr, ptr } %41, ptr %.sroa.11.0, 1
+  ret { ptr, ptr } %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -10000,14 +9997,14 @@ define hidden { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..erro
   switch i64 %5, label %6 [
     i64 0, label %7
     i64 1, label %12
-    i64 2, label %41
+    i64 2, label %40
     i64 3, label %17
     i64 4, label %19
     i64 5, label %24
     i64 6, label %29
     i64 7, label %34
     i64 8, label %39
-    i64 9, label %40
+    i64 9, label %39
   ]
 
 6:                                                ; preds = %1
@@ -10018,59 +10015,56 @@ define hidden { ptr, ptr } @"_ZN58_$LT$object_store..Error$u20$as$u20$core..erro
   %9 = load ptr, ptr %8, align 8, !nonnull !23, !align !56, !noundef !23
   %10 = getelementptr inbounds i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 12:                                               ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !23, !align !56, !noundef !23
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = load ptr, ptr %15, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 17:                                               ; preds = %1
   %18 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %41
+  br label %40
 
 19:                                               ; preds = %1
   %20 = getelementptr inbounds i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !23, !align !56, !noundef !23
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 24:                                               ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !nonnull !23, !align !56, !noundef !23
   %27 = getelementptr inbounds i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 29:                                               ; preds = %1
   %30 = getelementptr inbounds i8, ptr %0, i64 32
   %31 = load ptr, ptr %30, align 8, !nonnull !23, !align !56, !noundef !23
   %32 = getelementptr inbounds i8, ptr %0, i64 40
   %33 = load ptr, ptr %32, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
 34:                                               ; preds = %1
   %35 = getelementptr inbounds i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !nonnull !23, !align !56, !noundef !23
   %37 = getelementptr inbounds i8, ptr %0, i64 40
   %38 = load ptr, ptr %37, align 8, !nonnull !23, !align !57, !noundef !23
-  br label %41
+  br label %40
 
-39:                                               ; preds = %1
-  br label %41
+39:                                               ; preds = %1, %1
+  br label %40
 
-40:                                               ; preds = %1
-  br label %41
-
-41:                                               ; preds = %1, %40, %39, %34, %29, %24, %19, %17, %12, %7
-  %.sroa.11.0 = phi ptr [ undef, %40 ], [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.75, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.73, %1 ]
-  %.sroa.0.0 = phi ptr [ null, %40 ], [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
-  %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %43 = insertvalue { ptr, ptr } %42, ptr %.sroa.11.0, 1
-  ret { ptr, ptr } %43
+40:                                               ; preds = %1, %39, %34, %29, %24, %19, %17, %12, %7
+  %.sroa.11.0 = phi ptr [ undef, %39 ], [ %38, %34 ], [ %33, %29 ], [ %28, %24 ], [ %23, %19 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.75, %17 ], [ %16, %12 ], [ %11, %7 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.73, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %39 ], [ %36, %34 ], [ %31, %29 ], [ %26, %24 ], [ %21, %19 ], [ %18, %17 ], [ %14, %12 ], [ %9, %7 ], [ %0, %1 ]
+  %41 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %42 = insertvalue { ptr, ptr } %41, ptr %.sroa.11.0, 1
+  ret { ptr, ptr } %42
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -11797,16 +11791,16 @@ define hidden { ptr, ptr } @"_ZN80_$LT$datafusion_common..error..DataFusionError
     i64 2, label %11
     i64 3, label %13
     i64 4, label %15
-    i64 5, label %26
-    i64 6, label %26
-    i64 7, label %26
-    i64 8, label %26
-    i64 9, label %17
-    i64 10, label %26
-    i64 11, label %26
+    i64 5, label %17
+    i64 6, label %17
+    i64 7, label %17
+    i64 8, label %17
+    i64 9, label %26
+    i64 10, label %17
+    i64 11, label %17
     i64 12, label %18
     i64 13, label %23
-    i64 14, label %26
+    i64 14, label %17
   ]
 
 6:                                                ; preds = %1
@@ -11832,7 +11826,7 @@ define hidden { ptr, ptr } @"_ZN80_$LT$datafusion_common..error..DataFusionError
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   br label %26
 
-17:                                               ; preds = %1
+17:                                               ; preds = %1, %1, %1, %1, %1, %1, %1
   br label %26
 
 18:                                               ; preds = %1
@@ -11847,9 +11841,9 @@ define hidden { ptr, ptr } @"_ZN80_$LT$datafusion_common..error..DataFusionError
   %25 = load ptr, ptr %24, align 8, !nonnull !23, !align !57, !noundef !23
   br label %26
 
-26:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %23, %18, %17, %15, %13, %11, %9, %7
-  %.sroa.16.0 = phi ptr [ @anon.45ca28eacd16980a982db8040ceab1d4.303.llvm.10820452972315511531, %23 ], [ %22, %18 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.301, %17 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.299, %15 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.124, %13 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.297.llvm.10820452972315511531, %11 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.295.llvm.10820452972315511531, %9 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.293, %7 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %25, %23 ], [ %20, %18 ], [ %0, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+26:                                               ; preds = %1, %23, %18, %17, %15, %13, %11, %9, %7
+  %.sroa.16.0 = phi ptr [ @anon.45ca28eacd16980a982db8040ceab1d4.303.llvm.10820452972315511531, %23 ], [ %22, %18 ], [ undef, %17 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.299, %15 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.124, %13 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.297.llvm.10820452972315511531, %11 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.295.llvm.10820452972315511531, %9 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.293, %7 ], [ @anon.45ca28eacd16980a982db8040ceab1d4.301, %1 ]
+  %.sroa.0.0 = phi ptr [ %25, %23 ], [ %20, %18 ], [ null, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ], [ %10, %9 ], [ %8, %7 ], [ %0, %1 ]
   %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.16.0, 1
   ret { ptr, ptr } %28

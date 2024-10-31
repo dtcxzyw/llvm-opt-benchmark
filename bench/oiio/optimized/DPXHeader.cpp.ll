@@ -1837,43 +1837,31 @@ entry:
     i8 -101, label %sw.bb14
     i8 -102, label %sw.bb13
     i8 -103, label %sw.bb12
-    i8 -104, label %sw.bb11
-    i8 -105, label %sw.bb10
+    i8 -104, label %sw.bb8
+    i8 -105, label %sw.bb7
     i8 -106, label %sw.bb9
     i8 103, label %sw.bb8
-    i8 102, label %sw.bb7
+    i8 102, label %sw.bb3
     i8 50, label %sw.bb3
     i8 51, label %sw.bb4
     i8 52, label %sw.bb4
-    i8 100, label %sw.bb5
-    i8 101, label %sw.bb6
+    i8 100, label %sw.bb9
+    i8 101, label %sw.bb7
   ]
 
-sw.bb3:                                           ; preds = %entry
+sw.bb3:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
-sw.bb5:                                           ; preds = %entry
+sw.bb7:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
-sw.bb6:                                           ; preds = %entry
+sw.bb8:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
-sw.bb7:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb8:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb9:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb10:                                          ; preds = %entry
-  br label %sw.epilog
-
-sw.bb11:                                          ; preds = %entry
+sw.bb9:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.bb12:                                          ; preds = %entry
@@ -1888,8 +1876,8 @@ sw.bb14:                                          ; preds = %entry
 sw.bb15:                                          ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %entry
-  %count.0 = phi i32 [ 8, %sw.bb15 ], [ 7, %sw.bb14 ], [ 6, %sw.bb13 ], [ 5, %sw.bb12 ], [ 4, %sw.bb11 ], [ 3, %sw.bb10 ], [ 2, %sw.bb9 ], [ 4, %sw.bb8 ], [ 3, %sw.bb7 ], [ 3, %sw.bb6 ], [ 2, %sw.bb5 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 1, %entry ]
+sw.epilog:                                        ; preds = %sw.bb15, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb4, %sw.bb3, %entry
+  %count.0 = phi i32 [ 8, %sw.bb15 ], [ 7, %sw.bb14 ], [ 6, %sw.bb13 ], [ 5, %sw.bb12 ], [ 2, %sw.bb9 ], [ 4, %sw.bb8 ], [ 3, %sw.bb7 ], [ 4, %sw.bb4 ], [ 3, %sw.bb3 ], [ 1, %entry ]
   ret i32 %count.0
 }
 

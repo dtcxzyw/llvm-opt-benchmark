@@ -3501,36 +3501,30 @@ define dso_local range(i64 -60, 1) i64 @ZSTD_DCtx_setMaxWindowSize(ptr nocapture
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { i64, i64 } @ZSTD_dParam_getBounds(i32 noundef %0) local_unnamed_addr #2 {
-  switch i32 %0, label %7 [
-    i32 100, label %8
+  switch i32 %0, label %5 [
+    i32 100, label %6
     i32 1000, label %2
-    i32 1001, label %3
-    i32 1002, label %4
-    i32 1003, label %5
-    i32 1004, label %6
+    i32 1001, label %2
+    i32 1002, label %3
+    i32 1003, label %3
+    i32 1004, label %4
   ]
 
-2:                                                ; preds = %1
-  br label %8
+2:                                                ; preds = %1, %1
+  br label %6
 
-3:                                                ; preds = %1
-  br label %8
+3:                                                ; preds = %1, %1
+  br label %6
 
 4:                                                ; preds = %1
-  br label %8
+  br label %6
 
 5:                                                ; preds = %1
-  br label %8
+  br label %6
 
-6:                                                ; preds = %1
-  br label %8
-
-7:                                                ; preds = %1
-  br label %8
-
-8:                                                ; preds = %1, %7, %6, %5, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %7 ], [ 4294967296, %6 ], [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
-  %.sroa.0.0 = phi i64 [ -40, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
+6:                                                ; preds = %1, %5, %4, %3, %2
+  %.sroa.3.0 = phi i64 [ 0, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert

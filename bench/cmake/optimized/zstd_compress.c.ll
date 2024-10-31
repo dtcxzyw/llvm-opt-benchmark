@@ -749,161 +749,107 @@ define dso_local range(i64 -42, 1) i64 @ZSTD_checkCParams(ptr nocapture noundef 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { i64, i64 } @ZSTD_cParam_getBounds(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %38 [
+  switch i32 %0, label %20 [
     i32 100, label %2
-    i32 101, label %39
+    i32 101, label %21
     i32 102, label %3
-    i32 103, label %4
-    i32 104, label %5
-    i32 105, label %6
-    i32 106, label %7
-    i32 107, label %8
-    i32 200, label %9
-    i32 201, label %10
-    i32 202, label %11
-    i32 400, label %12
-    i32 401, label %13
-    i32 402, label %14
-    i32 1005, label %15
-    i32 160, label %16
-    i32 161, label %17
-    i32 162, label %18
-    i32 163, label %19
-    i32 164, label %20
-    i32 500, label %21
-    i32 1000, label %22
-    i32 10, label %23
-    i32 1001, label %24
-    i32 1002, label %25
-    i32 1003, label %26
-    i32 1004, label %27
-    i32 1006, label %28
-    i32 1007, label %28
-    i32 1008, label %29
-    i32 1009, label %30
-    i32 1010, label %31
-    i32 1011, label %32
-    i32 1012, label %33
-    i32 1013, label %34
-    i32 1014, label %35
-    i32 1015, label %36
-    i32 1016, label %37
+    i32 103, label %3
+    i32 104, label %4
+    i32 105, label %5
+    i32 106, label %6
+    i32 107, label %7
+    i32 200, label %18
+    i32 201, label %8
+    i32 202, label %8
+    i32 400, label %9
+    i32 401, label %9
+    i32 402, label %9
+    i32 1005, label %18
+    i32 160, label %14
+    i32 161, label %3
+    i32 162, label %10
+    i32 163, label %11
+    i32 164, label %12
+    i32 500, label %8
+    i32 1000, label %8
+    i32 10, label %8
+    i32 1001, label %13
+    i32 1002, label %14
+    i32 1003, label %15
+    i32 1004, label %16
+    i32 1006, label %17
+    i32 1007, label %17
+    i32 1008, label %8
+    i32 1009, label %8
+    i32 1010, label %14
+    i32 1011, label %14
+    i32 1012, label %18
+    i32 1013, label %14
+    i32 1014, label %8
+    i32 1015, label %19
+    i32 1016, label %14
   ]
 
 2:                                                ; preds = %1
-  br label %39
+  br label %21
 
-3:                                                ; preds = %1
-  br label %39
+3:                                                ; preds = %1, %1, %1
+  br label %21
 
 4:                                                ; preds = %1
-  br label %39
+  br label %21
 
 5:                                                ; preds = %1
-  br label %39
+  br label %21
 
 6:                                                ; preds = %1
-  br label %39
+  br label %21
 
 7:                                                ; preds = %1
-  br label %39
+  br label %21
 
-8:                                                ; preds = %1
-  br label %39
+8:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  br label %21
 
-9:                                                ; preds = %1
-  br label %39
+9:                                                ; preds = %1, %1, %1
+  br label %21
 
 10:                                               ; preds = %1
-  br label %39
+  br label %21
 
 11:                                               ; preds = %1
-  br label %39
+  br label %21
 
 12:                                               ; preds = %1
-  br label %39
+  br label %21
 
 13:                                               ; preds = %1
-  br label %39
+  br label %21
 
-14:                                               ; preds = %1
-  br label %39
+14:                                               ; preds = %1, %1, %1, %1, %1, %1
+  br label %21
 
 15:                                               ; preds = %1
-  br label %39
+  br label %21
 
 16:                                               ; preds = %1
-  br label %39
+  br label %21
 
-17:                                               ; preds = %1
-  br label %39
+17:                                               ; preds = %1, %1
+  br label %21
 
-18:                                               ; preds = %1
-  br label %39
+18:                                               ; preds = %1, %1, %1
+  br label %21
 
 19:                                               ; preds = %1
-  br label %39
+  br label %21
 
 20:                                               ; preds = %1
-  br label %39
+  br label %21
 
-21:                                               ; preds = %1
-  br label %39
-
-22:                                               ; preds = %1
-  br label %39
-
-23:                                               ; preds = %1
-  br label %39
-
-24:                                               ; preds = %1
-  br label %39
-
-25:                                               ; preds = %1
-  br label %39
-
-26:                                               ; preds = %1
-  br label %39
-
-27:                                               ; preds = %1
-  br label %39
-
-28:                                               ; preds = %1, %1
-  br label %39
-
-29:                                               ; preds = %1
-  br label %39
-
-30:                                               ; preds = %1
-  br label %39
-
-31:                                               ; preds = %1
-  br label %39
-
-32:                                               ; preds = %1
-  br label %39
-
-33:                                               ; preds = %1
-  br label %39
-
-34:                                               ; preds = %1
-  br label %39
-
-35:                                               ; preds = %1
-  br label %39
-
-36:                                               ; preds = %1
-  br label %39
-
-37:                                               ; preds = %1
-  br label %39
-
-38:                                               ; preds = %1
-  br label %39
-
-39:                                               ; preds = %1, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.sroa.3.0 = phi i64 [ 0, %38 ], [ 8589934592, %37 ], [ 562949953422336, %36 ], [ 4294967296, %35 ], [ 8589934592, %34 ], [ 4294967296, %33 ], [ 8589934592, %32 ], [ 8589934592, %31 ], [ 4294967296, %30 ], [ 4294967296, %29 ], [ 4294967296, %28 ], [ 9223372032559808512, %27 ], [ 562949953421376, %26 ], [ 8589934592, %25 ], [ 12884901888, %24 ], [ 4294967296, %23 ], [ 4294967296, %22 ], [ 4294967296, %21 ], [ 107374182400, %20 ], [ 34359738369, %19 ], [ 17592186044420, %18 ], [ 128849018886, %17 ], [ 8589934592, %16 ], [ 4294967296, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 4294967296, %11 ], [ 4294967296, %10 ], [ 4294967296, %9 ], [ 38654705665, %8 ], [ 562949953421312, %7 ], [ 30064771075, %6 ], [ 128849018881, %5 ], [ 128849018886, %4 ], [ 128849018886, %3 ], [ 98784116736, %2 ], [ 133143986186, %1 ]
-  %.sroa.0.0 = phi i64 [ -40, %38 ], [ 0, %37 ], [ 0, %36 ], [ 0, %35 ], [ 0, %34 ], [ 0, %33 ], [ 0, %32 ], [ 0, %31 ], [ 0, %30 ], [ 0, %29 ], [ 0, %28 ], [ 0, %27 ], [ 0, %26 ], [ 0, %25 ], [ 0, %24 ], [ 0, %23 ], [ 0, %22 ], [ 0, %21 ], [ 0, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
+21:                                               ; preds = %1, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.sroa.3.0 = phi i64 [ 0, %20 ], [ 562949953422336, %19 ], [ 4294967296, %18 ], [ 4294967296, %17 ], [ 9223372032559808512, %16 ], [ 562949953421376, %15 ], [ 8589934592, %14 ], [ 12884901888, %13 ], [ 107374182400, %12 ], [ 34359738369, %11 ], [ 17592186044420, %10 ], [ 0, %9 ], [ 4294967296, %8 ], [ 38654705665, %7 ], [ 562949953421312, %6 ], [ 30064771075, %5 ], [ 128849018881, %4 ], [ 128849018886, %3 ], [ 98784116736, %2 ], [ 133143986186, %1 ]
+  %.sroa.0.0 = phi i64 [ -40, %20 ], [ 0, %19 ], [ 0, %18 ], [ 0, %17 ], [ 0, %16 ], [ 0, %15 ], [ 0, %14 ], [ 0, %13 ], [ 0, %12 ], [ 0, %11 ], [ 0, %10 ], [ 0, %9 ], [ 0, %8 ], [ 0, %7 ], [ 0, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert

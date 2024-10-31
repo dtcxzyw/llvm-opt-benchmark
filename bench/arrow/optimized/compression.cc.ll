@@ -1434,33 +1434,33 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68: ; preds
   br i1 %cmp.i.i.i.i.i.i.i.i.i70, label %cleanup.sink.split.sink.split, label %cleanup.sink.split
 
 cleanup.sink.split.sink.split.sink.split:         ; preds = %if.then.i.i.i.i.i.i.i40, %if.then.i.i.i.i.i.i.i76
-  %.sink245 = phi ptr [ %23, %if.then.i.i.i.i.i.i.i76 ], [ %13, %if.then.i.i.i.i.i.i.i40 ]
-  %.sink240.ph.ph = phi ptr [ %22, %if.then.i.i.i.i.i.i.i76 ], [ %12, %if.then.i.i.i.i.i.i.i40 ]
+  %.sink243 = phi ptr [ %23, %if.then.i.i.i.i.i.i.i76 ], [ %13, %if.then.i.i.i.i.i.i.i40 ]
+  %.sink238.ph.ph = phi ptr [ %22, %if.then.i.i.i.i.i.i.i76 ], [ %12, %if.then.i.i.i.i.i.i.i40 ]
   %ref.tmp8.sink.ph.ph = phi ptr [ %ref.tmp8, %if.then.i.i.i.i.i.i.i76 ], [ %ref.tmp5, %if.then.i.i.i.i.i.i.i40 ]
-  %_M_weak_count.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %.sink245, i64 12
+  %_M_weak_count.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %.sink243, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i.i.i.i77, align 4
-  %vtable.i.i.i.i.i.i.i78 = load ptr, ptr %.sink245, align 8
+  %vtable.i.i.i.i.i.i.i78 = load ptr, ptr %.sink243, align 8
   %vfn.i.i.i.i.i.i.i79 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i.i78, i64 16
   %32 = load ptr, ptr %vfn.i.i.i.i.i.i.i79, align 8
-  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %.sink245) #17
+  call void %32(ptr noundef nonnull align 8 dereferenceable(16) %.sink243) #17
   br label %cleanup.sink.split.sink.split
 
 cleanup.sink.split.sink.split:                    ; preds = %cleanup.sink.split.sink.split.sink.split, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32
-  %.sink242 = phi ptr [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %23, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %.sink245, %cleanup.sink.split.sink.split.sink.split ]
-  %.sink240.ph = phi ptr [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %.sink240.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
+  %.sink240 = phi ptr [ %13, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %23, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %.sink243, %cleanup.sink.split.sink.split.sink.split ]
+  %.sink238.ph = phi ptr [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %.sink238.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
   %ref.tmp8.sink.ph = phi ptr [ %ref.tmp5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %ref.tmp8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %ref.tmp8.sink.ph.ph, %cleanup.sink.split.sink.split.sink.split ]
-  %vtable2.i.i.i.i.i.i.i.i.i72 = load ptr, ptr %.sink242, align 8
+  %vtable2.i.i.i.i.i.i.i.i.i72 = load ptr, ptr %.sink240, align 8
   %vfn3.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i.i.i.i72, i64 24
   %33 = load ptr, ptr %vfn3.i.i.i.i.i.i.i.i.i73, align 8
-  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.sink242) #17
+  call void %33(ptr noundef nonnull align 8 dereferenceable(16) %.sink240) #17
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %delete.notnull.i.i46, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i56, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68, %delete.notnull.i.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32
-  %.sink240 = phi ptr [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20 ], [ %12, %delete.notnull.i.i10 ], [ %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i56 ], [ %22, %delete.notnull.i.i46 ], [ %.sink240.ph, %cleanup.sink.split.sink.split ]
+  %.sink238 = phi ptr [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %12, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20 ], [ %12, %delete.notnull.i.i10 ], [ %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %22, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i56 ], [ %22, %delete.notnull.i.i46 ], [ %.sink238.ph, %cleanup.sink.split.sink.split ]
   %ref.tmp8.sink = phi ptr [ %ref.tmp5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i32 ], [ %ref.tmp5, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i20 ], [ %ref.tmp5, %delete.notnull.i.i10 ], [ %ref.tmp8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i.i.i68 ], [ %ref.tmp8, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i56 ], [ %ref.tmp8, %delete.notnull.i.i46 ], [ %ref.tmp8.sink.ph, %cleanup.sink.split.sink.split ]
-  %msg.i.i.i60 = getelementptr inbounds i8, ptr %.sink240, i64 8
+  %msg.i.i.i60 = getelementptr inbounds i8, ptr %.sink238, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg.i.i.i60) #17
-  call void @_ZdlPv(ptr noundef nonnull %.sink240) #20
+  call void @_ZdlPv(ptr noundef nonnull %.sink238) #20
   store ptr null, ptr %ref.tmp8.sink, align 8
   br label %cleanup
 

@@ -4546,29 +4546,26 @@ define noundef range(i16 400, 501) i16 @"_ZN102_$LT$actix_web..error..JsonPayloa
   %2 = load i8, ptr %0, align 8, !range !538, !noundef !4
   %3 = add nsw i8 %2, -11
   %narrow = tail call i8 @llvm.umin.i8(i8 %3, i8 5)
-  switch i8 %narrow, label %9 [
+  switch i8 %narrow, label %8 [
     i8 0, label %4
-    i8 1, label %5
-    i8 4, label %6
-    i8 5, label %7
+    i8 1, label %4
+    i8 4, label %5
+    i8 5, label %6
   ]
 
-4:                                                ; preds = %1
-  br label %9
+4:                                                ; preds = %1, %1
+  br label %8
 
 5:                                                ; preds = %1
-  br label %9
+  br label %8
 
 6:                                                ; preds = %1
-  br label %9
+  %7 = icmp eq i8 %2, 7
+  %..i = select i1 %7, i16 413, i16 400
+  br label %8
 
-7:                                                ; preds = %1
-  %8 = icmp eq i8 %2, 7
-  %..i = select i1 %8, i16 413, i16 400
-  br label %9
-
-9:                                                ; preds = %1, %7, %6, %5, %4
-  %.0 = phi i16 [ %..i, %7 ], [ 500, %6 ], [ 413, %5 ], [ 413, %4 ], [ 400, %1 ]
+8:                                                ; preds = %1, %6, %5, %4
+  %.0 = phi i16 [ %..i, %6 ], [ 500, %5 ], [ 413, %4 ], [ 400, %1 ]
   ret i16 %.0
 }
 

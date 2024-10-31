@@ -727,7 +727,7 @@ entry:
     i32 5, label %sw.bb5
     i32 6, label %sw.bb6
     i32 7, label %cond.true506
-    i32 8, label %sw.bb8
+    i32 8, label %sw.bb47
     i32 9, label %sw.bb9
     i32 10, label %sw.bb10
     i32 11, label %sw.bb11
@@ -754,7 +754,7 @@ entry:
     i32 32, label %sw.bb85
     i32 33, label %sw.bb86
     i32 34, label %sw.bb87
-    i32 35, label %sw.bb88
+    i32 35, label %sw.bb47
     i32 36, label %sw.bb89
     i32 37, label %sw.bb92
     i32 38, label %sw.bb97
@@ -787,7 +787,7 @@ entry:
     i32 65, label %sw.bb201
     i32 66, label %sw.bb202
     i32 67, label %sw.bb204
-    i32 70, label %sw.bb206
+    i32 70, label %sw.bb207
     i32 71, label %sw.bb207
     i32 72, label %sw.bb208
     i32 74, label %sw.bb209
@@ -800,7 +800,7 @@ entry:
     i32 86, label %sw.bb216
     i32 87, label %sw.bb217
     i32 88, label %sw.bb218
-    i32 89, label %sw.bb231
+    i32 89, label %sw.bb47
     i32 160, label %sw.bb232
     i32 161, label %sw.bb235
     i32 162, label %sw.bb240
@@ -892,9 +892,6 @@ sw.bb5:                                           ; preds = %entry
 sw.bb6:                                           ; preds = %entry
   %sdid = getelementptr inbounds i8, ptr %s, i64 3799
   %6 = load i8, ptr %sdid, align 1
-  br label %cond.true506
-
-sw.bb8:                                           ; preds = %entry
   br label %cond.true506
 
 sw.bb9:                                           ; preds = %entry
@@ -998,7 +995,7 @@ sw.bb45:                                          ; preds = %entry
 sw.bb46:                                          ; preds = %entry
   br label %cond.true506
 
-sw.bb47:                                          ; preds = %entry
+sw.bb47:                                          ; preds = %entry, %entry, %entry, %entry
   br label %cond.true506
 
 sw.bb48:                                          ; preds = %entry
@@ -1062,9 +1059,6 @@ sw.bb86:                                          ; preds = %entry
 sw.bb87:                                          ; preds = %entry
   %ctest5 = getelementptr inbounds i8, ptr %s, i64 3775
   %40 = load i8, ptr %ctest5, align 1
-  br label %cond.true506
-
-sw.bb88:                                          ; preds = %entry
   br label %cond.true506
 
 sw.bb89:                                          ; preds = %entry
@@ -1271,10 +1265,7 @@ sw.bb204:                                         ; preds = %entry
   tail call fastcc void @lsi_update_irq(ptr noundef %s)
   br label %cond.true506
 
-sw.bb206:                                         ; preds = %entry
-  br label %cond.true506
-
-sw.bb207:                                         ; preds = %entry
+sw.bb207:                                         ; preds = %entry, %entry
   br label %cond.true506
 
 sw.bb208:                                         ; preds = %entry
@@ -1346,9 +1337,6 @@ if.end228:                                        ; preds = %if.then224
   %msg = getelementptr inbounds i8, ptr %s, i64 3544
   %85 = load i8, ptr %msg, align 8
   br label %return
-
-sw.bb231:                                         ; preds = %entry
-  br label %cond.true506
 
 sw.bb232:                                         ; preds = %entry
   %mmrs = getelementptr inbounds i8, ptr %s, i64 3812
@@ -1772,8 +1760,8 @@ sw.epilog:                                        ; preds = %cond.end, %do.body,
   %cmp504 = icmp ult i32 %offset, 96
   br i1 %cmp504, label %cond.true506, label %cond.end510
 
-cond.true506:                                     ; preds = %sw.bb, %sw.bb1, %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %sw.bb6, %sw.bb8, %sw.bb9, %sw.bb10, %sw.bb11, %if.end, %sw.bb17, %sw.bb18, %sw.bb19, %sw.bb24, %sw.bb27, %sw.bb31, %sw.bb36, %sw.bb41, %sw.bb43, %sw.bb44, %sw.bb45, %sw.bb46, %sw.bb47, %sw.bb66, %sw.bb67, %sw.bb70, %sw.bb75, %sw.bb80, %sw.bb85, %sw.bb86, %sw.bb87, %sw.bb88, %sw.bb89, %sw.bb92, %sw.bb97, %sw.bb102, %sw.bb103, %sw.bb106, %sw.bb111, %sw.bb116, %sw.bb121, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb142, %sw.bb147, %sw.bb152, %sw.bb157, %sw.bb160, %sw.bb166, %sw.bb172, %sw.bb178, %sw.bb179, %sw.bb180, %sw.bb181, %sw.bb182, %sw.bb185, %sw.bb190, %sw.bb195, %sw.bb200, %sw.bb201, %sw.bb202, %sw.bb204, %sw.bb206, %sw.bb207, %sw.bb208, %sw.bb209, %sw.bb210, %sw.bb211, %sw.bb212, %sw.bb213, %sw.bb214, %sw.bb215, %sw.bb216, %sw.bb217, %sw.bb231, %if.then57, %sw.bb48, %entry, %sw.bb218, %sw.epilog
-  %ret.0154 = phi i8 [ %ret.0, %sw.epilog ], [ 0, %sw.bb218 ], [ 127, %entry ], [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ %4, %sw.bb4 ], [ %5, %sw.bb5 ], [ %6, %sw.bb6 ], [ 0, %sw.bb8 ], [ %7, %sw.bb9 ], [ %8, %sw.bb10 ], [ %9, %sw.bb11 ], [ %11, %if.end ], [ %14, %sw.bb17 ], [ %15, %sw.bb18 ], [ %19, %sw.bb19 ], [ %conv26, %sw.bb24 ], [ %conv30, %sw.bb27 ], [ %conv35, %sw.bb31 ], [ %conv40, %sw.bb36 ], [ %24, %sw.bb41 ], [ %25, %sw.bb43 ], [ %26, %sw.bb44 ], [ %27, %sw.bb45 ], [ -1, %sw.bb46 ], [ 0, %sw.bb47 ], [ %29, %sw.bb48 ], [ %32, %if.then57 ], [ %33, %sw.bb66 ], [ %conv69, %sw.bb67 ], [ %conv74, %sw.bb70 ], [ %conv79, %sw.bb75 ], [ %conv84, %sw.bb80 ], [ %38, %sw.bb85 ], [ %39, %sw.bb86 ], [ %40, %sw.bb87 ], [ 0, %sw.bb88 ], [ %conv91, %sw.bb89 ], [ %conv96, %sw.bb92 ], [ %conv101, %sw.bb97 ], [ %44, %sw.bb102 ], [ %conv105, %sw.bb103 ], [ %conv110, %sw.bb106 ], [ %conv115, %sw.bb111 ], [ %conv120, %sw.bb116 ], [ %conv123, %sw.bb121 ], [ %conv128, %sw.bb124 ], [ %conv133, %sw.bb129 ], [ %conv138, %sw.bb134 ], [ %conv141, %sw.bb139 ], [ %conv146, %sw.bb142 ], [ %conv151, %sw.bb147 ], [ %conv156, %sw.bb152 ], [ %conv159, %sw.bb157 ], [ %conv165, %sw.bb160 ], [ %conv171, %sw.bb166 ], [ %conv177, %sw.bb172 ], [ %61, %sw.bb178 ], [ %62, %sw.bb179 ], [ %63, %sw.bb180 ], [ %64, %sw.bb181 ], [ %conv184, %sw.bb182 ], [ %conv189, %sw.bb185 ], [ %conv194, %sw.bb190 ], [ %conv199, %sw.bb195 ], [ %69, %sw.bb200 ], [ %70, %sw.bb201 ], [ %71, %sw.bb202 ], [ %72, %sw.bb204 ], [ 15, %sw.bb206 ], [ 15, %sw.bb207 ], [ %73, %sw.bb208 ], [ %74, %sw.bb209 ], [ %75, %sw.bb210 ], [ %76, %sw.bb211 ], [ %77, %sw.bb212 ], [ %78, %sw.bb213 ], [ %79, %sw.bb214 ], [ -32, %sw.bb215 ], [ %80, %sw.bb216 ], [ %81, %sw.bb217 ], [ 0, %sw.bb231 ]
+cond.true506:                                     ; preds = %sw.bb, %sw.bb1, %sw.bb2, %sw.bb3, %sw.bb4, %sw.bb5, %sw.bb6, %sw.bb9, %sw.bb10, %sw.bb11, %if.end, %sw.bb17, %sw.bb18, %sw.bb19, %sw.bb24, %sw.bb27, %sw.bb31, %sw.bb36, %sw.bb41, %sw.bb43, %sw.bb44, %sw.bb45, %sw.bb46, %sw.bb47, %sw.bb66, %sw.bb67, %sw.bb70, %sw.bb75, %sw.bb80, %sw.bb85, %sw.bb86, %sw.bb87, %sw.bb89, %sw.bb92, %sw.bb97, %sw.bb102, %sw.bb103, %sw.bb106, %sw.bb111, %sw.bb116, %sw.bb121, %sw.bb124, %sw.bb129, %sw.bb134, %sw.bb139, %sw.bb142, %sw.bb147, %sw.bb152, %sw.bb157, %sw.bb160, %sw.bb166, %sw.bb172, %sw.bb178, %sw.bb179, %sw.bb180, %sw.bb181, %sw.bb182, %sw.bb185, %sw.bb190, %sw.bb195, %sw.bb200, %sw.bb201, %sw.bb202, %sw.bb204, %sw.bb207, %sw.bb208, %sw.bb209, %sw.bb210, %sw.bb211, %sw.bb212, %sw.bb213, %sw.bb214, %sw.bb215, %sw.bb216, %sw.bb217, %if.then57, %sw.bb48, %entry, %sw.bb218, %sw.epilog
+  %ret.0154 = phi i8 [ %ret.0, %sw.epilog ], [ 0, %sw.bb218 ], [ 127, %entry ], [ %0, %sw.bb ], [ %1, %sw.bb1 ], [ %2, %sw.bb2 ], [ %3, %sw.bb3 ], [ %4, %sw.bb4 ], [ %5, %sw.bb5 ], [ %6, %sw.bb6 ], [ %7, %sw.bb9 ], [ %8, %sw.bb10 ], [ %9, %sw.bb11 ], [ %11, %if.end ], [ %14, %sw.bb17 ], [ %15, %sw.bb18 ], [ %19, %sw.bb19 ], [ %conv26, %sw.bb24 ], [ %conv30, %sw.bb27 ], [ %conv35, %sw.bb31 ], [ %conv40, %sw.bb36 ], [ %24, %sw.bb41 ], [ %25, %sw.bb43 ], [ %26, %sw.bb44 ], [ %27, %sw.bb45 ], [ -1, %sw.bb46 ], [ 0, %sw.bb47 ], [ %29, %sw.bb48 ], [ %32, %if.then57 ], [ %33, %sw.bb66 ], [ %conv69, %sw.bb67 ], [ %conv74, %sw.bb70 ], [ %conv79, %sw.bb75 ], [ %conv84, %sw.bb80 ], [ %38, %sw.bb85 ], [ %39, %sw.bb86 ], [ %40, %sw.bb87 ], [ %conv91, %sw.bb89 ], [ %conv96, %sw.bb92 ], [ %conv101, %sw.bb97 ], [ %44, %sw.bb102 ], [ %conv105, %sw.bb103 ], [ %conv110, %sw.bb106 ], [ %conv115, %sw.bb111 ], [ %conv120, %sw.bb116 ], [ %conv123, %sw.bb121 ], [ %conv128, %sw.bb124 ], [ %conv133, %sw.bb129 ], [ %conv138, %sw.bb134 ], [ %conv141, %sw.bb139 ], [ %conv146, %sw.bb142 ], [ %conv151, %sw.bb147 ], [ %conv156, %sw.bb152 ], [ %conv159, %sw.bb157 ], [ %conv165, %sw.bb160 ], [ %conv171, %sw.bb166 ], [ %conv177, %sw.bb172 ], [ %61, %sw.bb178 ], [ %62, %sw.bb179 ], [ %63, %sw.bb180 ], [ %64, %sw.bb181 ], [ %conv184, %sw.bb182 ], [ %conv189, %sw.bb185 ], [ %conv194, %sw.bb190 ], [ %conv199, %sw.bb195 ], [ %69, %sw.bb200 ], [ %70, %sw.bb201 ], [ %71, %sw.bb202 ], [ %72, %sw.bb204 ], [ 15, %sw.bb207 ], [ %73, %sw.bb208 ], [ %74, %sw.bb209 ], [ %75, %sw.bb210 ], [ %76, %sw.bb211 ], [ %77, %sw.bb212 ], [ %78, %sw.bb213 ], [ %79, %sw.bb214 ], [ -32, %sw.bb215 ], [ %80, %sw.bb216 ], [ %81, %sw.bb217 ]
   %conv503 = zext nneg i32 %offset to i64
   %arrayidx508 = getelementptr [96 x ptr], ptr @names, i64 0, i64 %conv503
   %146 = load ptr, ptr %arrayidx508, align 8
@@ -3819,7 +3807,7 @@ cond.end837:                                      ; preds = %if.then829, %cond.t
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.133, ptr noundef %cond838, i32 noundef %offset, i32 noundef %conv839) #12
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then810, %do.body821, %cond.end837, %sw.bb385, %do.end400, %trace_lsi_reg_write.exit, %sw.bb366, %land.lhs.true373, %if.then379, %sw.bb284, %land.lhs.true295, %if.then300, %trace_lsi_reg_write.exit, %if.end139, %if.then143, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %if.else, %if.then35, %if.then31, %sw.bb, %do.body, %if.then6, %sw.bb798, %sw.bb791, %sw.bb784, %sw.bb779, %sw.bb772, %sw.bb765, %sw.bb758, %sw.bb753, %sw.bb746, %sw.bb739, %sw.bb732, %sw.bb727, %sw.bb720, %sw.bb713, %sw.bb706, %sw.bb701, %sw.bb694, %sw.bb687, %sw.bb680, %sw.bb675, %sw.bb668, %sw.bb661, %sw.bb654, %sw.bb649, %sw.bb642, %sw.bb635, %sw.bb628, %sw.bb623, %sw.bb616, %sw.bb609, %sw.bb602, %sw.bb597, %sw.bb590, %sw.bb583, %sw.bb576, %sw.bb571, %sw.bb564, %sw.bb557, %sw.bb550, %sw.bb545, %sw.bb538, %sw.bb531, %sw.bb524, %sw.bb519, %sw.bb512, %sw.bb505, %sw.bb498, %sw.bb493, %sw.bb486, %sw.bb479, %sw.bb472, %sw.bb467, %sw.bb460, %sw.bb453, %sw.bb446, %sw.bb441, %sw.bb440, %sw.bb439, %if.end438, %if.end421, %sw.bb404, %sw.bb403, %sw.bb402, %sw.bb384, %sw.bb382, %sw.bb381, %sw.bb365, %sw.bb364, %sw.bb362, %sw.bb353, %sw.bb344, %sw.bb335, %sw.bb328, %sw.bb321, %sw.bb314, %sw.bb307, %sw.bb302, %sw.bb277, %sw.bb270, %sw.bb264, %sw.bb257, %sw.bb250, %sw.bb243, %sw.bb237, %sw.bb230, %sw.bb223, %sw.bb218, %if.end217, %if.end200, %sw.bb176, %sw.bb169, %sw.bb162, %sw.bb157, %sw.bb153, %sw.bb149, %sw.bb147, %sw.bb146, %sw.bb102, %sw.bb95, %sw.bb89, %sw.bb84, %sw.bb81, %if.end76, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb46
+sw.epilog:                                        ; preds = %if.then810, %do.body821, %cond.end837, %sw.bb385, %do.end400, %sw.bb366, %land.lhs.true373, %if.then379, %sw.bb284, %land.lhs.true295, %if.then300, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %if.end139, %if.then143, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %trace_lsi_reg_write.exit, %if.else, %if.then35, %if.then31, %sw.bb, %do.body, %if.then6, %sw.bb798, %sw.bb791, %sw.bb784, %sw.bb779, %sw.bb772, %sw.bb765, %sw.bb758, %sw.bb753, %sw.bb746, %sw.bb739, %sw.bb732, %sw.bb727, %sw.bb720, %sw.bb713, %sw.bb706, %sw.bb701, %sw.bb694, %sw.bb687, %sw.bb680, %sw.bb675, %sw.bb668, %sw.bb661, %sw.bb654, %sw.bb649, %sw.bb642, %sw.bb635, %sw.bb628, %sw.bb623, %sw.bb616, %sw.bb609, %sw.bb602, %sw.bb597, %sw.bb590, %sw.bb583, %sw.bb576, %sw.bb571, %sw.bb564, %sw.bb557, %sw.bb550, %sw.bb545, %sw.bb538, %sw.bb531, %sw.bb524, %sw.bb519, %sw.bb512, %sw.bb505, %sw.bb498, %sw.bb493, %sw.bb486, %sw.bb479, %sw.bb472, %sw.bb467, %sw.bb460, %sw.bb453, %sw.bb446, %sw.bb441, %sw.bb440, %sw.bb439, %if.end438, %if.end421, %sw.bb404, %sw.bb403, %sw.bb402, %sw.bb384, %sw.bb382, %sw.bb381, %sw.bb365, %sw.bb364, %sw.bb362, %sw.bb353, %sw.bb344, %sw.bb335, %sw.bb328, %sw.bb321, %sw.bb314, %sw.bb307, %sw.bb302, %sw.bb277, %sw.bb270, %sw.bb264, %sw.bb257, %sw.bb250, %sw.bb243, %sw.bb237, %sw.bb230, %sw.bb223, %sw.bb218, %if.end217, %if.end200, %sw.bb176, %sw.bb169, %sw.bb162, %sw.bb157, %sw.bb153, %sw.bb149, %sw.bb147, %sw.bb146, %sw.bb102, %sw.bb95, %sw.bb89, %sw.bb84, %sw.bb81, %if.end76, %sw.bb52, %sw.bb51, %sw.bb50, %sw.bb46
   ret void
 }
 

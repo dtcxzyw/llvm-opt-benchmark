@@ -4770,8 +4770,8 @@ declare ptr @symtab_add(ptr noundef, i32 noundef, i32 noundef, ptr noundef) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal fastcc signext range(i8 -1, 121) i8 @char_is_valid_escape(i8 noundef signext %0) unnamed_addr #6 {
-  switch i8 %0, label %16 [
-    i8 97, label %17
+  switch i8 %0, label %12 [
+    i8 97, label %13
     i8 98, label %2
     i8 101, label %3
     i8 102, label %4
@@ -4780,61 +4780,49 @@ define internal fastcc signext range(i8 -1, 121) i8 @char_is_valid_escape(i8 nou
     i8 116, label %7
     i8 118, label %8
     i8 120, label %9
-    i8 117, label %10
-    i8 85, label %11
-    i8 39, label %12
-    i8 34, label %13
-    i8 92, label %14
-    i8 48, label %15
+    i8 117, label %9
+    i8 85, label %9
+    i8 39, label %9
+    i8 34, label %10
+    i8 92, label %10
+    i8 48, label %11
   ]
 
 2:                                                ; preds = %1
-  br label %17
+  br label %13
 
 3:                                                ; preds = %1
-  br label %17
+  br label %13
 
 4:                                                ; preds = %1
-  br label %17
+  br label %13
 
 5:                                                ; preds = %1
-  br label %17
+  br label %13
 
 6:                                                ; preds = %1
-  br label %17
+  br label %13
 
 7:                                                ; preds = %1
-  br label %17
+  br label %13
 
 8:                                                ; preds = %1
-  br label %17
+  br label %13
 
-9:                                                ; preds = %1
-  br label %17
+9:                                                ; preds = %1, %1, %1, %1
+  br label %13
 
-10:                                               ; preds = %1
-  br label %17
+10:                                               ; preds = %1, %1
+  br label %13
 
 11:                                               ; preds = %1
-  br label %17
+  br label %13
 
 12:                                               ; preds = %1
-  br label %17
+  br label %13
 
-13:                                               ; preds = %1
-  br label %17
-
-14:                                               ; preds = %1
-  br label %17
-
-15:                                               ; preds = %1
-  br label %17
-
-16:                                               ; preds = %1
-  br label %17
-
-17:                                               ; preds = %1, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i8 [ -1, %16 ], [ 0, %15 ], [ %0, %14 ], [ %0, %13 ], [ %0, %12 ], [ %0, %11 ], [ %0, %10 ], [ %0, %9 ], [ 11, %8 ], [ 9, %7 ], [ 13, %6 ], [ 10, %5 ], [ 12, %4 ], [ 27, %3 ], [ 8, %2 ], [ 7, %1 ]
+13:                                               ; preds = %1, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i8 [ -1, %12 ], [ 0, %11 ], [ %0, %10 ], [ %0, %9 ], [ 11, %8 ], [ 9, %7 ], [ 13, %6 ], [ 10, %5 ], [ 12, %4 ], [ 27, %3 ], [ 8, %2 ], [ 7, %1 ]
   ret i8 %.0
 }
 

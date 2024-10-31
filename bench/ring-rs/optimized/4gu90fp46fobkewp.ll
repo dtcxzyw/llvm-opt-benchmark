@@ -1947,13 +1947,13 @@ _ZN4ring2io3der24expect_tag_and_get_value17h76e834198b369adcE.exit: ; preds = %1
   br label %79
 
 31:                                               ; preds = %25
-  %switch79 = icmp ult i8 %3, 2
-  br i1 %switch79, label %33, label %28
+  %switch73 = icmp ult i8 %3, 2
+  br i1 %switch73, label %33, label %28
 
 32:                                               ; preds = %25
   %.off = add i8 %3, -1
-  %switch80 = icmp ult i8 %.off, 2
-  br i1 %switch80, label %37, label %28
+  %switch74 = icmp ult i8 %.off, 2
+  br i1 %switch74, label %37, label %28
 
 33:                                               ; preds = %31, %37
   %.060 = phi i8 [ %38, %37 ], [ 2, %31 ]

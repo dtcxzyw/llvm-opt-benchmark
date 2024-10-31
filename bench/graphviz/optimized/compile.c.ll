@@ -4217,20 +4217,20 @@ define internal ptr @refval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load i64, ptr %10, align 8
   switch i64 %11, label %24 [
-    i64 125, label %71
-    i64 126, label %12
-    i64 127, label %13
-    i64 128, label %14
-    i64 129, label %15
-    i64 130, label %16
-    i64 131, label %17
-    i64 132, label %18
-    i64 133, label %19
-    i64 134, label %20
-    i64 135, label %21
-    i64 136, label %22
-    i64 137, label %23
-    i64 138, label %71
+    i64 125, label %23
+    i64 126, label %71
+    i64 127, label %12
+    i64 128, label %13
+    i64 129, label %14
+    i64 130, label %15
+    i64 131, label %16
+    i64 132, label %17
+    i64 133, label %18
+    i64 134, label %19
+    i64 135, label %20
+    i64 136, label %21
+    i64 137, label %22
+    i64 138, label %23
   ]
 
 12:                                               ; preds = %9
@@ -4266,7 +4266,7 @@ define internal ptr @refval(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 22:                                               ; preds = %9
   br label %71
 
-23:                                               ; preds = %9
+23:                                               ; preds = %9, %9
   br label %71
 
 24:                                               ; preds = %9
@@ -4390,8 +4390,8 @@ agxbfree.exit:                                    ; preds = %67, %deparse.exit, 
   %70 = call ptr @exzero(i64 noundef %69) #24
   br label %71
 
-71:                                               ; preds = %9, %9, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %agxbfree.exit
-  %.sroa.09.0 = phi ptr [ %27, %24 ], [ inttoptr (i64 12 to ptr), %23 ], [ inttoptr (i64 11 to ptr), %22 ], [ inttoptr (i64 10 to ptr), %21 ], [ inttoptr (i64 9 to ptr), %20 ], [ inttoptr (i64 8 to ptr), %19 ], [ inttoptr (i64 7 to ptr), %18 ], [ inttoptr (i64 6 to ptr), %17 ], [ inttoptr (i64 5 to ptr), %16 ], [ inttoptr (i64 4 to ptr), %15 ], [ inttoptr (i64 3 to ptr), %14 ], [ inttoptr (i64 2 to ptr), %13 ], [ inttoptr (i64 1 to ptr), %12 ], [ %70, %agxbfree.exit ], [ null, %9 ], [ null, %9 ]
+71:                                               ; preds = %9, %12, %13, %14, %15, %16, %17, %18, %19, %20, %21, %22, %23, %24, %agxbfree.exit
+  %.sroa.09.0 = phi ptr [ %27, %24 ], [ null, %23 ], [ inttoptr (i64 12 to ptr), %22 ], [ inttoptr (i64 11 to ptr), %21 ], [ inttoptr (i64 10 to ptr), %20 ], [ inttoptr (i64 9 to ptr), %19 ], [ inttoptr (i64 8 to ptr), %18 ], [ inttoptr (i64 7 to ptr), %17 ], [ inttoptr (i64 6 to ptr), %16 ], [ inttoptr (i64 5 to ptr), %15 ], [ inttoptr (i64 4 to ptr), %14 ], [ inttoptr (i64 3 to ptr), %13 ], [ inttoptr (i64 2 to ptr), %12 ], [ %70, %agxbfree.exit ], [ inttoptr (i64 1 to ptr), %9 ]
   ret ptr %.sroa.09.0
 }
 

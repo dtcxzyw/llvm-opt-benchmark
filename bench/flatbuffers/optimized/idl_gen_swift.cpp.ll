@@ -32825,17 +32825,17 @@ entry:
     i32 3, label %cond.end6
     i32 4, label %cond.end6
     i32 5, label %sw.bb5.i
-    i32 6, label %sw.bb6.i
-    i32 7, label %sw.bb7.i
+    i32 6, label %sw.bb5.i
+    i32 7, label %sw.bb8.i
     i32 8, label %sw.bb8.i
-    i32 9, label %sw.bb9.i
-    i32 10, label %sw.bb10.i
-    i32 11, label %sw.bb11.i
-    i32 12, label %sw.bb12.i
-    i32 13, label %sw.bb13.i
-    i32 14, label %sw.bb14.i
+    i32 9, label %sw.bb12.i
+    i32 10, label %sw.bb12.i
+    i32 11, label %sw.bb8.i
+    i32 12, label %sw.bb15.i
+    i32 13, label %sw.bb8.i
+    i32 14, label %sw.bb8.i
     i32 18, label %sw.bb15.i
-    i32 16, label %sw.bb17.i
+    i32 16, label %sw.bb8.i
   ]
 
 _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %entry
@@ -32844,7 +32844,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit:       ; preds = %entry
   %fixed.i = getelementptr inbounds i8, ptr %1, i64 272
   %2 = load i8, ptr %fixed.i, align 8
   %tobool.i = trunc i8 %2 to i1
-  br i1 %tobool.i, label %cond.true, label %cond.end6
+  br i1 %tobool.i, label %cond.true, label %sw.bb8.i
 
 cond.true:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
   %bytesize = getelementptr inbounds i8, ptr %1, i64 288
@@ -32876,47 +32876,23 @@ cond.true2:                                       ; preds = %entry
   %mul = mul i64 %call3, %conv
   br label %cond.end6
 
-sw.bb5.i:                                         ; preds = %entry
+sw.bb5.i:                                         ; preds = %entry, %entry
   br label %cond.end6
 
-sw.bb6.i:                                         ; preds = %entry
+sw.bb8.i:                                         ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit
   br label %cond.end6
 
-sw.bb7.i:                                         ; preds = %entry
+sw.bb12.i:                                        ; preds = %entry, %entry
   br label %cond.end6
 
-sw.bb8.i:                                         ; preds = %entry
-  br label %cond.end6
-
-sw.bb9.i:                                         ; preds = %entry
-  br label %cond.end6
-
-sw.bb10.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb11.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb12.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb13.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb14.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb15.i:                                        ; preds = %entry
-  br label %cond.end6
-
-sw.bb17.i:                                        ; preds = %entry
+sw.bb15.i:                                        ; preds = %entry, %entry
   br label %cond.end6
 
 sw.epilog.i:                                      ; preds = %entry
   br label %cond.end6
 
-cond.end6:                                        ; preds = %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit, %entry, %entry, %entry, %entry, %entry, %sw.epilog.i, %sw.bb17.i, %sw.bb15.i, %sw.bb14.i, %sw.bb13.i, %sw.bb12.i, %sw.bb11.i, %sw.bb10.i, %sw.bb9.i, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %cond.true2, %cond.true
-  %cond7 = phi i64 [ %3, %cond.true ], [ %mul, %cond.true2 ], [ 0, %sw.epilog.i ], [ 4, %sw.bb17.i ], [ 8, %sw.bb15.i ], [ 4, %sw.bb14.i ], [ 4, %sw.bb13.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb11.i ], [ 8, %sw.bb10.i ], [ 8, %sw.bb9.i ], [ 4, %sw.bb8.i ], [ 4, %sw.bb7.i ], [ 2, %sw.bb6.i ], [ 2, %sw.bb5.i ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 4, %_ZN11flatbuffers8IsStructERKNS_4TypeE.exit ]
+cond.end6:                                        ; preds = %entry, %entry, %entry, %entry, %entry, %sw.epilog.i, %sw.bb15.i, %sw.bb12.i, %sw.bb8.i, %sw.bb5.i, %cond.true2, %cond.true
+  %cond7 = phi i64 [ %3, %cond.true ], [ %mul, %cond.true2 ], [ 0, %sw.epilog.i ], [ 8, %sw.bb15.i ], [ 8, %sw.bb12.i ], [ 4, %sw.bb8.i ], [ 2, %sw.bb5.i ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ], [ 1, %entry ]
   ret i64 %cond7
 }
 

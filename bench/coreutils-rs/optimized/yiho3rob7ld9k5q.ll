@@ -1770,34 +1770,31 @@ define internal fastcc noundef zeroext i1 @"_ZN63_$LT$lscolors..style..Color$u20
 define noundef range(i32 1, 3) i32 @"_ZN62_$LT$uu_ls..LsError$u20$as$u20$uucore..mods..error..UError$GT$4code17had7eadc5a09e8169E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #5 {
   %2 = load i8, ptr %0, align 8, !range !34, !noundef !4
   switch i8 %2, label %default.unreachable1 [
-    i8 0, label %9
+    i8 0, label %8
     i8 1, label %3
     i8 2, label %4
-    i8 3, label %9
-    i8 4, label %8
-    i8 5, label %9
-    i8 6, label %9
-    i8 7, label %9
+    i8 3, label %8
+    i8 4, label %3
+    i8 5, label %8
+    i8 6, label %8
+    i8 7, label %8
   ]
 
 default.unreachable1:                             ; preds = %1
   unreachable
 
-3:                                                ; preds = %1
-  br label %9
+3:                                                ; preds = %1, %1
+  br label %8
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1, !range !355, !noundef !4
   %7 = trunc nuw i8 %6 to i1
   %. = select i1 %7, i32 2, i32 1
-  br label %9
+  br label %8
 
-8:                                                ; preds = %1
-  br label %9
-
-9:                                                ; preds = %1, %1, %1, %1, %4, %1, %8, %3
-  %.0 = phi i32 [ 1, %8 ], [ 1, %3 ], [ 2, %1 ], [ %., %4 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ]
+8:                                                ; preds = %1, %1, %4, %1, %1, %1, %3
+  %.0 = phi i32 [ 1, %3 ], [ 2, %1 ], [ 2, %1 ], [ 2, %1 ], [ %., %4 ], [ 2, %1 ], [ 2, %1 ]
   ret i32 %.0
 }
 

@@ -5722,8 +5722,8 @@ define hidden i32 @eventIndex2jvmti(i32 noundef %0) local_unnamed_addr #0 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden range(i32 0, 21) i32 @jdwp2EventIndex(i8 noundef zeroext %0) local_unnamed_addr #2 {
-  switch i8 %0, label %22 [
-    i8 1, label %23
+  switch i8 %0, label %21 [
+    i8 1, label %22
     i8 2, label %2
     i8 3, label %3
     i8 4, label %4
@@ -5737,80 +5737,77 @@ define hidden range(i32 0, 21) i32 @jdwp2EventIndex(i8 noundef zeroext %0) local
     i8 30, label %12
     i8 40, label %13
     i8 41, label %14
-    i8 42, label %15
-    i8 43, label %16
-    i8 44, label %17
-    i8 45, label %18
-    i8 46, label %19
-    i8 90, label %20
-    i8 99, label %21
+    i8 42, label %14
+    i8 43, label %15
+    i8 44, label %16
+    i8 45, label %17
+    i8 46, label %18
+    i8 90, label %19
+    i8 99, label %20
   ]
 
 2:                                                ; preds = %1
-  br label %23
+  br label %22
 
 3:                                                ; preds = %1
-  br label %23
+  br label %22
 
 4:                                                ; preds = %1
-  br label %23
+  br label %22
 
 5:                                                ; preds = %1
-  br label %23
+  br label %22
 
 6:                                                ; preds = %1
-  br label %23
+  br label %22
 
 7:                                                ; preds = %1
-  br label %23
+  br label %22
 
 8:                                                ; preds = %1
-  br label %23
+  br label %22
 
 9:                                                ; preds = %1
-  br label %23
+  br label %22
 
 10:                                               ; preds = %1
-  br label %23
+  br label %22
 
 11:                                               ; preds = %1
-  br label %23
+  br label %22
 
 12:                                               ; preds = %1
-  br label %23
+  br label %22
 
 13:                                               ; preds = %1
-  br label %23
+  br label %22
 
-14:                                               ; preds = %1
-  br label %23
+14:                                               ; preds = %1, %1
+  br label %22
 
 15:                                               ; preds = %1
-  br label %23
+  br label %22
 
 16:                                               ; preds = %1
-  br label %23
+  br label %22
 
 17:                                               ; preds = %1
-  br label %23
+  br label %22
 
 18:                                               ; preds = %1
-  br label %23
+  br label %22
 
 19:                                               ; preds = %1
-  br label %23
+  br label %22
 
 20:                                               ; preds = %1
-  br label %23
+  br label %22
 
 21:                                               ; preds = %1
-  br label %23
+  br label %22
 
-22:                                               ; preds = %1
-  br label %23
-
-23:                                               ; preds = %1, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %22 ], [ 20, %21 ], [ 19, %20 ], [ 18, %19 ], [ 17, %18 ], [ 16, %17 ], [ 15, %16 ], [ 14, %15 ], [ 14, %14 ], [ 13, %13 ], [ 12, %12 ], [ 11, %11 ], [ 10, %10 ], [ 9, %9 ], [ 8, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 1, %1 ]
+22:                                               ; preds = %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ 0, %21 ], [ 20, %20 ], [ 19, %19 ], [ 18, %18 ], [ 17, %17 ], [ 16, %16 ], [ 15, %15 ], [ 14, %14 ], [ 13, %13 ], [ 12, %12 ], [ 11, %11 ], [ 10, %10 ], [ 9, %9 ], [ 8, %8 ], [ 7, %7 ], [ 6, %6 ], [ 5, %5 ], [ 4, %4 ], [ 3, %3 ], [ 2, %2 ], [ 1, %1 ]
   ret i32 %.0
 }
 

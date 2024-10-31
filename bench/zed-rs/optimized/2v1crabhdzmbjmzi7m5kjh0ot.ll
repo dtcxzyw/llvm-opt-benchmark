@@ -730,9 +730,8 @@ define noundef zeroext i1 @"_ZN176_$LT$proto..document_highlight.._..$LT$impl$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5proto18document_highlight4Kind8is_valid17h1b64b8156a20420dE(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 3
-  ret i1 %1
+  %switch = icmp ult i32 %0, 3
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

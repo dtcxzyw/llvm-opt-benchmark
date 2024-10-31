@@ -338,11 +338,11 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i8, ptr %0, i64 1352
   %24 = load i32, ptr %23, align 8
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %74
+  br i1 %25, label %26, label %70
 
 26:                                               ; preds = %22
   tail call void @N_VConst(double noundef 0.000000e+00, ptr noundef %1) #6
-  br label %74
+  br label %70
 
 27:                                               ; preds = %5
   %28 = getelementptr inbounds i8, ptr %10, i64 128
@@ -384,7 +384,7 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
 .thread:                                          ; preds = %27
   %54 = getelementptr inbounds i8, ptr %10, i64 208
   store i64 0, ptr %54, align 8
-  br label %74
+  br label %70
 
 55:                                               ; preds = %27
   %56 = getelementptr inbounds i8, ptr %10, i64 88
@@ -394,17 +394,17 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   %59 = sext i32 %42 to i64
   %60 = getelementptr inbounds i8, ptr %10, i64 208
   store i64 %59, ptr %60, align 8
-  switch i32 %42, label %74 [
-    i32 -5, label %73
+  switch i32 %42, label %70 [
+    i32 -5, label %66
     i32 1, label %61
     i32 2, label %65
-    i32 3, label %66
-    i32 4, label %67
-    i32 5, label %68
-    i32 -1, label %69
-    i32 -2, label %70
-    i32 -3, label %71
-    i32 -4, label %72
+    i32 3, label %65
+    i32 4, label %65
+    i32 5, label %65
+    i32 -1, label %66
+    i32 -2, label %67
+    i32 -3, label %68
+    i32 -4, label %69
   ]
 
 61:                                               ; preds = %55
@@ -412,39 +412,27 @@ define internal range(i32 -1, 2) i32 @CVSpgmrSolve(ptr noundef %0, ptr noundef %
   %63 = load i32, ptr %62, align 8
   %64 = icmp ne i32 %63, 0
   %. = zext i1 %64 to i32
-  br label %74
+  br label %70
 
-65:                                               ; preds = %55
-  br label %74
+65:                                               ; preds = %55, %55, %55, %55
+  br label %70
 
-66:                                               ; preds = %55
-  br label %74
+66:                                               ; preds = %55, %55
+  br label %70
 
 67:                                               ; preds = %55
-  br label %74
+  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #6
+  br label %70
 
 68:                                               ; preds = %55
-  br label %74
+  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15) #6
+  br label %70
 
 69:                                               ; preds = %55
-  br label %74
+  br label %70
 
-70:                                               ; preds = %55
-  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14) #6
-  br label %74
-
-71:                                               ; preds = %55
-  call void (ptr, i32, ptr, ptr, ptr, ...) @cvProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.15) #6
-  br label %74
-
-72:                                               ; preds = %55
-  br label %74
-
-73:                                               ; preds = %55
-  br label %74
-
-74:                                               ; preds = %.thread, %55, %61, %22, %26, %73, %72, %71, %70, %69, %68, %67, %66, %65
-  %.0 = phi i32 [ -1, %73 ], [ -1, %72 ], [ -1, %71 ], [ -1, %70 ], [ -1, %69 ], [ 1, %68 ], [ 1, %67 ], [ 1, %66 ], [ 1, %65 ], [ 0, %26 ], [ 0, %22 ], [ %., %61 ], [ 0, %55 ], [ 0, %.thread ]
+70:                                               ; preds = %.thread, %55, %61, %22, %26, %69, %68, %67, %66, %65
+  %.0 = phi i32 [ -1, %69 ], [ -1, %68 ], [ -1, %67 ], [ -1, %66 ], [ 1, %65 ], [ 0, %26 ], [ 0, %22 ], [ %., %61 ], [ 0, %55 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

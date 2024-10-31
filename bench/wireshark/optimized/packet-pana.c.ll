@@ -580,16 +580,20 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
 
 17:                                               ; preds = %.thread, %13
   %18 = phi i32 [ %12, %.thread ], [ %15, %13 ]
-  switch i16 %6, label %pana_avp_get_type.exit [
-    i16 13, label %27
-    i16 2, label %19
-    i16 3, label %20
-    i16 4, label %21
-    i16 11, label %26
-    i16 6, label %22
-    i16 7, label %23
-    i16 8, label %24
-    i16 9, label %25
+  switch i16 %6, label %27 [
+    i16 1, label %25
+    i16 2, label %pana_avp_get_type.exit
+    i16 3, label %21
+    i16 4, label %19
+    i16 5, label %23
+    i16 6, label %21
+    i16 7, label %20
+    i16 8, label %26
+    i16 9, label %22
+    i16 10, label %25
+    i16 11, label %24
+    i16 12, label %25
+    i16 13, label %26
   ]
 
 19:                                               ; preds = %17
@@ -598,7 +602,7 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
 20:                                               ; preds = %17
   br label %pana_avp_get_type.exit
 
-21:                                               ; preds = %17
+21:                                               ; preds = %17, %17
   br label %pana_avp_get_type.exit
 
 22:                                               ; preds = %17
@@ -610,10 +614,10 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
 24:                                               ; preds = %17
   br label %pana_avp_get_type.exit
 
-25:                                               ; preds = %17
+25:                                               ; preds = %17, %17, %17
   br label %pana_avp_get_type.exit
 
-26:                                               ; preds = %17
+26:                                               ; preds = %17, %17
   br label %pana_avp_get_type.exit
 
 27:                                               ; preds = %17
@@ -621,7 +625,7 @@ define internal fastcc void @dissect_avps(ptr noundef %0, ptr noundef %1, ptr no
 
 pana_avp_get_type.exit:                           ; preds = %13, %17, %19, %20, %21, %22, %23, %24, %25, %26, %27
   %28 = phi i32 [ %18, %27 ], [ %18, %26 ], [ %18, %25 ], [ %18, %24 ], [ %18, %23 ], [ %18, %22 ], [ %18, %21 ], [ %18, %20 ], [ %18, %19 ], [ %18, %17 ], [ %15, %13 ]
-  %.0.i = phi i32 [ 4, %27 ], [ 14, %26 ], [ 10, %25 ], [ 4, %24 ], [ 13, %23 ], [ 4, %22 ], [ 2, %21 ], [ 4, %20 ], [ 12, %19 ], [ 1, %17 ], [ 1, %13 ]
+  %.0.i = phi i32 [ 1, %27 ], [ 4, %26 ], [ 1, %25 ], [ 14, %24 ], [ 1, %23 ], [ 10, %22 ], [ 4, %21 ], [ 13, %20 ], [ 2, %19 ], [ 12, %17 ], [ 1, %13 ]
   %29 = sub nsw i32 0, %11
   %30 = and i32 %29, 3
   %31 = add nuw nsw i32 %28, %30

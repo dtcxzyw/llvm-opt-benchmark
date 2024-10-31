@@ -951,9 +951,9 @@ if.end424:                                        ; preds = %if.end418
     i32 6, label %sw.epilog441
     i32 5, label %sw.bb426
     i32 4, label %sw.bb427
-    i32 8, label %sw.bb428
+    i32 8, label %sw.bb435
     i32 9, label %sw.bb429
-    i32 3, label %sw.bb430
+    i32 3, label %sw.bb429
     i32 2, label %sw.bb431
     i32 1, label %sw.bb435
     i32 0, label %sw.bb436
@@ -970,13 +970,7 @@ sw.bb426:                                         ; preds = %if.end424
 sw.bb427:                                         ; preds = %if.end424.thread, %if.end424
   br label %sw.epilog441
 
-sw.bb428:                                         ; preds = %if.end424
-  br label %sw.epilog441
-
-sw.bb429:                                         ; preds = %if.end424
-  br label %sw.epilog441
-
-sw.bb430:                                         ; preds = %if.end424
+sw.bb429:                                         ; preds = %if.end424, %if.end424
   br label %sw.epilog441
 
 sw.bb431:                                         ; preds = %if.end424
@@ -995,7 +989,7 @@ _.exit:                                           ; preds = %sw.bb431, %if.end3.
   %conv434 = sext i32 %add to i64
   br label %sw.epilog441
 
-sw.bb435:                                         ; preds = %if.end424
+sw.bb435:                                         ; preds = %if.end424, %if.end424
   br label %sw.epilog441
 
 sw.bb436:                                         ; preds = %if.end424
@@ -1007,8 +1001,8 @@ sw.bb437:                                         ; preds = %if.end424
   %add440 = add i64 %call439, 1
   br label %sw.epilog441
 
-sw.epilog441:                                     ; preds = %if.end424, %if.end424.sw.epilog441_crit_edge, %sw.bb437, %sw.bb436, %sw.bb435, %_.exit, %sw.bb430, %sw.bb429, %sw.bb428, %sw.bb427, %sw.bb426
-  %25 = phi i64 [ %.pre, %if.end424.sw.epilog441_crit_edge ], [ %add440, %sw.bb437 ], [ 31, %sw.bb436 ], [ 17, %sw.bb435 ], [ %conv434, %_.exit ], [ 11, %sw.bb430 ], [ 11, %sw.bb429 ], [ 17, %sw.bb428 ], [ 26, %sw.bb427 ], [ 26, %sw.bb426 ], [ 32, %if.end424 ]
+sw.epilog441:                                     ; preds = %if.end424, %if.end424.sw.epilog441_crit_edge, %sw.bb437, %sw.bb436, %sw.bb435, %_.exit, %sw.bb429, %sw.bb427, %sw.bb426
+  %25 = phi i64 [ %.pre, %if.end424.sw.epilog441_crit_edge ], [ %add440, %sw.bb437 ], [ 31, %sw.bb436 ], [ 17, %sw.bb435 ], [ %conv434, %_.exit ], [ 11, %sw.bb429 ], [ 26, %sw.bb427 ], [ 26, %sw.bb426 ], [ 32, %if.end424 ]
   %sub = add i64 %25, -1
   store i64 %sub, ptr @blame_date_width, align 8
   %find_copies_harder = getelementptr inbounds i8, ptr %revs, i64 1600

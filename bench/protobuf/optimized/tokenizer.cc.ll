@@ -5136,10 +5136,10 @@ if.else:                                          ; preds = %if.then12
     i8 114, label %sw.bb4.i
     i8 116, label %sw.bb5.i
     i8 118, label %sw.bb6.i
-    i8 92, label %sw.bb7.i
-    i8 63, label %sw.bb8.i
+    i8 92, label %sw.bb8.i
+    i8 63, label %sw.bb9.i
     i8 39, label %sw.bb9.i
-    i8 34, label %sw.bb10.i
+    i8 34, label %sw.bb8.i
   ]
 
 if.then36:                                        ; preds = %if.else, %if.else
@@ -5405,23 +5405,17 @@ sw.bb5.i:                                         ; preds = %if.else
 sw.bb6.i:                                         ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb7.i:                                         ; preds = %if.else
+sw.bb8.i:                                         ; preds = %if.else, %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-sw.bb8.i:                                         ; preds = %if.else
-  br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
-
-sw.bb9.i:                                         ; preds = %if.else
-  br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
-
-sw.bb10.i:                                        ; preds = %if.else
+sw.bb9.i:                                         ; preds = %if.else, %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
 sw.default.i:                                     ; preds = %if.else
   br label %_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit
 
-_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit: ; preds = %if.else, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i, %sw.bb9.i, %sw.bb10.i, %sw.default.i
-  %retval.0.i65 = phi i8 [ 63, %sw.default.i ], [ %1, %sw.bb10.i ], [ %1, %sw.bb9.i ], [ %1, %sw.bb8.i ], [ %1, %sw.bb7.i ], [ 11, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 7, %if.else ]
+_ZN6google8protobuf2io12_GLOBAL__N_115TranslateEscapeEc.exit: ; preds = %if.else, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb8.i, %sw.bb9.i, %sw.default.i
+  %retval.0.i65 = phi i8 [ 63, %sw.default.i ], [ %1, %sw.bb9.i ], [ %1, %sw.bb8.i ], [ 11, %sw.bb6.i ], [ 9, %sw.bb5.i ], [ 13, %sw.bb4.i ], [ 10, %sw.bb3.i ], [ 12, %sw.bb2.i ], [ 8, %sw.bb1.i ], [ 7, %if.else ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %output, i8 noundef signext %retval.0.i65)
   br label %for.cond.backedge
 

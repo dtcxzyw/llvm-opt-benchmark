@@ -87,9 +87,9 @@ entry:
     i32 401, label %sw.bb2
     i32 403, label %sw.bb3
     i32 404, label %sw.bb4
-    i32 429, label %sw.bb5
-    i32 502, label %sw.bb6
-    i32 503, label %sw.bb7
+    i32 429, label %sw.bb8
+    i32 502, label %sw.bb8
+    i32 503, label %sw.bb8
     i32 504, label %sw.bb8
   ]
 
@@ -105,23 +105,14 @@ sw.bb3:                                           ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   br label %return
 
-sw.bb5:                                           ; preds = %entry
-  br label %return
-
-sw.bb6:                                           ; preds = %entry
-  br label %return
-
-sw.bb7:                                           ; preds = %entry
-  br label %return
-
-sw.bb8:                                           ; preds = %entry
+sw.bb8:                                           ; preds = %entry, %entry, %entry, %entry
   br label %return
 
 sw.default:                                       ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.default, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ 2, %sw.default ], [ 14, %sw.bb8 ], [ 14, %sw.bb7 ], [ 14, %sw.bb6 ], [ 14, %sw.bb5 ], [ 12, %sw.bb4 ], [ 7, %sw.bb3 ], [ 16, %sw.bb2 ], [ 13, %sw.bb1 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %sw.default, %sw.bb8, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
+  %retval.0 = phi i32 [ 2, %sw.default ], [ 14, %sw.bb8 ], [ 12, %sw.bb4 ], [ 7, %sw.bb3 ], [ 16, %sw.bb2 ], [ 13, %sw.bb1 ], [ 0, %entry ]
   ret i32 %retval.0
 }
 

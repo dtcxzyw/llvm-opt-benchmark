@@ -3216,34 +3216,19 @@ for.end348.i:                                     ; preds = %for.inc346.i, %for.
   %isnull.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   switch i32 %conv.i.i.i.i, label %sw.default.i.i [
     i32 1, label %sw.bb.i.i
-    i32 2, label %sw.bb1.i.i
-    i32 3, label %sw.bb2.i.i
-    i32 4, label %sw.bb3.i.i
-    i32 5, label %sw.bb4.i.i
-    i32 6, label %sw.bb5.i.i
-    i32 7, label %sw.bb6.i.i
+    i32 2, label %sw.bb.i.i
+    i32 3, label %sw.bb1.i.i
+    i32 4, label %sw.bb1.i.i
+    i32 5, label %sw.bb1.i.i
+    i32 6, label %sw.bb1.i.i
+    i32 7, label %sw.bb1.i.i
     i32 8, label %sw.bb7.i.i
   ]
 
-sw.bb.i.i:                                        ; preds = %for.end348.i
+sw.bb.i.i:                                        ; preds = %for.end348.i, %for.end348.i
   br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
 
-sw.bb1.i.i:                                       ; preds = %for.end348.i
-  br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
-
-sw.bb2.i.i:                                       ; preds = %for.end348.i
-  br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
-
-sw.bb3.i.i:                                       ; preds = %for.end348.i
-  br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
-
-sw.bb4.i.i:                                       ; preds = %for.end348.i
-  br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
-
-sw.bb5.i.i:                                       ; preds = %for.end348.i
-  br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
-
-sw.bb6.i.i:                                       ; preds = %for.end348.i
+sw.bb1.i.i:                                       ; preds = %for.end348.i, %for.end348.i, %for.end348.i, %for.end348.i, %for.end348.i
   br i1 %isnull.i.i.i.i, label %cleanup.thread.i, label %return.sink.split.i.i
 
 sw.bb7.i.i:                                       ; preds = %for.end348.i
@@ -3316,14 +3301,14 @@ terminate.lpad.i.i.i.i.i.i.i:                     ; preds = %if.end.i.i.i.i.i.i.
   call void @__clang_call_terminate(ptr %249) #32, !noalias !7
   unreachable
 
-return.sink.split.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %delete.notnull.i31.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i
+return.sink.split.i.i:                            ; preds = %if.end.i.i.i.i.i.i.i.i.i.i, %_ZNSt6vectorIfSaIfEED2Ev.exit.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i, %delete.notnull.i31.i.i, %sw.bb1.i.i, %sw.bb.i.i
   call void @_ZdlPv(ptr noundef nonnull %233) #35, !noalias !7
   br label %cleanup.thread.i
 
-cleanup.thread.i:                                 ; preds = %for.inc.i, %for.inc326.i, %for.inc263.i, %for.inc229.i, %for.inc195.i, %invoke.cont167.i, %for.cond118.for.inc132_crit_edge.us.i, %do.body.i, %do.body.i, %invoke.cont.i160, %return.sink.split.i.i, %sw.default.i.i, %sw.bb7.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %sw.bb.i.i, %invoke.cont240.i, %for.cond217.preheader.i, %for.cond183.preheader.i, %for.cond164.preheader.i, %if.then138.i, %if.then108.i, %for.end101.i
-  %points.sroa.75.1.i = phi ptr [ %points.sroa.75.4.lcssa.i, %for.end101.i ], [ %points.sroa.75.15.i380395, %if.then108.i ], [ %points.sroa.75.20.i, %for.cond164.preheader.i ], [ %points.sroa.75.15.i380395, %for.cond183.preheader.i ], [ %points.sroa.75.15.i380395, %for.cond217.preheader.i ], [ %points.sroa.75.15.i380395, %invoke.cont240.i ], [ %points.sroa.75.15.i380395, %if.then138.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb1.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb2.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb3.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb4.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb5.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb6.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb7.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.default.i.i ], [ %points.sroa.75.14.lcssa.i, %return.sink.split.i.i ], [ null, %invoke.cont.i160 ], [ %points.sroa.75.2.lcssa.i, %do.body.i ], [ %points.sroa.75.2.lcssa.i, %do.body.i ], [ %points.sroa.75.19.us.i, %for.cond118.for.inc132_crit_edge.us.i ], [ %points.sroa.75.20.i, %invoke.cont167.i ], [ %points.sroa.75.21.i, %for.inc195.i ], [ %points.sroa.75.22.i, %for.inc229.i ], [ %points.sroa.75.23.i, %for.inc263.i ], [ %.us-phi.i, %for.inc326.i ], [ %points.sroa.75.16.i, %for.inc.i ]
-  %points.sroa.30.1.i = phi ptr [ %points.sroa.30.4.lcssa.i, %for.end101.i ], [ %points.sroa.30.15.i382393, %if.then108.i ], [ %points.sroa.30.21.i, %for.cond164.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond183.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond217.preheader.i ], [ %points.sroa.30.15.i382393, %invoke.cont240.i ], [ %points.sroa.30.15.i382393, %if.then138.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb1.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb2.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb3.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb4.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb5.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb6.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb7.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.default.i.i ], [ %points.sroa.30.14.lcssa.i, %return.sink.split.i.i ], [ null, %invoke.cont.i160 ], [ %points.sroa.30.2.lcssa.i, %do.body.i ], [ %points.sroa.30.2.lcssa.i, %do.body.i ], [ %points.sroa.30.20.us.i, %for.cond118.for.inc132_crit_edge.us.i ], [ %points.sroa.30.21.i, %invoke.cont167.i ], [ %points.sroa.30.22.i, %for.inc195.i ], [ %points.sroa.30.23.i, %for.inc229.i ], [ %points.sroa.30.24.i, %for.inc263.i ], [ %.us-phi873.i, %for.inc326.i ], [ %points.sroa.30.16.i, %for.inc.i ]
-  %points.sroa.0.4.i = phi ptr [ %points.sroa.0.7.lcssa.i, %for.end101.i ], [ %points.sroa.30.15.i382393, %if.then108.i ], [ %points.sroa.0.24.i, %for.cond164.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond183.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond217.preheader.i ], [ %points.sroa.30.15.i382393, %invoke.cont240.i ], [ %points.sroa.30.15.i382393, %if.then138.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb1.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb2.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb3.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb4.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb5.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb6.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb7.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.default.i.i ], [ %points.sroa.0.17.lcssa.i, %return.sink.split.i.i ], [ null, %invoke.cont.i160 ], [ %points.sroa.0.5.lcssa.i, %do.body.i ], [ %points.sroa.0.5.lcssa.i, %do.body.i ], [ %points.sroa.0.23.us.i, %for.cond118.for.inc132_crit_edge.us.i ], [ %points.sroa.0.24.i, %invoke.cont167.i ], [ %points.sroa.0.25.i, %for.inc195.i ], [ %points.sroa.0.26.i, %for.inc229.i ], [ %points.sroa.0.27.i, %for.inc263.i ], [ %.us-phi874.i, %for.inc326.i ], [ %points.sroa.0.19.i, %for.inc.i ]
+cleanup.thread.i:                                 ; preds = %for.inc.i, %for.inc326.i, %for.inc263.i, %for.inc229.i, %for.inc195.i, %invoke.cont167.i, %for.cond118.for.inc132_crit_edge.us.i, %do.body.i, %do.body.i, %invoke.cont.i160, %return.sink.split.i.i, %sw.default.i.i, %sw.bb7.i.i, %sw.bb1.i.i, %sw.bb.i.i, %invoke.cont240.i, %for.cond217.preheader.i, %for.cond183.preheader.i, %for.cond164.preheader.i, %if.then138.i, %if.then108.i, %for.end101.i
+  %points.sroa.75.1.i = phi ptr [ %points.sroa.75.4.lcssa.i, %for.end101.i ], [ %points.sroa.75.15.i380395, %if.then108.i ], [ %points.sroa.75.20.i, %for.cond164.preheader.i ], [ %points.sroa.75.15.i380395, %for.cond183.preheader.i ], [ %points.sroa.75.15.i380395, %for.cond217.preheader.i ], [ %points.sroa.75.15.i380395, %invoke.cont240.i ], [ %points.sroa.75.15.i380395, %if.then138.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb1.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.bb7.i.i ], [ %points.sroa.75.14.lcssa.i, %sw.default.i.i ], [ %points.sroa.75.14.lcssa.i, %return.sink.split.i.i ], [ null, %invoke.cont.i160 ], [ %points.sroa.75.2.lcssa.i, %do.body.i ], [ %points.sroa.75.2.lcssa.i, %do.body.i ], [ %points.sroa.75.19.us.i, %for.cond118.for.inc132_crit_edge.us.i ], [ %points.sroa.75.20.i, %invoke.cont167.i ], [ %points.sroa.75.21.i, %for.inc195.i ], [ %points.sroa.75.22.i, %for.inc229.i ], [ %points.sroa.75.23.i, %for.inc263.i ], [ %.us-phi.i, %for.inc326.i ], [ %points.sroa.75.16.i, %for.inc.i ]
+  %points.sroa.30.1.i = phi ptr [ %points.sroa.30.4.lcssa.i, %for.end101.i ], [ %points.sroa.30.15.i382393, %if.then108.i ], [ %points.sroa.30.21.i, %for.cond164.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond183.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond217.preheader.i ], [ %points.sroa.30.15.i382393, %invoke.cont240.i ], [ %points.sroa.30.15.i382393, %if.then138.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb1.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.bb7.i.i ], [ %points.sroa.30.14.lcssa.i, %sw.default.i.i ], [ %points.sroa.30.14.lcssa.i, %return.sink.split.i.i ], [ null, %invoke.cont.i160 ], [ %points.sroa.30.2.lcssa.i, %do.body.i ], [ %points.sroa.30.2.lcssa.i, %do.body.i ], [ %points.sroa.30.20.us.i, %for.cond118.for.inc132_crit_edge.us.i ], [ %points.sroa.30.21.i, %invoke.cont167.i ], [ %points.sroa.30.22.i, %for.inc195.i ], [ %points.sroa.30.23.i, %for.inc229.i ], [ %points.sroa.30.24.i, %for.inc263.i ], [ %.us-phi873.i, %for.inc326.i ], [ %points.sroa.30.16.i, %for.inc.i ]
+  %points.sroa.0.4.i = phi ptr [ %points.sroa.0.7.lcssa.i, %for.end101.i ], [ %points.sroa.30.15.i382393, %if.then108.i ], [ %points.sroa.0.24.i, %for.cond164.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond183.preheader.i ], [ %points.sroa.30.15.i382393, %for.cond217.preheader.i ], [ %points.sroa.30.15.i382393, %invoke.cont240.i ], [ %points.sroa.30.15.i382393, %if.then138.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb1.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.bb7.i.i ], [ %points.sroa.0.17.lcssa.i, %sw.default.i.i ], [ %points.sroa.0.17.lcssa.i, %return.sink.split.i.i ], [ null, %invoke.cont.i160 ], [ %points.sroa.0.5.lcssa.i, %do.body.i ], [ %points.sroa.0.5.lcssa.i, %do.body.i ], [ %points.sroa.0.23.us.i, %for.cond118.for.inc132_crit_edge.us.i ], [ %points.sroa.0.24.i, %invoke.cont167.i ], [ %points.sroa.0.25.i, %for.inc195.i ], [ %points.sroa.0.26.i, %for.inc229.i ], [ %points.sroa.0.27.i, %for.inc263.i ], [ %.us-phi874.i, %for.inc326.i ], [ %points.sroa.0.19.i, %for.inc.i ]
   store i8 1, ptr %set.i608.i, align 8, !alias.scope !7
   store ptr %points.sroa.0.4.i, ptr %points, align 8, !alias.scope !7
   store ptr %points.sroa.30.1.i, ptr %_M_finish.i.i.i.i.i.i, align 8, !alias.scope !7

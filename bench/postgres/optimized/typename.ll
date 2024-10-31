@@ -53,59 +53,50 @@ declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 0, 17) i32 @ecpg_dynamic_type(i32 noundef %0) local_unnamed_addr #2 {
-  switch i32 %0, label %13 [
-    i32 16, label %14
+  switch i32 %0, label %10 [
+    i32 16, label %11
     i32 21, label %2
     i32 23, label %3
-    i32 25, label %4
-    i32 700, label %5
-    i32 701, label %6
-    i32 1042, label %7
-    i32 1043, label %8
-    i32 1082, label %9
-    i32 1083, label %10
-    i32 1114, label %11
-    i32 1700, label %12
+    i32 25, label %6
+    i32 700, label %4
+    i32 701, label %5
+    i32 1042, label %6
+    i32 1043, label %7
+    i32 1082, label %8
+    i32 1083, label %8
+    i32 1114, label %8
+    i32 1700, label %9
   ]
 
 2:                                                ; preds = %1
-  br label %14
+  br label %11
 
 3:                                                ; preds = %1
-  br label %14
+  br label %11
 
 4:                                                ; preds = %1
-  br label %14
+  br label %11
 
 5:                                                ; preds = %1
-  br label %14
+  br label %11
 
-6:                                                ; preds = %1
-  br label %14
+6:                                                ; preds = %1, %1
+  br label %11
 
 7:                                                ; preds = %1
-  br label %14
+  br label %11
 
-8:                                                ; preds = %1
-  br label %14
+8:                                                ; preds = %1, %1, %1
+  br label %11
 
 9:                                                ; preds = %1
-  br label %14
+  br label %11
 
 10:                                               ; preds = %1
-  br label %14
+  br label %11
 
-11:                                               ; preds = %1
-  br label %14
-
-12:                                               ; preds = %1
-  br label %14
-
-13:                                               ; preds = %1
-  br label %14
-
-14:                                               ; preds = %1, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 0, %13 ], [ 2, %12 ], [ 9, %11 ], [ 9, %10 ], [ 9, %9 ], [ 12, %8 ], [ 1, %7 ], [ 8, %6 ], [ 7, %5 ], [ 1, %4 ], [ 4, %3 ], [ 5, %2 ], [ %0, %1 ]
+11:                                               ; preds = %1, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ 0, %10 ], [ 2, %9 ], [ 9, %8 ], [ 12, %7 ], [ 1, %6 ], [ 8, %5 ], [ 7, %4 ], [ 4, %3 ], [ 5, %2 ], [ %0, %1 ]
   ret i32 %.0
 }
 

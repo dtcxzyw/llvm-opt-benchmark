@@ -5403,12 +5403,12 @@ if.else33:                                        ; preds = %ChooseHasher.exit.t
   %mul56 = mul nuw nsw i64 %cond.i125, 6
   %add57 = add nuw nsw i64 %mul55, %mul56
   switch i32 %6, label %HasherSize.exit [
-    i32 2, label %sw.bb.i
+    i32 2, label %sw.bb1.i
     i32 3, label %sw.bb1.i
     i32 4, label %sw.bb2.i
     i32 5, label %sw.bb3.i
     i32 6, label %sw.bb4.i
-    i32 40, label %sw.bb5.i
+    i32 40, label %sw.bb6.i
     i32 41, label %sw.bb6.i
     i32 42, label %sw.bb7.i
     i32 54, label %sw.bb8.i
@@ -5418,10 +5418,7 @@ if.else33:                                        ; preds = %ChooseHasher.exit.t
     i32 10, label %land.lhs.true.i366
   ]
 
-sw.bb.i:                                          ; preds = %if.else33
-  br label %HasherSize.exit
-
-sw.bb1.i:                                         ; preds = %if.else33
+sw.bb1.i:                                         ; preds = %if.else33, %if.else33
   br label %HasherSize.exit
 
 sw.bb2.i:                                         ; preds = %if.else33
@@ -5451,10 +5448,7 @@ sw.bb4.i:                                         ; preds = %if.else33
   %mul5.i266204 = shl i64 %mul4.i265, %sh_prom2.i262
   br label %HasherSize.exit
 
-sw.bb5.i:                                         ; preds = %if.else33
-  br label %HasherSize.exit
-
-sw.bb6.i:                                         ; preds = %if.else33
+sw.bb6.i:                                         ; preds = %if.else33, %if.else33
   br label %HasherSize.exit
 
 sw.bb7.i:                                         ; preds = %if.else33
@@ -5488,10 +5482,10 @@ land.lhs.true.i366:                               ; preds = %if.else33
   %mul.i364 = shl nuw nsw i64 %spec.select, 3
   br label %HasherSize.exit
 
-HasherSize.exit:                                  ; preds = %if.else33, %land.lhs.true.i366, %sw.bb11.i, %HashMemAllocInBytesH55.exit, %HashMemAllocInBytesH35.exit, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb5.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i, %sw.bb.i
-  %hash_size47.sroa.25.0 = phi i64 [ 0, %if.else33 ], [ 0, %land.lhs.true.i366 ], [ 67108864, %sw.bb11.i ], [ 67108864, %HashMemAllocInBytesH55.exit ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ 0, %sw.bb8.i ], [ 0, %sw.bb7.i ], [ 0, %sw.bb6.i ], [ 0, %sw.bb5.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb.i ]
-  %hash_size47.sroa.15.0 = phi i64 [ 0, %if.else33 ], [ %mul.i364, %land.lhs.true.i366 ], [ %mul5.i.i203, %sw.bb11.i ], [ 0, %HashMemAllocInBytesH55.exit ], [ 0, %HashMemAllocInBytesH35.exit ], [ 0, %sw.bb8.i ], [ 1048576, %sw.bb7.i ], [ 262144, %sw.bb6.i ], [ 262144, %sw.bb5.i ], [ %mul5.i266204, %sw.bb4.i ], [ %mul5.i205, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb.i ]
-  %hash_size47.sroa.0.0 = phi i64 [ 0, %if.else33 ], [ 524288, %land.lhs.true.i366 ], [ %mul.i.i, %sw.bb11.i ], [ 4194304, %HashMemAllocInBytesH55.exit ], [ 262144, %HashMemAllocInBytesH35.exit ], [ 4194304, %sw.bb8.i ], [ 262144, %sw.bb7.i ], [ 262144, %sw.bb6.i ], [ 262144, %sw.bb5.i ], [ %mul.i264, %sw.bb4.i ], [ %mul.i, %sw.bb3.i ], [ 524288, %sw.bb2.i ], [ 262144, %sw.bb1.i ], [ 262144, %sw.bb.i ]
+HasherSize.exit:                                  ; preds = %if.else33, %land.lhs.true.i366, %sw.bb11.i, %HashMemAllocInBytesH55.exit, %HashMemAllocInBytesH35.exit, %sw.bb8.i, %sw.bb7.i, %sw.bb6.i, %sw.bb4.i, %sw.bb3.i, %sw.bb2.i, %sw.bb1.i
+  %hash_size47.sroa.25.0 = phi i64 [ 0, %if.else33 ], [ 0, %land.lhs.true.i366 ], [ 67108864, %sw.bb11.i ], [ 67108864, %HashMemAllocInBytesH55.exit ], [ 67108864, %HashMemAllocInBytesH35.exit ], [ 0, %sw.bb8.i ], [ 0, %sw.bb7.i ], [ 0, %sw.bb6.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb1.i ]
+  %hash_size47.sroa.15.0 = phi i64 [ 0, %if.else33 ], [ %mul.i364, %land.lhs.true.i366 ], [ %mul5.i.i203, %sw.bb11.i ], [ 0, %HashMemAllocInBytesH55.exit ], [ 0, %HashMemAllocInBytesH35.exit ], [ 0, %sw.bb8.i ], [ 1048576, %sw.bb7.i ], [ 262144, %sw.bb6.i ], [ %mul5.i266204, %sw.bb4.i ], [ %mul5.i205, %sw.bb3.i ], [ 0, %sw.bb2.i ], [ 0, %sw.bb1.i ]
+  %hash_size47.sroa.0.0 = phi i64 [ 0, %if.else33 ], [ 524288, %land.lhs.true.i366 ], [ %mul.i.i, %sw.bb11.i ], [ 4194304, %HashMemAllocInBytesH55.exit ], [ 262144, %HashMemAllocInBytesH35.exit ], [ 4194304, %sw.bb8.i ], [ 262144, %sw.bb7.i ], [ 262144, %sw.bb6.i ], [ %mul.i264, %sw.bb4.i ], [ %mul.i, %sw.bb3.i ], [ 524288, %sw.bb2.i ], [ 262144, %sw.bb1.i ]
   %cmp61 = icmp ult i32 %quality, 4
   br i1 %cmp61, label %if.then63, label %if.end67
 
