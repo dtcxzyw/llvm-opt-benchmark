@@ -19654,7 +19654,7 @@ nuttx/task_startup.c.ll 33067832
 nuttx/timer_create.c.ll 54861753
 nuttx/timer_initialize.c.ll 57170201
 nuttx/timer_release.c.ll 57782343
-nuttx/uart_16550.c.ll 99913110
+nuttx/uart_16550.c.ll 99813126
 nuttx/wd_cancel.c.ll 47236408
 nuttx/wd_start.c.ll 82285065
 nuttx/x86_64_allocateheap.c.ll 34123542
@@ -30060,7 +30060,7 @@ protobuf/generated_message_tctable_gen.cc.ll 2676420719
 protobuf/generated_message_tctable_lite.cc.ll 8596388189
 protobuf/generated_message_util.cc.ll 159255621
 protobuf/generator.cc.ll 2673081055
-protobuf/generator_factory.cc.ll 53809825
+protobuf/generator_factory.cc.ll 53755946
 protobuf/gzip_stream.cc.ll 139829804
 protobuf/helpers.cc.ll 8370463341
 protobuf/implicit_weak_message.cc.ll 89687908
