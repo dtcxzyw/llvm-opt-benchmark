@@ -24,8 +24,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @GifErrorString(i32 noundef %0) local_unnamed_addr #0 {
-  switch i32 %0, label %23 [
-    i32 1, label %24
+  switch i32 %0, label %19 [
+    i32 1, label %20
     i32 2, label %2
     i32 3, label %3
     i32 4, label %4
@@ -35,89 +35,77 @@ define hidden noundef ptr @GifErrorString(i32 noundef %0) local_unnamed_addr #0 
     i32 8, label %8
     i32 9, label %9
     i32 10, label %10
-    i32 101, label %24
+    i32 101, label %20
     i32 102, label %11
     i32 103, label %12
     i32 104, label %13
     i32 105, label %14
-    i32 106, label %15
-    i32 107, label %16
-    i32 108, label %17
-    i32 109, label %18
-    i32 110, label %19
-    i32 111, label %20
-    i32 112, label %21
-    i32 113, label %22
+    i32 106, label %5
+    i32 107, label %15
+    i32 108, label %6
+    i32 109, label %7
+    i32 110, label %9
+    i32 111, label %16
+    i32 112, label %17
+    i32 113, label %18
   ]
 
 2:                                                ; preds = %1
-  br label %24
+  br label %20
 
 3:                                                ; preds = %1
-  br label %24
+  br label %20
 
 4:                                                ; preds = %1
-  br label %24
+  br label %20
 
-5:                                                ; preds = %1
-  br label %24
+5:                                                ; preds = %1, %1
+  br label %20
 
-6:                                                ; preds = %1
-  br label %24
+6:                                                ; preds = %1, %1
+  br label %20
 
-7:                                                ; preds = %1
-  br label %24
+7:                                                ; preds = %1, %1
+  br label %20
 
 8:                                                ; preds = %1
-  br label %24
+  br label %20
 
-9:                                                ; preds = %1
-  br label %24
+9:                                                ; preds = %1, %1
+  br label %20
 
 10:                                               ; preds = %1
-  br label %24
+  br label %20
 
 11:                                               ; preds = %1
-  br label %24
+  br label %20
 
 12:                                               ; preds = %1
-  br label %24
+  br label %20
 
 13:                                               ; preds = %1
-  br label %24
+  br label %20
 
 14:                                               ; preds = %1
-  br label %24
+  br label %20
 
 15:                                               ; preds = %1
-  br label %24
+  br label %20
 
 16:                                               ; preds = %1
-  br label %24
+  br label %20
 
 17:                                               ; preds = %1
-  br label %24
+  br label %20
 
 18:                                               ; preds = %1
-  br label %24
+  br label %20
 
 19:                                               ; preds = %1
-  br label %24
+  br label %20
 
-20:                                               ; preds = %1
-  br label %24
-
-21:                                               ; preds = %1
-  br label %24
-
-22:                                               ; preds = %1
-  br label %24
-
-23:                                               ; preds = %1
-  br label %24
-
-24:                                               ; preds = %1, %1, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi ptr [ null, %23 ], [ @.str.17, %22 ], [ @.str.16, %21 ], [ @.str.15, %20 ], [ @.str.8, %19 ], [ @.str.6, %18 ], [ @.str.5, %17 ], [ @.str.14, %16 ], [ @.str.4, %15 ], [ @.str.13, %14 ], [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.10, %11 ], [ @.str.9, %10 ], [ @.str.8, %9 ], [ @.str.7, %8 ], [ @.str.6, %7 ], [ @.str.5, %6 ], [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ], [ @.str, %1 ]
+20:                                               ; preds = %1, %1, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi ptr [ null, %19 ], [ @.str.17, %18 ], [ @.str.16, %17 ], [ @.str.15, %16 ], [ @.str.14, %15 ], [ @.str.13, %14 ], [ @.str.12, %13 ], [ @.str.11, %12 ], [ @.str.10, %11 ], [ @.str.9, %10 ], [ @.str.8, %9 ], [ @.str.7, %8 ], [ @.str.6, %7 ], [ @.str.5, %6 ], [ @.str.4, %5 ], [ @.str.3, %4 ], [ @.str.2, %3 ], [ @.str.1, %2 ], [ @.str, %1 ], [ @.str, %1 ]
   ret ptr %.0
 }
 

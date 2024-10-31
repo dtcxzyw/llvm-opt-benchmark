@@ -222,29 +222,26 @@ define hidden noundef zeroext i1 @_ZN13MethodMatcher12canonicalizeEPcRPKc(ptr no
   br i1 %.not56.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.thread66
-  %.pr = phi i8 [ %27, %.thread66 ], [ %.pr.ph, %.lr.ph.split.preheader ]
-  %.072 = phi ptr [ %26, %.thread66 ], [ %0, %.lr.ph.split.preheader ]
+  %.pr = phi i8 [ %26, %.thread66 ], [ %.pr.ph, %.lr.ph.split.preheader ]
+  %.072 = phi ptr [ %25, %.thread66 ], [ %0, %.lr.ph.split.preheader ]
   switch i8 %.pr, label %.thread66 [
     i8 46, label %.thread66.sink.split
     i8 58, label %24
-    i8 44, label %25
+    i8 44, label %24
   ]
 
-24:                                               ; preds = %.lr.ph.split
+24:                                               ; preds = %.lr.ph.split, %.lr.ph.split
   br label %.thread66.sink.split
 
-25:                                               ; preds = %.lr.ph.split
-  br label %.thread66.sink.split
-
-.thread66.sink.split:                             ; preds = %.lr.ph.split, %25, %24
-  %.sink = phi i8 [ 32, %24 ], [ 32, %25 ], [ 47, %.lr.ph.split ]
+.thread66.sink.split:                             ; preds = %.lr.ph.split, %24
+  %.sink = phi i8 [ 32, %24 ], [ 47, %.lr.ph.split ]
   store i8 %.sink, ptr %.072, align 1
   br label %.thread66
 
 .thread66:                                        ; preds = %.thread66.sink.split, %.lr.ph.split
-  %26 = getelementptr inbounds i8, ptr %.072, i64 1
-  %27 = load i8, ptr %26, align 1
-  %.not56 = icmp eq i8 %27, 0
+  %25 = getelementptr inbounds i8, ptr %.072, i64 1
+  %26 = load i8, ptr %25, align 1
+  %.not56 = icmp eq i8 %26, 0
   br i1 %.not56, label %.loopexit, label %.lr.ph.split, !llvm.loop !9
 
 .loopexit.sink.split:                             ; preds = %.preheader69, %.thread60, %14, %7

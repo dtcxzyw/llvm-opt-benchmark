@@ -30390,7 +30390,7 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly4expr22can_be_overflowed_e
   br i1 %7, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3, %tailrecurse
-  %.tr1725 = phi ptr [ %60, %tailrecurse ], [ %1, %3 ]
+  %.tr1725 = phi ptr [ %61, %tailrecurse ], [ %1, %3 ]
   %8 = load i8, ptr %.tr1725, align 8, !range !2646, !noundef !10
   switch i8 %8, label %.loopexit.loopexit [
     i8 0, label %9
@@ -30421,7 +30421,7 @@ define hidden noundef zeroext i1 @_ZN15rustfmt_nightly4expr22can_be_overflowed_e
   %13 = getelementptr inbounds i8, ptr %11, i64 721
   %14 = load i8, ptr %13, align 1, !range !40, !noundef !10
   %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %.loopexit, label %102
+  br i1 %15, label %.loopexit, label %101
 
 16:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph
   %17 = getelementptr inbounds i8, ptr %0, i64 40
@@ -30453,7 +30453,7 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   %32 = getelementptr inbounds i8, ptr %30, i64 717
   %33 = load i8, ptr %32, align 1, !range !40, !noundef !10
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %65, label %.loopexit
+  br i1 %34, label %66, label %.loopexit
 
 35:                                               ; preds = %.lr.ph
   %36 = getelementptr inbounds i8, ptr %0, i64 40
@@ -30463,19 +30463,19 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   %39 = getelementptr inbounds i8, ptr %37, i64 609
   %40 = load i8, ptr %39, align 1, !range !40, !noundef !10
   %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit9, label %42
+  br i1 %41, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit10, label %42
 
 42:                                               ; preds = %35
   %43 = getelementptr inbounds i8, ptr %0, i64 169
   %44 = load i8, ptr %43, align 1, !range !40, !noundef !10
   %45 = trunc nuw i8 %44 to i1
-  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit9
+  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit10
 
-_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit9: ; preds = %35, %42
-  %.0.i8 = phi i1 [ %45, %42 ], [ true, %35 ]
+_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit10: ; preds = %35, %42
+  %.0.i9 = phi i1 [ %45, %42 ], [ true, %35 ]
   %46 = icmp eq i64 %2, 1
-  %or.cond = and i1 %46, %.0.i8
-  br i1 %or.cond, label %.loopexit, label %76
+  %or.cond = and i1 %46, %.0.i9
+  br i1 %or.cond, label %.loopexit, label %77
 
 47:                                               ; preds = %.lr.ph
   %48 = getelementptr inbounds i8, ptr %.tr1725, i64 8
@@ -30491,114 +30491,108 @@ _ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57
   %57 = getelementptr inbounds i8, ptr %55, i64 721
   %58 = load i8, ptr %57, align 1, !range !40, !noundef !10
   %59 = trunc nuw i8 %58 to i1
-  switch i8 %53, label %89 [
-    i8 1, label %100
-    i8 2, label %101
-  ]
+  %60 = add nsw i8 %53, -1
+  %switch = icmp ult i8 %60, 2
+  %brmerge.not = and i1 %switch, %59
+  br i1 %brmerge.not, label %.loopexit, label %90
 
 .loopexit.loopexit:                               ; preds = %.lr.ph, %tailrecurse
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.loopexit.loopexit, %3, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit15, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit13, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit, %76, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit11, %9, %100, %101, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit9, %28, %83
-  %.0.shrunk = phi i1 [ %88, %83 ], [ false, %28 ], [ %spec.select, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit11 ], [ true, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit9 ], [ true, %101 ], [ true, %100 ], [ true, %9 ], [ %spec.select4, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit ], [ true, %76 ], [ %spec.select6, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit13 ], [ %spec.select7, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit15 ], [ false, %3 ], [ false, %.loopexit.loopexit ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.loopexit.loopexit, %3, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit16, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit14, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit, %77, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit12, %9, %47, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit10, %28, %84
+  %.0.shrunk = phi i1 [ %89, %84 ], [ false, %28 ], [ %spec.select, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit12 ], [ true, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit10 ], [ true, %47 ], [ true, %9 ], [ %spec.select4, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit ], [ true, %77 ], [ %spec.select7, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit14 ], [ %spec.select8, %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit16 ], [ false, %3 ], [ false, %.loopexit.loopexit ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ]
   ret i1 %.0.shrunk
 
 tailrecurse:                                      ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
   %.03 = getelementptr inbounds i8, ptr %.tr1725, i64 8
-  %60 = load ptr, ptr %.03, align 8, !nonnull !10, !align !11, !noundef !10
-  %61 = getelementptr inbounds i8, ptr %60, i64 40
-  %62 = load ptr, ptr %61, align 8, !nonnull !10, !noundef !10
-  %63 = load i64, ptr %62, align 8, !noundef !10
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %.lr.ph, label %.loopexit.loopexit
+  %61 = load ptr, ptr %.03, align 8, !nonnull !10, !align !11, !noundef !10
+  %62 = getelementptr inbounds i8, ptr %61, i64 40
+  %63 = load ptr, ptr %62, align 8, !nonnull !10, !noundef !10
+  %64 = load i64, ptr %63, align 8, !noundef !10
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %.lr.ph, label %.loopexit.loopexit
 
-65:                                               ; preds = %28
-  %66 = load ptr, ptr %29, align 8, !nonnull !10, !align !11, !noundef !10
-  %67 = getelementptr inbounds i8, ptr %66, i64 610
-  store i8 1, ptr %67, align 2
-  %68 = getelementptr inbounds i8, ptr %66, i64 609
-  %69 = load i8, ptr %68, align 1, !range !40, !noundef !10
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit11, label %71
+66:                                               ; preds = %28
+  %67 = load ptr, ptr %29, align 8, !nonnull !10, !align !11, !noundef !10
+  %68 = getelementptr inbounds i8, ptr %67, i64 610
+  store i8 1, ptr %68, align 2
+  %69 = getelementptr inbounds i8, ptr %67, i64 609
+  %70 = load i8, ptr %69, align 1, !range !40, !noundef !10
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit12, label %72
 
-71:                                               ; preds = %65
-  %72 = getelementptr inbounds i8, ptr %0, i64 169
-  %73 = load i8, ptr %72, align 1, !range !40, !noundef !10
-  %74 = trunc nuw i8 %73 to i1
-  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit11
+72:                                               ; preds = %66
+  %73 = getelementptr inbounds i8, ptr %0, i64 169
+  %74 = load i8, ptr %73, align 1, !range !40, !noundef !10
+  %75 = trunc nuw i8 %74 to i1
+  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit12
 
-_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit11: ; preds = %65, %71
-  %.0.i10 = phi i1 [ %74, %71 ], [ true, %65 ]
-  %75 = icmp eq i64 %2, 1
-  %spec.select = and i1 %75, %.0.i10
+_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit12: ; preds = %66, %72
+  %.0.i11 = phi i1 [ %75, %72 ], [ true, %66 ]
+  %76 = icmp eq i64 %2, 1
+  %spec.select = and i1 %76, %.0.i11
   br label %.loopexit
 
-76:                                               ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit9
-  %77 = load ptr, ptr %36, align 8, !nonnull !10, !align !11, !noundef !10
-  %78 = getelementptr inbounds i8, ptr %77, i64 610
-  store i8 1, ptr %78, align 2
-  %79 = getelementptr inbounds i8, ptr %77, i64 609
-  %80 = load i8, ptr %79, align 1, !range !40, !noundef !10
-  %81 = trunc nuw i8 %80 to i1
-  %82 = icmp ult i64 %2, 2
-  %or.cond5.not = or i1 %82, %81
-  br i1 %or.cond5.not, label %83, label %.loopexit
+77:                                               ; preds = %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit10
+  %78 = load ptr, ptr %36, align 8, !nonnull !10, !align !11, !noundef !10
+  %79 = getelementptr inbounds i8, ptr %78, i64 610
+  store i8 1, ptr %79, align 2
+  %80 = getelementptr inbounds i8, ptr %78, i64 609
+  %81 = load i8, ptr %80, align 1, !range !40, !noundef !10
+  %82 = trunc nuw i8 %81 to i1
+  %83 = icmp ult i64 %2, 2
+  %or.cond6.not = or i1 %83, %82
+  br i1 %or.cond6.not, label %84, label %.loopexit
 
-83:                                               ; preds = %76
-  %84 = load ptr, ptr %36, align 8, !nonnull !10, !align !11, !noundef !10
-  %85 = getelementptr inbounds i8, ptr %84, i64 722
-  store i8 1, ptr %85, align 2
-  %86 = getelementptr inbounds i8, ptr %84, i64 721
-  %87 = load i8, ptr %86, align 1, !range !40, !noundef !10
-  %88 = trunc nuw i8 %87 to i1
+84:                                               ; preds = %77
+  %85 = load ptr, ptr %36, align 8, !nonnull !10, !align !11, !noundef !10
+  %86 = getelementptr inbounds i8, ptr %85, i64 722
+  store i8 1, ptr %86, align 2
+  %87 = getelementptr inbounds i8, ptr %85, i64 721
+  %88 = load i8, ptr %87, align 1, !range !40, !noundef !10
+  %89 = trunc nuw i8 %88 to i1
   br label %.loopexit
 
-89:                                               ; preds = %101, %100, %47
-  %90 = load ptr, ptr %54, align 8, !nonnull !10, !align !11, !noundef !10
-  %91 = getelementptr inbounds i8, ptr %90, i64 610
-  store i8 1, ptr %91, align 2
-  %92 = getelementptr inbounds i8, ptr %90, i64 609
-  %93 = load i8, ptr %92, align 1, !range !40, !noundef !10
-  %94 = trunc nuw i8 %93 to i1
-  br i1 %94, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit13, label %95
+90:                                               ; preds = %47
+  %91 = load ptr, ptr %54, align 8, !nonnull !10, !align !11, !noundef !10
+  %92 = getelementptr inbounds i8, ptr %91, i64 610
+  store i8 1, ptr %92, align 2
+  %93 = getelementptr inbounds i8, ptr %91, i64 609
+  %94 = load i8, ptr %93, align 1, !range !40, !noundef !10
+  %95 = trunc nuw i8 %94 to i1
+  br i1 %95, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit14, label %96
 
-95:                                               ; preds = %89
-  %96 = getelementptr inbounds i8, ptr %0, i64 169
-  %97 = load i8, ptr %96, align 1, !range !40, !noundef !10
-  %98 = trunc nuw i8 %97 to i1
-  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit13
+96:                                               ; preds = %90
+  %97 = getelementptr inbounds i8, ptr %0, i64 169
+  %98 = load i8, ptr %97, align 1, !range !40, !noundef !10
+  %99 = trunc nuw i8 %98 to i1
+  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit14
 
-_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit13: ; preds = %89, %95
-  %.0.i12 = phi i1 [ %98, %95 ], [ true, %89 ]
-  %99 = icmp eq i64 %2, 1
-  %spec.select6 = and i1 %99, %.0.i12
+_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit14: ; preds = %90, %96
+  %.0.i13 = phi i1 [ %99, %96 ], [ true, %90 ]
+  %100 = icmp eq i64 %2, 1
+  %spec.select7 = and i1 %100, %.0.i13
   br label %.loopexit
 
-100:                                              ; preds = %47
-  br i1 %59, label %.loopexit, label %89
+101:                                              ; preds = %9
+  %102 = load ptr, ptr %10, align 8, !nonnull !10, !align !11, !noundef !10
+  %103 = getelementptr inbounds i8, ptr %102, i64 610
+  store i8 1, ptr %103, align 2
+  %104 = getelementptr inbounds i8, ptr %102, i64 609
+  %105 = load i8, ptr %104, align 1, !range !40, !noundef !10
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit16, label %107
 
-101:                                              ; preds = %47
-  br i1 %59, label %.loopexit, label %89
+107:                                              ; preds = %101
+  %108 = getelementptr inbounds i8, ptr %0, i64 169
+  %109 = load i8, ptr %108, align 1, !range !40, !noundef !10
+  %110 = trunc nuw i8 %109 to i1
+  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit16
 
-102:                                              ; preds = %9
-  %103 = load ptr, ptr %10, align 8, !nonnull !10, !align !11, !noundef !10
-  %104 = getelementptr inbounds i8, ptr %103, i64 610
-  store i8 1, ptr %104, align 2
-  %105 = getelementptr inbounds i8, ptr %103, i64 609
-  %106 = load i8, ptr %105, align 1, !range !40, !noundef !10
-  %107 = trunc nuw i8 %106 to i1
-  br i1 %107, label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit15, label %108
-
-108:                                              ; preds = %102
-  %109 = getelementptr inbounds i8, ptr %0, i64 169
-  %110 = load i8, ptr %109, align 1, !range !40, !noundef !10
-  %111 = trunc nuw i8 %110 to i1
-  br label %_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit15
-
-_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit15: ; preds = %102, %108
-  %.0.i14 = phi i1 [ %111, %108 ], [ true, %102 ]
-  %112 = icmp eq i64 %2, 1
-  %spec.select7 = and i1 %112, %.0.i14
+_ZN15rustfmt_nightly7rewrite14RewriteContext16use_block_indent17h490227a595f2c57aE.exit16: ; preds = %101, %107
+  %.0.i15 = phi i1 [ %110, %107 ], [ true, %101 ]
+  %111 = icmp eq i64 %2, 1
+  %spec.select8 = and i1 %111, %.0.i15
   br label %.loopexit
 }
 

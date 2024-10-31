@@ -2844,36 +2844,33 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %1, %pmix_pointer_ar
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 65536) i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0) local_unnamed_addr #5 {
   %2 = zext i16 %0 to i32
-  switch i16 %0, label %7 [
-    i16 20, label %8
+  switch i16 %0, label %6 [
+    i16 20, label %7
     i16 44, label %3
-    i16 40, label %8
-    i16 39, label %4
-    i16 23, label %5
-    i16 24, label %5
-    i16 25, label %5
-    i16 26, label %5
-    i16 27, label %5
-    i16 28, label %5
-    i16 29, label %5
-    i16 30, label %5
+    i16 40, label %7
+    i16 39, label %3
+    i16 23, label %4
+    i16 24, label %4
+    i16 25, label %4
+    i16 26, label %4
+    i16 27, label %4
+    i16 28, label %4
+    i16 29, label %4
+    i16 30, label %4
   ]
 
-3:                                                ; preds = %1
-  br label %8
+3:                                                ; preds = %1, %1
+  br label %7
 
-4:                                                ; preds = %1
-  br label %8
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  %5 = add nuw nsw i32 %2, 1
+  br label %7
 
-5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
-  %6 = add nuw nsw i32 %2, 1
-  br label %8
+6:                                                ; preds = %1
+  br label %7
 
-7:                                                ; preds = %1
-  br label %8
-
-8:                                                ; preds = %1, %1, %7, %5, %4, %3
-  %.0 = phi i32 [ %2, %7 ], [ %6, %5 ], [ 22, %4 ], [ 22, %3 ], [ 6, %1 ], [ 6, %1 ]
+7:                                                ; preds = %1, %1, %6, %4, %3
+  %.0 = phi i32 [ %2, %6 ], [ %5, %4 ], [ 22, %3 ], [ 6, %1 ], [ 6, %1 ]
   ret i32 %.0
 }
 
@@ -2881,39 +2878,36 @@ define range(i32 0, 65536) i32 @pmix12_v2_to_v1_datatype(i16 noundef zeroext %0)
 define i32 @pmix12_bfrop_store_data_type(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = zext i16 %2 to i32
-  switch i16 %2, label %10 [
+  switch i16 %2, label %9 [
     i16 20, label %pmix12_v2_to_v1_datatype.exit
     i16 44, label %6
     i16 40, label %pmix12_v2_to_v1_datatype.exit
-    i16 39, label %7
-    i16 23, label %8
-    i16 24, label %8
-    i16 25, label %8
-    i16 26, label %8
-    i16 27, label %8
-    i16 28, label %8
-    i16 29, label %8
-    i16 30, label %8
+    i16 39, label %6
+    i16 23, label %7
+    i16 24, label %7
+    i16 25, label %7
+    i16 26, label %7
+    i16 27, label %7
+    i16 28, label %7
+    i16 29, label %7
+    i16 30, label %7
   ]
 
-6:                                                ; preds = %3
+6:                                                ; preds = %3, %3
   br label %pmix12_v2_to_v1_datatype.exit
 
-7:                                                ; preds = %3
+7:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3
+  %8 = add nuw nsw i32 %5, 1
   br label %pmix12_v2_to_v1_datatype.exit
 
-8:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3
-  %9 = add nuw nsw i32 %5, 1
+9:                                                ; preds = %3
   br label %pmix12_v2_to_v1_datatype.exit
 
-10:                                               ; preds = %3
-  br label %pmix12_v2_to_v1_datatype.exit
-
-pmix12_v2_to_v1_datatype.exit:                    ; preds = %3, %3, %6, %7, %8, %10
-  %.0.i = phi i32 [ %5, %10 ], [ %9, %8 ], [ 22, %7 ], [ 22, %6 ], [ 6, %3 ], [ 6, %3 ]
+pmix12_v2_to_v1_datatype.exit:                    ; preds = %3, %3, %6, %7, %9
+  %.0.i = phi i32 [ %5, %9 ], [ %8, %7 ], [ 22, %6 ], [ 6, %3 ], [ 6, %3 ]
   store i32 %.0.i, ptr %4, align 4
-  %11 = call i32 @pmix12_bfrop_pack_datatype(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1, i16 noundef zeroext 6) #17
-  ret i32 %11
+  %10 = call i32 @pmix12_bfrop_pack_datatype(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %4, i32 noundef 1, i16 noundef zeroext 6) #17
+  ret i32 %10
 }
 
 declare i32 @pmix12_bfrop_pack_datatype(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) #1

@@ -65402,11 +65402,11 @@ entry:
     i8 3, label %sw.bb4
     i8 4, label %sw.bb5
     i8 10, label %sw.bb6
-    i8 5, label %sw.bb7
-    i8 6, label %sw.bb8
+    i8 5, label %sw.bb4
+    i8 6, label %sw.bb5
     i8 7, label %sw.bb9
-    i8 8, label %sw.bb10
-    i8 9, label %sw.bb11
+    i8 8, label %sw.bb9
+    i8 9, label %sw.bb5
     i8 30, label %sw.bb12
     i8 31, label %sw.bb13
     i8 32, label %sw.bb14
@@ -65416,28 +65416,16 @@ entry:
 sw.bb3:                                           ; preds = %entry
   br label %return
 
-sw.bb4:                                           ; preds = %entry
+sw.bb4:                                           ; preds = %entry, %entry
   br label %return
 
-sw.bb5:                                           ; preds = %entry
+sw.bb5:                                           ; preds = %entry, %entry, %entry
   br label %return
 
 sw.bb6:                                           ; preds = %entry
   br label %return
 
-sw.bb7:                                           ; preds = %entry
-  br label %return
-
-sw.bb8:                                           ; preds = %entry
-  br label %return
-
-sw.bb9:                                           ; preds = %entry
-  br label %return
-
-sw.bb10:                                          ; preds = %entry
-  br label %return
-
-sw.bb11:                                          ; preds = %entry
+sw.bb9:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb12:                                          ; preds = %entry
@@ -65470,9 +65458,9 @@ lpad:                                             ; preds = %sw.default
   tail call void @__cxa_free_exception(ptr %exception) #19
   resume { ptr, i32 } %4
 
-return:                                           ; preds = %entry, %entry, %entry, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3
-  %retval.sroa.16.0 = phi ptr [ %cond, %sw.bb14 ], [ @.str.27, %sw.bb13 ], [ @.str.26, %sw.bb12 ], [ @.str.23, %sw.bb11 ], [ @.str.25, %sw.bb10 ], [ @.str.25, %sw.bb9 ], [ @.str.23, %sw.bb8 ], [ @.str.22, %sw.bb7 ], [ @.str.24, %sw.bb6 ], [ @.str.23, %sw.bb5 ], [ @.str.22, %sw.bb4 ], [ @.str.21, %sw.bb3 ], [ @.str.20, %entry ], [ @.str.20, %entry ], [ @.str.20, %entry ]
-  %retval.sroa.0.0 = phi i64 [ %call.i.i26, %sw.bb14 ], [ 3, %sw.bb13 ], [ 5, %sw.bb12 ], [ 10, %sw.bb11 ], [ 14, %sw.bb10 ], [ 14, %sw.bb9 ], [ 10, %sw.bb8 ], [ 9, %sw.bb7 ], [ 12, %sw.bb6 ], [ 10, %sw.bb5 ], [ 9, %sw.bb4 ], [ 11, %sw.bb3 ], [ 10, %entry ], [ 10, %entry ], [ 10, %entry ]
+return:                                           ; preds = %entry, %entry, %entry, %sw.bb14, %sw.bb13, %sw.bb12, %sw.bb9, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3
+  %retval.sroa.16.0 = phi ptr [ %cond, %sw.bb14 ], [ @.str.27, %sw.bb13 ], [ @.str.26, %sw.bb12 ], [ @.str.25, %sw.bb9 ], [ @.str.24, %sw.bb6 ], [ @.str.23, %sw.bb5 ], [ @.str.22, %sw.bb4 ], [ @.str.21, %sw.bb3 ], [ @.str.20, %entry ], [ @.str.20, %entry ], [ @.str.20, %entry ]
+  %retval.sroa.0.0 = phi i64 [ %call.i.i26, %sw.bb14 ], [ 3, %sw.bb13 ], [ 5, %sw.bb12 ], [ 14, %sw.bb9 ], [ 12, %sw.bb6 ], [ 10, %sw.bb5 ], [ 9, %sw.bb4 ], [ 11, %sw.bb3 ], [ 10, %entry ], [ 10, %entry ], [ 10, %entry ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.16.0, 1
   ret { i64, ptr } %.fca.1.insert

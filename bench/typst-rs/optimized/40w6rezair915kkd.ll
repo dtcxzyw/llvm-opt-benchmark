@@ -102622,13 +102622,13 @@ common.resume:                                    ; preds = %.noexc, %20, %24
     i8 3, label %45
     i8 4, label %46
     i8 5, label %47
-    i8 6, label %48
-    i8 7, label %49
-    i8 8, label %50
-    i8 9, label %51
-    i8 10, label %52
-    i8 11, label %53
-    i8 12, label %54
+    i8 6, label %47
+    i8 7, label %48
+    i8 8, label %49
+    i8 9, label %50
+    i8 10, label %51
+    i8 11, label %52
+    i8 12, label %53
   ]
 
 default.unreachable:                              ; preds = %40
@@ -102646,7 +102646,7 @@ default.unreachable:                              ; preds = %40
 46:                                               ; preds = %40
   br label %_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit
 
-47:                                               ; preds = %40
+47:                                               ; preds = %40, %40
   br label %_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit
 
 48:                                               ; preds = %40
@@ -102667,47 +102667,44 @@ default.unreachable:                              ; preds = %40
 53:                                               ; preds = %40
   br label %_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit
 
-54:                                               ; preds = %40
-  br label %_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit
-
-_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit: ; preds = %54, %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %40
-  %.0.i21 = phi i32 [ 44032, %54 ], [ 12593, %53 ], [ 12452, %52 ], [ 12450, %51 ], [ 12356, %50 ], [ 12354, %49 ], [ 19968, %48 ], [ 19968, %47 ], [ 1488, %46 ], [ 42, %45 ], [ 105, %44 ], [ 97, %43 ], [ 49, %40 ]
-  %.0 = phi i1 [ false, %54 ], [ false, %53 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ false, %48 ], [ false, %47 ], [ false, %46 ], [ false, %45 ], [ true, %44 ], [ true, %43 ], [ false, %40 ]
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 17
-  %56 = load i8, ptr %55, align 1, !range !87, !noundef !4
-  %57 = trunc nuw i8 %56 to i1
-  %58 = xor i32 %.0.i21, 32
-  %59 = and i1 %.0, %57
-  %.014 = select i1 %59, i32 %58, i32 %.0.i21
+_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit: ; preds = %53, %52, %51, %50, %49, %48, %47, %46, %45, %44, %43, %40
+  %.0.i21 = phi i32 [ 44032, %53 ], [ 12593, %52 ], [ 12452, %51 ], [ 12450, %50 ], [ 12356, %49 ], [ 12354, %48 ], [ 19968, %47 ], [ 1488, %46 ], [ 42, %45 ], [ 105, %44 ], [ 97, %43 ], [ 49, %40 ]
+  %.0 = phi i1 [ false, %53 ], [ false, %52 ], [ false, %51 ], [ false, %50 ], [ false, %49 ], [ false, %48 ], [ false, %47 ], [ false, %46 ], [ false, %45 ], [ true, %44 ], [ true, %43 ], [ false, %40 ]
+  %54 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 17
+  %55 = load i8, ptr %54, align 1, !range !87, !noundef !4
+  %56 = trunc nuw i8 %55 to i1
+  %57 = xor i32 %.0.i21, 32
+  %58 = and i1 %.0, %56
+  %.014 = select i1 %58, i32 %57, i32 %.0.i21
   invoke fastcc void @_ZN4ecow6string9EcoString4push17ha76aaffb08413f6eE(ptr noalias noundef align 8 dereferenceable(16) %3, i32 noundef %.014)
           to label %6 unwind label %.loopexit
 
-.noexc:                                           ; preds = %63, %60
+.noexc:                                           ; preds = %62, %59
   invoke void @"_ZN4core3ptr63drop_in_place$LT$typst..model..numbering_..NumberingPattern$GT$17h9b284622ed07ddf6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1) #79
-          to label %common.resume unwind label %64
+          to label %common.resume unwind label %63
 
 .loopexit:                                        ; preds = %_ZN5typst5model10numbering_13NumberingKind7to_char17h278b798d82c2c96bE.exit, %30
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %59
 
 .loopexit.split-lp:                               ; preds = %8
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %59
 
-60:                                               ; preds = %.loopexit.split-lp, %.loopexit
+59:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %61 = load i8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1, !alias.scope !25056, !noundef !4
-  %62 = icmp sgt i8 %61, -1
-  br i1 %62, label %63, label %.noexc
+  %60 = load i8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 1, !alias.scope !25056, !noundef !4
+  %61 = icmp sgt i8 %60, -1
+  br i1 %61, label %62, label %.noexc
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3d104556f500dee7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
-          to label %.noexc unwind label %64
+          to label %.noexc unwind label %63
 
-64:                                               ; preds = %63, %.noexc
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %62, %.noexc
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #78
   unreachable

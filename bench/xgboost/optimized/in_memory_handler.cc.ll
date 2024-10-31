@@ -4825,19 +4825,19 @@ define linkonce_odr void @_ZNSt8_Rb_treeImSt4pairIKmSt17basic_string_viewIcSt11c
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef i64 @_ZN7xgboost13DispatchDTypeIZNKS_10collective16AllreduceFunctorclEPKcmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlT_E_EEDaNS_21ArrayInterfaceHandler4TypeESC_(i8 noundef signext %0) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.dmlc::LogMessageFatal", align 1
-  switch i8 %0, label %28 [
+  switch i8 %0, label %22 [
     i8 0, label %3
     i8 1, label %17
     i8 2, label %18
     i8 3, label %19
     i8 4, label %20
     i8 5, label %21
-    i8 6, label %22
-    i8 7, label %23
-    i8 8, label %24
-    i8 9, label %25
-    i8 10, label %26
-    i8 11, label %27
+    i8 6, label %17
+    i8 7, label %18
+    i8 8, label %20
+    i8 9, label %21
+    i8 10, label %17
+    i8 11, label %18
   ]
 
 3:                                                ; preds = %1
@@ -4873,59 +4873,41 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 
 14:                                               ; preds = %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
   call void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2)
-  br label %28
+  br label %22
 
 15:                                               ; preds = %11, %_ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %29 unwind label %30
+          to label %23 unwind label %24
 
-17:                                               ; preds = %1
-  br label %28
+17:                                               ; preds = %1, %1, %1
+  br label %22
 
-18:                                               ; preds = %1
-  br label %28
+18:                                               ; preds = %1, %1, %1
+  br label %22
 
 19:                                               ; preds = %1
-  br label %28
+  br label %22
 
-20:                                               ; preds = %1
-  br label %28
+20:                                               ; preds = %1, %1
+  br label %22
 
-21:                                               ; preds = %1
-  br label %28
+21:                                               ; preds = %1, %1
+  br label %22
 
-22:                                               ; preds = %1
-  br label %28
-
-23:                                               ; preds = %1
-  br label %28
-
-24:                                               ; preds = %1
-  br label %28
-
-25:                                               ; preds = %1
-  br label %28
-
-26:                                               ; preds = %1
-  br label %28
-
-27:                                               ; preds = %1
-  br label %28
-
-28:                                               ; preds = %1, %14, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17
-  %.0 = phi i64 [ 8, %27 ], [ 4, %26 ], [ 2, %25 ], [ 1, %24 ], [ 8, %23 ], [ 4, %22 ], [ 2, %21 ], [ 1, %20 ], [ 16, %19 ], [ 8, %18 ], [ 4, %17 ], [ 0, %14 ], [ 0, %1 ]
+22:                                               ; preds = %1, %14, %21, %20, %19, %18, %17
+  %.0 = phi i64 [ 2, %21 ], [ 1, %20 ], [ 16, %19 ], [ 8, %18 ], [ 4, %17 ], [ 0, %14 ], [ 0, %1 ]
   ret i64 %.0
 
-29:                                               ; preds = %15
+23:                                               ; preds = %15
   resume { ptr, i32 } %16
 
-30:                                               ; preds = %15
-  %31 = landingpad { ptr, i32 }
+24:                                               ; preds = %15
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %32 = extractvalue { ptr, i32 } %31, 0
-  call void @__clang_call_terminate(ptr %32) #24
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #24
   unreachable
 }
 
