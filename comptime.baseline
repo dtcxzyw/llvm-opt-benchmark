@@ -18567,10 +18567,10 @@ ncnn/deconvolutiondepthwise_x86_avx512.cpp.ll 1457220632
 ncnn/deconvolutiondepthwise_x86_fma.cpp.ll 1259595505
 ncnn/deepcopy.cpp.ll 64494003
 ncnn/deformableconv2d.cpp.ll 361420189
-ncnn/deformableconv2d_x86.cpp.ll 2383884554
-ncnn/deformableconv2d_x86_avx.cpp.ll 5395986587
-ncnn/deformableconv2d_x86_avx512.cpp.ll 11551727895
-ncnn/deformableconv2d_x86_fma.cpp.ll 5470998896
+ncnn/deformableconv2d_x86.cpp.ll 2355757174
+ncnn/deformableconv2d_x86_avx.cpp.ll 5342835428
+ncnn/deformableconv2d_x86_avx512.cpp.ll 11304623612
+ncnn/deformableconv2d_x86_fma.cpp.ll 5376137604
 ncnn/dequantize.cpp.ll 231147141
 ncnn/dequantize_x86.cpp.ll 562485442
 ncnn/dequantize_x86_avx.cpp.ll 524728781
