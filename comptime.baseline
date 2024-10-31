@@ -12727,7 +12727,7 @@ linux/dvo_ivch.ll 289217619
 linux/dvo_ns2501.ll 282602074
 linux/dvo_sil164.ll 121143821
 linux/dvo_tfp410.ll 182207703
-linux/e100.ll 688613110
+linux/e100.ll 689301773
 linux/e1000_ethtool.ll 480418950
 linux/e1000_hw.ll 880422357
 linux/e1000_main.ll 1324450231
@@ -21845,7 +21845,7 @@ opencv/posit.cpp.ll 199604297
 opencv/ppf_helpers.cpp.ll 8626530607
 opencv/ppf_load_match.cpp.ll 265457938
 opencv/ppf_match_3d.cpp.ll 2255287467
-opencv/ppf_normal_computation.cpp.ll 71403139
+opencv/ppf_normal_computation.cpp.ll 71474582
 opencv/predict_collector.cpp.ll 636609164
 opencv/preproc_dispatcher.cpp.ll 121251515
 opencv/preproc_engine_interface.cpp.ll 68646899
