@@ -33858,7 +33858,7 @@ slurm/select.ll 229880380
 slurm/select_cons_tres.ll 300031883
 slurm/select_linear.ll 1131418428
 slurm/serializer.ll 83934360
-slurm/serializer_url_encoded.ll 95650004
+slurm/serializer_url_encoded.ll 95554247
 slurm/serializer_yaml.ll 168902306
 slurm/set_oomadj.ll 45552116
 slurm/setproctitle.ll 69721712
