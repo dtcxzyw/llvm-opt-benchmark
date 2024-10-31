@@ -11444,7 +11444,7 @@ libquic/client.cc.ll 675220064
 libquic/cmac.c.ll 100886042
 libquic/cmac_test.cc.ll 98401031
 libquic/command_line.cc.ll 1242111864
-libquic/common_cert_set.cc.ll 135797077
+libquic/common_cert_set.cc.ll 135661223
 libquic/conf.c.ll 378981524
 libquic/connect.c.ll 129073860
 libquic/constant_time_test.c.ll 148269813
