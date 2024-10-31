@@ -9154,8 +9154,8 @@ declare double @log1p(double noundef) local_unnamed_addr #20
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @expm1(double noundef) local_unnamed_addr #20
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi7UnarySXD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

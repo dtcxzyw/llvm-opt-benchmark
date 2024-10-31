@@ -58995,8 +58995,8 @@ declare double @log1p(double noundef) local_unnamed_addr #12
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @expm1(double noundef) local_unnamed_addr #12
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi11casadi_mathIdE5printEhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

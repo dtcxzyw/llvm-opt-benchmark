@@ -17,7 +17,7 @@ define hidden noundef ptr @pj_sterea(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %4 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #8
+  %4 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8
 
@@ -44,11 +44,11 @@ define hidden noundef ptr @pj_sterea(ptr noundef %0) local_unnamed_addr #0 {
 
 19:                                               ; preds = %8
   %20 = load double, ptr %4, align 8
-  %21 = call double @sin(double noundef %20) #9
+  %21 = call double @sin(double noundef %20) #8
   %22 = getelementptr inbounds i8, ptr %4, i64 16
   store double %21, ptr %22, align 8
   %23 = load double, ptr %4, align 8
-  %24 = call double @cos(double noundef %23) #9
+  %24 = call double @cos(double noundef %23) #8
   %25 = getelementptr inbounds i8, ptr %4, i64 8
   store double %24, ptr %25, align 8
   %26 = load double, ptr %2, align 8
@@ -94,7 +94,7 @@ _Z35pj_projection_specific_setup_stereaP8PJconsts.exit: ; preds = %6, %17, %19
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_Z35pj_projection_specific_setup_stereaP8PJconsts(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
-  %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #8
+  %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #7
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
 
@@ -121,11 +121,11 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_stereaP8PJconsts(ptr
 
 18:                                               ; preds = %7
   %19 = load double, ptr %3, align 8
-  %20 = call double @sin(double noundef %19) #9
+  %20 = call double @sin(double noundef %19) #8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   store double %20, ptr %21, align 8
   %22 = load double, ptr %3, align 8
-  %23 = call double @cos(double noundef %22) #9
+  %23 = call double @cos(double noundef %22) #8
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   store double %23, ptr %24, align 8
   %25 = load double, ptr %2, align 8
@@ -168,17 +168,17 @@ define internal { double, double } @_ZL16sterea_e_inverse5PJ_XYP8PJconsts(double
   %7 = load double, ptr %6, align 8
   %8 = fdiv double %0, %7
   %9 = fdiv double %1, %7
-  %10 = tail call double @hypot(double noundef %8, double noundef %9) #9
+  %10 = tail call double @hypot(double noundef %8, double noundef %9) #8
   %11 = fcmp une double %10, 0.000000e+00
   br i1 %11, label %12, label %37
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds i8, ptr %5, i64 24
   %14 = load double, ptr %13, align 8
-  %15 = tail call double @atan2(double noundef %10, double noundef %14) #9
+  %15 = tail call double @atan2(double noundef %10, double noundef %14) #8
   %16 = fmul double %15, 2.000000e+00
-  %17 = tail call double @sin(double noundef %16) #9
-  %18 = tail call double @cos(double noundef %16) #9
+  %17 = tail call double @sin(double noundef %16) #8
+  %18 = tail call double @cos(double noundef %16) #8
   %19 = getelementptr inbounds i8, ptr %5, i64 16
   %20 = load double, ptr %19, align 8
   %21 = fmul double %9, %17
@@ -187,7 +187,7 @@ define internal { double, double } @_ZL16sterea_e_inverse5PJ_XYP8PJconsts(double
   %24 = fmul double %21, %23
   %25 = fdiv double %24, %10
   %26 = tail call double @llvm.fmuladd.f64(double %18, double %20, double %25)
-  %27 = tail call double @asin(double noundef %26) #9
+  %27 = tail call double @asin(double noundef %26) #8
   %28 = fmul double %8, %17
   %29 = load double, ptr %22, align 8
   %30 = fmul double %10, %29
@@ -196,7 +196,7 @@ define internal { double, double } @_ZL16sterea_e_inverse5PJ_XYP8PJconsts(double
   %33 = fneg double %17
   %34 = fmul double %32, %33
   %35 = tail call double @llvm.fmuladd.f64(double %30, double %18, double %34)
-  %36 = tail call double @atan2(double noundef %28, double noundef %35) #9
+  %36 = tail call double @atan2(double noundef %28, double noundef %35) #8
   br label %39
 
 37:                                               ; preds = %3
@@ -224,9 +224,9 @@ define internal { double, double } @_ZL16sterea_e_forward5PJ_LPP8PJconsts(double
   %10 = tail call { double, double } @_Z8pj_gaussP6pj_ctx5PJ_LPPKv(ptr noundef %7, double %0, double %1, ptr noundef %9)
   %11 = extractvalue { double, double } %10, 0
   %12 = extractvalue { double, double } %10, 1
-  %13 = tail call double @sin(double noundef %12) #9
-  %14 = tail call double @cos(double noundef %12) #9
-  %15 = tail call double @cos(double noundef %11) #9
+  %13 = tail call double @sin(double noundef %12) #8
+  %14 = tail call double @cos(double noundef %12) #8
+  %15 = tail call double @cos(double noundef %11) #8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = load double, ptr %16, align 8
   %18 = tail call double @llvm.fmuladd.f64(double %17, double %13, double 1.000000e+00)
@@ -253,7 +253,7 @@ define internal { double, double } @_ZL16sterea_e_forward5PJ_LPP8PJconsts(double
   %31 = fmul double %28, %30
   %32 = fdiv double %31, %22
   %33 = fmul double %14, %32
-  %34 = tail call double @sin(double noundef %11) #9
+  %34 = tail call double @sin(double noundef %11) #8
   %35 = fmul double %34, %33
   %36 = load double, ptr %19, align 8
   %37 = load double, ptr %16, align 8
@@ -286,7 +286,7 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %6, i64 32
   %10 = load ptr, ptr %9, align 8
-  tail call void @free(ptr noundef %10) #9
+  tail call void @free(ptr noundef %10) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4, %8
@@ -298,8 +298,8 @@ define internal noundef ptr @_ZL10destructorP8PJconstsi(ptr noundef %0, i32 noun
   ret ptr %.0
 }
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
@@ -308,7 +308,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 declare double @asin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #5
+declare double @llvm.fmuladd.f64(double, double, double) #4
 
 declare { double, double } @_Z12pj_inv_gaussP6pj_ctx5PJ_LPPKv(ptr noundef, double, double, ptr noundef) local_unnamed_addr #1
 
@@ -319,24 +319,23 @@ declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @_Z16proj_coord_errorv(ptr dead_on_unwind writable sret(%union.PJ_COORD) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind allocsize(0,1) }
-attributes #9 = { nounwind }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind allocsize(0,1) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

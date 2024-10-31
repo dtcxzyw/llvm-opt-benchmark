@@ -1030,7 +1030,7 @@ if.end51:                                         ; preds = %if.else28, %if.then
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define dso_local { double, double } @_Py_c_pow(double %a.coerce0, double %a.coerce1, double %b.coerce0, double %b.coerce1) local_unnamed_addr #4 {
 entry:
   %cmp = fcmp oeq double %b.coerce0, 0.000000e+00
@@ -1088,28 +1088,28 @@ if.end44:                                         ; preds = %if.then14, %if.then
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: nounwind
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #6
+declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @atan2(double noundef, double noundef) local_unnamed_addr #6
+declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #6
+declare double @exp(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #6
+declare double @log(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #6
+declare double @cos(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #6
+declare double @sin(double noundef) local_unnamed_addr #5
 
-; Function Attrs: nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
 define dso_local double @_Py_c_abs(double %z.coerce0, double %z.coerce1) local_unnamed_addr #4 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
@@ -1161,7 +1161,7 @@ return:                                           ; preds = %if.then15, %if.else
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyComplex_FromCComplex(double %cval.coerce0, double %cval.coerce1) local_unnamed_addr #4 {
+define dso_local ptr @PyComplex_FromCComplex(double %cval.coerce0, double %cval.coerce1) local_unnamed_addr #6 {
 entry:
   %call = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp = icmp eq ptr %call, null
@@ -1210,7 +1210,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyComplex_FromDoubles(double noundef %real, double noundef %imag) local_unnamed_addr #4 {
+define dso_local ptr @PyComplex_FromDoubles(double noundef %real, double noundef %imag) local_unnamed_addr #6 {
 entry:
   %call.i = tail call ptr @PyObject_Malloc(i64 noundef 32) #14
   %cmp.i = icmp eq ptr %call.i, null
@@ -1252,7 +1252,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObje
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyComplex_RealAsDouble(ptr noundef %op) local_unnamed_addr #4 {
+define dso_local double @PyComplex_RealAsDouble(ptr noundef %op) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1281,7 +1281,7 @@ return:                                           ; preds = %if.else, %if.then
 declare double @PyFloat_AsDouble(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @PyComplex_ImagAsDouble(ptr nocapture noundef readonly %op) local_unnamed_addr #4 {
+define dso_local double @PyComplex_ImagAsDouble(ptr nocapture noundef readonly %op) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1304,7 +1304,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { double, double } @PyComplex_AsCComplex(ptr noundef %op) local_unnamed_addr #4 {
+define dso_local { double, double } @PyComplex_AsCComplex(ptr noundef %op) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val = load ptr, ptr %0, align 8
@@ -1366,7 +1366,7 @@ return:                                           ; preds = %if.else, %if.end.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @try_complex_special_method(ptr noundef %op) unnamed_addr #4 {
+define internal fastcc ptr @try_complex_special_method(ptr noundef %op) unnamed_addr #6 {
 entry:
   %call = tail call ptr @_PyObject_LookupSpecial(ptr noundef %op, ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 27904)) #14
   %tobool.not = icmp eq ptr %call, null
@@ -1479,7 +1479,7 @@ return:                                           ; preds = %return.sink.split, 
 declare ptr @PyErr_Occurred() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_repr(ptr nocapture noundef readonly %v) #4 {
+define internal ptr @complex_repr(ptr nocapture noundef readonly %v) #6 {
 entry:
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -1539,7 +1539,7 @@ done:                                             ; preds = %if.end21, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @complex_hash(ptr noundef %v) #4 {
+define internal i64 @complex_hash(ptr noundef %v) #6 {
 entry:
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -1568,7 +1568,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_richcompare(ptr noundef %v, ptr noundef %w, i32 noundef %op) #4 {
+define internal ptr @complex_richcompare(ptr noundef %v, ptr noundef %w, i32 noundef %op) #6 {
 entry:
   %w.addr = alloca ptr, align 8
   %j34 = alloca %struct.Py_complex, align 8
@@ -1768,7 +1768,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwargs) #4 {
+define internal ptr @complex_new(ptr noundef %type, ptr noundef %args, ptr noundef %kwargs) #6 {
 entry:
   %len.i.i = alloca i64, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -2201,7 +2201,7 @@ declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #7
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_add(ptr noundef %v, ptr noundef %w) #4 {
+define internal ptr @complex_add(ptr noundef %v, ptr noundef %w) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2367,7 +2367,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_sub(ptr noundef %v, ptr noundef %w) #4 {
+define internal ptr @complex_sub(ptr noundef %v, ptr noundef %w) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2533,7 +2533,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_mul(ptr noundef %v, ptr noundef %w) #4 {
+define internal ptr @complex_mul(ptr noundef %v, ptr noundef %w) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -2702,7 +2702,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_pow(ptr noundef %v, ptr noundef %w, ptr noundef readnone %z) #4 {
+define internal ptr @complex_pow(ptr noundef %v, ptr noundef %w, ptr noundef readnone %z) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -3059,7 +3059,7 @@ return:                                           ; preds = %land.lhs.true.i19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_neg(ptr nocapture noundef readonly %v) #4 {
+define internal ptr @complex_neg(ptr nocapture noundef readonly %v) #6 {
 entry:
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3107,7 +3107,7 @@ PyComplex_FromCComplex.exit:                      ; preds = %if.then.i, %_PyObje
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_pos(ptr noundef %v) #4 {
+define internal ptr @complex_pos(ptr noundef %v) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -3169,7 +3169,7 @@ return:                                           ; preds = %_PyObject_Init.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_abs(ptr nocapture noundef readonly %v) #4 {
+define internal ptr @complex_abs(ptr nocapture noundef readonly %v) #6 {
 entry:
   %cval = getelementptr inbounds i8, ptr %v, i64 16
   %0 = load double, ptr %cval, align 8
@@ -3253,7 +3253,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_div(ptr noundef %v, ptr noundef %w) #4 {
+define internal ptr @complex_div(ptr noundef %v, ptr noundef %w) #6 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val = load ptr, ptr %0, align 8
@@ -3465,7 +3465,7 @@ return:                                           ; preds = %land.lhs.true.i15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef nonnull %pobj, ptr nocapture noundef nonnull writeonly %pc) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @to_complex(ptr nocapture noundef nonnull %pobj, ptr nocapture noundef nonnull writeonly %pc) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %pobj, align 8
   %1 = getelementptr i8, ptr %0, i64 8
@@ -3539,7 +3539,7 @@ declare i64 @_Py_HashDouble(ptr noundef, double noundef) local_unnamed_addr #7
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_conjugate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #4 {
+define internal ptr @complex_conjugate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load double, ptr %0, align 8
@@ -3586,7 +3586,7 @@ complex_conjugate_impl.exit:                      ; preds = %if.then.i.i, %_PyOb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___complex__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #4 {
+define internal ptr @complex___complex__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -3648,7 +3648,7 @@ complex___complex___impl.exit:                    ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___getnewargs__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #4 {
+define internal ptr @complex___getnewargs__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #6 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load double, ptr %0, align 8
@@ -3659,7 +3659,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex___format__(ptr noundef %self, ptr noundef %arg) #4 {
+define internal ptr @complex___format__(ptr noundef %self, ptr noundef %arg) #6 {
 entry:
   %writer.i = alloca %struct._PyUnicodeWriter, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -3724,7 +3724,7 @@ declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @_Py_string_to_number_with_underscores(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @complex_from_string_inner(ptr noundef %s, i64 noundef %len, ptr noundef %type) #4 {
+define internal ptr @complex_from_string_inner(ptr noundef %s, i64 noundef %len, ptr noundef %type) #6 {
 entry:
   %end = alloca ptr, align 8
   br label %while.cond
@@ -3955,9 +3955,9 @@ attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

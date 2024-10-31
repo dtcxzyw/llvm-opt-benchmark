@@ -605,16 +605,16 @@ _ZN10Parameters5resetEv.exit.preheader:           ; preds = %4
   %15 = getelementptr inbounds i8, ptr %0, i64 236
   %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 244
   %16 = getelementptr inbounds i8, ptr %0, i64 168
-  %17 = getelementptr inbounds i8, ptr %0, i64 152
-  %18 = getelementptr inbounds i8, ptr %0, i64 144
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
-  %20 = getelementptr inbounds i8, ptr %0, i64 128
-  %21 = getelementptr inbounds i8, ptr %0, i64 120
-  %22 = getelementptr inbounds i8, ptr %0, i64 148
-  %23 = getelementptr inbounds i8, ptr %0, i64 140
-  %24 = getelementptr inbounds i8, ptr %0, i64 132
-  %25 = getelementptr inbounds i8, ptr %0, i64 124
-  %26 = getelementptr inbounds i8, ptr %0, i64 272
+  %17 = getelementptr inbounds i8, ptr %0, i64 128
+  %18 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds i8, ptr %0, i64 132
+  %20 = getelementptr inbounds i8, ptr %0, i64 140
+  %21 = getelementptr inbounds i8, ptr %0, i64 272
+  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %23 = getelementptr inbounds i8, ptr %0, i64 144
+  %24 = getelementptr inbounds i8, ptr %0, i64 120
+  %25 = getelementptr inbounds i8, ptr %0, i64 148
+  %26 = getelementptr inbounds i8, ptr %0, i64 124
   %27 = getelementptr inbounds i8, ptr %2, i64 56
   %.sroa.2.0..sroa_idx.i.i3.i = getelementptr inbounds i8, ptr %2, i64 60
   %.sroa.3.0..sroa_idx.i.i5.i = getelementptr inbounds i8, ptr %2, i64 64
@@ -743,28 +743,28 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   %.sroa.06.0.vec.insert10.i.i.i = insertelement <2 x float> poison, float %86, i64 0
   %87 = fmul float %.sroa.03.4.vec.extract.i.i, %85
   %.sroa.06.4.vec.insert13.i.i.i = insertelement <2 x float> %.sroa.06.0.vec.insert10.i.i.i, float %87, i64 1
-  %88 = load float, ptr %17, align 8
+  %88 = load float, ptr %22, align 8
   %89 = fcmp une float %88, 0.000000e+00
   br i1 %89, label %90, label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit.i
 
 90:                                               ; preds = %82
-  %91 = load float, ptr %18, align 8
-  %92 = load float, ptr %19, align 8
+  %91 = load float, ptr %23, align 8
+  %92 = load float, ptr %18, align 8
   %93 = fsub float %91, %92
-  %94 = load float, ptr %20, align 8
+  %94 = load float, ptr %17, align 8
   %95 = fmul float %93, %94
   %96 = fmul float %95, 2.000000e+00
-  %97 = load i32, ptr %21, align 8
+  %97 = load i32, ptr %24, align 8
   %98 = sitofp i32 %97 to float
   %99 = fmul float %94, %98
   %100 = fdiv float %96, %99
-  %101 = load float, ptr %22, align 4
-  %102 = load float, ptr %23, align 4
+  %101 = load float, ptr %25, align 4
+  %102 = load float, ptr %20, align 4
   %103 = fsub float %101, %102
-  %104 = load float, ptr %24, align 4
+  %104 = load float, ptr %19, align 4
   %105 = fmul float %103, %104
   %106 = fmul float %105, 2.000000e+00
-  %107 = load i32, ptr %25, align 4
+  %107 = load i32, ptr %26, align 4
   %108 = sitofp i32 %107 to float
   %109 = fmul float %104, %108
   %110 = fdiv float %106, %109
@@ -777,7 +777,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
 
 115:                                              ; preds = %90
   %116 = call noundef float @hypotf(float noundef %111, float noundef %113) #26
-  %117 = load float, ptr %17, align 8
+  %117 = load float, ptr %22, align 8
   %118 = fdiv float 1.000000e+00, %117
   %119 = fdiv float %118, 3.000000e+00
   %120 = fmul float %116, %118
@@ -822,7 +822,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
   br i1 %147, label %148, label %166
 
 148:                                              ; preds = %145
-  %149 = load float, ptr %17, align 8
+  %149 = load float, ptr %22, align 8
   %150 = fmul float %149, 3.000000e+00
   %151 = fdiv float -1.000000e+00, %150
   %152 = call noundef float @sqrtf(float noundef %151) #26
@@ -855,16 +855,16 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
 _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit.i: ; preds = %90, %166, %82, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i.i
   %.sroa.06.0.i.i.i = phi <2 x float> [ %.sroa.0.0.i.i.i.i, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3IfEE.exit.i.i ], [ %.sroa.06.4.vec.insert13.i.i.i, %82 ], [ %.sroa.061.4.vec.insert66.i, %166 ], [ %.sroa.06.4.vec.insert13.i.i.i, %90 ]
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.i.i.i, i64 0
-  %170 = load float, ptr %20, align 8
+  %170 = load float, ptr %17, align 8
   %171 = fdiv float %.sroa.0.0.vec.extract.i.i, %170
-  %172 = load float, ptr %19, align 8
+  %172 = load float, ptr %18, align 8
   %173 = fadd float %171, %172
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.06.0.i.i.i, i64 1
-  %174 = load float, ptr %24, align 4
+  %174 = load float, ptr %19, align 4
   %175 = fdiv float %.sroa.0.4.vec.extract.i.i, %174
-  %176 = load float, ptr %23, align 4
+  %176 = load float, ptr %20, align 4
   %177 = fadd float %175, %176
-  %178 = load double, ptr %26, align 8
+  %178 = load double, ptr %21, align 8
   %179 = fptrunc double %178 to float
   %180 = fmul float %173, %179
   %181 = fmul float %177, %179
@@ -872,7 +872,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit.i: ; preds = %90,
   br i1 %182, label %.noexc, label %183
 
 183:                                              ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit.i
-  %184 = load i32, ptr %21, align 8
+  %184 = load i32, ptr %24, align 8
   %185 = sitofp i32 %184 to float
   %186 = fcmp ogt float %180, %185
   %187 = fcmp olt float %181, 0.000000e+00
@@ -880,7 +880,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit.i: ; preds = %90,
   br i1 %or.cond.i, label %.noexc, label %188
 
 188:                                              ; preds = %183
-  %189 = load i32, ptr %25, align 4
+  %189 = load i32, ptr %26, align 4
   %190 = sitofp i32 %189 to float
   %191 = fcmp ogt float %181, %190
   br i1 %191, label %.noexc, label %192
@@ -961,7 +961,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE31ConvertWorldToCameraCoordinatesERKNS_6Point3If
 
 .noexc9:                                          ; preds = %219
   %227 = call <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6Point2IfEE(ptr noundef nonnull align 4 dereferenceable(132) %2, <2 x float> %.sroa.06.4.vec.insert13.i.i46.i)
-  %.pre.i = load double, ptr %26, align 8
+  %.pre.i = load double, ptr %21, align 8
   %.pre78.i = fptrunc double %.pre.i to float
   br label %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit54.i
 
@@ -2246,8 +2246,8 @@ define linkonce_odr <2 x float> @_ZNK3vcg6CameraIfE22UndistortedToDistortedENS_6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
 
-; Function Attrs: nounwind
-declare float @hypotf(float noundef, float noundef) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare float @hypotf(float noundef, float noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #16

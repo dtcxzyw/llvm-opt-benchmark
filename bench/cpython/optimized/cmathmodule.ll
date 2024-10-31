@@ -1807,14 +1807,14 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log(double noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #3
 
-; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @cmath_sqrt_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+define internal fastcc { double, double } @cmath_sqrt_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #5 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -1951,8 +1951,8 @@ declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @sqrt(double noundef) local_unnamed_addr #4
 
-; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @cmath_asinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+define internal fastcc { double, double } @cmath_asinh_impl(double %z.coerce0, double %z.coerce1) unnamed_addr #5 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -2448,8 +2448,8 @@ declare { double, double } @_Py_c_diff(double, double, double, double) local_unn
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define internal fastcc { double, double } @c_log(double %z.coerce0, double %z.coerce1) unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+define internal fastcc { double, double } @c_log(double %z.coerce0, double %z.coerce1) unnamed_addr #5 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %z.coerce0)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
@@ -4066,7 +4066,7 @@ attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #2 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }

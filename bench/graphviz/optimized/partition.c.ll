@@ -38,7 +38,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
   %13 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 56)
   %14 = tail call fastcc ptr @gv_calloc(i64 noundef %12, i64 noundef 4)
   tail call fastcc void @genSegments(ptr noundef %0, i32 noundef %1, ptr noundef nonnull byval(%struct.boxf) align 8 %3, ptr noundef %13, i32 noundef 0)
-  tail call void @srand48(i64 noundef 173) #16
+  tail call void @srand48(i64 noundef 173) #18
   %.not26.i = icmp slt i32 %10, 0
   br i1 %.not26.i, label %generateRandomOrdering.exit, label %.lr.ph.preheader.i
 
@@ -63,7 +63,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %31 ], [ 1, %.preheader.i ]
   %17 = trunc i64 %indvars.iv32.i to i32
   %18 = uitofp nneg i32 %17 to double
-  %19 = tail call double @drand48() #16
+  %19 = tail call double @drand48() #18
   %20 = sub i32 %11, %17
   %21 = sitofp i32 %20 to double
   %22 = tail call double @llvm.fmuladd.f64(double %19, double %21, double %18)
@@ -88,7 +88,7 @@ define noalias ptr @partition(ptr nocapture noundef readonly %0, i32 noundef %1,
   br i1 %exitcond36.not.i, label %generateRandomOrdering.exit, label %.lr.ph30.i
 
 generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader.i
-  %32 = tail call { i64, ptr } @construct_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %14) #16
+  %32 = tail call { i64, ptr } @construct_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %14) #18
   %33 = extractvalue { i64, ptr } %32, 0
   store i64 %33, ptr %5, align 8
   %34 = getelementptr inbounds i8, ptr %5, i64 8
@@ -97,7 +97,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %5, i32 noundef 0, ptr noundef %6)
   %36 = load ptr, ptr %34, align 8
-  call void @free(ptr noundef %36) #16
+  call void @free(ptr noundef %36) #18
   call fastcc void @genSegments(ptr noundef %0, i32 noundef %1, ptr noundef nonnull byval(%struct.boxf) align 8 %3, ptr noundef %13, i32 noundef 1)
   br i1 %.not26.i, label %generateRandomOrdering.exit47, label %.lr.ph.preheader.i33
 
@@ -122,7 +122,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
   %indvars.iv32.i43 = phi i64 [ %indvars.iv.next33.i45, %53 ], [ 1, %.preheader.i39 ]
   %39 = trunc i64 %indvars.iv32.i43 to i32
   %40 = uitofp nneg i32 %39 to double
-  %41 = call double @drand48() #16
+  %41 = call double @drand48() #18
   %42 = sub i32 %11, %39
   %43 = sitofp i32 %42 to double
   %44 = call double @llvm.fmuladd.f64(double %41, double %43, double %40)
@@ -147,7 +147,7 @@ generateRandomOrdering.exit:                      ; preds = %31, %4, %.preheader
   br i1 %exitcond36.not.i46, label %generateRandomOrdering.exit47, label %.lr.ph30.i41
 
 generateRandomOrdering.exit47:                    ; preds = %53, %generateRandomOrdering.exit, %.preheader.i39
-  %54 = call { i64, ptr } @construct_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %14) #16
+  %54 = call { i64, ptr } @construct_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %14) #18
   %55 = extractvalue { i64, ptr } %54, 0
   store i64 %55, ptr %7, align 8
   %56 = getelementptr inbounds i8, ptr %7, i64 8
@@ -156,7 +156,7 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   call fastcc void @monotonate_trapezoids(i32 noundef %10, ptr noundef %13, ptr noundef %7, i32 noundef 1, ptr noundef %8)
   %58 = load ptr, ptr %56, align 8
-  call void @free(ptr noundef %58) #16
+  call void @free(ptr noundef %58) #18
   %59 = getelementptr inbounds i8, ptr %8, i64 8
   %60 = load i64, ptr %59, align 8
   %.not = icmp eq i64 %60, 0
@@ -225,7 +225,7 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
 
 97:                                               ; preds = %94
   %98 = shl nuw i64 %spec.select.i.i, 5
-  %99 = call ptr @realloc(ptr noundef %.sroa.048.166, i64 noundef %98) #17
+  %99 = call ptr @realloc(ptr noundef %.sroa.048.166, i64 noundef %98) #19
   %100 = icmp eq ptr %99, null
   br i1 %100, label %106, label %101
 
@@ -240,9 +240,9 @@ generateRandomOrdering.exit47:                    ; preds = %53, %generateRandom
 106:                                              ; preds = %97, %94
   %.0.i.ph.i = phi i32 [ 12, %97 ], [ 34, %94 ]
   %107 = load ptr, ptr @stderr, align 8
-  %108 = call ptr @strerror(i32 noundef %.0.i.ph.i) #16
-  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.2, ptr noundef %108) #18
-  call fastcc void @graphviz_exit() #19
+  %108 = call ptr @strerror(i32 noundef %.0.i.ph.i) #18
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %107, ptr noundef nonnull @.str.2, ptr noundef %108) #20
+  call fastcc void @graphviz_exit() #21
   unreachable
 
 boxes_append.exit:                                ; preds = %92, %101
@@ -287,16 +287,16 @@ boxes_append.exit:                                ; preds = %92, %101
 ._crit_edge76:                                    ; preds = %._crit_edge, %.preheader.lr.ph, %generateRandomOrdering.exit47
   %.sroa.048.0.lcssa = phi ptr [ null, %generateRandomOrdering.exit47 ], [ null, %.preheader.lr.ph ], [ %.sroa.048.1.lcssa, %._crit_edge ]
   %.sroa.550.0.lcssa = phi i64 [ 0, %generateRandomOrdering.exit47 ], [ 0, %.preheader.lr.ph ], [ %.sroa.550.1.lcssa, %._crit_edge ]
-  call void @free(ptr noundef %13) #16
-  call void @free(ptr noundef %14) #16
+  call void @free(ptr noundef %13) #18
+  call void @free(ptr noundef %14) #18
   %121 = getelementptr inbounds i8, ptr %6, i64 8
   store i64 0, ptr %121, align 8
   %122 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %122) #16
+  call void @free(ptr noundef %122) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   store i64 0, ptr %59, align 8
   %123 = load ptr, ptr %8, align 8
-  call void @free(ptr noundef %123) #16
+  call void @free(ptr noundef %123) #18
   store i64 %.sroa.550.0.lcssa, ptr %2, align 8
   ret ptr %.sroa.048.0.lcssa
 }
@@ -307,7 +307,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
   br i1 %.not, label %.thread, label %4
 
 .thread:                                          ; preds = %2
-  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #20
+  %3 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef %1) #22
   br label %15
 
 4:                                                ; preds = %2
@@ -317,20 +317,20 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef %0, i64 nounde
 
 5:                                                ; preds = %4
   %6 = load ptr, ptr @stderr, align 8
-  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #18
-  tail call fastcc void @graphviz_exit() #19
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str, i64 noundef %0, i64 noundef %1) #20
+  tail call fastcc void @graphviz_exit() #21
   unreachable
 
 8:                                                ; preds = %4
-  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #20
+  %9 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef %1) #22
   %10 = icmp eq ptr %9, null
   br i1 %10, label %11, label %15
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8
   %13 = mul i64 %1, %0
-  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #18
-  tail call fastcc void @graphviz_exit() #19
+  %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.1, i64 noundef %13) #20
+  tail call fastcc void @graphviz_exit() #21
   unreachable
 
 15:                                               ; preds = %.thread, %8
@@ -573,14 +573,14 @@ define internal fastcc void @monotonate_trapezoids(i32 noundef %0, ptr noundef %
   %12 = icmp ne i64 %11, 0
   %13 = zext i1 %12 to i64
   %14 = add nuw nsw i64 %10, %13
-  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 1) #20
+  %15 = tail call noalias ptr @calloc(i64 noundef %14, i64 noundef 1) #22
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %bitarray_new.exit
 
 17:                                               ; preds = %9
   %18 = load ptr, ptr @stderr, align 8
-  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef %14) #18
-  tail call fastcc void @graphviz_exit() #19
+  %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.1, i64 noundef %14) #20
+  tail call fastcc void @graphviz_exit() #21
   unreachable
 
 bitarray_new.exit:                                ; preds = %5, %9
@@ -752,17 +752,17 @@ inside_polygon.exit.thread54:                     ; preds = %inside_polygon.exit
 
 105:                                              ; preds = %102
   %106 = load ptr, ptr %6, align 8
-  call void @free(ptr noundef %106) #16
+  call void @free(ptr noundef %106) #18
   br label %bitarray_reset.exit
 
 bitarray_reset.exit:                              ; preds = %102, %105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %107 = load ptr, ptr @mchain, align 8
-  call void @free(ptr noundef %107) #16
+  call void @free(ptr noundef %107) #18
   %108 = load ptr, ptr @vert, align 8
-  call void @free(ptr noundef %108) #16
+  call void @free(ptr noundef %108) #18
   %109 = load ptr, ptr @mon, align 8
-  call void @free(ptr noundef %109) #16
+  call void @free(ptr noundef %109) #18
   ret void
 }
 
@@ -774,7 +774,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #8 {
-  tail call void @exit(i32 noundef 1) #21
+  tail call void @exit(i32 noundef 1) #23
   unreachable
 }
 
@@ -910,7 +910,7 @@ bitarray_set.exit:                                ; preds = %17
 77:                                               ; preds = %74
   %78 = load ptr, ptr %1, align 8
   %79 = shl nuw i64 %spec.select.i.i, 5
-  %80 = tail call ptr @realloc(ptr noundef %78, i64 noundef %79) #17
+  %80 = tail call ptr @realloc(ptr noundef %78, i64 noundef %79) #19
   %81 = icmp eq ptr %80, null
   br i1 %81, label %88, label %82
 
@@ -929,9 +929,9 @@ bitarray_set.exit:                                ; preds = %17
 88:                                               ; preds = %77, %74
   %.0.i.ph.i = phi i32 [ 12, %77 ], [ 34, %74 ]
   %89 = load ptr, ptr @stderr, align 8
-  %90 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #16
-  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.2, ptr noundef %90) #18
-  tail call fastcc void @graphviz_exit() #19
+  %90 = tail call ptr @strerror(i32 noundef %.0.i.ph.i) #18
+  %91 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %89, ptr noundef nonnull @.str.2, ptr noundef %90) #20
+  tail call fastcc void @graphviz_exit() #21
   unreachable
 
 boxes_append.exit:                                ; preds = %._crit_edge.i.i, %82
@@ -1477,8 +1477,8 @@ tailrecurse.backedge:                             ; preds = %120, %124, %127, %1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #12
 
-; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monotone_poly(i32 noundef range(i32 -2147483647, -2147483648) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monotone_poly(i32 noundef range(i32 -2147483647, -2147483648) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #13 {
   %4 = load i32, ptr @mon_idx, align 4
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr @mon_idx, align 4
@@ -1525,17 +1525,17 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @make_new_monoton
   br i1 %30, label %38, label %33
 
 33:                                               ; preds = %18
-  %34 = tail call double @hypot(double noundef %23, double noundef %24) #16
+  %34 = tail call double @hypot(double noundef %23, double noundef %24) #18
   %35 = fdiv double %32, %34
-  %36 = tail call double @hypot(double noundef %25, double noundef %26) #16
+  %36 = tail call double @hypot(double noundef %25, double noundef %26) #18
   %37 = fdiv double %35, %36
   br label %get_angle.exit.i
 
 38:                                               ; preds = %18
   %39 = fneg double %32
-  %40 = tail call double @hypot(double noundef %23, double noundef %24) #16
+  %40 = tail call double @hypot(double noundef %23, double noundef %24) #18
   %41 = fdiv double %39, %40
-  %42 = tail call double @hypot(double noundef %25, double noundef %26) #16
+  %42 = tail call double @hypot(double noundef %25, double noundef %26) #18
   %43 = fdiv double %41, %42
   %44 = fadd double %43, -2.000000e+00
   br label %get_angle.exit.i
@@ -1593,17 +1593,17 @@ get_angle.exit.i:                                 ; preds = %38, %33
   br i1 %67, label %75, label %70
 
 70:                                               ; preds = %55
-  %71 = tail call double @hypot(double noundef %60, double noundef %61) #16
+  %71 = tail call double @hypot(double noundef %60, double noundef %61) #18
   %72 = fdiv double %69, %71
-  %73 = tail call double @hypot(double noundef %62, double noundef %63) #16
+  %73 = tail call double @hypot(double noundef %62, double noundef %63) #18
   %74 = fdiv double %72, %73
   br label %get_angle.exit49.i
 
 75:                                               ; preds = %55
   %76 = fneg double %69
-  %77 = tail call double @hypot(double noundef %60, double noundef %61) #16
+  %77 = tail call double @hypot(double noundef %60, double noundef %61) #18
   %78 = fdiv double %76, %77
-  %79 = tail call double @hypot(double noundef %62, double noundef %63) #16
+  %79 = tail call double @hypot(double noundef %62, double noundef %63) #18
   %80 = fdiv double %78, %79
   %81 = fadd double %80, -2.000000e+00
   br label %get_angle.exit49.i
@@ -1702,8 +1702,8 @@ get_vertex_positions.exit:                        ; preds = %85
   ret i32 %5
 }
 
-; Function Attrs: nounwind
-declare double @hypot(double noundef, double noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+declare double @hypot(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.maxnum.f64(double, double) #12
@@ -1715,19 +1715,19 @@ declare double @llvm.minnum.f64(double, double) #12
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
+declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1742,15 +1742,17 @@ attributes #9 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroe
 attributes #10 = { nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind allocsize(1) }
-attributes #18 = { cold nounwind }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind allocsize(0,1) }
-attributes #21 = { cold noreturn nounwind }
+attributes #13 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind allocsize(1) }
+attributes #20 = { cold nounwind }
+attributes #21 = { noreturn }
+attributes #22 = { nounwind allocsize(0,1) }
+attributes #23 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
