@@ -3157,7 +3157,7 @@ clamav/qsort.c.ll 785666257
 clamav/qtmd.c.ll 841736173
 clamav/rarvm.cpp.ll 222006482
 clamav/rawread.cpp.ll 130138201
-clamav/rdwrfn.cpp.ll 134381661
+clamav/rdwrfn.cpp.ll 134516802
 clamav/readdb.c.ll 2731292179
 clamav/rebuildpe.c.ll 114550188
 clamav/recvol.cpp.ll 784739572
@@ -3246,7 +3246,7 @@ clap-rs/46qpaucouebcxfrx.ll 2830633482
 clap-rs/48fdpr2dy8inq5cq.ll 3652838132
 clap-rs/4bajo035z6e1d4qz.ll 2260981041
 clap-rs/4r6y4qxwk52m92uh.ll 340661823
-clap-rs/51muu62fnnue524z.ll 46113890
+clap-rs/51muu62fnnue524z.ll 46160598
 clap-rs/5651dp9k16h53y8x.ll 2226656541
 clap-rs/58cs3pckwcmstm46.ll 2242040940
 clap-rs/5bhz332udirjeye4.ll 43216483
@@ -5223,7 +5223,7 @@ curl/libcurl_la-noproxy.ll 133293120
 curl/libcurl_la-ntlm.ll 123036254
 curl/libcurl_la-openssl.ll 1130088220
 curl/libcurl_la-parsedate.ll 213427998
-curl/libcurl_la-pingpong.ll 122107943
+curl/libcurl_la-pingpong.ll 122230941
 curl/libcurl_la-pop3.ll 368152576
 curl/libcurl_la-progress.ll 206582743
 curl/libcurl_la-rand.ll 79876848
@@ -7916,7 +7916,7 @@ graphviz/dtrenew.c.ll 51193490
 graphviz/dtrestore.c.ll 49905035
 graphviz/dtstat.c.ll 96573727
 graphviz/dtstrhash.c.ll 48734502
-graphviz/dttree.c.ll 197118034
+graphviz/dttree.c.ll 197316500
 graphviz/dtview.c.ll 90820036
 graphviz/edge.c.ll 245155851
 graphviz/edge_distinct_coloring.c.ll 280993403
@@ -10425,7 +10425,7 @@ icu/coptccal.ll 87142622
 icu/cpdtrans.ll 355645973
 icu/csdetect.ll 323412292
 icu/csr2022.ll 136800053
-icu/csrmbcs.ll 163407188
+icu/csrmbcs.ll 163571717
 icu/csrsbcs.ll 399031748
 icu/csrucode.ll 111571283
 icu/csrutf8.ll 68778295
@@ -10675,7 +10675,7 @@ icu/swapimpl.ll 252177354
 icu/taiwncal.ll 85977132
 icu/testdata.ll 73558896
 icu/timezone.ll 634713212
-icu/titletrn.ll 89795780
+icu/titletrn.ll 89886388
 icu/tmunit.ll 52133761
 icu/tmutamt.ll 49035836
 icu/tmutfmt.ll 507686745
@@ -11257,7 +11257,7 @@ libjpeg-turbo/jcdctmgr.c.ll 201306844
 libjpeg-turbo/jcdiffct.c.ll 137044399
 libjpeg-turbo/jchuff.c.ll 7369724971
 libjpeg-turbo/jcicc.c.ll 51790910
-libjpeg-turbo/jcinit.c.ll 55421172
+libjpeg-turbo/jcinit.c.ll 55477184
 libjpeg-turbo/jclhuff.c.ll 254112850
 libjpeg-turbo/jclossls.c.ll 137711040
 libjpeg-turbo/jcmainct.c.ll 59375983
@@ -11445,7 +11445,7 @@ libquic/cmac.c.ll 100886042
 libquic/cmac_test.cc.ll 98401031
 libquic/command_line.cc.ll 1242111864
 libquic/common_cert_set.cc.ll 135661223
-libquic/conf.c.ll 378981524
+libquic/conf.c.ll 379364229
 libquic/connect.c.ll 129073860
 libquic/constant_time_test.c.ll 148269813
 libquic/convert.c.ll 285987699
@@ -12567,7 +12567,7 @@ linux/cpu_entry_area.ll 88640768
 linux/cpu_rmap.ll 123502166
 linux/cpufreq.ll 658872734
 linux/cpufreq_governor.ll 145447367
-linux/cpufreq_ondemand.ll 250246965
+linux/cpufreq_ondemand.ll 250497856
 linux/cpufreq_userspace.ll 53980031
 linux/cpuhotplug.ll 79677450
 linux/cpuid-deps.ll 74702784
@@ -19705,7 +19705,7 @@ ocio/ExposureContrastTransform.cpp.ll 278684826
 ocio/FileFormat3DL.cpp.ll 1094152481
 ocio/FileFormatCC.cpp.ll 411032358
 ocio/FileFormatCCC.cpp.ll 746703679
-ocio/FileFormatCDL.cpp.ll 752254163
+ocio/FileFormatCDL.cpp.ll 753008758
 ocio/FileFormatCSP.cpp.ll 1590823009
 ocio/FileFormatCTF.cpp.ll 3897921005
 ocio/FileFormatDiscreet1DL.cpp.ll 740334975
@@ -22161,7 +22161,7 @@ opencv/videocapture_gphoto2_autofocus.cpp.ll 291367616
 opencv/videocapture_gstreamer_pipeline.cpp.ll 1096919555
 opencv/videocapture_image_sequence.cpp.ll 64933480
 opencv/videocapture_microphone.cpp.ll 213403760
-opencv/videocapture_obsensor.cpp.ll 108714434
+opencv/videocapture_obsensor.cpp.ll 108826800
 opencv/videocapture_openni.cpp.ll 270094144
 opencv/videocapture_realsense.cpp.ll 70247302
 opencv/videocapture_starter.cpp.ll 110749833
@@ -23394,7 +23394,7 @@ openjdk/logFileOutput.ll 280726629
 openjdk/logFileStreamOutput.ll 116332380
 openjdk/logLevel.ll 48033515
 openjdk/logMessageBuffer.ll 81661166
-openjdk/logOutput.ll 199040934
+openjdk/logOutput.ll 199240376
 openjdk/logOutputList.ll 130219371
 openjdk/logSelection.ll 392353069
 openjdk/logSelectionList.ll 61434579
@@ -24444,7 +24444,7 @@ openmpi/filem_base_frame.ll 36020922
 openmpi/filem_base_receive.ll 155330020
 openmpi/filem_base_select.ll 36318800
 openmpi/filem_raw_module.ll 652111149
-openmpi/flatten.ll 595872068
+openmpi/flatten.ll 596468125
 openmpi/fs_base_file_select.ll 98751981
 openmpi/fs_base_find_available.ll 67428145
 openmpi/fs_base_get_parent_dir.ll 63563093
@@ -24976,7 +24976,7 @@ openmpi/odls_base_select.ll 35075488
 openmpi/odls_default_module.ll 193040200
 openmpi/ompi_datatype_args.ll 369125272
 openmpi/ompi_datatype_create.ll 78491949
-openmpi/ompi_datatype_create_darray.ll 161475764
+openmpi/ompi_datatype_create_darray.ll 161638569
 openmpi/ompi_datatype_create_indexed.ll 105136466
 openmpi/ompi_datatype_create_struct.ll 71223621
 openmpi/ompi_datatype_create_subarray.ll 58001873
@@ -25290,7 +25290,7 @@ openmpi/pregister_datarep_f.ll 93440348
 openmpi/prequest_free_f.ll 35279547
 openmpi/print.ll 306021806
 openmpi/printf.ll 46032256
-openmpi/prm_base_frame.ll 38565827
+openmpi/prm_base_frame.ll 38605090
 openmpi/prm_base_select.ll 50830766
 openmpi/prm_default.ll 35317450
 openmpi/prm_pbs_component.ll 37955173
@@ -25942,7 +25942,7 @@ openssl/libcrypto-lib-a_mbstr.ll 137123043
 openssl/libcrypto-lib-a_object.ll 173613761
 openssl/libcrypto-lib-a_print.ll 80258999
 openssl/libcrypto-lib-a_strex.ll 220662696
-openssl/libcrypto-lib-a_time.ll 262280013
+openssl/libcrypto-lib-a_time.ll 262546790
 openssl/libcrypto-lib-a_utf8.ll 77998331
 openssl/libcrypto-lib-a_verify.ll 73992576
 openssl/libcrypto-lib-aes_ige.ll 155611545
@@ -28879,7 +28879,7 @@ portaudio/pa_linux_pulseaudio_cb.c.ll 191348496
 portaudio/pa_process.c.ll 535950134
 portaudio/pa_pthread_util.c.ll 37731138
 portaudio/pa_ringbuffer.c.ll 72733417
-portaudio/pa_sndio.c.ll 217188297
+portaudio/pa_sndio.c.ll 217408724
 portaudio/pa_stream.c.ll 42064059
 portaudio/pa_trace.c.ll 31909829
 portaudio/pa_unix_util.c.ll 108793612
@@ -28962,7 +28962,7 @@ postgres/c_keywords.ll 53499496
 postgres/cash.ll 299535466
 postgres/catcache.ll 518546874
 postgres/check.ll 411451023
-postgres/checkpointer.ll 228479037
+postgres/checkpointer.ll 228708498
 postgres/clauses.ll 958127601
 postgres/clausesel.ll 205621098
 postgres/clog.ll 263807206
@@ -31070,7 +31070,7 @@ qemu/util_reserved-region.c.ll 94822799
 qemu/util_systemd.c.ll 46481741
 qemu/util_thread-context.c.ll 130712994
 qemu/util_throttle.c.ll 214753234
-qemu/util_timed-average.c.ll 84143525
+qemu/util_timed-average.c.ll 84227779
 qemu/util_unicode.c.ll 85736567
 qemu/util_uri.c.ll 932948791
 qemu/util_userfaultfd.c.ll 141905860
@@ -32185,7 +32185,7 @@ redis/endianconv.ll 44459051
 redis/eset.ll 248466272
 redis/eset.sym.ll 248728393
 redis/eval.ll 656901413
-redis/evict.ll 292043383
+redis/evict.ll 292335564
 redis/expire.ll 222741325
 redis/extent.ll 577859245
 redis/extent.sym.ll 578441841
@@ -32307,7 +32307,7 @@ redis/sha256.ll 124055820
 redis/siphash.ll 175484942
 redis/slowlog.ll 113500382
 redis/socket.ll 142100707
-redis/sort.ll 310752946
+redis/sort.ll 311068078
 redis/stats.ll 2314500793
 redis/stats.sym.ll 2314197672
 redis/strbuf.ll 66076448
@@ -33677,7 +33677,7 @@ slurm/data_parser_v0_0_40_la-parsers.ll 3144538111
 slurm/data_parser_v0_0_40_la-parsing.ll 508026714
 slurm/data_parser_v0_0_40_la-slurmdb_helpers.ll 165099472
 slurm/data_parser_v0_0_41_la-alloc.ll 41940687
-slurm/data_parser_v0_0_41_la-api.ll 101461034
+slurm/data_parser_v0_0_41_la-api.ll 101562559
 slurm/data_parser_v0_0_41_la-openapi.ll 372911505
 slurm/data_parser_v0_0_41_la-parsers.ll 3585592933
 slurm/data_parser_v0_0_41_la-parsing.ll 508373740
