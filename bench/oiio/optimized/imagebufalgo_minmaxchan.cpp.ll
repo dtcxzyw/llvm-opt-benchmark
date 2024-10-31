@@ -37961,13 +37961,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 2.550000e+02
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 2.550000e+02
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 2.550000e+02
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i8
   store i8 %conv.i.i.i.i.i.i, ptr %19, align 1
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -38427,13 +38423,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 6.553500e+04
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 6.553500e+04
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 6.553500e+04
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i16
   store i16 %conv.i.i.i.i.i.i, ptr %19, align 2
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -40321,13 +40313,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %conv.i.i.i.i.i.i = fpext float %val.0.lcssa.i.i.i to double
   %mul.i.i.i12.i.i.i = fmul double %conv.i.i.i.i.i.i, 0x41EFFFFFFFE00000
-  %cmp.i.i.i.i.i.i = fcmp olt double %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, double -5.000000e-01, double 5.000000e-01
-  %add.i.i.i.i.i.i = fadd double %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge double %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, double %add.i.i.i.i.i.i, double 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt double %val.i.0.i.i.i.i.i.i, 0x41EFFFFFFFE00000
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, double 0x41EFFFFFFFE00000, double %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd double %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt double %add.i.i.i.i.i.i, 0x41EFFFFFFFE00000
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, double 0x41EFFFFFFFE00000, double %add.i.i.i.i.i.i
   %conv1.i.i.i13.i.i.i = fptoui double %val.i.1.i.i.i.i.i.i to i32
   store i32 %conv1.i.i.i13.i.i.i, ptr %19, align 4
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -43856,13 +43844,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 2.550000e+02
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 2.550000e+02
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 2.550000e+02
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i8
   store i8 %conv.i.i.i.i.i.i, ptr %19, align 1
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -44722,7 +44706,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont8.i.i.i,
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   %shr.i.i.i.i.i.i = lshr exact i32 %20, 16
-  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
+  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc16.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
@@ -45167,7 +45151,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont8.i.i.i,
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   %shr.i.i.i.i.i.i = lshr exact i32 %20, 16
-  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
+  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc16.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
@@ -46023,13 +46007,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 6.553500e+04
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 6.553500e+04
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 6.553500e+04
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i16
   store i16 %conv.i.i.i.i.i.i, ptr %19, align 2
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -47272,13 +47252,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 2.550000e+02
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 2.550000e+02
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 2.550000e+02
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i8
   store i8 %conv.i.i.i.i.i.i, ptr %19, align 1
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -47692,13 +47668,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 6.553500e+04
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 6.553500e+04
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 6.553500e+04
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i16
   store i16 %conv.i.i.i.i.i.i, ptr %19, align 2
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -49400,13 +49372,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %conv.i.i.i.i.i.i = fpext float %val.0.lcssa.i.i.i to double
   %mul.i.i.i12.i.i.i = fmul double %conv.i.i.i.i.i.i, 0x41EFFFFFFFE00000
-  %cmp.i.i.i.i.i.i = fcmp olt double %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, double -5.000000e-01, double 5.000000e-01
-  %add.i.i.i.i.i.i = fadd double %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge double %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, double %add.i.i.i.i.i.i, double 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt double %val.i.0.i.i.i.i.i.i, 0x41EFFFFFFFE00000
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, double 0x41EFFFFFFFE00000, double %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd double %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt double %add.i.i.i.i.i.i, 0x41EFFFFFFFE00000
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, double 0x41EFFFFFFFE00000, double %add.i.i.i.i.i.i
   %conv1.i.i.i13.i.i.i = fptoui double %val.i.1.i.i.i.i.i.i to i32
   store i32 %conv1.i.i.i13.i.i.i, ptr %19, align 4
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -52724,13 +52692,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 2.550000e+02
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 2.550000e+02
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 2.550000e+02
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 2.550000e+02, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i8
   store i8 %conv.i.i.i.i.i.i, ptr %19, align 1
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
@@ -53590,7 +53554,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont8.i.i.i,
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   %shr.i.i.i.i.i.i = lshr exact i32 %20, 16
-  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
+  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc16.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
@@ -54035,7 +53999,7 @@ invoke.cont12.i.i.i:                              ; preds = %invoke.cont8.i.i.i,
 
 if.then.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
   %shr.i.i.i.i.i.i = lshr exact i32 %20, 16
-  %conv.i.i.i.i.i.i = trunc nuw i32 %shr.i.i.i.i.i.i to i16
+  %conv.i.i.i.i.i.i = trunc nuw nsw i32 %shr.i.i.i.i.i.i to i16
   br label %for.inc16.i.i.i
 
 if.else.i.i.i.i.i.i:                              ; preds = %invoke.cont12.i.i.i
@@ -54891,13 +54855,9 @@ for.inc16.i.i.i:                                  ; preds = %invoke.cont8.i.i.i,
   %val.0.lcssa.i.i.i = phi float [ %mul.i.i.i.i.i.i, %invoke.cont3.i.i.i ], [ %.sroa.speculated.i.i.i, %invoke.cont8.i.i.i ]
   %19 = load ptr, ptr %m_proxydata.i10.i.i.i, align 8
   %mul.i.i.i12.i.i.i = fmul float %val.0.lcssa.i.i.i, 6.553500e+04
-  %cmp.i.i.i.i.i.i = fcmp olt float %mul.i.i.i12.i.i.i, 0.000000e+00
-  %cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, float -5.000000e-01, float 5.000000e-01
-  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, %cond.i.i.i.i.i.i
-  %cmp.i.inv.i.i.i.i.i.i = fcmp oge float %add.i.i.i.i.i.i, 0.000000e+00
-  %val.i.0.i.i.i.i.i.i = select i1 %cmp.i.inv.i.i.i.i.i.i, float %add.i.i.i.i.i.i, float 0.000000e+00
-  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %val.i.0.i.i.i.i.i.i, 6.553500e+04
-  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %val.i.0.i.i.i.i.i.i
+  %add.i.i.i.i.i.i = fadd float %mul.i.i.i12.i.i.i, 5.000000e-01
+  %cmp1.i.i.i.i.i.i.i = fcmp ogt float %add.i.i.i.i.i.i, 6.553500e+04
+  %val.i.1.i.i.i.i.i.i = select i1 %cmp1.i.i.i.i.i.i.i, float 6.553500e+04, float %add.i.i.i.i.i.i
   %conv.i.i.i.i.i.i = fptoui float %val.i.1.i.i.i.i.i.i to i16
   store i16 %conv.i.i.i.i.i.i, ptr %19, align 2
   %20 = load i32, ptr %m_x.i.i.i.i, align 4
