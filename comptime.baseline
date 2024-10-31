@@ -28611,7 +28611,7 @@ php/optimize_func_calls.ll 284987377
 php/optimize_temp_vars_5.ll 272387506
 php/output.ll 637154990
 php/pack.ll 892474430
-php/pageinfo.ll 73569682
+php/pageinfo.ll 73495865
 php/parentnode.ll 221036825
 php/parse_date.ll 44323445054
 php/parse_iso_intervals.ll 645299018
