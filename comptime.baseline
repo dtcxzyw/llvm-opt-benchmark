@@ -24436,7 +24436,7 @@ openmpi/fcoll_base_sort.ll 77471989
 openmpi/fcoll_dynamic_file_write_all.ll 471869518
 openmpi/fcoll_dynamic_gen2_file_write_all.ll 738999734
 openmpi/fcoll_vulcan_file_write_all.ll 741260262
-openmpi/few.ll 39799495
+openmpi/few.ll 39839332
 openmpi/fibo.ll 94013261
 openmpi/file.ll 162906764
 openmpi/filem_base_fns.ll 99567531
