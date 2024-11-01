@@ -368,7 +368,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$I$GT$$u2
   %13 = getelementptr inbounds i8, ptr %1, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !104, !noalias !105, !noundef !7
   %15 = tail call i64 @llvm.usub.sat.i64(i64 %12, i64 %14)
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %4)
+  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %4)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h15e68076fd70b4eeE.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h15e68076fd70b4eeE.exit": ; preds = %2, %6

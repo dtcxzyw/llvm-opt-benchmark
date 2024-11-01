@@ -4968,7 +4968,7 @@ _ZN4core5slice4sort6stable5drift10create_run17he75d4a3b7e4c7d6eE.exit: ; preds =
   br i1 %or.cond.i, label %_ZN4core5slice4sort6stable5merge5merge17h42ce428b2aa5572cE.exit, label %111
 
 111:                                              ; preds = %108
-  %.sroa.0.0.sroa.speculated.i.i33 = tail call noundef i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %82, i64 %83)
+  %.sroa.0.0.sroa.speculated.i.i33 = tail call i64 @llvm.umin.i64(i64 range(i64 0, -9223372036854775808) %82, i64 %83)
   %112 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i.i33
   br i1 %112, label %_ZN4core5slice4sort6stable5merge5merge17h42ce428b2aa5572cE.exit, label %113
 

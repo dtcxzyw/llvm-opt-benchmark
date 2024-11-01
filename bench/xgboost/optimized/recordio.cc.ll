@@ -1313,7 +1313,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit4:       ; preds = %.noexc3, %_ZN4dmlc1
   br label %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit5
 
 _ZN4dmlc15LogMessageFatal8GetEntryEv.exit5:       ; preds = %69, %72
-  %74 = call noundef nonnull align 8 dereferenceable(376) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
+  %74 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
   call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %74, ptr noundef nonnull @.str, i32 noundef 131)
   %75 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   %76 = icmp eq i8 %75, 0

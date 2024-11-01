@@ -1978,7 +1978,7 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
   br label %38
 
 .split:                                           ; preds = %18
-  %50 = tail call noundef double @llvm.log.f64(double %1)
+  %50 = tail call double @llvm.log.f64(double %1)
   %51 = fsub double 0xBFE2788CFC6FB619, %50
   %52 = fneg double %1
   %53 = fsub double 0xBFE2788CFC6FB619, %50

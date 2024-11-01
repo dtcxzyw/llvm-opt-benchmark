@@ -27452,7 +27452,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h873358db261b5bfeE(p
 
 9:                                                ; preds = %6
   %10 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %10)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %10)
   %11 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %11, label %65, label %12
 
@@ -27573,7 +27573,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17hc30d7bd0996e32f0E(p
 
 13:                                               ; preds = %6
   %14 = sub nuw i64 %1, %4
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %14)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %4, i64 %14)
   %15 = icmp ult i64 %3, %.sroa.0.0.sroa.speculated.i
   br i1 %15, label %63, label %16
 

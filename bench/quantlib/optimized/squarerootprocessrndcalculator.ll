@@ -15094,7 +15094,7 @@ fpclassify_not_zero.i.i.i:                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %fpclassify_not_zero.i.i.i
-  %2 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %1) #42
+  %2 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %1)
   %isinf.i.i.i = fcmp oeq x86_fp80 %2, 0xK7FFF8000000000000000
   br i1 %isinf.i.i.i, label %if.then, label %if.end6.thread
 
@@ -15227,7 +15227,7 @@ fpclassify_not_zero.i.i.i:                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %fpclassify_not_zero.i.i.i
-  %2 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %1) #42
+  %2 = tail call x86_fp80 @llvm.fabs.f80(x86_fp80 %1)
   %isinf.i.i.i = fcmp oeq x86_fp80 %2, 0xK7FFF8000000000000000
   br i1 %isinf.i.i.i, label %if.then, label %if.end6.thread
 
@@ -19465,7 +19465,7 @@ fpclassify_not_zero.i.i.i:                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %fpclassify_not_zero.i.i.i
-  %2 = tail call double @llvm.fabs.f64(double %1) #42
+  %2 = tail call double @llvm.fabs.f64(double %1)
   %isinf.i.i.i = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf.i.i.i, label %if.then, label %if.end6.thread
 
@@ -19594,7 +19594,7 @@ fpclassify_not_zero.i.i.i:                        ; preds = %entry
   br i1 %cmp.i.i.i, label %if.then, label %fpclassify_not_nan.i.i.i
 
 fpclassify_not_nan.i.i.i:                         ; preds = %fpclassify_not_zero.i.i.i
-  %2 = tail call double @llvm.fabs.f64(double %1) #42
+  %2 = tail call double @llvm.fabs.f64(double %1)
   %isinf.i.i.i = fcmp oeq double %2, 0x7FF0000000000000
   br i1 %isinf.i.i.i, label %if.then, label %if.end6.thread
 

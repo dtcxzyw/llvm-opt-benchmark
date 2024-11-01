@@ -1819,7 +1819,7 @@ define void @_ZN13sentencepiece7unigram7Lattice7ViterbiEv(ptr dead_on_unwind noa
   %11 = lshr i64 %10, 3
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, -1
-  %.sroa.speculated.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 0)
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %14 = getelementptr inbounds i8, ptr %1, i64 48
   %15 = getelementptr inbounds i8, ptr %1, i64 72
   %16 = add nuw i32 %.sroa.speculated.i, 1
@@ -2674,7 +2674,7 @@ define noundef float @_ZNK13sentencepiece7unigram7Lattice16CalculateEntropyEf(pt
   %11 = lshr i64 %10, 3
   %12 = trunc i64 %11 to i32
   %13 = add i32 %12, -1
-  %.sroa.speculated.i = tail call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %13, i32 0)
+  %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %14 = getelementptr inbounds i8, ptr %0, i64 144
   %15 = load i64, ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 136

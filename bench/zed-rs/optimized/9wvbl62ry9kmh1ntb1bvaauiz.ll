@@ -81846,7 +81846,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0309985b5
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 6
   %.sink1.i.i.i = select i1 %7, i64 0, i64 %15
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink1.i.i.i, i64 %2)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.sink1.i.i.i, i64 %2)
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !11
   %18 = load i64, ptr %0, align 8, !noundef !11
@@ -82880,7 +82880,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h790f6d941
   %14 = ptrtoint ptr %12 to i64
   %15 = sub nuw i64 %13, %14
   %16 = lshr exact i64 %15, 4
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %.val4)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %.val4)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !11
   %19 = load i64, ptr %0, align 8, !noundef !11
@@ -115817,7 +115817,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %14 = ptrtoint ptr %12 to i64
   %15 = sub nuw i64 %13, %14
   %16 = lshr exact i64 %15, 4
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %.val4.i)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %16, i64 %.val4.i)
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !alias.scope !31752, !noalias !31755, !noundef !11
   %19 = load i64, ptr %0, align 8, !alias.scope !31752, !noalias !31755, !noundef !11
@@ -116463,7 +116463,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 6
   %.sink1.i.i.i.i = select i1 %7, i64 0, i64 %15
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink1.i.i.i.i, i64 %2)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sink1.i.i.i.i, i64 %2)
   %16 = getelementptr inbounds i8, ptr %0, i64 16
   %17 = load i64, ptr %16, align 8, !alias.scope !31959, !noalias !31962, !noundef !11
   %18 = load i64, ptr %0, align 8, !alias.scope !31959, !noalias !31962, !noundef !11

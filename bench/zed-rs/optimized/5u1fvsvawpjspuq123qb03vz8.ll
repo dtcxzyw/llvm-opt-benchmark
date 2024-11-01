@@ -3261,7 +3261,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %12 = ptrtoint ptr %.val.i to i64
   %13 = sub nuw i64 %11, %12
   %14 = lshr exact i64 %13, 5
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %14, i64 %7)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %14, i64 %7)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h88bbb9e726a99b3bE.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h88bbb9e726a99b3bE.exit": ; preds = %9, %2
@@ -3303,7 +3303,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %26 = ptrtoint ptr %.sroa.06.0.copyload to i64
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 5
-  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %28, i64 %7)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %28, i64 %7)
   %29 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i, %17
   br i1 %29, label %.thread24.i.i, label %30
 

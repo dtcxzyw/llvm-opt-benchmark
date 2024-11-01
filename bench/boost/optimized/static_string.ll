@@ -77812,7 +77812,7 @@ _ZNK5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEE13capp
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %1
   %9 = sub nuw nsw i64 %6, %1
-  %.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %2, i64 %9)
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %2, i64 %9)
   %10 = getelementptr inbounds i8, ptr %4, i64 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(403) %10, i8 0, i64 401, i1 false), !alias.scope !1571
   %11 = icmp samesign ugt i64 %.sroa.speculated.i.i, 400

@@ -54564,7 +54564,7 @@ define void @_ZN5typst6layout4grid6layout8CellGrid12new_internal17ha77a151b5bd50
   %17 = load ptr, ptr %1, align 8, !nonnull !4, !align !555, !noundef !4
   %18 = getelementptr inbounds i8, ptr %1, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %19, i64 1)
+  %.0.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %19, i64 1)
   %20 = getelementptr inbounds i8, ptr %1, i64 16
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !align !555, !noundef !4
   %22 = getelementptr inbounds i8, ptr %1, i64 24

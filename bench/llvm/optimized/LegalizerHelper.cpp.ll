@@ -47845,7 +47845,7 @@ _ZNK4llvm3LLT19getScalarSizeInBitsEv.exit:        ; preds = %56, %60, %64
   %81 = icmp eq i64 %80, 0
   %.not.i.i = icmp ne i32 %.0.i, 0
   %or.cond.not316 = and i1 %.not.i.i, %81
-  %82 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
+  %82 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.0.i)
   %83 = icmp samesign ult i32 %82, 2
   %or.cond309 = select i1 %or.cond.not316, i1 %83, i1 false
   br i1 %or.cond309, label %84, label %.critedge

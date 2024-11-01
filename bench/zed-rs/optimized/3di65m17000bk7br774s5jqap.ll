@@ -123,7 +123,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   %13 = ptrtoint ptr %11 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %4)
+  %.sroa.0.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %4)
   br label %16
 
 16:                                               ; preds = %2, %6
@@ -185,7 +185,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %13 = ptrtoint ptr %11 to i64
   %14 = sub nuw i64 %12, %13
   %15 = lshr exact i64 %14, 3
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %4)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %15, i64 %4)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8be347685ab9ef4eE.llvm.2903763967427937413.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8be347685ab9ef4eE.llvm.2903763967427937413.exit": ; preds = %2, %6
@@ -1238,7 +1238,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %16 = ptrtoint ptr %14 to i64
   %17 = sub nuw i64 %15, %16
   %18 = lshr exact i64 %17, 3
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %18, i64 %2)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %18, i64 %2)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2782ef046b438813E.llvm.2903763967427937413.exit"
 
 19:                                               ; preds = %3
@@ -1253,7 +1253,7 @@ define hidden void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
   %26 = ptrtoint ptr %24 to i64
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 3
-  %.sroa.0.0.sroa.speculated.i.i.i3 = tail call noundef i64 @llvm.umin.i64(i64 %28, i64 %2)
+  %.sroa.0.0.sroa.speculated.i.i.i3 = tail call i64 @llvm.umin.i64(i64 %28, i64 %2)
   %29 = add nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i3, 1
   %30 = lshr i64 %29, 1
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2782ef046b438813E.llvm.2903763967427937413.exit"

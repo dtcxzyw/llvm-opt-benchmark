@@ -103148,7 +103148,7 @@ _ZNK4llvm21AArch64TargetLowering25getNumInterleavedAccessesEPNS_10VectorTypeERKN
   %80 = mul i32 %69, %79
   %81 = add i32 %80, 127
   %82 = udiv i32 %81, %.0.i67
-  %.sroa.speculated.i = call noundef range(i32 1, 33554432) i32 @llvm.umax.i32(i32 %82, i32 1)
+  %.sroa.speculated.i = call i32 @llvm.umax.i32(i32 %82, i32 1)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   %83 = load ptr, ptr %64, align 8
   %84 = load i32, ptr %70, align 8

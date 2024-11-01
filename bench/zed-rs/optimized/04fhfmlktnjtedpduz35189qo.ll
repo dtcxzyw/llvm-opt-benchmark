@@ -7342,7 +7342,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %25 = ptrtoint ptr %9 to i64
   %26 = sub nuw i64 %24, %25
   %27 = lshr exact i64 %26, 3
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %27, i64 %15)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %27, i64 %15)
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1e89afdf5ba2bb6fE.exit"
 
 28:                                               ; preds = %13
@@ -7355,7 +7355,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   %32 = ptrtoint ptr %9 to i64
   %33 = sub nuw i64 %31, %32
   %34 = lshr exact i64 %33, 3
-  %.sroa.0.0.sroa.speculated.i.i19.i = tail call noundef i64 @llvm.umin.i64(i64 %34, i64 %15)
+  %.sroa.0.0.sroa.speculated.i.i19.i = tail call i64 @llvm.umin.i64(i64 %34, i64 %15)
   br label %35
 
 35:                                               ; preds = %29, %28

@@ -27995,7 +27995,7 @@ if.end.i.i.i.i:                                   ; preds = %for.body
   %r_sym.i.i = getelementptr inbounds i8, ptr %__first.pn16, i64 32
   %4 = load i32, ptr %r_sym.i.i, align 1
   %5 = tail call noundef i32 @llvm.bswap.i32(i32 %4)
-  %6 = tail call noundef i32 @llvm.bswap.i32(i32 %3)
+  %6 = tail call i32 @llvm.bswap.i32(i32 %3)
   %cmp.i.i.i.i.i.i = icmp eq i32 %4, %3
   %7 = icmp ult i32 %5, %6
   br i1 %cmp.i.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4mold3elf13RelDynSectionINS3_6RV64BEEE4sortERNS3_7ContextIS5_EEEUlRKNS3_6ElfRelIS5_EESD_E_EclIPSB_SH_EEbT_T0_.exit

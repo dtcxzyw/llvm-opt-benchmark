@@ -109,7 +109,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
   %11 = ptrtoint ptr %9 to i64
   %12 = sub nuw i64 %10, %11
   %13 = lshr exact i64 %12, 5
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 %4)
+  %.0.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %4)
   br label %14
 
 14:                                               ; preds = %2, %6
@@ -325,7 +325,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %11 = ptrtoint ptr %9 to i64
   %12 = sub nuw i64 %10, %11
   %13 = lshr exact i64 %12, 5
-  %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %13, i64 %4)
+  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %4)
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h95e8e9ac2d6c0f58E.llvm.15192800734258360407.exit"
 
 "_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h95e8e9ac2d6c0f58E.llvm.15192800734258360407.exit": ; preds = %2, %6

@@ -1752,7 +1752,7 @@ _ZNK9b2Simplex16GetWitnessPointsEP6b2Vec2S1_.exit: ; preds = %if.end83, %sw.bb2.
   %v.sroa.0.0.vec.extract294 = extractelement <2 x float> %v.sroa.0.0374, i64 0
   %v.sroa.0.4.vec.extract311 = extractelement <2 x float> %v.sroa.0.0374, i64 1
   %mul4.i252 = fmul float %v.sroa.0.4.vec.extract311, %v.sroa.0.4.vec.extract311
-  %108 = tail call noundef float @llvm.fmuladd.f32(float %v.sroa.0.0.vec.extract294, float %v.sroa.0.0.vec.extract294, float %mul4.i252)
+  %108 = tail call float @llvm.fmuladd.f32(float %v.sroa.0.0.vec.extract294, float %v.sroa.0.0.vec.extract294, float %mul4.i252)
   %cmp85 = fcmp ogt float %108, 0.000000e+00
   br i1 %cmp85, label %if.then86, label %if.end90
 

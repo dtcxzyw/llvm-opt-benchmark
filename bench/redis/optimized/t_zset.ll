@@ -306,7 +306,7 @@ while.cond.i:                                     ; preds = %while.cond.i.prehea
   br i1 %cmp.i, label %while.cond.i, label %zslRandomLevel.exit, !llvm.loop !7
 
 zslRandomLevel.exit:                              ; preds = %while.cond.i
-  %cond.i = tail call range(i32 0, 33) i32 @llvm.umin.i32(i32 %level.0.i, i32 32)
+  %cond.i = tail call i32 @llvm.umin.i32(i32 %level.0.i, i32 32)
   %15 = load i32, ptr %level3, align 8
   %cmp55 = icmp sgt i32 %cond.i, %15
   br i1 %cmp55, label %for.cond58.preheader, label %if.end

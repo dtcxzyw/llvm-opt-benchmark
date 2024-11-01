@@ -11635,7 +11635,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %29 = getelementptr inbounds i8, ptr %1, i64 40
   %30 = load i64, ptr %29, align 8, !alias.scope !2855, !noalias !2856, !noundef !12
   %31 = tail call i64 @llvm.usub.sat.i64(i64 %28, i64 %30)
-  %.sroa.0.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %31, i64 %20)
+  %.sroa.0.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %31, i64 %20)
   %32 = add nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i, 1
   br label %36
 
@@ -11727,7 +11727,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %66 = udiv exact i64 %65, 160
   %67 = load i64, ptr %47, align 8, !alias.scope !2884, !noalias !2885, !noundef !12
   %68 = call i64 @llvm.usub.sat.i64(i64 %66, i64 %67)
-  %.sroa.0.0.sroa.speculated.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %68, i64 %60)
+  %.sroa.0.0.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %68, i64 %60)
   %69 = add nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i.i.i, 1
   br label %"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf3de55e9fc8d9d36E.exit.i.i"
 

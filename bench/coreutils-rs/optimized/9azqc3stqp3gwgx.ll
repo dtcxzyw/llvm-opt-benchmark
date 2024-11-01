@@ -44,7 +44,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1cf1f2833d85719E.exit.i.i": ; preds = %13, %10
   %.sink10.i.i.i = phi i64 [ %20, %13 ], [ 0, %10 ]
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink10.i.i.i, i64 %8)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sink10.i.i.i, i64 %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3843135c7a6694fE.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3843135c7a6694fE.exit": ; preds = %2, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1cf1f2833d85719E.exit.i.i"
@@ -96,7 +96,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb3843135c7a6694fE.exit.i.i": ; preds = %33, %30
   %.sink10.i.i.i.i.i = phi i64 [ %40, %33 ], [ 0, %30 ]
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink10.i.i.i.i.i, i64 %28)
+  %.0.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sink10.i.i.i.i.i, i64 %28)
   %41 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i.i, %23
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h0d3e58eaabc1d14eE.exit.i"
 
@@ -207,7 +207,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1cf1f2833d85719E.exit.i.i": ; preds = %13, %10
   %.sink10.i.i.i = phi i64 [ %20, %13 ], [ 0, %10 ]
-  %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink10.i.i.i, i64 %8)
+  %.0.sroa.speculated.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sink10.i.i.i, i64 %8)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe8d33509890fd51E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe8d33509890fd51E.exit": ; preds = %2, %"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd1cf1f2833d85719E.exit.i.i"
@@ -259,7 +259,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe8d33509890fd51E.exit.i.i": ; preds = %33, %30
   %.sink10.i.i.i.i.i = phi i64 [ %40, %33 ], [ 0, %30 ]
-  %.0.sroa.speculated.i.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %.sink10.i.i.i.i.i, i64 %28)
+  %.0.sroa.speculated.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.sink10.i.i.i.i.i, i64 %28)
   %41 = icmp ugt i64 %.0.sroa.speculated.i.i.i.i.i, %23
   br i1 %41, label %42, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h88730d571df36a3cE.exit.i"
 

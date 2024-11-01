@@ -30391,7 +30391,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   %49 = ptrtoint ptr %.val.i.i.i.i to i64
   %50 = sub nuw i64 %48, %49
   %51 = udiv exact i64 %50, 96
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %51, i64 %43)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %51, i64 %43)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfc6f9e2b9fe39f2bE.exit.i.i"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfc6f9e2b9fe39f2bE.exit.i.i": ; preds = %45, %37
@@ -30436,7 +30436,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc9774fd88a54a18dE.exit: ; preds = %.no
   %67 = ptrtoint ptr %.val.i.i.i.i.i.i to i64
   %68 = sub nuw i64 %66, %67
   %69 = udiv exact i64 %68, 96
-  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %69, i64 %62)
+  %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %69, i64 %62)
   %70 = icmp samesign ugt i64 %.sroa.0.0.sroa.speculated.i.i.i.i.i.i.i, %55
   br i1 %70, label %71, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17h97fc3bfe7a03c6ceE.exit.i.i.i"
 

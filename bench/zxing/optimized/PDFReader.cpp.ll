@@ -1467,7 +1467,7 @@ define linkonce_odr void @_ZN5ZXing6Pdf41712DetectSymbolINS_6PointTIdEEEENS0_10S
   store double %24, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !alias.scope !12
   %26 = getelementptr inbounds i8, ptr %6, i64 24
   %27 = tail call noundef double @llvm.fabs.f64(double %14)
-  %28 = tail call noundef double @llvm.fabs.f64(double %13)
+  %28 = tail call double @llvm.fabs.f64(double %13)
   %29 = fcmp olt double %27, %28
   %.sroa.speculated.i.i.i.i.i = select i1 %29, double %28, double %27
   %30 = fdiv double %14, %.sroa.speculated.i.i.i.i.i

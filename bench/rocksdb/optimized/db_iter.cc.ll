@@ -9145,7 +9145,7 @@ if.then175:                                       ; preds = %_ZTWN7rocksdb10perf
   br label %_ZTWN7rocksdb12perf_contextE.exit
 
 _ZTWN7rocksdb12perf_contextE.exit:                ; preds = %if.then175, %81
-  %82 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
+  %82 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
   %internal_merge_count = getelementptr inbounds i8, ptr %82, i64 256
   %83 = load i64, ptr %internal_merge_count, align 8
   %add = add i64 %83, 1

@@ -58287,7 +58287,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt18ThinDielectricBxDF8Sample_fENS_7V
 entry:
   %fr = alloca %"class.pbrt::SampledSpectrum", align 8
   %ft = alloca %"class.pbrt::SampledSpectrum", align 8
-  %0 = tail call noundef float @llvm.fabs.f32(float %wo.coerce1)
+  %0 = tail call float @llvm.fabs.f32(float %wo.coerce1)
   %1 = load float, ptr %this, align 4
   %cmp3.i.i = fcmp ogt float %0, 1.000000e+00
   %conv2.val.i.i = select i1 %cmp3.i.i, float 1.000000e+00, float %0

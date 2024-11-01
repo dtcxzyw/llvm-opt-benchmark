@@ -2517,7 +2517,7 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit20:      ; preds = %.noexc19, %_ZN4dmlc
   br label %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit21
 
 _ZN4dmlc15LogMessageFatal8GetEntryEv.exit21:      ; preds = %188, %191
-  %193 = call noundef nonnull align 8 dereferenceable(376) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
+  %193 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
   call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %193, ptr noundef nonnull @.str, i32 noundef 122)
   %194 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   %195 = icmp eq i8 %194, 0

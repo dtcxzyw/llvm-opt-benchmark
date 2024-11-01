@@ -4283,7 +4283,7 @@ if.else22.i:                                      ; preds = %if.else18.i
   store i32 0, ptr %call23.i, align 4
   %conv.i9 = trunc nsw i64 %exp.0.i to i32
   %call24.i = call double @ldexp(double noundef %x.0, i32 noundef %conv.i9) #16
-  %11 = call double @llvm.fabs.f64(double %call24.i) #18
+  %11 = call double @llvm.fabs.f64(double %call24.i)
   %isinf.i = fcmp oeq double %11, 0x7FF0000000000000
   br i1 %isinf.i, label %if.then3.i.sink.split.i, label %if.end31.i
 
@@ -7724,7 +7724,7 @@ land.lhs.true38.thread:                           ; preds = %if.then19
   br label %if.then.i
 
 if.else25:                                        ; preds = %if.end16
-  %3 = tail call double @llvm.fabs.f64(double %call18) #18
+  %3 = tail call double @llvm.fabs.f64(double %call18)
   %isinf = fcmp oeq double %3, 0x7FF0000000000000
   br i1 %isinf, label %if.then27, label %if.end35
 

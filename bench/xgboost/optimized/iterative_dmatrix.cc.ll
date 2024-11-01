@@ -2615,7 +2615,7 @@ define void @_ZN7xgboost4data16IterativeDMatrix11InitFromCPUEPKNS_7ContextERKNS_
   br label %_ZN4dmlc15LogMessageFatalC2EPKci.exit
 
 _ZN4dmlc15LogMessageFatalC2EPKci.exit:            ; preds = %190, %193
-  %195 = tail call noundef nonnull align 8 dereferenceable(376) ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
+  %195 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result)
   tail call void @_ZN4dmlc15LogMessageFatal5Entry4InitEPKci(ptr noundef nonnull align 8 dereferenceable(376) %195, ptr noundef nonnull @.str, i32 noundef 123)
   %196 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8
   %197 = icmp eq i8 %196, 0
