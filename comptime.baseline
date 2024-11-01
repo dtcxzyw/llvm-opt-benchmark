@@ -6113,7 +6113,7 @@ delta-rs/20d38kflwyye7r28.ll 2085197060
 delta-rs/20ta78igzxvrdtgp.ll 1020938267
 delta-rs/22gnjb10gks9zxxp.ll 2575464492
 delta-rs/264wku5om6u5pdmz.ll 34662298896
-delta-rs/26brbbjk91eotd4o.ll 1601944438
+delta-rs/26brbbjk91eotd4o.ll 1603546440
 delta-rs/2braxl0lj34anf5z.ll 35912837905
 delta-rs/2die4ejnk5ryh9i0.ll 135569279
 delta-rs/2difj0jdxbswpyo1.ll 1666231528
@@ -16212,7 +16212,7 @@ llvm/TargetSubtargetInfo.cpp.ll 167840832
 llvm/TargetTransformInfo.cpp.ll 3724005789
 llvm/Targets.cpp.ll 9532790405
 llvm/TemplateBase.cpp.ll 1545002136
-llvm/TemplateName.cpp.ll 678908434
+llvm/TemplateName.cpp.ll 679587399
 llvm/TensorSpec.cpp.ll 1321280184
 llvm/TestAfterDivZeroChecker.cpp.ll 2132175366
 llvm/TestModuleFileExtension.cpp.ll 1607463058
