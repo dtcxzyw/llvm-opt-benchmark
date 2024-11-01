@@ -3458,8 +3458,8 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
   %231 = add nsw i64 %138, -39
   %switch = icmp ult i64 %231, 2
-  %spec.select = select i1 %switch, i64 8, i64 176
-  %232 = getelementptr inbounds i8, ptr %.sroa.0.0577, i64 %spec.select
+  %. = select i1 %switch, i64 8, i64 176
+  %232 = getelementptr inbounds i8, ptr %.sroa.0.0577, i64 %.
   invoke void @_ZN12darling_core4util14path_to_string14path_to_string17hc1f335a3e67ecd13E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %232)
           to label %234 unwind label %.thread384
 

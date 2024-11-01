@@ -1320,12 +1320,12 @@ if.end41:                                         ; preds = %if.then39, %if.end3
     i32 1, label %sw.bb
     i32 0, label %sw.bb43
     i32 2, label %sw.bb45
-    i32 3, label %sw.bb46
+    i32 3, label %sw.bb
     i32 4, label %sw.bb47
     i32 5, label %sw.bb48
   ]
 
-sw.bb:                                            ; preds = %if.end41
+sw.bb:                                            ; preds = %if.end41, %if.end41
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %if.end41
@@ -1336,17 +1336,14 @@ sw.bb43:                                          ; preds = %if.end41
 sw.bb45:                                          ; preds = %sw.bb43, %if.end41
   br label %sw.epilog
 
-sw.bb46:                                          ; preds = %if.end41
-  br label %sw.epilog
-
 sw.bb47:                                          ; preds = %if.end41
   br label %sw.epilog
 
 sw.bb48:                                          ; preds = %if.end41
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb48, %sw.bb47, %sw.bb46, %sw.bb45, %sw.bb, %if.end41
-  %eShading.0 = phi i32 [ 9, %if.end41 ], [ 4, %sw.bb48 ], [ 8, %sw.bb47 ], [ %12, %sw.bb46 ], [ 2, %sw.bb45 ], [ %12, %sw.bb ]
+sw.epilog:                                        ; preds = %sw.bb48, %sw.bb47, %sw.bb45, %sw.bb, %if.end41
+  %eShading.0 = phi i32 [ 9, %if.end41 ], [ 4, %sw.bb48 ], [ 8, %sw.bb47 ], [ 2, %sw.bb45 ], [ %12, %sw.bb ]
   store i32 %eShading.0, ptr %eShading_, align 4
   %call.i77 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %mat, ptr noundef nonnull %eShading_, i32 noundef 4, ptr noundef nonnull @.str.23, i32 noundef 0, i32 noundef 0, i32 noundef 4)
   %mMapName = getelementptr inbounds i8, ptr %oldMat, i64 104

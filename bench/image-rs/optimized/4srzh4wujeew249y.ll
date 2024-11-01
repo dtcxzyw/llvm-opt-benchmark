@@ -28893,29 +28893,10 @@ define noundef nonnull align 1 dereferenceable(2) ptr @_ZN5image6codecs3pnm6head
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5image6codecs3pnm6header10PnmSubtype15sample_encoding17h5fa31b12335d39e7E(i8 noundef %0, i8 %1) unnamed_addr #5 {
-  switch i8 %0, label %3 [
-    i8 0, label %4
-    i8 1, label %5
-    i8 2, label %6
-    i8 3, label %7
-  ]
-
-3:                                                ; preds = %2
-  unreachable
-
-4:                                                ; preds = %2
-  br label %7
-
-5:                                                ; preds = %2
-  br label %7
-
-6:                                                ; preds = %2
-  br label %7
-
-7:                                                ; preds = %2, %6, %5, %4
-  %.0 = phi i8 [ %1, %6 ], [ %1, %5 ], [ %1, %4 ], [ 0, %2 ]
-  %8 = trunc i8 %.0 to i1
-  ret i1 %8
+  %switch = icmp ult i8 %0, 3
+  %3 = trunc i8 %1 to i1
+  %4 = select i1 %switch, i1 %3, i1 false
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -28962,8 +28943,8 @@ define noundef i32 @_ZN5image6codecs3pnm6header9PnmHeader5width17h5911adb374d31d
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3345, !noundef !9
   %switch.not = icmp ult i64 %3, -9223372036854775801
-  %spec.select = select i1 %switch.not, i64 52, i64 36
-  %4 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch.not, i64 52, i64 36
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.
   %.0 = load i32, ptr %4, align 4, !noundef !9
   ret i32 %.0
 }
@@ -28973,8 +28954,8 @@ define noundef i32 @_ZN5image6codecs3pnm6header9PnmHeader6height17h6c98b24a25108
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !range !3345, !noundef !9
   %switch.not = icmp ult i64 %3, -9223372036854775801
-  %spec.select = select i1 %switch.not, i64 48, i64 32
-  %4 = getelementptr inbounds i8, ptr %0, i64 %spec.select
+  %. = select i1 %switch.not, i64 48, i64 32
+  %4 = getelementptr inbounds i8, ptr %0, i64 %.
   %.0 = load i32, ptr %4, align 8, !noundef !9
   ret i32 %.0
 }

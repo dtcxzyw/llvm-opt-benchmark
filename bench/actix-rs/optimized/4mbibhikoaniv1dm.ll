@@ -2697,16 +2697,16 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @"_ZN122_$LT$brotl
   %2 = load i64, ptr %0, align 8, !range !393, !noundef !4
   switch i64 %2, label %default.unreachable1 [
     i64 0, label %3
-    i64 1, label %10
-    i64 2, label %10
-    i64 3, label %10
-    i64 4, label %10
+    i64 1, label %6
+    i64 2, label %6
+    i64 3, label %6
+    i64 4, label %6
     i64 5, label %4
-    i64 6, label %5
-    i64 7, label %6
-    i64 8, label %7
-    i64 9, label %8
-    i64 10, label %9
+    i64 6, label %4
+    i64 7, label %4
+    i64 8, label %4
+    i64 9, label %4
+    i64 10, label %5
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -2716,28 +2716,16 @@ default.unreachable1:                             ; preds = %1
   tail call void @_ZN3std9panicking11begin_panic17hb8ecbc11ddbb084cE(ptr noalias noundef nonnull readonly align 1 @anon.51838d820bef2e7c66f7646d11d2f552.59.llvm.6642645476840219850, i64 noundef 12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.51838d820bef2e7c66f7646d11d2f552.60.llvm.6642645476840219850) #16
   unreachable
 
-4:                                                ; preds = %1
-  br label %10
+4:                                                ; preds = %1, %1, %1, %1, %1
+  br label %6
 
 5:                                                ; preds = %1
-  br label %10
+  br label %6
 
-6:                                                ; preds = %1
-  br label %10
-
-7:                                                ; preds = %1
-  br label %10
-
-8:                                                ; preds = %1
-  br label %10
-
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %1, %1, %1, %1, %9, %8, %7, %6, %5, %4
-  %.sink = phi i64 [ 48, %9 ], [ 40, %8 ], [ 40, %7 ], [ 40, %6 ], [ 40, %5 ], [ 40, %4 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.sink
-  ret ptr %11
+6:                                                ; preds = %1, %1, %1, %1, %5, %4
+  %.sink = phi i64 [ 48, %5 ], [ 40, %4 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ], [ 24, %1 ]
+  %7 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  ret ptr %7
 }
 
 ; Function Attrs: nonlazybind uwtable

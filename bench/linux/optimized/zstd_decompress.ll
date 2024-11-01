@@ -3352,35 +3352,26 @@ define dso_local noundef range(i64 -60, 1) i64 @ZSTD_DCtx_setMaxWindowSize(ptr n
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local { i64, i64 } @ZSTD_dParam_getBounds(i32 noundef %0) local_unnamed_addr #2 align 16 {
-  switch i32 %0, label %6 [
-    i32 100, label %7
+  switch i32 %0, label %3 [
+    i32 100, label %4
     i32 1000, label %2
-    i32 1001, label %3
-    i32 1002, label %4
-    i32 1003, label %5
+    i32 1001, label %2
+    i32 1002, label %2
+    i32 1003, label %2
   ]
 
-2:                                                ; preds = %1
-  br label %7
+2:                                                ; preds = %1, %1, %1, %1
+  br label %4
 
 3:                                                ; preds = %1
-  br label %7
+  br label %4
 
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %6, %5, %4, %3, %2, %1
-  %8 = phi i64 [ 0, %6 ], [ 4294967296, %5 ], [ 4294967296, %4 ], [ 4294967296, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
-  %9 = phi i64 [ -40, %6 ], [ 0, %5 ], [ 0, %4 ], [ 0, %3 ], [ 0, %2 ], [ 0, %1 ]
-  %10 = insertvalue { i64, i64 } poison, i64 %9, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %8, 1
-  ret { i64, i64 } %11
+4:                                                ; preds = %3, %2, %1
+  %5 = phi i64 [ 0, %3 ], [ 4294967296, %2 ], [ 133143986186, %1 ]
+  %6 = phi i64 [ -40, %3 ], [ 0, %2 ], [ 0, %1 ]
+  %7 = insertvalue { i64, i64 } poison, i64 %6, 0
+  %8 = insertvalue { i64, i64 } %7, i64 %5, 1
+  ret { i64, i64 } %8
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
