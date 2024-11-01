@@ -1,14 +1,19 @@
 #!/usr/bin/python3
 import sys
 import os
+import shutil
 
 v1_file = sys.argv[1]
 v2_file = sys.argv[2]
 threshold = 0.001
 
+if not os.path.exists(v1_file) and not os.path.exists(v2_file):
+    exit(1)
 if not os.path.exists(v1_file):
-    os.rename(v2_file, v1_file)
+    shutil.copyfile(v2_file, v1_file)
     exit(0)
+if not os.path.exists(v2_file):
+    exit(1)
 
 def load(filename):
     res = dict()
