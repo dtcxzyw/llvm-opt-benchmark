@@ -19434,7 +19434,7 @@ nuttx/fs_files.c.ll 206024878
 nuttx/fs_foreachinode.c.ll 47452326
 nuttx/fs_foreachmountpoint.c.ll 42762894
 nuttx/fs_fstat.c.ll 54595301
-nuttx/fs_inodegetpath.c.ll 37902383
+nuttx/fs_inodegetpath.c.ll 37940501
 nuttx/fs_inoderemove.c.ll 45427212
 nuttx/fs_inodereserve.c.ll 74621635
 nuttx/fs_inodesearch.c.ll 86757268
@@ -23167,7 +23167,7 @@ openjdk/isGCActiveMark.ll 36117620
 openjdk/istream.ll 112907554
 openjdk/iterator.ll 1191811790
 openjdk/j2secmod.ll 82064927
-openjdk/j2secmod_md.ll 41207800
+openjdk/j2secmod_md.ll 41249038
 openjdk/java.ll 891524265
 openjdk/javaAssertions.ll 613591921
 openjdk/javaCalls.ll 960679945
