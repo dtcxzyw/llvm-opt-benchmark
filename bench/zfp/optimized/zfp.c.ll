@@ -1706,8 +1706,8 @@ zfp_field_blocks.exit:                            ; preds = %zfp_field_dimension
   %42 = load i32, ptr %1, align 8
   switch i32 %42, label %71 [
     i32 1, label %43
-    i32 2, label %47
-    i32 3, label %45
+    i32 2, label %45
+    i32 3, label %47
     i32 4, label %49
   ]
 
@@ -1716,22 +1716,22 @@ zfp_field_blocks.exit:                            ; preds = %zfp_field_dimension
   br label %zfp_field_precision.exit
 
 45:                                               ; preds = %41
-  %46 = select i1 %4, i32 9, i32 15
+  %46 = select i1 %4, i32 0, i32 6
   br label %zfp_field_precision.exit
 
 47:                                               ; preds = %41
-  %48 = select i1 %4, i32 0, i32 6
+  %48 = select i1 %4, i32 9, i32 15
   br label %zfp_field_precision.exit
 
 49:                                               ; preds = %41
   %50 = select i1 %4, i32 12, i32 19
   br label %zfp_field_precision.exit
 
-zfp_field_precision.exit:                         ; preds = %43, %45, %47, %49
-  %.044 = phi i32 [ %50, %49 ], [ %48, %47 ], [ %44, %43 ], [ %46, %45 ]
-  %.0.i.i = phi i32 [ 64, %49 ], [ 64, %47 ], [ 32, %43 ], [ 32, %45 ]
-  %.in49 = shl nsw i32 -1, %40
-  %51 = xor i32 %.in49, -1
+zfp_field_precision.exit:                         ; preds = %49, %45, %43, %47
+  %.044 = phi i32 [ %44, %43 ], [ %48, %47 ], [ %50, %49 ], [ %46, %45 ]
+  %.0.i.i = phi i32 [ 32, %43 ], [ 32, %47 ], [ 64, %49 ], [ 64, %45 ]
+  %.in45 = shl nsw i32 -1, %40
+  %51 = xor i32 %.in45, -1
   %.in = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load i32, ptr %.in, align 8
   %53 = icmp ult i32 %52, %.0.i.i
