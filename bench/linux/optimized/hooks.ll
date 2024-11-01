@@ -14591,21 +14591,21 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #24
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %78
+  br i1 %36, label %37, label %76
 
 37:                                               ; preds = %.thread, %18
   %38 = icmp ult i32 %1, 2
-  br i1 %38, label %78, label %39
+  br i1 %38, label %76, label %39
 
 39:                                               ; preds = %37
   %40 = load i16, ptr %0, align 2
   %41 = icmp eq i16 %40, 0
-  br i1 %41, label %78, label %42
+  br i1 %41, label %76, label %42
 
 42:                                               ; preds = %39
   %43 = getelementptr inbounds i8, ptr %9, i64 24
   %44 = load i16, ptr %43, align 8
-  switch i16 %44, label %77 [
+  switch i16 %44, label %75 [
     i16 16, label %45
     i16 51, label %45
     i16 60, label %45
@@ -14649,53 +14649,47 @@ define internal fastcc i32 @selinux_socket_connect_helper(ptr %.24.val, ptr noca
 
 62:                                               ; preds = %53
   %63 = load i16, ptr %43, align 8
-  switch i16 %63, label %67 [
+  switch i16 %63, label %65 [
     i16 16, label %64
-    i16 51, label %65
-    i16 60, label %66
+    i16 51, label %64
+    i16 60, label %64
   ]
 
-64:                                               ; preds = %62
-  br label %67
-
-65:                                               ; preds = %62
-  br label %67
-
-66:                                               ; preds = %62
-  br label %67
+64:                                               ; preds = %62, %62, %62
+  br label %65
 
 .thread2:                                         ; preds = %46, %48, %50, %53
   %.ph = phi i32 [ %60, %53 ], [ %52, %50 ], [ -22, %48 ], [ -22, %46 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  br label %78
+  br label %76
 
-67:                                               ; preds = %62, %64, %65, %66
-  %68 = phi i32 [ 0, %62 ], [ 4194304, %66 ], [ 4194304, %65 ], [ 4194304, %64 ]
+65:                                               ; preds = %62, %64
+  %66 = phi i32 [ 0, %62 ], [ 4194304, %64 ]
   store i8 2, ptr %5, align 8
-  %69 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %6, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %6, i64 18
-  store i16 %55, ptr %70, align 2
-  %71 = load i16, ptr %0, align 2
-  %72 = getelementptr inbounds i8, ptr %6, i64 16
-  store i16 %71, ptr %72, align 8
-  %73 = load i32, ptr %10, align 8
-  %74 = load i32, ptr %7, align 4
-  %75 = call i32 @avc_has_perm(i32 noundef %73, i32 noundef %74, i16 noundef zeroext %63, i32 noundef %68, ptr noundef nonnull %5) #24
-  %76 = icmp eq i32 %75, 0
+  %67 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %6, ptr %67, align 8
+  %68 = getelementptr inbounds i8, ptr %6, i64 18
+  store i16 %55, ptr %68, align 2
+  %69 = load i16, ptr %0, align 2
+  %70 = getelementptr inbounds i8, ptr %6, i64 16
+  store i16 %69, ptr %70, align 8
+  %71 = load i32, ptr %10, align 8
+  %72 = load i32, ptr %7, align 4
+  %73 = call i32 @avc_has_perm(i32 noundef %71, i32 noundef %72, i16 noundef zeroext %63, i32 noundef %66, ptr noundef nonnull %5) #24
+  %74 = icmp eq i32 %73, 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #24
-  br i1 %76, label %77, label %78
+  br i1 %74, label %75, label %76
 
-77:                                               ; preds = %67, %42
-  br label %78
+75:                                               ; preds = %65, %42
+  br label %76
 
-78:                                               ; preds = %.thread2, %77, %67, %39, %37, %18
-  %79 = phi i32 [ 0, %77 ], [ %75, %67 ], [ %35, %18 ], [ -22, %37 ], [ 0, %39 ], [ %.ph, %.thread2 ]
-  ret i32 %79
+76:                                               ; preds = %.thread2, %75, %65, %39, %37, %18
+  %77 = phi i32 [ 0, %75 ], [ %73, %65 ], [ %35, %18 ], [ -22, %37 ], [ 0, %39 ], [ %.ph, %.thread2 ]
+  ret i32 %77
 }
 
 ; Function Attrs: null_pointer_is_valid

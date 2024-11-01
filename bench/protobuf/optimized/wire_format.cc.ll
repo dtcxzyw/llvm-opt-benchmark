@@ -13231,7 +13231,7 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
     i8 7, label %return
     i8 6, label %sw.bb30
     i8 15, label %return
-    i8 16, label %sw.bb32
+    i8 16, label %sw.bb30
     i8 8, label %sw.bb33
   ]
 
@@ -13333,10 +13333,7 @@ sw.bb26:                                          ; preds = %_ZNK6google8protobu
   %add.i.i37 = add i64 %call.i, %conv.i.i.i
   br label %return
 
-sw.bb30:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  br label %return
-
-sw.bb32:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
+sw.bb30:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
   br label %return
 
 sw.bb33:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -13357,8 +13354,8 @@ lpad36:                                           ; preds = %sw.epilog
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp35) #26
   unreachable
 
-return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %sw.bb33, %sw.bb32, %sw.bb30, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8
-  %retval.0 = phi i64 [ 1, %sw.bb33 ], [ 8, %sw.bb32 ], [ 8, %sw.bb30 ], [ %add.i.i37, %sw.bb26 ], [ %div1.i.i30, %sw.bb23 ], [ %conv.i.i22, %sw.bb20 ], [ %div1.i.i16, %sw.bb17 ], [ %conv.i.i, %sw.bb14 ], [ %div1.i.i, %sw.bb11 ], [ %div1.i.i.i, %sw.bb8 ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
+return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %sw.bb33, %sw.bb30, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8
+  %retval.0 = phi i64 [ 1, %sw.bb33 ], [ 8, %sw.bb30 ], [ %add.i.i37, %sw.bb26 ], [ %div1.i.i30, %sw.bb23 ], [ %conv.i.i22, %sw.bb20 ], [ %div1.i.i16, %sw.bb17 ], [ %conv.i.i, %sw.bb14 ], [ %div1.i.i, %sw.bb11 ], [ %div1.i.i.i, %sw.bb8 ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
   ret i64 %retval.0
 }
 
@@ -13592,8 +13589,8 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
     i8 7, label %return
     i8 6, label %sw.bb36
     i8 15, label %return
-    i8 16, label %sw.bb38
-    i8 1, label %sw.bb39
+    i8 16, label %sw.bb36
+    i8 1, label %sw.bb36
     i8 2, label %return
     i8 8, label %sw.bb41
   ]
@@ -13738,13 +13735,7 @@ sw.bb32:                                          ; preds = %_ZNK6google8protobu
   %add.i.i63 = add i64 %call.i55, %conv.i.i.i62
   br label %return
 
-sw.bb36:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  br label %return
-
-sw.bb38:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  br label %return
-
-sw.bb39:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
+sw.bb36:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
   br label %return
 
 sw.bb41:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
@@ -13765,8 +13756,8 @@ lpad45:                                           ; preds = %sw.epilog
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp43) #26
   unreachable
 
-return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %sw.bb41, %sw.bb39, %sw.bb38, %sw.bb36, %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8, %sw.bb5
-  %retval.0 = phi i64 [ 1, %sw.bb41 ], [ 8, %sw.bb39 ], [ 8, %sw.bb38 ], [ 8, %sw.bb36 ], [ %add.i.i63, %sw.bb32 ], [ %div1.i.i.i54, %sw.bb29 ], [ %add.i.i49, %sw.bb26 ], [ %add.i.i40, %sw.bb23 ], [ %div1.i.i33, %sw.bb20 ], [ %conv.i.i25, %sw.bb17 ], [ %div1.i.i19, %sw.bb14 ], [ %conv.i.i, %sw.bb11 ], [ %div1.i.i, %sw.bb8 ], [ %div1.i.i.i, %sw.bb5 ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
+return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit, %sw.bb41, %sw.bb36, %sw.bb32, %sw.bb29, %sw.bb26, %sw.bb23, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb8, %sw.bb5
+  %retval.0 = phi i64 [ 1, %sw.bb41 ], [ 8, %sw.bb36 ], [ %add.i.i63, %sw.bb32 ], [ %div1.i.i.i54, %sw.bb29 ], [ %add.i.i49, %sw.bb26 ], [ %add.i.i40, %sw.bb23 ], [ %div1.i.i33, %sw.bb20 ], [ %conv.i.i25, %sw.bb17 ], [ %div1.i.i19, %sw.bb14 ], [ %conv.i.i, %sw.bb11 ], [ %div1.i.i, %sw.bb8 ], [ %div1.i.i.i, %sw.bb5 ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ], [ 4, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit ]
   ret i64 %retval.0
 }
 

@@ -12701,7 +12701,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2723)
   %21 = sub nuw i64 %5, %10
   %22 = icmp ult i64 %21, %20
-  br i1 %22, label %58, label %23
+  br i1 %22, label %57, label %23
 
 23:                                               ; preds = %17
   %24 = add i64 %10, %20
@@ -12729,7 +12729,7 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %.sroa.356.sroa.3.0..sroa.356.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %.sroa.356.sroa.3.0..sroa.356.0..sroa_idx.sroa_idx, align 8
   store i64 1, ptr %0, align 8
-  br label %46
+  br label %45
 
 32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %11, i64 %10
@@ -12742,87 +12742,84 @@ define hidden void @"_ZN71_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$rustls..msgs.
   %.not = icmp eq i8 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-36:                                               ; preds = %50
+36:                                               ; preds = %49
   %37 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr76drop_in_place$LT$alloc..vec..Vec$LT$rustls..msgs..enums..Compression$GT$$GT$17hfad114b1a7bb108dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #36
-          to label %62 unwind label %60
+          to label %61 unwind label %59
 
-._crit_edge:                                      ; preds = %51, %32
+._crit_edge:                                      ; preds = %50, %32
   %38 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store i64 0, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  br label %46
+  br label %45
 
-.lr.ph:                                           ; preds = %32, %51
-  %39 = phi i64 [ %57, %51 ], [ 0, %32 ]
-  %.sroa.7.0141161 = phi i64 [ %40, %51 ], [ 0, %32 ]
+.lr.ph:                                           ; preds = %32, %50
+  %39 = phi i64 [ %56, %50 ], [ 0, %32 ]
+  %.sroa.7.0141161 = phi i64 [ %40, %50 ], [ 0, %32 ]
   %40 = add nuw nsw i64 %.sroa.7.0141161, 1
   %41 = getelementptr inbounds i8, ptr %33, i64 %.sroa.7.0141161
   %42 = load i8, ptr %41, align 1, !noalias !2732, !noundef !4
-  switch i8 %42, label %47 [
+  switch i8 %42, label %46 [
     i8 0, label %43
-    i8 1, label %44
-    i8 64, label %45
+    i8 1, label %43
+    i8 64, label %44
   ]
 
-43:                                               ; preds = %.lr.ph
-  br label %47
+43:                                               ; preds = %.lr.ph, %.lr.ph
+  br label %46
 
 44:                                               ; preds = %.lr.ph
-  br label %47
+  br label %46
 
-45:                                               ; preds = %.lr.ph
-  br label %47
-
-46:                                               ; preds = %58, %._crit_edge, %30
+45:                                               ; preds = %57, %._crit_edge, %30
   ret void
 
-47:                                               ; preds = %.lr.ph, %43, %44, %45
-  %.sroa.5130.1 = phi i8 [ 2, %45 ], [ %42, %44 ], [ %42, %43 ], [ 3, %.lr.ph ]
-  %48 = load i64, ptr %3, align 8, !alias.scope !2739, !noundef !4
-  %49 = icmp eq i64 %39, %48
-  br i1 %49, label %50, label %51
+46:                                               ; preds = %.lr.ph, %43, %44
+  %.sroa.5130.1 = phi i8 [ 2, %44 ], [ %42, %43 ], [ 3, %.lr.ph ]
+  %47 = load i64, ptr %3, align 8, !alias.scope !2739, !noundef !4
+  %48 = icmp eq i64 %39, %47
+  br i1 %48, label %49, label %50
 
-50:                                               ; preds = %47
+49:                                               ; preds = %46
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h9aef7fe8598e9996E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef %39)
           to label %.noexc105 unwind label %36
 
-.noexc105:                                        ; preds = %50
+.noexc105:                                        ; preds = %49
   %.pre.i = load i64, ptr %35, align 8, !alias.scope !2739
-  br label %51
+  br label %50
 
-51:                                               ; preds = %.noexc105, %47
-  %52 = phi i64 [ %.pre.i, %.noexc105 ], [ %39, %47 ]
-  %53 = load ptr, ptr %34, align 8, !alias.scope !2739, !nonnull !4, !noundef !4
-  %54 = getelementptr inbounds { i8, i8 }, ptr %53, i64 %52
-  store i8 %.sroa.5130.1, ptr %54, align 1
-  %55 = getelementptr inbounds i8, ptr %54, i64 1
-  store i8 %42, ptr %55, align 1
-  %56 = load i64, ptr %35, align 8, !alias.scope !2739, !noundef !4
-  %57 = add i64 %56, 1
-  store i64 %57, ptr %35, align 8
+50:                                               ; preds = %.noexc105, %46
+  %51 = phi i64 [ %.pre.i, %.noexc105 ], [ %39, %46 ]
+  %52 = load ptr, ptr %34, align 8, !alias.scope !2739, !nonnull !4, !noundef !4
+  %53 = getelementptr inbounds { i8, i8 }, ptr %52, i64 %51
+  store i8 %.sroa.5130.1, ptr %53, align 1
+  %54 = getelementptr inbounds i8, ptr %53, i64 1
+  store i8 %42, ptr %54, align 1
+  %55 = load i64, ptr %35, align 8, !alias.scope !2739, !noundef !4
+  %56 = add i64 %55, 1
+  store i64 %56, ptr %35, align 8
   %exitcond.not = icmp eq i64 %40, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
-58:                                               ; preds = %17
-  %59 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr inttoptr (i64 10 to ptr), ptr %59, align 8
+57:                                               ; preds = %17
+  %58 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr inttoptr (i64 10 to ptr), ptr %58, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %20, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   store i64 1, ptr %0, align 8
-  br label %46
+  br label %45
 
-60:                                               ; preds = %36
-  %61 = landingpad { ptr, i32 }
+59:                                               ; preds = %36
+  %60 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #37
   unreachable
 
-62:                                               ; preds = %36
+61:                                               ; preds = %36
   resume { ptr, i32 } %37
 }
 

@@ -1554,12 +1554,12 @@ if.end178:                                        ; preds = %s_n_llhttp__interna
     i8 68, label %sw.bb206
     i8 69, label %sw.bb208
     i8 70, label %sw.bb210
-    i8 97, label %sw.bb212
-    i8 98, label %sw.bb214
-    i8 99, label %sw.bb216
-    i8 100, label %sw.bb218
-    i8 101, label %sw.bb220
-    i8 102, label %sw.bb222
+    i8 97, label %sw.bb200
+    i8 98, label %sw.bb202
+    i8 99, label %sw.bb204
+    i8 100, label %sw.bb206
+    i8 101, label %sw.bb208
+    i8 102, label %sw.bb210
   ]
 
 sw.bb182:                                         ; preds = %if.end178
@@ -1589,40 +1589,22 @@ sw.bb196:                                         ; preds = %if.end178
 sw.bb198:                                         ; preds = %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb200:                                         ; preds = %if.end178
+sw.bb200:                                         ; preds = %if.end178, %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb202:                                         ; preds = %if.end178
+sw.bb202:                                         ; preds = %if.end178, %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb204:                                         ; preds = %if.end178
+sw.bb204:                                         ; preds = %if.end178, %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb206:                                         ; preds = %if.end178
+sw.bb206:                                         ; preds = %if.end178, %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb208:                                         ; preds = %if.end178
+sw.bb208:                                         ; preds = %if.end178, %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb210:                                         ; preds = %if.end178
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb212:                                         ; preds = %if.end178
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb214:                                         ; preds = %if.end178
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb216:                                         ; preds = %if.end178
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb218:                                         ; preds = %if.end178
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb220:                                         ; preds = %if.end178
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb222:                                         ; preds = %if.end178
+sw.bb210:                                         ; preds = %if.end178, %if.end178
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
 s_n_llhttp__internal__n_chunk_size_digit:         ; preds = %entry, %s_n_llhttp__internal__n_invoke_update_content_length_1
@@ -1649,12 +1631,12 @@ if.end229:                                        ; preds = %s_n_llhttp__interna
     i8 68, label %sw.bb257
     i8 69, label %sw.bb259
     i8 70, label %sw.bb261
-    i8 97, label %sw.bb263
-    i8 98, label %sw.bb265
-    i8 99, label %sw.bb267
-    i8 100, label %sw.bb269
-    i8 101, label %sw.bb271
-    i8 102, label %sw.bb273
+    i8 97, label %sw.bb251
+    i8 98, label %sw.bb253
+    i8 99, label %sw.bb255
+    i8 100, label %sw.bb257
+    i8 101, label %sw.bb259
+    i8 102, label %sw.bb261
   ]
 
 sw.bb233:                                         ; preds = %if.end229
@@ -1684,40 +1666,22 @@ sw.bb247:                                         ; preds = %if.end229
 sw.bb249:                                         ; preds = %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb251:                                         ; preds = %if.end229
+sw.bb251:                                         ; preds = %if.end229, %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb253:                                         ; preds = %if.end229
+sw.bb253:                                         ; preds = %if.end229, %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb255:                                         ; preds = %if.end229
+sw.bb255:                                         ; preds = %if.end229, %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb257:                                         ; preds = %if.end229
+sw.bb257:                                         ; preds = %if.end229, %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb259:                                         ; preds = %if.end229
+sw.bb259:                                         ; preds = %if.end229, %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
-sw.bb261:                                         ; preds = %if.end229
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb263:                                         ; preds = %if.end229
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb265:                                         ; preds = %if.end229
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb267:                                         ; preds = %if.end229
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb269:                                         ; preds = %if.end229
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb271:                                         ; preds = %if.end229
-  br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
-
-sw.bb273:                                         ; preds = %if.end229
+sw.bb261:                                         ; preds = %if.end229, %if.end229
   br label %s_n_llhttp__internal__n_invoke_mul_add_content_length
 
 s_n_llhttp__internal__n_invoke_update_content_length_1: ; preds = %s_n_llhttp__internal__n_invoke_llhttp__on_chunk_complete, %s_n_llhttp__internal__n_invoke_llhttp__after_headers_complete, %entry
@@ -7350,9 +7314,9 @@ s_n_llhttp__internal__n_error_25:                 ; preds = %if.end167
   store ptr null, ptr %_current, align 8
   br label %return
 
-s_n_llhttp__internal__n_invoke_mul_add_content_length: ; preds = %if.end229, %if.end178, %sw.bb273, %sw.bb271, %sw.bb269, %sw.bb267, %sw.bb265, %sw.bb263, %sw.bb261, %sw.bb259, %sw.bb257, %sw.bb255, %sw.bb253, %sw.bb251, %sw.bb249, %sw.bb247, %sw.bb245, %sw.bb243, %sw.bb241, %sw.bb239, %sw.bb237, %sw.bb235, %sw.bb233, %sw.bb222, %sw.bb220, %sw.bb218, %sw.bb216, %sw.bb214, %sw.bb212, %sw.bb210, %sw.bb208, %sw.bb206, %sw.bb204, %sw.bb202, %sw.bb200, %sw.bb198, %sw.bb196, %sw.bb194, %sw.bb192, %sw.bb190, %sw.bb188, %sw.bb186, %sw.bb184, %sw.bb182
-  %p.addr.28.sink = phi ptr [ %p.addr.28, %sw.bb273 ], [ %p.addr.28, %sw.bb271 ], [ %p.addr.28, %sw.bb269 ], [ %p.addr.28, %sw.bb267 ], [ %p.addr.28, %sw.bb265 ], [ %p.addr.28, %sw.bb263 ], [ %p.addr.28, %sw.bb261 ], [ %p.addr.28, %sw.bb259 ], [ %p.addr.28, %sw.bb257 ], [ %p.addr.28, %sw.bb255 ], [ %p.addr.28, %sw.bb253 ], [ %p.addr.28, %sw.bb251 ], [ %p.addr.28, %sw.bb249 ], [ %p.addr.28, %sw.bb247 ], [ %p.addr.28, %sw.bb245 ], [ %p.addr.28, %sw.bb243 ], [ %p.addr.28, %sw.bb241 ], [ %p.addr.28, %sw.bb239 ], [ %p.addr.28, %sw.bb237 ], [ %p.addr.28, %sw.bb235 ], [ %p.addr.28, %sw.bb233 ], [ %p.addr.26, %sw.bb222 ], [ %p.addr.26, %sw.bb220 ], [ %p.addr.26, %sw.bb218 ], [ %p.addr.26, %sw.bb216 ], [ %p.addr.26, %sw.bb214 ], [ %p.addr.26, %sw.bb212 ], [ %p.addr.26, %sw.bb210 ], [ %p.addr.26, %sw.bb208 ], [ %p.addr.26, %sw.bb206 ], [ %p.addr.26, %sw.bb204 ], [ %p.addr.26, %sw.bb202 ], [ %p.addr.26, %sw.bb200 ], [ %p.addr.26, %sw.bb198 ], [ %p.addr.26, %sw.bb196 ], [ %p.addr.26, %sw.bb194 ], [ %p.addr.26, %sw.bb192 ], [ %p.addr.26, %sw.bb190 ], [ %p.addr.26, %sw.bb188 ], [ %p.addr.26, %sw.bb186 ], [ %p.addr.26, %sw.bb184 ], [ %p.addr.26, %sw.bb182 ], [ %p.addr.26, %if.end178 ], [ %p.addr.28, %if.end229 ]
-  %match.0 = phi i64 [ 15, %sw.bb273 ], [ 14, %sw.bb271 ], [ 13, %sw.bb269 ], [ 12, %sw.bb267 ], [ 11, %sw.bb265 ], [ 10, %sw.bb263 ], [ 15, %sw.bb261 ], [ 14, %sw.bb259 ], [ 13, %sw.bb257 ], [ 12, %sw.bb255 ], [ 11, %sw.bb253 ], [ 10, %sw.bb251 ], [ 9, %sw.bb249 ], [ 8, %sw.bb247 ], [ 7, %sw.bb245 ], [ 6, %sw.bb243 ], [ 5, %sw.bb241 ], [ 4, %sw.bb239 ], [ 3, %sw.bb237 ], [ 2, %sw.bb235 ], [ 1, %sw.bb233 ], [ 15, %sw.bb222 ], [ 14, %sw.bb220 ], [ 13, %sw.bb218 ], [ 12, %sw.bb216 ], [ 11, %sw.bb214 ], [ 10, %sw.bb212 ], [ 15, %sw.bb210 ], [ 14, %sw.bb208 ], [ 13, %sw.bb206 ], [ 12, %sw.bb204 ], [ 11, %sw.bb202 ], [ 10, %sw.bb200 ], [ 9, %sw.bb198 ], [ 8, %sw.bb196 ], [ 7, %sw.bb194 ], [ 6, %sw.bb192 ], [ 5, %sw.bb190 ], [ 4, %sw.bb188 ], [ 3, %sw.bb186 ], [ 2, %sw.bb184 ], [ 1, %sw.bb182 ], [ 0, %if.end178 ], [ 0, %if.end229 ]
+s_n_llhttp__internal__n_invoke_mul_add_content_length: ; preds = %if.end229, %if.end178, %sw.bb261, %sw.bb259, %sw.bb257, %sw.bb255, %sw.bb253, %sw.bb251, %sw.bb249, %sw.bb247, %sw.bb245, %sw.bb243, %sw.bb241, %sw.bb239, %sw.bb237, %sw.bb235, %sw.bb233, %sw.bb210, %sw.bb208, %sw.bb206, %sw.bb204, %sw.bb202, %sw.bb200, %sw.bb198, %sw.bb196, %sw.bb194, %sw.bb192, %sw.bb190, %sw.bb188, %sw.bb186, %sw.bb184, %sw.bb182
+  %p.addr.28.sink = phi ptr [ %p.addr.28, %sw.bb261 ], [ %p.addr.28, %sw.bb259 ], [ %p.addr.28, %sw.bb257 ], [ %p.addr.28, %sw.bb255 ], [ %p.addr.28, %sw.bb253 ], [ %p.addr.28, %sw.bb251 ], [ %p.addr.28, %sw.bb249 ], [ %p.addr.28, %sw.bb247 ], [ %p.addr.28, %sw.bb245 ], [ %p.addr.28, %sw.bb243 ], [ %p.addr.28, %sw.bb241 ], [ %p.addr.28, %sw.bb239 ], [ %p.addr.28, %sw.bb237 ], [ %p.addr.28, %sw.bb235 ], [ %p.addr.28, %sw.bb233 ], [ %p.addr.26, %sw.bb210 ], [ %p.addr.26, %sw.bb208 ], [ %p.addr.26, %sw.bb206 ], [ %p.addr.26, %sw.bb204 ], [ %p.addr.26, %sw.bb202 ], [ %p.addr.26, %sw.bb200 ], [ %p.addr.26, %sw.bb198 ], [ %p.addr.26, %sw.bb196 ], [ %p.addr.26, %sw.bb194 ], [ %p.addr.26, %sw.bb192 ], [ %p.addr.26, %sw.bb190 ], [ %p.addr.26, %sw.bb188 ], [ %p.addr.26, %sw.bb186 ], [ %p.addr.26, %sw.bb184 ], [ %p.addr.26, %sw.bb182 ], [ %p.addr.26, %if.end178 ], [ %p.addr.28, %if.end229 ]
+  %match.0 = phi i64 [ 15, %sw.bb261 ], [ 14, %sw.bb259 ], [ 13, %sw.bb257 ], [ 12, %sw.bb255 ], [ 11, %sw.bb253 ], [ 10, %sw.bb251 ], [ 9, %sw.bb249 ], [ 8, %sw.bb247 ], [ 7, %sw.bb245 ], [ 6, %sw.bb243 ], [ 5, %sw.bb241 ], [ 4, %sw.bb239 ], [ 3, %sw.bb237 ], [ 2, %sw.bb235 ], [ 1, %sw.bb233 ], [ 15, %sw.bb210 ], [ 14, %sw.bb208 ], [ 13, %sw.bb206 ], [ 12, %sw.bb204 ], [ 11, %sw.bb202 ], [ 10, %sw.bb200 ], [ 9, %sw.bb198 ], [ 8, %sw.bb196 ], [ 7, %sw.bb194 ], [ 6, %sw.bb192 ], [ 5, %sw.bb190 ], [ 4, %sw.bb188 ], [ 3, %sw.bb186 ], [ 2, %sw.bb184 ], [ 1, %sw.bb182 ], [ 0, %if.end178 ], [ 0, %if.end229 ]
   %incdec.ptr274 = getelementptr inbounds i8, ptr %p.addr.28.sink, i64 1
   %content_length.i4123 = getelementptr inbounds i8, ptr %state, i64 64
   %709 = load i64, ptr %content_length.i4123, align 8

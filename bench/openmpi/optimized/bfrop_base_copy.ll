@@ -261,16 +261,16 @@ pmix_bfrops_base_tma_buffer_extend.exit.thread:   ; preds = %68, %pmix_bfrops_ba
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define range(i32 -29, 1) i32 @pmix_bfrops_base_std_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
-  switch i16 %2, label %21 [
-    i16 1, label %17
+  switch i16 %2, label %15 [
+    i16 1, label %11
     i16 6, label %4
     i16 11, label %4
     i16 4, label %5
     i16 5, label %6
-    i16 2, label %17
-    i16 7, label %17
-    i16 12, label %17
-    i16 51, label %17
+    i16 2, label %11
+    i16 7, label %11
+    i16 12, label %11
+    i16 51, label %11
     i16 8, label %7
     i16 13, label %7
     i16 45, label %7
@@ -284,75 +284,57 @@ define range(i32 -29, 1) i32 @pmix_bfrops_base_std_copy(ptr nocapture noundef wr
     i16 66, label %9
     i16 67, label %9
     i16 68, label %9
-    i16 16, label %10
-    i16 18, label %11
-    i16 19, label %12
-    i16 20, label %13
-    i16 40, label %14
-    i16 30, label %17
-    i16 31, label %15
-    i16 32, label %17
-    i16 33, label %17
-    i16 34, label %17
-    i16 35, label %16
-    i16 37, label %17
-    i16 43, label %17
-    i16 71, label %17
-    i16 50, label %17
+    i16 16, label %6
+    i16 18, label %10
+    i16 19, label %5
+    i16 20, label %6
+    i16 40, label %6
+    i16 30, label %11
+    i16 31, label %5
+    i16 32, label %11
+    i16 33, label %11
+    i16 34, label %11
+    i16 35, label %6
+    i16 37, label %11
+    i16 43, label %11
+    i16 71, label %11
+    i16 50, label %11
   ]
 
 4:                                                ; preds = %3, %3
-  br label %17
+  br label %11
 
-5:                                                ; preds = %3
-  br label %17
+5:                                                ; preds = %3, %3, %3
+  br label %11
 
-6:                                                ; preds = %3
-  br label %17
+6:                                                ; preds = %3, %3, %3, %3, %3
+  br label %11
 
 7:                                                ; preds = %3, %3, %3, %3, %3
-  br label %17
+  br label %11
 
 8:                                                ; preds = %3, %3
-  br label %17
+  br label %11
 
 9:                                                ; preds = %3, %3, %3, %3, %3, %3
-  br label %17
+  br label %11
 
 10:                                               ; preds = %3
-  br label %17
+  br label %11
 
-11:                                               ; preds = %3
-  br label %17
+11:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %10, %9, %8, %7, %6, %5, %4
+  %.0 = phi i64 [ 16, %10 ], [ 8, %9 ], [ 4, %8 ], [ 2, %7 ], [ 4, %6 ], [ 8, %5 ], [ 4, %4 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
+  %12 = tail call noalias ptr @malloc(i64 noundef %.0) #19
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %15, label %14
 
-12:                                               ; preds = %3
-  br label %17
+14:                                               ; preds = %11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %12, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %.0, i1 false)
+  store ptr %12, ptr %0, align 8
+  br label %15
 
-13:                                               ; preds = %3
-  br label %17
-
-14:                                               ; preds = %3
-  br label %17
-
-15:                                               ; preds = %3
-  br label %17
-
-16:                                               ; preds = %3
-  br label %17
-
-17:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0 = phi i64 [ 4, %16 ], [ 8, %15 ], [ 4, %14 ], [ 4, %13 ], [ 8, %12 ], [ 16, %11 ], [ 4, %10 ], [ 8, %9 ], [ 4, %8 ], [ 2, %7 ], [ 4, %6 ], [ 8, %5 ], [ 4, %4 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ], [ 1, %3 ]
-  %18 = tail call noalias ptr @malloc(i64 noundef %.0) #19
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %21, label %20
-
-20:                                               ; preds = %17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %18, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %.0, i1 false)
-  store ptr %18, ptr %0, align 8
-  br label %21
-
-21:                                               ; preds = %17, %3, %20
-  %.08 = phi i32 [ 0, %20 ], [ -16, %3 ], [ -29, %17 ]
+15:                                               ; preds = %11, %3, %14
+  %.08 = phi i32 [ 0, %14 ], [ -16, %3 ], [ -29, %11 ]
   ret i32 %.08
 }
 

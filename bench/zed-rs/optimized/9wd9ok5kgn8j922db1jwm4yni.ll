@@ -583,44 +583,32 @@ define noundef i64 @_ZN7open_ai5Model15max_token_count17h38cc0eecfcca23cbE(ptr n
   %3 = xor i64 %2, -9223372036854775808
   %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 7)
   switch i64 %4, label %default.unreachable [
-    i64 0, label %14
+    i64 0, label %10
     i64 1, label %5
     i64 2, label %6
-    i64 3, label %7
-    i64 4, label %8
-    i64 5, label %9
-    i64 6, label %10
-    i64 7, label %11
+    i64 3, label %6
+    i64 4, label %6
+    i64 5, label %6
+    i64 6, label %6
+    i64 7, label %7
   ]
 
 default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  br label %14
+  br label %10
 
-6:                                                ; preds = %1
-  br label %14
+6:                                                ; preds = %1, %1, %1, %1, %1
+  br label %10
 
 7:                                                ; preds = %1
-  br label %14
+  %8 = getelementptr inbounds i8, ptr %0, i64 64
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  br label %10
 
-8:                                                ; preds = %1
-  br label %14
-
-9:                                                ; preds = %1
-  br label %14
-
-10:                                               ; preds = %1
-  br label %14
-
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 64
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  br label %14
-
-14:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5
-  %.sroa.0.0 = phi i64 [ %13, %11 ], [ 128000, %10 ], [ 128000, %9 ], [ 128000, %8 ], [ 128000, %7 ], [ 128000, %6 ], [ 8192, %5 ], [ 16385, %1 ]
+10:                                               ; preds = %1, %7, %6, %5
+  %.sroa.0.0 = phi i64 [ %9, %7 ], [ 128000, %6 ], [ 8192, %5 ], [ 16385, %1 ]
   ret i64 %.sroa.0.0
 }
 
