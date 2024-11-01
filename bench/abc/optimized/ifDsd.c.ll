@@ -8673,15 +8673,15 @@ tailrecurse:                                      ; preds = %21, %2
   %.val26 = load i32, ptr %8, align 4
   %9 = and i32 %.val26, 7
   switch i32 %9, label %.critedge [
-    i32 2, label %.critedge.loopexit63
+    i32 2, label %.critedge.loopexit61
     i32 5, label %17
     i32 4, label %.preheader
   ]
 
 .preheader:                                       ; preds = %tailrecurse
   %10 = getelementptr inbounds i8, ptr %7, i64 8
-  %.not46 = icmp ult i32 %.val26, 134217728
-  br i1 %.not46, label %.critedge, label %.lr.ph.preheader
+  %.not44 = icmp ult i32 %.val26, 134217728
+  br i1 %.not44, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %11 = lshr i32 %.val26, 27
@@ -8717,11 +8717,11 @@ tailrecurse:                                      ; preds = %21, %2
   %23 = load i32, ptr %22, align 4
   br label %tailrecurse
 
-.critedge.loopexit63:                             ; preds = %tailrecurse
+.critedge.loopexit61:                             ; preds = %tailrecurse
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %12, %.lr.ph, %17, %tailrecurse, %.critedge.loopexit63, %.preheader
-  %.0 = phi i32 [ 0, %.preheader ], [ 1, %.critedge.loopexit63 ], [ 0, %tailrecurse ], [ 0, %17 ], [ 1, %15 ], [ 0, %12 ], [ 0, %.lr.ph ]
+.critedge:                                        ; preds = %15, %12, %.lr.ph, %17, %tailrecurse, %.critedge.loopexit61, %.preheader
+  %.0 = phi i32 [ 0, %.preheader ], [ 1, %.critedge.loopexit61 ], [ 0, %tailrecurse ], [ 0, %17 ], [ 1, %15 ], [ 0, %12 ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 
