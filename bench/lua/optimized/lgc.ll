@@ -193,16 +193,13 @@ if.else:                                          ; preds = %entry
   switch i8 %3, label %unreachable [
     i8 5, label %getgclist.exit
     i8 6, label %sw.bb1.i
-    i8 38, label %sw.bb3.i
+    i8 38, label %sw.bb1.i
     i8 8, label %sw.bb5.i
     i8 10, label %sw.bb7.i
     i8 7, label %sw.bb9.i
   ]
 
-sw.bb1.i:                                         ; preds = %if.else
-  br label %getgclist.exit
-
-sw.bb3.i:                                         ; preds = %if.else
+sw.bb1.i:                                         ; preds = %if.else, %if.else
   br label %getgclist.exit
 
 sw.bb5.i:                                         ; preds = %if.else
@@ -217,8 +214,8 @@ sw.bb9.i:                                         ; preds = %if.else
 unreachable:                                      ; preds = %if.else
   unreachable
 
-getgclist.exit:                                   ; preds = %if.else, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i
-  %.sink = phi i64 [ 16, %sw.bb1.i ], [ 16, %sw.bb3.i ], [ 72, %sw.bb5.i ], [ 120, %sw.bb7.i ], [ 32, %sw.bb9.i ], [ 48, %if.else ]
+getgclist.exit:                                   ; preds = %if.else, %sw.bb1.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i
+  %.sink = phi i64 [ 16, %sw.bb1.i ], [ 72, %sw.bb5.i ], [ 120, %sw.bb7.i ], [ 32, %sw.bb9.i ], [ 48, %if.else ]
   %gclist.i = getelementptr inbounds i8, ptr %o, i64 %.sink
   %grayagain = getelementptr inbounds i8, ptr %2, i64 144
   %4 = load ptr, ptr %grayagain, align 8
@@ -3544,16 +3541,13 @@ entry:
   switch i8 %3, label %unreachable [
     i8 5, label %getgclist.exit
     i8 6, label %sw.bb1.i
-    i8 38, label %sw.bb3.i
+    i8 38, label %sw.bb1.i
     i8 8, label %sw.bb5.i
     i8 10, label %sw.bb7.i
     i8 7, label %sw.bb9.i
   ]
 
-sw.bb1.i:                                         ; preds = %entry
-  br label %getgclist.exit
-
-sw.bb3.i:                                         ; preds = %entry
+sw.bb1.i:                                         ; preds = %entry, %entry
   br label %getgclist.exit
 
 sw.bb5.i:                                         ; preds = %entry
@@ -3568,8 +3562,8 @@ sw.bb9.i:                                         ; preds = %entry
 unreachable:                                      ; preds = %entry
   unreachable
 
-getgclist.exit:                                   ; preds = %entry, %sw.bb1.i, %sw.bb3.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i
-  %.sink = phi i64 [ 16, %sw.bb1.i ], [ 16, %sw.bb3.i ], [ 72, %sw.bb5.i ], [ 120, %sw.bb7.i ], [ 32, %sw.bb9.i ], [ 48, %entry ]
+getgclist.exit:                                   ; preds = %entry, %sw.bb1.i, %sw.bb5.i, %sw.bb7.i, %sw.bb9.i
+  %.sink = phi i64 [ 16, %sw.bb1.i ], [ 72, %sw.bb5.i ], [ 120, %sw.bb7.i ], [ 32, %sw.bb9.i ], [ 48, %entry ]
   %gclist.i = getelementptr inbounds i8, ptr %0, i64 %.sink
   %4 = load ptr, ptr %gclist.i, align 8
   store ptr %4, ptr %gray, align 8
@@ -3903,16 +3897,13 @@ if.then.i24.i.i:                                  ; preds = %for.end54.i.i
   switch i8 %63, label %unreachable.i.i.i [
     i8 5, label %getgclist.exit.i.i.i
     i8 6, label %sw.bb1.i.i.i.i
-    i8 38, label %sw.bb3.i.i.i.i
+    i8 38, label %sw.bb1.i.i.i.i
     i8 8, label %sw.bb5.i.i.i.i
     i8 10, label %sw.bb7.i.i.i.i
     i8 7, label %sw.bb9.i.i.i.i
   ]
 
-sw.bb1.i.i.i.i:                                   ; preds = %if.then.i24.i.i
-  br label %getgclist.exit.i.i.i
-
-sw.bb3.i.i.i.i:                                   ; preds = %if.then.i24.i.i
+sw.bb1.i.i.i.i:                                   ; preds = %if.then.i24.i.i, %if.then.i24.i.i
   br label %getgclist.exit.i.i.i
 
 sw.bb5.i.i.i.i:                                   ; preds = %if.then.i24.i.i
@@ -3927,8 +3918,8 @@ sw.bb9.i.i.i.i:                                   ; preds = %if.then.i24.i.i
 unreachable.i.i.i:                                ; preds = %if.then.i24.i.i
   unreachable
 
-getgclist.exit.i.i.i:                             ; preds = %sw.bb9.i.i.i.i, %sw.bb7.i.i.i.i, %sw.bb5.i.i.i.i, %sw.bb3.i.i.i.i, %sw.bb1.i.i.i.i, %if.then.i24.i.i
-  %.sink.i.i.i = phi i64 [ 16, %sw.bb1.i.i.i.i ], [ 16, %sw.bb3.i.i.i.i ], [ 72, %sw.bb5.i.i.i.i ], [ 120, %sw.bb7.i.i.i.i ], [ 32, %sw.bb9.i.i.i.i ], [ 48, %if.then.i24.i.i ]
+getgclist.exit.i.i.i:                             ; preds = %sw.bb9.i.i.i.i, %sw.bb7.i.i.i.i, %sw.bb5.i.i.i.i, %sw.bb1.i.i.i.i, %if.then.i24.i.i
+  %.sink.i.i.i = phi i64 [ 16, %sw.bb1.i.i.i.i ], [ 72, %sw.bb5.i.i.i.i ], [ 120, %sw.bb7.i.i.i.i ], [ 32, %sw.bb9.i.i.i.i ], [ 48, %if.then.i24.i.i ]
   %gclist.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i.i
   %grayagain.i.i.i = getelementptr inbounds i8, ptr %g, i64 144
   %64 = load ptr, ptr %grayagain.i.i.i, align 8
@@ -4040,16 +4031,13 @@ if.then.i.i27:                                    ; preds = %for.end.i
   switch i8 %85, label %unreachable.i.i [
     i8 5, label %getgclist.exit.i.i
     i8 6, label %sw.bb1.i.i.i
-    i8 38, label %sw.bb3.i.i.i
+    i8 38, label %sw.bb1.i.i.i
     i8 8, label %sw.bb5.i.i.i
     i8 10, label %sw.bb7.i.i.i
     i8 7, label %sw.bb9.i.i.i
   ]
 
-sw.bb1.i.i.i:                                     ; preds = %if.then.i.i27
-  br label %getgclist.exit.i.i
-
-sw.bb3.i.i.i:                                     ; preds = %if.then.i.i27
+sw.bb1.i.i.i:                                     ; preds = %if.then.i.i27, %if.then.i.i27
   br label %getgclist.exit.i.i
 
 sw.bb5.i.i.i:                                     ; preds = %if.then.i.i27
@@ -4064,8 +4052,8 @@ sw.bb9.i.i.i:                                     ; preds = %if.then.i.i27
 unreachable.i.i:                                  ; preds = %if.then.i.i27
   unreachable
 
-getgclist.exit.i.i:                               ; preds = %sw.bb9.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb3.i.i.i, %sw.bb1.i.i.i, %if.then.i.i27
-  %.sink.i.i = phi i64 [ 16, %sw.bb1.i.i.i ], [ 16, %sw.bb3.i.i.i ], [ 72, %sw.bb5.i.i.i ], [ 120, %sw.bb7.i.i.i ], [ 32, %sw.bb9.i.i.i ], [ 48, %if.then.i.i27 ]
+getgclist.exit.i.i:                               ; preds = %sw.bb9.i.i.i, %sw.bb7.i.i.i, %sw.bb5.i.i.i, %sw.bb1.i.i.i, %if.then.i.i27
+  %.sink.i.i = phi i64 [ 16, %sw.bb1.i.i.i ], [ 72, %sw.bb5.i.i.i ], [ 120, %sw.bb7.i.i.i ], [ 32, %sw.bb9.i.i.i ], [ 48, %if.then.i.i27 ]
   %gclist.i.i.i = getelementptr inbounds i8, ptr %0, i64 %.sink.i.i
   %grayagain.i.i29 = getelementptr inbounds i8, ptr %g, i64 144
   %86 = load ptr, ptr %grayagain.i.i29, align 8
@@ -4761,16 +4749,13 @@ if.then.i43:                                      ; preds = %if.else84
   switch i8 %40, label %unreachable.i [
     i8 5, label %getgclist.exit.i
     i8 6, label %sw.bb1.i.i
-    i8 38, label %sw.bb3.i.i
+    i8 38, label %sw.bb1.i.i
     i8 8, label %sw.bb5.i.i
     i8 10, label %sw.bb7.i.i
     i8 7, label %sw.bb9.i.i
   ]
 
-sw.bb1.i.i:                                       ; preds = %if.then.i43
-  br label %getgclist.exit.i
-
-sw.bb3.i.i:                                       ; preds = %if.then.i43
+sw.bb1.i.i:                                       ; preds = %if.then.i43, %if.then.i43
   br label %getgclist.exit.i
 
 sw.bb5.i.i:                                       ; preds = %if.then.i43
@@ -4785,8 +4770,8 @@ sw.bb9.i.i:                                       ; preds = %if.then.i43
 unreachable.i:                                    ; preds = %if.then.i43
   unreachable
 
-getgclist.exit.i:                                 ; preds = %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb3.i.i, %sw.bb1.i.i, %if.then.i43
-  %.sink.i = phi i64 [ 16, %sw.bb1.i.i ], [ 16, %sw.bb3.i.i ], [ 72, %sw.bb5.i.i ], [ 120, %sw.bb7.i.i ], [ 32, %sw.bb9.i.i ], [ 48, %if.then.i43 ]
+getgclist.exit.i:                                 ; preds = %sw.bb9.i.i, %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb1.i.i, %if.then.i43
+  %.sink.i = phi i64 [ 16, %sw.bb1.i.i ], [ 72, %sw.bb5.i.i ], [ 120, %sw.bb7.i.i ], [ 32, %sw.bb9.i.i ], [ 48, %if.then.i43 ]
   %gclist.i.i = getelementptr inbounds i8, ptr %h, i64 %.sink.i
   %grayagain.i = getelementptr inbounds i8, ptr %g, i64 144
   %41 = load ptr, ptr %grayagain.i, align 8

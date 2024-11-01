@@ -1738,7 +1738,7 @@ define range(i32 0, 2) i32 @Abc_SopCheck(ptr noundef %0, i32 noundef %1) local_u
     i8 48, label %25
     i8 49, label %20
     i8 120, label %.fold.split
-    i8 110, label %.fold.split35
+    i8 110, label %.fold.split
   ]
 
 20:                                               ; preds = %17
@@ -1750,15 +1750,12 @@ define range(i32 0, 2) i32 @Abc_SopCheck(ptr noundef %0, i32 noundef %1) local_u
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.8, i32 noundef %22) #19
   br label %._crit_edge52.thread
 
-.fold.split:                                      ; preds = %17
+.fold.split:                                      ; preds = %17, %17
   br label %25
 
-.fold.split35:                                    ; preds = %17
-  br label %25
-
-25:                                               ; preds = %17, %.fold.split35, %.fold.split, %20
-  %.124 = phi i32 [ %.02350, %20 ], [ 1, %17 ], [ %.02350, %.fold.split ], [ %.02350, %.fold.split35 ]
-  %.1 = phi i32 [ 1, %20 ], [ %.051, %17 ], [ %.051, %.fold.split ], [ %.051, %.fold.split35 ]
+25:                                               ; preds = %17, %.fold.split, %20
+  %.124 = phi i32 [ %.02350, %20 ], [ 1, %17 ], [ %.02350, %.fold.split ]
+  %.1 = phi i32 [ 1, %20 ], [ %.051, %17 ], [ %.051, %.fold.split ]
   %26 = getelementptr inbounds i8, ptr %.127.lcssa, i64 2
   %27 = load i8, ptr %26, align 1
   %.not34 = icmp eq i8 %27, 10

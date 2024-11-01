@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
 @switch.table.wc_HmacSizeByType = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 -173, i32 28, i32 32, i32 48, i32 64], align 4
-@switch.table.wc_HKDF = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 16, i32 28, i32 32, i32 48, i32 64], align 4
+@switch.table.wc_HKDF_Expand_ex = private unnamed_addr constant [11 x i32] [i32 16, i32 20, i32 28, i32 32, i32 48, i32 64, i32 16, i32 28, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -173, 65) i32 @wc_HmacSizeByType(i32 noundef %type) local_unnamed_addr #0 {
@@ -1030,7 +1030,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.then2:                                         ; preds = %switch.lookup
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp, i8 0, i64 %conv, i1 false)
@@ -1088,7 +1088,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 if.then2.i:                                       ; preds = %switch.lookup
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %conv.i = zext nneg i32 %switch.load to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp.i, i8 0, i64 %conv.i, i1 false)
@@ -1142,7 +1142,7 @@ switch.hole_check:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF_Expand_ex, i64 0, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %cmp1 = icmp eq ptr %out, null
   br i1 %cmp1, label %return, label %lor.lhs.false
@@ -1230,44 +1230,92 @@ entry:
   %tmp.i.i = alloca [64 x i8], align 16
   %myHmac.i.i = alloca [1 x %struct.Hmac], align 16
   %prk = alloca [64 x i8], align 16
-  %switch.tableidx = add i32 %type, -3
-  %0 = icmp ult i32 %switch.tableidx, 11
-  br i1 %0, label %switch.hole_check, label %return
+  switch i32 %type, label %return [
+    i32 3, label %if.end.thread
+    i32 4, label %if.end.thread14
+    i32 5, label %if.end
+    i32 6, label %sw.bb20.i
+    i32 7, label %sw.bb21.i
+    i32 8, label %sw.bb22.i
+    i32 10, label %if.end
+    i32 11, label %sw.bb20.i
+    i32 12, label %sw.bb21.i
+    i32 13, label %sw.bb22.i
+  ]
 
-switch.hole_check:                                ; preds = %entry
-  %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted = lshr i16 1983, %switch.maskindex
-  %switch.lobit = trunc i16 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %return
-
-switch.lookup:                                    ; preds = %switch.hole_check
-  %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.wc_HKDF, i64 0, i64 %1
-  %switch.load = load i32, ptr %switch.gep, align 4
+if.end.thread14:                                  ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
   call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i.i)
+  br label %if.end.i.i
+
+sw.bb20.i:                                        ; preds = %entry, %entry
+  br label %if.end
+
+sw.bb21.i:                                        ; preds = %entry, %entry
+  br label %if.end
+
+sw.bb22.i:                                        ; preds = %entry, %entry
+  br label %if.end
+
+if.end.thread:                                    ; preds = %entry
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i.i)
+  br label %if.end.i.i
+
+if.end:                                           ; preds = %entry, %entry, %sw.bb22.i, %sw.bb21.i, %sw.bb20.i
+  %retval.0.i.ph = phi i32 [ 32, %sw.bb20.i ], [ 48, %sw.bb21.i ], [ 64, %sw.bb22.i ], [ 28, %entry ], [ 28, %entry ]
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.start.p0(i64 784, ptr nonnull %myHmac.i.i)
+  switch i32 %type, label %wc_HKDF_Extract.exit.thread [
+    i32 13, label %sw.bb22.i.i.i
+    i32 12, label %sw.bb21.i.i.i
+    i32 5, label %if.end.i.i
+    i32 6, label %sw.bb20.i.i.i
+    i32 7, label %sw.bb21.i.i.i
+    i32 8, label %sw.bb22.i.i.i
+    i32 10, label %if.end.i.i
+    i32 11, label %sw.bb20.i.i.i
+  ]
+
+wc_HKDF_Extract.exit.thread:                      ; preds = %if.end
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
+  call void @llvm.lifetime.end.p0(i64 784, ptr nonnull %myHmac.i.i)
+  br label %return
+
+sw.bb20.i.i.i:                                    ; preds = %if.end, %if.end
+  br label %if.end.i.i
+
+sw.bb21.i.i.i:                                    ; preds = %if.end, %if.end
+  br label %if.end.i.i
+
+sw.bb22.i.i.i:                                    ; preds = %if.end, %if.end
+  br label %if.end.i.i
+
+if.end.i.i:                                       ; preds = %if.end, %if.end, %if.end.thread, %if.end.thread14, %sw.bb22.i.i.i, %sw.bb21.i.i.i, %sw.bb20.i.i.i
+  %retval.0.i.ph11 = phi i32 [ %retval.0.i.ph, %sw.bb20.i.i.i ], [ %retval.0.i.ph, %sw.bb21.i.i.i ], [ %retval.0.i.ph, %sw.bb22.i.i.i ], [ 20, %if.end.thread14 ], [ 16, %if.end.thread ], [ %retval.0.i.ph, %if.end ], [ %retval.0.i.ph, %if.end ]
+  %retval.0.i.ph.i.i = phi i32 [ 32, %sw.bb20.i.i.i ], [ 48, %sw.bb21.i.i.i ], [ 64, %sw.bb22.i.i.i ], [ 20, %if.end.thread14 ], [ 16, %if.end.thread ], [ 28, %if.end ], [ 28, %if.end ]
   %cmp1.i.i = icmp eq ptr %salt, null
   br i1 %cmp1.i.i, label %if.then2.i.i, label %if.then9.i.i
 
-if.then2.i.i:                                     ; preds = %switch.lookup
-  %conv.i.i = zext nneg i32 %switch.load to i64
+if.then2.i.i:                                     ; preds = %if.end.i.i
+  %conv.i.i = zext nneg i32 %retval.0.i.ph.i.i to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %tmp.i.i, i8 0, i64 %conv.i.i, i1 false)
   br label %if.then9.i.i
 
-if.then9.i.i:                                     ; preds = %if.then2.i.i, %switch.lookup
-  %saltSz.addr.0.i.i = phi i32 [ %switch.load, %if.then2.i.i ], [ %saltSz, %switch.lookup ]
-  %localSalt.0.i.i = phi ptr [ %tmp.i.i, %if.then2.i.i ], [ %salt, %switch.lookup ]
+if.then9.i.i:                                     ; preds = %if.then2.i.i, %if.end.i.i
+  %saltSz.addr.0.i.i = phi i32 [ %retval.0.i.ph.i.i, %if.then2.i.i ], [ %saltSz, %if.end.i.i ]
+  %localSalt.0.i.i = phi ptr [ %tmp.i.i, %if.then2.i.i ], [ %salt, %if.end.i.i ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(784) %myHmac.i.i, i8 0, i64 784, i1 false)
   %call11.i.i = call i32 @wc_HmacSetKey(ptr noundef nonnull %myHmac.i.i, i32 noundef %type, ptr noundef nonnull %localSalt.0.i.i, i32 noundef %saltSz.addr.0.i.i)
   %cmp12.i.i = icmp eq i32 %call11.i.i, 0
-  br i1 %cmp12.i.i, label %if.end17.i.i, label %wc_HKDF_Extract.exit.thread
+  br i1 %cmp12.i.i, label %if.end17.i.i, label %wc_HKDF_Extract.exit.thread19
 
 if.end17.i.i:                                     ; preds = %if.then9.i.i
   %call16.i.i = call i32 @wc_HmacUpdate(ptr noundef nonnull %myHmac.i.i, ptr noundef %inKey, i32 noundef %inKeySz)
   %cmp18.i.i = icmp eq i32 %call16.i.i, 0
-  br i1 %cmp18.i.i, label %wc_HKDF_Extract.exit, label %wc_HKDF_Extract.exit.thread
+  br i1 %cmp18.i.i, label %wc_HKDF_Extract.exit, label %wc_HKDF_Extract.exit.thread19
 
-wc_HKDF_Extract.exit.thread:                      ; preds = %if.end17.i.i, %if.then9.i.i
+wc_HKDF_Extract.exit.thread19:                    ; preds = %if.end17.i.i, %if.then9.i.i
   %ret.2.i.i.ph = phi i32 [ %call11.i.i, %if.then9.i.i ], [ %call16.i.i, %if.end17.i.i ]
   call void @wc_HmacFree(ptr noundef nonnull %myHmac.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %tmp.i.i)
@@ -1283,11 +1331,11 @@ wc_HKDF_Extract.exit:                             ; preds = %if.end17.i.i
   br i1 %cmp2.not, label %if.end4, label %return
 
 if.end4:                                          ; preds = %wc_HKDF_Extract.exit
-  %call.i = call i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef nonnull %prk, i32 noundef %switch.load, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz, ptr noundef null, i32 poison)
+  %call.i = call i32 @wc_HKDF_Expand_ex(i32 noundef %type, ptr noundef nonnull %prk, i32 noundef %retval.0.i.ph11, ptr noundef %info, i32 noundef %infoSz, ptr noundef %out, i32 noundef %outSz, ptr noundef null, i32 poison)
   br label %return
 
-return:                                           ; preds = %switch.hole_check, %entry, %wc_HKDF_Extract.exit.thread, %wc_HKDF_Extract.exit, %if.end4
-  %retval.0 = phi i32 [ %call.i, %if.end4 ], [ %call22.i.i, %wc_HKDF_Extract.exit ], [ -173, %entry ], [ %ret.2.i.i.ph, %wc_HKDF_Extract.exit.thread ], [ -173, %switch.hole_check ]
+return:                                           ; preds = %wc_HKDF_Extract.exit.thread19, %wc_HKDF_Extract.exit.thread, %entry, %wc_HKDF_Extract.exit, %if.end4
+  %retval.0 = phi i32 [ %call.i, %if.end4 ], [ %call22.i.i, %wc_HKDF_Extract.exit ], [ -173, %entry ], [ -173, %wc_HKDF_Extract.exit.thread ], [ %ret.2.i.i.ph, %wc_HKDF_Extract.exit.thread19 ]
   ret i32 %retval.0
 }
 
