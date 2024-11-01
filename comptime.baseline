@@ -16515,7 +16515,7 @@ llvm/raw_socket_stream.cpp.ll 627421893
 llvm/regcomp.c.ll 1374776420
 llvm/regerror.c.ll 52849768
 llvm/regexec.c.ll 1124032484
-llvm/regfree.c.ll 38312867
+llvm/regfree.c.ll 38351259
 llvm/regstrlcpy.c.ll 41738592
 llvm/xxhash.cpp.ll 651940610
 lodepng/lodepng.cpp.ll 6651997156
@@ -19418,7 +19418,7 @@ nuttx/binfmt_exec.c.ll 53394489
 nuttx/binfmt_execmodule.c.ll 63037765
 nuttx/circbuf.c.ll 95115294
 nuttx/clock_gettime.c.ll 48619219
-nuttx/clock_settime.c.ll 44835882
+nuttx/clock_settime.c.ll 44880733
 nuttx/env_dup.c.ll 50302061
 nuttx/env_setenv.c.ll 47448443
 nuttx/fs_anonmap.c.ll 46049651
@@ -23147,7 +23147,7 @@ openjdk/indexSet.ll 246654941
 openjdk/init.ll 88819235
 openjdk/initIDs.ll 37778182
 openjdk/instanceClassLoaderKlass.ll 63840780
-openjdk/instanceKlass.ll 5739010410
+openjdk/instanceKlass.ll 5744752564
 openjdk/instanceKlassFlags.ll 456531881
 openjdk/instanceMirrorKlass.ll 101802136
 openjdk/instanceRefKlass.ll 838148439
