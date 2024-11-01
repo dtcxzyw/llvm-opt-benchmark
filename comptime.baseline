@@ -381,7 +381,7 @@ abc/dchClass.c.ll 328676174
 abc/dchCore.c.ll 75271807
 abc/dchSat.c.ll 88905431
 abc/dchSim.c.ll 175655628
-abc/dchSweep.c.ll 92980483
+abc/dchSweep.c.ll 92887483
 abc/decAbc.c.ll 222280246
 abc/decFactor.c.ll 189399726
 abc/decPrint.c.ll 116777618
@@ -36979,7 +36979,7 @@ wireshark/file-blf.c.ll 257006518
 wireshark/file-elf.c.ll 793904618
 wireshark/file-file.c.ll 119457652
 wireshark/file-gif.c.ll 102631818
-wireshark/file-jpeg.c.ll 228142516
+wireshark/file-jpeg.c.ll 227914231
 wireshark/file-mp4.c.ll 242999796
 wireshark/file-pcap.c.ll 90954502
 wireshark/file-pcapng-darwin.c.ll 43225662
