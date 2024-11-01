@@ -1452,7 +1452,7 @@ define void @solve_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
 
 .preheader2.i.lr.ph:                              ; preds = %2
   %13 = icmp sgt i32 %1, 0
-  %wide.trip.count20.i = zext nneg i32 %1 to i64
+  %wide.trip.count19.i = zext nneg i32 %1 to i64
   br label %.preheader2.i
 
 .preheader2.i:                                    ; preds = %.preheader2.i.lr.ph, %move_node.exit
@@ -1464,20 +1464,20 @@ define void @solve_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %15 = getelementptr inbounds i8, ptr %.val41, i64 184
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr @Ndim, align 4
-  %.fr14.i = freeze i32 %17
-  %18 = icmp sgt i32 %.fr14.i, 0
+  %.fr13.i = freeze i32 %17
+  %18 = icmp sgt i32 %.fr13.i, 0
   %19 = getelementptr inbounds i8, ptr %.val41, i64 216
   br i1 %18, label %.lr.ph8.split.us.preheader.i, label %._crit_edge9.i
 
 .lr.ph8.split.us.preheader.i:                     ; preds = %.lr.ph8.i
-  %wide.trip.count.i = zext nneg i32 %.fr14.i to i64
+  %wide.trip.count.i = zext nneg i32 %.fr13.i to i64
   br label %.lr.ph8.split.us.i
 
 .lr.ph8.split.us.i:                               ; preds = %32, %.lr.ph8.split.us.preheader.i
-  %indvars.iv17.i = phi i64 [ 0, %.lr.ph8.split.us.preheader.i ], [ %indvars.iv.next18.i, %32 ]
+  %indvars.iv16.i = phi i64 [ 0, %.lr.ph8.split.us.preheader.i ], [ %indvars.iv.next17.i, %32 ]
   %.0237.us.i = phi ptr [ null, %.lr.ph8.split.us.preheader.i ], [ %.1.us.i, %32 ]
   %.0246.us.i = phi double [ 0.000000e+00, %.lr.ph8.split.us.preheader.i ], [ %.125.us.i, %32 ]
-  %20 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv17.i
+  %20 = getelementptr inbounds ptr, ptr %16, i64 %indvars.iv16.i
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -1502,13 +1502,13 @@ define void @solve_model(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
 32:                                               ; preds = %._crit_edge.us.i, %27, %.lr.ph8.split.us.i
   %.125.us.i = phi double [ %.0246.us.i, %.lr.ph8.split.us.i ], [ %31, %27 ], [ %.0246.us.i, %._crit_edge.us.i ]
   %.1.us.i = phi ptr [ %.0237.us.i, %.lr.ph8.split.us.i ], [ %21, %27 ], [ %.0237.us.i, %._crit_edge.us.i ]
-  %indvars.iv.next18.i = add nuw nsw i64 %indvars.iv17.i, 1
-  %exitcond21.not.i = icmp eq i64 %indvars.iv.next18.i, %wide.trip.count20.i
-  br i1 %exitcond21.not.i, label %._crit_edge9.i, label %.lr.ph8.split.us.i
+  %indvars.iv.next17.i = add nuw nsw i64 %indvars.iv16.i, 1
+  %exitcond20.not.i = icmp eq i64 %indvars.iv.next17.i, %wide.trip.count19.i
+  br i1 %exitcond20.not.i, label %._crit_edge9.i, label %.lr.ph8.split.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph8.split.us.i
   %33 = load ptr, ptr %19, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv17.i
+  %34 = getelementptr inbounds ptr, ptr %33, i64 %indvars.iv16.i
   %35 = load ptr, ptr %34, align 8
   br label %28
 
@@ -1757,7 +1757,7 @@ choose_node.exit:                                 ; preds = %39, %43, %50
 .loopexit.i.i:                                    ; preds = %._crit_edge89.i.i, %._crit_edge86.i.i, %100
   %176 = phi i32 [ %129, %._crit_edge86.i.i ], [ %101, %100 ], [ %173, %._crit_edge89.i.i ]
   %indvars.iv.next107.i.i = add nuw nsw i64 %indvars.iv106.i.i, 1
-  %exitcond110.not.i.i = icmp eq i64 %indvars.iv.next107.i.i, %wide.trip.count20.i
+  %exitcond110.not.i.i = icmp eq i64 %indvars.iv.next107.i.i, %wide.trip.count19.i
   br i1 %exitcond110.not.i.i, label %.preheader76.i.i, label %100
 
 .preheader.i.i:                                   ; preds = %.preheader76.i.i, %189
@@ -2022,7 +2022,7 @@ distvec.exit.i.i:                                 ; preds = %.lr.ph.i.i.i, %249
 .loopexit.i34.i:                                  ; preds = %.lr.ph64.i.i, %distvec.exit.i.i, %246
   %352 = phi i32 [ %272, %distvec.exit.i.i ], [ %247, %246 ], [ %349, %.lr.ph64.i.i ]
   %indvars.iv.next72.i.i = add nuw nsw i64 %indvars.iv71.i.i, 1
-  %exitcond74.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, %wide.trip.count20.i
+  %exitcond74.not.i.i = icmp eq i64 %indvars.iv.next72.i.i, %wide.trip.count19.i
   br i1 %exitcond74.not.i.i, label %update_arrays.exit.i, label %246
 
 update_arrays.exit.i:                             ; preds = %.loopexit.i34.i, %.preheader.i31.i

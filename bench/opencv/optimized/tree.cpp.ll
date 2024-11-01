@@ -7678,8 +7678,8 @@ define hidden noundef i32 @_ZN2cv2ml10DTreesImpl7pruneCVEi(ptr noundef nonnull a
   br label %20
 
 20:                                               ; preds = %_ZNSt6vectorIdSaIdEE9push_backERKd.exit, %2
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ 0, %2 ]
-  %indvars.iv147 = phi i32 [ %indvars.iv.next148, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ -1, %2 ]
+  %indvars.iv155 = phi i64 [ %indvars.iv.next156, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ 0, %2 ]
+  %indvars.iv146 = phi i32 [ %indvars.iv.next147, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ -1, %2 ]
   %.sroa.11.0 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ null, %2 ]
   %.sroa.15.0 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ null, %2 ]
   %.sroa.0.0 = phi ptr [ %.sroa.0.1, %_ZNSt6vectorIdSaIdEE9push_backERKd.exit ], [ null, %2 ]
@@ -7778,8 +7778,8 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.0.1 = phi ptr [ %48, %_ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i ], [ %.sroa.0.0, %33 ]
   %.sroa.11.1 = getelementptr inbounds i8, ptr %.pn95, i64 8
   %55 = add nuw nsw i32 %.073, 1
-  %indvars.iv.next148 = add nsw i32 %indvars.iv147, 1
-  %indvars.iv.next157 = add nuw i64 %indvars.iv156, 1
+  %indvars.iv.next147 = add nsw i32 %indvars.iv146, 1
+  %indvars.iv.next156 = add nuw i64 %indvars.iv155, 1
   br label %20, !llvm.loop !96
 
 56:                                               ; preds = %31
@@ -7793,7 +7793,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %59, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %57
-  %wide.trip.count = zext i32 %indvars.iv147 to i64
+  %wide.trip.count = zext i32 %indvars.iv146 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7824,32 +7824,32 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
 .preheader97.lr.ph:                               ; preds = %.preheader98
   %69 = getelementptr inbounds i8, ptr %3, i64 16
   %70 = getelementptr inbounds i8, ptr %3, i64 72
-  %wide.trip.count167 = zext nneg i32 %5 to i64
+  %wide.trip.count166 = zext nneg i32 %5 to i64
   br label %.preheader97
 
 .preheader97:                                     ; preds = %.preheader97.lr.ph, %138
-  %indvars.iv164 = phi i64 [ 0, %.preheader97.lr.ph ], [ %indvars.iv.next165, %138 ]
-  %71 = trunc nuw nsw i64 %indvars.iv164 to i32
+  %indvars.iv163 = phi i64 [ 0, %.preheader97.lr.ph ], [ %indvars.iv.next164, %138 ]
+  %71 = trunc nuw nsw i64 %indvars.iv163 to i32
   br label %105
 
 .preheader96:                                     ; preds = %138
   %72 = getelementptr inbounds i8, ptr %3, i64 16
   %73 = getelementptr inbounds i8, ptr %3, i64 72
   %74 = sitofp i32 %12 to double
-  %umax187 = call i32 @llvm.umax.i32(i32 %.073, i32 1)
-  %wide.trip.count188 = zext nneg i32 %umax187 to i64
-  %wide.trip.count180 = zext nneg i32 %5 to i64
+  %umax186 = call i32 @llvm.umax.i32(i32 %.073, i32 1)
+  %wide.trip.count187 = zext nneg i32 %umax186 to i64
+  %wide.trip.count179 = zext nneg i32 %5 to i64
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader96, %87
-  %indvars.iv182 = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next183, %87 ]
+  %indvars.iv181 = phi i64 [ 0, %.preheader96 ], [ %indvars.iv.next182, %87 ]
   %.166125.us = phi i32 [ -1, %.preheader96 ], [ %.2.us, %87 ]
   %.067124.us = phi double [ 0.000000e+00, %.preheader96 ], [ %.168.us, %87 ]
   %.069123.us = phi double [ 0.000000e+00, %.preheader96 ], [ %.170.us, %87 ]
   %75 = load ptr, ptr %72, align 8
   %76 = load ptr, ptr %73, align 8
   %77 = load i64, ptr %76, align 8
-  %invariant.gep.us = getelementptr double, ptr %75, i64 %indvars.iv182
+  %invariant.gep.us = getelementptr double, ptr %75, i64 %indvars.iv181
   br label %88
 
 78:                                               ; preds = %._crit_edge120.us
@@ -7873,26 +7873,26 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %.170.us = phi double [ %91, %83 ], [ %91, %82 ], [ %.069123.us, %81 ], [ %.069123.us, %78 ]
   %.168.us = phi double [ %86, %83 ], [ %.067124.us, %82 ], [ %.067124.us, %81 ], [ %.067124.us, %78 ]
   %.2.us = phi i32 [ %94, %83 ], [ %94, %82 ], [ %94, %81 ], [ %.166125.us, %78 ]
-  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
-  %exitcond189.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count188
-  br i1 %exitcond189.not, label %.split.us, label %.preheader.us, !llvm.loop !98
+  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
+  %exitcond188.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count187
+  br i1 %exitcond188.not, label %.split.us, label %.preheader.us, !llvm.loop !98
 
 88:                                               ; preds = %.preheader.us, %88
-  %indvars.iv177 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next178, %88 ]
+  %indvars.iv176 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next177, %88 ]
   %.0118.us = phi double [ 0.000000e+00, %.preheader.us ], [ %91, %88 ]
-  %89 = mul i64 %77, %indvars.iv177
+  %89 = mul i64 %77, %indvars.iv176
   %gep.us = getelementptr i8, ptr %invariant.gep.us, i64 %89
   %90 = load double, ptr %gep.us, align 8
   %91 = fadd double %.0118.us, %90
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
-  br i1 %exitcond181.not, label %._crit_edge120.us, label %88, !llvm.loop !99
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %exitcond180.not = icmp eq i64 %indvars.iv.next177, %wide.trip.count179
+  br i1 %exitcond180.not, label %._crit_edge120.us, label %88, !llvm.loop !99
 
 ._crit_edge120.us:                                ; preds = %88
-  %92 = icmp eq i64 %indvars.iv182, 0
+  %92 = icmp eq i64 %indvars.iv181, 0
   %93 = fcmp olt double %91, %.069123.us
   %or.cond.us = select i1 %92, i1 true, i1 %93
-  %94 = trunc nuw nsw i64 %indvars.iv182 to i32
+  %94 = trunc nuw nsw i64 %indvars.iv181 to i32
   br i1 %or.cond.us, label %82, label %78
 
 .preheader96.split:                               ; preds = %.preheader98
@@ -7901,8 +7901,8 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %.fr, label %.preheader.us126, label %.preheader
 
 .preheader.us126:                                 ; preds = %.preheader96.split, %103
-  %.166125.us127 = phi i32 [ %.2.us134, %103 ], [ -1, %.preheader96.split ]
-  %.067124.us128 = phi double [ %.168.us133, %103 ], [ 0.000000e+00, %.preheader96.split ]
+  %.166125.us127 = phi i32 [ %.2.us133, %103 ], [ -1, %.preheader96.split ]
+  %.067124.us128 = phi double [ %.168.us132, %103 ], [ 0.000000e+00, %.preheader96.split ]
   %.172122.us130 = phi i32 [ %104, %103 ], [ 0, %.preheader96.split ]
   %97 = icmp eq i32 %.172122.us130, 0
   br i1 %97, label %101, label %98
@@ -7919,11 +7919,11 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br label %103
 
 103:                                              ; preds = %101, %100, %98
-  %.168.us133 = phi double [ %102, %101 ], [ %.067124.us128, %100 ], [ %.067124.us128, %98 ]
-  %.2.us134 = phi i32 [ 0, %101 ], [ %.172122.us130, %100 ], [ %.166125.us127, %98 ]
+  %.168.us132 = phi double [ %102, %101 ], [ %.067124.us128, %100 ], [ %.067124.us128, %98 ]
+  %.2.us133 = phi i32 [ 0, %101 ], [ %.172122.us130, %100 ], [ %.166125.us127, %98 ]
   %104 = add nuw nsw i32 %.172122.us130, 1
-  %exitcond176.not = icmp eq i32 %104, %umax
-  br i1 %exitcond176.not, label %.split.us, label %.preheader.us126, !llvm.loop !98
+  %exitcond175.not = icmp eq i32 %104, %umax
+  br i1 %exitcond175.not, label %.split.us, label %.preheader.us126, !llvm.loop !98
 
 105:                                              ; preds = %.preheader97, %._crit_edge110
   %.063115 = phi i32 [ 0, %.preheader97 ], [ %.1.lcssa, %._crit_edge110 ]
@@ -7958,11 +7958,11 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   br label %143
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %124
-  %indvars.iv151 = phi i64 [ %118, %.lr.ph109.preheader ], [ %indvars.iv.next152, %124 ]
-  %121 = getelementptr inbounds double, ptr %.sroa.0.0, i64 %indvars.iv151
+  %indvars.iv150 = phi i64 [ %118, %.lr.ph109.preheader ], [ %indvars.iv.next151, %124 ]
+  %121 = getelementptr inbounds double, ptr %.sroa.0.0, i64 %indvars.iv150
   %122 = load double, ptr %121, align 8
   %123 = fcmp ogt double %122, %.062
-  br i1 %123, label %._crit_edge110.loopexit.split.loop.exit202, label %124
+  br i1 %123, label %._crit_edge110.loopexit.split.loop.exit201, label %124
 
 124:                                              ; preds = %.lr.ph109
   %125 = load ptr, ptr %6, align 8
@@ -7973,28 +7973,28 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %130 = load ptr, ptr %69, align 8
   %131 = load ptr, ptr %70, align 8
   %132 = load i64, ptr %131, align 8
-  %133 = mul i64 %132, %indvars.iv164
+  %133 = mul i64 %132, %indvars.iv163
   %134 = getelementptr inbounds i8, ptr %130, i64 %133
-  %135 = getelementptr inbounds double, ptr %134, i64 %indvars.iv151
+  %135 = getelementptr inbounds double, ptr %134, i64 %indvars.iv150
   store double %129, ptr %135, align 8
-  %indvars.iv.next152 = add nsw i64 %indvars.iv151, 1
-  %exitcond160.not = icmp eq i64 %indvars.iv.next152, %indvars.iv156
-  br i1 %exitcond160.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !100
+  %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
+  %exitcond159.not = icmp eq i64 %indvars.iv.next151, %indvars.iv155
+  br i1 %exitcond159.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !100
 
-._crit_edge110.loopexit.split.loop.exit202:       ; preds = %.lr.ph109
-  %136 = trunc nsw i64 %indvars.iv151 to i32
+._crit_edge110.loopexit.split.loop.exit201:       ; preds = %.lr.ph109
+  %136 = trunc nsw i64 %indvars.iv150 to i32
   br label %._crit_edge110
 
-._crit_edge110:                                   ; preds = %124, %._crit_edge110.loopexit.split.loop.exit202, %116
-  %.1.lcssa = phi i32 [ %.063115, %116 ], [ %136, %._crit_edge110.loopexit.split.loop.exit202 ], [ %.073, %124 ]
+._crit_edge110:                                   ; preds = %124, %._crit_edge110.loopexit.split.loop.exit201, %116
+  %.1.lcssa = phi i32 [ %.063115, %116 ], [ %136, %._crit_edge110.loopexit.split.loop.exit201 ], [ %.073, %124 ]
   %137 = add nuw nsw i32 %.064114, 1
-  %exitcond163.not = icmp eq i32 %137, %umax
-  br i1 %exitcond163.not, label %138, label %105, !llvm.loop !101
+  %exitcond162.not = icmp eq i32 %137, %umax
+  br i1 %exitcond162.not, label %138, label %105, !llvm.loop !101
 
 138:                                              ; preds = %._crit_edge110
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
-  %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
-  br i1 %exitcond168.not, label %.preheader96, label %.preheader97, !llvm.loop !102
+  %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
+  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count166
+  br i1 %exitcond167.not, label %.preheader96, label %.preheader97, !llvm.loop !102
 
 .preheader:                                       ; preds = %.preheader96.split, %.preheader
   %.166125 = phi i32 [ %spec.select, %.preheader ], [ -1, %.preheader96.split ]
@@ -8002,11 +8002,11 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit:          ; preds = %_ZNSt6vectorIdSaIdE
   %139 = icmp eq i32 %.172122, 0
   %spec.select = select i1 %139, i32 0, i32 %.166125
   %140 = add nuw nsw i32 %.172122, 1
-  %exitcond172.not = icmp eq i32 %140, %umax
-  br i1 %exitcond172.not, label %.split.us, label %.preheader, !llvm.loop !98
+  %exitcond171.not = icmp eq i32 %140, %umax
+  br i1 %exitcond171.not, label %.split.us, label %.preheader, !llvm.loop !98
 
 .split.us:                                        ; preds = %.preheader, %103, %87
-  %.us-phi = phi i32 [ %.2.us, %87 ], [ %.2.us134, %103 ], [ %spec.select, %.preheader ]
+  %.us-phi = phi i32 [ %.2.us, %87 ], [ %.2.us133, %103 ], [ %spec.select, %.preheader ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #23
   br label %141
 

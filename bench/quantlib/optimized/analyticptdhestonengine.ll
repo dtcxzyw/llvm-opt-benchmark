@@ -1960,9 +1960,8 @@ for.cond.cleanup:                                 ; preds = %if.end, %entry
   %5 = load double, ptr %sx_, align 8, !tbaa !64
   %sub193 = fsub double %4, %5
   %mul194 = fmul double %.sroa.speculated465, %sub193
-  %add.r.i.i29 = fadd double %add.r.i.i, 0.000000e+00
   %add.i.i.i30 = fadd double %add.i.i.i, %mul194
-  %call.i.i = tail call noundef { double, double } @cexp(double noundef %add.r.i.i29, double noundef %add.i.i.i30) #28
+  %call.i.i = tail call noundef { double, double } @cexp(double noundef %add.r.i.i, double noundef %add.i.i.i30) #28
   %6 = extractvalue { double, double } %call.i.i, 1
   %div200 = fdiv double %6, %.sroa.speculated465
   ret double %div200

@@ -4689,16 +4689,16 @@ define internal fastcc noundef double @_ZL16antimeridian_maxPKdi(ptr nocapture n
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %3
 
-3:                                                ; preds = %2, %44
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %44 ]
-  %.05183 = phi double [ 0xFFF0000000000000, %2 ], [ %.1, %44 ]
-  %.05380 = phi i32 [ 0, %2 ], [ %.154, %44 ]
-  %.05679 = phi i1 [ false, %2 ], [ %.157, %44 ]
-  %.05978 = phi double [ 0xFFF0000000000000, %2 ], [ %.160, %44 ]
+3:                                                ; preds = %2, %43
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %43 ]
+  %.05183 = phi double [ 0xFFF0000000000000, %2 ], [ %.1, %43 ]
+  %.05380 = phi i32 [ 0, %2 ], [ %.154, %43 ]
+  %.05679 = phi i1 [ false, %2 ], [ %.157, %43 ]
+  %.05978 = phi double [ 0xFFF0000000000000, %2 ], [ %.160, %43 ]
   %4 = getelementptr inbounds double, ptr %0, i64 %indvars.iv
   %5 = load double, ptr %4, align 8
   %6 = fcmp oeq double %5, 0x7FF0000000000000
-  br i1 %6, label %44, label %7
+  br i1 %6, label %43, label %7
 
 7:                                                ; preds = %3
   %8 = icmp eq i64 %indvars.iv, 0
@@ -4772,36 +4772,34 @@ _ZL19find_previous_indexiPKdi.exit:               ; preds = %.lr.ph.i, %7
   %.25869 = phi i1 [ true, %39 ], [ true, %36 ], [ false, %35 ], [ false, %.thread74 ]
   %.5 = phi double [ %5, %39 ], [ %.373, %36 ], [ %.05183, %35 ], [ %.4, %.thread74 ]
   %41 = fcmp ogt double %5, %.05978
-  %42 = fcmp oeq double %.05978, 0x7FF0000000000000
-  %or.cond7 = or i1 %42, %41
-  br i1 %or.cond7, label %43, label %44
+  br i1 %41, label %42, label %43
 
-43:                                               ; preds = %40
-  br label %44
+42:                                               ; preds = %40
+  br label %43
 
-44:                                               ; preds = %43, %40, %3
-  %.160 = phi double [ %.05978, %3 ], [ %5, %43 ], [ %.05978, %40 ]
-  %.157 = phi i1 [ %.05679, %3 ], [ %.25869, %43 ], [ %.25869, %40 ]
-  %.154 = phi i32 [ %.05380, %3 ], [ %.25571, %43 ], [ %.25571, %40 ]
-  %.1 = phi double [ %.05183, %3 ], [ %.5, %43 ], [ %.5, %40 ]
+43:                                               ; preds = %42, %40, %3
+  %.160 = phi double [ %.05978, %3 ], [ %5, %42 ], [ %.05978, %40 ]
+  %.157 = phi i1 [ %.05679, %3 ], [ %.25869, %42 ], [ %.25869, %40 ]
+  %.154 = phi i32 [ %.05380, %3 ], [ %.25571, %42 ], [ %.25571, %40 ]
+  %.1 = phi double [ %.05183, %3 ], [ %.5, %42 ], [ %.5, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %45, label %3, !llvm.loop !18
+  br i1 %exitcond.not, label %44, label %3, !llvm.loop !18
 
-45:                                               ; preds = %44
-  switch i32 %.154, label %47 [
-    i32 2, label %48
-    i32 4, label %46
+44:                                               ; preds = %43
+  switch i32 %.154, label %46 [
+    i32 2, label %47
+    i32 4, label %45
   ]
 
-46:                                               ; preds = %45
-  br label %48
+45:                                               ; preds = %44
+  br label %47
 
-47:                                               ; preds = %45
-  br label %48
+46:                                               ; preds = %44
+  br label %47
 
-48:                                               ; preds = %45, %47, %46
-  %.0 = phi double [ 1.800000e+02, %46 ], [ %.160, %47 ], [ %.1, %45 ]
+47:                                               ; preds = %44, %46, %45
+  %.0 = phi double [ 1.800000e+02, %45 ], [ %.160, %46 ], [ %.1, %44 ]
   ret double %.0
 }
 
