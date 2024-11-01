@@ -1112,8 +1112,8 @@ switch.early.test.us:                             ; preds = %.lr.ph.split.us
           cleanup
   br label %.loopexit
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %44
-  %.041 = phi ptr [ %45, %44 ], [ %2, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %42
+  %.041 = phi ptr [ %43, %42 ], [ %2, %.lr.ph ]
   %26 = load i8, ptr %.041, align 1
   %.fr = freeze i8 %26
   %27 = zext i8 %.fr to i32
@@ -1129,12 +1129,12 @@ switch.early.test:                                ; preds = %.lr.ph.split
     i8 34, label %31
   ]
 
-.invoke44:                                        ; preds = %switch.early.test, %33, %42, %41, %40, %39, %38, %37, %36, %35, %34
-  %29 = phi i8 [ 98, %34 ], [ 102, %35 ], [ 110, %36 ], [ 114, %37 ], [ 116, %38 ], [ 118, %39 ], [ %.fr, %40 ], [ %.fr, %41 ], [ %.fr, %42 ], [ 97, %33 ], [ %.fr, %switch.early.test ]
+.invoke44:                                        ; preds = %switch.early.test, %33, %40, %39, %38, %37, %36, %35, %34
+  %29 = phi i8 [ 98, %34 ], [ 102, %35 ], [ 110, %36 ], [ 114, %37 ], [ 116, %38 ], [ 118, %39 ], [ %.fr, %40 ], [ 97, %33 ], [ %.fr, %switch.early.test ]
   %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %29)
-          to label %44 unwind label %.loopexit.split
+          to label %42 unwind label %.loopexit.split
 
-.loopexit.split:                                  ; preds = %.invoke44, %31, %43
+.loopexit.split:                                  ; preds = %.invoke44, %31, %41
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1154,7 +1154,7 @@ switch.early.test:                                ; preds = %.lr.ph.split
           to label %33 unwind label %.loopexit.split
 
 33:                                               ; preds = %31
-  switch i8 %.fr, label %43 [
+  switch i8 %.fr, label %41 [
     i8 7, label %.invoke44
     i8 8, label %34
     i8 12, label %35
@@ -1163,8 +1163,8 @@ switch.early.test:                                ; preds = %.lr.ph.split
     i8 9, label %38
     i8 11, label %39
     i8 39, label %40
-    i8 34, label %41
-    i8 92, label %42
+    i8 34, label %40
+    i8 92, label %40
   ]
 
 34:                                               ; preds = %33
@@ -1185,25 +1185,19 @@ switch.early.test:                                ; preds = %.lr.ph.split
 39:                                               ; preds = %33
   br label %.invoke44
 
-40:                                               ; preds = %33
+40:                                               ; preds = %33, %33, %33
   br label %.invoke44
 
 41:                                               ; preds = %33
-  br label %.invoke44
-
-42:                                               ; preds = %33
-  br label %.invoke44
-
-43:                                               ; preds = %33
   invoke void (ptr, ptr, ...) @_ZN4Luau12formatAppendERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, i32 noundef %27)
-          to label %44 unwind label %.loopexit.split
+          to label %42 unwind label %.loopexit.split
 
-44:                                               ; preds = %.invoke44, %43
-  %45 = getelementptr inbounds i8, ptr %.041, i64 1
-  %.not = icmp eq ptr %45, %7
+42:                                               ; preds = %.invoke44, %41
+  %43 = getelementptr inbounds i8, ptr %.041, i64 1
+  %.not = icmp eq ptr %43, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %44, %24, %6
+._crit_edge:                                      ; preds = %42, %24, %6
   ret void
 }
 

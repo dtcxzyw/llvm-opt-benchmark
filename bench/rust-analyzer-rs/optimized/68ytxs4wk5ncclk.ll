@@ -75632,16 +75632,11 @@ define hidden noundef nonnull ptr @"_ZN8chalk_ir13Goal$LT$I$GT$3all17h65c04036d2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN8chalk_ir14Const$LT$I$GT$11needs_shift17hcf1ae1347827c523E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
-switch.lookup:
-  %1 = load ptr, ptr %0, align 8, !alias.scope !18870, !nonnull !14, !noundef !14
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
-  %3 = load i64, ptr %2, align 8, !range !3160, !noundef !14
-  %4 = add nsw i64 %3, -5
-  %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 3)
-  %switch.cast = trunc nuw nsw i64 %5 to i4
-  %switch.downshift = lshr i4 1, %switch.cast
-  %switch.masked = trunc nuw i4 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load ptr, ptr %0, align 8, !alias.scope !18870, !nonnull !14, !noundef !14
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = load i64, ptr %3, align 8, !range !3160, !noundef !14
+  %switch = icmp eq i64 %4, 5
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -88615,14 +88610,11 @@ define hidden void @"_ZN8chalk_ir16Binders$LT$T$GT$7map_ref17hf84ce72cc94c5fc0E"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @"_ZN8chalk_ir17Lifetime$LT$I$GT$11needs_shift17h4132134777889eccE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #7 {
-switch.lookup:
-  %1 = load ptr, ptr %0, align 8, !alias.scope !22471, !nonnull !14, !noundef !14
-  %2 = getelementptr inbounds i8, ptr %1, i64 8
-  %3 = load i32, ptr %2, align 8, !range !3230, !noundef !14
-  %switch.cast = trunc nuw nsw i32 %3 to i7
-  %switch.downshift = lshr i7 33, %switch.cast
-  %switch.masked = trunc i7 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = load ptr, ptr %0, align 8, !alias.scope !22471, !nonnull !14, !noundef !14
+  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %4 = load i32, ptr %3, align 8, !range !3230, !noundef !14
+  %switch = icmp eq i32 %4, 0
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

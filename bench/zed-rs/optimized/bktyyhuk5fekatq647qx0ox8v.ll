@@ -39615,9 +39615,8 @@ define noundef zeroext i1 @"_ZN149_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5proto17LocalSettingsKind8is_valid17h5869dd25e2598b5dE(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 3
-  ret i1 %1
+  %switch = icmp ult i32 %0, 3
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -39770,9 +39769,8 @@ define noundef zeroext i1 @"_ZN143_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5proto11ChannelRole8is_valid17h223aff4e85ac8ceaE(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 5
-  ret i1 %1
+  %switch = icmp ult i32 %0, 5
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -39921,9 +39919,8 @@ define noundef zeroext i1 @"_ZN141_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5proto9GitStatus8is_valid17h8c07d6c514fe5422E(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 3
-  ret i1 %1
+  %switch = icmp ult i32 %0, 3
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -40113,9 +40110,8 @@ define noundef zeroext i1 @"_ZN149_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5proto17LanguageModelRole8is_valid17h8ef2138b2f6f8477E(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 3
-  ret i1 %1
+  %switch = icmp ult i32 %0, 3
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -40227,9 +40223,8 @@ define noundef zeroext i1 @"_ZN144_$LT$proto.._..$LT$impl$u20$serde..de..Deseria
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN5proto12HideStrategy8is_valid17habaca5d80e3dced9E(i32 noundef %0) unnamed_addr #2 {
-switch.lookup:
-  %1 = icmp ult i32 %0, 3
-  ret i1 %1
+  %switch = icmp ult i32 %0, 3
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -1450,30 +1450,30 @@ define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr nocapture no
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #6
   %8 = getelementptr inbounds i8, ptr %1, i64 292
   %9 = load i32, ptr %8, align 4
-  switch i32 %9, label %31 [
+  switch i32 %9, label %29 [
     i32 4508, label %10
-    i32 4510, label %20
+    i32 4510, label %19
   ]
 
 10:                                               ; preds = %4
   %11 = load i32, ptr %5, align 4
-  switch i32 %11, label %19 [
+  switch i32 %11, label %18 [
     i32 0, label %.sink.split
     i32 500, label %.sink.split
     i32 65535, label %.sink.split
     i32 37, label %12
     i32 367, label %13
     i32 819, label %14
-    i32 850, label %15
-    i32 1200, label %16
-    i32 1202, label %17
-    i32 1208, label %18
+    i32 850, label %13
+    i32 1200, label %15
+    i32 1202, label %16
+    i32 1208, label %17
   ]
 
 12:                                               ; preds = %10
   br label %.sink.split
 
-13:                                               ; preds = %10
+13:                                               ; preds = %10, %10
   br label %.sink.split
 
 14:                                               ; preds = %10
@@ -1491,56 +1491,50 @@ define internal noundef i32 @dissect_drda_ccsid(ptr noundef %0, ptr nocapture no
 18:                                               ; preds = %10
   br label %.sink.split
 
-19:                                               ; preds = %10
-  br label %.sink.split
-
-20:                                               ; preds = %4
-  %21 = load i32, ptr %5, align 4
-  switch i32 %21, label %29 [
+19:                                               ; preds = %4
+  %20 = load i32, ptr %5, align 4
+  switch i32 %20, label %27 [
     i32 0, label %.sink.split
     i32 500, label %.sink.split
     i32 65535, label %.sink.split
-    i32 37, label %22
-    i32 367, label %23
-    i32 819, label %24
-    i32 850, label %25
-    i32 1200, label %26
-    i32 1202, label %27
-    i32 1208, label %28
+    i32 37, label %21
+    i32 367, label %22
+    i32 819, label %23
+    i32 850, label %22
+    i32 1200, label %24
+    i32 1202, label %25
+    i32 1208, label %26
   ]
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   br label %.sink.split
 
-23:                                               ; preds = %20
+22:                                               ; preds = %19, %19
   br label %.sink.split
 
-24:                                               ; preds = %20
+23:                                               ; preds = %19
   br label %.sink.split
 
-25:                                               ; preds = %20
+24:                                               ; preds = %19
   br label %.sink.split
 
-26:                                               ; preds = %20
+25:                                               ; preds = %19
   br label %.sink.split
 
-27:                                               ; preds = %20
+26:                                               ; preds = %19
   br label %.sink.split
 
-28:                                               ; preds = %20
+27:                                               ; preds = %19
   br label %.sink.split
 
-29:                                               ; preds = %20
-  br label %.sink.split
+.sink.split:                                      ; preds = %27, %26, %25, %24, %23, %22, %21, %19, %19, %19, %18, %17, %16, %15, %14, %13, %12, %10, %10, %10
+  %.sink8 = phi i64 [ 8, %10 ], [ 8, %10 ], [ 8, %10 ], [ 8, %12 ], [ 8, %13 ], [ 8, %14 ], [ 8, %15 ], [ 8, %16 ], [ 8, %17 ], [ 8, %18 ], [ 12, %19 ], [ 12, %19 ], [ 12, %19 ], [ 12, %21 ], [ 12, %22 ], [ 12, %23 ], [ 12, %24 ], [ 12, %25 ], [ 12, %26 ], [ 12, %27 ]
+  %.0.i6.sink = phi i32 [ 96, %10 ], [ 96, %10 ], [ 96, %10 ], [ 56, %12 ], [ 0, %13 ], [ 10, %14 ], [ 4, %15 ], [ -2147483644, %16 ], [ 2, %17 ], [ 2, %18 ], [ 96, %19 ], [ 96, %19 ], [ 96, %19 ], [ 56, %21 ], [ 0, %22 ], [ 10, %23 ], [ 4, %24 ], [ -2147483644, %25 ], [ 2, %26 ], [ 2, %27 ]
+  %28 = getelementptr inbounds i8, ptr %3, i64 %.sink8
+  store i32 %.0.i6.sink, ptr %28, align 4
+  br label %29
 
-.sink.split:                                      ; preds = %29, %28, %27, %26, %25, %24, %23, %22, %20, %20, %20, %19, %18, %17, %16, %15, %14, %13, %12, %10, %10, %10
-  %.sink8 = phi i64 [ 8, %10 ], [ 8, %10 ], [ 8, %10 ], [ 8, %12 ], [ 8, %13 ], [ 8, %14 ], [ 8, %15 ], [ 8, %16 ], [ 8, %17 ], [ 8, %18 ], [ 8, %19 ], [ 12, %20 ], [ 12, %20 ], [ 12, %20 ], [ 12, %22 ], [ 12, %23 ], [ 12, %24 ], [ 12, %25 ], [ 12, %26 ], [ 12, %27 ], [ 12, %28 ], [ 12, %29 ]
-  %.0.i6.sink = phi i32 [ 96, %10 ], [ 96, %10 ], [ 96, %10 ], [ 56, %12 ], [ 0, %13 ], [ 10, %14 ], [ 0, %15 ], [ 4, %16 ], [ -2147483644, %17 ], [ 2, %18 ], [ 2, %19 ], [ 96, %20 ], [ 96, %20 ], [ 96, %20 ], [ 56, %22 ], [ 0, %23 ], [ 10, %24 ], [ 0, %25 ], [ 4, %26 ], [ -2147483644, %27 ], [ 2, %28 ], [ 2, %29 ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 %.sink8
-  store i32 %.0.i6.sink, ptr %30, align 4
-  br label %31
-
-31:                                               ; preds = %.sink.split, %4
+29:                                               ; preds = %.sink.split, %4
   ret i32 2
 }
 

@@ -29508,12 +29508,12 @@ _ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit: ; preds = %
     i32 144, label %return
     i32 249, label %return
     i32 98, label %sw.bb15
-    i32 138, label %sw.bb16
-    i32 139, label %sw.bb17
-    i32 140, label %sw.bb18
-    i32 141, label %sw.bb19
-    i32 142, label %sw.bb20
-    i32 250, label %sw.bb21
+    i32 138, label %sw.bb15
+    i32 139, label %sw.bb15
+    i32 140, label %sw.bb15
+    i32 141, label %sw.bb15
+    i32 142, label %sw.bb15
+    i32 250, label %sw.bb15
     i32 157, label %sw.bb22
     i32 187, label %sw.bb22
     i32 186, label %sw.bb22
@@ -29524,25 +29524,7 @@ _ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit: ; preds = %
     i32 210, label %sw.bb22
   ]
 
-sw.bb15:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
-  br label %return
-
-sw.bb16:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
-  br label %return
-
-sw.bb17:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
-  br label %return
-
-sw.bb18:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
-  br label %return
-
-sw.bb19:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
-  br label %return
-
-sw.bb20:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
-  br label %return
-
-sw.bb21:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
+sw.bb15:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
   br label %return
 
 sw.bb22:                                          ; preds = %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit
@@ -29593,8 +29575,8 @@ ehcleanup:                                        ; preds = %lpad34, %lpad
   invoke fastcc void @_ZN4cvc512_GLOBAL__N_122CVC5ApiExceptionStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %ref.tmp28)
           to label %common.resume unwind label %terminate.lpad
 
-return:                                           ; preds = %sw.bb15, %sw.bb16, %sw.bb17, %sw.bb18, %sw.bb19, %sw.bb20, %sw.bb21, %sw.bb22, %invoke.cont35, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZNK4cvc52Op15isIndexedHelperEv.exit
-  %retval.0 = phi i64 [ 0, %_ZNK4cvc52Op15isIndexedHelperEv.exit ], [ 0, %invoke.cont35 ], [ %sub.ptr.div.i, %sw.bb22 ], [ 2, %sw.bb21 ], [ 2, %sw.bb20 ], [ 2, %sw.bb19 ], [ 2, %sw.bb18 ], [ 2, %sw.bb17 ], [ 2, %sw.bb16 ], [ 2, %sw.bb15 ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ]
+return:                                           ; preds = %sw.bb15, %sw.bb22, %invoke.cont35, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit, %_ZNK4cvc52Op15isIndexedHelperEv.exit
+  %retval.0 = phi i64 [ 0, %_ZNK4cvc52Op15isIndexedHelperEv.exit ], [ 0, %invoke.cont35 ], [ %sub.ptr.div.i, %sw.bb22 ], [ 2, %sw.bb15 ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ], [ 1, %_ZN4cvc512_GLOBAL__N_112intToExtKindENS_8internal4kind6Kind_tE.exit ]
   ret i64 %retval.0
 
 terminate.lpad:                                   ; preds = %ehcleanup
