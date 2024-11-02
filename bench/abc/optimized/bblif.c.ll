@@ -751,7 +751,7 @@ define void @Bbl_ManSortCubes(ptr nocapture noundef %0, i32 noundef %1, i32 noun
   %.025 = phi i32 [ %7, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %8 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv30
   %9 = load ptr, ptr %8, align 8
-  %10 = sext i32 %.025 to i64
+  %10 = zext nneg i32 %.025 to i64
   %11 = getelementptr inbounds ptr, ptr %0, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @memcmp(ptr noundef %9, ptr noundef %12, i64 noundef %6) #26
@@ -765,7 +765,7 @@ define void @Bbl_ManSortCubes(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 ._crit_edge:                                      ; preds = %.lr.ph
   %16 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv33
   %17 = load ptr, ptr %16, align 8
-  %18 = sext i32 %spec.select to i64
+  %18 = zext nneg i32 %spec.select to i64
   %19 = getelementptr inbounds ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %16, align 8
@@ -836,7 +836,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   %.025.i = phi i32 [ %25, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %26 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv30.i
   %27 = load ptr, ptr %26, align 8
-  %28 = sext i32 %.025.i to i64
+  %28 = zext nneg i32 %.025.i to i64
   %29 = getelementptr inbounds ptr, ptr %15, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i32 @memcmp(ptr noundef %27, ptr noundef %30, i64 noundef %24) #26
@@ -851,7 +851,7 @@ define noalias noundef ptr @Bbl_ManSortSop(ptr noundef %0, i32 noundef %1) local
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %34 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv33.i
   %35 = load ptr, ptr %34, align 8
-  %36 = sext i32 %spec.select.i to i64
+  %36 = zext nneg i32 %spec.select.i to i64
   %37 = getelementptr inbounds ptr, ptr %15, i64 %36
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %34, align 8

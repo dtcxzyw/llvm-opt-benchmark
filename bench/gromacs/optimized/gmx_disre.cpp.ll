@@ -4659,7 +4659,7 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
   %.013.i = phi i32 [ 0, %.lr.ph.i144 ], [ %.1.i, %151 ]
   %152 = getelementptr inbounds %struct.t_toppop, ptr %.pre.i, i64 %indvars.iv.i146, i32 1
   %153 = load float, ptr %152, align 4
-  %154 = sext i32 %.013.i to i64
+  %154 = zext nneg i32 %.013.i to i64
   %155 = getelementptr inbounds %struct.t_toppop, ptr %.pre.i, i64 %154, i32 1
   %156 = load float, ptr %155, align 4
   %157 = fcmp olt float %153, %156
@@ -4670,7 +4670,7 @@ _ZL6reset5v.exit:                                 ; preds = %.lr.ph.i, %12
   br i1 %exitcond.not.i148, label %._crit_edge.loopexit.i, label %151, !llvm.loop !38
 
 ._crit_edge.loopexit.i:                           ; preds = %151
-  %159 = sext i32 %.1.i to i64
+  %159 = zext nneg i32 %.1.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %148

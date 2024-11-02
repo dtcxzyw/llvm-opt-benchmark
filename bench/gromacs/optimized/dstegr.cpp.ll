@@ -392,7 +392,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %.not273.us, label %._crit_edge290.us.thread, label %185
 
 185:                                              ; preds = %._crit_edge290.us
-  %186 = sext i32 %.1.us to i64
+  %186 = zext nneg i32 %.1.us to i64
   %187 = getelementptr inbounds double, ptr %30, i64 %186
   store double %177, ptr %187, align 8
   store double %.1251.us, ptr %176, align 8
@@ -402,7 +402,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %190 = mul nsw i64 %indvars.iv308, %173
   %gep293.us = getelementptr double, ptr %invariant.gep, i64 %190
   call void @dswap_(ptr noundef nonnull %2, ptr noundef %gep.us, ptr noundef nonnull %23, ptr noundef %gep293.us, ptr noundef nonnull %23)
-  %191 = shl i32 %.1.us, 1
+  %191 = shl nuw i32 %.1.us, 1
   %192 = sext i32 %191 to i64
   %193 = getelementptr i32, ptr %34, i64 %192
   %194 = getelementptr i8, ptr %193, i64 -4
@@ -464,7 +464,7 @@ define void @dstegr_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %.not273, label %._crit_edge290.thread, label %212
 
 212:                                              ; preds = %._crit_edge290
-  %213 = sext i32 %.1 to i64
+  %213 = zext nneg i32 %.1 to i64
   %214 = getelementptr inbounds double, ptr %30, i64 %213
   store double %204, ptr %214, align 8
   store double %.1251, ptr %203, align 8

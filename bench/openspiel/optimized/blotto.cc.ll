@@ -1662,7 +1662,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt16allocato
   br i1 %136, label %137, label %._crit_edge.thread
 
 137:                                              ; preds = %._crit_edge
-  %138 = sext i32 %.136 to i64
+  %138 = zext nneg i32 %.136 to i64
   %139 = getelementptr inbounds i32, ptr %35, i64 %138
   %140 = load i32, ptr %139, align 4
   %141 = add nsw i32 %140, 1

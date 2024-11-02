@@ -2202,8 +2202,8 @@ define void @Cec_ManSimFindBestPattern(ptr nocapture noundef readonly %0) local_
 
 .lr.ph41:                                         ; preds = %.preheader
   %19 = getelementptr inbounds i8, ptr %0, i64 64
-  %20 = ashr i32 %.0.lcssa, 5
-  %21 = sext i32 %20 to i64
+  %20 = lshr i32 %.0.lcssa, 5
+  %21 = zext nneg i32 %20 to i64
   %22 = and i32 %.0.lcssa, 31
   br label %23
 
@@ -3947,8 +3947,8 @@ Cec_ManSimSimDeref.exit265:                       ; preds = %413, %433
 
 .lr.ph41.i:                                       ; preds = %.preheader.i267
   %482 = getelementptr inbounds i8, ptr %0, i64 64
-  %483 = ashr i32 %.0.lcssa.i, 5
-  %484 = sext i32 %483 to i64
+  %483 = lshr i32 %.0.lcssa.i, 5
+  %484 = zext nneg i32 %483 to i64
   %485 = and i32 %.0.lcssa.i, 31
   br label %486
 

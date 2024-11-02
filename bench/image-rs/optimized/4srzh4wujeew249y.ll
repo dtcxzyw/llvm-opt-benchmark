@@ -33377,7 +33377,7 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
   %187 = lshr i32 %186, 8
   %188 = and i32 %187, 65535
   store i32 %188, ptr %.sroa.0240.0368, align 4
-  %.not = icmp ult i32 %188, %.1121369
+  %.not = icmp samesign ult i32 %188, %.1121369
   %189 = add nuw nsw i32 %188, 1
   %spec.select = select i1 %.not, i32 %.1121369, i32 %189
   %190 = icmp eq ptr %185, %183
@@ -33434,7 +33434,7 @@ define internal fastcc void @"_ZN5image6codecs4webp8lossless24LosslessDecoder$LT
 203:                                              ; preds = %.loopexit307, %214
   %.sroa.030.0374 = phi i32 [ 0, %.loopexit307 ], [ %204, %214 ]
   %.sroa.7.0249373 = phi i16 [ undef, %.loopexit307 ], [ %.sroa.7.4.ph, %214 ]
-  %204 = add nuw i32 %.sroa.030.0374, 1
+  %204 = add nuw nsw i32 %.sroa.030.0374, 1
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %50)
   store i64 0, ptr %50, align 8, !alias.scope !3849
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx12.i, align 8, !alias.scope !3849

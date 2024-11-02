@@ -3154,7 +3154,7 @@ define range(i32 0, 100000001) i32 @If_CutGetCutMinLevel(ptr nocapture noundef r
 16:                                               ; preds = %10
   %17 = load i32, ptr %15, align 8
   %18 = lshr i32 %17, 13
-  %.0. = tail call i32 @llvm.smin.i32(i32 %.014, i32 %18)
+  %.0. = tail call i32 @llvm.umin.i32(i32 %.014, i32 %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !39
@@ -3954,9 +3954,6 @@ declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

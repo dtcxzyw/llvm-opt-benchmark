@@ -5380,7 +5380,7 @@ select.unfold..thread4_crit_edge:                 ; preds = %select.unfold
 242:                                              ; preds = %240, %235
   tail call void @_raw_spin_unlock(ptr noundef %14) #20
   %243 = shl nuw nsw i32 %217, 1
-  %244 = or i32 %243, %218
+  %244 = add nuw nsw i32 %243, %218
   br label %jbd2_free.exit.thread
 
 jbd2_free.exit.thread:                            ; preds = %112, %111, %242

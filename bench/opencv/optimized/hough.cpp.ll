@@ -2991,12 +2991,12 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EED2Ev.exit:    ; preds = %.loopexit.split-lp,
   br i1 %197, label %._crit_edge314.thread, label %198
 
 198:                                              ; preds = %._crit_edge314
-  %199 = shl nsw i32 %spec.select, 1
+  %199 = shl nuw nsw i32 %spec.select, 1
   %200 = or disjoint i32 %199, 1
-  %201 = sext i32 %200 to i64
+  %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds float, ptr %.sroa.0246.0416, i64 %201
   %203 = load float, ptr %202, align 4
-  %204 = sext i32 %199 to i64
+  %204 = zext nneg i32 %199 to i64
   %205 = getelementptr inbounds float, ptr %.sroa.0246.0416, i64 %204
   %206 = load float, ptr %205, align 4
   %207 = call float @llvm.fabs.f32(float %203)

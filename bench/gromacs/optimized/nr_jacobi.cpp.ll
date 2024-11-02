@@ -343,30 +343,29 @@ define noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr nocapture noundef %0, ptr n
   br i1 %.not, label %.loopexit, label %13
 
 13:                                               ; preds = %._crit_edge
-  %14 = sext i32 %.038.lcssa to i64
-  %15 = getelementptr inbounds double, ptr %0, i64 %14
-  store double %5, ptr %15, align 8
+  %14 = getelementptr inbounds double, ptr %0, i64 %12
+  store double %5, ptr %14, align 8
   store double %.0.lcssa, ptr %4, align 8
-  br label %16
+  br label %15
 
-16:                                               ; preds = %13, %16
-  %indvars.iv50 = phi i64 [ 0, %13 ], [ %indvars.iv.next51, %16 ]
-  %17 = getelementptr inbounds [4 x double], ptr %1, i64 %indvars.iv50, i64 %indvars.iv54
-  %18 = load double, ptr %17, align 8
-  %19 = getelementptr inbounds [4 x double], ptr %1, i64 %indvars.iv50, i64 %14
-  %20 = load double, ptr %19, align 8
-  store double %20, ptr %17, align 8
-  store double %18, ptr %19, align 8
+15:                                               ; preds = %13, %15
+  %indvars.iv50 = phi i64 [ 0, %13 ], [ %indvars.iv.next51, %15 ]
+  %16 = getelementptr inbounds [4 x double], ptr %1, i64 %indvars.iv50, i64 %indvars.iv54
+  %17 = load double, ptr %16, align 8
+  %18 = getelementptr inbounds [4 x double], ptr %1, i64 %indvars.iv50, i64 %12
+  %19 = load double, ptr %18, align 8
+  store double %19, ptr %16, align 8
+  store double %17, ptr %18, align 8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
-  br i1 %exitcond53.not, label %.loopexit, label %16, !llvm.loop !19
+  br i1 %exitcond53.not, label %.loopexit, label %15, !llvm.loop !19
 
-.loopexit:                                        ; preds = %16, %._crit_edge
+.loopexit:                                        ; preds = %15, %._crit_edge
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 4
-  br i1 %exitcond57.not, label %21, label %3, !llvm.loop !20
+  br i1 %exitcond57.not, label %20, label %3, !llvm.loop !20
 
-21:                                               ; preds = %.loopexit
+20:                                               ; preds = %.loopexit
   ret i32 0
 }
 

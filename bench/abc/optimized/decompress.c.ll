@@ -4054,8 +4054,8 @@ makeMaps_d.exit:                                  ; preds = %2167
   %2876 = getelementptr inbounds [6 x [258 x i8]], ptr %2516, i64 0, i64 %indvars.iv2493, i64 %indvars.iv2487
   %2877 = load i8, ptr %2876, align 1
   %2878 = zext i8 %2877 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.013852211, i32 %2878)
-  %.1 = tail call i32 @llvm.smin.i32(i32 %.013842212, i32 %2878)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.013852211, i32 %2878)
+  %.1 = tail call i32 @llvm.umin.i32(i32 %.013842212, i32 %2878)
   %indvars.iv.next2488 = add nuw nsw i64 %indvars.iv2487, 1
   %exitcond2492.not = icmp eq i64 %indvars.iv.next2488, %wide.trip.count2491
   br i1 %exitcond2492.not, label %._crit_edge2214, label %.lr.ph2213, !llvm.loop !15
@@ -7200,13 +7200,16 @@ declare void @BZ2_bz__AssertH__fail(i32 noundef) local_unnamed_addr #2
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #4
+declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #4
+declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

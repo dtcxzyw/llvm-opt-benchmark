@@ -6529,7 +6529,7 @@ Vec_IntFillExtra.exit:                            ; preds = %.lr.ph, %._crit_edg
   %49 = sext i32 %10 to i64
   %50 = getelementptr inbounds i32, ptr %.val.i.i, i64 %49
   %51 = load i32, ptr %50, align 4
-  %52 = sext i32 %.02345 to i64
+  %52 = zext nneg i32 %.02345 to i64
   %53 = getelementptr inbounds i32, ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = ashr i32 %54, 1
@@ -6639,7 +6639,7 @@ Vec_IntFillExtra.exit40:                          ; preds = %Vec_IntFillExtra.ex
 ._crit_edge:                                      ; preds = %Vec_IntFillExtra.exit40
   %97 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv53
   %98 = load i32, ptr %97, align 4
-  %99 = sext i32 %spec.select to i64
+  %99 = zext nneg i32 %spec.select to i64
   %100 = getelementptr inbounds i32, ptr %1, i64 %99
   %101 = load i32, ptr %100, align 4
   store i32 %101, ptr %97, align 4

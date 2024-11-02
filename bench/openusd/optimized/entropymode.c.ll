@@ -198,16 +198,16 @@ define hidden i32 @av1_get_palette_color_index_context(ptr nocapture noundef rea
   br i1 %.not90, label %87, label %67
 
 67:                                               ; preds = %._crit_edge
-  %68 = sext i32 %.082.lcssa to i64
-  %69 = getelementptr inbounds [18 x i32], ptr %9, i64 0, i64 %68
-  %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %5, i64 %68
-  %72 = load i8, ptr %71, align 1
-  %73 = icmp slt i64 %indvars.iv122, %68
+  %68 = getelementptr inbounds [18 x i32], ptr %9, i64 0, i64 %66
+  %69 = load i32, ptr %68, align 4
+  %70 = getelementptr inbounds i8, ptr %5, i64 %66
+  %71 = load i8, ptr %70, align 1
+  %72 = sext i32 %.082.lcssa to i64
+  %73 = icmp slt i64 %indvars.iv122, %72
   br i1 %73, label %.lr.ph101, label %._crit_edge102
 
 .lr.ph101:                                        ; preds = %67, %.lr.ph101
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph101 ], [ %68, %67 ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %.lr.ph101 ], [ %72, %67 ]
   %indvars.iv.next120 = add nsw i64 %indvars.iv119, -1
   %74 = getelementptr inbounds [18 x i32], ptr %9, i64 0, i64 %indvars.iv.next120
   %75 = load i32, ptr %74, align 4
@@ -225,10 +225,10 @@ define hidden i32 @av1_get_palette_color_index_context(ptr nocapture noundef rea
   br i1 %83, label %.lr.ph101, label %._crit_edge102, !llvm.loop !8
 
 ._crit_edge102:                                   ; preds = %.lr.ph101, %67
-  store i32 %70, ptr %58, align 4
+  store i32 %69, ptr %58, align 4
   %84 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv122
-  store i8 %72, ptr %84, align 1
-  %85 = zext i8 %72 to i64
+  store i8 %71, ptr %84, align 1
+  %85 = zext i8 %71 to i64
   %86 = getelementptr inbounds [8 x i32], ptr %10, i64 0, i64 %85
   store i32 %60, ptr %86, align 4
   br label %87

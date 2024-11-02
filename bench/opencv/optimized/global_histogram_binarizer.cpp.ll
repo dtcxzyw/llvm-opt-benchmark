@@ -1292,11 +1292,11 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   br i1 %exitcond107.not, label %._crit_edge, label %.lr.ph93, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph93, %3
-  %.058.lcssa114 = phi i32 [ 0, %3 ], [ %.1, %.lr.ph93 ]
-  %.064.lcssa113 = phi i32 [ 0, %3 ], [ %spec.select84, %.lr.ph93 ]
+  %.058.lcssa113 = phi i32 [ 0, %3 ], [ %.1, %.lr.ph93 ]
+  %.064.lcssa112 = phi i32 [ 0, %3 ], [ %spec.select84, %.lr.ph93 ]
   %.069.lcssa = phi i32 [ 0, %3 ], [ %spec.select78, %.lr.ph93 ]
-  %spec.select79 = tail call i32 @llvm.smax.i32(i32 %.064.lcssa113, i32 %.069.lcssa)
-  %spec.select80 = tail call i32 @llvm.smin.i32(i32 %.064.lcssa113, i32 %.069.lcssa)
+  %spec.select79 = tail call i32 @llvm.umax.i32(i32 %.064.lcssa112, i32 %.069.lcssa)
+  %spec.select80 = tail call i32 @llvm.umin.i32(i32 %.064.lcssa112, i32 %.069.lcssa)
   %29 = sub nsw i32 %spec.select79, %spec.select80
   %30 = ashr i32 %15, 4
   %.not = icmp sgt i32 %29, %30
@@ -1314,7 +1314,7 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5zxing12ErrorHandlerE, i64 16), ptr %4, align 8
   %35 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %35) #13
-  br label %63
+  br label %64
 
 36:                                               ; preds = %31
   %37 = landingpad { ptr, i32 }
@@ -1334,39 +1334,41 @@ define hidden noundef range(i32 -1, -7) i32 @_ZN5zxing24GlobalHistogramBinarizer
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
-  %46 = sext i32 %40 to i64
-  %47 = sext i32 %spec.select80 to i64
-  br label %48
+  %46 = tail call i32 @llvm.umax.i32(i32 %.069.lcssa, i32 %.064.lcssa112)
+  %umax = zext i32 %46 to i64
+  %47 = add nsw i64 %umax, -1
+  %48 = sext i32 %spec.select80 to i64
+  br label %49
 
-48:                                               ; preds = %.lr.ph99, %48
-  %indvars.iv108 = phi i64 [ %46, %.lr.ph99 ], [ %indvars.iv.next109, %48 ]
-  %.06096 = phi i32 [ -1, %.lr.ph99 ], [ %spec.select82, %48 ]
-  %.06295 = phi i32 [ %40, %.lr.ph99 ], [ %spec.select81, %48 ]
-  %49 = trunc i64 %indvars.iv108 to i32
-  %50 = sub i32 %49, %spec.select80
-  %51 = mul nsw i32 %50, %50
-  %52 = trunc i64 %indvars.iv108 to i32
-  %53 = sub i32 %spec.select79, %52
-  %54 = mul nsw i32 %51, %53
-  %55 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv108
-  %56 = load i32, ptr %55, align 4
-  %57 = sub nsw i32 %.058.lcssa114, %56
-  %58 = mul nsw i32 %54, %57
-  %59 = icmp sgt i32 %58, %.06096
-  %60 = trunc nsw i64 %indvars.iv108 to i32
-  %spec.select81 = select i1 %59, i32 %60, i32 %.06295
-  %spec.select82 = tail call i32 @llvm.smax.i32(i32 %58, i32 %.06096)
+49:                                               ; preds = %.lr.ph99, %49
+  %indvars.iv108 = phi i64 [ %47, %.lr.ph99 ], [ %indvars.iv.next109, %49 ]
+  %.06096 = phi i32 [ -1, %.lr.ph99 ], [ %spec.select82, %49 ]
+  %.06295 = phi i32 [ %40, %.lr.ph99 ], [ %spec.select81, %49 ]
+  %50 = trunc i64 %indvars.iv108 to i32
+  %51 = sub i32 %50, %spec.select80
+  %52 = mul nsw i32 %51, %51
+  %53 = trunc i64 %indvars.iv108 to i32
+  %54 = sub i32 %spec.select79, %53
+  %55 = mul nsw i32 %52, %54
+  %56 = getelementptr inbounds i32, ptr %45, i64 %indvars.iv108
+  %57 = load i32, ptr %56, align 4
+  %58 = sub nsw i32 %.058.lcssa113, %57
+  %59 = mul nsw i32 %55, %58
+  %60 = icmp sgt i32 %59, %.06096
+  %61 = trunc nuw nsw i64 %indvars.iv108 to i32
+  %spec.select81 = select i1 %60, i32 %61, i32 %.06295
+  %spec.select82 = tail call i32 @llvm.smax.i32(i32 %59, i32 %.06096)
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
-  %61 = icmp sgt i64 %indvars.iv.next109, %47
-  br i1 %61, label %48, label %._crit_edge100, !llvm.loop !13
+  %62 = icmp sgt i64 %indvars.iv.next109, %48
+  br i1 %62, label %49, label %._crit_edge100, !llvm.loop !13
 
-._crit_edge100:                                   ; preds = %48, %39
-  %.062.lcssa = phi i32 [ %40, %39 ], [ %spec.select81, %48 ]
-  %62 = shl i32 %.062.lcssa, 3
-  br label %63
+._crit_edge100:                                   ; preds = %49, %39
+  %.062.lcssa = phi i32 [ %40, %39 ], [ %spec.select81, %49 ]
+  %63 = shl i32 %.062.lcssa, 3
+  br label %64
 
-63:                                               ; preds = %._crit_edge100, %34
-  %.0 = phi i32 [ -1, %34 ], [ %62, %._crit_edge100 ]
+64:                                               ; preds = %._crit_edge100, %34
+  %.0 = phi i32 [ -1, %34 ], [ %63, %._crit_edge100 ]
   ret i32 %.0
 }
 
@@ -2033,10 +2035,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
+declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #12
+declare i32 @llvm.umin.i32(i32, i32) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #12
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

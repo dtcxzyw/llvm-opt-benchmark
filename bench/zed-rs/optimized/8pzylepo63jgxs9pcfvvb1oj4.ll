@@ -3742,7 +3742,7 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   %.sroa.09.02.i.i = phi i64 [ 16, %"_ZN5alloc3str21_$LT$impl$u20$str$GT$7replace17h244f457f2916fdd2E.exit" ], [ %.sroa.014.0.i.i, %233 ]
   %223 = lshr i64 %.sroa.01.04.i.i, 1
   %224 = add nuw nsw i64 %223, %.sroa.03.03.i.i
-  %225 = icmp ult i64 %224, 16
+  %225 = icmp samesign ult i64 %224, 16
   call void @llvm.assume(i1 %225)
   %226 = getelementptr inbounds { { ptr, i64 }, { { { i64, [1 x i64] }, { i64, [1 x i64] }, [32 x i8] }, { i64, [2 x i64] } } }, ptr @anon.99ceb4ae43bdafd3ed780b1d4854c60a.82, i64 %224
   %.val16.i.i = load ptr, ptr %226, align 8, !noalias !763, !nonnull !57, !align !483, !noundef !57
@@ -3764,7 +3764,7 @@ define void @_ZN8settings14SettingsAssets3get17h5500bda9755c0f1bE(ptr dead_on_un
   %236 = add nuw nsw i64 %224, 1
   %.sroa.013.0.i.i = select i1 %235, i64 %236, i64 %.sroa.03.03.i.i
   %237 = sub nsw i64 %.sroa.014.0.i.i, %.sroa.013.0.i.i
-  %238 = icmp ult i64 %.sroa.013.0.i.i, %.sroa.014.0.i.i
+  %238 = icmp samesign ult i64 %.sroa.013.0.i.i, %.sroa.014.0.i.i
   br i1 %238, label %222, label %239
 
 239:                                              ; preds = %233

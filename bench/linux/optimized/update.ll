@@ -4589,7 +4589,7 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %6 = phi i8 [ 0, %0 ], [ %36, %20 ]
   %7 = phi i8 [ 0, %0 ], [ %32, %20 ]
   %8 = phi i8 [ 0, %0 ], [ %28, %20 ]
-  %9 = phi i64 [ 0, %0 ], [ %45, %20 ]
+  %9 = phi i64 [ 0, %0 ], [ %42, %20 ]
   %10 = and i64 %9, 4294967295
   %11 = icmp samesign ugt i64 %10, 63
   br i1 %11, label %.thread, label %12, !prof !31
@@ -4623,67 +4623,64 @@ define dso_local void @show_rcu_tasks_classic_gp_kthread() #1 align 16 {
   %34 = icmp eq ptr %33, null
   %35 = select i1 %34, i1 true, i1 %31
   %36 = select i1 %35, i8 %6, i8 1
-  %37 = and i8 %28, 1
-  %38 = icmp eq i8 %37, 0
-  %39 = and i8 %32, 1
-  %40 = icmp eq i8 %39, 0
-  %41 = select i1 %38, i1 true, i1 %40
-  %42 = and i8 %36, 1
-  %43 = icmp eq i8 %42, 0
-  %44 = select i1 %41, i1 true, i1 %43
-  %45 = add nuw nsw i64 %17, 1
-  br i1 %44, label %5, label %.thread, !llvm.loop !98
+  %37 = icmp eq i8 %28, 0
+  %38 = icmp eq i8 %32, 0
+  %39 = select i1 %37, i1 true, i1 %38
+  %40 = icmp eq i8 %36, 0
+  %41 = select i1 %39, i1 true, i1 %40
+  %42 = add nuw nsw i64 %17, 1
+  br i1 %41, label %5, label %.thread, !llvm.loop !98
 
 .thread:                                          ; preds = %12, %5, %20, %16
-  %46 = phi i8 [ %36, %20 ], [ %6, %16 ], [ %6, %5 ], [ %6, %12 ]
-  %47 = phi i8 [ %32, %20 ], [ %7, %16 ], [ %7, %5 ], [ %7, %12 ]
-  %48 = phi i8 [ %28, %20 ], [ %8, %16 ], [ %8, %5 ], [ %8, %12 ]
-  %49 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 296), align 8
+  %43 = phi i8 [ %36, %20 ], [ %6, %16 ], [ %6, %5 ], [ %6, %12 ]
+  %44 = phi i8 [ %32, %20 ], [ %7, %16 ], [ %7, %5 ], [ %7, %12 ]
+  %45 = phi i8 [ %28, %20 ], [ %8, %16 ], [ %8, %5 ], [ %8, %12 ]
+  %46 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 296), align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
-  %50 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 48), align 8
-  store i32 %50, ptr %1, align 4
+  %47 = load i32, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 48), align 8
+  store i32 %47, ptr %1, align 4
   %.0..0..0..0. = load volatile i32, ptr %1, align 4
-  %51 = icmp ugt i32 %.0..0..0..0., 11
-  br i1 %51, label %56, label %52
+  %48 = icmp ugt i32 %.0..0..0..0., 11
+  br i1 %48, label %53, label %49
 
-52:                                               ; preds = %.thread
-  %53 = zext nneg i32 %.0..0..0..0. to i64
-  %54 = getelementptr [12 x ptr], ptr @rcu_tasks_gp_state_names, i64 0, i64 %53
-  %55 = load ptr, ptr %54, align 8
-  br label %56
+49:                                               ; preds = %.thread
+  %50 = zext nneg i32 %.0..0..0..0. to i64
+  %51 = getelementptr [12 x ptr], ptr @rcu_tasks_gp_state_names, i64 0, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  br label %53
 
-56:                                               ; preds = %52, %.thread
-  %57 = phi ptr [ %55, %52 ], [ @.str.95, %.thread ]
+53:                                               ; preds = %49, %.thread
+  %54 = phi ptr [ %52, %49 ], [ @.str.95, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %1)
-  %58 = load volatile i64, ptr @jiffies, align 64
-  %59 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 64), align 8
-  %60 = sub i64 %58, %59
-  %61 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 80), align 8
-  %62 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 96), align 8
-  %63 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 88), align 8
-  %64 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
-  %65 = icmp ne ptr %64, null
-  %66 = zext i1 %65 to i64
-  %67 = getelementptr [3 x i8], ptr @.str.91, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = zext i8 %68 to i32
-  %70 = and i8 %48, 1
-  %71 = zext nneg i8 %70 to i64
-  %72 = getelementptr [3 x i8], ptr @.str.92, i64 0, i64 %71
-  %73 = load i8, ptr %72, align 1
-  %74 = zext i8 %73 to i32
-  %75 = and i8 %47, 1
-  %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr [3 x i8], ptr @.str.93, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i32
-  %80 = and i8 %46, 1
-  %81 = zext nneg i8 %80 to i64
-  %82 = getelementptr [3 x i8], ptr @.str.94, i64 0, i64 %81
-  %83 = load i8, ptr %82, align 1
-  %84 = zext i8 %83 to i32
-  %85 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 112), align 8
-  %86 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %49, ptr noundef %57, i32 noundef %50, i64 noundef %60, i64 noundef %61, i64 noundef %62, i64 noundef %63, i32 noundef %69, i32 noundef %74, i32 noundef %79, i32 noundef %84, i64 noundef %85, ptr noundef nonnull @.str) #19
+  %55 = load volatile i64, ptr @jiffies, align 64
+  %56 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 64), align 8
+  %57 = sub i64 %55, %56
+  %58 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 80), align 8
+  %59 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 96), align 8
+  %60 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 88), align 8
+  %61 = load ptr, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 104), align 8
+  %62 = icmp ne ptr %61, null
+  %63 = zext i1 %62 to i64
+  %64 = getelementptr [3 x i8], ptr @.str.91, i64 0, i64 %63
+  %65 = load i8, ptr %64, align 1
+  %66 = zext i8 %65 to i32
+  %67 = and i8 %45, 1
+  %68 = zext nneg i8 %67 to i64
+  %69 = getelementptr [3 x i8], ptr @.str.92, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1
+  %71 = zext i8 %70 to i32
+  %72 = and i8 %44, 1
+  %73 = zext nneg i8 %72 to i64
+  %74 = getelementptr [3 x i8], ptr @.str.93, i64 0, i64 %73
+  %75 = load i8, ptr %74, align 1
+  %76 = zext i8 %75 to i32
+  %77 = and i8 %43, 1
+  %78 = zext nneg i8 %77 to i64
+  %79 = getelementptr [3 x i8], ptr @.str.94, i64 0, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = zext i8 %80 to i32
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @rcu_tasks, i64 112), align 8
+  %83 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.90, ptr noundef %46, ptr noundef %54, i32 noundef %47, i64 noundef %57, i64 noundef %58, i64 noundef %59, i64 noundef %60, i32 noundef %66, i32 noundef %71, i32 noundef %76, i32 noundef %81, i64 noundef %82, ptr noundef nonnull @.str) #19
   ret void
 }
 

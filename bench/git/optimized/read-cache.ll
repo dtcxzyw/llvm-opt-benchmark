@@ -7145,6 +7145,7 @@ if.then:                                          ; preds = %entry
 
 land.lhs.true:                                    ; preds = %if.then, %for.body
   %indvars.iv = phi i64 [ %1, %if.then ], [ %indvars.iv.next, %for.body ]
+  %pos.121 = phi i32 [ %call.i, %if.then ], [ %spec.select, %for.body ]
   %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
   br i1 %exitcond.not, label %return, label %land.rhs
 
@@ -7161,17 +7162,16 @@ for.body:                                         ; preds = %land.rhs
   %ce_flags = getelementptr inbounds i8, ptr %3, i64 56
   %4 = load i32, ptr %ce_flags, align 8
   %5 = and i32 %4, 12288
-  %cmp12.not = icmp eq i32 %5, 8192
+  %cmp12 = icmp eq i32 %5, 8192
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %cmp12.not, label %if.end19.loopexit, label %land.lhs.true
-
-if.end19.loopexit:                                ; preds = %for.body
   %6 = trunc nuw i64 %indvars.iv to i32
-  br label %if.end19
+  %spec.select = select i1 %cmp12, i32 %6, i32 %pos.121
+  %cmp4 = icmp slt i32 %spec.select, 0
+  br i1 %cmp4, label %land.lhs.true, label %if.end19
 
-if.end19:                                         ; preds = %if.end19.loopexit, %entry.if.end19_crit_edge
-  %7 = phi ptr [ %.pre, %entry.if.end19_crit_edge ], [ %2, %if.end19.loopexit ]
-  %pos.0 = phi i32 [ %call.i, %entry.if.end19_crit_edge ], [ %6, %if.end19.loopexit ]
+if.end19:                                         ; preds = %for.body, %entry.if.end19_crit_edge
+  %7 = phi ptr [ %.pre, %entry.if.end19_crit_edge ], [ %2, %for.body ]
+  %pos.0 = phi i32 [ %call.i, %entry.if.end19_crit_edge ], [ %spec.select, %for.body ]
   %8 = load ptr, ptr @the_repository, align 8
   %idxprom21 = zext nneg i32 %pos.0 to i64
   %arrayidx22 = getelementptr inbounds ptr, ptr %7, i64 %idxprom21

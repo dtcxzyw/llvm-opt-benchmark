@@ -1086,7 +1086,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %104, %94, %._crit_e
   %.024.i = phi i32 [ %161, %.lr.ph.preheader.i103 ], [ %spec.select.i, %.lr.ph.i105 ]
   %162 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv29.i
   %163 = load i32, ptr %162, align 4
-  %164 = sext i32 %.024.i to i64
+  %164 = zext nneg i32 %.024.i to i64
   %165 = getelementptr inbounds i32, ptr %12, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = icmp slt i32 %163, %166
@@ -1100,7 +1100,7 @@ Mpm_CutFindLeaf.exit101:                          ; preds = %104, %94, %._crit_e
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %169 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv32.i
   %170 = load i32, ptr %169, align 4
-  %171 = sext i32 %spec.select.i to i64
+  %171 = zext nneg i32 %spec.select.i to i64
   %172 = getelementptr inbounds i32, ptr %12, i64 %171
   %173 = load i32, ptr %172, align 4
   store i32 %173, ptr %169, align 4

@@ -399,7 +399,7 @@ for.body162:                                      ; preds = %for.cond160.prehead
   %23 = load i32, ptr %arrayidx164, align 4
   %and165 = and i32 %23, 2147483647
   %cmp166.not.not = icmp sgt i32 %n.2219, %and165
-  %24 = tail call i32 @llvm.smin.i32(i32 %and165, i32 %m.0194)
+  %24 = tail call i32 @llvm.umin.i32(i32 %and165, i32 %m.0194)
   %m.1 = select i1 %cmp166.not.not, i32 %m.0194, i32 %24
   %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next235, %wide.trip.count
@@ -432,7 +432,7 @@ for.body186:                                      ; preds = %if.end180, %for.inc
   %arrayidx188 = getelementptr inbounds [1000 x i32], ptr %cpBuffer, i64 0, i64 %indvars.iv240
   %26 = load i32, ptr %arrayidx188, align 4
   %and189 = and i32 %26, 2147483647
-  %cmp190 = icmp slt i32 %and189, %m.1
+  %cmp190 = icmp samesign ult i32 %and189, %m.1
   br i1 %cmp190, label %if.then191, label %if.else193
 
 if.then191:                                       ; preds = %for.body186
@@ -1074,7 +1074,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #3
+declare i32 @llvm.umin.i32(i32, i32) #3
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

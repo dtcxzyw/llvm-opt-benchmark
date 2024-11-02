@@ -118,7 +118,7 @@ define void @_ZNK5faiss13ZnSphereCodec6decodeEmPf(ptr nocapture noundef nonnull 
   %..031 = select i1 %.not34, i32 %10, i32 %.03135
   %.029. = select i1 %.not34, i32 %.02936, i32 %10
   %14 = add nuw nsw i32 %.029., 1
-  %15 = icmp slt i32 %14, %..031
+  %15 = icmp samesign ult i32 %14, %..031
   br i1 %15, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !5
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
@@ -750,7 +750,7 @@ define void @_ZNK5faiss16ZnSphereCodecAlt6decodeEmPf(ptr nocapture noundef nonnu
   %..031.i = select i1 %.not34.i, i32 %14, i32 %.03135.i
   %.029..i = select i1 %.not34.i, i32 %.02936.i, i32 %14
   %18 = add nuw nsw i32 %.029..i, 1
-  %19 = icmp slt i32 %18, %..031.i
+  %19 = icmp samesign ult i32 %18, %..031.i
   br i1 %19, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !5
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

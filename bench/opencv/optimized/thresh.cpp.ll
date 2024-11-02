@@ -665,7 +665,7 @@ _ZN2cvL21getThreshVal_Otsu_16uERKNS_3MatE.exit:   ; preds = %200
 
 269:                                              ; preds = %.preheader.i
   %270 = sub nsw i32 255, %255
-  %271 = sub nsw i32 255, %spec.select90.i
+  %271 = sub nuw nsw i32 255, %spec.select90.i
   br label %272
 
 272:                                              ; preds = %269, %261

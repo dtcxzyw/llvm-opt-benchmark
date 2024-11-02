@@ -251,7 +251,7 @@ define i32 @Mvc_CoverWorstLiteral(ptr nocapture noundef readonly %0, ptr noundef
 
 ._crit_edge.us:                                   ; preds = %11
   %17 = icmp samesign ugt i32 %spec.select.us, 1
-  %18 = icmp sgt i32 %.02947.us, %spec.select.us
+  %18 = icmp samesign ugt i32 %.02947.us, %spec.select.us
   %or.cond.us = select i1 %17, i1 %18, i1 false
   %spec.select39.us = select i1 %or.cond.us, i32 %.03345.us, i32 %.03146.us
   %spec.select40.us = select i1 %or.cond.us, i32 %spec.select.us, i32 %.02947.us

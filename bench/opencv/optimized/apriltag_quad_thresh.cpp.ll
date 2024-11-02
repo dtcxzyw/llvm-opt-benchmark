@@ -1457,13 +1457,13 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco8fit_quadERKNS0_18Detecto
   %26 = getelementptr inbounds i8, ptr %.val298, i64 %25
   %27 = load i16, ptr %26, align 4
   %28 = zext i16 %27 to i32
-  %.0255. = tail call i32 @llvm.smax.i32(i32 %.0255336, i32 %28)
-  %29 = tail call i32 @llvm.smin.i32(i32 %.0256335, i32 %28)
+  %.0255. = tail call i32 @llvm.umax.i32(i32 %.0255336, i32 %28)
+  %29 = tail call i32 @llvm.umin.i32(i32 %.0256335, i32 %28)
   %30 = getelementptr inbounds i8, ptr %26, i64 2
   %31 = load i16, ptr %30, align 2
   %32 = zext i16 %31 to i32
-  %33 = tail call i32 @llvm.smax.i32(i32 %.0257334, i32 %32)
-  %34 = tail call i32 @llvm.smin.i32(i32 %.0258333, i32 %32)
+  %33 = tail call i32 @llvm.umax.i32(i32 %.0257334, i32 %32)
+  %34 = tail call i32 @llvm.umin.i32(i32 %.0258333, i32 %32)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph, label %24, !llvm.loop !18
@@ -6256,6 +6256,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #18
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -6263,9 +6266,6 @@ declare i8 @llvm.umin.i8(i8, i8) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

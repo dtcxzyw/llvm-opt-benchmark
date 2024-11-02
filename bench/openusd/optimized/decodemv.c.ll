@@ -281,20 +281,20 @@ get_ext_tx_set.exit:                              ; preds = %.thread89, %.thread
   %104 = getelementptr inbounds i16, ptr %78, i64 %indvars.iv.i.i
   %105 = load i16, ptr %104, align 2
   %106 = zext i16 %105 to i32
-  %107 = icmp slt i32 %103, %106
+  %107 = icmp samesign ult i32 %103, %106
   br i1 %107, label %108, label %113
 
 108:                                              ; preds = %101
-  %109 = sub nsw i32 %106, %103
-  %110 = ashr i32 %109, %96
-  %111 = trunc i32 %110 to i16
+  %109 = sub nuw nsw i32 %106, %103
+  %110 = lshr i32 %109, %96
+  %111 = trunc nuw i32 %110 to i16
   %112 = sub i16 %105, %111
   br label %118
 
 113:                                              ; preds = %101
-  %114 = sub nsw i32 %103, %106
-  %115 = ashr i32 %114, %96
-  %116 = trunc i32 %115 to i16
+  %114 = sub nuw nsw i32 %103, %106
+  %115 = lshr i32 %114, %96
+  %116 = trunc nuw i32 %115 to i16
   %117 = add i16 %105, %116
   br label %118
 
@@ -403,20 +403,20 @@ define internal fastcc i32 @aom_read_symbol_(ptr noundef %0, ptr noundef %1, i32
   %28 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i
   %29 = load i16, ptr %28, align 2
   %30 = zext i16 %29 to i32
-  %31 = icmp slt i32 %27, %30
+  %31 = icmp samesign ult i32 %27, %30
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %25
-  %33 = sub nsw i32 %30, %27
-  %34 = ashr i32 %33, %19
-  %35 = trunc i32 %34 to i16
+  %33 = sub nuw nsw i32 %30, %27
+  %34 = lshr i32 %33, %19
+  %35 = trunc nuw i32 %34 to i16
   %36 = sub i16 %29, %35
   br label %42
 
 37:                                               ; preds = %25
-  %38 = sub nsw i32 %27, %30
-  %39 = ashr i32 %38, %19
-  %40 = trunc i32 %39 to i16
+  %38 = sub nuw nsw i32 %27, %30
+  %39 = lshr i32 %38, %19
+  %40 = trunc nuw i32 %39 to i16
   %41 = add i16 %29, %40
   br label %42
 
@@ -1121,20 +1121,20 @@ av1_allow_intrabc.exit.thread.i:                  ; preds = %read_intrabc_info.e
   %434 = getelementptr inbounds i16, ptr %415, i64 %indvars.iv.i.i.i.i
   %435 = load i16, ptr %434, align 2
   %436 = zext i16 %435 to i32
-  %437 = icmp slt i32 %433, %436
+  %437 = icmp samesign ult i32 %433, %436
   br i1 %437, label %438, label %443
 
 438:                                              ; preds = %431
-  %439 = sub nsw i32 %436, %433
-  %440 = ashr i32 %439, %427
-  %441 = trunc nsw i32 %440 to i16
+  %439 = sub nuw nsw i32 %436, %433
+  %440 = lshr i32 %439, %427
+  %441 = trunc nuw nsw i32 %440 to i16
   %442 = sub i16 %435, %441
   br label %448
 
 443:                                              ; preds = %431
-  %444 = sub nsw i32 %433, %436
-  %445 = ashr i32 %444, %427
-  %446 = trunc nsw i32 %445 to i16
+  %444 = sub nuw nsw i32 %433, %436
+  %445 = lshr i32 %444, %427
+  %446 = trunc nuw nsw i32 %445 to i16
   %447 = add i16 %435, %446
   br label %448
 
@@ -1196,20 +1196,20 @@ read_intra_mode.exit.i:                           ; preds = %._crit_edge.loopexi
   %478 = getelementptr inbounds i16, ptr %461, i64 %indvars.iv.i.i.i129.i
   %479 = load i16, ptr %478, align 2
   %480 = zext i16 %479 to i32
-  %481 = icmp slt i32 %477, %480
+  %481 = icmp samesign ult i32 %477, %480
   br i1 %481, label %482, label %487
 
 482:                                              ; preds = %475
-  %483 = sub nsw i32 %480, %477
-  %484 = ashr i32 %483, %471
-  %485 = trunc nsw i32 %484 to i16
+  %483 = sub nuw nsw i32 %480, %477
+  %484 = lshr i32 %483, %471
+  %485 = trunc nuw nsw i32 %484 to i16
   %486 = sub i16 %479, %485
   br label %492
 
 487:                                              ; preds = %475
-  %488 = sub nsw i32 %477, %480
-  %489 = ashr i32 %488, %471
-  %490 = trunc nsw i32 %489 to i16
+  %488 = sub nuw nsw i32 %477, %480
+  %489 = lshr i32 %488, %471
+  %490 = trunc nuw nsw i32 %489 to i16
   %491 = add i16 %479, %490
   br label %492
 
@@ -1330,20 +1330,20 @@ is_cfl_allowed.exit.i:                            ; preds = %530, %518
   %565 = getelementptr inbounds i16, ptr %542, i64 %indvars.iv.i.i.i141.i
   %566 = load i16, ptr %565, align 2
   %567 = zext i16 %566 to i32
-  %568 = icmp slt i32 %564, %567
+  %568 = icmp samesign ult i32 %564, %567
   br i1 %568, label %569, label %574
 
 569:                                              ; preds = %562
-  %570 = sub nsw i32 %567, %564
-  %571 = ashr i32 %570, %557
-  %572 = trunc i32 %571 to i16
+  %570 = sub nuw nsw i32 %567, %564
+  %571 = lshr i32 %570, %557
+  %572 = trunc nuw i32 %571 to i16
   %573 = sub i16 %566, %572
   br label %579
 
 574:                                              ; preds = %562
-  %575 = sub nsw i32 %564, %567
-  %576 = ashr i32 %575, %557
-  %577 = trunc i32 %576 to i16
+  %575 = sub nuw nsw i32 %564, %567
+  %576 = lshr i32 %575, %557
+  %577 = trunc nuw i32 %576 to i16
   %578 = add i16 %566, %577
   br label %579
 
@@ -1419,20 +1419,20 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
   %618 = getelementptr inbounds i16, ptr %601, i64 %indvars.iv.i.i.i150.i
   %619 = load i16, ptr %618, align 2
   %620 = zext i16 %619 to i32
-  %621 = icmp slt i32 %617, %620
+  %621 = icmp samesign ult i32 %617, %620
   br i1 %621, label %622, label %627
 
 622:                                              ; preds = %615
-  %623 = sub nsw i32 %620, %617
-  %624 = ashr i32 %623, %611
-  %625 = trunc nsw i32 %624 to i16
+  %623 = sub nuw nsw i32 %620, %617
+  %624 = lshr i32 %623, %611
+  %625 = trunc nuw nsw i32 %624 to i16
   %626 = sub i16 %619, %625
   br label %632
 
 627:                                              ; preds = %615
-  %628 = sub nsw i32 %617, %620
-  %629 = ashr i32 %628, %611
-  %630 = trunc nsw i32 %629 to i16
+  %628 = sub nuw nsw i32 %617, %620
+  %629 = lshr i32 %628, %611
+  %630 = trunc nuw nsw i32 %629 to i16
   %631 = add i16 %619, %630
   br label %632
 
@@ -3077,20 +3077,20 @@ av1_mode_context_analyzer.exit.i:                 ; preds = %av1_ref_frame_type.
   %894 = getelementptr inbounds i16, ptr %877, i64 %indvars.iv.i.i.i290.i
   %895 = load i16, ptr %894, align 2
   %896 = zext i16 %895 to i32
-  %897 = icmp slt i32 %893, %896
+  %897 = icmp samesign ult i32 %893, %896
   br i1 %897, label %898, label %903
 
 898:                                              ; preds = %891
-  %899 = sub nsw i32 %896, %893
-  %900 = ashr i32 %899, %887
-  %901 = trunc nsw i32 %900 to i16
+  %899 = sub nuw nsw i32 %896, %893
+  %900 = lshr i32 %899, %887
+  %901 = trunc nuw nsw i32 %900 to i16
   %902 = sub i16 %895, %901
   br label %908
 
 903:                                              ; preds = %891
-  %904 = sub nsw i32 %893, %896
-  %905 = ashr i32 %904, %887
-  %906 = trunc nsw i32 %905 to i16
+  %904 = sub nuw nsw i32 %893, %896
+  %905 = lshr i32 %904, %887
+  %906 = trunc nuw nsw i32 %905 to i16
   %907 = add i16 %895, %906
   br label %908
 
@@ -4340,20 +4340,20 @@ aom_read_symbol_.exit.i:                          ; preds = %._crit_edge.loopexi
   %1575 = getelementptr inbounds i16, ptr %1558, i64 %indvars.iv.i.i.i363.i
   %1576 = load i16, ptr %1575, align 2
   %1577 = zext i16 %1576 to i32
-  %1578 = icmp slt i32 %1574, %1577
+  %1578 = icmp samesign ult i32 %1574, %1577
   br i1 %1578, label %1579, label %1584
 
 1579:                                             ; preds = %1572
-  %1580 = sub nsw i32 %1577, %1574
-  %1581 = ashr i32 %1580, %1568
-  %1582 = trunc nsw i32 %1581 to i16
+  %1580 = sub nuw nsw i32 %1577, %1574
+  %1581 = lshr i32 %1580, %1568
+  %1582 = trunc nuw nsw i32 %1581 to i16
   %1583 = sub i16 %1576, %1582
   br label %1589
 
 1584:                                             ; preds = %1572
-  %1585 = sub nsw i32 %1574, %1577
-  %1586 = ashr i32 %1585, %1568
-  %1587 = trunc nsw i32 %1586 to i16
+  %1585 = sub nuw nsw i32 %1574, %1577
+  %1586 = lshr i32 %1585, %1568
+  %1587 = trunc nuw nsw i32 %1586 to i16
   %1588 = add i16 %1576, %1587
   br label %1589
 
@@ -4480,20 +4480,20 @@ aom_read_symbol_.exit380.i:                       ; preds = %._crit_edge.loopexi
   %1661 = getelementptr inbounds i16, ptr %1644, i64 %indvars.iv.i.i383.i
   %1662 = load i16, ptr %1661, align 2
   %1663 = zext i16 %1662 to i32
-  %1664 = icmp slt i32 %1660, %1663
+  %1664 = icmp samesign ult i32 %1660, %1663
   br i1 %1664, label %1665, label %1670
 
 1665:                                             ; preds = %1658
-  %1666 = sub nsw i32 %1663, %1660
-  %1667 = ashr i32 %1666, %1654
-  %1668 = trunc nsw i32 %1667 to i16
+  %1666 = sub nuw nsw i32 %1663, %1660
+  %1667 = lshr i32 %1666, %1654
+  %1668 = trunc nuw nsw i32 %1667 to i16
   %1669 = sub i16 %1662, %1668
   br label %1675
 
 1670:                                             ; preds = %1658
-  %1671 = sub nsw i32 %1660, %1663
-  %1672 = ashr i32 %1671, %1654
-  %1673 = trunc nsw i32 %1672 to i16
+  %1671 = sub nuw nsw i32 %1660, %1663
+  %1672 = lshr i32 %1671, %1654
+  %1673 = trunc nuw nsw i32 %1672 to i16
   %1674 = add i16 %1662, %1673
   br label %1675
 
@@ -4782,20 +4782,20 @@ aom_read_symbol_.exit.i404.i:                     ; preds = %._crit_edge.loopexi
   %1827 = getelementptr inbounds i16, ptr %1808, i64 %indvars.iv.i.i20.i.i
   %1828 = load i16, ptr %1827, align 2
   %1829 = zext i16 %1828 to i32
-  %1830 = icmp slt i32 %1826, %1829
+  %1830 = icmp samesign ult i32 %1826, %1829
   br i1 %1830, label %1831, label %1836
 
 1831:                                             ; preds = %1824
-  %1832 = sub nsw i32 %1829, %1826
-  %1833 = ashr i32 %1832, %1820
-  %1834 = trunc nsw i32 %1833 to i16
+  %1832 = sub nuw nsw i32 %1829, %1826
+  %1833 = lshr i32 %1832, %1820
+  %1834 = trunc nuw nsw i32 %1833 to i16
   %1835 = sub i16 %1828, %1834
   br label %1841
 
 1836:                                             ; preds = %1824
-  %1837 = sub nsw i32 %1826, %1829
-  %1838 = ashr i32 %1837, %1820
-  %1839 = trunc nsw i32 %1838 to i16
+  %1837 = sub nuw nsw i32 %1826, %1829
+  %1838 = lshr i32 %1837, %1820
+  %1839 = trunc nuw nsw i32 %1838 to i16
   %1840 = add i16 %1828, %1839
   br label %1841
 
@@ -5335,20 +5335,20 @@ is_interinter_compound_used.exit.i:               ; preds = %.critedge271.i
   %2148 = getelementptr inbounds i16, ptr %2131, i64 %indvars.iv.i.i455.i
   %2149 = load i16, ptr %2148, align 2
   %2150 = zext i16 %2149 to i32
-  %2151 = icmp slt i32 %2147, %2150
+  %2151 = icmp samesign ult i32 %2147, %2150
   br i1 %2151, label %2152, label %2157
 
 2152:                                             ; preds = %2145
-  %2153 = sub nsw i32 %2150, %2147
-  %2154 = ashr i32 %2153, %2141
-  %2155 = trunc nsw i32 %2154 to i16
+  %2153 = sub nuw nsw i32 %2150, %2147
+  %2154 = lshr i32 %2153, %2141
+  %2155 = trunc nuw nsw i32 %2154 to i16
   %2156 = sub i16 %2149, %2155
   br label %2162
 
 2157:                                             ; preds = %2145
-  %2158 = sub nsw i32 %2147, %2150
-  %2159 = ashr i32 %2158, %2141
-  %2160 = trunc nsw i32 %2159 to i16
+  %2158 = sub nuw nsw i32 %2147, %2150
+  %2159 = lshr i32 %2158, %2141
+  %2160 = trunc nuw nsw i32 %2159 to i16
   %2161 = add i16 %2149, %2160
   br label %2162
 
@@ -5522,20 +5522,20 @@ av1_is_interp_needed.exit.thread24.i.i:           ; preds = %av1_is_interp_neede
   %2245 = getelementptr inbounds i16, ptr %2228, i64 %indvars.iv.i.i19.us.i.i
   %2246 = load i16, ptr %2245, align 2
   %2247 = zext i16 %2246 to i32
-  %2248 = icmp slt i32 %2244, %2247
+  %2248 = icmp samesign ult i32 %2244, %2247
   br i1 %2248, label %2254, label %2249
 
 2249:                                             ; preds = %2242
-  %2250 = sub nsw i32 %2244, %2247
-  %2251 = ashr i32 %2250, %2238
-  %2252 = trunc nsw i32 %2251 to i16
+  %2250 = sub nuw nsw i32 %2244, %2247
+  %2251 = lshr i32 %2250, %2238
+  %2252 = trunc nuw nsw i32 %2251 to i16
   %2253 = add i16 %2246, %2252
   br label %2259
 
 2254:                                             ; preds = %2242
-  %2255 = sub nsw i32 %2247, %2244
-  %2256 = ashr i32 %2255, %2238
-  %2257 = trunc nsw i32 %2256 to i16
+  %2255 = sub nuw nsw i32 %2247, %2244
+  %2256 = lshr i32 %2255, %2238
+  %2257 = trunc nuw nsw i32 %2256 to i16
   %2258 = sub i16 %2246, %2257
   br label %2259
 
@@ -5590,20 +5590,20 @@ aom_read_symbol_.exit.us.i.i:                     ; preds = %._crit_edge.loopexi
   %2283 = getelementptr inbounds i16, ptr %2266, i64 %indvars.iv.i.i19.i.i
   %2284 = load i16, ptr %2283, align 2
   %2285 = zext i16 %2284 to i32
-  %2286 = icmp slt i32 %2282, %2285
+  %2286 = icmp samesign ult i32 %2282, %2285
   br i1 %2286, label %2287, label %2292
 
 2287:                                             ; preds = %2280
-  %2288 = sub nsw i32 %2285, %2282
-  %2289 = ashr i32 %2288, %2276
-  %2290 = trunc nsw i32 %2289 to i16
+  %2288 = sub nuw nsw i32 %2285, %2282
+  %2289 = lshr i32 %2288, %2276
+  %2290 = trunc nuw nsw i32 %2289 to i16
   %2291 = sub i16 %2284, %2290
   br label %2297
 
 2292:                                             ; preds = %2280
-  %2293 = sub nsw i32 %2282, %2285
-  %2294 = ashr i32 %2293, %2276
-  %2295 = trunc nsw i32 %2294 to i16
+  %2293 = sub nuw nsw i32 %2282, %2285
+  %2294 = lshr i32 %2293, %2276
+  %2295 = trunc nuw nsw i32 %2294 to i16
   %2296 = add i16 %2284, %2295
   br label %2297
 
@@ -5775,20 +5775,20 @@ read_inter_block_mode_info.exit:                  ; preds = %2332, %2336, %2340,
   %2383 = getelementptr inbounds i16, ptr %2364, i64 %indvars.iv.i.i.i.i87
   %2384 = load i16, ptr %2383, align 2
   %2385 = zext i16 %2384 to i32
-  %2386 = icmp slt i32 %2382, %2385
+  %2386 = icmp samesign ult i32 %2382, %2385
   br i1 %2386, label %2387, label %2392
 
 2387:                                             ; preds = %2380
-  %2388 = sub nsw i32 %2385, %2382
-  %2389 = ashr i32 %2388, %2376
-  %2390 = trunc nsw i32 %2389 to i16
+  %2388 = sub nuw nsw i32 %2385, %2382
+  %2389 = lshr i32 %2388, %2376
+  %2390 = trunc nuw nsw i32 %2389 to i16
   %2391 = sub i16 %2384, %2390
   br label %2397
 
 2392:                                             ; preds = %2380
-  %2393 = sub nsw i32 %2382, %2385
-  %2394 = ashr i32 %2393, %2376
-  %2395 = trunc nsw i32 %2394 to i16
+  %2393 = sub nuw nsw i32 %2382, %2385
+  %2394 = lshr i32 %2393, %2376
+  %2395 = trunc nuw nsw i32 %2394 to i16
   %2396 = add i16 %2384, %2395
   br label %2397
 
@@ -5849,20 +5849,20 @@ read_intra_mode.exit.i:                           ; preds = %._crit_edge.loopexi
   %2426 = getelementptr inbounds i16, ptr %2409, i64 %indvars.iv.i.i.i52.i
   %2427 = load i16, ptr %2426, align 2
   %2428 = zext i16 %2427 to i32
-  %2429 = icmp slt i32 %2425, %2428
+  %2429 = icmp samesign ult i32 %2425, %2428
   br i1 %2429, label %2430, label %2435
 
 2430:                                             ; preds = %2423
-  %2431 = sub nsw i32 %2428, %2425
-  %2432 = ashr i32 %2431, %2419
-  %2433 = trunc nsw i32 %2432 to i16
+  %2431 = sub nuw nsw i32 %2428, %2425
+  %2432 = lshr i32 %2431, %2419
+  %2433 = trunc nuw nsw i32 %2432 to i16
   %2434 = sub i16 %2427, %2433
   br label %2440
 
 2435:                                             ; preds = %2423
-  %2436 = sub nsw i32 %2425, %2428
-  %2437 = ashr i32 %2436, %2419
-  %2438 = trunc nsw i32 %2437 to i16
+  %2436 = sub nuw nsw i32 %2425, %2428
+  %2437 = lshr i32 %2436, %2419
+  %2438 = trunc nuw nsw i32 %2437 to i16
   %2439 = add i16 %2427, %2438
   br label %2440
 
@@ -5983,20 +5983,20 @@ is_cfl_allowed.exit.i:                            ; preds = %2478, %2466
   %2513 = getelementptr inbounds i16, ptr %2490, i64 %indvars.iv.i.i.i61.i
   %2514 = load i16, ptr %2513, align 2
   %2515 = zext i16 %2514 to i32
-  %2516 = icmp slt i32 %2512, %2515
+  %2516 = icmp samesign ult i32 %2512, %2515
   br i1 %2516, label %2517, label %2522
 
 2517:                                             ; preds = %2510
-  %2518 = sub nsw i32 %2515, %2512
-  %2519 = ashr i32 %2518, %2505
-  %2520 = trunc i32 %2519 to i16
+  %2518 = sub nuw nsw i32 %2515, %2512
+  %2519 = lshr i32 %2518, %2505
+  %2520 = trunc nuw i32 %2519 to i16
   %2521 = sub i16 %2514, %2520
   br label %2527
 
 2522:                                             ; preds = %2510
-  %2523 = sub nsw i32 %2512, %2515
-  %2524 = ashr i32 %2523, %2505
-  %2525 = trunc i32 %2524 to i16
+  %2523 = sub nuw nsw i32 %2512, %2515
+  %2524 = lshr i32 %2523, %2505
+  %2525 = trunc nuw i32 %2524 to i16
   %2526 = add i16 %2514, %2525
   br label %2527
 
@@ -6073,20 +6073,20 @@ read_intra_mode_uv.exit.i:                        ; preds = %update_cdf.exit.i.i
   %2567 = getelementptr inbounds i16, ptr %2550, i64 %indvars.iv.i.i.i69.i
   %2568 = load i16, ptr %2567, align 2
   %2569 = zext i16 %2568 to i32
-  %2570 = icmp slt i32 %2566, %2569
+  %2570 = icmp samesign ult i32 %2566, %2569
   br i1 %2570, label %2571, label %2576
 
 2571:                                             ; preds = %2564
-  %2572 = sub nsw i32 %2569, %2566
-  %2573 = ashr i32 %2572, %2560
-  %2574 = trunc nsw i32 %2573 to i16
+  %2572 = sub nuw nsw i32 %2569, %2566
+  %2573 = lshr i32 %2572, %2560
+  %2574 = trunc nuw nsw i32 %2573 to i16
   %2575 = sub i16 %2568, %2574
   br label %2581
 
 2576:                                             ; preds = %2564
-  %2577 = sub nsw i32 %2566, %2569
-  %2578 = ashr i32 %2577, %2560
-  %2579 = trunc nsw i32 %2578 to i16
+  %2577 = sub nuw nsw i32 %2566, %2569
+  %2578 = lshr i32 %2577, %2560
+  %2579 = trunc nuw nsw i32 %2578 to i16
   %2580 = add i16 %2568, %2579
   br label %2581
 
@@ -6366,20 +6366,20 @@ define internal fastcc void @read_delta_q_params(ptr nocapture noundef readonly 
   %49 = getelementptr inbounds i16, ptr %30, i64 %indvars.iv.i.i.i
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
-  %52 = icmp slt i32 %48, %51
+  %52 = icmp samesign ult i32 %48, %51
   br i1 %52, label %53, label %58
 
 53:                                               ; preds = %46
-  %54 = sub nsw i32 %51, %48
-  %55 = ashr i32 %54, %42
-  %56 = trunc nsw i32 %55 to i16
+  %54 = sub nuw nsw i32 %51, %48
+  %55 = lshr i32 %54, %42
+  %56 = trunc nuw nsw i32 %55 to i16
   %57 = sub i16 %50, %56
   br label %63
 
 58:                                               ; preds = %46
-  %59 = sub nsw i32 %48, %51
-  %60 = ashr i32 %59, %42
-  %61 = trunc nsw i32 %60 to i16
+  %59 = sub nuw nsw i32 %48, %51
+  %60 = lshr i32 %59, %42
+  %61 = trunc nuw nsw i32 %60 to i16
   %62 = add i16 %50, %61
   br label %63
 
@@ -6561,20 +6561,20 @@ define internal fastcc zeroext i8 @read_cfl_alphas(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds i16, ptr %4, i64 %indvars.iv.i.i
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i32
-  %26 = icmp slt i32 %22, %25
+  %26 = icmp samesign ult i32 %22, %25
   br i1 %26, label %27, label %32
 
 27:                                               ; preds = %20
-  %28 = sub nsw i32 %25, %22
-  %29 = ashr i32 %28, %16
-  %30 = trunc nsw i32 %29 to i16
+  %28 = sub nuw nsw i32 %25, %22
+  %29 = lshr i32 %28, %16
+  %30 = trunc nuw nsw i32 %29 to i16
   %31 = sub i16 %24, %30
   br label %37
 
 32:                                               ; preds = %20
-  %33 = sub nsw i32 %22, %25
-  %34 = ashr i32 %33, %16
-  %35 = trunc nsw i32 %34 to i16
+  %33 = sub nuw nsw i32 %22, %25
+  %34 = lshr i32 %33, %16
+  %35 = trunc nuw nsw i32 %34 to i16
   %36 = add i16 %24, %35
   br label %37
 
@@ -6634,20 +6634,20 @@ aom_read_symbol_.exit:                            ; preds = %3, %._crit_edge.loo
   %66 = getelementptr inbounds i16, ptr %49, i64 %indvars.iv.i.i22
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i32
-  %69 = icmp slt i32 %65, %68
+  %69 = icmp samesign ult i32 %65, %68
   br i1 %69, label %70, label %75
 
 70:                                               ; preds = %63
-  %71 = sub nsw i32 %68, %65
-  %72 = ashr i32 %71, %59
-  %73 = trunc nsw i32 %72 to i16
+  %71 = sub nuw nsw i32 %68, %65
+  %72 = lshr i32 %71, %59
+  %73 = trunc nuw nsw i32 %72 to i16
   %74 = sub i16 %67, %73
   br label %80
 
 75:                                               ; preds = %63
-  %76 = sub nsw i32 %65, %68
-  %77 = ashr i32 %76, %59
-  %78 = trunc nsw i32 %77 to i16
+  %76 = sub nuw nsw i32 %65, %68
+  %77 = lshr i32 %76, %59
+  %78 = trunc nuw nsw i32 %77 to i16
   %79 = add i16 %67, %78
   br label %80
 
@@ -6712,20 +6712,20 @@ aom_read_symbol_.exit29:                          ; preds = %45, %._crit_edge.lo
   %110 = getelementptr inbounds i16, ptr %93, i64 %indvars.iv.i.i32
   %111 = load i16, ptr %110, align 2
   %112 = zext i16 %111 to i32
-  %113 = icmp slt i32 %109, %112
+  %113 = icmp samesign ult i32 %109, %112
   br i1 %113, label %114, label %119
 
 114:                                              ; preds = %107
-  %115 = sub nsw i32 %112, %109
-  %116 = ashr i32 %115, %103
-  %117 = trunc nsw i32 %116 to i16
+  %115 = sub nuw nsw i32 %112, %109
+  %116 = lshr i32 %115, %103
+  %117 = trunc nuw nsw i32 %116 to i16
   %118 = sub i16 %111, %117
   br label %124
 
 119:                                              ; preds = %107
-  %120 = sub nsw i32 %109, %112
-  %121 = ashr i32 %120, %103
-  %122 = trunc nsw i32 %121 to i16
+  %120 = sub nuw nsw i32 %109, %112
+  %121 = lshr i32 %120, %103
+  %122 = trunc nuw nsw i32 %121 to i16
   %123 = add i16 %111, %122
   br label %124
 
@@ -6900,20 +6900,20 @@ aom_read_symbol_.exit:                            ; preds = %av1_get_palette_mod
   %96 = getelementptr inbounds i16, ptr %79, i64 %indvars.iv.i.i42
   %97 = load i16, ptr %96, align 2
   %98 = zext i16 %97 to i32
-  %99 = icmp slt i32 %95, %98
+  %99 = icmp samesign ult i32 %95, %98
   br i1 %99, label %100, label %105
 
 100:                                              ; preds = %93
-  %101 = sub nsw i32 %98, %95
-  %102 = ashr i32 %101, %89
-  %103 = trunc nsw i32 %102 to i16
+  %101 = sub nuw nsw i32 %98, %95
+  %102 = lshr i32 %101, %89
+  %103 = trunc nuw nsw i32 %102 to i16
   %104 = sub i16 %97, %103
   br label %110
 
 105:                                              ; preds = %93
-  %106 = sub nsw i32 %95, %98
-  %107 = ashr i32 %106, %89
-  %108 = trunc nsw i32 %107 to i16
+  %106 = sub nuw nsw i32 %95, %98
+  %107 = lshr i32 %106, %89
+  %108 = trunc nuw nsw i32 %107 to i16
   %109 = add i16 %97, %108
   br label %110
 
@@ -7285,20 +7285,20 @@ aom_read_symbol_.exit65:                          ; preds = %217, %._crit_edge.l
   %280 = getelementptr inbounds i16, ptr %263, i64 %indvars.iv.i.i69
   %281 = load i16, ptr %280, align 2
   %282 = zext i16 %281 to i32
-  %283 = icmp slt i32 %279, %282
+  %283 = icmp samesign ult i32 %279, %282
   br i1 %283, label %284, label %289
 
 284:                                              ; preds = %277
-  %285 = sub nsw i32 %282, %279
-  %286 = ashr i32 %285, %273
-  %287 = trunc nsw i32 %286 to i16
+  %285 = sub nuw nsw i32 %282, %279
+  %286 = lshr i32 %285, %273
+  %287 = trunc nuw nsw i32 %286 to i16
   %288 = sub i16 %281, %287
   br label %294
 
 289:                                              ; preds = %277
-  %290 = sub nsw i32 %279, %282
-  %291 = ashr i32 %290, %273
-  %292 = trunc nsw i32 %291 to i16
+  %290 = sub nuw nsw i32 %279, %282
+  %291 = lshr i32 %290, %273
+  %292 = trunc nuw nsw i32 %291 to i16
   %293 = add i16 %281, %292
   br label %294
 
@@ -7826,20 +7826,20 @@ aom_read_symbol_.exit:                            ; preds = %25, %._crit_edge.lo
   %84 = getelementptr inbounds i16, ptr %67, i64 %indvars.iv.i.i16
   %85 = load i16, ptr %84, align 2
   %86 = zext i16 %85 to i32
-  %87 = icmp slt i32 %83, %86
+  %87 = icmp samesign ult i32 %83, %86
   br i1 %87, label %88, label %93
 
 88:                                               ; preds = %81
-  %89 = sub nsw i32 %86, %83
-  %90 = ashr i32 %89, %77
-  %91 = trunc nsw i32 %90 to i16
+  %89 = sub nuw nsw i32 %86, %83
+  %90 = lshr i32 %89, %77
+  %91 = trunc nuw nsw i32 %90 to i16
   %92 = sub i16 %85, %91
   br label %98
 
 93:                                               ; preds = %81
-  %94 = sub nsw i32 %83, %86
-  %95 = ashr i32 %94, %77
-  %96 = trunc nsw i32 %95 to i16
+  %94 = sub nuw nsw i32 %83, %86
+  %95 = lshr i32 %94, %77
+  %96 = trunc nuw nsw i32 %95 to i16
   %97 = add i16 %85, %96
   br label %98
 
@@ -8044,20 +8044,20 @@ av1_get_spatial_seg_pred.exit:                    ; preds = %65, %.get_segment_i
   %93 = getelementptr inbounds i16, ptr %74, i64 %indvars.iv.i.i
   %94 = load i16, ptr %93, align 2
   %95 = zext i16 %94 to i32
-  %96 = icmp slt i32 %92, %95
+  %96 = icmp samesign ult i32 %92, %95
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %90
-  %98 = sub nsw i32 %95, %92
-  %99 = ashr i32 %98, %86
-  %100 = trunc nsw i32 %99 to i16
+  %98 = sub nuw nsw i32 %95, %92
+  %99 = lshr i32 %98, %86
+  %100 = trunc nuw nsw i32 %99 to i16
   %101 = sub i16 %94, %100
   br label %107
 
 102:                                              ; preds = %90
-  %103 = sub nsw i32 %92, %95
-  %104 = ashr i32 %103, %86
-  %105 = trunc nsw i32 %104 to i16
+  %103 = sub nuw nsw i32 %92, %95
+  %104 = lshr i32 %103, %86
+  %105 = trunc nuw nsw i32 %104 to i16
   %106 = add i16 %94, %105
   br label %107
 
@@ -8213,20 +8213,20 @@ define internal fastcc i32 @read_delta_lflevel(i8 %.25212.val, i32 %.25216.val, 
   %35 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
-  %38 = icmp slt i32 %34, %37
+  %38 = icmp samesign ult i32 %34, %37
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %32
-  %40 = sub nsw i32 %37, %34
-  %41 = ashr i32 %40, %28
-  %42 = trunc nsw i32 %41 to i16
+  %40 = sub nuw nsw i32 %37, %34
+  %41 = lshr i32 %40, %28
+  %42 = trunc nuw nsw i32 %41 to i16
   %43 = sub i16 %36, %42
   br label %49
 
 44:                                               ; preds = %32
-  %45 = sub nsw i32 %34, %37
-  %46 = ashr i32 %45, %28
-  %47 = trunc nsw i32 %46 to i16
+  %45 = sub nuw nsw i32 %34, %37
+  %46 = lshr i32 %45, %28
+  %47 = trunc nuw nsw i32 %46 to i16
   %48 = add i16 %36, %47
   br label %49
 
@@ -8337,20 +8337,20 @@ define internal fastcc void @read_mv(ptr noundef %0, ptr nocapture noundef write
   %24 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.i.i
   %25 = load i16, ptr %24, align 2
   %26 = zext i16 %25 to i32
-  %27 = icmp slt i32 %23, %26
+  %27 = icmp samesign ult i32 %23, %26
   br i1 %27, label %28, label %33
 
 28:                                               ; preds = %21
-  %29 = sub nsw i32 %26, %23
-  %30 = ashr i32 %29, %17
-  %31 = trunc nsw i32 %30 to i16
+  %29 = sub nuw nsw i32 %26, %23
+  %30 = lshr i32 %29, %17
+  %31 = trunc nuw nsw i32 %30 to i16
   %32 = sub i16 %25, %31
   br label %38
 
 33:                                               ; preds = %21
-  %34 = sub nsw i32 %23, %26
-  %35 = ashr i32 %34, %17
-  %36 = trunc nsw i32 %35 to i16
+  %34 = sub nuw nsw i32 %23, %26
+  %35 = lshr i32 %34, %17
+  %36 = trunc nuw nsw i32 %35 to i16
   %37 = add i16 %25, %36
   br label %38
 
@@ -8497,20 +8497,20 @@ aom_read_symbol_.exit:                            ; preds = %4, %._crit_edge.loo
   %55 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i.i44
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i32
-  %58 = icmp slt i32 %54, %57
+  %58 = icmp samesign ult i32 %54, %57
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %52
-  %60 = sub nsw i32 %57, %54
-  %61 = ashr i32 %60, %48
-  %62 = trunc nsw i32 %61 to i16
+  %60 = sub nuw nsw i32 %57, %54
+  %61 = lshr i32 %60, %48
+  %62 = trunc nuw nsw i32 %61 to i16
   %63 = sub i16 %56, %62
   br label %69
 
 64:                                               ; preds = %52
-  %65 = sub nsw i32 %54, %57
-  %66 = ashr i32 %65, %48
-  %67 = trunc nsw i32 %66 to i16
+  %65 = sub nuw nsw i32 %54, %57
+  %66 = lshr i32 %65, %48
+  %67 = trunc nuw nsw i32 %66 to i16
   %68 = add i16 %56, %67
   br label %69
 
@@ -8696,20 +8696,20 @@ aom_read_symbol_.exit61:                          ; preds = %._crit_edge.loopexi
   %170 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv.i.i74
   %171 = load i16, ptr %170, align 2
   %172 = zext i16 %171 to i32
-  %173 = icmp slt i32 %169, %172
+  %173 = icmp samesign ult i32 %169, %172
   br i1 %173, label %174, label %179
 
 174:                                              ; preds = %167
-  %175 = sub nsw i32 %172, %169
-  %176 = ashr i32 %175, %163
-  %177 = trunc nsw i32 %176 to i16
+  %175 = sub nuw nsw i32 %172, %169
+  %176 = lshr i32 %175, %163
+  %177 = trunc nuw nsw i32 %176 to i16
   %178 = sub i16 %171, %177
   br label %184
 
 179:                                              ; preds = %167
-  %180 = sub nsw i32 %169, %172
-  %181 = ashr i32 %180, %163
-  %182 = trunc nsw i32 %181 to i16
+  %180 = sub nuw nsw i32 %169, %172
+  %181 = lshr i32 %180, %163
+  %182 = trunc nuw nsw i32 %181 to i16
   %183 = add i16 %171, %182
   br label %184
 

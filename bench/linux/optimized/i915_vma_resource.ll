@@ -516,7 +516,7 @@ define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned %0, 
   %35 = load i8, ptr %18, align 4
   %36 = or i8 %35, 2
   store i8 %36, ptr %18, align 4
-  br label %87
+  br label %86
 
 37:                                               ; preds = %28
   %38 = load ptr, ptr %3, align 8
@@ -542,7 +542,7 @@ define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned %0, 
   %54 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %54, i8 0, i64 24, i1 false)
   store ptr %54, ptr %39, align 8
-  br label %82
+  br label %81
 
 .preheader:                                       ; preds = %37, %61
   %55 = phi ptr [ %72, %61 ], [ %51, %37 ]
@@ -574,31 +574,30 @@ define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned %0, 
 74:                                               ; preds = %61
   %75 = getelementptr inbounds i8, ptr %55, i64 %70
   %76 = ptrtoint ptr %55 to i64
-  %77 = and i8 %69, 1
-  %78 = icmp eq i8 %77, 0
-  %79 = getelementptr inbounds i8, ptr %0, i64 168
-  store i64 %50, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 144
-  store i64 %76, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %0, i64 152
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %81, i8 0, i64 16, i1 false)
-  store ptr %80, ptr %75, align 8
-  br i1 %78, label %85, label %82
+  %77 = icmp eq i8 %69, 0
+  %78 = getelementptr inbounds i8, ptr %0, i64 168
+  store i64 %50, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %0, i64 144
+  store i64 %76, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %0, i64 152
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
+  store ptr %79, ptr %75, align 8
+  br i1 %77, label %84, label %81
 
-82:                                               ; preds = %.thread, %74
-  %83 = phi ptr [ %54, %.thread ], [ %80, %74 ]
-  %84 = getelementptr inbounds i8, ptr %38, i64 560
-  store ptr %83, ptr %84, align 8
-  br label %85
+81:                                               ; preds = %.thread, %74
+  %82 = phi ptr [ %54, %.thread ], [ %79, %74 ]
+  %83 = getelementptr inbounds i8, ptr %38, i64 560
+  store ptr %82, ptr %83, align 8
+  br label %84
 
-85:                                               ; preds = %82, %74
-  %86 = phi ptr [ %83, %82 ], [ %80, %74 ]
-  tail call void @__rb_insert_augmented(ptr noundef %86, ptr noundef %39, ptr noundef nonnull @vma_res_itree_augment_rotate) #8
-  br label %87
+84:                                               ; preds = %81, %74
+  %85 = phi ptr [ %82, %81 ], [ %79, %74 ]
+  tail call void @__rb_insert_augmented(ptr noundef %85, ptr noundef %39, ptr noundef nonnull @vma_res_itree_augment_rotate) #8
+  br label %86
 
-87:                                               ; preds = %85, %32
-  %88 = getelementptr inbounds i8, ptr %0, i64 104
-  tail call void @i915_sw_fence_commit(ptr noundef %88) #8
+86:                                               ; preds = %84, %32
+  %87 = getelementptr inbounds i8, ptr %0, i64 104
+  tail call void @i915_sw_fence_commit(ptr noundef %87) #8
   ret ptr %0
 }
 

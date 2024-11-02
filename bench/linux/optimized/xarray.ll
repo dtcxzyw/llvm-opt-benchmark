@@ -4092,7 +4092,7 @@ define dso_local ptr @xa_store_range(ptr noundef %0, i64 noundef %1, i64 noundef
   %63 = and i32 %62, 63
   %64 = select i1 %61, i32 %63, i32 %71
   %65 = icmp eq i64 %73, 63
-  %66 = icmp ult i32 %64, 63
+  %66 = icmp ne i32 %64, 63
   %67 = select i1 %65, i1 %66, i1 false
   br i1 %67, label %.loopexit13, label %.preheader12, !llvm.loop !69
 

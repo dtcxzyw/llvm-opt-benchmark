@@ -974,47 +974,46 @@ define internal ptr @xprt_iter_current_entry(ptr noundef %0) #8 align 16 {
   %30 = icmp eq ptr %29, %5
   br i1 %30, label %.loopexit, label %.preheader6
 
-.preheader6:                                      ; preds = %28, %46
-  %31 = phi ptr [ %47, %46 ], [ %29, %28 ]
-  %32 = phi i8 [ %35, %46 ], [ 0, %28 ]
+.preheader6:                                      ; preds = %28, %45
+  %31 = phi ptr [ %46, %45 ], [ %29, %28 ]
+  %32 = phi i8 [ %35, %45 ], [ 0, %28 ]
   %33 = getelementptr i8, ptr %31, i64 -1056
   %34 = icmp eq ptr %33, %7
   %35 = select i1 %34, i8 1, i8 %32
-  %36 = and i8 %35, 1
-  %37 = icmp eq i8 %36, 0
-  br i1 %37, label %46, label %38
+  %36 = icmp eq i8 %35, 0
+  br i1 %36, label %45, label %37
 
-38:                                               ; preds = %.preheader6
-  %39 = load volatile i32, ptr %33, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %46, label %41
+37:                                               ; preds = %.preheader6
+  %38 = load volatile i32, ptr %33, align 4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %45, label %40
 
-41:                                               ; preds = %38
-  %42 = getelementptr i8, ptr %31, i64 -24
-  %43 = load volatile i64, ptr %42, align 8
-  %44 = and i64 %43, 128
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.loopexit, label %46
+40:                                               ; preds = %37
+  %41 = getelementptr i8, ptr %31, i64 -24
+  %42 = load volatile i64, ptr %41, align 8
+  %43 = and i64 %42, 128
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %.loopexit, label %45
 
-46:                                               ; preds = %41, %38, %.preheader6
-  %47 = load volatile ptr, ptr %31, align 8
-  %48 = icmp eq ptr %47, %5
-  br i1 %48, label %.loopexit, label %.preheader6, !llvm.loop !22
+45:                                               ; preds = %40, %37, %.preheader6
+  %46 = load volatile ptr, ptr %31, align 8
+  %47 = icmp eq ptr %46, %5
+  br i1 %47, label %.loopexit, label %.preheader6, !llvm.loop !22
 
 .loopexit.loopexit.split.loop.exit:               ; preds = %20
-  %49 = getelementptr i8, ptr %16, i64 -1056
+  %48 = getelementptr i8, ptr %16, i64 -1056
   br label %.loopexit
 
-.loopexit:                                        ; preds = %46, %41, %25, %.loopexit.loopexit.split.loop.exit, %28, %13, %1
-  %50 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %28 ], [ %49, %.loopexit.loopexit.split.loop.exit ], [ null, %25 ], [ null, %46 ], [ %33, %41 ]
-  ret ptr %50
+.loopexit:                                        ; preds = %45, %40, %25, %.loopexit.loopexit.split.loop.exit, %28, %13, %1
+  %49 = phi ptr [ null, %1 ], [ null, %13 ], [ null, %28 ], [ %48, %.loopexit.loopexit.split.loop.exit ], [ null, %25 ], [ null, %45 ], [ %33, %40 ]
+  ret ptr %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %61, label %4
+  br i1 %3, label %60, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1026,99 +1025,98 @@ define internal ptr @xprt_iter_next_entry_roundrobin(ptr noundef %0) #0 align 16
   br label %10
 
 10:                                               ; preds = %.thread9, %4
-  %11 = phi ptr [ %6, %4 ], [ %52, %.thread9 ]
+  %11 = phi ptr [ %6, %4 ], [ %51, %.thread9 ]
   %12 = load volatile ptr, ptr %7, align 8
   %13 = icmp eq ptr %12, %7
   br i1 %13, label %.thread, label %.preheader12
 
-.preheader12:                                     ; preds = %10, %30
-  %14 = phi ptr [ %31, %30 ], [ %12, %10 ]
-  %15 = phi ptr [ %17, %30 ], [ null, %10 ]
-  %16 = phi i8 [ %19, %30 ], [ 0, %10 ]
+.preheader12:                                     ; preds = %10, %29
+  %14 = phi ptr [ %30, %29 ], [ %12, %10 ]
+  %15 = phi ptr [ %17, %29 ], [ null, %10 ]
+  %16 = phi i8 [ %19, %29 ], [ 0, %10 ]
   %17 = getelementptr i8, ptr %14, i64 -1056
   %18 = icmp eq ptr %15, %11
   %19 = select i1 %18, i8 1, i8 %16
-  %20 = and i8 %19, 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %30, label %22
+  %20 = icmp eq i8 %19, 0
+  br i1 %20, label %29, label %21
 
-22:                                               ; preds = %.preheader12
-  %23 = load volatile i32, ptr %17, align 4
-  %24 = icmp eq i32 %23, 0
-  br i1 %24, label %30, label %25
+21:                                               ; preds = %.preheader12
+  %22 = load volatile i32, ptr %17, align 4
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %29, label %24
 
-25:                                               ; preds = %22
-  %26 = getelementptr i8, ptr %14, i64 -24
-  %27 = load volatile i64, ptr %26, align 8
-  %28 = and i64 %27, 128
-  %29 = icmp eq i64 %28, 0
-  br i1 %29, label %33, label %30
+24:                                               ; preds = %21
+  %25 = getelementptr i8, ptr %14, i64 -24
+  %26 = load volatile i64, ptr %25, align 8
+  %27 = and i64 %26, 128
+  %28 = icmp eq i64 %27, 0
+  br i1 %28, label %32, label %29
 
-30:                                               ; preds = %25, %22, %.preheader12
-  %31 = load volatile ptr, ptr %14, align 8
-  %32 = icmp eq ptr %31, %7
-  br i1 %32, label %.thread, label %.preheader12, !llvm.loop !24
+29:                                               ; preds = %24, %21, %.preheader12
+  %30 = load volatile ptr, ptr %14, align 8
+  %31 = icmp eq ptr %30, %7
+  br i1 %31, label %.thread, label %.preheader12, !llvm.loop !24
 
-33:                                               ; preds = %25
-  %34 = icmp eq ptr %17, null
-  br i1 %34, label %.thread, label %.thread9
+32:                                               ; preds = %24
+  %33 = icmp eq ptr %17, null
+  br i1 %33, label %.thread, label %.thread9
 
-.thread:                                          ; preds = %30, %10, %33
-  %35 = load volatile ptr, ptr %7, align 8
-  %36 = icmp eq ptr %35, %7
-  br i1 %36, label %.thread11, label %.preheader
+.thread:                                          ; preds = %29, %10, %32
+  %34 = load volatile ptr, ptr %7, align 8
+  %35 = icmp eq ptr %34, %7
+  br i1 %35, label %.thread11, label %.preheader
 
-.preheader:                                       ; preds = %.thread, %46
-  %37 = phi ptr [ %47, %46 ], [ %35, %.thread ]
-  %38 = getelementptr i8, ptr %37, i64 -1056
-  %39 = load volatile i32, ptr %38, align 4
-  %40 = icmp eq i32 %39, 0
-  br i1 %40, label %46, label %41
+.preheader:                                       ; preds = %.thread, %45
+  %36 = phi ptr [ %46, %45 ], [ %34, %.thread ]
+  %37 = getelementptr i8, ptr %36, i64 -1056
+  %38 = load volatile i32, ptr %37, align 4
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %45, label %40
 
-41:                                               ; preds = %.preheader
-  %42 = getelementptr i8, ptr %37, i64 -24
-  %43 = load volatile i64, ptr %42, align 8
-  %44 = and i64 %43, 128
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %49, label %46
+40:                                               ; preds = %.preheader
+  %41 = getelementptr i8, ptr %36, i64 -24
+  %42 = load volatile i64, ptr %41, align 8
+  %43 = and i64 %42, 128
+  %44 = icmp eq i64 %43, 0
+  br i1 %44, label %48, label %45
 
-46:                                               ; preds = %41, %.preheader
-  %47 = load volatile ptr, ptr %37, align 8
-  %48 = icmp eq ptr %47, %7
-  br i1 %48, label %.thread11, label %.preheader, !llvm.loop !21
+45:                                               ; preds = %40, %.preheader
+  %46 = load volatile ptr, ptr %36, align 8
+  %47 = icmp eq ptr %46, %7
+  br i1 %47, label %.thread11, label %.preheader, !llvm.loop !21
 
-49:                                               ; preds = %41
-  %50 = getelementptr i8, ptr %37, i64 -1056
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread11, label %.thread9
+48:                                               ; preds = %40
+  %49 = getelementptr i8, ptr %36, i64 -1056
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.thread11, label %.thread9
 
-.thread9:                                         ; preds = %33, %49
-  %52 = phi ptr [ %50, %49 ], [ %17, %33 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 1208
-  %54 = load volatile i64, ptr %53, align 8
-  %55 = load volatile i64, ptr %8, align 8
-  %56 = load volatile i32, ptr %9, align 8
-  %57 = zext i32 %56 to i64
-  %58 = mul i64 %54, %57
-  %59 = icmp ugt i64 %58, %55
-  br i1 %59, label %10, label %.thread11
+.thread9:                                         ; preds = %32, %48
+  %51 = phi ptr [ %49, %48 ], [ %17, %32 ]
+  %52 = getelementptr inbounds i8, ptr %51, i64 1208
+  %53 = load volatile i64, ptr %52, align 8
+  %54 = load volatile i64, ptr %8, align 8
+  %55 = load volatile i32, ptr %9, align 8
+  %56 = zext i32 %55 to i64
+  %57 = mul i64 %53, %56
+  %58 = icmp ugt i64 %57, %54
+  br i1 %58, label %10, label %.thread11
 
-.thread11:                                        ; preds = %.thread, %49, %.thread9, %46
-  %60 = phi ptr [ null, %46 ], [ null, %.thread ], [ null, %49 ], [ %52, %.thread9 ]
+.thread11:                                        ; preds = %.thread, %48, %.thread9, %45
+  %59 = phi ptr [ null, %45 ], [ null, %.thread ], [ null, %48 ], [ %51, %.thread9 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
-  store volatile ptr %60, ptr %5, align 8
-  br label %61
+  store volatile ptr %59, ptr %5, align 8
+  br label %60
 
-61:                                               ; preds = %.thread11, %1
-  %62 = phi ptr [ %60, %.thread11 ], [ null, %1 ]
-  ret ptr %62
+60:                                               ; preds = %.thread11, %1
+  %61 = phi ptr [ %59, %.thread11 ], [ null, %1 ]
+  ret ptr %61
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @xprt_iter_next_entry_all(ptr noundef %0) #0 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %30, label %4
+  br i1 %3, label %29, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1129,43 +1127,42 @@ define internal ptr @xprt_iter_next_entry_all(ptr noundef %0) #0 align 16 {
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %4, %26
-  %10 = phi ptr [ %27, %26 ], [ %8, %4 ]
-  %11 = phi ptr [ %13, %26 ], [ null, %4 ]
-  %12 = phi i8 [ %15, %26 ], [ 0, %4 ]
+.preheader:                                       ; preds = %4, %25
+  %10 = phi ptr [ %26, %25 ], [ %8, %4 ]
+  %11 = phi ptr [ %13, %25 ], [ null, %4 ]
+  %12 = phi i8 [ %15, %25 ], [ 0, %4 ]
   %13 = getelementptr i8, ptr %10, i64 -1056
   %14 = icmp eq ptr %11, %6
   %15 = select i1 %14, i8 1, i8 %12
-  %16 = and i8 %15, 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %26, label %18
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %25, label %17
 
-18:                                               ; preds = %.preheader
-  %19 = load volatile i32, ptr %13, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %26, label %21
+17:                                               ; preds = %.preheader
+  %18 = load volatile i32, ptr %13, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %25, label %20
 
-21:                                               ; preds = %18
-  %22 = getelementptr i8, ptr %10, i64 -24
-  %23 = load volatile i64, ptr %22, align 8
-  %24 = and i64 %23, 128
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %.loopexit, label %26
+20:                                               ; preds = %17
+  %21 = getelementptr i8, ptr %10, i64 -24
+  %22 = load volatile i64, ptr %21, align 8
+  %23 = and i64 %22, 128
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %.loopexit, label %25
 
-26:                                               ; preds = %21, %18, %.preheader
-  %27 = load volatile ptr, ptr %10, align 8
-  %28 = icmp eq ptr %27, %7
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !24
+25:                                               ; preds = %20, %17, %.preheader
+  %26 = load volatile ptr, ptr %10, align 8
+  %27 = icmp eq ptr %26, %7
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.loopexit:                                        ; preds = %26, %21, %4
-  %29 = phi ptr [ null, %4 ], [ null, %26 ], [ %13, %21 ]
+.loopexit:                                        ; preds = %25, %20, %4
+  %28 = phi ptr [ null, %4 ], [ null, %25 ], [ %13, %20 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
-  store volatile ptr %29, ptr %5, align 8
-  br label %30
+  store volatile ptr %28, ptr %5, align 8
+  br label %29
 
-30:                                               ; preds = %.loopexit, %1
-  %31 = phi ptr [ %29, %.loopexit ], [ null, %1 ]
-  ret ptr %31
+29:                                               ; preds = %.loopexit, %1
+  %30 = phi ptr [ %28, %.loopexit ], [ null, %1 ]
+  ret ptr %30
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
@@ -1214,43 +1211,42 @@ define internal ptr @xprt_iter_current_entry_offline(ptr noundef %0) #8 align 16
   %28 = icmp eq ptr %27, %5
   br i1 %28, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %26, %44
-  %29 = phi ptr [ %45, %44 ], [ %27, %26 ]
-  %30 = phi i8 [ %33, %44 ], [ 0, %26 ]
+.preheader:                                       ; preds = %26, %43
+  %29 = phi ptr [ %44, %43 ], [ %27, %26 ]
+  %30 = phi i8 [ %33, %43 ], [ 0, %26 ]
   %31 = getelementptr i8, ptr %29, i64 -1056
   %32 = icmp eq ptr %31, %7
   %33 = select i1 %32, i8 1, i8 %30
-  %34 = and i8 %33, 1
-  %35 = icmp eq i8 %34, 0
-  br i1 %35, label %44, label %36
+  %34 = icmp eq i8 %33, 0
+  br i1 %34, label %43, label %35
 
-36:                                               ; preds = %.preheader
-  %37 = load volatile i32, ptr %31, align 4
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.loopexit, label %39
+35:                                               ; preds = %.preheader
+  %36 = load volatile i32, ptr %31, align 4
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.loopexit, label %38
 
-39:                                               ; preds = %36
-  %40 = getelementptr i8, ptr %29, i64 -24
-  %41 = load volatile i64, ptr %40, align 8
-  %42 = and i64 %41, 128
-  %43 = icmp eq i64 %42, 0
-  br i1 %43, label %44, label %.loopexit
+38:                                               ; preds = %35
+  %39 = getelementptr i8, ptr %29, i64 -24
+  %40 = load volatile i64, ptr %39, align 8
+  %41 = and i64 %40, 128
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %.loopexit
 
-44:                                               ; preds = %39, %.preheader
-  %45 = load volatile ptr, ptr %29, align 8
-  %46 = icmp eq ptr %45, %5
-  br i1 %46, label %.loopexit, label %.preheader, !llvm.loop !22
+43:                                               ; preds = %38, %.preheader
+  %44 = load volatile ptr, ptr %29, align 8
+  %45 = icmp eq ptr %44, %5
+  br i1 %45, label %.loopexit, label %.preheader, !llvm.loop !22
 
-.loopexit:                                        ; preds = %44, %39, %36, %21, %18, %13, %26, %1
-  %47 = phi ptr [ null, %1 ], [ null, %26 ], [ %16, %18 ], [ null, %13 ], [ %16, %21 ], [ %31, %36 ], [ null, %44 ], [ %31, %39 ]
-  ret ptr %47
+.loopexit:                                        ; preds = %43, %38, %35, %21, %18, %13, %26, %1
+  %46 = phi ptr [ null, %1 ], [ null, %26 ], [ %16, %18 ], [ null, %13 ], [ %16, %21 ], [ %31, %35 ], [ null, %43 ], [ %31, %38 ]
+  ret ptr %46
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal ptr @xprt_iter_next_entry_offline(ptr noundef %0) #0 align 16 {
   %2 = load volatile ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %30, label %4
+  br i1 %3, label %29, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1261,43 +1257,42 @@ define internal ptr @xprt_iter_next_entry_offline(ptr noundef %0) #0 align 16 {
   %9 = icmp eq ptr %8, %7
   br i1 %9, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %4, %26
-  %10 = phi ptr [ %27, %26 ], [ %8, %4 ]
-  %11 = phi ptr [ %13, %26 ], [ null, %4 ]
-  %12 = phi i8 [ %15, %26 ], [ 0, %4 ]
+.preheader:                                       ; preds = %4, %25
+  %10 = phi ptr [ %26, %25 ], [ %8, %4 ]
+  %11 = phi ptr [ %13, %25 ], [ null, %4 ]
+  %12 = phi i8 [ %15, %25 ], [ 0, %4 ]
   %13 = getelementptr i8, ptr %10, i64 -1056
   %14 = icmp eq ptr %11, %6
   %15 = select i1 %14, i8 1, i8 %12
-  %16 = and i8 %15, 1
-  %17 = icmp eq i8 %16, 0
-  br i1 %17, label %26, label %18
+  %16 = icmp eq i8 %15, 0
+  br i1 %16, label %25, label %17
 
-18:                                               ; preds = %.preheader
-  %19 = load volatile i32, ptr %13, align 4
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %.loopexit, label %21
+17:                                               ; preds = %.preheader
+  %18 = load volatile i32, ptr %13, align 4
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %.loopexit, label %20
 
-21:                                               ; preds = %18
-  %22 = getelementptr i8, ptr %10, i64 -24
-  %23 = load volatile i64, ptr %22, align 8
-  %24 = and i64 %23, 128
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %.loopexit
+20:                                               ; preds = %17
+  %21 = getelementptr i8, ptr %10, i64 -24
+  %22 = load volatile i64, ptr %21, align 8
+  %23 = and i64 %22, 128
+  %24 = icmp eq i64 %23, 0
+  br i1 %24, label %25, label %.loopexit
 
-26:                                               ; preds = %21, %.preheader
-  %27 = load volatile ptr, ptr %10, align 8
-  %28 = icmp eq ptr %27, %7
-  br i1 %28, label %.loopexit, label %.preheader, !llvm.loop !24
+25:                                               ; preds = %20, %.preheader
+  %26 = load volatile ptr, ptr %10, align 8
+  %27 = icmp eq ptr %26, %7
+  br i1 %27, label %.loopexit, label %.preheader, !llvm.loop !24
 
-.loopexit:                                        ; preds = %26, %21, %18, %4
-  %29 = phi ptr [ null, %4 ], [ %13, %18 ], [ null, %26 ], [ %13, %21 ]
+.loopexit:                                        ; preds = %25, %20, %17, %4
+  %28 = phi ptr [ null, %4 ], [ %13, %17 ], [ null, %25 ], [ %13, %20 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !25
-  store volatile ptr %29, ptr %5, align 8
-  br label %30
+  store volatile ptr %28, ptr %5, align 8
+  br label %29
 
-30:                                               ; preds = %.loopexit, %1
-  %31 = phi ptr [ %29, %.loopexit ], [ null, %1 ]
-  ret ptr %31
+29:                                               ; preds = %.loopexit, %1
+  %30 = phi ptr [ %28, %.loopexit ], [ null, %1 ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

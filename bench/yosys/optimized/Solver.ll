@@ -3846,7 +3846,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.loopexit, %.lr.ph.
   %323 = sext i32 %322 to i64
   %324 = getelementptr inbounds %"struct.Minisat::Solver::VarData", ptr %319, i64 %323, i32 1
   %325 = load i32, ptr %324, align 4
-  %326 = sext i32 %.0108170 to i64
+  %326 = zext nneg i32 %.0108170 to i64
   %327 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.pre213, i64 %326
   %.sroa.06.0.copyload = load i32, ptr %327, align 4
   %328 = ashr i32 %.sroa.06.0.copyload, 1
@@ -3861,7 +3861,7 @@ _ZN7Minisat3vecINS_3LitEiE6shrinkEi.exit:         ; preds = %.loopexit, %.lr.ph.
   br i1 %exitcond203.not, label %._crit_edge.loopexit, label %320, !llvm.loop !32
 
 ._crit_edge.loopexit:                             ; preds = %320
-  %334 = sext i32 %spec.select to i64
+  %334 = zext nneg i32 %spec.select to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
@@ -9682,7 +9682,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.02425.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %7 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %indvars.iv31.i
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 4
-  %8 = sext i32 %.02425.i to i64
+  %8 = zext nneg i32 %.02425.i to i64
   %9 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %8
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4
   %10 = icmp slt i32 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
@@ -9696,7 +9696,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %12 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %indvars.iv34.i
   %.sroa.02.0.copyload.i = load i32, ptr %12, align 4
-  %13 = sext i32 %spec.select.i to i64
+  %13 = zext nneg i32 %spec.select.i to i64
   %14 = getelementptr inbounds %"struct.Minisat::Lit", ptr %.tr.lcssa, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %12, align 4

@@ -17486,7 +17486,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.lr.ph: ; pre
 
 _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.lr.ph, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
   %.sroa.018.031 = phi i32 [ %1, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.lr.ph ], [ %.sroa.015.0.extract.trunc, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
-  %.sroa.217.030 = phi i8 [ 0, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.lr.ph ], [ 1, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
+  %.sroa.217.030 = phi i64 [ 0, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.lr.ph ], [ 4294967296, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
   %.sroa.016.029 = phi i64 [ 0, %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit.lr.ph ], [ %.sroa.2.0.extract.shift, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
   %7 = load ptr, ptr %6, align 8
   %8 = call i32 @_ZNK5clang13SourceManager22getSpellingLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %7, i32 %.sroa.018.031) #22
@@ -17522,18 +17522,18 @@ _ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not
 
 .critedge:                                        ; preds = %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, %2, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit.thread
   %.sroa.016.028 = phi i64 [ %.sroa.016.029, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit.thread ], [ 0, %2 ], [ %.sroa.016.029, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ %.sroa.2.0.extract.shift, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
-  %.sroa.217.026 = phi i8 [ %.sroa.217.030, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit.thread ], [ 0, %2 ], [ %.sroa.217.030, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ 1, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
+  %.sroa.217.026 = phi i64 [ %.sroa.217.030, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit.thread ], [ 0, %2 ], [ %.sroa.217.030, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ 4294967296, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
   %.sroa.018.024 = phi i32 [ %.sroa.018.031, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit.thread ], [ %1, %2 ], [ %.sroa.018.031, %_ZNK5clang13SourceManager23isWrittenInScratchSpaceENS_14SourceLocationE.exit ], [ %.sroa.015.0.extract.trunc, %_ZNSt8optionalIN5clang14SourceLocationEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
   store i32 %.sroa.018.024, ptr %3, align 8
-  %.sroa.217.0.insert.ext = zext nneg i8 %.sroa.217.026 to i64
-  %.sroa.217.0.insert.shift = shl nuw nsw i64 %.sroa.217.0.insert.ext, 32
-  %.sroa.016.0.insert.insert = add nuw nsw i64 %.sroa.217.0.insert.shift, %.sroa.016.028
+  %.sroa.016.0.insert.insert = or disjoint i64 %.sroa.217.026, %.sroa.016.028
   %.4..4..4..4..4..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
   store i64 %.sroa.016.0.insert.insert, ptr %.4..4..4..4..4..sroa_idx, align 4
   %.0..0..0..0..0..sroa.0.0.copyload.i = load i64, ptr %3, align 8
+  %16 = lshr exact i64 %.sroa.217.026, 32
+  %17 = trunc nuw nsw i64 %16 to i8
   %.fca.0.insert.i = insertvalue { i64, i8 } poison, i64 %.0..0..0..0..0..sroa.0.0.copyload.i, 0
-  %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %.sroa.217.026, 1
+  %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %17, 1
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
   ret { i64, i8 } %.fca.1.insert.i
 }

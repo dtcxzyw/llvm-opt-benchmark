@@ -6076,7 +6076,7 @@ thread-pre-split:                                 ; preds = %_ZN5Gluco3vecINS_3L
   %500 = sext i32 %499 to i64
   %501 = getelementptr inbounds %"struct.Gluco::Solver::VarData", ptr %496, i64 %500, i32 1
   %502 = load i32, ptr %501, align 4
-  %503 = sext i32 %.0185328 to i64
+  %503 = zext nneg i32 %.0185328 to i64
   %504 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.pre405, i64 %503
   %.sroa.015.0.copyload = load i32, ptr %504, align 4
   %505 = ashr i32 %.sroa.015.0.copyload, 1
@@ -6091,7 +6091,7 @@ thread-pre-split:                                 ; preds = %_ZN5Gluco3vecINS_3L
   br i1 %exitcond382.not, label %._crit_edge330.loopexit, label %497, !llvm.loop !45
 
 ._crit_edge330.loopexit:                          ; preds = %497
-  %511 = sext i32 %spec.select to i64
+  %511 = zext nneg i32 %spec.select to i64
   br label %._crit_edge330
 
 ._crit_edge330:                                   ; preds = %._crit_edge330.loopexit, %.preheader264
@@ -13035,7 +13035,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.02425.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %7 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.tr.lcssa, i64 %indvars.iv31.i
   %.sroa.01.0.copyload.i = load i32, ptr %7, align 4
-  %8 = sext i32 %.02425.i to i64
+  %8 = zext nneg i32 %.02425.i to i64
   %9 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.tr.lcssa, i64 %8
   %.sroa.0.0.copyload.i = load i32, ptr %9, align 4
   %10 = icmp slt i32 %.sroa.01.0.copyload.i, %.sroa.0.0.copyload.i
@@ -13049,7 +13049,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %12 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.tr.lcssa, i64 %indvars.iv34.i
   %.sroa.02.0.copyload.i = load i32, ptr %12, align 4
-  %13 = sext i32 %spec.select.i to i64
+  %13 = zext nneg i32 %spec.select.i to i64
   %14 = getelementptr inbounds %"struct.Gluco::Lit", ptr %.tr.lcssa, i64 %13
   %15 = load i32, ptr %14, align 4
   store i32 %15, ptr %12, align 4

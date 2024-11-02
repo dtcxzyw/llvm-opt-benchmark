@@ -194,7 +194,7 @@ while.body.i:                                     ; preds = %entry, %while.body.
   %div8.limit.0.i = select i1 %cmp6.i, i32 %div8.i, i32 %limit.011.i
   %start.0.div8.i = select i1 %cmp6.i, i32 %start.012.i, i32 %div8.i
   %add.i = add nuw nsw i32 %start.0.div8.i, 1
-  %cmp.i = icmp slt i32 %add.i, %div8.limit.0.i
+  %cmp.i = icmp samesign ult i32 %add.i, %div8.limit.0.i
   br i1 %cmp.i, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !4
 
 while.end.loopexit.i:                             ; preds = %while.body.i
@@ -4106,7 +4106,7 @@ while.body.i:                                     ; preds = %if.end, %while.body
   %div8.limit.0.i = select i1 %cmp6.i, i32 %div8.i, i32 %limit.011.i
   %start.0.div8.i = select i1 %cmp6.i, i32 %start.012.i, i32 %div8.i
   %add.i = add nuw nsw i32 %start.0.div8.i, 1
-  %cmp.i3 = icmp slt i32 %add.i, %div8.limit.0.i
+  %cmp.i3 = icmp samesign ult i32 %add.i, %div8.limit.0.i
   br i1 %cmp.i3, label %while.body.i, label %while.end.loopexit.i, !llvm.loop !4
 
 while.end.loopexit.i:                             ; preds = %while.body.i

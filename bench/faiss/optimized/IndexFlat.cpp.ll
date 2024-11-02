@@ -2219,7 +2219,7 @@ define internal void @_ZNK5faiss11IndexFlat1D6searchElPKflPfPlPKNS_16SearchParam
   %..197 = select i1 %67, i64 %62, i64 %.197129
   %.1. = select i1 %67, i64 %.1130, i64 %62
   %68 = add nuw nsw i64 %.1., 1
-  %69 = icmp slt i64 %68, %..197
+  %69 = icmp samesign ult i64 %68, %..197
   br i1 %69, label %.lr.ph, label %.preheader119, !llvm.loop !7
 
 .lr.ph135:                                        ; preds = %.preheader119, %98

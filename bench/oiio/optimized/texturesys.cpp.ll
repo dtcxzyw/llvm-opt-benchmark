@@ -47139,10 +47139,9 @@ if.end20:                                         ; preds = %for.end
   br i1 %cmp21.not, label %for.body58.lr.ph, label %for.cond23.preheader
 
 for.cond23.preheader:                             ; preds = %if.end20
-  %idxprom.i92 = sext i32 %pivot.1 to i64
-  %arrayidx.i93 = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 %idxprom.i92
+  %arrayidx.i93 = getelementptr inbounds [4 x [4 x float]], ptr %t, i64 0, i64 %23
   %arrayidx.i99 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 %indvars.iv197
-  %arrayidx.i101 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 %idxprom.i92
+  %arrayidx.i101 = getelementptr inbounds [4 x [4 x float]], ptr %s, i64 0, i64 %23
   br label %for.body25
 
 for.body25:                                       ; preds = %for.cond23.preheader, %for.body25

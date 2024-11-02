@@ -1980,7 +1980,7 @@ for.body.i1400:                                   ; preds = %if.end486, %for.bod
   %arrayidx.i1402 = getelementptr inbounds i8, ptr %kems_doit, i64 %i.06.i1401
   %104 = load i8, ptr %arrayidx.i1402, align 1
   %conv.i1403 = zext i8 %104 to i32
-  %spec.select.i1404 = call i32 @llvm.smax.i32(i32 %maxcnt.07.i, i32 %conv.i1403)
+  %spec.select.i1404 = call i32 @llvm.umax.i32(i32 %maxcnt.07.i, i32 %conv.i1403)
   %inc.i1405 = add nuw i64 %i.06.i1401, 1
   %exitcond.not.i1406 = icmp eq i64 %inc.i1405, %103
   br i1 %exitcond.not.i1406, label %get_max.exit, label %for.body.i1400, !llvm.loop !16
@@ -2012,7 +2012,7 @@ for.body.i1407:                                   ; preds = %if.end506, %for.bod
   %arrayidx.i1410 = getelementptr inbounds i8, ptr %sigs_doit, i64 %i.06.i1409
   %107 = load i8, ptr %arrayidx.i1410, align 1
   %conv.i1411 = zext i8 %107 to i32
-  %spec.select.i1412 = call i32 @llvm.smax.i32(i32 %maxcnt.07.i1408, i32 %conv.i1411)
+  %spec.select.i1412 = call i32 @llvm.umax.i32(i32 %maxcnt.07.i1408, i32 %conv.i1411)
   %inc.i1413 = add nuw i64 %i.06.i1409, 1
   %exitcond.not.i1414 = icmp eq i64 %inc.i1413, %106
   br i1 %exitcond.not.i1414, label %get_max.exit1415, label %for.body.i1407, !llvm.loop !16

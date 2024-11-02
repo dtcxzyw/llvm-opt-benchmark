@@ -480,9 +480,8 @@ ctucan_update_txnf.exit:                          ; preds = %for.body.i
   %status.i = getelementptr inbounds i8, ptr %s, i64 4
   %bf.load.i = load i32, ptr %status.i, align 4
   %bf.value.i = shl nuw nsw i32 %spec.select.i, 2
-  %bf.shl.i = and i32 %bf.value.i, 4
   %bf.clear.i = and i32 %bf.load.i, -5
-  %bf.set.i = or disjoint i32 %bf.clear.i, %bf.shl.i
+  %bf.set.i = or disjoint i32 %bf.clear.i, %bf.value.i
   store i32 %bf.set.i, ptr %status.i, align 4
   br label %sw.epilog
 

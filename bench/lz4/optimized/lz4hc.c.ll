@@ -11493,7 +11493,7 @@ for.body.i.i2386:                                 ; preds = %if.then137.i.i2373,
   %conv146.i.i2391 = zext i16 %31 to i32
   %inc.i.i2392 = add nsw i32 %accel.i.i1864.02684, 1
   %shr.i.i2393 = ashr i32 %accel.i.i1864.02684, 4
-  %cmp147.i.i2394 = icmp ult i32 %distanceToNextMatch.i.i1861.02685, %conv146.i.i2391
+  %cmp147.i.i2394 = icmp samesign ult i32 %distanceToNextMatch.i.i1861.02685, %conv146.i.i2391
   %accel.i.i1864.1 = select i1 %cmp147.i.i2394, i32 16, i32 %inc.i.i2392
   %distanceToNextMatch.i.i1861.1 = tail call i32 @llvm.umax.i32(i32 %distanceToNextMatch.i.i1861.02685, i32 %conv146.i.i2391)
   %matchChainPos.i.i1848.3 = select i1 %cmp147.i.i2394, i32 %pos.i.i1865.02683, i32 %matchChainPos.i.i1848.22686
@@ -11502,7 +11502,7 @@ for.body.i.i2386:                                 ; preds = %if.then137.i.i2373,
   br i1 %cmp140.i.i2377, label %for.body.i.i2386, label %for.end.i.i2378, !llvm.loop !17
 
 for.end.i.i2378:                                  ; preds = %for.body.i.i2386
-  %cmp152.i.i2379 = icmp ugt i32 %distanceToNextMatch.i.i1861.1, 1
+  %cmp152.i.i2379 = icmp samesign ugt i32 %distanceToNextMatch.i.i1861.1, 1
   br i1 %cmp152.i.i2379, label %if.then154.i.i2381, label %if.end162.i.i2195
 
 if.then154.i.i2381:                               ; preds = %for.end.i.i2378
@@ -12963,7 +12963,7 @@ for.body.i.i1295:                                 ; preds = %if.then137.i.i1282,
   %conv146.i.i1300 = zext i16 %125 to i32
   %inc.i.i1301 = add nsw i32 %accel.i.i773.02769, 1
   %shr.i.i1302 = ashr i32 %accel.i.i773.02769, 4
-  %cmp147.i.i1303 = icmp ult i32 %distanceToNextMatch.i.i770.02770, %conv146.i.i1300
+  %cmp147.i.i1303 = icmp samesign ult i32 %distanceToNextMatch.i.i770.02770, %conv146.i.i1300
   %accel.i.i773.1 = select i1 %cmp147.i.i1303, i32 16, i32 %inc.i.i1301
   %distanceToNextMatch.i.i770.1 = tail call i32 @llvm.umax.i32(i32 %distanceToNextMatch.i.i770.02770, i32 %conv146.i.i1300)
   %matchChainPos.i.i757.3 = select i1 %cmp147.i.i1303, i32 %pos.i.i774.02768, i32 %matchChainPos.i.i757.22771
@@ -12972,7 +12972,7 @@ for.body.i.i1295:                                 ; preds = %if.then137.i.i1282,
   br i1 %cmp140.i.i1286, label %for.body.i.i1295, label %for.end.i.i1287, !llvm.loop !17
 
 for.end.i.i1287:                                  ; preds = %for.body.i.i1295
-  %cmp152.i.i1288 = icmp ugt i32 %distanceToNextMatch.i.i770.1, 1
+  %cmp152.i.i1288 = icmp samesign ugt i32 %distanceToNextMatch.i.i770.1, 1
   br i1 %cmp152.i.i1288, label %if.then154.i.i1290, label %if.end162.i.i1104
 
 if.then154.i.i1290:                               ; preds = %for.end.i.i1287
@@ -14159,7 +14159,7 @@ for.body.i.i:                                     ; preds = %if.then137.i.i, %fo
   %conv146.i.i = zext i16 %191 to i32
   %inc.i.i = add nsw i32 %accel.i.i.02844, 1
   %shr.i.i = ashr i32 %accel.i.i.02844, 4
-  %cmp147.i.i = icmp ult i32 %distanceToNextMatch.i.i.02843, %conv146.i.i
+  %cmp147.i.i = icmp samesign ult i32 %distanceToNextMatch.i.i.02843, %conv146.i.i
   %matchChainPos.i.i.3 = select i1 %cmp147.i.i, i32 %pos.i.i.02845, i32 %matchChainPos.i.i.22842
   %distanceToNextMatch.i.i.1 = tail call i32 @llvm.umax.i32(i32 %distanceToNextMatch.i.i.02843, i32 %conv146.i.i)
   %accel.i.i.1 = select i1 %cmp147.i.i, i32 16, i32 %inc.i.i
@@ -14168,7 +14168,7 @@ for.body.i.i:                                     ; preds = %if.then137.i.i, %fo
   br i1 %cmp140.i.i, label %for.body.i.i, label %for.end.i.i, !llvm.loop !17
 
 for.end.i.i:                                      ; preds = %for.body.i.i
-  %cmp152.i.i = icmp ugt i32 %distanceToNextMatch.i.i.1, 1
+  %cmp152.i.i = icmp samesign ugt i32 %distanceToNextMatch.i.i.1, 1
   br i1 %cmp152.i.i, label %if.then154.i.i, label %if.end162.i.i
 
 if.then154.i.i:                                   ; preds = %for.end.i.i

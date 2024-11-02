@@ -825,21 +825,20 @@ define internal fastcc i32 @stop_cpus(ptr nocapture noundef readonly %0, ptr nou
   br label %43
 
 43:                                               ; preds = %40, %.thread
-  %44 = and i8 %.lcssa, 1
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %49, label %46
+  %44 = icmp eq i8 %.lcssa, 0
+  br i1 %44, label %48, label %45
 
-46:                                               ; preds = %43
+45:                                               ; preds = %43
   call void @wait_for_completion(ptr noundef %7) #13
-  %47 = getelementptr inbounds i8, ptr %3, i64 4
-  %48 = load i32, ptr %47, align 4
-  br label %49
+  %46 = getelementptr inbounds i8, ptr %3, i64 4
+  %47 = load i32, ptr %46, align 4
+  br label %48
 
-49:                                               ; preds = %46, %43
-  %50 = phi i32 [ %48, %46 ], [ -2, %43 ]
+48:                                               ; preds = %45, %43
+  %49 = phi i32 [ %47, %45 ], [ -2, %43 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #13
   call void @mutex_unlock(ptr noundef nonnull @stop_cpus_mutex) #13
-  ret i32 %50
+  ret i32 %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

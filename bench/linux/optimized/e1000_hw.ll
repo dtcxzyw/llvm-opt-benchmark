@@ -4241,8 +4241,8 @@ define internal fastcc range(i32 -2, 1) i32 @e1000_config_dsp_after_link_change(
 71:                                               ; preds = %61
   %72 = icmp eq i32 %65, 0
   %73 = select i1 %72, i16 %57, i16 100
-  %74 = add nuw i16 %58, 1
-  %75 = icmp ult i16 %74, %73
+  %74 = add nuw nsw i16 %58, 1
+  %75 = icmp samesign ult i16 %74, %73
   br i1 %75, label %.preheader37, label %.loopexit, !llvm.loop !33
 
 .thread33:                                        ; preds = %.preheader37, %.preheader, %48, %20, %.thread, %53, %67

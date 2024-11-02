@@ -2065,7 +2065,7 @@ define void @Aig_ManChoiceLevel_rec(ptr noundef %0, ptr nocapture noundef %1) lo
   %28 = lshr i64 %.val81, 32
   %29 = trunc nuw i64 %28 to i32
   %30 = and i32 %29, 16777215
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.096, i32 %30)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.096, i32 %30)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %22, !llvm.loop !24
@@ -2227,7 +2227,7 @@ define range(i32 0, 16777216) i32 @Aig_ManChoiceLevel(ptr noundef %0) local_unna
   %33 = lshr i64 %.val46, 32
   %34 = trunc nuw i64 %33 to i32
   %35 = and i32 %34, 16777215
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.052, i32 %35)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.052, i32 %35)
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %36 = load ptr, ptr %20, align 8
   %37 = getelementptr i8, ptr %36, i64 4

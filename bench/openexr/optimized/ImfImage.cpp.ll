@@ -1052,7 +1052,7 @@ while.body.i3.i.i:                                ; preds = %cond.false.i.i, %wh
   br i1 %cmp.i6.i.i, label %while.body.i3.i.i, label %while.end.loopexit.i.i.i, !llvm.loop !11
 
 while.end.loopexit.i.i.i:                         ; preds = %while.body.i3.i.i
-  %20 = add nsw i32 %spec.select.i.i.i, %add.i4.i.i
+  %20 = add nuw nsw i32 %spec.select.i.i.i, %add.i4.i.i
   br label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i
 
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i: ; preds = %while.body.i.i.i, %while.end.loopexit.i.i.i, %cond.false.i.i, %cond.true.i.i, %sw.bb1.i
@@ -1101,7 +1101,7 @@ while.body.i3.i13.i:                              ; preds = %cond.false.i12.i, %
   br i1 %cmp.i6.i22.i, label %while.body.i3.i13.i, label %while.end.loopexit.i.i23.i, !llvm.loop !11
 
 while.end.loopexit.i.i23.i:                       ; preds = %while.body.i3.i13.i
-  %23 = add nsw i32 %spec.select.i.i19.i, %add.i4.i20.i
+  %23 = add nuw nsw i32 %spec.select.i.i19.i, %add.i4.i20.i
   br label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit32.i
 
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit32.i: ; preds = %while.body.i.i26.i, %while.end.loopexit.i.i23.i, %cond.false.i12.i, %cond.true.i25.i, %sw.bb10.i
@@ -1168,7 +1168,7 @@ while.body.i3.i.i71:                              ; preds = %cond.false.i.i70, %
   br i1 %cmp.i6.i.i80, label %while.body.i3.i.i71, label %while.end.loopexit.i.i.i81, !llvm.loop !11
 
 while.end.loopexit.i.i.i81:                       ; preds = %while.body.i3.i.i71
-  %28 = add nsw i32 %spec.select.i.i.i77, %add.i4.i.i78
+  %28 = add nuw nsw i32 %spec.select.i.i.i77, %add.i4.i.i78
   br label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i82
 
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i82: ; preds = %while.body.i.i.i86, %while.end.loopexit.i.i.i81, %cond.false.i.i70, %cond.true.i.i85, %sw.bb1.i57
@@ -1218,7 +1218,7 @@ while.body.i3.i13.i35:                            ; preds = %cond.false.i12.i34,
   br i1 %cmp.i6.i22.i44, label %while.body.i3.i13.i35, label %while.end.loopexit.i.i23.i45, !llvm.loop !11
 
 while.end.loopexit.i.i23.i45:                     ; preds = %while.body.i3.i13.i35
-  %31 = add nsw i32 %spec.select.i.i19.i41, %add.i4.i20.i42
+  %31 = add nuw nsw i32 %spec.select.i.i19.i41, %add.i4.i20.i42
   br label %_ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit32.i46
 
 _ZN7Imf_3_212_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit32.i46: ; preds = %while.body.i.i26.i51, %while.end.loopexit.i.i23.i45, %cond.false.i12.i34, %cond.true.i25.i50, %sw.bb10.i27

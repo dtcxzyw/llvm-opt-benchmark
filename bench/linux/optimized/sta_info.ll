@@ -2904,7 +2904,7 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -288
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
-  br i1 %5, label %120, label %6
+  br i1 %5, label %119, label %6
 
 6:                                                ; preds = %1
   %7 = getelementptr i8, ptr %0, i64 3496
@@ -3073,27 +3073,26 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %116, label %117, label %8, !llvm.loop !127
 
 117:                                              ; preds = %.thread11
-  %118 = and i8 %114, 1
-  %119 = icmp eq i8 %118, 0
-  br label %120
+  %118 = icmp eq i8 %114, 0
+  br label %119
 
-120:                                              ; preds = %117, %1
-  %121 = phi i1 [ true, %1 ], [ %119, %117 ]
+119:                                              ; preds = %117, %1
+  %120 = phi i1 [ true, %1 ], [ %118, %117 ]
   tail call void @__rcu_read_unlock() #18
-  %122 = getelementptr i8, ptr %0, i64 -436
-  %123 = load i8, ptr %122, align 4, !range !33, !noundef !34
-  %124 = icmp ne i8 %123, 0
-  %125 = select i1 %124, i1 true, i1 %121
-  br i1 %125, label %131, label %126
+  %121 = getelementptr i8, ptr %0, i64 -436
+  %122 = load i8, ptr %121, align 4, !range !33, !noundef !34
+  %123 = icmp ne i8 %122, 0
+  %124 = select i1 %123, i1 true, i1 %120
+  br i1 %124, label %130, label %125
 
-126:                                              ; preds = %120
-  %127 = load volatile i64, ptr @jiffies, align 64
-  %128 = add i64 %127, 10000
-  %129 = tail call i64 @round_jiffies(i64 noundef %128) #18
-  %130 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %129) #18
-  br label %131
+125:                                              ; preds = %119
+  %126 = load volatile i64, ptr @jiffies, align 64
+  %127 = add i64 %126, 10000
+  %128 = tail call i64 @round_jiffies(i64 noundef %127) #18
+  %129 = tail call i32 @mod_timer(ptr noundef %0, i64 noundef %128) #18
+  br label %130
 
-131:                                              ; preds = %126, %120
+130:                                              ; preds = %125, %119
   ret void
 }
 
@@ -3251,13 +3250,13 @@ define dso_local i32 @__sta_info_flush(ptr noundef %0, i1 noundef zeroext %1) lo
   %72 = phi i32 [ 0, %18 ], [ 0, %.thread ], [ %50, %49 ], [ %70, %69 ]
   %73 = load volatile ptr, ptr %3, align 8
   %74 = icmp eq ptr %73, %3
-  br i1 %74, label %120, label %75
+  br i1 %74, label %119, label %75
 
 75:                                               ; preds = %.loopexit11
   call void @synchronize_net() #18
   %76 = load ptr, ptr %3, align 8
   %77 = icmp eq ptr %76, %3
-  br i1 %77, label %119, label %.preheader10
+  br i1 %77, label %118, label %.preheader10
 
 .preheader10:                                     ; preds = %75, %.preheader10
   %78 = phi ptr [ %80, %.preheader10 ], [ %76, %75 ]
@@ -3273,65 +3272,64 @@ define dso_local i32 @__sta_info_flush(ptr noundef %0, i1 noundef zeroext %1) lo
   br i1 %86, label %87, label %.preheader10, !llvm.loop !138
 
 87:                                               ; preds = %.preheader10
-  %88 = and i8 %85, 1
-  %89 = icmp eq i8 %88, 0
+  %88 = icmp eq i8 %85, 0
   call void @ieee80211_recalc_min_chandef(ptr noundef %0, i32 noundef -1) #18
-  br i1 %89, label %90, label %120
+  br i1 %88, label %89, label %119
 
-90:                                               ; preds = %87
-  %91 = load ptr, ptr %4, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 5068
-  %93 = load i8, ptr %92, align 4, !range !33, !noundef !34
+89:                                               ; preds = %87
+  %90 = load ptr, ptr %4, align 8
+  %91 = getelementptr inbounds i8, ptr %0, i64 5068
+  %92 = load i8, ptr %91, align 4, !range !33, !noundef !34
   call void @__rcu_read_lock() #18
-  %94 = getelementptr inbounds i8, ptr %91, i64 1560
-  %95 = load volatile ptr, ptr %94, align 8
-  %96 = icmp eq ptr %95, %94
-  br i1 %96, label %.loopexit, label %.preheader
+  %93 = getelementptr inbounds i8, ptr %90, i64 1560
+  %94 = load volatile ptr, ptr %93, align 8
+  %95 = icmp eq ptr %94, %93
+  br i1 %95, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %90, %110
-  %97 = phi ptr [ %111, %110 ], [ %95, %90 ]
-  %98 = getelementptr inbounds i8, ptr %97, i64 80
-  %99 = load ptr, ptr %98, align 8
-  %100 = icmp eq ptr %99, %0
-  br i1 %100, label %101, label %110
+.preheader:                                       ; preds = %89, %109
+  %96 = phi ptr [ %110, %109 ], [ %94, %89 ]
+  %97 = getelementptr inbounds i8, ptr %96, i64 80
+  %98 = load ptr, ptr %97, align 8
+  %99 = icmp eq ptr %98, %0
+  br i1 %99, label %100, label %109
 
-101:                                              ; preds = %.preheader
-  %102 = getelementptr inbounds i8, ptr %97, i64 216
-  %103 = load volatile i64, ptr %102, align 8
-  %104 = and i64 %103, 2
-  %105 = icmp eq i64 %104, 0
-  br i1 %105, label %110, label %106
+100:                                              ; preds = %.preheader
+  %101 = getelementptr inbounds i8, ptr %96, i64 216
+  %102 = load volatile i64, ptr %101, align 8
+  %103 = and i64 %102, 2
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %109, label %105
 
-106:                                              ; preds = %101
-  %107 = getelementptr inbounds i8, ptr %97, i64 2720
-  %108 = load i8, ptr %107, align 8, !range !33, !noundef !34
-  %109 = icmp eq i8 %108, 0
-  br i1 %109, label %.loopexit, label %110
+105:                                              ; preds = %100
+  %106 = getelementptr inbounds i8, ptr %96, i64 2720
+  %107 = load i8, ptr %106, align 8, !range !33, !noundef !34
+  %108 = icmp eq i8 %107, 0
+  br i1 %108, label %.loopexit, label %109
 
-110:                                              ; preds = %106, %101, %.preheader
-  %111 = load volatile ptr, ptr %97, align 8
-  %112 = icmp eq ptr %111, %94
-  br i1 %112, label %.loopexit, label %.preheader, !llvm.loop !139
+109:                                              ; preds = %105, %100, %.preheader
+  %110 = load volatile ptr, ptr %96, align 8
+  %111 = icmp eq ptr %110, %93
+  br i1 %111, label %.loopexit, label %.preheader, !llvm.loop !139
 
-.loopexit:                                        ; preds = %110, %106, %90
-  %113 = phi i8 [ %93, %90 ], [ 0, %106 ], [ %93, %110 ]
+.loopexit:                                        ; preds = %109, %105, %89
+  %112 = phi i8 [ %92, %89 ], [ 0, %105 ], [ %92, %109 ]
   call void @__rcu_read_unlock() #18
-  %114 = getelementptr inbounds i8, ptr %0, i64 4394
-  %115 = load i8, ptr %114, align 2, !range !33, !noundef !34
-  %116 = icmp eq i8 %113, %115
-  br i1 %116, label %120, label %117
+  %113 = getelementptr inbounds i8, ptr %0, i64 4394
+  %114 = load i8, ptr %113, align 2, !range !33, !noundef !34
+  %115 = icmp eq i8 %112, %114
+  br i1 %115, label %119, label %116
 
-117:                                              ; preds = %.loopexit
-  store i8 %113, ptr %114, align 2
-  %118 = getelementptr inbounds i8, ptr %0, i64 3176
-  call void @ieee80211_link_info_change_notify(ptr noundef %0, ptr noundef %118, i64 noundef 524288) #18
-  br label %120
+116:                                              ; preds = %.loopexit
+  store i8 %112, ptr %113, align 2
+  %117 = getelementptr inbounds i8, ptr %0, i64 3176
+  call void @ieee80211_link_info_change_notify(ptr noundef %0, ptr noundef %117, i64 noundef 524288) #18
+  br label %119
 
-119:                                              ; preds = %75
+118:                                              ; preds = %75
   call void @ieee80211_recalc_min_chandef(ptr noundef %0, i32 noundef -1) #18
-  br label %120
+  br label %119
 
-120:                                              ; preds = %119, %117, %.loopexit, %87, %.loopexit11
+119:                                              ; preds = %118, %116, %.loopexit, %87, %.loopexit11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   ret i32 %72
 }

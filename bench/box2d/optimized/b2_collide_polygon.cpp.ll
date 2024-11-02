@@ -117,10 +117,10 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.exit: ; preds = %for.body.i, %if.end10
   %index.0.lcssa.i = phi i32 [ 0, %if.end10 ], [ %index.1.i, %for.body.i ]
   %m_vertices.i = getelementptr inbounds i8, ptr %poly2.0, i64 24
-  %add.i = add nsw i32 %index.0.lcssa.i, 1
+  %add.i = add nuw nsw i32 %index.0.lcssa.i, 1
   %cmp10.i = icmp slt i32 %add.i, %3
   %cond.i = select i1 %cmp10.i, i32 %add.i, i32 0
-  %idxprom13.i = sext i32 %index.0.lcssa.i to i64
+  %idxprom13.i = zext nneg i32 %index.0.lcssa.i to i64
   %arrayidx14.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices.i, i64 %idxprom13.i
   %15 = load float, ptr %arrayidx14.i, align 4
   %y.i33.i = getelementptr inbounds i8, ptr %arrayidx14.i, i64 4
@@ -145,7 +145,7 @@ _ZL18b2FindIncidentEdgeP12b2ClipVertexPK14b2PolygonShapeRK11b2TransformiS3_S6_.e
   store i8 1, ptr %typeA.i, align 2
   %typeB.i = getelementptr inbounds i8, ptr %incidentEdge, i64 11
   store i8 0, ptr %typeB.i, align 1
-  %idxprom26.i = sext i32 %cond.i to i64
+  %idxprom26.i = zext nneg i32 %cond.i to i64
   %arrayidx27.i = getelementptr inbounds %struct.b2Vec2, ptr %m_vertices.i, i64 %idxprom26.i
   %20 = load float, ptr %arrayidx27.i, align 4
   %y.i39.i = getelementptr inbounds i8, ptr %arrayidx27.i, i64 4

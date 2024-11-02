@@ -400,7 +400,7 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
   %.066.i.i = phi i32 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.preheader60.i.i ]
   %169 = getelementptr inbounds [94 x i32], ptr %6, i64 0, i64 %indvars.iv76.i.i
   %170 = load i32, ptr %169, align 4
-  %171 = sext i32 %.066.i.i to i64
+  %171 = zext nneg i32 %.066.i.i to i64
   %172 = getelementptr inbounds [94 x i32], ptr %6, i64 0, i64 %171
   %173 = load i32, ptr %172, align 4
   %174 = icmp slt i32 %170, %173
@@ -411,7 +411,7 @@ _ZL25ftype_is_bonded_potentiali.exit.thread.i:    ; preds = %.critedge.us.i, %.c
   br i1 %exitcond80.not.i.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
-  %176 = sext i32 %spec.select.i.i to i64
+  %176 = zext nneg i32 %spec.select.i.i to i64
   %177 = getelementptr inbounds %struct.ilist_data_t, ptr %7, i64 %176
   %178 = getelementptr inbounds i8, ptr %177, i64 12
   %179 = load i32, ptr %178, align 4

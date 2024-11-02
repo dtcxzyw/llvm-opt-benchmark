@@ -1725,8 +1725,8 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   %1165 = getelementptr inbounds [6 x i16], ptr %3, i64 0, i64 %indvars.iv2390.i
   %1166 = load i16, ptr %1165, align 2
   %1167 = zext i16 %1166 to i32
-  %1168 = icmp sgt i32 %.014792137.i, %1167
-  %spec.select1520.i = call i32 @llvm.smin.i32(i32 %.014792137.i, i32 %1167)
+  %1168 = icmp samesign ugt i32 %.014792137.i, %1167
+  %spec.select1520.i = call i32 @llvm.umin.i32(i32 %.014792137.i, i32 %1167)
   %1169 = trunc nuw nsw i64 %indvars.iv2390.i to i32
   %spec.select1521.i = select i1 %1168, i32 %1169, i32 %.014772138.i
   %indvars.iv.next2391.i = add nuw nsw i64 %indvars.iv2390.i, 1
@@ -1734,7 +1734,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br i1 %exitcond2394.not.i, label %1170, label %.loopexit1975.i, !llvm.loop !18
 
 1170:                                             ; preds = %.loopexit1975.i
-  %1171 = add nsw i32 %spec.select1520.i, %.014762145.i
+  %1171 = add nuw nsw i32 %spec.select1520.i, %.014762145.i
   %1172 = sext i32 %spec.select1521.i to i64
   %1173 = getelementptr inbounds [6 x i32], ptr %4, i64 0, i64 %1172
   %1174 = load i32, ptr %1173, align 4
@@ -2131,7 +2131,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
 
 ._crit_edge2149.loopexit.i:                       ; preds = %.loopexit1973.i
   %1490 = trunc nuw i64 %indvars.iv.next2401.i to i32
-  %1491 = sdiv i32 %1171, 8
+  %1491 = lshr i32 %1171, 3
   br label %._crit_edge2149.i
 
 ._crit_edge2149.i:                                ; preds = %._crit_edge2149.loopexit.i, %.loopexit1978.i
@@ -2257,8 +2257,8 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   %1526 = getelementptr inbounds [6 x [258 x i8]], ptr %441, i64 0, i64 %indvars.iv2430.i, i64 %indvars.iv2425.i
   %1527 = load i8, ptr %1526, align 1
   %1528 = zext i8 %1527 to i32
-  %spec.select1524.i = call i32 @llvm.smax.i32(i32 %.014922169.i, i32 %1528)
-  %.11489.i = call i32 @llvm.smin.i32(i32 %.014882170.i, i32 %1528)
+  %spec.select1524.i = call i32 @llvm.umax.i32(i32 %.014922169.i, i32 %1528)
+  %.11489.i = call i32 @llvm.umin.i32(i32 %.014882170.i, i32 %1528)
   %indvars.iv.next2426.i = add nuw nsw i64 %indvars.iv2425.i, 1
   %exitcond2429.not.i = icmp eq i64 %indvars.iv.next2426.i, %wide.trip.count.i122
   br i1 %exitcond2429.not.i, label %._crit_edge2173.i, label %.lr.ph2172.i, !llvm.loop !26
@@ -2272,7 +2272,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
   br label %1531
 
 1531:                                             ; preds = %1530, %._crit_edge2173.i
-  %1532 = icmp slt i32 %.11489.i, 1
+  %1532 = icmp eq i32 %.11489.i, 0
   br i1 %1532, label %1533, label %.thread.i
 
 1533:                                             ; preds = %1531
@@ -2281,7 +2281,7 @@ generateMTFValues.exit:                           ; preds = %.preheader.i, %._cr
 
 .thread.i:                                        ; preds = %1533, %1531, %.preheader1969.i
   %.01492.lcssa25322537.i = phi i32 [ %spec.select1524.i, %1533 ], [ %spec.select1524.i, %1531 ], [ 0, %.preheader1969.i ]
-  %.01488.lcssa25332536.i = phi i32 [ %.11489.i, %1533 ], [ %.11489.i, %1531 ], [ 32, %.preheader1969.i ]
+  %.01488.lcssa25332536.i = phi i32 [ 0, %1533 ], [ %.11489.i, %1531 ], [ 32, %.preheader1969.i ]
   %1534 = getelementptr inbounds [6 x [258 x i32]], ptr %1518, i64 0, i64 %indvars.iv2430.i
   %1535 = getelementptr inbounds [6 x [258 x i8]], ptr %441, i64 0, i64 %indvars.iv2430.i
   call void @BZ2_hbAssignCodes(ptr noundef nonnull %1534, ptr noundef nonnull %1535, i32 noundef %.01488.lcssa25332536.i, i32 noundef %.01492.lcssa25322537.i, i32 noundef %423) #10
@@ -5831,10 +5831,13 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8

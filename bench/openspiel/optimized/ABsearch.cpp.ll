@@ -939,7 +939,7 @@ define { i64, i32 } @_Z8EvaluatePK3posiPK10ThreadData(ptr nocapture noundef read
   br label %20
 
 20:                                               ; preds = %18, %16
-  %21 = sext i32 %.2 to i64
+  %21 = zext nneg i32 %.2 to i64
   %22 = getelementptr inbounds [4 x i32], ptr %2, i64 0, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 1

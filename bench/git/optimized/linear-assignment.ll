@@ -46,7 +46,7 @@ for.body14.preheader:                             ; preds = %for.cond11.preheade
 for.body14:                                       ; preds = %for.body14.preheader, %for.body14
   %indvars.iv = phi i64 [ 1, %for.body14.preheader ], [ %indvars.iv.next, %for.body14 ]
   %i1.0302 = phi i32 [ 0, %for.body14.preheader ], [ %spec.select, %for.body14 ]
-  %mul15 = mul nsw i32 %i1.0302, %column_count
+  %mul15 = mul nuw nsw i32 %i1.0302, %column_count
   %2 = sext i32 %mul15 to i64
   %arrayidx = getelementptr i32, ptr %1, i64 %2
   %3 = load i32, ptr %arrayidx, align 4
@@ -62,14 +62,14 @@ for.body14:                                       ; preds = %for.body14.preheade
 
 for.end:                                          ; preds = %for.body14, %for.cond11.preheader
   %i1.0.lcssa = phi i32 [ 0, %for.cond11.preheader ], [ %spec.select, %for.body14 ]
-  %mul24 = mul nsw i32 %i1.0.lcssa, %column_count
+  %mul24 = mul nuw nsw i32 %i1.0.lcssa, %column_count
   %7 = sext i32 %mul24 to i64
   %8 = getelementptr i32, ptr %cost, i64 %indvars.iv.next366
   %arrayidx27 = getelementptr i32, ptr %8, i64 %7
   %9 = load i32, ptr %arrayidx27, align 4
   %arrayidx29 = getelementptr inbounds i32, ptr %call8, i64 %indvars.iv.next366
   store i32 %9, ptr %arrayidx29, align 4
-  %idxprom30 = sext i32 %i1.0.lcssa to i64
+  %idxprom30 = zext nneg i32 %i1.0.lcssa to i64
   %arrayidx31 = getelementptr inbounds i32, ptr %row2column, i64 %idxprom30
   %10 = load i32, ptr %arrayidx31, align 4
   %cmp32 = icmp eq i32 %10, -1

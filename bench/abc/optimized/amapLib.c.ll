@@ -352,7 +352,7 @@ define range(i32 0, 256) i32 @Amap_LibNumPinsMax(ptr nocapture noundef readonly 
   %10 = getelementptr inbounds i8, ptr %9, i64 56
   %11 = load i32, ptr %10, align 8
   %12 = lshr i32 %11, 24
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.012, i32 %12)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.012, i32 %12)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %7, !llvm.loop !6
@@ -1270,7 +1270,7 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #18
+declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

@@ -6097,7 +6097,7 @@ define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr n
   %.048.i = phi i8 [ %spec.select.i, %.preheader.i37 ], [ 0, %.lr.ph.i35 ]
   %266 = getelementptr inbounds [11 x i32], ptr %191, i64 0, i64 %indvars.iv.i38
   %267 = load i32, ptr %266, align 4
-  %268 = zext i8 %.048.i to i64
+  %268 = zext nneg i8 %.048.i to i64
   %269 = getelementptr inbounds [11 x i32], ptr %191, i64 0, i64 %268
   %270 = load i32, ptr %269, align 4
   %271 = icmp slt i32 %267, %270

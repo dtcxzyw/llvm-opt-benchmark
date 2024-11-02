@@ -33977,8 +33977,8 @@ _ZN17cranelift_codegen6egraph9elaborate10Elaborator11start_block17he34d5aeaba804
   %.sroa.04.1.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 1, i32 %.sroa.04.0457.i.i.i.i
   %.sroa.6.1.i.i.i.i = select i1 %or.cond.i.i.i.i, i32 %1732, i32 %.sroa.6.0458.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %89), !noalias !5992
-  %switch77.i.i.i.i = icmp eq i32 %.sroa.04.1.i.i.i.i, 0
-  %storemerge.i.i.i.i = select i1 %switch77.i.i.i.i, i32 %1732, i32 %.sroa.6.1.i.i.i.i
+  %switch77.not.not.i.i.i.i = icmp eq i32 %.sroa.04.1.i.i.i.i, 0
+  %storemerge.i.i.i.i = select i1 %switch77.not.not.i.i.i.i, i32 %1732, i32 %.sroa.6.1.i.i.i.i
   store i32 %storemerge.i.i.i.i, ptr %89, align 4, !noalias !5992
   %1733 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8, !noalias !5992
   %1734 = icmp ult i64 %1733, 6

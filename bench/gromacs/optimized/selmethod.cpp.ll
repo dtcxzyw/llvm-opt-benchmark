@@ -1231,11 +1231,10 @@ define noundef range(i32 -1, 1) i32 @_Z35gmx_ana_selmethod_register_defaultsPN3g
   br i1 %exitcond.not, label %12, label %2, !llvm.loop !11
 
 12:                                               ; preds = %10
-  %13 = and i8 %spec.select, 1
-  %14 = xor i8 %13, 1
-  %15 = zext nneg i8 %14 to i32
-  %16 = sub nsw i32 0, %15
-  ret i32 %16
+  %13 = xor i8 %spec.select, 1
+  %14 = zext nneg i8 %13 to i32
+  %15 = sub nsw i32 0, %14
+  ret i32 %15
 }
 
 declare noundef ptr @_Z21gmx_ana_selparam_findPKciP18gmx_ana_selparam_t(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1

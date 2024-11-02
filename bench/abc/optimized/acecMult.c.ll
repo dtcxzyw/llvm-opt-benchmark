@@ -887,7 +887,7 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonl
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %.val25.i, i64 %31
   %33 = load i32, ptr %32, align 4
-  %34 = sext i32 %.02327.i to i64
+  %34 = zext nneg i32 %.02327.i to i64
   %35 = getelementptr inbounds i32, ptr %.val24.pre, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = sext i32 %36 to i64
@@ -904,7 +904,7 @@ define noalias noundef ptr @Acec_MultCollectInputs(ptr nocapture noundef readonl
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %42 = getelementptr inbounds i32, ptr %.val24.pre, i64 %indvars.iv35.i
   %43 = load i32, ptr %42, align 4
-  %44 = sext i32 %spec.select.i to i64
+  %44 = zext nneg i32 %spec.select.i to i64
   %45 = getelementptr inbounds i32, ptr %.val24.pre, i64 %44
   %46 = load i32, ptr %45, align 4
   store i32 %46, ptr %42, align 4
@@ -1428,7 +1428,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %239 = sext i32 %238 to i64
   %240 = getelementptr inbounds i32, ptr %.val25.i, i64 %239
   %241 = load i32, ptr %240, align 4
-  %242 = sext i32 %.02327.i to i64
+  %242 = zext nneg i32 %.02327.i to i64
   %243 = getelementptr inbounds i32, ptr %.val116, i64 %242
   %244 = load i32, ptr %243, align 4
   %245 = sext i32 %244 to i64
@@ -1445,7 +1445,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %indvars.iv.next36.i = add nuw nsw i64 %indvars.iv35.i, 1
   %250 = getelementptr inbounds i32, ptr %.val116, i64 %indvars.iv35.i
   %251 = load i32, ptr %250, align 4
-  %252 = sext i32 %spec.select.i to i64
+  %252 = zext nneg i32 %spec.select.i to i64
   %253 = getelementptr inbounds i32, ptr %.val116, i64 %252
   %254 = load i32, ptr %253, align 4
   store i32 %254, ptr %250, align 4

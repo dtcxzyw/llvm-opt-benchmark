@@ -3428,7 +3428,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i46, label %.lr.ph.i.i43, !llvm.loop !10
 
 ._crit_edge.i.i46:                                ; preds = %.noexc49
-  %502 = icmp ult i64 %spec.select.i.i45, 29
+  %502 = icmp samesign ult i64 %spec.select.i.i45, 29
   br i1 %502, label %_ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit.i, label %.tail37.thread.i.invoke
 
 _ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit.i: ; preds = %._crit_edge.i.i46
@@ -3559,7 +3559,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %exitcond.not.i109.i, label %._crit_edge.i110.i, label %.lr.ph.i102.i, !llvm.loop !10
 
 ._crit_edge.i110.i:                               ; preds = %.noexc57
-  %545 = icmp ult i64 %spec.select.i107.i, 6
+  %545 = icmp samesign ult i64 %spec.select.i107.i, 6
   br i1 %545, label %_ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit112.i, label %_ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit112.thread.i
 
 _ZN4LuauL10fuzzyMatchESt17basic_string_viewIcSt11char_traitsIcEEPPKcm.exit112.i: ; preds = %._crit_edge.i110.i

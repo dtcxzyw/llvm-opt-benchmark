@@ -2406,7 +2406,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %.critedge, %Vec_Int
   %103 = getelementptr inbounds i8, ptr %101, i64 20
   %104 = load i32, ptr %103, align 4
   %105 = lshr i32 %104, 12
-  %spec.select63 = tail call i32 @llvm.smax.i32(i32 %.395, i32 %105)
+  %spec.select63 = tail call i32 @llvm.umax.i32(i32 %.395, i32 %105)
   %106 = load i32, ptr %62, align 4
   %107 = icmp slt i32 %.35894, %106
   br i1 %107, label %108, label %126
@@ -10744,6 +10744,9 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #15

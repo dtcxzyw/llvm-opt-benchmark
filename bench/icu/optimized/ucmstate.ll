@@ -1342,7 +1342,7 @@ for.body13.i:                                     ; preds = %for.body13.i, %for.
   %trailState.0179.i = phi i32 [ 0, %for.body13.preheader.i ], [ %spec.select.i, %for.body13.i ]
   %arrayidx15.i = getelementptr inbounds [256 x i16], ptr %count.i, i64 0, i64 %indvars.iv232.i
   %8 = load i16, ptr %arrayidx15.i, align 2
-  %idxprom17.i = sext i32 %trailState.0179.i to i64
+  %idxprom17.i = zext nneg i32 %trailState.0179.i to i64
   %arrayidx18.i = getelementptr inbounds [256 x i16], ptr %count.i, i64 0, i64 %idxprom17.i
   %9 = load i16, ptr %arrayidx18.i, align 2
   %cmp20.i = icmp ugt i16 %8, %9
@@ -1539,7 +1539,6 @@ do.body.i:                                        ; preds = %if.end107.i
   %idxprom123.i = sext i32 %31 to i64
   %arrayidx124.i = getelementptr inbounds [128 x i32], ptr %stateFlags.i, i64 0, i64 %idxprom123.i
   store i32 0, ptr %arrayidx124.i, align 4
-  %idxprom129.i = sext i32 %trailState.0.lcssa.i to i64
   br label %for.body127.i
 
 for.cond153.preheader.i:                          ; preds = %for.body127.i
@@ -1548,7 +1547,7 @@ for.cond153.preheader.i:                          ; preds = %for.body127.i
 
 for.body127.i:                                    ; preds = %for.body127.i, %do.body.i
   %indvars.iv240.i = phi i64 [ 0, %do.body.i ], [ %indvars.iv.next241.i, %for.body127.i ]
-  %arrayidx132.i = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom129.i, i64 %indvars.iv240.i
+  %arrayidx132.i = getelementptr inbounds [128 x [256 x i32]], ptr %states, i64 0, i64 %idxprom43.i, i64 %indvars.iv240.i
   %32 = load i32, ptr %arrayidx132.i, align 4
   %33 = and i32 %32, 14680064
   %switch.i = icmp eq i32 %33, 4194304

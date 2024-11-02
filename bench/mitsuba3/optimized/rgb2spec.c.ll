@@ -177,7 +177,7 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   %.0114128 = phi i32 [ %.1, %.preheader ], [ 0, %15 ]
   %36 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %indvars.iv134
   %37 = load float, ptr %36, align 4
-  %38 = sext i32 %.0114128 to i64
+  %38 = zext nneg i32 %.0114128 to i64
   %39 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %38
   %40 = load float, ptr %39, align 4
   %41 = fcmp contract ult float %37, %40
@@ -188,21 +188,21 @@ define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture nou
   br i1 %exitcond137.not, label %43, label %.preheader, !llvm.loop !6
 
 43:                                               ; preds = %.preheader
-  %44 = sext i32 %.1 to i64
+  %44 = zext nneg i32 %.1 to i64
   %45 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %44
   %46 = load float, ptr %45, align 4
   %47 = add nsw i32 %5, -1
   %48 = sitofp i32 %47 to float
   %49 = fdiv contract float %48, %46
-  %50 = add nsw i32 %.1, 1
-  %51 = srem i32 %50, 3
-  %52 = sext i32 %51 to i64
+  %50 = add nuw nsw i32 %.1, 1
+  %51 = urem i32 %50, 3
+  %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %52
   %54 = load float, ptr %53, align 4
   %55 = fmul contract float %54, %49
-  %56 = add nsw i32 %.1, 2
-  %57 = srem i32 %56, 3
-  %58 = sext i32 %57 to i64
+  %56 = add nuw nsw i32 %.1, 2
+  %57 = urem i32 %56, 3
+  %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds [3 x float], ptr %4, i64 0, i64 %58
   %60 = load float, ptr %59, align 4
   %61 = fmul contract float %49, %60

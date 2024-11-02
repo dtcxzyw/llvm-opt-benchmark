@@ -8392,7 +8392,7 @@ _node_config_validate.exit:                       ; preds = %72, %136, %.loopexi
   %.0309.i = phi i32 [ 0, %72 ], [ %.2337.i, %.loopexit518.i ], [ %.10.i, %831 ], [ %.10.i, %791 ], [ %.10.i, %_valid_gres_type.exit.thread.i ], [ 22, %646 ], [ 22, %643 ], [ 22, %642 ], [ %.10.i, %_valid_gres_type.exit.i ], [ 22, %626 ], [ 22, %627 ], [ 22, %630 ], [ %.10.i, %.thread499.i ], [ 22, %_find_gres_type.exit.thread.i.i ], [ 22, %779 ], [ 22, %782 ], [ 22, %708 ], [ 22, %709 ], [ %.1336.ph.i, %136 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %832 = call i32 @llvm.smax.i32(i32 %.03874, i32 %.0309.i)
+  %832 = call i32 @llvm.umax.i32(i32 %.03874, i32 %.0309.i)
   %833 = getelementptr inbounds i8, ptr %.039, i64 4
   %834 = load i32, ptr %833, align 4
   %835 = load i32, ptr @gpu_plugin_id, align 4
@@ -28447,7 +28447,7 @@ define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr nocapture nou
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #23
+declare i32 @llvm.umax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #23
@@ -28465,7 +28465,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #23
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #23

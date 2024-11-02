@@ -27170,55 +27170,55 @@ declare void @ruby_debug_breakpoint() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @gc_verify_heap_pages_(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
-  %.pn68 = load ptr, ptr %1, align 8
-  %.not70 = icmp eq ptr %.pn68, %1
-  br i1 %.not70, label %._crit_edge76, label %.lr.ph75
+  %.pn69 = load ptr, ptr %1, align 8
+  %.not71 = icmp eq ptr %.pn69, %1
+  br i1 %.not71, label %._crit_edge77, label %.lr.ph76
 
-.lr.ph75:                                         ; preds = %2
+.lr.ph76:                                         ; preds = %2
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   br label %4
 
-4:                                                ; preds = %.lr.ph75, %85
-  %.pn72 = phi ptr [ %.pn68, %.lr.ph75 ], [ %.pn, %85 ]
-  %.071 = phi i32 [ 0, %.lr.ph75 ], [ %.1, %85 ]
-  %.01973 = getelementptr i8, ptr %.pn72, i64 -48
-  %5 = getelementptr i8, ptr %.pn72, i64 -8
-  %.02065 = load ptr, ptr %5, align 8
-  %.not2166 = icmp eq ptr %.02065, null
-  br i1 %.not2166, label %._crit_edge, label %.lr.ph
+4:                                                ; preds = %.lr.ph76, %84
+  %.pn73 = phi ptr [ %.pn69, %.lr.ph76 ], [ %.pn, %84 ]
+  %.072 = phi i32 [ 0, %.lr.ph76 ], [ %.1, %84 ]
+  %.01974 = getelementptr i8, ptr %.pn73, i64 -48
+  %5 = getelementptr i8, ptr %.pn73, i64 -8
+  %.02066 = load ptr, ptr %5, align 8
+  %.not2167 = icmp eq ptr %.02066, null
+  br i1 %.not2167, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %13
-  %.02067 = phi ptr [ %.020, %13 ], [ %.02065, %4 ]
-  %6 = load i64, ptr %.02067, align 8
+  %.02068 = phi ptr [ %.020, %13 ], [ %.02066, %4 ]
+  %6 = load i64, ptr %.02068, align 8
   %7 = and i64 %6, 31
   %.not22 = icmp eq i64 %7, 0
   br i1 %.not22, label %13, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = ptrtoint ptr %.02067 to i64
+  %9 = ptrtoint ptr %.02068 to i64
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call fastcc nonnull ptr @obj_type_name(i64 noundef %9)
   %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.203, ptr noundef nonnull %11) #58
   br label %13
 
 13:                                               ; preds = %8, %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %.02067, i64 8
+  %14 = getelementptr inbounds i8, ptr %.02068, i64 8
   %.020 = load ptr, ptr %14, align 8
   %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !182
 
 ._crit_edge:                                      ; preds = %13, %4
-  %15 = getelementptr i8, ptr %.pn72, i64 -36
+  %15 = getelementptr i8, ptr %.pn73, i64 -36
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 2
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %19, label %85
+  br i1 %18, label %19, label %84
 
 19:                                               ; preds = %._crit_edge
-  %20 = load i16, ptr %.01973, align 8
-  %21 = getelementptr i8, ptr %.pn72, i64 -16
+  %20 = load i16, ptr %.01974, align 8
+  %21 = getelementptr i8, ptr %.pn73, i64 -16
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr i8, ptr %.pn72, i64 -46
+  %23 = getelementptr i8, ptr %.pn73, i64 -46
   %24 = load i16, ptr %23, align 2
   %25 = sext i16 %24 to i64
   %26 = sext i16 %20 to i64
@@ -27228,9 +27228,9 @@ define internal fastcc void @gc_verify_heap_pages_(ptr nocapture noundef readonl
   br i1 %29, label %.lr.ph.i, label %._crit_edge._crit_edge.i.thread
 
 .lr.ph.i:                                         ; preds = %19
-  %30 = getelementptr i8, ptr %.pn72, i64 432
-  %31 = getelementptr i8, ptr %.pn72, i64 16
-  %32 = getelementptr i8, ptr %.pn72, i64 640
+  %30 = getelementptr i8, ptr %.pn73, i64 432
+  %31 = getelementptr i8, ptr %.pn73, i64 16
+  %32 = getelementptr i8, ptr %.pn73, i64 640
   br label %33
 
 33:                                               ; preds = %51, %.lr.ph.i
@@ -27280,78 +27280,78 @@ define internal fastcc void @gc_verify_heap_pages_(ptr nocapture noundef readonl
   br i1 %57, label %33, label %._crit_edge.i, !llvm.loop !183
 
 ._crit_edge.i:                                    ; preds = %51
-  %58 = icmp ne i32 %spec.select80.i, 1
-  %59 = load i16, ptr %3, align 8
-  %60 = and i16 %59, 2048
-  %.not.i = icmp ne i16 %60, 0
-  %brmerge = select i1 %.not.i, i1 true, i1 %58
+  %.not46 = icmp eq i32 %spec.select80.i, 0
+  %58 = load i16, ptr %3, align 8
+  %59 = and i16 %58, 2048
+  %.not.i = icmp ne i16 %59, 0
+  %brmerge = select i1 %.not.i, i1 true, i1 %.not46
   br i1 %brmerge, label %._crit_edge._crit_edge.i, label %.lr.ph96.i
 
-.lr.ph96.i:                                       ; preds = %._crit_edge.i, %73
-  %.05995.i = phi i64 [ %74, %73 ], [ %22, %._crit_edge.i ]
+.lr.ph96.i:                                       ; preds = %._crit_edge.i, %72
+  %.05995.i = phi i64 [ %73, %72 ], [ %22, %._crit_edge.i ]
   %.lhs.trunc83.i = trunc i64 %.05995.i to i16
-  %61 = udiv i16 %.lhs.trunc83.i, 40
-  %62 = udiv i16 %.lhs.trunc83.i, 2560
-  %.zext86.i = zext nneg i16 %62 to i64
-  %63 = getelementptr [26 x i64], ptr %32, i64 0, i64 %.zext86.i
-  %64 = load i64, ptr %63, align 8
-  %65 = and i16 %61, 63
-  %66 = zext nneg i16 %65 to i64
-  %67 = shl nuw i64 1, %66
-  %68 = and i64 %67, %64
-  %.not73.i = icmp eq i64 %68, 0
-  br i1 %.not73.i, label %73, label %69
+  %60 = udiv i16 %.lhs.trunc83.i, 40
+  %61 = udiv i16 %.lhs.trunc83.i, 2560
+  %.zext86.i = zext nneg i16 %61 to i64
+  %62 = getelementptr [26 x i64], ptr %32, i64 0, i64 %.zext86.i
+  %63 = load i64, ptr %62, align 8
+  %64 = and i16 %60, 63
+  %65 = zext nneg i16 %64 to i64
+  %66 = shl nuw i64 1, %65
+  %67 = and i64 %66, %63
+  %.not73.i = icmp eq i64 %67, 0
+  br i1 %.not73.i, label %72, label %68
 
-69:                                               ; preds = %.lr.ph96.i
-  %70 = load ptr, ptr @stderr, align 8
-  %71 = tail call fastcc nonnull ptr @obj_type_name(i64 noundef %.05995.i)
-  %72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %70, ptr noundef nonnull @.str.204, ptr noundef nonnull %71) #58
-  br label %73
+68:                                               ; preds = %.lr.ph96.i
+  %69 = load ptr, ptr @stderr, align 8
+  %70 = tail call fastcc nonnull ptr @obj_type_name(i64 noundef %.05995.i)
+  %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %69, ptr noundef nonnull @.str.204, ptr noundef nonnull %70) #58
+  br label %72
 
-73:                                               ; preds = %69, %.lr.ph96.i
-  %74 = add i64 %.05995.i, %26
-  %75 = icmp ult i64 %74, %28
-  br i1 %75, label %.lr.ph96.i, label %._crit_edge97.i, !llvm.loop !184
+72:                                               ; preds = %68, %.lr.ph96.i
+  %73 = add i64 %.05995.i, %26
+  %74 = icmp ult i64 %73, %28
+  br i1 %74, label %.lr.ph96.i, label %._crit_edge97.i, !llvm.loop !184
 
-._crit_edge97.i:                                  ; preds = %73
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.205, ptr noundef nonnull %.01973, i32 noundef %spec.select79.i, ptr noundef nonnull @.str.206) #54
+._crit_edge97.i:                                  ; preds = %72
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.205, ptr noundef nonnull %.01974, i32 noundef %spec.select79.i, ptr noundef nonnull @.str.206) #54
   unreachable
 
 ._crit_edge._crit_edge.i:                         ; preds = %._crit_edge.i
-  %76 = icmp eq i32 %.1.i, 1
-  %77 = and i8 %16, 4
-  %78 = icmp eq i8 %77, 0
-  %or.cond3.i = select i1 %78, i1 %76, i1 false
-  br i1 %or.cond3.i, label %79, label %._crit_edge._crit_edge.i.thread
+  %75 = icmp eq i32 %.1.i, 1
+  %76 = and i8 %16, 4
+  %77 = icmp eq i8 %76, 0
+  %or.cond3.i = select i1 %77, i1 %75, i1 false
+  br i1 %or.cond3.i, label %78, label %._crit_edge._crit_edge.i.thread
 
-79:                                               ; preds = %._crit_edge._crit_edge.i
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.207, ptr noundef nonnull %.01973, ptr noundef nonnull @.str.206) #54
+78:                                               ; preds = %._crit_edge._crit_edge.i
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.207, ptr noundef nonnull %.01974, ptr noundef nonnull @.str.206) #54
   unreachable
 
 ._crit_edge._crit_edge.i.thread:                  ; preds = %19, %._crit_edge._crit_edge.i
   %.067.lcssa.i2844 = phi i32 [ %.168.i, %._crit_edge._crit_edge.i ], [ 0, %19 ]
   %.062.lcssa.i3143 = phi i32 [ %spec.select79.i, %._crit_edge._crit_edge.i ], [ 0, %19 ]
-  %80 = getelementptr i8, ptr %.pn72, i64 -42
-  %81 = load i16, ptr %80, align 2
-  %82 = sext i16 %81 to i32
-  %.not74.i = icmp eq i32 %.067.lcssa.i2844, %82
-  br i1 %.not74.i, label %gc_verify_heap_page.exit, label %83
+  %79 = getelementptr i8, ptr %.pn73, i64 -42
+  %80 = load i16, ptr %79, align 2
+  %81 = sext i16 %80 to i32
+  %.not74.i = icmp eq i32 %.067.lcssa.i2844, %81
+  br i1 %.not74.i, label %gc_verify_heap_page.exit, label %82
 
-83:                                               ; preds = %._crit_edge._crit_edge.i.thread
-  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.208, ptr noundef nonnull %.01973, i32 noundef %82, i32 noundef %.067.lcssa.i2844) #54
+82:                                               ; preds = %._crit_edge._crit_edge.i.thread
+  tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.208, ptr noundef nonnull %.01974, i32 noundef %81, i32 noundef %.067.lcssa.i2844) #54
   unreachable
 
 gc_verify_heap_page.exit:                         ; preds = %._crit_edge._crit_edge.i.thread
-  %84 = add i32 %.062.lcssa.i3143, %.071
-  br label %85
+  %83 = add i32 %.062.lcssa.i3143, %.072
+  br label %84
 
-85:                                               ; preds = %._crit_edge, %gc_verify_heap_page.exit
-  %.1 = phi i32 [ %84, %gc_verify_heap_page.exit ], [ %.071, %._crit_edge ]
-  %.pn = load ptr, ptr %.pn72, align 8
+84:                                               ; preds = %._crit_edge, %gc_verify_heap_page.exit
+  %.1 = phi i32 [ %83, %gc_verify_heap_page.exit ], [ %.072, %._crit_edge ]
+  %.pn = load ptr, ptr %.pn73, align 8
   %.not = icmp eq ptr %.pn, %1
-  br i1 %.not, label %._crit_edge76, label %4, !llvm.loop !185
+  br i1 %.not, label %._crit_edge77, label %4, !llvm.loop !185
 
-._crit_edge76:                                    ; preds = %85, %2
+._crit_edge77:                                    ; preds = %84, %2
   ret void
 }
 

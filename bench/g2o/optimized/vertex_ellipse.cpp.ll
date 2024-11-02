@@ -772,21 +772,21 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIfEEKNS_6Matri
 define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_implINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEENS2_IfLi2ELi1ELi0ELi2ELi1EEENS2_IfLi1ELi1ELi0ELi1ELi1EEEEENS_15ComputationInfoERT0_RT1_lbRT_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 16 dereferenceable(16) %4) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
   %invariant.gep = getelementptr inbounds i8, ptr %0, i64 4
   %6 = shl i64 %2, 1
-  %invariant.gep99 = getelementptr i8, ptr %1, i64 -8
+  %invariant.gep100 = getelementptr i8, ptr %1, i64 -8
   %smax = tail call i64 @llvm.smax.i64(i64 %6, i64 0)
   %7 = or disjoint i64 %smax, 1
-  br label %.preheader94
+  br label %.preheader95
 
-.preheader94:                                     ; preds = %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit, %5
+.preheader95:                                     ; preds = %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit, %5
   %.072 = phi i64 [ 0, %5 ], [ %31, %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit ]
   %.070 = phi i64 [ 0, %5 ], [ %.171.lcssa, %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit ]
   %.069 = phi i64 [ 1, %5 ], [ %.1, %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit ]
   %8 = icmp slt i64 %.070, %.069
-  br i1 %8, label %.lr.ph, label %.preheader93.preheader
+  br i1 %8, label %.lr.ph, label %.preheader94.preheader
 
-.lr.ph:                                           ; preds = %.preheader94, %23
-  %.06898 = phi i64 [ %24, %23 ], [ %.070, %.preheader94 ]
-  %9 = getelementptr inbounds float, ptr %1, i64 %.06898
+.lr.ph:                                           ; preds = %.preheader95, %23
+  %.06899 = phi i64 [ %24, %23 ], [ %.070, %.preheader95 ]
+  %9 = getelementptr inbounds float, ptr %1, i64 %.06899
   %10 = load float, ptr %9, align 4
   %11 = tail call noundef float @llvm.fabs.f32(float %10)
   %12 = fcmp olt float %11, 0x3810000000000000
@@ -795,10 +795,10 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
 13:                                               ; preds = %.lr.ph
   %14 = fmul float %10, 0x4160000000000000
   %15 = fmul float %14, %14
-  %16 = getelementptr inbounds float, ptr %0, i64 %.06898
+  %16 = getelementptr inbounds float, ptr %0, i64 %.06899
   %17 = load float, ptr %16, align 4
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
-  %gep = getelementptr float, ptr %invariant.gep, i64 %.06898
+  %gep = getelementptr float, ptr %invariant.gep, i64 %.06899
   %19 = load float, ptr %gep, align 4
   %20 = tail call noundef float @llvm.fabs.f32(float %19)
   %21 = fadd float %18, %20
@@ -810,44 +810,44 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
   br label %23
 
 23:                                               ; preds = %.sink.split, %13
-  %24 = add nsw i64 %.06898, 1
+  %24 = add nsw i64 %.06899, 1
   %exitcond.not = icmp eq i64 %24, %.069
-  br i1 %exitcond.not, label %.preheader93.preheader, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.preheader94.preheader, label %.lr.ph, !llvm.loop !21
 
-.preheader93.preheader:                           ; preds = %23, %.preheader94
-  br label %.preheader93
+.preheader94.preheader:                           ; preds = %23, %.preheader95
+  br label %.preheader94
 
-.preheader93:                                     ; preds = %.preheader93.preheader, %26
-  %.1 = phi i64 [ %27, %26 ], [ %.069, %.preheader93.preheader ]
+.preheader94:                                     ; preds = %.preheader94.preheader, %26
+  %.1 = phi i64 [ %27, %26 ], [ %.069, %.preheader94.preheader ]
   %25 = icmp sgt i64 %.1, 0
   br i1 %25, label %26, label %.critedge.thread
 
-26:                                               ; preds = %.preheader93
+26:                                               ; preds = %.preheader94
   %27 = add nsw i64 %.1, -1
   %28 = getelementptr inbounds float, ptr %1, i64 %27
   %29 = load float, ptr %28, align 4
   %30 = fcmp oeq float %29, 0.000000e+00
-  br i1 %30, label %.preheader93, label %.critedge, !llvm.loop !22
+  br i1 %30, label %.preheader94, label %.critedge, !llvm.loop !22
 
 .critedge:                                        ; preds = %26
   %31 = add nuw nsw i64 %.072, 1
-  %exitcond116.not = icmp eq i64 %.072, %smax
-  br i1 %exitcond116.not, label %.critedge.thread, label %.preheader92
+  %exitcond118.not = icmp eq i64 %.072, %smax
+  br i1 %exitcond118.not, label %.critedge.thread, label %.preheader93
 
-.preheader92:                                     ; preds = %.critedge, %33
+.preheader93:                                     ; preds = %.critedge, %33
   %.171.in = phi i64 [ %.171, %33 ], [ %.1, %.critedge ]
   %32 = icmp ugt i64 %.171.in, 1
   br i1 %32, label %33, label %.critedge2
 
-33:                                               ; preds = %.preheader92
+33:                                               ; preds = %.preheader93
   %.171 = add nsw i64 %.171.in, -1
-  %gep100 = getelementptr float, ptr %invariant.gep99, i64 %.171.in
-  %34 = load float, ptr %gep100, align 4
+  %gep101 = getelementptr float, ptr %invariant.gep100, i64 %.171.in
+  %34 = load float, ptr %gep101, align 4
   %35 = fcmp une float %34, 0.000000e+00
-  br i1 %35, label %.preheader92, label %.critedge2, !llvm.loop !23
+  br i1 %35, label %.preheader93, label %.critedge2, !llvm.loop !23
 
-.critedge2:                                       ; preds = %.preheader92, %33
-  %.171.lcssa = phi i64 [ 0, %.preheader92 ], [ %.171, %33 ]
+.critedge2:                                       ; preds = %.preheader93, %33
+  %.171.lcssa = phi i64 [ 0, %.preheader93 ], [ %.171, %33 ]
   %36 = getelementptr inbounds float, ptr %0, i64 %27
   %37 = load float, ptr %36, align 4
   %38 = getelementptr inbounds float, ptr %0, i64 %.1
@@ -1041,8 +1041,8 @@ _ZN5Eigen14JacobiRotationIfE10makeGivensERKfS3_Pf.exit.i: ; preds = %101, %92, %
 .lr.ph.i.i.preheader.i.i:                         ; preds = %151
   %.idx = shl nsw i64 %116, 3
   %155 = getelementptr inbounds i8, ptr %4, i64 %.idx
-  %.idx91 = shl nsw i64 %.074110.i, 3
-  %156 = getelementptr inbounds i8, ptr %4, i64 %.idx91
+  %.idx92 = shl nsw i64 %.074110.i, 3
+  %156 = getelementptr inbounds i8, ptr %4, i64 %.idx92
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.preheader.i.i
@@ -1070,10 +1070,10 @@ _ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_6Stri
   br i1 %168, label %78, label %_ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit, !llvm.loop !25
 
 _ZN5Eigen8internalL19tridiagonal_qr_stepILi0EfflEEvPT0_S3_T2_S4_PT1_S4_.exit: ; preds = %_ZN5Eigen10MatrixBaseINS_3MapINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELi0ENS_6StrideILi0ELi0EEEEEE15applyOnTheRightIfEEvllRKNS_14JacobiRotationIT_EE.exit.i, %69
-  br label %.preheader94, !llvm.loop !26
+  br label %.preheader95, !llvm.loop !26
 
-.critedge.thread:                                 ; preds = %.critedge, %.preheader93
-  %.173 = phi i64 [ %.072, %.preheader93 ], [ %7, %.critedge ]
+.critedge.thread:                                 ; preds = %.critedge, %.preheader94
+  %.173 = phi i64 [ %.072, %.preheader94 ], [ %7, %.critedge ]
   %.not76.not = icmp sgt i64 %.173, %6
   br i1 %.not76.not, label %.loopexit, label %.preheader
 

@@ -1831,8 +1831,8 @@ define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef
   %.062112.i = phi i32 [ %.163.i, %.lr.ph.i ], [ %26, %24 ]
   %.064111.i = phi i32 [ %spec.select.i, %.lr.ph.i ], [ %26, %24 ]
   %29 = zext i8 %28 to i32
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.064111.i, i32 %29)
-  %.163.i = tail call i32 @llvm.smax.i32(i32 %.062112.i, i32 %29)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.064111.i, i32 %29)
+  %.163.i = tail call i32 @llvm.umax.i32(i32 %.062112.i, i32 %29)
   %30 = getelementptr i8, ptr %.0113.i, i64 1
   %31 = load i8, ptr %30, align 1
   %.not.i = icmp eq i8 %31, 0

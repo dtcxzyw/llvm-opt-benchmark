@@ -235,7 +235,7 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr nocaptu
   %86 = icmp sgt i32 %.lcssa164, 0
   %87 = getelementptr inbounds i8, ptr %0, i64 40
   %88 = getelementptr inbounds i8, ptr %0, i64 64
-  br i1 %86, label %.preheader.lr.ph.split.us, label %.preheader
+  br i1 %86, label %.preheader.lr.ph.split.us, label %.loopexit
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
   %89 = getelementptr inbounds i8, ptr %0, i64 56
@@ -307,19 +307,8 @@ define range(i32 -2147483648, 2147483646) i32 @Llb_MtrFindBestColumn(ptr nocaptu
   %116 = icmp sgt i32 %.087129.us, %.192.us
   br i1 %116, label %95, label %92
 
-.preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.2132 = phi i32 [ %spec.select167, %.preheader ], [ %.074.lcssa163, %.preheader.lr.ph ]
-  %.4131 = phi i32 [ %118, %.preheader ], [ %1, %.preheader.lr.ph ]
-  %.087129 = phi i32 [ %spec.select166, %.preheader ], [ 1000000000, %.preheader.lr.ph ]
-  %117 = icmp sgt i32 %.087129, 0
-  %spec.select166 = tail call i32 @llvm.smin.i32(i32 %.087129, i32 0)
-  %spec.select167 = select i1 %117, i32 %.4131, i32 %.2132
-  %118 = add nsw i32 %.4131, 1
-  %exitcond145.not = icmp eq i32 %118, %84
-  br i1 %exitcond145.not, label %.loopexit, label %.preheader, !llvm.loop !8
-
-.loopexit:                                        ; preds = %.preheader, %97, %.preheader101, %._crit_edge119
-  %.093 = phi i32 [ %.175, %._crit_edge119 ], [ %.074.lcssa163, %.preheader101 ], [ %.3.us, %97 ], [ %spec.select167, %.preheader ]
+.loopexit:                                        ; preds = %97, %.preheader.lr.ph, %.preheader101, %._crit_edge119
+  %.093 = phi i32 [ %.175, %._crit_edge119 ], [ %.074.lcssa163, %.preheader101 ], [ %1, %.preheader.lr.ph ], [ %.3.us, %97 ]
   ret i32 %.093
 }
 
@@ -331,7 +320,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   br i1 %.not, label %23, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #8
+  %6 = tail call i32 (...) @Abc_FrameIsBridgeMode() #7
   %.not8 = icmp eq i32 %6, 0
   br i1 %.not8, label %7, label %9
 
@@ -341,26 +330,26 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @stdout, align 8
-  %11 = tail call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef 7, ptr noundef nonnull @.str.3) #8
+  %11 = tail call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef 7, ptr noundef nonnull @.str.3) #7
   br label %12
 
 12:                                               ; preds = %9, %7
   call void @llvm.va_start.p0(ptr nonnull %3)
-  %13 = call i32 (...) @Abc_FrameIsBridgeMode() #8
+  %13 = call i32 (...) @Abc_FrameIsBridgeMode() #7
   %.not9 = icmp eq i32 %13, 0
   br i1 %.not9, label %20, label %14
 
 14:                                               ; preds = %12
-  %15 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #8
+  %15 = call ptr @vnsprintf(ptr noundef %1, ptr noundef nonnull %3) #7
   %16 = load ptr, ptr @stdout, align 8
-  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #9
+  %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #8
   %18 = trunc i64 %17 to i32
-  %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef %15) #8
-  call void @free(ptr noundef %15) #8
+  %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef %15) #7
+  call void @free(ptr noundef %15) #7
   br label %22
 
 20:                                               ; preds = %12
-  %21 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #8
+  %21 = call i32 @vprintf(ptr noundef %1, ptr noundef nonnull %3) #7
   br label %22
 
 22:                                               ; preds = %20, %14
@@ -587,7 +576,7 @@ define void @Llb_MtrSchedule(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %35, label %9, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %30, %1
-  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #8
+  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #7
   %36 = getelementptr inbounds i8, ptr %0, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 2
@@ -783,7 +772,7 @@ Llb_MtrSwapColumns.exit:                          ; preds = %Llb_MtrUseSelectedC
   br i1 %143, label %45, label %._crit_edge43, !llvm.loop !14
 
 ._crit_edge43:                                    ; preds = %Llb_MtrSwapColumns.exit, %._crit_edge
-  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #8
+  tail call void @Llb_MtrVerifyMatrix(ptr noundef nonnull %0) #7
   ret void
 }
 
@@ -813,9 +802,6 @@ declare void @llvm.va_start.p0(ptr) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #6
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #7
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -823,9 +809,8 @@ attributes #3 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true
 attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nounwind }
-attributes #9 = { nounwind willreturn memory(read) }
+attributes #7 = { nounwind }
+attributes #8 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

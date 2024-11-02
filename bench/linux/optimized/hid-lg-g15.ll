@@ -114,304 +114,303 @@ define internal i32 @lg_g15_probe(ptr noundef %0, ptr nocapture noundef readonly
   br i1 %19, label %20, label %.preheader15, !llvm.loop !5
 
 20:                                               ; preds = %.preheader15
-  %21 = and i8 %17, 1
-  %22 = icmp eq i8 %21, 0
-  br i1 %22, label %.thread, label %24
+  %21 = icmp eq i8 %17, 0
+  br i1 %21, label %.thread, label %23
 
 .thread:                                          ; preds = %8, %20
-  %23 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef 45) #10
+  %22 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef 45) #10
   br label %.loopexit13
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds i8, ptr %0, i64 6352
-  %26 = tail call noalias noundef dereferenceable_or_null(2664) ptr @devm_kmalloc(ptr noundef %25, i64 noundef 2664, i32 noundef 3520) #11
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %.loopexit13, label %28
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds i8, ptr %0, i64 6352
+  %25 = tail call noalias noundef dereferenceable_or_null(2664) ptr @devm_kmalloc(ptr noundef %24, i64 noundef 2664, i32 noundef 3520) #11
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %.loopexit13, label %27
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds i8, ptr %26, i64 24
-  tail call void @__mutex_init(ptr noundef %29, ptr noundef nonnull @.str.8, ptr noundef nonnull @lg_g15_probe.__key) #10
-  %30 = tail call ptr @devm_input_allocate_device(ptr noundef %25) #10
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %.loopexit13, label %32
+27:                                               ; preds = %23
+  %28 = getelementptr inbounds i8, ptr %25, i64 24
+  tail call void @__mutex_init(ptr noundef %28, ptr noundef nonnull @.str.8, ptr noundef nonnull @lg_g15_probe.__key) #10
+  %29 = tail call ptr @devm_input_allocate_device(ptr noundef %24) #10
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.loopexit13, label %31
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds i8, ptr %26, i64 96
-  store ptr %0, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
-  %35 = load i64, ptr %34, align 8
-  %36 = trunc i64 %35 to i32
-  %37 = getelementptr inbounds i8, ptr %26, i64 104
-  store i32 %36, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %26, i64 88
-  store ptr %30, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 664
-  store ptr %0, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 6472
-  store ptr %26, ptr %40, align 8
-  %41 = load i32, ptr %37, align 8
-  switch i32 %41, label %58 [
-    i32 0, label %42
-    i32 1, label %47
-    i32 2, label %52
-    i32 3, label %52
-    i32 4, label %57
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %25, i64 96
+  store ptr %0, ptr %32, align 8
+  %33 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = load i64, ptr %33, align 8
+  %35 = trunc i64 %34 to i32
+  %36 = getelementptr inbounds i8, ptr %25, i64 104
+  store i32 %35, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %25, i64 88
+  store ptr %29, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %29, i64 664
+  store ptr %0, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %0, i64 6472
+  store ptr %25, ptr %39, align 8
+  %40 = load i32, ptr %36, align 8
+  switch i32 %40, label %57 [
+    i32 0, label %41
+    i32 1, label %46
+    i32 2, label %51
+    i32 3, label %51
+    i32 4, label %56
   ]
 
-42:                                               ; preds = %32
-  %43 = getelementptr inbounds i8, ptr %26, i64 56
-  store i64 68719476704, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %26, i64 64
-  store volatile ptr %44, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %26, i64 72
-  store volatile ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %26, i64 80
-  store ptr @lg_g15_leds_changed_work, ptr %46, align 8
-  br label %58
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds i8, ptr %25, i64 56
+  store i64 68719476704, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %25, i64 64
+  store volatile ptr %43, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %25, i64 72
+  store volatile ptr %43, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %25, i64 80
+  store ptr @lg_g15_leds_changed_work, ptr %45, align 8
+  br label %57
 
-47:                                               ; preds = %32
-  %48 = getelementptr inbounds i8, ptr %26, i64 56
-  store i64 68719476704, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %26, i64 64
-  store volatile ptr %49, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %26, i64 72
-  store volatile ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %26, i64 80
-  store ptr @lg_g15_leds_changed_work, ptr %51, align 8
-  br label %58
+46:                                               ; preds = %31
+  %47 = getelementptr inbounds i8, ptr %25, i64 56
+  store i64 68719476704, ptr %47, align 8
+  %48 = getelementptr inbounds i8, ptr %25, i64 64
+  store volatile ptr %48, ptr %48, align 8
+  %49 = getelementptr inbounds i8, ptr %25, i64 72
+  store volatile ptr %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %25, i64 80
+  store ptr @lg_g15_leds_changed_work, ptr %50, align 8
+  br label %57
 
-52:                                               ; preds = %32, %32
-  %53 = getelementptr inbounds i8, ptr %26, i64 56
-  store i64 68719476704, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %26, i64 64
-  store volatile ptr %54, ptr %54, align 8
-  %55 = getelementptr inbounds i8, ptr %26, i64 72
-  store volatile ptr %54, ptr %55, align 8
-  %56 = getelementptr inbounds i8, ptr %26, i64 80
-  store ptr @lg_g510_leds_sync_work, ptr %56, align 8
-  br label %58
+51:                                               ; preds = %31, %31
+  %52 = getelementptr inbounds i8, ptr %25, i64 56
+  store i64 68719476704, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %25, i64 64
+  store volatile ptr %53, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %25, i64 72
+  store volatile ptr %53, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %25, i64 80
+  store ptr @lg_g510_leds_sync_work, ptr %55, align 8
+  br label %57
 
-57:                                               ; preds = %32
-  br label %58
+56:                                               ; preds = %31
+  br label %57
 
-58:                                               ; preds = %57, %52, %47, %42, %32
-  %59 = phi i1 [ false, %32 ], [ false, %57 ], [ true, %52 ], [ true, %47 ], [ true, %42 ]
-  %60 = phi i32 [ 0, %32 ], [ 0, %57 ], [ 18, %52 ], [ 6, %47 ], [ 18, %42 ]
-  %61 = phi i32 [ 0, %32 ], [ 4, %57 ], [ 5, %52 ], [ 4, %47 ], [ 4, %42 ]
-  %62 = phi i1 [ true, %32 ], [ true, %57 ], [ false, %52 ], [ true, %47 ], [ true, %42 ]
-  %63 = phi i1 [ true, %32 ], [ true, %57 ], [ true, %52 ], [ false, %47 ], [ false, %42 ]
-  %64 = phi i8 [ 0, %32 ], [ 0, %57 ], [ 0, %52 ], [ 2, %47 ], [ 2, %42 ]
-  %65 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef %61) #10
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %.loopexit13
+57:                                               ; preds = %56, %51, %46, %41, %31
+  %58 = phi i1 [ false, %31 ], [ false, %56 ], [ true, %51 ], [ true, %46 ], [ true, %41 ]
+  %59 = phi i32 [ 0, %31 ], [ 0, %56 ], [ 18, %51 ], [ 6, %46 ], [ 18, %41 ]
+  %60 = phi i32 [ 0, %31 ], [ 4, %56 ], [ 5, %51 ], [ 4, %46 ], [ 4, %41 ]
+  %61 = phi i1 [ true, %31 ], [ true, %56 ], [ false, %51 ], [ true, %46 ], [ true, %41 ]
+  %62 = phi i1 [ true, %31 ], [ true, %56 ], [ true, %51 ], [ false, %46 ], [ false, %41 ]
+  %63 = phi i8 [ 0, %31 ], [ 0, %56 ], [ 0, %51 ], [ 2, %46 ], [ 2, %41 ]
+  %64 = tail call i32 @hid_hw_start(ptr noundef %0, i32 noundef %60) #10
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %.loopexit13
 
-67:                                               ; preds = %58
-  br i1 %63, label %77, label %68
+66:                                               ; preds = %57
+  br i1 %62, label %76, label %67
 
-68:                                               ; preds = %67
-  store i8 %64, ptr %26, align 8
-  %69 = getelementptr i8, ptr %26, i64 1
-  %70 = zext nneg i32 %60 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %69, i8 0, i64 %70, i1 false)
-  %71 = tail call i32 @hid_hw_open(ptr noundef %0) #10
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %73, label %.loopexit
+67:                                               ; preds = %66
+  store i8 %63, ptr %25, align 8
+  %68 = getelementptr i8, ptr %25, i64 1
+  %69 = zext nneg i32 %59 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %68, i8 0, i64 %69, i1 false)
+  %70 = tail call i32 @hid_hw_open(ptr noundef %0) #10
+  %71 = icmp eq i32 %70, 0
+  br i1 %71, label %72, label %.loopexit
 
-73:                                               ; preds = %68
-  %74 = or disjoint i32 %60, 1
-  %75 = zext nneg i32 %74 to i64
-  %76 = tail call i32 @hid_hw_output_report(ptr noundef %0, ptr noundef nonnull %26, i64 noundef %75) #10
+72:                                               ; preds = %67
+  %73 = or disjoint i32 %59, 1
+  %74 = zext nneg i32 %73 to i64
+  %75 = tail call i32 @hid_hw_output_report(ptr noundef %0, ptr noundef nonnull %25, i64 noundef %74) #10
   tail call void @hid_hw_close(ptr noundef %0) #10
-  br label %77
+  br label %76
 
-77:                                               ; preds = %73, %67
-  %78 = phi i32 [ %76, %73 ], [ 0, %67 ]
-  br i1 %62, label %86, label %79
+76:                                               ; preds = %72, %66
+  %77 = phi i32 [ %75, %72 ], [ 0, %66 ]
+  br i1 %61, label %85, label %78
 
-79:                                               ; preds = %77
-  store i8 1, ptr %26, align 8
-  %80 = getelementptr i8, ptr %26, i64 1
-  %81 = zext nneg i32 %60 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %80, i8 0, i64 %81, i1 false)
-  %82 = load ptr, ptr %33, align 8
-  %83 = or disjoint i32 %60, 1
-  %84 = zext nneg i32 %83 to i64
-  %85 = tail call i32 @hid_hw_raw_request(ptr noundef %82, i8 noundef zeroext 1, ptr noundef nonnull %26, i64 noundef %84, i32 noundef 2, i32 noundef 9) #10
-  br label %86
+78:                                               ; preds = %76
+  store i8 1, ptr %25, align 8
+  %79 = getelementptr i8, ptr %25, i64 1
+  %80 = zext nneg i32 %59 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %79, i8 0, i64 %80, i1 false)
+  %81 = load ptr, ptr %32, align 8
+  %82 = or disjoint i32 %59, 1
+  %83 = zext nneg i32 %82 to i64
+  %84 = tail call i32 @hid_hw_raw_request(ptr noundef %81, i8 noundef zeroext 1, ptr noundef nonnull %25, i64 noundef %83, i32 noundef 2, i32 noundef 9) #10
+  br label %85
 
-86:                                               ; preds = %79, %77
-  %87 = phi i32 [ %85, %79 ], [ %78, %77 ]
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %90
+85:                                               ; preds = %78, %76
+  %86 = phi i32 [ %84, %78 ], [ %77, %76 ]
+  %87 = icmp slt i32 %86, 0
+  br i1 %87, label %88, label %89
 
-89:                                               ; preds = %86
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %25, ptr noundef nonnull @.str.12, i32 noundef %87) #12
-  store ptr null, ptr %40, align 8
+88:                                               ; preds = %85
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %24, ptr noundef nonnull @.str.12, i32 noundef %86) #12
+  store ptr null, ptr %39, align 8
   br label %.loopexit13
 
-90:                                               ; preds = %86
-  %91 = tail call fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef nonnull %26)
-  %92 = icmp eq i32 %91, 0
-  br i1 %92, label %93, label %.loopexit
+89:                                               ; preds = %85
+  %90 = tail call fastcc i32 @lg_g15_get_initial_led_brightness(ptr noundef nonnull %25)
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %92, label %.loopexit
 
-93:                                               ; preds = %90
-  %94 = load i32, ptr %37, align 8
-  %95 = icmp eq i32 %94, 4
-  br i1 %95, label %96, label %104
+92:                                               ; preds = %89
+  %93 = load i32, ptr %36, align 8
+  %94 = icmp eq i32 %93, 4
+  br i1 %94, label %95, label %103
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %38, align 8
-  tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef %97, ptr noundef nonnull @.str.13)
-  %98 = load ptr, ptr %38, align 8
-  %99 = tail call i32 @input_register_device(ptr noundef %98) #10
-  %100 = icmp eq i32 %99, 0
-  br i1 %100, label %101, label %.loopexit
+95:                                               ; preds = %92
+  %96 = load ptr, ptr %37, align 8
+  tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef %96, ptr noundef nonnull @.str.13)
+  %97 = load ptr, ptr %37, align 8
+  %98 = tail call i32 @input_register_device(ptr noundef %97) #10
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %.loopexit
 
-101:                                              ; preds = %96
-  %102 = tail call fastcc i32 @lg_g15_register_led(ptr noundef nonnull %26, i32 noundef 1, ptr noundef nonnull @.str.14)
-  %103 = icmp eq i32 %102, 0
-  br i1 %103, label %.loopexit13, label %.loopexit
+100:                                              ; preds = %95
+  %101 = tail call fastcc i32 @lg_g15_register_led(ptr noundef nonnull %25, i32 noundef 1, ptr noundef nonnull @.str.14)
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %.loopexit13, label %.loopexit
 
-104:                                              ; preds = %93
-  tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef nonnull %30, ptr noundef nonnull @.str.15)
-  br i1 %59, label %105, label %.loopexit14.preheader
+103:                                              ; preds = %92
+  tail call fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef nonnull %29, ptr noundef nonnull @.str.15)
+  br i1 %58, label %104, label %.loopexit14.preheader
 
-105:                                              ; preds = %104
-  %106 = tail call i32 @llvm.umax.i32(i32 %60, i32 1)
-  br label %107
+104:                                              ; preds = %103
+  %105 = tail call i32 @llvm.umax.i32(i32 %59, i32 1)
+  br label %106
 
-107:                                              ; preds = %107, %105
-  %108 = phi i32 [ %110, %107 ], [ 0, %105 ]
-  %109 = add nuw nsw i32 %108, 656
-  tail call void @input_set_capability(ptr noundef nonnull %30, i32 noundef 1, i32 noundef %109) #10
-  %110 = add nuw nsw i32 %108, 1
-  %111 = icmp eq i32 %110, %106
-  br i1 %111, label %.loopexit14.preheader, label %107, !llvm.loop !8
+106:                                              ; preds = %106, %104
+  %107 = phi i32 [ %109, %106 ], [ 0, %104 ]
+  %108 = add nuw nsw i32 %107, 656
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %108) #10
+  %109 = add nuw nsw i32 %107, 1
+  %110 = icmp eq i32 %109, %105
+  br i1 %110, label %.loopexit14.preheader, label %106, !llvm.loop !8
 
-.loopexit14.preheader:                            ; preds = %107, %104
+.loopexit14.preheader:                            ; preds = %106, %103
   br label %.loopexit14
 
 .loopexit14:                                      ; preds = %.loopexit14.preheader, %.loopexit14
-  %112 = phi i32 [ %114, %.loopexit14 ], [ 0, %.loopexit14.preheader ]
-  %113 = add nuw nsw i32 %112, 691
-  tail call void @input_set_capability(ptr noundef nonnull %30, i32 noundef 1, i32 noundef %113) #10
-  %114 = add nuw nsw i32 %112, 1
-  %115 = icmp eq i32 %114, 3
-  br i1 %115, label %116, label %.loopexit14, !llvm.loop !9
+  %111 = phi i32 [ %113, %.loopexit14 ], [ 0, %.loopexit14.preheader ]
+  %112 = add nuw nsw i32 %111, 691
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef %112) #10
+  %113 = add nuw nsw i32 %111, 1
+  %114 = icmp eq i32 %113, 3
+  br i1 %114, label %115, label %.loopexit14, !llvm.loop !9
 
-116:                                              ; preds = %.loopexit14
-  tail call void @input_set_capability(ptr noundef nonnull %30, i32 noundef 1, i32 noundef 688) #10
-  %117 = load i32, ptr %37, align 8
-  %118 = icmp eq i32 %117, 2
-  br i1 %118, label %119, label %120
+115:                                              ; preds = %.loopexit14
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 688) #10
+  %116 = load i32, ptr %36, align 8
+  %117 = icmp eq i32 %116, 2
+  br i1 %117, label %118, label %119
 
-119:                                              ; preds = %116
-  tail call void @input_set_capability(ptr noundef nonnull %30, i32 noundef 1, i32 noundef 113) #10
-  tail call void @input_set_capability(ptr noundef nonnull %30, i32 noundef 1, i32 noundef 190) #10
-  br label %120
+118:                                              ; preds = %115
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 113) #10
+  tail call void @input_set_capability(ptr noundef nonnull %29, i32 noundef 1, i32 noundef 190) #10
+  br label %119
 
-120:                                              ; preds = %119, %116
-  %121 = tail call i32 @input_register_device(ptr noundef nonnull %30) #10
-  %122 = icmp eq i32 %121, 0
-  br i1 %122, label %.preheader, label %.loopexit
+119:                                              ; preds = %118, %115
+  %120 = tail call i32 @input_register_device(ptr noundef nonnull %29) #10
+  %121 = icmp eq i32 %120, 0
+  br i1 %121, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %120
-  %123 = getelementptr inbounds i8, ptr %26, i64 112
-  br label %127
+.preheader:                                       ; preds = %119
+  %122 = getelementptr inbounds i8, ptr %25, i64 112
+  br label %126
 
-124:                                              ; preds = %lg_g15_register_led.exit
-  %125 = add nuw nsw i64 %128, 1
-  %126 = icmp eq i64 %125, 6
-  br i1 %126, label %.loopexit13, label %127, !llvm.loop !10
+123:                                              ; preds = %lg_g15_register_led.exit
+  %124 = add nuw nsw i64 %127, 1
+  %125 = icmp eq i64 %124, 6
+  br i1 %125, label %.loopexit13, label %126, !llvm.loop !10
 
-127:                                              ; preds = %.preheader, %124
-  %128 = phi i64 [ %125, %124 ], [ 0, %.preheader ]
-  %129 = getelementptr [6 x ptr], ptr @lg_g15_probe.led_names, i64 0, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  %131 = trunc i64 %128 to i32
-  %sext = shl i64 %128, 32
-  %132 = ashr exact i64 %sext, 32
-  %133 = getelementptr [6 x %struct.lg_g15_led], ptr %123, i64 0, i64 %132
-  %134 = getelementptr inbounds i8, ptr %133, i64 412
-  store i32 %131, ptr %134, align 4
-  store ptr %130, ptr %133, align 8
-  %135 = load i32, ptr %37, align 8
-  switch i32 %135, label %lg_g15_register_led.exit [
-    i32 0, label %136
-    i32 1, label %136
-    i32 4, label %138
-    i32 2, label %146
-    i32 3, label %146
+126:                                              ; preds = %.preheader, %123
+  %127 = phi i64 [ %124, %123 ], [ 0, %.preheader ]
+  %128 = getelementptr [6 x ptr], ptr @lg_g15_probe.led_names, i64 0, i64 %127
+  %129 = load ptr, ptr %128, align 8
+  %130 = trunc i64 %127 to i32
+  %sext = shl i64 %127, 32
+  %131 = ashr exact i64 %sext, 32
+  %132 = getelementptr [6 x %struct.lg_g15_led], ptr %122, i64 0, i64 %131
+  %133 = getelementptr inbounds i8, ptr %132, i64 412
+  store i32 %130, ptr %133, align 4
+  store ptr %129, ptr %132, align 8
+  %134 = load i32, ptr %36, align 8
+  switch i32 %134, label %lg_g15_register_led.exit [
+    i32 0, label %135
+    i32 1, label %135
+    i32 4, label %137
+    i32 2, label %145
+    i32 3, label %145
   ]
 
-136:                                              ; preds = %127, %127
-  %137 = getelementptr inbounds i8, ptr %133, i64 48
-  store ptr @lg_g15_led_get, ptr %137, align 8
-  br label %138
+135:                                              ; preds = %126, %126
+  %136 = getelementptr inbounds i8, ptr %132, i64 48
+  store ptr @lg_g15_led_get, ptr %136, align 8
+  br label %137
 
-138:                                              ; preds = %136, %127
-  %139 = getelementptr inbounds i8, ptr %133, i64 40
-  store ptr @lg_g15_led_set, ptr %139, align 8
-  %140 = icmp slt i32 %131, 2
-  br i1 %140, label %141, label %144
+137:                                              ; preds = %135, %126
+  %138 = getelementptr inbounds i8, ptr %132, i64 40
+  store ptr @lg_g15_led_set, ptr %138, align 8
+  %139 = icmp slt i32 %130, 2
+  br i1 %139, label %140, label %143
 
-141:                                              ; preds = %138
-  %142 = getelementptr inbounds i8, ptr %133, i64 20
-  store i32 2097152, ptr %142, align 4
-  %143 = getelementptr inbounds i8, ptr %133, i64 12
-  store i32 2, ptr %143, align 4
+140:                                              ; preds = %137
+  %141 = getelementptr inbounds i8, ptr %132, i64 20
+  store i32 2097152, ptr %141, align 4
+  %142 = getelementptr inbounds i8, ptr %132, i64 12
+  store i32 2, ptr %142, align 4
   br label %lg_g15_register_led.exit
 
-144:                                              ; preds = %138
-  %145 = getelementptr inbounds i8, ptr %133, i64 12
-  store i32 1, ptr %145, align 4
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds i8, ptr %132, i64 12
+  store i32 1, ptr %144, align 4
   br label %lg_g15_register_led.exit
 
-146:                                              ; preds = %127, %127
-  switch i32 %131, label %153 [
-    i32 1, label %147
-    i32 0, label %148
+145:                                              ; preds = %126, %126
+  switch i32 %130, label %152 [
+    i32 1, label %146
+    i32 0, label %147
   ]
 
-147:                                              ; preds = %146
-  store ptr @.str.18, ptr %133, align 8
-  br label %148
+146:                                              ; preds = %145
+  store ptr @.str.18, ptr %132, align 8
+  br label %147
 
-148:                                              ; preds = %147, %146
-  %149 = getelementptr inbounds i8, ptr %133, i64 40
-  store ptr @lg_g510_kbd_led_set, ptr %149, align 8
-  %150 = getelementptr inbounds i8, ptr %133, i64 48
-  store ptr @lg_g510_kbd_led_get, ptr %150, align 8
-  %151 = getelementptr inbounds i8, ptr %133, i64 12
-  store i32 255, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %133, i64 88
-  store ptr @lg_g510_kbd_led_groups, ptr %152, align 8
+147:                                              ; preds = %146, %145
+  %148 = getelementptr inbounds i8, ptr %132, i64 40
+  store ptr @lg_g510_kbd_led_set, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %132, i64 48
+  store ptr @lg_g510_kbd_led_get, ptr %149, align 8
+  %150 = getelementptr inbounds i8, ptr %132, i64 12
+  store i32 255, ptr %150, align 4
+  %151 = getelementptr inbounds i8, ptr %132, i64 88
+  store ptr @lg_g510_kbd_led_groups, ptr %151, align 8
   br label %lg_g15_register_led.exit
 
-153:                                              ; preds = %146
-  %154 = getelementptr inbounds i8, ptr %133, i64 40
-  store ptr @lg_g510_mkey_led_set, ptr %154, align 8
-  %155 = getelementptr inbounds i8, ptr %133, i64 48
-  store ptr @lg_g510_mkey_led_get, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %133, i64 12
-  store i32 1, ptr %156, align 4
+152:                                              ; preds = %145
+  %153 = getelementptr inbounds i8, ptr %132, i64 40
+  store ptr @lg_g510_mkey_led_set, ptr %153, align 8
+  %154 = getelementptr inbounds i8, ptr %132, i64 48
+  store ptr @lg_g510_mkey_led_get, ptr %154, align 8
+  %155 = getelementptr inbounds i8, ptr %132, i64 12
+  store i32 1, ptr %155, align 4
   br label %lg_g15_register_led.exit
 
-lg_g15_register_led.exit:                         ; preds = %127, %141, %144, %148, %153
-  %157 = load ptr, ptr %33, align 8
-  %158 = getelementptr inbounds i8, ptr %157, i64 6352
-  %159 = tail call i32 @devm_led_classdev_register_ext(ptr noundef %158, ptr noundef %133, ptr noundef null) #10
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %124, label %.loopexit
+lg_g15_register_led.exit:                         ; preds = %126, %140, %143, %147, %152
+  %156 = load ptr, ptr %32, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 6352
+  %158 = tail call i32 @devm_led_classdev_register_ext(ptr noundef %157, ptr noundef %132, ptr noundef null) #10
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %123, label %.loopexit
 
-.loopexit:                                        ; preds = %lg_g15_register_led.exit, %120, %101, %96, %90, %68
-  %161 = phi i32 [ %71, %68 ], [ %91, %90 ], [ %99, %96 ], [ %102, %101 ], [ %121, %120 ], [ %159, %lg_g15_register_led.exit ]
+.loopexit:                                        ; preds = %lg_g15_register_led.exit, %119, %100, %95, %89, %67
+  %160 = phi i32 [ %70, %67 ], [ %90, %89 ], [ %98, %95 ], [ %101, %100 ], [ %120, %119 ], [ %158, %lg_g15_register_led.exit ]
   tail call void @hid_hw_stop(ptr noundef %0) #10
   br label %.loopexit13
 
-.loopexit13:                                      ; preds = %124, %.loopexit, %101, %89, %58, %28, %24, %.thread, %2
-  %162 = phi i32 [ %161, %.loopexit ], [ 0, %89 ], [ %23, %.thread ], [ %6, %2 ], [ -12, %24 ], [ -12, %28 ], [ %65, %58 ], [ 0, %101 ], [ 0, %124 ]
-  ret i32 %162
+.loopexit13:                                      ; preds = %123, %.loopexit, %100, %88, %57, %27, %23, %.thread, %2
+  %161 = phi i32 [ %160, %.loopexit ], [ 0, %88 ], [ %22, %.thread ], [ %6, %2 ], [ -12, %23 ], [ -12, %27 ], [ %64, %57 ], [ 0, %100 ], [ 0, %123 ]
+  ret i32 %161
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

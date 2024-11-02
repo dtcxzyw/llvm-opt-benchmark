@@ -19745,7 +19745,7 @@ invoke.cont162:                                   ; preds = %invoke.cont162.preh
   br i1 %exitcond1243.not, label %for.end169.loopexit, label %invoke.cont162, !llvm.loop !222
 
 for.end169.loopexit:                              ; preds = %invoke.cont162
-  %86 = sext i32 %kbest.1 to i64
+  %86 = zext nneg i32 %kbest.1 to i64
   br label %for.end169
 
 for.end169:                                       ; preds = %for.end169.loopexit, %for.body147
@@ -48366,7 +48366,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !534
 
 for.end.loopexit:                                 ; preds = %for.body
-  %idxprom10.phi.trans.insert = sext i32 %j.1 to i64
+  %idxprom10.phi.trans.insert = zext i32 %j.1 to i64
   %arrayidx11.phi.trans.insert = getelementptr inbounds ptr, ptr %1, i64 %idxprom10.phi.trans.insert
   %.pre = load ptr, ptr %arrayidx11.phi.trans.insert, align 8
   br label %for.end

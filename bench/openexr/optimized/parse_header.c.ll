@@ -261,8 +261,8 @@ while.body.i96:                                   ; preds = %if.else, %while.bod
   br i1 %cmp.i99, label %while.body.i96, label %while.end.loopexit.i, !llvm.loop !6
 
 while.end.loopexit.i:                             ; preds = %while.body.i96
-  %17 = add nuw i32 %y.06.i, 2
-  %18 = add i32 %17, %spec.select.i
+  %17 = add nuw nsw i32 %y.06.i, 2
+  %18 = add nuw nsw i32 %17, %spec.select.i
   br label %sw.epilog
 
 sw.bb63:                                          ; preds = %if.end41
@@ -318,8 +318,8 @@ while.body.i120:                                  ; preds = %if.else75, %while.b
   br i1 %cmp.i129, label %while.body.i120, label %while.end.loopexit.i130, !llvm.loop !6
 
 while.end.loopexit.i130:                          ; preds = %while.body.i120
-  %21 = add nuw i32 %y.06.i122, 2
-  %22 = add i32 %21, %spec.select.i126
+  %21 = add nuw nsw i32 %y.06.i122, 2
+  %22 = add nuw nsw i32 %21, %spec.select.i126
   br label %ceil_log2.exit131
 
 ceil_log2.exit131:                                ; preds = %if.else75, %while.end.loopexit.i130
@@ -340,8 +340,8 @@ while.body.i134:                                  ; preds = %ceil_log2.exit131, 
   br i1 %cmp.i143, label %while.body.i134, label %while.end.loopexit.i144, !llvm.loop !6
 
 while.end.loopexit.i144:                          ; preds = %while.body.i134
-  %23 = add nuw i32 %y.06.i136, 2
-  %24 = add i32 %23, %spec.select.i140
+  %23 = add nuw nsw i32 %y.06.i136, 2
+  %24 = add nuw nsw i32 %23, %spec.select.i140
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end41
@@ -364,7 +364,7 @@ sw.epilog:                                        ; preds = %floor_log2.exit108,
   %mul86 = shl nsw i64 %conv85, 3
   %call87 = tail call ptr %26(i64 noundef %mul86) #10
   %cmp88 = icmp eq ptr %call87, null
-  br i1 %cmp88, label %if.then90, label %if.end93
+  br i1 %cmp88, label %if.then90, label %for.body.preheader
 
 if.then90:                                        ; preds = %sw.epilog
   %standard_error91 = getelementptr inbounds i8, ptr %ctxt, i64 56
@@ -372,25 +372,17 @@ if.then90:                                        ; preds = %sw.epilog
   %call92 = tail call i32 %27(ptr noundef nonnull %ctxt, i32 noundef 1) #10
   br label %return
 
-if.end93:                                         ; preds = %sw.epilog
+for.body.preheader:                               ; preds = %sw.epilog
   %idx.ext = sext i32 %numX.0 to i64
   %add.ptr = getelementptr inbounds i32, ptr %call87, i64 %idx.ext
   %add.ptr95 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.ext
   %idx.ext96 = sext i32 %numY.0 to i64
   %add.ptr97 = getelementptr inbounds i32, ptr %add.ptr95, i64 %idx.ext96
-  %cmp98169 = icmp sgt i32 %numX.0, 0
-  br i1 %cmp98169, label %for.body.preheader, label %for.cond134.preheader
-
-for.body.preheader:                               ; preds = %if.end93
-  %wide.trip.count = zext nneg i32 %numX.0 to i64
+  %wide.trip.count = zext i32 %numX.0 to i64
   br label %for.body
 
-for.cond134.preheader:                            ; preds = %if.end122, %if.end93
-  %cmp135171 = icmp sgt i32 %numY.0, 0
-  br i1 %cmp135171, label %for.body137.preheader, label %for.end177
-
-for.body137.preheader:                            ; preds = %for.cond134.preheader
-  %wide.trip.count181 = zext nneg i32 %numY.0 to i64
+for.body137.preheader:                            ; preds = %if.end122
+  %wide.trip.count181 = zext i32 %numY.0 to i64
   br label %for.body137
 
 for.body:                                         ; preds = %for.body.preheader, %if.end122
@@ -430,7 +422,7 @@ if.end122:                                        ; preds = %for.body
   store i32 %conv130, ptr %arrayidx132, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %for.cond134.preheader, label %for.body, !llvm.loop !7
+  br i1 %exitcond.not, label %for.body137.preheader, label %for.body, !llvm.loop !7
 
 for.body137:                                      ; preds = %for.body137.preheader, %if.end161
   %indvars.iv178 = phi i64 [ 0, %for.body137.preheader ], [ %indvars.iv.next179, %if.end161 ]
@@ -471,7 +463,7 @@ if.end161:                                        ; preds = %for.body137
   %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
   br i1 %exitcond182.not, label %for.end177, label %for.body137, !llvm.loop !8
 
-for.end177:                                       ; preds = %if.end161, %for.cond134.preheader
+for.end177:                                       ; preds = %if.end161
   store ptr %call87, ptr %tile_level_tile_count_x20187, align 8
   %tile_level_tile_count_y = getelementptr inbounds i8, ptr %curpart, i64 208
   store ptr %add.ptr95, ptr %tile_level_tile_count_y, align 8

@@ -787,7 +787,7 @@ for.body42:                                       ; preds = %if.end34, %for.body
   br i1 %exitcond233.not, label %for.body65.preheader, label %for.body42, !llvm.loop !14
 
 for.body65.preheader:                             ; preds = %for.body42
-  %idxprom52 = sext i32 %i1.1 to i64
+  %idxprom52 = zext nneg i32 %i1.1 to i64
   %arrayidx53 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %idxprom52
   %13 = load i64, ptr %arrayidx53, align 8
   %14 = bitcast i64 %13 to <2 x float>
@@ -828,7 +828,7 @@ for.body65:                                       ; preds = %for.body65.preheade
   br i1 %exitcond238.not, label %for.end75, label %for.body65, !llvm.loop !15
 
 for.end75:                                        ; preds = %for.body65
-  %idxprom76 = sext i32 %i2.1 to i64
+  %idxprom76 = zext nneg i32 %i2.1 to i64
   %arrayidx77 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %ps, i64 0, i64 %idxprom76
   %24 = load i64, ptr %arrayidx77, align 8
   %25 = bitcast i64 %24 to <2 x float>
@@ -1193,7 +1193,7 @@ for.inc:                                          ; preds = %for.body, %if.then2
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !22
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %13 = sext i32 %bestIndex.1 to i64
+  %13 = zext nneg i32 %bestIndex.1 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %if.end11

@@ -8425,7 +8425,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %184, %181, %_ZN4llv
 
 "_ZSt10accumulateIPKPN4llvm5ValueENS0_15InstructionCostEZZNKS0_13slpvectorizer7BoUpSLP17canVectorizeLoadsENS0_8ArrayRefIS2_EEPKS1_RNS0_15SmallVectorImplIjEERNSC_IS2_EEbENK3$_4clENS0_5AlignEbEUlS5_S2_E_ET0_T_SL_SK_T1_.exit.loopexit": ; preds = %.lr.ph.i
   %.pre605 = load ptr, ptr %0, align 8
-  %196 = icmp eq i32 %spec.select.i.i.i217, 1
+  %196 = icmp ne i32 %spec.select.i.i.i217, 0
   br label %"_ZSt10accumulateIPKPN4llvm5ValueENS0_15InstructionCostEZZNKS0_13slpvectorizer7BoUpSLP17canVectorizeLoadsENS0_8ArrayRefIS2_EEPKS1_RNS0_15SmallVectorImplIjEERNSC_IS2_EEbENK3$_4clENS0_5AlignEbEUlS5_S2_E_ET0_T_SL_SK_T1_.exit"
 
 "_ZSt10accumulateIPKPN4llvm5ValueENS0_15InstructionCostEZZNKS0_13slpvectorizer7BoUpSLP17canVectorizeLoadsENS0_8ArrayRefIS2_EEPKS1_RNS0_15SmallVectorImplIjEERNSC_IS2_EEbENK3$_4clENS0_5AlignEbEUlS5_S2_E_ET0_T_SL_SK_T1_.exit": ; preds = %"_ZSt10accumulateIPKPN4llvm5ValueENS0_15InstructionCostEZZNKS0_13slpvectorizer7BoUpSLP17canVectorizeLoadsENS0_8ArrayRefIS2_EEPKS1_RNS0_15SmallVectorImplIjEERNSC_IS2_EEbENK3$_4clENS0_5AlignEbEUlS5_S2_E_ET0_T_SL_SK_T1_.exit.loopexit", %_ZN4llvm5APIntD2Ev.exit

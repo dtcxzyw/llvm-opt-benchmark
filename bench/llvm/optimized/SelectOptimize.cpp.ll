@@ -1467,17 +1467,17 @@ _ZN4llvm24OptimizationRemarkMissedD2Ev.exit.i.i.i.i: ; preds = %_ZL20extractBran
   %.val.i.i.i.i = load ptr, ptr %.013.i.i, align 8
   %145 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %.013.i.i) #17
   %146 = getelementptr inbounds %"class.(anonymous namespace)::SelectOptimizeImpl::SelectLike", ptr %.val.i.i.i.i, i64 %145
-  %.not98.i.i.i.i = icmp eq i64 %145, 0
-  br i1 %.not98.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph101.i.i.i.i
+  %.not99.i.i.i.i = icmp eq i64 %145, 0
+  br i1 %.not99.i.i.i.i, label %.loopexit.i.i.i, label %.lr.ph102.i.i.i.i
 
-.lr.ph101.i.i.i.i:                                ; preds = %144
+.lr.ph102.i.i.i.i:                                ; preds = %144
   %147 = lshr i64 %138, 1
   br label %148
 
-148:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i, %.lr.ph101.i.i.i.i
-  %.03399.i.i.i.i = phi ptr [ %.val.i.i.i.i, %.lr.ph101.i.i.i.i ], [ %315, %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i ]
-  %.sroa.065.0.copyload.i.i.i.i = load ptr, ptr %.03399.i.i.i.i, align 8
-  %.sroa.466.0..033.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %.03399.i.i.i.i, i64 8
+148:                                              ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i, %.lr.ph102.i.i.i.i
+  %.033100.i.i.i.i = phi ptr [ %.val.i.i.i.i, %.lr.ph102.i.i.i.i ], [ %315, %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i ]
+  %.sroa.065.0.copyload.i.i.i.i = load ptr, ptr %.033100.i.i.i.i, align 8
+  %.sroa.466.0..033.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %.033100.i.i.i.i, i64 8
   %.sroa.466.0.copyload.i.i.i.i = load i8, ptr %.sroa.466.0..033.sroa_idx.i.i.i.i, align 8
   %149 = load i64, ptr %34, align 8
   %150 = load i64, ptr %35, align 8
@@ -1613,8 +1613,8 @@ _ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike13getFalseValueEb.exit.thread8
   br label %217
 
 _ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike13getFalseValueEb.exit.i.i.i.i: ; preds = %203, %189, %188
-  %.sink105.i.i.i.i = phi i64 [ -64, %188 ], [ -32, %189 ], [ -32, %203 ]
-  %216 = getelementptr inbounds i8, ptr %.sroa.065.0.copyload.i.i.i.i, i64 %.sink105.i.i.i.i
+  %.sink106.i.i.i.i = phi i64 [ -64, %188 ], [ -32, %189 ], [ -32, %203 ]
+  %216 = getelementptr inbounds i8, ptr %.sroa.065.0.copyload.i.i.i.i, i64 %.sink106.i.i.i.i
   %.0.i48.i.i.i.i = load ptr, ptr %216, align 8
   %.not.i.i49.i.i.i.i = icmp eq ptr %.0.i48.i.i.i.i, null
   br i1 %.not.i.i49.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i, label %217
@@ -1656,8 +1656,8 @@ select.unfold.i.i.i.i:                            ; preds = %217, %184
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i, %.lr.ph.preheader.i.i.i.i
   %226 = phi ptr [ %283, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i ], [ %.pre.i.i.i.i, %.lr.ph.preheader.i.i.i.i ]
   %227 = phi ptr [ %storemerge.i.i.i.i.i.i, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i ], [ %223, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.4.096.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i ]
-  %.sroa.063.095.i.i.i.i = phi i64 [ %.0.i54.i.i.i.i, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.4.097.i.i.i.i = phi i32 [ %spec.select.i.i.i.i, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i ]
+  %.sroa.063.096.i.i.i.i = phi i64 [ %.0.i54.i.i.i.i, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3popEv.exit.i.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i.i ]
   %228 = load ptr, ptr %64, align 8
   %229 = icmp eq ptr %227, %226
   br i1 %229, label %230, label %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEE3topEv.exit.i.i.i.i
@@ -1751,8 +1751,8 @@ _ZNK4llvm19TargetTransformInfo18getInstructionCostEPKNS_4UserENS0_14TargetCostKi
   %.fca.0.extract7.i.i.i.i = extractvalue { i64, i32 } %267, 0
   %.fca.1.extract8.i.i.i.i = extractvalue { i64, i32 } %267, 1
   %272 = icmp eq i32 %.fca.1.extract8.i.i.i.i, 1
-  %spec.select.i.i.i.i = select i1 %272, i32 1, i32 %.sroa.4.096.i.i.i.i
-  %.0.i54.i.i.i.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.063.095.i.i.i.i, i64 %.fca.0.extract7.i.i.i.i)
+  %spec.select.i.i.i.i = select i1 %272, i32 1, i32 %.sroa.4.097.i.i.i.i
+  %.0.i54.i.i.i.i = call i64 @llvm.sadd.sat.i64(i64 %.sroa.063.096.i.i.i.i, i64 %.fca.0.extract7.i.i.i.i)
   %273 = load ptr, ptr %74, align 8
   %274 = load ptr, ptr %76, align 8
   %.not.i.i55.i.i.i.i = icmp eq ptr %273, %274
@@ -1814,7 +1814,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit.i.i.i.i: ; preds = %293, %290, %._cri
   %297 = shl i32 %296, 2
   %298 = zext i32 %297 to i64
   %299 = icmp slt i64 %295, %298
-  %.0.i.i.i57.i.i.i.i = select i1 %.sroa.4.0.lcssa.i.i.i.i, i1 %299, i1 false
+  %.0.i.i.i57.not.i.i.i.i = select i1 %.sroa.4.0.lcssa.i.i.i.i, i1 %299, i1 false
   %300 = load ptr, ptr %37, align 8
   %.not.i.i.i58.i.i.i.i = icmp eq ptr %300, null
   br i1 %.not.i.i.i58.i.i.i.i, label %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEED2Ev.exit.i.i.i.i, label %301
@@ -1846,7 +1846,7 @@ _ZNSt11_Deque_baseIPN4llvm11InstructionESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit
   br label %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEED2Ev.exit.i.i.i.i
 
 _ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEED2Ev.exit.i.i.i.i: ; preds = %_ZNSt11_Deque_baseIPN4llvm11InstructionESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i.i.i.i.i.i.i, %_ZN4llvmmlERKNS_15InstructionCostES2_.exit.i.i.i.i
-  br i1 %.0.i.i.i57.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i, label %316
+  br i1 %.0.i.i.i57.not.i.i.i.i, label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i, label %316
 
 _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.sink.split.i.i.i.i: ; preds = %188, %182
   %312 = zext i8 %153 to i32
@@ -1856,7 +1856,7 @@ _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.sink.
   br label %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i
 
 _ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.i.i.i.i: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_11InstructionENS_5ValueEEEDaPT0_.exit.thread.sink.split.i.i.i.i, %_ZNSt5stackIPN4llvm11InstructionESt5dequeIS2_SaIS2_EEED2Ev.exit.i.i.i.i, %217, %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike13getFalseValueEb.exit.i.i.i.i, %184, %_ZNK12_GLOBAL__N_118SelectOptimizeImpl10SelectLike12getTrueValueEb.exit.i.i.i.i
-  %315 = getelementptr inbounds i8, ptr %.03399.i.i.i.i, i64 16
+  %315 = getelementptr inbounds i8, ptr %.033100.i.i.i.i, i64 16
   %.not.i11.i.i.i = icmp eq ptr %315, %146
   br i1 %.not.i11.i.i.i, label %.loopexit.i.i.i, label %148
 

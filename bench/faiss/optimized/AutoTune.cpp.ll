@@ -7429,7 +7429,7 @@ _ZNK5faiss14ParameterSpace13update_boundsEmRKNS_14OperatingPointEPdS4_.exit: ; p
 .lr.ph.i146:                                      ; preds = %260, %.lr.ph.i146
   %.01520.i = phi i32 [ %.015..i, %.lr.ph.i146 ], [ %267, %260 ]
   %.01619.i = phi i32 [ %..016.i, %.lr.ph.i146 ], [ -1, %260 ]
-  %269 = add i32 %.01520.i, 1
+  %269 = add nuw i32 %.01520.i, 1
   %270 = add i32 %269, %.01619.i
   %271 = lshr i32 %270, 1
   %272 = zext nneg i32 %271 to i64

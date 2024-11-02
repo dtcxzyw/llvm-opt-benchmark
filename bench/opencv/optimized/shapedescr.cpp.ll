@@ -3513,7 +3513,7 @@ _ZN2cvmLIdLi6ELi6EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit: ; preds = %173
   br label %589
 
 449:                                              ; preds = %422
-  %450 = sext i32 %.1161 to i64
+  %450 = zext nneg i32 %.1161 to i64
   %451 = mul i64 %419, %450
   %452 = getelementptr inbounds i8, ptr %397, i64 %451
   %453 = load double, ptr %452, align 8

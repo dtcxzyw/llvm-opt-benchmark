@@ -14891,7 +14891,7 @@ define internal fastcc void @Vec_IntSelectSortCost2Reverse(ptr nocapture noundef
   %.03132 = phi i32 [ %4, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %5 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv38
   %6 = load i32, ptr %5, align 4
-  %7 = sext i32 %.03132 to i64
+  %7 = zext nneg i32 %.03132 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp sgt i32 %6, %9
@@ -14904,7 +14904,7 @@ define internal fastcc void @Vec_IntSelectSortCost2Reverse(ptr nocapture noundef
 ._crit_edge:                                      ; preds = %.lr.ph
   %12 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv41
   %13 = load i32, ptr %12, align 4
-  %14 = sext i32 %spec.select to i64
+  %14 = zext nneg i32 %spec.select to i64
   %15 = getelementptr inbounds i32, ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4
   store i32 %16, ptr %12, align 4

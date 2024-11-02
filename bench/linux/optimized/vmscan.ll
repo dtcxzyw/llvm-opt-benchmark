@@ -9574,16 +9574,15 @@ default.unreachable49:                            ; preds = %.loopexit24
   br i1 %638, label %50, label %.thread
 
 .thread:                                          ; preds = %582, %577, %636, %585, %604, %595
-  %639 = and i8 %529, 1
-  %640 = icmp eq i8 %639, 0
-  br i1 %640, label %643, label %641
+  %639 = icmp eq i8 %529, 0
+  br i1 %639, label %642, label %640
 
-641:                                              ; preds = %.thread
-  %642 = getelementptr inbounds i8, ptr %0, i64 13304
-  store i32 0, ptr %642, align 8
-  br label %643
+640:                                              ; preds = %.thread
+  %641 = getelementptr inbounds i8, ptr %0, i64 13304
+  store i32 0, ptr %641, align 8
+  br label %642
 
-643:                                              ; preds = %641, %.thread
+642:                                              ; preds = %640, %.thread
   ret void
 }
 

@@ -5867,7 +5867,7 @@ for.body419:                                      ; preds = %for.body419.lr.ph, 
   %idxprom.i.i1006 = sext i32 %shr.i1004 to i64
   %d_level.i1007 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Solver::VarData", ptr %128, i64 %idxprom.i.i1006, i32 1
   %129 = load i32, ptr %d_level.i1007, align 4
-  %idxprom.i1008 = sext i32 %max_i.01144 to i64
+  %idxprom.i1008 = zext nneg i32 %max_i.01144 to i64
   %arrayidx.i1009 = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %.pre1176, i64 %idxprom.i1008
   %agg.tmp425.sroa.0.0.copyload = load i32, ptr %arrayidx.i1009, align 4
   %shr.i1010 = ashr i32 %agg.tmp425.sroa.0.0.copyload, 1
@@ -5882,7 +5882,7 @@ for.body419:                                      ; preds = %for.body419.lr.ph, 
   br i1 %exitcond1168.not, label %for.end435.loopexit, label %for.body419, !llvm.loop !32
 
 for.end435.loopexit:                              ; preds = %for.body419
-  %132 = sext i32 %spec.select to i64
+  %132 = zext nneg i32 %spec.select to i64
   br label %for.end435
 
 for.end435:                                       ; preds = %for.end435.loopexit, %for.cond416.preheader
@@ -13811,7 +13811,7 @@ for.body3.i:                                      ; preds = %for.body3.i, %for.b
   %best_i.019.i = phi i32 [ %0, %for.body3.preheader.i ], [ %spec.select.i, %for.body3.i ]
   %arrayidx.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr.lcssa, i64 %indvars.iv23.i
   %agg.tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
-  %idxprom5.i = sext i32 %best_i.019.i to i64
+  %idxprom5.i = zext nneg i32 %best_i.019.i to i64
   %arrayidx6.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr.lcssa, i64 %idxprom5.i
   %agg.tmp4.sroa.0.0.copyload.i = load i32, ptr %arrayidx6.i, align 4
   %cmp.i.i.i = icmp slt i32 %agg.tmp.sroa.0.0.copyload.i, %agg.tmp4.sroa.0.0.copyload.i
@@ -13825,7 +13825,7 @@ for.end.i:                                        ; preds = %for.body3.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %arrayidx9.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr.lcssa, i64 %indvars.iv26.i
   %tmp.sroa.0.0.copyload.i = load i32, ptr %arrayidx9.i, align 4
-  %idxprom10.i = sext i32 %spec.select.i to i64
+  %idxprom10.i = zext nneg i32 %spec.select.i to i64
   %arrayidx11.i = getelementptr inbounds %"struct.cvc5::internal::Minisat::Lit", ptr %array.tr.lcssa, i64 %idxprom10.i
   %2 = load i32, ptr %arrayidx11.i, align 4
   store i32 %2, ptr %arrayidx9.i, align 4

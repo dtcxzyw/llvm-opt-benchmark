@@ -566,7 +566,7 @@ trace_nbd_connect_thread_sleep.exit:              ; preds = %if.then29, %land.lh
   call void @qemu_mutex_unlock_impl(ptr noundef nonnull %mutex, ptr noundef nonnull @.str.2, i32 noundef 215) #10
   %conv = trunc i64 %timeout.039 to i32
   %call31 = call i32 @sleep(i32 noundef %conv) #10
-  %cmp32 = icmp ult i64 %timeout.039, 16
+  %cmp32 = icmp samesign ult i64 %timeout.039, 16
   %mul = zext i1 %cmp32 to i64
   %spec.select = shl nuw nsw i64 %timeout.039, %mul
   %28 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8

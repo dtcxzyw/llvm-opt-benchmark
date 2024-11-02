@@ -5946,7 +5946,7 @@ solver2_clear_tags.exit.i.i:                      ; preds = %.lr.ph.i151.i.i, %.
   br i1 %exitcond204.not.i.i, label %sat_solver3_analyze.exit.i, label %.lr.ph182.i.i, !llvm.loop !56
 
 sat_solver3_analyze.exit.i:                       ; preds = %.lr.ph182.i.i
-  %1039 = sext i32 %spec.select.i.i to i64
+  %1039 = zext nneg i32 %spec.select.i.i to i64
   %1040 = getelementptr inbounds i32, ptr %.sroa.28.3.i, i64 %1039
   %1041 = load i32, ptr %1040, align 4
   store i32 %1041, ptr %1025, align 4

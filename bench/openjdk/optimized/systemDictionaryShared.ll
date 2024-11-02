@@ -6245,7 +6245,7 @@ define hidden void @_ZN22SystemDictionaryShared11ArchiveInfo22print_table_statis
 ._crit_edge29.i:                                  ; preds = %12, %8
   %.0.i = phi i32 [ %18, %12 ], [ 1, %8 ]
   %19 = add nuw nsw i32 %.0.i, %.01925.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.02024.i, i32 %.0.i)
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.02024.i, i32 %.0.i)
   %exitcond.not.i = icmp eq i64 %.pre.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE22print_table_statisticsEP12outputStreamPKc.exit, label %8, !llvm.loop !39
 
@@ -6290,7 +6290,7 @@ _ZN16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compac
 ._crit_edge29.i14:                                ; preds = %28, %24
   %.0.i15 = phi i32 [ %34, %28 ], [ 1, %24 ]
   %35 = add nuw nsw i32 %.0.i15, %.01925.i10
-  %spec.select.i16 = tail call i32 @llvm.smax.i32(i32 %.02024.i11, i32 %.0.i15)
+  %spec.select.i16 = tail call i32 @llvm.umax.i32(i32 %.02024.i11, i32 %.0.i15)
   %exitcond.not.i17 = icmp eq i64 %.pre.i13, %wide.trip.count.i8
   br i1 %exitcond.not.i17, label %_ZN16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE22print_table_statisticsEP12outputStreamPKc.exit20, label %24, !llvm.loop !39
 
@@ -6335,7 +6335,7 @@ _ZN16CompactHashtableIP6SymbolPK16RunTimeClassInfoXadL_Z33read_value_from_compac
 ._crit_edge29.i29:                                ; preds = %44, %40
   %.0.i30 = phi i32 [ %50, %44 ], [ 1, %40 ]
   %51 = add nuw nsw i32 %.0.i30, %.01925.i25
-  %spec.select.i31 = tail call i32 @llvm.smax.i32(i32 %.02024.i26, i32 %.0.i30)
+  %spec.select.i31 = tail call i32 @llvm.umax.i32(i32 %.02024.i26, i32 %.0.i30)
   %exitcond.not.i32 = icmp eq i64 %.pre.i28, %wide.trip.count.i23
   br i1 %exitcond.not.i32, label %_ZN16CompactHashtableIP19LambdaProxyClassKeyPK27RunTimeLambdaProxyClassInfoXadL_Z33read_value_from_compact_hashtableIS4_ET_PhjEEXadL_ZNS2_6EQUALSES4_S1_iEEE22print_table_statisticsEP12outputStreamPKc.exit, label %40, !llvm.loop !40
 
@@ -9222,7 +9222,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.umax.i32(i32, i32) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

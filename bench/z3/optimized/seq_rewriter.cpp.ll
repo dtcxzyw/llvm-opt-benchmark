@@ -83908,7 +83908,6 @@ while.cond.outer:                                 ; preds = %while.cond.outer.ba
   br label %while.cond
 
 cleanup:                                          ; preds = %while.cond
-  %frombool.i265 = and i8 %bounded.0.ph, 1
   %153 = zext i32 %len.0.ph to i64
   %154 = shl nuw i64 %153, 32
   %.pre592 = load ptr, ptr %s, align 8
@@ -83930,7 +83929,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i271
 
 _ZN7zstringD2Ev.exit:                             ; preds = %invoke.cont2, %cleanup, %if.end.i.i.i.i.i271
   %retval.sroa.3436.0601 = phi i64 [ %154, %cleanup ], [ %154, %if.end.i.i.i.i.i271 ], [ 0, %invoke.cont2 ]
-  %retval.sroa.0.0600.shrunk = phi i8 [ %frombool.i265, %cleanup ], [ %frombool.i265, %if.end.i.i.i.i.i271 ], [ 1, %invoke.cont2 ]
+  %retval.sroa.0.0600.shrunk = phi i8 [ %bounded.0.ph, %cleanup ], [ %bounded.0.ph, %if.end.i.i.i.i.i271 ], [ 1, %invoke.cont2 ]
   %157 = load ptr, ptr %cache, align 8
   %cmp.i.i.i.i272 = icmp eq ptr %157, null
   br i1 %cmp.i.i.i.i272, label %_ZN7obj_mapI4exprSt4pairIbjEED2Ev.exit, label %for.cond.preheader.i.i.i.i

@@ -655,7 +655,7 @@ define internal fastcc void @add_hole(ptr noundef %0) unnamed_addr #1 align 16 {
   %19 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false)
   store ptr %19, ptr %16, align 8
-  br label %37
+  br label %36
 
 .preheader6:                                      ; preds = %1, %.preheader6
   %20 = phi ptr [ %28, %.preheader6 ], [ %17, %1 ]
@@ -673,80 +673,79 @@ define internal fastcc void @add_hole(ptr noundef %0) unnamed_addr #1 align 16 {
 30:                                               ; preds = %.preheader6
   %31 = getelementptr inbounds i8, ptr %20, i64 %25
   %32 = ptrtoint ptr %20 to i64
-  %33 = and i8 %27, 1
-  %34 = icmp eq i8 %33, 0
-  %35 = getelementptr inbounds i8, ptr %0, i64 88
-  store i64 %32, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %36, i8 0, i64 16, i1 false)
-  store ptr %35, ptr %31, align 8
-  br i1 %34, label %40, label %37
+  %33 = icmp eq i8 %27, 0
+  %34 = getelementptr inbounds i8, ptr %0, i64 88
+  store i64 %32, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
+  store ptr %34, ptr %31, align 8
+  br i1 %33, label %39, label %36
 
-37:                                               ; preds = %.thread, %30
-  %38 = phi ptr [ %19, %.thread ], [ %35, %30 ]
-  %39 = getelementptr inbounds i8, ptr %3, i64 216
-  store ptr %38, ptr %39, align 8
-  br label %40
+36:                                               ; preds = %.thread, %30
+  %37 = phi ptr [ %19, %.thread ], [ %34, %30 ]
+  %38 = getelementptr inbounds i8, ptr %3, i64 216
+  store ptr %37, ptr %38, align 8
+  br label %39
 
-40:                                               ; preds = %37, %30
-  %41 = phi ptr [ %38, %37 ], [ %35, %30 ]
-  tail call void @rb_insert_color(ptr noundef %41, ptr noundef %16) #9
-  %42 = getelementptr inbounds i8, ptr %3, i64 224
-  %43 = load i64, ptr %8, align 8
-  %44 = load i64, ptr %10, align 8
-  %45 = add i64 %44, %43
-  %46 = load i64, ptr %15, align 8
-  %47 = load ptr, ptr %42, align 8
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %68, label %.preheader
+39:                                               ; preds = %36, %30
+  %40 = phi ptr [ %37, %36 ], [ %34, %30 ]
+  tail call void @rb_insert_color(ptr noundef %40, ptr noundef %16) #9
+  %41 = getelementptr inbounds i8, ptr %3, i64 224
+  %42 = load i64, ptr %8, align 8
+  %43 = load i64, ptr %10, align 8
+  %44 = add i64 %43, %42
+  %45 = load i64, ptr %15, align 8
+  %46 = load ptr, ptr %41, align 8
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %67, label %.preheader
 
-.preheader:                                       ; preds = %40, %54
-  %49 = phi ptr [ %63, %54 ], [ %47, %40 ]
-  %50 = getelementptr i8, ptr %49, i64 40
-  %51 = load i64, ptr %50, align 8
-  %52 = icmp ult i64 %51, %46
-  br i1 %52, label %53, label %54
+.preheader:                                       ; preds = %39, %53
+  %48 = phi ptr [ %62, %53 ], [ %46, %39 ]
+  %49 = getelementptr i8, ptr %48, i64 40
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp ult i64 %50, %45
+  br i1 %51, label %52, label %53
 
-53:                                               ; preds = %.preheader
-  store i64 %46, ptr %50, align 8
-  br label %54
+52:                                               ; preds = %.preheader
+  store i64 %45, ptr %49, align 8
+  br label %53
 
-54:                                               ; preds = %53, %.preheader
-  %55 = getelementptr i8, ptr %49, i64 -104
-  %56 = load i64, ptr %55, align 8
-  %57 = getelementptr i8, ptr %49, i64 -96
-  %58 = load i64, ptr %57, align 8
-  %59 = add i64 %58, %56
-  %60 = icmp ult i64 %45, %59
-  %61 = select i1 %60, i64 16, i64 8
-  %62 = getelementptr inbounds i8, ptr %49, i64 %61
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %.preheader, !llvm.loop !14
+53:                                               ; preds = %52, %.preheader
+  %54 = getelementptr i8, ptr %48, i64 -104
+  %55 = load i64, ptr %54, align 8
+  %56 = getelementptr i8, ptr %48, i64 -96
+  %57 = load i64, ptr %56, align 8
+  %58 = add i64 %57, %55
+  %59 = icmp ult i64 %44, %58
+  %60 = select i1 %59, i64 16, i64 8
+  %61 = getelementptr inbounds i8, ptr %48, i64 %60
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %64, label %.preheader, !llvm.loop !14
 
-65:                                               ; preds = %54
-  %66 = getelementptr inbounds i8, ptr %49, i64 %61
-  %67 = ptrtoint ptr %49 to i64
-  br label %68
+64:                                               ; preds = %53
+  %65 = getelementptr inbounds i8, ptr %48, i64 %60
+  %66 = ptrtoint ptr %48 to i64
+  br label %67
 
-68:                                               ; preds = %65, %40
-  %69 = phi i64 [ %67, %65 ], [ 0, %40 ]
-  %70 = phi ptr [ %66, %65 ], [ %42, %40 ]
-  %71 = getelementptr inbounds i8, ptr %0, i64 112
-  store i64 %69, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %0, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
-  store ptr %71, ptr %70, align 8
-  tail call void @__rb_insert_augmented(ptr noundef %71, ptr noundef %42, ptr noundef nonnull @augment_callbacks_rotate) #9
-  %73 = getelementptr inbounds i8, ptr %0, i64 48
-  %74 = getelementptr inbounds i8, ptr %3, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 8
+67:                                               ; preds = %64, %39
+  %68 = phi i64 [ %66, %64 ], [ 0, %39 ]
+  %69 = phi ptr [ %65, %64 ], [ %41, %39 ]
+  %70 = getelementptr inbounds i8, ptr %0, i64 112
+  store i64 %68, ptr %70, align 8
+  %71 = getelementptr inbounds i8, ptr %0, i64 120
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %71, i8 0, i64 16, i1 false)
+  store ptr %70, ptr %69, align 8
+  tail call void @__rb_insert_augmented(ptr noundef %70, ptr noundef %41, ptr noundef nonnull @augment_callbacks_rotate) #9
+  %72 = getelementptr inbounds i8, ptr %0, i64 48
+  %73 = getelementptr inbounds i8, ptr %3, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 8
+  store ptr %72, ptr %75, align 8
+  store ptr %74, ptr %72, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %73, ptr %76, align 8
-  store ptr %75, ptr %73, align 8
-  %77 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %74, ptr %77, align 8
-  store volatile ptr %73, ptr %74, align 8
+  store volatile ptr %72, ptr %73, align 8
   ret void
 }
 

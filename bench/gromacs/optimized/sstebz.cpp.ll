@@ -1126,7 +1126,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br i1 %.not686, label %._crit_edge842.thread, label %571
 
 571:                                              ; preds = %._crit_edge842
-  %572 = sext i32 %.1649 to i64
+  %572 = zext nneg i32 %.1649 to i64
   %573 = getelementptr inbounds i32, ptr %36, i64 %572
   %574 = load i32, ptr %573, align 4
   %575 = getelementptr inbounds float, ptr %37, i64 %572

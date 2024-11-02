@@ -1697,7 +1697,7 @@ define internal fastcc void @fill_inverse_cmap(ptr nocapture noundef readonly %0
   %.2.i = add nuw nsw i32 %.1.i, %99
   %100 = getelementptr inbounds [256 x i32], ptr %6, i64 0, i64 %indvars.iv.i
   store i32 %.2136.i, ptr %100, align 4
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.2.i, i32 %.0137167.i)
+  %spec.select.i = tail call i32 @llvm.umin.i32(i32 %.2.i, i32 %.0137167.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph170.i, label %41, !llvm.loop !46
@@ -1898,7 +1898,7 @@ find_best_colors.exit:                            ; preds = %167, %.preheader71.
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7

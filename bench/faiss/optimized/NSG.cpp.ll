@@ -2168,39 +2168,39 @@ _ZN5faiss3nsg5GraphINS_4NodeEED2Ev.exit:          ; preds = %_ZSt6fill_nIPiliET_
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.critedge.us, %.preheader.lr.ph.split.us
-  %indvars.iv87 = phi i64 [ %indvars.iv.next88, %.critedge.us ], [ 0, %.preheader.lr.ph.split.us ]
+  %indvars.iv84 = phi i64 [ %indvars.iv.next85, %.critedge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.01872.us = phi double [ %150, %.critedge.us ], [ 0.000000e+00, %.preheader.lr.ph.split.us ]
   %.06371.us = phi i32 [ %.sroa.speculated.us, %.critedge.us ], [ 1000000, %.preheader.lr.ph.split.us ]
   %.06470.us = phi i32 [ %.sroa.speculated48.us, %.critedge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %142 = mul nsw i64 %indvars.iv87, %141
+  %142 = mul nsw i64 %indvars.iv84, %141
   %143 = getelementptr i32, ptr %139, i64 %142
   br label %144
 
 144:                                              ; preds = %.preheader.us, %147
-  %indvars.iv83 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next84, %147 ]
-  %145 = getelementptr i32, ptr %143, i64 %indvars.iv83
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %147 ]
+  %145 = getelementptr i32, ptr %143, i64 %indvars.iv
   %146 = load i32, ptr %145, align 4
   %.not.us = icmp eq i32 %146, -1
   br i1 %.not.us, label %.critedge.us.split.loop.exit, label %147
 
 147:                                              ; preds = %144
-  %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
-  %exitcond86.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count
-  br i1 %exitcond86.not, label %.critedge.us, label %144, !llvm.loop !30
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge.us, label %144, !llvm.loop !30
 
 .critedge.us.split.loop.exit:                     ; preds = %144
-  %148 = trunc nuw nsw i64 %indvars.iv83 to i32
+  %148 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge.us
 
 .critedge.us:                                     ; preds = %147, %.critedge.us.split.loop.exit
   %storemerge.lcssa.us = phi i32 [ %148, %.critedge.us.split.loop.exit ], [ %135, %147 ]
-  %.sroa.speculated48.us = call i32 @llvm.smax.i32(i32 %storemerge.lcssa.us, i32 %.06470.us)
-  %.sroa.speculated.us = call i32 @llvm.smin.i32(i32 %.06371.us, i32 %storemerge.lcssa.us)
+  %.sroa.speculated48.us = call i32 @llvm.umax.i32(i32 %storemerge.lcssa.us, i32 %.06470.us)
+  %.sroa.speculated.us = call i32 @llvm.umin.i32(i32 %.06371.us, i32 %storemerge.lcssa.us)
   %149 = uitofp nneg i32 %storemerge.lcssa.us to double
   %150 = fadd double %.01872.us, %149
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next88, %133
-  br i1 %exitcond90.not, label %._crit_edge, label %.preheader.us, !llvm.loop !31
+  %indvars.iv.next85 = add nuw nsw i64 %indvars.iv84, 1
+  %exitcond87.not = icmp eq i64 %indvars.iv.next85, %133
+  br i1 %exitcond87.not, label %._crit_edge, label %.preheader.us, !llvm.loop !31
 
 151:                                              ; preds = %.loopexit, %_ZN5faiss3nsg5GraphINS_4NodeEED2Ev.exit
   %152 = landingpad { ptr, i32 }
@@ -7857,6 +7857,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

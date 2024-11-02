@@ -308,7 +308,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %107, %111
   %135 = getelementptr inbounds i8, ptr %134, i64 20
   %136 = load i32, ptr %135, align 4
   %137 = lshr i32 %136, 12
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.023.i, i32 %137)
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.023.i, i32 %137)
   %indvars.iv.next.i141 = add nuw nsw i64 %indvars.iv.i140, 1
   %exitcond.not.i142 = icmp eq i64 %indvars.iv.next.i141, %wide.trip.count.i139
   br i1 %exitcond.not.i142, label %._crit_edge.i, label %129, !llvm.loop !9
@@ -316,7 +316,7 @@ Extra_ProgressBarUpdate.exit:                     ; preds = %107, %111
 ._crit_edge.i:                                    ; preds = %129, %.preheader.i135
   %.0.lcssa.i = phi i32 [ 0, %.preheader.i135 ], [ %spec.select.i, %129 ]
   %138 = lshr i32 %122, 12
-  %139 = icmp ugt i32 %138, %.0.lcssa.i
+  %139 = icmp samesign ugt i32 %138, %.0.lcssa.i
   br i1 %139, label %140, label %144
 
 140:                                              ; preds = %._crit_edge.i
@@ -3935,9 +3935,6 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3951,6 +3948,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #13

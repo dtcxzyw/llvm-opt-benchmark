@@ -4760,12 +4760,12 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr nocapture
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %.1189, ptr %19, align 8
-  %20 = icmp slt i32 %.1189, 16
+  %20 = icmp samesign ult i32 %.1189, 16
   br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %18
-  %22 = sub nsw i32 16, %.1189
-  %.not205226 = icmp slt i32 %.1189, 1
+  %22 = sub nuw nsw i32 16, %.1189
+  %.not205226 = icmp eq i32 %.1189, 0
   br i1 %.not205226, label %._crit_edge..loopexit219_crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %21
@@ -4788,7 +4788,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr nocapture
   br i1 %exitcond271.not, label %._crit_edge, label %.lr.ph, !llvm.loop !27
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %30 = icmp sgt i32 %.1189, 10
+  %30 = icmp samesign ugt i32 %.1189, 10
   br i1 %30, label %.thread, label %._crit_edge..loopexit219_crit_edge
 
 ._crit_edge..loopexit219_crit_edge:               ; preds = %21, %._crit_edge

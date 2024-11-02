@@ -1463,11 +1463,11 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
 6:                                                ; preds = %3
   %7 = tail call ptr @__errno_location() #14
   store i32 22, ptr %7, align 4
-  br label %57
+  br label %56
 
 8:                                                ; preds = %3
   %9 = icmp eq i32 %2, 0
-  br i1 %9, label %57, label %10
+  br i1 %9, label %56, label %10
 
 10:                                               ; preds = %8
   %11 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
@@ -1542,35 +1542,33 @@ define dso_local i32 @cbuf_drop_line(ptr noundef %0, i32 noundef %1, i32 noundef
 
 ._crit_edge.i:                                    ; preds = %41, %30
   %46 = icmp sgt i32 %.2.i, 0
-  br i1 %46, label %cbuf_find_unread_line.exit.thread25, label %cbuf_find_unread_line.exit
+  %.not27 = icmp eq i32 %.235.i, 0
+  %or.cond28 = select i1 %46, i1 true, i1 %.not27
+  br i1 %or.cond28, label %cbuf_find_unread_line.exit.thread25, label %47
 
-cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
-  %47 = icmp sgt i32 %.235.i, 0
-  br i1 %47, label %48, label %cbuf_find_unread_line.exit.thread25
-
-48:                                               ; preds = %cbuf_find_unread_line.exit
-  %49 = sub nsw i32 %19, %.235.i
-  store i32 %49, ptr %18, align 8
-  %50 = add nsw i32 %23, %.235.i
-  %51 = load i32, ptr %29, align 4
-  %52 = add nsw i32 %51, 1
-  %53 = srem i32 %50, %52
-  store i32 %53, ptr %22, align 8
+47:                                               ; preds = %._crit_edge.i
+  %48 = sub nsw i32 %19, %.235.i
+  store i32 %48, ptr %18, align 8
+  %49 = add nsw i32 %23, %.235.i
+  %50 = load i32, ptr %29, align 4
+  %51 = add nsw i32 %50, 1
+  %52 = srem i32 %49, %51
+  store i32 %52, ptr %22, align 8
   br label %cbuf_find_unread_line.exit.thread25
 
-cbuf_find_unread_line.exit.thread25:              ; preds = %21, %._crit_edge.i, %17, %14, %cbuf_find_unread_line.exit, %48
-  %.038.i21 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %48 ], [ 0, %14 ], [ 0, %17 ], [ 0, %._crit_edge.i ], [ 0, %21 ]
-  %54 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
-  %.not19 = icmp eq i32 %54, 0
-  br i1 %.not19, label %57, label %55
+cbuf_find_unread_line.exit.thread25:              ; preds = %21, %._crit_edge.i, %17, %14, %47
+  %.038.i21 = phi i32 [ %.235.i, %47 ], [ 0, %14 ], [ 0, %17 ], [ 0, %._crit_edge.i ], [ 0, %21 ]
+  %53 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
+  %.not19 = icmp eq i32 %53, 0
+  br i1 %.not19, label %56, label %54
 
-55:                                               ; preds = %cbuf_find_unread_line.exit.thread25
-  %56 = tail call ptr @__errno_location() #14
-  store i32 %54, ptr %56, align 4
+54:                                               ; preds = %cbuf_find_unread_line.exit.thread25
+  %55 = tail call ptr @__errno_location() #14
+  store i32 %53, ptr %55, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 542, ptr noundef nonnull @__func__.cbuf_drop_line) #16
   unreachable
 
-57:                                               ; preds = %cbuf_find_unread_line.exit.thread25, %8, %6
+56:                                               ; preds = %cbuf_find_unread_line.exit.thread25, %8, %6
   %.0 = phi i32 [ -1, %6 ], [ 0, %8 ], [ %.038.i21, %cbuf_find_unread_line.exit.thread25 ]
   ret i32 %.0
 }
@@ -1756,11 +1754,11 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 8:                                                ; preds = %4
   %9 = tail call ptr @__errno_location() #14
   store i32 22, ptr %9, align 4
-  br label %86
+  br label %85
 
 10:                                               ; preds = %4
   %11 = icmp eq i32 %3, 0
-  br i1 %11, label %86, label %12
+  br i1 %11, label %85, label %12
 
 12:                                               ; preds = %10
   %13 = tail call i32 @pthread_mutex_lock(ptr noundef %0) #15
@@ -1836,91 +1834,89 @@ define dso_local i32 @cbuf_read_line(ptr noundef %0, ptr noundef writeonly %1, i
 
 ._crit_edge.i:                                    ; preds = %44, %33
   %49 = icmp sgt i32 %.2.i, 0
-  br i1 %49, label %cbuf_find_unread_line.exit.thread48, label %cbuf_find_unread_line.exit
+  %.not50 = icmp eq i32 %.235.i, 0
+  %or.cond53 = select i1 %49, i1 true, i1 %.not50
+  br i1 %or.cond53, label %cbuf_find_unread_line.exit.thread48, label %50
 
-cbuf_find_unread_line.exit:                       ; preds = %._crit_edge.i
-  %50 = icmp sgt i32 %.235.i, 0
-  br i1 %50, label %51, label %cbuf_find_unread_line.exit.thread48
+50:                                               ; preds = %._crit_edge.i
+  %51 = icmp sgt i32 %2, 0
+  br i1 %51, label %52, label %74
 
-51:                                               ; preds = %cbuf_find_unread_line.exit
-  %52 = icmp sgt i32 %2, 0
-  br i1 %52, label %53, label %75
-
-53:                                               ; preds = %51
-  %54 = tail call i32 @llvm.umin.i32(i32 %.235.i, i32 %17)
+52:                                               ; preds = %50
+  %53 = tail call i32 @llvm.umin.i32(i32 %.235.i, i32 %17)
   %.not36 = icmp ne i32 %2, 1
   %.old1.i = icmp sgt i32 %22, 0
-  %or.cond52 = and i1 %.not36, %.old1.i
-  br i1 %or.cond52, label %.preheader.i, label %cbuf_reader.exit
+  %or.cond54 = and i1 %.not36, %.old1.i
+  br i1 %or.cond54, label %.preheader.i, label %cbuf_reader.exit
 
-.preheader.i:                                     ; preds = %53
-  %55 = tail call i32 @llvm.umin.i32(i32 %54, i32 %22)
-  br label %56
+.preheader.i:                                     ; preds = %52
+  %54 = tail call i32 @llvm.umin.i32(i32 %53, i32 %22)
+  br label %55
 
-56:                                               ; preds = %71, %.preheader.i
-  %.042 = phi ptr [ %1, %.preheader.i ], [ %63, %71 ]
-  %.035.i = phi i32 [ %55, %.preheader.i ], [ %.2.i38, %71 ]
-  %.0.i = phi i32 [ %26, %.preheader.i ], [ %.1.i39, %71 ]
-  %57 = load i32, ptr %32, align 4
-  %reass.sub = sub i32 %57, %.0.i
-  %58 = add i32 %reass.sub, 1
-  %.035..i = tail call i32 @llvm.smin.i32(i32 %.035.i, i32 %58)
-  %59 = load ptr, ptr %30, align 8
-  %60 = sext i32 %.0.i to i64
-  %61 = getelementptr inbounds i8, ptr %59, i64 %60
-  %62 = sext i32 %.035..i to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.042, ptr readonly align 1 %61, i64 %62, i1 false)
-  %63 = getelementptr inbounds i8, ptr %.042, i64 %62
-  %64 = icmp sgt i32 %.035..i, 0
-  br i1 %64, label %65, label %71
+55:                                               ; preds = %70, %.preheader.i
+  %.042 = phi ptr [ %1, %.preheader.i ], [ %62, %70 ]
+  %.035.i = phi i32 [ %54, %.preheader.i ], [ %.2.i38, %70 ]
+  %.0.i = phi i32 [ %26, %.preheader.i ], [ %.1.i39, %70 ]
+  %56 = load i32, ptr %32, align 4
+  %reass.sub = sub i32 %56, %.0.i
+  %57 = add i32 %reass.sub, 1
+  %.035..i = tail call i32 @llvm.smin.i32(i32 %.035.i, i32 %57)
+  %58 = load ptr, ptr %30, align 8
+  %59 = sext i32 %.0.i to i64
+  %60 = getelementptr inbounds i8, ptr %58, i64 %59
+  %61 = sext i32 %.035..i to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.042, ptr readonly align 1 %60, i64 %61, i1 false)
+  %62 = getelementptr inbounds i8, ptr %.042, i64 %61
+  %63 = icmp sgt i32 %.035..i, 0
+  br i1 %63, label %64, label %70
 
-65:                                               ; preds = %56
-  %66 = sub nsw i32 %.035.i, %.035..i
-  %67 = add nsw i32 %.035..i, %.0.i
-  %68 = load i32, ptr %32, align 4
-  %69 = add nsw i32 %68, 1
-  %70 = srem i32 %67, %69
-  br label %71
+64:                                               ; preds = %55
+  %65 = sub nsw i32 %.035.i, %.035..i
+  %66 = add nsw i32 %.035..i, %.0.i
+  %67 = load i32, ptr %32, align 4
+  %68 = add nsw i32 %67, 1
+  %69 = srem i32 %66, %68
+  br label %70
 
-71:                                               ; preds = %65, %56
-  %.2.i38 = phi i32 [ %66, %65 ], [ %.035.i, %56 ]
-  %.1.i39 = phi i32 [ %70, %65 ], [ %.0.i, %56 ]
-  %72 = icmp sgt i32 %.2.i38, 0
-  br i1 %72, label %56, label %cbuf_reader.exit, !llvm.loop !10
+70:                                               ; preds = %64, %55
+  %.2.i38 = phi i32 [ %65, %64 ], [ %.035.i, %55 ]
+  %.1.i39 = phi i32 [ %69, %64 ], [ %.0.i, %55 ]
+  %71 = icmp sgt i32 %.2.i38, 0
+  br i1 %71, label %55, label %cbuf_reader.exit, !llvm.loop !10
 
-cbuf_reader.exit:                                 ; preds = %71, %53
-  %73 = zext nneg i32 %54 to i64
-  %74 = getelementptr inbounds i8, ptr %1, i64 %73
-  store i8 0, ptr %74, align 1
+cbuf_reader.exit:                                 ; preds = %70, %52
+  %72 = zext nneg i32 %53 to i64
+  %73 = getelementptr inbounds i8, ptr %1, i64 %72
+  store i8 0, ptr %73, align 1
   %.pre = load i32, ptr %21, align 8
-  %.pre51 = load i32, ptr %25, align 8
-  br label %75
+  %.pre52 = load i32, ptr %25, align 8
+  br label %74
 
-75:                                               ; preds = %cbuf_reader.exit, %51
-  %76 = phi i32 [ %.pre51, %cbuf_reader.exit ], [ %26, %51 ]
-  %77 = phi i32 [ %.pre, %cbuf_reader.exit ], [ %22, %51 ]
-  %78 = sub nsw i32 %77, %.235.i
-  store i32 %78, ptr %21, align 8
-  %79 = add nsw i32 %76, %.235.i
-  %80 = load i32, ptr %32, align 4
-  %81 = add nsw i32 %80, 1
-  %82 = srem i32 %79, %81
-  store i32 %82, ptr %25, align 8
+74:                                               ; preds = %cbuf_reader.exit, %50
+  %75 = phi i32 [ %.pre52, %cbuf_reader.exit ], [ %26, %50 ]
+  %76 = phi i32 [ %.pre, %cbuf_reader.exit ], [ %22, %50 ]
+  %77 = sub nsw i32 %76, %.235.i
+  store i32 %77, ptr %21, align 8
+  %78 = add nsw i32 %75, %.235.i
+  %79 = load i32, ptr %32, align 4
+  %80 = add nsw i32 %79, 1
+  %81 = srem i32 %78, %80
+  store i32 %81, ptr %25, align 8
   br label %cbuf_find_unread_line.exit.thread48
 
-cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i, %20, %16, %cbuf_find_unread_line.exit, %75
-  %.038.i44 = phi i32 [ %.235.i, %cbuf_find_unread_line.exit ], [ %.235.i, %75 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
-  %83 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
-  %.not37 = icmp eq i32 %83, 0
-  br i1 %.not37, label %86, label %84
+cbuf_find_unread_line.exit.thread48:              ; preds = %24, %._crit_edge.i, %20, %16, %74
+  %.038.i44 = phi i32 [ %.235.i, %74 ], [ 0, %16 ], [ 0, %20 ], [ 0, %._crit_edge.i ], [ 0, %24 ]
+  %82 = tail call i32 @pthread_mutex_unlock(ptr noundef %0) #15
+  %.not37 = icmp eq i32 %82, 0
+  br i1 %.not37, label %85, label %83
 
-84:                                               ; preds = %cbuf_find_unread_line.exit.thread48
-  %85 = tail call ptr @__errno_location() #14
-  store i32 %83, ptr %85, align 4
+83:                                               ; preds = %cbuf_find_unread_line.exit.thread48
+  %84 = tail call ptr @__errno_location() #14
+  store i32 %82, ptr %84, align 4
   tail call void (ptr, ...) @fatal(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str, i32 noundef 615, ptr noundef nonnull @__func__.cbuf_read_line) #16
   unreachable
 
-86:                                               ; preds = %cbuf_find_unread_line.exit.thread48, %10, %8
+85:                                               ; preds = %cbuf_find_unread_line.exit.thread48, %10, %8
   %.0 = phi i32 [ -1, %8 ], [ 0, %10 ], [ %.038.i44, %cbuf_find_unread_line.exit.thread48 ]
   ret i32 %.0
 }

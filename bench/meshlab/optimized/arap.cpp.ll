@@ -6337,7 +6337,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELin1ELi1ELb0EEE
   br i1 %.not67, label %.thread198, label %305
 
 305:                                              ; preds = %304
-  %306 = add nsw i64 %.sroa.0.1.i.i, %.060216
+  %306 = add nuw nsw i64 %.sroa.0.1.i.i, %.060216
   %307 = getelementptr inbounds double, ptr %283, i64 %.060216
   %308 = getelementptr inbounds double, ptr %283, i64 %306
   %309 = load double, ptr %307, align 8
@@ -25886,7 +25886,7 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal15partial_lu_implIdLi0EiLin1E
   br i1 %exitcond.not.i.i, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKNS_5BlockINS5_INS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELin1ELi1ELb1EEELin1ELi1ELb0EEEEEE8maxCoeffIlEEdPT_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !568
 
 _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal21scalar_score_coeff_opIdEEKNS_5BlockINS5_INS_3RefINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0ENS_11OuterStrideILin1EEEEELin1ELi1ELb1EEELin1ELi1ELb0EEEEEE8maxCoeffIlEEdPT_.exit: ; preds = %.lr.ph.i.i.i.i
-  %33 = add nsw i64 %.sroa.0.1.i.i, %.043166
+  %33 = add nuw nsw i64 %.sroa.0.1.i.i, %.043166
   %34 = trunc i64 %33 to i32
   %35 = getelementptr inbounds i32, ptr %1, i64 %.043166
   store i32 %34, ptr %35, align 4

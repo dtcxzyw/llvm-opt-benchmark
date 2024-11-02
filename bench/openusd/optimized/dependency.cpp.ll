@@ -209,7 +209,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNod
 
 ._crit_edge:                                      ; preds = %29, %27
   %37 = trunc nuw i8 %.020. to i1
-  %38 = trunc i8 %..017 to i1
+  %38 = trunc nuw i8 %..017 to i1
   br i1 %37, label %39, label %44
 
 39:                                               ; preds = %._crit_edge

@@ -32416,7 +32416,7 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic
 ._crit_edge:                                      ; preds = %78, %_ZSt6fill_nIPbmbET_S1_T0_RKT1_.exit
   %83 = load i8, ptr %40, align 4
   %84 = select i1 %47, i8 %83, i8 0
-  %.2 = or i8 %.012, %84
+  %.2 = or i8 %84, %.012
   %85 = load ptr, ptr %48, align 8
   %86 = load ptr, ptr %49, align 8
   %.not = icmp eq ptr %85, %86

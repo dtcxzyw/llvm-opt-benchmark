@@ -3960,7 +3960,7 @@ Vec_IntFree.exit58:                               ; preds = %Vec_IntFree.exit, %
   %.03132.i = phi i32 [ %77, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %78 = getelementptr inbounds i32, ptr %32, i64 %indvars.iv38.i
   %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %.03132.i to i64
+  %80 = zext nneg i32 %.03132.i to i64
   %81 = getelementptr inbounds i32, ptr %32, i64 %80
   %82 = load i32, ptr %81, align 4
   %83 = icmp slt i32 %79, %82
@@ -3974,7 +3974,7 @@ Vec_IntFree.exit58:                               ; preds = %Vec_IntFree.exit, %
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %85 = getelementptr inbounds i32, ptr %.val48, i64 %indvars.iv41.i
   %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %spec.select.i to i64
+  %87 = zext nneg i32 %spec.select.i to i64
   %88 = getelementptr inbounds i32, ptr %.val48, i64 %87
   %89 = load i32, ptr %88, align 4
   store i32 %89, ptr %85, align 4

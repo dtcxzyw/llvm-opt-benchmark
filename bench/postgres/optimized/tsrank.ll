@@ -1894,7 +1894,7 @@ define internal fastcc float @calc_rank_or(ptr nocapture noundef readonly %0, pt
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %39, !llvm.loop !25
 
 ._crit_edge.loopexit:                             ; preds = %39
-  %53 = add i32 %.1, 1
+  %53 = add nuw i32 %.1, 1
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %36

@@ -670,10 +670,10 @@ for.body88:                                       ; preds = %for.body88.preheade
 
 for.end99:                                        ; preds = %for.body88, %if.then78
   %bestIndex.0.lcssa = phi i32 [ 0, %if.then78 ], [ %bestIndex.1, %for.body88 ]
-  %add100 = add nsw i32 %bestIndex.0.lcssa, 1
+  %add100 = add nuw nsw i32 %bestIndex.0.lcssa, 1
   %cmp102 = icmp slt i32 %add100, %40
   %cond = select i1 %cmp102, i32 %add100, i32 0
-  %idxprom105 = sext i32 %bestIndex.0.lcssa to i64
+  %idxprom105 = zext nneg i32 %bestIndex.0.lcssa to i64
   %arrayidx106 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom105
   %86 = load i64, ptr %arrayidx106, align 4
   store i64 %86, ptr %clipPoints, align 16
@@ -686,7 +686,7 @@ for.end99:                                        ; preds = %for.body88, %if.the
   store i8 1, ptr %typeA, align 2
   %typeB = getelementptr inbounds i8, ptr %clipPoints, i64 11
   store i8 0, ptr %typeB, align 1
-  %idxprom116 = sext i32 %cond to i64
+  %idxprom116 = zext nneg i32 %cond to i64
   %arrayidx117 = getelementptr inbounds [8 x %struct.b2Vec2], ptr %tempPolygonB, i64 0, i64 %idxprom116
   %arrayidx118 = getelementptr inbounds i8, ptr %clipPoints, i64 12
   %87 = load i64, ptr %arrayidx117, align 4

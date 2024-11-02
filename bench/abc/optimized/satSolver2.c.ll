@@ -6418,7 +6418,7 @@ solver2_clear_tags.exit.i.i:                      ; preds = %.lr.ph.i183.i.i, %s
   br i1 %exitcond.not.i.i, label %solver2_analyze.exit.i, label %.lr.ph223.i.i, !llvm.loop !68
 
 solver2_analyze.exit.i:                           ; preds = %.lr.ph223.i.i
-  %571 = sext i32 %spec.select.i.i to i64
+  %571 = zext nneg i32 %spec.select.i.i to i64
   %572 = getelementptr inbounds i32, ptr %.sroa.24.3.i, i64 %571
   %573 = load i32, ptr %572, align 4
   store i32 %573, ptr %557, align 4

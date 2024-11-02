@@ -330,35 +330,104 @@ define internal fastcc range(i32 0, 2) i32 @misrouted_irq(i32 noundef %0) unname
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %4, %21
-  %9 = phi ptr [ %24, %21 ], [ %6, %4 ]
-  %10 = phi i32 [ %23, %21 ], [ 0, %4 ]
-  %11 = phi i32 [ %22, %21 ], [ 0, %4 ]
+.preheader:                                       ; preds = %4, %60
+  %9 = phi ptr [ %63, %60 ], [ %6, %4 ]
+  %10 = phi i32 [ %62, %60 ], [ 0, %4 ]
+  %11 = phi i32 [ %61, %60 ], [ 0, %4 ]
   %12 = icmp eq ptr %9, null
   %13 = icmp eq i32 %10, 0
   %14 = or i1 %12, %13
   %15 = icmp eq i32 %10, %0
   %16 = or i1 %15, %14
-  br i1 %16, label %21, label %17
+  br i1 %16, label %60, label %17
 
 17:                                               ; preds = %.preheader
-  %18 = tail call fastcc i32 @try_one_irq(ptr noundef nonnull %9, i1 noundef zeroext false), !range !19
-  %19 = icmp eq i32 %18, 0
-  %20 = select i1 %19, i32 %11, i32 1
-  br label %21
+  %18 = getelementptr inbounds i8, ptr %9, i64 164
+  tail call void @_raw_spin_lock(ptr noundef %18) #6
+  %19 = getelementptr inbounds i8, ptr %9, i64 120
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 295424
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %23, label %.sink.split
 
-21:                                               ; preds = %17, %.preheader
-  %22 = phi i32 [ %11, %.preheader ], [ %20, %17 ]
-  %23 = add nuw nsw i32 %10, 1
-  %24 = tail call ptr @irq_to_desc(i32 noundef %23) #6
-  %25 = load i32, ptr @nr_irqs, align 4
-  %26 = icmp slt i32 %23, %25
-  br i1 %26, label %.preheader, label %.loopexit, !llvm.loop !24
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds i8, ptr %9, i64 56
+  %25 = load ptr, ptr %24, align 8
+  %26 = load i32, ptr %25, align 8
+  %27 = and i32 %26, 65536
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %.sink.split
 
-.loopexit:                                        ; preds = %21, %4, %1
-  %27 = phi i32 [ 0, %1 ], [ 0, %4 ], [ %22, %21 ]
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @irq_poll_active, ptr nonnull elementtype(i32) @irq_poll_active) #6, !srcloc !25
-  ret i32 %27
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds i8, ptr %9, i64 112
+  %31 = load ptr, ptr %30, align 16
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %.sink.split, label %33
+
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds i8, ptr %31, i64 60
+  %35 = load i32, ptr %34, align 4
+  %36 = and i32 %35, 640
+  %37 = icmp eq i32 %36, 128
+  br i1 %37, label %38, label %.sink.split
+
+38:                                               ; preds = %33
+  %39 = and i32 %26, 262144
+  %40 = icmp eq i32 %39, 0
+  %41 = getelementptr inbounds i8, ptr %9, i64 124
+  %42 = load i32, ptr %41, align 4
+  br i1 %40, label %44, label %try_one_irq.exit.thread3
+
+try_one_irq.exit.thread3:                         ; preds = %38
+  %43 = or i32 %42, 512
+  store i32 %43, ptr %41, align 4
+  br label %.sink.split
+
+44:                                               ; preds = %38
+  %45 = or i32 %42, 8
+  store i32 %45, ptr %41, align 4
+  br label %46
+
+46:                                               ; preds = %46, %44
+  %47 = phi i32 [ 0, %44 ], [ %50, %46 ]
+  %48 = tail call i32 @handle_irq_event(ptr noundef nonnull %9) #6
+  %.fr = freeze i32 %48
+  %49 = icmp eq i32 %.fr, 1
+  %50 = select i1 %49, i32 1, i32 %47
+  %51 = load ptr, ptr %30, align 16
+  %52 = load i32, ptr %41, align 4
+  %53 = and i32 %52, 512
+  %54 = icmp ne i32 %53, 0
+  %55 = icmp ne ptr %51, null
+  %56 = select i1 %54, i1 %55, i1 false
+  br i1 %56, label %46, label %try_one_irq.exit, !llvm.loop !24
+
+try_one_irq.exit:                                 ; preds = %46
+  %57 = and i32 %52, -9
+  store i32 %57, ptr %41, align 4
+  tail call void @_raw_spin_unlock(ptr noundef %18) #6
+  %58 = icmp eq i32 %50, 0
+  br i1 %58, label %59, label %60
+
+.sink.split:                                      ; preds = %23, %29, %33, %17, %try_one_irq.exit.thread3
+  tail call void @_raw_spin_unlock(ptr noundef %18) #6
+  br label %59
+
+59:                                               ; preds = %.sink.split, %try_one_irq.exit
+  br label %60
+
+60:                                               ; preds = %59, %try_one_irq.exit, %.preheader
+  %61 = phi i32 [ %11, %.preheader ], [ %11, %59 ], [ 1, %try_one_irq.exit ]
+  %62 = add nuw nsw i32 %10, 1
+  %63 = tail call ptr @irq_to_desc(i32 noundef %62) #6
+  %64 = load i32, ptr @nr_irqs, align 4
+  %65 = icmp slt i32 %62, %64
+  br i1 %65, label %.preheader, label %.loopexit, !llvm.loop !25
+
+.loopexit:                                        ; preds = %60, %4, %1
+  %66 = phi i32 [ 0, %1 ], [ 0, %4 ], [ %61, %60 ]
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @irq_poll_active, ptr nonnull elementtype(i32) @irq_poll_active) #6, !srcloc !26
+  ret i32 %66
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -404,7 +473,7 @@ define internal fastcc void @__report_bad_irq(ptr noundef %0, i32 noundef %1) un
   %27 = getelementptr inbounds i8, ptr %17, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !26
+  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !27
 
 .loopexit:                                        ; preds = %25, %10
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef %12, i64 noundef %13) #6
@@ -445,81 +514,6 @@ define internal noundef i32 @irqpoll_setup(ptr nocapture readnone %0) #4 section
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @irq_to_desc(i32 noundef) local_unnamed_addr #1
-
-; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @try_one_irq(ptr noundef nonnull %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 164
-  tail call void @_raw_spin_lock(ptr noundef %3) #6
-  %4 = getelementptr inbounds i8, ptr %0, i64 120
-  %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, 295424
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %48
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8
-  %11 = load i32, ptr %10, align 8
-  %12 = and i32 %11, 65536
-  %13 = icmp eq i32 %12, 0
-  %14 = or i1 %1, %13
-  br i1 %14, label %15, label %48
-
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
-  %17 = load ptr, ptr %16, align 16
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %48, label %19
-
-19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %17, i64 60
-  %21 = load i32, ptr %20, align 4
-  %22 = and i32 %21, 640
-  %23 = icmp eq i32 %22, 128
-  br i1 %23, label %24, label %48
-
-24:                                               ; preds = %19
-  %25 = and i32 %11, 262144
-  %26 = icmp eq i32 %25, 0
-  %27 = getelementptr inbounds i8, ptr %0, i64 124
-  %28 = load i32, ptr %27, align 4
-  br i1 %26, label %31, label %29
-
-29:                                               ; preds = %24
-  %30 = or i32 %28, 512
-  store i32 %30, ptr %27, align 4
-  br label %48
-
-31:                                               ; preds = %24
-  %32 = or i32 %28, 8
-  store i32 %32, ptr %27, align 4
-  br label %33
-
-33:                                               ; preds = %33, %31
-  %34 = phi i32 [ 0, %31 ], [ %37, %33 ]
-  %35 = tail call i32 @handle_irq_event(ptr noundef nonnull %0) #6
-  %36 = icmp eq i32 %35, 1
-  %37 = select i1 %36, i32 1, i32 %34
-  %38 = load ptr, ptr %16, align 16
-  %39 = load i32, ptr %27, align 4
-  %40 = and i32 %39, 512
-  %41 = icmp ne i32 %40, 0
-  %42 = icmp ne ptr %38, null
-  %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %33, label %44, !llvm.loop !27
-
-44:                                               ; preds = %33
-  %45 = and i32 %39, -9
-  store i32 %45, ptr %27, align 4
-  %46 = icmp eq i32 %37, 1
-  %47 = zext i1 %46 to i32
-  br label %48
-
-48:                                               ; preds = %44, %29, %19, %15, %8, %2
-  %49 = phi i32 [ 0, %2 ], [ 0, %29 ], [ %47, %44 ], [ 0, %19 ], [ 0, %15 ], [ 0, %8 ]
-  tail call void @_raw_spin_unlock(ptr noundef %3) #6
-  ret i32 %49
-}
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @handle_irq_event(ptr noundef) local_unnamed_addr #1
@@ -597,7 +591,7 @@ define internal void @poll_spurious_irqs(ptr nocapture readnone %0) #0 align 16 
 
 41:                                               ; preds = %37
   %42 = or i32 %40, 512
-  br label %try_one_irq.exit.sink.split
+  br label %.sink.split.i
 
 43:                                               ; preds = %37
   %44 = or i32 %40, 8
@@ -612,18 +606,18 @@ define internal void @poll_spurious_irqs(ptr nocapture readnone %0) #0 align 16 
   %50 = icmp ne i32 %49, 0
   %51 = icmp ne ptr %47, null
   %52 = select i1 %50, i1 %51, i1 false
-  br i1 %52, label %45, label %53, !llvm.loop !27
+  br i1 %52, label %45, label %53, !llvm.loop !24
 
 53:                                               ; preds = %45
   %54 = and i32 %48, -9
-  br label %try_one_irq.exit.sink.split
+  br label %.sink.split.i
 
-try_one_irq.exit.sink.split:                      ; preds = %53, %41
-  %.sink = phi i32 [ %42, %41 ], [ %54, %53 ]
-  store i32 %.sink, ptr %15, align 4
+.sink.split.i:                                    ; preds = %53, %41
+  %.sink.i = phi i32 [ %54, %53 ], [ %42, %41 ]
+  store i32 %.sink.i, ptr %15, align 4
   br label %try_one_irq.exit
 
-try_one_irq.exit:                                 ; preds = %try_one_irq.exit.sink.split, %19, %25, %32
+try_one_irq.exit:                                 ; preds = %19, %25, %32, %.sink.split.i
   tail call void @_raw_spin_unlock(ptr noundef %20) #6
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !31
   br label %55
@@ -636,7 +630,7 @@ try_one_irq.exit:                                 ; preds = %try_one_irq.exit.si
   br i1 %59, label %.preheader, label %.loopexit, !llvm.loop !32
 
 .loopexit:                                        ; preds = %55, %4, %1
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @irq_poll_active, ptr nonnull elementtype(i32) @irq_poll_active) #6, !srcloc !25
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; decl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @irq_poll_active, ptr nonnull elementtype(i32) @irq_poll_active) #6, !srcloc !26
   %60 = load volatile i64, ptr @jiffies, align 64
   %61 = add i64 %60, 100
   %62 = tail call i32 @mod_timer(ptr noundef nonnull @poll_spurious_irq_timer, i64 noundef %61) #6
@@ -679,8 +673,8 @@ attributes #7 = { cold nounwind }
 !22 = !{i64 2148701217, i64 2148701256, i64 2148701277, i64 2148701314, i64 2148701337, i64 2148701346}
 !23 = !{i64 2154447147}
 !24 = distinct !{!24, !15, !16}
-!25 = !{i64 2148693504, i64 2148693543, i64 2148693564, i64 2148693601, i64 2148693624, i64 2148693494}
-!26 = distinct !{!26, !15, !16}
+!25 = distinct !{!25, !15, !16}
+!26 = !{i64 2148693504, i64 2148693543, i64 2148693564, i64 2148693601, i64 2148693624, i64 2148693494}
 !27 = distinct !{!27, !15, !16}
 !28 = !{i64 2154454785}
 !29 = !{i64 2154455782}

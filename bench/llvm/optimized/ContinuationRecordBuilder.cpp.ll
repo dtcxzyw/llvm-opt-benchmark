@@ -606,7 +606,7 @@ _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE7reserveEm.ex
   %32 = phi ptr [ %.promoted25, %.lr.ph ], [ %69, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %.033 = phi i32 [ %28, %.lr.ph ], [ %36, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.022.032 = phi i32 [ %2, %.lr.ph ], [ %72, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
-  %.not.i7 = phi i1 [ true, %.lr.ph ], [ false, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
+  %.not.i731 = phi i1 [ true, %.lr.ph ], [ false, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.018.030 = phi i32 [ undef, %.lr.ph ], [ %.sroa.022.032, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %.sroa.014.029 = phi ptr [ %25, %.lr.ph ], [ %35, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
   %33 = phi ptr [ %.promoted, %.lr.ph ], [ %71, %_ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE9push_backEOS4_.exit ]
@@ -622,7 +622,7 @@ _ZNSt6vectorIN4llvm8codeview8CVRecordINS1_12TypeLeafKindEEESaIS4_EE7reserveEm.ex
   %43 = add i16 %42, -2
   call void @llvm.assume(i1 true) [ "align"(ptr %41, i64 1) ]
   store i16 %43, ptr %41, align 1
-  br i1 %.not.i7, label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit, label %44
+  br i1 %.not.i731, label %_ZN4llvm8codeview25ContinuationRecordBuilder19createSegmentRecordEjjSt8optionalINS0_9TypeIndexEE.exit, label %44
 
 44:                                               ; preds = %31
   %.sroa.0.0.idx.i.i = call i64 @llvm.usub.sat.i64(i64 %40, i64 8)

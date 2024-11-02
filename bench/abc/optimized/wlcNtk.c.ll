@@ -2704,7 +2704,7 @@ define void @Wlc_NtkPrintDistribSortOne(ptr nocapture noundef readonly %0, ptr n
   %.03132.i = phi i32 [ %16, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %17 = getelementptr inbounds i64, ptr %.val10, i64 %indvars.iv38.i
   %18 = load i64, ptr %17, align 8
-  %19 = sext i32 %.03132.i to i64
+  %19 = zext nneg i32 %.03132.i to i64
   %20 = getelementptr inbounds i64, ptr %.val10, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = icmp ult i64 %18, %21
@@ -2718,7 +2718,7 @@ define void @Wlc_NtkPrintDistribSortOne(ptr nocapture noundef readonly %0, ptr n
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %24 = getelementptr inbounds i64, ptr %.val9, i64 %indvars.iv41.i
   %25 = load i64, ptr %24, align 8
-  %26 = sext i32 %spec.select.i to i64
+  %26 = zext nneg i32 %spec.select.i to i64
   %27 = getelementptr inbounds i64, ptr %.val9, i64 %26
   %28 = load i64, ptr %27, align 8
   store i64 %28, ptr %24, align 8

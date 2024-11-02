@@ -14050,8 +14050,8 @@ define dso_local noundef i32 @_ZN4Luau19ConstraintGenerator5visitERKSt10shared_p
   unreachable
 
 40:                                               ; preds = %3
-  %.not496.not = icmp eq i64 %38, 0
-  br i1 %.not496.not, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE7reserveEm.exit161.thread, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
+  %.not496 = icmp eq i64 %38, 0
+  br i1 %.not496, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE7reserveEm.exit161.thread, label %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i
 
 _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE7reserveEm.exit161.thread: ; preds = %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -14797,9 +14797,9 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7
   store ptr %319, ptr %315, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %313, null
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, i8 0, i64 24, i1 false)
-  br i1 %.not.i.i.i.i.i.i.i, label %.thread862, label %322
+  br i1 %.not.i.i.i.i.i.i.i, label %.thread855, label %322
 
-.thread862:                                       ; preds = %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i.i
+.thread855:                                       ; preds = %_ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7_.exit.i.i
   %320 = load i64, ptr %88, align 8
   %321 = getelementptr inbounds i8, ptr %297, i64 104
   store i64 %320, ptr %321, align 8
@@ -14825,7 +14825,7 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeEbNS_16DenseHashPointerESt8equal_toIS3_EEaSEOS7
   call void @_ZdlPvm(ptr noundef nonnull %.pr484, i64 noundef %332) #29
   br label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i
 
-_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i: ; preds = %.thread862, %328, %322
+_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit.i.i: ; preds = %.thread855, %328, %322
   %333 = load ptr, ptr %77, align 8
   %.not.i.i.i.i220 = icmp eq ptr %333, null
   br i1 %.not.i.i.i.i220, label %_ZN4Luau19ConstraintGenerator15InferredBindingD2Ev.exit, label %334
@@ -15566,8 +15566,8 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeENS_7TypeIdsENS_16DenseHashPointerESt8equal_toI
   br i1 %623, label %591, label %._crit_edge740, !llvm.loop !78
 
 ._crit_edge740:                                   ; preds = %620, %.preheader541, %.loopexit533
-  %.sroa.0392.5868 = phi ptr [ %.sroa.0392.5, %.loopexit533 ], [ %.sroa.13401.2, %.preheader541 ], [ %.sroa.0392.5, %620 ]
-  %.sroa.26.5867 = phi ptr [ %.sroa.26.5, %.loopexit533 ], [ %.sroa.26.7, %.preheader541 ], [ %.sroa.26.5, %620 ]
+  %.sroa.0392.5861 = phi ptr [ %.sroa.0392.5, %.loopexit533 ], [ %.sroa.13401.2, %.preheader541 ], [ %.sroa.0392.5, %620 ]
+  %.sroa.26.5860 = phi ptr [ %.sroa.26.5, %.loopexit533 ], [ %.sroa.26.7, %.preheader541 ], [ %.sroa.26.5, %620 ]
   %624 = load ptr, ptr %23, align 8
   %.not.i.i.i.i280 = icmp eq ptr %624, null
   br i1 %.not.i.i.i.i280, label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit, label %625
@@ -15582,14 +15582,14 @@ _ZN4Luau12DenseHashMapIPKNS_4TypeENS_7TypeIdsENS_16DenseHashPointerESt8equal_toI
   br label %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit
 
 _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit: ; preds = %._crit_edge740, %625
-  %.not.i.i.i282 = icmp eq ptr %.sroa.0392.5868, null
+  %.not.i.i.i282 = icmp eq ptr %.sroa.0392.5861, null
   br i1 %.not.i.i.i282, label %_ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEED2Ev.exit, label %631
 
 631:                                              ; preds = %_ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2Ev.exit
-  %632 = ptrtoint ptr %.sroa.26.5867 to i64
-  %633 = ptrtoint ptr %.sroa.0392.5868 to i64
+  %632 = ptrtoint ptr %.sroa.26.5860 to i64
+  %633 = ptrtoint ptr %.sroa.0392.5861 to i64
   %634 = sub i64 %632, %633
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0392.5868, i64 noundef %634) #29
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0392.5861, i64 noundef %634) #29
   br label %_ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24GeneralizationConstraintENS_18IterableConstraintENS_14NameConstraintENS_28TypeAliasExpansionConstraintENS_22FunctionCallConstraintENS_23FunctionCheckConstraintENS_23PrimitiveTypeConstraintENS_17HasPropConstraintENS_20HasIndexerConstraintENS_20AssignPropConstraintENS_21AssignIndexConstraintENS_16UnpackConstraintENS_16ReduceConstraintENS_20ReducePackConstraintENS_18EqualityConstraintEEED2Ev.exit
 
 _ZN4Luau16UnpackConstraintD2Ev.exit272:           ; preds = %.loopexit528, %.loopexit.split-lp529.loopexit.split-lp.loopexit, %.loopexit.split-lp529.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp529.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp529.loopexit, %.body261
@@ -15636,7 +15636,7 @@ _ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24General
   br i1 %650, label %651, label %792
 
 651:                                              ; preds = %648
-  br i1 %.not496.not, label %.lr.ph756, label %652
+  br i1 %.not496, label %.lr.ph756, label %652
 
 652:                                              ; preds = %651
   %653 = load ptr, ptr %1, align 8
@@ -15852,8 +15852,8 @@ _ZN4Luau7VariantIJNS_17SubtypeConstraintENS_21PackSubtypeConstraintENS_24General
 
 748:                                              ; preds = %657
   %749 = load i32, ptr @_ZN4Luau7AstRttiINS_11AstExprCallEE5valueE, align 4
-  %.not968 = icmp eq i32 %663, %749
-  br i1 %.not968, label %750, label %thread-pre-split
+  %.not961 = icmp eq i32 %663, %749
+  br i1 %.not961, label %750, label %thread-pre-split
 
 750:                                              ; preds = %748
   %751 = getelementptr inbounds i8, ptr %661, i64 32

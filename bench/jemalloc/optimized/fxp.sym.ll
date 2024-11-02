@@ -145,15 +145,15 @@ while.body:                                       ; preds = %for.end, %while.bod
 while.end:                                        ; preds = %while.body, %for.end
   %fraction_digits.1.lcssa = phi i64 [ %shr, %for.end ], [ %div, %while.body ]
   %call11 = tail call i64 (ptr, i64, ptr, ...) @malloc_snprintf(ptr noundef %buf, i64 noundef 21, ptr noundef nonnull @.str, i32 noundef %shr.i) #4
-  %cmp1426 = icmp sgt i32 %leading_fraction_zeros.1, 0
-  br i1 %cmp1426, label %for.body16.preheader, label %for.end20
+  %cmp1426.not = icmp eq i32 %leading_fraction_zeros.1, 0
+  br i1 %cmp1426.not, label %for.end20, label %for.body16.preheader
 
 for.body16.preheader:                             ; preds = %while.end
   %scevgep = getelementptr i8, ptr %buf, i64 %call11
   %1 = zext nneg i32 %leading_fraction_zeros.1 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %1, i1 false)
   %2 = add nsw i32 %leading_fraction_zeros.1, -1
-  %3 = zext nneg i32 %2 to i64
+  %3 = zext i32 %2 to i64
   %4 = add i64 %call11, 1
   %5 = add i64 %4, %3
   br label %for.end20

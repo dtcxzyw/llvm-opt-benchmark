@@ -1196,7 +1196,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   %115 = lshr i32 %114, 8
   %116 = and i32 %115, 65535
   store i32 %116, ptr %113, align 4
-  %.not77.i = icmp slt i32 %116, %.163.i120
+  %.not77.i = icmp samesign ult i32 %116, %.163.i120
   %117 = add nuw nsw i32 %116, 1
   %spec.select.i = select i1 %.not77.i, i32 %.163.i120, i32 %117
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1205,7 +1205,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 
 ._crit_edge:                                      ; preds = %.lr.ph, %109
   %.163.i.lcssa = phi i32 [ 1, %109 ], [ %spec.select.i, %.lr.ph ]
-  %118 = icmp sgt i32 %.163.i.lcssa, 1000
+  %118 = icmp samesign ugt i32 %.163.i.lcssa, 1000
   %119 = mul nsw i32 %.1, %1
   %120 = icmp sgt i32 %.163.i.lcssa, %119
   %or.cond.i = select i1 %118, i1 true, i1 %120

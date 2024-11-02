@@ -2923,7 +2923,7 @@ define hidden void @_ZN11StringTable22print_table_statisticsEP12outputStream(ptr
 ._crit_edge29.i:                                  ; preds = %15, %11
   %.0.i = phi i32 [ %21, %15 ], [ 1, %11 ]
   %22 = add nuw nsw i32 %.0.i, %.01925.i
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %.02024.i, i32 %.0.i)
+  %spec.select.i = call i32 @llvm.umax.i32(i32 %.02024.i, i32 %.0.i)
   %exitcond.not.i = icmp eq i64 %.pre.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZN16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compact_hashtableEPhjEEXadL_ZN16java_lang_String6equalsES3_S1_iEEE22print_table_statisticsEP12outputStreamPKc.exit, label %11, !llvm.loop !27
 
@@ -11181,13 +11181,16 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

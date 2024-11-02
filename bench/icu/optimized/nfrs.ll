@@ -1284,7 +1284,7 @@ cond.true.i26.i:                                  ; preds = %while.body.i
   %add27.i = add nuw nsw i32 %div18.i, 1
   %hi.1.i = select i1 %cmp24.i, i32 %div18.i, i32 %hi.046.i
   %lo.1.i = select i1 %cmp24.i, i32 %lo.047.i, i32 %add27.i
-  %cmp12.i = icmp slt i32 %lo.1.i, %hi.1.i
+  %cmp12.i = icmp samesign ult i32 %lo.1.i, %hi.1.i
   br i1 %cmp12.i, label %while.body.i, label %while.end.i, !llvm.loop !19
 
 while.end.i:                                      ; preds = %cond.true.i26.i
@@ -1392,7 +1392,7 @@ cond.true.i26:                                    ; preds = %while.body
   %add27 = add nuw nsw i32 %div18, 1
   %hi.1 = select i1 %cmp24, i32 %div18, i32 %hi.046
   %lo.1 = select i1 %cmp24, i32 %lo.047, i32 %add27
-  %cmp12 = icmp slt i32 %lo.1, %hi.1
+  %cmp12 = icmp samesign ult i32 %lo.1, %hi.1
   br i1 %cmp12, label %while.body, label %while.end, !llvm.loop !19
 
 while.end:                                        ; preds = %cond.true.i26

@@ -1905,7 +1905,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi1ELi0ELi2ELi1EEELin1ELi1ELb0EEE
   br i1 %.not67, label %.thread198, label %305
 
 305:                                              ; preds = %304
-  %306 = add nsw i64 %.sroa.0.1.i.i, %.060216
+  %306 = add nuw nsw i64 %.sroa.0.1.i.i, %.060216
   %307 = getelementptr inbounds double, ptr %283, i64 %.060216
   %308 = getelementptr inbounds double, ptr %283, i64 %306
   %309 = load double, ptr %307, align 8

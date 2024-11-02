@@ -2661,7 +2661,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %187
   %194 = getelementptr inbounds i8, ptr %22, i64 16
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %194) #24
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #24
-  %195 = sext i32 %.1176.lcssa to i64
+  %195 = zext nneg i32 %.1176.lcssa to i64
   %.pre = load ptr, ptr %11, align 8
   br label %203
 
@@ -9670,7 +9670,7 @@ define hidden noundef double @_ZN2cv4text19OCRHMMClassifierCNN12eval_featureERNS
   br i1 %41, label %.preheader46, label %.preheader45, !llvm.loop !163
 
 .preheader44.loopexit:                            ; preds = %44
-  %42 = sitofp i32 %.1 to double
+  %42 = uitofp nneg i32 %.1 to double
   br label %.preheader44
 
 .preheader44:                                     ; preds = %.preheader44.loopexit, %.preheader45
@@ -9683,7 +9683,7 @@ define hidden noundef double @_ZN2cv4text19OCRHMMClassifierCNN12eval_featureERNS
   %.04050 = phi i32 [ 0, %.lr.ph52 ], [ %.1, %44 ]
   %45 = getelementptr inbounds double, ptr %19, i64 %indvars.iv70
   %46 = load double, ptr %45, align 8
-  %47 = sext i32 %.04050 to i64
+  %47 = zext nneg i32 %.04050 to i64
   %48 = getelementptr inbounds double, ptr %19, i64 %47
   %49 = load double, ptr %48, align 8
   %50 = fcmp ogt double %46, %49
@@ -13800,7 +13800,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %.body440
 
 ._crit_edge1234.loopexit:                         ; preds = %.lr.ph1233
-  %950 = sext i32 %.1167 to i64
+  %950 = zext nneg i32 %.1167 to i64
   br label %._crit_edge1234
 
 ._crit_edge1234:                                  ; preds = %._crit_edge1234.loopexit, %.preheader
@@ -13912,7 +13912,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %990, label %978, label %._crit_edge1251.loopexit, !llvm.loop !237
 
 ._crit_edge1251.loopexit:                         ; preds = %978
-  %991 = sext i32 %.1133 to i64
+  %991 = zext nneg i32 %.1133 to i64
   %992 = fptrunc double %.1135 to float
   br label %._crit_edge1251
 
@@ -17237,7 +17237,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %.body483
 
 ._crit_edge1357.loopexit:                         ; preds = %.lr.ph1356
-  %1035 = sext i32 %.1189 to i64
+  %1035 = zext nneg i32 %.1189 to i64
   br label %._crit_edge1357
 
 ._crit_edge1357:                                  ; preds = %._crit_edge1357.loopexit, %.preheader
@@ -17349,7 +17349,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %1075, label %1063, label %._crit_edge1374.loopexit, !llvm.loop !275
 
 ._crit_edge1374.loopexit:                         ; preds = %1063
-  %1076 = sext i32 %.1153 to i64
+  %1076 = zext nneg i32 %.1153 to i64
   %1077 = fptrunc double %.1155 to float
   br label %._crit_edge1374
 

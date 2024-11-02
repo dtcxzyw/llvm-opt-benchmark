@@ -1924,12 +1924,11 @@ if.end8:                                          ; preds = %if.end4
   br i1 %cmp10.not29, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup.loopexit:                        ; preds = %for.body
-  %0 = and i8 %spec.select, 1
-  %1 = zext nneg i8 %0 to i32
+  %0 = zext nneg i8 %spec.select to i32
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.loopexit, %if.end8
-  %succeeded.0.lcssa = phi i32 [ 1, %if.end8 ], [ %1, %for.cond.cleanup.loopexit ]
+  %succeeded.0.lcssa = phi i32 [ 1, %if.end8 ], [ %0, %for.cond.cleanup.loopexit ]
   call void @lua_pushboolean(ptr noundef %L, i32 noundef %succeeded.0.lcssa)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %n) #30
   br label %cleanup16

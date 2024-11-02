@@ -2298,8 +2298,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %137,
   %151 = load ptr, ptr %12, align 8
   %152 = load ptr, ptr %95, align 8
   %153 = call i32 @tvb_reported_length(ptr noundef %151) #14
-  %.mask.i = and i8 %spec.select73.i, 1
-  %154 = zext nneg i8 %.mask.i to i32
+  %154 = zext nneg i8 %spec.select73.i to i32
   %155 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef %151, i32 noundef 0, ptr noundef %152, i32 noundef %99, ptr noundef null, i32 noundef %153, i32 noundef %154) #14
   %.not69.i = icmp eq ptr %155, null
   br i1 %.not69.i, label %.split, label %.thread, !llvm.loop !12

@@ -25341,30 +25341,30 @@ _ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.thread15.
   %66 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = load i8, ptr %67, align 1
-  %69 = or i8 %68, %spec.select.i.i.i.i
-  %70 = and i8 %69, 1
-  store i8 %70, ptr %67, align 1
-  br label %76
+  %.masked21.i.i.i = and i8 %68, 1
+  %69 = or i8 %.masked21.i.i.i, %spec.select.i.i.i.i
+  store i8 %69, ptr %67, align 1
+  br label %74
 
 _ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.i.i.i: ; preds = %58
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  %71 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = load i8, ptr %72, align 1
-  %74 = or i8 %73, %.02023.i.ph.i.i.i
-  %75 = and i8 %74, 1
-  store i8 %75, ptr %72, align 1
-  br i1 %.01924.i.ph.i.i.i, label %76, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS2_12MachineInstrEE3$_0JRNS2_12LiveInterval8SubRangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
+  %70 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i8, ptr %71, align 1
+  %.masked.i.i.i = and i8 %72, 1
+  %73 = or i8 %.masked.i.i.i, %.02023.i.ph.i.i.i
+  store i8 %73, ptr %71, align 1
+  br i1 %.01924.i.ph.i.i.i, label %74, label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS2_12MachineInstrEE3$_0JRNS2_12LiveInterval8SubRangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-76:                                               ; preds = %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.i.i.i, %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.thread15.i.i.i
-  %77 = load ptr, ptr %46, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
-  %79 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %80 = load i64, ptr %78, align 8
-  store i64 %80, ptr %79, align 8
+74:                                               ; preds = %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.i.i.i, %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.thread15.i.i.i
+  %75 = load ptr, ptr %46, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %78 = load i64, ptr %76, align 8
+  store i64 %78, ptr %77, align 8
   br label %"_ZSt10__invoke_rIvRZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS2_12MachineInstrEE3$_0JRNS2_12LiveInterval8SubRangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit"
 
-"_ZSt10__invoke_rIvRZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS2_12MachineInstrEE3$_0JRNS2_12LiveInterval8SubRangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.thread.i.i.i, %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.i.i.i, %76
+"_ZSt10__invoke_rIvRZN12_GLOBAL__N_117RegisterCoalescer24removeCopyByCommutingDefERKN4llvm13CoalescerPairEPNS2_12MachineInstrEE3$_0JRNS2_12LiveInterval8SubRangeEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESE_E4typeEOSF_DpOSG_.exit": ; preds = %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.thread.i.i.i, %_ZL20addSegmentsWithValNoRN4llvm9LiveRangeEPNS_6VNInfoERKS0_PKS2_.exit.i.i.i, %74
   ret void
 }
 

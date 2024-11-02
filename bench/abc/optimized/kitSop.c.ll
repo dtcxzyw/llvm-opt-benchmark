@@ -1136,7 +1136,7 @@ define i32 @Kit_SopWorstLiteral(ptr nocapture noundef readonly %0, i32 noundef %
 .critedge.us:                                     ; preds = %7, %10
   %.023.lcssa.us = phi i32 [ %spec.select.us, %10 ], [ %.02334.us, %7 ]
   %13 = icmp samesign ugt i32 %.023.lcssa.us, 1
-  %14 = icmp sgt i32 %.02439.us, %.023.lcssa.us
+  %14 = icmp samesign ugt i32 %.02439.us, %.023.lcssa.us
   %or.cond.us = select i1 %13, i1 %14, i1 false
   %.127.us = select i1 %or.cond.us, i32 %.02937.us, i32 %.02638.us
   %.125.us = select i1 %or.cond.us, i32 %.023.lcssa.us, i32 %.02439.us
@@ -1268,7 +1268,7 @@ define void @Kit_SopDivisorZeroKernel_rec(ptr nocapture noundef %0, i32 noundef 
 .critedge.us.i:                                   ; preds = %10, %7
   %.023.lcssa.us.i = phi i32 [ %spec.select.us.i, %10 ], [ %.02334.us.i, %7 ]
   %13 = icmp samesign ugt i32 %.023.lcssa.us.i, 1
-  %14 = icmp sgt i32 %.02439.us.i, %.023.lcssa.us.i
+  %14 = icmp samesign ugt i32 %.02439.us.i, %.023.lcssa.us.i
   %or.cond.us.i = select i1 %13, i1 %14, i1 false
   %.127.us.i = select i1 %or.cond.us.i, i32 %.02937.us.i, i32 %.02638.us.i
   %.125.us.i = select i1 %or.cond.us.i, i32 %.023.lcssa.us.i, i32 %.02439.us.i

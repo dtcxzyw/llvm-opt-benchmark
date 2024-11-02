@@ -8203,7 +8203,7 @@ define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef %1) un
 .thread.thread:                                   ; preds = %2
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   store ptr %22, ptr %23, align 8
-  br label %79
+  br label %78
 
 26:                                               ; preds = %2
   %27 = getelementptr i8, ptr %1, i64 40
@@ -8226,77 +8226,76 @@ define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef %1) un
 
 .lr.ph.preheader:                                 ; preds = %29
   %41 = getelementptr inbounds i8, ptr %30, i64 %36
-  %42 = and i8 %38, 1
-  %43 = icmp eq i8 %42, 0
-  %44 = ptrtoint ptr %30 to i64
-  store i64 %44, ptr %22, align 8
-  %45 = getelementptr inbounds i8, ptr %1, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
+  %42 = icmp eq i8 %38, 0
+  %43 = ptrtoint ptr %30 to i64
+  store i64 %43, ptr %22, align 8
+  %44 = getelementptr inbounds i8, ptr %1, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   store ptr %22, ptr %41, align 8
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %74
-  %46 = phi ptr [ %77, %74 ], [ %30, %.lr.ph.preheader ]
-  %47 = getelementptr i8, ptr %46, i64 32
-  %48 = load i64, ptr %47, align 16
-  %49 = getelementptr i8, ptr %46, i64 88
-  %50 = load i64, ptr %49, align 8
-  store i64 %50, ptr %47, align 16
-  %51 = getelementptr i8, ptr %46, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %60, label %54
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %73
+  %45 = phi ptr [ %76, %73 ], [ %30, %.lr.ph.preheader ]
+  %46 = getelementptr i8, ptr %45, i64 32
+  %47 = load i64, ptr %46, align 16
+  %48 = getelementptr i8, ptr %45, i64 88
+  %49 = load i64, ptr %48, align 8
+  store i64 %49, ptr %46, align 16
+  %50 = getelementptr i8, ptr %45, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %59, label %53
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr i8, ptr %52, i64 32
-  %56 = load i64, ptr %55, align 16
-  %57 = sub i64 %50, %56
-  %58 = icmp sgt i64 %57, 0
-  br i1 %58, label %59, label %60
+53:                                               ; preds = %.lr.ph
+  %54 = getelementptr i8, ptr %51, i64 32
+  %55 = load i64, ptr %54, align 16
+  %56 = sub i64 %49, %55
+  %57 = icmp sgt i64 %56, 0
+  br i1 %57, label %58, label %59
 
-59:                                               ; preds = %54
-  store i64 %56, ptr %47, align 16
-  br label %60
+58:                                               ; preds = %53
+  store i64 %55, ptr %46, align 16
+  br label %59
 
-60:                                               ; preds = %59, %54, %.lr.ph
-  %61 = phi i64 [ %56, %59 ], [ %50, %54 ], [ %50, %.lr.ph ]
-  %62 = getelementptr i8, ptr %46, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %71, label %65
+59:                                               ; preds = %58, %53, %.lr.ph
+  %60 = phi i64 [ %55, %58 ], [ %49, %53 ], [ %49, %.lr.ph ]
+  %61 = getelementptr i8, ptr %45, i64 16
+  %62 = load ptr, ptr %61, align 8
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %70, label %64
 
-65:                                               ; preds = %60
-  %66 = getelementptr i8, ptr %63, i64 32
-  %67 = load i64, ptr %66, align 16
-  %68 = sub i64 %61, %67
-  %69 = icmp sgt i64 %68, 0
-  br i1 %69, label %70, label %71
+64:                                               ; preds = %59
+  %65 = getelementptr i8, ptr %62, i64 32
+  %66 = load i64, ptr %65, align 16
+  %67 = sub i64 %60, %66
+  %68 = icmp sgt i64 %67, 0
+  br i1 %68, label %69, label %70
 
-70:                                               ; preds = %65
-  store i64 %67, ptr %47, align 16
-  br label %71
+69:                                               ; preds = %64
+  store i64 %66, ptr %46, align 16
+  br label %70
 
-71:                                               ; preds = %70, %65, %60
-  %72 = phi i64 [ %67, %70 ], [ %61, %65 ], [ %61, %60 ]
-  %73 = icmp eq i64 %72, %48
-  br i1 %73, label %.thread, label %74
+70:                                               ; preds = %69, %64, %59
+  %71 = phi i64 [ %66, %69 ], [ %60, %64 ], [ %60, %59 ]
+  %72 = icmp eq i64 %71, %47
+  br i1 %72, label %.thread, label %73
 
-74:                                               ; preds = %71
-  %75 = load i64, ptr %46, align 16
-  %76 = and i64 %75, -4
-  %77 = inttoptr i64 %76 to ptr
-  %78 = icmp eq i64 %76, 0
-  br i1 %78, label %.thread, label %.lr.ph
+73:                                               ; preds = %70
+  %74 = load i64, ptr %45, align 16
+  %75 = and i64 %74, -4
+  %76 = inttoptr i64 %75 to ptr
+  %77 = icmp eq i64 %75, 0
+  br i1 %77, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %74, %71
-  br i1 %43, label %81, label %79
+.thread:                                          ; preds = %73, %70
+  br i1 %42, label %80, label %78
 
-79:                                               ; preds = %.thread.thread, %.thread
-  %80 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr %22, ptr %80, align 8
-  br label %81
+78:                                               ; preds = %.thread.thread, %.thread
+  %79 = getelementptr inbounds i8, ptr %0, i64 72
+  store ptr %22, ptr %79, align 8
+  br label %80
 
-81:                                               ; preds = %79, %.thread
+80:                                               ; preds = %78, %.thread
   tail call void @__rb_insert_augmented(ptr noundef %22, ptr noundef %23, ptr noundef nonnull @min_vruntime_cb_rotate) #27
   ret void
 }

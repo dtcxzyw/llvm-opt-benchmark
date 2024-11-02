@@ -7670,16 +7670,16 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
 8:                                                ; preds = %4
   tail call void @do_trace_netlink_extack(ptr noundef nonnull @replace_nexthop_single.__msg) #13
   %9 = icmp eq ptr %3, null
-  br i1 %9, label %.loopexit, label %10
+  br i1 %9, label %.loopexit9, label %10
 
 10:                                               ; preds = %8
   store ptr @replace_nexthop_single.__msg, ptr %3, align 8
-  br label %.loopexit
+  br label %.loopexit9
 
 11:                                               ; preds = %4
   %12 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 1, ptr noundef %2, ptr noundef %3)
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %14, label %.loopexit
+  br i1 %13, label %14, label %.loopexit9
 
 14:                                               ; preds = %11
   %15 = getelementptr inbounds i8, ptr %1, i64 101
@@ -7723,27 +7723,27 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
   %40 = load ptr, ptr %39, align 8
   %41 = tail call fastcc i32 @replace_nexthop_single_notify(ptr noundef %0, ptr noundef %40, ptr noundef %1, ptr noundef %22, ptr noundef %24, ptr noundef %3)
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %34, label %85
+  br i1 %42, label %34, label %82
 
 43:                                               ; preds = %34
   %44 = getelementptr inbounds i8, ptr %22, i64 24
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 2
-  br i1 %46, label %47, label %.loopexit
+  br i1 %46, label %47, label %.loopexit9
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %24, i64 24
   %49 = load i8, ptr %48, align 8
   %50 = icmp eq i8 %49, 10
-  br i1 %50, label %51, label %.loopexit
+  br i1 %50, label %51, label %.loopexit9
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %33, align 8
   %53 = icmp eq ptr %52, %33
-  br i1 %53, label %.loopexit, label %.preheader
+  br i1 %53, label %.loopexit9, label %.preheader
 
-.preheader:                                       ; preds = %51, %80
-  %54 = phi ptr [ %83, %80 ], [ %52, %51 ]
+.preheader:                                       ; preds = %51, %.loopexit
+  %54 = phi ptr [ %80, %.loopexit ], [ %52, %51 ]
   %55 = getelementptr i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 128
@@ -7752,7 +7752,7 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
   %60 = getelementptr inbounds i8, ptr %58, i64 8
   %61 = load i16, ptr %60, align 8
   %62 = icmp eq i16 %61, 0
-  br i1 %62, label %80, label %63
+  br i1 %62, label %.loopexit, label %63
 
 63:                                               ; preds = %.preheader
   %64 = zext i16 %61 to i64
@@ -7771,21 +7771,17 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
   %75 = select i1 %74, i8 1, i8 %67
   %76 = add nuw nsw i64 %66, 1
   %77 = icmp eq i64 %76, %64
-  br i1 %77, label %78, label %65, !llvm.loop !129
+  br i1 %77, label %.loopexit, label %65, !llvm.loop !129
 
-78:                                               ; preds = %65
-  %79 = and i8 %75, 1
-  br label %80
+.loopexit:                                        ; preds = %65, %.preheader
+  %78 = phi i8 [ 0, %.preheader ], [ %75, %65 ]
+  %79 = getelementptr inbounds i8, ptr %58, i64 14
+  store i8 %78, ptr %79, align 2
+  %80 = load ptr, ptr %54, align 8
+  %81 = icmp eq ptr %80, %33
+  br i1 %81, label %.loopexit9, label %.preheader, !llvm.loop !130
 
-80:                                               ; preds = %78, %.preheader
-  %81 = phi i8 [ 0, %.preheader ], [ %79, %78 ]
-  %82 = getelementptr inbounds i8, ptr %58, i64 14
-  store i8 %81, ptr %82, align 2
-  %83 = load ptr, ptr %54, align 8
-  %84 = icmp eq ptr %83, %33
-  br i1 %84, label %.loopexit, label %.preheader, !llvm.loop !130
-
-85:                                               ; preds = %38
+82:                                               ; preds = %38
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !131
   store volatile ptr %24, ptr %23, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !132
@@ -7794,28 +7790,28 @@ define internal fastcc range(i32 32770, 2) i32 @replace_nexthop_single(ptr nound
   store i8 %28, ptr %27, align 4
   store ptr %1, ptr %26, align 8
   store ptr %2, ptr %25, align 8
-  %86 = getelementptr inbounds i8, ptr %36, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %87, %33
-  br i1 %88, label %.loopexit10, label %.preheader9
+  %83 = getelementptr inbounds i8, ptr %36, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, %33
+  br i1 %85, label %.loopexit11, label %.preheader10
 
-.preheader9:                                      ; preds = %85, %.preheader9
-  %89 = phi ptr [ %94, %.preheader9 ], [ %87, %85 ]
-  %90 = getelementptr i8, ptr %89, i64 16
+.preheader10:                                     ; preds = %82, %.preheader10
+  %86 = phi ptr [ %91, %.preheader10 ], [ %84, %82 ]
+  %87 = getelementptr i8, ptr %86, i64 16
+  %88 = load ptr, ptr %87, align 8
+  %89 = tail call fastcc i32 @replace_nexthop_single_notify(ptr noundef %0, ptr noundef %88, ptr noundef %1, ptr noundef %24, ptr noundef %22, ptr noundef null)
+  %90 = getelementptr inbounds i8, ptr %86, i64 8
   %91 = load ptr, ptr %90, align 8
-  %92 = tail call fastcc i32 @replace_nexthop_single_notify(ptr noundef %0, ptr noundef %91, ptr noundef %1, ptr noundef %24, ptr noundef %22, ptr noundef null)
-  %93 = getelementptr inbounds i8, ptr %89, i64 8
-  %94 = load ptr, ptr %93, align 8
-  %95 = icmp eq ptr %94, %33
-  br i1 %95, label %.loopexit10, label %.preheader9, !llvm.loop !133
+  %92 = icmp eq ptr %91, %33
+  br i1 %92, label %.loopexit11, label %.preheader10, !llvm.loop !133
 
-.loopexit10:                                      ; preds = %.preheader9, %85
-  %96 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %3)
-  br label %.loopexit
+.loopexit11:                                      ; preds = %.preheader10, %82
+  %93 = tail call fastcc i32 @call_nexthop_notifiers(ptr noundef %0, i32 noundef 1, ptr noundef nonnull %1, ptr noundef %3)
+  br label %.loopexit9
 
-.loopexit:                                        ; preds = %80, %.loopexit10, %51, %47, %43, %11, %10, %8
-  %97 = phi i32 [ %41, %.loopexit10 ], [ -22, %10 ], [ -22, %8 ], [ %12, %11 ], [ 0, %47 ], [ 0, %43 ], [ 0, %51 ], [ 0, %80 ]
-  ret i32 %97
+.loopexit9:                                       ; preds = %.loopexit, %.loopexit11, %51, %47, %43, %11, %10, %8
+  %94 = phi i32 [ %41, %.loopexit11 ], [ -22, %10 ], [ -22, %8 ], [ %12, %11 ], [ 0, %47 ], [ 0, %43 ], [ 0, %51 ], [ 0, %.loopexit ]
+  ret i32 %94
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

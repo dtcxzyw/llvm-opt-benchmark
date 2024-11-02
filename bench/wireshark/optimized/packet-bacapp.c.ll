@@ -7213,29 +7213,29 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   %22 = tail call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %21) #7
   %23 = icmp eq i32 %.08398, %19
   %spec.select = select i1 %23, i32 %17, i32 %.08697
-  %24 = icmp slt i32 %spec.select, 8
-  br i1 %24, label %.lr.ph, label %._crit_edge
+  %24 = sub nsw i32 8, %spec.select
+  %25 = icmp samesign ult i32 %spec.select, 8
+  br i1 %25, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20
-  %25 = sub nsw i32 8, %spec.select
   %26 = zext i8 %22 to i32
   %27 = shl i32 %.08398, 3
   br label %28
 
 28:                                               ; preds = %.lr.ph, %28
   %.08496 = phi i32 [ 0, %.lr.ph ], [ %37, %28 ]
-  %29 = sub nsw i32 7, %.08496
-  %30 = shl nuw i32 1, %29
+  %29 = sub nuw nsw i32 7, %.08496
+  %30 = shl nuw nsw i32 1, %29
   %31 = and i32 %30, %26
   %.not94 = icmp eq i32 %31, 0
   %32 = select i1 %.not94, i8 70, i8 84
-  %33 = add i32 %.08496, %27
+  %33 = add nuw nsw i32 %.08496, %27
   %34 = tail call i32 @llvm.umin.i32(i32 %33, i32 255)
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr [257 x i8], ptr %11, i64 0, i64 %35
   store i8 %32, ptr %36, align 1
   %37 = add nuw nsw i32 %.08496, 1
-  %exitcond.not = icmp eq i32 %37, %25
+  %exitcond.not = icmp eq i32 %37, %24
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %28, %20
@@ -7272,41 +7272,41 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   br i1 %.not91, label %.lr.ph109.split.us, label %.lr.ph109.split
 
 .lr.ph109.split.us:                               ; preds = %.lr.ph109, %._crit_edge105.split.us.us
-  %.1107.us = phi i32 [ %55, %._crit_edge105.split.us.us ], [ 0, %.lr.ph109 ]
+  %.1107.us = phi i32 [ %56, %._crit_edge105.split.us.us ], [ 0, %.lr.ph109 ]
   %.2106.us = phi i32 [ %spec.select95.us, %._crit_edge105.split.us.us ], [ 0, %.lr.ph109 ]
   %51 = add i32 %49, %.1107.us
   %52 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %51) #7
   %53 = icmp eq i32 %.1107.us, %50
   %spec.select95.us = select i1 %53, i32 %17, i32 %.2106.us
-  %54 = icmp slt i32 %spec.select95.us, 8
-  br i1 %54, label %.lr.ph104.us, label %._crit_edge105.split.us.us
+  %54 = sub nsw i32 8, %spec.select95.us
+  %55 = icmp samesign ult i32 %spec.select95.us, 8
+  br i1 %55, label %.lr.ph104.us, label %._crit_edge105.split.us.us
 
 ._crit_edge105.split.us.us:                       ; preds = %59, %.lr.ph109.split.us
-  %55 = add nuw i32 %.1107.us, 1
-  %exitcond120.not = icmp eq i32 %55, %14
-  br i1 %exitcond120.not, label %._crit_edge110, label %.lr.ph109.split.us, !llvm.loop !30
+  %56 = add nuw i32 %.1107.us, 1
+  %exitcond118.not = icmp eq i32 %56, %14
+  br i1 %exitcond118.not, label %._crit_edge110, label %.lr.ph109.split.us, !llvm.loop !30
 
 .lr.ph104.us:                                     ; preds = %.lr.ph109.split.us
-  %56 = sub nsw i32 8, %spec.select95.us
   %57 = zext i8 %52 to i32
   %58 = shl i32 %.1107.us, 3
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph104.us
   %.185102.us.us = phi i32 [ 0, %.lr.ph104.us ], [ %68, %59 ]
-  %60 = sub nsw i32 7, %.185102.us.us
-  %61 = shl nuw i32 1, %60
+  %60 = sub nuw nsw i32 7, %.185102.us.us
+  %61 = shl nuw nsw i32 1, %60
   %62 = and i32 %61, %57
   %.not92.us.us = icmp eq i32 %62, 0
   %63 = select i1 %.not92.us.us, i8 48, i8 49
-  %64 = add i32 %.185102.us.us, %58
+  %64 = add nuw nsw i32 %.185102.us.us, %58
   %65 = call i32 @llvm.umin.i32(i32 %64, i32 255)
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr [257 x i8], ptr %11, i64 0, i64 %66
   store i8 %63, ptr %67, align 1
   %68 = add nuw nsw i32 %.185102.us.us, 1
-  %exitcond119.not = icmp eq i32 %68, %56
-  br i1 %exitcond119.not, label %._crit_edge105.split.us.us, label %59, !llvm.loop !31
+  %exitcond117.not = icmp eq i32 %68, %54
+  br i1 %exitcond117.not, label %._crit_edge105.split.us.us, label %59, !llvm.loop !31
 
 .lr.ph109.split:                                  ; preds = %.lr.ph109, %._crit_edge105.split
   %.1107 = phi i32 [ %87, %._crit_edge105.split ], [ 0, %.lr.ph109 ]
@@ -7315,11 +7315,11 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
   %70 = call zeroext i8 @tvb_get_guint8(ptr noundef nonnull %0, i32 noundef %69) #7
   %71 = icmp eq i32 %.1107, %50
   %spec.select95 = select i1 %71, i32 %17, i32 %.2106
-  %72 = icmp slt i32 %spec.select95, 8
-  br i1 %72, label %.lr.ph104, label %._crit_edge105.split
+  %72 = sub nsw i32 8, %spec.select95
+  %73 = icmp samesign ult i32 %spec.select95, 8
+  br i1 %73, label %.lr.ph104, label %._crit_edge105.split
 
 .lr.ph104:                                        ; preds = %.lr.ph109.split
-  %73 = sub nsw i32 8, %spec.select95
   %74 = zext i8 %70 to i32
   %75 = shl i32 %.1107, 3
   br label %76
@@ -7327,23 +7327,23 @@ define internal fastcc i32 @fBitStringTagVSBase(ptr noundef nonnull %0, ptr noun
 76:                                               ; preds = %.lr.ph104, %76
   %.185102 = phi i32 [ 0, %.lr.ph104 ], [ %86, %76 ]
   %77 = load i32, ptr @hf_bacapp_bit, align 4
-  %78 = sub nsw i32 7, %.185102
-  %79 = shl nuw i32 1, %78
+  %78 = sub nuw nsw i32 7, %.185102
+  %79 = shl nuw nsw i32 1, %78
   %80 = and i32 %79, %74
   %81 = zext nneg i32 %80 to i64
-  %82 = add i32 %.185102, %75
+  %82 = add nuw nsw i32 %.185102, %75
   %83 = call ptr @val_to_str(i32 noundef %82, ptr noundef nonnull %5, ptr noundef nonnull @ASHRAE_Reserved_Fmt) #7
   %.not93 = icmp eq i32 %80, 0
   %84 = select i1 %.not93, ptr @.str.2567, ptr @.str.2568
   %85 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_boolean_format(ptr noundef %.0, i32 noundef %77, ptr noundef nonnull %0, i32 noundef %69, i32 noundef 1, i64 noundef %81, ptr noundef nonnull @.str.2583, ptr noundef %83, ptr noundef nonnull %84) #7
   %86 = add nuw nsw i32 %.185102, 1
-  %exitcond116.not = icmp eq i32 %86, %73
-  br i1 %exitcond116.not, label %._crit_edge105.split, label %76, !llvm.loop !31
+  %exitcond115.not = icmp eq i32 %86, %72
+  br i1 %exitcond115.not, label %._crit_edge105.split, label %76, !llvm.loop !31
 
 ._crit_edge105.split:                             ; preds = %76, %.lr.ph109.split
   %87 = add nuw i32 %.1107, 1
-  %exitcond117.not = icmp eq i32 %87, %14
-  br i1 %exitcond117.not, label %._crit_edge110, label %.lr.ph109.split, !llvm.loop !30
+  %exitcond116.not = icmp eq i32 %87, %14
+  br i1 %exitcond116.not, label %._crit_edge110, label %.lr.ph109.split, !llvm.loop !30
 
 ._crit_edge110:                                   ; preds = %._crit_edge105.split, %._crit_edge105.split.us.us, %45
   %88 = icmp eq ptr %5, null
@@ -20906,14 +20906,14 @@ declare i32 @stats_tree_create_node(ptr noundef, ptr noundef, i32 noundef, i32 n
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #5
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

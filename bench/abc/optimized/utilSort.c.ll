@@ -152,7 +152,7 @@ define void @Abc_Sort_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %.059 = phi i32 [ %19, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %20 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv62
   %21 = load i32, ptr %20, align 4
-  %22 = sext i32 %.059 to i64
+  %22 = zext nneg i32 %.059 to i64
   %23 = getelementptr inbounds i32, ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp slt i32 %21, %24
@@ -165,7 +165,7 @@ define void @Abc_Sort_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
 ._crit_edge:                                      ; preds = %.lr.ph
   %27 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv65
   %28 = load i32, ptr %27, align 4
-  %29 = sext i32 %spec.select to i64
+  %29 = zext nneg i32 %spec.select to i64
   %30 = getelementptr inbounds i32, ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %27, align 4
@@ -446,7 +446,7 @@ define void @Abc_SortCost2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %3, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %.064 to i64
+  %32 = zext nneg i32 %.064 to i64
   %33 = getelementptr inbounds i32, ptr %0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
@@ -462,7 +462,7 @@ define void @Abc_SortCost2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, p
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv70
   %41 = load i32, ptr %40, align 4
-  %42 = sext i32 %spec.select to i64
+  %42 = zext nneg i32 %spec.select to i64
   %43 = getelementptr inbounds i32, ptr %0, i64 %42
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %40, align 4
@@ -740,7 +740,7 @@ define void @Abc_SortCost2Reverse_rec(ptr noundef %0, ptr noundef %1, ptr nounde
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i32, ptr %3, i64 %29
   %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %.064 to i64
+  %32 = zext nneg i32 %.064 to i64
   %33 = getelementptr inbounds i32, ptr %0, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sext i32 %34 to i64
@@ -756,7 +756,7 @@ define void @Abc_SortCost2Reverse_rec(ptr noundef %0, ptr noundef %1, ptr nounde
 ._crit_edge:                                      ; preds = %.lr.ph
   %40 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv70
   %41 = load i32, ptr %40, align 4
-  %42 = sext i32 %spec.select to i64
+  %42 = zext nneg i32 %spec.select to i64
   %43 = getelementptr inbounds i32, ptr %0, i64 %42
   %44 = load i32, ptr %43, align 4
   store i32 %44, ptr %40, align 4
@@ -1052,9 +1052,9 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %26 = or disjoint i64 %25, 1
   %27 = getelementptr inbounds i32, ptr %0, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = shl nsw i32 %.074, 1
+  %29 = shl nuw nsw i32 %.074, 1
   %30 = or disjoint i32 %29, 1
-  %31 = sext i32 %30 to i64
+  %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %0, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = icmp slt i32 %28, %33
@@ -1068,8 +1068,8 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %36 = shl nuw nsw i64 %indvars.iv80, 1
   %37 = getelementptr inbounds i32, ptr %0, i64 %36
   %38 = load i32, ptr %37, align 4
-  %39 = shl nsw i32 %spec.select, 1
-  %40 = sext i32 %39 to i64
+  %39 = shl nuw nsw i32 %spec.select, 1
+  %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds i32, ptr %0, i64 %40
   %42 = load i32, ptr %41, align 4
   store i32 %42, ptr %37, align 4
@@ -1078,7 +1078,7 @@ define void @Abc_MergeSortCost_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %44 = getelementptr inbounds i32, ptr %0, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = or disjoint i32 %39, 1
-  %47 = sext i32 %46 to i64
+  %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds i32, ptr %0, i64 %47
   %49 = load i32, ptr %48, align 4
   store i32 %49, ptr %44, align 4
@@ -1416,7 +1416,7 @@ define void @Abc_QuickSort2Inc_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %17 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv29.i
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
-  %20 = sext i32 %.02124.i to i64
+  %20 = zext nneg i32 %.02124.i to i64
   %21 = getelementptr inbounds i64, ptr %13, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
@@ -1431,7 +1431,7 @@ define void @Abc_QuickSort2Inc_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %26 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv32.i
   %27 = load i64, ptr %26, align 8
-  %28 = sext i32 %spec.select.i to i64
+  %28 = zext nneg i32 %spec.select.i to i64
   %29 = getelementptr inbounds i64, ptr %13, i64 %28
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %26, align 8
@@ -1540,7 +1540,7 @@ define void @Abc_QuickSort2Dec_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %17 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv29.i
   %18 = load i64, ptr %17, align 8
   %19 = trunc i64 %18 to i32
-  %20 = sext i32 %.02124.i to i64
+  %20 = zext nneg i32 %.02124.i to i64
   %21 = getelementptr inbounds i64, ptr %13, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = trunc i64 %22 to i32
@@ -1555,7 +1555,7 @@ define void @Abc_QuickSort2Dec_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %26 = getelementptr inbounds i64, ptr %13, i64 %indvars.iv32.i
   %27 = load i64, ptr %26, align 8
-  %28 = sext i32 %spec.select.i to i64
+  %28 = zext nneg i32 %spec.select.i to i64
   %29 = getelementptr inbounds i64, ptr %13, i64 %28
   %30 = load i64, ptr %29, align 8
   store i64 %30, ptr %26, align 8
@@ -1676,7 +1676,7 @@ define void @Abc_QuickSort3Inc_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %19 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv29.i
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
-  %22 = sext i32 %.02124.i to i64
+  %22 = zext nneg i32 %.02124.i to i64
   %23 = getelementptr inbounds i64, ptr %15, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
@@ -1691,7 +1691,7 @@ define void @Abc_QuickSort3Inc_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %28 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv32.i
   %29 = load i64, ptr %28, align 8
-  %30 = sext i32 %spec.select.i to i64
+  %30 = zext nneg i32 %spec.select.i to i64
   %31 = getelementptr inbounds i64, ptr %15, i64 %30
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %28, align 8
@@ -1902,7 +1902,7 @@ define void @Abc_QuickSort3Dec_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %19 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv29.i
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
-  %22 = sext i32 %.02124.i to i64
+  %22 = zext nneg i32 %.02124.i to i64
   %23 = getelementptr inbounds i64, ptr %15, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = trunc i64 %24 to i32
@@ -1917,7 +1917,7 @@ define void @Abc_QuickSort3Dec_rec(ptr nocapture noundef %0, i32 noundef %1, i32
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %28 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv32.i
   %29 = load i64, ptr %28, align 8
-  %30 = sext i32 %spec.select.i to i64
+  %30 = zext nneg i32 %spec.select.i to i64
   %31 = getelementptr inbounds i64, ptr %15, i64 %30
   %32 = load i64, ptr %31, align 8
   store i64 %32, ptr %28, align 8

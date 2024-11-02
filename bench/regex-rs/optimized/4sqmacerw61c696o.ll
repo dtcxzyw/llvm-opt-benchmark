@@ -2187,7 +2187,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA13start_pattern17hf5daec03710b325cE.exit
   br label %75
 
 114:                                              ; preds = %111
-  %115 = icmp eq i64 %.sroa.07.02025, 1
+  %115 = icmp ne i64 %.sroa.07.02025, 0
   %brmerge.not = and i1 %.0.i123, %115
   br i1 %brmerge.not, label %.loopexit, label %116
 
@@ -2218,7 +2218,7 @@ _ZN14regex_automata3nfa8thompson3nfa3NFA13start_pattern17hf5daec03710b325cE.exit
 
 ._crit_edge3951:                                  ; preds = %111, %134, %118
   %.1 = phi i64 [ %135, %134 ], [ %.02027, %118 ], [ %.02027, %111 ]
-  %131 = icmp eq i64 %.sroa.07.02025, 1
+  %131 = icmp ne i64 %.sroa.07.02025, 0
   %brmerge2.not = and i1 %.0.i123, %131
   %132 = icmp ne i64 %.1, %35
   %or.cond38.not = and i1 %83, %132
@@ -4227,7 +4227,7 @@ _ZN14regex_automata3nfa8thompson6pikevm6PikeVM5nexts17hb5e4c783c6a3a280E.exit: ;
   %.sroa.8.sroa.0.2 = select i1 %959, i64 %.1, i64 %.sroa.8.sroa.0.02024
   %.sroa.07.2 = select i1 %959, i64 1, i64 %.sroa.07.02025
   %.sroa.8.sroa.4.2 = select i1 %959, i32 %.sroa.3.1.i, i32 %.sroa.8.sroa.4.02026
-  %960 = icmp eq i64 %.sroa.07.2, 1
+  %960 = icmp ne i64 %.sroa.07.2, 0
   %or.cond = select i1 %110, i1 %960, i1 false
   br i1 %or.cond, label %.loopexit, label %1243
 

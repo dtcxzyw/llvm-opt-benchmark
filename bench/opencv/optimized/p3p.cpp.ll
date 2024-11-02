@@ -2938,7 +2938,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr nocaptur
   br label %123
 
 .preheader:                                       ; preds = %123
-  %122 = sext i32 %.1 to i64
+  %122 = zext i32 %.1 to i64
   br label %128
 
 123:                                              ; preds = %73, %123
@@ -2958,7 +2958,7 @@ define hidden noundef zeroext i1 @_ZN3p3p5alignEPA3_ddddddddddS1_Pd(ptr nocaptur
 128:                                              ; preds = %.preheader, %128
   %indvars.iv135 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next136, %128 ]
   %129 = shl nuw nsw i64 %indvars.iv135, 2
-  %130 = add nsw i64 %129, %122
+  %130 = add nuw nsw i64 %129, %122
   %131 = getelementptr inbounds [16 x double], ptr %18, i64 0, i64 %130
   %132 = load double, ptr %131, align 8
   %133 = getelementptr inbounds [4 x double], ptr %19, i64 0, i64 %indvars.iv135

@@ -724,7 +724,7 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 77:                                               ; preds = %64
-  %78 = and i32 %.3, -2
+  %78 = and i32 %.3, 14
   %or.cond3 = icmp eq i32 %78, 6
   br i1 %or.cond3, label %.backedge, label %79
 
@@ -830,14 +830,14 @@ print_modules.exit:                               ; preds = %56, %37
   br label %.backedge
 
 109:                                              ; preds = %64
-  %110 = and i32 %.3, -2
+  %110 = and i32 %.3, 14
   %or.cond9 = icmp eq i32 %110, 6
   %.str.70..0353 = select i1 %or.cond9, ptr @.str.70, ptr %.0353
   %.3. = select i1 %or.cond9, i32 %.3, i32 2
   br label %.backedge
 
 111:                                              ; preds = %64
-  %112 = and i32 %.3, -2
+  %112 = and i32 %.3, 14
   %or.cond11 = icmp eq i32 %112, 6
   %.str.71..0353 = select i1 %or.cond11, ptr @.str.71, ptr %.0353
   %.3.415 = select i1 %or.cond11, i32 %.3, i32 5

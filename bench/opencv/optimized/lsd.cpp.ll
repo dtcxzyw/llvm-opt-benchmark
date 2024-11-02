@@ -3337,7 +3337,7 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %34 ]
   %.082118 = phi i32 [ 0, %2 ], [ %spec.select, %34 ]
   %35 = getelementptr inbounds [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %indvars.iv
-  %36 = sext i32 %.082118 to i64
+  %36 = zext nneg i32 %.082118 to i64
   %37 = getelementptr inbounds [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %36
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = load double, ptr %38, align 8
@@ -3359,8 +3359,8 @@ define hidden noundef double @_ZNK2cv23LineSegmentDetectorImpl8rect_nfaERKNS0_4r
   %indvars.iv145 = phi i64 [ 0, %.preheader116 ], [ %indvars.iv.next146, %.preheader ]
   %48 = trunc i64 %indvars.iv145 to i32
   %49 = add i32 %spec.select, %48
-  %50 = srem i32 %49, 4
-  %51 = sext i32 %50 to i64
+  %50 = and i32 %49, 3
+  %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds [4 x %"class.cv::Point_.25"], ptr %5, i64 0, i64 %51
   %53 = getelementptr inbounds [4 x %"class.cv::Point_.25"], ptr %6, i64 0, i64 %indvars.iv145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %53, ptr noundef nonnull align 16 dereferenceable(16) %52, i64 16, i1 false)

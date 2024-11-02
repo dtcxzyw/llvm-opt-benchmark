@@ -4763,7 +4763,7 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   br i1 %44, label %.preheader51, label %.preheader50, !llvm.loop !121
 
 .preheader49.loopexit:                            ; preds = %.lr.ph60
-  %45 = sitofp i32 %.1 to double
+  %45 = uitofp nneg i32 %.1 to double
   br label %.preheader49
 
 .preheader49:                                     ; preds = %.preheader49.loopexit, %.preheader50
@@ -4776,7 +4776,7 @@ define hidden noundef double @_ZN2cv4text26OCRBeamSearchClassifierCNN12eval_feat
   %.04458 = phi i32 [ 0, %.lr.ph60.preheader ], [ %.1, %.lr.ph60 ]
   %47 = getelementptr inbounds double, ptr %2, i64 %indvars.iv81
   %48 = load double, ptr %47, align 8
-  %49 = sext i32 %.04458 to i64
+  %49 = zext nneg i32 %.04458 to i64
   %50 = getelementptr inbounds double, ptr %2, i64 %49
   %51 = load double, ptr %50, align 8
   %52 = fcmp ogt double %48, %51
@@ -7510,7 +7510,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   br label %345
 
 ._crit_edge157.loopexit:                          ; preds = %.lr.ph156
-  %269 = sext i32 %.169 to i64
+  %269 = zext nneg i32 %.169 to i64
   br label %._crit_edge157
 
 ._crit_edge157:                                   ; preds = %._crit_edge157.loopexit, %.preheader136
@@ -7647,7 +7647,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %325, label %306, label %._crit_edge167.loopexit, !llvm.loop !160
 
 ._crit_edge167.loopexit:                          ; preds = %306
-  %326 = sext i32 %.1 to i64
+  %326 = zext nneg i32 %.1 to i64
   br label %._crit_edge167
 
 ._crit_edge167:                                   ; preds = %._crit_edge167.loopexit, %.preheader

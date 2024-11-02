@@ -90,7 +90,7 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
 34:                                               ; preds = %.lr.ph.us, %42
   %.0154210.us = phi i32 [ 0, %.lr.ph.us ], [ %.0154..us, %42 ]
   %.0156209.us = phi i32 [ %28, %.lr.ph.us ], [ %..0156.us, %42 ]
-  %35 = sext i32 %.0154210.us to i64
+  %35 = zext nneg i32 %.0154210.us to i64
   %gep.us = getelementptr i32, ptr %invariant.gep, i64 %35
   %36 = load i32, ptr %gep.us, align 4
   %37 = icmp slt i32 %31, %36

@@ -1379,7 +1379,7 @@ thread-pre-split903:                              ; preds = %315, %318
   %681 = sext i32 %674 to i64
   %682 = getelementptr inbounds float, ptr %38, i64 %681
   %683 = load float, ptr %682, align 4
-  %684 = sext i32 %.0831.lcssa to i64
+  %684 = zext nneg i32 %.0831.lcssa to i64
   %685 = getelementptr inbounds float, ptr %38, i64 %684
   store float %683, ptr %685, align 4
   %686 = load i32, ptr %1, align 4

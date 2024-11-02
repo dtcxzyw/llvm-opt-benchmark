@@ -4822,7 +4822,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IsEclERKNS_5Ra
   %.03953 = phi i32 [ %51, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %52 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv73
   %53 = load i16, ptr %52, align 2
-  %54 = sext i32 %.03953 to i64
+  %54 = zext nneg i32 %.03953 to i64
   %55 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = icmp slt i16 %53, %56
@@ -4835,7 +4835,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median1x9IsEclERKNS_5Ra
 ._crit_edge:                                      ; preds = %.lr.ph
   %59 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv76
   %60 = load i16, ptr %59, align 2
-  %61 = sext i32 %spec.select to i64
+  %61 = zext nneg i32 %spec.select to i64
   %62 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %61
   %63 = load i16, ptr %62, align 2
   store i16 %63, ptr %59, align 2
@@ -4986,7 +4986,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
   %.03949 = phi i32 [ %49, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %50 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv69
   %51 = load i16, ptr %50, align 2
-  %52 = sext i32 %.03949 to i64
+  %52 = zext nneg i32 %.03949 to i64
   %53 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = icmp slt i16 %51, %54
@@ -4999,7 +4999,7 @@ define linkonce_odr hidden void @_ZNK2cv6stereo8Matching9Median9x1IsEclERKNS_5Ra
 ._crit_edge:                                      ; preds = %.lr.ph
   %57 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %indvars.iv73
   %58 = load i16, ptr %57, align 2
-  %59 = sext i32 %spec.select to i64
+  %59 = zext nneg i32 %spec.select to i64
   %60 = getelementptr inbounds [9 x i16], ptr %3, i64 0, i64 %59
   %61 = load i16, ptr %60, align 2
   store i16 %61, ptr %57, align 2

@@ -208,7 +208,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select0Em(ptr nocaptur
   %..068 = select i1 %36, i64 %30, i64 %.06883
   %.2. = select i1 %36, i64 %.284, i64 %30
   %37 = add nuw nsw i64 %.2., 1
-  %38 = icmp ult i64 %37, %..068
+  %38 = icmp samesign ult i64 %37, %..068
   br i1 %38, label %.preheader, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.preheader81, %.preheader
@@ -413,7 +413,7 @@ define noundef i64 @_ZNK6marisa8grimoire6vector9BitVector7select1Em(ptr nocaptur
   %..065 = select i1 %32, i64 %28, i64 %.06573
   %.2. = select i1 %32, i64 %.274, i64 %28
   %33 = add nuw nsw i64 %.2., 1
-  %34 = icmp ult i64 %33, %..065
+  %34 = icmp samesign ult i64 %33, %..065
   br i1 %34, label %.preheader, label %.loopexit, !llvm.loop !8
 
 .loopexit:                                        ; preds = %.preheader71, %.preheader

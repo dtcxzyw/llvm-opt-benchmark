@@ -359,7 +359,7 @@ switch.lookup206:                                 ; preds = %switch.hole_check20
   %..0125 = select i1 %.not161, i32 %187, i32 %.0125173
   %.0. = select i1 %.not161, i32 %.0174, i32 %187
   %191 = add nuw nsw i32 %..0125, 1
-  %.not160 = icmp sgt i32 %.0., %191
+  %.not160 = icmp samesign ugt i32 %.0., %191
   br i1 %.not160, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %184, %182

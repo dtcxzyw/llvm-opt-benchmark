@@ -1782,8 +1782,8 @@ for.body91.i:                                     ; preds = %for.body91.i.prehea
   br i1 %exitcond260.not.i, label %for.end102.i, label %for.body91.i, !llvm.loop !31
 
 for.end102.i:                                     ; preds = %for.body91.i
-  %cmp103.i = icmp ult i64 %spec.select.i, 2
-  %sub106.i = add i64 %spec.select.i, -1
+  %cmp103.i = icmp samesign ult i64 %spec.select.i, 2
+  %sub106.i = add nsw i64 %spec.select.i, -1
   br i1 %cmp103.i, label %if.then104.i, label %if.end120.i
 
 if.then104.i:                                     ; preds = %for.end102.i
@@ -1834,7 +1834,7 @@ for.body134.i:                                    ; preds = %for.body134.i, %for
   %cmp139.i = fcmp ogt double %73, %abs_d.0201.i
   %piv.1.i = select i1 %cmp139.i, i64 %k131.0202.i, i64 %piv.0200.i
   %abs_d.1.i = select i1 %cmp139.i, double %73, double %abs_d.0201.i
-  %inc143.i = add i64 %k131.0202.i, 1
+  %inc143.i = add nuw i64 %k131.0202.i, 1
   %exitcond261.not.i = icmp eq i64 %inc143.i, 3
   br i1 %exitcond261.not.i, label %for.end144.i, label %for.body134.i, !llvm.loop !33
 
@@ -1860,7 +1860,7 @@ if.then166.us.i:                                  ; preds = %for.cond151.for.end
   br label %for.inc173.us.i
 
 for.inc173.us.i:                                  ; preds = %for.cond151.for.end164_crit_edge.us.i, %if.then166.us.i
-  %inc174.us.i = add i64 %h.0216.us.i, 1
+  %inc174.us.i = add nuw i64 %h.0216.us.i, 1
   %exitcond263.not.i = icmp eq i64 %inc174.us.i, 3
   br i1 %exitcond263.not.i, label %if.end176.i, label %for.cond151.preheader.us.i, !llvm.loop !34
 
@@ -1933,7 +1933,7 @@ for.body206.i:                                    ; preds = %for.body206.i, %if.
   %89 = load double, ptr %arrayidx215.i, align 8
   %90 = tail call double @llvm.fmuladd.f64(double %neg216.i, double %88, double %89)
   store double %90, ptr %arrayidx215.i, align 8
-  %inc218.i = add i64 %k203.0227.i, 1
+  %inc218.i = add nuw i64 %k203.0227.i, 1
   %exitcond264.not.i = icmp eq i64 %inc218.i, 3
   br i1 %exitcond264.not.i, label %for.end219.i, label %for.body206.i, !llvm.loop !36
 
@@ -1954,7 +1954,7 @@ for.end219.i:                                     ; preds = %for.body206.i
 
 for.inc233.i:                                     ; preds = %for.end219.i, %for.body192.i
   %numsweeps.4.i = phi i64 [ %add231.i, %for.end219.i ], [ %numsweeps.3230.i, %for.body192.i ]
-  %inc234.i = add i64 %h189.0229.i, 1
+  %inc234.i = add nuw i64 %h189.0229.i, 1
   %exitcond265.not.i = icmp eq i64 %inc234.i, 3
   br i1 %exitcond265.not.i, label %for.cond123.loopexit.i, label %for.body192.i, !llvm.loop !37
 

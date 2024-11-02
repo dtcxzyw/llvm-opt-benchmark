@@ -3436,7 +3436,7 @@ update_mergeclause_eclasses.exit:                 ; preds = %.lr.ph11.i, %.prehe
   br i1 %exitcond245.not, label %._crit_edge208.loopexit, label %.lr.ph207, !llvm.loop !21
 
 ._crit_edge208.loopexit:                          ; preds = %.lr.ph207
-  %125 = sext i32 %spec.select143 to i64
+  %125 = zext nneg i32 %spec.select143 to i64
   br label %._crit_edge208
 
 ._crit_edge208:                                   ; preds = %._crit_edge208.loopexit, %119

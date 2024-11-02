@@ -47,7 +47,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %indvars.iv30.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next31.i, %.lr.ph.i ]
   %.02225.i = phi i32 [ %9, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %10 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv30.i
-  %11 = sext i32 %.02225.i to i64
+  %11 = zext nneg i32 %.02225.i to i64
   %12 = getelementptr inbounds i32, ptr %0, i64 %11
   %13 = tail call i32 %2(ptr noundef nonnull %10, ptr noundef %12) #15
   %.not.i = icmp eq i32 %13, 0
@@ -61,7 +61,7 @@ define internal fastcc void @sort_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %15 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv33.i
   %16 = load i32, ptr %15, align 4
-  %17 = sext i32 %spec.select.i to i64
+  %17 = zext nneg i32 %spec.select.i to i64
   %18 = getelementptr inbounds i32, ptr %0, i64 %17
   %19 = load i32, ptr %18, align 4
   store i32 %19, ptr %15, align 4
@@ -162,7 +162,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %.02124.i = phi i32 [ %6, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %7 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %indvars.iv29.i
   %8 = load i32, ptr %7, align 4
-  %9 = sext i32 %.02124.i to i64
+  %9 = zext nneg i32 %.02124.i to i64
   %10 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp slt i32 %8, %11
@@ -176,7 +176,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %14 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %indvars.iv32.i
   %15 = load i32, ptr %14, align 4
-  %16 = sext i32 %spec.select.i to i64
+  %16 = zext nneg i32 %spec.select.i to i64
   %17 = getelementptr inbounds i32, ptr %.tr.lcssa, i64 %16
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %14, align 4
@@ -562,7 +562,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %.033.i = phi i32 [ %7, %.lr.ph.preheader.i ], [ %.1.i, %.lr.ph.i ]
   %8 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %indvars.iv38.i
   %9 = load float, ptr %8, align 4
-  %10 = sext i32 %.033.i to i64
+  %10 = zext nneg i32 %.033.i to i64
   %11 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %10
   %12 = load float, ptr %11, align 4
   %13 = fcmp olt float %9, %12
@@ -576,7 +576,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %3
   %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
   %15 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %indvars.iv41.i
   %16 = load float, ptr %15, align 4
-  %17 = sext i32 %.1.i to i64
+  %17 = zext nneg i32 %.1.i to i64
   %18 = getelementptr inbounds float, ptr %.tr.lcssa, i64 %17
   %19 = load float, ptr %18, align 4
   store float %19, ptr %15, align 4

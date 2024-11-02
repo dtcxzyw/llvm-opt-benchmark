@@ -1578,8 +1578,7 @@ if.end41:                                         ; preds = %for.end
   br i1 %cmp42.not, label %for.body105.preheader, label %for.cond45.preheader
 
 for.cond45.preheader:                             ; preds = %if.end41
-  %conv55 = sext i32 %pivot.1 to i64
-  %mul56 = mul i64 %call7, %conv55
+  %mul56 = mul i64 %call7, %20
   br label %for.body47
 
 for.body47:                                       ; preds = %for.cond45.preheader, %for.body47

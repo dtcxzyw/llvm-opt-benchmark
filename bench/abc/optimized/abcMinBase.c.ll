@@ -1336,8 +1336,8 @@ define noundef ptr @Abc_NodeCollapseFunc(ptr noundef readonly %0, ptr nocapture 
   %21 = zext i1 %19 to i32
   %.1.i = add nuw nsw i32 %.018.i, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = sext i32 %.val.i to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
+  %22 = zext nneg i32 %.val.i to i64
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %.lr.ph.split.i, label %Abc_NodeCheckDupFanin.exit, !llvm.loop !18
 
 Abc_NodeCheckDupFanin.exit:                       ; preds = %.lr.ph.split.i
@@ -2319,8 +2319,8 @@ define ptr @Abc_NodeCollapseFunc1(ptr noundef readonly %0, ptr nocapture noundef
   %21 = zext i1 %19 to i32
   %.1.i = add nuw nsw i32 %.018.i, %21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %22 = sext i32 %.val.i to i64
-  %23 = icmp slt i64 %indvars.iv.next.i, %22
+  %22 = zext nneg i32 %.val.i to i64
+  %23 = icmp samesign ult i64 %indvars.iv.next.i, %22
   br i1 %23, label %.lr.ph.split.i, label %Abc_NodeCheckDupFanin.exit, !llvm.loop !18
 
 Abc_NodeCheckDupFanin.exit:                       ; preds = %.lr.ph.split.i

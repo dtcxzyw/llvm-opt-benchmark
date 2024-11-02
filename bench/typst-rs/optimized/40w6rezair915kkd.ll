@@ -17793,7 +17793,7 @@ define hidden noundef zeroext i1 @_ZN20unicode_segmentation4word16has_alphanumer
   %.02026.i.i.i.i.i = phi i64 [ %.021.i.i.i.i.i, %55 ], [ 733, %47 ]
   %49 = lshr i64 %.028.i.i.i.i.i, 1
   %50 = add nuw nsw i64 %49, %.01927.i.i.i.i.i
-  %51 = icmp ult i64 %50, 733
+  %51 = icmp samesign ult i64 %50, 733
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr inbounds { i32, i32 }, ptr @anon.db70647216840ea9fd0320153731fc7a.58, i64 %50
   %.val23.i.i.i.i.i = load i32, ptr %52, align 4, !range !7215, !alias.scope !7216, !noalias !7219, !noundef !4
@@ -17811,7 +17811,7 @@ define hidden noundef zeroext i1 @_ZN20unicode_segmentation4word16has_alphanumer
   %57 = add nuw nsw i64 %50, 1
   %.022.i.i.i.i.i = select i1 %.not2.i.i.i.i.i.i, i64 %.01927.i.i.i.i.i, i64 %57
   %58 = sub nsw i64 %.021.i.i.i.i.i, %.022.i.i.i.i.i
-  %59 = icmp ult i64 %.022.i.i.i.i.i, %.021.i.i.i.i.i
+  %59 = icmp samesign ult i64 %.022.i.i.i.i.i, %.021.i.i.i.i.i
   br i1 %59, label %.preheader.i.i.i.i, label %_ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.thread3.i.i.i
 
 _ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.thread3.i.i.i: ; preds = %55
@@ -17836,7 +17836,7 @@ _ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.th
   %.02026.i.i5.i.i.i = phi i64 [ %.021.i.i12.i.i.i, %70 ], [ 137, %_ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.thread3.i.i.i ]
   %64 = lshr i64 %.028.i.i3.i.i.i, 1
   %65 = add nuw nsw i64 %64, %.01927.i.i4.i.i.i
-  %66 = icmp ult i64 %65, 137
+  %66 = icmp samesign ult i64 %65, 137
   tail call void @llvm.assume(i1 %66)
   %67 = getelementptr inbounds { i32, i32 }, ptr @anon.db70647216840ea9fd0320153731fc7a.57, i64 %65
   %.val23.i.i6.i.i.i = load i32, ptr %67, align 4, !range !7215, !alias.scope !7221, !noalias !7224, !noundef !4
@@ -17854,7 +17854,7 @@ _ZN20unicode_segmentation6tables4util13is_alphabetic17hd1e8766fe86cb383E.exit.th
   %72 = add nuw nsw i64 %65, 1
   %.022.i.i13.i.i.i = select i1 %.not2.i.i.i9.i.i.i, i64 %.01927.i.i4.i.i.i, i64 %72
   %73 = sub nsw i64 %.021.i.i12.i.i.i, %.022.i.i13.i.i.i
-  %74 = icmp ult i64 %.022.i.i13.i.i.i, %.021.i.i12.i.i.i
+  %74 = icmp samesign ult i64 %.022.i.i13.i.i.i, %.021.i.i12.i.i.i
   br i1 %74, label %.preheader.i2.i.i.i, label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h75a1fd5fdf434561E.exit.i"
 
 "_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17h75a1fd5fdf434561E.exit.i": ; preds = %70

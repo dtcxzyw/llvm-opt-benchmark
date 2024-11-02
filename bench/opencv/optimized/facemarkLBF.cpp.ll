@@ -13498,7 +13498,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit273:       ; preds = %_ZNSt6vectorIdSaIdE
   br i1 %exitcond700.not, label %._crit_edge543.loopexit, label %_ZNSt6vectorIdSaIdEE5clearEv.exit, !llvm.loop !241
 
 ._crit_edge543.loopexit:                          ; preds = %652
-  %664 = sext i32 %.1184 to i64
+  %664 = zext nneg i32 %.1184 to i64
   br label %._crit_edge543
 
 ._crit_edge543:                                   ; preds = %._crit_edge543.loopexit, %_ZNSt6vectorIdSaIdEE7reserveEm.exit252

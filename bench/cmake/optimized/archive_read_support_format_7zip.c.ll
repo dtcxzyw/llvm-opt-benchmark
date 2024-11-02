@@ -344,7 +344,7 @@ define internal i32 @archive_read_format_7zip_read_header(ptr noundef %0, ptr no
 
 49:                                               ; preds = %46
   %50 = lshr i64 %.03547.i.i, 1
-  %51 = icmp ult i64 %.03547.i.i, 128
+  %51 = icmp samesign ult i64 %.03547.i.i, 128
   br i1 %51, label %.outer._crit_edge.i.i, label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %54, %49

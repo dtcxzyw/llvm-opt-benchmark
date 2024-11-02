@@ -196,7 +196,7 @@ define dso_local range(i64 0, 2) i64 @pg_terminate_backend(ptr nocapture noundef
 30:                                               ; preds = %44, %28
   %.013.i = phi i64 [ 100, %28 ], [ %spec.select.i, %44 ]
   %.0.i = phi i64 [ %29, %28 ], [ %48, %44 ]
-  %spec.select.i = tail call i64 @llvm.smin.i64(i64 %.0.i, i64 %.013.i)
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.0.i, i64 %.013.i)
   %31 = tail call i32 @kill(i32 noundef %4, i32 noundef 0) #8
   %32 = icmp eq i32 %31, -1
   br i1 %32, label %33, label %41
@@ -362,7 +362,7 @@ declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unn
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

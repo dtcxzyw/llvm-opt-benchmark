@@ -12121,7 +12121,7 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit46:      ; preds = %.lr.ph57.i38, %.pre
   %.0.i37 = phi float [ %.us-phi.i34, %.preheader.i33 ], [ %96, %.lr.ph57.i38 ]
   %98 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   store float %.0.i37, ptr %98, align 4
-  %99 = sext i32 %.03255 to i64
+  %99 = zext nneg i32 %.03255 to i64
   %100 = getelementptr inbounds float, ptr %3, i64 %99
   %101 = load float, ptr %100, align 4
   %102 = fcmp olt float %.0.i37, %101

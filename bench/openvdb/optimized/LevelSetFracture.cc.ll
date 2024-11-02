@@ -15176,8 +15176,8 @@ if.end14:                                         ; preds = %for.end
   br i1 %cmp15.not, label %if.end36, label %if.then16
 
 if.then16:                                        ; preds = %if.end14
-  %mul.i71 = shl i32 %row.0.lcssa, 2
-  %idxprom.i72 = zext i32 %mul.i71 to i64
+  %mul.i71 = shl nuw nsw i32 %row.0.lcssa, 2
+  %idxprom.i72 = zext nneg i32 %mul.i71 to i64
   %arrayidx.i73 = getelementptr inbounds [16 x double], ptr %temp, i64 0, i64 %idxprom.i72
   %arrayidx.i79 = getelementptr inbounds [16 x double], ptr %inverse, i64 0, i64 %idxprom.i72
   %arrayidx.i82 = getelementptr inbounds [16 x double], ptr %inverse, i64 0, i64 %0

@@ -88,7 +88,7 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
   %.024.i = phi i32 [ %29, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %30 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv29.i
   %31 = load i32, ptr %30, align 4
-  %32 = sext i32 %.024.i to i64
+  %32 = zext nneg i32 %.024.i to i64
   %33 = getelementptr inbounds i32, ptr %27, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = icmp slt i32 %31, %34
@@ -102,49 +102,42 @@ define noalias noundef ptr @Pdr_SetCreate(ptr nocapture noundef readonly %0, ptr
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %37 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv32.i
   %38 = load i32, ptr %37, align 4
-  %39 = sext i32 %spec.select.i to i64
+  %39 = zext nneg i32 %spec.select.i to i64
   %40 = getelementptr inbounds i32, ptr %27, i64 %39
   %41 = load i32, ptr %40, align 4
   store i32 %41, ptr %37, align 4
   store i32 %38, ptr %40, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
-  br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit.loopexit, label %.lr.ph.preheader.i, !llvm.loop !7
+  br i1 %exitcond36.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i, !llvm.loop !7
 
-Vec_IntSelectSort.exit.loopexit:                  ; preds = %._crit_edge.i
-  %.pre = load i32, ptr %10, align 8
-  %.pre45 = load i32, ptr %11, align 4
-  br label %Vec_IntSelectSort.exit
-
-Vec_IntSelectSort.exit:                           ; preds = %2, %Vec_IntSelectSort.exit.loopexit, %26
-  %42 = phi i32 [ %.pre45, %Vec_IntSelectSort.exit.loopexit ], [ %5, %26 ], [ %5, %2 ]
-  %43 = phi i32 [ %.pre, %Vec_IntSelectSort.exit.loopexit ], [ %.val, %26 ], [ %.val, %2 ]
-  %44 = icmp slt i32 %43, %42
-  br i1 %44, label %.lr.ph39, label %._crit_edge40
+Vec_IntSelectSort.exit:                           ; preds = %._crit_edge.i, %2, %26
+  %42 = icmp sgt i32 %.val31, 0
+  br i1 %42, label %.lr.ph39, label %._crit_edge40
 
 .lr.ph39:                                         ; preds = %Vec_IntSelectSort.exit
-  %45 = getelementptr i8, ptr %1, i64 8
-  %.val36 = load ptr, ptr %45, align 8
-  %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds i8, ptr %9, i64 20
-  br label %48
+  %43 = getelementptr i8, ptr %1, i64 8
+  %.val36 = load ptr, ptr %43, align 8
+  %44 = sext i32 %.val to i64
+  %45 = getelementptr inbounds i8, ptr %9, i64 20
+  br label %46
 
-48:                                               ; preds = %.lr.ph39, %48
-  %indvars.iv42 = phi i64 [ %46, %.lr.ph39 ], [ %indvars.iv.next43, %48 ]
-  %49 = load i32, ptr %10, align 8
-  %50 = sext i32 %49 to i64
-  %51 = sub nsw i64 %indvars.iv42, %50
-  %52 = getelementptr inbounds i32, ptr %.val36, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = getelementptr inbounds [0 x i32], ptr %47, i64 0, i64 %indvars.iv42
-  store i32 %53, ptr %54, align 4
+46:                                               ; preds = %.lr.ph39, %46
+  %indvars.iv42 = phi i64 [ %44, %.lr.ph39 ], [ %indvars.iv.next43, %46 ]
+  %47 = load i32, ptr %10, align 8
+  %48 = sext i32 %47 to i64
+  %49 = sub nsw i64 %indvars.iv42, %48
+  %50 = getelementptr inbounds i32, ptr %.val36, i64 %49
+  %51 = load i32, ptr %50, align 4
+  %52 = getelementptr inbounds [0 x i32], ptr %45, i64 0, i64 %indvars.iv42
+  store i32 %51, ptr %52, align 4
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
-  %55 = load i32, ptr %11, align 4
-  %56 = sext i32 %55 to i64
-  %57 = icmp slt i64 %indvars.iv.next43, %56
-  br i1 %57, label %48, label %._crit_edge40, !llvm.loop !8
+  %53 = load i32, ptr %11, align 4
+  %54 = sext i32 %53 to i64
+  %55 = icmp slt i64 %indvars.iv.next43, %54
+  br i1 %55, label %46, label %._crit_edge40, !llvm.loop !8
 
-._crit_edge40:                                    ; preds = %48, %Vec_IntSelectSort.exit
+._crit_edge40:                                    ; preds = %46, %Vec_IntSelectSort.exit
   ret ptr %9
 }
 
@@ -284,7 +277,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
   %.024.i = phi i32 [ %35, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %36 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv29.i
   %37 = load i32, ptr %36, align 4
-  %38 = sext i32 %.024.i to i64
+  %38 = zext nneg i32 %.024.i to i64
   %39 = getelementptr inbounds i32, ptr %33, i64 %38
   %40 = load i32, ptr %39, align 4
   %41 = icmp slt i32 %37, %40
@@ -298,7 +291,7 @@ define noalias noundef ptr @Pdr_SetCreateSubset(ptr nocapture noundef readonly %
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
   %43 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv32.i
   %44 = load i32, ptr %43, align 4
-  %45 = sext i32 %spec.select.i to i64
+  %45 = zext nneg i32 %spec.select.i to i64
   %46 = getelementptr inbounds i32, ptr %33, i64 %45
   %47 = load i32, ptr %46, align 4
   store i32 %47, ptr %43, align 4

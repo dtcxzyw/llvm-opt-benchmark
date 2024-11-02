@@ -364,9 +364,9 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %invariant.gep333 = getelementptr float, ptr %35, i64 %203
   br label %.lr.ph296
 
-.lr.ph296:                                        ; preds = %.lr.ph296.preheader, %239
-  %indvars.iv322 = phi i64 [ 1, %.lr.ph296.preheader ], [ %indvars.iv.next323, %239 ]
-  %indvars.iv316 = phi i64 [ 2, %.lr.ph296.preheader ], [ %indvars.iv.next317, %239 ]
+.lr.ph296:                                        ; preds = %.lr.ph296.preheader, %238
+  %indvars.iv322 = phi i64 [ 1, %.lr.ph296.preheader ], [ %indvars.iv.next323, %238 ]
+  %indvars.iv316 = phi i64 [ 2, %.lr.ph296.preheader ], [ %indvars.iv.next317, %238 ]
   %205 = getelementptr inbounds float, ptr %25, i64 %indvars.iv322
   %206 = load float, ptr %205, align 4
   %207 = load i32, ptr %2, align 4
@@ -400,53 +400,52 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %.0247.lcssa = phi float [ %206, %.lr.ph296 ], [ %.1, %.lr.ph288 ]
   %215 = zext i32 %.0248.lcssa to i64
   %.not264 = icmp eq i64 %indvars.iv322, %215
-  br i1 %.not264, label %239, label %216
+  br i1 %.not264, label %238, label %216
 
 216:                                              ; preds = %._crit_edge289
-  %217 = sext i32 %.0248.lcssa to i64
-  %218 = getelementptr inbounds float, ptr %25, i64 %217
-  store float %206, ptr %218, align 4
+  %217 = getelementptr inbounds float, ptr %25, i64 %215
+  store float %206, ptr %217, align 4
   store float %.0247.lcssa, ptr %205, align 4
-  %219 = load i32, ptr %3, align 4
-  %220 = icmp sgt i32 %219, 0
-  br i1 %220, label %221, label %225
+  %218 = load i32, ptr %3, align 4
+  %219 = icmp sgt i32 %218, 0
+  br i1 %219, label %220, label %224
 
-221:                                              ; preds = %216
-  %222 = add nsw i32 %.0248.lcssa, %27
-  %223 = sext i32 %222 to i64
-  %224 = getelementptr inbounds float, ptr %29, i64 %223
+220:                                              ; preds = %216
+  %221 = add nsw i32 %.0248.lcssa, %27
+  %222 = sext i32 %221 to i64
+  %223 = getelementptr inbounds float, ptr %29, i64 %222
   %gep332 = getelementptr float, ptr %invariant.gep331, i64 %indvars.iv322
-  call void @sswap_(ptr noundef nonnull %3, ptr noundef %224, ptr noundef nonnull %9, ptr noundef %gep332, ptr noundef nonnull %9)
-  br label %225
+  call void @sswap_(ptr noundef nonnull %3, ptr noundef %223, ptr noundef nonnull %9, ptr noundef %gep332, ptr noundef nonnull %9)
+  br label %224
 
-225:                                              ; preds = %221, %216
-  %226 = load i32, ptr %4, align 4
-  %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %228, label %232
+224:                                              ; preds = %220, %216
+  %225 = load i32, ptr %4, align 4
+  %226 = icmp sgt i32 %225, 0
+  br i1 %226, label %227, label %231
 
-228:                                              ; preds = %225
-  %229 = mul nsw i32 %.0248.lcssa, %30
-  %230 = sext i32 %229 to i64
-  %gep = getelementptr float, ptr %invariant.gep, i64 %230
-  %231 = mul nsw i64 %indvars.iv322, %202
-  %gep292 = getelementptr float, ptr %invariant.gep, i64 %231
+227:                                              ; preds = %224
+  %228 = mul nsw i32 %.0248.lcssa, %30
+  %229 = sext i32 %228 to i64
+  %gep = getelementptr float, ptr %invariant.gep, i64 %229
+  %230 = mul nsw i64 %indvars.iv322, %202
+  %gep292 = getelementptr float, ptr %invariant.gep, i64 %230
   call void @sswap_(ptr noundef nonnull %4, ptr noundef %gep, ptr noundef nonnull %17, ptr noundef %gep292, ptr noundef nonnull %17)
-  br label %232
+  br label %231
 
-232:                                              ; preds = %228, %225
-  %233 = load i32, ptr %5, align 4
-  %234 = icmp sgt i32 %233, 0
-  br i1 %234, label %235, label %239
+231:                                              ; preds = %227, %224
+  %232 = load i32, ptr %5, align 4
+  %233 = icmp sgt i32 %232, 0
+  br i1 %233, label %234, label %238
 
-235:                                              ; preds = %232
-  %236 = add nsw i32 %.0248.lcssa, %33
-  %237 = sext i32 %236 to i64
-  %238 = getelementptr inbounds float, ptr %35, i64 %237
+234:                                              ; preds = %231
+  %235 = add nsw i32 %.0248.lcssa, %33
+  %236 = sext i32 %235 to i64
+  %237 = getelementptr inbounds float, ptr %35, i64 %236
   %gep334 = getelementptr float, ptr %invariant.gep333, i64 %indvars.iv322
-  call void @sswap_(ptr noundef nonnull %5, ptr noundef %238, ptr noundef nonnull %13, ptr noundef %gep334, ptr noundef nonnull %13)
-  br label %239
+  call void @sswap_(ptr noundef nonnull %5, ptr noundef %237, ptr noundef nonnull %13, ptr noundef %gep334, ptr noundef nonnull %13)
+  br label %238
 
-239:                                              ; preds = %._crit_edge289, %235, %232
+238:                                              ; preds = %._crit_edge289, %234, %231
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %exitcond326.not = icmp eq i64 %indvars.iv.next323, %wide.trip.count325
   br i1 %exitcond326.not, label %.thread267, label %.lr.ph296, !llvm.loop !8
@@ -456,7 +455,7 @@ define void @slasdq_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store i32 %.sink338, ptr %15, align 4
   br label %.thread267
 
-.thread267:                                       ; preds = %239, %.thread267.sink.split, %199, %72
+.thread267:                                       ; preds = %238, %.thread267.sink.split, %199, %72
   ret void
 }
 

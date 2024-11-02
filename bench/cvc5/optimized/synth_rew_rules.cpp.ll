@@ -2301,8 +2301,7 @@ if.end244:                                        ; preds = %if.then13.i.i886, %
           to label %invoke.cont246 unwind label %lpad6.loopexit
 
 invoke.cont246:                                   ; preds = %if.end244
-  %frombool = and i8 %childrenValid.0.lcssa5837, 1
-  store i8 %frombool, ptr %call.i889, align 1
+  store i8 %childrenValid.0.lcssa5837, ptr %call.i889, align 1
   br label %do.cond
 
 do.cond:                                          ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %invoke.cont85, %invoke.cont246, %if.else, %invoke.cont48

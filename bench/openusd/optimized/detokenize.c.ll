@@ -199,20 +199,20 @@ av1_read_uniform.exit.i:                          ; preds = %aom_read_literal_.e
   %125 = getelementptr inbounds i16, ptr %107, i64 %indvars.iv.i.i.us.us.i
   %126 = load i16, ptr %125, align 2
   %127 = zext i16 %126 to i32
-  %128 = icmp slt i32 %124, %127
+  %128 = icmp samesign ult i32 %124, %127
   br i1 %128, label %134, label %129
 
 129:                                              ; preds = %122
-  %130 = sub nsw i32 %124, %127
-  %131 = ashr i32 %130, %118
-  %132 = trunc i32 %131 to i16
+  %130 = sub nuw nsw i32 %124, %127
+  %131 = lshr i32 %130, %118
+  %132 = trunc nuw i32 %131 to i16
   %133 = add i16 %126, %132
   br label %139
 
 134:                                              ; preds = %122
-  %135 = sub nsw i32 %127, %124
-  %136 = ashr i32 %135, %118
-  %137 = trunc i32 %136 to i16
+  %135 = sub nuw nsw i32 %127, %124
+  %136 = lshr i32 %135, %118
+  %137 = trunc nuw i32 %136 to i16
   %138 = sub i16 %126, %137
   br label %139
 

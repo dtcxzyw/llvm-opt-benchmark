@@ -635,7 +635,7 @@ define hidden void @_Z15parse_argumentsiPPc(ptr dead_on_unwind noalias nocapture
   br i1 %exitcond.not, label %18, label %11, !llvm.loop !5
 
 18:                                               ; preds = %11
-  %19 = icmp sgt i32 %spec.select, 7
+  %19 = icmp samesign ugt i32 %spec.select, 7
   br i1 %19, label %20, label %25
 
 20:                                               ; preds = %18

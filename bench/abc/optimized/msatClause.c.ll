@@ -153,7 +153,7 @@ define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   br i1 %exitcond133.not, label %._crit_edge123.loopexit, label %.lr.ph122, !llvm.loop !6
 
 ._crit_edge123.loopexit:                          ; preds = %.lr.ph122
-  %77 = sext i32 %spec.select113 to i64
+  %77 = zext nneg i32 %spec.select113 to i64
   br label %._crit_edge123
 
 ._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %60

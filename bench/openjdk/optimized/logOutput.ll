@@ -137,7 +137,7 @@ define hidden void @_ZN9LogOutput20update_config_stringEPKm(ptr noundef nonnull 
   br i1 %exitcond.not, label %13, label %8, !llvm.loop !8
 
 13:                                               ; preds = %8
-  %14 = zext i32 %spec.select129 to i64
+  %14 = zext nneg i32 %spec.select129 to i64
   %15 = getelementptr inbounds [0 x ptr], ptr @_ZN8LogLevel5_nameE, i64 0, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = call i32 (ptr, i64, ptr, ...) @jio_snprintf(ptr noundef nonnull %3, i64 noundef 64, ptr noundef nonnull @.str.7, ptr noundef %16) #12

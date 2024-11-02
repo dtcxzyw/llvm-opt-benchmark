@@ -4748,7 +4748,7 @@ define void @Ifd_ComputeSignature(i64 noundef %0, ptr nocapture noundef %1) loca
   %.024.i = phi i32 [ %85, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %86 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv26.i
   %87 = load i32, ptr %86, align 4
-  %88 = sext i32 %.024.i to i64
+  %88 = zext nneg i32 %.024.i to i64
   %89 = getelementptr inbounds i32, ptr %1, i64 %88
   %90 = load i32, ptr %89, align 4
   %91 = icmp slt i32 %87, %90
@@ -4762,7 +4762,7 @@ define void @Ifd_ComputeSignature(i64 noundef %0, ptr nocapture noundef %1) loca
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %93 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv29.i
   %94 = load i32, ptr %93, align 4
-  %95 = sext i32 %spec.select.i to i64
+  %95 = zext nneg i32 %spec.select.i to i64
   %96 = getelementptr inbounds i32, ptr %1, i64 %95
   %97 = load i32, ptr %96, align 4
   store i32 %97, ptr %93, align 4

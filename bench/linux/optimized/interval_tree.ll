@@ -22,7 +22,7 @@ define dso_local void @interval_tree_insert(ptr noundef %0, ptr noundef %1) #0 a
   %6 = load i64, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %31, label %.preheader
+  br i1 %8, label %30, label %.preheader
 
 .preheader:                                       ; preds = %2, %15
   %9 = phi ptr [ %22, %15 ], [ %7, %2 ]
@@ -50,29 +50,28 @@ define dso_local void @interval_tree_insert(ptr noundef %0, ptr noundef %1) #0 a
 24:                                               ; preds = %15
   %25 = getelementptr inbounds i8, ptr %9, i64 %20
   %26 = ptrtoint ptr %9 to i64
-  %27 = and i8 %19, 1
-  %28 = icmp eq i8 %27, 0
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %6, ptr %29, align 8
+  %27 = icmp eq i8 %19, 0
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %6, ptr %28, align 8
   store i64 %26, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
+  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   store ptr %0, ptr %25, align 8
-  br i1 %28, label %35, label %33
+  br i1 %27, label %34, label %32
 
-31:                                               ; preds = %2
-  %32 = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %6, ptr %32, align 8
+30:                                               ; preds = %2
+  %31 = getelementptr inbounds i8, ptr %0, i64 40
+  store i64 %6, ptr %31, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr %0, ptr %1, align 8
-  br label %33
+  br label %32
 
-33:                                               ; preds = %31, %24
-  %34 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr %0, ptr %34, align 8
-  br label %35
+32:                                               ; preds = %30, %24
+  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  store ptr %0, ptr %33, align 8
+  br label %34
 
-35:                                               ; preds = %33, %24
+34:                                               ; preds = %32, %24
   tail call void @__rb_insert_augmented(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @interval_tree_augment_rotate) #6
   ret void
 }

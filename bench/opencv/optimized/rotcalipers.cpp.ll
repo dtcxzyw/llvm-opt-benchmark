@@ -327,7 +327,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %41
   %indvars.iv307.i = phi i64 [ 1, %109 ], [ %indvars.iv.next308.i, %136 ]
   %.0243291.i = phi i32 [ 0, %109 ], [ %spec.select.i, %136 ]
   %137 = getelementptr inbounds [4 x %"class.cv::Point_"], ptr %5, i64 0, i64 %indvars.iv307.i
-  %138 = sext i32 %.0243291.i to i64
+  %138 = zext nneg i32 %.0243291.i to i64
   %139 = getelementptr inbounds [4 x %"class.cv::Point_"], ptr %5, i64 0, i64 %138
   %.val.i = load float, ptr %137, align 8
   %140 = getelementptr i8, ptr %137, i64 4
@@ -346,7 +346,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc, %41
   br i1 %exitcond310.not.i, label %147, label %136, !llvm.loop !7
 
 147:                                              ; preds = %136
-  %148 = sext i32 %spec.select.i to i64
+  %148 = zext nneg i32 %spec.select.i to i64
   %149 = getelementptr inbounds [4 x i32], ptr %4, i64 0, i64 %148
   %150 = load i32, ptr %149, align 4
   %151 = sext i32 %150 to i64

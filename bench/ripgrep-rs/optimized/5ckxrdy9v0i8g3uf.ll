@@ -325,8 +325,8 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %.01927.i.i = phi i64 [ 0, %2 ], [ %.022.i.i, %14 ]
   %.02026.i.i = phi i64 [ 10, %2 ], [ %.021.i.i, %14 ]
   %4 = lshr i64 %.028.i.i, 1
-  %5 = add i64 %4, %.01927.i.i
-  %6 = icmp ult i64 %5, 10
+  %5 = add nuw nsw i64 %4, %.01927.i.i
+  %6 = icmp samesign ult i64 %5, 10
   tail call void @llvm.assume(i1 %6)
   %7 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr @anon.0923cb38b7fdc9785e1561170331db22.28.llvm.6679066857390535418, i64 %5
   %.val23.i.i = load ptr, ptr %7, align 8, !alias.scope !70, !noalias !71, !nonnull !5, !align !29, !noundef !5
@@ -347,8 +347,8 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   %16 = icmp slt i64 %spec.store.select.i.i.i.i.i.i, 0
   %17 = add nuw nsw i64 %5, 1
   %.022.i.i = select i1 %16, i64 %17, i64 %.01927.i.i
-  %18 = sub i64 %.021.i.i, %.022.i.i
-  %19 = icmp ult i64 %.022.i.i, %.021.i.i
+  %18 = sub nsw i64 %.021.i.i, %.022.i.i
+  %19 = icmp samesign ult i64 %.022.i.i, %.021.i.i
   br i1 %19, label %3, label %24
 
 "_ZN12grep_printer17hyperlink_aliases4find28_$u7b$$u7b$closure$u7d$$u7d$17h797a182f808414daE.llvm.6679066857390535418.exit.i": ; preds = %3
@@ -359,7 +359,7 @@ define hidden { ptr, i64 } @_ZN12grep_printer17hyperlink_aliases4find17h74de6dce
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
 
 24:                                               ; preds = %14
-  %25 = icmp ult i64 %.022.i.i, 11
+  %25 = icmp samesign ult i64 %.022.i.i, 11
   tail call void @llvm.assume(i1 %25)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6a87aff857aa28b1E.llvm.6679066857390535418.exit"
 

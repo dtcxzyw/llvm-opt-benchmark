@@ -3323,7 +3323,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture nounde
   %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i.i
   %20 = load i8, ptr %19, align 1
   %21 = zext i8 %20 to i32
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.089.i.i, i32 %21)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %21)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIhiEET0_PKT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !60
@@ -3403,7 +3403,7 @@ define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture nounde
   %21 = load i8, ptr %20, align 1
   %22 = tail call i8 @llvm.abs.i8(i8 %21, i1 false)
   %23 = zext i8 %22 to i32
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.089.i.i, i32 %23)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %23)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIaiEET0_PKT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !63
@@ -3481,7 +3481,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture nound
   %19 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i.i
   %20 = load i16, ptr %19, align 2
   %21 = zext i16 %20 to i32
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.089.i.i, i32 %21)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %21)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfItiEET0_PKT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !66
@@ -3561,7 +3561,7 @@ define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture nound
   %21 = load i16, ptr %20, align 2
   %22 = tail call i16 @llvm.abs.i16(i16 %21, i1 false)
   %23 = zext i16 %22 to i32
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.089.i.i, i32 %23)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %23)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIsiEET0_PKT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !69
@@ -3639,7 +3639,7 @@ define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture nound
   %19 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv.i.i
   %20 = load i32, ptr %19, align 4
   %21 = tail call noundef i32 @llvm.abs.i32(i32 %20, i1 true)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.089.i.i, i32 %21)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.089.i.i, i32 %21)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIiiEET0_PKT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !72
@@ -4771,7 +4771,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture
   %31 = zext i8 %30 to i32
   %32 = sub nsw i32 %28, %31
   %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.01112.i.i, i32 %33)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.01112.i.i, i32 %33)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIhiEET0_PKT_S4_i.exit.i, label %.lr.ph.i.i, !llvm.loop !114
@@ -4861,7 +4861,7 @@ define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture
   %31 = sext i8 %30 to i32
   %32 = sub nsw i32 %28, %31
   %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.01112.i.i, i32 %33)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.01112.i.i, i32 %33)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIaiEET0_PKT_S4_i.exit.i, label %.lr.ph.i.i, !llvm.loop !117
@@ -4951,7 +4951,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocaptur
   %31 = zext i16 %30 to i32
   %32 = sub nsw i32 %28, %31
   %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.01112.i.i, i32 %33)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.01112.i.i, i32 %33)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfItiEET0_PKT_S4_i.exit.i, label %.lr.ph.i.i, !llvm.loop !120
@@ -5041,7 +5041,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocaptur
   %31 = sext i16 %30 to i32
   %32 = sub nsw i32 %28, %31
   %33 = tail call i32 @llvm.abs.i32(i32 %32, i1 true)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.01112.i.i, i32 %33)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.01112.i.i, i32 %33)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIsiEET0_PKT_S4_i.exit.i, label %.lr.ph.i.i, !llvm.loop !123
@@ -5127,7 +5127,7 @@ define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocaptur
   %27 = load i32, ptr %26, align 4
   %28 = sub nsw i32 %25, %27
   %29 = tail call i32 @llvm.abs.i32(i32 %28, i1 true)
-  %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %.01112.i.i, i32 %29)
+  %.sroa.speculated.i.i = tail call i32 @llvm.umax.i32(i32 %.01112.i.i, i32 %29)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %_ZN2cvL7normInfIiiEET0_PKT_S4_i.exit.i, label %.lr.ph.i.i, !llvm.loop !126
@@ -6307,6 +6307,9 @@ declare i8 @llvm.abs.i8(i8, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.abs.i16(i16, i1 immarg) #14
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

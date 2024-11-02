@@ -11639,7 +11639,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %86
   %.val.i.i = load ptr, ptr %72, align 8
   %.val8.i.i = load ptr, ptr %83, align 8, !noalias !36
   %90 = call fastcc noundef i32 @_ZN4LuauL29getParenRecommendationForFuncEPKNS_12FunctionTypeERKSt6vectorIPNS_7AstNodeESaIS5_EE(ptr noundef %89, ptr %.val.i.i, ptr %.val8.i.i)
-  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0812.i.i, i32 %90)
+  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %.0812.i.i, i32 %90)
   %91 = getelementptr inbounds i8, ptr %.sroa.02.011.i.i, i64 8
   %.not.i.i19 = icmp eq ptr %91, %.val15.i
   br i1 %.not.i.i19, label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit, label %84
@@ -20438,7 +20438,7 @@ _ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.thread.i: ; p
 .noexc133:                                        ; preds = %416, %414, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i
   %.0.i315 = phi i32 [ 0, %_ZN4LuauL16alreadyHasParensERKSt6vectorIPNS_7AstNodeESaIS2_EE.exit.i ], [ %.1.i, %414 ], [ %.1.i, %416 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
-  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0812.i.i, i32 %.0.i315)
+  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %.0812.i.i, i32 %.0.i315)
   %421 = getelementptr inbounds i8, ptr %.sroa.02.011.i.i, i64 8
   %.not.i.i130 = icmp eq ptr %421, %.val15.i
   br i1 %.not.i.i130, label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit, label %.lr.ph.i.i
@@ -24426,7 +24426,7 @@ _ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i: ; preds = %269
           to label %.noexc120 unwind label %.loopexit21
 
 .noexc120:                                        ; preds = %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit.i.i
-  %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0812.i.i, i32 %273)
+  %.sroa.speculated.i.i = call i32 @llvm.umax.i32(i32 %.0812.i.i, i32 %273)
   %274 = getelementptr inbounds i8, ptr %.sroa.02.011.i.i, i64 8
   %.not.i.i117 = icmp eq ptr %274, %.val15.i
   br i1 %.not.i.i117, label %_ZN4LuauL22getParenRecommendationEPKNS_4TypeERKSt6vectorIPNS_7AstNodeESaIS5_EENS_15TypeCorrectKindE.exit, label %.lr.ph.i.i
@@ -31345,7 +31345,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #20
+declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #21

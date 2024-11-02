@@ -5674,12 +5674,12 @@ define internal fastcc range(i32 0, 2) i32 @lzx_make_huffman_table(ptr nocapture
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %.157, ptr %20, align 8
-  %21 = icmp slt i32 %.157, 16
+  %21 = icmp samesign ult i32 %.157, 16
   br i1 %21, label %22, label %.loopexit68
 
 22:                                               ; preds = %19
-  %23 = sub nsw i32 16, %.157
-  %.not6573 = icmp slt i32 %.157, 1
+  %23 = sub nuw nsw i32 16, %.157
+  %.not6573 = icmp eq i32 %.157, 0
   br i1 %.not6573, label %.loopexit68, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %22

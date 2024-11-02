@@ -4174,7 +4174,7 @@ do.end:                                           ; preds = %for.end95, %if.then
   br i1 %cmp109, label %return, label %if.end112
 
 if.end112:                                        ; preds = %do.end
-  %idxprom114 = sext i32 %spec.select to i64
+  %idxprom114 = zext nneg i32 %spec.select to i64
   %arrayidx115 = getelementptr [16 x i32], ptr %l2_cache_offsets, i64 0, i64 %idxprom114
   store i32 %l2_offset.0, ptr %arrayidx115, align 4
   %arrayidx118 = getelementptr [16 x i32], ptr %l2_cache_counts83, i64 0, i64 %idxprom114

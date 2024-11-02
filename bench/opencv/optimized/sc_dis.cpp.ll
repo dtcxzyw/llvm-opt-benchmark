@@ -3476,7 +3476,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit431.thread:          ; preds = %_ZNSt6vectorIfSaIfE
   %.1247.lcssa = phi float [ %54, %51 ], [ %.2, %56 ]
   %70 = getelementptr inbounds float, ptr %40, i64 %52
   store float %.1247.lcssa, ptr %70, align 4
-  %71 = sext i32 %.0291.lcssa to i64
+  %71 = zext nneg i32 %.0291.lcssa to i64
   %72 = getelementptr inbounds i32, ptr %30, i64 %71
   %73 = load i32, ptr %72, align 4
   %74 = add nsw i32 %73, 1

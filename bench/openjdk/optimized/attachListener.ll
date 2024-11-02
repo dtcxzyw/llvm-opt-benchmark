@@ -667,49 +667,44 @@ define internal noundef i32 @_ZL11thread_dumpP15AttachOperationP12outputStream(p
   %10 = getelementptr inbounds i8, ptr %5, i64 %indvars.iv.next
   %11 = load i8, ptr %10, align 1
   %.not15 = icmp eq i8 %11, 0
-  br i1 %.not15, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %.not15, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %12 = and i8 %spec.select, 1
-  %13 = and i8 %.2, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
-  %.113.lcssa = phi i8 [ 0, %2 ], [ %12, %._crit_edge.loopexit ]
-  %.1.lcssa = phi i8 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr null, ptr %14, align 8
+._crit_edge:                                      ; preds = %.lr.ph, %2
+  %.113.lcssa = phi i8 [ 0, %2 ], [ %spec.select, %.lr.ph ]
+  %.1.lcssa = phi i8 [ 0, %2 ], [ %.2, %.lr.ph ]
+  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr null, ptr %12, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV15VM_PrintThreads, i64 16), ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %3, i64 24
-  store i8 %.113.lcssa, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 25
-  store i8 %.1.lcssa, ptr %17, align 1
-  %18 = getelementptr inbounds i8, ptr %3, i64 26
-  store i8 1, ptr %18, align 2
+  %13 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr %1, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  store i8 %.113.lcssa, ptr %14, align 8
+  %15 = getelementptr inbounds i8, ptr %3, i64 25
+  store i8 %.1.lcssa, ptr %15, align 1
+  %16 = getelementptr inbounds i8, ptr %3, i64 26
+  store i8 1, ptr %16, align 2
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %3) #8
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr null, ptr %19, align 8
+  %17 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr null, ptr %17, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV16VM_FindDeadlocks, i64 16), ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %4, i64 16
-  store i8 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %4, i64 24
+  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  store i8 1, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr null, ptr %19, align 8
+  %20 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %1, ptr %20, align 8
+  %21 = getelementptr inbounds i8, ptr %4, i64 40
+  %22 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %23 = load ptr, ptr %22, align 8
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %4, i64 40
-  %24 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %25 = load ptr, ptr %24, align 8
-  store ptr null, ptr %23, align 8
-  %26 = getelementptr inbounds i8, ptr %4, i64 48
-  store ptr %25, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr null, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %4, i64 64
-  store i8 0, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %4, i64 65
-  store i8 0, ptr %29, align 1
+  %24 = getelementptr inbounds i8, ptr %4, i64 48
+  store ptr %23, ptr %24, align 8
+  %25 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr null, ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %4, i64 64
+  store i8 0, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %4, i64 65
+  store i8 0, ptr %27, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #8
   call void @_ZN16VM_FindDeadlocksD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #8
   ret i32 0

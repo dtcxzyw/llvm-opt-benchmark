@@ -351,10 +351,10 @@ for.body.i:                                       ; preds = %for.body.i, %if.end
 
 _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ; preds = %for.body.i
   %m_vertices.i.i = getelementptr inbounds i8, ptr %polyB.polyA, i64 96
-  %add.i = add nsw i32 %index.1.i, 1
-  %cmp14.i = icmp slt i32 %index.1.i, 3
+  %add.i = add nuw nsw i32 %index.1.i, 1
+  %cmp14.i = icmp samesign ult i32 %index.1.i, 3
   %cond.i = select i1 %cmp14.i, i32 %add.i, i32 0
-  %idxprom17.i = sext i32 %index.1.i to i64
+  %idxprom17.i = zext nneg i32 %index.1.i to i64
   %arrayidx18.i = getelementptr inbounds %class.btVector3, ptr %m_vertices.i.i, i64 %idxprom17.i
   %22 = load float, ptr %arrayidx18.i, align 4
   %arrayidx5.i.i.i.i34.i = getelementptr inbounds i8, ptr %arrayidx18.i, i64 4
@@ -371,7 +371,7 @@ _ZL16FindIncidentEdgeP10ClipVertexPK12btBox2dShapeRK11btTransformiS3_S6_.exit: ;
   %29 = tail call float @llvm.fmuladd.f32(float %22, float %xf2.sroa.16316.0, float %mul8.i8.i.i.i.i)
   %add.i.i.i.i = fadd float %xf2.sroa.24324.0, %26
   %add8.i.i.i.i = fadd float %xf2.sroa.28.0, %28
-  %idxprom23.i = sext i32 %cond.i to i64
+  %idxprom23.i = zext nneg i32 %cond.i to i64
   %arrayidx24.i = getelementptr inbounds %class.btVector3, ptr %m_vertices.i.i, i64 %idxprom23.i
   %30 = load float, ptr %arrayidx24.i, align 4
   %arrayidx5.i.i.i.i38.i = getelementptr inbounds i8, ptr %arrayidx24.i, i64 4

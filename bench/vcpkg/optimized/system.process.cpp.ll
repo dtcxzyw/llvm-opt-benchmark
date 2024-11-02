@@ -509,7 +509,7 @@ _ZNK5vcpkg7Unicode11Utf8DecoderdeEv.exit:         ; preds = %27
           to label %33 unwind label %.loopexit.split-lp.loopexit
 
 33:                                               ; preds = %.lr.ph
-  %34 = add nuw i64 %.02547, 1
+  %34 = add nuw nsw i64 %.02547, 1
   %exitcond48.not = icmp eq i64 %34, %.024.lcssa
   br i1 %exitcond48.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 

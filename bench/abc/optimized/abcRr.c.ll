@@ -1210,13 +1210,13 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %98 = getelementptr inbounds i8, ptr %97, i64 20
   %99 = load i32, ptr %98, align 4
   %100 = lshr i32 %99, 12
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %.04690.i, i32 %100)
+  %spec.select.i = tail call i32 @llvm.umax.i32(i32 %.04690.i, i32 %100)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.critedge.i, label %95, !llvm.loop !14
 
 .critedge.i:                                      ; preds = %95
-  %.not.i81 = icmp samesign ugt i32 %spec.select.i, %19
+  %.not.i81 = icmp sgt i32 %spec.select.i, %19
   br i1 %.not.i81, label %.preheader88.i, label %Abc_NtkRRTfi_int.exit.thread
 
 .critedge2.preheader.i:                           ; preds = %.critedge4.i
@@ -1691,7 +1691,7 @@ Abc_NtkIncrementTravId.exit100:                   ; preds = %Abc_NtkRRTfi_int.ex
   %297 = getelementptr inbounds i8, ptr %296, i64 20
   %298 = load i32, ptr %297, align 4
   %299 = lshr i32 %298, 12
-  %spec.select.i108 = tail call i32 @llvm.smin.i32(i32 %.05795.i, i32 %299)
+  %spec.select.i108 = tail call i32 @llvm.umin.i32(i32 %.05795.i, i32 %299)
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i107, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i106
   br i1 %exitcond.not.i110, label %.critedge.i111, label %294, !llvm.loop !21
@@ -4359,7 +4359,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13

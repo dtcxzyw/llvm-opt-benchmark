@@ -5919,18 +5919,14 @@ _ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7: ; preds = %.lr.ph
   %spec.select = select i1 %33, i8 1, i8 %.019
   %34 = getelementptr inbounds i8, ptr %.sroa.010.018, i64 8
   %.not = icmp eq ptr %34, %24
-  br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-._crit_edge.loopexit:                             ; preds = %32
-  %35 = and i8 %spec.select, 1
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit, %._crit_edge.loopexit
-  %.0.lcssa.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ %35, %._crit_edge.loopexit ], [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ]
-  %.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ 0, %._crit_edge.loopexit ], [ 1, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ]
+._crit_edge:                                      ; preds = %32, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit
+  %.0.lcssa.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ 0, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ], [ %spec.select, %32 ]
+  %.sink = phi i8 [ 0, %_ZNKSt6vectorIS_IlSaIlEESaIS1_EE2atEm.exit ], [ 1, %_ZNK10open_spiel5tarok10TarokState12ActionToCardEl.exit7 ], [ 0, %32 ]
   store i8 %.0.lcssa.sink, ptr %0, align 1
-  %36 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %.sink, ptr %36, align 1
+  %35 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %.sink, ptr %35, align 1
   ret void
 }
 

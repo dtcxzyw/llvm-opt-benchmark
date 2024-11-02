@@ -295,10 +295,8 @@ for.body.i2:                                      ; preds = %for.body.i, %for.bo
   br i1 %cmp.i10, label %for.body.i2, label %test_unicode.exit11, !llvm.loop !10
 
 test_unicode.exit11:                              ; preds = %for.body.i2
-  %tobool.not = icmp ne i32 %spec.select.i, 0
-  %tobool3.not = icmp ne i32 %spec.select.i8, 0
-  %narrow = select i1 %tobool3.not, i1 %tobool.not, i1 false
-  %ok.1 = zext i1 %narrow to i32
+  %tobool3.not = icmp eq i32 %spec.select.i8, 0
+  %ok.1 = select i1 %tobool3.not, i32 0, i32 %spec.select.i
   ret i32 %ok.1
 }
 

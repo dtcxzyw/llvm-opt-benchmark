@@ -3390,7 +3390,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJRiEEEvDpOT_.exit: ; preds = %_ZN2cv3Mat2atIh
           to label %1417 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 1417:                                             ; preds = %1415
-  %1418 = sext i32 %spec.select694 to i64
+  %1418 = zext nneg i32 %spec.select694 to i64
   %1419 = getelementptr inbounds %"class.std::vector.65", ptr %1399, i64 %1418
   %1420 = getelementptr inbounds i8, ptr %154, i64 16
   store i32 0, ptr %1420, align 8

@@ -2367,7 +2367,7 @@ VP8LPutBits.exit260.i:                            ; preds = %634, %630
   %650 = shl nuw nsw i32 %649, 8
   %651 = getelementptr inbounds i32, ptr %643, i64 %indvars.iv.i220
   store i32 %650, ptr %651, align 4
-  %.not251.i = icmp sgt i32 %.0205296.i, %649
+  %.not251.i = icmp samesign ugt i32 %.0205296.i, %649
   %652 = add nuw nsw i32 %649, 1
   %spec.select253.i = select i1 %.not251.i, i32 %.0205296.i, i32 %652
   %indvars.iv.next.i221 = add nuw nsw i64 %indvars.iv.i220, 1

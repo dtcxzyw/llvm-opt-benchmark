@@ -6534,7 +6534,7 @@ ReadBase128.exit.thread:                          ; preds = %495, %500, %497
   br i1 %or.cond21.i.i, label %597, label %601
 
 597:                                              ; preds = %._crit_edge337.i.i
-  %598 = icmp ule i32 %.0231.lcssa.i.i, %.0229.lcssa.i.i
+  %598 = icmp samesign ule i32 %.0231.lcssa.i.i, %.0229.lcssa.i.i
   %599 = sub nuw nsw i32 %.0229.lcssa.i.i, %.0231.lcssa.i.i
   %.not283.i.i = icmp eq i32 %599, 1
   %or.cond305.i.i = select i1 %598, i1 %.not283.i.i, i1 false

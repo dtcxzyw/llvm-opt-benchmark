@@ -5705,7 +5705,7 @@ define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL_
   %.019. = select i1 %.not, i32 %.01923, i32 %39
   %..018 = select i1 %.not, i32 %39, i32 %.01824
   %43 = add nuw nsw i32 %.019., 1
-  %44 = icmp slt i32 %43, %..018
+  %44 = icmp samesign ult i32 %43, %..018
   br i1 %44, label %.lr.ph, label %._crit_edge, !llvm.loop !51
 
 ._crit_edge:                                      ; preds = %.lr.ph, %25

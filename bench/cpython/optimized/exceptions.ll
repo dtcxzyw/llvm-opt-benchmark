@@ -7519,7 +7519,7 @@ if.else:                                          ; preds = %if.end23
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %if.else
-  %16 = trunc i8 %spec.select to i1
+  %16 = trunc nuw i8 %spec.select to i1
   %cmp31 = icmp eq ptr %type, %3
   br i1 %cmp31, label %if.then32, label %if.else36
 

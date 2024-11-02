@@ -3354,7 +3354,7 @@ switch.lookup:                                    ; preds = %_ZNK10open_spiel4sk
 
 _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i20.us: ; preds = %switch.lookup, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us
   %.0.i.ph.us = phi i32 [ -1, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.thread.i.us ], [ %switch.load, %switch.lookup ]
-  %32 = sext i32 %.01040.us to i64
+  %32 = zext nneg i32 %.01040.us to i64
   %33 = getelementptr inbounds i32, ptr %17, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = sdiv i32 %34, 8
@@ -3440,7 +3440,7 @@ _ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i: ; preds = %_ZNK10open_s
 
 66:                                               ; preds = %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i
   %.0.i = phi i32 [ %62, %_ZNK10open_spiel4skat9SkatState10TrumpOrderEi.exit.i ], [ %spec.select61, %_ZNK10open_spiel4skat9SkatState7IsTrumpEi.exit.thread.i ]
-  %67 = sext i32 %.01040 to i64
+  %67 = zext nneg i32 %.01040 to i64
   %68 = getelementptr inbounds i32, ptr %17, i64 %67
   %69 = load i32, ptr %68, align 4
   %70 = and i32 %69, -2147483641

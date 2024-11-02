@@ -2027,7 +2027,7 @@ for.body37:                                       ; preds = %for.body37.preheade
   br i1 %exitcond100.not, label %for.end67, label %for.body37, !llvm.loop !33
 
 for.end67:                                        ; preds = %for.body37
-  %idxprom69 = sext i32 %paxis.1 to i64
+  %idxprom69 = zext nneg i32 %paxis.1 to i64
   %arrayidx70 = getelementptr inbounds [3 x i64], ptr %pmin, i64 0, i64 %idxprom69
   %16 = load i64, ptr %arrayidx70, align 8
   %arrayidx71 = getelementptr inbounds [3 x float], ptr %points, i64 %16

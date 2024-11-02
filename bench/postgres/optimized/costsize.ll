@@ -3606,7 +3606,7 @@ clamp_row_est.exit:                               ; preds = %143, %148, %150
   %.158101.us.i = phi i32 [ 0, %.lr.ph103.us.i ], [ %.2.us.i, %195 ]
   %196 = getelementptr double, ptr %161, i64 %indvars.iv139.i
   %197 = load double, ptr %196, align 8
-  %198 = sext i32 %.158101.us.i to i64
+  %198 = zext nneg i32 %.158101.us.i to i64
   %199 = getelementptr double, ptr %161, i64 %198
   %200 = load double, ptr %199, align 8
   %201 = fcmp olt double %197, %200
@@ -3667,7 +3667,7 @@ clamp_row_est.exit:                               ; preds = %143, %148, %150
   %.055122.i = phi i32 [ 0, %.lr.ph124.preheader.i ], [ %.156.i, %.lr.ph124.i ]
   %222 = getelementptr double, ptr %161, i64 %indvars.iv145.i
   %223 = load double, ptr %222, align 8
-  %224 = sext i32 %.055122.i to i64
+  %224 = zext nneg i32 %.055122.i to i64
   %225 = getelementptr double, ptr %161, i64 %224
   %226 = load double, ptr %225, align 8
   %227 = fcmp ogt double %223, %226
@@ -3678,7 +3678,7 @@ clamp_row_est.exit:                               ; preds = %143, %148, %150
   br i1 %exitcond149.not.i, label %._crit_edge.loopexit.i, label %.lr.ph124.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph124.i
-  %229 = sext i32 %.156.i to i64
+  %229 = zext nneg i32 %.156.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.thread75.i, %.lr.ph108.split.split.i

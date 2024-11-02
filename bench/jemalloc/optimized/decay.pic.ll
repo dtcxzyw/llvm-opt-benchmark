@@ -389,18 +389,13 @@ while.body:                                       ; preds = %while.cond.preheade
   %npurge_lb.079 = phi i64 [ %npurge_lb.0.call28, %decay_npurge_after_interval.exit71 ], [ %shr.i, %while.cond.preheader ]
   %ub.078 = phi i64 [ %div32.ub.0, %decay_npurge_after_interval.exit71 ], [ 200, %while.cond.preheader ]
   %lb.077 = phi i64 [ %lb.0.div32, %decay_npurge_after_interval.exit71 ], [ 2, %while.cond.preheader ]
-  %add27 = add i64 %ub.078, %lb.077
+  %add27 = add nuw i64 %ub.078, %lb.077
   %div32 = lshr i64 %add27, 1
-  %cmp13.not.i = icmp ult i64 %add27, 2
-  br i1 %cmp13.not.i, label %for.body4.i59.preheader, label %for.body.i47
-
-for.body4.i59.preheader:                          ; preds = %for.cond2.preheader.i56, %while.body
-  %sum.119.i60.ph = phi i64 [ 0, %while.body ], [ %add.i53, %for.cond2.preheader.i56 ]
-  br label %for.body4.i59
+  br label %for.body.i47
 
 for.cond2.preheader.i56:                          ; preds = %for.body.i47
   %cmp317.i = icmp ult i64 %add27, 400
-  br i1 %cmp317.i, label %for.body4.i59.preheader, label %decay_npurge_after_interval.exit71
+  br i1 %cmp317.i, label %for.body4.i59, label %decay_npurge_after_interval.exit71
 
 for.body.i47:                                     ; preds = %while.body, %for.body.i47
   %sum.015.i48 = phi i64 [ %add.i53, %for.body.i47 ], [ 0, %while.body ]
@@ -415,9 +410,9 @@ for.body.i47:                                     ; preds = %while.body, %for.bo
   %exitcond.not.i55 = icmp eq i64 %inc.i54, %div32
   br i1 %exitcond.not.i55, label %for.cond2.preheader.i56, label %for.body.i47, !llvm.loop !8
 
-for.body4.i59:                                    ; preds = %for.body4.i59.preheader, %for.body4.i59
-  %sum.119.i60 = phi i64 [ %add11.i68, %for.body4.i59 ], [ %sum.119.i60.ph, %for.body4.i59.preheader ]
-  %i.118.i61 = phi i64 [ %inc13.i69, %for.body4.i59 ], [ %div32, %for.body4.i59.preheader ]
+for.body4.i59:                                    ; preds = %for.cond2.preheader.i56, %for.body4.i59
+  %sum.119.i60 = phi i64 [ %add11.i68, %for.body4.i59 ], [ %add.i53, %for.cond2.preheader.i56 ]
+  %i.118.i61 = phi i64 [ %inc13.i69, %for.body4.i59 ], [ %div32, %for.cond2.preheader.i56 ]
   %arrayidx6.i62 = getelementptr inbounds [200 x i64], ptr %backlog.i, i64 0, i64 %i.118.i61
   %11 = load i64, ptr %arrayidx6.i62, align 8
   %arrayidx7.i63 = getelementptr inbounds [200 x i64], ptr @h_steps, i64 0, i64 %i.118.i61
@@ -442,13 +437,13 @@ decay_npurge_after_interval.exit71:               ; preds = %for.body4.i59, %for
   %call28.npurge_ub.0 = select i1 %cmp29, i64 %shr.i57, i64 %npurge_ub.080
   %add = add nuw nsw i64 %npurge_lb.0.call28, %npages_threshold
   %cmp24 = icmp ult i64 %add, %call28.npurge_ub.0
-  %add25 = add i64 %lb.0.div32, 2
+  %add25 = add nuw i64 %lb.0.div32, 2
   %cmp26 = icmp ult i64 %add25, %div32.ub.0
-  %14 = and i1 %cmp24, %cmp26
+  %14 = select i1 %cmp24, i1 %cmp26, i1 false
   br i1 %14, label %while.body, label %while.end.loopexit, !llvm.loop !10
 
 while.end.loopexit:                               ; preds = %decay_npurge_after_interval.exit71
-  %15 = add i64 %div32.ub.0, %lb.0.div32
+  %15 = add nuw i64 %div32.ub.0, %lb.0.div32
   br label %while.end
 
 while.end:                                        ; preds = %while.end.loopexit, %while.cond.preheader

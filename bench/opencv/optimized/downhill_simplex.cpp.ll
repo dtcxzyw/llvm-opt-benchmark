@@ -1781,7 +1781,7 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
   %.1169261 = phi i32 [ %.2170, %81 ], [ %., %_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit ]
   %64 = getelementptr inbounds double, ptr %22, i64 %indvars.iv317
   %65 = load double, ptr %64, align 8
-  %66 = sext i32 %.0162263 to i64
+  %66 = zext nneg i32 %.0162263 to i64
   %67 = getelementptr inbounds double, ptr %22, i64 %66
   %68 = load double, ptr %67, align 8
   %69 = fcmp ugt double %65, %68
@@ -1850,7 +1850,7 @@ _ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd.exit: ; preds = %_ZN
   br i1 %or.cond192.not303, label %.loopexit235, label %.lr.ph272
 
 .lr.ph272:                                        ; preds = %90
-  %93 = sext i32 %.1163 to i64
+  %93 = zext nneg i32 %.1163 to i64
   %94 = getelementptr inbounds double, ptr %22, i64 %93
   %95 = load double, ptr %94, align 8
   %96 = zext i32 %.2170 to i64

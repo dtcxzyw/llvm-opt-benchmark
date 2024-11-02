@@ -489,7 +489,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   %126 = getelementptr inbounds i8, ptr %108, i64 %indvars.iv195.i
   %127 = load i8, ptr %126, align 1
   %128 = zext i8 %127 to i32
-  %spec.select107.us.i = tail call i32 @llvm.smax.i32(i32 %.0125.us.i, i32 %128)
+  %spec.select107.us.i = tail call i32 @llvm.umax.i32(i32 %.0125.us.i, i32 %128)
   %indvars.iv.next196.i = add nuw nsw i64 %indvars.iv195.i, 1
   %exitcond199.not.i = icmp eq i64 %indvars.iv.next196.i, %wide.trip.count.i12
   br i1 %exitcond199.not.i, label %._crit_edge128.us.i, label %.lr.ph127.us.i, !llvm.loop !14
@@ -609,7 +609,7 @@ OptimizeHuffmanForRle.exit:                       ; preds = %.lr.ph.i, %105
   %172 = getelementptr inbounds i8, ptr %108, i64 %indvars.iv167.i
   %173 = load i8, ptr %172, align 1
   %174 = zext i8 %173 to i32
-  %spec.select107.us135.i = tail call i32 @llvm.smax.i32(i32 %.0125.us133.i, i32 %174)
+  %spec.select107.us135.i = tail call i32 @llvm.umax.i32(i32 %.0125.us133.i, i32 %174)
   %indvars.iv.next168.i = add nuw nsw i64 %indvars.iv167.i, 1
   %exitcond171.not.i = icmp eq i64 %indvars.iv.next168.i, %wide.trip.count.i12
   br i1 %exitcond171.not.i, label %._crit_edge128.us144.i, label %.lr.ph127.us143.i, !llvm.loop !14

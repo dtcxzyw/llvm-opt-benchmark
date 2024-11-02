@@ -1074,7 +1074,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
   %.098127 = phi i32 [ %95, %.lr.ph129.preheader ], [ %spec.select, %.lr.ph129 ]
   %96 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv158
   %97 = load i32, ptr %96, align 4
-  %98 = sext i32 %.098127 to i64
+  %98 = zext nneg i32 %.098127 to i64
   %99 = getelementptr inbounds i32, ptr %11, i64 %98
   %100 = load i32, ptr %99, align 4
   %101 = icmp slt i32 %97, %100
@@ -1087,7 +1087,7 @@ define ptr @Cut_CutMergeTwo4(ptr noundef %0, ptr nocapture noundef readonly %1, 
 ._crit_edge130:                                   ; preds = %.lr.ph129
   %103 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv163
   %104 = load i32, ptr %103, align 4
-  %105 = sext i32 %spec.select to i64
+  %105 = zext nneg i32 %spec.select to i64
   %106 = getelementptr inbounds i32, ptr %11, i64 %105
   %107 = load i32, ptr %106, align 4
   store i32 %107, ptr %103, align 4

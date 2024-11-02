@@ -29210,7 +29210,7 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit46:      ; preds = %.lr.ph57.i38, %.pre
   %.0.i37 = phi float [ %.us-phi.i34, %.preheader.i33 ], [ %96, %.lr.ph57.i38 ]
   %98 = getelementptr inbounds float, ptr %3, i64 %indvars.iv
   store float %.0.i37, ptr %98, align 4
-  %99 = sext i32 %.03255 to i64
+  %99 = zext nneg i32 %.03255 to i64
   %100 = getelementptr inbounds float, ptr %3, i64 %99
   %101 = load float, ptr %100, align 4
   %102 = fcmp olt float %.0.i37, %101
@@ -35518,7 +35518,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   br i1 %28, label %.lr.ph143, label %._crit_edge144.thread
 
 ._crit_edge144.thread:                            ; preds = %._crit_edge
-  %.phi.trans.insert = sext i32 %.074.lcssa to i64
+  %.phi.trans.insert = zext i32 %.074.lcssa to i64
   %.phi.trans.insert191 = getelementptr inbounds i32, ptr %2, i64 %.phi.trans.insert
   %.pre = load i32, ptr %.phi.trans.insert191, align 4
   %108 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv186
@@ -35617,8 +35617,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100:     ; preds = %.lr.ph57.i92, %.pre
 ._crit_edge144:                                   ; preds = %_ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit100
   %166 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv186
   store i32 %113, ptr %166, align 4
-  %.pre192 = sext i32 %.074.lcssa to i64
-  %167 = getelementptr inbounds i32, ptr %2, i64 %.pre192
+  %167 = getelementptr inbounds i32, ptr %2, i64 %111
   %168 = load ptr, ptr %41, align 8
   %169 = load i64, ptr %42, align 8
   %170 = load i32, ptr %167, align 4
@@ -38565,7 +38564,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   br label %102
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %9
-  %.tr96.lcssa = phi ptr [ %1, %9 ], [ %220, %tailrecurse ]
+  %.tr96.lcssa = phi ptr [ %1, %9 ], [ %219, %tailrecurse ]
   %17 = load i32, ptr %4, align 4
   %.not59 = icmp slt i32 %17, %5
   %or.cond = select i1 %8, i1 true, i1 %.not59
@@ -38702,8 +38701,8 @@ _ZNK7cvflann2L2IfEclIPfPKfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   br i1 %101, label %31, label %.loopexit, !llvm.loop !484
 
 102:                                              ; preds = %.lr.ph120, %tailrecurse
-  %103 = phi ptr [ %11, %.lr.ph120 ], [ %222, %tailrecurse ]
-  %104 = phi ptr [ %10, %.lr.ph120 ], [ %221, %tailrecurse ]
+  %103 = phi ptr [ %11, %.lr.ph120 ], [ %221, %tailrecurse ]
+  %104 = phi ptr [ %10, %.lr.ph120 ], [ %220, %tailrecurse ]
   %105 = load i32, ptr %13, align 4
   %106 = sext i32 %105 to i64
   %107 = icmp slt i32 %105, 0
@@ -38785,14 +38784,14 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit:        ; preds = %.lr.ph57.i69, %.pre
   %wide.trip.count = zext nneg i32 %105 to i64
   br label %.lr.ph
 
-.preheader:                                       ; preds = %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit
-  %.057.lcssa = phi i32 [ 0, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit ], [ %.1, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90 ]
-  %157 = icmp sgt i32 %105, 0
-  br i1 %157, label %.lr.ph118.preheader, label %tailrecurse
+.preheader.loopexit:                              ; preds = %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90
+  %157 = zext i32 %.1 to i64
+  br label %.preheader
 
-.lr.ph118.preheader:                              ; preds = %.preheader
-  %158 = zext i32 %.057.lcssa to i64
-  br label %.lr.ph118
+.preheader:                                       ; preds = %.preheader.loopexit, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit
+  %.057.lcssa = phi i64 [ 0, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit ], [ %157, %.preheader.loopexit ]
+  %158 = icmp sgt i32 %105, 0
+  br i1 %158, label %.lr.ph118, label %tailrecurse
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90 ]
@@ -38861,7 +38860,7 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90:      ; preds = %.lr.ph57.i82, %.pre
   %.0.i81 = phi float [ %.us-phi.i78, %.preheader.i77 ], [ %197, %.lr.ph57.i82 ]
   %199 = getelementptr inbounds float, ptr %110, i64 %indvars.iv
   store float %.0.i81, ptr %199, align 4
-  %200 = sext i32 %.057115 to i64
+  %200 = zext nneg i32 %.057115 to i64
   %201 = getelementptr inbounds float, ptr %110, i64 %200
   %202 = load float, ptr %201, align 4
   %203 = fcmp olt float %.0.i81, %202
@@ -38869,12 +38868,12 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90:      ; preds = %.lr.ph57.i82, %.pre
   %.1 = select i1 %203, i32 %204, i32 %.057115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !485
+  br i1 %exitcond.not, label %.preheader.loopexit, label %.lr.ph, !llvm.loop !485
 
-.lr.ph118:                                        ; preds = %.lr.ph118.preheader, %213
-  %205 = phi i32 [ %105, %.lr.ph118.preheader ], [ %214, %213 ]
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph118.preheader ], [ %indvars.iv.next139, %213 ]
-  %.not = icmp eq i64 %indvars.iv138, %158
+.lr.ph118:                                        ; preds = %.preheader, %213
+  %205 = phi i32 [ %214, %213 ], [ %105, %.preheader ]
+  %indvars.iv138 = phi i64 [ %indvars.iv.next139, %213 ], [ 0, %.preheader ]
+  %.not = icmp eq i64 %indvars.iv138, %.057.lcssa
   br i1 %.not, label %213, label %206
 
 206:                                              ; preds = %.lr.ph118
@@ -38898,13 +38897,12 @@ _ZNK7cvflann2L2IfEclIPKfPfEEfT_T0_mf.exit90:      ; preds = %.lr.ph57.i82, %.pre
 tailrecurse:                                      ; preds = %213, %.preheader
   tail call void @_ZdaPv(ptr noundef nonnull %110) #35
   %217 = load ptr, ptr %104, align 8
-  %218 = sext i32 %.057.lcssa to i64
-  %219 = getelementptr inbounds ptr, ptr %217, i64 %218
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
-  %222 = load ptr, ptr %221, align 8
-  %223 = icmp eq ptr %222, null
-  br i1 %223, label %tailrecurse._crit_edge, label %102
+  %218 = getelementptr inbounds ptr, ptr %217, i64 %.057.lcssa
+  %219 = load ptr, ptr %218, align 8
+  %220 = getelementptr inbounds i8, ptr %219, i64 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = icmp eq ptr %221, null
+  br i1 %222, label %tailrecurse._crit_edge, label %102
 
 .loopexit:                                        ; preds = %98, %23, %18
   ret void

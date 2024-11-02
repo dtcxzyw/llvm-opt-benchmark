@@ -4431,17 +4431,17 @@ define internal i32 @xs_tcp_send_request(ptr noundef %0) #0 align 16 {
   %22 = getelementptr inbounds i8, ptr %5, i64 1480
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %137, label %25
+  br i1 %24, label %136, label %25
 
 25:                                               ; preds = %21
   %26 = tail call i32 @kernel_sock_shutdown(ptr noundef nonnull %23, i32 noundef 2) #12
-  br label %137
+  br label %136
 
 27:                                               ; preds = %17, %1
   %28 = getelementptr inbounds i8, ptr %5, i64 1488
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %137, label %31
+  br i1 %30, label %136, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i8, ptr %5, i64 1544
@@ -4591,12 +4591,12 @@ define internal i32 @xs_tcp_send_request(ptr noundef %0) #0 align 16 {
   %117 = getelementptr inbounds i8, ptr %5, i64 1256
   %118 = load volatile i64, ptr %117, align 8
   %119 = icmp eq i64 %118, 1
-  br i1 %119, label %120, label %137
+  br i1 %119, label %120, label %136
 
 120:                                              ; preds = %.split6
   %121 = load ptr, ptr %28, align 8
   call void @tcp_sock_set_cork(ptr noundef %121, i1 noundef zeroext false) #12
-  br label %137
+  br label %136
 
 122:                                              ; preds = %.split
   %123 = icmp eq i32 %108, 0
@@ -4618,25 +4618,24 @@ define internal i32 @xs_tcp_send_request(ptr noundef %0) #0 align 16 {
   br i1 %124, label %.split, label %131, !llvm.loop !73
 
 131:                                              ; preds = %127
-  switch i32 %107, label %137 [
+  switch i32 %107, label %136 [
     i32 -88, label %132
     i32 -11, label %133
   ]
 
 132:                                              ; preds = %131
-  br label %137
+  br label %136
 
 133:                                              ; preds = %131
-  %134 = and i8 %130, 1
-  %135 = icmp ne i8 %134, 0
-  %136 = call fastcc i32 @xs_stream_nospace(ptr noundef %0, i1 noundef zeroext %135)
-  br label %137
+  %134 = icmp ne i8 %130, 0
+  %135 = call fastcc i32 @xs_stream_nospace(ptr noundef %0, i1 noundef zeroext %134)
+  br label %136
 
-137:                                              ; preds = %133, %132, %131, %120, %.split6, %27, %25, %21
-  %138 = phi i32 [ -107, %25 ], [ -107, %21 ], [ -107, %27 ], [ 0, %120 ], [ 0, %.split6 ], [ %107, %131 ], [ %136, %133 ], [ -107, %132 ]
+136:                                              ; preds = %133, %132, %131, %120, %.split6, %27, %25, %21
+  %137 = phi i32 [ -107, %25 ], [ -107, %21 ], [ -107, %27 ], [ 0, %120 ], [ 0, %.split6 ], [ %107, %131 ], [ %135, %133 ], [ -107, %132 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %3) #12
-  ret i32 %138
+  ret i32 %137
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

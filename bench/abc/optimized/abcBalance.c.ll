@@ -1268,7 +1268,7 @@ define range(i32 0, 1048576) i32 @Abc_NtkBalanceLevel_rec(ptr nocapture noundef 
   %21 = getelementptr inbounds i8, ptr %19, i64 20
   %22 = load i32, ptr %21, align 4
   %23 = lshr i32 %22, 12
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.028, i32 %23)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.028, i32 %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %11, align 4
   %24 = sext i32 %.val to i64
@@ -1794,7 +1794,7 @@ declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #11
+declare i32 @llvm.umax.i32(i32, i32) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

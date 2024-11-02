@@ -4032,9 +4032,9 @@ _ZL14stbi_write_jpgPKciiiPKvi.exit:               ; preds = %212, %_ZL19stbi_wri
   br i1 %exitcond301.not.i.i, label %._crit_edge.us.i.i113, label %486, !llvm.loop !35
 
 ._crit_edge.us.i.i113:                            ; preds = %486
-  %492 = icmp slt i32 %491, %.093252.us.i.i
+  %492 = icmp samesign ult i32 %491, %.093252.us.i.i
   %spec.select112.us.i.i = select i1 %492, i32 %.197250.us.i.i, i32 %.094251.us.i.i
-  %spec.select113.us.i.i = call i32 @llvm.smin.i32(i32 %491, i32 %.093252.us.i.i)
+  %spec.select113.us.i.i = call i32 @llvm.umin.i32(i32 %491, i32 %.093252.us.i.i)
   %493 = add nuw nsw i32 %.197250.us.i.i, 1
   %exitcond302.not.i.i = icmp eq i32 %493, 5
   br i1 %exitcond302.not.i.i, label %.split.us.i.i, label %.lr.ph.us.i.i, !llvm.loop !36

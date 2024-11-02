@@ -13996,7 +13996,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELin1ELi1ELb0E
   br i1 %.not67, label %_ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEEE4swapIS4_EEvRKNS0_IT_EE.exit110, label %475
 
 475:                                              ; preds = %474
-  %476 = add nsw i64 %.sroa.0.1.i.i, %.060219
+  %476 = add nuw nsw i64 %.sroa.0.1.i.i, %.060219
   %477 = getelementptr inbounds double, ptr %462, i64 %.060219
   %478 = getelementptr inbounds double, ptr %462, i64 %476
   %479 = load double, ptr %477, align 8

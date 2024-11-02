@@ -1379,7 +1379,7 @@ thread-pre-split896:                              ; preds = %315, %318
   %681 = sext i32 %674 to i64
   %682 = getelementptr inbounds double, ptr %38, i64 %681
   %683 = load double, ptr %682, align 8
-  %684 = sext i32 %.0831.lcssa to i64
+  %684 = zext nneg i32 %.0831.lcssa to i64
   %685 = getelementptr inbounds double, ptr %38, i64 %684
   store double %683, ptr %685, align 8
   %686 = load i32, ptr %1, align 4

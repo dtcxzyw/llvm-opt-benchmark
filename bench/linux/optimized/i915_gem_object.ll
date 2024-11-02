@@ -1349,7 +1349,7 @@ define dso_local zeroext i1 @i915_gem_object_needs_ccs_pages(ptr nocapture nound
 
 23:                                               ; preds = %30, %19
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %19 ]
-  %24 = phi i8 [ %35, %30 ], [ 0, %19 ]
+  %24 = phi i8 [ %34, %30 ], [ 0, %19 ]
   %25 = getelementptr ptr, ptr %21, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 144
@@ -1358,23 +1358,21 @@ define dso_local zeroext i1 @i915_gem_object_needs_ccs_pages(ptr nocapture nound
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %23
-  %31 = and i8 %24, 1
-  %32 = icmp eq i8 %31, 0
-  %33 = icmp eq i16 %28, 1
-  %34 = and i1 %32, %33
-  %35 = select i1 %34, i8 1, i8 %24
+  %31 = icmp eq i8 %24, 0
+  %32 = icmp eq i16 %28, 1
+  %33 = and i1 %31, %32
+  %34 = select i1 %33, i8 1, i8 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = icmp eq i64 %indvars.iv.next, %22
-  br i1 %36, label %37, label %23, !llvm.loop !37
+  %35 = icmp eq i64 %indvars.iv.next, %22
+  br i1 %35, label %36, label %23, !llvm.loop !37
 
-37:                                               ; preds = %30
-  %38 = and i8 %35, 1
-  %39 = icmp ne i8 %38, 0
+36:                                               ; preds = %30
+  %37 = icmp ne i8 %34, 0
   br label %.loopexit
 
-.loopexit:                                        ; preds = %23, %37, %15, %10, %1
-  %40 = phi i1 [ false, %1 ], [ true, %10 ], [ false, %15 ], [ %39, %37 ], [ false, %23 ]
-  ret i1 %40
+.loopexit:                                        ; preds = %23, %36, %15, %10, %1
+  %38 = phi i1 [ false, %1 ], [ true, %10 ], [ false, %15 ], [ %37, %36 ], [ false, %23 ]
+  ret i1 %38
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)

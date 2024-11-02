@@ -6854,7 +6854,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr nocapture noundef readonly %0, ptr n
   unreachable
 
 42:                                               ; preds = %38
-  %43 = sext i32 %29 to i64
+  %43 = zext nneg i32 %29 to i64
   %44 = getelementptr i64, ptr %0, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = icmp ugt i64 %31, %45

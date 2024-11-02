@@ -24147,7 +24147,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %.0201.i.i.i.i.i.i = phi i64 [ 45, %22 ], [ %.021.i.i.i.i.i.i, %39 ]
   %26 = lshr i64 %.03.i.i.i.i.i.i, 1
   %27 = add nuw nsw i64 %26, %.0192.i.i.i.i.i.i
-  %28 = icmp ult i64 %27, 45
+  %28 = icmp samesign ult i64 %27, 45
   tail call void @llvm.assume(i1 %28)
   %29 = getelementptr inbounds { { ptr, i64 }, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr @anon.fb11057230c6fbfae78435798457d9df.171, i64 %27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9055)
@@ -24174,8 +24174,8 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$9
   %41 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i.i, 0
   %42 = add nuw nsw i64 %27, 1
   %.022.i.i.i.i.i.i = select i1 %41, i64 %42, i64 %.0192.i.i.i.i.i.i
-  %43 = sub i64 %.021.i.i.i.i.i.i, %.022.i.i.i.i.i.i
-  %44 = icmp ult i64 %.022.i.i.i.i.i.i, %.021.i.i.i.i.i.i
+  %43 = sub nsw i64 %.021.i.i.i.i.i.i, %.022.i.i.i.i.i.i
+  %44 = icmp samesign ult i64 %.022.i.i.i.i.i.i, %.021.i.i.i.i.i.i
   br i1 %44, label %25, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hb9e380b318483e63E.exit.i.i.i"
 
 "_ZN14ide_completion11completions9attribute23complete_attribute_path28_$u7b$$u7b$closure$u7d$$u7d$17ha0ecebfd9a02d5ddE.exit.i.i.i.i": ; preds = %25

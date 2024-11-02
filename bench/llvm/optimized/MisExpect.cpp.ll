@@ -293,7 +293,7 @@ define dso_local void @_ZN4llvm9misexpect15verifyMisExpectERNS_11InstructionENS_
   %18 = getelementptr inbounds i32, ptr %3, i64 %.03045
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = icmp ult i64 %.02548, %20
+  %21 = icmp samesign ult i64 %.02548, %20
   %spec.select = select i1 %21, i64 %.03045, i64 %.02846
   %spec.select35 = tail call i64 @llvm.umax.i64(i64 %.02548, i64 %20)
   %.127 = tail call i64 @llvm.umin.i64(i64 %.02647, i64 %20)

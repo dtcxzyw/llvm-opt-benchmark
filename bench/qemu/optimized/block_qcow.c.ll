@@ -1856,7 +1856,7 @@ if.else:                                          ; preds = %do.end90
   br i1 %cmp109, label %return, label %if.end113
 
 if.end113:                                        ; preds = %if.else, %if.then92
-  %idxprom115 = sext i32 %spec.select to i64
+  %idxprom115 = zext nneg i32 %spec.select to i64
   %arrayidx116 = getelementptr [16 x i64], ptr %l2_cache_offsets, i64 0, i64 %idxprom115
   store i64 %l2_offset.0, ptr %arrayidx116, align 8
   %arrayidx119 = getelementptr [16 x i32], ptr %l2_cache_counts65, i64 0, i64 %idxprom115

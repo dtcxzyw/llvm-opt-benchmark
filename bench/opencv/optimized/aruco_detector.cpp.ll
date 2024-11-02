@@ -8729,7 +8729,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit390.thread:          ; preds = %.invoke, %_ZNKSt6ve
 
 _ZNK2cv11_InputArray6getMatEi.exit264:            ; preds = %1067, %1069
   %1070 = load ptr, ptr %895, align 8
-  %1071 = trunc nuw nsw i64 %indvars.iv859 to i32
+  %1071 = trunc i64 %indvars.iv859 to i32
   %1072 = add i32 %1063, %1071
   %1073 = srem i32 %1072, 4
   %1074 = sext i32 %1073 to i64

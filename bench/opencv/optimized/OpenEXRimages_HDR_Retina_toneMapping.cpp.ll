@@ -2270,7 +2270,7 @@ _ZN2cv3Mat2atIfEERT_i.exit100:                    ; preds = %276, %271, %.thread
   %308 = sitofp i32 %307 to float
   %309 = fdiv float %306, %308
   %310 = fmul float %309, 2.550000e+02
-  %311 = sitofp i32 %.055.lcssa to float
+  %311 = uitofp nneg i32 %.055.lcssa to float
   %312 = fdiv float %311, %308
   %313 = fmul float %312, 2.550000e+02
   %314 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.57)
@@ -2404,7 +2404,7 @@ _ZN2cv3Mat2atIfEERT_i.exit103:                    ; preds = %352, %343, %334
 393:                                              ; preds = %388, %385
   %394 = getelementptr inbounds i8, ptr %39, i64 16
   %395 = load ptr, ptr %394, align 8
-  %396 = sext i32 %.055.lcssa to i64
+  %396 = zext nneg i32 %.055.lcssa to i64
   %397 = getelementptr inbounds float, ptr %395, i64 %396
   br label %_ZN2cv3Mat2atIfEERT_i.exit106
 
@@ -2420,7 +2420,7 @@ _ZN2cv3Mat2atIfEERT_i.exit103:                    ; preds = %352, %343, %334
   %405 = getelementptr inbounds i8, ptr %39, i64 72
   %406 = load ptr, ptr %405, align 8
   %407 = load i64, ptr %406, align 8
-  %408 = sext i32 %.055.lcssa to i64
+  %408 = zext nneg i32 %.055.lcssa to i64
   %409 = mul i64 %407, %408
   %410 = getelementptr inbounds i8, ptr %404, i64 %409
   br label %_ZN2cv3Mat2atIfEERT_i.exit106

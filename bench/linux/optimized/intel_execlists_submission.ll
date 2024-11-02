@@ -5618,7 +5618,7 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
   %28 = getelementptr inbounds i8, ptr %3, i64 5520
   br label %34
 
-29:                                               ; preds = %114
+29:                                               ; preds = %113
   %30 = add nuw nsw i64 %35, 1
   %31 = load i32, ptr %23, align 8
   %32 = zext i32 %31 to i64
@@ -5652,13 +5652,13 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
   br i1 %51, label %55, label %58, !prof !23
 
 55:                                               ; preds = %44
-  br i1 %54, label %114, label %56
+  br i1 %54, label %113, label %56
 
 56:                                               ; preds = %55
   %57 = getelementptr inbounds i8, ptr %37, i64 1152
   tail call fastcc void @rb_erase_cached(ptr noundef %41, ptr noundef %57)
   store i64 %53, ptr %41, align 8
-  br label %114
+  br label %113
 
 58:                                               ; preds = %44
   br i1 %54, label %72, label %59, !prof !12
@@ -5674,7 +5674,7 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
   %67 = icmp sgt i32 %5, %65
   %68 = select i1 %67, i1 %62, i1 false
   %69 = select i1 %66, i1 true, i1 %68
-  br i1 %69, label %97, label %70
+  br i1 %69, label %96, label %70
 
 70:                                               ; preds = %59
   %71 = getelementptr inbounds i8, ptr %37, i64 1152
@@ -5690,7 +5690,7 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
 .thread7:                                         ; preds = %72
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
   store ptr %41, ptr %73, align 8
-  br label %92
+  br label %91
 
 .preheader:                                       ; preds = %72, %.preheader
   %76 = phi ptr [ %84, %.preheader ], [ %74, %72 ]
@@ -5712,58 +5712,57 @@ define internal void @virtual_submission_tasklet(ptr noundef %0) #0 align 16 {
   %89 = getelementptr inbounds i8, ptr %41, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %89, i8 0, i64 16, i1 false)
   store ptr %41, ptr %87, align 8
-  %90 = and i8 %83, 1
-  %91 = icmp eq i8 %90, 0
-  br i1 %91, label %95, label %92
+  %90 = icmp eq i8 %83, 0
+  br i1 %90, label %94, label %91
 
-92:                                               ; preds = %.thread7, %86
-  %93 = phi i8 [ 1, %.thread7 ], [ %77, %86 ]
-  %94 = getelementptr inbounds i8, ptr %37, i64 1160
-  store ptr %41, ptr %94, align 8
-  br label %95
+91:                                               ; preds = %.thread7, %86
+  %92 = phi i8 [ 1, %.thread7 ], [ %77, %86 ]
+  %93 = getelementptr inbounds i8, ptr %37, i64 1160
+  store ptr %41, ptr %93, align 8
+  br label %94
 
-95:                                               ; preds = %92, %86
-  %96 = phi i8 [ %93, %92 ], [ %83, %86 ]
+94:                                               ; preds = %91, %86
+  %95 = phi i8 [ %92, %91 ], [ 0, %86 ]
   tail call void @rb_insert_color(ptr noundef %41, ptr noundef %73) #17
-  br label %97
+  br label %96
 
-97:                                               ; preds = %95, %59
-  %98 = phi i8 [ %63, %59 ], [ %96, %95 ]
-  %99 = getelementptr inbounds i8, ptr %41, i64 24
-  store i32 %5, ptr %99, align 8
-  %100 = and i8 %98, 1
-  %101 = icmp eq i8 %100, 0
-  br i1 %101, label %114, label %102
+96:                                               ; preds = %94, %59
+  %97 = phi i8 [ %63, %59 ], [ %95, %94 ]
+  %98 = getelementptr inbounds i8, ptr %41, i64 24
+  store i32 %5, ptr %98, align 8
+  %99 = and i8 %97, 1
+  %100 = icmp eq i8 %99, 0
+  br i1 %100, label %113, label %101
 
-102:                                              ; preds = %97
-  %103 = load ptr, ptr %45, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 128
-  %105 = load i32, ptr %104, align 8
-  %106 = icmp sgt i32 %5, %105
-  br i1 %106, label %107, label %114
+101:                                              ; preds = %96
+  %102 = load ptr, ptr %45, align 8
+  %103 = getelementptr inbounds i8, ptr %102, i64 128
+  %104 = load i32, ptr %103, align 8
+  %105 = icmp sgt i32 %5, %104
+  br i1 %105, label %106, label %113
 
-107:                                              ; preds = %102
-  %108 = getelementptr inbounds i8, ptr %103, i64 48
-  %109 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %108, i64 0, ptr elementtype(i64) %108) #17, !srcloc !25
-  %110 = icmp ult i8 %109, 2
-  tail call void @llvm.assume(i1 %110)
-  %111 = icmp eq i8 %109, 0
-  br i1 %111, label %112, label %114
+106:                                              ; preds = %101
+  %107 = getelementptr inbounds i8, ptr %102, i64 48
+  %108 = tail call i8 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $2, $0\0A\09/* output condition code c*/\0A", "=*m,={@ccc},Ir,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %107, i64 0, ptr elementtype(i64) %107) #17, !srcloc !25
+  %109 = icmp ult i8 %108, 2
+  tail call void @llvm.assume(i1 %109)
+  %110 = icmp eq i8 %108, 0
+  br i1 %110, label %111, label %113
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %103, i64 40
-  tail call void @__tasklet_hi_schedule(ptr noundef %113) #17
-  br label %114
+111:                                              ; preds = %106
+  %112 = getelementptr inbounds i8, ptr %102, i64 40
+  tail call void @__tasklet_hi_schedule(ptr noundef %112) #17
+  br label %113
 
-114:                                              ; preds = %112, %107, %102, %97, %56, %55
-  %115 = load ptr, ptr %45, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 4
-  tail call void @_raw_spin_unlock_irq(ptr noundef %116) #17
-  %117 = load volatile ptr, ptr %28, align 8
-  %118 = icmp ult ptr %117, inttoptr (i64 8 to ptr)
-  br i1 %118, label %29, label %.loopexit
+113:                                              ; preds = %111, %106, %101, %96, %56, %55
+  %114 = load ptr, ptr %45, align 8
+  %115 = getelementptr inbounds i8, ptr %114, i64 4
+  tail call void @_raw_spin_unlock_irq(ptr noundef %115) #17
+  %116 = load volatile ptr, ptr %28, align 8
+  %117 = icmp ult ptr %116, inttoptr (i64 8 to ptr)
+  br i1 %117, label %29, label %.loopexit
 
-.loopexit:                                        ; preds = %114, %34, %29, %.thread, %20, %13
+.loopexit:                                        ; preds = %113, %34, %29, %.thread, %20, %13
   ret void
 }
 

@@ -1132,13 +1132,13 @@ for.body124.i:                                    ; preds = %invoke.cont87.i, %f
   br i1 %exitcond485.not.i, label %for.end134.i, label %for.body124.i, !llvm.loop !17
 
 for.end134.i:                                     ; preds = %for.body124.i
-  %idxprom137.i = sext i32 %spec.select74.i to i64
+  %idxprom137.i = zext nneg i32 %spec.select74.i to i64
   %arrayidx138.i = getelementptr inbounds float, ptr %gridExtent.i, i64 %idxprom137.i
   %64 = load float, ptr %arrayidx138.i, align 4
   %mul139.i = fmul float %64, 2.000000e+00
   %arrayidx143.i = getelementptr inbounds float, ptr %gridCellSize.i, i64 %idxprom137.i
   store float %mul139.i, ptr %arrayidx143.i, align 4
-  %shl.i = shl nuw i32 1, %spec.select74.i
+  %shl.i = shl nuw nsw i32 1, %spec.select74.i
   %not.i = and i32 %shl.i, 7
   %and.i = xor i32 %not.i, 7
   %gridCellSize.promoted.pre.i = load float, ptr %gridCellSize.i, align 8

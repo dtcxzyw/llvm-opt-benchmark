@@ -1364,189 +1364,189 @@ define internal fastcc i32 @parse_and_tune(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %check_whole_options_position.exit, label %33
 
 33:                                               ; preds = %29
-  %34 = icmp eq i32 %.08.i, 1
-  br i1 %34, label %35, label %check_whole_options_position.exit.thread
+  %.not12.i = icmp eq i32 %.08.i, 0
+  br i1 %.not12.i, label %check_whole_options_position.exit.thread, label %34
 
-35:                                               ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.09.i, i64 16
-  %37 = load ptr, ptr %36, align 8
-  %.not10.i = icmp eq ptr %37, null
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds i8, ptr %.09.i, i64 16
+  %36 = load ptr, ptr %35, align 8
+  %.not10.i = icmp eq ptr %36, null
   br i1 %.not10.i, label %check_whole_options_position.exit.thread, label %check_whole_options_position.exit
 
-check_whole_options_position.exit.thread:         ; preds = %33, %35, %16
-  %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
-  %40 = load ptr, ptr %39, align 8
-  %41 = call fastcc i32 @reduce_string_list(ptr noundef %38, ptr noundef %40)
-  %.not82 = icmp eq i32 %41, 0
-  br i1 %.not82, label %42, label %check_whole_options_position.exit
+check_whole_options_position.exit.thread:         ; preds = %33, %34, %16
+  %37 = load ptr, ptr %8, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = load ptr, ptr %38, align 8
+  %40 = call fastcc i32 @reduce_string_list(ptr noundef %37, ptr noundef %39)
+  %.not82 = icmp eq i32 %40, 0
+  br i1 %.not82, label %41, label %check_whole_options_position.exit
 
-42:                                               ; preds = %check_whole_options_position.exit.thread
-  %43 = getelementptr inbounds i8, ptr %3, i64 88
-  %44 = load i32, ptr %43, align 8
-  %45 = icmp sgt i32 %44, 0
-  br i1 %45, label %46, label %65
+41:                                               ; preds = %check_whole_options_position.exit.thread
+  %42 = getelementptr inbounds i8, ptr %3, i64 88
+  %43 = load i32, ptr %42, align 8
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %45, label %64
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %3, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  %50 = load i32, ptr %49, align 4
-  %51 = and i32 %50, 128
-  %.not83 = icmp eq i32 %51, 0
-  br i1 %.not83, label %65, label %52
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds i8, ptr %3, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 8
+  %49 = load i32, ptr %48, align 4
+  %50 = and i32 %49, 128
+  %.not83 = icmp eq i32 %50, 0
+  br i1 %.not83, label %64, label %51
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds i8, ptr %0, i64 104
-  %54 = load i32, ptr %53, align 8
-  %55 = and i32 %54, 256
-  %.not84 = icmp eq i32 %55, 0
-  br i1 %.not84, label %56, label %65
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds i8, ptr %0, i64 104
+  %53 = load i32, ptr %52, align 8
+  %54 = and i32 %53, 256
+  %.not84 = icmp eq i32 %54, 0
+  br i1 %.not84, label %55, label %64
 
-56:                                               ; preds = %52
-  %57 = getelementptr inbounds i8, ptr %3, i64 84
-  %58 = load i32, ptr %57, align 4
-  %.not85 = icmp eq i32 %44, %58
-  br i1 %.not85, label %61, label %59
+55:                                               ; preds = %51
+  %56 = getelementptr inbounds i8, ptr %3, i64 84
+  %57 = load i32, ptr %56, align 4
+  %.not85 = icmp eq i32 %43, %57
+  br i1 %.not85, label %60, label %58
 
-59:                                               ; preds = %56
-  %60 = call fastcc i32 @disable_noname_group_capture(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %3)
-  br label %64
+58:                                               ; preds = %55
+  %59 = call fastcc i32 @disable_noname_group_capture(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %3)
+  br label %63
 
-61:                                               ; preds = %56
-  %62 = load ptr, ptr %8, align 8
-  %63 = call fastcc i32 @numbered_ref_check(ptr noundef %62)
-  br label %64
+60:                                               ; preds = %55
+  %61 = load ptr, ptr %8, align 8
+  %62 = call fastcc i32 @numbered_ref_check(ptr noundef %61)
+  br label %63
 
-64:                                               ; preds = %61, %59
-  %.1 = phi i32 [ %60, %59 ], [ %63, %61 ]
+63:                                               ; preds = %60, %58
+  %.1 = phi i32 [ %59, %58 ], [ %62, %60 ]
   %.not86 = icmp eq i32 %.1, 0
-  br i1 %.not86, label %65, label %check_whole_options_position.exit
+  br i1 %.not86, label %64, label %check_whole_options_position.exit
 
-65:                                               ; preds = %64, %52, %46, %42
-  %66 = load ptr, ptr %8, align 8
-  %67 = call fastcc i32 @check_backrefs(ptr noundef %66, ptr noundef %3)
-  %.not87 = icmp eq i32 %67, 0
-  br i1 %.not87, label %68, label %check_whole_options_position.exit
+64:                                               ; preds = %63, %51, %45, %41
+  %65 = load ptr, ptr %8, align 8
+  %66 = call fastcc i32 @check_backrefs(ptr noundef %65, ptr noundef %3)
+  %.not87 = icmp eq i32 %66, 0
+  br i1 %.not87, label %67, label %check_whole_options_position.exit
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %3, i64 80
-  %70 = load i32, ptr %69, align 8
-  %71 = icmp sgt i32 %70, 0
-  br i1 %71, label %72, label %91
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds i8, ptr %3, i64 80
+  %69 = load i32, ptr %68, align 8
+  %70 = icmp sgt i32 %69, 0
+  br i1 %70, label %71, label %90
 
-72:                                               ; preds = %68
-  %73 = zext nneg i32 %70 to i64
-  %74 = shl nuw nsw i64 %73, 4
-  %75 = call noalias ptr @malloc(i64 noundef %74) #24
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %check_whole_options_position.exit, label %77
+71:                                               ; preds = %67
+  %72 = zext nneg i32 %69 to i64
+  %73 = shl nuw nsw i64 %72, 4
+  %74 = call noalias ptr @malloc(i64 noundef %73) #24
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %check_whole_options_position.exit, label %76
 
-77:                                               ; preds = %72
+76:                                               ; preds = %71
   store i32 0, ptr %6, align 8
-  %78 = getelementptr inbounds i8, ptr %6, i64 4
-  store i32 %70, ptr %78, align 4
-  %79 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %75, ptr %79, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 256
-  store ptr %6, ptr %80, align 8
-  %81 = load ptr, ptr %8, align 8
-  %82 = call fastcc i32 @tune_call(ptr noundef %81, ptr noundef %3, i32 noundef 0)
-  %.not89 = icmp eq i32 %82, 0
-  br i1 %.not89, label %83, label %105
+  %77 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 %69, ptr %77, align 4
+  %78 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %74, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %3, i64 256
+  store ptr %6, ptr %79, align 8
+  %80 = load ptr, ptr %8, align 8
+  %81 = call fastcc i32 @tune_call(ptr noundef %80, ptr noundef %3, i32 noundef 0)
+  %.not89 = icmp eq i32 %81, 0
+  br i1 %.not89, label %82, label %104
 
-83:                                               ; preds = %77
+82:                                               ; preds = %76
+  %83 = load ptr, ptr %8, align 8
+  call fastcc void @tune_call2(ptr noundef %83)
   %84 = load ptr, ptr %8, align 8
-  call fastcc void @tune_call2(ptr noundef %84)
-  %85 = load ptr, ptr %8, align 8
-  %86 = call fastcc i32 @recursive_call_check_trav(ptr noundef %85, ptr noundef %3, i32 noundef 0)
-  %87 = load ptr, ptr %8, align 8
-  %88 = call fastcc i32 @infinite_recursive_call_check_trav(ptr noundef %87, ptr noundef %3)
-  %.not90 = icmp eq i32 %88, 0
-  br i1 %.not90, label %89, label %105
+  %85 = call fastcc i32 @recursive_call_check_trav(ptr noundef %84, ptr noundef %3, i32 noundef 0)
+  %86 = load ptr, ptr %8, align 8
+  %87 = call fastcc i32 @infinite_recursive_call_check_trav(ptr noundef %86, ptr noundef %3)
+  %.not90 = icmp eq i32 %87, 0
+  br i1 %.not90, label %88, label %104
 
-89:                                               ; preds = %83
-  %90 = load ptr, ptr %8, align 8
-  call fastcc void @tune_called_state(ptr noundef %90, i32 noundef 0)
-  %.pre = load i32, ptr %69, align 8
-  br label %91
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %8, align 8
+  call fastcc void @tune_called_state(ptr noundef %89, i32 noundef 0)
+  %.pre = load i32, ptr %68, align 8
+  br label %90
 
-91:                                               ; preds = %89, %68
-  %92 = phi i32 [ %.pre, %89 ], [ %70, %68 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 %92, ptr %93, align 4
-  %94 = load ptr, ptr %8, align 8
-  %95 = call fastcc i32 @tune_tree(ptr noundef %94, ptr noundef nonnull %0, i32 noundef 0, ptr noundef %3)
-  %.not91 = icmp eq i32 %95, 0
-  br i1 %.not91, label %96, label %105
+90:                                               ; preds = %88, %67
+  %91 = phi i32 [ %.pre, %88 ], [ %69, %67 ]
+  %92 = getelementptr inbounds i8, ptr %0, i64 60
+  store i32 %91, ptr %92, align 4
+  %93 = load ptr, ptr %8, align 8
+  %94 = call fastcc i32 @tune_tree(ptr noundef %93, ptr noundef nonnull %0, i32 noundef 0, ptr noundef %3)
+  %.not91 = icmp eq i32 %94, 0
+  br i1 %.not91, label %95, label %104
 
-96:                                               ; preds = %91
-  %97 = getelementptr inbounds i8, ptr %3, i64 232
-  %98 = load i32, ptr %97, align 8
-  %.not92 = icmp eq i32 %98, 0
-  br i1 %.not92, label %103, label %99
+95:                                               ; preds = %90
+  %96 = getelementptr inbounds i8, ptr %3, i64 232
+  %97 = load i32, ptr %96, align 8
+  %.not92 = icmp eq i32 %97, 0
+  br i1 %.not92, label %102, label %98
 
-99:                                               ; preds = %96
+98:                                               ; preds = %95
+  %99 = load ptr, ptr %8, align 8
+  call fastcc void @set_parent_node_trav(ptr noundef %99, ptr noundef null)
   %100 = load ptr, ptr %8, align 8
-  call fastcc void @set_parent_node_trav(ptr noundef %100, ptr noundef null)
+  call fastcc void @set_empty_repeat_node_trav(ptr noundef %100, ptr noundef null, ptr noundef %3)
   %101 = load ptr, ptr %8, align 8
-  call fastcc void @set_empty_repeat_node_trav(ptr noundef %101, ptr noundef null, ptr noundef %3)
-  %102 = load ptr, ptr %8, align 8
-  call fastcc void @set_empty_status_check_trav(ptr noundef %102, ptr noundef %3)
-  br label %103
+  call fastcc void @set_empty_status_check_trav(ptr noundef %101, ptr noundef %3)
+  br label %102
 
-103:                                              ; preds = %99, %96
-  %104 = load ptr, ptr %8, align 8
-  br label %124
+102:                                              ; preds = %98, %95
+  %103 = load ptr, ptr %8, align 8
+  br label %123
 
-105:                                              ; preds = %91, %83, %77
-  %.2 = phi i32 [ %82, %77 ], [ %88, %83 ], [ %95, %91 ]
-  %106 = load i32, ptr %69, align 8
-  %107 = icmp sgt i32 %106, 0
-  br i1 %107, label %108, label %check_whole_options_position.exit
+104:                                              ; preds = %90, %82, %76
+  %.2 = phi i32 [ %81, %76 ], [ %87, %82 ], [ %94, %90 ]
+  %105 = load i32, ptr %68, align 8
+  %106 = icmp sgt i32 %105, 0
+  br i1 %106, label %107, label %check_whole_options_position.exit
 
-108:                                              ; preds = %105
-  %109 = getelementptr i8, ptr %6, i64 8
-  %.val = load ptr, ptr %109, align 8
+107:                                              ; preds = %104
+  %108 = getelementptr i8, ptr %6, i64 8
+  %.val = load ptr, ptr %108, align 8
   %.not.i95 = icmp eq ptr %.val, null
-  br i1 %.not.i95, label %check_whole_options_position.exit, label %110
+  br i1 %.not.i95, label %check_whole_options_position.exit, label %109
 
-110:                                              ; preds = %108
+109:                                              ; preds = %107
   call void @free(ptr noundef nonnull %.val) #22
   br label %check_whole_options_position.exit
 
-check_whole_options_position.exit:                ; preds = %.preheader, %110, %108, %72, %35, %29, %25, %105, %65, %64, %check_whole_options_position.exit.thread, %14
-  %.0 = phi i32 [ %15, %14 ], [ %41, %check_whole_options_position.exit.thread ], [ %67, %65 ], [ %.2, %105 ], [ %.1, %64 ], [ -120, %25 ], [ -120, %29 ], [ -120, %35 ], [ -5, %72 ], [ %.2, %108 ], [ %.2, %110 ], [ -120, %.preheader ]
-  %111 = getelementptr inbounds i8, ptr %3, i64 56
-  %112 = load ptr, ptr %111, align 8
-  %113 = icmp ne ptr %112, null
-  %or.cond = and i1 %9, %113
-  br i1 %or.cond, label %114, label %119
+check_whole_options_position.exit:                ; preds = %.preheader, %109, %107, %71, %34, %29, %25, %104, %64, %63, %check_whole_options_position.exit.thread, %14
+  %.0 = phi i32 [ %15, %14 ], [ %40, %check_whole_options_position.exit.thread ], [ %66, %64 ], [ %.2, %104 ], [ %.1, %63 ], [ -120, %25 ], [ -120, %29 ], [ -120, %34 ], [ -5, %71 ], [ %.2, %107 ], [ %.2, %109 ], [ -120, %.preheader ]
+  %110 = getelementptr inbounds i8, ptr %3, i64 56
+  %111 = load ptr, ptr %110, align 8
+  %112 = icmp ne ptr %111, null
+  %or.cond = and i1 %9, %112
+  br i1 %or.cond, label %113, label %118
 
-114:                                              ; preds = %check_whole_options_position.exit
-  %115 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %112, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %3, i64 64
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %117, ptr %118, align 8
-  br label %119
+113:                                              ; preds = %check_whole_options_position.exit
+  %114 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr %111, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %3, i64 64
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %116, ptr %117, align 8
+  br label %118
 
-119:                                              ; preds = %114, %check_whole_options_position.exit
-  %120 = load ptr, ptr %8, align 8
-  call void @onig_node_free(ptr noundef %120) #22
-  %121 = getelementptr inbounds i8, ptr %3, i64 224
-  %122 = load ptr, ptr %121, align 8
-  %.not93 = icmp eq ptr %122, null
-  br i1 %.not93, label %124, label %123
+118:                                              ; preds = %113, %check_whole_options_position.exit
+  %119 = load ptr, ptr %8, align 8
+  call void @onig_node_free(ptr noundef %119) #22
+  %120 = getelementptr inbounds i8, ptr %3, i64 224
+  %121 = load ptr, ptr %120, align 8
+  %.not93 = icmp eq ptr %121, null
+  br i1 %.not93, label %123, label %122
 
-123:                                              ; preds = %119
-  call void @free(ptr noundef nonnull %122) #22
-  br label %124
+122:                                              ; preds = %118
+  call void @free(ptr noundef nonnull %121) #22
+  br label %123
 
-124:                                              ; preds = %119, %123, %103
-  %storemerge = phi ptr [ %104, %103 ], [ null, %123 ], [ null, %119 ]
-  %.060 = phi i32 [ 0, %103 ], [ %.0, %123 ], [ %.0, %119 ]
+123:                                              ; preds = %118, %122, %102
+  %storemerge = phi ptr [ %103, %102 ], [ null, %122 ], [ null, %118 ]
+  %.060 = phi i32 [ 0, %102 ], [ %.0, %122 ], [ %.0, %118 ]
   store ptr %storemerge, ptr %4, align 8
   ret i32 %.060
 }
@@ -12286,7 +12286,7 @@ mmcl_alt_merge.exit:                              ; preds = %71, %74
   br i1 %.not209, label %._crit_edge305.loopexit, label %55, !llvm.loop !81
 
 ._crit_edge305.loopexit:                          ; preds = %mmcl_alt_merge.exit
-  %77 = icmp eq i32 %spec.select, 1
+  %77 = icmp ne i32 %spec.select, 0
   br label %._crit_edge305
 
 ._crit_edge305:                                   ; preds = %.preheader255.._crit_edge305_crit_edge, %._crit_edge305.loopexit

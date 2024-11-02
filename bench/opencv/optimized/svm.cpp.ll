@@ -17555,7 +17555,7 @@ _ZNK2cv2ml7SVMImpl10getSVCountEi.exit:            ; preds = %197, %200
   %.198134 = phi i32 [ %spec.select, %.lr.ph136 ], [ 0, %.preheader ]
   %234 = getelementptr inbounds i32, ptr %142, i64 %indvars.iv162
   %235 = load i32, ptr %234, align 4
-  %236 = sext i32 %.198134 to i64
+  %236 = zext nneg i32 %.198134 to i64
   %237 = getelementptr inbounds i32, ptr %142, i64 %236
   %238 = load i32, ptr %237, align 4
   %239 = icmp sgt i32 %235, %238
@@ -17590,7 +17590,7 @@ _ZNK2cv2ml7SVMImpl10getSVCountEi.exit:            ; preds = %197, %200
 252:                                              ; preds = %247, %._crit_edge137.thread
   %253 = getelementptr inbounds i8, ptr %243, i64 192
   %254 = load ptr, ptr %253, align 8
-  %255 = sext i32 %.198.lcssa184 to i64
+  %255 = zext nneg i32 %.198.lcssa184 to i64
   %256 = getelementptr inbounds i32, ptr %254, i64 %255
   br label %_ZNK2cv3Mat2atIiEERKT_i.exit
 
@@ -17606,7 +17606,7 @@ _ZNK2cv2ml7SVMImpl10getSVCountEi.exit:            ; preds = %197, %200
   %264 = getelementptr inbounds i8, ptr %243, i64 248
   %265 = load ptr, ptr %264, align 8
   %266 = load i64, ptr %265, align 8
-  %267 = sext i32 %.198.lcssa184 to i64
+  %267 = zext nneg i32 %.198.lcssa184 to i64
   %268 = mul i64 %266, %267
   %269 = getelementptr inbounds i8, ptr %263, i64 %268
   br label %_ZNK2cv3Mat2atIiEERKT_i.exit

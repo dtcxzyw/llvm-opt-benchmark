@@ -857,10 +857,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserIolEENS
   %or.cond = or i1 %90, %.not336408
   br i1 %or.cond, label %.critedge9, label %.lr.ph412
 
-.lr.ph412:                                        ; preds = %.critedge7, %99
-  %.10411 = phi ptr [ %96, %99 ], [ %.8, %.critedge7 ]
-  %.1288410 = phi i64 [ %.2289, %99 ], [ 0, %.critedge7 ]
-  %.0296409 = phi i8 [ %spec.select357, %99 ], [ 0, %.critedge7 ]
+.lr.ph412:                                        ; preds = %.critedge7, %98
+  %.10411 = phi ptr [ %96, %98 ], [ %.8, %.critedge7 ]
+  %.1288410 = phi i64 [ %.2289, %98 ], [ 0, %.critedge7 ]
+  %.0296409 = phi i8 [ %spec.select357, %98 ], [ 0, %.critedge7 ]
   %91 = load i8, ptr %.10411, align 1, !tbaa !19
   %92 = tail call noundef zeroext i1 %_ZN5boost8charconv6detail15is_integer_charEc._ZN5boost8charconv6detail11is_hex_charEc(i8 noundef signext %91) #13, !callees !22
   br i1 %92, label %.critedge11, label %93
@@ -872,260 +872,259 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserIolEENS
 
 .critedge11:                                      ; preds = %.lr.ph412, %93
   %96 = getelementptr inbounds nuw i8, ptr %.10411, i64 1
-  %97 = and i8 %.0296409, 1
-  %98 = xor i8 %97, 1
-  %narrow = select i1 %74, i8 0, i8 %98
+  %97 = xor i8 %.0296409, 1
+  %narrow = select i1 %74, i8 0, i8 %97
   %spec.select = zext nneg i8 %narrow to i64
   %.2289 = add nuw nsw i64 %.1288410, %spec.select
   %.not343 = icmp eq ptr %96, %1
-  br i1 %.not343, label %.critedge9, label %99
+  br i1 %.not343, label %.critedge9, label %98
 
-99:                                               ; preds = %.critedge11
-  %100 = load i8, ptr %96, align 1, !tbaa !19
-  %101 = icmp eq i8 %100, 46
-  %spec.select357 = select i1 %101, i8 1, i8 %.0296409
+98:                                               ; preds = %.critedge11
+  %99 = load i8, ptr %96, align 1, !tbaa !19
+  %100 = icmp eq i8 %99, 46
+  %spec.select357 = select i1 %100, i8 1, i8 %.0296409
   br label %.lr.ph412
 
 .critedge9:                                       ; preds = %.critedge11, %.critedge7
   %.0287 = phi i64 [ 0, %.critedge7 ], [ %.2289, %.critedge11 ]
   %.9 = phi ptr [ %.8, %.critedge7 ], [ %96, %.critedge11 ]
-  %102 = icmp eq ptr %.9, %1
-  br i1 %102, label %105, label %.critedge9.thread
+  %101 = icmp eq ptr %.9, %1
+  br i1 %101, label %104, label %.critedge9.thread
 
 .critedge9.thread:                                ; preds = %93, %.critedge9
   %.9450 = phi ptr [ %.9, %.critedge9 ], [ %.10411, %93 ]
   %.0287448 = phi i64 [ %.0287, %.critedge9 ], [ %.1288410, %93 ]
-  %103 = load i8, ptr %.9450, align 1, !tbaa !19
-  %104 = tail call noundef zeroext i1 @_ZN5boost8charconv6detail12is_delimiterEcNS0_12chars_formatE(i8 noundef signext %103, i32 noundef %5) #13
-  br i1 %104, label %105, label %115
+  %102 = load i8, ptr %.9450, align 1, !tbaa !19
+  %103 = tail call noundef zeroext i1 @_ZN5boost8charconv6detail12is_delimiterEcNS0_12chars_formatE(i8 noundef signext %102, i32 noundef %5) #13
+  br i1 %103, label %104, label %114
 
-105:                                              ; preds = %.critedge9.thread, %.critedge9
+104:                                              ; preds = %.critedge9.thread, %.critedge9
   %.9451 = phi ptr [ %.9450, %.critedge9.thread ], [ %.9, %.critedge9 ]
   %.0287449 = phi i64 [ %.0287448, %.critedge9.thread ], [ %.0287, %.critedge9 ]
-  %106 = icmp eq i32 %5, 1
-  br i1 %106, label %.critedge5.thread, label %107
+  %105 = icmp eq i32 %5, 1
+  br i1 %105, label %.critedge5.thread, label %106
 
-107:                                              ; preds = %105
+106:                                              ; preds = %104
   %.not341 = icmp ne i64 %.0286, 0
   %brmerge = or i1 %74, %.not341
-  %108 = sub nsw i64 %.0286, %.2282
-  %109 = select i1 %brmerge, i64 %108, i64 0
-  %.0287.pn = add i64 %109, %.2294
+  %107 = sub nsw i64 %.0286, %.2282
+  %108 = select i1 %brmerge, i64 %107, i64 0
+  %.0287.pn = add i64 %108, %.2294
   %storemerge342 = add i64 %.0287.pn, %.0287449
   store i64 %storemerge342, ptr %4, align 8, !tbaa !7
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 %.2282
-  %111 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Roi(ptr noundef nonnull %8, ptr noundef nonnull %110, ptr noundef nonnull align 16 dereferenceable(16) %3, i32 noundef %56) #13
-  %112 = extractvalue { ptr, i32 } %111, 1
-  switch i32 %112, label %114 [
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 %.2282
+  %110 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Roi(ptr noundef nonnull %8, ptr noundef nonnull %109, ptr noundef nonnull align 16 dereferenceable(16) %3, i32 noundef %56) #13
+  %111 = extractvalue { ptr, i32 } %110, 1
+  switch i32 %111, label %113 [
     i32 22, label %.critedge5.thread
-    i32 34, label %113
+    i32 34, label %112
   ]
 
-113:                                              ; preds = %107
+112:                                              ; preds = %106
   br label %.critedge5.thread
 
-114:                                              ; preds = %107
+113:                                              ; preds = %106
   br label %.critedge5.thread
 
-115:                                              ; preds = %.critedge9.thread
-  %116 = load i8, ptr %.9450, align 1, !tbaa !19
-  %117 = sext i8 %116 to i32
-  %118 = icmp eq i32 %.354, %117
-  %119 = icmp eq i32 %., %117
-  %or.cond358 = or i1 %118, %119
-  br i1 %or.cond358, label %120, label %.critedge5.thread
+114:                                              ; preds = %.critedge9.thread
+  %115 = load i8, ptr %.9450, align 1, !tbaa !19
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %.354, %116
+  %118 = icmp eq i32 %., %116
+  %or.cond358 = or i1 %117, %118
+  br i1 %or.cond358, label %119, label %.critedge5.thread
 
-120:                                              ; preds = %115
-  %121 = icmp eq ptr %.9450, %0
-  br i1 %121, label %.critedge5.thread, label %122
+119:                                              ; preds = %114
+  %120 = icmp eq ptr %.9450, %0
+  br i1 %120, label %.critedge5.thread, label %121
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %.9450, i64 1
-  %124 = icmp eq i32 %5, 2
-  br i1 %124, label %.critedge5.thread, label %125
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %.9450, i64 1
+  %123 = icmp eq i32 %5, 2
+  br i1 %123, label %.critedge5.thread, label %124
 
-125:                                              ; preds = %122
-  %126 = add nsw i64 %.2282, -1
-  store i64 %126, ptr %4, align 8, !tbaa !7
-  %127 = icmp ugt i64 %.2282, 38
-  %128 = getelementptr inbounds nuw i8, ptr %8, i64 37
-  %129 = load i8, ptr %128, align 1
-  %.off = add i8 %129, -53
+124:                                              ; preds = %121
+  %125 = add nsw i64 %.2282, -1
+  store i64 %125, ptr %4, align 8, !tbaa !7
+  %126 = icmp ugt i64 %.2282, 38
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 37
+  %128 = load i8, ptr %127, align 1
+  %.off = add i8 %128, -53
   %switch = icmp ult i8 %.off, 5
-  %.0291 = select i1 %127, i64 37, i64 %.2282
-  %.0290 = select i1 %127, i1 %switch, i1 false
+  %.0291 = select i1 %126, i64 37, i64 %.2282
+  %.0290 = select i1 %126, i1 %switch, i1 false
   %.3283 = tail call i64 @llvm.umin.i64(i64 %.2282, i64 38)
   %.not337 = icmp eq i64 %.0291, 0
-  br i1 %.not337, label %139, label %130
+  br i1 %.not337, label %138, label %129
 
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %8, i64 %.0291
-  %132 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Roi(ptr noundef nonnull %8, ptr noundef nonnull %131, ptr noundef nonnull align 16 dereferenceable(16) %3, i32 noundef %56) #13
-  %133 = extractvalue { ptr, i32 } %132, 1
-  switch i32 %133, label %135 [
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 %.0291
+  %131 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Roi(ptr noundef nonnull %8, ptr noundef nonnull %130, ptr noundef nonnull align 16 dereferenceable(16) %3, i32 noundef %56) #13
+  %132 = extractvalue { ptr, i32 } %131, 1
+  switch i32 %132, label %134 [
     i32 22, label %.critedge5.thread
-    i32 34, label %134
+    i32 34, label %133
   ]
 
-134:                                              ; preds = %130
+133:                                              ; preds = %129
   br label %.critedge5.thread
 
-135:                                              ; preds = %130
-  br i1 %.0290, label %136, label %139
+134:                                              ; preds = %129
+  br i1 %.0290, label %135, label %138
 
-136:                                              ; preds = %135
-  %137 = load i128, ptr %3, align 16, !tbaa !15
-  %138 = add i128 %137, 1
-  store i128 %138, ptr %3, align 16, !tbaa !15
-  br label %139
+135:                                              ; preds = %134
+  %136 = load i128, ptr %3, align 16, !tbaa !15
+  %137 = add i128 %136, 1
+  store i128 %137, ptr %3, align 16, !tbaa !15
+  br label %138
 
-139:                                              ; preds = %125, %136, %135
+138:                                              ; preds = %124, %135, %134
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, i8 0, i64 6, i1 false)
-  %.not338 = icmp eq ptr %123, %1
-  br i1 %.not338, label %.critedge360, label %140
+  %.not338 = icmp eq ptr %122, %1
+  br i1 %.not338, label %.critedge360, label %139
 
-140:                                              ; preds = %139
-  %141 = load i8, ptr %123, align 1, !tbaa !19
-  %142 = icmp eq i8 %141, 45
-  %143 = getelementptr inbounds nuw i8, ptr %.9450, i64 2
-  br i1 %142, label %144, label %145
+139:                                              ; preds = %138
+  %140 = load i8, ptr %122, align 1, !tbaa !19
+  %141 = icmp eq i8 %140, 45
+  %142 = getelementptr inbounds nuw i8, ptr %.9450, i64 2
+  br i1 %141, label %143, label %144
 
-144:                                              ; preds = %140
+143:                                              ; preds = %139
   store i8 45, ptr %9, align 1, !tbaa !19
   br label %.critedge360
 
-145:                                              ; preds = %140
-  %146 = icmp eq i8 %141, 43
-  %spec.select361 = select i1 %146, ptr %143, ptr %123
+144:                                              ; preds = %139
+  %145 = icmp eq i8 %140, 43
+  %spec.select361 = select i1 %145, ptr %142, ptr %122
   br label %.critedge360
 
-.critedge360:                                     ; preds = %145, %139, %144
-  %147 = phi i1 [ false, %144 ], [ true, %145 ], [ true, %139 ]
-  %.4284 = phi i64 [ 1, %144 ], [ 0, %145 ], [ 0, %139 ]
-  %.11 = phi ptr [ %143, %144 ], [ %spec.select361, %145 ], [ %123, %139 ]
+.critedge360:                                     ; preds = %144, %138, %143
+  %146 = phi i1 [ false, %143 ], [ true, %144 ], [ true, %138 ]
+  %.4284 = phi i64 [ 1, %143 ], [ 0, %144 ], [ 0, %138 ]
+  %.11 = phi ptr [ %142, %143 ], [ %spec.select361, %144 ], [ %122, %138 ]
   %.not339418 = icmp eq ptr %.11, %1
   br i1 %.not339418, label %.critedge13, label %.lr.ph420.preheader
 
 .lr.ph420.preheader:                              ; preds = %.critedge360
   %.11443 = ptrtoint ptr %.11 to i64
-  %148 = sub i64 %7, %.11443
-  %scevgep444 = getelementptr i8, ptr %.11, i64 %148
+  %147 = sub i64 %7, %.11443
+  %scevgep444 = getelementptr i8, ptr %.11, i64 %147
   br label %.lr.ph420
 
-.lr.ph420:                                        ; preds = %.lr.ph420.preheader, %151
-  %.12419 = phi ptr [ %152, %151 ], [ %.11, %.lr.ph420.preheader ]
-  %149 = load i8, ptr %.12419, align 1, !tbaa !19
-  %150 = icmp eq i8 %149, 48
-  br i1 %150, label %151, label %.critedge13
+.lr.ph420:                                        ; preds = %.lr.ph420.preheader, %150
+  %.12419 = phi ptr [ %151, %150 ], [ %.11, %.lr.ph420.preheader ]
+  %148 = load i8, ptr %.12419, align 1, !tbaa !19
+  %149 = icmp eq i8 %148, 48
+  br i1 %149, label %150, label %.critedge13
 
-151:                                              ; preds = %.lr.ph420
-  %152 = getelementptr inbounds nuw i8, ptr %.12419, i64 1
-  %.not339 = icmp eq ptr %152, %1
+150:                                              ; preds = %.lr.ph420
+  %151 = getelementptr inbounds nuw i8, ptr %.12419, i64 1
+  %.not339 = icmp eq ptr %151, %1
   br i1 %.not339, label %.critedge13, label %.lr.ph420, !llvm.loop !26
 
-.critedge13:                                      ; preds = %.lr.ph420, %151, %.critedge360
-  %.12.lcssa = phi ptr [ %.11, %.critedge360 ], [ %scevgep444, %151 ], [ %.12419, %.lr.ph420 ]
+.critedge13:                                      ; preds = %.lr.ph420, %150, %.critedge360
+  %.12.lcssa = phi ptr [ %.11, %.critedge360 ], [ %scevgep444, %150 ], [ %.12419, %.lr.ph420 ]
   %.not371424 = icmp eq ptr %.12.lcssa, %1
   br i1 %.not371424, label %.critedge15.thread, label %.lr.ph427
 
-.lr.ph427:                                        ; preds = %.critedge13, %157
-  %.13426 = phi ptr [ %159, %157 ], [ %.12.lcssa, %.critedge13 ]
-  %.5285425 = phi i64 [ %160, %157 ], [ %.4284, %.critedge13 ]
-  %153 = load i8, ptr %.13426, align 1, !tbaa !19
-  %154 = add i8 %153, -48
-  %155 = icmp ult i8 %154, 10
-  %156 = icmp samesign ult i64 %.5285425, 6
-  %or.cond26 = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond26, label %157, label %.critedge15
+.lr.ph427:                                        ; preds = %.critedge13, %156
+  %.13426 = phi ptr [ %158, %156 ], [ %.12.lcssa, %.critedge13 ]
+  %.5285425 = phi i64 [ %159, %156 ], [ %.4284, %.critedge13 ]
+  %152 = load i8, ptr %.13426, align 1, !tbaa !19
+  %153 = add i8 %152, -48
+  %154 = icmp ult i8 %153, 10
+  %155 = icmp samesign ult i64 %.5285425, 6
+  %or.cond26 = select i1 %154, i1 %155, i1 false
+  br i1 %or.cond26, label %156, label %.critedge15
 
-157:                                              ; preds = %.lr.ph427
-  %158 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 0, i64 %.5285425
-  store i8 %153, ptr %158, align 1, !tbaa !19
-  %159 = getelementptr inbounds nuw i8, ptr %.13426, i64 1
-  %160 = add nuw nsw i64 %.5285425, 1
-  %.not371 = icmp eq ptr %159, %1
+156:                                              ; preds = %.lr.ph427
+  %157 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 0, i64 %.5285425
+  store i8 %152, ptr %157, align 1, !tbaa !19
+  %158 = getelementptr inbounds nuw i8, ptr %.13426, i64 1
+  %159 = add nuw nsw i64 %.5285425, 1
+  %.not371 = icmp eq ptr %158, %1
   br i1 %.not371, label %.critedge15.thread.thread, label %.lr.ph427, !llvm.loop !27
 
 .critedge15:                                      ; preds = %.lr.ph427
   switch i64 %.5285425, label %.critedge15.thread.thread [
-    i64 6, label %185
-    i64 0, label %164
+    i64 6, label %184
+    i64 0, label %163
   ]
 
 .critedge15.thread:                               ; preds = %.critedge13
-  br i1 %147, label %164, label %.critedge15.thread.thread
+  br i1 %146, label %163, label %.critedge15.thread.thread
 
-.critedge15.thread.thread:                        ; preds = %157, %.critedge15, %.critedge15.thread
-  %.5285378 = phi i64 [ %.5285425, %.critedge15 ], [ %.4284, %.critedge15.thread ], [ %160, %157 ]
-  %.13375 = phi ptr [ %.13426, %.critedge15 ], [ %.12.lcssa, %.critedge15.thread ], [ %159, %157 ]
-  %161 = icmp eq i64 %.5285378, 1
-  %162 = load i8, ptr %9, align 1
-  %163 = icmp eq i8 %162, 45
-  %or.cond20 = select i1 %161, i1 %163, i1 false
-  br i1 %or.cond20, label %164, label %166
+.critedge15.thread.thread:                        ; preds = %156, %.critedge15, %.critedge15.thread
+  %.5285378 = phi i64 [ %.5285425, %.critedge15 ], [ %.4284, %.critedge15.thread ], [ %159, %156 ]
+  %.13375 = phi ptr [ %.13426, %.critedge15 ], [ %.12.lcssa, %.critedge15.thread ], [ %158, %156 ]
+  %160 = icmp eq i64 %.5285378, 1
+  %161 = load i8, ptr %9, align 1
+  %162 = icmp eq i8 %161, 45
+  %or.cond20 = select i1 %160, i1 %162, i1 false
+  br i1 %or.cond20, label %163, label %165
 
-164:                                              ; preds = %.critedge15, %.critedge15.thread.thread, %.critedge15.thread
+163:                                              ; preds = %.critedge15, %.critedge15.thread.thread, %.critedge15.thread
   %.13376 = phi ptr [ %.13426, %.critedge15 ], [ %.13375, %.critedge15.thread.thread ], [ %.12.lcssa, %.critedge15.thread ]
-  %165 = sub nsw i64 %.0286, %.3283
-  %storemerge = select i1 %74, i64 %165, i64 %.0287448
+  %164 = sub nsw i64 %.0286, %.3283
+  %storemerge = select i1 %74, i64 %164, i64 %.0287448
   store i64 %storemerge, ptr %4, align 8, !tbaa !7
-  br label %185
+  br label %184
 
-166:                                              ; preds = %.critedge15.thread.thread
-  %167 = getelementptr inbounds nuw i8, ptr %9, i64 %.5285378
-  %168 = call { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_integer_implIlmEENS0_19from_chars_result_tIcEEPKcS6_RT_i(ptr noundef nonnull %9, ptr noundef nonnull %167, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 10) #13
-  %169 = extractvalue { ptr, i32 } %168, 1
-  %170 = load i64, ptr %4, align 8, !tbaa !7
-  %171 = add nsw i64 %170, %.2294
-  store i64 %171, ptr %4, align 8, !tbaa !7
-  switch i32 %169, label %173 [
-    i32 22, label %185
-    i32 34, label %172
+165:                                              ; preds = %.critedge15.thread.thread
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 %.5285378
+  %167 = call { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_integer_implIlmEENS0_19from_chars_result_tIcEEPKcS6_RT_i(ptr noundef nonnull %9, ptr noundef nonnull %166, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 10) #13
+  %168 = extractvalue { ptr, i32 } %167, 1
+  %169 = load i64, ptr %4, align 8, !tbaa !7
+  %170 = add nsw i64 %169, %.2294
+  store i64 %170, ptr %4, align 8, !tbaa !7
+  switch i32 %168, label %172 [
+    i32 22, label %184
+    i32 34, label %171
   ]
 
-172:                                              ; preds = %166
-  br label %185
+171:                                              ; preds = %165
+  br label %184
 
-173:                                              ; preds = %166
-  br i1 %74, label %174, label %183
+172:                                              ; preds = %165
+  br i1 %74, label %173, label %182
+
+173:                                              ; preds = %172
+  br i1 %.not332, label %174, label %180
 
 174:                                              ; preds = %173
-  br i1 %.not332, label %175, label %181
-
-175:                                              ; preds = %174
-  %176 = load i128, ptr %3, align 16, !tbaa !15
-  %.sroa.0.0.extract.trunc = trunc i128 %176 to i64
-  %.sroa.2.0.extract.shift = lshr i128 %176, 64
+  %175 = load i128, ptr %3, align 16, !tbaa !15
+  %.sroa.0.0.extract.trunc = trunc i128 %175 to i64
+  %.sroa.2.0.extract.shift = lshr i128 %175, 64
   %.sroa.2.0.extract.trunc = trunc nuw i128 %.sroa.2.0.extract.shift to i64
-  %177 = call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %.sroa.0.0.extract.trunc, i64 noundef %.sroa.2.0.extract.trunc) #13
-  %178 = sext i32 %177 to i64
-  %.neg340 = sub nsw i64 %.0286, %178
-  %179 = load i64, ptr %4, align 8, !tbaa !7
-  %180 = add i64 %.neg340, %179
-  store i64 %180, ptr %4, align 8, !tbaa !7
-  br label %185
+  %176 = call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %.sroa.0.0.extract.trunc, i64 noundef %.sroa.2.0.extract.trunc) #13
+  %177 = sext i32 %176 to i64
+  %.neg340 = sub nsw i64 %.0286, %177
+  %178 = load i64, ptr %4, align 8, !tbaa !7
+  %179 = add i64 %.neg340, %178
+  store i64 %179, ptr %4, align 8, !tbaa !7
+  br label %184
 
-181:                                              ; preds = %174
+180:                                              ; preds = %173
   %.neg = sub nsw i64 %.0286, %.3283
-  %182 = add i64 %.neg, %171
-  store i64 %182, ptr %4, align 8, !tbaa !7
-  br label %185
+  %181 = add i64 %.neg, %170
+  store i64 %181, ptr %4, align 8, !tbaa !7
+  br label %184
 
-183:                                              ; preds = %173
-  %184 = add nsw i64 %171, %.0287448
-  store i64 %184, ptr %4, align 8, !tbaa !7
-  br label %185
+182:                                              ; preds = %172
+  %183 = add nsw i64 %170, %.0287448
+  store i64 %183, ptr %4, align 8, !tbaa !7
+  br label %184
 
-185:                                              ; preds = %.critedge15, %172, %166, %175, %181, %183, %164
-  %.sroa.0274.9 = phi ptr [ %.13376, %164 ], [ %.13426, %.critedge15 ], [ %.13375, %172 ], [ %0, %166 ], [ %.13375, %175 ], [ %.13375, %181 ], [ %.13375, %183 ]
-  %.sroa.29.9 = phi i32 [ 0, %164 ], [ 34, %.critedge15 ], [ %169, %172 ], [ %169, %166 ], [ 0, %175 ], [ 0, %181 ], [ 0, %183 ]
+184:                                              ; preds = %.critedge15, %171, %165, %174, %180, %182, %163
+  %.sroa.0274.9 = phi ptr [ %.13376, %163 ], [ %.13426, %.critedge15 ], [ %.13375, %171 ], [ %0, %165 ], [ %.13375, %174 ], [ %.13375, %180 ], [ %.13375, %182 ]
+  %.sroa.29.9 = phi i32 [ 0, %163 ], [ 34, %.critedge15 ], [ %168, %171 ], [ %168, %165 ], [ 0, %174 ], [ 0, %180 ], [ 0, %182 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #13
   br label %.critedge5.thread
 
-.critedge5.thread:                                ; preds = %79, %.preheader373, %130, %134, %115, %122, %120, %113, %114, %107, %105, %71, %72, %67, %._crit_edge, %185
-  %.sroa.0274.3 = phi ptr [ %.sroa.0274.9, %185 ], [ %0, %._crit_edge ], [ %.4.lcssa, %72 ], [ %.4.lcssa, %71 ], [ %0, %67 ], [ %0, %105 ], [ %.9451, %114 ], [ %.9451, %113 ], [ %0, %107 ], [ %.9450, %120 ], [ %0, %122 ], [ %0, %115 ], [ %123, %134 ], [ %0, %130 ], [ %1, %.preheader373 ], [ %1, %79 ]
-  %.sroa.29.3 = phi i32 [ %.sroa.29.9, %185 ], [ 22, %._crit_edge ], [ 0, %72 ], [ %70, %71 ], [ %70, %67 ], [ 22, %105 ], [ 0, %114 ], [ %112, %113 ], [ %112, %107 ], [ 22, %120 ], [ 22, %122 ], [ 22, %115 ], [ %133, %134 ], [ %133, %130 ], [ 0, %.preheader373 ], [ 0, %79 ]
+.critedge5.thread:                                ; preds = %79, %.preheader373, %129, %133, %114, %121, %119, %112, %113, %106, %104, %71, %72, %67, %._crit_edge, %184
+  %.sroa.0274.3 = phi ptr [ %.sroa.0274.9, %184 ], [ %0, %._crit_edge ], [ %.4.lcssa, %72 ], [ %.4.lcssa, %71 ], [ %0, %67 ], [ %0, %104 ], [ %.9451, %113 ], [ %.9451, %112 ], [ %0, %106 ], [ %.9450, %119 ], [ %0, %121 ], [ %0, %114 ], [ %122, %133 ], [ %0, %129 ], [ %1, %.preheader373 ], [ %1, %79 ]
+  %.sroa.29.3 = phi i32 [ %.sroa.29.9, %184 ], [ 22, %._crit_edge ], [ 0, %72 ], [ %70, %71 ], [ %70, %67 ], [ 22, %104 ], [ 0, %113 ], [ %111, %112 ], [ %111, %106 ], [ 22, %119 ], [ 22, %121 ], [ 22, %114 ], [ %132, %133 ], [ %132, %129 ], [ 0, %.preheader373 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(i64 38, ptr nonnull %8) #13
   br label %.critedge353
 
@@ -4514,10 +4513,10 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
   %or.cond = or i1 %90, %.not335407
   br i1 %or.cond, label %.critedge9, label %.lr.ph411
 
-.lr.ph411:                                        ; preds = %.critedge7, %99
-  %.10410 = phi ptr [ %96, %99 ], [ %.8, %.critedge7 ]
-  %.1289409 = phi i64 [ %.2290, %99 ], [ 0, %.critedge7 ]
-  %.0295408 = phi i8 [ %spec.select356, %99 ], [ 0, %.critedge7 ]
+.lr.ph411:                                        ; preds = %.critedge7, %98
+  %.10410 = phi ptr [ %96, %98 ], [ %.8, %.critedge7 ]
+  %.1289409 = phi i64 [ %.2290, %98 ], [ 0, %.critedge7 ]
+  %.0295408 = phi i8 [ %spec.select356, %98 ], [ 0, %.critedge7 ]
   %91 = load i8, ptr %.10410, align 1, !tbaa !19
   %92 = tail call noundef zeroext i1 %_ZN5boost8charconv6detail15is_integer_charEc._ZN5boost8charconv6detail11is_hex_charEc(i8 noundef signext %91) #13, !callees !22
   br i1 %92, label %.critedge11, label %93
@@ -4529,257 +4528,256 @@ define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail6parserImlEENS
 
 .critedge11:                                      ; preds = %.lr.ph411, %93
   %96 = getelementptr inbounds nuw i8, ptr %.10410, i64 1
-  %97 = and i8 %.0295408, 1
-  %98 = xor i8 %97, 1
-  %narrow = select i1 %74, i8 0, i8 %98
+  %97 = xor i8 %.0295408, 1
+  %narrow = select i1 %74, i8 0, i8 %97
   %spec.select = zext nneg i8 %narrow to i64
   %.2290 = add nuw nsw i64 %.1289409, %spec.select
   %.not342 = icmp eq ptr %96, %1
-  br i1 %.not342, label %.critedge9, label %99
+  br i1 %.not342, label %.critedge9, label %98
 
-99:                                               ; preds = %.critedge11
-  %100 = load i8, ptr %96, align 1, !tbaa !19
-  %101 = icmp eq i8 %100, 46
-  %spec.select356 = select i1 %101, i8 1, i8 %.0295408
+98:                                               ; preds = %.critedge11
+  %99 = load i8, ptr %96, align 1, !tbaa !19
+  %100 = icmp eq i8 %99, 46
+  %spec.select356 = select i1 %100, i8 1, i8 %.0295408
   br label %.lr.ph411
 
 .critedge9:                                       ; preds = %.critedge11, %.critedge7
   %.0288 = phi i64 [ 0, %.critedge7 ], [ %.2290, %.critedge11 ]
   %.9 = phi ptr [ %.8, %.critedge7 ], [ %96, %.critedge11 ]
-  %102 = icmp eq ptr %.9, %1
-  br i1 %102, label %105, label %.critedge9.thread
+  %101 = icmp eq ptr %.9, %1
+  br i1 %101, label %104, label %.critedge9.thread
 
 .critedge9.thread:                                ; preds = %93, %.critedge9
   %.9449 = phi ptr [ %.9, %.critedge9 ], [ %.10410, %93 ]
   %.0288447 = phi i64 [ %.0288, %.critedge9 ], [ %.1289409, %93 ]
-  %103 = load i8, ptr %.9449, align 1, !tbaa !19
-  %104 = tail call noundef zeroext i1 @_ZN5boost8charconv6detail12is_delimiterEcNS0_12chars_formatE(i8 noundef signext %103, i32 noundef %5) #13
-  br i1 %104, label %105, label %115
+  %102 = load i8, ptr %.9449, align 1, !tbaa !19
+  %103 = tail call noundef zeroext i1 @_ZN5boost8charconv6detail12is_delimiterEcNS0_12chars_formatE(i8 noundef signext %102, i32 noundef %5) #13
+  br i1 %103, label %104, label %114
 
-105:                                              ; preds = %.critedge9.thread, %.critedge9
+104:                                              ; preds = %.critedge9.thread, %.critedge9
   %.9450 = phi ptr [ %.9449, %.critedge9.thread ], [ %.9, %.critedge9 ]
   %.0288448 = phi i64 [ %.0288447, %.critedge9.thread ], [ %.0288, %.critedge9 ]
-  %106 = icmp eq i32 %5, 1
-  br i1 %106, label %.critedge5.thread, label %107
+  %105 = icmp eq i32 %5, 1
+  br i1 %105, label %.critedge5.thread, label %106
 
-107:                                              ; preds = %105
+106:                                              ; preds = %104
   %.not340 = icmp ne i64 %.0287, 0
   %brmerge = or i1 %74, %.not340
-  %108 = sub nsw i64 %.0287, %.2281
-  %109 = select i1 %brmerge, i64 %108, i64 0
-  %.0288.pn = add i64 %109, %.2293
+  %107 = sub nsw i64 %.0287, %.2281
+  %108 = select i1 %brmerge, i64 %107, i64 0
+  %.0288.pn = add i64 %108, %.2293
   %storemerge341 = add i64 %.0288.pn, %.0288448
   store i64 %storemerge341, ptr %4, align 8, !tbaa !7
-  %110 = getelementptr inbounds nuw i8, ptr %8, i64 %.2281
-  %111 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Rmi(ptr noundef nonnull %8, ptr noundef nonnull %110, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %56) #13
-  %112 = extractvalue { ptr, i32 } %111, 1
-  switch i32 %112, label %114 [
+  %109 = getelementptr inbounds nuw i8, ptr %8, i64 %.2281
+  %110 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Rmi(ptr noundef nonnull %8, ptr noundef nonnull %109, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %56) #13
+  %111 = extractvalue { ptr, i32 } %110, 1
+  switch i32 %111, label %113 [
     i32 22, label %.critedge5.thread
-    i32 34, label %113
+    i32 34, label %112
   ]
 
-113:                                              ; preds = %107
+112:                                              ; preds = %106
   br label %.critedge5.thread
 
-114:                                              ; preds = %107
+113:                                              ; preds = %106
   br label %.critedge5.thread
 
-115:                                              ; preds = %.critedge9.thread
-  %116 = load i8, ptr %.9449, align 1, !tbaa !19
-  %117 = sext i8 %116 to i32
-  %118 = icmp eq i32 %.353, %117
-  %119 = icmp eq i32 %., %117
-  %or.cond357 = or i1 %118, %119
-  br i1 %or.cond357, label %120, label %.critedge5.thread
+114:                                              ; preds = %.critedge9.thread
+  %115 = load i8, ptr %.9449, align 1, !tbaa !19
+  %116 = sext i8 %115 to i32
+  %117 = icmp eq i32 %.353, %116
+  %118 = icmp eq i32 %., %116
+  %or.cond357 = or i1 %117, %118
+  br i1 %or.cond357, label %119, label %.critedge5.thread
 
-120:                                              ; preds = %115
-  %121 = icmp eq ptr %.9449, %0
-  br i1 %121, label %.critedge5.thread, label %122
+119:                                              ; preds = %114
+  %120 = icmp eq ptr %.9449, %0
+  br i1 %120, label %.critedge5.thread, label %121
 
-122:                                              ; preds = %120
-  %123 = getelementptr inbounds nuw i8, ptr %.9449, i64 1
-  %124 = icmp eq i32 %5, 2
-  br i1 %124, label %.critedge5.thread, label %125
+121:                                              ; preds = %119
+  %122 = getelementptr inbounds nuw i8, ptr %.9449, i64 1
+  %123 = icmp eq i32 %5, 2
+  br i1 %123, label %.critedge5.thread, label %124
 
-125:                                              ; preds = %122
-  %126 = add nsw i64 %.2281, -1
-  store i64 %126, ptr %4, align 8, !tbaa !7
-  %127 = icmp ugt i64 %.2281, 19
-  %128 = getelementptr inbounds nuw i8, ptr %8, i64 18
-  %129 = load i8, ptr %128, align 2
-  %.off = add i8 %129, -53
+124:                                              ; preds = %121
+  %125 = add nsw i64 %.2281, -1
+  store i64 %125, ptr %4, align 8, !tbaa !7
+  %126 = icmp ugt i64 %.2281, 19
+  %127 = getelementptr inbounds nuw i8, ptr %8, i64 18
+  %128 = load i8, ptr %127, align 2
+  %.off = add i8 %128, -53
   %switch = icmp ult i8 %.off, 5
-  %.0286 = select i1 %127, i64 18, i64 %.2281
-  %.0285 = select i1 %127, i1 %switch, i1 false
+  %.0286 = select i1 %126, i64 18, i64 %.2281
+  %.0285 = select i1 %126, i1 %switch, i1 false
   %.3282 = tail call i64 @llvm.umin.i64(i64 %.2281, i64 19)
   %.not336 = icmp eq i64 %.0286, 0
-  br i1 %.not336, label %139, label %130
+  br i1 %.not336, label %138, label %129
 
-130:                                              ; preds = %125
-  %131 = getelementptr inbounds nuw i8, ptr %8, i64 %.0286
-  %132 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Rmi(ptr noundef nonnull %8, ptr noundef nonnull %131, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %56) #13
-  %133 = extractvalue { ptr, i32 } %132, 1
-  switch i32 %133, label %135 [
+129:                                              ; preds = %124
+  %130 = getelementptr inbounds nuw i8, ptr %8, i64 %.0286
+  %131 = call { ptr, i32 } @_ZN5boost8charconv6detail19from_chars_dispatchEPKcS3_Rmi(ptr noundef nonnull %8, ptr noundef nonnull %130, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %56) #13
+  %132 = extractvalue { ptr, i32 } %131, 1
+  switch i32 %132, label %134 [
     i32 22, label %.critedge5.thread
-    i32 34, label %134
+    i32 34, label %133
   ]
 
-134:                                              ; preds = %130
+133:                                              ; preds = %129
   br label %.critedge5.thread
 
-135:                                              ; preds = %130
-  br i1 %.0285, label %136, label %139
+134:                                              ; preds = %129
+  br i1 %.0285, label %135, label %138
 
-136:                                              ; preds = %135
-  %137 = load i64, ptr %3, align 8, !tbaa !7
-  %138 = add i64 %137, 1
-  store i64 %138, ptr %3, align 8, !tbaa !7
-  br label %139
+135:                                              ; preds = %134
+  %136 = load i64, ptr %3, align 8, !tbaa !7
+  %137 = add i64 %136, 1
+  store i64 %137, ptr %3, align 8, !tbaa !7
+  br label %138
 
-139:                                              ; preds = %125, %136, %135
+138:                                              ; preds = %124, %135, %134
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %9) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %9, i8 0, i64 6, i1 false)
-  %.not337 = icmp eq ptr %123, %1
-  br i1 %.not337, label %.critedge359, label %140
+  %.not337 = icmp eq ptr %122, %1
+  br i1 %.not337, label %.critedge359, label %139
 
-140:                                              ; preds = %139
-  %141 = load i8, ptr %123, align 1, !tbaa !19
-  %142 = icmp eq i8 %141, 45
-  %143 = getelementptr inbounds nuw i8, ptr %.9449, i64 2
-  br i1 %142, label %144, label %145
+139:                                              ; preds = %138
+  %140 = load i8, ptr %122, align 1, !tbaa !19
+  %141 = icmp eq i8 %140, 45
+  %142 = getelementptr inbounds nuw i8, ptr %.9449, i64 2
+  br i1 %141, label %143, label %144
 
-144:                                              ; preds = %140
+143:                                              ; preds = %139
   store i8 45, ptr %9, align 1, !tbaa !19
   br label %.critedge359
 
-145:                                              ; preds = %140
-  %146 = icmp eq i8 %141, 43
-  %spec.select360 = select i1 %146, ptr %143, ptr %123
+144:                                              ; preds = %139
+  %145 = icmp eq i8 %140, 43
+  %spec.select360 = select i1 %145, ptr %142, ptr %122
   br label %.critedge359
 
-.critedge359:                                     ; preds = %145, %139, %144
-  %147 = phi i1 [ false, %144 ], [ true, %145 ], [ true, %139 ]
-  %.4283 = phi i64 [ 1, %144 ], [ 0, %145 ], [ 0, %139 ]
-  %.11 = phi ptr [ %143, %144 ], [ %spec.select360, %145 ], [ %123, %139 ]
+.critedge359:                                     ; preds = %144, %138, %143
+  %146 = phi i1 [ false, %143 ], [ true, %144 ], [ true, %138 ]
+  %.4283 = phi i64 [ 1, %143 ], [ 0, %144 ], [ 0, %138 ]
+  %.11 = phi ptr [ %142, %143 ], [ %spec.select360, %144 ], [ %122, %138 ]
   %.not338417 = icmp eq ptr %.11, %1
   br i1 %.not338417, label %.critedge13, label %.lr.ph419.preheader
 
 .lr.ph419.preheader:                              ; preds = %.critedge359
   %.11442 = ptrtoint ptr %.11 to i64
-  %148 = sub i64 %7, %.11442
-  %scevgep443 = getelementptr i8, ptr %.11, i64 %148
+  %147 = sub i64 %7, %.11442
+  %scevgep443 = getelementptr i8, ptr %.11, i64 %147
   br label %.lr.ph419
 
-.lr.ph419:                                        ; preds = %.lr.ph419.preheader, %151
-  %.12418 = phi ptr [ %152, %151 ], [ %.11, %.lr.ph419.preheader ]
-  %149 = load i8, ptr %.12418, align 1, !tbaa !19
-  %150 = icmp eq i8 %149, 48
-  br i1 %150, label %151, label %.critedge13
+.lr.ph419:                                        ; preds = %.lr.ph419.preheader, %150
+  %.12418 = phi ptr [ %151, %150 ], [ %.11, %.lr.ph419.preheader ]
+  %148 = load i8, ptr %.12418, align 1, !tbaa !19
+  %149 = icmp eq i8 %148, 48
+  br i1 %149, label %150, label %.critedge13
 
-151:                                              ; preds = %.lr.ph419
-  %152 = getelementptr inbounds nuw i8, ptr %.12418, i64 1
-  %.not338 = icmp eq ptr %152, %1
+150:                                              ; preds = %.lr.ph419
+  %151 = getelementptr inbounds nuw i8, ptr %.12418, i64 1
+  %.not338 = icmp eq ptr %151, %1
   br i1 %.not338, label %.critedge13, label %.lr.ph419, !llvm.loop !85
 
-.critedge13:                                      ; preds = %.lr.ph419, %151, %.critedge359
-  %.12.lcssa = phi ptr [ %.11, %.critedge359 ], [ %scevgep443, %151 ], [ %.12418, %.lr.ph419 ]
+.critedge13:                                      ; preds = %.lr.ph419, %150, %.critedge359
+  %.12.lcssa = phi ptr [ %.11, %.critedge359 ], [ %scevgep443, %150 ], [ %.12418, %.lr.ph419 ]
   %.not370423 = icmp eq ptr %.12.lcssa, %1
   br i1 %.not370423, label %.critedge15.thread, label %.lr.ph426
 
-.lr.ph426:                                        ; preds = %.critedge13, %157
-  %.13425 = phi ptr [ %159, %157 ], [ %.12.lcssa, %.critedge13 ]
-  %.5284424 = phi i64 [ %160, %157 ], [ %.4283, %.critedge13 ]
-  %153 = load i8, ptr %.13425, align 1, !tbaa !19
-  %154 = add i8 %153, -48
-  %155 = icmp ult i8 %154, 10
-  %156 = icmp samesign ult i64 %.5284424, 6
-  %or.cond26 = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond26, label %157, label %.critedge15
+.lr.ph426:                                        ; preds = %.critedge13, %156
+  %.13425 = phi ptr [ %158, %156 ], [ %.12.lcssa, %.critedge13 ]
+  %.5284424 = phi i64 [ %159, %156 ], [ %.4283, %.critedge13 ]
+  %152 = load i8, ptr %.13425, align 1, !tbaa !19
+  %153 = add i8 %152, -48
+  %154 = icmp ult i8 %153, 10
+  %155 = icmp samesign ult i64 %.5284424, 6
+  %or.cond26 = select i1 %154, i1 %155, i1 false
+  br i1 %or.cond26, label %156, label %.critedge15
 
-157:                                              ; preds = %.lr.ph426
-  %158 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 0, i64 %.5284424
-  store i8 %153, ptr %158, align 1, !tbaa !19
-  %159 = getelementptr inbounds nuw i8, ptr %.13425, i64 1
-  %160 = add nuw nsw i64 %.5284424, 1
-  %.not370 = icmp eq ptr %159, %1
+156:                                              ; preds = %.lr.ph426
+  %157 = getelementptr inbounds nuw [6 x i8], ptr %9, i64 0, i64 %.5284424
+  store i8 %152, ptr %157, align 1, !tbaa !19
+  %158 = getelementptr inbounds nuw i8, ptr %.13425, i64 1
+  %159 = add nuw nsw i64 %.5284424, 1
+  %.not370 = icmp eq ptr %158, %1
   br i1 %.not370, label %.critedge15.thread.thread, label %.lr.ph426, !llvm.loop !86
 
 .critedge15:                                      ; preds = %.lr.ph426
   switch i64 %.5284424, label %.critedge15.thread.thread [
-    i64 6, label %185
-    i64 0, label %164
+    i64 6, label %184
+    i64 0, label %163
   ]
 
 .critedge15.thread:                               ; preds = %.critedge13
-  br i1 %147, label %164, label %.critedge15.thread.thread
+  br i1 %146, label %163, label %.critedge15.thread.thread
 
-.critedge15.thread.thread:                        ; preds = %157, %.critedge15, %.critedge15.thread
-  %.5284377 = phi i64 [ %.5284424, %.critedge15 ], [ %.4283, %.critedge15.thread ], [ %160, %157 ]
-  %.13374 = phi ptr [ %.13425, %.critedge15 ], [ %.12.lcssa, %.critedge15.thread ], [ %159, %157 ]
-  %161 = icmp eq i64 %.5284377, 1
-  %162 = load i8, ptr %9, align 1
-  %163 = icmp eq i8 %162, 45
-  %or.cond20 = select i1 %161, i1 %163, i1 false
-  br i1 %or.cond20, label %164, label %166
+.critedge15.thread.thread:                        ; preds = %156, %.critedge15, %.critedge15.thread
+  %.5284377 = phi i64 [ %.5284424, %.critedge15 ], [ %.4283, %.critedge15.thread ], [ %159, %156 ]
+  %.13374 = phi ptr [ %.13425, %.critedge15 ], [ %.12.lcssa, %.critedge15.thread ], [ %158, %156 ]
+  %160 = icmp eq i64 %.5284377, 1
+  %161 = load i8, ptr %9, align 1
+  %162 = icmp eq i8 %161, 45
+  %or.cond20 = select i1 %160, i1 %162, i1 false
+  br i1 %or.cond20, label %163, label %165
 
-164:                                              ; preds = %.critedge15, %.critedge15.thread.thread, %.critedge15.thread
+163:                                              ; preds = %.critedge15, %.critedge15.thread.thread, %.critedge15.thread
   %.13375 = phi ptr [ %.13425, %.critedge15 ], [ %.13374, %.critedge15.thread.thread ], [ %.12.lcssa, %.critedge15.thread ]
-  %165 = sub nsw i64 %.0287, %.3282
-  %storemerge = select i1 %74, i64 %165, i64 %.0288447
+  %164 = sub nsw i64 %.0287, %.3282
+  %storemerge = select i1 %74, i64 %164, i64 %.0288447
   store i64 %storemerge, ptr %4, align 8, !tbaa !7
-  br label %185
+  br label %184
 
-166:                                              ; preds = %.critedge15.thread.thread
-  %167 = getelementptr inbounds nuw i8, ptr %9, i64 %.5284377
-  %168 = call { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_integer_implIlmEENS0_19from_chars_result_tIcEEPKcS6_RT_i(ptr noundef nonnull %9, ptr noundef nonnull %167, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 10) #13
-  %169 = extractvalue { ptr, i32 } %168, 1
-  %170 = load i64, ptr %4, align 8, !tbaa !7
-  %171 = add nsw i64 %170, %.2293
-  store i64 %171, ptr %4, align 8, !tbaa !7
-  switch i32 %169, label %173 [
-    i32 22, label %185
-    i32 34, label %172
+165:                                              ; preds = %.critedge15.thread.thread
+  %166 = getelementptr inbounds nuw i8, ptr %9, i64 %.5284377
+  %167 = call { ptr, i32 } @_ZN5boost8charconv6detail23from_chars_integer_implIlmEENS0_19from_chars_result_tIcEEPKcS6_RT_i(ptr noundef nonnull %9, ptr noundef nonnull %166, ptr noundef nonnull align 8 dereferenceable(8) %4, i32 noundef 10) #13
+  %168 = extractvalue { ptr, i32 } %167, 1
+  %169 = load i64, ptr %4, align 8, !tbaa !7
+  %170 = add nsw i64 %169, %.2293
+  store i64 %170, ptr %4, align 8, !tbaa !7
+  switch i32 %168, label %172 [
+    i32 22, label %184
+    i32 34, label %171
   ]
 
-172:                                              ; preds = %166
-  br label %185
+171:                                              ; preds = %165
+  br label %184
 
-173:                                              ; preds = %166
-  br i1 %74, label %174, label %183
+172:                                              ; preds = %165
+  br i1 %74, label %173, label %182
+
+173:                                              ; preds = %172
+  br i1 %.not331, label %174, label %180
 
 174:                                              ; preds = %173
-  br i1 %.not331, label %175, label %181
+  %175 = load i64, ptr %3, align 8, !tbaa !7
+  %176 = call noundef i32 @_ZN5boost8charconv6detail10num_digitsImEEiT_(i64 noundef %175) #13
+  %177 = sext i32 %176 to i64
+  %.neg339 = sub nsw i64 %.0287, %177
+  %178 = load i64, ptr %4, align 8, !tbaa !7
+  %179 = add i64 %.neg339, %178
+  store i64 %179, ptr %4, align 8, !tbaa !7
+  br label %184
 
-175:                                              ; preds = %174
-  %176 = load i64, ptr %3, align 8, !tbaa !7
-  %177 = call noundef i32 @_ZN5boost8charconv6detail10num_digitsImEEiT_(i64 noundef %176) #13
-  %178 = sext i32 %177 to i64
-  %.neg339 = sub nsw i64 %.0287, %178
-  %179 = load i64, ptr %4, align 8, !tbaa !7
-  %180 = add i64 %.neg339, %179
-  store i64 %180, ptr %4, align 8, !tbaa !7
-  br label %185
-
-181:                                              ; preds = %174
+180:                                              ; preds = %173
   %.neg = sub nsw i64 %.0287, %.3282
-  %182 = add i64 %.neg, %171
-  store i64 %182, ptr %4, align 8, !tbaa !7
-  br label %185
+  %181 = add i64 %.neg, %170
+  store i64 %181, ptr %4, align 8, !tbaa !7
+  br label %184
 
-183:                                              ; preds = %173
-  %184 = add nsw i64 %171, %.0288447
-  store i64 %184, ptr %4, align 8, !tbaa !7
-  br label %185
+182:                                              ; preds = %172
+  %183 = add nsw i64 %170, %.0288447
+  store i64 %183, ptr %4, align 8, !tbaa !7
+  br label %184
 
-185:                                              ; preds = %.critedge15, %172, %166, %175, %181, %183, %164
-  %.sroa.0273.9 = phi ptr [ %.13375, %164 ], [ %.13425, %.critedge15 ], [ %.13374, %172 ], [ %0, %166 ], [ %.13374, %175 ], [ %.13374, %181 ], [ %.13374, %183 ]
-  %.sroa.29.9 = phi i32 [ 0, %164 ], [ 34, %.critedge15 ], [ %169, %172 ], [ %169, %166 ], [ 0, %175 ], [ 0, %181 ], [ 0, %183 ]
+184:                                              ; preds = %.critedge15, %171, %165, %174, %180, %182, %163
+  %.sroa.0273.9 = phi ptr [ %.13375, %163 ], [ %.13425, %.critedge15 ], [ %.13374, %171 ], [ %0, %165 ], [ %.13374, %174 ], [ %.13374, %180 ], [ %.13374, %182 ]
+  %.sroa.29.9 = phi i32 [ 0, %163 ], [ 34, %.critedge15 ], [ %168, %171 ], [ %168, %165 ], [ 0, %174 ], [ 0, %180 ], [ 0, %182 ]
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %9) #13
   br label %.critedge5.thread
 
-.critedge5.thread:                                ; preds = %79, %.preheader372, %130, %134, %115, %122, %120, %113, %114, %107, %105, %71, %72, %67, %._crit_edge, %185
-  %.sroa.0273.3 = phi ptr [ %.sroa.0273.9, %185 ], [ %0, %._crit_edge ], [ %.4.lcssa, %72 ], [ %.4.lcssa, %71 ], [ %0, %67 ], [ %0, %105 ], [ %.9450, %114 ], [ %.9450, %113 ], [ %0, %107 ], [ %.9449, %120 ], [ %0, %122 ], [ %0, %115 ], [ %123, %134 ], [ %0, %130 ], [ %1, %.preheader372 ], [ %1, %79 ]
-  %.sroa.29.3 = phi i32 [ %.sroa.29.9, %185 ], [ 22, %._crit_edge ], [ 0, %72 ], [ %70, %71 ], [ %70, %67 ], [ 22, %105 ], [ 0, %114 ], [ %112, %113 ], [ %112, %107 ], [ 22, %120 ], [ 22, %122 ], [ 22, %115 ], [ %133, %134 ], [ %133, %130 ], [ 0, %.preheader372 ], [ 0, %79 ]
+.critedge5.thread:                                ; preds = %79, %.preheader372, %129, %133, %114, %121, %119, %112, %113, %106, %104, %71, %72, %67, %._crit_edge, %184
+  %.sroa.0273.3 = phi ptr [ %.sroa.0273.9, %184 ], [ %0, %._crit_edge ], [ %.4.lcssa, %72 ], [ %.4.lcssa, %71 ], [ %0, %67 ], [ %0, %104 ], [ %.9450, %113 ], [ %.9450, %112 ], [ %0, %106 ], [ %.9449, %119 ], [ %0, %121 ], [ %0, %114 ], [ %122, %133 ], [ %0, %129 ], [ %1, %.preheader372 ], [ %1, %79 ]
+  %.sroa.29.3 = phi i32 [ %.sroa.29.9, %184 ], [ 22, %._crit_edge ], [ 0, %72 ], [ %70, %71 ], [ %70, %67 ], [ 22, %104 ], [ 0, %113 ], [ %111, %112 ], [ %111, %106 ], [ 22, %119 ], [ 22, %121 ], [ 22, %114 ], [ %132, %133 ], [ %132, %129 ], [ 0, %.preheader372 ], [ 0, %79 ]
   call void @llvm.lifetime.end.p0(i64 19, ptr nonnull %8) #13
   br label %.critedge352
 

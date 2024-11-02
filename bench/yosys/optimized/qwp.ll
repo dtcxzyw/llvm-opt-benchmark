@@ -15197,7 +15197,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.loopexit.split-lp,
   br i1 %213, label %.lr.ph328, label %._crit_edge329.loopexit, !llvm.loop !208
 
 ._crit_edge329.loopexit:                          ; preds = %.lr.ph328
-  %214 = sext i32 %.1155 to i64
+  %214 = zext nneg i32 %.1155 to i64
   br label %._crit_edge329
 
 ._crit_edge329:                                   ; preds = %._crit_edge329.loopexit, %195

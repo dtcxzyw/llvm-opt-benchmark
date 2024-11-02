@@ -1325,7 +1325,7 @@ define i32 @Abc_AigLevel(ptr noundef %0) local_unnamed_addr #0 {
   %19 = getelementptr inbounds i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = lshr i32 %20, 12
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.019, i32 %21)
+  %spec.select = tail call i32 @llvm.umax.i32(i32 %.019, i32 %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !23
@@ -5037,9 +5037,6 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #18
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19

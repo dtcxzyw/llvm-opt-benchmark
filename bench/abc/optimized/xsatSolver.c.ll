@@ -4398,7 +4398,7 @@ xSAT_SolverClaMinimisation.exit.thread.i:         ; preds = %xSAT_SolverClaMinim
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph288.i, !llvm.loop !48
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph288.i
-  %820 = sext i32 %spec.select.i to i64
+  %820 = zext nneg i32 %spec.select.i to i64
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %xSAT_SolverClaMinimisation.exit.thread.i

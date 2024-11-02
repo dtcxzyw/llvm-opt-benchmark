@@ -3091,28 +3091,27 @@ if.end36:                                         ; preds = %if.end28
   call void @llvm.memset.p0.i64(ptr align 2 %call39, i8 0, i64 %conv38, i1 false)
   %idx.ext = sext i32 %add to i64
   %add.ptr = getelementptr inbounds i16, ptr %call39, i64 %idx.ext
-  %cmp42123 = icmp sgt i32 %call37, -1
-  br i1 %cmp42123, label %while.body.lr.ph.split.us, label %while.end119
+  %cmp42122 = icmp sgt i32 %call37, -1
+  br i1 %cmp42122, label %while.body.lr.ph.split.us, label %while.end119
 
 while.body.lr.ph.split.us:                        ; preds = %if.end36, %if.end118
-  %target.0.ph125 = phi ptr [ %target.5, %if.end118 ], [ %call39, %if.end36 ]
-  %quoted.0.ph124 = phi i8 [ %quoted.190, %if.end118 ], [ 0, %if.end36 ]
+  %target.0.ph124 = phi ptr [ %target.5, %if.end118 ], [ %call39, %if.end36 ]
+  %quoted.0.ph123 = phi i8 [ %quoted.190, %if.end118 ], [ 0, %if.end36 ]
   %call43.us109 = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp44.us110 = icmp eq i32 %call43.us109, 39
-  %tobool46.not.us111 = icmp eq i8 %quoted.0.ph124, 0
-  %conv47.us112 = zext i1 %tobool46.not.us111 to i8
-  %quoted.1.us113 = select i1 %cmp44.us110, i8 %conv47.us112, i8 %quoted.0.ph124
-  %cmp49.us114 = icmp ne i32 %call43.us109, 91
-  %tobool50.us115 = icmp ne i8 %quoted.1.us113, 0
-  %or.cond.us116 = select i1 %cmp49.us114, i1 true, i1 %tobool50.us115
-  br i1 %or.cond.us116, label %if.else66.us, label %do.body.preheader
+  %conv47.us111 = zext i1 %cmp44.us110 to i8
+  %quoted.1.us112 = xor i8 %quoted.0.ph123, %conv47.us111
+  %cmp49.us113 = icmp ne i32 %call43.us109, 91
+  %tobool50.us114 = icmp ne i8 %quoted.0.ph123, %conv47.us111
+  %or.cond.us115 = select i1 %cmp49.us113, i1 true, i1 %tobool50.us114
+  br i1 %or.cond.us115, label %if.else66.us, label %while.cond52.preheader
 
 if.else66.us:                                     ; preds = %while.body.lr.ph.split.us, %while.cond.backedge.us
-  %tobool50.us119 = phi i1 [ %tobool50.us, %while.cond.backedge.us ], [ %tobool50.us115, %while.body.lr.ph.split.us ]
-  %quoted.1.us118 = phi i8 [ %quoted.1.us, %while.cond.backedge.us ], [ %quoted.1.us113, %while.body.lr.ph.split.us ]
-  %call43.us117 = phi i32 [ %call43.us, %while.cond.backedge.us ], [ %call43.us109, %while.body.lr.ph.split.us ]
-  %cmp67.us = icmp ne i32 %call43.us117, 35
-  %or.cond1.us = select i1 %cmp67.us, i1 true, i1 %tobool50.us119
+  %tobool50.us118 = phi i1 [ %tobool50.us, %while.cond.backedge.us ], [ %tobool50.us114, %while.body.lr.ph.split.us ]
+  %quoted.1.us117 = phi i8 [ %quoted.1.us, %while.cond.backedge.us ], [ %quoted.1.us112, %while.body.lr.ph.split.us ]
+  %call43.us116 = phi i32 [ %call43.us, %while.cond.backedge.us ], [ %call43.us109, %while.body.lr.ph.split.us ]
+  %cmp67.us = icmp ne i32 %call43.us116, 35
+  %or.cond1.us = select i1 %cmp67.us, i1 true, i1 %tobool50.us118
   br i1 %or.cond1.us, label %if.else77.us, label %while.cond71.us
 
 while.cond71.us:                                  ; preds = %if.else66.us, %while.body74.us
@@ -3127,14 +3126,14 @@ while.body74.us:                                  ; preds = %while.cond71.us
   br label %while.cond71.us, !llvm.loop !15
 
 if.else77.us:                                     ; preds = %if.else66.us
-  %cmp78.us = icmp eq i32 %call43.us117, 92
+  %cmp78.us = icmp eq i32 %call43.us116, 92
   br i1 %cmp78.us, label %if.then79, label %if.else84.us
 
 if.else84.us:                                     ; preds = %if.else77.us
-  br i1 %tobool50.us119, label %if.end97, label %land.lhs.true86.us
+  br i1 %tobool50.us118, label %if.end97, label %land.lhs.true86.us
 
 land.lhs.true86.us:                               ; preds = %if.else84.us
-  switch i32 %call43.us117, label %if.end97 [
+  switch i32 %call43.us116, label %if.end97 [
     i32 32, label %while.cond.backedge.us
     i32 13, label %while.cond.backedge.us
     i32 10, label %while.cond.backedge.us
@@ -3142,46 +3141,46 @@ land.lhs.true86.us:                               ; preds = %if.else84.us
   ]
 
 while.cond.backedge.us:                           ; preds = %while.cond71.us, %while.cond71.us, %land.lhs.true86.us, %land.lhs.true86.us, %land.lhs.true86.us, %land.lhs.true86.us
-  %quoted.0.be.us = phi i8 [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ %quoted.1.us118, %while.cond71.us ], [ %quoted.1.us118, %while.cond71.us ]
+  %quoted.0.be.us = phi i8 [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ 0, %land.lhs.true86.us ], [ %quoted.1.us117, %while.cond71.us ], [ %quoted.1.us117, %while.cond71.us ]
   %call43.us = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp44.us = icmp eq i32 %call43.us, 39
-  %tobool46.not.us = icmp eq i8 %quoted.0.be.us, 0
-  %conv47.us = zext i1 %tobool46.not.us to i8
-  %quoted.1.us = select i1 %cmp44.us, i8 %conv47.us, i8 %quoted.0.be.us
+  %conv47.us = zext i1 %cmp44.us to i8
+  %quoted.1.us = xor i8 %quoted.0.be.us, %conv47.us
   %cmp49.us = icmp ne i32 %call43.us, 91
-  %tobool50.us = icmp ne i8 %quoted.1.us, 0
+  %tobool50.us = icmp ne i8 %quoted.0.be.us, %conv47.us
   %or.cond.us = select i1 %cmp49.us, i1 true, i1 %tobool50.us
-  br i1 %or.cond.us, label %if.else66.us, label %do.body.preheader
+  br i1 %or.cond.us, label %if.else66.us, label %while.cond52.preheader
 
-do.body.preheader:                                ; preds = %while.cond.backedge.us, %while.body.lr.ph.split.us
+while.cond52.preheader:                           ; preds = %while.cond.backedge.us, %while.body.lr.ph.split.us
+  %.us-phi = phi i8 [ %quoted.1.us112, %while.body.lr.ph.split.us ], [ %quoted.1.us, %while.cond.backedge.us ]
   br label %do.body
 
-do.body:                                          ; preds = %do.body.preheader, %do.end
-  %target.2122 = phi ptr [ %incdec.ptr, %do.end ], [ %target.0.ph125, %do.body.preheader ]
-  %c.0121 = phi i32 [ %call65, %do.end ], [ 91, %do.body.preheader ]
-  %cmp55 = icmp slt i32 %c.0121, 65536
+do.body:                                          ; preds = %while.cond52.preheader, %do.end
+  %target.2121 = phi ptr [ %target.0.ph124, %while.cond52.preheader ], [ %incdec.ptr, %do.end ]
+  %c.0120 = phi i32 [ 91, %while.cond52.preheader ], [ %call65, %do.end ]
+  %cmp55 = icmp slt i32 %c.0120, 65536
   br i1 %cmp55, label %if.then56, label %if.else
 
 if.then56:                                        ; preds = %do.body
-  %conv57 = trunc i32 %c.0121 to i16
+  %conv57 = trunc i32 %c.0120 to i16
   br label %do.end
 
 if.else:                                          ; preds = %do.body
-  %shr = lshr i32 %c.0121, 10
+  %shr = lshr i32 %c.0120, 10
   %19 = trunc i32 %shr to i16
   %conv59 = add i16 %19, -10304
-  %20 = trunc i32 %c.0121 to i16
+  %20 = trunc i32 %c.0120 to i16
   %21 = and i16 %20, 1023
   %conv61 = or disjoint i16 %21, -9216
-  %arrayidx62 = getelementptr inbounds i8, ptr %target.2122, i64 2
+  %arrayidx62 = getelementptr inbounds i8, ptr %target.2121, i64 2
   store i16 %conv61, ptr %arrayidx62, align 2
   br label %do.end
 
 do.end:                                           ; preds = %if.then56, %if.else
   %.sink = phi i64 [ 2, %if.then56 ], [ 4, %if.else ]
   %conv59.sink = phi i16 [ %conv57, %if.then56 ], [ %conv59, %if.else ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %target.2122, i64 %.sink
-  store i16 %conv59.sink, ptr %target.2122, align 2
+  %incdec.ptr = getelementptr inbounds i8, ptr %target.2121, i64 %.sink
+  store i16 %conv59.sink, ptr %target.2121, align 2
   %call65 = call i32 @ucbuf_getc(ptr noundef %call31, ptr noundef nonnull %status)
   %cmp53.not = icmp eq i32 %call65, 93
   br i1 %cmp53.not, label %if.then102, label %do.body, !llvm.loop !16
@@ -3197,7 +3196,7 @@ if.then82:                                        ; preds = %if.then79
   br label %return
 
 if.end97:                                         ; preds = %land.lhs.true86.us, %if.else84.us, %if.then79
-  %c.1 = phi i32 [ %call80, %if.then79 ], [ %call43.us117, %if.else84.us ], [ %call43.us117, %land.lhs.true86.us ]
+  %c.1 = phi i32 [ %call80, %if.then79 ], [ %call43.us116, %if.else84.us ], [ %call43.us116, %land.lhs.true86.us ]
   %cmp98.not = icmp eq i32 %c.1, -1
   br i1 %cmp98.not, label %while.end119, label %do.body100
 
@@ -3206,9 +3205,9 @@ do.body100:                                       ; preds = %if.end97
   br i1 %cmp101, label %if.then102, label %if.else105
 
 if.then102:                                       ; preds = %do.end, %do.body100
-  %quoted.191 = phi i8 [ %quoted.1.us118, %do.body100 ], [ 0, %do.end ]
+  %quoted.191 = phi i8 [ %quoted.1.us117, %do.body100 ], [ %.us-phi, %do.end ]
   %c.18086 = phi i32 [ %c.1, %do.body100 ], [ 93, %do.end ]
-  %target.48185 = phi ptr [ %target.0.ph125, %do.body100 ], [ %incdec.ptr, %do.end ]
+  %target.48185 = phi ptr [ %target.0.ph124, %do.body100 ], [ %incdec.ptr, %do.end ]
   %conv103 = trunc i32 %c.18086 to i16
   %incdec.ptr104 = getelementptr inbounds i8, ptr %target.48185, i64 2
   store i16 %conv103, ptr %target.48185, align 2
@@ -3218,23 +3217,23 @@ if.else105:                                       ; preds = %do.body100
   %shr106 = lshr i32 %c.1, 10
   %22 = trunc i32 %shr106 to i16
   %conv108 = add i16 %22, -10304
-  store i16 %conv108, ptr %target.0.ph125, align 2
+  store i16 %conv108, ptr %target.0.ph124, align 2
   %23 = trunc i32 %c.1 to i16
   %24 = and i16 %23, 1023
   %conv112 = or disjoint i16 %24, -9216
-  %arrayidx113 = getelementptr inbounds i8, ptr %target.0.ph125, i64 2
+  %arrayidx113 = getelementptr inbounds i8, ptr %target.0.ph124, i64 2
   store i16 %conv112, ptr %arrayidx113, align 2
-  %add.ptr114 = getelementptr inbounds i8, ptr %target.0.ph125, i64 4
+  %add.ptr114 = getelementptr inbounds i8, ptr %target.0.ph124, i64 4
   br label %if.end118
 
 if.end118:                                        ; preds = %if.else105, %if.then102
-  %quoted.190 = phi i8 [ %quoted.191, %if.then102 ], [ %quoted.1.us118, %if.else105 ]
+  %quoted.190 = phi i8 [ %quoted.191, %if.then102 ], [ %quoted.1.us117, %if.else105 ]
   %target.5 = phi ptr [ %incdec.ptr104, %if.then102 ], [ %add.ptr114, %if.else105 ]
   %cmp42 = icmp ult ptr %target.5, %add.ptr
   br i1 %cmp42, label %while.body.lr.ph.split.us, label %while.end119, !llvm.loop !17
 
 while.end119:                                     ; preds = %if.end97, %if.end118, %if.end36
-  %target.0.ph97 = phi ptr [ %call39, %if.end36 ], [ %target.0.ph125, %if.end97 ], [ %target.5, %if.end118 ]
+  %target.0.ph97 = phi ptr [ %call39, %if.end36 ], [ %target.0.ph124, %if.end97 ], [ %target.5, %if.end118 ]
   %cmp120 = icmp ult ptr %target.0.ph97, %add.ptr
   br i1 %cmp120, label %if.then121, label %if.end122
 
