@@ -711,7 +711,7 @@ abc/lpkSets.c.ll 281659749
 abc/ltl_parser.c.ll 289262829
 abc/lucky.c.ll 193256968
 abc/luckyFast16.c.ll 829676844
-abc/luckyFast6.c.ll 223314388
+abc/luckyFast6.c.ll 223537797
 abc/luckyRead.c.ll 147614552
 abc/luckySimple.c.ll 229022437
 abc/luckySwap.c.ll 503154321
