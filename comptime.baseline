@@ -2302,7 +2302,7 @@ box2d/b2_distance_joint.cpp.ll 221798799
 box2d/b2_draw.cpp.ll 39036491
 box2d/b2_dynamic_tree.cpp.ll 299930478
 box2d/b2_edge_circle_contact.cpp.ll 41792097
-box2d/b2_edge_polygon_contact.cpp.ll 41828201
+box2d/b2_edge_polygon_contact.cpp.ll 41786329
 box2d/b2_edge_shape.cpp.ll 95589063
 box2d/b2_fixture.cpp.ll 141063440
 box2d/b2_friction_joint.cpp.ll 142516824
@@ -4360,7 +4360,7 @@ coreutils-rs/3fvumgrg3ih17ehk.ll 237474053
 coreutils-rs/3gl1s1sja01easv1.ll 88866777
 coreutils-rs/3gnq88ga8xezmvuu.ll 718001456
 coreutils-rs/3gpcfcm8cdto2seo.ll 92954262
-coreutils-rs/3gr7iuormcphs5un.ll 131809794
+coreutils-rs/3gr7iuormcphs5un.ll 131677747
 coreutils-rs/3gsrjlewn44v90k5.ll 772153382
 coreutils-rs/3gtjltp7vx7om7oi.ll 393482511
 coreutils-rs/3hb12eado17s6ewo.ll 112631658
@@ -8410,7 +8410,7 @@ gromacs/fft.cpp.ll 117036372
 gromacs/fft5d.cpp.ll 739239025
 gromacs/fft_fftw3.cpp.ll 206035607
 gromacs/filenameoption.cpp.ll 1255614354
-gromacs/filenameoptionmanager.cpp.ll 366522959
+gromacs/filenameoptionmanager.cpp.ll 366156133
 gromacs/filenm.cpp.ll 266283977
 gromacs/fileredirector.cpp.ll 76040532
 gromacs/filestream.cpp.ll 352107569
@@ -23355,7 +23355,7 @@ openjdk/jvmtiEnvBase.ll 2802004176
 openjdk/jvmtiEnvThreadState.ll 322010884
 openjdk/jvmtiEventController.ll 741512498
 openjdk/jvmtiExport.ll 3782350551
-openjdk/jvmtiExtensions.ll 369663316
+openjdk/jvmtiExtensions.ll 369293403
 openjdk/jvmtiGetLoadedClasses.ll 752070104
 openjdk/jvmtiImpl.ll 1694541000
 openjdk/jvmtiManageCapabilities.ll 236406192
@@ -28340,7 +28340,7 @@ osqp/qdldl_interface.c.ll 511911874
 osqp/util.c.ll 94799061
 osqp/vector.c.ll 289419101
 ozz-animation/additive_animation_builder.cc.ll 673904411
-ozz-animation/allocator.cc.ll 52356286
+ozz-animation/allocator.cc.ll 52303865
 ozz-animation/animation.cc.ll 655613727
 ozz-animation/animation_builder.cc.ll 5211619157
 ozz-animation/animation_optimizer.cc.ll 1618086477
@@ -31313,7 +31313,7 @@ quantlib/currency.ll 593796696
 quantlib/curvestate.ll 478585771
 quantlib/cvaswapengine.ll 2618934046
 quantlib/czechrepublic.ll 195938606
-quantlib/dataformatters.ll 64637775
+quantlib/dataformatters.ll 64572840
 quantlib/dataparsers.ll 2573057961
 quantlib/date.ll 3120853914
 quantlib/dategenerationrule.ll 172567862
