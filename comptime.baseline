@@ -21755,7 +21755,7 @@ opencv/perf_moments.cpp.ll 1776168032
 opencv/perf_morph.cpp.ll 1702153688
 opencv/perf_motempl.cpp.ll 52721590
 opencv/perf_msd.cpp.ll 1378338973
-opencv/perf_net.cpp.ll 3107685478
+opencv/perf_net.cpp.ll 3104577787
 opencv/perf_norm.cpp.ll 8155262851
 opencv/perf_optflow_dualTVL1.cpp.ll 52696952
 opencv/perf_optflow_farneback.cpp.ll 52674495
