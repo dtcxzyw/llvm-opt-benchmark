@@ -327,23 +327,23 @@ define dso_local range(i32 0, 5) i32 @usb_stor_ctrl_transfer(ptr noundef %0, i32
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 16 {
-  switch i32 %3, label %58 [
+  switch i32 %3, label %57 [
     i32 0, label %6
     i32 -32, label %9
-    i32 -75, label %59
+    i32 -75, label %58
     i32 -104, label %55
     i32 -121, label %56
-    i32 -5, label %57
+    i32 -5, label %55
   ]
 
 6:                                                ; preds = %5
   %7 = icmp ne i32 %4, %2
   %8 = zext i1 %7 to i32
-  br label %59
+  br label %58
 
 9:                                                ; preds = %5
   %10 = icmp slt i32 %1, -1073741824
-  br i1 %10, label %59, label %11
+  br i1 %10, label %58, label %11
 
 11:                                               ; preds = %9
   %12 = lshr i32 %1, 15
@@ -410,23 +410,20 @@ define internal fastcc range(i32 0, 5) i32 @interpret_urb_result(ptr noundef %0,
 52:                                               ; preds = %50, %47
   %53 = icmp slt i32 %48, 0
   %54 = select i1 %53, i32 4, i32 2
-  br label %59
+  br label %58
 
-55:                                               ; preds = %5
-  br label %59
+55:                                               ; preds = %5, %5
+  br label %58
 
 56:                                               ; preds = %5
-  br label %59
+  br label %58
 
 57:                                               ; preds = %5
-  br label %59
+  br label %58
 
-58:                                               ; preds = %5
-  br label %59
-
-59:                                               ; preds = %58, %57, %56, %55, %52, %9, %6, %5
-  %60 = phi i32 [ 4, %58 ], [ 4, %57 ], [ 1, %56 ], [ 4, %55 ], [ %8, %6 ], [ 2, %9 ], [ %54, %52 ], [ 3, %5 ]
-  ret i32 %60
+58:                                               ; preds = %57, %56, %55, %52, %9, %6, %5
+  %59 = phi i32 [ 4, %57 ], [ 1, %56 ], [ 4, %55 ], [ %8, %6 ], [ 2, %9 ], [ %54, %52 ], [ 3, %5 ]
+  ret i32 %59
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

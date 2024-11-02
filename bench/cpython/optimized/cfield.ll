@@ -578,7 +578,7 @@ for.cond:                                         ; preds = %for.inc, %entry
     i8 115, label %for.inc
     i8 98, label %sw.bb2
     i8 66, label %sw.bb4
-    i8 99, label %sw.bb6
+    i8 99, label %sw.bb2
     i8 100, label %sw.bb8
     i8 103, label %sw.bb10
     i8 102, label %sw.bb12
@@ -588,25 +588,22 @@ for.cond:                                         ; preds = %for.inc, %entry
     i8 73, label %sw.bb20
     i8 108, label %sw.bb22
     i8 76, label %sw.bb24
-    i8 113, label %sw.bb26
-    i8 81, label %sw.bb28
+    i8 113, label %sw.bb22
+    i8 81, label %sw.bb24
     i8 80, label %for.inc
     i8 122, label %for.inc
-    i8 117, label %sw.bb34
+    i8 117, label %sw.bb18
     i8 85, label %for.inc
     i8 90, label %for.inc
-    i8 118, label %sw.bb40
-    i8 63, label %sw.bb42
+    i8 118, label %sw.bb14
+    i8 63, label %sw.bb4
     i8 79, label %for.inc
   ]
 
-sw.bb2:                                           ; preds = %for.cond
+sw.bb2:                                           ; preds = %for.cond, %for.cond
   br label %for.inc
 
-sw.bb4:                                           ; preds = %for.cond
-  br label %for.inc
-
-sw.bb6:                                           ; preds = %for.cond
+sw.bb4:                                           ; preds = %for.cond, %for.cond
   br label %for.inc
 
 sw.bb8:                                           ; preds = %for.cond
@@ -618,44 +615,29 @@ sw.bb10:                                          ; preds = %for.cond
 sw.bb12:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb14:                                          ; preds = %for.cond
+sw.bb14:                                          ; preds = %for.cond, %for.cond
   br label %for.inc
 
 sw.bb16:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb18:                                          ; preds = %for.cond
+sw.bb18:                                          ; preds = %for.cond, %for.cond
   br label %for.inc
 
 sw.bb20:                                          ; preds = %for.cond
   br label %for.inc
 
-sw.bb22:                                          ; preds = %for.cond
+sw.bb22:                                          ; preds = %for.cond, %for.cond
   br label %for.inc
 
-sw.bb24:                                          ; preds = %for.cond
-  br label %for.inc
-
-sw.bb26:                                          ; preds = %for.cond
-  br label %for.inc
-
-sw.bb28:                                          ; preds = %for.cond
-  br label %for.inc
-
-sw.bb34:                                          ; preds = %for.cond
-  br label %for.inc
-
-sw.bb40:                                          ; preds = %for.cond
-  br label %for.inc
-
-sw.bb42:                                          ; preds = %for.cond
+sw.bb24:                                          ; preds = %for.cond, %for.cond
   br label %for.inc
 
 sw.default:                                       ; preds = %for.cond
   unreachable
 
-for.inc:                                          ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %sw.bb2, %sw.bb4, %sw.bb6, %sw.bb8, %sw.bb10, %sw.bb12, %sw.bb14, %sw.bb16, %sw.bb18, %sw.bb20, %sw.bb22, %sw.bb24, %sw.bb26, %sw.bb28, %sw.bb34, %sw.bb40, %sw.bb42
-  %ffi_type_pointer.sink = phi ptr [ @ffi_type_sint8, %sw.bb2 ], [ @ffi_type_uint8, %sw.bb4 ], [ @ffi_type_sint8, %sw.bb6 ], [ @ffi_type_double, %sw.bb8 ], [ @ffi_type_longdouble, %sw.bb10 ], [ @ffi_type_float, %sw.bb12 ], [ @ffi_type_sint16, %sw.bb14 ], [ @ffi_type_uint16, %sw.bb16 ], [ @ffi_type_sint32, %sw.bb18 ], [ @ffi_type_uint32, %sw.bb20 ], [ @ffi_type_sint64, %sw.bb22 ], [ @ffi_type_uint64, %sw.bb24 ], [ @ffi_type_sint64, %sw.bb26 ], [ @ffi_type_uint64, %sw.bb28 ], [ @ffi_type_sint32, %sw.bb34 ], [ @ffi_type_sint16, %sw.bb40 ], [ @ffi_type_uint8, %sw.bb42 ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ]
+for.inc:                                          ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %for.cond, %sw.bb2, %sw.bb4, %sw.bb8, %sw.bb10, %sw.bb12, %sw.bb14, %sw.bb16, %sw.bb18, %sw.bb20, %sw.bb22, %sw.bb24
+  %ffi_type_pointer.sink = phi ptr [ @ffi_type_sint8, %sw.bb2 ], [ @ffi_type_uint8, %sw.bb4 ], [ @ffi_type_double, %sw.bb8 ], [ @ffi_type_longdouble, %sw.bb10 ], [ @ffi_type_float, %sw.bb12 ], [ @ffi_type_sint16, %sw.bb14 ], [ @ffi_type_uint16, %sw.bb16 ], [ @ffi_type_sint32, %sw.bb18 ], [ @ffi_type_uint32, %sw.bb20 ], [ @ffi_type_sint64, %sw.bb22 ], [ @ffi_type_uint64, %sw.bb24 ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ], [ @ffi_type_pointer, %for.cond ]
   %pffi_type = getelementptr inbounds i8, ptr %fd.0, i64 24
   store ptr %ffi_type_pointer.sink, ptr %pffi_type, align 8
   %incdec.ptr = getelementptr i8, ptr %fd.0, i64 48

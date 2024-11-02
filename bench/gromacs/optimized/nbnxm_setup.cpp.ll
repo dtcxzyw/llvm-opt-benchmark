@@ -130,8 +130,7 @@ $_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEED2Ev = comdat any
 @.str.36 = private unnamed_addr constant [27 x i8] c"Need valid atomdata object\00", align 1
 @"__PRETTY_FUNCTION__._ZZN18nonbonded_verlet_tC1ESt10unique_ptrI12PairlistSetsSt14default_deleteIS1_EES0_I10PairSearchS2_IS5_EES0_I16nbnxn_atomdata_tS2_IS8_EERKN5Nbnxm11KernelSetupEP8NbnxmGpuENK3$_0clEv" = private unnamed_addr constant [218 x i8] c"auto nonbonded_verlet_t::nonbonded_verlet_t(std::unique_ptr<PairlistSets>, std::unique_ptr<PairSearch>, std::unique_ptr<nbnxn_atomdata_t>, const Nbnxm::KernelSetup &, NbnxmGpu *)::(anonymous class)::operator()() const\00", align 1
 @switch.table._ZN5Nbnxm18lookup_kernel_nameENS_10KernelTypeE = private unnamed_addr constant [6 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.1], align 8
-@switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26 = private unnamed_addr constant [5 x i32] [i32 4, i32 4, i32 4, i32 8, i32 8], align 4
-@switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.27 = private unnamed_addr constant [5 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.1], align 8
+@switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle = private unnamed_addr constant [5 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.1], align 8
 
 @_ZN12PairlistSetsC1ERK14PairlistParamsbi = unnamed_addr alias void (ptr, ptr, i1, i32), ptr @_ZN12PairlistSetsC2ERK14PairlistParamsbi
 @_ZN18nonbonded_verlet_tC1ESt10unique_ptrI12PairlistSetsSt14default_deleteIS1_EES0_I10PairSearchS2_IS5_EES0_I16nbnxn_atomdata_tS2_IS8_EERKN5Nbnxm11KernelSetupES0_I16ExclusionCheckerS2_ISF_EEP8NbnxmGpuP13gmx_wallcycle = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN18nonbonded_verlet_tC2ESt10unique_ptrI12PairlistSetsSt14default_deleteIS1_EES0_I10PairSearchS2_IS5_EES0_I16nbnxn_atomdata_tS2_IS8_EERKN5Nbnxm11KernelSetupES0_I16ExclusionCheckerS2_ISF_EEP8NbnxmGpuP13gmx_wallcycle
@@ -563,26 +562,47 @@ _ZN5NbnxmL20nbnxn_simd_supportedERKN3gmx8MDLoggerERK10t_inputrec.exit.i: ; preds
   %80 = getelementptr inbounds i8, ptr %1, i64 32
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %92, label %switch.lookup
+  br i1 %82, label %92, label %83
 
-switch.lookup:                                    ; preds = %78
+83:                                               ; preds = %78
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %19, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #18
-  %83 = getelementptr inbounds i8, ptr %19, i64 32
-  store i8 1, ptr %83, align 8
-  %switch.tableidx = add nsw i32 %.sroa.06.0.i, -1
-  %84 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.27, i64 0, i64 %84
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %85 = sext i32 %switch.tableidx to i64
-  %switch.gep137 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.26, i64 0, i64 %85
-  %switch.load138 = load i32, ptr %switch.gep137, align 4
-  %switch.i = icmp eq i32 %.sroa.06.0.i, 2
-  %spec.select.i = select i1 %switch.i, i32 8, i32 4
-  %86 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull @.str.11, ptr noundef nonnull %switch.load, i32 noundef %switch.load138, i32 noundef %spec.select.i)
+  %84 = getelementptr inbounds i8, ptr %19, i64 32
+  store i8 1, ptr %84, align 8
+  switch i32 %.sroa.06.0.i, label %default.unreachable [
+    i32 5, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i
+    i32 1, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i
+    i32 2, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i
+    i32 3, label %85
+    i32 4, label %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i
+  ]
+
+85:                                               ; preds = %83
+  br label %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i
+
+default.unreachable:                              ; preds = %83
+  unreachable
+
+_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i: ; preds = %83, %83
+  %.sroa.06.0.off.i = add nsw i32 %.sroa.06.0.i, -1
+  %switch.i = icmp ult i32 %.sroa.06.0.off.i, 3
+  %spec.select.i = select i1 %switch.i, i32 4, i32 8
+  %switch34.i = icmp eq i32 %.sroa.06.0.i, 2
+  br i1 %switch34.i, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i, label %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i
+
+_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i: ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i, %83
+  %.0.i2232.i = phi i32 [ %spec.select.i, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i ], [ 4, %83 ]
+  %.0.i1431.i = phi ptr [ @.str.1, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i ], [ @.str.2, %83 ]
+  br label %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i
+
+_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i: ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i, %85, %83
+  %.0.i2227.i = phi i32 [ %.0.i2232.i, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i ], [ %spec.select.i, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i ], [ 4, %85 ], [ 8, %83 ]
+  %.0.i1426.i = phi ptr [ %.0.i1431.i, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i ], [ @.str.1, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i ], [ @.str.3, %85 ], [ @.str.4, %83 ]
+  %.0.i23.i = phi i32 [ 8, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.thread28.i ], [ 4, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i ], [ 4, %85 ], [ %.sroa.06.0.i, %83 ]
+  %86 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull @.str.11, ptr noundef nonnull %.0.i1426.i, i32 noundef %.0.i2227.i, i32 noundef %.0.i23.i)
           to label %87 unwind label %.body.i
 
-87:                                               ; preds = %switch.lookup
+87:                                               ; preds = %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i
   %88 = load ptr, ptr %81, align 8
   %89 = getelementptr inbounds i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -593,7 +613,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit25.i: ; preds = %87
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %19) #18
   br label %92
 
-.body.i:                                          ; preds = %87, %switch.lookup
+.body.i:                                          ; preds = %87, %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit.i
   %91 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i
@@ -606,21 +626,21 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit25.i: ; preds = %87
 94:                                               ; preds = %92
   %95 = load ptr, ptr %1, align 8
   %96 = icmp eq ptr %95, null
-  br i1 %96, label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit, label %switch.lookup139
+  br i1 %96, label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit, label %switch.lookup
 
-switch.lookup139:                                 ; preds = %94
+switch.lookup:                                    ; preds = %94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 40, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #18
   %97 = getelementptr inbounds i8, ptr %20, i64 32
   store i8 1, ptr %97, align 8
-  %switch.tableidx140 = add nsw i32 %.sroa.06.0.i, -1
-  %98 = zext nneg i32 %switch.tableidx140 to i64
-  %switch.gep141 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle.27, i64 0, i64 %98
-  %switch.load142 = load ptr, ptr %switch.gep141, align 8
-  %99 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str.12, ptr noundef nonnull %switch.load142)
+  %switch.tableidx = add nsw i32 %.sroa.06.0.i, -1
+  %98 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN5Nbnxm14init_nb_verletERKN3gmx8MDLoggerERK10t_inputrecRK10t_forcerecPK9t_commrecRK13gmx_hw_info_tbPKNS0_19DeviceStreamManagerERK10gmx_mtop_tPNS0_25ObservablesReducerBuilderENS0_8ArrayRefIKNS0_11BasicVectorIfEEEEPA3_fP13gmx_wallcycle, i64 0, i64 %98
+  %switch.load = load ptr, ptr %switch.gep, align 8
+  %99 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull @.str.12, ptr noundef nonnull %switch.load)
           to label %100 unwind label %.body28.i
 
-100:                                              ; preds = %switch.lookup139
+100:                                              ; preds = %switch.lookup
   %101 = load ptr, ptr %95, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 16
   %103 = load ptr, ptr %102, align 8
@@ -631,7 +651,7 @@ _ZN3gmx14LogWriteHelperaSERKNS_14LogEntryWriterE.exit32.i: ; preds = %100
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %20) #18
   br label %_ZN5NbnxmL17pick_nbnxn_kernelERKN3gmx8MDLoggerEbRK13gmx_hw_info_tRKNS_17NonbondedResourceERK10t_inputrec.exit
 
-.body28.i:                                        ; preds = %100, %switch.lookup139
+.body28.i:                                        ; preds = %100, %switch.lookup
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume.i

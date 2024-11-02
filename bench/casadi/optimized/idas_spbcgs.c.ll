@@ -321,7 +321,7 @@ define internal range(i32 -1, 2) i32 @IDASpbcgSolve(ptr noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %6
   store i64 %35, ptr %36, align 8
-  br label %61
+  br label %58
 
 50:                                               ; preds = %6
   %51 = getelementptr inbounds i8, ptr %11, i64 72
@@ -329,41 +329,32 @@ define internal range(i32 -1, 2) i32 @IDASpbcgSolve(ptr noundef %0, ptr noundef 
   %53 = add nsw i64 %52, 1
   store i64 %53, ptr %51, align 8
   store i64 %35, ptr %36, align 8
-  switch i32 %34, label %61 [
-    i32 -3, label %60
+  switch i32 %34, label %58 [
+    i32 -3, label %57
     i32 1, label %54
-    i32 2, label %55
-    i32 3, label %56
-    i32 4, label %57
-    i32 -1, label %58
-    i32 -2, label %59
+    i32 2, label %54
+    i32 3, label %54
+    i32 4, label %54
+    i32 -1, label %55
+    i32 -2, label %56
   ]
 
-54:                                               ; preds = %50
-  br label %61
+54:                                               ; preds = %50, %50, %50, %50
+  br label %58
 
 55:                                               ; preds = %50
-  br label %61
+  br label %58
 
 56:                                               ; preds = %50
-  br label %61
+  call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #7
+  br label %58
 
 57:                                               ; preds = %50
-  br label %61
-
-58:                                               ; preds = %50
-  br label %61
-
-59:                                               ; preds = %50
-  call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -2, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12) #7
-  br label %61
-
-60:                                               ; preds = %50
   call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -3, ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.13) #7
-  br label %61
+  br label %58
 
-61:                                               ; preds = %.thread, %50, %60, %59, %58, %57, %56, %55, %54
-  %.0 = phi i32 [ -1, %60 ], [ -1, %59 ], [ %34, %58 ], [ 1, %57 ], [ 1, %56 ], [ 1, %55 ], [ %34, %54 ], [ 0, %50 ], [ 0, %.thread ]
+58:                                               ; preds = %.thread, %50, %57, %56, %55, %54
+  %.0 = phi i32 [ -1, %57 ], [ -1, %56 ], [ -1, %55 ], [ 1, %54 ], [ 0, %50 ], [ 0, %.thread ]
   ret i32 %.0
 }
 

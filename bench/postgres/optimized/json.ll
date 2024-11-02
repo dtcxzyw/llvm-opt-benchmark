@@ -737,41 +737,38 @@ define dso_local zeroext i1 @to_json_is_immutable(i32 noundef %0) local_unnamed_
   %3 = alloca i32, align 4
   call void @json_categorize_type(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %4 = load i32, ptr %2, align 4
-  switch i32 %4, label %12 [
-    i32 1, label %13
-    i32 6, label %13
-    i32 7, label %13
-    i32 0, label %13
+  switch i32 %4, label %11 [
+    i32 1, label %12
+    i32 6, label %12
+    i32 7, label %12
+    i32 0, label %12
     i32 3, label %5
     i32 4, label %5
     i32 5, label %5
     i32 8, label %6
-    i32 9, label %7
-    i32 2, label %8
-    i32 10, label %8
-    i32 11, label %8
+    i32 9, label %6
+    i32 2, label %7
+    i32 10, label %7
+    i32 11, label %7
   ]
 
 5:                                                ; preds = %1, %1, %1
-  br label %13
+  br label %12
 
-6:                                                ; preds = %1
-  br label %13
+6:                                                ; preds = %1, %1
+  br label %12
 
-7:                                                ; preds = %1
-  br label %13
+7:                                                ; preds = %1, %1, %1
+  %8 = load i32, ptr %3, align 4
+  %9 = call signext i8 @func_volatile(i32 noundef %8) #9
+  %10 = icmp eq i8 %9, 105
+  br label %12
 
-8:                                                ; preds = %1, %1, %1
-  %9 = load i32, ptr %3, align 4
-  %10 = call signext i8 @func_volatile(i32 noundef %9) #9
-  %11 = icmp eq i8 %10, 105
-  br label %13
+11:                                               ; preds = %1
+  br label %12
 
-12:                                               ; preds = %1
-  br label %13
-
-13:                                               ; preds = %1, %1, %1, %1, %12, %8, %7, %6, %5
-  %.0 = phi i1 [ false, %12 ], [ %11, %8 ], [ false, %7 ], [ false, %6 ], [ false, %5 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+12:                                               ; preds = %1, %1, %1, %1, %11, %7, %6, %5
+  %.0 = phi i1 [ false, %11 ], [ %10, %7 ], [ false, %6 ], [ false, %5 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 
