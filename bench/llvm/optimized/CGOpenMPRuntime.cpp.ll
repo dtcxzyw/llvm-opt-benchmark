@@ -13118,11 +13118,10 @@ define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen15CGOpenMPRuntime15isStat
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang7CodeGen15CGOpenMPRuntime9isDynamicENS_24OpenMPScheduleClauseKindE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #7 align 2 {
-switch.lookup:
-  %switch.cast = trunc i32 %1 to i6
-  %switch.downshift = lshr i6 30, %switch.cast
-  %switch.masked = trunc i6 %switch.downshift to i1
-  ret i1 %switch.masked
+_ZL18getRuntimeScheduleN5clang24OpenMPScheduleClauseKindEbb.exit:
+  %.off = add i32 %1, -1
+  %switch = icmp ult i32 %.off, 4
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

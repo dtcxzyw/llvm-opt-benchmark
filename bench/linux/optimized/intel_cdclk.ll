@@ -2725,7 +2725,7 @@ define internal fastcc noundef range(i32 100000, 400001) i32 @i9xx_hrawclk(ptr n
 
 13:                                               ; preds = %1
   switch i32 %6, label %19 [
-    i32 0, label %29
+    i32 0, label %28
     i32 1, label %14
     i32 3, label %15
     i32 2, label %16
@@ -2734,19 +2734,19 @@ define internal fastcc noundef range(i32 100000, 400001) i32 @i9xx_hrawclk(ptr n
   ]
 
 14:                                               ; preds = %13
-  br label %29
+  br label %28
 
 15:                                               ; preds = %13
-  br label %29
+  br label %28
 
 16:                                               ; preds = %13
-  br label %29
+  br label %28
 
 17:                                               ; preds = %13
-  br label %29
+  br label %28
 
 18:                                               ; preds = %13
-  br label %29
+  br label %28
 
 19:                                               ; preds = %13
   tail call void asm sideeffect "1075: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1075b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1075) #15, !srcloc !62
@@ -2756,47 +2756,44 @@ define internal fastcc noundef range(i32 100000, 400001) i32 @i9xx_hrawclk(ptr n
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.3, i32 3434, i32 2313, i64 12) #15, !srcloc !64
   tail call void asm sideeffect "1077: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1077b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1077) #15, !srcloc !65
   tail call void asm sideeffect "1078: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1078b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1078) #15, !srcloc !66
-  br label %29
+  br label %28
 
 21:                                               ; preds = %1
   switch i32 %6, label %default.unreachable1 [
-    i32 5, label %29
+    i32 5, label %28
     i32 1, label %22
     i32 3, label %23
     i32 2, label %24
     i32 0, label %25
     i32 4, label %26
     i32 6, label %27
-    i32 7, label %28
+    i32 7, label %22
   ]
 
-22:                                               ; preds = %21
-  br label %29
+22:                                               ; preds = %21, %21
+  br label %28
 
 23:                                               ; preds = %21
-  br label %29
+  br label %28
 
 24:                                               ; preds = %21
-  br label %29
+  br label %28
 
 25:                                               ; preds = %21
-  br label %29
+  br label %28
 
 26:                                               ; preds = %21
-  br label %29
+  br label %28
 
 27:                                               ; preds = %21
-  br label %29
+  br label %28
 
 default.unreachable1:                             ; preds = %21
   unreachable
 
-28:                                               ; preds = %21
-  br label %29
-
-29:                                               ; preds = %21, %28, %27, %26, %25, %24, %23, %22, %19, %18, %17, %16, %15, %14, %13
-  %30 = phi i32 [ 133333, %19 ], [ 333333, %18 ], [ 266667, %17 ], [ 200000, %16 ], [ 166667, %15 ], [ 133333, %14 ], [ 133333, %28 ], [ 400000, %27 ], [ 333333, %26 ], [ 266667, %25 ], [ 200000, %24 ], [ 166667, %23 ], [ 133333, %22 ], [ 100000, %13 ], [ 100000, %21 ]
-  ret i32 %30
+28:                                               ; preds = %21, %27, %26, %25, %24, %23, %22, %19, %18, %17, %16, %15, %14, %13
+  %29 = phi i32 [ 133333, %19 ], [ 333333, %18 ], [ 266667, %17 ], [ 200000, %16 ], [ 166667, %15 ], [ 133333, %14 ], [ 400000, %27 ], [ 333333, %26 ], [ 266667, %25 ], [ 200000, %24 ], [ 166667, %23 ], [ 133333, %22 ], [ 100000, %13 ], [ 100000, %21 ]
+  ret i32 %29
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -5244,11 +5244,11 @@ entry:
     i64 8, label %sw.bb11
     i64 9, label %sw.bb12
     i64 10, label %sw.bb13
-    i64 11, label %sw.bb22
+    i64 11, label %sw.bb5
     i64 12, label %sw.bb23
-    i64 13, label %sw.bb24
+    i64 13, label %sw.bb12
     i64 14, label %sw.bb25
-    i64 15, label %sw.bb38
+    i64 15, label %sw.bb5
   ]
 
 sw.bb1:                                           ; preds = %entry
@@ -5270,7 +5270,7 @@ sw.bb1:                                           ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   br label %sw.epilog
 
-sw.bb5:                                           ; preds = %entry
+sw.bb5:                                           ; preds = %entry, %entry, %entry
   br label %sw.epilog
 
 sw.bb6:                                           ; preds = %entry
@@ -5289,7 +5289,7 @@ sw.bb10:                                          ; preds = %entry
 sw.bb11:                                          ; preds = %entry
   br label %sw.epilog
 
-sw.bb12:                                          ; preds = %entry
+sw.bb12:                                          ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.bb13:                                          ; preds = %entry
@@ -5313,13 +5313,7 @@ if.else:                                          ; preds = %sw.bb13
   %or21 = or disjoint i32 %shl20, 1
   br label %sw.epilog
 
-sw.bb22:                                          ; preds = %entry
-  br label %sw.epilog
-
 sw.bb23:                                          ; preds = %entry
-  br label %sw.epilog
-
-sw.bb24:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.bb25:                                          ; preds = %entry
@@ -5341,9 +5335,6 @@ if.else31:                                        ; preds = %sw.bb25
   %11 = load i32, ptr %numports_234, align 16
   %add35 = add i32 %11, 1
   %or36 = or i32 %add35, %shl33
-  br label %sw.epilog
-
-sw.bb38:                                          ; preds = %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
@@ -5384,8 +5375,8 @@ trace_usb_xhci_unimplemented.exit:                ; preds = %sw.default, %land.l
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %_now.i.i)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %entry, %if.then27, %if.else31, %if.then, %if.else, %trace_usb_xhci_unimplemented.exit, %sw.bb38, %sw.bb24, %sw.bb23, %sw.bb22, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb1
-  %ret.0 = phi i32 [ 0, %trace_usb_xhci_unimplemented.exit ], [ 0, %sw.bb38 ], [ %or30, %if.then27 ], [ %or36, %if.else31 ], [ 541217621, %sw.bb24 ], [ 50331650, %sw.bb23 ], [ 0, %sw.bb22 ], [ %or18, %if.then ], [ %or21, %if.else ], [ 541217621, %sw.bb12 ], [ 33555458, %sw.bb11 ], [ 4096, %sw.bb10 ], [ 8192, %sw.bb9 ], [ %or8, %sw.bb6 ], [ 0, %sw.bb5 ], [ 15, %sw.bb4 ], [ %or3, %sw.bb1 ], [ 16777280, %entry ]
+sw.epilog:                                        ; preds = %entry, %if.then27, %if.else31, %if.then, %if.else, %trace_usb_xhci_unimplemented.exit, %sw.bb23, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb1
+  %ret.0 = phi i32 [ 0, %trace_usb_xhci_unimplemented.exit ], [ %or30, %if.then27 ], [ %or36, %if.else31 ], [ 50331650, %sw.bb23 ], [ %or18, %if.then ], [ %or21, %if.else ], [ 541217621, %sw.bb12 ], [ 33555458, %sw.bb11 ], [ 4096, %sw.bb10 ], [ 8192, %sw.bb9 ], [ %or8, %sw.bb6 ], [ 0, %sw.bb5 ], [ 15, %sw.bb4 ], [ %or3, %sw.bb1 ], [ 16777280, %entry ]
   %conv39 = trunc i64 %reg to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i19)
   %18 = load i32, ptr @trace_events_enabled_count, align 4
