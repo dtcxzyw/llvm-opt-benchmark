@@ -11315,7 +11315,7 @@ libjpeg-turbo/rdcolmap.c.ll 238837376
 libjpeg-turbo/rdgif.c.ll 236935804
 libjpeg-turbo/rdjpgcom.c.ll 176065966
 libjpeg-turbo/rdppm.c.ll 419720652
-libjpeg-turbo/rdswitch.c.ll 192139898
+libjpeg-turbo/rdswitch.c.ll 192332050
 libjpeg-turbo/rdtarga.c.ll 167225524
 libjpeg-turbo/strtest.c.ll 78253620
 libjpeg-turbo/tjbench.c.ll 1200434711
