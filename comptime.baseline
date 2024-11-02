@@ -1540,7 +1540,7 @@ arrow/key_map.cc.ll 867785154
 arrow/key_map_avx2.cc.ll 314538417
 arrow/key_value_metadata.cc.ll 1602384052
 arrow/light_array.cc.ll 2699934906
-arrow/list_util.cc.ll 822177908
+arrow/list_util.cc.ll 823000657
 arrow/logging.cc.ll 88397000
 arrow/memory.cc.ll 1563024012
 arrow/memory_pool.cc.ll 1438412868
@@ -2485,7 +2485,7 @@ bullet3/btMultiBodyJointMotor.ll 212489818
 bullet3/btMultiBodyMLCPConstraintSolver.ll 1703443595
 bullet3/btMultiBodyPoint2Point.ll 246763766
 bullet3/btMultiBodySliderConstraint.ll 435840725
-bullet3/btMultiBodySphericalJointLimit.ll 309881722
+bullet3/btMultiBodySphericalJointLimit.ll 310192843
 bullet3/btMultiBodySphericalJointMotor.ll 210029057
 bullet3/btMultiSphereShape.ll 284383363
 bullet3/btNNCGConstraintSolver.ll 558768912
@@ -3123,7 +3123,7 @@ clamav/message.c.ll 941099896
 clamav/mew.c.ll 762866420
 clamav/misc.c.ll 137020292
 clamav/mpool.c.ll 178734610
-clamav/msdoc.c.ll 322359891
+clamav/msdoc.c.ll 322683695
 clamav/msexpand.c.ll 102411279
 clamav/msxml.c.ll 95439065
 clamav/msxml_parser.c.ll 178904224
@@ -3858,7 +3858,7 @@ cmake/http_chunks.c.ll 118432046
 cmake/http_ntlm.c.ll 71172265
 cmake/http_proxy.c.ll 113652118
 cmake/huf_compress.c.ll 1101786492
-cmake/huf_decompress.c.ll 2595390633
+cmake/huf_decompress.c.ll 2597986916
 cmake/huffman.c.ll 169598362
 cmake/ia64.c.ll 75373315
 cmake/idn.c.ll 61337858
@@ -7058,7 +7058,7 @@ flatbuffers/idl_gen_text.cpp.ll 2195793465
 flatbuffers/idl_gen_ts.cpp.ll 4726897018
 flatbuffers/idl_parser.cpp.ll 21124398534
 flatbuffers/java_generator.cc.ll 2336079385
-flatbuffers/python_generator.cc.ll 474148040
+flatbuffers/python_generator.cc.ll 474622763
 flatbuffers/reflection.cpp.ll 2427355738
 flatbuffers/swift_generator.cc.ll 985385914
 flatbuffers/ts_generator.cc.ll 1482419468
@@ -7500,7 +7500,7 @@ git/chdir-notify.ll 61730133
 git/check-attr.ll 117193972
 git/check-ignore.ll 109094385
 git/check-ref-format.ll 83557514
-git/checkout--worker.ll 100693624
+git/checkout--worker.ll 100795822
 git/checkout-index.ll 330300876
 git/checkout.ll 1609144352
 git/chunk-format.ll 163806416
@@ -8049,7 +8049,7 @@ graphviz/patchwork.c.ll 133114769
 graphviz/patchworkinit.c.ll 128266918
 graphviz/pathaccess.c.ll 99090502
 graphviz/pathcat.c.ll 104503832
-graphviz/pathfind.c.ll 131980298
+graphviz/pathfind.c.ll 132112566
 graphviz/pathpath.c.ll 125783896
 graphviz/pca.c.ll 128182784
 graphviz/pointset.c.ll 77323821
@@ -8399,7 +8399,7 @@ gromacs/exceptions.cpp.ll 44783831
 gromacs/exclusionblocks.cpp.ll 718890831
 gromacs/exclusionchecker.cpp.ll 288186188
 gromacs/expanded.cpp.ll 1669387538
-gromacs/expanded_internal.cpp.ll 173126868
+gromacs/expanded_internal.cpp.ll 173300067
 gromacs/expandedensembleelement.cpp.ll 1538282222
 gromacs/expfit.cpp.ll 354540814
 gromacs/exponentialmovingaverage.cpp.ll 664478044
@@ -10601,7 +10601,7 @@ icu/pluralranges.ll 190300422
 icu/plurfmt.ll 428742645
 icu/plurrule.ll 1347268147
 icu/ppucd.ll 284952984
-icu/propname.ll 232756017
+icu/propname.ll 232989841
 icu/propsvec.ll 177852711
 icu/prscmnts.ll 164006361
 icu/punycode.ll 308491468
@@ -12888,7 +12888,7 @@ linux/hda_controller.ll 342311201
 linux/hda_intel.ll 417208927
 linux/hda_jack.ll 363042251
 linux/hdac_bus.ll 94021364
-linux/hdac_device.ll 318918768
+linux/hdac_device.ll 319238631
 linux/hdac_stream.ll 283043542
 linux/hdac_sysfs.ll 153593219
 linux/hdmi.ll 386898349
@@ -13879,7 +13879,7 @@ linux/tcp_output.ll 1400288236
 linux/tcp_sigpool.ll 133269126
 linux/tcp_timer.ll 241412847
 linux/tcp_ulp.ll 66707427
-linux/tcpv6_offload.ll 68019034
+linux/tcpv6_offload.ll 68088468
 linux/tctx.ll 118919630
 linux/tdls.ll 475627638
 linux/tg3.ll 5391081069
@@ -17371,7 +17371,7 @@ meshlab/fit_rotations_l1.cpp.ll 6767964442
 meshlab/float_value.cpp.ll 135946865
 meshlab/framebufferObject.cpp.ll 170332021
 meshlab/function.cpp.ll 242264651
-meshlab/function_parameter.cpp.ll 436507980
+meshlab/function_parameter.cpp.ll 436944863
 meshlab/function_set.cpp.ll 4710337253
 meshlab/glarea.cpp.ll 6973809701
 meshlab/globals.cpp.ll 1832777967
@@ -20121,7 +20121,7 @@ ockam-rs/y9mp3cipt8wluu6.ll 1411600636
 ockam-rs/z0rkq6s90lca7cm.ll 1552144181
 ockam-rs/zoffpo3ld8myn2r.ll 1230020591
 oiio/CineonHeader.cpp.ll 5732035262
-oiio/Codec.cpp.ll 1285652068
+oiio/Codec.cpp.ll 1286938786
 oiio/DPXColorConverter.cpp.ll 701948781
 oiio/DPXHeader.cpp.ll 461720104
 oiio/ElementReadStream.cpp.ll 94259721
@@ -21464,7 +21464,7 @@ opencv/map_test.cpp.ll 1040830421
 opencv/mapaffine.cpp.ll 253077372
 opencv/mapper.cpp.ll 360060653
 opencv/mappergradaffine.cpp.ll 458069194
-opencv/mappergradeuclid.cpp.ll 333933237
+opencv/mappergradeuclid.cpp.ll 334267200
 opencv/mappergradproj.cpp.ll 604522720
 opencv/mappergradshift.cpp.ll 262123179
 opencv/mappergradsimilar.cpp.ll 372269000
@@ -21473,7 +21473,7 @@ opencv/mapprojec.cpp.ll 215582391
 opencv/mapshift.cpp.ll 138944684
 opencv/marr_hildreth_hash.cpp.ll 396730605
 opencv/mask_tmpl.cpp.ll 120909422
-opencv/mat_mask_operations.cpp.ll 232286436
+opencv/mat_mask_operations.cpp.ll 232518989
 opencv/mat_operations.cpp.ll 211837795
 opencv/mat_the_basic_image_container.cpp.ll 530628631
 opencv/matchcontours.cpp.ll 95683110
@@ -22127,7 +22127,7 @@ opencv/tsdf_functions.cpp.ll 935755943
 opencv/tutorial_customizing_cn_tracker.cpp.ll 164629876
 opencv/tutorial_introduction_to_tracker.cpp.ll 130682501
 opencv/tutorial_multitracker.cpp.ll 760433374
-opencv/tvl1_optical_flow.cpp.ll 279499251
+opencv/tvl1_optical_flow.cpp.ll 279779419
 opencv/tvl1flow.cpp.ll 1348132327
 opencv/twist.cpp.ll 176510977
 opencv/types.cpp.ll 348687860
@@ -22248,7 +22248,7 @@ openexr/ImfInputFile.cpp.ll 728732131
 openexr/ImfIntAttribute.cpp.ll 73727055
 openexr/ImfKeyCodeAttribute.cpp.ll 93429799
 openexr/ImfLineOrderAttribute.cpp.ll 72162881
-openexr/ImfLut.cpp.ll 142179884
+openexr/ImfLut.cpp.ll 142322706
 openexr/ImfMatrixAttribute.cpp.ll 456471950
 openexr/ImfMisc.cpp.ll 1271539078
 openexr/ImfMultiPartInputFile.cpp.ll 1493141818
@@ -24454,7 +24454,7 @@ openmpi/gds_base_select.ll 87706568
 openmpi/gds_fetch.ll 693432030
 openmpi/gds_hash.ll 1463958268
 openmpi/gds_hash_component.ll 219094759
-openmpi/gds_shmem.ll 1450724848
+openmpi/gds_shmem.ll 1452176240
 openmpi/gds_shmem_fetch.ll 623771319
 openmpi/gds_shmem_store.ll 2181422638
 openmpi/gds_shmem_utils.ll 149816412
@@ -25974,7 +25974,7 @@ openssl/libcrypto-lib-bio_md.ll 63473933
 openssl/libcrypto-lib-bio_meth.ll 70702102
 openssl/libcrypto-lib-bio_ndef.ll 63085548
 openssl/libcrypto-lib-bio_ok.ll 186163667
-openssl/libcrypto-lib-bio_print.ll 662964218
+openssl/libcrypto-lib-bio_print.ll 663628619
 openssl/libcrypto-lib-bio_sock.ll 85284222
 openssl/libcrypto-lib-bn_add.ll 86822095
 openssl/libcrypto-lib-bn_conv.ll 147929720
@@ -26355,7 +26355,7 @@ openssl/libcrypto-shlib-bio_md.ll 63441810
 openssl/libcrypto-shlib-bio_meth.ll 70702252
 openssl/libcrypto-shlib-bio_ndef.ll 63085751
 openssl/libcrypto-shlib-bio_ok.ll 186317512
-openssl/libcrypto-shlib-bio_print.ll 662970095
+openssl/libcrypto-shlib-bio_print.ll 663634641
 openssl/libcrypto-shlib-bio_sock.ll 85284611
 openssl/libcrypto-shlib-bn_add.ll 86849371
 openssl/libcrypto-shlib-bn_conv.ll 147823427
@@ -27131,7 +27131,7 @@ openusd/aggregateTreeBuilder.cpp.ll 1804339130
 openusd/align.cpp.ll 34440794
 openusd/alloccommon.c.ll 154642597
 openusd/allowed.cpp.ll 39321004
-openusd/alpha.c.ll 284022175
+openusd/alpha.c.ll 284307279
 openusd/animMapper.cpp.ll 12375190923
 openusd/animQuery.cpp.ll 245728112
 openusd/animQueryImpl.cpp.ll 746373194
@@ -29023,7 +29023,7 @@ postgres/dict_ispell.ll 69204322
 postgres/dict_simple.ll 57306387
 postgres/dict_snowball.ll 102889482
 postgres/dict_synonym.ll 104263856
-postgres/dict_thesaurus.ll 479304535
+postgres/dict_thesaurus.ll 479783931
 postgres/domains.ll 108866918
 postgres/dropcmds.ll 294166953
 postgres/dropdb.ll 61759863
@@ -33969,7 +33969,7 @@ smol-rs/q1d2xhr1mnh88ol.ll 284436821
 snappy/snappy-sinksource.cc.ll 53660119
 snappy/snappy.cc.ll 1308082153
 soc-simulator/Vmycpu_top.ll 101280471
-soc-simulator/Vmycpu_top__Syms.ll 95685533
+soc-simulator/Vmycpu_top__Syms.ll 95781458
 soc-simulator/Vmycpu_top___024root__DepSet_h368ace38__0.ll 47088786
 soc-simulator/Vmycpu_top___024root__DepSet_h368ace38__0__Slow.ll 42334493
 soc-simulator/Vmycpu_top___024root__DepSet_hcf0db31f__0.ll 6176790563
@@ -36058,7 +36058,7 @@ velox/IoStatistics.cpp.ll 355617947
 velox/IsNull.cpp.ll 9024822090
 velox/JsonExtractor.cpp.ll 1526014768
 velox/JsonFunctions.cpp.ll 9646023129
-velox/JsonPathTokenizer.cpp.ll 149782456
+velox/JsonPathTokenizer.cpp.ll 149933224
 velox/JsonType.cpp.ll 36622701305
 velox/KllSketch.cpp.ll 74473193
 velox/LambdaExpr.cpp.ll 3245833928
