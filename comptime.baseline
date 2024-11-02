@@ -11577,7 +11577,7 @@ libquic/packeted_bio.cc.ll 123813583
 libquic/padding.c.ll 244403771
 libquic/pair.c.ll 171110654
 libquic/params.c.ll 58300444
-libquic/pbkdf_test.cc.ll 70366142
+libquic/pbkdf_test.cc.ll 70295702
 libquic/pcy_tree.c.ll 372101309
 libquic/pem_info.c.ll 123067130
 libquic/pem_lib.c.ll 270605418
@@ -23828,7 +23828,7 @@ openjdk/stringDedupThread.ll 57957834
 openjdk/stringTable.ll 2963773054
 openjdk/stringUtils.ll 90489549
 openjdk/stringopts.ll 2422621982
-openjdk/strongRootsScope.ll 38810287
+openjdk/strongRootsScope.ll 38771466
 openjdk/stubCodeGenerator.ll 114579293
 openjdk/stubGenerator_x86_64.ll 1755717815
 openjdk/stubGenerator_x86_64_adler.ll 202823900
