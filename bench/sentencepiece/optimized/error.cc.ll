@@ -36,22 +36,9 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.2 = private unnamed_addr constant [3 x i8] c"OK\00", align 1
 @.str.3 = private unnamed_addr constant [10 x i8] c"Cancelled\00", align 1
 @.str.4 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
-@.str.5 = private unnamed_addr constant [17 x i8] c"Invalid argument\00", align 1
-@.str.6 = private unnamed_addr constant [18 x i8] c"Deadline exceeded\00", align 1
-@.str.7 = private unnamed_addr constant [10 x i8] c"Not found\00", align 1
-@.str.8 = private unnamed_addr constant [15 x i8] c"Already exists\00", align 1
-@.str.9 = private unnamed_addr constant [18 x i8] c"Permission denied\00", align 1
-@.str.10 = private unnamed_addr constant [16 x i8] c"Unauthenticated\00", align 1
-@.str.11 = private unnamed_addr constant [20 x i8] c"Failed precondition\00", align 1
-@.str.12 = private unnamed_addr constant [8 x i8] c"Aborted\00", align 1
-@.str.13 = private unnamed_addr constant [13 x i8] c"Out of range\00", align 1
-@.str.14 = private unnamed_addr constant [14 x i8] c"Unimplemented\00", align 1
-@.str.15 = private unnamed_addr constant [9 x i8] c"Internal\00", align 1
-@.str.16 = private unnamed_addr constant [12 x i8] c"Unavailable\00", align 1
-@.str.17 = private unnamed_addr constant [10 x i8] c"Data loss\00", align 1
 @.str.18 = private unnamed_addr constant [3 x i8] c": \00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_error.cc, ptr null }]
-@switch.table._ZNK13sentencepiece4util6Status8ToStringB5cxx11Ev = private unnamed_addr constant [16 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.10], align 8
+@switch.table._ZNK13sentencepiece4util6Status8ToStringB5cxx11Ev = private unnamed_addr constant [16 x ptr] [ptr @.str.3, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4, ptr @.str.4], align 8
 
 @_ZN13sentencepiece4util6StatusC1Ev = unnamed_addr alias void (ptr), ptr @_ZN13sentencepiece4util6StatusC2Ev
 @_ZN13sentencepiece4util6StatusD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13sentencepiece4util6StatusD2Ev

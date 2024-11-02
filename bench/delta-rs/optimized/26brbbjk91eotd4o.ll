@@ -41,14 +41,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.2c78f552fb8b1a355f16c608b5a93edc.42.llvm.956944259081774161 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr128drop_in_place$LT$std..sync..poison..PoisonError$LT$std..sync..mutex..MutexGuard$LT$futures_channel..mpsc..SenderTask$GT$$GT$$GT$17h1733829ff42b10c1E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN76_$LT$std..sync..poison..PoisonError$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h894bca3d1e4c394cE" }>, align 8
 @anon.2c78f552fb8b1a355f16c608b5a93edc.43 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"EmptyHost" }>, align 1
 @anon.2c78f552fb8b1a355f16c608b5a93edc.44 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"IdnaError" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.45 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"InvalidPort" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.46 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"InvalidIpv4Address" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.47 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"InvalidIpv6Address" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.48 = private unnamed_addr constant <{ [22 x i8] }> <{ [22 x i8] c"InvalidDomainCharacter" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.49 = private unnamed_addr constant <{ [22 x i8] }> <{ [22 x i8] c"RelativeUrlWithoutBase" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.50 = private unnamed_addr constant <{ [32 x i8] }> <{ [32 x i8] c"RelativeUrlWithCannotBeABaseBase" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.51 = private unnamed_addr constant <{ [25 x i8] }> <{ [25 x i8] c"SetHostOnCannotBeABaseUrl" }>, align 1
-@anon.2c78f552fb8b1a355f16c608b5a93edc.52 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"Overflow" }>, align 1
 @anon.2c78f552fb8b1a355f16c608b5a93edc.54.llvm.956944259081774161 = hidden unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"RwLock" }>, align 1
 @anon.2c78f552fb8b1a355f16c608b5a93edc.55.llvm.956944259081774161 = hidden unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"data" }>, align 1
 @anon.2c78f552fb8b1a355f16c608b5a93edc.56.llvm.956944259081774161 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr118drop_in_place$LT$$LT$lock_api..rwlock..RwLock$LT$R$C$T$GT$$u20$as$u20$core..fmt..Debug$GT$..fmt..LockedPlaceholder$GT$17h0ccaed7440aa2b53E.llvm.956944259081774161", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN134_$LT$$LT$lock_api..rwlock..RwLock$LT$R$C$T$GT$$u20$as$u20$core..fmt..Debug$GT$..fmt..LockedPlaceholder$u20$as$u20$core..fmt..Debug$GT$3fmt17h883fc33b5ac5209bE" }>, align 8
@@ -67,8 +59,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.2c78f552fb8b1a355f16c608b5a93edc.73 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr50drop_in_place$LT$deltalake_azure..AzureFactory$GT$17h909a412b4c3a9606E", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN91_$LT$deltalake_azure..AzureFactory$u20$as$u20$deltalake_core..logstore..LogStoreFactory$GT$12with_options17h78a2ba60b2d558b0E" }>, align 8
 @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17hc804604804a6cbf8E = external global { i64 }
 @__rust_no_alloc_shim_is_unstable = external global i8
-@"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f761b8d6629f61eE" = private unnamed_addr constant [10 x i64] [i64 9, i64 9, i64 11, i64 18, i64 18, i64 22, i64 22, i64 32, i64 25, i64 8], align 8
-@"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f761b8d6629f61eE.35" = private unnamed_addr constant [10 x ptr] [ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.43, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.44, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.45, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.46, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.47, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.48, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.49, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.50, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.51, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.52], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN114_$LT$futures_util..stream..futures_unordered..task..Task$LT$Fut$GT$$u20$as$u20$futures_task..arc_wake..ArcWake$GT$11wake_by_ref17h1a50e3499fa25a84E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -2610,16 +2600,11 @@ define hidden { ptr, i1 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h24d795
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f761b8d6629f61eE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #3 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !371, !noundef !4
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f761b8d6629f61eE", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f761b8d6629f61eE.35", i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load i8, ptr %0, align 1, !range !371, !noundef !4
+  %switch = icmp eq i8 %3, 0
+  %anon.2c78f552fb8b1a355f16c608b5a93edc.43.anon.2c78f552fb8b1a355f16c608b5a93edc.44 = select i1 %switch, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.43, ptr @anon.2c78f552fb8b1a355f16c608b5a93edc.44
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.2c78f552fb8b1a355f16c608b5a93edc.43.anon.2c78f552fb8b1a355f16c608b5a93edc.44, i64 noundef 9)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

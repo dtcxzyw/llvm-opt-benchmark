@@ -25830,40 +25830,22 @@ sw.bb26:                                          ; preds = %entry, %entry, %ent
   switch i32 %0, label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit [
     i32 278, label %sw.bb8.i
     i32 1, label %sw.bb1.i
-    i32 256, label %sw.bb2.i
-    i32 2, label %sw.bb3.i
-    i32 3, label %sw.bb4.i
-    i32 4, label %sw.bb5.i
-    i32 277, label %sw.bb6.i
-    i32 294, label %sw.bb7.i
+    i32 256, label %sw.bb1.i
+    i32 2, label %sw.bb1.i
+    i32 3, label %sw.bb1.i
+    i32 4, label %sw.bb1.i
+    i32 277, label %sw.bb1.i
+    i32 294, label %sw.bb1.i
   ]
 
-sw.bb1.i:                                         ; preds = %sw.bb26
-  br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
-
-sw.bb2.i:                                         ; preds = %sw.bb26
-  br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
-
-sw.bb3.i:                                         ; preds = %sw.bb26
-  br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
-
-sw.bb4.i:                                         ; preds = %sw.bb26
-  br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
-
-sw.bb5.i:                                         ; preds = %sw.bb26
-  br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
-
-sw.bb6.i:                                         ; preds = %sw.bb26
-  br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
-
-sw.bb7.i:                                         ; preds = %sw.bb26
+sw.bb1.i:                                         ; preds = %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26, %sw.bb26
   br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
 
 sw.bb8.i:                                         ; preds = %sw.bb26
   br label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit
 
-_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit: ; preds = %sw.bb26, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.bb6.i, %sw.bb7.i, %sw.bb8.i
-  %retval.0.i = phi i64 [ 7, %sw.bb7.i ], [ 6, %sw.bb6.i ], [ 5, %sw.bb5.i ], [ 4, %sw.bb4.i ], [ 3, %sw.bb3.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 8, %sw.bb8.i ], [ 0, %sw.bb26 ]
+_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit: ; preds = %sw.bb26, %sw.bb1.i, %sw.bb8.i
+  %retval.0.i = phi i64 [ 1, %sw.bb1.i ], [ 8, %sw.bb8.i ], [ 0, %sw.bb26 ]
   %arrayidx = getelementptr inbounds [11 x i32], ptr %16, i64 0, i64 %retval.0.i
   %17 = load i32, ptr %arrayidx, align 4
   %errors.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 44

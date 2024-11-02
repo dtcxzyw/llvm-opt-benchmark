@@ -5587,28 +5587,22 @@ define hidden void @_ZN5tokio2io8interest8Interest6to_mio7mio_add17ha3e0e47a1294
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i64 0, 33) i64 @_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E(i64 noundef %0) unnamed_addr #9 {
-  switch i64 %0, label %6 [
+define hidden noundef range(i64 0, 11) i64 @_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E(i64 noundef %0) unnamed_addr #9 {
+  switch i64 %0, label %4 [
     i64 1, label %2
     i64 2, label %3
-    i64 16, label %4
-    i64 32, label %5
+    i64 16, label %3
+    i64 32, label %3
   ]
 
 2:                                                ; preds = %1
-  br label %6
+  br label %4
 
-3:                                                ; preds = %1
-  br label %6
+3:                                                ; preds = %1, %1, %1
+  br label %4
 
-4:                                                ; preds = %1
-  br label %6
-
-5:                                                ; preds = %1
-  br label %6
-
-6:                                                ; preds = %1, %5, %4, %3, %2
-  %.0 = phi i64 [ 32, %5 ], [ 20, %4 ], [ 10, %3 ], [ 5, %2 ], [ 0, %1 ]
+4:                                                ; preds = %1, %3, %2
+  %.0 = phi i64 [ 10, %3 ], [ 5, %2 ], [ 0, %1 ]
   ret i64 %.0
 }
 

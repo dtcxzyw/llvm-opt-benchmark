@@ -220,10 +220,8 @@ $_ZSt19piecewise_construct = comdat any
 @.str.15 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.16 = private unnamed_addr constant [39 x i8] c"cvx_config.strategy = CVX_REGULARIZE;\0A\00", align 1
 @.str.17 = private unnamed_addr constant [39 x i8] c"cvx_config.strategy = CVX_EIGEN_CLIP;\0A\00", align 1
-@.str.18 = private unnamed_addr constant [42 x i8] c"cvx_config.strategy = CVX_EIGEN_REFLECT;\0A\00", align 1
 @.str.19 = private unnamed_addr constant [32 x i8] c"cvx_config.type_in = CVX_SYMM;\0A\00", align 1
 @.str.20 = private unnamed_addr constant [32 x i8] c"cvx_config.type_in = CVX_TRIL;\0A\00", align 1
-@.str.21 = private unnamed_addr constant [32 x i8] c"cvx_config.type_in = CVX_TRIU;\0A\00", align 1
 @.str.22 = private unnamed_addr constant [18 x i8] c"cvx_config.Hsp = \00", align 1
 @.str.23 = private unnamed_addr constant [3 x i8] c";\0A\00", align 1
 @.str.24 = private unnamed_addr constant [19 x i8] c"cvx_config.Hrsp = \00", align 1
@@ -297,8 +295,8 @@ $_ZSt19piecewise_construct = comdat any
 @.str.87 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.88 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_convexify.cpp, ptr null }]
-@switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_ = private unnamed_addr constant [3 x ptr] [ptr @.str.16, ptr @.str.17, ptr @.str.18], align 8
-@switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21], align 8
+@switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_ = private unnamed_addr constant [3 x ptr] [ptr @.str.16, ptr @.str.17, ptr @.str.17], align 8
+@switch.table._ZN6casadi9Convexify8generateERNS_13CodeGeneratorERKNS_13ConvexifyDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_SD_SD_.1 = private unnamed_addr constant [3 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.20], align 8
 
 @_ZN6casadi9ConvexifyC1ERKNS_2MXERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessISA_ESaISt4pairIKSA_SB_EEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6casadi9ConvexifyC2ERKNS_2MXERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessISA_ESaISt4pairIKSA_SB_EEE
 @_ZN6casadi9ConvexifyC1ERNS_19DeserializingStreamE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6casadi9ConvexifyC2ERNS_19DeserializingStreamE

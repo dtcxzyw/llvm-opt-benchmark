@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [41 x i8] c"png_set_filler: inappropriate color type\00", align 1
 @onebppswaptable = internal unnamed_addr constant [256 x i8] c"\00\80@\C0 \A0`\E0\10\90P\D00\B0p\F0\08\88H\C8(\A8h\E8\18\98X\D88\B8x\F8\04\84D\C4$\A4d\E4\14\94T\D44\B4t\F4\0C\8CL\CC,\ACl\EC\1C\9C\\\DC<\BC|\FC\02\82B\C2\22\A2b\E2\12\92R\D22\B2r\F2\0A\8AJ\CA*\AAj\EA\1A\9AZ\DA:\BAz\FA\06\86F\C6&\A6f\E6\16\96V\D66\B6v\F6\0E\8EN\CE.\AEn\EE\1E\9E^\DE>\BE~\FE\01\81A\C1!\A1a\E1\11\91Q\D11\B1q\F1\09\89I\C9)\A9i\E9\19\99Y\D99\B9y\F9\05\85E\C5%\A5e\E5\15\95U\D55\B5u\F5\0D\8DM\CD-\ADm\ED\1D\9D]\DD=\BD}\FD\03\83C\C3#\A3c\E3\13\93S\D33\B3s\F3\0B\8BK\CB+\ABk\EB\1B\9B[\DB;\BB{\FB\07\87G\C7'\A7g\E7\17\97W\D77\B7w\F7\0F\8FO\CF/\AFo\EF\1F\9F_\DF?\BF\7F\FF", align 16
 @twobppswaptable = internal unnamed_addr constant [256 x i8] c"\00@\80\C0\10P\90\D0 `\A0\E00p\B0\F0\04D\84\C4\14T\94\D4$d\A4\E44t\B4\F4\08H\88\C8\18X\98\D8(h\A8\E88x\B8\F8\0CL\8C\CC\1C\\\9C\DC,l\AC\EC<|\BC\FC\01A\81\C1\11Q\91\D1!a\A1\E11q\B1\F1\05E\85\C5\15U\95\D5%e\A5\E55u\B5\F5\09I\89\C9\19Y\99\D9)i\A9\E99y\B9\F9\0DM\8D\CD\1D]\9D\DD-m\AD\ED=}\BD\FD\02B\82\C2\12R\92\D2\22b\A2\E22r\B2\F2\06F\86\C6\16V\96\D6&f\A6\E66v\B6\F6\0AJ\8A\CA\1AZ\9A\DA*j\AA\EA:z\BA\FA\0EN\8E\CE\1E^\9E\DE.n\AE\EE>~\BE\FE\03C\83\C3\13S\93\D3#c\A3\E33s\B3\F3\07G\87\C7\17W\97\D7'g\A7\E77w\B7\F7\0BK\8B\CB\1B[\9B\DB+k\AB\EB;{\BB\FB\0FO\8F\CF\1F_\9F\DF/o\AF\EF?\7F\BF\FF", align 16
-@fourbppswaptable = internal unnamed_addr constant [256 x i8] c"\00\10 0@P`p\80\90\A0\B0\C0\D0\E0\F0\01\11!1AQaq\81\91\A1\B1\C1\D1\E1\F1\02\12\222BRbr\82\92\A2\B2\C2\D2\E2\F2\03\13#3CScs\83\93\A3\B3\C3\D3\E3\F3\04\14$4DTdt\84\94\A4\B4\C4\D4\E4\F4\05\15%5EUeu\85\95\A5\B5\C5\D5\E5\F5\06\16&6FVfv\86\96\A6\B6\C6\D6\E6\F6\07\17'7GWgw\87\97\A7\B7\C7\D7\E7\F7\08\18(8HXhx\88\98\A8\B8\C8\D8\E8\F8\09\19)9IYiy\89\99\A9\B9\C9\D9\E9\F9\0A\1A*:JZjz\8A\9A\AA\BA\CA\DA\EA\FA\0B\1B+;K[k{\8B\9B\AB\BB\CB\DB\EB\FB\0C\1C,<L\\l|\8C\9C\AC\BC\CC\DC\EC\FC\0D\1D-=M]m}\8D\9D\AD\BD\CD\DD\ED\FD\0E\1E.>N^n~\8E\9E\AE\BE\CE\DE\EE\FE\0F\1F/?O_o\7F\8F\9F\AF\BF\CF\DF\EF\FF", align 16
 @.str.2 = private unnamed_addr constant [63 x i8] c"info change after png_start_read_image or png_read_update_info\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -469,34 +468,31 @@ define void @png_do_packswap(ptr nocapture noundef readonly %0, ptr noundef %1) 
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 %8
   switch i8 %4, label %.loopexit [
-    i8 1, label %12
+    i8 1, label %11
     i8 2, label %10
-    i8 4, label %11
+    i8 4, label %10
   ]
 
-10:                                               ; preds = %6
-  br label %12
+10:                                               ; preds = %6, %6
+  br label %11
 
-11:                                               ; preds = %6
-  br label %12
+11:                                               ; preds = %6, %10
+  %.0 = phi ptr [ @twobppswaptable, %10 ], [ @onebppswaptable, %6 ]
+  %12 = icmp sgt i64 %8, 0
+  br i1 %12, label %.lr.ph, label %.loopexit
 
-12:                                               ; preds = %6, %10, %11
-  %.0 = phi ptr [ @twobppswaptable, %10 ], [ @fourbppswaptable, %11 ], [ @onebppswaptable, %6 ]
-  %13 = icmp sgt i64 %8, 0
-  br i1 %13, label %.lr.ph, label %.loopexit
+.lr.ph:                                           ; preds = %11, %.lr.ph
+  %.01315 = phi ptr [ %17, %.lr.ph ], [ %1, %11 ]
+  %13 = load i8, ptr %.01315, align 1
+  %14 = zext i8 %13 to i64
+  %15 = getelementptr inbounds i8, ptr %.0, i64 %14
+  %16 = load i8, ptr %15, align 1
+  store i8 %16, ptr %.01315, align 1
+  %17 = getelementptr inbounds i8, ptr %.01315, i64 1
+  %18 = icmp ult ptr %17, %9
+  br i1 %18, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
-.lr.ph:                                           ; preds = %12, %.lr.ph
-  %.01315 = phi ptr [ %18, %.lr.ph ], [ %1, %12 ]
-  %14 = load i8, ptr %.01315, align 1
-  %15 = zext i8 %14 to i64
-  %16 = getelementptr inbounds i8, ptr %.0, i64 %15
-  %17 = load i8, ptr %16, align 1
-  store i8 %17, ptr %.01315, align 1
-  %18 = getelementptr inbounds i8, ptr %.01315, i64 1
-  %19 = icmp ult ptr %18, %9
-  br i1 %19, label %.lr.ph, label %.loopexit, !llvm.loop !12
-
-.loopexit:                                        ; preds = %.lr.ph, %12, %6, %2
+.loopexit:                                        ; preds = %.lr.ph, %11, %6, %2
   ret void
 }
 

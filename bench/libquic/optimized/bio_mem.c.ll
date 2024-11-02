@@ -409,7 +409,6 @@ entry:
     i32 115, label %sw.bb27
     i32 8, label %sw.bb32
     i32 9, label %sw.bb35
-    i32 11, label %sw.bb41
     i32 10, label %sw.bb39
   ]
 
@@ -524,11 +523,8 @@ sw.bb39:                                          ; preds = %entry
   %12 = load i64, ptr %0, align 8
   br label %sw.epilog
 
-sw.bb41:                                          ; preds = %entry
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %entry, %sw.bb27, %if.then30, %sw.bb17, %if.then21, %sw.bb, %if.else, %if.then2, %sw.bb41, %sw.bb39, %sw.bb35, %sw.bb32, %mem_free.exit, %sw.bb14, %sw.bb10
-  %ret.0 = phi i64 [ 1, %sw.bb41 ], [ %12, %sw.bb39 ], [ 1, %sw.bb35 ], [ %conv34, %sw.bb32 ], [ 1, %if.then30 ], [ 1, %sw.bb27 ], [ 1, %mem_free.exit ], [ %6, %if.then21 ], [ %6, %sw.bb17 ], [ 1, %sw.bb14 ], [ %conv13, %sw.bb10 ], [ 1, %if.then2 ], [ 1, %if.else ], [ 1, %sw.bb ], [ 0, %entry ]
+sw.epilog:                                        ; preds = %entry, %sw.bb27, %if.then30, %sw.bb17, %if.then21, %sw.bb, %if.else, %if.then2, %sw.bb39, %sw.bb35, %sw.bb32, %mem_free.exit, %sw.bb14, %sw.bb10
+  %ret.0 = phi i64 [ %12, %sw.bb39 ], [ 1, %sw.bb35 ], [ %conv34, %sw.bb32 ], [ 1, %if.then30 ], [ 1, %sw.bb27 ], [ 1, %mem_free.exit ], [ %6, %if.then21 ], [ %6, %sw.bb17 ], [ 1, %sw.bb14 ], [ %conv13, %sw.bb10 ], [ 1, %if.then2 ], [ 1, %if.else ], [ 1, %sw.bb ], [ 0, %entry ]
   ret i64 %ret.0
 }
 

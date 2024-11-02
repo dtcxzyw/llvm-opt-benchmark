@@ -22,20 +22,6 @@ $__clang_call_terminate = comdat any
 @.str.4 = private unnamed_addr constant [6 x i8] c"input\00", align 1
 @.str.5 = private unnamed_addr constant [13 x i8] c"lexing error\00", align 1
 @.str.6 = private unnamed_addr constant [8 x i8] c"'build'\00", align 1
-@.str.7 = private unnamed_addr constant [4 x i8] c"':'\00", align 1
-@.str.8 = private unnamed_addr constant [10 x i8] c"'default'\00", align 1
-@.str.9 = private unnamed_addr constant [4 x i8] c"'='\00", align 1
-@.str.10 = private unnamed_addr constant [11 x i8] c"identifier\00", align 1
-@.str.11 = private unnamed_addr constant [10 x i8] c"'include'\00", align 1
-@.str.12 = private unnamed_addr constant [7 x i8] c"indent\00", align 1
-@.str.13 = private unnamed_addr constant [8 x i8] c"newline\00", align 1
-@.str.14 = private unnamed_addr constant [5 x i8] c"'||'\00", align 1
-@.str.15 = private unnamed_addr constant [4 x i8] c"'|'\00", align 1
-@.str.16 = private unnamed_addr constant [5 x i8] c"'|@'\00", align 1
-@.str.17 = private unnamed_addr constant [7 x i8] c"'pool'\00", align 1
-@.str.18 = private unnamed_addr constant [7 x i8] c"'rule'\00", align 1
-@.str.19 = private unnamed_addr constant [11 x i8] c"'subninja'\00", align 1
-@.str.20 = private unnamed_addr constant [4 x i8] c"eof\00", align 1
 @.str.21 = private unnamed_addr constant [22 x i8] c" ($ also escapes ':')\00", align 1
 @.str.22 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.23 = private unnamed_addr constant [33 x i8] c"tabs are not allowed, use spaces\00", align 1
@@ -48,7 +34,7 @@ $__clang_call_terminate = comdat any
 @.str.26 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.27 = private unnamed_addr constant [2 x i8] c"$\00", align 1
 @.str.28 = private unnamed_addr constant [2 x i8] c":\00", align 1
-@switch.table._ZN5Lexer9TokenNameENS_5TokenE = private unnamed_addr constant [16 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.15, ptr @.str.14, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 8
+@switch.table._ZN5Lexer9TokenNameENS_5TokenE = private unnamed_addr constant [16 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6, ptr @.str.6], align 8
 
 @_ZN5LexerC1EPKc = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN5LexerC2EPKc
 

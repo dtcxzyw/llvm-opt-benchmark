@@ -24,10 +24,8 @@ $_ZNK23FunctionInvocationUnary9is_0_or_1Ev = comdat any
 @_ZTI23FunctionInvocationUnary = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS23FunctionInvocationUnary, ptr @_ZTI18FunctionInvocation }, align 8
 @.str.4 = private unnamed_addr constant [2 x i8] c"+\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c"-\00", align 1
-@.str.6 = private unnamed_addr constant [2 x i8] c"!\00", align 1
-@.str.7 = private unnamed_addr constant [2 x i8] c"~\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_FunctionInvocationUnary.cpp, ptr null }]
-@switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi = private unnamed_addr constant [4 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
+@switch.table._ZNK23FunctionInvocationUnary15indented_outputERSoi = private unnamed_addr constant [4 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.5, ptr @.str.5], align 8
 
 @_ZN23FunctionInvocationUnaryC1E9eUnaryOpsP11SafeOpFlags = dso_local unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags
 @_ZN23FunctionInvocationUnaryC1E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = dso_local unnamed_addr alias void (ptr, i32, ptr, ptr), ptr @_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
@@ -440,11 +438,11 @@ define dso_local void @_ZNK23FunctionInvocationUnary6OutputERSo(ptr noundef nonn
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.1)
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
-  switch i32 %7, label %84 [
+  switch i32 %7, label %83 [
     i32 1, label %8
     i32 0, label %.sink.split.i27
     i32 2, label %75
-    i32 3, label %76
+    i32 3, label %75
   ]
 
 8:                                                ; preds = %2
@@ -547,7 +545,7 @@ define dso_local void @_ZNK23FunctionInvocationUnary6OutputERSo(ptr noundef nonn
 
 54:                                               ; preds = %52
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #11
-  br label %84
+  br label %83
 
 55:                                               ; preds = %36, %34
   %.pn = phi { ptr, i32 } [ %35, %34 ], [ %37, %36 ]
@@ -573,7 +571,7 @@ _ZL22OutputStandardFuncName9eUnaryOpsRSo.exit:    ; preds = %56, %switch.lookup
   %64 = getelementptr inbounds i8, ptr %63, i64 144
   %65 = load ptr, ptr %64, align 8
   tail call void %65(ptr noundef nonnull align 8 dereferenceable(24) %62, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %84
+  br label %83
 
 66:                                               ; preds = %.thread, %8
   %67 = load i32, ptr %6, align 8
@@ -595,29 +593,26 @@ _ZL22OutputStandardFuncName9eUnaryOpsRSo.exit26:  ; preds = %66, %switch.lookup3
   %74 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   br label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit29
 
-75:                                               ; preds = %2
+75:                                               ; preds = %2, %2
   br label %.sink.split.i27
 
-76:                                               ; preds = %2
-  br label %.sink.split.i27
-
-.sink.split.i27:                                  ; preds = %2, %76, %75
-  %.str.7.sink.i28 = phi ptr [ @.str.7, %76 ], [ @.str.6, %75 ], [ @.str.4, %2 ]
-  %77 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.7.sink.i28)
+.sink.split.i27:                                  ; preds = %2, %75
+  %.str.7.sink.i28 = phi ptr [ @.str.5, %75 ], [ @.str.4, %2 ]
+  %76 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %.str.7.sink.i28)
   br label %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit29
 
 _ZL22OutputStandardFuncName9eUnaryOpsRSo.exit29:  ; preds = %.sink.split.i27, %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit26
-  %78 = getelementptr inbounds i8, ptr %0, i64 16
+  %77 = getelementptr inbounds i8, ptr %0, i64 16
+  %78 = load ptr, ptr %77, align 8
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %79, align 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 144
-  %83 = load ptr, ptr %82, align 8
-  call void %83(ptr noundef nonnull align 8 dereferenceable(24) %80, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  br label %84
+  %81 = getelementptr inbounds i8, ptr %80, i64 144
+  %82 = load ptr, ptr %81, align 8
+  call void %82(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  br label %83
 
-84:                                               ; preds = %2, %54, %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit29, %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit
-  %85 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
+83:                                               ; preds = %2, %54, %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit29, %_ZL22OutputStandardFuncName9eUnaryOpsRSo.exit
+  %84 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.3)
   ret void
 }
 

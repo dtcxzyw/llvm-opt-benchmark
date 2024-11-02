@@ -4561,7 +4561,7 @@ define noundef range(i8 4, -116) i8 @"_ZN67_$LT$heed..Error$u20$as$u20$meilisear
   %5 = tail call i64 @llvm.umin.i64(i64 %4, i64 5)
   switch i64 %5, label %default.unreachable [
     i64 0, label %6
-    i64 1, label %19
+    i64 1, label %18
     i64 2, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
     i64 3, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
     i64 4, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
@@ -4592,7 +4592,7 @@ default.unreachable:                              ; preds = %6, %1
   switch i32 %12, label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit" [
     i32 5, label %16
     i32 24, label %17
-    i32 28, label %18
+    i32 28, label %17
   ]
 
 13:                                               ; preds = %6
@@ -4610,23 +4610,20 @@ default.unreachable:                              ; preds = %6, %1
 16:                                               ; preds = %10
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-17:                                               ; preds = %10
+17:                                               ; preds = %10, %10
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-18:                                               ; preds = %10
-  br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
-
-19:                                               ; preds = %1
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  %21 = load i32, ptr %20, align 8, !range !1137, !noundef !9
-  %switch.selectcmp = icmp eq i32 %21, 7
+18:                                               ; preds = %1
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = load i32, ptr %19, align 8, !range !1137, !noundef !9
+  %switch.selectcmp = icmp eq i32 %20, 7
   %switch.select = select i1 %switch.selectcmp, i8 4, i8 26
-  %switch.selectcmp1 = icmp eq i32 %21, 6
+  %switch.selectcmp1 = icmp eq i32 %20, 6
   %switch.select2 = select i1 %switch.selectcmp1, i8 103, i8 %switch.select
   br label %"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit"
 
-"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %18, %17, %16, %15, %14, %13, %10, %1, %1, %1, %1, %19
-  %.sroa.0.0 = phi i8 [ %switch.select2, %19 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ -121, %18 ], [ -117, %17 ], [ 118, %16 ], [ 26, %15 ], [ 26, %14 ], [ 26, %13 ], [ 26, %10 ]
+"_ZN77_$LT$std..io..error..Error$u20$as$u20$meilisearch_types..error..ErrorCode$GT$10error_code17h91812b2f4929d035E.exit": ; preds = %17, %16, %15, %14, %13, %10, %1, %1, %1, %1, %18
+  %.sroa.0.0 = phi i8 [ %switch.select2, %18 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ 26, %1 ], [ -117, %17 ], [ 118, %16 ], [ 26, %15 ], [ 26, %14 ], [ 26, %13 ], [ 26, %10 ]
   ret i8 %.sroa.0.0
 }
 

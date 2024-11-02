@@ -9,54 +9,21 @@ entry:
   switch i32 %sys_err, label %sw.epilog [
     i32 0, label %return
     i32 -9, label %sw.bb1
-    i32 -3, label %sw.bb2
-    i32 -1, label %sw.bb3
-    i32 -101, label %sw.bb4
-    i32 -4, label %sw.bb5
-    i32 -6, label %sw.bb6
-    i32 -10, label %sw.bb7
-    i32 -5, label %sw.bb8
-    i32 -2, label %sw.bb9
-    i32 -12, label %sw.bb10
-    i32 -8, label %sw.bb11
-    i32 -7, label %sw.bb12
+    i32 -3, label %sw.bb1
+    i32 -1, label %sw.bb1
+    i32 -101, label %sw.bb1
+    i32 -4, label %sw.bb1
+    i32 -6, label %sw.bb1
+    i32 -10, label %sw.bb1
+    i32 -5, label %sw.bb1
+    i32 -2, label %sw.bb1
+    i32 -12, label %sw.bb1
+    i32 -8, label %sw.bb1
+    i32 -7, label %sw.bb1
     i32 -11, label %sw.bb13
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return
-
-sw.bb2:                                           ; preds = %entry
-  br label %return
-
-sw.bb3:                                           ; preds = %entry
-  br label %return
-
-sw.bb4:                                           ; preds = %entry
-  br label %return
-
-sw.bb5:                                           ; preds = %entry
-  br label %return
-
-sw.bb6:                                           ; preds = %entry
-  br label %return
-
-sw.bb7:                                           ; preds = %entry
-  br label %return
-
-sw.bb8:                                           ; preds = %entry
-  br label %return
-
-sw.bb9:                                           ; preds = %entry
-  br label %return
-
-sw.bb10:                                          ; preds = %entry
-  br label %return
-
-sw.bb11:                                          ; preds = %entry
-  br label %return
-
-sw.bb12:                                          ; preds = %entry
+sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb13:                                          ; preds = %entry
@@ -69,8 +36,8 @@ sw.epilog:                                        ; preds = %entry
   tail call void @abort() #11
   unreachable
 
-return:                                           ; preds = %entry, %sw.bb13, %sw.bb12, %sw.bb11, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb6, %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb2, %sw.bb1
-  %retval.0 = phi i32 [ %sub, %sw.bb13 ], [ -3011, %sw.bb12 ], [ -3010, %sw.bb11 ], [ -3009, %sw.bb10 ], [ -3008, %sw.bb9 ], [ -3007, %sw.bb8 ], [ -3006, %sw.bb7 ], [ -3005, %sw.bb6 ], [ -3004, %sw.bb5 ], [ -3003, %sw.bb4 ], [ -3002, %sw.bb3 ], [ -3001, %sw.bb2 ], [ -3000, %sw.bb1 ], [ %sys_err, %entry ]
+return:                                           ; preds = %entry, %sw.bb13, %sw.bb1
+  %retval.0 = phi i32 [ %sub, %sw.bb13 ], [ -3000, %sw.bb1 ], [ %sys_err, %entry ]
   ret i32 %retval.0
 }
 

@@ -235,9 +235,6 @@ $_ZSt19piecewise_construct = comdat any
 @.str.109 = private unnamed_addr constant [6 x i8] c"&#47;\00", align 1
 @.str.110 = private unnamed_addr constant [6 x i8] c"&#64;\00", align 1
 @.str.111 = private unnamed_addr constant [5 x i8] c"&lt;\00", align 1
-@.str.112 = private unnamed_addr constant [5 x i8] c"&gt;\00", align 1
-@.str.113 = private unnamed_addr constant [6 x i8] c"&amp;\00", align 1
-@.str.114 = private unnamed_addr constant [6 x i8] c"&#92;\00", align 1
 @.str.115 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @.str.116 = private unnamed_addr constant [9 x i8] c"ImplBase\00", align 1
 @.str.117 = private unnamed_addr constant [14 x i8] c"abstract_name\00", align 1
@@ -6730,9 +6727,9 @@ for.body.i.i:                                     ; preds = %for.cond.preheader.
     i8 47, label %sw.bb8.i.i
     i8 64, label %if.then.invoke.i.i
     i8 60, label %sw.bb20.i.i
-    i8 62, label %sw.bb23.i.i
-    i8 38, label %sw.bb26.i.i
-    i8 92, label %sw.bb29.i.i
+    i8 62, label %sw.bb20.i.i
+    i8 38, label %sw.bb20.i.i
+    i8 92, label %sw.bb20.i.i
   ]
 
 lpad.loopexit.i.i:                                ; preds = %if.else.invoke.i.i, %if.then.invoke.i.i
@@ -6758,8 +6755,8 @@ sw.bb.i.i:                                        ; preds = %for.body.i.i
   %cmp4.i.i = icmp eq i8 %prev.014.i.i, 47
   br i1 %cmp4.i.i, label %if.then.invoke.i.i, label %if.else.invoke.i.i
 
-if.then.invoke.i.i:                               ; preds = %sw.bb29.i.i, %sw.bb26.i.i, %sw.bb23.i.i, %sw.bb20.i.i, %sw.bb8.i.i, %sw.bb.i.i, %for.body.i.i
-  %2 = phi ptr [ @.str.111, %sw.bb20.i.i ], [ @.str.112, %sw.bb23.i.i ], [ @.str.113, %sw.bb26.i.i ], [ @.str.114, %sw.bb29.i.i ], [ @.str.108, %sw.bb.i.i ], [ @.str.109, %sw.bb8.i.i ], [ @.str.110, %for.body.i.i ]
+if.then.invoke.i.i:                               ; preds = %sw.bb20.i.i, %sw.bb8.i.i, %sw.bb.i.i, %for.body.i.i
+  %2 = phi ptr [ @.str.111, %sw.bb20.i.i ], [ @.str.108, %sw.bb.i.i ], [ @.str.109, %sw.bb8.i.i ], [ @.str.110, %for.body.i.i ]
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %escapedComments.i, ptr noundef nonnull %2)
           to label %sw.epilog.i.i unwind label %lpad.loopexit.i.i, !noalias !39
 
@@ -6771,16 +6768,7 @@ sw.bb8.i.i:                                       ; preds = %for.body.i.i
   %cmp10.i.i = icmp eq i8 %prev.014.i.i, 42
   br i1 %cmp10.i.i, label %if.then.invoke.i.i, label %if.else.invoke.i.i
 
-sw.bb20.i.i:                                      ; preds = %for.body.i.i
-  br label %if.then.invoke.i.i
-
-sw.bb23.i.i:                                      ; preds = %for.body.i.i
-  br label %if.then.invoke.i.i
-
-sw.bb26.i.i:                                      ; preds = %for.body.i.i
-  br label %if.then.invoke.i.i
-
-sw.bb29.i.i:                                      ; preds = %for.body.i.i
+sw.bb20.i.i:                                      ; preds = %for.body.i.i, %for.body.i.i, %for.body.i.i, %for.body.i.i
   br label %if.then.invoke.i.i
 
 sw.epilog.i.i:                                    ; preds = %if.else.invoke.i.i, %if.then.invoke.i.i

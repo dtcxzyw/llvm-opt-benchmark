@@ -39,7 +39,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [18 x i8] c"Invalid TIMEVALUE\00", align 1
 @.str.24 = private unnamed_addr constant [18 x i8] c"If-Modified-Since\00", align 1
 @.str.25 = private unnamed_addr constant [20 x i8] c"If-Unmodified-Since\00", align 1
-@.str.26 = private unnamed_addr constant [14 x i8] c"Last-Modified\00", align 1
 @.str.27 = private unnamed_addr constant [41 x i8] c"%s: %s, %02d %s %4d %02d:%02d:%02d GMT\0D\0A\00", align 1
 @Curl_wkday = external local_unnamed_addr constant [7 x ptr], align 16
 @Curl_month = external local_unnamed_addr constant [12 x ptr], align 16
@@ -187,9 +186,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @H2_NON_FIELD = internal unnamed_addr constant [6 x %struct.name_const] [%struct.name_const { ptr @.str.33, i64 4 }, %struct.name_const { ptr @.str.169, i64 7 }, %struct.name_const { ptr @.str.83, i64 10 }, %struct.name_const { ptr @.str.170, i64 10 }, %struct.name_const { ptr @.str.97, i64 16 }, %struct.name_const { ptr @.str.46, i64 17 }], align 16
 @.str.169 = private unnamed_addr constant [8 x i8] c"Upgrade\00", align 1
 @.str.170 = private unnamed_addr constant [11 x i8] c"Keep-Alive\00", align 1
-@switch.table.Curl_add_timecondition = private unnamed_addr constant [3 x ptr] [ptr @.str.24, ptr @.str.25, ptr @.str.26], align 8
-@switch.table.Curl_add_timecondition.4 = private unnamed_addr constant [3 x i64] [i64 17, i64 19, i64 13], align 8
-@switch.table.Curl_http_method = private unnamed_addr constant [5 x ptr] [ptr @.str.29, ptr @.str.29, ptr @.str.29, ptr @.str.30, ptr @.str.28], align 8
+@switch.table.Curl_add_timecondition = private unnamed_addr constant [3 x ptr] [ptr @.str.24, ptr @.str.25, ptr @.str.25], align 8
+@switch.table.Curl_add_timecondition.4 = private unnamed_addr constant [3 x i64] [i64 17, i64 19, i64 19], align 8
+@switch.table.Curl_http_method = private unnamed_addr constant [5 x ptr] [ptr @.str.29, ptr @.str.29, ptr @.str.29, ptr @.str.30, ptr @.str.30], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @Curl_http_setup_conn(ptr noundef %data, ptr noundef %conn) #0 {

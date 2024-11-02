@@ -1517,31 +1517,22 @@ define noundef align 8 dereferenceable_or_null(16) ptr @_ZN10serde_json5value5Va
 define noundef zeroext i1 @_ZN10serde_json5value5Value6is_i6417h7e7f7be1c39505e6E(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #3 {
   %2 = load i8, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i8 %2, 2
-  br i1 %3, label %4, label %12
+  br i1 %3, label %4, label %11
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !range !78, !noundef !5
-  switch i64 %6, label %default.unreachable1 [
-    i64 0, label %7
-    i64 1, label %12
-    i64 2, label %11
-  ]
-
-default.unreachable1:                             ; preds = %4
-  unreachable
+  %switch = icmp eq i64 %6, 0
+  br i1 %switch, label %7, label %11
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !5
   %10 = icmp sgt i64 %9, -1
-  br label %12
+  br label %11
 
-11:                                               ; preds = %4
-  br label %12
-
-12:                                               ; preds = %4, %1, %7, %11
-  %.0 = phi i1 [ false, %11 ], [ %10, %7 ], [ false, %1 ], [ true, %4 ]
+11:                                               ; preds = %4, %1, %7
+  %.0 = phi i1 [ %10, %7 ], [ false, %1 ], [ true, %4 ]
   ret i1 %.0
 }
 
@@ -1863,7 +1854,7 @@ define void @"_ZN10serde_json5value2de42_$LT$impl$u20$serde_json..value..Value$G
     i8 2, label %8
     i8 3, label %19
     i8 4, label %26
-    i8 5, label %27
+    i8 5, label %26
   ]
 
 default.unreachable3:                             ; preds = %8, %2
@@ -1915,14 +1906,11 @@ default.unreachable3:                             ; preds = %8, %2
   store i64 %23, ptr %25, align 8
   br label %_ZN10serde_json6number6Number10unexpected17h170612f3574fbdceE.exit
 
-26:                                               ; preds = %2
+26:                                               ; preds = %2, %2
   br label %_ZN10serde_json6number6Number10unexpected17h170612f3574fbdceE.exit
 
-27:                                               ; preds = %2
-  br label %_ZN10serde_json6number6Number10unexpected17h170612f3574fbdceE.exit
-
-_ZN10serde_json6number6Number10unexpected17h170612f3574fbdceE.exit: ; preds = %17, %15, %13, %2, %27, %26, %19, %4
-  %.sink = phi i8 [ 11, %27 ], [ 10, %26 ], [ 5, %19 ], [ 0, %4 ], [ 7, %2 ], [ 3, %17 ], [ 2, %15 ], [ 1, %13 ]
+_ZN10serde_json6number6Number10unexpected17h170612f3574fbdceE.exit: ; preds = %17, %15, %13, %2, %26, %19, %4
+  %.sink = phi i8 [ 10, %26 ], [ 5, %19 ], [ 0, %4 ], [ 7, %2 ], [ 3, %17 ], [ 2, %15 ], [ 1, %13 ]
   store i8 %.sink, ptr %0, align 8
   ret void
 }

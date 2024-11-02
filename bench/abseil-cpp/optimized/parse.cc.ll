@@ -255,10 +255,10 @@ entry:
     i32 3, label %sw.bb7
     i32 4, label %return
     i32 5, label %sw.bb9
-    i32 6, label %sw.bb11
+    i32 6, label %sw.bb9
     i32 7, label %sw.bb13
     i32 8, label %sw.bb18
-    i32 9, label %sw.bb20
+    i32 9, label %return
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -304,10 +304,7 @@ sw.bb7:                                           ; preds = %entry
   tail call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %v2, ptr noundef nonnull align 8 dereferenceable(24) %v1)
   br label %return
 
-sw.bb9:                                           ; preds = %entry
-  br label %return
-
-sw.bb11:                                          ; preds = %entry
+sw.bb9:                                           ; preds = %entry, %entry
   br label %return
 
 sw.bb13:                                          ; preds = %entry
@@ -393,14 +390,11 @@ sw.bb18:                                          ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #23
   br label %return
 
-sw.bb20:                                          ; preds = %entry
-  br label %return
-
 sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %sw.bb, %if.then.i.i.i26, %invoke.cont.i24, %entry, %sw.epilog, %sw.bb20, %sw.bb18, %sw.bb11, %sw.bb9, %sw.bb7, %sw.bb5, %invoke.cont4
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ inttoptr (i64 80 to ptr), %sw.bb20 ], [ null, %sw.bb18 ], [ @_ZTISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE, %sw.bb11 ], [ @_ZN4absl13base_internal11FastTypeTagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 24 to ptr), %entry ], [ %call5.i.i14, %sw.bb ], [ %retval.1, %invoke.cont.i24 ], [ %retval.1, %if.then.i.i.i26 ]
+return:                                           ; preds = %sw.bb, %if.then.i.i.i26, %invoke.cont.i24, %entry, %entry, %sw.epilog, %sw.bb18, %sw.bb9, %sw.bb7, %sw.bb5, %invoke.cont4
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ null, %sw.bb18 ], [ @_ZN4absl13base_internal11FastTypeTagISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE9dummy_varE, %sw.bb9 ], [ null, %sw.bb7 ], [ null, %sw.bb5 ], [ null, %invoke.cont4 ], [ inttoptr (i64 24 to ptr), %entry ], [ inttoptr (i64 24 to ptr), %entry ], [ %call5.i.i14, %sw.bb ], [ %retval.1, %invoke.cont.i24 ], [ %retval.1, %if.then.i.i.i26 ]
   ret ptr %retval.0
 }
 

@@ -445,8 +445,7 @@ $_ZTVN6casadi15CasadiExceptionE = comdat any
 @.str.149 = private unnamed_addr constant [26 x i8] c"casadi_smoothing_diff_old\00", align 1
 @.str.150 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_finite_differences.cpp, ptr null }]
-@switch.table._ZN6casadi11n_fd_pointsENS_6FdModeE = private unnamed_addr constant [4 x i64] [i64 2, i64 2, i64 3, i64 5], align 8
-@switch.table._ZN6casadi9fd_offsetENS_6FdModeE = private unnamed_addr constant [4 x i64] [i64 0, i64 1, i64 1, i64 2], align 8
+@switch.table._ZN6casadi9fd_offsetENS_6FdModeE = private unnamed_addr constant [4 x i64] [i64 0, i64 1, i64 1, i64 1], align 8
 
 @_ZN6casadi10FiniteDiffD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6casadi10FiniteDiffD2Ev
 
@@ -643,23 +642,14 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 -1, 6) i64 @_ZN6casadi11n_fd_pointsENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
-  %2 = icmp ult i32 %0, 4
-  br i1 %2, label %switch.lookup, label %4
-
-switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN6casadi11n_fd_pointsENS_6FdModeE, i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %4
-
-4:                                                ; preds = %1, %switch.lookup
-  %.0 = phi i64 [ %switch.load, %switch.lookup ], [ -1, %1 ]
-  ret i64 %.0
+define noundef range(i64 -1, 3) i64 @_ZN6casadi11n_fd_pointsENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
+  %switch.selectcmp = icmp ult i32 %0, 4
+  %2 = select i1 %switch.selectcmp, i64 2, i64 -1
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i64 -1, 3) i64 @_ZN6casadi9fd_offsetENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
+define noundef range(i64 -1, 2) i64 @_ZN6casadi9fd_offsetENS_6FdModeE(i32 noundef %0) local_unnamed_addr #4 {
   %2 = icmp ult i32 %0, 4
   br i1 %2, label %switch.lookup, label %4
 

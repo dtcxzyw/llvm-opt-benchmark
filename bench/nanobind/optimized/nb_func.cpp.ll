@@ -85,12 +85,6 @@ $_ZGVZN3tsl17detail_robin_hash10robin_hashISt4pairIPvS3_ENS_9robin_mapIS3_S3_N8n
 @.str.20 = private unnamed_addr constant [77 x i8] c"nanobind::detail::nb_func_error_except(): exception could not be translated!\00", align 1
 @PyExc_RuntimeError = external local_unnamed_addr global ptr, align 8
 @PyExc_StopIteration = external local_unnamed_addr global ptr, align 8
-@PyExc_IndexError = external local_unnamed_addr global ptr, align 8
-@PyExc_KeyError = external local_unnamed_addr global ptr, align 8
-@PyExc_ValueError = external local_unnamed_addr global ptr, align 8
-@PyExc_BufferError = external local_unnamed_addr global ptr, align 8
-@PyExc_ImportError = external local_unnamed_addr global ptr, align 8
-@PyExc_AttributeError = external local_unnamed_addr global ptr, align 8
 @.str.21 = private unnamed_addr constant [82 x i8] c"(): incompatible function arguments. The following argument types are supported:\0A\00", align 1
 @.str.24 = private unnamed_addr constant [22 x i8] c"\0AInvoked with types: \00", align 1
 @.str.26 = private unnamed_addr constant [12 x i8] c"kwargs = { \00", align 1
@@ -5118,59 +5112,38 @@ declare void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 d
 define internal fastcc noundef zeroext i1 @_ZN8nanobind6detailL28set_builtin_exception_statusERNS_17builtin_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
-  switch i32 %3, label %12 [
-    i32 0, label %13
+  switch i32 %3, label %5 [
+    i32 0, label %6
     i32 1, label %4
-    i32 2, label %5
-    i32 3, label %6
-    i32 4, label %7
-    i32 5, label %8
-    i32 6, label %9
-    i32 7, label %10
-    i32 8, label %11
-    i32 9, label %18
+    i32 2, label %4
+    i32 3, label %4
+    i32 4, label %4
+    i32 5, label %4
+    i32 6, label %4
+    i32 7, label %4
+    i32 8, label %4
+    i32 9, label %11
   ]
 
-4:                                                ; preds = %1
-  br label %13
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1
+  br label %6
 
 5:                                                ; preds = %1
-  br label %13
-
-6:                                                ; preds = %1
-  br label %13
-
-7:                                                ; preds = %1
-  br label %13
-
-8:                                                ; preds = %1
-  br label %13
-
-9:                                                ; preds = %1
-  br label %13
-
-10:                                               ; preds = %1
-  br label %13
-
-11:                                               ; preds = %1
-  br label %13
-
-12:                                               ; preds = %1
   tail call void @_ZN8nanobind6detail16fail_unspecifiedEv() #23
   unreachable
 
-13:                                               ; preds = %1, %11, %10, %9, %8, %7, %6, %5, %4
-  %.0.in = phi ptr [ @PyExc_AttributeError, %11 ], [ @PyExc_ImportError, %10 ], [ @PyExc_BufferError, %9 ], [ @PyExc_TypeError, %8 ], [ @PyExc_ValueError, %7 ], [ @PyExc_KeyError, %6 ], [ @PyExc_IndexError, %5 ], [ @PyExc_StopIteration, %4 ], [ @PyExc_RuntimeError, %1 ]
+6:                                                ; preds = %1, %4
+  %.0.in = phi ptr [ @PyExc_StopIteration, %4 ], [ @PyExc_RuntimeError, %1 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
-  %16 = load ptr, ptr %15, align 8
-  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
-  tail call void @PyErr_SetString(ptr noundef %.0, ptr noundef %17)
-  br label %18
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
+  tail call void @PyErr_SetString(ptr noundef %.0, ptr noundef %10)
+  br label %11
 
-18:                                               ; preds = %1, %13
-  %.04 = phi i1 [ true, %13 ], [ false, %1 ]
+11:                                               ; preds = %1, %6
+  %.04 = phi i1 [ true, %6 ], [ false, %1 ]
   ret i1 %.04
 }
 

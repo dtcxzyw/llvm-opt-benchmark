@@ -3390,24 +3390,21 @@ define internal noundef range(i32 -22, 1) i32 @e1000e_set_priv_flags(ptr nocaptu
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define internal noundef range(i32 -95, 54) i32 @e1000e_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #2 align 16 {
-  switch i32 %1, label %5 [
-    i32 0, label %6
+  switch i32 %1, label %4 [
+    i32 0, label %5
     i32 1, label %3
-    i32 2, label %4
+    i32 2, label %3
   ]
 
-3:                                                ; preds = %2
-  br label %6
+3:                                                ; preds = %2, %2
+  br label %5
 
 4:                                                ; preds = %2
-  br label %6
+  br label %5
 
-5:                                                ; preds = %2
-  br label %6
-
-6:                                                ; preds = %5, %4, %3, %2
-  %7 = phi i32 [ -95, %5 ], [ 1, %4 ], [ 53, %3 ], [ 5, %2 ]
-  ret i32 %7
+5:                                                ; preds = %4, %3, %2
+  %6 = phi i32 [ -95, %4 ], [ 53, %3 ], [ 5, %2 ]
+  ret i32 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

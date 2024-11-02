@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.66a6539f27352d43f7fd2b3acf5d02e1.0 = private unnamed_addr constant <{ [40 x i8] }> <{ [40 x i8] c"internal error: entered unreachable code" }>, align 1
 @anon.66a6539f27352d43f7fd2b3acf5d02e1.1 = private unnamed_addr constant <{ [30 x i8] }> <{ [30 x i8] c"cranelift/isle/isle/src/ast.rs" }>, align 1
 @anon.66a6539f27352d43f7fd2b3acf5d02e1.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.66a6539f27352d43f7fd2b3acf5d02e1.1, [16 x i8] c"\1E\00\00\00\00\00\00\00\F4\00\00\00*\00\00\00" }>, align 8
-@switch.table._ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE = private unnamed_addr constant [8 x i64] [i64 8, i64 8, i64 32, i64 8, i64 8, i64 8, i64 8, i64 16], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define align 8 ptr @_ZN14cranelift_isle3ast7Pattern9root_term17hf8a8368579107e70E(ptr readonly align 16 %0) unnamed_addr #0 {
@@ -548,22 +547,15 @@ default.unreachable69:                            ; preds = %4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #2 {
-switch.lookup:
-  %2 = load i64, ptr %1, align 16, !range !3, !noundef !4
-  %switch.gep = getelementptr inbounds [8 x i64], ptr @switch.table._ZN14cranelift_isle3ast7Pattern3pos17h626ba3966c53166bE, i64 0, i64 %2
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %3 = getelementptr inbounds i8, ptr %1, i64 %switch.load
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN14cranelift_isle3ast4Expr3pos17h2b71ba7499a60f7eE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #2 {
-  %3 = load i64, ptr %1, align 16, !range !8, !noundef !4
-  %switch = icmp eq i64 %3, 2
-  %spec.select = select i1 %switch, i64 32, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 %spec.select
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
 

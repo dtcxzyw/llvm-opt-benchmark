@@ -925,10 +925,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [7 x i8] c")\0A--\0A\0A\00", align 1
 @.str.24 = private unnamed_addr constant [11 x i8] c"($self, /)\00", align 1
 @.str.25 = private unnamed_addr constant [11 x i8] c"($type, /)\00", align 1
-@.str.26 = private unnamed_addr constant [3 x i8] c"()\00", align 1
-@.str.27 = private unnamed_addr constant [19 x i8] c"($self, object, /)\00", align 1
-@.str.28 = private unnamed_addr constant [19 x i8] c"($type, object, /)\00", align 1
-@.str.29 = private unnamed_addr constant [12 x i8] c"(object, /)\00", align 1
 @.str.30 = private unnamed_addr constant [27 x i8] c"Invalid type watcher ID %d\00", align 1
 @.str.31 = private unnamed_addr constant [30 x i8] c"No type watcher set for ID %d\00", align 1
 @.str.32 = private unnamed_addr constant [20 x i8] c"invalid slot offset\00", align 1
@@ -1327,7 +1323,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.383 = private unnamed_addr constant [34 x i8] c"super(): __class__ cell not found\00", align 1
 @.str.384 = private unnamed_addr constant [8 x i8] c"super()\00", align 1
 @.str.385 = private unnamed_addr constant [46 x i8] c"super() argument 1 must be a type, not %.200s\00", align 1
-@switch.table._PyType_GetTextSignatureFromInternalDoc = private unnamed_addr constant [10 x ptr] [ptr @.str.24, ptr @.str.27, ptr @.str.24, ptr @.str.24, ptr @.str.25, ptr @.str.28, ptr @.str.24, ptr @.str.24, ptr @.str.26, ptr @.str.29], align 8
+@switch.table._PyType_GetTextSignatureFromInternalDoc = private unnamed_addr constant [10 x ptr] [ptr @.str.24, ptr @.str.25, ptr @.str.24, ptr @.str.24, ptr @.str.25, ptr @.str.25, ptr @.str.24, ptr @.str.24, ptr @.str.25, ptr @.str.25], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden ptr @_PyStaticType_GetState(ptr noundef readnone %interp, ptr nocapture noundef readonly %self) local_unnamed_addr #0 {

@@ -141,7 +141,6 @@ module asm ".previous\09\09\09\09\09"
 @.str.57 = private unnamed_addr constant [19 x i8] c"DMA enable failed\0A\00", align 1
 @.str.58 = private unnamed_addr constant [4 x i8] c"IDE\00", align 1
 @.str.59 = private unnamed_addr constant [5 x i8] c"SATA\00", align 1
-@.str.60 = private unnamed_addr constant [5 x i8] c"RAID\00", align 1
 @.str.61 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @ahci_shost_groups = external dso_local global [0 x ptr], align 8
 @ahci_sdev_groups = external dso_local global [0 x ptr], align 8
@@ -1400,24 +1399,21 @@ define internal fastcc void @ahci_pci_print_info(ptr noundef nonnull %0) unnamed
   store i16 0, ptr %2, align 2, !annotation !5
   %6 = call i32 @pci_read_config_word(ptr noundef %5, i32 noundef 10, ptr noundef nonnull %2) #13
   %7 = load i16, ptr %2, align 2
-  switch i16 %7, label %10 [
-    i16 257, label %11
+  switch i16 %7, label %9 [
+    i16 257, label %10
     i16 262, label %8
-    i16 260, label %9
+    i16 260, label %8
   ]
 
-8:                                                ; preds = %1
-  br label %11
+8:                                                ; preds = %1, %1
+  br label %10
 
 9:                                                ; preds = %1
-  br label %11
+  br label %10
 
-10:                                               ; preds = %1
-  br label %11
-
-11:                                               ; preds = %10, %9, %8, %1
-  %12 = phi ptr [ @.str.59, %8 ], [ @.str.60, %9 ], [ @.str.61, %10 ], [ @.str.58, %1 ]
-  call void @ahci_print_info(ptr noundef nonnull %0, ptr noundef nonnull %12) #13
+10:                                               ; preds = %9, %8, %1
+  %11 = phi ptr [ @.str.59, %8 ], [ @.str.61, %9 ], [ @.str.58, %1 ]
+  call void @ahci_print_info(ptr noundef nonnull %0, ptr noundef nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #13
   ret void
 }

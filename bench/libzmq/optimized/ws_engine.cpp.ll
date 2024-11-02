@@ -1098,11 +1098,8 @@ if.else80:                                        ; preds = %sw.bb75
 sw.bb83:                                          ; preds = %while.body
   switch i8 %5, label %if.else93 [
     i8 32, label %sw.epilog470.sink.split
-    i8 49, label %if.then91
+    i8 49, label %sw.epilog470.sink.split
   ]
-
-if.then91:                                        ; preds = %sw.bb83
-  br label %sw.epilog470.sink.split
 
 if.else93:                                        ; preds = %sw.bb83
   store i32 -1, ptr %_client_handshake_state, align 8
@@ -1135,11 +1132,8 @@ if.else118:                                       ; preds = %sw.bb113
 sw.bb121:                                         ; preds = %while.body
   switch i8 %5, label %if.else131 [
     i8 32, label %sw.epilog470.sink.split
-    i8 83, label %if.then129
+    i8 83, label %sw.epilog470.sink.split
   ]
-
-if.then129:                                       ; preds = %sw.bb121
-  br label %sw.epilog470.sink.split
 
 if.else131:                                       ; preds = %sw.bb121
   store i32 -1, ptr %_client_handshake_state, align 8
@@ -1360,15 +1354,12 @@ sw.bb332:                                         ; preds = %while.body, %while.
   switch i8 %5, label %if.else347 [
     i8 10, label %if.then335
     i8 13, label %sw.epilog470.sink.split
-    i8 32, label %if.then345
+    i8 32, label %sw.epilog470.sink.split
   ]
 
 if.then335:                                       ; preds = %sw.bb332
   store i32 -1, ptr %_client_handshake_state, align 8
   br label %sw.epilog470.thread
-
-if.then345:                                       ; preds = %sw.bb332
-  br label %sw.epilog470.sink.split
 
 if.else347:                                       ; preds = %sw.bb332
   store i8 %5, ptr %_header_value362, align 8
@@ -1542,8 +1533,8 @@ sw.epilog470.thread:                              ; preds = %if.end464, %if.else
   store i64 %dec47468, ptr %_insize, align 8
   br label %if.then477
 
-sw.epilog470.sink.split:                          ; preds = %land.rhs.i.i53, %for.body.i.i58, %land.rhs.i.i, %for.body.i.i, %sw.bb434, %if.then370, %if.end403, %if.else395, %if.then380, %sw.bb332, %sw.bb295, %sw.bb287, %sw.bb279, %sw.bb271, %sw.bb263, %sw.bb255, %sw.bb247, %sw.bb239, %sw.bb231, %sw.bb223, %sw.bb215, %sw.bb207, %sw.bb199, %sw.bb191, %sw.bb183, %sw.bb175, %sw.bb167, %sw.bb159, %sw.bb151, %sw.bb143, %sw.bb135, %sw.bb121, %sw.bb113, %sw.bb105, %sw.bb97, %sw.bb83, %sw.bb75, %sw.bb67, %sw.bb59, %sw.bb51, %sw.bb43, %sw.bb35, %sw.bb27, %sw.bb19, %sw.bb, %if.then91, %if.then129, %sw.default, %if.then312, %if.else322, %if.else347, %if.then345, %if.else423
-  %.sink = phi i32 [ 38, %if.else423 ], [ 37, %if.then345 ], [ 38, %if.else347 ], [ 35, %if.else322 ], [ 36, %if.then312 ], [ 35, %sw.default ], [ 14, %if.then129 ], [ 10, %if.then91 ], [ 1, %sw.bb ], [ 2, %sw.bb19 ], [ 3, %sw.bb27 ], [ 4, %sw.bb35 ], [ 5, %sw.bb43 ], [ 6, %sw.bb51 ], [ 7, %sw.bb59 ], [ 8, %sw.bb67 ], [ 9, %sw.bb75 ], [ 9, %sw.bb83 ], [ 11, %sw.bb97 ], [ 12, %sw.bb105 ], [ 13, %sw.bb113 ], [ 13, %sw.bb121 ], [ 15, %sw.bb135 ], [ 16, %sw.bb143 ], [ 17, %sw.bb151 ], [ 18, %sw.bb159 ], [ 19, %sw.bb167 ], [ 20, %sw.bb175 ], [ 21, %sw.bb183 ], [ 22, %sw.bb191 ], [ 23, %sw.bb199 ], [ 24, %sw.bb207 ], [ 25, %sw.bb215 ], [ 26, %sw.bb223 ], [ 27, %sw.bb231 ], [ 28, %sw.bb239 ], [ 29, %sw.bb247 ], [ 30, %sw.bb255 ], [ 31, %sw.bb263 ], [ 32, %sw.bb271 ], [ 33, %sw.bb279 ], [ 34, %sw.bb287 ], [ 40, %sw.bb295 ], [ 39, %sw.bb332 ], [ 39, %if.then380 ], [ 39, %if.else395 ], [ 39, %if.end403 ], [ 39, %if.then370 ], [ 34, %sw.bb434 ], [ 39, %for.body.i.i ], [ 39, %land.rhs.i.i ], [ 39, %for.body.i.i58 ], [ 39, %land.rhs.i.i53 ]
+sw.epilog470.sink.split:                          ; preds = %land.rhs.i.i53, %for.body.i.i58, %land.rhs.i.i, %for.body.i.i, %sw.bb434, %if.then370, %if.end403, %if.else395, %if.then380, %sw.bb332, %sw.bb332, %sw.bb295, %sw.bb287, %sw.bb279, %sw.bb271, %sw.bb263, %sw.bb255, %sw.bb247, %sw.bb239, %sw.bb231, %sw.bb223, %sw.bb215, %sw.bb207, %sw.bb199, %sw.bb191, %sw.bb183, %sw.bb175, %sw.bb167, %sw.bb159, %sw.bb151, %sw.bb143, %sw.bb135, %sw.bb121, %sw.bb121, %sw.bb113, %sw.bb105, %sw.bb97, %sw.bb83, %sw.bb83, %sw.bb75, %sw.bb67, %sw.bb59, %sw.bb51, %sw.bb43, %sw.bb35, %sw.bb27, %sw.bb19, %sw.bb, %sw.default, %if.then312, %if.else322, %if.else347, %if.else423
+  %.sink = phi i32 [ 38, %if.else423 ], [ 38, %if.else347 ], [ 35, %if.else322 ], [ 36, %if.then312 ], [ 35, %sw.default ], [ 1, %sw.bb ], [ 2, %sw.bb19 ], [ 3, %sw.bb27 ], [ 4, %sw.bb35 ], [ 5, %sw.bb43 ], [ 6, %sw.bb51 ], [ 7, %sw.bb59 ], [ 8, %sw.bb67 ], [ 9, %sw.bb75 ], [ 9, %sw.bb83 ], [ 9, %sw.bb83 ], [ 11, %sw.bb97 ], [ 12, %sw.bb105 ], [ 13, %sw.bb113 ], [ 13, %sw.bb121 ], [ 13, %sw.bb121 ], [ 15, %sw.bb135 ], [ 16, %sw.bb143 ], [ 17, %sw.bb151 ], [ 18, %sw.bb159 ], [ 19, %sw.bb167 ], [ 20, %sw.bb175 ], [ 21, %sw.bb183 ], [ 22, %sw.bb191 ], [ 23, %sw.bb199 ], [ 24, %sw.bb207 ], [ 25, %sw.bb215 ], [ 26, %sw.bb223 ], [ 27, %sw.bb231 ], [ 28, %sw.bb239 ], [ 29, %sw.bb247 ], [ 30, %sw.bb255 ], [ 31, %sw.bb263 ], [ 32, %sw.bb271 ], [ 33, %sw.bb279 ], [ 34, %sw.bb287 ], [ 40, %sw.bb295 ], [ 39, %sw.bb332 ], [ 39, %sw.bb332 ], [ 39, %if.then380 ], [ 39, %if.else395 ], [ 39, %if.end403 ], [ 39, %if.then370 ], [ 34, %sw.bb434 ], [ 39, %for.body.i.i ], [ 39, %land.rhs.i.i ], [ 39, %for.body.i.i58 ], [ 39, %land.rhs.i.i53 ]
   store i32 %.sink, ptr %_client_handshake_state, align 8
   br label %sw.epilog470
 
@@ -1767,11 +1758,8 @@ sw.bb193:                                         ; preds = %while.body, %while.
   switch i8 %5, label %if.else208 [
     i8 10, label %sw.epilog373.thread
     i8 13, label %sw.epilog373.sink.split
-    i8 32, label %if.then206
+    i8 32, label %sw.epilog373.sink.split
   ]
-
-if.then206:                                       ; preds = %sw.bb193
-  br label %sw.epilog373.sink.split
 
 if.else208:                                       ; preds = %sw.bb193
   store i8 %5, ptr %_header_value223, align 8
@@ -1971,8 +1959,8 @@ sw.epilog373.thread:                              ; preds = %sw.bb319, %if.else3
   store i64 %dec37760, ptr %_insize, align 8
   br label %if.then380
 
-sw.epilog373.sink.split:                          ; preds = %if.end293, %land.rhs.i.i45, %for.body.i.i50, %land.rhs.i.i, %for.body.i.i, %if.end255, %sw.bb319, %if.then231, %if.else267, %if.then254, %if.then241, %if.then276, %sw.bb193, %sw.bb155, %sw.bb147, %sw.bb139, %sw.bb131, %sw.bb123, %sw.bb115, %sw.bb107, %sw.bb99, %sw.bb91, %sw.bb83, %sw.bb75, %sw.bb58, %sw.bb43, %sw.bb35, %sw.bb27, %sw.bb19, %sw.bb, %if.else71, %sw.default, %if.then173, %if.else183, %if.else208, %if.then206, %if.else308
-  %.sink = phi i32 [ 20, %if.else308 ], [ 19, %if.then206 ], [ 20, %if.else208 ], [ 17, %if.else183 ], [ 18, %if.then173 ], [ 17, %sw.default ], [ 5, %if.else71 ], [ 1, %sw.bb ], [ 2, %sw.bb19 ], [ 3, %sw.bb27 ], [ 4, %sw.bb35 ], [ %., %sw.bb43 ], [ 6, %sw.bb58 ], [ 7, %sw.bb75 ], [ 8, %sw.bb83 ], [ 9, %sw.bb91 ], [ 10, %sw.bb99 ], [ 11, %sw.bb107 ], [ 12, %sw.bb115 ], [ 13, %sw.bb123 ], [ 14, %sw.bb131 ], [ 15, %sw.bb139 ], [ 16, %sw.bb147 ], [ 22, %sw.bb155 ], [ 21, %sw.bb193 ], [ 21, %if.then276 ], [ 21, %if.then241 ], [ 21, %if.then254 ], [ 21, %if.else267 ], [ 21, %if.then231 ], [ 16, %sw.bb319 ], [ 21, %if.end255 ], [ 21, %for.body.i.i ], [ 21, %land.rhs.i.i ], [ 21, %for.body.i.i50 ], [ 21, %land.rhs.i.i45 ], [ 21, %if.end293 ]
+sw.epilog373.sink.split:                          ; preds = %if.end293, %land.rhs.i.i45, %for.body.i.i50, %land.rhs.i.i, %for.body.i.i, %if.end255, %sw.bb319, %if.then231, %if.else267, %if.then254, %if.then241, %if.then276, %sw.bb193, %sw.bb193, %sw.bb155, %sw.bb147, %sw.bb139, %sw.bb131, %sw.bb123, %sw.bb115, %sw.bb107, %sw.bb99, %sw.bb91, %sw.bb83, %sw.bb75, %sw.bb58, %sw.bb43, %sw.bb35, %sw.bb27, %sw.bb19, %sw.bb, %if.else71, %sw.default, %if.then173, %if.else183, %if.else208, %if.else308
+  %.sink = phi i32 [ 20, %if.else308 ], [ 20, %if.else208 ], [ 17, %if.else183 ], [ 18, %if.then173 ], [ 17, %sw.default ], [ 5, %if.else71 ], [ 1, %sw.bb ], [ 2, %sw.bb19 ], [ 3, %sw.bb27 ], [ 4, %sw.bb35 ], [ %., %sw.bb43 ], [ 6, %sw.bb58 ], [ 7, %sw.bb75 ], [ 8, %sw.bb83 ], [ 9, %sw.bb91 ], [ 10, %sw.bb99 ], [ 11, %sw.bb107 ], [ 12, %sw.bb115 ], [ 13, %sw.bb123 ], [ 14, %sw.bb131 ], [ 15, %sw.bb139 ], [ 16, %sw.bb147 ], [ 22, %sw.bb155 ], [ 21, %sw.bb193 ], [ 21, %sw.bb193 ], [ 21, %if.then276 ], [ 21, %if.then241 ], [ 21, %if.then254 ], [ 21, %if.else267 ], [ 21, %if.then231 ], [ 16, %sw.bb319 ], [ 21, %if.end255 ], [ 21, %for.body.i.i ], [ 21, %land.rhs.i.i ], [ 21, %for.body.i.i50 ], [ 21, %land.rhs.i.i45 ], [ 21, %if.end293 ]
   store i32 %.sink, ptr %_server_handshake_state, align 4
   br label %sw.epilog373
 

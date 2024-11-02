@@ -1889,8 +1889,8 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
   %43 = icmp eq ptr %.sroa.0.0.i15, null
   br i1 %43, label %.thread, label %.thread25
 
-44:                                               ; preds = %114, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit", %3, %119, %117, %96, %.thread25, %51
-  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %119 ], [ %1, %117 ], [ %113, %96 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %114 ]
+44:                                               ; preds = %114, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit", %3, %116, %96, %.thread25, %51
+  %.sroa.0.0 = phi i32 [ %54, %51 ], [ %73, %.thread25 ], [ %1, %116 ], [ %113, %96 ], [ %1, %3 ], [ %23, %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$11find_merged17hcac140a7a7ec195cE.exit" ], [ %2, %114 ]
   ret i32 %.sroa.0.0
 
 45:                                               ; preds = %"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3get17hef54d88c40d84d54E.exit18"
@@ -2013,21 +2013,12 @@ define hidden i32 @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$5merge17h6b98e2f1
 
 114:                                              ; preds = %93
   %115 = call i8 @"_ZN80_$LT$logos_codegen..leaf..Leaf$u20$as$u20$logos_codegen..graph..Disambiguate$GT$3cmp17hf7332b0b5d8bbf93E"(ptr nonnull align 8 %.sroa.0.0.i15, ptr nonnull align 8 %38)
-  switch i8 %115, label %116 [
-    i8 -1, label %44
-    i8 0, label %117
-    i8 1, label %119
-  ]
+  %switch = icmp eq i8 %115, 0
+  br i1 %switch, label %116, label %44
 
 116:                                              ; preds = %114
-  unreachable
-
-117:                                              ; preds = %114
-  %118 = getelementptr inbounds i8, ptr %0, i64 24
-  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5017cb94ec14b75E"(ptr nonnull align 8 %118, i32 %1, i32 %2)
-  br label %44
-
-119:                                              ; preds = %114
+  %117 = getelementptr inbounds i8, ptr %0, i64 24
+  call void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha5017cb94ec14b75E"(ptr nonnull align 8 %117, i32 %1, i32 %2)
   br label %44
 }
 

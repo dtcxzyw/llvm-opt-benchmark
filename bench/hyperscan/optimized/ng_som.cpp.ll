@@ -620,6 +620,7 @@ $_ZTSSt14default_deleteIN3ue28NGHolderEE = comdat any
 @_ZTSSt14default_deleteIN3ue28NGHolderEE = linkonce_odr hidden constant [36 x i8] c"St14default_deleteIN3ue28NGHolderEE\00", comdat, align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN5boost4noneE }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN5boost4noneE], section "llvm.metadata"
+@switch.table._ZN3ue2L25updatePrefixReportsRevNFAERNS_13ReportManagerERNS_8NGHolderEj = private unnamed_addr constant [3 x i32] [i32 5, i32 6, i32 6], align 4
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @__cxx_global_var_init.1() #0 section ".text.startup" comdat($_ZN5boost4noneE) personality ptr @__gxx_personality_v0 {
@@ -8083,8 +8084,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %sw
   br i1 %4, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %for.body
-  %switch.offset = add nuw nsw i32 %3, 3
-  store i32 %switch.offset, ptr %ir, align 8
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN3ue2L25updatePrefixReportsRevNFAERNS_13ReportManagerERNS_8NGHolderEj, i64 0, i64 %5
+  %switch.load = load i32, ptr %switch.gep, align 4
+  store i32 %switch.load, ptr %ir, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.body, %switch.lookup

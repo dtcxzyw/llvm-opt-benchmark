@@ -796,21 +796,18 @@ if.else:                                          ; preds = %for.body
   switch i16 %2, label %if.else38 [
     i16 10, label %if.end42.sink.split
     i16 2, label %if.then26
-    i16 1, label %if.then35
+    i16 1, label %if.end42.sink.split
   ]
 
 if.then26:                                        ; preds = %if.else
-  br label %if.end42.sink.split
-
-if.then35:                                        ; preds = %if.else
   br label %if.end42.sink.split
 
 if.else38:                                        ; preds = %if.else
   call void @abort() #12
   unreachable
 
-if.end42.sink.split:                              ; preds = %if.else, %if.then26, %if.then35
-  %.sink = phi i32 [ 110, %if.then35 ], [ 16, %if.then26 ], [ 28, %if.else ]
+if.end42.sink.split:                              ; preds = %if.else, %if.else, %if.then26
+  %.sink = phi i32 [ 16, %if.then26 ], [ 28, %if.else ], [ 28, %if.else ]
   %msg_namelen19 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store i32 %.sink, ptr %msg_namelen19, align 8
   br label %if.end42

@@ -20,6 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [5 x i8] c"yday\00", align 1
 @.str.12 = private unnamed_addr constant [6 x i8] c"isdst\00", align 1
 @.str.14 = private unnamed_addr constant [43 x i8] c"\05ctype\07numeric\04time\07collate\08monetary\01\FF\03all\00", align 1
+@switch.table.lj_cf_os_setlocale = private unnamed_addr constant [5 x i32] [i32 0, i32 1, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @luaopen_os(ptr noundef %L) local_unnamed_addr #0 {
@@ -542,10 +543,21 @@ define internal noundef i32 @lj_cf_os_setlocale(ptr noundef %L) #0 {
 entry:
   %call = tail call ptr @lj_lib_optstr(ptr noundef %L, i32 noundef 1) #12
   %call1 = tail call i32 @lj_lib_checkopt(ptr noundef %L, i32 noundef 2, i32 noundef 6, ptr noundef nonnull @.str.14) #12
+  %0 = icmp ult i32 %call1, 5
+  br i1 %0, label %switch.lookup, label %if.end20
+
+switch.lookup:                                    ; preds = %entry
+  %1 = zext nneg i32 %call1 to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table.lj_cf_os_setlocale, i64 0, i64 %1
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %if.end20
+
+if.end20:                                         ; preds = %entry, %switch.lookup
+  %opt.0 = phi i32 [ %switch.load, %switch.lookup ], [ %call1, %entry ]
   %tobool.not = icmp eq ptr %call, null
   %add.ptr = getelementptr inbounds i8, ptr %call, i64 24
   %cond = select i1 %tobool.not, ptr null, ptr %add.ptr
-  %call21 = tail call ptr @setlocale(i32 noundef %call1, ptr noundef %cond) #12
+  %call21 = tail call ptr @setlocale(i32 noundef %opt.0, ptr noundef %cond) #12
   tail call void @lua_pushstring(ptr noundef %L, ptr noundef %call21) #12
   ret i32 1
 }

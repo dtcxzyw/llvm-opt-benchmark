@@ -167,12 +167,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.133 = private unnamed_addr constant [40 x i8] c"_Alignas is not allowed in this context\00", align 1
 @ty_bool = external local_unnamed_addr global ptr, align 8
 @ty_char = external local_unnamed_addr global ptr, align 8
-@ty_uchar = external local_unnamed_addr global ptr, align 8
 @ty_short = external local_unnamed_addr global ptr, align 8
 @ty_ushort = external local_unnamed_addr global ptr, align 8
 @ty_uint = external local_unnamed_addr global ptr, align 8
-@ty_float = external local_unnamed_addr global ptr, align 8
-@ty_ldouble = external local_unnamed_addr global ptr, align 8
 @.str.134 = private unnamed_addr constant [13 x i8] c"invalid type\00", align 1
 @.str.135 = private unnamed_addr constant [14 x i8] c"__attribute__\00", align 1
 @.str.136 = private unnamed_addr constant [7 x i8] c"packed\00", align 1
@@ -1030,7 +1027,7 @@ if.end192:                                        ; preds = %if.then149, %if.the
     i32 4, label %sw.bb193
     i32 16, label %sw.bb194
     i32 131088, label %sw.bb194
-    i32 262160, label %sw.bb195
+    i32 262160, label %sw.bb193
     i32 64, label %sw.bb196
     i32 320, label %sw.bb196
     i32 131136, label %sw.bb196
@@ -1054,18 +1051,15 @@ if.end192:                                        ; preds = %if.then149, %if.the
     i32 263424, label %sw.bb201
     i32 264192, label %sw.bb201
     i32 264448, label %sw.bb201
-    i32 4096, label %sw.bb202
-    i32 16384, label %sw.bb203
-    i32 17408, label %sw.bb204
+    i32 4096, label %sw.bb193
+    i32 16384, label %sw.bb193
+    i32 17408, label %sw.bb193
   ]
 
-sw.bb193:                                         ; preds = %if.end192
+sw.bb193:                                         ; preds = %if.end192, %if.end192, %if.end192, %if.end192, %if.end192
   br label %sw.epilog
 
 sw.bb194:                                         ; preds = %if.end192, %if.end192
-  br label %sw.epilog
-
-sw.bb195:                                         ; preds = %if.end192
   br label %sw.epilog
 
 sw.bb196:                                         ; preds = %if.end192, %if.end192, %if.end192, %if.end192
@@ -1086,22 +1080,13 @@ sw.bb200:                                         ; preds = %if.end192, %if.end1
 sw.bb201:                                         ; preds = %if.end192, %if.end192, %if.end192, %if.end192
   br label %sw.epilog
 
-sw.bb202:                                         ; preds = %if.end192
-  br label %sw.epilog
-
-sw.bb203:                                         ; preds = %if.end192
-  br label %sw.epilog
-
-sw.bb204:                                         ; preds = %if.end192
-  br label %sw.epilog
-
 sw.default:                                       ; preds = %if.end192
   %74 = load ptr, ptr %tok.addr, align 8
   call void (ptr, ptr, ...) @error_tok(ptr noundef %74, ptr noundef nonnull @.str.134) #16
   unreachable
 
-sw.epilog:                                        ; preds = %if.end192, %sw.bb204, %sw.bb203, %sw.bb202, %sw.bb201, %sw.bb200, %sw.bb199, %sw.bb198, %sw.bb197, %sw.bb196, %sw.bb195, %sw.bb194, %sw.bb193
-  %ty.3.in = phi ptr [ @ty_ldouble, %sw.bb204 ], [ @ty_double, %sw.bb203 ], [ @ty_float, %sw.bb202 ], [ @ty_ulong, %sw.bb201 ], [ @ty_long, %sw.bb200 ], [ @ty_uint, %sw.bb199 ], [ @ty_int, %sw.bb198 ], [ @ty_ushort, %sw.bb197 ], [ @ty_short, %sw.bb196 ], [ @ty_uchar, %sw.bb195 ], [ @ty_char, %sw.bb194 ], [ @ty_bool, %sw.bb193 ], [ @ty_void, %if.end192 ]
+sw.epilog:                                        ; preds = %if.end192, %sw.bb201, %sw.bb200, %sw.bb199, %sw.bb198, %sw.bb197, %sw.bb196, %sw.bb194, %sw.bb193
+  %ty.3.in = phi ptr [ @ty_ulong, %sw.bb201 ], [ @ty_long, %sw.bb200 ], [ @ty_uint, %sw.bb199 ], [ @ty_int, %sw.bb198 ], [ @ty_ushort, %sw.bb197 ], [ @ty_short, %sw.bb196 ], [ @ty_char, %sw.bb194 ], [ @ty_bool, %sw.bb193 ], [ @ty_void, %if.end192 ]
   %ty.3 = load ptr, ptr %ty.3.in, align 8
   %75 = load ptr, ptr %tok.addr, align 8
   %next205 = getelementptr inbounds i8, ptr %75, i64 8

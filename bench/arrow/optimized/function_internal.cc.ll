@@ -7830,9 +7830,10 @@ for.body:                                         ; preds = %entry, %for.inc
   %__begin2.sroa.0.07 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %0, %entry ]
   %_M_index.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 16
   %2 = load i8, ptr %_M_index.i.i.i.i, align 8
-  %.off = add i8 %2, -1
-  %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %for.inc, label %if.then
+  %conv.i.i.i.i = zext i8 %2 to i64
+  %call.off.i.i.i = add nsw i64 %conv.i.i.i.i, -1
+  %switch.i.i.i = icmp ult i64 %call.off.i.i.i, 5
+  br i1 %switch.i.i.i, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
   call void @_ZNK5arrow5Datum8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.07)
@@ -7882,9 +7883,10 @@ for.body.i:                                       ; preds = %entry, %for.inc.i
   %__begin2.sroa.0.07.i = phi ptr [ %incdec.ptr.i.i, %for.inc.i ], [ %0, %entry ]
   %_M_index.i.i.i.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07.i, i64 16
   %2 = load i8, ptr %_M_index.i.i.i.i.i, align 8, !noalias !94
-  %.off.i = add i8 %2, -1
-  %switch.i = icmp ult i8 %.off.i, 3
-  br i1 %switch.i, label %for.inc.i, label %if.then.i
+  %conv.i.i.i.i.i = zext i8 %2 to i64
+  %call.off.i.i.i.i = add nsw i64 %conv.i.i.i.i.i, -1
+  %switch.i.i.i.i = icmp ult i64 %call.off.i.i.i.i, 5
+  br i1 %switch.i.i.i.i, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   call void @_ZNK5arrow5Datum8ToStringB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp.i, ptr noundef nonnull align 8 dereferenceable(24) %__begin2.sroa.0.07.i), !noalias !94

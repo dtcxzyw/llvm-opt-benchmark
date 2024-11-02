@@ -1601,25 +1601,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.405 = private unnamed_addr constant [11 x i8] c"tgt_is_src\00", align 1
 @.str.406 = private unnamed_addr constant [39 x i8] c"SELECT code FROM prime_meridian WHERE \00", align 1
 @.str.407 = private unnamed_addr constant [34 x i8] c"SELECT code FROM ellipsoid WHERE \00", align 1
-@.str.408 = private unnamed_addr constant [91 x i8] c"SELECT code FROM object_view WHERE table_name IN ('geodetic_datum', 'vertical_datum') AND \00", align 1
-@.str.409 = private unnamed_addr constant [39 x i8] c"SELECT code FROM geodetic_datum WHERE \00", align 1
-@.str.410 = private unnamed_addr constant [77 x i8] c"SELECT code FROM geodetic_datum WHERE frame_reference_epoch IS NOT NULL AND \00", align 1
-@.str.411 = private unnamed_addr constant [39 x i8] c"SELECT code FROM vertical_datum WHERE \00", align 1
-@.str.412 = private unnamed_addr constant [77 x i8] c"SELECT code FROM vertical_datum WHERE frame_reference_epoch IS NOT NULL AND \00", align 1
-@.str.413 = private unnamed_addr constant [33 x i8] c"SELECT code FROM crs_view WHERE \00", align 1
-@.str.414 = private unnamed_addr constant [37 x i8] c"SELECT code FROM geodetic_crs WHERE \00", align 1
-@.str.415 = private unnamed_addr constant [61 x i8] c"SELECT code FROM geodetic_crs WHERE type = 'geocentric' AND \00", align 1
-@.str.416 = private unnamed_addr constant [83 x i8] c"SELECT code FROM geodetic_crs WHERE type IN ('geographic 2D','geographic 3D') AND \00", align 1
-@.str.417 = private unnamed_addr constant [64 x i8] c"SELECT code FROM geodetic_crs WHERE type = 'geographic 2D' AND \00", align 1
-@.str.418 = private unnamed_addr constant [64 x i8] c"SELECT code FROM geodetic_crs WHERE type = 'geographic 3D' AND \00", align 1
-@.str.419 = private unnamed_addr constant [37 x i8] c"SELECT code FROM vertical_crs WHERE \00", align 1
-@.str.420 = private unnamed_addr constant [38 x i8] c"SELECT code FROM projected_crs WHERE \00", align 1
-@.str.421 = private unnamed_addr constant [37 x i8] c"SELECT code FROM compound_crs WHERE \00", align 1
-@.str.422 = private unnamed_addr constant [66 x i8] c"SELECT code FROM coordinate_operation_with_conversion_view WHERE \00", align 1
-@.str.423 = private unnamed_addr constant [35 x i8] c"SELECT code FROM conversion WHERE \00", align 1
-@.str.424 = private unnamed_addr constant [93 x i8] c"SELECT code FROM coordinate_operation_view WHERE table_name != 'concatenated_operation' AND \00", align 1
-@.str.425 = private unnamed_addr constant [47 x i8] c"SELECT code FROM concatenated_operation WHERE \00", align 1
-@.str.426 = private unnamed_addr constant [113 x i8] c"SELECT code FROM object_view WHERE table_name IN ('geodetic_datum', 'vertical_datum') AND type = 'ensemble' AND \00", align 1
 @.str.427 = private unnamed_addr constant [14 x i8] c"auth_name = ?\00", align 1
 @.str.428 = private unnamed_addr constant [20 x i8] c" AND deprecated = 0\00", align 1
 @.str.429 = private unnamed_addr constant [94 x i8] c"SELECT name, table_name FROM object_view WHERE auth_name = ? AND code = ? ORDER BY table_name\00", align 1
@@ -1841,8 +1822,8 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTIN5osgeo4proj2cs11SphericalCSE = external constant ptr
 @.str.584 = private unnamed_addr constant [29 x i8] c"vector<bool>::_M_fill_insert\00", align 1
 @_ZTIN5osgeo4proj9operation20PointMotionOperationE = external constant ptr
-@switch.table._ZN5osgeo4proj2io15DatabaseContext7Private16identifyOrInsertERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEERKNS0_6common13UnitOfMeasureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSL_SO_RSt6vectorISL_SaISL_EE = private unnamed_addr constant [4 x ptr] [ptr @.str.223, ptr @.str.222, ptr @.str.224, ptr @.str.225], align 8
-@switch.table._ZNK5osgeo4proj2io16AuthorityFactory17getAuthorityCodesB5cxx11ERKNS2_10ObjectTypeEb = private unnamed_addr constant [21 x ptr] [ptr @.str.406, ptr @.str.407, ptr @.str.408, ptr @.str.409, ptr @.str.411, ptr @.str.413, ptr @.str.414, ptr @.str.415, ptr @.str.416, ptr @.str.417, ptr @.str.418, ptr @.str.420, ptr @.str.419, ptr @.str.421, ptr @.str.422, ptr @.str.423, ptr @.str.424, ptr @.str.425, ptr @.str.410, ptr @.str.412, ptr @.str.426], align 8
+@switch.table._ZN5osgeo4proj2io15DatabaseContext7Private16identifyOrInsertERKN7dropbox6oxygen2nnISt10shared_ptrIS2_EEERKNS0_6common13UnitOfMeasureERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSL_SO_RSt6vectorISL_SaISL_EE = private unnamed_addr constant [4 x ptr] [ptr @.str.223, ptr @.str.222, ptr @.str.223, ptr @.str.223], align 8
+@switch.table._ZNK5osgeo4proj2io16AuthorityFactory17getAuthorityCodesB5cxx11ERKNS2_10ObjectTypeEb = private unnamed_addr constant [21 x ptr] [ptr @.str.406, ptr @.str.407, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406, ptr @.str.406], align 8
 
 @_ZN5osgeo4proj5lru1111KeyNotFoundD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5osgeo4proj5lru1111KeyNotFoundD2Ev
 @_ZN5osgeo4proj2io12SQLiteHandleD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5osgeo4proj2io12SQLiteHandleD2Ev

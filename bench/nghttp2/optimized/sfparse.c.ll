@@ -31,7 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [17 x i8] c"'?' == *sfp->pos\00", align 1
 @__PRETTY_FUNCTION__.parser_boolean = private unnamed_addr constant [44 x i8] c"int parser_boolean(sf_parser *, sf_value *)\00", align 1
 @__PRETTY_FUNCTION__.parser_skip_inner_list = private unnamed_addr constant [40 x i8] c"int parser_skip_inner_list(sf_parser *)\00", align 1
-@switch.table.parser_number = private unnamed_addr constant [3 x i64] [i64 10, i64 100, i64 1000], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2, 1) i32 @sf_parser_param(ptr nocapture noundef %sfp, ptr noundef %dest_key, ptr noundef %dest_value) local_unnamed_addr #0 {
@@ -1624,18 +1623,13 @@ if.then78:                                        ; preds = %if.end76
   %mul82 = mul nsw i64 %value.1.lcssa, %sign.0
   %7 = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 %mul82, ptr %7, align 8
-  %switch.tableidx = add nsw i64 %sub72, -1
-  %8 = icmp ult i64 %switch.tableidx, 3
-  br i1 %8, label %switch.lookup, label %return
+  %sub72.off = add nsw i64 %sub72, -1
+  %switch107 = icmp ult i64 %sub72.off, 3
+  br i1 %switch107, label %return.sink.split, label %return
 
-switch.lookup:                                    ; preds = %if.then78
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.parser_number, i64 0, i64 %switch.tableidx
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %switch.lookup, %if.then34
-  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %switch.lookup ]
-  %.sink = phi i64 [ %mul36, %if.then34 ], [ %switch.load, %switch.lookup ]
+return.sink.split:                                ; preds = %if.then78, %if.then34
+  %.sink106 = phi i64 [ 8, %if.then34 ], [ 16, %if.then78 ]
+  %.sink = phi i64 [ %mul36, %if.then34 ], [ 10, %if.then78 ]
   %denom88 = getelementptr inbounds i8, ptr %dest, i64 %.sink106
   store i64 %.sink, ptr %denom88, align 8
   br label %return

@@ -1206,42 +1206,30 @@ declare void @PaPulseAudio_UnLock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
-  switch i64 %0, label %8 [
+  switch i64 %0, label %4 [
     i64 1, label %.sink.split
     i64 2, label %3
-    i64 4, label %4
-    i64 8, label %5
-    i64 16, label %6
-    i64 32, label %7
-    i64 65536, label %9
-    i64 2147483648, label %9
+    i64 4, label %3
+    i64 8, label %3
+    i64 16, label %3
+    i64 32, label %3
+    i64 65536, label %5
+    i64 2147483648, label %5
   ]
 
-3:                                                ; preds = %2
+3:                                                ; preds = %2, %2, %2, %2, %2
   br label %.sink.split
 
-4:                                                ; preds = %2
-  br label %.sink.split
-
-5:                                                ; preds = %2
-  br label %.sink.split
-
-6:                                                ; preds = %2
-  br label %.sink.split
-
-7:                                                ; preds = %2
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %2, %3, %4, %5, %6, %7
-  %.sink = phi i32 [ 0, %7 ], [ 0, %6 ], [ 3, %5 ], [ 9, %4 ], [ 7, %3 ], [ 5, %2 ]
+.sink.split:                                      ; preds = %2, %3
+  %.sink = phi i32 [ 7, %3 ], [ 5, %2 ]
   store i32 %.sink, ptr %1, align 4
-  br label %8
+  br label %4
 
-8:                                                ; preds = %.sink.split, %2
-  br label %9
+4:                                                ; preds = %.sink.split, %2
+  br label %5
 
-9:                                                ; preds = %2, %2, %8
-  %.0 = phi i32 [ 0, %8 ], [ -9994, %2 ], [ -9994, %2 ]
+5:                                                ; preds = %2, %2, %4
+  %.0 = phi i32 [ 0, %4 ], [ -9994, %2 ], [ -9994, %2 ]
   ret i32 %.0
 }
 

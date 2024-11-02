@@ -153,7 +153,6 @@ $_ZTI13b3OpenCLArrayI9b3Vector3E = comdat any
 @.str.1 = private unnamed_addr constant [53 x i8] c"src/Bullet3OpenCL/BroadphaseCollision/kernels/sap.cl\00", align 1
 @.str.2 = private unnamed_addr constant [29 x i8] c"computePairsKernelBruteForce\00", align 1
 @.str.3 = private unnamed_addr constant [27 x i8] c"computePairsKernelOriginal\00", align 1
-@.str.4 = private unnamed_addr constant [26 x i8] c"computePairsKernelBarrier\00", align 1
 @.str.5 = private unnamed_addr constant [36 x i8] c"computePairsKernelLocalSharedMemory\00", align 1
 @.str.6 = private unnamed_addr constant [17 x i8] c"b3Error[%s,%d]:\0A\00", align 1
 @.str.7 = private unnamed_addr constant [154 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/bullet3/bullet3/src/Bullet3OpenCL/BroadphaseCollision/b3GpuSapBroadphase.cpp\00", align 1
@@ -650,8 +649,8 @@ invoke.cont86:                                    ; preds = %invoke.cont80
     i32 1, label %sw.epilog
     i32 2, label %sw.bb106.invoke
     i32 3, label %sw.bb94
-    i32 4, label %sw.bb100
-    i32 5, label %sw.bb106
+    i32 4, label %sw.bb94
+    i32 5, label %sw.bb94
   ]
 
 lpad78:                                           ; preds = %sw.bb106.invoke, %invoke.cont133, %invoke.cont129, %invoke.cont125, %invoke.cont121, %sw.epilog, %sw.default, %invoke.cont75, %invoke.cont137, %invoke.cont117, %invoke.cont114, %invoke.cont79
@@ -665,17 +664,11 @@ lpad85:                                           ; preds = %invoke.cont80
   call void @_ZdlPv(ptr noundef nonnull %call81) #19
   br label %ehcleanup
 
-sw.bb94:                                          ; preds = %invoke.cont86
+sw.bb94:                                          ; preds = %invoke.cont86, %invoke.cont86, %invoke.cont86
   br label %sw.bb106.invoke
 
-sw.bb100:                                         ; preds = %invoke.cont86
-  br label %sw.bb106.invoke
-
-sw.bb106:                                         ; preds = %invoke.cont86
-  br label %sw.bb106.invoke
-
-sw.bb106.invoke:                                  ; preds = %invoke.cont86, %sw.bb94, %sw.bb100, %sw.bb106
-  %7 = phi ptr [ @.str.5, %sw.bb106 ], [ @.str.4, %sw.bb100 ], [ @.str.3, %sw.bb94 ], [ @.str.2, %invoke.cont86 ]
+sw.bb106.invoke:                                  ; preds = %invoke.cont86, %sw.bb94
+  %7 = phi ptr [ @.str.3, %sw.bb94 ], [ @.str.2, %invoke.cont86 ]
   %8 = load ptr, ptr %m_context, align 8
   %9 = load ptr, ptr %m_device, align 8
   %10 = invoke noundef ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.42, ptr noundef nonnull %7, ptr noundef nonnull %errNum, ptr noundef %call.i245, ptr noundef nonnull @.str)

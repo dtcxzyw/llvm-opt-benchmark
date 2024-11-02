@@ -183,12 +183,6 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructISt19istrea
 @.str.100 = private unnamed_addr constant [22 x i8] c"Invalid json member \22\00", align 1
 @.str.101 = private unnamed_addr constant [2 x i8] c".\00", align 1
 @.str.102 = private unnamed_addr constant [8 x i8] c"integer\00", align 1
-@.str.103 = private unnamed_addr constant [17 x i8] c"unsigned integer\00", align 1
-@.str.104 = private unnamed_addr constant [6 x i8] c"float\00", align 1
-@.str.105 = private unnamed_addr constant [13 x i8] c"UTF-8 string\00", align 1
-@.str.106 = private unnamed_addr constant [8 x i8] c"boolean\00", align 1
-@.str.107 = private unnamed_addr constant [6 x i8] c"array\00", align 1
-@.str.108 = private unnamed_addr constant [7 x i8] c"object\00", align 1
 @.str.109 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @.str.110 = private unnamed_addr constant [24 x i8] c"basic_string::_M_create\00", align 1
 @.str.111 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
@@ -199,7 +193,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructISt19istrea
 @.str.116 = private unnamed_addr constant [38 x i8] c"Failed to open config file to dump: \22\00", align 1
 @.str.117 = private unnamed_addr constant [2 x i8] c"\22\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_import2ozz_config.cc, ptr null }]
-@switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1 = private unnamed_addr constant [8 x ptr] [ptr @.str.44, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108], align 8
+@switch.table._ZN3ozz9animation7offline12_GLOBAL__N_114RecursiveCheckERKN4Json5ValueES6_NSt7__cxx1112basic_stringIcSt11char_traitsIcENS_12StdAllocatorIcEEEE.1 = private unnamed_addr constant [8 x ptr] [ptr @.str.44, ptr @.str.102, ptr @.str.102, ptr @.str.102, ptr @.str.102, ptr @.str.102, ptr @.str.102, ptr @.str.102], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

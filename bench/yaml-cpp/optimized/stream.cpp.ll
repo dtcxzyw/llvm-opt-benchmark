@@ -28,7 +28,7 @@ $_ZNSt5dequeIcSaIcEE17_M_reallocate_mapEmb = comdat any
 @_ZZNK4YAML6Stream13StreamInUtf32EvE7indexes = internal unnamed_addr constant [2 x [4 x i32]] [[4 x i32] [i32 3, i32 2, i32 1, i32 0], [4 x i32] [i32 0, i32 1, i32 2, i32 3]], align 16
 @.str = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_stream.cpp, ptr null }]
-@switch.table._ZN4YAML6StreamC2ERSi = private unnamed_addr constant [8 x i32] [i32 4, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1, i32 3], align 4
+@switch.table._ZN4YAML6StreamC2ERSi = private unnamed_addr constant [8 x i32] [i32 1, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1, i32 1], align 4
 
 @_ZN4YAML6StreamC1ERSi = unnamed_addr alias void (ptr, ptr), ptr @_ZN4YAML6StreamC2ERSi
 @_ZN4YAML6StreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4YAML6StreamD2Ev
@@ -122,27 +122,12 @@ invoke.cont4:                                     ; preds = %for.body
   switch i32 %call5, label %sw.epilog.i [
     i32 -1, label %_ZN4YAML15IntroCharTypeOfEi.exit
     i32 0, label %return.fold.split.i
-    i32 187, label %sw.bb1.i
-    i32 191, label %sw.bb2.i
-    i32 239, label %sw.bb3.i
-    i32 254, label %sw.bb4.i
-    i32 255, label %sw.bb5.i
+    i32 187, label %return.fold.split.i
+    i32 191, label %return.fold.split.i
+    i32 239, label %return.fold.split.i
+    i32 254, label %return.fold.split.i
+    i32 255, label %return.fold.split.i
   ]
-
-sw.bb1.i:                                         ; preds = %invoke.cont4
-  br label %_ZN4YAML15IntroCharTypeOfEi.exit
-
-sw.bb2.i:                                         ; preds = %invoke.cont4
-  br label %_ZN4YAML15IntroCharTypeOfEi.exit
-
-sw.bb3.i:                                         ; preds = %invoke.cont4
-  br label %_ZN4YAML15IntroCharTypeOfEi.exit
-
-sw.bb4.i:                                         ; preds = %invoke.cont4
-  br label %_ZN4YAML15IntroCharTypeOfEi.exit
-
-sw.bb5.i:                                         ; preds = %invoke.cont4
-  br label %_ZN4YAML15IntroCharTypeOfEi.exit
 
 sw.epilog.i:                                      ; preds = %invoke.cont4
   %1 = add i32 %call5, -1
@@ -150,11 +135,11 @@ sw.epilog.i:                                      ; preds = %invoke.cont4
   %..i = select i1 %or.cond.i, i64 6, i64 7
   br label %_ZN4YAML15IntroCharTypeOfEi.exit
 
-return.fold.split.i:                              ; preds = %invoke.cont4
+return.fold.split.i:                              ; preds = %invoke.cont4, %invoke.cont4, %invoke.cont4, %invoke.cont4, %invoke.cont4, %invoke.cont4
   br label %_ZN4YAML15IntroCharTypeOfEi.exit
 
-_ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %invoke.cont4, %sw.bb1.i, %sw.bb2.i, %sw.bb3.i, %sw.bb4.i, %sw.bb5.i, %sw.epilog.i, %return.fold.split.i
-  %retval.0.i = phi i64 [ 5, %sw.bb5.i ], [ 4, %sw.bb4.i ], [ 3, %sw.bb3.i ], [ 2, %sw.bb2.i ], [ 1, %sw.bb1.i ], [ 7, %invoke.cont4 ], [ %..i, %sw.epilog.i ], [ 0, %return.fold.split.i ]
+_ZN4YAML15IntroCharTypeOfEi.exit:                 ; preds = %invoke.cont4, %sw.epilog.i, %return.fold.split.i
+  %retval.0.i = phi i64 [ 7, %invoke.cont4 ], [ %..i, %sw.epilog.i ], [ 0, %return.fold.split.i ]
   %arrayidx13 = getelementptr inbounds [18 x [8 x i32]], ptr @_ZN4YAMLL18s_introTransitionsE, i64 0, i64 %idxprom27, i64 %retval.0.i
   %2 = load i32, ptr %arrayidx13, align 4
   %arrayidx17 = getelementptr inbounds [18 x [8 x i8]], ptr @_ZN4YAMLL17s_introUngetCountE, i64 0, i64 %idxprom27, i64 %retval.0.i

@@ -19,8 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.19f31fb185552d6b4fbe871626c80743.18 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.19f31fb185552d6b4fbe871626c80743.14, [8 x i8] c"\08\00\00\00\00\00\00\00", ptr @anon.19f31fb185552d6b4fbe871626c80743.16, [8 x i8] c"\09\00\00\00\00\00\00\00" }>, align 8
 @anon.19f31fb185552d6b4fbe871626c80743.19 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"DescribeHistory" }>, align 1
 @anon.19f31fb185552d6b4fbe871626c80743.20 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"DescribeDetails" }>, align 1
-@anon.19f31fb185552d6b4fbe871626c80743.21 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"DescribeFiles" }>, align 1
-@anon.19f31fb185552d6b4fbe871626c80743.22 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"Vacuum" }>, align 1
 @anon.19f31fb185552d6b4fbe871626c80743.23 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"not yet implemented" }>, align 1
 @anon.19f31fb185552d6b4fbe871626c80743.24 = private unnamed_addr constant <{ [30 x i8] }> <{ [30 x i8] c"crates/sql/src/logical_plan.rs" }>, align 1
 @anon.19f31fb185552d6b4fbe871626c80743.25 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.19f31fb185552d6b4fbe871626c80743.24, [16 x i8] c"\1E\00\00\00\00\00\00\00L\00\00\00\12\00\00\00" }>, align 8
@@ -32,8 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.19f31fb185552d6b4fbe871626c80743.31 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.19f31fb185552d6b4fbe871626c80743.30, [8 x i8] c"\17\00\00\00\00\00\00\00" }>, align 8
 @anon.19f31fb185552d6b4fbe871626c80743.32 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.19f31fb185552d6b4fbe871626c80743.24, [16 x i8] c"\1E\00\00\00\00\00\00\00_\00\00\00\11\00\00\00" }>, align 8
 @anon.19f31fb185552d6b4fbe871626c80743.33 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.19f31fb185552d6b4fbe871626c80743.24, [16 x i8] c"\1E\00\00\00\00\00\00\00c\00\00\00\12\00\00\00" }>, align 8
-@"switch.table._ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE" = private unnamed_addr constant [4 x i64] [i64 15, i64 15, i64 13, i64 6], align 8
-@"switch.table._ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE.4" = private unnamed_addr constant [4 x ptr] [ptr @anon.19f31fb185552d6b4fbe871626c80743.19, ptr @anon.19f31fb185552d6b4fbe871626c80743.20, ptr @anon.19f31fb185552d6b4fbe871626c80743.21, ptr @anon.19f31fb185552d6b4fbe871626c80743.22], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h8e3a8afe9226553fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -750,15 +746,12 @@ default.unreachable15:                            ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #3 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !137, !noundef !5
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE", i64 0, i64 %1
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep2 = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$4name17hcd0de12190b4d27bE.4", i64 0, i64 %1
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %2 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %switch.load, 1
-  ret { ptr, i64 } %3
+  %2 = load i64, ptr %0, align 8, !range !137, !noundef !5
+  %switch = icmp eq i64 %2, 0
+  %anon.19f31fb185552d6b4fbe871626c80743.19.anon.19f31fb185552d6b4fbe871626c80743.20 = select i1 %switch, ptr @anon.19f31fb185552d6b4fbe871626c80743.19, ptr @anon.19f31fb185552d6b4fbe871626c80743.20
+  %3 = insertvalue { ptr, i64 } poison, ptr %anon.19f31fb185552d6b4fbe871626c80743.19.anon.19f31fb185552d6b4fbe871626c80743.20, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 15, 1
+  ret { ptr, i64 } %4
 }
 
 ; Function Attrs: nonlazybind uwtable

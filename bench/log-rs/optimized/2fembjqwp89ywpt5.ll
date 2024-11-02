@@ -28,6 +28,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598 = hidden constant <{}> zeroinitializer, align 8
 @_ZN3log5STATE17ha079c5667def49c9E = hidden global <{ [8 x i8] }> zeroinitializer, align 8
 @_ZN3log6LOGGER17h7df7beb1b06e255dE = hidden local_unnamed_addr global <{ ptr, ptr }> <{ ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598, ptr @anon.da3fca9e6d1d8035af543c408d9d567e.23.llvm.778753998846166598 }>, align 8
+@"switch.table._ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb53c621411b862c2E" = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 2, i64 2, i64 2, i64 2], align 8
+@switch.table._ZN3log5Level10from_usize17h61e8a9f6cf6140e3E = private unnamed_addr constant [5 x i64] [i64 1, i64 2, i64 2, i64 2, i64 2], align 8
+@switch.table._ZN3log11LevelFilter10from_usize17he24ba9de421af765E = private unnamed_addr constant [6 x i64] [i64 0, i64 1, i64 1, i64 1, i64 1, i64 1], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden void @"_ZN4core3ptr35drop_in_place$LT$log..NopLogger$GT$17h317bc9a510e85879E.llvm.778753998846166598"(ptr noalias nocapture nonnull readnone align 1 %0) unnamed_addr #0 {
@@ -64,7 +67,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h317b95d2c790a928E
   store ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da3fca9e6d1d8035af543c408d9d567e.9) #15
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da3fca9e6d1d8035af543c408d9d567e.9) #14
   unreachable
 
 13:                                               ; preds = %2
@@ -82,7 +85,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h317b95d2c790a928E
   store ptr @_ZN3log6logger3NOP17he6d7cdcfa0245171E.llvm.778753998846166598, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da3fca9e6d1d8035af543c408d9d567e.12) #15
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da3fca9e6d1d8035af543c408d9d567e.12) #14
   unreachable
 
 20:                                               ; preds = %2
@@ -95,7 +98,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h317b95d2c790a928E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb53c621411b862c2E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define noundef range(i64 0, 3) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb53c621411b862c2E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
 .lr.ph.i:
   %2 = alloca { i64, { i64, i64 } }, align 8
   %3 = alloca { i64, { i64, i64 } }, align 8
@@ -170,10 +173,12 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit": ; preds = %19
   %33 = icmp samesign ult i64 %.015.i, 6
   call void @llvm.assume(i1 %33)
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @"switch.table._ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hb53c621411b862c2E", i64 0, i64 %.015.i
+  %switch.load = load i64, ptr %switch.gep, align 8
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit": ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit"
-  %.0.i = phi i64 [ %.015.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit" ], [ 0, %.loopexit.i ]
+  %.0.i = phi i64 [ %switch.load, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit" ], [ 0, %.loopexit.i ]
   ret i64 %.0.i
 }
 
@@ -190,12 +195,19 @@ define noundef zeroext i1 @"_ZN49_$LT$log..Level$u20$as$u20$core..fmt..Display$G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef range(i64 0, 6) i64 @_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E(i64 noundef %0) unnamed_addr #3 {
-switch.lookup:
+define noundef range(i64 0, 3) i64 @_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E(i64 noundef %0) unnamed_addr #3 {
   %switch.tableidx = add i64 %0, -1
-  %1 = icmp ult i64 %switch.tableidx, 5
-  %spec.select = select i1 %1, i64 %0, i64 0
-  ret i64 %spec.select
+  %2 = icmp ult i64 %switch.tableidx, 5
+  br i1 %2, label %switch.lookup, label %3
+
+switch.lookup:                                    ; preds = %1
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN3log5Level10from_usize17h61e8a9f6cf6140e3E, i64 0, i64 %switch.tableidx
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %3
+
+3:                                                ; preds = %switch.lookup, %1
+  %.0 = phi i64 [ 0, %1 ], [ %switch.load, %switch.lookup ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -264,7 +276,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
 19:                                               ; preds = %21, %12
   %20 = phi i64 [ %22, %21 ], [ 0, %12 ]
   %exitcond.not.i.i.i = icmp eq i64 %20, %16
-  br i1 %exitcond.not.i.i.i, label %switch.lookup, label %21
+  br i1 %exitcond.not.i.i.i, label %33, label %21
 
 21:                                               ; preds = %19
   %22 = add i64 %20, 1
@@ -288,13 +300,15 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   %32 = icmp eq i64 %.add, 96
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread", label %9
 
-switch.lookup:                                    ; preds = %19
-  %33 = icmp samesign ult i64 %.015.i, 6
-  call void @llvm.assume(i1 %33)
+33:                                               ; preds = %19
+  %34 = icmp samesign ult i64 %.015.i, 6
+  call void @llvm.assume(i1 %34)
+  %switch = icmp ne i64 %.015.i, 0
+  %spec.select = zext i1 %switch to i64
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %switch.lookup
-  %.07 = phi i64 [ %.015.i, %switch.lookup ], [ 6, %.loopexit.i ]
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %33
+  %.07 = phi i64 [ %spec.select, %33 ], [ 6, %.loopexit.i ]
   ret i64 %.07
 }
 
@@ -312,9 +326,17 @@ define noundef zeroext i1 @"_ZN55_$LT$log..LevelFilter$u20$as$u20$core..fmt..Dis
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i64 0, 7) i64 @_ZN3log11LevelFilter10from_usize17he24ba9de421af765E(i64 noundef %0) unnamed_addr #3 {
-switch.lookup:
-  %spec.select = tail call i64 @llvm.umin.i64(i64 %0, i64 6)
-  ret i64 %spec.select
+  %2 = icmp ult i64 %0, 6
+  br i1 %2, label %switch.lookup, label %3
+
+switch.lookup:                                    ; preds = %1
+  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN3log11LevelFilter10from_usize17he24ba9de421af765E, i64 0, i64 %0
+  %switch.load = load i64, ptr %switch.gep, align 8
+  br label %3
+
+3:                                                ; preds = %switch.lookup, %1
+  %.0 = phi i64 [ 6, %1 ], [ %switch.load, %switch.lookup ]
+  ret i64 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -441,7 +463,7 @@ define noundef zeroext i1 @_ZN3log15set_logger_racy17h9db570fc5d439206E(ptr noun
   store ptr %3, ptr %10, align 8, !alias.scope !67, !noalias !70
   %11 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 0, ptr %11, align 8, !alias.scope !67, !noalias !70
-  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da3fca9e6d1d8035af543c408d9d567e.39) #15
+  call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.da3fca9e6d1d8035af543c408d9d567e.39) #14
   unreachable
 
 12:                                               ; preds = %2, %6
@@ -519,9 +541,6 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #14
-
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -536,8 +555,7 @@ attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn mem
 attributes #11 = { nounwind }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { noreturn }
+attributes #14 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

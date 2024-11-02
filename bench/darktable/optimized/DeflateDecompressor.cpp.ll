@@ -46,39 +46,36 @@ define hidden void @_ZN8rawspeed19DeflateDecompressorC2ENS_6BufferENS_8RawImageE
   store ptr null, ptr %3, align 8, !tbaa !14
   %12 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %5, ptr %12, align 4, !tbaa !16
-  switch i32 %4, label %15 [
-    i32 3, label %19
+  switch i32 %4, label %14 [
+    i32 3, label %18
     i32 34894, label %13
-    i32 34895, label %14
+    i32 34895, label %13
   ]
 
-13:                                               ; preds = %6
-  br label %19
+13:                                               ; preds = %6, %6
+  br label %18
 
 14:                                               ; preds = %6
-  br label %19
-
-15:                                               ; preds = %6
   invoke void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed19DeflateDecompressorC2ENS_6BufferENS_8RawImageEii, i32 noundef %4) #12
-          to label %16 unwind label %17
+          to label %15 unwind label %16
 
-16:                                               ; preds = %15
+15:                                               ; preds = %14
   unreachable
 
-17:                                               ; preds = %15
-  %18 = landingpad { ptr, i32 }
+16:                                               ; preds = %14
+  %17 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN8rawspeed8RawImageD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #15
-  resume { ptr, i32 } %18
+  resume { ptr, i32 } %17
 
-19:                                               ; preds = %14, %13, %6
-  %20 = phi i32 [ 4, %14 ], [ 2, %13 ], [ 1, %6 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = load ptr, ptr %8, align 8, !tbaa !14
-  %23 = getelementptr inbounds i8, ptr %22, i64 584
-  %24 = load i32, ptr %23, align 8, !tbaa !21
-  %25 = mul i32 %24, %20
-  store i32 %25, ptr %21, align 8, !tbaa !82
+18:                                               ; preds = %13, %6
+  %19 = phi i32 [ 2, %13 ], [ 1, %6 ]
+  %20 = getelementptr inbounds i8, ptr %0, i64 32
+  %21 = load ptr, ptr %8, align 8, !tbaa !14
+  %22 = getelementptr inbounds i8, ptr %21, i64 584
+  %23 = load i32, ptr %22, align 8, !tbaa !21
+  %24 = mul i32 %23, %19
+  store i32 %24, ptr %20, align 8, !tbaa !82
   ret void
 }
 

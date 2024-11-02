@@ -79,7 +79,6 @@ $_ZTV13BaseException = comdat any
 @.str.4 = private unnamed_addr constant [9 x i8] c"tostring\00", align 1
 @.str.5 = private unnamed_addr constant [8 x i8] c"Runtime\00", align 1
 @.str.6 = private unnamed_addr constant [4 x i8] c"OOM\00", align 1
-@.str.7 = private unnamed_addr constant [13 x i8] c"Double fault\00", align 1
 @.str.8 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @.str.9 = private unnamed_addr constant [3 x i8] c"??\00", align 1
 @.str.10 = private unnamed_addr constant [17 x i8] c"<no description>\00", align 1
@@ -469,23 +468,20 @@ entry:
     i32 0, label %if.then
     i32 2, label %sw.epilog
     i32 4, label %sw.bb1
-    i32 5, label %sw.bb2
+    i32 5, label %sw.bb1
   ]
 
 if.then:                                          ; preds = %entry
   ret void
 
-sw.bb1:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb2:                                           ; preds = %entry
+sw.bb1:                                           ; preds = %entry, %entry
   br label %sw.epilog
 
 sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.default, %sw.bb2, %sw.bb1, %entry
-  %err_type.0 = phi ptr [ @.str.8, %sw.default ], [ @.str.7, %sw.bb2 ], [ @.str.6, %sw.bb1 ], [ @.str.5, %entry ]
+sw.epilog:                                        ; preds = %sw.default, %sw.bb1, %entry
+  %err_type.0 = phi ptr [ @.str.8, %sw.default ], [ @.str.6, %sw.bb1 ], [ @.str.5, %entry ]
   %tobool.not = icmp eq ptr %mod, null
   %spec.store.select = select i1 %tobool.not, ptr @.str.9, ptr %mod
   %tobool5.not = icmp eq ptr %fxn, null

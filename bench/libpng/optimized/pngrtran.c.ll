@@ -28,6 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [44 x i8] c"invalid before the PNG header has been read\00", align 1
 @.str.21 = private unnamed_addr constant [12 x i8] c"gamma value\00", align 1
 @.str.22 = private unnamed_addr constant [37 x i8] c"png_do_encode_alpha: unexpected call\00", align 1
+@switch.table.png_set_rgb_to_gray_fixed = private unnamed_addr constant [3 x i32] [i32 6291456, i32 4194304, i32 4194304], align 4
 
 ; Function Attrs: nounwind uwtable
 define void @png_set_crc_action(ptr noalias noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -1772,11 +1773,12 @@ define void @png_set_rgb_to_gray_fixed(ptr noalias noundef %0, i32 noundef %1, i
   unreachable
 
 switch.lookup:                                    ; preds = %16
-  %20 = shl nuw nsw i32 %switch.tableidx, 21
-  %switch.offset = sub nuw nsw i32 6291456, %20
+  %20 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.png_set_rgb_to_gray_fixed, i64 0, i64 %20
+  %switch.load = load i32, ptr %switch.gep, align 4
   %21 = getelementptr inbounds i8, ptr %0, i64 308
   %22 = load i32, ptr %21, align 4
-  %23 = or i32 %22, %switch.offset
+  %23 = or i32 %22, %switch.load
   store i32 %23, ptr %21, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 615
   %25 = load i8, ptr %24, align 1

@@ -38,11 +38,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.990a21868e8154f5393011229cd9bf7f.69 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"location" }>, align 1
 @anon.990a21868e8154f5393011229cd9bf7f.70 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"RootedSubGlob" }>, align 1
 @anon.990a21868e8154f5393011229cd9bf7f.71 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"SingularTree" }>, align 1
-@anon.990a21868e8154f5393011229cd9bf7f.72 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"SingularZeroOrMore" }>, align 1
-@anon.990a21868e8154f5393011229cd9bf7f.73 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"AdjacentBoundary" }>, align 1
-@anon.990a21868e8154f5393011229cd9bf7f.74 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"AdjacentZeroOrMore" }>, align 1
-@anon.990a21868e8154f5393011229cd9bf7f.75 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"OversizedInvariant" }>, align 1
-@anon.990a21868e8154f5393011229cd9bf7f.76 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"IncompatibleBounds" }>, align 1
 @anon.990a21868e8154f5393011229cd9bf7f.77 = private unnamed_addr constant <{ [24 x i8], ptr }> <{ [24 x i8] c"\00\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @_RNvXsP_NtCs1LoaDTb72WA_4core3fmtRINtNtCs68wO5nsWeTG_5alloc3vec3VecNtNtNtCseG2FYMysgNb_3wax5token5parse10ErrorEntryENtB5_5Debug3fmtB18_ }>, align 8
 @anon.990a21868e8154f5393011229cd9bf7f.78 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"ParseError" }>, align 1
 @anon.990a21868e8154f5393011229cd9bf7f.79 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"locations" }>, align 1
@@ -68,8 +63,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0e79314673efe63acf1941008ad64698.1.llvm.967386030157129537 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @anon.00247c9f33c00b0b46b5ade0a9a40b3b.124.llvm.16596560796952818888 = external hidden unnamed_addr constant <{ [31 x i8] }>, align 1
 @anon.9dc01d71e80089f67d178e33a3d6238c.35.llvm.5393772610634076635 = external hidden unnamed_addr constant <{ ptr, [8 x i8] }>, align 8
-@switch.table._RNvXsw_NtCseG2FYMysgNb_3wax4ruleNtB5_13RuleErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt = private unnamed_addr constant [7 x i64] [i64 13, i64 12, i64 18, i64 16, i64 18, i64 18, i64 18], align 8
-@switch.table._RNvXsw_NtCseG2FYMysgNb_3wax4ruleNtB5_13RuleErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.45 = private unnamed_addr constant [7 x ptr] [ptr @anon.990a21868e8154f5393011229cd9bf7f.70, ptr @anon.990a21868e8154f5393011229cd9bf7f.71, ptr @anon.990a21868e8154f5393011229cd9bf7f.72, ptr @anon.990a21868e8154f5393011229cd9bf7f.73, ptr @anon.990a21868e8154f5393011229cd9bf7f.74, ptr @anon.990a21868e8154f5393011229cd9bf7f.75, ptr @anon.990a21868e8154f5393011229cd9bf7f.76], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtB4_6result6ResultTINtCs4DJqE8qduBp_4pori8StatefulINtB16_7LocatedeENtNtNtCseG2FYMysgNb_3wax5token5parse11ParserStateEcEINtNtCsaPKTPzkFU9s_3nom8internal3ErrINtNtB2K_5error12VerboseErrorB13_EEEEB1V_(ptr noalias noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -5284,16 +5277,12 @@ define hidden noundef zeroext i1 @_RNvXss_NtCseG2FYMysgNb_3wax4ruleNtB5_9RuleErr
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @_RNvXsw_NtCseG2FYMysgNb_3wax4ruleNtB5_13RuleErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !889, !noundef !5
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [7 x i64], ptr @switch.table._RNvXsw_NtCseG2FYMysgNb_3wax4ruleNtB5_13RuleErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt, i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [7 x ptr], ptr @switch.table._RNvXsw_NtCseG2FYMysgNb_3wax4ruleNtB5_13RuleErrorKindNtNtCs1LoaDTb72WA_4core3fmt5Debug3fmt.45, i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load i8, ptr %0, align 1, !range !889, !noundef !5
+  %switch = icmp eq i8 %3, 0
+  %. = select i1 %switch, i64 13, i64 12
+  %anon.990a21868e8154f5393011229cd9bf7f.70.anon.990a21868e8154f5393011229cd9bf7f.71 = select i1 %switch, ptr @anon.990a21868e8154f5393011229cd9bf7f.70, ptr @anon.990a21868e8154f5393011229cd9bf7f.71
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hdb8bda1f756875eeE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.990a21868e8154f5393011229cd9bf7f.70.anon.990a21868e8154f5393011229cd9bf7f.71, i64 noundef %.)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -534,17 +534,6 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__g
 @_ZN19OpenColorIO_v2_4dev13METADATA_NAMEE = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [4 x i8] c"CDL\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"Exponent\00", align 1
-@.str.3 = private unnamed_addr constant [17 x i8] c"ExposureContrast\00", align 1
-@.str.4 = private unnamed_addr constant [14 x i8] c"FixedFunction\00", align 1
-@.str.5 = private unnamed_addr constant [6 x i8] c"Gamma\00", align 1
-@.str.6 = private unnamed_addr constant [15 x i8] c"GradingPrimary\00", align 1
-@.str.7 = private unnamed_addr constant [16 x i8] c"GradingRGBCurve\00", align 1
-@.str.8 = private unnamed_addr constant [12 x i8] c"GradingTone\00", align 1
-@.str.9 = private unnamed_addr constant [4 x i8] c"Log\00", align 1
-@.str.10 = private unnamed_addr constant [6 x i8] c"LUT1D\00", align 1
-@.str.11 = private unnamed_addr constant [6 x i8] c"LUT3D\00", align 1
-@.str.12 = private unnamed_addr constant [7 x i8] c"Matrix\00", align 1
-@.str.13 = private unnamed_addr constant [6 x i8] c"Range\00", align 1
 @.str.14 = private unnamed_addr constant [20 x i8] c"Unexpected op type.\00", align 1
 @.str.15 = private unnamed_addr constant [5 x i8] c"Op: \00", align 1
 @.str.16 = private unnamed_addr constant [22 x i8] c" cannot be combined. \00", align 1
@@ -674,8 +663,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__g
 @_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev11RangeOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVN19OpenColorIO_v2_4dev11RangeOpDataE = external unnamed_addr constant { [13 x ptr] }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Op.cpp, ptr null }]
-@switch.table._ZN19OpenColorIO_v2_4dev11GetTypeNameENS_6OpData4TypeE = private unnamed_addr constant [13 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13], align 8
-@switch.table._ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE = private unnamed_addr constant [3 x ptr] [ptr @.str.33, ptr @.str.34, ptr @.str.5], align 8
+@switch.table._ZN19OpenColorIO_v2_4dev11GetTypeNameENS_6OpData4TypeE = private unnamed_addr constant [13 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2], align 8
 
 @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2Ev
 @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC1ERKS0_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19OpenColorIO_v2_4dev10OpRcPtrVecC2ERKS0_
@@ -9657,14 +9645,13 @@ if.end8.sink.split.i.i.i.i35:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 if.else:                                          ; preds = %if.then
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os)
-  %34 = zext nneg i32 %type to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123ValidateDynamicPropertyINS_25DynamicPropertyDoubleImplEEEvSt10shared_ptrINS_2OpEERS3_IT_ENS_19DynamicPropertyTypeE, i64 0, i64 %34
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %switch.load)
+  %switch = icmp eq i32 %type, 1
+  %spec.select = select i1 %switch, ptr @.str.34, ptr @.str.33
+  %34 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull %spec.select)
           to label %sw.epilog unwind label %lpad
 
 lpad:                                             ; preds = %if.else, %invoke.cont24, %sw.epilog
-  %36 = landingpad { ptr, i32 }
+  %35 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -9686,13 +9673,13 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   br label %if.end30
 
 lpad28:                                           ; preds = %invoke.cont27
-  %37 = landingpad { ptr, i32 }
+  %36 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp26) #24
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad28, %lpad
-  %.pn = phi { ptr, i32 } [ %37, %lpad28 ], [ %36, %lpad ]
+  %.pn = phi { ptr, i32 } [ %36, %lpad28 ], [ %35, %lpad ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %os) #24
   resume { ptr, i32 } %.pn
 

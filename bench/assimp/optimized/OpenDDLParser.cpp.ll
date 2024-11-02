@@ -76,8 +76,6 @@ $_ZTISt5_BindIFPFvP8_IO_FILEN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stri
 @.str = private unnamed_addr constant [5 x i8] c"none\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"debug\00", align 1
 @.str.2 = private unnamed_addr constant [5 x i8] c"info\00", align 1
-@.str.3 = private unnamed_addr constant [5 x i8] c"warn\00", align 1
-@.str.4 = private unnamed_addr constant [6 x i8] c"error\00", align 1
 @.str.5 = private unnamed_addr constant [25 x i8] c"OpenDDLParser: (%5s) %s\0A\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.6 = private unnamed_addr constant [5 x i8] c"root\00", align 1
@@ -126,7 +124,7 @@ $_ZTISt5_BindIFPFvP8_IO_FILEN10ODDLParser11LogSeverityERKNSt7__cxx1112basic_stri
 @.str.42 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.43 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_OpenDDLParser.cpp, ptr null }]
-@switch.table._ZN10ODDLParser13OpenDDLParser11logToStreamEP8_IO_FILENS_11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = private unnamed_addr constant [4 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4], align 8
+@switch.table._ZN10ODDLParser13OpenDDLParser11logToStreamEP8_IO_FILENS_11LogSeverityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = private unnamed_addr constant [4 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.2, ptr @.str.2], align 8
 
 @_ZN10ODDLParser13OpenDDLParserC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10ODDLParser13OpenDDLParserC2Ev
 @_ZN10ODDLParser13OpenDDLParserC1EPKcm = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN10ODDLParser13OpenDDLParserC2EPKcm

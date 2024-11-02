@@ -8,29 +8,26 @@ define range(i32 -138, 1) i32 @nxsem_set_protocol(ptr noundef %0, i32 noundef %1
   %3 = and i32 %1, 3
   switch i32 %3, label %default.unreachable4 [
     i32 0, label %4
-    i32 1, label %6
-    i32 2, label %9
-    i32 3, label %5
+    i32 1, label %5
+    i32 2, label %8
+    i32 3, label %8
   ]
 
 4:                                                ; preds = %2
   tail call void @nxsem_destroyholder(ptr noundef %0) #2
-  br label %6
+  br label %5
 
 default.unreachable4:                             ; preds = %2
   unreachable
 
-5:                                                ; preds = %2
-  br label %9
+5:                                                ; preds = %2, %4
+  %6 = trunc i32 %1 to i8
+  %7 = getelementptr inbounds i8, ptr %0, i64 2
+  store i8 %6, ptr %7, align 2
+  br label %8
 
-6:                                                ; preds = %2, %4
-  %7 = trunc i32 %1 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 2
-  store i8 %7, ptr %8, align 2
-  br label %9
-
-9:                                                ; preds = %2, %6, %5
-  %.0 = phi i32 [ -22, %5 ], [ 0, %6 ], [ -138, %2 ]
+8:                                                ; preds = %2, %2, %5
+  %.0 = phi i32 [ 0, %5 ], [ -138, %2 ], [ -138, %2 ]
   ret i32 %.0
 }
 

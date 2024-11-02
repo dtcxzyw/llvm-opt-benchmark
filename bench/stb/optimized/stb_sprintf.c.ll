@@ -346,30 +346,21 @@ for.cond49:                                       ; preds = %schk1, %for.cond49.
   switch i8 %16, label %flags_done [
     i8 45, label %sw.bb
     i8 43, label %for.cond49.backedge
-    i8 32, label %sw.bb56
-    i8 35, label %sw.bb59
-    i8 39, label %sw.bb62
+    i8 32, label %sw.bb
+    i8 35, label %sw.bb
+    i8 39, label %sw.bb
     i8 36, label %sw.bb65
-    i8 95, label %sw.bb79
+    i8 95, label %sw.bb
     i8 48, label %sw.bb82
   ]
 
-sw.bb:                                            ; preds = %for.cond49
+sw.bb:                                            ; preds = %for.cond49, %for.cond49, %for.cond49, %for.cond49, %for.cond49
   br label %for.cond49.backedge
 
-for.cond49.backedge:                              ; preds = %sw.bb65, %if.then68, %for.cond49, %sw.bb, %sw.bb56, %sw.bb59, %sw.bb62, %sw.bb79
-  %.sink = phi i32 [ 1, %sw.bb ], [ 4, %sw.bb56 ], [ 8, %sw.bb59 ], [ 64, %sw.bb62 ], [ 1024, %sw.bb79 ], [ 2, %for.cond49 ], [ %., %if.then68 ], [ 256, %sw.bb65 ]
+for.cond49.backedge:                              ; preds = %sw.bb65, %if.then68, %for.cond49, %sw.bb
+  %.sink = phi i32 [ 1, %sw.bb ], [ 2, %for.cond49 ], [ %., %if.then68 ], [ 256, %sw.bb65 ]
   %or76 = or i32 %fl.0, %.sink
   br label %for.cond49
-
-sw.bb56:                                          ; preds = %for.cond49
-  br label %for.cond49.backedge
-
-sw.bb59:                                          ; preds = %for.cond49
-  br label %for.cond49.backedge
-
-sw.bb62:                                          ; preds = %for.cond49
-  br label %for.cond49.backedge
 
 sw.bb65:                                          ; preds = %for.cond49
   %and66 = and i32 %fl.0, 256
@@ -379,9 +370,6 @@ sw.bb65:                                          ; preds = %for.cond49
 if.then68:                                        ; preds = %sw.bb65
   %and69 = and i32 %fl.0, 2048
   %. = add nuw nsw i32 %and69, 2048
-  br label %for.cond49.backedge
-
-sw.bb79:                                          ; preds = %for.cond49
   br label %for.cond49.backedge
 
 sw.bb82:                                          ; preds = %for.cond49

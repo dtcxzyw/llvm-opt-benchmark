@@ -1462,10 +1462,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceI12srmcfg_csr_tSaIvELN9__gnu_cxx12_Lock_policyE2
 @_ZTI6trap_t = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS6trap_t }, comdat, align 8
 @.str.13 = private unnamed_addr constant [2 x i8] c"D\00", align 1
 @.str.14 = private unnamed_addr constant [3 x i8] c"VU\00", align 1
-@.str.15 = private unnamed_addr constant [3 x i8] c"VS\00", align 1
 @.str.16 = private unnamed_addr constant [2 x i8] c"U\00", align 1
-@.str.17 = private unnamed_addr constant [2 x i8] c"S\00", align 1
-@.str.18 = private unnamed_addr constant [2 x i8] c"M\00", align 1
 @.str.19 = private unnamed_addr constant [22 x i8] c"Invalid prv=%lx v=%x\0A\00", align 1
 @.str.20 = private unnamed_addr constant [6 x i8] c"core \00", align 1
 @.str.21 = private unnamed_addr constant [13 x i8] c": exception \00", align 1
@@ -183488,7 +183485,7 @@ define noundef nonnull ptr @_ZN11processor_t20get_privilege_stringEv(ptr nocaptu
   %2 = getelementptr inbounds i8, ptr %0, i64 2248
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
-  br i1 %4, label %21, label %5
+  br i1 %4, label %18, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds i8, ptr %0, i64 962
@@ -183496,40 +183493,29 @@ define noundef nonnull ptr @_ZN11processor_t20get_privilege_stringEv(ptr nocaptu
   %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds i8, ptr %0, i64 944
   %10 = load i64, ptr %9, align 8
-  br i1 %8, label %11, label %13
+  br i1 %8, label %11, label %12
 
 11:                                               ; preds = %5
-  switch i64 %10, label %16 [
-    i64 0, label %21
-    i64 1, label %12
+  %switch = icmp ult i64 %10, 2
+  br i1 %switch, label %18, label %13
+
+12:                                               ; preds = %5
+  switch i64 %10, label %13 [
+    i64 0, label %18
+    i64 1, label %18
+    i64 3, label %18
   ]
 
-12:                                               ; preds = %11
-  br label %21
-
-13:                                               ; preds = %5
-  switch i64 %10, label %16 [
-    i64 0, label %21
-    i64 1, label %14
-    i64 3, label %15
-  ]
-
-14:                                               ; preds = %13
-  br label %21
-
-15:                                               ; preds = %13
-  br label %21
-
-16:                                               ; preds = %13, %11
-  %17 = load ptr, ptr @stderr, align 8
-  %18 = and i8 %7, 1
-  %19 = zext nneg i8 %18 to i32
-  %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.19, i64 noundef %10, i32 noundef %19) #42
+13:                                               ; preds = %11, %12
+  %14 = load ptr, ptr @stderr, align 8
+  %15 = and i8 %7, 1
+  %16 = zext nneg i8 %15 to i32
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.19, i64 noundef %10, i32 noundef %16) #42
   tail call void @abort() #39
   unreachable
 
-21:                                               ; preds = %13, %11, %1, %15, %14, %12
-  %.0 = phi ptr [ @.str.15, %12 ], [ @.str.18, %15 ], [ @.str.17, %14 ], [ @.str.13, %1 ], [ @.str.14, %11 ], [ @.str.16, %13 ]
+18:                                               ; preds = %12, %12, %12, %11, %1
+  %.0 = phi ptr [ @.str.13, %1 ], [ @.str.14, %11 ], [ @.str.16, %12 ], [ @.str.16, %12 ], [ @.str.16, %12 ]
   ret ptr %.0
 }
 

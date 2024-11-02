@@ -28,6 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.282e2e7c46ac4708fb019700c78d9e7f.26.llvm.9080322772985218481 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.282e2e7c46ac4708fb019700c78d9e7f.25.llvm.9080322772985218481, [16 x i8] c"\0A\00\00\00\00\00\00\00\E7\01\00\00/\00\00\00" }>, align 8
 @_ZN3log6LOGGER17h7df7beb1b06e255dE = external hidden local_unnamed_addr global { ptr, ptr }
 @_ZN3log5STATE17ha079c5667def49c9E = external hidden global <{ [8 x i8] }>, align 8
+@"switch.table._ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481" = private unnamed_addr constant [5 x i64] [i64 1, i64 2, i64 2, i64 2, i64 2], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h4672dfc61bc561f1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 {
@@ -37,17 +38,19 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i64 1, 6) i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd7b7b3d844ff0f1dE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef returned %1) unnamed_addr #1 {
-  %.off.i = add i64 %1, -1
-  %switch.i = icmp ult i64 %.off.i, 5
-  br i1 %switch.i, label %"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481.exit", label %_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit.i
+define hidden noundef range(i64 1, 3) i64 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hd7b7b3d844ff0f1dE"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef %1) unnamed_addr #1 {
+  %switch.tableidx = add i64 %1, -1
+  %3 = icmp ult i64 %switch.tableidx, 5
+  br i1 %3, label %switch.lookup, label %_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit.i
 
 _ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit.i: ; preds = %2
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.282e2e7c46ac4708fb019700c78d9e7f.24.llvm.9080322772985218481, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.282e2e7c46ac4708fb019700c78d9e7f.26.llvm.9080322772985218481) #10
   unreachable
 
-"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481.exit": ; preds = %2
-  ret i64 %1
+switch.lookup:                                    ; preds = %2
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481", i64 0, i64 %switch.tableidx
+  %switch.load = load i64, ptr %switch.gep, align 8
+  ret i64 %switch.load
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -336,17 +339,19 @@ define hidden noundef zeroext i1 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..tr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef range(i64 1, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef returned %1) unnamed_addr #2 {
-  %.off = add i64 %1, -1
-  %switch = icmp ult i64 %.off, 5
-  br i1 %switch, label %3, label %_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit
+define hidden noundef range(i64 1, 3) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481"(ptr noalias nocapture noundef nonnull readnone align 1 %0, i64 noundef %1) unnamed_addr #2 {
+  %switch.tableidx = add i64 %1, -1
+  %3 = icmp ult i64 %switch.tableidx, 5
+  br i1 %3, label %switch.lookup, label %_ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit
 
 _ZN3log5Level10from_usize17h61e8a9f6cf6140e3E.exit: ; preds = %2
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.282e2e7c46ac4708fb019700c78d9e7f.24.llvm.9080322772985218481, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.282e2e7c46ac4708fb019700c78d9e7f.26.llvm.9080322772985218481) #10
   unreachable
 
-3:                                                ; preds = %2
-  ret i64 %1
+switch.lookup:                                    ; preds = %2
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN57_$LT$log..Level$u20$as$u20$core..str..traits..FromStr$GT$8from_str28_$u7b$$u7b$closure$u7d$$u7d$17h98cde93a8f923f49E.llvm.9080322772985218481", i64 0, i64 %switch.tableidx
+  %switch.load = load i64, ptr %switch.gep, align 8
+  ret i64 %switch.load
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

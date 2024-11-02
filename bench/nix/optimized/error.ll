@@ -546,12 +546,6 @@ $_ZTSN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEE5No_OpE = comda
 @.str.14 = private unnamed_addr constant [31 x i8] c" duplicate frames omitted)\1B[0m\00", align 1
 @.str.15 = private unnamed_addr constant [13 x i8] c"\1B[31;1merror\00", align 1
 @.str.16 = private unnamed_addr constant [12 x i8] c"\1B[31;1mnote\00", align 1
-@.str.17 = private unnamed_addr constant [15 x i8] c"\1B[35;1mwarning\00", align 1
-@.str.18 = private unnamed_addr constant [12 x i8] c"\1B[32;1minfo\00", align 1
-@.str.19 = private unnamed_addr constant [12 x i8] c"\1B[32;1mtalk\00", align 1
-@.str.20 = private unnamed_addr constant [12 x i8] c"\1B[32;1mchat\00", align 1
-@.str.21 = private unnamed_addr constant [13 x i8] c"\1B[32;1mvomit\00", align 1
-@.str.22 = private unnamed_addr constant [13 x i8] c"\1B[35;1mdebug\00", align 1
 @.str.24 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.25 = private unnamed_addr constant [7 x i8] c":\1B[0m \00", align 1
 @.str.26 = private unnamed_addr constant [3 x i8] c"  \00", align 1
@@ -632,8 +626,8 @@ $_ZTSN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEE5No_OpE = comda
 @.str.55 = private unnamed_addr constant [8 x i8] c"\1B[35;1m\00", align 1
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init, ptr @_ZN5boost4noneE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_error.cc, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN5boost4noneE], section "llvm.metadata"
-@switch.table._ZN3nix13showErrorInfoERSoRKNS_9ErrorInfoEb = private unnamed_addr constant [8 x ptr] [ptr @.str.15, ptr @.str.17, ptr @.str.16, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.22, ptr @.str.21], align 8
-@switch.table._ZN3nix13showErrorInfoERSoRKNS_9ErrorInfoEb.2 = private unnamed_addr constant [8 x i64] [i64 12, i64 14, i64 11, i64 11, i64 11, i64 11, i64 12, i64 12], align 8
+@switch.table._ZN3nix13showErrorInfoERSoRKNS_9ErrorInfoEb = private unnamed_addr constant [8 x ptr] [ptr @.str.15, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16], align 8
+@switch.table._ZN3nix13showErrorInfoERSoRKNS_9ErrorInfoEb.2 = private unnamed_addr constant [8 x i64] [i64 12, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11, i64 11], align 8
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @__cxx_global_var_init() #0 section ".text.startup" comdat($_ZN5boost4noneE) personality ptr @__gxx_personality_v0 {

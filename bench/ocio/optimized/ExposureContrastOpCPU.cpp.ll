@@ -99,6 +99,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTSN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererE = internal constant [64 x i8] c"N19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererE\00", align 1
 @_ZTIN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererE, ptr @_ZTIN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseE }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ExposureContrastOpCPU.cpp, ptr null }]
+@switch.table._ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBase18hasDynamicPropertyENS_19DynamicPropertyTypeE = private unnamed_addr constant [3 x i64] [i64 8, i64 24, i64 24], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -1480,14 +1481,14 @@ entry:
   br i1 %0, label %switch.lookup, label %sw.epilog
 
 switch.lookup:                                    ; preds = %entry
-  %1 = shl nuw nsw i32 %type, 4
-  %2 = or disjoint i32 %1, 8
-  %switch.offset = zext nneg i32 %2 to i64
-  %m_gamma = getelementptr inbounds i8, ptr %this, i64 %switch.offset
-  %3 = load ptr, ptr %m_gamma, align 8
-  %m_isDynamic.i3 = getelementptr inbounds i8, ptr %3, i64 12
-  %4 = load i8, ptr %m_isDynamic.i3, align 4
-  %tobool.i4 = trunc i8 %4 to i1
+  %1 = zext nneg i32 %type to i64
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table._ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBase18hasDynamicPropertyENS_19DynamicPropertyTypeE, i64 0, i64 %1
+  %switch.load = load i64, ptr %switch.gep, align 8
+  %m_gamma = getelementptr inbounds i8, ptr %this, i64 %switch.load
+  %2 = load ptr, ptr %m_gamma, align 8
+  %m_isDynamic.i3 = getelementptr inbounds i8, ptr %2, i64 12
+  %3 = load i8, ptr %m_isDynamic.i3, align 4
+  %tobool.i4 = trunc i8 %3 to i1
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %switch.lookup

@@ -16,7 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"@\00", align 1
 @.str.3 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.4 = private unnamed_addr constant [3 x i8] c", \00", align 1
-@switch.table._ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE = private unnamed_addr constant [9 x i8] c"\01\04\01\02\04\01\04\04\08", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden { i64, i8 } @_ZN6hermes4inst15getInstMetaDataENS0_6OpCodeE(i8 noundef zeroext %opCode) local_unnamed_addr #0 {
@@ -65,12 +64,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext range(i8 1, 9) i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %type) local_unnamed_addr #0 {
+define hidden noundef zeroext range(i8 1, 5) i8 @_ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE(i8 noundef zeroext %type) local_unnamed_addr #0 {
 entry:
-  %0 = sext i8 %type to i64
-  %switch.gep = getelementptr inbounds [9 x i8], ptr @switch.table._ZN6hermes4inst14getOperandSizeENS0_11OperandTypeE, i64 0, i64 %0
-  %switch.load = load i8, ptr %switch.gep, align 1
-  ret i8 %switch.load
+  %switch = icmp eq i8 %type, 0
+  %. = select i1 %switch, i8 1, i8 4
+  ret i8 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable

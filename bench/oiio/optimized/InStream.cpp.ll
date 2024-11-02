@@ -14,6 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTSN6cineon8InStreamE = hidden constant [19 x i8] c"N6cineon8InStreamE\00", align 1
 @_ZTIN6cineon8InStreamE = hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6cineon8InStreamE }, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_InStream.cpp, ptr null }]
+@switch.table._ZN6cineon8InStream4SeekElNS0_6OriginE = private unnamed_addr constant [3 x i32] [i32 2, i32 1, i32 2], align 4
 
 @_ZN6cineon8InStreamC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6cineon8InStreamC2Ev
 @_ZN6cineon8InStreamD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6cineon8InStreamD2Ev
@@ -134,22 +135,29 @@ declare void @rewind(ptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef zeroext i1 @_ZN6cineon8InStream4SeekElNS0_6OriginE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %offset, i32 noundef %origin) unnamed_addr #8 align 2 {
 entry:
+  %0 = icmp ult i32 %origin, 3
+  br i1 %0, label %switch.lookup, label %sw.epilog
+
+switch.lookup:                                    ; preds = %entry
+  %1 = zext nneg i32 %origin to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN6cineon8InStream4SeekElNS0_6OriginE, i64 0, i64 %1
+  %switch.load = load i32, ptr %switch.gep, align 4
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %switch.lookup, %entry
+  %o.0 = phi i32 [ 0, %entry ], [ %switch.load, %switch.lookup ]
   %fp = getelementptr inbounds i8, ptr %this, i64 8
-  %0 = load ptr, ptr %fp, align 8
-  %cmp = icmp eq ptr %0, null
+  %2 = load ptr, ptr %fp, align 8
+  %cmp = icmp eq ptr %2, null
   br i1 %cmp, label %return, label %if.end
 
-if.end:                                           ; preds = %entry
-  %switch.selectcmp1 = icmp eq i32 %origin, 1
-  %switch.selectcmp = icmp eq i32 %origin, 2
-  %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
-  %switch.select2 = select i1 %switch.selectcmp1, i32 1, i32 %switch.select
-  %call = tail call i32 @fseek(ptr noundef nonnull %0, i64 noundef %offset, i32 noundef %switch.select2)
+if.end:                                           ; preds = %sw.epilog
+  %call = tail call i32 @fseek(ptr noundef nonnull %2, i64 noundef %offset, i32 noundef %o.0)
   %cmp5 = icmp eq i32 %call, 0
   br label %return
 
-return:                                           ; preds = %entry, %if.end
-  %retval.0 = phi i1 [ %cmp5, %if.end ], [ false, %entry ]
+return:                                           ; preds = %sw.epilog, %if.end
+  %retval.0 = phi i1 [ %cmp5, %if.end ], [ false, %sw.epilog ]
   ret i1 %retval.0
 }
 

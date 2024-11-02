@@ -702,6 +702,7 @@ $_ZTSZN5arrow3ipc24InputStreamMessageReaderC1EPNS_2io11InputStreamEEUlPvE_ = com
 @_ZTSSt19_Sp_counted_deleterIPN5arrow3ipc24InputStreamMessageReaderEZNS2_C1EPNS0_2io11InputStreamEEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [136 x i8] c"St19_Sp_counted_deleterIPN5arrow3ipc24InputStreamMessageReaderEZNS2_C1EPNS0_2io11InputStreamEEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt19_Sp_counted_deleterIPN5arrow3ipc24InputStreamMessageReaderEZNS2_C1EPNS0_2io11InputStreamEEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt19_Sp_counted_deleterIPN5arrow3ipc24InputStreamMessageReaderEZNS2_C1EPNS0_2io11InputStreamEEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTSZN5arrow3ipc24InputStreamMessageReaderC1EPNS_2io11InputStreamEEUlPvE_ = linkonce_odr constant [70 x i8] c"ZN5arrow3ipc24InputStreamMessageReaderC1EPNS_2io11InputStreamEEUlPvE_\00", comdat, align 1
+@switch.table._ZNK5arrow3ipc7Message4typeEv = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 2, i32 2, i32 2], align 4
 
 @_ZN5arrow3ipc7MessageC1ESt10shared_ptrINS_6BufferEES4_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5arrow3ipc7MessageC2ESt10shared_ptrINS_6BufferEES4_
 @_ZN5arrow3ipc7MessageD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow3ipc7MessageD2Ev
@@ -1847,7 +1848,7 @@ _ZNK5arrow3ipc7Message11MessageImpl8metadataEv.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 6) i32 @_ZNK5arrow3ipc7Message4typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
+define noundef range(i32 0, 3) i32 @_ZNK5arrow3ipc7Message4typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %message_.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -1872,12 +1873,16 @@ _ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i: ; preds = %_ZNK22ar
   %5 = load i8, ptr %add.ptr.i.i.i, align 1
   %switch.tableidx = add i8 %5, -1
   %6 = icmp ult i8 %switch.tableidx, 5
-  %switch.offset = zext nneg i8 %5 to i32
-  %spec.select = select i1 %6, i32 %switch.offset, i32 0
+  br i1 %6, label %switch.lookup, label %_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit
+
+switch.lookup:                                    ; preds = %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i
+  %7 = zext nneg i8 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZNK5arrow3ipc7Message4typeEv, i64 0, i64 %7
+  %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit
 
-_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit:  ; preds = %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i, %entry, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i
-  %retval.0.i = phi i32 [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %entry ], [ %spec.select, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ]
+_ZNK5arrow3ipc7Message11MessageImpl4typeEv.exit:  ; preds = %entry, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i, %switch.lookup
+  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %_ZNK3org6apache5arrow7flatbuf7Message11header_typeEv.exit.i ], [ 0, %_ZNK22arrow_vendored_private11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i ], [ 0, %entry ]
   ret i32 %retval.0.i
 }
 

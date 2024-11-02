@@ -30,13 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1f52440b3fc7ff55ea639d903106bc7b.24 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$GT$$GT$17he75c2df9d9ea3037E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae75c7b5815b8629E" }>, align 8
 @anon.1f52440b3fc7ff55ea639d903106bc7b.25 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"UniqueViolation" }>, align 1
 @anon.1f52440b3fc7ff55ea639d903106bc7b.26 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"ForeignKeyViolation" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.27 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"UnableToSendCommand" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.28 = private unnamed_addr constant <{ [20 x i8] }> <{ [20 x i8] c"SerializationFailure" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.29 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"ReadOnlyTransaction" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.30 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"NotNullViolation" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.31 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"CheckViolation" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.32 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"ClosedConnection" }>, align 1
-@anon.1f52440b3fc7ff55ea639d903106bc7b.33 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Unknown" }>, align 1
 @__rust_no_alloc_shim_is_unstable = external global i8
 @anon.f9ac536754fecfcff4bd65263d4dca5c.0.llvm.15230849155374873684 = external hidden unnamed_addr constant <{ [1 x i8] }>, align 1
 @anon.f9ac536754fecfcff4bd65263d4dca5c.1.llvm.15230849155374873684 = external hidden unnamed_addr constant <{ [1 x i8] }>, align 1
@@ -50,8 +43,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.460ad64e9fd3ebe64a5c5cefcdb84fca.2.llvm.1791605173930170874 = external hidden unnamed_addr constant <{ [3 x i8] }>, align 1
 @anon.460ad64e9fd3ebe64a5c5cefcdb84fca.3.llvm.1791605173930170874 = external hidden unnamed_addr constant <{ [7 x i8] }>, align 1
 @anon.460ad64e9fd3ebe64a5c5cefcdb84fca.5.llvm.1791605173930170874 = external hidden unnamed_addr constant <{ [12 x i8] }>, align 1
-@"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E" = private unnamed_addr constant [9 x i64] [i64 15, i64 19, i64 19, i64 20, i64 19, i64 16, i64 14, i64 16, i64 7], align 8
-@"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.10" = private unnamed_addr constant [9 x ptr] [ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.25, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.26, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.27, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.28, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.29, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.30, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.31, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.32, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.33], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN113_$LT$diesel..expression..operators..Eq$LT$T$C$U$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0bff7592331b3ec5E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 {
@@ -1621,16 +1612,12 @@ define hidden void @"_ZN6diesel10type_impls6tuples115_$LT$impl$u20$diesel..deser
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !324, !noundef !5
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [9 x i64], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [9 x ptr], ptr @"switch.table._ZN70_$LT$diesel..result..DatabaseErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h28e30a53af5e5250E.10", i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load i8, ptr %0, align 1, !range !324, !noundef !5
+  %switch = icmp eq i8 %3, 0
+  %. = select i1 %switch, i64 15, i64 19
+  %anon.1f52440b3fc7ff55ea639d903106bc7b.25.anon.1f52440b3fc7ff55ea639d903106bc7b.26 = select i1 %switch, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.25, ptr @anon.1f52440b3fc7ff55ea639d903106bc7b.26
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.1f52440b3fc7ff55ea639d903106bc7b.25.anon.1f52440b3fc7ff55ea639d903106bc7b.26, i64 noundef %.)
+  ret i1 %4
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable

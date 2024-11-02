@@ -407,27 +407,14 @@ $_ZTISt15_Sp_counted_ptrIPN7openvdb5v11_07MetaMapELN9__gnu_cxx12_Lock_policyE2EE
 @_ZTIN7openvdb5v11_011LookupErrorE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7openvdb5v11_011LookupErrorE, ptr @_ZTIN7openvdb5v11_09ExceptionE }, comdat, align 8
 @.str.17 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @.str.18 = private unnamed_addr constant [10 x i8] c"level set\00", align 1
-@.str.19 = private unnamed_addr constant [11 x i8] c"fog volume\00", align 1
-@.str.20 = private unnamed_addr constant [10 x i8] c"staggered\00", align 1
 @.str.21 = private unnamed_addr constant [6 x i8] c"Other\00", align 1
 @.str.22 = private unnamed_addr constant [10 x i8] c"Level Set\00", align 1
-@.str.23 = private unnamed_addr constant [11 x i8] c"Fog Volume\00", align 1
-@.str.24 = private unnamed_addr constant [23 x i8] c"Staggered Vector Field\00", align 1
 @.str.25 = private unnamed_addr constant [10 x i8] c"invariant\00", align 1
 @.str.26 = private unnamed_addr constant [10 x i8] c"covariant\00", align 1
-@.str.27 = private unnamed_addr constant [20 x i8] c"covariant normalize\00", align 1
-@.str.28 = private unnamed_addr constant [23 x i8] c"contravariant relative\00", align 1
-@.str.29 = private unnamed_addr constant [23 x i8] c"contravariant absolute\00", align 1
 @.str.30 = private unnamed_addr constant [16 x i8] c"Tuple/Color/UVW\00", align 1
 @.str.31 = private unnamed_addr constant [16 x i8] c"Gradient/Normal\00", align 1
-@.str.32 = private unnamed_addr constant [12 x i8] c"Unit Normal\00", align 1
-@.str.33 = private unnamed_addr constant [35 x i8] c"Displacement/Velocity/Acceleration\00", align 1
-@.str.34 = private unnamed_addr constant [9 x i8] c"Position\00", align 1
 @.str.35 = private unnamed_addr constant [19 x i8] c"Does not transform\00", align 1
 @.str.36 = private unnamed_addr constant [68 x i8] c"Apply the inverse-transpose transform matrix but ignore translation\00", align 1
-@.str.37 = private unnamed_addr constant [92 x i8] c"Apply the inverse-transpose transform matrix but ignore translation and renormalize vectors\00", align 1
-@.str.38 = private unnamed_addr constant [58 x i8] c"Apply the forward transform matrix but ignore translation\00", align 1
-@.str.39 = private unnamed_addr constant [58 x i8] c"Apply the forward transform matrix, including translation\00", align 1
 @.str.40 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @__const._ZNK7openvdb5v11_08GridBase16getStatsMetadataEv.fields = private unnamed_addr constant [5 x ptr] [ptr @.str.8, ptr @.str.9, ptr @.str.11, ptr @.str.12, ptr null], align 16
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -492,11 +479,11 @@ $_ZTISt15_Sp_counted_ptrIPN7openvdb5v11_07MetaMapELN9__gnu_cxx12_Lock_policyE2EE
 @_ZTSSt15_Sp_counted_ptrIPN7openvdb5v11_07MetaMapELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [76 x i8] c"St15_Sp_counted_ptrIPN7openvdb5v11_07MetaMapELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt15_Sp_counted_ptrIPN7openvdb5v11_07MetaMapELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt15_Sp_counted_ptrIPN7openvdb5v11_07MetaMapELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Grid.cc, ptr null }]
-@switch.table._ZN7openvdb5v11_08GridBase19gridClassToMenuNameB5cxx11ENS0_9GridClassE = private unnamed_addr constant [4 x ptr] [ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
-@switch.table._ZN7openvdb5v11_08GridBase12setGridClassENS0_9GridClassE = private unnamed_addr constant [4 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20], align 8
-@switch.table._ZN7openvdb5v11_08GridBase15vecTypeExamplesB5cxx11ENS0_7VecTypeE = private unnamed_addr constant [5 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34], align 8
-@switch.table._ZN7openvdb5v11_08GridBase18vecTypeDescriptionB5cxx11ENS0_7VecTypeE = private unnamed_addr constant [5 x ptr] [ptr @.str.35, ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39], align 8
-@switch.table._ZN7openvdb5v11_08GridBase13setVectorTypeENS0_7VecTypeE = private unnamed_addr constant [5 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
+@switch.table._ZN7openvdb5v11_08GridBase19gridClassToMenuNameB5cxx11ENS0_9GridClassE = private unnamed_addr constant [4 x ptr] [ptr @.str.21, ptr @.str.22, ptr @.str.21, ptr @.str.21], align 8
+@switch.table._ZN7openvdb5v11_08GridBase12setGridClassENS0_9GridClassE = private unnamed_addr constant [4 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.17, ptr @.str.17], align 8
+@switch.table._ZN7openvdb5v11_08GridBase15vecTypeExamplesB5cxx11ENS0_7VecTypeE = private unnamed_addr constant [5 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.30, ptr @.str.30, ptr @.str.30], align 8
+@switch.table._ZN7openvdb5v11_08GridBase18vecTypeDescriptionB5cxx11ENS0_7VecTypeE = private unnamed_addr constant [5 x ptr] [ptr @.str.35, ptr @.str.36, ptr @.str.35, ptr @.str.35, ptr @.str.35], align 8
+@switch.table._ZN7openvdb5v11_08GridBase13setVectorTypeENS0_7VecTypeE = private unnamed_addr constant [5 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.25, ptr @.str.25, ptr @.str.25], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -1229,7 +1216,7 @@ lpad.body:                                        ; preds = %lpad.i3, %lpad.i18,
 
 if.else:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread33, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #20
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.19)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.17)
           to label %invoke.cont4 unwind label %lpad.i3
 
 lpad.i3:                                          ; preds = %if.else
@@ -1267,7 +1254,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 if.else7:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread34, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #20
-  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.20)
+  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.17)
           to label %invoke.cont9 unwind label %lpad.i18
 
 lpad.i18:                                         ; preds = %if.else7
@@ -2085,7 +2072,7 @@ lpad.body:                                        ; preds = %lpad.i3, %lpad, %lp
 
 if.else:                                          ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread48, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #20
-  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.27)
+  %5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3, ptr noundef nonnull @.str.25)
           to label %invoke.cont4 unwind label %lpad.i3
 
 lpad.i3:                                          ; preds = %if.else
@@ -2123,7 +2110,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 if.else7:                                         ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17.thread49, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit17
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8) #20
-  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.28)
+  %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp8, ptr noundef nonnull @.str.25)
           to label %invoke.cont9 unwind label %lpad.i18
 
 lpad.i18:                                         ; preds = %if.else7
@@ -2161,7 +2148,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 if.else12:                                        ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit32.thread50, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #20
-  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.29)
+  %11 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13, ptr noundef nonnull @.str.25)
           to label %invoke.cont14 unwind label %lpad.i33
 
 lpad.i33:                                         ; preds = %if.else12

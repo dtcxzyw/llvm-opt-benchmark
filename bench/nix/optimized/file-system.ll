@@ -4113,23 +4113,20 @@ _ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pre
   %11 = load i32, ptr %10, align 8
   %12 = trunc i32 %11 to i16
   %trunc = and i16 %12, -4096
-  switch i16 %trunc, label %15 [
-    i16 16384, label %16
+  switch i16 %trunc, label %14 [
+    i16 16384, label %15
     i16 -24576, label %13
-    i16 -32768, label %14
+    i16 -32768, label %13
   ]
 
-13:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %16
+13:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  br label %15
 
 14:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %16
+  br label %15
 
-15:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  br label %16
-
-16:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %15, %14, %13
-  %.0 = phi i8 [ 10, %13 ], [ 8, %14 ], [ 0, %15 ], [ 4, %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+15:                                               ; preds = %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %14, %13
+  %.0 = phi i8 [ 10, %13 ], [ 0, %14 ], [ 4, %_ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
   ret i8 %.0
 }
 

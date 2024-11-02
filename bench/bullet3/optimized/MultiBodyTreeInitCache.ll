@@ -98,13 +98,10 @@ entry:
     i32 2, label %sw.epilog.sink.split
     i32 0, label %sw.epilog
     i32 4, label %sw.bb3
-    i32 3, label %sw.bb6
+    i32 3, label %sw.bb3
   ]
 
-sw.bb3:                                           ; preds = %entry
-  br label %sw.epilog.sink.split
-
-sw.bb6:                                           ; preds = %entry
+sw.bb3:                                           ; preds = %entry, %entry
   br label %sw.epilog.sink.split
 
 do.body:                                          ; preds = %entry
@@ -112,8 +109,8 @@ do.body:                                          ; preds = %entry
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2, i32 noundef %joint_type)
   br label %return
 
-sw.epilog.sink.split:                             ; preds = %entry, %entry, %sw.bb3, %sw.bb6
-  %.sink50 = phi i32 [ 6, %sw.bb6 ], [ 3, %sw.bb3 ], [ 1, %entry ], [ 1, %entry ]
+sw.epilog.sink.split:                             ; preds = %entry, %entry, %sw.bb3
+  %.sink50 = phi i32 [ 3, %sw.bb3 ], [ 1, %entry ], [ 1, %entry ]
   %m_num_dofs7 = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %m_num_dofs7, align 8
   %add8 = add nsw i32 %0, %.sink50

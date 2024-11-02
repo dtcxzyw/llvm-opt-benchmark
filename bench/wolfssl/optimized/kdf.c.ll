@@ -7,8 +7,8 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.wc_HmacHash = type { %struct.wc_Sha3 }
 %struct.wc_Sha3 = type { [25 x i64], [200 x i8], i8, ptr }
 
-@switch.table.wc_PRF = private unnamed_addr constant [6 x i32] [i32 16, i32 20, i32 16, i32 32, i32 48, i32 64], align 4
-@switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 3, i32 4, i32 3, i32 6, i32 7, i32 8], align 4
+@switch.table.wc_PRF = private unnamed_addr constant [6 x i32] [i32 16, i32 32, i32 16, i32 32, i32 32, i32 32], align 4
+@switch.table.wc_PRF.1 = private unnamed_addr constant [6 x i32] [i32 3, i32 6, i32 3, i32 6, i32 6, i32 6], align 4
 
 ; Function Attrs: nounwind uwtable
 define i32 @wc_PRF(ptr nocapture noundef writeonly %result, i32 noundef %resLen, ptr noundef %secret, i32 noundef %secLen, ptr noundef %seed, i32 noundef %seedLen, i32 noundef %hash, ptr noundef %heap, i32 noundef %devId) local_unnamed_addr #0 {
@@ -34,7 +34,8 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.gep93 = getelementptr inbounds [6 x i32], ptr @switch.table.wc_PRF.1, i64 0, i64 %2
   %switch.load94 = load i32, ptr %switch.gep93, align 4
   %div = udiv i32 %resLen, %switch.load
-  %rem = urem i32 %resLen, %switch.load
+  %3 = add nsw i32 %switch.load, -1
+  %rem = and i32 %3, %resLen
   %tobool = icmp ne i32 %rem, 0
   %add = zext i1 %tobool to i32
   %spec.select = add nuw nsw i32 %div, %add

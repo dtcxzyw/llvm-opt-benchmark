@@ -42,9 +42,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.91a40ec34b72206359dd2ce1a533f692.38.llvm.10413092223612615927 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.91a40ec34b72206359dd2ce1a533f692.37.llvm.10413092223612615927, [16 x i8] c"z\00\00\00\00\00\00\00\16\01\00\00&\00\00\00" }>, align 8
 @anon.91a40ec34b72206359dd2ce1a533f692.39 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Relaxed" }>, align 1
 @anon.91a40ec34b72206359dd2ce1a533f692.40 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Release" }>, align 1
-@anon.91a40ec34b72206359dd2ce1a533f692.41 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Acquire" }>, align 1
-@anon.91a40ec34b72206359dd2ce1a533f692.42 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"AcqRel" }>, align 1
-@anon.91a40ec34b72206359dd2ce1a533f692.43 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"SeqCst" }>, align 1
 @anon.91a40ec34b72206359dd2ce1a533f692.44 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"None" }>, align 1
 @anon.91a40ec34b72206359dd2ce1a533f692.45 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"Some" }>, align 1
 @anon.91a40ec34b72206359dd2ce1a533f692.46 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17h3e8cf92e1f609c2aE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h948990cf6a3b3b7aE" }>, align 8
@@ -52,8 +49,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17h6cb055b43964257aE = external local_unnamed_addr global { ptr }
 @_ZN15portable_atomic3imp6x86_6412atomic_store4FUNC17hb1b2959f852a667bE = external local_unnamed_addr global { ptr }
 @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h72be44b885da97c6E = external global { i64 }
-@"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927" = private unnamed_addr constant [5 x i64] [i64 7, i64 7, i64 7, i64 6, i64 6], align 8
-@"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927.4" = private unnamed_addr constant [5 x ptr] [ptr @anon.91a40ec34b72206359dd2ce1a533f692.39, ptr @anon.91a40ec34b72206359dd2ce1a533f692.40, ptr @anon.91a40ec34b72206359dd2ce1a533f692.41, ptr @anon.91a40ec34b72206359dd2ce1a533f692.42, ptr @anon.91a40ec34b72206359dd2ce1a533f692.43], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i128 @_ZN15portable_atomic3imp6x86_6410AtomicU1284load17hd0b99a72be393158E.llvm.10413092223612615927(ptr noundef nonnull align 16 %0, i8 noundef %1) unnamed_addr #0 {
@@ -1104,16 +1099,11 @@ define hidden void @_ZN5typst9visualize5image3svg8SvgImage4with17h1e4de1d3869a23
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !78, !noundef !17
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.10413092223612615927.4", i64 0, i64 %4
-  %switch.load3 = load ptr, ptr %switch.gep2, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load i8, ptr %0, align 1, !range !78, !noundef !17
+  %switch = icmp eq i8 %3, 0
+  %anon.91a40ec34b72206359dd2ce1a533f692.39.anon.91a40ec34b72206359dd2ce1a533f692.40 = select i1 %switch, ptr @anon.91a40ec34b72206359dd2ce1a533f692.39, ptr @anon.91a40ec34b72206359dd2ce1a533f692.40
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.91a40ec34b72206359dd2ce1a533f692.39.anon.91a40ec34b72206359dd2ce1a533f692.40, i64 noundef 7)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite, inaccessiblemem: write) uwtable

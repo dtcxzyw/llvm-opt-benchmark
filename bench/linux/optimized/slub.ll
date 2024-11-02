@@ -808,9 +808,10 @@ define dso_local i32 @kmem_cache_flags(i32 %0, i32 noundef %1, ptr nocapture nou
     i8 112, label %35
     i8 117, label %37
     i8 116, label %39
+    i8 111, label %30
   ]
 
-30:                                               ; preds = %23
+30:                                               ; preds = %23, %23
   br label %41
 
 31:                                               ; preds = %23

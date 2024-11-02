@@ -81,7 +81,6 @@ $_ZTVN4dmlc10ParamErrorE = comdat any
 @.str.1 = private unnamed_addr constant [2 x i8] c":\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c": \00", align 1
 @.str.3 = private unnamed_addr constant [8 x i8] c"DEBUG: \00", align 1
-@.str.4 = private unnamed_addr constant [7 x i8] c"INFO: \00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c"[\00", align 1
 @.str.6 = private unnamed_addr constant [3 x i8] c"] \00", align 1
 @.str.7 = private unnamed_addr constant [15 x i8] c"%02d:%02d:%02d\00", align 1
@@ -388,13 +387,12 @@ define noundef i32 @_ZN7xgboost13ConsoleLogger16DefaultVerbosityEv() local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 4) i32 @_ZN7xgboost13ConsoleLogger15GlobalVerbosityEv() local_unnamed_addr #5 align 2 {
-switch.lookup:
-  %0 = tail call noundef align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN4dmlc16ThreadLocalStoreIN7xgboost19GlobalConfigurationEE3GetEvE4inst)
-  %1 = getelementptr inbounds i8, ptr %0, i64 4
-  %2 = load i32, ptr %1, align 4
-  %3 = icmp ult i32 %2, 4
-  %spec.select = select i1 %3, i32 %2, i32 1
+define noundef range(i32 0, 2) i32 @_ZN7xgboost13ConsoleLogger15GlobalVerbosityEv() local_unnamed_addr #5 align 2 {
+  %1 = tail call noundef align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZZN4dmlc16ThreadLocalStoreIN7xgboost19GlobalConfigurationEE3GetEvE4inst)
+  %2 = getelementptr inbounds i8, ptr %1, i64 4
+  %3 = load i32, ptr %2, align 4
+  %cond = icmp ne i32 %3, 0
+  %spec.select = zext i1 %cond to i32
   ret i32 %spec.select
 }
 
@@ -451,14 +449,14 @@ define void @_ZN7xgboost13ConsoleLoggerC2ERKNSt7__cxx1112basic_stringIcSt11char_
   tail call void @_ZN7xgboost10BaseLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0)
   %5 = getelementptr inbounds i8, ptr %0, i64 376
   store i32 %3, ptr %5, align 8
-  switch i32 %3, label %17 [
+  switch i32 %3, label %16 [
     i32 1, label %6
     i32 3, label %.invoke14
-    i32 2, label %9
+    i32 2, label %6
     i32 4, label %.invoke13
   ]
 
-6:                                                ; preds = %4
+6:                                                ; preds = %4, %4
   br label %.invoke14
 
 7:                                                ; preds = %.invoke14, %.invoke13, %.invoke12, %.invoke11, %.invoke
@@ -467,32 +465,29 @@ define void @_ZN7xgboost13ConsoleLoggerC2ERKNSt7__cxx1112basic_stringIcSt11char_
   tail call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) #21
   resume { ptr, i32 } %8
 
-9:                                                ; preds = %4
-  br label %.invoke14
-
-.invoke14:                                        ; preds = %4, %6, %9
-  %10 = phi ptr [ @.str.4, %9 ], [ @.str, %6 ], [ @.str.3, %4 ]
-  %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %10)
+.invoke14:                                        ; preds = %4, %6
+  %9 = phi ptr [ @.str, %6 ], [ @.str.3, %4 ]
+  %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %9)
           to label %.invoke13 unwind label %7
 
 .invoke13:                                        ; preds = %.invoke14, %4
-  %12 = phi ptr [ %0, %4 ], [ %11, %.invoke14 ]
-  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %11 = phi ptr [ %0, %4 ], [ %10, %.invoke14 ]
+  %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %.invoke12 unwind label %7
 
 .invoke12:                                        ; preds = %.invoke13
-  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.1)
+  %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.1)
           to label %.invoke11 unwind label %7
 
 .invoke11:                                        ; preds = %.invoke12
-  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %2)
+  %14 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %13, i32 noundef %2)
           to label %.invoke unwind label %7
 
 .invoke:                                          ; preds = %.invoke11
-  %16 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull @.str.2)
-          to label %17 unwind label %7
+  %15 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull @.str.2)
+          to label %16 unwind label %7
 
-17:                                               ; preds = %.invoke, %4
+16:                                               ; preds = %.invoke, %4
   ret void
 }
 

@@ -6,9 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 @anon.3ec2cf8333d55addd664f7f348231227.1 = private unnamed_addr constant <{ [26 x i8] }> <{ [26 x i8] c"invalid HTTP method parsed" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.2 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"invalid URI" }>, align 1
-@anon.3ec2cf8333d55addd664f7f348231227.3 = private unnamed_addr constant <{ [31 x i8] }> <{ [31 x i8] c"invalid HTTP status-code parsed" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.4 = private unnamed_addr constant <{ [20 x i8] }> <{ [20 x i8] c"no upgrade available" }>, align 1
-@anon.3ec2cf8333d55addd664f7f348231227.5 = private unnamed_addr constant <{ [22 x i8] }> <{ [22 x i8] c"operation was canceled" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.6 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"hyper::Error" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.7 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr39drop_in_place$LT$hyper..error..Kind$GT$17h304ea5a53c3d4278E", [16 x i8] c"\01\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN55_$LT$hyper..error..Kind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2e32c3f77b0fbcf0E" }>, align 8
 @anon.3ec2cf8333d55addd664f7f348231227.8 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h87dc17a134121ec4E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5b9834282311d57dE" }>, align 8
@@ -18,8 +16,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3ec2cf8333d55addd664f7f348231227.12 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"User" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.13 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr43drop_in_place$LT$$RF$hyper..error..User$GT$17h97543278025cc56dE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e575733b8aba7caE" }>, align 8
 @anon.3ec2cf8333d55addd664f7f348231227.14 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"Canceled" }>, align 1
-@"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E" = private unnamed_addr constant [3 x i64] [i64 26, i64 11, i64 31], align 8
-@"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5" = private unnamed_addr constant [3 x ptr] [ptr @anon.3ec2cf8333d55addd664f7f348231227.1, ptr @anon.3ec2cf8333d55addd664f7f348231227.2, ptr @anon.3ec2cf8333d55addd664f7f348231227.3], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define internal void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h87dc17a134121ec4E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -425,37 +421,14 @@ define noundef zeroext i1 @"_ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..
   %.val = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %3 = getelementptr inbounds i8, ptr %.val, i64 16
   %4 = load i8, ptr %3, align 8, !range !8, !noundef !4
-  %5 = add nsw i8 %4, -3
-  %6 = icmp ult i8 %5, 2
-  %7 = zext nneg i8 %4 to i64
-  %8 = add nsw i64 %7, -2
-  %9 = select i1 %6, i64 %8, i64 0
-  switch i64 %9, label %10 [
-    i64 0, label %switch.lookup
-    i64 1, label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
-    i64 2, label %11
-  ]
-
-10:                                               ; preds = %2
-  unreachable
-
-11:                                               ; preds = %2
-  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
-
-switch.lookup:                                    ; preds = %2
-  %12 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E", i64 0, i64 %12
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %13 = zext nneg i8 %4 to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN58_$LT$hyper..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17hc5e7a82ff744cd55E.5", i64 0, i64 %13
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  br label %_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit
-
-_ZN5hyper5error5Error11description17h6d73044e091ba8ddE.exit: ; preds = %switch.lookup, %2, %11
-  %.sroa.6.0.i = phi i64 [ 22, %11 ], [ 20, %2 ], [ %switch.load, %switch.lookup ]
-  %.sroa.0.0.i = phi ptr [ @anon.3ec2cf8333d55addd664f7f348231227.5, %11 ], [ @anon.3ec2cf8333d55addd664f7f348231227.4, %2 ], [ %switch.load2, %switch.lookup ]
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.6.0.i)
-  ret i1 %14
+  %5 = icmp samesign ult i8 %4, 3
+  %switch1.i = icmp eq i8 %4, 0
+  %..i = select i1 %switch1.i, i64 26, i64 11
+  %anon.3ec2cf8333d55addd664f7f348231227.1.anon.3ec2cf8333d55addd664f7f348231227.2.i = select i1 %switch1.i, ptr @anon.3ec2cf8333d55addd664f7f348231227.1, ptr @anon.3ec2cf8333d55addd664f7f348231227.2
+  %.sroa.6.0.i = select i1 %5, i64 %..i, i64 20
+  %.sroa.0.0.i = select i1 %5, ptr %anon.3ec2cf8333d55addd664f7f348231227.1.anon.3ec2cf8333d55addd664f7f348231227.2.i, ptr @anon.3ec2cf8333d55addd664f7f348231227.4
+  %6 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i, i64 noundef %.sroa.6.0.i)
+  ret i1 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

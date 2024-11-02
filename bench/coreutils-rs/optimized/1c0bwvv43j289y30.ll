@@ -31,7 +31,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.66d731aad004fadc267d2ec7cc952fb9.42.llvm.4295070668343094693 = external hidden unnamed_addr constant <{ [10 x i8] }>, align 1
 @anon.66d731aad004fadc267d2ec7cc952fb9.43.llvm.4295070668343094693 = external hidden unnamed_addr constant <{ [5 x i8] }>, align 1
 @anon.66d731aad004fadc267d2ec7cc952fb9.46.llvm.4295070668343094693 = external hidden unnamed_addr constant <{ [6 x i8] }>, align 1
-@switch.table._ZN8uu_split8strategy10NumberType10num_chunks17h709f2b3ed91e35bbE = private unnamed_addr constant [6 x i64] [i64 8, i64 16, i64 8, i64 16, i64 8, i64 16], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h7e3f561d8f2a8b14E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nonnull %.0.val, i64 %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -351,12 +350,11 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN8uu_split8strategy10NumberType10num_chunks17h709f2b3ed91e35bbE(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #3 {
-switch.lookup:
-  %1 = load i64, ptr %0, align 8, !range !63, !noundef !5
-  %switch.gep = getelementptr inbounds [6 x i64], ptr @switch.table._ZN8uu_split8strategy10NumberType10num_chunks17h709f2b3ed91e35bbE, i64 0, i64 %1
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 %switch.load
-  %.0 = load i64, ptr %2, align 8, !noundef !5
+  %2 = load i64, ptr %0, align 8, !range !63, !noundef !5
+  %switch = icmp eq i64 %2, 0
+  %. = select i1 %switch, i64 8, i64 16
+  %3 = getelementptr inbounds i8, ptr %0, i64 %.
+  %.0 = load i64, ptr %3, align 8, !noundef !5
   ret i64 %.0
 }
 

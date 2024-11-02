@@ -5049,7 +5049,9 @@ define hidden void @"_ZN184_$LT$language..language_settings.._..$LT$impl$u20$ser
 9:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %4), !noalias !908
   %10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i8 %8, ptr %10, align 8
+  %switch = icmp eq i8 %8, 1
+  %spec.select = zext i1 %switch to i8
+  store i8 %spec.select, ptr %10, align 8
   store i64 2, ptr %0, align 8
   br label %12
 

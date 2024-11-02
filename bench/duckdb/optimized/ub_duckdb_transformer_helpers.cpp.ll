@@ -8841,9 +8841,11 @@ cleanup.action:                                   ; preds = %ehcleanup, %_ZNKSt7
   br label %ehcleanup59
 
 switch.lookup:                                    ; preds = %if.then3
-  %switch.idx.cast = trunc nuw i32 %3 to i8
-  %switch.offset = add nuw nsw i8 %switch.idx.cast, 1
-  store i8 %switch.offset, ptr %type4, align 1, !tbaa !298
+  %switch.cast = trunc nuw i32 %3 to i24
+  %switch.shiftamt = shl nuw nsw i24 %switch.cast, 3
+  %switch.downshift = lshr i24 131585, %switch.shiftamt
+  %switch.masked = trunc i24 %switch.downshift to i8
+  store i8 %switch.masked, ptr %type4, align 1, !tbaa !298
   %sortby_nulls = getelementptr inbounds i8, ptr %0, i64 20
   %10 = load i32, ptr %sortby_nulls, align 4, !tbaa !300
   %11 = icmp ult i32 %10, 3
@@ -8901,9 +8903,11 @@ cleanup.action50:                                 ; preds = %ehcleanup45, %_ZNKS
   br label %ehcleanup59
 
 switch.lookup22:                                  ; preds = %switch.lookup
-  %switch.idx.cast23 = trunc nuw i32 %10 to i8
-  %switch.offset24 = add nuw nsw i8 %switch.idx.cast23, 1
-  store i8 %switch.offset24, ptr %null_order, align 1, !tbaa !301
+  %switch.cast23 = trunc nuw i32 %10 to i24
+  %switch.shiftamt24 = shl nuw nsw i24 %switch.cast23, 3
+  %switch.downshift25 = lshr i24 131585, %switch.shiftamt24
+  %switch.masked26 = trunc i24 %switch.downshift25 to i8
+  store i8 %switch.masked26, ptr %null_order, align 1, !tbaa !301
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %order_expression) #20
   call void @_ZN6duckdb11Transformer19TransformExpressionENS_12optional_ptrIN17duckdb_libpgquery6PGNodeEEE(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::unique_ptr.103") align 8 %order_expression, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr %2)
   %17 = load ptr, ptr %_M_finish.i, align 8, !tbaa !3

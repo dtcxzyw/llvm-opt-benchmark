@@ -20,8 +20,8 @@ target triple = "x86_64-pc-linux-gnu"
 @1 = private unnamed_addr constant %struct.ident_t { i32 0, i32 514, i32 0, i32 22, ptr @0 }, align 8
 @2 = private unnamed_addr constant %struct.ident_t { i32 0, i32 2, i32 0, i32 22, ptr @0 }, align 8
 @__const.zfp_decompress.ftable = private unnamed_addr constant [3 x [2 x [4 x [4 x ptr]]]] [[2 x [4 x [4 x ptr]]] [[4 x [4 x ptr]] [[4 x ptr] [ptr @decompress_int32_1, ptr @decompress_int64_1, ptr @decompress_float_1, ptr @decompress_double_1], [4 x ptr] [ptr @decompress_strided_int32_2, ptr @decompress_strided_int64_2, ptr @decompress_strided_float_2, ptr @decompress_strided_double_2], [4 x ptr] [ptr @decompress_strided_int32_3, ptr @decompress_strided_int64_3, ptr @decompress_strided_float_3, ptr @decompress_strided_double_3], [4 x ptr] [ptr @decompress_strided_int32_4, ptr @decompress_strided_int64_4, ptr @decompress_strided_float_4, ptr @decompress_strided_double_4]], [4 x [4 x ptr]] [[4 x ptr] [ptr @decompress_strided_int32_1, ptr @decompress_strided_int64_1, ptr @decompress_strided_float_1, ptr @decompress_strided_double_1], [4 x ptr] [ptr @decompress_strided_int32_2, ptr @decompress_strided_int64_2, ptr @decompress_strided_float_2, ptr @decompress_strided_double_2], [4 x ptr] [ptr @decompress_strided_int32_3, ptr @decompress_strided_int64_3, ptr @decompress_strided_float_3, ptr @decompress_strided_double_3], [4 x ptr] [ptr @decompress_strided_int32_4, ptr @decompress_strided_int64_4, ptr @decompress_strided_float_4, ptr @decompress_strided_double_4]]], [2 x [4 x [4 x ptr]]] zeroinitializer, [2 x [4 x [4 x ptr]]] zeroinitializer], align 16
-@switch.table.zfp_field_size_bytes = private unnamed_addr constant [4 x i64] [i64 4, i64 8, i64 4, i64 8], align 8
-@switch.table.zfp_stream_maximum_size = private unnamed_addr constant [4 x i32] [i32 32, i32 64, i32 32, i32 64], align 4
+@switch.table.zfp_field_precision = private unnamed_addr constant [4 x i32] [i32 32, i32 64, i32 64, i32 64], align 4
+@switch.table.zfp_field_size_bytes = private unnamed_addr constant [4 x i64] [i64 4, i64 8, i64 8, i64 8], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i64 0, 9) i64 @zfp_type_size(i32 noundef %0) local_unnamed_addr #0 {
@@ -281,7 +281,7 @@ define range(i32 0, 65) i32 @zfp_field_precision(ptr nocapture noundef readonly 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.zfp_stream_maximum_size, i64 0, i64 %4
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.zfp_field_precision, i64 0, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %zfp_type_size.exit
 
@@ -1700,19 +1700,19 @@ zfp_field_blocks.exit:                            ; preds = %zfp_field_dimension
   %.0.i = phi i64 [ %39, %zfp_field_dimensionality.exit.i ], [ %34, %32 ], [ %31, %30 ], [ 0, %zfp_field_dimensionality.exit ], [ %18, %27 ]
   %40 = shl nuw nsw i32 %16, 1
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %71, label %41
+  br i1 %.not, label %70, label %41
 
 41:                                               ; preds = %zfp_field_blocks.exit
   %42 = load i32, ptr %1, align 8
-  switch i32 %42, label %71 [
-    i32 1, label %43
-    i32 2, label %47
+  switch i32 %42, label %70 [
+    i32 1, label %49
+    i32 2, label %43
     i32 3, label %45
-    i32 4, label %49
+    i32 4, label %47
   ]
 
 43:                                               ; preds = %41
-  %44 = select i1 %4, i32 0, i32 5
+  %44 = select i1 %4, i32 0, i32 6
   br label %zfp_field_precision.exit
 
 45:                                               ; preds = %41
@@ -1720,52 +1720,44 @@ zfp_field_blocks.exit:                            ; preds = %zfp_field_dimension
   br label %zfp_field_precision.exit
 
 47:                                               ; preds = %41
-  %48 = select i1 %4, i32 0, i32 6
+  %48 = select i1 %4, i32 12, i32 19
   br label %zfp_field_precision.exit
 
 49:                                               ; preds = %41
-  %50 = select i1 %4, i32 12, i32 19
+  %50 = select i1 %4, i32 0, i32 5
   br label %zfp_field_precision.exit
 
 zfp_field_precision.exit:                         ; preds = %43, %45, %47, %49
-  %.044 = phi i32 [ %50, %49 ], [ %48, %47 ], [ %44, %43 ], [ %46, %45 ]
-  %.0.i.i = phi i32 [ 64, %49 ], [ 64, %47 ], [ 32, %43 ], [ 32, %45 ]
-  %.in49 = shl nsw i32 -1, %40
-  %51 = xor i32 %.in49, -1
+  %.045 = phi i32 [ %50, %49 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ]
+  %.0.i.i = phi i32 [ 32, %49 ], [ 64, %43 ], [ 64, %45 ], [ 64, %47 ]
+  %.in46 = shl nsw i32 -1, %40
+  %51 = xor i32 %.in46, -1
   %.in = getelementptr inbounds i8, ptr %0, i64 8
   %52 = load i32, ptr %.in, align 8
   %53 = icmp ult i32 %52, %.0.i.i
-  br i1 %53, label %zfp_field_precision.exit41, label %switch.lookup
+  %switch = icmp eq i32 %42, 1
+  %spec.select = select i1 %switch, i32 32, i32 64
+  %54 = select i1 %53, i32 %52, i32 %spec.select
+  %55 = shl nuw nsw i32 %54, %40
+  %56 = add nuw nsw i32 %.045, %51
+  %57 = add nuw nsw i32 %56, %55
+  %58 = getelementptr inbounds i8, ptr %0, i64 4
+  %59 = load i32, ptr %58, align 4
+  %. = tail call i32 @llvm.umin.i32(i32 %57, i32 %59)
+  %60 = load i32, ptr %0, align 8
+  %61 = tail call i32 @llvm.umax.i32(i32 %., i32 %60)
+  %62 = zext i32 %61 to i64
+  %63 = mul i64 %.0.i, %62
+  %64 = load i64, ptr @stream_word_bits, align 8
+  %65 = add i64 %64, 147
+  %66 = add i64 %65, %63
+  %67 = sub i64 0, %64
+  %68 = and i64 %66, %67
+  %69 = lshr i64 %68, 3
+  br label %70
 
-switch.lookup:                                    ; preds = %zfp_field_precision.exit
-  %switch.tableidx = add nsw i32 %42, -1
-  %54 = sext i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.zfp_stream_maximum_size, i64 0, i64 %54
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %zfp_field_precision.exit41
-
-zfp_field_precision.exit41:                       ; preds = %switch.lookup, %zfp_field_precision.exit
-  %55 = phi i32 [ %52, %zfp_field_precision.exit ], [ %switch.load, %switch.lookup ]
-  %56 = shl nuw nsw i32 %55, %40
-  %57 = add nuw nsw i32 %.044, %51
-  %58 = add nuw nsw i32 %57, %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 4
-  %60 = load i32, ptr %59, align 4
-  %. = tail call i32 @llvm.umin.i32(i32 %58, i32 %60)
-  %61 = load i32, ptr %0, align 8
-  %62 = tail call i32 @llvm.umax.i32(i32 %., i32 %61)
-  %63 = zext i32 %62 to i64
-  %64 = mul i64 %.0.i, %63
-  %65 = load i64, ptr @stream_word_bits, align 8
-  %66 = add i64 %65, 147
-  %67 = add i64 %66, %64
-  %68 = sub i64 0, %65
-  %69 = and i64 %67, %68
-  %70 = lshr i64 %69, 3
-  br label %71
-
-71:                                               ; preds = %41, %zfp_field_blocks.exit, %zfp_field_precision.exit41
-  %.031 = phi i64 [ %70, %zfp_field_precision.exit41 ], [ 0, %zfp_field_blocks.exit ], [ 0, %41 ]
+70:                                               ; preds = %41, %zfp_field_blocks.exit, %zfp_field_precision.exit
+  %.031 = phi i64 [ %69, %zfp_field_precision.exit ], [ 0, %zfp_field_blocks.exit ], [ 0, %41 ]
   ret i64 %.031
 }
 

@@ -7,19 +7,9 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZTISt13runtime_error = external constant ptr
 @.str.1 = private unnamed_addr constant [5 x i8] c"bool\00", align 1
 @.str.2 = private unnamed_addr constant [6 x i8] c"uint8\00", align 1
-@.str.3 = private unnamed_addr constant [5 x i8] c"int8\00", align 1
-@.str.4 = private unnamed_addr constant [7 x i8] c"uint16\00", align 1
-@.str.5 = private unnamed_addr constant [6 x i8] c"int16\00", align 1
-@.str.6 = private unnamed_addr constant [7 x i8] c"uint32\00", align 1
-@.str.7 = private unnamed_addr constant [6 x i8] c"int32\00", align 1
-@.str.8 = private unnamed_addr constant [7 x i8] c"uint64\00", align 1
-@.str.9 = private unnamed_addr constant [6 x i8] c"int64\00", align 1
-@.str.10 = private unnamed_addr constant [8 x i8] c"float16\00", align 1
-@.str.11 = private unnamed_addr constant [8 x i8] c"float32\00", align 1
-@.str.12 = private unnamed_addr constant [8 x i8] c"float64\00", align 1
 @.str.13 = private unnamed_addr constant [8 x i8] c"invalid\00", align 1
 @switch.table._ZN7nanogui9type_sizeENS_12VariableTypeE = private unnamed_addr constant [12 x i64] [i64 1, i64 1, i64 2, i64 2, i64 4, i64 4, i64 8, i64 8, i64 2, i64 4, i64 8, i64 1], align 8
-@switch.table._ZN7nanogui9type_nameENS_12VariableTypeE = private unnamed_addr constant [12 x ptr] [ptr @.str.3, ptr @.str.2, ptr @.str.5, ptr @.str.4, ptr @.str.7, ptr @.str.6, ptr @.str.9, ptr @.str.8, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.1], align 8
+@switch.table._ZN7nanogui9type_nameENS_12VariableTypeE = private unnamed_addr constant [12 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.1], align 8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i64 1, 9) i64 @_ZN7nanogui9type_sizeENS_12VariableTypeE(i32 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {

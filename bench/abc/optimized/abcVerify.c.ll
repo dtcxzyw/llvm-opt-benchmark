@@ -63,7 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 @str.27 = private unnamed_addr constant [39 x i8] c"Networks are NOT EQUIVALENT after SAT.\00", align 1
 @str.28 = private unnamed_addr constant [47 x i8] c"Networks are undecided (SAT solver timed out).\00", align 1
 @str.29 = private unnamed_addr constant [29 x i8] c"Renoding for CNF has failed.\00", align 1
-@str.36 = private unnamed_addr constant [44 x i8] c"Networks are NOT EQUIVALENT after fraiging.\00", align 1
 @str.37 = private unnamed_addr constant [40 x i8] c"Networks are equivalent after fraiging.\00", align 1
 @str.38 = private unnamed_addr constant [66 x i8] c"Networks are undecided (SAT solver timed out on the final miter).\00", align 1
 @str.39 = private unnamed_addr constant [39 x i8] c"Networks are equivalent after framing.\00", align 1
@@ -73,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.43 = private unnamed_addr constant [54 x i8] c"Networks are NOT EQUIVALENT after structural hashing.\00", align 1
 @str.44 = private unnamed_addr constant [30 x i8] c"Miter computation has failed.\00", align 1
 @str.45 = private unnamed_addr constant [31 x i8] c"No output mismatches detected.\00", align 1
-@switch.table.Abc_NtkSecFraig = private unnamed_addr constant [3 x ptr] [ptr @str.38, ptr @str.36, ptr @str.37], align 8
+@switch.table.Abc_NtkSecFraig = private unnamed_addr constant [3 x ptr] [ptr @str.38, ptr @str.37, ptr @str.37], align 8
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_NtkCecSat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {

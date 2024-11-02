@@ -49,22 +49,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3bea5f84750093931b71d3ae0bbb8a44.58.llvm.12273313129313454071 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.56.llvm.12273313129313454071, [16 x i8] c"\1E\00\00\00\00\00\00\00&\00\00\00\0F\00\00\00" }>, align 8
 @anon.3bea5f84750093931b71d3ae0bbb8a44.59 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Unknown" }>, align 1
 @anon.3bea5f84750093931b71d3ae0bbb8a44.60 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Other" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.61 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"AnyPath" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.62 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"FilePath" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.63 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"DirPath" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.64 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"ExecutablePath" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.65 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"CommandName" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.66 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"CommandString" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.67 = private unnamed_addr constant <{ [20 x i8] }> <{ [20 x i8] c"CommandWithArguments" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.68 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"Username" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.69 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"Hostname" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.70 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"Url" }>, align 1
-@anon.3bea5f84750093931b71d3ae0bbb8a44.71 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"EmailAddress" }>, align 1
 @anon.85f68effae4436bb4f25a144403dc49c.30.llvm.13747326498558855189 = external hidden unnamed_addr constant <{ [98 x i8] }>, align 2
 @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.37.llvm.2531363454801242601 = external hidden unnamed_addr constant <{ [43 x i8] }>, align 1
 @anon.a0f5fbf39a3a1cb96a1e7648a0e2d151.39.llvm.2531363454801242601 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfeac634af43d089eE" = private unnamed_addr constant [13 x i64] [i64 7, i64 5, i64 7, i64 8, i64 7, i64 14, i64 11, i64 13, i64 20, i64 8, i64 8, i64 3, i64 12], align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfeac634af43d089eE.25" = private unnamed_addr constant [13 x ptr] [ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.59, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.60, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.61, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.62, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.63, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.64, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.65, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.66, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.67, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.68, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.69, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.70, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.71], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86ef322e285bd446E.llvm.12273313129313454071"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
@@ -1330,17 +1317,13 @@ define hidden void @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfeac634af43d089eE"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
-switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !17, !align !57, !noundef !17
-  %.val = load i8, ptr %2, align 1, !range !610, !noundef !17
-  %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds [13 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfeac634af43d089eE", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds [13 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfeac634af43d089eE.25", i64 0, i64 %4
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load ptr, ptr %0, align 8, !nonnull !17, !align !57, !noundef !17
+  %.val = load i8, ptr %3, align 1, !range !610, !noundef !17
+  %switch.i = icmp eq i8 %.val, 0
+  %..i = select i1 %switch.i, i64 7, i64 5
+  %anon.3bea5f84750093931b71d3ae0bbb8a44.59.anon.3bea5f84750093931b71d3ae0bbb8a44.60.i = select i1 %switch.i, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.59, ptr @anon.3bea5f84750093931b71d3ae0bbb8a44.60
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.3bea5f84750093931b71d3ae0bbb8a44.59.anon.3bea5f84750093931b71d3ae0bbb8a44.60.i, i64 noundef %..i)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

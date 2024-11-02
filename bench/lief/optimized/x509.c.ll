@@ -22,12 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [12 x i8] c"%s key size\00", align 1
 @.str.15 = private unnamed_addr constant [4 x i8] c"MD5\00", align 1
 @.str.16 = private unnamed_addr constant [5 x i8] c"SHA1\00", align 1
-@.str.17 = private unnamed_addr constant [7 x i8] c"SHA224\00", align 1
-@.str.18 = private unnamed_addr constant [7 x i8] c"SHA256\00", align 1
-@.str.19 = private unnamed_addr constant [7 x i8] c"SHA384\00", align 1
-@.str.20 = private unnamed_addr constant [7 x i8] c"SHA512\00", align 1
-@.str.21 = private unnamed_addr constant [10 x i8] c"RIPEMD160\00", align 1
-@switch.table.mbedtls_x509_sig_alg_gets.2 = private unnamed_addr constant [8 x ptr] [ptr @.str.12, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21], align 8
+@switch.table.mbedtls_x509_sig_alg_gets.2 = private unnamed_addr constant [8 x ptr] [ptr @.str.16, ptr @.str.15, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16, ptr @.str.16], align 8
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2147474816) i32 @mbedtls_x509_get_serial(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {

@@ -141,7 +141,7 @@ define i24 @lv_color_hsv_to_rgb(i16 noundef zeroext %0, i8 noundef zeroext %1, i
   %.mask51 = and i16 %9, 255
   %.sroa.3.0.insert.ext.i = zext nneg i16 %.mask51 to i24
   %.sroa.0.0.insert.insert.i = mul nuw i24 %.sroa.3.0.insert.ext.i, 65793
-  br label %47
+  br label %44
 
 14:                                               ; preds = %3
   %15 = zext nneg i16 %11 to i32
@@ -173,33 +173,24 @@ define i24 @lv_color_hsv_to_rgb(i16 noundef zeroext %0, i8 noundef zeroext %1, i
   %39 = lshr i32 %38, 8
   %40 = trunc nuw i32 %39 to i8
   %trunc = trunc i32 %19 to i8
-  switch i8 %trunc, label %45 [
-    i8 0, label %46
+  switch i8 %trunc, label %42 [
+    i8 0, label %43
     i8 1, label %41
-    i8 2, label %42
-    i8 3, label %43
-    i8 4, label %44
+    i8 2, label %41
+    i8 3, label %41
+    i8 4, label %41
   ]
 
-41:                                               ; preds = %14
-  br label %46
+41:                                               ; preds = %14, %14, %14, %14
+  br label %43
 
 42:                                               ; preds = %14
-  br label %46
+  br label %43
 
-43:                                               ; preds = %14
-  br label %46
-
-44:                                               ; preds = %14
-  br label %46
-
-45:                                               ; preds = %14
-  br label %46
-
-46:                                               ; preds = %14, %45, %44, %43, %42, %41
-  %.042 = phi i8 [ %33, %45 ], [ %10, %44 ], [ %10, %43 ], [ %40, %42 ], [ %26, %41 ], [ %26, %14 ]
-  %.041 = phi i8 [ %26, %45 ], [ %26, %44 ], [ %33, %43 ], [ %10, %42 ], [ %10, %41 ], [ %40, %14 ]
-  %.0 = phi i8 [ %10, %45 ], [ %40, %44 ], [ %26, %43 ], [ %26, %42 ], [ %33, %41 ], [ %10, %14 ]
+43:                                               ; preds = %14, %42, %41
+  %.042 = phi i8 [ %33, %42 ], [ %26, %41 ], [ %26, %14 ]
+  %.041 = phi i8 [ %26, %42 ], [ %10, %41 ], [ %40, %14 ]
+  %.0 = phi i8 [ %10, %42 ], [ %33, %41 ], [ %10, %14 ]
   %.sroa.3.0.insert.ext.i44 = zext i8 %.0 to i24
   %.sroa.3.0.insert.shift.i45 = shl nuw i24 %.sroa.3.0.insert.ext.i44, 16
   %.sroa.2.0.insert.ext.i46 = zext i8 %.041 to i24
@@ -207,10 +198,10 @@ define i24 @lv_color_hsv_to_rgb(i16 noundef zeroext %0, i8 noundef zeroext %1, i
   %.sroa.2.0.insert.insert.i48 = or disjoint i24 %.sroa.3.0.insert.shift.i45, %.sroa.2.0.insert.shift.i47
   %.sroa.0.0.insert.ext.i49 = zext i8 %.042 to i24
   %.sroa.0.0.insert.insert.i50 = or disjoint i24 %.sroa.2.0.insert.insert.i48, %.sroa.0.0.insert.ext.i49
-  br label %47
+  br label %44
 
-47:                                               ; preds = %46, %13
-  %.sroa.0.0 = phi i24 [ %.sroa.0.0.insert.insert.i, %13 ], [ %.sroa.0.0.insert.insert.i50, %46 ]
+44:                                               ; preds = %43, %13
+  %.sroa.0.0 = phi i24 [ %.sroa.0.0.insert.insert.i, %13 ], [ %.sroa.0.0.insert.insert.i50, %43 ]
   ret i24 %.sroa.0.0
 }
 

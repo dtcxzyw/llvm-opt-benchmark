@@ -209,8 +209,6 @@ $_ZGVZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoun
 @.str.29 = private unnamed_addr constant [28 x i8] c"vector<bool>::_M_insert_aux\00", align 1
 @.str.30 = private unnamed_addr constant [14 x i8] c"type.1d.image\00", align 1
 @.str.31 = private unnamed_addr constant [14 x i8] c"type.2d.image\00", align 1
-@.str.32 = private unnamed_addr constant [14 x i8] c"type.3d.image\00", align 1
-@.str.33 = private unnamed_addr constant [16 x i8] c"type.cube.image\00", align 1
 @.str.34 = private unnamed_addr constant [11 x i8] c"type.image\00", align 1
 @_ZTVN3spv8FunctionE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN3spv8FunctionD2Ev, ptr @_ZN3spv8FunctionD0Ev] }, comdat, align 8
 @.str.35 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -223,7 +221,7 @@ $_ZGVZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloatTraitsIS2_EEE31getRoun
 @.str.37 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @.str.38 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SpvBuilder.cpp, ptr null }]
-@switch.table._ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatE = private unnamed_addr constant [4 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33], align 8
+@switch.table._ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatE = private unnamed_addr constant [4 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.31, ptr @.str.31], align 8
 @switch.table._ZN3spv7Builder22createTextureQueryCallENS_2OpERKNS0_17TextureParametersEb = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 2, i32 2, i32 1, i32 2], align 4
 
 @_ZN3spv7BuilderC1EjjPNS_14SpvBuildLoggerE = unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN3spv7BuilderC2EjjPNS_14SpvBuildLoggerE
@@ -8896,7 +8894,7 @@ define noundef i32 @_ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormat
 
 62:                                               ; preds = %58
   %63 = getelementptr inbounds i8, ptr %33, i64 8
-  br label %423
+  br label %422
 
 64:                                               ; preds = %29, %38, %42, %46, %50, %54, %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -9796,31 +9794,31 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209: ; preds = %_ZNSt8_Rb_tr
   %413 = getelementptr inbounds i8, ptr %0, i64 234
   %414 = load i8, ptr %413, align 2
   %415 = trunc i8 %414 to i1
-  br i1 %415, label %416, label %423
+  br i1 %415, label %416, label %422
 
 416:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
   %417 = icmp ult i32 %2, 4
-  br i1 %417, label %switch.lookup, label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit"
+  br i1 %417, label %switch.lookup, label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 switch.lookup:                                    ; preds = %416
   %418 = zext nneg i32 %2 to i64
   %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatE, i64 0, i64 %418
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit"
+  br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
-"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit": ; preds = %416, %switch.lookup
+_ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %416, %switch.lookup
   %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.34, %416 ]
   %419 = call noundef i32 @_ZN3spv7Builder22makeCompositeDebugTypeERKSt6vectorIjSaIjEEPKcNS_47NonSemanticShaderDebugInfo100DebugCompositeTypeEb(ptr noundef nonnull align 8 dereferenceable(1416) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull %.0.i, i32 noundef 0, i1 noundef zeroext true)
+  %.pre = load i32, ptr %78, align 8
   %420 = getelementptr inbounds i8, ptr %0, i64 1304
-  %421 = load i32, ptr %78, align 8
-  store i32 %421, ptr %14, align 4
-  %422 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %420, ptr noundef nonnull align 4 dereferenceable(4) %14)
-  store i32 %419, ptr %422, align 4
-  br label %423
+  store i32 %.pre, ptr %14, align 4
+  %421 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIjjSt4lessIjESaISt4pairIKjjEEEixEOj(ptr noundef nonnull align 8 dereferenceable(48) %420, ptr noundef nonnull align 4 dereferenceable(4) %14)
+  store i32 %419, ptr %421, align 4
+  br label %422
 
-423:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209, %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit", %62
-  %.0.in = phi ptr [ %63, %62 ], [ %78, %"_ZZN3spv7Builder13makeImageTypeEjNS_3DimEbbbjNS_11ImageFormatEENK3$_0clEv.exit" ], [ %78, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209 ]
+422:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209, %_ZNSt6vectorIjSaIjEED2Ev.exit, %62
+  %.0.in = phi ptr [ %63, %62 ], [ %78, %_ZNSt6vectorIjSaIjEED2Ev.exit ], [ %78, %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209 ]
   %.0 = load i32, ptr %.0.in, align 8
   ret i32 %.0
 }

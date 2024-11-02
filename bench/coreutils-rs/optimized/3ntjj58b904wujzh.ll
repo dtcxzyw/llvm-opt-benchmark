@@ -44,14 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.421393d8d72b0ce70ac9339b70b2f708.71 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.421393d8d72b0ce70ac9339b70b2f708.35, [16 x i8] c"\1B\00\00\00\00\00\00\00\85\01\00\00\18\00\00\00" }>, align 8
 @anon.421393d8d72b0ce70ac9339b70b2f708.72 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"K" }>, align 1
 @anon.421393d8d72b0ce70ac9339b70b2f708.73 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"M" }>, align 1
-@anon.421393d8d72b0ce70ac9339b70b2f708.74 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"G" }>, align 1
-@anon.421393d8d72b0ce70ac9339b70b2f708.75 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"T" }>, align 1
-@anon.421393d8d72b0ce70ac9339b70b2f708.76 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"P" }>, align 1
-@anon.421393d8d72b0ce70ac9339b70b2f708.77 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"E" }>, align 1
-@anon.421393d8d72b0ce70ac9339b70b2f708.78 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"Z" }>, align 1
-@anon.421393d8d72b0ce70ac9339b70b2f708.79 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"Y" }>, align 1
 @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E = external local_unnamed_addr global [256 x i8]
-@"switch.table._ZN64_$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$3fmt17h50dd0b1a409c4c8bE" = private unnamed_addr constant [8 x ptr] [ptr @anon.421393d8d72b0ce70ac9339b70b2f708.72, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.73, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.74, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.75, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.76, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.77, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.78, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.79], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -3556,12 +3549,10 @@ define void @_ZN9uu_numfmt6format16format_and_print17ha613a2f6c13a2e0bE(ptr noal
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal noundef zeroext i1 @"_ZN64_$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$3fmt17h50dd0b1a409c4c8bE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-switch.lookup:
-  %2 = load i8, ptr %0, align 1, !range !227, !noundef !4
-  %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @"switch.table._ZN64_$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$3fmt17h50dd0b1a409c4c8bE", i64 0, i64 %3
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 1)
+  %3 = load i8, ptr %0, align 1, !range !227, !noundef !4
+  %switch = icmp eq i8 %3, 0
+  %anon.421393d8d72b0ce70ac9339b70b2f708.72.anon.421393d8d72b0ce70ac9339b70b2f708.73 = select i1 %switch, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.72, ptr @anon.421393d8d72b0ce70ac9339b70b2f708.73
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.421393d8d72b0ce70ac9339b70b2f708.72.anon.421393d8d72b0ce70ac9339b70b2f708.73, i64 noundef 1)
   ret i1 %4
 }
 

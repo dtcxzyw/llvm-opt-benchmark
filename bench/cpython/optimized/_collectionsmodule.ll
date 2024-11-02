@@ -2283,7 +2283,6 @@ if.end.i.i65:                                     ; preds = %if.then.i62
 
 Py_XDECREF.exit69.sink.split:                     ; preds = %if.end.i.i65, %if.end.i.i
   %call34.lcssa151.sink = phi ptr [ %call34, %if.end.i.i ], [ %call4092, %if.end.i.i65 ]
-  %cmp439699104.ph = phi i32 [ 1, %if.end.i.i ], [ 0, %if.end.i.i65 ]
   %call4095100102.ph = phi ptr [ null, %if.end.i.i ], [ %call4092, %if.end.i.i65 ]
   tail call void @_Py_Dealloc(ptr noundef nonnull %call34.lcssa151.sink) #9
   %19 = zext i1 %cmp35 to i32
@@ -2291,7 +2290,6 @@ Py_XDECREF.exit69.sink.split:                     ; preds = %if.end.i.i65, %if.e
 
 Py_XDECREF.exit69:                                ; preds = %Py_XDECREF.exit69.sink.split, %if.end.i.i, %if.then.i, %for.end.thread, %if.then.i62, %if.end.i.i65
   %cmp35150 = phi i32 [ 1, %for.end.thread ], [ 1, %if.then.i62 ], [ 1, %if.end.i.i65 ], [ 0, %if.then.i ], [ 0, %if.end.i.i ], [ %19, %Py_XDECREF.exit69.sink.split ]
-  %cmp439699104 = phi i32 [ 1, %for.end.thread ], [ 0, %if.then.i62 ], [ 0, %if.end.i.i65 ], [ 1, %if.then.i ], [ 1, %if.end.i.i ], [ %cmp439699104.ph, %Py_XDECREF.exit69.sink.split ]
   %call4095100102 = phi ptr [ null, %for.end.thread ], [ %call4092, %if.then.i62 ], [ %call4092, %if.end.i.i65 ], [ null, %if.then.i ], [ null, %if.end.i.i ], [ %call4095100102.ph, %Py_XDECREF.exit69.sink.split ]
   %call54 = tail call ptr @PyErr_Occurred() #9
   %tobool55.not = icmp eq ptr %call54, null
@@ -2304,7 +2302,7 @@ if.end57:                                         ; preds = %Py_XDECREF.exit69
     i32 2, label %sw.bb62
     i32 3, label %sw.bb65
     i32 4, label %sw.bb68
-    i32 5, label %sw.bb71
+    i32 5, label %sw.bb59
   ]
 
 sw.bb:                                            ; preds = %if.end57
@@ -2312,7 +2310,7 @@ sw.bb:                                            ; preds = %if.end57
   %conv = zext i1 %cmp58 to i32
   br label %if.then.i71
 
-sw.bb59:                                          ; preds = %if.end57
+sw.bb59:                                          ; preds = %if.end57, %if.end57
   br label %if.then.i71
 
 sw.bb62:                                          ; preds = %if.end57
@@ -2330,11 +2328,8 @@ sw.bb68:                                          ; preds = %if.end57
   %conv70 = zext i1 %cmp69 to i32
   br label %if.then.i71
 
-sw.bb71:                                          ; preds = %if.end57
-  br label %if.then.i71
-
-if.then.i71:                                      ; preds = %Py_DECREF.exit, %land.lhs.true, %Py_DECREF.exit108, %if.then1.i97, %if.end.i94, %Py_XDECREF.exit69, %sw.bb71, %sw.bb68, %sw.bb65, %sw.bb62, %sw.bb59, %sw.bb, %if.end57, %if.end29
-  %cmp.0113 = phi i32 [ -1, %if.end29 ], [ -1, %land.lhs.true ], [ -1, %Py_XDECREF.exit69 ], [ -1, %if.end57 ], [ %cmp439699104, %sw.bb71 ], [ %conv70, %sw.bb68 ], [ %conv67, %sw.bb65 ], [ %conv64, %sw.bb62 ], [ %cmp35150, %sw.bb59 ], [ %conv, %sw.bb ], [ %call49, %Py_DECREF.exit108 ], [ %call49, %if.then1.i97 ], [ %call49, %if.end.i94 ], [ -1, %Py_DECREF.exit ]
+if.then.i71:                                      ; preds = %Py_DECREF.exit, %land.lhs.true, %Py_DECREF.exit108, %if.then1.i97, %if.end.i94, %Py_XDECREF.exit69, %sw.bb68, %sw.bb65, %sw.bb62, %sw.bb59, %sw.bb, %if.end57, %if.end29
+  %cmp.0113 = phi i32 [ -1, %if.end29 ], [ -1, %land.lhs.true ], [ -1, %Py_XDECREF.exit69 ], [ -1, %if.end57 ], [ %conv70, %sw.bb68 ], [ %conv67, %sw.bb65 ], [ %conv64, %sw.bb62 ], [ %cmp35150, %sw.bb59 ], [ %conv, %sw.bb ], [ %call49, %Py_DECREF.exit108 ], [ %call49, %if.then1.i97 ], [ %call49, %if.end.i94 ], [ -1, %Py_DECREF.exit ]
   %20 = load i64, ptr %call26, align 8
   %21 = and i64 %20, 2147483648
   %cmp.i2.not.i72 = icmp eq i64 %21, 0

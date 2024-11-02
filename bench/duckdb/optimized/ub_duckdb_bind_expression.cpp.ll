@@ -831,7 +831,6 @@ $_ZTIN6duckdb17BoundSubqueryNodeE = comdat any
 @.str.60 = private unnamed_addr constant [14 x i8] c"union_extract\00", align 1
 @.str.61 = private unnamed_addr constant [15 x i8] c"struct_extract\00", align 1
 @.str.62 = private unnamed_addr constant [11 x i8] c"list_value\00", align 1
-@.str.63 = private unnamed_addr constant [13 x i8] c"json_extract\00", align 1
 @.str.64 = private unnamed_addr constant [34 x i8] c"COALESCE needs at least one child\00", align 1
 @.str.65 = private unnamed_addr constant [73 x i8] c"Unexpected prepared parameter. This type of statement can't be prepared!\00", align 1
 @.str.66 = private unnamed_addr constant [51 x i8] c"Positional reference expression could not be bound\00", align 1
@@ -27797,7 +27796,7 @@ if.end12:                                         ; preds = %for.cond.cleanup.if
     i8 -102, label %sw.bb33
     i8 -101, label %sw.bb37
     i8 -100, label %sw.bb103.invoke
-    i8 -99, label %sw.bb103
+    i8 -99, label %sw.bb33
   ]
 
 sw.bb:                                            ; preds = %if.end12
@@ -27831,7 +27830,7 @@ lpad15:                                           ; preds = %invoke.cont22, %inv
           cleanup
   br label %ehcleanup216
 
-sw.bb33:                                          ; preds = %if.end12
+sw.bb33:                                          ; preds = %if.end12, %if.end12
   br label %sw.bb103.invoke
 
 lpad34:                                           ; preds = %sw.bb103.invoke
@@ -28111,12 +28110,9 @@ cleanup:                                          ; preds = %if.end91, %_ZNSt7__
     i8 1, label %sw.epilog
   ]
 
-sw.bb103:                                         ; preds = %if.end12
-  br label %sw.bb103.invoke
-
-sw.bb103.invoke:                                  ; preds = %sw.bb103, %sw.bb33, %if.end12
-  %78 = phi ptr [ @.str.63, %sw.bb103 ], [ @.str.58, %sw.bb33 ], [ @.str.62, %if.end12 ]
-  %79 = phi i64 [ 12, %sw.bb103 ], [ 11, %sw.bb33 ], [ 10, %if.end12 ]
+sw.bb103.invoke:                                  ; preds = %sw.bb33, %if.end12
+  %78 = phi ptr [ @.str.58, %sw.bb33 ], [ @.str.62, %if.end12 ]
+  %79 = phi i64 [ 11, %sw.bb33 ], [ 10, %if.end12 ]
   %80 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %function_name, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %78, i64 noundef %79)
           to label %sw.epilog unwind label %lpad34
 

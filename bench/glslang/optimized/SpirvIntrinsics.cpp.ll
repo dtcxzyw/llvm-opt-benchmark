@@ -273,33 +273,12 @@ $_ZTVN7glslang5TTypeE = comdat any
 @.str.25 = private unnamed_addr constant [3 x i8] c"%f\00", align 1
 @.str.26 = private unnamed_addr constant [6 x i8] c"float\00", align 1
 @.str.27 = private unnamed_addr constant [4 x i8] c"int\00", align 1
-@.str.28 = private unnamed_addr constant [5 x i8] c"uint\00", align 1
-@.str.29 = private unnamed_addr constant [14 x i8] c"sampler/image\00", align 1
-@.str.30 = private unnamed_addr constant [5 x i8] c"void\00", align 1
-@.str.31 = private unnamed_addr constant [7 x i8] c"double\00", align 1
-@.str.32 = private unnamed_addr constant [10 x i8] c"float16_t\00", align 1
-@.str.33 = private unnamed_addr constant [7 x i8] c"int8_t\00", align 1
-@.str.34 = private unnamed_addr constant [8 x i8] c"uint8_t\00", align 1
-@.str.35 = private unnamed_addr constant [8 x i8] c"int16_t\00", align 1
-@.str.36 = private unnamed_addr constant [9 x i8] c"uint16_t\00", align 1
-@.str.37 = private unnamed_addr constant [8 x i8] c"int64_t\00", align 1
-@.str.38 = private unnamed_addr constant [9 x i8] c"uint64_t\00", align 1
-@.str.39 = private unnamed_addr constant [5 x i8] c"bool\00", align 1
-@.str.40 = private unnamed_addr constant [12 x i8] c"atomic_uint\00", align 1
-@.str.41 = private unnamed_addr constant [10 x i8] c"structure\00", align 1
-@.str.42 = private unnamed_addr constant [6 x i8] c"block\00", align 1
-@.str.43 = private unnamed_addr constant [24 x i8] c"accelerationStructureNV\00", align 1
-@.str.44 = private unnamed_addr constant [12 x i8] c"rayQueryEXT\00", align 1
-@.str.45 = private unnamed_addr constant [10 x i8] c"reference\00", align 1
-@.str.46 = private unnamed_addr constant [7 x i8] c"string\00", align 1
-@.str.47 = private unnamed_addr constant [11 x i8] c"spirv_type\00", align 1
-@.str.48 = private unnamed_addr constant [8 x i8] c"coopmat\00", align 1
 @.str.49 = private unnamed_addr constant [13 x i8] c"unknown type\00", align 1
 @_ZTVN7glslang5TTypeE = linkonce_odr unnamed_addr constant { [61 x ptr] } { [61 x ptr] [ptr null, ptr null, ptr @_ZN7glslang5TTypeD2Ev, ptr @_ZN7glslang5TTypeD0Ev, ptr @_ZN7glslang5TType10hideMemberEv, ptr @_ZNK7glslang5TType12hiddenMemberEv, ptr @_ZN7glslang5TType12setFieldNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE, ptr @_ZNK7glslang5TType11getTypeNameB5cxx11Ev, ptr @_ZNK7glslang5TType12getFieldNameB5cxx11Ev, ptr @_ZNK7glslang5TType12getBasicTypeEv, ptr @_ZNK7glslang5TType10getSamplerEv, ptr @_ZN7glslang5TType10getSamplerEv, ptr @_ZN7glslang5TType12getQualifierEv, ptr @_ZNK7glslang5TType12getQualifierEv, ptr @_ZNK7glslang5TType13getVectorSizeEv, ptr @_ZNK7glslang5TType13getMatrixColsEv, ptr @_ZNK7glslang5TType13getMatrixRowsEv, ptr @_ZNK7glslang5TType17getOuterArraySizeEv, ptr @_ZNK7glslang5TType17getOuterArrayNodeEv, ptr @_ZNK7glslang5TType22getCumulativeArraySizeEv, ptr @_ZNK7glslang5TType20getImplicitArraySizeEv, ptr @_ZNK7glslang5TType13getArraySizesEv, ptr @_ZN7glslang5TType13getArraySizesEv, ptr @_ZNK7glslang5TType15getReferentTypeEv, ptr @_ZNK7glslang5TType17getTypeParametersEv, ptr @_ZN7glslang5TType17getTypeParametersEv, ptr @_ZNK7glslang5TType8isScalarEv, ptr @_ZNK7glslang5TType14isScalarOrVec1Ev, ptr @_ZNK7glslang5TType16isScalarOrVectorEv, ptr @_ZNK7glslang5TType8isVectorEv, ptr @_ZNK7glslang5TType8isMatrixEv, ptr @_ZNK7glslang5TType7isArrayEv, ptr @_ZNK7glslang5TType12isSizedArrayEv, ptr @_ZNK7glslang5TType14isUnsizedArrayEv, ptr @_ZNK7glslang5TType22isImplicitlySizedArrayEv, ptr @_ZNK7glslang5TType22isArrayVariablyIndexedEv, ptr @_ZN7glslang5TType23setArrayVariablyIndexedEv, ptr @_ZN7glslang5TType23updateImplicitArraySizeEi, ptr @_ZN7glslang5TType18setImplicitlySizedEb, ptr @_ZNK7glslang5TType8isStructEv, ptr @_ZNK7glslang5TType16isFloatingDomainEv, ptr @_ZNK7glslang5TType15isIntegerDomainEv, ptr @_ZNK7glslang5TType8isOpaqueEv, ptr @_ZNK7glslang5TType9isBuiltInEv, ptr @_ZNK7glslang5TType15isAttachmentEXTEv, ptr @_ZNK7glslang5TType7isImageEv, ptr @_ZNK7glslang5TType9isSubpassEv, ptr @_ZNK7glslang5TType9isTextureEv, ptr @_ZNK7glslang5TType15isBindlessImageEv, ptr @_ZNK7glslang5TType17isBindlessTextureEv, ptr @_ZNK7glslang5TType14isUnusableNameEv, ptr @_ZNK7glslang5TType15isParameterizedEv, ptr @_ZNK7glslang5TType17containsBasicTypeENS_10TBasicTypeE, ptr @_ZNK7glslang5TType13containsArrayEv, ptr @_ZNK7glslang5TType17containsStructureEv, ptr @_ZNK7glslang5TType20containsUnsizedArrayEv, ptr @_ZNK7glslang5TType14containsOpaqueEv, ptr @_ZNK7glslang5TType15containsSamplerEv, ptr @_ZNK7glslang5TType15containsBuiltInEv, ptr @_ZNK7glslang5TType17containsNonOpaqueEv, ptr @_ZNK7glslang5TType26containsSpecializationSizeEv] }, comdat, align 8
 @.str.50 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.51 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.53 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
-@switch.table._ZN7glslang13TParseContext23makeSpirvTypeParametersERKNS_10TSourceLocEPKNS_20TIntermConstantUnionE = private unnamed_addr constant [24 x ptr] [ptr @.str.30, ptr @.str.26, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35, ptr @.str.36, ptr @.str.27, ptr @.str.28, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.29, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.45, ptr @.str.44, ptr @.str.49, ptr @.str.48, ptr @.str.47, ptr @.str.46], align 8
+@switch.table._ZN7glslang13TParseContext23makeSpirvTypeParametersERKNS_10TSourceLocEPKNS_20TIntermConstantUnionE = private unnamed_addr constant [24 x ptr] [ptr @.str.27, ptr @.str.26, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.49, ptr @.str.27, ptr @.str.27, ptr @.str.27], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef zeroext i1 @_ZNK7glslang19TSpirvTypeParametereqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {

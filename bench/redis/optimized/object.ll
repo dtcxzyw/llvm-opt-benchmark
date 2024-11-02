@@ -52,13 +52,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [40 x i8] c"value is out of range, must be positive\00", align 1
 @.str.25 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
 @.str.26 = private unnamed_addr constant [4 x i8] c"int\00", align 1
-@.str.27 = private unnamed_addr constant [10 x i8] c"hashtable\00", align 1
-@.str.28 = private unnamed_addr constant [10 x i8] c"quicklist\00", align 1
-@.str.29 = private unnamed_addr constant [9 x i8] c"listpack\00", align 1
-@.str.30 = private unnamed_addr constant [7 x i8] c"intset\00", align 1
-@.str.31 = private unnamed_addr constant [9 x i8] c"skiplist\00", align 1
-@.str.32 = private unnamed_addr constant [7 x i8] c"embstr\00", align 1
-@.str.33 = private unnamed_addr constant [7 x i8] c"stream\00", align 1
 @.str.34 = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 @.str.35 = private unnamed_addr constant [22 x i8] c"Unknown list encoding\00", align 1
 @.str.36 = private unnamed_addr constant [21 x i8] c"Unknown set encoding\00", align 1
@@ -148,7 +141,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.118 = private unnamed_addr constant [7 x i8] c"doctor\00", align 1
 @.str.119 = private unnamed_addr constant [6 x i8] c"purge\00", align 1
 @.str.120 = private unnamed_addr constant [26 x i8] c"Error purging dirty pages\00", align 1
-@switch.table.objectCommand = private unnamed_addr constant [12 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.34, ptr @.str.34, ptr @.str.34, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.28, ptr @.str.33, ptr @.str.29], align 8
+@switch.table.objectCommand = private unnamed_addr constant [12 x ptr] [ptr @.str.25, ptr @.str.26, ptr @.str.26, ptr @.str.34, ptr @.str.34, ptr @.str.34, ptr @.str.26, ptr @.str.26, ptr @.str.26, ptr @.str.26, ptr @.str.26, ptr @.str.26], align 8
 
 ; Function Attrs: nounwind uwtable
 define dso_local noalias noundef ptr @createObject(i32 noundef %type, ptr noundef %ptr) local_unnamed_addr #0 {

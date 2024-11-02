@@ -100,10 +100,6 @@ $_ZGVZ11log_get_pidB5cxx11vE3pidB5cxx11 = comdat any
 @.str.3 = private unnamed_addr constant [18 x i8] c"CFG -> Penalties \00", align 1
 @.str.4 = private unnamed_addr constant [10 x i8] c"-> top_k \00", align 1
 @.str.5 = private unnamed_addr constant [10 x i8] c"-> tfs_z \00", align 1
-@.str.6 = private unnamed_addr constant [14 x i8] c"-> typical_p \00", align 1
-@.str.7 = private unnamed_addr constant [10 x i8] c"-> top_p \00", align 1
-@.str.8 = private unnamed_addr constant [10 x i8] c"-> min_p \00", align 1
-@.str.9 = private unnamed_addr constant [9 x i8] c"-> temp \00", align 1
 @.str.10 = private unnamed_addr constant [13 x i8] c"-> mirostat \00", align 1
 @.str.11 = private unnamed_addr constant [36 x i8] c"[%lu] %ssampled token: %5d: '%s'\0A%s\00", align 1
 @.str.12 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -1167,10 +1163,10 @@ for.body:                                         ; preds = %if.then, %for.inc
   switch i8 %1, label %for.inc [
     i8 107, label %sw.bb
     i8 102, label %sw.bb.invoke
-    i8 121, label %sw.bb11
-    i8 112, label %sw.bb14
-    i8 109, label %sw.bb17
-    i8 116, label %sw.bb20
+    i8 121, label %sw.bb
+    i8 112, label %sw.bb
+    i8 109, label %sw.bb
+    i8 116, label %sw.bb
   ]
 
 lpad:                                             ; preds = %entry
@@ -1179,11 +1175,11 @@ lpad:                                             ; preds = %entry
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #20
   br label %eh.resume
 
-sw.bb:                                            ; preds = %for.body
+sw.bb:                                            ; preds = %for.body, %for.body, %for.body, %for.body, %for.body
   br label %sw.bb.invoke
 
-sw.bb.invoke:                                     ; preds = %for.body, %sw.bb20, %sw.bb17, %sw.bb14, %sw.bb11, %sw.bb
-  %3 = phi ptr [ @.str.4, %sw.bb ], [ @.str.6, %sw.bb11 ], [ @.str.7, %sw.bb14 ], [ @.str.8, %sw.bb17 ], [ @.str.9, %sw.bb20 ], [ @.str.5, %for.body ]
+sw.bb.invoke:                                     ; preds = %for.body, %sw.bb
+  %3 = phi ptr [ @.str.4, %sw.bb ], [ @.str.5, %for.body ]
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %3)
           to label %for.inc unwind label %lpad5.loopexit
 
@@ -1201,18 +1197,6 @@ lpad5:                                            ; preds = %lpad5.loopexit.spli
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %lpad5.loopexit ], [ %lpad.loopexit.split-lp, %lpad5.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #20
   br label %eh.resume
-
-sw.bb11:                                          ; preds = %for.body
-  br label %sw.bb.invoke
-
-sw.bb14:                                          ; preds = %for.body
-  br label %sw.bb.invoke
-
-sw.bb17:                                          ; preds = %for.body
-  br label %sw.bb.invoke
-
-sw.bb20:                                          ; preds = %for.body
-  br label %sw.bb.invoke
 
 for.inc:                                          ; preds = %sw.bb.invoke, %for.body
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.07, i64 1

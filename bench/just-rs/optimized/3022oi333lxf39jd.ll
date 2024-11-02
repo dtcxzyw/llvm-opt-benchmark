@@ -19,25 +19,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.f064b0e555c074fc1146a07895a96afd.39 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.f064b0e555c074fc1146a07895a96afd.15, [16 x i8] c"O\00\00\00\00\00\00\00;\04\00\00$\00\00\00" }>, align 8
 @anon.f064b0e555c074fc1146a07895a96afd.45 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Alias" }>, align 1
 @anon.f064b0e555c074fc1146a07895a96afd.46 = private unnamed_addr constant <{ [21 x i8] }> <{ [21 x i8] c"AllowDuplicateRecipes" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.47 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"DotenvFilename" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.48 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"DotenvLoad" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.49 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"DotenvPath" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.50 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"Else" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.51 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"Export" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.52 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"Fallback" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.53 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"False" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.54 = private unnamed_addr constant <{ [2 x i8] }> <{ [2 x i8] c"If" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.55 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"IgnoreComments" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.56 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"Import" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.57 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"Mod" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.58 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"PositionalArguments" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.59 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Quiet" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.60 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"Set" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.61 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Shell" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.62 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Tempdir" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.63 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"True" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.64 = private unnamed_addr constant <{ [17 x i8] }> <{ [17 x i8] c"WindowsPowershell" }>, align 1
-@anon.f064b0e555c074fc1146a07895a96afd.65 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"WindowsShell" }>, align 1
 @_ZN4core7unicode12unicode_data11white_space14WHITESPACE_MAP17h6b90392c31973ed5E = external local_unnamed_addr global [256 x i8]
 @anon.7dbcd5d78972d10e75f23ce35f923e43.2.llvm.12352545699060731367 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 @anon.7dbcd5d78972d10e75f23ce35f923e43.4.llvm.12352545699060731367 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
@@ -48,10 +29,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7dbcd5d78972d10e75f23ce35f923e43.9.llvm.12352545699060731367 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 @anon.7dbcd5d78972d10e75f23ce35f923e43.11.llvm.12352545699060731367 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 @anon.1a7e3f89fdd1c4a5d945b914e4a08314.21.llvm.9118937971122011336 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he5501bbeb6be1267E" = private unnamed_addr constant [21 x i64] [i64 5, i64 21, i64 14, i64 10, i64 10, i64 4, i64 6, i64 8, i64 5, i64 2, i64 14, i64 6, i64 3, i64 19, i64 5, i64 3, i64 5, i64 7, i64 4, i64 17, i64 12], align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he5501bbeb6be1267E.131" = private unnamed_addr constant [21 x ptr] [ptr @anon.f064b0e555c074fc1146a07895a96afd.45, ptr @anon.f064b0e555c074fc1146a07895a96afd.46, ptr @anon.f064b0e555c074fc1146a07895a96afd.47, ptr @anon.f064b0e555c074fc1146a07895a96afd.48, ptr @anon.f064b0e555c074fc1146a07895a96afd.49, ptr @anon.f064b0e555c074fc1146a07895a96afd.50, ptr @anon.f064b0e555c074fc1146a07895a96afd.51, ptr @anon.f064b0e555c074fc1146a07895a96afd.52, ptr @anon.f064b0e555c074fc1146a07895a96afd.53, ptr @anon.f064b0e555c074fc1146a07895a96afd.54, ptr @anon.f064b0e555c074fc1146a07895a96afd.55, ptr @anon.f064b0e555c074fc1146a07895a96afd.56, ptr @anon.f064b0e555c074fc1146a07895a96afd.57, ptr @anon.f064b0e555c074fc1146a07895a96afd.58, ptr @anon.f064b0e555c074fc1146a07895a96afd.59, ptr @anon.f064b0e555c074fc1146a07895a96afd.60, ptr @anon.f064b0e555c074fc1146a07895a96afd.61, ptr @anon.f064b0e555c074fc1146a07895a96afd.62, ptr @anon.f064b0e555c074fc1146a07895a96afd.63, ptr @anon.f064b0e555c074fc1146a07895a96afd.64, ptr @anon.f064b0e555c074fc1146a07895a96afd.65], align 8
-@switch.table._ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE = private unnamed_addr constant [3 x i32] [i32 123, i32 91, i32 40], align 4
-@switch.table._ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE = private unnamed_addr constant [3 x i32] [i32 125, i32 93, i32 41], align 4
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0cb930675355f227E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -5214,17 +5191,13 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he5501bbeb6be1267E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
-switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !16, !align !17, !noundef !16
-  %.val = load i8, ptr %2, align 1, !range !1106, !noundef !16
-  %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds [21 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he5501bbeb6be1267E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds [21 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17he5501bbeb6be1267E.131", i64 0, i64 %4
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load ptr, ptr %0, align 8, !nonnull !16, !align !17, !noundef !16
+  %.val = load i8, ptr %3, align 1, !range !1106, !noundef !16
+  %switch.i = icmp eq i8 %.val, 0
+  %..i = select i1 %switch.i, i64 5, i64 21
+  %anon.f064b0e555c074fc1146a07895a96afd.45.anon.f064b0e555c074fc1146a07895a96afd.46.i = select i1 %switch.i, ptr @anon.f064b0e555c074fc1146a07895a96afd.45, ptr @anon.f064b0e555c074fc1146a07895a96afd.46
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.f064b0e555c074fc1146a07895a96afd.45.anon.f064b0e555c074fc1146a07895a96afd.46.i, i64 noundef %..i)
+  ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -12166,21 +12139,17 @@ define hidden void @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i32 40, 124) i32 @_ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE(i8 noundef %0) unnamed_addr #7 {
-switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE, i64 0, i64 %1
-  %switch.load = load i32, ptr %switch.gep, align 4
-  ret i32 %switch.load
+define hidden noundef range(i32 91, 124) i32 @_ZN4just9delimiter9Delimiter4open17h56d5caeee82d4f6dE(i8 noundef %0) unnamed_addr #7 {
+  %switch = icmp eq i8 %0, 0
+  %. = select i1 %switch, i32 123, i32 91
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef range(i32 41, 126) i32 @_ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE(i8 noundef %0) unnamed_addr #7 {
-switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE, i64 0, i64 %1
-  %switch.load = load i32, ptr %switch.gep, align 4
-  ret i32 %switch.load
+define hidden noundef range(i32 93, 126) i32 @_ZN4just9delimiter9Delimiter5close17h49bb3dd60266221eE(i8 noundef %0) unnamed_addr #7 {
+  %switch = icmp eq i8 %0, 0
+  %. = select i1 %switch, i32 125, i32 93
+  ret i32 %.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -8,13 +8,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb6c785b183174eb1E"(ptr nocapture readnone align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
-  %3 = load i64, ptr %.val, align 8
-  %4 = add i64 %3, -39
-  %switch.i = icmp ult i64 %4, 2
-  %spec.select.i = select i1 %switch.i, i64 8, i64 176
-  %5 = getelementptr inbounds i8, ptr %.val, i64 %spec.select.i
-  %6 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %5, ptr nonnull align 1 @anon.fdc69fa71bf30e019c92f8fe53a04d60.3, i64 3)
-  ret i1 %6
+  %3 = getelementptr inbounds i8, ptr %.val, i64 8
+  %4 = tail call zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr nonnull align 8 %3, ptr nonnull align 1 @anon.fdc69fa71bf30e019c92f8fe53a04d60.3, i64 3)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

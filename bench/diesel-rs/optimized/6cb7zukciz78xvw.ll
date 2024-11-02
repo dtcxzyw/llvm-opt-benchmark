@@ -39,8 +39,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.9db3a622954ed65da3add3a79abf663b.124.llvm.5435959977682051014 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @anon.8d551b4f080baea0f731abc2ddbdd896.19.llvm.11693277841074805610 = external hidden unnamed_addr constant <{ [7 x i8] }>, align 1
 @anon.8d551b4f080baea0f731abc2ddbdd896.21.llvm.11693277841074805610 = external hidden unnamed_addr constant <{ [12 x i8] }>, align 1
-@"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE" = private unnamed_addr constant [20 x i32] [i32 1, i32 1, i32 2, i32 2, i32 3, i32 3, i32 8, i32 8, i32 4, i32 5, i32 246, i32 11, i32 10, i32 12, i32 7, i32 254, i32 252, i32 16, i32 254, i32 254], align 4
-@"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE.82" = private unnamed_addr constant [20 x i32] [i32 0, i32 32, i32 0, i32 32, i32 0, i32 32, i32 0, i32 32, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2048, i32 256], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(write, argmem: readwrite) uwtable
 define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h065e1ab9801912eeE"(ptr noundef nonnull %0, ptr noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -6333,16 +6331,10 @@ default.unreachable:                              ; preds = %3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i32, i32 } @"_ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE"(i8 noundef %0) unnamed_addr #13 {
-switch.lookup:
-  %1 = sext i8 %0 to i64
-  %switch.gep = getelementptr inbounds [20 x i32], ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE", i64 0, i64 %1
-  %switch.load = load i32, ptr %switch.gep, align 4
-  %2 = sext i8 %0 to i64
-  %switch.gep4 = getelementptr inbounds [20 x i32], ptr @"switch.table._ZN6diesel5mysql10connection4bind173_$LT$impl$u20$core..convert..From$LT$diesel..mysql..backend..MysqlType$GT$$u20$for$u20$$LP$mysqlclient_sys..enum_field_types$C$diesel..mysql..connection..bind..Flags$RP$$GT$4from17hab7b7a138b2d863dE.82", i64 0, i64 %2
-  %switch.load5 = load i32, ptr %switch.gep4, align 4
-  %3 = insertvalue { i32, i32 } poison, i32 %switch.load, 0
-  %4 = insertvalue { i32, i32 } %3, i32 %switch.load5, 1
-  ret { i32, i32 } %4
+  %switch = icmp eq i8 %0, 0
+  %. = select i1 %switch, i32 0, i32 32
+  %2 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %., 1
+  ret { i32, i32 } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

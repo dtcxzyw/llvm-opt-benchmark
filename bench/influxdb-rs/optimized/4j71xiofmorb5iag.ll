@@ -35,9 +35,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.60dc0379046a18711abc9b890678a8dd.32 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.60dc0379046a18711abc9b890678a8dd.31, [16 x i8] c"^\00\00\00\00\00\00\00\E1\04\00\00$\00\00\00" }>, align 8
 @anon.60dc0379046a18711abc9b890678a8dd.33 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Empty" }>, align 1
 @anon.60dc0379046a18711abc9b890678a8dd.34 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"InvalidDigit" }>, align 1
-@anon.60dc0379046a18711abc9b890678a8dd.35 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"PosOverflow" }>, align 1
-@anon.60dc0379046a18711abc9b890678a8dd.36 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"NegOverflow" }>, align 1
-@anon.60dc0379046a18711abc9b890678a8dd.37 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"Zero" }>, align 1
 @anon.60dc0379046a18711abc9b890678a8dd.38 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"ParseIntError" }>, align 1
 @anon.60dc0379046a18711abc9b890678a8dd.39 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"kind" }>, align 1
 @anon.60dc0379046a18711abc9b890678a8dd.40 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr55drop_in_place$LT$$RF$core..num..error..IntErrorKind$GT$17hfce1af3addd19f4eE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E" }>, align 8
@@ -47,8 +44,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.60dc0379046a18711abc9b890678a8dd.62 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.60dc0379046a18711abc9b890678a8dd.43, [16 x i8] c"m\00\00\00\00\00\00\00\C1\01\00\00\12\00\00\00" }>, align 8
 @anon.60dc0379046a18711abc9b890678a8dd.63 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.60dc0379046a18711abc9b890678a8dd.0, [16 x i8] c"l\00\00\00\00\00\00\004\03\00\00\17\00\00\00" }>, align 8
 @anon.60dc0379046a18711abc9b890678a8dd.64 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.60dc0379046a18711abc9b890678a8dd.0, [16 x i8] c"l\00\00\00\00\00\00\007\03\00\00\22\00\00\00" }>, align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E" = private unnamed_addr constant [5 x i64] [i64 5, i64 12, i64 11, i64 11, i64 4], align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E.15" = private unnamed_addr constant [5 x ptr] [ptr @anon.60dc0379046a18711abc9b890678a8dd.33, ptr @anon.60dc0379046a18711abc9b890678a8dd.34, ptr @anon.60dc0379046a18711abc9b890678a8dd.35, ptr @anon.60dc0379046a18711abc9b890678a8dd.36, ptr @anon.60dc0379046a18711abc9b890678a8dd.37], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h8ea024a78c162daeE.llvm.14933412330345768097"(i64 noundef %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
@@ -1813,17 +1808,13 @@ define hidden noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$9fl
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
-switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !15, !align !457, !noundef !15
-  %.val = load i8, ptr %2, align 1, !range !312, !noundef !15
-  %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds [5 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h0461476d523e8f31E.15", i64 0, i64 %4
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load ptr, ptr %0, align 8, !nonnull !15, !align !457, !noundef !15
+  %.val = load i8, ptr %3, align 1, !range !312, !noundef !15
+  %switch.i = icmp eq i8 %.val, 0
+  %..i = select i1 %switch.i, i64 5, i64 12
+  %anon.60dc0379046a18711abc9b890678a8dd.33.anon.60dc0379046a18711abc9b890678a8dd.34.i = select i1 %switch.i, ptr @anon.60dc0379046a18711abc9b890678a8dd.33, ptr @anon.60dc0379046a18711abc9b890678a8dd.34
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h8c81a3179c9b5f94E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.60dc0379046a18711abc9b890678a8dd.33.anon.60dc0379046a18711abc9b890678a8dd.34.i, i64 noundef %..i)
+  ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable

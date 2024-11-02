@@ -740,9 +740,6 @@ $_ZTIZN2tf8Executor5run_nERNS_8TaskflowEmEUlvE_ = comdat any
 @.str.50 = private unnamed_addr constant [4 x i8] c"]}\0A\00", align 1
 @.str.51 = private unnamed_addr constant [12 x i8] c"placeholder\00", align 1
 @.str.52 = private unnamed_addr constant [7 x i8] c"static\00", align 1
-@.str.53 = private unnamed_addr constant [8 x i8] c"subflow\00", align 1
-@.str.54 = private unnamed_addr constant [10 x i8] c"condition\00", align 1
-@.str.55 = private unnamed_addr constant [6 x i8] c"async\00", align 1
 @.str.56 = private unnamed_addr constant [10 x i8] c"undefined\00", align 1
 @.str.57 = private unnamed_addr constant [12 x i8] c"==Observer \00", align 1
 @.str.58 = private unnamed_addr constant [3 x i8] c": \00", align 1
@@ -868,8 +865,8 @@ $_ZTIZN2tf8Executor5run_nERNS_8TaskflowEmEUlvE_ = comdat any
 @"_ZTIZ21composition_example_2vE4$_11" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZ21composition_example_2vE4$_11" }, align 8
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.1, ptr @_ZN2tf9node_poolE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_composition.cpp, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN2tf9node_poolE], section "llvm.metadata"
-@switch.table._ZNK2tf14TFProfObserver7Summary9dump_wsumERSo = private unnamed_addr constant [6 x ptr] [ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.11, ptr @.str.55], align 8
-@switch.table._ZN2tf14TFProfObserver7on_exitENS_10WorkerViewENS_8TaskViewE = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 2, i32 3, i32 3, i32 4, i32 5, i32 5], align 4
+@switch.table._ZNK2tf14TFProfObserver7Summary9dump_wsumERSo = private unnamed_addr constant [6 x ptr] [ptr @.str.51, ptr @.str.52, ptr @.str.52, ptr @.str.52, ptr @.str.52, ptr @.str.52], align 8
+@switch.table._ZN2tf14TFProfObserver7on_exitENS_10WorkerViewENS_8TaskViewE = private unnamed_addr constant [8 x i32] [i32 0, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1], align 4
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 

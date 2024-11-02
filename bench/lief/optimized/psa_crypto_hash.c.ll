@@ -10,13 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 @mbedtls_md5_info = external constant %struct.mbedtls_md_info_t, align 8
 @mbedtls_ripemd160_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha1_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha224_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha256_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha384_info = external constant %struct.mbedtls_md_info_t, align 8
-@mbedtls_sha512_info = external constant %struct.mbedtls_md_info_t, align 8
-@switch.table.mbedtls_md_info_from_psa = private unnamed_addr constant [9 x ptr] [ptr @mbedtls_md5_info, ptr @mbedtls_ripemd160_info, ptr @mbedtls_sha1_info, ptr null, ptr null, ptr @mbedtls_sha224_info, ptr @mbedtls_sha256_info, ptr @mbedtls_sha384_info, ptr @mbedtls_sha512_info], align 8
-@switch.table.mbedtls_psa_hash_finish = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 28, i64 32, i64 48, i64 64, i64 28, i64 32, i64 16, i64 16, i64 28, i64 32, i64 48], align 8
+@switch.table.mbedtls_md_info_from_psa = private unnamed_addr constant [9 x ptr] [ptr @mbedtls_md5_info, ptr @mbedtls_ripemd160_info, ptr @mbedtls_ripemd160_info, ptr null, ptr null, ptr @mbedtls_ripemd160_info, ptr @mbedtls_ripemd160_info, ptr @mbedtls_ripemd160_info, ptr @mbedtls_ripemd160_info], align 8
+@switch.table.mbedtls_psa_hash_finish = private unnamed_addr constant [16 x i64] [i64 16, i64 20, i64 20, i64 16, i64 16, i64 20, i64 20, i64 20, i64 20, i64 20, i64 20, i64 16, i64 16, i64 20, i64 20, i64 48], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @mbedtls_md_info_from_psa(i32 noundef %0) local_unnamed_addr #0 {

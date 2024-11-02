@@ -2773,7 +2773,6 @@ $_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats = comdat any
 @.str.279 = private unnamed_addr constant [4 x i8] c"int\00", align 1
 @.str.280 = private unnamed_addr constant [12 x i8] c"std::string\00", align 1
 @.str.281 = private unnamed_addr constant [7 x i8] c"double\00", align 1
-@.str.282 = private unnamed_addr constant [15 x i8] c"std::nullptr_t\00", align 1
 @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_40PKcJSt7variantIJdiEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E9signature" = internal constant %"struct.pybind11::detail::descr.1535" { [29 x i8] c"({Union[float, int]}) -> str\00" }, align 1
 @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_40PKcJSt7variantIJdiEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E5types" = internal constant %"struct.std::array.546" zeroinitializer, align 8
 @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_41NS_5tupleEJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E9signature" = internal constant %"struct.pybind11::detail::descr.1568" { [8 x i8] c"() -> %\00" }, align 1
@@ -2862,8 +2861,6 @@ $_ZGVZN16ConstructorStats3getESt10type_indexE10all_cstats = comdat any
 @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_56PSt6vectorIbSaIbEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_E9signature" = internal constant %"struct.pybind11::detail::descr.569" { [17 x i8] c"() -> list[bool]\00" }, align 1
 @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_56PSt6vectorIbSaIbEEJEJNS_4nameENS_5scopeENS_7siblingENS_19return_value_policyEEEEvOT_PFT0_DpT1_EDpRKT2_E5types" = internal constant %"struct.std::array.546" zeroinitializer, align 8
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_test_stl.cpp, ptr null }]
-@"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_39PKcJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESX_" = private unnamed_addr constant [4 x ptr] [ptr @.str.279, ptr @.str.280, ptr @.str.281, ptr @.str.282], align 8
-@"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_" = private unnamed_addr constant [3 x ptr] [ptr @.str.284, ptr @.str.279, ptr @.str.280], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK8pybind1117error_already_set4whatEv(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -85743,7 +85740,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_
 _ZN8pybind116detail15argument_loaderIJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
   br i1 %10, label %15, label %28
 
-11:                                               ; preds = %switch.lookup, %1
+11:                                               ; preds = %22, %1
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds i8, ptr %2, i64 32
@@ -85757,7 +85754,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt7variantIJiNSt7__cxx1112basic_stringIc
   %18 = load i16, ptr %17, align 1
   %19 = and i16 %18, 32
   %.not.i = icmp eq i16 %19, 0
-  br i1 %.not.i, label %switch.lookup, label %_ZN8pybind114noneD2Ev.exit.i
+  br i1 %.not.i, label %22, label %_ZN8pybind114noneD2Ev.exit.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %15
   %20 = load i64, ptr @_Py_NoneStruct, align 8
@@ -85765,21 +85762,20 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %15
   store i64 %21, ptr @_Py_NoneStruct, align 8
   br label %28
 
-switch.lookup:                                    ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 88
-  %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
-  %.val17.i = load i8, ptr %24, align 8
-  %25 = sext i8 %.val17.i to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_39PKcJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESX_", i64 0, i64 %25
-  %switch.load = load ptr, ptr %switch.gep, align 8
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %16, i64 88
+  %24 = load i8, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  %.val17.i = load i8, ptr %25, align 8
+  %switch.i.i.i.i.i.i18.i = icmp eq i8 %.val17.i, 0
+  %spec.select.i.i.i.i.i.i19.i = select i1 %switch.i.i.i.i.i.i18.i, ptr @.str.279, ptr @.str.280
   %26 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %26, align 8
-  %27 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %switch.load, i8 noundef zeroext %23, ptr %.sroa.01.0.copyload.i)
+  %27 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %spec.select.i.i.i.i.i.i19.i, i8 noundef zeroext %24, ptr %.sroa.01.0.copyload.i)
           to label %28 unwind label %11
 
-28:                                               ; preds = %switch.lookup, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEE9load_argsERNS0_13function_callE.exit.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %27, %switch.lookup ]
+28:                                               ; preds = %22, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEE9load_argsERNS0_13function_callE.exit.i
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdDnEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %27, %22 ]
   %29 = getelementptr inbounds i8, ptr %2, i64 32
   %30 = load i8, ptr %29, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %30, 1
@@ -86776,7 +86772,7 @@ define internal ptr @"_ZZN8pybind1112cpp_function10initializeIZ18test_submodule_
 _ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i: ; preds = %1
   br i1 %10, label %15, label %28
 
-11:                                               ; preds = %switch.lookup, %1
+11:                                               ; preds = %22, %1
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds i8, ptr %2, i64 32
@@ -86790,7 +86786,7 @@ _ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112ba
   %18 = load i16, ptr %17, align 1
   %19 = and i16 %18, 32
   %.not.i = icmp eq i16 %19, 0
-  br i1 %.not.i, label %switch.lookup, label %_ZN8pybind114noneD2Ev.exit.i
+  br i1 %.not.i, label %22, label %_ZN8pybind114noneD2Ev.exit.i
 
 _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %15
   %20 = load i64, ptr @_Py_NoneStruct, align 8
@@ -86798,21 +86794,20 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %15
   store i64 %21, ptr @_Py_NoneStruct, align 8
   br label %28
 
-switch.lookup:                                    ; preds = %15
-  %22 = getelementptr inbounds i8, ptr %16, i64 88
-  %23 = load i8, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %2, i64 32
-  %.val19.i = load i8, ptr %24, align 8
-  %25 = sext i8 %.val19.i to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZZN8pybind1112cpp_function10initializeIZ18test_submodule_stlRNS_7module_EE4$_42PKcJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENUlRNS_6detail13function_callEE_8__invokeESY_", i64 0, i64 %25
-  %switch.load = load ptr, ptr %switch.gep, align 8
+22:                                               ; preds = %15
+  %23 = getelementptr inbounds i8, ptr %16, i64 88
+  %24 = load i8, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %2, i64 32
+  %.val19.i = load i8, ptr %25, align 8
+  %switch.i.i.i.i.i.i20.i = icmp eq i8 %.val19.i, 0
+  %spec.select.i.i.i.i.i.i21.i = select i1 %switch.i.i.i.i.i.i20.i, ptr @.str.284, ptr @.str.279
   %26 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %26, align 8
-  %27 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %switch.load, i8 noundef zeroext %23, ptr %.sroa.01.0.copyload.i)
+  %27 = invoke ptr @_ZN8pybind116detail11type_casterIcvE4castEPKcNS_19return_value_policyENS_6handleE(ptr noundef nonnull %spec.select.i.i.i.i.i.i21.i, i8 noundef zeroext %24, ptr %.sroa.01.0.copyload.i)
           to label %28 unwind label %11
 
-28:                                               ; preds = %switch.lookup, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i
-  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %27, %switch.lookup ]
+28:                                               ; preds = %22, %_ZN8pybind114noneD2Ev.exit.i, %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i
+  %.sroa.0.1.i = phi ptr [ inttoptr (i64 1 to ptr), %_ZN8pybind116detail15argument_loaderIJRKSt7variantIJSt9monostateiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE9load_argsERNS0_13function_callE.exit.i ], [ @_Py_NoneStruct, %_ZN8pybind114noneD2Ev.exit.i ], [ %27, %22 ]
   %29 = getelementptr inbounds i8, ptr %2, i64 32
   %30 = load i8, ptr %29, align 8
   %switch.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %30, 2

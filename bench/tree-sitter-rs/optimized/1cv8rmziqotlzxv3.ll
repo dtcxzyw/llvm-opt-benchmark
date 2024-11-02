@@ -980,35 +980,25 @@ define void @_ZN21tree_sitter_highlight12HtmlRenderer13end_highlight17h7450f674b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN21tree_sitter_highlight12HtmlRenderer8add_text11html_escape17h719111073ec61c1bE(i8 noundef %0) unnamed_addr #2 {
-  switch i8 %0, label %7 [
+  switch i8 %0, label %4 [
     i8 62, label %2
     i8 60, label %3
-    i8 38, label %4
-    i8 39, label %5
-    i8 34, label %6
+    i8 38, label %3
+    i8 39, label %3
+    i8 34, label %3
   ]
 
 2:                                                ; preds = %1
-  br label %7
+  br label %4
 
-3:                                                ; preds = %1
-  br label %7
+3:                                                ; preds = %1, %1, %1, %1
+  br label %4
 
-4:                                                ; preds = %1
-  br label %7
-
-5:                                                ; preds = %1
-  br label %7
-
-6:                                                ; preds = %1
-  br label %7
-
-7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.sroa.7.0 = phi i64 [ 6, %6 ], [ 5, %5 ], [ 5, %4 ], [ 4, %3 ], [ 4, %2 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ @anon.7846843607c3237cb579c64a79ba54af.22.llvm.16574816117915424926, %6 ], [ @anon.7846843607c3237cb579c64a79ba54af.21.llvm.16574816117915424926, %5 ], [ @anon.7846843607c3237cb579c64a79ba54af.20.llvm.16574816117915424926, %4 ], [ @anon.7846843607c3237cb579c64a79ba54af.19.llvm.16574816117915424926, %3 ], [ @anon.7846843607c3237cb579c64a79ba54af.18.llvm.16574816117915424926, %2 ], [ null, %1 ]
-  %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.7.0, 1
-  ret { ptr, i64 } %9
+4:                                                ; preds = %1, %3, %2
+  %.sroa.0.0 = phi ptr [ @anon.7846843607c3237cb579c64a79ba54af.19.llvm.16574816117915424926, %3 ], [ @anon.7846843607c3237cb579c64a79ba54af.18.llvm.16574816117915424926, %2 ], [ null, %1 ]
+  %5 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %6 = insertvalue { ptr, i64 } %5, i64 4, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

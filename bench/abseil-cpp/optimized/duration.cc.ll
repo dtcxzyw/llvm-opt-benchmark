@@ -2633,19 +2633,16 @@ sw.bb25.i:                                        ; preds = %sw.bb25thread-pre-s
   switch i8 %10, label %return [
     i8 115, label %if.end28
     i8 109, label %sw.bb32.i
-    i8 104, label %sw.bb37.i
+    i8 104, label %if.end28
   ]
 
 sw.bb32.i:                                        ; preds = %sw.bb25.i, %sw.bb14.i
   br label %if.end28
 
-sw.bb37.i:                                        ; preds = %sw.bb25.i
-  br label %if.end28
-
-if.end28:                                         ; preds = %sw.bb25.i, %sw.bb14.i, %sw.bb4.i, %sw.bb1.i, %sw.bb37.i, %sw.bb32.i
-  %.sink = phi i64 [ 1, %sw.bb37.i ], [ 1, %sw.bb32.i ], [ 2, %sw.bb1.i ], [ 2, %sw.bb4.i ], [ 2, %sw.bb14.i ], [ 1, %sw.bb25.i ]
-  %unit.sroa.10.0.ph = phi i32 [ 0, %sw.bb37.i ], [ 0, %sw.bb32.i ], [ 4, %sw.bb1.i ], [ 4000, %sw.bb4.i ], [ 4000000, %sw.bb14.i ], [ 0, %sw.bb25.i ]
-  %unit.sroa.0.0.ph = phi i64 [ 3600, %sw.bb37.i ], [ 60, %sw.bb32.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb14.i ], [ 1, %sw.bb25.i ]
+if.end28:                                         ; preds = %sw.bb25.i, %sw.bb25.i, %sw.bb14.i, %sw.bb4.i, %sw.bb1.i, %sw.bb32.i
+  %.sink = phi i64 [ 1, %sw.bb32.i ], [ 2, %sw.bb1.i ], [ 2, %sw.bb4.i ], [ 2, %sw.bb14.i ], [ 1, %sw.bb25.i ], [ 1, %sw.bb25.i ]
+  %unit.sroa.10.0.ph = phi i32 [ 0, %sw.bb32.i ], [ 4, %sw.bb1.i ], [ 4000, %sw.bb4.i ], [ 4000000, %sw.bb14.i ], [ 0, %sw.bb25.i ], [ 0, %sw.bb25.i ]
+  %unit.sroa.0.0.ph = phi i64 [ 60, %sw.bb32.i ], [ 0, %sw.bb1.i ], [ 0, %sw.bb4.i ], [ 0, %sw.bb14.i ], [ 1, %sw.bb25.i ], [ 1, %sw.bb25.i ]
   %add.ptr41.i = getelementptr inbounds i8, ptr %start.5218, i64 %.sink
   %cmp29.not = icmp eq i64 %int_part.2219, 0
   br i1 %cmp29.not, label %if.end36, label %if.then30

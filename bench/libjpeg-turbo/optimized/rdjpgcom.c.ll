@@ -24,17 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [27 x i8] c"Premature EOF in JPEG file\00", align 1
 @.str.17 = private unnamed_addr constant [9 x i8] c"Baseline\00", align 1
 @.str.18 = private unnamed_addr constant [20 x i8] c"Extended sequential\00", align 1
-@.str.19 = private unnamed_addr constant [12 x i8] c"Progressive\00", align 1
-@.str.20 = private unnamed_addr constant [9 x i8] c"Lossless\00", align 1
-@.str.21 = private unnamed_addr constant [24 x i8] c"Differential sequential\00", align 1
-@.str.22 = private unnamed_addr constant [25 x i8] c"Differential progressive\00", align 1
-@.str.23 = private unnamed_addr constant [22 x i8] c"Differential lossless\00", align 1
-@.str.24 = private unnamed_addr constant [39 x i8] c"Extended sequential, arithmetic coding\00", align 1
-@.str.25 = private unnamed_addr constant [31 x i8] c"Progressive, arithmetic coding\00", align 1
-@.str.26 = private unnamed_addr constant [28 x i8] c"Lossless, arithmetic coding\00", align 1
-@.str.27 = private unnamed_addr constant [43 x i8] c"Differential sequential, arithmetic coding\00", align 1
-@.str.28 = private unnamed_addr constant [44 x i8] c"Differential progressive, arithmetic coding\00", align 1
-@.str.29 = private unnamed_addr constant [41 x i8] c"Differential lossless, arithmetic coding\00", align 1
 @.str.30 = private unnamed_addr constant [8 x i8] c"Unknown\00", align 1
 @.str.31 = private unnamed_addr constant [66 x i8] c"JPEG image is %uw * %uh, %d color components, %d bits per sample\0A\00", align 1
 @.str.32 = private unnamed_addr constant [18 x i8] c"JPEG process: %s\0A\00", align 1
@@ -46,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [6 x i8] c"\\%03o\00", align 1
 @.str.39 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 @str = private unnamed_addr constant [16 x i8] c"APP12 contains:\00", align 1
-@switch.table.scan_JPEG_header = private unnamed_addr constant [16 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.30, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.30, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.30, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
+@switch.table.scan_JPEG_header = private unnamed_addr constant [16 x ptr] [ptr @.str.17, ptr @.str.18, ptr @.str.18, ptr @.str.18, ptr @.str.30, ptr @.str.18, ptr @.str.18, ptr @.str.18, ptr @.str.30, ptr @.str.18, ptr @.str.18, ptr @.str.18, ptr @.str.30, ptr @.str.18, ptr @.str.18, ptr @.str.18], align 8
 
 ; Function Attrs: noreturn nounwind uwtable
 define dso_local noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {

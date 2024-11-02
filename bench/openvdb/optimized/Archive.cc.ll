@@ -2266,8 +2266,7 @@ $_ZTVN7openvdb5v11_09TypeErrorE = comdat any
 @_ZTVN7openvdb5v11_09TypeErrorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7openvdb5v11_09TypeErrorE, ptr @_ZN7openvdb5v11_09TypeErrorD2Ev, ptr @_ZN7openvdb5v11_09TypeErrorD0Ev, ptr @_ZNK7openvdb5v11_09Exception4whatEv] }, comdat, align 8
 @llvm.global_ctors = appending global [2 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @__cxx_global_var_init.2, ptr @_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE }, { i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Archive.cc, ptr null }]
 @llvm.used = appending global [1 x ptr] [ptr @_ZN5boost12interprocess13mapped_region16page_size_holderILi0EE8PageSizeE], section "llvm.metadata"
-@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 1, i32 2, i32 2], align 4
-@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi.85 = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 3, i32 3, i32 1], align 4
+@switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi = private unnamed_addr constant [5 x i32] [i32 1, i32 1, i32 2, i32 2, i32 2], align 4
 
 @_ZN7openvdb5v11_02io14StreamMetadataC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7openvdb5v11_02io14StreamMetadataC2Ev
 @_ZN7openvdb5v11_02io14StreamMetadataC1ERKS2_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN7openvdb5v11_02io14StreamMetadataC2ERKS2_
@@ -18768,7 +18767,7 @@ invoke.cont.i:                                    ; preds = %if.then.i62
 
 common.resume:                                    ; preds = %lpad56, %lpad78, %lpad89, %lpad100, %lpad.i
   %exception55.sink = phi ptr [ %exception55, %lpad56 ], [ %exception77, %lpad78 ], [ %exception88, %lpad89 ], [ %exception99, %lpad100 ], [ %exception.i, %lpad.i ]
-  %common.resume.op = phi { ptr, i32 } [ %6, %lpad56 ], [ %10, %lpad78 ], [ %17, %lpad89 ], [ %18, %lpad100 ], [ %8, %lpad.i ]
+  %common.resume.op = phi { ptr, i32 } [ %6, %lpad56 ], [ %10, %lpad78 ], [ %16, %lpad89 ], [ %17, %lpad100 ], [ %8, %lpad.i ]
   call void @__cxa_free_exception(ptr %exception55.sink) #26
   resume { ptr, i32 } %common.resume.op
 
@@ -18816,21 +18815,18 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i32 %mode to i64
   %switch.gep = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi, i64 0, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
-  %12 = zext nneg i32 %mode to i64
-  %switch.gep95 = getelementptr inbounds [5 x i32], ptr @switch.table._ZN5boost12interprocess13mapped_regionC2INS0_12file_mappingEEERKT_NS0_6mode_tElmPKvi.85, i64 0, i64 %12
-  %switch.load96 = load i32, ptr %switch.gep95, align 4
   %or75 = or i32 %cond64, %switch.load
   %add = add i64 %size.addr.1, %2
-  %13 = load i32, ptr %mapping, align 8
+  %12 = load i32, ptr %mapping, align 8
   %sub = sub nuw nsw i64 %offset, %2
-  %call83 = tail call ptr @mmap(ptr noundef %address.addr.0, i64 noundef %add, i32 noundef %switch.load96, i32 noundef %or75, i32 noundef %13, i64 noundef %sub) #26
+  %call83 = tail call ptr @mmap(ptr noundef %address.addr.0, i64 noundef %add, i32 noundef 1, i32 noundef %or75, i32 noundef %12, i64 noundef %sub) #26
   %cmp84 = icmp eq ptr %call83, inttoptr (i64 -1 to ptr)
   br i1 %cmp84, label %if.then85, label %if.end91
 
 if.then85:                                        ; preds = %switch.lookup
   %call.i65 = tail call ptr @__errno_location() #42
-  %14 = load i32, ptr %call.i65, align 4
-  store i32 %14, ptr %err86, align 4
+  %13 = load i32, ptr %call.i65, align 4
+  store i32 %13, ptr %err86, align 4
   br label %for.body.i.i66
 
 for.cond.i.i70:                                   ; preds = %for.body.i.i66
@@ -18841,18 +18837,18 @@ for.cond.i.i70:                                   ; preds = %for.body.i.i66
 for.body.i.i66:                                   ; preds = %for.cond.i.i70, %if.then85
   %cur.0.idx6.i.i67 = phi i64 [ 0, %if.then85 ], [ %cur.0.add.i.i71, %for.cond.i.i70 ]
   %cur.0.ptr7.i.i68 = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i67
-  %15 = load i32, ptr %cur.0.ptr7.i.i68, align 8
-  %cmp1.i.i69 = icmp eq i32 %14, %15
+  %14 = load i32, ptr %cur.0.ptr7.i.i68, align 8
+  %cmp1.i.i69 = icmp eq i32 %13, %14
   br i1 %cmp1.i.i69, label %if.then.i.i75, label %for.cond.i.i70
 
 if.then.i.i75:                                    ; preds = %for.body.i.i66
   %cur.0.ptr7.i.i68.le = getelementptr inbounds i8, ptr @_ZN5boost12interprocessL8ec_tableE, i64 %cur.0.idx6.i.i67
   %ec.i.i77 = getelementptr inbounds i8, ptr %cur.0.ptr7.i.i68.le, i64 4
-  %16 = load i32, ptr %ec.i.i77, align 4
+  %15 = load i32, ptr %ec.i.i77, align 4
   br label %_ZN5boost12interprocess10error_infoC2Ei.exit78
 
 _ZN5boost12interprocess10error_infoC2Ei.exit78:   ; preds = %for.cond.i.i70, %if.then.i.i75
-  %retval.0.i.i73 = phi i32 [ %16, %if.then.i.i75 ], [ 1, %for.cond.i.i70 ]
+  %retval.0.i.i73 = phi i32 [ %15, %if.then.i.i75 ], [ 1, %for.cond.i.i70 ]
   %m_ec.i74 = getelementptr inbounds i8, ptr %err86, i64 4
   store i32 %retval.0.i.i73, ptr %m_ec.i74, align 4
   %exception88 = tail call ptr @__cxa_allocate_exception(i64 48) #26
@@ -18864,7 +18860,7 @@ invoke.cont90:                                    ; preds = %_ZN5boost12interpro
   unreachable
 
 lpad89:                                           ; preds = %_ZN5boost12interprocess10error_infoC2Ei.exit78
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -18892,7 +18888,7 @@ invoke.cont101:                                   ; preds = %if.then97
   unreachable
 
 lpad100:                                          ; preds = %if.then97
-  %18 = landingpad { ptr, i32 }
+  %17 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

@@ -7,29 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [39 x i8] c"argument provided is NULL or corrupted\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"argument provided is not compatible\00", align 1
-@.str.2 = private unnamed_addr constant [35 x i8] c"argument is out of the valid range\00", align 1
-@.str.3 = private unnamed_addr constant [40 x i8] c"argument provided is not the right type\00", align 1
-@.str.4 = private unnamed_addr constant [33 x i8] c"argument dimensions do not agree\00", align 1
-@.str.5 = private unnamed_addr constant [18 x i8] c"an error occurred\00", align 1
-@.str.6 = private unnamed_addr constant [25 x i8] c"value is NULL or corrupt\00", align 1
-@.str.7 = private unnamed_addr constant [35 x i8] c"Value is out of the expected range\00", align 1
-@.str.8 = private unnamed_addr constant [20 x i8] c"Unable to open file\00", align 1
-@.str.9 = private unnamed_addr constant [20 x i8] c"an operation failed\00", align 1
-@.str.10 = private unnamed_addr constant [26 x i8] c"a memory operation failed\00", align 1
-@.str.11 = private unnamed_addr constant [21 x i8] c"malloc returned NULL\00", align 1
-@.str.12 = private unnamed_addr constant [42 x i8] c"a failure occurred in an external library\00", align 1
-@.str.13 = private unnamed_addr constant [37 x i8] c"a destroy function returned an error\00", align 1
-@.str.14 = private unnamed_addr constant [55 x i8] c"operation is not implemented: function pointer is NULL\00", align 1
-@.str.15 = private unnamed_addr constant [43 x i8] c"the user provided callback function failed\00", align 1
-@.str.16 = private unnamed_addr constant [64 x i8] c"the number of profiler entries exceeded SUNPROFILER_MAX_ENTRIES\00", align 1
-@.str.17 = private unnamed_addr constant [40 x i8] c"unknown error getting SUNProfiler timer\00", align 1
-@.str.18 = private unnamed_addr constant [42 x i8] c"unknown error inserting SUNProfiler timer\00", align 1
-@.str.19 = private unnamed_addr constant [35 x i8] c"timer was not found in SUNProfiler\00", align 1
-@.str.20 = private unnamed_addr constant [30 x i8] c"error sorting SUNProfiler map\00", align 1
-@.str.21 = private unnamed_addr constant [30 x i8] c"SUNContext is NULL or corrupt\00", align 1
-@.str.22 = private unnamed_addr constant [54 x i8] c"an MPI call returned something other than MPI_SUCCESS\00", align 1
-@.str.23 = private unnamed_addr constant [92 x i8] c"Reached code that should be unreachable: open an issue at: https://github.com/LLNL/sundials\00", align 1
-@.str.24 = private unnamed_addr constant [73 x i8] c"Unknown error occured: open an issue at https://github.com/LLNL/sundials\00", align 1
 @.str.25 = private unnamed_addr constant [14 x i8] c"unknown error\00", align 1
 @.str.26 = private unnamed_addr constant [100 x i8] c"SUNAbortErrHandler: Calling abort now, use a different error handler to avoid program termination.\0A\00", align 1
 @.str.27 = private unnamed_addr constant [126 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/sundials/sundials/src/sundials/sundials_errors.c\00", align 1
@@ -37,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [121 x i8] c"The SUNDIALS SUNContext was corrupt or NULL when an error occurred. As such, error messages have been printed to stderr.\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.30 = private unnamed_addr constant [6 x i8] c"%s:%d\00", align 1
-@switch.table.SUNGlobalFallbackErrHandler = private unnamed_addr constant [25 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24], align 8
+@switch.table.SUNGlobalFallbackErrHandler = private unnamed_addr constant [25 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1, ptr @.str.1], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define range(i32 -9988, 1) i32 @SUNErrHandler_Create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {

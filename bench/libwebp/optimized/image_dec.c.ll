@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 @.str = private unnamed_addr constant [43 x i8] c"WebP, JPEG, PNG, PNM (PGM, PPM, PAM), TIFF\00", align 1
-@switch.table.WebPGetImageReader = private unnamed_addr constant [5 x ptr] [ptr @ReadPNG, ptr @ReadJPEG, ptr @ReadTIFF, ptr @ReadWebP, ptr @ReadPNM], align 8
+@switch.table.WebPGetImageReader = private unnamed_addr constant [5 x ptr] [ptr @ReadPNG, ptr @ReadJPEG, ptr @ReadJPEG, ptr @ReadJPEG, ptr @ReadJPEG], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @WebPGetEnabledInputFileFormats() local_unnamed_addr #0 {
@@ -108,23 +108,17 @@ declare i32 @ReadPNG(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr nou
 
 declare i32 @ReadJPEG(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) #2
 
-declare i32 @ReadTIFF(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) #2
-
-declare i32 @ReadWebP(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) #2
-
-declare i32 @ReadPNM(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) #2
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @FailReader(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, i32 %3, ptr nocapture readnone %4) #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden nonnull ptr @WebPGuessImageReader(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ugt i64 %1, 11
   %or.cond.i = and i1 %3, %4
-  br i1 %or.cond.i, label %5, label %50
+  br i1 %or.cond.i, label %5, label %WebPGetImageReader.exit
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %0, align 1
@@ -186,13 +180,11 @@ define hidden noundef nonnull ptr @WebPGuessImageReader(ptr noundef readonly %0,
   %49 = add nsw i32 %11, -53
   %or.cond9.i = icmp ult i32 %49, 3
   %or.cond = select i1 %48, i1 %or.cond9.i, i1 false
-  br i1 %or.cond, label %WebPGetImageReader.exit, label %50
-
-50:                                               ; preds = %47, %2
+  %spec.select = select i1 %or.cond, ptr @ReadJPEG, ptr @FailReader
   br label %WebPGetImageReader.exit
 
-WebPGetImageReader.exit:                          ; preds = %47, %5, %44, %43, %43, %42, %50
-  %.0.i1 = phi ptr [ @FailReader, %50 ], [ @ReadJPEG, %42 ], [ @ReadTIFF, %43 ], [ @ReadTIFF, %43 ], [ @ReadWebP, %44 ], [ @ReadPNG, %5 ], [ @ReadPNM, %47 ]
+WebPGetImageReader.exit:                          ; preds = %47, %2, %44, %43, %43, %42, %5
+  %.0.i1 = phi ptr [ @ReadPNG, %5 ], [ @ReadJPEG, %42 ], [ @ReadJPEG, %43 ], [ @ReadJPEG, %43 ], [ @ReadJPEG, %44 ], [ @FailReader, %2 ], [ %spec.select, %47 ]
   ret ptr %.0.i1
 }
 

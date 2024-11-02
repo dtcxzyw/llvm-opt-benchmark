@@ -12,7 +12,7 @@ $_ZN4ncnn18ThreadLocalStorageD2Ev = comdat any
 
 @_ZL23g_cpu_affinity_mask_all = internal global %"class.ncnn::CpuSet" zeroinitializer, align 8
 @_ZL26g_cpu_affinity_mask_little = internal global %"class.ncnn::CpuSet" zeroinitializer, align 8
-@_ZL23g_cpu_affinity_mask_big = internal global %"class.ncnn::CpuSet" zeroinitializer, align 8
+@_ZL23g_cpu_affinity_mask_big = internal unnamed_addr global %"class.ncnn::CpuSet" zeroinitializer, align 8
 @_ZL21g_cpu_support_x86_avx = internal unnamed_addr global i32 0, align 4
 @_ZL21g_cpu_support_x86_fma = internal unnamed_addr global i32 0, align 4
 @_ZL21g_cpu_support_x86_xop = internal unnamed_addr global i32 0, align 4
@@ -63,7 +63,7 @@ $_ZN4ncnn18ThreadLocalStorageD2Ev = comdat any
 @.str.33 = private unnamed_addr constant [31 x i8] c"fscanf shared_cpu_map error %d\00", align 1
 @.str.34 = private unnamed_addr constant [17 x i8] c"syscall error %d\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_cpu.cpp, ptr null }]
-@switch.table._ZN4ncnn17set_cpu_powersaveEi = private unnamed_addr constant [3 x ptr] [ptr @_ZL23g_cpu_affinity_mask_all, ptr @_ZL26g_cpu_affinity_mask_little, ptr @_ZL23g_cpu_affinity_mask_big], align 8
+@switch.table._ZN4ncnn28get_cpu_thread_affinity_maskEi = private unnamed_addr constant [3 x ptr] [ptr @_ZL23g_cpu_affinity_mask_all, ptr @_ZL26g_cpu_affinity_mask_little, ptr @_ZL26g_cpu_affinity_mask_little], align 8
 
 @_ZN4ncnn6CpuSetC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4ncnn6CpuSetC2Ev
 
@@ -1230,7 +1230,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN4ncnn28get_cp
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 0, i64 %7
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4ncnn28get_cpu_thread_affinity_maskEi, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 
@@ -1249,7 +1249,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i:            ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %.056.i = phi i32 [ 0, %0 ], [ %spec.select.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i ]
   %1 = lshr i64 %indvars.iv.i, 6
-  %2 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %1
+  %2 = getelementptr inbounds i64, ptr @_ZL26g_cpu_affinity_mask_little, i64 %1
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %indvars.iv.i, 63
   %5 = lshr i64 %3, %4
@@ -1329,7 +1329,7 @@ _ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i:          ; preds = %_ZNK4ncnn6CpuSet10i
   %indvars.iv.i.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i ]
   %.056.i.i = phi i32 [ 0, %4 ], [ %spec.select.i.i, %_ZNK4ncnn6CpuSet10is_enabledEi.exit.i.i ]
   %5 = lshr i64 %indvars.iv.i.i, 6
-  %6 = getelementptr inbounds i64, ptr @_ZL23g_cpu_affinity_mask_big, i64 %5
+  %6 = getelementptr inbounds i64, ptr @_ZL26g_cpu_affinity_mask_little, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %indvars.iv.i.i, 63
   %9 = lshr i64 %7, %8
@@ -1380,41 +1380,40 @@ define hidden noundef range(i32 0, 3) i32 @_ZN4ncnn17get_cpu_powersaveEv() local
 define hidden noundef range(i32 -1, 1) i32 @_ZN4ncnn17set_cpu_powersaveEi(i32 noundef %0) local_unnamed_addr #4 {
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
   %or.cond = icmp ugt i32 %0, 2
-  br i1 %or.cond, label %2, label %switch.lookup
+  br i1 %or.cond, label %2, label %_ZN4ncnn28get_cpu_thread_affinity_maskEi.exit
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str, i32 noundef %0) #26
   %5 = load ptr, ptr @stderr, align 8
   %fputc = tail call i32 @fputc(i32 10, ptr %5)
-  br label %15
+  br label %14
 
-switch.lookup:                                    ; preds = %1
+_ZN4ncnn28get_cpu_thread_affinity_maskEi.exit:    ; preds = %1
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
-  %6 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN4ncnn17set_cpu_powersaveEi, i64 0, i64 %6
-  %switch.load = load ptr, ptr %switch.gep, align 8
+  %switch = icmp eq i32 %0, 0
+  %spec.select = select i1 %switch, ptr @_ZL23g_cpu_affinity_mask_all, ptr @_ZL26g_cpu_affinity_mask_little
   tail call fastcc void @_ZL30try_initialize_global_cpu_infov()
-  %7 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #22
-  %8 = trunc i64 %7 to i32
-  %9 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %8, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(128) %switch.load) #22
-  %10 = trunc i64 %9 to i32
-  %.not.i.i = icmp eq i32 %10, 0
-  br i1 %.not.i.i, label %14, label %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit
+  %6 = tail call i64 (i64, ...) @syscall(i64 noundef 186) #22
+  %7 = trunc i64 %6 to i32
+  %8 = tail call i64 (i64, ...) @syscall(i64 noundef 203, i32 noundef %7, i64 noundef 128, ptr noundef nonnull align 8 dereferenceable(128) %spec.select) #22
+  %9 = trunc i64 %8 to i32
+  %.not.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i, label %13, label %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit
 
-_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit: ; preds = %switch.lookup
-  %11 = load ptr, ptr @stderr, align 8
-  %12 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.34, i32 noundef %10) #26
-  %13 = load ptr, ptr @stderr, align 8
-  %fputc.i.i = tail call i32 @fputc(i32 10, ptr %13)
-  br label %15
+_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit: ; preds = %_ZN4ncnn28get_cpu_thread_affinity_maskEi.exit
+  %10 = load ptr, ptr @stderr, align 8
+  %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.34, i32 noundef %9) #26
+  %12 = load ptr, ptr @stderr, align 8
+  %fputc.i.i = tail call i32 @fputc(i32 10, ptr %12)
+  br label %14
 
-14:                                               ; preds = %switch.lookup
+13:                                               ; preds = %_ZN4ncnn28get_cpu_thread_affinity_maskEi.exit
   store i32 %0, ptr @_ZL11g_powersave, align 4
-  br label %15
+  br label %14
 
-15:                                               ; preds = %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit, %14, %2
-  %.0 = phi i32 [ -1, %2 ], [ 0, %14 ], [ -1, %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit ]
+14:                                               ; preds = %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit, %13, %2
+  %.0 = phi i32 [ -1, %2 ], [ 0, %13 ], [ -1, %_ZN4ncnn23set_cpu_thread_affinityERKNS_6CpuSetE.exit ]
   ret i32 %.0
 }
 

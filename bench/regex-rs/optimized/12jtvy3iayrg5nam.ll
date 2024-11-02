@@ -214,7 +214,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.af71731a07818c7d8d295102c5fb6fdb.50.llvm.12578941820218715555 = external hidden unnamed_addr constant <{ [1 x i8] }>, align 1
 @anon.af71731a07818c7d8d295102c5fb6fdb.51.llvm.12578941820218715555 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 @"switch.table._ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149" = private unnamed_addr constant [3 x ptr] [ptr @anon.48fd4931446a7fcfc57d20f836544bed.71.llvm.16653392013706621149, ptr @anon.48fd4931446a7fcfc57d20f836544bed.72.llvm.16653392013706621149, ptr @anon.48fd4931446a7fcfc57d20f836544bed.73.llvm.16653392013706621149], align 8
-@switch.table._ZN12regex_syntax3ast14HexLiteralKind6digits17h77d91c0bae771ab3E = private unnamed_addr constant [3 x i32] [i32 2, i32 4, i32 8], align 4
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0e71f29f8258b1a0E.llvm.16653392013706621149"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -1535,17 +1534,16 @@ default.unreachable:                              ; preds = %89, %13
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN97_$LT$regex_syntax..ast..print..Writer$LT$W$GT$$u20$as$u20$regex_syntax..ast..visitor..Visitor$GT$28visit_class_set_binary_op_in17hf95a4e116413d9d2E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #1 {
-switch.lookup:
+"_ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149.exit":
   %2 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %3 = load i8, ptr %2, align 8, !range !99, !alias.scope !239, !noalias !236, !noundef !7
-  %4 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN12regex_syntax3ast5print15Writer$LT$W$GT$28fmt_class_set_binary_op_kind17h6ae5451fd44376ecE.llvm.16653392013706621149", i64 0, i64 %4
-  %switch.load = load ptr, ptr %switch.gep, align 8
-  %5 = load ptr, ptr %0, align 8, !alias.scope !236, !noalias !239, !nonnull !7, !align !8, !noundef !7
-  %6 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %5, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 2), !noalias !241
-  ret i1 %6
+  %switch = icmp eq i8 %3, 0
+  %spec.select = select i1 %switch, ptr @anon.48fd4931446a7fcfc57d20f836544bed.71.llvm.16653392013706621149, ptr @anon.48fd4931446a7fcfc57d20f836544bed.72.llvm.16653392013706621149
+  %4 = load ptr, ptr %0, align 8, !alias.scope !236, !noalias !239, !nonnull !7, !align !8, !noundef !7
+  %5 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17hd5a64a03c9fdc386E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 1 %spec.select, i64 noundef 2), !noalias !241
+  ret i1 %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4315,13 +4313,11 @@ define { i8, i8 } @_ZN12regex_syntax3ast7Literal4byte17h76f184a6dafaf13eE(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef range(i32 2, 9) i32 @_ZN12regex_syntax3ast14HexLiteralKind6digits17h77d91c0bae771ab3E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #4 {
-switch.lookup:
-  %1 = load i8, ptr %0, align 1, !range !99, !noundef !7
-  %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table._ZN12regex_syntax3ast14HexLiteralKind6digits17h77d91c0bae771ab3E, i64 0, i64 %2
-  %switch.load = load i32, ptr %switch.gep, align 4
-  ret i32 %switch.load
+define noundef range(i32 2, 5) i32 @_ZN12regex_syntax3ast14HexLiteralKind6digits17h77d91c0bae771ab3E(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0) unnamed_addr #4 {
+  %2 = load i8, ptr %0, align 1, !range !99, !noundef !7
+  %switch = icmp eq i8 %2, 0
+  %. = select i1 %switch, i32 2, i32 4
+  ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable

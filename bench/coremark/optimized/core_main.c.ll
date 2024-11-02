@@ -34,11 +34,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [28 x i8] c"[%d]crcmatrix     : 0x%04x\0A\00", align 1
 @.str.26 = private unnamed_addr constant [28 x i8] c"[%d]crcstate      : 0x%04x\0A\00", align 1
 @.str.27 = private unnamed_addr constant [28 x i8] c"[%d]crcfinal      : 0x%04x\0A\00", align 1
-@.str.29 = private unnamed_addr constant [26 x i8] c"CoreMark 1.0 : %f / %s %s\00", align 1
-@.str.30 = private unnamed_addr constant [6 x i8] c" / %s\00", align 1
-@str = private unnamed_addr constant [43 x i8] c"2K validation run parameters for coremark.\00", align 1
-@str.1 = private unnamed_addr constant [44 x i8] c"2K performance run parameters for coremark.\00", align 1
-@str.2 = private unnamed_addr constant [48 x i8] c"Profile generation run parameters for coremark.\00", align 1
 @str.3 = private unnamed_addr constant [43 x i8] c"6k validation run parameters for coremark.\00", align 1
 @str.4 = private unnamed_addr constant [44 x i8] c"6k performance run parameters for coremark.\00", align 1
 @str.5 = private unnamed_addr constant [61 x i8] c"ERROR! Must execute for at least 10 secs for a valid result!\00", align 1
@@ -356,27 +351,17 @@ iterate.exit126:                                  ; preds = %for.inc.i122, %if.e
   switch i16 %call276, label %if.end396 [
     i16 -30206, label %sw.epilog
     i16 31493, label %sw.bb279
-    i16 20143, label %sw.bb281
-    i16 -5643, label %sw.bb283
-    i16 6386, label %sw.bb285
+    i16 20143, label %sw.bb279
+    i16 -5643, label %sw.bb279
+    i16 6386, label %sw.bb279
   ]
 
-sw.bb279:                                         ; preds = %iterate.exit126
+sw.bb279:                                         ; preds = %iterate.exit126, %iterate.exit126, %iterate.exit126, %iterate.exit126
   br label %sw.epilog
 
-sw.bb281:                                         ; preds = %iterate.exit126
-  br label %sw.epilog
-
-sw.bb283:                                         ; preds = %iterate.exit126
-  br label %sw.epilog
-
-sw.bb285:                                         ; preds = %iterate.exit126
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %iterate.exit126, %sw.bb285, %sw.bb283, %sw.bb281, %sw.bb279
-  %str.sink = phi ptr [ @str, %sw.bb285 ], [ @str.1, %sw.bb283 ], [ @str.2, %sw.bb281 ], [ @str.3, %sw.bb279 ], [ @str.4, %iterate.exit126 ]
-  %cmp518 = phi i1 [ false, %sw.bb285 ], [ true, %sw.bb283 ], [ false, %sw.bb281 ], [ false, %sw.bb279 ], [ false, %iterate.exit126 ]
-  %known_id.0 = phi i64 [ 4, %sw.bb285 ], [ 3, %sw.bb283 ], [ 2, %sw.bb281 ], [ 1, %sw.bb279 ], [ 0, %iterate.exit126 ]
+sw.epilog:                                        ; preds = %iterate.exit126, %sw.bb279
+  %str.sink = phi ptr [ @str.3, %sw.bb279 ], [ @str.4, %iterate.exit126 ]
+  %known_id.0 = phi i64 [ 1, %sw.bb279 ], [ 0, %iterate.exit126 ]
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %str.sink)
   %36 = load i32, ptr @default_num_contexts, align 4
   %cmp293141.not = icmp eq i32 %36, 0
@@ -476,7 +461,6 @@ if.end385:                                        ; preds = %if.then371, %land.l
   br i1 %cmp293, label %for.body295, label %if.end396, !llvm.loop !10
 
 if.end396:                                        ; preds = %if.end385, %sw.epilog, %iterate.exit126
-  %cmp518131 = phi i1 [ false, %iterate.exit126 ], [ %cmp518, %sw.epilog ], [ %cmp518, %if.end385 ]
   %total_errors.1 = phi i16 [ -1, %iterate.exit126 ], [ 0, %sw.epilog ], [ %add391, %if.end385 ]
   %call397 = call zeroext i8 @check_data_types() #5
   %conv398 = zext i8 %call397 to i16
@@ -620,37 +604,10 @@ for.body503:                                      ; preds = %if.end498, %for.bod
 
 for.end511:                                       ; preds = %for.body503, %if.end498
   %cmp513 = icmp eq i16 %total_errors.3, 0
-  br i1 %cmp513, label %if.then515, label %if.end531
-
-if.then515:                                       ; preds = %for.end511
-  %puts107 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br i1 %cmp518131, label %if.then520, label %if.end543
-
-if.then520:                                       ; preds = %if.then515
-  %75 = load i32, ptr @default_num_contexts, align 4
-  %76 = load i32, ptr %iterations, align 4
-  %mul523 = mul i32 %76, %75
-  %conv524 = uitofp i32 %mul523 to double
-  %call525 = call double @time_in_secs(i64 noundef %call263) #5
-  %div526 = fdiv double %conv524, %call525
-  %call527 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %div526, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.20)
-  %call528 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, ptr noundef nonnull @.str.22)
-  %putchar = call i32 @putchar(i32 10)
-  br label %if.end543
-
-if.end531:                                        ; preds = %for.end511
   %cmp533 = icmp sgt i16 %total_errors.3, 0
-  br i1 %cmp533, label %if.then535, label %if.then541
-
-if.then535:                                       ; preds = %if.end531
-  %puts108 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  br label %if.end543
-
-if.then541:                                       ; preds = %if.end531
-  %puts109 = call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
-  br label %if.end543
-
-if.end543:                                        ; preds = %if.then520, %if.then515, %if.then535, %if.then541
+  %str.7.str.8 = select i1 %cmp533, ptr @str.7, ptr @str.8
+  %str.6.sink = select i1 %cmp513, ptr @str.6, ptr %str.7.str.8
+  %puts107 = call i32 @puts(ptr nonnull dereferenceable(1) %str.6.sink)
   call void @portable_fini(ptr noundef nonnull %port) #5
   ret i32 0
 }
@@ -687,9 +644,6 @@ declare i32 @llvm.umax.i32(i32, i32) #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
-
-; Function Attrs: nofree nounwind
-declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

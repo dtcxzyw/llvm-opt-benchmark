@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7a92ee09cdfc971649dd219aeebbba51.19 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr54drop_in_place$LT$core..num..error..TryFromIntError$GT$17hfe6a2791b79272e4E", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN70_$LT$core..num..error..TryFromIntError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0c4bc8270831b7a8E" }>, align 8
 @anon.7a92ee09cdfc971649dd219aeebbba51.20 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"User" }>, align 1
 @anon.7a92ee09cdfc971649dd219aeebbba51.21 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"Library" }>, align 1
-@anon.7a92ee09cdfc971649dd219aeebbba51.22 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"Remote" }>, align 1
 @anon.7a92ee09cdfc971649dd219aeebbba51.23 = private unnamed_addr constant <{ [110 x i8] }> <{ [110 x i8] c"/home/dtcxzyw/.cargo/registry/src/index.crates.io-6f17d22bba15001f/memchr-2.7.2/src/arch/all/packedpair/mod.rs" }>, align 1
 @anon.7a92ee09cdfc971649dd219aeebbba51.26 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7a92ee09cdfc971649dd219aeebbba51.23, [16 x i8] c"n\00\00\00\00\00\00\00\C3\00\00\00\09\00\00\00" }>, align 8
 @anon.7a92ee09cdfc971649dd219aeebbba51.28 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7a92ee09cdfc971649dd219aeebbba51.23, [16 x i8] c"n\00\00\00\00\00\00\00\BC\00\00\00*\00\00\00" }>, align 8
@@ -23,8 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7a92ee09cdfc971649dd219aeebbba51.35 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.7a92ee09cdfc971649dd219aeebbba51.34, [16 x i8] c"f\00\00\00\00\00\00\00\98\02\00\00\1B\00\00\00" }>, align 8
 @anon.7a92ee09cdfc971649dd219aeebbba51.38 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"TryFromIntError" }>, align 1
 @anon.7a92ee09cdfc971649dd219aeebbba51.39 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17hfcb39c0f5065f57bE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffe5488983640c93E" }>, align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E" = private unnamed_addr constant [3 x i64] [i64 4, i64 7, i64 6], align 8
-@"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E.8" = private unnamed_addr constant [3 x ptr] [ptr @anon.7a92ee09cdfc971649dd219aeebbba51.20, ptr @anon.7a92ee09cdfc971649dd219aeebbba51.21, ptr @anon.7a92ee09cdfc971649dd219aeebbba51.22], align 8
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$rand..distributions..other..Alphanumeric$u20$as$u20$rand..distributions..distribution..DistString$GT$13append_string17hcb56885e5c073c83E"(ptr noalias noundef nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(24) %2, i64 noundef %3) unnamed_addr #0 {
@@ -115,17 +112,13 @@ define hidden noundef i8 @"_ZN118_$LT$rand..distributions..other..Alphanumeric$u
 
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
-switch.lookup:
-  %2 = load ptr, ptr %0, align 8, !nonnull !7, !align !30, !noundef !7
-  %.val = load i8, ptr %2, align 1, !range !31, !noundef !7
-  %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E", i64 0, i64 %3
-  %switch.load = load i64, ptr %switch.gep, align 8
-  %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h5797e23c6784e4e6E.8", i64 0, i64 %4
-  %switch.load2 = load ptr, ptr %switch.gep1, align 8
-  %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
-  ret i1 %5
+  %3 = load ptr, ptr %0, align 8, !nonnull !7, !align !30, !noundef !7
+  %.val = load i8, ptr %3, align 1, !range !31, !noundef !7
+  %switch.i = icmp eq i8 %.val, 0
+  %..i = select i1 %switch.i, i64 4, i64 7
+  %anon.7a92ee09cdfc971649dd219aeebbba51.20.anon.7a92ee09cdfc971649dd219aeebbba51.21.i = select i1 %switch.i, ptr @anon.7a92ee09cdfc971649dd219aeebbba51.20, ptr @anon.7a92ee09cdfc971649dd219aeebbba51.21
+  %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.7a92ee09cdfc971649dd219aeebbba51.20.anon.7a92ee09cdfc971649dd219aeebbba51.21.i, i64 noundef %..i)
+  ret i1 %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

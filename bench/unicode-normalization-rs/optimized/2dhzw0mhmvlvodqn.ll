@@ -140,8 +140,8 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN21unicode_normalization7look
 16:                                               ; preds = %4
   switch i32 %1, label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit [
     i32 70832, label %23
-    i32 70842, label %24
-    i32 70845, label %25
+    i32 70842, label %23
+    i32 70845, label %23
   ]
 
 17:                                               ; preds = %4
@@ -159,45 +159,39 @@ define hidden noundef range(i32 0, 1114113) i32 @_ZN21unicode_normalization7look
   %spec.select9.i = select i1 %22, i32 71992, i32 1114112
   br label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit
 
-23:                                               ; preds = %16
-  br label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit
-
-24:                                               ; preds = %16
-  br label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit
-
-25:                                               ; preds = %16
+23:                                               ; preds = %16, %16, %16
   br label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit
 
 _ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit: ; preds = %2
-  %26 = shl nuw i32 %0, 16
-  %27 = or disjoint i32 %26, %1
+  %24 = shl nuw i32 %0, 16
+  %25 = or disjoint i32 %24, %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
-  %28 = mul i32 %27, -1640531527
-  %29 = mul i32 %27, 826366246
-  %30 = xor i32 %28, %29
-  %31 = zext i32 %30 to i64
-  %32 = mul nuw nsw i64 %31, 928
-  %33 = lshr i64 %32, 32
-  %34 = getelementptr inbounds [0 x i16], ptr @anon.1bf8cbd9db60c063894021140588f89d.2.llvm.3355593342274400970, i64 0, i64 %33
-  %35 = load i16, ptr %34, align 2, !alias.scope !10, !noalias !13, !noundef !9
-  %36 = zext i16 %35 to i32
-  %37 = add i32 %27, %36
-  %38 = mul i32 %37, -1640531527
-  %39 = xor i32 %38, %29
-  %40 = zext i32 %39 to i64
-  %41 = mul nuw nsw i64 %40, 928
-  %42 = lshr i64 %41, 32
-  %43 = getelementptr inbounds [0 x { i32, i32 }], ptr @anon.1bf8cbd9db60c063894021140588f89d.3.llvm.3355593342274400970, i64 0, i64 %42
-  %44 = load i32, ptr %43, align 4, !alias.scope !13, !noalias !10, !noundef !9
-  %45 = getelementptr inbounds i8, ptr %43, i64 4
-  %46 = load i32, ptr %45, align 4, !range !15, !alias.scope !13, !noalias !10, !noundef !9
-  %47 = icmp eq i32 %27, %44
-  %spec.select.i3 = select i1 %47, i32 %46, i32 1114112
+  %26 = mul i32 %25, -1640531527
+  %27 = mul i32 %25, 826366246
+  %28 = xor i32 %26, %27
+  %29 = zext i32 %28 to i64
+  %30 = mul nuw nsw i64 %29, 928
+  %31 = lshr i64 %30, 32
+  %32 = getelementptr inbounds [0 x i16], ptr @anon.1bf8cbd9db60c063894021140588f89d.2.llvm.3355593342274400970, i64 0, i64 %31
+  %33 = load i16, ptr %32, align 2, !alias.scope !10, !noalias !13, !noundef !9
+  %34 = zext i16 %33 to i32
+  %35 = add i32 %25, %34
+  %36 = mul i32 %35, -1640531527
+  %37 = xor i32 %36, %27
+  %38 = zext i32 %37 to i64
+  %39 = mul nuw nsw i64 %38, 928
+  %40 = lshr i64 %39, 32
+  %41 = getelementptr inbounds [0 x { i32, i32 }], ptr @anon.1bf8cbd9db60c063894021140588f89d.3.llvm.3355593342274400970, i64 0, i64 %40
+  %42 = load i32, ptr %41, align 4, !alias.scope !13, !noalias !10, !noundef !9
+  %43 = getelementptr inbounds i8, ptr %41, i64 4
+  %44 = load i32, ptr %43, align 4, !range !15, !alias.scope !13, !noalias !10, !noundef !9
+  %45 = icmp eq i32 %25, %42
+  %spec.select.i3 = select i1 %45, i32 %44, i32 1114112
   br label %_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit
 
-_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit: ; preds = %25, %24, %23, %21, %19, %17, %16, %15, %13, %11, %9, %7, %5, %4, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit
-  %.0 = phi i32 [ %spec.select.i3, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit ], [ 70846, %25 ], [ 70843, %24 ], [ 70844, %23 ], [ 1114112, %16 ], [ 1114112, %4 ], [ %switch.select6.i, %15 ], [ %spec.select.i, %5 ], [ %spec.select1.i, %7 ], [ %spec.select2.i, %9 ], [ %spec.select3.i, %11 ], [ %spec.select4.i, %13 ], [ %spec.select7.i, %17 ], [ %spec.select8.i, %19 ], [ %spec.select9.i, %21 ]
+_ZN21unicode_normalization6tables24composition_table_astral17he73f9cf0d40d0b95E.exit: ; preds = %23, %21, %19, %17, %16, %15, %13, %11, %9, %7, %5, %4, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit
+  %.0 = phi i32 [ %spec.select.i3, %_ZN21unicode_normalization12perfect_hash10mph_lookup17h447a0d89a0a463c0E.llvm.3355593342274400970.exit ], [ 70844, %23 ], [ 1114112, %16 ], [ 1114112, %4 ], [ %switch.select6.i, %15 ], [ %spec.select.i, %5 ], [ %spec.select1.i, %7 ], [ %spec.select2.i, %9 ], [ %spec.select3.i, %11 ], [ %spec.select4.i, %13 ], [ %spec.select7.i, %17 ], [ %spec.select8.i, %19 ], [ %spec.select9.i, %21 ]
   ret i32 %.0
 }
 

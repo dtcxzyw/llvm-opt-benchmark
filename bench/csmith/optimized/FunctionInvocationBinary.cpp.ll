@@ -32,12 +32,6 @@ $_ZNK24FunctionInvocationBinary15safe_invocationEv = comdat any
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.2 = private unnamed_addr constant [2 x i8] c"+\00", align 1
 @.str.3 = private unnamed_addr constant [2 x i8] c"-\00", align 1
-@.str.4 = private unnamed_addr constant [2 x i8] c"*\00", align 1
-@.str.5 = private unnamed_addr constant [2 x i8] c"/\00", align 1
-@.str.6 = private unnamed_addr constant [2 x i8] c"%\00", align 1
-@.str.7 = private unnamed_addr constant [2 x i8] c"&\00", align 1
-@.str.8 = private unnamed_addr constant [2 x i8] c"^\00", align 1
-@.str.9 = private unnamed_addr constant [2 x i8] c"|\00", align 1
 @.str.10 = private unnamed_addr constant [2 x i8] c"(\00", align 1
 @.str.11 = private unnamed_addr constant [4 x i8] c" + \00", align 1
 @.str.12 = private unnamed_addr constant [3 x i8] c", \00", align 1
@@ -48,19 +42,9 @@ $_ZNK24FunctionInvocationBinary15safe_invocationEv = comdat any
 @_ZTS24FunctionInvocationBinary = dso_local constant [27 x i8] c"24FunctionInvocationBinary\00", align 1
 @_ZTI18FunctionInvocation = external constant ptr
 @_ZTI24FunctionInvocationBinary = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS24FunctionInvocationBinary, ptr @_ZTI18FunctionInvocation }, align 8
-@.str.16 = private unnamed_addr constant [3 x i8] c"&&\00", align 1
-@.str.17 = private unnamed_addr constant [3 x i8] c"||\00", align 1
-@.str.18 = private unnamed_addr constant [3 x i8] c"==\00", align 1
-@.str.19 = private unnamed_addr constant [3 x i8] c"!=\00", align 1
-@.str.20 = private unnamed_addr constant [2 x i8] c">\00", align 1
-@.str.21 = private unnamed_addr constant [2 x i8] c"<\00", align 1
-@.str.22 = private unnamed_addr constant [3 x i8] c"<=\00", align 1
-@.str.23 = private unnamed_addr constant [3 x i8] c">=\00", align 1
-@.str.24 = private unnamed_addr constant [3 x i8] c"<<\00", align 1
-@.str.25 = private unnamed_addr constant [3 x i8] c">>\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_FunctionInvocationBinary.cpp, ptr null }]
-@switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps = private unnamed_addr constant [16 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.8, ptr @.str.7, ptr @.str.9], align 8
-@switch.table._ZNK24FunctionInvocationBinary15indented_outputERSoi = private unnamed_addr constant [18 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.20, ptr @.str.21, ptr @.str.23, ptr @.str.22, ptr @.str.18, ptr @.str.19, ptr @.str.16, ptr @.str.17, ptr @.str.8, ptr @.str.7, ptr @.str.9, ptr @.str.25, ptr @.str.24], align 8
+@switch.table._ZN24FunctionInvocationBinary16get_binop_stringB5cxx11E10eBinaryOps = private unnamed_addr constant [16 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.2], align 8
+@switch.table._ZNK24FunctionInvocationBinary15indented_outputERSoi = private unnamed_addr constant [18 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3, ptr @.str.3], align 8
 
 @_ZN24FunctionInvocationBinaryC1E10eBinaryOpsPK11SafeOpFlags = dso_local unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlags
 @_ZN24FunctionInvocationBinaryC1E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ = dso_local unnamed_addr alias void (ptr, i32, ptr, ptr, ptr), ptr @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_

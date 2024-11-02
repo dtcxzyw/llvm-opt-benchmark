@@ -1075,14 +1075,6 @@ $_ZTIPFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basi
 @.str.25 = private unnamed_addr constant [2 x i8] c"]\00", align 1
 @.str.26 = private unnamed_addr constant [7 x i8] c"BIASED\00", align 1
 @.str.27 = private unnamed_addr constant [9 x i8] c"CONSTANT\00", align 1
-@.str.28 = private unnamed_addr constant [11 x i8] c"DICTIONARY\00", align 1
-@.str.29 = private unnamed_addr constant [5 x i8] c"FLAT\00", align 1
-@.str.30 = private unnamed_addr constant [9 x i8] c"SEQUENCE\00", align 1
-@.str.31 = private unnamed_addr constant [4 x i8] c"ROW\00", align 1
-@.str.32 = private unnamed_addr constant [4 x i8] c"MAP\00", align 1
-@.str.33 = private unnamed_addr constant [6 x i8] c"ARRAY\00", align 1
-@.str.34 = private unnamed_addr constant [5 x i8] c"LAZY\00", align 1
-@.str.35 = private unnamed_addr constant [9 x i8] c"FUNCTION\00", align 1
 @_ZTSN8facebook5velox10FlatVectorIlEE = linkonce_odr constant [33 x i8] c"N8facebook5velox10FlatVectorIlEE\00", comdat, align 1
 @_ZTIN8facebook5velox10FlatVectorIlEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN8facebook5velox10FlatVectorIlEE, ptr @_ZTIN8facebook5velox12SimpleVectorIlEE }, comdat, align 8
 @_ZTSN8facebook5velox10FlatVectorIaEE = linkonce_odr constant [33 x i8] c"N8facebook5velox10FlatVectorIaEE\00", comdat, align 1
@@ -1153,7 +1145,7 @@ $_ZTIPFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basi
 @_ZTSFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE = linkonce_odr constant [180 x i8] c"FSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE\00", comdat, align 1
 @_ZTIFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__function_type_infoE, i64 2), ptr @_ZTSFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE }, comdat, align 8
 @_ZTIPFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE = linkonce_odr constant { ptr, ptr, i32, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv119__pointer_type_infoE, i64 2), ptr @_ZTSPFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE, i32 0, ptr @_ZTIFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS2_17VectorFunctionArgESaISE_EERKNS1_4core11QueryConfigEE }, comdat, align 8
-@switch.table._ZNK8facebook5velox14ConstantVectorIdE15toSummaryStringB5cxx11Ev = private unnamed_addr constant [10 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.28, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34, ptr @.str.35], align 8
+@switch.table._ZNK8facebook5velox14ConstantVectorIdE15toSummaryStringB5cxx11Ev = private unnamed_addr constant [10 x ptr] [ptr @.str.26, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27, ptr @.str.27], align 8
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox9functions36registerVectorFunction_udf_array_sumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
