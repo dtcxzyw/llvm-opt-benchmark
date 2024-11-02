@@ -2057,7 +2057,7 @@ lv_obj_get_style_prop.exit77:                     ; preds = %27, %28
   %34 = ptrtoint ptr %.sroa.0.0.i to i64
   %.sroa.019.0.extract.trunc26 = trunc i64 %34 to i24
   %35 = tail call zeroext i1 @lv_color_eq(i24 %.sroa.019.0.extract.trunc26, i24 %.sroa.019.0.extract.trunc26) #9
-  br i1 %35, label %91, label %36
+  br i1 %35, label %89, label %36
 
 36:                                               ; preds = %lv_obj_get_style_prop.exit77, %33
   store i16 %2, ptr %13, align 4, !tbaa !48
@@ -2090,7 +2090,7 @@ lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
   tail call void @lv_obj_refresh_style(ptr noundef nonnull %0, i32 noundef %46, i8 noundef zeroext %47)
   %48 = load i8, ptr %14, align 8, !tbaa !76
   %49 = icmp eq i8 %48, 12
-  br i1 %49, label %50, label %73
+  br i1 %49, label %50, label %71
 
 50:                                               ; preds = %lv_obj_get_style_prop.exit83
   %51 = ptrtoint ptr %.sroa.0.0.i81 to i64
@@ -2100,86 +2100,84 @@ lv_obj_get_style_prop.exit83:                     ; preds = %39, %40
   %55 = and i64 %54, 4294967295
   %56 = icmp eq i64 %55, 32767
   %or.cond = or i1 %56, %53
-  br i1 %or.cond, label %57, label %73
+  br i1 %or.cond, label %57, label %71
 
 57:                                               ; preds = %50
   %58 = tail call i32 @lv_obj_get_width(ptr noundef nonnull %0) #9
   %59 = sdiv i32 %58, 2
   %60 = tail call i32 @lv_obj_get_height(ptr noundef nonnull %0) #9
   %61 = sdiv i32 %60, 2
-  br i1 %53, label %62, label %67
+  br i1 %53, label %62, label %66
 
 62:                                               ; preds = %57
-  %63 = add nsw i32 %59, 1
-  %64 = add nsw i32 %61, 1
-  %65 = tail call i32 @llvm.smin.i32(i32 %63, i32 %64)
-  %.sroa.019.0.insert.ext = zext i32 %65 to i64
+  %63 = tail call i32 @llvm.smin.i32(i32 %59, i32 %61)
+  %64 = add nsw i32 %63, 1
+  %.sroa.019.0.insert.ext = zext i32 %64 to i64
   %.sroa.019.0.insert.mask = and i64 %51, -4294967296
   %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.019.0.insert.mask, %.sroa.019.0.insert.ext
-  %66 = inttoptr i64 %.sroa.019.0.insert.insert to ptr
-  br label %67
+  %65 = inttoptr i64 %.sroa.019.0.insert.insert to ptr
+  br label %66
 
-67:                                               ; preds = %62, %57
-  %.sroa.019.1 = phi ptr [ %66, %62 ], [ %.sroa.0.0.i81, %57 ]
-  br i1 %56, label %68, label %73
+66:                                               ; preds = %62, %57
+  %.sroa.019.1 = phi ptr [ %65, %62 ], [ %.sroa.0.0.i81, %57 ]
+  br i1 %56, label %67, label %71
 
-68:                                               ; preds = %67
-  %69 = add nsw i32 %59, 1
-  %70 = add nsw i32 %61, 1
-  %71 = tail call i32 @llvm.smin.i32(i32 %69, i32 %70)
-  %.sroa.012.0.insert.ext = zext i32 %71 to i64
+67:                                               ; preds = %66
+  %68 = tail call i32 @llvm.smin.i32(i32 %59, i32 %61)
+  %69 = add nsw i32 %68, 1
+  %.sroa.012.0.insert.ext = zext i32 %69 to i64
   %.sroa.012.0.insert.mask = and i64 %54, -4294967296
   %.sroa.012.0.insert.insert = or disjoint i64 %.sroa.012.0.insert.mask, %.sroa.012.0.insert.ext
-  %72 = inttoptr i64 %.sroa.012.0.insert.insert to ptr
-  br label %73
+  %70 = inttoptr i64 %.sroa.012.0.insert.insert to ptr
+  br label %71
 
-73:                                               ; preds = %67, %68, %50, %lv_obj_get_style_prop.exit83
-  %.sroa.012.0 = phi ptr [ %.sroa.0.0.i75, %50 ], [ %.sroa.0.0.i75, %lv_obj_get_style_prop.exit83 ], [ %72, %68 ], [ %.sroa.0.0.i75, %67 ]
-  %.sroa.019.0 = phi ptr [ %.sroa.0.0.i81, %50 ], [ %.sroa.0.0.i81, %lv_obj_get_style_prop.exit83 ], [ %.sroa.019.1, %68 ], [ %.sroa.019.1, %67 ]
-  %74 = tail call ptr @lv_ll_ins_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 48)) #9
-  %.not = icmp eq ptr %74, null
-  br i1 %.not, label %.preheader, label %75
+71:                                               ; preds = %66, %67, %50, %lv_obj_get_style_prop.exit83
+  %.sroa.012.0 = phi ptr [ %.sroa.0.0.i75, %50 ], [ %.sroa.0.0.i75, %lv_obj_get_style_prop.exit83 ], [ %70, %67 ], [ %.sroa.0.0.i75, %66 ]
+  %.sroa.019.0 = phi ptr [ %.sroa.0.0.i81, %50 ], [ %.sroa.0.0.i81, %lv_obj_get_style_prop.exit83 ], [ %.sroa.019.1, %67 ], [ %.sroa.019.1, %66 ]
+  %72 = tail call ptr @lv_ll_ins_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 48)) #9
+  %.not = icmp eq ptr %72, null
+  br i1 %.not, label %.preheader, label %73
 
-.preheader:                                       ; preds = %73, %.preheader
+.preheader:                                       ; preds = %71, %.preheader
   br label %.preheader
 
-75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr %.sroa.019.0, ptr %76, align 8, !tbaa !26
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  store ptr %.sroa.012.0, ptr %77, align 8, !tbaa !26
-  store ptr %0, ptr %74, align 8, !tbaa !37
-  %78 = load i8, ptr %14, align 8, !tbaa !76
-  %79 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i8 %78, ptr %79, align 8, !tbaa !39
-  %80 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  store i32 %1, ptr %80, align 4, !tbaa !42
+73:                                               ; preds = %71
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store ptr %.sroa.019.0, ptr %74, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  store ptr %.sroa.012.0, ptr %75, align 8, !tbaa !26
+  store ptr %0, ptr %72, align 8, !tbaa !37
+  %76 = load i8, ptr %14, align 8, !tbaa !76
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store i8 %76, ptr %77, align 8, !tbaa !39
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  store i32 %1, ptr %78, align 4, !tbaa !42
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %9) #9
   call void @lv_anim_init(ptr noundef nonnull %9) #9
-  call void @lv_anim_set_var(ptr noundef nonnull %9, ptr noundef nonnull %74) #9
+  call void @lv_anim_set_var(ptr noundef nonnull %9, ptr noundef nonnull %72) #9
   call void @lv_anim_set_exec_cb(ptr noundef nonnull %9, ptr noundef nonnull @trans_anim_cb) #9
   call void @lv_anim_set_start_cb(ptr noundef nonnull %9, ptr noundef nonnull @trans_anim_start_cb) #9
   call void @lv_anim_set_completed_cb(ptr noundef nonnull %9, ptr noundef nonnull @trans_anim_completed_cb) #9
   call void @lv_anim_set_values(ptr noundef nonnull %9, i32 noundef 0, i32 noundef 255) #9
-  %81 = load i16, ptr %4, align 8, !tbaa !79
-  %82 = zext i16 %81 to i32
-  call void @lv_anim_set_duration(ptr noundef nonnull %9, i32 noundef %82) #9
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %84 = load i16, ptr %83, align 2, !tbaa !80
-  %85 = zext i16 %84 to i32
-  call void @lv_anim_set_delay(ptr noundef nonnull %9, i32 noundef %85) #9
-  %86 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %87 = load ptr, ptr %86, align 8, !tbaa !81
-  call void @lv_anim_set_path_cb(ptr noundef nonnull %9, ptr noundef %87) #9
+  %79 = load i16, ptr %4, align 8, !tbaa !79
+  %80 = zext i16 %79 to i32
+  call void @lv_anim_set_duration(ptr noundef nonnull %9, i32 noundef %80) #9
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %82 = load i16, ptr %81, align 2, !tbaa !80
+  %83 = zext i16 %82 to i32
+  call void @lv_anim_set_delay(ptr noundef nonnull %9, i32 noundef %83) #9
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %85 = load ptr, ptr %84, align 8, !tbaa !81
+  call void @lv_anim_set_path_cb(ptr noundef nonnull %9, ptr noundef %85) #9
   call void @lv_anim_set_early_apply(ptr noundef nonnull %9, i1 noundef zeroext false) #9
-  %88 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %89 = load ptr, ptr %88, align 8, !tbaa !82
-  call void @lv_anim_set_user_data(ptr noundef nonnull %9, ptr noundef %89) #9
-  %90 = call ptr @lv_anim_start(ptr noundef nonnull %9) #9
+  %86 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !82
+  call void @lv_anim_set_user_data(ptr noundef nonnull %9, ptr noundef %87) #9
+  %88 = call ptr @lv_anim_start(ptr noundef nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %9) #9
-  br label %91
+  br label %89
 
-91:                                               ; preds = %33, %75
+89:                                               ; preds = %33, %73
   ret void
 }
 

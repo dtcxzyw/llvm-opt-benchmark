@@ -3204,13 +3204,12 @@ common.ret7:                                      ; preds = %2, %9
 
 9:                                                ; preds = %2
   %10 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %7)
-  %11 = add nsw i32 %10, 1
-  %12 = load ptr, ptr %3, align 8
-  %13 = getelementptr inbounds %"class.xgboost::RegTree::Node", ptr %12, i64 %4, i32 2
-  %14 = load i32, ptr %13, align 4
-  %15 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %14)
-  %16 = add nsw i32 %15, 1
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %11, i32 %16)
+  %11 = load ptr, ptr %3, align 8
+  %12 = getelementptr inbounds %"class.xgboost::RegTree::Node", ptr %11, i64 %4, i32 2
+  %13 = load i32, ptr %12, align 4
+  %14 = tail call noundef i32 @_ZNK7xgboost7RegTree8MaxDepthEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %13)
+  %15 = tail call i32 @llvm.smax.i32(i32 %10, i32 %14)
+  %.sroa.speculated = add nsw i32 %15, 1
   br label %common.ret7
 }
 

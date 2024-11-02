@@ -152,10 +152,10 @@ _ZNK3net12PacingSender10PacingRateEm.exit:        ; preds = %if.then.i, %if.end.
   %tobool33 = trunc i8 %12 to i1
   %ideal_next_packet_send_time_37 = getelementptr inbounds i8, ptr %this, i64 32
   %agg.tmp36.sroa.0.0.copyload = load i64, ptr %ideal_next_packet_send_time_37, align 8
-  %add.i = add nsw i64 %agg.tmp36.sroa.0.0.copyload, %11
   br i1 %tobool33, label %if.then34, label %if.else75
 
 if.then34:                                        ; preds = %_ZNK3net12PacingSender10PacingRateEm.exit
+  %add.i = add nsw i64 %agg.tmp36.sroa.0.0.copyload, %11
   store i64 %add.i, ptr %ideal_next_packet_send_time_37, align 8
   %last_delayed_packet_sent_time_43 = getelementptr inbounds i8, ptr %this, i64 24
   %13 = load i64, ptr %last_delayed_packet_sent_time_43, align 8
@@ -177,8 +177,8 @@ if.else:                                          ; preds = %if.then34
   br label %return
 
 if.else75:                                        ; preds = %_ZNK3net12PacingSender10PacingRateEm.exit
-  %add.i21 = add nsw i64 %11, %sent_time.coerce
-  %.sroa.speculated = call i64 @llvm.smax.i64(i64 %add.i, i64 %add.i21)
+  %15 = call i64 @llvm.smax.i64(i64 %agg.tmp36.sroa.0.0.copyload, i64 %sent_time.coerce)
+  %.sroa.speculated = add nsw i64 %15, %11
   store i64 %.sroa.speculated, ptr %ideal_next_packet_send_time_37, align 8
   br label %return
 

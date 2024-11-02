@@ -6443,10 +6443,10 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   %37 = getelementptr i8, ptr %0, i64 72
   br label %38
 
-38:                                               ; preds = %.lr.ph, %100
-  %indvars.iv105 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next106, %100 ]
-  %.066101 = phi i32 [ 0, %.lr.ph ], [ %.1, %100 ]
-  %.067100 = phi i32 [ 0, %.lr.ph ], [ %.168, %100 ]
+38:                                               ; preds = %.lr.ph, %99
+  %indvars.iv105 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next106, %99 ]
+  %.066101 = phi i32 [ 0, %.lr.ph ], [ %.1, %99 ]
+  %.067100 = phi i32 [ 0, %.lr.ph ], [ %.168, %99 ]
   %.val = load ptr, ptr %36, align 8
   %39 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv105
   %.val93 = load i64, ptr %39, align 4
@@ -6455,7 +6455,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   br i1 %narrow.i.not, label %41, label %62
 
 41:                                               ; preds = %38
-  br i1 %.not82, label %42, label %100
+  br i1 %.not82, label %42, label %99
 
 42:                                               ; preds = %41
   %43 = lshr i64 %.val93, 32
@@ -6463,7 +6463,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   %45 = and i32 %44, 536870911
   %46 = sub nsw i32 %45, %14
   %47 = icmp slt i32 %46, 0
-  br i1 %47, label %100, label %48
+  br i1 %47, label %99, label %48
 
 48:                                               ; preds = %42
   %49 = lshr i32 %46, 1
@@ -6495,7 +6495,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   %.171 = add nsw i32 %58, %.
   %61 = getelementptr inbounds i32, ptr %.val90, i64 %indvars.iv105
   store i32 %.171, ptr %61, align 4
-  br label %100
+  br label %99
 
 62:                                               ; preds = %38
   %63 = and i64 %.val93, 2147483648
@@ -6515,7 +6515,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   %72 = getelementptr inbounds i32, ptr %.val90, i64 %indvars.iv105
   store i32 %70, ptr %72, align 4
   %73 = tail call noundef i32 @llvm.smax.i32(i32 %.067100, i32 %70)
-  br label %100
+  br label %99
 
 74:                                               ; preds = %62
   %75 = lshr i64 %.val93, 32
@@ -6534,7 +6534,7 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   %84 = add nsw i32 %80, 100
   %85 = tail call noundef i32 @llvm.smax.i32(i32 %83, i32 %84)
   %86 = add nsw i32 %.066101, 1
-  br label %98
+  br label %97
 
 87:                                               ; preds = %74
   %88 = and i64 %.val93, 4611686018427387904
@@ -6546,41 +6546,40 @@ Vec_IntFill.exit:                                 ; preds = %30, %Vec_IntGrow.ex
   %91 = add nsw i32 %70, 100
   %92 = tail call noundef i32 @llvm.smax.i32(i32 %90, i32 %91)
   %93 = add nsw i32 %.066101, 1
-  br label %98
+  br label %97
 
 94:                                               ; preds = %87
-  %95 = add nsw i32 %70, 100
-  %96 = add nsw i32 %80, 100
-  %97 = tail call noundef i32 @llvm.smax.i32(i32 %95, i32 %96)
-  br label %98
+  %95 = tail call i32 @llvm.smax.i32(i32 %70, i32 %80)
+  %96 = add nsw i32 %95, 100
+  br label %97
 
-98:                                               ; preds = %89, %94, %82
-  %.272 = phi i32 [ %85, %82 ], [ %92, %89 ], [ %97, %94 ]
+97:                                               ; preds = %89, %94, %82
+  %.272 = phi i32 [ %85, %82 ], [ %92, %89 ], [ %96, %94 ]
   %.2 = phi i32 [ %86, %82 ], [ %93, %89 ], [ %.066101, %94 ]
-  %99 = getelementptr inbounds i32, ptr %.val90, i64 %indvars.iv105
-  store i32 %.272, ptr %99, align 4
-  br label %100
+  %98 = getelementptr inbounds i32, ptr %.val90, i64 %indvars.iv105
+  store i32 %.272, ptr %98, align 4
+  br label %99
 
-100:                                              ; preds = %42, %41, %98, %71, %59
-  %.168 = phi i32 [ %.067100, %41 ], [ %.067100, %42 ], [ %.067100, %59 ], [ %73, %71 ], [ %.067100, %98 ]
-  %.1 = phi i32 [ %.066101, %41 ], [ %.066101, %42 ], [ %.066101, %59 ], [ %.066101, %71 ], [ %.2, %98 ]
+99:                                               ; preds = %42, %41, %97, %71, %59
+  %.168 = phi i32 [ %.067100, %41 ], [ %.067100, %42 ], [ %.067100, %59 ], [ %73, %71 ], [ %.067100, %97 ]
+  %.1 = phi i32 [ %.066101, %41 ], [ %.066101, %42 ], [ %.066101, %59 ], [ %.066101, %71 ], [ %.2, %97 ]
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %101 = load i32, ptr %18, align 8
-  %102 = sext i32 %101 to i64
-  %103 = icmp slt i64 %indvars.iv.next106, %102
-  br i1 %103, label %38, label %.critedge, !llvm.loop !63
+  %100 = load i32, ptr %18, align 8
+  %101 = sext i32 %100 to i64
+  %102 = icmp slt i64 %indvars.iv.next106, %101
+  br i1 %102, label %38, label %.critedge, !llvm.loop !63
 
-.critedge:                                        ; preds = %100, %Vec_IntFill.exit
-  %.067.lcssa = phi i32 [ 0, %Vec_IntFill.exit ], [ %.168, %100 ]
-  %.066.lcssa = phi i32 [ 0, %Vec_IntFill.exit ], [ %.1, %100 ]
+.critedge:                                        ; preds = %99, %Vec_IntFill.exit
+  %.067.lcssa = phi i32 [ 0, %Vec_IntFill.exit ], [ %.168, %99 ]
+  %.066.lcssa = phi i32 [ 0, %Vec_IntFill.exit ], [ %.1, %99 ]
   %.not77 = icmp eq ptr %2, null
-  br i1 %.not77, label %105, label %104
+  br i1 %.not77, label %104, label %103
 
-104:                                              ; preds = %.critedge
+103:                                              ; preds = %.critedge
   store i32 %.066.lcssa, ptr %2, align 4
-  br label %105
+  br label %104
 
-105:                                              ; preds = %104, %.critedge
+104:                                              ; preds = %103, %.critedge
   ret i32 %.067.lcssa
 }
 

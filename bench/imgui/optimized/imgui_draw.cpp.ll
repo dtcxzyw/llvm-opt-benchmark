@@ -11339,24 +11339,23 @@ if.then40:                                        ; preds = %if.else37
   br i1 %cmp.i.i27, label %if.end.i.i.i44, label %_ZN10ImDrawList10AddDrawCmdEv.exit57
 
 if.end.i.i.i44:                                   ; preds = %if.then40
-  %add.i.i39 = add nsw i32 %8, 1
   %div.i.i.i42 = sdiv i32 %8, 2
-  %add.i.i.i43 = add nsw i32 %div.i.i.i42, %8
-  %cond7.i.i.i46 = tail call noundef i32 @llvm.smax.i32(i32 %add.i.i.i43, i32 %add.i.i39)
+  %25 = tail call i32 @llvm.smax.i32(i32 %div.i.i.i42, i32 1)
+  %cond7.i.i.i46 = add nsw i32 %25, %8
   %conv.i.i.i47 = sext i32 %cond7.i.i.i46 to i64
   %mul.i.i.i48 = mul nsw i64 %conv.i.i.i47, 56
   %call.i.i.i49 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i48)
-  %25 = load ptr, ptr %Data28, align 8
-  %tobool.not.i2.i.i51 = icmp eq ptr %25, null
+  %26 = load ptr, ptr %Data28, align 8
+  %tobool.not.i2.i.i51 = icmp eq ptr %26, null
   br i1 %tobool.not.i2.i.i51, label %if.end7.i.i.i55, label %if.then2.i.i.i52
 
 if.then2.i.i.i52:                                 ; preds = %if.end.i.i.i44
-  %26 = load i32, ptr %draw_list, align 8
-  %conv4.i.i.i53 = sext i32 %26 to i64
+  %27 = load i32, ptr %draw_list, align 8
+  %conv4.i.i.i53 = sext i32 %27 to i64
   %mul5.i.i.i54 = mul nsw i64 %conv4.i.i.i53, 56
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i49, ptr nonnull align 8 %25, i64 %mul5.i.i.i54, i1 false)
-  %27 = load ptr, ptr %Data28, align 8
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %27)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i49, ptr nonnull align 8 %26, i64 %mul5.i.i.i54, i1 false)
+  %28 = load ptr, ptr %Data28, align 8
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %28)
   br label %if.end7.i.i.i55
 
 if.end7.i.i.i55:                                  ; preds = %if.then2.i.i.i52, %if.end.i.i.i44
@@ -11368,8 +11367,8 @@ if.end7.i.i.i55:                                  ; preds = %if.then2.i.i.i52, %
 
 _ZN10ImDrawList10AddDrawCmdEv.exit57:             ; preds = %if.then40, %if.end7.i.i.i55
   %idxprom.i.i31.pre-phi = phi i64 [ %.pre, %if.end7.i.i.i55 ], [ %10, %if.then40 ]
-  %28 = phi ptr [ %call.i.i.i49, %if.end7.i.i.i55 ], [ %9, %if.then40 ]
-  %arrayidx.i.i32 = getelementptr inbounds %struct.ImDrawCmd, ptr %28, i64 %idxprom.i.i31.pre-phi
+  %29 = phi ptr [ %call.i.i.i49, %if.end7.i.i.i55 ], [ %9, %if.then40 ]
+  %arrayidx.i.i32 = getelementptr inbounds %struct.ImDrawCmd, ptr %29, i64 %idxprom.i.i31.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %draw_cmd.sroa.0.i21, i64 16, i1 false)
   %draw_cmd.sroa.3.0.arrayidx.i.sroa_idx.i33 = getelementptr inbounds i8, ptr %arrayidx.i.i32, i64 16
   store ptr %22, ptr %draw_cmd.sroa.3.0.arrayidx.i.sroa_idx.i33, align 8
@@ -11379,8 +11378,8 @@ _ZN10ImDrawList10AddDrawCmdEv.exit57:             ; preds = %if.then40, %if.end7
   store i32 %7, ptr %draw_cmd.sroa.5.0.arrayidx.i.sroa_idx.i35, align 4
   %draw_cmd.sroa.6.0.arrayidx.i.sroa_idx.i36 = getelementptr inbounds i8, ptr %arrayidx.i.i32, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %draw_cmd.sroa.6.0.arrayidx.i.sroa_idx.i36, i8 0, i64 24, i1 false)
-  %29 = load i32, ptr %draw_list, align 8
-  %inc.i.i37 = add nsw i32 %29, 1
+  %30 = load i32, ptr %draw_list, align 8
+  %inc.i.i37 = add nsw i32 %30, 1
   store i32 %inc.i.i37, ptr %draw_list, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %draw_cmd.sroa.0.i21)
   br label %if.end43

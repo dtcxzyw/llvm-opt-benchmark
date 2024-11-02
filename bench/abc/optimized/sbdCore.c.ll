@@ -10675,7 +10675,7 @@ Sbd_CutMergeSimple.exit179:                       ; preds = %.lr.ph55.i166, %.pr
   %213 = call i32 @llvm.smax.i32(i32 %spec.select, i32 %212)
   %214 = select i1 %.not80, i32 1000000000, i32 %213
   %.not81 = icmp sgt i32 %204, %206
-  %215 = call i32 @llvm.smax.i32(i32 %209, i32 %212)
+  %215 = add nsw i32 %207, 1
   %216 = select i1 %.not81, i32 1000000000, i32 %215
   %217 = icmp slt i32 %211, %208
   br i1 %217, label %224, label %218

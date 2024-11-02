@@ -47015,100 +47015,99 @@ entry:
   br i1 %or.cond.i, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
-  %sub.i20 = add nsw i32 %conv6, -1
-  %sub4.i = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i = tail call i32 @llvm.smin.i32(i32 %sub4.i, i32 %sub.i20)
+  %4 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %conv6)
   %sub7.i = add nsw i32 %conv7, -1
-  %4 = xor i32 %3, -1
-  %sub11.i = add i32 %2, %4
+  %5 = xor i32 %3, -1
+  %sub11.i = add i32 %2, %5
   %.sroa.speculated.i = tail call i32 @llvm.smin.i32(i32 %sub11.i, i32 %sub7.i)
-  %sub.i.i.i = sub i32 %.sroa.speculated10.i, %1
+  %6 = xor i32 %1, -1
+  %sub.i.i.i = add i32 %4, %6
   %sub6.i.i.i = sub nsw i32 %.sroa.speculated.i, %3
   %values.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %5 = load ptr, ptr %values.i.i.i, align 8
+  %7 = load ptr, ptr %values.i.i.i, align 8
   %mul.i.i.i = mul nsw i32 %sub6.i.i.i, %sub.i
   %add.i.i.i = add nsw i32 %sub.i.i.i, %mul.i.i.i
   %idxprom.i.i.i = sext i32 %add.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds double, ptr %5, i64 %idxprom.i.i.i
-  %6 = load double, ptr %arrayidx.i.i.i, align 8
-  %conv.i = fptrunc double %6 to float
+  %arrayidx.i.i.i = getelementptr inbounds double, ptr %7, i64 %idxprom.i.i.i
+  %8 = load double, ptr %arrayidx.i.i.i, align 8
+  %conv.i = fptrunc double %8 to float
   br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit
 
 _ZNK4pbrt15SummedAreaTable9LookupIntEii.exit:     ; preds = %entry, %if.end.i
   %retval.0.i = phi float [ %conv.i, %if.end.i ], [ 0.000000e+00, %entry ]
-  %cmp.i21 = icmp eq i32 %conv6, -1
-  %or.cond.i23 = or i1 %cmp.i21, %cmp2.i
-  br i1 %or.cond.i23, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44, label %if.end.i24
+  %add = add nsw i32 %conv6, 1
+  %cmp.i20 = icmp eq i32 %add, 0
+  %or.cond.i22 = or i1 %cmp.i20, %cmp2.i
+  br i1 %or.cond.i22, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit40, label %if.end.i23
 
-if.end.i24:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit
-  %sub4.i28 = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i29 = tail call i32 @llvm.smin.i32(i32 %sub4.i28, i32 %conv6)
-  %sub7.i30 = add nsw i32 %conv7, -1
-  %7 = xor i32 %3, -1
-  %sub11.i33 = add i32 %2, %7
-  %.sroa.speculated.i34 = tail call i32 @llvm.smin.i32(i32 %sub11.i33, i32 %sub7.i30)
-  %sub.i.i.i35 = sub i32 %.sroa.speculated10.i29, %1
-  %sub6.i.i.i36 = sub nsw i32 %.sroa.speculated.i34, %3
-  %values.i.i.i37 = getelementptr inbounds i8, ptr %this, i64 24
-  %8 = load ptr, ptr %values.i.i.i37, align 8
-  %mul.i.i.i38 = mul nsw i32 %sub6.i.i.i36, %sub.i
-  %add.i.i.i39 = add nsw i32 %sub.i.i.i35, %mul.i.i.i38
-  %idxprom.i.i.i40 = sext i32 %add.i.i.i39 to i64
-  %arrayidx.i.i.i41 = getelementptr inbounds double, ptr %8, i64 %idxprom.i.i.i40
-  %9 = load double, ptr %arrayidx.i.i.i41, align 8
-  %conv.i42 = fptrunc double %9 to float
-  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44
-
-_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit, %if.end.i24
-  %retval.0.i43 = phi float [ %conv.i42, %if.end.i24 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit ]
-  %cmp2.i46 = icmp eq i32 %conv7, -1
-  %or.cond.i47 = or i1 %cmp.i, %cmp2.i46
-  br i1 %or.cond.i47, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68, label %if.end.i48
-
-if.end.i48:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44
-  %sub.i49 = add nsw i32 %conv6, -1
-  %sub4.i52 = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i53 = tail call i32 @llvm.smin.i32(i32 %sub4.i52, i32 %sub.i49)
+if.end.i23:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit
+  %9 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %add)
+  %sub7.i26 = add nsw i32 %conv7, -1
   %10 = xor i32 %3, -1
-  %sub11.i57 = add i32 %2, %10
-  %.sroa.speculated.i58 = tail call i32 @llvm.smin.i32(i32 %sub11.i57, i32 %conv7)
-  %sub.i.i.i59 = sub i32 %.sroa.speculated10.i53, %1
-  %sub6.i.i.i60 = sub nsw i32 %.sroa.speculated.i58, %3
-  %values.i.i.i61 = getelementptr inbounds i8, ptr %this, i64 24
-  %11 = load ptr, ptr %values.i.i.i61, align 8
-  %mul.i.i.i62 = mul nsw i32 %sub6.i.i.i60, %sub.i
-  %add.i.i.i63 = add nsw i32 %sub.i.i.i59, %mul.i.i.i62
-  %idxprom.i.i.i64 = sext i32 %add.i.i.i63 to i64
-  %arrayidx.i.i.i65 = getelementptr inbounds double, ptr %11, i64 %idxprom.i.i.i64
-  %12 = load double, ptr %arrayidx.i.i.i65, align 8
-  %conv.i66 = fptrunc double %12 to float
-  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68
+  %sub11.i29 = add i32 %2, %10
+  %.sroa.speculated.i30 = tail call i32 @llvm.smin.i32(i32 %sub11.i29, i32 %sub7.i26)
+  %11 = xor i32 %1, -1
+  %sub.i.i.i31 = add i32 %9, %11
+  %sub6.i.i.i32 = sub nsw i32 %.sroa.speculated.i30, %3
+  %values.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 24
+  %12 = load ptr, ptr %values.i.i.i33, align 8
+  %mul.i.i.i34 = mul nsw i32 %sub6.i.i.i32, %sub.i
+  %add.i.i.i35 = add nsw i32 %sub.i.i.i31, %mul.i.i.i34
+  %idxprom.i.i.i36 = sext i32 %add.i.i.i35 to i64
+  %arrayidx.i.i.i37 = getelementptr inbounds double, ptr %12, i64 %idxprom.i.i.i36
+  %13 = load double, ptr %arrayidx.i.i.i37, align 8
+  %conv.i38 = fptrunc double %13 to float
+  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit40
 
-_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44, %if.end.i48
-  %retval.0.i67 = phi float [ %conv.i66, %if.end.i48 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit44 ]
-  %or.cond.i71 = or i1 %cmp.i21, %cmp2.i46
-  br i1 %or.cond.i71, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92, label %if.end.i72
+_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit40:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit, %if.end.i23
+  %retval.0.i39 = phi float [ %conv.i38, %if.end.i23 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit ]
+  %cmp2.i42 = icmp eq i32 %conv7, -1
+  %or.cond.i43 = or i1 %cmp.i, %cmp2.i42
+  br i1 %or.cond.i43, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit61, label %if.end.i44
 
-if.end.i72:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68
-  %sub4.i76 = add nsw i32 %sub.i, -1
-  %.sroa.speculated10.i77 = tail call i32 @llvm.smin.i32(i32 %sub4.i76, i32 %conv6)
-  %13 = xor i32 %3, -1
-  %sub11.i81 = add i32 %2, %13
-  %.sroa.speculated.i82 = tail call i32 @llvm.smin.i32(i32 %sub11.i81, i32 %conv7)
-  %sub.i.i.i83 = sub i32 %.sroa.speculated10.i77, %1
-  %sub6.i.i.i84 = sub nsw i32 %.sroa.speculated.i82, %3
-  %values.i.i.i85 = getelementptr inbounds i8, ptr %this, i64 24
-  %14 = load ptr, ptr %values.i.i.i85, align 8
-  %mul.i.i.i86 = mul nsw i32 %sub6.i.i.i84, %sub.i
-  %add.i.i.i87 = add nsw i32 %sub.i.i.i83, %mul.i.i.i86
-  %idxprom.i.i.i88 = sext i32 %add.i.i.i87 to i64
-  %arrayidx.i.i.i89 = getelementptr inbounds double, ptr %14, i64 %idxprom.i.i.i88
-  %15 = load double, ptr %arrayidx.i.i.i89, align 8
-  %conv.i90 = fptrunc double %15 to float
-  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92
+if.end.i44:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit40
+  %14 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %conv6)
+  %15 = xor i32 %3, -1
+  %sub11.i50 = add i32 %2, %15
+  %.sroa.speculated.i51 = tail call i32 @llvm.smin.i32(i32 %sub11.i50, i32 %conv7)
+  %16 = xor i32 %1, -1
+  %sub.i.i.i52 = add i32 %14, %16
+  %sub6.i.i.i53 = sub nsw i32 %.sroa.speculated.i51, %3
+  %values.i.i.i54 = getelementptr inbounds i8, ptr %this, i64 24
+  %17 = load ptr, ptr %values.i.i.i54, align 8
+  %mul.i.i.i55 = mul nsw i32 %sub6.i.i.i53, %sub.i
+  %add.i.i.i56 = add nsw i32 %sub.i.i.i52, %mul.i.i.i55
+  %idxprom.i.i.i57 = sext i32 %add.i.i.i56 to i64
+  %arrayidx.i.i.i58 = getelementptr inbounds double, ptr %17, i64 %idxprom.i.i.i57
+  %18 = load double, ptr %arrayidx.i.i.i58, align 8
+  %conv.i59 = fptrunc double %18 to float
+  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit61
 
-_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68, %if.end.i72
-  %retval.0.i91 = phi float [ %conv.i90, %if.end.i72 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit68 ]
+_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit61:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit40, %if.end.i44
+  %retval.0.i60 = phi float [ %conv.i59, %if.end.i44 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit40 ]
+  %or.cond.i64 = or i1 %cmp.i20, %cmp2.i42
+  br i1 %or.cond.i64, label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit82, label %if.end.i65
+
+if.end.i65:                                       ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit61
+  %19 = tail call i32 @llvm.smin.i32(i32 %sub.i, i32 %add)
+  %20 = xor i32 %3, -1
+  %sub11.i71 = add i32 %2, %20
+  %.sroa.speculated.i72 = tail call i32 @llvm.smin.i32(i32 %sub11.i71, i32 %conv7)
+  %21 = xor i32 %1, -1
+  %sub.i.i.i73 = add i32 %19, %21
+  %sub6.i.i.i74 = sub nsw i32 %.sroa.speculated.i72, %3
+  %values.i.i.i75 = getelementptr inbounds i8, ptr %this, i64 24
+  %22 = load ptr, ptr %values.i.i.i75, align 8
+  %mul.i.i.i76 = mul nsw i32 %sub6.i.i.i74, %sub.i
+  %add.i.i.i77 = add nsw i32 %sub.i.i.i73, %mul.i.i.i76
+  %idxprom.i.i.i78 = sext i32 %add.i.i.i77 to i64
+  %arrayidx.i.i.i79 = getelementptr inbounds double, ptr %22, i64 %idxprom.i.i.i78
+  %23 = load double, ptr %arrayidx.i.i.i79, align 8
+  %conv.i80 = fptrunc double %23 to float
+  br label %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit82
+
+_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit82:   ; preds = %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit61, %if.end.i65
+  %retval.0.i81 = phi float [ %conv.i80, %if.end.i65 ], [ 0.000000e+00, %_ZNK4pbrt15SummedAreaTable9LookupIntEii.exit61 ]
   %conv16 = sitofp i32 %conv6 to float
   %sub = fsub float %mul, %conv16
   %conv18 = sitofp i32 %conv7 to float
@@ -47118,13 +47117,13 @@ _ZNK4pbrt15SummedAreaTable9LookupIntEii.exit92:   ; preds = %_ZNK4pbrt15SummedAr
   %mul22 = fmul float %sub20, %sub21
   %mul23 = fmul float %mul22, %retval.0.i
   %mul25 = fmul float %sub20, %sub19
-  %mul26 = fmul float %mul25, %retval.0.i67
+  %mul26 = fmul float %mul25, %retval.0.i60
   %add27 = fadd float %mul23, %mul26
   %mul29 = fmul float %sub, %sub21
-  %mul30 = fmul float %mul29, %retval.0.i43
+  %mul30 = fmul float %mul29, %retval.0.i39
   %add31 = fadd float %mul30, %add27
   %mul32 = fmul float %sub, %sub19
-  %mul33 = fmul float %mul32, %retval.0.i91
+  %mul33 = fmul float %mul32, %retval.0.i81
   %add34 = fadd float %add31, %mul33
   ret float %add34
 }

@@ -1161,46 +1161,45 @@ define dso_local range(i64 0, 2) i64 @biteq(ptr nocapture noundef readonly %0) l
   %12 = getelementptr inbounds i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
-  br i1 %.not, label %bit_cmp.exit, label %26
+  br i1 %.not, label %bit_cmp.exit, label %25
 
 bit_cmp.exit:                                     ; preds = %1
   %14 = load i32, ptr %5, align 4
   %15 = lshr i32 %14, 2
-  %16 = add nsw i32 %15, -8
-  %17 = load i32, ptr %9, align 4
-  %18 = lshr i32 %17, 2
-  %19 = add nsw i32 %18, -8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 8
-  %22 = tail call i32 @llvm.smin.i32(i32 %16, i32 %19)
-  %23 = sext i32 %22 to i64
-  %bcmp = tail call i32 @bcmp(ptr nonnull %20, ptr nonnull %21, i64 %23)
-  %24 = icmp eq i32 %bcmp, 0
-  %25 = zext i1 %24 to i64
-  br label %26
+  %16 = load i32, ptr %9, align 4
+  %17 = lshr i32 %16, 2
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = tail call i32 @llvm.umin.i32(i32 %15, i32 %17)
+  %21 = add nsw i32 %20, -8
+  %22 = sext i32 %21 to i64
+  %bcmp = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull %19, i64 %22)
+  %23 = icmp eq i32 %bcmp, 0
+  %24 = zext i1 %23 to i64
+  br label %25
 
-26:                                               ; preds = %1, %bit_cmp.exit
-  %.0 = phi i64 [ %25, %bit_cmp.exit ], [ 0, %1 ]
-  %27 = load i64, ptr %2, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %.not16 = icmp eq ptr %5, %28
-  br i1 %.not16, label %30, label %29
+25:                                               ; preds = %1, %bit_cmp.exit
+  %.0 = phi i64 [ %24, %bit_cmp.exit ], [ 0, %1 ]
+  %26 = load i64, ptr %2, align 8
+  %27 = inttoptr i64 %26 to ptr
+  %.not16 = icmp eq ptr %5, %27
+  br i1 %.not16, label %29, label %28
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %26
-  %31 = load i64, ptr %6, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %.not17 = icmp eq ptr %9, %32
-  br i1 %.not17, label %34, label %33
+29:                                               ; preds = %28, %25
+  %30 = load i64, ptr %6, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %.not17 = icmp eq ptr %9, %31
+  br i1 %.not17, label %33, label %32
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %34
+  br label %33
 
-34:                                               ; preds = %30, %33
+33:                                               ; preds = %29, %32
   ret i64 %.0
 }
 
@@ -1221,46 +1220,45 @@ define dso_local range(i64 0, 2) i64 @bitne(ptr nocapture noundef readonly %0) l
   %12 = getelementptr inbounds i8, ptr %9, i64 4
   %13 = load i32, ptr %12, align 4
   %.not = icmp eq i32 %11, %13
-  br i1 %.not, label %bit_cmp.exit, label %26
+  br i1 %.not, label %bit_cmp.exit, label %25
 
 bit_cmp.exit:                                     ; preds = %1
   %14 = load i32, ptr %5, align 4
   %15 = lshr i32 %14, 2
-  %16 = add nsw i32 %15, -8
-  %17 = load i32, ptr %9, align 4
-  %18 = lshr i32 %17, 2
-  %19 = add nsw i32 %18, -8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  %21 = getelementptr inbounds i8, ptr %9, i64 8
-  %22 = tail call i32 @llvm.smin.i32(i32 %16, i32 %19)
-  %23 = sext i32 %22 to i64
-  %bcmp = tail call i32 @bcmp(ptr nonnull %20, ptr nonnull %21, i64 %23)
-  %24 = icmp ne i32 %bcmp, 0
-  %25 = zext i1 %24 to i64
-  br label %26
+  %16 = load i32, ptr %9, align 4
+  %17 = lshr i32 %16, 2
+  %18 = getelementptr inbounds i8, ptr %5, i64 8
+  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %20 = tail call i32 @llvm.umin.i32(i32 %15, i32 %17)
+  %21 = add nsw i32 %20, -8
+  %22 = sext i32 %21 to i64
+  %bcmp = tail call i32 @bcmp(ptr nonnull %18, ptr nonnull %19, i64 %22)
+  %23 = icmp ne i32 %bcmp, 0
+  %24 = zext i1 %23 to i64
+  br label %25
 
-26:                                               ; preds = %1, %bit_cmp.exit
-  %.0 = phi i64 [ %25, %bit_cmp.exit ], [ 1, %1 ]
-  %27 = load i64, ptr %2, align 8
-  %28 = inttoptr i64 %27 to ptr
-  %.not16 = icmp eq ptr %5, %28
-  br i1 %.not16, label %30, label %29
+25:                                               ; preds = %1, %bit_cmp.exit
+  %.0 = phi i64 [ %24, %bit_cmp.exit ], [ 1, %1 ]
+  %26 = load i64, ptr %2, align 8
+  %27 = inttoptr i64 %26 to ptr
+  %.not16 = icmp eq ptr %5, %27
+  br i1 %.not16, label %29, label %28
 
-29:                                               ; preds = %26
+28:                                               ; preds = %25
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %30
+  br label %29
 
-30:                                               ; preds = %29, %26
-  %31 = load i64, ptr %6, align 8
-  %32 = inttoptr i64 %31 to ptr
-  %.not17 = icmp eq ptr %9, %32
-  br i1 %.not17, label %34, label %33
+29:                                               ; preds = %28, %25
+  %30 = load i64, ptr %6, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %.not17 = icmp eq ptr %9, %31
+  br i1 %.not17, label %33, label %32
 
-33:                                               ; preds = %30
+32:                                               ; preds = %29
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %34
+  br label %33
 
-34:                                               ; preds = %30, %33
+33:                                               ; preds = %29, %32
   ret i64 %.0
 }
 
@@ -1276,56 +1274,55 @@ define dso_local range(i64 0, 2) i64 @bitlt(ptr nocapture noundef readonly %0) l
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
   %10 = load i32, ptr %5, align 4
   %11 = lshr i32 %10, 2
-  %12 = add nsw i32 %11, -8
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 2
-  %15 = add nsw i32 %14, -8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
-  %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %bit_cmp.exit
+  %12 = load i32, ptr %9, align 4
+  %13 = lshr i32 %12, 2
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
+  %17 = add nsw i32 %16, -8
+  %18 = sext i32 %17 to i64
+  %19 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i64 noundef %18) #12
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %bit_cmp.exit
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not.i = icmp eq i32 %24, %26
-  br i1 %.not.i, label %bit_cmp.exit, label %27
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %23, %25
+  br i1 %.not.i, label %bit_cmp.exit, label %26
 
-27:                                               ; preds = %22
-  %28 = icmp slt i32 %24, %26
-  %29 = select i1 %28, i32 -1, i32 1
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %23, %25
+  %28 = select i1 %27, i32 -1, i32 1
   br label %bit_cmp.exit
 
-bit_cmp.exit:                                     ; preds = %1, %22, %27
-  %.0.i = phi i32 [ %29, %27 ], [ 0, %22 ], [ %20, %1 ]
-  %30 = load i64, ptr %2, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %.not = icmp eq ptr %5, %31
-  br i1 %.not, label %33, label %32
+bit_cmp.exit:                                     ; preds = %1, %21, %26
+  %.0.i = phi i32 [ %28, %26 ], [ 0, %21 ], [ %19, %1 ]
+  %29 = load i64, ptr %2, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %.not = icmp eq ptr %5, %30
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %bit_cmp.exit
+31:                                               ; preds = %bit_cmp.exit
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %bit_cmp.exit
-  %34 = load i64, ptr %6, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not11 = icmp eq ptr %9, %35
-  br i1 %.not11, label %37, label %36
+32:                                               ; preds = %31, %bit_cmp.exit
+  %33 = load i64, ptr %6, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %.not11 = icmp eq ptr %9, %34
+  br i1 %.not11, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %36
+36:                                               ; preds = %32, %35
   %.0.i.lobit = lshr i32 %.0.i, 31
-  %38 = zext nneg i32 %.0.i.lobit to i64
-  ret i64 %38
+  %37 = zext nneg i32 %.0.i.lobit to i64
+  ret i64 %37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1340,56 +1337,55 @@ define dso_local range(i64 0, 2) i64 @bitle(ptr nocapture noundef readonly %0) l
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
   %10 = load i32, ptr %5, align 4
   %11 = lshr i32 %10, 2
-  %12 = add nsw i32 %11, -8
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 2
-  %15 = add nsw i32 %14, -8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
-  %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %bit_cmp.exit
+  %12 = load i32, ptr %9, align 4
+  %13 = lshr i32 %12, 2
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
+  %17 = add nsw i32 %16, -8
+  %18 = sext i32 %17 to i64
+  %19 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i64 noundef %18) #12
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %bit_cmp.exit
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not.i = icmp eq i32 %24, %26
-  br i1 %.not.i, label %bit_cmp.exit, label %27
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %23, %25
+  br i1 %.not.i, label %bit_cmp.exit, label %26
 
-27:                                               ; preds = %22
-  %28 = icmp slt i32 %24, %26
-  %29 = select i1 %28, i32 -1, i32 1
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %23, %25
+  %28 = select i1 %27, i32 -1, i32 1
   br label %bit_cmp.exit
 
-bit_cmp.exit:                                     ; preds = %1, %22, %27
-  %.0.i = phi i32 [ %29, %27 ], [ 0, %22 ], [ %20, %1 ]
-  %30 = load i64, ptr %2, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %.not = icmp eq ptr %5, %31
-  br i1 %.not, label %33, label %32
+bit_cmp.exit:                                     ; preds = %1, %21, %26
+  %.0.i = phi i32 [ %28, %26 ], [ 0, %21 ], [ %19, %1 ]
+  %29 = load i64, ptr %2, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %.not = icmp eq ptr %5, %30
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %bit_cmp.exit
+31:                                               ; preds = %bit_cmp.exit
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %bit_cmp.exit
-  %34 = load i64, ptr %6, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not11 = icmp eq ptr %9, %35
-  br i1 %.not11, label %37, label %36
+32:                                               ; preds = %31, %bit_cmp.exit
+  %33 = load i64, ptr %6, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %.not11 = icmp eq ptr %9, %34
+  br i1 %.not11, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %36
-  %38 = icmp slt i32 %.0.i, 1
-  %39 = zext i1 %38 to i64
-  ret i64 %39
+36:                                               ; preds = %32, %35
+  %37 = icmp slt i32 %.0.i, 1
+  %38 = zext i1 %37 to i64
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1404,56 +1400,55 @@ define dso_local range(i64 0, 2) i64 @bitgt(ptr nocapture noundef readonly %0) l
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
   %10 = load i32, ptr %5, align 4
   %11 = lshr i32 %10, 2
-  %12 = add nsw i32 %11, -8
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 2
-  %15 = add nsw i32 %14, -8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
-  %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %bit_cmp.exit
+  %12 = load i32, ptr %9, align 4
+  %13 = lshr i32 %12, 2
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
+  %17 = add nsw i32 %16, -8
+  %18 = sext i32 %17 to i64
+  %19 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i64 noundef %18) #12
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %bit_cmp.exit
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not.i = icmp eq i32 %24, %26
-  br i1 %.not.i, label %bit_cmp.exit, label %27
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %23, %25
+  br i1 %.not.i, label %bit_cmp.exit, label %26
 
-27:                                               ; preds = %22
-  %28 = icmp slt i32 %24, %26
-  %29 = select i1 %28, i32 -1, i32 1
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %23, %25
+  %28 = select i1 %27, i32 -1, i32 1
   br label %bit_cmp.exit
 
-bit_cmp.exit:                                     ; preds = %1, %22, %27
-  %.0.i = phi i32 [ %29, %27 ], [ 0, %22 ], [ %20, %1 ]
-  %30 = load i64, ptr %2, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %.not = icmp eq ptr %5, %31
-  br i1 %.not, label %33, label %32
+bit_cmp.exit:                                     ; preds = %1, %21, %26
+  %.0.i = phi i32 [ %28, %26 ], [ 0, %21 ], [ %19, %1 ]
+  %29 = load i64, ptr %2, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %.not = icmp eq ptr %5, %30
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %bit_cmp.exit
+31:                                               ; preds = %bit_cmp.exit
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %bit_cmp.exit
-  %34 = load i64, ptr %6, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not11 = icmp eq ptr %9, %35
-  br i1 %.not11, label %37, label %36
+32:                                               ; preds = %31, %bit_cmp.exit
+  %33 = load i64, ptr %6, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %.not11 = icmp eq ptr %9, %34
+  br i1 %.not11, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %36
-  %38 = icmp sgt i32 %.0.i, 0
-  %39 = zext i1 %38 to i64
-  ret i64 %39
+36:                                               ; preds = %32, %35
+  %37 = icmp sgt i32 %.0.i, 0
+  %38 = zext i1 %37 to i64
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1468,56 +1463,55 @@ define dso_local range(i64 0, 2) i64 @bitge(ptr nocapture noundef readonly %0) l
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
   %10 = load i32, ptr %5, align 4
   %11 = lshr i32 %10, 2
-  %12 = add nsw i32 %11, -8
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 2
-  %15 = add nsw i32 %14, -8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
-  %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %bit_cmp.exit
+  %12 = load i32, ptr %9, align 4
+  %13 = lshr i32 %12, 2
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
+  %17 = add nsw i32 %16, -8
+  %18 = sext i32 %17 to i64
+  %19 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i64 noundef %18) #12
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %bit_cmp.exit
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not.i = icmp eq i32 %24, %26
-  br i1 %.not.i, label %bit_cmp.exit, label %27
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %23, %25
+  br i1 %.not.i, label %bit_cmp.exit, label %26
 
-27:                                               ; preds = %22
-  %28 = icmp slt i32 %24, %26
-  %29 = select i1 %28, i32 -1, i32 1
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %23, %25
+  %28 = select i1 %27, i32 -1, i32 1
   br label %bit_cmp.exit
 
-bit_cmp.exit:                                     ; preds = %1, %22, %27
-  %.0.i = phi i32 [ %29, %27 ], [ 0, %22 ], [ %20, %1 ]
-  %30 = load i64, ptr %2, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %.not = icmp eq ptr %5, %31
-  br i1 %.not, label %33, label %32
+bit_cmp.exit:                                     ; preds = %1, %21, %26
+  %.0.i = phi i32 [ %28, %26 ], [ 0, %21 ], [ %19, %1 ]
+  %29 = load i64, ptr %2, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %.not = icmp eq ptr %5, %30
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %bit_cmp.exit
+31:                                               ; preds = %bit_cmp.exit
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %bit_cmp.exit
-  %34 = load i64, ptr %6, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not11 = icmp eq ptr %9, %35
-  br i1 %.not11, label %37, label %36
+32:                                               ; preds = %31, %bit_cmp.exit
+  %33 = load i64, ptr %6, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %.not11 = icmp eq ptr %9, %34
+  br i1 %.not11, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %36
-  %38 = icmp sgt i32 %.0.i, -1
-  %39 = zext i1 %38 to i64
-  ret i64 %39
+36:                                               ; preds = %32, %35
+  %37 = icmp sgt i32 %.0.i, -1
+  %38 = zext i1 %37 to i64
+  ret i64 %38
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1532,55 +1526,54 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @bitcmp(ptr nocapture no
   %9 = tail call ptr @pg_detoast_datum(ptr noundef %8) #13
   %10 = load i32, ptr %5, align 4
   %11 = lshr i32 %10, 2
-  %12 = add nsw i32 %11, -8
-  %13 = load i32, ptr %9, align 4
-  %14 = lshr i32 %13, 2
-  %15 = add nsw i32 %14, -8
-  %16 = getelementptr inbounds i8, ptr %5, i64 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 8
-  %18 = tail call i32 @llvm.smin.i32(i32 %12, i32 %15)
-  %19 = sext i32 %18 to i64
-  %20 = tail call i32 @memcmp(ptr noundef nonnull readonly %16, ptr noundef nonnull readonly %17, i64 noundef %19) #12
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %bit_cmp.exit
+  %12 = load i32, ptr %9, align 4
+  %13 = lshr i32 %12, 2
+  %14 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = tail call i32 @llvm.umin.i32(i32 %11, i32 %13)
+  %17 = add nsw i32 %16, -8
+  %18 = sext i32 %17 to i64
+  %19 = tail call i32 @memcmp(ptr noundef nonnull readonly %14, ptr noundef nonnull readonly %15, i64 noundef %18) #12
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %bit_cmp.exit
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %5, i64 4
-  %24 = load i32, ptr %23, align 4
-  %25 = getelementptr inbounds i8, ptr %9, i64 4
-  %26 = load i32, ptr %25, align 4
-  %.not.i = icmp eq i32 %24, %26
-  br i1 %.not.i, label %bit_cmp.exit, label %27
+21:                                               ; preds = %1
+  %22 = getelementptr inbounds i8, ptr %5, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %9, i64 4
+  %25 = load i32, ptr %24, align 4
+  %.not.i = icmp eq i32 %23, %25
+  br i1 %.not.i, label %bit_cmp.exit, label %26
 
-27:                                               ; preds = %22
-  %28 = icmp slt i32 %24, %26
-  %29 = select i1 %28, i32 -1, i32 1
+26:                                               ; preds = %21
+  %27 = icmp slt i32 %23, %25
+  %28 = select i1 %27, i32 -1, i32 1
   br label %bit_cmp.exit
 
-bit_cmp.exit:                                     ; preds = %1, %22, %27
-  %.0.i = phi i32 [ %29, %27 ], [ 0, %22 ], [ %20, %1 ]
-  %30 = load i64, ptr %2, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %.not = icmp eq ptr %5, %31
-  br i1 %.not, label %33, label %32
+bit_cmp.exit:                                     ; preds = %1, %21, %26
+  %.0.i = phi i32 [ %28, %26 ], [ 0, %21 ], [ %19, %1 ]
+  %29 = load i64, ptr %2, align 8
+  %30 = inttoptr i64 %29 to ptr
+  %.not = icmp eq ptr %5, %30
+  br i1 %.not, label %32, label %31
 
-32:                                               ; preds = %bit_cmp.exit
+31:                                               ; preds = %bit_cmp.exit
   tail call void @pfree(ptr noundef nonnull %5) #13
-  br label %33
+  br label %32
 
-33:                                               ; preds = %32, %bit_cmp.exit
-  %34 = load i64, ptr %6, align 8
-  %35 = inttoptr i64 %34 to ptr
-  %.not11 = icmp eq ptr %9, %35
-  br i1 %.not11, label %37, label %36
+32:                                               ; preds = %31, %bit_cmp.exit
+  %33 = load i64, ptr %6, align 8
+  %34 = inttoptr i64 %33 to ptr
+  %.not11 = icmp eq ptr %9, %34
+  br i1 %.not11, label %36, label %35
 
-36:                                               ; preds = %33
+35:                                               ; preds = %32
   tail call void @pfree(ptr noundef nonnull %9) #13
-  br label %37
+  br label %36
 
-37:                                               ; preds = %33, %36
-  %38 = sext i32 %.0.i to i64
-  ret i64 %38
+36:                                               ; preds = %32, %35
+  %37 = sext i32 %.0.i to i64
+  ret i64 %37
 }
 
 ; Function Attrs: nounwind uwtable
@@ -3359,6 +3352,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
