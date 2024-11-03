@@ -2799,7 +2799,7 @@ for.cond2.preheader.preheader:                    ; preds = %entry
   br label %for.cond2.preheader
 
 for.cond2.preheader:                              ; preds = %for.cond2.preheader.preheader, %for.end80
-  %2 = phi i32 [ %1, %for.cond2.preheader.preheader ], [ %129, %for.end80 ]
+  %2 = phi i32 [ %1, %for.cond2.preheader.preheader ], [ %128, %for.end80 ]
   %indvars.iv450 = phi i64 [ 0, %for.cond2.preheader.preheader ], [ %indvars.iv.next451, %for.end80 ]
   %null_rank.0447 = phi i32 [ 0, %for.cond2.preheader.preheader ], [ %spec.select, %for.end80 ]
   %cmp4441.not = icmp eq i32 %2, 0
@@ -3679,18 +3679,17 @@ for.inc78:                                        ; preds = %for.inc74, %for.con
   br i1 %cmp4, label %for.body5, label %for.end80.loopexit, !llvm.loop !21
 
 for.end80.loopexit:                               ; preds = %for.inc78
-  %126 = and i8 %column_found.1, 1
-  %127 = xor i8 %126, 1
-  %128 = zext nneg i8 %127 to i32
+  %126 = xor i8 %column_found.1, 1
+  %127 = zext nneg i8 %126 to i32
   br label %for.end80
 
 for.end80:                                        ; preds = %for.end80.loopexit, %for.cond2.preheader
-  %129 = phi i32 [ 0, %for.cond2.preheader ], [ %123, %for.end80.loopexit ]
-  %column_found.0.lcssa = phi i32 [ 1, %for.cond2.preheader ], [ %128, %for.end80.loopexit ]
+  %128 = phi i32 [ 0, %for.cond2.preheader ], [ %123, %for.end80.loopexit ]
+  %column_found.0.lcssa = phi i32 [ 1, %for.cond2.preheader ], [ %127, %for.end80.loopexit ]
   %spec.select = add i32 %null_rank.0447, %column_found.0.lcssa
   %indvars.iv.next451 = add nuw nsw i64 %indvars.iv450, 1
-  %130 = zext i32 %129 to i64
-  %cmp = icmp samesign ult i64 %indvars.iv.next451, %130
+  %129 = zext i32 %128 to i64
+  %cmp = icmp samesign ult i64 %indvars.iv.next451, %129
   br i1 %cmp, label %for.cond2.preheader, label %for.end86.loopexit449, !llvm.loop !22
 
 for.end86.loopexit449:                            ; preds = %for.end80
@@ -3698,17 +3697,17 @@ for.end86.loopexit449:                            ; preds = %for.end80
   br label %for.end86
 
 for.end86:                                        ; preds = %for.end86.loopexit449, %entry
-  %131 = phi ptr [ %0, %entry ], [ %.pre, %for.end86.loopexit449 ]
+  %130 = phi ptr [ %0, %entry ], [ %.pre, %for.end86.loopexit449 ]
   %null_rank.0.lcssa = phi i32 [ 0, %entry ], [ %spec.select, %for.end86.loopexit449 ]
-  %132 = load ptr, ptr %131, align 8
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %132, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
+  %131 = load ptr, ptr %130, align 8
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %131, ptr noundef nonnull align 8 dereferenceable(16) %m_num.i)
           to label %_ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit130 unwind label %terminate.lpad.i129
 
 terminate.lpad.i129:                              ; preds = %for.end86
-  %133 = landingpad { ptr, i32 }
+  %132 = landingpad { ptr, i32 }
           catch ptr null
-  %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #20
+  %133 = extractvalue { ptr, i32 } %132, 0
+  call void @__clang_call_terminate(ptr %133) #20
   unreachable
 
 _ZN15_scoped_numeralI13mpzzp_managerED2Ev.exit130: ; preds = %for.end86

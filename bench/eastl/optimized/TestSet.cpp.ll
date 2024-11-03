@@ -18724,17 +18724,10 @@ invoke.cont325:                                   ; preds = %if.end16.i799, %lan
 
 call.i.i.i.noexc804:                              ; preds = %invoke.cont325
   invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i798, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc806 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont329 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc806:                                        ; preds = %call.i.i.i.noexc804
-  %isnull.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i798, null
-  br i1 %isnull.i.i.i.i, label %invoke.cont329, label %delete.notnull.i.i.i.i
-
-delete.notnull.i.i.i.i:                           ; preds = %.noexc806
+invoke.cont329:                                   ; preds = %call.i.i.i.noexc804
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i798) #13
-  br label %invoke.cont329
-
-invoke.cont329:                                   ; preds = %delete.notnull.i.i.i.i, %.noexc806
   %244 = load ptr, ptr %_M_parent.i.i.i.i.i578, align 8
   %cmp.not5.i.i.i809 = icmp eq ptr %244, null
   br i1 %cmp.not5.i.i.i809, label %invoke.cont339, label %while.body.i.i.i811
@@ -18945,17 +18938,10 @@ invoke.cont384:                                   ; preds = %if.end16.i919, %lan
 
 call.i.i.i923.noexc:                              ; preds = %invoke.cont384
   invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i918, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc928 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont388 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc928:                                        ; preds = %call.i.i.i923.noexc
-  %isnull.i.i.i.i924 = icmp eq ptr %retval.sroa.0.0.i918, null
-  br i1 %isnull.i.i.i.i924, label %invoke.cont388, label %delete.notnull.i.i.i.i925
-
-delete.notnull.i.i.i.i925:                        ; preds = %.noexc928
+invoke.cont388:                                   ; preds = %call.i.i.i923.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i918) #13
-  br label %invoke.cont388
-
-invoke.cont388:                                   ; preds = %delete.notnull.i.i.i.i925, %.noexc928
   %264 = load ptr, ptr %_M_parent.i.i.i.i.i578, align 8
   %cmp.not5.i.i.i932 = icmp eq ptr %264, null
   br i1 %cmp.not5.i.i.i932, label %invoke.cont398, label %while.body.i.i.i934
@@ -19467,17 +19453,10 @@ invoke.cont480:                                   ; preds = %if.end16.i1113, %la
 
 call.i.i.i1117.noexc:                             ; preds = %invoke.cont480
   invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1112, ptr noundef nonnull align 8 dereferenceable(41) %call192)
-          to label %.noexc1122 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont484 unwind label %lpad213.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1122:                                       ; preds = %call.i.i.i1117.noexc
-  %isnull.i.i.i.i1118 = icmp eq ptr %retval.sroa.0.0.i1112, null
-  br i1 %isnull.i.i.i.i1118, label %invoke.cont484, label %delete.notnull.i.i.i.i1119
-
-delete.notnull.i.i.i.i1119:                       ; preds = %.noexc1122
+invoke.cont484:                                   ; preds = %call.i.i.i1117.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i1112) #13
-  br label %invoke.cont484
-
-invoke.cont484:                                   ; preds = %delete.notnull.i.i.i.i1119, %.noexc1122
   %309 = load ptr, ptr %_M_parent.i.i.i.i.i578, align 8
   %cmp.not5.i.i.i1126 = icmp eq ptr %309, null
   br i1 %cmp.not5.i.i.i1126, label %invoke.cont494, label %while.body.i.i.i1128
@@ -28042,17 +28021,10 @@ invoke.cont323:                                   ; preds = %if.end16.i853, %lan
 
 call.i.i.i.noexc:                                 ; preds = %invoke.cont323
   invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i852, ptr noundef nonnull align 8 dereferenceable(41) %call189)
-          to label %.noexc857 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont327 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc857:                                        ; preds = %call.i.i.i.noexc
-  %isnull.i.i.i.i = icmp eq ptr %retval.sroa.0.0.i852, null
-  br i1 %isnull.i.i.i.i, label %invoke.cont327, label %delete.notnull.i.i.i.i
-
-delete.notnull.i.i.i.i:                           ; preds = %.noexc857
+invoke.cont327:                                   ; preds = %call.i.i.i.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i852) #13
-  br label %invoke.cont327
-
-invoke.cont327:                                   ; preds = %delete.notnull.i.i.i.i, %.noexc857
   %226 = load ptr, ptr %_M_parent.i.i.i.i.i632, align 8
   %cmp.not5.i.i.i860 = icmp eq ptr %226, null
   br i1 %cmp.not5.i.i.i860, label %invoke.cont333, label %while.body.i.i.i862
@@ -28232,17 +28204,10 @@ invoke.cont382:                                   ; preds = %if.end16.i955, %lan
 
 call.i.i.i959.noexc:                              ; preds = %invoke.cont382
   invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i954, ptr noundef nonnull align 8 dereferenceable(41) %call189)
-          to label %.noexc963 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont386 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc963:                                        ; preds = %call.i.i.i959.noexc
-  %isnull.i.i.i.i960 = icmp eq ptr %retval.sroa.0.0.i954, null
-  br i1 %isnull.i.i.i.i960, label %invoke.cont386, label %delete.notnull.i.i.i.i961
-
-delete.notnull.i.i.i.i961:                        ; preds = %.noexc963
+invoke.cont386:                                   ; preds = %call.i.i.i959.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i954) #13
-  br label %invoke.cont386
-
-invoke.cont386:                                   ; preds = %delete.notnull.i.i.i.i961, %.noexc963
   %241 = load ptr, ptr %_M_parent.i.i.i.i.i632, align 8
   %cmp.not5.i.i.i967 = icmp eq ptr %241, null
   br i1 %cmp.not5.i.i.i967, label %invoke.cont392, label %while.body.i.i.i969
@@ -28583,17 +28548,10 @@ invoke.cont478:                                   ; preds = %if.end16.i1139, %la
 
 call.i.i.i1143.noexc:                             ; preds = %invoke.cont478
   invoke void @_ZN5eastl11RBTreeEraseEPNS_16rbtree_node_baseES1_(ptr noundef %retval.sroa.0.0.i1138, ptr noundef nonnull align 8 dereferenceable(41) %call189)
-          to label %.noexc1147 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %invoke.cont482 unwind label %lpad210.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-.noexc1147:                                       ; preds = %call.i.i.i1143.noexc
-  %isnull.i.i.i.i1144 = icmp eq ptr %retval.sroa.0.0.i1138, null
-  br i1 %isnull.i.i.i.i1144, label %invoke.cont482, label %delete.notnull.i.i.i.i1145
-
-delete.notnull.i.i.i.i1145:                       ; preds = %.noexc1147
+invoke.cont482:                                   ; preds = %call.i.i.i1143.noexc
   call void @_ZdaPv(ptr noundef nonnull %retval.sroa.0.0.i1138) #13
-  br label %invoke.cont482
-
-invoke.cont482:                                   ; preds = %delete.notnull.i.i.i.i1145, %.noexc1147
   %268 = load ptr, ptr %_M_parent.i.i.i.i.i632, align 8
   %cmp.not5.i.i.i1151 = icmp eq ptr %268, null
   br i1 %cmp.not5.i.i.i1151, label %invoke.cont488, label %while.body.i.i.i1153

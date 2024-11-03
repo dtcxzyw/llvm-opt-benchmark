@@ -10432,17 +10432,17 @@ if.then12.i:                                      ; preds = %while.body.i
   %6 = load i64, ptr %call833.i, align 8
   %7 = and i64 %6, 2147483648
   %cmp.i102.not.i = icmp eq i64 %7, 0
-  br i1 %cmp.i102.not.i, label %if.end.i95.i, label %error.i
+  br i1 %cmp.i102.not.i, label %if.end.i95.i, label %if.then81.i
 
 if.end.i95.i:                                     ; preds = %if.then12.i
   %dec.i96.i = add i64 %6, -1
   store i64 %dec.i96.i, ptr %call833.i, align 8
   %cmp.i97.i = icmp eq i64 %dec.i96.i, 0
-  br i1 %cmp.i97.i, label %if.then1.i98.i, label %error.i
+  br i1 %cmp.i97.i, label %if.then1.i98.i, label %if.then81.i
 
 if.then1.i98.i:                                   ; preds = %if.end.i95.i
   call void @_Py_Dealloc(ptr noundef nonnull %call833.i) #22
-  br label %error.i
+  br label %if.then81.i
 
 if.end15.i:                                       ; preds = %while.body.i
   %call16.i = call i64 @PyLong_AsLong(ptr noundef nonnull %call833.i) #22
@@ -10468,12 +10468,12 @@ Py_DECREF.exit91.i:                               ; preds = %if.then1.i89.i, %if
 if.then19.i:                                      ; preds = %Py_DECREF.exit91.i
   %call20.i = call ptr @PyErr_Occurred() #22
   %tobool21.not.i = icmp eq ptr %call20.i, null
-  br i1 %tobool21.not.i, label %if.then22.i, label %error.i
+  br i1 %tobool21.not.i, label %if.then22.i, label %if.then81.i
 
 if.then22.i:                                      ; preds = %if.then19.i
   %10 = load ptr, ptr @PyExc_ValueError, align 8
   call void @PyErr_SetString(ptr noundef %10, ptr noundef nonnull @.str.309) #22
-  br label %error.i
+  br label %if.then81.i
 
 if.end24.i:                                       ; preds = %Py_DECREF.exit91.i
   %cmp25.i = icmp ugt i64 %call16.i, 2147483646
@@ -10482,7 +10482,7 @@ if.end24.i:                                       ; preds = %Py_DECREF.exit91.i
 if.then27.i:                                      ; preds = %if.end24.i
   %11 = load ptr, ptr @PyExc_OverflowError, align 8
   call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.310) #22
-  br label %error.i
+  br label %if.then81.i
 
 if.end28.i:                                       ; preds = %if.end24.i
   %conv29.i = sext i32 %ncpus.032.i to i64
@@ -10510,15 +10510,15 @@ while.end.i:                                      ; preds = %while.body37.i
 
 if.then49.i:                                      ; preds = %while.end.i
   %call50.i = call ptr @PyErr_NoMemory() #22
-  br label %error.i
+  br label %if.then81.i
 
 if.end51.i:                                       ; preds = %while.end.i
   %sub54.i = add nsw i64 %conv34.i, 63
   %13 = lshr i64 %sub54.i, 3
   %mul56.i = and i64 %13, 2305843009213693944
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call46.i, i8 0, i64 %mul56.i, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call46.i, ptr align 8 %cpu_set.130.i, i64 %setsize.031.i, i1 false)
-  call void @__sched_cpufree(ptr noundef %cpu_set.130.i) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call46.i, ptr nonnull align 8 %cpu_set.130.i, i64 %setsize.031.i, i1 false)
+  call void @__sched_cpufree(ptr noundef nonnull %cpu_set.130.i) #22
   br label %if.end59.i
 
 if.end59.i:                                       ; preds = %if.end51.i, %if.end28.i
@@ -10526,7 +10526,7 @@ if.end59.i:                                       ; preds = %if.end51.i, %if.end
   %setsize.1.i = phi i64 [ %mul56.i, %if.end51.i ], [ %setsize.031.i, %if.end28.i ]
   %ncpus.1.i = phi i32 [ %newncpus.1.i, %if.end51.i ], [ %ncpus.032.i, %if.end28.i ]
   %div6047.i = lshr i64 %call16.i, 3
-  %cmp61.i = icmp ult i64 %div6047.i, %setsize.1.i
+  %cmp61.i = icmp samesign ult i64 %div6047.i, %setsize.1.i
   br i1 %cmp61.i, label %cond.true.i, label %cond.end.i
 
 cond.true.i:                                      ; preds = %if.end59.i
@@ -10549,7 +10549,7 @@ while.end64.i:                                    ; preds = %cond.end.i, %do.bod
   %setsize.0.lcssa.i = phi i64 [ 8, %do.body.i ], [ %setsize.1.i, %cond.end.i ]
   %call65.i = call ptr @PyErr_Occurred() #22
   %tobool66.not.i = icmp eq ptr %call65.i, null
-  br i1 %tobool66.not.i, label %if.then72.i, label %error.i
+  br i1 %tobool66.not.i, label %if.then72.i, label %if.then81.i
 
 if.then72.i:                                      ; preds = %while.end64.i
   %15 = load i64, ptr %call.i, align 8
@@ -10568,52 +10568,43 @@ if.then1.i.i:                                     ; preds = %if.end.i.i
   br label %do.end74.i
 
 do.end74.i:                                       ; preds = %if.then1.i.i, %if.end.i.i, %if.then72.i
-  %call75.i = call i32 @sched_setaffinity(i32 noundef %0, i64 noundef %setsize.0.lcssa.i, ptr noundef %cpu_set.1.lcssa.i) #22
+  %call75.i = call i32 @sched_setaffinity(i32 noundef %0, i64 noundef %setsize.0.lcssa.i, ptr noundef nonnull %cpu_set.1.lcssa.i) #22
   %tobool76.not.i = icmp eq i32 %call75.i, 0
-  br i1 %tobool76.not.i, label %if.end79.i, label %if.then77.i
+  br i1 %tobool76.not.i, label %if.end79.i, label %if.then81.thread.i
 
-if.then77.i:                                      ; preds = %do.end74.i
+if.then81.thread.i:                               ; preds = %do.end74.i
   %17 = load ptr, ptr @PyExc_OSError, align 8
   %call.i.i = call ptr @PyErr_SetFromErrno(ptr noundef %17) #22
-  br label %error.i
-
-if.end79.i:                                       ; preds = %do.end74.i
-  call void @__sched_cpufree(ptr noundef %cpu_set.1.lcssa.i) #22
+  call void @__sched_cpufree(ptr noundef nonnull %cpu_set.1.lcssa.i) #22
   br label %exit
 
-error.i:                                          ; preds = %if.then77.i, %while.end64.i, %if.then49.i, %if.then27.i, %if.then22.i, %if.then19.i, %if.then1.i98.i, %if.end.i95.i, %if.then12.i
-  %cpu_set.120.i = phi ptr [ %cpu_set.130.i, %if.then19.i ], [ %cpu_set.130.i, %if.then22.i ], [ %cpu_set.130.i, %if.then27.i ], [ %cpu_set.130.i, %if.then49.i ], [ %cpu_set.130.i, %if.then12.i ], [ %cpu_set.130.i, %if.then1.i98.i ], [ %cpu_set.130.i, %if.end.i95.i ], [ %cpu_set.1.lcssa.i, %while.end64.i ], [ %cpu_set.1.lcssa.i, %if.then77.i ]
-  %iterator.0.i = phi ptr [ %call.i, %if.then19.i ], [ %call.i, %if.then22.i ], [ %call.i, %if.then27.i ], [ %call.i, %if.then49.i ], [ %call.i, %if.then12.i ], [ %call.i, %if.then1.i98.i ], [ %call.i, %if.end.i95.i ], [ %call.i, %while.end64.i ], [ null, %if.then77.i ]
-  %tobool80.not.i = icmp eq ptr %cpu_set.120.i, null
-  br i1 %tobool80.not.i, label %if.end82.i, label %if.then81.i
+if.end79.i:                                       ; preds = %do.end74.i
+  call void @__sched_cpufree(ptr noundef nonnull %cpu_set.1.lcssa.i) #22
+  br label %exit
 
-if.then81.i:                                      ; preds = %error.i
+if.then81.i:                                      ; preds = %while.end64.i, %if.then49.i, %if.then27.i, %if.then22.i, %if.then19.i, %if.then1.i98.i, %if.end.i95.i, %if.then12.i
+  %cpu_set.120.i = phi ptr [ %cpu_set.130.i, %if.then19.i ], [ %cpu_set.130.i, %if.then22.i ], [ %cpu_set.130.i, %if.then27.i ], [ %cpu_set.130.i, %if.then49.i ], [ %cpu_set.130.i, %if.then12.i ], [ %cpu_set.130.i, %if.then1.i98.i ], [ %cpu_set.130.i, %if.end.i95.i ], [ %cpu_set.1.lcssa.i, %while.end64.i ]
   call void @__sched_cpufree(ptr noundef nonnull %cpu_set.120.i) #22
-  br label %if.end82.i
+  br label %if.then.i.i
 
-if.end82.i:                                       ; preds = %if.then81.i, %error.i
-  %cmp.not.i.i = icmp eq ptr %iterator.0.i, null
-  br i1 %cmp.not.i.i, label %exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.end82.i, %if.end82.thread.i
-  %iterator.047.i = phi ptr [ %call.i, %if.end82.thread.i ], [ %iterator.0.i, %if.end82.i ]
-  %18 = load i64, ptr %iterator.047.i, align 8
+if.then.i.i:                                      ; preds = %if.then81.i, %if.end82.thread.i
+  %18 = load i64, ptr %call.i, align 8
   %19 = and i64 %18, 2147483648
   %cmp.i2.not.i.i = icmp eq i64 %19, 0
   br i1 %cmp.i2.not.i.i, label %if.end.i.i.i, label %exit
 
 if.end.i.i.i:                                     ; preds = %if.then.i.i
   %dec.i.i.i = add i64 %18, -1
-  store i64 %dec.i.i.i, ptr %iterator.047.i, align 8
+  store i64 %dec.i.i.i, ptr %call.i, align 8
   %cmp.i.i.i = icmp eq i64 %dec.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.then1.i.i.i, label %exit
 
 if.then1.i.i.i:                                   ; preds = %if.end.i.i.i
-  call void @_Py_Dealloc(ptr noundef nonnull %iterator.047.i) #22
+  call void @_Py_Dealloc(ptr noundef nonnull %call.i) #22
   br label %exit
 
-exit:                                             ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end82.i, %if.end79.i, %if.end, %entry
-  %return_value.0 = phi ptr [ null, %entry ], [ @_Py_NoneStruct, %if.end79.i ], [ null, %if.end ], [ null, %if.end82.i ], [ null, %if.then.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ]
+exit:                                             ; preds = %if.then1.i.i.i, %if.end.i.i.i, %if.then.i.i, %if.end79.i, %if.then81.thread.i, %if.end, %entry
+  %return_value.0 = phi ptr [ null, %entry ], [ @_Py_NoneStruct, %if.end79.i ], [ null, %if.end ], [ null, %if.then.i.i ], [ null, %if.end.i.i.i ], [ null, %if.then1.i.i.i ], [ null, %if.then81.thread.i ]
   ret ptr %return_value.0
 }
 

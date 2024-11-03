@@ -345,42 +345,43 @@ fmap_readn.exit227.thread:                        ; preds = %72, %.thread._crit_
 
 106:                                              ; preds = %94
   %107 = add i32 %.3182276, %84
-  switch i32 %.2177277, label %.backedge [
-    i32 224, label %108
-    i32 225, label %146
-    i32 226, label %189
-    i32 232, label %201
-    i32 237, label %231
-    i32 238, label %289
-    i32 227, label %299
-    i32 228, label %299
-    i32 229, label %299
-    i32 230, label %299
-    i32 231, label %299
-    i32 233, label %299
-    i32 234, label %299
-    i32 235, label %299
-    i32 236, label %299
-    i32 239, label %299
-    i32 192, label %300
-    i32 193, label %300
-    i32 194, label %300
-    i32 195, label %300
-    i32 197, label %300
-    i32 198, label %300
-    i32 199, label %300
-    i32 201, label %300
-    i32 202, label %300
-    i32 203, label %300
-    i32 196, label %301
-    i32 219, label %302
-    i32 221, label %303
-    i32 247, label %304
-    i32 218, label %313
-    i32 217, label %316
-    i32 254, label %323
-    i32 241, label %324
-    i32 242, label %325
+  %trunc = trunc nuw i32 %.2177277 to i8
+  switch i8 %trunc, label %.backedge [
+    i8 -32, label %108
+    i8 -31, label %146
+    i8 -30, label %189
+    i8 -24, label %201
+    i8 -19, label %231
+    i8 -18, label %289
+    i8 -29, label %299
+    i8 -28, label %299
+    i8 -27, label %299
+    i8 -26, label %299
+    i8 -25, label %299
+    i8 -23, label %299
+    i8 -22, label %299
+    i8 -21, label %299
+    i8 -20, label %299
+    i8 -17, label %299
+    i8 -64, label %300
+    i8 -63, label %300
+    i8 -62, label %300
+    i8 -61, label %300
+    i8 -59, label %300
+    i8 -58, label %300
+    i8 -57, label %300
+    i8 -55, label %300
+    i8 -54, label %300
+    i8 -53, label %300
+    i8 -60, label %301
+    i8 -37, label %302
+    i8 -35, label %303
+    i8 -9, label %304
+    i8 -38, label %313
+    i8 -39, label %316
+    i8 -2, label %323
+    i8 -15, label %324
+    i8 -14, label %325
   ]
 
 108:                                              ; preds = %106

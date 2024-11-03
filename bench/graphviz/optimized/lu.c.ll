@@ -145,75 +145,74 @@ define range(i32 0, 2) i32 @lu_decompose(ptr nocapture noundef readonly %0, i32 
 50:                                               ; preds = %48
   %51 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv111
   %52 = load i32, ptr %51, align 4
-  %53 = sext i32 %.273 to i64
-  %54 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %53
-  %55 = load i32, ptr %54, align 4
-  store i32 %55, ptr %51, align 4
-  store i32 %52, ptr %54, align 4
+  %53 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %49
+  %54 = load i32, ptr %53, align 4
+  store i32 %54, ptr %51, align 4
+  store i32 %52, ptr %53, align 4
   br label %.lr.ph95.us.preheader
 
 .lr.ph95.us.preheader:                            ; preds = %48, %50
-  %56 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv111
-  %57 = load i32, ptr %56, align 4
-  %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %58
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds double, ptr %60, i64 %indvars.iv111
-  %62 = load double, ptr %61, align 8
+  %55 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv111
+  %56 = load i32, ptr %55, align 4
+  %57 = sext i32 %56 to i64
+  %58 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %57
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds double, ptr %59, i64 %indvars.iv111
+  %61 = load double, ptr %60, align 8
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   br label %.lr.ph95.us
 
 .lr.ph95.us:                                      ; preds = %.lr.ph95.us.preheader, %._crit_edge96.us
   %indvars.iv125 = phi i64 [ %indvars.iv118, %.lr.ph95.us.preheader ], [ %indvars.iv.next126, %._crit_edge96.us ]
-  %63 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv125
-  %64 = load i32, ptr %63, align 4
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %65
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds double, ptr %67, i64 %indvars.iv111
-  %69 = load double, ptr %68, align 8
-  %70 = fdiv double %69, %62
-  store double %70, ptr %68, align 8
-  %71 = fneg double %70
-  br label %72
+  %62 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %indvars.iv125
+  %63 = load i32, ptr %62, align 4
+  %64 = sext i32 %63 to i64
+  %65 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %64
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds double, ptr %66, i64 %indvars.iv111
+  %68 = load double, ptr %67, align 8
+  %69 = fdiv double %68, %61
+  store double %69, ptr %67, align 8
+  %70 = fneg double %69
+  br label %71
 
-72:                                               ; preds = %.lr.ph95.us, %72
-  %indvars.iv120 = phi i64 [ %indvars.iv118, %.lr.ph95.us ], [ %indvars.iv.next121, %72 ]
-  %73 = load i32, ptr %56, align 4
-  %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %74
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds double, ptr %76, i64 %indvars.iv120
-  %78 = load double, ptr %77, align 8
-  %79 = load i32, ptr %63, align 4
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %80
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds double, ptr %82, i64 %indvars.iv120
-  %84 = load double, ptr %83, align 8
-  %85 = tail call double @llvm.fmuladd.f64(double %71, double %78, double %84)
-  store double %85, ptr %83, align 8
+71:                                               ; preds = %.lr.ph95.us, %71
+  %indvars.iv120 = phi i64 [ %indvars.iv118, %.lr.ph95.us ], [ %indvars.iv.next121, %71 ]
+  %72 = load i32, ptr %55, align 4
+  %73 = sext i32 %72 to i64
+  %74 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %73
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds double, ptr %75, i64 %indvars.iv120
+  %77 = load double, ptr %76, align 8
+  %78 = load i32, ptr %62, align 4
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %79
+  %81 = load ptr, ptr %80, align 8
+  %82 = getelementptr inbounds double, ptr %81, i64 %indvars.iv120
+  %83 = load double, ptr %82, align 8
+  %84 = tail call double @llvm.fmuladd.f64(double %70, double %77, double %83)
+  store double %84, ptr %82, align 8
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count128
-  br i1 %exitcond124.not, label %._crit_edge96.us, label %72
+  br i1 %exitcond124.not, label %._crit_edge96.us, label %71
 
-._crit_edge96.us:                                 ; preds = %72
+._crit_edge96.us:                                 ; preds = %71
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
   %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
   br i1 %exitcond129.not, label %.loopexit, label %.lr.ph95.us
 
 ._crit_edge102:                                   ; preds = %.loopexit, %.preheader81.thread, %.preheader81
-  %86 = phi i32 [ %13, %.preheader81.thread ], [ %30, %.preheader81 ], [ %30, %.loopexit ]
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %87
-  %89 = load i32, ptr %88, align 4
-  %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %90
-  %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr inbounds double, ptr %92, i64 %87
-  %94 = load double, ptr %93, align 8
-  %95 = fcmp une double %94, 0.000000e+00
-  %. = zext i1 %95 to i32
+  %85 = phi i32 [ %13, %.preheader81.thread ], [ %30, %.preheader81 ], [ %30, %.loopexit ]
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr inbounds i32, ptr %.pre133.pre, i64 %86
+  %88 = load i32, ptr %87, align 4
+  %89 = sext i32 %88 to i64
+  %90 = getelementptr inbounds ptr, ptr %.pre.pre, i64 %89
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr inbounds double, ptr %91, i64 %86
+  %93 = load double, ptr %92, align 8
+  %94 = fcmp une double %93, 0.000000e+00
+  %. = zext i1 %94 to i32
   br label %.loopexit82
 
 .loopexit82:                                      ; preds = %.preheader, %._crit_edge, %._crit_edge102, %.split.us

@@ -3560,27 +3560,27 @@ land.lhs.true232:                                 ; preds = %if.then229
   br i1 %tobool234.not, label %if.then235, label %if.end238.thread
 
 if.then235:                                       ; preds = %land.lhs.true232
-  %curr.047.i = load ptr, ptr %head_p, align 8
-  %cmp.not48.i = icmp eq ptr %curr.047.i, null
-  br i1 %cmp.not48.i, label %while.end.i, label %while.body.i
+  %curr.050.i = load ptr, ptr %head_p, align 8
+  %cmp.not51.i = icmp eq ptr %curr.050.i, null
+  br i1 %cmp.not51.i, label %while.end.i, label %while.body.i
 
 while.body.i:                                     ; preds = %if.then235, %if.end.i
-  %curr.050.i = phi ptr [ %curr.0.i, %if.end.i ], [ %curr.047.i, %if.then235 ]
-  %max_strength_bits.049.i = phi i32 [ %max_strength_bits.1.i, %if.end.i ], [ 0, %if.then235 ]
-  %active.i = getelementptr inbounds i8, ptr %curr.050.i, i64 8
+  %curr.053.i = phi ptr [ %curr.0.i, %if.end.i ], [ %curr.050.i, %if.then235 ]
+  %max_strength_bits.052.i = phi i32 [ %max_strength_bits.1.i, %if.end.i ], [ 0, %if.then235 ]
+  %active.i = getelementptr inbounds i8, ptr %curr.053.i, i64 8
   %34 = load i32, ptr %active.i, align 8
   %tobool.not.i = icmp eq i32 %34, 0
   br i1 %tobool.not.i, label %if.end.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %while.body.i
-  %35 = load ptr, ptr %curr.050.i, align 8
+  %35 = load ptr, ptr %curr.053.i, align 8
   %cmp.i.i = icmp eq ptr %35, null
-  br i1 %cmp.i.i, label %SSL_CIPHER_get_bits.exit.thread.i, label %if.end.i.i
+  br i1 %cmp.i.i, label %if.end.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
   %algorithm_enc.i.i = getelementptr inbounds i8, ptr %35, i64 20
   %36 = load i32, ptr %algorithm_enc.i.i, align 4
-  switch i32 %36, label %sw.default.i.i [
+  switch i32 %36, label %if.end.i [
     i32 4, label %SSL_CIPHER_get_bits.exit.i
     i32 16, label %SSL_CIPHER_get_bits.exit.i
     i32 2, label %SSL_CIPHER_get_bits.exit.i
@@ -3589,7 +3589,6 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i
     i32 64, label %sw.bb1.i.i
     i32 256, label %sw.bb1.i.i
     i32 1, label %sw.bb2.i.i
-    i32 128, label %sw.bb3.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
@@ -3598,20 +3597,10 @@ sw.bb1.i.i:                                       ; preds = %if.end.i.i, %if.end
 sw.bb2.i.i:                                       ; preds = %if.end.i.i
   br label %SSL_CIPHER_get_bits.exit.i
 
-sw.bb3.i.i:                                       ; preds = %if.end.i.i
-  br label %SSL_CIPHER_get_bits.exit.i
-
-sw.default.i.i:                                   ; preds = %if.end.i.i
-  br label %SSL_CIPHER_get_bits.exit.i
-
-SSL_CIPHER_get_bits.exit.i:                       ; preds = %sw.default.i.i, %sw.bb3.i.i, %sw.bb2.i.i, %sw.bb1.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
-  %retval.0.i.i = phi i32 [ 0, %sw.default.i.i ], [ 0, %sw.bb3.i.i ], [ 112, %sw.bb2.i.i ], [ 256, %sw.bb1.i.i ], [ 128, %if.end.i.i ], [ 128, %if.end.i.i ], [ 128, %if.end.i.i ]
-  %cmp1.not.i = icmp sgt i32 %retval.0.i.i, %max_strength_bits.049.i
-  br i1 %cmp1.not.i, label %if.end.i22.i, label %if.end.i
-
-SSL_CIPHER_get_bits.exit.thread.i:                ; preds = %land.lhs.true.i
-  %spec.select.i = tail call i32 @llvm.smax.i32(i32 %max_strength_bits.049.i, i32 0)
-  br label %if.end.i
+SSL_CIPHER_get_bits.exit.i:                       ; preds = %sw.bb2.i.i, %sw.bb1.i.i, %if.end.i.i, %if.end.i.i, %if.end.i.i
+  %retval.0.i.i = phi i32 [ 112, %sw.bb2.i.i ], [ 256, %sw.bb1.i.i ], [ 128, %if.end.i.i ], [ 128, %if.end.i.i ], [ 128, %if.end.i.i ]
+  %cmp1.i112 = icmp ugt i32 %retval.0.i.i, %max_strength_bits.052.i
+  br i1 %cmp1.i112, label %if.end.i22.i, label %if.end.i
 
 if.end.i22.i:                                     ; preds = %SSL_CIPHER_get_bits.exit.i
   switch i32 %36, label %sw.default.i31.i [
@@ -3638,9 +3627,9 @@ sw.bb3.i24.i:                                     ; preds = %if.end.i22.i
 sw.default.i31.i:                                 ; preds = %if.end.i22.i
   br label %if.end.i
 
-if.end.i:                                         ; preds = %sw.default.i31.i, %sw.bb3.i24.i, %sw.bb2.i29.i, %sw.bb1.i30.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %SSL_CIPHER_get_bits.exit.thread.i, %SSL_CIPHER_get_bits.exit.i, %while.body.i
-  %max_strength_bits.1.i = phi i32 [ %max_strength_bits.049.i, %SSL_CIPHER_get_bits.exit.i ], [ %max_strength_bits.049.i, %while.body.i ], [ 0, %sw.default.i31.i ], [ 0, %sw.bb3.i24.i ], [ 112, %sw.bb2.i29.i ], [ 256, %sw.bb1.i30.i ], [ 128, %if.end.i22.i ], [ 128, %if.end.i22.i ], [ 128, %if.end.i22.i ], [ %spec.select.i, %SSL_CIPHER_get_bits.exit.thread.i ]
-  %next.i = getelementptr inbounds i8, ptr %curr.050.i, i64 16
+if.end.i:                                         ; preds = %sw.default.i31.i, %sw.bb3.i24.i, %sw.bb2.i29.i, %sw.bb1.i30.i, %if.end.i22.i, %if.end.i22.i, %if.end.i22.i, %SSL_CIPHER_get_bits.exit.i, %if.end.i.i, %land.lhs.true.i, %while.body.i
+  %max_strength_bits.1.i = phi i32 [ %max_strength_bits.052.i, %SSL_CIPHER_get_bits.exit.i ], [ %max_strength_bits.052.i, %while.body.i ], [ 0, %sw.default.i31.i ], [ 0, %sw.bb3.i24.i ], [ 112, %sw.bb2.i29.i ], [ 256, %sw.bb1.i30.i ], [ 128, %if.end.i22.i ], [ 128, %if.end.i22.i ], [ 128, %if.end.i22.i ], [ %max_strength_bits.052.i, %if.end.i.i ], [ %max_strength_bits.052.i, %land.lhs.true.i ]
+  %next.i = getelementptr inbounds i8, ptr %curr.053.i, i64 16
   %curr.0.i = load ptr, ptr %next.i, align 8
   %cmp.not.i = icmp eq ptr %curr.0.i, null
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !14
@@ -3659,21 +3648,21 @@ if.end238.thread15:                               ; preds = %while.end.i
   br label %44
 
 if.end7.i:                                        ; preds = %while.end.i
-  br i1 %cmp.not48.i, label %for.body.preheader.i, label %while.body14.i
+  br i1 %cmp.not51.i, label %for.body.preheader.i, label %while.body14.i
 
 for.body.preheader.i:                             ; preds = %if.end20.i, %if.end7.i
   %37 = zext nneg i32 %max_strength_bits.0.lcssa.i to i64
   br label %for.body.i
 
 while.body14.i:                                   ; preds = %if.end7.i, %if.end20.i
-  %curr.153.i = phi ptr [ %curr.1.i, %if.end20.i ], [ %curr.047.i, %if.end7.i ]
-  %active15.i = getelementptr inbounds i8, ptr %curr.153.i, i64 8
+  %curr.156.i = phi ptr [ %curr.1.i, %if.end20.i ], [ %curr.050.i, %if.end7.i ]
+  %active15.i = getelementptr inbounds i8, ptr %curr.156.i, i64 8
   %38 = load i32, ptr %active15.i, align 8
   %tobool16.not.i = icmp eq i32 %38, 0
   br i1 %tobool16.not.i, label %if.end20.i, label %if.then17.i
 
 if.then17.i:                                      ; preds = %while.body14.i
-  %39 = load ptr, ptr %curr.153.i, align 8
+  %39 = load ptr, ptr %curr.156.i, align 8
   %cmp.i33.i = icmp eq ptr %39, null
   br i1 %cmp.i33.i, label %SSL_CIPHER_get_bits.exit44.i, label %if.end.i34.i
 
@@ -3706,14 +3695,14 @@ sw.default.i43.i:                                 ; preds = %if.end.i34.i
 
 SSL_CIPHER_get_bits.exit44.i:                     ; preds = %sw.default.i43.i, %sw.bb3.i36.i, %sw.bb2.i41.i, %sw.bb1.i42.i, %if.end.i34.i, %if.end.i34.i, %if.end.i34.i, %if.then17.i
   %retval.0.i40.i = phi i64 [ 0, %if.then17.i ], [ 0, %sw.default.i43.i ], [ 0, %sw.bb3.i36.i ], [ 112, %sw.bb2.i41.i ], [ 256, %sw.bb1.i42.i ], [ 128, %if.end.i34.i ], [ 128, %if.end.i34.i ], [ 128, %if.end.i34.i ]
-  %arrayidx.i112 = getelementptr inbounds i32, ptr %calloc.i, i64 %retval.0.i40.i
-  %41 = load i32, ptr %arrayidx.i112, align 4
+  %arrayidx.i113 = getelementptr inbounds i32, ptr %calloc.i, i64 %retval.0.i40.i
+  %41 = load i32, ptr %arrayidx.i113, align 4
   %inc.i = add nsw i32 %41, 1
-  store i32 %inc.i, ptr %arrayidx.i112, align 4
+  store i32 %inc.i, ptr %arrayidx.i113, align 4
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %SSL_CIPHER_get_bits.exit44.i, %while.body14.i
-  %next21.i = getelementptr inbounds i8, ptr %curr.153.i, i64 16
+  %next21.i = getelementptr inbounds i8, ptr %curr.156.i, i64 16
   %curr.1.i = load ptr, ptr %next21.i, align 8
   %cmp12.not.i = icmp eq ptr %curr.1.i, null
   br i1 %cmp12.not.i, label %for.body.preheader.i, label %while.body14.i, !llvm.loop !15
@@ -4525,9 +4514,6 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13

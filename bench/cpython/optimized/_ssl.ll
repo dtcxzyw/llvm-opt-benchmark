@@ -3872,16 +3872,16 @@ if.end14.i:                                       ; preds = %if.else.i
 
 _create_tuple_for_attribute.exit.thread:          ; preds = %if.then.i, %if.then12.i, %if.then1.i.i, %if.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %valuebuf.i)
-  br label %fail1
+  br label %if.then.i50
 
 _create_tuple_for_attribute.exit:                 ; preds = %if.then4.i, %if.end14.i
   %retval.0.i = phi ptr [ %call7.i, %if.then4.i ], [ %call15.i, %if.end14.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %valuebuf.i)
   %cmp32 = icmp eq ptr %retval.0.i, null
-  br i1 %cmp32, label %fail1, label %if.end34
+  br i1 %cmp32, label %if.then.i50, label %if.end34
 
 if.end34:                                         ; preds = %_create_tuple_for_attribute.exit
-  %call35 = call i32 @PyList_Append(ptr noundef %rdn.1, ptr noundef nonnull %retval.0.i) #11
+  %call35 = call i32 @PyList_Append(ptr noundef nonnull %rdn.1, ptr noundef nonnull %retval.0.i) #11
   %10 = load i64, ptr %retval.0.i, align 8
   %11 = and i64 %10, 2147483648
   %cmp.i120.not = icmp eq i64 %11, 0
@@ -3899,7 +3899,7 @@ if.then1.i91:                                     ; preds = %if.end.i88
 
 Py_DECREF.exit93:                                 ; preds = %if.end34, %if.then1.i91, %if.end.i88
   %cmp36 = icmp slt i32 %call35, 0
-  br i1 %cmp36, label %fail1, label %for.cond
+  br i1 %cmp36, label %if.then.i50, label %for.cond
 
 if.then40:                                        ; preds = %for.cond, %for.cond.preheader
   %rdn.0.lcssa = phi ptr [ %call3, %for.cond.preheader ], [ %rdn.1, %for.cond ]
@@ -3979,11 +3979,7 @@ if.end.i:                                         ; preds = %if.end53
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %return.sink.split, label %return
 
-fail1:                                            ; preds = %Py_DECREF.exit93, %_create_tuple_for_attribute.exit, %_create_tuple_for_attribute.exit.thread
-  %cmp.not.i = icmp eq ptr %rdn.1, null
-  br i1 %cmp.not.i, label %if.then.i57, label %if.then.i50
-
-if.then.i50:                                      ; preds = %fail1
+if.then.i50:                                      ; preds = %_create_tuple_for_attribute.exit, %Py_DECREF.exit93, %_create_tuple_for_attribute.exit.thread
   %21 = load i64, ptr %rdn.1, align 8
   %22 = and i64 %21, 2147483648
   %cmp.i2.not.i = icmp eq i64 %22, 0
@@ -3999,7 +3995,7 @@ if.then1.i.i55:                                   ; preds = %if.end.i.i52
   call void @_Py_Dealloc(ptr noundef nonnull %rdn.1) #11
   br label %if.then.i57
 
-if.then.i57:                                      ; preds = %Py_DECREF.exit111, %Py_DECREF.exit102, %if.end21, %if.end, %Py_DECREF.exit84, %Py_DECREF.exit75, %fail1, %if.then.i50, %if.end.i.i52, %if.then1.i.i55
+if.then.i57:                                      ; preds = %Py_DECREF.exit111, %Py_DECREF.exit102, %if.end21, %if.end, %Py_DECREF.exit84, %Py_DECREF.exit75, %if.then.i50, %if.end.i.i52, %if.then1.i.i55
   %23 = load i64, ptr %call2, align 8
   %24 = and i64 %23, 2147483648
   %cmp.i2.not.i58 = icmp eq i64 %24, 0

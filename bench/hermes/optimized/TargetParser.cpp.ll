@@ -9179,9 +9179,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
-  %tobool.not4 = icmp eq ptr %__first.addr.1.i.i.i, null
-  %tobool.not = or i1 %cmp.i, %tobool.not4
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit
   %CanonicalName = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i, i64 16
@@ -9221,9 +9219,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
-  %tobool.not4 = icmp eq ptr %__first.addr.1.i.i.i, null
-  %tobool.not = or i1 %cmp.i, %tobool.not4
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit
   %CanonicalName = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i, i64 16
@@ -9339,9 +9335,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_110AMDGCNGPUsE, i64 1280)
-  %tobool.not2 = icmp eq ptr %__first.addr.1.i.i.i, null
-  %tobool.not = or i1 %cmp.i, %tobool.not2
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit
   %Features = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i, i64 36
@@ -9376,9 +9370,7 @@ while.body.i.i.i:                                 ; preds = %entry, %while.body.
 
 _ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit: ; preds = %while.body.i.i.i
   %cmp.i = icmp eq ptr %__first.addr.1.i.i.i, getelementptr inbounds (i8, ptr @_ZN12_GLOBAL__N_18R600GPUsE, i64 1040)
-  %tobool.not2 = icmp eq ptr %__first.addr.1.i.i.i, null
-  %tobool.not = or i1 %cmp.i, %tobool.not2
-  br i1 %tobool.not, label %return, label %if.then
+  br i1 %cmp.i, label %return, label %if.then
 
 if.then:                                          ; preds = %_ZN12_GLOBAL__N_112getArchEntryEN4llvh6AMDGPU7GPUKindENS0_8ArrayRefINS_7GPUInfoEEE.exit
   %Features = getelementptr inbounds i8, ptr %__first.addr.1.i.i.i, i64 36

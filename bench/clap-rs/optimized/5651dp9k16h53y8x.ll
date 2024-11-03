@@ -5053,14 +5053,14 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
   br i1 %8, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit, %1
-  %.0.lcssa = phi i64 [ 0, %1 ], [ %60, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ]
+  %.0.lcssa = phi i64 [ 0, %1 ], [ %58, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   ret i64 %.0.lcssa
 
 .lr.ph:                                           ; preds = %1, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit
   %.fca.0.extract9 = phi ptr [ %.fca.0.extract, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ], [ %.fca.0.extract7, %1 ]
-  %9 = phi { ptr, i64 } [ %61, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ], [ %7, %1 ]
-  %.08 = phi i64 [ %60, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ], [ 0, %1 ]
+  %9 = phi { ptr, i64 } [ %59, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ], [ %7, %1 ]
+  %.08 = phi i64 [ %58, %_ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit ], [ 0, %1 ]
   %.fca.1.extract = extractvalue { ptr, i64 } %9, 1
   %10 = getelementptr inbounds i8, ptr %.fca.0.extract9, i64 %.fca.1.extract
   br label %.outer.i.outer
@@ -5150,18 +5150,17 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
   br i1 %or.cond3.i, label %11, label %56
 
 56:                                               ; preds = %53
-  %57 = and i8 %.018.i, 1
-  %58 = xor i8 %57, 1
-  %59 = zext nneg i8 %58 to i64
-  %spec.select.i = add i64 %.0.ph.i.ph, %59
+  %57 = xor i8 %.018.i, 1
+  %not..i = zext nneg i8 %57 to i64
+  %spec.select.i = add i64 %.0.ph.i.ph, %not..i
   br label %.outer.i.outer
 
 _ZN12clap_builder6output8textwrap4core13display_width17hc3932f3f7d35aaefE.exit: ; preds = %11, %39
-  %60 = add i64 %.0.ph.i.ph, %.08
-  %61 = call { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd66E.llvm.567936041081457991(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 1 dereferenceable(1) %.sroa.3.0..sroa_idx)
-  %.fca.0.extract = extractvalue { ptr, i64 } %61, 0
-  %62 = icmp eq ptr %.fca.0.extract, null
-  br i1 %62, label %._crit_edge, label %.lr.ph
+  %58 = add i64 %.0.ph.i.ph, %.08
+  %59 = call { ptr, i64 } @_ZN8anstream7adapter5strip8next_str17h4bd4a530e0bdbd66E.llvm.567936041081457991(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull align 1 dereferenceable(1) %.sroa.3.0..sroa_idx)
+  %.fca.0.extract = extractvalue { ptr, i64 } %59, 0
+  %60 = icmp eq ptr %.fca.0.extract, null
+  br i1 %60, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -8892,10 +8891,9 @@ define hidden noundef i64 @_ZN12clap_builder6output8textwrap4core13display_width
   br i1 %or.cond3, label %4, label %49
 
 49:                                               ; preds = %46
-  %50 = and i8 %.018, 1
-  %51 = xor i8 %50, 1
-  %52 = zext nneg i8 %51 to i64
-  %spec.select = add i64 %.0.ph.ph, %52
+  %50 = xor i8 %.018, 1
+  %not. = zext nneg i8 %50 to i64
+  %spec.select = add i64 %.0.ph.ph, %not.
   br label %.outer.outer
 }
 

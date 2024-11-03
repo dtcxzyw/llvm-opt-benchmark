@@ -433,8 +433,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 48:                                               ; preds = %._crit_edge
   %49 = trunc nuw i8 %.1197 to i1
-  %.mask = and i8 %.1197, 1
-  %50 = icmp eq i8 %.mask, 0
+  %50 = icmp eq i8 %.1197, 0
   %51 = icmp eq ptr %.1194, null
   %or.cond5 = select i1 %50, i1 %51, i1 false
   br i1 %or.cond5, label %52, label %55

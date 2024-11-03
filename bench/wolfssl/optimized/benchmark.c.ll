@@ -1762,15 +1762,11 @@ bench_stats_check.exit:                           ; preds = %for.end34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %tv.i.i23)
   %sub.i = fsub double %add.i.i30, %add.i.i
   %cmp.i31 = fcmp uge double %sub.i, 1.000000e+00
-  br i1 %cmp.i31, label %exit_aes_enc, label %do.body, !llvm.loop !12
+  br i1 %cmp.i31, label %for.body43, label %do.body, !llvm.loop !12
 
-exit_aes_enc:                                     ; preds = %bench_stats_check.exit
+for.body43:                                       ; preds = %bench_stats_check.exit
   %18 = load i32, ptr @bench_size, align 4
   call fastcc void @bench_stats_sym_finish(ptr noundef %encLabel, i32 noundef %add, i32 noundef %18, double noundef %add.i.i, i32 noundef %ret.1.lcssa)
-  %cmp38 = icmp slt i32 %ret.1.lcssa, 0
-  br i1 %cmp38, label %exit, label %for.body43
-
-for.body43:                                       ; preds = %exit_aes_enc
   %call46 = call i32 @wc_AesSetKey(ptr noundef nonnull %enc, ptr noundef %key, i32 noundef %keySz, ptr noundef %iv, i32 noundef 1) #16
   %cmp47.not = icmp eq i32 %call46, 0
   br i1 %cmp47.not, label %do.end56, label %if.then48
@@ -1873,7 +1869,7 @@ exit_aes_dec:                                     ; preds = %bench_stats_check.e
   call fastcc void @bench_stats_sym_finish(ptr noundef %decLabel, i32 noundef %count.3, i32 noundef %33, double noundef %add.i.i43, i32 noundef %ret.5)
   br label %exit
 
-exit:                                             ; preds = %exit_aes_enc.thread, %exit_aes_enc, %exit_aes_dec, %if.then48, %if.then7, %if.then
+exit:                                             ; preds = %exit_aes_enc.thread, %exit_aes_dec, %if.then48, %if.then7, %if.then
   call void @wc_AesFree(ptr noundef nonnull %enc) #16
   ret void
 }

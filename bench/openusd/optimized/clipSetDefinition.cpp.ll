@@ -7356,7 +7356,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %103 = getelementptr i8, ptr %95, i64 24
   %.val10.i.i.i = load ptr, ptr %103, align 8
   %104 = icmp eq ptr %.val10.i.i.i, null
-  br i1 %104, label %.thread.i.i, label %161
+  br i1 %104, label %.thread.i.i, label %.thread.i.i.thread
 
 105:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit14.i.i.i
   %.02529.i15.i.i.i = load ptr, ptr %4, align 8
@@ -7517,9 +7517,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %160 = icmp slt i32 %156, 0
   br i1 %160, label %.thread.i.i, label %.thread26.i.i
 
-161:                                              ; preds = %140, %128, %102, %90, %63
-  %.sroa.083.0.i.i.i = phi ptr [ null, %63 ], [ %92, %90 ], [ null, %128 ], [ %.08.lcssa.i.i.i26, %102 ], [ %133, %140 ]
-  %.sroa.12.0.i.i.i = phi ptr [ %64, %63 ], [ %92, %90 ], [ %130, %128 ], [ %.08.lcssa.i.i.i26, %102 ], [ %133, %140 ]
+161:                                              ; preds = %140, %128, %90, %63
+  %.sroa.083.0.i.i.i = phi ptr [ null, %63 ], [ %92, %90 ], [ null, %128 ], [ %133, %140 ]
+  %.sroa.12.0.i.i.i = phi ptr [ %64, %63 ], [ %92, %90 ], [ %130, %128 ], [ %133, %140 ]
   %.not.i.i = icmp eq ptr %.sroa.12.0.i.i.i, null
   br i1 %.not.i.i, label %.thread26.i.i, label %.thread.i.i
 
@@ -7529,7 +7529,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.not.i.i9.i.i = icmp ne ptr %.sroa.083.0.i22.i.i, null
   %162 = icmp eq ptr %.sroa.12.0.i23.i.i, %5
   %or.cond.i.i.i.i = select i1 %.not.i.i9.i.i, i1 true, i1 %162
-  br i1 %or.cond.i.i.i.i, label %170, label %163
+  br i1 %or.cond.i.i.i.i, label %.thread.i.i.thread, label %163
 
 163:                                              ; preds = %.thread.i.i
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.12.0.i23.i.i, i64 32
@@ -7545,15 +7545,16 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i: ; preds = %163
   %169 = icmp slt i32 %165, 0
-  br label %170
+  br label %.thread.i.i.thread
 
-170:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i, %.thread.i.i
-  %171 = phi i1 [ true, %.thread.i.i ], [ %169, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %171, ptr noundef nonnull %21, ptr noundef nonnull %.sroa.12.0.i23.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  %172 = getelementptr inbounds i8, ptr %0, i64 40
-  %173 = load i64, ptr %172, align 8
-  %174 = add i64 %173, 1
-  store i64 %174, ptr %172, align 8
+.thread.i.i.thread:                               ; preds = %102, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i, %.thread.i.i
+  %.sroa.12.0.i23.i.i34 = phi ptr [ %.sroa.12.0.i23.i.i, %.thread.i.i ], [ %.sroa.12.0.i23.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i ], [ %.08.lcssa.i.i.i26, %102 ]
+  %170 = phi i1 [ true, %.thread.i.i ], [ %169, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i10.i.i ], [ true, %102 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %170, ptr noundef nonnull %21, ptr noundef nonnull %.sroa.12.0.i23.i.i34, ptr noundef nonnull align 8 dereferenceable(32) %5) #22
+  %171 = getelementptr inbounds i8, ptr %0, i64 40
+  %172 = load i64, ptr %171, align 8
+  %173 = add i64 %172, 1
+  store i64 %173, ptr %171, align 8
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt4lessIS5_ESaISt4pairIKS5_S8_EEE12emplace_hintIJRSC_SH_EEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_.exit
 
 .thread26.i.i:                                    ; preds = %161, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit14.i52.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit38.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit14.i27.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit14.i.i.i.i
@@ -7563,8 +7564,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   tail call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef 160) #21
   br label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt4lessIS5_ESaISt4pairIKS5_S8_EEE12emplace_hintIJRSC_SH_EEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_.exit
 
-_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt4lessIS5_ESaISt4pairIKS5_S8_EEE12emplace_hintIJRSC_SH_EEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %.thread26.i.i, %170
-  %.sroa.024.0 = phi ptr [ %21, %170 ], [ %.sroa.012.0.ph.i.i, %.thread26.i.i ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
+_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_18_ClipSetESt4lessIS5_ESaISt4pairIKS5_S8_EEE12emplace_hintIJRSC_SH_EEESt17_Rb_tree_iteratorISD_ESt23_Rb_tree_const_iteratorISD_EDpOT_.exit: ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit, %.thread26.i.i, %.thread.i.i.thread
+  %.sroa.024.0 = phi ptr [ %21, %.thread.i.i.thread ], [ %.sroa.012.0.ph.i.i, %.thread26.i.i ], [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ]
   ret ptr %.sroa.024.0
 }
 

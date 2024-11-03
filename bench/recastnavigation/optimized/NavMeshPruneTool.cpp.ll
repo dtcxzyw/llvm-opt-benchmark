@@ -484,7 +484,7 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %197, label %12
+  br i1 %.not, label %196, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %11, align 8
@@ -492,7 +492,7 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(200) %11)
   %.not11 = icmp eq ptr %16, null
-  br i1 %.not11, label %197, label %17
+  br i1 %.not11, label %196, label %17
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %10, align 8
@@ -501,7 +501,7 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef ptr %21(ptr noundef nonnull align 8 dereferenceable(200) %18)
   %.not12 = icmp eq ptr %22, null
-  br i1 %.not12, label %197, label %23
+  br i1 %.not12, label %196, label %23
 
 23:                                               ; preds = %17
   %24 = load ptr, ptr %10, align 8
@@ -510,7 +510,7 @@ define dso_local void @_ZN16NavMeshPruneTool11handleClickEPKfS1_b(ptr nocapture 
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef ptr %27(ptr noundef nonnull align 8 dereferenceable(200) %24)
   %.not13 = icmp eq ptr %28, null
-  br i1 %.not13, label %197, label %29
+  br i1 %.not13, label %196, label %29
 
 29:                                               ; preds = %23
   %30 = getelementptr inbounds i8, ptr %0, i64 24
@@ -892,19 +892,15 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit56.i:      ; preds = %_ZNSt6vectorIjSaIjE
   br i1 %.not14.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !11
 
 195:                                              ; preds = %.loopexit.i
-  %.not.i.i.i57.i = icmp eq ptr %.sroa.8.1.lcssa.i, null
-  br i1 %.not.i.i.i57.i, label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit, label %196
-
-196:                                              ; preds = %195
   call void @_ZdlPv(ptr noundef nonnull %.sroa.0.2.lcssa.i) #16
   br label %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
 
-_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit: ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit.i, %195, %196
+_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit: ; preds = %_ZN12NavmeshFlags8getFlagsEj.exit.i, %195
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  br label %197
+  br label %196
 
-197:                                              ; preds = %23, %17, %12, %4, %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
+196:                                              ; preds = %23, %17, %12, %4, %_ZL12floodNavmeshP9dtNavMeshP12NavmeshFlagsjh.exit
   ret void
 }
 

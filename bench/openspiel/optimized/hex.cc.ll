@@ -1968,14 +1968,10 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 93:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
-  %.not.i.i.i28 = icmp eq ptr %.sroa.8.1.lcssa, null
-  br i1 %.not.i.i.i28, label %_ZNSt6vectorIiSaIiEED2Ev.exit30, label %94
-
-94:                                               ; preds = %93
-  %95 = ptrtoint ptr %.sroa.17.1.lcssa to i64
-  %96 = ptrtoint ptr %.sroa.8.1.lcssa to i64
-  %97 = sub i64 %95, %96
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.040.1.lcssa, i64 noundef %97) #26
+  %94 = ptrtoint ptr %.sroa.17.1.lcssa to i64
+  %95 = ptrtoint ptr %.sroa.8.1.lcssa to i64
+  %96 = sub i64 %94, %95
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.040.1.lcssa, i64 noundef %96) #26
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit30
 
 _ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %87, %85, %52
@@ -1983,24 +1979,24 @@ _ZNSt6vectorIiSaIiEED2Ev.exit27:                  ; preds = %87, %85, %52
   %.sroa.040.2 = phi ptr [ %.sroa.040.075, %52 ], [ %.sroa.040.170, %85 ], [ %.sroa.040.170, %87 ]
   %.pn = phi { ptr, i32 } [ %53, %52 ], [ %lpad.phi, %85 ], [ %lpad.phi, %87 ]
   %.not.i.i.i31 = icmp eq ptr %.sroa.040.2, null
-  br i1 %.not.i.i.i31, label %.body, label %98
+  br i1 %.not.i.i.i31, label %.body, label %97
 
-98:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit27
-  %99 = ptrtoint ptr %.sroa.17.2 to i64
-  %100 = ptrtoint ptr %.sroa.040.2 to i64
-  %101 = sub i64 %99, %100
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.040.2, i64 noundef %101) #26
+97:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit27
+  %98 = ptrtoint ptr %.sroa.17.2 to i64
+  %99 = ptrtoint ptr %.sroa.040.2 to i64
+  %100 = sub i64 %98, %99
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.040.2, i64 noundef %100) #26
   br label %.body
 
-_ZNSt6vectorIiSaIiEED2Ev.exit30:                  ; preds = %94, %93, %17, %17, %27, %25
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %103 = load i32, ptr %102, align 8
-  %104 = sub nsw i32 1, %103
-  store i32 %104, ptr %102, align 8
+_ZNSt6vectorIiSaIiEED2Ev.exit30:                  ; preds = %93, %17, %17, %27, %25
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %102 = load i32, ptr %101, align 8
+  %103 = sub nsw i32 1, %102
+  store i32 %103, ptr %101, align 8
   ret void
 
-.body:                                            ; preds = %98, %_ZNSt6vectorIiSaIiEED2Ev.exit27, %15
-  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit27 ], [ %.pn, %98 ]
+.body:                                            ; preds = %97, %_ZNSt6vectorIiSaIiEED2Ev.exit27, %15
+  %.pn.pn = phi { ptr, i32 } [ %16, %15 ], [ %.pn, %_ZNSt6vectorIiSaIiEED2Ev.exit27 ], [ %.pn, %97 ]
   resume { ptr, i32 } %.pn.pn
 }
 

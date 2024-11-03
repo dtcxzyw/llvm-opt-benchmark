@@ -6637,7 +6637,7 @@ for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 for.end35.i:                                      ; preds = %for.inc33.i
   %cmp.i.i.i131 = icmp eq ptr %defaultValueRowNumbers.sroa.0.2.i, %defaultValueRowNumbers.sroa.12.1.i
-  br i1 %cmp.i.i.i131, label %cleanup.i, label %if.end38.i
+  br i1 %cmp.i.i.i131, label %if.then.i.i.i52.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end35.i
   %142 = load i8, ptr %_M_engaged.i.i.i126, align 8
@@ -6694,15 +6694,11 @@ for.inc64.i:                                      ; preds = %for.body53.i
   %exitcond.not.i136 = icmp eq i64 %indvars.iv.next117.i, %umax.i
   br i1 %exitcond.not.i136, label %if.then.i.i.i52.i, label %for.body53.i, !llvm.loop !59
 
-cleanup.i:                                        ; preds = %for.end35.i
-  %tobool.not.i.i.i51.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.1.i, null
-  br i1 %tobool.not.i.i.i51.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit, label %if.then.i.i.i52.i
-
-if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %cleanup.i
+if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %for.end35.i
   call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.2.i) #24
   br label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit
 
-_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit: ; preds = %for.inc.i119, %for.cond.preheader.i, %land.lhs.true.i, %if.end.i.i129, %cleanup.i, %if.then.i.i.i52.i
+_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb1EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit: ; preds = %for.inc.i119, %for.cond.preheader.i, %land.lhs.true.i, %if.end.i.i129, %if.then.i.i.i52.i
   %partitionOffset_ = getelementptr inbounds i8, ptr %this, i64 192
   %151 = load i32, ptr %partitionOffset_, align 8
   %152 = trunc i64 %div7 to i32
@@ -11101,7 +11097,7 @@ for.inc33.i:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 for.end35.i:                                      ; preds = %for.inc33.i
   %cmp.i.i.i136 = icmp eq ptr %defaultValueRowNumbers.sroa.0.2.i, %defaultValueRowNumbers.sroa.12.1.i
-  br i1 %cmp.i.i.i136, label %cleanup.i, label %if.end38.i
+  br i1 %cmp.i.i.i136, label %if.then.i.i.i52.i, label %if.end38.i
 
 if.end38.i:                                       ; preds = %for.end35.i
   %146 = load i8, ptr %_M_engaged.i.i.i131, align 8
@@ -11158,15 +11154,11 @@ for.inc64.i:                                      ; preds = %for.body53.i
   %exitcond.not.i141 = icmp eq i64 %indvars.iv.next117.i, %umax.i
   br i1 %exitcond.not.i141, label %if.then.i.i.i52.i, label %for.body53.i, !llvm.loop !108
 
-cleanup.i:                                        ; preds = %for.end35.i
-  %tobool.not.i.i.i51.i = icmp eq ptr %defaultValueRowNumbers.sroa.12.1.i, null
-  br i1 %tobool.not.i.i.i51.i, label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit, label %if.then.i.i.i52.i
-
-if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %cleanup.i
+if.then.i.i.i52.i:                                ; preds = %for.inc64.i, %for.end35.i
   call void @_ZdlPv(ptr noundef nonnull %defaultValueRowNumbers.sroa.0.2.i) #24
   br label %_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit
 
-_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit: ; preds = %for.inc.i124, %for.cond.preheader.i, %land.lhs.true.i, %if.end.i.i134, %cleanup.i, %if.then.i.i.i52.i
+_ZN8facebook5velox6window9prestosql12_GLOBAL__N_115LeadLagFunctionILb0EE15setDefaultValueERKSt10shared_ptrINS0_10BaseVectorEEi.exit: ; preds = %for.inc.i124, %for.cond.preheader.i, %land.lhs.true.i, %if.end.i.i134, %if.then.i.i.i52.i
   %partitionOffset_ = getelementptr inbounds i8, ptr %this, i64 192
   %155 = load i32, ptr %partitionOffset_, align 8
   %156 = trunc i64 %div7 to i32

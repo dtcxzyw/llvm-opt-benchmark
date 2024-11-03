@@ -31481,7 +31481,7 @@ if.then21.i:                                      ; preds = %if.then8.i.i215
   %div2226.i = lshr i64 %sub9.i729, 1
   %spec.select28.i = call i64 @llvm.umax.i64(i64 %div2226.i, i64 1)
   %add.ptr29.i = getelementptr inbounds ptr, ptr %98, i64 %spec.select28.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i, ptr align 8 %98, i64 %mul.i725, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i, ptr nonnull align 8 %98, i64 %mul.i725, i1 false)
   br label %.noexc216
 
 if.else32.i:                                      ; preds = %if.then8.i.i215
@@ -31490,19 +31490,12 @@ if.else32.i:                                      ; preds = %if.then8.i.i215
   %add36.i748 = add i64 %add35.i747, %cond.i.i746
   %mul.i.i749 = shl i64 %add36.i748, 3
   %call.i.i.i.i761 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i749, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i.noexc760 unwind label %lpad80.loopexit.split-lp.loopexit
+          to label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i759 unwind label %lpad80.loopexit.split-lp.loopexit
 
-call.i.i.i.i.noexc760:                            ; preds = %if.else32.i
+_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i759: ; preds = %if.else32.i
   %add.ptr47.i = getelementptr inbounds i8, ptr %call.i.i.i.i761, i64 8
-  %tobool.not.i754 = icmp eq ptr %98, null
-  br i1 %tobool.not.i754, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i759, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i758
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i758:  ; preds = %call.i.i.i.i.noexc760
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i, ptr nonnull align 8 %98, i64 %mul.i725, i1 false)
   call void @_ZdaPv(ptr noundef nonnull %102) #15
-  br label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i759
-
-_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i759: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i758, %call.i.i.i.i.noexc760
   store ptr %call.i.i.i.i761, ptr %d74, align 8
   store i64 %add36.i748, ptr %mnPtrArraySize.i.i189, align 8
   br label %.noexc216
@@ -31733,7 +31726,7 @@ if.then21.i795:                                   ; preds = %if.then8.i.i312
   %div2226.i796 = lshr i64 %sub9.i777, 1
   %spec.select28.i797 = call i64 @llvm.umax.i64(i64 %div2226.i796, i64 1)
   %add.ptr29.i798 = getelementptr inbounds ptr, ptr %128, i64 %spec.select28.i797
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i798, ptr align 8 %128, i64 %mul.i773, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i798, ptr nonnull align 8 %128, i64 %mul.i773, i1 false)
   br label %.noexc313
 
 if.else32.i799:                                   ; preds = %if.then8.i.i312
@@ -31742,19 +31735,12 @@ if.else32.i799:                                   ; preds = %if.then8.i.i312
   %add36.i802 = add i64 %add35.i801, %cond.i.i800
   %mul.i.i803 = shl i64 %add36.i802, 3
   %call.i.i.i.i816 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i803, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i.noexc815 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i814 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call.i.i.i.i.noexc815:                            ; preds = %if.else32.i799
+_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i814: ; preds = %if.else32.i799
   %add.ptr47.i808 = getelementptr inbounds i8, ptr %call.i.i.i.i816, i64 8
-  %tobool.not.i809 = icmp eq ptr %128, null
-  br i1 %tobool.not.i809, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i814, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i813
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i813:  ; preds = %call.i.i.i.i.noexc815
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i808, ptr nonnull align 8 %128, i64 %mul.i773, i1 false)
   call void @_ZdaPv(ptr noundef nonnull %131) #15
-  br label %_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i814
-
-_ZN5eastl9DequeBaseIiNS_9allocatorELj1EE14DoFreePtrArrayEPPim.exit.i814: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i813, %call.i.i.i.i.noexc815
   store ptr %call.i.i.i.i816, ptr %d114, align 8
   store i64 %add36.i802, ptr %mnPtrArraySize.i.i283, align 8
   br label %.noexc313
@@ -33121,7 +33107,7 @@ if.then21.i:                                      ; preds = %if.then8.i.i228
   %div2226.i = lshr i64 %sub9.i793, 1
   %spec.select28.i = call i64 @llvm.umax.i64(i64 %div2226.i, i64 1)
   %add.ptr29.i = getelementptr inbounds ptr, ptr %96, i64 %spec.select28.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i, ptr align 8 %96, i64 %mul.i789, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i, ptr nonnull align 8 %96, i64 %mul.i789, i1 false)
   br label %.noexc229
 
 if.else32.i:                                      ; preds = %if.then8.i.i228
@@ -33130,19 +33116,12 @@ if.else32.i:                                      ; preds = %if.then8.i.i228
   %add36.i812 = add i64 %add35.i811, %cond.i.i810
   %mul.i.i813 = shl i64 %add36.i812, 3
   %call.i.i.i.i825 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i813, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i.noexc824 unwind label %lpad80.loopexit.split-lp.loopexit
+          to label %_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i823 unwind label %lpad80.loopexit.split-lp.loopexit
 
-call.i.i.i.i.noexc824:                            ; preds = %if.else32.i
+_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i823: ; preds = %if.else32.i
   %add.ptr47.i = getelementptr inbounds i8, ptr %call.i.i.i.i825, i64 8
-  %tobool.not.i818 = icmp eq ptr %96, null
-  br i1 %tobool.not.i818, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i823, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i822
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i822:  ; preds = %call.i.i.i.i.noexc824
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i, ptr nonnull align 8 %96, i64 %mul.i789, i1 false)
   call void @_ZdaPv(ptr noundef nonnull %100) #15
-  br label %_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i823
-
-_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i823: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i822, %call.i.i.i.i.noexc824
   store ptr %call.i.i.i.i825, ptr %d74, align 8
   store i64 %add36.i812, ptr %mnPtrArraySize.i.i202, align 8
   br label %.noexc229
@@ -33380,7 +33359,7 @@ if.then21.i859:                                   ; preds = %if.then8.i.i339
   %div2226.i860 = lshr i64 %sub9.i841, 1
   %spec.select28.i861 = call i64 @llvm.umax.i64(i64 %div2226.i860, i64 1)
   %add.ptr29.i862 = getelementptr inbounds ptr, ptr %125, i64 %spec.select28.i861
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i862, ptr align 8 %125, i64 %mul.i837, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr29.i862, ptr nonnull align 8 %125, i64 %mul.i837, i1 false)
   br label %.noexc340
 
 if.else32.i863:                                   ; preds = %if.then8.i.i339
@@ -33389,19 +33368,12 @@ if.else32.i863:                                   ; preds = %if.then8.i.i339
   %add36.i866 = add i64 %add35.i865, %cond.i.i864
   %mul.i.i867 = shl i64 %add36.i866, 3
   %call.i.i.i.i880 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef %mul.i.i867, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
-          to label %call.i.i.i.i.noexc879 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i878 unwind label %lpad120.loopexit.split-lp.loopexit.split-lp.loopexit
 
-call.i.i.i.i.noexc879:                            ; preds = %if.else32.i863
+_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i878: ; preds = %if.else32.i863
   %add.ptr47.i872 = getelementptr inbounds i8, ptr %call.i.i.i.i880, i64 8
-  %tobool.not.i873 = icmp eq ptr %125, null
-  br i1 %tobool.not.i873, label %_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i878, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i877
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i877:  ; preds = %call.i.i.i.i.noexc879
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr47.i872, ptr nonnull align 8 %125, i64 %mul.i837, i1 false)
   call void @_ZdaPv(ptr noundef nonnull %128) #15
-  br label %_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i878
-
-_ZN5eastl9DequeBaseIiNS_9allocatorELj32768EE14DoFreePtrArrayEPPim.exit.i878: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i877, %call.i.i.i.i.noexc879
   store ptr %call.i.i.i.i880, ptr %d114, align 8
   store i64 %add36.i866, ptr %mnPtrArraySize.i.i309, align 8
   br label %.noexc340

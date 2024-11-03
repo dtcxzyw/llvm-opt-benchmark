@@ -623,8 +623,8 @@ _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5z
   %99 = load i8, ptr %gep, align 1
   %100 = zext i8 %99 to i32
   %101 = add nsw i32 %.184101.us, %100
-  %spec.select97.us = tail call i32 @llvm.smin.i32(i32 %.181102.us, i32 %100)
-  %.279.us = tail call i32 @llvm.smax.i32(i32 %.178103.us, i32 %100)
+  %spec.select97.us = tail call i32 @llvm.umin.i32(i32 %.181102.us, i32 %100)
+  %.279.us = tail call i32 @llvm.umax.i32(i32 %.178103.us, i32 %100)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %83, label %98, !llvm.loop !8
@@ -1978,7 +1978,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #7
+declare i32 @llvm.umin.i32(i32, i32) #7
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8

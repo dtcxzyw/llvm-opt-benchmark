@@ -10582,7 +10582,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %69 = getelementptr i8, ptr %61, i64 24
   %.val10.i.i = load ptr, ptr %69, align 8
   %70 = icmp eq ptr %.val10.i.i, null
-  br i1 %70, label %.thread.i, label %127
+  br i1 %70, label %.thread.i, label %.thread.i.thread
 
 71:                                               ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit13.i.i
   %.01115.i14.i.i = load ptr, ptr getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 16), align 8
@@ -10741,9 +10741,9 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %126 = icmp slt i32 %122, 0
   br i1 %126, label %.thread.i, label %.thread14.i
 
-127:                                              ; preds = %106, %95, %68, %57, %30
-  %.sroa.021.0.i.i = phi ptr [ null, %30 ], [ %58, %57 ], [ null, %95 ], [ %.08.lcssa.i.i.i5, %68 ], [ %99, %106 ]
-  %.sroa.12.0.i.i = phi ptr [ %31, %30 ], [ %58, %57 ], [ %96, %95 ], [ %.08.lcssa.i.i.i5, %68 ], [ %99, %106 ]
+127:                                              ; preds = %106, %95, %57, %30
+  %.sroa.021.0.i.i = phi ptr [ null, %30 ], [ %58, %57 ], [ null, %95 ], [ %99, %106 ]
+  %.sroa.12.0.i.i = phi ptr [ %31, %30 ], [ %58, %57 ], [ %96, %95 ], [ %99, %106 ]
   %.not.i = icmp eq ptr %.sroa.12.0.i.i, null
   br i1 %.not.i, label %.thread14.i, label %.thread.i
 
@@ -10753,7 +10753,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   %.not.i.i11.i = icmp ne ptr %.sroa.021.0.i10.i, null
   %128 = icmp eq ptr %.sroa.12.0.i11.i, getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 8)
   %or.cond.i.i.i = select i1 %.not.i.i11.i, i1 true, i1 %128
-  br i1 %or.cond.i.i.i, label %136, label %129
+  br i1 %or.cond.i.i.i, label %.thread.i.thread, label %129
 
 129:                                              ; preds = %.thread.i
   %130 = getelementptr inbounds i8, ptr %.sroa.12.0.i11.i, i64 32
@@ -10769,14 +10769,15 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 
 _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i12.i: ; preds = %129
   %135 = icmp slt i32 %131, 0
-  br label %136
+  br label %.thread.i.thread
 
-136:                                              ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i12.i, %.thread.i
-  %137 = phi i1 [ true, %.thread.i ], [ %135, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i12.i ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %137, ptr noundef nonnull %17, ptr noundef nonnull %.sroa.12.0.i11.i, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 8)) #26
-  %138 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 40), align 8
-  %139 = add i64 %138, 1
-  store i64 %139, ptr getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 40), align 8
+.thread.i.thread:                                 ; preds = %68, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i12.i, %.thread.i
+  %.sroa.12.0.i11.i13 = phi ptr [ %.sroa.12.0.i11.i, %.thread.i ], [ %.sroa.12.0.i11.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i12.i ], [ %.08.lcssa.i.i.i5, %68 ]
+  %136 = phi i1 [ true, %.thread.i ], [ %135, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i12.i ], [ true, %68 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %136, ptr noundef nonnull %17, ptr noundef nonnull %.sroa.12.0.i11.i13, ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 8)) #26
+  %137 = load i64, ptr getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 40), align 8
+  %138 = add i64 %137, 1
+  store i64 %138, ptr getelementptr inbounds (i8, ptr @_ZZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporter16buildDispatchMapB5cxx11EvE8dispatchB5cxx11, i64 40), align 8
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSD_7NodeDefERNSA_11LayerParamsEEESt10_Select1stISN_ESt4lessIS5_ESaISN_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESY_IJEEEEESt17_Rb_tree_iteratorISN_ESt23_Rb_tree_const_iteratorISN_EDpOT_.exit
 
 .thread14.i:                                      ; preds = %127, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i50.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit36.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i26.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit12.i.i.i
@@ -10785,10 +10786,10 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
   tail call void @_ZdlPv(ptr noundef nonnull %17) #30
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSD_7NodeDefERNSA_11LayerParamsEEESt10_Select1stISN_ESt4lessIS5_ESaISN_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESY_IJEEEEESt17_Rb_tree_iteratorISN_ESt23_Rb_tree_const_iteratorISN_EDpOT_.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSD_7NodeDefERNSA_11LayerParamsEEESt10_Select1stISN_ESt4lessIS5_ESaISN_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESY_IJEEEEESt17_Rb_tree_iteratorISN_ESt23_Rb_tree_const_iteratorISN_EDpOT_.exit: ; preds = %.thread14.i, %136, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
-  %.sroa.03.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %17, %136 ], [ %.sroa.01.0.ph.i, %.thread14.i ]
-  %140 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 64
-  ret ptr %140
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_MN2cv3dnn14dnn4_v2024052112_GLOBAL__N_110TFImporterEFvRN17opencv_tensorflow8GraphDefERKNSD_7NodeDefERNSA_11LayerParamsEEESt10_Select1stISN_ESt4lessIS5_ESaISN_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESY_IJEEEEESt17_Rb_tree_iteratorISN_ESt23_Rb_tree_const_iteratorISN_EDpOT_.exit: ; preds = %.thread14.i, %.thread.i.thread, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit
+  %.sroa.03.0 = phi ptr [ %.19.i.i.i, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit ], [ %17, %.thread.i.thread ], [ %.sroa.01.0.ph.i, %.thread14.i ]
+  %139 = getelementptr inbounds i8, ptr %.sroa.03.0, i64 64
+  ret ptr %139
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -8018,15 +8018,10 @@ define internal fastcc range(i32 -10, 4) i32 @IDARcheck2(ptr noundef nonnull %0)
   %127 = load i32, ptr %26, align 8
   %128 = sext i32 %127 to i64
   %129 = icmp slt i64 %indvars.iv.next102, %128
-  br i1 %129, label %103, label %._crit_edge95.loopexit, !llvm.loop !84
+  br i1 %129, label %103, label %.loopexit, !llvm.loop !84
 
-._crit_edge95.loopexit:                           ; preds = %126
-  %130 = icmp ne i32 %.3, 0
-  %131 = zext i1 %130 to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %117, %.preheader86, %.preheader85, %.preheader, %._crit_edge95.loopexit, %89, %._crit_edge, %5, %1
-  %.076 = phi i32 [ 0, %1 ], [ -10, %5 ], [ 0, %._crit_edge ], [ -10, %89 ], [ 0, %.preheader ], [ %131, %._crit_edge95.loopexit ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 3, %117 ]
+.loopexit:                                        ; preds = %117, %126, %.preheader86, %.preheader85, %.preheader, %89, %._crit_edge, %5, %1
+  %.076 = phi i32 [ 0, %1 ], [ -10, %5 ], [ 0, %._crit_edge ], [ -10, %89 ], [ 0, %.preheader ], [ 0, %.preheader85 ], [ 0, %.preheader86 ], [ 3, %117 ], [ %.3, %126 ]
   ret i32 %.076
 }
 

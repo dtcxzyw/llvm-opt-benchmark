@@ -82,7 +82,7 @@ define void @fdp_xLayout(ptr noundef %0, ptr nocapture noundef readonly %1) loca
 
 30:                                               ; preds = %27, %25
   %.not26 = icmp eq i32 %.020, 0
-  br i1 %.not26, label %491, label %31
+  br i1 %.not26, label %x_layout.exit, label %31
 
 31:                                               ; preds = %30
   %32 = tail call i32 @agnnodes(ptr noundef %0) #10
@@ -238,11 +238,11 @@ cntOverlaps.exit.i:                               ; preds = %._crit_edge.i.i
   %120 = add nsw i32 %32, -1
   %121 = mul nsw i32 %120, %32
   %122 = sitofp i32 %121 to double
+  %umax = tail call i32 @llvm.umax.i32(i32 %.020, i32 1)
   br label %123
 
 123:                                              ; preds = %adjust.exit.thread.i, %.lr.ph59.i
   %.02858.i = phi i32 [ 0, %.lr.ph59.i ], [ %486, %adjust.exit.thread.i ]
-  %.02957.i = phi i32 [ %.1.lcssa.i.i, %.lr.ph59.i ], [ %.2.i, %adjust.exit.thread.i ]
   %.sroa.3.056.i = phi double [ %.sroa.3.0.copyload.i, %.lr.ph59.i ], [ %487, %adjust.exit.thread.i ]
   store double %.sroa.3.056.i, ptr @xParams.2, align 8
   store i32 %.sroa.0.0.copyload.i, ptr @xParams.0, align 8
@@ -805,23 +805,16 @@ adjust.exit.thread43.i:                           ; preds = %481, %443
   br i1 %485, label %.lr.ph.i, label %adjust.exit.thread.i
 
 adjust.exit.thread.i:                             ; preds = %.lr.ph.i, %adjust.exit.thread43.i, %.lr.ph.i.preheader, %xinit_params.exit.i
-  %.2.i = phi i32 [ %.02957.i, %xinit_params.exit.i ], [ %.02957.i, %.lr.ph.i.preheader ], [ %.1.lcssa.i37.i, %adjust.exit.thread43.i ], [ %.1.lcssa.i37.i, %.lr.ph.i ]
   %486 = add nuw nsw i32 %.02858.i, 1
   %487 = fadd double %.sroa.3.0.copyload.i, %.sroa.3.056.i
-  %488 = icmp ne i32 %.2.i, 0
-  %489 = icmp samesign ult i32 %486, %.020
-  %490 = select i1 %488, i1 %489, i1 false
-  br i1 %490, label %123, label %x_layout.exit
+  %exitcond.not = icmp eq i32 %486, %umax
+  br i1 %exitcond.not, label %x_layout.exit, label %123
 
-x_layout.exit:                                    ; preds = %adjust.exit.thread.i
-  %.not27 = icmp eq i32 %.2.i, 0
-  br i1 %.not27, label %x_layout.exit.thread, label %491
-
-491:                                              ; preds = %x_layout.exit, %30
-  %492 = tail call i32 @removeOverlapAs(ptr noundef %0, ptr noundef %.0) #10
+x_layout.exit:                                    ; preds = %adjust.exit.thread.i, %30
+  %488 = tail call i32 @removeOverlapAs(ptr noundef %0, ptr noundef %.0) #10
   br label %x_layout.exit.thread
 
-x_layout.exit.thread:                             ; preds = %._crit_edge.i36.i, %._crit_edge86.i.i, %41, %cntOverlaps.exit.i, %x_layout.exit, %491
+x_layout.exit.thread:                             ; preds = %._crit_edge.i36.i, %._crit_edge86.i.i, %41, %cntOverlaps.exit.i, %x_layout.exit
   ret void
 }
 
@@ -875,6 +868,9 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

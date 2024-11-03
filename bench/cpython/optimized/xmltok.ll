@@ -10085,11 +10085,11 @@ for.cond:                                         ; preds = %for.cond.backedge, 
     i8 -1, label %sw.bb2.i
   ]
 
-for.cond.backedge:                                ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %sw.bb2.i, %sw.bb195, %for.inc.fold.split95, %sw.bb120, %for.inc.fold.split, %if.then89, %if.then92, %if.then67, %if.then70, %if.then52, %if.then55, %sw.bb17, %if.then23, %if.then20, %sw.bb, %if.then10, %if.then, %if.end47, %sw.bb49, %if.else, %if.end83, %if.else98, %if.end108, %if.then115, %sw.bb112, %land.lhs.true, %land.lhs.true129, %cond.end185, %if.then189, %land.lhs.true202, %if.then205, %sw.bb211, %cond.end
-  %ptr.pn.be = phi ptr [ %ptr.addr.0, %cond.end ], [ %ptr.addr.0, %sw.bb211 ], [ %ptr.addr.0, %if.then205 ], [ %ptr.addr.0, %land.lhs.true202 ], [ %ptr.addr.0, %if.then189 ], [ %ptr.addr.0, %cond.end185 ], [ %ptr.addr.0, %land.lhs.true129 ], [ %ptr.addr.0, %land.lhs.true ], [ %ptr.addr.0, %if.then115 ], [ %ptr.addr.0, %sw.bb112 ], [ %ptr.addr.0, %if.end108 ], [ %ptr.addr.0, %if.else98 ], [ %ptr.addr.0, %if.end83 ], [ %ptr.addr.0, %if.else ], [ %ptr.addr.0, %sw.bb49 ], [ %add.ptr48, %if.end47 ], [ %ptr.addr.0, %if.then ], [ %ptr.addr.0, %if.then10 ], [ %ptr.addr.0, %sw.bb ], [ %arrayidx, %if.then20 ], [ %arrayidx, %if.then23 ], [ %arrayidx, %sw.bb17 ], [ %ptr.addr.0, %if.then55 ], [ %ptr.addr.0, %if.then52 ], [ %ptr.addr.0, %if.then70 ], [ %ptr.addr.0, %if.then67 ], [ %ptr.addr.0, %if.then92 ], [ %ptr.addr.0, %if.then89 ], [ %ptr.addr.0, %sw.bb120 ], [ %ptr.addr.0, %for.inc.fold.split ], [ %ptr.addr.0, %sw.bb195 ], [ %ptr.addr.0, %for.inc.fold.split95 ], [ %ptr.addr.0, %sw.bb2.i ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ]
-  %state.0.be = phi i32 [ %state.0, %cond.end ], [ 2, %sw.bb211 ], [ 2, %if.then205 ], [ 2, %land.lhs.true202 ], [ 2, %if.then189 ], [ 2, %cond.end185 ], [ 2, %land.lhs.true129 ], [ 2, %land.lhs.true ], [ %state.0, %if.then115 ], [ %state.0, %sw.bb112 ], [ 0, %if.end108 ], [ 2, %if.else98 ], [ 0, %if.end83 ], [ 2, %if.else ], [ %state.0, %sw.bb49 ], [ %state.3, %if.end47 ], [ 1, %if.then ], [ 1, %if.then10 ], [ %state.0, %sw.bb ], [ 1, %if.then20 ], [ 1, %if.then23 ], [ %state.0, %sw.bb17 ], [ 1, %if.then55 ], [ 1, %if.then52 ], [ 2, %if.then70 ], [ 2, %if.then67 ], [ 2, %if.then92 ], [ 2, %if.then89 ], [ 0, %sw.bb120 ], [ %state.0, %for.inc.fold.split ], [ 0, %sw.bb195 ], [ %state.0, %for.inc.fold.split95 ], [ %state.0, %sw.bb2.i ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ]
-  %nAtts.0.be = phi i32 [ %nAtts.0, %cond.end ], [ %nAtts.0, %sw.bb211 ], [ %nAtts.0, %if.then205 ], [ %nAtts.0, %land.lhs.true202 ], [ %nAtts.0, %if.then189 ], [ %nAtts.0, %cond.end185 ], [ %nAtts.0, %land.lhs.true129 ], [ %nAtts.0, %land.lhs.true ], [ %nAtts.0, %if.then115 ], [ %nAtts.0, %sw.bb112 ], [ %inc109, %if.end108 ], [ %nAtts.0, %if.else98 ], [ %inc, %if.end83 ], [ %nAtts.0, %if.else ], [ %nAtts.0, %sw.bb49 ], [ %nAtts.0, %if.end47 ], [ %nAtts.0, %if.then ], [ %nAtts.0, %if.then10 ], [ %nAtts.0, %sw.bb ], [ %nAtts.0, %if.then20 ], [ %nAtts.0, %if.then23 ], [ %nAtts.0, %sw.bb17 ], [ %nAtts.0, %if.then55 ], [ %nAtts.0, %if.then52 ], [ %nAtts.0, %if.then70 ], [ %nAtts.0, %if.then67 ], [ %nAtts.0, %if.then92 ], [ %nAtts.0, %if.then89 ], [ %nAtts.0, %sw.bb120 ], [ %nAtts.0, %for.inc.fold.split ], [ %nAtts.0, %sw.bb195 ], [ %nAtts.0, %for.inc.fold.split95 ], [ %nAtts.0, %sw.bb2.i ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ]
-  %open.0.be = phi i32 [ %open.0, %cond.end ], [ %open.0, %sw.bb211 ], [ %open.0, %if.then205 ], [ %open.0, %land.lhs.true202 ], [ %open.0, %if.then189 ], [ %open.0, %cond.end185 ], [ %open.0, %land.lhs.true129 ], [ %open.0, %land.lhs.true ], [ %open.0, %if.then115 ], [ %open.0, %sw.bb112 ], [ 13, %if.end108 ], [ %open.0, %if.else98 ], [ 12, %if.end83 ], [ %open.0, %if.else ], [ %open.0, %sw.bb49 ], [ %open.0, %if.end47 ], [ %open.0, %if.then ], [ %open.0, %if.then10 ], [ %open.0, %sw.bb ], [ %open.0, %if.then20 ], [ %open.0, %if.then23 ], [ %open.0, %sw.bb17 ], [ %open.0, %if.then55 ], [ %open.0, %if.then52 ], [ 12, %if.then70 ], [ 12, %if.then67 ], [ 13, %if.then92 ], [ 13, %if.then89 ], [ %open.0, %sw.bb120 ], [ %open.0, %for.inc.fold.split ], [ %open.0, %sw.bb195 ], [ %open.0, %for.inc.fold.split95 ], [ %open.0, %sw.bb2.i ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ]
+for.cond.backedge:                                ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %sw.bb2.i, %lor.lhs.false152, %sw.bb2.i96, %sw.bb195, %for.inc.fold.split95, %sw.bb120, %for.inc.fold.split, %if.then89, %if.then92, %if.then67, %if.then70, %if.then52, %if.then55, %sw.bb17, %if.then23, %if.then20, %sw.bb, %if.then10, %if.then, %if.end47, %sw.bb49, %if.else, %if.end83, %if.else98, %if.end108, %if.then115, %sw.bb112, %land.lhs.true, %land.lhs.true129, %cond.end185, %if.then189, %land.lhs.true202, %if.then205, %sw.bb211, %cond.end
+  %ptr.pn.be = phi ptr [ %ptr.addr.0, %cond.end ], [ %ptr.addr.0, %sw.bb211 ], [ %ptr.addr.0, %if.then205 ], [ %ptr.addr.0, %land.lhs.true202 ], [ %ptr.addr.0, %if.then189 ], [ %ptr.addr.0, %cond.end185 ], [ %ptr.addr.0, %land.lhs.true129 ], [ %ptr.addr.0, %land.lhs.true ], [ %ptr.addr.0, %if.then115 ], [ %ptr.addr.0, %sw.bb112 ], [ %ptr.addr.0, %if.end108 ], [ %ptr.addr.0, %if.else98 ], [ %ptr.addr.0, %if.end83 ], [ %ptr.addr.0, %if.else ], [ %ptr.addr.0, %sw.bb49 ], [ %add.ptr48, %if.end47 ], [ %ptr.addr.0, %if.then ], [ %ptr.addr.0, %if.then10 ], [ %ptr.addr.0, %sw.bb ], [ %arrayidx, %if.then20 ], [ %arrayidx, %if.then23 ], [ %arrayidx, %sw.bb17 ], [ %ptr.addr.0, %if.then55 ], [ %ptr.addr.0, %if.then52 ], [ %ptr.addr.0, %if.then70 ], [ %ptr.addr.0, %if.then67 ], [ %ptr.addr.0, %if.then92 ], [ %ptr.addr.0, %if.then89 ], [ %ptr.addr.0, %sw.bb120 ], [ %ptr.addr.0, %for.inc.fold.split ], [ %ptr.addr.0, %sw.bb195 ], [ %ptr.addr.0, %for.inc.fold.split95 ], [ %ptr.addr.0, %sw.bb2.i96 ], [ %ptr.addr.0, %lor.lhs.false152 ], [ %ptr.addr.0, %sw.bb2.i ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ]
+  %state.0.be = phi i32 [ %state.0, %cond.end ], [ 2, %sw.bb211 ], [ 2, %if.then205 ], [ 2, %land.lhs.true202 ], [ 2, %if.then189 ], [ 2, %cond.end185 ], [ 2, %land.lhs.true129 ], [ 2, %land.lhs.true ], [ %state.0, %if.then115 ], [ %state.0, %sw.bb112 ], [ 0, %if.end108 ], [ 2, %if.else98 ], [ 0, %if.end83 ], [ 2, %if.else ], [ %state.0, %sw.bb49 ], [ %state.3, %if.end47 ], [ 1, %if.then ], [ 1, %if.then10 ], [ %state.0, %sw.bb ], [ 1, %if.then20 ], [ 1, %if.then23 ], [ %state.0, %sw.bb17 ], [ 1, %if.then55 ], [ 1, %if.then52 ], [ 2, %if.then70 ], [ 2, %if.then67 ], [ 2, %if.then92 ], [ 2, %if.then89 ], [ 0, %sw.bb120 ], [ %state.0, %for.inc.fold.split ], [ 0, %sw.bb195 ], [ %state.0, %for.inc.fold.split95 ], [ 2, %sw.bb2.i96 ], [ 2, %lor.lhs.false152 ], [ %state.0, %sw.bb2.i ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ]
+  %nAtts.0.be = phi i32 [ %nAtts.0, %cond.end ], [ %nAtts.0, %sw.bb211 ], [ %nAtts.0, %if.then205 ], [ %nAtts.0, %land.lhs.true202 ], [ %nAtts.0, %if.then189 ], [ %nAtts.0, %cond.end185 ], [ %nAtts.0, %land.lhs.true129 ], [ %nAtts.0, %land.lhs.true ], [ %nAtts.0, %if.then115 ], [ %nAtts.0, %sw.bb112 ], [ %inc109, %if.end108 ], [ %nAtts.0, %if.else98 ], [ %inc, %if.end83 ], [ %nAtts.0, %if.else ], [ %nAtts.0, %sw.bb49 ], [ %nAtts.0, %if.end47 ], [ %nAtts.0, %if.then ], [ %nAtts.0, %if.then10 ], [ %nAtts.0, %sw.bb ], [ %nAtts.0, %if.then20 ], [ %nAtts.0, %if.then23 ], [ %nAtts.0, %sw.bb17 ], [ %nAtts.0, %if.then55 ], [ %nAtts.0, %if.then52 ], [ %nAtts.0, %if.then70 ], [ %nAtts.0, %if.then67 ], [ %nAtts.0, %if.then92 ], [ %nAtts.0, %if.then89 ], [ %nAtts.0, %sw.bb120 ], [ %nAtts.0, %for.inc.fold.split ], [ %nAtts.0, %sw.bb195 ], [ %nAtts.0, %for.inc.fold.split95 ], [ %nAtts.0, %sw.bb2.i96 ], [ %nAtts.0, %lor.lhs.false152 ], [ %nAtts.0, %sw.bb2.i ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ]
+  %open.0.be = phi i32 [ %open.0, %cond.end ], [ %open.0, %sw.bb211 ], [ %open.0, %if.then205 ], [ %open.0, %land.lhs.true202 ], [ %open.0, %if.then189 ], [ %open.0, %cond.end185 ], [ %open.0, %land.lhs.true129 ], [ %open.0, %land.lhs.true ], [ %open.0, %if.then115 ], [ %open.0, %sw.bb112 ], [ 13, %if.end108 ], [ %open.0, %if.else98 ], [ 12, %if.end83 ], [ %open.0, %if.else ], [ %open.0, %sw.bb49 ], [ %open.0, %if.end47 ], [ %open.0, %if.then ], [ %open.0, %if.then10 ], [ %open.0, %sw.bb ], [ %open.0, %if.then20 ], [ %open.0, %if.then23 ], [ %open.0, %sw.bb17 ], [ %open.0, %if.then55 ], [ %open.0, %if.then52 ], [ 12, %if.then70 ], [ 12, %if.then67 ], [ 13, %if.then92 ], [ 13, %if.then89 ], [ %open.0, %sw.bb120 ], [ %open.0, %for.inc.fold.split ], [ %open.0, %sw.bb195 ], [ %open.0, %for.inc.fold.split95 ], [ %open.0, %sw.bb2.i96 ], [ %open.0, %lor.lhs.false152 ], [ %open.0, %sw.bb2.i ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ]
   br label %for.cond
 
 sw.bb2.i:                                         ; preds = %for.cond
@@ -10299,17 +10299,13 @@ lor.lhs.false152:                                 ; preds = %cond.true144
   %add.ptr153 = getelementptr i8, ptr %ptr.pn, i64 4
   %arrayidx154 = getelementptr i8, ptr %ptr.pn, i64 5
   %8 = load i8, ptr %arrayidx154, align 1
-  switch i8 %8, label %sw.epilog5.i98 [
+  switch i8 %8, label %for.cond.backedge [
     i8 0, label %cond.true158
-    i8 -40, label %cond.end185
-    i8 -39, label %cond.end185
-    i8 -38, label %cond.end185
-    i8 -37, label %cond.end185
-    i8 -36, label %sw.bb1.i100
-    i8 -35, label %sw.bb1.i100
-    i8 -34, label %sw.bb1.i100
-    i8 -33, label %sw.bb1.i100
     i8 -1, label %sw.bb2.i96
+    i8 -33, label %cond.end185
+    i8 -34, label %cond.end185
+    i8 -35, label %cond.end185
+    i8 -36, label %cond.end185
   ]
 
 cond.true158:                                     ; preds = %lor.lhs.false152
@@ -10324,19 +10320,13 @@ cond.true173:                                     ; preds = %cond.true158
   %conv178 = zext i8 %11 to i32
   br label %cond.end185
 
-sw.bb1.i100:                                      ; preds = %lor.lhs.false152, %lor.lhs.false152, %lor.lhs.false152, %lor.lhs.false152
-  br label %cond.end185
-
 sw.bb2.i96:                                       ; preds = %lor.lhs.false152
   %12 = load i8, ptr %add.ptr153, align 1
   %switch.i97 = icmp ugt i8 %12, -3
-  br i1 %switch.i97, label %cond.end185, label %sw.epilog5.i98
+  br i1 %switch.i97, label %cond.end185, label %for.cond.backedge
 
-sw.epilog5.i98:                                   ; preds = %lor.lhs.false152, %sw.bb2.i96
-  br label %cond.end185
-
-cond.end185:                                      ; preds = %lor.lhs.false152, %lor.lhs.false152, %lor.lhs.false152, %lor.lhs.false152, %sw.epilog5.i98, %sw.bb2.i96, %sw.bb1.i100, %cond.true173
-  %cond186 = phi i32 [ %conv178, %cond.true173 ], [ 29, %sw.epilog5.i98 ], [ 8, %sw.bb1.i100 ], [ 0, %sw.bb2.i96 ], [ 7, %lor.lhs.false152 ], [ 7, %lor.lhs.false152 ], [ 7, %lor.lhs.false152 ], [ 7, %lor.lhs.false152 ]
+cond.end185:                                      ; preds = %lor.lhs.false152, %lor.lhs.false152, %lor.lhs.false152, %lor.lhs.false152, %sw.bb2.i96, %cond.true173
+  %cond186 = phi i32 [ %conv178, %cond.true173 ], [ 0, %sw.bb2.i96 ], [ 8, %lor.lhs.false152 ], [ 8, %lor.lhs.false152 ], [ 8, %lor.lhs.false152 ], [ 8, %lor.lhs.false152 ]
   %cmp187 = icmp eq i32 %cond186, %open.0
   br i1 %cmp187, label %if.then189, label %for.cond.backedge
 
@@ -16127,11 +16117,11 @@ for.cond:                                         ; preds = %for.cond.backedge, 
     i8 -1, label %sw.bb2.i
   ]
 
-for.cond.backedge:                                ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %sw.bb2.i, %sw.bb197, %for.inc.fold.split95, %sw.bb121, %for.inc.fold.split, %if.then90, %if.then93, %if.then68, %if.then71, %if.then53, %if.then56, %sw.bb, %if.then11, %if.then, %if.end32, %if.end48, %sw.bb50, %if.else, %if.end84, %if.else99, %if.end109, %if.then116, %sw.bb113, %land.lhs.true, %land.lhs.true130, %cond.end187, %if.then191, %land.lhs.true204, %if.then207, %sw.bb213, %cond.end
-  %ptr.pn.be = phi ptr [ %ptr.addr.0, %cond.end ], [ %ptr.addr.0, %sw.bb213 ], [ %ptr.addr.0, %if.then207 ], [ %ptr.addr.0, %land.lhs.true204 ], [ %ptr.addr.0, %if.then191 ], [ %ptr.addr.0, %cond.end187 ], [ %ptr.addr.0, %land.lhs.true130 ], [ %ptr.addr.0, %land.lhs.true ], [ %ptr.addr.0, %if.then116 ], [ %ptr.addr.0, %sw.bb113 ], [ %ptr.addr.0, %if.end109 ], [ %ptr.addr.0, %if.else99 ], [ %ptr.addr.0, %if.end84 ], [ %ptr.addr.0, %if.else ], [ %ptr.addr.0, %sw.bb50 ], [ %add.ptr49, %if.end48 ], [ %add.ptr33, %if.end32 ], [ %ptr.addr.0, %if.then ], [ %ptr.addr.0, %if.then11 ], [ %ptr.addr.0, %sw.bb ], [ %ptr.addr.0, %if.then56 ], [ %ptr.addr.0, %if.then53 ], [ %ptr.addr.0, %if.then71 ], [ %ptr.addr.0, %if.then68 ], [ %ptr.addr.0, %if.then93 ], [ %ptr.addr.0, %if.then90 ], [ %ptr.addr.0, %sw.bb121 ], [ %ptr.addr.0, %for.inc.fold.split ], [ %ptr.addr.0, %sw.bb197 ], [ %ptr.addr.0, %for.inc.fold.split95 ], [ %ptr.addr.0, %sw.bb2.i ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ]
-  %state.0.be = phi i32 [ %state.0, %cond.end ], [ 2, %sw.bb213 ], [ 2, %if.then207 ], [ 2, %land.lhs.true204 ], [ 2, %if.then191 ], [ 2, %cond.end187 ], [ 2, %land.lhs.true130 ], [ 2, %land.lhs.true ], [ %state.0, %if.then116 ], [ %state.0, %sw.bb113 ], [ 0, %if.end109 ], [ 2, %if.else99 ], [ 0, %if.end84 ], [ 2, %if.else ], [ %state.0, %sw.bb50 ], [ %state.3, %if.end48 ], [ %state.2, %if.end32 ], [ 1, %if.then ], [ 1, %if.then11 ], [ %state.0, %sw.bb ], [ 1, %if.then56 ], [ 1, %if.then53 ], [ 2, %if.then71 ], [ 2, %if.then68 ], [ 2, %if.then93 ], [ 2, %if.then90 ], [ 0, %sw.bb121 ], [ %state.0, %for.inc.fold.split ], [ 0, %sw.bb197 ], [ %state.0, %for.inc.fold.split95 ], [ %state.0, %sw.bb2.i ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ]
-  %nAtts.0.be = phi i32 [ %nAtts.0, %cond.end ], [ %nAtts.0, %sw.bb213 ], [ %nAtts.0, %if.then207 ], [ %nAtts.0, %land.lhs.true204 ], [ %nAtts.0, %if.then191 ], [ %nAtts.0, %cond.end187 ], [ %nAtts.0, %land.lhs.true130 ], [ %nAtts.0, %land.lhs.true ], [ %nAtts.0, %if.then116 ], [ %nAtts.0, %sw.bb113 ], [ %inc110, %if.end109 ], [ %nAtts.0, %if.else99 ], [ %inc, %if.end84 ], [ %nAtts.0, %if.else ], [ %nAtts.0, %sw.bb50 ], [ %nAtts.0, %if.end48 ], [ %nAtts.0, %if.end32 ], [ %nAtts.0, %if.then ], [ %nAtts.0, %if.then11 ], [ %nAtts.0, %sw.bb ], [ %nAtts.0, %if.then56 ], [ %nAtts.0, %if.then53 ], [ %nAtts.0, %if.then71 ], [ %nAtts.0, %if.then68 ], [ %nAtts.0, %if.then93 ], [ %nAtts.0, %if.then90 ], [ %nAtts.0, %sw.bb121 ], [ %nAtts.0, %for.inc.fold.split ], [ %nAtts.0, %sw.bb197 ], [ %nAtts.0, %for.inc.fold.split95 ], [ %nAtts.0, %sw.bb2.i ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ]
-  %open.0.be = phi i32 [ %open.0, %cond.end ], [ %open.0, %sw.bb213 ], [ %open.0, %if.then207 ], [ %open.0, %land.lhs.true204 ], [ %open.0, %if.then191 ], [ %open.0, %cond.end187 ], [ %open.0, %land.lhs.true130 ], [ %open.0, %land.lhs.true ], [ %open.0, %if.then116 ], [ %open.0, %sw.bb113 ], [ 13, %if.end109 ], [ %open.0, %if.else99 ], [ 12, %if.end84 ], [ %open.0, %if.else ], [ %open.0, %sw.bb50 ], [ %open.0, %if.end48 ], [ %open.0, %if.end32 ], [ %open.0, %if.then ], [ %open.0, %if.then11 ], [ %open.0, %sw.bb ], [ %open.0, %if.then56 ], [ %open.0, %if.then53 ], [ 12, %if.then71 ], [ 12, %if.then68 ], [ 13, %if.then93 ], [ 13, %if.then90 ], [ %open.0, %sw.bb121 ], [ %open.0, %for.inc.fold.split ], [ %open.0, %sw.bb197 ], [ %open.0, %for.inc.fold.split95 ], [ %open.0, %sw.bb2.i ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ]
+for.cond.backedge:                                ; preds = %for.cond, %for.cond, %for.cond, %for.cond, %sw.bb2.i, %lor.lhs.false153, %sw.bb2.i96, %sw.bb197, %for.inc.fold.split95, %sw.bb121, %for.inc.fold.split, %if.then90, %if.then93, %if.then68, %if.then71, %if.then53, %if.then56, %sw.bb, %if.then11, %if.then, %if.end32, %if.end48, %sw.bb50, %if.else, %if.end84, %if.else99, %if.end109, %if.then116, %sw.bb113, %land.lhs.true, %land.lhs.true130, %cond.end187, %if.then191, %land.lhs.true204, %if.then207, %sw.bb213, %cond.end
+  %ptr.pn.be = phi ptr [ %ptr.addr.0, %cond.end ], [ %ptr.addr.0, %sw.bb213 ], [ %ptr.addr.0, %if.then207 ], [ %ptr.addr.0, %land.lhs.true204 ], [ %ptr.addr.0, %if.then191 ], [ %ptr.addr.0, %cond.end187 ], [ %ptr.addr.0, %land.lhs.true130 ], [ %ptr.addr.0, %land.lhs.true ], [ %ptr.addr.0, %if.then116 ], [ %ptr.addr.0, %sw.bb113 ], [ %ptr.addr.0, %if.end109 ], [ %ptr.addr.0, %if.else99 ], [ %ptr.addr.0, %if.end84 ], [ %ptr.addr.0, %if.else ], [ %ptr.addr.0, %sw.bb50 ], [ %add.ptr49, %if.end48 ], [ %add.ptr33, %if.end32 ], [ %ptr.addr.0, %if.then ], [ %ptr.addr.0, %if.then11 ], [ %ptr.addr.0, %sw.bb ], [ %ptr.addr.0, %if.then56 ], [ %ptr.addr.0, %if.then53 ], [ %ptr.addr.0, %if.then71 ], [ %ptr.addr.0, %if.then68 ], [ %ptr.addr.0, %if.then93 ], [ %ptr.addr.0, %if.then90 ], [ %ptr.addr.0, %sw.bb121 ], [ %ptr.addr.0, %for.inc.fold.split ], [ %ptr.addr.0, %sw.bb197 ], [ %ptr.addr.0, %for.inc.fold.split95 ], [ %ptr.addr.0, %sw.bb2.i96 ], [ %ptr.addr.0, %lor.lhs.false153 ], [ %ptr.addr.0, %sw.bb2.i ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ], [ %ptr.addr.0, %for.cond ]
+  %state.0.be = phi i32 [ %state.0, %cond.end ], [ 2, %sw.bb213 ], [ 2, %if.then207 ], [ 2, %land.lhs.true204 ], [ 2, %if.then191 ], [ 2, %cond.end187 ], [ 2, %land.lhs.true130 ], [ 2, %land.lhs.true ], [ %state.0, %if.then116 ], [ %state.0, %sw.bb113 ], [ 0, %if.end109 ], [ 2, %if.else99 ], [ 0, %if.end84 ], [ 2, %if.else ], [ %state.0, %sw.bb50 ], [ %state.3, %if.end48 ], [ %state.2, %if.end32 ], [ 1, %if.then ], [ 1, %if.then11 ], [ %state.0, %sw.bb ], [ 1, %if.then56 ], [ 1, %if.then53 ], [ 2, %if.then71 ], [ 2, %if.then68 ], [ 2, %if.then93 ], [ 2, %if.then90 ], [ 0, %sw.bb121 ], [ %state.0, %for.inc.fold.split ], [ 0, %sw.bb197 ], [ %state.0, %for.inc.fold.split95 ], [ 2, %sw.bb2.i96 ], [ 2, %lor.lhs.false153 ], [ %state.0, %sw.bb2.i ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ], [ %state.0, %for.cond ]
+  %nAtts.0.be = phi i32 [ %nAtts.0, %cond.end ], [ %nAtts.0, %sw.bb213 ], [ %nAtts.0, %if.then207 ], [ %nAtts.0, %land.lhs.true204 ], [ %nAtts.0, %if.then191 ], [ %nAtts.0, %cond.end187 ], [ %nAtts.0, %land.lhs.true130 ], [ %nAtts.0, %land.lhs.true ], [ %nAtts.0, %if.then116 ], [ %nAtts.0, %sw.bb113 ], [ %inc110, %if.end109 ], [ %nAtts.0, %if.else99 ], [ %inc, %if.end84 ], [ %nAtts.0, %if.else ], [ %nAtts.0, %sw.bb50 ], [ %nAtts.0, %if.end48 ], [ %nAtts.0, %if.end32 ], [ %nAtts.0, %if.then ], [ %nAtts.0, %if.then11 ], [ %nAtts.0, %sw.bb ], [ %nAtts.0, %if.then56 ], [ %nAtts.0, %if.then53 ], [ %nAtts.0, %if.then71 ], [ %nAtts.0, %if.then68 ], [ %nAtts.0, %if.then93 ], [ %nAtts.0, %if.then90 ], [ %nAtts.0, %sw.bb121 ], [ %nAtts.0, %for.inc.fold.split ], [ %nAtts.0, %sw.bb197 ], [ %nAtts.0, %for.inc.fold.split95 ], [ %nAtts.0, %sw.bb2.i96 ], [ %nAtts.0, %lor.lhs.false153 ], [ %nAtts.0, %sw.bb2.i ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ], [ %nAtts.0, %for.cond ]
+  %open.0.be = phi i32 [ %open.0, %cond.end ], [ %open.0, %sw.bb213 ], [ %open.0, %if.then207 ], [ %open.0, %land.lhs.true204 ], [ %open.0, %if.then191 ], [ %open.0, %cond.end187 ], [ %open.0, %land.lhs.true130 ], [ %open.0, %land.lhs.true ], [ %open.0, %if.then116 ], [ %open.0, %sw.bb113 ], [ 13, %if.end109 ], [ %open.0, %if.else99 ], [ 12, %if.end84 ], [ %open.0, %if.else ], [ %open.0, %sw.bb50 ], [ %open.0, %if.end48 ], [ %open.0, %if.end32 ], [ %open.0, %if.then ], [ %open.0, %if.then11 ], [ %open.0, %sw.bb ], [ %open.0, %if.then56 ], [ %open.0, %if.then53 ], [ 12, %if.then71 ], [ 12, %if.then68 ], [ 13, %if.then93 ], [ 13, %if.then90 ], [ %open.0, %sw.bb121 ], [ %open.0, %for.inc.fold.split ], [ %open.0, %sw.bb197 ], [ %open.0, %for.inc.fold.split95 ], [ %open.0, %sw.bb2.i96 ], [ %open.0, %lor.lhs.false153 ], [ %open.0, %sw.bb2.i ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ], [ %open.0, %for.cond ]
   br label %for.cond
 
 sw.bb2.i:                                         ; preds = %for.cond
@@ -16348,17 +16338,13 @@ cond.true145:                                     ; preds = %land.lhs.true135
 lor.lhs.false153:                                 ; preds = %cond.true145
   %add.ptr154 = getelementptr i8, ptr %ptr.pn, i64 4
   %8 = load i8, ptr %add.ptr154, align 1
-  switch i8 %8, label %sw.epilog5.i98 [
+  switch i8 %8, label %for.cond.backedge [
     i8 0, label %cond.true159
-    i8 -40, label %cond.end187
-    i8 -39, label %cond.end187
-    i8 -38, label %cond.end187
-    i8 -37, label %cond.end187
-    i8 -36, label %sw.bb1.i100
-    i8 -35, label %sw.bb1.i100
-    i8 -34, label %sw.bb1.i100
-    i8 -33, label %sw.bb1.i100
     i8 -1, label %sw.bb2.i96
+    i8 -33, label %cond.end187
+    i8 -34, label %cond.end187
+    i8 -35, label %cond.end187
+    i8 -36, label %cond.end187
   ]
 
 cond.true159:                                     ; preds = %lor.lhs.false153
@@ -16374,20 +16360,14 @@ cond.true174:                                     ; preds = %cond.true159
   %conv180 = zext i8 %11 to i32
   br label %cond.end187
 
-sw.bb1.i100:                                      ; preds = %lor.lhs.false153, %lor.lhs.false153, %lor.lhs.false153, %lor.lhs.false153
-  br label %cond.end187
-
 sw.bb2.i96:                                       ; preds = %lor.lhs.false153
   %arrayidx185 = getelementptr i8, ptr %ptr.pn, i64 5
   %12 = load i8, ptr %arrayidx185, align 1
   %switch.i97 = icmp ugt i8 %12, -3
-  br i1 %switch.i97, label %cond.end187, label %sw.epilog5.i98
+  br i1 %switch.i97, label %cond.end187, label %for.cond.backedge
 
-sw.epilog5.i98:                                   ; preds = %lor.lhs.false153, %sw.bb2.i96
-  br label %cond.end187
-
-cond.end187:                                      ; preds = %lor.lhs.false153, %lor.lhs.false153, %lor.lhs.false153, %lor.lhs.false153, %sw.epilog5.i98, %sw.bb2.i96, %sw.bb1.i100, %cond.true174
-  %cond188 = phi i32 [ %conv180, %cond.true174 ], [ 29, %sw.epilog5.i98 ], [ 8, %sw.bb1.i100 ], [ 0, %sw.bb2.i96 ], [ 7, %lor.lhs.false153 ], [ 7, %lor.lhs.false153 ], [ 7, %lor.lhs.false153 ], [ 7, %lor.lhs.false153 ]
+cond.end187:                                      ; preds = %lor.lhs.false153, %lor.lhs.false153, %lor.lhs.false153, %lor.lhs.false153, %sw.bb2.i96, %cond.true174
+  %cond188 = phi i32 [ %conv180, %cond.true174 ], [ 0, %sw.bb2.i96 ], [ 8, %lor.lhs.false153 ], [ 8, %lor.lhs.false153 ], [ 8, %lor.lhs.false153 ], [ 8, %lor.lhs.false153 ]
   %cmp189 = icmp eq i32 %cond188, %open.0
   br i1 %cmp189, label %if.then191, label %for.cond.backedge
 

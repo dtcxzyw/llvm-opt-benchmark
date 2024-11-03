@@ -22890,7 +22890,7 @@ call.i.i895.noexc:                                ; preds = %invoke.cont380
   %265 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !410
   %cmp2.i.i.i.i897 = icmp ult ptr %storemerge.i891, %265
   %or.cond.i.i.i.i898 = select i1 %cmp.not.i.i.i.i896, i1 %cmp2.i.i.i.i897, i1 false
-  br i1 %or.cond.i.i.i.i898, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i898, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc900
   %266 = load ptr, ptr %mAllocator.i.i.i611, align 8, !noalias !410
@@ -22898,15 +22898,11 @@ if.then.i.i.i.i:                                  ; preds = %.noexc900
   store ptr %storemerge.i891, ptr %mAllocator.i.i.i611, align 8, !noalias !410
   br label %invoke.cont384
 
-if.else.i.i.i.i:                                  ; preds = %.noexc900
-  %isnull.i.i.i.i.i = icmp eq ptr %storemerge.i891, null
-  br i1 %isnull.i.i.i.i.i, label %invoke.cont384, label %delete.notnull.i.i.i.i.i
-
-delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
+delete.notnull.i.i.i.i.i:                         ; preds = %.noexc900
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i891) #19, !noalias !410
   br label %invoke.cont384
 
-invoke.cont384:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
+invoke.cont384:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
   %267 = load ptr, ptr %_M_parent.i.i.i.i.i620, align 8
   %cmp.not5.i.i.i903 = icmp eq ptr %267, null
   br i1 %cmp.not5.i.i.i903, label %invoke.cont391, label %while.body.i.i.i905
@@ -23133,7 +23129,7 @@ call.i.i1018.noexc:                               ; preds = %invoke.cont447
   %292 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !419
   %cmp2.i.i.i.i1022 = icmp ult ptr %storemerge.i1013, %292
   %or.cond.i.i.i.i1023 = select i1 %cmp.not.i.i.i.i1020, i1 %cmp2.i.i.i.i1022, i1 false
-  br i1 %or.cond.i.i.i.i1023, label %if.then.i.i.i.i1027, label %if.else.i.i.i.i1024
+  br i1 %or.cond.i.i.i.i1023, label %if.then.i.i.i.i1027, label %delete.notnull.i.i.i.i.i1026
 
 if.then.i.i.i.i1027:                              ; preds = %.noexc1030
   %293 = load ptr, ptr %mAllocator.i.i.i611, align 8, !noalias !419
@@ -23141,15 +23137,11 @@ if.then.i.i.i.i1027:                              ; preds = %.noexc1030
   store ptr %storemerge.i1013, ptr %mAllocator.i.i.i611, align 8, !noalias !419
   br label %invoke.cont451
 
-if.else.i.i.i.i1024:                              ; preds = %.noexc1030
-  %isnull.i.i.i.i.i1025 = icmp eq ptr %storemerge.i1013, null
-  br i1 %isnull.i.i.i.i.i1025, label %invoke.cont451, label %delete.notnull.i.i.i.i.i1026
-
-delete.notnull.i.i.i.i.i1026:                     ; preds = %if.else.i.i.i.i1024
+delete.notnull.i.i.i.i.i1026:                     ; preds = %.noexc1030
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1013) #19, !noalias !419
   br label %invoke.cont451
 
-invoke.cont451:                                   ; preds = %delete.notnull.i.i.i.i.i1026, %if.else.i.i.i.i1024, %if.then.i.i.i.i1027
+invoke.cont451:                                   ; preds = %delete.notnull.i.i.i.i.i1026, %if.then.i.i.i.i1027
   %294 = load ptr, ptr %_M_parent.i.i.i.i.i620, align 8
   %cmp.not5.i.i.i1034 = icmp eq ptr %294, null
   br i1 %cmp.not5.i.i.i1034, label %invoke.cont458, label %while.body.i.i.i1036
@@ -23551,7 +23543,7 @@ call.i.i1231.noexc:                               ; preds = %invoke.cont547
   %334 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !438
   %cmp2.i.i.i.i1235 = icmp ult ptr %storemerge.i1226, %334
   %or.cond.i.i.i.i1236 = select i1 %cmp.not.i.i.i.i1233, i1 %cmp2.i.i.i.i1235, i1 false
-  br i1 %or.cond.i.i.i.i1236, label %if.then.i.i.i.i1240, label %if.else.i.i.i.i1237
+  br i1 %or.cond.i.i.i.i1236, label %if.then.i.i.i.i1240, label %delete.notnull.i.i.i.i.i1239
 
 if.then.i.i.i.i1240:                              ; preds = %.noexc1243
   %335 = load ptr, ptr %mAllocator.i.i.i611, align 8, !noalias !438
@@ -23559,15 +23551,11 @@ if.then.i.i.i.i1240:                              ; preds = %.noexc1243
   store ptr %storemerge.i1226, ptr %mAllocator.i.i.i611, align 8, !noalias !438
   br label %invoke.cont551
 
-if.else.i.i.i.i1237:                              ; preds = %.noexc1243
-  %isnull.i.i.i.i.i1238 = icmp eq ptr %storemerge.i1226, null
-  br i1 %isnull.i.i.i.i.i1238, label %invoke.cont551, label %delete.notnull.i.i.i.i.i1239
-
-delete.notnull.i.i.i.i.i1239:                     ; preds = %if.else.i.i.i.i1237
+delete.notnull.i.i.i.i.i1239:                     ; preds = %.noexc1243
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1226) #19, !noalias !438
   br label %invoke.cont551
 
-invoke.cont551:                                   ; preds = %delete.notnull.i.i.i.i.i1239, %if.else.i.i.i.i1237, %if.then.i.i.i.i1240
+invoke.cont551:                                   ; preds = %delete.notnull.i.i.i.i.i1239, %if.then.i.i.i.i1240
   %336 = load ptr, ptr %_M_parent.i.i.i.i.i620, align 8
   %cmp.not5.i.i.i1247 = icmp eq ptr %336, null
   br i1 %cmp.not5.i.i.i1247, label %invoke.cont558, label %while.body.i.i.i1249
@@ -33364,7 +33352,7 @@ call.i.i961.noexc:                                ; preds = %invoke.cont375
   %273 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !640
   %cmp2.i.i.i.i = icmp ult ptr %storemerge.i957, %273
   %or.cond.i.i.i.i = select i1 %cmp.not.i.i.i.i962, i1 %cmp2.i.i.i.i, i1 false
-  br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %if.else.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %if.then.i.i.i.i, label %delete.notnull.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %.noexc964
   %274 = load ptr, ptr %mAllocator.i.i.i674, align 8, !noalias !640
@@ -33372,15 +33360,11 @@ if.then.i.i.i.i:                                  ; preds = %.noexc964
   store ptr %storemerge.i957, ptr %mAllocator.i.i.i674, align 8, !noalias !640
   br label %invoke.cont379
 
-if.else.i.i.i.i:                                  ; preds = %.noexc964
-  %isnull.i.i.i.i.i = icmp eq ptr %storemerge.i957, null
-  br i1 %isnull.i.i.i.i.i, label %invoke.cont379, label %delete.notnull.i.i.i.i.i
-
-delete.notnull.i.i.i.i.i:                         ; preds = %if.else.i.i.i.i
+delete.notnull.i.i.i.i.i:                         ; preds = %.noexc964
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i957) #19, !noalias !640
   br label %invoke.cont379
 
-invoke.cont379:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.else.i.i.i.i, %if.then.i.i.i.i
+invoke.cont379:                                   ; preds = %delete.notnull.i.i.i.i.i, %if.then.i.i.i.i
   %275 = load ptr, ptr %_M_parent.i.i.i.i.i683, align 8
   %cmp.not5.i.i.i967 = icmp eq ptr %275, null
   br i1 %cmp.not5.i.i.i967, label %invoke.cont382, label %while.body.i.i.i969
@@ -33575,7 +33559,7 @@ call.i.i1068.noexc:                               ; preds = %invoke.cont440
   %293 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !649
   %cmp2.i.i.i.i1072 = icmp ult ptr %storemerge.i1063, %293
   %or.cond.i.i.i.i1073 = select i1 %cmp.not.i.i.i.i1070, i1 %cmp2.i.i.i.i1072, i1 false
-  br i1 %or.cond.i.i.i.i1073, label %if.then.i.i.i.i1077, label %if.else.i.i.i.i1074
+  br i1 %or.cond.i.i.i.i1073, label %if.then.i.i.i.i1077, label %delete.notnull.i.i.i.i.i1076
 
 if.then.i.i.i.i1077:                              ; preds = %.noexc1080
   %294 = load ptr, ptr %mAllocator.i.i.i674, align 8, !noalias !649
@@ -33583,15 +33567,11 @@ if.then.i.i.i.i1077:                              ; preds = %.noexc1080
   store ptr %storemerge.i1063, ptr %mAllocator.i.i.i674, align 8, !noalias !649
   br label %invoke.cont444
 
-if.else.i.i.i.i1074:                              ; preds = %.noexc1080
-  %isnull.i.i.i.i.i1075 = icmp eq ptr %storemerge.i1063, null
-  br i1 %isnull.i.i.i.i.i1075, label %invoke.cont444, label %delete.notnull.i.i.i.i.i1076
-
-delete.notnull.i.i.i.i.i1076:                     ; preds = %if.else.i.i.i.i1074
+delete.notnull.i.i.i.i.i1076:                     ; preds = %.noexc1080
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1063) #19, !noalias !649
   br label %invoke.cont444
 
-invoke.cont444:                                   ; preds = %delete.notnull.i.i.i.i.i1076, %if.else.i.i.i.i1074, %if.then.i.i.i.i1077
+invoke.cont444:                                   ; preds = %delete.notnull.i.i.i.i.i1076, %if.then.i.i.i.i1077
   %295 = load ptr, ptr %_M_parent.i.i.i.i.i683, align 8
   %cmp.not5.i.i.i1084 = icmp eq ptr %295, null
   br i1 %cmp.not5.i.i.i1084, label %invoke.cont447, label %while.body.i.i.i1086
@@ -33961,7 +33941,7 @@ call.i.i1255.noexc:                               ; preds = %invoke.cont538
   %328 = load ptr, ptr %mpCapacity.i.i.i.i, align 8, !noalias !667
   %cmp2.i.i.i.i1259 = icmp ult ptr %storemerge.i1250, %328
   %or.cond.i.i.i.i1260 = select i1 %cmp.not.i.i.i.i1257, i1 %cmp2.i.i.i.i1259, i1 false
-  br i1 %or.cond.i.i.i.i1260, label %if.then.i.i.i.i1264, label %if.else.i.i.i.i1261
+  br i1 %or.cond.i.i.i.i1260, label %if.then.i.i.i.i1264, label %delete.notnull.i.i.i.i.i1263
 
 if.then.i.i.i.i1264:                              ; preds = %.noexc1267
   %329 = load ptr, ptr %mAllocator.i.i.i674, align 8, !noalias !667
@@ -33969,15 +33949,11 @@ if.then.i.i.i.i1264:                              ; preds = %.noexc1267
   store ptr %storemerge.i1250, ptr %mAllocator.i.i.i674, align 8, !noalias !667
   br label %invoke.cont542
 
-if.else.i.i.i.i1261:                              ; preds = %.noexc1267
-  %isnull.i.i.i.i.i1262 = icmp eq ptr %storemerge.i1250, null
-  br i1 %isnull.i.i.i.i.i1262, label %invoke.cont542, label %delete.notnull.i.i.i.i.i1263
-
-delete.notnull.i.i.i.i.i1263:                     ; preds = %if.else.i.i.i.i1261
+delete.notnull.i.i.i.i.i1263:                     ; preds = %.noexc1267
   call void @_ZdaPv(ptr noundef nonnull %storemerge.i1250) #19, !noalias !667
   br label %invoke.cont542
 
-invoke.cont542:                                   ; preds = %delete.notnull.i.i.i.i.i1263, %if.else.i.i.i.i1261, %if.then.i.i.i.i1264
+invoke.cont542:                                   ; preds = %delete.notnull.i.i.i.i.i1263, %if.then.i.i.i.i1264
   %330 = load ptr, ptr %_M_parent.i.i.i.i.i683, align 8
   %cmp.not5.i.i.i1271 = icmp eq ptr %330, null
   br i1 %cmp.not5.i.i.i1271, label %invoke.cont545, label %while.body.i.i.i1273

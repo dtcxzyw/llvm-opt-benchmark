@@ -8093,7 +8093,7 @@ _ZNSt3setIN5vcpkg11PackageSpecESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %
   br i1 %56, label %_ZNSt3setIN5vcpkg11PackageSpecESt4lessIS1_ESaIS1_EE4findERKS1_.exit.thread, label %57
 
 57:                                               ; preds = %_ZNSt3setIN5vcpkg11PackageSpecESt4lessIS1_ESaIS1_EE4findERKS1_.exit
-  %58 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %32) #26
+  %58 = call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.19.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %32) #26
   %59 = getelementptr inbounds i8, ptr %58, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %59) #26
   call void @_ZdlPv(ptr noundef nonnull %58) #27
@@ -32700,7 +32700,7 @@ common.resume.i.i:                                ; preds = %.loopexit.split-lp.
   %137 = getelementptr i8, ptr %133, i64 24
   %.val10.i.i.i = load ptr, ptr %137, align 8
   %138 = icmp eq ptr %.val10.i.i.i, null
-  br i1 %138, label %.thread.i.i, label %171
+  br i1 %138, label %.thread.i.i, label %.thread.i.i.thread
 
 139:                                              ; preds = %.noexc12.i.i
   %.02426.i13.i.i.i = load ptr, ptr %4, align 8
@@ -32813,9 +32813,9 @@ common.resume.i.i:                                ; preds = %.loopexit.split-lp.
 .noexc18.i.i:                                     ; preds = %168
   br i1 %170, label %.thread.i.i, label %.thread36.i.i
 
-171:                                              ; preds = %158, %150, %136, %128, %113
-  %.sroa.075.0.i.i.i = phi ptr [ null, %113 ], [ %130, %128 ], [ null, %150 ], [ %.08.lcssa.i.i.i27, %136 ], [ %155, %158 ]
-  %.sroa.12.0.i.i.i = phi ptr [ %114, %113 ], [ %130, %128 ], [ %152, %150 ], [ %.08.lcssa.i.i.i27, %136 ], [ %155, %158 ]
+171:                                              ; preds = %158, %150, %128, %113
+  %.sroa.075.0.i.i.i = phi ptr [ null, %113 ], [ %130, %128 ], [ null, %150 ], [ %155, %158 ]
+  %.sroa.12.0.i.i.i = phi ptr [ %114, %113 ], [ %130, %128 ], [ %152, %150 ], [ %155, %158 ]
   %.not.i.i = icmp eq ptr %.sroa.12.0.i.i.i, null
   br i1 %.not.i.i, label %.thread36.i.i, label %.thread.i.i
 
@@ -32825,12 +32825,12 @@ common.resume.i.i:                                ; preds = %.loopexit.split-lp.
   %.not.i.i19.i.i = icmp ne ptr %.sroa.075.0.i32.i.i, null
   %172 = icmp eq ptr %.sroa.12.0.i33.i.i, %5
   %or.cond.i.i.i.i = select i1 %.not.i.i19.i.i, i1 true, i1 %172
-  br i1 %or.cond.i.i.i.i, label %176, label %173
+  br i1 %or.cond.i.i.i.i, label %.thread.i.i.thread, label %173
 
 173:                                              ; preds = %.thread.i.i
   %174 = getelementptr inbounds i8, ptr %.sroa.12.0.i33.i.i, i64 32
   %175 = invoke noundef zeroext i1 @_ZNK5vcpkg11PackageSpecltERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %174)
-          to label %176 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
+          to label %.thread.i.i.thread unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .loopexit.i.i:                                    ; preds = %.lr.ph.i.i.i.i
   %lpad.loopexit.i.i = landingpad { ptr, i32 }
@@ -32857,25 +32857,26 @@ common.resume.i.i:                                ; preds = %.loopexit.split-lp.
   tail call fastcc void @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev(ptr nonnull %13) #26
   br label %common.resume.i.i
 
-176:                                              ; preds = %173, %.thread.i.i
-  %177 = phi i1 [ true, %.thread.i.i ], [ %175, %173 ]
-  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %177, ptr noundef nonnull %13, ptr noundef nonnull %.sroa.12.0.i33.i.i, ptr noundef nonnull align 8 dereferenceable(32) %5) #26
-  %178 = getelementptr inbounds i8, ptr %0, i64 40
-  %179 = load i64, ptr %178, align 8
-  %180 = add i64 %179, 1
-  store i64 %180, ptr %178, align 8
+.thread.i.i.thread:                               ; preds = %136, %173, %.thread.i.i
+  %.sroa.12.0.i33.i.i35 = phi ptr [ %.sroa.12.0.i33.i.i, %.thread.i.i ], [ %.sroa.12.0.i33.i.i, %173 ], [ %.08.lcssa.i.i.i27, %136 ]
+  %176 = phi i1 [ true, %.thread.i.i ], [ %175, %173 ], [ true, %136 ]
+  tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %176, ptr noundef nonnull %13, ptr noundef nonnull %.sroa.12.0.i33.i.i35, ptr noundef nonnull align 8 dereferenceable(32) %5) #26
+  %177 = getelementptr inbounds i8, ptr %0, i64 40
+  %178 = load i64, ptr %177, align 8
+  %179 = add i64 %178, 1
+  store i64 %179, ptr %177, align 8
   br label %_ZNSt3mapIN5vcpkg11PackageSpecENS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataESt4lessIS1_ESaISt4pairIKS1_S4_EEE12emplace_hintIJRS8_S4_EEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit
 
 .thread36.i.i:                                    ; preds = %171, %.noexc18.i.i, %.noexc15.i.i, %.noexc14.i.i, %.noexc10.i.i
   %.sroa.022.0.ph.i.i = phi ptr [ %.sroa.075.0.i.i.i, %171 ], [ %.sroa.014.0.i44.i.i.i, %.noexc18.i.i ], [ %.sroa.014.0.i23.i.i.i, %.noexc14.i.i ], [ %.sroa.014.0.i.i.i.i, %.noexc10.i.i ], [ %.08.lcssa.i.i.i27, %.noexc15.i.i ]
-  %181 = getelementptr inbounds i8, ptr %13, i64 72
-  tail call fastcc void @_ZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(209) %181) #26
+  %180 = getelementptr inbounds i8, ptr %13, i64 72
+  tail call fastcc void @_ZN5vcpkg12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(209) %180) #26
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %14) #26
   tail call void @_ZdlPv(ptr noundef nonnull %13) #27
   br label %_ZNSt3mapIN5vcpkg11PackageSpecENS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataESt4lessIS1_ESaISt4pairIKS1_S4_EEE12emplace_hintIJRS8_S4_EEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit
 
-_ZNSt3mapIN5vcpkg11PackageSpecENS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataESt4lessIS1_ESaISt4pairIKS1_S4_EEE12emplace_hintIJRS8_S4_EEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit: ; preds = %9, %.thread36.i.i, %176
-  %.sroa.025.0 = phi ptr [ %13, %176 ], [ %.sroa.022.0.ph.i.i, %.thread36.i.i ], [ %.19.i.i.i, %9 ]
+_ZNSt3mapIN5vcpkg11PackageSpecENS0_12_GLOBAL__N_121VersionedPackageGraph15PackageNodeDataESt4lessIS1_ESaISt4pairIKS1_S4_EEE12emplace_hintIJRS8_S4_EEESt17_Rb_tree_iteratorIS9_ESt23_Rb_tree_const_iteratorIS9_EDpOT_.exit: ; preds = %9, %.thread36.i.i, %.thread.i.i.thread
+  %.sroa.025.0 = phi ptr [ %13, %.thread.i.i.thread ], [ %.sroa.022.0.ph.i.i, %.thread36.i.i ], [ %.19.i.i.i, %9 ]
   ret ptr %.sroa.025.0
 }
 

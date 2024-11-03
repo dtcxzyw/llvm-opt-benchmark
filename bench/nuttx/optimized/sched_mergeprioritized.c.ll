@@ -41,11 +41,11 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   store ptr %7, ptr %17, align 8
   br label %.loopexit
 
-18:                                               ; preds = %.preheader, %56
-  %.050 = phi ptr [ %.151, %56 ], [ %13, %.preheader ]
-  %19 = phi ptr [ %.1, %56 ], [ %5, %.preheader ]
+18:                                               ; preds = %.preheader, %58
+  %.050 = phi ptr [ %.151, %58 ], [ %13, %.preheader ]
+  %19 = phi ptr [ %.1, %58 ], [ %5, %.preheader ]
   %20 = icmp eq ptr %.050, null
-  br i1 %20, label %21, label %32
+  br i1 %20, label %21, label %34
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %1, align 8
@@ -59,76 +59,80 @@ define void @nxsched_merge_prioritized(ptr nocapture noundef %0, ptr nocapture n
   br label %.loopexit
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %15, align 8
-  store ptr %19, ptr %27, align 8
-  %28 = load ptr, ptr %15, align 8
-  %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %28, ptr %30, align 8
-  %31 = load ptr, ptr %8, align 8
-  store ptr %31, ptr %15, align 8
+  %27 = icmp eq ptr %19, null
+  br i1 %27, label %.loopexit, label %28
+
+28:                                               ; preds = %26
+  %29 = load ptr, ptr %15, align 8
+  store ptr %19, ptr %29, align 8
+  %30 = load ptr, ptr %15, align 8
+  %31 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %30, ptr %32, align 8
+  %33 = load ptr, ptr %8, align 8
+  store ptr %33, ptr %15, align 8
   br label %.loopexit
 
-32:                                               ; preds = %18
-  %33 = getelementptr inbounds i8, ptr %19, i64 28
-  %34 = load i8, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %.050, i64 28
+34:                                               ; preds = %18
+  %35 = getelementptr inbounds i8, ptr %19, i64 28
   %36 = load i8, ptr %35, align 4
-  %37 = icmp ugt i8 %34, %36
-  br i1 %37, label %38, label %54
+  %37 = getelementptr inbounds i8, ptr %.050, i64 28
+  %38 = load i8, ptr %37, align 4
+  %39 = icmp ugt i8 %36, %38
+  br i1 %39, label %40, label %56
 
-38:                                               ; preds = %32
-  %39 = call ptr @dq_remfirst(ptr noundef nonnull %4) #3
-  %40 = load ptr, ptr %1, align 8
-  %.not58 = icmp eq ptr %40, null
-  %41 = icmp eq ptr %.050, %40
-  %or.cond = or i1 %.not58, %41
-  br i1 %or.cond, label %42, label %48
+40:                                               ; preds = %34
+  %41 = call ptr @dq_remfirst(ptr noundef nonnull %4) #3
+  %42 = load ptr, ptr %1, align 8
+  %.not58 = icmp eq ptr %42, null
+  %43 = icmp eq ptr %.050, %42
+  %or.cond = or i1 %.not58, %43
+  br i1 %or.cond, label %44, label %50
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr null, ptr %43, align 8
-  %44 = load ptr, ptr %1, align 8
-  store ptr %44, ptr %39, align 8
-  %.not59 = icmp eq ptr %44, null
-  br i1 %.not59, label %45, label %46
+44:                                               ; preds = %40
+  %45 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr null, ptr %45, align 8
+  %46 = load ptr, ptr %1, align 8
+  store ptr %46, ptr %41, align 8
+  %.not59 = icmp eq ptr %46, null
+  br i1 %.not59, label %47, label %48
 
-45:                                               ; preds = %42
-  store ptr %39, ptr %1, align 8
-  store ptr %39, ptr %15, align 8
-  br label %52
+47:                                               ; preds = %44
+  store ptr %41, ptr %1, align 8
+  store ptr %41, ptr %15, align 8
+  br label %54
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %39, ptr %47, align 8
-  store ptr %39, ptr %1, align 8
-  br label %52
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %41, ptr %49, align 8
+  store ptr %41, ptr %1, align 8
+  br label %54
 
-48:                                               ; preds = %38
-  %49 = getelementptr inbounds i8, ptr %.050, i64 8
-  %50 = load ptr, ptr %49, align 8
-  store ptr %.050, ptr %39, align 8
-  %51 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %50, ptr %51, align 8
-  store ptr %39, ptr %50, align 8
-  store ptr %39, ptr %49, align 8
-  br label %52
+50:                                               ; preds = %40
+  %51 = getelementptr inbounds i8, ptr %.050, i64 8
+  %52 = load ptr, ptr %51, align 8
+  store ptr %.050, ptr %41, align 8
+  %53 = getelementptr inbounds i8, ptr %41, i64 8
+  store ptr %52, ptr %53, align 8
+  store ptr %41, ptr %52, align 8
+  store ptr %41, ptr %51, align 8
+  br label %54
 
-52:                                               ; preds = %48, %45, %46
-  %53 = load ptr, ptr %4, align 8
-  br label %56
+54:                                               ; preds = %50, %47, %48
+  %55 = load ptr, ptr %4, align 8
+  br label %58
 
-54:                                               ; preds = %32
-  %55 = load ptr, ptr %.050, align 8
-  br label %56
+56:                                               ; preds = %34
+  %57 = load ptr, ptr %.050, align 8
+  br label %58
 
-56:                                               ; preds = %54, %52
-  %.151 = phi ptr [ %.050, %52 ], [ %55, %54 ]
-  %.1 = phi ptr [ %53, %52 ], [ %19, %54 ]
+58:                                               ; preds = %56, %54
+  %.151 = phi ptr [ %.050, %54 ], [ %57, %56 ]
+  %.1 = phi ptr [ %55, %54 ], [ %19, %56 ]
   %.not60 = icmp eq ptr %.1, null
   br i1 %.not60, label %.loopexit, label %18, !llvm.loop !8
 
-.loopexit:                                        ; preds = %56, %26, %24, %3, %16
+.loopexit:                                        ; preds = %58, %26, %28, %24, %3, %16
   ret void
 }
 

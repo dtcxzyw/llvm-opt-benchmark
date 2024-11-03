@@ -4762,7 +4762,7 @@ if.end153.us:                                     ; preds = %if.then145.us, %if.
 for.inc241.us:                                    ; preds = %for.body229.us
   %indvars.iv.next317 = add nuw nsw i64 %indvars.iv316, 1
   %exitcond321.not = icmp eq i64 %indvars.iv.next317, %wide.trip.count320
-  br i1 %exitcond321.not, label %if.then245, label %for.body108.us, !llvm.loop !30
+  br i1 %exitcond321.not, label %for.end243, label %for.body108.us, !llvm.loop !30
 
 for.body229.us:                                   ; preds = %for.body229.lr.ph.us, %for.body229.us
   %indvars.iv308 = phi i64 [ 0, %for.body229.lr.ph.us ], [ %indvars.iv.next309, %for.body229.us ]
@@ -4771,7 +4771,7 @@ for.body229.us:                                   ; preds = %for.body229.lr.ph.u
   %add.ptr234.us = getelementptr inbounds float, ptr %call74, i64 %20
   %21 = shl nsw i64 %indvars.iv308, 2
   %add.ptr237.us = getelementptr inbounds i8, ptr %scanline.1.us, i64 %21
-  call void @stbi__hdr_convert(ptr noundef nonnull %add.ptr234.us, ptr noundef nonnull %add.ptr237.us, i32 noundef %spec.store.select)
+  call void @stbi__hdr_convert(ptr noundef nonnull %add.ptr234.us, ptr noundef %add.ptr237.us, i32 noundef %spec.store.select)
   %indvars.iv.next309 = add nuw nsw i64 %indvars.iv308, 1
   %exitcond315.not = icmp eq i64 %indvars.iv.next309, %wide.trip.count314
   br i1 %exitcond315.not, label %for.inc241.us, label %for.body229.us, !llvm.loop !31
@@ -5220,24 +5220,28 @@ if.then148:                                       ; preds = %if.then145.us
 
 if.then178:                                       ; preds = %stbi__get8.exit145.us.us
   call void @free(ptr noundef %call74) #37
-  call void @free(ptr noundef nonnull %scanline.1.us) #37
+  call void @free(ptr noundef %scanline.1.us) #37
   %80 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %80, align 8
   br label %return
 
 if.then202:                                       ; preds = %if.else194.us.us, %if.end.i106.us.us
   call void @free(ptr noundef %call74) #37
-  call void @free(ptr noundef nonnull %scanline.1.us) #37
+  call void @free(ptr noundef %scanline.1.us) #37
   %81 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @stbi__g_failure_reason)
   store ptr @.str.87, ptr %81, align 8
   br label %return
 
-if.then245:                                       ; preds = %for.inc241.us
+for.end243:                                       ; preds = %for.inc241.us
+  %tobool244.not = icmp eq ptr %scanline.1.us, null
+  br i1 %tobool244.not, label %return, label %if.then245
+
+if.then245:                                       ; preds = %for.end243
   call void @free(ptr noundef nonnull %scanline.1.us) #37
   br label %return
 
-return:                                           ; preds = %for.cond105.preheader, %for.cond86, %if.then245, %if.then202, %if.then178, %if.then148, %if.then138, %if.then76, %if.then69, %if.then55, %if.then48, %if.then38, %if.then26, %if.then17, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then26 ], [ null, %if.then38 ], [ null, %if.then48 ], [ null, %if.then55 ], [ null, %if.then138 ], [ null, %if.then178 ], [ null, %if.then202 ], [ null, %if.then148 ], [ null, %if.then76 ], [ null, %if.then69 ], [ null, %if.then17 ], [ %call74, %if.then245 ], [ %call74, %for.cond86 ], [ %call74, %for.cond105.preheader ]
+return:                                           ; preds = %for.cond105.preheader, %for.cond86, %if.then245, %for.end243, %if.then202, %if.then178, %if.then148, %if.then138, %if.then76, %if.then69, %if.then55, %if.then48, %if.then38, %if.then26, %if.then17, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then26 ], [ null, %if.then38 ], [ null, %if.then48 ], [ null, %if.then55 ], [ null, %if.then138 ], [ null, %if.then178 ], [ null, %if.then202 ], [ null, %if.then148 ], [ null, %if.then76 ], [ null, %if.then69 ], [ null, %if.then17 ], [ %call74, %for.end243 ], [ %call74, %if.then245 ], [ %call74, %for.cond86 ], [ %call74, %for.cond105.preheader ]
   ret ptr %retval.0
 }
 

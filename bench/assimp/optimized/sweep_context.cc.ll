@@ -1473,17 +1473,10 @@ if.end13:                                         ; preds = %for.inc, %land.lhs.
   %triangles.sroa.8.1 = phi ptr [ %add.ptr.i.i, %while.body ], [ %add.ptr.i.i, %land.lhs.true ], [ %triangles.sroa.8.3, %for.inc ]
   %triangles.sroa.0.2 = phi ptr [ %triangles.sroa.0.195, %while.body ], [ %triangles.sroa.0.195, %land.lhs.true ], [ %triangles.sroa.0.4, %for.inc ]
   %cmp.i.i = icmp eq ptr %triangles.sroa.0.2, %triangles.sroa.8.1
-  br i1 %cmp.i.i, label %while.end, label %while.body, !llvm.loop !15
+  br i1 %cmp.i.i, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54, label %while.body, !llvm.loop !15
 
-while.end:                                        ; preds = %if.end13
-  %tobool.not.i.i.i52 = icmp eq ptr %triangles.sroa.8.1, null
-  br i1 %tobool.not.i.i.i52, label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54, label %if.then.i.i.i53
-
-if.then.i.i.i53:                                  ; preds = %while.end
+_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54: ; preds = %if.end13
   tail call void @_ZdlPv(ptr noundef nonnull %triangles.sroa.0.2) #20
-  br label %_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54
-
-_ZNSt6vectorIPN3p2t8TriangleESaIS2_EED2Ev.exit54: ; preds = %while.end, %if.then.i.i.i53
   ret void
 }
 

@@ -15180,11 +15180,9 @@ if.end90:                                         ; preds = %if.end84
   br i1 %cmp81, label %if.then93, label %do.end98
 
 if.then93:                                        ; preds = %_sp_sub_off.exit441, %if.end90
-  %cmp.i442 = icmp eq ptr %c.addr.0520, null
   %cmp2.not.i = icmp eq ptr %c.addr.0520, %inv
-  %brmerge.i = or i1 %cmp2.not.i, %cmp.i442
   %spec.store.select.mux.i = select i1 %cmp2.not.i, i32 0, i32 -3
-  br i1 %brmerge.i, label %do.end98, label %land.lhs.true.i
+  br i1 %cmp2.not.i, label %do.end98, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %if.then93
   %143 = load i32, ptr %c.addr.0520, align 8

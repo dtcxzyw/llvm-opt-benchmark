@@ -9651,7 +9651,7 @@ if.end138.us:                                     ; preds = %if.then130.us, %if.
 for.inc210.us:                                    ; preds = %for.body198.us
   %indvars.iv.next135 = add nuw nsw i64 %indvars.iv134, 1
   %exitcond139.not = icmp eq i64 %indvars.iv.next135, %wide.trip.count138
-  br i1 %exitcond139.not, label %if.then214, label %for.body97.us, !llvm.loop !80
+  br i1 %exitcond139.not, label %for.end212, label %for.body97.us, !llvm.loop !80
 
 for.body198.us:                                   ; preds = %for.body198.lr.ph.us, %for.body198.us
   %indvars.iv126 = phi i64 [ 0, %for.body198.lr.ph.us ], [ %indvars.iv.next127, %for.body198.us ]
@@ -10110,24 +10110,28 @@ if.then133:                                       ; preds = %if.then130.us
 
 if.then155:                                       ; preds = %_ZL10stbi__get8P13stbi__context.exit140.us.us
   call void @free(ptr noundef %call68) #33
-  call void @free(ptr noundef nonnull %scanline.1.us) #33
+  call void @free(ptr noundef %scanline.1.us) #33
   %80 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.39, ptr %80, align 8
   br label %return
 
 if.then173:                                       ; preds = %if.else170.us.us
   call void @free(ptr noundef %call68) #33
-  call void @free(ptr noundef nonnull %scanline.1.us) #33
+  call void @free(ptr noundef %scanline.1.us) #33
   %81 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.39, ptr %81, align 8
   br label %return
 
-if.then214:                                       ; preds = %for.inc210.us
+for.end212:                                       ; preds = %for.inc210.us
+  %tobool213.not = icmp eq ptr %scanline.1.us, null
+  br i1 %tobool213.not, label %return, label %if.then214
+
+if.then214:                                       ; preds = %for.end212
   call void @free(ptr noundef nonnull %scanline.1.us) #33
   br label %return
 
-return:                                           ; preds = %for.cond95.preheader, %for.cond78, %if.then214, %if.then173, %if.then155, %if.then133, %if.then124, %if.then70, %if.then63, %if.then50, %if.then44, %if.then35, %if.then24, %if.then15, %if.then
-  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then24 ], [ null, %if.then35 ], [ null, %if.then44 ], [ null, %if.then50 ], [ null, %if.then124 ], [ null, %if.then155 ], [ null, %if.then173 ], [ null, %if.then133 ], [ null, %if.then70 ], [ null, %if.then63 ], [ null, %if.then15 ], [ %call68, %if.then214 ], [ %call68, %for.cond78 ], [ %call68, %for.cond95.preheader ]
+return:                                           ; preds = %for.cond95.preheader, %for.cond78, %if.then214, %for.end212, %if.then173, %if.then155, %if.then133, %if.then124, %if.then70, %if.then63, %if.then50, %if.then44, %if.then35, %if.then24, %if.then15, %if.then
+  %retval.0 = phi ptr [ null, %if.then ], [ null, %if.then24 ], [ null, %if.then35 ], [ null, %if.then44 ], [ null, %if.then50 ], [ null, %if.then124 ], [ null, %if.then155 ], [ null, %if.then173 ], [ null, %if.then133 ], [ null, %if.then70 ], [ null, %if.then63 ], [ null, %if.then15 ], [ %call68, %for.end212 ], [ %call68, %if.then214 ], [ %call68, %for.cond78 ], [ %call68, %for.cond95.preheader ]
   ret ptr %retval.0
 }
 

@@ -2528,40 +2528,40 @@ define hidden range(i32 0, 27) i32 @avifDecoderNthImageMaxExtent(ptr nocapture n
 
 avifDecoderNearestKeyframe.exit:                  ; preds = %15
   %27 = trunc nuw i64 %indvars.iv.i to i32
-  %.not3777 = icmp ult i32 %1, %27
-  br i1 %.not3777, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader.lr.ph
+  %.not3778 = icmp ult i32 %1, %27
+  br i1 %.not3778, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %.loopexit.i, %.lr.ph.i, %7, %avifDecoderNearestKeyframe.exit
-  %.06.i87 = phi i32 [ %27, %avifDecoderNearestKeyframe.exit ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 0, %.loopexit.i ]
+  %.06.i89 = phi i32 [ %27, %avifDecoderNearestKeyframe.exit ], [ 0, %7 ], [ 0, %.lr.ph.i ], [ 0, %.loopexit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %30 = load i32, ptr %29, align 4
-  %.not79 = icmp eq i32 %30, 0
-  br i1 %.not79, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader
+  %.not80 = icmp eq i32 %30, 0
+  br i1 %.not80, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %31 = phi ptr [ %123, %._crit_edge ], [ %8, %.preheader.lr.ph ]
-  %.03178 = phi i32 [ %124, %._crit_edge ], [ %.06.i87, %.preheader.lr.ph ]
+  %.03179 = phi i32 [ %124, %._crit_edge ], [ %.06.i89, %.preheader.lr.ph ]
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 44
   %33 = load i32, ptr %32, align 4
-  %.not80 = icmp eq i32 %33, 0
-  br i1 %.not80, label %._crit_edge, label %.lr.ph
+  %.not81 = icmp eq i32 %33, 0
+  br i1 %.not81, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %34 = zext i32 %.03178 to i64
+  %34 = zext i32 %.03179 to i64
   br label %35
 
 35:                                               ; preds = %.lr.ph, %avifExtentMerge.exit
   %36 = phi ptr [ %31, %.lr.ph ], [ %119, %avifExtentMerge.exit ]
-  %.03276 = phi i32 [ 0, %.lr.ph ], [ %118, %avifExtentMerge.exit ]
+  %.03277 = phi i32 [ 0, %.lr.ph ], [ %118, %avifExtentMerge.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8
-  %39 = zext i32 %.03276 to i64
+  %39 = zext i32 %.03277 to i64
   %40 = getelementptr inbounds %struct.avifTile, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 12
   %43 = load i32, ptr %42, align 4
-  %.not38 = icmp ult i32 %.03178, %43
+  %.not38 = icmp ult i32 %.03179, %43
   br i1 %.not38, label %44, label %avifDecoderItemMaxExtent.exit.thread
 
 44:                                               ; preds = %35
@@ -2615,68 +2615,62 @@ avifDecoderNearestKeyframe.exit:                  ; preds = %15
 
 74:                                               ; preds = %96, %70
   %indvars.iv.i44 = phi i64 [ 0, %70 ], [ %indvars.iv.next.i45, %96 ]
-  %.05091.i = phi i64 [ %72, %70 ], [ %.2.i, %96 ]
-  %.05190.i = phi i64 [ %68, %70 ], [ %.253.i, %96 ]
-  %.05689.i = phi i64 [ -1, %70 ], [ %.258.i, %96 ]
-  %.06087.i = phi i64 [ 0, %70 ], [ %.262.i, %96 ]
+  %.05083.i = phi i64 [ %72, %70 ], [ %.2.i, %96 ]
+  %.05182.i = phi i64 [ %68, %70 ], [ %.253.i, %96 ]
+  %.05681.i = phi i64 [ -1, %70 ], [ %.258.i, %96 ]
+  %.06079.i = phi i64 [ 0, %70 ], [ %.262.i, %96 ]
   %75 = getelementptr inbounds %struct.avifExtent, ptr %73, i64 %indvars.iv.i44
   %76 = load i64, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i64, ptr %77, align 8
-  %.not71.i = icmp eq i64 %.05091.i, 0
+  %.not71.i = icmp eq i64 %.05083.i, 0
   br i1 %.not71.i, label %88, label %79
 
 79:                                               ; preds = %74
-  %.not72.i = icmp ult i64 %.05091.i, %78
+  %.not72.i = icmp ult i64 %.05083.i, %78
   br i1 %.not72.i, label %82, label %80
 
 80:                                               ; preds = %79
-  %81 = sub nuw i64 %.05091.i, %78
+  %81 = sub nuw i64 %.05083.i, %78
   br label %96
 
 82:                                               ; preds = %79
   %83 = xor i64 %76, -1
-  %84 = icmp ugt i64 %.05091.i, %83
+  %84 = icmp ugt i64 %.05083.i, %83
   br i1 %84, label %avifDecoderItemMaxExtent.exit.thread, label %85
 
 85:                                               ; preds = %82
-  %86 = add i64 %76, %.05091.i
-  %87 = sub i64 %78, %.05091.i
+  %86 = add i64 %76, %.05083.i
+  %87 = sub i64 %78, %.05083.i
   br label %88
 
 88:                                               ; preds = %85, %74
   %.055.i = phi i64 [ %86, %85 ], [ %76, %74 ]
   %.054.i = phi i64 [ %87, %85 ], [ %78, %74 ]
-  %89 = tail call i64 @llvm.umin.i64(i64 %.054.i, i64 %.05190.i)
+  %89 = tail call i64 @llvm.umin.i64(i64 %.054.i, i64 %.05182.i)
   %90 = xor i64 %.055.i, -1
   %91 = icmp ugt i64 %89, %90
   br i1 %91, label %avifDecoderItemMaxExtent.exit.thread, label %92
 
 92:                                               ; preds = %88
   %93 = add i64 %89, %.055.i
-  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.05689.i, i64 %.055.i)
-  %.363.i = tail call i64 @llvm.umax.i64(i64 %.06087.i, i64 %93)
-  %94 = sub i64 %.05190.i, %89
+  %spec.select.i = tail call i64 @llvm.umin.i64(i64 %.05681.i, i64 %.055.i)
+  %.363.i = tail call i64 @llvm.umax.i64(i64 %.06079.i, i64 %93)
+  %94 = sub i64 %.05182.i, %89
   %95 = icmp eq i64 %94, 0
-  br i1 %95, label %.thread.i, label %96
+  br i1 %95, label %97, label %96
 
 96:                                               ; preds = %92, %80
-  %.262.i = phi i64 [ %.06087.i, %80 ], [ %.363.i, %92 ]
-  %.258.i = phi i64 [ %.05689.i, %80 ], [ %spec.select.i, %92 ]
-  %.253.i = phi i64 [ %.05190.i, %80 ], [ %94, %92 ]
+  %.262.i = phi i64 [ %.06079.i, %80 ], [ %.363.i, %92 ]
+  %.258.i = phi i64 [ %.05681.i, %80 ], [ %spec.select.i, %92 ]
+  %.253.i = phi i64 [ %.05182.i, %80 ], [ %94, %92 ]
   %.2.i = phi i64 [ %81, %80 ], [ 0, %92 ]
   %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i44, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i45, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %97, label %74, !llvm.loop !28
+  br i1 %exitcond.not.i, label %avifDecoderItemMaxExtent.exit.thread, label %74, !llvm.loop !28
 
-97:                                               ; preds = %96
-  %.not73.i = icmp eq i64 %.253.i, 0
-  br i1 %.not73.i, label %.thread.i, label %avifDecoderItemMaxExtent.exit.thread
-
-.thread.i:                                        ; preds = %92, %97
-  %.15780.i = phi i64 [ %.258.i, %97 ], [ %spec.select.i, %92 ]
-  %.16179.i = phi i64 [ %.262.i, %97 ], [ %.363.i, %92 ]
-  %98 = sub i64 %.16179.i, %.15780.i
+97:                                               ; preds = %92
+  %98 = sub i64 %.363.i, %spec.select.i
   br label %avifDecoderItemMaxExtent.exit
 
 99:                                               ; preds = %44
@@ -2686,9 +2680,9 @@ avifDecoderNearestKeyframe.exit:                  ; preds = %15
   %103 = load i64, ptr %102, align 8
   br label %avifDecoderItemMaxExtent.exit
 
-avifDecoderItemMaxExtent.exit:                    ; preds = %.thread.i, %99
-  %.sroa.0.2 = phi i64 [ %101, %99 ], [ %.15780.i, %.thread.i ]
-  %.sroa.6.2 = phi i64 [ %103, %99 ], [ %98, %.thread.i ]
+avifDecoderItemMaxExtent.exit:                    ; preds = %97, %99
+  %.sroa.0.2 = phi i64 [ %101, %99 ], [ %spec.select.i, %97 ]
+  %.sroa.6.2 = phi i64 [ %103, %99 ], [ %98, %97 ]
   %104 = xor i64 %.sroa.0.2, -1
   %105 = icmp ugt i64 %.sroa.6.2, %104
   br i1 %105, label %avifDecoderItemMaxExtent.exit.thread, label %106
@@ -2729,7 +2723,7 @@ avifExtentMerge.exit.sink.split:                  ; preds = %111, %109
   br label %avifExtentMerge.exit
 
 avifExtentMerge.exit:                             ; preds = %avifExtentMerge.exit.sink.split, %.thread, %110
-  %118 = add nuw i32 %.03276, 1
+  %118 = add nuw i32 %.03277, 1
   %119 = load ptr, ptr %5, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 44
   %121 = load i32, ptr %120, align 4
@@ -2738,12 +2732,12 @@ avifExtentMerge.exit:                             ; preds = %avifExtentMerge.exi
 
 ._crit_edge:                                      ; preds = %avifExtentMerge.exit, %.preheader
   %123 = phi ptr [ %31, %.preheader ], [ %119, %avifExtentMerge.exit ]
-  %124 = add i32 %.03178, 1
+  %124 = add i32 %.03179, 1
   %.not37 = icmp ugt i32 %124, %1
   br i1 %.not37, label %avifDecoderItemMaxExtent.exit.thread, label %.preheader, !llvm.loop !30
 
-avifDecoderItemMaxExtent.exit.thread:             ; preds = %._crit_edge, %97, %66, %61, %52, %avifDecoderItemMaxExtent.exit, %49, %35, %88, %82, %.preheader.lr.ph, %avifDecoderNearestKeyframe.exit, %3
-  %.0 = phi i32 [ 3, %3 ], [ 0, %avifDecoderNearestKeyframe.exit ], [ 0, %.preheader.lr.ph ], [ 9, %82 ], [ 9, %88 ], [ 20, %52 ], [ 3, %61 ], [ 20, %66 ], [ 20, %97 ], [ 9, %avifDecoderItemMaxExtent.exit ], [ %51, %49 ], [ 16, %35 ], [ 0, %._crit_edge ]
+avifDecoderItemMaxExtent.exit.thread:             ; preds = %._crit_edge, %66, %61, %52, %avifDecoderItemMaxExtent.exit, %49, %35, %82, %88, %96, %.preheader.lr.ph, %avifDecoderNearestKeyframe.exit, %3
+  %.0 = phi i32 [ 3, %3 ], [ 0, %avifDecoderNearestKeyframe.exit ], [ 0, %.preheader.lr.ph ], [ 20, %96 ], [ 9, %88 ], [ 9, %82 ], [ 20, %52 ], [ 3, %61 ], [ 20, %66 ], [ 9, %avifDecoderItemMaxExtent.exit ], [ %51, %49 ], [ 16, %35 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

@@ -2476,10 +2476,10 @@ define hidden noundef ptr @_Z21stbi_write_png_to_memPhiiiiPi(ptr nocapture nound
 
 select.unfold:                                    ; preds = %.lr.ph309, %.preheader
   %.0176.lcssa = phi i32 [ 0, %.preheader ], [ %146, %.lr.ph309 ]
-  %147 = icmp slt i32 %.0176.lcssa, %.1313
+  %147 = icmp samesign ult i32 %.0176.lcssa, %.1313
   %148 = trunc nsw i64 %indvars.iv344 to i32
   %spec.select201 = select i1 %147, i32 %148, i32 %.1180312
-  %spec.select202 = tail call i32 @llvm.smin.i32(i32 %.0176.lcssa, i32 %.1313)
+  %spec.select202 = tail call i32 @llvm.umin.i32(i32 %.0176.lcssa, i32 %.1313)
   %indvars.iv.next345 = add nsw i64 %indvars.iv344, 1
   %149 = and i64 %indvars.iv.next345, 4294967295
   %exitcond347.not = icmp eq i64 %149, 5
@@ -5253,9 +5253,6 @@ declare i32 @llvm.umin.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #26

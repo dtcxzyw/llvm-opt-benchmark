@@ -124,13 +124,13 @@ if.end53:                                         ; preds = %if.end49, %if.end69
 if.then56:                                        ; preds = %if.end53
   %mul = shl i64 %utflen.0125, 1
   %cmp57 = icmp slt i64 %utflen.0125, 0
-  br i1 %cmp57, label %fail, label %if.end60
+  br i1 %cmp57, label %if.then197, label %if.end60
 
 if.end60:                                         ; preds = %if.then56
   %11 = load ptr, ptr %ob, align 8
-  %call62 = call ptr @realloc(ptr noundef %utfbuf.1124, i64 noundef %mul) #9
+  %call62 = call ptr @realloc(ptr noundef nonnull %utfbuf.1124, i64 noundef %mul) #9
   %tobool63.not = icmp eq ptr %call62, null
-  br i1 %tobool63.not, label %fail, label %if.end65
+  br i1 %tobool63.not, label %if.then197, label %if.end65
 
 if.end65:                                         ; preds = %if.end60
   %sub.ptr.lhs.cast = ptrtoint ptr %11 to i64
@@ -200,13 +200,13 @@ if.end82:                                         ; preds = %if.end78
   %sub.ptr.rhs.cast84 = ptrtoint ptr %utfbuf.1.lcssa to i64
   %sub.ptr.sub85 = sub i64 %sub.ptr.lhs.cast83, %sub.ptr.rhs.cast84
   %cmp.i = icmp eq i64 %sub.ptr.sub85, -1
-  br i1 %cmp.i, label %fail, label %safe_realloc_nofree_add_2op_.exit
+  br i1 %cmp.i, label %if.then197, label %safe_realloc_nofree_add_2op_.exit
 
 safe_realloc_nofree_add_2op_.exit:                ; preds = %if.end82
   %add.i = add nuw i64 %sub.ptr.sub85, 1
   %call.i = call ptr @realloc(ptr noundef nonnull %utfbuf.1.lcssa, i64 noundef %add.i) #9
   %tobool87.not = icmp eq ptr %call.i, null
-  br i1 %tobool87.not, label %fail, label %if.end89
+  br i1 %tobool87.not, label %if.then197, label %if.end89
 
 if.end89:                                         ; preds = %safe_realloc_nofree_add_2op_.exit
   %18 = load ptr, ptr %ob, align 8
@@ -225,12 +225,12 @@ if.end95:                                         ; preds = %for.end
   %sub.ptr.rhs.cast97 = ptrtoint ptr %utfbuf.1.lcssa to i64
   %sub.ptr.sub98 = sub i64 %sub.ptr.lhs.cast96, %sub.ptr.rhs.cast97
   %cmp99 = icmp eq ptr %19, %utfbuf.1.lcssa
-  br i1 %cmp99, label %fail, label %if.end102
+  br i1 %cmp99, label %if.then197, label %if.end102
 
 if.end102:                                        ; preds = %if.end95
-  %call103 = call ptr @realloc(ptr noundef %utfbuf.1.lcssa, i64 noundef %sub.ptr.sub98) #9
+  %call103 = call ptr @realloc(ptr noundef nonnull %utfbuf.1.lcssa, i64 noundef %sub.ptr.sub98) #9
   %tobool104.not = icmp eq ptr %call103, null
-  br i1 %tobool104.not, label %fail, label %while.body.lr.ph
+  br i1 %tobool104.not, label %if.then197, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end102
   store ptr %call103, ptr %ib, align 8
@@ -311,13 +311,13 @@ while.end:                                        ; preds = %while.body.backedge
   %sub.ptr.sub143 = sub i64 %sub.ptr.lhs.cast141, %sub.ptr.rhs.cast119
   %add144 = add i64 %sub.ptr.sub143, %add137151155
   %cmp.i87 = icmp eq i64 %add144, -1
-  br i1 %cmp.i87, label %fail, label %safe_malloc_add_2op_.exit
+  br i1 %cmp.i87, label %if.then197, label %safe_malloc_add_2op_.exit
 
 safe_malloc_add_2op_.exit:                        ; preds = %while.end
   %add.i89 = add nuw i64 %add144, 1
   %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i89) #8
   %tobool146.not = icmp eq ptr %call.i.i, null
-  br i1 %tobool146.not, label %fail, label %while.body151.preheader
+  br i1 %tobool146.not, label %if.then197, label %while.body151.preheader
 
 while.body151.preheader:                          ; preds = %safe_malloc_add_2op_.exit
   store ptr %call103, ptr %ib, align 8
@@ -405,16 +405,12 @@ if.end194:                                        ; preds = %if.end191
   store ptr %call.i.i, ptr %to, align 8
   br label %return
 
-fail:                                             ; preds = %if.end60, %if.then56, %while.end, %if.end82, %safe_malloc_add_2op_.exit, %if.end102, %if.end95, %safe_realloc_nofree_add_2op_.exit
-  %utfbuf.0 = phi ptr [ %utfbuf.1.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end102 ], [ %utfbuf.1.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.1124, %if.then56 ], [ %utfbuf.1124, %if.end60 ]
-  %cmp195.not = icmp eq ptr %utfbuf.0, null
-  br i1 %cmp195.not, label %if.end198, label %if.then197
-
-if.then197:                                       ; preds = %fail
+if.then197:                                       ; preds = %if.then56, %if.end60, %safe_realloc_nofree_add_2op_.exit, %if.end95, %if.end102, %safe_malloc_add_2op_.exit, %if.end82, %while.end
+  %utfbuf.0 = phi ptr [ %utfbuf.1.lcssa, %safe_realloc_nofree_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end95 ], [ %call103, %safe_malloc_add_2op_.exit ], [ %utfbuf.1.lcssa, %if.end102 ], [ %utfbuf.1.lcssa, %if.end82 ], [ %call103, %while.end ], [ %utfbuf.1124, %if.end60 ], [ %utfbuf.1124, %if.then56 ]
   call void @free(ptr noundef nonnull %utfbuf.0) #7
   br label %if.end198
 
-if.end198:                                        ; preds = %if.end45, %if.then197, %fail
+if.end198:                                        ; preds = %if.end45, %if.then197
   %call199 = call i32 @iconv_close(ptr noundef %call) #7
   %cmp200.not = icmp eq ptr %cd2.0, inttoptr (i64 -1 to ptr)
   br i1 %cmp200.not, label %return, label %if.then202

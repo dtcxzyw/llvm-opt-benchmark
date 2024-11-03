@@ -48291,24 +48291,28 @@ _ZL17stbi__malloc_mad2iii.exit.thread:            ; preds = %_ZL17stbi__malloc_m
 
 .split52.us:                                      ; preds = %_ZL10stbi__get8P13stbi__context.exit157.us.us
   call void @free(ptr noundef %57) #46
-  call void @free(ptr noundef nonnull %.1118.us) #46
+  call void @free(ptr noundef %.1118.us) #46
   %269 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.107, ptr %269, align 8
   br label %._crit_edge60.thread
 
 .thread:                                          ; preds = %128, %100
   call void @free(ptr noundef %57) #46
-  call void @free(ptr noundef nonnull %.1118.us) #46
+  call void @free(ptr noundef %.1118.us) #46
   %270 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZL22stbi__g_failure_reason)
   store ptr @.str.107, ptr %270, align 8
   br label %._crit_edge60.thread
 
 ._crit_edge60:                                    ; preds = %._crit_edge56.us
+  %.not141 = icmp eq ptr %.1118.us, null
+  br i1 %.not141, label %._crit_edge60.thread, label %271
+
+271:                                              ; preds = %._crit_edge60
   call void @free(ptr noundef nonnull %.1118.us) #46
   br label %._crit_edge60.thread
 
-._crit_edge60.thread:                             ; preds = %.preheader17, %202, %._crit_edge60, %.thread, %.split52.us, %_ZL17stbi__malloc_mad2iii.exit.thread, %.split68.us, %58, %54, %50, %46, %.tail.thread, %25, %._crit_edge.thread, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %25 ], [ null, %.tail.thread ], [ null, %46 ], [ null, %50 ], [ null, %.split68.us ], [ null, %.split52.us ], [ null, %.thread ], [ null, %_ZL17stbi__malloc_mad2iii.exit.thread ], [ null, %58 ], [ null, %54 ], [ null, %._crit_edge.thread ], [ %57, %._crit_edge60 ], [ %57, %202 ], [ %57, %.preheader17 ]
+._crit_edge60.thread:                             ; preds = %.preheader17, %202, %271, %._crit_edge60, %.thread, %.split52.us, %_ZL17stbi__malloc_mad2iii.exit.thread, %.split68.us, %58, %54, %50, %46, %.tail.thread, %25, %._crit_edge.thread, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %25 ], [ null, %.tail.thread ], [ null, %46 ], [ null, %50 ], [ null, %.split68.us ], [ null, %.split52.us ], [ null, %.thread ], [ null, %_ZL17stbi__malloc_mad2iii.exit.thread ], [ null, %58 ], [ null, %54 ], [ null, %._crit_edge.thread ], [ %57, %._crit_edge60 ], [ %57, %271 ], [ %57, %202 ], [ %57, %.preheader17 ]
   ret ptr %.0
 }
 

@@ -1729,12 +1729,10 @@ if.else.i125:                                     ; preds = %if.then166
   br i1 %cmp1.i126, label %return.sink.split, label %_ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit
 
 _ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit: ; preds = %if.then.i, %if.else.i125
-  %add.i127 = add nsw i32 %destIndex.0196, 1
-  %cmp169 = icmp slt i32 %destIndex.0196, -1
+  %add.i127 = add nuw nsw i32 %destIndex.0196, 1
   %and171 = and i32 %data.2, 98304
   %cmp172.not = icmp eq i32 %and171, 0
-  %or.cond115 = select i1 %cmp169, i1 true, i1 %cmp172.not
-  br i1 %or.cond115, label %if.end175, label %if.then173
+  br i1 %cmp172.not, label %if.end175, label %if.then173
 
 if.then173:                                       ; preds = %_ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit
   %cmp.i131 = icmp slt i32 %add.i127, %destCapacity
@@ -1751,7 +1749,7 @@ if.else.i132:                                     ; preds = %if.then173
   br i1 %cmp1.i133, label %return.sink.split, label %if.end3.i134
 
 if.end3.i134:                                     ; preds = %if.else.i132, %if.then.i137
-  %add.i135 = add nsw i32 %destIndex.0196, 2
+  %add.i135 = add nuw nsw i32 %destIndex.0196, 2
   br label %if.end175
 
 if.end175:                                        ; preds = %if.end3.i134, %_ZN6icu_7512_GLOBAL__N_111appendUCharEPDsiiDs.exit

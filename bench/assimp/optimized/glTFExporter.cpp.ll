@@ -50871,12 +50871,10 @@ for.body.i:                                       ; preds = %_ZN9rapidjson12Gene
   br i1 %cmp.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, label %if.then.i.i.i17
 
 if.then.i.i.i17:                                  ; preds = %for.body.i
-  %cmp5.i.i.i = icmp eq i32 %col.sroa.6.0, 0
   %add.i.i.i = add nuw nsw i32 %col.sroa.6.0, 1
   %div1.i.i.i = lshr i32 %add.i.i.i, 1
   %add10.i.i.i = add i32 %div1.i.i.i, %col.sroa.6.0
-  %cond.i.i.i = select i1 %cmp5.i.i.i, i32 16, i32 %add10.i.i.i
-  %cmp.i.i.i.i = icmp ugt i32 %cond.i.i.i, %col.sroa.6.0
+  %cmp.i.i.i.i = icmp ugt i32 %add10.i.i.i, %col.sroa.6.0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i17
@@ -50884,7 +50882,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i17
   %and.i.i.i.i.i = and i64 %25, 281474976710655
   %26 = inttoptr i64 %and.i.i.i.i.i to ptr
   %mul.i.i.i.i = shl nuw nsw i64 %24, 4
-  %conv4.i.i.i.i = zext i32 %cond.i.i.i to i64
+  %conv4.i.i.i.i = zext i32 %add10.i.i.i to i64
   %mul5.i.i.i.i = shl nuw nsw i64 %conv4.i.i.i.i, 4
   %call6.i.i1.i.i21 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %al, ptr noundef %26, i64 noundef %mul.i.i.i.i, i64 noundef %mul5.i.i.i.i)
   %and.i12.i.i.i.i = and i64 %25, -281474976710656
@@ -50895,7 +50893,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i17
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i: ; preds = %for.body.i, %if.then.i.i.i.i, %if.then.i.i.i17
   %col.sroa.9.1 = phi ptr [ %28, %if.then.i.i.i.i ], [ %col.sroa.9.0, %if.then.i.i.i17 ], [ %col.sroa.9.0, %for.body.i ]
-  %col.sroa.6.1 = phi i32 [ %cond.i.i.i, %if.then.i.i.i.i ], [ %col.sroa.6.0, %if.then.i.i.i17 ], [ %col.sroa.6.0, %for.body.i ]
+  %col.sroa.6.1 = phi i32 [ %add10.i.i.i, %if.then.i.i.i.i ], [ %col.sroa.6.0, %if.then.i.i.i17 ], [ %col.sroa.6.0, %for.body.i ]
   %conv.i.i.i18 = fpext float %23 to double
   %29 = ptrtoint ptr %col.sroa.9.1 to i64
   %and.i.i.i.i = and i64 %29, 281474976710655
@@ -53232,12 +53230,10 @@ for.body.i:                                       ; preds = %_ZN9rapidjson12Gene
   br i1 %cmp.not.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %for.body.i
-  %cmp5.i.i.i = icmp eq i32 %val.sroa.6.0, 0
   %add.i.i.i = add nuw nsw i32 %val.sroa.6.0, 1
   %div1.i.i.i = lshr i32 %add.i.i.i, 1
   %add10.i.i.i = add i32 %div1.i.i.i, %val.sroa.6.0
-  %cond.i.i.i = select i1 %cmp5.i.i.i, i32 16, i32 %add10.i.i.i
-  %cmp.i.i.i.i = icmp ugt i32 %cond.i.i.i, %val.sroa.6.0
+  %cmp.i.i.i.i = icmp ugt i32 %add10.i.i.i, %val.sroa.6.0
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
@@ -53245,7 +53241,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %and.i.i.i.i.i = and i64 %6, 281474976710655
   %7 = inttoptr i64 %and.i.i.i.i.i to ptr
   %mul.i.i.i.i = shl nuw nsw i64 %5, 4
-  %conv4.i.i.i.i = zext i32 %cond.i.i.i to i64
+  %conv4.i.i.i.i = zext i32 %add10.i.i.i to i64
   %mul5.i.i.i.i = shl nuw nsw i64 %conv4.i.i.i.i, 4
   %call6.i.i1.i.i38 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %7, i64 noundef %mul.i.i.i.i, i64 noundef %mul5.i.i.i.i)
   %and.i12.i.i.i.i = and i64 %6, -281474976710656
@@ -53256,7 +53252,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i: ; preds = %for.body.i, %if.then.i.i.i.i, %if.then.i.i.i
   %val.sroa.9.1 = phi ptr [ %9, %if.then.i.i.i.i ], [ %val.sroa.9.0, %if.then.i.i.i ], [ %val.sroa.9.0, %for.body.i ]
-  %val.sroa.6.1 = phi i32 [ %cond.i.i.i, %if.then.i.i.i.i ], [ %val.sroa.6.0, %if.then.i.i.i ], [ %val.sroa.6.0, %for.body.i ]
+  %val.sroa.6.1 = phi i32 [ %add10.i.i.i, %if.then.i.i.i.i ], [ %val.sroa.6.0, %if.then.i.i.i ], [ %val.sroa.6.0, %for.body.i ]
   %conv.i.i.i = fpext float %4 to double
   %10 = ptrtoint ptr %val.sroa.9.1 to i64
   %and.i.i.i.i = and i64 %10, 281474976710655
@@ -53364,12 +53360,10 @@ for.body.i52:                                     ; preds = %_ZN9rapidjson12Gene
   br i1 %cmp.not.i.i.i55, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i64, label %if.then.i.i.i56
 
 if.then.i.i.i56:                                  ; preds = %for.body.i52
-  %cmp5.i.i.i57 = icmp eq i32 %val9.sroa.6.0, 0
   %add.i.i.i58 = add nuw nsw i32 %val9.sroa.6.0, 1
   %div1.i.i.i59 = lshr i32 %add.i.i.i58, 1
   %add10.i.i.i60 = add i32 %div1.i.i.i59, %val9.sroa.6.0
-  %cond.i.i.i61 = select i1 %cmp5.i.i.i57, i32 16, i32 %add10.i.i.i60
-  %cmp.i.i.i.i62 = icmp ugt i32 %cond.i.i.i61, %val9.sroa.6.0
+  %cmp.i.i.i.i62 = icmp ugt i32 %add10.i.i.i60, %val9.sroa.6.0
   br i1 %cmp.i.i.i.i62, label %if.then.i.i.i.i73, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i64
 
 if.then.i.i.i.i73:                                ; preds = %if.then.i.i.i56
@@ -53377,7 +53371,7 @@ if.then.i.i.i.i73:                                ; preds = %if.then.i.i.i56
   %and.i.i.i.i.i74 = and i64 %35, 281474976710655
   %36 = inttoptr i64 %and.i.i.i.i.i74 to ptr
   %mul.i.i.i.i76 = shl nuw nsw i64 %34, 4
-  %conv4.i.i.i.i77 = zext i32 %cond.i.i.i61 to i64
+  %conv4.i.i.i.i77 = zext i32 %add10.i.i.i60 to i64
   %mul5.i.i.i.i78 = shl nuw nsw i64 %conv4.i.i.i.i77, 4
   %call6.i.i1.i.i87 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef %36, i64 noundef %mul.i.i.i.i76, i64 noundef %mul5.i.i.i.i78)
   %and.i12.i.i.i.i79 = and i64 %35, -281474976710656
@@ -53388,7 +53382,7 @@ if.then.i.i.i.i73:                                ; preds = %if.then.i.i.i56
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i64: ; preds = %for.body.i52, %if.then.i.i.i.i73, %if.then.i.i.i56
   %val9.sroa.9.1 = phi ptr [ %38, %if.then.i.i.i.i73 ], [ %val9.sroa.9.0, %if.then.i.i.i56 ], [ %val9.sroa.9.0, %for.body.i52 ]
-  %val9.sroa.6.1 = phi i32 [ %cond.i.i.i61, %if.then.i.i.i.i73 ], [ %val9.sroa.6.0, %if.then.i.i.i56 ], [ %val9.sroa.6.0, %for.body.i52 ]
+  %val9.sroa.6.1 = phi i32 [ %add10.i.i.i60, %if.then.i.i.i.i73 ], [ %val9.sroa.6.0, %if.then.i.i.i56 ], [ %val9.sroa.6.0, %for.body.i52 ]
   %conv.i.i.i65 = fpext float %33 to double
   %39 = ptrtoint ptr %val9.sroa.9.1 to i64
   %and.i.i.i.i66 = and i64 %39, 281474976710655
@@ -53496,12 +53490,10 @@ for.body.i130:                                    ; preds = %_ZN9rapidjson12Gene
   br i1 %cmp.not.i.i.i133, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i142, label %if.then.i.i.i134
 
 if.then.i.i.i134:                                 ; preds = %for.body.i130
-  %cmp5.i.i.i135 = icmp eq i32 %val25.sroa.6.0, 0
   %add.i.i.i136 = add nuw nsw i32 %val25.sroa.6.0, 1
   %div1.i.i.i137 = lshr i32 %add.i.i.i136, 1
   %add10.i.i.i138 = add i32 %div1.i.i.i137, %val25.sroa.6.0
-  %cond.i.i.i139 = select i1 %cmp5.i.i.i135, i32 16, i32 %add10.i.i.i138
-  %cmp.i.i.i.i140 = icmp ugt i32 %cond.i.i.i139, %val25.sroa.6.0
+  %cmp.i.i.i.i140 = icmp ugt i32 %add10.i.i.i138, %val25.sroa.6.0
   br i1 %cmp.i.i.i.i140, label %if.then.i.i.i.i151, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i142
 
 if.then.i.i.i.i151:                               ; preds = %if.then.i.i.i134
@@ -53509,7 +53501,7 @@ if.then.i.i.i.i151:                               ; preds = %if.then.i.i.i134
   %and.i.i.i.i.i152 = and i64 %64, 281474976710655
   %65 = inttoptr i64 %and.i.i.i.i.i152 to ptr
   %mul.i.i.i.i154 = shl nuw nsw i64 %63, 4
-  %conv4.i.i.i.i155 = zext i32 %cond.i.i.i139 to i64
+  %conv4.i.i.i.i155 = zext i32 %add10.i.i.i138 to i64
   %mul5.i.i.i.i156 = shl nuw nsw i64 %conv4.i.i.i.i155, 4
   %call6.i.i1.i.i165 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef %65, i64 noundef %mul.i.i.i.i154, i64 noundef %mul5.i.i.i.i156)
   %and.i12.i.i.i.i157 = and i64 %64, -281474976710656
@@ -53520,7 +53512,7 @@ if.then.i.i.i.i151:                               ; preds = %if.then.i.i.i134
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i142: ; preds = %for.body.i130, %if.then.i.i.i.i151, %if.then.i.i.i134
   %val25.sroa.9.1 = phi ptr [ %67, %if.then.i.i.i.i151 ], [ %val25.sroa.9.0, %if.then.i.i.i134 ], [ %val25.sroa.9.0, %for.body.i130 ]
-  %val25.sroa.6.1 = phi i32 [ %cond.i.i.i139, %if.then.i.i.i.i151 ], [ %val25.sroa.6.0, %if.then.i.i.i134 ], [ %val25.sroa.6.0, %for.body.i130 ]
+  %val25.sroa.6.1 = phi i32 [ %add10.i.i.i138, %if.then.i.i.i.i151 ], [ %val25.sroa.6.0, %if.then.i.i.i134 ], [ %val25.sroa.6.0, %for.body.i130 ]
   %conv.i.i.i143 = fpext float %62 to double
   %68 = ptrtoint ptr %val25.sroa.9.1 to i64
   %and.i.i.i.i144 = and i64 %68, 281474976710655
@@ -53628,12 +53620,10 @@ for.body.i209:                                    ; preds = %_ZN9rapidjson12Gene
   br i1 %cmp.not.i.i.i212, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i221, label %if.then.i.i.i213
 
 if.then.i.i.i213:                                 ; preds = %for.body.i209
-  %cmp5.i.i.i214 = icmp eq i32 %val41.sroa.6.0, 0
   %add.i.i.i215 = add nuw nsw i32 %val41.sroa.6.0, 1
   %div1.i.i.i216 = lshr i32 %add.i.i.i215, 1
   %add10.i.i.i217 = add i32 %div1.i.i.i216, %val41.sroa.6.0
-  %cond.i.i.i218 = select i1 %cmp5.i.i.i214, i32 16, i32 %add10.i.i.i217
-  %cmp.i.i.i.i219 = icmp ugt i32 %cond.i.i.i218, %val41.sroa.6.0
+  %cmp.i.i.i.i219 = icmp ugt i32 %add10.i.i.i217, %val41.sroa.6.0
   br i1 %cmp.i.i.i.i219, label %if.then.i.i.i.i230, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i221
 
 if.then.i.i.i.i230:                               ; preds = %if.then.i.i.i213
@@ -53641,7 +53631,7 @@ if.then.i.i.i.i230:                               ; preds = %if.then.i.i.i213
   %and.i.i.i.i.i231 = and i64 %93, 281474976710655
   %94 = inttoptr i64 %and.i.i.i.i.i231 to ptr
   %mul.i.i.i.i233 = shl nuw nsw i64 %92, 4
-  %conv4.i.i.i.i234 = zext i32 %cond.i.i.i218 to i64
+  %conv4.i.i.i.i234 = zext i32 %add10.i.i.i217 to i64
   %mul5.i.i.i.i235 = shl nuw nsw i64 %conv4.i.i.i.i234, 4
   %call6.i.i1.i.i244 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef %94, i64 noundef %mul.i.i.i.i233, i64 noundef %mul5.i.i.i.i235)
   %and.i12.i.i.i.i236 = and i64 %93, -281474976710656
@@ -53651,7 +53641,7 @@ if.then.i.i.i.i230:                               ; preds = %if.then.i.i.i213
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i221
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i221: ; preds = %for.body.i209, %if.then.i.i.i.i230, %if.then.i.i.i213
-  %val41.sroa.6.1 = phi i32 [ %cond.i.i.i218, %if.then.i.i.i.i230 ], [ %val41.sroa.6.0, %if.then.i.i.i213 ], [ %val41.sroa.6.0, %for.body.i209 ]
+  %val41.sroa.6.1 = phi i32 [ %add10.i.i.i217, %if.then.i.i.i.i230 ], [ %val41.sroa.6.0, %if.then.i.i.i213 ], [ %val41.sroa.6.0, %for.body.i209 ]
   %val41.sroa.9.1 = phi ptr [ %96, %if.then.i.i.i.i230 ], [ %val41.sroa.9.0, %if.then.i.i.i213 ], [ %val41.sroa.9.0, %for.body.i209 ]
   %conv.i.i.i222 = fpext float %91 to double
   %97 = ptrtoint ptr %val41.sroa.9.1 to i64
@@ -56567,12 +56557,10 @@ for.body.i:                                       ; preds = %_ZN9rapidjson12Gene
   br i1 %cmp.not.i.i.i35, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i, label %if.then.i.i.i36
 
 if.then.i.i.i36:                                  ; preds = %for.body.i
-  %cmp5.i.i.i37 = icmp eq i32 %val.sroa.6.0, 0
   %add.i.i.i38 = add nuw nsw i32 %val.sroa.6.0, 1
   %div1.i.i.i39 = lshr i32 %add.i.i.i38, 1
   %add10.i.i.i40 = add i32 %div1.i.i.i39, %val.sroa.6.0
-  %cond.i.i.i41 = select i1 %cmp5.i.i.i37, i32 16, i32 %add10.i.i.i40
-  %cmp.i.i.i.i42 = icmp ugt i32 %cond.i.i.i41, %val.sroa.6.0
+  %cmp.i.i.i.i42 = icmp ugt i32 %add10.i.i.i40, %val.sroa.6.0
   br i1 %cmp.i.i.i.i42, label %if.then.i.i.i.i48, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 if.then.i.i.i.i48:                                ; preds = %if.then.i.i.i36
@@ -56580,7 +56568,7 @@ if.then.i.i.i.i48:                                ; preds = %if.then.i.i.i36
   %and.i.i.i.i.i = and i64 %48, 281474976710655
   %49 = inttoptr i64 %and.i.i.i.i.i to ptr
   %mul.i.i.i.i50 = shl nuw nsw i64 %47, 4
-  %conv4.i.i.i.i51 = zext i32 %cond.i.i.i41 to i64
+  %conv4.i.i.i.i51 = zext i32 %add10.i.i.i40 to i64
   %mul5.i.i.i.i52 = shl nuw nsw i64 %conv4.i.i.i.i51, 4
   %call6.i.i1.i.i57 = tail call noundef ptr @_ZN9rapidjson19MemoryPoolAllocatorINS_12CrtAllocatorEE7ReallocEPvmm(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef %49, i64 noundef %mul.i.i.i.i50, i64 noundef %mul5.i.i.i.i52)
   %and.i12.i.i.i.i53 = and i64 %48, -281474976710656
@@ -56590,7 +56578,7 @@ if.then.i.i.i.i48:                                ; preds = %if.then.i.i.i36
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i
 
 _ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEE8PushBackIfEENS_8internal9DisableIfINS8_15RemoveSfinaeTagIPFRNS8_9SfinaeTagENS8_6OrExprINS8_9IsPointerIT_EENS8_14IsGenericValueISF_EEEEEE4TypeERS6_E4TypeESF_RS5_.exit.i: ; preds = %for.body.i, %if.then.i.i.i.i48, %if.then.i.i.i36
-  %val.sroa.6.1 = phi i32 [ %cond.i.i.i41, %if.then.i.i.i.i48 ], [ %val.sroa.6.0, %if.then.i.i.i36 ], [ %val.sroa.6.0, %for.body.i ]
+  %val.sroa.6.1 = phi i32 [ %add10.i.i.i40, %if.then.i.i.i.i48 ], [ %val.sroa.6.0, %if.then.i.i.i36 ], [ %val.sroa.6.0, %for.body.i ]
   %val.sroa.9.1 = phi ptr [ %51, %if.then.i.i.i.i48 ], [ %val.sroa.9.0, %if.then.i.i.i36 ], [ %val.sroa.9.0, %for.body.i ]
   %conv.i.i.i43 = fpext float %46 to double
   %52 = ptrtoint ptr %val.sroa.9.1 to i64
@@ -66265,7 +66253,7 @@ invoke.cont141:                                   ; preds = %if.else18.i99, %if.
   %nb1.1 = phi float [ %nb1.0136, %if.else18.i99 ], [ %fneg.i28.y.i, %if.then.i92 ], [ %fneg.i.x49.i, %if.then11.i97 ], [ %fneg.i31.z52.i, %if.then22.i101 ]
   %na1.1 = phi float [ %na1.0137, %if.else18.i99 ], [ %fneg.i.x.i, %if.then.i92 ], [ %fneg.i31.z.i, %if.then11.i97 ], [ %fneg.i28.y51.i, %if.then22.i101 ]
   %conv144 = zext nneg i8 %ni1.1 to i64
-  %conv145 = sext i8 %ni0.2 to i64
+  %conv145 = zext nneg i8 %ni0.2 to i64
   %sub = sub nsw i64 %conv144, %conv145
   %37 = load i64, ptr %m_size.i, align 8
   %38 = load i64, ptr %m_allocated.i, align 8
@@ -66312,7 +66300,7 @@ invoke.cont147:                                   ; preds = %if.end14.i, %entry.
   %arrayidx.i105 = getelementptr inbounds i64, ptr %44, i64 %43
   store i64 %sub, ptr %arrayidx.i105, align 8
   %cmp151.not.unshifted = xor i8 %ni1.1, %ni0.2
-  %cmp151.not = icmp ult i8 %cmp151.not.unshifted, 2
+  %cmp151.not = icmp samesign ult i8 %cmp151.not.unshifted, 2
   %rnb0.0 = select i1 %cmp151.not, float %div104, float 0.000000e+00
   %rna0.0 = select i1 %cmp151.not, float %div, float 0.000000e+00
   %sub154 = fsub float %na1.1, %rna0.0
