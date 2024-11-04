@@ -36022,11 +36022,11 @@ define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16l
 entry:
   %div.i63 = and i64 %length, -32
   %cmp.i70.not = icmp eq i64 %div.i63, 0
-  br i1 %cmp.i70.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %if.end.i
+  br i1 %cmp.i70.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, label %for.body.i
 
-if.end.i:                                         ; preds = %entry, %if.end.i
-  %pos.i.072 = phi i64 [ %add4.i, %if.end.i ], [ 0, %entry ]
-  %count.i.071 = phi i64 [ %add.i, %if.end.i ], [ 0, %entry ]
+for.body.i:                                       ; preds = %entry, %for.body.i
+  %pos.i.072 = phi i64 [ %add4.i, %for.body.i ], [ 0, %entry ]
+  %count.i.071 = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.072
   %0 = load <16 x i16>, ptr %add.ptr.i, align 1, !noalias !507
   %add.ptr.i3 = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -36052,11 +36052,11 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %add.i = add i64 %div3.i68, %count.i.071
   %add4.i = add nuw i64 %pos.i.072, 32
   %cmp.i = icmp ult i64 %add4.i, %div.i63
-  br i1 %cmp.i, label %if.end.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, !llvm.loop !513
+  br i1 %cmp.i, label %for.body.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit, !llvm.loop !513
 
-_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %if.end.i, %entry
-  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i, %if.end.i ]
-  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %if.end.i ]
+_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %for.body.i, %entry
+  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
+  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %for.body.i ]
   %add.ptr5.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
   %cmp6.not.i = icmp eq i64 %length, %pos.i.0.lcssa
@@ -36086,11 +36086,11 @@ define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation13count_utf16b
 entry:
   %div.i63 = and i64 %length, -32
   %cmp.i70.not = icmp eq i64 %div.i63, 0
-  br i1 %cmp.i70.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %if.end.i
+  br i1 %cmp.i70.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, label %for.body.i
 
-if.end.i:                                         ; preds = %entry, %if.end.i
-  %pos.i.072 = phi i64 [ %add4.i, %if.end.i ], [ 0, %entry ]
-  %count.i.071 = phi i64 [ %add.i, %if.end.i ], [ 0, %entry ]
+for.body.i:                                       ; preds = %entry, %for.body.i
+  %pos.i.072 = phi i64 [ %add4.i, %for.body.i ], [ 0, %entry ]
+  %count.i.071 = phi i64 [ %add.i, %for.body.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.072
   %0 = load <32 x i8>, ptr %add.ptr.i, align 1, !noalias !514
   %add.ptr.i3 = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -36120,11 +36120,11 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %add.i = add i64 %div3.i68, %count.i.071
   %add4.i = add nuw i64 %pos.i.072, 32
   %cmp.i = icmp ult i64 %add4.i, %div.i63
-  br i1 %cmp.i, label %if.end.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, !llvm.loop !520
+  br i1 %cmp.i, label %for.body.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit, !llvm.loop !520
 
-_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %if.end.i, %entry
-  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i, %if.end.i ]
-  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %if.end.i ]
+_ZN7simdutf7haswell12_GLOBAL__N_15utf1617count_code_pointsILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %for.body.i, %entry
+  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i, %for.body.i ]
+  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i, %for.body.i ]
   %add.ptr5.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub.i = sub i64 %length, %pos.i.0.lcssa
   %cmp6.not.i = icmp eq i64 %length, %pos.i.0.lcssa
@@ -36274,11 +36274,11 @@ define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_
 entry:
   %div.i122 = and i64 %length, -32
   %cmp.i132.not = icmp eq i64 %div.i122, 0
-  br i1 %cmp.i132.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %if.end.i
+  br i1 %cmp.i132.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %for.body.i
 
-if.end.i:                                         ; preds = %entry, %if.end.i
-  %pos.i.0134 = phi i64 [ %add20.i, %if.end.i ], [ 0, %entry ]
-  %count.i.0133 = phi i64 [ %add19.i, %if.end.i ], [ 0, %entry ]
+for.body.i:                                       ; preds = %entry, %for.body.i
+  %pos.i.0134 = phi i64 [ %add20.i, %for.body.i ], [ 0, %entry ]
+  %count.i.0133 = phi i64 [ %add19.i, %for.body.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0134
   %0 = load <16 x i16>, ptr %add.ptr.i, align 1, !noalias !534
   %add.ptr.i18 = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -36347,11 +36347,11 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %add19.i = add i64 %add18.i, %mul15.i
   %add20.i = add nuw i64 %pos.i.0134, 32
   %cmp.i = icmp ult i64 %add20.i, %div.i122
-  br i1 %cmp.i, label %if.end.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, !llvm.loop !540
+  br i1 %cmp.i, label %for.body.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, !llvm.loop !540
 
-_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %if.end.i, %entry
-  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add19.i, %if.end.i ]
-  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %if.end.i ]
+_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %for.body.i, %entry
+  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add19.i, %for.body.i ]
+  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %for.body.i ]
   %add.ptr21.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub22.i = sub i64 %length, %pos.i.0.lcssa
   %cmp11.not.i = icmp eq i64 %length, %pos.i.0.lcssa
@@ -36387,11 +36387,11 @@ define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation24utf8_length_
 entry:
   %div.i122 = and i64 %length, -32
   %cmp.i132.not = icmp eq i64 %div.i122, 0
-  br i1 %cmp.i132.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %if.end.i
+  br i1 %cmp.i132.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %for.body.i
 
-if.end.i:                                         ; preds = %entry, %if.end.i
-  %pos.i.0134 = phi i64 [ %add20.i, %if.end.i ], [ 0, %entry ]
-  %count.i.0133 = phi i64 [ %add19.i, %if.end.i ], [ 0, %entry ]
+for.body.i:                                       ; preds = %entry, %for.body.i
+  %pos.i.0134 = phi i64 [ %add20.i, %for.body.i ], [ 0, %entry ]
+  %count.i.0133 = phi i64 [ %add19.i, %for.body.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0134
   %0 = load <32 x i8>, ptr %add.ptr.i, align 1, !noalias !541
   %add.ptr.i18 = getelementptr inbounds i8, ptr %add.ptr.i, i64 32
@@ -36464,11 +36464,11 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %add19.i = add i64 %add18.i, %mul15.i
   %add20.i = add nuw i64 %pos.i.0134, 32
   %cmp.i = icmp ult i64 %add20.i, %div.i122
-  br i1 %cmp.i, label %if.end.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, !llvm.loop !547
+  br i1 %cmp.i, label %for.body.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, !llvm.loop !547
 
-_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %if.end.i, %entry
-  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add19.i, %if.end.i ]
-  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %if.end.i ]
+_ZN7simdutf7haswell12_GLOBAL__N_15utf1622utf8_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %for.body.i, %entry
+  %count.i.0.lcssa = phi i64 [ 0, %entry ], [ %add19.i, %for.body.i ]
+  %pos.i.0.lcssa = phi i64 [ 0, %entry ], [ %add20.i, %for.body.i ]
   %add.ptr21.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.0.lcssa
   %sub22.i = sub i64 %length, %pos.i.0.lcssa
   %cmp11.not.i = icmp eq i64 %length, %pos.i.0.lcssa
@@ -36505,11 +36505,11 @@ define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length
 entry:
   %div.i.i63 = and i64 %length, -32
   %cmp.i.i69.not = icmp eq i64 %div.i.i63, 0
-  br i1 %cmp.i.i69.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %if.end.i.i
+  br i1 %cmp.i.i69.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, label %for.body.i.i
 
-if.end.i.i:                                       ; preds = %entry, %if.end.i.i
-  %pos.i.i.071 = phi i64 [ %add4.i.i, %if.end.i.i ], [ 0, %entry ]
-  %count.i.i.070 = phi i64 [ %add.i.i, %if.end.i.i ], [ 0, %entry ]
+for.body.i.i:                                     ; preds = %entry, %for.body.i.i
+  %pos.i.i.071 = phi i64 [ %add4.i.i, %for.body.i.i ], [ 0, %entry ]
+  %count.i.i.070 = phi i64 [ %add.i.i, %for.body.i.i ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.071
   %0 = load <16 x i16>, ptr %add.ptr.i.i, align 1, !noalias !548
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
@@ -36535,11 +36535,11 @@ if.end.i.i:                                       ; preds = %entry, %if.end.i.i
   %add.i.i = add i64 %div3.i.i68, %count.i.i.070
   %add4.i.i = add nuw i64 %pos.i.i.071, 32
   %cmp.i.i = icmp ult i64 %add4.i.i, %div.i.i63
-  br i1 %cmp.i.i, label %if.end.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, !llvm.loop !513
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit, !llvm.loop !513
 
-_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %if.end.i.i, %entry
-  %count.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i.i, %if.end.i.i ]
-  %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %if.end.i.i ]
+_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE0EEEmPKDsm.exit: ; preds = %for.body.i.i, %entry
+  %count.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i.i, %for.body.i.i ]
+  %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %for.body.i.i ]
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.0.lcssa
   %sub.i.i = sub i64 %length, %pos.i.i.0.lcssa
   %cmp6.not.i = icmp eq i64 %length, %pos.i.i.0.lcssa
@@ -36569,11 +36569,11 @@ define dso_local noundef i64 @_ZNK7simdutf7haswell14implementation25utf32_length
 entry:
   %div.i.i63 = and i64 %length, -32
   %cmp.i.i69.not = icmp eq i64 %div.i.i63, 0
-  br i1 %cmp.i.i69.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %if.end.i.i
+  br i1 %cmp.i.i69.not, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, label %for.body.i.i
 
-if.end.i.i:                                       ; preds = %entry, %if.end.i.i
-  %pos.i.i.071 = phi i64 [ %add4.i.i, %if.end.i.i ], [ 0, %entry ]
-  %count.i.i.070 = phi i64 [ %add.i.i, %if.end.i.i ], [ 0, %entry ]
+for.body.i.i:                                     ; preds = %entry, %for.body.i.i
+  %pos.i.i.071 = phi i64 [ %add4.i.i, %for.body.i.i ], [ 0, %entry ]
+  %count.i.i.070 = phi i64 [ %add.i.i, %for.body.i.i ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.071
   %0 = load <32 x i8>, ptr %add.ptr.i.i, align 1, !noalias !554
   %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 32
@@ -36603,11 +36603,11 @@ if.end.i.i:                                       ; preds = %entry, %if.end.i.i
   %add.i.i = add i64 %div3.i.i68, %count.i.i.070
   %add4.i.i = add nuw i64 %pos.i.i.071, 32
   %cmp.i.i = icmp ult i64 %add4.i.i, %div.i.i63
-  br i1 %cmp.i.i, label %if.end.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, !llvm.loop !520
+  br i1 %cmp.i.i, label %for.body.i.i, label %_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit, !llvm.loop !520
 
-_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %if.end.i.i, %entry
-  %count.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i.i, %if.end.i.i ]
-  %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %if.end.i.i ]
+_ZN7simdutf7haswell12_GLOBAL__N_15utf1623utf32_length_from_utf16ILNS_10endiannessE1EEEmPKDsm.exit: ; preds = %for.body.i.i, %entry
+  %count.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add.i.i, %for.body.i.i ]
+  %pos.i.i.0.lcssa = phi i64 [ 0, %entry ], [ %add4.i.i, %for.body.i.i ]
   %add.ptr5.i.i = getelementptr inbounds i16, ptr %input, i64 %pos.i.i.0.lcssa
   %sub.i.i = sub i64 %length, %pos.i.i.0.lcssa
   %cmp6.not.i = icmp eq i64 %length, %pos.i.i.0.lcssa

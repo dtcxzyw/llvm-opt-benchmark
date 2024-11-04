@@ -1045,156 +1045,171 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
 
 12:                                               ; preds = %2
   %13 = load <8 x i32>, ptr %0, align 1
-  %14 = shufflevector <8 x i32> %13, <8 x i32> poison, <8 x i32> <i32 0, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6>
-  %15 = bitcast <8 x i32> %14 to <4 x i64>
-  br label %16
+  %14 = shufflevector <8 x i32> %13, <8 x i32> poison, <8 x i32> <i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison>
+  %15 = bitcast <8 x i32> %14 to <32 x i8>
+  %16 = shufflevector <32 x i8> %15, <32 x i8> poison, <32 x i32> <i32 5, i32 4, i32 6, i32 5, i32 8, i32 7, i32 9, i32 8, i32 11, i32 10, i32 12, i32 11, i32 14, i32 13, i32 15, i32 14, i32 17, i32 16, i32 18, i32 17, i32 20, i32 19, i32 21, i32 20, i32 23, i32 22, i32 24, i32 23, i32 26, i32 25, i32 27, i32 26>
+  %17 = bitcast <32 x i8> %16 to <16 x i16>
+  %18 = and <16 x i16> %17, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
+  %19 = tail call <16 x i16> @llvm.x86.avx2.pmulhu.w(<16 x i16> %18, <16 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
+  %20 = and <16 x i16> %17, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
+  %21 = shl <16 x i16> %20, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
+  %22 = or <16 x i16> %21, %19
+  %23 = bitcast <16 x i16> %22 to <32 x i8>
+  %24 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %23, <32 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
+  %25 = icmp sgt <32 x i8> %23, <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25>
+  %.neg.i113 = zext <32 x i1> %25 to <32 x i8>
+  %26 = add nuw <32 x i8> %24, %.neg.i113
+  %27 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %26)
+  %28 = add <32 x i8> %27, %23
+  store <32 x i8> %28, ptr %10, align 1
+  %29 = getelementptr inbounds i8, ptr %0, i64 24
+  %30 = getelementptr inbounds i8, ptr %5, i64 56
+  %31 = add i64 %1, -24
+  %32 = icmp ult i64 %31, 28
+  br i1 %32, label %.lr.ph120.preheader, label %.lr.ph
 
-16:                                               ; preds = %35, %12
-  %.1104 = phi ptr [ %0, %12 ], [ %31, %35 ]
-  %.1102 = phi ptr [ %10, %12 ], [ %32, %35 ]
-  %.1100 = phi i64 [ %1, %12 ], [ %33, %35 ]
-  %.098 = phi <4 x i64> [ %15, %12 ], [ %37, %35 ]
-  %17 = bitcast <4 x i64> %.098 to <32 x i8>
-  %18 = shufflevector <32 x i8> %17, <32 x i8> poison, <32 x i32> <i32 5, i32 4, i32 6, i32 5, i32 8, i32 7, i32 9, i32 8, i32 11, i32 10, i32 12, i32 11, i32 14, i32 13, i32 15, i32 14, i32 17, i32 16, i32 18, i32 17, i32 20, i32 19, i32 21, i32 20, i32 23, i32 22, i32 24, i32 23, i32 26, i32 25, i32 27, i32 26>
-  %19 = bitcast <32 x i8> %18 to <16 x i16>
-  %20 = and <16 x i16> %19, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
-  %21 = tail call <16 x i16> @llvm.x86.avx2.pmulhu.w(<16 x i16> %20, <16 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
-  %22 = and <16 x i16> %19, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
-  %23 = shl <16 x i16> %22, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
-  %24 = or <16 x i16> %23, %21
-  %25 = bitcast <16 x i16> %24 to <32 x i8>
-  %26 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %25, <32 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
-  %27 = icmp sgt <32 x i8> %25, <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25>
-  %.neg.i = zext <32 x i1> %27 to <32 x i8>
-  %28 = add nuw <32 x i8> %26, %.neg.i
-  %29 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %28)
-  %30 = add <32 x i8> %29, %25
-  store <32 x i8> %30, ptr %.1102, align 1
-  %31 = getelementptr inbounds i8, ptr %.1104, i64 24
-  %32 = getelementptr inbounds i8, ptr %.1102, i64 32
-  %33 = add i64 %.1100, -24
-  %34 = icmp ult i64 %33, 28
-  br i1 %34, label %.lr.ph.preheader, label %35
-
-35:                                               ; preds = %16
-  %36 = getelementptr inbounds i8, ptr %.1104, i64 20
-  %37 = load <4 x i64>, ptr %36, align 1
-  br label %16
+.lr.ph:                                           ; preds = %12, %.lr.ph
+  %33 = phi i64 [ %53, %.lr.ph ], [ %31, %12 ]
+  %34 = phi ptr [ %52, %.lr.ph ], [ %30, %12 ]
+  %35 = phi ptr [ %51, %.lr.ph ], [ %29, %12 ]
+  %.1104114 = phi ptr [ %35, %.lr.ph ], [ %0, %12 ]
+  %36 = getelementptr inbounds i8, ptr %.1104114, i64 20
+  %37 = load <32 x i8>, ptr %36, align 1
+  %38 = shufflevector <32 x i8> %37, <32 x i8> poison, <32 x i32> <i32 5, i32 4, i32 6, i32 5, i32 8, i32 7, i32 9, i32 8, i32 11, i32 10, i32 12, i32 11, i32 14, i32 13, i32 15, i32 14, i32 17, i32 16, i32 18, i32 17, i32 20, i32 19, i32 21, i32 20, i32 23, i32 22, i32 24, i32 23, i32 26, i32 25, i32 27, i32 26>
+  %39 = bitcast <32 x i8> %38 to <16 x i16>
+  %40 = and <16 x i16> %39, <i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032, i16 -1024, i16 4032>
+  %41 = tail call <16 x i16> @llvm.x86.avx2.pmulhu.w(<16 x i16> %40, <16 x i16> <i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024, i16 64, i16 1024>)
+  %42 = and <16 x i16> %39, <i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63, i16 1008, i16 63>
+  %43 = shl <16 x i16> %42, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
+  %44 = or <16 x i16> %43, %41
+  %45 = bitcast <16 x i16> %44 to <32 x i8>
+  %46 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %45, <32 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
+  %47 = icmp sgt <32 x i8> %45, <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25>
+  %.neg.i = zext <32 x i1> %47 to <32 x i8>
+  %48 = add nuw <32 x i8> %46, %.neg.i
+  %49 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %48)
+  %50 = add <32 x i8> %49, %45
+  store <32 x i8> %50, ptr %34, align 1
+  %51 = getelementptr inbounds i8, ptr %35, i64 24
+  %52 = getelementptr inbounds i8, ptr %34, i64 32
+  %53 = add i64 %33, -24
+  %54 = icmp ult i64 %53, 28
+  br i1 %54, label %.lr.ph120.preheader, label %.lr.ph
 
 .loopexit:                                        ; preds = %2
-  %38 = icmp samesign ugt i64 %1, 2
-  br i1 %38, label %.lr.ph.preheader, label %._crit_edge
+  %55 = icmp samesign ugt i64 %1, 2
+  br i1 %55, label %.lr.ph120.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %16, %.loopexit
-  %.0115.ph = phi ptr [ %0, %.loopexit ], [ %31, %16 ]
-  %.096114.ph = phi i64 [ %1, %.loopexit ], [ %33, %16 ]
-  %.097113.ph = phi ptr [ %10, %.loopexit ], [ %32, %16 ]
-  br label %.lr.ph
+.lr.ph120.preheader:                              ; preds = %.lr.ph, %12, %.loopexit
+  %.0119.ph = phi ptr [ %29, %12 ], [ %0, %.loopexit ], [ %51, %.lr.ph ]
+  %.096118.ph = phi i64 [ %31, %12 ], [ %1, %.loopexit ], [ %53, %.lr.ph ]
+  %.097117.ph = phi ptr [ %30, %12 ], [ %10, %.loopexit ], [ %52, %.lr.ph ]
+  br label %.lr.ph120
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0115 = phi ptr [ %70, %.lr.ph ], [ %.0115.ph, %.lr.ph.preheader ]
-  %.096114 = phi i64 [ %71, %.lr.ph ], [ %.096114.ph, %.lr.ph.preheader ]
-  %.097113 = phi ptr [ %69, %.lr.ph ], [ %.097113.ph, %.lr.ph.preheader ]
-  %39 = load i8, ptr %.0115, align 1
-  %40 = lshr i8 %39, 2
-  %41 = zext nneg i8 %40 to i64
-  %42 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %41
-  %43 = load i8, ptr %42, align 1
-  %44 = getelementptr inbounds i8, ptr %.097113, i64 1
-  store i8 %43, ptr %.097113, align 1
-  %45 = shl i8 %39, 4
-  %46 = and i8 %45, 48
-  %47 = getelementptr inbounds i8, ptr %.0115, i64 1
-  %48 = load i8, ptr %47, align 1
-  %49 = lshr i8 %48, 4
-  %50 = or disjoint i8 %49, %46
-  %51 = zext nneg i8 %50 to i64
-  %52 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = getelementptr inbounds i8, ptr %.097113, i64 2
-  store i8 %53, ptr %44, align 1
-  %55 = shl i8 %48, 2
-  %56 = and i8 %55, 60
-  %57 = getelementptr inbounds i8, ptr %.0115, i64 2
-  %58 = load i8, ptr %57, align 1
-  %59 = lshr i8 %58, 6
-  %60 = or disjoint i8 %59, %56
-  %61 = zext nneg i8 %60 to i64
-  %62 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %61
-  %63 = load i8, ptr %62, align 1
-  %64 = getelementptr inbounds i8, ptr %.097113, i64 3
-  store i8 %63, ptr %54, align 1
-  %65 = and i8 %58, 63
-  %66 = zext nneg i8 %65 to i64
-  %67 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %66
-  %68 = load i8, ptr %67, align 1
-  %69 = getelementptr inbounds i8, ptr %.097113, i64 4
-  store i8 %68, ptr %64, align 1
-  %70 = getelementptr inbounds i8, ptr %.0115, i64 3
-  %71 = add nsw i64 %.096114, -3
-  %72 = icmp ugt i64 %71, 2
-  br i1 %72, label %.lr.ph, label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph, %.loopexit
-  %.097.lcssa = phi ptr [ %10, %.loopexit ], [ %69, %.lr.ph ]
-  %.096.lcssa = phi i64 [ %1, %.loopexit ], [ %71, %.lr.ph ]
-  %.0.lcssa = phi ptr [ %0, %.loopexit ], [ %70, %.lr.ph ]
-  %.not = icmp eq i64 %.096.lcssa, 0
-  br i1 %.not, label %106, label %73
-
-73:                                               ; preds = %._crit_edge
-  %74 = load i8, ptr %.0.lcssa, align 1
-  %75 = lshr i8 %74, 2
-  %76 = zext nneg i8 %75 to i64
-  %77 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %76
-  %78 = load i8, ptr %77, align 1
-  %79 = getelementptr inbounds i8, ptr %.097.lcssa, i64 1
-  store i8 %78, ptr %.097.lcssa, align 1
-  %80 = icmp eq i64 %.096.lcssa, 2
-  %81 = shl i8 %74, 4
-  %82 = and i8 %81, 48
-  br i1 %80, label %83, label %99
-
-83:                                               ; preds = %73
-  %84 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
+  %.0119 = phi ptr [ %87, %.lr.ph120 ], [ %.0119.ph, %.lr.ph120.preheader ]
+  %.096118 = phi i64 [ %88, %.lr.ph120 ], [ %.096118.ph, %.lr.ph120.preheader ]
+  %.097117 = phi ptr [ %86, %.lr.ph120 ], [ %.097117.ph, %.lr.ph120.preheader ]
+  %56 = load i8, ptr %.0119, align 1
+  %57 = lshr i8 %56, 2
+  %58 = zext nneg i8 %57 to i64
+  %59 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = getelementptr inbounds i8, ptr %.097117, i64 1
+  store i8 %60, ptr %.097117, align 1
+  %62 = shl i8 %56, 4
+  %63 = and i8 %62, 48
+  %64 = getelementptr inbounds i8, ptr %.0119, i64 1
+  %65 = load i8, ptr %64, align 1
+  %66 = lshr i8 %65, 4
+  %67 = or disjoint i8 %66, %63
+  %68 = zext nneg i8 %67 to i64
+  %69 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1
+  %71 = getelementptr inbounds i8, ptr %.097117, i64 2
+  store i8 %70, ptr %61, align 1
+  %72 = shl i8 %65, 2
+  %73 = and i8 %72, 60
+  %74 = getelementptr inbounds i8, ptr %.0119, i64 2
+  %75 = load i8, ptr %74, align 1
+  %76 = lshr i8 %75, 6
+  %77 = or disjoint i8 %76, %73
+  %78 = zext nneg i8 %77 to i64
+  %79 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %78
+  %80 = load i8, ptr %79, align 1
+  %81 = getelementptr inbounds i8, ptr %.097117, i64 3
+  store i8 %80, ptr %71, align 1
+  %82 = and i8 %75, 63
+  %83 = zext nneg i8 %82 to i64
+  %84 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %83
   %85 = load i8, ptr %84, align 1
-  %86 = lshr i8 %85, 4
-  %87 = or disjoint i8 %86, %82
-  %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %88
-  %90 = load i8, ptr %89, align 1
-  %91 = getelementptr inbounds i8, ptr %.097.lcssa, i64 2
-  store i8 %90, ptr %79, align 1
-  %92 = shl i8 %85, 2
-  %93 = and i8 %92, 60
-  %94 = zext nneg i8 %93 to i64
-  %95 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %94
-  %96 = load i8, ptr %95, align 4
-  %97 = getelementptr inbounds i8, ptr %.097.lcssa, i64 3
-  store i8 %96, ptr %91, align 1
-  %98 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
-  store i8 61, ptr %97, align 1
-  br label %106
+  %86 = getelementptr inbounds i8, ptr %.097117, i64 4
+  store i8 %85, ptr %81, align 1
+  %87 = getelementptr inbounds i8, ptr %.0119, i64 3
+  %88 = add nsw i64 %.096118, -3
+  %89 = icmp ugt i64 %88, 2
+  br i1 %89, label %.lr.ph120, label %._crit_edge
 
-99:                                               ; preds = %73
-  %100 = zext nneg i8 %82 to i64
-  %101 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %100
-  %102 = load i8, ptr %101, align 16
-  %103 = getelementptr inbounds i8, ptr %.097.lcssa, i64 2
-  store i8 %102, ptr %79, align 1
-  %104 = getelementptr inbounds i8, ptr %.097.lcssa, i64 3
-  store i8 61, ptr %103, align 1
-  %105 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
-  store i8 61, ptr %104, align 1
-  br label %106
+._crit_edge:                                      ; preds = %.lr.ph120, %.loopexit
+  %.097.lcssa = phi ptr [ %10, %.loopexit ], [ %86, %.lr.ph120 ]
+  %.096.lcssa = phi i64 [ %1, %.loopexit ], [ %88, %.lr.ph120 ]
+  %.0.lcssa = phi ptr [ %0, %.loopexit ], [ %87, %.lr.ph120 ]
+  %.not = icmp eq i64 %.096.lcssa, 0
+  br i1 %.not, label %123, label %90
 
-106:                                              ; preds = %83, %99, %._crit_edge
-  %.1 = phi ptr [ %98, %83 ], [ %105, %99 ], [ %.097.lcssa, %._crit_edge ]
+90:                                               ; preds = %._crit_edge
+  %91 = load i8, ptr %.0.lcssa, align 1
+  %92 = lshr i8 %91, 2
+  %93 = zext nneg i8 %92 to i64
+  %94 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %93
+  %95 = load i8, ptr %94, align 1
+  %96 = getelementptr inbounds i8, ptr %.097.lcssa, i64 1
+  store i8 %95, ptr %.097.lcssa, align 1
+  %97 = icmp eq i64 %.096.lcssa, 2
+  %98 = shl i8 %91, 4
+  %99 = and i8 %98, 48
+  br i1 %97, label %100, label %116
+
+100:                                              ; preds = %90
+  %101 = getelementptr inbounds i8, ptr %.0.lcssa, i64 1
+  %102 = load i8, ptr %101, align 1
+  %103 = lshr i8 %102, 4
+  %104 = or disjoint i8 %103, %99
+  %105 = zext nneg i8 %104 to i64
+  %106 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %105
+  %107 = load i8, ptr %106, align 1
+  %108 = getelementptr inbounds i8, ptr %.097.lcssa, i64 2
+  store i8 %107, ptr %96, align 1
+  %109 = shl i8 %102, 2
+  %110 = and i8 %109, 60
+  %111 = zext nneg i8 %110 to i64
+  %112 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %111
+  %113 = load i8, ptr %112, align 4
+  %114 = getelementptr inbounds i8, ptr %.097.lcssa, i64 3
+  store i8 %113, ptr %108, align 1
+  %115 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
+  store i8 61, ptr %114, align 1
+  br label %123
+
+116:                                              ; preds = %90
+  %117 = zext nneg i8 %99 to i64
+  %118 = getelementptr inbounds [65 x i8], ptr @base64_table, i64 0, i64 %117
+  %119 = load i8, ptr %118, align 16
+  %120 = getelementptr inbounds i8, ptr %.097.lcssa, i64 2
+  store i8 %119, ptr %96, align 1
+  %121 = getelementptr inbounds i8, ptr %.097.lcssa, i64 3
+  store i8 61, ptr %120, align 1
+  %122 = getelementptr inbounds i8, ptr %.097.lcssa, i64 4
+  store i8 61, ptr %121, align 1
+  br label %123
+
+123:                                              ; preds = %100, %116, %._crit_edge
+  %.1 = phi ptr [ %115, %100 ], [ %122, %116 ], [ %.097.lcssa, %._crit_edge ]
   store i8 0, ptr %.1, align 1
-  %107 = ptrtoint ptr %.1 to i64
-  %108 = ptrtoint ptr %10 to i64
-  %109 = sub i64 %107, %108
-  store i64 %109, ptr %9, align 8
+  %124 = ptrtoint ptr %.1 to i64
+  %125 = ptrtoint ptr %10 to i64
+  %126 = sub i64 %124, %125
+  store i64 %126, ptr %9, align 8
   ret ptr %5
 }
 

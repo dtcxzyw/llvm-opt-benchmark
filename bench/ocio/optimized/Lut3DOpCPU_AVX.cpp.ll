@@ -77,28 +77,20 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shuffle.i.i.i.i = shufflevector <8 x float> %2, <8 x float> %3, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i16.i.i.i = shufflevector <8 x float> %0, <8 x float> %1, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %shuffle.i13.i.i.i = shufflevector <8 x float> %2, <8 x float> %3, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %4 = bitcast <8 x float> %shuffle.i10.i.i.i to <4 x double>
-  %5 = bitcast <8 x float> %shuffle.i.i.i.i to <4 x double>
-  %shuffle.i.i.i.i.i = shufflevector <4 x double> %4, <4 x double> %5, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i9.i.i.i = shufflevector <4 x double> %4, <4 x double> %5, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %6 = bitcast <8 x float> %shuffle.i16.i.i.i to <4 x double>
-  %7 = bitcast <8 x float> %shuffle.i13.i.i.i to <4 x double>
-  %shuffle.i.i10.i.i.i = shufflevector <4 x double> %6, <4 x double> %7, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i11.i.i.i = shufflevector <4 x double> %6, <4 x double> %7, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %8 = bitcast <4 x double> %shuffle.i.i.i.i.i to <8 x float>
-  %mul.i116.i = fmul <8 x float> %vecinit7.i.i, %8
-  %9 = bitcast <4 x double> %shuffle.i.i9.i.i.i to <8 x float>
-  %mul.i113.i = fmul <8 x float> %vecinit7.i.i, %9
-  %10 = bitcast <4 x double> %shuffle.i.i10.i.i.i to <8 x float>
-  %mul.i110.i = fmul <8 x float> %vecinit7.i.i, %10
-  %11 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i116.i, <8 x float> zeroinitializer)
-  %12 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i113.i, <8 x float> zeroinitializer)
-  %13 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i110.i, <8 x float> zeroinitializer)
-  %14 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %11, <8 x float> %vecinit7.i.i)
-  %15 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %12, <8 x float> %vecinit7.i.i)
-  %16 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %13, <8 x float> %vecinit7.i.i)
-  %17 = bitcast <4 x double> %shuffle.i.i11.i.i.i to <8 x float>
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias align 32 %ref.tmp.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %14, <8 x float> noundef %15, <8 x float> noundef %16, <8 x float> noundef %17)
+  %4 = shufflevector <8 x float> %shuffle.i10.i.i.i, <8 x float> %shuffle.i.i.i.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %5 = shufflevector <8 x float> %shuffle.i10.i.i.i, <8 x float> %shuffle.i.i.i.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %6 = shufflevector <8 x float> %shuffle.i16.i.i.i, <8 x float> %shuffle.i13.i.i.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %7 = shufflevector <8 x float> %shuffle.i16.i.i.i, <8 x float> %shuffle.i13.i.i.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %mul.i116.i = fmul <8 x float> %vecinit7.i.i, %4
+  %mul.i113.i = fmul <8 x float> %vecinit7.i.i, %5
+  %mul.i110.i = fmul <8 x float> %vecinit7.i.i, %6
+  %8 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i116.i, <8 x float> zeroinitializer)
+  %9 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i113.i, <8 x float> zeroinitializer)
+  %10 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i110.i, <8 x float> zeroinitializer)
+  %11 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %8, <8 x float> %vecinit7.i.i)
+  %12 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %9, <8 x float> %vecinit7.i.i)
+  %13 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %10, <8 x float> %vecinit7.i.i)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias align 32 %ref.tmp.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %11, <8 x float> noundef %12, <8 x float> noundef %13, <8 x float> noundef %7)
   %c.sroa.0.0.copyload.i = load <8 x float>, ptr %ref.tmp.i, align 32
   %c.sroa.4.0.copyload.i = load <8 x float>, ptr %c.sroa.4.0.ref.tmp.sroa_idx.i, align 32
   %c.sroa.6.0.copyload.i = load <8 x float>, ptr %c.sroa.6.0.ref.tmp.sroa_idx.i, align 32
@@ -107,21 +99,17 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %shuffle.i.i.i79.i = shufflevector <8 x float> %c.sroa.6.0.copyload.i, <8 x float> %c.sroa.8.0.copyload.i, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i16.i.i80.i = shufflevector <8 x float> %c.sroa.0.0.copyload.i, <8 x float> %c.sroa.4.0.copyload.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %shuffle.i13.i.i81.i = shufflevector <8 x float> %c.sroa.6.0.copyload.i, <8 x float> %c.sroa.8.0.copyload.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %18 = bitcast <8 x float> %shuffle.i10.i.i78.i to <4 x double>
-  %19 = bitcast <8 x float> %shuffle.i.i.i79.i to <4 x double>
-  %shuffle.i.i.i.i82.i = shufflevector <4 x double> %18, <4 x double> %19, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i9.i.i83.i = shufflevector <4 x double> %18, <4 x double> %19, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %20 = bitcast <8 x float> %shuffle.i16.i.i80.i to <4 x double>
-  %21 = bitcast <8 x float> %shuffle.i13.i.i81.i to <4 x double>
-  %shuffle.i.i10.i.i84.i = shufflevector <4 x double> %20, <4 x double> %21, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i11.i.i85.i = shufflevector <4 x double> %20, <4 x double> %21, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  store <4 x double> %shuffle.i.i.i.i82.i, ptr %dst.addr.0155.i, align 1
+  %14 = shufflevector <8 x float> %shuffle.i10.i.i78.i, <8 x float> %shuffle.i.i.i79.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %15 = shufflevector <8 x float> %shuffle.i10.i.i78.i, <8 x float> %shuffle.i.i.i79.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %16 = shufflevector <8 x float> %shuffle.i16.i.i80.i, <8 x float> %shuffle.i13.i.i81.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %17 = shufflevector <8 x float> %shuffle.i16.i.i80.i, <8 x float> %shuffle.i13.i.i81.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  store <8 x float> %14, ptr %dst.addr.0155.i, align 1
   %add.ptr1.i86.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 32
-  store <4 x double> %shuffle.i.i9.i.i83.i, ptr %add.ptr1.i86.i, align 1
+  store <8 x float> %15, ptr %add.ptr1.i86.i, align 1
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 64
-  store <4 x double> %shuffle.i.i10.i.i84.i, ptr %add.ptr2.i.i, align 1
+  store <8 x float> %16, ptr %add.ptr2.i.i, align 1
   %add.ptr3.i87.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 96
-  store <4 x double> %shuffle.i.i11.i.i85.i, ptr %add.ptr3.i87.i, align 1
+  store <8 x float> %17, ptr %add.ptr3.i87.i, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %src.addr.0156.i, i64 128
   %add.ptr29.i = getelementptr inbounds i8, ptr %dst.addr.0155.i, i64 128
   %add.i = add nuw nsw i32 %i.0157.i, 8
@@ -141,33 +129,33 @@ if.then.i:                                        ; preds = %for.end.i
   br i1 %cmp33159.i, label %for.body34.preheader.i, label %for.end52.i
 
 for.body34.preheader.i:                           ; preds = %if.then.i
-  %22 = zext nneg i32 %mul32.i to i64
+  %18 = zext nneg i32 %mul32.i to i64
   br label %for.body34.i
 
 for.body34.i:                                     ; preds = %for.body34.i, %for.body34.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body34.preheader.i ], [ %indvars.iv.next.i, %for.body34.i ]
   %src.addr.1160.i = phi ptr [ %src.addr.0.lcssa.i, %for.body34.preheader.i ], [ %add.ptr49.i, %for.body34.i ]
-  %23 = load float, ptr %src.addr.1160.i, align 4
+  %19 = load float, ptr %src.addr.1160.i, align 4
   %arrayidx36.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %indvars.iv.i
-  store float %23, ptr %arrayidx36.i, align 16
+  store float %19, ptr %arrayidx36.i, align 16
   %arrayidx37.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 4
-  %24 = load float, ptr %arrayidx37.i, align 4
-  %25 = or disjoint i64 %indvars.iv.i, 1
-  %arrayidx40.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %25
-  store float %24, ptr %arrayidx40.i, align 4
+  %20 = load float, ptr %arrayidx37.i, align 4
+  %21 = or disjoint i64 %indvars.iv.i, 1
+  %arrayidx40.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %21
+  store float %20, ptr %arrayidx40.i, align 4
   %arrayidx41.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 8
-  %26 = load float, ptr %arrayidx41.i, align 4
-  %27 = or disjoint i64 %indvars.iv.i, 2
-  %arrayidx44.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %27
-  store float %26, ptr %arrayidx44.i, align 8
+  %22 = load float, ptr %arrayidx41.i, align 4
+  %23 = or disjoint i64 %indvars.iv.i, 2
+  %arrayidx44.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %23
+  store float %22, ptr %arrayidx44.i, align 8
   %arrayidx45.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 12
-  %28 = load float, ptr %arrayidx45.i, align 4
-  %29 = or disjoint i64 %indvars.iv.i, 3
-  %arrayidx48.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %29
-  store float %28, ptr %arrayidx48.i, align 4
+  %24 = load float, ptr %arrayidx45.i, align 4
+  %25 = or disjoint i64 %indvars.iv.i, 3
+  %arrayidx48.i = getelementptr inbounds [32 x float], ptr %in_buf.i, i64 0, i64 %25
+  store float %24, ptr %arrayidx48.i, align 4
   %add.ptr49.i = getelementptr inbounds i8, ptr %src.addr.1160.i, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 4
-  %cmp33.i = icmp samesign ult i64 %indvars.iv.next.i, %22
+  %cmp33.i = icmp samesign ult i64 %indvars.iv.next.i, %18
   br i1 %cmp33.i, label %for.body34.i, label %for.end52.loopexit.i, !llvm.loop !6
 
 for.end52.loopexit.i:                             ; preds = %for.body34.i
@@ -181,36 +169,28 @@ for.end52.loopexit.i:                             ; preds = %for.body34.i
   br label %for.end52.i
 
 for.end52.i:                                      ; preds = %for.end52.loopexit.i, %if.then.i
-  %30 = phi <8 x float> [ %.pre178.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
-  %31 = phi <8 x float> [ %.pre177.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
-  %32 = phi <8 x float> [ %.pre176.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
-  %33 = phi <8 x float> [ %.pre.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
-  %shuffle.i10.i.i91.i = shufflevector <8 x float> %33, <8 x float> %32, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %shuffle.i.i.i92.i = shufflevector <8 x float> %31, <8 x float> %30, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
-  %shuffle.i16.i.i93.i = shufflevector <8 x float> %33, <8 x float> %32, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %shuffle.i13.i.i94.i = shufflevector <8 x float> %31, <8 x float> %30, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %34 = bitcast <8 x float> %shuffle.i10.i.i91.i to <4 x double>
-  %35 = bitcast <8 x float> %shuffle.i.i.i92.i to <4 x double>
-  %shuffle.i.i.i.i95.i = shufflevector <4 x double> %34, <4 x double> %35, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i9.i.i96.i = shufflevector <4 x double> %34, <4 x double> %35, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %36 = bitcast <8 x float> %shuffle.i16.i.i93.i to <4 x double>
-  %37 = bitcast <8 x float> %shuffle.i13.i.i94.i to <4 x double>
-  %shuffle.i.i10.i.i97.i = shufflevector <4 x double> %36, <4 x double> %37, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i11.i.i98.i = shufflevector <4 x double> %36, <4 x double> %37, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %38 = bitcast <4 x double> %shuffle.i.i.i.i95.i to <8 x float>
-  %mul.i107.i = fmul <8 x float> %vecinit7.i.i, %38
-  %39 = bitcast <4 x double> %shuffle.i.i9.i.i96.i to <8 x float>
-  %mul.i104.i = fmul <8 x float> %vecinit7.i.i, %39
-  %40 = bitcast <4 x double> %shuffle.i.i10.i.i97.i to <8 x float>
-  %mul.i.i = fmul <8 x float> %vecinit7.i.i, %40
-  %41 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i107.i, <8 x float> zeroinitializer)
-  %42 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i104.i, <8 x float> zeroinitializer)
-  %43 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i.i, <8 x float> zeroinitializer)
-  %44 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %41, <8 x float> %vecinit7.i.i)
-  %45 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %42, <8 x float> %vecinit7.i.i)
-  %46 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %43, <8 x float> %vecinit7.i.i)
-  %47 = bitcast <4 x double> %shuffle.i.i11.i.i98.i to <8 x float>
-  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias align 32 %ref.tmp65.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %44, <8 x float> noundef %45, <8 x float> noundef %46, <8 x float> noundef %47)
+  %26 = phi <8 x float> [ %.pre178.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
+  %27 = phi <8 x float> [ %.pre177.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
+  %28 = phi <8 x float> [ %.pre176.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
+  %29 = phi <8 x float> [ %.pre.i, %for.end52.loopexit.i ], [ zeroinitializer, %if.then.i ]
+  %shuffle.i10.i.i91.i = shufflevector <8 x float> %29, <8 x float> %28, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %shuffle.i.i.i92.i = shufflevector <8 x float> %27, <8 x float> %26, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
+  %shuffle.i16.i.i93.i = shufflevector <8 x float> %29, <8 x float> %28, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %shuffle.i13.i.i94.i = shufflevector <8 x float> %27, <8 x float> %26, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
+  %30 = shufflevector <8 x float> %shuffle.i10.i.i91.i, <8 x float> %shuffle.i.i.i92.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %31 = shufflevector <8 x float> %shuffle.i10.i.i91.i, <8 x float> %shuffle.i.i.i92.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %32 = shufflevector <8 x float> %shuffle.i16.i.i93.i, <8 x float> %shuffle.i13.i.i94.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %33 = shufflevector <8 x float> %shuffle.i16.i.i93.i, <8 x float> %shuffle.i13.i.i94.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %mul.i107.i = fmul <8 x float> %vecinit7.i.i, %30
+  %mul.i104.i = fmul <8 x float> %vecinit7.i.i, %31
+  %mul.i.i = fmul <8 x float> %vecinit7.i.i, %32
+  %34 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i107.i, <8 x float> zeroinitializer)
+  %35 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i104.i, <8 x float> zeroinitializer)
+  %36 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %mul.i.i, <8 x float> zeroinitializer)
+  %37 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %34, <8 x float> %vecinit7.i.i)
+  %38 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %35, <8 x float> %vecinit7.i.i)
+  %39 = tail call noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %36, <8 x float> %vecinit7.i.i)
+  call fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122interp_tetrahedral_avxERKNS0_15Lut3DContextAVXEDv8_fS4_S4_S4_(ptr noalias align 32 %ref.tmp65.i, ptr noundef nonnull align 32 dereferenceable(128) %ctx.i, <8 x float> noundef %37, <8 x float> noundef %38, <8 x float> noundef %39, <8 x float> noundef %33)
   %c.sroa.0.0.copyload27.i = load <8 x float>, ptr %ref.tmp65.i, align 32
   %c.sroa.4.0.ref.tmp65.sroa_idx.i = getelementptr inbounds i8, ptr %ref.tmp65.i, i64 32
   %c.sroa.4.0.copyload28.i = load <8 x float>, ptr %c.sroa.4.0.ref.tmp65.sroa_idx.i, align 32
@@ -222,51 +202,47 @@ for.end52.i:                                      ; preds = %for.end52.loopexit.
   %shuffle.i.i.i100.i = shufflevector <8 x float> %c.sroa.6.0.copyload30.i, <8 x float> %c.sroa.8.0.copyload32.i, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i16.i.i101.i = shufflevector <8 x float> %c.sroa.0.0.copyload27.i, <8 x float> %c.sroa.4.0.copyload28.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
   %shuffle.i13.i.i102.i = shufflevector <8 x float> %c.sroa.6.0.copyload30.i, <8 x float> %c.sroa.8.0.copyload32.i, <8 x i32> <i32 2, i32 10, i32 3, i32 11, i32 6, i32 14, i32 7, i32 15>
-  %48 = bitcast <8 x float> %shuffle.i10.i.i99.i to <4 x double>
-  %49 = bitcast <8 x float> %shuffle.i.i.i100.i to <4 x double>
-  %shuffle.i.i.i.i103.i = shufflevector <4 x double> %48, <4 x double> %49, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i9.i.i104.i = shufflevector <4 x double> %48, <4 x double> %49, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %50 = bitcast <8 x float> %shuffle.i16.i.i101.i to <4 x double>
-  %51 = bitcast <8 x float> %shuffle.i13.i.i102.i to <4 x double>
-  %shuffle.i.i10.i.i105.i = shufflevector <4 x double> %50, <4 x double> %51, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %shuffle.i.i11.i.i106.i = shufflevector <4 x double> %50, <4 x double> %51, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  store <4 x double> %shuffle.i.i.i.i103.i, ptr %out_buf.i, align 16
+  %40 = shufflevector <8 x float> %shuffle.i10.i.i99.i, <8 x float> %shuffle.i.i.i100.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %41 = shufflevector <8 x float> %shuffle.i10.i.i99.i, <8 x float> %shuffle.i.i.i100.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %42 = shufflevector <8 x float> %shuffle.i16.i.i101.i, <8 x float> %shuffle.i13.i.i102.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %43 = shufflevector <8 x float> %shuffle.i16.i.i101.i, <8 x float> %shuffle.i13.i.i102.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  store <8 x float> %40, ptr %out_buf.i, align 16
   %add.ptr1.i107.i = getelementptr inbounds i8, ptr %out_buf.i, i64 32
-  store <4 x double> %shuffle.i.i9.i.i104.i, ptr %add.ptr1.i107.i, align 16
+  store <8 x float> %41, ptr %add.ptr1.i107.i, align 16
   %add.ptr2.i108.i = getelementptr inbounds i8, ptr %out_buf.i, i64 64
-  store <4 x double> %shuffle.i.i10.i.i105.i, ptr %add.ptr2.i108.i, align 16
+  store <8 x float> %42, ptr %add.ptr2.i108.i, align 16
   %add.ptr3.i109.i = getelementptr inbounds i8, ptr %out_buf.i, i64 96
-  store <4 x double> %shuffle.i.i11.i.i106.i, ptr %add.ptr3.i109.i, align 16
+  store <8 x float> %43, ptr %add.ptr3.i109.i, align 16
   br i1 %cmp33159.i, label %for.body75.preheader.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit
 
 for.body75.preheader.i:                           ; preds = %for.end52.i
-  %52 = zext nneg i32 %mul32.i to i64
+  %44 = zext nneg i32 %mul32.i to i64
   br label %for.body75.i
 
 for.body75.i:                                     ; preds = %for.body75.i, %for.body75.preheader.i
   %indvars.iv170.i = phi i64 [ 0, %for.body75.preheader.i ], [ %indvars.iv.next171.i, %for.body75.i ]
   %dst.addr.1164.i = phi ptr [ %dst.addr.0.lcssa.i, %for.body75.preheader.i ], [ %add.ptr92.i, %for.body75.i ]
   %arrayidx78.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %indvars.iv170.i
-  %53 = load float, ptr %arrayidx78.i, align 16
-  store float %53, ptr %dst.addr.1164.i, align 4
-  %54 = or disjoint i64 %indvars.iv170.i, 1
-  %arrayidx82.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %54
-  %55 = load float, ptr %arrayidx82.i, align 4
+  %45 = load float, ptr %arrayidx78.i, align 16
+  store float %45, ptr %dst.addr.1164.i, align 4
+  %46 = or disjoint i64 %indvars.iv170.i, 1
+  %arrayidx82.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %46
+  %47 = load float, ptr %arrayidx82.i, align 4
   %arrayidx83.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 4
-  store float %55, ptr %arrayidx83.i, align 4
-  %56 = or disjoint i64 %indvars.iv170.i, 2
-  %arrayidx86.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %56
-  %57 = load float, ptr %arrayidx86.i, align 8
+  store float %47, ptr %arrayidx83.i, align 4
+  %48 = or disjoint i64 %indvars.iv170.i, 2
+  %arrayidx86.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %48
+  %49 = load float, ptr %arrayidx86.i, align 8
   %arrayidx87.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 8
-  store float %57, ptr %arrayidx87.i, align 4
-  %58 = or disjoint i64 %indvars.iv170.i, 3
-  %arrayidx90.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %58
-  %59 = load float, ptr %arrayidx90.i, align 4
+  store float %49, ptr %arrayidx87.i, align 4
+  %50 = or disjoint i64 %indvars.iv170.i, 3
+  %arrayidx90.i = getelementptr inbounds [32 x float], ptr %out_buf.i, i64 0, i64 %50
+  %51 = load float, ptr %arrayidx90.i, align 4
   %arrayidx91.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 12
-  store float %59, ptr %arrayidx91.i, align 4
+  store float %51, ptr %arrayidx91.i, align 4
   %add.ptr92.i = getelementptr inbounds i8, ptr %dst.addr.1164.i, i64 16
   %indvars.iv.next171.i = add nuw nsw i64 %indvars.iv170.i, 4
-  %cmp74.i = icmp samesign ult i64 %indvars.iv.next171.i, %52
+  %cmp74.i = icmp samesign ult i64 %indvars.iv.next171.i, %44
   br i1 %cmp74.i, label %for.body75.i, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit, !llvm.loop !7
 
 _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123applyTetrahedralAVXFuncILNS_8BitDepthE8ELS2_8EEEvPKfiS4_Pfi.exit: ; preds = %for.body75.i, %for.end.i, %for.end52.i
@@ -387,21 +363,14 @@ entry:
   %shuffle.i339 = shufflevector <8 x float> %insert.i237, <8 x float> %insert.i238, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i366 = shufflevector <8 x float> %insert.i, <8 x float> %insert.i236, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
   %shuffle.i363 = shufflevector <8 x float> %insert.i237, <8 x float> %insert.i238, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
-  %40 = bitcast <8 x float> %shuffle.i342 to <4 x double>
-  %41 = bitcast <8 x float> %shuffle.i339 to <4 x double>
-  %shuffle.i.i = shufflevector <4 x double> %40, <4 x double> %41, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %42 = bitcast <4 x double> %shuffle.i.i to <8 x float>
-  %shuffle.i.i239 = shufflevector <4 x double> %40, <4 x double> %41, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %43 = bitcast <4 x double> %shuffle.i.i239 to <8 x float>
-  %44 = bitcast <8 x float> %shuffle.i366 to <4 x double>
-  %45 = bitcast <8 x float> %shuffle.i363 to <4 x double>
-  %shuffle.i.i240 = shufflevector <4 x double> %44, <4 x double> %45, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %46 = bitcast <4 x double> %shuffle.i.i240 to <8 x float>
+  %40 = shufflevector <8 x float> %shuffle.i342, <8 x float> %shuffle.i339, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %41 = shufflevector <8 x float> %shuffle.i342, <8 x float> %shuffle.i339, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %42 = shufflevector <8 x float> %shuffle.i366, <8 x float> %shuffle.i363, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
   %sub.i374 = fsub <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %33
-  %mul.i264 = fmul <8 x float> %sub.i374, %42
-  %mul.i261 = fmul <8 x float> %sub.i374, %43
+  %mul.i264 = fmul <8 x float> %sub.i374, %40
+  %mul.i261 = fmul <8 x float> %sub.i374, %41
   %g92 = getelementptr inbounds i8, ptr %agg.result, i64 32
-  %mul.i = fmul <8 x float> %sub.i374, %46
+  %mul.i = fmul <8 x float> %sub.i374, %42
   %b94 = getelementptr inbounds i8, ptr %agg.result, i64 64
   %indices.sroa.0.16.vec.extract213 = extractelement <8 x i32> %36, i64 4
   %idx.ext98 = zext i32 %indices.sroa.0.16.vec.extract213 to i64
@@ -443,22 +412,15 @@ entry:
   %shuffle.i333 = shufflevector <8 x float> %insert.i243, <8 x float> %insert.i244, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i360 = shufflevector <8 x float> %insert.i241, <8 x float> %insert.i242, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
   %shuffle.i357 = shufflevector <8 x float> %insert.i243, <8 x float> %insert.i244, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
-  %47 = bitcast <8 x float> %shuffle.i336 to <4 x double>
-  %48 = bitcast <8 x float> %shuffle.i333 to <4 x double>
-  %shuffle.i.i245 = shufflevector <4 x double> %47, <4 x double> %48, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %49 = bitcast <4 x double> %shuffle.i.i245 to <8 x float>
-  %shuffle.i.i246 = shufflevector <4 x double> %47, <4 x double> %48, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %50 = bitcast <4 x double> %shuffle.i.i246 to <8 x float>
-  %51 = bitcast <8 x float> %shuffle.i360 to <4 x double>
-  %52 = bitcast <8 x float> %shuffle.i357 to <4 x double>
-  %shuffle.i.i247 = shufflevector <4 x double> %51, <4 x double> %52, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %53 = bitcast <4 x double> %shuffle.i.i247 to <8 x float>
+  %43 = shufflevector <8 x float> %shuffle.i336, <8 x float> %shuffle.i333, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %44 = shufflevector <8 x float> %shuffle.i336, <8 x float> %shuffle.i333, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %45 = shufflevector <8 x float> %shuffle.i360, <8 x float> %shuffle.i357, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
   %sub.i371 = fsub <8 x float> %33, %34
-  %mul.i.i = fmul <8 x float> %sub.i371, %49
+  %mul.i.i = fmul <8 x float> %sub.i371, %43
   %add.i.i = fadd <8 x float> %mul.i264, %mul.i.i
-  %mul.i.i248 = fmul <8 x float> %sub.i371, %50
+  %mul.i.i248 = fmul <8 x float> %sub.i371, %44
   %add.i.i249 = fadd <8 x float> %mul.i261, %mul.i.i248
-  %mul.i.i250 = fmul <8 x float> %sub.i371, %53
+  %mul.i.i250 = fmul <8 x float> %sub.i371, %45
   %add.i.i251 = fadd <8 x float> %mul.i, %mul.i.i250
   %indices.sroa.0.16.vec.extract215 = extractelement <8 x i32> %37, i64 4
   %idx.ext152 = zext i32 %indices.sroa.0.16.vec.extract215 to i64
@@ -500,22 +462,15 @@ entry:
   %shuffle.i327 = shufflevector <8 x float> %insert.i254, <8 x float> %insert.i255, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i354 = shufflevector <8 x float> %insert.i252, <8 x float> %insert.i253, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
   %shuffle.i351 = shufflevector <8 x float> %insert.i254, <8 x float> %insert.i255, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
-  %54 = bitcast <8 x float> %shuffle.i330 to <4 x double>
-  %55 = bitcast <8 x float> %shuffle.i327 to <4 x double>
-  %shuffle.i.i256 = shufflevector <4 x double> %54, <4 x double> %55, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %56 = bitcast <4 x double> %shuffle.i.i256 to <8 x float>
-  %shuffle.i.i257 = shufflevector <4 x double> %54, <4 x double> %55, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %57 = bitcast <4 x double> %shuffle.i.i257 to <8 x float>
-  %58 = bitcast <8 x float> %shuffle.i354 to <4 x double>
-  %59 = bitcast <8 x float> %shuffle.i351 to <4 x double>
-  %shuffle.i.i258 = shufflevector <4 x double> %58, <4 x double> %59, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %60 = bitcast <4 x double> %shuffle.i.i258 to <8 x float>
+  %46 = shufflevector <8 x float> %shuffle.i330, <8 x float> %shuffle.i327, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %47 = shufflevector <8 x float> %shuffle.i330, <8 x float> %shuffle.i327, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %48 = shufflevector <8 x float> %shuffle.i354, <8 x float> %shuffle.i351, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
   %sub.i = fsub <8 x float> %34, %31
-  %mul.i.i259 = fmul <8 x float> %sub.i, %56
+  %mul.i.i259 = fmul <8 x float> %sub.i, %46
   %add.i.i260 = fadd <8 x float> %add.i.i, %mul.i.i259
-  %mul.i.i261 = fmul <8 x float> %sub.i, %57
+  %mul.i.i261 = fmul <8 x float> %sub.i, %47
   %add.i.i262 = fadd <8 x float> %add.i.i249, %mul.i.i261
-  %mul.i.i263 = fmul <8 x float> %sub.i, %60
+  %mul.i.i263 = fmul <8 x float> %sub.i, %48
   %add.i.i264 = fadd <8 x float> %add.i.i251, %mul.i.i263
   %indices.sroa.0.16.vec.extract217 = extractelement <8 x i32> %38, i64 4
   %idx.ext206 = zext i32 %indices.sroa.0.16.vec.extract217 to i64
@@ -557,23 +512,16 @@ entry:
   %shuffle.i = shufflevector <8 x float> %insert.i267, <8 x float> %insert.i268, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 4, i32 12, i32 5, i32 13>
   %shuffle.i348 = shufflevector <8 x float> %insert.i265, <8 x float> %insert.i266, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
   %shuffle.i345 = shufflevector <8 x float> %insert.i267, <8 x float> %insert.i268, <8 x i32> <i32 2, i32 10, i32 poison, i32 poison, i32 6, i32 14, i32 poison, i32 poison>
-  %61 = bitcast <8 x float> %shuffle.i324 to <4 x double>
-  %62 = bitcast <8 x float> %shuffle.i to <4 x double>
-  %shuffle.i.i269 = shufflevector <4 x double> %61, <4 x double> %62, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %63 = bitcast <4 x double> %shuffle.i.i269 to <8 x float>
-  %shuffle.i.i270 = shufflevector <4 x double> %61, <4 x double> %62, <4 x i32> <i32 1, i32 5, i32 3, i32 7>
-  %64 = bitcast <4 x double> %shuffle.i.i270 to <8 x float>
-  %65 = bitcast <8 x float> %shuffle.i348 to <4 x double>
-  %66 = bitcast <8 x float> %shuffle.i345 to <4 x double>
-  %shuffle.i.i271 = shufflevector <4 x double> %65, <4 x double> %66, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %67 = bitcast <4 x double> %shuffle.i.i271 to <8 x float>
-  %mul.i.i272 = fmul <8 x float> %31, %63
+  %49 = shufflevector <8 x float> %shuffle.i324, <8 x float> %shuffle.i, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %50 = shufflevector <8 x float> %shuffle.i324, <8 x float> %shuffle.i, <8 x i32> <i32 2, i32 3, i32 10, i32 11, i32 6, i32 7, i32 14, i32 15>
+  %51 = shufflevector <8 x float> %shuffle.i348, <8 x float> %shuffle.i345, <8 x i32> <i32 0, i32 1, i32 8, i32 9, i32 4, i32 5, i32 12, i32 13>
+  %mul.i.i272 = fmul <8 x float> %31, %49
   %add.i.i273 = fadd <8 x float> %add.i.i260, %mul.i.i272
   store <8 x float> %add.i.i273, ptr %agg.result, align 32
-  %mul.i.i274 = fmul <8 x float> %31, %64
+  %mul.i.i274 = fmul <8 x float> %31, %50
   %add.i.i275 = fadd <8 x float> %add.i.i262, %mul.i.i274
   store <8 x float> %add.i.i275, ptr %g92, align 32
-  %mul.i.i276 = fmul <8 x float> %31, %67
+  %mul.i.i276 = fmul <8 x float> %31, %51
   %add.i.i277 = fadd <8 x float> %add.i.i264, %mul.i.i276
   store <8 x float> %add.i.i277, ptr %b94, align 32
   %a256 = getelementptr inbounds i8, ptr %agg.result, i64 96
