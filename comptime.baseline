@@ -4517,7 +4517,7 @@ coreutils-rs/4ei1tppxpketfz5g.ll 109964851
 coreutils-rs/4ejxbvlh13v83bjq.ll 107438232
 coreutils-rs/4ettyx6264g6naw2.ll 127609234
 coreutils-rs/4ez78vmdxhxkcda.ll 551460362
-coreutils-rs/4f3jlvkyrv359w1l.ll 162488834
+coreutils-rs/4f3jlvkyrv359w1l.ll 162326239
 coreutils-rs/4fgwum4i6ouktif1.ll 470317944
 coreutils-rs/4fjhfxyp4t1txpvb.ll 416782954
 coreutils-rs/4fnljkc9nlotrx6v.ll 741292976
@@ -6057,7 +6057,7 @@ darktable/introspection_tonemap.cc.ll 412073442
 darktable/introspection_velvia.c.ll 99849649
 darktable/introspection_vibrance.c.ll 93462791
 darktable/introspection_vignette.c.ll 313280746
-darktable/introspection_watermark.c.ll 324168552
+darktable/introspection_watermark.c.ll 323844306
 darktable/introspection_zonesystem.c.ll 551030942
 darktable/ioporder.c.ll 94223656
 darktable/latex.c.ll 113377064
