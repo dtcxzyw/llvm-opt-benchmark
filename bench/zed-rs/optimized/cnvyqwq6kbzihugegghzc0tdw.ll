@@ -586,7 +586,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3log20MAX_LOG_LEVEL_FILTER17hf1c8299dd29f90d0E = external local_unnamed_addr global { i64 }
 @__rust_no_alloc_shim_is_unstable = external global i8
 @anon.ccdf789eeb5cefa329d349f0244c0d12.460.llvm.4362591429528097151 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
-@switch.table._ZN7project12buffer_store18is_not_found_error17haf2e9ab3554928a7E = private unnamed_addr constant [41 x i8] c"\00((((((((((((((((((((((((((((((((((((((((", align 1
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN101_$LT$std..collections..hash..set..Iter$LT$K$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfe4055e461c79d85E.llvm.10723454985916948783"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 {
@@ -123660,7 +123659,7 @@ define hidden noundef zeroext i1 @_ZN7project12buffer_store18is_not_found_error1
   %15 = and i64 %14, 3
   switch i64 %15, label %default.unreachable [
     i64 2, label %17
-    i64 3, label %switch.lookup
+    i64 3, label %16
     i64 0, label %21
     i64 1, label %24
   ]
@@ -123668,10 +123667,9 @@ define hidden noundef zeroext i1 @_ZN7project12buffer_store18is_not_found_error1
 default.unreachable:                              ; preds = %12
   unreachable
 
-switch.lookup:                                    ; preds = %12
-  %16 = ashr i64 %14, 32
-  %switch.gep = getelementptr inbounds [41 x i8], ptr @switch.table._ZN7project12buffer_store18is_not_found_error17haf2e9ab3554928a7E, i64 0, i64 %16
-  %switch.load = load i8, ptr %switch.gep, align 1
+16:                                               ; preds = %12
+  %switch = icmp ult ptr %13, inttoptr (i64 4294967296 to ptr)
+  %spec.select = select i1 %switch, i8 0, i8 40
   br label %_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.10723454985916948783.exit
 
 17:                                               ; preds = %12
@@ -123693,8 +123691,8 @@ switch.lookup:                                    ; preds = %12
   %28 = load i8, ptr %27, align 8, !range !1973, !noalias !34816, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.10723454985916948783.exit
 
-_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.10723454985916948783.exit: ; preds = %switch.lookup, %17, %21, %24
-  %.sroa.0.0.i3 = phi i8 [ %28, %24 ], [ %23, %21 ], [ %20, %17 ], [ %switch.load, %switch.lookup ]
+_ZN3std2io5error5Error4kind17h71bf7cbc1da3e59bE.llvm.10723454985916948783.exit: ; preds = %16, %17, %21, %24
+  %.sroa.0.0.i3 = phi i8 [ %28, %24 ], [ %23, %21 ], [ %20, %17 ], [ %spec.select, %16 ]
   %29 = icmp eq i8 %.sroa.0.0.i3, 0
   br label %30
 

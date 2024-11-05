@@ -6368,9 +6368,9 @@ define void @_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret6creat
     i32 0, label %7
     i32 1, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
     i32 2, label %9
-    i32 3, label %10
-    i32 4, label %11
-    i32 5, label %12
+    i32 3, label %9
+    i32 4, label %9
+    i32 5, label %10
   ]
 
 default.unreachable1.i.i:                         ; preds = %4
@@ -6380,92 +6380,86 @@ default.unreachable1.i.i:                         ; preds = %4
   %8 = zext i32 %3 to i64
   br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
 
-9:                                                ; preds = %4
+9:                                                ; preds = %4, %4, %4
   br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
 
 10:                                               ; preds = %4
   br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
 
-11:                                               ; preds = %4
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
-
-12:                                               ; preds = %4
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
-
-_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i: ; preds = %12, %11, %10, %9, %7, %4
-  %.0.i.i = phi i64 [ 65, %12 ], [ 32, %11 ], [ 32, %10 ], [ 32, %9 ], [ %8, %7 ], [ 16, %4 ]
+_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i: ; preds = %10, %9, %7, %4
+  %.0.i.i = phi i64 [ 65, %10 ], [ 32, %9 ], [ %8, %7 ], [ 16, %4 ]
   %.not.i = icmp eq i64 %.val, %.0.i.i
-  br i1 %.not.i, label %28, label %13
+  br i1 %.not.i, label %26, label %11
 
-13:                                               ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
-  %14 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h741ed8fe90ab66c5E.llvm.8710632623519176205(i8 noundef 2, i8 noundef 2, i8 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5994e10fffdafa843df54943a4559014.120)
-          to label %_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit unwind label %30
+11:                                               ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
+  %12 = invoke noundef nonnull align 8 ptr @_ZN10ockam_core5error5Error3new17h741ed8fe90ab66c5E.llvm.8710632623519176205(i8 noundef 2, i8 noundef 2, i8 noundef 5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5994e10fffdafa843df54943a4559014.120)
+          to label %_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit unwind label %28
 
-_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit: ; preds = %13
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %14, ptr %15, align 8
+_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit: ; preds = %11
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %12, ptr %13, align 8
   store i32 6, ptr %0, align 8
   invoke void @"_ZN61_$LT$alloc..vec..Vec$LT$Z$GT$$u20$as$u20$zeroize..Zeroize$GT$7zeroize17h9e93a9209dca9605E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
-          to label %"_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i" unwind label %16
+          to label %"_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i" unwind label %14
 
-16:                                               ; preds = %_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit
-  %17 = landingpad { ptr, i32 }
+14:                                               ; preds = %_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hceabcfa060b47853E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #28
-          to label %common.resume unwind label %26
+          to label %common.resume unwind label %24
 
 "_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i": ; preds = %_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret5check17hecb7d82caa4caea1E.exit
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !1800
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hebdac3a053a092f8E"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  %18 = getelementptr inbounds i8, ptr %5, i64 8
-  %19 = load i64, ptr %18, align 8, !range !765, !noalias !1800, !noundef !17
-  %.not.i.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit", label %20
+  %16 = getelementptr inbounds i8, ptr %5, i64 8
+  %17 = load i64, ptr %16, align 8, !range !765, !noalias !1800, !noundef !17
+  %.not.i.i.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit", label %18
 
-20:                                               ; preds = %"_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i"
-  %21 = getelementptr inbounds i8, ptr %5, i64 16
-  %22 = load i64, ptr %21, align 8, !noalias !1800, !noundef !17
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit", label %24
+18:                                               ; preds = %"_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i"
+  %19 = getelementptr inbounds i8, ptr %5, i64 16
+  %20 = load i64, ptr %19, align 8, !noalias !1800, !noundef !17
+  %21 = icmp eq i64 %20, 0
+  br i1 %21, label %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit", label %22
 
-24:                                               ; preds = %20
-  %25 = load ptr, ptr %5, align 8, !noalias !1800, !nonnull !17, !noundef !17
-  tail call void @__rust_dealloc(ptr noundef nonnull %25, i64 noundef %22, i64 noundef %19) #31
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %5, align 8, !noalias !1800, !nonnull !17, !noundef !17
+  tail call void @__rust_dealloc(ptr noundef nonnull %23, i64 noundef %20, i64 noundef %17) #31
   br label %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit"
 
-26:                                               ; preds = %16
-  %27 = landingpad { ptr, i32 }
+24:                                               ; preds = %14
+  %25 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #29
   unreachable
 
-common.resume:                                    ; preds = %30, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %31, %30 ]
+common.resume:                                    ; preds = %28, %14
+  %common.resume.op = phi { ptr, i32 } [ %15, %14 ], [ %29, %28 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit": ; preds = %"_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i", %20, %24
+"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit": ; preds = %"_ZN87_$LT$ockam_vault..software..legacy..secret..Secret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc82580b55573c7fbE.exit.i", %18, %22
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1800
-  br label %29
+  br label %27
 
-28:                                               ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
+26:                                               ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit.i
   store i32 %2, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %3, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  br label %29
+  br label %27
 
-29:                                               ; preds = %28, %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit"
+27:                                               ; preds = %26, %"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E.exit"
   ret void
 
-30:                                               ; preds = %13
-  %31 = landingpad { ptr, i32 }
+28:                                               ; preds = %11
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr66drop_in_place$LT$ockam_vault..software..legacy..secret..Secret$GT$17hbe35665078628542E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #28
-          to label %common.resume unwind label %32
+          to label %common.resume unwind label %30
 
-32:                                               ; preds = %30
-  %33 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #29
   unreachable
