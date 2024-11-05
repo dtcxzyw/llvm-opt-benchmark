@@ -3545,7 +3545,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %.12433.i = phi i32 [ %422, %.lr.ph35.i ], [ %.023.lcssa.i, %.preheader29.i ]
   %421 = udiv i64 %.134.i, 100
   %422 = add nsw i32 %.12433.i, 2
-  %423 = icmp ugt i64 %.134.i, 9999
+  %423 = icmp samesign ugt i64 %.134.i, 9999
   br i1 %423, label %.lr.ph35.i, label %.preheader.i, !llvm.loop !41
 
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
@@ -3553,7 +3553,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIfE
   %.22538.i = phi i32 [ %425, %.lr.ph40.i ], [ %.124.lcssa.i, %.preheader.i ]
   %424 = udiv i64 %.239.i, 10
   %425 = add nsw i32 %.22538.i, 1
-  %426 = icmp ugt i64 %.239.i, 99
+  %426 = icmp samesign ugt i64 %.239.i, 99
   br i1 %426, label %.lr.ph40.i, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph40.i, %.preheader.i
@@ -6448,7 +6448,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %.12433.i = phi i32 [ %422, %.lr.ph35.i ], [ %.023.lcssa.i, %.preheader29.i ]
   %421 = udiv i64 %.134.i, 100
   %422 = add nsw i32 %.12433.i, 2
-  %423 = icmp ugt i64 %.134.i, 9999
+  %423 = icmp samesign ugt i64 %.134.i, 9999
   br i1 %423, label %.lr.ph35.i, label %.preheader.i, !llvm.loop !41
 
 .lr.ph40.i:                                       ; preds = %.preheader.i, %.lr.ph40.i
@@ -6456,7 +6456,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN10fast_float19from_chars_advancedIdE
   %.22538.i = phi i32 [ %425, %.lr.ph40.i ], [ %.124.lcssa.i, %.preheader.i ]
   %424 = udiv i64 %.239.i, 10
   %425 = add nsw i32 %.22538.i, 1
-  %426 = icmp ugt i64 %.239.i, 99
+  %426 = icmp samesign ugt i64 %.239.i, 99
   br i1 %426, label %.lr.ph40.i, label %._crit_edge.i, !llvm.loop !42
 
 ._crit_edge.i:                                    ; preds = %.lr.ph40.i, %.preheader.i

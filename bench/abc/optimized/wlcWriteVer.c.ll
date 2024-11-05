@@ -3338,7 +3338,7 @@ Abc_Base10Log.exit1063:                           ; preds = %.lr.ph.i1058, %1200
   %.0812.i1068 = phi i32 [ %1330, %.lr.ph.i1066 ], [ %1329, %1323 ]
   %1330 = udiv i32 %.0812.i1068, 10
   %1331 = add nuw nsw i32 %.013.i1067, 1
-  %.not.i1069 = icmp ult i32 %.0812.i1068, 10
+  %.not.i1069 = icmp samesign ult i32 %.0812.i1068, 10
   br i1 %.not.i1069, label %Abc_Base10Log.exit1071, label %.lr.ph.i1066, !llvm.loop !12
 
 Abc_Base10Log.exit1071:                           ; preds = %.lr.ph.i1066

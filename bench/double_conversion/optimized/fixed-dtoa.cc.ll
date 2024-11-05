@@ -443,7 +443,7 @@ while.body.i:                                     ; preds = %if.then, %while.bod
   %arrayidx.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i
   store i8 %conv.i, ptr %arrayidx.i.i, align 1
   %inc.i = add nuw nsw i32 %number_length.028.i, 1
-  %cmp.not.i = icmp ult i32 %number.addr.029.i, 10
+  %cmp.not.i = icmp samesign ult i32 %number.addr.029.i, 10
   br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !4
 
 while.end.i:                                      ; preds = %while.body.i
@@ -536,7 +536,7 @@ while.body.i45:                                   ; preds = %if.else, %while.bod
   %arrayidx.i.i53 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i52
   store i8 %conv.i50, ptr %arrayidx.i.i53, align 1
   %inc.i54 = add nuw nsw i32 %number_length.028.i47, 1
-  %cmp.not.i55 = icmp ult i32 %number.addr.029.i46, 10
+  %cmp.not.i55 = icmp samesign ult i32 %number.addr.029.i46, 10
   br i1 %cmp.not.i55, label %while.end.i56, label %while.body.i45, !llvm.loop !4
 
 while.end.i56:                                    ; preds = %while.body.i45
@@ -607,7 +607,7 @@ while.body.i89:                                   ; preds = %if.else11, %while.b
   %arrayidx.i.i97 = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idxprom.i.i96
   store i8 %conv.i94, ptr %arrayidx.i.i97, align 1
   %inc.i98 = add nuw nsw i32 %number_length.028.i91, 1
-  %cmp.not.i99 = icmp ult i32 %number.addr.029.i90, 10
+  %cmp.not.i99 = icmp samesign ult i32 %number.addr.029.i90, 10
   br i1 %cmp.not.i99, label %while.end.i100, label %while.body.i89, !llvm.loop !4
 
 while.end.i100:                                   ; preds = %while.body.i89, %if.else11

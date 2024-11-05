@@ -1477,7 +1477,7 @@ while.body.i.i:                                   ; preds = %do.end28, %while.bo
   %incdec.ptr.i3.i.i.i = getelementptr inbounds i8, ptr %cursor.0.i, i64 -2
   store i8 %6, ptr %incdec.ptr.i3.i.i.i, align 1
   %div.i.i = udiv i32 %value.addr.016.i.i, 100
-  %cmp.i.i = icmp ugt i32 %value.addr.016.i.i, 9999
+  %cmp.i.i = icmp samesign ugt i32 %value.addr.016.i.i, 9999
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !23
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %do.end28
@@ -3008,7 +3008,7 @@ while.body.i.i:                                   ; preds = %do.end28, %while.bo
   %incdec.ptr.i3.i.i.i = getelementptr inbounds i8, ptr %cursor.0.i, i64 -2
   store i8 %6, ptr %incdec.ptr.i3.i.i.i, align 1
   %div.i.i = udiv i32 %value.addr.016.i.i, 100
-  %cmp.i.i = icmp ugt i32 %value.addr.016.i.i, 9999
+  %cmp.i.i = icmp samesign ugt i32 %value.addr.016.i.i, 9999
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.i.i, !llvm.loop !23
 
 while.end.i.i:                                    ; preds = %while.body.i.i, %do.end28
