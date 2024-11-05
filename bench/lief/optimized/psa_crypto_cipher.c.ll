@@ -14,103 +14,100 @@ define hidden ptr @mbedtls_cipher_info_from_psa(i32 noundef %0, i16 noundef zero
   %7 = and i32 %0, -2050981889
   %spec.select = select i1 %6, i32 %7, i32 %0
   %8 = and i32 %spec.select, 2130706432
-  switch i32 %8, label %20 [
+  switch i32 %8, label %19 [
     i32 67108864, label %9
     i32 83886080, label %9
   ]
 
 9:                                                ; preds = %4, %4
-  switch i32 %spec.select, label %34 [
-    i32 75497728, label %22
+  switch i32 %spec.select, label %33 [
+    i32 75497728, label %21
     i32 79695872, label %10
     i32 79696128, label %11
     i32 79696384, label %12
     i32 71320576, label %13
     i32 71319552, label %14
-    i32 71319808, label %15
-    i32 79696640, label %16
-    i32 88080640, label %17
-    i32 88080896, label %18
-    i32 83887360, label %19
+    i32 71319808, label %14
+    i32 79696640, label %15
+    i32 88080640, label %16
+    i32 88080896, label %17
+    i32 83887360, label %18
   ]
 
 10:                                               ; preds = %9
-  br label %22
+  br label %21
 
 11:                                               ; preds = %9
-  br label %22
+  br label %21
 
 12:                                               ; preds = %9
-  br label %22
+  br label %21
 
 13:                                               ; preds = %9
-  br label %22
+  br label %21
 
-14:                                               ; preds = %9
-  br label %22
+14:                                               ; preds = %9, %9
+  br label %21
 
 15:                                               ; preds = %9
-  br label %22
+  br label %21
 
 16:                                               ; preds = %9
-  br label %22
+  br label %21
 
 17:                                               ; preds = %9
-  br label %22
+  br label %21
 
 18:                                               ; preds = %9
-  br label %22
+  br label %21
 
-19:                                               ; preds = %9
-  br label %22
+19:                                               ; preds = %4
+  %20 = icmp eq i32 %spec.select, 62915072
+  br i1 %20, label %21, label %33
 
-20:                                               ; preds = %4
-  %21 = icmp eq i32 %spec.select, 62915072
-  br i1 %21, label %22, label %34
-
-22:                                               ; preds = %20, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18, %19
-  %.015 = phi i32 [ 11, %19 ], [ 6, %18 ], [ 8, %17 ], [ 9, %16 ], [ 2, %15 ], [ 2, %14 ], [ 1, %13 ], [ 4, %12 ], [ 3, %11 ], [ 5, %10 ], [ 7, %9 ], [ 1, %20 ]
-  switch i16 %1, label %34 [
-    i16 9216, label %29
-    i16 9222, label %23
-    i16 8961, label %24
-    i16 9219, label %27
-    i16 8196, label %28
+21:                                               ; preds = %19, %9, %10, %11, %12, %13, %14, %15, %16, %17, %18
+  %.015 = phi i32 [ 11, %18 ], [ 6, %17 ], [ 8, %16 ], [ 9, %15 ], [ 2, %14 ], [ 1, %13 ], [ 4, %12 ], [ 3, %11 ], [ 5, %10 ], [ 7, %9 ], [ 1, %19 ]
+  switch i16 %1, label %33 [
+    i16 9216, label %28
+    i16 9222, label %22
+    i16 8961, label %23
+    i16 9219, label %26
+    i16 8196, label %27
   ]
 
-23:                                               ; preds = %22
-  br label %29
+22:                                               ; preds = %21
+  br label %28
 
-24:                                               ; preds = %22
-  %25 = icmp eq i64 %2, 64
-  %. = select i1 %25, i32 3, i32 4
-  %26 = icmp eq i64 %2, 128
-  %spec.store.select = select i1 %26, i64 192, i64 %2
-  br label %29
+23:                                               ; preds = %21
+  %24 = icmp eq i64 %2, 64
+  %. = select i1 %24, i32 3, i32 4
+  %25 = icmp eq i64 %2, 128
+  %spec.store.select = select i1 %25, i64 192, i64 %2
+  br label %28
 
-27:                                               ; preds = %22
-  br label %29
+26:                                               ; preds = %21
+  br label %28
 
-28:                                               ; preds = %22
-  br label %29
+27:                                               ; preds = %21
+  br label %28
 
-29:                                               ; preds = %22, %28, %27, %24, %23
-  %.017 = phi i64 [ %2, %28 ], [ %2, %27 ], [ %spec.store.select, %24 ], [ %2, %23 ], [ %2, %22 ]
-  %.0 = phi i32 [ 7, %28 ], [ 5, %27 ], [ %., %24 ], [ 6, %23 ], [ 2, %22 ]
+28:                                               ; preds = %21, %27, %26, %23, %22
+  %.017 = phi i64 [ %2, %27 ], [ %2, %26 ], [ %spec.store.select, %23 ], [ %2, %22 ], [ %2, %21 ]
+  %.0 = phi i32 [ 7, %27 ], [ 5, %26 ], [ %., %23 ], [ 6, %22 ], [ 2, %21 ]
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %31, label %30
+  br i1 %.not, label %30, label %29
 
-30:                                               ; preds = %29
+29:                                               ; preds = %28
   store i32 %.0, ptr %3, align 4
-  br label %31
+  br label %30
 
-31:                                               ; preds = %30, %29
-  %32 = trunc i64 %.017 to i32
-  %33 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %.0, i32 noundef %32, i32 noundef %.015) #6
-  br label %34
+30:                                               ; preds = %29, %28
+  %31 = trunc i64 %.017 to i32
+  %32 = tail call ptr @mbedtls_cipher_info_from_values(i32 noundef %.0, i32 noundef %31, i32 noundef %.015) #6
+  br label %33
 
-34:                                               ; preds = %22, %20, %9, %31
-  %.016 = phi ptr [ %33, %31 ], [ null, %9 ], [ null, %20 ], [ null, %22 ]
+33:                                               ; preds = %21, %19, %9, %30
+  %.016 = phi ptr [ %32, %30 ], [ null, %9 ], [ null, %19 ], [ null, %21 ]
   ret ptr %.016
 }
 
