@@ -23,7 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.7e169519e0ee15bcf2cc7834854a4ab3.27 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN58_$LT$std..io..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hcda221c82c761944E", ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h903d2f90598a70cbE", ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.26, ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$6source17h1b1b102d4fff9711E", ptr @_ZN4core5error5Error7type_id17h2520d75cab0dfbdaE, ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$11description17h4c037dba41cae825E", ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..error..Error$GT$5cause17h4fb8903785172ff7E", ptr @_ZN4core5error5Error7provide17hba14b53d21d6b79aE }>, align 8
 @anon.7e169519e0ee15bcf2cc7834854a4ab3.28 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c" " }>, align 1
 @anon.7e169519e0ee15bcf2cc7834854a4ab3.29 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.5, [8 x i8] zeroinitializer, ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.28, [8 x i8] c"\01\00\00\00\00\00\00\00" }>, align 8
-@switch.table._ZN7anki_io5error11FileIoError12is_not_found17h637f7feac20ba008E = private unnamed_addr constant [41 x i8] c"\00\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D\0D", align 1
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h08853c6336a81a70E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -672,7 +671,7 @@ define noundef zeroext i1 @_ZN7anki_io5error11FileIoError12is_not_found17h637f7f
   %4 = and i64 %3, 3
   switch i64 %4, label %default.unreachable [
     i64 2, label %6
-    i64 3, label %switch.lookup
+    i64 3, label %5
     i64 0, label %7
     i64 1, label %10
   ]
@@ -680,16 +679,15 @@ define noundef zeroext i1 @_ZN7anki_io5error11FileIoError12is_not_found17h637f7f
 default.unreachable:                              ; preds = %1
   unreachable
 
-switch.lookup:                                    ; preds = %1
-  %5 = ashr i64 %3, 32
-  %switch.gep = getelementptr inbounds [41 x i8], ptr @switch.table._ZN7anki_io5error11FileIoError12is_not_found17h637f7feac20ba008E, i64 0, i64 %5
-  %switch.load = load i8, ptr %switch.gep, align 1
+5:                                                ; preds = %1
+  %switch = icmp ult ptr %.val, inttoptr (i64 4294967296 to ptr)
+  %spec.select = select i1 %switch, i8 0, i8 13
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 6:                                                ; preds = %1
   %.mask = and i64 %3, -4294967296
   %cond = icmp eq i64 %.mask, 8589934592
-  %spec.select = select i1 %cond, i8 0, i8 13
+  %spec.select1 = select i1 %cond, i8 0, i8 13
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 7:                                                ; preds = %1
@@ -705,8 +703,8 @@ switch.lookup:                                    ; preds = %1
   %14 = load i8, ptr %13, align 8, !range !174, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %switch.lookup, %6, %7, %10
-  %.0.i = phi i8 [ %14, %10 ], [ %9, %7 ], [ %spec.select, %6 ], [ %switch.load, %switch.lookup ]
+_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %6, %5, %7, %10
+  %.0.i = phi i8 [ %14, %10 ], [ %9, %7 ], [ %spec.select, %5 ], [ %spec.select1, %6 ]
   %15 = icmp eq i8 %.0.i, 0
   ret i1 %15
 }

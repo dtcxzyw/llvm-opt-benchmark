@@ -4139,8 +4139,8 @@ define internal fastcc noundef ptr @find_dirsep(ptr noundef %0, ptr noundef %1, 
   %.0.ph.us = phi i32 [ %.0.ph.be.us, %.outer.backedge.us ], [ 0, %4 ]
   br label %.backedge.us.us
 
-.outer.backedge.us:                               ; preds = %.backedge.us.us, %.backedge.us.us, %.split39.us.us, %.split36.us.us, %.split.us.us
-  %.0.ph.be.us = phi i32 [ 0, %.split.us.us ], [ 0, %.split36.us.us ], [ 1, %.split39.us.us ], [ 1, %.backedge.us.us ], [ 1, %.backedge.us.us ]
+.outer.backedge.us:                               ; preds = %.backedge.us.us, %.backedge.us.us, %.split34.us.us, %.split.us.us
+  %.0.ph.be.us = phi i32 [ 1, %.split34.us.us ], [ 0, %.split.us.us ], [ 1, %.backedge.us.us ], [ 1, %.backedge.us.us ]
   br label %.outer.us, !llvm.loop !63
 
 .backedge.us.us:                                  ; preds = %.backedge.us.us.backedge, %.outer.us
@@ -4152,8 +4152,8 @@ define internal fastcc noundef ptr @find_dirsep(ptr noundef %0, ptr noundef %1, 
     i8 91, label %.outer.backedge.us
     i8 93, label %.split.us.us
     i8 123, label %.outer.backedge.us
-    i8 125, label %.split36.us.us
-    i8 47, label %.split39.us.us
+    i8 125, label %.split.us.us
+    i8 47, label %.split34.us.us
     i8 92, label %8
   ], !llvm.loop !63
 
@@ -4173,13 +4173,10 @@ define internal fastcc noundef ptr @find_dirsep(ptr noundef %0, ptr noundef %1, 
   %14 = getelementptr i8, ptr %.014.us.us, i64 %13
   br label %.backedge.us.us.backedge
 
-.split.us.us:                                     ; preds = %.backedge.us.us
+.split.us.us:                                     ; preds = %.backedge.us.us, %.backedge.us.us
   br label %.outer.backedge.us
 
-.split36.us.us:                                   ; preds = %.backedge.us.us
-  br label %.outer.backedge.us
-
-.split39.us.us:                                   ; preds = %.backedge.us.us
+.split34.us.us:                                   ; preds = %.backedge.us.us
   %.not18.us = icmp eq i32 %.0.ph.us, 0
   br i1 %.not18.us, label %.loopexit, label %.outer.backedge.us
 
@@ -4195,22 +4192,22 @@ define internal fastcc noundef ptr @find_dirsep(ptr noundef %0, ptr noundef %1, 
   switch i8 %17, label %18 [
     i8 0, label %.loopexit
     i8 91, label %.outer.backedge
-    i8 93, label %.outer.backedge.loopexit114
+    i8 93, label %.outer.backedge.loopexit98
     i8 123, label %.outer.backedge
-    i8 125, label %.outer.backedge.loopexit114
-    i8 47, label %.split39
+    i8 125, label %.outer.backedge.loopexit98
+    i8 47, label %.split34
     i8 92, label %.backedge
   ], !llvm.loop !63
 
-.split39:                                         ; preds = %15
+.split34:                                         ; preds = %15
   %.not18 = icmp eq i32 %.0.ph, 0
   br i1 %.not18, label %.loopexit, label %.outer.backedge
 
-.outer.backedge.loopexit114:                      ; preds = %15, %15
+.outer.backedge.loopexit98:                       ; preds = %15, %15
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %15, %15, %.outer.backedge.loopexit114, %.split39
-  %.0.ph.be = phi i32 [ 1, %.split39 ], [ 0, %.outer.backedge.loopexit114 ], [ 1, %15 ], [ 1, %15 ]
+.outer.backedge:                                  ; preds = %15, %15, %.outer.backedge.loopexit98, %.split34
+  %.0.ph.be = phi i32 [ 1, %.split34 ], [ 0, %.outer.backedge.loopexit98 ], [ 1, %15 ], [ 1, %15 ]
   br label %.outer, !llvm.loop !63
 
 .backedge:                                        ; preds = %15, %18
@@ -4223,8 +4220,8 @@ define internal fastcc noundef ptr @find_dirsep(ptr noundef %0, ptr noundef %1, 
   %21 = getelementptr i8, ptr %.014, i64 %20
   br label %.backedge
 
-.loopexit:                                        ; preds = %.split39, %15, %.split39.us.us, %.backedge.us.us, %8
-  %.013 = phi ptr [ %6, %8 ], [ %.014.us.us, %.backedge.us.us ], [ %.014.us.us, %.split39.us.us ], [ %.014, %15 ], [ %.014, %.split39 ]
+.loopexit:                                        ; preds = %.split34, %15, %.split34.us.us, %.backedge.us.us, %8
+  %.013 = phi ptr [ %6, %8 ], [ %.014.us.us, %.backedge.us.us ], [ %.014.us.us, %.split34.us.us ], [ %.014, %15 ], [ %.014, %.split34 ]
   ret ptr %.013
 }
 

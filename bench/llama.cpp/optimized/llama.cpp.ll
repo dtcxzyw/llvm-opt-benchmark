@@ -18718,13 +18718,10 @@ if.then148.i.i:                                   ; preds = %if.then146.i.i
   switch i32 %ftype.0.i, label %if.end198.i.i [
     i32 10, label %if.then208.i.i
     i32 12, label %if.then153.i.i
-    i32 13, label %if.then156.i.i
+    i32 13, label %if.then153.i.i
   ]
 
-if.then153.i.i:                                   ; preds = %if.then148.i.i
-  br label %if.then208.i.i
-
-if.then156.i.i:                                   ; preds = %if.then148.i.i
+if.then153.i.i:                                   ; preds = %if.then148.i.i, %if.then148.i.i
   br label %if.then208.i.i
 
 if.else165.i.i:                                   ; preds = %if.else143.i.i
@@ -18766,10 +18763,10 @@ if.end198.i.i:                                    ; preds = %if.then188.i.i, %lo
   %switch.i.i = icmp ult i32 %new_type.addr.0.off.i.i, 5
   br i1 %switch.i.i, label %if.then208.i.i, label %_ZL16get_k_quant_typeR23quantize_state_internal9ggml_typePK11ggml_tensor11llama_ftype.exit.i
 
-if.then208.i.i:                                   ; preds = %if.end198.i.i, %if.then188.i.i, %lor.lhs.false185.i.i, %if.then178.i.i, %if.else173.i.i, %if.then168.i.i, %if.then156.i.i, %if.then153.i.i, %if.then148.i.i
-  %qs.sroa.24.4.i = phi i32 [ %qs.sroa.24.3.i, %if.end198.i.i ], [ %qs.sroa.24.0942.i, %lor.lhs.false185.i.i ], [ %qs.sroa.24.0942.i, %if.then188.i.i ], [ %qs.sroa.24.0942.i, %if.then168.i.i ], [ %qs.sroa.24.0942.i, %if.then178.i.i ], [ %qs.sroa.24.0942.i, %if.else173.i.i ], [ %qs.sroa.24.0942.i, %if.then156.i.i ], [ %qs.sroa.24.0942.i, %if.then153.i.i ], [ %qs.sroa.24.0942.i, %if.then148.i.i ]
-  %qs.sroa.19.4.i = phi i32 [ %qs.sroa.19.3.i, %if.end198.i.i ], [ %qs.sroa.19.0944.i, %lor.lhs.false185.i.i ], [ %qs.sroa.19.0944.i, %if.then188.i.i ], [ %qs.sroa.19.0944.i, %if.then168.i.i ], [ %qs.sroa.19.0944.i, %if.then178.i.i ], [ %qs.sroa.19.0944.i, %if.else173.i.i ], [ %qs.sroa.19.0944.i, %if.then156.i.i ], [ %qs.sroa.19.0944.i, %if.then153.i.i ], [ %qs.sroa.19.0944.i, %if.then148.i.i ]
-  %new_type.addr.0138.i.i = phi i32 [ %new_type.addr.0.i.i, %if.end198.i.i ], [ 11, %lor.lhs.false185.i.i ], [ 11, %if.then188.i.i ], [ 12, %if.then168.i.i ], [ 14, %if.then178.i.i ], [ 13, %if.else173.i.i ], [ %ftype.0.i, %if.then156.i.i ], [ %ftype.0.i, %if.then153.i.i ], [ 11, %if.then148.i.i ]
+if.then208.i.i:                                   ; preds = %if.end198.i.i, %if.then188.i.i, %lor.lhs.false185.i.i, %if.then178.i.i, %if.else173.i.i, %if.then168.i.i, %if.then153.i.i, %if.then148.i.i
+  %qs.sroa.24.4.i = phi i32 [ %qs.sroa.24.3.i, %if.end198.i.i ], [ %qs.sroa.24.0942.i, %lor.lhs.false185.i.i ], [ %qs.sroa.24.0942.i, %if.then188.i.i ], [ %qs.sroa.24.0942.i, %if.then168.i.i ], [ %qs.sroa.24.0942.i, %if.then178.i.i ], [ %qs.sroa.24.0942.i, %if.else173.i.i ], [ %qs.sroa.24.0942.i, %if.then153.i.i ], [ %qs.sroa.24.0942.i, %if.then148.i.i ]
+  %qs.sroa.19.4.i = phi i32 [ %qs.sroa.19.3.i, %if.end198.i.i ], [ %qs.sroa.19.0944.i, %lor.lhs.false185.i.i ], [ %qs.sroa.19.0944.i, %if.then188.i.i ], [ %qs.sroa.19.0944.i, %if.then168.i.i ], [ %qs.sroa.19.0944.i, %if.then178.i.i ], [ %qs.sroa.19.0944.i, %if.else173.i.i ], [ %qs.sroa.19.0944.i, %if.then153.i.i ], [ %qs.sroa.19.0944.i, %if.then148.i.i ]
+  %new_type.addr.0138.i.i = phi i32 [ %new_type.addr.0.i.i, %if.end198.i.i ], [ 11, %lor.lhs.false185.i.i ], [ 11, %if.then188.i.i ], [ 12, %if.then168.i.i ], [ 14, %if.then178.i.i ], [ 13, %if.else173.i.i ], [ %ftype.0.i, %if.then153.i.i ], [ 11, %if.then148.i.i ]
   %ne210.i.i = getelementptr inbounds i8, ptr %call2.i123.i, i64 16
   %63 = load i64, ptr %ne210.i.i, align 8
   %conv212.i.i = trunc i64 %63 to i32

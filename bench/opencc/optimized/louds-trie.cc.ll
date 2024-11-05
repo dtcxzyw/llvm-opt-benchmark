@@ -6907,102 +6907,93 @@ define linkonce_odr void @_ZN6marisa8grimoire4trie6Config6parse_Ei(ptr noundef n
 
 _ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit: ; preds = %9, %11
   %13 = and i32 %1, 3968
-  switch i32 %13, label %18 [
+  switch i32 %13, label %15 [
     i32 0, label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
     i32 128, label %14
-    i32 256, label %15
+    i32 256, label %14
     i32 512, label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
-    i32 1024, label %16
-    i32 2048, label %17
+    i32 1024, label %14
+    i32 2048, label %14
   ]
 
-14:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
+14:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
   br label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
 
 15:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
-  br label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
-
-16:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
-  br label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
-
-17:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
-  br label %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
-
-18:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit
-  %19 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr @.str.6, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %19, i64 16
-  store i32 101, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 20
-  store i32 5, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %19, i64 24
-  store ptr @.str.8, ptr %23, align 8
-  tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+  %16 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr @.str.6, ptr %17, align 8
+  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  store i32 101, ptr %18, align 8
+  %19 = getelementptr inbounds i8, ptr %16, i64 20
+  store i32 5, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  store ptr @.str.8, ptr %20, align 8
+  tail call void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
-_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %14, %15, %16, %17
-  %.sink.i = phi i32 [ %13, %17 ], [ %13, %16 ], [ %13, %15 ], [ %13, %14 ], [ 512, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit ], [ 512, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit ]
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink.i, ptr %24, align 8
-  %25 = trunc i32 %1 to i16
-  %trunc.i = and i16 %25, -4096
-  switch i16 %trunc.i, label %27 [
+_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit, %14
+  %.sink.i = phi i32 [ %13, %14 ], [ 512, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit ], [ 512, %_ZN6marisa8grimoire4trie6Config15parse_num_triesEi.exit ]
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %.sink.i, ptr %21, align 8
+  %22 = trunc i32 %1 to i16
+  %trunc.i = and i16 %22, -4096
+  switch i16 %trunc.i, label %24 [
     i16 0, label %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
     i16 4096, label %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
-    i16 8192, label %26
+    i16 8192, label %23
   ]
 
-26:                                               ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
+23:                                               ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
   br label %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
 
-27:                                               ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
-  %28 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr @.str.6, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 16
-  store i32 121, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 20
-  store i32 5, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %28, i64 24
-  store ptr @.str.9, ptr %32, align 8
-  tail call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+24:                                               ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit
+  %25 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %25, align 8
+  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  store ptr @.str.6, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %25, i64 16
+  store i32 121, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %25, i64 20
+  store i32 5, ptr %28, align 4
+  %29 = getelementptr inbounds i8, ptr %25, i64 24
+  store ptr @.str.9, ptr %29, align 8
+  tail call void @__cxa_throw(ptr nonnull %25, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
-_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit, %26
-  %.sink.i5 = phi i32 [ 8192, %26 ], [ 4096, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit ], [ 4096, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit ]
-  %33 = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sink.i5, ptr %33, align 4
-  %34 = and i32 %1, 983040
-  switch i32 %34, label %36 [
+_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit, %23
+  %.sink.i5 = phi i32 [ 8192, %23 ], [ 4096, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit ], [ 4096, %_ZN6marisa8grimoire4trie6Config17parse_cache_levelEi.exit ]
+  %30 = getelementptr inbounds i8, ptr %0, i64 12
+  store i32 %.sink.i5, ptr %30, align 4
+  %31 = and i32 %1, 983040
+  switch i32 %31, label %33 [
     i32 0, label %_ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit
-    i32 65536, label %35
+    i32 65536, label %32
     i32 131072, label %_ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit
   ]
 
-35:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
+32:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
   br label %_ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit
 
-36:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
-  %37 = tail call ptr @__cxa_allocate_exception(i64 32) #22
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 8
-  store ptr @.str.6, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %37, i64 16
-  store i32 141, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %37, i64 20
-  store i32 5, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %37, i64 24
-  store ptr @.str.10, ptr %41, align 8
-  tail call void @__cxa_throw(ptr nonnull %37, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
+33:                                               ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit
+  %34 = tail call ptr @__cxa_allocate_exception(i64 32) #22
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6marisa9ExceptionE, i64 16), ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr @.str.6, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %34, i64 16
+  store i32 141, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %34, i64 20
+  store i32 5, ptr %37, align 4
+  %38 = getelementptr inbounds i8, ptr %34, i64 24
+  store ptr @.str.10, ptr %38, align 8
+  tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTIN6marisa9ExceptionE, ptr nonnull @_ZN6marisa9ExceptionD2Ev) #24
   unreachable
 
-_ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit, %35
-  %.sink.i6 = phi i32 [ 65536, %35 ], [ 131072, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit ], [ 131072, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit ]
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sink.i6, ptr %42, align 8
+_ZN6marisa8grimoire4trie6Config16parse_node_orderEi.exit: ; preds = %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit, %32
+  %.sink.i6 = phi i32 [ 65536, %32 ], [ 131072, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit ], [ 131072, %_ZN6marisa8grimoire4trie6Config15parse_tail_modeEi.exit ]
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %.sink.i6, ptr %39, align 8
   ret void
 }
 
