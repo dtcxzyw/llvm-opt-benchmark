@@ -9434,7 +9434,7 @@ harfbuzz/hb-subset-cff-common.cc.ll 1020770868
 harfbuzz/hb-subset-cff1.cc.ll 6482700508
 harfbuzz/hb-subset-cff2.cc.ll 5808323544
 harfbuzz/hb-subset-input.cc.ll 700364555
-harfbuzz/hb-subset-instancer-solver.cc.ll 350572445
+harfbuzz/hb-subset-instancer-solver.cc.ll 350221773
 harfbuzz/hb-subset-plan.cc.ll 34959918382
 harfbuzz/hb-subset.cc.ll 97566180734
 hdf5/H5.c.ll 191854664
