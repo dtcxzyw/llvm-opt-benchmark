@@ -104,8 +104,8 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
   %33 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.2, ptr noundef %31) #9
   br label %._crit_edge.thread
 
-34:                                               ; preds = %.lr.ph, %92
-  %.04085 = phi i32 [ 0, %.lr.ph ], [ %93, %92 ]
+34:                                               ; preds = %.lr.ph, %91
+  %.04085 = phi i32 [ 0, %.lr.ph ], [ %92, %91 ]
   %35 = call ptr @hwloc_alloc_setup_object(ptr noundef %10, i32 noundef 16, i32 noundef -1) #8
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.3, i32 noundef %.04085) #8
   %37 = call noalias ptr @strdup(ptr noundef nonnull %6) #8
@@ -155,7 +155,7 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
     i32 6, label %70
     i32 7, label %72
     i32 8, label %72
-    i32 9, label %74
+    i32 9, label %69
   ]
 
 67:                                               ; preds = %52
@@ -168,7 +168,7 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
     i32 1, label %hwloc_cuda_cores_per_MP.exit.thread.fold.split
   ]
 
-69:                                               ; preds = %52
+69:                                               ; preds = %52, %52
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 70:                                               ; preds = %52
@@ -179,15 +179,12 @@ define internal range(i32 -1, 1) i32 @hwloc_cuda_discover(ptr nocapture noundef 
   %73 = icmp ult i32 %66, 10
   br i1 %73, label %switch.hole_check, label %hwloc_cuda_cores_per_MP.exit.thread60
 
-74:                                               ; preds = %52
-  br label %hwloc_cuda_cores_per_MP.exit.thread
-
 hwloc_cuda_cores_per_MP.exit.thread.fold.split:   ; preds = %68
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
 switch.lookup:                                    ; preds = %70
-  %75 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.hwloc_cuda_discover, i64 0, i64 %75
+  %74 = zext nneg i32 %66 to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.hwloc_cuda_discover, i64 0, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
@@ -198,57 +195,57 @@ switch.hole_check:                                ; preds = %72
   br i1 %switch.lobit, label %switch.lookup87, label %hwloc_cuda_cores_per_MP.exit.thread60
 
 switch.lookup87:                                  ; preds = %switch.hole_check
-  %76 = zext nneg i32 %66 to i64
-  %switch.gep88 = getelementptr inbounds [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %76
+  %75 = zext nneg i32 %66 to i64
+  %switch.gep88 = getelementptr inbounds [10 x i32], ptr @switch.table.hwloc_cuda_discover.3, i64 0, i64 %75
   %switch.load89 = load i32, ptr %switch.gep88, align 4
   br label %hwloc_cuda_cores_per_MP.exit.thread
 
-hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup87, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %67, %69, %74
-  %.0.i59 = phi i32 [ 192, %52 ], [ 8, %67 ], [ 128, %69 ], [ 128, %74 ], [ 32, %68 ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ %switch.load, %switch.lookup ], [ %switch.load89, %switch.lookup87 ]
-  %77 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
-  %78 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
+hwloc_cuda_cores_per_MP.exit.thread:              ; preds = %switch.lookup87, %switch.lookup, %68, %hwloc_cuda_cores_per_MP.exit.thread.fold.split, %52, %67, %69
+  %.0.i59 = phi i32 [ 192, %52 ], [ 8, %67 ], [ 128, %69 ], [ 32, %68 ], [ 48, %hwloc_cuda_cores_per_MP.exit.thread.fold.split ], [ %switch.load, %switch.lookup ], [ %switch.load89, %switch.lookup87 ]
+  %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.13, i32 noundef %.0.i59) #8
+  %77 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull %7) #8
   br label %hwloc_cuda_cores_per_MP.exit.thread60
 
 hwloc_cuda_cores_per_MP.exit.thread60:            ; preds = %switch.hole_check, %72, %70, %68, %67, %52, %hwloc_cuda_cores_per_MP.exit.thread
-  %79 = load i64, ptr %23, align 8
-  %80 = lshr i64 %79, 10
-  %81 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.8, i64 noundef %80) #8
-  %82 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %7) #8
+  %78 = load i64, ptr %23, align 8
+  %79 = lshr i64 %78, 10
+  %80 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 32, ptr noundef nonnull @.str.8, i64 noundef %79) #8
+  %81 = call i32 @hwloc_modify_infos(ptr noundef nonnull %44, i64 noundef 1, ptr noundef nonnull @.str.15, ptr noundef nonnull %7) #8
   call void @llvm.lifetime.start.p0(i64 728, ptr nonnull %3)
-  %83 = call i32 @cudaGetDeviceProperties(ptr noundef nonnull %3, i32 noundef %.04085) #8
-  %.not.i = icmp eq i32 %83, 0
-  br i1 %.not.i, label %85, label %.thread
+  %82 = call i32 @cudaGetDeviceProperties(ptr noundef nonnull %3, i32 noundef %.04085) #8
+  %.not.i = icmp eq i32 %82, 0
+  br i1 %.not.i, label %84, label %.thread
 
 .thread:                                          ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
-  %84 = tail call ptr @__errno_location() #10
-  store i32 38, ptr %84, align 4
+  %83 = tail call ptr @__errno_location() #10
+  store i32 38, ptr %83, align 4
   call void @llvm.lifetime.end.p0(i64 728, ptr nonnull %3)
-  br label %90
+  br label %89
 
-85:                                               ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
-  %86 = load i32, ptr %24, align 8
-  %87 = load i32, ptr %25, align 8
-  %88 = load i32, ptr %26, align 4
+84:                                               ; preds = %hwloc_cuda_cores_per_MP.exit.thread60
+  %85 = load i32, ptr %24, align 8
+  %86 = load i32, ptr %25, align 8
+  %87 = load i32, ptr %26, align 4
   call void @llvm.lifetime.end.p0(i64 728, ptr nonnull %3)
-  %89 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %10, i32 noundef %86, i32 noundef %87, i32 noundef %88, i32 noundef 0) #8
-  %.not46 = icmp eq ptr %89, null
-  br i1 %.not46, label %90, label %92
+  %88 = call ptr @hwloc_pci_find_parent_by_busid(ptr noundef %10, i32 noundef %85, i32 noundef %86, i32 noundef %87, i32 noundef 0) #8
+  %.not46 = icmp eq ptr %88, null
+  br i1 %.not46, label %89, label %91
 
-90:                                               ; preds = %.thread, %85
-  %91 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #11
-  br label %92
+89:                                               ; preds = %.thread, %84
+  %90 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #11
+  br label %91
 
-92:                                               ; preds = %90, %85
-  %.1 = phi ptr [ %89, %85 ], [ %91, %90 ]
+91:                                               ; preds = %89, %84
+  %.1 = phi ptr [ %88, %84 ], [ %90, %89 ]
   call void @hwloc_insert_object_by_parent(ptr noundef %10, ptr noundef %.1, ptr noundef nonnull %35) #8
-  %93 = add nuw nsw i32 %.04085, 1
-  %94 = load i32, ptr %5, align 4
-  %95 = icmp slt i32 %93, %94
-  br i1 %95, label %34, label %._crit_edge, !llvm.loop !4
+  %92 = add nuw nsw i32 %.04085, 1
+  %93 = load i32, ptr %5, align 4
+  %94 = icmp slt i32 %92, %93
+  br i1 %94, label %34, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %92
-  %96 = call ptr @hwloc_topology_get_infos(ptr noundef %10) #8
-  %97 = call i32 @hwloc_modify_infos(ptr noundef %96, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #8
+._crit_edge:                                      ; preds = %91
+  %95 = call ptr @hwloc_topology_get_infos(ptr noundef %10) #8
+  %96 = call i32 @hwloc_modify_infos(ptr noundef %95, i64 noundef 1, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4) #8
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge, %27, %30, %14, %2

@@ -2108,8 +2108,8 @@ define void @cvError(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 -214, -1) i32 @cvErrorFromIppStatus(i32 noundef %0) local_unnamed_addr #14 {
-  switch i32 %0, label %21 [
-    i32 -1, label %22
+  switch i32 %0, label %18 [
+    i32 -1, label %19
     i32 -113, label %2
     i32 -2, label %3
     i32 -11, label %4
@@ -2125,74 +2125,65 @@ define range(i32 -214, -1) i32 @cvErrorFromIppStatus(i32 noundef %0) local_unnam
     i32 -103, label %14
     i32 -102, label %15
     i32 -12, label %16
-    i32 -44, label %17
-    i32 -10, label %18
-    i32 -7, label %19
-    i32 -6, label %20
+    i32 -44, label %7
+    i32 -10, label %7
+    i32 -7, label %7
+    i32 -6, label %17
   ]
 
 2:                                                ; preds = %1
-  br label %22
+  br label %19
 
 3:                                                ; preds = %1
-  br label %22
+  br label %19
 
 4:                                                ; preds = %1
-  br label %22
+  br label %19
 
 5:                                                ; preds = %1
-  br label %22
+  br label %19
 
 6:                                                ; preds = %1
-  br label %22
+  br label %19
 
-7:                                                ; preds = %1
-  br label %22
+7:                                                ; preds = %1, %1, %1, %1
+  br label %19
 
 8:                                                ; preds = %1
-  br label %22
+  br label %19
 
 9:                                                ; preds = %1
-  br label %22
+  br label %19
 
 10:                                               ; preds = %1
-  br label %22
+  br label %19
 
 11:                                               ; preds = %1
-  br label %22
+  br label %19
 
 12:                                               ; preds = %1
-  br label %22
+  br label %19
 
 13:                                               ; preds = %1
-  br label %22
+  br label %19
 
 14:                                               ; preds = %1
-  br label %22
+  br label %19
 
 15:                                               ; preds = %1
-  br label %22
+  br label %19
 
 16:                                               ; preds = %1
-  br label %22
+  br label %19
 
 17:                                               ; preds = %1
-  br label %22
+  br label %19
 
 18:                                               ; preds = %1
-  br label %22
+  br label %19
 
-19:                                               ; preds = %1
-  br label %22
-
-20:                                               ; preds = %1
-  br label %22
-
-21:                                               ; preds = %1
-  br label %22
-
-22:                                               ; preds = %1, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ -2, %21 ], [ -207, %20 ], [ -5, %19 ], [ -5, %18 ], [ -5, %17 ], [ -206, %16 ], [ -15, %15 ], [ -24, %14 ], [ -205, %13 ], [ -17, %12 ], [ -7, %11 ], [ -204, %10 ], [ -203, %9 ], [ -2, %8 ], [ -5, %7 ], [ -4, %6 ], [ -13, %5 ], [ -202, %4 ], [ -27, %3 ], [ -214, %2 ], [ -201, %1 ]
+19:                                               ; preds = %1, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ -2, %18 ], [ -207, %17 ], [ -206, %16 ], [ -15, %15 ], [ -24, %14 ], [ -205, %13 ], [ -17, %12 ], [ -7, %11 ], [ -204, %10 ], [ -203, %9 ], [ -2, %8 ], [ -5, %7 ], [ -4, %6 ], [ -13, %5 ], [ -202, %4 ], [ -27, %3 ], [ -214, %2 ], [ -201, %1 ]
   ret i32 %.0
 }
 
