@@ -1614,8 +1614,8 @@ define internal fastcc i32 @dissect_llrp_parameters(ptr noundef %0, ptr noundef 
   %11 = add nuw nsw i32 %5, 1
   br label %12
 
-12:                                               ; preds = %.lr.ph, %1249
-  %.011711185 = phi i32 [ %3, %.lr.ph ], [ %.11172, %1249 ]
+12:                                               ; preds = %.lr.ph, %1248
+  %.011711185 = phi i32 [ %3, %.lr.ph ], [ %.11172, %1248 ]
   %13 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.011711185) #3
   %.not = icmp sgt i8 %13, -1
   br i1 %.not, label %14, label %1211
@@ -3281,12 +3281,12 @@ dissect_llrp_utf8_parameter.exit1183:             ; preds = %551, %554
 dissect_llrp_impinj_parameter.exit:               ; preds = %1201, %890, %1203, %869, %862, %852, %836, %828, %812, %790, %783, %775, %761, %754, %732, %716, %687, %679, %668, %661, %657, %650, %633, %628, %623, %590, %573, %565, %558, %dissect_llrp_utf8_parameter.exit1183, %535, %531, %524, %513, %503, %dissect_llrp_utf8_parameter.exit1180, %486, %476, %469, %462, %455, %441, %430, %426, %403, %395, %391, %381, %371, %367, %362, %352, %345, %338, %328, %324, %319, %315, %308, %291, %287, %277, %266, %258, %239, %231, %226, %218, %208, %200, %195, %184, %177, %173, %163, %158, %151, %143, %110, %103, %96, %86, %79, %75, %dissect_llrp_utf8_parameter.exit, %44, %42, %40
   %.0 = phi i32 [ %41, %40 ], [ %868, %862 ], [ %861, %852 ], [ %851, %836 ], [ %835, %828 ], [ %827, %812 ], [ %811, %790 ], [ %789, %783 ], [ %782, %775 ], [ %774, %761 ], [ %760, %754 ], [ %753, %732 ], [ %731, %716 ], [ %715, %687 ], [ %686, %679 ], [ %678, %668 ], [ %667, %661 ], [ %660, %657 ], [ %656, %650 ], [ %649, %633 ], [ %632, %628 ], [ %627, %623 ], [ %622, %590 ], [ %589, %573 ], [ %572, %565 ], [ %564, %558 ], [ %557, %dissect_llrp_utf8_parameter.exit1183 ], [ %541, %535 ], [ %884, %869 ], [ %534, %531 ], [ %530, %524 ], [ %523, %513 ], [ %512, %503 ], [ %502, %dissect_llrp_utf8_parameter.exit1180 ], [ %1207, %1203 ], [ %489, %486 ], [ %485, %476 ], [ %475, %469 ], [ %468, %462 ], [ %461, %455 ], [ %454, %441 ], [ %440, %430 ], [ %429, %426 ], [ %425, %403 ], [ %402, %395 ], [ %394, %391 ], [ %390, %381 ], [ %380, %371 ], [ %370, %367 ], [ %366, %362 ], [ %361, %352 ], [ %351, %345 ], [ %344, %338 ], [ %337, %328 ], [ %327, %324 ], [ %323, %319 ], [ %318, %315 ], [ %314, %308 ], [ %307, %291 ], [ %290, %287 ], [ %286, %277 ], [ %276, %266 ], [ %265, %258 ], [ %257, %239 ], [ %238, %231 ], [ %230, %226 ], [ %225, %218 ], [ %217, %208 ], [ %207, %200 ], [ %199, %195 ], [ %194, %184 ], [ %183, %177 ], [ %176, %173 ], [ %172, %163 ], [ %162, %158 ], [ %157, %151 ], [ %150, %143 ], [ %142, %110 ], [ %109, %103 ], [ %102, %96 ], [ %95, %86 ], [ %85, %79 ], [ %78, %75 ], [ %74, %dissect_llrp_utf8_parameter.exit ], [ %47, %44 ], [ %43, %42 ], [ %1202, %1201 ], [ %895, %890 ]
   %.not1177 = icmp eq i32 %.0, %26
-  br i1 %.not1177, label %1249, label %1208
+  br i1 %.not1177, label %1248, label %1208
 
 1208:                                             ; preds = %dissect_llrp_impinj_parameter.exit
   %1209 = sub i32 %.0, %.011711185
   %1210 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %33, ptr noundef nonnull @ei_llrp_invalid_length, ptr noundef nonnull @.str.908, i32 noundef %1209, i32 noundef %.01170) #3
-  br label %1249
+  br label %1248
 
 1211:                                             ; preds = %12
   %1212 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.011711185) #3
@@ -3313,7 +3313,7 @@ switch.lookup:                                    ; preds = %1211
   %1224 = load i32, ptr @hf_llrp_tv_type, align 4
   %1225 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1224, ptr noundef %0, i32 noundef %.011711185, i32 noundef 1, i32 noundef 0) #3
   %1226 = add i32 %.011711185, 1
-  switch i8 %1213, label %1247 [
+  switch i8 %1213, label %1246 [
     i8 1, label %.sink.split
     i8 2, label %1227
     i8 3, label %1227
@@ -3330,10 +3330,10 @@ switch.lookup:                                    ; preds = %1211
     i8 14, label %1236
     i8 15, label %1237
     i8 16, label %1238
-    i8 17, label %1239
-    i8 18, label %1240
-    i8 19, label %1243
-    i8 20, label %1244
+    i8 17, label %1237
+    i8 18, label %1239
+    i8 19, label %1242
+    i8 20, label %1243
   ]
 
 1227:                                             ; preds = %1217, %1217, %1217, %1217
@@ -3366,45 +3366,42 @@ switch.lookup:                                    ; preds = %1211
 1236:                                             ; preds = %1217
   br label %.sink.split
 
-1237:                                             ; preds = %1217
+1237:                                             ; preds = %1217, %1217
   br label %.sink.split
 
 1238:                                             ; preds = %1217
   br label %.sink.split
 
 1239:                                             ; preds = %1217
+  %1240 = load i32, ptr @hf_llrp_num_coll, align 4
+  %1241 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1240, ptr noundef %0, i32 noundef %1226, i32 noundef 2, i32 noundef 0) #3
   br label %.sink.split
 
-1240:                                             ; preds = %1217
-  %1241 = load i32, ptr @hf_llrp_num_coll, align 4
-  %1242 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1241, ptr noundef %0, i32 noundef %1226, i32 noundef 2, i32 noundef 0) #3
+1242:                                             ; preds = %1217
   br label %.sink.split
 
 1243:                                             ; preds = %1217
   br label %.sink.split
 
-1244:                                             ; preds = %1217
-  br label %.sink.split
+.sink.split:                                      ; preds = %1217, %1227, %1228, %1229, %1230, %1231, %1232, %1233, %1234, %1235, %1236, %1237, %1238, %1239, %1242, %1243
+  %hf_llrp_xpc_w2.sink = phi ptr [ @hf_llrp_xpc_w2, %1243 ], [ @hf_llrp_xpc_w1, %1242 ], [ @hf_llrp_num_empty, %1239 ], [ @hf_llrp_accessspec_id, %1238 ], [ @hf_llrp_opspec_id, %1237 ], [ @hf_llrp_spec_idx, %1236 ], [ @hf_llrp_epc, %1235 ], [ @hf_llrp_pc_bits, %1234 ], [ @hf_llrp_crc, %1233 ], [ @hf_llrp_inventory_spec_id, %1232 ], [ @hf_llrp_rospec_id, %1231 ], [ @hf_llrp_tag_count, %1230 ], [ @hf_llrp_channel_idx, %1229 ], [ @hf_llrp_peak_rssi, %1228 ], [ @hf_llrp_microseconds, %1227 ], [ @hf_llrp_antenna_id, %1217 ]
+  %.sink1188 = phi i32 [ 2, %1243 ], [ 2, %1242 ], [ 2, %1239 ], [ 4, %1238 ], [ 2, %1237 ], [ 2, %1236 ], [ 12, %1235 ], [ 2, %1234 ], [ 2, %1233 ], [ 2, %1232 ], [ 4, %1231 ], [ 2, %1230 ], [ 2, %1229 ], [ 1, %1228 ], [ 8, %1227 ], [ 2, %1217 ]
+  %1244 = load i32, ptr %hf_llrp_xpc_w2.sink, align 4
+  %1245 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1244, ptr noundef %0, i32 noundef %1226, i32 noundef %.sink1188, i32 noundef 0) #3
+  br label %1246
 
-.sink.split:                                      ; preds = %1217, %1227, %1228, %1229, %1230, %1231, %1232, %1233, %1234, %1235, %1236, %1237, %1238, %1239, %1240, %1243, %1244
-  %hf_llrp_xpc_w2.sink = phi ptr [ @hf_llrp_xpc_w2, %1244 ], [ @hf_llrp_xpc_w1, %1243 ], [ @hf_llrp_num_empty, %1240 ], [ @hf_llrp_opspec_id, %1239 ], [ @hf_llrp_accessspec_id, %1238 ], [ @hf_llrp_opspec_id, %1237 ], [ @hf_llrp_spec_idx, %1236 ], [ @hf_llrp_epc, %1235 ], [ @hf_llrp_pc_bits, %1234 ], [ @hf_llrp_crc, %1233 ], [ @hf_llrp_inventory_spec_id, %1232 ], [ @hf_llrp_rospec_id, %1231 ], [ @hf_llrp_tag_count, %1230 ], [ @hf_llrp_channel_idx, %1229 ], [ @hf_llrp_peak_rssi, %1228 ], [ @hf_llrp_microseconds, %1227 ], [ @hf_llrp_antenna_id, %1217 ]
-  %.sink1188 = phi i32 [ 2, %1244 ], [ 2, %1243 ], [ 2, %1240 ], [ 2, %1239 ], [ 4, %1238 ], [ 2, %1237 ], [ 2, %1236 ], [ 12, %1235 ], [ 2, %1234 ], [ 2, %1233 ], [ 2, %1232 ], [ 4, %1231 ], [ 2, %1230 ], [ 2, %1229 ], [ 1, %1228 ], [ 8, %1227 ], [ 2, %1217 ]
-  %1245 = load i32, ptr %hf_llrp_xpc_w2.sink, align 4
-  %1246 = call ptr @proto_tree_add_item(ptr noundef %1223, i32 noundef %1245, ptr noundef %0, i32 noundef %1226, i32 noundef %.sink1188, i32 noundef 0) #3
-  br label %1247
+1246:                                             ; preds = %.sink.split, %1217
+  %1247 = add i32 %.1, %1226
+  br label %1248
 
-1247:                                             ; preds = %.sink.split, %1217
-  %1248 = add i32 %.1, %1226
-  br label %1249
+1248:                                             ; preds = %dissect_llrp_impinj_parameter.exit, %1208, %1246
+  %.11172 = phi i32 [ %1247, %1246 ], [ %26, %1208 ], [ %26, %dissect_llrp_impinj_parameter.exit ]
+  %1249 = sub i32 %4, %.11172
+  %1250 = icmp sgt i32 %1249, 0
+  br i1 %1250, label %12, label %._crit_edge, !llvm.loop !5
 
-1249:                                             ; preds = %dissect_llrp_impinj_parameter.exit, %1208, %1247
-  %.11172 = phi i32 [ %1248, %1247 ], [ %26, %1208 ], [ %26, %dissect_llrp_impinj_parameter.exit ]
-  %1250 = sub i32 %4, %.11172
-  %1251 = icmp sgt i32 %1250, 0
-  br i1 %1251, label %12, label %._crit_edge, !llvm.loop !5
-
-._crit_edge:                                      ; preds = %25, %1249, %6
-  %.01169 = phi i32 [ %3, %6 ], [ %.11172, %1249 ], [ %26, %25 ]
+._crit_edge:                                      ; preds = %25, %1248, %6
+  %.01169 = phi i32 [ %3, %6 ], [ %.11172, %1248 ], [ %26, %25 ]
   ret i32 %.01169
 }
 

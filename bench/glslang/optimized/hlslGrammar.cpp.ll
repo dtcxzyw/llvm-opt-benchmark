@@ -3997,7 +3997,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar18acceptPreQualifierERNS_10TQ
   store i64 %.sink, ptr %8, align 8
   br label %113
 
-113:                                              ; preds = %.sink.split, %107, %101, %95, %89, %83, %11, %58, %11, %11
+113:                                              ; preds = %.sink.split, %107, %101, %95, %89, %83, %58, %11, %11, %11
   call void @_ZN7glslang15HlslTokenStream12advanceTokenEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   br label %.backedge
 
