@@ -438,10 +438,10 @@ declare noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i1 @_ZN9CGOptions14dfs_exhaustiveEv()
-  br i1 %3, label %4, label %57
+  br i1 %3, label %4, label %40
 
 4:                                                ; preds = %2
-  switch i32 %0, label %57 [
+  switch i32 %0, label %40 [
     i32 1, label %.sink.split
     i32 0, label %5
     i32 2, label %6
@@ -451,41 +451,41 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec19depth_guard_by_typ
     i32 6, label %13
     i32 7, label %14
     i32 8, label %16
-    i32 9, label %17
-    i32 10, label %18
-    i32 11, label %19
+    i32 9, label %6
+    i32 10, label %6
+    i32 11, label %5
     i32 14, label %.sink.split
-    i32 15, label %20
+    i32 15, label %17
     i32 16, label %.sink.split
-    i32 17, label %22
-    i32 18, label %25
-    i32 19, label %28
-    i32 21, label %31
-    i32 20, label %32
-    i32 22, label %34
-    i32 23, label %35
-    i32 24, label %36
-    i32 25, label %37
-    i32 26, label %38
-    i32 27, label %39
-    i32 28, label %40
-    i32 29, label %42
-    i32 30, label %44
-    i32 31, label %45
-    i32 32, label %46
-    i32 33, label %47
-    i32 34, label %48
-    i32 35, label %49
-    i32 36, label %50
-    i32 37, label %51
-    i32 38, label %52
-    i32 39, label %53
+    i32 17, label %19
+    i32 18, label %22
+    i32 19, label %25
+    i32 21, label %16
+    i32 20, label %28
+    i32 22, label %16
+    i32 23, label %16
+    i32 24, label %16
+    i32 25, label %6
+    i32 26, label %30
+    i32 27, label %16
+    i32 28, label %31
+    i32 29, label %33
+    i32 30, label %35
+    i32 31, label %16
+    i32 32, label %16
+    i32 33, label %30
+    i32 34, label %30
+    i32 35, label %30
+    i32 36, label %6
+    i32 37, label %6
+    i32 38, label %6
+    i32 39, label %36
   ]
 
-5:                                                ; preds = %4
+5:                                                ; preds = %4, %4
   br label %.sink.split
 
-6:                                                ; preds = %4
+6:                                                ; preds = %4, %4, %4, %4, %4, %4, %4
   br label %.sink.split
 
 7:                                                ; preds = %4
@@ -508,20 +508,16 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec19depth_guard_by_typ
   %15 = tail call noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 poison)
   br label %.sink.split
 
-16:                                               ; preds = %4
+16:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
   br label %.sink.split
 
 17:                                               ; preds = %4
-  br label %.sink.split
-
-18:                                               ; preds = %4
+  %18 = tail call noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 poison)
   br label %.sink.split
 
 19:                                               ; preds = %4
-  br label %.sink.split
-
-20:                                               ; preds = %4
-  %21 = tail call noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 poison)
+  %20 = icmp eq i32 %1, 5
+  %21 = zext i1 %20 to i32
   br label %.sink.split
 
 22:                                               ; preds = %4
@@ -535,84 +531,37 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN9DepthSpec19depth_guard_by_typ
   br label %.sink.split
 
 28:                                               ; preds = %4
-  %29 = icmp eq i32 %1, 5
-  %30 = zext i1 %29 to i32
+  %29 = tail call noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 poison)
+  br label %.sink.split
+
+30:                                               ; preds = %4, %4, %4, %4
   br label %.sink.split
 
 31:                                               ; preds = %4
+  %32 = icmp eq i32 %1, 4
+  %spec.select.i.i = select i1 %32, i32 2, i32 1
   br label %.sink.split
 
-32:                                               ; preds = %4
-  %33 = tail call noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 poison)
-  br label %.sink.split
-
-34:                                               ; preds = %4
+33:                                               ; preds = %4
+  %34 = icmp eq i32 %1, 4
+  %spec.select.i78 = select i1 %34, i32 2, i32 1
   br label %.sink.split
 
 35:                                               ; preds = %4
   br label %.sink.split
 
 36:                                               ; preds = %4
+  %37 = icmp eq i32 %1, 1
+  %38 = select i1 %37, i32 2, i32 3
   br label %.sink.split
 
-37:                                               ; preds = %4
-  br label %.sink.split
+.sink.split:                                      ; preds = %4, %4, %4, %5, %6, %7, %9, %12, %13, %14, %16, %17, %19, %22, %25, %28, %30, %31, %33, %35, %36
+  %.sink = phi i32 [ %38, %36 ], [ 0, %35 ], [ %spec.select.i78, %33 ], [ %spec.select.i.i, %31 ], [ 2, %30 ], [ %29, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %17 ], [ 1, %16 ], [ %15, %14 ], [ 6, %13 ], [ 17, %12 ], [ %11, %9 ], [ %spec.select.i, %7 ], [ 3, %6 ], [ 4, %5 ], [ 5, %4 ], [ 5, %4 ], [ 5, %4 ]
+  %39 = tail call noundef i32 @_ZN9DepthSpec12backtrackingEi(i32 noundef %.sink)
+  br label %40
 
-38:                                               ; preds = %4
-  br label %.sink.split
-
-39:                                               ; preds = %4
-  br label %.sink.split
-
-40:                                               ; preds = %4
-  %41 = icmp eq i32 %1, 4
-  %spec.select.i.i = select i1 %41, i32 2, i32 1
-  br label %.sink.split
-
-42:                                               ; preds = %4
-  %43 = icmp eq i32 %1, 4
-  %spec.select.i78 = select i1 %43, i32 2, i32 1
-  br label %.sink.split
-
-44:                                               ; preds = %4
-  br label %.sink.split
-
-45:                                               ; preds = %4
-  br label %.sink.split
-
-46:                                               ; preds = %4
-  br label %.sink.split
-
-47:                                               ; preds = %4
-  br label %.sink.split
-
-48:                                               ; preds = %4
-  br label %.sink.split
-
-49:                                               ; preds = %4
-  br label %.sink.split
-
-50:                                               ; preds = %4
-  br label %.sink.split
-
-51:                                               ; preds = %4
-  br label %.sink.split
-
-52:                                               ; preds = %4
-  br label %.sink.split
-
-53:                                               ; preds = %4
-  %54 = icmp eq i32 %1, 1
-  %55 = select i1 %54, i32 2, i32 3
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %4, %4, %4, %5, %6, %7, %9, %12, %13, %14, %16, %17, %18, %19, %20, %22, %25, %28, %31, %32, %34, %35, %36, %37, %38, %39, %40, %42, %44, %45, %46, %47, %48, %49, %50, %51, %52, %53
-  %.sink = phi i32 [ %55, %53 ], [ 3, %52 ], [ 3, %51 ], [ 3, %50 ], [ 2, %49 ], [ 2, %48 ], [ 2, %47 ], [ 1, %46 ], [ 1, %45 ], [ 0, %44 ], [ %spec.select.i78, %42 ], [ %spec.select.i.i, %40 ], [ 1, %39 ], [ 2, %38 ], [ 3, %37 ], [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ %33, %32 ], [ 1, %31 ], [ %30, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ 4, %19 ], [ 3, %18 ], [ 3, %17 ], [ 1, %16 ], [ %15, %14 ], [ 6, %13 ], [ 17, %12 ], [ %11, %9 ], [ %spec.select.i, %7 ], [ 3, %6 ], [ 4, %5 ], [ 5, %4 ], [ 5, %4 ], [ 5, %4 ]
-  %56 = tail call noundef i32 @_ZN9DepthSpec12backtrackingEi(i32 noundef %.sink)
-  br label %57
-
-57:                                               ; preds = %.sink.split, %4, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ %56, %.sink.split ]
+40:                                               ; preds = %.sink.split, %4, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ %39, %.sink.split ]
   ret i32 %.0
 }
 

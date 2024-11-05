@@ -4878,13 +4878,13 @@ colorxlate.exit:                                  ; preds = %thread-pre-split.i,
   br label %401
 
 .thread279:                                       ; preds = %107, %371
-  %.sink342 = phi double [ %113, %107 ], [ %380, %371 ]
-  %.sink341.in = phi double [ %109, %107 ], [ %374, %371 ]
+  %.sink343 = phi double [ %113, %107 ], [ %380, %371 ]
+  %.sink342.in = phi double [ %109, %107 ], [ %374, %371 ]
   %.sink.in = phi double [ %111, %107 ], [ %377, %371 ]
   %.sink = fdiv double %.sink.in, 2.550000e+02
-  %.sink341 = fdiv double %.sink341.in, 2.550000e+02
-  %381 = fdiv double %.sink342, 2.550000e+02
-  %382 = fsub double 1.000000e+00, %.sink341
+  %.sink342 = fdiv double %.sink342.in, 2.550000e+02
+  %381 = fdiv double %.sink343, 2.550000e+02
+  %382 = fsub double 1.000000e+00, %.sink342
   %383 = fsub double 1.000000e+00, %.sink
   %384 = fsub double 1.000000e+00, %381
   %385 = call double @llvm.minnum.f64(double %382, double %383)

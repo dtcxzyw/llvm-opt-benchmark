@@ -56010,7 +56010,7 @@ stbi__get8.exit86:                                ; preds = %34, %stbi__refill_b
   %63 = getelementptr inbounds i8, ptr %0, i64 208
   %64 = load ptr, ptr %63, align 8
   store ptr %64, ptr %7, align 8
-  br label %387
+  br label %386
 
 stbi__get8.exit86.thread:                         ; preds = %37, %stbi__get8.exit86
   %65 = phi ptr [ %57, %stbi__get8.exit86 ], [ %31, %37 ]
@@ -56082,7 +56082,7 @@ stbi__get8.exit92:                                ; preds = %68, %71, %stbi__ref
   %97 = getelementptr inbounds i8, ptr %0, i64 208
   %98 = load ptr, ptr %97, align 8
   store ptr %98, ptr %7, align 8
-  br label %387
+  br label %386
 
 99:                                               ; preds = %92
   %100 = getelementptr inbounds i8, ptr %0, i64 16
@@ -56183,7 +56183,7 @@ stbi__get8.exit100.thread:                        ; preds = %121, %stbi__get8.ex
   %143 = getelementptr inbounds i8, ptr %0, i64 208
   %144 = load ptr, ptr %143, align 8
   store ptr %144, ptr %7, align 8
-  br label %387
+  br label %386
 
 145:                                              ; preds = %stbi__get8.exit100, %stbi__get8.exit100, %stbi__get8.exit100, %stbi__get8.exit100, %stbi__get8.exit100
   %146 = load ptr, ptr %100, align 8
@@ -56225,7 +56225,7 @@ stbi__get8.exit100.thread:                        ; preds = %121, %stbi__get8.ex
   %165 = getelementptr inbounds i8, ptr %0, i64 208
   %166 = load ptr, ptr %165, align 8
   store ptr %166, ptr %7, align 8
-  br label %387
+  br label %386
 
 167:                                              ; preds = %160
   %168 = getelementptr inbounds i8, ptr %0, i64 16
@@ -56376,7 +56376,7 @@ stbi__get16le.exit:                               ; preds = %212, %215, %stbi__r
   %245 = getelementptr inbounds i8, ptr %0, i64 208
   %246 = load ptr, ptr %245, align 8
   store ptr %246, ptr %7, align 8
-  br label %387
+  br label %386
 
 247:                                              ; preds = %stbi__get16le.exit
   %248 = icmp ult ptr %236, %235
@@ -56495,7 +56495,7 @@ stbi__get16le.exit122:                            ; preds = %275, %278, %stbi__r
   %308 = getelementptr inbounds i8, ptr %0, i64 208
   %309 = load ptr, ptr %308, align 8
   store ptr %309, ptr %7, align 8
-  br label %387
+  br label %386
 
 310:                                              ; preds = %stbi__get16le.exit122
   %311 = icmp ult ptr %299, %298
@@ -56598,7 +56598,7 @@ stbi__get8.exit134.sink.split:                    ; preds = %stbi__refill_buffer
 
 stbi__get8.exit134:                               ; preds = %stbi__get8.exit134.sink.split, %340
   %.not = icmp eq i8 %.070.shrunk, 0
-  br i1 %.not, label %368, label %359
+  br i1 %.not, label %367, label %359
 
 359:                                              ; preds = %stbi__get8.exit134
   switch i8 %.0.i127, label %360 [
@@ -56613,87 +56613,84 @@ stbi__get8.exit134:                               ; preds = %stbi__get8.exit134.
   %363 = getelementptr inbounds i8, ptr %0, i64 208
   %364 = load ptr, ptr %363, align 8
   store ptr %364, ptr %7, align 8
-  br label %387
+  br label %386
 
 365:                                              ; preds = %359, %359
   switch i8 %.070.shrunk, label %stbi__tga_get_comp.exit.thread146 [
     i8 8, label %stbi__tga_get_comp.exit.thread
     i8 16, label %366
-    i8 15, label %367
+    i8 15, label %366
     i8 24, label %stbi__tga_get_comp.exit
     i8 32, label %stbi__tga_get_comp.exit
   ]
 
-366:                                              ; preds = %365
+366:                                              ; preds = %365, %365
   br label %stbi__tga_get_comp.exit.thread
 
-367:                                              ; preds = %365
-  br label %stbi__tga_get_comp.exit.thread
-
-368:                                              ; preds = %stbi__get8.exit134
+367:                                              ; preds = %stbi__get8.exit134
   switch i8 %.0.i127, label %stbi__tga_get_comp.exit.thread146 [
     i8 8, label %stbi__tga_get_comp.exit.thread
-    i8 16, label %369
-    i8 15, label %372
-    i8 24, label %373
-    i8 32, label %373
+    i8 16, label %368
+    i8 15, label %371
+    i8 24, label %372
+    i8 32, label %372
   ]
 
-369:                                              ; preds = %368
-  %370 = and i8 %.0.i91, -9
-  %371 = icmp eq i8 %370, 3
-  %.mux.i = select i1 %371, i32 2, i32 3
+368:                                              ; preds = %367
+  %369 = and i8 %.0.i91, -9
+  %370 = icmp eq i8 %369, 3
+  %.mux.i = select i1 %370, i32 2, i32 3
   br label %stbi__tga_get_comp.exit.thread
 
-372:                                              ; preds = %368
+371:                                              ; preds = %367
   br label %stbi__tga_get_comp.exit.thread
 
-373:                                              ; preds = %368, %368
-  %374 = lshr i8 %.0.i127, 3
-  %375 = zext nneg i8 %374 to i32
+372:                                              ; preds = %367, %367
+  %373 = lshr i8 %.0.i127, 3
+  %374 = zext nneg i8 %373 to i32
   br label %stbi__tga_get_comp.exit.thread
 
 stbi__tga_get_comp.exit:                          ; preds = %365, %365
-  %376 = lshr i8 %.070.shrunk, 3
-  %377 = zext nneg i8 %376 to i32
+  %375 = lshr i8 %.070.shrunk, 3
+  %376 = zext nneg i8 %375 to i32
   br label %stbi__tga_get_comp.exit.thread
 
-stbi__tga_get_comp.exit.thread146:                ; preds = %368, %365
-  %378 = getelementptr inbounds i8, ptr %0, i64 200
-  %379 = load ptr, ptr %378, align 8
-  store ptr %379, ptr %5, align 8
-  %380 = getelementptr inbounds i8, ptr %0, i64 208
-  %381 = load ptr, ptr %380, align 8
-  store ptr %381, ptr %7, align 8
-  br label %387
+stbi__tga_get_comp.exit.thread146:                ; preds = %367, %365
+  %377 = getelementptr inbounds i8, ptr %0, i64 200
+  %378 = load ptr, ptr %377, align 8
+  store ptr %378, ptr %5, align 8
+  %379 = getelementptr inbounds i8, ptr %0, i64 208
+  %380 = load ptr, ptr %379, align 8
+  store ptr %380, ptr %7, align 8
+  br label %386
 
-stbi__tga_get_comp.exit.thread:                   ; preds = %stbi__tga_get_comp.exit, %372, %369, %368, %373, %367, %366, %365
-  %.069144 = phi i32 [ %377, %stbi__tga_get_comp.exit ], [ 3, %372 ], [ %.mux.i, %369 ], [ 1, %368 ], [ %375, %373 ], [ 3, %367 ], [ 3, %366 ], [ 1, %365 ]
+stbi__tga_get_comp.exit.thread:                   ; preds = %stbi__tga_get_comp.exit, %371, %368, %367, %372, %366, %365
+  %.069144 = phi i32 [ %376, %stbi__tga_get_comp.exit ], [ 3, %371 ], [ %.mux.i, %368 ], [ 1, %367 ], [ %374, %372 ], [ 3, %366 ], [ 1, %365 ]
   %.not78 = icmp eq ptr %1, null
-  br i1 %.not78, label %383, label %382
+  br i1 %.not78, label %382, label %381
 
-382:                                              ; preds = %stbi__tga_get_comp.exit.thread
+381:                                              ; preds = %stbi__tga_get_comp.exit.thread
   store i32 %240, ptr %1, align 4
-  br label %383
+  br label %382
 
-383:                                              ; preds = %382, %stbi__tga_get_comp.exit.thread
+382:                                              ; preds = %381, %stbi__tga_get_comp.exit.thread
   %.not79 = icmp eq ptr %2, null
-  br i1 %.not79, label %385, label %384
+  br i1 %.not79, label %384, label %383
 
-384:                                              ; preds = %383
+383:                                              ; preds = %382
   store i32 %303, ptr %2, align 4
-  br label %385
+  br label %384
 
-385:                                              ; preds = %384, %383
+384:                                              ; preds = %383, %382
   %.not80 = icmp eq ptr %3, null
-  br i1 %.not80, label %387, label %386
+  br i1 %.not80, label %386, label %385
 
-386:                                              ; preds = %385
+385:                                              ; preds = %384
   store i32 %.069144, ptr %3, align 4
-  br label %387
+  br label %386
 
-387:                                              ; preds = %385, %386, %stbi__tga_get_comp.exit.thread146, %360, %305, %242, %162, %stbi__get8.exit100.thread, %94, %60
-  %.0 = phi i32 [ 0, %60 ], [ 0, %94 ], [ 0, %stbi__get8.exit100.thread ], [ 0, %242 ], [ 0, %305 ], [ 0, %360 ], [ 0, %stbi__tga_get_comp.exit.thread146 ], [ 0, %162 ], [ 1, %386 ], [ 1, %385 ]
+386:                                              ; preds = %384, %385, %stbi__tga_get_comp.exit.thread146, %360, %305, %242, %162, %stbi__get8.exit100.thread, %94, %60
+  %.0 = phi i32 [ 0, %60 ], [ 0, %94 ], [ 0, %stbi__get8.exit100.thread ], [ 0, %242 ], [ 0, %305 ], [ 0, %360 ], [ 0, %stbi__tga_get_comp.exit.thread146 ], [ 0, %162 ], [ 1, %385 ], [ 1, %384 ]
   ret i32 %.0
 }
 

@@ -4021,26 +4021,14 @@ entry:
   switch i32 %dParam, label %sw.epilog [
     i32 100, label %return
     i32 1000, label %sw.bb1
-    i32 1001, label %sw.bb4
-    i32 1002, label %sw.bb7
-    i32 1003, label %sw.bb10
-    i32 1004, label %sw.bb13
+    i32 1001, label %sw.bb1
+    i32 1002, label %sw.bb1
+    i32 1003, label %sw.bb1
+    i32 1004, label %sw.bb1
     i32 1005, label %sw.bb16
   ]
 
-sw.bb1:                                           ; preds = %entry
-  br label %return
-
-sw.bb4:                                           ; preds = %entry
-  br label %return
-
-sw.bb7:                                           ; preds = %entry
-  br label %return
-
-sw.bb10:                                          ; preds = %entry
-  br label %return
-
-sw.bb13:                                          ; preds = %entry
+sw.bb1:                                           ; preds = %entry, %entry, %entry, %entry, %entry
   br label %return
 
 sw.bb16:                                          ; preds = %entry
@@ -4049,9 +4037,9 @@ sw.bb16:                                          ; preds = %entry
 sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb16, %sw.bb13, %sw.bb10, %sw.bb7, %sw.bb4, %sw.bb1
-  %retval.sroa.3.0 = phi i64 [ 0, %sw.epilog ], [ 562949953422336, %sw.bb16 ], [ 4294967296, %sw.bb13 ], [ 4294967296, %sw.bb10 ], [ 4294967296, %sw.bb7 ], [ 4294967296, %sw.bb4 ], [ 4294967296, %sw.bb1 ], [ 133143986186, %entry ]
-  %retval.sroa.0.0 = phi i64 [ -40, %sw.epilog ], [ 0, %sw.bb16 ], [ 0, %sw.bb13 ], [ 0, %sw.bb10 ], [ 0, %sw.bb7 ], [ 0, %sw.bb4 ], [ 0, %sw.bb1 ], [ 0, %entry ]
+return:                                           ; preds = %entry, %sw.epilog, %sw.bb16, %sw.bb1
+  %retval.sroa.3.0 = phi i64 [ 0, %sw.epilog ], [ 562949953422336, %sw.bb16 ], [ 4294967296, %sw.bb1 ], [ 133143986186, %entry ]
+  %retval.sroa.0.0 = phi i64 [ -40, %sw.epilog ], [ 0, %sw.bb16 ], [ 0, %sw.bb1 ], [ 0, %entry ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %retval.sroa.3.0, 1
   ret { i64, i64 } %.fca.1.insert

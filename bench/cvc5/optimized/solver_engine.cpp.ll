@@ -19982,8 +19982,8 @@ entry:
   switch i32 %proofFormat, label %sw.epilog [
     i32 4, label %sw.bb
     i32 2, label %sw.bb5
-    i32 1, label %sw.bb3
-    i32 3, label %sw.bb4
+    i32 1, label %sw.bb5
+    i32 3, label %sw.bb5
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -19996,17 +19996,11 @@ sw.bb:                                            ; preds = %entry
   %2 = load i32, ptr %proofFormatMode, align 8
   br label %sw.epilog
 
-sw.bb3:                                           ; preds = %entry
+sw.bb5:                                           ; preds = %entry, %entry, %entry
   br label %sw.epilog
 
-sw.bb4:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.bb5:                                           ; preds = %entry
-  br label %sw.epilog
-
-sw.epilog:                                        ; preds = %sw.bb5, %sw.bb4, %sw.bb3, %sw.bb, %entry
-  %mode.0 = phi i32 [ %proofFormat, %sw.bb5 ], [ %proofFormat, %sw.bb4 ], [ %proofFormat, %sw.bb3 ], [ %2, %sw.bb ], [ 0, %entry ]
+sw.epilog:                                        ; preds = %sw.bb5, %sw.bb, %entry
+  %mode.0 = phi i32 [ %proofFormat, %sw.bb5 ], [ %2, %sw.bb ], [ 0, %entry ]
   %d_pfManager = getelementptr inbounds i8, ptr %this, i64 64
   %3 = load ptr, ptr %d_pfManager, align 8
   %4 = load ptr, ptr %fp, align 8
