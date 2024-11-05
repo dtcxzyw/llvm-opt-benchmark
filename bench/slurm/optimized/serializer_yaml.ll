@@ -870,18 +870,18 @@ define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr 
   br i1 %7, label %9, label %thread-pre-split
 
 9:                                                ; preds = %5
-  switch i32 %8, label %79 [
+  switch i32 %8, label %76 [
     i32 6, label %10
     i32 7, label %10
     i32 9, label %10
     i32 0, label %common.ret4
     i32 3, label %23
-    i32 1, label %24
-    i32 4, label %25
+    i32 1, label %23
+    i32 4, label %23
     i32 2, label %common.ret4
-    i32 5, label %26
-    i32 8, label %71
-    i32 10, label %78
+    i32 5, label %24
+    i32 8, label %69
+    i32 10, label %69
   ]
 
 10:                                               ; preds = %9, %9, %9
@@ -900,8 +900,8 @@ define internal fastcc range(i32 2, 6) i32 @_on_parse_event(i32 noundef %0, ptr 
   tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._on_parse_event, ptr noundef %3, ptr noundef %11) #6
   br label %18
 
-common.ret4:                                      ; preds = %64, %62, %_yaml_tag_to_type.exit, %41, %_yaml_tag_to_type.exit.thread, %thread-pre-split, %thread-pre-split, %78, %72, %71, %65, %26, %25, %24, %23, %9, %9, %18
-  %common.ret4.op = phi i32 [ %22, %18 ], [ 3, %78 ], [ %77, %72 ], [ 3, %71 ], [ %70, %65 ], [ 5, %26 ], [ 2, %25 ], [ 2, %24 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %43, %41 ], [ 5, %64 ], [ 3, %62 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
+common.ret4:                                      ; preds = %62, %60, %_yaml_tag_to_type.exit, %39, %_yaml_tag_to_type.exit.thread, %thread-pre-split, %thread-pre-split, %70, %69, %63, %24, %23, %9, %9, %18
+  %common.ret4.op = phi i32 [ %22, %18 ], [ %75, %70 ], [ 3, %69 ], [ %68, %63 ], [ 5, %24 ], [ 2, %23 ], [ 4, %thread-pre-split ], [ 4, %thread-pre-split ], [ %41, %39 ], [ 5, %62 ], [ 3, %60 ], [ 3, %_yaml_tag_to_type.exit ], [ 3, %_yaml_tag_to_type.exit.thread ], [ 4, %9 ], [ 4, %9 ]
   ret i32 %common.ret4.op
 
 18:                                               ; preds = %10, %14, %17
@@ -912,143 +912,134 @@ common.ret4:                                      ; preds = %64, %62, %_yaml_tag
   br label %common.ret4
 
 thread-pre-split:                                 ; preds = %5
-  switch i32 %8, label %79 [
+  switch i32 %8, label %76 [
     i32 0, label %common.ret4
     i32 3, label %23
-    i32 1, label %24
-    i32 4, label %25
+    i32 1, label %23
+    i32 4, label %23
     i32 2, label %common.ret4
-    i32 5, label %26
-    i32 6, label %28
-    i32 7, label %65
-    i32 8, label %71
-    i32 9, label %72
-    i32 10, label %78
+    i32 5, label %24
+    i32 6, label %26
+    i32 7, label %63
+    i32 8, label %69
+    i32 9, label %70
+    i32 10, label %69
   ]
 
-23:                                               ; preds = %9, %thread-pre-split
+23:                                               ; preds = %9, %9, %9, %thread-pre-split, %thread-pre-split, %thread-pre-split
   br label %common.ret4
 
 24:                                               ; preds = %9, %thread-pre-split
-  br label %common.ret4
-
-25:                                               ; preds = %9, %thread-pre-split
-  br label %common.ret4
-
-26:                                               ; preds = %9, %thread-pre-split
-  %27 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._on_parse_event) #6
+  %25 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.39, ptr noundef nonnull @__func__._on_parse_event) #6
   store i32 2036, ptr %4, align 4
   br label %common.ret4
 
-28:                                               ; preds = %thread-pre-split
-  %29 = getelementptr inbounds i8, ptr %2, i64 24
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @data_get_type(ptr noundef %3) #6
-  %32 = icmp eq i32 %31, 3
-  br i1 %32, label %33, label %44
+26:                                               ; preds = %thread-pre-split
+  %27 = getelementptr inbounds i8, ptr %2, i64 24
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 @data_get_type(ptr noundef %3) #6
+  %30 = icmp eq i32 %29, 3
+  br i1 %30, label %31, label %42
 
-33:                                               ; preds = %28
-  %34 = tail call ptr @data_key_set(ptr noundef %3, ptr noundef %30) #6
-  %35 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %36 = and i64 %35, 256
-  %.not21.i = icmp eq i64 %36, 0
-  br i1 %.not21.i, label %41, label %37
+31:                                               ; preds = %26
+  %32 = tail call ptr @data_key_set(ptr noundef %3, ptr noundef %28) #6
+  %33 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %34 = and i64 %33, 256
+  %.not21.i = icmp eq i64 %34, 0
+  br i1 %.not21.i, label %39, label %35
 
-37:                                               ; preds = %33
-  %38 = tail call i32 @slurm_get_log_level() #6
-  %39 = icmp sgt i32 %38, 3
-  br i1 %39, label %40, label %41
+35:                                               ; preds = %31
+  %36 = tail call i32 @slurm_get_log_level() #6
+  %37 = icmp sgt i32 %36, 3
+  br i1 %37, label %38, label %39
 
-40:                                               ; preds = %37
-  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._on_parse_scalar, ptr noundef %3, ptr noundef %30, ptr noundef %34) #6
-  br label %41
+38:                                               ; preds = %35
+  tail call void (i32, ptr, ...) @slurm_log_var(i32 noundef 4, ptr noundef nonnull @.str.41, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._on_parse_scalar, ptr noundef %3, ptr noundef %28, ptr noundef %32) #6
+  br label %39
 
-41:                                               ; preds = %40, %37, %33
-  %42 = add nsw i32 %0, 1
-  %43 = tail call fastcc i32 @_yaml_to_data(i32 noundef %42, ptr noundef nonnull %1, ptr noundef %34, ptr noundef nonnull %4)
+39:                                               ; preds = %38, %35, %31
+  %40 = add nsw i32 %0, 1
+  %41 = tail call fastcc i32 @_yaml_to_data(i32 noundef %40, ptr noundef nonnull %1, ptr noundef %32, ptr noundef nonnull %4)
   br label %common.ret4
 
-44:                                               ; preds = %28
-  %45 = getelementptr i8, ptr %2, i64 16
-  %.val.i = load ptr, ptr %45, align 8
+42:                                               ; preds = %26
+  %43 = getelementptr i8, ptr %2, i64 16
+  %.val.i = load ptr, ptr %43, align 8
   %.not.i38 = icmp eq ptr %.val.i, null
-  br i1 %.not.i38, label %_yaml_tag_to_type.exit.thread, label %46
+  br i1 %.not.i38, label %_yaml_tag_to_type.exit.thread, label %44
+
+44:                                               ; preds = %42
+  %45 = load i8, ptr %.val.i, align 1
+  %.not14.i = icmp eq i8 %45, 0
+  br i1 %.not14.i, label %_yaml_tag_to_type.exit.thread, label %46
 
 46:                                               ; preds = %44
-  %47 = load i8, ptr %.val.i, align 1
-  %.not14.i = icmp eq i8 %47, 0
-  br i1 %.not14.i, label %_yaml_tag_to_type.exit.thread, label %48
+  %47 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %48 = and i64 %47, 256
+  %.not15.i = icmp eq i64 %48, 0
+  br i1 %.not15.i, label %.preheader, label %49
 
-48:                                               ; preds = %46
-  %49 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %50 = and i64 %49, 256
-  %.not15.i = icmp eq i64 %50, 0
-  br i1 %.not15.i, label %.preheader, label %51
-
-51:                                               ; preds = %48
-  %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i) #7
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.val.i, i64 noundef %52, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._on_parse_scalar) #6
+49:                                               ; preds = %46
+  %50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.val.i) #7
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.val.i, i64 noundef %50, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.42, ptr noundef nonnull @__func__._on_parse_scalar) #6
   br label %.preheader
 
-.preheader:                                       ; preds = %51, %48
-  br label %54
+.preheader:                                       ; preds = %49, %46
+  br label %52
 
-53:                                               ; preds = %54
+51:                                               ; preds = %52
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %_yaml_tag_to_type.exit.thread, label %54, !llvm.loop !9
+  br i1 %exitcond.not.i, label %_yaml_tag_to_type.exit.thread, label %52, !llvm.loop !9
 
-54:                                               ; preds = %.preheader, %53
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %.preheader ]
-  %55 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %indvars.iv.i
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = tail call i32 @slurm_xstrcmp(ptr noundef %57, ptr noundef nonnull %.val.i) #6
-  %.not16.i = icmp eq i32 %58, 0
-  br i1 %.not16.i, label %_yaml_tag_to_type.exit, label %53
+52:                                               ; preds = %.preheader, %51
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %51 ], [ 0, %.preheader ]
+  %53 = getelementptr inbounds [7 x %struct.anon.30], ptr @tags, i64 0, i64 %indvars.iv.i
+  %54 = getelementptr inbounds i8, ptr %53, i64 16
+  %55 = load ptr, ptr %54, align 8
+  %56 = tail call i32 @slurm_xstrcmp(ptr noundef %55, ptr noundef nonnull %.val.i) #6
+  %.not16.i = icmp eq i32 %56, 0
+  br i1 %.not16.i, label %_yaml_tag_to_type.exit, label %51
 
-_yaml_tag_to_type.exit.thread:                    ; preds = %53, %46, %44
-  %59 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %30) #6
+_yaml_tag_to_type.exit.thread:                    ; preds = %51, %44, %42
+  %57 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %28) #6
   br label %common.ret4
 
-_yaml_tag_to_type.exit:                           ; preds = %54
-  %60 = load i32, ptr %55, align 8
-  %61 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %30) #6
-  %.not.i = icmp eq i32 %60, 0
-  br i1 %.not.i, label %common.ret4, label %62
+_yaml_tag_to_type.exit:                           ; preds = %52
+  %58 = load i32, ptr %53, align 8
+  %59 = tail call ptr @data_set_string(ptr noundef %3, ptr noundef %28) #6
+  %.not.i = icmp eq i32 %58, 0
+  br i1 %.not.i, label %common.ret4, label %60
 
-62:                                               ; preds = %_yaml_tag_to_type.exit
-  %63 = tail call i32 @data_convert_type(ptr noundef %3, i32 noundef %60) #6
-  %.not20.i = icmp eq i32 %63, %60
-  br i1 %.not20.i, label %common.ret4, label %64
+60:                                               ; preds = %_yaml_tag_to_type.exit
+  %61 = tail call i32 @data_convert_type(ptr noundef %3, i32 noundef %58) #6
+  %.not20.i = icmp eq i32 %61, %58
+  br i1 %.not20.i, label %common.ret4, label %62
 
-64:                                               ; preds = %62
+62:                                               ; preds = %60
   store i32 9202, ptr %4, align 4
   br label %common.ret4
 
-65:                                               ; preds = %thread-pre-split
-  %66 = tail call ptr @data_set_list(ptr noundef %3) #6
-  %67 = add nsw i32 %0, 1
-  %68 = tail call fastcc i32 @_yaml_to_data(i32 noundef %67, ptr noundef %1, ptr noundef %3, ptr noundef %4)
-  %69 = icmp eq i32 %68, 2
-  %70 = select i1 %69, i32 3, i32 %68
+63:                                               ; preds = %thread-pre-split
+  %64 = tail call ptr @data_set_list(ptr noundef %3) #6
+  %65 = add nsw i32 %0, 1
+  %66 = tail call fastcc i32 @_yaml_to_data(i32 noundef %65, ptr noundef %1, ptr noundef %3, ptr noundef %4)
+  %67 = icmp eq i32 %66, 2
+  %68 = select i1 %67, i32 3, i32 %66
   br label %common.ret4
 
-71:                                               ; preds = %9, %thread-pre-split
+69:                                               ; preds = %9, %9, %thread-pre-split, %thread-pre-split
   br label %common.ret4
 
-72:                                               ; preds = %thread-pre-split
-  %73 = tail call ptr @data_set_dict(ptr noundef %3) #6
-  %74 = add nsw i32 %0, 1
-  %75 = tail call fastcc i32 @_yaml_to_data(i32 noundef %74, ptr noundef %1, ptr noundef %3, ptr noundef %4)
-  %76 = icmp eq i32 %75, 2
-  %77 = select i1 %76, i32 3, i32 %75
+70:                                               ; preds = %thread-pre-split
+  %71 = tail call ptr @data_set_dict(ptr noundef %3) #6
+  %72 = add nsw i32 %0, 1
+  %73 = tail call fastcc i32 @_yaml_to_data(i32 noundef %72, ptr noundef %1, ptr noundef %3, ptr noundef %4)
+  %74 = icmp eq i32 %73, 2
+  %75 = select i1 %74, i32 3, i32 %73
   br label %common.ret4
 
-78:                                               ; preds = %9, %thread-pre-split
-  br label %common.ret4
-
-79:                                               ; preds = %9, %thread-pre-split
+76:                                               ; preds = %9, %thread-pre-split
   tail call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.40) #8
   unreachable
 }
