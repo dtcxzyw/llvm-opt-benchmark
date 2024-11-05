@@ -395,7 +395,6 @@ def update_pr():
         out = "\n".join(out)
     lines.append(out)
     lines.append("")
-    print("OUT={}, lines={}".format(str(out), str(lines)))
     with open(OUT, "w") as f:
         print("f={}".format(f))
         f.write("\n".join(lines))
