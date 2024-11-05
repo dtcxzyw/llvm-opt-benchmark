@@ -5080,7 +5080,7 @@ cpython/transpose.ll 184082413
 cpython/tupleobject.ll 490873464
 cpython/typeobject.ll 5979646135
 cpython/typevarobject.ll 640852416
-cpython/unicodectype.ll 445222006
+cpython/unicodectype.ll 444744279
 cpython/unicodedata.ll 1914678254
 cpython/unicodeobject.ll 14265423552
 cpython/unionobject.ll 276630712
@@ -16393,7 +16393,7 @@ llvm/WindowsResource.cpp.ll 2982375206
 llvm/WithColor.cpp.ll 613122936
 llvm/WorkList.cpp.ll 1397418091
 llvm/X86.cpp.ll 3654992874
-llvm/X86ATTInstPrinter.cpp.ll 663790689
+llvm/X86ATTInstPrinter.cpp.ll 663077341
 llvm/X86ArgumentStackSlotRebase.cpp.ll 492267690
 llvm/X86AsmBackend.cpp.ll 2366076597
 llvm/X86AsmParser.cpp.ll 10881559966
@@ -29759,7 +29759,7 @@ postgres/tzparser.ll 155981913
 postgres/unicode_category.ll 123845805
 postgres/unicode_category_shlib.ll 123647180
 postgres/unicode_category_srv.ll 123846233
-postgres/unicode_norm.ll 386387712
+postgres/unicode_norm.ll 385952841
 postgres/unicode_norm_shlib.ll 386432210
 postgres/unicode_norm_srv.ll 797467784
 postgres/user.ll 752545445
@@ -32226,7 +32226,7 @@ redis/ldblib.ll 132465186
 redis/ldebug.ll 279695742
 redis/ldo.ll 287553373
 redis/lgc.ll 314783356
-redis/linenoise.ll 682892506
+redis/linenoise.ll 682207253
 redis/liolib.ll 162420048
 redis/listpack.ll 951648238
 redis/llex.ll 412041822
@@ -32842,7 +32842,7 @@ ruby/dir.ll 1100063905
 ruby/dln.ll 81718995
 ruby/dln_find.ll 70947797
 ruby/emacs_mule.ll 97641311
-ruby/emoji_iso2022_kddi.ll 171801828
+ruby/emoji_iso2022_kddi.ll 171607691
 ruby/encoding.ll 743478525
 ruby/enum.ll 1604475261
 ruby/enumerator.ll 1291557452
