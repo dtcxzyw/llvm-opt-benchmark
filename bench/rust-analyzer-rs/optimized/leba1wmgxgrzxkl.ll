@@ -34761,8 +34761,8 @@ define internal fastcc noundef range(i8 0, 22) i8 @_ZN3ide7moniker11def_to_kind1
   %6 = load i8, ptr %1, align 4, !range !1978, !noundef !4
   switch i8 %6, label %default.unreachable7 [
     i8 0, label %switch.lookup
-    i8 1, label %43
-    i8 2, label %43
+    i8 1, label %39
+    i8 2, label %39
     i8 3, label %14
     i8 4, label %15
     i8 5, label %switch.lookup8
@@ -34770,17 +34770,17 @@ define internal fastcc noundef range(i8 0, 22) i8 @_ZN3ide7moniker11def_to_kind1
     i8 7, label %23
     i8 8, label %24
     i8 9, label %25
-    i8 10, label %26
-    i8 11, label %27
-    i8 12, label %32
-    i8 13, label %33
-    i8 14, label %34
-    i8 15, label %35
-    i8 16, label %38
-    i8 17, label %39
-    i8 18, label %40
-    i8 19, label %41
-    i8 20, label %42
+    i8 10, label %25
+    i8 11, label %26
+    i8 12, label %31
+    i8 13, label %32
+    i8 14, label %33
+    i8 15, label %34
+    i8 16, label %37
+    i8 17, label %38
+    i8 18, label %38
+    i8 19, label %14
+    i8 20, label %14
   ]
 
 default.unreachable7:                             ; preds = %2
@@ -34801,10 +34801,10 @@ switch.lookup:                                    ; preds = %2
   %switch.downshift = lshr i40 30082007303, %switch.shiftamt
   %switch.masked = trunc i40 %switch.downshift to i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %43
+  br label %39
 
-14:                                               ; preds = %2
-  br label %43
+14:                                               ; preds = %2, %2, %2
+  br label %39
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds i8, ptr %1, i64 4
@@ -34812,7 +34812,7 @@ switch.lookup:                                    ; preds = %2
   %18 = tail call { i32, i32 } @"_ZN50_$LT$hir..Function$u20$as$u20$hir..AsAssocItem$GT$13as_assoc_item17h51ca3d1af11b3425E"(i32 noundef %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
   %19 = extractvalue { i32, i32 } %18, 0
   %.not4 = icmp eq i32 %19, 3
-  br i1 %.not4, label %43, label %44
+  br i1 %.not4, label %39, label %40
 
 switch.lookup8:                                   ; preds = %2
   %20 = getelementptr inbounds i8, ptr %1, i64 4
@@ -34821,82 +34821,70 @@ switch.lookup8:                                   ; preds = %2
   %switch.shiftamt10 = shl nuw nsw i24 %switch.cast9, 3
   %switch.downshift11 = lshr i24 201742, %switch.shiftamt10
   %switch.masked12 = trunc i24 %switch.downshift11 to i8
-  br label %43
+  br label %39
 
 22:                                               ; preds = %2
-  br label %43
+  br label %39
 
 23:                                               ; preds = %2
-  br label %43
+  br label %39
 
 24:                                               ; preds = %2
-  br label %43
+  br label %39
 
-25:                                               ; preds = %2
-  br label %43
+25:                                               ; preds = %2, %2
+  br label %39
 
 26:                                               ; preds = %2
-  br label %43
-
-27:                                               ; preds = %2
-  %28 = getelementptr inbounds i8, ptr %1, i64 4
-  %29 = load i32, ptr %28, align 4, !range !1970, !noundef !4
-  %30 = tail call { i32, i32 } @"_ZN51_$LT$hir..TypeAlias$u20$as$u20$hir..AsAssocItem$GT$13as_assoc_item17h6f59054f4c371b0fE"(i32 noundef %29, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
-  %31 = extractvalue { i32, i32 } %30, 0
-  %.not = icmp eq i32 %31, 3
+  %27 = getelementptr inbounds i8, ptr %1, i64 4
+  %28 = load i32, ptr %27, align 4, !range !1970, !noundef !4
+  %29 = tail call { i32, i32 } @"_ZN51_$LT$hir..TypeAlias$u20$as$u20$hir..AsAssocItem$GT$13as_assoc_item17h6f59054f4c371b0fE"(i32 noundef %28, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
+  %30 = extractvalue { i32, i32 } %29, 0
+  %.not = icmp eq i32 %30, 3
   %. = select i1 %.not, i8 18, i8 0
-  br label %43
+  br label %39
+
+31:                                               ; preds = %2
+  br label %39
 
 32:                                               ; preds = %2
-  br label %43
+  br label %39
 
 33:                                               ; preds = %2
-  br label %43
+  br label %39
 
 34:                                               ; preds = %2
-  br label %43
-
-35:                                               ; preds = %2
-  %36 = getelementptr inbounds i8, ptr %1, i64 4
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
+  %35 = getelementptr inbounds i8, ptr %1, i64 4
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false)
-  %37 = call noundef zeroext i1 @_ZN3hir5Local7is_self17h5232c7a837f74ad1E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false)
+  %36 = call noundef zeroext i1 @_ZN3hir5Local7is_self17h5232c7a837f74ad1E(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %3, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  br i1 %37, label %43, label %48
+  br i1 %36, label %39, label %44
 
-38:                                               ; preds = %2
-  br label %43
+37:                                               ; preds = %2
+  br label %39
 
-39:                                               ; preds = %2
-  br label %43
+38:                                               ; preds = %2, %2
+  br label %39
 
-40:                                               ; preds = %2
-  br label %43
-
-41:                                               ; preds = %2
-  br label %43
-
-42:                                               ; preds = %2
-  br label %43
-
-43:                                               ; preds = %switch.lookup8, %35, %48, %46, %44, %15, %27, %2, %2, %switch.lookup, %42, %41, %40, %39, %38, %34, %33, %32, %26, %25, %24, %23, %22, %14
-  %.0 = phi i8 [ 9, %42 ], [ 9, %41 ], [ 1, %40 ], [ 1, %39 ], [ 21, %38 ], [ 19, %34 ], [ 18, %33 ], [ 17, %32 ], [ 15, %26 ], [ 15, %25 ], [ 13, %24 ], [ 2, %23 ], [ 4, %22 ], [ 9, %14 ], [ %switch.masked, %switch.lookup ], [ 5, %2 ], [ 5, %2 ], [ %., %27 ], [ 6, %15 ], [ 12, %44 ], [ %.5, %46 ], [ %.6, %48 ], [ 11, %35 ], [ %switch.masked12, %switch.lookup8 ]
+39:                                               ; preds = %switch.lookup8, %34, %44, %42, %40, %15, %26, %2, %2, %switch.lookup, %38, %37, %33, %32, %31, %25, %24, %23, %22, %14
+  %.0 = phi i8 [ 1, %38 ], [ 21, %37 ], [ 19, %33 ], [ 18, %32 ], [ 17, %31 ], [ 15, %25 ], [ 13, %24 ], [ 2, %23 ], [ 4, %22 ], [ 9, %14 ], [ %switch.masked, %switch.lookup ], [ 5, %2 ], [ 5, %2 ], [ %., %26 ], [ 6, %15 ], [ 12, %40 ], [ %.5, %42 ], [ %.6, %44 ], [ 11, %34 ], [ %switch.masked12, %switch.lookup8 ]
   ret i8 %.0
 
-44:                                               ; preds = %15
-  %45 = tail call noundef zeroext i1 @_ZN3hir8Function14has_self_param17hbe3d6ab3aef8b4beE(i32 noundef %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
-  br i1 %45, label %46, label %43
+40:                                               ; preds = %15
+  %41 = tail call noundef zeroext i1 @_ZN3hir8Function14has_self_param17hbe3d6ab3aef8b4beE(i32 noundef %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
+  br i1 %41, label %42, label %39
 
-46:                                               ; preds = %44
-  %47 = tail call noundef zeroext i1 @_ZN3hir8Function8has_body17h51f8037f9577acf2E(i32 noundef %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
-  %.5 = select i1 %47, i8 8, i8 16
-  br label %43
+42:                                               ; preds = %40
+  %43 = tail call noundef zeroext i1 @_ZN3hir8Function8has_body17h51f8037f9577acf2E(i32 noundef %17, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
+  %.5 = select i1 %43, i8 8, i8 16
+  br label %39
 
-48:                                               ; preds = %35
-  %49 = call noundef zeroext i1 @_ZN3hir5Local8is_param17hf3ee4baaa519e83fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
-  %.6 = select i1 %49, i8 10, i8 21
-  br label %43
+44:                                               ; preds = %34
+  %45 = call noundef zeroext i1 @_ZN3hir5Local8is_param17hf3ee4baaa519e83fE(ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1cc986da8e737d5dc0a4c60a26002eac.150.llvm.3835216717863518526)
+  %.6 = select i1 %45, i8 10, i8 21
+  br label %39
 }
 
 ; Function Attrs: nonlazybind uwtable

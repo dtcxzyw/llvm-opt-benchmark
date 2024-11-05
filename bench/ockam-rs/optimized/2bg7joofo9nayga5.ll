@@ -9462,11 +9462,11 @@ define noundef i32 @_ZN11ockam_vault8software6legacy17secret_attributes16SecretA
   %2 = load i32, ptr %0, align 4, !range !249, !noundef !5
   switch i32 %2, label %default.unreachable1 [
     i32 0, label %3
-    i32 1, label %10
+    i32 1, label %8
     i32 2, label %6
-    i32 3, label %7
-    i32 4, label %8
-    i32 5, label %9
+    i32 3, label %6
+    i32 4, label %6
+    i32 5, label %7
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -9475,22 +9475,16 @@ default.unreachable1:                             ; preds = %1
 3:                                                ; preds = %1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !5
-  br label %10
+  br label %8
 
-6:                                                ; preds = %1
-  br label %10
+6:                                                ; preds = %1, %1, %1
+  br label %8
 
 7:                                                ; preds = %1
-  br label %10
+  br label %8
 
-8:                                                ; preds = %1
-  br label %10
-
-9:                                                ; preds = %1
-  br label %10
-
-10:                                               ; preds = %1, %9, %8, %7, %6, %3
-  %.0 = phi i32 [ 65, %9 ], [ 32, %8 ], [ 32, %7 ], [ 32, %6 ], [ %5, %3 ], [ 16, %1 ]
+8:                                                ; preds = %1, %7, %6, %3
+  %.0 = phi i32 [ 65, %7 ], [ 32, %6 ], [ %5, %3 ], [ 16, %1 ]
   ret i32 %.0
 }
 
@@ -9604,74 +9598,72 @@ define noundef zeroext i1 @"_ZN105_$LT$ockam_vault..software..legacy..secret_att
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %7 = load i32, ptr %0, align 4, !range !249, !noundef !5
   switch i32 %7, label %default.unreachable [
-    i32 0, label %8
-    i32 1, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4
-    i32 2, label %11
-    i32 3, label %12
-    i32 4, label %13
-    i32 5, label %14
+    i32 0, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4
+    i32 1, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit
+    i32 2, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit
+    i32 3, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread
+    i32 4, label %10
+    i32 5, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread6
   ]
+
+_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4: ; preds = %2
+  store i8 0, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  %8 = getelementptr inbounds i8, ptr %0, i64 4
+  %9 = load i32, ptr %8, align 4, !alias.scope !1547, !noundef !5
+  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
 
 default.unreachable:                              ; preds = %2
   unreachable
 
-_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4: ; preds = %2
-  store i8 1, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
+10:                                               ; preds = %2
+  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread
 
-8:                                                ; preds = %2
-  store i8 0, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %9 = getelementptr inbounds i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !alias.scope !1547, !noundef !5
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
-
-11:                                               ; preds = %2
-  store i8 1, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
-
-12:                                               ; preds = %2
-  store i8 3, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
-
-13:                                               ; preds = %2
-  store i8 2, ptr %4, align 1
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
-
-14:                                               ; preds = %2
+_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread6: ; preds = %2
   store i8 4, ptr %4, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
 
-_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit: ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4, %8, %11, %12, %13, %14
-  %.0.i = phi i32 [ 65, %14 ], [ 32, %13 ], [ 32, %12 ], [ 32, %11 ], [ %10, %8 ], [ 16, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4 ]
+_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread: ; preds = %10, %2
+  %.0.i.i.ph = phi i8 [ 2, %10 ], [ 3, %2 ]
+  store i8 %.0.i.i.ph, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  br label %11
+
+_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit: ; preds = %2, %2
+  store i8 1, ptr %4, align 1
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
+  %switch = icmp eq i32 %7, 2
+  br i1 %switch, label %11, label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
+
+11:                                               ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread
+  br label %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit
+
+_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes6length17hee8b6376fa7c6f2dE.exit: ; preds = %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4, %11, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread6
+  %.0.i = phi i32 [ 65, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread6 ], [ 32, %11 ], [ %9, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit.thread4 ], [ 16, %_ZN11ockam_vault8software6legacy17secret_attributes16SecretAttributes11secret_type17h94ca4ddc94b5e607E.exit ]
   store i32 %.0.i, ptr %3, align 4
   store ptr %4, ptr %5, align 8
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr @"_ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E", ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %3, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h52a855fee7d88d55E", ptr %17, align 8
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  store ptr @"_ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E", ptr %12, align 8
+  %13 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %3, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %5, i64 24
+  store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u32$GT$3fmt17h52a855fee7d88d55E", ptr %14, align 8
   store ptr @anon.eb7a70d03eeb1679f83ee66cb6c5a1ec.66, ptr %6, align 8, !alias.scope !1550, !noalias !1553
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  store i64 2, ptr %15, align 8, !alias.scope !1550, !noalias !1553
+  %16 = getelementptr inbounds i8, ptr %6, i64 32
+  store ptr null, ptr %16, align 8, !alias.scope !1550, !noalias !1553
+  %17 = getelementptr inbounds i8, ptr %6, i64 16
+  store ptr %5, ptr %17, align 8, !alias.scope !1550, !noalias !1553
+  %18 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !1550, !noalias !1553
-  %19 = getelementptr inbounds i8, ptr %6, i64 32
-  store ptr null, ptr %19, align 8, !alias.scope !1550, !noalias !1553
-  %20 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr %5, ptr %20, align 8, !alias.scope !1550, !noalias !1553
-  %21 = getelementptr inbounds i8, ptr %6, i64 24
-  store i64 2, ptr %21, align 8, !alias.scope !1550, !noalias !1553
-  %22 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17hfe4d1b05e81a862eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
-  ret i1 %22
+  ret i1 %19
 }
 
 ; Function Attrs: nonlazybind uwtable
