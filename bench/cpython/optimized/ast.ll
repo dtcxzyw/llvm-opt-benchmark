@@ -1736,11 +1736,11 @@ if.end34:                                         ; preds = %if.end31
     i32 22, label %sw.epilog
     i32 23, label %sw.bb39
     i32 24, label %sw.bb42
-    i32 25, label %sw.bb49
-    i32 26, label %sw.bb52
+    i32 25, label %sw.bb39
+    i32 26, label %sw.bb39
   ]
 
-sw.bb39:                                          ; preds = %if.end34
+sw.bb39:                                          ; preds = %if.end34, %if.end34, %if.end34
   br label %sw.epilog
 
 sw.bb42:                                          ; preds = %if.end34
@@ -1749,12 +1749,6 @@ sw.bb42:                                          ; preds = %if.end34
   %call44 = tail call fastcc i32 @validate_name(ptr noundef %13)
   %tobool.not = icmp eq i32 %call44, 0
   br i1 %tobool.not, label %return, label %sw.epilog
-
-sw.bb49:                                          ; preds = %if.end34
-  br label %sw.epilog
-
-sw.bb52:                                          ; preds = %if.end34
-  br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end34
   %cmp55.not = icmp eq i32 %ctx, 1
@@ -1767,8 +1761,8 @@ if.then56:                                        ; preds = %sw.default
   %call58 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %14, ptr noundef nonnull @.str.60, ptr noundef nonnull %.str.70..str.69) #5
   br label %return
 
-sw.epilog:                                        ; preds = %sw.bb42, %if.end34, %if.end34, %sw.bb52, %sw.bb49, %sw.bb39
-  %.sink = phi i64 [ 16, %sw.bb52 ], [ 16, %sw.bb49 ], [ 16, %sw.bb39 ], [ 24, %if.end34 ], [ 24, %if.end34 ], [ 16, %sw.bb42 ]
+sw.epilog:                                        ; preds = %sw.bb42, %if.end34, %if.end34, %sw.bb39
+  %.sink = phi i64 [ 16, %sw.bb39 ], [ 24, %if.end34 ], [ 24, %if.end34 ], [ 16, %sw.bb42 ]
   %ctx54 = getelementptr inbounds i8, ptr %exp, i64 %.sink
   %actual_ctx.0 = load i32, ptr %ctx54, align 8
   %cmp62.not = icmp eq i32 %actual_ctx.0, %ctx
@@ -3426,8 +3420,8 @@ return.sink.split:                                ; preds = %ensure_literal_nega
   tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull %.str.57.sink) #5
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.end6.i, %if.end, %ensure_literal_complex.exit, %ensure_literal_negative.exit, %if.end, %if.end4, %sw.bb, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb ], [ 1, %if.end4 ], [ 1, %if.end ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 1, %if.end ], [ 1, %if.end6.i ], [ 0, %return.sink.split ]
+return:                                           ; preds = %return.sink.split, %if.end6.i, %ensure_literal_complex.exit, %ensure_literal_negative.exit, %if.end, %if.end, %if.end4, %sw.bb, %entry
+  %retval.0 = phi i32 [ 0, %entry ], [ 0, %sw.bb ], [ 1, %if.end4 ], [ 1, %if.end ], [ 1, %if.end ], [ 1, %ensure_literal_negative.exit ], [ 1, %ensure_literal_complex.exit ], [ 1, %if.end6.i ], [ 0, %return.sink.split ]
   ret i32 %retval.0
 }
 

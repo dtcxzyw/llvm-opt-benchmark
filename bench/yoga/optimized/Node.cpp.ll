@@ -45,8 +45,7 @@ $_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE16_M_shrink_to_fitEv = comdat any
 @.str.8 = private unnamed_addr constant [35 x i8] c"Edge must be top/left/bottom/right\00", align 1
 @.str.9 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Node.cpp, ptr null }]
-@switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf = private unnamed_addr constant [4 x i64] [i64 632, i64 632, i64 624, i64 624], align 8
-@switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf.1 = private unnamed_addr constant [4 x i64] [i64 1, i64 1, i64 0, i64 0], align 8
+@switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf = private unnamed_addr constant [4 x i64] [i64 1, i64 1, i64 0, i64 0], align 8
 @switch.table._ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE = private unnamed_addr constant [4 x i64] [i64 1, i64 3, i64 0, i64 2], align 8
 @switch.table._ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE = private unnamed_addr constant [4 x i64] [i64 3, i64 1, i64 2, i64 0], align 8
 
@@ -4060,7 +4059,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf.1, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %measuredDimensions_.i = getelementptr inbounds i8, ptr %this, i64 500
   %arrayidx.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i, i64 0, i64 %switch.load
@@ -4084,7 +4083,7 @@ sw.epilog.i:                                      ; preds = %entry
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf.1, i64 0, i64 %1
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %measuredDimensions_.i = getelementptr inbounds i8, ptr %this, i64 500
   %arrayidx.i.i.i = getelementptr inbounds [2 x float], ptr %measuredDimensions_.i, i64 0, i64 %switch.load
@@ -4107,39 +4106,38 @@ switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i8 %axis to i64
   %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf, i64 0, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
-  %2 = zext nneg i8 %axis to i64
-  %switch.gep40 = getelementptr inbounds [4 x i64], ptr @switch.table._ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf.1, i64 0, i64 %2
-  %switch.load41 = load i64, ptr %switch.gep40, align 8
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 %switch.load
-  %3 = getelementptr inbounds i8, ptr %this, i64 624
-  %cmp.i.i28.in.in.in = load i64, ptr %arrayidx.i.i.i, align 8
-  %cmp.i.i28.in.in = trunc i64 %cmp.i.i28.in.in.in to i32
-  %cmp.i.i28.in = bitcast i32 %cmp.i.i28.in.in to float
-  %cmp.i.i28 = fcmp ord float %cmp.i.i28.in, 0.000000e+00
-  %arrayidx.i.i.i16 = getelementptr inbounds [2 x %struct.YGValue], ptr %3, i64 0, i64 %switch.load41
-  %retval.sroa.0.0.copyload.i17 = load i64, ptr %arrayidx.i.i.i16, align 8
-  %resolvedDimension.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i17, 32
+  %resolvedDimensions_.i = getelementptr inbounds i8, ptr %this, i64 624
+  %arrayidx.i.i.i = getelementptr inbounds [2 x %struct.YGValue], ptr %resolvedDimensions_.i, i64 0, i64 %switch.load
+  %retval.sroa.0.0.copyload.i = load i64, ptr %arrayidx.i.i.i, align 8
+  %ref.tmp.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i to i32
+  %2 = bitcast i32 %ref.tmp.sroa.0.0.extract.trunc to float
+  %cmp.i.i = fcmp ord float %2, 0.000000e+00
+  %switch = icmp ult i8 %axis, 2
+  %conv.i14 = zext i1 %switch to i64
+  %arrayidx.i.i.i15 = getelementptr inbounds [2 x %struct.YGValue], ptr %resolvedDimensions_.i, i64 0, i64 %conv.i14
+  %retval.sroa.0.0.copyload.i16 = load i64, ptr %arrayidx.i.i.i15, align 8
+  %resolvedDimension.sroa.3.0.extract.shift = lshr i64 %retval.sroa.0.0.copyload.i16, 32
   %cmp = icmp eq i64 %resolvedDimension.sroa.3.0.extract.shift, 3
-  %cmp7 = icmp ult i64 %retval.sroa.0.0.copyload.i17, 4294967296
+  %cmp7 = icmp ult i64 %retval.sroa.0.0.copyload.i16, 4294967296
   %or.cond = or i1 %cmp7, %cmp
   br i1 %or.cond, label %lor.end22, label %lor.lhs.false8
 
 lor.lhs.false8:                                   ; preds = %switch.lookup
-  %resolvedDimension.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i17 to i32
-  %4 = bitcast i32 %resolvedDimension.sroa.0.0.extract.trunc to float
+  %resolvedDimension.sroa.0.0.extract.trunc = trunc i64 %retval.sroa.0.0.copyload.i16 to i32
+  %3 = bitcast i32 %resolvedDimension.sroa.0.0.extract.trunc to float
   %cmp10 = icmp eq i64 %resolvedDimension.sroa.3.0.extract.shift, 1
-  %cmp13 = fcmp olt float %4, 0.000000e+00
-  %5 = and i1 %cmp10, %cmp13
-  %or.cond8 = and i1 %cmp.i.i28, %5
+  %cmp13 = fcmp olt float %3, 0.000000e+00
+  %4 = and i1 %cmp10, %cmp13
+  %or.cond8 = and i1 %cmp.i.i, %4
   br i1 %or.cond8, label %lor.end22, label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.lhs.false8
   %cmp15 = icmp ne i64 %resolvedDimension.sroa.3.0.extract.shift, 2
-  %call3.not = xor i1 %cmp.i.i28, true
+  %call3.not = xor i1 %cmp.i.i, true
   %brmerge = or i1 %cmp15, %call3.not
-  %brmerge39 = or i1 %brmerge, %cmp13
+  %brmerge17 = or i1 %brmerge, %cmp13
   %cmp.i = fcmp ord float %ownerSize, 0.000000e+00
-  %spec.select = select i1 %brmerge39, i1 %brmerge, i1 %cmp.i
+  %spec.select = select i1 %brmerge17, i1 %brmerge, i1 %cmp.i
   br label %lor.end22
 
 lor.end22:                                        ; preds = %lor.rhs, %lor.lhs.false8, %switch.lookup
