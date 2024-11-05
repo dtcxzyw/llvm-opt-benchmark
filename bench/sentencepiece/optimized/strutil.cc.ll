@@ -820,20 +820,20 @@ define noundef i32 @_ZN6google8protobuf24UnescapeCEscapeSequencesEPKcPcPSt6vecto
   %.153.ph = phi ptr [ %0, %3 ], [ %7, %6 ], [ %.05279, %.lr.ph ], [ %.05279, %.lr.ph ]
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.preheader, %51
-  %.155 = phi ptr [ %.256, %51 ], [ %.155.ph, %.critedge.preheader ]
-  %.153 = phi ptr [ %.2, %51 ], [ %.153.ph, %.critedge.preheader ]
+.critedge:                                        ; preds = %.critedge.preheader, %48
+  %.155 = phi ptr [ %.256, %48 ], [ %.155.ph, %.critedge.preheader ]
+  %.153 = phi ptr [ %.2, %48 ], [ %.153.ph, %.critedge.preheader ]
   %10 = load i8, ptr %.153, align 1
   switch i8 %10, label %.sink.split [
-    i8 0, label %52
+    i8 0, label %49
     i8 92, label %11
   ]
 
 11:                                               ; preds = %.critedge
   %12 = getelementptr inbounds i8, ptr %.153, i64 1
   %13 = load i8, ptr %12, align 1
-  switch i8 %13, label %51 [
-    i8 0, label %52
+  switch i8 %13, label %48 [
+    i8 0, label %49
     i8 97, label %.sink.split
     i8 98, label %14
     i8 102, label %15
@@ -842,19 +842,19 @@ define noundef i32 @_ZN6google8protobuf24UnescapeCEscapeSequencesEPKcPcPSt6vecto
     i8 116, label %18
     i8 118, label %19
     i8 92, label %20
-    i8 63, label %21
-    i8 39, label %22
-    i8 34, label %23
-    i8 48, label %24
-    i8 49, label %24
-    i8 50, label %24
-    i8 51, label %24
-    i8 52, label %24
-    i8 53, label %24
-    i8 54, label %24
-    i8 55, label %24
-    i8 120, label %38
-    i8 88, label %38
+    i8 63, label %20
+    i8 39, label %20
+    i8 34, label %20
+    i8 48, label %21
+    i8 49, label %21
+    i8 50, label %21
+    i8 51, label %21
+    i8 52, label %21
+    i8 53, label %21
+    i8 54, label %21
+    i8 55, label %21
+    i8 120, label %35
+    i8 88, label %35
   ]
 
 14:                                               ; preds = %11
@@ -875,50 +875,41 @@ define noundef i32 @_ZN6google8protobuf24UnescapeCEscapeSequencesEPKcPcPSt6vecto
 19:                                               ; preds = %11
   br label %.sink.split
 
-20:                                               ; preds = %11
+20:                                               ; preds = %11, %11, %11, %11
   br label %.sink.split
 
-21:                                               ; preds = %11
+21:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
+  %22 = add nsw i8 %13, -48
+  %23 = getelementptr inbounds i8, ptr %.153, i64 2
+  %24 = load i8, ptr %23, align 1
+  %25 = and i8 %24, -8
+  %or.cond = icmp eq i8 %25, 48
+  %26 = shl nuw nsw i8 %22, 3
+  %27 = add nsw i8 %26, -48
+  %28 = add i8 %27, %24
+  %.4 = select i1 %or.cond, ptr %23, ptr %12
+  %.051 = select i1 %or.cond, i8 %28, i8 %22
+  %29 = getelementptr inbounds i8, ptr %.4, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, -8
+  %or.cond65 = icmp eq i8 %31, 48
+  %32 = shl i8 %.051, 3
+  %33 = add i8 %30, -48
+  %34 = add i8 %33, %32
+  %.5 = select i1 %or.cond65, ptr %29, ptr %.4
+  %.1 = select i1 %or.cond65, i8 %34, i8 %.051
   br label %.sink.split
 
-22:                                               ; preds = %11
-  br label %.sink.split
-
-23:                                               ; preds = %11
-  br label %.sink.split
-
-24:                                               ; preds = %11, %11, %11, %11, %11, %11, %11, %11
-  %25 = add nsw i8 %13, -48
-  %26 = getelementptr inbounds i8, ptr %.153, i64 2
-  %27 = load i8, ptr %26, align 1
-  %28 = and i8 %27, -8
-  %or.cond = icmp eq i8 %28, 48
-  %29 = shl nuw nsw i8 %25, 3
-  %30 = add nsw i8 %29, -48
-  %31 = add i8 %30, %27
-  %.4 = select i1 %or.cond, ptr %26, ptr %12
-  %.051 = select i1 %or.cond, i8 %31, i8 %25
-  %32 = getelementptr inbounds i8, ptr %.4, i64 1
-  %33 = load i8, ptr %32, align 1
-  %34 = and i8 %33, -8
-  %or.cond65 = icmp eq i8 %34, 48
-  %35 = shl i8 %.051, 3
-  %36 = add i8 %33, -48
-  %37 = add i8 %36, %35
-  %.5 = select i1 %or.cond65, ptr %32, ptr %.4
-  %.1 = select i1 %or.cond65, i8 %37, i8 %.051
-  br label %.sink.split
-
-38:                                               ; preds = %11, %11
-  %39 = getelementptr inbounds i8, ptr %.153, i64 2
-  %40 = load i8, ptr %39, align 1
-  %.fr75 = freeze i8 %40
-  %41 = add i8 %.fr75, -48
-  %or.cond.i = icmp ult i8 %41, 10
+35:                                               ; preds = %11, %11
+  %36 = getelementptr inbounds i8, ptr %.153, i64 2
+  %37 = load i8, ptr %36, align 1
+  %.fr75 = freeze i8 %37
+  %38 = add i8 %.fr75, -48
+  %or.cond.i = icmp ult i8 %38, 10
   br i1 %or.cond.i, label %_ZN6google8protobuf8isxdigitEc.exit.preheader, label %switch.early.test74
 
-switch.early.test74:                              ; preds = %38
-  switch i8 %.fr75, label %51 [
+switch.early.test74:                              ; preds = %35
+  switch i8 %.fr75, label %48 [
     i8 102, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
     i8 101, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
     i8 100, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
@@ -933,17 +924,17 @@ switch.early.test74:                              ; preds = %38
     i8 65, label %_ZN6google8protobuf8isxdigitEc.exit.preheader
   ]
 
-_ZN6google8protobuf8isxdigitEc.exit.preheader:    ; preds = %38, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74
+_ZN6google8protobuf8isxdigitEc.exit.preheader:    ; preds = %35, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74, %switch.early.test74
   br label %_ZN6google8protobuf8isxdigitEc.exit
 
 _ZN6google8protobuf8isxdigitEc.exit:              ; preds = %_ZN6google8protobuf8isxdigitEc.exit.preheader, %_ZN6google8protobuf8isxdigitEc.exit69.thread
-  %.6 = phi ptr [ %42, %_ZN6google8protobuf8isxdigitEc.exit69.thread ], [ %12, %_ZN6google8protobuf8isxdigitEc.exit.preheader ]
-  %.050 = phi i8 [ %49, %_ZN6google8protobuf8isxdigitEc.exit69.thread ], [ 0, %_ZN6google8protobuf8isxdigitEc.exit.preheader ]
-  %42 = getelementptr inbounds i8, ptr %.6, i64 1
-  %43 = load i8, ptr %42, align 1
-  %.fr76 = freeze i8 %43
-  %44 = add i8 %.fr76, -48
-  %or.cond.i66 = icmp ult i8 %44, 10
+  %.6 = phi ptr [ %39, %_ZN6google8protobuf8isxdigitEc.exit69.thread ], [ %12, %_ZN6google8protobuf8isxdigitEc.exit.preheader ]
+  %.050 = phi i8 [ %46, %_ZN6google8protobuf8isxdigitEc.exit69.thread ], [ 0, %_ZN6google8protobuf8isxdigitEc.exit.preheader ]
+  %39 = getelementptr inbounds i8, ptr %.6, i64 1
+  %40 = load i8, ptr %39, align 1
+  %.fr76 = freeze i8 %40
+  %41 = add i8 %.fr76, -48
+  %or.cond.i66 = icmp ult i8 %41, 10
   br i1 %or.cond.i66, label %_ZN6google8protobuf8isxdigitEc.exit69.thread, label %switch.early.test
 
 switch.early.test:                                ; preds = %_ZN6google8protobuf8isxdigitEc.exit
@@ -963,33 +954,33 @@ switch.early.test:                                ; preds = %_ZN6google8protobuf
   ]
 
 _ZN6google8protobuf8isxdigitEc.exit69.thread:     ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %_ZN6google8protobuf8isxdigitEc.exit
-  %45 = shl i8 %.050, 4
-  %46 = icmp ugt i8 %.fr76, 57
-  %47 = add nuw nsw i8 %.fr76, 9
-  %spec.select.i = select i1 %46, i8 %47, i8 %.fr76
-  %48 = and i8 %spec.select.i, 15
-  %49 = or disjoint i8 %48, %45
+  %42 = shl i8 %.050, 4
+  %43 = icmp ugt i8 %.fr76, 57
+  %44 = add nuw nsw i8 %.fr76, 9
+  %spec.select.i = select i1 %43, i8 %44, i8 %.fr76
+  %45 = and i8 %spec.select.i, 15
+  %46 = or disjoint i8 %45, %42
   br label %_ZN6google8protobuf8isxdigitEc.exit, !llvm.loop !16
 
-.sink.split:                                      ; preds = %switch.early.test, %11, %.critedge, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14
-  %.sink = phi i8 [ 8, %14 ], [ 12, %15 ], [ 10, %16 ], [ 13, %17 ], [ 9, %18 ], [ 11, %19 ], [ %13, %20 ], [ %13, %21 ], [ %13, %22 ], [ %13, %23 ], [ %.1, %24 ], [ %10, %.critedge ], [ 7, %11 ], [ %.050, %switch.early.test ]
-  %.153.pn.ph = phi ptr [ %12, %14 ], [ %12, %15 ], [ %12, %16 ], [ %12, %17 ], [ %12, %18 ], [ %12, %19 ], [ %12, %20 ], [ %12, %21 ], [ %12, %22 ], [ %12, %23 ], [ %.5, %24 ], [ %.153, %.critedge ], [ %12, %11 ], [ %.6, %switch.early.test ]
-  %50 = getelementptr inbounds i8, ptr %.155, i64 1
+.sink.split:                                      ; preds = %switch.early.test, %11, %.critedge, %21, %20, %19, %18, %17, %16, %15, %14
+  %.sink = phi i8 [ 8, %14 ], [ 12, %15 ], [ 10, %16 ], [ 13, %17 ], [ 9, %18 ], [ 11, %19 ], [ %13, %20 ], [ %.1, %21 ], [ %10, %.critedge ], [ 7, %11 ], [ %.050, %switch.early.test ]
+  %.153.pn.ph = phi ptr [ %12, %14 ], [ %12, %15 ], [ %12, %16 ], [ %12, %17 ], [ %12, %18 ], [ %12, %19 ], [ %12, %20 ], [ %.5, %21 ], [ %.153, %.critedge ], [ %12, %11 ], [ %.6, %switch.early.test ]
+  %47 = getelementptr inbounds i8, ptr %.155, i64 1
   store i8 %.sink, ptr %.155, align 1
-  br label %51
+  br label %48
 
-51:                                               ; preds = %.sink.split, %switch.early.test74, %11
-  %.256 = phi ptr [ %.155, %11 ], [ %.155, %switch.early.test74 ], [ %50, %.sink.split ]
+48:                                               ; preds = %.sink.split, %switch.early.test74, %11
+  %.256 = phi ptr [ %.155, %11 ], [ %.155, %switch.early.test74 ], [ %47, %.sink.split ]
   %.153.pn = phi ptr [ %12, %11 ], [ %12, %switch.early.test74 ], [ %.153.pn.ph, %.sink.split ]
   %.2 = getelementptr inbounds i8, ptr %.153.pn, i64 1
   br label %.critedge, !llvm.loop !17
 
-52:                                               ; preds = %.critedge, %11
+49:                                               ; preds = %.critedge, %11
   store i8 0, ptr %.155, align 1
-  %53 = ptrtoint ptr %.155 to i64
-  %54 = ptrtoint ptr %1 to i64
-  %55 = sub i64 %53, %54
-  %.0 = trunc i64 %55 to i32
+  %50 = ptrtoint ptr %.155 to i64
+  %51 = ptrtoint ptr %1 to i64
+  %52 = sub i64 %50, %51
+  %.0 = trunc i64 %52 to i32
   ret i32 %.0
 }
 

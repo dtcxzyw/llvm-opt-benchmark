@@ -1755,40 +1755,22 @@ if.end:                                           ; preds = %entry
     i32 3, label %sw.bb6
     i32 4, label %sw.bb8
     i32 5, label %if.then30.sink.split
-    i32 6, label %sw.bb12
-    i32 7, label %sw.bb14
-    i32 8, label %sw.bb16
-    i32 9, label %sw.bb18
-    i32 10, label %sw.bb20
-    i32 11, label %sw.bb22
+    i32 6, label %sw.bb4
+    i32 7, label %sw.bb6
+    i32 8, label %sw.bb8
+    i32 9, label %sw.bb4
+    i32 10, label %sw.bb6
+    i32 11, label %sw.bb8
     i32 12, label %sw.epilog
   ]
 
-sw.bb4:                                           ; preds = %if.end
+sw.bb4:                                           ; preds = %if.end, %if.end, %if.end
   br label %if.then30.sink.split
 
-sw.bb6:                                           ; preds = %if.end
+sw.bb6:                                           ; preds = %if.end, %if.end, %if.end
   br label %if.then30.sink.split
 
-sw.bb8:                                           ; preds = %if.end
-  br label %if.then30.sink.split
-
-sw.bb12:                                          ; preds = %if.end
-  br label %if.then30.sink.split
-
-sw.bb14:                                          ; preds = %if.end
-  br label %if.then30.sink.split
-
-sw.bb16:                                          ; preds = %if.end
-  br label %if.then30.sink.split
-
-sw.bb18:                                          ; preds = %if.end
-  br label %if.then30.sink.split
-
-sw.bb20:                                          ; preds = %if.end
-  br label %if.then30.sink.split
-
-sw.bb22:                                          ; preds = %if.end
+sw.bb8:                                           ; preds = %if.end, %if.end, %if.end
   br label %if.then30.sink.split
 
 sw.epilog:                                        ; preds = %if.end
@@ -1797,8 +1779,8 @@ sw.epilog:                                        ; preds = %if.end
   %tobool.not = icmp eq i64 %add, 0
   br i1 %tobool.not, label %return, label %if.then30
 
-if.then30.sink.split:                             ; preds = %if.end, %if.end, %if.end, %sw.bb22, %sw.bb20, %sw.bb18, %sw.bb16, %sw.bb14, %sw.bb12, %sw.bb8, %sw.bb6, %sw.bb4
-  %.sink = phi i64 [ 2, %sw.bb4 ], [ 4, %sw.bb6 ], [ 8, %sw.bb8 ], [ 2, %sw.bb12 ], [ 4, %sw.bb14 ], [ 8, %sw.bb16 ], [ 2, %sw.bb18 ], [ 4, %sw.bb20 ], [ 8, %sw.bb22 ], [ 1, %if.end ], [ 1, %if.end ], [ 1, %if.end ]
+if.then30.sink.split:                             ; preds = %if.end, %if.end, %if.end, %sw.bb8, %sw.bb6, %sw.bb4
+  %.sink = phi i64 [ 2, %sw.bb4 ], [ 4, %sw.bb6 ], [ 8, %sw.bb8 ], [ 1, %if.end ], [ 1, %if.end ], [ 1, %if.end ]
   store i64 %.sink, ptr %m_size.i, align 8
   br label %if.then30
 
