@@ -15978,7 +15978,7 @@ llvm/ScanfFormatString.cpp.ll 573170288
 llvm/ScheduleDAG.cpp.ll 1161114610
 llvm/ScheduleDAGFast.cpp.ll 2568394616
 llvm/ScheduleDAGInstrs.cpp.ll 4733618238
-llvm/ScheduleDAGPrinter.cpp.ll 54354969
+llvm/ScheduleDAGPrinter.cpp.ll 54409539
 llvm/ScheduleDAGRRList.cpp.ll 4790421570
 llvm/ScheduleDAGSDNodes.cpp.ll 3830798970
 llvm/ScheduleDAGVLIW.cpp.ll 358742328
