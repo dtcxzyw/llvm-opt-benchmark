@@ -357,75 +357,42 @@ declare i32 @dissect_rpc_uint32(ptr noundef, ptr noundef, i32 noundef, i32 nound
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_fmp_notify_status(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #2
-  switch i32 %4, label %17 [
-    i32 0, label %18
+  switch i32 %4, label %6 [
+    i32 0, label %7
     i32 5, label %5
-    i32 12, label %6
-    i32 13, label %7
-    i32 22, label %8
-    i32 28, label %18
-    i32 79, label %9
-    i32 500, label %10
-    i32 501, label %11
-    i32 502, label %18
-    i32 503, label %18
-    i32 504, label %18
-    i32 505, label %12
-    i32 506, label %18
-    i32 507, label %18
-    i32 508, label %13
-    i32 509, label %18
-    i32 510, label %14
-    i32 511, label %18
-    i32 512, label %15
-    i32 600, label %16
+    i32 12, label %5
+    i32 13, label %5
+    i32 22, label %5
+    i32 28, label %7
+    i32 79, label %5
+    i32 500, label %5
+    i32 501, label %5
+    i32 502, label %7
+    i32 503, label %7
+    i32 504, label %7
+    i32 505, label %5
+    i32 506, label %7
+    i32 507, label %7
+    i32 508, label %5
+    i32 509, label %7
+    i32 510, label %5
+    i32 511, label %7
+    i32 512, label %5
+    i32 600, label %5
   ]
 
-5:                                                ; preds = %3
-  br label %18
+5:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
+  br label %7
 
 6:                                                ; preds = %3
-  br label %18
+  br label %7
 
-7:                                                ; preds = %3
-  br label %18
-
-8:                                                ; preds = %3
-  br label %18
-
-9:                                                ; preds = %3
-  br label %18
-
-10:                                               ; preds = %3
-  br label %18
-
-11:                                               ; preds = %3
-  br label %18
-
-12:                                               ; preds = %3
-  br label %18
-
-13:                                               ; preds = %3
-  br label %18
-
-14:                                               ; preds = %3
-  br label %18
-
-15:                                               ; preds = %3
-  br label %18
-
-16:                                               ; preds = %3
-  br label %18
-
-17:                                               ; preds = %3
-  br label %18
-
-18:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %17, %16, %15, %14, %13, %12, %11, %10, %9, %8, %7, %6, %5
-  %.sink = phi i32 [ 1, %17 ], [ 1, %16 ], [ 1, %15 ], [ 1, %14 ], [ 1, %13 ], [ 1, %12 ], [ 1, %11 ], [ 1, %10 ], [ 1, %9 ], [ 1, %8 ], [ 1, %7 ], [ 1, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
+7:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %6, %5
+  %.sink = phi i32 [ 1, %6 ], [ 1, %5 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ], [ 0, %3 ]
   store i32 %.sink, ptr %2, align 4
-  %19 = load i32, ptr @hf_fmp_status, align 4
-  %20 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %19, i32 noundef 0) #2
-  ret i32 %20
+  %8 = load i32, ptr @hf_fmp_status, align 4
+  %9 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %1, i32 noundef %8, i32 noundef 0) #2
+  ret i32 %9
 }
 
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #1
