@@ -3291,7 +3291,7 @@ cmake/archive_read.c.ll 573031375
 cmake/archive_read_add_passphrase.c.ll 66080190
 cmake/archive_read_append_filter.c.ll 70348501
 cmake/archive_read_data_into_fd.c.ll 73160558
-cmake/archive_read_disk_entry_from_file.c.ll 177335783
+cmake/archive_read_disk_entry_from_file.c.ll 177158336
 cmake/archive_read_disk_posix.c.ll 751419074
 cmake/archive_read_open_fd.c.ll 56188574
 cmake/archive_read_open_filename.c.ll 109792398
