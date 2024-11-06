@@ -1439,11 +1439,9 @@ ehcleanup91:                                      ; preds = %ehcleanup90, %lpad5
 
 invoke.cont99:                                    ; preds = %lor.end.invoke.cont99_crit_edge, %invoke.cont42
   %78 = phi double [ %.pre, %lor.end.invoke.cont99_crit_edge ], [ %baseCPI, %invoke.cont42 ]
-  %cmp101 = fcmp une double %78, 0x47EFFFFFE0000000
   %79 = call double @llvm.fabs.f64(double %78)
   %cmp104 = fcmp ule double %79, 0x3C9CD2B297D889BC
-  %lnot106 = and i1 %cmp101, %cmp104
-  br i1 %lnot106, label %if.then108, label %do.end148
+  br i1 %cmp104, label %if.then108, label %do.end148
 
 if.then108:                                       ; preds = %invoke.cont99
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream109) #31
@@ -2187,11 +2185,9 @@ ehcleanup87:                                      ; preds = %ehcleanup86, %lpad5
 
 invoke.cont95:                                    ; preds = %lor.end.invoke.cont95_crit_edge, %invoke.cont38
   %74 = phi double [ %.pre, %lor.end.invoke.cont95_crit_edge ], [ %baseCPI, %invoke.cont38 ]
-  %cmp97 = fcmp une double %74, 0x47EFFFFFE0000000
   %75 = call double @llvm.fabs.f64(double %74)
   %cmp100 = fcmp ule double %75, 0x3C9CD2B297D889BC
-  %lnot102 = and i1 %cmp97, %cmp100
-  br i1 %lnot102, label %if.then104, label %do.end144
+  br i1 %cmp100, label %if.then104, label %do.end144
 
 if.then104:                                       ; preds = %invoke.cont95
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream105) #31
@@ -3835,11 +3831,9 @@ ehcleanup100:                                     ; preds = %ehcleanup99, %lpad6
 
 invoke.cont108:                                   ; preds = %lor.end.invoke.cont108_crit_edge, %invoke.cont50
   %72 = phi double [ %.pre, %lor.end.invoke.cont108_crit_edge ], [ %baseFixing, %invoke.cont50 ]
-  %cmp110 = fcmp une double %72, 0x47EFFFFFE0000000
   %73 = call double @llvm.fabs.f64(double %72)
   %cmp113 = fcmp ule double %73, 0x3C9CD2B297D889BC
-  %lnot115 = and i1 %cmp110, %cmp113
-  br i1 %lnot115, label %if.then117, label %do.end157
+  br i1 %cmp113, label %if.then117, label %do.end157
 
 if.then117:                                       ; preds = %invoke.cont108
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream118) #31
@@ -4646,11 +4640,9 @@ ehcleanup96:                                      ; preds = %ehcleanup95, %lpad6
 
 invoke.cont104:                                   ; preds = %lor.end.invoke.cont104_crit_edge, %invoke.cont46
   %68 = phi double [ %.pre, %lor.end.invoke.cont104_crit_edge ], [ %baseFixing, %invoke.cont46 ]
-  %cmp106 = fcmp une double %68, 0x47EFFFFFE0000000
   %69 = call double @llvm.fabs.f64(double %68)
   %cmp109 = fcmp ule double %69, 0x3C9CD2B297D889BC
-  %lnot111 = and i1 %cmp106, %cmp109
-  br i1 %lnot111, label %if.then113, label %do.end153
+  br i1 %cmp109, label %if.then113, label %do.end153
 
 if.then113:                                       ; preds = %invoke.cont104
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %_ql_msg_stream114) #31

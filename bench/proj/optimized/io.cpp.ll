@@ -22556,60 +22556,60 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs13EllipsoidalCSEEED2Ev.exit2
   %285 = load ptr, ptr %284, align 8
   %286 = load ptr, ptr %285, align 8
   %287 = invoke noundef double @_ZN5osgeo4proj8internal13c_locale_stodERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %286)
-          to label %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit unwind label %290
+          to label %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit unwind label %289
 
 _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit: ; preds = %282
-  %288 = fcmp une double %287, 1.000000e+00
-  %289 = fcmp oeq double %287, -1.000000e+00
-  %or.cond7 = and i1 %288, %289
-  %spec.select = select i1 %or.cond7, i1 true, i1 %.1162324
-  br label %307
+  %288 = fcmp oeq double %287, -1.000000e+00
+  br i1 %288, label %301, label %307
 
-290:                                              ; preds = %282
-  %291 = landingpad { ptr, i32 }
+289:                                              ; preds = %282
+  %290 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  %292 = extractvalue { ptr, i32 } %291, 1
-  %293 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #39
-  %294 = icmp eq i32 %292, %293
-  br i1 %294, label %295, label %806
+  %291 = extractvalue { ptr, i32 } %290, 1
+  %292 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #39
+  %293 = icmp eq i32 %291, %292
+  br i1 %293, label %294, label %806
 
-295:                                              ; preds = %290
-  %296 = extractvalue { ptr, i32 } %291, 0
-  %297 = call ptr @__cxa_begin_catch(ptr %296) #39
-  %298 = call ptr @__cxa_allocate_exception(i64 40) #39
+294:                                              ; preds = %289
+  %295 = extractvalue { ptr, i32 } %290, 0
+  %296 = call ptr @__cxa_begin_catch(ptr %295) #39
+  %297 = call ptr @__cxa_allocate_exception(i64 40) #39
   invoke void @_ZN5osgeo4proj8internal6concatEPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %19, ptr noundef nonnull @.str.109, ptr noundef nonnull align 8 dereferenceable(32) %286)
-          to label %299 unwind label %.thread
+          to label %298 unwind label %.thread
 
-299:                                              ; preds = %295
-  invoke void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %298, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %301 unwind label %.thread304
+298:                                              ; preds = %294
+  invoke void @_ZN5osgeo4proj4util9ExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %297, ptr noundef nonnull align 8 dereferenceable(32) %19)
+          to label %300 unwind label %.thread304
 
-.thread304:                                       ; preds = %299
-  %300 = landingpad { ptr, i32 }
+.thread304:                                       ; preds = %298
+  %299 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #39
   br label %305
 
-301:                                              ; preds = %299
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %298, align 8
-  invoke void @__cxa_throw(ptr nonnull %298, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #40
+300:                                              ; preds = %298
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %297, align 8
+  invoke void @__cxa_throw(ptr nonnull %297, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #40
           to label %810 unwind label %303
 
-.thread:                                          ; preds = %295
+301:                                              ; preds = %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit
+  br label %307
+
+.thread:                                          ; preds = %294
   %302 = landingpad { ptr, i32 }
           cleanup
   br label %305
 
-303:                                              ; preds = %301
+303:                                              ; preds = %300
   %304 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #39
   br label %306
 
 305:                                              ; preds = %.thread304, %.thread
-  %.pn195303 = phi { ptr, i32 } [ %302, %.thread ], [ %300, %.thread304 ]
-  call void @__cxa_free_exception(ptr %298) #39
+  %.pn195303 = phi { ptr, i32 } [ %302, %.thread ], [ %299, %.thread304 ]
+  call void @__cxa_free_exception(ptr %297) #39
   br label %306
 
 306:                                              ; preds = %303, %305
@@ -22617,8 +22617,8 @@ _ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_pt
   invoke void @__cxa_end_catch()
           to label %806 unwind label %807
 
-307:                                              ; preds = %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit, %.lr.ph, %274, %276
-  %.2163 = phi i1 [ %.1162324, %276 ], [ %.1162324, %274 ], [ %.1162324, %.lr.ph ], [ %spec.select, %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit ]
+307:                                              ; preds = %.lr.ph, %274, %276, %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit, %301
+  %.2163 = phi i1 [ true, %301 ], [ %.1162324, %_ZN5osgeo4proj2io9WKTParser7Private8asDoubleERKN7dropbox6oxygen2nnISt10unique_ptrINS1_7WKTNodeESt14default_deleteIS8_EEEE.exit ], [ %.1162324, %276 ], [ %.1162324, %274 ], [ %.1162324, %.lr.ph ]
   %308 = getelementptr inbounds i8, ptr %.sroa.0296.0323, i64 8
   %.not318 = icmp eq ptr %308, %263
   br i1 %.not318, label %.loopexit319, label %.lr.ph
@@ -23979,8 +23979,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #39
   ret void
 
-806:                                              ; preds = %466, %468, %306, %151, %805, %481, %475, %459, %418, %376, %364, %355, %290, %241, %218, %206, %162, %.body, %101
-  %.merged = phi { ptr, i32 } [ %163, %162 ], [ %102, %101 ], [ %476, %475 ], [ %482, %481 ], [ %.pn207.pn, %805 ], [ %.pn203, %206 ], [ %219, %218 ], [ %242, %241 ], [ %.pn195302, %306 ], [ %291, %290 ], [ %.pn188.pn.pn.pn.pn.pn, %355 ], [ %365, %364 ], [ %377, %376 ], [ %.pn181.pn.pn.pn, %418 ], [ %.pn173.pn.pn.pn, %459 ], [ %.pn168309, %468 ], [ %467, %466 ], [ %.pn, %151 ], [ %121, %.body ]
+806:                                              ; preds = %466, %468, %306, %151, %805, %481, %475, %459, %418, %376, %364, %355, %289, %241, %218, %206, %162, %.body, %101
+  %.merged = phi { ptr, i32 } [ %163, %162 ], [ %102, %101 ], [ %476, %475 ], [ %482, %481 ], [ %.pn207.pn, %805 ], [ %.pn203, %206 ], [ %219, %218 ], [ %242, %241 ], [ %.pn195302, %306 ], [ %290, %289 ], [ %.pn188.pn.pn.pn.pn.pn, %355 ], [ %365, %364 ], [ %377, %376 ], [ %.pn181.pn.pn.pn, %418 ], [ %.pn173.pn.pn.pn, %459 ], [ %.pn168309, %468 ], [ %467, %466 ], [ %.pn, %151 ], [ %121, %.body ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #39
   resume { ptr, i32 } %.merged
 
@@ -23991,7 +23991,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
   call void @__clang_call_terminate(ptr %809) #38
   unreachable
 
-810:                                              ; preds = %758, %751, %464, %301
+810:                                              ; preds = %758, %751, %464, %300
   unreachable
 }
 
