@@ -3336,7 +3336,7 @@ cmake/archive_write_set_format_cpio_binary.c.ll 141433191
 cmake/archive_write_set_format_cpio_newc.c.ll 109349912
 cmake/archive_write_set_format_cpio_odc.c.ll 126474713
 cmake/archive_write_set_format_filter_by_ext.c.ll 65183036
-cmake/archive_write_set_format_gnutar.c.ll 183113707
+cmake/archive_write_set_format_gnutar.c.ll 183296827
 cmake/archive_write_set_format_iso9660.c.ll 2991000435
 cmake/archive_write_set_format_mtree.c.ll 1040649022
 cmake/archive_write_set_format_pax.c.ll 528864713
@@ -8681,7 +8681,7 @@ gromacs/make_ndx.cpp.ll 2061499031
 gromacs/makebondedlinks.cpp.ll 1073099374
 gromacs/makeexclusiondistances.cpp.ll 160230130
 gromacs/manage_threading.cpp.ll 547563746
-gromacs/manager.cpp.ll 394868364
+gromacs/manager.cpp.ll 395263235
 gromacs/manyautocorrelation.cpp.ll 421665051
 gromacs/massrepartitioning.cpp.ll 295274858
 gromacs/matio.cpp.ll 7395305741
@@ -9213,7 +9213,7 @@ grpc/grpc_ares_ev_driver_posix.cc.ll 335249070
 grpc/grpc_ares_wrapper.cc.ll 1006349316
 grpc/grpc_ares_wrapper_posix.cc.ll 40276217
 grpc/grpc_authorization_engine.cc.ll 549355226
-grpc/grpc_context.cc.ll 48545849
+grpc/grpc_context.cc.ll 48594558
 grpc/grpc_server_authz_filter.cc.ll 1353912689
 grpc/grpc_tls_certificate_distributor.cc.ll 1358434217
 grpc/grpc_tls_certificate_match.cc.ll 92650271
@@ -24660,7 +24660,7 @@ openmpi/libmpi_c_profile_la-graph_map.ll 74677957
 openmpi/libmpi_c_profile_la-graph_neighbors.ll 76101426
 openmpi/libmpi_c_profile_la-graph_neighbors_count.ll 75013797
 openmpi/libmpi_c_profile_la-graphdims_get.ll 72336221
-openmpi/libmpi_c_profile_la-grequest_complete.ll 42534032
+openmpi/libmpi_c_profile_la-grequest_complete.ll 42576682
 openmpi/libmpi_c_profile_la-grequest_start.ll 61228290
 openmpi/libmpi_c_profile_la-group_difference.ll 64131722
 openmpi/libmpi_c_profile_la-group_excl.ll 76309419
@@ -25304,7 +25304,7 @@ openmpi/prte_info.ll 102627222
 openmpi/prte_installdirs_env.ll 59351107
 openmpi/prted.ll 311081457
 openmpi/prtedl_base_select.ll 34829293
-openmpi/prtedl_dlopen_component.ll 38511568
+openmpi/prtedl_dlopen_component.ll 38550156
 openmpi/prtedl_dlopen_module.ll 95199663
 openmpi/prteinstalldirs_base_components.ll 117403524
 openmpi/prteinstalldirs_base_expand.ll 125174072
@@ -28600,7 +28600,7 @@ php/mod_files.ll 298511786
 php/mod_user.ll 203941530
 php/mod_user_class.ll 79185534
 php/mraw.ll 98581133
-php/namednodemap.ll 107944095
+php/namednodemap.ll 108052077
 php/net.ll 94312028
 php/network.ll 485737917
 php/node.ll 1172076178
