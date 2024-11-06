@@ -5059,7 +5059,7 @@ cpython/sliceobject.ll 269100144
 cpython/socketmodule.ll 1479974689
 cpython/specialize.ll 386855901
 cpython/sre.ll 4895910108
-cpython/statement.ll 68723941
+cpython/statement.ll 68792666
 cpython/stgdict.ll 422755354
 cpython/string_parser.ll 175079068
 cpython/stringio.ll 443343280
@@ -9608,7 +9608,7 @@ hdf5/H5HLcache.c.ll 231656854
 hdf5/H5HLdbg.c.ll 62222701
 hdf5/H5HLdblk.c.ll 61507902
 hdf5/H5HLint.c.ll 49741019
-hdf5/H5HLprfx.c.ll 40768062
+hdf5/H5HLprfx.c.ll 40808853
 hdf5/H5I.c.ll 220840390
 hdf5/H5IM.c.ll 165660150
 hdf5/H5Idbg.c.ll 53060779
@@ -28666,7 +28666,7 @@ php/php_pcre.ll 2291240393
 php/php_reflection.ll 5804118590
 php/php_spl.ll 379137351
 php/php_syslog.ll 83287176
-php/php_ticks.ll 41869856
+php/php_ticks.ll 41911735
 php/php_variables.ll 945353894
 php/php_xmlreader.ll 1025736368
 php/php_xmlwriter.ll 377811034
@@ -30956,7 +30956,7 @@ qemu/stubs_icount.c.ll 38713641
 qemu/stubs_io_uring.c.ll 34885352
 qemu/stubs_monitor-core.c.ll 35635849
 qemu/stubs_replay-tools.c.ll 44165416
-qemu/stubs_trace-control.c.ll 41487964
+qemu/stubs_trace-control.c.ll 41529455
 qemu/system.c.ll 239505570
 qemu/system_bootdevice.c.ll 163443291
 qemu/system_cpu-timers.c.ll 118268590
