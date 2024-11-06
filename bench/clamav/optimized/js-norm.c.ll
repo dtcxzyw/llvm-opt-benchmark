@@ -1406,8 +1406,8 @@ define void @cli_js_process_buffer(ptr nocapture noundef %0, ptr noundef %1, i64
   br label %55
 
 55:                                               ; preds = %.backedge.i, %.lr.ph144.i
-  %56 = phi i64 [ %48, %.lr.ph144.i ], [ %84, %.backedge.i ]
-  %57 = phi i64 [ %47, %.lr.ph144.i ], [ %85, %.backedge.i ]
+  %56 = phi i64 [ %48, %.lr.ph144.i ], [ %77, %.backedge.i ]
+  %57 = phi i64 [ %47, %.lr.ph144.i ], [ %78, %.backedge.i ]
   %58 = load i32, ptr %49, align 8
   switch i32 %58, label %207 [
     i32 0, label %62
@@ -1460,7 +1460,7 @@ textbuf_clean.exit.i:                             ; preds = %69, %62
   %76 = load i32, ptr %75, align 4
   switch i32 %76, label %.backedge.i [
     i32 15, label %yylex.exit.thread.thread165
-    i32 1, label %77
+    i32 1, label %80
     i32 2, label %131
     i32 3, label %173
     i32 4, label %175
@@ -1476,37 +1476,37 @@ textbuf_clean.exit.i:                             ; preds = %69, %62
     i32 14, label %.thread169
   ]
 
-77:                                               ; preds = %textbuf_clean.exit.i
-  %78 = icmp ult i64 %71, %28
-  br i1 %78, label %79, label %89
+.backedge.i:                                      ; preds = %._crit_edge.i, %.loopexit.i, %87, %85, %textbuf_clean.exit.i
+  %77 = phi i64 [ %.pre-phi.i, %.loopexit.i ], [ %206, %._crit_edge.i ], [ %71, %textbuf_clean.exit.i ], [ %86, %85 ], [ %88, %87 ]
+  %78 = load i64, ptr %27, align 8
+  %79 = icmp ult i64 %77, %78
+  br i1 %79, label %55, label %yylex.exit.thread134
 
-79:                                               ; preds = %77
-  %80 = getelementptr inbounds i8, ptr %30, i64 %71
-  %81 = load i8, ptr %80, align 1
-  switch i8 %81, label %89 [
-    i8 42, label %82
+80:                                               ; preds = %textbuf_clean.exit.i
+  %81 = icmp ult i64 %71, %28
+  br i1 %81, label %82, label %89
+
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds i8, ptr %30, i64 %71
+  %84 = load i8, ptr %83, align 1
+  switch i8 %84, label %89 [
+    i8 42, label %85
     i8 47, label %87
   ]
 
-82:                                               ; preds = %79
+85:                                               ; preds = %82
   store i32 1, ptr %49, align 8
-  %83 = add i64 %70, 2
-  store i64 %83, ptr %32, align 8
+  %86 = add i64 %70, 2
+  store i64 %86, ptr %32, align 8
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %._crit_edge.i, %.loopexit.i, %87, %82, %textbuf_clean.exit.i
-  %84 = phi i64 [ %.pre-phi.i, %.loopexit.i ], [ %206, %._crit_edge.i ], [ %71, %textbuf_clean.exit.i ], [ %83, %82 ], [ %88, %87 ]
-  %85 = load i64, ptr %27, align 8
-  %86 = icmp ult i64 %84, %85
-  br i1 %86, label %55, label %yylex.exit.thread134
-
-87:                                               ; preds = %79
+87:                                               ; preds = %82
   store i32 2, ptr %49, align 8
   %88 = add i64 %70, 2
   store i64 %88, ptr %32, align 8
   br label %.backedge.i
 
-89:                                               ; preds = %79, %77
+89:                                               ; preds = %82, %80
   store i64 %70, ptr %32, align 8
   %90 = load i64, ptr %27, align 8
   %.not21.i.i = icmp eq i64 %90, %70

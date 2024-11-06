@@ -1219,64 +1219,61 @@ declare noundef ptr @_ZN28TemplateInterpreterGenerator35generate_StackOverflowEr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN28TemplateInterpreterGenerator21generate_method_entryEN19AbstractInterpreter10MethodKindEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  switch i32 %1, label %8 [
+  switch i32 %1, label %7 [
     i32 0, label %.thread
     i32 1, label %4
     i32 2, label %.thread
-    i32 3, label %5
+    i32 3, label %4
     i32 4, label %.thread
     i32 5, label %.thread
     i32 6, label %.thread
-    i32 7, label %6
+    i32 7, label %5
   ]
 
-4:                                                ; preds = %3
+4:                                                ; preds = %3, %3
   br label %.thread
 
 5:                                                ; preds = %3
-  br label %.thread
+  %6 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator23generate_abstract_entryEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7
+  br label %9
 
-6:                                                ; preds = %3
-  %7 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator23generate_abstract_entryEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #7
-  br label %10
+7:                                                ; preds = %3
+  %8 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
+  br label %9
 
-8:                                                ; preds = %3
-  %9 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator24generate_intrinsic_entryEN19AbstractInterpreter10MethodKindE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
-  br label %10
-
-10:                                               ; preds = %8, %6
-  %.0 = phi ptr [ %9, %8 ], [ %7, %6 ]
+9:                                                ; preds = %7, %5
+  %.0 = phi ptr [ %8, %7 ], [ %6, %5 ]
   %.not = icmp eq ptr %.0, null
-  br i1 %.not, label %.thread, label %25
+  br i1 %.not, label %.thread, label %24
 
-.thread:                                          ; preds = %3, %3, %3, %3, %3, %4, %5, %10
-  %.01320 = phi i1 [ false, %10 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ true, %4 ], [ true, %5 ]
-  br i1 %2, label %11, label %18
+.thread:                                          ; preds = %3, %3, %3, %3, %3, %4, %9
+  %.01320 = phi i1 [ false, %9 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ false, %3 ], [ true, %4 ]
+  br i1 %2, label %10, label %17
 
-11:                                               ; preds = %.thread
-  %12 = select i1 %.01320, i64 3, i64 2
-  %13 = getelementptr inbounds [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %12
-  %14 = load ptr, ptr %13, align 8
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %25
+10:                                               ; preds = %.thread
+  %11 = select i1 %.01320, i64 3, i64 2
+  %12 = getelementptr inbounds [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %11
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %15, label %24
 
-16:                                               ; preds = %11
-  %17 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator21generate_native_entryEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %.01320) #7
-  br label %25
+15:                                               ; preds = %10
+  %16 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator21generate_native_entryEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %.01320) #7
+  br label %24
 
-18:                                               ; preds = %.thread
-  %19 = zext i1 %.01320 to i64
-  %20 = getelementptr inbounds [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %19
-  %21 = load ptr, ptr %20, align 8
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %25
+17:                                               ; preds = %.thread
+  %18 = zext i1 %.01320 to i64
+  %19 = getelementptr inbounds [40 x ptr], ptr @_ZN19AbstractInterpreter12_entry_tableE, i64 0, i64 %18
+  %20 = load ptr, ptr %19, align 8
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %24
 
-23:                                               ; preds = %18
-  %24 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator21generate_normal_entryEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %.01320) #7
-  br label %25
+22:                                               ; preds = %17
+  %23 = tail call noundef ptr @_ZN28TemplateInterpreterGenerator21generate_normal_entryEb(ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext %.01320) #7
+  br label %24
 
-25:                                               ; preds = %16, %11, %23, %18, %10
-  %.014 = phi ptr [ %.0, %10 ], [ %17, %16 ], [ %14, %11 ], [ %24, %23 ], [ %21, %18 ]
+24:                                               ; preds = %15, %10, %22, %17, %9
+  %.014 = phi ptr [ %.0, %9 ], [ %16, %15 ], [ %13, %10 ], [ %23, %22 ], [ %20, %17 ]
   ret ptr %.014
 }
 
