@@ -22600,7 +22600,7 @@ openjdk/ad_x86_peephole.ll 204531589
 openjdk/ad_x86_pipeline.ll 2560838106
 openjdk/adaptiveSizePolicy.ll 169940170
 openjdk/addnode.ll 935907448
-openjdk/ageTable.ll 140205250
+openjdk/ageTable.ll 140064854
 openjdk/ageTableTracer.ll 567705673
 openjdk/allocTracer.ll 709794685
 openjdk/allocation.ll 74418931
@@ -32652,7 +32652,7 @@ rocksdb/ldb_cmd.cc.ll 11093157060
 rocksdb/ldb_tool.cc.ll 1032785201
 rocksdb/leveldb_options.cc.ll 627615741
 rocksdb/line_file_reader.cc.ll 451214410
-rocksdb/lock_manager.cc.ll 95774133
+rocksdb/lock_manager.cc.ll 95678358
 rocksdb/lock_request.cc.ll 894162823
 rocksdb/locktree.cc.ll 1017536480
 rocksdb/log_buffer.cc.ll 157242602
