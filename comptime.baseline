@@ -24347,7 +24347,7 @@ openmpi/coll_tuned_component.ll 49791256
 openmpi/coll_tuned_decision_dynamic.ll 136980891
 openmpi/coll_tuned_decision_fixed.ll 364573207
 openmpi/coll_tuned_dynamic_rules.ll 111512155
-openmpi/coll_tuned_exscan_decision.ll 51041208
+openmpi/coll_tuned_exscan_decision.ll 51092269
 openmpi/coll_tuned_gather_decision.ll 55192695
 openmpi/coll_tuned_module.ll 148040442
 openmpi/coll_tuned_reduce_decision.ll 63535591
@@ -37867,7 +37867,7 @@ wireshark/packet-ptpip.c.ll 136991805
 wireshark/packet-pvfs2.c.ll 734230736
 wireshark/packet-pw-atm.c.ll 398961691
 wireshark/packet-pw-fr.c.ll 71520275
-wireshark/packet-pw-satop.c.ll 108811875
+wireshark/packet-pw-satop.c.ll 108920808
 wireshark/packet-q931.c.ll 654062658
 wireshark/packet-q932.c.ll 159491950
 wireshark/packet-q933.c.ll 461691382
@@ -38981,7 +38981,7 @@ z3/api_datatype.cpp.ll 940211071
 z3/api_fpa.cpp.ll 1448117374
 z3/api_goal.cpp.ll 579618255
 z3/api_log.cpp.ll 109496180
-z3/api_model.cpp.ll 767113302
+z3/api_model.cpp.ll 767880593
 z3/api_numeral.cpp.ll 639298141
 z3/api_opt.cpp.ll 818795602
 z3/api_params.cpp.ll 187338841
