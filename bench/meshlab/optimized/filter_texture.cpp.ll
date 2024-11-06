@@ -18930,9 +18930,9 @@ _ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE11IndexVertexEi
   br i1 %.not24.i.i.i, label %_ZN3vcg3tri8UV_UtilsINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE15GloballyMirrorXERS5_.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %758, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i.i
-  %.sroa.8.027.i.i.i = phi <2 x float> [ %.sroa.8.1.i.i.i, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i.i ], [ <float -1.000000e+00, float -1.000000e+00>, %758 ]
+  %.sroa.8.027.i.i.i = phi <2 x float> [ %.sroa.8.1.i.i.i, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i.i ], [ splat (float -1.000000e+00), %758 ]
   %.sroa.02.026.i.i.i = phi ptr [ %783, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i.i ], [ %761, %758 ]
-  %.sroa.06.025.i.i.i = phi <2 x float> [ %.sroa.06.1.i.i.i, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i.i ], [ <float 1.000000e+00, float 1.000000e+00>, %758 ]
+  %.sroa.06.025.i.i.i = phi <2 x float> [ %.sroa.06.1.i.i.i, %_ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i.i ], [ splat (float 1.000000e+00), %758 ]
   %764 = getelementptr inbounds i8, ptr %.sroa.02.026.i.i.i, i64 60
   %765 = load i32, ptr %764, align 4
   %766 = and i32 %765, 1
@@ -19058,9 +19058,9 @@ _ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromV
   br i1 %.not30.i.i, label %._crit_edge.i151, label %.lr.ph.i.i146
 
 .lr.ph.i.i146:                                    ; preds = %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit, %.loopexit.i.i147
-  %.sroa.8.033.i.i = phi <2 x float> [ %.sroa.8.1.i.i, %.loopexit.i.i147 ], [ <float -1.000000e+00, float -1.000000e+00>, %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ]
+  %.sroa.8.033.i.i = phi <2 x float> [ %.sroa.8.1.i.i, %.loopexit.i.i147 ], [ splat (float -1.000000e+00), %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ]
   %.sroa.05.032.i.i = phi ptr [ %835, %.loopexit.i.i147 ], [ %.pre836, %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ]
-  %.sroa.09.031.i.i = phi <2 x float> [ %.sroa.09.1.i.i, %.loopexit.i.i147 ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ]
+  %.sroa.09.031.i.i = phi <2 x float> [ %.sroa.09.1.i.i, %.loopexit.i.i147 ], [ splat (float 1.000000e+00), %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ]
   %815 = getelementptr inbounds i8, ptr %.sroa.05.032.i.i, i64 24
   %816 = load i32, ptr %815, align 8
   %817 = and i32 %816, 1
@@ -19197,7 +19197,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit.i.i:    ; preds = %834, %826, %824
   br label %._crit_edge.i151
 
 ._crit_edge.i151:                                 ; preds = %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE12SolvePoissonEbfb.exit, %._crit_edge.loopexit.i, %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit
-  %.sroa.09.0.lcssa.i50.i = phi <2 x float> [ %.sroa.09.1.i.i, %._crit_edge.loopexit.i ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE12SolvePoissonEbfb.exit ]
+  %.sroa.09.0.lcssa.i50.i = phi <2 x float> [ %.sroa.09.1.i.i, %._crit_edge.loopexit.i ], [ splat (float 1.000000e+00), %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ], [ splat (float 1.000000e+00), %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE12SolvePoissonEbfb.exit ]
   %898 = phi float [ %897, %._crit_edge.loopexit.i ], [ 0x7FF8000000000000, %_ZN3vcg3tri13UpdateTextureINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE21WedgeTexFromVertexTexERS5_.exit ], [ 0x7FF8000000000000, %_ZN3vcg3tri13PoissonSolverINS0_12VoronoiAtlasI6CMeshOE8VoroMeshEE12SolvePoissonEbfb.exit ]
   %899 = call noundef float @sqrtf(float noundef %898) #35
   %900 = load ptr, ptr %794, align 8
@@ -31483,8 +31483,8 @@ _ZNSt6vectorIN3vcg11Similarity2IfEESaIS2_EE6resizeEm.exit: ; preds = %_ZNSt6vect
   %.01258.i = phi float [ undef, %24 ], [ %.1.i, %70 ]
   %.01357.i = phi i32 [ 0, %24 ], [ %71, %70 ]
   %.01456.i = phi float [ 0x47EFFFFFE0000000, %24 ], [ %.115.i, %70 ]
-  %.sroa.035.055.i = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %24 ], [ %.sroa.035.1.i, %70 ]
-  %.sroa.5.054.i = phi <2 x float> [ <float -1.000000e+00, float -1.000000e+00>, %24 ], [ %.sroa.5.1.i, %70 ]
+  %.sroa.035.055.i = phi <2 x float> [ splat (float 1.000000e+00), %24 ], [ %.sroa.035.1.i, %70 ]
+  %.sroa.5.054.i = phi <2 x float> [ splat (float -1.000000e+00), %24 ], [ %.sroa.5.1.i, %70 ]
   %31 = uitofp nneg i32 %.01357.i to double
   %32 = fmul double %31, 0x3FF921FB54442D18
   %33 = fmul double %32, 3.125000e-02
@@ -65945,7 +65945,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %253 = load <2 x double>, ptr %252, align 16
   %254 = getelementptr inbounds double, ptr %241, i64 %.011.i.i.i.i.i.i.i30
   %255 = load <2 x double>, ptr %254, align 16
-  %256 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %255
+  %256 = fdiv <2 x double> splat (double 1.000000e+00), %255
   %257 = fmul <2 x double> %253, %256
   store <2 x double> %257, ptr %251, align 16
   %258 = add nuw nsw i64 %.011.i.i.i.i.i.i.i30, 2

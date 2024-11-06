@@ -524,7 +524,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.1, align 8, !tbaa !103
   %arrayidx6.i.i.1 = getelementptr inbounds i8, ptr %this, i64 3172
   store float 1.000000e+00, ptr %arrayidx6.i.i.1, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !103
   %9 = getelementptr inbounds i8, ptr %this, i64 3220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, i8 0, i64 56, i1 false)
   %arrayidx.i.i.2 = getelementptr inbounds i8, ptr %this, i64 3276
@@ -532,7 +532,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.2, align 8, !tbaa !103
   %arrayidx6.i.i.2 = getelementptr inbounds i8, ptr %this, i64 3236
   store float 1.000000e+00, ptr %arrayidx6.i.i.2, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.1, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.1, align 4, !tbaa !103
   %10 = getelementptr inbounds i8, ptr %this, i64 3284
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, i8 0, i64 56, i1 false)
   %arrayidx.i.i.3 = getelementptr inbounds i8, ptr %this, i64 3340
@@ -540,7 +540,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.3, align 8, !tbaa !103
   %arrayidx6.i.i.3 = getelementptr inbounds i8, ptr %this, i64 3300
   store float 1.000000e+00, ptr %arrayidx6.i.i.3, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.2, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.2, align 4, !tbaa !103
   %11 = getelementptr inbounds i8, ptr %this, i64 3348
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, i8 0, i64 56, i1 false)
   %arrayidx.i.i.4 = getelementptr inbounds i8, ptr %this, i64 3404
@@ -548,7 +548,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.4, align 8, !tbaa !103
   %arrayidx6.i.i.4 = getelementptr inbounds i8, ptr %this, i64 3364
   store float 1.000000e+00, ptr %arrayidx6.i.i.4, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.3, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.3, align 4, !tbaa !103
   %12 = getelementptr inbounds i8, ptr %this, i64 3412
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %12, i8 0, i64 56, i1 false)
   %arrayidx.i.i.5 = getelementptr inbounds i8, ptr %this, i64 3468
@@ -556,7 +556,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.5, align 8, !tbaa !103
   %arrayidx6.i.i.5 = getelementptr inbounds i8, ptr %this, i64 3428
   store float 1.000000e+00, ptr %arrayidx6.i.i.5, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.4, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.4, align 4, !tbaa !103
   %13 = getelementptr inbounds i8, ptr %this, i64 3476
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %13, i8 0, i64 56, i1 false)
   %arrayidx.i.i.6 = getelementptr inbounds i8, ptr %this, i64 3532
@@ -565,7 +565,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.6, align 8, !tbaa !103
   %arrayidx6.i.i.6 = getelementptr inbounds i8, ptr %this, i64 3492
   store float 1.000000e+00, ptr %arrayidx6.i.i.6, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.5, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.5, align 4, !tbaa !103
   %ColorBuffer = getelementptr inbounds i8, ptr %this, i64 3536
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 3560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ColorBuffer, i8 0, i64 24, i1 false)
@@ -899,7 +899,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.1, align 8, !tbaa !103
   %arrayidx6.i.i.1 = getelementptr inbounds i8, ptr %this, i64 3172
   store float 1.000000e+00, ptr %arrayidx6.i.i.1, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !103
   %6 = getelementptr inbounds i8, ptr %this, i64 3220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, i8 0, i64 56, i1 false)
   %arrayidx.i.i.2 = getelementptr inbounds i8, ptr %this, i64 3276
@@ -907,7 +907,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.2, align 8, !tbaa !103
   %arrayidx6.i.i.2 = getelementptr inbounds i8, ptr %this, i64 3236
   store float 1.000000e+00, ptr %arrayidx6.i.i.2, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.1, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.1, align 4, !tbaa !103
   %7 = getelementptr inbounds i8, ptr %this, i64 3284
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %7, i8 0, i64 56, i1 false)
   %arrayidx.i.i.3 = getelementptr inbounds i8, ptr %this, i64 3340
@@ -915,7 +915,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.3, align 8, !tbaa !103
   %arrayidx6.i.i.3 = getelementptr inbounds i8, ptr %this, i64 3300
   store float 1.000000e+00, ptr %arrayidx6.i.i.3, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.2, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.2, align 4, !tbaa !103
   %8 = getelementptr inbounds i8, ptr %this, i64 3348
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %8, i8 0, i64 56, i1 false)
   %arrayidx.i.i.4 = getelementptr inbounds i8, ptr %this, i64 3404
@@ -923,7 +923,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.4, align 8, !tbaa !103
   %arrayidx6.i.i.4 = getelementptr inbounds i8, ptr %this, i64 3364
   store float 1.000000e+00, ptr %arrayidx6.i.i.4, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.3, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.3, align 4, !tbaa !103
   %9 = getelementptr inbounds i8, ptr %this, i64 3412
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %9, i8 0, i64 56, i1 false)
   %arrayidx.i.i.5 = getelementptr inbounds i8, ptr %this, i64 3468
@@ -931,7 +931,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.5, align 8, !tbaa !103
   %arrayidx6.i.i.5 = getelementptr inbounds i8, ptr %this, i64 3428
   store float 1.000000e+00, ptr %arrayidx6.i.i.5, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.4, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.4, align 4, !tbaa !103
   %10 = getelementptr inbounds i8, ptr %this, i64 3476
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %10, i8 0, i64 56, i1 false)
   %arrayidx.i.i.6 = getelementptr inbounds i8, ptr %this, i64 3532
@@ -940,7 +940,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i.6, align 8, !tbaa !103
   %arrayidx6.i.i.6 = getelementptr inbounds i8, ptr %this, i64 3492
   store float 1.000000e+00, ptr %arrayidx6.i.i.6, align 4, !tbaa !103
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.5, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.5, align 4, !tbaa !103
   %ColorBuffer = getelementptr inbounds i8, ptr %this, i64 3536
   %is_sorted.i = getelementptr inbounds i8, ptr %this, i64 3560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ColorBuffer, i8 0, i64 24, i1 false)
@@ -1880,7 +1880,7 @@ _ZN3irr5video23COpenGLExtensionHandler20extGlProvokingVertexEj.exit: ; preds = %
   %ref.tmp131.sroa.11.0.Quad2DVertices.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4224
   store i32 1065353216, ptr %ref.tmp131.sroa.11.0.Quad2DVertices.sroa_idx, align 8, !tbaa !103
   %arrayidx143 = getelementptr inbounds i8, ptr %this, i64 4228
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx143, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx143, align 4, !tbaa !103
   %ref.tmp136.sroa.5.0.arrayidx143.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4236
   %ref.tmp136.sroa.9.0.arrayidx143.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4252
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp136.sroa.5.0.arrayidx143.sroa_idx, i8 0, i64 16, i1 false)
@@ -1900,7 +1900,7 @@ _ZN3irr5video23COpenGLExtensionHandler20extGlProvokingVertexEj.exit: ; preds = %
   %ref.tmp144.sroa.11.0.arrayidx151.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4296
   store i32 0, ptr %ref.tmp144.sroa.11.0.arrayidx151.sroa_idx, align 8, !tbaa !103
   %arrayidx159 = getelementptr inbounds i8, ptr %this, i64 4300
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %arrayidx159, align 4, !tbaa !103
+  store <2 x float> splat (float -1.000000e+00), ptr %arrayidx159, align 4, !tbaa !103
   %ref.tmp152.sroa.5.0.arrayidx159.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4308
   %ref.tmp152.sroa.9.0.arrayidx159.sroa_idx = getelementptr inbounds i8, ptr %this, i64 4324
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp152.sroa.5.0.arrayidx159.sroa_idx, i8 0, i64 16, i1 false)
@@ -2676,9 +2676,9 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %next.gep = getelementptr i8, ptr %19, i64 %index
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !102
   %21 = sext <16 x i8> %wide.load to <16 x i32>
-  %22 = add nsw <16 x i32> %21, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %23 = icmp ult <16 x i32> %22, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %24 = add <16 x i8> %wide.load, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %22 = add nsw <16 x i32> %21, splat (i32 -65)
+  %23 = icmp ult <16 x i32> %22, splat (i32 26)
+  %24 = add <16 x i8> %wide.load, splat (i8 32)
   %25 = select <16 x i1> %23, <16 x i8> %24, <16 x i8> %wide.load
   store <16 x i8> %25, ptr %next.gep, align 1, !tbaa !102
   %index.next = add nuw i64 %index, 16
@@ -2705,9 +2705,9 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %next.gep29 = getelementptr i8, ptr %19, i64 %index28
   %wide.load30 = load <8 x i8>, ptr %next.gep29, align 1, !tbaa !102
   %27 = sext <8 x i8> %wide.load30 to <8 x i32>
-  %28 = add nsw <8 x i32> %27, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %29 = icmp ult <8 x i32> %28, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %30 = add <8 x i8> %wide.load30, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %28 = add nsw <8 x i32> %27, splat (i32 -65)
+  %29 = icmp ult <8 x i32> %28, splat (i32 26)
+  %30 = add <8 x i8> %wide.load30, splat (i8 32)
   %31 = select <8 x i1> %29, <8 x i8> %30, <8 x i8> %wide.load30
   store <8 x i8> %31, ptr %next.gep29, align 1, !tbaa !102
   %index.next31 = add nuw i64 %index28, 8
@@ -7250,7 +7250,7 @@ if.end21:                                         ; preds = %lor.lhs.false17
   %24 = add nsw <2 x i32> %23, %22
   %25 = load <2 x i32>, ptr %OriginalSize.i, align 4, !tbaa !129
   %26 = uitofp <2 x i32> %25 to <2 x float>
-  %27 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %26
+  %27 = fdiv <2 x float> splat (float 1.000000e+00), %26
   %28 = sitofp <2 x i32> %24 to <2 x float>
   %29 = fmul <2 x float> %27, %28
   %30 = insertelement <2 x i32> poison, i32 %sub.i234, i64 0
@@ -7715,7 +7715,7 @@ if.end:                                           ; preds = %entry
   %OriginalSize.i = getelementptr inbounds i8, ptr %texture, i64 72
   %0 = load <2 x i32>, ptr %OriginalSize.i, align 4, !tbaa !129
   %1 = uitofp <2 x i32> %0 to <2 x float>
-  %2 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %1
+  %2 = fdiv <2 x float> splat (float 1.000000e+00), %1
   %3 = load <2 x i32>, ptr %sourceRect, align 4, !tbaa !129
   %4 = sitofp <2 x i32> %3 to <2 x float>
   %5 = fmul <2 x float> %2, %4
@@ -8572,7 +8572,7 @@ if.end:                                           ; preds = %entry
   %OriginalSize.i = getelementptr inbounds i8, ptr %texture, i64 72
   %4 = load <2 x i32>, ptr %OriginalSize.i, align 4, !tbaa !129
   %5 = uitofp <2 x i32> %4 to <2 x float>
-  %6 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %5
+  %6 = fdiv <2 x float> splat (float 1.000000e+00), %5
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 480
   %7 = load ptr, ptr %vfn, align 8
@@ -16395,7 +16395,7 @@ entry:
   %2 = load <2 x float>, ptr %box, align 4, !tbaa !103
   %3 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !103
   %4 = fadd <2 x float> %2, %3
-  %5 = fmul <2 x float> %4, <float 5.000000e-01, float 5.000000e-01>
+  %5 = fmul <2 x float> %4, splat (float 5.000000e-01)
   %6 = fsub <2 x float> %5, %3
   %7 = fsub <2 x float> %5, %6
   tail call void @_ZN3irr5video13COpenGLDriver21setRenderStates3DModeEv(ptr noundef nonnull align 8 dereferenceable(4344) %this)
@@ -24037,8 +24037,8 @@ vector.body:                                      ; preds = %pred.store.continue
   %6 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !102
   %wide.load36 = load <16 x i8>, ptr %6, align 1, !tbaa !102
-  %7 = icmp eq <16 x i8> %wide.load, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %8 = icmp eq <16 x i8> %wide.load36, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %7 = icmp eq <16 x i8> %wide.load, splat (i8 92)
+  %8 = icmp eq <16 x i8> %wide.load36, splat (i8 92)
   %9 = extractelement <16 x i1> %7, i64 0
   br i1 %9, label %pred.store.if, label %pred.store.continue
 
@@ -24380,7 +24380,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index103 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next129, %pred.store.continue128 ]
   %next.gep104 = getelementptr i8, ptr %5, i64 %index103
   %wide.load112 = load <8 x i8>, ptr %next.gep104, align 1, !tbaa !102
-  %73 = icmp eq <8 x i8> %wide.load112, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %73 = icmp eq <8 x i8> %wide.load112, splat (i8 92)
   %74 = extractelement <8 x i1> %73, i64 0
   br i1 %74, label %pred.store.if113, label %pred.store.continue114
 
@@ -24511,9 +24511,9 @@ vector.body140:                                   ; preds = %vector.body140, %ve
   %next.gep142 = getelementptr i8, ptr %91, i64 %index141
   %wide.load143 = load <16 x i8>, ptr %next.gep142, align 1, !tbaa !102
   %92 = sext <16 x i8> %wide.load143 to <16 x i32>
-  %93 = add nsw <16 x i32> %92, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %94 = icmp ult <16 x i32> %93, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %95 = add <16 x i8> %wide.load143, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %93 = add nsw <16 x i32> %92, splat (i32 -65)
+  %94 = icmp ult <16 x i32> %93, splat (i32 26)
+  %95 = add <16 x i8> %wide.load143, splat (i8 32)
   %96 = select <16 x i1> %94, <16 x i8> %95, <16 x i8> %wide.load143
   store <16 x i8> %96, ptr %next.gep142, align 1, !tbaa !102
   %index.next144 = add nuw i64 %index141, 16
@@ -24540,9 +24540,9 @@ vec.epilog.vector.body158:                        ; preds = %vec.epilog.vector.b
   %next.gep160 = getelementptr i8, ptr %91, i64 %index159
   %wide.load161 = load <8 x i8>, ptr %next.gep160, align 1, !tbaa !102
   %98 = sext <8 x i8> %wide.load161 to <8 x i32>
-  %99 = add nsw <8 x i32> %98, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %100 = icmp ult <8 x i32> %99, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %101 = add <8 x i8> %wide.load161, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %99 = add nsw <8 x i32> %98, splat (i32 -65)
+  %100 = icmp ult <8 x i32> %99, splat (i32 26)
+  %101 = add <8 x i8> %wide.load161, splat (i8 32)
   %102 = select <8 x i1> %100, <8 x i8> %101, <8 x i8> %wide.load161
   store <8 x i8> %102, ptr %next.gep160, align 1, !tbaa !102
   %index.next162 = add nuw i64 %index159, 8

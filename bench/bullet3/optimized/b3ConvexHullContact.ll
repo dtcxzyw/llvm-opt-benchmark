@@ -2017,9 +2017,9 @@ for.body:                                         ; preds = %if.end, %for.body
   %localCenter.sroa.7.0363 = phi <2 x float> [ zeroinitializer, %if.end ], [ %localCenter.sroa.7.8.vec.insert, %for.body ]
   %localCenter.sroa.0.0362 = phi <2 x float> [ zeroinitializer, %if.end ], [ %localCenter.sroa.0.4.vec.insert, %for.body ]
   %triAabb.sroa.14.0361 = phi <2 x float> [ <float 0xC6293E5940000000, float 0.000000e+00>, %if.end ], [ %retval.sroa.6.1.i134, %for.body ]
-  %triAabb.sroa.9.0360 = phi <2 x float> [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %if.end ], [ %retval.sroa.0.1.i124, %for.body ]
+  %triAabb.sroa.9.0360 = phi <2 x float> [ splat (float 0xC6293E5940000000), %if.end ], [ %retval.sroa.0.1.i124, %for.body ]
   %triAabb.sroa.5.0359 = phi <2 x float> [ <float 0x46293E5940000000, float 0.000000e+00>, %if.end ], [ %retval.sroa.6.1.i, %for.body ]
-  %triAabb.sroa.0.0358 = phi <2 x float> [ <float 0x46293E5940000000, float 0x46293E5940000000>, %if.end ], [ %retval.sroa.0.1.i, %for.body ]
+  %triAabb.sroa.0.0358 = phi <2 x float> [ splat (float 0x46293E5940000000), %if.end ], [ %retval.sroa.0.1.i, %for.body ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
   %13 = load i32, ptr %gep, align 4
   %add44 = add nsw i32 %11, %13
@@ -29981,7 +29981,7 @@ entry:
   store <2 x float> <float 0x3FEE92D120000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1336), align 8
   store <2 x float> <float 0x3FDBE789E0000000, float 0x3FD012DFE0000000>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1344), align 16
   store <2 x float> <float 0x3FEBA76DA0000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1352), align 8
-  store <2 x float> <float -0.000000e+00, float -0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1360), align 16
+  store <2 x float> splat (float -0.000000e+00), ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1360), align 16
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1368), align 8
   store <2 x float> <float 0x3FD3C6EF40000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1376), align 16
   store <2 x float> <float 0x3FEE6F0D00000000, float 0.000000e+00>, ptr getelementptr inbounds (i8, ptr @unitSphere162, i64 1384), align 8

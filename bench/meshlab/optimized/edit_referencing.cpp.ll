@@ -12469,27 +12469,27 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(214) ptr @_ZN5Eigen
   %39 = load double, ptr %38, align 8
   store double %39, ptr %37, align 8
   %40 = load <2 x i64>, ptr %0, align 16
-  %41 = and <2 x i64> %40, <i64 9223372036854775807, i64 9223372036854775807>
+  %41 = and <2 x i64> %40, splat (i64 9223372036854775807)
   %42 = bitcast <2 x i64> %41 to <2 x double>
   %43 = load <2 x i64>, ptr %13, align 16
-  %44 = and <2 x i64> %43, <i64 9223372036854775807, i64 9223372036854775807>
+  %44 = and <2 x i64> %43, splat (i64 9223372036854775807)
   %45 = bitcast <2 x i64> %44 to <2 x double>
   %46 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %42, <2 x double> %45) #34, !srcloc !158
   %47 = load <2 x i64>, ptr %19, align 16
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = load <2 x i64>, ptr %23, align 16
-  %51 = and <2 x i64> %50, <i64 9223372036854775807, i64 9223372036854775807>
+  %51 = and <2 x i64> %50, splat (i64 9223372036854775807)
   %52 = bitcast <2 x i64> %51 to <2 x double>
   %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %52) #34, !srcloc !158
   %54 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %46, <2 x double> %53) #34, !srcloc !158
   %55 = load <2 x i64>, ptr %30, align 16
-  %56 = and <2 x i64> %55, <i64 9223372036854775807, i64 9223372036854775807>
+  %56 = and <2 x i64> %55, splat (i64 9223372036854775807)
   %57 = bitcast <2 x i64> %56 to <2 x double>
   %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> zeroinitializer, <2 x double> %57) #34, !srcloc !158
   %59 = getelementptr inbounds i8, ptr %0, i64 112
   %60 = load <2 x i64>, ptr %59, align 16
-  %61 = and <2 x i64> %60, <i64 9223372036854775807, i64 9223372036854775807>
+  %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> zeroinitializer, <2 x double> %62) #34, !srcloc !158
   %64 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %58, <2 x double> %63) #34, !srcloc !158

@@ -2070,7 +2070,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17hacdb3079007c2e78E.
 166:                                              ; preds = %159, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hdedda522bf904060E.exit._crit_edge.i.i.i.i"
   %.sroa.6.1.i.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i.i, %159 ], [ %.sroa.6.0.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hdedda522bf904060E.exit._crit_edge.i.i.i.i" ]
   %.sroa.01.1.i.i.i.i = phi i64 [ %.sroa.0.0.i18.i.i.i.i, %159 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hdedda522bf904060E.exit._crit_edge.i.i.i.i" ]
-  %167 = icmp eq <16 x i8> %.0.copyload.i17.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %167 = icmp eq <16 x i8> %.0.copyload.i17.i.i.i.i, splat (i8 -1)
   %168 = bitcast <16 x i1> %167 to i16
   %.not11.i.i.i.i = icmp eq i16 %168, 0
   br i1 %.not11.i.i.i.i, label %169, label %172

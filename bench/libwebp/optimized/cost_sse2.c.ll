@@ -93,8 +93,8 @@ define internal i32 @GetResidualCost_SSE2(i32 noundef %0, ptr nocapture noundef 
   %33 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %30, i1 false)
   %34 = tail call <8 x i16> @llvm.abs.v8i16(<8 x i16> %32, i1 false)
   %35 = tail call <16 x i8> @llvm.x86.sse2.packsswb.128(<8 x i16> %33, <8 x i16> %34)
-  %36 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %35, <16 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2>)
-  %37 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %35, <16 x i8> <i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67, i8 67>)
+  %36 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %35, <16 x i8> splat (i8 2))
+  %37 = tail call <16 x i8> @llvm.umin.v16i8(<16 x i8> %35, <16 x i8> splat (i8 67))
   store <16 x i8> %36, ptr %4, align 16
   store <16 x i8> %37, ptr %3, align 16
   store <8 x i16> %33, ptr %5, align 16

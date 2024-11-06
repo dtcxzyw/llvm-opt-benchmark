@@ -28790,7 +28790,7 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %entry
-  %4 = phi <2 x i64> [ %3, %if.else ], [ <i64 -1, i64 -1>, %entry ]
+  %4 = phi <2 x i64> [ %3, %if.else ], [ splat (i64 -1), %entry ]
   %transaction = getelementptr inbounds i8, ptr %this, i64 16
   %context2 = getelementptr inbounds i8, ptr %this, i64 8
   %5 = getelementptr inbounds i8, ptr %this, i64 24

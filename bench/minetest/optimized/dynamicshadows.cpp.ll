@@ -374,10 +374,10 @@ if.end23:                                         ; preds = %if.else21, %if.then
   %mul3.i = fmul nsz float %look.sroa.19.0, %19
   %30 = insertelement <2 x i32> poison, i32 %sext, i64 0
   %31 = insertelement <2 x i32> %30, i32 %ref.tmp24.sroa.0.0.extract.trunc, i64 1
-  %32 = ashr <2 x i32> %31, <i32 16, i32 16>
+  %32 = ashr <2 x i32> %31, splat (i32 16)
   %33 = sitofp <2 x i32> %32 to <2 x float>
   %34 = fneg nsz <2 x float> %33
-  %35 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %34, <2 x float> <float 1.000000e+01, float 1.000000e+01>, <2 x float> %28)
+  %35 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %34, <2 x float> splat (float 1.000000e+01), <2 x float> %28)
   %36 = insertelement <2 x float> poison, float %19, i64 0
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> zeroinitializer
   %38 = fmul nsz <2 x float> %look.sroa.0.0, %37
@@ -386,7 +386,7 @@ if.end23:                                         ; preds = %if.else21, %if.then
   %mul3.i196 = fmul nsz float %look.sroa.19.0, 0x3FD6666660000000
   %sub = fsub nsz float %conv14, %19
   %mul3.i205 = fmul nsz float %mul3.i196, %sub
-  %40 = fmul nsz <2 x float> %look.sroa.0.0, <float 0x3FD6666660000000, float 0x3FD6666660000000>
+  %40 = fmul nsz <2 x float> %look.sroa.0.0, splat (float 0x3FD6666660000000)
   %41 = insertelement <2 x float> poison, float %sub, i64 0
   %42 = shufflevector <2 x float> %41, <2 x float> poison, <2 x i32> zeroinitializer
   %43 = fmul nsz <2 x float> %40, %42
@@ -488,9 +488,9 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit313:     ; preds = %if.end.i301, %if.en
   %call.i21.i = tail call nsz noundef float @asinf(float noundef %direction.sroa.0.4.vec.extract.i) #23
   %90 = insertelement <2 x float> poison, float %call.i.i, i64 0
   %91 = insertelement <2 x float> %90, float %call.i21.i, i64 1
-  %92 = fdiv nsz <2 x float> %91, <float 0x3F51DF46A0000000, float 0x3F51DF46A0000000>
+  %92 = fdiv nsz <2 x float> %91, splat (float 0x3F51DF46A0000000)
   %93 = tail call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %92)
-  %94 = fmul nsz <2 x float> %93, <float 0x3F51DF46A0000000, float 0x3F51DF46A0000000>
+  %94 = fmul nsz <2 x float> %93, splat (float 0x3F51DF46A0000000)
   %95 = tail call nsz <2 x float> @llvm.cos.v2f32(<2 x float> %94)
   %96 = extractelement <2 x float> %95, i64 0
   %97 = extractelement <2 x float> %95, i64 1
@@ -732,7 +732,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i3.i, align 4, !tbaa !13
   %arrayidx6.i.i4.i = getelementptr inbounds i8, ptr %this, i64 176
   store float 1.000000e+00, ptr %arrayidx6.i.i4.i, align 4, !tbaa !13
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.i, align 4, !tbaa !13
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i, align 4, !tbaa !13
   %position.i = getelementptr inbounds i8, ptr %this, i64 220
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %position.i, i8 0, i64 30, i1 false)
   %future_frustum = getelementptr inbounds i8, ptr %this, i64 252
@@ -754,7 +754,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i3.i12, align 4, !tbaa !13
   %arrayidx6.i.i4.i13 = getelementptr inbounds i8, ptr %this, i64 352
   store float 1.000000e+00, ptr %arrayidx6.i.i4.i13, align 4, !tbaa !13
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.i7, align 4, !tbaa !13
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i7, align 4, !tbaa !13
   %position.i14 = getelementptr inbounds i8, ptr %this, i64 396
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(30) %position.i14, i8 0, i64 30, i1 false)
   %dirty = getelementptr inbounds i8, ptr %this, i64 428
@@ -907,7 +907,7 @@ if.then34:                                        ; preds = %if.end18
   %39 = trunc <2 x i48> %38 to <2 x i16>
   %40 = sub <2 x i16> %12, %39
   %41 = sitofp <2 x i16> %40 to <2 x float>
-  %42 = fmul nsz <2 x float> %41, <float 1.000000e+01, float 1.000000e+01>
+  %42 = fmul nsz <2 x float> %41, splat (float 1.000000e+01)
   %43 = load <2 x float>, ptr %player, align 4, !tbaa !13
   %44 = fadd nsz <2 x float> %43, %42
   store <2 x float> %44, ptr %player, align 4, !tbaa !13

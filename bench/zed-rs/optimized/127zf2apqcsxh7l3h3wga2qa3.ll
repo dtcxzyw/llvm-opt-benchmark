@@ -9708,7 +9708,7 @@ define internal fastcc void @_ZN10handlebars8registry8Registry16render_to_output
   br i1 %86, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h73f5289b5eeb9c4cE.exit.i.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h0ab1e1072cf61b51E.exit.thread.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h0ab1e1072cf61b51E.exit.thread.i.i.i.i", %73
-  %87 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %87 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, splat (i8 -1)
   %88 = bitcast <16 x i1> %87 to i16
   %.not.i.i.i.i.i = icmp eq i16 %88, 0
   br i1 %.not.i.i.i.i.i, label %92, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h73f5289b5eeb9c4cE.exit.thread.i.i"
@@ -9841,7 +9841,7 @@ define internal fastcc void @_ZN10handlebars8registry8Registry16render_to_output
   br i1 %147, label %_ZN10handlebars8registry8Registry29get_or_load_template_optional17h463c2a21ea57507aE.exit.thread6.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he7bcf667b0174220E.exit.thread.i.i.i.i"
 
 ._crit_edge.i.i49.i.i:                            ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he7bcf667b0174220E.exit.thread.i.i.i.i", %134
-  %148 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i44.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %148 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i44.i.i, splat (i8 -1)
   %149 = bitcast <16 x i1> %148 to i16
   %.not.i.i.i50.i.i = icmp eq i16 %149, 0
   br i1 %.not.i.i.i50.i.i, label %153, label %_ZN10handlebars8registry8Registry29get_or_load_template_optional17h463c2a21ea57507aE.exit.thread.i
@@ -13258,7 +13258,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl3pop17h60f7f84de157a105E.exit.i.i: ; pr
   br i1 %289, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5650fb93df224d95E.exit.i.i", label %292
 
 ._crit_edge.i.i.i.i:                              ; preds = %292, %279
-  %290 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %290 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i, splat (i8 -1)
   %291 = bitcast <16 x i1> %290 to i16
   %.not.i.i.i.i.i = icmp eq i16 %291, 0
   br i1 %.not.i.i.i.i.i, label %296, label %select.unfold.i.i
@@ -13938,7 +13938,7 @@ define hidden void @"_ZN12multi_buffer11MultiBuffer18excerpt_containing28_$u7b$$
   br i1 %35, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5650fb93df224d95E.exit", label %38
 
 ._crit_edge.i.i:                                  ; preds = %38, %25
-  %36 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %36 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %.not.i.i.i = icmp eq i16 %37, 0
   br i1 %.not.i.i.i, label %42, label %select.unfold
@@ -14530,7 +14530,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h950969eeeca623d6E.exit125.i: ; preds =
   br i1 %227, label %248, label %230
 
 ._crit_edge.i.i.i:                                ; preds = %230, %218
-  %228 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %228 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, splat (i8 -1)
   %229 = bitcast <16 x i1> %228 to i16
   %.not.i.i.i.i = icmp eq i16 %229, 0
   br i1 %.not.i.i.i.i, label %234, label %237
@@ -17038,7 +17038,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h950969eeeca623d6E.exit128.i: ; preds =
   br i1 %234, label %255, label %237
 
 ._crit_edge.i.i.i:                                ; preds = %237, %225
-  %235 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %235 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, splat (i8 -1)
   %236 = bitcast <16 x i1> %235 to i16
   %.not.i.i.i.i = icmp eq i16 %236, 0
   br i1 %.not.i.i.i.i, label %241, label %244
@@ -20157,7 +20157,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h50a8ebdf94ab271dE(ptr 
   br i1 %439, label %795, label %442
 
 ._crit_edge.i.i:                                  ; preds = %442, %430
-  %440 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %440 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %441 = bitcast <16 x i1> %440 to i16
   %.not.i.i.i122 = icmp eq i16 %441, 0
   br i1 %.not.i.i.i122, label %446, label %449
@@ -20258,7 +20258,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h50a8ebdf94ab271dE(ptr 
   br i1 %485, label %502, label %488
 
 ._crit_edge.i.i133:                               ; preds = %488, %476
-  %486 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i130, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %486 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i130, splat (i8 -1)
   %487 = bitcast <16 x i1> %486 to i16
   %.not.i.i.i134 = icmp eq i16 %487, 0
   br i1 %.not.i.i.i134, label %492, label %495
@@ -20453,7 +20453,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h50a8ebdf94ab271dE(ptr 
   br i1 %572, label %589, label %575
 
 ._crit_edge.i.i160:                               ; preds = %575, %563
-  %573 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i157, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %573 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i157, splat (i8 -1)
   %574 = bitcast <16 x i1> %573 to i16
   %.not.i.i.i161 = icmp eq i16 %574, 0
   br i1 %.not.i.i.i161, label %579, label %582
@@ -20775,7 +20775,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h50a8ebdf94ab271dE(ptr 
   br i1 %708, label %725, label %711
 
 ._crit_edge.i.i213:                               ; preds = %711, %699
-  %709 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i210, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %709 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i210, splat (i8 -1)
   %710 = bitcast <16 x i1> %709 to i16
   %.not.i.i.i214 = icmp eq i16 %710, 0
   br i1 %.not.i.i.i214, label %715, label %718
@@ -22253,7 +22253,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hc0e86857cacd6eabE(ptr 
   br i1 %445, label %801, label %448
 
 ._crit_edge.i.i:                                  ; preds = %448, %436
-  %446 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %446 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %447 = bitcast <16 x i1> %446 to i16
   %.not.i.i.i123 = icmp eq i16 %447, 0
   br i1 %.not.i.i.i123, label %452, label %455
@@ -22354,7 +22354,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hc0e86857cacd6eabE(ptr 
   br i1 %491, label %508, label %494
 
 ._crit_edge.i.i134:                               ; preds = %494, %482
-  %492 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i131, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %492 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i131, splat (i8 -1)
   %493 = bitcast <16 x i1> %492 to i16
   %.not.i.i.i135 = icmp eq i16 %493, 0
   br i1 %.not.i.i.i135, label %498, label %501
@@ -22549,7 +22549,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hc0e86857cacd6eabE(ptr 
   br i1 %578, label %595, label %581
 
 ._crit_edge.i.i160:                               ; preds = %581, %569
-  %579 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i157, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %579 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i157, splat (i8 -1)
   %580 = bitcast <16 x i1> %579 to i16
   %.not.i.i.i161 = icmp eq i16 %580, 0
   br i1 %.not.i.i.i161, label %585, label %588
@@ -22871,7 +22871,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hc0e86857cacd6eabE(ptr 
   br i1 %714, label %731, label %717
 
 ._crit_edge.i.i213:                               ; preds = %717, %705
-  %715 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i210, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %715 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i210, splat (i8 -1)
   %716 = bitcast <16 x i1> %715 to i16
   %.not.i.i.i214 = icmp eq i16 %716, 0
   br i1 %.not.i.i.i214, label %721, label %724
@@ -24339,7 +24339,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcd7739915291b2c1E(ptr 
   br i1 %436, label %792, label %439
 
 ._crit_edge.i.i:                                  ; preds = %439, %427
-  %437 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %437 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %438 = bitcast <16 x i1> %437 to i16
   %.not.i.i.i115 = icmp eq i16 %438, 0
   br i1 %.not.i.i.i115, label %443, label %446
@@ -24440,7 +24440,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcd7739915291b2c1E(ptr 
   br i1 %482, label %499, label %485
 
 ._crit_edge.i.i126:                               ; preds = %485, %473
-  %483 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i123, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %483 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i123, splat (i8 -1)
   %484 = bitcast <16 x i1> %483 to i16
   %.not.i.i.i127 = icmp eq i16 %484, 0
   br i1 %.not.i.i.i127, label %489, label %492
@@ -24635,7 +24635,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcd7739915291b2c1E(ptr 
   br i1 %569, label %586, label %572
 
 ._crit_edge.i.i152:                               ; preds = %572, %560
-  %570 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i149, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %570 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i149, splat (i8 -1)
   %571 = bitcast <16 x i1> %570 to i16
   %.not.i.i.i153 = icmp eq i16 %571, 0
   br i1 %.not.i.i.i153, label %576, label %579
@@ -24957,7 +24957,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17hcd7739915291b2c1E(ptr 
   br i1 %705, label %722, label %708
 
 ._crit_edge.i.i205:                               ; preds = %708, %696
-  %706 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i202, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %706 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i202, splat (i8 -1)
   %707 = bitcast <16 x i1> %706 to i16
   %.not.i.i.i206 = icmp eq i16 %707, 0
   br i1 %.not.i.i.i206, label %712, label %715
@@ -93436,7 +93436,7 @@ define hidden noundef align 8 dereferenceable_or_null(184) ptr @"_ZN9hashbrown3m
   br i1 %89, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h23d41a028c443319E.llvm.13532673337308757346.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h12bfe740436eb833E.exit.thread.i"
 
 ._crit_edge.i:                                    ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h12bfe740436eb833E.exit.thread.i", %75
-  %90 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %90 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i, splat (i8 -1)
   %91 = bitcast <16 x i1> %90 to i16
   %.not.i.i = icmp eq i16 %91, 0
   br i1 %.not.i.i, label %95, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h23d41a028c443319E.llvm.13532673337308757346.exit"
@@ -93515,7 +93515,7 @@ define hidden noundef align 8 dereferenceable_or_null(128) ptr @"_ZN9hashbrown3m
   br i1 %30, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i, label %33
 
 ._crit_edge.i:                                    ; preds = %33, %20
-  %31 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %31 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, splat (i8 -1)
   %32 = bitcast <16 x i1> %31 to i16
   %.not.i.i = icmp eq i16 %32, 0
   br i1 %.not.i.i, label %37, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h880c69b447e0cd35E.llvm.13532673337308757346.exit"
@@ -93593,7 +93593,7 @@ define hidden noundef align 8 dereferenceable_or_null(320) ptr @"_ZN9hashbrown3m
   br i1 %24, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i, label %27
 
 ._crit_edge.i:                                    ; preds = %27, %14
-  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, splat (i8 -1)
   %26 = bitcast <16 x i1> %25 to i16
   %.not.i.i = icmp eq i16 %26, 0
   br i1 %.not.i.i, label %31, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h036daa95865a862bE.llvm.13532673337308757346.exit"
@@ -93671,7 +93671,7 @@ define hidden noundef align 8 dereferenceable_or_null(320) ptr @"_ZN9hashbrown3m
   br i1 %24, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i, label %27
 
 ._crit_edge.i:                                    ; preds = %27, %14
-  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, splat (i8 -1)
   %26 = bitcast <16 x i1> %25 to i16
   %.not.i.i = icmp eq i16 %26, 0
   br i1 %.not.i.i, label %31, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h036daa95865a862bE.llvm.13532673337308757346.exit"
@@ -93816,7 +93816,7 @@ define hidden noundef align 8 dereferenceable_or_null(184) ptr @"_ZN9hashbrown3m
   br i1 %89, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h23d41a028c443319E.llvm.13532673337308757346.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h12bfe740436eb833E.exit.thread.i"
 
 ._crit_edge.i:                                    ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h12bfe740436eb833E.exit.thread.i", %75
-  %90 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %90 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i, splat (i8 -1)
   %91 = bitcast <16 x i1> %90 to i16
   %.not.i.i = icmp eq i16 %91, 0
   br i1 %.not.i.i, label %95, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h23d41a028c443319E.llvm.13532673337308757346.exit"
@@ -93890,7 +93890,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3ma
   br i1 %24, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i, label %27
 
 ._crit_edge.i:                                    ; preds = %27, %14
-  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i, splat (i8 -1)
   %26 = bitcast <16 x i1> %25 to i16
   %.not.i.i = icmp eq i16 %26, 0
   br i1 %.not.i.i, label %31, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h02429c629fc6920aE.llvm.13532673337308757346.exit"
@@ -93960,7 +93960,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h0242
   br i1 %20, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit, label %23
 
 ._crit_edge:                                      ; preds = %23, %10
-  %21 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %21 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, splat (i8 -1)
   %22 = bitcast <16 x i1> %21 to i16
   %.not.i = icmp eq i16 %22, 0
   br i1 %.not.i, label %27, label %.loopexit
@@ -94023,7 +94023,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h036d
   br i1 %20, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit, label %23
 
 ._crit_edge:                                      ; preds = %23, %10
-  %21 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %21 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, splat (i8 -1)
   %22 = bitcast <16 x i1> %21 to i16
   %.not.i = icmp eq i16 %22, 0
   br i1 %.not.i, label %27, label %.loopexit
@@ -94090,7 +94090,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h23d4
   br i1 %24, label %.loopexit, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h12bfe740436eb833E.exit.thread"
 
 ._crit_edge:                                      ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h12bfe740436eb833E.exit.thread", %10
-  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %25 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24, splat (i8 -1)
   %26 = bitcast <16 x i1> %25 to i16
   %.not.i = icmp eq i16 %26, 0
   br i1 %.not.i, label %30, label %.loopexit
@@ -94147,7 +94147,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h880c
   br i1 %19, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit, label %22
 
 ._crit_edge:                                      ; preds = %22, %9
-  %20 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %20 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i = icmp eq i16 %21, 0
   br i1 %.not.i, label %26, label %.loopexit
@@ -117917,7 +117917,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1b84ab12ab1b5f34E.exit: ; preds = %.no
   br i1 %.sroa.0.0.i.i.i.i.i.i.i.i, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hda2cc5ddf190a668E.exit.i", label %119
 
 ._crit_edge.i.i.i:                                ; preds = %119, %102
-  %117 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %117 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %118 = bitcast <16 x i1> %117 to i16
   %.not.i.i.i.i = icmp eq i16 %118, 0
   br i1 %.not.i.i.i.i, label %123, label %"_ZN9assistant7context7Context19messages_from_iters28_$u7b$$u7b$closure$u7d$$u7d$17h72871e1e675f689bE.exit.thread"
@@ -134760,7 +134760,7 @@ define hidden void @_ZN9assistant15assistant_panel17ConfigurationView20render_pr
   br i1 %175, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf59a9a94d8a6716dE.exit", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha9d10c5bedeb4cceE.exit.thread.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17ha9d10c5bedeb4cceE.exit.thread.i.i", %160
-  %176 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %176 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i, splat (i8 -1)
   %177 = bitcast <16 x i1> %176 to i16
   %.not.i.i.i = icmp eq i16 %177, 0
   br i1 %.not.i.i.i, label %181, label %select.unfold
@@ -139779,7 +139779,7 @@ _ZN4gpui4view7AnyView8downcast17h02af56eedd1c61f0E.exit.i.i27: ; preds = %110
   br i1 %177, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h16fa05f68635473bE.exit", label %180
 
 ._crit_edge.i.i:                                  ; preds = %180, %167
-  %178 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %178 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %179 = bitcast <16 x i1> %178 to i16
   %.not.i.i.i = icmp eq i16 %179, 0
   br i1 %.not.i.i.i, label %184, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h16fa05f68635473bE.exit.thread"
@@ -139969,7 +139969,7 @@ _ZN4gpui4view7AnyView8downcast17h02af56eedd1c61f0E.exit.i.i27: ; preds = %110
   br i1 %247, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %250
 
 ._crit_edge.i.i56:                                ; preds = %250, %237
-  %248 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i52, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %248 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i52, splat (i8 -1)
   %249 = bitcast <16 x i1> %248 to i16
   %.not.i.i.i57 = icmp eq i16 %249, 0
   br i1 %.not.i.i.i57, label %254, label %select.unfold82
@@ -141449,7 +141449,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h270200fa7f891848E.exit123: ; preds = %
   br i1 %485, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.i", label %488
 
 ._crit_edge.i.i.i:                                ; preds = %488, %475
-  %486 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %486 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %487 = bitcast <16 x i1> %486 to i16
   %.not.i.i.i.i = icmp eq i16 %487, 0
   br i1 %.not.i.i.i.i, label %492, label %_ZN9assistant16inline_assistant15InlineAssistant12focus_assist17h3ee35ba49aec053bE.exit
@@ -143188,7 +143188,7 @@ _ZN9assistant16inline_assistant15InlineAssistant12focus_assist17h3ee35ba49aec053
   br i1 %340, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.i", label %343
 
 ._crit_edge.i.i.i:                                ; preds = %343, %330
-  %341 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %341 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %342 = bitcast <16 x i1> %341 to i16
   %.not.i.i.i.i = icmp eq i16 %342, 0
   br i1 %.not.i.i.i.i, label %347, label %_ZN9assistant16inline_assistant15InlineAssistant12focus_assist17h3ee35ba49aec053bE.exit
@@ -143601,7 +143601,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant29handle_pro
   br i1 %28, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %31
 
 ._crit_edge.i.i:                                  ; preds = %31, %18
-  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %30 = bitcast <16 x i1> %29 to i16
   %.not.i.i.i = icmp eq i16 %30, 0
   br i1 %.not.i.i.i, label %35, label %select.unfold
@@ -143676,7 +143676,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   br i1 %65, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h20b9392919fbbc23E.exit", label %68
 
 ._crit_edge.i.i26:                                ; preds = %68, %55
-  %66 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i21, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %66 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i21, splat (i8 -1)
   %67 = bitcast <16 x i1> %66 to i16
   %.not.i.i.i27 = icmp eq i16 %67, 0
   br i1 %.not.i.i.i27, label %72, label %select.unfold66
@@ -143754,7 +143754,7 @@ select.unfold66:                                  ; preds = %._crit_edge.i.i26, 
   br i1 %106, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h17120a05bf705567E.llvm.13532673337308757346.exit", label %109
 
 ._crit_edge.i.i41:                                ; preds = %109, %96
-  %107 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i37, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %107 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i37, splat (i8 -1)
   %108 = bitcast <16 x i1> %107 to i16
   %.not.i.i.i42 = icmp eq i16 %108, 0
   br i1 %.not.i.i.i42, label %113, label %select.unfold68
@@ -143849,7 +143849,7 @@ select.unfold68:                                  ; preds = %._crit_edge.i.i41, 
   br i1 %150, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit64", label %153
 
 ._crit_edge.i.i58:                                ; preds = %153, %140
-  %151 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i53, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %151 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i53, splat (i8 -1)
   %152 = bitcast <16 x i1> %151 to i16
   %.not.i.i.i59 = icmp eq i16 %152, 0
   br i1 %.not.i.i.i59, label %157, label %select.unfold72
@@ -143936,7 +143936,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant30handle_pro
   br i1 %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %28
 
 ._crit_edge.i.i:                                  ; preds = %28, %15
-  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %27 = bitcast <16 x i1> %26 to i16
   %.not.i.i.i = icmp eq i16 %27, 0
   br i1 %.not.i.i.i, label %32, label %select.unfold
@@ -144005,7 +144005,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   br i1 %58, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h20b9392919fbbc23E.exit", label %61
 
 ._crit_edge.i.i21:                                ; preds = %61, %48
-  %59 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i16, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %59 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i16, splat (i8 -1)
   %60 = bitcast <16 x i1> %59 to i16
   %.not.i.i.i22 = icmp eq i16 %60, 0
   br i1 %.not.i.i.i22, label %65, label %select.unfold48
@@ -144097,7 +144097,7 @@ select.unfold48:                                  ; preds = %._crit_edge.i.i21, 
   br i1 %102, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit44", label %105
 
 ._crit_edge.i.i38:                                ; preds = %105, %92
-  %103 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i33, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %103 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i33, splat (i8 -1)
   %104 = bitcast <16 x i1> %103 to i16
   %.not.i.i.i39 = icmp eq i16 %104, 0
   br i1 %.not.i.i.i39, label %109, label %select.unfold52
@@ -144356,7 +144356,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant21handle_edi
   br i1 %40, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h16fa05f68635473bE.exit", label %43
 
 ._crit_edge.i.i:                                  ; preds = %43, %30
-  %41 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %41 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %42 = bitcast <16 x i1> %41 to i16
   %.not.i.i.i = icmp eq i16 %42, 0
   br i1 %.not.i.i.i, label %47, label %select.unfold
@@ -144776,7 +144776,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc1cd65369b923683E.exit: ; preds = %.no
   br i1 %209, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %212
 
 ._crit_edge.i.i40:                                ; preds = %212, %199
-  %210 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i36, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %210 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i36, splat (i8 -1)
   %211 = bitcast <16 x i1> %210 to i16
   %.not.i.i.i41 = icmp eq i16 %211, 0
   br i1 %.not.i.i.i41, label %216, label %select.unfold70
@@ -145095,7 +145095,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant20handle_edi
   br i1 %40, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h16fa05f68635473bE.exit", label %43
 
 ._crit_edge.i.i:                                  ; preds = %43, %30
-  %41 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %41 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %42 = bitcast <16 x i1> %41 to i16
   %.not.i.i.i = icmp eq i16 %42, 0
   br i1 %.not.i.i.i, label %47, label %select.unfold
@@ -145465,7 +145465,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc1cd65369b923683E.exit: ; preds = %.no
   br i1 %190, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %193
 
 ._crit_edge.i.i58:                                ; preds = %193, %180
-  %191 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i54, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %191 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i54, splat (i8 -1)
   %192 = bitcast <16 x i1> %191 to i16
   %.not.i.i.i59 = icmp eq i16 %192, 0
   br i1 %.not.i.i.i59, label %197, label %select.unfold107
@@ -145529,7 +145529,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc1cd65369b923683E.exit: ; preds = %.no
   br i1 %223, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.i", label %226
 
 ._crit_edge.i.i.i:                                ; preds = %226, %213
-  %224 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %224 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %225 = bitcast <16 x i1> %224 to i16
   %.not.i.i.i.i = icmp eq i16 %225, 0
   br i1 %.not.i.i.i.i, label %230, label %_ZN9assistant16inline_assistant15InlineAssistant12focus_assist17h3ee35ba49aec053bE.exit
@@ -145688,7 +145688,7 @@ select.unfold107:                                 ; preds = %._crit_edge.i.i58, 
   br i1 %288, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.i83", label %291
 
 ._crit_edge.i.i.i81:                              ; preds = %291, %278
-  %289 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i76, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %289 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i76, splat (i8 -1)
   %290 = bitcast <16 x i1> %289 to i16
   %.not.i.i.i.i82 = icmp eq i16 %290, 0
   br i1 %.not.i.i.i.i82, label %295, label %_ZN9assistant16inline_assistant15InlineAssistant12focus_assist17h3ee35ba49aec053bE.exit86
@@ -145923,7 +145923,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant21handle_edi
   br i1 %34, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h17120a05bf705567E.llvm.13532673337308757346.exit", label %37
 
 ._crit_edge.i.i:                                  ; preds = %37, %24
-  %35 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %35 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %36 = bitcast <16 x i1> %35 to i16
   %.not.i.i.i = icmp eq i16 %36, 0
   br i1 %.not.i.i.i, label %41, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h17120a05bf705567E.llvm.13532673337308757346.exit.thread"
@@ -146138,7 +146138,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant20handle_edi
   br i1 %37, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h16fa05f68635473bE.exit", label %40
 
 ._crit_edge.i.i:                                  ; preds = %40, %27
-  %38 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %38 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
   %.not.i.i.i = icmp eq i16 %39, 0
   br i1 %.not.i.i.i, label %44, label %select.unfold
@@ -146321,7 +146321,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr63drop
   br i1 %117, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %120
 
 ._crit_edge.i.i21:                                ; preds = %120, %107
-  %118 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i17, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %118 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i17, splat (i8 -1)
   %119 = bitcast <16 x i1> %118 to i16
   %.not.i.i.i22 = icmp eq i16 %119, 0
   br i1 %.not.i.i.i22, label %124, label %select.unfold28
@@ -146521,7 +146521,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant19handle_edi
   br i1 %79, label %100, label %82
 
 ._crit_edge.i.i:                                  ; preds = %82, %69
-  %80 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %80 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %81 = bitcast <16 x i1> %80 to i16
   %.not.i.i.i = icmp eq i16 %81, 0
   br i1 %.not.i.i.i, label %86, label %select.unfold
@@ -147236,7 +147236,7 @@ thread-pre-split.i:                               ; preds = %._crit_edge.i.i.i, 
   br i1 %377, label %393, label %380
 
 ._crit_edge.i.i.i:                                ; preds = %380, %367
-  %378 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %378 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %379 = bitcast <16 x i1> %378 to i16
   %.not.i.i.i63.i = icmp eq i16 %379, 0
   br i1 %.not.i.i.i63.i, label %384, label %thread-pre-split.i
@@ -148368,7 +148368,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17ha3d52196908bea79E.exit.i.i.
   br i1 %771, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %774
 
 ._crit_edge.i.i76:                                ; preds = %774, %761
-  %772 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i72, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %772 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i72, splat (i8 -1)
   %773 = bitcast <16 x i1> %772 to i16
   %.not.i.i.i77 = icmp eq i16 %773, 0
   br i1 %.not.i.i.i77, label %778, label %select.unfold188
@@ -148665,7 +148665,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hb5a1ffacf7a07cabE.exit: ; preds = %.no
   br i1 %884, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit121", label %887
 
 ._crit_edge.i.i115:                               ; preds = %887, %874
-  %885 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i110, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %885 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i110, splat (i8 -1)
   %886 = bitcast <16 x i1> %885 to i16
   %.not.i.i.i116 = icmp eq i16 %886, 0
   br i1 %.not.i.i.i116, label %891, label %select.unfold194
@@ -148982,7 +148982,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h270200fa7f891848E.exit.i: ; preds = %.
   br i1 %1008, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit165", label %1011
 
 ._crit_edge.i.i159:                               ; preds = %1011, %998
-  %1009 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i154, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1009 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i154, splat (i8 -1)
   %1010 = bitcast <16 x i1> %1009 to i16
   %.not.i.i.i160 = icmp eq i16 %1010, 0
   br i1 %.not.i.i.i160, label %1015, label %select.unfold196
@@ -149131,7 +149131,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant13finish_ass
   br i1 %62, label %101, label %65
 
 ._crit_edge.i.i:                                  ; preds = %65, %52
-  %63 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %63 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %64 = bitcast <16 x i1> %63 to i16
   %.not.i.i.i = icmp eq i16 %64, 0
   br i1 %.not.i.i.i, label %69, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.thread"
@@ -149279,7 +149279,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant13finish_ass
   br i1 %126, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdeb953e452d47931E.exit", label %129
 
 ._crit_edge.i.i81:                                ; preds = %129, %116
-  %127 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i76, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %127 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i76, splat (i8 -1)
   %128 = bitcast <16 x i1> %127 to i16
   %.not.i.i.i82 = icmp eq i16 %128, 0
   br i1 %.not.i.i.i82, label %133, label %select.unfold178
@@ -149431,7 +149431,7 @@ select.unfold178:                                 ; preds = %._crit_edge.i.i81, 
   br i1 %180, label %199, label %183
 
 ._crit_edge.i.i94:                                ; preds = %183, %171
-  %181 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %181 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %182 = bitcast <16 x i1> %181 to i16
   %.not.i.i.i95 = icmp eq i16 %182, 0
   br i1 %.not.i.i.i95, label %187, label %190
@@ -150373,7 +150373,7 @@ define hidden noundef zeroext i1 @_ZN9assistant16inline_assistant15InlineAssista
   br i1 %33, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit", label %36
 
 ._crit_edge.i.i:                                  ; preds = %36, %23
-  %34 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %34 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %35 = bitcast <16 x i1> %34 to i16
   %.not.i.i.i = icmp eq i16 %35, 0
   br i1 %.not.i.i.i, label %40, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit.thread"
@@ -150691,7 +150691,7 @@ _ZN9assistant16inline_assistant15InlineAssistant17focus_next_assist17h7338405998
   br i1 %145, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.i", label %148
 
 ._crit_edge.i.i.i:                                ; preds = %148, %135
-  %146 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %146 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %147 = bitcast <16 x i1> %146 to i16
   %.not.i.i.i.i = icmp eq i16 %147, 0
   br i1 %.not.i.i.i.i, label %152, label %_ZN9assistant16inline_assistant15InlineAssistant17focus_next_assist17h7338405998bd8ee8E.exit
@@ -150756,7 +150756,7 @@ _ZN9assistant16inline_assistant15InlineAssistant17focus_next_assist17h7338405998
   br i1 %178, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdeb953e452d47931E.exit.i", label %181
 
 ._crit_edge.i.i21.i:                              ; preds = %181, %168
-  %179 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i16.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %179 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i16.i, splat (i8 -1)
   %180 = bitcast <16 x i1> %179 to i16
   %.not.i.i.i22.i = icmp eq i16 %180, 0
   br i1 %.not.i.i.i22.i, label %185, label %select.unfold80.i.invoke
@@ -150903,7 +150903,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h2ad34c387affbb75E.exit.thread.
   br i1 %240, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit46.i", label %243
 
 ._crit_edge.i.i40.i:                              ; preds = %243, %230
-  %241 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i35.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %241 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i35.i, splat (i8 -1)
   %242 = bitcast <16 x i1> %241 to i16
   %.not.i.i.i41.i = icmp eq i16 %242, 0
   br i1 %.not.i.i.i41.i, label %247, label %select.unfold80.i.invoke
@@ -150965,7 +150965,7 @@ select.unfold80.i.cont:                           ; preds = %select.unfold80.i.i
   br i1 %262, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.i.i", label %265
 
 ._crit_edge.i.i.i.i:                              ; preds = %265, %.preheader
-  %263 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %263 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i, splat (i8 -1)
   %264 = bitcast <16 x i1> %263 to i16
   %.not.i.i.i.i47.i = icmp eq i16 %264, 0
   br i1 %.not.i.i.i.i47.i, label %269, label %_ZN9assistant16inline_assistant15InlineAssistant17focus_next_assist17h7338405998bd8ee8E.exit
@@ -151054,7 +151054,7 @@ select.unfold80.i.cont:                           ; preds = %select.unfold80.i.i
   br i1 %306, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h17120a05bf705567E.llvm.13532673337308757346.exit", label %309
 
 ._crit_edge.i.i50:                                ; preds = %309, %296
-  %307 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i46, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %307 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i46, splat (i8 -1)
   %308 = bitcast <16 x i1> %307 to i16
   %.not.i.i.i51 = icmp eq i16 %308, 0
   br i1 %.not.i.i.i51, label %313, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h17120a05bf705567E.llvm.13532673337308757346.exit.thread"
@@ -151361,7 +151361,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant16scroll_to_
   br i1 %28, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %31
 
 ._crit_edge.i.i:                                  ; preds = %31, %18
-  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %30 = bitcast <16 x i1> %29 to i16
   %.not.i.i.i = icmp eq i16 %30, 0
   br i1 %.not.i.i.i, label %35, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.thread"
@@ -151523,7 +151523,7 @@ define internal fastcc void @_ZN9assistant16inline_assistant15InlineAssistant19u
   br i1 %27, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h20b9392919fbbc23E.exit", label %30
 
 ._crit_edge.i.i:                                  ; preds = %30, %17
-  %28 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %28 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %29 = bitcast <16 x i1> %28 to i16
   %.not.i.i.i = icmp eq i16 %29, 0
   br i1 %.not.i.i.i, label %34, label %select.unfold
@@ -151646,7 +151646,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %4
   br i1 %77, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit", label %80
 
 ._crit_edge.i.i21:                                ; preds = %80, %67
-  %78 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i16, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %78 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i16, splat (i8 -1)
   %79 = bitcast <16 x i1> %78 to i16
   %.not.i.i.i22 = icmp eq i16 %79, 0
   br i1 %.not.i.i.i22, label %84, label %select.unfold30
@@ -151739,7 +151739,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant12start_assi
   br i1 %36, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit", label %39
 
 ._crit_edge.i.i:                                  ; preds = %39, %26
-  %37 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %37 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %38 = bitcast <16 x i1> %37 to i16
   %.not.i.i.i = icmp eq i16 %38, 0
   br i1 %.not.i.i.i, label %43, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit.thread"
@@ -151805,7 +151805,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant12start_assi
   br i1 %71, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdeb953e452d47931E.exit", label %74
 
 ._crit_edge.i.i24:                                ; preds = %74, %61
-  %72 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i19, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %72 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i19, splat (i8 -1)
   %73 = bitcast <16 x i1> %72 to i16
   %.not.i.i.i25 = icmp eq i16 %73, 0
   br i1 %.not.i.i.i25, label %78, label %select.unfold58
@@ -152051,7 +152051,7 @@ select.unfold58:                                  ; preds = %._crit_edge.i.i24, 
   br i1 %160, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5512d3e04295610bE.llvm.13532673337308757346.exit", label %163
 
 ._crit_edge.i.i46:                                ; preds = %163, %150
-  %161 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i41, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %161 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i41, splat (i8 -1)
   %162 = bitcast <16 x i1> %161 to i16
   %.not.i.i.i47 = icmp eq i16 %162, 0
   br i1 %.not.i.i.i47, label %167, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5512d3e04295610bE.llvm.13532673337308757346.exit.thread"
@@ -152166,7 +152166,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant11stop_assis
   br i1 %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit", label %28
 
 ._crit_edge.i.i:                                  ; preds = %28, %15
-  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %27 = bitcast <16 x i1> %26 to i16
   %.not.i.i.i = icmp eq i16 %27, 0
   br i1 %.not.i.i.i, label %32, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit.thread"
@@ -152226,7 +152226,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant11stop_assis
   br i1 %55, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5512d3e04295610bE.llvm.13532673337308757346.exit", label %58
 
 ._crit_edge.i.i18:                                ; preds = %58, %45
-  %56 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i13, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %56 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i13, splat (i8 -1)
   %57 = bitcast <16 x i1> %56 to i16
   %.not.i.i.i19 = icmp eq i16 %57, 0
   br i1 %.not.i.i.i19, label %62, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit.thread"
@@ -152299,7 +152299,7 @@ define internal fastcc noundef range(i8 0, 6) i8 @_ZN9assistant16inline_assistan
   br i1 %25, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit", label %28
 
 ._crit_edge.i.i:                                  ; preds = %28, %15
-  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %26 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %27 = bitcast <16 x i1> %26 to i16
   %.not.i.i.i = icmp eq i16 %27, 0
   br i1 %.not.i.i.i, label %32, label %select.unfold
@@ -152361,7 +152361,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   br i1 %56, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdf3942f5558a4727E.exit", label %59
 
 ._crit_edge.i.i16:                                ; preds = %59, %46
-  %57 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i11, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %57 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i11, splat (i8 -1)
   %58 = bitcast <16 x i1> %57 to i16
   %.not.i.i.i17 = icmp eq i16 %58, 0
   br i1 %.not.i.i.i17, label %63, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdf3942f5558a4727E.exit"
@@ -152545,7 +152545,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant24update_edi
   br i1 %59, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i.i, label %62
 
 ._crit_edge.i.i:                                  ; preds = %62, %49
-  %60 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %60 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %61 = bitcast <16 x i1> %60 to i16
   %.not.i.i.i = icmp eq i16 %61, 0
   br i1 %.not.i.i.i, label %66, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h880c69b447e0cd35E.llvm.13532673337308757346.exit.i"
@@ -152694,7 +152694,7 @@ _ZN9hashbrown3raw13RawTableInner10find_inner17h1d7ee280cc3bcfc4E.exit.i.i: ; pre
   br i1 %126, label %225, label %129
 
 ._crit_edge.i.i29:                                ; preds = %129, %116
-  %127 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i25, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %127 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i25, splat (i8 -1)
   %128 = bitcast <16 x i1> %127 to i16
   %.not.i.i.i30 = icmp eq i16 %128, 0
   br i1 %.not.i.i.i30, label %133, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h083e8e51d7cd0794E.llvm.13532673337308757346.exit.thread"
@@ -153529,7 +153529,7 @@ define hidden void @_ZN9assistant16inline_assistant15InlineAssistant20update_edi
   br i1 %30, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit", label %33
 
 ._crit_edge.i.i:                                  ; preds = %33, %20
-  %31 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %31 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %32 = bitcast <16 x i1> %31 to i16
   %.not.i.i.i = icmp eq i16 %32, 0
   br i1 %.not.i.i.i, label %37, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7723aa92ec467d81E.llvm.13532673337308757346.exit.thread"
@@ -153983,7 +153983,7 @@ define hidden { ptr, i64 } @_ZN9assistant16inline_assistant15InlineAssistant14ob
   br i1 %28, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5512d3e04295610bE.llvm.13532673337308757346.exit", label %31
 
 ._crit_edge.i.i:                                  ; preds = %31, %18
-  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %29 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %30 = bitcast <16 x i1> %29 to i16
   %.not.i.i.i = icmp eq i16 %30, 0
   br i1 %.not.i.i.i, label %35, label %select.unfold
@@ -166549,7 +166549,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17hc1cd65369b923683E.exit: ; preds = %.no
   br i1 %225, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5650fb93df224d95E.exit.i", label %228
 
 ._crit_edge.i.i.i:                                ; preds = %228, %215
-  %226 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %226 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %227 = bitcast <16 x i1> %226 to i16
   %.not.i.i.i36.i = icmp eq i16 %227, 0
   br i1 %.not.i.i.i36.i, label %232, label %select.unfold.i

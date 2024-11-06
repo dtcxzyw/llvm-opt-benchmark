@@ -461,7 +461,7 @@ if.end:                                           ; preds = %if.then, %cleanup.d
   %DimAliasedLine = getelementptr inbounds i8, ptr %this, i64 1216
   call void %21(i32 noundef 33902, ptr noundef nonnull %DimAliasedLine) #13
   %DimAliasedPoint = getelementptr inbounds i8, ptr %this, i64 1224
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %DimAliasedPoint, align 8, !tbaa !41
+  store <2 x float> splat (float 1.000000e+00), ptr %DimAliasedPoint, align 8, !tbaa !41
   ret void
 }
 

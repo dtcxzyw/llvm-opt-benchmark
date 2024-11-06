@@ -1930,7 +1930,7 @@ entry:
   %color = getelementptr inbounds i8, ptr %this, i64 264
   store i32 -1, ptr %color, align 8, !tbaa !105
   %wield_scale = getelementptr inbounds i8, ptr %this, i64 268
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %wield_scale, align 4, !tbaa !38
+  store <2 x float> splat (float 1.000000e+00), ptr %wield_scale, align 4, !tbaa !38
   %ref.tmp2.sroa.5.0.wield_scale.sroa_idx = getelementptr inbounds i8, ptr %this, i64 276
   store float 1.000000e+00, ptr %ref.tmp2.sroa.5.0.wield_scale.sroa_idx, align 4, !tbaa !38
   %stack_max = getelementptr inbounds i8, ptr %this, i64 280

@@ -871,7 +871,7 @@ define hidden void @"_ZN11arrow_array7builder32generic_bytes_dictionary_builder4
   br i1 %.not.not.i66.i.i, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h35efa11fb30266e7E.exit._crit_edge.i.i", label %.lr.ph.i.i
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h35efa11fb30266e7E.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h35efa11fb30266e7E.exit.backedge.i.i", %26
-  %30 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %30 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %62, label %65
@@ -13065,9 +13065,9 @@ common.resume:                                    ; preds = %171, %47
   %154 = add i64 %.sroa.01.06.i, 16
   %155 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %156 = load <16 x i8>, ptr %155, align 16, !noalias !2209
-  %.lobit.i.i = ashr <16 x i8> %156, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %156, splat (i8 7)
   %157 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %158 = or <2 x i64> %157, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %158 = or <2 x i64> %157, splat (i64 -9187201950435737472)
   store <2 x i64> %158, ptr %155, align 16, !noalias !2212
   %.not.not.i15 = icmp eq i64 %153, 0
   br i1 %.not.not.i15, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17h91d387bc5b7b99b8E.exit, label %152

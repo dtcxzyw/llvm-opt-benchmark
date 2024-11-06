@@ -1770,7 +1770,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %180 = phi i64 [ %252, %.preheader ], [ 0, %170 ]
   %181 = phi <8 x i64> [ %253, %.preheader ], [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %170 ]
   %182 = phi <8 x i32> [ %254, %.preheader ], [ <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>, %170 ]
-  %183 = lshr exact <8 x i32> %182, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %183 = lshr exact <8 x i32> %182, splat (i32 2)
   %184 = icmp samesign ugt <8 x i32> %169, %183
   %185 = extractelement <8 x i1> %184, i64 0
   call void @llvm.assume(i1 %185)
@@ -1793,7 +1793,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %195 = getelementptr inbounds i8, ptr %175, i64 %194
   %196 = load <8 x i8>, ptr %195, align 1, !tbaa !99, !alias.scope !160
   %197 = zext <8 x i8> %196 to <8 x i32>
-  %198 = icmp ult <8 x i64> %181, <i64 2672, i64 2672, i64 2672, i64 2672, i64 2672, i64 2672, i64 2672, i64 2672>
+  %198 = icmp ult <8 x i64> %181, splat (i64 2672)
   %199 = extractelement <8 x i1> %198, i64 0
   call void @llvm.assume(i1 %199)
   %200 = extractelement <8 x i1> %198, i64 1
@@ -1812,45 +1812,45 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   call void @llvm.assume(i1 %206)
   %.idx = shl i64 %180, 3
   %207 = getelementptr inbounds i8, ptr %179, i64 %.idx
-  %208 = and <8 x i32> %197, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %208 = and <8 x i32> %197, splat (i32 3)
   %209 = load <32 x i16>, ptr %207, align 2, !tbaa !157
   %210 = shufflevector <32 x i16> %209, <32 x i16> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %211 = shufflevector <32 x i16> %209, <32 x i16> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %212 = shufflevector <32 x i16> %209, <32 x i16> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
   %213 = shufflevector <32 x i16> %209, <32 x i16> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
   %214 = zext <8 x i16> %210 to <8 x i32>
-  %215 = shl nuw nsw <8 x i32> %214, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %215 = shl nuw nsw <8 x i32> %214, splat (i32 2)
   %216 = or disjoint <8 x i32> %215, %208
   %217 = trunc <8 x i32> %216 to <8 x i16>
-  %218 = icmp ult <8 x i16> %217, <i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512>
-  %219 = add nuw nsw <8 x i16> %217, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %218 = icmp ult <8 x i16> %217, splat (i16 512)
+  %219 = add nuw nsw <8 x i16> %217, splat (i16 2)
   %220 = select <8 x i1> %218, <8 x i16> %219, <8 x i16> %217
-  %221 = lshr <8 x i32> %197, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %222 = and <8 x i32> %221, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %221 = lshr <8 x i32> %197, splat (i32 2)
+  %222 = and <8 x i32> %221, splat (i32 3)
   %223 = zext <8 x i16> %211 to <8 x i32>
-  %224 = shl nuw nsw <8 x i32> %223, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %224 = shl nuw nsw <8 x i32> %223, splat (i32 2)
   %225 = or disjoint <8 x i32> %224, %222
   %226 = trunc <8 x i32> %225 to <8 x i16>
-  %227 = icmp ult <8 x i16> %226, <i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512>
-  %228 = add nuw nsw <8 x i16> %226, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %227 = icmp ult <8 x i16> %226, splat (i16 512)
+  %228 = add nuw nsw <8 x i16> %226, splat (i16 2)
   %229 = select <8 x i1> %227, <8 x i16> %228, <8 x i16> %226
-  %230 = lshr <8 x i32> %197, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %231 = and <8 x i32> %230, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %230 = lshr <8 x i32> %197, splat (i32 4)
+  %231 = and <8 x i32> %230, splat (i32 3)
   %232 = zext <8 x i16> %212 to <8 x i32>
-  %233 = shl nuw nsw <8 x i32> %232, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %233 = shl nuw nsw <8 x i32> %232, splat (i32 2)
   %234 = or disjoint <8 x i32> %233, %231
   %235 = trunc <8 x i32> %234 to <8 x i16>
-  %236 = icmp ult <8 x i16> %235, <i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512>
-  %237 = add nuw nsw <8 x i16> %235, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %236 = icmp ult <8 x i16> %235, splat (i16 512)
+  %237 = add nuw nsw <8 x i16> %235, splat (i16 2)
   %238 = select <8 x i1> %236, <8 x i16> %237, <8 x i16> %235
   %239 = extractelement <8 x i64> %181, i64 0
-  %240 = lshr <8 x i32> %197, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %240 = lshr <8 x i32> %197, splat (i32 6)
   %241 = zext <8 x i16> %213 to <8 x i32>
-  %242 = shl nuw nsw <8 x i32> %241, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %242 = shl nuw nsw <8 x i32> %241, splat (i32 2)
   %243 = or disjoint <8 x i32> %242, %240
   %244 = trunc <8 x i32> %243 to <8 x i16>
-  %245 = icmp ult <8 x i16> %244, <i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512>
-  %246 = add nuw nsw <8 x i16> %244, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %245 = icmp ult <8 x i16> %244, splat (i16 512)
+  %246 = add nuw nsw <8 x i16> %244, splat (i16 2)
   %247 = select <8 x i1> %245, <8 x i16> %246, <8 x i16> %244
   %248 = getelementptr i16, ptr %179, i64 %239
   %249 = shufflevector <8 x i16> %220, <8 x i16> %229, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
@@ -1858,8 +1858,8 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %251 = shufflevector <16 x i16> %249, <16 x i16> %250, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
   store <32 x i16> %251, ptr %248, align 2, !tbaa !157
   %252 = add nuw nsw i64 %180, 8
-  %253 = add <8 x i64> %181, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %254 = add <8 x i32> %182, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %253 = add <8 x i64> %181, splat (i64 32)
+  %254 = add <8 x i32> %182, splat (i32 32)
   %255 = icmp eq i64 %252, 664
   br i1 %255, label %.loopexit.preheader, label %.preheader, !llvm.loop !163
 
@@ -1889,10 +1889,10 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %273 = lshr <4 x i16> %271, <i16 3, i16 3, i16 3, i16 6>
   %274 = shufflevector <4 x i16> %272, <4 x i16> %273, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %275 = load <4 x i16>, ptr %264, align 2, !tbaa !157
-  %276 = shl <4 x i16> %275, <i16 2, i16 2, i16 2, i16 2>
+  %276 = shl <4 x i16> %275, splat (i16 2)
   %277 = add nuw nsw <4 x i16> %274, %276
-  %278 = icmp ult <4 x i16> %277, <i16 512, i16 512, i16 512, i16 512>
-  %279 = add nuw nsw <4 x i16> %277, <i16 2, i16 2, i16 2, i16 2>
+  %278 = icmp ult <4 x i16> %277, splat (i16 512)
+  %279 = add nuw nsw <4 x i16> %277, splat (i16 2)
   %280 = select <4 x i1> %278, <4 x i16> %279, <4 x i16> %277
   store <4 x i16> %280, ptr %264, align 2, !tbaa !157
   %281 = or disjoint i64 %256, 4
@@ -1916,10 +1916,10 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %298 = lshr <4 x i16> %296, <i16 3, i16 3, i16 3, i16 6>
   %299 = shufflevector <4 x i16> %297, <4 x i16> %298, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %300 = load <4 x i16>, ptr %289, align 2, !tbaa !157
-  %301 = shl <4 x i16> %300, <i16 2, i16 2, i16 2, i16 2>
+  %301 = shl <4 x i16> %300, splat (i16 2)
   %302 = add nuw nsw <4 x i16> %299, %301
-  %303 = icmp ult <4 x i16> %302, <i16 512, i16 512, i16 512, i16 512>
-  %304 = add nuw nsw <4 x i16> %302, <i16 2, i16 2, i16 2, i16 2>
+  %303 = icmp ult <4 x i16> %302, splat (i16 512)
+  %304 = add nuw nsw <4 x i16> %302, splat (i16 2)
   %305 = select <4 x i1> %303, <4 x i16> %304, <4 x i16> %302
   store <4 x i16> %305, ptr %289, align 2, !tbaa !157
   %306 = add nuw nsw i64 %256, 8
@@ -1984,7 +1984,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %351 = lshr <4 x i16> %349, <i16 3, i16 3, i16 3, i16 6>
   %352 = shufflevector <4 x i16> %350, <4 x i16> %351, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %353 = load <4 x i16>, ptr %340, align 2, !tbaa !157
-  %354 = shl <4 x i16> %353, <i16 2, i16 2, i16 2, i16 2>
+  %354 = shl <4 x i16> %353, splat (i16 2)
   %355 = add nuw nsw <4 x i16> %352, %354
   store <4 x i16> %355, ptr %340, align 2, !tbaa !157
   %356 = add nuw nsw i64 %332, 4
@@ -2022,7 +2022,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %382 = lshr <4 x i16> %380, <i16 3, i16 3, i16 3, i16 6>
   %383 = shufflevector <4 x i16> %381, <4 x i16> %382, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %384 = load <4 x i16>, ptr %371, align 2, !tbaa !157
-  %385 = shl <4 x i16> %384, <i16 2, i16 2, i16 2, i16 2>
+  %385 = shl <4 x i16> %384, splat (i16 2)
   %386 = add nuw nsw <4 x i16> %383, %385
   store <4 x i16> %386, ptr %371, align 2, !tbaa !157
   %387 = add nuw nsw i64 %363, 4
@@ -2073,7 +2073,7 @@ define hidden void @_ZN8rawspeed15CrwDecompressor10decompressEv(ptr noundef nonn
   %421 = lshr <4 x i16> %419, <i16 3, i16 3, i16 3, i16 6>
   %422 = shufflevector <4 x i16> %420, <4 x i16> %421, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %423 = load <4 x i16>, ptr %410, align 2, !tbaa !157
-  %424 = shl <4 x i16> %423, <i16 2, i16 2, i16 2, i16 2>
+  %424 = shl <4 x i16> %423, splat (i16 2)
   %425 = add nuw nsw <4 x i16> %422, %424
   store <4 x i16> %425, ptr %410, align 2, !tbaa !157
   %426 = add nuw nsw i64 %402, 4

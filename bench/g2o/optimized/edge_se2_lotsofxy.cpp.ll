@@ -2433,7 +2433,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %154 = getelementptr inbounds double, ptr %136, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %155 = getelementptr inbounds double, ptr %.sroa.0.675, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %156 = load <2 x double>, ptr %155, align 1
-  %157 = fmul <2 x double> %156, <double 0x41BDCD64FFFFFFFF, double 0x41BDCD64FFFFFFFF>
+  %157 = fmul <2 x double> %156, splat (double 0x41BDCD64FFFFFFFF)
   store <2 x double> %157, ptr %154, align 16
   %158 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %159 = icmp slt i64 %158, %146

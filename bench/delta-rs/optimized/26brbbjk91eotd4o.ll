@@ -4555,7 +4555,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
 359:                                              ; preds = %363, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i.i"
   %.sroa.6.1.i.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i.i, %363 ], [ %.sroa.6.0.i.i.i.i, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i.i" ]
   %.sroa.01.1.i.i.i.i = phi i64 [ %.sroa.0.0.i13.i.i.i.i, %363 ], [ 1, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i.i" ]
-  %360 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %360 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %361 = bitcast <16 x i1> %360 to i16
   %362 = icmp eq i16 %361, 0
   br i1 %362, label %370, label %373
@@ -5134,7 +5134,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %136
 647:                                              ; preds = %651, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i.i101"
   %.sroa.6.1.i.i.i.i107 = phi i64 [ %.sroa.3.0.i.i.i.i.i105, %651 ], [ %.sroa.6.0.i.i.i.i91, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i.i101" ]
   %.sroa.01.1.i.i.i.i108 = phi i64 [ %.sroa.0.0.i13.i.i.i.i106, %651 ], [ 1, %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea94b381ff565d55E.exit.i._crit_edge.i.i.i101" ]
-  %648 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i94, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %648 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i94, splat (i8 -1)
   %649 = bitcast <16 x i1> %648 to i16
   %650 = icmp eq i16 %649, 0
   br i1 %650, label %658, label %661

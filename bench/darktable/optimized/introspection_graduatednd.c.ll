@@ -866,7 +866,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_set_points_from_grad(ptr no
   %79 = extractelement <2 x float> %27, i64 1
   %80 = insertelement <2 x float> poison, float %75, i64 0
   %81 = insertelement <2 x float> %80, float %78, i64 1
-  %82 = fmul reassoc nsz arcp contract afn <2 x float> %81, <float 5.000000e-01, float 5.000000e-01>
+  %82 = fmul reassoc nsz arcp contract afn <2 x float> %81, splat (float 5.000000e-01)
   %83 = shufflevector <2 x float> %27, <2 x float> poison, <2 x i32> zeroinitializer
   %84 = fmul reassoc nsz arcp contract afn <2 x float> %82, %83
   %85 = insertelement <2 x float> poison, float %15, i64 0
@@ -907,7 +907,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_set_points_from_grad(ptr no
   %120 = insertelement <2 x float> %111, float %108, i64 1
   %121 = fsub reassoc nsz arcp contract afn <2 x float> %119, %120
   %122 = fpext <2 x float> %121 to <2 x double>
-  %123 = fmul reassoc nsz arcp contract afn <2 x double> %122, <double 1.000000e-01, double 1.000000e-01>
+  %123 = fmul reassoc nsz arcp contract afn <2 x double> %122, splat (double 1.000000e-01)
   %124 = fpext <2 x float> %111 to <2 x double>
   %125 = fadd reassoc nsz arcp contract afn <2 x double> %123, %124
   %126 = fsub reassoc nsz arcp contract afn <2 x double> %124, %123
@@ -2144,11 +2144,11 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %486 = phi i64 [ 0, %482 ], [ %491, %485 ]
   %487 = phi <8 x i64> [ <i64 3, i64 7, i64 11, i64 15, i64 19, i64 23, i64 27, i64 31>, %482 ], [ %492, %485 ]
   %488 = getelementptr inbounds float, ptr %2, <8 x i64> %487
-  %489 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %488, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !23, !alias.scope !124
+  %489 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %488, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !23, !alias.scope !124
   %490 = getelementptr inbounds float, ptr %3, <8 x i64> %487
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %489, <8 x ptr> %490, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !23, !alias.scope !127, !noalias !124
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %489, <8 x ptr> %490, i32 4, <8 x i1> splat (i1 true)), !tbaa !23, !alias.scope !127, !noalias !124
   %491 = add nuw i64 %486, 8
-  %492 = add <8 x i64> %487, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %492 = add <8 x i64> %487, splat (i64 32)
   %493 = icmp eq i64 %491, %483
   br i1 %493, label %494, label %485, !llvm.loop !129
 
@@ -2323,7 +2323,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %6, i64 24
   store float 5.000000e-01, ptr %13, align 4, !tbaa !23
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %8, align 4, !tbaa !23
+  store <2 x float> splat (float 5.000000e-01), ptr %8, align 4, !tbaa !23
   br label %72
 
 14:                                               ; preds = %4
@@ -2415,7 +2415,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 
 72:                                               ; preds = %67, %12
   %73 = phi float [ 5.000000e-01, %12 ], [ %68, %67 ]
-  %74 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %12 ], [ %71, %67 ]
+  %74 = phi <2 x float> [ splat (float 5.000000e-01), %12 ], [ %71, %67 ]
   %75 = getelementptr inbounds i8, ptr %6, i64 28
   store float 0.000000e+00, ptr %75, align 4, !tbaa !23
   %76 = extractelement <4 x float> %7, i64 0
@@ -2426,7 +2426,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   br i1 %77, label %81, label %88
 
 81:                                               ; preds = %72
-  %82 = fsub reassoc nsz arcp contract afn <2 x float> <float 1.000000e+00, float 1.000000e+00>, %74
+  %82 = fsub reassoc nsz arcp contract afn <2 x float> splat (float 1.000000e+00), %74
   store <2 x float> %82, ptr %8, align 4, !tbaa !23
   %83 = getelementptr inbounds i8, ptr %6, i64 24
   %84 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %73
@@ -2440,7 +2440,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 88:                                               ; preds = %81, %72
   %89 = phi <4 x float> [ %87, %81 ], [ %80, %72 ]
   %90 = getelementptr inbounds i8, ptr %6, i64 32
-  %91 = fsub reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %89
+  %91 = fsub reassoc nsz arcp contract afn <4 x float> splat (float 1.000000e+00), %89
   store <4 x float> %91, ptr %90, align 4, !tbaa !23
   ret void
 }

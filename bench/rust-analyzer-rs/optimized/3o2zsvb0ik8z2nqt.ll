@@ -77383,7 +77383,7 @@ define hidden void @"_ZN11ide_assists14assist_context7Assists3add28_$u7b$$u7b$cl
   br i1 %.not.i4.not.i.i.i.i, label %83, label %86
 
 83:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i.i"
-  %84 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %84 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %85 = bitcast <16 x i1> %84 to i16
   %.not.i.i.i.i74.i = icmp eq i16 %85, 0
   br i1 %.not.i.i.i.i74.i, label %95, label %.thread139.i

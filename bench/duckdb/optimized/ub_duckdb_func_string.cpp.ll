@@ -14175,8 +14175,8 @@ vector.body281:                                   ; preds = %vector.body281, %ve
   %14 = getelementptr inbounds i8, ptr %13, i64 2
   %wide.load285 = load <2 x i8>, ptr %13, align 1, !tbaa !35
   %wide.load286 = load <2 x i8>, ptr %14, align 1, !tbaa !35
-  %15 = icmp sgt <2 x i8> %wide.load285, <i8 -65, i8 -65>
-  %16 = icmp sgt <2 x i8> %wide.load286, <i8 -65, i8 -65>
+  %15 = icmp sgt <2 x i8> %wide.load285, splat (i8 -65)
+  %16 = icmp sgt <2 x i8> %wide.load286, splat (i8 -65)
   %17 = zext <2 x i1> %15 to <2 x i64>
   %18 = zext <2 x i1> %16 to <2 x i64>
   %19 = add <2 x i64> %vec.phi283, %17
@@ -14484,8 +14484,8 @@ vector.body230:                                   ; preds = %vector.body230, %ve
   %60 = getelementptr inbounds i8, ptr %59, i64 2
   %wide.load234 = load <2 x i8>, ptr %59, align 1, !tbaa !35, !noalias !344
   %wide.load235 = load <2 x i8>, ptr %60, align 1, !tbaa !35, !noalias !344
-  %61 = icmp sgt <2 x i8> %wide.load234, <i8 -65, i8 -65>
-  %62 = icmp sgt <2 x i8> %wide.load235, <i8 -65, i8 -65>
+  %61 = icmp sgt <2 x i8> %wide.load234, splat (i8 -65)
+  %62 = icmp sgt <2 x i8> %wide.load235, splat (i8 -65)
   %63 = zext <2 x i1> %61 to <2 x i64>
   %64 = zext <2 x i1> %62 to <2 x i64>
   %65 = add <2 x i64> %vec.phi232, %63
@@ -14578,8 +14578,8 @@ vector.body247:                                   ; preds = %vector.body247, %ve
   %75 = getelementptr inbounds i8, ptr %74, i64 2
   %wide.load251 = load <2 x i8>, ptr %74, align 1, !tbaa !35, !noalias !344
   %wide.load252 = load <2 x i8>, ptr %75, align 1, !tbaa !35, !noalias !344
-  %76 = icmp sgt <2 x i8> %wide.load251, <i8 -65, i8 -65>
-  %77 = icmp sgt <2 x i8> %wide.load252, <i8 -65, i8 -65>
+  %76 = icmp sgt <2 x i8> %wide.load251, splat (i8 -65)
+  %77 = icmp sgt <2 x i8> %wide.load252, splat (i8 -65)
   %78 = zext <2 x i1> %76 to <2 x i64>
   %79 = zext <2 x i1> %77 to <2 x i64>
   %80 = add <2 x i64> %vec.phi249, %78
@@ -14673,8 +14673,8 @@ vector.body264:                                   ; preds = %vector.body264, %ve
   %89 = getelementptr inbounds i8, ptr %88, i64 2
   %wide.load268 = load <2 x i8>, ptr %88, align 1, !tbaa !35, !noalias !344
   %wide.load269 = load <2 x i8>, ptr %89, align 1, !tbaa !35, !noalias !344
-  %90 = icmp sgt <2 x i8> %wide.load268, <i8 -65, i8 -65>
-  %91 = icmp sgt <2 x i8> %wide.load269, <i8 -65, i8 -65>
+  %90 = icmp sgt <2 x i8> %wide.load268, splat (i8 -65)
+  %91 = icmp sgt <2 x i8> %wide.load269, splat (i8 -65)
   %92 = zext <2 x i1> %90 to <2 x i64>
   %93 = zext <2 x i1> %91 to <2 x i64>
   %94 = add <2 x i64> %vec.phi266, %92
@@ -14995,8 +14995,8 @@ vector.body179:                                   ; preds = %if.end.i.i.i.i.i.i.
   %137 = getelementptr inbounds i8, ptr %136, i64 2
   %wide.load183 = load <2 x i8>, ptr %136, align 1, !tbaa !35, !noalias !365
   %wide.load184 = load <2 x i8>, ptr %137, align 1, !tbaa !35, !noalias !365
-  %138 = icmp sgt <2 x i8> %wide.load183, <i8 -65, i8 -65>
-  %139 = icmp sgt <2 x i8> %wide.load184, <i8 -65, i8 -65>
+  %138 = icmp sgt <2 x i8> %wide.load183, splat (i8 -65)
+  %139 = icmp sgt <2 x i8> %wide.load184, splat (i8 -65)
   %140 = zext <2 x i1> %138 to <2 x i64>
   %141 = zext <2 x i1> %139 to <2 x i64>
   %142 = add <2 x i64> %vec.phi181, %140
@@ -15091,8 +15091,8 @@ vector.body196:                                   ; preds = %vector.body196, %ve
   %152 = getelementptr inbounds i8, ptr %151, i64 2
   %wide.load200 = load <2 x i8>, ptr %151, align 1, !tbaa !35, !noalias !365
   %wide.load201 = load <2 x i8>, ptr %152, align 1, !tbaa !35, !noalias !365
-  %153 = icmp sgt <2 x i8> %wide.load200, <i8 -65, i8 -65>
-  %154 = icmp sgt <2 x i8> %wide.load201, <i8 -65, i8 -65>
+  %153 = icmp sgt <2 x i8> %wide.load200, splat (i8 -65)
+  %154 = icmp sgt <2 x i8> %wide.load201, splat (i8 -65)
   %155 = zext <2 x i1> %153 to <2 x i64>
   %156 = zext <2 x i1> %154 to <2 x i64>
   %157 = add <2 x i64> %vec.phi198, %155
@@ -15174,8 +15174,8 @@ vector.body213:                                   ; preds = %if.end.i.i.i136.i.i
   %166 = getelementptr inbounds i8, ptr %165, i64 2
   %wide.load217 = load <2 x i8>, ptr %165, align 1, !tbaa !35, !noalias !365
   %wide.load218 = load <2 x i8>, ptr %166, align 1, !tbaa !35, !noalias !365
-  %167 = icmp sgt <2 x i8> %wide.load217, <i8 -65, i8 -65>
-  %168 = icmp sgt <2 x i8> %wide.load218, <i8 -65, i8 -65>
+  %167 = icmp sgt <2 x i8> %wide.load217, splat (i8 -65)
+  %168 = icmp sgt <2 x i8> %wide.load218, splat (i8 -65)
   %169 = zext <2 x i1> %167 to <2 x i64>
   %170 = zext <2 x i1> %168 to <2 x i64>
   %171 = add <2 x i64> %vec.phi215, %169
@@ -15430,8 +15430,8 @@ vector.body128:                                   ; preds = %vector.body128, %ve
   %205 = getelementptr inbounds i8, ptr %204, i64 2
   %wide.load132 = load <2 x i8>, ptr %204, align 1, !tbaa !35, !noalias !393
   %wide.load133 = load <2 x i8>, ptr %205, align 1, !tbaa !35, !noalias !393
-  %206 = icmp sgt <2 x i8> %wide.load132, <i8 -65, i8 -65>
-  %207 = icmp sgt <2 x i8> %wide.load133, <i8 -65, i8 -65>
+  %206 = icmp sgt <2 x i8> %wide.load132, splat (i8 -65)
+  %207 = icmp sgt <2 x i8> %wide.load133, splat (i8 -65)
   %208 = zext <2 x i1> %206 to <2 x i64>
   %209 = zext <2 x i1> %207 to <2 x i64>
   %210 = add <2 x i64> %vec.phi130, %208
@@ -15529,8 +15529,8 @@ vector.body145:                                   ; preds = %vector.body145, %ve
   %220 = getelementptr inbounds i8, ptr %219, i64 2
   %wide.load149 = load <2 x i8>, ptr %219, align 1, !tbaa !35, !noalias !393
   %wide.load150 = load <2 x i8>, ptr %220, align 1, !tbaa !35, !noalias !393
-  %221 = icmp sgt <2 x i8> %wide.load149, <i8 -65, i8 -65>
-  %222 = icmp sgt <2 x i8> %wide.load150, <i8 -65, i8 -65>
+  %221 = icmp sgt <2 x i8> %wide.load149, splat (i8 -65)
+  %222 = icmp sgt <2 x i8> %wide.load150, splat (i8 -65)
   %223 = zext <2 x i1> %221 to <2 x i64>
   %224 = zext <2 x i1> %222 to <2 x i64>
   %225 = add <2 x i64> %vec.phi147, %223
@@ -15630,8 +15630,8 @@ vector.body162:                                   ; preds = %vector.body162, %ve
   %235 = getelementptr inbounds i8, ptr %234, i64 2
   %wide.load166 = load <2 x i8>, ptr %234, align 1, !tbaa !35, !noalias !393
   %wide.load167 = load <2 x i8>, ptr %235, align 1, !tbaa !35, !noalias !393
-  %236 = icmp sgt <2 x i8> %wide.load166, <i8 -65, i8 -65>
-  %237 = icmp sgt <2 x i8> %wide.load167, <i8 -65, i8 -65>
+  %236 = icmp sgt <2 x i8> %wide.load166, splat (i8 -65)
+  %237 = icmp sgt <2 x i8> %wide.load167, splat (i8 -65)
   %238 = zext <2 x i1> %236 to <2 x i64>
   %239 = zext <2 x i1> %237 to <2 x i64>
   %240 = add <2 x i64> %vec.phi164, %238
@@ -15806,8 +15806,8 @@ vector.body111:                                   ; preds = %vector.body111, %ve
   %264 = getelementptr inbounds i8, ptr %263, i64 2
   %wide.load115 = load <2 x i8>, ptr %263, align 1, !tbaa !35, !noalias !418
   %wide.load116 = load <2 x i8>, ptr %264, align 1, !tbaa !35, !noalias !418
-  %265 = icmp sgt <2 x i8> %wide.load115, <i8 -65, i8 -65>
-  %266 = icmp sgt <2 x i8> %wide.load116, <i8 -65, i8 -65>
+  %265 = icmp sgt <2 x i8> %wide.load115, splat (i8 -65)
+  %266 = icmp sgt <2 x i8> %wide.load116, splat (i8 -65)
   %267 = zext <2 x i1> %265 to <2 x i64>
   %268 = zext <2 x i1> %266 to <2 x i64>
   %269 = add <2 x i64> %vec.phi113, %267
@@ -15907,8 +15907,8 @@ vector.body94:                                    ; preds = %vector.body94, %vec
   %280 = getelementptr inbounds i8, ptr %279, i64 2
   %wide.load98 = load <2 x i8>, ptr %279, align 1, !tbaa !35, !noalias !418
   %wide.load99 = load <2 x i8>, ptr %280, align 1, !tbaa !35, !noalias !418
-  %281 = icmp sgt <2 x i8> %wide.load98, <i8 -65, i8 -65>
-  %282 = icmp sgt <2 x i8> %wide.load99, <i8 -65, i8 -65>
+  %281 = icmp sgt <2 x i8> %wide.load98, splat (i8 -65)
+  %282 = icmp sgt <2 x i8> %wide.load99, splat (i8 -65)
   %283 = zext <2 x i1> %281 to <2 x i64>
   %284 = zext <2 x i1> %282 to <2 x i64>
   %285 = add <2 x i64> %vec.phi96, %283
@@ -16052,8 +16052,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %301 = getelementptr inbounds i8, ptr %300, i64 2
   %wide.load = load <2 x i8>, ptr %300, align 1, !tbaa !35, !noalias !418
   %wide.load68 = load <2 x i8>, ptr %301, align 1, !tbaa !35, !noalias !418
-  %302 = icmp sgt <2 x i8> %wide.load, <i8 -65, i8 -65>
-  %303 = icmp sgt <2 x i8> %wide.load68, <i8 -65, i8 -65>
+  %302 = icmp sgt <2 x i8> %wide.load, splat (i8 -65)
+  %303 = icmp sgt <2 x i8> %wide.load68, splat (i8 -65)
   %304 = zext <2 x i1> %302 to <2 x i64>
   %305 = zext <2 x i1> %303 to <2 x i64>
   %306 = add <2 x i64> %vec.phi, %304
@@ -16182,8 +16182,8 @@ vector.body77:                                    ; preds = %vector.body77, %vec
   %322 = getelementptr inbounds i8, ptr %321, i64 2
   %wide.load81 = load <2 x i8>, ptr %321, align 1, !tbaa !35, !noalias !418
   %wide.load82 = load <2 x i8>, ptr %322, align 1, !tbaa !35, !noalias !418
-  %323 = icmp sgt <2 x i8> %wide.load81, <i8 -65, i8 -65>
-  %324 = icmp sgt <2 x i8> %wide.load82, <i8 -65, i8 -65>
+  %323 = icmp sgt <2 x i8> %wide.load81, splat (i8 -65)
+  %324 = icmp sgt <2 x i8> %wide.load82, splat (i8 -65)
   %325 = zext <2 x i1> %323 to <2 x i64>
   %326 = zext <2 x i1> %324 to <2 x i64>
   %327 = add <2 x i64> %vec.phi79, %325
@@ -18917,8 +18917,8 @@ vector.body269:                                   ; preds = %vector.body269, %ve
   %14 = getelementptr inbounds i8, ptr %13, i64 2
   %wide.load273 = load <2 x i8>, ptr %13, align 1, !tbaa !35
   %wide.load274 = load <2 x i8>, ptr %14, align 1, !tbaa !35
-  %15 = icmp sgt <2 x i8> %wide.load273, <i8 -65, i8 -65>
-  %16 = icmp sgt <2 x i8> %wide.load274, <i8 -65, i8 -65>
+  %15 = icmp sgt <2 x i8> %wide.load273, splat (i8 -65)
+  %16 = icmp sgt <2 x i8> %wide.load274, splat (i8 -65)
   %17 = zext <2 x i1> %15 to <2 x i64>
   %18 = zext <2 x i1> %16 to <2 x i64>
   %19 = add <2 x i64> %vec.phi271, %17
@@ -19159,8 +19159,8 @@ vector.body252:                                   ; preds = %vector.body252, %ve
   %51 = getelementptr inbounds i8, ptr %50, i64 2
   %wide.load256 = load <2 x i8>, ptr %50, align 1, !tbaa !35, !noalias !501
   %wide.load257 = load <2 x i8>, ptr %51, align 1, !tbaa !35, !noalias !501
-  %52 = icmp sgt <2 x i8> %wide.load256, <i8 -65, i8 -65>
-  %53 = icmp sgt <2 x i8> %wide.load257, <i8 -65, i8 -65>
+  %52 = icmp sgt <2 x i8> %wide.load256, splat (i8 -65)
+  %53 = icmp sgt <2 x i8> %wide.load257, splat (i8 -65)
   %54 = zext <2 x i1> %52 to <2 x i64>
   %55 = zext <2 x i1> %53 to <2 x i64>
   %56 = add <2 x i64> %vec.phi254, %54
@@ -19246,8 +19246,8 @@ vector.body235:                                   ; preds = %vector.body235, %ve
   %65 = getelementptr inbounds i8, ptr %64, i64 2
   %wide.load239 = load <2 x i8>, ptr %64, align 1, !tbaa !35, !noalias !501
   %wide.load240 = load <2 x i8>, ptr %65, align 1, !tbaa !35, !noalias !501
-  %66 = icmp sgt <2 x i8> %wide.load239, <i8 -65, i8 -65>
-  %67 = icmp sgt <2 x i8> %wide.load240, <i8 -65, i8 -65>
+  %66 = icmp sgt <2 x i8> %wide.load239, splat (i8 -65)
+  %67 = icmp sgt <2 x i8> %wide.load240, splat (i8 -65)
   %68 = zext <2 x i1> %66 to <2 x i64>
   %69 = zext <2 x i1> %67 to <2 x i64>
   %70 = add <2 x i64> %vec.phi237, %68
@@ -19378,8 +19378,8 @@ vector.body184:                                   ; preds = %vector.body184, %ve
   %84 = getelementptr inbounds i8, ptr %83, i64 2
   %wide.load188 = load <2 x i8>, ptr %83, align 1, !tbaa !35, !noalias !501
   %wide.load189 = load <2 x i8>, ptr %84, align 1, !tbaa !35, !noalias !501
-  %85 = icmp sgt <2 x i8> %wide.load188, <i8 -65, i8 -65>
-  %86 = icmp sgt <2 x i8> %wide.load189, <i8 -65, i8 -65>
+  %85 = icmp sgt <2 x i8> %wide.load188, splat (i8 -65)
+  %86 = icmp sgt <2 x i8> %wide.load189, splat (i8 -65)
   %87 = zext <2 x i1> %85 to <2 x i64>
   %88 = zext <2 x i1> %86 to <2 x i64>
   %89 = add <2 x i64> %vec.phi186, %87
@@ -19484,8 +19484,8 @@ vector.body201:                                   ; preds = %vector.body201, %ve
   %99 = getelementptr inbounds i8, ptr %98, i64 2
   %wide.load205 = load <2 x i8>, ptr %98, align 1, !tbaa !35, !noalias !501
   %wide.load206 = load <2 x i8>, ptr %99, align 1, !tbaa !35, !noalias !501
-  %100 = icmp sgt <2 x i8> %wide.load205, <i8 -65, i8 -65>
-  %101 = icmp sgt <2 x i8> %wide.load206, <i8 -65, i8 -65>
+  %100 = icmp sgt <2 x i8> %wide.load205, splat (i8 -65)
+  %101 = icmp sgt <2 x i8> %wide.load206, splat (i8 -65)
   %102 = zext <2 x i1> %100 to <2 x i64>
   %103 = zext <2 x i1> %101 to <2 x i64>
   %104 = add <2 x i64> %vec.phi203, %102
@@ -19594,8 +19594,8 @@ vector.body218:                                   ; preds = %vector.body218, %ve
   %113 = getelementptr inbounds i8, ptr %112, i64 2
   %wide.load222 = load <2 x i8>, ptr %112, align 1, !tbaa !35, !noalias !501
   %wide.load223 = load <2 x i8>, ptr %113, align 1, !tbaa !35, !noalias !501
-  %114 = icmp sgt <2 x i8> %wide.load222, <i8 -65, i8 -65>
-  %115 = icmp sgt <2 x i8> %wide.load223, <i8 -65, i8 -65>
+  %114 = icmp sgt <2 x i8> %wide.load222, splat (i8 -65)
+  %115 = icmp sgt <2 x i8> %wide.load223, splat (i8 -65)
   %116 = zext <2 x i1> %114 to <2 x i64>
   %117 = zext <2 x i1> %115 to <2 x i64>
   %118 = add <2 x i64> %vec.phi220, %116
@@ -19893,8 +19893,8 @@ vector.body133:                                   ; preds = %for.body.i.i.i.i.i.
   %157 = getelementptr inbounds i8, ptr %156, i64 2
   %wide.load137 = load <2 x i8>, ptr %156, align 1, !tbaa !35, !noalias !526
   %wide.load138 = load <2 x i8>, ptr %157, align 1, !tbaa !35, !noalias !526
-  %158 = icmp sgt <2 x i8> %wide.load137, <i8 -65, i8 -65>
-  %159 = icmp sgt <2 x i8> %wide.load138, <i8 -65, i8 -65>
+  %158 = icmp sgt <2 x i8> %wide.load137, splat (i8 -65)
+  %159 = icmp sgt <2 x i8> %wide.load138, splat (i8 -65)
   %160 = zext <2 x i1> %158 to <2 x i64>
   %161 = zext <2 x i1> %159 to <2 x i64>
   %162 = add <2 x i64> %vec.phi135, %160
@@ -20000,8 +20000,8 @@ vector.body150:                                   ; preds = %vector.body150, %ve
   %172 = getelementptr inbounds i8, ptr %171, i64 2
   %wide.load154 = load <2 x i8>, ptr %171, align 1, !tbaa !35, !noalias !526
   %wide.load155 = load <2 x i8>, ptr %172, align 1, !tbaa !35, !noalias !526
-  %173 = icmp sgt <2 x i8> %wide.load154, <i8 -65, i8 -65>
-  %174 = icmp sgt <2 x i8> %wide.load155, <i8 -65, i8 -65>
+  %173 = icmp sgt <2 x i8> %wide.load154, splat (i8 -65)
+  %174 = icmp sgt <2 x i8> %wide.load155, splat (i8 -65)
   %175 = zext <2 x i1> %173 to <2 x i64>
   %176 = zext <2 x i1> %174 to <2 x i64>
   %177 = add <2 x i64> %vec.phi152, %175
@@ -20094,8 +20094,8 @@ vector.body167:                                   ; preds = %for.body52.i.i223.i
   %186 = getelementptr inbounds i8, ptr %185, i64 2
   %wide.load171 = load <2 x i8>, ptr %185, align 1, !tbaa !35, !noalias !526
   %wide.load172 = load <2 x i8>, ptr %186, align 1, !tbaa !35, !noalias !526
-  %187 = icmp sgt <2 x i8> %wide.load171, <i8 -65, i8 -65>
-  %188 = icmp sgt <2 x i8> %wide.load172, <i8 -65, i8 -65>
+  %187 = icmp sgt <2 x i8> %wide.load171, splat (i8 -65)
+  %188 = icmp sgt <2 x i8> %wide.load172, splat (i8 -65)
   %189 = zext <2 x i1> %187 to <2 x i64>
   %190 = zext <2 x i1> %188 to <2 x i64>
   %191 = add <2 x i64> %vec.phi169, %189
@@ -20361,8 +20361,8 @@ vector.body82:                                    ; preds = %vector.body82, %vec
   %225 = getelementptr inbounds i8, ptr %224, i64 2
   %wide.load86 = load <2 x i8>, ptr %224, align 1, !tbaa !35, !noalias !554
   %wide.load87 = load <2 x i8>, ptr %225, align 1, !tbaa !35, !noalias !554
-  %226 = icmp sgt <2 x i8> %wide.load86, <i8 -65, i8 -65>
-  %227 = icmp sgt <2 x i8> %wide.load87, <i8 -65, i8 -65>
+  %226 = icmp sgt <2 x i8> %wide.load86, splat (i8 -65)
+  %227 = icmp sgt <2 x i8> %wide.load87, splat (i8 -65)
   %228 = zext <2 x i1> %226 to <2 x i64>
   %229 = zext <2 x i1> %227 to <2 x i64>
   %230 = add <2 x i64> %vec.phi84, %228
@@ -20471,8 +20471,8 @@ vector.body99:                                    ; preds = %vector.body99, %vec
   %240 = getelementptr inbounds i8, ptr %239, i64 2
   %wide.load103 = load <2 x i8>, ptr %239, align 1, !tbaa !35, !noalias !554
   %wide.load104 = load <2 x i8>, ptr %240, align 1, !tbaa !35, !noalias !554
-  %241 = icmp sgt <2 x i8> %wide.load103, <i8 -65, i8 -65>
-  %242 = icmp sgt <2 x i8> %wide.load104, <i8 -65, i8 -65>
+  %241 = icmp sgt <2 x i8> %wide.load103, splat (i8 -65)
+  %242 = icmp sgt <2 x i8> %wide.load104, splat (i8 -65)
   %243 = zext <2 x i1> %241 to <2 x i64>
   %244 = zext <2 x i1> %242 to <2 x i64>
   %245 = add <2 x i64> %vec.phi101, %243
@@ -20583,8 +20583,8 @@ vector.body116:                                   ; preds = %vector.body116, %ve
   %255 = getelementptr inbounds i8, ptr %254, i64 2
   %wide.load120 = load <2 x i8>, ptr %254, align 1, !tbaa !35, !noalias !554
   %wide.load121 = load <2 x i8>, ptr %255, align 1, !tbaa !35, !noalias !554
-  %256 = icmp sgt <2 x i8> %wide.load120, <i8 -65, i8 -65>
-  %257 = icmp sgt <2 x i8> %wide.load121, <i8 -65, i8 -65>
+  %256 = icmp sgt <2 x i8> %wide.load120, splat (i8 -65)
+  %257 = icmp sgt <2 x i8> %wide.load121, splat (i8 -65)
   %258 = zext <2 x i1> %256 to <2 x i64>
   %259 = zext <2 x i1> %257 to <2 x i64>
   %260 = add <2 x i64> %vec.phi118, %258
@@ -20810,8 +20810,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %289 = getelementptr inbounds i8, ptr %288, i64 2
   %wide.load = load <2 x i8>, ptr %288, align 1, !tbaa !35, !noalias !579
   %wide.load56 = load <2 x i8>, ptr %289, align 1, !tbaa !35, !noalias !579
-  %290 = icmp sgt <2 x i8> %wide.load, <i8 -65, i8 -65>
-  %291 = icmp sgt <2 x i8> %wide.load56, <i8 -65, i8 -65>
+  %290 = icmp sgt <2 x i8> %wide.load, splat (i8 -65)
+  %291 = icmp sgt <2 x i8> %wide.load56, splat (i8 -65)
   %292 = zext <2 x i1> %290 to <2 x i64>
   %293 = zext <2 x i1> %291 to <2 x i64>
   %294 = add <2 x i64> %vec.phi, %292
@@ -20965,8 +20965,8 @@ vector.body65:                                    ; preds = %vector.body65, %vec
   %310 = getelementptr inbounds i8, ptr %309, i64 2
   %wide.load69 = load <2 x i8>, ptr %309, align 1, !tbaa !35, !noalias !579
   %wide.load70 = load <2 x i8>, ptr %310, align 1, !tbaa !35, !noalias !579
-  %311 = icmp sgt <2 x i8> %wide.load69, <i8 -65, i8 -65>
-  %312 = icmp sgt <2 x i8> %wide.load70, <i8 -65, i8 -65>
+  %311 = icmp sgt <2 x i8> %wide.load69, splat (i8 -65)
+  %312 = icmp sgt <2 x i8> %wide.load70, splat (i8 -65)
   %313 = zext <2 x i1> %311 to <2 x i64>
   %314 = zext <2 x i1> %312 to <2 x i64>
   %315 = add <2 x i64> %vec.phi67, %313
@@ -79120,8 +79120,8 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %35 = insertelement <4 x i8> %34, i8 %shr.5.i, i64 1
   %36 = insertelement <4 x i8> %35, i8 %33, i64 2
   %37 = insertelement <4 x i8> %36, i8 %29, i64 3
-  %38 = and <4 x i8> %37, <i8 1, i8 1, i8 1, i8 1>
-  %39 = or disjoint <4 x i8> %38, <i8 48, i8 48, i8 48, i8 48>
+  %38 = and <4 x i8> %37, splat (i8 1)
+  %39 = or disjoint <4 x i8> %38, splat (i8 48)
   store <4 x i8> %39, ptr %incdec.ptr.3.i, align 1, !tbaa !35
   %incdec.ptr.7.i = getelementptr inbounds i8, ptr %output.029.i, i64 8
   %inc.i = add nuw nsw i64 %i.028.i, 1
@@ -79235,8 +79235,8 @@ for.body.i125:                                    ; preds = %for.body.i125, %for
   %54 = insertelement <4 x i8> %53, i8 %shr.5.i144, i64 1
   %55 = insertelement <4 x i8> %54, i8 %52, i64 2
   %56 = insertelement <4 x i8> %55, i8 %48, i64 3
-  %57 = and <4 x i8> %56, <i8 1, i8 1, i8 1, i8 1>
-  %58 = or disjoint <4 x i8> %57, <i8 48, i8 48, i8 48, i8 48>
+  %57 = and <4 x i8> %56, splat (i8 1)
+  %58 = or disjoint <4 x i8> %57, splat (i8 48)
   store <4 x i8> %58, ptr %incdec.ptr.3.i140, align 1, !tbaa !35
   %incdec.ptr.7.i150 = getelementptr inbounds i8, ptr %output.029.i126, i64 8
   %inc.i151 = add nuw nsw i64 %i.028.i127, 1
@@ -79611,8 +79611,8 @@ for.body:                                         ; preds = %for.body, %for.body
   %17 = insertelement <4 x i8> %16, i8 %shr.5, i64 1
   %18 = insertelement <4 x i8> %17, i8 %15, i64 2
   %19 = insertelement <4 x i8> %18, i8 %11, i64 3
-  %20 = and <4 x i8> %19, <i8 1, i8 1, i8 1, i8 1>
-  %21 = or disjoint <4 x i8> %20, <i8 48, i8 48, i8 48, i8 48>
+  %20 = and <4 x i8> %19, splat (i8 1)
+  %21 = or disjoint <4 x i8> %20, splat (i8 48)
   store <4 x i8> %21, ptr %incdec.ptr.3, align 1, !tbaa !35
   %incdec.ptr.7 = getelementptr inbounds i8, ptr %output.029, i64 8
   %inc = add nuw nsw i64 %i.028, 1
@@ -80047,14 +80047,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <16 x i64> [ %induction, %vector.ph ], [ %vec.ind.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %cond.i20.i, i64 %index
-  %31 = add nsw <16 x i64> %vec.ind, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %31 = add nsw <16 x i64> %vec.ind, splat (i64 -1)
   %32 = lshr <16 x i64> %broadcast.splat, %31
   %33 = trunc <16 x i64> %32 to <16 x i8>
-  %34 = and <16 x i8> %33, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %35 = or disjoint <16 x i8> %34, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %34 = and <16 x i8> %33, splat (i8 1)
+  %35 = or disjoint <16 x i8> %34, splat (i8 48)
   store <16 x i8> %35, ptr %next.gep, align 1, !tbaa !35
   %index.next = add nuw i64 %index, 16
-  %vec.ind.next = add <16 x i64> %vec.ind, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 -16)
   %36 = icmp eq i64 %index.next, %n.vec
   br i1 %36, label %middle.block, label %vector.body, !llvm.loop !1670
 
@@ -80085,14 +80085,14 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index201 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next210, %vec.epilog.vector.body ]
   %vec.ind205 = phi <8 x i64> [ %induction204, %vec.epilog.ph ], [ %vec.ind.next206, %vec.epilog.vector.body ]
   %next.gep207 = getelementptr i8, ptr %cond.i20.i, i64 %index201
-  %37 = add nsw <8 x i64> %vec.ind205, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %37 = add nsw <8 x i64> %vec.ind205, splat (i64 -1)
   %38 = lshr <8 x i64> %broadcast.splat209, %37
   %39 = trunc <8 x i64> %38 to <8 x i8>
-  %40 = and <8 x i8> %39, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %41 = or disjoint <8 x i8> %40, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %40 = and <8 x i8> %39, splat (i8 1)
+  %41 = or disjoint <8 x i8> %40, splat (i8 48)
   store <8 x i8> %41, ptr %next.gep207, align 1, !tbaa !35
   %index.next210 = add nuw i64 %index201, 8
-  %vec.ind.next206 = add <8 x i64> %vec.ind205, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next206 = add <8 x i64> %vec.ind205, splat (i64 -8)
   %42 = icmp eq i64 %index.next210, %n.vec193
   br i1 %42, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1671
 
@@ -80232,14 +80232,14 @@ vector.body221:                                   ; preds = %vector.body221, %ve
   %index222 = phi i64 [ 0, %vector.ph217 ], [ %index.next231, %vector.body221 ]
   %vec.ind226 = phi <16 x i64> [ %induction225, %vector.ph217 ], [ %vec.ind.next227, %vector.body221 ]
   %next.gep228 = getelementptr i8, ptr %cond.i20.i120, i64 %index222
-  %60 = add nsw <16 x i64> %vec.ind226, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %60 = add nsw <16 x i64> %vec.ind226, splat (i64 -1)
   %61 = lshr <16 x i64> %broadcast.splat230, %60
   %62 = trunc <16 x i64> %61 to <16 x i8>
-  %63 = and <16 x i8> %62, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %64 = or disjoint <16 x i8> %63, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %63 = and <16 x i8> %62, splat (i8 1)
+  %64 = or disjoint <16 x i8> %63, splat (i8 48)
   store <16 x i8> %64, ptr %next.gep228, align 1, !tbaa !35
   %index.next231 = add nuw i64 %index222, 16
-  %vec.ind.next227 = add <16 x i64> %vec.ind226, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next227 = add <16 x i64> %vec.ind226, splat (i64 -16)
   %65 = icmp eq i64 %index.next231, %n.vec219
   br i1 %65, label %middle.block211, label %vector.body221, !llvm.loop !1674
 
@@ -80270,14 +80270,14 @@ vec.epilog.vector.body250:                        ; preds = %vec.epilog.vector.b
   %index251 = phi i64 [ %vec.epilog.resume.val240, %vec.epilog.ph237 ], [ %index.next260, %vec.epilog.vector.body250 ]
   %vec.ind255 = phi <8 x i64> [ %induction254, %vec.epilog.ph237 ], [ %vec.ind.next256, %vec.epilog.vector.body250 ]
   %next.gep257 = getelementptr i8, ptr %cond.i20.i120, i64 %index251
-  %66 = add nsw <8 x i64> %vec.ind255, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %66 = add nsw <8 x i64> %vec.ind255, splat (i64 -1)
   %67 = lshr <8 x i64> %broadcast.splat259, %66
   %68 = trunc <8 x i64> %67 to <8 x i8>
-  %69 = and <8 x i8> %68, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %70 = or disjoint <8 x i8> %69, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %69 = and <8 x i8> %68, splat (i8 1)
+  %70 = or disjoint <8 x i8> %69, splat (i8 48)
   store <8 x i8> %70, ptr %next.gep257, align 1, !tbaa !35
   %index.next260 = add nuw i64 %index251, 8
-  %vec.ind.next256 = add <8 x i64> %vec.ind255, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next256 = add <8 x i64> %vec.ind255, splat (i64 -8)
   %71 = icmp eq i64 %index.next260, %n.vec242
   br i1 %71, label %vec.epilog.middle.block234, label %vec.epilog.vector.body250, !llvm.loop !1675
 
@@ -80663,14 +80663,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <16 x i64> [ %induction, %vector.ph ], [ %vec.ind.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %cond.i20, i64 %index
-  %14 = add nsw <16 x i64> %vec.ind, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %14 = add nsw <16 x i64> %vec.ind, splat (i64 -1)
   %15 = lshr <16 x i64> %broadcast.splat, %14
   %16 = trunc <16 x i64> %15 to <16 x i8>
-  %17 = and <16 x i8> %16, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %18 = or disjoint <16 x i8> %17, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %17 = and <16 x i8> %16, splat (i8 1)
+  %18 = or disjoint <16 x i8> %17, splat (i8 48)
   store <16 x i8> %18, ptr %next.gep, align 1, !tbaa !35
   %index.next = add nuw i64 %index, 16
-  %vec.ind.next = add <16 x i64> %vec.ind, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 -16)
   %19 = icmp eq i64 %index.next, %n.vec
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !1682
 
@@ -80701,14 +80701,14 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index43 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next52, %vec.epilog.vector.body ]
   %vec.ind47 = phi <8 x i64> [ %induction46, %vec.epilog.ph ], [ %vec.ind.next48, %vec.epilog.vector.body ]
   %next.gep49 = getelementptr i8, ptr %cond.i20, i64 %index43
-  %20 = add nsw <8 x i64> %vec.ind47, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %20 = add nsw <8 x i64> %vec.ind47, splat (i64 -1)
   %21 = lshr <8 x i64> %broadcast.splat51, %20
   %22 = trunc <8 x i64> %21 to <8 x i8>
-  %23 = and <8 x i8> %22, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %24 = or disjoint <8 x i8> %23, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %23 = and <8 x i8> %22, splat (i8 1)
+  %24 = or disjoint <8 x i8> %23, splat (i8 48)
   store <8 x i8> %24, ptr %next.gep49, align 1, !tbaa !35
   %index.next52 = add nuw i64 %index43, 8
-  %vec.ind.next48 = add <8 x i64> %vec.ind47, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next48 = add <8 x i64> %vec.ind47, splat (i64 -8)
   %25 = icmp eq i64 %index.next52, %n.vec35
   br i1 %25, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1683
 
@@ -81195,14 +81195,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <16 x i64> [ %induction, %vector.ph ], [ %vec.ind.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %cond.i20.i, i64 %index
-  %31 = add nsw <16 x i64> %vec.ind, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %31 = add nsw <16 x i64> %vec.ind, splat (i64 -1)
   %32 = lshr <16 x i64> %broadcast.splat, %31
   %33 = trunc <16 x i64> %32 to <16 x i8>
-  %34 = and <16 x i8> %33, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %35 = or disjoint <16 x i8> %34, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %34 = and <16 x i8> %33, splat (i8 1)
+  %35 = or disjoint <16 x i8> %34, splat (i8 48)
   store <16 x i8> %35, ptr %next.gep, align 1, !tbaa !35
   %index.next = add nuw i64 %index, 16
-  %vec.ind.next = add <16 x i64> %vec.ind, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 -16)
   %36 = icmp eq i64 %index.next, %n.vec
   br i1 %36, label %middle.block, label %vector.body, !llvm.loop !1685
 
@@ -81233,14 +81233,14 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index201 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next210, %vec.epilog.vector.body ]
   %vec.ind205 = phi <8 x i64> [ %induction204, %vec.epilog.ph ], [ %vec.ind.next206, %vec.epilog.vector.body ]
   %next.gep207 = getelementptr i8, ptr %cond.i20.i, i64 %index201
-  %37 = add nsw <8 x i64> %vec.ind205, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %37 = add nsw <8 x i64> %vec.ind205, splat (i64 -1)
   %38 = lshr <8 x i64> %broadcast.splat209, %37
   %39 = trunc <8 x i64> %38 to <8 x i8>
-  %40 = and <8 x i8> %39, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %41 = or disjoint <8 x i8> %40, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %40 = and <8 x i8> %39, splat (i8 1)
+  %41 = or disjoint <8 x i8> %40, splat (i8 48)
   store <8 x i8> %41, ptr %next.gep207, align 1, !tbaa !35
   %index.next210 = add nuw i64 %index201, 8
-  %vec.ind.next206 = add <8 x i64> %vec.ind205, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next206 = add <8 x i64> %vec.ind205, splat (i64 -8)
   %42 = icmp eq i64 %index.next210, %n.vec193
   br i1 %42, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1686
 
@@ -81380,14 +81380,14 @@ vector.body221:                                   ; preds = %vector.body221, %ve
   %index222 = phi i64 [ 0, %vector.ph217 ], [ %index.next231, %vector.body221 ]
   %vec.ind226 = phi <16 x i64> [ %induction225, %vector.ph217 ], [ %vec.ind.next227, %vector.body221 ]
   %next.gep228 = getelementptr i8, ptr %cond.i20.i120, i64 %index222
-  %60 = add nsw <16 x i64> %vec.ind226, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %60 = add nsw <16 x i64> %vec.ind226, splat (i64 -1)
   %61 = lshr <16 x i64> %broadcast.splat230, %60
   %62 = trunc <16 x i64> %61 to <16 x i8>
-  %63 = and <16 x i8> %62, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %64 = or disjoint <16 x i8> %63, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %63 = and <16 x i8> %62, splat (i8 1)
+  %64 = or disjoint <16 x i8> %63, splat (i8 48)
   store <16 x i8> %64, ptr %next.gep228, align 1, !tbaa !35
   %index.next231 = add nuw i64 %index222, 16
-  %vec.ind.next227 = add <16 x i64> %vec.ind226, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next227 = add <16 x i64> %vec.ind226, splat (i64 -16)
   %65 = icmp eq i64 %index.next231, %n.vec219
   br i1 %65, label %middle.block211, label %vector.body221, !llvm.loop !1689
 
@@ -81418,14 +81418,14 @@ vec.epilog.vector.body250:                        ; preds = %vec.epilog.vector.b
   %index251 = phi i64 [ %vec.epilog.resume.val240, %vec.epilog.ph237 ], [ %index.next260, %vec.epilog.vector.body250 ]
   %vec.ind255 = phi <8 x i64> [ %induction254, %vec.epilog.ph237 ], [ %vec.ind.next256, %vec.epilog.vector.body250 ]
   %next.gep257 = getelementptr i8, ptr %cond.i20.i120, i64 %index251
-  %66 = add nsw <8 x i64> %vec.ind255, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %66 = add nsw <8 x i64> %vec.ind255, splat (i64 -1)
   %67 = lshr <8 x i64> %broadcast.splat259, %66
   %68 = trunc <8 x i64> %67 to <8 x i8>
-  %69 = and <8 x i8> %68, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %70 = or disjoint <8 x i8> %69, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %69 = and <8 x i8> %68, splat (i8 1)
+  %70 = or disjoint <8 x i8> %69, splat (i8 48)
   store <8 x i8> %70, ptr %next.gep257, align 1, !tbaa !35
   %index.next260 = add nuw i64 %index251, 8
-  %vec.ind.next256 = add <8 x i64> %vec.ind255, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next256 = add <8 x i64> %vec.ind255, splat (i64 -8)
   %71 = icmp eq i64 %index.next260, %n.vec242
   br i1 %71, label %vec.epilog.middle.block234, label %vec.epilog.vector.body250, !llvm.loop !1690
 
@@ -81811,14 +81811,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <16 x i64> [ %induction, %vector.ph ], [ %vec.ind.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %cond.i20, i64 %index
-  %14 = add nsw <16 x i64> %vec.ind, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %14 = add nsw <16 x i64> %vec.ind, splat (i64 -1)
   %15 = lshr <16 x i64> %broadcast.splat, %14
   %16 = trunc <16 x i64> %15 to <16 x i8>
-  %17 = and <16 x i8> %16, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %18 = or disjoint <16 x i8> %17, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %17 = and <16 x i8> %16, splat (i8 1)
+  %18 = or disjoint <16 x i8> %17, splat (i8 48)
   store <16 x i8> %18, ptr %next.gep, align 1, !tbaa !35
   %index.next = add nuw i64 %index, 16
-  %vec.ind.next = add <16 x i64> %vec.ind, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 -16)
   %19 = icmp eq i64 %index.next, %n.vec
   br i1 %19, label %middle.block, label %vector.body, !llvm.loop !1697
 
@@ -81849,14 +81849,14 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index43 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next52, %vec.epilog.vector.body ]
   %vec.ind47 = phi <8 x i64> [ %induction46, %vec.epilog.ph ], [ %vec.ind.next48, %vec.epilog.vector.body ]
   %next.gep49 = getelementptr i8, ptr %cond.i20, i64 %index43
-  %20 = add nsw <8 x i64> %vec.ind47, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %20 = add nsw <8 x i64> %vec.ind47, splat (i64 -1)
   %21 = lshr <8 x i64> %broadcast.splat51, %20
   %22 = trunc <8 x i64> %21 to <8 x i8>
-  %23 = and <8 x i8> %22, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %24 = or disjoint <8 x i8> %23, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %23 = and <8 x i8> %22, splat (i8 1)
+  %24 = or disjoint <8 x i8> %23, splat (i8 48)
   store <8 x i8> %24, ptr %next.gep49, align 1, !tbaa !35
   %index.next52 = add nuw i64 %index43, 8
-  %vec.ind.next48 = add <8 x i64> %vec.ind47, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next48 = add <8 x i64> %vec.ind47, splat (i64 -8)
   %25 = icmp eq i64 %index.next52, %n.vec35
   br i1 %25, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1698
 
@@ -82370,8 +82370,8 @@ vector.ph233:                                     ; preds = %for.body.i.i.prehea
   %32 = add nsw <16 x i64> %.splat244, <i64 -65, i64 -66, i64 -67, i64 -68, i64 -69, i64 -70, i64 -71, i64 -72, i64 -73, i64 -74, i64 -75, i64 -76, i64 -77, i64 -78, i64 -79, i64 -80>
   %33 = lshr <16 x i64> %broadcast.splat250, %32
   %34 = trunc <16 x i64> %33 to <16 x i8>
-  %35 = and <16 x i8> %34, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %36 = or disjoint <16 x i8> %35, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %35 = and <16 x i8> %34, splat (i8 1)
+  %36 = or disjoint <16 x i8> %35, splat (i8 48)
   store <16 x i8> %36, ptr %cond.i22.i, align 1, !tbaa !35
   %37 = icmp eq i64 %n.vec235, 16
   br i1 %37, label %middle.block231, label %vector.body241.1, !llvm.loop !1700
@@ -82382,8 +82382,8 @@ vector.body241.1:                                 ; preds = %vector.ph233
   %38 = add nsw <16 x i64> %.splat244, <i64 -81, i64 -82, i64 -83, i64 -84, i64 -85, i64 -86, i64 -87, i64 -88, i64 -89, i64 -90, i64 -91, i64 -92, i64 -93, i64 -94, i64 -95, i64 -96>
   %39 = lshr <16 x i64> %broadcast.splat250, %38
   %40 = trunc <16 x i64> %39 to <16 x i8>
-  %41 = and <16 x i8> %40, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %42 = or disjoint <16 x i8> %41, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %41 = and <16 x i8> %40, splat (i8 1)
+  %42 = or disjoint <16 x i8> %41, splat (i8 48)
   store <16 x i8> %42, ptr %cond.i22.i.sroa.sel, align 1, !tbaa !35
   %43 = icmp eq i64 %n.vec235, 32
   br i1 %43, label %middle.block231, label %vector.body241.2, !llvm.loop !1700
@@ -82394,8 +82394,8 @@ vector.body241.2:                                 ; preds = %vector.body241.1
   %44 = add nsw <16 x i64> %.splat244, <i64 -97, i64 -98, i64 -99, i64 -100, i64 -101, i64 -102, i64 -103, i64 -104, i64 -105, i64 -106, i64 -107, i64 -108, i64 -109, i64 -110, i64 -111, i64 -112>
   %45 = lshr <16 x i64> %broadcast.splat250, %44
   %46 = trunc <16 x i64> %45 to <16 x i8>
-  %47 = and <16 x i8> %46, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %48 = or disjoint <16 x i8> %47, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %47 = and <16 x i8> %46, splat (i8 1)
+  %48 = or disjoint <16 x i8> %47, splat (i8 48)
   store <16 x i8> %48, ptr %cond.i22.i.sroa.sel331, align 1, !tbaa !35
   %49 = icmp eq i64 %n.vec235, 48
   br i1 %49, label %middle.block231, label %vector.body241.3, !llvm.loop !1700
@@ -82406,8 +82406,8 @@ vector.body241.3:                                 ; preds = %vector.body241.2
   %50 = add nsw <16 x i64> %.splat244, <i64 -113, i64 -114, i64 -115, i64 -116, i64 -117, i64 -118, i64 -119, i64 -120, i64 -121, i64 -122, i64 -123, i64 -124, i64 -125, i64 -126, i64 -127, i64 -128>
   %51 = lshr <16 x i64> %broadcast.splat250, %50
   %52 = trunc <16 x i64> %51 to <16 x i8>
-  %53 = and <16 x i8> %52, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %54 = or disjoint <16 x i8> %53, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %53 = and <16 x i8> %52, splat (i8 1)
+  %54 = or disjoint <16 x i8> %53, splat (i8 48)
   store <16 x i8> %54, ptr %cond.i22.i.sroa.sel334, align 1, !tbaa !35
   br label %middle.block231
 
@@ -82443,14 +82443,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <16 x i64> [ %induction, %vector.ph ], [ %vec.ind.next, %vector.body ]
   %next.gep = getelementptr i8, ptr %output7.0.i1219, i64 %index
-  %55 = add nsw <16 x i64> %vec.ind, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %55 = add nsw <16 x i64> %vec.ind, splat (i64 -1)
   %56 = lshr <16 x i64> %broadcast.splat, %55
   %57 = trunc <16 x i64> %56 to <16 x i8>
-  %58 = and <16 x i8> %57, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %59 = or disjoint <16 x i8> %58, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %58 = and <16 x i8> %57, splat (i8 1)
+  %59 = or disjoint <16 x i8> %58, splat (i8 48)
   store <16 x i8> %59, ptr %next.gep, align 1, !tbaa !35
   %index.next = add nuw i64 %index, 16
-  %vec.ind.next = add <16 x i64> %vec.ind, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 -16)
   %60 = icmp eq i64 %index.next, %n.vec
   br i1 %60, label %middle.block, label %vector.body, !llvm.loop !1701
 
@@ -82483,14 +82483,14 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index221 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next230, %vec.epilog.vector.body ]
   %vec.ind225 = phi <8 x i64> [ %induction224, %vec.epilog.ph ], [ %vec.ind.next226, %vec.epilog.vector.body ]
   %next.gep227 = getelementptr i8, ptr %output7.0.i1220, i64 %index221
-  %61 = add nsw <8 x i64> %vec.ind225, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %61 = add nsw <8 x i64> %vec.ind225, splat (i64 -1)
   %62 = lshr <8 x i64> %broadcast.splat229, %61
   %63 = trunc <8 x i64> %62 to <8 x i8>
-  %64 = and <8 x i8> %63, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %65 = or disjoint <8 x i8> %64, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %64 = and <8 x i8> %63, splat (i8 1)
+  %65 = or disjoint <8 x i8> %64, splat (i8 48)
   store <8 x i8> %65, ptr %next.gep227, align 1, !tbaa !35
   %index.next230 = add nuw i64 %index221, 8
-  %vec.ind.next226 = add <8 x i64> %vec.ind225, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next226 = add <8 x i64> %vec.ind225, splat (i64 -8)
   %66 = icmp eq i64 %index.next230, %n.vec213
   br i1 %66, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1702
 
@@ -82658,8 +82658,8 @@ vector.ph306:                                     ; preds = %for.body.i.i151.pre
   %88 = add nsw <16 x i64> %.splat317, <i64 -65, i64 -66, i64 -67, i64 -68, i64 -69, i64 -70, i64 -71, i64 -72, i64 -73, i64 -74, i64 -75, i64 -76, i64 -77, i64 -78, i64 -79, i64 -80>
   %89 = lshr <16 x i64> %broadcast.splat323, %88
   %90 = trunc <16 x i64> %89 to <16 x i8>
-  %91 = and <16 x i8> %90, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %92 = or disjoint <16 x i8> %91, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %91 = and <16 x i8> %90, splat (i8 1)
+  %92 = or disjoint <16 x i8> %91, splat (i8 48)
   store <16 x i8> %92, ptr %cond.i22.i124, align 1, !tbaa !35
   %93 = icmp eq i64 %n.vec308, 16
   br i1 %93, label %middle.block303, label %vector.body314.1, !llvm.loop !1706
@@ -82670,8 +82670,8 @@ vector.body314.1:                                 ; preds = %vector.ph306
   %94 = add nsw <16 x i64> %.splat317, <i64 -81, i64 -82, i64 -83, i64 -84, i64 -85, i64 -86, i64 -87, i64 -88, i64 -89, i64 -90, i64 -91, i64 -92, i64 -93, i64 -94, i64 -95, i64 -96>
   %95 = lshr <16 x i64> %broadcast.splat323, %94
   %96 = trunc <16 x i64> %95 to <16 x i8>
-  %97 = and <16 x i8> %96, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %98 = or disjoint <16 x i8> %97, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %97 = and <16 x i8> %96, splat (i8 1)
+  %98 = or disjoint <16 x i8> %97, splat (i8 48)
   store <16 x i8> %98, ptr %cond.i22.i124.sroa.sel, align 1, !tbaa !35
   %99 = icmp eq i64 %n.vec308, 32
   br i1 %99, label %middle.block303, label %vector.body314.2, !llvm.loop !1706
@@ -82682,8 +82682,8 @@ vector.body314.2:                                 ; preds = %vector.body314.1
   %100 = add nsw <16 x i64> %.splat317, <i64 -97, i64 -98, i64 -99, i64 -100, i64 -101, i64 -102, i64 -103, i64 -104, i64 -105, i64 -106, i64 -107, i64 -108, i64 -109, i64 -110, i64 -111, i64 -112>
   %101 = lshr <16 x i64> %broadcast.splat323, %100
   %102 = trunc <16 x i64> %101 to <16 x i8>
-  %103 = and <16 x i8> %102, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %104 = or disjoint <16 x i8> %103, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %103 = and <16 x i8> %102, splat (i8 1)
+  %104 = or disjoint <16 x i8> %103, splat (i8 48)
   store <16 x i8> %104, ptr %cond.i22.i124.sroa.sel338, align 1, !tbaa !35
   %105 = icmp eq i64 %n.vec308, 48
   br i1 %105, label %middle.block303, label %vector.body314.3, !llvm.loop !1706
@@ -82694,8 +82694,8 @@ vector.body314.3:                                 ; preds = %vector.body314.2
   %106 = add nsw <16 x i64> %.splat317, <i64 -113, i64 -114, i64 -115, i64 -116, i64 -117, i64 -118, i64 -119, i64 -120, i64 -121, i64 -122, i64 -123, i64 -124, i64 -125, i64 -126, i64 -127, i64 -128>
   %107 = lshr <16 x i64> %broadcast.splat323, %106
   %108 = trunc <16 x i64> %107 to <16 x i8>
-  %109 = and <16 x i8> %108, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %110 = or disjoint <16 x i8> %109, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %109 = and <16 x i8> %108, splat (i8 1)
+  %110 = or disjoint <16 x i8> %109, splat (i8 48)
   store <16 x i8> %110, ptr %cond.i22.i124.sroa.sel341, align 1, !tbaa !35
   br label %middle.block303
 
@@ -82731,14 +82731,14 @@ vector.body263:                                   ; preds = %vector.body263, %ve
   %index264 = phi i64 [ 0, %vector.ph259 ], [ %index.next273, %vector.body263 ]
   %vec.ind268 = phi <16 x i64> [ %induction267, %vector.ph259 ], [ %vec.ind.next269, %vector.body263 ]
   %next.gep270 = getelementptr i8, ptr %output7.0.i1272431, i64 %index264
-  %111 = add nsw <16 x i64> %vec.ind268, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %111 = add nsw <16 x i64> %vec.ind268, splat (i64 -1)
   %112 = lshr <16 x i64> %broadcast.splat272, %111
   %113 = trunc <16 x i64> %112 to <16 x i8>
-  %114 = and <16 x i8> %113, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %115 = or disjoint <16 x i8> %114, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %114 = and <16 x i8> %113, splat (i8 1)
+  %115 = or disjoint <16 x i8> %114, splat (i8 48)
   store <16 x i8> %115, ptr %next.gep270, align 1, !tbaa !35
   %index.next273 = add nuw i64 %index264, 16
-  %vec.ind.next269 = add <16 x i64> %vec.ind268, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next269 = add <16 x i64> %vec.ind268, splat (i64 -16)
   %116 = icmp eq i64 %index.next273, %n.vec261
   br i1 %116, label %middle.block252, label %vector.body263, !llvm.loop !1707
 
@@ -82771,14 +82771,14 @@ vec.epilog.vector.body292:                        ; preds = %vec.epilog.vector.b
   %index293 = phi i64 [ %vec.epilog.resume.val282, %vec.epilog.ph279 ], [ %index.next302, %vec.epilog.vector.body292 ]
   %vec.ind297 = phi <8 x i64> [ %induction296, %vec.epilog.ph279 ], [ %vec.ind.next298, %vec.epilog.vector.body292 ]
   %next.gep299 = getelementptr i8, ptr %output7.0.i1272432, i64 %index293
-  %117 = add nsw <8 x i64> %vec.ind297, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %117 = add nsw <8 x i64> %vec.ind297, splat (i64 -1)
   %118 = lshr <8 x i64> %broadcast.splat301, %117
   %119 = trunc <8 x i64> %118 to <8 x i8>
-  %120 = and <8 x i8> %119, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %121 = or disjoint <8 x i8> %120, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %120 = and <8 x i8> %119, splat (i8 1)
+  %121 = or disjoint <8 x i8> %120, splat (i8 48)
   store <8 x i8> %121, ptr %next.gep299, align 1, !tbaa !35
   %index.next302 = add nuw i64 %index293, 8
-  %vec.ind.next298 = add <8 x i64> %vec.ind297, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next298 = add <8 x i64> %vec.ind297, splat (i64 -8)
   %122 = icmp eq i64 %index.next302, %n.vec284
   br i1 %122, label %vec.epilog.middle.block276, label %vec.epilog.vector.body292, !llvm.loop !1708
 
@@ -83200,8 +83200,8 @@ vector.ph:                                        ; preds = %for.body.i.preheade
   %16 = add nsw <16 x i64> %.splat, <i64 -65, i64 -66, i64 -67, i64 -68, i64 -69, i64 -70, i64 -71, i64 -72, i64 -73, i64 -74, i64 -75, i64 -76, i64 -77, i64 -78, i64 -79, i64 -80>
   %17 = lshr <16 x i64> %broadcast.splat, %16
   %18 = trunc <16 x i64> %17 to <16 x i8>
-  %19 = and <16 x i8> %18, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %20 = or disjoint <16 x i8> %19, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %19 = and <16 x i8> %18, splat (i8 1)
+  %20 = or disjoint <16 x i8> %19, splat (i8 48)
   store <16 x i8> %20, ptr %cond.i22, align 1, !tbaa !35
   %21 = icmp eq i64 %n.vec, 16
   br i1 %21, label %middle.block, label %vector.body.1, !llvm.loop !1716
@@ -83213,8 +83213,8 @@ vector.body.1:                                    ; preds = %vector.ph
   %22 = add nsw <16 x i64> %.splat, <i64 -81, i64 -82, i64 -83, i64 -84, i64 -85, i64 -86, i64 -87, i64 -88, i64 -89, i64 -90, i64 -91, i64 -92, i64 -93, i64 -94, i64 -95, i64 -96>
   %23 = lshr <16 x i64> %broadcast.splat, %22
   %24 = trunc <16 x i64> %23 to <16 x i8>
-  %25 = and <16 x i8> %24, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %26 = or disjoint <16 x i8> %25, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %25 = and <16 x i8> %24, splat (i8 1)
+  %26 = or disjoint <16 x i8> %25, splat (i8 48)
   store <16 x i8> %26, ptr %cond.i22.sroa.sel, align 1, !tbaa !35
   %27 = icmp eq i64 %n.vec, 32
   br i1 %27, label %middle.block, label %vector.body.2, !llvm.loop !1716
@@ -83226,8 +83226,8 @@ vector.body.2:                                    ; preds = %vector.body.1
   %28 = add nsw <16 x i64> %.splat, <i64 -97, i64 -98, i64 -99, i64 -100, i64 -101, i64 -102, i64 -103, i64 -104, i64 -105, i64 -106, i64 -107, i64 -108, i64 -109, i64 -110, i64 -111, i64 -112>
   %29 = lshr <16 x i64> %broadcast.splat, %28
   %30 = trunc <16 x i64> %29 to <16 x i8>
-  %31 = and <16 x i8> %30, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %32 = or disjoint <16 x i8> %31, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %31 = and <16 x i8> %30, splat (i8 1)
+  %32 = or disjoint <16 x i8> %31, splat (i8 48)
   store <16 x i8> %32, ptr %cond.i22.sroa.sel86, align 1, !tbaa !35
   %33 = icmp eq i64 %n.vec, 48
   br i1 %33, label %middle.block, label %vector.body.3, !llvm.loop !1716
@@ -83239,8 +83239,8 @@ vector.body.3:                                    ; preds = %vector.body.2
   %34 = add nsw <16 x i64> %.splat, <i64 -113, i64 -114, i64 -115, i64 -116, i64 -117, i64 -118, i64 -119, i64 -120, i64 -121, i64 -122, i64 -123, i64 -124, i64 -125, i64 -126, i64 -127, i64 -128>
   %35 = lshr <16 x i64> %broadcast.splat, %34
   %36 = trunc <16 x i64> %35 to <16 x i8>
-  %37 = and <16 x i8> %36, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %38 = or disjoint <16 x i8> %37, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %37 = and <16 x i8> %36, splat (i8 1)
+  %38 = or disjoint <16 x i8> %37, splat (i8 48)
   store <16 x i8> %38, ptr %cond.i22.sroa.sel89, align 1, !tbaa !35
   br label %middle.block
 
@@ -83276,14 +83276,14 @@ vector.body51:                                    ; preds = %vector.body51, %vec
   %index52 = phi i64 [ 0, %vector.ph47 ], [ %index.next61, %vector.body51 ]
   %vec.ind56 = phi <16 x i64> [ %induction55, %vector.ph47 ], [ %vec.ind.next57, %vector.body51 ]
   %next.gep58 = getelementptr i8, ptr %output7.0512, i64 %index52
-  %39 = add nsw <16 x i64> %vec.ind56, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %39 = add nsw <16 x i64> %vec.ind56, splat (i64 -1)
   %40 = lshr <16 x i64> %broadcast.splat60, %39
   %41 = trunc <16 x i64> %40 to <16 x i8>
-  %42 = and <16 x i8> %41, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %43 = or disjoint <16 x i8> %42, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %42 = and <16 x i8> %41, splat (i8 1)
+  %43 = or disjoint <16 x i8> %42, splat (i8 48)
   store <16 x i8> %43, ptr %next.gep58, align 1, !tbaa !35
   %index.next61 = add nuw i64 %index52, 16
-  %vec.ind.next57 = add <16 x i64> %vec.ind56, <i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16, i64 -16>
+  %vec.ind.next57 = add <16 x i64> %vec.ind56, splat (i64 -16)
   %44 = icmp eq i64 %index.next61, %n.vec49
   br i1 %44, label %middle.block42, label %vector.body51, !llvm.loop !1717
 
@@ -83316,14 +83316,14 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index73 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next82, %vec.epilog.vector.body ]
   %vec.ind77 = phi <8 x i64> [ %induction76, %vec.epilog.ph ], [ %vec.ind.next78, %vec.epilog.vector.body ]
   %next.gep79 = getelementptr i8, ptr %output7.0513, i64 %index73
-  %45 = add nsw <8 x i64> %vec.ind77, <i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1, i64 -1>
+  %45 = add nsw <8 x i64> %vec.ind77, splat (i64 -1)
   %46 = lshr <8 x i64> %broadcast.splat81, %45
   %47 = trunc <8 x i64> %46 to <8 x i8>
-  %48 = and <8 x i8> %47, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %49 = or disjoint <8 x i8> %48, <i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48, i8 48>
+  %48 = and <8 x i8> %47, splat (i8 1)
+  %49 = or disjoint <8 x i8> %48, splat (i8 48)
   store <8 x i8> %49, ptr %next.gep79, align 1, !tbaa !35
   %index.next82 = add nuw i64 %index73, 8
-  %vec.ind.next78 = add <8 x i64> %vec.ind77, <i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8, i64 -8>
+  %vec.ind.next78 = add <8 x i64> %vec.ind77, splat (i64 -8)
   %50 = icmp eq i64 %index.next82, %n.vec65
   br i1 %50, label %vec.epilog.middle.block, label %vec.epilog.vector.body, !llvm.loop !1718
 
@@ -122376,8 +122376,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %4 = getelementptr inbounds i8, ptr %3, i64 2
   %wide.load = load <2 x i8>, ptr %3, align 1, !tbaa !35
   %wide.load137 = load <2 x i8>, ptr %4, align 1, !tbaa !35
-  %5 = icmp sgt <2 x i8> %wide.load, <i8 -65, i8 -65>
-  %6 = icmp sgt <2 x i8> %wide.load137, <i8 -65, i8 -65>
+  %5 = icmp sgt <2 x i8> %wide.load, splat (i8 -65)
+  %6 = icmp sgt <2 x i8> %wide.load137, splat (i8 -65)
   %7 = zext <2 x i1> %5 to <2 x i64>
   %8 = zext <2 x i1> %6 to <2 x i64>
   %9 = add <2 x i64> %vec.phi, %7

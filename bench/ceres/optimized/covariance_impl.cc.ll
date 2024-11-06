@@ -24104,7 +24104,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 104:                                              ; preds = %96
   %105 = load <2 x i64>, ptr %97, align 16
-  %106 = and <2 x i64> %105, <i64 9223372036854775807, i64 9223372036854775807>
+  %106 = and <2 x i64> %105, splat (i64 9223372036854775807)
   %107 = bitcast <2 x i64> %106 to <2 x double>
   %108 = icmp sgt i64 %99, 3
   br i1 %108, label %109, label %141
@@ -24112,7 +24112,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 109:                                              ; preds = %104
   %110 = getelementptr inbounds i8, ptr %97, i64 16
   %111 = load <2 x i64>, ptr %110, align 16
-  %112 = and <2 x i64> %111, <i64 9223372036854775807, i64 9223372036854775807>
+  %112 = and <2 x i64> %111, splat (i64 9223372036854775807)
   %113 = bitcast <2 x i64> %112 to <2 x double>
   %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %97, i64 48
   %114 = icmp ugt i64 %99, 7
@@ -24125,14 +24125,14 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %.17375.i.i.i = phi <2 x double> [ %121, %.lr.ph.i.i.i ], [ %107, %109 ]
   %115 = getelementptr inbounds double, ptr %97, i64 %.05478.i.i.i
   %116 = load <2 x i64>, ptr %115, align 16
-  %117 = and <2 x i64> %116, <i64 9223372036854775807, i64 9223372036854775807>
+  %117 = and <2 x i64> %116, splat (i64 9223372036854775807)
   %118 = bitcast <2 x i64> %117 to <2 x double>
   %119 = fcmp uno <2 x double> %.17375.i.i.i, zeroinitializer
   %120 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %118, <2 x double> %.17375.i.i.i) #37, !srcloc !538
   %121 = select <2 x i1> %119, <2 x double> %.17375.i.i.i, <2 x double> %120
   %gep.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
   %122 = load <2 x i64>, ptr %gep.i.i.i, align 16
-  %123 = and <2 x i64> %122, <i64 9223372036854775807, i64 9223372036854775807>
+  %123 = and <2 x i64> %122, splat (i64 9223372036854775807)
   %124 = bitcast <2 x i64> %123 to <2 x double>
   %125 = fcmp uno <2 x double> %storemerge76.i.i.i, zeroinitializer
   %126 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %124, <2 x double> %storemerge76.i.i.i) #37, !srcloc !538
@@ -24153,7 +24153,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 133:                                              ; preds = %._crit_edge.i.i.i
   %134 = getelementptr inbounds double, ptr %97, i64 %101
   %135 = load <2 x i64>, ptr %134, align 16
-  %136 = and <2 x i64> %135, <i64 9223372036854775807, i64 9223372036854775807>
+  %136 = and <2 x i64> %135, splat (i64 9223372036854775807)
   %137 = bitcast <2 x i64> %136 to <2 x double>
   %138 = fcmp uno <2 x double> %131, zeroinitializer
   %139 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %137, <2 x double> %131) #37, !srcloc !538
@@ -27305,7 +27305,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 
 29:                                               ; preds = %3
   %30 = load <2 x i64>, ptr %21, align 16
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = icmp sgt i64 %24, 3
   br i1 %33, label %34, label %66
@@ -27313,7 +27313,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %21, i64 16
   %36 = load <2 x i64>, ptr %35, align 16
-  %37 = and <2 x i64> %36, <i64 9223372036854775807, i64 9223372036854775807>
+  %37 = and <2 x i64> %36, splat (i64 9223372036854775807)
   %38 = bitcast <2 x i64> %37 to <2 x double>
   %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
   %39 = icmp ugt i64 %24, 7
@@ -27326,14 +27326,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   %.17375.i.i.i = phi <2 x double> [ %46, %.lr.ph.i.i.i ], [ %32, %34 ]
   %40 = getelementptr inbounds double, ptr %21, i64 %.05478.i.i.i
   %41 = load <2 x i64>, ptr %40, align 16
-  %42 = and <2 x i64> %41, <i64 9223372036854775807, i64 9223372036854775807>
+  %42 = and <2 x i64> %41, splat (i64 9223372036854775807)
   %43 = bitcast <2 x i64> %42 to <2 x double>
   %44 = fcmp uno <2 x double> %.17375.i.i.i, zeroinitializer
   %45 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43, <2 x double> %.17375.i.i.i) #37, !srcloc !538
   %46 = select <2 x i1> %44, <2 x double> %.17375.i.i.i, <2 x double> %45
   %gep.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
   %47 = load <2 x i64>, ptr %gep.i.i.i, align 16
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = fcmp uno <2 x double> %storemerge76.i.i.i, zeroinitializer
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %storemerge76.i.i.i) #37, !srcloc !538
@@ -27354,7 +27354,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 58:                                               ; preds = %._crit_edge.i.i.i
   %59 = getelementptr inbounds double, ptr %21, i64 %26
   %60 = load <2 x i64>, ptr %59, align 16
-  %61 = and <2 x i64> %60, <i64 9223372036854775807, i64 9223372036854775807>
+  %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = fcmp uno <2 x double> %56, zeroinitializer
   %64 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %62, <2 x double> %56) #37, !srcloc !538
@@ -46031,7 +46031,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5Block
 
 39:                                               ; preds = %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_8DiagonalINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi0EEELin1ELi1ELb0EEELin1ELi1ELb0EEEEEE8maxCoeffEv.exit
   %40 = load <2 x i64>, ptr %16, align 1
-  %41 = and <2 x i64> %40, <i64 9223372036854775807, i64 9223372036854775807>
+  %41 = and <2 x i64> %40, splat (i64 9223372036854775807)
   %42 = bitcast <2 x i64> %41 to <2 x double>
   %43 = icmp sgt i64 %8, 3
   br i1 %43, label %44, label %68
@@ -46039,7 +46039,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5Block
 44:                                               ; preds = %39
   %45 = getelementptr inbounds i8, ptr %16, i64 16
   %46 = load <2 x i64>, ptr %45, align 1
-  %47 = and <2 x i64> %46, <i64 9223372036854775807, i64 9223372036854775807>
+  %47 = and <2 x i64> %46, splat (i64 9223372036854775807)
   %48 = bitcast <2 x i64> %47 to <2 x double>
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %16, i64 48
   %49 = icmp ugt i64 %8, 7
@@ -46052,12 +46052,12 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5Block
   %.17375.i.i.i.i = phi <2 x double> [ %54, %.lr.ph.i.i.i.i177 ], [ %42, %44 ]
   %50 = getelementptr inbounds double, ptr %16, i64 %.05478.i.i.i.i
   %51 = load <2 x i64>, ptr %50, align 1
-  %52 = and <2 x i64> %51, <i64 9223372036854775807, i64 9223372036854775807>
+  %52 = and <2 x i64> %51, splat (i64 9223372036854775807)
   %53 = bitcast <2 x i64> %52 to <2 x double>
   %54 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i, <2 x double> %53) #37, !srcloc !538
   %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %55 = load <2 x i64>, ptr %gep.i.i.i.i, align 1
-  %56 = and <2 x i64> %55, <i64 9223372036854775807, i64 9223372036854775807>
+  %56 = and <2 x i64> %55, splat (i64 9223372036854775807)
   %57 = bitcast <2 x i64> %56 to <2 x double>
   %58 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge76.i.i.i.i, <2 x double> %57) #37, !srcloc !538
   %.054.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i, 4
@@ -46074,7 +46074,7 @@ _ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5Block
 62:                                               ; preds = %._crit_edge.i.i.i.i
   %63 = getelementptr inbounds double, ptr %16, i64 %36
   %64 = load <2 x i64>, ptr %63, align 1
-  %65 = and <2 x i64> %64, <i64 9223372036854775807, i64 9223372036854775807>
+  %65 = and <2 x i64> %64, splat (i64 9223372036854775807)
   %66 = bitcast <2 x i64> %65 to <2 x double>
   %67 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %60, <2 x double> %66) #37, !srcloc !538
   br label %68
@@ -47784,7 +47784,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 
 29:                                               ; preds = %3
   %30 = load <2 x i64>, ptr %21, align 16
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = icmp sgt i64 %24, 3
   br i1 %33, label %34, label %66
@@ -47792,7 +47792,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %21, i64 16
   %36 = load <2 x i64>, ptr %35, align 16
-  %37 = and <2 x i64> %36, <i64 9223372036854775807, i64 9223372036854775807>
+  %37 = and <2 x i64> %36, splat (i64 9223372036854775807)
   %38 = bitcast <2 x i64> %37 to <2 x double>
   %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
   %39 = icmp ugt i64 %24, 7
@@ -47805,14 +47805,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   %.17375.i.i.i = phi <2 x double> [ %46, %.lr.ph.i.i.i ], [ %32, %34 ]
   %40 = getelementptr inbounds double, ptr %21, i64 %.05478.i.i.i
   %41 = load <2 x i64>, ptr %40, align 16
-  %42 = and <2 x i64> %41, <i64 9223372036854775807, i64 9223372036854775807>
+  %42 = and <2 x i64> %41, splat (i64 9223372036854775807)
   %43 = bitcast <2 x i64> %42 to <2 x double>
   %44 = fcmp uno <2 x double> %.17375.i.i.i, zeroinitializer
   %45 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43, <2 x double> %.17375.i.i.i) #37, !srcloc !538
   %46 = select <2 x i1> %44, <2 x double> %.17375.i.i.i, <2 x double> %45
   %gep.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
   %47 = load <2 x i64>, ptr %gep.i.i.i, align 16
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = fcmp uno <2 x double> %storemerge76.i.i.i, zeroinitializer
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %storemerge76.i.i.i) #37, !srcloc !538
@@ -47833,7 +47833,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 58:                                               ; preds = %._crit_edge.i.i.i
   %59 = getelementptr inbounds double, ptr %21, i64 %26
   %60 = load <2 x i64>, ptr %59, align 16
-  %61 = and <2 x i64> %60, <i64 9223372036854775807, i64 9223372036854775807>
+  %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = fcmp uno <2 x double> %56, zeroinitializer
   %64 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %62, <2 x double> %56) #37, !srcloc !538
@@ -48549,7 +48549,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.021.i.i.i.i.i.i.i.i.i.i = phi i64 [ %446, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKS9_EEEENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i ]
   %443 = getelementptr inbounds double, ptr %426, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %444 = load <2 x i64>, ptr %443, align 1
-  %445 = xor <2 x i64> %444, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %445 = xor <2 x i64> %444, splat (i64 -9223372036854775808)
   store <2 x i64> %445, ptr %443, align 16
   %446 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %447 = icmp slt i64 %446, %436

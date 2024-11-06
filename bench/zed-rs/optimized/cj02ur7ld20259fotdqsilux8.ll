@@ -12406,7 +12406,7 @@ common.ret:                                       ; preds = %115, %29
   br i1 %94, label %119, label %97
 
 ._crit_edge.i.i.i:                                ; preds = %97, %84
-  %95 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %95 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %96 = bitcast <16 x i1> %95 to i16
   %.not.i.i.i.i = icmp eq i16 %96, 0
   br i1 %.not.i.i.i.i, label %101, label %.critedge

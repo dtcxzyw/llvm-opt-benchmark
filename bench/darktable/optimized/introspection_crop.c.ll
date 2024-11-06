@@ -659,16 +659,16 @@ define void @gui_focus(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %58 = getelementptr inbounds i8, ptr %26, i64 8
   %59 = insertelement <2 x float> poison, float %47, i64 0
   %60 = insertelement <2 x float> %59, float %56, i64 1
-  %61 = fsub reassoc nsz arcp contract afn <2 x float> <float 1.000000e+00, float 1.000000e+00>, %60
+  %61 = fsub reassoc nsz arcp contract afn <2 x float> splat (float 1.000000e+00), %60
   %62 = getelementptr inbounds i8, ptr %24, i64 64
   %63 = load <2 x float>, ptr %58, align 4, !tbaa !22
   %64 = insertelement <2 x float> poison, float %41, i64 0
   %65 = insertelement <2 x float> %64, float %50, i64 1
   %66 = fsub reassoc nsz arcp contract afn <2 x float> %63, %65
-  %67 = fcmp reassoc nsz arcp contract afn ult <2 x float> %66, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %67 = fcmp reassoc nsz arcp contract afn ult <2 x float> %66, splat (float 0x3FB99999A0000000)
   %68 = fcmp reassoc nsz arcp contract afn ole <2 x float> %66, %61
   %69 = select <2 x i1> %68, <2 x float> %66, <2 x float> %61
-  %70 = select <2 x i1> %67, <2 x float> <float 0x3FB99999A0000000, float 0x3FB99999A0000000>, <2 x float> %69
+  %70 = select <2 x i1> %67, <2 x float> splat (float 0x3FB99999A0000000), <2 x float> %69
   store <2 x float> %70, ptr %62, align 8, !tbaa !22
   %71 = getelementptr inbounds i8, ptr %24, i64 132
   store i32 0, ptr %71, align 4, !tbaa !90
@@ -1189,8 +1189,8 @@ define internal fastcc void @_aspect_apply(ptr noundef %0, i32 noundef %1) unnam
   %37 = shufflevector <2 x float> %36, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %38 = fmul reassoc nsz arcp contract afn <2 x float> %37, %21
   %39 = fdiv reassoc nsz arcp contract afn <2 x float> %38, %21
-  %40 = fcmp reassoc nsz arcp contract afn olt <2 x float> %39, <float 1.000000e+00, float 1.000000e+00>
-  %41 = select <2 x i1> %40, <2 x float> %39, <2 x float> <float 1.000000e+00, float 1.000000e+00>
+  %40 = fcmp reassoc nsz arcp contract afn olt <2 x float> %39, splat (float 1.000000e+00)
+  %41 = select <2 x i1> %40, <2 x float> %39, <2 x float> splat (float 1.000000e+00)
   %42 = fpext <2 x float> %41 to <2 x double>
   %43 = fpext <2 x float> %36 to <2 x double>
   %44 = insertelement <2 x double> poison, double %32, i64 0
@@ -1208,27 +1208,27 @@ define internal fastcc void @_aspect_apply(ptr noundef %0, i32 noundef %1) unnam
 49:                                               ; preds = %18
   %50 = fadd reassoc nsz arcp contract afn <2 x double> %48, %42
   %51 = fadd reassoc nsz arcp contract afn <2 x double> %42, %29
-  %52 = fmul reassoc nsz arcp contract afn <2 x double> %50, <double 5.000000e-01, double 5.000000e-01>
+  %52 = fmul reassoc nsz arcp contract afn <2 x double> %50, splat (double 5.000000e-01)
   %53 = fsub reassoc nsz arcp contract afn <2 x double> %51, %52
   br label %91
 
 54:                                               ; preds = %18
   %55 = fadd reassoc nsz arcp contract afn <2 x double> %42, %29
   %56 = fadd reassoc nsz arcp contract afn <2 x double> %48, %42
-  %57 = fmul reassoc nsz arcp contract afn <2 x double> %56, <double 5.000000e-01, double 5.000000e-01>
+  %57 = fmul reassoc nsz arcp contract afn <2 x double> %56, splat (double 5.000000e-01)
   %58 = fsub reassoc nsz arcp contract afn <2 x double> %55, %57
   %59 = shufflevector <2 x double> %58, <2 x double> %29, <2 x i32> <i32 0, i32 3>
   br label %91
 
 60:                                               ; preds = %18
   %61 = fadd reassoc nsz arcp contract afn <2 x double> %48, %42
-  %62 = fmul reassoc nsz arcp contract afn <2 x double> %61, <double 5.000000e-01, double 5.000000e-01>
+  %62 = fmul reassoc nsz arcp contract afn <2 x double> %61, splat (double 5.000000e-01)
   br label %91
 
 63:                                               ; preds = %18
   %64 = fadd reassoc nsz arcp contract afn <2 x double> %48, %42
   %65 = fadd reassoc nsz arcp contract afn <2 x double> %42, %29
-  %66 = fmul reassoc nsz arcp contract afn <2 x double> %64, <double 5.000000e-01, double 5.000000e-01>
+  %66 = fmul reassoc nsz arcp contract afn <2 x double> %64, splat (double 5.000000e-01)
   %67 = fsub reassoc nsz arcp contract afn <2 x double> %65, %66
   %68 = shufflevector <2 x double> %29, <2 x double> %67, <2 x i32> <i32 0, i32 3>
   br label %91
@@ -3609,7 +3609,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_set_max_clip(ptr noundef %0
   %66 = insertelement <2 x float> poison, float %58, i64 0
   %67 = insertelement <2 x float> %66, float %60, i64 1
   %68 = fdiv reassoc nsz arcp contract afn <2 x float> %65, %67
-  %69 = call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %68, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %69 = call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %68, <2 x float> splat (float 1.000000e+00))
   %70 = load <2 x float>, ptr %30, align 16, !tbaa !22
   %71 = fdiv reassoc nsz arcp contract afn <2 x float> %63, %67
   %72 = call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %71, <2 x float> zeroinitializer)
@@ -3944,7 +3944,7 @@ define noundef range(i32 0, 2) i32 @mouse_moved(ptr noundef %0, float noundef %1
   %210 = insertelement <2 x float> %209, float %180, i64 1
   %211 = fmul reassoc nsz arcp contract afn <2 x float> %208, %210
   %212 = fsub reassoc nsz arcp contract afn <2 x float> %211, %210
-  %213 = fmul reassoc nsz arcp contract afn <2 x float> %212, <float 5.000000e-01, float 5.000000e-01>
+  %213 = fmul reassoc nsz arcp contract afn <2 x float> %212, splat (float 5.000000e-01)
   %214 = fsub reassoc nsz arcp contract afn <2 x float> %206, %213
   %215 = load <2 x float>, ptr %195, align 8, !tbaa !22
   %216 = call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %214, <2 x float> %215)

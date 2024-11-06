@@ -197,7 +197,7 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %.01323.i = phi ptr [ %42, %.lr.ph.i ], [ %30, %24 ]
   %39 = load <16 x i16>, ptr %.01323.i, align 1
   %40 = zext <16 x i16> %39 to <16 x i32>
-  %41 = shl nuw <16 x i32> %40, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %41 = shl nuw <16 x i32> %40, splat (i32 16)
   store <16 x i32> %41, ptr %.01284.i, align 1
   %42 = getelementptr inbounds i8, ptr %.01323.i, i64 32
   %43 = getelementptr inbounds i8, ptr %.01284.i, i64 64
@@ -220,7 +220,7 @@ define hidden void @_ZN4ncnn32cast_bf16_to_fp32_sse_avx512bf16ERKNS_3MatERS0_RKN
   %.11338.i = phi ptr [ %52, %.lr.ph11.i ], [ %.0132.lcssa.i, %.preheader2.i ]
   %49 = load <8 x i16>, ptr %.11338.i, align 1
   %50 = zext <8 x i16> %49 to <8 x i32>
-  %51 = shl nuw <8 x i32> %50, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %51 = shl nuw <8 x i32> %50, splat (i32 16)
   store <8 x i32> %51, ptr %.11299.i, align 1
   %52 = getelementptr inbounds i8, ptr %.11338.i, i64 16
   %53 = getelementptr inbounds i8, ptr %.11299.i, i64 32

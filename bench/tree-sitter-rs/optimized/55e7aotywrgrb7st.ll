@@ -9336,7 +9336,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread14.i: ; pr
   br i1 %.not.not.i.i.i.i, label %466, label %469
 
 466:                                              ; preds = %465
-  %467 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %467 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %468 = bitcast <16 x i1> %467 to i16
   %.not.i.i.i.i = icmp eq i16 %468, 0
   br i1 %.not.i.i.i.i, label %482, label %select.unfold.invoke
@@ -23579,7 +23579,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState24update_referenced_states17h5dd
 
 1645:                                             ; preds = %.noexc79.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %34), !noalias !4321
-  %1646 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1646 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i.i, splat (i8 -1)
   %1647 = bitcast <16 x i1> %1646 to i16
   %.not.i.i.i.i.i51 = icmp eq i16 %1647, 0
   br i1 %.not.i.i.i.i.i51, label %1652, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hffe3e704d23a745dE.exit.i"
@@ -24820,7 +24820,7 @@ define internal fastcc noundef i64 @"_ZN15tree_sitter_cli8generate12build_tables
   br i1 %.not.not.i.i.i.i, label %49, label %52
 
 49:                                               ; preds = %48
-  %50 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %50 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
   %.not.i.i.i.i = icmp eq i16 %51, 0
   br i1 %.not.i.i.i.i, label %61, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hc2e49e8a59987f74E.exit.thread"
@@ -31149,7 +31149,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet6insert17hd5ca867a7dd68ffaE.exit.i: 
   br i1 %.not.not.i.i.i.i.i, label %1974, label %1977
 
 1974:                                             ; preds = %1973
-  %1975 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1975 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, splat (i8 -1)
   %1976 = bitcast <16 x i1> %1975 to i16
   %.not.i.i.i.i.i126 = icmp eq i16 %1976, 0
   br i1 %.not.i.i.i.i.i126, label %1986, label %.thread30.i116

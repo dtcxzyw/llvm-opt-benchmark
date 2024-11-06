@@ -5712,9 +5712,9 @@ common.resume:                                    ; preds = %153, %87
   %144 = add nsw i64 %.sroa.04.07.i.i, -1
   %145 = getelementptr inbounds i8, ptr %.val9.i, i64 %.sroa.03.06.i.i
   %146 = load <16 x i8>, ptr %145, align 16, !noalias !1362
-  %.lobit.i.i.i = ashr <16 x i8> %146, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %146, splat (i8 7)
   %147 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %148 = or <2 x i64> %147, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %148 = or <2 x i64> %147, splat (i64 -9187201950435737472)
   store <2 x i64> %148, ptr %145, align 16, !noalias !1365
   %.not.i.i = icmp eq i64 %144, 0
   br i1 %.not.i.i, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h55aa29532cffc1f8E.exit.i", label %142
@@ -6055,7 +6055,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find1
   br i1 %21, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc7d4e479069ec58bE.exit.thread.i", %17
-  %22 = icmp eq <16 x i8> %.sroa.0.0.copyload.i20.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %22 = icmp eq <16 x i8> %.sroa.0.0.copyload.i20.i, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
   %24 = icmp eq i16 %23, 0
   br i1 %24, label %66, label %.loopexit

@@ -88,14 +88,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010FuncDetail4initERKNS0_13Func
   %35 = getelementptr inbounds [16 x %"struct.asmjit::_abi_1_10::FuncValuePack"], ptr %21, i64 0, <8 x i64> %33
   %36 = getelementptr inbounds i8, ptr %18, i64 %32
   %37 = tail call <8 x i8> @llvm.masked.load.v8i8.p0(ptr %36, i32 1, <8 x i1> %34, <8 x i8> poison), !tbaa !28
-  %38 = and <8 x i8> %37, <i8 -2, i8 -2, i8 -2, i8 -2, i8 -2, i8 -2, i8 -2, i8 -2>
-  %39 = icmp eq <8 x i8> %38, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %38 = and <8 x i8> %37, splat (i8 -2)
+  %39 = icmp eq <8 x i8> %38, splat (i8 32)
   %40 = select <8 x i1> %39, <8 x i8> %30, <8 x i8> zeroinitializer
   %41 = add <8 x i8> %40, %37
   %42 = zext <8 x i8> %41 to <8 x i32>
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %42, <8 x ptr> %35, i32 4, <8 x i1> %34), !tbaa !29
   %43 = add nuw nsw i64 %32, 8
-  %44 = add <8 x i64> %33, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %44 = add <8 x i64> %33, splat (i64 8)
   %45 = icmp eq i64 %43, %25
   br i1 %45, label %.loopexit, label %31, !llvm.loop !32
 

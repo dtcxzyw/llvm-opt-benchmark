@@ -5610,7 +5610,7 @@ define hidden noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h1e182448fc
   br i1 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h6e1fe35cbe979ed2E.exit.i.i.i", label %120
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %120, %103
-  %118 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %118 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i, splat (i8 -1)
   %119 = bitcast <16 x i1> %118 to i16
   %.not.i.i.i.i.i.i = icmp eq i16 %119, 0
   br i1 %.not.i.i.i.i.i.i, label %124, label %"_ZN67_$LT$gpui..view..View$LT$V$GT$$u20$as$u20$gpui..Entity$LT$V$GT$$GT$12upgrade_from17hc3943e0af9f1acafE.exit.thread.i.i.i"
@@ -19774,7 +19774,7 @@ common.resume.i:                                  ; preds = %36, %32, %27, %98, 
   br i1 %81, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h859c1e60f5812a64E.exit.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h38799cecf2ed230aE.exit.thread.i.i.i"
 
 ._crit_edge.i.i.i:                                ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h38799cecf2ed230aE.exit.thread.i.i.i", %67
-  %82 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %82 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i, splat (i8 -1)
   %83 = bitcast <16 x i1> %82 to i16
   %.not.i.i.i.i = icmp eq i16 %83, 0
   br i1 %.not.i.i.i.i, label %87, label %select.unfold.i

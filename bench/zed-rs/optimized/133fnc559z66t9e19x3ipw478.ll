@@ -36597,7 +36597,7 @@ define void @"_ZN96_$LT$languages..rust..RustContextProvider$u20$as$u20$language
   br i1 %160, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17heb2a556e79826d22E.exit.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h316b4ecb99bbb542E.exit.thread.i.i"
 
 ._crit_edge.i.i:                                  ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h316b4ecb99bbb542E.exit.thread.i.i", %147
-  %161 = icmp eq <16 x i8> %.sroa.0.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %161 = icmp eq <16 x i8> %.sroa.0.0.copyload.i20.i.i, splat (i8 -1)
   %162 = bitcast <16 x i1> %161 to i16
   %.not.i.i.i = icmp eq i16 %162, 0
   br i1 %.not.i.i.i, label %166, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17heb2a556e79826d22E.exit.i"

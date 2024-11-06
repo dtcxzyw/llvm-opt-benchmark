@@ -8797,7 +8797,7 @@ define void @_ZN7ide_ssr11MatchFinder5edits17h90d6bd55aa845affE(ptr noalias noca
 
 40:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7), !noalias !1949
-  %41 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %41 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %42 = bitcast <16 x i1> %41 to i16
   %.not.i.i.i = icmp eq i16 %42, 0
   br i1 %.not.i.i.i, label %48, label %51

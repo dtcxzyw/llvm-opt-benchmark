@@ -3540,7 +3540,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %94 = getelementptr inbounds double, ptr %90, i64 %.011.i.i.i.i.i.i.i.i
   %95 = getelementptr inbounds double, ptr %83, i64 %.011.i.i.i.i.i.i.i.i
   %96 = load <2 x i64>, ptr %95, align 16
-  %97 = xor <2 x i64> %96, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %97 = xor <2 x i64> %96, splat (i64 -9223372036854775808)
   store <2 x i64> %97, ptr %94, align 16
   %98 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
   %99 = icmp slt i64 %98, %92

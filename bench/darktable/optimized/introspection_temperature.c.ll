@@ -1083,7 +1083,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
   %12 = getelementptr inbounds i8, ptr %0, i64 664
   %13 = load ptr, ptr %12, align 8, !tbaa !58
   %14 = getelementptr inbounds i8, ptr %13, i64 2368
-  store <4 x double> <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, ptr %14, align 8, !tbaa !67
+  store <4 x double> splat (double 1.000000e+00), ptr %14, align 8, !tbaa !67
   br label %62
 
 15:                                               ; preds = %4
@@ -1126,7 +1126,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
   br label %44
 
 44:                                               ; preds = %38, %27
-  %.sink2 = phi <2 x double> [ <double 1.000000e+00, double 1.000000e+00>, %38 ], [ %30, %27 ]
+  %.sink2 = phi <2 x double> [ splat (double 1.000000e+00), %38 ], [ %30, %27 ]
   %.sink1 = phi double [ 1.000000e+00, %38 ], [ %34, %27 ]
   %.sink = phi float [ %43, %38 ], [ %36, %27 ]
   %45 = phi double [ 1.000000e+00, %38 ], [ %37, %27 ]
@@ -2148,7 +2148,7 @@ define internal fastcc void @_color_temptint_sliders(ptr nocapture noundef reado
   %185 = shufflevector <2 x double> %182, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %186 = insertelement <2 x double> %185, double %142, i64 1
   %187 = fmul reassoc nsz arcp contract afn <2 x double> %184, %186
-  %188 = fdiv reassoc nsz arcp contract afn <2 x double> <double 1.000000e+00, double 1.000000e+00>, %187
+  %188 = fdiv reassoc nsz arcp contract afn <2 x double> splat (double 1.000000e+00), %187
   %189 = fptrunc <2 x double> %188 to <2 x float>
   %190 = insertelement <2 x double> poison, double %151, i64 0
   %191 = insertelement <2 x double> %190, double %168, i64 1
@@ -2600,7 +2600,7 @@ define internal fastcc void @_color_finetuning_slider(ptr nocapture readonly %0)
 34:                                               ; preds = %16
   %35 = getelementptr inbounds i8, ptr %21, i64 32
   %36 = load <2 x double>, ptr %35, align 8, !tbaa !67
-  %37 = fdiv reassoc nsz arcp contract afn <2 x double> <double 1.000000e+00, double 1.000000e+00>, %36
+  %37 = fdiv reassoc nsz arcp contract afn <2 x double> splat (double 1.000000e+00), %36
   %38 = getelementptr inbounds i8, ptr %21, i64 48
   %39 = load double, ptr %38, align 8, !tbaa !67
   %40 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %39
@@ -2710,7 +2710,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
   %16 = getelementptr inbounds i8, ptr %9, i64 4
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = getelementptr inbounds i8, ptr %9, i64 12
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %9, align 4, !tbaa !6
+  store <4 x float> splat (float 1.000000e+00), ptr %9, align 4, !tbaa !6
   %19 = getelementptr inbounds i8, ptr %0, i64 664
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = icmp eq ptr %20, null
@@ -2840,7 +2840,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
   br i1 %108, label %.preheader10, label %.loopexit11
 
 .loopexit11:                                      ; preds = %105, %102, %74, %60, %41
-  %109 = phi <4 x double> [ %104, %102 ], [ %49, %74 ], [ %73, %60 ], [ <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, %41 ], [ %49, %105 ]
+  %109 = phi <4 x double> [ %104, %102 ], [ %49, %74 ], [ %73, %60 ], [ splat (double 1.000000e+00), %41 ], [ %49, %105 ]
   %110 = icmp eq i32 %28, 0
   br i1 %110, label %121, label %111
 
@@ -2862,7 +2862,7 @@ define void @reload_defaults(ptr noundef %0) local_unnamed_addr #4 {
 
 121:                                              ; preds = %111, %.loopexit11
   %122 = phi double [ %115, %111 ], [ 1.000000e+00, %.loopexit11 ]
-  %123 = phi <2 x double> [ %120, %111 ], [ <double 1.000000e+00, double 1.000000e+00>, %.loopexit11 ]
+  %123 = phi <2 x double> [ %120, %111 ], [ splat (double 1.000000e+00), %.loopexit11 ]
   %124 = load ptr, ptr %19, align 8, !tbaa !58
   %125 = getelementptr inbounds i8, ptr %124, i64 2432
   %126 = getelementptr inbounds i8, ptr %124, i64 2400
@@ -3442,7 +3442,7 @@ define internal fastcc void @_find_coeffs(ptr nocapture noundef readonly %0, ptr
 
 62:                                               ; preds = %51, %.critedge
   %63 = phi double [ %61, %51 ], [ 1.000000e+00, %.critedge ]
-  %64 = phi <2 x double> [ %58, %51 ], [ <double 1.000000e+00, double 1.000000e+00>, %.critedge ]
+  %64 = phi <2 x double> [ %58, %51 ], [ splat (double 1.000000e+00), %.critedge ]
   %65 = extractelement <2 x double> %64, i64 0
   store double %65, ptr %1, align 8, !tbaa !67
   %66 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3880,7 +3880,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
   %82 = getelementptr inbounds i8, ptr %9, i64 384
   store float 0xC7EFFFFFE0000000, ptr %82, align 8, !tbaa !117
   %83 = getelementptr inbounds i8, ptr %9, i64 352
-  store <4 x double> <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, ptr %83, align 8, !tbaa !67
+  store <4 x double> splat (double 1.000000e+00), ptr %83, align 8, !tbaa !67
   %84 = tail call ptr @gtk_event_box_new() #23
   %85 = tail call ptr @g_dpgettext(ptr noundef null, ptr noundef nonnull @.str.44, i64 noundef 8) #23
   %86 = tail call ptr @gtk_label_new(ptr noundef %85) #23
@@ -4994,29 +4994,29 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias noca
   %20 = phi <4 x double> [ zeroinitializer, %9 ], [ %61, %13 ]
   %21 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %9 ], [ %71, %13 ]
   %22 = or disjoint i64 %14, 4
-  %23 = mul <4 x i64> %21, <i64 5, i64 5, i64 5, i64 5>
-  %24 = add nuw nsw <4 x i64> %23, <i64 380, i64 380, i64 380, i64 380>
-  %25 = add <4 x i64> %23, <i64 400, i64 400, i64 400, i64 400>
+  %23 = mul <4 x i64> %21, splat (i64 5)
+  %24 = add nuw nsw <4 x i64> %23, splat (i64 380)
+  %25 = add <4 x i64> %23, splat (i64 400)
   %26 = uitofp <4 x i64> %24 to <4 x double>
   %27 = uitofp <4 x i64> %25 to <4 x double>
-  %28 = fmul reassoc nsz arcp contract afn <4 x double> %26, <double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09>
-  %29 = fmul reassoc nsz arcp contract afn <4 x double> %27, <double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09>
+  %28 = fmul reassoc nsz arcp contract afn <4 x double> %26, splat (double 1.000000e-09)
+  %29 = fmul reassoc nsz arcp contract afn <4 x double> %27, splat (double 1.000000e-09)
   %30 = fpext <4 x double> %28 to <4 x x86_fp80>
   %31 = fpext <4 x double> %29 to <4 x x86_fp80>
   %32 = tail call reassoc nsz arcp contract afn <4 x x86_fp80> @llvm.powi.v4f80.i32(<4 x x86_fp80> %30, i32 5)
   %33 = tail call reassoc nsz arcp contract afn <4 x x86_fp80> @llvm.powi.v4f80.i32(<4 x x86_fp80> %31, i32 5)
   %34 = fmul reassoc nsz arcp contract afn <4 x x86_fp80> %12, %30
   %35 = fmul reassoc nsz arcp contract afn <4 x x86_fp80> %12, %31
-  %36 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> <x86_fp80 0xK3FF8EBBAADF9322EB000, x86_fp80 0xK3FF8EBBAADF9322EB000, x86_fp80 0xK3FF8EBBAADF9322EB000, x86_fp80 0xK3FF8EBBAADF9322EB000>, %34
-  %37 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> <x86_fp80 0xK3FF8EBBAADF9322EB000, x86_fp80 0xK3FF8EBBAADF9322EB000, x86_fp80 0xK3FF8EBBAADF9322EB000, x86_fp80 0xK3FF8EBBAADF9322EB000>, %35
+  %36 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> splat (x86_fp80 0xK3FF8EBBAADF9322EB000), %34
+  %37 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> splat (x86_fp80 0xK3FF8EBBAADF9322EB000), %35
   %38 = tail call reassoc nsz arcp contract afn <4 x x86_fp80> @llvm.exp.v4f80(<4 x x86_fp80> %36)
   %39 = tail call reassoc nsz arcp contract afn <4 x x86_fp80> @llvm.exp.v4f80(<4 x x86_fp80> %37)
-  %40 = fadd reassoc nsz arcp contract afn <4 x x86_fp80> %38, <x86_fp80 0xKBFFF8000000000000000, x86_fp80 0xKBFFF8000000000000000, x86_fp80 0xKBFFF8000000000000000, x86_fp80 0xKBFFF8000000000000000>
-  %41 = fadd reassoc nsz arcp contract afn <4 x x86_fp80> %39, <x86_fp80 0xKBFFF8000000000000000, x86_fp80 0xKBFFF8000000000000000, x86_fp80 0xKBFFF8000000000000000, x86_fp80 0xKBFFF8000000000000000>
+  %40 = fadd reassoc nsz arcp contract afn <4 x x86_fp80> %38, splat (x86_fp80 0xKBFFF8000000000000000)
+  %41 = fadd reassoc nsz arcp contract afn <4 x x86_fp80> %39, splat (x86_fp80 0xKBFFF8000000000000000)
   %42 = fmul reassoc nsz arcp contract afn <4 x x86_fp80> %40, %32
   %43 = fmul reassoc nsz arcp contract afn <4 x x86_fp80> %41, %33
-  %44 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> <x86_fp80 0xK3FCBD7B2CD25CFECF502, x86_fp80 0xK3FCBD7B2CD25CFECF502, x86_fp80 0xK3FCBD7B2CD25CFECF502, x86_fp80 0xK3FCBD7B2CD25CFECF502>, %42
-  %45 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> <x86_fp80 0xK3FCBD7B2CD25CFECF502, x86_fp80 0xK3FCBD7B2CD25CFECF502, x86_fp80 0xK3FCBD7B2CD25CFECF502, x86_fp80 0xK3FCBD7B2CD25CFECF502>, %43
+  %44 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> splat (x86_fp80 0xK3FCBD7B2CD25CFECF502), %42
+  %45 = fdiv reassoc nsz arcp contract afn <4 x x86_fp80> splat (x86_fp80 0xK3FCBD7B2CD25CFECF502), %43
   %46 = fptrunc <4 x x86_fp80> %44 to <4 x double>
   %47 = fptrunc <4 x x86_fp80> %45 to <4 x double>
   %48 = getelementptr inbounds [81 x %struct._cie_colorimetric_observers], ptr @cie_1931_std_colorimetric_observer, i64 0, i64 %14, i32 1
@@ -5042,7 +5042,7 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias noca
   %68 = fadd reassoc nsz arcp contract afn <4 x double> %66, %15
   %69 = fadd reassoc nsz arcp contract afn <4 x double> %67, %16
   %70 = add nuw nsw i64 %14, 8
-  %71 = add <4 x i64> %21, <i64 8, i64 8, i64 8, i64 8>
+  %71 = add <4 x i64> %21, splat (i64 8)
   %72 = icmp eq i64 %70, 80
   br i1 %72, label %73, label %13, !llvm.loop !176
 

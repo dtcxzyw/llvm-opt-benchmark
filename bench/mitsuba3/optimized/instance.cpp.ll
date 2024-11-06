@@ -840,8 +840,8 @@ define weak_odr void @_ZNK7mitsuba8InstanceIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
 
 28:                                               ; preds = %19, %_ZNK7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6cornerEm.exit
   %.070 = phi i32 [ 0, %19 ], [ %50, %_ZNK7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6cornerEm.exit ]
-  %29 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %19 ], [ %48, %_ZNK7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6cornerEm.exit ]
-  %30 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %19 ], [ %49, %_ZNK7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6cornerEm.exit ]
+  %29 = phi <4 x float> [ splat (float 0x7FF0000000000000), %19 ], [ %48, %_ZNK7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6cornerEm.exit ]
+  %30 = phi <4 x float> [ splat (float 0xFFF0000000000000), %19 ], [ %49, %_ZNK7mitsuba11BoundingBoxINS_5PointIfLm3EEEE6cornerEm.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   br label %31
 

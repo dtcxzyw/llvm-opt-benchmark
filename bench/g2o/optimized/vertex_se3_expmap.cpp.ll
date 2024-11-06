@@ -352,7 +352,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEEbRSiRNS2_9D
 _ZN3g2o7SE3QuatC2IN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEERKNS2_10MatrixBaseIT_EE.exit: ; preds = %34, %43
   %.sroa.5.1 = phi <2 x i64> [ %50, %43 ], [ %.sroa.5.0, %34 ]
   %.sroa.0.1 = phi <2 x i64> [ %48, %43 ], [ %.sroa.0.0, %34 ]
-  %51 = xor <2 x i64> %.sroa.0.1, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %51 = xor <2 x i64> %.sroa.0.1, splat (i64 -9223372036854775808)
   %52 = xor <2 x i64> %.sroa.5.1, <i64 -9223372036854775808, i64 0>
   %53 = fneg <2 x double> %.sroa.11.32.copyload
   %54 = fneg double %.sroa.13.32.copyload
@@ -416,7 +416,7 @@ define noundef zeroext i1 @_ZNK3g2o15VertexSE3Expmap5writeERSo(ptr nocapture nou
   %3 = alloca %"class.Eigen::Matrix.34", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load <2 x i64>, ptr %4, align 16, !noalias !6
-  %6 = xor <2 x i64> %5, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %6 = xor <2 x i64> %5, splat (i64 -9223372036854775808)
   %7 = getelementptr inbounds i8, ptr %0, i64 208
   %8 = load <2 x i64>, ptr %7, align 16, !noalias !6
   %9 = xor <2 x i64> %8, <i64 -9223372036854775808, i64 0>
@@ -1514,7 +1514,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6ENS_7SE3QuatEE11solve
 
 106:                                              ; preds = %99
   %107 = load <2 x i64>, ptr %103, align 8
-  %108 = and <2 x i64> %107, <i64 9223372036854775807, i64 9223372036854775807>
+  %108 = and <2 x i64> %107, splat (i64 9223372036854775807)
   %109 = bitcast <2 x i64> %108 to <2 x double>
   %110 = icmp samesign ult i64 %.045.i, 3
   br i1 %110, label %._crit_edge.i.i.i.i.i.i, label %123
@@ -1522,7 +1522,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6ENS_7SE3QuatEE11solve
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %106
   %111 = getelementptr inbounds i8, ptr %103, i64 16
   %112 = load <2 x i64>, ptr %111, align 8
-  %113 = and <2 x i64> %112, <i64 9223372036854775807, i64 9223372036854775807>
+  %113 = and <2 x i64> %112, splat (i64 9223372036854775807)
   %114 = bitcast <2 x i64> %113 to <2 x double>
   %115 = fadd <2 x double> %109, %114
   %116 = icmp samesign ugt i64 %105, %104
@@ -1531,7 +1531,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6ENS_7SE3QuatEE11solve
 117:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %118 = getelementptr inbounds double, ptr %103, i64 %104
   %119 = load <2 x i64>, ptr %118, align 8
-  %120 = and <2 x i64> %119, <i64 9223372036854775807, i64 9223372036854775807>
+  %120 = and <2 x i64> %119, splat (i64 9223372036854775807)
   %121 = bitcast <2 x i64> %120 to <2 x double>
   %122 = fadd <2 x double> %115, %121
   br label %123

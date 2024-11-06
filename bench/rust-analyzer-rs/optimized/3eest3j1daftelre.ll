@@ -20980,7 +20980,7 @@ _ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.11762030844908852975.exit
   br label %.lr.ph.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h436725e9209235c3E.exit._crit_edge.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h436725e9209235c3E.exit.backedge.i.i.i.i", %1151
-  %1157 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1157 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %1158 = bitcast <16 x i1> %1157 to i16
   %.not.i.i.i.i.i = icmp eq i16 %1158, 0
   br i1 %.not.i.i.i.i.i, label %1189, label %select.unfold.loopexit.i
@@ -30416,7 +30416,7 @@ define hidden { i32, i32 } @_ZN3hir9semantics13SemanticsImpl6lookup17h893c6d4a3c
   br i1 %.not.i4.not.i.i.i, label %34, label %37
 
 34:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %35 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %35 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %36 = bitcast <16 x i1> %35 to i16
   %.not.i.i.i.i = icmp eq i16 %36, 0
   br i1 %.not.i.i.i.i, label %60, label %.thread

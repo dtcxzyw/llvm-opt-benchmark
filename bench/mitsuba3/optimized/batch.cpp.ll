@@ -1720,8 +1720,8 @@ define weak_odr void @_ZNK7mitsuba11BatchSensorIfN5drjit6MatrixINS_8SpectrumIfLm
 9:                                                ; preds = %.lr.ph, %9
   %10 = phi ptr [ %7, %.lr.ph ], [ %24, %9 ]
   %.05 = phi i64 [ 0, %.lr.ph ], [ %22, %9 ]
-  %11 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph ], [ %19, %9 ]
-  %12 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph ], [ %21, %9 ]
+  %11 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph ], [ %19, %9 ]
+  %12 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph ], [ %21, %9 ]
   %13 = getelementptr inbounds %"class.mitsuba::ref.30", ptr %10, i64 %.05
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr %14, align 16
@@ -1743,8 +1743,8 @@ define weak_odr void @_ZNK7mitsuba11BatchSensorIfN5drjit6MatrixINS_8SpectrumIfLm
   br i1 %29, label %9, label %._crit_edge, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %9, %2
-  %.lcssa4 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %2 ], [ %21, %9 ]
-  %.lcssa = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %2 ], [ %19, %9 ]
+  %.lcssa4 = phi <4 x float> [ splat (float 0xFFF0000000000000), %2 ], [ %21, %9 ]
+  %.lcssa = phi <4 x float> [ splat (float 0x7FF0000000000000), %2 ], [ %19, %9 ]
   %30 = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x float> %.lcssa, ptr %0, align 16
   store <4 x float> %.lcssa4, ptr %30, align 16

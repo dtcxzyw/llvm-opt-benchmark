@@ -21803,7 +21803,7 @@ define noundef nonnull ptr @_ZN8worktree13LocalSnapshot25ignore_stack_for_abs_pa
   br i1 %79, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hee0e984e37ba87c9E.exit", label %82
 
 ._crit_edge.i.i:                                  ; preds = %82, %65
-  %80 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %80 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %81 = bitcast <16 x i1> %80 to i16
   %.not.i.i.i = icmp eq i16 %81, 0
   br i1 %.not.i.i.i, label %86, label %select.unfold
@@ -22464,7 +22464,7 @@ _ZN3std4sync4once4Once9call_once17h1aca9eb28ec66441E.exit: ; preds = %14, %24
   br i1 %62, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17he5c10c77dea74249E.exit", label %65
 
 ._crit_edge.i.i:                                  ; preds = %65, %52
-  %63 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %63 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %64 = bitcast <16 x i1> %63 to i16
   %.not.i.i.i = icmp eq i16 %64, 0
   br i1 %.not.i.i.i, label %69, label %select.unfold
@@ -24344,7 +24344,7 @@ define void @_ZN8worktree22BackgroundScannerState11remove_path17hb4ef097020c9e85
   br i1 %155, label %188, label %158
 
 ._crit_edge.i.i:                                  ; preds = %158, %146
-  %156 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %156 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %157 = bitcast <16 x i1> %156 to i16
   %.not.i.i.i66 = icmp eq i16 %157, 0
   br i1 %.not.i.i.i66, label %162, label %165
@@ -24978,7 +24978,7 @@ _ZN3std4path4Path4join17hebaa441b54156101E.exit:  ; preds = %386
   br i1 %413, label %424, label %416
 
 ._crit_edge.i.i98:                                ; preds = %416, %399
-  %414 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %414 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %415 = bitcast <16 x i1> %414 to i16
   %.not.i.i.i99 = icmp eq i16 %415, 0
   br i1 %.not.i.i.i99, label %420, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$13get_inner_mut17h7ce063c063027326E.exit.thread"

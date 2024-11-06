@@ -1347,7 +1347,7 @@ if.else:                                          ; preds = %entry
 for.body33.lr.ph:                                 ; preds = %if.else
   %11 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
   %12 = bitcast <2 x i64> %11 to <4 x i32>
-  %not.i.i.i = xor <4 x i32> %12, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i.i.i = xor <4 x i32> %12, splat (i32 -1)
   %13 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
   %14 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
   %15 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
@@ -1399,7 +1399,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %35 = bitcast <4 x float> %mul.i70 to <2 x i64>
   %and.i58.i.i = and <2 x i64> %11, %35
   %36 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %37 = lshr <4 x i32> %36, <i32 23, i32 23, i32 23, i32 23>
+  %37 = lshr <4 x i32> %36, splat (i32 23)
   %sub.i.i.i = sub <4 x i32> %37, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
@@ -1409,7 +1409,7 @@ for.body33:                                       ; preds = %for.body33.lr.ph, %
   %40 = sext <4 x i1> %39 to <4 x i32>
   %add.i55.i.i = add <4 x i32> %38, %40
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %41 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %41 = shl <4 x i32> %add.i52.i5.i, splat (i32 23)
   %42 = bitcast <4 x i32> %41 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
@@ -2145,7 +2145,7 @@ if.else:                                          ; preds = %entry
 for.body36.lr.ph:                                 ; preds = %if.else
   %11 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
   %12 = bitcast <2 x i64> %11 to <4 x i32>
-  %not.i.i.i = xor <4 x i32> %12, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i.i.i = xor <4 x i32> %12, splat (i32 -1)
   %13 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
   %14 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
   %15 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
@@ -2197,7 +2197,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %35 = bitcast <4 x float> %mul.i73 to <2 x i64>
   %and.i58.i.i = and <2 x i64> %11, %35
   %36 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %37 = lshr <4 x i32> %36, <i32 23, i32 23, i32 23, i32 23>
+  %37 = lshr <4 x i32> %36, splat (i32 23)
   %sub.i.i.i = sub <4 x i32> %37, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
@@ -2207,7 +2207,7 @@ for.body36:                                       ; preds = %for.body36.lr.ph, %
   %40 = sext <4 x i1> %39 to <4 x i32>
   %add.i55.i.i = add <4 x i32> %38, %40
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %41 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %41 = shl <4 x i32> %add.i52.i5.i, splat (i32 23)
   %42 = bitcast <4 x i32> %41 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
@@ -2409,7 +2409,7 @@ if.else:                                          ; preds = %entry
 for.body34.lr.ph:                                 ; preds = %if.else
   %11 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
   %12 = bitcast <2 x i64> %11 to <4 x i32>
-  %not.i.i.i = xor <4 x i32> %12, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i.i.i = xor <4 x i32> %12, splat (i32 -1)
   %13 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
   %14 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
   %15 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
@@ -2461,7 +2461,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %35 = bitcast <4 x float> %mul.i71 to <2 x i64>
   %and.i58.i.i = and <2 x i64> %11, %35
   %36 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %37 = lshr <4 x i32> %36, <i32 23, i32 23, i32 23, i32 23>
+  %37 = lshr <4 x i32> %36, splat (i32 23)
   %sub.i.i.i = sub <4 x i32> %37, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
@@ -2471,7 +2471,7 @@ for.body34:                                       ; preds = %for.body34.lr.ph, %
   %40 = sext <4 x i1> %39 to <4 x i32>
   %add.i55.i.i = add <4 x i32> %38, %40
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %41 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %41 = shl <4 x i32> %add.i52.i5.i, splat (i32 23)
   %42 = bitcast <4 x i32> %41 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
@@ -2677,7 +2677,7 @@ if.else:                                          ; preds = %entry
 for.body37.lr.ph:                                 ; preds = %if.else
   %11 = load <2 x i64>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
   %12 = bitcast <2 x i64> %11 to <4 x i32>
-  %not.i.i.i = xor <4 x i32> %12, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i.i.i = xor <4 x i32> %12, splat (i32 -1)
   %13 = load <4 x i32>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
   %14 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
   %15 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
@@ -2729,7 +2729,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %35 = bitcast <4 x float> %mul.i74 to <2 x i64>
   %and.i58.i.i = and <2 x i64> %11, %35
   %36 = bitcast <2 x i64> %and.i58.i.i to <4 x i32>
-  %37 = lshr <4 x i32> %36, <i32 23, i32 23, i32 23, i32 23>
+  %37 = lshr <4 x i32> %36, splat (i32 23)
   %sub.i.i.i = sub <4 x i32> %37, %20
   %conv.i.i.i = sitofp <4 x i32> %sub.i.i.i to <4 x float>
   %add.i.i.i = fadd <4 x float> %add.i40.i.i, %conv.i.i.i
@@ -2739,7 +2739,7 @@ for.body37:                                       ; preds = %for.body37.lr.ph, %
   %40 = sext <4 x i1> %39 to <4 x i32>
   %add.i55.i.i = add <4 x i32> %38, %40
   %add.i52.i5.i = add <4 x i32> %add.i55.i.i, %20
-  %41 = shl <4 x i32> %add.i52.i5.i, <i32 23, i32 23, i32 23, i32 23>
+  %41 = shl <4 x i32> %add.i52.i5.i, splat (i32 23)
   %42 = bitcast <4 x i32> %41 to <4 x float>
   %conv.i.i6.i = sitofp <4 x i32> %add.i55.i.i to <4 x float>
   %sub.i.i7.i = fsub <4 x float> %mul.i.i, %conv.i.i6.i
@@ -3152,23 +3152,23 @@ define internal void @_GLOBAL__sub_I_ExposureContrastOpCPU.cpp() #21 section ".t
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #24
-  store <2 x i64> <i64 9187343241974906880, i64 9187343241974906880>, ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
-  store <2 x i64> <i64 545460846719, i64 545460846719>, ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
-  store <4 x float> <float -1.260000e+02, float -1.260000e+02, float -1.260000e+02, float -1.260000e+02>, ptr @_ZN19OpenColorIO_v2_4devL7ENEG126E, align 16
-  store <4 x float> <float 1.280000e+02, float 1.280000e+02, float 1.280000e+02, float 1.280000e+02>, ptr @_ZN19OpenColorIO_v2_4devL7EPOS128E, align 16
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr @_ZN19OpenColorIO_v2_4devL7EPOSINFE, align 16
-  store <4 x float> <float 0x3FA6F9ACA0000000, float 0x3FA6F9ACA0000000, float 0x3FA6F9ACA0000000, float 0x3FA6F9ACA0000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
-  store <4 x float> <float 0xBFDAA8FAE0000000, float 0xBFDAA8FAE0000000, float 0xBFDAA8FAE0000000, float 0xBFDAA8FAE0000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
-  store <4 x float> <float 0x3FFA192F80000000, float 0x3FFA192F80000000, float 0x3FFA192F80000000, float 0x3FFA192F80000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG3E, align 16
-  store <4 x float> <float 0xC00C680620000000, float 0xC00C680620000000, float 0xC00C680620000000, float 0xC00C680620000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG2E, align 16
-  store <4 x float> <float 0x40145DE980000000, float 0x40145DE980000000, float 0x40145DE980000000, float 0x40145DE980000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG1E, align 16
-  store <4 x float> <float 0xC006672540000000, float 0xC006672540000000, float 0xC006672540000000, float 0xC006672540000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNLOG0E, align 16
-  store <4 x float> <float 0x3F8BB7CD40000000, float 0x3F8BB7CD40000000, float 0x3F8BB7CD40000000, float 0x3F8BB7CD40000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP4E, align 16
-  store <4 x float> <float 0x3FAAA13F00000000, float 0x3FAAA13F00000000, float 0x3FAAA13F00000000, float 0x3FAAA13F00000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP3E, align 16
-  store <4 x float> <float 0x3FCEE798A0000000, float 0x3FCEE798A0000000, float 0x3FCEE798A0000000, float 0x3FCEE798A0000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP2E, align 16
-  store <4 x float> <float 0x3FE62D1660000000, float 0x3FE62D1660000000, float 0x3FE62D1660000000, float 0x3FE62D1660000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP1E, align 16
-  store <4 x float> <float 0x3FF00002C0000000, float 0x3FF00002C0000000, float 0x3FF00002C0000000, float 0x3FF00002C0000000>, ptr @_ZN19OpenColorIO_v2_4devL6PNEXP0E, align 16
+  store <2 x i64> splat (i64 9187343241974906880), ptr @_ZN19OpenColorIO_v2_4devL5EMASKE, align 16
+  store <2 x i64> splat (i64 545460846719), ptr @_ZN19OpenColorIO_v2_4devL5EBIASE, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
+  store <4 x float> splat (float -1.260000e+02), ptr @_ZN19OpenColorIO_v2_4devL7ENEG126E, align 16
+  store <4 x float> splat (float 1.280000e+02), ptr @_ZN19OpenColorIO_v2_4devL7EPOS128E, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr @_ZN19OpenColorIO_v2_4devL7EPOSINFE, align 16
+  store <4 x float> splat (float 0x3FA6F9ACA0000000), ptr @_ZN19OpenColorIO_v2_4devL6PNLOG5E, align 16
+  store <4 x float> splat (float 0xBFDAA8FAE0000000), ptr @_ZN19OpenColorIO_v2_4devL6PNLOG4E, align 16
+  store <4 x float> splat (float 0x3FFA192F80000000), ptr @_ZN19OpenColorIO_v2_4devL6PNLOG3E, align 16
+  store <4 x float> splat (float 0xC00C680620000000), ptr @_ZN19OpenColorIO_v2_4devL6PNLOG2E, align 16
+  store <4 x float> splat (float 0x40145DE980000000), ptr @_ZN19OpenColorIO_v2_4devL6PNLOG1E, align 16
+  store <4 x float> splat (float 0xC006672540000000), ptr @_ZN19OpenColorIO_v2_4devL6PNLOG0E, align 16
+  store <4 x float> splat (float 0x3F8BB7CD40000000), ptr @_ZN19OpenColorIO_v2_4devL6PNEXP4E, align 16
+  store <4 x float> splat (float 0x3FAAA13F00000000), ptr @_ZN19OpenColorIO_v2_4devL6PNEXP3E, align 16
+  store <4 x float> splat (float 0x3FCEE798A0000000), ptr @_ZN19OpenColorIO_v2_4devL6PNEXP2E, align 16
+  store <4 x float> splat (float 0x3FE62D1660000000), ptr @_ZN19OpenColorIO_v2_4devL6PNEXP1E, align 16
+  store <4 x float> splat (float 0x3FF00002C0000000), ptr @_ZN19OpenColorIO_v2_4devL6PNEXP0E, align 16
   ret void
 }
 

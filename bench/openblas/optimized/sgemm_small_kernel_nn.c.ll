@@ -2224,9 +2224,9 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1704 = mul nsw i64 %1583, %10
   %1705 = add nsw i64 %1704, %1551
   %1706 = getelementptr inbounds float, ptr %9, i64 %1705
-  %1707 = tail call <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr %1706, <4 x i32> %1018, <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, i8 4)
+  %1707 = tail call <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr %1706, <4 x i32> %1018, <4 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %1708 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %1707, <4 x float> %1012, <4 x float> %1703)
-  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %1706, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %1018, <4 x float> %1708, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %1706, <4 x i1> splat (i1 true), <4 x i32> %1018, <4 x float> %1708, i32 4)
   %1709 = shufflevector <16 x float> %1678, <16 x float> %1680, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %1710 = shufflevector <16 x float> %1678, <16 x float> %1680, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
   %1711 = shufflevector <16 x float> %1682, <16 x float> %1684, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
@@ -2248,9 +2248,9 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %1727 = fmul <4 x float> %1011, %1726
   %1728 = or disjoint i64 %1705, 1
   %1729 = getelementptr inbounds float, ptr %9, i64 %1728
-  %1730 = tail call <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr nonnull %1729, <4 x i32> %1018, <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, i8 4)
+  %1730 = tail call <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr nonnull %1729, <4 x i32> %1018, <4 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %1731 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %1730, <4 x float> %1012, <4 x float> %1727)
-  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr nonnull %1729, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %1018, <4 x float> %1731, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr nonnull %1729, <4 x i1> splat (i1 true), <4 x i32> %1018, <4 x float> %1731, i32 4)
   %1732 = add nuw nsw i64 %1583, 4
   %1733 = icmp slt i64 %1732, %19
   br i1 %1733, label %1582, label %.loopexit150, !llvm.loop !119
@@ -2589,9 +2589,9 @@ define noundef i32 @sgemm_small_kernel_nn(i64 noundef %0, i64 noundef %1, i64 no
   %2000 = fmul <4 x float> %1011, %1999
   %2001 = mul nsw i64 %1904, %10
   %2002 = getelementptr float, ptr %1894, i64 %2001
-  %2003 = tail call <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr %2002, <4 x i32> %1018, <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, i8 4)
+  %2003 = tail call <4 x float> @llvm.x86.avx2.gather.d.ps(<4 x float> zeroinitializer, ptr %2002, <4 x i32> %1018, <4 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %2004 = tail call <4 x float> @llvm.fma.v4f32(<4 x float> %2003, <4 x float> %1012, <4 x float> %2000)
-  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %2002, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %1018, <4 x float> %2004, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %2002, <4 x i1> splat (i1 true), <4 x i32> %1018, <4 x float> %2004, i32 4)
   %2005 = add nuw nsw i64 %1904, 4
   %2006 = icmp slt i64 %2005, %19
   br i1 %2006, label %1903, label %.loopexit143, !llvm.loop !126

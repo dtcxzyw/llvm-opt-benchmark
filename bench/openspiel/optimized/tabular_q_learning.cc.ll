@@ -2019,7 +2019,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %71
   %184 = phi ptr [ %194, %.lr.ph.i.i ], [ %181, %175 ]
   %185 = phi ptr [ %193, %.lr.ph.i.i ], [ %180, %175 ]
   %186 = load <16 x i8>, ptr %185, align 1
-  %187 = icmp slt <16 x i8> %186, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %187 = icmp slt <16 x i8> %186, splat (i8 -1)
   %188 = bitcast <16 x i1> %187 to i16
   %189 = zext i16 %188 to i32
   %190 = add nuw nsw i32 %189, 1
@@ -2301,7 +2301,7 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i: ; preds = %298
   %305 = phi ptr [ %315, %.lr.ph.i.i85 ], [ %302, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ]
   %306 = phi ptr [ %314, %.lr.ph.i.i85 ], [ %301, %_ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i ]
   %307 = load <16 x i8>, ptr %306, align 1
-  %308 = icmp slt <16 x i8> %307, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %308 = icmp slt <16 x i8> %307, splat (i8 -1)
   %309 = bitcast <16 x i1> %308 to i16
   %310 = zext i16 %309 to i32
   %311 = add nuw nsw i32 %310, 1
@@ -2532,7 +2532,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEdEEvE5applyINS1_12raw_hash_setISC_NS0_13hash_internal4HashISB_EESt8equal_toISB_ESaIS4_IKSB_dEEE12EqualElementISB_EEJRSM_ESC_EEDTclsrT1_5applyclsr3stdE7forwardIT_Efp_Espclsr3stdE7forwardIT0_Efp0_EEEOST_DpOSU_.exit.thread, %33
-  %64 = icmp eq <16 x i8> %36, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %64 = icmp eq <16 x i8> %36, splat (i8 -128)
   %65 = bitcast <16 x i1> %64 to i16
   %.not27 = icmp eq i16 %65, 0
   br i1 %.not27, label %66, label %69
@@ -2567,7 +2567,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian218container_internal12raw_hash_
   %10 = and i64 %9, %5
   %11 = getelementptr inbounds i8, ptr %3, i64 %10
   %12 = load <16 x i8>, ptr %11, align 1
-  %13 = icmp slt <16 x i8> %12, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %13 = icmp slt <16 x i8> %12, splat (i8 -1)
   %14 = bitcast <16 x i1> %13 to i16
   %.not10.i = icmp eq i16 %14, 0
   br i1 %.not10.i, label %.lr.ph.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
@@ -2580,7 +2580,7 @@ define linkonce_odr noundef i64 @_ZN4absl7debian218container_internal12raw_hash_
   %17 = and i64 %16, %5
   %18 = getelementptr inbounds i8, ptr %3, i64 %17
   %19 = load <16 x i8>, ptr %18, align 1
-  %20 = icmp slt <16 x i8> %19, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %20 = icmp slt <16 x i8> %19, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i = icmp eq i16 %21, 0
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !62
@@ -2639,7 +2639,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pa
   %51 = and i64 %50, %47
   %52 = getelementptr inbounds i8, ptr %46, i64 %51
   %53 = load <16 x i8>, ptr %52, align 1
-  %54 = icmp slt <16 x i8> %53, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %54 = icmp slt <16 x i8> %53, splat (i8 -1)
   %55 = bitcast <16 x i1> %54 to i16
   %.not10.i9 = icmp eq i16 %55, 0
   br i1 %.not10.i9, label %.lr.ph.i15, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19
@@ -2652,7 +2652,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pa
   %58 = and i64 %57, %47
   %59 = getelementptr inbounds i8, ptr %46, i64 %58
   %60 = load <16 x i8>, ptr %59, align 1
-  %61 = icmp slt <16 x i8> %60, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %61 = icmp slt <16 x i8> %60, splat (i8 -1)
   %62 = bitcast <16 x i1> %61 to i16
   %.not.i18 = icmp eq i16 %62, 0
   br i1 %.not.i18, label %.lr.ph.i15, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit19, !llvm.loop !62
@@ -2889,7 +2889,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   %52 = and i64 %51, %47
   %53 = getelementptr inbounds i8, ptr %46, i64 %52
   %54 = load <16 x i8>, ptr %53, align 1
-  %55 = icmp slt <16 x i8> %54, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %55 = icmp slt <16 x i8> %54, splat (i8 -1)
   %56 = bitcast <16 x i1> %55 to i16
   %.not10.i = icmp eq i16 %56, 0
   br i1 %.not10.i, label %.lr.ph.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
@@ -2902,7 +2902,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   %59 = and i64 %58, %47
   %60 = getelementptr inbounds i8, ptr %46, i64 %59
   %61 = load <16 x i8>, ptr %60, align 1
-  %62 = icmp slt <16 x i8> %61, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %62 = icmp slt <16 x i8> %61, splat (i8 -1)
   %63 = bitcast <16 x i1> %62 to i16
   %.not.i = icmp eq i16 %63, 0
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !62
@@ -3019,7 +3019,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   %42 = and i64 %41, %37
   %43 = getelementptr inbounds i8, ptr %36, i64 %42
   %44 = load <16 x i8>, ptr %43, align 1
-  %45 = icmp slt <16 x i8> %44, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %45 = icmp slt <16 x i8> %44, splat (i8 -1)
   %46 = bitcast <16 x i1> %45 to i16
   %.not10.i = icmp eq i16 %46, 0
   br i1 %.not10.i, label %.lr.ph.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
@@ -3032,7 +3032,7 @@ _ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicy
   %49 = and i64 %48, %37
   %50 = getelementptr inbounds i8, ptr %36, i64 %49
   %51 = load <16 x i8>, ptr %50, align 1
-  %52 = icmp slt <16 x i8> %51, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %52 = icmp slt <16 x i8> %51, splat (i8 -1)
   %53 = bitcast <16 x i1> %52 to i16
   %.not.i = icmp eq i16 %53, 0
   br i1 %.not.i, label %.lr.ph.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !62

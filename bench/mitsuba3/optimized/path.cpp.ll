@@ -392,7 +392,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.08311140 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %131, %128 ]
   %129 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %76, i64 0, i64 %.08311140
   %130 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %129, i64 0, i64 %.08311140
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %130, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %130, align 16
   %131 = add nuw nsw i64 %.08311140, 1
   %exitcond.not = icmp eq i64 %131, 4
   br i1 %exitcond.not, label %132, label %128, !llvm.loop !7
@@ -561,7 +561,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %222 = shufflevector <4 x float> %221, <4 x float> poison, <4 x i32> zeroinitializer
   %223 = fmul contract <4 x float> %212, %222
   %224 = load <4 x i32>, ptr %174, align 16
-  %225 = xor <4 x i32> %224, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %225 = xor <4 x i32> %224, splat (i32 -2147483648)
   %226 = bitcast <4 x i32> %225 to <4 x float>
   %227 = select i1 %219, i8 7, i8 0
   %228 = bitcast i8 %227 to <8 x i1>
@@ -881,7 +881,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bsdf
 
 368:                                              ; preds = %356
   %369 = load <4 x i32>, ptr %86, align 16
-  %370 = xor <4 x i32> %369, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %370 = xor <4 x i32> %369, splat (i32 -2147483648)
   %371 = bitcast <4 x i32> %370 to <4 x float>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
@@ -1375,7 +1375,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
 
 628:                                              ; preds = %356, %627
   %629 = load <4 x i32>, ptr %183, align 16
-  %630 = xor <4 x i32> %629, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %630 = xor <4 x i32> %629, splat (i32 -2147483648)
   %631 = bitcast <4 x i32> %630 to <4 x float>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20)
@@ -1549,7 +1549,7 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   %771 = load <4 x float>, ptr %165, align 16
   %772 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %771, <4 x float> %770, <4 x float> %769)
   %773 = load <4 x i32>, ptr %163, align 16, !noalias !143
-  %774 = and <4 x i32> %773, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %774 = and <4 x i32> %773, splat (i32 2147483647)
   %775 = bitcast <4 x i32> %774 to <4 x float>
   %776 = shufflevector <4 x float> %775, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %777 = call contract noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> %775, <4 x float> %776)

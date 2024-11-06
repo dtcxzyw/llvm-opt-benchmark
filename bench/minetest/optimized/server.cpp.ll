@@ -5393,7 +5393,7 @@ invoke.cont.i111:                                 ; preds = %call5.i.i.i.i4.i.i.
   %retval.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %conv5.i.mask.i.i.i to i48
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   %406 = sitofp <2 x i16> %402 to <2 x float>
-  %407 = fmul nsz <2 x float> %406, <float 1.000000e+01, float 1.000000e+01>
+  %407 = fmul nsz <2 x float> %406, splat (float 1.000000e+01)
   %p.sroa.3.0.extract.shift.i.i = lshr i48 %agg.tmp849.sroa.0.0.copyload, 32
   %p.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i to i16
   %conv3.i.i = sitofp i16 %p.sroa.3.0.extract.trunc.i.i to float
@@ -24573,7 +24573,7 @@ entry:
   %1 = insertelement <2 x i48> %0, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %2 = trunc <2 x i48> %1 to <2 x i16>
   %3 = sitofp <2 x i16> %2 to <2 x float>
-  %4 = fmul nsz <2 x float> %3, <float 1.000000e+01, float 1.000000e+01>
+  %4 = fmul nsz <2 x float> %3, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
   %5 = extractelement <2 x i16> %2, i64 0
@@ -24726,7 +24726,7 @@ invoke.cont:                                      ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %conv5.i.mask.i.i to i48
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %7 = sitofp <2 x i16> %3 to <2 x float>
-  %8 = fmul nsz <2 x float> %7, <float 1.000000e+01, float 1.000000e+01>
+  %8 = fmul nsz <2 x float> %7, splat (float 1.000000e+01)
   %p.sroa.3.0.extract.shift.i = lshr i48 %p.coerce, 32
   %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
@@ -25016,9 +25016,9 @@ invoke.cont25:                                    ; preds = %invoke.cont16
   %21 = shufflevector <2 x float> %retval.sroa.0.0.copyload.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %22 = insertelement <2 x float> %21, float %retval.sroa.2.0.copyload.i, i64 1
   %23 = fcmp nsz ogt <2 x float> %22, zeroinitializer
-  %24 = select <2 x i1> %23, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %24 = select <2 x i1> %23, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %25 = fadd nsz <2 x float> %22, %24
-  %26 = fdiv nsz <2 x float> %25, <float 1.000000e+01, float 1.000000e+01>
+  %26 = fdiv nsz <2 x float> %25, splat (float 1.000000e+01)
   %27 = fptosi <2 x float> %26 to <2 x i16>
   br label %if.end28
 
@@ -45502,7 +45502,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 
 if.then:                                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %7 = load <2 x float>, ptr %nodeposf, align 8, !tbaa !275
-  %8 = fmul nsz <2 x float> %7, <float 1.000000e+01, float 1.000000e+01>
+  %8 = fmul nsz <2 x float> %7, splat (float 1.000000e+01)
   %9 = load float, ptr %Z.i, align 8, !tbaa !944
   %mul3.i = fmul nsz float %9, 1.000000e+01
   br label %cleanup82
@@ -45653,7 +45653,7 @@ cleanup:                                          ; preds = %if.then49
   %23 = insertelement <2 x i16> poison, i16 %p.sroa.0.0.extract.trunc.i, i64 0
   %24 = insertelement <2 x i16> %23, i16 %dec, i64 1
   %25 = sitofp <2 x i16> %24 to <2 x float>
-  %26 = fmul nsz <2 x float> %25, <float 1.000000e+01, float 1.000000e+01>
+  %26 = fmul nsz <2 x float> %25, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
   store <2 x float> %26, ptr %nodeposf, align 8, !tbaa.struct !450

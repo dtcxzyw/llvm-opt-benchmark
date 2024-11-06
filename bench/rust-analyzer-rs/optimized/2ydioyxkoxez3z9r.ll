@@ -62710,7 +62710,7 @@ define hidden void @_ZN13rust_analyzer11diagnostics8to_proto26map_rust_diagnosti
 
 538:                                              ; preds = %.noexc.i334
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7), !noalias !13946
-  %539 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %539 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %540 = bitcast <16 x i1> %539 to i16
   %.not.i.i.i337 = icmp eq i16 %540, 0
   br i1 %.not.i.i.i337, label %546, label %549

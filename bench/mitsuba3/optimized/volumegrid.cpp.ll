@@ -248,7 +248,7 @@ define weak_odr void @_ZNK7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4
   %20 = fneg contract <4 x float> %17
   %21 = fmul contract <4 x float> %18, %20
   %22 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> %18, <4 x float> %19)
-  %23 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %22, <4 x float> %17, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %23 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %22, <4 x float> %17, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -277,7 +277,7 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   %32 = fneg contract <4 x float> %23
   %33 = fmul contract <4 x float> %30, %32
   %34 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> %30, <4 x float> %31)
-  %35 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %34, <4 x float> %23, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %35 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %34, <4 x float> %23, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7
   %.sroa.012.12.vec.insert.i.i29.i = insertelement <4 x float> %35, float 1.000000e+00, i64 3
@@ -446,9 +446,9 @@ define weak_odr void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 64
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %5, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 80
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %6, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %6, align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
@@ -912,9 +912,9 @@ define weak_odr void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 64
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %5, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 80
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %6, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %6, align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4readEPNS_6StreamE(ptr noundef nonnull align 16 dereferenceable(128) %0, ptr noundef %1)
@@ -965,7 +965,7 @@ define weak_odr void @_ZN7mitsuba10VolumeGridIfN5drjit6MatrixINS_8SpectrumIfLm4E
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   store <4 x float> zeroinitializer, ptr %8, align 16
   %9 = getelementptr inbounds i8, ptr %0, i64 80
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %9, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %9, align 16
   %10 = getelementptr inbounds i8, ptr %0, i64 104
   %11 = zext i32 %2 to i64
   %12 = getelementptr inbounds i8, ptr %0, i64 112

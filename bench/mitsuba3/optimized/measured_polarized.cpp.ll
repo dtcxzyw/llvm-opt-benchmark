@@ -2602,7 +2602,7 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   %188 = fneg contract <4 x float> %185
   %189 = fmul contract <4 x float> %186, %188
   %190 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %189, <4 x float> %186, <4 x float> %187)
-  %191 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %190, <4 x float> %185, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %191 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %190, <4 x float> %185, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !33
   br label %192
 
@@ -3807,7 +3807,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %425 = load <4 x float>, ptr %23, align 16
   %426 = fcmp contract ord <4 x float> %425, zeroinitializer
   %427 = shufflevector <4 x i1> %426, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %428 = xor <8 x i1> %427, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %428 = xor <8 x i1> %427, splat (i1 true)
   %429 = bitcast <8 x i1> %428 to i8
   %430 = and i8 %429, 15
   %.not2403 = icmp eq i8 %430, 0

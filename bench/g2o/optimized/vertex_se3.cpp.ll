@@ -958,7 +958,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6EN5Eigen9TransformIdL
 
 106:                                              ; preds = %99
   %107 = load <2 x i64>, ptr %103, align 8
-  %108 = and <2 x i64> %107, <i64 9223372036854775807, i64 9223372036854775807>
+  %108 = and <2 x i64> %107, splat (i64 9223372036854775807)
   %109 = bitcast <2 x i64> %108 to <2 x double>
   %110 = icmp samesign ult i64 %.045.i, 3
   br i1 %110, label %._crit_edge.i.i.i.i.i.i, label %123
@@ -966,7 +966,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6EN5Eigen9TransformIdL
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %106
   %111 = getelementptr inbounds i8, ptr %103, i64 16
   %112 = load <2 x i64>, ptr %111, align 8
-  %113 = and <2 x i64> %112, <i64 9223372036854775807, i64 9223372036854775807>
+  %113 = and <2 x i64> %112, splat (i64 9223372036854775807)
   %114 = bitcast <2 x i64> %113 to <2 x double>
   %115 = fadd <2 x double> %109, %114
   %116 = icmp samesign ugt i64 %105, %104
@@ -975,7 +975,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi6EN5Eigen9TransformIdL
 117:                                              ; preds = %._crit_edge.i.i.i.i.i.i
   %118 = getelementptr inbounds double, ptr %103, i64 %104
   %119 = load <2 x i64>, ptr %118, align 8
-  %120 = and <2 x i64> %119, <i64 9223372036854775807, i64 9223372036854775807>
+  %120 = and <2 x i64> %119, splat (i64 9223372036854775807)
   %121 = bitcast <2 x i64> %120 to <2 x double>
   %122 = fadd <2 x double> %115, %121
   br label %123
@@ -1736,9 +1736,9 @@ _ZNK5Eigen9TransformIdLi3ELi1ELi0EEmlERKS1_.exit: ; preds = %_ZN5Eigen6MatrixIdL
   store double %155, ptr %147, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   %156 = getelementptr inbounds i8, ptr %3, i64 16
-  %157 = fmul <2 x double> %95, <double 5.000000e-01, double 5.000000e-01>
-  %158 = fmul <2 x double> %99, <double 5.000000e-01, double 5.000000e-01>
-  %159 = fmul <2 x double> %103, <double 5.000000e-01, double 5.000000e-01>
+  %157 = fmul <2 x double> %95, splat (double 5.000000e-01)
+  %158 = fmul <2 x double> %99, splat (double 5.000000e-01)
+  %159 = fmul <2 x double> %103, splat (double 5.000000e-01)
   %160 = fmul double %114, 5.000000e-01
   %161 = fmul double %113, 5.000000e-01
   %162 = fmul double %112, 5.000000e-01

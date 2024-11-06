@@ -452,7 +452,7 @@ entry:
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_speed.i, align 8, !tbaa.struct !15
   %retval.sroa.2.0.m_speed.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 344
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_speed.sroa_idx.i, align 8, !tbaa !16
-  %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %2, float %div3.i)
   ret i32 1
@@ -802,7 +802,7 @@ entry:
   %1 = load ptr, ptr %0, align 8, !tbaa !12
   %last_position = getelementptr inbounds i8, ptr %1, i64 448
   %2 = load <2 x float>, ptr %last_position, align 4, !tbaa !16
-  %3 = fdiv nsz <2 x float> %2, <float 1.000000e+01, float 1.000000e+01>
+  %3 = fdiv nsz <2 x float> %2, splat (float 1.000000e+01)
   %Z.i = getelementptr inbounds i8, ptr %1, i64 456
   %4 = load float, ptr %Z.i, align 4, !tbaa !89
   %div3.i = fdiv nsz float %4, 1.000000e+01
@@ -950,7 +950,7 @@ entry:
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_position.i, align 4, !tbaa.struct !15
   %retval.sroa.2.0.m_position.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 588
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_position.sroa_idx.i, align 4, !tbaa !16
-  %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %2, float %div3.i)
   ret i32 1

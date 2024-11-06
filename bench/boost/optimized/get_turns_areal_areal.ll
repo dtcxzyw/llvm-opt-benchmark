@@ -171793,8 +171793,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %47, %.lr.ph.i.i.i
-  %.sroa.9.0.i.i = phi <2 x float> [ %.sroa.9.4.i.i, %.lr.ph.i.i.i ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %47 ]
-  %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.i.i, %.lr.ph.i.i.i ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %47 ]
+  %.sroa.9.0.i.i = phi <2 x float> [ %.sroa.9.4.i.i, %.lr.ph.i.i.i ], [ splat (float 0xC7EFFFFFE0000000), %47 ]
+  %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.i.i, %.lr.ph.i.i.i ], [ splat (float 0x47EFFFFFE0000000), %47 ]
   %48 = phi float [ %76, %.lr.ph.i.i.i ], [ 0xC7EFFFFFE0000000, %47 ]
   %49 = phi float [ %74, %.lr.ph.i.i.i ], [ 0x47EFFFFFE0000000, %47 ]
   %50 = phi float [ %70, %.lr.ph.i.i.i ], [ 0xC7EFFFFFE0000000, %47 ]
@@ -172096,8 +172096,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not9.i.i102, label %.loopexit296, label %.lr.ph.i.i103
 
 .lr.ph.i.i103:                                    ; preds = %182, %.lr.ph.i.i103
-  %.sroa.9.0.i = phi <2 x float> [ %.sroa.9.4.i, %.lr.ph.i.i103 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %182 ]
-  %.sroa.0.0.i104 = phi <2 x float> [ %.sroa.0.4.i111, %.lr.ph.i.i103 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %182 ]
+  %.sroa.9.0.i = phi <2 x float> [ %.sroa.9.4.i, %.lr.ph.i.i103 ], [ splat (float 0xC7EFFFFFE0000000), %182 ]
+  %.sroa.0.0.i104 = phi <2 x float> [ %.sroa.0.4.i111, %.lr.ph.i.i103 ], [ splat (float 0x47EFFFFFE0000000), %182 ]
   %183 = phi float [ %211, %.lr.ph.i.i103 ], [ 0xC7EFFFFFE0000000, %182 ]
   %184 = phi float [ %209, %.lr.ph.i.i103 ], [ 0x47EFFFFFE0000000, %182 ]
   %185 = phi float [ %205, %.lr.ph.i.i103 ], [ 0xC7EFFFFFE0000000, %182 ]
@@ -172149,8 +172149,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i112, label %.loopexit296, label %.lr.ph.i.i103
 
 .loopexit296:                                     ; preds = %.lr.ph.i.i103, %182
-  %.sroa.9.5.i = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %182 ], [ %.sroa.9.4.i, %.lr.ph.i.i103 ]
-  %.sroa.0.5.i113 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %182 ], [ %.sroa.0.4.i111, %.lr.ph.i.i103 ]
+  %.sroa.9.5.i = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %182 ], [ %.sroa.9.4.i, %.lr.ph.i.i103 ]
+  %.sroa.0.5.i113 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %182 ], [ %.sroa.0.4.i111, %.lr.ph.i.i103 ]
   store <2 x float> %.sroa.0.5.i113, ptr %21, align 8
   %213 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store <2 x float> %.sroa.9.5.i, ptr %213, align 8
@@ -172406,8 +172406,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br label %.lr.ph.i.i152
 
 .lr.ph.i.i152:                                    ; preds = %350, %.lr.ph.i.i152
-  %.sroa.9.0.i153 = phi <2 x float> [ %.sroa.9.4.i171, %.lr.ph.i.i152 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %350 ]
-  %.sroa.0.0.i154 = phi <2 x float> [ %.sroa.0.4.i169, %.lr.ph.i.i152 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %350 ]
+  %.sroa.9.0.i153 = phi <2 x float> [ %.sroa.9.4.i171, %.lr.ph.i.i152 ], [ splat (float 0xC7EFFFFFE0000000), %350 ]
+  %.sroa.0.0.i154 = phi <2 x float> [ %.sroa.0.4.i169, %.lr.ph.i.i152 ], [ splat (float 0x47EFFFFFE0000000), %350 ]
   %351 = phi float [ %379, %.lr.ph.i.i152 ], [ 0xC7EFFFFFE0000000, %350 ]
   %352 = phi float [ %377, %.lr.ph.i.i152 ], [ 0x47EFFFFFE0000000, %350 ]
   %353 = phi float [ %373, %.lr.ph.i.i152 ], [ 0xC7EFFFFFE0000000, %350 ]
@@ -173419,8 +173419,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %49, %.lr.ph.i.i.i
-  %.sroa.9.0.i.i = phi <2 x float> [ %.sroa.9.4.i.i, %.lr.ph.i.i.i ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %49 ]
-  %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.i.i, %.lr.ph.i.i.i ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %49 ]
+  %.sroa.9.0.i.i = phi <2 x float> [ %.sroa.9.4.i.i, %.lr.ph.i.i.i ], [ splat (float 0xC7EFFFFFE0000000), %49 ]
+  %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.4.i.i, %.lr.ph.i.i.i ], [ splat (float 0x47EFFFFFE0000000), %49 ]
   %50 = phi float [ %78, %.lr.ph.i.i.i ], [ 0xC7EFFFFFE0000000, %49 ]
   %51 = phi float [ %76, %.lr.ph.i.i.i ], [ 0x47EFFFFFE0000000, %49 ]
   %52 = phi float [ %72, %.lr.ph.i.i.i ], [ 0xC7EFFFFFE0000000, %49 ]
@@ -173722,8 +173722,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not9.i.i102, label %.loopexit296, label %.lr.ph.i.i103
 
 .lr.ph.i.i103:                                    ; preds = %184, %.lr.ph.i.i103
-  %.sroa.9.0.i = phi <2 x float> [ %.sroa.9.4.i, %.lr.ph.i.i103 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %184 ]
-  %.sroa.0.0.i104 = phi <2 x float> [ %.sroa.0.4.i111, %.lr.ph.i.i103 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %184 ]
+  %.sroa.9.0.i = phi <2 x float> [ %.sroa.9.4.i, %.lr.ph.i.i103 ], [ splat (float 0xC7EFFFFFE0000000), %184 ]
+  %.sroa.0.0.i104 = phi <2 x float> [ %.sroa.0.4.i111, %.lr.ph.i.i103 ], [ splat (float 0x47EFFFFFE0000000), %184 ]
   %185 = phi float [ %213, %.lr.ph.i.i103 ], [ 0xC7EFFFFFE0000000, %184 ]
   %186 = phi float [ %211, %.lr.ph.i.i103 ], [ 0x47EFFFFFE0000000, %184 ]
   %187 = phi float [ %207, %.lr.ph.i.i103 ], [ 0xC7EFFFFFE0000000, %184 ]
@@ -173775,8 +173775,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i112, label %.loopexit296, label %.lr.ph.i.i103
 
 .loopexit296:                                     ; preds = %.lr.ph.i.i103, %184
-  %.sroa.9.5.i = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %184 ], [ %.sroa.9.4.i, %.lr.ph.i.i103 ]
-  %.sroa.0.5.i113 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %184 ], [ %.sroa.0.4.i111, %.lr.ph.i.i103 ]
+  %.sroa.9.5.i = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %184 ], [ %.sroa.9.4.i, %.lr.ph.i.i103 ]
+  %.sroa.0.5.i113 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %184 ], [ %.sroa.0.4.i111, %.lr.ph.i.i103 ]
   store <2 x float> %.sroa.0.5.i113, ptr %21, align 8
   %215 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store <2 x float> %.sroa.9.5.i, ptr %215, align 8
@@ -174032,8 +174032,8 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br label %.lr.ph.i.i152
 
 .lr.ph.i.i152:                                    ; preds = %352, %.lr.ph.i.i152
-  %.sroa.9.0.i153 = phi <2 x float> [ %.sroa.9.4.i171, %.lr.ph.i.i152 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %352 ]
-  %.sroa.0.0.i154 = phi <2 x float> [ %.sroa.0.4.i169, %.lr.ph.i.i152 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %352 ]
+  %.sroa.9.0.i153 = phi <2 x float> [ %.sroa.9.4.i171, %.lr.ph.i.i152 ], [ splat (float 0xC7EFFFFFE0000000), %352 ]
+  %.sroa.0.0.i154 = phi <2 x float> [ %.sroa.0.4.i169, %.lr.ph.i.i152 ], [ splat (float 0x47EFFFFFE0000000), %352 ]
   %353 = phi float [ %381, %.lr.ph.i.i152 ], [ 0xC7EFFFFFE0000000, %352 ]
   %354 = phi float [ %379, %.lr.ph.i.i152 ], [ 0x47EFFFFFE0000000, %352 ]
   %355 = phi float [ %375, %.lr.ph.i.i152 ], [ 0xC7EFFFFFE0000000, %352 ]

@@ -38607,7 +38607,7 @@ _ZN7QStringD2Ev.exit1828._crit_edge:              ; preds = %_ZN7QStringD2Ev.exi
   br label %.sink.split
 
 2176:                                             ; preds = %2165
-  store <2 x float> <float -0.000000e+00, float -0.000000e+00>, ptr %148, align 8
+  store <2 x float> splat (float -0.000000e+00), ptr %148, align 8
   store float -1.000000e+00, ptr %.sroa.2422.0..sroa_idx, align 8
   %2177 = load float, ptr %2039, align 4
   %2178 = load float, ptr %2040, align 4
@@ -57822,10 +57822,10 @@ _ZN3vcg3tri22UpdateCurvatureFittingI6CMeshOE22computeReferenceFramesEP8CVertexO.
   %.sroa.6.24.vec.extract = fdiv double %217, %219
   store double %.sroa.6.24.vec.extract, ptr %54, align 8
   %222 = load <2 x i64>, ptr %7, align 16
-  %223 = and <2 x i64> %222, <i64 9223372036854775807, i64 9223372036854775807>
+  %223 = and <2 x i64> %222, splat (i64 9223372036854775807)
   %224 = bitcast <2 x i64> %223 to <2 x double>
   %225 = load <2 x i64>, ptr %53, align 16
-  %226 = and <2 x i64> %225, <i64 9223372036854775807, i64 9223372036854775807>
+  %226 = and <2 x i64> %225, splat (i64 9223372036854775807)
   %227 = bitcast <2 x i64> %226 to <2 x double>
   %228 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %224, <2 x double> %227) #40, !srcloc !272
   %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x double> %228, i64 0
@@ -130193,10 +130193,10 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(70) ptr @_ZN5Eigen22
   %24 = getelementptr i8, ptr %1, i64 32
   %25 = load float, ptr %24, align 4
   %26 = load <4 x i32>, ptr %0, align 4
-  %27 = and <4 x i32> %26, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %27 = and <4 x i32> %26, splat (i32 2147483647)
   %28 = bitcast <4 x i32> %27 to <4 x float>
   %29 = load <4 x i32>, ptr %15, align 4
-  %30 = and <4 x i32> %29, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %30 = and <4 x i32> %29, splat (i32 2147483647)
   %31 = bitcast <4 x i32> %30 to <4 x float>
   %32 = tail call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %28, <4 x float> %31) #40, !srcloc !996
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -131224,14 +131224,14 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(134) ptr @_ZN5Eigen
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %24 = load double, ptr %23, align 8
   %25 = load <2 x i64>, ptr %0, align 16
-  %26 = and <2 x i64> %25, <i64 9223372036854775807, i64 9223372036854775807>
+  %26 = and <2 x i64> %25, splat (i64 9223372036854775807)
   %27 = bitcast <2 x i64> %26 to <2 x double>
   %28 = load <2 x i64>, ptr %11, align 16
-  %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
+  %29 = and <2 x i64> %28, splat (i64 9223372036854775807)
   %30 = bitcast <2 x i64> %29 to <2 x double>
   %31 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %27, <2 x double> %30) #40, !srcloc !272
   %32 = load <2 x i64>, ptr %15, align 16
-  %33 = and <2 x i64> %32, <i64 9223372036854775807, i64 9223372036854775807>
+  %33 = and <2 x i64> %32, splat (i64 9223372036854775807)
   %34 = bitcast <2 x i64> %33 to <2 x double>
   %35 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %34, <2 x double> zeroinitializer) #40, !srcloc !272
   %36 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %31, <2 x double> %35) #40, !srcloc !272
@@ -148322,7 +148322,7 @@ define linkonce_odr noundef float @_ZN5Eigen8internal10redux_implINS0_13scalar_m
 
 14:                                               ; preds = %8
   %15 = load <4 x i32>, ptr %9, align 1
-  %16 = and <4 x i32> %15, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %16 = and <4 x i32> %15, splat (i32 2147483647)
   %17 = bitcast <4 x i32> %16 to <4 x float>
   %18 = icmp sgt i64 %6, 7
   br i1 %18, label %19, label %43
@@ -148330,7 +148330,7 @@ define linkonce_odr noundef float @_ZN5Eigen8internal10redux_implINS0_13scalar_m
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %9, i64 16
   %21 = load <4 x i32>, ptr %20, align 1
-  %22 = and <4 x i32> %21, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %22 = and <4 x i32> %21, splat (i32 2147483647)
   %23 = bitcast <4 x i32> %22 to <4 x float>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 48
   %24 = icmp ugt i64 %6, 15
@@ -148343,12 +148343,12 @@ define linkonce_odr noundef float @_ZN5Eigen8internal10redux_implINS0_13scalar_m
   %.17375.i.i.i.i.i.i.i = phi <4 x float> [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %17, %19 ]
   %25 = getelementptr float, ptr %9, i64 %.05478.i.i.i.i.i.i.i
   %26 = load <4 x i32>, ptr %25, align 1
-  %27 = and <4 x i32> %26, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %27 = and <4 x i32> %26, splat (i32 2147483647)
   %28 = bitcast <4 x i32> %27 to <4 x float>
   %29 = fadd <4 x float> %.17375.i.i.i.i.i.i.i, %28
   %gep.i.i.i.i.i.i.i = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %30 = load <4 x i32>, ptr %gep.i.i.i.i.i.i.i, align 1
-  %31 = and <4 x i32> %30, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %31 = and <4 x i32> %30, splat (i32 2147483647)
   %32 = bitcast <4 x i32> %31 to <4 x float>
   %33 = fadd <4 x float> %storemerge76.i.i.i.i.i.i.i, %32
   %.054.i.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i.i, 8
@@ -148365,7 +148365,7 @@ define linkonce_odr noundef float @_ZN5Eigen8internal10redux_implINS0_13scalar_m
 37:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %38 = getelementptr float, ptr %9, i64 %11
   %39 = load <4 x i32>, ptr %38, align 1
-  %40 = and <4 x i32> %39, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %40 = and <4 x i32> %39, splat (i32 2147483647)
   %41 = bitcast <4 x i32> %40 to <4 x float>
   %42 = fadd <4 x float> %35, %41
   br label %43
@@ -148493,14 +148493,14 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %100 = mul nsw i64 %.01781, %6
   %101 = getelementptr float, ptr %80, i64 %100
   %102 = load <4 x i32>, ptr %101, align 1
-  %103 = and <4 x i32> %102, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %103 = and <4 x i32> %102, splat (i32 2147483647)
   %104 = bitcast <4 x i32> %103 to <4 x float>
   br i1 %72, label %105, label %127
 
 105:                                              ; preds = %.lr.ph.split.split
   %106 = getelementptr i8, ptr %101, i64 16
   %107 = load <4 x i32>, ptr %106, align 1
-  %108 = and <4 x i32> %107, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %108 = and <4 x i32> %107, splat (i32 2147483647)
   %109 = bitcast <4 x i32> %108 to <4 x float>
   %invariant.gep.i.i.i.i.i.i.i26 = getelementptr i8, ptr %101, i64 48
   br i1 %73, label %.lr.ph.i.i.i.i.i.i.i30, label %._crit_edge.i.i.i.i.i.i.i27
@@ -148512,12 +148512,12 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %.17375.i.i.i.i.i.i.i34 = phi <4 x float> [ %114, %.lr.ph.i.i.i.i.i.i.i30 ], [ %104, %105 ]
   %110 = getelementptr float, ptr %101, i64 %.05478.i.i.i.i.i.i.i31
   %111 = load <4 x i32>, ptr %110, align 1
-  %112 = and <4 x i32> %111, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %112 = and <4 x i32> %111, splat (i32 2147483647)
   %113 = bitcast <4 x i32> %112 to <4 x float>
   %114 = fadd <4 x float> %.17375.i.i.i.i.i.i.i34, %113
   %gep.i.i.i.i.i.i.i35 = getelementptr float, ptr %invariant.gep.i.i.i.i.i.i.i26, i64 %.054.in77.i.i.i.i.i.i.i32
   %115 = load <4 x i32>, ptr %gep.i.i.i.i.i.i.i35, align 1
-  %116 = and <4 x i32> %115, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %116 = and <4 x i32> %115, splat (i32 2147483647)
   %117 = bitcast <4 x i32> %116 to <4 x float>
   %118 = fadd <4 x float> %storemerge76.i.i.i.i.i.i.i33, %117
   %.054.i.i.i.i.i.i.i36 = add nuw nsw i64 %.05478.i.i.i.i.i.i.i31, 8
@@ -148533,7 +148533,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
 121:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i27
   %122 = getelementptr float, ptr %101, i64 %69
   %123 = load <4 x i32>, ptr %122, align 1
-  %124 = and <4 x i32> %123, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %124 = and <4 x i32> %123, splat (i32 2147483647)
   %125 = bitcast <4 x i32> %124 to <4 x float>
   %126 = fadd <4 x float> %120, %125
   br label %127
@@ -166899,10 +166899,10 @@ define linkonce_odr void @_ZN3vcg3tri22UpdateCurvatureFittingI6CMeshOE15finalEig
   %.sroa.6.24.vec.extract = fdiv double %77, %79
   store double %.sroa.6.24.vec.extract, ptr %89, align 8
   %90 = load <2 x i64>, ptr %6, align 16
-  %91 = and <2 x i64> %90, <i64 9223372036854775807, i64 9223372036854775807>
+  %91 = and <2 x i64> %90, splat (i64 9223372036854775807)
   %92 = bitcast <2 x i64> %91 to <2 x double>
   %93 = load <2 x i64>, ptr %88, align 16
-  %94 = and <2 x i64> %93, <i64 9223372036854775807, i64 9223372036854775807>
+  %94 = and <2 x i64> %93, splat (i64 9223372036854775807)
   %95 = bitcast <2 x i64> %94 to <2 x double>
   %96 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %92, <2 x double> %95) #40, !srcloc !272
   %.sroa.0.0.vec.extract.i.i.i.i.i.i.i.i = extractelement <2 x double> %96, i64 0
@@ -169232,7 +169232,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
 
 14:                                               ; preds = %8
   %15 = load <2 x i64>, ptr %9, align 1
-  %16 = and <2 x i64> %15, <i64 9223372036854775807, i64 9223372036854775807>
+  %16 = and <2 x i64> %15, splat (i64 9223372036854775807)
   %17 = bitcast <2 x i64> %16 to <2 x double>
   %18 = icmp sgt i64 %6, 3
   br i1 %18, label %19, label %43
@@ -169240,7 +169240,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %9, i64 16
   %21 = load <2 x i64>, ptr %20, align 1
-  %22 = and <2 x i64> %21, <i64 9223372036854775807, i64 9223372036854775807>
+  %22 = and <2 x i64> %21, splat (i64 9223372036854775807)
   %23 = bitcast <2 x i64> %22 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 48
   %24 = icmp ugt i64 %6, 7
@@ -169253,12 +169253,12 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
   %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %17, %19 ]
   %25 = getelementptr double, ptr %9, i64 %.05478.i.i.i.i.i.i.i
   %26 = load <2 x i64>, ptr %25, align 1
-  %27 = and <2 x i64> %26, <i64 9223372036854775807, i64 9223372036854775807>
+  %27 = and <2 x i64> %26, splat (i64 9223372036854775807)
   %28 = bitcast <2 x i64> %27 to <2 x double>
   %29 = fadd <2 x double> %.17375.i.i.i.i.i.i.i, %28
   %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %30 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 1
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i, %32
   %.054.i.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i.i, 4
@@ -169275,7 +169275,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
 37:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %38 = getelementptr double, ptr %9, i64 %11
   %39 = load <2 x i64>, ptr %38, align 1
-  %40 = and <2 x i64> %39, <i64 9223372036854775807, i64 9223372036854775807>
+  %40 = and <2 x i64> %39, splat (i64 9223372036854775807)
   %41 = bitcast <2 x i64> %40 to <2 x double>
   %42 = fadd <2 x double> %35, %41
   br label %43
@@ -169361,11 +169361,11 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %79 = mul nuw nsw i64 %.01769.us76, %6
   %80 = getelementptr double, ptr %71, i64 %79
   %81 = load <2 x i64>, ptr %80, align 1
-  %82 = and <2 x i64> %81, <i64 9223372036854775807, i64 9223372036854775807>
+  %82 = and <2 x i64> %81, splat (i64 9223372036854775807)
   %83 = bitcast <2 x i64> %82 to <2 x double>
   %84 = getelementptr i8, ptr %80, i64 16
   %85 = load <2 x i64>, ptr %84, align 1
-  %86 = and <2 x i64> %85, <i64 9223372036854775807, i64 9223372036854775807>
+  %86 = and <2 x i64> %85, splat (i64 9223372036854775807)
   %87 = bitcast <2 x i64> %86 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i26.us = getelementptr i8, ptr %80, i64 48
   br i1 %65, label %.lr.ph.i.i.i.i.i.i.i30.us, label %._crit_edge.i.i.i.i.i.i.i27.us
@@ -169377,12 +169377,12 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %.17375.i.i.i.i.i.i.i34.us = phi <2 x double> [ %92, %.lr.ph.i.i.i.i.i.i.i30.us ], [ %83, %.lr.ph.split.split.split.us ]
   %88 = getelementptr double, ptr %80, i64 %.05478.i.i.i.i.i.i.i31.us
   %89 = load <2 x i64>, ptr %88, align 1
-  %90 = and <2 x i64> %89, <i64 9223372036854775807, i64 9223372036854775807>
+  %90 = and <2 x i64> %89, splat (i64 9223372036854775807)
   %91 = bitcast <2 x i64> %90 to <2 x double>
   %92 = fadd <2 x double> %.17375.i.i.i.i.i.i.i34.us, %91
   %gep.i.i.i.i.i.i.i35.us = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i26.us, i64 %.054.in77.i.i.i.i.i.i.i32.us
   %93 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i35.us, align 1
-  %94 = and <2 x i64> %93, <i64 9223372036854775807, i64 9223372036854775807>
+  %94 = and <2 x i64> %93, splat (i64 9223372036854775807)
   %95 = bitcast <2 x i64> %94 to <2 x double>
   %96 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i33.us, %95
   %.054.i.i.i.i.i.i.i36.us = add nuw nsw i64 %.05478.i.i.i.i.i.i.i31.us, 4
@@ -169398,7 +169398,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
 99:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i27.us
   %100 = getelementptr double, ptr %80, i64 %61
   %101 = load <2 x i64>, ptr %100, align 1
-  %102 = and <2 x i64> %101, <i64 9223372036854775807, i64 9223372036854775807>
+  %102 = and <2 x i64> %101, splat (i64 9223372036854775807)
   %103 = bitcast <2 x i64> %102 to <2 x double>
   %104 = fadd <2 x double> %98, %103
   br label %105
@@ -169438,7 +169438,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %116 = mul nsw i64 %.01769.us82, %6
   %117 = getelementptr double, ptr %71, i64 %116
   %118 = load <2 x i64>, ptr %117, align 1
-  %119 = and <2 x i64> %118, <i64 9223372036854775807, i64 9223372036854775807>
+  %119 = and <2 x i64> %118, splat (i64 9223372036854775807)
   %120 = bitcast <2 x i64> %119 to <2 x double>
   %shift145 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %121 = fadd <2 x double> %shift145, %120
@@ -169469,7 +169469,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %131 = mul nsw i64 %.01769, %6
   %132 = getelementptr double, ptr %71, i64 %131
   %133 = load <2 x i64>, ptr %132, align 1
-  %134 = and <2 x i64> %133, <i64 9223372036854775807, i64 9223372036854775807>
+  %134 = and <2 x i64> %133, splat (i64 9223372036854775807)
   %135 = bitcast <2 x i64> %134 to <2 x double>
   %shift146 = shufflevector <2 x double> %135, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %136 = fadd <2 x double> %shift146, %135
@@ -175943,7 +175943,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(544) ptr @_ZN5Eigen9
 
 29:                                               ; preds = %3
   %30 = load <2 x i64>, ptr %21, align 16
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = icmp sgt i64 %24, 3
   br i1 %33, label %34, label %66
@@ -175951,7 +175951,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(544) ptr @_ZN5Eigen9
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %21, i64 16
   %36 = load <2 x i64>, ptr %35, align 16
-  %37 = and <2 x i64> %36, <i64 9223372036854775807, i64 9223372036854775807>
+  %37 = and <2 x i64> %36, splat (i64 9223372036854775807)
   %38 = bitcast <2 x i64> %37 to <2 x double>
   %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
   %39 = icmp ugt i64 %24, 7
@@ -175964,14 +175964,14 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(544) ptr @_ZN5Eigen9
   %.17375.i.i.i = phi <2 x double> [ %46, %.lr.ph.i.i.i ], [ %32, %34 ]
   %40 = getelementptr inbounds double, ptr %21, i64 %.05478.i.i.i
   %41 = load <2 x i64>, ptr %40, align 16
-  %42 = and <2 x i64> %41, <i64 9223372036854775807, i64 9223372036854775807>
+  %42 = and <2 x i64> %41, splat (i64 9223372036854775807)
   %43 = bitcast <2 x i64> %42 to <2 x double>
   %44 = fcmp uno <2 x double> %.17375.i.i.i, zeroinitializer
   %45 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43, <2 x double> %.17375.i.i.i) #40, !srcloc !272
   %46 = select <2 x i1> %44, <2 x double> %.17375.i.i.i, <2 x double> %45
   %gep.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
   %47 = load <2 x i64>, ptr %gep.i.i.i, align 16
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = fcmp uno <2 x double> %storemerge76.i.i.i, zeroinitializer
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %storemerge76.i.i.i) #40, !srcloc !272
@@ -175992,7 +175992,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(544) ptr @_ZN5Eigen9
 58:                                               ; preds = %._crit_edge.i.i.i
   %59 = getelementptr inbounds double, ptr %21, i64 %26
   %60 = load <2 x i64>, ptr %59, align 16
-  %61 = and <2 x i64> %60, <i64 9223372036854775807, i64 9223372036854775807>
+  %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = fcmp uno <2 x double> %56, zeroinitializer
   %64 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %62, <2 x double> %56) #40, !srcloc !272
@@ -176708,7 +176708,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %.021.i.i.i.i.i.i.i.i.i.i = phi i64 [ %446, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS_12CwiseUnaryOpINS0_18scalar_opposite_opIdEEKS9_EEEENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i ]
   %443 = getelementptr inbounds double, ptr %426, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %444 = load <2 x i64>, ptr %443, align 1
-  %445 = xor <2 x i64> %444, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %445 = xor <2 x i64> %444, splat (i64 -9223372036854775808)
   store <2 x i64> %445, ptr %443, align 16
   %446 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %447 = icmp slt i64 %446, %436
@@ -185135,7 +185135,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %129 = load <2 x double>, ptr %128, align 16
   %130 = getelementptr inbounds double, ptr %111, i64 %.011.i.i.i.i.i.i.i.i
   %131 = load <2 x double>, ptr %130, align 1
-  %132 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %131
+  %132 = fdiv <2 x double> splat (double 1.000000e+00), %131
   %133 = fmul <2 x double> %129, %132
   store <2 x double> %133, ptr %127, align 16
   %134 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2

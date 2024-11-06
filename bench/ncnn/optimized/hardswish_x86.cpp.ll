@@ -119,7 +119,7 @@ define hidden noundef i32 @_ZNK4ncnn13HardSwish_x8615forward_inplaceERNS_3MatERK
   %55 = fmul fast <4 x float> %54, %49
   %56 = fadd fast <4 x float> %55, %52
   %57 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %56, <4 x float> zeroinitializer)
-  %58 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %57, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %58 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %57, <4 x float> splat (float 1.000000e+00))
   %59 = fmul fast <4 x float> %58, %49
   store <4 x float> %59, ptr %.095114.us, align 16
   %60 = getelementptr inbounds i8, ptr %.095114.us, i64 16

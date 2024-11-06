@@ -2360,8 +2360,8 @@ define weak_odr void @_ZNK7mitsuba8SpecFilmIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   %34 = fneg contract <4 x float> %30
   %35 = fmul contract <4 x float> %32, %34
   %36 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %35, <4 x float> %32, <4 x float> %33)
-  %37 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %36, <4 x float> %30, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
-  %38 = select contract <4 x i1> %31, <4 x float> %37, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %37 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %36, <4 x float> %30, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
+  %38 = select contract <4 x i1> %31, <4 x float> %37, <4 x float> splat (float 1.000000e+00)
   %39 = load <4 x float>, ptr %1, align 16
   %40 = fmul contract <4 x float> %39, %38
   store <4 x float> %40, ptr %9, align 16

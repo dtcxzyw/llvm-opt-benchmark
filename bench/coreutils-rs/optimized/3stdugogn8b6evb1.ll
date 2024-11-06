@@ -2329,7 +2329,7 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
 73:                                               ; preds = %66, %57
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %66 ], [ %.sroa.6.0.i.i, %57 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i17.i.i, %66 ], [ 1, %57 ]
-  %74 = icmp eq <16 x i8> %.0.copyload.i42.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %74 = icmp eq <16 x i8> %.0.copyload.i42.i.i, splat (i8 -1)
   %75 = bitcast <16 x i1> %74 to i16
   %.not11.i.i = icmp eq i16 %75, 0
   br i1 %.not11.i.i, label %76, label %79
@@ -2754,7 +2754,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_inser
 32:                                               ; preds = %15, %25
   %.sroa.6.1 = phi i64 [ %.sroa.3.0.i, %25 ], [ %.sroa.6.0, %15 ]
   %.sroa.01.1 = phi i64 [ %.sroa.0.0.i17, %25 ], [ 1, %15 ]
-  %33 = icmp eq <16 x i8> %.0.copyload.i42, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %33 = icmp eq <16 x i8> %.0.copyload.i42, splat (i8 -1)
   %34 = bitcast <16 x i1> %33 to i16
   %.not11 = icmp eq i16 %34, 0
   br i1 %.not11, label %35, label %38
@@ -3317,9 +3317,9 @@ common.resume:                                    ; preds = %214, %88
   %198 = add i64 %.sroa.01.06.i.i, 16
   %199 = getelementptr inbounds i8, ptr %.val16.i, i64 %.sroa.01.06.i.i
   %200 = load <16 x i8>, ptr %199, align 16, !noalias !414
-  %.lobit.i.i.i = ashr <16 x i8> %200, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %200, splat (i8 7)
   %201 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %202 = or <2 x i64> %201, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %202 = or <2 x i64> %201, splat (i64 -9187201950435737472)
   store <2 x i64> %202, ptr %199, align 16, !noalias !417
   %.not.not.i.i = icmp eq i64 %197, 0
   br i1 %.not.not.i.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit.i, label %196
@@ -4275,7 +4275,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_inse
 40:                                               ; preds = %33, %24
   %.sroa.6.1.i = phi i64 [ %.sroa.3.0.i.i, %33 ], [ %.sroa.6.0.i, %24 ]
   %.sroa.01.1.i = phi i64 [ %.sroa.0.0.i17.i, %33 ], [ 1, %24 ]
-  %41 = icmp eq <16 x i8> %.0.copyload.i42.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %41 = icmp eq <16 x i8> %.0.copyload.i42.i, splat (i8 -1)
   %42 = bitcast <16 x i1> %41 to i16
   %.not11.i = icmp eq i16 %42, 0
   br i1 %.not11.i, label %43, label %46

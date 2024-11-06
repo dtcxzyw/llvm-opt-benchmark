@@ -540,8 +540,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %gep = getelementptr i32, ptr %invariant.gep, i64 %index
   %12 = getelementptr inbounds i8, ptr %gep, i64 16
-  store <4 x i32> <i32 -65331, i32 -65331, i32 -65331, i32 -65331>, ptr %gep, align 4, !tbaa !30
-  store <4 x i32> <i32 -65331, i32 -65331, i32 -65331, i32 -65331>, ptr %12, align 4, !tbaa !30
+  store <4 x i32> splat (i32 -65331), ptr %gep, align 4, !tbaa !30
+  store <4 x i32> splat (i32 -65331), ptr %12, align 4, !tbaa !30
   %index.next = add nuw i64 %index, 8
   %13 = icmp eq i64 %index.next, %n.vec
   br i1 %13, label %middle.block, label %vector.body, !llvm.loop !32

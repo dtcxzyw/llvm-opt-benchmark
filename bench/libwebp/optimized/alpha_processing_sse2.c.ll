@@ -53,8 +53,8 @@ define internal void @MultARGBRow_SSE2(ptr noundef %0, i32 noundef %1, i32 nound
   %12 = shufflevector <8 x i16> %11, <8 x i16> poison, <8 x i32> <i32 3, i32 3, i32 3, i32 2, i32 poison, i32 poison, i32 6, i32 7>
   %13 = shufflevector <8 x i16> %12, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 7, i32 7, i32 7, i32 6>
   %14 = mul nuw <8 x i16> %13, %10
-  %15 = add <8 x i16> %14, <i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128>
-  %16 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %15, <8 x i16> <i16 257, i16 257, i16 257, i16 257, i16 257, i16 257, i16 257, i16 257>)
+  %15 = add <8 x i16> %14, splat (i16 128)
+  %16 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %15, <8 x i16> splat (i16 257))
   %17 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %16, <8 x i16> poison)
   %18 = bitcast <16 x i8> %17 to <2 x i64>
   %19 = extractelement <2 x i64> %18, i64 0
@@ -111,8 +111,8 @@ define internal void @MultRow_SSE2(ptr noalias noundef %0, ptr noalias noundef %
   %16 = bitcast <16 x i8> %13 to <8 x i16>
   %17 = bitcast <16 x i8> %15 to <8 x i16>
   %18 = mul nuw <8 x i16> %17, %16
-  %19 = add <8 x i16> %18, <i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128>
-  %20 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %19, <8 x i16> <i16 257, i16 257, i16 257, i16 257, i16 257, i16 257, i16 257, i16 257>)
+  %19 = add <8 x i16> %18, splat (i16 128)
+  %20 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %19, <8 x i16> splat (i16 257))
   %21 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %20, <8 x i16> poison)
   %22 = bitcast <16 x i8> %21 to <2 x i64>
   %23 = extractelement <2 x i64> %22, i64 0
@@ -184,10 +184,10 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   %24 = shufflevector <8 x i16> %22, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 5, i32 4, i32 4, i32 4>
   %25 = mul nuw <8 x i16> %23, %17
   %26 = mul nuw <8 x i16> %24, %20
-  %27 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %25, <8 x i16> <i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639>)
-  %28 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %26, <8 x i16> <i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639>)
-  %29 = lshr <8 x i16> %27, <i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7>
-  %30 = lshr <8 x i16> %28, <i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7>
+  %27 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %25, <8 x i16> splat (i16 -32639))
+  %28 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %26, <8 x i16> splat (i16 -32639))
+  %29 = lshr <8 x i16> %27, splat (i16 7)
+  %30 = lshr <8 x i16> %28, splat (i16 7)
   %31 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %29, <8 x i16> %30)
   store <16 x i8> %31, ptr %13, align 1
   %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 4
@@ -348,10 +348,10 @@ define internal void @ApplyAlphaMultiply_SSE2(ptr nocapture noundef %0, i32 noun
   %117 = shufflevector <8 x i16> %115, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 7, i32 7, i32 7, i32 6>
   %118 = mul nuw <8 x i16> %116, %110
   %119 = mul nuw <8 x i16> %117, %113
-  %120 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %118, <8 x i16> <i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639>)
-  %121 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %119, <8 x i16> <i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639, i16 -32639>)
-  %122 = lshr <8 x i16> %120, <i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7>
-  %123 = lshr <8 x i16> %121, <i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7, i16 7>
+  %120 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %118, <8 x i16> splat (i16 -32639))
+  %121 = tail call <8 x i16> @llvm.x86.sse2.pmulhu.w(<8 x i16> %119, <8 x i16> splat (i16 -32639))
+  %122 = lshr <8 x i16> %120, splat (i16 7)
+  %123 = lshr <8 x i16> %121, splat (i16 7)
   %124 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %122, <8 x i16> %123)
   store <16 x i8> %124, ptr %106, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
@@ -486,8 +486,8 @@ define internal range(i32 0, 2) i32 @DispatchAlpha_SSE2(ptr noalias nocapture no
   %36 = load <2 x i64>, ptr %.0100102.us, align 1
   %37 = getelementptr inbounds i8, ptr %.0100102.us, i64 16
   %38 = load <2 x i64>, ptr %37, align 1
-  %39 = and <2 x i64> %36, <i64 -1095216660736, i64 -1095216660736>
-  %40 = and <2 x i64> %38, <i64 -1095216660736, i64 -1095216660736>
+  %39 = and <2 x i64> %36, splat (i64 -1095216660736)
+  %40 = and <2 x i64> %38, splat (i64 -1095216660736)
   %41 = or disjoint <2 x i64> %39, %33
   %42 = or disjoint <2 x i64> %40, %35
   store <2 x i64> %41, ptr %.0100102.us, align 1
@@ -725,8 +725,8 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE2(ptr noalias nocapture nou
   %26 = load <4 x i32>, ptr %.08082.us, align 1
   %27 = getelementptr inbounds i8, ptr %.08082.us, i64 16
   %28 = load <4 x i32>, ptr %27, align 1
-  %29 = and <4 x i32> %26, <i32 255, i32 255, i32 255, i32 255>
-  %30 = and <4 x i32> %28, <i32 255, i32 255, i32 255, i32 255>
+  %29 = and <4 x i32> %26, splat (i32 255)
+  %30 = and <4 x i32> %28, splat (i32 255)
   %31 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %29, <4 x i32> %30)
   %32 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %31, <8 x i16> %31)
   %33 = bitcast <16 x i8> %32 to <2 x i64>
@@ -817,15 +817,15 @@ define internal void @ExtractGreen_SSE2(ptr noalias nocapture noundef readonly %
   %9 = load <4 x i32>, ptr %8, align 1
   %10 = getelementptr inbounds i8, ptr %.0107113, i64 48
   %11 = load <4 x i32>, ptr %10, align 1
-  %12 = lshr <4 x i32> %5, <i32 8, i32 8, i32 8, i32 8>
-  %13 = lshr <4 x i32> %7, <i32 8, i32 8, i32 8, i32 8>
-  %14 = lshr <4 x i32> %9, <i32 8, i32 8, i32 8, i32 8>
-  %15 = lshr <4 x i32> %11, <i32 8, i32 8, i32 8, i32 8>
-  %16 = and <4 x i32> %12, <i32 255, i32 255, i32 255, i32 255>
-  %17 = and <4 x i32> %13, <i32 255, i32 255, i32 255, i32 255>
+  %12 = lshr <4 x i32> %5, splat (i32 8)
+  %13 = lshr <4 x i32> %7, splat (i32 8)
+  %14 = lshr <4 x i32> %9, splat (i32 8)
+  %15 = lshr <4 x i32> %11, splat (i32 8)
+  %16 = and <4 x i32> %12, splat (i32 255)
+  %17 = and <4 x i32> %13, splat (i32 255)
   %18 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %16, <4 x i32> %17)
-  %19 = and <4 x i32> %14, <i32 255, i32 255, i32 255, i32 255>
-  %20 = and <4 x i32> %15, <i32 255, i32 255, i32 255, i32 255>
+  %19 = and <4 x i32> %14, splat (i32 255)
+  %20 = and <4 x i32> %15, splat (i32 255)
   %21 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %19, <4 x i32> %20)
   %22 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %18, <8 x i16> %21)
   %23 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv121
@@ -851,10 +851,10 @@ define internal void @ExtractGreen_SSE2(ptr noalias nocapture noundef readonly %
   %28 = load <4 x i32>, ptr %.0107.lcssa, align 1
   %29 = getelementptr inbounds i8, ptr %.0107.lcssa, i64 16
   %30 = load <4 x i32>, ptr %29, align 1
-  %31 = lshr <4 x i32> %28, <i32 8, i32 8, i32 8, i32 8>
-  %32 = lshr <4 x i32> %30, <i32 8, i32 8, i32 8, i32 8>
-  %33 = and <4 x i32> %31, <i32 255, i32 255, i32 255, i32 255>
-  %34 = and <4 x i32> %32, <i32 255, i32 255, i32 255, i32 255>
+  %31 = lshr <4 x i32> %28, splat (i32 8)
+  %32 = lshr <4 x i32> %30, splat (i32 8)
+  %33 = and <4 x i32> %31, splat (i32 255)
+  %34 = and <4 x i32> %32, splat (i32 255)
   %35 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %33, <4 x i32> %34)
   %36 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %35, <8 x i16> poison)
   %37 = bitcast <16 x i8> %36 to <2 x i64>
@@ -913,7 +913,7 @@ define internal range(i32 0, 2) i32 @HasAlpha8b_SSE2(ptr nocapture noundef reado
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %9 = load <16 x i8>, ptr %8, align 1
-  %10 = icmp ne <16 x i8> %9, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %10 = icmp ne <16 x i8> %9, splat (i8 -1)
   %11 = bitcast <16 x i1> %10 to i16
   %.not54 = icmp eq i16 %11, 0
   br i1 %.not54, label %4, label %.loopexit, !llvm.loop !22
@@ -957,14 +957,14 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr nocapture noundef read
   %13 = load <4 x i32>, ptr %12, align 1
   %14 = getelementptr inbounds i8, ptr %8, i64 48
   %15 = load <4 x i32>, ptr %14, align 1
-  %16 = and <4 x i32> %9, <i32 255, i32 255, i32 255, i32 255>
-  %17 = and <4 x i32> %11, <i32 255, i32 255, i32 255, i32 255>
+  %16 = and <4 x i32> %9, splat (i32 255)
+  %17 = and <4 x i32> %11, splat (i32 255)
   %18 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %16, <4 x i32> %17)
-  %19 = and <4 x i32> %13, <i32 255, i32 255, i32 255, i32 255>
-  %20 = and <4 x i32> %15, <i32 255, i32 255, i32 255, i32 255>
+  %19 = and <4 x i32> %13, splat (i32 255)
+  %20 = and <4 x i32> %15, splat (i32 255)
   %21 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %19, <4 x i32> %20)
   %22 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %18, <8 x i16> %21)
-  %23 = icmp ne <16 x i8> %22, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %23 = icmp ne <16 x i8> %22, splat (i8 -1)
   %24 = bitcast <16 x i1> %23 to i16
   %.not137 = icmp eq i16 %24, 0
   br i1 %.not137, label %6, label %.loopexit, !llvm.loop !24
@@ -985,11 +985,11 @@ define internal range(i32 0, 2) i32 @HasAlpha32b_SSE2(ptr nocapture noundef read
   %28 = load <4 x i32>, ptr %27, align 1
   %29 = getelementptr inbounds i8, ptr %27, i64 16
   %30 = load <4 x i32>, ptr %29, align 1
-  %31 = and <4 x i32> %28, <i32 255, i32 255, i32 255, i32 255>
-  %32 = and <4 x i32> %30, <i32 255, i32 255, i32 255, i32 255>
+  %31 = and <4 x i32> %28, splat (i32 255)
+  %32 = and <4 x i32> %30, splat (i32 255)
   %33 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %31, <4 x i32> %32)
   %34 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %33, <8 x i16> %33)
-  %35 = icmp ne <16 x i8> %34, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %35 = icmp ne <16 x i8> %34, splat (i8 -1)
   %36 = bitcast <16 x i1> %35 to i16
   %.not136 = icmp eq i16 %36, 0
   br i1 %.not136, label %.preheader138, label %.loopexit, !llvm.loop !25
@@ -1044,8 +1044,8 @@ define internal void @AlphaReplace_SSE2(ptr nocapture noundef %0, i32 noundef %1
   %12 = getelementptr inbounds i8, ptr %10, i64 16
   %13 = load <2 x i64>, ptr %12, align 1
   %14 = bitcast <2 x i64> %13 to <4 x i32>
-  %15 = icmp ult <4 x i32> %11, <i32 16777216, i32 16777216, i32 16777216, i32 16777216>
-  %16 = icmp ugt <4 x i32> %14, <i32 16777215, i32 16777215, i32 16777215, i32 16777215>
+  %15 = icmp ult <4 x i32> %11, splat (i32 16777216)
+  %16 = icmp ugt <4 x i32> %14, splat (i32 16777215)
   %17 = select <4 x i1> %16, <4 x i32> zeroinitializer, <4 x i32> %5
   %18 = bitcast <4 x i32> %17 to <2 x i64>
   %19 = sext <4 x i1> %16 to <4 x i32>

@@ -2417,13 +2417,13 @@ entry:
 vector.body:                                      ; preds = %entry, %vector.body
   %index = phi i64 [ %index.next, %vector.body ], [ 0, %entry ]
   %vec.ind = phi <16 x i64> [ %vec.ind.next, %vector.body ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, %entry ]
-  %1 = and <16 x i64> %vec.ind, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %1 = and <16 x i64> %vec.ind, splat (i64 1)
   %2 = icmp eq <16 x i64> %1, zeroinitializer
-  %3 = select <16 x i1> %2, <16 x i8> <i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26>, <16 x i8> <i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95, i8 -95>
+  %3 = select <16 x i1> %2, <16 x i8> splat (i8 26), <16 x i8> splat (i8 -95)
   %4 = getelementptr inbounds [576 x i8], ptr @_ZZN13TLSTestThread3runEvE3foo, i64 0, i64 %index
   store <16 x i8> %3, ptr %4, align 1, !tbaa !20
   %index.next = add nuw nsw i64 %index, 16
-  %vec.ind.next = add <16 x i64> %vec.ind, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %vec.ind.next = add <16 x i64> %vec.ind, splat (i64 16)
   %5 = icmp eq i64 %index.next, 576
   br i1 %5, label %_ZN13TLSTestThread10TestObjectC2Ev.exit, label %vector.body, !llvm.loop !60
 

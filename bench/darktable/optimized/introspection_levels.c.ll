@@ -367,7 +367,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %77 = phi i64 [ 0, %45 ], [ %105, %76 ]
   %78 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %45 ], [ %106, %76 ]
   %79 = uitofp <8 x i32> %78 to <8 x float>
-  %80 = fmul reassoc nsz arcp contract afn <8 x float> %79, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %80 = fmul reassoc nsz arcp contract afn <8 x float> %79, splat (float 0x3EF0000000000000)
   %81 = extractelement <8 x float> %80, i64 0
   %82 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %81, float %71)
   %83 = extractelement <8 x float> %80, i64 1
@@ -390,11 +390,11 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %100 = insertelement <8 x float> %99, float %92, i64 5
   %101 = shufflevector <2 x float> %94, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %102 = shufflevector <8 x float> %100, <8 x float> %101, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %103 = fmul reassoc nsz arcp contract afn <8 x float> %102, <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
+  %103 = fmul reassoc nsz arcp contract afn <8 x float> %102, splat (float 1.000000e+02)
   %104 = getelementptr inbounds [65536 x float], ptr %73, i64 0, i64 %77
   store <8 x float> %103, ptr %104, align 4, !tbaa !12
   %105 = add nuw nsw i64 %77, 8
-  %106 = add <8 x i32> %78, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %106 = add <8 x i32> %78, splat (i32 8)
   %107 = icmp eq i64 %105, 65536
   br i1 %107, label %.loopexit19, label %76, !llvm.loop !63
 
@@ -439,7 +439,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %137 = load float, ptr %136, align 4, !tbaa !12
   %138 = fmul reassoc nsz arcp contract afn float %137, %132
   %139 = getelementptr inbounds i8, ptr %108, i64 20
-  store <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %133, align 4, !tbaa !12
+  store <2 x float> splat (float 0xC7EFFFFFE0000000), ptr %133, align 4, !tbaa !12
   %140 = getelementptr inbounds i8, ptr %108, i64 12
   %141 = load float, ptr %140, align 4, !tbaa !12
   %142 = fmul reassoc nsz arcp contract afn float %141, %132
@@ -582,7 +582,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %234 = phi i64 [ 0, %217 ], [ %262, %233 ]
   %235 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %217 ], [ %263, %233 ]
   %236 = uitofp <8 x i32> %235 to <8 x float>
-  %237 = fmul reassoc nsz arcp contract afn <8 x float> %236, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %237 = fmul reassoc nsz arcp contract afn <8 x float> %236, splat (float 0x3EF0000000000000)
   %238 = extractelement <8 x float> %237, i64 0
   %239 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %238, float %228)
   %240 = extractelement <8 x float> %237, i64 1
@@ -605,11 +605,11 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %257 = insertelement <8 x float> %256, float %249, i64 5
   %258 = shufflevector <2 x float> %251, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %259 = shufflevector <8 x float> %257, <8 x float> %258, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %260 = fmul reassoc nsz arcp contract afn <8 x float> %259, <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
+  %260 = fmul reassoc nsz arcp contract afn <8 x float> %259, splat (float 1.000000e+02)
   %261 = getelementptr inbounds [65536 x float], ptr %230, i64 0, i64 %234
   store <8 x float> %260, ptr %261, align 4, !tbaa !12
   %262 = add nuw nsw i64 %234, 8
-  %263 = add <8 x i32> %235, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %263 = add <8 x i32> %235, splat (i32 8)
   %264 = icmp eq i64 %262, 65536
   br i1 %264, label %265, label %233, !llvm.loop !69
 
@@ -786,7 +786,7 @@ define void @commit_params(ptr nocapture noundef %0, ptr nocapture noundef reado
   %39 = getelementptr inbounds i8, ptr %6, i64 12
   store float %38, ptr %39, align 4, !tbaa !12
   %40 = getelementptr inbounds i8, ptr %6, i64 16
-  store <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %40, align 4, !tbaa !12
+  store <2 x float> splat (float 0xC7EFFFFFE0000000), ptr %40, align 4, !tbaa !12
   %41 = getelementptr inbounds i8, ptr %6, i64 24
   store float 0xC7EFFFFFE0000000, ptr %41, align 4, !tbaa !12
   br label %.loopexit
@@ -828,7 +828,7 @@ define void @commit_params(ptr nocapture noundef %0, ptr nocapture noundef reado
   %68 = phi i64 [ 0, %42 ], [ %96, %67 ]
   %69 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %42 ], [ %97, %67 ]
   %70 = uitofp <8 x i32> %69 to <8 x float>
-  %71 = fmul reassoc nsz arcp contract afn <8 x float> %70, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %71 = fmul reassoc nsz arcp contract afn <8 x float> %70, splat (float 0x3EF0000000000000)
   %72 = extractelement <8 x float> %71, i64 0
   %73 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %72, float %62)
   %74 = extractelement <8 x float> %71, i64 1
@@ -851,11 +851,11 @@ define void @commit_params(ptr nocapture noundef %0, ptr nocapture noundef reado
   %91 = insertelement <8 x float> %90, float %83, i64 5
   %92 = shufflevector <2 x float> %85, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %93 = shufflevector <8 x float> %91, <8 x float> %92, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %94 = fmul reassoc nsz arcp contract afn <8 x float> %93, <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
+  %94 = fmul reassoc nsz arcp contract afn <8 x float> %93, splat (float 1.000000e+02)
   %95 = getelementptr inbounds [65536 x float], ptr %64, i64 0, i64 %68
   store <8 x float> %94, ptr %95, align 4, !tbaa !12
   %96 = add nuw nsw i64 %68, 8
-  %97 = add <8 x i32> %69, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %97 = add <8 x i32> %69, splat (i32 8)
   %98 = icmp eq i64 %96, 65536
   br i1 %98, label %.loopexit, label %67, !llvm.loop !92
 
@@ -949,7 +949,7 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %24 = getelementptr inbounds i8, ptr %0, i64 712
   %25 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %24) #20
   %26 = getelementptr inbounds i8, ptr %3, i64 104
-  store <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %26, align 8, !tbaa !12
+  store <2 x float> splat (float 0xC7EFFFFFE0000000), ptr %26, align 8, !tbaa !12
   %27 = getelementptr inbounds i8, ptr %3, i64 112
   store float 0xC7EFFFFFE0000000, ptr %27, align 8, !tbaa !12
   %28 = getelementptr inbounds i8, ptr %3, i64 120
@@ -1019,7 +1019,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %9 = load ptr, ptr %6, align 16, !tbaa !17
   %10 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #20
   %11 = getelementptr inbounds i8, ptr %9, i64 104
-  store <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %11, align 8, !tbaa !12
+  store <2 x float> splat (float 0xC7EFFFFFE0000000), ptr %11, align 8, !tbaa !12
   %12 = getelementptr inbounds i8, ptr %9, i64 112
   store float 0xC7EFFFFFE0000000, ptr %12, align 8, !tbaa !12
   %13 = getelementptr inbounds i8, ptr %9, i64 120
@@ -1027,7 +1027,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %14 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %7) #20
   store ptr null, ptr %9, align 8, !tbaa !102
   %15 = getelementptr inbounds i8, ptr %9, i64 32
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %15, align 8, !tbaa !103
+  store <2 x double> splat (double -1.000000e+00), ptr %15, align 8, !tbaa !103
   %16 = getelementptr inbounds i8, ptr %9, i64 48
   store i32 0, ptr %16, align 8, !tbaa !104
   %17 = getelementptr inbounds i8, ptr %9, i64 64
@@ -1823,7 +1823,7 @@ define internal noundef i32 @dt_iop_levels_leave_notify(ptr noundef %0, ptr noca
   %4 = getelementptr inbounds i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !17
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %6, align 8, !tbaa !103
+  store <2 x double> splat (double -1.000000e+00), ptr %6, align 8, !tbaa !103
   tail call void @gtk_widget_queue_draw(ptr noundef %0) #20
   ret i32 1
 }

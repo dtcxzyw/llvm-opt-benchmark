@@ -415,8 +415,8 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   tail call void @llvm.assume(i1 %96)
   %97 = extractelement <8 x i1> %89, i64 7
   tail call void @llvm.assume(i1 %97)
-  %98 = mul nuw nsw <8 x i64> %86, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
-  %99 = add nuw nsw <8 x i64> %98, <i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9, i64 9>
+  %98 = mul nuw nsw <8 x i64> %86, splat (i64 9)
+  %99 = add nuw nsw <8 x i64> %98, splat (i64 9)
   %100 = icmp samesign ule <8 x i64> %99, %83
   %101 = extractelement <8 x i1> %100, i64 0
   tail call void @llvm.assume(i1 %101)
@@ -440,7 +440,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %112 = shufflevector <32 x i32> %109, <32 x i32> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
   %113 = shufflevector <32 x i32> %109, <32 x i32> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
   %114 = trunc <8 x i32> %110 to <8 x i16>
-  %115 = and <8 x i16> %114, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %115 = and <8 x i16> %114, splat (i16 16383)
   %116 = extractelement <8 x i64> %98, i64 0
   %117 = getelementptr inbounds i16, ptr %29, i64 %116
   %118 = extractelement <8 x i64> %98, i64 1
@@ -473,9 +473,9 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %138, ptr %129, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %139 = extractelement <8 x i16> %115, i64 7
   store i16 %139, ptr %131, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %140 = lshr <8 x i32> %110, <i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14, i32 14>
+  %140 = lshr <8 x i32> %110, splat (i32 14)
   %141 = trunc <8 x i32> %140 to <8 x i16>
-  %142 = and <8 x i16> %141, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %142 = and <8 x i16> %141, splat (i16 16383)
   %143 = getelementptr i16, ptr %51, i64 %116
   %144 = getelementptr i16, ptr %51, i64 %118
   %145 = getelementptr i16, ptr %51, i64 %120
@@ -500,9 +500,9 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %157, ptr %149, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %158 = extractelement <8 x i16> %142, i64 7
   store i16 %158, ptr %150, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %159 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %111, <8 x i32> %110, <8 x i32> <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>)
+  %159 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %111, <8 x i32> %110, <8 x i32> splat (i32 4))
   %160 = trunc <8 x i32> %159 to <8 x i16>
-  %161 = and <8 x i16> %160, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %161 = and <8 x i16> %160, splat (i16 16383)
   %162 = getelementptr i16, ptr %52, i64 %116
   %163 = getelementptr i16, ptr %52, i64 %118
   %164 = getelementptr i16, ptr %52, i64 %120
@@ -527,9 +527,9 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %176, ptr %168, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %177 = extractelement <8 x i16> %161, i64 7
   store i16 %177, ptr %169, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %178 = lshr <8 x i32> %111, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
+  %178 = lshr <8 x i32> %111, splat (i32 10)
   %179 = trunc <8 x i32> %178 to <8 x i16>
-  %180 = and <8 x i16> %179, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %180 = and <8 x i16> %179, splat (i16 16383)
   %181 = getelementptr i16, ptr %53, i64 %116
   %182 = getelementptr i16, ptr %53, i64 %118
   %183 = getelementptr i16, ptr %53, i64 %120
@@ -554,9 +554,9 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %195, ptr %187, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %196 = extractelement <8 x i16> %180, i64 7
   store i16 %196, ptr %188, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %197 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %112, <8 x i32> %111, <8 x i32> <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>)
+  %197 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %112, <8 x i32> %111, <8 x i32> splat (i32 8))
   %198 = trunc <8 x i32> %197 to <8 x i16>
-  %199 = and <8 x i16> %198, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %199 = and <8 x i16> %198, splat (i16 16383)
   %200 = getelementptr i16, ptr %54, i64 %116
   %201 = getelementptr i16, ptr %54, i64 %118
   %202 = getelementptr i16, ptr %54, i64 %120
@@ -581,10 +581,10 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %214, ptr %206, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %215 = extractelement <8 x i16> %199, i64 7
   store i16 %215, ptr %207, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %216 = lshr <8 x i32> %112, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %216 = lshr <8 x i32> %112, splat (i32 6)
   %217 = trunc <8 x i32> %216 to <8 x i16>
-  %218 = and <8 x i16> %217, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
-  %219 = lshr <8 x i32> %112, <i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20>
+  %218 = and <8 x i16> %217, splat (i16 16383)
+  %219 = lshr <8 x i32> %112, splat (i32 20)
   %220 = trunc nuw nsw <8 x i32> %219 to <8 x i16>
   %221 = getelementptr i16, ptr %55, i64 %116
   %222 = getelementptr i16, ptr %55, i64 %118
@@ -611,8 +611,8 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %236 = extractelement <8 x i16> %218, i64 7
   store i16 %236, ptr %228, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %237 = trunc <8 x i32> %113 to <8 x i16>
-  %238 = shl <8 x i16> %237, <i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12, i16 12>
-  %239 = and <8 x i16> %238, <i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288, i16 12288>
+  %238 = shl <8 x i16> %237, splat (i16 12)
+  %239 = and <8 x i16> %238, splat (i16 12288)
   %240 = or disjoint <8 x i16> %239, %220
   %241 = getelementptr i16, ptr %56, i64 %116
   %242 = getelementptr i16, ptr %56, i64 %118
@@ -638,7 +638,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %255, ptr %247, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %256 = extractelement <8 x i16> %240, i64 7
   store i16 %256, ptr %248, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %257 = lshr <8 x i16> %237, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %257 = lshr <8 x i16> %237, splat (i16 2)
   %258 = getelementptr i16, ptr %57, i64 %116
   %259 = getelementptr i16, ptr %57, i64 %118
   %260 = getelementptr i16, ptr %57, i64 %120
@@ -663,9 +663,9 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   store i16 %272, ptr %264, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %273 = extractelement <8 x i16> %257, i64 7
   store i16 %273, ptr %265, align 2, !tbaa !113, !alias.scope !115, !noalias !118
-  %274 = lshr <8 x i32> %113, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %274 = lshr <8 x i32> %113, splat (i32 16)
   %275 = trunc nuw <8 x i32> %274 to <8 x i16>
-  %276 = and <8 x i16> %275, <i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383, i16 16383>
+  %276 = and <8 x i16> %275, splat (i16 16383)
   %277 = getelementptr i16, ptr %58, i64 %116
   %278 = getelementptr i16, ptr %58, i64 %118
   %279 = getelementptr i16, ptr %58, i64 %120
@@ -691,7 +691,7 @@ define hidden void @_ZNK8rawspeed23PanasonicV7Decompressor13decompressRowEi(ptr 
   %292 = extractelement <8 x i16> %276, i64 7
   store i16 %292, ptr %284, align 2, !tbaa !113, !alias.scope !115, !noalias !118
   %293 = add nuw i64 %85, 8
-  %294 = add <8 x i64> %86, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %294 = add <8 x i64> %86, splat (i64 8)
   %295 = icmp eq i64 %293, %81
   br i1 %295, label %.loopexit7.loopexit, label %84, !llvm.loop !120
 

@@ -465,9 +465,9 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor13decode8BitR
 .preheader7:                                      ; preds = %106, %.preheader7
   %107 = phi i64 [ %196, %.preheader7 ], [ 0, %106 ]
   %108 = phi <16 x i64> [ %197, %.preheader7 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, %106 ]
-  %109 = add <16 x i64> %108, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %110 = add <16 x i64> %108, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %111 = add <16 x i64> %108, <i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48>
+  %109 = add <16 x i64> %108, splat (i64 16)
+  %110 = add <16 x i64> %108, splat (i64 32)
+  %111 = add <16 x i64> %108, splat (i64 48)
   %112 = getelementptr inbounds i8, ptr %91, i64 %107
   %113 = getelementptr inbounds i8, ptr %112, i64 16
   %114 = getelementptr inbounds i8, ptr %112, i64 32
@@ -621,7 +621,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor13decode8BitR
   store <16 x i16> %122, ptr %194, align 2, !tbaa !108, !alias.scope !110, !noalias !105
   store <16 x i16> %123, ptr %195, align 2, !tbaa !108, !alias.scope !110, !noalias !105
   %196 = add nuw nsw i64 %107, 64
-  %197 = add <16 x i64> %108, <i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64>
+  %197 = add <16 x i64> %108, splat (i64 64)
   %198 = icmp eq i64 %196, %71
   br i1 %198, label %199, label %.preheader7, !llvm.loop !112
 
@@ -664,7 +664,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor13decode8BitR
   %221 = getelementptr inbounds i16, ptr %97, i64 %207
   store <8 x i16> %211, ptr %221, align 2, !tbaa !108, !alias.scope !118, !noalias !115
   %222 = add nuw i64 %207, 8
-  %223 = add <8 x i64> %208, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %223 = add <8 x i64> %208, splat (i64 8)
   %224 = icmp eq i64 %222, %77
   br i1 %224, label %225, label %206, !llvm.loop !120
 
@@ -1703,7 +1703,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
 .preheader8:                                      ; preds = %116, %.preheader8
   %117 = phi i64 [ %183, %.preheader8 ], [ 0, %116 ]
   %118 = phi <16 x i64> [ %184, %.preheader8 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, %116 ]
-  %119 = shl nuw nsw <16 x i64> %118, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %119 = shl nuw nsw <16 x i64> %118, splat (i64 1)
   %120 = icmp samesign ult <16 x i64> %119, %89
   %121 = extractelement <16 x i1> %120, i64 0
   tail call void @llvm.assume(i1 %121)
@@ -1743,7 +1743,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %140 = shufflevector <32 x i8> %139, <32 x i8> poison, <16 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30>
   %141 = shufflevector <32 x i8> %139, <32 x i8> poison, <16 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
   %142 = zext <16 x i8> %140 to <16 x i16>
-  %143 = or disjoint <16 x i64> %119, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %143 = or disjoint <16 x i64> %119, splat (i64 1)
   %144 = icmp samesign ult <16 x i64> %143, %89
   %145 = extractelement <16 x i1> %144, i64 0
   tail call void @llvm.assume(i1 %145)
@@ -1778,9 +1778,9 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %160 = extractelement <16 x i1> %144, i64 15
   tail call void @llvm.assume(i1 %160)
   %161 = zext <16 x i8> %141 to <16 x i16>
-  %162 = shl nuw <16 x i16> %142, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %162 = shl nuw <16 x i16> %142, splat (i16 8)
   %163 = or disjoint <16 x i16> %162, %161
-  %164 = lshr <16 x i16> %163, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %164 = lshr <16 x i16> %163, splat (i16 4)
   %165 = icmp ult <16 x i64> %118, %91
   %166 = extractelement <16 x i1> %165, i64 0
   tail call void @llvm.assume(i1 %166)
@@ -1817,7 +1817,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %182 = getelementptr inbounds i16, ptr %115, i64 %117
   store <16 x i16> %164, ptr %182, align 2, !tbaa !108, !alias.scope !138, !noalias !141
   %183 = add nuw nsw i64 %117, 16
-  %184 = add <16 x i64> %118, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %184 = add <16 x i64> %118, splat (i64 16)
   %185 = icmp eq i64 %183, %87
   br i1 %185, label %186, label %.preheader8, !llvm.loop !143
 
@@ -1837,7 +1837,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
 193:                                              ; preds = %193, %188
   %194 = phi i64 [ %189, %188 ], [ %236, %193 ]
   %195 = phi <8 x i64> [ %192, %188 ], [ %237, %193 ]
-  %196 = shl nuw nsw <8 x i64> %195, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %196 = shl nuw nsw <8 x i64> %195, splat (i64 1)
   %197 = icmp samesign ult <8 x i64> %196, %97
   %198 = extractelement <8 x i1> %197, i64 0
   tail call void @llvm.assume(i1 %198)
@@ -1861,7 +1861,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %209 = shufflevector <16 x i8> %208, <16 x i8> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %210 = shufflevector <16 x i8> %208, <16 x i8> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
   %211 = zext <8 x i8> %209 to <8 x i16>
-  %212 = or disjoint <8 x i64> %196, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %212 = or disjoint <8 x i64> %196, splat (i64 1)
   %213 = icmp samesign ult <8 x i64> %212, %97
   %214 = extractelement <8 x i1> %213, i64 0
   tail call void @llvm.assume(i1 %214)
@@ -1880,9 +1880,9 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %221 = extractelement <8 x i1> %213, i64 7
   tail call void @llvm.assume(i1 %221)
   %222 = zext <8 x i8> %210 to <8 x i16>
-  %223 = shl nuw <8 x i16> %211, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %223 = shl nuw <8 x i16> %211, splat (i16 8)
   %224 = or disjoint <8 x i16> %223, %222
-  %225 = lshr <8 x i16> %224, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %225 = lshr <8 x i16> %224, splat (i16 4)
   %226 = icmp ult <8 x i64> %195, %99
   %227 = extractelement <8 x i1> %226, i64 0
   tail call void @llvm.assume(i1 %227)
@@ -1903,7 +1903,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %235 = getelementptr inbounds i16, ptr %115, i64 %194
   store <8 x i16> %225, ptr %235, align 2, !tbaa !108, !alias.scope !144, !noalias !147
   %236 = add nuw i64 %194, 8
-  %237 = add <8 x i64> %195, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %237 = add <8 x i64> %195, splat (i64 8)
   %238 = icmp eq i64 %236, %95
   br i1 %238, label %239, label %193, !llvm.loop !149
 
@@ -2194,7 +2194,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
 .preheader8:                                      ; preds = %116, %.preheader8
   %117 = phi i64 [ %183, %.preheader8 ], [ 0, %116 ]
   %118 = phi <16 x i64> [ %184, %.preheader8 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, %116 ]
-  %119 = shl nuw nsw <16 x i64> %118, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %119 = shl nuw nsw <16 x i64> %118, splat (i64 1)
   %120 = icmp samesign ult <16 x i64> %119, %89
   %121 = extractelement <16 x i1> %120, i64 0
   tail call void @llvm.assume(i1 %121)
@@ -2234,7 +2234,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %140 = shufflevector <32 x i8> %139, <32 x i8> poison, <16 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30>
   %141 = shufflevector <32 x i8> %139, <32 x i8> poison, <16 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15, i32 17, i32 19, i32 21, i32 23, i32 25, i32 27, i32 29, i32 31>
   %142 = zext <16 x i8> %140 to <16 x i16>
-  %143 = or disjoint <16 x i64> %119, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %143 = or disjoint <16 x i64> %119, splat (i64 1)
   %144 = icmp samesign ult <16 x i64> %143, %89
   %145 = extractelement <16 x i1> %144, i64 0
   tail call void @llvm.assume(i1 %145)
@@ -2269,9 +2269,9 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %160 = extractelement <16 x i1> %144, i64 15
   tail call void @llvm.assume(i1 %160)
   %161 = zext <16 x i8> %141 to <16 x i16>
-  %162 = shl nuw <16 x i16> %161, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %162 = shl nuw <16 x i16> %161, splat (i16 8)
   %163 = or disjoint <16 x i16> %162, %142
-  %164 = lshr <16 x i16> %163, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %164 = lshr <16 x i16> %163, splat (i16 4)
   %165 = icmp ult <16 x i64> %118, %91
   %166 = extractelement <16 x i1> %165, i64 0
   tail call void @llvm.assume(i1 %166)
@@ -2308,7 +2308,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %182 = getelementptr inbounds i16, ptr %115, i64 %117
   store <16 x i16> %164, ptr %182, align 2, !tbaa !108, !alias.scope !156, !noalias !159
   %183 = add nuw nsw i64 %117, 16
-  %184 = add <16 x i64> %118, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %184 = add <16 x i64> %118, splat (i64 16)
   %185 = icmp eq i64 %183, %87
   br i1 %185, label %186, label %.preheader8, !llvm.loop !161
 
@@ -2328,7 +2328,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
 193:                                              ; preds = %193, %188
   %194 = phi i64 [ %189, %188 ], [ %236, %193 ]
   %195 = phi <8 x i64> [ %192, %188 ], [ %237, %193 ]
-  %196 = shl nuw nsw <8 x i64> %195, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %196 = shl nuw nsw <8 x i64> %195, splat (i64 1)
   %197 = icmp samesign ult <8 x i64> %196, %97
   %198 = extractelement <8 x i1> %197, i64 0
   tail call void @llvm.assume(i1 %198)
@@ -2352,7 +2352,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %209 = shufflevector <16 x i8> %208, <16 x i8> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %210 = shufflevector <16 x i8> %208, <16 x i8> poison, <8 x i32> <i32 1, i32 3, i32 5, i32 7, i32 9, i32 11, i32 13, i32 15>
   %211 = zext <8 x i8> %209 to <8 x i16>
-  %212 = or disjoint <8 x i64> %196, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %212 = or disjoint <8 x i64> %196, splat (i64 1)
   %213 = icmp samesign ult <8 x i64> %212, %97
   %214 = extractelement <8 x i1> %213, i64 0
   tail call void @llvm.assume(i1 %214)
@@ -2371,9 +2371,9 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %221 = extractelement <8 x i1> %213, i64 7
   tail call void @llvm.assume(i1 %221)
   %222 = zext <8 x i8> %210 to <8 x i16>
-  %223 = shl nuw <8 x i16> %222, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %223 = shl nuw <8 x i16> %222, splat (i16 8)
   %224 = or disjoint <8 x i16> %223, %211
-  %225 = lshr <8 x i16> %224, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %225 = lshr <8 x i16> %224, splat (i16 4)
   %226 = icmp ult <8 x i64> %195, %99
   %227 = extractelement <8 x i1> %226, i64 0
   tail call void @llvm.assume(i1 %227)
@@ -2394,7 +2394,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %235 = getelementptr inbounds i16, ptr %115, i64 %194
   store <8 x i16> %225, ptr %235, align 2, !tbaa !108, !alias.scope !162, !noalias !165
   %236 = add nuw i64 %194, 8
-  %237 = add <8 x i64> %195, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %237 = add <8 x i64> %195, splat (i64 8)
   %238 = icmp eq i64 %236, %95
   br i1 %238, label %239, label %193, !llvm.loop !167
 

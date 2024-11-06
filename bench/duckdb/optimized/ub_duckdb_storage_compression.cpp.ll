@@ -14783,7 +14783,7 @@ if.end:                                           ; preds = %call.i.i.i.noexc, %
   %27 = load i32, ptr %add.ptr.i19, align 4
   store i32 %27, ptr %arrayidx, align 1
   %28 = load <2 x i64>, ptr %total_value_count.i, align 8, !tbaa !14
-  %29 = add <2 x i64> %28, <i64 1, i64 1>
+  %29 = add <2 x i64> %28, splat (i64 1)
   store <2 x i64> %29, ptr %total_value_count.i, align 8, !tbaa !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14PatasScanStateIfEE, i64 16), ptr %scan_state, align 8, !tbaa !47
   %handle.i = getelementptr inbounds i8, ptr %scan_state, i64 8
@@ -15719,7 +15719,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
   %16 = load i64, ptr %add.ptr.i, align 8
   store i64 %16, ptr %arrayidx, align 1
   %17 = load <2 x i64>, ptr %total_value_count.i, align 8, !tbaa !14
-  %18 = add <2 x i64> %17, <i64 1, i64 1>
+  %18 = add <2 x i64> %17, splat (i64 1)
   store <2 x i64> %18, ptr %total_value_count.i, align 8, !tbaa !14
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb14PatasScanStateIdEE, i64 16), ptr %scan_state, align 8, !tbaa !47
   %handle.i = getelementptr inbounds i8, ptr %scan_state, i64 8
@@ -48119,7 +48119,7 @@ entry:
   store ptr %str.coerce1, ptr %0, align 8
   %current_tuple_count = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load <2 x i64>, ptr %current_tuple_count, align 8, !tbaa !14
-  %2 = add <2 x i64> %1, <i64 1, i64 1>
+  %2 = add <2 x i64> %1, splat (i64 1)
   store <2 x i64> %2, ptr %current_tuple_count, align 8, !tbaa !14
   %3 = trunc i64 %str.coerce0 to i32
   %conv.i = and i64 %str.coerce0, 4294967295
@@ -53413,7 +53413,7 @@ vector.ph234:                                     ; preds = %vector.memcheck
   %7 = load i8, ptr %current_frame_of_reference, align 1, !tbaa !1357, !alias.scope !1354
   %broadcast.splatinsert252 = insertelement <2 x i8> poison, i8 %7, i64 0
   %broadcast.splat253 = shufflevector <2 x i8> %broadcast.splatinsert252, <2 x i8> poison, <2 x i32> zeroinitializer
-  %step.add = add <2 x i64> %broadcast.splat245, <i64 2, i64 2>
+  %step.add = add <2 x i64> %broadcast.splat245, splat (i64 2)
   br label %vector.body239
 
 vector.body239:                                   ; preds = %vector.body239, %vector.ph234
@@ -53432,7 +53432,7 @@ vector.body239:                                   ; preds = %vector.body239, %ve
   store <2 x i8> %14, ptr %16, align 1, !tbaa !115, !alias.scope !1358, !noalias !1354
   store <2 x i8> %15, ptr %17, align 1, !tbaa !115, !alias.scope !1358, !noalias !1354
   %index.next254 = add nuw i64 %index240, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %18 = icmp eq i64 %index.next254, %n.vec236
   br i1 %18, label %middle.block232, label %vector.body239, !llvm.loop !1360
 
@@ -56962,7 +56962,7 @@ vector.body216:                                   ; preds = %vector.body216, %ve
   %23 = getelementptr inbounds i16, ptr %add.ptr26, i64 %index217
   store <8 x i16> %22, ptr %23, align 2, !tbaa !525, !alias.scope !1436, !noalias !1432
   %index.next224 = add nuw i64 %index217, 8
-  %vec.ind.next = add <8 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <8 x i64> %vec.ind, splat (i64 8)
   %24 = icmp eq i64 %index.next224, %n.vec213
   br i1 %24, label %middle.block208, label %vector.body216, !llvm.loop !1438
 
@@ -60695,7 +60695,7 @@ vector.ph204:                                     ; preds = %vector.memcheck
   %18 = load i32, ptr %current_frame_of_reference, align 4, !tbaa !1526, !alias.scope !1523
   %broadcast.splatinsert220 = insertelement <4 x i32> poison, i32 %18, i64 0
   %broadcast.splat221 = shufflevector <4 x i32> %broadcast.splatinsert220, <4 x i32> poison, <4 x i32> zeroinitializer
-  %step.add = add <4 x i64> %broadcast.splat213, <i64 4, i64 4, i64 4, i64 4>
+  %step.add = add <4 x i64> %broadcast.splat213, splat (i64 4)
   br label %vector.body209
 
 vector.body209:                                   ; preds = %vector.body209, %vector.ph204
@@ -60714,7 +60714,7 @@ vector.body209:                                   ; preds = %vector.body209, %ve
   store <4 x i32> %25, ptr %27, align 4, !tbaa !116, !alias.scope !1527, !noalias !1523
   store <4 x i32> %26, ptr %28, align 4, !tbaa !116, !alias.scope !1527, !noalias !1523
   %index.next222 = add nuw i64 %index210, 8
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 8)
   %29 = icmp eq i64 %index.next222, %n.vec206
   br i1 %29, label %middle.block201, label %vector.body209, !llvm.loop !1529
 
@@ -64201,7 +64201,7 @@ vector.ph205:                                     ; preds = %vector.memcheck
   %19 = load i64, ptr %current_frame_of_reference, align 8, !tbaa !1617, !alias.scope !1614
   %broadcast.splatinsert223 = insertelement <2 x i64> poison, i64 %19, i64 0
   %broadcast.splat224 = shufflevector <2 x i64> %broadcast.splatinsert223, <2 x i64> poison, <2 x i32> zeroinitializer
-  %step.add = add <2 x i64> %broadcast.splat216, <i64 2, i64 2>
+  %step.add = add <2 x i64> %broadcast.splat216, splat (i64 2)
   br label %vector.body210
 
 vector.body210:                                   ; preds = %vector.body210, %vector.ph205
@@ -64218,7 +64218,7 @@ vector.body210:                                   ; preds = %vector.body210, %ve
   store <2 x i64> %24, ptr %26, align 8, !tbaa !14, !alias.scope !1618, !noalias !1614
   store <2 x i64> %25, ptr %27, align 8, !tbaa !14, !alias.scope !1618, !noalias !1614
   %index.next225 = add nuw i64 %index211, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %28 = icmp eq i64 %index.next225, %n.vec207
   br i1 %28, label %middle.block202, label %vector.body210, !llvm.loop !1620
 
@@ -68517,7 +68517,7 @@ vector.ph233:                                     ; preds = %vector.memcheck
   %7 = load i8, ptr %current_frame_of_reference, align 1, !tbaa !1692, !alias.scope !1689
   %broadcast.splatinsert251 = insertelement <2 x i8> poison, i8 %7, i64 0
   %broadcast.splat252 = shufflevector <2 x i8> %broadcast.splatinsert251, <2 x i8> poison, <2 x i32> zeroinitializer
-  %step.add = add <2 x i64> %broadcast.splat244, <i64 2, i64 2>
+  %step.add = add <2 x i64> %broadcast.splat244, splat (i64 2)
   br label %vector.body238
 
 vector.body238:                                   ; preds = %vector.body238, %vector.ph233
@@ -68536,7 +68536,7 @@ vector.body238:                                   ; preds = %vector.body238, %ve
   store <2 x i8> %14, ptr %16, align 1, !tbaa !115, !alias.scope !1693, !noalias !1689
   store <2 x i8> %15, ptr %17, align 1, !tbaa !115, !alias.scope !1693, !noalias !1689
   %index.next253 = add nuw i64 %index239, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %18 = icmp eq i64 %index.next253, %n.vec235
   br i1 %18, label %middle.block231, label %vector.body238, !llvm.loop !1695
 
@@ -71701,7 +71701,7 @@ vector.body215:                                   ; preds = %vector.body215, %ve
   %23 = getelementptr inbounds i16, ptr %add.ptr26, i64 %index216
   store <8 x i16> %22, ptr %23, align 2, !tbaa !525, !alias.scope !1766, !noalias !1762
   %index.next223 = add nuw i64 %index216, 8
-  %vec.ind.next = add <8 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <8 x i64> %vec.ind, splat (i64 8)
   %24 = icmp eq i64 %index.next223, %n.vec212
   br i1 %24, label %middle.block207, label %vector.body215, !llvm.loop !1768
 
@@ -75079,7 +75079,7 @@ vector.ph203:                                     ; preds = %vector.memcheck
   %18 = load i32, ptr %current_frame_of_reference, align 4, !tbaa !1852, !alias.scope !1849
   %broadcast.splatinsert219 = insertelement <4 x i32> poison, i32 %18, i64 0
   %broadcast.splat220 = shufflevector <4 x i32> %broadcast.splatinsert219, <4 x i32> poison, <4 x i32> zeroinitializer
-  %step.add = add <4 x i64> %broadcast.splat212, <i64 4, i64 4, i64 4, i64 4>
+  %step.add = add <4 x i64> %broadcast.splat212, splat (i64 4)
   br label %vector.body208
 
 vector.body208:                                   ; preds = %vector.body208, %vector.ph203
@@ -75098,7 +75098,7 @@ vector.body208:                                   ; preds = %vector.body208, %ve
   store <4 x i32> %25, ptr %27, align 4, !tbaa !116, !alias.scope !1853, !noalias !1849
   store <4 x i32> %26, ptr %28, align 4, !tbaa !116, !alias.scope !1853, !noalias !1849
   %index.next221 = add nuw i64 %index209, 8
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 8)
   %29 = icmp eq i64 %index.next221, %n.vec205
   br i1 %29, label %middle.block200, label %vector.body208, !llvm.loop !1855
 
@@ -78518,7 +78518,7 @@ vector.ph204:                                     ; preds = %vector.memcheck
   %19 = load i64, ptr %current_frame_of_reference, align 8, !tbaa !1938, !alias.scope !1935
   %broadcast.splatinsert222 = insertelement <2 x i64> poison, i64 %19, i64 0
   %broadcast.splat223 = shufflevector <2 x i64> %broadcast.splatinsert222, <2 x i64> poison, <2 x i32> zeroinitializer
-  %step.add = add <2 x i64> %broadcast.splat215, <i64 2, i64 2>
+  %step.add = add <2 x i64> %broadcast.splat215, splat (i64 2)
   br label %vector.body209
 
 vector.body209:                                   ; preds = %vector.body209, %vector.ph204
@@ -78535,7 +78535,7 @@ vector.body209:                                   ; preds = %vector.body209, %ve
   store <2 x i64> %24, ptr %26, align 8, !tbaa !14, !alias.scope !1939, !noalias !1935
   store <2 x i64> %25, ptr %27, align 8, !tbaa !14, !alias.scope !1939, !noalias !1935
   %index.next224 = add nuw i64 %index210, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %28 = icmp eq i64 %index.next224, %n.vec206
   br i1 %28, label %middle.block201, label %vector.body209, !llvm.loop !1941
 

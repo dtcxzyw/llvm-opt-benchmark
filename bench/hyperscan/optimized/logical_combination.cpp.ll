@@ -4694,7 +4694,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %expr, i64 40
   store ptr @.str.9, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %flags) #17
-  store <4 x i32> <i32 1024, i32 1024, i32 1024, i32 1024>, ptr %flags, align 16
+  store <4 x i32> splat (i32 1024), ptr %flags, align 16
   %7 = getelementptr inbounds i8, ptr %flags, i64 16
   store i32 0, ptr %7, align 16
   %8 = getelementptr inbounds i8, ptr %flags, i64 20
@@ -7693,7 +7693,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %expr) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %expr, ptr noundef nonnull align 16 dereferenceable(72) @__const._ZN47LogicalCombination_MultiQuietCombQuietSub1_Test8TestBodyEv.expr, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %flags) #17
-  store <4 x i32> <i32 1024, i32 1024, i32 1024, i32 1024>, ptr %flags, align 16
+  store <4 x i32> splat (i32 1024), ptr %flags, align 16
   %2 = getelementptr inbounds i8, ptr %flags, i64 16
   store <4 x i32> <i32 0, i32 512, i32 512, i32 512>, ptr %2, align 16
   %3 = getelementptr inbounds i8, ptr %flags, i64 32
@@ -10855,7 +10855,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %expr) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %expr, ptr noundef nonnull align 16 dereferenceable(72) @__const._ZN47LogicalCombination_MultiQuietCombQuietSub1_Test8TestBodyEv.expr, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %flags) #17
-  store <4 x i32> <i32 1024, i32 1024, i32 1024, i32 1024>, ptr %flags, align 16
+  store <4 x i32> splat (i32 1024), ptr %flags, align 16
   %2 = getelementptr inbounds i8, ptr %flags, i64 16
   store <4 x i32> <i32 0, i32 520, i32 512, i32 520>, ptr %2, align 16
   %3 = getelementptr inbounds i8, ptr %flags, i64 32
@@ -13291,7 +13291,7 @@ call2.i11.i.noexc:                                ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %expr) #17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %expr, ptr noundef nonnull align 16 dereferenceable(72) @__const._ZN47LogicalCombination_MultiQuietCombQuietSub1_Test8TestBodyEv.expr, i64 72, i1 false)
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %flags) #17
-  store <4 x i32> <i32 1024, i32 1024, i32 1024, i32 1024>, ptr %flags, align 16
+  store <4 x i32> splat (i32 1024), ptr %flags, align 16
   %2 = getelementptr inbounds i8, ptr %flags, i64 16
   store <4 x i32> <i32 0, i32 1536, i32 512, i32 512>, ptr %2, align 16
   %3 = getelementptr inbounds i8, ptr %flags, i64 32

@@ -12350,7 +12350,7 @@ if.then11.us:                                     ; preds = %_ZNK6duckdb21Templa
   %8 = load ptr, ptr %arrayidx.us, align 8, !tbaa !44
   %arrayidx15.us = getelementptr inbounds double, ptr %bdata, i64 %cond.i61.us
   %9 = load <2 x i64>, ptr %8, align 8, !tbaa !70
-  %10 = add <2 x i64> %9, <i64 1, i64 1>
+  %10 = add <2 x i64> %9, splat (i64 1)
   store <2 x i64> %10, ptr %8, align 8, !tbaa !70
   %11 = load double, ptr %arrayidx15.us, align 8, !tbaa !68
   %mean.i.i.us = getelementptr inbounds i8, ptr %8, i64 16
@@ -12423,7 +12423,7 @@ land.lhs.true8.us136:                             ; preds = %_ZNK6duckdb15Select
   %19 = load ptr, ptr %arrayidx.us138, align 8, !tbaa !44
   %arrayidx15.us139 = getelementptr inbounds double, ptr %bdata, i64 %cond.i61.us130
   %20 = load <2 x i64>, ptr %19, align 8, !tbaa !70
-  %21 = add <2 x i64> %20, <i64 1, i64 1>
+  %21 = add <2 x i64> %20, splat (i64 1)
   store <2 x i64> %21, ptr %19, align 8, !tbaa !70
   %22 = load double, ptr %arrayidx15.us139, align 8, !tbaa !68
   %mean.i.i.us143 = getelementptr inbounds i8, ptr %19, i64 16
@@ -12513,7 +12513,7 @@ if.then11:                                        ; preds = %land.lhs.true8
   %33 = load ptr, ptr %arrayidx, align 8, !tbaa !44
   %arrayidx15 = getelementptr inbounds double, ptr %bdata, i64 %cond.i61
   %34 = load <2 x i64>, ptr %33, align 8, !tbaa !70
-  %35 = add <2 x i64> %34, <i64 1, i64 1>
+  %35 = add <2 x i64> %34, splat (i64 1)
   store <2 x i64> %35, ptr %33, align 8, !tbaa !70
   %36 = load double, ptr %arrayidx15, align 8, !tbaa !68
   %mean.i.i = getelementptr inbounds i8, ptr %33, i64 16
@@ -12563,7 +12563,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit97:  ; preds = %cond.true.i93, %_ZN
   %42 = load ptr, ptr %arrayidx27, align 8, !tbaa !44
   %arrayidx31 = getelementptr inbounds double, ptr %bdata, i64 %cond.i90
   %43 = load <2 x i64>, ptr %42, align 8, !tbaa !70
-  %44 = add <2 x i64> %43, <i64 1, i64 1>
+  %44 = add <2 x i64> %43, splat (i64 1)
   store <2 x i64> %44, ptr %42, align 8, !tbaa !70
   %45 = load double, ptr %arrayidx31, align 8, !tbaa !68
   %mean.i.i101 = getelementptr inbounds i8, ptr %42, i64 16
@@ -12987,7 +12987,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit65.us: ; preds = %_ZNK6d
 if.then10.us:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit65.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit54.us
   %arrayidx13.us = getelementptr inbounds double, ptr %bdata, i64 %cond.i53.us
   %6 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %7 = add <2 x i64> %6, <i64 1, i64 1>
+  %7 = add <2 x i64> %6, splat (i64 1)
   store <2 x i64> %7, ptr %state, align 8, !tbaa !70
   %8 = load double, ptr %arrayidx13.us, align 8, !tbaa !68
   %9 = load double, ptr %mean.i.i, align 8, !tbaa !122
@@ -13046,7 +13046,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit54.us108: ; preds = %cond.true.i50.
 land.lhs.true7.us110:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit54.us108
   %arrayidx13.us112 = getelementptr inbounds double, ptr %bdata, i64 %cond.i53.us109
   %15 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %16 = add <2 x i64> %15, <i64 1, i64 1>
+  %16 = add <2 x i64> %15, splat (i64 1)
   store <2 x i64> %16, ptr %state, align 8, !tbaa !70
   %17 = load double, ptr %arrayidx13.us112, align 8, !tbaa !68
   %18 = load double, ptr %mean.i.i, align 8, !tbaa !122
@@ -13173,7 +13173,7 @@ land.lhs.true7:                                   ; preds = %_ZNK6duckdb15Select
 if.then10:                                        ; preds = %land.lhs.true7
   %arrayidx13 = getelementptr inbounds double, ptr %bdata, i64 %cond.i53
   %29 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %30 = add <2 x i64> %29, <i64 1, i64 1>
+  %30 = add <2 x i64> %29, splat (i64 1)
   store <2 x i64> %30, ptr %state, align 8, !tbaa !70
   %31 = load double, ptr %arrayidx13, align 8, !tbaa !68
   %32 = load double, ptr %mean.i.i, align 8, !tbaa !122
@@ -13876,7 +13876,7 @@ if.then11.us:                                     ; preds = %_ZNK6duckdb21Templa
   %9 = load ptr, ptr %arrayidx.us, align 8, !tbaa !44
   %arrayidx13.us = getelementptr inbounds double, ptr %adata, i64 %cond.i.us
   %10 = load <2 x i64>, ptr %9, align 8, !tbaa !70
-  %11 = add <2 x i64> %10, <i64 1, i64 1>
+  %11 = add <2 x i64> %10, splat (i64 1)
   store <2 x i64> %11, ptr %9, align 8, !tbaa !70
   %12 = load double, ptr %arrayidx13.us, align 8, !tbaa !68
   %mean.i.i.us = getelementptr inbounds i8, ptr %9, i64 16
@@ -13939,7 +13939,7 @@ land.lhs.true8.us136:                             ; preds = %_ZNK6duckdb15Select
   %19 = load ptr, ptr %arrayidx.us138, align 8, !tbaa !44
   %arrayidx13.us139 = getelementptr inbounds double, ptr %adata, i64 %cond.i.us125
   %20 = load <2 x i64>, ptr %19, align 8, !tbaa !70
-  %21 = add <2 x i64> %20, <i64 1, i64 1>
+  %21 = add <2 x i64> %20, splat (i64 1)
   store <2 x i64> %21, ptr %19, align 8, !tbaa !70
   %22 = load double, ptr %arrayidx13.us139, align 8, !tbaa !68
   %mean.i.i.us143 = getelementptr inbounds i8, ptr %19, i64 16
@@ -14029,7 +14029,7 @@ if.then11:                                        ; preds = %land.lhs.true8
   %33 = load ptr, ptr %arrayidx, align 8, !tbaa !44
   %arrayidx13 = getelementptr inbounds double, ptr %adata, i64 %cond.i
   %34 = load <2 x i64>, ptr %33, align 8, !tbaa !70
-  %35 = add <2 x i64> %34, <i64 1, i64 1>
+  %35 = add <2 x i64> %34, splat (i64 1)
   store <2 x i64> %35, ptr %33, align 8, !tbaa !70
   %36 = load double, ptr %arrayidx13, align 8, !tbaa !68
   %mean.i.i = getelementptr inbounds i8, ptr %33, i64 16
@@ -14079,7 +14079,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit97:  ; preds = %cond.true.i93, %_ZN
   %42 = load ptr, ptr %arrayidx27, align 8, !tbaa !44
   %arrayidx29 = getelementptr inbounds double, ptr %adata, i64 %cond.i84
   %43 = load <2 x i64>, ptr %42, align 8, !tbaa !70
-  %44 = add <2 x i64> %43, <i64 1, i64 1>
+  %44 = add <2 x i64> %43, splat (i64 1)
   store <2 x i64> %44, ptr %42, align 8, !tbaa !70
   %45 = load double, ptr %arrayidx29, align 8, !tbaa !68
   %mean.i.i101 = getelementptr inbounds i8, ptr %42, i64 16
@@ -14416,7 +14416,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit65.us: ; preds = %_ZNK6d
 if.then10.us:                                     ; preds = %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit65.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit54.us
   %arrayidx.us = getelementptr inbounds double, ptr %adata, i64 %cond.i.us
   %7 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %8 = add <2 x i64> %7, <i64 1, i64 1>
+  %8 = add <2 x i64> %7, splat (i64 1)
   store <2 x i64> %8, ptr %state, align 8, !tbaa !70
   %9 = load double, ptr %arrayidx.us, align 8, !tbaa !68
   %10 = load double, ptr %mean.i.i, align 8, !tbaa !122
@@ -14465,7 +14465,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit.us103: ; preds = %cond.true.i.us10
 land.lhs.true7.us110:                             ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit.us103
   %arrayidx.us112 = getelementptr inbounds double, ptr %adata, i64 %cond.i.us104
   %15 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %16 = add <2 x i64> %15, <i64 1, i64 1>
+  %16 = add <2 x i64> %15, splat (i64 1)
   store <2 x i64> %16, ptr %state, align 8, !tbaa !70
   %17 = load double, ptr %arrayidx.us112, align 8, !tbaa !68
   %18 = load double, ptr %mean.i.i, align 8, !tbaa !122
@@ -14592,7 +14592,7 @@ land.lhs.true7:                                   ; preds = %_ZNK6duckdb15Select
 if.then10:                                        ; preds = %land.lhs.true7
   %arrayidx = getelementptr inbounds double, ptr %adata, i64 %cond.i
   %29 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %30 = add <2 x i64> %29, <i64 1, i64 1>
+  %30 = add <2 x i64> %29, splat (i64 1)
   store <2 x i64> %30, ptr %state, align 8, !tbaa !70
   %31 = load double, ptr %arrayidx, align 8, !tbaa !68
   %32 = load double, ptr %mean.i.i, align 8, !tbaa !122
@@ -15259,7 +15259,7 @@ if.then11.us:                                     ; preds = %_ZNK6duckdb21Templa
   %arrayidx13.us = getelementptr inbounds double, ptr %adata, i64 %cond.i.us
   %arrayidx15.us = getelementptr inbounds double, ptr %bdata, i64 %cond.i61.us
   %10 = load <2 x i64>, ptr %9, align 8, !tbaa !70
-  %11 = add <2 x i64> %10, <i64 1, i64 1>
+  %11 = add <2 x i64> %10, splat (i64 1)
   store <2 x i64> %11, ptr %9, align 8, !tbaa !70
   %12 = load double, ptr %arrayidx15.us, align 8, !tbaa !68
   %meanx.i.i.us = getelementptr inbounds i8, ptr %9, i64 16
@@ -15339,7 +15339,7 @@ land.lhs.true8.us138:                             ; preds = %_ZNK6duckdb15Select
   %arrayidx13.us141 = getelementptr inbounds double, ptr %adata, i64 %cond.i.us127
   %arrayidx15.us142 = getelementptr inbounds double, ptr %bdata, i64 %cond.i61.us132
   %32 = load <2 x i64>, ptr %31, align 8, !tbaa !70
-  %33 = add <2 x i64> %32, <i64 1, i64 1>
+  %33 = add <2 x i64> %32, splat (i64 1)
   store <2 x i64> %33, ptr %31, align 8, !tbaa !70
   %34 = load double, ptr %arrayidx15.us142, align 8, !tbaa !68
   %meanx.i.i.us146 = getelementptr inbounds i8, ptr %31, i64 16
@@ -15438,7 +15438,7 @@ if.then11:                                        ; preds = %land.lhs.true8
   %arrayidx13 = getelementptr inbounds double, ptr %adata, i64 %cond.i
   %arrayidx15 = getelementptr inbounds double, ptr %bdata, i64 %cond.i61
   %58 = load <2 x i64>, ptr %57, align 8, !tbaa !70
-  %59 = add <2 x i64> %58, <i64 1, i64 1>
+  %59 = add <2 x i64> %58, splat (i64 1)
   store <2 x i64> %59, ptr %57, align 8, !tbaa !70
   %60 = load double, ptr %arrayidx15, align 8, !tbaa !68
   %meanx.i.i = getelementptr inbounds i8, ptr %57, i64 16
@@ -15505,7 +15505,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit97:  ; preds = %cond.true.i93, %_ZN
   %arrayidx29 = getelementptr inbounds double, ptr %adata, i64 %cond.i84
   %arrayidx31 = getelementptr inbounds double, ptr %bdata, i64 %cond.i90
   %79 = load <2 x i64>, ptr %78, align 8, !tbaa !70
-  %80 = add <2 x i64> %79, <i64 1, i64 1>
+  %80 = add <2 x i64> %79, splat (i64 1)
   store <2 x i64> %80, ptr %78, align 8, !tbaa !70
   %81 = load double, ptr %arrayidx31, align 8, !tbaa !68
   %meanx.i.i101 = getelementptr inbounds i8, ptr %78, i64 16
@@ -15951,7 +15951,7 @@ if.then10.us:                                     ; preds = %_ZNK6duckdb21Templa
   %arrayidx.us = getelementptr inbounds double, ptr %adata, i64 %cond.i.us
   %arrayidx13.us = getelementptr inbounds double, ptr %bdata, i64 %cond.i53.us
   %7 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %8 = add <2 x i64> %7, <i64 1, i64 1>
+  %8 = add <2 x i64> %7, splat (i64 1)
   store <2 x i64> %8, ptr %state, align 8, !tbaa !70
   %9 = load double, ptr %arrayidx13.us, align 8, !tbaa !68
   %10 = extractelement <2 x i64> %8, i64 1
@@ -16017,7 +16017,7 @@ land.lhs.true7.us112:                             ; preds = %_ZNK6duckdb15Select
   %arrayidx.us114 = getelementptr inbounds double, ptr %adata, i64 %cond.i.us106
   %arrayidx13.us115 = getelementptr inbounds double, ptr %bdata, i64 %cond.i53.us111
   %27 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %28 = add <2 x i64> %27, <i64 1, i64 1>
+  %28 = add <2 x i64> %27, splat (i64 1)
   store <2 x i64> %28, ptr %state, align 8, !tbaa !70
   %29 = load double, ptr %arrayidx13.us115, align 8, !tbaa !68
   %30 = extractelement <2 x i64> %28, i64 1
@@ -16175,7 +16175,7 @@ if.then10:                                        ; preds = %land.lhs.true7
   %arrayidx = getelementptr inbounds double, ptr %adata, i64 %cond.i
   %arrayidx13 = getelementptr inbounds double, ptr %bdata, i64 %cond.i53
   %81 = load <2 x i64>, ptr %state, align 8, !tbaa !70
-  %82 = add <2 x i64> %81, <i64 1, i64 1>
+  %82 = add <2 x i64> %81, splat (i64 1)
   store <2 x i64> %82, ptr %state, align 8, !tbaa !70
   %83 = load double, ptr %arrayidx13, align 8, !tbaa !68
   %84 = extractelement <2 x i64> %82, i64 1

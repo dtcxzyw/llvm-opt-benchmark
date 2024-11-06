@@ -271,7 +271,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation10JointTrackENS0_12StdAllocato
 
 98:                                               ; preds = %91, %96
   %.sroa.4.0 = phi float [ %.sroa.4.0.copyload, %96 ], [ 1.000000e+00, %91 ]
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %96 ], [ <float 1.000000e+00, float 1.000000e+00>, %91 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %96 ], [ splat (float 1.000000e+00), %91 ]
   call void @_ZNSt6vectorIN3ozz9animation7offline12RawAnimation14TranslationKeyENS0_12StdAllocatorIS4_EEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %73, i64 noundef %80)
   %99 = load ptr, ptr %71, align 8
   %100 = load ptr, ptr %74, align 8

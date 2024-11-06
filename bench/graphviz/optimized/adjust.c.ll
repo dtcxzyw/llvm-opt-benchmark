@@ -1946,7 +1946,7 @@ parseFactor.exit15:                               ; preds = %44, %47
 
 50:                                               ; preds = %26, %parseFactor.exit15.thread, %parseFactor.exit15, %parseFactor.exit
   %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit15.thread ], [ 1, %26 ]
-  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 4.000000e+00, float 4.000000e+00>, %parseFactor.exit15.thread ], [ <float 4.000000e+00, float 4.000000e+00>, %26 ]
+  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ splat (float 4.000000e+00), %parseFactor.exit15.thread ], [ splat (float 4.000000e+00), %26 ]
   %51 = load i8, ptr @Verbose, align 1
   %.not8 = icmp eq i8 %51, 0
   br i1 %.not8, label %58, label %52
@@ -2127,7 +2127,7 @@ parseFactor.exit15:                               ; preds = %44, %47
 
 50:                                               ; preds = %26, %parseFactor.exit15.thread, %parseFactor.exit15, %parseFactor.exit
   %.sroa.11.0 = phi i8 [ %.sink.i10, %parseFactor.exit15 ], [ %.sink.i, %parseFactor.exit ], [ 1, %parseFactor.exit15.thread ], [ 1, %26 ]
-  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %parseFactor.exit15.thread ], [ <float 0x40099999A0000000, float 0x40099999A0000000>, %26 ]
+  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.4.vec.insert30, %parseFactor.exit15 ], [ %.sroa.0.4.vec.insert28, %parseFactor.exit ], [ splat (float 0x40099999A0000000), %parseFactor.exit15.thread ], [ splat (float 0x40099999A0000000), %26 ]
   %51 = load i8, ptr @Verbose, align 1
   %.not8 = icmp eq i8 %51, 0
   br i1 %.not8, label %58, label %52

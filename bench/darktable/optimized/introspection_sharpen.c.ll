@@ -258,16 +258,16 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %86 = phi <8 x float> [ zeroinitializer, %73 ], [ %118, %82 ]
   %87 = phi <8 x float> [ zeroinitializer, %73 ], [ %119, %82 ]
   %88 = phi <8 x i32> [ %78, %73 ], [ %121, %82 ]
-  %89 = add <8 x i32> %88, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %90 = add <8 x i32> %88, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %91 = add <8 x i32> %88, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %89 = add <8 x i32> %88, splat (i32 8)
+  %90 = add <8 x i32> %88, splat (i32 16)
+  %91 = add <8 x i32> %88, splat (i32 24)
   %92 = mul <8 x i32> %88, %88
   %93 = sub <8 x i32> zeroinitializer, %92
-  %94 = sub <8 x i32> <i32 -8, i32 -8, i32 -8, i32 -8, i32 -8, i32 -8, i32 -8, i32 -8>, %88
+  %94 = sub <8 x i32> splat (i32 -8), %88
   %95 = mul <8 x i32> %94, %89
-  %96 = sub <8 x i32> <i32 -16, i32 -16, i32 -16, i32 -16, i32 -16, i32 -16, i32 -16, i32 -16>, %88
+  %96 = sub <8 x i32> splat (i32 -16), %88
   %97 = mul <8 x i32> %96, %90
-  %98 = sub <8 x i32> <i32 -24, i32 -24, i32 -24, i32 -24, i32 -24, i32 -24, i32 -24, i32 -24>, %88
+  %98 = sub <8 x i32> splat (i32 -24), %88
   %99 = mul <8 x i32> %98, %91
   %100 = sitofp <8 x i32> %93 to <8 x float>
   %101 = sitofp <8 x i32> %95 to <8 x float>
@@ -294,7 +294,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %118 = fadd reassoc nsz arcp contract afn <8 x float> %110, %86
   %119 = fadd reassoc nsz arcp contract afn <8 x float> %111, %87
   %120 = add nuw i64 %83, 32
-  %121 = add <8 x i32> %88, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %121 = add <8 x i32> %88, splat (i32 32)
   %122 = icmp eq i64 %120, %75
   br i1 %122, label %123, label %82, !llvm.loop !38
 
@@ -517,7 +517,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %262 = insertelement <4 x i64> poison, i64 %.scalar70, i64 0
   %263 = shufflevector <4 x i64> %262, <4 x i64> poison, <4 x i32> zeroinitializer
   %264 = getelementptr float, <4 x ptr> %210, <4 x i64> %263
-  %265 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %264, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x float> poison), !tbaa !28
+  %265 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %264, i32 4, <4 x i1> splat (i1 true), <4 x float> poison), !tbaa !28
   %266 = insertelement <4 x float> poison, float %259, i64 0
   %267 = shufflevector <4 x float> %266, <4 x float> poison, <4 x i32> zeroinitializer
   %268 = fmul reassoc nsz arcp contract afn <4 x float> %267, %265

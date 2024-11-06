@@ -795,8 +795,8 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %120 = insertelement <4 x float> poison, float %3, i64 0
   %121 = shufflevector <4 x float> %120, <4 x float> poison, <4 x i32> zeroinitializer
   %122 = fadd contract <4 x float> %121, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %123 = fcmp contract ogt <4 x float> %122, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %124 = fadd contract <4 x float> %122, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %123 = fcmp contract ogt <4 x float> %122, splat (float 1.000000e+00)
+  %124 = fadd contract <4 x float> %122, splat (float -1.000000e+00)
   %125 = select contract <4 x i1> %123, <4 x float> %124, <4 x float> %122
   store <4 x float> %125, ptr %19, align 16, !noalias !28
   %126 = load ptr, ptr %119, align 8, !noalias !28
@@ -927,7 +927,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
 169:                                              ; preds = %169, %168
   %.09.i.i.i101 = phi i64 [ 0, %168 ], [ %171, %169 ]
   %170 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.09.i.i.i101
-  store <4 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, ptr %170, align 16, !alias.scope !54, !noalias !57
+  store <4 x float> splat (float 0x400921FB60000000), ptr %170, align 16, !alias.scope !54, !noalias !57
   %171 = add nuw nsw i64 %.09.i.i.i101, 1
   %exitcond.not.i.i18.i102 = icmp eq i64 %171, 4
   br i1 %exitcond.not.i.i18.i102, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i.i103, label %169, !llvm.loop !40
@@ -1053,7 +1053,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %256 = load <4 x float>, ptr %86, align 16
   %257 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %256, <4 x float> %255, <4 x float> %253)
   %258 = load <4 x i32>, ptr %81, align 16, !noalias !67
-  %259 = and <4 x i32> %258, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %259 = and <4 x i32> %258, splat (i32 2147483647)
   %260 = bitcast <4 x i32> %259 to <4 x float>
   %261 = shufflevector <4 x float> %260, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %262 = call contract noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> %260, <4 x float> %261)
@@ -1212,8 +1212,8 @@ define weak_odr void @_ZNK7mitsuba9AreaLightIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %12 = insertelement <4 x float> poison, float %3, i64 0
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
   %14 = fadd contract <4 x float> %13, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %15 = fcmp contract ogt <4 x float> %14, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %16 = fadd contract <4 x float> %14, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %15 = fcmp contract ogt <4 x float> %14, splat (float 1.000000e+00)
+  %16 = fadd contract <4 x float> %14, splat (float -1.000000e+00)
   %17 = select contract <4 x i1> %15, <4 x float> %16, <4 x float> %14
   store <4 x float> %17, ptr %9, align 16
   %18 = load ptr, ptr %11, align 8

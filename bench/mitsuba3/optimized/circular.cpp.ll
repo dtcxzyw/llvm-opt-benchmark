@@ -538,7 +538,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
   %29 = alloca %"struct.drjit::Matrix", align 16
   %30 = getelementptr inbounds i8, ptr %3, i64 208
   %31 = load <4 x i32>, ptr %30, align 16
-  %32 = xor <4 x i32> %31, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %32 = xor <4 x i32> %31, splat (i32 -2147483648)
   %33 = getelementptr inbounds i8, ptr %1, i64 64
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %34, align 8
@@ -601,7 +601,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 62:                                               ; preds = %62, %61
   %.09.i.i.i = phi i64 [ 0, %61 ], [ %64, %62 ]
   %63 = getelementptr inbounds [4 x %"struct.drjit::Array.42"], ptr %18, i64 0, i64 %.09.i.i.i
-  store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %63, align 16, !alias.scope !13, !noalias !16
+  store <4 x float> splat (float 5.000000e-01), ptr %63, align 16, !alias.scope !13, !noalias !16
   %64 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %64, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, label %62, !llvm.loop !19
@@ -680,7 +680,7 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
 93:                                               ; preds = %93, %92
   %.09.i.i.i75 = phi i64 [ 0, %92 ], [ %95, %93 ]
   %94 = getelementptr inbounds [4 x %"struct.drjit::Array.42"], ptr %15, i64 0, i64 %.09.i.i.i75
-  store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %94, align 16, !alias.scope !28, !noalias !31
+  store <4 x float> splat (float 5.000000e-01), ptr %94, align 16, !alias.scope !28, !noalias !31
   %95 = add nuw nsw i64 %.09.i.i.i75, 1
   %exitcond.not.i.i.i76 = icmp eq i64 %95, 4
   br i1 %exitcond.not.i.i.i76, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i77, label %93, !llvm.loop !19
@@ -753,7 +753,7 @@ _ZN5drjit5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EECI2NS_15StaticArrayImplIS3_Lm4ELb
 
 119:                                              ; preds = %115
   %120 = load <4 x i32>, ptr %30, align 16
-  %121 = xor <4 x i32> %120, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %121 = xor <4 x i32> %120, splat (i32 -2147483648)
   store <4 x i32> %121, ptr %25, align 16
   %122 = extractelement <4 x i32> %121, i64 2
   %bc = bitcast <4 x i32> %121 to <4 x float>
@@ -1428,7 +1428,7 @@ define weak_odr void @_ZNK7mitsuba17CircularPolarizerIfN5drjit6MatrixINS_8Spectr
 55:                                               ; preds = %55, %54
   %.09.i.i.i = phi i64 [ 0, %54 ], [ %57, %55 ]
   %56 = getelementptr inbounds [4 x %"struct.drjit::Array.42"], ptr %15, i64 0, i64 %.09.i.i.i
-  store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %56, align 16, !alias.scope !121, !noalias !124
+  store <4 x float> splat (float 5.000000e-01), ptr %56, align 16, !alias.scope !121, !noalias !124
   %57 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %57, 4
   br i1 %exitcond.not.i.i.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i, label %55, !llvm.loop !19
@@ -1507,7 +1507,7 @@ _ZN7mitsuba7mueller23left_circular_polarizerIfEEN5drjit6MatrixIT_Lm4EEEv.exit: ;
 86:                                               ; preds = %86, %85
   %.09.i.i.i26 = phi i64 [ 0, %85 ], [ %88, %86 ]
   %87 = getelementptr inbounds [4 x %"struct.drjit::Array.42"], ptr %12, i64 0, i64 %.09.i.i.i26
-  store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %87, align 16, !alias.scope !134, !noalias !137
+  store <4 x float> splat (float 5.000000e-01), ptr %87, align 16, !alias.scope !134, !noalias !137
   %88 = add nuw nsw i64 %.09.i.i.i26, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %88, 4
   br i1 %exitcond.not.i.i.i27, label %_ZN5drjit15StaticArrayBaseINS_5ArrayIfLm4EEELm4ELb0ENS1_IS2_Lm4EEEE5full_IfEES3_RKT_m.exit.preheader.i.i28, label %86, !llvm.loop !19

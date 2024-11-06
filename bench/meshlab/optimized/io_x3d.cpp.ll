@@ -40255,7 +40255,7 @@ _ZN3vcg3tri2io11ImporterX3DI6CMeshOE8getColorERK11QStringListiiRNS_6Color4IhEERK
   br i1 %exitcond18.not.i.i.i.us, label %.preheader.i390.us.preheader, label %.preheader.i.i.i.us, !llvm.loop !275
 
 .preheader.i390.us.preheader:                     ; preds = %688
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %644, align 4
+  store <2 x float> splat (float 0x7FF8000000000000), ptr %644, align 4
   %.sroa.10.0..sroa_idx.i.us = getelementptr inbounds i8, ptr %644, i64 8
   store float 0x7FF8000000000000, ptr %.sroa.10.0..sroa_idx.i.us, align 4
   br label %_ZN3vcg3tri2io11ImporterX3DI6CMeshOE9getNormalERK11QStringListiRNS_6Point3IfEERKNS_8Matrix44IfEE.exit.us
@@ -49871,7 +49871,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterX3DI6CMeshOE9getNormalERK11QSt
   br i1 %exitcond18.not.i.i, label %_ZN3vcg6Point3IfE9NormalizeEv.exit, label %.preheader.i.i, !llvm.loop !275
 
 _ZN3vcg6Point3IfE9NormalizeEv.exit:               ; preds = %50
-  store <2 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %2, align 4
+  store <2 x float> splat (float 0x7FF8000000000000), ptr %2, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store float 0x7FF8000000000000, ptr %.sroa.10.0..sroa_idx, align 4
   br label %51

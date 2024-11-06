@@ -229,7 +229,7 @@ _ZN3irr5scene14IMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4co
   %Box = getelementptr inbounds i8, ptr %this, i64 256
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box, align 8, !tbaa !10
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 272
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 8, !tbaa !10
   %ReadOnlyMaterial = getelementptr inbounds i8, ptr %this, i64 280
   store ptr null, ptr %ReadOnlyMaterial, align 8, !tbaa !49
   %TextureWrapU.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -402,7 +402,7 @@ _ZN3irr5scene14IMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4co
   %Box = getelementptr inbounds i8, ptr %this, i64 256
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box, align 8, !tbaa !10
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 272
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 8, !tbaa !10
   %ReadOnlyMaterial = getelementptr inbounds i8, ptr %this, i64 280
   store ptr null, ptr %ReadOnlyMaterial, align 8, !tbaa !49
   %TextureWrapU.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -2505,7 +2505,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !10
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !10
   %12 = fadd <2 x float> %10, %11
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub <2 x float> %13, %11
   %15 = fadd <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !10

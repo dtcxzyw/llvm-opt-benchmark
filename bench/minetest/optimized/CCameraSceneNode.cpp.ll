@@ -195,7 +195,7 @@ entry:
   %RelativeRotation.i.i = getelementptr inbounds i8, ptr %this, i64 124
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %RelativeRotation.i.i, align 4, !tbaa !10
   %ref.tmp3.sroa.4.0.RelativeScale.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 140
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp3.sroa.4.0.RelativeScale.i.i.sroa_idx, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp3.sroa.4.0.RelativeScale.i.i.sroa_idx, align 4, !tbaa !10
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %Children.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -286,7 +286,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 8, !tbaa !10
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %this, i64 452
   store float 1.000000e+00, ptr %arrayidx6.i.i.i, align 4, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Z.i3.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Z.i3.i.i, align 4, !tbaa !10
   %16 = getelementptr inbounds i8, ptr %this, i64 500
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %16, i8 0, i64 56, i1 false)
   %arrayidx.i.i.1.i = getelementptr inbounds i8, ptr %this, i64 556
@@ -295,7 +295,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   store float 1.000000e+00, ptr %arrayidx4.i.i.1.i, align 8, !tbaa !10
   %arrayidx6.i.i.1.i = getelementptr inbounds i8, ptr %this, i64 516
   store float 1.000000e+00, ptr %arrayidx6.i.i.1.i, align 4, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i, align 4, !tbaa !10
   %BoundingRadius.i = getelementptr inbounds i8, ptr %this, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %BoundingRadius.i, i8 0, i64 20, i1 false)
   %Affector = getelementptr inbounds i8, ptr %this, i64 580
@@ -615,7 +615,7 @@ entry:
   %70 = insertelement <2 x float> %69, float %add11.i, i64 1
   %71 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %70, <2 x float> %70, <2 x float> %68)
   %72 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %71)
-  %73 = fdiv <2 x float> <float -1.000000e+00, float -1.000000e+00>, %72
+  %73 = fdiv <2 x float> splat (float -1.000000e+00), %72
   %74 = shufflevector <2 x float> %73, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %75 = extractelement <2 x float> %73, i64 0
   %mul.i.1.i = fmul float %add148.i, %75
@@ -640,7 +640,7 @@ entry:
   %92 = insertelement <2 x float> %91, float %add89.i, i64 1
   %93 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> %92, <2 x float> %90)
   %94 = tail call <2 x float> @llvm.sqrt.v2f32(<2 x float> %93)
-  %95 = fdiv <2 x float> <float -1.000000e+00, float -1.000000e+00>, %94
+  %95 = fdiv <2 x float> splat (float -1.000000e+00), %94
   %96 = shufflevector <2 x float> %95, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %97 = shufflevector <2 x float> %87, <2 x float> %95, <2 x i32> <i32 0, i32 2>
   %98 = shufflevector <2 x float> %97, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
@@ -704,7 +704,7 @@ entry:
   %RelativeRotation.i.i = getelementptr inbounds i8, ptr %this, i64 124
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %RelativeRotation.i.i, align 4, !tbaa !10
   %ref.tmp2.sroa.4.0.RelativeScale.i.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 140
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.4.0.RelativeScale.i.i.sroa_idx, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp2.sroa.4.0.RelativeScale.i.i.sroa_idx, align 4, !tbaa !10
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   store ptr %Children.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !13
@@ -780,7 +780,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 8, !tbaa !10
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %this, i64 452
   store float 1.000000e+00, ptr %arrayidx6.i.i.i, align 4, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Z.i3.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Z.i3.i.i, align 4, !tbaa !10
   %6 = getelementptr inbounds i8, ptr %this, i64 500
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, i8 0, i64 56, i1 false)
   %arrayidx.i.i.1.i = getelementptr inbounds i8, ptr %this, i64 556
@@ -789,7 +789,7 @@ _ZN3irr5scene16ICameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4
   store float 1.000000e+00, ptr %arrayidx4.i.i.1.i, align 8, !tbaa !10
   %arrayidx6.i.i.1.i = getelementptr inbounds i8, ptr %this, i64 516
   store float 1.000000e+00, ptr %arrayidx6.i.i.1.i, align 4, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i, align 4, !tbaa !10
   %BoundingRadius.i = getelementptr inbounds i8, ptr %this, i64 560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %BoundingRadius.i, i8 0, i64 20, i1 false)
   %Affector = getelementptr inbounds i8, ptr %this, i64 580
@@ -1003,10 +1003,10 @@ if.then:                                          ; preds = %entry
   %8 = insertelement <2 x double> %7, double %mul.i, i64 1
   %9 = fptrunc <2 x double> %8 to <2 x float>
   %10 = fcmp olt <2 x float> %9, zeroinitializer
-  %11 = fadd <2 x float> %9, <float 3.600000e+02, float 3.600000e+02>
+  %11 = fadd <2 x float> %9, splat (float 3.600000e+02)
   %12 = select <2 x i1> %10, <2 x float> %11, <2 x float> %9
-  %13 = fcmp ult <2 x float> %12, <float 3.600000e+02, float 3.600000e+02>
-  %14 = fadd <2 x float> %12, <float -3.600000e+02, float -3.600000e+02>
+  %13 = fcmp ult <2 x float> %12, splat (float 3.600000e+02)
+  %14 = fadd <2 x float> %12, splat (float -3.600000e+02)
   %15 = select <2 x i1> %13, <2 x float> %12, <2 x float> %14
   %RelativeRotation.i = getelementptr inbounds i8, ptr %this, i64 124
   store <2 x float> %15, ptr %RelativeRotation.i, align 4, !tbaa.struct !12
@@ -2392,7 +2392,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !10
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !10
   %12 = fadd <2 x float> %10, %11
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub <2 x float> %13, %11
   %15 = fadd <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !10

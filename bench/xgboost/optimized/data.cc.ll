@@ -72406,8 +72406,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit71:      ; preds = %.noexc, %_ZN4dmlc15
   %593 = getelementptr i8, ptr %592, i64 16
   %594 = load <4 x i32>, ptr %592, align 4, !tbaa !256
   %595 = load <4 x i32>, ptr %593, align 4, !tbaa !256
-  %596 = add <4 x i32> %594, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %597 = add <4 x i32> %595, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %596 = add <4 x i32> %594, splat (i32 -1)
+  %597 = add <4 x i32> %595, splat (i32 -1)
   store <4 x i32> %596, ptr %592, align 4, !tbaa !256
   store <4 x i32> %597, ptr %593, align 4, !tbaa !256
   %598 = add nuw i64 %590, 8
@@ -82818,8 +82818,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit71:      ; preds = %.noexc, %_ZN4dmlc15
   %593 = getelementptr i8, ptr %592, i64 16
   %594 = load <2 x i64>, ptr %592, align 8, !tbaa !14
   %595 = load <2 x i64>, ptr %593, align 8, !tbaa !14
-  %596 = add <2 x i64> %594, <i64 -1, i64 -1>
-  %597 = add <2 x i64> %595, <i64 -1, i64 -1>
+  %596 = add <2 x i64> %594, splat (i64 -1)
+  %597 = add <2 x i64> %595, splat (i64 -1)
   store <2 x i64> %596, ptr %592, align 8, !tbaa !14
   store <2 x i64> %597, ptr %593, align 8, !tbaa !14
   %598 = add nuw i64 %590, 4
@@ -89989,8 +89989,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit60:      ; preds = %.noexc59, %_ZN4dmlc
   %529 = getelementptr i8, ptr %528, i64 16
   %530 = load <4 x i32>, ptr %528, align 4, !tbaa !256
   %531 = load <4 x i32>, ptr %529, align 4, !tbaa !256
-  %532 = add <4 x i32> %530, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %533 = add <4 x i32> %531, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %532 = add <4 x i32> %530, splat (i32 -1)
+  %533 = add <4 x i32> %531, splat (i32 -1)
   store <4 x i32> %532, ptr %528, align 4, !tbaa !256
   store <4 x i32> %533, ptr %529, align 4, !tbaa !256
   %534 = add nuw i64 %526, 8
@@ -90034,8 +90034,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit60:      ; preds = %.noexc59, %_ZN4dmlc
   %556 = getelementptr i8, ptr %555, i64 16
   %557 = load <4 x i32>, ptr %555, align 4, !tbaa !256
   %558 = load <4 x i32>, ptr %556, align 4, !tbaa !256
-  %559 = add <4 x i32> %557, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %560 = add <4 x i32> %558, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %559 = add <4 x i32> %557, splat (i32 -1)
+  %560 = add <4 x i32> %558, splat (i32 -1)
   store <4 x i32> %559, ptr %555, align 4, !tbaa !256
   store <4 x i32> %560, ptr %556, align 4, !tbaa !256
   %561 = add nuw i64 %553, 8
@@ -91699,8 +91699,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit60:      ; preds = %.noexc59, %_ZN4dmlc
   %529 = getelementptr i8, ptr %528, i64 16
   %530 = load <2 x i64>, ptr %528, align 8, !tbaa !14
   %531 = load <2 x i64>, ptr %529, align 8, !tbaa !14
-  %532 = add <2 x i64> %530, <i64 -1, i64 -1>
-  %533 = add <2 x i64> %531, <i64 -1, i64 -1>
+  %532 = add <2 x i64> %530, splat (i64 -1)
+  %533 = add <2 x i64> %531, splat (i64 -1)
   store <2 x i64> %532, ptr %528, align 8, !tbaa !14
   store <2 x i64> %533, ptr %529, align 8, !tbaa !14
   %534 = add nuw i64 %526, 4
@@ -91744,8 +91744,8 @@ _ZN4dmlc15LogMessageFatal8GetEntryEv.exit60:      ; preds = %.noexc59, %_ZN4dmlc
   %556 = getelementptr i8, ptr %555, i64 16
   %557 = load <2 x i64>, ptr %555, align 8, !tbaa !14
   %558 = load <2 x i64>, ptr %556, align 8, !tbaa !14
-  %559 = add <2 x i64> %557, <i64 -1, i64 -1>
-  %560 = add <2 x i64> %558, <i64 -1, i64 -1>
+  %559 = add <2 x i64> %557, splat (i64 -1)
+  %560 = add <2 x i64> %558, splat (i64 -1)
   store <2 x i64> %559, ptr %555, align 8, !tbaa !14
   store <2 x i64> %560, ptr %556, align 8, !tbaa !14
   %561 = add nuw i64 %553, 4

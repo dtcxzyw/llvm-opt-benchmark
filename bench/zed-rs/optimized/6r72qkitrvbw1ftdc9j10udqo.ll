@@ -54423,7 +54423,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr77drop
   br i1 %180, label %229, label %183
 
 ._crit_edge.i.i.i:                                ; preds = %183, %171
-  %181 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %181 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, splat (i8 -1)
   %182 = bitcast <16 x i1> %181 to i16
   %.not.i.i.i.i84 = icmp eq i16 %182, 0
   br i1 %.not.i.i.i.i84, label %187, label %190
@@ -95267,7 +95267,7 @@ common.ret:                                       ; preds = %275, %"_ZN4core3ptr
   br i1 %163, label %172, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hff90a32011647d8dE.exit.thread.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hff90a32011647d8dE.exit.thread.i.i.i.i", %144
-  %164 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %164 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, splat (i8 -1)
   %165 = bitcast <16 x i1> %164 to i16
   %.not.i.i.i.i.i = icmp eq i16 %165, 0
   br i1 %.not.i.i.i.i.i, label %169, label %"_ZN9workspace10open_items28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9f6967a5a30bb821E.exit.i"

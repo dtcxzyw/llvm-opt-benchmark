@@ -3766,7 +3766,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %62 = getelementptr inbounds double, ptr %41, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %63 = getelementptr double, ptr %61, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %64 = load <2 x i64>, ptr %63, align 1
-  %65 = xor <2 x i64> %64, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %65 = xor <2 x i64> %64, splat (i64 -9223372036854775808)
   store <2 x i64> %65, ptr %62, align 16
   %66 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %67 = icmp slt i64 %66, %52
@@ -4307,7 +4307,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %117 = getelementptr inbounds double, ptr %96, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %118 = getelementptr double, ptr %116, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %119 = load <2 x i64>, ptr %118, align 1
-  %120 = xor <2 x i64> %119, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %120 = xor <2 x i64> %119, splat (i64 -9223372036854775808)
   store <2 x i64> %120, ptr %117, align 16
   %121 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %122 = icmp slt i64 %121, %107
@@ -5004,7 +5004,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %160 = getelementptr inbounds double, ptr %139, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %161 = getelementptr double, ptr %159, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %162 = load <2 x i64>, ptr %161, align 1
-  %163 = xor <2 x i64> %162, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %163 = xor <2 x i64> %162, splat (i64 -9223372036854775808)
   store <2 x i64> %163, ptr %160, align 16
   %164 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %165 = icmp slt i64 %164, %150
@@ -7310,7 +7310,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 51:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit
   %52 = load <2 x i64>, ptr %46, align 1
-  %53 = and <2 x i64> %52, <i64 9223372036854775807, i64 9223372036854775807>
+  %53 = and <2 x i64> %52, splat (i64 9223372036854775807)
   %54 = bitcast <2 x i64> %53 to <2 x double>
   %55 = icmp sgt i64 %44, 3
   br i1 %55, label %56, label %80
@@ -7318,7 +7318,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %46, i64 16
   %58 = load <2 x i64>, ptr %57, align 1
-  %59 = and <2 x i64> %58, <i64 9223372036854775807, i64 9223372036854775807>
+  %59 = and <2 x i64> %58, splat (i64 9223372036854775807)
   %60 = bitcast <2 x i64> %59 to <2 x double>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 48
   %61 = icmp ugt i64 %44, 7
@@ -7331,12 +7331,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %.17375.i.i.i.i.i = phi <2 x double> [ %66, %.lr.ph.i.i.i.i.i21 ], [ %54, %56 ]
   %62 = getelementptr inbounds double, ptr %46, i64 %.05478.i.i.i.i.i
   %63 = load <2 x i64>, ptr %62, align 1
-  %64 = and <2 x i64> %63, <i64 9223372036854775807, i64 9223372036854775807>
+  %64 = and <2 x i64> %63, splat (i64 9223372036854775807)
   %65 = bitcast <2 x i64> %64 to <2 x double>
   %66 = fadd <2 x double> %.17375.i.i.i.i.i, %65
   %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %67 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
-  %68 = and <2 x i64> %67, <i64 9223372036854775807, i64 9223372036854775807>
+  %68 = and <2 x i64> %67, splat (i64 9223372036854775807)
   %69 = bitcast <2 x i64> %68 to <2 x double>
   %70 = fadd <2 x double> %storemerge76.i.i.i.i.i, %69
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 4
@@ -7353,7 +7353,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 74:                                               ; preds = %._crit_edge.i.i.i.i.i
   %75 = getelementptr inbounds double, ptr %46, i64 %48
   %76 = load <2 x i64>, ptr %75, align 1
-  %77 = and <2 x i64> %76, <i64 9223372036854775807, i64 9223372036854775807>
+  %77 = and <2 x i64> %76, splat (i64 9223372036854775807)
   %78 = bitcast <2 x i64> %77 to <2 x double>
   %79 = fadd <2 x double> %72, %78
   br label %80

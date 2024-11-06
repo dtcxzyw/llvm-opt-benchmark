@@ -862,7 +862,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %52 = sitofp <2 x i32> %42 to <2 x float>
   %53 = fsub reassoc nsz arcp contract afn <2 x float> %52, %51
   %54 = fptosi <2 x float> %53 to <2 x i32>
-  %55 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %54, <2 x i32> <i32 1, i32 1>)
+  %55 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %54, <2 x i32> splat (i32 1))
   %56 = uitofp nneg <2 x i32> %55 to <2 x float>
   %57 = fcmp reassoc nsz arcp contract afn olt <2 x float> %45, %56
   %58 = select <2 x i1> %57, <2 x float> %45, <2 x float> %56
@@ -957,7 +957,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #6 {
   %9 = getelementptr inbounds i8, ptr %2, i64 100
   %10 = getelementptr inbounds i8, ptr %2, i64 108
   store float 1.000000e+00, ptr %10, align 4, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %9, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %9, align 4, !tbaa !10
   %11 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.8, i32 noundef 5) #22
   %12 = load ptr, ptr %5, align 8, !tbaa !65
   %13 = call i32 (...) %12() #22

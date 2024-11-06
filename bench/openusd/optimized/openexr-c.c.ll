@@ -26089,13 +26089,13 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
 8:                                                ; preds = %8, %4
   %.0623 = phi ptr [ %7, %4 ], [ %12, %8 ]
   %.0622 = phi i64 [ 131072, %4 ], [ %13, %8 ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %.0623, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %.0623, align 16
   %9 = getelementptr inbounds i8, ptr %.0623, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %9, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %9, align 16
   %10 = getelementptr inbounds i8, ptr %.0623, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %10, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %10, align 16
   %11 = getelementptr inbounds i8, ptr %.0623, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %11, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %11, align 16
   %12 = getelementptr inbounds i8, ptr %.0623, i64 64
   %13 = add nsw i64 %.0622, -64
   %.not = icmp eq i64 %13, 0
@@ -26183,19 +26183,19 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %.0597 = phi ptr [ %63, %.preheader727 ], [ %7, %46 ]
   %.0591 = phi i64 [ %64, %.preheader727 ], [ 131072, %46 ]
   %52 = load <8 x i16>, ptr %.0597, align 16
-  %53 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %53 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> splat (i16 -32768))
   store <8 x i16> %53, ptr %.0597, align 16
   %54 = getelementptr inbounds i8, ptr %.0597, i64 16
   %55 = load <8 x i16>, ptr %54, align 16
-  %56 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %56 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> splat (i16 -32768))
   store <8 x i16> %56, ptr %54, align 16
   %57 = getelementptr inbounds i8, ptr %.0597, i64 32
   %58 = load <8 x i16>, ptr %57, align 16
-  %59 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %59 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> splat (i16 -32768))
   store <8 x i16> %59, ptr %57, align 16
   %60 = getelementptr inbounds i8, ptr %.0597, i64 48
   %61 = load <8 x i16>, ptr %60, align 16
-  %62 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %62 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> splat (i16 -32768))
   store <8 x i16> %62, ptr %60, align 16
   %63 = getelementptr inbounds i8, ptr %.0597, i64 64
   %64 = add nsw i64 %.0591, -64
@@ -26649,19 +26649,19 @@ define internal void @deflate_compress_fastest(ptr noalias noundef %0, ptr nound
   %.0590 = phi ptr [ %282, %.preheader ], [ %7, %264 ]
   %.0589 = phi i64 [ %283, %.preheader ], [ 131072, %264 ]
   %271 = load <8 x i16>, ptr %.0590, align 16
-  %272 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %271, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %272 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %271, <8 x i16> splat (i16 -32768))
   store <8 x i16> %272, ptr %.0590, align 16
   %273 = getelementptr inbounds i8, ptr %.0590, i64 16
   %274 = load <8 x i16>, ptr %273, align 16
-  %275 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %274, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %275 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %274, <8 x i16> splat (i16 -32768))
   store <8 x i16> %275, ptr %273, align 16
   %276 = getelementptr inbounds i8, ptr %.0590, i64 32
   %277 = load <8 x i16>, ptr %276, align 16
-  %278 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %277, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %278 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %277, <8 x i16> splat (i16 -32768))
   store <8 x i16> %278, ptr %276, align 16
   %279 = getelementptr inbounds i8, ptr %.0590, i64 48
   %280 = load <8 x i16>, ptr %279, align 16
-  %281 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %280, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %281 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %280, <8 x i16> splat (i16 -32768))
   store <8 x i16> %281, ptr %279, align 16
   %282 = getelementptr inbounds i8, ptr %.0590, i64 64
   %283 = add nsw i64 %.0589, -64
@@ -26766,13 +26766,13 @@ define internal void @deflate_compress_greedy(ptr noalias noundef %0, ptr nounde
 9:                                                ; preds = %9, %4
   %.0613 = phi ptr [ %8, %4 ], [ %13, %9 ]
   %.0612 = phi i64 [ 196608, %4 ], [ %14, %9 ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %.0613, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %.0613, align 16
   %10 = getelementptr inbounds i8, ptr %.0613, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %10, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %10, align 16
   %11 = getelementptr inbounds i8, ptr %.0613, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %11, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %11, align 16
   %12 = getelementptr inbounds i8, ptr %.0613, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %12, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %12, align 16
   %13 = getelementptr inbounds i8, ptr %.0613, i64 64
   %14 = add nsw i64 %.0612, -64
   %.not = icmp eq i64 %14, 0
@@ -26925,19 +26925,19 @@ calculate_min_match_len.exit:                     ; preds = %50, %52, %60, %66, 
   %.0571 = phi ptr [ %98, %.preheader732 ], [ %8, %76 ]
   %.0 = phi i64 [ %99, %.preheader732 ], [ 262144, %76 ]
   %87 = load <8 x i16>, ptr %.0571, align 16
-  %88 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %87, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %88 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %87, <8 x i16> splat (i16 -32768))
   store <8 x i16> %88, ptr %.0571, align 16
   %89 = getelementptr inbounds i8, ptr %.0571, i64 16
   %90 = load <8 x i16>, ptr %89, align 16
-  %91 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %90, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %91 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %90, <8 x i16> splat (i16 -32768))
   store <8 x i16> %91, ptr %89, align 16
   %92 = getelementptr inbounds i8, ptr %.0571, i64 32
   %93 = load <8 x i16>, ptr %92, align 16
-  %94 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %93, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %94 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %93, <8 x i16> splat (i16 -32768))
   store <8 x i16> %94, ptr %92, align 16
   %95 = getelementptr inbounds i8, ptr %.0571, i64 48
   %96 = load <8 x i16>, ptr %95, align 16
-  %97 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %96, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %97 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %96, <8 x i16> splat (i16 -32768))
   store <8 x i16> %97, ptr %95, align 16
   %98 = getelementptr inbounds i8, ptr %.0571, i64 64
   %99 = add nsw i64 %.0, -64
@@ -27411,19 +27411,19 @@ calculate_min_match_len.exit:                     ; preds = %50, %52, %60, %66, 
   %.0573 = phi ptr [ %318, %.preheader ], [ %8, %305 ]
   %.0572 = phi i64 [ %319, %.preheader ], [ 262144, %305 ]
   %307 = load <8 x i16>, ptr %.0573, align 16
-  %308 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %307, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %308 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %307, <8 x i16> splat (i16 -32768))
   store <8 x i16> %308, ptr %.0573, align 16
   %309 = getelementptr inbounds i8, ptr %.0573, i64 16
   %310 = load <8 x i16>, ptr %309, align 16
-  %311 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %310, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %311 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %310, <8 x i16> splat (i16 -32768))
   store <8 x i16> %311, ptr %309, align 16
   %312 = getelementptr inbounds i8, ptr %.0573, i64 32
   %313 = load <8 x i16>, ptr %312, align 16
-  %314 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %313, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %314 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %313, <8 x i16> splat (i16 -32768))
   store <8 x i16> %314, ptr %312, align 16
   %315 = getelementptr inbounds i8, ptr %.0573, i64 48
   %316 = load <8 x i16>, ptr %315, align 16
-  %317 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %316, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %317 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %316, <8 x i16> splat (i16 -32768))
   store <8 x i16> %317, ptr %315, align 16
   %318 = getelementptr inbounds i8, ptr %.0573, i64 64
   %319 = add nsw i64 %.0572, -64
@@ -27635,13 +27635,13 @@ define internal void @deflate_compress_lazy(ptr noalias noundef %0, ptr noundef 
 9:                                                ; preds = %9, %4
   %.01722 = phi ptr [ %8, %4 ], [ %13, %9 ]
   %.01721 = phi i64 [ 196608, %4 ], [ %14, %9 ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %.01722, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %.01722, align 16
   %10 = getelementptr inbounds i8, ptr %.01722, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %10, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %10, align 16
   %11 = getelementptr inbounds i8, ptr %.01722, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %11, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %11, align 16
   %12 = getelementptr inbounds i8, ptr %.01722, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %12, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %12, align 16
   %13 = getelementptr inbounds i8, ptr %.01722, i64 64
   %14 = add nsw i64 %.01721, -64
   %.not = icmp eq i64 %14, 0
@@ -27880,19 +27880,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01597 = phi ptr [ %137, %.preheader2006 ], [ %8, %116 ]
   %.01596 = phi i64 [ %138, %.preheader2006 ], [ 262144, %116 ]
   %126 = load <8 x i16>, ptr %.01597, align 16
-  %127 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %126, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %127 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %126, <8 x i16> splat (i16 -32768))
   store <8 x i16> %127, ptr %.01597, align 16
   %128 = getelementptr inbounds i8, ptr %.01597, i64 16
   %129 = load <8 x i16>, ptr %128, align 16
-  %130 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %129, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %130 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %129, <8 x i16> splat (i16 -32768))
   store <8 x i16> %130, ptr %128, align 16
   %131 = getelementptr inbounds i8, ptr %.01597, i64 32
   %132 = load <8 x i16>, ptr %131, align 16
-  %133 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %133 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> splat (i16 -32768))
   store <8 x i16> %133, ptr %131, align 16
   %134 = getelementptr inbounds i8, ptr %.01597, i64 48
   %135 = load <8 x i16>, ptr %134, align 16
-  %136 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %135, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %136 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %135, <8 x i16> splat (i16 -32768))
   store <8 x i16> %136, ptr %134, align 16
   %137 = getelementptr inbounds i8, ptr %.01597, i64 64
   %138 = add nsw i64 %.01596, -64
@@ -28405,19 +28405,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01605 = phi ptr [ %377, %.preheader1991 ], [ %8, %364 ]
   %.01604 = phi i64 [ %378, %.preheader1991 ], [ 262144, %364 ]
   %366 = load <8 x i16>, ptr %.01605, align 16
-  %367 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %366, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %367 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %366, <8 x i16> splat (i16 -32768))
   store <8 x i16> %367, ptr %.01605, align 16
   %368 = getelementptr inbounds i8, ptr %.01605, i64 16
   %369 = load <8 x i16>, ptr %368, align 16
-  %370 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %369, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %370 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %369, <8 x i16> splat (i16 -32768))
   store <8 x i16> %370, ptr %368, align 16
   %371 = getelementptr inbounds i8, ptr %.01605, i64 32
   %372 = load <8 x i16>, ptr %371, align 16
-  %373 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %372, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %373 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %372, <8 x i16> splat (i16 -32768))
   store <8 x i16> %373, ptr %371, align 16
   %374 = getelementptr inbounds i8, ptr %.01605, i64 48
   %375 = load <8 x i16>, ptr %374, align 16
-  %376 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %375, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %376 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %375, <8 x i16> splat (i16 -32768))
   store <8 x i16> %376, ptr %374, align 16
   %377 = getelementptr inbounds i8, ptr %.01605, i64 64
   %378 = add nsw i64 %.01604, -64
@@ -28502,19 +28502,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01591 = phi ptr [ %430, %.preheader1997 ], [ %8, %.lr.ph2088 ]
   %.01590 = phi i64 [ %431, %.preheader1997 ], [ 262144, %.lr.ph2088 ]
   %419 = load <8 x i16>, ptr %.01591, align 16
-  %420 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %419, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %420 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %419, <8 x i16> splat (i16 -32768))
   store <8 x i16> %420, ptr %.01591, align 16
   %421 = getelementptr inbounds i8, ptr %.01591, i64 16
   %422 = load <8 x i16>, ptr %421, align 16
-  %423 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %422, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %423 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %422, <8 x i16> splat (i16 -32768))
   store <8 x i16> %423, ptr %421, align 16
   %424 = getelementptr inbounds i8, ptr %.01591, i64 32
   %425 = load <8 x i16>, ptr %424, align 16
-  %426 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %425, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %426 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %425, <8 x i16> splat (i16 -32768))
   store <8 x i16> %426, ptr %424, align 16
   %427 = getelementptr inbounds i8, ptr %.01591, i64 48
   %428 = load <8 x i16>, ptr %427, align 16
-  %429 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %428, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %429 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %428, <8 x i16> splat (i16 -32768))
   store <8 x i16> %429, ptr %427, align 16
   %430 = getelementptr inbounds i8, ptr %.01591, i64 64
   %431 = add nsw i64 %.01590, -64
@@ -29020,19 +29020,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01601 = phi ptr [ %673, %.preheader1990 ], [ %8, %660 ]
   %.01598 = phi i64 [ %674, %.preheader1990 ], [ 262144, %660 ]
   %662 = load <8 x i16>, ptr %.01601, align 16
-  %663 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %662, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %663 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %662, <8 x i16> splat (i16 -32768))
   store <8 x i16> %663, ptr %.01601, align 16
   %664 = getelementptr inbounds i8, ptr %.01601, i64 16
   %665 = load <8 x i16>, ptr %664, align 16
-  %666 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %665, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %666 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %665, <8 x i16> splat (i16 -32768))
   store <8 x i16> %666, ptr %664, align 16
   %667 = getelementptr inbounds i8, ptr %.01601, i64 32
   %668 = load <8 x i16>, ptr %667, align 16
-  %669 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %668, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %669 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %668, <8 x i16> splat (i16 -32768))
   store <8 x i16> %669, ptr %667, align 16
   %670 = getelementptr inbounds i8, ptr %.01601, i64 48
   %671 = load <8 x i16>, ptr %670, align 16
-  %672 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %671, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %672 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %671, <8 x i16> splat (i16 -32768))
   store <8 x i16> %672, ptr %670, align 16
   %673 = getelementptr inbounds i8, ptr %.01601, i64 64
   %674 = add nsw i64 %.01598, -64
@@ -29221,13 +29221,13 @@ define internal void @deflate_compress_lazy2(ptr noalias noundef %0, ptr noundef
 9:                                                ; preds = %9, %4
   %.01722 = phi ptr [ %8, %4 ], [ %13, %9 ]
   %.01721 = phi i64 [ 196608, %4 ], [ %14, %9 ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %.01722, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %.01722, align 16
   %10 = getelementptr inbounds i8, ptr %.01722, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %10, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %10, align 16
   %11 = getelementptr inbounds i8, ptr %.01722, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %11, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %11, align 16
   %12 = getelementptr inbounds i8, ptr %.01722, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %12, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %12, align 16
   %13 = getelementptr inbounds i8, ptr %.01722, i64 64
   %14 = add nsw i64 %.01721, -64
   %.not = icmp eq i64 %14, 0
@@ -29466,19 +29466,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01597 = phi ptr [ %137, %.preheader2053 ], [ %8, %116 ]
   %.01596 = phi i64 [ %138, %.preheader2053 ], [ 262144, %116 ]
   %126 = load <8 x i16>, ptr %.01597, align 16
-  %127 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %126, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %127 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %126, <8 x i16> splat (i16 -32768))
   store <8 x i16> %127, ptr %.01597, align 16
   %128 = getelementptr inbounds i8, ptr %.01597, i64 16
   %129 = load <8 x i16>, ptr %128, align 16
-  %130 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %129, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %130 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %129, <8 x i16> splat (i16 -32768))
   store <8 x i16> %130, ptr %128, align 16
   %131 = getelementptr inbounds i8, ptr %.01597, i64 32
   %132 = load <8 x i16>, ptr %131, align 16
-  %133 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %133 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> splat (i16 -32768))
   store <8 x i16> %133, ptr %131, align 16
   %134 = getelementptr inbounds i8, ptr %.01597, i64 48
   %135 = load <8 x i16>, ptr %134, align 16
-  %136 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %135, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %136 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %135, <8 x i16> splat (i16 -32768))
   store <8 x i16> %136, ptr %134, align 16
   %137 = getelementptr inbounds i8, ptr %.01597, i64 64
   %138 = add nsw i64 %.01596, -64
@@ -29991,19 +29991,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01605 = phi ptr [ %377, %.preheader2032 ], [ %8, %364 ]
   %.01604 = phi i64 [ %378, %.preheader2032 ], [ 262144, %364 ]
   %366 = load <8 x i16>, ptr %.01605, align 16
-  %367 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %366, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %367 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %366, <8 x i16> splat (i16 -32768))
   store <8 x i16> %367, ptr %.01605, align 16
   %368 = getelementptr inbounds i8, ptr %.01605, i64 16
   %369 = load <8 x i16>, ptr %368, align 16
-  %370 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %369, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %370 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %369, <8 x i16> splat (i16 -32768))
   store <8 x i16> %370, ptr %368, align 16
   %371 = getelementptr inbounds i8, ptr %.01605, i64 32
   %372 = load <8 x i16>, ptr %371, align 16
-  %373 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %372, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %373 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %372, <8 x i16> splat (i16 -32768))
   store <8 x i16> %373, ptr %371, align 16
   %374 = getelementptr inbounds i8, ptr %.01605, i64 48
   %375 = load <8 x i16>, ptr %374, align 16
-  %376 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %375, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %376 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %375, <8 x i16> splat (i16 -32768))
   store <8 x i16> %376, ptr %374, align 16
   %377 = getelementptr inbounds i8, ptr %.01605, i64 64
   %378 = add nsw i64 %.01604, -64
@@ -30088,19 +30088,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01591 = phi ptr [ %430, %.preheader2044 ], [ %8, %.lr.ph2165 ]
   %.01590 = phi i64 [ %431, %.preheader2044 ], [ 262144, %.lr.ph2165 ]
   %419 = load <8 x i16>, ptr %.01591, align 16
-  %420 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %419, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %420 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %419, <8 x i16> splat (i16 -32768))
   store <8 x i16> %420, ptr %.01591, align 16
   %421 = getelementptr inbounds i8, ptr %.01591, i64 16
   %422 = load <8 x i16>, ptr %421, align 16
-  %423 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %422, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %423 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %422, <8 x i16> splat (i16 -32768))
   store <8 x i16> %423, ptr %421, align 16
   %424 = getelementptr inbounds i8, ptr %.01591, i64 32
   %425 = load <8 x i16>, ptr %424, align 16
-  %426 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %425, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %426 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %425, <8 x i16> splat (i16 -32768))
   store <8 x i16> %426, ptr %424, align 16
   %427 = getelementptr inbounds i8, ptr %.01591, i64 48
   %428 = load <8 x i16>, ptr %427, align 16
-  %429 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %428, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %429 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %428, <8 x i16> splat (i16 -32768))
   store <8 x i16> %429, ptr %427, align 16
   %430 = getelementptr inbounds i8, ptr %.01591, i64 64
   %431 = add nsw i64 %.01590, -64
@@ -30567,19 +30567,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01589 = phi ptr [ %638, %.preheader2038 ], [ %8, %614 ]
   %.0 = phi i64 [ %639, %.preheader2038 ], [ 262144, %614 ]
   %627 = load <8 x i16>, ptr %.01589, align 16
-  %628 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %627, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %628 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %627, <8 x i16> splat (i16 -32768))
   store <8 x i16> %628, ptr %.01589, align 16
   %629 = getelementptr inbounds i8, ptr %.01589, i64 16
   %630 = load <8 x i16>, ptr %629, align 16
-  %631 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %630, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %631 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %630, <8 x i16> splat (i16 -32768))
   store <8 x i16> %631, ptr %629, align 16
   %632 = getelementptr inbounds i8, ptr %.01589, i64 32
   %633 = load <8 x i16>, ptr %632, align 16
-  %634 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %633, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %634 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %633, <8 x i16> splat (i16 -32768))
   store <8 x i16> %634, ptr %632, align 16
   %635 = getelementptr inbounds i8, ptr %.01589, i64 48
   %636 = load <8 x i16>, ptr %635, align 16
-  %637 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %636, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %637 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %636, <8 x i16> splat (i16 -32768))
   store <8 x i16> %637, ptr %635, align 16
   %638 = getelementptr inbounds i8, ptr %.01589, i64 64
   %639 = add nsw i64 %.0, -64
@@ -31088,19 +31088,19 @@ recalculate_min_match_len.exit:                   ; preds = %87, %89, %97, %103,
   %.01603 = phi ptr [ %883, %.preheader2031 ], [ %8, %870 ]
   %.01602 = phi i64 [ %884, %.preheader2031 ], [ 262144, %870 ]
   %872 = load <8 x i16>, ptr %.01603, align 16
-  %873 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %872, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %873 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %872, <8 x i16> splat (i16 -32768))
   store <8 x i16> %873, ptr %.01603, align 16
   %874 = getelementptr inbounds i8, ptr %.01603, i64 16
   %875 = load <8 x i16>, ptr %874, align 16
-  %876 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %875, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %876 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %875, <8 x i16> splat (i16 -32768))
   store <8 x i16> %876, ptr %874, align 16
   %877 = getelementptr inbounds i8, ptr %.01603, i64 32
   %878 = load <8 x i16>, ptr %877, align 16
-  %879 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %878, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %879 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %878, <8 x i16> splat (i16 -32768))
   store <8 x i16> %879, ptr %877, align 16
   %880 = getelementptr inbounds i8, ptr %.01603, i64 48
   %881 = load <8 x i16>, ptr %880, align 16
-  %882 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %881, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %882 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %881, <8 x i16> splat (i16 -32768))
   store <8 x i16> %882, ptr %880, align 16
   %883 = getelementptr inbounds i8, ptr %.01603, i64 64
   %884 = add nsw i64 %.01602, -64
@@ -31293,13 +31293,13 @@ define internal void @deflate_compress_near_optimal(ptr noalias noundef %0, ptr 
 12:                                               ; preds = %12, %4
   %.0875 = phi ptr [ %11, %4 ], [ %16, %12 ]
   %.0874 = phi i64 [ 393216, %4 ], [ %17, %12 ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %.0875, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %.0875, align 16
   %13 = getelementptr inbounds i8, ptr %.0875, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %13, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %13, align 16
   %14 = getelementptr inbounds i8, ptr %.0875, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %14, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %14, align 16
   %15 = getelementptr inbounds i8, ptr %.0875, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %15, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %15, align 16
   %16 = getelementptr inbounds i8, ptr %.0875, i64 64
   %17 = add nsw i64 %.0874, -64
   %.not = icmp eq i64 %17, 0
@@ -31463,19 +31463,19 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   %.0871 = phi ptr [ %93, %.preheader1028 ], [ %11, %deflate_near_optimal_merge_stats.exit ]
   %.0870 = phi i64 [ %94, %.preheader1028 ], [ 524288, %deflate_near_optimal_merge_stats.exit ]
   %82 = load <8 x i16>, ptr %.0871, align 16
-  %83 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %82, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %83 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %82, <8 x i16> splat (i16 -32768))
   store <8 x i16> %83, ptr %.0871, align 16
   %84 = getelementptr inbounds i8, ptr %.0871, i64 16
   %85 = load <8 x i16>, ptr %84, align 16
-  %86 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %85, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %86 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %85, <8 x i16> splat (i16 -32768))
   store <8 x i16> %86, ptr %84, align 16
   %87 = getelementptr inbounds i8, ptr %.0871, i64 32
   %88 = load <8 x i16>, ptr %87, align 16
-  %89 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %88, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %89 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %88, <8 x i16> splat (i16 -32768))
   store <8 x i16> %89, ptr %87, align 16
   %90 = getelementptr inbounds i8, ptr %.0871, i64 48
   %91 = load <8 x i16>, ptr %90, align 16
-  %92 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %91, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %92 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %91, <8 x i16> splat (i16 -32768))
   store <8 x i16> %92, ptr %90, align 16
   %93 = getelementptr inbounds i8, ptr %.0871, i64 64
   %94 = add nsw i64 %.0870, -64
@@ -31897,19 +31897,19 @@ deflate_near_optimal_merge_stats.exit:            ; preds = %deflate_near_optima
   %.0873 = phi ptr [ %308, %.preheader1023 ], [ %11, %293 ]
   %.0872 = phi i64 [ %309, %.preheader1023 ], [ 524288, %293 ]
   %297 = load <8 x i16>, ptr %.0873, align 16
-  %298 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %297, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %298 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %297, <8 x i16> splat (i16 -32768))
   store <8 x i16> %298, ptr %.0873, align 16
   %299 = getelementptr inbounds i8, ptr %.0873, i64 16
   %300 = load <8 x i16>, ptr %299, align 16
-  %301 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %300, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %301 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %300, <8 x i16> splat (i16 -32768))
   store <8 x i16> %301, ptr %299, align 16
   %302 = getelementptr inbounds i8, ptr %.0873, i64 32
   %303 = load <8 x i16>, ptr %302, align 16
-  %304 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %303, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %304 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %303, <8 x i16> splat (i16 -32768))
   store <8 x i16> %304, ptr %302, align 16
   %305 = getelementptr inbounds i8, ptr %.0873, i64 48
   %306 = load <8 x i16>, ptr %305, align 16
-  %307 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %306, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %307 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %306, <8 x i16> splat (i16 -32768))
   store <8 x i16> %307, ptr %305, align 16
   %308 = getelementptr inbounds i8, ptr %.0873, i64 64
   %309 = add nsw i64 %.0872, -64
@@ -35335,7 +35335,7 @@ define internal i32 @adler32_avx2(i32 noundef %0, ptr noundef %1, i64 noundef %2
 
 66:                                               ; preds = %36
   %67 = add nuw nsw i32 %34, %.2395421
-  %68 = shl <8 x i32> %47, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %68 = shl <8 x i32> %47, splat (i32 6)
   %69 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %56, <16 x i16> <i16 64, i16 63, i16 62, i16 61, i16 60, i16 59, i16 58, i16 57, i16 48, i16 47, i16 46, i16 45, i16 44, i16 43, i16 42, i16 41>)
   %70 = add <8 x i32> %69, %68
   %71 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %59, <16 x i16> <i16 56, i16 55, i16 54, i16 53, i16 52, i16 51, i16 50, i16 49, i16 40, i16 39, i16 38, i16 37, i16 36, i16 35, i16 34, i16 33>)
@@ -35495,7 +35495,7 @@ define internal i32 @adler32_sse2(i32 noundef %0, ptr noundef %1, i64 noundef %2
 
 66:                                               ; preds = %36
   %67 = add nuw nsw i32 %34, %.2238264
-  %68 = shl <4 x i32> %47, <i32 5, i32 5, i32 5, i32 5>
+  %68 = shl <4 x i32> %47, splat (i32 5)
   %69 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %56, <8 x i16> <i16 32, i16 31, i16 30, i16 29, i16 28, i16 27, i16 26, i16 25>)
   %70 = add <4 x i32> %69, %68
   %71 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %59, <8 x i16> <i16 24, i16 23, i16 22, i16 21, i16 20, i16 19, i16 18, i16 17>)
@@ -42129,49 +42129,49 @@ define internal void @dctInverse8x8_sse2_7(ptr nocapture noundef %0) #36 {
 
 44:                                               ; preds = %41
   %45 = load <4 x float>, ptr %33, align 16
-  %46 = fmul <4 x float> %45, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %47 = fmul <4 x float> %45, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %46 = fmul <4 x float> %45, splat (float 0x3FDD906C00000000)
+  %47 = fmul <4 x float> %45, splat (float 0x3FC87DE6C0000000)
   %48 = load <4 x float>, ptr %34, align 16
-  %49 = fmul <4 x float> %48, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %50 = fmul <4 x float> %48, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %49 = fmul <4 x float> %48, splat (float 0x3FDD906C00000000)
+  %50 = fmul <4 x float> %48, splat (float 0x3FC87DE6C0000000)
   %51 = load <4 x float>, ptr %35, align 16
-  %52 = fmul <4 x float> %51, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %52 = fmul <4 x float> %51, splat (float 0x3FDF629820000000)
   %53 = load <4 x float>, ptr %36, align 16
-  %54 = fmul <4 x float> %53, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %54 = fmul <4 x float> %53, splat (float 0x3FDA9B6680000000)
   %55 = fadd <4 x float> %52, %54
   %56 = load <4 x float>, ptr %37, align 16
-  %57 = fmul <4 x float> %56, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %57 = fmul <4 x float> %56, splat (float 0x3FD1C73CE0000000)
   %58 = load <4 x float>, ptr %38, align 16
-  %59 = fmul <4 x float> %58, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %59 = fmul <4 x float> %58, splat (float 0x3FB8F8C1C0000000)
   %60 = fadd <4 x float> %57, %59
   %61 = fadd <4 x float> %55, %60
-  %62 = fmul <4 x float> %51, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %63 = fmul <4 x float> %53, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %62 = fmul <4 x float> %51, splat (float 0x3FDA9B6680000000)
+  %63 = fmul <4 x float> %53, splat (float 0x3FB8F8C1C0000000)
   %64 = fsub <4 x float> %62, %63
-  %65 = fmul <4 x float> %56, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
-  %66 = fmul <4 x float> %58, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %65 = fmul <4 x float> %56, splat (float 0x3FDF629820000000)
+  %66 = fmul <4 x float> %58, splat (float 0x3FD1C73CE0000000)
   %67 = fadd <4 x float> %65, %66
   %68 = fsub <4 x float> %64, %67
-  %69 = fmul <4 x float> %51, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
-  %70 = fmul <4 x float> %53, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %69 = fmul <4 x float> %51, splat (float 0x3FD1C73CE0000000)
+  %70 = fmul <4 x float> %53, splat (float 0x3FDF629820000000)
   %71 = fsub <4 x float> %69, %70
-  %72 = fmul <4 x float> %56, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %73 = fmul <4 x float> %58, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %72 = fmul <4 x float> %56, splat (float 0x3FB8F8C1C0000000)
+  %73 = fmul <4 x float> %58, splat (float 0x3FDA9B6680000000)
   %74 = fadd <4 x float> %72, %73
   %75 = fadd <4 x float> %71, %74
-  %76 = fmul <4 x float> %51, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %77 = fmul <4 x float> %53, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %76 = fmul <4 x float> %51, splat (float 0x3FB8F8C1C0000000)
+  %77 = fmul <4 x float> %53, splat (float 0x3FD1C73CE0000000)
   %78 = fsub <4 x float> %76, %77
-  %79 = fmul <4 x float> %56, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %80 = fmul <4 x float> %58, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %79 = fmul <4 x float> %56, splat (float 0x3FDA9B6680000000)
+  %80 = fmul <4 x float> %58, splat (float 0x3FDF629820000000)
   %81 = fsub <4 x float> %79, %80
   %82 = fadd <4 x float> %78, %81
   %83 = load <4 x float>, ptr %2, align 16
   %84 = load <4 x float>, ptr %39, align 16
   %85 = fadd <4 x float> %83, %84
-  %86 = fmul <4 x float> %85, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %86 = fmul <4 x float> %85, splat (float 0x3FD6A09F40000000)
   %87 = fsub <4 x float> %83, %84
-  %88 = fmul <4 x float> %87, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %88 = fmul <4 x float> %87, splat (float 0x3FD6A09F40000000)
   %89 = fadd <4 x float> %46, %50
   %90 = fsub <4 x float> %47, %49
   %91 = fadd <4 x float> %89, %86
@@ -42741,49 +42741,49 @@ default.unreachable:                              ; preds = %2
 
 264:                                              ; preds = %261
   %265 = load <4 x float>, ptr %253, align 16
-  %266 = fmul <4 x float> %265, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %267 = fmul <4 x float> %265, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %266 = fmul <4 x float> %265, splat (float 0x3FDD906C00000000)
+  %267 = fmul <4 x float> %265, splat (float 0x3FC87DE6C0000000)
   %268 = load <4 x float>, ptr %254, align 16
-  %269 = fmul <4 x float> %268, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %270 = fmul <4 x float> %268, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %269 = fmul <4 x float> %268, splat (float 0x3FDD906C00000000)
+  %270 = fmul <4 x float> %268, splat (float 0x3FC87DE6C0000000)
   %271 = load <4 x float>, ptr %255, align 16
-  %272 = fmul <4 x float> %271, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %272 = fmul <4 x float> %271, splat (float 0x3FDF629820000000)
   %273 = load <4 x float>, ptr %256, align 16
-  %274 = fmul <4 x float> %273, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %274 = fmul <4 x float> %273, splat (float 0x3FDA9B6680000000)
   %275 = fadd <4 x float> %272, %274
   %276 = load <4 x float>, ptr %257, align 16
-  %277 = fmul <4 x float> %276, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %277 = fmul <4 x float> %276, splat (float 0x3FD1C73CE0000000)
   %278 = load <4 x float>, ptr %258, align 16
-  %279 = fmul <4 x float> %278, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %279 = fmul <4 x float> %278, splat (float 0x3FB8F8C1C0000000)
   %280 = fadd <4 x float> %277, %279
   %281 = fadd <4 x float> %275, %280
-  %282 = fmul <4 x float> %271, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %283 = fmul <4 x float> %273, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %282 = fmul <4 x float> %271, splat (float 0x3FDA9B6680000000)
+  %283 = fmul <4 x float> %273, splat (float 0x3FB8F8C1C0000000)
   %284 = fsub <4 x float> %282, %283
-  %285 = fmul <4 x float> %276, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
-  %286 = fmul <4 x float> %278, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %285 = fmul <4 x float> %276, splat (float 0x3FDF629820000000)
+  %286 = fmul <4 x float> %278, splat (float 0x3FD1C73CE0000000)
   %287 = fadd <4 x float> %285, %286
   %288 = fsub <4 x float> %284, %287
-  %289 = fmul <4 x float> %271, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
-  %290 = fmul <4 x float> %273, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %289 = fmul <4 x float> %271, splat (float 0x3FD1C73CE0000000)
+  %290 = fmul <4 x float> %273, splat (float 0x3FDF629820000000)
   %291 = fsub <4 x float> %289, %290
-  %292 = fmul <4 x float> %276, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %293 = fmul <4 x float> %278, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %292 = fmul <4 x float> %276, splat (float 0x3FB8F8C1C0000000)
+  %293 = fmul <4 x float> %278, splat (float 0x3FDA9B6680000000)
   %294 = fadd <4 x float> %292, %293
   %295 = fadd <4 x float> %291, %294
-  %296 = fmul <4 x float> %271, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %297 = fmul <4 x float> %273, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %296 = fmul <4 x float> %271, splat (float 0x3FB8F8C1C0000000)
+  %297 = fmul <4 x float> %273, splat (float 0x3FD1C73CE0000000)
   %298 = fsub <4 x float> %296, %297
-  %299 = fmul <4 x float> %276, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %300 = fmul <4 x float> %278, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %299 = fmul <4 x float> %276, splat (float 0x3FDA9B6680000000)
+  %300 = fmul <4 x float> %278, splat (float 0x3FDF629820000000)
   %301 = fsub <4 x float> %299, %300
   %302 = fadd <4 x float> %298, %301
   %303 = load <4 x float>, ptr %3, align 16
   %304 = load <4 x float>, ptr %259, align 16
   %305 = fadd <4 x float> %303, %304
-  %306 = fmul <4 x float> %305, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %306 = fmul <4 x float> %305, splat (float 0x3FD6A09F40000000)
   %307 = fsub <4 x float> %303, %304
-  %308 = fmul <4 x float> %307, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %308 = fmul <4 x float> %307, splat (float 0x3FD6A09F40000000)
   %309 = fadd <4 x float> %266, %270
   %310 = fsub <4 x float> %267, %269
   %311 = fadd <4 x float> %309, %306
@@ -44058,46 +44058,46 @@ float_to_half.exit:                               ; preds = %70, %73, %83, %85, 
   %213 = fsub <4 x float> %205, %208
   %214 = fadd <4 x float> %188, %202
   %215 = fadd <4 x float> %195, %209
-  %216 = fmul <4 x float> %214, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
-  %217 = fmul <4 x float> %215, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
+  %216 = fmul <4 x float> %214, splat (float 0x3FE6A09E60000000)
+  %217 = fmul <4 x float> %215, splat (float 0x3FE6A09E60000000)
   %218 = fadd <4 x float> %216, %217
   %219 = fsub <4 x float> %216, %217
-  %220 = fmul <4 x float> %218, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %220 = fmul <4 x float> %218, splat (float 5.000000e-01)
   store <4 x float> %220, ptr %183, align 16
-  %221 = fmul <4 x float> %219, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %221 = fmul <4 x float> %219, splat (float 5.000000e-01)
   store <4 x float> %221, ptr %200, align 16
   %222 = fsub <4 x float> %211, %213
   %223 = fsub <4 x float> %188, %202
-  %224 = fmul <4 x float> %222, <float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000>
-  %225 = fmul <4 x float> %223, <float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000>
+  %224 = fmul <4 x float> %222, splat (float 0x3FC87DE2A0000000)
+  %225 = fmul <4 x float> %223, splat (float 0x3FDD906BE0000000)
   %226 = fadd <4 x float> %225, %224
   store <4 x float> %226, ptr %193, align 16
-  %227 = fmul <4 x float> %223, <float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000>
-  %228 = fmul <4 x float> %222, <float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000>
+  %227 = fmul <4 x float> %223, splat (float 0x3FC87DE2A0000000)
+  %228 = fmul <4 x float> %222, splat (float 0x3FDD906BE0000000)
   %229 = fsub <4 x float> %227, %228
   store <4 x float> %229, ptr %207, align 16
   %230 = fsub <4 x float> %195, %209
-  %231 = fmul <4 x float> %230, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
+  %231 = fmul <4 x float> %230, splat (float 0x3FE6A09E60000000)
   %232 = fadd <4 x float> %211, %213
-  %233 = fmul <4 x float> %232, <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>
+  %233 = fmul <4 x float> %232, splat (float 0xBFE6A09E60000000)
   %234 = fsub <4 x float> %210, %231
   %235 = fadd <4 x float> %212, %233
-  %236 = fmul <4 x float> %234, <float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000>
-  %237 = fmul <4 x float> %235, <float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000>
+  %236 = fmul <4 x float> %234, splat (float 0x3FDA9B6620000000)
+  %237 = fmul <4 x float> %235, splat (float 0x3FD1C73B40000000)
   %238 = fsub <4 x float> %236, %237
   store <4 x float> %238, ptr %197, align 16
-  %239 = fmul <4 x float> %234, <float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000>
-  %240 = fmul <4 x float> %235, <float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000>
+  %239 = fmul <4 x float> %234, splat (float 0x3FD1C73B40000000)
+  %240 = fmul <4 x float> %235, splat (float 0x3FDA9B6620000000)
   %241 = fadd <4 x float> %239, %240
   store <4 x float> %241, ptr %204, align 16
   %242 = fadd <4 x float> %210, %231
   %243 = fsub <4 x float> %233, %212
-  %244 = fmul <4 x float> %242, <float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000>
-  %245 = fmul <4 x float> %243, <float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000>
+  %244 = fmul <4 x float> %242, splat (float 0x3FDF6297C0000000)
+  %245 = fmul <4 x float> %243, splat (float 0x3FB8F8B840000000)
   %246 = fsub <4 x float> %244, %245
   store <4 x float> %246, ptr %190, align 16
-  %247 = fmul <4 x float> %242, <float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000>
-  %248 = fmul <4 x float> %243, <float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000>
+  %247 = fmul <4 x float> %242, splat (float 0x3FB8F8B840000000)
+  %248 = fmul <4 x float> %243, splat (float 0x3FDF6297C0000000)
   %249 = fadd <4 x float> %247, %248
   store <4 x float> %249, ptr %186, align 16
   br i1 %182, label %181, label %250, !llvm.loop !313
@@ -55381,241 +55381,241 @@ dctInverse8x8DcOnly.exit:                         ; preds = %198, %dctInverse8x8
   %218 = load <4 x float>, ptr %73, align 16
   %219 = load <4 x float>, ptr %74, align 16
   %220 = load <4 x float>, ptr %75, align 16
-  %221 = fmul <4 x float> %220, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %221 = fmul <4 x float> %220, splat (float 0x3FF931F8A0000000)
   %222 = fadd <4 x float> %218, %221
   store <4 x float> %222, ptr %73, align 16
   %223 = load <4 x float>, ptr %74, align 16
-  %224 = fmul <4 x float> %223, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %225 = fmul <4 x float> %220, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %224 = fmul <4 x float> %223, splat (float 0x3FC7F97240000000)
+  %225 = fmul <4 x float> %220, splat (float 0x3FDDF6FD20000000)
   %226 = fsub <4 x float> %218, %224
   %227 = fsub <4 x float> %226, %225
   store <4 x float> %227, ptr %74, align 16
-  %228 = fmul <4 x float> %219, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %228 = fmul <4 x float> %219, splat (float 0x3FFDB089A0000000)
   %229 = fadd <4 x float> %218, %228
   store <4 x float> %229, ptr %75, align 16
   %230 = load <4 x float>, ptr %76, align 16
   %231 = load <4 x float>, ptr %77, align 16
   %232 = load <4 x float>, ptr %78, align 16
-  %233 = fmul <4 x float> %232, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %233 = fmul <4 x float> %232, splat (float 0x3FF931F8A0000000)
   %234 = fadd <4 x float> %230, %233
   store <4 x float> %234, ptr %76, align 16
   %235 = load <4 x float>, ptr %77, align 16
-  %236 = fmul <4 x float> %235, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %237 = fmul <4 x float> %232, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %236 = fmul <4 x float> %235, splat (float 0x3FC7F97240000000)
+  %237 = fmul <4 x float> %232, splat (float 0x3FDDF6FD20000000)
   %238 = fsub <4 x float> %230, %236
   %239 = fsub <4 x float> %238, %237
   store <4 x float> %239, ptr %77, align 16
-  %240 = fmul <4 x float> %231, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %240 = fmul <4 x float> %231, splat (float 0x3FFDB089A0000000)
   %241 = fadd <4 x float> %230, %240
   store <4 x float> %241, ptr %78, align 16
   %242 = load <4 x float>, ptr %79, align 16
   %243 = load <4 x float>, ptr %80, align 16
   %244 = load <4 x float>, ptr %81, align 16
-  %245 = fmul <4 x float> %244, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %245 = fmul <4 x float> %244, splat (float 0x3FF931F8A0000000)
   %246 = fadd <4 x float> %242, %245
   store <4 x float> %246, ptr %79, align 16
   %247 = load <4 x float>, ptr %80, align 16
-  %248 = fmul <4 x float> %247, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %249 = fmul <4 x float> %244, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %248 = fmul <4 x float> %247, splat (float 0x3FC7F97240000000)
+  %249 = fmul <4 x float> %244, splat (float 0x3FDDF6FD20000000)
   %250 = fsub <4 x float> %242, %248
   %251 = fsub <4 x float> %250, %249
   store <4 x float> %251, ptr %80, align 16
-  %252 = fmul <4 x float> %243, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %252 = fmul <4 x float> %243, splat (float 0x3FFDB089A0000000)
   %253 = fadd <4 x float> %242, %252
   store <4 x float> %253, ptr %81, align 16
   %254 = load <4 x float>, ptr %82, align 16
   %255 = load <4 x float>, ptr %83, align 16
   %256 = load <4 x float>, ptr %84, align 16
-  %257 = fmul <4 x float> %256, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %257 = fmul <4 x float> %256, splat (float 0x3FF931F8A0000000)
   %258 = fadd <4 x float> %254, %257
   store <4 x float> %258, ptr %82, align 16
   %259 = load <4 x float>, ptr %83, align 16
-  %260 = fmul <4 x float> %259, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %261 = fmul <4 x float> %256, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %260 = fmul <4 x float> %259, splat (float 0x3FC7F97240000000)
+  %261 = fmul <4 x float> %256, splat (float 0x3FDDF6FD20000000)
   %262 = fsub <4 x float> %254, %260
   %263 = fsub <4 x float> %262, %261
   store <4 x float> %263, ptr %83, align 16
-  %264 = fmul <4 x float> %255, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %264 = fmul <4 x float> %255, splat (float 0x3FFDB089A0000000)
   %265 = fadd <4 x float> %254, %264
   store <4 x float> %265, ptr %84, align 16
   %266 = load <4 x float>, ptr %85, align 16
   %267 = load <4 x float>, ptr %86, align 16
   %268 = load <4 x float>, ptr %87, align 16
-  %269 = fmul <4 x float> %268, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %269 = fmul <4 x float> %268, splat (float 0x3FF931F8A0000000)
   %270 = fadd <4 x float> %266, %269
   store <4 x float> %270, ptr %85, align 16
   %271 = load <4 x float>, ptr %86, align 16
-  %272 = fmul <4 x float> %271, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %273 = fmul <4 x float> %268, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %272 = fmul <4 x float> %271, splat (float 0x3FC7F97240000000)
+  %273 = fmul <4 x float> %268, splat (float 0x3FDDF6FD20000000)
   %274 = fsub <4 x float> %266, %272
   %275 = fsub <4 x float> %274, %273
   store <4 x float> %275, ptr %86, align 16
-  %276 = fmul <4 x float> %267, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %276 = fmul <4 x float> %267, splat (float 0x3FFDB089A0000000)
   %277 = fadd <4 x float> %266, %276
   store <4 x float> %277, ptr %87, align 16
   %278 = load <4 x float>, ptr %88, align 16
   %279 = load <4 x float>, ptr %89, align 16
   %280 = load <4 x float>, ptr %90, align 16
-  %281 = fmul <4 x float> %280, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %281 = fmul <4 x float> %280, splat (float 0x3FF931F8A0000000)
   %282 = fadd <4 x float> %278, %281
   store <4 x float> %282, ptr %88, align 16
   %283 = load <4 x float>, ptr %89, align 16
-  %284 = fmul <4 x float> %283, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %285 = fmul <4 x float> %280, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %284 = fmul <4 x float> %283, splat (float 0x3FC7F97240000000)
+  %285 = fmul <4 x float> %280, splat (float 0x3FDDF6FD20000000)
   %286 = fsub <4 x float> %278, %284
   %287 = fsub <4 x float> %286, %285
   store <4 x float> %287, ptr %89, align 16
-  %288 = fmul <4 x float> %279, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %288 = fmul <4 x float> %279, splat (float 0x3FFDB089A0000000)
   %289 = fadd <4 x float> %278, %288
   store <4 x float> %289, ptr %90, align 16
   %290 = load <4 x float>, ptr %91, align 16
   %291 = load <4 x float>, ptr %92, align 16
   %292 = load <4 x float>, ptr %93, align 16
-  %293 = fmul <4 x float> %292, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %293 = fmul <4 x float> %292, splat (float 0x3FF931F8A0000000)
   %294 = fadd <4 x float> %290, %293
   store <4 x float> %294, ptr %91, align 16
   %295 = load <4 x float>, ptr %92, align 16
-  %296 = fmul <4 x float> %295, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %297 = fmul <4 x float> %292, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %296 = fmul <4 x float> %295, splat (float 0x3FC7F97240000000)
+  %297 = fmul <4 x float> %292, splat (float 0x3FDDF6FD20000000)
   %298 = fsub <4 x float> %290, %296
   %299 = fsub <4 x float> %298, %297
   store <4 x float> %299, ptr %92, align 16
-  %300 = fmul <4 x float> %291, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %300 = fmul <4 x float> %291, splat (float 0x3FFDB089A0000000)
   %301 = fadd <4 x float> %290, %300
   store <4 x float> %301, ptr %93, align 16
   %302 = load <4 x float>, ptr %94, align 16
   %303 = load <4 x float>, ptr %95, align 16
   %304 = load <4 x float>, ptr %96, align 16
-  %305 = fmul <4 x float> %304, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %305 = fmul <4 x float> %304, splat (float 0x3FF931F8A0000000)
   %306 = fadd <4 x float> %302, %305
   store <4 x float> %306, ptr %94, align 16
   %307 = load <4 x float>, ptr %95, align 16
-  %308 = fmul <4 x float> %307, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %309 = fmul <4 x float> %304, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %308 = fmul <4 x float> %307, splat (float 0x3FC7F97240000000)
+  %309 = fmul <4 x float> %304, splat (float 0x3FDDF6FD20000000)
   %310 = fsub <4 x float> %302, %308
   %311 = fsub <4 x float> %310, %309
   store <4 x float> %311, ptr %95, align 16
-  %312 = fmul <4 x float> %303, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %312 = fmul <4 x float> %303, splat (float 0x3FFDB089A0000000)
   %313 = fadd <4 x float> %302, %312
   store <4 x float> %313, ptr %96, align 16
   %314 = load <4 x float>, ptr %97, align 16
   %315 = load <4 x float>, ptr %98, align 16
   %316 = load <4 x float>, ptr %99, align 16
-  %317 = fmul <4 x float> %316, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %317 = fmul <4 x float> %316, splat (float 0x3FF931F8A0000000)
   %318 = fadd <4 x float> %314, %317
   store <4 x float> %318, ptr %97, align 16
   %319 = load <4 x float>, ptr %98, align 16
-  %320 = fmul <4 x float> %319, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %321 = fmul <4 x float> %316, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %320 = fmul <4 x float> %319, splat (float 0x3FC7F97240000000)
+  %321 = fmul <4 x float> %316, splat (float 0x3FDDF6FD20000000)
   %322 = fsub <4 x float> %314, %320
   %323 = fsub <4 x float> %322, %321
   store <4 x float> %323, ptr %98, align 16
-  %324 = fmul <4 x float> %315, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %324 = fmul <4 x float> %315, splat (float 0x3FFDB089A0000000)
   %325 = fadd <4 x float> %314, %324
   store <4 x float> %325, ptr %99, align 16
   %326 = load <4 x float>, ptr %100, align 16
   %327 = load <4 x float>, ptr %101, align 16
   %328 = load <4 x float>, ptr %102, align 16
-  %329 = fmul <4 x float> %328, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %329 = fmul <4 x float> %328, splat (float 0x3FF931F8A0000000)
   %330 = fadd <4 x float> %326, %329
   store <4 x float> %330, ptr %100, align 16
   %331 = load <4 x float>, ptr %101, align 16
-  %332 = fmul <4 x float> %331, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %333 = fmul <4 x float> %328, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %332 = fmul <4 x float> %331, splat (float 0x3FC7F97240000000)
+  %333 = fmul <4 x float> %328, splat (float 0x3FDDF6FD20000000)
   %334 = fsub <4 x float> %326, %332
   %335 = fsub <4 x float> %334, %333
   store <4 x float> %335, ptr %101, align 16
-  %336 = fmul <4 x float> %327, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %336 = fmul <4 x float> %327, splat (float 0x3FFDB089A0000000)
   %337 = fadd <4 x float> %326, %336
   store <4 x float> %337, ptr %102, align 16
   %338 = load <4 x float>, ptr %103, align 16
   %339 = load <4 x float>, ptr %104, align 16
   %340 = load <4 x float>, ptr %105, align 16
-  %341 = fmul <4 x float> %340, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %341 = fmul <4 x float> %340, splat (float 0x3FF931F8A0000000)
   %342 = fadd <4 x float> %338, %341
   store <4 x float> %342, ptr %103, align 16
   %343 = load <4 x float>, ptr %104, align 16
-  %344 = fmul <4 x float> %343, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %345 = fmul <4 x float> %340, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %344 = fmul <4 x float> %343, splat (float 0x3FC7F97240000000)
+  %345 = fmul <4 x float> %340, splat (float 0x3FDDF6FD20000000)
   %346 = fsub <4 x float> %338, %344
   %347 = fsub <4 x float> %346, %345
   store <4 x float> %347, ptr %104, align 16
-  %348 = fmul <4 x float> %339, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %348 = fmul <4 x float> %339, splat (float 0x3FFDB089A0000000)
   %349 = fadd <4 x float> %338, %348
   store <4 x float> %349, ptr %105, align 16
   %350 = load <4 x float>, ptr %106, align 16
   %351 = load <4 x float>, ptr %107, align 16
   %352 = load <4 x float>, ptr %108, align 16
-  %353 = fmul <4 x float> %352, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %353 = fmul <4 x float> %352, splat (float 0x3FF931F8A0000000)
   %354 = fadd <4 x float> %350, %353
   store <4 x float> %354, ptr %106, align 16
   %355 = load <4 x float>, ptr %107, align 16
-  %356 = fmul <4 x float> %355, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %357 = fmul <4 x float> %352, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %356 = fmul <4 x float> %355, splat (float 0x3FC7F97240000000)
+  %357 = fmul <4 x float> %352, splat (float 0x3FDDF6FD20000000)
   %358 = fsub <4 x float> %350, %356
   %359 = fsub <4 x float> %358, %357
   store <4 x float> %359, ptr %107, align 16
-  %360 = fmul <4 x float> %351, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %360 = fmul <4 x float> %351, splat (float 0x3FFDB089A0000000)
   %361 = fadd <4 x float> %350, %360
   store <4 x float> %361, ptr %108, align 16
   %362 = load <4 x float>, ptr %109, align 16
   %363 = load <4 x float>, ptr %110, align 16
   %364 = load <4 x float>, ptr %111, align 16
-  %365 = fmul <4 x float> %364, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %365 = fmul <4 x float> %364, splat (float 0x3FF931F8A0000000)
   %366 = fadd <4 x float> %362, %365
   store <4 x float> %366, ptr %109, align 16
   %367 = load <4 x float>, ptr %110, align 16
-  %368 = fmul <4 x float> %367, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %369 = fmul <4 x float> %364, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %368 = fmul <4 x float> %367, splat (float 0x3FC7F97240000000)
+  %369 = fmul <4 x float> %364, splat (float 0x3FDDF6FD20000000)
   %370 = fsub <4 x float> %362, %368
   %371 = fsub <4 x float> %370, %369
   store <4 x float> %371, ptr %110, align 16
-  %372 = fmul <4 x float> %363, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %372 = fmul <4 x float> %363, splat (float 0x3FFDB089A0000000)
   %373 = fadd <4 x float> %362, %372
   store <4 x float> %373, ptr %111, align 16
   %374 = load <4 x float>, ptr %112, align 16
   %375 = load <4 x float>, ptr %113, align 16
   %376 = load <4 x float>, ptr %114, align 16
-  %377 = fmul <4 x float> %376, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %377 = fmul <4 x float> %376, splat (float 0x3FF931F8A0000000)
   %378 = fadd <4 x float> %374, %377
   store <4 x float> %378, ptr %112, align 16
   %379 = load <4 x float>, ptr %113, align 16
-  %380 = fmul <4 x float> %379, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %381 = fmul <4 x float> %376, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %380 = fmul <4 x float> %379, splat (float 0x3FC7F97240000000)
+  %381 = fmul <4 x float> %376, splat (float 0x3FDDF6FD20000000)
   %382 = fsub <4 x float> %374, %380
   %383 = fsub <4 x float> %382, %381
   store <4 x float> %383, ptr %113, align 16
-  %384 = fmul <4 x float> %375, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %384 = fmul <4 x float> %375, splat (float 0x3FFDB089A0000000)
   %385 = fadd <4 x float> %374, %384
   store <4 x float> %385, ptr %114, align 16
   %386 = load <4 x float>, ptr %115, align 16
   %387 = load <4 x float>, ptr %116, align 16
   %388 = load <4 x float>, ptr %117, align 16
-  %389 = fmul <4 x float> %388, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %389 = fmul <4 x float> %388, splat (float 0x3FF931F8A0000000)
   %390 = fadd <4 x float> %386, %389
   store <4 x float> %390, ptr %115, align 16
   %391 = load <4 x float>, ptr %116, align 16
-  %392 = fmul <4 x float> %391, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %393 = fmul <4 x float> %388, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %392 = fmul <4 x float> %391, splat (float 0x3FC7F97240000000)
+  %393 = fmul <4 x float> %388, splat (float 0x3FDDF6FD20000000)
   %394 = fsub <4 x float> %386, %392
   %395 = fsub <4 x float> %394, %393
   store <4 x float> %395, ptr %116, align 16
-  %396 = fmul <4 x float> %387, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %396 = fmul <4 x float> %387, splat (float 0x3FFDB089A0000000)
   %397 = fadd <4 x float> %386, %396
   store <4 x float> %397, ptr %117, align 16
   %398 = load <4 x float>, ptr %118, align 16
   %399 = load <4 x float>, ptr %119, align 16
   %400 = load <4 x float>, ptr %120, align 16
-  %401 = fmul <4 x float> %400, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %401 = fmul <4 x float> %400, splat (float 0x3FF931F8A0000000)
   %402 = fadd <4 x float> %398, %401
   store <4 x float> %402, ptr %118, align 16
   %403 = load <4 x float>, ptr %119, align 16
-  %404 = fmul <4 x float> %403, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %405 = fmul <4 x float> %400, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %404 = fmul <4 x float> %403, splat (float 0x3FC7F97240000000)
+  %405 = fmul <4 x float> %400, splat (float 0x3FDDF6FD20000000)
   %406 = fsub <4 x float> %398, %404
   %407 = fsub <4 x float> %406, %405
   store <4 x float> %407, ptr %119, align 16
-  %408 = fmul <4 x float> %399, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %408 = fmul <4 x float> %399, splat (float 0x3FFDB089A0000000)
   %409 = fadd <4 x float> %398, %408
   store <4 x float> %409, ptr %120, align 16
   %410 = shl nsw i64 %indvars.iv500, 6

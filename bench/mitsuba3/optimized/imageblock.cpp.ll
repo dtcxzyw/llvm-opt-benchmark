@@ -1542,17 +1542,17 @@ define linkonce_odr hidden <4 x float> @_ZN7mitsuba16spectrum_to_srgbIfLm4EEENS_
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %6)
-  %9 = fadd contract <4 x float> %.sroa.0.0.copyload, <float -3.600000e+02, float -3.600000e+02, float -3.600000e+02, float -3.600000e+02>
-  %10 = fmul contract <4 x float> %9, <float 0x3FC99999A0000000, float 0x3FC99999A0000000, float 0x3FC99999A0000000, float 0x3FC99999A0000000>
-  %11 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, <float 3.600000e+02, float 3.600000e+02, float 3.600000e+02, float 3.600000e+02>
-  %12 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, <float 8.300000e+02, float 8.300000e+02, float 8.300000e+02, float 8.300000e+02>
+  %9 = fadd contract <4 x float> %.sroa.0.0.copyload, splat (float -3.600000e+02)
+  %10 = fmul contract <4 x float> %9, splat (float 0x3FC99999A0000000)
+  %11 = fcmp contract oge <4 x float> %.sroa.0.0.copyload, splat (float 3.600000e+02)
+  %12 = fcmp contract ole <4 x float> %.sroa.0.0.copyload, splat (float 8.300000e+02)
   %13 = and <4 x i1> %11, %12
   %14 = shufflevector <4 x i1> %13, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %15 = bitcast i8 %8 to <8 x i1>
   %16 = and <8 x i1> %14, %15
   %17 = tail call <4 x i32> @llvm.x86.avx512.mask.cvttps2udq.128(<4 x float> %10, <4 x i32> zeroinitializer, i8 -1)
-  %18 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %17, <4 x i32> <i32 93, i32 93, i32 93, i32 93>)
-  %19 = add nuw nsw <4 x i32> %18, <i32 1, i32 1, i32 1, i32 1>
+  %18 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %17, <4 x i32> splat (i32 93))
+  %19 = add nuw nsw <4 x i32> %18, splat (i32 1)
   call void @_ZN7mitsuba6detail13CIE1932TablesIfEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(169) %4, ptr noundef nonnull align 8 dereferenceable(169) @_ZN7mitsuba6detail25color_space_tables_scalarE), !noalias !19
   %20 = getelementptr inbounds i8, ptr %4, i64 72
   %21 = load ptr, ptr %20, align 8, !noalias !19
@@ -1569,7 +1569,7 @@ define linkonce_odr hidden <4 x float> @_ZN7mitsuba16spectrum_to_srgbIfLm4EEENS_
   %32 = call contract <4 x float> @llvm.x86.avx512.mask.gather3siv4.sf(<4 x float> zeroinitializer, ptr %30, <4 x i32> %19, <4 x i1> %22, i32 4), !noalias !19
   %33 = uitofp nneg <4 x i32> %18 to <4 x float>
   %34 = fsub contract <4 x float> %10, %33
-  %35 = fsub contract <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %34
+  %35 = fsub contract <4 x float> splat (float 1.000000e+00), %34
   %36 = fmul contract <4 x float> %34, %24
   %37 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %35, <4 x float> %23, <4 x float> %36)
   %38 = fmul contract <4 x float> %34, %28
@@ -1700,7 +1700,7 @@ _ZN7mitsuba14linear_rgb_recINS_8SpectrumIfLm4EEENS_5ColorIS2_Lm3EEEEET0_T_N5drji
   %100 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %87, i64 0
   %101 = insertelement <4 x float> %100, float %93, i64 1
   %102 = insertelement <4 x float> %101, float %99, i64 2
-  %103 = fmul contract <4 x float> %102, <float 0x3F832F59E0000000, float 0x3F832F59E0000000, float 0x3F832F59E0000000, float 0x3F832F59E0000000>
+  %103 = fmul contract <4 x float> %102, splat (float 0x3F832F59E0000000)
   ret <4 x float> %103
 }
 

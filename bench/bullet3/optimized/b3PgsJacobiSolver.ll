@@ -1716,11 +1716,11 @@ if.then:                                          ; preds = %entry
   %8 = getelementptr inbounds i8, ptr %solverBody, i64 208
   store i32 %bodyIndex, ptr %8, align 16
   %m_angularFactor = getelementptr inbounds i8, ptr %solverBody, i64 96
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_angularFactor, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_angularFactor, align 16
   %ref.tmp21.sroa.2.0.m_angularFactor.sroa_idx = getelementptr inbounds i8, ptr %solverBody, i64 104
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp21.sroa.2.0.m_angularFactor.sroa_idx, align 8
   %m_linearFactor = getelementptr inbounds i8, ptr %solverBody, i64 112
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_linearFactor, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_linearFactor, align 16
   %ref.tmp25.sroa.2.0.m_linearFactor.sroa_idx = getelementptr inbounds i8, ptr %solverBody, i64 120
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp25.sroa.2.0.m_linearFactor.sroa_idx, align 8
   %m_linVel.i = getelementptr inbounds i8, ptr %rb, i64 32

@@ -10746,7 +10746,7 @@ default.unreachable37:                            ; preds = %51, %46, %2
   br i1 %87, label %129, label %90
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %90, %73
-  %88 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %88 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i, splat (i8 -1)
   %89 = bitcast <16 x i1> %88 to i16
   %.not.i.i.i.i.i.i = icmp eq i16 %89, 0
   br i1 %.not.i.i.i.i.i.i, label %94, label %.thread.i.i

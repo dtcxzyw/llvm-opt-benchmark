@@ -862,9 +862,9 @@ for.body27.lr.ph:                                 ; preds = %for.cond23.preheade
 
 for.body27:                                       ; preds = %for.body27.lr.ph, %for.body27
   %indvars.iv116 = phi i64 [ 0, %for.body27.lr.ph ], [ %indvars.iv.next117, %for.body27 ]
-  %myAabbMax.sroa.0.0109 = phi <2 x float> [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %for.body27.lr.ph ], [ %myAabbMax.sroa.0.2, %for.body27 ]
+  %myAabbMax.sroa.0.0109 = phi <2 x float> [ splat (float 0xC6293E5940000000), %for.body27.lr.ph ], [ %myAabbMax.sroa.0.2, %for.body27 ]
   %myAabbMax.sroa.7.0108 = phi <2 x float> [ <float 0xC6293E5940000000, float 0.000000e+00>, %for.body27.lr.ph ], [ %myAabbMax.sroa.7.2, %for.body27 ]
-  %myAabbMin.sroa.0.0107 = phi <2 x float> [ <float 0x46293E5940000000, float 0x46293E5940000000>, %for.body27.lr.ph ], [ %myAabbMin.sroa.0.2, %for.body27 ]
+  %myAabbMin.sroa.0.0107 = phi <2 x float> [ splat (float 0x46293E5940000000), %for.body27.lr.ph ], [ %myAabbMin.sroa.0.2, %for.body27 ]
   %myAabbMin.sroa.7.0106 = phi <2 x float> [ <float 0x46293E5940000000, float 0.000000e+00>, %for.body27.lr.ph ], [ %myAabbMin.sroa.7.2, %for.body27 ]
   %arrayidx.i29 = getelementptr inbounds %class.b3Vector3, ptr %17, i64 %indvars.iv116
   %18 = load float, ptr %arrayidx.i29, align 4
@@ -912,9 +912,9 @@ for.body27:                                       ; preds = %for.body27.lr.ph, %
 
 for.end34:                                        ; preds = %for.body27, %for.cond23.preheader
   %myAabbMin.sroa.7.0.lcssa = phi <2 x float> [ <float 0x46293E5940000000, float 0.000000e+00>, %for.cond23.preheader ], [ %myAabbMin.sroa.7.2, %for.body27 ]
-  %myAabbMin.sroa.0.0.lcssa = phi <2 x float> [ <float 0x46293E5940000000, float 0x46293E5940000000>, %for.cond23.preheader ], [ %myAabbMin.sroa.0.2, %for.body27 ]
+  %myAabbMin.sroa.0.0.lcssa = phi <2 x float> [ splat (float 0x46293E5940000000), %for.cond23.preheader ], [ %myAabbMin.sroa.0.2, %for.body27 ]
   %myAabbMax.sroa.7.0.lcssa = phi <2 x float> [ <float 0xC6293E5940000000, float 0.000000e+00>, %for.cond23.preheader ], [ %myAabbMax.sroa.7.2, %for.body27 ]
-  %myAabbMax.sroa.0.0.lcssa = phi <2 x float> [ <float 0xC6293E5940000000, float 0xC6293E5940000000>, %for.cond23.preheader ], [ %myAabbMax.sroa.0.2, %for.body27 ]
+  %myAabbMax.sroa.0.0.lcssa = phi <2 x float> [ splat (float 0xC6293E5940000000), %for.cond23.preheader ], [ %myAabbMax.sroa.0.2, %for.body27 ]
   %myAabbMin.sroa.0.0.vec.extract71 = extractelement <2 x float> %myAabbMin.sroa.0.0.lcssa, i64 0
   %myAabbMin.sroa.0.4.vec.extract74 = extractelement <2 x float> %myAabbMin.sroa.0.0.lcssa, i64 1
   %myAabbMin.sroa.7.8.vec.extract77 = extractelement <2 x float> %myAabbMin.sroa.7.0.lcssa, i64 0

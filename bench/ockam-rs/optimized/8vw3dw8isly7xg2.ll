@@ -26876,7 +26876,7 @@ default.unreachable219:                           ; preds = %115, %3
   br i1 %.not.not.i.i.i.i.i, label %363, label %367
 
 363:                                              ; preds = %362
-  %364 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %364 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %365 = bitcast <16 x i1> %364 to i16
   %366 = icmp eq i16 %365, 0
   br i1 %366, label %376, label %.loopexit.i

@@ -9887,7 +9887,7 @@ define hidden { <2 x float>, float } @_ZN6Assimp3FBX12FBXConverter30Transformati
 entry:
   %cmp = icmp eq i32 %comp, 12
   %retval.sroa.5.0 = select i1 %cmp, float 1.000000e+00, float 0.000000e+00
-  %retval.sroa.0.0 = select i1 %cmp, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> zeroinitializer
+  %retval.sroa.0.0 = select i1 %cmp, <2 x float> splat (float 1.000000e+00), <2 x float> zeroinitializer
   %.fca.0.insert = insertvalue { <2 x float>, float } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, float } %.fca.0.insert, float %retval.sroa.5.0, 1
   ret { <2 x float>, float } %.fca.1.insert
@@ -29123,7 +29123,7 @@ if.end59:                                         ; preds = %lor.lhs.false55
 invoke.cont72:                                    ; preds = %if.end59
   %cmp.i116 = icmp eq i32 %comp, 12
   %retval.sroa.5.0.i = select i1 %cmp.i116, float 1.000000e+00, float 0.000000e+00
-  %retval.sroa.0.0.i = select i1 %cmp.i116, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> zeroinitializer
+  %retval.sroa.0.0.i = select i1 %cmp.i116, <2 x float> splat (float 1.000000e+00), <2 x float> zeroinitializer
   store <2 x float> %retval.sroa.0.0.i, ptr %ref.tmp70, align 8
   %tmp.coerce.sroa.2.0.ref.tmp70.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   store float %retval.sroa.5.0.i, ptr %tmp.coerce.sroa.2.0.ref.tmp70.sroa_idx, align 8

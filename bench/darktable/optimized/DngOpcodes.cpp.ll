@@ -3447,7 +3447,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   store <8 x i16> %99, ptr %103, align 2, !tbaa !194, !alias.scope !234, !noalias !233
   store <8 x i16> %100, ptr %104, align 2, !tbaa !194, !alias.scope !234, !noalias !233
   %105 = add nuw i64 %86, 32
-  %106 = add <8 x i64> %87, <i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64>
+  %106 = add <8 x i64> %87, splat (i64 64)
   %107 = icmp eq i64 %105, %80
   br i1 %107, label %51, label %85, !llvm.loop !235
 
@@ -3513,7 +3513,7 @@ define linkonce_odr hidden void @_ZN8rawspeed10DngOpcodes8TableMapC2ERKNS_8RawIm
   store <8 x i16> %153, ptr %157, align 2, !tbaa !194, !alias.scope !239, !noalias !236
   store <8 x i16> %154, ptr %158, align 2, !tbaa !194, !alias.scope !239, !noalias !236
   %159 = add nuw i64 %144, 32
-  %160 = add <8 x i64> %145, <i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64>
+  %160 = add <8 x i64> %145, splat (i64 64)
   %161 = icmp eq i64 %159, %138
   br i1 %161, label %162, label %143, !llvm.loop !241
 
@@ -5026,7 +5026,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %152 = phi i64 [ 0, %148 ], [ %216, %151 ]
   %153 = phi <16 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, %148 ], [ %217, %151 ]
   %154 = add <16 x i32> %153, %150
-  %155 = icmp sgt <16 x i32> %154, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %155 = icmp sgt <16 x i32> %154, splat (i32 -1)
   %156 = extractelement <16 x i1> %155, i64 0
   tail call void @llvm.assume(i1 %156)
   %157 = extractelement <16 x i1> %155, i64 1
@@ -5133,11 +5133,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %211 = zext <16 x i16> %210 to <16 x i32>
   %212 = add nsw <16 x i32> %133, %211
   %213 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %212, <16 x i32> zeroinitializer)
-  %214 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %213, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %214 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %213, <16 x i32> splat (i32 65535))
   %215 = trunc nuw <16 x i32> %214 to <16 x i16>
   store <16 x i16> %215, ptr %209, align 2, !tbaa !194
   %216 = add nuw nsw i64 %152, 16
-  %217 = add <16 x i32> %153, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %217 = add <16 x i32> %153, splat (i32 16)
   %218 = icmp eq i64 %216, %91
   br i1 %218, label %219, label %151, !llvm.loop !276
 
@@ -5161,7 +5161,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %229 = phi i64 [ %221, %._crit_edge ], [ %269, %228 ]
   %230 = phi <8 x i32> [ %225, %._crit_edge ], [ %270, %228 ]
   %231 = add <8 x i32> %230, %227
-  %232 = icmp sgt <8 x i32> %231, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %232 = icmp sgt <8 x i32> %231, splat (i32 -1)
   %233 = extractelement <8 x i1> %232, i64 0
   tail call void @llvm.assume(i1 %233)
   %234 = extractelement <8 x i1> %232, i64 1
@@ -5220,11 +5220,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %264 = zext <8 x i16> %263 to <8 x i32>
   %265 = add nsw <8 x i32> %135, %264
   %266 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %265, <8 x i32> zeroinitializer)
-  %267 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %266, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %267 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %266, <8 x i32> splat (i32 65535))
   %268 = trunc nuw <8 x i32> %267 to <8 x i16>
   store <8 x i16> %268, ptr %262, align 2, !tbaa !194
   %269 = add nuw i64 %229, 8
-  %270 = add <8 x i32> %230, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %270 = add <8 x i32> %230, splat (i32 8)
   %271 = icmp eq i64 %269, %101
   br i1 %271, label %272, label %228, !llvm.loop !277
 
@@ -5527,9 +5527,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %129 = getelementptr i8, ptr %90, i64 %127
   %130 = insertelement <8 x i32> poison, i32 %114, i64 0
   %131 = shufflevector <8 x i32> %130, <8 x i32> poison, <8 x i32> zeroinitializer
-  %132 = add <8 x i32> %131, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %133 = add <8 x i32> %131, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %134 = add <8 x i32> %131, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %132 = add <8 x i32> %131, splat (i32 8)
+  %133 = add <8 x i32> %131, splat (i32 16)
+  %134 = add <8 x i32> %131, splat (i32 24)
   %135 = add i32 %114, 1
   %136 = add i32 %114, 2
   %137 = add i32 %114, 3
@@ -5577,10 +5577,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %167 = add <8 x i32> %160, %165
   %168 = add <8 x i32> %161, %165
   %169 = add <8 x i32> %162, %165
-  %170 = icmp sgt <8 x i32> %166, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %171 = icmp sgt <8 x i32> %167, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %172 = icmp sgt <8 x i32> %168, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %173 = icmp sgt <8 x i32> %169, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %170 = icmp sgt <8 x i32> %166, splat (i32 -1)
+  %171 = icmp sgt <8 x i32> %167, splat (i32 -1)
+  %172 = icmp sgt <8 x i32> %168, splat (i32 -1)
+  %173 = icmp sgt <8 x i32> %169, splat (i32 -1)
   %174 = extractelement <8 x i1> %170, i64 0
   tail call void @llvm.assume(i1 %174)
   %175 = extractelement <8 x i1> %170, i64 1
@@ -5804,7 +5804,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   store <8 x float> %294, ptr %286, align 4, !tbaa !266, !alias.scope !293
   store <8 x float> %295, ptr %287, align 4, !tbaa !266, !alias.scope !293
   %296 = add nuw nsw i64 %164, 32
-  %297 = add <8 x i32> %165, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %297 = add <8 x i32> %165, splat (i32 32)
   %298 = icmp eq i64 %296, %93
   br i1 %298, label %299, label %163, !llvm.loop !295
 
@@ -6641,7 +6641,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %150 = phi i64 [ 0, %143 ], [ %214, %149 ]
   %151 = phi <16 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, %143 ], [ %215, %149 ]
   %152 = add <16 x i32> %151, %148
-  %153 = icmp sgt <16 x i32> %152, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %153 = icmp sgt <16 x i32> %152, splat (i32 -1)
   %154 = extractelement <16 x i1> %153, i64 0
   tail call void @llvm.assume(i1 %154)
   %155 = extractelement <16 x i1> %153, i64 1
@@ -6748,11 +6748,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %209 = zext <16 x i16> %208 to <16 x i32>
   %210 = add nsw <16 x i32> %145, %209
   %211 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %210, <16 x i32> zeroinitializer)
-  %212 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %211, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %212 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %211, <16 x i32> splat (i32 65535))
   %213 = trunc nuw <16 x i32> %212 to <16 x i16>
   store <16 x i16> %213, ptr %207, align 2, !tbaa !194
   %214 = add nuw nsw i64 %150, 16
-  %215 = add <16 x i32> %151, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %215 = add <16 x i32> %151, splat (i32 16)
   %216 = icmp eq i64 %214, %90
   br i1 %216, label %217, label %149, !llvm.loop !309
 
@@ -6779,7 +6779,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %230 = phi i64 [ %220, %219 ], [ %270, %229 ]
   %231 = phi <8 x i32> [ %224, %219 ], [ %271, %229 ]
   %232 = add <8 x i32> %231, %228
-  %233 = icmp sgt <8 x i32> %232, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %233 = icmp sgt <8 x i32> %232, splat (i32 -1)
   %234 = extractelement <8 x i1> %233, i64 0
   tail call void @llvm.assume(i1 %234)
   %235 = extractelement <8 x i1> %233, i64 1
@@ -6838,11 +6838,11 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %265 = zext <8 x i16> %264 to <8 x i32>
   %266 = add nsw <8 x i32> %226, %265
   %267 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %266, <8 x i32> zeroinitializer)
-  %268 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %267, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %268 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %267, <8 x i32> splat (i32 65535))
   %269 = trunc nuw <8 x i32> %268 to <8 x i16>
   store <8 x i16> %269, ptr %263, align 2, !tbaa !194
   %270 = add nuw i64 %230, 8
-  %271 = add <8 x i32> %231, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %271 = add <8 x i32> %231, splat (i32 8)
   %272 = icmp eq i64 %270, %100
   br i1 %272, label %273, label %229, !llvm.loop !310
 
@@ -7139,9 +7139,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %123 = getelementptr i8, ptr %91, i64 %121
   %124 = insertelement <8 x i32> poison, i32 %109, i64 0
   %125 = shufflevector <8 x i32> %124, <8 x i32> poison, <8 x i32> zeroinitializer
-  %126 = add <8 x i32> %125, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %127 = add <8 x i32> %125, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %128 = add <8 x i32> %125, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %126 = add <8 x i32> %125, splat (i32 8)
+  %127 = add <8 x i32> %125, splat (i32 16)
+  %128 = add <8 x i32> %125, splat (i32 24)
   %129 = add i32 %109, 1
   %130 = add i32 %109, 2
   %131 = add i32 %109, 3
@@ -7190,10 +7190,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %163 = add <8 x i32> %156, %161
   %164 = add <8 x i32> %157, %161
   %165 = add <8 x i32> %158, %161
-  %166 = icmp sgt <8 x i32> %162, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %167 = icmp sgt <8 x i32> %163, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %168 = icmp sgt <8 x i32> %164, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %169 = icmp sgt <8 x i32> %165, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %166 = icmp sgt <8 x i32> %162, splat (i32 -1)
+  %167 = icmp sgt <8 x i32> %163, splat (i32 -1)
+  %168 = icmp sgt <8 x i32> %164, splat (i32 -1)
+  %169 = icmp sgt <8 x i32> %165, splat (i32 -1)
   %170 = extractelement <8 x i1> %166, i64 0
   tail call void @llvm.assume(i1 %170)
   %171 = extractelement <8 x i1> %166, i64 1
@@ -7417,7 +7417,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   store <8 x float> %290, ptr %282, align 4, !tbaa !266, !alias.scope !326
   store <8 x float> %291, ptr %283, align 4, !tbaa !266, !alias.scope !326
   %292 = add nuw nsw i64 %160, 32
-  %293 = add <8 x i32> %161, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %293 = add <8 x i32> %161, splat (i32 32)
   %294 = icmp eq i64 %292, %93
   br i1 %294, label %295, label %159, !llvm.loop !328
 
@@ -7826,7 +7826,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %152 = phi i64 [ 0, %148 ], [ %218, %151 ]
   %153 = phi <16 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, %148 ], [ %219, %151 ]
   %154 = add <16 x i32> %153, %150
-  %155 = icmp sgt <16 x i32> %154, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %155 = icmp sgt <16 x i32> %154, splat (i32 -1)
   %156 = extractelement <16 x i1> %155, i64 0
   tail call void @llvm.assume(i1 %156)
   %157 = extractelement <16 x i1> %155, i64 1
@@ -7932,14 +7932,14 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %210 = load <16 x i16>, ptr %209, align 2, !tbaa !194
   %211 = zext <16 x i16> %210 to <16 x i32>
   %212 = mul nsw <16 x i32> %134, %211
-  %213 = add nsw <16 x i32> %212, <i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512>
-  %214 = ashr <16 x i32> %213, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
+  %213 = add nsw <16 x i32> %212, splat (i32 512)
+  %214 = ashr <16 x i32> %213, splat (i32 10)
   %215 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %214, <16 x i32> zeroinitializer)
-  %216 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %215, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %216 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %215, <16 x i32> splat (i32 65535))
   %217 = trunc nuw <16 x i32> %216 to <16 x i16>
   store <16 x i16> %217, ptr %209, align 2, !tbaa !194
   %218 = add nuw nsw i64 %152, 16
-  %219 = add <16 x i32> %153, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %219 = add <16 x i32> %153, splat (i32 16)
   %220 = icmp eq i64 %218, %93
   br i1 %220, label %221, label %151, !llvm.loop !341
 
@@ -7963,7 +7963,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %231 = phi i64 [ %223, %._crit_edge ], [ %273, %230 ]
   %232 = phi <8 x i32> [ %227, %._crit_edge ], [ %274, %230 ]
   %233 = add <8 x i32> %232, %229
-  %234 = icmp sgt <8 x i32> %233, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %234 = icmp sgt <8 x i32> %233, splat (i32 -1)
   %235 = extractelement <8 x i1> %234, i64 0
   tail call void @llvm.assume(i1 %235)
   %236 = extractelement <8 x i1> %234, i64 1
@@ -8021,14 +8021,14 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %265 = load <8 x i16>, ptr %264, align 2, !tbaa !194
   %266 = zext <8 x i16> %265 to <8 x i32>
   %267 = mul nsw <8 x i32> %136, %266
-  %268 = add nsw <8 x i32> %267, <i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512>
-  %269 = ashr <8 x i32> %268, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
+  %268 = add nsw <8 x i32> %267, splat (i32 512)
+  %269 = ashr <8 x i32> %268, splat (i32 10)
   %270 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %269, <8 x i32> zeroinitializer)
-  %271 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %270, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %271 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %270, <8 x i32> splat (i32 65535))
   %272 = trunc nuw <8 x i32> %271 to <8 x i16>
   store <8 x i16> %272, ptr %264, align 2, !tbaa !194
   %273 = add nuw i64 %231, 8
-  %274 = add <8 x i32> %232, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %274 = add <8 x i32> %232, splat (i32 8)
   %275 = icmp eq i64 %273, %103
   br i1 %275, label %276, label %230, !llvm.loop !342
 
@@ -8293,9 +8293,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %129 = getelementptr i8, ptr %90, i64 %127
   %130 = insertelement <8 x i32> poison, i32 %114, i64 0
   %131 = shufflevector <8 x i32> %130, <8 x i32> poison, <8 x i32> zeroinitializer
-  %132 = add <8 x i32> %131, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %133 = add <8 x i32> %131, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %134 = add <8 x i32> %131, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %132 = add <8 x i32> %131, splat (i32 8)
+  %133 = add <8 x i32> %131, splat (i32 16)
+  %134 = add <8 x i32> %131, splat (i32 24)
   %135 = add i32 %114, 1
   %136 = add i32 %114, 2
   %137 = add i32 %114, 3
@@ -8343,10 +8343,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %167 = add <8 x i32> %160, %165
   %168 = add <8 x i32> %161, %165
   %169 = add <8 x i32> %162, %165
-  %170 = icmp sgt <8 x i32> %166, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %171 = icmp sgt <8 x i32> %167, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %172 = icmp sgt <8 x i32> %168, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %173 = icmp sgt <8 x i32> %169, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %170 = icmp sgt <8 x i32> %166, splat (i32 -1)
+  %171 = icmp sgt <8 x i32> %167, splat (i32 -1)
+  %172 = icmp sgt <8 x i32> %168, splat (i32 -1)
+  %173 = icmp sgt <8 x i32> %169, splat (i32 -1)
   %174 = extractelement <8 x i1> %170, i64 0
   tail call void @llvm.assume(i1 %174)
   %175 = extractelement <8 x i1> %170, i64 1
@@ -8570,7 +8570,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   store <8 x float> %294, ptr %286, align 4, !tbaa !266, !alias.scope !357
   store <8 x float> %295, ptr %287, align 4, !tbaa !266, !alias.scope !357
   %296 = add nuw nsw i64 %164, 32
-  %297 = add <8 x i32> %165, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %297 = add <8 x i32> %165, splat (i32 32)
   %298 = icmp eq i64 %296, %93
   br i1 %298, label %299, label %163, !llvm.loop !359
 
@@ -8980,7 +8980,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %150 = phi i64 [ 0, %143 ], [ %216, %149 ]
   %151 = phi <16 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>, %143 ], [ %217, %149 ]
   %152 = add <16 x i32> %151, %148
-  %153 = icmp sgt <16 x i32> %152, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %153 = icmp sgt <16 x i32> %152, splat (i32 -1)
   %154 = extractelement <16 x i1> %153, i64 0
   tail call void @llvm.assume(i1 %154)
   %155 = extractelement <16 x i1> %153, i64 1
@@ -9086,14 +9086,14 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %208 = load <16 x i16>, ptr %207, align 2, !tbaa !194
   %209 = zext <16 x i16> %208 to <16 x i32>
   %210 = mul nsw <16 x i32> %145, %209
-  %211 = add nsw <16 x i32> %210, <i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512>
-  %212 = ashr <16 x i32> %211, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
+  %211 = add nsw <16 x i32> %210, splat (i32 512)
+  %212 = ashr <16 x i32> %211, splat (i32 10)
   %213 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %212, <16 x i32> zeroinitializer)
-  %214 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %213, <16 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %214 = tail call <16 x i32> @llvm.umin.v16i32(<16 x i32> %213, <16 x i32> splat (i32 65535))
   %215 = trunc nuw <16 x i32> %214 to <16 x i16>
   store <16 x i16> %215, ptr %207, align 2, !tbaa !194
   %216 = add nuw nsw i64 %150, 16
-  %217 = add <16 x i32> %151, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %217 = add <16 x i32> %151, splat (i32 16)
   %218 = icmp eq i64 %216, %92
   br i1 %218, label %219, label %149, !llvm.loop !372
 
@@ -9120,7 +9120,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %232 = phi i64 [ %222, %221 ], [ %274, %231 ]
   %233 = phi <8 x i32> [ %226, %221 ], [ %275, %231 ]
   %234 = add <8 x i32> %233, %230
-  %235 = icmp sgt <8 x i32> %234, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %235 = icmp sgt <8 x i32> %234, splat (i32 -1)
   %236 = extractelement <8 x i1> %235, i64 0
   tail call void @llvm.assume(i1 %236)
   %237 = extractelement <8 x i1> %235, i64 1
@@ -9178,14 +9178,14 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %266 = load <8 x i16>, ptr %265, align 2, !tbaa !194
   %267 = zext <8 x i16> %266 to <8 x i32>
   %268 = mul nsw <8 x i32> %228, %267
-  %269 = add nsw <8 x i32> %268, <i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512, i32 512>
-  %270 = ashr <8 x i32> %269, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
+  %269 = add nsw <8 x i32> %268, splat (i32 512)
+  %270 = ashr <8 x i32> %269, splat (i32 10)
   %271 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %270, <8 x i32> zeroinitializer)
-  %272 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %271, <8 x i32> <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>)
+  %272 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %271, <8 x i32> splat (i32 65535))
   %273 = trunc nuw <8 x i32> %272 to <8 x i16>
   store <8 x i16> %273, ptr %265, align 2, !tbaa !194
   %274 = add nuw i64 %232, 8
-  %275 = add <8 x i32> %233, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %275 = add <8 x i32> %233, splat (i32 8)
   %276 = icmp eq i64 %274, %102
   br i1 %276, label %277, label %231, !llvm.loop !373
 
@@ -9444,9 +9444,9 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %123 = getelementptr i8, ptr %91, i64 %121
   %124 = insertelement <8 x i32> poison, i32 %109, i64 0
   %125 = shufflevector <8 x i32> %124, <8 x i32> poison, <8 x i32> zeroinitializer
-  %126 = add <8 x i32> %125, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %127 = add <8 x i32> %125, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %128 = add <8 x i32> %125, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %126 = add <8 x i32> %125, splat (i32 8)
+  %127 = add <8 x i32> %125, splat (i32 16)
+  %128 = add <8 x i32> %125, splat (i32 24)
   %129 = add i32 %109, 1
   %130 = add i32 %109, 2
   %131 = add i32 %109, 3
@@ -9495,10 +9495,10 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   %163 = add <8 x i32> %156, %161
   %164 = add <8 x i32> %157, %161
   %165 = add <8 x i32> %158, %161
-  %166 = icmp sgt <8 x i32> %162, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %167 = icmp sgt <8 x i32> %163, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %168 = icmp sgt <8 x i32> %164, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
-  %169 = icmp sgt <8 x i32> %165, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %166 = icmp sgt <8 x i32> %162, splat (i32 -1)
+  %167 = icmp sgt <8 x i32> %163, splat (i32 -1)
+  %168 = icmp sgt <8 x i32> %164, splat (i32 -1)
+  %169 = icmp sgt <8 x i32> %165, splat (i32 -1)
   %170 = extractelement <8 x i1> %166, i64 0
   tail call void @llvm.assume(i1 %170)
   %171 = extractelement <8 x i1> %166, i64 1
@@ -9722,7 +9722,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed10DngOpcodes11PixelOpcode7applyOPI
   store <8 x float> %290, ptr %282, align 4, !tbaa !266, !alias.scope !388
   store <8 x float> %291, ptr %283, align 4, !tbaa !266, !alias.scope !388
   %292 = add nuw nsw i64 %160, 32
-  %293 = add <8 x i32> %161, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %293 = add <8 x i32> %161, splat (i32 32)
   %294 = icmp eq i64 %292, %93
   br i1 %294, label %295, label %159, !llvm.loop !390
 

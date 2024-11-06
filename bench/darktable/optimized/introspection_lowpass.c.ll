@@ -357,8 +357,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %13
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %7, align 16, !tbaa !26
-  store <4 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %8, align 16, !tbaa !26
+  store <4 x float> splat (float 0x47EFFFFFE0000000), ptr %7, align 16, !tbaa !26
+  store <4 x float> splat (float 0xC7EFFFFFE0000000), ptr %8, align 16, !tbaa !26
   br label %38
 
 38:                                               ; preds = %37, %13
@@ -560,29 +560,29 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 21:                                               ; preds = %21, %19
   %22 = phi i64 [ 0, %19 ], [ %51, %21 ]
   %23 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %19 ], [ %52, %21 ]
-  %24 = add <8 x i32> %23, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %25 = add <8 x i32> %23, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %26 = add <8 x i32> %23, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %24 = add <8 x i32> %23, splat (i32 8)
+  %25 = add <8 x i32> %23, splat (i32 16)
+  %26 = add <8 x i32> %23, splat (i32 24)
   %27 = sitofp <8 x i32> %23 to <8 x float>
   %28 = sitofp <8 x i32> %24 to <8 x float>
   %29 = sitofp <8 x i32> %25 to <8 x float>
   %30 = sitofp <8 x i32> %26 to <8 x float>
-  %31 = fmul reassoc nsz arcp contract afn <8 x float> %27, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %32 = fmul reassoc nsz arcp contract afn <8 x float> %28, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %33 = fmul reassoc nsz arcp contract afn <8 x float> %29, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %34 = fmul reassoc nsz arcp contract afn <8 x float> %30, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %35 = fadd reassoc nsz arcp contract afn <8 x float> %31, <float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01>
-  %36 = fadd reassoc nsz arcp contract afn <8 x float> %32, <float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01>
-  %37 = fadd reassoc nsz arcp contract afn <8 x float> %33, <float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01>
-  %38 = fadd reassoc nsz arcp contract afn <8 x float> %34, <float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01, float -5.000000e+01>
+  %31 = fmul reassoc nsz arcp contract afn <8 x float> %27, splat (float 0x3F59000000000000)
+  %32 = fmul reassoc nsz arcp contract afn <8 x float> %28, splat (float 0x3F59000000000000)
+  %33 = fmul reassoc nsz arcp contract afn <8 x float> %29, splat (float 0x3F59000000000000)
+  %34 = fmul reassoc nsz arcp contract afn <8 x float> %30, splat (float 0x3F59000000000000)
+  %35 = fadd reassoc nsz arcp contract afn <8 x float> %31, splat (float -5.000000e+01)
+  %36 = fadd reassoc nsz arcp contract afn <8 x float> %32, splat (float -5.000000e+01)
+  %37 = fadd reassoc nsz arcp contract afn <8 x float> %33, splat (float -5.000000e+01)
+  %38 = fadd reassoc nsz arcp contract afn <8 x float> %34, splat (float -5.000000e+01)
   %39 = fmul reassoc nsz arcp contract afn <8 x float> %35, %20
   %40 = fmul reassoc nsz arcp contract afn <8 x float> %36, %20
   %41 = fmul reassoc nsz arcp contract afn <8 x float> %37, %20
   %42 = fmul reassoc nsz arcp contract afn <8 x float> %38, %20
-  %43 = fadd reassoc nsz arcp contract afn <8 x float> %39, <float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01>
-  %44 = fadd reassoc nsz arcp contract afn <8 x float> %40, <float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01>
-  %45 = fadd reassoc nsz arcp contract afn <8 x float> %41, <float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01>
-  %46 = fadd reassoc nsz arcp contract afn <8 x float> %42, <float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01>
+  %43 = fadd reassoc nsz arcp contract afn <8 x float> %39, splat (float 5.000000e+01)
+  %44 = fadd reassoc nsz arcp contract afn <8 x float> %40, splat (float 5.000000e+01)
+  %45 = fadd reassoc nsz arcp contract afn <8 x float> %41, splat (float 5.000000e+01)
+  %46 = fadd reassoc nsz arcp contract afn <8 x float> %42, splat (float 5.000000e+01)
   %47 = getelementptr inbounds [65536 x float], ptr %18, i64 0, i64 %22
   %48 = getelementptr inbounds i8, ptr %47, i64 32
   %49 = getelementptr inbounds i8, ptr %47, i64 64
@@ -592,7 +592,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   store <8 x float> %45, ptr %49, align 4, !tbaa !26
   store <8 x float> %46, ptr %50, align 4, !tbaa !26
   %51 = add nuw nsw i64 %22, 32
-  %52 = add <8 x i32> %23, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %52 = add <8 x i32> %23, splat (i32 32)
   %53 = icmp eq i64 %51, 65536
   br i1 %53, label %.loopexit, label %21, !llvm.loop !65
 
@@ -617,33 +617,33 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %70 = phi i64 [ 0, %54 ], [ %96, %69 ]
   %71 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %54 ], [ %97, %69 ]
   %72 = uitofp <8 x i64> %71 to <8 x float>
-  %73 = fmul reassoc nsz arcp contract afn <8 x float> %72, <float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000>
-  %74 = fadd reassoc nsz arcp contract afn <8 x float> %73, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %73 = fmul reassoc nsz arcp contract afn <8 x float> %72, splat (float 0x3F00000000000000)
+  %74 = fadd reassoc nsz arcp contract afn <8 x float> %73, splat (float -1.000000e+00)
   %75 = fmul reassoc nsz arcp contract afn <8 x float> %74, %74
   %76 = fmul reassoc nsz arcp contract afn <8 x float> %75, %66
-  %77 = fadd reassoc nsz arcp contract afn <8 x float> %76, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %77 = fadd reassoc nsz arcp contract afn <8 x float> %76, splat (float 1.000000e+00)
   %78 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %77)
   %79 = fmul reassoc nsz arcp contract afn <8 x float> %74, %68
   %80 = fdiv reassoc nsz arcp contract afn <8 x float> %79, %78
-  %81 = fadd reassoc nsz arcp contract afn <8 x float> %80, <float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01>
+  %81 = fadd reassoc nsz arcp contract afn <8 x float> %80, splat (float 5.000000e+01)
   %82 = getelementptr inbounds float, ptr %18, i64 %70
   store <8 x float> %81, ptr %82, align 4, !tbaa !26
   %83 = or disjoint i64 %70, 8
-  %84 = add <8 x i64> %71, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %84 = add <8 x i64> %71, splat (i64 8)
   %85 = uitofp <8 x i64> %84 to <8 x float>
-  %86 = fmul reassoc nsz arcp contract afn <8 x float> %85, <float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000, float 0x3F00000000000000>
-  %87 = fadd reassoc nsz arcp contract afn <8 x float> %86, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %86 = fmul reassoc nsz arcp contract afn <8 x float> %85, splat (float 0x3F00000000000000)
+  %87 = fadd reassoc nsz arcp contract afn <8 x float> %86, splat (float -1.000000e+00)
   %88 = fmul reassoc nsz arcp contract afn <8 x float> %87, %87
   %89 = fmul reassoc nsz arcp contract afn <8 x float> %88, %66
-  %90 = fadd reassoc nsz arcp contract afn <8 x float> %89, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %90 = fadd reassoc nsz arcp contract afn <8 x float> %89, splat (float 1.000000e+00)
   %91 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %90)
   %92 = fmul reassoc nsz arcp contract afn <8 x float> %87, %68
   %93 = fdiv reassoc nsz arcp contract afn <8 x float> %92, %91
-  %94 = fadd reassoc nsz arcp contract afn <8 x float> %93, <float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01, float 5.000000e+01>
+  %94 = fadd reassoc nsz arcp contract afn <8 x float> %93, splat (float 5.000000e+01)
   %95 = getelementptr inbounds float, ptr %18, i64 %83
   store <8 x float> %94, ptr %95, align 4, !tbaa !26
   %96 = add nuw nsw i64 %70, 16
-  %97 = add <8 x i64> %71, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %97 = add <8 x i64> %71, splat (i64 16)
   %98 = icmp eq i64 %96, 65536
   br i1 %98, label %.loopexit, label %69, !llvm.loop !68
 
@@ -721,7 +721,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %152 = phi i64 [ 0, %133 ], [ %180, %151 ]
   %153 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %133 ], [ %181, %151 ]
   %154 = uitofp <8 x i64> %153 to <8 x float>
-  %155 = fmul reassoc nsz arcp contract afn <8 x float> %154, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %155 = fmul reassoc nsz arcp contract afn <8 x float> %154, splat (float 0x3EF0000000000000)
   %156 = extractelement <8 x float> %155, i64 0
   %157 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %156, float %147)
   %158 = extractelement <8 x float> %155, i64 1
@@ -744,11 +744,11 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %175 = insertelement <8 x float> %174, float %167, i64 5
   %176 = shufflevector <2 x float> %169, <2 x float> poison, <8 x i32> <i32 0, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %177 = shufflevector <8 x float> %175, <8 x float> %176, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 8, i32 9>
-  %178 = fmul reassoc nsz arcp contract afn <8 x float> %177, <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
+  %178 = fmul reassoc nsz arcp contract afn <8 x float> %177, splat (float 1.000000e+02)
   %179 = getelementptr inbounds float, ptr %148, i64 %152
   store <8 x float> %178, ptr %179, align 4, !tbaa !26
   %180 = add nuw nsw i64 %152, 8
-  %181 = add <8 x i64> %153, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %181 = add <8 x i64> %153, splat (i64 8)
   %182 = icmp eq i64 %180, 65536
   br i1 %182, label %183, label %151, !llvm.loop !69
 
@@ -835,17 +835,17 @@ define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef 
 8:                                                ; preds = %8, %3
   %9 = phi i64 [ 0, %3 ], [ %51, %8 ]
   %10 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %3 ], [ %52, %8 ]
-  %11 = add <8 x i32> %10, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %12 = add <8 x i32> %10, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %13 = add <8 x i32> %10, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %11 = add <8 x i32> %10, splat (i32 8)
+  %12 = add <8 x i32> %10, splat (i32 16)
+  %13 = add <8 x i32> %10, splat (i32 24)
   %14 = sitofp <8 x i32> %10 to <8 x float>
   %15 = sitofp <8 x i32> %11 to <8 x float>
   %16 = sitofp <8 x i32> %12 to <8 x float>
   %17 = sitofp <8 x i32> %13 to <8 x float>
-  %18 = fmul reassoc nsz arcp contract afn <8 x float> %14, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %19 = fmul reassoc nsz arcp contract afn <8 x float> %15, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %20 = fmul reassoc nsz arcp contract afn <8 x float> %16, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %21 = fmul reassoc nsz arcp contract afn <8 x float> %17, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
+  %18 = fmul reassoc nsz arcp contract afn <8 x float> %14, splat (float 0x3F59000000000000)
+  %19 = fmul reassoc nsz arcp contract afn <8 x float> %15, splat (float 0x3F59000000000000)
+  %20 = fmul reassoc nsz arcp contract afn <8 x float> %16, splat (float 0x3F59000000000000)
+  %21 = fmul reassoc nsz arcp contract afn <8 x float> %17, splat (float 0x3F59000000000000)
   %22 = getelementptr inbounds [65536 x float], ptr %6, i64 0, i64 %9
   %23 = getelementptr inbounds i8, ptr %22, i64 32
   %24 = getelementptr inbounds i8, ptr %22, i64 64
@@ -863,18 +863,18 @@ define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef 
   store <8 x float> %20, ptr %28, align 4, !tbaa !26
   store <8 x float> %21, ptr %29, align 4, !tbaa !26
   %30 = or disjoint i64 %9, 32
-  %31 = add <8 x i32> %10, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
-  %32 = add <8 x i32> %10, <i32 40, i32 40, i32 40, i32 40, i32 40, i32 40, i32 40, i32 40>
-  %33 = add <8 x i32> %10, <i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %34 = add <8 x i32> %10, <i32 56, i32 56, i32 56, i32 56, i32 56, i32 56, i32 56, i32 56>
+  %31 = add <8 x i32> %10, splat (i32 32)
+  %32 = add <8 x i32> %10, splat (i32 40)
+  %33 = add <8 x i32> %10, splat (i32 48)
+  %34 = add <8 x i32> %10, splat (i32 56)
   %35 = sitofp <8 x i32> %31 to <8 x float>
   %36 = sitofp <8 x i32> %32 to <8 x float>
   %37 = sitofp <8 x i32> %33 to <8 x float>
   %38 = sitofp <8 x i32> %34 to <8 x float>
-  %39 = fmul reassoc nsz arcp contract afn <8 x float> %35, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %40 = fmul reassoc nsz arcp contract afn <8 x float> %36, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %41 = fmul reassoc nsz arcp contract afn <8 x float> %37, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
-  %42 = fmul reassoc nsz arcp contract afn <8 x float> %38, <float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000, float 0x3F59000000000000>
+  %39 = fmul reassoc nsz arcp contract afn <8 x float> %35, splat (float 0x3F59000000000000)
+  %40 = fmul reassoc nsz arcp contract afn <8 x float> %36, splat (float 0x3F59000000000000)
+  %41 = fmul reassoc nsz arcp contract afn <8 x float> %37, splat (float 0x3F59000000000000)
+  %42 = fmul reassoc nsz arcp contract afn <8 x float> %38, splat (float 0x3F59000000000000)
   %43 = getelementptr inbounds [65536 x float], ptr %6, i64 0, i64 %30
   %44 = getelementptr inbounds i8, ptr %43, i64 32
   %45 = getelementptr inbounds i8, ptr %43, i64 64
@@ -892,7 +892,7 @@ define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef 
   store <8 x float> %41, ptr %49, align 4, !tbaa !26
   store <8 x float> %42, ptr %50, align 4, !tbaa !26
   %51 = add nuw nsw i64 %9, 64
-  %52 = add <8 x i32> %10, <i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64>
+  %52 = add <8 x i32> %10, splat (i32 64)
   %53 = icmp eq i64 %51, 65536
   br i1 %53, label %54, label %8, !llvm.loop !70
 

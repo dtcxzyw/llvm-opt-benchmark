@@ -237,9 +237,9 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
 39:                                               ; preds = %39, %37
   %40 = phi i64 [ 0, %37 ], [ %49, %39 ]
   %41 = phi <16 x i16> [ <i16 0, i16 1, i16 2, i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15>, %37 ], [ %50, %39 ]
-  %42 = add <16 x i16> %41, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
-  %43 = add <16 x i16> %41, <i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32>
-  %44 = add <16 x i16> %41, <i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48>
+  %42 = add <16 x i16> %41, splat (i16 16)
+  %43 = add <16 x i16> %41, splat (i16 32)
+  %44 = add <16 x i16> %41, splat (i16 48)
   %45 = getelementptr inbounds i16, ptr %18, i64 %40
   %46 = getelementptr inbounds i8, ptr %45, i64 32
   %47 = getelementptr inbounds i8, ptr %45, i64 64
@@ -249,7 +249,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   store <16 x i16> %43, ptr %47, align 2, !tbaa !12
   store <16 x i16> %44, ptr %48, align 2, !tbaa !12
   %49 = add nuw i64 %40, 64
-  %50 = add <16 x i16> %41, <i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64>
+  %50 = add <16 x i16> %41, splat (i16 64)
   %51 = icmp eq i64 %49, %38
   br i1 %51, label %52, label %39, !llvm.loop !15
 
@@ -277,7 +277,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %67 = getelementptr inbounds i16, ptr %18, i64 %65
   store <8 x i16> %66, ptr %67, align 2, !tbaa !12
   %68 = add nuw i64 %65, 8
-  %69 = add <8 x i16> %66, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %69 = add <8 x i16> %66, splat (i16 8)
   %70 = icmp eq i64 %68, %59
   br i1 %70, label %71, label %64, !llvm.loop !19
 
@@ -478,7 +478,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %212 = extractelement <8 x i16> %187, i64 7
   store i16 %212, ptr %204, align 2, !tbaa !12, !alias.scope !36, !noalias !35
   %213 = add nuw nsw i64 %181, 8
-  %214 = add <8 x i64> %182, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %214 = add <8 x i64> %182, splat (i64 8)
   %215 = icmp eq i64 %213, %176
   br i1 %215, label %143, label %180, !llvm.loop !37
 
@@ -565,7 +565,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %282 = extractelement <8 x i16> %257, i64 7
   store i16 %282, ptr %274, align 2, !tbaa !12, !alias.scope !41, !noalias !38
   %283 = add nuw nsw i64 %252, 8
-  %284 = add <8 x i64> %253, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %284 = add <8 x i64> %253, splat (i64 8)
   %285 = icmp eq i64 %283, %247
   br i1 %285, label %286, label %251, !llvm.loop !43
 
@@ -901,7 +901,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   store <8 x i16> %498, ptr %502, align 2, !tbaa !12, !alias.scope !58, !noalias !57
   store <8 x i16> %499, ptr %503, align 2, !tbaa !12, !alias.scope !58, !noalias !57
   %504 = add nuw i64 %485, 32
-  %505 = add <8 x i64> %486, <i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64>
+  %505 = add <8 x i64> %486, splat (i64 64)
   %506 = icmp eq i64 %504, %479
   br i1 %506, label %450, label %484, !llvm.loop !59
 
@@ -965,7 +965,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   store <8 x i16> %548, ptr %552, align 2, !tbaa !12, !alias.scope !63, !noalias !60
   store <8 x i16> %549, ptr %553, align 2, !tbaa !12, !alias.scope !63, !noalias !60
   %554 = add nuw i64 %539, 32
-  %555 = add <8 x i64> %540, <i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64, i64 64>
+  %555 = add <8 x i64> %540, splat (i64 64)
   %556 = icmp eq i64 %554, %533
   br i1 %556, label %557, label %538, !llvm.loop !65
 

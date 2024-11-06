@@ -1304,7 +1304,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
   br i1 %.not.not.i.i.i, label %48, label %51
 
 48:                                               ; preds = %47
-  %49 = icmp eq <16 x i8> %.0.copyload.i30.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %49 = icmp eq <16 x i8> %.0.copyload.i30.i.i, splat (i8 -1)
   %50 = bitcast <16 x i1> %49 to i16
   %.not.i.i.i = icmp eq i16 %50, 0
   br i1 %.not.i.i.i, label %64, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hb8adde130d7fe797E.exit"
@@ -1450,7 +1450,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9has
   br i1 %.not.not.i.i.i, label %48, label %51
 
 48:                                               ; preds = %47
-  %49 = icmp eq <16 x i8> %.0.copyload.i30.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %49 = icmp eq <16 x i8> %.0.copyload.i30.i.i, splat (i8 -1)
   %50 = bitcast <16 x i1> %49 to i16
   %.not.i.i.i = icmp eq i16 %50, 0
   br i1 %.not.i.i.i, label %64, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hcc7f4edbd099da5eE.exit"
@@ -1596,7 +1596,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9has
   br i1 %.not.not.i.i.i, label %48, label %51
 
 48:                                               ; preds = %47
-  %49 = icmp eq <16 x i8> %.0.copyload.i30.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %49 = icmp eq <16 x i8> %.0.copyload.i30.i.i, splat (i8 -1)
   %50 = bitcast <16 x i1> %49 to i16
   %.not.i.i.i = icmp eq i16 %50, 0
   br i1 %.not.i.i.i, label %64, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17he77634f8657a0c3bE.exit"
@@ -2936,7 +2936,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   br i1 %.not.not.i.i.i.i.i, label %801, label %804
 
 801:                                              ; preds = %800
-  %802 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %802 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, splat (i8 -1)
   %803 = bitcast <16 x i1> %802 to i16
   %.not.i.i.i.i.i = icmp eq i16 %803, 0
   br i1 %.not.i.i.i.i.i, label %817, label %select.unfold563.invoke.i
@@ -3158,7 +3158,7 @@ default.unreachable:                              ; preds = %_ZN15tree_sitter_cl
   br i1 %.not.not.i.i.i.i234.i, label %886, label %889
 
 886:                                              ; preds = %885
-  %887 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i232.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %887 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i232.i, splat (i8 -1)
   %888 = bitcast <16 x i1> %887 to i16
   %.not.i.i.i.i242.i = icmp eq i16 %888, 0
   br i1 %.not.i.i.i.i242.i, label %902, label %select.unfold563.invoke.i
@@ -3574,7 +3574,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
 
 1015:                                             ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %464), !noalias !659
-  %1016 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1016 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, splat (i8 -1)
   %1017 = bitcast <16 x i1> %1016 to i16
   %.not.i.i.i.i = icmp eq i16 %1017, 0
   br i1 %.not.i.i.i.i, label %1022, label %1025
@@ -3947,7 +3947,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
   br i1 %.not.not.i.i.i.i296.i, label %1128, label %1131
 
 1128:                                             ; preds = %1127
-  %1129 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i294.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1129 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i294.i, splat (i8 -1)
   %1130 = bitcast <16 x i1> %1129 to i16
   %.not.i.i.i.i304.i = icmp eq i16 %1130, 0
   br i1 %.not.i.i.i.i304.i, label %1144, label %select.unfold594.i
@@ -4643,7 +4643,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
 
 1368:                                             ; preds = %.noexc427.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %413), !noalias !956
-  %1369 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1369 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i.i, splat (i8 -1)
   %1370 = bitcast <16 x i1> %1369 to i16
   %.not.i.i.i.i421.i = icmp eq i16 %1370, 0
   br i1 %.not.i.i.i.i421.i, label %1375, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hf39944e6911b849cE.exit.i"
@@ -7750,7 +7750,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   br i1 %.not.not.i.i.i.i.i198, label %2142, label %2145
 
 2142:                                             ; preds = %2141
-  %2143 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i196, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2143 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i196, splat (i8 -1)
   %2144 = bitcast <16 x i1> %2143 to i16
   %.not.i.i.i.i.i200 = icmp eq i16 %2144, 0
   br i1 %.not.i.i.i.i.i200, label %2165, label %select.unfold.i.invoke
@@ -8406,7 +8406,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   br i1 %.not.not.i.i.i.i.i257, label %2360, label %2363
 
 2360:                                             ; preds = %2359
-  %2361 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i255, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2361 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i255, splat (i8 -1)
   %2362 = bitcast <16 x i1> %2361 to i16
   %.not.i.i.i.i.i267 = icmp eq i16 %2362, 0
   br i1 %.not.i.i.i.i.i267, label %2383, label %select.unfold.i.invoke
@@ -9048,7 +9048,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   br i1 %.not.not.i.i.i.i.i342, label %2564, label %2567
 
 2564:                                             ; preds = %2563
-  %2565 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i340, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2565 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i340, splat (i8 -1)
   %2566 = bitcast <16 x i1> %2565 to i16
   %.not.i.i.i.i.i359 = icmp eq i16 %2566, 0
   br i1 %.not.i.i.i.i.i359, label %2587, label %select.unfold.i.invoke
@@ -9157,7 +9157,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   br i1 %.not.not.i.i.i.i107.i, label %2606, label %2609
 
 2606:                                             ; preds = %2605
-  %2607 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i105.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2607 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i105.i, splat (i8 -1)
   %2608 = bitcast <16 x i1> %2607 to i16
   %.not.i.i.i.i119.i = icmp eq i16 %2608, 0
   br i1 %.not.i.i.i.i119.i, label %2629, label %select.unfold.i.invoke
@@ -9813,7 +9813,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   br i1 %.not.not.i.i.i.i.i418, label %2912, label %2915
 
 2912:                                             ; preds = %2911
-  %2913 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i416, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2913 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i416, splat (i8 -1)
   %2914 = bitcast <16 x i1> %2913 to i16
   %.not.i.i.i.i.i425 = icmp eq i16 %2914, 0
   br i1 %.not.i.i.i.i.i425, label %2935, label %select.unfold.i.invoke
@@ -14484,7 +14484,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   br i1 %.not.not.i.i.i.i.i726, label %4204, label %4207
 
 4204:                                             ; preds = %4203
-  %4205 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i724, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %4205 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i724, splat (i8 -1)
   %4206 = bitcast <16 x i1> %4205 to i16
   %.not.i.i.i.i.i739 = icmp eq i16 %4206, 0
   br i1 %.not.i.i.i.i.i739, label %4227, label %select.unfold.i.invoke
@@ -15791,7 +15791,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i78
   br i1 %.not.not.i.i.i.i.i841, label %4620, label %4623
 
 4620:                                             ; preds = %4619
-  %4621 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i839, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %4621 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i839, splat (i8 -1)
   %4622 = bitcast <16 x i1> %4621 to i16
   %.not.i.i.i.i.i870 = icmp eq i16 %4622, 0
   br i1 %.not.i.i.i.i.i870, label %4636, label %.critedge.i848
@@ -15962,7 +15962,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i78
   br i1 %.not.not.i.i.i.i242.i, label %4693, label %4696
 
 4693:                                             ; preds = %4692
-  %4694 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i240.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %4694 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i240.i, splat (i8 -1)
   %4695 = bitcast <16 x i1> %4694 to i16
   %.not.i.i.i.i248.i = icmp eq i16 %4695, 0
   br i1 %.not.i.i.i.i248.i, label %4716, label %.thread356.i
@@ -21510,7 +21510,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   br i1 %.not.not.i.i.i.i, label %848, label %851
 
 848:                                              ; preds = %847
-  %849 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %849 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %850 = bitcast <16 x i1> %849 to i16
   %.not.i.i.i.i389 = icmp eq i16 %850, 0
   br i1 %.not.i.i.i.i389, label %864, label %select.unfold
@@ -25906,7 +25906,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   br i1 %.not.not.i.i.i.i.i, label %890, label %893
 
 890:                                              ; preds = %889
-  %891 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %891 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i, splat (i8 -1)
   %892 = bitcast <16 x i1> %891 to i16
   %.not.i.i.i.i.i = icmp eq i16 %892, 0
   br i1 %.not.i.i.i.i.i, label %906, label %select.unfold.i
@@ -26574,7 +26574,7 @@ select.unfold.i:                                  ; preds = %855, %890
   br i1 %.not.not.i.i.i.i.i567, label %1075, label %1078
 
 1075:                                             ; preds = %1074
-  %1076 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i565, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1076 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i565, splat (i8 -1)
   %1077 = bitcast <16 x i1> %1076 to i16
   %.not.i.i.i.i.i570 = icmp eq i16 %1077, 0
   br i1 %.not.i.i.i.i.i570, label %1097, label %select.unfold.i571
@@ -27170,7 +27170,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   br i1 %.not.not.i.i.i.i, label %1264, label %1267
 
 1264:                                             ; preds = %1263
-  %1265 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1265 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %1266 = bitcast <16 x i1> %1265 to i16
   %.not.i.i.i.i607 = icmp eq i16 %1266, 0
   br i1 %.not.i.i.i.i607, label %1280, label %select.unfold966
@@ -27749,7 +27749,7 @@ _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4
   br i1 %.not.not.i.i.i.i.i676, label %1455, label %1458
 
 1455:                                             ; preds = %1454
-  %1456 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i674, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1456 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i.i674, splat (i8 -1)
   %1457 = bitcast <16 x i1> %1456 to i16
   %.not.i.i.i.i.i680 = icmp eq i16 %1457, 0
   br i1 %.not.i.i.i.i.i680, label %1477, label %select.unfold.i681
@@ -28017,7 +28017,7 @@ _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4
   br i1 %.not.not.i.i.i.i716, label %1555, label %1558
 
 1555:                                             ; preds = %1554
-  %1556 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i714, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1556 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i714, splat (i8 -1)
   %1557 = bitcast <16 x i1> %1556 to i16
   %.not.i.i.i.i725 = icmp eq i16 %1557, 0
   br i1 %.not.i.i.i.i725, label %1571, label %select.unfold1006.invoke
@@ -28225,7 +28225,7 @@ select.unfold1006.cont:                           ; preds = %select.unfold1006.i
   br i1 %.not.not.i.i.i.i753, label %1630, label %1633
 
 1630:                                             ; preds = %1629
-  %1631 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i751, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1631 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i751, splat (i8 -1)
   %1632 = bitcast <16 x i1> %1631 to i16
   %.not.i.i.i.i762 = icmp eq i16 %1632, 0
   br i1 %.not.i.i.i.i762, label %1646, label %select.unfold1006.invoke
@@ -33599,7 +33599,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator24get
   br i1 %.not.not.i.i.i.i, label %21, label %24
 
 21:                                               ; preds = %20
-  %22 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %22 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
   %.not.i.i.i.i = icmp eq i16 %23, 0
   br i1 %.not.i.i.i.i, label %43, label %select.unfold

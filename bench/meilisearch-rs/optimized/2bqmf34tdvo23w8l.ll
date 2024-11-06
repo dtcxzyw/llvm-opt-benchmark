@@ -62107,7 +62107,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_in
 
 39:                                               ; preds = %36
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4), !noalias !11210
-  %40 = icmp eq <16 x i8> %.sroa.0.0.copyload.i18.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %40 = icmp eq <16 x i8> %.sroa.0.0.copyload.i18.i.i.i, splat (i8 -1)
   %41 = bitcast <16 x i1> %40 to i16
   %42 = icmp eq i16 %41, 0
   br i1 %42, label %48, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$3get17h35149d41142c0254E.llvm.6955530683240799244.exit.thread.i"
@@ -62335,7 +62335,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(72) ptr @"_ZN8ind
 
 32:                                               ; preds = %29
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3), !noalias !11260
-  %33 = icmp eq <16 x i8> %.sroa.0.0.copyload.i18.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %33 = icmp eq <16 x i8> %.sroa.0.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %34 = bitcast <16 x i1> %33 to i16
   %35 = icmp eq i16 %34, 0
   br i1 %35, label %41, label %"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$12get_index_of17hcc78809908e5cd9dE.exit"

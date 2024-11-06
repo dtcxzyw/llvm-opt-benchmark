@@ -54292,7 +54292,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %190 = load <2 x double>, ptr %189, align 16
   %191 = getelementptr inbounds double, ptr %178, i64 %.011.i.i.i.i.i.i.i19
   %192 = load <2 x double>, ptr %191, align 16
-  %193 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %192
+  %193 = fdiv <2 x double> splat (double 1.000000e+00), %192
   %194 = fmul <2 x double> %190, %193
   store <2 x double> %194, ptr %188, align 16
   %195 = add nuw nsw i64 %.011.i.i.i.i.i.i.i19, 2

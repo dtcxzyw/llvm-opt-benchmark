@@ -602,8 +602,8 @@ define weak_odr void @_ZNK7mitsuba15DirectionalAreaIfN5drjit6MatrixINS_8Spectrum
   %73 = insertelement <4 x float> poison, float %3, i64 0
   %74 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> zeroinitializer
   %75 = fadd contract <4 x float> %74, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %76 = fcmp contract ogt <4 x float> %75, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %77 = fadd contract <4 x float> %75, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %76 = fcmp contract ogt <4 x float> %75, splat (float 1.000000e+00)
+  %77 = fadd contract <4 x float> %75, splat (float -1.000000e+00)
   %78 = select contract <4 x i1> %76, <4 x float> %77, <4 x float> %75
   store <4 x float> %78, ptr %16, align 16, !noalias !7
   %79 = load ptr, ptr %72, align 8, !noalias !7
@@ -729,7 +729,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %bc.i.i = bitcast <4 x float> %123 to <4 x i32>
   %124 = extractelement <4 x i32> %bc.i.i, i64 0
   %125 = and i32 %124, -2147483648
-  %126 = and <4 x i32> %98, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %126 = and <4 x i32> %98, splat (i32 2147483647)
   %127 = bitcast <4 x i32> %126 to <4 x float>
   %128 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %129 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -772,8 +772,8 @@ define weak_odr void @_ZNK7mitsuba15DirectionalAreaIfN5drjit6MatrixINS_8Spectrum
   %12 = insertelement <4 x float> poison, float %3, i64 0
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
   %14 = fadd contract <4 x float> %13, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %15 = fcmp contract ogt <4 x float> %14, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %16 = fadd contract <4 x float> %14, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %15 = fcmp contract ogt <4 x float> %14, splat (float 1.000000e+00)
+  %16 = fadd contract <4 x float> %14, splat (float -1.000000e+00)
   %17 = select contract <4 x i1> %15, <4 x float> %16, <4 x float> %14
   store <4 x float> %17, ptr %9, align 16
   %18 = load ptr, ptr %11, align 8

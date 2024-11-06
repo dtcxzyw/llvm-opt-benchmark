@@ -32919,7 +32919,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h5e338d973de9fa1eE.llvm.19292657444
   br i1 %415, label %416, label %419
 
 416:                                              ; preds = %414
-  %417 = icmp eq <16 x i8> %.sroa.0.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %417 = icmp eq <16 x i8> %.sroa.0.0.copyload.i30.i.i.i, splat (i8 -1)
   %418 = bitcast <16 x i1> %417 to i16
   %.not.i.i.i.i = icmp eq i16 %418, 0
   br i1 %.not.i.i.i.i, label %428, label %select.unfold

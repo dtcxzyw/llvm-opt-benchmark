@@ -1175,20 +1175,20 @@ entry:
   %3 = insertelement <2 x i16> poison, i16 %conv3, i64 0
   %4 = insertelement <2 x i16> %3, i16 %conv8, i64 1
   %5 = sext <2 x i16> %4 to <2 x i32>
-  %6 = add nsw <2 x i32> %5, <i32 -15, i32 -15>
+  %6 = add nsw <2 x i32> %5, splat (i32 -15)
   %7 = icmp slt <2 x i16> %4, zeroinitializer
   %8 = select <2 x i1> %7, <2 x i32> %6, <2 x i32> %5
-  %9 = sdiv <2 x i32> %8, <i32 16, i32 16>
+  %9 = sdiv <2 x i32> %8, splat (i32 16)
   %10 = bitcast <2 x i32> %9 to <4 x i16>
   %blockpos_min.sroa.0.0.extract.trunc = extractelement <4 x i16> %10, i64 0
   %blockpos_min.sroa.4.0.extract.trunc = extractelement <4 x i16> %10, i64 2
   %11 = insertelement <2 x i16> poison, i16 %sub17, i64 0
   %12 = insertelement <2 x i16> %11, i16 %conv24, i64 1
   %13 = sext <2 x i16> %12 to <2 x i32>
-  %14 = add nsw <2 x i32> %13, <i32 -15, i32 -15>
+  %14 = add nsw <2 x i32> %13, splat (i32 -15)
   %15 = icmp slt <2 x i16> %12, zeroinitializer
   %16 = select <2 x i1> %15, <2 x i32> %14, <2 x i32> %13
-  %17 = sdiv <2 x i32> %16, <i32 16, i32 16>
+  %17 = sdiv <2 x i32> %16, splat (i32 16)
   %conv.i13.i.i236 = sext i16 %sub29 to i32
   %add.i16.i.i237 = add nsw i32 %conv.i13.i.i236, -15
   %cmp9.i17.i.i238.not7 = icmp slt i16 %sub29, 0
@@ -2934,7 +2934,7 @@ _ZN3irr4core5arrayINS_5video9S3DVertexEE8set_usedEj.exit:
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !186
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !186
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !186
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !193
   tail call void @_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %Vertices.i, i64 noundef 4)
@@ -2994,7 +2994,7 @@ _ZN3irr4core5arrayItE8set_usedEj.exit:            ; preds = %invoke.cont.i.i.i56
   %ref.tmp14.sroa.9.0.add.ptr.i.i85.sroa_idx = getelementptr inbounds i8, ptr %2, i64 132
   store i32 -1, ptr %ref.tmp14.sroa.9.0.add.ptr.i.i85.sroa_idx, align 4, !tbaa !197
   %ref.tmp14.sroa.10.0.add.ptr.i.i85.sroa_idx = getelementptr inbounds i8, ptr %2, i64 136
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp14.sroa.10.0.add.ptr.i.i85.sroa_idx, align 4, !tbaa !186
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp14.sroa.10.0.add.ptr.i.i85.sroa_idx, align 4, !tbaa !186
   store <4 x i16> <i16 0, i16 1, i16 2, i16 2>, ptr %1, align 2, !tbaa !48
   %add.ptr.i.i89 = getelementptr inbounds i8, ptr %1, i64 8
   store i16 3, ptr %add.ptr.i.i89, align 2, !tbaa !48
@@ -6273,7 +6273,7 @@ if.end225:                                        ; preds = %if.then214, %for.bo
   %184 = phi <2 x float> [ %183, %if.then214 ], [ %175, %for.body ]
   %185 = fpext <2 x float> %184 to <2 x double>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dest_rect) #34
-  %186 = fadd nsz <2 x double> %185, <double 5.000000e-01, double 5.000000e-01>
+  %186 = fadd nsz <2 x double> %185, splat (double 5.000000e-01)
   %187 = load <2 x i32>, ptr %0, align 8, !tbaa !197
   %188 = load <2 x i32>, ptr %rect, align 8, !tbaa !197
   %189 = sub nsw <2 x i32> %187, %188

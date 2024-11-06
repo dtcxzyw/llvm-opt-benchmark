@@ -2291,14 +2291,14 @@ for.body198:                                      ; preds = %for.cond.cleanup, %
   %min_offset209 = getelementptr inbounds i8, ptr %v199.sroa.0.0.copyload, i64 128
   %cmp1.i366 = icmp eq i32 %17, -1
   %18 = load <2 x i32>, ptr %min_offset209, align 8
-  %19 = icmp eq <2 x i32> %18, <i32 -1, i32 -1>
+  %19 = icmp eq <2 x i32> %18, splat (i32 -1)
   %20 = insertelement <2 x i1> poison, i1 %cmp1.i366, i64 0
   %21 = shufflevector <2 x i1> %20, <2 x i1> poison, <2 x i32> zeroinitializer
   %22 = or <2 x i1> %21, %19
   %23 = insertelement <2 x i32> poison, i32 %17, i64 0
   %24 = shufflevector <2 x i32> %23, <2 x i32> poison, <2 x i32> zeroinitializer
   %25 = add <2 x i32> %24, %18
-  %26 = select <2 x i1> %22, <2 x i32> <i32 -1, i32 -1>, <2 x i32> %25
+  %26 = select <2 x i1> %22, <2 x i32> splat (i32 -1), <2 x i32> %25
   store <2 x i32> %26, ptr %min_offset209, align 8
   %incdec.ptr.i378 = getelementptr inbounds i8, ptr %__begin1189.sroa.0.0436, i64 16
   %cmp.i359.not = icmp eq ptr %incdec.ptr.i378, %.pre437

@@ -9791,12 +9791,12 @@ if.end.i686:                                      ; preds = %cond.end195
 
 call3.i.noexc691:                                 ; preds = %if.end.i686
   %retval.sroa.0.0.copyload.i688 = load <2 x float>, ptr %vec.i681, align 8
-  %retval.sroa.0.0.i689 = select i1 %call3.i692, <2 x float> %retval.sroa.0.0.copyload.i688, <2 x float> <float -1.000000e+00, float -1.000000e+00>
+  %retval.sroa.0.0.i689 = select i1 %call3.i692, <2 x float> %retval.sroa.0.0.copyload.i688, <2 x float> splat (float -1.000000e+00)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %vec.i681) #33
   br label %invoke.cont205
 
 invoke.cont205:                                   ; preds = %call3.i.noexc691, %cond.end195
-  %retval.sroa.0.1.i690 = phi <2 x float> [ %retval.sroa.0.0.i689, %call3.i.noexc691 ], [ <float -1.000000e+00, float -1.000000e+00>, %cond.end195 ]
+  %retval.sroa.0.1.i690 = phi <2 x float> [ %retval.sroa.0.0.i689, %call3.i.noexc691 ], [ splat (float -1.000000e+00), %cond.end195 ]
   %real_coordinates = getelementptr inbounds i8, ptr %data, i64 1
   %119 = load i8, ptr %real_coordinates, align 1, !tbaa !351, !range !185, !noundef !186
   %tobool207.not = icmp eq i8 %119, 0
@@ -9806,7 +9806,7 @@ cond.true262:                                     ; preds = %invoke.cont205
   %120 = load <2 x i32>, ptr %imgsize171, align 8
   %121 = sitofp <2 x i32> %120 to <2 x float>
   %122 = fcmp nsz olt <2 x float> %retval.sroa.0.1.i690, zeroinitializer
-  %.v = select <2 x i1> %122, <2 x float> <float 2.500000e-01, float 2.500000e-01>, <2 x float> %retval.sroa.0.1.i690
+  %.v = select <2 x i1> %122, <2 x float> splat (float 2.500000e-01), <2 x float> %retval.sroa.0.1.i690
   %123 = fmul nsz <2 x float> %.v, %121
   %124 = insertelement <2 x float> poison, float %cond, i64 0
   %125 = insertelement <2 x float> %124, float %cond196, i64 1
@@ -9868,7 +9868,7 @@ invoke.cont293:                                   ; preds = %cond.false266, %con
   %148 = trunc <2 x i64> %147 to <2 x i32>
   %149 = sitofp <2 x i32> %148 to <2 x float>
   %150 = load <2 x i32>, ptr %geom, align 8, !tbaa !258
-  %151 = add nsw <2 x i32> %150, <i32 -1, i32 -1>
+  %151 = add nsw <2 x i32> %150, splat (i32 -1)
   %152 = sitofp <2 x i32> %151 to <2 x float>
   %153 = load <2 x float>, ptr %slot_spacing, align 8, !tbaa !260
   %154 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %152, <2 x float> %153, <2 x float> %149)
@@ -21905,7 +21905,7 @@ invoke.cont67:                                    ; preds = %if.end49
   %104 = load <2 x i32>, ptr %imgsize, align 8, !tbaa !258
   %105 = sitofp <2 x i32> %104 to <2 x float>
   %106 = fsub nsz <2 x float> %100, %105
-  %107 = fmul nsz <2 x float> %106, <float 5.000000e-01, float 5.000000e-01>
+  %107 = fmul nsz <2 x float> %106, splat (float 5.000000e-01)
   %108 = sitofp <2 x i32> %103 to <2 x float>
   %109 = fsub nsz <2 x float> %108, %107
   %110 = load ptr, ptr %v_geom, align 8, !tbaa !189
@@ -61174,7 +61174,7 @@ invoke.cont92:                                    ; preds = %if.end70
   store i32 %screensize.sroa.3.0.extract.trunc, ptr %screensize.sroa.3.0.screensize77.sroa_idx, align 8, !tbaa !258
   %offset = getelementptr inbounds i8, ptr %mydata, i64 20
   %anchor = getelementptr inbounds i8, ptr %mydata, i64 28
-  store <4 x i32> <i32 1056964608, i32 1056964608, i32 1056964608, i32 1056964608>, ptr %offset, align 4, !tbaa !260
+  store <4 x i32> splat (i32 1056964608), ptr %offset, align 4, !tbaa !260
   %padding = getelementptr inbounds i8, ptr %mydata, i64 36
   store i32 1028443341, ptr %padding, align 4, !tbaa !260
   %padding.sroa_idx = getelementptr inbounds i8, ptr %mydata, i64 40
@@ -62731,7 +62731,7 @@ if.else420:                                       ; preds = %invoke.cont412
   %246 = uitofp <2 x i32> %245 to <2 x float>
   %247 = load <2 x float>, ptr %padding, align 4, !tbaa !260
   %248 = fneg nsz <2 x float> %247
-  %249 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %248, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %249 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %248, <2 x float> splat (float 2.000000e+00), <2 x float> splat (float 1.000000e+00))
   %250 = fmul nsz <2 x float> %249, %246
   %251 = load i8, ptr %real_coordinates, align 1, !tbaa !351, !range !185, !noundef !186
   %tobool439.not = icmp eq i8 %251, 0
@@ -62929,7 +62929,7 @@ invoke.cont685:                                   ; preds = %if.else560, %if.the
   %306 = fmul nsz <2 x float> %304, %305
   %307 = fptosi <2 x float> %306 to <2 x i32>
   %308 = fpext <2 x float> %304 to <2 x double>
-  %309 = fsub nsz <2 x double> <double 1.000000e+00, double 1.000000e+00>, %308
+  %309 = fsub nsz <2 x double> splat (double 1.000000e+00), %308
   %310 = fpext <2 x float> %305 to <2 x double>
   %311 = fmul nsz <2 x double> %309, %310
   %312 = fptosi <2 x double> %311 to <2 x i32>
@@ -62988,7 +62988,7 @@ invoke.cont758:                                   ; preds = %call.i.noexc
   store i32 %conv700, ptr %m_btn_height701, align 8, !tbaa !399
   %331 = load <2 x float>, ptr %anchor, align 4, !tbaa !260
   %332 = fpext <2 x float> %331 to <2 x double>
-  %333 = fsub nsz <2 x double> <double 1.000000e+00, double 1.000000e+00>, %332
+  %333 = fsub nsz <2 x double> splat (double 1.000000e+00), %332
   %DesiredRect759 = getelementptr inbounds i8, ptr %this, i64 96
   %334 = load <2 x i32>, ptr %screensize77, align 4, !tbaa !258
   %335 = uitofp <2 x i32> %334 to <2 x float>
@@ -63544,7 +63544,7 @@ invoke.cont991:                                   ; preds = %for.cond.cleanup913
   %add985 = add nuw nsw i32 %mul988, 120
   %rect992 = getelementptr inbounds i8, ptr %mydata, i64 44
   %429 = load <2 x i32>, ptr %screensize77, align 4, !tbaa !258
-  %430 = lshr <2 x i32> %429, <i32 1, i32 1>
+  %430 = lshr <2 x i32> %429, splat (i32 1)
   %431 = add nsw <2 x i32> %430, <i32 -290, i32 -150>
   store <2 x i32> %431, ptr %rect992, align 4, !tbaa !258
   %ref.tmp969.sroa.6.0.rect992.sroa_idx = getelementptr inbounds i8, ptr %mydata, i64 52

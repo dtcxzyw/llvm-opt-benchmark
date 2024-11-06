@@ -4351,7 +4351,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   br i1 %123, label %124, label %127
 
 124:                                              ; preds = %122
-  %125 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i27, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %125 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i27, splat (i8 -1)
   %126 = bitcast <16 x i1> %125 to i16
   %.not.i.i.i.i36 = icmp eq i16 %126, 0
   br i1 %.not.i.i.i.i36, label %136, label %select.unfold
@@ -4621,7 +4621,7 @@ select.unfold:                                    ; preds = %"_ZN94_$LT$tokenize
   br i1 %252, label %253, label %256
 
 253:                                              ; preds = %251
-  %254 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %254 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i, splat (i8 -1)
   %255 = bitcast <16 x i1> %254 to i16
   %.not.i.i.i.i = icmp eq i16 %255, 0
   br i1 %.not.i.i.i.i, label %265, label %select.unfold40
@@ -17184,7 +17184,7 @@ define internal fastcc noundef align 4 dereferenceable_or_null(8) ptr @"_ZN9hash
   br i1 %46, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb2cf10a544498759E.exit._crit_edge.i.i", label %.lr.ph.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb2cf10a544498759E.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb2cf10a544498759E.exit.backedge.i.i", %42
-  %47 = icmp eq <16 x i8> %.0.copyload.i31.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %47 = icmp eq <16 x i8> %.0.copyload.i31.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i.i = icmp eq i16 %48, 0
   br i1 %.not.i.i.i, label %63, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h5abb1d64a04f9b56E.exit"
@@ -19657,7 +19657,7 @@ define hidden void @"_ZN100_$LT$tokenizers..pre_tokenizers..byte_level..ByteLeve
   br i1 %115, label %116, label %119
 
 116:                                              ; preds = %114
-  %117 = icmp eq <16 x i8> %.0.copyload.i31.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %117 = icmp eq <16 x i8> %.0.copyload.i31.i.i.i.i.i, splat (i8 -1)
   %118 = bitcast <16 x i1> %117 to i16
   %.not.i.i.i.i.i.i = icmp eq i16 %118, 0
   br i1 %.not.i.i.i.i.i.i, label %128, label %select.unfold.i.i

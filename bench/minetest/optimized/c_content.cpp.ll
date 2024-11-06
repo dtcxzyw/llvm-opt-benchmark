@@ -11401,7 +11401,7 @@ entry:
   %wall_side.i = getelementptr inbounds i8, ptr %agg.result, i64 80
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %wall_side.i, align 8, !tbaa !46
   %Y.i2.i16.i = getelementptr inbounds i8, ptr %agg.result, i64 96
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i16.i, align 8, !tbaa !46
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i16.i, align 8, !tbaa !46
   %connected.i = getelementptr inbounds i8, ptr %agg.result, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i, i8 0, i64 16, i1 false)
   invoke void @_ZN7NodeBox5resetEv(ptr noundef nonnull align 8 dereferenceable(120) %agg.result)
@@ -13739,7 +13739,7 @@ if.then16:                                        ; preds = %if.then4
   %call17 = tail call { <2 x float>, float } @_Z8read_v3fP9lua_Statei(ptr noundef %L, i32 noundef -1)
   %call17.fca.0.extract = extractvalue { <2 x float>, float } %call17, 0
   %call17.fca.1.extract = extractvalue { <2 x float>, float } %call17, 1
-  %0 = fmul nsz <2 x float> %call17.fca.0.extract, <float 1.000000e+01, float 1.000000e+01>
+  %0 = fmul nsz <2 x float> %call17.fca.0.extract, splat (float 1.000000e+01)
   %mul3.i = fmul nsz float %call17.fca.1.extract, 1.000000e+01
   %pos = getelementptr inbounds i8, ptr %params, i64 12
   store <2 x float> %0, ptr %pos, align 4, !tbaa.struct !45
@@ -17467,7 +17467,7 @@ if.end13:                                         ; preds = %if.else11, %if.else
 if.then18:                                        ; preds = %if.end13
   %intersection_point = getelementptr inbounds i8, ptr %pointed, i64 24
   %3 = load <2 x float>, ptr %intersection_point, align 4, !tbaa !46
-  %4 = fdiv nsz <2 x float> %3, <float 1.000000e+01, float 1.000000e+01>
+  %4 = fdiv nsz <2 x float> %3, splat (float 1.000000e+01)
   %Z.i = getelementptr inbounds i8, ptr %pointed, i64 32
   %5 = load float, ptr %Z.i, align 4, !tbaa !443
   %div3.i = fdiv nsz float %5, 1.000000e+01
@@ -19298,7 +19298,7 @@ if.end16.sink.split:                              ; preds = %if.then14, %if.then
 if.end16:                                         ; preds = %if.end16.sink.split, %for.body
   %old_speed = getelementptr inbounds i8, ptr %__begin1.sroa.0.067, i64 24
   %12 = load <2 x float>, ptr %old_speed, align 4, !tbaa !46
-  %13 = fdiv nsz <2 x float> %12, <float 1.000000e+01, float 1.000000e+01>
+  %13 = fdiv nsz <2 x float> %12, splat (float 1.000000e+01)
   %Z.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.067, i64 32
   %14 = load float, ptr %Z.i, align 4, !tbaa !443
   %div3.i = fdiv nsz float %14, 1.000000e+01
@@ -19306,7 +19306,7 @@ if.end16:                                         ; preds = %if.end16.sink.split
   tail call void @lua_setfield(ptr noundef %L, i32 noundef -2, ptr noundef nonnull @.str.308)
   %new_speed = getelementptr inbounds i8, ptr %__begin1.sroa.0.067, i64 36
   %15 = load <2 x float>, ptr %new_speed, align 4, !tbaa !46
-  %16 = fdiv nsz <2 x float> %15, <float 1.000000e+01, float 1.000000e+01>
+  %16 = fdiv nsz <2 x float> %15, splat (float 1.000000e+01)
   %Z.i58 = getelementptr inbounds i8, ptr %__begin1.sroa.0.067, i64 44
   %17 = load float, ptr %Z.i58, align 4, !tbaa !443
   %div3.i59 = fdiv nsz float %17, 1.000000e+01

@@ -367,13 +367,13 @@ entry:
 do.body.i126:                                     ; preds = %do.body.i126, %entry
   %p.i.0 = phi ptr [ %p, %entry ], [ %add.ptr.i128, %do.body.i126 ]
   %size.addr.i.0 = phi i64 [ 131072, %entry ], [ %sub.i129, %do.body.i126 ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.0, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %p.i.0, align 16
   %arrayidx1.i = getelementptr inbounds i8, ptr %p.i.0, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx1.i, align 16
   %arrayidx2.i127 = getelementptr inbounds i8, ptr %p.i.0, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i127, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx2.i127, align 16
   %arrayidx3.i = getelementptr inbounds i8, ptr %p.i.0, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx3.i, align 16
   %add.ptr.i128 = getelementptr inbounds i8, ptr %p.i.0, i64 64
   %sub.i129 = add nsw i64 %size.addr.i.0, -64
   %cmp.i130.not = icmp eq i64 %sub.i129, 0
@@ -462,19 +462,19 @@ do.body.i393:                                     ; preds = %if.end19, %do.body.
   %p.i391.0 = phi ptr [ %add.ptr.i399, %do.body.i393 ], [ %p, %if.end19 ]
   %size.addr.i390.0 = phi i64 [ %sub.i400, %do.body.i393 ], [ 131072, %if.end19 ]
   %4 = load <8 x i16>, ptr %p.i391.0, align 16
-  %elt.sat.i461 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %4, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i461 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %4, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i461, ptr %p.i391.0, align 16
   %arrayidx3.i394 = getelementptr inbounds i8, ptr %p.i391.0, i64 16
   %5 = load <8 x i16>, ptr %arrayidx3.i394, align 16
-  %elt.sat.i458 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %5, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i458 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %5, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i458, ptr %arrayidx3.i394, align 16
   %arrayidx6.i396 = getelementptr inbounds i8, ptr %p.i391.0, i64 32
   %6 = load <8 x i16>, ptr %arrayidx6.i396, align 16
-  %elt.sat.i455 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %6, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i455 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %6, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i455, ptr %arrayidx6.i396, align 16
   %arrayidx9.i397 = getelementptr inbounds i8, ptr %p.i391.0, i64 48
   %7 = load <8 x i16>, ptr %arrayidx9.i397, align 16
-  %elt.sat.i452 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %7, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i452 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %7, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i452, ptr %arrayidx9.i397, align 16
   %add.ptr.i399 = getelementptr inbounds i8, ptr %p.i391.0, i64 64
   %sub.i400 = add nsw i64 %size.addr.i390.0, -64
@@ -929,19 +929,19 @@ do.body.i425:                                     ; preds = %if.end.i114, %do.bo
   %p.i415.0 = phi ptr [ %add.ptr.i436, %do.body.i425 ], [ %p, %if.end.i114 ]
   %size.addr.i414.0 = phi i64 [ %sub.i437, %do.body.i425 ], [ 131072, %if.end.i114 ]
   %36 = load <8 x i16>, ptr %p.i415.0, align 16
-  %elt.sat.i449 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %36, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i449 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %36, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i449, ptr %p.i415.0, align 16
   %arrayidx3.i427 = getelementptr inbounds i8, ptr %p.i415.0, i64 16
   %37 = load <8 x i16>, ptr %arrayidx3.i427, align 16
-  %elt.sat.i446 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %37, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i446 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %37, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i446, ptr %arrayidx3.i427, align 16
   %arrayidx6.i430 = getelementptr inbounds i8, ptr %p.i415.0, i64 32
   %38 = load <8 x i16>, ptr %arrayidx6.i430, align 16
-  %elt.sat.i443 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %38, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i443 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %38, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i443, ptr %arrayidx6.i430, align 16
   %arrayidx9.i433 = getelementptr inbounds i8, ptr %p.i415.0, i64 48
   %39 = load <8 x i16>, ptr %arrayidx9.i433, align 16
-  %elt.sat.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %39, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %39, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i, ptr %arrayidx9.i433, align 16
   %add.ptr.i436 = getelementptr inbounds i8, ptr %p.i415.0, i64 64
   %sub.i437 = add nsw i64 %size.addr.i414.0, -64
@@ -1052,13 +1052,13 @@ entry:
 do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %p.i.i.0 = phi ptr [ %p, %entry ], [ %add.ptr.i.i, %do.body.i.i ]
   %size.addr.i.i.0 = phi i64 [ 196608, %entry ], [ %sub.i.i, %do.body.i.i ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.0, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %p.i.i.0, align 16
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx1.i.i, align 16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx2.i.i, align 16
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx3.i.i, align 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 64
   %sub.i.i = add nsw i64 %size.addr.i.i.0, -64
   %cmp.i.i.not = icmp eq i64 %sub.i.i, 0
@@ -1212,19 +1212,19 @@ do.body.i.i198:                                   ; preds = %do.body4, %do.body.
   %p.i.i187.0 = phi ptr [ %add.ptr.i.i209, %do.body.i.i198 ], [ %p, %do.body4 ]
   %size.addr.i.i186.0 = phi i64 [ %sub.i.i210, %do.body.i.i198 ], [ 262144, %do.body4 ]
   %9 = load <8 x i16>, ptr %p.i.i187.0, align 16
-  %elt.sat.i9.i199 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %9, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i199 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %9, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i199, ptr %p.i.i187.0, align 16
   %arrayidx3.i.i200 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 16
   %10 = load <8 x i16>, ptr %arrayidx3.i.i200, align 16
-  %elt.sat.i6.i201 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %10, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i201 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %10, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i201, ptr %arrayidx3.i.i200, align 16
   %arrayidx6.i.i203 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 32
   %11 = load <8 x i16>, ptr %arrayidx6.i.i203, align 16
-  %elt.sat.i3.i204 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %11, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i204 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %11, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i204, ptr %arrayidx6.i.i203, align 16
   %arrayidx9.i.i206 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 48
   %12 = load <8 x i16>, ptr %arrayidx9.i.i206, align 16
-  %elt.sat.i.i207 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %12, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i207 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %12, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i207, ptr %arrayidx9.i.i206, align 16
   %add.ptr.i.i209 = getelementptr inbounds i8, ptr %p.i.i187.0, i64 64
   %sub.i.i210 = add nsw i64 %size.addr.i.i186.0, -64
@@ -1699,19 +1699,19 @@ do.body.i.i161:                                   ; preds = %do.body.i, %do.body
   %p.i.i158.0 = phi ptr [ %add.ptr.i.i164, %do.body.i.i161 ], [ %p, %do.body.i ]
   %size.addr.i.i157.0 = phi i64 [ %sub.i.i165, %do.body.i.i161 ], [ 262144, %do.body.i ]
   %42 = load <8 x i16>, ptr %p.i.i158.0, align 16
-  %elt.sat.i9.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %42, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %42, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i, ptr %p.i.i158.0, align 16
   %arrayidx3.i.i162 = getelementptr inbounds i8, ptr %p.i.i158.0, i64 16
   %43 = load <8 x i16>, ptr %arrayidx3.i.i162, align 16
-  %elt.sat.i6.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %43, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %43, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i, ptr %arrayidx3.i.i162, align 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %p.i.i158.0, i64 32
   %44 = load <8 x i16>, ptr %arrayidx6.i.i, align 16
-  %elt.sat.i3.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %44, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %44, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i, ptr %arrayidx6.i.i, align 16
   %arrayidx9.i.i163 = getelementptr inbounds i8, ptr %p.i.i158.0, i64 48
   %45 = load <8 x i16>, ptr %arrayidx9.i.i163, align 16
-  %elt.sat.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %45, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %45, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i, ptr %arrayidx9.i.i163, align 16
   %add.ptr.i.i164 = getelementptr inbounds i8, ptr %p.i.i158.0, i64 64
   %sub.i.i165 = add nsw i64 %size.addr.i.i157.0, -64
@@ -1929,13 +1929,13 @@ entry:
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %entry
   %p.i.i.i.0 = phi ptr [ %p.i, %entry ], [ %add.ptr.i.i.i, %do.body.i.i.i ]
   %size.addr.i.i.i.0 = phi i64 [ 196608, %entry ], [ %sub.i.i.i, %do.body.i.i.i ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.i.0, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %p.i.i.i.0, align 16
   %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx1.i.i.i, align 16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx2.i.i.i, align 16
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx3.i.i.i, align 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 64
   %sub.i.i.i = add nsw i64 %size.addr.i.i.i.0, -64
   %cmp.i.i.i.not = icmp eq i64 %sub.i.i.i, 0
@@ -2175,19 +2175,19 @@ do.body.i.i1600.i:                                ; preds = %if.end.i, %do.body.
   %p.i.i1589.i.0 = phi ptr [ %add.ptr.i.i1611.i, %do.body.i.i1600.i ], [ %p.i, %if.end.i ]
   %size.addr.i.i1588.i.0 = phi i64 [ %sub.i.i1612.i, %do.body.i.i1600.i ], [ 262144, %if.end.i ]
   %14 = load <8 x i16>, ptr %p.i.i1589.i.0, align 16
-  %elt.sat.i9.i1601.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %14, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1601.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %14, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1601.i, ptr %p.i.i1589.i.0, align 16
   %arrayidx3.i.i1602.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 16
   %15 = load <8 x i16>, ptr %arrayidx3.i.i1602.i, align 16
-  %elt.sat.i6.i1603.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %15, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1603.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %15, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1603.i, ptr %arrayidx3.i.i1602.i, align 16
   %arrayidx6.i.i1605.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 32
   %16 = load <8 x i16>, ptr %arrayidx6.i.i1605.i, align 16
-  %elt.sat.i3.i1606.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %16, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1606.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %16, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1606.i, ptr %arrayidx6.i.i1605.i, align 16
   %arrayidx9.i.i1608.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 48
   %17 = load <8 x i16>, ptr %arrayidx9.i.i1608.i, align 16
-  %elt.sat.i.i1609.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %17, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1609.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %17, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1609.i, ptr %arrayidx9.i.i1608.i, align 16
   %add.ptr.i.i1611.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 64
   %sub.i.i1612.i = add nsw i64 %size.addr.i.i1588.i.0, -64
@@ -2702,19 +2702,19 @@ do.body.i.i1471.i:                                ; preds = %do.body.i1416.i, %d
   %p.i.i1468.i.0 = phi ptr [ %add.ptr.i.i1474.i, %do.body.i.i1471.i ], [ %p.i, %do.body.i1416.i ]
   %size.addr.i.i1467.i.0 = phi i64 [ %sub.i.i1475.i, %do.body.i.i1471.i ], [ 262144, %do.body.i1416.i ]
   %52 = load <8 x i16>, ptr %p.i.i1468.i.0, align 16
-  %elt.sat.i9.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i.i, ptr %p.i.i1468.i.0, align 16
   %arrayidx3.i.i1472.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 16
   %53 = load <8 x i16>, ptr %arrayidx3.i.i1472.i, align 16
-  %elt.sat.i6.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %53, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %53, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i.i, ptr %arrayidx3.i.i1472.i, align 16
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 32
   %54 = load <8 x i16>, ptr %arrayidx6.i.i.i, align 16
-  %elt.sat.i3.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %54, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %54, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i.i, ptr %arrayidx6.i.i.i, align 16
   %arrayidx9.i.i1473.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 48
   %55 = load <8 x i16>, ptr %arrayidx9.i.i1473.i, align 16
-  %elt.sat.i.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i.i, ptr %arrayidx9.i.i1473.i, align 16
   %add.ptr.i.i1474.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 64
   %sub.i.i1475.i = add nsw i64 %size.addr.i.i1467.i.0, -64
@@ -2799,19 +2799,19 @@ do.body.i.i1646.i:                                ; preds = %if.end61.i, %do.bod
   %p.i.i1635.i.0 = phi ptr [ %add.ptr.i.i1657.i, %do.body.i.i1646.i ], [ %p.i, %if.end61.i ]
   %size.addr.i.i1634.i.0 = phi i64 [ %sub.i.i1658.i, %do.body.i.i1646.i ], [ 262144, %if.end61.i ]
   %58 = load <8 x i16>, ptr %p.i.i1635.i.0, align 16
-  %elt.sat.i9.i1647.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1647.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1647.i, ptr %p.i.i1635.i.0, align 16
   %arrayidx3.i.i1648.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 16
   %59 = load <8 x i16>, ptr %arrayidx3.i.i1648.i, align 16
-  %elt.sat.i6.i1649.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %59, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1649.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %59, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1649.i, ptr %arrayidx3.i.i1648.i, align 16
   %arrayidx6.i.i1651.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 32
   %60 = load <8 x i16>, ptr %arrayidx6.i.i1651.i, align 16
-  %elt.sat.i3.i1652.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %60, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1652.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %60, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1652.i, ptr %arrayidx6.i.i1651.i, align 16
   %arrayidx9.i.i1654.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 48
   %61 = load <8 x i16>, ptr %arrayidx9.i.i1654.i, align 16
-  %elt.sat.i.i1655.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1655.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1655.i, ptr %arrayidx9.i.i1654.i, align 16
   %add.ptr.i.i1657.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 64
   %sub.i.i1658.i = add nsw i64 %size.addr.i.i1634.i.0, -64
@@ -3319,19 +3319,19 @@ do.body.i.i1554.i:                                ; preds = %do.body.i.i, %do.bo
   %p.i.i1543.i.0 = phi ptr [ %add.ptr.i.i1565.i, %do.body.i.i1554.i ], [ %p.i, %do.body.i.i ]
   %size.addr.i.i1542.i.0 = phi i64 [ %sub.i.i1566.i, %do.body.i.i1554.i ], [ 262144, %do.body.i.i ]
   %98 = load <8 x i16>, ptr %p.i.i1543.i.0, align 16
-  %elt.sat.i9.i1555.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %98, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1555.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %98, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1555.i, ptr %p.i.i1543.i.0, align 16
   %arrayidx3.i.i1556.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 16
   %99 = load <8 x i16>, ptr %arrayidx3.i.i1556.i, align 16
-  %elt.sat.i6.i1557.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %99, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1557.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %99, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1557.i, ptr %arrayidx3.i.i1556.i, align 16
   %arrayidx6.i.i1559.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 32
   %100 = load <8 x i16>, ptr %arrayidx6.i.i1559.i, align 16
-  %elt.sat.i3.i1560.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %100, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1560.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %100, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1560.i, ptr %arrayidx6.i.i1559.i, align 16
   %arrayidx9.i.i1562.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 48
   %101 = load <8 x i16>, ptr %arrayidx9.i.i1562.i, align 16
-  %elt.sat.i.i1563.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %101, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1563.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %101, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1563.i, ptr %arrayidx9.i.i1562.i, align 16
   %add.ptr.i.i1565.i = getelementptr inbounds i8, ptr %p.i.i1543.i.0, i64 64
   %sub.i.i1566.i = add nsw i64 %size.addr.i.i1542.i.0, -64
@@ -3526,13 +3526,13 @@ entry:
 do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %entry
   %p.i.i.i.0 = phi ptr [ %p.i, %entry ], [ %add.ptr.i.i.i, %do.body.i.i.i ]
   %size.addr.i.i.i.0 = phi i64 [ 196608, %entry ], [ %sub.i.i.i, %do.body.i.i.i ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.i.0, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %p.i.i.i.0, align 16
   %arrayidx1.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx1.i.i.i, align 16
   %arrayidx2.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx2.i.i.i, align 16
   %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx3.i.i.i, align 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.i.i.i.0, i64 64
   %sub.i.i.i = add nsw i64 %size.addr.i.i.i.0, -64
   %cmp.i.i.i.not = icmp eq i64 %sub.i.i.i, 0
@@ -3772,19 +3772,19 @@ do.body.i.i1600.i:                                ; preds = %if.end.i, %do.body.
   %p.i.i1589.i.0 = phi ptr [ %add.ptr.i.i1611.i, %do.body.i.i1600.i ], [ %p.i, %if.end.i ]
   %size.addr.i.i1588.i.0 = phi i64 [ %sub.i.i1612.i, %do.body.i.i1600.i ], [ 262144, %if.end.i ]
   %14 = load <8 x i16>, ptr %p.i.i1589.i.0, align 16
-  %elt.sat.i9.i1601.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %14, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1601.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %14, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1601.i, ptr %p.i.i1589.i.0, align 16
   %arrayidx3.i.i1602.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 16
   %15 = load <8 x i16>, ptr %arrayidx3.i.i1602.i, align 16
-  %elt.sat.i6.i1603.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %15, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1603.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %15, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1603.i, ptr %arrayidx3.i.i1602.i, align 16
   %arrayidx6.i.i1605.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 32
   %16 = load <8 x i16>, ptr %arrayidx6.i.i1605.i, align 16
-  %elt.sat.i3.i1606.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %16, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1606.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %16, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1606.i, ptr %arrayidx6.i.i1605.i, align 16
   %arrayidx9.i.i1608.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 48
   %17 = load <8 x i16>, ptr %arrayidx9.i.i1608.i, align 16
-  %elt.sat.i.i1609.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %17, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1609.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %17, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1609.i, ptr %arrayidx9.i.i1608.i, align 16
   %add.ptr.i.i1611.i = getelementptr inbounds i8, ptr %p.i.i1589.i.0, i64 64
   %sub.i.i1612.i = add nsw i64 %size.addr.i.i1588.i.0, -64
@@ -4299,19 +4299,19 @@ do.body.i.i1471.i:                                ; preds = %do.body.i1416.i, %d
   %p.i.i1468.i.0 = phi ptr [ %add.ptr.i.i1474.i, %do.body.i.i1471.i ], [ %p.i, %do.body.i1416.i ]
   %size.addr.i.i1467.i.0 = phi i64 [ %sub.i.i1475.i, %do.body.i.i1471.i ], [ 262144, %do.body.i1416.i ]
   %52 = load <8 x i16>, ptr %p.i.i1468.i.0, align 16
-  %elt.sat.i9.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %52, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i.i, ptr %p.i.i1468.i.0, align 16
   %arrayidx3.i.i1472.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 16
   %53 = load <8 x i16>, ptr %arrayidx3.i.i1472.i, align 16
-  %elt.sat.i6.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %53, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %53, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i.i, ptr %arrayidx3.i.i1472.i, align 16
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 32
   %54 = load <8 x i16>, ptr %arrayidx6.i.i.i, align 16
-  %elt.sat.i3.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %54, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %54, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i.i, ptr %arrayidx6.i.i.i, align 16
   %arrayidx9.i.i1473.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 48
   %55 = load <8 x i16>, ptr %arrayidx9.i.i1473.i, align 16
-  %elt.sat.i.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %55, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i.i, ptr %arrayidx9.i.i1473.i, align 16
   %add.ptr.i.i1474.i = getelementptr inbounds i8, ptr %p.i.i1468.i.0, i64 64
   %sub.i.i1475.i = add nsw i64 %size.addr.i.i1467.i.0, -64
@@ -4396,19 +4396,19 @@ do.body.i.i1646.i:                                ; preds = %if.end61.i, %do.bod
   %p.i.i1635.i.0 = phi ptr [ %add.ptr.i.i1657.i, %do.body.i.i1646.i ], [ %p.i, %if.end61.i ]
   %size.addr.i.i1634.i.0 = phi i64 [ %sub.i.i1658.i, %do.body.i.i1646.i ], [ 262144, %if.end61.i ]
   %58 = load <8 x i16>, ptr %p.i.i1635.i.0, align 16
-  %elt.sat.i9.i1647.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1647.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %58, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1647.i, ptr %p.i.i1635.i.0, align 16
   %arrayidx3.i.i1648.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 16
   %59 = load <8 x i16>, ptr %arrayidx3.i.i1648.i, align 16
-  %elt.sat.i6.i1649.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %59, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1649.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %59, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1649.i, ptr %arrayidx3.i.i1648.i, align 16
   %arrayidx6.i.i1651.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 32
   %60 = load <8 x i16>, ptr %arrayidx6.i.i1651.i, align 16
-  %elt.sat.i3.i1652.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %60, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1652.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %60, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1652.i, ptr %arrayidx6.i.i1651.i, align 16
   %arrayidx9.i.i1654.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 48
   %61 = load <8 x i16>, ptr %arrayidx9.i.i1654.i, align 16
-  %elt.sat.i.i1655.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1655.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %61, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1655.i, ptr %arrayidx9.i.i1654.i, align 16
   %add.ptr.i.i1657.i = getelementptr inbounds i8, ptr %p.i.i1635.i.0, i64 64
   %sub.i.i1658.i = add nsw i64 %size.addr.i.i1634.i.0, -64
@@ -4875,19 +4875,19 @@ do.body.i.i1692.i:                                ; preds = %if.then85.i, %do.bo
   %p.i.i1681.i.0 = phi ptr [ %add.ptr.i.i1703.i, %do.body.i.i1692.i ], [ %p.i, %if.then85.i ]
   %size.addr.i.i1680.i.0 = phi i64 [ %sub.i.i1704.i, %do.body.i.i1692.i ], [ 262144, %if.then85.i ]
   %89 = load <8 x i16>, ptr %p.i.i1681.i.0, align 16
-  %elt.sat.i9.i1693.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %89, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1693.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %89, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1693.i, ptr %p.i.i1681.i.0, align 16
   %arrayidx3.i.i1694.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 16
   %90 = load <8 x i16>, ptr %arrayidx3.i.i1694.i, align 16
-  %elt.sat.i6.i1695.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %90, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1695.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %90, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1695.i, ptr %arrayidx3.i.i1694.i, align 16
   %arrayidx6.i.i1697.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 32
   %91 = load <8 x i16>, ptr %arrayidx6.i.i1697.i, align 16
-  %elt.sat.i3.i1698.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %91, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1698.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %91, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1698.i, ptr %arrayidx6.i.i1697.i, align 16
   %arrayidx9.i.i1700.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 48
   %92 = load <8 x i16>, ptr %arrayidx9.i.i1700.i, align 16
-  %elt.sat.i.i1701.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %92, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1701.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %92, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1701.i, ptr %arrayidx9.i.i1700.i, align 16
   %add.ptr.i.i1703.i = getelementptr inbounds i8, ptr %p.i.i1681.i.0, i64 64
   %sub.i.i1704.i = add nsw i64 %size.addr.i.i1680.i.0, -64
@@ -5398,19 +5398,19 @@ do.body.i.i1508.i:                                ; preds = %do.body.i1344.i, %d
   %p.i.i1497.i.0 = phi ptr [ %add.ptr.i.i1519.i, %do.body.i.i1508.i ], [ %p.i, %do.body.i1344.i ]
   %size.addr.i.i1496.i.0 = phi i64 [ %sub.i.i1520.i, %do.body.i.i1508.i ], [ 262144, %do.body.i1344.i ]
   %129 = load <8 x i16>, ptr %p.i.i1497.i.0, align 16
-  %elt.sat.i9.i1509.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %129, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i1509.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %129, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i1509.i, ptr %p.i.i1497.i.0, align 16
   %arrayidx3.i.i1510.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 16
   %130 = load <8 x i16>, ptr %arrayidx3.i.i1510.i, align 16
-  %elt.sat.i6.i1511.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %130, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i1511.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %130, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i1511.i, ptr %arrayidx3.i.i1510.i, align 16
   %arrayidx6.i.i1513.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 32
   %131 = load <8 x i16>, ptr %arrayidx6.i.i1513.i, align 16
-  %elt.sat.i3.i1514.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %131, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i1514.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %131, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i1514.i, ptr %arrayidx6.i.i1513.i, align 16
   %arrayidx9.i.i1516.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 48
   %132 = load <8 x i16>, ptr %arrayidx9.i.i1516.i, align 16
-  %elt.sat.i.i1517.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i1517.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %132, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i1517.i, ptr %arrayidx9.i.i1516.i, align 16
   %add.ptr.i.i1519.i = getelementptr inbounds i8, ptr %p.i.i1497.i.0, i64 64
   %sub.i.i1520.i = add nsw i64 %size.addr.i.i1496.i.0, -64
@@ -5609,13 +5609,13 @@ entry:
 do.body.i.i:                                      ; preds = %do.body.i.i, %entry
   %p.i.i.0 = phi ptr [ %p, %entry ], [ %add.ptr.i.i, %do.body.i.i ]
   %size.addr.i.i.0 = phi i64 [ 393216, %entry ], [ %sub.i.i, %do.body.i.i ]
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %p.i.i.0, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %p.i.i.0, align 16
   %arrayidx1.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 16
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx1.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx1.i.i, align 16
   %arrayidx2.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 32
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx2.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx2.i.i, align 16
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 48
-  store <2 x i64> <i64 -9223231297218904064, i64 -9223231297218904064>, ptr %arrayidx3.i.i, align 16
+  store <2 x i64> splat (i64 -9223231297218904064), ptr %arrayidx3.i.i, align 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %p.i.i.0, i64 64
   %sub.i.i = add nsw i64 %size.addr.i.i.0, -64
   %cmp.i.i.not = icmp eq i64 %sub.i.i, 0
@@ -5777,19 +5777,19 @@ do.body.i.i275:                                   ; preds = %for.cond, %do.body.
   %p.i.i264.0 = phi ptr [ %add.ptr.i.i286, %do.body.i.i275 ], [ %p, %for.cond ]
   %size.addr.i.i263.0 = phi i64 [ %sub.i.i287, %do.body.i.i275 ], [ 524288, %for.cond ]
   %9 = load <8 x i16>, ptr %p.i.i264.0, align 16
-  %elt.sat.i9.i276 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %9, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i276 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %9, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i276, ptr %p.i.i264.0, align 16
   %arrayidx3.i.i277 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 16
   %10 = load <8 x i16>, ptr %arrayidx3.i.i277, align 16
-  %elt.sat.i6.i278 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %10, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i278 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %10, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i278, ptr %arrayidx3.i.i277, align 16
   %arrayidx6.i.i280 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 32
   %11 = load <8 x i16>, ptr %arrayidx6.i.i280, align 16
-  %elt.sat.i3.i281 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %11, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i281 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %11, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i281, ptr %arrayidx6.i.i280, align 16
   %arrayidx9.i.i283 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 48
   %12 = load <8 x i16>, ptr %arrayidx9.i.i283, align 16
-  %elt.sat.i.i284 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %12, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i284 = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %12, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i284, ptr %arrayidx9.i.i283, align 16
   %add.ptr.i.i286 = getelementptr inbounds i8, ptr %p.i.i264.0, i64 64
   %sub.i.i287 = add nsw i64 %size.addr.i.i263.0, -64
@@ -6211,19 +6211,19 @@ do.body.i.i239:                                   ; preds = %do.body74, %do.body
   %p.i.i236.0 = phi ptr [ %add.ptr.i.i241, %do.body.i.i239 ], [ %p, %do.body74 ]
   %size.addr.i.i235.0 = phi i64 [ %sub.i.i242, %do.body.i.i239 ], [ 524288, %do.body74 ]
   %38 = load <8 x i16>, ptr %p.i.i236.0, align 16
-  %elt.sat.i9.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %38, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i9.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %38, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i9.i, ptr %p.i.i236.0, align 16
   %arrayidx3.i.i240 = getelementptr inbounds i8, ptr %p.i.i236.0, i64 16
   %39 = load <8 x i16>, ptr %arrayidx3.i.i240, align 16
-  %elt.sat.i6.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %39, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i6.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %39, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i6.i, ptr %arrayidx3.i.i240, align 16
   %arrayidx6.i.i = getelementptr inbounds i8, ptr %p.i.i236.0, i64 32
   %40 = load <8 x i16>, ptr %arrayidx6.i.i, align 16
-  %elt.sat.i3.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %40, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i3.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %40, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i3.i, ptr %arrayidx6.i.i, align 16
   %arrayidx9.i.i = getelementptr inbounds i8, ptr %p.i.i236.0, i64 48
   %41 = load <8 x i16>, ptr %arrayidx9.i.i, align 16
-  %elt.sat.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %41, <8 x i16> <i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768, i16 -32768>)
+  %elt.sat.i.i = tail call <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16> %41, <8 x i16> splat (i16 -32768))
   store <8 x i16> %elt.sat.i.i, ptr %arrayidx9.i.i, align 16
   %add.ptr.i.i241 = getelementptr inbounds i8, ptr %p.i.i236.0, i64 64
   %sub.i.i242 = add nsw i64 %size.addr.i.i235.0, -64

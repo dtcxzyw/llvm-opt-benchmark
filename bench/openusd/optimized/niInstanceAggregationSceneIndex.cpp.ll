@@ -62832,14 +62832,14 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_7VtArrayINS_9Gf
   br label %57
 
 57:                                               ; preds = %51, %56
-  %.sroa.7.1 = phi <2 x float> [ %.sroa.7.0.copyload21, %56 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %51 ]
-  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.0.copyload18, %56 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %51 ]
+  %.sroa.7.1 = phi <2 x float> [ %.sroa.7.0.copyload21, %56 ], [ splat (float 0xC7EFFFFFE0000000), %51 ]
+  %.sroa.0.1 = phi <2 x float> [ %.sroa.0.0.copyload18, %56 ], [ splat (float 0x47EFFFFFE0000000), %51 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #22
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit.thread
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit.thread: ; preds = %3, %36, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit.thread, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit, %57, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit
-  %.sroa.7.0 = phi <2 x float> [ %.sroa.7.0.copyload, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit ], [ %.sroa.7.1, %57 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit.thread ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %36 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %3 ]
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit ], [ %.sroa.0.1, %57 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit.thread ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %36 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %3 ]
+  %.sroa.7.0 = phi <2 x float> [ %.sroa.7.0.copyload, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit ], [ %.sroa.7.1, %57 ], [ splat (float 0xC7EFFFFFE0000000), %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit ], [ splat (float 0xC7EFFFFFE0000000), %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit.thread ], [ splat (float 0xC7EFFFFFE0000000), %36 ], [ splat (float 0xC7EFFFFFE0000000), %3 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetINS_9GfRange2fEEERKT_v.exit ], [ %.sroa.0.1, %57 ], [ splat (float 0x47EFFFFFE0000000), %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_7VtArrayINS_9GfRange2fEEEEEbv.exit ], [ splat (float 0x47EFFFFFE0000000), %_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue9IsHoldingINS_9GfRange2fEEEbv.exit.thread ], [ splat (float 0x47EFFFFFE0000000), %36 ], [ splat (float 0x47EFFFFFE0000000), %3 ]
   %58 = load ptr, ptr %6, align 8
   %59 = ptrtoint ptr %58 to i64
   %.not.i.i14 = icmp eq ptr %58, null

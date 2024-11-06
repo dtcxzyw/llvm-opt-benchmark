@@ -1516,7 +1516,7 @@ define internal fastcc void @_execute_metadata(ptr nocapture readonly %0, i32 no
 72:                                               ; preds = %69
   %73 = getelementptr inbounds i8, ptr %70, i64 16
   store double 0x7FF8000000000000, ptr %73, align 8, !tbaa !74
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %70, align 8, !tbaa !75
+  store <2 x double> splat (double 0x7FF8000000000000), ptr %70, align 8, !tbaa !75
   br label %75
 
 74:                                               ; preds = %69

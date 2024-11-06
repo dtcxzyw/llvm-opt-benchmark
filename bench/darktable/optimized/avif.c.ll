@@ -234,7 +234,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 
 70:                                               ; preds = %69, %68, %67, %66, %65, %64, %63, %62, %59
   %71 = phi i16 [ 12, %69 ], [ 12, %68 ], [ 12, %67 ], [ 9, %66 ], [ 9, %65 ], [ 9, %64 ], [ 1, %63 ], [ 1, %62 ], [ 6, %59 ]
-  %72 = phi <2 x i16> [ <i16 12, i16 13>, %69 ], [ <i16 12, i16 18>, %68 ], [ <i16 12, i16 16>, %67 ], [ <i16 9, i16 18>, %66 ], [ <i16 9, i16 16>, %65 ], [ <i16 9, i16 8>, %64 ], [ <i16 1, i16 8>, %63 ], [ <i16 1, i16 1>, %62 ], [ <i16 1, i16 13>, %59 ]
+  %72 = phi <2 x i16> [ <i16 12, i16 13>, %69 ], [ <i16 12, i16 18>, %68 ], [ <i16 12, i16 16>, %67 ], [ <i16 9, i16 18>, %66 ], [ <i16 9, i16 16>, %65 ], [ <i16 9, i16 8>, %64 ], [ <i16 1, i16 8>, %63 ], [ splat (i16 1), %62 ], [ <i16 1, i16 13>, %59 ]
   %73 = getelementptr inbounds i8, ptr %42, i64 112
   store <2 x i16> %72, ptr %73, align 8, !tbaa !33
   %74 = getelementptr inbounds i8, ptr %42, i64 116
@@ -399,11 +399,11 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %177 = phi i64 [ 0, %173 ], [ %214, %176 ]
   %178 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %173 ], [ %215, %176 ]
   %179 = add <8 x i64> %178, %175
-  %180 = shl <8 x i64> %179, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
+  %180 = shl <8 x i64> %179, splat (i64 2)
   %181 = getelementptr inbounds float, ptr %2, <8 x i64> %180
   %182 = mul i64 %177, 3
   %183 = getelementptr i8, ptr %159, i64 %182
-  %184 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %181, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !49, !alias.scope !51
+  %184 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %181, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49, !alias.scope !51
   %185 = fmul reassoc nsz arcp contract afn <8 x float> %184, %153
   %186 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %185, %153
   %187 = fcmp reassoc nsz arcp contract afn uge <8 x float> %185, zeroinitializer
@@ -411,7 +411,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %189 = select <8 x i1> %188, <8 x float> %185, <8 x float> zeroinitializer
   %190 = select <8 x i1> %186, <8 x float> %153, <8 x float> %189
   %191 = getelementptr inbounds i8, <8 x ptr> %181, i64 4
-  %192 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %191, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !49, !alias.scope !51
+  %192 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %191, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49, !alias.scope !51
   %193 = fmul reassoc nsz arcp contract afn <8 x float> %192, %153
   %194 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %193, %153
   %195 = fcmp reassoc nsz arcp contract afn uge <8 x float> %193, zeroinitializer
@@ -419,7 +419,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %197 = select <8 x i1> %196, <8 x float> %193, <8 x float> zeroinitializer
   %198 = select <8 x i1> %194, <8 x float> %153, <8 x float> %197
   %199 = getelementptr inbounds i8, <8 x ptr> %181, i64 8
-  %200 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %199, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !49, !alias.scope !51
+  %200 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %199, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49, !alias.scope !51
   %201 = fmul reassoc nsz arcp contract afn <8 x float> %200, %153
   %202 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %201, %153
   %203 = fcmp reassoc nsz arcp contract afn uge <8 x float> %201, zeroinitializer
@@ -435,7 +435,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %213 = shufflevector <16 x i8> %211, <16 x i8> %212, <24 x i32> <i32 0, i32 8, i32 16, i32 1, i32 9, i32 17, i32 2, i32 10, i32 18, i32 3, i32 11, i32 19, i32 4, i32 12, i32 20, i32 5, i32 13, i32 21, i32 6, i32 14, i32 22, i32 7, i32 15, i32 23>
   store <24 x i8> %213, ptr %183, align 1, !tbaa !54
   %214 = add nuw i64 %177, 8
-  %215 = add <8 x i64> %178, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %215 = add <8 x i64> %178, splat (i64 8)
   %216 = icmp eq i64 %214, %151
   br i1 %216, label %217, label %176, !llvm.loop !55
 
@@ -567,11 +567,11 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %299 = phi i64 [ 0, %295 ], [ %336, %298 ]
   %300 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %295 ], [ %337, %298 ]
   %301 = add <8 x i64> %300, %297
-  %302 = shl <8 x i64> %301, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
+  %302 = shl <8 x i64> %301, splat (i64 2)
   %303 = getelementptr inbounds float, ptr %2, <8 x i64> %302
   %304 = mul i64 %299, 6
   %305 = getelementptr i8, ptr %282, i64 %304
-  %306 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %303, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !49
+  %306 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %303, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49
   %307 = fmul reassoc nsz arcp contract afn <8 x float> %306, %276
   %308 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %307, %276
   %309 = fcmp reassoc nsz arcp contract afn uge <8 x float> %307, zeroinitializer
@@ -579,7 +579,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %311 = select <8 x i1> %310, <8 x float> %307, <8 x float> zeroinitializer
   %312 = select <8 x i1> %308, <8 x float> %276, <8 x float> %311
   %313 = getelementptr inbounds i8, <8 x ptr> %303, i64 4
-  %314 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %313, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !49
+  %314 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %313, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49
   %315 = fmul reassoc nsz arcp contract afn <8 x float> %314, %276
   %316 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %315, %276
   %317 = fcmp reassoc nsz arcp contract afn uge <8 x float> %315, zeroinitializer
@@ -587,7 +587,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %319 = select <8 x i1> %318, <8 x float> %315, <8 x float> zeroinitializer
   %320 = select <8 x i1> %316, <8 x float> %276, <8 x float> %319
   %321 = getelementptr inbounds i8, <8 x ptr> %303, i64 8
-  %322 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %321, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !49
+  %322 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %321, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49
   %323 = fmul reassoc nsz arcp contract afn <8 x float> %322, %276
   %324 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %323, %276
   %325 = fcmp reassoc nsz arcp contract afn uge <8 x float> %323, zeroinitializer
@@ -603,7 +603,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %335 = shufflevector <16 x i16> %333, <16 x i16> %334, <24 x i32> <i32 0, i32 8, i32 16, i32 1, i32 9, i32 17, i32 2, i32 10, i32 18, i32 3, i32 11, i32 19, i32 4, i32 12, i32 20, i32 5, i32 13, i32 21, i32 6, i32 14, i32 22, i32 7, i32 15, i32 23>
   store <24 x i16> %335, ptr %305, align 2, !tbaa !33
   %336 = add nuw i64 %299, 8
-  %337 = add <8 x i64> %300, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %337 = add <8 x i64> %300, splat (i64 8)
   %338 = icmp eq i64 %336, %274
   br i1 %338, label %339, label %298, !llvm.loop !59
 

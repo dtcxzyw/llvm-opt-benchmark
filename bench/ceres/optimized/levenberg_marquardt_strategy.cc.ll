@@ -5088,7 +5088,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %60 = getelementptr inbounds double, ptr %40, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %61 = getelementptr double, ptr %59, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %62 = load <2 x i64>, ptr %61, align 1
-  %63 = xor <2 x i64> %62, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %63 = xor <2 x i64> %62, splat (i64 -9223372036854775808)
   store <2 x i64> %63, ptr %60, align 16
   %64 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %65 = icmp slt i64 %64, %50
@@ -5612,7 +5612,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %115 = getelementptr inbounds double, ptr %95, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %116 = getelementptr double, ptr %114, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %117 = load <2 x i64>, ptr %116, align 1
-  %118 = xor <2 x i64> %117, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %118 = xor <2 x i64> %117, splat (i64 -9223372036854775808)
   store <2 x i64> %118, ptr %115, align 16
   %119 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %120 = icmp slt i64 %119, %105
@@ -6156,7 +6156,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %158 = getelementptr inbounds double, ptr %138, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %159 = getelementptr double, ptr %157, i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i
   %160 = load <2 x i64>, ptr %159, align 1
-  %161 = xor <2 x i64> %160, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %161 = xor <2 x i64> %160, splat (i64 -9223372036854775808)
   store <2 x i64> %161, ptr %158, align 16
   %162 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i.i.i, 2
   %163 = icmp slt i64 %162, %148

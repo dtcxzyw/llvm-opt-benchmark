@@ -38219,7 +38219,7 @@ define hidden void @"_ZN3ide10references13find_all_refs28_$u7b$$u7b$closure$u7d$
 
 74:                                               ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !12577
-  %75 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %75 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, splat (i8 -1)
   %76 = bitcast <16 x i1> %75 to i16
   %.not.i.i.i.i = icmp eq i16 %76, 0
   br i1 %.not.i.i.i.i, label %82, label %85

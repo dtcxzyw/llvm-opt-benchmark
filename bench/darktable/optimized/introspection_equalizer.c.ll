@@ -223,9 +223,9 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 120:                                              ; preds = %120, %116
   %121 = phi i64 [ 0, %116 ], [ %134, %120 ]
   %122 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %116 ], [ %135, %120 ]
-  %123 = add <8 x i64> %122, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %124 = add <8 x i64> %122, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %125 = add <8 x i64> %122, <i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24>
+  %123 = add <8 x i64> %122, splat (i64 8)
+  %124 = add <8 x i64> %122, splat (i64 16)
+  %125 = add <8 x i64> %122, splat (i64 24)
   %126 = mul nsw <8 x i64> %122, %119
   %127 = mul nsw <8 x i64> %123, %119
   %128 = mul nsw <8 x i64> %124, %119
@@ -234,12 +234,12 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %131 = getelementptr float, ptr %114, <8 x i64> %127
   %132 = getelementptr float, ptr %114, <8 x i64> %128
   %133 = getelementptr float, ptr %114, <8 x i64> %129
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %130, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !27
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %131, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !27
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %132, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !27
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %133, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !27
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %130, i32 4, <8 x i1> splat (i1 true)), !tbaa !27
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %131, i32 4, <8 x i1> splat (i1 true)), !tbaa !27
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %132, i32 4, <8 x i1> splat (i1 true)), !tbaa !27
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %133, i32 4, <8 x i1> splat (i1 true)), !tbaa !27
   %134 = add nuw nsw i64 %121, 32
-  %135 = add <8 x i64> %122, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %135 = add <8 x i64> %122, splat (i64 32)
   %136 = icmp eq i64 %134, %117
   br i1 %136, label %137, label %120, !llvm.loop !28
 
@@ -547,7 +547,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx59 = shl i64 %255, 4
   %355 = getelementptr i8, ptr %3, i64 %.idx59
   %356 = load <2 x float>, ptr %354, align 4, !tbaa !27
-  %357 = fmul reassoc nsz arcp contract afn <2 x float> %356, <float 5.000000e-01, float 5.000000e-01>
+  %357 = fmul reassoc nsz arcp contract afn <2 x float> %356, splat (float 5.000000e-01)
   %358 = load <2 x float>, ptr %355, align 4, !tbaa !27
   %359 = fadd reassoc nsz arcp contract afn <2 x float> %358, %357
   store <2 x float> %359, ptr %355, align 4, !tbaa !27
@@ -655,7 +655,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx64 = shl i64 %442, 4
   %444 = getelementptr i8, ptr %3, i64 %.idx64
   %445 = load <2 x float>, ptr %443, align 4, !tbaa !27
-  %446 = fmul reassoc nsz arcp contract afn <2 x float> %445, <float 5.000000e-01, float 5.000000e-01>
+  %446 = fmul reassoc nsz arcp contract afn <2 x float> %445, splat (float 5.000000e-01)
   %447 = load <2 x float>, ptr %444, align 4, !tbaa !27
   %448 = fadd reassoc nsz arcp contract afn <2 x float> %447, %446
   store <2 x float> %448, ptr %444, align 4, !tbaa !27
@@ -819,7 +819,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %570 = getelementptr i8, ptr %3, i64 %.idx71
   %571 = load <2 x float>, ptr %569, align 4, !tbaa !27
   %572 = fpext <2 x float> %571 to <2 x double>
-  %573 = fmul reassoc nsz arcp contract afn <2 x double> %572, <double 5.000000e-01, double 5.000000e-01>
+  %573 = fmul reassoc nsz arcp contract afn <2 x double> %572, splat (double 5.000000e-01)
   %574 = load <2 x float>, ptr %570, align 4, !tbaa !27
   %575 = fpext <2 x float> %574 to <2 x double>
   %576 = fadd reassoc nsz arcp contract afn <2 x double> %573, %575
@@ -938,7 +938,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx76 = shl i64 %669, 4
   %671 = getelementptr i8, ptr %3, i64 %.idx76
   %672 = load <2 x float>, ptr %670, align 4, !tbaa !27
-  %673 = fmul reassoc nsz arcp contract afn <2 x float> %672, <float 5.000000e-01, float 5.000000e-01>
+  %673 = fmul reassoc nsz arcp contract afn <2 x float> %672, splat (float 5.000000e-01)
   %674 = load <2 x float>, ptr %671, align 4, !tbaa !27
   %675 = fadd reassoc nsz arcp contract afn <2 x float> %674, %673
   store <2 x float> %675, ptr %671, align 4, !tbaa !27
@@ -1338,7 +1338,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx78 = shl i64 %925, 4
   %934 = getelementptr i8, ptr %3, i64 %.idx78
   %935 = load <2 x float>, ptr %933, align 4, !tbaa !27
-  %936 = fmul reassoc nsz arcp contract afn <2 x float> %935, <float 5.000000e-01, float 5.000000e-01>
+  %936 = fmul reassoc nsz arcp contract afn <2 x float> %935, splat (float 5.000000e-01)
   %937 = load <2 x float>, ptr %934, align 4, !tbaa !27
   %938 = fsub reassoc nsz arcp contract afn <2 x float> %937, %936
   store <2 x float> %938, ptr %934, align 4, !tbaa !27
@@ -1478,7 +1478,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx83 = shl i64 %1050, 4
   %1052 = getelementptr i8, ptr %3, i64 %.idx83
   %1053 = load <2 x float>, ptr %1051, align 4, !tbaa !27
-  %1054 = fmul reassoc nsz arcp contract afn <2 x float> %1053, <float 5.000000e-01, float 5.000000e-01>
+  %1054 = fmul reassoc nsz arcp contract afn <2 x float> %1053, splat (float 5.000000e-01)
   %1055 = load <2 x float>, ptr %1052, align 4, !tbaa !27
   %1056 = fsub reassoc nsz arcp contract afn <2 x float> %1055, %1054
   store <2 x float> %1056, ptr %1052, align 4, !tbaa !27
@@ -1617,7 +1617,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx90 = shl i64 %1154, 4
   %1157 = getelementptr i8, ptr %3, i64 %.idx90
   %1158 = load <2 x float>, ptr %1156, align 4, !tbaa !27
-  %1159 = fmul reassoc nsz arcp contract afn <2 x float> %1158, <float 5.000000e-01, float 5.000000e-01>
+  %1159 = fmul reassoc nsz arcp contract afn <2 x float> %1158, splat (float 5.000000e-01)
   %1160 = load <2 x float>, ptr %1157, align 4, !tbaa !27
   %1161 = fsub reassoc nsz arcp contract afn <2 x float> %1160, %1159
   store <2 x float> %1161, ptr %1157, align 4, !tbaa !27
@@ -1749,7 +1749,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %.idx95 = shl i64 %1265, 4
   %1267 = getelementptr i8, ptr %3, i64 %.idx95
   %1268 = load <2 x float>, ptr %1266, align 4, !tbaa !27
-  %1269 = fmul reassoc nsz arcp contract afn <2 x float> %1268, <float 5.000000e-01, float 5.000000e-01>
+  %1269 = fmul reassoc nsz arcp contract afn <2 x float> %1268, splat (float 5.000000e-01)
   %1270 = load <2 x float>, ptr %1267, align 4, !tbaa !27
   %1271 = fsub reassoc nsz arcp contract afn <2 x float> %1270, %1269
   store <2 x float> %1271, ptr %1267, align 4, !tbaa !27
@@ -2360,13 +2360,13 @@ define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
   store <4 x float> <float 0x3FC99999A0000000, float 0x3FD99999A0000000, float 0x3FE3333340000000, float 0x3FE99999A0000000>, ptr %12, align 4, !tbaa !27
   %13 = getelementptr inbounds i8, ptr %4, i64 44
   store float 1.000000e+00, ptr %13, align 4, !tbaa !27
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %11, align 4, !tbaa !27
+  store <8 x float> splat (float 5.000000e-01), ptr %11, align 4, !tbaa !27
   %14 = getelementptr inbounds i8, ptr %4, i64 116
   %15 = getelementptr inbounds i8, ptr %4, i64 52
   store <8 x float> <float 0x3FC99999A0000000, float 0x3FD99999A0000000, float 0x3FE3333340000000, float 0x3FE99999A0000000, float 1.000000e+00, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %15, align 4, !tbaa !27
-  store <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %14, align 4, !tbaa !27
+  store <4 x float> splat (float 5.000000e-01), ptr %14, align 4, !tbaa !27
   %16 = getelementptr inbounds i8, ptr %4, i64 132
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %16, align 4, !tbaa !27
+  store <2 x float> splat (float 5.000000e-01), ptr %16, align 4, !tbaa !27
   %17 = getelementptr inbounds i8, ptr %4, i64 140
   store float 5.000000e-01, ptr %17, align 4, !tbaa !27
   ret void

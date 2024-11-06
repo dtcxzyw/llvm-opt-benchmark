@@ -841,14 +841,14 @@ define linkonce_odr void @_ZN3g2o21BaseVariableSizedEdgeILi2EN5Eigen6MatrixIdLi2
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %19 = load <2 x i64>, ptr %17, align 16
-  %20 = xor <2 x i64> %19, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %20 = xor <2 x i64> %19, splat (i64 -9223372036854775808)
   %21 = bitcast <2 x i64> %20 to <2 x double>
   %22 = load <2 x double>, ptr %18, align 16
   %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
   %24 = fmul <2 x double> %23, %21
   %25 = getelementptr inbounds i8, ptr %0, i64 208
   %26 = load <2 x i64>, ptr %25, align 16
-  %27 = xor <2 x i64> %26, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %27 = xor <2 x i64> %26, splat (i64 -9223372036854775808)
   %28 = bitcast <2 x i64> %27 to <2 x double>
   %29 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %30 = fmul <2 x double> %29, %28
@@ -885,14 +885,14 @@ define linkonce_odr void @_ZN3g2o21BaseVariableSizedEdgeILi2EN5Eigen6MatrixIdLi2
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %49 = load <2 x i64>, ptr %47, align 16
-  %50 = xor <2 x i64> %49, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %50 = xor <2 x i64> %49, splat (i64 -9223372036854775808)
   %51 = bitcast <2 x i64> %50 to <2 x double>
   %52 = load <2 x double>, ptr %48, align 16
   %53 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> zeroinitializer
   %54 = fmul <2 x double> %53, %51
   %55 = getelementptr inbounds i8, ptr %0, i64 208
   %56 = load <2 x i64>, ptr %55, align 16
-  %57 = xor <2 x i64> %56, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %57 = xor <2 x i64> %56, splat (i64 -9223372036854775808)
   %58 = bitcast <2 x i64> %57 to <2 x double>
   %59 = shufflevector <2 x double> %52, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %60 = fmul <2 x double> %59, %58
@@ -1295,7 +1295,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %101 = getelementptr inbounds double, ptr %83, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %102 = getelementptr inbounds double, ptr %2, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %103 = load <2 x double>, ptr %102, align 8
-  %104 = fmul <2 x double> %103, <double 0x41BDCD64FFFFFFFF, double 0x41BDCD64FFFFFFFF>
+  %104 = fmul <2 x double> %103, splat (double 0x41BDCD64FFFFFFFF)
   store <2 x double> %104, ptr %101, align 16
   %105 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %106 = icmp slt i64 %105, %93

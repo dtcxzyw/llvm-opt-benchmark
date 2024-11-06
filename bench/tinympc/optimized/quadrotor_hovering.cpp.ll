@@ -244,7 +244,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
 .lr.ph.i.i.i.i.i.i.i48:                           ; preds = %55, %.lr.ph.i.i.i.i.i.i.i48
   %.011.i.i.i.i.i.i.i49 = phi i64 [ %65, %.lr.ph.i.i.i.i.i.i.i48 ], [ 0, %55 ]
   %64 = getelementptr inbounds double, ptr %60, i64 %.011.i.i.i.i.i.i.i49
-  store <2 x double> <double -5.000000e+00, double -5.000000e+00>, ptr %64, align 16
+  store <2 x double> splat (double -5.000000e+00), ptr %64, align 16
   %65 = add nuw nsw i64 %.011.i.i.i.i.i.i.i49, 2
   %66 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i49, 118
   br i1 %66, label %.lr.ph.i.i.i.i.i.i.i48, label %69, !llvm.loop !11
@@ -271,7 +271,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
 .lr.ph.i.i.i.i.i.i.i54:                           ; preds = %69, %.lr.ph.i.i.i.i.i.i.i54
   %.011.i.i.i.i.i.i.i55 = phi i64 [ %75, %.lr.ph.i.i.i.i.i.i.i54 ], [ 0, %69 ]
   %74 = getelementptr inbounds double, ptr %70, i64 %.011.i.i.i.i.i.i.i55
-  store <2 x double> <double 5.000000e+00, double 5.000000e+00>, ptr %74, align 16
+  store <2 x double> splat (double 5.000000e+00), ptr %74, align 16
   %75 = add nuw nsw i64 %.011.i.i.i.i.i.i.i55, 2
   %76 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i55, 118
   br i1 %76, label %.lr.ph.i.i.i.i.i.i.i54, label %79, !llvm.loop !11
@@ -298,7 +298,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
 .lr.ph.i.i.i.i.i.i.i61:                           ; preds = %79, %.lr.ph.i.i.i.i.i.i.i61
   %.011.i.i.i.i.i.i.i62 = phi i64 [ %85, %.lr.ph.i.i.i.i.i.i.i61 ], [ 0, %79 ]
   %84 = getelementptr inbounds double, ptr %80, i64 %.011.i.i.i.i.i.i.i62
-  store <2 x double> <double -5.000000e-01, double -5.000000e-01>, ptr %84, align 16
+  store <2 x double> splat (double -5.000000e-01), ptr %84, align 16
   %85 = add nuw nsw i64 %.011.i.i.i.i.i.i.i62, 2
   %86 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i62, 34
   br i1 %86, label %.lr.ph.i.i.i.i.i.i.i61, label %89, !llvm.loop !12
@@ -325,7 +325,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_3MapINS0_IdLi12ELi4ELi1ELi12ELi
 .lr.ph.i.i.i.i.i.i.i67:                           ; preds = %89, %.lr.ph.i.i.i.i.i.i.i67
   %.011.i.i.i.i.i.i.i68 = phi i64 [ %95, %.lr.ph.i.i.i.i.i.i.i67 ], [ 0, %89 ]
   %94 = getelementptr inbounds double, ptr %90, i64 %.011.i.i.i.i.i.i.i68
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %94, align 16
+  store <2 x double> splat (double 5.000000e-01), ptr %94, align 16
   %95 = add nuw nsw i64 %.011.i.i.i.i.i.i.i68, 2
   %96 = icmp samesign ult i64 %.011.i.i.i.i.i.i.i68, 34
   br i1 %96, label %.lr.ph.i.i.i.i.i.i.i67, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIdEENS0_IdLi4ELi9ELi0ELi4ELi9EEEEEEERKNS_9EigenBaseIT_EE.exit72, !llvm.loop !12

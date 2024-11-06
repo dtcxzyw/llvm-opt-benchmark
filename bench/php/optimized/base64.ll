@@ -575,11 +575,11 @@ define noundef ptr @php_base64_encode_avx512(ptr nocapture noundef readonly %0, 
   %20 = shl <32 x i16> %17, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
   %21 = bitcast <32 x i16> %20 to <16 x i32>
   %22 = bitcast <32 x i16> %19 to <16 x i32>
-  %23 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> <i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736, i32 1056980736>, <16 x i32> %21, <16 x i32> %22, i32 202)
+  %23 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> splat (i32 1056980736), <16 x i32> %21, <16 x i32> %22, i32 202)
   %24 = bitcast <16 x i32> %23 to <64 x i8>
-  %25 = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %24, <64 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
-  %26 = icmp slt <64 x i8> %24, <i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26, i8 26>
-  %27 = select <64 x i1> %26, <64 x i8> <i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13, i8 13>, <64 x i8> %25
+  %25 = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %24, <64 x i8> splat (i8 51))
+  %26 = icmp slt <64 x i8> %24, splat (i8 26)
+  %27 = select <64 x i1> %26, <64 x i8> splat (i8 13), <64 x i8> %25
   %28 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 65, i8 0, i8 0>, <64 x i8> %27)
   %29 = add <64 x i8> %28, %24
   store <64 x i8> %29, ptr %.0455456, align 1
@@ -735,12 +735,12 @@ define noundef ptr @php_base64_decode_ex_avx512(ptr nocapture noundef readonly %
   %.0609645 = phi i64 [ %41, %28 ], [ 0, %.lr.ph.preheader ]
   %16 = load <8 x i64>, ptr %.0605647, align 1
   %17 = bitcast <8 x i64> %16 to <16 x i32>
-  %18 = lshr <16 x i32> %17, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %18 = lshr <16 x i32> %17, splat (i32 4)
   %19 = bitcast <8 x i64> %16 to <64 x i8>
-  %20 = and <64 x i8> %19, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %20 = and <64 x i8> %19, splat (i8 15)
   %21 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -88, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -16, i8 84, i8 80, i8 80, i8 80, i8 84, i8 -88, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -16, i8 84, i8 80, i8 80, i8 80, i8 84, i8 -88, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -16, i8 84, i8 80, i8 80, i8 80, i8 84, i8 -88, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -8, i8 -16, i8 84, i8 80, i8 80, i8 80, i8 84>, <64 x i8> %20)
   %22 = bitcast <16 x i32> %18 to <64 x i8>
-  %23 = and <64 x i8> %22, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %23 = and <64 x i8> %22, splat (i8 15)
   %24 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 1, i8 2, i8 4, i8 8, i8 16, i8 32, i8 64, i8 -128, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <64 x i8> %23)
   %25 = and <64 x i8> %24, %21
   %26 = icmp eq <64 x i8> %25, zeroinitializer
@@ -750,8 +750,8 @@ define noundef ptr @php_base64_decode_ex_avx512(ptr nocapture noundef readonly %
 
 28:                                               ; preds = %.lr.ph
   %29 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 0, i8 0, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <64 x i8> %23)
-  %30 = icmp eq <64 x i8> %19, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
-  %31 = select <64 x i1> %30, <64 x i8> <i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16>, <64 x i8> %29
+  %30 = icmp eq <64 x i8> %19, splat (i8 47)
+  %31 = select <64 x i1> %30, <64 x i8> splat (i8 16), <64 x i8> %29
   %32 = add <64 x i8> %31, %19
   %33 = tail call <32 x i16> @llvm.x86.avx512.pmaddubs.w.512(<64 x i8> %32, <64 x i8> <i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1, i8 64, i8 1>)
   %34 = tail call <16 x i32> @llvm.x86.avx512.pmaddw.d.512(<32 x i16> %33, <32 x i16> <i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1, i16 4096, i16 1>)
@@ -1055,8 +1055,8 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %21 = shl <16 x i16> %20, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
   %22 = or <16 x i16> %21, %19
   %23 = bitcast <16 x i16> %22 to <32 x i8>
-  %24 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %23, <32 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
-  %25 = icmp sgt <32 x i8> %23, <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25>
+  %24 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %23, <32 x i8> splat (i8 51))
+  %25 = icmp sgt <32 x i8> %23, splat (i8 25)
   %.neg.i113 = zext <32 x i1> %25 to <32 x i8>
   %26 = add nuw <32 x i8> %24, %.neg.i113
   %27 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %26)
@@ -1083,8 +1083,8 @@ define noundef ptr @php_base64_encode_avx2(ptr nocapture noundef readonly %0, i6
   %43 = shl <16 x i16> %42, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
   %44 = or <16 x i16> %43, %41
   %45 = bitcast <16 x i16> %44 to <32 x i8>
-  %46 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %45, <32 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
-  %47 = icmp sgt <32 x i8> %45, <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25>
+  %46 = tail call <32 x i8> @llvm.usub.sat.v32i8(<32 x i8> %45, <32 x i8> splat (i8 51))
+  %47 = icmp sgt <32 x i8> %45, splat (i8 25)
   %.neg.i = zext <32 x i1> %47 to <32 x i8>
   %48 = add nuw <32 x i8> %46, %.neg.i
   %49 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0, i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <32 x i8> %48)
@@ -1247,8 +1247,8 @@ define noundef ptr @php_base64_encode_ssse3(ptr nocapture noundef readonly %0, i
   %19 = shl <8 x i16> %18, <i16 4, i16 8, i16 4, i16 8, i16 4, i16 8, i16 4, i16 8>
   %20 = or <8 x i16> %19, %17
   %21 = bitcast <8 x i16> %20 to <16 x i8>
-  %22 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %21, <16 x i8> <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>)
-  %23 = icmp sgt <16 x i8> %21, <i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25, i8 25>
+  %22 = tail call <16 x i8> @llvm.usub.sat.v16i8(<16 x i8> %21, <16 x i8> splat (i8 51))
+  %23 = icmp sgt <16 x i8> %21, splat (i8 25)
   %.neg.i = zext <16 x i1> %23 to <16 x i8>
   %24 = add nuw <16 x i8> %22, %.neg.i
   %25 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 65, i8 71, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -4, i8 -19, i8 -16, i8 0, i8 0>, <16 x i8> %24)
@@ -1396,13 +1396,13 @@ define noundef ptr @php_base64_decode_ex_avx2(ptr nocapture noundef readonly %0,
   %.0588624 = phi i64 [ %38, %24 ], [ 0, %3 ]
   %12 = load <4 x i64>, ptr %.0584626, align 1
   %13 = bitcast <4 x i64> %12 to <8 x i32>
-  %14 = lshr <8 x i32> %13, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %14 = lshr <8 x i32> %13, splat (i32 4)
   %15 = bitcast <8 x i32> %14 to <32 x i8>
   %16 = and <32 x i8> %15, <i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15>
   %17 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 16, i8 16, i8 1, i8 2, i8 4, i8 8, i8 4, i8 8, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 1, i8 2, i8 4, i8 8, i8 4, i8 8, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16>, <32 x i8> %16)
   %18 = bitcast <32 x i8> %17 to <4 x i64>
   %19 = bitcast <4 x i64> %12 to <32 x i8>
-  %20 = and <32 x i8> %19, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %20 = and <32 x i8> %19, splat (i8 15)
   %21 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 21, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 19, i8 26, i8 27, i8 27, i8 27, i8 26, i8 21, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 19, i8 26, i8 27, i8 27, i8 27, i8 26>, <32 x i8> %20)
   %22 = bitcast <32 x i8> %21 to <4 x i64>
   %23 = tail call i32 @llvm.x86.avx.ptestz.256(<4 x i64> %22, <4 x i64> %18)
@@ -1410,7 +1410,7 @@ define noundef ptr @php_base64_decode_ex_avx2(ptr nocapture noundef readonly %0,
   br i1 %.not, label %.lr.ph637.lr.ph.lr.ph, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = icmp eq <32 x i8> %19, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %25 = icmp eq <32 x i8> %19, splat (i8 47)
   %26 = sext <32 x i1> %25 to <32 x i8>
   %27 = add nsw <32 x i8> %16, %26
   %28 = tail call <32 x i8> @llvm.x86.avx2.pshuf.b(<32 x i8> <i8 0, i8 16, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 16, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <32 x i8> %27)
@@ -1711,12 +1711,12 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   %.0393429 = phi i64 [ %36, %24 ], [ 0, %3 ]
   %12 = load <2 x i64>, ptr %.0389431, align 1
   %13 = bitcast <2 x i64> %12 to <4 x i32>
-  %14 = lshr <4 x i32> %13, <i32 4, i32 4, i32 4, i32 4>
+  %14 = lshr <4 x i32> %13, splat (i32 4)
   %15 = bitcast <4 x i32> %14 to <16 x i8>
   %16 = and <16 x i8> %15, <i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15, i8 47, i8 47, i8 47, i8 15>
   %17 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 16, i8 16, i8 1, i8 2, i8 4, i8 8, i8 4, i8 8, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16>, <16 x i8> %16)
   %18 = bitcast <2 x i64> %12 to <16 x i8>
-  %19 = and <16 x i8> %18, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %19 = and <16 x i8> %18, splat (i8 15)
   %20 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 21, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 17, i8 19, i8 26, i8 27, i8 27, i8 27, i8 26>, <16 x i8> %19)
   %21 = and <16 x i8> %20, %17
   %22 = icmp sgt <16 x i8> %21, zeroinitializer
@@ -1725,7 +1725,7 @@ define noundef ptr @php_base64_decode_ex_ssse3(ptr nocapture noundef readonly %0
   br i1 %.not, label %24, label %.lr.ph442.lr.ph.lr.ph
 
 24:                                               ; preds = %.lr.ph
-  %25 = icmp eq <16 x i8> %18, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %25 = icmp eq <16 x i8> %18, splat (i8 47)
   %26 = sext <16 x i1> %25 to <16 x i8>
   %27 = add nsw <16 x i8> %16, %26
   %28 = tail call <16 x i8> @llvm.x86.ssse3.pshuf.b.128(<16 x i8> <i8 0, i8 16, i8 19, i8 4, i8 -65, i8 -65, i8 -71, i8 -71, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %27)

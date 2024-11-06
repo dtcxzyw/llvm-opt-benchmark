@@ -325,14 +325,14 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
 50:                                               ; preds = %50, %40
   %51 = phi i64 [ 0, %40 ], [ %125, %50 ]
   %52 = phi <8 x i64> [ %48, %40 ], [ %126, %50 ]
-  %53 = add <8 x i64> %52, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %54 = add <8 x i64> %52, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %55 = add <8 x i64> %52, <i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24>
+  %53 = add <8 x i64> %52, splat (i64 8)
+  %54 = add <8 x i64> %52, splat (i64 16)
+  %55 = add <8 x i64> %52, splat (i64 24)
   %56 = shl i64 %51, 1
-  %57 = and <8 x i64> %52, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %58 = and <8 x i64> %53, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %59 = and <8 x i64> %54, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %60 = and <8 x i64> %55, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %57 = and <8 x i64> %52, splat (i64 2147483648)
+  %58 = and <8 x i64> %53, splat (i64 2147483648)
+  %59 = and <8 x i64> %54, splat (i64 2147483648)
+  %60 = and <8 x i64> %55, splat (i64 2147483648)
   %61 = icmp eq <8 x i64> %57, zeroinitializer
   %62 = icmp eq <8 x i64> %58, zeroinitializer
   %63 = icmp eq <8 x i64> %59, zeroinitializer
@@ -409,14 +409,14 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
   %102 = load <8 x i8>, ptr %98, align 1, !alias.scope !102
   %103 = load <8 x i8>, ptr %99, align 1, !alias.scope !102
   %104 = load <8 x i8>, ptr %100, align 1, !alias.scope !102
-  %105 = and <8 x i8> %101, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %106 = and <8 x i8> %102, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %107 = and <8 x i8> %103, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %108 = and <8 x i8> %104, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %109 = lshr <8 x i8> %101, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
-  %110 = lshr <8 x i8> %102, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
-  %111 = lshr <8 x i8> %103, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
-  %112 = lshr <8 x i8> %104, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
+  %105 = and <8 x i8> %101, splat (i8 15)
+  %106 = and <8 x i8> %102, splat (i8 15)
+  %107 = and <8 x i8> %103, splat (i8 15)
+  %108 = and <8 x i8> %104, splat (i8 15)
+  %109 = lshr <8 x i8> %101, splat (i8 4)
+  %110 = lshr <8 x i8> %102, splat (i8 4)
+  %111 = lshr <8 x i8> %103, splat (i8 4)
+  %112 = lshr <8 x i8> %104, splat (i8 4)
   %113 = or disjoint i64 %56, 1
   %114 = or disjoint i64 %56, 17
   %115 = or disjoint i64 %56, 33
@@ -434,7 +434,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
   %124 = shufflevector <8 x i8> %108, <8 x i8> %112, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i8> %124, ptr %120, align 1, !tbaa !95
   %125 = add nuw i64 %51, 32
-  %126 = add <8 x i64> %52, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %126 = add <8 x i64> %52, splat (i64 32)
   %127 = icmp eq i64 %125, %44
   br i1 %127, label %26, label %50, !llvm.loop !104
 
@@ -781,14 +781,14 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
 96:                                               ; preds = %96, %88
   %97 = phi i64 [ 0, %88 ], [ %171, %96 ]
   %98 = phi <8 x i64> [ %95, %88 ], [ %172, %96 ]
-  %99 = add <8 x i64> %98, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %100 = add <8 x i64> %98, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %101 = add <8 x i64> %98, <i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24>
+  %99 = add <8 x i64> %98, splat (i64 8)
+  %100 = add <8 x i64> %98, splat (i64 16)
+  %101 = add <8 x i64> %98, splat (i64 24)
   %102 = shl i64 %97, 1
-  %103 = and <8 x i64> %98, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %104 = and <8 x i64> %99, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %105 = and <8 x i64> %100, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %106 = and <8 x i64> %101, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %103 = and <8 x i64> %98, splat (i64 2147483648)
+  %104 = and <8 x i64> %99, splat (i64 2147483648)
+  %105 = and <8 x i64> %100, splat (i64 2147483648)
+  %106 = and <8 x i64> %101, splat (i64 2147483648)
   %107 = icmp eq <8 x i64> %103, zeroinitializer
   %108 = icmp eq <8 x i64> %104, zeroinitializer
   %109 = icmp eq <8 x i64> %105, zeroinitializer
@@ -865,14 +865,14 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %148 = load <8 x i8>, ptr %144, align 1, !alias.scope !128, !noalias !120
   %149 = load <8 x i8>, ptr %145, align 1, !alias.scope !128, !noalias !120
   %150 = load <8 x i8>, ptr %146, align 1, !alias.scope !128, !noalias !120
-  %151 = and <8 x i8> %147, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %152 = and <8 x i8> %148, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %153 = and <8 x i8> %149, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %154 = and <8 x i8> %150, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %155 = lshr <8 x i8> %147, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
-  %156 = lshr <8 x i8> %148, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
-  %157 = lshr <8 x i8> %149, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
-  %158 = lshr <8 x i8> %150, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
+  %151 = and <8 x i8> %147, splat (i8 15)
+  %152 = and <8 x i8> %148, splat (i8 15)
+  %153 = and <8 x i8> %149, splat (i8 15)
+  %154 = and <8 x i8> %150, splat (i8 15)
+  %155 = lshr <8 x i8> %147, splat (i8 4)
+  %156 = lshr <8 x i8> %148, splat (i8 4)
+  %157 = lshr <8 x i8> %149, splat (i8 4)
+  %158 = lshr <8 x i8> %150, splat (i8 4)
   %159 = or disjoint i64 %102, 1
   %160 = or disjoint i64 %102, 17
   %161 = or disjoint i64 %102, 33
@@ -890,7 +890,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %170 = shufflevector <8 x i8> %154, <8 x i8> %158, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i8> %170, ptr %166, align 1, !tbaa !95, !noalias !120
   %171 = add nuw i64 %97, 32
-  %172 = add <8 x i64> %98, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %172 = add <8 x i64> %98, splat (i64 32)
   %173 = icmp eq i64 %171, %92
   br i1 %173, label %74, label %96, !llvm.loop !104
 

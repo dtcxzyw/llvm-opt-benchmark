@@ -17782,8 +17782,8 @@ define hidden void @ma_pcm_f32_to_s16(ptr noundef %0, ptr noundef %1, i64 nounde
   %362 = load <4 x float>, ptr %361, align 16
   %363 = fadd <4 x float> %.01294, %360
   %364 = fadd <4 x float> %.01293, %362
-  %365 = fmul <4 x float> %363, <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>
-  %366 = fmul <4 x float> %364, <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>
+  %365 = fmul <4 x float> %363, splat (float 3.276700e+04)
+  %366 = fmul <4 x float> %364, splat (float 3.276700e+04)
   %367 = getelementptr inbounds i16, ptr %0, i64 %.013011376
   %368 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %365)
   %369 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %366)
@@ -81168,39 +81168,39 @@ define internal fastcc void @drmp3d_synth_granule(ptr nocapture noundef %0, ptr 
   %92 = fadd <4 x float> %91, %89
   store <4 x float> %92, ptr %.1410418.i, align 16
   %93 = fsub <4 x float> %89, %91
-  %94 = fmul <4 x float> %93, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
+  %94 = fmul <4 x float> %93, splat (float 0x3FE6A09E60000000)
   store <4 x float> %94, ptr %72, align 16
   %95 = fadd <4 x float> %86, %84
   %96 = fadd <4 x float> %84, %82
-  %97 = fmul <4 x float> %96, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
+  %97 = fmul <4 x float> %96, splat (float 0x3FE6A09E60000000)
   %98 = fadd <4 x float> %82, %80
   %99 = fadd <4 x float> %90, %88
-  %100 = fmul <4 x float> %99, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
-  %101 = fmul <4 x float> %98, <float 0x3FC975F5E0000000, float 0x3FC975F5E0000000, float 0x3FC975F5E0000000, float 0x3FC975F5E0000000>
+  %100 = fmul <4 x float> %99, splat (float 0x3FE6A09E60000000)
+  %101 = fmul <4 x float> %98, splat (float 0x3FC975F5E0000000)
   %102 = fsub <4 x float> %95, %101
-  %103 = fmul <4 x float> %102, <float 0x3FD87DE2A0000000, float 0x3FD87DE2A0000000, float 0x3FD87DE2A0000000, float 0x3FD87DE2A0000000>
+  %103 = fmul <4 x float> %102, splat (float 0x3FD87DE2A0000000)
   %104 = fadd <4 x float> %98, %103
-  %105 = fmul <4 x float> %104, <float 0x3FC975F5E0000000, float 0x3FC975F5E0000000, float 0x3FC975F5E0000000, float 0x3FC975F5E0000000>
+  %105 = fmul <4 x float> %104, splat (float 0x3FC975F5E0000000)
   %106 = fsub <4 x float> %102, %105
   %107 = fsub <4 x float> %80, %97
   %108 = fadd <4 x float> %80, %97
   %109 = fadd <4 x float> %108, %104
-  %110 = fmul <4 x float> %109, <float 0x3FE0503EE0000000, float 0x3FE0503EE0000000, float 0x3FE0503EE0000000, float 0x3FE0503EE0000000>
+  %110 = fmul <4 x float> %109, splat (float 0x3FE0503EE0000000)
   store <4 x float> %110, ptr %66, align 16
   %111 = fadd <4 x float> %88, %100
-  %112 = fmul <4 x float> %111, <float 0x3FE1517A80000000, float 0x3FE1517A80000000, float 0x3FE1517A80000000, float 0x3FE1517A80000000>
+  %112 = fmul <4 x float> %111, splat (float 0x3FE1517A80000000)
   store <4 x float> %112, ptr %68, align 16
   %113 = fsub <4 x float> %107, %106
-  %114 = fmul <4 x float> %113, <float 0x3FE33E37A0000000, float 0x3FE33E37A0000000, float 0x3FE33E37A0000000, float 0x3FE33E37A0000000>
+  %114 = fmul <4 x float> %113, splat (float 0x3FE33E37A0000000)
   store <4 x float> %114, ptr %70, align 16
   %115 = fadd <4 x float> %107, %106
-  %116 = fmul <4 x float> %115, <float 0x3FECCC9AE0000000, float 0x3FECCC9AE0000000, float 0x3FECCC9AE0000000, float 0x3FECCC9AE0000000>
+  %116 = fmul <4 x float> %115, splat (float 0x3FECCC9AE0000000)
   store <4 x float> %116, ptr %74, align 16
   %117 = fsub <4 x float> %88, %100
-  %118 = fmul <4 x float> %117, <float 0x3FF4E7AEA0000000, float 0x3FF4E7AEA0000000, float 0x3FF4E7AEA0000000, float 0x3FF4E7AEA0000000>
+  %118 = fmul <4 x float> %117, splat (float 0x3FF4E7AEA0000000)
   store <4 x float> %118, ptr %76, align 16
   %119 = fsub <4 x float> %108, %104
-  %120 = fmul <4 x float> %119, <float 0x400480D9E0000000, float 0x400480D9E0000000, float 0x400480D9E0000000, float 0x400480D9E0000000>
+  %120 = fmul <4 x float> %119, splat (float 0x400480D9E0000000)
   store <4 x float> %120, ptr %78, align 16
   %121 = add nuw nsw i32 %.1419.i, 1
   %122 = getelementptr inbounds i8, ptr %.1410418.i, i64 128
@@ -81590,11 +81590,11 @@ drmp3d_DCT_II.exit:                               ; preds = %189
   %422 = fmul <4 x float> %414, %408
   %423 = fsub <4 x float> %421, %422
   %424 = fadd <4 x float> %404, %423
-  %425 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %424, <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>)
-  %426 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %425, <4 x float> <float -3.276800e+04, float -3.276800e+04, float -3.276800e+04, float -3.276800e+04>)
+  %425 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %424, <4 x float> splat (float 3.276700e+04))
+  %426 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %425, <4 x float> splat (float -3.276800e+04))
   %427 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %426)
-  %428 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %420, <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>)
-  %429 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %428, <4 x float> <float -3.276800e+04, float -3.276800e+04, float -3.276800e+04, float -3.276800e+04>)
+  %428 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %420, <4 x float> splat (float 3.276700e+04))
+  %429 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %428, <4 x float> splat (float -3.276800e+04))
   %430 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %429)
   %431 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %427, <4 x i32> %430)
   %432 = extractelement <8 x i16> %431, i64 1
@@ -81678,16 +81678,16 @@ define hidden void @drmp3dec_f32_to_s16(ptr nocapture noundef readonly %0, ptr n
   %.090 = phi i64 [ %42, %.lr.ph ], [ 0, %3 ]
   %6 = getelementptr inbounds float, ptr %0, i64 %.090
   %7 = load <4 x float>, ptr %6, align 1
-  %8 = fmul <4 x float> %7, <float 3.276800e+04, float 3.276800e+04, float 3.276800e+04, float 3.276800e+04>
+  %8 = fmul <4 x float> %7, splat (float 3.276800e+04)
   %9 = or disjoint i64 %.090, 4
   %10 = getelementptr inbounds float, ptr %0, i64 %9
   %11 = load <4 x float>, ptr %10, align 1
-  %12 = fmul <4 x float> %11, <float 3.276800e+04, float 3.276800e+04, float 3.276800e+04, float 3.276800e+04>
-  %13 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %8, <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>)
-  %14 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %13, <4 x float> <float -3.276800e+04, float -3.276800e+04, float -3.276800e+04, float -3.276800e+04>)
+  %12 = fmul <4 x float> %11, splat (float 3.276800e+04)
+  %13 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %8, <4 x float> splat (float 3.276700e+04))
+  %14 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %13, <4 x float> splat (float -3.276800e+04))
   %15 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %14)
-  %16 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %12, <4 x float> <float 3.276700e+04, float 3.276700e+04, float 3.276700e+04, float 3.276700e+04>)
-  %17 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %16, <4 x float> <float -3.276800e+04, float -3.276800e+04, float -3.276800e+04, float -3.276800e+04>)
+  %16 = tail call <4 x float> @llvm.x86.sse.min.ps(<4 x float> %12, <4 x float> splat (float 3.276700e+04))
+  %17 = tail call <4 x float> @llvm.x86.sse.max.ps(<4 x float> %16, <4 x float> splat (float -3.276800e+04))
   %18 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %17)
   %19 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %15, <4 x i32> %18)
   %20 = extractelement <8 x i16> %19, i64 0

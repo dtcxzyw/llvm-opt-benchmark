@@ -730,11 +730,11 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
 
 42:                                               ; preds = %10
   %43 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
-  %44 = xor <2 x i64> %21, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %44 = xor <2 x i64> %21, splat (i64 -9223372036854775808)
   %45 = bitcast <2 x i64> %44 to <2 x double>
   %46 = fmul <2 x double> %43, %45
   %47 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> <i32 1, i32 1>
-  %48 = xor <2 x i64> %24, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %48 = xor <2 x i64> %24, splat (i64 -9223372036854775808)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = fmul <2 x double> %47, %49
   %51 = fadd <2 x double> %46, %50
@@ -830,13 +830,13 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %116 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> zeroinitializer
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %118 = load <2 x i64>, ptr %117, align 16
-  %119 = xor <2 x i64> %118, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %119 = xor <2 x i64> %118, splat (i64 -9223372036854775808)
   %120 = bitcast <2 x i64> %119 to <2 x double>
   %121 = fmul <2 x double> %116, %120
   %122 = shufflevector <2 x double> %115, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %123 = getelementptr inbounds i8, ptr %0, i64 208
   %124 = load <2 x i64>, ptr %123, align 16
-  %125 = xor <2 x i64> %124, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %125 = xor <2 x i64> %124, splat (i64 -9223372036854775808)
   %126 = bitcast <2 x i64> %125 to <2 x double>
   %127 = fmul <2 x double> %122, %126
   %128 = fadd <2 x double> %121, %127

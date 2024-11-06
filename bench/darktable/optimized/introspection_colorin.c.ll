@@ -1014,8 +1014,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 
 59:                                               ; preds = %40, %36, %31
   %60 = phi i1 [ true, %40 ], [ false, %31 ], [ false, %36 ]
-  %61 = phi <2 x float> [ %46, %40 ], [ <float 1.000000e+00, float 1.000000e+00>, %31 ], [ <float 1.000000e+00, float 1.000000e+00>, %36 ]
-  %62 = phi <2 x float> [ %52, %40 ], [ <float 1.000000e+00, float 1.000000e+00>, %31 ], [ <float 1.000000e+00, float 1.000000e+00>, %36 ]
+  %61 = phi <2 x float> [ %46, %40 ], [ splat (float 1.000000e+00), %31 ], [ splat (float 1.000000e+00), %36 ]
+  %62 = phi <2 x float> [ %52, %40 ], [ splat (float 1.000000e+00), %31 ], [ splat (float 1.000000e+00), %36 ]
   %63 = getelementptr inbounds i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 16, !tbaa !6
   %65 = getelementptr inbounds i8, ptr %64, i64 786724
@@ -1349,7 +1349,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %322 = fmul reassoc nsz arcp contract afn <4 x float> %320, %317
   %323 = shufflevector <4 x float> %321, <4 x float> %322, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   %324 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %323, <4 x float> zeroinitializer)
-  %325 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %324, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %325 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %324, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %325, ptr %25, align 16, !tbaa !31, !noalias !88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26) #19, !noalias !88
   call fastcc void @dt_RGB_to_Lab(ptr noundef nonnull %25, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %26), !noalias !88
@@ -2237,7 +2237,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   store float %997, ptr %884, align 4, !tbaa !72, !noalias !107
   %998 = load <4 x float>, ptr %15, align 16, !tbaa !31, !noalias !107
   %999 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %998, <4 x float> zeroinitializer)
-  %1000 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %999, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1000 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %999, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1000, ptr %15, align 16, !tbaa !31, !noalias !107
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16) #19, !noalias !107
   call fastcc void @dt_RGB_to_Lab(ptr noundef nonnull %15, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %16), !noalias !107
@@ -2544,7 +2544,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 .preheader64:                                     ; preds = %1195, %.preheader64
   %1201 = phi i64 [ %1227, %.preheader64 ], [ 0, %1195 ]
   %1202 = phi <8 x i64> [ %1228, %.preheader64 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %1195 ]
-  %1203 = shl nsw <8 x i64> %1202, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
+  %1203 = shl nsw <8 x i64> %1202, splat (i64 2)
   %1204 = extractelement <8 x i64> %1203, i64 0
   %1205 = getelementptr inbounds float, ptr %1199, i64 %1204
   %1206 = getelementptr inbounds float, ptr %1200, <8 x i64> %1203
@@ -2552,29 +2552,29 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1208 = shufflevector <32 x float> %1207, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %1209 = shufflevector <32 x float> %1207, <32 x float> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %1210 = shufflevector <32 x float> %1207, <32 x float> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1208, <8 x ptr> %1206, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !72, !alias.scope !121, !noalias !124
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1208, <8 x ptr> %1206, i32 4, <8 x i1> splat (i1 true)), !tbaa !72, !alias.scope !121, !noalias !124
   %1211 = getelementptr inbounds i8, <8 x ptr> %1206, i64 4
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1209, <8 x ptr> %1211, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !72, !alias.scope !121, !noalias !124
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1209, <8 x ptr> %1211, i32 4, <8 x i1> splat (i1 true)), !tbaa !72, !alias.scope !121, !noalias !124
   %1212 = getelementptr inbounds i8, <8 x ptr> %1206, i64 8
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1210, <8 x ptr> %1212, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !72, !alias.scope !121, !noalias !124
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1210, <8 x ptr> %1212, i32 4, <8 x i1> splat (i1 true)), !tbaa !72, !alias.scope !121, !noalias !124
   %1213 = fadd reassoc nsz arcp contract afn <8 x float> %1209, %1208
   %1214 = fadd reassoc nsz arcp contract afn <8 x float> %1213, %1210
   %1215 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %1214, zeroinitializer
   %1216 = fdiv reassoc nsz arcp contract afn <8 x float> %1210, %1214
-  %1217 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %1216, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %1217 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %1216, splat (float 5.000000e-01)
   %1218 = and <8 x i1> %1217, %1215
-  %1219 = fmul reassoc nsz arcp contract afn <8 x float> %1216, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %1220 = fadd reassoc nsz arcp contract afn <8 x float> %1219, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
-  %1221 = fmul reassoc nsz arcp contract afn <8 x float> %1214, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %1222 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %1221, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %1223 = fmul reassoc nsz arcp contract afn <8 x float> %1222, <float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000, float 0x3FBC28F5C0000000>
+  %1219 = fmul reassoc nsz arcp contract afn <8 x float> %1216, splat (float 2.000000e+00)
+  %1220 = fadd reassoc nsz arcp contract afn <8 x float> %1219, splat (float -1.000000e+00)
+  %1221 = fmul reassoc nsz arcp contract afn <8 x float> %1214, splat (float 2.000000e+00)
+  %1222 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %1221, <8 x float> splat (float 1.000000e+00))
+  %1223 = fmul reassoc nsz arcp contract afn <8 x float> %1222, splat (float 0x3FBC28F5C0000000)
   %1224 = fmul reassoc nsz arcp contract afn <8 x float> %1223, %1220
   %1225 = fadd reassoc nsz arcp contract afn <8 x float> %1224, %1209
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1225, <8 x ptr> %1211, i32 4, <8 x i1> %1218), !tbaa !72, !alias.scope !121, !noalias !124
   %1226 = fsub reassoc nsz arcp contract afn <8 x float> %1210, %1224
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1226, <8 x ptr> %1212, i32 4, <8 x i1> %1218), !tbaa !72, !alias.scope !121, !noalias !124
   %1227 = add nuw i64 %1201, 8
-  %1228 = add <8 x i64> %1202, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %1228 = add <8 x i64> %1202, splat (i64 8)
   %1229 = icmp eq i64 %1227, %1189
   br i1 %1229, label %.loopexit65.preheader, label %.preheader64, !llvm.loop !126
 
@@ -2589,25 +2589,25 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1234 = getelementptr inbounds float, ptr %1200, i64 %1233
   %1235 = load <4 x float>, ptr %1234, align 16, !tbaa !31
   %1236 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1235, <4 x float> zeroinitializer)
-  %1237 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1236, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1237 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1236, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1237, ptr %1234, align 16, !tbaa !31
   %1238 = or disjoint i64 %1233, 4
   %1239 = getelementptr inbounds float, ptr %1200, i64 %1238
   %1240 = load <4 x float>, ptr %1239, align 16, !tbaa !31
   %1241 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1240, <4 x float> zeroinitializer)
-  %1242 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1241, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1242 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1241, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1242, ptr %1239, align 16, !tbaa !31
   %1243 = or disjoint i64 %1233, 8
   %1244 = getelementptr inbounds float, ptr %1200, i64 %1243
   %1245 = load <4 x float>, ptr %1244, align 16, !tbaa !31
   %1246 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1245, <4 x float> zeroinitializer)
-  %1247 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1246, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1247 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1246, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1247, ptr %1244, align 16, !tbaa !31
   %1248 = or disjoint i64 %1233, 12
   %1249 = getelementptr inbounds float, ptr %1200, i64 %1248
   %1250 = load <4 x float>, ptr %1249, align 16, !tbaa !31
   %1251 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1250, <4 x float> zeroinitializer)
-  %1252 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1251, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1252 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1251, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1252, ptr %1249, align 16, !tbaa !31
   %1253 = add nuw nsw i64 %1232, 4
   %1254 = icmp eq i64 %1253, %1192
@@ -2624,7 +2624,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1258 = getelementptr inbounds i8, ptr %1200, i64 %.idx58
   %1259 = load <4 x float>, ptr %1258, align 16, !tbaa !31
   %1260 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1259, <4 x float> zeroinitializer)
-  %1261 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1260, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1261 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1260, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1261, ptr %1258, align 16, !tbaa !31
   %1262 = add nuw nsw i64 %1256, 1
   %1263 = add nuw nsw i64 %1257, 1
@@ -2725,7 +2725,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %1325, label %.loopexit68, label %1326
 
 1326:                                             ; preds = %1311
-  %1327 = fcmp reassoc nsz arcp contract afn une <2 x float> %61, <float 1.000000e+00, float 1.000000e+00>
+  %1327 = fcmp reassoc nsz arcp contract afn une <2 x float> %61, splat (float 1.000000e+00)
   %1328 = extractelement <2 x i1> %1327, i64 0
   %1329 = extractelement <2 x i1> %1327, i64 1
   %1330 = select i1 %1328, i1 true, i1 %1329
@@ -2852,7 +2852,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1424 = getelementptr inbounds i8, ptr %1480, i64 %.idx57
   %1425 = load <4 x float>, ptr %1424, align 16, !tbaa !31
   %1426 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1425, <4 x float> zeroinitializer)
-  %1427 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1426, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1427 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1426, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1427, ptr %1424, align 16, !tbaa !31
   %1428 = add nuw nsw i64 %1422, 1
   %1429 = add nuw nsw i64 %1423, 1
@@ -2870,25 +2870,25 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1434 = getelementptr inbounds float, ptr %1480, i64 %1433
   %1435 = load <4 x float>, ptr %1434, align 16, !tbaa !31
   %1436 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1435, <4 x float> zeroinitializer)
-  %1437 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1436, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1437 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1436, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1437, ptr %1434, align 16, !tbaa !31
   %1438 = or disjoint i64 %1433, 4
   %1439 = getelementptr inbounds float, ptr %1480, i64 %1438
   %1440 = load <4 x float>, ptr %1439, align 16, !tbaa !31
   %1441 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1440, <4 x float> zeroinitializer)
-  %1442 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1441, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1442 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1441, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1442, ptr %1439, align 16, !tbaa !31
   %1443 = or disjoint i64 %1433, 8
   %1444 = getelementptr inbounds float, ptr %1480, i64 %1443
   %1445 = load <4 x float>, ptr %1444, align 16, !tbaa !31
   %1446 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1445, <4 x float> zeroinitializer)
-  %1447 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1446, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1447 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1446, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1447, ptr %1444, align 16, !tbaa !31
   %1448 = or disjoint i64 %1433, 12
   %1449 = getelementptr inbounds float, ptr %1480, i64 %1448
   %1450 = load <4 x float>, ptr %1449, align 16, !tbaa !31
   %1451 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1450, <4 x float> zeroinitializer)
-  %1452 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1451, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1452 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1451, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1452, ptr %1449, align 16, !tbaa !31
   %1453 = add nuw nsw i64 %1432, 4
   %1454 = icmp eq i64 %1453, %1391
@@ -2988,25 +2988,25 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1513 = getelementptr inbounds float, ptr %1506, i64 %1512
   %1514 = load <4 x float>, ptr %1513, align 16, !tbaa !31
   %1515 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1514, <4 x float> zeroinitializer)
-  %1516 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1515, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1516 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1515, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1516, ptr %1513, align 16, !tbaa !31
   %1517 = or disjoint i64 %1512, 4
   %1518 = getelementptr inbounds float, ptr %1506, i64 %1517
   %1519 = load <4 x float>, ptr %1518, align 16, !tbaa !31
   %1520 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1519, <4 x float> zeroinitializer)
-  %1521 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1520, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1521 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1520, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1521, ptr %1518, align 16, !tbaa !31
   %1522 = or disjoint i64 %1512, 8
   %1523 = getelementptr inbounds float, ptr %1506, i64 %1522
   %1524 = load <4 x float>, ptr %1523, align 16, !tbaa !31
   %1525 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1524, <4 x float> zeroinitializer)
-  %1526 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1525, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1526 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1525, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1526, ptr %1523, align 16, !tbaa !31
   %1527 = or disjoint i64 %1512, 12
   %1528 = getelementptr inbounds float, ptr %1506, i64 %1527
   %1529 = load <4 x float>, ptr %1528, align 16, !tbaa !31
   %1530 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1529, <4 x float> zeroinitializer)
-  %1531 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1530, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1531 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1530, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1531, ptr %1528, align 16, !tbaa !31
   %1532 = add nuw nsw i64 %1511, 4
   %1533 = icmp eq i64 %1532, %1499
@@ -3033,7 +3033,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1542 = getelementptr inbounds i8, ptr %1506, i64 %.idx
   %1543 = load <4 x float>, ptr %1542, align 16, !tbaa !31
   %1544 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %1543, <4 x float> zeroinitializer)
-  %1545 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1544, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %1545 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %1544, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %1545, ptr %1542, align 16, !tbaa !31
   %1546 = add nuw nsw i64 %1540, 1
   %1547 = add nuw nsw i64 %1541, 1

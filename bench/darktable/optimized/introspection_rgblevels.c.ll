@@ -771,14 +771,14 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %80 = phi i64 [ 0, %60 ], [ %88, %79 ]
   %81 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %60 ], [ %89, %79 ]
   %82 = uitofp <8 x i32> %81 to <8 x float>
-  %83 = fmul reassoc nsz arcp contract afn <8 x float> %82, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %83 = fmul reassoc nsz arcp contract afn <8 x float> %82, splat (float 0x3EF0000000000000)
   %84 = fpext <8 x float> %83 to <8 x double>
   %85 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %84, <8 x double> %78)
   %86 = fptrunc <8 x double> %85 to <8 x float>
   %87 = getelementptr inbounds [3 x [65536 x float]], ptr %62, i64 0, i64 0, i64 %80
   store <8 x float> %86, ptr %87, align 4, !tbaa !26
   %88 = add nuw nsw i64 %80, 8
-  %89 = add <8 x i32> %81, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %89 = add <8 x i32> %81, splat (i32 8)
   %90 = icmp eq i64 %88, 65536
   br i1 %90, label %128, label %79, !llvm.loop !82
 
@@ -814,7 +814,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %115 = phi i64 [ 0, %91 ], [ %125, %114 ]
   %116 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %91 ], [ %126, %114 ]
   %117 = uitofp <8 x i32> %116 to <8 x float>
-  %118 = fmul reassoc nsz arcp contract afn <8 x float> %117, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %118 = fmul reassoc nsz arcp contract afn <8 x float> %117, splat (float 0x3EF0000000000000)
   %119 = fpext <8 x float> %118 to <8 x double>
   %120 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %119, <8 x double> %113)
   %121 = fptrunc <8 x double> %120 to <8 x float>
@@ -825,7 +825,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %124 = getelementptr inbounds [65536 x float], ptr %109, i64 0, i64 %115
   store <8 x float> %121, ptr %124, align 4, !tbaa !26
   %125 = add nuw nsw i64 %115, 8
-  %126 = add <8 x i32> %116, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %126 = add <8 x i32> %116, splat (i32 8)
   %127 = icmp eq i64 %125, 65536
   br i1 %127, label %.loopexit, label %114, !llvm.loop !85
 
@@ -856,7 +856,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %148 = phi i64 [ 0, %128 ], [ %155, %147 ]
   %149 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %128 ], [ %156, %147 ]
   %150 = uitofp <8 x i32> %149 to <8 x float>
-  %151 = fmul reassoc nsz arcp contract afn <8 x float> %150, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %151 = fmul reassoc nsz arcp contract afn <8 x float> %150, splat (float 0x3EF0000000000000)
   %152 = fpext <8 x float> %151 to <8 x double>
   %153 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %152, <8 x double> %146)
   %154 = fptrunc <8 x double> %153 to <8 x float>
@@ -864,7 +864,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
   store <8 x float> %154, ptr %gep, align 4, !tbaa !26
   %155 = add nuw nsw i64 %148, 8
-  %156 = add <8 x i32> %149, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %156 = add <8 x i32> %149, splat (i32 8)
   %157 = icmp eq i64 %155, 65536
   br i1 %157, label %158, label %147, !llvm.loop !86
 
@@ -895,7 +895,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %178 = phi i64 [ 0, %158 ], [ %185, %177 ]
   %179 = phi <8 x i32> [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %158 ], [ %186, %177 ]
   %180 = uitofp <8 x i32> %179 to <8 x float>
-  %181 = fmul reassoc nsz arcp contract afn <8 x float> %180, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %181 = fmul reassoc nsz arcp contract afn <8 x float> %180, splat (float 0x3EF0000000000000)
   %182 = fpext <8 x float> %181 to <8 x double>
   %183 = tail call reassoc nsz arcp contract afn <8 x double> @llvm.pow.v8f64(<8 x double> %182, <8 x double> %176)
   %184 = fptrunc <8 x double> %183 to <8 x float>
@@ -903,7 +903,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %gep15 = getelementptr i8, ptr %invariant.gep14, i64 %.idx1
   store <8 x float> %184, ptr %gep15, align 4, !tbaa !26
   %185 = add nuw nsw i64 %178, 8
-  %186 = add <8 x i32> %179, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %186 = add <8 x i32> %179, splat (i32 8)
   %187 = icmp eq i64 %185, 65536
   br i1 %187, label %.loopexit, label %177, !llvm.loop !87
 
@@ -1224,7 +1224,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %11 = getelementptr inbounds i8, ptr %9, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %11, i8 0, i64 44, i1 false)
   %12 = getelementptr inbounds i8, ptr %9, i64 144
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %12, align 8, !tbaa !100
+  store <2 x double> splat (double -1.000000e+00), ptr %12, align 8, !tbaa !100
   %13 = getelementptr inbounds i8, ptr %9, i64 160
   store i32 0, ptr %13, align 8, !tbaa !101
   %14 = getelementptr inbounds i8, ptr %9, i64 176
@@ -2376,7 +2376,7 @@ define internal noundef i32 @_area_leave_notify_callback(ptr noundef %0, ptr noc
   %4 = getelementptr inbounds i8, ptr %2, i64 704
   %5 = load ptr, ptr %4, align 16, !tbaa !6
   %6 = getelementptr inbounds i8, ptr %5, i64 144
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %6, align 8, !tbaa !100
+  store <2 x double> splat (double -1.000000e+00), ptr %6, align 8, !tbaa !100
   tail call void @gtk_widget_queue_draw(ptr noundef %0) #21
   ret i32 1
 }
@@ -2806,7 +2806,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %83, label %106, label %84
 
 84:                                               ; preds = %76
-  %85 = add nsw <2 x i32> %57, <i32 -1, i32 -1>
+  %85 = add nsw <2 x i32> %57, splat (i32 -1)
   %86 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %71, <2 x i32> zeroinitializer)
   %87 = extractelement <2 x i32> %85, i64 0
   %88 = insertelement <2 x i32> %86, i32 0, i64 1

@@ -311,7 +311,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %35 = fadd reassoc nsz arcp contract afn float %34, 0x3EB0C00000000000
   %36 = fdiv reassoc nsz arcp contract afn float 0x3FC79DBA80000000, %35
   %37 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %36, float %25)
-  %38 = fmul reassoc nsz arcp contract afn <2 x float> %30, <float 0x3F847AE140000000, float 0x3F847AE140000000>
+  %38 = fmul reassoc nsz arcp contract afn <2 x float> %30, splat (float 0x3F847AE140000000)
   %39 = extractelement <2 x float> %38, i64 0
   %40 = fmul reassoc nsz arcp contract afn float %37, %39
   %41 = fcmp ord float %40, 0.000000e+00
@@ -499,7 +499,7 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %84 = shufflevector <32 x float> %80, <32 x float> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
   %85 = fadd reassoc nsz arcp contract afn <8 x float> %82, %81
   %86 = fadd reassoc nsz arcp contract afn <8 x float> %85, %83
-  %87 = fmul reassoc nsz arcp contract afn <8 x float> %86, <float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000>
+  %87 = fmul reassoc nsz arcp contract afn <8 x float> %86, splat (float 0x3FD5555560000000)
   %88 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %87, <8 x float> zeroinitializer)
   %89 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %81, <8 x float> %82)
   %90 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %89, <8 x float> %83)
@@ -507,7 +507,7 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %92 = fneg reassoc nsz arcp contract afn <8 x float> %88
   %93 = fsub reassoc nsz arcp contract afn <8 x float> %90, %88
   %94 = fdiv reassoc nsz arcp contract afn <8 x float> %92, %93
-  %95 = select <8 x i1> %91, <8 x float> %94, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %95 = select <8 x i1> %91, <8 x float> %94, <8 x float> splat (float 1.000000e+00)
   %96 = fsub reassoc nsz arcp contract afn <8 x float> %81, %88
   %97 = fmul reassoc nsz arcp contract afn <8 x float> %95, %96
   %98 = fadd reassoc nsz arcp contract afn <8 x float> %97, %88
@@ -520,7 +520,7 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %105 = getelementptr inbounds i8, <8 x ptr> %78, i64 12
   %106 = fadd reassoc nsz arcp contract afn <8 x float> %98, %101
   %107 = fadd reassoc nsz arcp contract afn <8 x float> %106, %104
-  %108 = fmul reassoc nsz arcp contract afn <8 x float> %107, <float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000, float 0x3FD5555560000000>
+  %108 = fmul reassoc nsz arcp contract afn <8 x float> %107, splat (float 0x3FD5555560000000)
   %109 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %108, <8 x float> zeroinitializer)
   %110 = fadd reassoc nsz arcp contract afn <8 x float> %109, %64
   %111 = extractelement <8 x float> %110, i64 0
@@ -573,12 +573,12 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %158 = fcmp ord <8 x float> %157, zeroinitializer
   %159 = select <8 x i1> %158, <8 x float> %157, <8 x float> %68
   %160 = fpext <8 x float> %108 to <8 x double>
-  %161 = fcmp reassoc nsz arcp contract afn ule <8 x double> %160, <double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09, double 1.000000e-09>
-  %162 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %105, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !19, !alias.scope !54
+  %161 = fcmp reassoc nsz arcp contract afn ule <8 x double> %160, splat (double 1.000000e-09)
+  %162 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %105, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !19, !alias.scope !54
   %163 = fsub reassoc nsz arcp contract afn <8 x float> %162, %88
   %164 = fmul reassoc nsz arcp contract afn <8 x float> %95, %163
   %165 = fadd reassoc nsz arcp contract afn <8 x float> %164, %88
-  %166 = fmul reassoc nsz arcp contract afn <8 x float> %159, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
+  %166 = fmul reassoc nsz arcp contract afn <8 x float> %159, splat (float 3.000000e+00)
   %167 = fmul reassoc nsz arcp contract afn <8 x float> %166, %98
   %168 = fdiv reassoc nsz arcp contract afn <8 x float> %167, %107
   %169 = fmul reassoc nsz arcp contract afn <8 x float> %166, %101
@@ -592,19 +592,19 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %177 = select <8 x i1> %161, <8 x float> %159, <8 x float> %170
   %178 = select <8 x i1> %161, <8 x float> %159, <8 x float> %168
   %179 = fcmp reassoc nsz arcp contract afn ult <8 x float> %178, %177
-  %180 = xor <8 x i1> %179, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %180 = xor <8 x i1> %179, splat (i1 true)
   %181 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %177, %176
-  %182 = select <8 x i1> %179, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i1> %181
-  %183 = xor <8 x i1> %182, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %182 = select <8 x i1> %179, <8 x i1> splat (i1 true), <8 x i1> %181
+  %183 = xor <8 x i1> %182, splat (i1 true)
   %184 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %176, %178
-  %185 = select <8 x i1> %182, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i1> %184
-  %186 = xor <8 x i1> %185, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %185 = select <8 x i1> %182, <8 x i1> splat (i1 true), <8 x i1> %184
+  %186 = xor <8 x i1> %185, splat (i1 true)
   %187 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %176, %177
-  %188 = select <8 x i1> %185, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i1> %187
+  %188 = select <8 x i1> %185, <8 x i1> splat (i1 true), <8 x i1> %187
   %189 = fcmp reassoc nsz arcp contract afn ult <8 x float> %178, %176
   %190 = select <8 x i1> %179, <8 x i1> %189, <8 x i1> zeroinitializer
   %191 = select <8 x i1> %190, <8 x i1> %187, <8 x i1> zeroinitializer
-  %192 = xor <8 x i1> %189, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %192 = xor <8 x i1> %189, splat (i1 true)
   %193 = select <8 x i1> %179, <8 x i1> %192, <8 x i1> zeroinitializer
   %194 = select <8 x i1> %186, <8 x i1> %187, <8 x i1> zeroinitializer
   %195 = select <8 x i1> %183, <8 x i1> %184, <8 x i1> zeroinitializer
@@ -617,33 +617,33 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %202 = select <8 x i1> %191, <8 x float> %176, <8 x float> %201
   %203 = select <8 x i1> %188, <8 x float> %178, <8 x float> %176
   %204 = select <8 x i1> %196, <8 x float> %176, <8 x float> %203
-  %205 = select <8 x i1> %194, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i1> %195
+  %205 = select <8 x i1> %194, <8 x i1> splat (i1 true), <8 x i1> %195
   %206 = select <8 x i1> %205, <8 x float> %177, <8 x float> %204
   %207 = select <8 x i1> %193, <8 x float> %176, <8 x float> %206
   %208 = select <8 x i1> %191, <8 x float> %178, <8 x float> %207
   %209 = fsub reassoc nsz arcp contract afn <8 x float> %68, %159
-  %210 = fsub reassoc nsz arcp contract afn <8 x float> <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>, %159
+  %210 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 0x3EB0C6F7A0000000), %159
   %211 = fadd reassoc nsz arcp contract afn <8 x float> %210, %202
   %212 = fdiv reassoc nsz arcp contract afn <8 x float> %209, %211
   %213 = fsub reassoc nsz arcp contract afn <8 x float> %70, %159
-  %214 = fsub reassoc nsz arcp contract afn <8 x float> <float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000, float 0xBEB0C6F7A0000000>, %159
+  %214 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 0xBEB0C6F7A0000000), %159
   %215 = fadd reassoc nsz arcp contract afn <8 x float> %214, %208
   %216 = fdiv reassoc nsz arcp contract afn <8 x float> %213, %215
   %217 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.minnum.v8f32(<8 x float> %212, <8 x float> %216)
   %218 = fsub reassoc nsz arcp contract afn <8 x float> %159, %208
-  %219 = fadd reassoc nsz arcp contract afn <8 x float> %159, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
+  %219 = fadd reassoc nsz arcp contract afn <8 x float> %159, splat (float 0x3EB0C6F7A0000000)
   %220 = fdiv reassoc nsz arcp contract afn <8 x float> %218, %219
   %221 = fmul reassoc nsz arcp contract afn <8 x float> %217, %220
-  %222 = fadd reassoc nsz arcp contract afn <8 x float> %221, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
-  %223 = fmul reassoc nsz arcp contract afn <8 x float> %220, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %222 = fadd reassoc nsz arcp contract afn <8 x float> %221, splat (float 0x3EB0C6F7A0000000)
+  %223 = fmul reassoc nsz arcp contract afn <8 x float> %220, splat (float 2.000000e+00)
   %224 = fmul reassoc nsz arcp contract afn <8 x float> %220, %220
-  %225 = fsub reassoc nsz arcp contract afn <8 x float> <float 0x3FF0000100000000, float 0x3FF0000100000000, float 0x3FF0000100000000, float 0x3FF0000100000000, float 0x3FF0000100000000, float 0x3FF0000100000000, float 0x3FF0000100000000, float 0x3FF0000100000000>, %224
+  %225 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 0x3FF0000100000000), %224
   %226 = fmul reassoc nsz arcp contract afn <8 x float> %222, %225
   %227 = fdiv reassoc nsz arcp contract afn <8 x float> %223, %226
   %228 = fmul reassoc nsz arcp contract afn <8 x float> %227, %227
-  %229 = fadd reassoc nsz arcp contract afn <8 x float> %228, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %229 = fadd reassoc nsz arcp contract afn <8 x float> %228, splat (float 1.000000e+00)
   %230 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %229)
-  %231 = fadd reassoc nsz arcp contract afn <8 x float> %230, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %231 = fadd reassoc nsz arcp contract afn <8 x float> %230, splat (float 1.000000e+00)
   %232 = fmul reassoc nsz arcp contract afn <8 x float> %227, %217
   %233 = fsub reassoc nsz arcp contract afn <8 x float> %178, %159
   %234 = fmul reassoc nsz arcp contract afn <8 x float> %232, %233
@@ -662,7 +662,7 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %247 = fdiv reassoc nsz arcp contract afn <8 x float> %246, %231
   %248 = fadd reassoc nsz arcp contract afn <8 x float> %247, %159
   %249 = getelementptr float, ptr %34, <8 x i64> %77
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %248, <8 x ptr> %249, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !19, !alias.scope !57, !noalias !54
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %248, <8 x ptr> %249, i32 4, <8 x i1> splat (i1 true)), !tbaa !19, !alias.scope !57, !noalias !54
   %250 = extractelement <8 x ptr> %249, i64 0
   %251 = getelementptr i8, ptr %250, i64 -12
   %252 = shufflevector <8 x float> %236, <8 x float> %240, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
@@ -670,7 +670,7 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %254 = shufflevector <16 x float> %252, <16 x float> %253, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
   store <32 x float> %254, ptr %251, align 4, !tbaa !19
   %255 = add nuw i64 %76, 8
-  %256 = add <8 x i64> %77, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %256 = add <8 x i64> %77, splat (i64 32)
   %257 = icmp eq i64 %255, %62
   br i1 %257, label %258, label %75, !llvm.loop !59
 

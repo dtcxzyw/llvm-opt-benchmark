@@ -18099,7 +18099,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3SetINS_7VtArrayINS_7GfVec2f
 
 .lr.ph.i.i.i.i10:                                 ; preds = %54, %.lr.ph.i.i.i.i10
   %.06.i.i.i.i11 = phi ptr [ %55, %.lr.ph.i.i.i.i10 ], [ %51, %54 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i11, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i11, align 4
   %55 = getelementptr inbounds i8, ptr %.06.i.i.i.i11, i64 8
   %.not.i.i.i.i12 = icmp eq ptr %55, %53
   br i1 %.not.i.i.i.i12, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit16, label %.lr.ph.i.i.i.i10, !llvm.loop !73
@@ -19990,7 +19990,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3SetINS_7VtArrayINS_7GfVec3f
 
 .lr.ph.i.i.i.i12:                                 ; preds = %55, %.lr.ph.i.i.i.i12
   %.06.i.i.i.i13 = phi ptr [ %56, %.lr.ph.i.i.i.i12 ], [ %52, %55 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i13, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i13, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i14 = getelementptr inbounds i8, ptr %.06.i.i.i.i13, i64 8
   store float 2.000000e+00, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i14, align 4
   %56 = getelementptr inbounds i8, ptr %.06.i.i.i.i13, i64 12
@@ -21879,9 +21879,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12UsdAttribute3SetINS_7VtArrayINS_7GfVec4f
 
 .lr.ph.i.i.i.i10:                                 ; preds = %54, %.lr.ph.i.i.i.i10
   %.06.i.i.i.i11 = phi ptr [ %55, %.lr.ph.i.i.i.i10 ], [ %51, %54 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i11, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i11, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i12 = getelementptr inbounds i8, ptr %.06.i.i.i.i11, i64 8
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i12, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.sroa.2.0..06.i.i.i.sroa_idx.i12, align 4
   %55 = getelementptr inbounds i8, ptr %.06.i.i.i.i11, i64 16
   %.not.i.i.i.i13 = icmp eq ptr %55, %53
   br i1 %.not.i.i.i.i13, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit17, label %.lr.ph.i.i.i.i10, !llvm.loop !81
@@ -29286,11 +29286,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %4, %8
           to label %12 unwind label %57
 
 12:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, <2 x float> splat (float 1.000000e+00))
           to label %13 unwind label %57
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> <float 2.000000e+00, float 2.000000e+00>)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> splat (float 2.000000e+00))
           to label %14 unwind label %57
 
 14:                                               ; preds = %13
@@ -29464,7 +29464,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i7:                                  ; preds = %31, %.lr.ph.i.i.i.i7
   %.06.i.i.i.i8 = phi ptr [ %32, %.lr.ph.i.i.i.i7 ], [ %28, %31 ]
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.06.i.i.i.i8, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %.06.i.i.i.i8, align 4
   %32 = getelementptr inbounds i8, ptr %.06.i.i.i.i8, i64 8
   %.not.i.i.i.i9 = icmp eq ptr %32, %30
   br i1 %.not.i.i.i.i9, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit13, label %.lr.ph.i.i.i.i7, !llvm.loop !73
@@ -29498,7 +29498,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i15:                                 ; preds = %39, %.lr.ph.i.i.i.i15
   %.06.i.i.i.i16 = phi ptr [ %40, %.lr.ph.i.i.i.i15 ], [ %36, %39 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i16, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i16, align 4
   %40 = getelementptr inbounds i8, ptr %.06.i.i.i.i16, i64 8
   %.not.i.i.i.i17 = icmp eq ptr %40, %38
   br i1 %.not.i.i.i.i17, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit21, label %.lr.ph.i.i.i.i15, !llvm.loop !73
@@ -30443,11 +30443,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %4, %8
           to label %12 unwind label %57
 
 12:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, <2 x float> splat (float 1.000000e+00), float 1.000000e+00)
           to label %13 unwind label %57
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> <float 2.000000e+00, float 2.000000e+00>, float 2.000000e+00)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> splat (float 2.000000e+00), float 2.000000e+00)
           to label %14 unwind label %57
 
 14:                                               ; preds = %13
@@ -30622,7 +30622,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i11:                                 ; preds = %32, %.lr.ph.i.i.i.i11
   %.06.i.i.i.i12 = phi ptr [ %33, %.lr.ph.i.i.i.i11 ], [ %29, %32 ]
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.06.i.i.i.i12, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %.06.i.i.i.i12, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i13 = getelementptr inbounds i8, ptr %.06.i.i.i.i12, i64 8
   store float 1.000000e+00, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i13, align 4
   %33 = getelementptr inbounds i8, ptr %.06.i.i.i.i12, i64 12
@@ -30658,7 +30658,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i20:                                 ; preds = %40, %.lr.ph.i.i.i.i20
   %.06.i.i.i.i21 = phi ptr [ %41, %.lr.ph.i.i.i.i20 ], [ %37, %40 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i21, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i21, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i22 = getelementptr inbounds i8, ptr %.06.i.i.i.i21, i64 8
   store float 2.000000e+00, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i22, align 4
   %41 = getelementptr inbounds i8, ptr %.06.i.i.i.i21, i64 12
@@ -31623,11 +31623,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %4, %8
           to label %12 unwind label %57
 
 12:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 1.000000e+00, <2 x float> splat (float 1.000000e+00), <2 x float> splat (float 1.000000e+00))
           to label %13 unwind label %57
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> <float 2.000000e+00, float 2.000000e+00>)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> splat (float 2.000000e+00), <2 x float> splat (float 2.000000e+00))
           to label %14 unwind label %57
 
 14:                                               ; preds = %13
@@ -31801,9 +31801,9 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i7:                                  ; preds = %31, %.lr.ph.i.i.i.i7
   %.06.i.i.i.i8 = phi ptr [ %32, %.lr.ph.i.i.i.i7 ], [ %28, %31 ]
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.06.i.i.i.i8, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %.06.i.i.i.i8, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i9 = getelementptr inbounds i8, ptr %.06.i.i.i.i8, i64 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i9, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %.sroa.2.0..06.i.i.i.sroa_idx.i9, align 4
   %32 = getelementptr inbounds i8, ptr %.06.i.i.i.i8, i64 16
   %.not.i.i.i.i10 = icmp eq ptr %32, %30
   br i1 %.not.i.i.i.i10, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit14, label %.lr.ph.i.i.i.i7, !llvm.loop !81
@@ -31837,9 +31837,9 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i16:                                 ; preds = %39, %.lr.ph.i.i.i.i16
   %.06.i.i.i.i17 = phi ptr [ %40, %.lr.ph.i.i.i.i16 ], [ %36, %39 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i17, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i17, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i18 = getelementptr inbounds i8, ptr %.06.i.i.i.i17, i64 8
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i18, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.sroa.2.0..06.i.i.i.sroa_idx.i18, align 4
   %40 = getelementptr inbounds i8, ptr %.06.i.i.i.i17, i64 16
   %.not.i.i.i.i19 = icmp eq ptr %40, %38
   br i1 %.not.i.i.i.i19, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit23, label %.lr.ph.i.i.i.i16, !llvm.loop !81
@@ -42043,7 +42043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %4, %8
           to label %13 unwind label %57
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> <float 2.000000e+00, float 2.000000e+00>)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> splat (float 2.000000e+00))
           to label %14 unwind label %57
 
 14:                                               ; preds = %13
@@ -42254,7 +42254,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i15:                                 ; preds = %44, %.lr.ph.i.i.i.i15
   %.06.i.i.i.i16 = phi ptr [ %45, %.lr.ph.i.i.i.i15 ], [ %41, %44 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i16, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i16, align 4
   %45 = getelementptr inbounds i8, ptr %.06.i.i.i.i16, i64 8
   %.not.i.i.i.i17 = icmp eq ptr %45, %43
   br i1 %.not.i.i.i.i17, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec2fEENS0_7VtArrayIT_EES3_m.exit21, label %.lr.ph.i.i.i.i15, !llvm.loop !73
@@ -43559,7 +43559,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %4, %8
           to label %13 unwind label %57
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> <float 2.000000e+00, float 2.000000e+00>, float 2.000000e+00)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> splat (float 2.000000e+00), float 2.000000e+00)
           to label %14 unwind label %57
 
 14:                                               ; preds = %13
@@ -43772,7 +43772,7 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec3fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i20:                                 ; preds = %46, %.lr.ph.i.i.i.i20
   %.06.i.i.i.i21 = phi ptr [ %47, %.lr.ph.i.i.i.i20 ], [ %43, %46 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i21, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i21, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i22 = getelementptr inbounds i8, ptr %.06.i.i.i.i21, i64 8
   store float 2.000000e+00, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i22, align 4
   %47 = getelementptr inbounds i8, ptr %.06.i.i.i.i21, i64 12
@@ -45089,7 +45089,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %4, %8
           to label %13 unwind label %57
 
 13:                                               ; preds = %12
-  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> <float 2.000000e+00, float 2.000000e+00>, <2 x float> <float 2.000000e+00, float 2.000000e+00>)
+  invoke fastcc void @_ZL20VerifyAttributeValueIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEEvRKNS0_12UsdAttributeENS0_11UsdTimeCodeET_(ptr noundef nonnull align 8 dereferenceable(32) %2, double 2.000000e+00, <2 x float> splat (float 2.000000e+00), <2 x float> splat (float 2.000000e+00))
           to label %14 unwind label %57
 
 14:                                               ; preds = %13
@@ -45300,9 +45300,9 @@ _ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_E
 
 .lr.ph.i.i.i.i16:                                 ; preds = %44, %.lr.ph.i.i.i.i16
   %.06.i.i.i.i17 = phi ptr [ %45, %.lr.ph.i.i.i.i16 ], [ %41, %44 ]
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.06.i.i.i.i17, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.06.i.i.i.i17, align 4
   %.sroa.2.0..06.i.i.i.sroa_idx.i18 = getelementptr inbounds i8, ptr %.06.i.i.i.i17, i64 8
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %.sroa.2.0..06.i.i.i.sroa_idx.i18, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %.sroa.2.0..06.i.i.i.sroa_idx.i18, align 4
   %45 = getelementptr inbounds i8, ptr %.06.i.i.i.i17, i64 16
   %.not.i.i.i.i19 = icmp eq ptr %45, %43
   br i1 %.not.i.i.i.i19, label %_ZL13CreateVtArrayIN32pxrInternal_v0_24__pxrReserved__7GfVec4fEENS0_7VtArrayIT_EES3_m.exit23, label %.lr.ph.i.i.i.i16, !llvm.loop !81

@@ -1223,7 +1223,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
   %136 = load ptr, ptr %135, align 8
   call void %136(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.120") align 16 %40, ptr noundef nonnull align 8 dereferenceable(64) %125, ptr noundef nonnull align 4 dereferenceable(12) %39, ptr noundef nonnull align 16 dereferenceable(240) %33, float noundef %129, ptr noundef nonnull align 4 dereferenceable(8) %41, i1 noundef zeroext true)
   %137 = load <4 x i32>, ptr %61, align 16
-  %138 = xor <4 x i32> %137, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %138 = xor <4 x i32> %137, splat (i32 -2147483648)
   %139 = bitcast <4 x i32> %138 to <4 x float>
   %140 = load <4 x float>, ptr %60, align 16
   %141 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %140, <4 x float> %139, i8 113)
@@ -1421,7 +1421,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
 
 225:                                              ; preds = %_ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_scalarINS5_7deepestIJT_T0_EE4typeENS5_4exprIJNS5_6scalarIS8_iE4typeENSD_IS9_iE4typeEEE4typeEiE4typeEXT1_EEERKNS4_IS8_XT1_EEERKNS4_IS9_XT1_EEE.exit225
   %226 = load <4 x i32>, ptr %67, align 16, !noalias !145
-  %227 = and <4 x i32> %226, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %227 = and <4 x i32> %226, splat (i32 2147483647)
   %228 = bitcast <4 x i32> %227 to <4 x float>
   %229 = shufflevector <4 x float> %228, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %230 = call contract noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> %228, <4 x float> %229)
@@ -1913,7 +1913,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.0500667 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit540 ], [ %181, %178 ]
   %179 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %55, i64 0, i64 %.0500667
   %180 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %179, i64 0, i64 %.0500667
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %180, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %180, align 16
   %181 = add nuw nsw i64 %.0500667, 1
   %exitcond679.not = icmp eq i64 %181, 4
   br i1 %exitcond679.not, label %182, label %178, !llvm.loop !170

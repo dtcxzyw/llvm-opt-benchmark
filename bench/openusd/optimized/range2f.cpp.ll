@@ -246,8 +246,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit: ; preds = %2
   br label %29
 
 29:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit, %5
-  %.sroa.020.0 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %5 ], [ %.sroa.020.4.vec.insert25, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit ]
-  %.sroa.5.0 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %5 ], [ %.sroa.5.12.vec.insert30, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit ]
+  %.sroa.020.0 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %5 ], [ %.sroa.020.4.vec.insert25, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit ]
+  %.sroa.5.0 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %5 ], [ %.sroa.5.12.vec.insert30, %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.020.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.5.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert

@@ -2195,8 +2195,8 @@ if.end.i.i:                                       ; preds = %land.lhs.true.i.i, 
   store i32 %add.i48.i.i, ptr %random.i883, align 4, !tbaa !53
   %18 = insertelement <2 x i32> poison, i32 %add.i48.i.i, i64 0
   %19 = insertelement <2 x i32> %18, i32 %add.i44.i.i, i64 1
-  %20 = sdiv <2 x i32> %19, <i32 65536, i32 65536>
-  %21 = and <2 x i32> %20, <i32 1, i32 1>
+  %20 = sdiv <2 x i32> %19, splat (i32 65536)
+  %21 = and <2 x i32> %20, splat (i32 1)
   %22 = icmp eq <2 x i32> %21, zeroinitializer
   %23 = extractelement <2 x i1> %22, i64 0
   %spec.select.i.i = select i1 %23, i16 1, i16 -1
@@ -2332,8 +2332,8 @@ if.end.i.i253:                                    ; preds = %land.lhs.true.i.i24
   store i32 %add.i48.i.i260, ptr %random.i883, align 4, !tbaa !53
   %42 = insertelement <2 x i32> poison, i32 %add.i48.i.i260, i64 0
   %43 = insertelement <2 x i32> %42, i32 %add.i44.i.i255, i64 1
-  %44 = sdiv <2 x i32> %43, <i32 65536, i32 65536>
-  %45 = and <2 x i32> %44, <i32 1, i32 1>
+  %44 = sdiv <2 x i32> %43, splat (i32 65536)
+  %45 = and <2 x i32> %44, splat (i32 1)
   %46 = icmp eq <2 x i32> %45, zeroinitializer
   %47 = extractelement <2 x i1> %46, i64 0
   %spec.select.i.i264 = select i1 %47, i16 1, i16 -1
@@ -2679,8 +2679,8 @@ if.end.i.i893:                                    ; preds = %land.lhs.true.i.i88
   store i32 %add.i48.i.i900, ptr %random.i883, align 4, !tbaa !53
   %87 = insertelement <2 x i32> poison, i32 %add.i48.i.i900, i64 0
   %88 = insertelement <2 x i32> %87, i32 %add.i44.i.i895, i64 1
-  %89 = sdiv <2 x i32> %88, <i32 65536, i32 65536>
-  %90 = and <2 x i32> %89, <i32 1, i32 1>
+  %89 = sdiv <2 x i32> %88, splat (i32 65536)
+  %90 = and <2 x i32> %89, splat (i32 1)
   %91 = icmp eq <2 x i32> %90, zeroinitializer
   %92 = extractelement <2 x i1> %91, i64 0
   %spec.select.i.i904 = select i1 %92, i16 1, i16 -1
@@ -3823,8 +3823,8 @@ if.end:                                           ; preds = %land.lhs.true, %ent
   store i32 %add.i48, ptr %random, align 4, !tbaa !53
   %3 = insertelement <2 x i32> poison, i32 %add.i48, i64 0
   %4 = insertelement <2 x i32> %3, i32 %add.i44, i64 1
-  %5 = sdiv <2 x i32> %4, <i32 65536, i32 65536>
-  %6 = and <2 x i32> %5, <i32 1, i32 1>
+  %5 = sdiv <2 x i32> %4, splat (i32 65536)
+  %6 = and <2 x i32> %5, splat (i32 1)
   %7 = icmp eq <2 x i32> %6, zeroinitializer
   %8 = extractelement <2 x i1> %7, i64 0
   %spec.select = select i1 %8, i16 1, i16 -1

@@ -374,7 +374,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 55:                                               ; preds = %53, %36
   %56 = phi ptr [ %54, %53 ], [ %14, %36 ]
   %57 = getelementptr inbounds i8, ptr %56, i64 272
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %57, align 4, !tbaa !6
+  store <4 x float> splat (float 1.000000e+00), ptr %57, align 4, !tbaa !6
   br label %687
 
 58:                                               ; preds = %.loopexit43, %38
@@ -781,7 +781,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
 352:                                              ; preds = %350, %330
   %353 = phi ptr [ %351, %350 ], [ %14, %330 ]
   %354 = getelementptr inbounds i8, ptr %353, i64 272
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %354, align 4, !tbaa !6
+  store <4 x float> splat (float 1.000000e+00), ptr %354, align 4, !tbaa !6
   br label %687
 
 355:                                              ; preds = %.loopexit, %337
@@ -935,30 +935,30 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %462 = phi i64 [ 0, %453 ], [ %486, %461 ]
   %463 = phi <8 x i64> [ %457, %453 ], [ %487, %461 ]
   %464 = add <8 x i64> %463, %347
-  %465 = and <8 x i64> %464, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %465 = and <8 x i64> %464, splat (i64 1)
   %466 = or disjoint <8 x i64> %465, %459
   %467 = trunc nuw nsw <8 x i64> %466 to <8 x i32>
-  %468 = shl nuw nsw <8 x i32> %467, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %468 = shl nuw nsw <8 x i32> %467, splat (i32 1)
   %469 = lshr <8 x i32> %349, %468
-  %470 = and <8 x i32> %469, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %470 = and <8 x i32> %469, splat (i32 3)
   %471 = zext nneg <8 x i32> %470 to <8 x i64>
   %472 = getelementptr inbounds [4 x float], ptr %9, i64 0, <8 x i64> %471
-  %473 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %472, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !6
+  %473 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %472, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !6
   %474 = add i64 %460, %462
   %475 = getelementptr inbounds float, ptr %2, i64 %474
   %476 = load <8 x float>, ptr %475, align 4, !tbaa !6
   %477 = fsub reassoc nsz arcp contract afn <8 x float> %473, %476
-  %478 = fcmp reassoc nsz arcp contract afn ule <8 x float> %477, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %478 = fcmp reassoc nsz arcp contract afn ule <8 x float> %477, splat (float 1.000000e+00)
   %479 = fcmp reassoc nsz arcp contract afn olt <8 x float> %477, zeroinitializer
-  %480 = xor <8 x i1> %479, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %480 = xor <8 x i1> %479, splat (i1 true)
   %481 = and <8 x i1> %478, %480
   %482 = and <8 x i1> %478, %479
-  %483 = select <8 x i1> %481, <8 x float> %477, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %483 = select <8 x i1> %481, <8 x float> %477, <8 x float> splat (float 1.000000e+00)
   %484 = select <8 x i1> %482, <8 x float> zeroinitializer, <8 x float> %483
   %485 = getelementptr inbounds float, ptr %3, i64 %474
   store <8 x float> %484, ptr %485, align 4, !tbaa !6
   %486 = add nuw i64 %462, 8
-  %487 = add <8 x i64> %463, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %487 = add <8 x i64> %463, splat (i64 8)
   %488 = icmp eq i64 %486, %454
   br i1 %488, label %489, label %461, !llvm.loop !83
 

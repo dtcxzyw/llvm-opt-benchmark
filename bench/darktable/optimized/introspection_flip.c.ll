@@ -351,13 +351,13 @@ define noundef i32 @distort_transform(ptr nocapture noundef readnone %0, ptr noc
 127:                                              ; preds = %127, %123
   %128 = phi i64 [ 0, %123 ], [ %134, %127 ]
   %129 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %123 ], [ %135, %127 ]
-  %130 = or disjoint <8 x i64> %129, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %130 = or disjoint <8 x i64> %129, splat (i64 1)
   %131 = getelementptr inbounds float, ptr %2, <8 x i64> %130
-  %132 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !41
+  %132 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !41
   %133 = fsub reassoc nsz arcp contract afn <8 x float> %126, %132
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %133, <8 x ptr> %131, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !41
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %133, <8 x ptr> %131, i32 4, <8 x i1> splat (i1 true)), !tbaa !41
   %134 = add nuw i64 %128, 8
-  %135 = add <8 x i64> %129, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %135 = add <8 x i64> %129, splat (i64 16)
   %136 = icmp eq i64 %134, %124
   br i1 %136, label %137, label %127, !llvm.loop !48
 
@@ -874,13 +874,13 @@ define noundef i32 @distort_backtransform(ptr nocapture noundef readnone %0, ptr
 127:                                              ; preds = %127, %123
   %128 = phi i64 [ 0, %123 ], [ %134, %127 ]
   %129 = phi <8 x i64> [ <i64 0, i64 2, i64 4, i64 6, i64 8, i64 10, i64 12, i64 14>, %123 ], [ %135, %127 ]
-  %130 = or disjoint <8 x i64> %129, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %130 = or disjoint <8 x i64> %129, splat (i64 1)
   %131 = getelementptr inbounds float, ptr %2, <8 x i64> %130
-  %132 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !41
+  %132 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !41
   %133 = fsub reassoc nsz arcp contract afn <8 x float> %126, %132
-  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %133, <8 x ptr> %131, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !41
+  tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %133, <8 x ptr> %131, i32 4, <8 x i1> splat (i1 true)), !tbaa !41
   %134 = add nuw i64 %128, 8
-  %135 = add <8 x i64> %129, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %135 = add <8 x i64> %129, splat (i64 16)
   %136 = icmp eq i64 %134, %124
   br i1 %136, label %137, label %127, !llvm.loop !63
 
@@ -1272,7 +1272,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %14 = icmp eq i32 %13, 0
   %15 = load <2 x i32>, ptr %2, align 4, !tbaa !34
   %16 = load <2 x i32>, ptr %7, align 4, !tbaa !34
-  %17 = add <2 x i32> %15, <i32 -1, i32 -1>
+  %17 = add <2 x i32> %15, splat (i32 -1)
   %18 = add <2 x i32> %17, %16
   %19 = load <2 x i32>, ptr %10, align 4, !tbaa !34
   %20 = sitofp <2 x i32> %19 to <2 x float>
@@ -1287,8 +1287,8 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   br i1 %14, label %29, label %38
 
 29:                                               ; preds = %4
-  %30 = xor <2 x i32> %15, <i32 -1, i32 -1>
-  %31 = xor <2 x i32> %18, <i32 -1, i32 -1>
+  %30 = xor <2 x i32> %15, splat (i32 -1)
+  %31 = xor <2 x i32> %18, splat (i32 -1)
   %32 = add <2 x i32> %24, %30
   %33 = select <2 x i1> %28, <2 x i32> %15, <2 x i32> %32
   %34 = add <2 x i32> %24, %31
@@ -1341,7 +1341,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %69 = xor i32 %68, -1
   %70 = extractelement <2 x i32> %24, i64 0
   %71 = add i32 %70, %69
-  %72 = xor <2 x i32> %18, <i32 -1, i32 -1>
+  %72 = xor <2 x i32> %18, splat (i32 -1)
   %73 = add <2 x i32> %24, %72
   %74 = shufflevector <2 x i32> %73, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   %75 = insertelement <2 x i32> poison, i32 %65, i64 0
@@ -1367,7 +1367,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %91 = phi <2 x i32> [ %36, %29 ], [ %58, %56 ], [ %54, %42 ], [ %87, %79 ], [ %77, %67 ]
   %92 = sub nsw <2 x i32> %90, %91
   %93 = getelementptr inbounds i8, ptr %3, i64 8
-  %94 = add nsw <2 x i32> %92, <i32 1, i32 1>
+  %94 = add nsw <2 x i32> %92, splat (i32 1)
   store <2 x i32> %94, ptr %93, align 4, !tbaa !34
   %95 = getelementptr inbounds i8, ptr %1, i64 144
   %96 = load <2 x i32>, ptr %95, align 8, !tbaa !34
@@ -1383,7 +1383,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %105 = fptosi <2 x float> %104 to <2 x i32>
   %106 = sub nsw <2 x i32> %105, %103
   %107 = icmp slt <2 x i32> %92, %106
-  %108 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %94, <2 x i32> <i32 1, i32 1>)
+  %108 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %94, <2 x i32> splat (i32 1))
   %109 = select <2 x i1> %107, <2 x i32> %108, <2 x i32> %106
   store <2 x i32> %109, ptr %93, align 4, !tbaa !34
   ret void

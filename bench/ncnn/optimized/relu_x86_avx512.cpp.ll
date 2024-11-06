@@ -346,7 +346,7 @@ define hidden noundef i32 @_ZNK4ncnn15ReLU_x86_avx51215forward_inplaceERNS_3MatE
   %.0258311 = phi i32 [ %146, %.lr.ph ], [ 0, %131 ]
   %141 = load <16 x float>, ptr %.0254312, align 1
   %142 = fcmp fast olt <16 x float> %141, zeroinitializer
-  %143 = select fast <16 x i1> %142, <16 x float> %140, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %143 = select fast <16 x i1> %142, <16 x float> %140, <16 x float> splat (float 1.000000e+00)
   %144 = fmul fast <16 x float> %143, %141
   store <16 x float> %144, ptr %.0254312, align 1
   %145 = getelementptr inbounds i8, ptr %.0254312, i64 64

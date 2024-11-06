@@ -2187,16 +2187,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br i1 %60, label %266, label %237
 
 237:                                              ; preds = %229
-  %238 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %233, <8 x i32> %84, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %238 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %233, <8 x i32> %84, <8 x i32> splat (i32 -1), i8 1)
   %239 = bitcast <8 x i32> %238 to <32 x i8>
   %240 = shufflevector <32 x i8> %239, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %241 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %234, <8 x i32> %84, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %241 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %234, <8 x i32> %84, <8 x i32> splat (i32 -1), i8 1)
   %242 = bitcast <8 x i32> %241 to <32 x i8>
   %243 = shufflevector <32 x i8> %242, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %244 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %235, <8 x i32> %84, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %244 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %235, <8 x i32> %84, <8 x i32> splat (i32 -1), i8 1)
   %245 = bitcast <8 x i32> %244 to <32 x i8>
   %246 = shufflevector <32 x i8> %245, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %247 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %236, <8 x i32> %84, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %247 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %236, <8 x i32> %84, <8 x i32> splat (i32 -1), i8 1)
   %248 = bitcast <8 x i32> %247 to <32 x i8>
   %249 = shufflevector <32 x i8> %248, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %250 = bitcast <32 x i8> %240 to <8 x i32>
@@ -2933,10 +2933,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %732 = sext i32 %731 to i64
   %733 = getelementptr inbounds i8, ptr %722, i64 %732
   %734 = getelementptr inbounds i8, ptr %724, i64 %732
-  %735 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %733, <8 x i32> %145, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %735 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %733, <8 x i32> %145, <8 x i32> splat (i32 -1), i8 1)
   %736 = bitcast <8 x i32> %735 to <32 x i8>
   %737 = shufflevector <32 x i8> %736, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %738 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %734, <8 x i32> %145, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %738 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %734, <8 x i32> %145, <8 x i32> splat (i32 -1), i8 1)
   %739 = bitcast <8 x i32> %738 to <32 x i8>
   %740 = shufflevector <32 x i8> %739, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %741 = bitcast <32 x i8> %737 to <8 x i32>
@@ -3400,7 +3400,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %1027 = load i32, ptr %1026, align 4
   %1028 = sext i32 %1027 to i64
   %1029 = getelementptr inbounds i8, ptr %gep382.us, i64 %1028
-  %1030 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1029, <8 x i32> %607, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1030 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1029, <8 x i32> %607, <8 x i32> splat (i32 -1), i8 1)
   %1031 = bitcast <8 x i32> %1030 to <32 x i8>
   %1032 = shufflevector <32 x i8> %1031, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %1033 = bitcast <32 x i8> %1032 to <8 x i32>
@@ -3962,16 +3962,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %1382 = getelementptr inbounds i8, ptr %1372, i64 %1380
   %1383 = getelementptr inbounds i8, ptr %1374, i64 %1380
   %1384 = getelementptr inbounds i8, ptr %1376, i64 %1380
-  %1385 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1381, <8 x i32> %1203, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1385 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1381, <8 x i32> %1203, <8 x i32> splat (i32 -1), i8 1)
   %1386 = bitcast <8 x i32> %1385 to <32 x i8>
   %1387 = shufflevector <32 x i8> %1386, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %1388 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1382, <8 x i32> %1203, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1388 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1382, <8 x i32> %1203, <8 x i32> splat (i32 -1), i8 1)
   %1389 = bitcast <8 x i32> %1388 to <32 x i8>
   %1390 = shufflevector <32 x i8> %1389, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %1391 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1383, <8 x i32> %1203, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1391 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1383, <8 x i32> %1203, <8 x i32> splat (i32 -1), i8 1)
   %1392 = bitcast <8 x i32> %1391 to <32 x i8>
   %1393 = shufflevector <32 x i8> %1392, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %1394 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1384, <8 x i32> %1203, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1394 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1384, <8 x i32> %1203, <8 x i32> splat (i32 -1), i8 1)
   %1395 = bitcast <8 x i32> %1394 to <32 x i8>
   %1396 = shufflevector <32 x i8> %1395, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %1397 = bitcast <32 x i8> %1387 to <8 x i32>
@@ -4585,10 +4585,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %1826 = sext i32 %1825 to i64
   %1827 = getelementptr inbounds i8, ptr %1820, i64 %1826
   %1828 = getelementptr inbounds i8, ptr %1822, i64 %1826
-  %1829 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1827, <8 x i32> %1237, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1829 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1827, <8 x i32> %1237, <8 x i32> splat (i32 -1), i8 1)
   %1830 = bitcast <8 x i32> %1829 to <32 x i8>
   %1831 = shufflevector <32 x i8> %1830, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %1832 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1828, <8 x i32> %1237, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1832 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1828, <8 x i32> %1237, <8 x i32> splat (i32 -1), i8 1)
   %1833 = bitcast <8 x i32> %1832 to <32 x i8>
   %1834 = shufflevector <32 x i8> %1833, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %1835 = bitcast <32 x i8> %1831 to <8 x i32>
@@ -5002,7 +5002,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2099 = load i32, ptr %2098, align 4
   %2100 = sext i32 %2099 to i64
   %2101 = getelementptr inbounds i8, ptr %gep723.us, i64 %2100
-  %2102 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2101, <8 x i32> %1731, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2102 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2101, <8 x i32> %1731, <8 x i32> splat (i32 -1), i8 1)
   %2103 = bitcast <8 x i32> %2102 to <32 x i8>
   %2104 = shufflevector <32 x i8> %2103, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %2105 = bitcast <32 x i8> %2104 to <8 x i32>
@@ -5495,16 +5495,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2406 = getelementptr inbounds i8, ptr %2392, i64 %2404
   %2407 = getelementptr inbounds i8, ptr %2394, i64 %2404
   %2408 = getelementptr inbounds i8, ptr %2396, i64 %2404
-  %2409 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2405, <8 x i32> %2271, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2409 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2405, <8 x i32> %2271, <8 x i32> splat (i32 -1), i8 1)
   %2410 = bitcast <8 x i32> %2409 to <32 x i8>
   %2411 = shufflevector <32 x i8> %2410, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %2412 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2406, <8 x i32> %2271, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2412 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2406, <8 x i32> %2271, <8 x i32> splat (i32 -1), i8 1)
   %2413 = bitcast <8 x i32> %2412 to <32 x i8>
   %2414 = shufflevector <32 x i8> %2413, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %2415 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2407, <8 x i32> %2271, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2415 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2407, <8 x i32> %2271, <8 x i32> splat (i32 -1), i8 1)
   %2416 = bitcast <8 x i32> %2415 to <32 x i8>
   %2417 = shufflevector <32 x i8> %2416, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %2418 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2408, <8 x i32> %2271, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2418 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2408, <8 x i32> %2271, <8 x i32> splat (i32 -1), i8 1)
   %2419 = bitcast <8 x i32> %2418 to <32 x i8>
   %2420 = shufflevector <32 x i8> %2419, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %2421 = bitcast <32 x i8> %2411 to <8 x i32>
@@ -6000,10 +6000,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2766 = sext i32 %2765 to i64
   %2767 = getelementptr inbounds i8, ptr %2760, i64 %2766
   %2768 = getelementptr inbounds i8, ptr %2762, i64 %2766
-  %2769 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2767, <8 x i32> %2286, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2769 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2767, <8 x i32> %2286, <8 x i32> splat (i32 -1), i8 1)
   %2770 = bitcast <8 x i32> %2769 to <32 x i8>
   %2771 = shufflevector <32 x i8> %2770, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %2772 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2768, <8 x i32> %2286, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2772 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2768, <8 x i32> %2286, <8 x i32> splat (i32 -1), i8 1)
   %2773 = bitcast <8 x i32> %2772 to <32 x i8>
   %2774 = shufflevector <32 x i8> %2773, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %2775 = bitcast <32 x i8> %2771 to <8 x i32>
@@ -6378,7 +6378,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3002 = load i32, ptr %3001, align 4
   %3003 = sext i32 %3002 to i64
   %3004 = getelementptr inbounds i8, ptr %gep1052.us, i64 %3003
-  %3005 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3004, <8 x i32> %2694, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3005 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3004, <8 x i32> %2694, <8 x i32> splat (i32 -1), i8 1)
   %3006 = bitcast <8 x i32> %3005 to <32 x i8>
   %3007 = shufflevector <32 x i8> %3006, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %3008 = bitcast <32 x i8> %3007 to <8 x i32>
@@ -6850,16 +6850,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3296 = getelementptr inbounds i8, ptr %3282, i64 %3294
   %3297 = getelementptr inbounds i8, ptr %3284, i64 %3294
   %3298 = getelementptr inbounds i8, ptr %3286, i64 %3294
-  %3299 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3295, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3299 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3295, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3300 = bitcast <8 x i32> %3299 to <32 x i8>
   %3301 = shufflevector <32 x i8> %3300, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %3302 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3296, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3302 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3296, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3303 = bitcast <8 x i32> %3302 to <32 x i8>
   %3304 = shufflevector <32 x i8> %3303, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %3305 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3297, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3305 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3297, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3306 = bitcast <8 x i32> %3305 to <32 x i8>
   %3307 = shufflevector <32 x i8> %3306, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %3308 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3298, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3308 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3298, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3309 = bitcast <8 x i32> %3308 to <32 x i8>
   %3310 = shufflevector <32 x i8> %3309, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %3311 = bitcast <32 x i8> %3301 to <8 x i32>
@@ -7295,10 +7295,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3608 = sext i32 %3607 to i64
   %3609 = getelementptr inbounds i8, ptr %3602, i64 %3608
   %3610 = getelementptr inbounds i8, ptr %3604, i64 %3608
-  %3611 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3609, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3611 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3609, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3612 = bitcast <8 x i32> %3611 to <32 x i8>
   %3613 = shufflevector <32 x i8> %3612, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
-  %3614 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3610, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3614 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3610, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3615 = bitcast <8 x i32> %3614 to <32 x i8>
   %3616 = shufflevector <32 x i8> %3615, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %3617 = bitcast <32 x i8> %3613 to <8 x i32>
@@ -7622,7 +7622,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3804 = load i32, ptr %3803, align 4
   %3805 = sext i32 %3804 to i64
   %3806 = getelementptr inbounds i8, ptr %gep1356.us, i64 %3805
-  %3807 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3806, <8 x i32> %3138, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3807 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3806, <8 x i32> %3138, <8 x i32> splat (i32 -1), i8 1)
   %3808 = bitcast <8 x i32> %3807 to <32 x i8>
   %3809 = shufflevector <32 x i8> %3808, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %3810 = bitcast <32 x i8> %3809 to <8 x i32>
@@ -12538,8 +12538,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd23_int
   %449 = add <8 x i32> %448, %445
   %450 = sub <8 x i32> %443, %445
   %451 = add <8 x i32> %450, %447
-  %452 = ashr <8 x i32> %449, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %453 = ashr <8 x i32> %451, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %452 = ashr <8 x i32> %449, splat (i32 2)
+  %453 = ashr <8 x i32> %451, splat (i32 2)
   %454 = bitcast <8 x i32> %453 to <4 x i64>
   switch i32 %358, label %485 [
     i32 8, label %482
@@ -12779,8 +12779,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd23_int
   %576 = add <4 x i32> %575, %572
   %577 = sub <4 x i32> %570, %572
   %578 = add <4 x i32> %577, %574
-  %579 = ashr <4 x i32> %576, <i32 2, i32 2, i32 2, i32 2>
-  %580 = ashr <4 x i32> %578, <i32 2, i32 2, i32 2, i32 2>
+  %579 = ashr <4 x i32> %576, splat (i32 2)
+  %580 = ashr <4 x i32> %578, splat (i32 2)
   switch i32 %358, label %593 [
     i32 4, label %590
     i32 1, label %581
@@ -14240,13 +14240,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd43_int
   %447 = sub <8 x i32> %441, %442
   %448 = add <8 x i32> %444, %438
   %449 = add <8 x i32> %448, %445
-  %450 = shl <8 x i32> %447, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %450 = shl <8 x i32> %447, splat (i32 1)
   %451 = add <8 x i32> %450, %446
-  %452 = shl <8 x i32> %445, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %452 = shl <8 x i32> %445, splat (i32 2)
   %453 = add <8 x i32> %452, %444
-  %454 = shl <8 x i32> %447, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %454 = shl <8 x i32> %447, splat (i32 3)
   %455 = add <8 x i32> %454, %446
-  %456 = shl <8 x i32> %443, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %456 = shl <8 x i32> %443, splat (i32 2)
   %457 = add <8 x i32> %455, %456
   %458 = getelementptr inbounds [6 x [8 x i32]], ptr %6, i64 0, i64 %indvars.iv.i.us.i
   store <8 x i32> %449, ptr %458, align 32
@@ -14282,15 +14282,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd43_int
   %480 = sub <8 x i32> %474, %475
   %481 = add <8 x i32> %477, %471
   %482 = add <8 x i32> %481, %478
-  %483 = shl <8 x i32> %482, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %484 = shl <8 x i32> %480, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
-  %485 = shl <8 x i32> %479, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %483 = shl <8 x i32> %482, splat (i32 2)
+  %484 = shl <8 x i32> %480, splat (i32 3)
+  %485 = shl <8 x i32> %479, splat (i32 2)
   %486 = add <8 x i32> %484, %485
-  %487 = shl <8 x i32> %478, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %488 = shl <8 x i32> %477, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %487 = shl <8 x i32> %478, splat (i32 4)
+  %488 = shl <8 x i32> %477, splat (i32 2)
   %489 = add <8 x i32> %487, %488
-  %490 = shl <8 x i32> %476, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %491 = shl <8 x i32> %480, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
+  %490 = shl <8 x i32> %476, splat (i32 4)
+  %491 = shl <8 x i32> %480, splat (i32 5)
   %492 = add <8 x i32> %491, %485
   %493 = add <8 x i32> %492, %490
   store <8 x i32> %483, ptr %332, align 32
@@ -14349,26 +14349,26 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd43_int
   %536 = sub <8 x i32> %528, %530
   %537 = add <8 x i32> %533, %522
   %538 = add <8 x i32> %537, %534
-  %539 = shl <8 x i32> %536, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %539 = shl <8 x i32> %536, splat (i32 1)
   %540 = add <8 x i32> %539, %535
-  %541 = shl <8 x i32> %534, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %541 = shl <8 x i32> %534, splat (i32 2)
   %542 = add <8 x i32> %541, %533
-  %543 = shl <8 x i32> %536, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %543 = shl <8 x i32> %536, splat (i32 3)
   %544 = add <8 x i32> %532, %535
   %545 = add <8 x i32> %544, %543
   %546 = sitofp <8 x i32> %538 to <8 x float>
-  %547 = fmul fast <8 x float> %546, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %547 = fmul fast <8 x float> %546, splat (float 0x3F5C71C720000000)
   %548 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %547)
   %549 = sitofp <8 x i32> %540 to <8 x float>
-  %550 = fmul fast <8 x float> %549, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %550 = fmul fast <8 x float> %549, splat (float 0x3F5C71C720000000)
   %551 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %550)
   %552 = bitcast <8 x i32> %551 to <4 x i64>
   %553 = sitofp <8 x i32> %542 to <8 x float>
-  %554 = fmul fast <8 x float> %553, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %554 = fmul fast <8 x float> %553, splat (float 0x3F5C71C720000000)
   %555 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %554)
   %556 = bitcast <8 x i32> %555 to <4 x i64>
   %557 = sitofp <8 x i32> %545 to <8 x float>
-  %558 = fmul fast <8 x float> %557, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %558 = fmul fast <8 x float> %557, splat (float 0x3F5C71C720000000)
   %559 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %558)
   %560 = bitcast <8 x i32> %559 to <4 x i64>
   switch i32 %389, label %629 [
@@ -14666,13 +14666,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd43_int
   %687 = sub <4 x i32> %681, %682
   %688 = add <4 x i32> %684, %678
   %689 = add <4 x i32> %688, %685
-  %690 = shl <4 x i32> %687, <i32 1, i32 1, i32 1, i32 1>
+  %690 = shl <4 x i32> %687, splat (i32 1)
   %691 = add <4 x i32> %690, %686
-  %692 = shl <4 x i32> %685, <i32 2, i32 2, i32 2, i32 2>
+  %692 = shl <4 x i32> %685, splat (i32 2)
   %693 = add <4 x i32> %692, %684
-  %694 = shl <4 x i32> %687, <i32 3, i32 3, i32 3, i32 3>
+  %694 = shl <4 x i32> %687, splat (i32 3)
   %695 = add <4 x i32> %694, %686
-  %696 = shl <4 x i32> %683, <i32 2, i32 2, i32 2, i32 2>
+  %696 = shl <4 x i32> %683, splat (i32 2)
   %697 = add <4 x i32> %695, %696
   %698 = getelementptr inbounds [6 x [4 x i32]], ptr %7, i64 0, i64 %indvars.iv220.i.us.i
   store <4 x i32> %689, ptr %698, align 16
@@ -14708,15 +14708,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd43_int
   %720 = sub <4 x i32> %714, %715
   %721 = add <4 x i32> %717, %711
   %722 = add <4 x i32> %721, %718
-  %723 = shl <4 x i32> %722, <i32 2, i32 2, i32 2, i32 2>
-  %724 = shl <4 x i32> %720, <i32 3, i32 3, i32 3, i32 3>
-  %725 = shl <4 x i32> %719, <i32 2, i32 2, i32 2, i32 2>
+  %723 = shl <4 x i32> %722, splat (i32 2)
+  %724 = shl <4 x i32> %720, splat (i32 3)
+  %725 = shl <4 x i32> %719, splat (i32 2)
   %726 = add <4 x i32> %724, %725
-  %727 = shl <4 x i32> %718, <i32 4, i32 4, i32 4, i32 4>
-  %728 = shl <4 x i32> %717, <i32 2, i32 2, i32 2, i32 2>
+  %727 = shl <4 x i32> %718, splat (i32 4)
+  %728 = shl <4 x i32> %717, splat (i32 2)
   %729 = add <4 x i32> %727, %728
-  %730 = shl <4 x i32> %716, <i32 4, i32 4, i32 4, i32 4>
-  %731 = shl <4 x i32> %720, <i32 5, i32 5, i32 5, i32 5>
+  %730 = shl <4 x i32> %716, splat (i32 4)
+  %731 = shl <4 x i32> %720, splat (i32 5)
   %732 = add <4 x i32> %731, %725
   %733 = add <4 x i32> %732, %730
   store <4 x i32> %723, ptr %340, align 16
@@ -14775,24 +14775,24 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn33conv3x3s1_winograd43_int
   %776 = sub <4 x i32> %768, %770
   %777 = add <4 x i32> %773, %762
   %778 = add <4 x i32> %777, %774
-  %779 = shl <4 x i32> %776, <i32 1, i32 1, i32 1, i32 1>
+  %779 = shl <4 x i32> %776, splat (i32 1)
   %780 = add <4 x i32> %779, %775
-  %781 = shl <4 x i32> %774, <i32 2, i32 2, i32 2, i32 2>
+  %781 = shl <4 x i32> %774, splat (i32 2)
   %782 = add <4 x i32> %781, %773
-  %783 = shl <4 x i32> %776, <i32 3, i32 3, i32 3, i32 3>
+  %783 = shl <4 x i32> %776, splat (i32 3)
   %784 = add <4 x i32> %772, %775
   %785 = add <4 x i32> %784, %783
   %786 = sitofp <4 x i32> %778 to <4 x float>
-  %787 = fmul fast <4 x float> %786, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %787 = fmul fast <4 x float> %786, splat (float 0x3F5C71C720000000)
   %788 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %787)
   %789 = sitofp <4 x i32> %780 to <4 x float>
-  %790 = fmul fast <4 x float> %789, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %790 = fmul fast <4 x float> %789, splat (float 0x3F5C71C720000000)
   %791 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %790)
   %792 = sitofp <4 x i32> %782 to <4 x float>
-  %793 = fmul fast <4 x float> %792, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %793 = fmul fast <4 x float> %792, splat (float 0x3F5C71C720000000)
   %794 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %793)
   %795 = sitofp <4 x i32> %785 to <4 x float>
-  %796 = fmul fast <4 x float> %795, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %796 = fmul fast <4 x float> %795, splat (float 0x3F5C71C720000000)
   %797 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %796)
   switch i32 %389, label %828 [
     i32 4, label %819
@@ -16091,7 +16091,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   ]
 
 105:                                              ; preds = %104
-  %106 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.0681802.us, <8 x i32> %33, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %106 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.0681802.us, <8 x i32> %33, <8 x i32> splat (i32 -1), i8 1)
   %107 = bitcast <8 x i32> %106 to <32 x i8>
   %108 = shufflevector <32 x i8> %107, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %109 = bitcast <32 x i8> %108 to <8 x i32>
@@ -16105,7 +16105,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 116:                                              ; preds = %105
   %117 = getelementptr inbounds i8, ptr %.0681802.us, i64 1
-  %118 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %117, <8 x i32> %33, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %118 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %117, <8 x i32> %33, <8 x i32> splat (i32 -1), i8 1)
   %119 = bitcast <8 x i32> %118 to <32 x i8>
   %120 = shufflevector <32 x i8> %119, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %121 = bitcast <32 x i8> %120 to <8 x i32>
@@ -16123,7 +16123,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 129:                                              ; preds = %128
   %130 = getelementptr inbounds i8, ptr %.0681802.us, i64 2
-  %131 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %130, <8 x i32> %33, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %131 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %130, <8 x i32> %33, <8 x i32> splat (i32 -1), i8 1)
   %132 = bitcast <8 x i32> %131 to <32 x i8>
   %133 = shufflevector <32 x i8> %132, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %134 = bitcast <32 x i8> %133 to <8 x i32>
@@ -16141,7 +16141,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 142:                                              ; preds = %141
   %143 = getelementptr inbounds i8, ptr %.0681802.us, i64 3
-  %144 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %143, <8 x i32> %33, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %144 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %143, <8 x i32> %33, <8 x i32> splat (i32 -1), i8 1)
   %145 = bitcast <8 x i32> %144 to <32 x i8>
   %146 = shufflevector <32 x i8> %145, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %147 = bitcast <32 x i8> %146 to <8 x i32>
@@ -16156,7 +16156,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %154 = load i64, ptr %.0681802.us, align 1
   %155 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %154, i64 0
   %156 = bitcast <2 x i64> %155 to <16 x i8>
-  %.lobit.us = ashr <16 x i8> %156, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.us = ashr <16 x i8> %156, splat (i8 7)
   %157 = shufflevector <16 x i8> %156, <16 x i8> %.lobit.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %158 = bitcast <16 x i8> %157 to <2 x i64>
   br i1 %72, label %159, label %166
@@ -16166,7 +16166,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %161 = load i64, ptr %160, align 1
   %162 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %161, i64 0
   %163 = bitcast <2 x i64> %162 to <16 x i8>
-  %.lobit794.us = ashr <16 x i8> %163, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit794.us = ashr <16 x i8> %163, splat (i8 7)
   %164 = shufflevector <16 x i8> %163, <16 x i8> %.lobit794.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %165 = bitcast <16 x i8> %164 to <2 x i64>
   br label %166
@@ -16180,7 +16180,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %169 = load i64, ptr %168, align 1
   %170 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %169, i64 0
   %171 = bitcast <2 x i64> %170 to <16 x i8>
-  %.lobit795.us = ashr <16 x i8> %171, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit795.us = ashr <16 x i8> %171, splat (i8 7)
   %172 = shufflevector <16 x i8> %171, <16 x i8> %.lobit795.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %173 = bitcast <16 x i8> %172 to <2 x i64>
   br label %174
@@ -16194,7 +16194,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %177 = load i64, ptr %176, align 1
   %178 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %177, i64 0
   %179 = bitcast <2 x i64> %178 to <16 x i8>
-  %.lobit796.us = ashr <16 x i8> %179, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit796.us = ashr <16 x i8> %179, splat (i8 7)
   %180 = shufflevector <16 x i8> %179, <16 x i8> %.lobit796.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %181 = bitcast <16 x i8> %180 to <8 x i16>
   br label %.thread.us
@@ -19638,22 +19638,22 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %108 = load <8 x i16>, ptr %107, align 32
   %109 = getelementptr inbounds i8, ptr %99, i64 80
   %110 = load <8 x i16>, ptr %109, align 16
-  %111 = shl <8 x i16> %102, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %111 = shl <8 x i16> %102, splat (i16 2)
   %112 = sub <8 x i16> %106, %111
-  %113 = shl <8 x i16> %104, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %113 = shl <8 x i16> %104, splat (i16 2)
   %114 = sub <8 x i16> %108, %113
   %115 = sub <8 x i16> %106, %102
-  %116 = shl <8 x i16> %115, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %116 = shl <8 x i16> %115, splat (i16 1)
   %117 = sub <8 x i16> %108, %104
-  %118 = shl <8 x i16> %100, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %.neg1232.us = mul <8 x i16> %104, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %118 = shl <8 x i16> %100, splat (i16 2)
+  %.neg1232.us = mul <8 x i16> %104, splat (i16 -5)
   %119 = add <8 x i16> %.neg1232.us, %118
   %120 = add <8 x i16> %119, %108
   %121 = add <8 x i16> %114, %112
   %122 = sub <8 x i16> %114, %112
   %123 = add <8 x i16> %117, %116
   %124 = sub <8 x i16> %117, %116
-  %.neg1233.us = mul <8 x i16> %106, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %.neg1233.us = mul <8 x i16> %106, splat (i16 -5)
   %125 = add <8 x i16> %.neg1233.us, %111
   %126 = add <8 x i16> %125, %110
   store <8 x i16> %120, ptr %.011061255.us, align 16
@@ -19685,7 +19685,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   ]
 
 136:                                              ; preds = %135
-  %137 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.010661248.us, <8 x i32> %35, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %137 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.010661248.us, <8 x i32> %35, <8 x i32> splat (i32 -1), i8 1)
   %138 = bitcast <8 x i32> %137 to <32 x i8>
   %139 = shufflevector <32 x i8> %138, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %140 = bitcast <32 x i8> %139 to <8 x i32>
@@ -19699,7 +19699,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 147:                                              ; preds = %136
   %148 = getelementptr inbounds i8, ptr %.010661248.us, i64 1
-  %149 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %148, <8 x i32> %35, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %149 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %148, <8 x i32> %35, <8 x i32> splat (i32 -1), i8 1)
   %150 = bitcast <8 x i32> %149 to <32 x i8>
   %151 = shufflevector <32 x i8> %150, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %152 = bitcast <32 x i8> %151 to <8 x i32>
@@ -19717,7 +19717,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 160:                                              ; preds = %159
   %161 = getelementptr inbounds i8, ptr %.010661248.us, i64 2
-  %162 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %161, <8 x i32> %35, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %162 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %161, <8 x i32> %35, <8 x i32> splat (i32 -1), i8 1)
   %163 = bitcast <8 x i32> %162 to <32 x i8>
   %164 = shufflevector <32 x i8> %163, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %165 = bitcast <32 x i8> %164 to <8 x i32>
@@ -19735,7 +19735,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 173:                                              ; preds = %172
   %174 = getelementptr inbounds i8, ptr %.010661248.us, i64 3
-  %175 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %174, <8 x i32> %35, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %175 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %174, <8 x i32> %35, <8 x i32> splat (i32 -1), i8 1)
   %176 = bitcast <8 x i32> %175 to <32 x i8>
   %177 = shufflevector <32 x i8> %176, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %178 = bitcast <32 x i8> %177 to <8 x i32>
@@ -19753,7 +19753,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 186:                                              ; preds = %185
   %187 = getelementptr inbounds i8, ptr %.010661248.us, i64 4
-  %188 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %187, <8 x i32> %35, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %188 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %187, <8 x i32> %35, <8 x i32> splat (i32 -1), i8 1)
   %189 = bitcast <8 x i32> %188 to <32 x i8>
   %190 = shufflevector <32 x i8> %189, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %191 = bitcast <32 x i8> %190 to <8 x i32>
@@ -19771,7 +19771,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 199:                                              ; preds = %198
   %200 = getelementptr inbounds i8, ptr %.010661248.us, i64 5
-  %201 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %200, <8 x i32> %35, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %201 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %200, <8 x i32> %35, <8 x i32> splat (i32 -1), i8 1)
   %202 = bitcast <8 x i32> %201 to <32 x i8>
   %203 = shufflevector <32 x i8> %202, <32 x i8> <i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <32 x i32> <i32 0, i32 4, i32 8, i32 12, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 16, i32 20, i32 24, i32 28, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48, i32 48>
   %204 = bitcast <32 x i8> %203 to <8 x i32>
@@ -19786,7 +19786,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %211 = load i64, ptr %.010661248.us, align 1
   %212 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %211, i64 0
   %213 = bitcast <2 x i64> %212 to <16 x i8>
-  %.lobit.us = ashr <16 x i8> %213, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.us = ashr <16 x i8> %213, splat (i8 7)
   %214 = shufflevector <16 x i8> %213, <16 x i8> %.lobit.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %215 = bitcast <16 x i8> %214 to <2 x i64>
   br i1 %79, label %216, label %223
@@ -19796,7 +19796,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %218 = load i64, ptr %217, align 1
   %219 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %218, i64 0
   %220 = bitcast <2 x i64> %219 to <16 x i8>
-  %.lobit1234.us = ashr <16 x i8> %220, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1234.us = ashr <16 x i8> %220, splat (i8 7)
   %221 = shufflevector <16 x i8> %220, <16 x i8> %.lobit1234.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %222 = bitcast <16 x i8> %221 to <2 x i64>
   br label %223
@@ -19810,7 +19810,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %226 = load i64, ptr %225, align 1
   %227 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %226, i64 0
   %228 = bitcast <2 x i64> %227 to <16 x i8>
-  %.lobit1235.us = ashr <16 x i8> %228, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1235.us = ashr <16 x i8> %228, splat (i8 7)
   %229 = shufflevector <16 x i8> %228, <16 x i8> %.lobit1235.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %230 = bitcast <16 x i8> %229 to <2 x i64>
   br label %231
@@ -19824,7 +19824,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %234 = load i64, ptr %233, align 1
   %235 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %234, i64 0
   %236 = bitcast <2 x i64> %235 to <16 x i8>
-  %.lobit1236.us = ashr <16 x i8> %236, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1236.us = ashr <16 x i8> %236, splat (i8 7)
   %237 = shufflevector <16 x i8> %236, <16 x i8> %.lobit1236.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %238 = bitcast <16 x i8> %237 to <2 x i64>
   br label %239
@@ -19838,7 +19838,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %242 = load i64, ptr %241, align 1
   %243 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %242, i64 0
   %244 = bitcast <2 x i64> %243 to <16 x i8>
-  %.lobit1237.us = ashr <16 x i8> %244, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1237.us = ashr <16 x i8> %244, splat (i8 7)
   %245 = shufflevector <16 x i8> %244, <16 x i8> %.lobit1237.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %246 = bitcast <16 x i8> %245 to <2 x i64>
   br label %247
@@ -19852,7 +19852,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %250 = load i64, ptr %249, align 1
   %251 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %250, i64 0
   %252 = bitcast <2 x i64> %251 to <16 x i8>
-  %.lobit1238.us = ashr <16 x i8> %252, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1238.us = ashr <16 x i8> %252, splat (i8 7)
   %253 = shufflevector <16 x i8> %252, <16 x i8> %.lobit1238.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %254 = bitcast <16 x i8> %253 to <8 x i16>
   br label %.thread.us
@@ -19865,26 +19865,26 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %.01076.us = phi <2 x i64> [ %.3.us, %199 ], [ %.3.us, %198 ], [ zeroinitializer, %133 ], [ %.2.us, %247 ], [ %.2.us, %248 ], [ zeroinitializer, %135 ]
   %.01068.us = phi <2 x i64> [ %146, %199 ], [ %146, %198 ], [ zeroinitializer, %133 ], [ %215, %247 ], [ %215, %248 ], [ zeroinitializer, %135 ]
   %255 = bitcast <2 x i64> %.01076.us to <8 x i16>
-  %256 = shl <8 x i16> %255, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %256 = shl <8 x i16> %255, splat (i16 2)
   %257 = bitcast <2 x i64> %.01082.us to <8 x i16>
   %258 = sub <8 x i16> %257, %256
   %259 = bitcast <2 x i64> %.01078.us to <8 x i16>
-  %260 = shl <8 x i16> %259, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %260 = shl <8 x i16> %259, splat (i16 2)
   %261 = bitcast <2 x i64> %.01086.us to <8 x i16>
   %262 = sub <8 x i16> %261, %260
   %263 = sub <8 x i16> %257, %255
-  %264 = shl <8 x i16> %263, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %264 = shl <8 x i16> %263, splat (i16 1)
   %265 = sub <8 x i16> %261, %259
   %266 = bitcast <2 x i64> %.01068.us to <8 x i16>
-  %267 = shl <8 x i16> %266, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %.neg1239.us = mul <8 x i16> %259, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %267 = shl <8 x i16> %266, splat (i16 2)
+  %.neg1239.us = mul <8 x i16> %259, splat (i16 -5)
   %268 = add <8 x i16> %.neg1239.us, %261
   %269 = add <8 x i16> %268, %267
   %270 = add <8 x i16> %258, %262
   %271 = sub <8 x i16> %262, %258
   %272 = add <8 x i16> %264, %265
   %273 = sub <8 x i16> %265, %264
-  %.neg1240.us = mul <8 x i16> %257, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %.neg1240.us = mul <8 x i16> %257, splat (i16 -5)
   %274 = add <8 x i16> %.neg1240.us, %.01102.us
   %275 = add <8 x i16> %274, %256
   %276 = getelementptr inbounds [6 x [8 x i16]], ptr %7, i64 0, i64 %indvars.iv

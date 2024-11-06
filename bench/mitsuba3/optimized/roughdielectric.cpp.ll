@@ -2445,7 +2445,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
 
 152:                                              ; preds = %131, %123
   %153 = phi float [ %129, %123 ], [ %84, %131 ]
-  %.sroa.0.0 = phi <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %123 ], [ %135, %131 ]
+  %.sroa.0.0 = phi <4 x float> [ splat (float 1.000000e+00), %123 ], [ %135, %131 ]
   %.0417 = phi i8 [ %125, %123 ], [ %132, %131 ]
   %154 = trunc nuw i8 %.0417 to i1
   br i1 %154, label %155, label %177

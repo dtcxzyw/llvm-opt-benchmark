@@ -2094,7 +2094,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %while.body.i
-  %cmp.i.i11.i = icmp eq <16 x i8> %7, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i11.i = icmp eq <16 x i8> %7, splat (i8 -128)
   %12 = bitcast <16 x i1> %cmp.i.i11.i to i16
   %cmp.i12.not.i = icmp eq i16 %12, 0
   br i1 %cmp.i12.not.i, label %if.end36.i, label %if.then

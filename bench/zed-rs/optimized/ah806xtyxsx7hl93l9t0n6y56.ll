@@ -12022,7 +12022,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3999449af35104f7E.exit.i: ; preds = %.
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %85
   %88 = getelementptr inbounds i8, ptr %86, i64 %.sroa.01.0.i.i.i.i
   %.sroa.0.0.copyload.i22.i.i.i = load <16 x i8>, ptr %88, align 1, !noalias !2380
-  %89 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, <i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122, i8 122>
+  %89 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, splat (i8 122)
   %90 = bitcast <16 x i1> %89 to i16
   %91 = icmp eq i16 %90, 0
   br i1 %91, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
@@ -12040,7 +12040,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h3999449af35104f7E.exit.i: ; preds = %.
   br i1 %96, label %114, label %99
 
 ._crit_edge.i.i.i:                                ; preds = %99, %87
-  %97 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %97 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, splat (i8 -1)
   %98 = bitcast <16 x i1> %97 to i16
   %.not.i.i.i.i = icmp eq i16 %98, 0
   br i1 %.not.i.i.i.i, label %103, label %106

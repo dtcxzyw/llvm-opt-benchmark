@@ -2328,7 +2328,7 @@ for.body:                                         ; preds = %cleanup83, %for.bod
 invoke.cont21:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %selection_box) #25
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %selection_box, align 16, !tbaa !98
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !98
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !98
   %vtable = load ptr, ptr %25, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %26 = load ptr, ptr %vfn, align 8

@@ -94908,8 +94908,8 @@ vector.body198:                                   ; preds = %vector.body198, %ve
   %index199 = phi i64 [ 0, %vector.ph192 ], [ %index.next201, %vector.body198 ]
   %5 = getelementptr %"struct.duckdb::timestamp_t", ptr %4, i64 %index199
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x i64> <i64 -9223372036854775807, i64 -9223372036854775807>, ptr %5, align 8, !tbaa !16
-  store <2 x i64> <i64 -9223372036854775807, i64 -9223372036854775807>, ptr %6, align 8, !tbaa !16
+  store <2 x i64> splat (i64 -9223372036854775807), ptr %5, align 8, !tbaa !16
+  store <2 x i64> splat (i64 -9223372036854775807), ptr %6, align 8, !tbaa !16
   %index.next201 = add nuw i64 %index199, 4
   %7 = icmp eq i64 %index.next201, %n.vec194
   br i1 %7, label %middle.block189, label %vector.body198, !llvm.loop !1176
@@ -94933,8 +94933,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %10 = getelementptr %"struct.duckdb::timestamp_t", ptr %9, i64 %index
   %11 = getelementptr inbounds i8, ptr %10, i64 16
-  store <2 x i64> <i64 9223372036854775807, i64 9223372036854775807>, ptr %10, align 8, !tbaa !16
-  store <2 x i64> <i64 9223372036854775807, i64 9223372036854775807>, ptr %11, align 8, !tbaa !16
+  store <2 x i64> splat (i64 9223372036854775807), ptr %10, align 8, !tbaa !16
+  store <2 x i64> splat (i64 9223372036854775807), ptr %11, align 8, !tbaa !16
   %index.next = add nuw i64 %index, 4
   %12 = icmp eq i64 %index.next, %n.vec
   br i1 %12, label %middle.block, label %vector.body, !llvm.loop !1177
@@ -104275,8 +104275,8 @@ vector.body198:                                   ; preds = %vector.body198, %ve
   %index199 = phi i64 [ 0, %vector.ph192 ], [ %index.next201, %vector.body198 ]
   %5 = getelementptr %"struct.duckdb::timestamp_t", ptr %4, i64 %index199
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store <2 x i64> <i64 -9223372036854775807, i64 -9223372036854775807>, ptr %5, align 8, !tbaa !16
-  store <2 x i64> <i64 -9223372036854775807, i64 -9223372036854775807>, ptr %6, align 8, !tbaa !16
+  store <2 x i64> splat (i64 -9223372036854775807), ptr %5, align 8, !tbaa !16
+  store <2 x i64> splat (i64 -9223372036854775807), ptr %6, align 8, !tbaa !16
   %index.next201 = add nuw i64 %index199, 4
   %7 = icmp eq i64 %index.next201, %n.vec194
   br i1 %7, label %middle.block189, label %vector.body198, !llvm.loop !1274
@@ -104300,8 +104300,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %10 = getelementptr %"struct.duckdb::timestamp_t", ptr %9, i64 %index
   %11 = getelementptr inbounds i8, ptr %10, i64 16
-  store <2 x i64> <i64 9223372036854775807, i64 9223372036854775807>, ptr %10, align 8, !tbaa !16
-  store <2 x i64> <i64 9223372036854775807, i64 9223372036854775807>, ptr %11, align 8, !tbaa !16
+  store <2 x i64> splat (i64 9223372036854775807), ptr %10, align 8, !tbaa !16
+  store <2 x i64> splat (i64 9223372036854775807), ptr %11, align 8, !tbaa !16
   %index.next = add nuw i64 %index, 4
   %12 = icmp eq i64 %index.next, %n.vec
   br i1 %12, label %middle.block, label %vector.body, !llvm.loop !1275

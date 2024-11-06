@@ -9292,7 +9292,7 @@ define hidden void @"_ZN6brotli3enc19context_map_entropy30ContextMapEntropy$LT$A
 40:                                               ; preds = %.critedge, %40
   %41 = phi i64 [ 0, %.critedge ], [ %43, %40 ]
   %42 = getelementptr inbounds [16 x { [2 x i32], i16, i8, [1 x i8] }], ptr %13, i64 0, i64 %41
-  store <2 x i32> <i32 1, i32 1>, ptr %42, align 4
+  store <2 x i32> splat (i32 1), ptr %42, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
   store i16 16384, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 10

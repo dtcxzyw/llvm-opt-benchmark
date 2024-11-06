@@ -8095,7 +8095,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   br label %.lr.ph.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9d4ba5bf189f6599E.exit._crit_edge.i.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9d4ba5bf189f6599E.exit.backedge.i.i.i.i.i", %28
-  %34 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %34 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i, splat (i8 -1)
   %35 = bitcast <16 x i1> %34 to i16
   %.not.i.i.i.i.i.i = icmp eq i16 %35, 0
   br i1 %.not.i.i.i.i.i.i, label %49, label %_ZN4core3ops8function6FnOnce9call_once17h7b55d74887cf610eE.exit
@@ -31066,8 +31066,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %.0.copyload.i.i = load <16 x i8>, ptr %gep.i, align 1, !alias.scope !7204, !noalias !7207
   %23 = getelementptr inbounds i8, ptr %gep.i, i64 14
   %.0.copyload2.i.i = load <16 x i8>, ptr %23, align 1, !alias.scope !7204, !noalias !7207
-  %24 = icmp eq <16 x i8> %.0.copyload.i.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
-  %25 = icmp eq <16 x i8> %.0.copyload2.i.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
+  %24 = icmp eq <16 x i8> %.0.copyload.i.i, splat (i8 40)
+  %25 = icmp eq <16 x i8> %.0.copyload2.i.i, splat (i8 41)
   %26 = and <16 x i1> %25, %24
   %27 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.046.i
   store <16 x i1> %26, ptr %27, align 2, !noalias !7204
@@ -31117,8 +31117,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %.0.copyload.i80.i = load <16 x i8>, ptr %46, align 1, !alias.scope !7204, !noalias !7210
   %47 = getelementptr inbounds i8, ptr %46, i64 14
   %.0.copyload2.i81.i = load <16 x i8>, ptr %47, align 1, !alias.scope !7204, !noalias !7210
-  %48 = icmp eq <16 x i8> %.0.copyload.i80.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
-  %49 = icmp eq <16 x i8> %.0.copyload2.i81.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
+  %48 = icmp eq <16 x i8> %.0.copyload.i80.i, splat (i8 40)
+  %49 = icmp eq <16 x i8> %.0.copyload2.i81.i, splat (i8 41)
   %50 = and <16 x i1> %49, %48
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
@@ -31129,8 +31129,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %.0.copyload.i82.i = load <16 x i8>, ptr %54, align 1, !alias.scope !7204, !noalias !7213
   %55 = getelementptr inbounds i8, ptr %54, i64 14
   %.0.copyload2.i83.i = load <16 x i8>, ptr %55, align 1, !alias.scope !7204, !noalias !7213
-  %56 = icmp eq <16 x i8> %.0.copyload.i82.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
-  %57 = icmp eq <16 x i8> %.0.copyload2.i83.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
+  %56 = icmp eq <16 x i8> %.0.copyload.i82.i, splat (i8 40)
+  %57 = icmp eq <16 x i8> %.0.copyload2.i83.i, splat (i8 41)
   %58 = and <16 x i1> %57, %56
   %59 = bitcast <16 x i1> %58 to i16
   %60 = icmp eq i16 %59, 0
@@ -115618,7 +115618,7 @@ define internal void @"_ZN5typst5model12bibliography9Generator17display_citation
   br label %.lr.ph.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9d4ba5bf189f6599E.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9d4ba5bf189f6599E.exit.backedge.i.i.i", %28
-  %34 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %34 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %35 = bitcast <16 x i1> %34 to i16
   %.not.i.i.i.i = icmp eq i16 %35, 0
   br i1 %.not.i.i.i.i, label %49, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hde069aed867f4f7aE.exit.thread"
@@ -115992,7 +115992,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
   br label %.lr.ph.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9d4ba5bf189f6599E.exit._crit_edge.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9d4ba5bf189f6599E.exit.backedge.i.i.i.i", %135
-  %141 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %141 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %142 = bitcast <16 x i1> %141 to i16
   %.not.i.i.i.i.i = icmp eq i16 %142, 0
   br i1 %.not.i.i.i.i.i, label %156, label %.thread.i
@@ -116434,7 +116434,7 @@ _ZN4core4hash3sip9u8to64_le17hc480fe049f23d35fE.exit.i: ; preds = %"_ZN71_$LT$co
 
 361:                                              ; preds = %.noexc45
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !22999
-  %362 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %362 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %363 = bitcast <16 x i1> %362 to i16
   %.not.i.i.i = icmp eq i16 %363, 0
   br i1 %.not.i.i.i, label %369, label %372

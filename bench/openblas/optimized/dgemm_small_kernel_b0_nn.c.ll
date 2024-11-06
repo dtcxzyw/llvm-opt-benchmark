@@ -2095,7 +2095,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1493 = mul nsw i64 %1376, %9
   %1494 = add nsw i64 %1493, %1344
   %1495 = getelementptr inbounds double, ptr %8, i64 %1494
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %1495, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %844, <4 x double> %1492, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %1495, <4 x i1> splat (i1 true), <4 x i64> %844, <4 x double> %1492, i32 8)
   %1496 = shufflevector <8 x double> %1471, <8 x double> %1473, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %1497 = shufflevector <8 x double> %1471, <8 x double> %1473, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %1498 = shufflevector <8 x double> %1475, <8 x double> %1477, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
@@ -2113,7 +2113,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1510 = fmul <4 x double> %839, %1509
   %1511 = or disjoint i64 %1494, 1
   %1512 = getelementptr inbounds double, ptr %8, i64 %1511
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %1512, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %844, <4 x double> %1510, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %1512, <4 x i1> splat (i1 true), <4 x i64> %844, <4 x double> %1510, i32 8)
   %1513 = add nuw nsw i64 %1376, 4
   %1514 = icmp slt i64 %1513, %18
   br i1 %1514, label %1375, label %.loopexit146, !llvm.loop !48
@@ -2436,7 +2436,7 @@ define noundef i32 @dgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1765 = fmul <4 x double> %839, %1764
   %1766 = mul nsw i64 %1673, %9
   %1767 = getelementptr double, ptr %1663, i64 %1766
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %1767, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %844, <4 x double> %1765, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %1767, <4 x i1> splat (i1 true), <4 x i64> %844, <4 x double> %1765, i32 8)
   %1768 = add nuw nsw i64 %1673, 4
   %1769 = icmp slt i64 %1768, %18
   br i1 %1769, label %1672, label %.loopexit139, !llvm.loop !55

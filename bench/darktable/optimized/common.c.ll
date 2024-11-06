@@ -313,13 +313,13 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
 221:                                              ; preds = %221, %214
   %222 = phi i64 [ 0, %214 ], [ %228, %221 ]
   %223 = phi <4 x i64> [ %217, %214 ], [ %229, %221 ]
-  %224 = mul nuw nsw <4 x i64> %223, <i64 9, i64 9, i64 9, i64 9>
+  %224 = mul nuw nsw <4 x i64> %223, splat (i64 9)
   %225 = getelementptr double, ptr %201, <4 x i64> %224
-  %226 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %225, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %226 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %225, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %227 = fmul reassoc nsz arcp contract afn <4 x double> %220, %226
-  call void @llvm.masked.scatter.v4f64.v4p0(<4 x double> %227, <4 x ptr> %225, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !13
+  call void @llvm.masked.scatter.v4f64.v4p0(<4 x double> %227, <4 x ptr> %225, i32 8, <4 x i1> splat (i1 true)), !tbaa !13
   %228 = add nuw i64 %222, 4
-  %229 = add <4 x i64> %223, <i64 4, i64 4, i64 4, i64 4>
+  %229 = add <4 x i64> %223, splat (i64 4)
   %230 = icmp eq i64 %228, 8
   br i1 %230, label %.loopexit35, label %221, !llvm.loop !19
 
@@ -659,7 +659,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %471 = getelementptr inbounds i8, ptr %5, i64 16
   %472 = getelementptr inbounds i8, ptr %5, i64 24
   %473 = getelementptr inbounds i8, ptr %5, i64 32
-  %474 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %63, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %474 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %63, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %475 = insertelement <4 x double> poison, double %469, i64 0
   %476 = shufflevector <4 x double> %475, <4 x double> poison, <4 x i32> zeroinitializer
   %477 = fmul reassoc nsz arcp contract afn <4 x double> %474, %476
@@ -669,7 +669,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %480 = getelementptr inbounds i8, ptr %5, i64 40
   %481 = getelementptr inbounds i8, ptr %5, i64 48
   %482 = getelementptr inbounds i8, ptr %5, i64 56
-  %483 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %120, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %483 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %120, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %484 = fmul reassoc nsz arcp contract afn <4 x double> %483, %476
   %485 = load <4 x double>, ptr %480, align 8, !tbaa !13
   %486 = fadd reassoc nsz arcp contract afn <4 x double> %485, %484
@@ -682,7 +682,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %492 = extractelement <4 x double> %479, i64 0
   store double %492, ptr %490, align 8, !tbaa !13
   store double %491, ptr %470, align 8, !tbaa !13
-  %493 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %85, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %493 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %85, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %494 = insertelement <4 x double> poison, double %491, i64 0
   %495 = shufflevector <4 x double> %494, <4 x double> poison, <4 x i32> zeroinitializer
   %496 = fmul reassoc nsz arcp contract afn <4 x double> %493, %495
@@ -711,7 +711,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %516 = extractelement <4 x double> %498, i64 0
   store double %516, ptr %514, align 8, !tbaa !13
   store double %515, ptr %471, align 16, !tbaa !13
-  %517 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %94, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %517 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %94, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %518 = insertelement <4 x double> poison, double %515, i64 0
   %519 = shufflevector <4 x double> %518, <4 x double> poison, <4 x i32> zeroinitializer
   %520 = fmul reassoc nsz arcp contract afn <4 x double> %517, %519
@@ -735,7 +735,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %536 = extractelement <4 x double> %522, i64 0
   store double %536, ptr %534, align 8, !tbaa !13
   store double %535, ptr %472, align 8, !tbaa !13
-  %537 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %102, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %537 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %102, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %538 = insertelement <4 x double> poison, double %535, i64 0
   %539 = shufflevector <4 x double> %538, <4 x double> poison, <4 x i32> zeroinitializer
   %540 = fmul reassoc nsz arcp contract afn <4 x double> %537, %539
@@ -755,7 +755,7 @@ define hidden noundef range(i32 0, 2) i32 @get_homography(ptr nocapture noundef 
   %552 = extractelement <4 x double> %542, i64 0
   store double %552, ptr %550, align 8, !tbaa !13
   store double %551, ptr %473, align 16, !tbaa !13
-  %553 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %142, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x double> poison), !tbaa !13
+  %553 = call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %142, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !13
   %554 = insertelement <4 x double> poison, double %551, i64 0
   %555 = shufflevector <4 x double> %554, <4 x double> poison, <4 x i32> zeroinitializer
   %556 = fmul reassoc nsz arcp contract afn <4 x double> %553, %555

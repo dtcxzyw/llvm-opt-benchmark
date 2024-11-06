@@ -1532,7 +1532,7 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
 18:                                               ; preds = %18, %17
   %.09.i.i.i = phi i64 [ 0, %17 ], [ %20, %18 ]
   %19 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %5, i64 0, i64 %.09.i.i.i
-  store <4 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, ptr %19, align 16, !alias.scope !15, !noalias !18
+  store <4 x float> splat (float 0x400921FB60000000), ptr %19, align 16, !alias.scope !15, !noalias !18
   %20 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i18.i = icmp eq i64 %20, 4
   br i1 %exitcond.not.i.i18.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i.i, label %18, !llvm.loop !21

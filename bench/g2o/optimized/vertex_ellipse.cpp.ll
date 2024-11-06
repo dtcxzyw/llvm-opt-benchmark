@@ -679,7 +679,7 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(38) ptr @_ZN5Eigen2
   %16 = load float, ptr %15, align 4
   store float %16, ptr %14, align 4
   %17 = load <4 x i32>, ptr %0, align 16
-  %18 = and <4 x i32> %17, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %18 = and <4 x i32> %17, splat (i32 2147483647)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   store <4 x i32> %18, ptr %6, align 16
   %bc = bitcast <4 x i32> %17 to <4 x float>

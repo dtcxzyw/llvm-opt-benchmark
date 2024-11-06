@@ -10878,7 +10878,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %216 = load <2 x double>, ptr %215, align 1
   %217 = getelementptr inbounds double, ptr %194, i64 %.021.i.i.i.i.i.i.i21
   %218 = load <2 x double>, ptr %217, align 1
-  %219 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %218
+  %219 = fdiv <2 x double> splat (double 1.000000e+00), %218
   %220 = fmul <2 x double> %216, %219
   store <2 x double> %220, ptr %215, align 16
   %221 = add nsw i64 %.021.i.i.i.i.i.i.i21, 2

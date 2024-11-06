@@ -90,7 +90,7 @@ define void @_ZN3g2o18ParameterSE2OffsetC2Ev(ptr noundef nonnull align 16 derefe
   %14 = getelementptr inbounds i8, ptr %0, i64 56
   %15 = load <2 x i64>, ptr %14, align 8
   %.sroa.6.32.vec.insert.i = insertelement <2 x i64> %15, i64 4607182418800017408, i64 1
-  %16 = xor <2 x i64> %.sroa.6.32.vec.insert.i, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %16 = xor <2 x i64> %.sroa.6.32.vec.insert.i, splat (i64 -9223372036854775808)
   %17 = bitcast <2 x i64> %16 to <2 x double>
   %18 = getelementptr inbounds i8, ptr %0, i64 104
   %19 = load <2 x double>, ptr %18, align 8, !noalias !4
@@ -149,7 +149,7 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr nocapture noun
   %22 = bitcast double %10 to i64
   %.sroa.6.32.vec.insert = insertelement <2 x i64> %21, i64 %22, i64 1
   %23 = shufflevector <2 x double> %18, <2 x double> poison, <2 x i32> zeroinitializer
-  %24 = xor <2 x i64> %.sroa.6.32.vec.insert, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %24 = xor <2 x i64> %.sroa.6.32.vec.insert, splat (i64 -9223372036854775808)
   %25 = bitcast <2 x i64> %24 to <2 x double>
   %26 = getelementptr inbounds i8, ptr %0, i64 104
   %27 = load <2 x double>, ptr %26, align 8, !noalias !10
@@ -245,7 +245,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
   %44 = bitcast double %32 to i64
   %.sroa.6.32.vec.insert.i = insertelement <2 x i64> %43, i64 %44, i64 1
   %45 = shufflevector <2 x double> %40, <2 x double> poison, <2 x i32> zeroinitializer
-  %46 = xor <2 x i64> %.sroa.6.32.vec.insert.i, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %46 = xor <2 x i64> %.sroa.6.32.vec.insert.i, splat (i64 -9223372036854775808)
   %47 = bitcast <2 x i64> %46 to <2 x double>
   %48 = getelementptr inbounds i8, ptr %0, i64 104
   %49 = load <2 x double>, ptr %48, align 8, !noalias !18

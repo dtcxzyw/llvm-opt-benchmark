@@ -706,7 +706,7 @@ if.then88.i:                                      ; preds = %_ZN3irr4core7plane3
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then88.i, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit227.i
-  %weight.sroa.0.1.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i, %if.then88.i ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit227.i ]
+  %weight.sroa.0.1.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i, %if.then88.i ], [ splat (float 1.000000e+00), %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit227.i ]
   %weight.sroa.7.0.i = phi float [ %call19.i.i, %if.then88.i ], [ 1.000000e+00, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit227.i ]
   %weight.sroa.0.0.vec.extract.i = extractelement <2 x float> %weight.sroa.0.1.i, i64 0
   %mul3.i.i.i = fmul float %ref.tmp85.sroa.8.0.i, %weight.sroa.0.0.vec.extract.i
@@ -1077,7 +1077,7 @@ if.then80.i:                                      ; preds = %_ZN3irr4core7plane3
   br label %if.end.i75
 
 if.end.i75:                                       ; preds = %if.then80.i, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit216.i
-  %weight.sroa.0.1.i76 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i135, %if.then80.i ], [ <float 1.000000e+00, float 1.000000e+00>, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit216.i ]
+  %weight.sroa.0.1.i76 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i.i135, %if.then80.i ], [ splat (float 1.000000e+00), %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit216.i ]
   %weight.sroa.7.0.i77 = phi float [ %call19.i.i133, %if.then80.i ], [ 1.000000e+00, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit216.i ]
   %weight.sroa.0.0.vec.extract.i78 = extractelement <2 x float> %weight.sroa.0.1.i76, i64 0
   %mul3.i.i.i81 = fmul float %ref.tmp77.sroa.8.0.i, %weight.sroa.0.0.vec.extract.i78
@@ -1256,7 +1256,7 @@ if.end:                                           ; preds = %entry
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !14
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !14
   %vtable = load ptr, ptr %mesh, align 8, !tbaa !3
   %1 = load ptr, ptr %vtable, align 8
   %call2 = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %mesh) #14
@@ -1378,7 +1378,7 @@ sw.bb:                                            ; preds = %for.body
   %BoundingBox.i219 = getelementptr inbounds i8, ptr %call9, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i219, align 4, !tbaa !14
   %Y.i2.i.i223 = getelementptr inbounds i8, ptr %call9, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i223, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i223, align 4, !tbaa !14
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call9, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !78
   %vtable10 = load ptr, ptr %call5, align 8, !tbaa !3
@@ -1909,7 +1909,7 @@ sw.bb44:                                          ; preds = %for.body
   %BoundingBox.i357 = getelementptr inbounds i8, ptr %call46, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i357, align 4, !tbaa !14
   %Y.i2.i.i361 = getelementptr inbounds i8, ptr %call46, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i361, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i361, align 4, !tbaa !14
   %PrimitiveType.i363 = getelementptr inbounds i8, ptr %call46, i64 304
   store i32 6, ptr %PrimitiveType.i363, align 8, !tbaa !110
   %vtable47 = load ptr, ptr %call5, align 8, !tbaa !3
@@ -2440,7 +2440,7 @@ sw.bb97:                                          ; preds = %for.body
   %BoundingBox.i623 = getelementptr inbounds i8, ptr %call99, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i623, align 4, !tbaa !14
   %Y.i2.i.i627 = getelementptr inbounds i8, ptr %call99, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i627, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i627, align 4, !tbaa !14
   %PrimitiveType.i629 = getelementptr inbounds i8, ptr %call99, i64 304
   store i32 6, ptr %PrimitiveType.i629, align 8, !tbaa !134
   %vtable100 = load ptr, ptr %call5, align 8, !tbaa !3
@@ -3281,7 +3281,7 @@ entry:
   %Box.i = getelementptr inbounds i8, ptr %call, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !14
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !14
   %FramesPerSecond.i = getelementptr inbounds i8, ptr %call, i64 64
   store float 2.500000e+01, ptr %FramesPerSecond.i, align 8, !tbaa !159
   %Type.i = getelementptr inbounds i8, ptr %call, i64 68

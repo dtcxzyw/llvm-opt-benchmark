@@ -136,7 +136,7 @@ define hidden noundef i64 @_ZN11str_indices5utf1621count_surrogates_impl17he841a
   %.sroa.032.076 = phi ptr [ %41, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit" ], [ %.sroa.028.079, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.preheader" ]
   %41 = getelementptr inbounds i8, ptr %.sroa.032.076, i64 16
   %42 = load <16 x i8>, ptr %.sroa.032.076, align 16, !alias.scope !7, !noalias !10
-  %43 = icmp ugt <16 x i8> %42, <i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17>
+  %43 = icmp ugt <16 x i8> %42, splat (i8 -17)
   %44 = zext <16 x i1> %43 to <16 x i8>
   %45 = add <16 x i8> %40, %44
   %46 = icmp eq ptr %41, %28
@@ -337,7 +337,7 @@ define hidden void @"_ZN84_$LT$core..core_arch..x86..__m128i$u20$as$u20$str_indi
   %5 = icmp eq <16 x i8> %4, %.sroa.0.15.vec.insert.i
   %6 = sext <16 x i1> %5 to <16 x i8>
   %7 = bitcast <16 x i8> %6 to <2 x i64>
-  %8 = and <2 x i64> %7, <i64 72340172838076673, i64 72340172838076673>
+  %8 = and <2 x i64> %7, splat (i64 72340172838076673)
   store <2 x i64> %8, ptr %0, align 16, !alias.scope !16, !noalias !19
   ret void
 }
@@ -567,7 +567,7 @@ define noundef i64 @_ZN5ropey9str_utils27byte_to_utf16_surrogate_idx17h1e1aeb5c0
   %.sroa.014.062 = phi ptr [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit" ], [ %.sroa.010.065, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.preheader" ]
   %56 = getelementptr inbounds i8, ptr %.sroa.014.062, i64 16
   %57 = load <16 x i8>, ptr %.sroa.014.062, align 16, !alias.scope !59, !noalias !62
-  %58 = icmp ugt <16 x i8> %57, <i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17>
+  %58 = icmp ugt <16 x i8> %57, splat (i8 -17)
   %59 = zext <16 x i1> %58 to <16 x i8>
   %60 = add <16 x i8> %55, %59
   %61 = icmp eq ptr %56, %43
@@ -675,10 +675,10 @@ define noundef i64 @_ZN5ropey9str_utils27utf16_code_unit_to_char_idx17hbc7fc5756
   %.sroa.08.3.i160 = phi i64 [ %52, %53 ], [ %.sroa.08.2.i.lcssa, %._crit_edge154 ]
   %.sroa.023.0159 = phi ptr [ %54, %53 ], [ %.sroa.028.0.i.lcssa, %._crit_edge154 ]
   %41 = load <16 x i8>, ptr %.sroa.023.0159, align 16, !noalias !4
-  %42 = icmp slt <16 x i8> %41, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %42 = icmp slt <16 x i8> %41, splat (i8 -64)
   %43 = zext <16 x i1> %42 to <16 x i8>
   %44 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %43, <16 x i8> zeroinitializer) #19
-  %45 = icmp ugt <16 x i8> %41, <i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17>
+  %45 = icmp ugt <16 x i8> %41, splat (i8 -17)
   %46 = zext <16 x i1> %45 to <16 x i8>
   %47 = tail call <2 x i64> @llvm.x86.sse2.psad.bw(<16 x i8> %46, <16 x i8> zeroinitializer) #19
   %.sroa.0.0.vec.extract.i = extractelement <2 x i64> %47, i64 0
@@ -744,10 +744,10 @@ define noundef i64 @_ZN5ropey9str_utils27utf16_code_unit_to_char_idx17hbc7fc5756
   %.sroa.019.0144 = phi ptr [ %83, %.lr.ph145 ], [ %.sroa.028.0.i150, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcfa64467e91e4558E.exit.i" ]
   %83 = getelementptr inbounds i8, ptr %.sroa.019.0144, i64 16
   %84 = load <16 x i8>, ptr %.sroa.019.0144, align 16, !noalias !4
-  %85 = icmp slt <16 x i8> %84, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %85 = icmp slt <16 x i8> %84, splat (i8 -64)
   %86 = zext <16 x i1> %85 to <16 x i8>
   %87 = add <16 x i8> %81, %86
-  %88 = icmp ugt <16 x i8> %84, <i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17>
+  %88 = icmp ugt <16 x i8> %84, splat (i8 -17)
   %89 = zext <16 x i1> %88 to <16 x i8>
   %90 = add <16 x i8> %82, %89
   %91 = icmp eq ptr %83, %35
@@ -864,7 +864,7 @@ _ZN11str_indices5utf1616to_byte_idx_impl17hc61dbf244c402ddbE.exit: ; preds = %"_
   %140 = phi <16 x i8> [ %145, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5013c2266248ec04E.llvm.12620698079031950665.exit.i" ], [ zeroinitializer, %._crit_edge.i ]
   %141 = getelementptr inbounds i8, ptr %.sroa.040.0172.i, i64 16
   %142 = load <16 x i8>, ptr %.sroa.040.0172.i, align 16
-  %143 = icmp slt <16 x i8> %142, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %143 = icmp slt <16 x i8> %142, splat (i8 -64)
   %144 = zext <16 x i1> %143 to <16 x i8>
   %145 = add <16 x i8> %140, %144
   %146 = icmp eq ptr %141, %126
@@ -877,19 +877,19 @@ _ZN11str_indices5utf1616to_byte_idx_impl17hc61dbf244c402ddbE.exit: ; preds = %"_
   %147 = getelementptr inbounds i8, ptr %.sroa.022.0168.i, i64 64
   %148 = add i64 %.sroa.523.0167.i, -4
   %149 = load <16 x i8>, ptr %.sroa.022.0168.i, align 16
-  %150 = icmp slt <16 x i8> %149, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %150 = icmp slt <16 x i8> %149, splat (i8 -64)
   %151 = zext <16 x i1> %150 to <16 x i8>
   %152 = getelementptr inbounds i8, ptr %.sroa.022.0168.i, i64 16
   %153 = load <16 x i8>, ptr %152, align 16
-  %154 = icmp slt <16 x i8> %153, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %154 = icmp slt <16 x i8> %153, splat (i8 -64)
   %155 = zext <16 x i1> %154 to <16 x i8>
   %156 = getelementptr inbounds i8, ptr %.sroa.022.0168.i, i64 32
   %157 = load <16 x i8>, ptr %156, align 16
-  %158 = icmp slt <16 x i8> %157, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %158 = icmp slt <16 x i8> %157, splat (i8 -64)
   %159 = zext <16 x i1> %158 to <16 x i8>
   %160 = getelementptr inbounds i8, ptr %.sroa.022.0168.i, i64 48
   %161 = load <16 x i8>, ptr %160, align 16
-  %162 = icmp slt <16 x i8> %161, <i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64, i8 -64>
+  %162 = icmp slt <16 x i8> %161, splat (i8 -64)
   %163 = zext <16 x i1> %162 to <16 x i8>
   %164 = add nuw nsw <16 x i8> %155, %151
   %165 = add nuw nsw <16 x i8> %164, %159

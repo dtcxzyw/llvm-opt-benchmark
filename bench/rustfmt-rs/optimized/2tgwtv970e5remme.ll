@@ -5729,8 +5729,8 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   %.0.copyload.i.i.i.i.i = load <16 x i8>, ptr %gep.i.i.i.i, align 1, !alias.scope !661, !noalias !662
   %42 = getelementptr inbounds i8, ptr %gep.i.i.i.i, i64 1
   %.0.copyload2.i.i.i.i.i = load <16 x i8>, ptr %42, align 1, !alias.scope !661, !noalias !662
-  %43 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
-  %44 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %43 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, splat (i8 47)
+  %44 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, splat (i8 47)
   %45 = and <16 x i1> %44, %43
   %46 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.045.i.i.i.i
   store <16 x i1> %45, ptr %46, align 2, !noalias !661
@@ -5780,8 +5780,8 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   %.0.copyload.i80.i.i.i.i = load <16 x i8>, ptr %65, align 1, !alias.scope !661, !noalias !665
   %66 = getelementptr inbounds i8, ptr %65, i64 1
   %.0.copyload2.i81.i.i.i.i = load <16 x i8>, ptr %66, align 1, !alias.scope !661, !noalias !665
-  %67 = icmp eq <16 x i8> %.0.copyload.i80.i.i.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
-  %68 = icmp eq <16 x i8> %.0.copyload2.i81.i.i.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %67 = icmp eq <16 x i8> %.0.copyload.i80.i.i.i.i, splat (i8 47)
+  %68 = icmp eq <16 x i8> %.0.copyload2.i81.i.i.i.i, splat (i8 47)
   %69 = and <16 x i1> %68, %67
   %70 = bitcast <16 x i1> %69 to i16
   %71 = icmp eq i16 %70, 0
@@ -5792,8 +5792,8 @@ define internal fastcc noundef zeroext i1 @_ZN15rustfmt_nightly5utils24is_attrib
   %.0.copyload.i82.i.i.i.i = load <16 x i8>, ptr %73, align 1, !alias.scope !661, !noalias !668
   %74 = getelementptr inbounds i8, ptr %73, i64 1
   %.0.copyload2.i83.i.i.i.i = load <16 x i8>, ptr %74, align 1, !alias.scope !661, !noalias !668
-  %75 = icmp eq <16 x i8> %.0.copyload.i82.i.i.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
-  %76 = icmp eq <16 x i8> %.0.copyload2.i83.i.i.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %75 = icmp eq <16 x i8> %.0.copyload.i82.i.i.i.i, splat (i8 47)
+  %76 = icmp eq <16 x i8> %.0.copyload2.i83.i.i.i.i, splat (i8 47)
   %77 = and <16 x i1> %76, %75
   %78 = bitcast <16 x i1> %77 to i16
   %79 = icmp eq i16 %78, 0

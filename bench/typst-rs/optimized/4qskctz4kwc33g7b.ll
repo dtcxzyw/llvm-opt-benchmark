@@ -31793,8 +31793,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %.0.copyload.i.i = load <16 x i8>, ptr %gep.i, align 1, !alias.scope !7233, !noalias !7236
   %23 = getelementptr inbounds i8, ptr %gep.i, i64 14
   %.0.copyload2.i.i = load <16 x i8>, ptr %23, align 1, !alias.scope !7233, !noalias !7236
-  %24 = icmp eq <16 x i8> %.0.copyload.i.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
-  %25 = icmp eq <16 x i8> %.0.copyload2.i.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
+  %24 = icmp eq <16 x i8> %.0.copyload.i.i, splat (i8 40)
+  %25 = icmp eq <16 x i8> %.0.copyload2.i.i, splat (i8 41)
   %26 = and <16 x i1> %25, %24
   %27 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.045.i
   store <16 x i1> %26, ptr %27, align 2, !noalias !7233
@@ -31844,8 +31844,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %.0.copyload.i80.i = load <16 x i8>, ptr %46, align 1, !alias.scope !7233, !noalias !7239
   %47 = getelementptr inbounds i8, ptr %46, i64 14
   %.0.copyload2.i81.i = load <16 x i8>, ptr %47, align 1, !alias.scope !7233, !noalias !7239
-  %48 = icmp eq <16 x i8> %.0.copyload.i80.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
-  %49 = icmp eq <16 x i8> %.0.copyload2.i81.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
+  %48 = icmp eq <16 x i8> %.0.copyload.i80.i, splat (i8 40)
+  %49 = icmp eq <16 x i8> %.0.copyload2.i81.i, splat (i8 41)
   %50 = and <16 x i1> %49, %48
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
@@ -31856,8 +31856,8 @@ _ZN4core3str7pattern13simd_contains17he1b4c355bd816daaE.exit: ; preds = %"_ZN4co
   %.0.copyload.i82.i = load <16 x i8>, ptr %54, align 1, !alias.scope !7233, !noalias !7242
   %55 = getelementptr inbounds i8, ptr %54, i64 14
   %.0.copyload2.i83.i = load <16 x i8>, ptr %55, align 1, !alias.scope !7233, !noalias !7242
-  %56 = icmp eq <16 x i8> %.0.copyload.i82.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
-  %57 = icmp eq <16 x i8> %.0.copyload2.i83.i, <i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41, i8 41>
+  %56 = icmp eq <16 x i8> %.0.copyload.i82.i, splat (i8 40)
+  %57 = icmp eq <16 x i8> %.0.copyload2.i83.i, splat (i8 41)
   %58 = and <16 x i1> %57, %56
   %59 = bitcast <16 x i1> %58 to i16
   %60 = icmp eq i16 %59, 0
@@ -124694,7 +124694,7 @@ define void @"_ZN5typst5model4cite136_$LT$impl$u20$typst..foundations..element..
   br label %.lr.ph.i.i.i
 
 "_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit._crit_edge.i.i.i": ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.backedge.i.i.i", %60
-  %66 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %66 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %67 = bitcast <16 x i1> %66 to i16
   %.not.i.i.i.i = icmp eq i16 %67, 0
   br i1 %.not.i.i.i.i, label %88, label %select.unfold

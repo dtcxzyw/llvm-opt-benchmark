@@ -2586,11 +2586,11 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i187
   %356 = load <2 x i64>, ptr %add.ptr.i293.i.i, align 16, !noalias !170
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i296.i.i, i64 16) ], !noalias !170
   %357 = load <2 x i64>, ptr %add.ptr2.i296.i.i, align 16, !noalias !170
-  %not.i.i189 = xor <2 x i64> %355, <i64 -1, i64 -1>
+  %not.i.i189 = xor <2 x i64> %355, splat (i64 -1)
   %and.i1080.i = and <2 x i64> %s.i.sroa.0.41716.i, %not.i.i189
-  %not.i1083.i = xor <2 x i64> %356, <i64 -1, i64 -1>
+  %not.i1083.i = xor <2 x i64> %356, splat (i64 -1)
   %and.i1084.i = and <2 x i64> %s.i.sroa.22.41717.i, %not.i1083.i
-  %not.i1087.i = xor <2 x i64> %357, <i64 -1, i64 -1>
+  %not.i1087.i = xor <2 x i64> %357, splat (i64 -1)
   %and.i1088.i = and <2 x i64> %s.i.sroa.40.41718.i, %not.i1087.i
   %or.i569.i.i = or <2 x i64> %and.i1084.i, %and.i1080.i
   %or.i572.i.i = or <2 x i64> %or.i569.i.i, %and.i1088.i
@@ -3806,13 +3806,13 @@ if.then53.i:                                      ; preds = %if.end47.i
   br i1 %cmp.i228, label %if.then53.i.cont.then, label %if.then53.i.cont.else
 
 if.then53.i.cont.then:                            ; preds = %if.then53.i
-  %not.i.i370 = xor <2 x i64> %557, <i64 -1, i64 -1>
+  %not.i.i370 = xor <2 x i64> %557, splat (i64 -1)
   %and.i.i371 = and <2 x i64> %ctx.sroa.0.3488, %not.i.i370
   br label %for.inc.i
 
 if.then53.i.cont.else:                            ; preds = %if.then53.i
   %.else.val.sroa.speculated = select i1 %cmp1.i230, <2 x i64> %ctx.sroa.13.3487, <2 x i64> %ctx.sroa.23.3486
-  %not.i.i = xor <2 x i64> %557, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %557, splat (i64 -1)
   %and.i.i = and <2 x i64> %.else.val.sroa.speculated, %not.i.i
   br i1 %cmp1.i230, label %for.inc.i, label %if.then53.i.cont.else.else
 
@@ -4457,7 +4457,7 @@ if.then53.i:                                      ; preds = %if.end47.i
   %.sroa.2141.0.ctx.addr.i175.0..sroa_idx..sroa.3142.0.ctx.addr.i175.0..sroa_idx = select i1 %cmp1.i281, ptr %.sroa.2141.0.ctx.addr.i175.0..sroa_idx, ptr %.sroa.3142.0.ctx.addr.i175.0..sroa_idx
   %sub.i518.0 = select i1 %cmp.i279, ptr %ctx, ptr %.sroa.2141.0.ctx.addr.i175.0..sroa_idx..sroa.3142.0.ctx.addr.i175.0..sroa_idx
   %96 = load <2 x i64>, ptr %sub.i518.0, align 16
-  %not.i.i = xor <2 x i64> %72, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %72, splat (i64 -1)
   %and.i.i = and <2 x i64> %96, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i518.0, align 16
   br label %for.inc.i
@@ -6136,11 +6136,11 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %312 = load <2 x i64>, ptr %add.ptr.i293.i, align 16, !noalias !350
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i296.i, i64 16) ], !noalias !350
   %313 = load <2 x i64>, ptr %add.ptr2.i296.i, align 16, !noalias !350
-  %not.i = xor <2 x i64> %311, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %311, splat (i64 -1)
   %and.i1080 = and <2 x i64> %s.i.sroa.0.41601, %not.i
-  %not.i1083 = xor <2 x i64> %312, <i64 -1, i64 -1>
+  %not.i1083 = xor <2 x i64> %312, splat (i64 -1)
   %and.i1084 = and <2 x i64> %s.i.sroa.22.41602, %not.i1083
-  %not.i1087 = xor <2 x i64> %313, <i64 -1, i64 -1>
+  %not.i1087 = xor <2 x i64> %313, splat (i64 -1)
   %and.i1088 = and <2 x i64> %s.i.sroa.40.41603, %not.i1087
   %or.i569.i = or <2 x i64> %and.i1084, %and.i1080
   %or.i572.i = or <2 x i64> %or.i569.i, %and.i1088
@@ -7306,7 +7306,7 @@ if.then53.i:                                      ; preds = %if.end47.i
   %.sroa.2122.0.ctx.addr.i80.0..sroa_idx..sroa.3123.0.ctx.addr.i80.0..sroa_idx = select i1 %cmp1.i262, ptr %.sroa.2122.0.ctx.addr.i80.0..sroa_idx, ptr %.sroa.3123.0.ctx.addr.i80.0..sroa_idx
   %sub.i574.0 = select i1 %cmp.i260, ptr %ctx, ptr %.sroa.2122.0.ctx.addr.i80.0..sroa_idx..sroa.3123.0.ctx.addr.i80.0..sroa_idx
   %60 = load <2 x i64>, ptr %sub.i574.0, align 16
-  %not.i.i = xor <2 x i64> %36, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %36, splat (i64 -1)
   %and.i.i = and <2 x i64> %60, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i574.0, align 16
   br label %for.inc.i
@@ -7459,7 +7459,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i187, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i503, %sw.bb1.i, %if.end6.i, %sw.bb3.i483, %repeatHasMatch.exit
-  %not.i.i612 = xor <2 x i64> %76, <i64 -1, i64 -1>
+  %not.i.i612 = xor <2 x i64> %76, splat (i64 -1)
   %and.i.i613 = and <2 x i64> %sub.i218.0, %not.i.i612
   %accepts.i.sroa.5.1.mux = select i1 %cmp.i219, <2 x i64> %accepts.i.sroa.5.1, <2 x i64> %and.i.i613
   %and.i.i613.mux = select i1 %cmp.i219, <2 x i64> %and.i.i613, <2 x i64> %accepts.i.sroa.0.1262
@@ -9166,11 +9166,11 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %300 = load <2 x i64>, ptr %add.ptr.i293.i, align 16, !noalias !513
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr2.i296.i, i64 16) ], !noalias !513
   %301 = load <2 x i64>, ptr %add.ptr2.i296.i, align 16, !noalias !513
-  %not.i = xor <2 x i64> %299, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %299, splat (i64 -1)
   %and.i1080 = and <2 x i64> %s.i.sroa.0.41556, %not.i
-  %not.i1083 = xor <2 x i64> %300, <i64 -1, i64 -1>
+  %not.i1083 = xor <2 x i64> %300, splat (i64 -1)
   %and.i1084 = and <2 x i64> %s.i.sroa.22.41557, %not.i1083
-  %not.i1087 = xor <2 x i64> %301, <i64 -1, i64 -1>
+  %not.i1087 = xor <2 x i64> %301, splat (i64 -1)
   %and.i1088 = and <2 x i64> %s.i.sroa.40.41558, %not.i1087
   %or.i569.i = or <2 x i64> %and.i1084, %and.i1080
   %or.i572.i = or <2 x i64> %or.i569.i, %and.i1088
@@ -10030,7 +10030,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i84, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i85 = xor <2 x i64> %9, <i64 -1, i64 -1>
+  %not.i.i85 = xor <2 x i64> %9, splat (i64 -1)
   br i1 %cmp.i20, label %if.then14.i.cont.then, label %if.then14.i.cont.else
 
 if.then14.i.cont.then:                            ; preds = %if.then14.i
@@ -10485,7 +10485,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end6.i, %repeatHasMatch.exit
-  %not.i.i101 = xor <2 x i64> %14, <i64 -1, i64 -1>
+  %not.i.i101 = xor <2 x i64> %14, splat (i64 -1)
   br i1 %cmp.i56, label %if.then14.i.cont.then, label %if.then14.i.cont.else
 
 if.then14.i.cont.then:                            ; preds = %if.then14.i
@@ -11533,7 +11533,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i114, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %17, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %17, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i36.0, %not.i.i
   %accepts.i.sroa.5.1.mux = select i1 %cmp.i37, <2 x i64> %accepts.i.sroa.5.1, <2 x i64> %and.i.i
   %and.i.i.mux = select i1 %cmp.i37, <2 x i64> %and.i.i, <2 x i64> %accepts.i.sroa.0.193
@@ -11807,7 +11807,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i117, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %17, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %17, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i24.0, %not.i.i
   %accstate.i.sroa.5.1.mux = select i1 %cmp.i25, <2 x i64> %accstate.i.sroa.5.1, <2 x i64> %and.i.i
   %and.i.i.mux = select i1 %cmp.i25, <2 x i64> %and.i.i, <2 x i64> %accstate.i.sroa.0.171
@@ -11985,7 +11985,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i80, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %11, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %11, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i.0, %not.i.i
   %state.sroa.4.1.mux = select i1 %cmp.i23, <2 x i64> %state.sroa.4.1, <2 x i64> %and.i.i
   %and.i.i.mux = select i1 %cmp.i23, <2 x i64> %and.i.i, <2 x i64> %state.sroa.0.171

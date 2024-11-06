@@ -22,7 +22,7 @@ entry:
   %and.i.i.i = and i64 %xor.i.i.i, %1
   %add.ptr12 = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i
   %3 = load <16 x i8>, ptr %add.ptr12, align 1
-  %cmp.i.i.i13 = icmp slt <16 x i8> %3, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13 = icmp slt <16 x i8> %3, splat (i8 -1)
   %4 = bitcast <16 x i1> %cmp.i.i.i13 to i16
   %cmp.i.not14 = icmp eq i16 %4, 0
   br i1 %cmp.i.not14, label %if.end, label %if.then
@@ -47,7 +47,7 @@ if.end:                                           ; preds = %entry, %if.end
   %and.i6 = and i64 %add3.i, %1
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 %and.i6
   %6 = load <16 x i8>, ptr %add.ptr, align 1
-  %cmp.i.i.i = icmp slt <16 x i8> %6, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i = icmp slt <16 x i8> %6, splat (i8 -1)
   %7 = bitcast <16 x i1> %cmp.i.i.i to i16
   %cmp.i.not = icmp eq i16 %7, 0
   br i1 %cmp.i.not, label %if.end, label %if.then, !llvm.loop !8
@@ -150,10 +150,10 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %pos.011 = phi ptr [ %add.ptr1, %for.body ], [ %ctrl, %entry ]
   %0 = load <16 x i8>, ptr %pos.011, align 1
-  %.lobit.i = ashr <16 x i8> %0, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i = ashr <16 x i8> %0, splat (i8 7)
   %1 = bitcast <16 x i8> %.lobit.i to <2 x i64>
-  %not.i.i = and <2 x i64> %1, <i64 9114861777597660798, i64 9114861777597660798>
-  %or.i.i = xor <2 x i64> %not.i.i, <i64 -72340172838076674, i64 -72340172838076674>
+  %not.i.i = and <2 x i64> %1, splat (i64 9114861777597660798)
+  %or.i.i = xor <2 x i64> %not.i.i, splat (i64 -72340172838076674)
   store <2 x i64> %or.i.i, ptr %pos.011, align 1
   %add.ptr1 = getelementptr inbounds i8, ptr %pos.011, i64 16
   %cmp = icmp ult ptr %add.ptr1, %add.ptr
@@ -182,7 +182,7 @@ entry:
   %and.i.i.i.i = and i64 %xor.i.i.i.i, %1
   %add.ptr12.i = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i.i
   %3 = load <16 x i8>, ptr %add.ptr12.i, align 1
-  %cmp.i.i.i13.i = icmp slt <16 x i8> %3, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %3, splat (i8 -1)
   %4 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
   %cmp.i.not14.i = icmp eq i16 %4, 0
   br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit
@@ -195,7 +195,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %and.i6.i = and i64 %add3.i.i, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %and.i6.i
   %5 = load <16 x i8>, ptr %add.ptr.i, align 1
-  %cmp.i.i.i.i = icmp slt <16 x i8> %5, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i = icmp slt <16 x i8> %5, splat (i8 -1)
   %6 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %6, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit, !llvm.loop !8
@@ -228,10 +228,10 @@ entry:
 for.body.i:                                       ; preds = %entry, %for.body.i
   %pos.011.i = phi ptr [ %add.ptr1.i, %for.body.i ], [ %2, %entry ]
   %3 = load <16 x i8>, ptr %pos.011.i, align 1
-  %.lobit.i.i = ashr <16 x i8> %3, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %3, splat (i8 7)
   %4 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %not.i.i.i = and <2 x i64> %4, <i64 9114861777597660798, i64 9114861777597660798>
-  %or.i.i.i = xor <2 x i64> %not.i.i.i, <i64 -72340172838076674, i64 -72340172838076674>
+  %not.i.i.i = and <2 x i64> %4, splat (i64 9114861777597660798)
+  %or.i.i.i = xor <2 x i64> %not.i.i.i, splat (i64 -72340172838076674)
   store <2 x i64> %or.i.i.i, ptr %pos.011.i, align 1
   %add.ptr1.i = getelementptr inbounds i8, ptr %pos.011.i, i64 16
   %cmp.i = icmp ult ptr %add.ptr1.i, %add.ptr.i
@@ -268,7 +268,7 @@ if.end:                                           ; preds = %for.body
   %and.i.i.i.i = and i64 %xor.i.i.i.i, %10
   %add.ptr12.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i.i.i
   %12 = load <16 x i8>, ptr %add.ptr12.i, align 1
-  %cmp.i.i.i13.i = icmp slt <16 x i8> %12, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %12, splat (i8 -1)
   %13 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
   %cmp.i.not14.i = icmp eq i16 %13, 0
   br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit
@@ -281,7 +281,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %and.i6.i = and i64 %add3.i.i, %10
   %add.ptr.i61 = getelementptr inbounds i8, ptr %9, i64 %and.i6.i
   %14 = load <16 x i8>, ptr %add.ptr.i61, align 1
-  %cmp.i.i.i.i = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i = icmp slt <16 x i8> %14, splat (i8 -1)
   %15 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %15, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl18container_internal19find_first_non_fullIvEENS0_8FindInfoERKNS0_12CommonFieldsEm.exit, !llvm.loop !8
@@ -395,11 +395,11 @@ entry:
   %2 = load i64, ptr %capacity_.i, align 8
   %and = and i64 %sub, %2
   %3 = load <16 x i8>, ptr %it, align 1
-  %cmp.i.i = icmp eq <16 x i8> %3, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i = icmp eq <16 x i8> %3, splat (i8 -128)
   %4 = bitcast <16 x i1> %cmp.i.i to i16
   %add.ptr = getelementptr inbounds i8, ptr %1, i64 %and
   %5 = load <16 x i8>, ptr %add.ptr, align 1
-  %cmp.i.i11 = icmp eq <16 x i8> %5, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i11 = icmp eq <16 x i8> %5, splat (i8 -128)
   %6 = bitcast <16 x i1> %cmp.i.i11 to i16
   %cmp.i = icmp ne i16 %6, 0
   %cmp.i12 = icmp ne i16 %4, 0

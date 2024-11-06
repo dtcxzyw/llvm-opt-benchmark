@@ -15177,7 +15177,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i52:                   ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i52
   %.021.i.i.i.i.i.i.i.i.i.i.i53 = phi i64 [ %141, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i52 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i45, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i46 ]
   %140 = getelementptr inbounds i32, ptr %124, i64 %.021.i.i.i.i.i.i.i.i.i.i.i53
-  store <4 x i32> <i32 1, i32 1, i32 1, i32 1>, ptr %140, align 16
+  store <4 x i32> splat (i32 1), ptr %140, align 16
   %141 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i53, 4
   %142 = icmp slt i64 %141, %135
   br i1 %142, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i52, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i47, !llvm.loop !385
@@ -15235,7 +15235,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i67:                   ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i61, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i67
   %.021.i.i.i.i.i.i.i.i.i.i.i68 = phi i64 [ %165, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i67 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i.i60, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_5BlockINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1EEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIiEENS7_IiLin1ELi1ELi0ELin1ELi1EEEEEEENS0_9assign_opIiiEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i.i61 ]
   %164 = getelementptr inbounds i32, ptr %148, i64 %.021.i.i.i.i.i.i.i.i.i.i.i68
-  store <4 x i32> <i32 2, i32 2, i32 2, i32 2>, ptr %164, align 16
+  store <4 x i32> splat (i32 2), ptr %164, align 16
   %165 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i.i68, 4
   %166 = icmp slt i64 %165, %159
   br i1 %166, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i67, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i62, !llvm.loop !385
@@ -25600,7 +25600,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %483 = getelementptr inbounds double, ptr %462, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %484 = getelementptr inbounds double, ptr %465, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %485 = load <2 x double>, ptr %484, align 1
-  %486 = fmul <2 x double> %485, <double 5.000000e-01, double 5.000000e-01>
+  %486 = fmul <2 x double> %485, splat (double 5.000000e-01)
   store <2 x double> %486, ptr %483, align 16
   %487 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %488 = icmp slt i64 %487, %475
@@ -25666,7 +25666,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %516 = getelementptr inbounds double, ptr %497, i64 %.021.i.i.i.i.i.i.i.i.i.i225
   %517 = getelementptr inbounds double, ptr %498, i64 %.021.i.i.i.i.i.i.i.i.i.i225
   %518 = load <2 x double>, ptr %517, align 1
-  %519 = fmul <2 x double> %518, <double 5.000000e-01, double 5.000000e-01>
+  %519 = fmul <2 x double> %518, splat (double 5.000000e-01)
   store <2 x double> %519, ptr %516, align 16
   %520 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i225, 2
   %521 = icmp slt i64 %520, %508
@@ -25733,7 +25733,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %549 = getelementptr inbounds double, ptr %530, i64 %.021.i.i.i.i.i.i.i.i.i.i241
   %550 = getelementptr inbounds double, ptr %531, i64 %.021.i.i.i.i.i.i.i.i.i.i241
   %551 = load <2 x double>, ptr %550, align 1
-  %552 = fmul <2 x double> %551, <double 5.000000e-01, double 5.000000e-01>
+  %552 = fmul <2 x double> %551, splat (double 5.000000e-01)
   store <2 x double> %552, ptr %549, align 16
   %553 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i241, 2
   %554 = icmp slt i64 %553, %541
@@ -25800,7 +25800,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %582 = getelementptr inbounds double, ptr %563, i64 %.021.i.i.i.i.i.i.i.i.i.i257
   %583 = getelementptr inbounds double, ptr %564, i64 %.021.i.i.i.i.i.i.i.i.i.i257
   %584 = load <2 x double>, ptr %583, align 1
-  %585 = fmul <2 x double> %584, <double 5.000000e-01, double 5.000000e-01>
+  %585 = fmul <2 x double> %584, splat (double 5.000000e-01)
   store <2 x double> %585, ptr %582, align 16
   %586 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i257, 2
   %587 = icmp slt i64 %586, %574
@@ -28539,7 +28539,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %.011.i.i.i.i.i.i = phi i64 [ %186, %.lr.ph.i.i.i.i.i.i ], [ 0, %177 ]
   %183 = getelementptr inbounds double, ptr %178, i64 %.011.i.i.i.i.i.i
   %184 = load <2 x double>, ptr %183, align 16
-  %185 = fdiv <2 x double> %184, <double 6.000000e+00, double 6.000000e+00>
+  %185 = fdiv <2 x double> %184, splat (double 6.000000e+00)
   store <2 x double> %185, ptr %183, align 16
   %186 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
   %187 = icmp slt i64 %186, %181
@@ -29122,7 +29122,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %425 = getelementptr inbounds double, ptr %.0.i.i1816, i64 %.021.i.i.i.i.i.i
   %426 = getelementptr inbounds double, ptr %405, i64 %.021.i.i.i.i.i.i
   %427 = load <2 x double>, ptr %426, align 1
-  %428 = fmul <2 x double> %427, <double 5.000000e-01, double 5.000000e-01>
+  %428 = fmul <2 x double> %427, splat (double 5.000000e-01)
   %429 = load <2 x double>, ptr %425, align 16
   %430 = fmul <2 x double> %429, %428
   store <2 x double> %430, ptr %425, align 16
@@ -29191,7 +29191,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %461 = getelementptr inbounds double, ptr %441, i64 %.021.i.i.i.i.i.i110
   %462 = getelementptr inbounds double, ptr %405, i64 %.021.i.i.i.i.i.i110
   %463 = load <2 x double>, ptr %462, align 1
-  %464 = fmul <2 x double> %463, <double 5.000000e-01, double 5.000000e-01>
+  %464 = fmul <2 x double> %463, splat (double 5.000000e-01)
   %465 = load <2 x double>, ptr %461, align 16
   %466 = fmul <2 x double> %465, %464
   store <2 x double> %466, ptr %461, align 16
@@ -29261,7 +29261,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %498 = getelementptr inbounds double, ptr %478, i64 %.021.i.i.i.i.i.i127
   %499 = getelementptr inbounds double, ptr %405, i64 %.021.i.i.i.i.i.i127
   %500 = load <2 x double>, ptr %499, align 1
-  %501 = fmul <2 x double> %500, <double 5.000000e-01, double 5.000000e-01>
+  %501 = fmul <2 x double> %500, splat (double 5.000000e-01)
   %502 = load <2 x double>, ptr %498, align 16
   %503 = fmul <2 x double> %502, %501
   store <2 x double> %503, ptr %498, align 16
@@ -29366,7 +29366,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %549 = getelementptr inbounds double, ptr %478, i64 %.021.i.i.i.i.i.i.i.i.i.i
   %550 = load <2 x double>, ptr %549, align 1
   %551 = fadd <2 x double> %548, %550
-  %552 = fmul <2 x double> %551, <double 5.000000e-01, double 5.000000e-01>
+  %552 = fmul <2 x double> %551, splat (double 5.000000e-01)
   store <2 x double> %552, ptr %546, align 16
   %553 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %554 = icmp slt i64 %553, %535
@@ -29438,7 +29438,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %588 = getelementptr inbounds double, ptr %.0.i.i1816, i64 %.021.i.i.i.i.i.i.i.i.i.i149
   %589 = load <2 x double>, ptr %588, align 1
   %590 = fadd <2 x double> %587, %589
-  %591 = fmul <2 x double> %590, <double 5.000000e-01, double 5.000000e-01>
+  %591 = fmul <2 x double> %590, splat (double 5.000000e-01)
   store <2 x double> %591, ptr %585, align 16
   %592 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i149, 2
   %593 = icmp slt i64 %592, %574
@@ -29510,7 +29510,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %627 = getelementptr inbounds double, ptr %441, i64 %.021.i.i.i.i.i.i.i.i.i.i165
   %628 = load <2 x double>, ptr %627, align 1
   %629 = fadd <2 x double> %626, %628
-  %630 = fmul <2 x double> %629, <double 5.000000e-01, double 5.000000e-01>
+  %630 = fmul <2 x double> %629, splat (double 5.000000e-01)
   store <2 x double> %630, ptr %624, align 16
   %631 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i165, 2
   %632 = icmp slt i64 %631, %613
@@ -38397,7 +38397,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 .lr.ph.i.i.i.i.i.i.i.i.i.i1:                      ; preds = %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES8_EEEENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i1
   %.021.i.i.i.i.i.i.i.i.i.i = phi i64 [ %56, %.lr.ph.i.i.i.i.i.i.i.i.i.i1 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %_ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_3MapINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEELi0ENS_6StrideILi0ELi0EEEEEEENS5_INS_14CwiseNullaryOpINS0_18scalar_constant_opIdEES8_EEEENS0_9assign_opIddEELi0EEEEEvRT_ll.exit.i.i.i.i.i.i.i.i.i.i ]
   %55 = getelementptr inbounds double, ptr %39, i64 %.021.i.i.i.i.i.i.i.i.i.i
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %55, align 16
+  store <2 x double> splat (double 1.000000e+00), ptr %55, align 16
   %56 = add nsw i64 %.021.i.i.i.i.i.i.i.i.i.i, 2
   %57 = icmp slt i64 %56, %50
   br i1 %57, label %.lr.ph.i.i.i.i.i.i.i.i.i.i1, label %._crit_edge.i.i.i.i.i.i.i.i.i.i, !llvm.loop !1150

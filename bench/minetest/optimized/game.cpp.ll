@@ -10535,7 +10535,7 @@ entry:
   %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %7 = load <2 x float>, ptr %call9, align 4, !tbaa !34
-  %8 = fmul nsz <2 x float> %7, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %8 = fmul nsz <2 x float> %7, splat (float 0x3FB99999A0000000)
   %9 = insertelement <2 x i48> poison, i48 %retval.sroa.0.0.copyload.i, i64 0
   %10 = insertelement <2 x i48> %9, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %11 = trunc <2 x i48> %10 to <2 x i16>
@@ -10568,7 +10568,7 @@ cond.false:                                       ; preds = %entry
 cond.end:                                         ; preds = %cond.false, %cond.true
   %ref.tmp18.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.0.copyload.i67, %cond.false ], [ %call21.fca.0.extract, %cond.true ]
   %ref.tmp18.sroa.6.0 = phi float [ %retval.sroa.2.0.copyload.i, %cond.false ], [ %call21.fca.1.extract, %cond.true ]
-  %15 = fmul nsz <2 x float> %ref.tmp18.sroa.0.0, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %15 = fmul nsz <2 x float> %ref.tmp18.sroa.0.0, splat (float 0x3FB99999A0000000)
   %mul3.i.i74 = fmul nsz float %ref.tmp18.sroa.6.0, 0x3FB99999A0000000
   store <2 x float> %15, ptr %ref.tmp17, align 8
   %tmp.coerce26.sroa.2.0.ref.tmp17.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp17, i64 8
@@ -10786,7 +10786,7 @@ invoke.cont18:                                    ; preds = %invoke.cont11
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %shootline, align 16, !tbaa !34
   %Y.i2.i = getelementptr inbounds i8, ptr %shootline, i64 16
   %Z.i3.i = getelementptr inbounds i8, ptr %shootline, i64 20
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !34
   %14 = load ptr, ptr %camera, align 8, !tbaa !121
   %m_camera_mode.i = getelementptr inbounds i8, ptr %14, i64 512
   %15 = load i32, ptr %m_camera_mode.i, align 8, !tbaa !310
@@ -10870,7 +10870,7 @@ invoke.cont54:                                    ; preds = %invoke.cont54.sink.
   %26 = phi <2 x float> [ zeroinitializer, %invoke.cont18 ], [ %call40.fca.0.extract.sink, %invoke.cont54.sink.split ]
   %mul3.i = fmul nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
   %mul3.i465 = fmul nsz float %mul3.i, %d.0
-  %27 = fmul nsz <2 x float> %retval.sroa.0.0.copyload.i, <float 1.000000e+01, float 1.000000e+01>
+  %27 = fmul nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %28 = insertelement <2 x float> poison, float %d.0, i64 0
   %29 = shufflevector <2 x float> %28, <2 x float> poison, <2 x i32> zeroinitializer
   %30 = fmul nsz <2 x float> %27, %29
@@ -10946,7 +10946,7 @@ invoke.cont94:                                    ; preds = %if.end.i, %invoke.c
   %58 = insertelement <4 x float> %57, float %add.i501, i64 3
   %59 = shufflevector <2 x float> %ref.tmp66.sroa.0.0, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %60 = insertelement <2 x float> %59, float %ref.tmp66.sroa.10.0, i64 1
-  %61 = fmul nsz <2 x float> %60, <float 1.000000e+01, float 1.000000e+01>
+  %61 = fmul nsz <2 x float> %60, splat (float 1.000000e+01)
   %62 = fmul nsz <2 x float> %29, %61
   %63 = fadd nsz <2 x float> %38, %62
   %64 = insertelement <2 x i48> poison, i48 %agg.tmp.sroa.0.0.copyload, i64 0
@@ -10954,7 +10954,7 @@ invoke.cont94:                                    ; preds = %if.end.i, %invoke.c
   %66 = lshr <2 x i48> %65, <i48 16, i48 32>
   %67 = trunc <2 x i48> %66 to <2 x i16>
   %68 = sitofp <2 x i16> %67 to <2 x float>
-  %69 = fmul nsz <2 x float> %68, <float 1.000000e+01, float 1.000000e+01>
+  %69 = fmul nsz <2 x float> %68, splat (float 1.000000e+01)
   %70 = shufflevector <2 x float> %69, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %71 = shufflevector <4 x float> %54, <4 x float> %70, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
   %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 0>
@@ -12380,9 +12380,9 @@ invoke.cont210:                                   ; preds = %land.lhs.true202
   %conv.i = fptosi float %div3.i to i16
   %59 = insertelement <2 x float> %retval.sroa.0.0.copyload.i, float %retval.sroa.2.0.copyload.i, i64 0
   %60 = fcmp nsz ogt <2 x float> %59, zeroinitializer
-  %61 = select <2 x i1> %60, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %61 = select <2 x i1> %60, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %62 = fadd nsz <2 x float> %59, %61
-  %63 = fdiv nsz <2 x float> %62, <float 1.000000e+01, float 1.000000e+01>
+  %63 = fdiv nsz <2 x float> %62, splat (float 1.000000e+01)
   %64 = fptosi <2 x float> %63 to <2 x i16>
   %65 = zext <2 x i16> %64 to <2 x i48>
   %66 = shl nuw <2 x i48> %65, <i48 32, i48 16>
@@ -34192,7 +34192,7 @@ invoke.cont30:                                    ; preds = %_ZNKSt3mapItSt10uni
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %selection_box) #40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %selection_box, align 16, !tbaa !34
   %Y.i2.i = getelementptr inbounds i8, ptr %selection_box, i64 16
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !34
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !34
   %24 = call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @_ZZN4Game18updatePointedThingERKN3irr4core6line3dIfEEbRKSt8optionalI14PointabilitiesEbRKNS1_8vector3dIsEEE24show_entity_selectionbox)
   %25 = load i8, ptr %24, align 1, !tbaa !176, !range !154, !noundef !177
   %tobool31.not = icmp eq i8 %25, 0
@@ -34494,7 +34494,7 @@ for.body:                                         ; preds = %invoke.cont124, %fo
   %box.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %i.sroa.0.0471, i64 16
   %64 = load <2 x float>, ptr %box.sroa.14.0..sroa_idx, align 4, !tbaa !34
   %65 = fadd nsz <4 x float> %63, <float 0xBF947AE140000000, float 0xBF947AE140000000, float 0xBF947AE140000000, float 0x3F947AE140000000>
-  %66 = fadd nsz <2 x float> %64, <float 0x3F947AE140000000, float 0x3F947AE140000000>
+  %66 = fadd nsz <2 x float> %64, splat (float 0x3F947AE140000000)
   %cmp.not.i = icmp eq ptr %62, %61
   br i1 %cmp.not.i, label %if.else.i, label %if.then.i
 
@@ -34603,7 +34603,7 @@ invoke.cont133:                                   ; preds = %invoke.cont124, %in
   %74 = insertelement <2 x i48> %73, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %75 = trunc <2 x i48> %74 to <2 x i16>
   %76 = sitofp <2 x i16> %75 to <2 x float>
-  %77 = fmul nsz <2 x float> %76, <float 1.000000e+01, float 1.000000e+01>
+  %77 = fmul nsz <2 x float> %76, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
   store <2 x float> %77, ptr %ref.tmp129, align 8
@@ -36442,7 +36442,7 @@ entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 4
   %0 = load <2 x float>, ptr %arrayidx.i, align 4, !tbaa !34
   %1 = tail call nsz <2 x float> @llvm.fabs.v2f32(<2 x float> %0)
-  %2 = fcmp nsz ugt <2 x float> %1, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
+  %2 = fcmp nsz ugt <2 x float> %1, splat (float 0x3EB0C6F7A0000000)
   %3 = extractelement <2 x i1> %2, i64 0
   %4 = extractelement <2 x i1> %2, i64 1
   %or.cond.i = select i1 %3, i1 true, i1 %4
@@ -38710,7 +38710,7 @@ if.then196:                                       ; preds = %if.then189
   %retval.sroa.2.0.m_position.sroa_idx.i = getelementptr inbounds i8, ptr %138, i64 588
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_position.sroa_idx.i, align 4, !tbaa !34
   %139 = insertelement <2 x float> %retval.sroa.0.0.copyload.i, float %retval.sroa.2.0.copyload.i, i64 1
-  %140 = fdiv nsz <2 x float> %139, <float 1.000000e+01, float 1.000000e+01>
+  %140 = fdiv nsz <2 x float> %139, splat (float 1.000000e+01)
   %141 = fsub nsz <2 x float> %136, %140
   %drawtype = getelementptr inbounds i8, ptr %cond-lvalue.i1067, i64 1538
   %142 = load i8, ptr %drawtype, align 2, !tbaa !1254
@@ -38789,9 +38789,9 @@ if.then290:                                       ; preds = %if.else173, %if.els
   %conv.i32 = fptosi float %div3.i to i16
   %155 = insertelement <2 x float> %retval.sroa.0.0.copyload.i1091, float %retval.sroa.2.0.copyload.i1093, i64 0
   %156 = fcmp nsz ogt <2 x float> %155, zeroinitializer
-  %157 = select <2 x i1> %156, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %157 = select <2 x i1> %156, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %158 = fadd nsz <2 x float> %155, %157
-  %159 = fdiv nsz <2 x float> %158, <float 1.000000e+01, float 1.000000e+01>
+  %159 = fdiv nsz <2 x float> %158, splat (float 1.000000e+01)
   %160 = fptosi <2 x float> %159 to <2 x i16>
   %161 = zext <2 x i16> %160 to <2 x i48>
   %162 = shl nuw <2 x i48> %161, <i48 32, i48 16>
@@ -39763,9 +39763,9 @@ if.then:                                          ; preds = %entry
   %11 = load <2 x float>, ptr %camera_node_position, align 8, !tbaa !34
   %12 = insertelement <2 x i32> poison, i32 %sext, i64 0
   %13 = insertelement <2 x i32> %12, i32 %camera_offset.sroa.0.0.extract.trunc, i64 1
-  %14 = ashr <2 x i32> %13, <i32 16, i32 16>
+  %14 = ashr <2 x i32> %13, splat (i32 16)
   %15 = sitofp <2 x i32> %14 to <2 x float>
-  %16 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> <float 1.000000e+01, float 1.000000e+01>, <2 x float> %11)
+  %16 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %15, <2 x float> splat (float 1.000000e+01), <2 x float> %11)
   store <2 x float> %16, ptr %camera_node_position, align 8, !tbaa !34
   %Z = getelementptr inbounds i8, ptr %camera_node_position, i64 8
   %17 = load float, ptr %Z, align 8, !tbaa !35
@@ -39976,7 +39976,7 @@ cond.end29:                                       ; preds = %cond.false25, %cond
   %call24.pn = phi { <2 x float>, float } [ %call24, %cond.true22 ], [ %call27, %cond.false25 ]
   %light.sroa.0.0 = extractvalue { <2 x float>, float } %call24.pn, 0
   %light.sroa.6.0 = extractvalue { <2 x float>, float } %call24.pn, 1
-  %13 = fmul nsz <2 x float> %light.sroa.0.0, <float 1.000000e+04, float 1.000000e+04>
+  %13 = fmul nsz <2 x float> %light.sroa.0.0, splat (float 1.000000e+04)
   %mul3.i = fmul nsz float %light.sroa.6.0, 1.000000e+04
   %call32 = tail call noundef nonnull align 4 dereferenceable(429) ptr @_ZN14ShadowRenderer19getDirectionalLightEj(ptr noundef nonnull align 8 dereferenceable(216) %2, i32 noundef 0)
   tail call void @_ZN16DirectionalLight12setDirectionEN3irr4core8vector3dIfEE(ptr noundef nonnull align 4 dereferenceable(429) %call32, <2 x float> %13, float %mul3.i)
@@ -46142,7 +46142,7 @@ if.end:                                           ; preds = %_ZN19CachedShaderSe
   %85 = insertelement <2 x i48> %84, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %86 = trunc <2 x i48> %85 to <2 x i16>
   %87 = sitofp <2 x i16> %86 to <2 x float>
-  %88 = fmul nsz <2 x float> %87, <float 1.000000e+01, float 1.000000e+01>
+  %88 = fmul nsz <2 x float> %87, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %array.i318) #40
@@ -47289,7 +47289,7 @@ if.then:                                          ; preds = %entry
   %Size.i = getelementptr inbounds i8, ptr %0, i64 80
   %1 = load <2 x i32>, ptr %Size.i, align 4, !tbaa !497
   %2 = uitofp <2 x i32> %1 to <2 x float>
-  %3 = fdiv nsz <2 x float> <float 1.000000e+00, float 1.000000e+00>, %2
+  %3 = fdiv nsz <2 x float> splat (float 1.000000e+00), %2
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -55672,7 +55672,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %23 = insertelement <2 x double> poison, double %X32.0, i64 0
   %24 = insertelement <2 x double> %23, double %mul31, i64 1
   %25 = fcmp nsz olt <2 x double> %24, zeroinitializer
-  %26 = fadd nsz <2 x double> %24, <double 3.600000e+02, double 3.600000e+02>
+  %26 = fadd nsz <2 x double> %24, splat (double 3.600000e+02)
   %27 = select <2 x i1> %25, <2 x double> %26, <2 x double> %24
   %28 = fptrunc <2 x double> %27 to <2 x float>
   %conv84 = fptrunc double %Z33.1 to float

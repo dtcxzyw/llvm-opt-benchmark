@@ -2483,7 +2483,7 @@ if.then149:                                       ; preds = %if.else145
   %74 = load float, ptr %Z.i857, align 8, !tbaa !108
   call fastcc void @_ZN7treegenL20tree_trunk_placementER8MMVManipN3irr4core8vector3dIfEERKNS_7TreeDefE(ptr noundef nonnull align 8 dereferenceable(112) %vmanip, <2 x float> %73, float %74, ptr noundef nonnull align 8 dereferenceable(321) %tree_definition)
   %75 = load <2 x float>, ptr %position, align 8, !tbaa !103
-  %76 = fadd nsz <2 x float> %75, <float -1.000000e+00, float -1.000000e+00>
+  %76 = fadd nsz <2 x float> %75, splat (float -1.000000e+00)
   %77 = load float, ptr %Z.i857, align 8, !tbaa !108
   call fastcc void @_ZN7treegenL20tree_trunk_placementER8MMVManipN3irr4core8vector3dIfEERKNS_7TreeDefE(ptr noundef nonnull align 8 dereferenceable(112) %vmanip, <2 x float> %76, float %77, ptr noundef nonnull align 8 dereferenceable(321) %tree_definition)
   %78 = load float, ptr %position, align 8, !tbaa !105

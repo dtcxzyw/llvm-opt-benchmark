@@ -278,9 +278,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %126 = and i32 %118, -4
   %wide.trip.count = zext nneg i32 %11 to i64
   %brmerge = or i1 %121, %.not18632017
-  %127 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %124
+  %127 = fdiv fast <4 x float> splat (float 1.000000e+00), %124
   %128 = fdiv fast float 1.000000e+00, %122
-  %129 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %124
+  %129 = fdiv fast <4 x float> splat (float 1.000000e+00), %124
   %130 = fdiv fast float 1.000000e+00, %122
   br label %131
 
@@ -397,7 +397,7 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %180 = shufflevector <4 x float> %179, <4 x float> poison, <4 x i32> zeroinitializer
   %181 = fadd fast <4 x float> %.sroa.01710.1, %180
   %182 = tail call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %181)
-  %183 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %182
+  %183 = fdiv fast <4 x float> splat (float 1.000000e+00), %182
   %184 = fneg fast <4 x float> %.sroa.01724.2
   %185 = fmul fast <4 x float> %183, %184
   br label %.thread1870
@@ -597,9 +597,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %274 = and i32 %266, -4
   %wide.trip.count2298 = zext nneg i32 %13 to i64
   %brmerge2211 = or i1 %269, %.not18512081
-  %275 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %272
+  %275 = fdiv fast <4 x float> splat (float 1.000000e+00), %272
   %276 = fdiv fast float 1.000000e+00, %270
-  %277 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %272
+  %277 = fdiv fast <4 x float> splat (float 1.000000e+00), %272
   %278 = fdiv fast float 1.000000e+00, %270
   br label %425
 
@@ -626,9 +626,9 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %wide.trip.count2312 = zext nneg i32 %13 to i64
   %wide.trip.count2307 = zext nneg i32 %11 to i64
   %brmerge2209 = select i1 %285, i1 true, i1 %.not18572143
-  %291 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %289
+  %291 = fdiv fast <4 x float> splat (float 1.000000e+00), %289
   %292 = fdiv fast float 1.000000e+00, %287
-  %293 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %289
+  %293 = fdiv fast <4 x float> splat (float 1.000000e+00), %289
   %294 = fdiv fast float 1.000000e+00, %287
   br label %.preheader1944.us
 
@@ -719,7 +719,7 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %336 = shufflevector <4 x float> %335, <4 x float> poison, <4 x i32> zeroinitializer
   %337 = fadd fast <4 x float> %.sroa.01739.2.us, %336
   %338 = tail call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %337)
-  %339 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %338
+  %339 = fdiv fast <4 x float> splat (float 1.000000e+00), %338
   %340 = fneg fast <4 x float> %.sroa.01753.3.us
   %341 = fmul fast <4 x float> %339, %340
   br label %.thread1876.us
@@ -1040,7 +1040,7 @@ define hidden noundef i32 @_ZNK4ncnn13LayerNorm_x8615forward_inplaceERNS_3MatERK
   %473 = shufflevector <4 x float> %472, <4 x float> poison, <4 x i32> zeroinitializer
   %474 = fadd fast <4 x float> %.sroa.01768.1, %473
   %475 = tail call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %474)
-  %476 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %475
+  %476 = fdiv fast <4 x float> splat (float 1.000000e+00), %475
   %477 = fneg fast <4 x float> %.sroa.01782.2
   %478 = fmul fast <4 x float> %476, %477
   br label %.thread1882

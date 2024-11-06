@@ -112416,7 +112416,7 @@ _ZN5alloc6string6String8push_str17hf8d74d98e42ef13fE.exit: ; preds = %261, %.noe
   br i1 %434, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hc3ce72c0146a253cE.exit.i.i", label %437
 
 ._crit_edge.i.i.i.i:                              ; preds = %437, %424
-  %435 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %435 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i, splat (i8 -1)
   %436 = bitcast <16 x i1> %435 to i16
   %.not.i.i.i.i.i = icmp eq i16 %436, 0
   br i1 %.not.i.i.i.i.i, label %441, label %select.unfold.i.i
@@ -125747,7 +125747,7 @@ define hidden void @"_ZN6editor7element13EditorElement20layout_indent_guides28_$
   br i1 %76, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h3a4bf3d88374ddb7E.exit", label %79
 
 ._crit_edge.i.i:                                  ; preds = %79, %66
-  %77 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %77 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %78 = bitcast <16 x i1> %77 to i16
   %.not.i.i.i = icmp eq i16 %78, 0
   br i1 %.not.i.i.i, label %83, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h3a4bf3d88374ddb7E.exit"

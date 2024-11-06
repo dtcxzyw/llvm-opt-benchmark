@@ -2124,7 +2124,7 @@ entry:
   %m_contactNormal1 = getelementptr inbounds i8, ptr %solverConstraint, i64 16
   %m_contactNormal2 = getelementptr inbounds i8, ptr %solverConstraint, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_contactNormal1, i8 0, i64 16, i1 false)
-  store <2 x float> <float -0.000000e+00, float -0.000000e+00>, ptr %m_contactNormal2, align 8
+  store <2 x float> splat (float -0.000000e+00), ptr %m_contactNormal2, align 8
   %ref.tmp4.sroa.2.0.m_contactNormal2.sroa_idx = getelementptr inbounds i8, ptr %solverConstraint, i64 56
   store <2 x float> <float -0.000000e+00, float 0.000000e+00>, ptr %ref.tmp4.sroa.2.0.m_contactNormal2.sroa_idx, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 24

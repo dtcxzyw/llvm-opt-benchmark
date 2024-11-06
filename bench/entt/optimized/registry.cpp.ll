@@ -175117,23 +175117,23 @@ vector.body:                                      ; preds = %vector.body, %if.th
   %offset.idx = shl i64 %index, 2
   %7 = getelementptr inbounds i8, ptr %6, i64 %offset.idx
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %7, align 4, !tbaa !515
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %8, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %7, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %8, align 4, !tbaa !515
   %offset.idx.1 = or disjoint i64 %offset.idx, 32
   %9 = getelementptr inbounds i8, ptr %6, i64 %offset.idx.1
   %10 = getelementptr inbounds i8, ptr %9, i64 16
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %9, align 4, !tbaa !515
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %10, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %9, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %10, align 4, !tbaa !515
   %offset.idx.2 = or disjoint i64 %offset.idx, 64
   %11 = getelementptr inbounds i8, ptr %6, i64 %offset.idx.2
   %12 = getelementptr inbounds i8, ptr %11, i64 16
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %11, align 4, !tbaa !515
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %12, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %11, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %12, align 4, !tbaa !515
   %offset.idx.3 = or disjoint i64 %offset.idx, 96
   %13 = getelementptr inbounds i8, ptr %6, i64 %offset.idx.3
   %14 = getelementptr inbounds i8, ptr %13, i64 16
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %13, align 4, !tbaa !515
-  store <4 x i32> <i32 255, i32 255, i32 255, i32 255>, ptr %14, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %13, align 4, !tbaa !515
+  store <4 x i32> splat (i32 255), ptr %14, align 4, !tbaa !515
   %index.next.3 = add nuw nsw i64 %index, 32
   %15 = icmp eq i64 %index.next.3, 4096
   br i1 %15, label %_ZN4entt16basic_sparse_setIN4test13custom_entityESaIS2_EE15assure_at_leastES2_.exit, label %vector.body, !llvm.loop !1769
@@ -215951,10 +215951,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load19 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1779859874, i32 -1779859874>
-  %8 = icmp eq <2 x i32> %wide.load19, <i32 -1779859874, i32 -1779859874>
-  %9 = icmp eq <2 x i32> %wide.load, <i32 -1471413475, i32 -1471413475>
-  %10 = icmp eq <2 x i32> %wide.load19, <i32 -1471413475, i32 -1471413475>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1779859874)
+  %8 = icmp eq <2 x i32> %wide.load19, splat (i32 -1779859874)
+  %9 = icmp eq <2 x i32> %wide.load, splat (i32 -1471413475)
+  %10 = icmp eq <2 x i32> %wide.load19, splat (i32 -1471413475)
   %11 = or <2 x i1> %7, %9
   %12 = or <2 x i1> %8, %10
   %13 = zext <2 x i1> %11 to <2 x i64>
@@ -217314,8 +217314,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load13 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1779859874, i32 -1779859874>
-  %8 = icmp eq <2 x i32> %wide.load13, <i32 -1779859874, i32 -1779859874>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1779859874)
+  %8 = icmp eq <2 x i32> %wide.load13, splat (i32 -1779859874)
   %9 = zext <2 x i1> %7 to <2 x i64>
   %10 = zext <2 x i1> %8 to <2 x i64>
   %11 = add <2 x i64> %vec.phi, %9
@@ -218670,10 +218670,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load19 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1779859874, i32 -1779859874>
-  %8 = icmp eq <2 x i32> %wide.load19, <i32 -1779859874, i32 -1779859874>
-  %9 = icmp eq <2 x i32> %wide.load, <i32 -1595207928, i32 -1595207928>
-  %10 = icmp eq <2 x i32> %wide.load19, <i32 -1595207928, i32 -1595207928>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1779859874)
+  %8 = icmp eq <2 x i32> %wide.load19, splat (i32 -1779859874)
+  %9 = icmp eq <2 x i32> %wide.load, splat (i32 -1595207928)
+  %10 = icmp eq <2 x i32> %wide.load19, splat (i32 -1595207928)
   %11 = or <2 x i1> %7, %9
   %12 = or <2 x i1> %8, %10
   %13 = zext <2 x i1> %11 to <2 x i64>
@@ -220259,8 +220259,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load13 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1779859874, i32 -1779859874>
-  %8 = icmp eq <2 x i32> %wide.load13, <i32 -1779859874, i32 -1779859874>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1779859874)
+  %8 = icmp eq <2 x i32> %wide.load13, splat (i32 -1779859874)
   %9 = zext <2 x i1> %7 to <2 x i64>
   %10 = zext <2 x i1> %8 to <2 x i64>
   %11 = add <2 x i64> %vec.phi, %9
@@ -221918,8 +221918,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load13 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1779859874, i32 -1779859874>
-  %8 = icmp eq <2 x i32> %wide.load13, <i32 -1779859874, i32 -1779859874>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1779859874)
+  %8 = icmp eq <2 x i32> %wide.load13, splat (i32 -1779859874)
   %9 = zext <2 x i1> %7 to <2 x i64>
   %10 = zext <2 x i1> %8 to <2 x i64>
   %11 = add <2 x i64> %vec.phi, %9
@@ -223563,10 +223563,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load19 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1779859874, i32 -1779859874>
-  %8 = icmp eq <2 x i32> %wide.load19, <i32 -1779859874, i32 -1779859874>
-  %9 = icmp eq <2 x i32> %wide.load, <i32 -1595207928, i32 -1595207928>
-  %10 = icmp eq <2 x i32> %wide.load19, <i32 -1595207928, i32 -1595207928>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1779859874)
+  %8 = icmp eq <2 x i32> %wide.load19, splat (i32 -1779859874)
+  %9 = icmp eq <2 x i32> %wide.load, splat (i32 -1595207928)
+  %10 = icmp eq <2 x i32> %wide.load19, splat (i32 -1595207928)
   %11 = or <2 x i1> %7, %9
   %12 = or <2 x i1> %8, %10
   %13 = zext <2 x i1> %11 to <2 x i64>
@@ -225001,8 +225001,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load13 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1471413475, i32 -1471413475>
-  %8 = icmp eq <2 x i32> %wide.load13, <i32 -1471413475, i32 -1471413475>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1471413475)
+  %8 = icmp eq <2 x i32> %wide.load13, splat (i32 -1471413475)
   %9 = zext <2 x i1> %7 to <2 x i64>
   %10 = zext <2 x i1> %8 to <2 x i64>
   %11 = add <2 x i64> %vec.phi, %9
@@ -226727,8 +226727,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %wide.load = load <2 x i32>, ptr %5, align 4, !tbaa !26
   %wide.load13 = load <2 x i32>, ptr %6, align 4, !tbaa !26
-  %7 = icmp eq <2 x i32> %wide.load, <i32 -1471413475, i32 -1471413475>
-  %8 = icmp eq <2 x i32> %wide.load13, <i32 -1471413475, i32 -1471413475>
+  %7 = icmp eq <2 x i32> %wide.load, splat (i32 -1471413475)
+  %8 = icmp eq <2 x i32> %wide.load13, splat (i32 -1471413475)
   %9 = zext <2 x i1> %7 to <2 x i64>
   %10 = zext <2 x i1> %8 to <2 x i64>
   %11 = add <2 x i64> %vec.phi, %9

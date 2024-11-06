@@ -633,7 +633,7 @@ _ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.e
 if.then36:                                        ; preds = %_ZNK3irr4core7plane3dIfE25getIntersectionWithPlanesERKS2_S4_RNS0_8vector3dIfEE.exit54
   %Z.i124 = getelementptr inbounds i8, ptr %call11, i64 8
   %201 = load float, ptr %Z.i124, align 4, !tbaa !16
-  %202 = fadd <2 x float> %199, <float -5.000000e-01, float -5.000000e-01>
+  %202 = fadd <2 x float> %199, splat (float -5.000000e-01)
   %203 = fmul <2 x float> %190, %202
   %204 = extractelement <2 x float> %203, i64 0
   %add6.i = fadd float %204, %201

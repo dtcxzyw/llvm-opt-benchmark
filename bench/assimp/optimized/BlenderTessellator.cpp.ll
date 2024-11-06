@@ -1800,7 +1800,7 @@ _ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit: ; pre
 
 for.body:                                         ; preds = %_ZN10aiVector3tIfE9NormalizeEv.exit, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit
   %i.0103 = phi i32 [ 0, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %inc, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
-  %retval.sroa.0.0102 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.2, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
+  %retval.sroa.0.0102 = phi <2 x float> [ splat (float 1.000000e+00), %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.2, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
   %lastV.sroa.0.0101 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.0.vec.extract77, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
   %lastV.sroa.3.0100 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.0.4.vec.extract88, %_ZN10aiVector3tIfE9NormalizeEv.exit ]
   %lastV.sroa.4.099 = phi float [ 1.000000e+00, %_ZNK6Assimp21BlenderTessellatorP2T11ScaleMatrixERK12aiMatrix3x3tIfEf.exit ], [ %retval.sroa.16.2, %_ZN10aiVector3tIfE9NormalizeEv.exit ]

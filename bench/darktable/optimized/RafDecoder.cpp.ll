@@ -3302,10 +3302,10 @@ define hidden void @_ZN8rawspeed10RafDecoder22decodeMetaDataInternalEPKNS_14Came
   %183 = load <8 x i32>, ptr %179, align 4, !tbaa !61
   %184 = load <8 x i32>, ptr %180, align 4, !tbaa !61
   %185 = load <8 x i32>, ptr %181, align 4, !tbaa !61
-  %186 = sdiv <8 x i32> %182, <i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9>
-  %187 = sdiv <8 x i32> %183, <i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9>
-  %188 = sdiv <8 x i32> %184, <i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9>
-  %189 = sdiv <8 x i32> %185, <i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9, i32 9>
+  %186 = sdiv <8 x i32> %182, splat (i32 9)
+  %187 = sdiv <8 x i32> %183, splat (i32 9)
+  %188 = sdiv <8 x i32> %184, splat (i32 9)
+  %189 = sdiv <8 x i32> %185, splat (i32 9)
   store <8 x i32> %186, ptr %178, align 4, !tbaa !61
   store <8 x i32> %187, ptr %179, align 4, !tbaa !61
   store <8 x i32> %188, ptr %180, align 4, !tbaa !61

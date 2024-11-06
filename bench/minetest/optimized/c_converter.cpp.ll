@@ -4216,7 +4216,7 @@ entry:
   %call = tail call { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef %L, i32 noundef %index)
   %call.fca.0.extract = extractvalue { <2 x float>, float } %call, 0
   %call.fca.1.extract = extractvalue { <2 x float>, float } %call, 1
-  %0 = fmul nsz <2 x float> %call.fca.0.extract, <float 1.000000e+01, float 1.000000e+01>
+  %0 = fmul nsz <2 x float> %call.fca.0.extract, splat (float 1.000000e+01)
   %mul3.i = fmul nsz float %call.fca.1.extract, 1.000000e+01
   %.fca.0.insert.i = insertvalue { <2 x float>, float } poison, <2 x float> %0, 0
   %.fca.1.insert.i = insertvalue { <2 x float>, float } %.fca.0.insert.i, float %mul3.i, 1
@@ -4263,7 +4263,7 @@ entry:
   %0 = insertelement <2 x double> poison, double %call2.i, i64 0
   %1 = insertelement <2 x double> %0, double %call1.i, i64 1
   %2 = fcmp nsz ogt <2 x double> %1, zeroinitializer
-  %3 = select <2 x i1> %2, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
+  %3 = select <2 x i1> %2, <2 x double> splat (double 5.000000e-01), <2 x double> splat (double -5.000000e-01)
   %4 = fadd nsz <2 x double> %1, %3
   %5 = fptosi <2 x double> %4 to <2 x i16>
   %6 = zext <2 x i16> %5 to <2 x i48>
@@ -4290,7 +4290,7 @@ entry:
   %conv.i = fptosi double %add.i to i16
   %0 = load <2 x double>, ptr %agg.tmp.sroa.2.0.pf.sroa_idx, align 8, !tbaa !25
   %1 = fcmp nsz ogt <2 x double> %0, zeroinitializer
-  %2 = select <2 x i1> %1, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
+  %2 = select <2 x i1> %1, <2 x double> splat (double 5.000000e-01), <2 x double> splat (double -5.000000e-01)
   %3 = fadd nsz <2 x double> %0, %2
   %4 = fptosi <2 x double> %3 to <2 x i16>
   %5 = zext <2 x i16> %4 to <2 x i48>
@@ -4755,7 +4755,7 @@ cond.end:                                         ; preds = %cond.true, %if.end
   %call47 = tail call nsz double @lua_tonumber(ptr noundef %L, i32 noundef -1)
   %35 = insertelement <2 x double> poison, double %call45, i64 0
   %36 = insertelement <2 x double> %35, double %call47, i64 1
-  %37 = tail call nsz <2 x double> @llvm.minnum.v2f64(<2 x double> %36, <2 x double> <double 2.550000e+02, double 2.550000e+02>)
+  %37 = tail call nsz <2 x double> @llvm.minnum.v2f64(<2 x double> %36, <2 x double> splat (double 2.550000e+02))
   %38 = tail call nsz <2 x double> @llvm.maxnum.v2f64(<2 x double> %37, <2 x double> zeroinitializer)
   %39 = fptoui <2 x double> %38 to <2 x i32>
   %40 = shl <2 x i32> %39, <i32 16, i32 8>
@@ -4835,7 +4835,7 @@ entry:
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %agg.result, align 4, !tbaa !30
   %Y.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %Z.i3.i = getelementptr inbounds i8, ptr %agg.result, i64 20
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 4, !tbaa !30
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 4, !tbaa !30
   %call = tail call i32 @lua_type(ptr noundef %L, i32 noundef %index)
   %cmp = icmp eq i32 %call, 5
   br i1 %cmp, label %if.end, label %_ZN3irr4core8aabbox3dIfE6repairEv.exit

@@ -3648,9 +3648,9 @@ define internal fastcc void @_ZN9hashbrown3raw5inner13RawTableInner15rehash_in_p
   %12 = add nsw i64 %.sroa.04.07.i, -1
   %13 = getelementptr inbounds i8, ptr %.val9, i64 %.sroa.03.06.i
   %14 = load <16 x i8>, ptr %13, align 16, !noalias !483
-  %.lobit.i.i = ashr <16 x i8> %14, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %14, splat (i8 7)
   %15 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %16 = or <2 x i64> %15, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %16 = or <2 x i64> %15, splat (i64 -9187201950435737472)
   store <2 x i64> %16, ptr %13, align 16, !noalias !486
   %.not.i = icmp eq i64 %12, 0
   br i1 %.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17heb1cfe90087f9103E.exit, label %10

@@ -152,7 +152,7 @@ invoke.cont13:                                    ; preds = %if.else, %entry
   store float 0.000000e+00, ptr %arrayidx7.i8, align 4
   %m_stridingMesh = getelementptr inbounds i8, ptr %this, i64 120
   %2 = load ptr, ptr %m_stridingMesh, align 8
-  store <2 x float> <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, ptr %ref.tmp12, align 8
+  store <2 x float> splat (float 0xC3ABC16D60000000), ptr %ref.tmp12, align 8
   %3 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store <2 x float> <float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %3, align 8
   %vtable = load ptr, ptr %2, align 8
@@ -233,7 +233,7 @@ invoke.cont11:                                    ; preds = %invoke.cont11.lr.ph
   store float 0x43ABC16D60000000, ptr %arrayidx5.i, align 4
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   %1 = load ptr, ptr %m_stridingMesh, align 8
-  store <2 x float> <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, ptr %ref.tmp10, align 8
+  store <2 x float> splat (float 0xC3ABC16D60000000), ptr %ref.tmp10, align 8
   store <2 x float> <float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %0, align 8
   %vtable = load ptr, ptr %1, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -410,7 +410,7 @@ invoke.cont5:
   store float 0.000000e+00, ptr %arrayidx7.i, align 4
   %m_stridingMesh = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_stridingMesh, align 8
-  store <2 x float> <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, ptr %ref.tmp4, align 8
+  store <2 x float> splat (float 0xC3ABC16D60000000), ptr %ref.tmp4, align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store <2 x float> <float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %1, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -750,7 +750,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK16btCollisionShape38getAnisotropicRollingFrictionDirectionEv(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  ret { <2 x float>, <2 x float> } { <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> <float 1.000000e+00, float 0.000000e+00> }
+  ret { <2 x float>, <2 x float> } { <2 x float> splat (float 1.000000e+00), <2 x float> <float 1.000000e+00, float 0.000000e+00> }
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

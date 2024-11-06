@@ -3278,7 +3278,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_13CwiseBinaryOpINS_8internal13s
   %.011.i.i.i.i.i.i = phi i64 [ %169, %.lr.ph.i.i.i.i.i.i ], [ 0, %156 ]
   %166 = getelementptr inbounds double, ptr %159, i64 %.011.i.i.i.i.i.i
   %167 = load <2 x double>, ptr %166, align 16
-  %168 = fmul <2 x double> %167, <double -5.000000e-01, double -5.000000e-01>
+  %168 = fmul <2 x double> %167, splat (double -5.000000e-01)
   store <2 x double> %168, ptr %166, align 16
   %169 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
   %170 = icmp slt i64 %169, %164
@@ -6078,7 +6078,7 @@ define linkonce_odr void @_ZN5Eigen8internal21dense_assignment_loopINS0_31generi
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds double, ptr %54, i64 %.03143
   %56 = load <2 x double>, ptr %55, align 1
-  %57 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %56
+  %57 = fdiv <2 x double> splat (double 1.000000e+00), %56
   %58 = fmul <2 x double> %52, %57
   store <2 x double> %58, ptr %43, align 16
   %59 = add nsw i64 %.03143, 2

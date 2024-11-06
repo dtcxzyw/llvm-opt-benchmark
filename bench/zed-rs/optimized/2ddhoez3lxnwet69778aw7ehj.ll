@@ -8358,7 +8358,7 @@ define hidden void @_ZN7project14worktree_store13WorktreeStore15create_worktree1
   br i1 %97, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5dd3bb1cff54b496E.exit", label %100
 
 ._crit_edge.i.i:                                  ; preds = %100, %83
-  %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
   %99 = bitcast <16 x i1> %98 to i16
   %.not.i.i.i = icmp eq i16 %99, 0
   br i1 %.not.i.i.i, label %104, label %select.unfold
@@ -8475,7 +8475,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %"
   br i1 %135, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5dd3bb1cff54b496E.exit49", label %138
 
 ._crit_edge.i.i40:                                ; preds = %138, %121
-  %136 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i35, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %136 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i35, splat (i8 -1)
   %137 = bitcast <16 x i1> %136 to i16
   %.not.i.i.i41 = icmp eq i16 %137, 0
   br i1 %.not.i.i.i41, label %142, label %select.unfold117

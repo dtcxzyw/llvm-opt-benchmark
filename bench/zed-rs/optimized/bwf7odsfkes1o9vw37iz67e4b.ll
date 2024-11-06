@@ -1332,8 +1332,8 @@ default.unreachable:                              ; preds = %.noexc134.i
   %.val3.i.i.i = load <16 x i8>, ptr %gep.i.i, align 1, !alias.scope !177, !noalias !178
   %216 = getelementptr inbounds i8, ptr %gep.i.i, i64 18
   %.val.i.i.i154 = load <16 x i8>, ptr %216, align 1, !alias.scope !177, !noalias !178
-  %217 = icmp eq <16 x i8> %.val3.i.i.i, <i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102>
-  %218 = icmp eq <16 x i8> %.val.i.i.i154, <i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104>
+  %217 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 102)
+  %218 = icmp eq <16 x i8> %.val.i.i.i154, splat (i8 104)
   %narrow.i.i.i = select <16 x i1> %217, <16 x i1> %218, <16 x i1> zeroinitializer
   %219 = getelementptr inbounds [4 x i16], ptr %14, i64 0, i64 %.sroa.020.045.i.i
   store <16 x i1> %narrow.i.i.i, ptr %219, align 2, !noalias !176
@@ -1353,8 +1353,8 @@ default.unreachable:                              ; preds = %.noexc134.i
   %.val3.i62.i.i = load <16 x i8>, ptr %222, align 1, !alias.scope !177, !noalias !181
   %223 = getelementptr inbounds i8, ptr %222, i64 18
   %.val.i63.i.i = load <16 x i8>, ptr %223, align 1, !alias.scope !177, !noalias !181
-  %224 = icmp eq <16 x i8> %.val3.i62.i.i, <i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102>
-  %225 = icmp eq <16 x i8> %.val.i63.i.i, <i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104>
+  %224 = icmp eq <16 x i8> %.val3.i62.i.i, splat (i8 102)
+  %225 = icmp eq <16 x i8> %.val.i63.i.i, splat (i8 104)
   %narrow.i64.i.i = select <16 x i1> %224, <16 x i1> %225, <16 x i1> zeroinitializer
   %226 = bitcast <16 x i1> %narrow.i64.i.i to i16
   %227 = icmp eq i16 %226, 0
@@ -1365,8 +1365,8 @@ default.unreachable:                              ; preds = %.noexc134.i
   %.val3.i65.i.i = load <16 x i8>, ptr %229, align 1, !alias.scope !177, !noalias !184
   %230 = getelementptr inbounds i8, ptr %229, i64 18
   %.val.i66.i.i = load <16 x i8>, ptr %230, align 1, !alias.scope !177, !noalias !184
-  %231 = icmp eq <16 x i8> %.val3.i65.i.i, <i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102, i8 102>
-  %232 = icmp eq <16 x i8> %.val.i66.i.i, <i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104, i8 104>
+  %231 = icmp eq <16 x i8> %.val3.i65.i.i, splat (i8 102)
+  %232 = icmp eq <16 x i8> %.val.i66.i.i, splat (i8 104)
   %narrow.i67.i.i = select <16 x i1> %231, <16 x i1> %232, <16 x i1> zeroinitializer
   %233 = bitcast <16 x i1> %narrow.i67.i.i to i16
   %234 = icmp eq i16 %233, 0
@@ -2071,7 +2071,7 @@ default.unreachable:                              ; preds = %.noexc134.i
   br i1 %438, label %450, label %441
 
 ._crit_edge.i.i117.i:                             ; preds = %441, %428
-  %439 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %439 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %440 = bitcast <16 x i1> %439 to i16
   %.not.i.i.i.i = icmp eq i16 %440, 0
   br i1 %.not.i.i.i.i, label %445, label %"_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$10clone_from17h190e6cac13192228E.exit192.i"

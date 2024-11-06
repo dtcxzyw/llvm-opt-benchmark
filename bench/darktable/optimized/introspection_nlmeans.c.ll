@@ -267,8 +267,8 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 8
   %9 = load <2 x float>, ptr %7, align 4, !tbaa !6
-  %10 = fcmp reassoc nsz arcp contract afn olt <2 x float> %9, <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>
-  %11 = select <2 x i1> %10, <2 x float> <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>, <2 x float> %9
+  %10 = fcmp reassoc nsz arcp contract afn olt <2 x float> %9, splat (float 0x3F1A36E2E0000000)
+  %11 = select <2 x i1> %10, <2 x float> splat (float 0x3F1A36E2E0000000), <2 x float> %9
   store <2 x float> %11, ptr %8, align 4, !tbaa !6
   ret void
 }

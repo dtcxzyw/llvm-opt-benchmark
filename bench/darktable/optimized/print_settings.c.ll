@@ -1409,7 +1409,7 @@ define noundef i32 @button_pressed(ptr nocapture noundef readonly %0, double nou
   %68 = fadd reassoc nsz arcp contract afn <2 x float> %63, %67
   %69 = shufflevector <2 x float> %68, <2 x float> %67, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %70 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.fabs.v4f32(<4 x float> %69)
-  %71 = fcmp reassoc nsz arcp contract afn olt <4 x float> %70, <float 2.000000e+01, float 2.000000e+01, float 2.000000e+01, float 2.000000e+01>
+  %71 = fcmp reassoc nsz arcp contract afn olt <4 x float> %70, splat (float 2.000000e+01)
   %72 = extractelement <4 x i1> %71, i64 3
   %73 = zext i1 %72 to i32
   %74 = or disjoint i32 %73, 4
@@ -5616,18 +5616,18 @@ define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0
   %106 = shufflevector <16 x float> %104, <16 x float> poison, <4 x i32> <i32 1, i32 5, i32 9, i32 13>
   %107 = shufflevector <16 x float> %104, <16 x float> poison, <4 x i32> <i32 2, i32 6, i32 10, i32 14>
   %108 = shufflevector <16 x float> %104, <16 x float> poison, <4 x i32> <i32 3, i32 7, i32 11, i32 15>
-  %.idx = mul nsw <4 x i64> %101, <i64 96, i64 96, i64 96, i64 96>
-  %.offs = add nsw <4 x i64> %.idx, <i64 40, i64 40, i64 40, i64 40>
+  %.idx = mul nsw <4 x i64> %101, splat (i64 96)
+  %.offs = add nsw <4 x i64> %.idx, splat (i64 40)
   %109 = getelementptr inbounds i8, ptr %68, <4 x i64> %.offs
-  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %105, <4 x ptr> %109, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !178, !alias.scope !179, !noalias !182
+  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %105, <4 x ptr> %109, i32 8, <4 x i1> splat (i1 true)), !tbaa !178, !alias.scope !179, !noalias !182
   %110 = getelementptr inbounds i8, <4 x ptr> %109, i64 4
-  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %106, <4 x ptr> %110, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !184, !alias.scope !179, !noalias !182
+  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %106, <4 x ptr> %110, i32 4, <4 x i1> splat (i1 true)), !tbaa !184, !alias.scope !179, !noalias !182
   %111 = getelementptr inbounds i8, <4 x ptr> %109, i64 8
-  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %107, <4 x ptr> %111, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !185, !alias.scope !179, !noalias !182
+  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %107, <4 x ptr> %111, i32 8, <4 x i1> splat (i1 true)), !tbaa !185, !alias.scope !179, !noalias !182
   %112 = getelementptr inbounds i8, <4 x ptr> %109, i64 12
-  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %108, <4 x ptr> %112, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !186, !alias.scope !179, !noalias !182
+  tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %108, <4 x ptr> %112, i32 4, <4 x i1> splat (i1 true)), !tbaa !186, !alias.scope !179, !noalias !182
   %113 = add nuw nsw i64 %100, 4
-  %114 = add <4 x i64> %101, <i64 4, i64 4, i64 4, i64 4>
+  %114 = add <4 x i64> %101, splat (i64 4)
   %115 = icmp eq i64 %113, %96
   br i1 %115, label %116, label %99, !llvm.loop !187
 
@@ -6286,32 +6286,32 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr no
   %259 = phi <8 x i32> [ %255, %249 ], [ %281, %256 ]
   %260 = sext <8 x i32> %259 to <8 x i64>
   %261 = getelementptr inbounds i8, ptr %89, <8 x i64> %260
-  %.idx = mul nsw <8 x i64> %258, <i64 96, i64 96, i64 96, i64 96, i64 96, i64 96, i64 96, i64 96>
-  %.offs = add nsw <8 x i64> %.idx, <i64 40, i64 40, i64 40, i64 40, i64 40, i64 40, i64 40, i64 40>
+  %.idx = mul nsw <8 x i64> %258, splat (i64 96)
+  %.offs = add nsw <8 x i64> %.idx, splat (i64 40)
   %262 = getelementptr inbounds i8, ptr %151, <8 x i64> %.offs
-  %263 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %262, i32 8, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison)
-  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %263, <8 x ptr> %261, i32 1, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !alias.scope !192, !noalias !195
-  %264 = add <8 x i32> %259, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %263 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %262, i32 8, <8 x i1> splat (i1 true), <8 x i32> poison)
+  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %263, <8 x ptr> %261, i32 1, <8 x i1> splat (i1 true)), !alias.scope !192, !noalias !195
+  %264 = add <8 x i32> %259, splat (i32 4)
   %265 = sext <8 x i32> %264 to <8 x i64>
   %266 = getelementptr inbounds i8, ptr %89, <8 x i64> %265
   %267 = getelementptr inbounds i8, <8 x ptr> %262, i64 4
-  %268 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %267, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison)
-  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %268, <8 x ptr> %266, i32 1, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !alias.scope !199, !noalias !200
-  %269 = add <8 x i32> %259, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %268 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %267, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison)
+  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %268, <8 x ptr> %266, i32 1, <8 x i1> splat (i1 true)), !alias.scope !199, !noalias !200
+  %269 = add <8 x i32> %259, splat (i32 8)
   %270 = sext <8 x i32> %269 to <8 x i64>
   %271 = getelementptr inbounds i8, ptr %89, <8 x i64> %270
   %272 = getelementptr inbounds i8, <8 x ptr> %262, i64 8
-  %273 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %272, i32 8, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison)
-  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %273, <8 x ptr> %271, i32 1, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !alias.scope !201, !noalias !202
-  %274 = add <8 x i32> %259, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %273 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %272, i32 8, <8 x i1> splat (i1 true), <8 x i32> poison)
+  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %273, <8 x ptr> %271, i32 1, <8 x i1> splat (i1 true)), !alias.scope !201, !noalias !202
+  %274 = add <8 x i32> %259, splat (i32 12)
   %275 = sext <8 x i32> %274 to <8 x i64>
   %276 = getelementptr inbounds i8, ptr %89, <8 x i64> %275
   %277 = getelementptr inbounds i8, <8 x ptr> %262, i64 12
-  %278 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %277, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison)
-  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %278, <8 x ptr> %276, i32 1, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !alias.scope !202
+  %278 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %277, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison)
+  tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %278, <8 x ptr> %276, i32 1, <8 x i1> splat (i1 true)), !alias.scope !202
   %279 = add nuw nsw i64 %257, 8
-  %280 = add <8 x i64> %258, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %281 = add <8 x i32> %259, <i32 128, i32 128, i32 128, i32 128, i32 128, i32 128, i32 128, i32 128>
+  %280 = add <8 x i64> %258, splat (i64 8)
+  %281 = add <8 x i32> %259, splat (i32 128)
   %282 = icmp eq i64 %279, %250
   br i1 %282, label %283, label %256, !llvm.loop !203
 
@@ -7142,7 +7142,7 @@ define internal noundef range(i32 0, 2) i32 @_print_job_run(ptr noundef %0) #1 {
   %215 = sitofp i32 %204 to float
   %216 = getelementptr inbounds i8, ptr %211, i64 32
   %217 = load <4 x float>, ptr %214, align 8, !tbaa !38
-  %218 = fmul reassoc nsz arcp contract afn <4 x float> %217, <float 7.200000e+01, float 7.200000e+01, float 7.200000e+01, float 7.200000e+01>
+  %218 = fmul reassoc nsz arcp contract afn <4 x float> %217, splat (float 7.200000e+01)
   %219 = insertelement <4 x float> poison, float %215, i64 0
   %220 = shufflevector <4 x float> %219, <4 x float> poison, <4 x i32> zeroinitializer
   %221 = fdiv reassoc nsz arcp contract afn <4 x float> %218, %220

@@ -898,10 +898,10 @@ define void @_ZN3g2o20EdgeSE2PointXYOffset14linearizeOplusEv(ptr nocapture nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr %11, align 8, !noalias !22
-  %13 = xor <2 x i64> %.sroa.0.0.copyload16, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %13 = xor <2 x i64> %.sroa.0.0.copyload16, splat (i64 -9223372036854775808)
   store <2 x i64> %13, ptr %12, align 1
   %14 = getelementptr i8, ptr %12, i64 16
-  %15 = xor <2 x i64> %.sroa.2.0.copyload18, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %15 = xor <2 x i64> %.sroa.2.0.copyload18, splat (i64 -9223372036854775808)
   store <2 x i64> %15, ptr %14, align 1
   %16 = load ptr, ptr %7, align 16
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 400
@@ -1184,14 +1184,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %21 = load <2 x i64>, ptr %19, align 16
-  %22 = xor <2 x i64> %21, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %22 = xor <2 x i64> %21, splat (i64 -9223372036854775808)
   %23 = bitcast <2 x i64> %22 to <2 x double>
   %24 = load <2 x double>, ptr %20, align 16
   %25 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> zeroinitializer
   %26 = fmul <2 x double> %25, %23
   %27 = getelementptr inbounds i8, ptr %0, i64 208
   %28 = load <2 x i64>, ptr %27, align 16
-  %29 = xor <2 x i64> %28, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %29 = xor <2 x i64> %28, splat (i64 -9223372036854775808)
   %30 = bitcast <2 x i64> %29 to <2 x double>
   %31 = shufflevector <2 x double> %24, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %32 = fmul <2 x double> %31, %30
@@ -1335,14 +1335,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %135 = load <2 x i64>, ptr %133, align 16
-  %136 = xor <2 x i64> %135, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %136 = xor <2 x i64> %135, splat (i64 -9223372036854775808)
   %137 = bitcast <2 x i64> %136 to <2 x double>
   %138 = load <2 x double>, ptr %134, align 16
   %139 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> zeroinitializer
   %140 = fmul <2 x double> %139, %137
   %141 = getelementptr inbounds i8, ptr %0, i64 208
   %142 = load <2 x i64>, ptr %141, align 16
-  %143 = xor <2 x i64> %142, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %143 = xor <2 x i64> %142, splat (i64 -9223372036854775808)
   %144 = bitcast <2 x i64> %143 to <2 x double>
   %145 = shufflevector <2 x double> %138, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %146 = fmul <2 x double> %145, %144

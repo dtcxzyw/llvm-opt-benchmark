@@ -3254,7 +3254,7 @@ define hidden void @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$5write17ha195d
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 4
   store i32 %9, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !486
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 8
-  store <2 x i32> <i32 -1, i32 -1>, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !486
+  store <2 x i32> splat (i32 -1), ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !486
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %18, i64 16
   store i8 %11, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !486
   %19 = load i64, ptr %4, align 8, !alias.scope !488, !noalias !491, !noundef !7
@@ -3787,7 +3787,7 @@ default.unreachable49:                            ; preds = %131, %76, %40
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 4
   store i32 %49, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !596
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 8
-  store <2 x i32> <i32 -1, i32 -1>, ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !596
+  store <2 x i32> splat (i32 -1), ptr %.sroa.5.0..sroa_idx.i, align 4, !noalias !596
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %57, i64 16
   store i8 %51, ptr %.sroa.6.0..sroa_idx.i, align 4, !noalias !596
   %58 = load i64, ptr %12, align 8, !alias.scope !598, !noalias !601, !noundef !7
@@ -4071,7 +4071,7 @@ define hidden noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7enqueu
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 4
   store i32 %24, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 8
-  store <2 x i32> <i32 -1, i32 -1>, ptr %.sroa.5.0..sroa_idx, align 4
+  store <2 x i32> splat (i32 -1), ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 16
   store i8 %26, ptr %.sroa.6.0..sroa_idx, align 4
   %34 = load i64, ptr %10, align 8, !alias.scope !660, !noalias !663, !noundef !7
@@ -4140,7 +4140,7 @@ define hidden noundef i32 @"_ZN14proc_macro_api3msg4flat15Writer$LT$S$GT$7enqueu
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 4
   store i32 %9, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 8
-  store <2 x i32> <i32 -1, i32 -1>, ptr %.sroa.5.0..sroa_idx, align 4
+  store <2 x i32> splat (i32 -1), ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %18, i64 16
   store i8 %11, ptr %.sroa.6.0..sroa_idx, align 4
   %19 = load i64, ptr %4, align 8, !alias.scope !673, !noalias !676, !noundef !7

@@ -228,7 +228,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %79 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %65 ], [ %102, %77 ]
   %80 = shl i64 %78, 2
   %81 = getelementptr inbounds float, ptr %2, <8 x i64> %79
-  %82 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %81, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !6, !alias.scope !36
+  %82 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %81, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !6, !alias.scope !36
   %83 = getelementptr float, ptr %2, i64 %80
   %84 = load <32 x float>, ptr %83, align 64, !tbaa !6
   %85 = shufflevector <32 x float> %84, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
@@ -249,7 +249,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %100 = shufflevector <16 x float> %98, <16 x float> %99, <32 x i32> <i32 0, i32 8, i32 16, i32 24, i32 1, i32 9, i32 17, i32 25, i32 2, i32 10, i32 18, i32 26, i32 3, i32 11, i32 19, i32 27, i32 4, i32 12, i32 20, i32 28, i32 5, i32 13, i32 21, i32 29, i32 6, i32 14, i32 22, i32 30, i32 7, i32 15, i32 23, i32 31>
   store <32 x float> %100, ptr %97, align 64, !tbaa !6
   %101 = add nuw i64 %78, 8
-  %102 = add <8 x i64> %79, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %102 = add <8 x i64> %79, splat (i64 32)
   %103 = icmp eq i64 %101, %66
   br i1 %103, label %104, label %77, !llvm.loop !39
 
@@ -804,11 +804,11 @@ define internal noundef i32 @dt_iop_colorcorrection_motion_notify(ptr noundef %0
   %49 = insertelement <2 x float> poison, float %32, i64 0
   %50 = insertelement <2 x float> %49, float %47, i64 1
   %51 = fpext <2 x float> %50 to <2 x double>
-  %52 = fmul reassoc nsz arcp contract afn <2 x double> %51, <double 2.000000e+00, double 2.000000e+00>
+  %52 = fmul reassoc nsz arcp contract afn <2 x double> %51, splat (double 2.000000e+00)
   %53 = insertelement <2 x double> poison, double %25, i64 0
   %54 = insertelement <2 x double> %53, double %40, i64 1
   %55 = fsub reassoc nsz arcp contract afn <2 x double> %52, %54
-  %56 = fmul reassoc nsz arcp contract afn <2 x double> %55, <double 4.000000e+01, double 4.000000e+01>
+  %56 = fmul reassoc nsz arcp contract afn <2 x double> %55, splat (double 4.000000e+01)
   %57 = fpext <2 x float> %48 to <2 x double>
   %58 = fdiv reassoc nsz arcp contract afn <2 x double> %56, %57
   %59 = fptrunc <2 x double> %58 to <2 x float>

@@ -18227,8 +18227,8 @@ define void @_ZN15tree_sitter_cli13query_testing23parse_position_comments17h6b5c
   %.0.copyload.i.i.i = load <16 x i8>, ptr %gep.i.i, align 1, !alias.scope !4032, !noalias !4033
   %111 = getelementptr inbounds i8, ptr %gep.i.i, i64 6
   %.0.copyload2.i.i.i = load <16 x i8>, ptr %111, align 1, !alias.scope !4032, !noalias !4033
-  %112 = icmp eq <16 x i8> %.0.copyload.i.i.i, <i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99>
-  %113 = icmp eq <16 x i8> %.0.copyload2.i.i.i, <i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116>
+  %112 = icmp eq <16 x i8> %.0.copyload.i.i.i, splat (i8 99)
+  %113 = icmp eq <16 x i8> %.0.copyload2.i.i.i, splat (i8 116)
   %114 = and <16 x i1> %113, %112
   %115 = getelementptr inbounds [4 x i16], ptr %20, i64 0, i64 %.sroa.019.0134.i.i
   store <16 x i1> %114, ptr %115, align 2, !noalias !4031
@@ -18324,8 +18324,8 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   %.0.copyload.i80.i.i = load <16 x i8>, ptr %143, align 1, !alias.scope !4032, !noalias !4045
   %144 = getelementptr inbounds i8, ptr %143, i64 6
   %.0.copyload2.i81.i.i = load <16 x i8>, ptr %144, align 1, !alias.scope !4032, !noalias !4045
-  %145 = icmp eq <16 x i8> %.0.copyload.i80.i.i, <i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99>
-  %146 = icmp eq <16 x i8> %.0.copyload2.i81.i.i, <i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116>
+  %145 = icmp eq <16 x i8> %.0.copyload.i80.i.i, splat (i8 99)
+  %146 = icmp eq <16 x i8> %.0.copyload2.i81.i.i, splat (i8 116)
   %147 = and <16 x i1> %146, %145
   %148 = bitcast <16 x i1> %147 to i16
   %149 = icmp eq i16 %148, 0
@@ -18336,8 +18336,8 @@ _ZN4core3str7pattern14small_slice_eq17h61b6ae8bf6d09e5eE.exit.thread.i: ; preds 
   %.0.copyload.i82.i.i = load <16 x i8>, ptr %151, align 1, !alias.scope !4032, !noalias !4048
   %152 = getelementptr inbounds i8, ptr %151, i64 6
   %.0.copyload2.i83.i.i = load <16 x i8>, ptr %152, align 1, !alias.scope !4032, !noalias !4048
-  %153 = icmp eq <16 x i8> %.0.copyload.i82.i.i, <i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99, i8 99>
-  %154 = icmp eq <16 x i8> %.0.copyload2.i83.i.i, <i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116, i8 116>
+  %153 = icmp eq <16 x i8> %.0.copyload.i82.i.i, splat (i8 99)
+  %154 = icmp eq <16 x i8> %.0.copyload2.i83.i.i, splat (i8 116)
   %155 = and <16 x i1> %154, %153
   %156 = bitcast <16 x i1> %155 to i16
   %157 = icmp eq i16 %156, 0

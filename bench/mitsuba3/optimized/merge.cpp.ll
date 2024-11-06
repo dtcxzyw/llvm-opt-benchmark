@@ -1000,9 +1000,9 @@ _ZNSt3__16vectorIN7mitsuba3refINS1_6ObjectEEENS_9allocatorIS4_EEEC2ERKS7_.exit: 
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba10MergeShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(432) %1) unnamed_addr #5 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 

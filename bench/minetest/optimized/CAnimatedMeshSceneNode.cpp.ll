@@ -259,7 +259,7 @@ _ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi
   %Box = getelementptr inbounds i8, ptr %this, i64 256
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box, align 8, !tbaa !10
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 272
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 8, !tbaa !10
   %Mesh = getelementptr inbounds i8, ptr %this, i64 280
   %FramesPerSecond = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Mesh, i8 0, i64 16, i1 false)
@@ -360,7 +360,7 @@ _ZN3irr5scene22IAnimatedMeshSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi
   %Box = getelementptr inbounds i8, ptr %this, i64 256
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box, align 8, !tbaa !10
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 272
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 8, !tbaa !10
   %Mesh = getelementptr inbounds i8, ptr %this, i64 280
   %FramesPerSecond = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Mesh, i8 0, i64 16, i1 false)
@@ -3958,7 +3958,7 @@ for.body29:                                       ; preds = %_ZN3irr4core10quate
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i141, i64 4
   %39 = load <2 x float>, ptr %arrayidx.i.i, align 4, !tbaa !10
   %40 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %39)
-  %41 = fcmp ugt <2 x float> %40, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
+  %41 = fcmp ugt <2 x float> %40, splat (float 0x3EB0C6F7A0000000)
   %42 = extractelement <2 x i1> %41, i64 0
   %43 = extractelement <2 x i1> %41, i64 1
   %or.cond.i.i = select i1 %42, i1 true, i1 %43
@@ -4276,7 +4276,7 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   store float 0.000000e+00, ptr %Z.i219, align 8, !tbaa !170
   call void @_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE(ptr noundef nonnull align 4 dereferenceable(16) %QRotation, ptr noundef nonnull align 4 dereferenceable(12) %tmpVector)
   %195 = load <2 x float>, ptr %tmpVector, align 8, !tbaa !10
-  %196 = fmul <2 x float> %195, <float 0x404CA5DC00000000, float 0x404CA5DC00000000>
+  %196 = fmul <2 x float> %195, splat (float 0x404CA5DC00000000)
   store <2 x float> %196, ptr %tmpVector, align 8, !tbaa !10
   %197 = load float, ptr %Z.i219, align 8, !tbaa !170
   %mul3.i224 = fmul float %197, 0x404CA5DC00000000
@@ -4533,7 +4533,7 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   %Box.i = getelementptr inbounds i8, ptr %call, i64 256
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !10
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 272
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !10
   %Mesh.i = getelementptr inbounds i8, ptr %call, i64 280
   %FramesPerSecond.i = getelementptr inbounds i8, ptr %call, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Mesh.i, i8 0, i64 16, i1 false)
@@ -4943,7 +4943,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !10
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !10
   %12 = fadd <2 x float> %10, %11
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub <2 x float> %13, %11
   %15 = fadd <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !10
@@ -7270,7 +7270,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %22 = insertelement <2 x double> poison, double %X33.0, i64 0
   %23 = insertelement <2 x double> %22, double %mul32, i64 1
   %24 = fcmp olt <2 x double> %23, zeroinitializer
-  %25 = fadd <2 x double> %23, <double 3.600000e+02, double 3.600000e+02>
+  %25 = fadd <2 x double> %23, splat (double 3.600000e+02)
   %26 = select <2 x i1> %24, <2 x double> %25, <2 x double> %23
   %27 = fptrunc <2 x double> %26 to <2 x float>
   %conv85 = fptrunc double %Z34.1 to float

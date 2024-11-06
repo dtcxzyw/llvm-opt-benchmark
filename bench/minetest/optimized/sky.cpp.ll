@@ -599,7 +599,7 @@ invoke.cont:
   %Z.i365 = getelementptr inbounds i8, ptr %ref.tmp5, i64 8
   store float 0.000000e+00, ptr %Z.i365, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp6) #31
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp6, align 8, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp6, align 8, !tbaa !22
   %Z.i367 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store float 1.000000e+00, ptr %Z.i367, align 8, !tbaa !24
   %5 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -618,7 +618,7 @@ invoke.cont:
   %m_box = getelementptr inbounds i8, ptr %this, i64 224
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %m_box, align 8, !tbaa !22
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 240
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 8, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 8, !tbaa !22
   br label %invoke.cont9
 
 invoke.cont9:                                     ; preds = %invoke.cont9, %invoke.cont
@@ -720,7 +720,7 @@ invoke.cont23:                                    ; preds = %invoke.cont9
   %m_first_update = getelementptr inbounds i8, ptr %this, i64 2464
   store i8 1, ptr %m_first_update, align 8, !tbaa !79
   %m_brightness = getelementptr inbounds i8, ptr %this, i64 2480
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %m_brightness, align 8, !tbaa !22
+  store <2 x float> splat (float 5.000000e-01), ptr %m_brightness, align 8, !tbaa !22
   %m_clouds_enabled = getelementptr inbounds i8, ptr %this, i64 2489
   store i8 1, ptr %m_clouds_enabled, align 1, !tbaa !80
   %m_in_clouds = getelementptr inbounds i8, ptr %this, i64 2491
@@ -728,15 +728,15 @@ invoke.cont23:                                    ; preds = %invoke.cont9
   %m_enable_shaders = getelementptr inbounds i8, ptr %this, i64 2492
   store i8 0, ptr %m_enable_shaders, align 4, !tbaa !82
   %m_bgcolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2496
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_bgcolor_bright_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_bgcolor_bright_f, align 8, !tbaa !22
   %m_skycolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2512
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_skycolor_bright_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_skycolor_bright_f, align 8, !tbaa !22
   %m_cloudcolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2528
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_cloudcolor_bright_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_cloudcolor_bright_f, align 8, !tbaa !22
   %m_cloudcolor_f = getelementptr inbounds i8, ptr %this, i64 2552
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_cloudcolor_f, align 8, !tbaa !22
   %m_cloudcolor_day_f = getelementptr inbounds i8, ptr %this, i64 2568
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_cloudcolor_day_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_cloudcolor_day_f, align 8, !tbaa !22
   %m_cloudcolor_dawn_f = getelementptr inbounds i8, ptr %this, i64 2584
   store <4 x float> <float 1.062500e+00, float 0x3FEDBBBBC0000000, float 0x3FE7F7F800000000, float 1.000000e+00>, ptr %m_cloudcolor_dawn_f, align 8, !tbaa !22
   %m_sky_params = getelementptr inbounds i8, ptr %this, i64 2600
@@ -3628,7 +3628,7 @@ entry:
   %Z.i382 = getelementptr inbounds i8, ptr %ref.tmp8, i64 8
   store float 0.000000e+00, ptr %Z.i382, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp11) #31
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp11, align 8, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp11, align 8, !tbaa !22
   %Z.i384 = getelementptr inbounds i8, ptr %ref.tmp11, i64 8
   store float 1.000000e+00, ptr %Z.i384, align 8, !tbaa !24
   call void @_ZN3irr5scene10ISceneNodeC2EPS1_PNS0_13ISceneManagerEiRKNS_4core8vector3dIfEES9_S9_(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT3Sky, i64 8), ptr noundef %call3, ptr noundef %call.i379, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp8, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp11)
@@ -3640,7 +3640,7 @@ entry:
   %m_box = getelementptr inbounds i8, ptr %this, i64 224
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %m_box, align 8, !tbaa !22
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 240
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 8, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 8, !tbaa !22
   br label %invoke.cont19
 
 invoke.cont19:                                    ; preds = %invoke.cont19, %entry
@@ -3742,7 +3742,7 @@ invoke.cont34:                                    ; preds = %invoke.cont19
   %m_first_update = getelementptr inbounds i8, ptr %this, i64 2464
   store i8 1, ptr %m_first_update, align 8, !tbaa !79
   %m_brightness = getelementptr inbounds i8, ptr %this, i64 2480
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %m_brightness, align 8, !tbaa !22
+  store <2 x float> splat (float 5.000000e-01), ptr %m_brightness, align 8, !tbaa !22
   %m_clouds_enabled = getelementptr inbounds i8, ptr %this, i64 2489
   store i8 1, ptr %m_clouds_enabled, align 1, !tbaa !80
   %m_in_clouds = getelementptr inbounds i8, ptr %this, i64 2491
@@ -3750,15 +3750,15 @@ invoke.cont34:                                    ; preds = %invoke.cont19
   %m_enable_shaders = getelementptr inbounds i8, ptr %this, i64 2492
   store i8 0, ptr %m_enable_shaders, align 4, !tbaa !82
   %m_bgcolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2496
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_bgcolor_bright_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_bgcolor_bright_f, align 8, !tbaa !22
   %m_skycolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2512
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_skycolor_bright_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_skycolor_bright_f, align 8, !tbaa !22
   %m_cloudcolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2528
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_cloudcolor_bright_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_cloudcolor_bright_f, align 8, !tbaa !22
   %m_cloudcolor_f = getelementptr inbounds i8, ptr %this, i64 2552
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %m_cloudcolor_f, align 8, !tbaa !22
   %m_cloudcolor_day_f = getelementptr inbounds i8, ptr %this, i64 2568
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %m_cloudcolor_day_f, align 8, !tbaa !22
+  store <4 x float> splat (float 1.000000e+00), ptr %m_cloudcolor_day_f, align 8, !tbaa !22
   %m_cloudcolor_dawn_f = getelementptr inbounds i8, ptr %this, i64 2584
   store <4 x float> <float 1.062500e+00, float 0x3FEDBBBBC0000000, float 0x3FE7F7F800000000, float 1.000000e+00>, ptr %m_cloudcolor_dawn_f, align 8, !tbaa !22
   %m_sky_params = getelementptr inbounds i8, ptr %this, i64 2600
@@ -5827,9 +5827,9 @@ invoke.cont216:                                   ; preds = %for.cond.preheader
   store float 1.000000e+00, ptr %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store i32 -1, ptr %Color.i.3, align 4, !tbaa !94
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %TCoords.i.3, align 8, !tbaa !22
-  store <2 x float> <float 0x3FF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %vertices, align 16, !tbaa !22
+  store <2 x float> splat (float 0x3FF0CCCCC0000000), ptr %vertices, align 16, !tbaa !22
   store float 0xBFF0CCCCC0000000, ptr %ref.tmp192.sroa.6.0.vertices.sroa_idx, align 8, !tbaa !24
-  store <2 x float> <float 0x3FF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %arrayctor.cur.ptr.1, align 4, !tbaa !22
+  store <2 x float> splat (float 0x3FF0CCCCC0000000), ptr %arrayctor.cur.ptr.1, align 4, !tbaa !22
   store float 0x3FF0CCCCC0000000, ptr %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx, align 4, !tbaa !24
   store <2 x float> <float 0xBFF0CCCCC0000000, float 0x3FF0CCCCC0000000>, ptr %arrayctor.cur.ptr.2, align 8, !tbaa !22
   store float 0x3FF0CCCCC0000000, ptr %Z3.i1053.us.2, align 16, !tbaa !24
@@ -5870,9 +5870,9 @@ invoke.cont216.1:                                 ; preds = %invoke.cont296
   store float 1.000000e+00, ptr %ref.tmp212.sroa.9.0.arrayidx217.sroa_idx, align 16, !tbaa !22
   store i32 -1, ptr %Color.i.3, align 4, !tbaa !94
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %TCoords.i.3, align 8, !tbaa !22
-  store <2 x float> <float 0xBFF0CCCCC0000000, float 0xBFF0CCCCC0000000>, ptr %vertices, align 16, !tbaa !22
+  store <2 x float> splat (float 0xBFF0CCCCC0000000), ptr %vertices, align 16, !tbaa !22
   store float 0xBFF0CCCCC0000000, ptr %ref.tmp192.sroa.6.0.vertices.sroa_idx, align 8, !tbaa !24
-  store <2 x float> <float 0xBFF0CCCCC0000000, float 0xBFF0CCCCC0000000>, ptr %arrayctor.cur.ptr.1, align 4, !tbaa !22
+  store <2 x float> splat (float 0xBFF0CCCCC0000000), ptr %arrayctor.cur.ptr.1, align 4, !tbaa !22
   store float 0x3FF0CCCCC0000000, ptr %ref.tmp198.sroa.6.0.arrayidx203.sroa_idx, align 4, !tbaa !24
   store <2 x float> <float 0x3FF0CCCCC0000000, float 0xBFF0CCCCC0000000>, ptr %arrayctor.cur.ptr.2, align 8, !tbaa !22
   store float 0x3FF0CCCCC0000000, ptr %Z3.i1053.us.2, align 16, !tbaa !24
@@ -6234,7 +6234,7 @@ invoke.cont490:                                   ; preds = %if.then407
   %ref.tmp453.sroa.6.0.vertices.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 8
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp453.sroa.6.0.vertices.sroa_idx, align 8, !tbaa !22
   store i32 -1, ptr %Color.i, align 8, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i, align 4, !tbaa !22
   %ref.tmp463.sroa.5.0.arrayidx471.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 40
   store float %conv456, ptr %ref.tmp463.sroa.5.0.arrayidx471.sroa_idx, align 8, !tbaa !22
   %ref.tmp463.sroa.6.0.arrayidx471.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 44
@@ -6777,7 +6777,7 @@ if.then:                                          ; preds = %entry
   store float %fneg, ptr %ref.tmp.sroa.4.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store i32 %or.i, ptr %Color.i.i, align 4, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   store float %mul, ptr %arrayidx.i.i.i, align 4, !tbaa !22
   store float %fneg, ptr %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
@@ -6803,7 +6803,7 @@ if.then:                                          ; preds = %entry
   store float %fneg.1, ptr %ref.tmp.sroa.4.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store i32 %or.i51, ptr %Color.i.i, align 4, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   store float %mul4, ptr %arrayidx.i.i.i, align 4, !tbaa !22
   store float %fneg.1, ptr %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
@@ -6829,7 +6829,7 @@ if.then:                                          ; preds = %entry
   store float %fneg.2, ptr %ref.tmp.sroa.4.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store i32 %3, ptr %Color.i.i, align 4, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   store float %mul8, ptr %arrayidx.i.i.i, align 4, !tbaa !22
   store float %fneg.2, ptr %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
@@ -6855,7 +6855,7 @@ if.then:                                          ; preds = %entry
   store float %fneg.3, ptr %ref.tmp.sroa.4.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 4, !tbaa !22
   store i32 %4, ptr %Color.i.i, align 4, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   store float %mul12, ptr %arrayidx.i.i.i, align 4, !tbaa !22
   store float %fneg.3, ptr %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
@@ -6888,7 +6888,7 @@ if.else:                                          ; preds = %entry
   %ref.tmp.sroa.5.0.vertices.sroa_idx.i54 = getelementptr inbounds i8, ptr %vertices, i64 8
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i54, align 4, !tbaa !22
   store i32 %spec.select, ptr %Color.i.i, align 4, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   %arrayidx.i.i.i61 = getelementptr inbounds i8, ptr %vertices, i64 36
   store float %conv30, ptr %arrayidx.i.i.i61, align 4, !tbaa !22
   %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx.i62 = getelementptr inbounds i8, ptr %vertices, i64 40
@@ -6978,7 +6978,7 @@ if.then:                                          ; preds = %entry
   %5 = tail call nsz float @llvm.fmuladd.f32(float %wicked_time_of_day, float 3.600000e+02, float -9.000000e+01)
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 8, !tbaa !22
   store i32 %or.i, ptr %Color.i.i, align 8, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   %6 = insertelement <2 x float> poison, float %2, i64 0
   %7 = shufflevector <2 x float> %6, <2 x float> poison, <2 x i32> zeroinitializer
   %8 = fmul nsz <2 x float> %7, <float 0x3FB374BC60000000, float 0xBFB374BC60000000>
@@ -7004,7 +7004,7 @@ if.then:                                          ; preds = %entry
   %14 = insertelement <2 x float> poison, float %5, i64 0
   %15 = insertelement <2 x float> %14, float %11, i64 1
   %16 = fpext <2 x float> %15 to <2 x double>
-  %17 = fmul nsz <2 x double> %16, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
+  %17 = fmul nsz <2 x double> %16, splat (double 0x3F91DF46A2529D39)
   %18 = extractelement <2 x double> %17, i64 0
   %19 = tail call nsz double @llvm.sin.f64(double %18)
   %20 = tail call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %17)
@@ -7094,7 +7094,7 @@ if.then:                                          ; preds = %entry
   call void %74(ptr noundef nonnull align 8 dereferenceable(8) %driver, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZZN3Sky9draw_moonEPN3irr5video12IVideoDriverERKNS1_6SColorES6_fE7indices, i32 noundef 2, i32 noundef 0, i32 noundef 6, i32 noundef 0)
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 8, !tbaa !22
   store i32 %or.i66, ptr %Color.i.i, align 8, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   %75 = fmul nsz <2 x float> %7, <float 0x3FAA9FBE60000000, float 0xBFAA9FBE60000000>
   %76 = extractelement <2 x float> %75, i64 1
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
@@ -7116,7 +7116,7 @@ if.then:                                          ; preds = %entry
   %conv.i51.i9 = fpext float %conv10.i.i5 to double
   %81 = insertelement <2 x float> %14, float %78, i64 1
   %82 = fpext <2 x float> %81 to <2 x double>
-  %83 = fmul nsz <2 x double> %82, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
+  %83 = fmul nsz <2 x double> %82, splat (double 0x3F91DF46A2529D39)
   %84 = extractelement <2 x double> %83, i64 0
   %85 = call nsz double @llvm.sin.f64(double %84)
   %86 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %83)
@@ -7206,7 +7206,7 @@ if.then:                                          ; preds = %entry
   call void %140(ptr noundef nonnull align 8 dereferenceable(8) %driver, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull @_ZZN3Sky9draw_moonEPN3irr5video12IVideoDriverERKNS1_6SColorES6_fE7indices, i32 noundef 2, i32 noundef 0, i32 noundef 6, i32 noundef 0)
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 8, !tbaa !22
   store i32 %3, ptr %Color.i.i, align 8, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
   store i32 %3, ptr %Color.i.1.i, align 4, !tbaa !94
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %TCoords.i.1.i, align 8, !tbaa !22
@@ -7227,7 +7227,7 @@ if.then:                                          ; preds = %entry
   %conv.i51.i60 = fpext float %conv10.i.i56 to double
   %146 = insertelement <2 x float> %14, float %143, i64 1
   %147 = fpext <2 x float> %146 to <2 x double>
-  %148 = fmul nsz <2 x double> %147, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
+  %148 = fmul nsz <2 x double> %147, splat (double 0x3F91DF46A2529D39)
   %149 = extractelement <2 x double> %148, i64 0
   %150 = call nsz double @llvm.sin.f64(double %149)
   %151 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %148)
@@ -7303,7 +7303,7 @@ if.then:                                          ; preds = %entry
   store float %142, ptr %vertices, align 8, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i, align 8, !tbaa !22
   store i32 %4, ptr %Color.i.i, align 8, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp2.sroa.5.0.arrayidx.i.i.sroa_idx.i, align 4, !tbaa !22
   store i32 %4, ptr %Color.i.1.i, align 4, !tbaa !94
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %TCoords.i.1.i, align 8, !tbaa !22
@@ -7339,7 +7339,7 @@ if.else:                                          ; preds = %entry
   %ref.tmp.sroa.5.0.vertices.sroa_idx.i69 = getelementptr inbounds i8, ptr %vertices, i64 8
   store <4 x float> <float -1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.5.0.vertices.sroa_idx.i69, align 8, !tbaa !22
   store i32 %spec.select, ptr %Color.i.i, align 8, !tbaa !94
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords.i.i, align 4, !tbaa !22
   %arrayidx.i.i.i76 = getelementptr inbounds i8, ptr %vertices, i64 36
   store float %conv46, ptr %arrayidx.i.i.i76, align 4, !tbaa !22
   %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx.i77 = getelementptr inbounds i8, ptr %vertices, i64 40
@@ -7388,7 +7388,7 @@ if.end53:                                         ; preds = %if.else, %if.then
   %Z3.i.i104 = getelementptr inbounds i8, ptr %vertices, i64 8
   %206 = insertelement <2 x float> %.pre-phi161, float %205, i64 1
   %207 = fpext <2 x float> %206 to <2 x double>
-  %208 = fmul nsz <2 x double> %207, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
+  %208 = fmul nsz <2 x double> %207, splat (double 0x3F91DF46A2529D39)
   %209 = extractelement <2 x double> %208, i64 0
   %210 = call nsz double @llvm.sin.f64(double %209)
   %211 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %208)
@@ -7678,18 +7678,18 @@ if.then73:                                        ; preds = %if.then71
   %23 = tail call nsz float @llvm.fmuladd.f32(float %mul10.i630, float 0x3F947AE000000000, float %mul10.i663)
   %m_cloudcolor_bright_f = getelementptr inbounds i8, ptr %this, i64 2528
   %24 = load <2 x float>, ptr %m_cloudcolor_bright_f, align 8, !tbaa !22
-  %25 = fmul nsz <2 x float> %24, <float 0x3FEF5C2900000000, float 0x3FEF5C2900000000>
-  %26 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> <float 0x3F947AE000000000, float 0x3F947AE000000000>, <2 x float> %25)
+  %25 = fmul nsz <2 x float> %24, splat (float 0x3FEF5C2900000000)
+  %26 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %3, <2 x float> splat (float 0x3F947AE000000000), <2 x float> %25)
   %b7.i675 = getelementptr inbounds i8, ptr %this, i64 2536
   %27 = load <4 x float>, ptr %b7.i675, align 8
   %28 = shufflevector <2 x float> %20, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
   %29 = shufflevector <4 x float> %27, <4 x float> %28, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
   %30 = insertelement <4 x float> %29, float %21, i64 3
-  %31 = fmul nsz <4 x float> %30, <float 0x3FEF5C2900000000, float 0x3FEF5C2900000000, float 0x3FEF5C2900000000, float 0x3FEF5C2900000000>
+  %31 = fmul nsz <4 x float> %30, splat (float 0x3FEF5C2900000000)
   %32 = insertelement <4 x float> %4, float %mul4.i622, i64 1
   %33 = insertelement <4 x float> %32, float %mul.i618, i64 2
   %34 = insertelement <4 x float> %33, float %mul7.i626, i64 3
-  %35 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %34, <4 x float> <float 0x3F947AE000000000, float 0x3F947AE000000000, float 0x3F947AE000000000, float 0x3F947AE000000000>, <4 x float> %31)
+  %35 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %34, <4 x float> splat (float 0x3F947AE000000000), <4 x float> %31)
   %36 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> <i32 2, i32 1>
   %37 = shufflevector <4 x float> %35, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
   %retval.sroa.3.12.vec.insert.i667 = insertelement <2 x float> %37, float %23, i64 1
@@ -7765,19 +7765,19 @@ if.else82:                                        ; preds = %if.then71
   %51 = tail call nsz float @llvm.fmuladd.f32(float %mul10.i613.sink, float 0x3F947AE000000000, float %mul10.i743)
   %m_cloudcolor_bright_f104 = getelementptr inbounds i8, ptr %this, i64 2528
   %52 = load <2 x float>, ptr %m_cloudcolor_bright_f104, align 8, !tbaa !22
-  %53 = fmul nsz <2 x float> %52, <float 0x3FEF5C2900000000, float 0x3FEF5C2900000000>
-  %54 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2, <2 x float> <float 0x3F947AE000000000, float 0x3F947AE000000000>, <2 x float> %53)
+  %53 = fmul nsz <2 x float> %52, splat (float 0x3FEF5C2900000000)
+  %54 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2, <2 x float> splat (float 0x3F947AE000000000), <2 x float> %53)
   %b7.i755 = getelementptr inbounds i8, ptr %this, i64 2536
   %55 = load <4 x float>, ptr %b7.i755, align 8
   %56 = shufflevector <2 x float> %48, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
   %57 = shufflevector <4 x float> %55, <4 x float> %56, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
   %58 = insertelement <4 x float> %57, float %49, i64 3
-  %59 = fmul nsz <4 x float> %58, <float 0x3FEF5C2900000000, float 0x3FEF5C2900000000, float 0x3FEF5C2900000000, float 0x3FEF5C2900000000>
+  %59 = fmul nsz <4 x float> %58, splat (float 0x3FEF5C2900000000)
   %60 = insertelement <4 x float> poison, float %cloudcolor_bright_normal_f.sroa.7.0.copyload, i64 0
   %61 = insertelement <4 x float> %60, float %mul4.i639.mul4.i605, i64 1
   %62 = insertelement <4 x float> %61, float %mul.i635.mul.i601, i64 2
   %63 = insertelement <4 x float> %62, float %mul7.i609.sink, i64 3
-  %64 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %63, <4 x float> <float 0x3F947AE000000000, float 0x3F947AE000000000, float 0x3F947AE000000000, float 0x3F947AE000000000>, <4 x float> %59)
+  %64 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %63, <4 x float> splat (float 0x3F947AE000000000), <4 x float> %59)
   %65 = shufflevector <4 x float> %64, <4 x float> poison, <2 x i32> <i32 2, i32 1>
   %66 = shufflevector <4 x float> %64, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
   %retval.sroa.3.12.vec.insert.i747 = insertelement <2 x float> %66, float %51, i64 1
@@ -7829,19 +7829,19 @@ if.else108:                                       ; preds = %if.else61, %if.then
   %81 = tail call nsz float @llvm.fmuladd.f32(float %mul10.i562, float 0x3F947AE000000000, float %mul10.i791)
   %m_cloudcolor_bright_f118 = getelementptr inbounds i8, ptr %this, i64 2528
   %82 = load <2 x float>, ptr %m_cloudcolor_bright_f118, align 8, !tbaa !22
-  %83 = fmul nsz <2 x float> %82, <float 0x3FEF5C2900000000, float 0x3FEF5C2900000000>
-  %84 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2, <2 x float> <float 0x3F947AE000000000, float 0x3F947AE000000000>, <2 x float> %83)
+  %83 = fmul nsz <2 x float> %82, splat (float 0x3FEF5C2900000000)
+  %84 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %2, <2 x float> splat (float 0x3F947AE000000000), <2 x float> %83)
   %b7.i803 = getelementptr inbounds i8, ptr %this, i64 2536
   %85 = load <4 x float>, ptr %b7.i803, align 8
   %86 = shufflevector <2 x float> %78, <2 x float> poison, <4 x i32> <i32 1, i32 0, i32 poison, i32 poison>
   %87 = shufflevector <4 x float> %85, <4 x float> %86, <4 x i32> <i32 0, i32 4, i32 5, i32 poison>
   %88 = insertelement <4 x float> %87, float %79, i64 3
-  %89 = fmul nsz <4 x float> %88, <float 0x3FEF5C2900000000, float 0x3FEF5C2900000000, float 0x3FEF5C2900000000, float 0x3FEF5C2900000000>
+  %89 = fmul nsz <4 x float> %88, splat (float 0x3FEF5C2900000000)
   %90 = insertelement <4 x float> poison, float %cloudcolor_bright_normal_f.sroa.7.0.copyload, i64 0
   %91 = insertelement <4 x float> %90, float %mul4.i554, i64 1
   %92 = insertelement <4 x float> %91, float %mul.i550, i64 2
   %93 = insertelement <4 x float> %92, float %mul7.i558, i64 3
-  %94 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %93, <4 x float> <float 0x3F947AE000000000, float 0x3F947AE000000000, float 0x3F947AE000000000, float 0x3F947AE000000000>, <4 x float> %89)
+  %94 = tail call nsz <4 x float> @llvm.fmuladd.v4f32(<4 x float> %93, <4 x float> splat (float 0x3F947AE000000000), <4 x float> %89)
   %95 = shufflevector <4 x float> %94, <4 x float> poison, <2 x i32> <i32 2, i32 1>
   %96 = shufflevector <4 x float> %94, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
   %retval.sroa.3.12.vec.insert.i795 = insertelement <2 x float> %96, float %81, i64 1
@@ -7867,45 +7867,45 @@ if.end122:                                        ; preds = %if.else108, %if.els
   %105 = phi <4 x float> [ %35, %if.then73 ], [ %64, %if.else82 ], [ %94, %if.else108 ]
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
   %107 = insertelement <2 x float> %106, float %101, i64 0
-  %108 = fmul nsz <2 x float> %107, <float 2.550000e+02, float 2.550000e+02>
+  %108 = fmul nsz <2 x float> %107, splat (float 2.550000e+02)
   %m_bgcolor = getelementptr inbounds i8, ptr %this, i64 2544
   %109 = shufflevector <4 x float> %105, <4 x float> poison, <2 x i32> <i32 poison, i32 2>
   %110 = insertelement <2 x float> %109, float %103, i64 0
-  %111 = fmul nsz <2 x float> %110, <float 2.550000e+02, float 2.550000e+02>
+  %111 = fmul nsz <2 x float> %110, splat (float 2.550000e+02)
   %112 = shufflevector <4 x float> %105, <4 x float> poison, <2 x i32> <i32 poison, i32 1>
   %113 = insertelement <2 x float> %112, float %102, i64 0
-  %114 = fmul nsz <2 x float> %113, <float 2.550000e+02, float 2.550000e+02>
-  %115 = fadd nsz <2 x float> %114, <float 5.000000e-01, float 5.000000e-01>
+  %114 = fmul nsz <2 x float> %113, splat (float 2.550000e+02)
+  %115 = fadd nsz <2 x float> %114, splat (float 5.000000e-01)
   %m_skycolor = getelementptr inbounds i8, ptr %this, i64 2548
-  %116 = fadd nsz <2 x float> %111, <float 5.000000e-01, float 5.000000e-01>
+  %116 = fadd nsz <2 x float> %111, splat (float 5.000000e-01)
   %117 = tail call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %116)
   %118 = fptosi <2 x float> %117 to <2 x i32>
   %119 = tail call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %115)
   %120 = fptosi <2 x float> %119 to <2 x i32>
-  %121 = fadd nsz <2 x float> %108, <float 5.000000e-01, float 5.000000e-01>
+  %121 = fadd nsz <2 x float> %108, splat (float 5.000000e-01)
   %122 = tail call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %121)
   %123 = fptosi <2 x float> %122 to <2 x i32>
-  %124 = and <2 x i32> %123, <i32 255, i32 255>
-  %125 = and <2 x i32> %118, <i32 255, i32 255>
+  %124 = and <2 x i32> %123, splat (i32 255)
+  %125 = and <2 x i32> %118, splat (i32 255)
   %126 = uitofp nneg <2 x i32> %125 to <2 x float>
   %127 = insertelement <2 x float> poison, float %100, i64 0
   %128 = shufflevector <2 x float> %127, <2 x float> poison, <2 x i32> zeroinitializer
   %129 = fmul nsz <2 x float> %128, %126
   %130 = fptoui <2 x float> %129 to <2 x i32>
-  %131 = and <2 x i32> %120, <i32 255, i32 255>
+  %131 = and <2 x i32> %120, splat (i32 255)
   %132 = uitofp nneg <2 x i32> %131 to <2 x float>
   %133 = fmul nsz <2 x float> %128, %132
   %134 = fptoui <2 x float> %133 to <2 x i32>
   %135 = uitofp nneg <2 x i32> %124 to <2 x float>
   %136 = fmul nsz <2 x float> %128, %135
   %137 = fptoui <2 x float> %136 to <2 x i32>
-  %138 = shl <2 x i32> %130, <i32 16, i32 16>
-  %139 = shl <2 x i32> %134, <i32 8, i32 8>
-  %140 = and <2 x i32> %139, <i32 65280, i32 65280>
-  %141 = and <2 x i32> %137, <i32 255, i32 255>
+  %138 = shl <2 x i32> %130, splat (i32 16)
+  %139 = shl <2 x i32> %134, splat (i32 8)
+  %140 = and <2 x i32> %139, splat (i32 65280)
+  %141 = and <2 x i32> %137, splat (i32 255)
   %142 = or disjoint <2 x i32> %140, %138
   %143 = or disjoint <2 x i32> %142, %141
-  %144 = or <2 x i32> %143, <i32 -16777216, i32 -16777216>
+  %144 = or <2 x i32> %143, splat (i32 -16777216)
   store <2 x i32> %144, ptr %m_bgcolor, align 8, !tbaa !94
   %m_directional_colored_fog = getelementptr inbounds i8, ptr %this, i64 2490
   %145 = load i8, ptr %m_directional_colored_fog, align 2, !tbaa !133, !range !106, !noundef !107
@@ -8018,12 +8018,12 @@ if.then242:                                       ; preds = %cond.end190
   %shr.i871 = lshr i32 %155, 8
   %156 = insertelement <2 x i32> poison, i32 %155, i64 0
   %157 = insertelement <2 x i32> %156, i32 %shr.i871, i64 1
-  %158 = and <2 x i32> %157, <i32 255, i32 255>
+  %158 = and <2 x i32> %157, splat (i32 255)
   %159 = uitofp nneg <2 x i32> %158 to <2 x float>
   %160 = insertelement <2 x float> poison, float %cond238, i64 0
   %161 = shufflevector <2 x float> %160, <2 x float> poison, <2 x i32> zeroinitializer
   %162 = fmul nsz <2 x float> %161, %159
-  %163 = fdiv nsz <2 x float> %162, <float 2.550000e+02, float 2.550000e+02>
+  %163 = fdiv nsz <2 x float> %162, splat (float 2.550000e+02)
   %.pre = fpext float %cond238 to double
   br label %if.end355
 
@@ -8148,7 +8148,7 @@ if.then360:                                       ; preds = %if.end355
   %mul382 = fmul nsz float %cond238, %conv381
   %192 = insertelement <2 x float> poison, float %mul366, i64 0
   %193 = insertelement <2 x float> %192, float %mul382, i64 1
-  %194 = fdiv nsz <2 x float> %193, <float 2.550000e+02, float 2.550000e+02>
+  %194 = fdiv nsz <2 x float> %193, splat (float 2.550000e+02)
   br label %if.end385
 
 if.end385:                                        ; preds = %if.then360, %if.end355, %if.end355.thread
@@ -8159,13 +8159,13 @@ if.end385:                                        ; preds = %if.then360, %if.end
   %196 = phi <2 x float> [ %189, %if.end355 ], [ %189, %if.then360 ], [ %184, %if.end355.thread ]
   %197 = tail call nsz noundef float @llvm.floor.f32(float %pointcolor_sun_f.sroa.17.012061218)
   %conv.i.i912 = fptosi float %197 to i32
-  %198 = fmul nsz <2 x float> %196, <float 2.550000e+02, float 2.550000e+02>
+  %198 = fmul nsz <2 x float> %196, splat (float 2.550000e+02)
   %mul6.i921 = fmul nsz float %pointcolor_sun_f.sroa.12.012041219, 2.550000e+02
   %add.i.i12.i922 = fadd nsz float %mul6.i921, 5.000000e-01
   %199 = tail call nsz noundef float @llvm.floor.f32(float %add.i.i12.i922)
   %conv.i13.i923 = fptosi float %199 to i32
   %and7.i.i931 = and i32 %conv.i13.i923, 255
-  %200 = fmul nsz <2 x float> %195, <float 2.550000e+02, float 2.550000e+02>
+  %200 = fmul nsz <2 x float> %195, splat (float 2.550000e+02)
   %mul6.i945 = fmul nsz float %pointcolor_moon_f.sroa.12.1, 2.550000e+02
   %add.i.i12.i946 = fadd nsz float %mul6.i945, 5.000000e-01
   %201 = tail call nsz noundef float @llvm.floor.f32(float %add.i.i12.i946)
@@ -8183,15 +8183,15 @@ if.end385:                                        ; preds = %if.then360, %if.end
   %203 = tail call nsz float @llvm.fmuladd.f32(float %conv21.i, float %sub.i959, float %mul25.i)
   %conv26.i = fptoui float %203 to i32
   %and.i45.i = shl i32 %conv5.i962, 24
-  %204 = fadd nsz <2 x float> %198, <float 5.000000e-01, float 5.000000e-01>
+  %204 = fadd nsz <2 x float> %198, splat (float 5.000000e-01)
   %205 = tail call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %204)
   %206 = fptosi <2 x float> %205 to <2 x i32>
-  %207 = fadd nsz <2 x float> %200, <float 5.000000e-01, float 5.000000e-01>
+  %207 = fadd nsz <2 x float> %200, splat (float 5.000000e-01)
   %208 = tail call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %207)
   %209 = fptosi <2 x float> %208 to <2 x i32>
-  %210 = and <2 x i32> %209, <i32 255, i32 255>
+  %210 = and <2 x i32> %209, splat (i32 255)
   %211 = uitofp nneg <2 x i32> %210 to <2 x float>
-  %212 = and <2 x i32> %206, <i32 255, i32 255>
+  %212 = and <2 x i32> %206, splat (i32 255)
   %213 = uitofp nneg <2 x i32> %212 to <2 x float>
   %214 = insertelement <2 x float> poison, float %pointcolor_blend.1, i64 0
   %215 = shufflevector <2 x float> %214, <2 x float> poison, <2 x i32> zeroinitializer
@@ -8598,7 +8598,7 @@ _Z18getWickedTimeOfDayf.exit:                     ; preds = %if.else7.i, %if.the
   %5 = insertelement <2 x float> poison, float %3, i64 0
   %6 = insertelement <2 x float> %5, float %4, i64 1
   %7 = fpext <2 x float> %6 to <2 x double>
-  %8 = fmul nsz <2 x double> %7, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
+  %8 = fmul nsz <2 x double> %7, splat (double 0x3F91DF46A2529D39)
   %9 = extractelement <2 x double> %8, i64 0
   %10 = tail call nsz double @llvm.cos.f64(double %9)
   %mul16.i18.i = fmul nsz double %10, 0.000000e+00
@@ -8636,7 +8636,7 @@ entry:
   %ref.tmp.sroa.9.0.vertices.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 24
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %ref.tmp.sroa.9.0.vertices.sroa_idx, align 4, !tbaa !94
   %ref.tmp.sroa.10.0.vertices.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 28
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp.sroa.10.0.vertices.sroa_idx, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp.sroa.10.0.vertices.sroa_idx, align 4, !tbaa !22
   %arrayidx.i.i = getelementptr inbounds i8, ptr %vertices, i64 36
   store float %pos_2, ptr %arrayidx.i.i, align 4, !tbaa !22
   %ref.tmp2.sroa.4.0.arrayidx.i.i.sroa_idx = getelementptr inbounds i8, ptr %vertices, i64 40
@@ -8706,7 +8706,7 @@ entry:
   %11 = insertelement <2 x float> poison, float %day_position, i64 0
   %12 = insertelement <2 x float> %11, float %0, i64 1
   %13 = fpext <2 x float> %12 to <2 x double>
-  %14 = fmul nsz <2 x double> %13, <double 0x3F91DF46A2529D39, double 0x3F91DF46A2529D39>
+  %14 = fmul nsz <2 x double> %13, splat (double 0x3F91DF46A2529D39)
   %15 = extractelement <2 x double> %14, i64 0
   %16 = tail call nsz double @llvm.sin.f64(double %15)
   %conv.i14.i = fpext float %conv10.i.i to double
@@ -9064,7 +9064,7 @@ invoke.cont:
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !22
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !22
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !22
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !233
   %1 = load ptr, ptr %m_stars, align 8, !tbaa !137
@@ -10887,7 +10887,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !22
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !22
   %12 = fadd nsz <2 x float> %10, %11
-  %13 = fmul nsz <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul nsz <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub nsz <2 x float> %13, %11
   %15 = fadd nsz <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !22

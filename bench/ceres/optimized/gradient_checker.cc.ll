@@ -8171,7 +8171,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %53 = getelementptr inbounds double, ptr %44, i64 %.011.i.i.i.i.i.i.i46
   %54 = getelementptr inbounds double, ptr %.sink.i125, i64 %.011.i.i.i.i.i.i.i46
   %55 = load <2 x i64>, ptr %54, align 16
-  %56 = and <2 x i64> %55, <i64 9223372036854775807, i64 9223372036854775807>
+  %56 = and <2 x i64> %55, splat (i64 9223372036854775807)
   %57 = bitcast <2 x i64> %56 to <2 x double>
   %58 = fmul <2 x double> %52, %57
   store <2 x double> %58, ptr %53, align 16

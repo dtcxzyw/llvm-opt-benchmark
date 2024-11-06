@@ -739,7 +739,7 @@ define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIf
   %24 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> zeroinitializer, <4 x float> %23)
   %25 = fadd contract <4 x float> %21, %24
   %26 = getelementptr inbounds i8, ptr %8, i64 16
-  %27 = fmul contract <4 x float> %25, <float 0x3F17700000000000, float 0x3F17700000000000, float 0x3F17700000000000, float 0x3F17700000000000>
+  %27 = fmul contract <4 x float> %25, splat (float 0x3F17700000000000)
   %28 = fadd contract <4 x float> %22, %27
   store <4 x float> %28, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -801,7 +801,7 @@ define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIf
   %24 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> zeroinitializer, <4 x float> %23)
   %25 = fadd contract <4 x float> %21, %24
   %26 = getelementptr inbounds i8, ptr %8, i64 16
-  %27 = fmul contract <4 x float> %25, <float 0x3F17700000000000, float 0x3F17700000000000, float 0x3F17700000000000, float 0x3F17700000000000>
+  %27 = fmul contract <4 x float> %25, splat (float 0x3F17700000000000)
   %28 = fadd contract <4 x float> %22, %27
   store <4 x float> %28, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -832,9 +832,9 @@ _ZNSt3__14pairIN7mitsuba15RayDifferentialINS1_5PointIfLm3EEEN5drjit6MatrixINS1_8
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba13RadianceMeterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(240) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 

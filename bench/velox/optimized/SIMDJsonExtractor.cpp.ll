@@ -860,9 +860,9 @@ if.end.i39:                                       ; preds = %if.end.i365
   %32 = load <4 x i64>, ptr %incdec.ptr.i404, align 1
   store <4 x i64> %32, ptr %31, align 1
   %33 = bitcast <4 x i64> %32 to <32 x i8>
-  %cmp.i725453 = icmp eq <32 x i8> %33, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %cmp.i725453 = icmp eq <32 x i8> %33, splat (i8 92)
   %34 = bitcast <32 x i1> %cmp.i725453 to i32
-  %cmp.i728454 = icmp eq <32 x i8> %33, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %cmp.i728454 = icmp eq <32 x i8> %33, splat (i8 34)
   %35 = bitcast <32 x i1> %cmp.i728454 to i32
   %sub.i621455 = add i32 %34, -1
   %and.i456 = and i32 %sub.i621455, %35
@@ -1083,9 +1083,9 @@ if.end32.i:                                       ; preds = %_ZN8simdjson7haswel
   %75 = load <4 x i64>, ptr %src.addr.i.3, align 1
   store <4 x i64> %75, ptr %dst.addr.i587.2, align 1
   %76 = bitcast <4 x i64> %75 to <32 x i8>
-  %cmp.i725 = icmp eq <32 x i8> %76, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %cmp.i725 = icmp eq <32 x i8> %76, splat (i8 92)
   %77 = bitcast <32 x i1> %cmp.i725 to i32
-  %cmp.i728 = icmp eq <32 x i8> %76, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %cmp.i728 = icmp eq <32 x i8> %76, splat (i8 34)
   %78 = bitcast <32 x i1> %cmp.i728 to i32
   %sub.i621 = add i32 %77, -1
   %and.i = and i32 %sub.i621, %78

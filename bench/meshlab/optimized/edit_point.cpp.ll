@@ -14643,10 +14643,10 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(70) ptr @_ZN5Eigen22
   %24 = getelementptr i8, ptr %1, i64 32
   %25 = load float, ptr %24, align 4
   %26 = load <4 x i32>, ptr %0, align 4
-  %27 = and <4 x i32> %26, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %27 = and <4 x i32> %26, splat (i32 2147483647)
   %28 = bitcast <4 x i32> %27 to <4 x float>
   %29 = load <4 x i32>, ptr %15, align 4
-  %30 = and <4 x i32> %29, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %30 = and <4 x i32> %29, splat (i32 2147483647)
   %31 = bitcast <4 x i32> %30 to <4 x float>
   %32 = tail call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %28, <4 x float> %31) #30, !srcloc !197
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

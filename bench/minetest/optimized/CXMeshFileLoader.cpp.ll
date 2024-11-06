@@ -13265,7 +13265,7 @@ if.end:                                           ; preds = %_ZN3irr5scene16CXMe
   store float 1.000000e+00, ptr %arrayidx4.i.i11.i, align 8, !tbaa !57
   %arrayidx6.i.i12.i = getelementptr inbounds i8, ptr %animationDump, i64 380
   store float 1.000000e+00, ptr %arrayidx6.i.i12.i, align 4, !tbaa !57
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i7.i, align 4, !tbaa !57
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i7.i, align 4, !tbaa !57
   %23 = getelementptr inbounds i8, ptr %animationDump, i64 428
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %23, i8 0, i64 56, i1 false)
   %arrayidx.i.i13.i = getelementptr inbounds i8, ptr %animationDump, i64 484
@@ -13274,7 +13274,7 @@ if.end:                                           ; preds = %_ZN3irr5scene16CXMe
   store float 1.000000e+00, ptr %arrayidx4.i.i14.i, align 8, !tbaa !57
   %arrayidx6.i.i15.i = getelementptr inbounds i8, ptr %animationDump, i64 444
   store float 1.000000e+00, ptr %arrayidx6.i.i15.i, align 4, !tbaa !57
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i10.i, align 4, !tbaa !57
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i10.i, align 4, !tbaa !57
   %Animatedposition.i = getelementptr inbounds i8, ptr %animationDump, i64 488
   %W.i.i = getelementptr inbounds i8, ptr %animationDump, i64 524
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Animatedposition.i, i8 0, i64 36, i1 false)
@@ -13286,7 +13286,7 @@ if.end:                                           ; preds = %_ZN3irr5scene16CXMe
   store float 1.000000e+00, ptr %arrayidx4.i.i21.i, align 8, !tbaa !57
   %arrayidx6.i.i22.i = getelementptr inbounds i8, ptr %animationDump, i64 548
   store float 1.000000e+00, ptr %arrayidx6.i.i22.i, align 4, !tbaa !57
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %W.i.i, align 4, !tbaa !57
+  store <2 x float> splat (float 1.000000e+00), ptr %W.i.i, align 4, !tbaa !57
   %UseAnimationFrom.i = getelementptr inbounds i8, ptr %animationDump, i64 592
   store ptr null, ptr %UseAnimationFrom.i, align 8, !tbaa !323
   %GlobalSkinningSpace.i = getelementptr inbounds i8, ptr %animationDump, i64 600

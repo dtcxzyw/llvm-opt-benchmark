@@ -645,7 +645,7 @@ define weak_odr { i64, float } @_ZNK7mitsuba19HeterogeneousMediumIfN5drjit6Matri
   %23 = fneg contract <4 x float> %7
   %24 = fmul contract <4 x float> %21, %23
   %25 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %24, <4 x float> %21, <4 x float> %22)
-  %26 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> %7, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %26 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> %7, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   %27 = fsub contract <4 x float> %10, %9
   %28 = fmul contract <4 x float> %27, %26
   %29 = fsub contract <4 x float> %13, %9

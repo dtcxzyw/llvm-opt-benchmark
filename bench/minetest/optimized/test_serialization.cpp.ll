@@ -12203,7 +12203,7 @@ invoke.cont380:                                   ; preds = %if.end377
   %113 = load <2 x i32>, ptr %buf.i772, align 8
   %114 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %113)
   %115 = sitofp <2 x i32> %114 to <2 x float>
-  %116 = fdiv nsz <2 x float> %115, <float 1.000000e+03, float 1.000000e+03>
+  %116 = fdiv nsz <2 x float> %115, splat (float 1.000000e+03)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %buf.i772) #27
   %117 = fcmp nsz oeq <2 x float> %116, <float 5.000000e+02, float 0x40C39419A0000000>
   %shift = shufflevector <2 x i1> %117, <2 x i1> poison, <2 x i32> <i32 1, i32 poison>

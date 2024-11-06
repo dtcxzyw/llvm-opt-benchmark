@@ -27373,14 +27373,14 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(134) ptr @_ZN5Eigen
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %24 = load double, ptr %23, align 8
   %25 = load <2 x i64>, ptr %0, align 16
-  %26 = and <2 x i64> %25, <i64 9223372036854775807, i64 9223372036854775807>
+  %26 = and <2 x i64> %25, splat (i64 9223372036854775807)
   %27 = bitcast <2 x i64> %26 to <2 x double>
   %28 = load <2 x i64>, ptr %11, align 16
-  %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
+  %29 = and <2 x i64> %28, splat (i64 9223372036854775807)
   %30 = bitcast <2 x i64> %29 to <2 x double>
   %31 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %27, <2 x double> %30) #36, !srcloc !287
   %32 = load <2 x i64>, ptr %15, align 16
-  %33 = and <2 x i64> %32, <i64 9223372036854775807, i64 9223372036854775807>
+  %33 = and <2 x i64> %32, splat (i64 9223372036854775807)
   %34 = bitcast <2 x i64> %33 to <2 x double>
   %35 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %34, <2 x double> zeroinitializer) #36, !srcloc !287
   %36 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %31, <2 x double> %35) #36, !srcloc !287

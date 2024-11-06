@@ -16832,7 +16832,7 @@ define internal fastcc noundef align 4 dereferenceable_or_null(12) ptr @"_ZN9has
   br i1 %.not.i4.not.i.i, label %12, label %15
 
 12:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
-  %13 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %13 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %14 = bitcast <16 x i1> %13 to i16
   %.not.i.i.i = icmp eq i16 %14, 0
   br i1 %.not.i.i.i, label %24, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hb73f5f86ca60d62dE.exit"
@@ -32929,7 +32929,7 @@ define void @_ZN6ide_db6search11SearchScope19module_and_children17h68a540b293e0f
 
 82:                                               ; preds = %.noexc26
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6), !noalias !4675
-  %83 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %83 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %84 = bitcast <16 x i1> %83 to i16
   %.not.i.i.i = icmp eq i16 %84, 0
   br i1 %.not.i.i.i, label %90, label %93
@@ -33725,7 +33725,7 @@ define hidden noundef zeroext i1 @"_ZN6ide_db6search10FindUsages3all28_$u7b$$u7b
 
 23:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5), !noalias !4921
-  %24 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %24 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %25 = bitcast <16 x i1> %24 to i16
   %.not.i.i.i = icmp eq i16 %25, 0
   br i1 %.not.i.i.i, label %31, label %34
@@ -40939,7 +40939,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i", %96
-  %102 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %102 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %103 = bitcast <16 x i1> %102 to i16
   %.not.i.i.i.i = icmp eq i16 %103, 0
   br i1 %.not.i.i.i.i, label %117, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit.thread"
@@ -41027,7 +41027,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i399
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i405": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i403", %134
-  %140 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i396, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %140 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i396, splat (i8 -1)
   %141 = bitcast <16 x i1> %140 to i16
   %.not.i.i.i.i406 = icmp eq i16 %141, 0
   br i1 %.not.i.i.i.i406, label %155, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit414.thread"
@@ -41122,7 +41122,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i425
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i431": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i429", %174
-  %180 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i422, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %180 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i422, splat (i8 -1)
   %181 = bitcast <16 x i1> %180 to i16
   %.not.i.i.i.i432 = icmp eq i16 %181, 0
   br i1 %.not.i.i.i.i432, label %195, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit440.thread"
@@ -41204,7 +41204,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i451
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i457": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i455", %209
-  %215 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i448, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %215 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i448, splat (i8 -1)
   %216 = bitcast <16 x i1> %215 to i16
   %.not.i.i.i.i458 = icmp eq i16 %216, 0
   br i1 %.not.i.i.i.i458, label %230, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit466.thread"
@@ -41284,7 +41284,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i477
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i483": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i481", %246
-  %252 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i474, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %252 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i474, splat (i8 -1)
   %253 = bitcast <16 x i1> %252 to i16
   %.not.i.i.i.i484 = icmp eq i16 %253, 0
   br i1 %.not.i.i.i.i484, label %267, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit492.thread"
@@ -41364,7 +41364,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i503
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i509": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i507", %283
-  %289 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i500, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %289 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i500, splat (i8 -1)
   %290 = bitcast <16 x i1> %289 to i16
   %.not.i.i.i.i510 = icmp eq i16 %290, 0
   br i1 %.not.i.i.i.i510, label %304, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit518.thread"
@@ -41444,7 +41444,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i529
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i535": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i533", %320
-  %326 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i526, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %326 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i526, splat (i8 -1)
   %327 = bitcast <16 x i1> %326 to i16
   %.not.i.i.i.i536 = icmp eq i16 %327, 0
   br i1 %.not.i.i.i.i536, label %341, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit544.thread"
@@ -41524,7 +41524,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i555
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i561": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i559", %357
-  %363 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i552, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %363 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i552, splat (i8 -1)
   %364 = bitcast <16 x i1> %363 to i16
   %.not.i.i.i.i562 = icmp eq i16 %364, 0
   br i1 %.not.i.i.i.i562, label %378, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit570.thread"
@@ -41604,7 +41604,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i581
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i587": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i585", %394
-  %400 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i578, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %400 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i578, splat (i8 -1)
   %401 = bitcast <16 x i1> %400 to i16
   %.not.i.i.i.i588 = icmp eq i16 %401, 0
   br i1 %.not.i.i.i.i588, label %415, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit596.thread"
@@ -41684,7 +41684,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i607
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i613": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i611", %431
-  %437 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i604, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %437 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i604, splat (i8 -1)
   %438 = bitcast <16 x i1> %437 to i16
   %.not.i.i.i.i614 = icmp eq i16 %438, 0
   br i1 %.not.i.i.i.i614, label %452, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit622.thread"
@@ -41764,7 +41764,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i633
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i639": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i637", %468
-  %474 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i630, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %474 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i630, splat (i8 -1)
   %475 = bitcast <16 x i1> %474 to i16
   %.not.i.i.i.i640 = icmp eq i16 %475, 0
   br i1 %.not.i.i.i.i640, label %489, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit648.thread"
@@ -41844,7 +41844,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i659
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i665": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i663", %505
-  %511 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i656, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %511 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i656, splat (i8 -1)
   %512 = bitcast <16 x i1> %511 to i16
   %.not.i.i.i.i666 = icmp eq i16 %512, 0
   br i1 %.not.i.i.i.i666, label %526, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit674.thread"
@@ -41924,7 +41924,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i685
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i691": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i689", %542
-  %548 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i682, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %548 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i682, splat (i8 -1)
   %549 = bitcast <16 x i1> %548 to i16
   %.not.i.i.i.i692 = icmp eq i16 %549, 0
   br i1 %.not.i.i.i.i692, label %563, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit700.thread"
@@ -42004,7 +42004,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i711
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i717": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i715", %579
-  %585 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i708, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %585 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i708, splat (i8 -1)
   %586 = bitcast <16 x i1> %585 to i16
   %.not.i.i.i.i718 = icmp eq i16 %586, 0
   br i1 %.not.i.i.i.i718, label %600, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit726.thread"
@@ -42084,7 +42084,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i737
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i743": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i741", %616
-  %622 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i734, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %622 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i734, splat (i8 -1)
   %623 = bitcast <16 x i1> %622 to i16
   %.not.i.i.i.i744 = icmp eq i16 %623, 0
   br i1 %.not.i.i.i.i744, label %637, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit752.thread"
@@ -42164,7 +42164,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i763
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i769": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i767", %653
-  %659 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i760, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %659 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i760, splat (i8 -1)
   %660 = bitcast <16 x i1> %659 to i16
   %.not.i.i.i.i770 = icmp eq i16 %660, 0
   br i1 %.not.i.i.i.i770, label %674, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit778.thread"
@@ -42244,7 +42244,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i789
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i795": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i793", %690
-  %696 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i786, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %696 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i786, splat (i8 -1)
   %697 = bitcast <16 x i1> %696 to i16
   %.not.i.i.i.i796 = icmp eq i16 %697, 0
   br i1 %.not.i.i.i.i796, label %711, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit804.thread"
@@ -42324,7 +42324,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i815
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i821": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i819", %727
-  %733 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i812, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %733 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i812, splat (i8 -1)
   %734 = bitcast <16 x i1> %733 to i16
   %.not.i.i.i.i822 = icmp eq i16 %734, 0
   br i1 %.not.i.i.i.i822, label %748, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit830.thread"
@@ -42404,7 +42404,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i841
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i847": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i845", %764
-  %770 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i838, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %770 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i838, splat (i8 -1)
   %771 = bitcast <16 x i1> %770 to i16
   %.not.i.i.i.i848 = icmp eq i16 %771, 0
   br i1 %.not.i.i.i.i848, label %785, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit856.thread"
@@ -42484,7 +42484,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i867
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i873": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i871", %801
-  %807 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i864, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %807 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i864, splat (i8 -1)
   %808 = bitcast <16 x i1> %807 to i16
   %.not.i.i.i.i874 = icmp eq i16 %808, 0
   br i1 %.not.i.i.i.i874, label %822, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit882.thread"
@@ -42564,7 +42564,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i893
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i899": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i897", %838
-  %844 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i890, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %844 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i890, splat (i8 -1)
   %845 = bitcast <16 x i1> %844 to i16
   %.not.i.i.i.i900 = icmp eq i16 %845, 0
   br i1 %.not.i.i.i.i900, label %859, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit908.thread"
@@ -42644,7 +42644,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i919
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i925": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i923", %875
-  %881 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i916, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %881 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i916, splat (i8 -1)
   %882 = bitcast <16 x i1> %881 to i16
   %.not.i.i.i.i926 = icmp eq i16 %882, 0
   br i1 %.not.i.i.i.i926, label %896, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit934.thread"
@@ -42726,7 +42726,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i945
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i951": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i949", %912
-  %918 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i942, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %918 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i942, splat (i8 -1)
   %919 = bitcast <16 x i1> %918 to i16
   %.not.i.i.i.i952 = icmp eq i16 %919, 0
   br i1 %.not.i.i.i.i952, label %933, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit960.thread"
@@ -42806,7 +42806,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i971
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i977": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i975", %949
-  %955 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i968, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %955 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i968, splat (i8 -1)
   %956 = bitcast <16 x i1> %955 to i16
   %.not.i.i.i.i978 = icmp eq i16 %956, 0
   br i1 %.not.i.i.i.i978, label %970, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit986.thread"
@@ -42886,7 +42886,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i997
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1003": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1001", %986
-  %992 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i994, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %992 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i994, splat (i8 -1)
   %993 = bitcast <16 x i1> %992 to i16
   %.not.i.i.i.i1004 = icmp eq i16 %993, 0
   br i1 %.not.i.i.i.i1004, label %1007, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1012.thread"
@@ -42966,7 +42966,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1023
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1029": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1027", %1023
-  %1029 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1020, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1029 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1020, splat (i8 -1)
   %1030 = bitcast <16 x i1> %1029 to i16
   %.not.i.i.i.i1030 = icmp eq i16 %1030, 0
   br i1 %.not.i.i.i.i1030, label %1044, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1038.thread"
@@ -43046,7 +43046,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1049
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1055": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1053", %1060
-  %1066 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1046, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1066 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1046, splat (i8 -1)
   %1067 = bitcast <16 x i1> %1066 to i16
   %.not.i.i.i.i1056 = icmp eq i16 %1067, 0
   br i1 %.not.i.i.i.i1056, label %1081, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1064.thread"
@@ -43126,7 +43126,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1075
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1081": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1079", %1097
-  %1103 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1072, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1103 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1072, splat (i8 -1)
   %1104 = bitcast <16 x i1> %1103 to i16
   %.not.i.i.i.i1082 = icmp eq i16 %1104, 0
   br i1 %.not.i.i.i.i1082, label %1118, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1090.thread"
@@ -43206,7 +43206,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1101
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1107": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1105", %1134
-  %1140 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1098, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1140 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1098, splat (i8 -1)
   %1141 = bitcast <16 x i1> %1140 to i16
   %.not.i.i.i.i1108 = icmp eq i16 %1141, 0
   br i1 %.not.i.i.i.i1108, label %1155, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1116.thread"
@@ -43286,7 +43286,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1127
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1133": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1131", %1171
-  %1177 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1124, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1177 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1124, splat (i8 -1)
   %1178 = bitcast <16 x i1> %1177 to i16
   %.not.i.i.i.i1134 = icmp eq i16 %1178, 0
   br i1 %.not.i.i.i.i1134, label %1192, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1142.thread"
@@ -43366,7 +43366,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1153
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1159": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1157", %1208
-  %1214 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1150, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1214 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1150, splat (i8 -1)
   %1215 = bitcast <16 x i1> %1214 to i16
   %.not.i.i.i.i1160 = icmp eq i16 %1215, 0
   br i1 %.not.i.i.i.i1160, label %1229, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1168.thread"
@@ -43446,7 +43446,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1179
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1185": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1183", %1245
-  %1251 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1176, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1251 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1176, splat (i8 -1)
   %1252 = bitcast <16 x i1> %1251 to i16
   %.not.i.i.i.i1186 = icmp eq i16 %1252, 0
   br i1 %.not.i.i.i.i1186, label %1266, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1194.thread"
@@ -43526,7 +43526,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1205
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1211": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1209", %1282
-  %1288 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1202, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1288 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1202, splat (i8 -1)
   %1289 = bitcast <16 x i1> %1288 to i16
   %.not.i.i.i.i1212 = icmp eq i16 %1289, 0
   br i1 %.not.i.i.i.i1212, label %1303, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1220.thread"
@@ -43606,7 +43606,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1231
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1237": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1235", %1319
-  %1325 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1228, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1325 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1228, splat (i8 -1)
   %1326 = bitcast <16 x i1> %1325 to i16
   %.not.i.i.i.i1238 = icmp eq i16 %1326, 0
   br i1 %.not.i.i.i.i1238, label %1340, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1246.thread"
@@ -43686,7 +43686,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1257
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1263": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1261", %1356
-  %1362 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1254, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1362 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1254, splat (i8 -1)
   %1363 = bitcast <16 x i1> %1362 to i16
   %.not.i.i.i.i1264 = icmp eq i16 %1363, 0
   br i1 %.not.i.i.i.i1264, label %1377, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1272.thread"
@@ -43766,7 +43766,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1283
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1289": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1287", %1393
-  %1399 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1280, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1399 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1280, splat (i8 -1)
   %1400 = bitcast <16 x i1> %1399 to i16
   %.not.i.i.i.i1290 = icmp eq i16 %1400, 0
   br i1 %.not.i.i.i.i1290, label %1414, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1298.thread"
@@ -43846,7 +43846,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1309
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1315": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1313", %1430
-  %1436 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1306, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1436 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1306, splat (i8 -1)
   %1437 = bitcast <16 x i1> %1436 to i16
   %.not.i.i.i.i1316 = icmp eq i16 %1437, 0
   br i1 %.not.i.i.i.i1316, label %1451, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1324.thread"
@@ -43926,7 +43926,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1335
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1341": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1339", %1467
-  %1473 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1332, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1473 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1332, splat (i8 -1)
   %1474 = bitcast <16 x i1> %1473 to i16
   %.not.i.i.i.i1342 = icmp eq i16 %1474, 0
   br i1 %.not.i.i.i.i1342, label %1488, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1350.thread"
@@ -44006,7 +44006,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1361
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1367": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1365", %1504
-  %1510 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1358, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1510 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1358, splat (i8 -1)
   %1511 = bitcast <16 x i1> %1510 to i16
   %.not.i.i.i.i1368 = icmp eq i16 %1511, 0
   br i1 %.not.i.i.i.i1368, label %1525, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1376.thread"
@@ -44086,7 +44086,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1387
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1393": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1391", %1541
-  %1547 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1384, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1547 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1384, splat (i8 -1)
   %1548 = bitcast <16 x i1> %1547 to i16
   %.not.i.i.i.i1394 = icmp eq i16 %1548, 0
   br i1 %.not.i.i.i.i1394, label %1562, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1402.thread"
@@ -44166,7 +44166,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1413
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1419": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1417", %1578
-  %1584 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1410, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1584 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1410, splat (i8 -1)
   %1585 = bitcast <16 x i1> %1584 to i16
   %.not.i.i.i.i1420 = icmp eq i16 %1585, 0
   br i1 %.not.i.i.i.i1420, label %1599, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1428.thread"
@@ -44248,7 +44248,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1439
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1445": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1443", %1615
-  %1621 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1436, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1621 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1436, splat (i8 -1)
   %1622 = bitcast <16 x i1> %1621 to i16
   %.not.i.i.i.i1446 = icmp eq i16 %1622, 0
   br i1 %.not.i.i.i.i1446, label %1636, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1454.thread"
@@ -44328,7 +44328,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1465
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1471": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1469", %1652
-  %1658 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1462, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1658 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1462, splat (i8 -1)
   %1659 = bitcast <16 x i1> %1658 to i16
   %.not.i.i.i.i1472 = icmp eq i16 %1659, 0
   br i1 %.not.i.i.i.i1472, label %1673, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1480.thread"
@@ -44408,7 +44408,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1491
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1497": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1495", %1689
-  %1695 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1488, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1695 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1488, splat (i8 -1)
   %1696 = bitcast <16 x i1> %1695 to i16
   %.not.i.i.i.i1498 = icmp eq i16 %1696, 0
   br i1 %.not.i.i.i.i1498, label %1710, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1506.thread"
@@ -44488,7 +44488,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1517
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1523": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1521", %1726
-  %1732 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1514, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1732 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1514, splat (i8 -1)
   %1733 = bitcast <16 x i1> %1732 to i16
   %.not.i.i.i.i1524 = icmp eq i16 %1733, 0
   br i1 %.not.i.i.i.i1524, label %1747, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1532.thread"
@@ -44568,7 +44568,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1543
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1549": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1547", %1763
-  %1769 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1540, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1769 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1540, splat (i8 -1)
   %1770 = bitcast <16 x i1> %1769 to i16
   %.not.i.i.i.i1550 = icmp eq i16 %1770, 0
   br i1 %.not.i.i.i.i1550, label %1784, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1558.thread"
@@ -44648,7 +44648,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1569
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1575": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1573", %1800
-  %1806 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1566, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1806 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1566, splat (i8 -1)
   %1807 = bitcast <16 x i1> %1806 to i16
   %.not.i.i.i.i1576 = icmp eq i16 %1807, 0
   br i1 %.not.i.i.i.i1576, label %1821, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1584.thread"
@@ -44728,7 +44728,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1595
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1601": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1599", %1837
-  %1843 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1592, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1843 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1592, splat (i8 -1)
   %1844 = bitcast <16 x i1> %1843 to i16
   %.not.i.i.i.i1602 = icmp eq i16 %1844, 0
   br i1 %.not.i.i.i.i1602, label %1858, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1610.thread"
@@ -44808,7 +44808,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1621
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1627": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1625", %1874
-  %1880 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1618, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1880 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1618, splat (i8 -1)
   %1881 = bitcast <16 x i1> %1880 to i16
   %.not.i.i.i.i1628 = icmp eq i16 %1881, 0
   br i1 %.not.i.i.i.i1628, label %1895, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1636.thread"
@@ -44888,7 +44888,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1647
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1653": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1651", %1911
-  %1917 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1644, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1917 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1644, splat (i8 -1)
   %1918 = bitcast <16 x i1> %1917 to i16
   %.not.i.i.i.i1654 = icmp eq i16 %1918, 0
   br i1 %.not.i.i.i.i1654, label %1932, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1662.thread"
@@ -44968,7 +44968,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1673
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1679": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1677", %1948
-  %1954 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1670, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1954 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1670, splat (i8 -1)
   %1955 = bitcast <16 x i1> %1954 to i16
   %.not.i.i.i.i1680 = icmp eq i16 %1955, 0
   br i1 %.not.i.i.i.i1680, label %1969, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1688.thread"
@@ -45048,7 +45048,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1699
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1705": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1703", %1985
-  %1991 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1696, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1991 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1696, splat (i8 -1)
   %1992 = bitcast <16 x i1> %1991 to i16
   %.not.i.i.i.i1706 = icmp eq i16 %1992, 0
   br i1 %.not.i.i.i.i1706, label %2006, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1714.thread"
@@ -45128,7 +45128,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1725
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1731": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1729", %2022
-  %2028 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1722, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2028 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1722, splat (i8 -1)
   %2029 = bitcast <16 x i1> %2028 to i16
   %.not.i.i.i.i1732 = icmp eq i16 %2029, 0
   br i1 %.not.i.i.i.i1732, label %2043, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1740.thread"
@@ -45208,7 +45208,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1751
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1757": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1755", %2059
-  %2065 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1748, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2065 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1748, splat (i8 -1)
   %2066 = bitcast <16 x i1> %2065 to i16
   %.not.i.i.i.i1758 = icmp eq i16 %2066, 0
   br i1 %.not.i.i.i.i1758, label %2080, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1766.thread"
@@ -45288,7 +45288,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1777
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1783": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1781", %2096
-  %2102 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1774, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2102 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1774, splat (i8 -1)
   %2103 = bitcast <16 x i1> %2102 to i16
   %.not.i.i.i.i1784 = icmp eq i16 %2103, 0
   br i1 %.not.i.i.i.i1784, label %2117, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1792.thread"
@@ -45368,7 +45368,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1803
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1809": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1807", %2133
-  %2139 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1800, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2139 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1800, splat (i8 -1)
   %2140 = bitcast <16 x i1> %2139 to i16
   %.not.i.i.i.i1810 = icmp eq i16 %2140, 0
   br i1 %.not.i.i.i.i1810, label %2154, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1818.thread"
@@ -45448,7 +45448,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1829
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1835": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1833", %2170
-  %2176 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1826, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2176 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1826, splat (i8 -1)
   %2177 = bitcast <16 x i1> %2176 to i16
   %.not.i.i.i.i1836 = icmp eq i16 %2177, 0
   br i1 %.not.i.i.i.i1836, label %2191, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1844.thread"
@@ -45528,7 +45528,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1855
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1861": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1859", %2207
-  %2213 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1852, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2213 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1852, splat (i8 -1)
   %2214 = bitcast <16 x i1> %2213 to i16
   %.not.i.i.i.i1862 = icmp eq i16 %2214, 0
   br i1 %.not.i.i.i.i1862, label %2228, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1870.thread"
@@ -45608,7 +45608,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1881
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1887": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1885", %2244
-  %2250 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1878, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2250 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1878, splat (i8 -1)
   %2251 = bitcast <16 x i1> %2250 to i16
   %.not.i.i.i.i1888 = icmp eq i16 %2251, 0
   br i1 %.not.i.i.i.i1888, label %2265, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1896.thread"
@@ -45688,7 +45688,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1907
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1913": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1911", %2281
-  %2287 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1904, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2287 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1904, splat (i8 -1)
   %2288 = bitcast <16 x i1> %2287 to i16
   %.not.i.i.i.i1914 = icmp eq i16 %2288, 0
   br i1 %.not.i.i.i.i1914, label %2302, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1922.thread"
@@ -45770,7 +45770,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1933
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1939": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1937", %2318
-  %2324 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1930, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2324 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1930, splat (i8 -1)
   %2325 = bitcast <16 x i1> %2324 to i16
   %.not.i.i.i.i1940 = icmp eq i16 %2325, 0
   br i1 %.not.i.i.i.i1940, label %2339, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1948.thread"
@@ -45850,7 +45850,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1959
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1965": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1963", %2355
-  %2361 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1956, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2361 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1956, splat (i8 -1)
   %2362 = bitcast <16 x i1> %2361 to i16
   %.not.i.i.i.i1966 = icmp eq i16 %2362, 0
   br i1 %.not.i.i.i.i1966, label %2376, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit1974.thread"
@@ -45930,7 +45930,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i1985
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i1991": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i1989", %2392
-  %2398 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1982, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2398 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i1982, splat (i8 -1)
   %2399 = bitcast <16 x i1> %2398 to i16
   %.not.i.i.i.i1992 = icmp eq i16 %2399, 0
   br i1 %.not.i.i.i.i1992, label %2413, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2000.thread"
@@ -46010,7 +46010,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2011
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2017": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2015", %2429
-  %2435 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2008, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2435 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2008, splat (i8 -1)
   %2436 = bitcast <16 x i1> %2435 to i16
   %.not.i.i.i.i2018 = icmp eq i16 %2436, 0
   br i1 %.not.i.i.i.i2018, label %2450, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2026.thread"
@@ -46090,7 +46090,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2037
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2043": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2041", %2466
-  %2472 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2034, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2472 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2034, splat (i8 -1)
   %2473 = bitcast <16 x i1> %2472 to i16
   %.not.i.i.i.i2044 = icmp eq i16 %2473, 0
   br i1 %.not.i.i.i.i2044, label %2487, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2052.thread"
@@ -46170,7 +46170,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2063
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2069": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2067", %2503
-  %2509 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2060, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2509 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2060, splat (i8 -1)
   %2510 = bitcast <16 x i1> %2509 to i16
   %.not.i.i.i.i2070 = icmp eq i16 %2510, 0
   br i1 %.not.i.i.i.i2070, label %2524, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2078.thread"
@@ -46250,7 +46250,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2089
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2095": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2093", %2540
-  %2546 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2086, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2546 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2086, splat (i8 -1)
   %2547 = bitcast <16 x i1> %2546 to i16
   %.not.i.i.i.i2096 = icmp eq i16 %2547, 0
   br i1 %.not.i.i.i.i2096, label %2561, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2104.thread"
@@ -46330,7 +46330,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2115
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2121": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2119", %2577
-  %2583 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2112, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2583 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2112, splat (i8 -1)
   %2584 = bitcast <16 x i1> %2583 to i16
   %.not.i.i.i.i2122 = icmp eq i16 %2584, 0
   br i1 %.not.i.i.i.i2122, label %2598, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2130.thread"
@@ -46410,7 +46410,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2141
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2147": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2145", %2614
-  %2620 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2138, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2620 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2138, splat (i8 -1)
   %2621 = bitcast <16 x i1> %2620 to i16
   %.not.i.i.i.i2148 = icmp eq i16 %2621, 0
   br i1 %.not.i.i.i.i2148, label %2635, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2156.thread"
@@ -46490,7 +46490,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2167
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2173": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2171", %2651
-  %2657 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2164, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2657 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2164, splat (i8 -1)
   %2658 = bitcast <16 x i1> %2657 to i16
   %.not.i.i.i.i2174 = icmp eq i16 %2658, 0
   br i1 %.not.i.i.i.i2174, label %2672, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2182.thread"
@@ -46570,7 +46570,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2193
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2199": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2197", %2688
-  %2694 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2190, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2694 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2190, splat (i8 -1)
   %2695 = bitcast <16 x i1> %2694 to i16
   %.not.i.i.i.i2200 = icmp eq i16 %2695, 0
   br i1 %.not.i.i.i.i2200, label %2709, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2208.thread"
@@ -46650,7 +46650,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2219
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2225": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2223", %2725
-  %2731 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2216, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2731 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2216, splat (i8 -1)
   %2732 = bitcast <16 x i1> %2731 to i16
   %.not.i.i.i.i2226 = icmp eq i16 %2732, 0
   br i1 %.not.i.i.i.i2226, label %2746, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2234.thread"
@@ -46730,7 +46730,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2245
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2251": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2249", %2762
-  %2768 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2242, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2768 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2242, splat (i8 -1)
   %2769 = bitcast <16 x i1> %2768 to i16
   %.not.i.i.i.i2252 = icmp eq i16 %2769, 0
   br i1 %.not.i.i.i.i2252, label %2783, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2260.thread"
@@ -46810,7 +46810,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2271
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2277": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2275", %2799
-  %2805 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2268, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2805 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2268, splat (i8 -1)
   %2806 = bitcast <16 x i1> %2805 to i16
   %.not.i.i.i.i2278 = icmp eq i16 %2806, 0
   br i1 %.not.i.i.i.i2278, label %2820, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2286.thread"
@@ -46889,7 +46889,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2297
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2303": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2301", %2836
-  %2842 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2294, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2842 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2294, splat (i8 -1)
   %2843 = bitcast <16 x i1> %2842 to i16
   %.not.i.i.i.i2304 = icmp eq i16 %2843, 0
   br i1 %.not.i.i.i.i2304, label %2857, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2312.thread"
@@ -46968,7 +46968,7 @@ define void @_ZN6ide_db12RootDatabase21update_lru_capacities17h1424a8ab3798c065E
   br label %.lr.ph.i.i.i2323
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit._crit_edge.i.i.i2329": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5d45426ca7ef717aE.exit.backedge.i.i.i2327", %2873
-  %2879 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2320, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2879 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i2320, splat (i8 -1)
   %2880 = bitcast <16 x i1> %2879 to i16
   %.not.i.i.i.i2330 = icmp eq i16 %2880, 0
   br i1 %.not.i.i.i.i2330, label %2894, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h3555c5b7cc70fb81E.exit2338.thread"

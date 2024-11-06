@@ -2604,7 +2604,7 @@ invoke.cont:
   %m_camera_yaw_change = getelementptr inbounds i8, ptr %this, i64 136
   %end.i = getelementptr inbounds i8, ptr %this, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %m_camera_yaw_change, i8 0, i64 28, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %end.i, align 4, !tbaa !43
+  store <2 x float> splat (float 1.000000e+00), ptr %end.i, align 4, !tbaa !43
   %Z.i3.i = getelementptr inbounds i8, ptr %this, i64 172
   store float 1.000000e+00, ptr %Z.i3.i, align 4, !tbaa !149
   %m_has_move_id = getelementptr inbounds i8, ptr %this, i64 176
@@ -4487,10 +4487,10 @@ if.end182:                                        ; preds = %_ZNSt7__cxx1112basi
   %161 = fptosi <2 x float> %160 to <2 x i32>
   %162 = insertelement <2 x float> poison, float %155, i64 0
   %163 = insertelement <2 x float> %162, float %conv221, i64 1
-  %164 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %157, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %163)
+  %164 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %157, <2 x float> splat (float 5.000000e-01), <2 x float> %163)
   %165 = fptosi <2 x float> %164 to <2 x i32>
   %166 = zext <2 x i32> %165 to <2 x i64>
-  %167 = shl nuw <2 x i64> %166, <i64 32, i64 32>
+  %167 = shl nuw <2 x i64> %166, splat (i64 32)
   %168 = zext <2 x i32> %161 to <2 x i64>
   %169 = or disjoint <2 x i64> %167, %168
   store <2 x i64> %169, ptr %m_upper_left.i, align 8
@@ -5343,10 +5343,10 @@ call2.i10.i.noexc1013:                            ; preds = %_ZNSt7__cxx1112basi
   %289 = fptosi <2 x float> %288 to <2 x i32>
   %290 = insertelement <2 x float> poison, float %285, i64 0
   %291 = insertelement <2 x float> %290, float %conv375, i64 1
-  %292 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %287, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %291)
+  %292 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %287, <2 x float> splat (float 5.000000e-01), <2 x float> %291)
   %293 = fptosi <2 x float> %292 to <2 x i32>
   %294 = zext <2 x i32> %293 to <2 x i64>
-  %295 = shl nuw <2 x i64> %294, <i64 32, i64 32>
+  %295 = shl nuw <2 x i64> %294, splat (i64 32)
   %296 = zext <2 x i32> %289 to <2 x i64>
   %297 = or disjoint <2 x i64> %295, %296
   store <2 x i64> %297, ptr %m_upper_left.i1019, align 8

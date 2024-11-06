@@ -254,7 +254,7 @@ entry:
   %BBoxSafe = getelementptr inbounds i8, ptr %this, i64 20
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BBoxSafe, align 4, !tbaa !6
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 36
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 4, !tbaa !6
   %Buffer = getelementptr inbounds i8, ptr %this, i64 48
   %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #24
   %5 = getelementptr inbounds i8, ptr %call, i64 312
@@ -341,7 +341,7 @@ entry:
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !6
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !6
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !54
   store ptr %call, ptr %Buffer, align 8, !tbaa !55
@@ -425,7 +425,7 @@ _ZN3irr4core5arrayItE8set_usedEj.exit:            ; preds = %if.then.i.i.i76, %i
   %Vertices30 = getelementptr inbounds i8, ptr %14, i64 216
   %15 = load ptr, ptr %Vertices30, align 8, !tbaa !59
   %TCoords = getelementptr inbounds i8, ptr %15, i64 28
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords, align 4, !tbaa !6
   %Color = getelementptr inbounds i8, ptr %15, i64 24
   store i32 %colorBottom.coerce, ptr %Color, align 4, !tbaa !64
   %TCoords39 = getelementptr inbounds i8, ptr %15, i64 64
@@ -477,7 +477,7 @@ entry:
   %RelativeRotation.i.i = getelementptr inbounds i8, ptr %this, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, ptr %RelativeRotation.i.i, align 4, !tbaa !6
   %ref.tmp3.sroa.4.0.RelativeScale.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 196
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp3.sroa.4.0.RelativeScale.i.sroa_idx.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp3.sroa.4.0.RelativeScale.i.sroa_idx.i, align 4, !tbaa !6
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %_M_prev.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
   store ptr %Children.i.i, ptr %_M_prev.i.i.i.i.i.i.i, align 8, !tbaa !68
@@ -529,7 +529,7 @@ _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKN
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BBoxSafe, align 4, !tbaa !6
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 36
   %Z.i3.i = getelementptr inbounds i8, ptr %this, i64 40
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 4, !tbaa !6
   %Buffer = getelementptr inbounds i8, ptr %this, i64 48
   %call = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #24
   %5 = getelementptr inbounds i8, ptr %call, i64 312
@@ -616,7 +616,7 @@ _ZN3irr5scene19IBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKN
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !6
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !6
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !54
   store ptr %call, ptr %Buffer, align 8, !tbaa !55
@@ -705,7 +705,7 @@ _ZN3irr4core5arrayItE8set_usedEj.exit:            ; preds = %if.then.i.i.i73, %i
   %Vertices25 = getelementptr inbounds i8, ptr %20, i64 216
   %21 = load ptr, ptr %Vertices25, align 8, !tbaa !59
   %TCoords = getelementptr inbounds i8, ptr %21, i64 28
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %TCoords, align 4, !tbaa !6
+  store <2 x float> splat (float 1.000000e+00), ptr %TCoords, align 4, !tbaa !6
   %Color = getelementptr inbounds i8, ptr %21, i64 24
   store i32 %colorBottom.coerce, ptr %Color, align 4, !tbaa !64
   %TCoords34 = getelementptr inbounds i8, ptr %21, i64 64
@@ -1446,7 +1446,7 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit162:     ; preds = %if.end.i149, %_ZN3i
   store float %mul3.i172, ptr %view.sroa.16.0.Normal.sroa_idx.3, align 4, !tbaa !6
   %66 = insertelement <2 x float> poison, float %horizontal.sroa.23.1, i64 0
   %67 = insertelement <2 x float> %66, float %59, i64 1
-  %68 = fmul <2 x float> %67, <float 5.000000e-01, float 5.000000e-01>
+  %68 = fmul <2 x float> %67, splat (float 5.000000e-01)
   %69 = insertelement <2 x float> %58, float %vertical.sroa.19.0, i64 1
   %70 = fmul <2 x float> %69, %68
   %call.fca.1.extract = extractvalue { <2 x float>, float } %call, 1
@@ -1464,7 +1464,7 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit162:     ; preds = %if.end.i149, %_ZN3i
   store float %add6.i187, ptr %ref.tmp35.sroa.4.0.Pos.sroa_idx, align 4, !tbaa !6
   %77 = extractelement <2 x float> %70, i64 0
   %add6.i198 = fadd float %call.fca.1.extract, %77
-  %78 = fmul <2 x float> %42, <float 5.000000e-01, float 5.000000e-01>
+  %78 = fmul <2 x float> %42, splat (float 5.000000e-01)
   %79 = shufflevector <4 x float> %43, <4 x float> poison, <2 x i32> zeroinitializer
   %80 = fmul <2 x float> %78, %79
   %81 = fadd <2 x float> %call.fca.0.extract, %80
@@ -2725,7 +2725,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !6
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !6
   %12 = fadd <2 x float> %10, %11
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub <2 x float> %13, %11
   %15 = fadd <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !6

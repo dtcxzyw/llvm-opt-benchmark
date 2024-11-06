@@ -798,7 +798,7 @@ if.then.i.i231:                                   ; preds = %_ZNSt7__cxx1112basi
   %54 = load float, ptr %m_shadow_map_texture_size, align 4, !tbaa !32
   %conv.i.i.i.i = fptoui float %54 to i32
   %55 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !32
-  invoke void @_ZN16DirectionalLightC1EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr noundef nonnull align 4 dereferenceable(429) %52, i32 noundef %conv.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float noundef %55)
+  invoke void @_ZN16DirectionalLightC1EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr noundef nonnull align 4 dereferenceable(429) %52, i32 noundef %conv.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp.i, <2 x float> splat (float 1.000000e+00), <2 x float> splat (float 1.000000e+00), float noundef %55)
           to label %.noexc unwind label %lpad13
 
 .noexc:                                           ; preds = %if.then.i.i231
@@ -1028,7 +1028,7 @@ if.then.i:                                        ; preds = %entry
   %2 = load float, ptr %m_shadow_map_texture_size, align 4, !tbaa !32
   %conv.i.i.i = fptoui float %2 to i32
   %3 = load float, ptr %m_shadow_map_max_distance, align 8, !tbaa !32
-  call void @_ZN16DirectionalLightC1EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr noundef nonnull align 4 dereferenceable(429) %0, i32 noundef %conv.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float noundef %3)
+  call void @_ZN16DirectionalLightC1EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr noundef nonnull align 4 dereferenceable(429) %0, i32 noundef %conv.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, <2 x float> splat (float 1.000000e+00), <2 x float> splat (float 1.000000e+00), float noundef %3)
   %4 = load ptr, ptr %_M_finish.i, align 8, !tbaa !53
   %incdec.ptr.i = getelementptr inbounds i8, ptr %4, i64 432
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !53

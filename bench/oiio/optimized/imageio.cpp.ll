@@ -6523,7 +6523,7 @@ for.body.i.i:                                     ; preds = %sw.bb1, %for.body.i
   %shuffle.i14.i.i.i = shufflevector <8 x i16> %3, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %4 = bitcast <8 x i16> %shuffle.i14.i.i.i to <4 x i32>
   %conv.i.i.i.i = uitofp nneg <4 x i32> %4 to <4 x float>
-  %mul.i.i.i = fmul <4 x float> %conv.i.i.i.i, <float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000>
+  %mul.i.i.i = fmul <4 x float> %conv.i.i.i.i, splat (float 0x3F70101020000000)
   store <4 x float> %mul.i.i.i, ptr %dst.addr.010.i.i, align 1
   %sub.i.i = add i64 %n.addr.09.i.i, -4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %src.addr.011.i.i, i64 4
@@ -6584,7 +6584,7 @@ _ZN18OpenImageIO_v2_6_04simd7vfloat4C2EPKt.exit.i.i: ; preds = %for.body.i.i.i.i
   %7 = load <4 x i32>, ptr %ref.tmp.i.i.i.i, align 16
   %conv.i.i.i.i.i = sitofp <4 x i32> %7 to <4 x float>
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i.i.i)
-  %mul.i.i.i51 = fmul <4 x float> %conv.i.i.i.i.i, <float 0x3EF0001000000000, float 0x3EF0001000000000, float 0x3EF0001000000000, float 0x3EF0001000000000>
+  %mul.i.i.i51 = fmul <4 x float> %conv.i.i.i.i.i, splat (float 0x3EF0001000000000)
   store <4 x float> %mul.i.i.i51, ptr %dst.addr.010.i.i48, align 1
   %sub.i.i52 = add i64 %n.addr.09.i.i49, -4
   %add.ptr.i.i53 = getelementptr inbounds i8, ptr %src.addr.011.i.i47, i64 8
@@ -6714,7 +6714,7 @@ for.body.i.i:                                     ; preds = %sw.bb2, %_ZN18OpenI
   %dst.addr.022.i.i = phi ptr [ %add.ptr5.i.i, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i.i ], [ %dst, %sw.bb2 ]
   %n.addr.021.i.i = phi i64 [ %sub.i.i, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i.i ], [ %nvals, %sw.bb2 ]
   %3 = load <4 x float>, ptr %src.addr.023.i.i, align 1
-  %mul.i.i.i = fmul <4 x float> %3, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %mul.i.i.i = fmul <4 x float> %3, splat (float 2.550000e+02)
   store <4 x float> %mul.i.i.i, ptr %ref.tmp.i.i, align 16
   br label %for.body.i.i.i
 
@@ -6732,9 +6732,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %fo
 _ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i.i: ; preds = %for.body.i.i.i
   %6 = load <4 x float>, ptr %scaled.i.i, align 16
   %7 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %6)
-  %8 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, <4 x float> %7)
+  %8 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 2.550000e+02), <4 x float> %7)
   %9 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %8)
-  %10 = and <4 x i32> %9, <i32 255, i32 255, i32 255, i32 255>
+  %10 = and <4 x i32> %9, splat (i32 255)
   %11 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %10, <4 x i32> poison)
   %12 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %11, <8 x i16> poison)
   %13 = bitcast <16 x i8> %12 to <4 x float>
@@ -6790,7 +6790,7 @@ for.body.i.i54:                                   ; preds = %sw.bb3, %_ZN18OpenI
   %dst.addr.026.i.i = phi ptr [ %add.ptr5.i.i65, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i.i61 ], [ %dst, %sw.bb3 ]
   %n.addr.025.i.i = phi i64 [ %sub.i.i63, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i.i61 ], [ %nvals, %sw.bb3 ]
   %15 = load <4 x float>, ptr %src.addr.027.i.i, align 1
-  %mul.i.i.i55 = fmul <4 x float> %15, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
+  %mul.i.i.i55 = fmul <4 x float> %15, splat (float 6.553500e+04)
   store <4 x float> %mul.i.i.i55, ptr %ref.tmp.i.i35, align 16
   br label %for.body.i.i.i56
 
@@ -6808,7 +6808,7 @@ for.body.i.i.i56:                                 ; preds = %for.body.i.i.i56, %
 _ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i.i61: ; preds = %for.body.i.i.i56
   %18 = load <4 x float>, ptr %scaled.i.i34, align 16
   %19 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %18)
-  %20 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>, <4 x float> %19)
+  %20 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 6.553500e+04), <4 x float> %19)
   %21 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %20)
   %22 = bitcast <4 x i32> %21 to <8 x i16>
   %23 = and <8 x i16> %22, <i16 -1, i16 0, i16 -1, i16 0, i16 -1, i16 0, i16 -1, i16 0>
@@ -6916,7 +6916,7 @@ for.body.i:                                       ; preds = %entry, %_ZN18OpenIm
   %dst.addr.022.i = phi ptr [ %add.ptr5.i, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i ], [ %dst, %entry ]
   %n.addr.021.i = phi i64 [ %sub.i, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i ], [ %n, %entry ]
   %0 = load <4 x float>, ptr %src.addr.023.i, align 1
-  %mul.i.i = fmul <4 x float> %0, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %mul.i.i = fmul <4 x float> %0, splat (float 2.550000e+02)
   store <4 x float> %mul.i.i, ptr %ref.tmp.i, align 16
   br label %for.body.i.i
 
@@ -6934,9 +6934,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i: ; preds = %for.body.i.i
   %3 = load <4 x float>, ptr %scaled.i, align 16
   %4 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %3)
-  %5 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>, <4 x float> %4)
+  %5 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 2.550000e+02), <4 x float> %4)
   %6 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %5)
-  %7 = and <4 x i32> %6, <i32 255, i32 255, i32 255, i32 255>
+  %7 = and <4 x i32> %6, splat (i32 255)
   %8 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %7, <4 x i32> poison)
   %9 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %8, <8 x i16> poison)
   %10 = bitcast <16 x i8> %9 to <4 x float>
@@ -6997,7 +6997,7 @@ for.body.i:                                       ; preds = %entry, %_ZN18OpenIm
   %dst.addr.026.i = phi ptr [ %add.ptr5.i, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i ], [ %dst, %entry ]
   %n.addr.025.i = phi i64 [ %sub.i, %_ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i ], [ %n, %entry ]
   %0 = load <4 x float>, ptr %src.addr.027.i, align 1
-  %mul.i.i = fmul <4 x float> %0, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
+  %mul.i.i = fmul <4 x float> %0, splat (float 6.553500e+04)
   store <4 x float> %mul.i.i, ptr %ref.tmp.i, align 16
   br label %for.body.i.i
 
@@ -7015,7 +7015,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZN18OpenImageIO_v2_6_04simd5roundERKNS0_7vfloat4E.exit.i: ; preds = %for.body.i.i
   %3 = load <4 x float>, ptr %scaled.i, align 16
   %4 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> zeroinitializer, <4 x float> %3)
-  %5 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>, <4 x float> %4)
+  %5 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 6.553500e+04), <4 x float> %4)
   %6 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %5)
   %7 = bitcast <4 x i32> %6 to <8 x i16>
   %8 = and <8 x i16> %7, <i16 -1, i16 0, i16 -1, i16 0, i16 -1, i16 0, i16 -1, i16 0>

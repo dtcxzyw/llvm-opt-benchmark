@@ -1902,12 +1902,12 @@ define internal fastcc void @kmeans(ptr nocapture noundef readonly %0, i32 %1, i
   %334 = insertelement <2 x i64> poison, i64 %315, i64 0
   %335 = insertelement <2 x i64> %334, i64 %331, i64 1
   %336 = add <2 x i64> %335, %333
-  %337 = lshr <2 x i64> %336, <i64 41, i64 41>
+  %337 = lshr <2 x i64> %336, splat (i64 41)
   %338 = trunc nuw nsw <2 x i64> %337 to <2 x i32>
-  %339 = or disjoint <2 x i32> %338, <i32 1065353216, i32 1065353216>
+  %339 = or disjoint <2 x i32> %338, splat (i32 1065353216)
   %340 = bitcast <2 x i32> %339 to <2 x float>
-  %341 = fmul reassoc nsz arcp contract afn <2 x float> %340, <float 4.000000e+01, float 4.000000e+01>
-  %342 = fsub reassoc nsz arcp contract afn <2 x float> <float 6.000000e+01, float 6.000000e+01>, %341
+  %341 = fmul reassoc nsz arcp contract afn <2 x float> %340, splat (float 4.000000e+01)
+  %342 = fsub reassoc nsz arcp contract afn <2 x float> splat (float 6.000000e+01), %341
   store <2 x float> %342, ptr %324, align 4, !tbaa !37
   %343 = getelementptr inbounds [2 x float], ptr %5, i64 %314
   store <2 x float> zeroinitializer, ptr %343, align 4, !tbaa !37

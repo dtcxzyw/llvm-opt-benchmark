@@ -137,7 +137,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %46 = sub nsw i64 %30, %45
   %47 = insertelement <8 x float> poison, float %26, i64 0
   %48 = shufflevector <8 x float> %47, <8 x float> poison, <8 x i32> zeroinitializer
-  %invariant.op = fmul reassoc nsz arcp contract afn <8 x float> %48, <float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01>
+  %invariant.op = fmul reassoc nsz arcp contract afn <8 x float> %48, splat (float 2.500000e-01)
   br label %49
 
 49:                                               ; preds = %49, %42
@@ -153,8 +153,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %59 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %58)
   %60 = fmul reassoc nsz arcp contract afn <8 x float> %59, %48
   %.reass = fmul reassoc nsz arcp contract afn <8 x float> %59, %invariant.op
-  %61 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.reass
-  %62 = fadd reassoc nsz arcp contract afn <8 x float> %60, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %61 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %.reass
+  %62 = fadd reassoc nsz arcp contract afn <8 x float> %60, splat (float 1.000000e+00)
   %63 = getelementptr inbounds float, ptr %2, i64 %51
   %64 = load <32 x float>, ptr %63, align 4, !tbaa !26
   %65 = shufflevector <32 x float> %64, <32 x float> poison, <8 x i32> <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>

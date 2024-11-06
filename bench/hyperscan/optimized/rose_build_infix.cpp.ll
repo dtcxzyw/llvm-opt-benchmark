@@ -2000,8 +2000,8 @@ lor.lhs.false:                                    ; preds = %invoke.cont28
   br i1 %or.cond179, label %cleanup, label %invoke.cont38
 
 invoke.cont38:                                    ; preds = %lor.lhs.false
-  %28 = xor <2 x i64> %22, <i64 -1, i64 -1>
-  %29 = xor <2 x i64> %23, <i64 -1, i64 -1>
+  %28 = xor <2 x i64> %22, splat (i64 -1)
+  %29 = xor <2 x i64> %23, splat (i64 -1)
   store <2 x i64> %28, ptr %cm_cr, align 8
   %ref.tmp.sroa.9.0.cm_cr.sroa_idx = getelementptr inbounds i8, ptr %cm_cr, i64 16
   store <2 x i64> %29, ptr %ref.tmp.sroa.9.0.cm_cr.sroa_idx, align 8

@@ -8802,7 +8802,7 @@ do.end28:                                         ; preds = %do.body11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8, !noalias !46
   %pMax.i.i8 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %pMax.i.i8, align 8, !noalias !46
+  store <2 x float> splat (float 1.000000e+00), ptr %pMax.i.i8, align 8, !noalias !46
   %call.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #29, !noalias !46
   invoke void @_ZN4pbrt5Image23GetSamplingDistributionIZNS0_23GetSamplingDistributionEvEUlNS_6Point2IfEEE_EENS_7Array2DIfEET_RKNS_7Bounds2IfEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull sret(%"class.pbrt::Array2D") align 8 %d, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i, ptr %call.i.i)
           to label %invoke.cont30 unwind label %lpad7
@@ -8824,7 +8824,7 @@ invoke.cont30:                                    ; preds = %do.end28
   %sub4.i.i.i.i.i = sub nsw i32 %27, %p.sroa.2.0.extract.trunc.i.i.i.i.i
   %mul.i.i.i.i = mul nsw i32 %sub4.i.i.i.i.i, %sub.i.i.i.i.i
   %conv.i.i = sext i32 %mul.i.i.i.i to i64
-  invoke void @_ZN4pbrt19PiecewiseConstant2DC2EN4pstd4spanIKfEEiiNS_7Bounds2IfEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp31, ptr %25, i64 %conv.i.i, i32 noundef %sub.i.i.i.i.i, i32 noundef %sub4.i.i.i.i.i, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %call.i)
+  invoke void @_ZN4pbrt19PiecewiseConstant2DC2EN4pstd4spanIKfEEiiNS_7Bounds2IfEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp31, ptr %25, i64 %conv.i.i, i32 noundef %sub.i.i.i.i.i, i32 noundef %sub4.i.i.i.i.i, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), ptr %call.i)
           to label %invoke.cont35 unwind label %lpad34
 
 invoke.cont35:                                    ; preds = %invoke.cont30
@@ -16927,7 +16927,7 @@ if.end77:                                         ; preds = %land.end
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
   store <2 x float> zeroinitializer, ptr %ref.tmp.i, align 8, !noalias !98
   %pMax.i.i53 = getelementptr inbounds i8, ptr %ref.tmp.i, i64 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %pMax.i.i53, align 8, !noalias !98
+  store <2 x float> splat (float 1.000000e+00), ptr %pMax.i.i53, align 8, !noalias !98
   %call.i.i54 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #29, !noalias !98
   invoke void @_ZN4pbrt5Image23GetSamplingDistributionIZNS0_23GetSamplingDistributionEvEUlNS_6Point2IfEEE_EENS_7Array2DIfEET_RKNS_7Bounds2IfEEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nonnull sret(%"class.pbrt::Array2D") align 8 %d, ptr noundef nonnull align 8 dereferenceable(152) %image, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp.i, ptr %call.i.i54)
           to label %invoke.cont87 unwind label %lpad41
@@ -16948,7 +16948,7 @@ invoke.cont87:                                    ; preds = %if.end77
   %sub4.i.i.i.i.i = sub nsw i32 %37, %p.sroa.2.0.extract.trunc.i.i.i.i.i
   %mul.i.i.i.i = mul nsw i32 %sub4.i.i.i.i.i, %sub.i.i.i.i.i
   %conv.i.i = sext i32 %mul.i.i.i.i to i64
-  invoke void @_ZN4pbrt19PiecewiseConstant2DC2EN4pstd4spanIKfEEiiNS_7Bounds2IfEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp88, ptr %35, i64 %conv.i.i, i32 noundef %sub.i.i.i.i.i, i32 noundef %sub4.i.i.i.i.i, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %alloc.coerce)
+  invoke void @_ZN4pbrt19PiecewiseConstant2DC2EN4pstd4spanIKfEEiiNS_7Bounds2IfEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp88, ptr %35, i64 %conv.i.i, i32 noundef %sub.i.i.i.i.i, i32 noundef %sub4.i.i.i.i.i, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), ptr %alloc.coerce)
           to label %invoke.cont92 unwind label %lpad81
 
 invoke.cont92:                                    ; preds = %invoke.cont87
@@ -17220,7 +17220,7 @@ if.end131:                                        ; preds = %invoke.cont100, %if
   %sub4.i.i.i.i.i125.pre-phi = phi i32 [ %.pre229, %if.end131.loopexit ], [ %.pre222, %invoke.cont127 ], [ %.pre222, %invoke.cont122 ], [ %sub4.i.i.i.i, %invoke.cont100 ]
   %sub.i.i.i.i.i123.pre-phi = phi i32 [ %.pre228, %if.end131.loopexit ], [ %.pre221, %invoke.cont127 ], [ %.pre221, %invoke.cont122 ], [ %sub.i.i.i.i, %invoke.cont100 ]
   %60 = phi ptr [ %.pre214, %if.end131.loopexit ], [ %.pre, %invoke.cont127 ], [ %.pre, %invoke.cont122 ], [ %50, %invoke.cont100 ]
-  invoke void @_ZN4pbrt19PiecewiseConstant2DC2EN4pstd4spanIKfEEiiNS_7Bounds2IfEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp132, ptr %60, i64 %conv.i.i127.pre-phi, i32 noundef %sub.i.i.i.i.i123.pre-phi, i32 noundef %sub4.i.i.i.i.i125.pre-phi, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %alloc.coerce)
+  invoke void @_ZN4pbrt19PiecewiseConstant2DC2EN4pstd4spanIKfEEiiNS_7Bounds2IfEENS1_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(128) %ref.tmp132, ptr %60, i64 %conv.i.i127.pre-phi, i32 noundef %sub.i.i.i.i.i123.pre-phi, i32 noundef %sub4.i.i.i.i.i125.pre-phi, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), ptr %alloc.coerce)
           to label %invoke.cont136 unwind label %lpad81
 
 invoke.cont136:                                   ; preds = %if.end131
@@ -19042,7 +19042,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
 invoke.cont300:                                   ; preds = %if.then.i.i, %invoke.cont289
   store <2 x float> zeroinitializer, ptr %ref.tmp293, align 8
   %pMax.i = getelementptr inbounds i8, ptr %ref.tmp293, i64 8
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %pMax.i, align 8
+  store <2 x float> splat (float 1.000000e+00), ptr %pMax.i, align 8
   %call.i264 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #29
   call void @llvm.experimental.noalias.scope.decl(metadata !112)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %dxdA.i)
@@ -21584,7 +21584,7 @@ entry:
   %mapPDF = alloca float, align 4
   %uv = alloca %"class.pstd::optional.89", align 8
   %distribution = getelementptr inbounds i8, ptr %this, i64 392
-  call void @_ZNK4pbrt27WindowedPiecewiseConstant2D6SampleENS_6Point2IfEENS_7Bounds2IfEEPf(ptr nonnull sret(%"class.pstd::optional.89") align 4 %uv, ptr noundef nonnull align 8 dereferenceable(64) %distribution, <2 x float> %u1.coerce, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr noundef nonnull %mapPDF)
+  call void @_ZNK4pbrt27WindowedPiecewiseConstant2D6SampleENS_6Point2IfEENS_7Bounds2IfEEPf(ptr nonnull sret(%"class.pstd::optional.89") align 4 %uv, ptr noundef nonnull align 8 dereferenceable(64) %distribution, <2 x float> %u1.coerce, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), ptr noundef nonnull %mapPDF)
   %set.i = getelementptr inbounds i8, ptr %uv, i64 8
   %0 = load i8, ptr %set.i, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -38154,7 +38154,7 @@ cond.true:                                        ; preds = %if.end342
 cond.end:                                         ; preds = %if.end342, %cond.true
   %uv.sroa.0.0 = phi <2 x float> [ %75, %cond.true ], [ zeroinitializer, %if.end342 ]
   %uv.sroa.6.0 = phi <2 x float> [ %77, %cond.true ], [ <float 1.000000e+00, float 0.000000e+00>, %if.end342 ]
-  %uv.sroa.10.0 = phi <2 x float> [ %79, %cond.true ], [ <float 1.000000e+00, float 1.000000e+00>, %if.end342 ]
+  %uv.sroa.10.0 = phi <2 x float> [ %79, %cond.true ], [ splat (float 1.000000e+00), %if.end342 ]
   %80 = fmul <2 x float> %call186.fca.0.extract, %uv.sroa.0.0
   %mul.i.i625 = extractelement <2 x float> %80, i64 0
   %shift744 = shufflevector <2 x float> %uv.sroa.0.0, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
@@ -38679,7 +38679,7 @@ cond.true:                                        ; preds = %if.end111
 cond.end:                                         ; preds = %if.end111, %cond.true
   %uv.sroa.0.0 = phi <2 x float> [ %26, %cond.true ], [ zeroinitializer, %if.end111 ]
   %uv.sroa.6.0 = phi <2 x float> [ %27, %cond.true ], [ <float 1.000000e+00, float 0.000000e+00>, %if.end111 ]
-  %uv.sroa.10.0 = phi <2 x float> [ %28, %cond.true ], [ <float 1.000000e+00, float 1.000000e+00>, %if.end111 ]
+  %uv.sroa.10.0 = phi <2 x float> [ %28, %cond.true ], [ splat (float 1.000000e+00), %if.end111 ]
   %29 = tail call noundef float @llvm.fabs.f32(float %mul.i.i)
   %30 = tail call noundef float @llvm.fabs.f32(float %mul2.i.i)
   %31 = tail call noundef float @llvm.fabs.f32(float %mul3.i.i)

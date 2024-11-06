@@ -493,7 +493,7 @@ if.end:                                           ; preds = %entry
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_camera_position.i, align 4, !tbaa.struct !108
   %retval.sroa.2.0.m_camera_position.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 68
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_camera_position.sroa_idx.i, align 4, !tbaa !109
-  %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %2, float %div3.i)
   br label %cleanup
@@ -525,7 +525,7 @@ cond.end:                                         ; preds = %entry
   %call3 = tail call { <2 x float>, float } @_ZNK11LocalPlayer12getEyeOffsetEv(ptr noundef nonnull align 8 dereferenceable(812) %0)
   %call3.fca.0.extract = extractvalue { <2 x float>, float } %call3, 0
   %call3.fca.1.extract = extractvalue { <2 x float>, float } %call3, 1
-  %1 = fdiv nsz <2 x float> %call3.fca.0.extract, <float 1.000000e+01, float 1.000000e+01>
+  %1 = fdiv nsz <2 x float> %call3.fca.0.extract, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %call3.fca.1.extract, 1.000000e+01
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %1, float %div3.i)
   ret i32 1

@@ -1278,7 +1278,7 @@ _ZN7nanogui5ColorC2Eff.exit:                      ; preds = %111
   br label %119
 
 119:                                              ; preds = %107, %_ZN7nanogui5ColorC2Eff.exit
-  %.sroa.0293.0 = phi <2 x float> [ %.sroa.0293.4.vec.insert, %_ZN7nanogui5ColorC2Eff.exit ], [ <float 0x3FD6666660000000, float 0x3FD6666660000000>, %107 ]
+  %.sroa.0293.0 = phi <2 x float> [ %.sroa.0293.4.vec.insert, %_ZN7nanogui5ColorC2Eff.exit ], [ splat (float 0x3FD6666660000000), %107 ]
   %.sroa.4295.0 = phi <2 x float> [ %.sroa.4295.12.vec.insert, %_ZN7nanogui5ColorC2Eff.exit ], [ <float 0x3FE99999A0000000, float 1.000000e+00>, %107 ]
   tail call void @nvgFillColor(ptr noundef %1, <2 x float> %.sroa.0293.0, <2 x float> %.sroa.4295.0)
   tail call void @nvgFill(ptr noundef %1)

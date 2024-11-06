@@ -1347,7 +1347,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   br label %151
 
 86:                                               ; preds = %67, %64
-  %.sroa.0.0 = phi <4 x float> [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %64 ], [ %69, %67 ]
+  %.sroa.0.0 = phi <4 x float> [ splat (float 1.000000e+00), %64 ], [ %69, %67 ]
   %.0227.in = phi i1 [ %65, %64 ], [ %21, %67 ]
   %storemerge = phi float [ %., %64 ], [ 1.000000e+00, %67 ]
   %87 = load float, ptr %28, align 16
@@ -1359,7 +1359,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %93 = insertelement <4 x float> %92, float %91, i64 1
   %94 = insertelement <4 x float> %93, float %30, i64 2
   %95 = load <4 x i32>, ptr %28, align 16
-  %96 = xor <4 x i32> %95, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %96 = xor <4 x i32> %95, splat (i32 -2147483648)
   %97 = bitcast <4 x i32> %96 to <4 x float>
   %98 = select i1 %.0227.in, i8 7, i8 0
   %99 = bitcast i8 %98 to <8 x i1>

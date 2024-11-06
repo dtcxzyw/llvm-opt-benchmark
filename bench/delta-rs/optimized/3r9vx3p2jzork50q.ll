@@ -1485,9 +1485,9 @@ _ZN9hashbrown3raw5inner13RawTableInner12resize_inner17hb338c193814f487cE.exit.i:
   %208 = add i64 %.sroa.01.06.i, 16
   %209 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %210 = load <16 x i8>, ptr %209, align 16, !noalias !234
-  %.lobit.i.i = ashr <16 x i8> %210, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %210, splat (i8 7)
   %211 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %212 = or <2 x i64> %211, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %212 = or <2 x i64> %211, splat (i64 -9187201950435737472)
   store <2 x i64> %212, ptr %209, align 16, !noalias !237
   %.not.not.i = icmp eq i64 %207, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17h01207ac9850591faE.exit, label %206
@@ -2253,9 +2253,9 @@ _ZN9hashbrown3raw5inner13RawTableInner12resize_inner17hb338c193814f487cE.exit.i:
   %208 = add i64 %.sroa.01.06.i, 16
   %209 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %210 = load <16 x i8>, ptr %209, align 16, !noalias !327
-  %.lobit.i.i = ashr <16 x i8> %210, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %210, splat (i8 7)
   %211 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %212 = or <2 x i64> %211, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %212 = or <2 x i64> %211, splat (i64 -9187201950435737472)
   store <2 x i64> %212, ptr %209, align 16, !noalias !330
   %.not.not.i = icmp eq i64 %207, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17h01207ac9850591faE.exit, label %206

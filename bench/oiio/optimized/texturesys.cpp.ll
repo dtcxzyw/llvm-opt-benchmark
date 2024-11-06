@@ -1323,11 +1323,11 @@ entry:
   %2 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %1, <4 x i32> %0)
   %3 = load <4 x i32>, ptr %width, align 16
   %add.i = add <4 x i32> %3, %1
-  %sub.i = add <4 x i32> %add.i, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %sub.i = add <4 x i32> %add.i, splat (i32 -1)
   %or.i14824 = icmp slt <4 x i32> %2, %add.i
   %or.i11727 = select <4 x i1> %or.i14824, <4 x i32> %2, <4 x i32> %sub.i
   store <4 x i32> %or.i11727, ptr %coord_, align 16
-  store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
+  store <4 x float> splat (float 0xFFFFFFFFE0000000), ptr %agg.result, align 16
   ret void
 }
 
@@ -1360,16 +1360,16 @@ _ZN18OpenImageIO_v2_6_04simdrmERKNS0_5vint4ES3_.exit: ; preds = %for.body.i
   %5 = load <4 x i32>, ptr %width, align 16
   %6 = bitcast <2 x i64> %4 to <4 x i32>
   %add.i = add <4 x i32> %5, %6
-  %.lobit = ashr <4 x i32> %6, <i32 31, i32 31, i32 31, i32 31>
+  %.lobit = ashr <4 x i32> %6, splat (i32 31)
   %7 = bitcast <4 x i32> %.lobit to <2 x i64>
   %and.i17 = and <4 x i32> %add.i, %.lobit
-  %not.i = xor <2 x i64> %7, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %7, splat (i64 -1)
   %and.i87 = and <2 x i64> %4, %not.i
   %8 = bitcast <2 x i64> %and.i87 to <4 x i32>
   %9 = or <4 x i32> %and.i17, %8
   %add.i78 = add <4 x i32> %9, %1
   store <4 x i32> %add.i78, ptr %coord_, align 16
-  store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
+  store <4 x float> splat (float 0xFFFFFFFFE0000000), ptr %agg.result, align 16
   ret void
 }
 
@@ -1380,11 +1380,11 @@ entry:
   %1 = load <4 x i32>, ptr %origin, align 16
   %sub.i = sub <4 x i32> %0, %1
   %2 = load <4 x i32>, ptr %width, align 16
-  %sub.i53 = add <4 x i32> %2, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %sub.i53 = add <4 x i32> %2, splat (i32 -1)
   %and.i12 = and <4 x i32> %sub.i53, %sub.i
   %add.i = add <4 x i32> %and.i12, %1
   store <4 x i32> %add.i, ptr %coord_, align 16
-  store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
+  store <4 x float> splat (float 0xFFFFFFFFE0000000), ptr %agg.result, align 16
   ret void
 }
 
@@ -1396,7 +1396,7 @@ entry:
   %0 = load <4 x i32>, ptr %coord_, align 16
   %1 = load <4 x i32>, ptr %origin, align 16
   %sub.i186 = sub <4 x i32> %0, %1
-  %sub.i186.lobit = ashr <4 x i32> %sub.i186, <i32 31, i32 31, i32 31, i32 31>
+  %sub.i186.lobit = ashr <4 x i32> %sub.i186, splat (i32 31)
   %2 = xor <4 x i32> %sub.i186.lobit, %sub.i186
   store <4 x i32> %2, ptr %coord, align 16
   br label %for.body.i
@@ -1417,8 +1417,8 @@ for.body.i:                                       ; preds = %entry, %for.body.i
 _ZN18OpenImageIO_v2_6_04simddvERKNS0_5vint4ES3_.exit: ; preds = %for.body.i
   %5 = load <2 x i64>, ptr %iter, align 16
   %6 = load <2 x i64>, ptr %width, align 16
-  %7 = and <2 x i64> %5, <i64 4294967295, i64 4294967295>
-  %8 = and <2 x i64> %6, <i64 4294967295, i64 4294967295>
+  %7 = and <2 x i64> %5, splat (i64 4294967295)
+  %8 = and <2 x i64> %6, splat (i64 4294967295)
   %9 = mul nuw <2 x i64> %8, %7
   %10 = bitcast <2 x i64> %5 to <4 x i32>
   %permil.i = shufflevector <4 x i32> %10, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
@@ -1426,21 +1426,21 @@ _ZN18OpenImageIO_v2_6_04simddvERKNS0_5vint4ES3_.exit: ; preds = %for.body.i
   %12 = bitcast <2 x i64> %6 to <4 x i32>
   %permil1.i = shufflevector <4 x i32> %12, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %13 = bitcast <4 x i32> %permil1.i to <2 x i64>
-  %14 = and <2 x i64> %11, <i64 4294967295, i64 4294967295>
-  %15 = and <2 x i64> %13, <i64 4294967295, i64 4294967295>
+  %14 = and <2 x i64> %11, splat (i64 4294967295)
+  %15 = and <2 x i64> %13, splat (i64 4294967295)
   %16 = mul nuw <2 x i64> %15, %14
   %17 = bitcast <2 x i64> %9 to <4 x i32>
   %18 = bitcast <2 x i64> %16 to <4 x i32>
   %shuffle.i = shufflevector <4 x i32> %17, <4 x i32> %18, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
   %sub.i = sub <4 x i32> %2, %shuffle.i
-  %19 = xor <4 x i32> %sub.i, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %19 = xor <4 x i32> %sub.i, splat (i32 -1)
   %sub.i195 = add <4 x i32> %19, %12
-  %20 = and <4 x i32> %10, <i32 1, i32 1, i32 1, i32 1>
+  %20 = and <4 x i32> %10, splat (i32 1)
   %21 = icmp eq <4 x i32> %20, zeroinitializer
   %22 = select <4 x i1> %21, <4 x i32> %sub.i, <4 x i32> %sub.i195
   %add.i = add <4 x i32> %22, %1
   store <4 x i32> %add.i, ptr %coord_, align 16
-  store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
+  store <4 x float> splat (float 0xFFFFFFFFE0000000), ptr %agg.result, align 16
   ret void
 }
 
@@ -1456,7 +1456,7 @@ entry:
   %sub.i = sub <4 x i32> %0, %2
   store <4 x i32> %sub.i, ptr %coord, align 16
   %3 = load <4 x i32>, ptr %width, align 16
-  %sub.i88 = add <4 x i32> %3, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %sub.i88 = add <4 x i32> %3, splat (i32 -1)
   store <4 x i32> %sub.i88, ptr %ref.tmp2, align 16
   br label %for.body.i
 
@@ -1484,16 +1484,16 @@ cond.end.i:                                       ; preds = %for.body.i, %cond.t
 _ZN18OpenImageIO_v2_6_04simd8safe_modERKNS0_5vint4ES3_.exit: ; preds = %cond.end.i
   %6 = load <4 x i32>, ptr %ref.tmp1, align 16
   %add.i74 = add <4 x i32> %3, %2
-  %.lobit = ashr <4 x i32> %6, <i32 31, i32 31, i32 31, i32 31>
+  %.lobit = ashr <4 x i32> %6, splat (i32 31)
   %7 = bitcast <4 x i32> %.lobit to <2 x i64>
   %and.i24 = and <4 x i32> %.lobit, %add.i74
-  %not.i = xor <2 x i64> %7, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %7, splat (i64 -1)
   %and.i83 = and <2 x i64> %1, %not.i
   %8 = bitcast <2 x i64> %and.i83 to <4 x i32>
   %9 = or <4 x i32> %and.i24, %8
   %add.i = add <4 x i32> %9, %6
   store <4 x i32> %add.i, ptr %coord_, align 16
-  store <4 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, ptr %agg.result, align 16
+  store <4 x float> splat (float 0xFFFFFFFFE0000000), ptr %agg.result, align 16
   ret void
 }
 
@@ -9369,14 +9369,14 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
 
 invoke.cont131:                                   ; preds = %for.body.i.i.i
   %64 = load <4 x i32>, ptr %h.i.i, align 16
-  %65 = and <4 x i32> %64, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %66 = shl nuw nsw <4 x i32> %65, <i32 13, i32 13, i32 13, i32 13>
+  %65 = and <4 x i32> %64, splat (i32 32767)
+  %66 = shl nuw nsw <4 x i32> %65, splat (i32 13)
   %67 = bitcast <4 x i32> %66 to <4 x float>
-  %mul.i.i.i = fmul <4 x float> %67, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i = icmp samesign ugt <4 x i32> %65, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %68 = shl <4 x i32> %64, <i32 16, i32 16, i32 16, i32 16>
-  %69 = and <4 x i32> %68, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i = select <4 x i1> %cmp.i.i.i, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i = fmul <4 x float> %67, splat (float 0x46F0000000000000)
+  %cmp.i.i.i = icmp samesign ugt <4 x i32> %65, splat (i32 31743)
+  %68 = shl <4 x i32> %64, splat (i32 16)
+  %69 = and <4 x i32> %68, splat (i32 -2147483648)
+  %and.i.i.i = select <4 x i1> %cmp.i.i.i, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i = or disjoint <4 x i32> %and.i.i.i, %69
   %70 = bitcast <4 x float> %mul.i.i.i to <4 x i32>
   %or.i.i = or <4 x i32> %or.i9.i, %70
@@ -9433,7 +9433,7 @@ invoke.cont166:                                   ; preds = %land.lhs.true158
   %sub163 = fsub float 1.000000e+00, %nonfill.0.lcssa
   %mul165 = fmul float %sub163, %76
   %vecinit.i.i = insertelement <4 x float> poison, float %mul165, i64 0
-  %not.i = xor <4 x i32> %74, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i = xor <4 x i32> %74, splat (i32 -1)
   %77 = bitcast <4 x float> %vecinit.i.i to <4 x i32>
   %78 = shufflevector <4 x i32> %77, <4 x i32> poison, <4 x i32> zeroinitializer
   %and.i241 = and <4 x i32> %78, %not.i
@@ -9554,7 +9554,7 @@ cond.end:                                         ; preds = %entry, %cond.true
   %vecinit2.i.i1596 = insertelement <4 x i32> %vecinit1.i.i1595, i32 %14, i64 2
   %vecinit3.i.i1597 = insertelement <4 x i32> %vecinit2.i.i1596, i32 %14, i64 3
   store <4 x i32> %vecinit3.i.i1597, ptr %tilewh, align 16
-  %sub.i1398 = add <4 x i32> %vecinit3.i.i1597, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %sub.i1398 = add <4 x i32> %vecinit3.i.i1597, splat (i32 -1)
   %cmp11 = icmp sle i32 %nchannels_result, %actualchannels
   %fill = getelementptr inbounds i8, ptr %options, i64 56
   %15 = load float, ptr %fill, align 8
@@ -9909,7 +9909,7 @@ if.end131:                                        ; preds = %if.end131.loopexit,
   %cmp158 = icmp eq i32 %add155, %87
   %and160245 = and i1 %cmp151, %cmp158
   %and168246 = and i1 %and144244, %and160245
-  %92 = icmp sgt <4 x i32> %79, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %92 = icmp sgt <4 x i32> %79, splat (i32 -1)
   %93 = bitcast <4 x i1> %92 to i4
   %cmp.i1272 = icmp eq i4 %93, 0
   %or.cond460 = and i1 %cmp.i1272, %and168246
@@ -10131,14 +10131,14 @@ for.body.i.i.i325:                                ; preds = %for.body.i.i.i325, 
 
 invoke.cont298:                                   ; preds = %for.body.i.i.i325
   %132 = load <4 x i32>, ptr %h.i.i, align 16
-  %133 = and <4 x i32> %132, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %134 = shl nuw nsw <4 x i32> %133, <i32 13, i32 13, i32 13, i32 13>
+  %133 = and <4 x i32> %132, splat (i32 32767)
+  %134 = shl nuw nsw <4 x i32> %133, splat (i32 13)
   %135 = bitcast <4 x i32> %134 to <4 x float>
-  %mul.i.i.i = fmul <4 x float> %135, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i = icmp samesign ugt <4 x i32> %133, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %136 = shl <4 x i32> %132, <i32 16, i32 16, i32 16, i32 16>
-  %137 = and <4 x i32> %136, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i = select <4 x i1> %cmp.i.i.i, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i = fmul <4 x float> %135, splat (float 0x46F0000000000000)
+  %cmp.i.i.i = icmp samesign ugt <4 x i32> %133, splat (i32 31743)
+  %136 = shl <4 x i32> %132, splat (i32 16)
+  %137 = and <4 x i32> %136, splat (i32 -2147483648)
+  %and.i.i.i = select <4 x i1> %cmp.i.i.i, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i = or disjoint <4 x i32> %and.i.i.i, %137
   %138 = bitcast <4 x float> %mul.i.i.i to <4 x i32>
   %or.i.i = or <4 x i32> %or.i9.i, %138
@@ -10161,14 +10161,14 @@ for.body.i.i.i332:                                ; preds = %for.body.i.i.i332, 
 
 invoke.cont306:                                   ; preds = %for.body.i.i.i332
   %140 = load <4 x i32>, ptr %h.i.i331, align 16
-  %141 = and <4 x i32> %140, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %142 = shl nuw nsw <4 x i32> %141, <i32 13, i32 13, i32 13, i32 13>
+  %141 = and <4 x i32> %140, splat (i32 32767)
+  %142 = shl nuw nsw <4 x i32> %141, splat (i32 13)
   %143 = bitcast <4 x i32> %142 to <4 x float>
-  %mul.i.i.i339 = fmul <4 x float> %143, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i340 = icmp samesign ugt <4 x i32> %141, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %144 = shl <4 x i32> %140, <i32 16, i32 16, i32 16, i32 16>
-  %145 = and <4 x i32> %144, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i341 = select <4 x i1> %cmp.i.i.i340, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i339 = fmul <4 x float> %143, splat (float 0x46F0000000000000)
+  %cmp.i.i.i340 = icmp samesign ugt <4 x i32> %141, splat (i32 31743)
+  %144 = shl <4 x i32> %140, splat (i32 16)
+  %145 = and <4 x i32> %144, splat (i32 -2147483648)
+  %and.i.i.i341 = select <4 x i1> %cmp.i.i.i340, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i342 = or disjoint <4 x i32> %and.i.i.i341, %145
   %146 = bitcast <4 x float> %mul.i.i.i339 to <4 x i32>
   %or.i.i343 = or <4 x i32> %or.i9.i342, %146
@@ -10194,14 +10194,14 @@ for.body.i.i.i346:                                ; preds = %for.body.i.i.i346, 
 
 invoke.cont316:                                   ; preds = %for.body.i.i.i346
   %149 = load <4 x i32>, ptr %h.i.i345, align 16
-  %150 = and <4 x i32> %149, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %151 = shl nuw nsw <4 x i32> %150, <i32 13, i32 13, i32 13, i32 13>
+  %150 = and <4 x i32> %149, splat (i32 32767)
+  %151 = shl nuw nsw <4 x i32> %150, splat (i32 13)
   %152 = bitcast <4 x i32> %151 to <4 x float>
-  %mul.i.i.i353 = fmul <4 x float> %152, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i354 = icmp samesign ugt <4 x i32> %150, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %153 = shl <4 x i32> %149, <i32 16, i32 16, i32 16, i32 16>
-  %154 = and <4 x i32> %153, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i355 = select <4 x i1> %cmp.i.i.i354, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i353 = fmul <4 x float> %152, splat (float 0x46F0000000000000)
+  %cmp.i.i.i354 = icmp samesign ugt <4 x i32> %150, splat (i32 31743)
+  %153 = shl <4 x i32> %149, splat (i32 16)
+  %154 = and <4 x i32> %153, splat (i32 -2147483648)
+  %and.i.i.i355 = select <4 x i1> %cmp.i.i.i354, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i356 = or disjoint <4 x i32> %and.i.i.i355, %154
   %155 = bitcast <4 x float> %mul.i.i.i353 to <4 x i32>
   %or.i.i357 = or <4 x i32> %or.i9.i356, %155
@@ -10224,14 +10224,14 @@ for.body.i.i.i360:                                ; preds = %for.body.i.i.i360, 
 
 invoke.cont324:                                   ; preds = %for.body.i.i.i360
   %157 = load <4 x i32>, ptr %h.i.i359, align 16
-  %158 = and <4 x i32> %157, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %159 = shl nuw nsw <4 x i32> %158, <i32 13, i32 13, i32 13, i32 13>
+  %158 = and <4 x i32> %157, splat (i32 32767)
+  %159 = shl nuw nsw <4 x i32> %158, splat (i32 13)
   %160 = bitcast <4 x i32> %159 to <4 x float>
-  %mul.i.i.i367 = fmul <4 x float> %160, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i368 = icmp samesign ugt <4 x i32> %158, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %161 = shl <4 x i32> %157, <i32 16, i32 16, i32 16, i32 16>
-  %162 = and <4 x i32> %161, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i369 = select <4 x i1> %cmp.i.i.i368, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i367 = fmul <4 x float> %160, splat (float 0x46F0000000000000)
+  %cmp.i.i.i368 = icmp samesign ugt <4 x i32> %158, splat (i32 31743)
+  %161 = shl <4 x i32> %157, splat (i32 16)
+  %162 = and <4 x i32> %161, splat (i32 -2147483648)
+  %and.i.i.i369 = select <4 x i1> %cmp.i.i.i368, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i370 = or disjoint <4 x i32> %and.i.i.i369, %162
   %163 = bitcast <4 x float> %mul.i.i.i367 to <4 x i32>
   %or.i.i371 = or <4 x i32> %or.i9.i370, %163
@@ -10447,14 +10447,14 @@ for.body.i.i.i408:                                ; preds = %for.body.i.i.i408, 
 
 invoke.cont485:                                   ; preds = %for.body.i.i.i408
   %199 = load <4 x i32>, ptr %h.i.i407, align 16
-  %200 = and <4 x i32> %199, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %201 = shl nuw nsw <4 x i32> %200, <i32 13, i32 13, i32 13, i32 13>
+  %200 = and <4 x i32> %199, splat (i32 32767)
+  %201 = shl nuw nsw <4 x i32> %200, splat (i32 13)
   %202 = bitcast <4 x i32> %201 to <4 x float>
-  %mul.i.i.i415 = fmul <4 x float> %202, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i416 = icmp samesign ugt <4 x i32> %200, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %203 = shl <4 x i32> %199, <i32 16, i32 16, i32 16, i32 16>
-  %204 = and <4 x i32> %203, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i417 = select <4 x i1> %cmp.i.i.i416, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i415 = fmul <4 x float> %202, splat (float 0x46F0000000000000)
+  %cmp.i.i.i416 = icmp samesign ugt <4 x i32> %200, splat (i32 31743)
+  %203 = shl <4 x i32> %199, splat (i32 16)
+  %204 = and <4 x i32> %203, splat (i32 -2147483648)
+  %and.i.i.i417 = select <4 x i1> %cmp.i.i.i416, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i418 = or disjoint <4 x i32> %and.i.i.i417, %204
   %205 = bitcast <4 x float> %mul.i.i.i415 to <4 x i32>
   %or.i.i419 = or <4 x i32> %or.i9.i418, %205
@@ -10668,7 +10668,7 @@ invoke.cont645:                                   ; preds = %for.end630
   %239 = load float, ptr %fill, align 8
   %mul644 = fmul float %sub642, %239
   %vecinit.i.i436 = insertelement <4 x float> poison, float %mul644, i64 0
-  %not.i = xor <4 x i32> %236, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i = xor <4 x i32> %236, splat (i32 -1)
   %240 = bitcast <4 x float> %vecinit.i.i436 to <4 x i32>
   %241 = shufflevector <4 x i32> %240, <4 x i32> poison, <4 x i32> zeroinitializer
   %and.i1576 = and <4 x i32> %241, %not.i
@@ -10881,7 +10881,7 @@ for.body.lr.ph:                                   ; preds = %_ZN18OpenImageIO_v2
   %vecinit.i3064 = insertelement <4 x i32> poison, i32 %conv30, i64 0
   %vecinit3.i3067 = shufflevector <4 x i32> %vecinit.i3064, <4 x i32> poison, <4 x i32> zeroinitializer
   %29 = bitcast <4 x i32> %vecinit3.i3067 to <2 x i64>
-  %30 = and <2 x i64> %29, <i64 4294967295, i64 4294967295>
+  %30 = and <2 x i64> %29, splat (i64 4294967295)
   %conv395 = trunc i64 %mul35 to i32
   %vecinit.i3055 = insertelement <4 x i32> poison, i32 %conv395, i64 0
   %vecinit3.i3058 = shufflevector <4 x i32> %vecinit.i3055, <4 x i32> poison, <4 x i32> zeroinitializer
@@ -11096,7 +11096,7 @@ arrayctor.loop.preheader:                         ; preds = %if.end124.arrayctor
   %68 = phi i32 [ %67, %if.then97 ], [ %.pre783, %if.end124.arrayctor.loop.preheader_crit_edge ]
   %69 = phi i32 [ %66, %if.then97 ], [ %.pre782, %if.end124.arrayctor.loop.preheader_crit_edge ]
   %allvalid.0.in619.ph.in.in.in = phi <4 x i32> [ %and.i2932, %if.then97 ], [ %and.i2923, %if.end124.arrayctor.loop.preheader_crit_edge ]
-  %allvalid.0.in619.ph.in.in = icmp sgt <4 x i32> %allvalid.0.in619.ph.in.in.in, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %allvalid.0.in619.ph.in.in = icmp sgt <4 x i32> %allvalid.0.in619.ph.in.in.in, splat (i32 -1)
   %allvalid.0.in619.ph.in = bitcast <4 x i1> %allvalid.0.in619.ph.in.in to i4
   %allvalid.0.in619.ph = icmp eq i4 %allvalid.0.in619.ph.in, 0
   %70 = load i32, ptr %add.ptr.i1.i.i, align 8
@@ -11340,14 +11340,14 @@ for.body.i.i.i416:                                ; preds = %for.body.i.i.i416, 
 
 invoke.cont313:                                   ; preds = %for.body.i.i.i416
   %103 = load <4 x i32>, ptr %h.i.i, align 16
-  %104 = and <4 x i32> %103, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %105 = shl nuw nsw <4 x i32> %104, <i32 13, i32 13, i32 13, i32 13>
+  %104 = and <4 x i32> %103, splat (i32 32767)
+  %105 = shl nuw nsw <4 x i32> %104, splat (i32 13)
   %106 = bitcast <4 x i32> %105 to <4 x float>
-  %mul.i.i.i = fmul <4 x float> %106, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i = icmp samesign ugt <4 x i32> %104, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %107 = shl <4 x i32> %103, <i32 16, i32 16, i32 16, i32 16>
-  %108 = and <4 x i32> %107, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i = select <4 x i1> %cmp.i.i.i, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i = fmul <4 x float> %106, splat (float 0x46F0000000000000)
+  %cmp.i.i.i = icmp samesign ugt <4 x i32> %104, splat (i32 31743)
+  %107 = shl <4 x i32> %103, splat (i32 16)
+  %108 = and <4 x i32> %107, splat (i32 -2147483648)
+  %and.i.i.i = select <4 x i1> %cmp.i.i.i, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i = or disjoint <4 x i32> %and.i.i.i, %108
   %109 = bitcast <4 x float> %mul.i.i.i to <4 x i32>
   %or.i.i = or <4 x i32> %or.i9.i, %109
@@ -11437,11 +11437,11 @@ invoke.cont379:                                   ; preds = %for.body.i
   %122 = bitcast <2 x i64> %120 to <4 x i32>
   %sub.i2999 = sub <4 x i32> %116, %122
   store <4 x i32> %sub.i2999, ptr %tile_t_edge, align 16
-  %123 = and <2 x i64> %115, <i64 4294967295, i64 4294967295>
+  %123 = and <2 x i64> %115, splat (i64 4294967295)
   %124 = mul nuw <2 x i64> %123, %30
   %permil.i = shufflevector <4 x i32> %121, <4 x i32> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %125 = bitcast <4 x i32> %permil.i to <2 x i64>
-  %126 = and <2 x i64> %125, <i64 4294967295, i64 4294967295>
+  %126 = and <2 x i64> %125, splat (i64 4294967295)
   %127 = mul nuw <2 x i64> %126, %30
   %128 = bitcast <2 x i64> %124 to <4 x i32>
   %129 = bitcast <2 x i64> %127 to <4 x i32>
@@ -11606,14 +11606,14 @@ for.body.i.i.i444:                                ; preds = %for.body.i.i.i444, 
 
 invoke.cont521:                                   ; preds = %for.body.i.i.i444
   %156 = load <4 x i32>, ptr %h.i.i443, align 16
-  %157 = and <4 x i32> %156, <i32 32767, i32 32767, i32 32767, i32 32767>
-  %158 = shl nuw nsw <4 x i32> %157, <i32 13, i32 13, i32 13, i32 13>
+  %157 = and <4 x i32> %156, splat (i32 32767)
+  %158 = shl nuw nsw <4 x i32> %157, splat (i32 13)
   %159 = bitcast <4 x i32> %158 to <4 x float>
-  %mul.i.i.i451 = fmul <4 x float> %159, <float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000, float 0x46F0000000000000>
-  %cmp.i.i.i452 = icmp samesign ugt <4 x i32> %157, <i32 31743, i32 31743, i32 31743, i32 31743>
-  %160 = shl <4 x i32> %156, <i32 16, i32 16, i32 16, i32 16>
-  %161 = and <4 x i32> %160, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
-  %and.i.i.i453 = select <4 x i1> %cmp.i.i.i452, <4 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>, <4 x i32> zeroinitializer
+  %mul.i.i.i451 = fmul <4 x float> %159, splat (float 0x46F0000000000000)
+  %cmp.i.i.i452 = icmp samesign ugt <4 x i32> %157, splat (i32 31743)
+  %160 = shl <4 x i32> %156, splat (i32 16)
+  %161 = and <4 x i32> %160, splat (i32 -2147483648)
+  %and.i.i.i453 = select <4 x i1> %cmp.i.i.i452, <4 x i32> splat (i32 2139095040), <4 x i32> zeroinitializer
   %or.i9.i454 = or disjoint <4 x i32> %and.i.i.i453, %161
   %162 = bitcast <4 x float> %mul.i.i.i451 to <4 x i32>
   %or.i.i455 = or <4 x i32> %or.i9.i454, %162
@@ -11785,11 +11785,11 @@ if.end590:                                        ; preds = %invoke.cont575, %in
   %shuffle.i3513 = shufflevector <4 x float> %add.i3366, <4 x float> %add.i3369, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %div.i = fdiv <4 x float> %shuffle.i3516, %shuffle.i3513
   %177 = shufflevector <4 x float> %div.i, <4 x float> poison, <4 x i32> zeroinitializer
-  %sub.i3143 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %177
+  %sub.i3143 = fsub <4 x float> splat (float 1.000000e+00), %177
   %178 = shufflevector <4 x float> %div.i, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %sub.i3146 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %178
+  %sub.i3146 = fsub <4 x float> splat (float 1.000000e+00), %178
   %179 = shufflevector <4 x float> %add.i3366, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %sub.i3149 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %179
+  %sub.i3149 = fsub <4 x float> splat (float 1.000000e+00), %179
   br label %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531
 
 _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531: ; preds = %if.end590, %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531
@@ -11819,14 +11819,14 @@ _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531: ; p
 
 _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit: ; preds = %_ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit2531
   %184 = shufflevector <4 x float> %div.i, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %sub.i3152 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %184
+  %sub.i3152 = fsub <4 x float> splat (float 1.000000e+00), %184
   %185 = load <4 x float>, ptr %col, align 16
   %mul.i3186 = fmul <4 x float> %sub.i3152, %185
   %186 = load <4 x float>, ptr %arrayidx642, align 16
   %mul.i3183 = fmul <4 x float> %184, %186
   %add.i3357 = fadd <4 x float> %mul.i3186, %mul.i3183
   %187 = shufflevector <4 x float> %div.i, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %sub.i3155 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %187
+  %sub.i3155 = fsub <4 x float> splat (float 1.000000e+00), %187
   %188 = load <4 x float>, ptr %arrayidx646, align 16
   %mul.i3192 = fmul <4 x float> %sub.i3155, %188
   %189 = load <4 x float>, ptr %arrayidx647, align 16
@@ -11835,7 +11835,7 @@ _ZN18OpenImageIO_v2_6_04lerpINS_4simd7vfloat4ES2_EET_RKS3_S5_RKT0_.exit: ; preds
   %vecinit.i.i510 = insertelement <4 x float> poison, float %weight.0, i64 0
   %vecinit3.i.i511 = shufflevector <4 x float> %vecinit.i.i510, <4 x float> poison, <4 x i32> zeroinitializer
   %190 = shufflevector <4 x float> %add.i3369, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %sub.i3158 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %190
+  %sub.i3158 = fsub <4 x float> splat (float 1.000000e+00), %190
   %mul.i3198 = fmul <4 x float> %sub.i3158, %add.i3357
   %mul.i3195 = fmul <4 x float> %190, %add.i3360
   %add.i3363 = fadd <4 x float> %mul.i3198, %mul.i3195
@@ -12063,7 +12063,7 @@ invoke.cont1069:                                  ; preds = %for.end1054
   %234 = load float, ptr %fill, align 8
   %mul1068 = fmul float %sub1066, %234
   %vecinit.i.i512 = insertelement <4 x float> poison, float %mul1068, i64 0
-  %not.i = xor <4 x i32> %231, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %not.i = xor <4 x i32> %231, splat (i32 -1)
   %235 = bitcast <4 x float> %vecinit.i.i512 to <4 x i32>
   %236 = shufflevector <4 x i32> %235, <4 x i32> poison, <4 x i32> zeroinitializer
   %and.i3488 = and <4 x i32> %236, %not.i
@@ -49594,13 +49594,13 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #32
   store i8 0, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_123shared_texturesys_mutexE, align 1
-  store <4 x float> <float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000, float 0x3F70101020000000>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
-  store <4 x float> <float 0x3EF0001000000000, float 0x3EF0001000000000, float 0x3EF0001000000000, float 0x3EF0001000000000>, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18u16scaleE.0, align 16
+  store <4 x float> splat (float 0x3F70101020000000), ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_17u8scaleE.0, align 16
+  store <4 x float> splat (float 0x3EF0001000000000), ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_18u16scaleE.0, align 16
   store <4 x i32> zeroinitializer, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113channel_masksE, align 16
   store <4 x i32> <i32 -1, i32 0, i32 0, i32 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113channel_masksE, i64 16), align 16
   store <4 x i32> <i32 -1, i32 -1, i32 0, i32 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113channel_masksE, i64 32), align 16
   store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 0>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113channel_masksE, i64 48), align 16
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 -1>, ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113channel_masksE, i64 64), align 16
+  store <4 x i32> splat (i32 -1), ptr getelementptr inbounds (i8, ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113channel_masksE, i64 64), align 16
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry

@@ -479,7 +479,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   store <8 x i32> %208, ptr %211, align 4, !tbaa !86, !alias.scope !114, !noalias !113
   store <8 x i32> %209, ptr %212, align 4, !tbaa !86, !alias.scope !114, !noalias !113
   %213 = add nuw i64 %194, 32
-  %214 = add <8 x i64> %195, <i64 128, i64 128, i64 128, i64 128, i64 128, i64 128, i64 128, i64 128>
+  %214 = add <8 x i64> %195, splat (i64 128)
   %215 = icmp eq i64 %213, %187
   br i1 %215, label %158, label %193, !llvm.loop !115
 
@@ -544,7 +544,7 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %1
   store <8 x i32> %259, ptr %262, align 4, !tbaa !86, !alias.scope !121, !noalias !118
   store <8 x i32> %260, ptr %263, align 4, !tbaa !86, !alias.scope !121, !noalias !118
   %264 = add nuw i64 %249, 32
-  %265 = add <8 x i64> %250, <i64 128, i64 128, i64 128, i64 128, i64 128, i64 128, i64 128, i64 128>
+  %265 = add <8 x i64> %250, splat (i64 128)
   %266 = icmp eq i64 %264, %242
   br i1 %266, label %267, label %248, !llvm.loop !123
 
@@ -5317,13 +5317,13 @@ define hidden void @_ZNK8rawspeed16FujiDecompressor10decompressEv(ptr noundef no
   %2597 = insertelement <4 x i32> %2596, i32 %2590, i64 2
   %2598 = insertelement <4 x i32> %2597, i32 %2594, i64 3
   %2599 = mul <4 x i32> %2598, <i32 12, i32 2, i32 2, i32 2>
-  %2600 = udiv <4 x i32> %2599, <i32 3, i32 3, i32 3, i32 3>
-  %2601 = and <4 x i32> %2600, <i32 1073741822, i32 1073741822, i32 1073741822, i32 1073741822>
+  %2600 = udiv <4 x i32> %2599, splat (i32 3)
+  %2601 = and <4 x i32> %2600, splat (i32 1073741822)
   %2602 = insertelement <4 x i32> %2598, i32 %2533, i64 0
-  %2603 = urem <4 x i32> %2602, <i32 3, i32 3, i32 3, i32 3>
-  %2604 = and <4 x i32> %2603, <i32 1, i32 1, i32 1, i32 1>
-  %2605 = lshr <4 x i32> %2603, <i32 1, i32 1, i32 1, i32 1>
-  %2606 = add nuw nsw <4 x i32> %2604, <i32 1, i32 1, i32 1, i32 1>
+  %2603 = urem <4 x i32> %2602, splat (i32 3)
+  %2604 = and <4 x i32> %2603, splat (i32 1)
+  %2605 = lshr <4 x i32> %2603, splat (i32 1)
+  %2606 = add nuw nsw <4 x i32> %2604, splat (i32 1)
   %2607 = add nuw nsw <4 x i32> %2606, %2605
   %2608 = add nuw nsw <4 x i32> %2607, %2601
   %2609 = extractelement <4 x i32> %2608, i64 0

@@ -9691,7 +9691,7 @@ vector.ph:                                        ; preds = %for.body53.preheade
   %broadcast.splatinsert = insertelement <4 x i64> poison, i64 %list41.sroa.0.0.copyload, i64 0
   %broadcast.splat = shufflevector <4 x i64> %broadcast.splatinsert, <4 x i64> poison, <4 x i32> zeroinitializer
   %60 = getelementptr i32, ptr %46, i64 %list_count.0214
-  %step.add = add <4 x i64> %broadcast.splat, <i64 4, i64 4, i64 4, i64 4>
+  %step.add = add <4 x i64> %broadcast.splat, splat (i64 4)
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -9706,7 +9706,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %63, ptr %65, align 4, !tbaa !90
   store <4 x i32> %64, ptr %66, align 4, !tbaa !90
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 8)
   %67 = icmp eq i64 %index.next, %n.vec
   br i1 %67, label %middle.block, label %vector.body, !llvm.loop !172
 
@@ -10328,7 +10328,7 @@ vector.ph:                                        ; preds = %for.body40.preheade
   %broadcast.splatinsert = insertelement <4 x i64> poison, i64 %mul31, i64 0
   %broadcast.splat = shufflevector <4 x i64> %broadcast.splatinsert, <4 x i64> poison, <4 x i32> zeroinitializer
   %38 = getelementptr i32, ptr %26, i64 %element_count.0181
-  %step.add = add <4 x i64> %broadcast.splat, <i64 4, i64 4, i64 4, i64 4>
+  %step.add = add <4 x i64> %broadcast.splat, splat (i64 4)
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -10343,7 +10343,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %41, ptr %43, align 4, !tbaa !90
   store <4 x i32> %42, ptr %44, align 4, !tbaa !90
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 8)
   %45 = icmp eq i64 %index.next, %n.vec
   br i1 %45, label %middle.block, label %vector.body, !llvm.loop !178
 

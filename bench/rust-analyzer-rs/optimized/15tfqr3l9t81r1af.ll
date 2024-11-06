@@ -11999,8 +11999,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %"_ZN4co
   %.0.copyload.i.i = load <16 x i8>, ptr %gep.i, align 1, !alias.scope !2996, !noalias !2999
   %23 = getelementptr inbounds i8, ptr %gep.i, i64 2
   %.0.copyload2.i.i = load <16 x i8>, ptr %23, align 1, !alias.scope !2996, !noalias !2999
-  %24 = icmp eq <16 x i8> %.0.copyload.i.i, <i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58>
-  %25 = icmp eq <16 x i8> %.0.copyload2.i.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %24 = icmp eq <16 x i8> %.0.copyload.i.i, splat (i8 58)
+  %25 = icmp eq <16 x i8> %.0.copyload2.i.i, splat (i8 47)
   %26 = and <16 x i1> %25, %24
   %27 = getelementptr inbounds [4 x i16], ptr %3, i64 0, i64 %.sroa.019.044.i
   store <16 x i1> %26, ptr %27, align 2, !noalias !2996
@@ -12050,8 +12050,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %"_ZN4co
   %.0.copyload.i80.i = load <16 x i8>, ptr %46, align 1, !alias.scope !2996, !noalias !3002
   %47 = getelementptr inbounds i8, ptr %46, i64 2
   %.0.copyload2.i81.i = load <16 x i8>, ptr %47, align 1, !alias.scope !2996, !noalias !3002
-  %48 = icmp eq <16 x i8> %.0.copyload.i80.i, <i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58>
-  %49 = icmp eq <16 x i8> %.0.copyload2.i81.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %48 = icmp eq <16 x i8> %.0.copyload.i80.i, splat (i8 58)
+  %49 = icmp eq <16 x i8> %.0.copyload2.i81.i, splat (i8 47)
   %50 = and <16 x i1> %49, %48
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
@@ -12062,8 +12062,8 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit: ; preds = %"_ZN4co
   %.0.copyload.i82.i = load <16 x i8>, ptr %54, align 1, !alias.scope !2996, !noalias !3005
   %55 = getelementptr inbounds i8, ptr %54, i64 2
   %.0.copyload2.i83.i = load <16 x i8>, ptr %55, align 1, !alias.scope !2996, !noalias !3005
-  %56 = icmp eq <16 x i8> %.0.copyload.i82.i, <i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58, i8 58>
-  %57 = icmp eq <16 x i8> %.0.copyload2.i83.i, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %56 = icmp eq <16 x i8> %.0.copyload.i82.i, splat (i8 58)
+  %57 = icmp eq <16 x i8> %.0.copyload2.i83.i, splat (i8 47)
   %58 = and <16 x i1> %57, %56
   %59 = bitcast <16 x i1> %58 to i16
   %60 = icmp eq i16 %59, 0
@@ -28922,7 +28922,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10712026466629435290.e
 
 779:                                              ; preds = %.noexc.i.i91
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7), !noalias !7131
-  %780 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %780 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i.i, splat (i8 -1)
   %781 = bitcast <16 x i1> %780 to i16
   %.not.i.i.i.i.i = icmp eq i16 %781, 0
   br i1 %.not.i.i.i.i.i, label %787, label %790

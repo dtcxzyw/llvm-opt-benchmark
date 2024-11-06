@@ -6690,8 +6690,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %38 = getelementptr inbounds i32, ptr %37, i64 %index
   %39 = getelementptr inbounds i8, ptr %38, i64 16
-  store <4 x i32> <i32 95, i32 95, i32 95, i32 95>, ptr %38, align 4, !tbaa !13
-  store <4 x i32> <i32 95, i32 95, i32 95, i32 95>, ptr %39, align 4, !tbaa !13
+  store <4 x i32> splat (i32 95), ptr %38, align 4, !tbaa !13
+  store <4 x i32> splat (i32 95), ptr %39, align 4, !tbaa !13
   %index.next = add nuw i64 %index, 8
   %40 = icmp eq i64 %index.next, %n.vec
   br i1 %40, label %middle.block, label %vector.body, !llvm.loop !174
@@ -6725,8 +6725,8 @@ vector.body188:                                   ; preds = %vector.body188, %ve
   %index189 = phi i64 [ 0, %vector.ph183 ], [ %index.next190, %vector.body188 ]
   %45 = getelementptr i32, ptr %44, i64 %index189
   %46 = getelementptr inbounds i8, ptr %45, i64 16
-  store <4 x i32> <i32 95, i32 95, i32 95, i32 95>, ptr %45, align 4, !tbaa !13
-  store <4 x i32> <i32 95, i32 95, i32 95, i32 95>, ptr %46, align 4, !tbaa !13
+  store <4 x i32> splat (i32 95), ptr %45, align 4, !tbaa !13
+  store <4 x i32> splat (i32 95), ptr %46, align 4, !tbaa !13
   %index.next190 = add nuw i64 %index189, 8
   %47 = icmp eq i64 %index.next190, %n.vec185
   br i1 %47, label %middle.block180, label %vector.body188, !llvm.loop !175

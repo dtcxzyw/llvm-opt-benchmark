@@ -877,7 +877,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4pbrt15GetCameraSampleINS_14PMJ02BNSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %if.end, %if.then.i
   %cameraSample.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i17.i, %if.then.i ], [ %retval.sroa.0.4.vec.insert.i7.i, %if.end ]
-  %cameraSample.sroa.3.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call15.i, %if.end ]
+  %cameraSample.sroa.3.0 = phi <2 x float> [ splat (float 5.000000e-01), %if.then.i ], [ %call15.i, %if.end ]
   %cameraSample.sroa.9.0 = phi float [ 1.000000e+00, %if.then.i ], [ %call3.fca.1.extract.i, %if.end ]
   %cameraSample.sroa.7.0 = phi float [ 5.000000e-01, %if.then.i ], [ %call13.i, %if.end ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %agg.tmp1712)
@@ -5276,7 +5276,7 @@ if.then.i:                                        ; preds = %_ZN4pbrt17Stratifie
 
 _ZN4pbrt15GetCameraSampleINS_17StratifiedSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit, %if.then.i
   %cameraSample.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i14.i, %if.then.i ], [ %retval.sroa.0.4.vec.insert.i4.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
-  %cameraSample.sroa.3.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call15.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
+  %cameraSample.sroa.3.0 = phi <2 x float> [ splat (float 5.000000e-01), %if.then.i ], [ %call15.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
   %cameraSample.sroa.9.0 = phi float [ 1.000000e+00, %if.then.i ], [ %call3.fca.1.extract.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
   %cameraSample.sroa.7.0 = phi float [ 5.000000e-01, %if.then.i ], [ %call13.i, %_ZN4pbrt17StratifiedSampler16StartPixelSampleENS_6Point2IiEEii.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp1714)
@@ -7619,7 +7619,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4pbrt15GetCameraSampleINS_18PaddedSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %if.end, %if.then.i
   %cameraSample.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i14.i, %if.then.i ], [ %retval.sroa.0.4.vec.insert.i4.i, %if.end ]
-  %cameraSample.sroa.3.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call15.i, %if.end ]
+  %cameraSample.sroa.3.0 = phi <2 x float> [ splat (float 5.000000e-01), %if.then.i ], [ %call15.i, %if.end ]
   %cameraSample.sroa.9.0 = phi float [ 1.000000e+00, %if.then.i ], [ %call3.fca.1.extract.i, %if.end ]
   %cameraSample.sroa.7.0 = phi float [ 5.000000e-01, %if.then.i ], [ %call13.i, %if.end ]
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %agg.tmp1712)
@@ -10056,7 +10056,7 @@ if.then.i:                                        ; preds = %if.end
 
 _ZN4pbrt15GetCameraSampleINS_13ZSobolSamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %if.end, %if.then.i
   %cameraSample.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i14.i, %if.then.i ], [ %retval.sroa.0.4.vec.insert.i4.i, %if.end ]
-  %cameraSample.sroa.3.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call15.i, %if.end ]
+  %cameraSample.sroa.3.0 = phi <2 x float> [ splat (float 5.000000e-01), %if.then.i ], [ %call15.i, %if.end ]
   %cameraSample.sroa.9.0 = phi float [ 1.000000e+00, %if.then.i ], [ %call3.fca.1.extract.i, %if.end ]
   %cameraSample.sroa.7.0 = phi float [ 5.000000e-01, %if.then.i ], [ %call13.i, %if.end ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp1712)

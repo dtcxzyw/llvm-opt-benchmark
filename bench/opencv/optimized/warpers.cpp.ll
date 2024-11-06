@@ -8501,7 +8501,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_18Spheric
   br label %_ZN2cv6detail18SphericalProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail18SphericalProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %36
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %36 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %36 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 58:                                               ; preds = %4
@@ -9029,7 +9029,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_20Cylindr
   br label %_ZN2cv6detail20CylindricalProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail20CylindricalProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %31
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %31 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %31 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 53:                                               ; preds = %4
@@ -9568,7 +9568,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_26Spheric
   br label %_ZN2cv6detail26SphericalPortraitProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail26SphericalPortraitProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %37
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %37 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %37 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 59:                                               ; preds = %4
@@ -11442,7 +11442,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_16Fisheye
   br label %_ZN2cv6detail16FisheyeProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail16FisheyeProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %39
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %39 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %39 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 61:                                               ; preds = %4
@@ -12610,7 +12610,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_22Stereog
   br label %_ZN2cv6detail22StereographicProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail22StereographicProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %42
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %42 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %42 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 64:                                               ; preds = %4
@@ -13797,7 +13797,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_30Compres
   br label %_ZN2cv6detail30CompressedRectilinearProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail30CompressedRectilinearProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %46
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %46 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %46 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 68:                                               ; preds = %4
@@ -14996,7 +14996,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_38Compres
   br label %_ZN2cv6detail38CompressedRectilinearPortraitProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail38CompressedRectilinearPortraitProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %47
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %47 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %47 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 69:                                               ; preds = %4
@@ -16227,7 +16227,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_15PaniniP
   br label %_ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_.exit: ; preds = %42, %60
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %60 ], [ <float -1.000000e+00, float -1.000000e+00>, %42 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %60 ], [ splat (float -1.000000e+00), %42 ]
   ret <2 x float> %.sroa.0.0
 
 82:                                               ; preds = %4
@@ -17509,7 +17509,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_23PaniniP
   br label %_ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_.exit: ; preds = %43, %61
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %61 ], [ <float -1.000000e+00, float -1.000000e+00>, %43 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %61 ], [ splat (float -1.000000e+00), %43 ]
   ret <2 x float> %.sroa.0.0
 
 83:                                               ; preds = %4
@@ -18730,7 +18730,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_17Mercato
   br label %_ZN2cv6detail17MercatorProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail17MercatorProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %37
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %37 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %37 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 59:                                               ; preds = %4
@@ -19890,7 +19890,7 @@ define linkonce_odr <2 x float> @_ZN2cv6detail18RotationWarperBaseINS0_27Transve
   br label %_ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_.exit
 
 _ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_.exit: ; preds = %9, %42
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %42 ], [ <float -1.000000e+00, float -1.000000e+00>, %9 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.4.vec.insert20, %42 ], [ splat (float -1.000000e+00), %9 ]
   ret <2 x float> %.sroa.0.0
 
 64:                                               ; preds = %4

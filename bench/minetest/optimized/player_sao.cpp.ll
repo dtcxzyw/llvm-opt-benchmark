@@ -613,7 +613,7 @@ entry:
   %m_peer_id_initial = getelementptr inbounds i8, ptr %this, i64 864
   store i16 %peer_id_, ptr %m_peer_id_initial, align 8, !tbaa !75
   %m_dig_pool = getelementptr inbounds i8, ptr %this, i64 868
-  store <4 x float> <float 1.500000e+01, float 1.500000e+01, float 1.500000e+01, float 1.500000e+01>, ptr %m_dig_pool, align 4, !tbaa !76
+  store <4 x float> splat (float 1.500000e+01), ptr %m_dig_pool, align 4, !tbaa !76
   %m_last_good_position = getelementptr inbounds i8, ptr %this, i64 884
   %m_nocheat_dig_pos = getelementptr inbounds i8, ptr %this, i64 904
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %m_last_good_position, i8 0, i64 20, i1 false)
@@ -3343,9 +3343,9 @@ if.then:                                          ; preds = %land.lhs.true
   %13 = shufflevector <4 x float> %11, <4 x float> poison, <2 x i32> <i32 poison, i32 2>
   %14 = insertelement <2 x float> %13, float %add4.i.i, i64 0
   %15 = fcmp nsz ogt <2 x float> %14, zeroinitializer
-  %16 = select <2 x i1> %15, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %16 = select <2 x i1> %15, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %17 = fadd nsz <2 x float> %14, %16
-  %18 = fdiv nsz <2 x float> %17, <float 1.000000e+01, float 1.000000e+01>
+  %18 = fdiv nsz <2 x float> %17, splat (float 1.000000e+01)
   %19 = fptosi <2 x float> %18 to <2 x i16>
   %20 = zext <2 x i16> %19 to <2 x i48>
   %21 = shl nuw <2 x i48> %20, <i48 16, i48 32>
@@ -3604,9 +3604,9 @@ if.then38:                                        ; preds = %_ZNK7UnitSAO10isImm
   %60 = shufflevector <4 x float> %58, <4 x float> poison, <2 x i32> <i32 poison, i32 2>
   %61 = insertelement <2 x float> %60, float %add4.i.i414, i64 0
   %62 = fcmp nsz ogt <2 x float> %61, zeroinitializer
-  %63 = select <2 x i1> %62, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %63 = select <2 x i1> %62, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %64 = fadd nsz <2 x float> %61, %63
-  %65 = fdiv nsz <2 x float> %64, <float 1.000000e+01, float 1.000000e+01>
+  %65 = fdiv nsz <2 x float> %64, splat (float 1.000000e+01)
   %66 = fptosi <2 x float> %65 to <2 x i16>
   %67 = zext <2 x i16> %66 to <2 x i48>
   %68 = shl nuw <2 x i48> %67, <i48 16, i48 32>
@@ -3803,9 +3803,9 @@ invoke.cont94:                                    ; preds = %if.end121, %invoke.
   %100 = insertelement <2 x float> poison, float %add4.i511, i64 0
   %101 = insertelement <2 x float> %100, float %97, i64 1
   %102 = fcmp nsz ogt <2 x float> %101, zeroinitializer
-  %103 = select <2 x i1> %102, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %103 = select <2 x i1> %102, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %104 = fadd nsz <2 x float> %101, %103
-  %105 = fdiv nsz <2 x float> %104, <float 1.000000e+01, float 1.000000e+01>
+  %105 = fdiv nsz <2 x float> %104, splat (float 1.000000e+01)
   %106 = fptosi <2 x float> %105 to <2 x i16>
   %add25.i533 = fadd nsz float %99, %cond24.i526
   %div26.i534 = fdiv nsz float %add25.i533, 1.000000e+01
@@ -3909,9 +3909,9 @@ invoke.cont133:                                   ; preds = %if.end121, %if.then
   %126 = insertelement <2 x float> poison, float %add4.i, i64 0
   %127 = insertelement <2 x float> %126, float %123, i64 1
   %128 = fcmp nsz ogt <2 x float> %127, zeroinitializer
-  %129 = select <2 x i1> %128, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %129 = select <2 x i1> %128, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %130 = fadd nsz <2 x float> %127, %129
-  %131 = fdiv nsz <2 x float> %130, <float 1.000000e+01, float 1.000000e+01>
+  %131 = fdiv nsz <2 x float> %130, splat (float 1.000000e+01)
   %132 = fptosi <2 x float> %131 to <2 x i16>
   %add25.i577 = fadd nsz float %125, %cond24.i570
   %div26.i578 = fdiv nsz float %add25.i577, 1.000000e+01
@@ -4942,7 +4942,7 @@ if.end:                                           ; preds = %entry
   %div4 = fmul nsz float %1, 6.250000e-02
   %conv5 = fptosi float %div4 to i16
   %2 = load <2 x float>, ptr %pos, align 4, !tbaa !76
-  %3 = fmul nsz <2 x float> %2, <float 6.250000e-02, float 6.250000e-02>
+  %3 = fmul nsz <2 x float> %2, splat (float 6.250000e-02)
   %4 = fptosi <2 x float> %3 to <2 x i16>
   store <2 x i16> %4, ptr %blockpos, align 4, !tbaa !107
   %Z.i = getelementptr inbounds i8, ptr %blockpos, i64 4
@@ -5100,7 +5100,7 @@ _ZNK9PlayerSAO9getPeerIDEv.exit:                  ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %blockpos) #34
   %div16 = fmul nsz float %add6.i44, 6.250000e-02
   %conv17 = fptosi float %div16 to i16
-  %10 = fmul nsz <2 x float> %8, <float 6.250000e-02, float 6.250000e-02>
+  %10 = fmul nsz <2 x float> %8, splat (float 6.250000e-02)
   %11 = fptosi <2 x float> %10 to <2 x i16>
   store <2 x i16> %11, ptr %blockpos, align 4, !tbaa !107
   %Z.i50 = getelementptr inbounds i8, ptr %blockpos, i64 4
@@ -7072,7 +7072,7 @@ entry:
   %m_base_position = getelementptr inbounds i8, ptr %this, i64 32
   %Y.i26 = getelementptr inbounds i8, ptr %this, i64 36
   %1 = load <2 x float>, ptr %collisionbox, align 8, !tbaa !76
-  %2 = fmul nsz <2 x float> %1, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fmul nsz <2 x float> %1, splat (float 1.000000e+01)
   store <2 x float> %2, ptr %toset, align 4, !tbaa.struct !174
   %Z.i27 = getelementptr inbounds i8, ptr %this, i64 40
   %mul3.i = fmul nsz float %0, 1.000000e+01
@@ -7084,7 +7084,7 @@ entry:
   %5 = insertelement <2 x float> %4, float %mul.i17, i64 1
   %Y3.i30 = getelementptr inbounds i8, ptr %toset, i64 16
   %6 = load <2 x float>, ptr %Y.i18, align 8, !tbaa !76
-  %7 = fmul nsz <2 x float> %6, <float 1.000000e+01, float 1.000000e+01>
+  %7 = fmul nsz <2 x float> %6, splat (float 1.000000e+01)
   %8 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i22, <2 x float> %7, <2 x i32> <i32 0, i32 2>
   store <2 x float> %8, ptr %MaxEdge8, align 4, !tbaa.struct !174
   %9 = extractelement <2 x float> %7, i64 1
@@ -7115,7 +7115,7 @@ entry:
 if.end:                                           ; preds = %entry
   %selectionbox = getelementptr inbounds i8, ptr %this, i64 352
   %1 = load <2 x float>, ptr %selectionbox, align 8, !tbaa !76
-  %2 = fmul nsz <2 x float> %1, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fmul nsz <2 x float> %1, splat (float 1.000000e+01)
   %Z.i = getelementptr inbounds i8, ptr %this, i64 360
   %3 = load float, ptr %Z.i, align 8, !tbaa !314
   %mul3.i = fmul nsz float %3, 1.000000e+01
@@ -7124,7 +7124,7 @@ if.end:                                           ; preds = %entry
   store float %mul3.i, ptr %ref.tmp.sroa.4.0.MinEdge3.sroa_idx, align 4, !tbaa !76
   %MaxEdge = getelementptr inbounds i8, ptr %this, i64 364
   %4 = load <2 x float>, ptr %MaxEdge, align 4, !tbaa !76
-  %5 = fmul nsz <2 x float> %4, <float 1.000000e+01, float 1.000000e+01>
+  %5 = fmul nsz <2 x float> %4, splat (float 1.000000e+01)
   %Z.i14 = getelementptr inbounds i8, ptr %this, i64 372
   %6 = load float, ptr %Z.i14, align 4, !tbaa !314
   %mul3.i15 = fmul nsz float %6, 1.000000e+01

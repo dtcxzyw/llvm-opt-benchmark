@@ -1798,7 +1798,7 @@ lpad197:                                          ; preds = %if.end375, %_ZNSt7_
 for.body:                                         ; preds = %for.body.backedge, %invoke.cont198
   %i.02089 = phi i8 [ 0, %invoke.cont198 ], [ %i.02089.be, %for.body.backedge ]
   %downscale.sroa.0.02088.in = phi <2 x float> [ %scale.sroa.0.0, %invoke.cont198 ], [ %downscale.sroa.0.02088, %for.body.backedge ]
-  %downscale.sroa.0.02088 = fmul nsz <2 x float> %downscale.sroa.0.02088.in, <float 5.000000e-01, float 5.000000e-01>
+  %downscale.sroa.0.02088 = fmul nsz <2 x float> %downscale.sroa.0.02088.in, splat (float 5.000000e-01)
   %add = add nuw nsw i8 %i.02089, 10
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp205) #28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp206) #28

@@ -416,7 +416,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %108 = getelementptr inbounds i8, ptr %4, i64 48
   store <4 x float> %105, ptr %108, align 16, !alias.scope !4, !noalias !7
   store <4 x float> <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float 1.000000e+00>, ptr %5, align 16, !noalias !7
-  %109 = fmul contract <4 x float> %102, <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float -0.000000e+00>
+  %109 = fmul contract <4 x float> %102, splat (float -0.000000e+00)
   br label %110
 
 110:                                              ; preds = %110, %34
@@ -765,7 +765,7 @@ define weak_odr void @_ZN7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spectr
   %15 = load <4 x float>, ptr %14, align 16, !noalias !15
   %16 = load <4 x float>, ptr %13, align 16, !noalias !15
   %17 = fadd contract <4 x float> %15, %16
-  %18 = fmul contract <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %18 = fmul contract <4 x float> %17, splat (float 5.000000e-01)
   %19 = fsub contract <4 x float> %18, %15
   %20 = fmul contract <4 x float> %19, %19
   %shift = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -964,8 +964,8 @@ define weak_odr void @_ZNK7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spect
   %105 = insertelement <4 x float> poison, float %3, i64 0
   %106 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> zeroinitializer
   %107 = fadd contract <4 x float> %106, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %108 = fcmp contract ogt <4 x float> %107, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %109 = fadd contract <4 x float> %107, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %108 = fcmp contract ogt <4 x float> %107, splat (float 1.000000e+00)
+  %109 = fadd contract <4 x float> %107, splat (float -1.000000e+00)
   %110 = select contract <4 x i1> %108, <4 x float> %109, <4 x float> %107
   store <4 x float> %110, ptr %19, align 16, !noalias !21
   %111 = load ptr, ptr %104, align 8, !noalias !21
@@ -1033,7 +1033,7 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
 131:                                              ; preds = %131, %130
   %.09.i.i.i = phi i64 [ 0, %130 ], [ %133, %131 ]
   %132 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %12, i64 0, i64 %.09.i.i.i
-  store <4 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, ptr %132, align 16, !alias.scope !28, !noalias !31
+  store <4 x float> splat (float 0x400921FB60000000), ptr %132, align 16, !alias.scope !28, !noalias !31
   %133 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i18.i = icmp eq i64 %133, 4
   br i1 %exitcond.not.i.i18.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i.i, label %131, !llvm.loop !34
@@ -1173,8 +1173,8 @@ define weak_odr void @_ZNK7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spect
   %12 = insertelement <4 x float> poison, float %3, i64 0
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
   %14 = fadd contract <4 x float> %13, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %15 = fcmp contract ogt <4 x float> %14, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %16 = fadd contract <4 x float> %14, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %15 = fcmp contract ogt <4 x float> %14, splat (float 1.000000e+00)
+  %16 = fadd contract <4 x float> %14, splat (float -1.000000e+00)
   %17 = select contract <4 x i1> %15, <4 x float> %16, <4 x float> %14
   store <4 x float> %17, ptr %9, align 16
   %18 = load ptr, ptr %11, align 8
@@ -1557,9 +1557,9 @@ define weak_odr noundef ptr @_ZNK7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(256) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 

@@ -806,11 +806,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit281: ; preds = %if
   %40 = load i32, ptr %m_background_color, align 8, !tbaa !55
   %and2.i286 = and i32 %40, -16777216
   %41 = fcmp nsz olt <2 x float> %call61.fca.0.extract, zeroinitializer
-  %42 = select <2 x i1> %41, <2 x float> <float -5.000000e-01, float -5.000000e-01>, <2 x float> <float 5.000000e-01, float 5.000000e-01>
+  %42 = select <2 x i1> %41, <2 x float> splat (float -5.000000e-01), <2 x float> splat (float 5.000000e-01)
   %43 = fadd nsz <2 x float> %call61.fca.0.extract, %42
   %44 = fptosi <2 x float> %43 to <2 x i32>
   %45 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %44, <2 x i32> zeroinitializer)
-  %46 = call <2 x i32> @llvm.umin.v2i32(<2 x i32> %45, <2 x i32> <i32 255, i32 255>)
+  %46 = call <2 x i32> @llvm.umin.v2i32(<2 x i32> %45, <2 x i32> splat (i32 255))
   %47 = shl nuw nsw <2 x i32> %46, <i32 16, i32 8>
   %48 = extractelement <2 x i32> %47, i64 0
   %49 = extractelement <2 x i32> %47, i64 1
@@ -1040,7 +1040,7 @@ lpad124:                                          ; preds = %if.else120
 
 if.end139:                                        ; preds = %invoke.cont125, %call1.i.noexc, %invoke.cont116, %call.i.noexc
   %79 = load <2 x i32>, ptr %m_fontsize, align 8, !tbaa !12
-  %80 = call <2 x i32> @llvm.umax.v2i32(<2 x i32> %79, <2 x i32> <i32 1, i32 1>)
+  %80 = call <2 x i32> @llvm.umax.v2i32(<2 x i32> %79, <2 x i32> splat (i32 1))
   store <2 x i32> %80, ptr %m_fontsize, align 8, !tbaa !12
   store <2 x float> <float 2.000000e+00, float 0x3FB99999A0000000>, ptr %m_cursor_blink_speed, align 4, !tbaa !52
   %m_is_ctrl_down = getelementptr inbounds i8, ptr %this, i64 425
@@ -1758,11 +1758,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282: ; preds = %if
   %37 = load i32, ptr %m_background_color, align 8, !tbaa !55
   %and2.i287 = and i32 %37, -16777216
   %38 = fcmp nsz olt <2 x float> %call62.fca.0.extract, zeroinitializer
-  %39 = select <2 x i1> %38, <2 x float> <float -5.000000e-01, float -5.000000e-01>, <2 x float> <float 5.000000e-01, float 5.000000e-01>
+  %39 = select <2 x i1> %38, <2 x float> splat (float -5.000000e-01), <2 x float> splat (float 5.000000e-01)
   %40 = fadd nsz <2 x float> %call62.fca.0.extract, %39
   %41 = fptosi <2 x float> %40 to <2 x i32>
   %42 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %41, <2 x i32> zeroinitializer)
-  %43 = call <2 x i32> @llvm.umin.v2i32(<2 x i32> %42, <2 x i32> <i32 255, i32 255>)
+  %43 = call <2 x i32> @llvm.umin.v2i32(<2 x i32> %42, <2 x i32> splat (i32 255))
   %44 = shl nuw nsw <2 x i32> %43, <i32 16, i32 8>
   %45 = extractelement <2 x i32> %44, i64 0
   %46 = extractelement <2 x i32> %44, i64 1
@@ -1992,7 +1992,7 @@ lpad125:                                          ; preds = %if.else121
 
 if.end138:                                        ; preds = %invoke.cont126, %call1.i.noexc, %invoke.cont117, %call.i.noexc
   %76 = load <2 x i32>, ptr %m_fontsize, align 8, !tbaa !12
-  %77 = call <2 x i32> @llvm.umax.v2i32(<2 x i32> %76, <2 x i32> <i32 1, i32 1>)
+  %77 = call <2 x i32> @llvm.umax.v2i32(<2 x i32> %76, <2 x i32> splat (i32 1))
   store <2 x i32> %77, ptr %m_fontsize, align 8, !tbaa !12
   store <2 x float> <float 2.000000e+00, float 0x3FB99999A0000000>, ptr %m_cursor_blink_speed, align 4, !tbaa !52
   %m_is_ctrl_down = getelementptr inbounds i8, ptr %this, i64 425

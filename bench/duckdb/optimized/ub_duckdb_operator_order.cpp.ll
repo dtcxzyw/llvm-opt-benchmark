@@ -3852,13 +3852,13 @@ vector.ph:                                        ; preds = %for.body.lr.ph
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <4 x i32> [ %induction, %vector.ph ], [ %vec.ind.next, %vector.body ]
-  %step.add = add <4 x i32> %vec.ind, <i32 4, i32 4, i32 4, i32 4>
+  %step.add = add <4 x i32> %vec.ind, splat (i32 4)
   %11 = getelementptr inbounds i32, ptr %8, i64 %index
   %12 = getelementptr inbounds i8, ptr %11, i64 16
   store <4 x i32> %vec.ind, ptr %11, align 4, !tbaa !189
   store <4 x i32> %step.add, ptr %12, align 4, !tbaa !189
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next = add <4 x i32> %vec.ind, <i32 8, i32 8, i32 8, i32 8>
+  %vec.ind.next = add <4 x i32> %vec.ind, splat (i32 8)
   %13 = icmp eq i64 %index.next, %n.vec
   br i1 %13, label %middle.block, label %vector.body, !llvm.loop !338
 

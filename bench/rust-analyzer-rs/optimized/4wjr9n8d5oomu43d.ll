@@ -62309,7 +62309,7 @@ _ZN6syntax3ast6traits16HasGenericParams12where_clause17hdc6fc6a5a2082e8bE.exit.i
   br label %.lr.ph.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit._crit_edge.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit.backedge.i.i.i.i", %457
-  %463 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %463 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %464 = bitcast <16 x i1> %463 to i16
   %.not.i.i.i.i.i = icmp eq i16 %464, 0
   br i1 %.not.i.i.i.i.i, label %482, label %select.unfold340.invoke.i
@@ -62541,7 +62541,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hbe31d985114a5f9bE.exit.threa
   br label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit._crit_edge.i.i.i.i.i.i.i.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit.backedge.i.i.i.i.i.i.i.i.i.i.i", %546
-  %552 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i.i.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %552 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i.i.i.i.i.i.i, splat (i8 -1)
   %553 = bitcast <16 x i1> %552 to i16
   %.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i16 %553, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i, label %571, label %.loopexit.i.i.i.i
@@ -63286,7 +63286,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.lr.ph.i.i.i159.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit._crit_edge.i.i.i163.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit.backedge.i.i.i161.i", %795
-  %801 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i156.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %801 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i156.i, splat (i8 -1)
   %802 = bitcast <16 x i1> %801 to i16
   %.not.i.i.i.i164.i = icmp eq i16 %802, 0
   br i1 %.not.i.i.i.i164.i, label %820, label %select.unfold340.invoke.i
@@ -63418,7 +63418,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br label %.lr.ph.i.i.i189.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit._crit_edge.i.i.i193.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit.backedge.i.i.i191.i", %857
-  %863 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i186.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %863 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i186.i, splat (i8 -1)
   %864 = bitcast <16 x i1> %863 to i16
   %.not.i.i.i.i194.i = icmp eq i16 %864, 0
   br i1 %.not.i.i.i.i194.i, label %882, label %select.unfold340.invoke.i
@@ -63715,7 +63715,7 @@ _ZN11ide_assists8handlers17generate_function5Graph8add_edge17hd4a289f34f7322e7E.
   br label %.lr.ph.i.i.i241.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit._crit_edge.i.i.i245.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hfefa0dcc05d6de5eE.exit.backedge.i.i.i243.i", %1003
-  %1009 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i238.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1009 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i238.i, splat (i8 -1)
   %1010 = bitcast <16 x i1> %1009 to i16
   %.not.i.i.i.i246.i = icmp eq i16 %1010, 0
   br i1 %.not.i.i.i.i246.i, label %1028, label %select.unfold340.invoke.i

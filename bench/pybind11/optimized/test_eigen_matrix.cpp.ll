@@ -50345,7 +50345,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 52:                                               ; preds = %49
   %53 = load <2 x i64>, ptr %47, align 1
-  %54 = and <2 x i64> %53, <i64 9223372036854775807, i64 9223372036854775807>
+  %54 = and <2 x i64> %53, splat (i64 9223372036854775807)
   %55 = bitcast <2 x i64> %54 to <2 x double>
   %56 = icmp samesign ugt i64 %.048, 3
   br i1 %56, label %57, label %81
@@ -50353,7 +50353,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %47, i64 16
   %59 = load <2 x i64>, ptr %58, align 1
-  %60 = and <2 x i64> %59, <i64 9223372036854775807, i64 9223372036854775807>
+  %60 = and <2 x i64> %59, splat (i64 9223372036854775807)
   %61 = bitcast <2 x i64> %60 to <2 x double>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 48
   %62 = icmp samesign ugt i64 %.048, 7
@@ -50366,12 +50366,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %.17375.i.i.i.i.i = phi <2 x double> [ %67, %.lr.ph.i.i.i.i.i21 ], [ %55, %57 ]
   %63 = getelementptr inbounds double, ptr %47, i64 %.05478.i.i.i.i.i
   %64 = load <2 x i64>, ptr %63, align 1
-  %65 = and <2 x i64> %64, <i64 9223372036854775807, i64 9223372036854775807>
+  %65 = and <2 x i64> %64, splat (i64 9223372036854775807)
   %66 = bitcast <2 x i64> %65 to <2 x double>
   %67 = fadd <2 x double> %.17375.i.i.i.i.i, %66
   %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %68 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
-  %69 = and <2 x i64> %68, <i64 9223372036854775807, i64 9223372036854775807>
+  %69 = and <2 x i64> %68, splat (i64 9223372036854775807)
   %70 = bitcast <2 x i64> %69 to <2 x double>
   %71 = fadd <2 x double> %storemerge76.i.i.i.i.i, %70
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 4
@@ -50388,7 +50388,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 75:                                               ; preds = %._crit_edge.i.i.i.i.i
   %76 = getelementptr inbounds double, ptr %47, i64 %50
   %77 = load <2 x i64>, ptr %76, align 1
-  %78 = and <2 x i64> %77, <i64 9223372036854775807, i64 9223372036854775807>
+  %78 = and <2 x i64> %77, splat (i64 9223372036854775807)
   %79 = bitcast <2 x i64> %78 to <2 x double>
   %80 = fadd <2 x double> %73, %79
   br label %81
@@ -57620,7 +57620,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 52:                                               ; preds = %49
   %53 = load <2 x i64>, ptr %47, align 1
-  %54 = and <2 x i64> %53, <i64 9223372036854775807, i64 9223372036854775807>
+  %54 = and <2 x i64> %53, splat (i64 9223372036854775807)
   %55 = bitcast <2 x i64> %54 to <2 x double>
   %56 = icmp samesign ugt i64 %.048, 3
   br i1 %56, label %57, label %81
@@ -57628,7 +57628,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %47, i64 16
   %59 = load <2 x i64>, ptr %58, align 1
-  %60 = and <2 x i64> %59, <i64 9223372036854775807, i64 9223372036854775807>
+  %60 = and <2 x i64> %59, splat (i64 9223372036854775807)
   %61 = bitcast <2 x i64> %60 to <2 x double>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %47, i64 48
   %62 = icmp samesign ugt i64 %.048, 7
@@ -57641,12 +57641,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %.17375.i.i.i.i.i = phi <2 x double> [ %67, %.lr.ph.i.i.i.i.i21 ], [ %55, %57 ]
   %63 = getelementptr inbounds double, ptr %47, i64 %.05478.i.i.i.i.i
   %64 = load <2 x i64>, ptr %63, align 1
-  %65 = and <2 x i64> %64, <i64 9223372036854775807, i64 9223372036854775807>
+  %65 = and <2 x i64> %64, splat (i64 9223372036854775807)
   %66 = bitcast <2 x i64> %65 to <2 x double>
   %67 = fadd <2 x double> %.17375.i.i.i.i.i, %66
   %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %68 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
-  %69 = and <2 x i64> %68, <i64 9223372036854775807, i64 9223372036854775807>
+  %69 = and <2 x i64> %68, splat (i64 9223372036854775807)
   %70 = bitcast <2 x i64> %69 to <2 x double>
   %71 = fadd <2 x double> %storemerge76.i.i.i.i.i, %70
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 4
@@ -57663,7 +57663,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 75:                                               ; preds = %._crit_edge.i.i.i.i.i
   %76 = getelementptr inbounds double, ptr %47, i64 %50
   %77 = load <2 x i64>, ptr %76, align 1
-  %78 = and <2 x i64> %77, <i64 9223372036854775807, i64 9223372036854775807>
+  %78 = and <2 x i64> %77, splat (i64 9223372036854775807)
   %79 = bitcast <2 x i64> %78 to <2 x double>
   %80 = fadd <2 x double> %73, %79
   br label %81

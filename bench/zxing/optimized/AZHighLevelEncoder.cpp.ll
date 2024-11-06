@@ -2033,7 +2033,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   %4 = insertelement <16 x i64> poison, i64 %2, i64 0
   %5 = shufflevector <16 x i64> %4, <16 x i64> poison, <16 x i32> zeroinitializer
   %6 = or disjoint <16 x i64> %5, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
-  %7 = icmp samesign ult <16 x i64> %6, <i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26>
+  %7 = icmp samesign ult <16 x i64> %6, splat (i64 26)
   %8 = extractelement <16 x i1> %7, i64 0
   br i1 %8, label %9, label %13
 
@@ -2224,7 +2224,7 @@ define internal void @_GLOBAL__sub_I_AZHighLevelEncoder.cpp() #11 section ".text
   %110 = insertelement <16 x i64> poison, i64 %108, i64 0
   %111 = shufflevector <16 x i64> %110, <16 x i64> poison, <16 x i32> zeroinitializer
   %112 = or disjoint <16 x i64> %111, <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>
-  %113 = icmp samesign ult <16 x i64> %112, <i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26, i64 26>
+  %113 = icmp samesign ult <16 x i64> %112, splat (i64 26)
   %114 = extractelement <16 x i1> %113, i64 0
   br i1 %114, label %115, label %119
 

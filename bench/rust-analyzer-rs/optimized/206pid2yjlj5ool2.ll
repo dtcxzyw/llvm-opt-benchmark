@@ -2717,7 +2717,7 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
   br i1 %.not.i4.not.i.i.i, label %118, label %121
 
 118:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %119 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %119 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %120 = bitcast <16 x i1> %119 to i16
   %.not.i.i.i.i = icmp eq i16 %120, 0
   br i1 %.not.i.i.i.i, label %139, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..CallExpr$GT$$GT$17h940170d3b314d399E.exit"
@@ -5287,7 +5287,7 @@ _ZN7ide_ssr8matching7Matcher31attempt_match_record_field_list17hec34a94bb03eb523
   br i1 %.not.i4.not.i.i.i348, label %968, label %971
 
 968:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i346"
-  %969 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i345, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %969 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i345, splat (i8 -1)
   %970 = bitcast <16 x i1> %969 to i16
   %.not.i.i.i.i356 = icmp eq i16 %970, 0
   br i1 %.not.i.i.i.i356, label %989, label %select.unfold577

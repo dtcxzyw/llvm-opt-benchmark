@@ -2610,7 +2610,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i
 
 for.end.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %while.body.i.i.i.i.i
-  %cmp.i.i12.i.i.i.i.i = icmp eq <16 x i8> %36, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i12.i.i.i.i.i = icmp eq <16 x i8> %36, splat (i8 -128)
   %42 = bitcast <16 x i1> %cmp.i.i12.i.i.i.i.i to i16
   %cmp.i13.not.i.i.i.i.i = icmp eq i16 %42, 0
   br i1 %cmp.i13.not.i.i.i.i.i, label %if.end36.i.i.i.i.i, label %if.then.i.i.i.i

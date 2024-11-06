@@ -237,7 +237,7 @@ if.end8:                                          ; preds = %if.end
   %cmp15 = fcmp oeq float %retval.sroa.7.12.vec.extract, 0.000000e+00
   %or.cond2 = select i1 %or.cond1, i1 %cmp15, i1 false
   %retval.sroa.7.0 = select i1 %or.cond2, <2 x float> <float 5.000000e-01, float 1.000000e+00>, <2 x float> %retval.sroa.7.0.copyload
-  %retval.sroa.0.0 = select i1 %or.cond2, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %retval.sroa.0.0.copyload
+  %retval.sroa.0.0 = select i1 %or.cond2, <2 x float> splat (float 5.000000e-01), <2 x float> %retval.sroa.0.0.copyload
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.7.0, 1
   ret { <2 x float>, <2 x float> } %.fca.1.insert
@@ -4363,7 +4363,7 @@ _ZNK6Assimp11AMFImporter12SPP_Material8GetColorEfff.exit: ; preds = %if.end.i
   %cmp15.i = fcmp oeq float %retval.sroa.7.12.vec.extract.i, 0.000000e+00
   %or.cond2.i = select i1 %or.cond1.i, i1 %cmp15.i, i1 false
   %retval.sroa.7.0.i = select i1 %or.cond2.i, <2 x float> <float 5.000000e-01, float 1.000000e+00>, <2 x float> %retval.sroa.7.0.copyload.i
-  %retval.sroa.0.0.i = select i1 %or.cond2.i, <2 x float> <float 5.000000e-01, float 5.000000e-01>, <2 x float> %retval.sroa.0.0.copyload.i
+  %retval.sroa.0.0.i = select i1 %or.cond2.i, <2 x float> splat (float 5.000000e-01), <2 x float> %retval.sroa.0.0.copyload.i
   br label %return
 
 return:                                           ; preds = %if.else29, %_ZNK6Assimp11AMFImporter12SPP_Material8GetColorEfff.exit, %if.else27, %if.else16, %if.else

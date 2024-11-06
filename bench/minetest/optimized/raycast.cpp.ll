@@ -141,7 +141,7 @@ entry:
   %m_iterator = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #21
   %0 = load <2 x float>, ptr %shootline, align 4, !tbaa !19
-  %1 = fdiv nsz <2 x float> %0, <float 1.000000e+01, float 1.000000e+01>
+  %1 = fdiv nsz <2 x float> %0, splat (float 1.000000e+01)
   %Z.i = getelementptr inbounds i8, ptr %shootline, i64 8
   %2 = load float, ptr %Z.i, align 4, !tbaa !20
   %div3.i = fdiv nsz float %2, 1.000000e+01
@@ -155,7 +155,7 @@ entry:
   %sub6.i.i = fsub nsz float %3, %2
   %4 = load <2 x float>, ptr %end.i, align 4, !tbaa !19
   %5 = fsub nsz <2 x float> %4, %0
-  %6 = fdiv nsz <2 x float> %5, <float 1.000000e+01, float 1.000000e+01>
+  %6 = fdiv nsz <2 x float> %5, splat (float 1.000000e+01)
   %div3.i23 = fdiv nsz float %sub6.i.i, 1.000000e+01
   store <2 x float> %6, ptr %ref.tmp3, align 8
   %tmp.coerce8.sroa.2.0.ref.tmp3.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
@@ -426,7 +426,7 @@ entry:
   %rotation.sroa.0.0.vec.extract = extractelement <2 x float> %rotation.coerce0, i64 0
   %mul.i = fmul nsz float %rotation.sroa.0.0.vec.extract, 0x3F91DF46A0000000
   %0 = insertelement <2 x float> %rotation.coerce0, float %rotation.coerce1, i64 0
-  %1 = fmul nsz <2 x float> %0, <float 0x3F91DF46A0000000, float 0x3F91DF46A0000000>
+  %1 = fmul nsz <2 x float> %0, splat (float 0x3F91DF46A0000000)
   %conv.i.i = fpext float %mul.i to double
   %mul.i.i = fmul nsz double %conv.i.i, 5.000000e-01
   %2 = tail call nsz double @llvm.sin.f64(double %mul.i.i)
@@ -434,7 +434,7 @@ entry:
   %4 = fneg nsz double %3
   %5 = fneg nsz double %2
   %6 = fpext <2 x float> %1 to <2 x double>
-  %7 = fmul nsz <2 x double> %6, <double 5.000000e-01, double 5.000000e-01>
+  %7 = fmul nsz <2 x double> %6, splat (double 5.000000e-01)
   %8 = tail call nsz <2 x double> @llvm.sin.v2f64(<2 x double> %7)
   %9 = shufflevector <2 x double> %8, <2 x double> poison, <2 x i32> <i32 1, i32 0>
   %10 = tail call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %7)
@@ -576,7 +576,7 @@ if.end:                                           ; preds = %entry
   %90 = fmul nsz <2 x float> %89, %36
   %91 = shufflevector <2 x float> %89, <2 x float> %78, <2 x i32> <i32 1, i32 2>
   %92 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %91, <2 x float> %90)
-  %93 = fmul nsz <2 x float> %92, <float 2.000000e+00, float 2.000000e+00>
+  %93 = fmul nsz <2 x float> %92, splat (float 2.000000e+00)
   %94 = fmul nsz <2 x float> %53, %88
   %95 = fadd nsz <2 x float> %72, %82
   %96 = extractelement <2 x float> %94, i64 0
@@ -606,7 +606,7 @@ if.end:                                           ; preds = %entry
   %114 = fmul nsz <2 x float> %113, %36
   %115 = shufflevector <2 x float> %113, <2 x float> %106, <2 x i32> <i32 1, i32 2>
   %116 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %32, <2 x float> %115, <2 x float> %114)
-  %117 = fmul nsz <2 x float> %116, <float 2.000000e+00, float 2.000000e+00>
+  %117 = fmul nsz <2 x float> %116, splat (float 2.000000e+00)
   %118 = fmul nsz <2 x float> %53, %112
   %119 = fadd nsz <2 x float> %100, %108
   %120 = extractelement <2 x float> %118, i64 0

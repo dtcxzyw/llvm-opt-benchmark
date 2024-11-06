@@ -14584,7 +14584,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit350: ; pre
   br i1 %.not.i4.not.i.i.i, label %756, label %759
 
 756:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %757 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %757 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %758 = bitcast <16 x i1> %757 to i16
   %.not.i.i.i.i = icmp eq i16 %758, 0
   br i1 %.not.i.i.i.i, label %768, label %select.unfold

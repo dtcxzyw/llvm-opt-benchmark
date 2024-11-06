@@ -2424,7 +2424,7 @@ vector.ph763:                                     ; preds = %for.body87.preheade
 vector.body767:                                   ; preds = %vector.body767, %vector.ph763
   %index768 = phi i64 [ 0, %vector.ph763 ], [ %index.next770, %vector.body767 ]
   %vec.ind = phi <2 x i64> [ <i64 0, i64 1>, %vector.ph763 ], [ %vec.ind.next, %vector.body767 ]
-  %step.add = add <2 x i64> %vec.ind, <i64 2, i64 2>
+  %step.add = add <2 x i64> %vec.ind, splat (i64 2)
   %78 = getelementptr inbounds %struct.hs_expr_ext, ptr %ext.sroa.0.0.lcssa, <2 x i64> %vec.ind
   %79 = getelementptr inbounds %struct.hs_expr_ext, ptr %ext.sroa.0.0.lcssa, <2 x i64> %step.add
   %80 = getelementptr inbounds ptr, ptr %ext_ptr.sroa.0.0, i64 %index768
@@ -2432,7 +2432,7 @@ vector.body767:                                   ; preds = %vector.body767, %ve
   %81 = getelementptr inbounds i8, ptr %80, i64 16
   store <2 x ptr> %79, ptr %81, align 8
   %index.next770 = add nuw i64 %index768, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %82 = icmp eq i64 %index.next770, %n.vec765
   br i1 %82, label %middle.block760, label %vector.body767, !llvm.loop !33
 

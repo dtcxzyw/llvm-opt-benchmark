@@ -60,7 +60,7 @@ if.end:                                           ; preds = %while.cond
 
 while.body10.lr.ph:                               ; preds = %if.end, %if.end.thread
   %dec167 = phi i32 [ %dec163, %if.end.thread ], [ 0, %if.end ]
-  %mask.0166 = phi <64 x i1> [ <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, %if.end.thread ], [ %0, %if.end ]
+  %mask.0166 = phi <64 x i1> [ splat (i1 true), %if.end.thread ], [ %0, %if.end ]
   %bytes_to_check.0165 = phi i32 [ 64, %if.end.thread ], [ %and, %if.end ]
   %tobool35 = icmp ne i32 %dec167, 0
   %add11196 = add i32 %d.0.ph208, 2

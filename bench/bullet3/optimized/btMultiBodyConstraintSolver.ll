@@ -5716,7 +5716,7 @@ invoke.cont306:                                   ; preds = %if.end173
   %torqueAxis1295.sroa.4.0.m_relpos2CrossNormal299.sroa_idx = getelementptr inbounds i8, ptr %solverConstraint, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i572, ptr %torqueAxis1295.sroa.4.0.m_relpos2CrossNormal299.sroa_idx, align 8
   %m_contactNormal2309 = getelementptr inbounds i8, ptr %solverConstraint, i64 64
-  store <2 x float> <float -0.000000e+00, float -0.000000e+00>, ptr %m_contactNormal2309, align 8
+  store <2 x float> splat (float -0.000000e+00), ptr %m_contactNormal2309, align 8
   %ref.tmp300.sroa.2.0.m_contactNormal2309.sroa_idx = getelementptr inbounds i8, ptr %solverConstraint, i64 72
   store <2 x float> <float -0.000000e+00, float 0.000000e+00>, ptr %ref.tmp300.sroa.2.0.m_contactNormal2309.sroa_idx, align 8
   %tobool311.not = icmp eq ptr %cond26, null
@@ -5766,7 +5766,7 @@ invoke.cont321:                                   ; preds = %invoke.cont306
 
 if.end330:                                        ; preds = %invoke.cont321, %invoke.cont306, %invoke.cont291
   %.sink801 = phi i64 [ 64, %invoke.cont291 ], [ 96, %invoke.cont306 ], [ 96, %invoke.cont321 ]
-  %ref.tmp310.sroa.0.0.sink = phi <2 x float> [ <float -0.000000e+00, float -0.000000e+00>, %invoke.cont291 ], [ zeroinitializer, %invoke.cont306 ], [ %retval.sroa.0.4.vec.insert.i616, %invoke.cont321 ]
+  %ref.tmp310.sroa.0.0.sink = phi <2 x float> [ splat (float -0.000000e+00), %invoke.cont291 ], [ zeroinitializer, %invoke.cont306 ], [ %retval.sroa.0.4.vec.insert.i616, %invoke.cont321 ]
   %.sink800 = phi i64 [ 72, %invoke.cont291 ], [ 104, %invoke.cont306 ], [ 104, %invoke.cont321 ]
   %ref.tmp310.sroa.4.0.sink = phi <2 x float> [ <float -0.000000e+00, float 0.000000e+00>, %invoke.cont291 ], [ zeroinitializer, %invoke.cont306 ], [ %retval.sroa.3.12.vec.insert.i617, %invoke.cont321 ]
   %129 = phi float [ %fneg8.i546, %invoke.cont291 ], [ %fneg8.i569, %invoke.cont306 ], [ %fneg8.i569, %invoke.cont321 ]

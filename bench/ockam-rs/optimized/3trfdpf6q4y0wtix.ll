@@ -53804,7 +53804,7 @@ default.unreachable214:                           ; preds = %116, %3
   br i1 %.not.not.i.i.i.i.i, label %358, label %362
 
 358:                                              ; preds = %357
-  %359 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %359 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %360 = bitcast <16 x i1> %359 to i16
   %361 = icmp eq i16 %360, 0
   br i1 %361, label %371, label %.loopexit.i
@@ -147819,8 +147819,8 @@ common.ret:                                       ; preds = %1524, %1520, %197
   %.0.copyload.i.i.i.i.i = load <16 x i8>, ptr %gep.i.i.i.i, align 1, !alias.scope !22397, !noalias !22398
   %1431 = getelementptr inbounds i8, ptr %gep.i.i.i.i, i64 15
   %.0.copyload2.i.i.i.i.i = load <16 x i8>, ptr %1431, align 1, !alias.scope !22397, !noalias !22398
-  %1432 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, <i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97>
-  %1433 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, <i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114>
+  %1432 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i, splat (i8 97)
+  %1433 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i, splat (i8 114)
   %1434 = and <16 x i1> %1433, %1432
   %1435 = getelementptr inbounds [4 x i16], ptr %6, i64 0, i64 %.sroa.019.049.i.i.i.i
   store <16 x i1> %1434, ptr %1435, align 2, !noalias !22396
@@ -147870,8 +147870,8 @@ common.ret:                                       ; preds = %1524, %1520, %197
   %.0.copyload.i80.i.i.i.i = load <16 x i8>, ptr %1454, align 1, !alias.scope !22397, !noalias !22401
   %1455 = getelementptr inbounds i8, ptr %1454, i64 15
   %.0.copyload2.i81.i.i.i.i = load <16 x i8>, ptr %1455, align 1, !alias.scope !22397, !noalias !22401
-  %1456 = icmp eq <16 x i8> %.0.copyload.i80.i.i.i.i, <i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97>
-  %1457 = icmp eq <16 x i8> %.0.copyload2.i81.i.i.i.i, <i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114>
+  %1456 = icmp eq <16 x i8> %.0.copyload.i80.i.i.i.i, splat (i8 97)
+  %1457 = icmp eq <16 x i8> %.0.copyload2.i81.i.i.i.i, splat (i8 114)
   %1458 = and <16 x i1> %1457, %1456
   %1459 = bitcast <16 x i1> %1458 to i16
   %1460 = icmp eq i16 %1459, 0
@@ -147882,8 +147882,8 @@ common.ret:                                       ; preds = %1524, %1520, %197
   %.0.copyload.i82.i.i.i.i = load <16 x i8>, ptr %1462, align 1, !alias.scope !22397, !noalias !22404
   %1463 = getelementptr inbounds i8, ptr %1462, i64 15
   %.0.copyload2.i83.i.i.i.i = load <16 x i8>, ptr %1463, align 1, !alias.scope !22397, !noalias !22404
-  %1464 = icmp eq <16 x i8> %.0.copyload.i82.i.i.i.i, <i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97, i8 97>
-  %1465 = icmp eq <16 x i8> %.0.copyload2.i83.i.i.i.i, <i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114, i8 114>
+  %1464 = icmp eq <16 x i8> %.0.copyload.i82.i.i.i.i, splat (i8 97)
+  %1465 = icmp eq <16 x i8> %.0.copyload2.i83.i.i.i.i, splat (i8 114)
   %1466 = and <16 x i1> %1465, %1464
   %1467 = bitcast <16 x i1> %1466 to i16
   %1468 = icmp eq i16 %1467, 0

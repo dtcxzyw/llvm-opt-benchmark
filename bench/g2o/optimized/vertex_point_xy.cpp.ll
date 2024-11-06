@@ -545,7 +545,7 @@ define linkonce_odr noundef double @_ZN3g2o10BaseVertexILi2EN5Eigen6MatrixIdLi2E
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i: ; preds = %26
   %30 = load <2 x i64>, ptr %29, align 8, !alias.scope !6
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %shift = shufflevector <2 x double> %32, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %33 = fadd <2 x double> %shift, %32

@@ -385,7 +385,7 @@ _ZN5drjit5scaleINS_6MatrixIfLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   %23 = fadd contract <4 x float> %22, %22
   %24 = fmul contract <4 x float> %22, <float -1.000000e+00, float -1.000000e+00, float 1.000000e+00, float -0.000000e+00>
   %25 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %24, <4 x float> %22, <4 x float> %23)
-  %26 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> <float 1.000000e+00, float 1.000000e+00, float -1.000000e+00, float 0.000000e+00>, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %26 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> <float 1.000000e+00, float 1.000000e+00, float -1.000000e+00, float 0.000000e+00>, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !7
   %.sroa.012.12.vec.insert.i.i29.i = insertelement <4 x float> %26, float 1.000000e+00, i64 3
@@ -554,12 +554,12 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   store <4 x float> %113, ptr %.sroa.4229.0..sroa_idx.i, align 16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 384
   store <4 x float> %114, ptr %.sroa.5.0..sroa_idx.i, align 16
-  %116 = fmul contract <4 x float> %100, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %116 = fmul contract <4 x float> %100, splat (float 2.000000e+00)
   %117 = fmul contract <4 x float> %100, zeroinitializer
   %118 = fmul contract <4 x float> %85, zeroinitializer
   %119 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %87, <4 x float> zeroinitializer, <4 x float> %118)
   %120 = fadd contract <4 x float> %89, %119
-  %121 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %102, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> %117)
+  %121 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %102, <4 x float> splat (float 2.000000e+00), <4 x float> %117)
   %122 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %104, <4 x float> zeroinitializer, <4 x float> %121)
   %123 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %102, <4 x float> zeroinitializer, <4 x float> %116)
   %124 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %104, <4 x float> zeroinitializer, <4 x float> %123)
@@ -672,12 +672,12 @@ define weak_odr void @_ZN7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   store <4 x float> %32, ptr %.sroa.4229.0..sroa_idx, align 16
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 384
   store <4 x float> %33, ptr %.sroa.5.0..sroa_idx, align 16
-  %35 = fmul contract <4 x float> %19, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %35 = fmul contract <4 x float> %19, splat (float 2.000000e+00)
   %36 = fmul contract <4 x float> %19, zeroinitializer
   %37 = fmul contract <4 x float> %4, zeroinitializer
   %38 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %6, <4 x float> zeroinitializer, <4 x float> %37)
   %39 = fadd contract <4 x float> %8, %38
-  %40 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> %36)
+  %40 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> splat (float 2.000000e+00), <4 x float> %36)
   %41 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %23, <4 x float> zeroinitializer, <4 x float> %40)
   %42 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> zeroinitializer, <4 x float> %35)
   %43 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %23, <4 x float> zeroinitializer, <4 x float> %42)
@@ -766,8 +766,8 @@ define weak_odr void @_ZNK7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %5 = fsub contract <4 x float> %.sroa.13.0.copyload, %.sroa.0175.0.copyload
   %6 = fsub contract <4 x float> %5, %.sroa.5.0.copyload
   %7 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.9.0.copyload, <4 x float> zeroinitializer, <4 x float> %6)
-  %8 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %7, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>)
-  %9 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %7, <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>)
+  %8 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %7, <4 x float> splat (float 0x7FF0000000000000))
+  %9 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %7, <4 x float> splat (float 0xFFF0000000000000))
   %10 = fadd contract <4 x float> %.sroa.5.0.copyload, %5
   %11 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.9.0.copyload, <4 x float> zeroinitializer, <4 x float> %10)
   %12 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %11, <4 x float> %8)
@@ -879,12 +879,12 @@ define weak_odr void @_ZN7mitsuba9RectangleIfN5drjit6MatrixINS_8SpectrumIfLm4EEE
   store <4 x float> %42, ptr %.sroa.4229.0..sroa_idx.i, align 16
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 384
   store <4 x float> %43, ptr %.sroa.5.0..sroa_idx.i, align 16
-  %45 = fmul contract <4 x float> %29, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %45 = fmul contract <4 x float> %29, splat (float 2.000000e+00)
   %46 = fmul contract <4 x float> %29, zeroinitializer
   %47 = fmul contract <4 x float> %14, zeroinitializer
   %48 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %16, <4 x float> zeroinitializer, <4 x float> %47)
   %49 = fadd contract <4 x float> %18, %48
-  %50 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %31, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> %46)
+  %50 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %31, <4 x float> splat (float 2.000000e+00), <4 x float> %46)
   %51 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> zeroinitializer, <4 x float> %50)
   %52 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %31, <4 x float> zeroinitializer, <4 x float> %45)
   %53 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %33, <4 x float> zeroinitializer, <4 x float> %52)
@@ -2530,7 +2530,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i.i = phi i64 [ %26, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i ], [ 0, %5 ]
   %24 = getelementptr inbounds [4 x %"struct.drjit::Array.245"], ptr %22, i64 0, i64 %.019.i.i
   %25 = getelementptr inbounds [4 x %"struct.drjit::Packet"], ptr %24, i64 0, i64 %.019.i.i
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %25, align 16, !alias.scope !126
+  store <4 x float> splat (float 1.000000e+00), ptr %25, align 16, !alias.scope !126
   %26 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm4EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i, !llvm.loop !129
@@ -2544,7 +2544,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i2.i = phi i64 [ %30, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i ], [ 0, %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm4EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i ]
   %28 = getelementptr inbounds [4 x %"struct.drjit::Array.245"], ptr %27, i64 0, i64 %.019.i2.i
   %29 = getelementptr inbounds [4 x %"struct.drjit::Packet"], ptr %28, i64 0, i64 %.019.i2.i
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %29, align 16, !alias.scope !135
+  store <4 x float> splat (float 1.000000e+00), ptr %29, align 16, !alias.scope !135
   %30 = add nuw nsw i64 %.019.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %30, 4
   br i1 %exitcond.not.i3.i, label %_ZN7mitsuba9TransformINS_5PointIN5drjit6PacketIfLm4EEELm4EEEEC2Ev.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i, !llvm.loop !129
@@ -2846,7 +2846,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %150, ptr noundef nonnull align 16 dereferenceable(16) %146, i64 16, i1 false)
   %151 = getelementptr inbounds i8, ptr %23, i64 32
   %152 = load <4 x i32>, ptr %151, align 16
-  %153 = xor <4 x i32> %152, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %153 = xor <4 x i32> %152, splat (i32 -2147483648)
   %154 = bitcast <4 x i32> %153 to <4 x float>
   %155 = getelementptr inbounds i8, ptr %23, i64 80
   %156 = load <4 x float>, ptr %155, align 16
@@ -2895,25 +2895,25 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm4EEELm3EEENS2_6MatrixINS_8SpectrumI
   %175 = fcmp contract ole <4 x float> %157, %.sroa.04.0.copyload
   %176 = shufflevector <4 x i1> %175, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %177 = and <8 x i1> %174, %176
-  %178 = and <4 x i32> %.sroa.0310.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %178 = and <4 x i32> %.sroa.0310.0.copyload, splat (i32 2147483647)
   %179 = bitcast <4 x i32> %178 to <4 x float>
-  %180 = fcmp contract ole <4 x float> %179, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %180 = fcmp contract ole <4 x float> %179, splat (float 1.000000e+00)
   %181 = shufflevector <4 x i1> %180, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %182 = and <8 x i1> %177, %181
-  %183 = and <4 x i32> %.sroa.3.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %183 = and <4 x i32> %.sroa.3.0.copyload, splat (i32 2147483647)
   %184 = bitcast <4 x i32> %183 to <4 x float>
-  %185 = fcmp contract ole <4 x float> %184, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %185 = fcmp contract ole <4 x float> %184, splat (float 1.000000e+00)
   %186 = shufflevector <4 x i1> %185, <4 x i1> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %187 = and <8 x i1> %182, %186
   %188 = shufflevector <8 x i1> %187, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %189 = select contract <4 x i1> %188, <4 x float> %157, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %189 = select contract <4 x i1> %188, <4 x float> %157, <4 x float> splat (float 0x7FF0000000000000)
   store <4 x float> %189, ptr %0, align 16
   %190 = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %.sroa.0310.0.copyload, ptr %190, align 16
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store <4 x i32> %.sroa.3.0.copyload, ptr %.sroa.0.sroa.2.0..sroa_idx, align 16
   %191 = getelementptr inbounds i8, ptr %0, i64 48
-  store <4 x i32> <i32 -1, i32 -1, i32 -1, i32 -1>, ptr %191, align 16
+  store <4 x i32> splat (i32 -1), ptr %191, align 16
   %192 = getelementptr inbounds i8, ptr %0, i64 64
   store <4 x i32> zeroinitializer, ptr %192, align 16
   ret void
@@ -2953,7 +2953,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i.i = phi i64 [ %25, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i ], [ 0, %4 ]
   %23 = getelementptr inbounds [4 x %"struct.drjit::Array.245"], ptr %21, i64 0, i64 %.019.i.i
   %24 = getelementptr inbounds [4 x %"struct.drjit::Packet"], ptr %23, i64 0, i64 %.019.i.i
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %24, align 16, !alias.scope !192
+  store <4 x float> splat (float 1.000000e+00), ptr %24, align 16, !alias.scope !192
   %25 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %25, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm4EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i, !llvm.loop !129
@@ -2967,7 +2967,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i2.i = phi i64 [ %29, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i ], [ 0, %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm4EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i ]
   %27 = getelementptr inbounds [4 x %"struct.drjit::Array.245"], ptr %26, i64 0, i64 %.019.i2.i
   %28 = getelementptr inbounds [4 x %"struct.drjit::Packet"], ptr %27, i64 0, i64 %.019.i2.i
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %28, align 16, !alias.scope !200
+  store <4 x float> splat (float 1.000000e+00), ptr %28, align 16, !alias.scope !200
   %29 = add nuw nsw i64 %.019.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %29, 4
   br i1 %exitcond.not.i3.i, label %_ZN7mitsuba9TransformINS_5PointIN5drjit6PacketIfLm4EEELm4EEEEC2Ev.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i, !llvm.loop !129
@@ -3269,7 +3269,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %149, ptr noundef nonnull align 16 dereferenceable(16) %145, i64 16, i1 false)
   %150 = getelementptr inbounds i8, ptr %22, i64 32
   %151 = load <4 x i32>, ptr %150, align 16
-  %152 = xor <4 x i32> %151, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %152 = xor <4 x i32> %151, splat (i32 -2147483648)
   %153 = bitcast <4 x i32> %152 to <4 x float>
   %154 = getelementptr inbounds i8, ptr %22, i64 80
   %155 = load <4 x float>, ptr %154, align 16
@@ -3317,14 +3317,14 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm4EEELm3EEENS2_6MatrixINS_8SpectrumI
   %173 = fcmp contract ole <4 x float> %156, %.sroa.04.0.copyload
   %174 = shufflevector <4 x i1> %173, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %175 = and <8 x i1> %172, %174
-  %176 = and <4 x i32> %.sroa.0.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %176 = and <4 x i32> %.sroa.0.0.copyload, splat (i32 2147483647)
   %177 = bitcast <4 x i32> %176 to <4 x float>
-  %178 = fcmp contract ole <4 x float> %177, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %178 = fcmp contract ole <4 x float> %177, splat (float 1.000000e+00)
   %179 = shufflevector <4 x i1> %178, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %180 = and <8 x i1> %175, %179
-  %181 = and <4 x i32> %.sroa.2.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %181 = and <4 x i32> %.sroa.2.0.copyload, splat (i32 2147483647)
   %182 = bitcast <4 x i32> %181 to <4 x float>
-  %183 = fcmp contract ole <4 x float> %182, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %183 = fcmp contract ole <4 x float> %182, splat (float 1.000000e+00)
   %184 = shufflevector <4 x i1> %183, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %185 = and <8 x i1> %180, %184
   %186 = bitcast <8 x i1> %185 to i8
@@ -3365,7 +3365,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i.i = phi i64 [ %26, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i ], [ 0, %5 ]
   %24 = getelementptr inbounds [4 x %"struct.drjit::Array.259"], ptr %22, i64 0, i64 %.019.i.i
   %25 = getelementptr inbounds [4 x %"struct.drjit::Packet.136"], ptr %24, i64 0, i64 %.019.i.i
-  store <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %25, align 32, !alias.scope !250
+  store <8 x float> splat (float 1.000000e+00), ptr %25, align 32, !alias.scope !250
   %26 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm8EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i, !llvm.loop !253
@@ -3379,7 +3379,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i2.i = phi i64 [ %30, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i ], [ 0, %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm8EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i ]
   %28 = getelementptr inbounds [4 x %"struct.drjit::Array.259"], ptr %27, i64 0, i64 %.019.i2.i
   %29 = getelementptr inbounds [4 x %"struct.drjit::Packet.136"], ptr %28, i64 0, i64 %.019.i2.i
-  store <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %29, align 32, !alias.scope !259
+  store <8 x float> splat (float 1.000000e+00), ptr %29, align 32, !alias.scope !259
   %30 = add nuw nsw i64 %.019.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %30, 4
   br i1 %exitcond.not.i3.i, label %_ZN7mitsuba9TransformINS_5PointIN5drjit6PacketIfLm8EEELm4EEEEC2Ev.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i, !llvm.loop !253
@@ -3681,7 +3681,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %150, ptr noundef nonnull align 16 dereferenceable(16) %146, i64 16, i1 false)
   %151 = getelementptr inbounds i8, ptr %23, i64 64
   %152 = load <8 x i32>, ptr %151, align 32
-  %153 = xor <8 x i32> %152, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %153 = xor <8 x i32> %152, splat (i32 -2147483648)
   %154 = bitcast <8 x i32> %153 to <8 x float>
   %155 = getelementptr inbounds i8, ptr %23, i64 160
   %156 = load <8 x float>, ptr %155, align 32
@@ -3728,22 +3728,22 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm8EEELm3EEENS2_6MatrixINS_8SpectrumI
   %173 = and <8 x i1> %171, %172
   %174 = fcmp contract ole <8 x float> %157, %.sroa.04.0.copyload
   %175 = and <8 x i1> %173, %174
-  %176 = and <8 x i32> %.sroa.0346.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %176 = and <8 x i32> %.sroa.0346.0.copyload, splat (i32 2147483647)
   %177 = bitcast <8 x i32> %176 to <8 x float>
-  %178 = fcmp contract ole <8 x float> %177, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %178 = fcmp contract ole <8 x float> %177, splat (float 1.000000e+00)
   %179 = and <8 x i1> %175, %178
-  %180 = and <8 x i32> %.sroa.3.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %180 = and <8 x i32> %.sroa.3.0.copyload, splat (i32 2147483647)
   %181 = bitcast <8 x i32> %180 to <8 x float>
-  %182 = fcmp contract ole <8 x float> %181, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %182 = fcmp contract ole <8 x float> %181, splat (float 1.000000e+00)
   %183 = and <8 x i1> %179, %182
-  %184 = select contract <8 x i1> %183, <8 x float> %157, <8 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %184 = select contract <8 x i1> %183, <8 x float> %157, <8 x float> splat (float 0x7FF0000000000000)
   store <8 x float> %184, ptr %0, align 32
   %185 = getelementptr inbounds i8, ptr %0, i64 32
   store <8 x i32> %.sroa.0346.0.copyload, ptr %185, align 32
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store <8 x i32> %.sroa.3.0.copyload, ptr %.sroa.0.sroa.2.0..sroa_idx, align 32
   %186 = getelementptr inbounds i8, ptr %0, i64 96
-  store <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, ptr %186, align 32
+  store <8 x i32> splat (i32 -1), ptr %186, align 32
   %187 = getelementptr inbounds i8, ptr %0, i64 128
   store <8 x i32> zeroinitializer, ptr %187, align 32
   ret void
@@ -3783,7 +3783,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i.i = phi i64 [ %25, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i ], [ 0, %4 ]
   %23 = getelementptr inbounds [4 x %"struct.drjit::Array.259"], ptr %21, i64 0, i64 %.019.i.i
   %24 = getelementptr inbounds [4 x %"struct.drjit::Packet.136"], ptr %23, i64 0, i64 %.019.i.i
-  store <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %24, align 32, !alias.scope !316
+  store <8 x float> splat (float 1.000000e+00), ptr %24, align 32, !alias.scope !316
   %25 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %25, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm8EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i, !llvm.loop !253
@@ -3797,7 +3797,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixI
   %.019.i2.i = phi i64 [ %29, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i ], [ 0, %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm8EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i ]
   %27 = getelementptr inbounds [4 x %"struct.drjit::Array.259"], ptr %26, i64 0, i64 %.019.i2.i
   %28 = getelementptr inbounds [4 x %"struct.drjit::Packet.136"], ptr %27, i64 0, i64 %.019.i2.i
-  store <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %28, align 32, !alias.scope !324
+  store <8 x float> splat (float 1.000000e+00), ptr %28, align 32, !alias.scope !324
   %29 = add nuw nsw i64 %.019.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %29, 4
   br i1 %exitcond.not.i3.i, label %_ZN7mitsuba9TransformINS_5PointIN5drjit6PacketIfLm8EEELm4EEEEC2Ev.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm8EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i, !llvm.loop !253
@@ -4099,7 +4099,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(16) %149, ptr noundef nonnull align 16 dereferenceable(16) %145, i64 16, i1 false)
   %150 = getelementptr inbounds i8, ptr %22, i64 64
   %151 = load <8 x i32>, ptr %150, align 32
-  %152 = xor <8 x i32> %151, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %152 = xor <8 x i32> %151, splat (i32 -2147483648)
   %153 = bitcast <8 x i32> %152 to <8 x float>
   %154 = getelementptr inbounds i8, ptr %22, i64 160
   %155 = load <8 x float>, ptr %154, align 32
@@ -4144,13 +4144,13 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm8EEELm3EEENS2_6MatrixINS_8SpectrumI
   %170 = fcmp contract oge <8 x float> %156, zeroinitializer
   %171 = fcmp contract ole <8 x float> %156, %.sroa.04.0.copyload
   %172 = and <8 x i1> %170, %171
-  %173 = and <8 x i32> %.sroa.0.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %173 = and <8 x i32> %.sroa.0.0.copyload, splat (i32 2147483647)
   %174 = bitcast <8 x i32> %173 to <8 x float>
-  %175 = fcmp contract ole <8 x float> %174, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %175 = fcmp contract ole <8 x float> %174, splat (float 1.000000e+00)
   %176 = and <8 x i1> %172, %175
-  %177 = and <8 x i32> %.sroa.2.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %177 = and <8 x i32> %.sroa.2.0.copyload, splat (i32 2147483647)
   %178 = bitcast <8 x i32> %177 to <8 x float>
-  %179 = fcmp contract ole <8 x float> %178, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %179 = fcmp contract ole <8 x float> %178, splat (float 1.000000e+00)
   %180 = and <8 x i1> %176, %179
   %181 = bitcast <8 x i1> %180 to i8
   ret i8 %181
@@ -4190,7 +4190,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6Matrix
   %.019.i.i = phi i64 [ %26, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i ], [ 0, %5 ]
   %24 = getelementptr inbounds [4 x %"struct.drjit::Array.273"], ptr %22, i64 0, i64 %.019.i.i
   %25 = getelementptr inbounds [4 x %"struct.drjit::Packet.161"], ptr %24, i64 0, i64 %.019.i.i
-  store <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %25, align 64, !alias.scope !374
+  store <16 x float> splat (float 1.000000e+00), ptr %25, align 64, !alias.scope !374
   %26 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm16EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i, !llvm.loop !377
@@ -4204,7 +4204,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6Matrix
   %.019.i2.i = phi i64 [ %30, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i ], [ 0, %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm16EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i ]
   %28 = getelementptr inbounds [4 x %"struct.drjit::Array.273"], ptr %27, i64 0, i64 %.019.i2.i
   %29 = getelementptr inbounds [4 x %"struct.drjit::Packet.161"], ptr %28, i64 0, i64 %.019.i2.i
-  store <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %29, align 64, !alias.scope !383
+  store <16 x float> splat (float 1.000000e+00), ptr %29, align 64, !alias.scope !383
   %30 = add nuw nsw i64 %.019.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %30, 4
   br i1 %exitcond.not.i3.i, label %_ZN7mitsuba9TransformINS_5PointIN5drjit6PacketIfLm16EEELm4EEEEC2Ev.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i, !llvm.loop !377
@@ -4506,7 +4506,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %150, ptr noundef nonnull align 16 dereferenceable(16) %146, i64 16, i1 false)
   %151 = getelementptr inbounds i8, ptr %23, i64 128
   %152 = load <16 x i32>, ptr %151, align 64
-  %153 = xor <16 x i32> %152, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %153 = xor <16 x i32> %152, splat (i32 -2147483648)
   %154 = bitcast <16 x i32> %153 to <16 x float>
   %155 = getelementptr inbounds i8, ptr %23, i64 320
   %156 = load <16 x float>, ptr %155, align 64
@@ -4553,22 +4553,22 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm16EEELm3EEENS2_6MatrixINS_8Spectrum
   %173 = and <16 x i1> %171, %172
   %174 = fcmp contract ole <16 x float> %157, %.sroa.04.0.copyload
   %175 = and <16 x i1> %173, %174
-  %176 = and <16 x i32> %.sroa.0352.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %176 = and <16 x i32> %.sroa.0352.0.copyload, splat (i32 2147483647)
   %177 = bitcast <16 x i32> %176 to <16 x float>
-  %178 = fcmp contract ole <16 x float> %177, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %178 = fcmp contract ole <16 x float> %177, splat (float 1.000000e+00)
   %179 = and <16 x i1> %175, %178
-  %180 = and <16 x i32> %.sroa.3.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %180 = and <16 x i32> %.sroa.3.0.copyload, splat (i32 2147483647)
   %181 = bitcast <16 x i32> %180 to <16 x float>
-  %182 = fcmp contract ole <16 x float> %181, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %182 = fcmp contract ole <16 x float> %181, splat (float 1.000000e+00)
   %183 = and <16 x i1> %179, %182
-  %184 = select contract <16 x i1> %183, <16 x float> %157, <16 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %184 = select contract <16 x i1> %183, <16 x float> %157, <16 x float> splat (float 0x7FF0000000000000)
   store <16 x float> %184, ptr %0, align 64
   %185 = getelementptr inbounds i8, ptr %0, i64 64
   store <16 x i32> %.sroa.0352.0.copyload, ptr %185, align 64
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 128
   store <16 x i32> %.sroa.3.0.copyload, ptr %.sroa.0.sroa.2.0..sroa_idx, align 64
   %186 = getelementptr inbounds i8, ptr %0, i64 192
-  store <16 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, ptr %186, align 64
+  store <16 x i32> splat (i32 -1), ptr %186, align 64
   %187 = getelementptr inbounds i8, ptr %0, i64 256
   store <16 x i32> zeroinitializer, ptr %187, align 64
   ret void
@@ -4608,7 +4608,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6Matrix
   %.019.i.i = phi i64 [ %25, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i ], [ 0, %4 ]
   %23 = getelementptr inbounds [4 x %"struct.drjit::Array.273"], ptr %21, i64 0, i64 %.019.i.i
   %24 = getelementptr inbounds [4 x %"struct.drjit::Packet.161"], ptr %23, i64 0, i64 %.019.i.i
-  store <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %24, align 64, !alias.scope !440
+  store <16 x float> splat (float 1.000000e+00), ptr %24, align 64, !alias.scope !440
   %25 = add nuw nsw i64 %.019.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %25, 4
   br i1 %exitcond.not.i.i, label %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm16EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i.i, !llvm.loop !377
@@ -4622,7 +4622,7 @@ _ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6Matrix
   %.019.i2.i = phi i64 [ %29, %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i ], [ 0, %_ZN5drjit8identityINS_6MatrixINS_6PacketIfLm16EEELm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4typeELi0EEES7_m.exit.i ]
   %27 = getelementptr inbounds [4 x %"struct.drjit::Array.273"], ptr %26, i64 0, i64 %.019.i2.i
   %28 = getelementptr inbounds [4 x %"struct.drjit::Packet.161"], ptr %27, i64 0, i64 %.019.i2.i
-  store <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %28, align 64, !alias.scope !448
+  store <16 x float> splat (float 1.000000e+00), ptr %28, align 64, !alias.scope !448
   %29 = add nuw nsw i64 %.019.i2.i, 1
   %exitcond.not.i3.i = icmp eq i64 %29, 4
   br i1 %exitcond.not.i3.i, label %_ZN7mitsuba9TransformINS_5PointIN5drjit6PacketIfLm16EEELm4EEEEC2Ev.exit, label %_ZN5drjit15StaticArrayBaseINS_5ArrayINS_6PacketIfLm16EEELm4EEELm4ELb0ENS_6MatrixIS3_Lm4EEEE5zero_Em.exit.i1.i, !llvm.loop !377
@@ -4924,7 +4924,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0ENS_5ArrayIS2_Lm4EEEE6fmadd_ERKS4_S7_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(16) %149, ptr noundef nonnull align 16 dereferenceable(16) %145, i64 16, i1 false)
   %150 = getelementptr inbounds i8, ptr %22, i64 128
   %151 = load <16 x i32>, ptr %150, align 64
-  %152 = xor <16 x i32> %151, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %152 = xor <16 x i32> %151, splat (i32 -2147483648)
   %153 = bitcast <16 x i32> %152 to <16 x float>
   %154 = getelementptr inbounds i8, ptr %22, i64 320
   %155 = load <16 x float>, ptr %154, align 64
@@ -4969,13 +4969,13 @@ _ZNK7mitsuba3RayINS_5PointIN5drjit6PacketIfLm16EEELm3EEENS2_6MatrixINS_8Spectrum
   %170 = fcmp contract oge <16 x float> %156, zeroinitializer
   %171 = fcmp contract ole <16 x float> %156, %.sroa.04.0.copyload
   %172 = and <16 x i1> %170, %171
-  %173 = and <16 x i32> %.sroa.0.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %173 = and <16 x i32> %.sroa.0.0.copyload, splat (i32 2147483647)
   %174 = bitcast <16 x i32> %173 to <16 x float>
-  %175 = fcmp contract ole <16 x float> %174, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %175 = fcmp contract ole <16 x float> %174, splat (float 1.000000e+00)
   %176 = and <16 x i1> %172, %175
-  %177 = and <16 x i32> %.sroa.2.0.copyload, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %177 = and <16 x i32> %.sroa.2.0.copyload, splat (i32 2147483647)
   %178 = bitcast <16 x i32> %177 to <16 x float>
-  %179 = fcmp contract ole <16 x float> %178, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %179 = fcmp contract ole <16 x float> %178, splat (float 1.000000e+00)
   %180 = and <16 x i1> %176, %179
   %181 = bitcast <16 x i1> %180 to i16
   ret i16 %181

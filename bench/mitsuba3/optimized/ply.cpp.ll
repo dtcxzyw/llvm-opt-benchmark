@@ -2174,7 +2174,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %648 = load <4 x float>, ptr %293, align 16
   %649 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %648, <4 x float> %647, <4 x float> %646)
   %650 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %649)
-  %651 = fcmp contract one <4 x float> %650, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %651 = fcmp contract one <4 x float> %650, splat (float 0x7FF0000000000000)
   %652 = shufflevector <4 x i1> %651, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %653 = bitcast <8 x i1> %652 to i8
   %654 = and i8 %653, 7

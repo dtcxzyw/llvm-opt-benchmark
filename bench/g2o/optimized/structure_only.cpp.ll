@@ -1075,7 +1075,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit116:                 ; preds = %._crit_edge219, %16
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i: ; preds = %188
   %192 = load <2 x i64>, ptr %191, align 8
-  %193 = and <2 x i64> %192, <i64 9223372036854775807, i64 9223372036854775807>
+  %193 = and <2 x i64> %192, splat (i64 9223372036854775807)
   %194 = bitcast <2 x i64> %193 to <2 x double>
   %shift277 = shufflevector <2 x double> %194, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %195 = fadd <2 x double> %shift277, %194
@@ -2207,7 +2207,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit116:                 ; preds = %._crit_edge228, %16
 208:                                              ; preds = %203
   %209 = and i64 %206, 2
   %210 = load <2 x i64>, ptr %207, align 8
-  %211 = and <2 x i64> %210, <i64 9223372036854775807, i64 9223372036854775807>
+  %211 = and <2 x i64> %210, splat (i64 9223372036854775807)
   %212 = bitcast <2 x i64> %211 to <2 x double>
   %shift289 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %213 = fadd <2 x double> %shift289, %212

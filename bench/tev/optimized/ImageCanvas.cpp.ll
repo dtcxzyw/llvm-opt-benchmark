@@ -18105,7 +18105,7 @@ _ZNSt3__110shared_ptrIN3tev15TaskSharedStateEED2B8ne190000Ev.exit: ; preds = %1,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef <2 x float> @_ZNK3tev11ImageCanvas11pixelOffsetERKN7nanogui5ArrayIiLm2EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(376) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %1) local_unnamed_addr #18 align 2 {
 _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:
-  ret <2 x float> <float 0x3FBC71C6E0000000, float 0x3FBC71C6E0000000>
+  ret <2 x float> splat (float 0x3FBC71C6E0000000)
 }
 
 ; Function Attrs: nounwind

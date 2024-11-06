@@ -154,10 +154,10 @@ invoke.cont13:                                    ; preds = %entry
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN14b3OptimizedBvh5buildEP23b3StridingMeshInterfacebRK9b3Vector3S4_E20NodeTriangleCallback, i64 16), ptr %callback8, align 8
   %m_triangleNodes.i7 = getelementptr inbounds i8, ptr %callback8, i64 8
   store ptr %m_leafNodes, ptr %m_triangleNodes.i7, align 8
-  store <2 x float> <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, ptr %aabbMin, align 16
+  store <2 x float> splat (float 0xC3ABC16D60000000), ptr %aabbMin, align 16
   %6 = getelementptr inbounds i8, ptr %aabbMin, i64 8
   store <2 x float> <float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %6, align 8
-  store <2 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000>, ptr %aabbMax, align 16
+  store <2 x float> splat (float 0x43ABC16D60000000), ptr %aabbMax, align 16
   %7 = getelementptr inbounds i8, ptr %aabbMax, i64 8
   store <2 x float> <float 0x43ABC16D60000000, float 0.000000e+00>, ptr %7, align 8
   %vtable17 = load ptr, ptr %triangles, align 16

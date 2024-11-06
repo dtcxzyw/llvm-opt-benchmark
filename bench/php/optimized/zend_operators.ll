@@ -9988,9 +9988,9 @@ define noundef ptr @zend_str_tolower_copy(ptr noundef returned writeonly %0, ptr
   %.1141 = phi ptr [ %12, %.preheader ], [ %0, %3 ]
   %.1 = phi ptr [ %11, %.preheader ], [ %1, %3 ]
   %6 = load <16 x i8>, ptr %.1, align 1
-  %7 = add <16 x i8> %6, <i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63>
-  %8 = icmp slt <16 x i8> %7, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %9 = select <16 x i1> %8, <16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <16 x i8> zeroinitializer
+  %7 = add <16 x i8> %6, splat (i8 63)
+  %8 = icmp slt <16 x i8> %7, splat (i8 -102)
+  %9 = select <16 x i1> %8, <16 x i8> splat (i8 32), <16 x i8> zeroinitializer
   %10 = add <16 x i8> %9, %6
   store <16 x i8> %10, ptr %.1141, align 1
   %11 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -10034,9 +10034,9 @@ define noundef ptr @zend_str_toupper_copy(ptr noundef returned writeonly %0, ptr
   %.1141 = phi ptr [ %12, %.preheader ], [ %0, %3 ]
   %.1 = phi ptr [ %11, %.preheader ], [ %1, %3 ]
   %6 = load <16 x i8>, ptr %.1, align 1
-  %7 = add <16 x i8> %6, <i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31>
-  %8 = icmp slt <16 x i8> %7, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %9 = select <16 x i1> %8, <16 x i8> <i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32>, <16 x i8> zeroinitializer
+  %7 = add <16 x i8> %6, splat (i8 31)
+  %8 = icmp slt <16 x i8> %7, splat (i8 -102)
+  %9 = select <16 x i1> %8, <16 x i8> splat (i8 -32), <16 x i8> zeroinitializer
   %10 = add <16 x i8> %9, %6
   store <16 x i8> %10, ptr %.1141, align 1
   %11 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -10082,9 +10082,9 @@ define noalias ptr @zend_str_tolower_dup(ptr noundef readonly %0, i64 noundef %1
   %.1141.i = phi ptr [ %13, %.preheader.i ], [ %4, %2 ]
   %.1.i = phi ptr [ %12, %.preheader.i ], [ %0, %2 ]
   %7 = load <16 x i8>, ptr %.1.i, align 1
-  %8 = add <16 x i8> %7, <i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63>
-  %9 = icmp slt <16 x i8> %8, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %10 = select <16 x i1> %9, <16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <16 x i8> zeroinitializer
+  %8 = add <16 x i8> %7, splat (i8 63)
+  %9 = icmp slt <16 x i8> %8, splat (i8 -102)
+  %10 = select <16 x i1> %9, <16 x i8> splat (i8 32), <16 x i8> zeroinitializer
   %11 = add <16 x i8> %10, %7
   store <16 x i8> %11, ptr %.1141.i, align 1
   %12 = getelementptr inbounds i8, ptr %.1.i, i64 16
@@ -10140,9 +10140,9 @@ define noalias ptr @zend_str_toupper_dup(ptr noundef readonly %0, i64 noundef %1
   %.1141.i = phi ptr [ %13, %.preheader.i ], [ %4, %2 ]
   %.1.i = phi ptr [ %12, %.preheader.i ], [ %0, %2 ]
   %7 = load <16 x i8>, ptr %.1.i, align 1
-  %8 = add <16 x i8> %7, <i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31>
-  %9 = icmp slt <16 x i8> %8, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %10 = select <16 x i1> %9, <16 x i8> <i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32>, <16 x i8> zeroinitializer
+  %8 = add <16 x i8> %7, splat (i8 31)
+  %9 = icmp slt <16 x i8> %8, splat (i8 -102)
+  %10 = select <16 x i1> %9, <16 x i8> splat (i8 -32), <16 x i8> zeroinitializer
   %11 = add <16 x i8> %10, %7
   store <16 x i8> %11, ptr %.1141.i, align 1
   %12 = getelementptr inbounds i8, ptr %.1.i, i64 16
@@ -10192,9 +10192,9 @@ define void @zend_str_tolower(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 .preheader:                                       ; preds = %2, %.preheader
   %.1138 = phi ptr [ %10, %.preheader ], [ %0, %2 ]
   %5 = load <16 x i8>, ptr %.1138, align 1
-  %6 = add <16 x i8> %5, <i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63>
-  %7 = icmp slt <16 x i8> %6, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %8 = select <16 x i1> %7, <16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <16 x i8> zeroinitializer
+  %6 = add <16 x i8> %5, splat (i8 63)
+  %7 = icmp slt <16 x i8> %6, splat (i8 -102)
+  %8 = select <16 x i1> %7, <16 x i8> splat (i8 32), <16 x i8> zeroinitializer
   %9 = add <16 x i8> %8, %5
   store <16 x i8> %9, ptr %.1138, align 1
   %10 = getelementptr i8, ptr %.1138, i64 16
@@ -10233,9 +10233,9 @@ define void @zend_str_toupper(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 .preheader:                                       ; preds = %2, %.preheader
   %.1138 = phi ptr [ %10, %.preheader ], [ %0, %2 ]
   %5 = load <16 x i8>, ptr %.1138, align 1
-  %6 = add <16 x i8> %5, <i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31>
-  %7 = icmp slt <16 x i8> %6, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %8 = select <16 x i1> %7, <16 x i8> <i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32>, <16 x i8> zeroinitializer
+  %6 = add <16 x i8> %5, splat (i8 31)
+  %7 = icmp slt <16 x i8> %6, splat (i8 -102)
+  %8 = select <16 x i1> %7, <16 x i8> splat (i8 -32), <16 x i8> zeroinitializer
   %9 = add <16 x i8> %8, %5
   store <16 x i8> %9, ptr %.1138, align 1
   %10 = getelementptr i8, ptr %.1138, i64 16
@@ -10314,9 +10314,9 @@ define ptr @zend_str_tolower_dup_ex(ptr noundef %0, i64 noundef %1) local_unname
   %.1195 = phi ptr [ %30, %.preheader ], [ %19, %16 ]
   %.1 = phi ptr [ %29, %.preheader ], [ %.0198207, %16 ]
   %24 = load <16 x i8>, ptr %.1, align 1
-  %25 = add <16 x i8> %24, <i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63>
-  %26 = icmp slt <16 x i8> %25, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %27 = select <16 x i1> %26, <16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <16 x i8> zeroinitializer
+  %25 = add <16 x i8> %24, splat (i8 63)
+  %26 = icmp slt <16 x i8> %25, splat (i8 -102)
+  %27 = select <16 x i1> %26, <16 x i8> splat (i8 32), <16 x i8> zeroinitializer
   %28 = add <16 x i8> %27, %24
   store <16 x i8> %28, ptr %.1195, align 1
   %29 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -10408,9 +10408,9 @@ define ptr @zend_str_toupper_dup_ex(ptr noundef %0, i64 noundef %1) local_unname
   %.1195 = phi ptr [ %30, %.preheader ], [ %19, %16 ]
   %.1 = phi ptr [ %29, %.preheader ], [ %.0198207, %16 ]
   %24 = load <16 x i8>, ptr %.1, align 1
-  %25 = add <16 x i8> %24, <i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31>
-  %26 = icmp slt <16 x i8> %25, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %27 = select <16 x i1> %26, <16 x i8> <i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32>, <16 x i8> zeroinitializer
+  %25 = add <16 x i8> %24, splat (i8 31)
+  %26 = icmp slt <16 x i8> %25, splat (i8 -102)
+  %27 = select <16 x i1> %26, <16 x i8> splat (i8 -32), <16 x i8> zeroinitializer
   %28 = add <16 x i8> %27, %24
   store <16 x i8> %28, ptr %.1195, align 1
   %29 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -10473,8 +10473,8 @@ define noundef ptr @zend_string_tolower_ex(ptr noundef %0, i1 noundef zeroext %1
 
 10:                                               ; preds = %7
   %11 = load <16 x i8>, ptr %.0408, align 1
-  %12 = add <16 x i8> %11, <i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63>
-  %13 = icmp slt <16 x i8> %12, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
+  %12 = add <16 x i8> %11, splat (i8 63)
+  %13 = icmp slt <16 x i8> %12, splat (i8 -102)
   %14 = bitcast <16 x i1> %13 to i16
   %.not418 = icmp eq i16 %14, 0
   br i1 %.not418, label %7, label %15
@@ -10508,7 +10508,7 @@ define noundef ptr @zend_string_tolower_ex(ptr noundef %0, i1 noundef zeroext %1
   %31 = sub i64 %29, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %5, i64 %31, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
-  %33 = select <16 x i1> %13, <16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <16 x i8> zeroinitializer
+  %33 = select <16 x i1> %13, <16 x i8> splat (i8 32), <16 x i8> zeroinitializer
   %34 = add <16 x i8> %33, %11
   store <16 x i8> %34, ptr %32, align 1
   %35 = getelementptr inbounds i8, ptr %32, i64 16
@@ -10522,9 +10522,9 @@ define noundef ptr @zend_string_tolower_ex(ptr noundef %0, i1 noundef zeroext %1
   %.1405 = phi ptr [ %46, %.preheader420 ], [ %35, %22 ]
   %.1 = phi ptr [ %45, %.preheader420 ], [ %8, %22 ]
   %40 = load <16 x i8>, ptr %.1, align 1
-  %41 = add <16 x i8> %40, <i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63, i8 63>
-  %42 = icmp slt <16 x i8> %41, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %43 = select <16 x i1> %42, <16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, <16 x i8> zeroinitializer
+  %41 = add <16 x i8> %40, splat (i8 63)
+  %42 = icmp slt <16 x i8> %41, splat (i8 -102)
+  %43 = select <16 x i1> %42, <16 x i8> splat (i8 32), <16 x i8> zeroinitializer
   %44 = add <16 x i8> %43, %40
   store <16 x i8> %44, ptr %.1405, align 1
   %45 = getelementptr inbounds i8, ptr %.1, i64 16
@@ -10662,8 +10662,8 @@ define noundef ptr @zend_string_toupper_ex(ptr noundef %0, i1 noundef zeroext %1
 
 10:                                               ; preds = %7
   %11 = load <16 x i8>, ptr %.0408, align 1
-  %12 = add <16 x i8> %11, <i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31>
-  %13 = icmp slt <16 x i8> %12, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
+  %12 = add <16 x i8> %11, splat (i8 31)
+  %13 = icmp slt <16 x i8> %12, splat (i8 -102)
   %14 = bitcast <16 x i1> %13 to i16
   %.not418 = icmp eq i16 %14, 0
   br i1 %.not418, label %7, label %15
@@ -10697,7 +10697,7 @@ define noundef ptr @zend_string_toupper_ex(ptr noundef %0, i1 noundef zeroext %1
   %31 = sub i64 %29, %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %5, i64 %31, i1 false)
   %32 = getelementptr inbounds i8, ptr %28, i64 %31
-  %33 = select <16 x i1> %13, <16 x i8> <i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32>, <16 x i8> zeroinitializer
+  %33 = select <16 x i1> %13, <16 x i8> splat (i8 -32), <16 x i8> zeroinitializer
   %34 = add <16 x i8> %33, %11
   store <16 x i8> %34, ptr %32, align 1
   %35 = getelementptr inbounds i8, ptr %32, i64 16
@@ -10711,9 +10711,9 @@ define noundef ptr @zend_string_toupper_ex(ptr noundef %0, i1 noundef zeroext %1
   %.1405 = phi ptr [ %46, %.preheader420 ], [ %35, %22 ]
   %.1 = phi ptr [ %45, %.preheader420 ], [ %8, %22 ]
   %40 = load <16 x i8>, ptr %.1, align 1
-  %41 = add <16 x i8> %40, <i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31, i8 31>
-  %42 = icmp slt <16 x i8> %41, <i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102, i8 -102>
-  %43 = select <16 x i1> %42, <16 x i8> <i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32, i8 -32>, <16 x i8> zeroinitializer
+  %41 = add <16 x i8> %40, splat (i8 31)
+  %42 = icmp slt <16 x i8> %41, splat (i8 -102)
+  %43 = select <16 x i1> %42, <16 x i8> splat (i8 -32), <16 x i8> zeroinitializer
   %44 = add <16 x i8> %43, %40
   store <16 x i8> %44, ptr %.1405, align 1
   %45 = getelementptr inbounds i8, ptr %.1, i64 16

@@ -6147,13 +6147,13 @@ vector.ph:                                        ; preds = %for.body24.us.prehe
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind162 = phi <4 x i32> [ %induction161, %vector.ph ], [ %vec.ind.next165, %vector.body ]
-  %step.add163 = add <4 x i32> %vec.ind162, <i32 4, i32 4, i32 4, i32 4>
+  %step.add163 = add <4 x i32> %vec.ind162, splat (i32 4)
   %41 = getelementptr i32, ptr %40, i64 %index
   %42 = getelementptr inbounds i8, ptr %41, i64 16
   store <4 x i32> %vec.ind162, ptr %41, align 4, !tbaa !30
   store <4 x i32> %step.add163, ptr %42, align 4, !tbaa !30
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next165 = add <4 x i32> %vec.ind162, <i32 8, i32 8, i32 8, i32 8>
+  %vec.ind.next165 = add <4 x i32> %vec.ind162, splat (i32 8)
   %43 = icmp eq i64 %index.next, %n.vec
   br i1 %43, label %middle.block, label %vector.body, !llvm.loop !285
 
@@ -48742,15 +48742,15 @@ vector.body291:                                   ; preds = %vector.body291, %ve
   %vec.phi = phi <2 x i64> [ %75, %vector.ph286 ], [ %80, %vector.body291 ]
   %vec.phi293 = phi <2 x i64> [ zeroinitializer, %vector.ph286 ], [ %81, %vector.body291 ]
   %vec.ind = phi <2 x i64> [ <i64 0, i64 1>, %vector.ph286 ], [ %vec.ind.next, %vector.body291 ]
-  %step.add = add <2 x i64> %vec.ind, <i64 2, i64 2>
+  %step.add = add <2 x i64> %vec.ind, splat (i64 2)
   %76 = lshr <2 x i64> %broadcast.splat, %vec.ind
   %77 = lshr <2 x i64> %broadcast.splat, %step.add
-  %78 = and <2 x i64> %76, <i64 1, i64 1>
-  %79 = and <2 x i64> %77, <i64 1, i64 1>
+  %78 = and <2 x i64> %76, splat (i64 1)
+  %79 = and <2 x i64> %77, splat (i64 1)
   %80 = add <2 x i64> %78, %vec.phi
   %81 = add <2 x i64> %79, %vec.phi293
   %index.next295 = add nuw i64 %index292, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %82 = icmp eq i64 %index.next295, %n.vec288
   br i1 %82, label %middle.block283, label %vector.body291, !llvm.loop !1390
 

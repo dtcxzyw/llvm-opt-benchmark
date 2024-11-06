@@ -250,7 +250,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noundef %0, i32 nound
   %31 = bitcast <2 x i64> %26 to <8 x i16>
   %32 = sub <8 x i16> %31, %30
   %33 = bitcast <8 x i16> %32 to <4 x i32>
-  %34 = lshr <4 x i32> %33, <i32 16, i32 16, i32 16, i32 16>
+  %34 = lshr <4 x i32> %33, splat (i32 16)
   %35 = bitcast <4 x i32> %34 to <8 x i16>
   %36 = add <8 x i16> %32, %35
   %37 = bitcast <8 x i16> %36 to <16 x i8>
@@ -294,7 +294,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noundef %0, i32 nound
   %65 = bitcast <2 x i64> %60 to <8 x i16>
   %66 = sub <8 x i16> %65, %64
   %67 = bitcast <8 x i16> %66 to <4 x i32>
-  %68 = lshr <4 x i32> %67, <i32 16, i32 16, i32 16, i32 16>
+  %68 = lshr <4 x i32> %67, splat (i32 16)
   %69 = bitcast <4 x i32> %68 to <8 x i16>
   %70 = add <8 x i16> %66, %69
   br label %71
@@ -337,7 +337,7 @@ define internal void @CollectColorBlueTransforms_SSE41(ptr noundef %0, i32 nound
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4
   %101 = bitcast <8 x i16> %95 to <4 x i32>
-  %102 = lshr <4 x i32> %101, <i32 16, i32 16, i32 16, i32 16>
+  %102 = lshr <4 x i32> %101, splat (i32 16)
   %103 = bitcast <4 x i32> %102 to <8 x i16>
   %104 = add <8 x i16> %95, %103
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4

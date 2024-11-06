@@ -505,7 +505,7 @@ if.then6:                                         ; preds = %if.then
 if.then.i.i:                                      ; preds = %if.then6, %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i
   %bytes.addr.085.i = phi i32 [ %sub.i.i, %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i ], [ %div, %if.then6 ]
   %to.addr.084.i = phi ptr [ %7, %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i ], [ %3, %if.then6 ]
-  store <32 x i8> <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>, ptr %to.addr.084.i, align 1
+  store <32 x i8> splat (i8 -1), ptr %to.addr.084.i, align 1
   %sub.i.i = add nsw i32 %bytes.addr.085.i, -32
   %tobool.not.i.i = icmp eq i32 %sub.i.i, 0
   br i1 %tobool.not.i.i, label %if.end, label %_ZN8facebook5velox4simd6detail11setNextWordIN5xsimd5batchIaNS4_4fma3INS4_4avx2EEEEES8_EEbRPvT_RiRKT0_.exit.i

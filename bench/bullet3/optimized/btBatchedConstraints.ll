@@ -890,7 +890,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %bboxMin.sroa.6.0451.i = phi float [ 0x43ABC16D60000000, %for.body.lr.ph.i ], [ %bboxMin.sroa.6.1.i, %for.inc.i ]
   %bboxMin.sroa.0.0450.i = phi float [ 0x43ABC16D60000000, %for.body.lr.ph.i ], [ %bboxMin.sroa.0.1.i, %for.inc.i ]
   %bboxMax.sroa.7.0449.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0.000000e+00>, %for.body.lr.ph.i ], [ %bboxMax.sroa.7.1.i, %for.inc.i ]
-  %bboxMax.sroa.0.0448.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, %for.body.lr.ph.i ], [ %bboxMax.sroa.0.1.i, %for.inc.i ]
+  %bboxMax.sroa.0.0448.i = phi <2 x float> [ splat (float 0xC3ABC16D60000000), %for.body.lr.ph.i ], [ %bboxMax.sroa.0.1.i, %for.inc.i ]
   %33 = load ptr, ptr %m_data.i165.i, align 8
   %arrayidx.i167.i = getelementptr inbounds %struct.btSolverBody, ptr %33, i64 %indvars.iv.i
   %m_origin.i.i = getelementptr inbounds i8, ptr %arrayidx.i167.i, i64 48
@@ -959,7 +959,7 @@ for.inc.i:                                        ; preds = %if.then.i11.i183.i,
   br i1 %cmp54.i, label %for.body.i, label %for.end.i, !llvm.loop !15
 
 for.end.i:                                        ; preds = %for.inc.i, %invoke.cont50.i
-  %bboxMax.sroa.0.0.lcssa.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, %invoke.cont50.i ], [ %bboxMax.sroa.0.1.i, %for.inc.i ]
+  %bboxMax.sroa.0.0.lcssa.i = phi <2 x float> [ splat (float 0xC3ABC16D60000000), %invoke.cont50.i ], [ %bboxMax.sroa.0.1.i, %for.inc.i ]
   %bboxMax.sroa.7.0.lcssa.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0.000000e+00>, %invoke.cont50.i ], [ %bboxMax.sroa.7.1.i, %for.inc.i ]
   %bboxMin.sroa.0.0.lcssa.i = phi float [ 0x43ABC16D60000000, %invoke.cont50.i ], [ %bboxMin.sroa.0.1.i, %for.inc.i ]
   %bboxMin.sroa.6.0.lcssa.i = phi float [ 0x43ABC16D60000000, %invoke.cont50.i ], [ %bboxMin.sroa.6.1.i, %for.inc.i ]
@@ -982,7 +982,7 @@ for.body.preheader.i191.i:                        ; preds = %.noexc200.i
 for.body.i193.i:                                  ; preds = %for.inc.i.i, %for.body.preheader.i191.i
   %indvars.iv.i194.i = phi i64 [ 0, %for.body.preheader.i191.i ], [ %indvars.iv.next.i195.i, %for.inc.i.i ]
   %retval.sroa.6.034.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0.000000e+00>, %for.body.preheader.i191.i ], [ %retval.sroa.6.1.i.i, %for.inc.i.i ]
-  %retval.sroa.0.033.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0x3F50624DE0000000>, %for.body.preheader.i191.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
+  %retval.sroa.0.033.i.i = phi <2 x float> [ splat (float 0x3F50624DE0000000), %for.body.preheader.i191.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
   %bodyIds.i.i = getelementptr inbounds %struct.btBatchedConstraintInfo, ptr %41, i64 %indvars.iv.i194.i, i32 2
   %42 = load i32, ptr %bodyIds.i.i, align 4
   %idxprom9.i.i = sext i32 %42 to i64
@@ -1047,7 +1047,7 @@ for.inc.i.i:                                      ; preds = %if.then.i11.i.i.i, 
   br i1 %exitcond.not.i196.i, label %invoke.cont79.i, label %for.body.i193.i, !llvm.loop !16
 
 invoke.cont79.i:                                  ; preds = %for.inc.i.i, %.noexc200.i
-  %retval.sroa.0.0.lcssa.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0x3F50624DE0000000>, %.noexc200.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
+  %retval.sroa.0.0.lcssa.i.i = phi <2 x float> [ splat (float 0x3F50624DE0000000), %.noexc200.i ], [ %retval.sroa.0.1.i.i, %for.inc.i.i ]
   %retval.sroa.6.0.lcssa.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0.000000e+00>, %.noexc200.i ], [ %retval.sroa.6.1.i.i, %for.inc.i.i ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %__profile.i188.i) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %__profile.i188.i)
@@ -2324,7 +2324,7 @@ for.body.i42:                                     ; preds = %for.body.i42, %for.
   %bboxMin.sroa.10.0100.i = phi float [ 0x43ABC16D60000000, %for.body.lr.ph.i39 ], [ %bboxMin.sroa.10.1.i, %for.body.i42 ]
   %bboxMin.sroa.5.099.i = phi float [ 0x43ABC16D60000000, %for.body.lr.ph.i39 ], [ %bboxMin.sroa.5.1.i, %for.body.i42 ]
   %bboxMax.sroa.7.097.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0.000000e+00>, %for.body.lr.ph.i39 ], [ %bboxMax.sroa.7.2.i59, %for.body.i42 ]
-  %bboxMax.sroa.0.096.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, %for.body.lr.ph.i39 ], [ %bboxMax.sroa.0.2.i53, %for.body.i42 ]
+  %bboxMax.sroa.0.096.i = phi <2 x float> [ splat (float 0xC3ABC16D60000000), %for.body.lr.ph.i39 ], [ %bboxMax.sroa.0.2.i53, %for.body.i42 ]
   %m_origin.i.i44 = getelementptr inbounds %struct.btSolverBody, ptr %206, i64 %indvars.iv.i43, i32 0, i32 1
   %207 = load float, ptr %m_origin.i.i44, align 4
   %arrayidx7.i20.i = getelementptr inbounds i8, ptr %m_origin.i.i44, i64 4
@@ -2363,7 +2363,7 @@ lpad.i:                                           ; preds = %invoke.cont56.i
   br label %common.resume
 
 invoke.cont56.lr.ph.i:                            ; preds = %for.body.i42, %for.cond.preheader.i
-  %bboxMax.sroa.0.0.lcssa.i11 = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000>, %for.cond.preheader.i ], [ %bboxMax.sroa.0.2.i53, %for.body.i42 ]
+  %bboxMax.sroa.0.0.lcssa.i11 = phi <2 x float> [ splat (float 0xC3ABC16D60000000), %for.cond.preheader.i ], [ %bboxMax.sroa.0.2.i53, %for.body.i42 ]
   %bboxMax.sroa.7.0.lcssa.i12 = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0.000000e+00>, %for.cond.preheader.i ], [ %bboxMax.sroa.7.2.i59, %for.body.i42 ]
   %bboxMin.sroa.5.0.lcssa.i = phi float [ 0x43ABC16D60000000, %for.cond.preheader.i ], [ %bboxMin.sroa.5.1.i, %for.body.i42 ]
   %bboxMin.sroa.10.0.lcssa.i = phi float [ 0x43ABC16D60000000, %for.cond.preheader.i ], [ %bboxMin.sroa.10.1.i, %for.body.i42 ]

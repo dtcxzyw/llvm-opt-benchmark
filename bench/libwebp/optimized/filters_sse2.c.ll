@@ -82,7 +82,7 @@ define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr nocap
   %35 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv62
   %36 = extractelement <2 x i64> %34, i64 0
   store i64 %36, ptr %35, align 1
-  %37 = lshr <2 x i64> %34, <i64 56, i64 56>
+  %37 = lshr <2 x i64> %34, splat (i64 56)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %.not = icmp samesign ugt i64 %indvars.iv.next, %17
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 8
@@ -163,7 +163,7 @@ define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %31 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv62.i
   %32 = extractelement <2 x i64> %30, i64 0
   store i64 %32, ptr %31, align 1
-  %33 = lshr <2 x i64> %30, <i64 56, i64 56>
+  %33 = lshr <2 x i64> %30, splat (i64 56)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %13
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 8
@@ -301,7 +301,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr nocaptu
   %31 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv62.i
   %32 = extractelement <2 x i64> %30, i64 0
   store i64 %32, ptr %31, align 1
-  %33 = lshr <2 x i64> %30, <i64 56, i64 56>
+  %33 = lshr <2 x i64> %30, splat (i64 56)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %.not.i = icmp samesign ugt i64 %indvars.iv.next.i, %13
   %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 8

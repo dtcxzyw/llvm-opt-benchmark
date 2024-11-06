@@ -540,7 +540,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %7 = load float, ptr %1, align 4, !tbaa !54
   store float %7, ptr %6, align 4, !tbaa !49
   %8 = getelementptr inbounds i8, ptr %6, i64 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %8, align 4, !tbaa !33
+  store <2 x float> splat (float 1.000000e+00), ptr %8, align 4, !tbaa !33
   %9 = fcmp ord float %7, 0.000000e+00
   br i1 %9, label %10, label %14
 

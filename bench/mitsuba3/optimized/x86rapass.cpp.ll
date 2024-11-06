@@ -1048,18 +1048,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8612RACFGBuilder6onInstEPNS0_8I
   %681 = phi i64 [ 0, %671 ], [ %694, %679 ]
   %682 = getelementptr i8, ptr %680, <8 x i64> <i64 0, i64 32, i64 64, i64 96, i64 128, i64 160, i64 192, i64 224>
   %683 = getelementptr inbounds i8, <8 x ptr> %682, i64 8
-  %684 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %683, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !105
-  %685 = and <8 x i32> %684, <i32 16777216, i32 16777216, i32 16777216, i32 16777216, i32 16777216, i32 16777216, i32 16777216, i32 16777216>
+  %684 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %683, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !105
+  %685 = and <8 x i32> %684, splat (i32 16777216)
   %686 = icmp eq <8 x i32> %685, zeroinitializer
-  %687 = select <8 x i1> %686, <8 x i32> <i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255, i32 255>, <8 x i32> <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
+  %687 = select <8 x i1> %686, <8 x i32> splat (i32 255), <8 x i32> splat (i32 15)
   %688 = getelementptr inbounds i8, <8 x ptr> %682, i64 16
-  %689 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %688, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !106
+  %689 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %688, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !106
   %690 = and <8 x i32> %687, %689
-  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %690, <8 x ptr> %688, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !106
+  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %690, <8 x ptr> %688, i32 4, <8 x i1> splat (i1 true)), !tbaa !106
   %691 = getelementptr inbounds i8, <8 x ptr> %682, i64 20
-  %692 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %691, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !107
+  %692 = call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %691, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !107
   %693 = and <8 x i32> %692, %687
-  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %693, <8 x ptr> %691, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !107
+  call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %693, <8 x ptr> %691, i32 4, <8 x i1> splat (i1 true)), !tbaa !107
   %694 = add nuw i64 %681, 8
   %695 = getelementptr i8, ptr %680, i64 256
   %696 = icmp eq i64 %694, %677

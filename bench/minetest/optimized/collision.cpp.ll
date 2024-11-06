@@ -915,7 +915,7 @@ invoke.cont39:                                    ; preds = %if.else, %call1.i.n
   %Z.i1197 = getelementptr inbounds i8, ptr %pos_f, i64 8
   %26 = shufflevector <2 x float> %accel_f.coerce0, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %27 = insertelement <2 x float> %26, float %accel_f.coerce1, i64 1
-  %28 = fmul nsz <2 x float> %27, <float 5.000000e-01, float 5.000000e-01>
+  %28 = fmul nsz <2 x float> %27, splat (float 5.000000e-01)
   %29 = insertelement <2 x float> poison, float %dtime.addr.0, i64 0
   %30 = shufflevector <2 x float> %29, <2 x float> poison, <2 x i32> zeroinitializer
   %31 = fmul nsz <2 x float> %28, %30
@@ -986,9 +986,9 @@ invoke.cont93:                                    ; preds = %cond.false84, %cond
   %cond89 = phi float [ -5.000000e+07, %cond.end75 ], [ %46, %cond.false84 ], [ 5.000000e+07, %cond.false80 ]
   %47 = insertelement <2 x float> poison, float %cond76, i64 0
   %48 = insertelement <2 x float> %47, float %cond63, i64 1
-  %49 = fmul nsz <2 x float> %48, <float 1.000000e+04, float 1.000000e+04>
+  %49 = fmul nsz <2 x float> %48, splat (float 1.000000e+04)
   %50 = call nsz <2 x float> @llvm.trunc.v2f32(<2 x float> %49)
-  %51 = fdiv nsz <2 x float> %50, <float 1.000000e+04, float 1.000000e+04>
+  %51 = fdiv nsz <2 x float> %50, splat (float 1.000000e+04)
   %52 = call nsz float @llvm.trunc.f32(float %cond89)
   %div.i10.i = fdiv nsz float %52, 1.000000e+04
   store <2 x float> %51, ptr %speed_f, align 4, !tbaa.struct !61
@@ -1092,9 +1092,9 @@ invoke.cont199:                                   ; preds = %if.then.i.i1245, %_
   %82 = fadd nsz <2 x float> %80, %81
   %83 = shufflevector <2 x float> %82, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   %84 = fcmp nsz ogt <2 x float> %83, zeroinitializer
-  %85 = select <2 x i1> %84, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %85 = select <2 x i1> %84, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %86 = fadd nsz <2 x float> %83, %85
-  %87 = fdiv nsz <2 x float> %86, <float 1.000000e+01, float 1.000000e+01>
+  %87 = fdiv nsz <2 x float> %86, splat (float 1.000000e+01)
   %88 = fptosi <2 x float> %87 to <2 x i16>
   %89 = add <2 x i16> %88, <i16 -1, i16 1>
   %add13.i1320 = add i16 %conv27.i1305, 1
@@ -2220,7 +2220,7 @@ invoke.cont493:                                   ; preds = %land.lhs.true489
 invoke.cont497:                                   ; preds = %invoke.cont493
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %object_collisionbox) #25
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %object_collisionbox, align 16, !tbaa !12
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !12
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !12
   %vtable498 = load ptr, ptr %232, align 8, !tbaa !23
   %vfn499 = getelementptr inbounds i8, ptr %vtable498, i64 8
   %234 = load ptr, ptr %vfn499, align 8
@@ -2641,9 +2641,9 @@ if.end775.thread:                                 ; preds = %for.cond.cleanup581
   %285 = insertelement <2 x float> poison, float %dtime.addr.12209, i64 0
   %286 = shufflevector <2 x float> %285, <2 x float> poison, <2 x i32> zeroinitializer
   %287 = fmul nsz <2 x float> %286, %284
-  %288 = fmul nsz <2 x float> %287, <float 1.000000e+02, float 1.000000e+02>
+  %288 = fmul nsz <2 x float> %287, splat (float 1.000000e+02)
   %289 = call nsz <2 x float> @llvm.trunc.v2f32(<2 x float> %288)
-  %290 = fdiv nsz <2 x float> %289, <float 1.000000e+02, float 1.000000e+02>
+  %290 = fdiv nsz <2 x float> %289, splat (float 1.000000e+02)
   %291 = fadd nsz <2 x float> %268, %290
   store <2 x float> %291, ptr %pos_f, align 4, !tbaa !12
   %add6.i1620 = fadd nsz float %271, %div.i10.i1609
@@ -2770,9 +2770,9 @@ invoke.cont690:                                   ; preds = %land.end.thread, %l
   %318 = insertelement <2 x float> poison, float %292, i64 0
   %319 = insertelement <2 x float> %318, float %314, i64 1
   %320 = fmul nsz <2 x float> %317, %319
-  %321 = fmul nsz <2 x float> %320, <float 1.000000e+02, float 1.000000e+02>
+  %321 = fmul nsz <2 x float> %320, splat (float 1.000000e+02)
   %322 = call nsz <2 x float> @llvm.trunc.v2f32(<2 x float> %321)
-  %323 = fdiv nsz <2 x float> %322, <float 1.000000e+02, float 1.000000e+02>
+  %323 = fdiv nsz <2 x float> %322, splat (float 1.000000e+02)
   %324 = fadd nsz <2 x float> %268, %323
   store <2 x float> %324, ptr %pos_f, align 4, !tbaa !12
   %add6.i1657 = fadd nsz float %271, %div.i10.i1646

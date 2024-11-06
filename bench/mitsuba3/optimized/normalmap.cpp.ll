@@ -994,7 +994,7 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %18 = getelementptr inbounds i8, ptr %17, i64 128
   %19 = load ptr, ptr %18, align 8, !noalias !9
   %20 = tail call contract <4 x float> %19(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %6), !noalias !9
-  %21 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %20, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>)
+  %21 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %20, <4 x float> splat (float 2.000000e+00), <4 x float> splat (float -1.000000e+00))
   %22 = fmul contract <4 x float> %21, %21
   %shift = shufflevector <4 x float> %22, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %23 = fadd contract <4 x float> %22, %shift
@@ -1190,7 +1190,7 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %8 = getelementptr inbounds i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   %10 = tail call contract <4 x float> %9(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 16 dereferenceable(240) %2, i1 noundef zeroext %3)
-  %11 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>)
+  %11 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> splat (float 2.000000e+00), <4 x float> splat (float -1.000000e+00))
   %12 = fmul contract <4 x float> %11, %11
   %shift = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %13 = fadd contract <4 x float> %12, %shift
@@ -1248,7 +1248,7 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %15 = getelementptr inbounds i8, ptr %14, i64 128
   %16 = load ptr, ptr %15, align 8, !noalias !32
   %17 = tail call contract <4 x float> %16(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext %5), !noalias !32
-  %18 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>)
+  %18 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %17, <4 x float> splat (float 2.000000e+00), <4 x float> splat (float -1.000000e+00))
   %19 = fmul contract <4 x float> %18, %18
   %shift = shufflevector <4 x float> %19, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %20 = fadd contract <4 x float> %19, %shift
@@ -1379,7 +1379,7 @@ define weak_odr noundef float @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8Spectr
   %11 = getelementptr inbounds i8, ptr %10, i64 128
   %12 = load ptr, ptr %11, align 8, !noalias !49
   %13 = tail call contract <4 x float> %12(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 16 dereferenceable(240) %2, i1 noundef zeroext %4), !noalias !49
-  %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %13, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>)
+  %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %13, <4 x float> splat (float 2.000000e+00), <4 x float> splat (float -1.000000e+00))
   %15 = fmul contract <4 x float> %14, %14
   %shift = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %16 = fadd contract <4 x float> %15, %shift
@@ -1469,7 +1469,7 @@ define weak_odr void @_ZNK7mitsuba9NormalMapIfN5drjit6MatrixINS_8SpectrumIfLm4EE
   %16 = getelementptr inbounds i8, ptr %15, i64 128
   %17 = load ptr, ptr %16, align 8, !noalias !52
   %18 = tail call <4 x float> %17(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 16 dereferenceable(240) %3, i1 noundef zeroext true)
-  %19 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>, <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>)
+  %19 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> splat (float 2.000000e+00), <4 x float> splat (float -1.000000e+00))
   %20 = fmul contract <4 x float> %19, %19
   %shift = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %21 = fadd contract <4 x float> %20, %shift

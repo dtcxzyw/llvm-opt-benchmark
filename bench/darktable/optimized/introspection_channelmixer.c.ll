@@ -678,7 +678,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %354 = fadd reassoc nsz arcp contract afn <2 x float> %352, %353
   %355 = fadd reassoc nsz arcp contract afn <2 x float> %354, %350
   %356 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %355, <2 x float> zeroinitializer)
-  %357 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %356, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %357 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %356, <2 x float> splat (float 1.000000e+00))
   %358 = shufflevector <2 x float> %357, <2 x float> poison, <2 x i32> <i32 1, i32 0>
   store <2 x float> %358, ptr %347, align 4, !tbaa !6, !alias.scope !44, !noalias !41
   %359 = fmul reassoc nsz arcp contract afn float %345, %156
@@ -772,7 +772,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %438 = fmul reassoc nsz arcp contract afn <2 x float> %437, %424
   %439 = fadd reassoc nsz arcp contract afn <2 x float> %435, %438
   %440 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %439, <2 x float> zeroinitializer)
-  %441 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %440, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %441 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %440, <2 x float> splat (float 1.000000e+00))
   %442 = fmul reassoc nsz arcp contract afn <2 x float> %431, %399
   %443 = shufflevector <2 x float> %442, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %444 = fadd reassoc nsz arcp contract afn <2 x float> %443, %442

@@ -99,10 +99,10 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   %14 = getelementptr inbounds i8, ptr %9, i64 36
   store <8 x float> <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01, float 1.000000e+00, float 0.000000e+00, float 2.500000e-01, float 5.000000e-01>, ptr %11, align 4, !tbaa !13
   %15 = getelementptr inbounds i8, ptr %9, i64 100
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %15, align 4, !tbaa !13
+  store <8 x float> splat (float 5.000000e-01), ptr %15, align 4, !tbaa !13
   store <8 x float> <float 7.500000e-01, float 1.000000e+00, float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01, float 1.000000e+00, float 0.000000e+00>, ptr %14, align 4, !tbaa !13
   store <8 x float> <float 2.500000e-01, float 5.000000e-01, float 7.500000e-01, float 1.000000e+00, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %12, align 4, !tbaa !13
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %13, align 4, !tbaa !13
+  store <8 x float> splat (float 5.000000e-01), ptr %13, align 4, !tbaa !13
   store ptr %9, ptr %3, align 8, !tbaa !14
   store i32 164, ptr %4, align 4, !tbaa !16
   store i32 2, ptr %5, align 4, !tbaa !16
@@ -484,20 +484,20 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %246 = fmul reassoc nsz arcp contract afn <8 x float> %242, %242
   %247 = fmul reassoc nsz arcp contract afn <8 x float> %243, %243
   %248 = fmul reassoc nsz arcp contract afn <8 x float> %244, %244
-  %249 = shl <8 x i64> %236, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
-  %250 = add <8 x i64> %249, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %251 = add <8 x i64> %249, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %252 = add <8 x i64> %249, <i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48, i64 48>
+  %249 = shl <8 x i64> %236, splat (i64 1)
+  %250 = add <8 x i64> %249, splat (i64 16)
+  %251 = add <8 x i64> %249, splat (i64 32)
+  %252 = add <8 x i64> %249, splat (i64 48)
   %253 = getelementptr inbounds float, ptr %234, <8 x i64> %249
   %254 = getelementptr inbounds float, ptr %234, <8 x i64> %250
   %255 = getelementptr inbounds float, ptr %234, <8 x i64> %251
   %256 = getelementptr inbounds float, ptr %234, <8 x i64> %252
-  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %245, <8 x ptr> %253, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !13, !alias.scope !47, !noalias !44
-  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %246, <8 x ptr> %254, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !13, !alias.scope !47, !noalias !44
-  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %247, <8 x ptr> %255, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !13, !alias.scope !47, !noalias !44
-  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %248, <8 x ptr> %256, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !13, !alias.scope !47, !noalias !44
+  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %245, <8 x ptr> %253, i32 4, <8 x i1> splat (i1 true)), !tbaa !13, !alias.scope !47, !noalias !44
+  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %246, <8 x ptr> %254, i32 4, <8 x i1> splat (i1 true)), !tbaa !13, !alias.scope !47, !noalias !44
+  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %247, <8 x ptr> %255, i32 4, <8 x i1> splat (i1 true)), !tbaa !13, !alias.scope !47, !noalias !44
+  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %248, <8 x ptr> %256, i32 4, <8 x i1> splat (i1 true)), !tbaa !13, !alias.scope !47, !noalias !44
   %257 = add nuw i64 %235, 32
-  %258 = add <8 x i64> %236, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %258 = add <8 x i64> %236, splat (i64 32)
   %259 = icmp eq i64 %257, %226
   br i1 %259, label %260, label %.preheader83, !llvm.loop !54
 
@@ -655,18 +655,18 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %371 = getelementptr inbounds i8, ptr %370, i64 32
   %372 = getelementptr inbounds i8, ptr %370, i64 64
   %373 = getelementptr inbounds i8, ptr %370, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %370, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %371, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %372, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %373, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %370, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %371, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %372, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %373, align 4, !tbaa !13, !noalias !64
   %374 = getelementptr float, ptr %296, i64 %369
   %375 = getelementptr i8, ptr %374, i64 32
   %376 = getelementptr i8, ptr %374, i64 64
   %377 = getelementptr i8, ptr %374, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %374, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %375, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %376, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %377, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %374, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %375, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %376, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %377, align 4, !tbaa !13, !noalias !64
   %378 = add nuw i64 %369, 32
   %379 = icmp eq i64 %378, %367
   br i1 %379, label %380, label %368, !llvm.loop !65
@@ -907,18 +907,18 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %551 = getelementptr inbounds i8, ptr %550, i64 32
   %552 = getelementptr inbounds i8, ptr %550, i64 64
   %553 = getelementptr inbounds i8, ptr %550, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %550, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %551, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %552, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %553, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %550, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %551, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %552, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %553, align 4, !tbaa !13, !noalias !64
   %554 = getelementptr float, ptr %296, i64 %549
   %555 = getelementptr i8, ptr %554, i64 32
   %556 = getelementptr i8, ptr %554, i64 64
   %557 = getelementptr i8, ptr %554, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %554, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %555, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %556, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %557, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %554, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %555, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %556, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %557, align 4, !tbaa !13, !noalias !64
   %558 = add nuw i64 %549, 32
   %559 = icmp eq i64 %558, %547
   br i1 %559, label %560, label %548, !llvm.loop !69
@@ -1058,18 +1058,18 @@ compute_channel_noise.exit:                       ; preds = %56, %68, %69
   %648 = getelementptr inbounds i8, ptr %647, i64 32
   %649 = getelementptr inbounds i8, ptr %647, i64 64
   %650 = getelementptr inbounds i8, ptr %647, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %647, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %648, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %649, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %650, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %647, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %648, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %649, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %650, align 4, !tbaa !13, !noalias !64
   %651 = getelementptr float, ptr %296, i64 %646
   %652 = getelementptr i8, ptr %651, i64 32
   %653 = getelementptr i8, ptr %651, i64 64
   %654 = getelementptr i8, ptr %651, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %651, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %652, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %653, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %654, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %651, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %652, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %653, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %654, align 4, !tbaa !13, !noalias !64
   %655 = add nuw i64 %646, 32
   %656 = icmp eq i64 %655, %644
   br i1 %656, label %657, label %645, !llvm.loop !72
@@ -1279,18 +1279,18 @@ compute_channel_noise.exit58:                     ; preds = %742, %745, %746
   %790 = getelementptr inbounds i8, ptr %789, i64 32
   %791 = getelementptr inbounds i8, ptr %789, i64 64
   %792 = getelementptr inbounds i8, ptr %789, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %789, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %790, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %791, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %792, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %789, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %790, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %791, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %792, align 4, !tbaa !13, !noalias !64
   %793 = getelementptr float, ptr %296, i64 %788
   %794 = getelementptr i8, ptr %793, i64 32
   %795 = getelementptr i8, ptr %793, i64 64
   %796 = getelementptr i8, ptr %793, i64 96
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %793, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %794, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %795, align 4, !tbaa !13, !noalias !64
-  store <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>, ptr %796, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %793, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %794, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %795, align 4, !tbaa !13, !noalias !64
+  store <8 x float> splat (float 5.000000e-01), ptr %796, align 4, !tbaa !13, !noalias !64
   %797 = add nuw i64 %788, 32
   %798 = icmp eq i64 %797, %722
   br i1 %798, label %799, label %.preheader80, !llvm.loop !77
@@ -1709,7 +1709,7 @@ compute_channel_noise.exit58:                     ; preds = %742, %745, %746
   %1064 = phi i64 [ %1107, %.preheader70 ], [ 0, %1055 ]
   %1065 = phi <8 x i32> [ %1108, %.preheader70 ], [ <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>, %1055 ]
   %1066 = add <8 x i32> %1065, %730
-  %1067 = srem <8 x i32> %1066, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %1067 = srem <8 x i32> %1066, splat (i32 6)
   %1068 = sext <8 x i32> %1067 to <8 x i64>
   %1069 = extractelement <8 x i64> %1068, i64 0
   %1070 = getelementptr inbounds [6 x i8], ptr %274, i64 %1063, i64 %1069
@@ -1751,7 +1751,7 @@ compute_channel_noise.exit58:                     ; preds = %742, %745, %746
   %1106 = getelementptr float, ptr %1059, i64 %1064
   call void @llvm.masked.store.v8f32.p0(<8 x float> %1105, ptr %1106, i32 4, <8 x i1> %1102), !tbaa !13, !alias.scope !59, !noalias !82
   %1107 = add nuw nsw i64 %1064, 8
-  %1108 = add <8 x i32> %1065, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %1108 = add <8 x i32> %1065, splat (i32 8)
   %1109 = icmp eq i64 %1107, %728
   br i1 %1109, label %1110, label %.preheader70, !llvm.loop !83
 
@@ -1927,7 +1927,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %53 = load ptr, ptr %52, align 8, !tbaa !104
   %54 = load <4 x i16>, ptr %53, align 2, !tbaa !105
   %55 = uitofp <4 x i16> %54 to <4 x float>
-  %56 = fmul reassoc nsz arcp contract afn <4 x float> %55, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %56 = fmul reassoc nsz arcp contract afn <4 x float> %55, splat (float 0x3EF0000000000000)
   store <4 x float> %56, ptr %11, align 4, !tbaa !13
   %57 = getelementptr inbounds i8, ptr %53, i64 8
   %58 = load i16, ptr %57, align 2, !tbaa !105
@@ -1999,7 +1999,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %107 = load ptr, ptr %106, align 8, !tbaa !104
   %108 = load <4 x i16>, ptr %107, align 2, !tbaa !105
   %109 = uitofp <4 x i16> %108 to <4 x float>
-  %110 = fmul reassoc nsz arcp contract afn <4 x float> %109, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %110 = fmul reassoc nsz arcp contract afn <4 x float> %109, splat (float 0x3EF0000000000000)
   store <4 x float> %110, ptr %102, align 4, !tbaa !13
   %111 = getelementptr inbounds i8, ptr %107, i64 8
   %112 = load i16, ptr %111, align 2, !tbaa !105
@@ -2071,7 +2071,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %161 = load ptr, ptr %160, align 8, !tbaa !104
   %162 = load <4 x i16>, ptr %161, align 2, !tbaa !105
   %163 = uitofp <4 x i16> %162 to <4 x float>
-  %164 = fmul reassoc nsz arcp contract afn <4 x float> %163, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %164 = fmul reassoc nsz arcp contract afn <4 x float> %163, splat (float 0x3EF0000000000000)
   store <4 x float> %164, ptr %156, align 4, !tbaa !13
   %165 = getelementptr inbounds i8, ptr %161, i64 8
   %166 = load i16, ptr %165, align 2, !tbaa !105
@@ -2143,7 +2143,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
   %215 = load ptr, ptr %214, align 8, !tbaa !104
   %216 = load <4 x i16>, ptr %215, align 2, !tbaa !105
   %217 = uitofp <4 x i16> %216 to <4 x float>
-  %218 = fmul reassoc nsz arcp contract afn <4 x float> %217, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %218 = fmul reassoc nsz arcp contract afn <4 x float> %217, splat (float 0x3EF0000000000000)
   store <4 x float> %218, ptr %210, align 4, !tbaa !13
   %219 = getelementptr inbounds i8, ptr %215, i64 8
   %220 = load i16, ptr %219, align 2, !tbaa !105
@@ -2563,7 +2563,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
   %86 = getelementptr inbounds i8, ptr %9, i64 48
   store double -1.000000e+00, ptr %86, align 8, !tbaa !114
   %87 = getelementptr inbounds i8, ptr %9, i64 32
-  store <2 x double> <double -1.000000e+00, double -1.000000e+00>, ptr %87, align 8, !tbaa !115
+  store <2 x double> splat (double -1.000000e+00), ptr %87, align 8, !tbaa !115
   %88 = getelementptr inbounds i8, ptr %9, i64 224
   store i32 0, ptr %88, align 8, !tbaa !116
   %89 = getelementptr inbounds i8, ptr %9, i64 228
@@ -2932,7 +2932,7 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %157 = fdiv reassoc nsz arcp contract afn <4 x double> %154, %156
   %158 = fptrunc <4 x double> %157 to <4 x float>
   %159 = call reassoc nsz arcp contract afn <4 x float> @llvm.exp.v4f32(<4 x float> %158)
-  %160 = fsub reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %159
+  %160 = fsub reassoc nsz arcp contract afn <4 x float> splat (float 1.000000e+00), %159
   %161 = load <4 x float>, ptr %147, align 4, !tbaa !13
   %162 = fmul reassoc nsz arcp contract afn <4 x float> %160, %161
   %163 = fadd reassoc nsz arcp contract afn <4 x float> %162, %159
@@ -3035,10 +3035,10 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %233 = uitofp <8 x i16> %229 to <8 x float>
   %234 = uitofp <8 x i16> %230 to <8 x float>
   %235 = uitofp <8 x i16> %231 to <8 x float>
-  %236 = fmul reassoc nsz arcp contract afn <8 x float> %232, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %237 = fmul reassoc nsz arcp contract afn <8 x float> %233, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %238 = fmul reassoc nsz arcp contract afn <8 x float> %234, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %239 = fmul reassoc nsz arcp contract afn <8 x float> %235, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %236 = fmul reassoc nsz arcp contract afn <8 x float> %232, splat (float 0x3EF0000000000000)
+  %237 = fmul reassoc nsz arcp contract afn <8 x float> %233, splat (float 0x3EF0000000000000)
+  %238 = fmul reassoc nsz arcp contract afn <8 x float> %234, splat (float 0x3EF0000000000000)
+  %239 = fmul reassoc nsz arcp contract afn <8 x float> %235, splat (float 0x3EF0000000000000)
   %240 = getelementptr inbounds i8, ptr %8, i64 1036
   %241 = getelementptr inbounds i8, ptr %8, i64 1068
   %242 = getelementptr inbounds i8, ptr %8, i64 1100
@@ -3058,10 +3058,10 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %252 = uitofp <8 x i16> %248 to <8 x float>
   %253 = uitofp <8 x i16> %249 to <8 x float>
   %254 = uitofp <8 x i16> %250 to <8 x float>
-  %255 = fmul reassoc nsz arcp contract afn <8 x float> %251, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %256 = fmul reassoc nsz arcp contract afn <8 x float> %252, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %257 = fmul reassoc nsz arcp contract afn <8 x float> %253, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %258 = fmul reassoc nsz arcp contract afn <8 x float> %254, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %255 = fmul reassoc nsz arcp contract afn <8 x float> %251, splat (float 0x3EF0000000000000)
+  %256 = fmul reassoc nsz arcp contract afn <8 x float> %252, splat (float 0x3EF0000000000000)
+  %257 = fmul reassoc nsz arcp contract afn <8 x float> %253, splat (float 0x3EF0000000000000)
+  %258 = fmul reassoc nsz arcp contract afn <8 x float> %254, splat (float 0x3EF0000000000000)
   %259 = getelementptr inbounds i8, ptr %8, i64 1132
   %260 = getelementptr inbounds i8, ptr %8, i64 1164
   %261 = getelementptr inbounds i8, ptr %8, i64 1196
@@ -3092,7 +3092,7 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %281 = fdiv reassoc nsz arcp contract afn <4 x double> %278, %280
   %282 = fptrunc <4 x double> %281 to <4 x float>
   %283 = call reassoc nsz arcp contract afn <4 x float> @llvm.exp.v4f32(<4 x float> %282)
-  %284 = fsub reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %283
+  %284 = fsub reassoc nsz arcp contract afn <4 x float> splat (float 1.000000e+00), %283
   %285 = load <4 x float>, ptr %271, align 4, !tbaa !13
   %286 = fmul reassoc nsz arcp contract afn <4 x float> %284, %285
   %287 = fpext <4 x float> %286 to <4 x double>
@@ -3203,10 +3203,10 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %365 = uitofp <8 x i16> %361 to <8 x float>
   %366 = uitofp <8 x i16> %362 to <8 x float>
   %367 = uitofp <8 x i16> %363 to <8 x float>
-  %368 = fmul reassoc nsz arcp contract afn <8 x float> %364, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %369 = fmul reassoc nsz arcp contract afn <8 x float> %365, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %370 = fmul reassoc nsz arcp contract afn <8 x float> %366, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %371 = fmul reassoc nsz arcp contract afn <8 x float> %367, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %368 = fmul reassoc nsz arcp contract afn <8 x float> %364, splat (float 0x3EF0000000000000)
+  %369 = fmul reassoc nsz arcp contract afn <8 x float> %365, splat (float 0x3EF0000000000000)
+  %370 = fmul reassoc nsz arcp contract afn <8 x float> %366, splat (float 0x3EF0000000000000)
+  %371 = fmul reassoc nsz arcp contract afn <8 x float> %367, splat (float 0x3EF0000000000000)
   %372 = getelementptr inbounds i8, ptr %8, i64 1548
   %373 = getelementptr inbounds i8, ptr %8, i64 1580
   %374 = getelementptr inbounds i8, ptr %8, i64 1612
@@ -3226,10 +3226,10 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %384 = uitofp <8 x i16> %380 to <8 x float>
   %385 = uitofp <8 x i16> %381 to <8 x float>
   %386 = uitofp <8 x i16> %382 to <8 x float>
-  %387 = fmul reassoc nsz arcp contract afn <8 x float> %383, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %388 = fmul reassoc nsz arcp contract afn <8 x float> %384, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %389 = fmul reassoc nsz arcp contract afn <8 x float> %385, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %390 = fmul reassoc nsz arcp contract afn <8 x float> %386, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %387 = fmul reassoc nsz arcp contract afn <8 x float> %383, splat (float 0x3EF0000000000000)
+  %388 = fmul reassoc nsz arcp contract afn <8 x float> %384, splat (float 0x3EF0000000000000)
+  %389 = fmul reassoc nsz arcp contract afn <8 x float> %385, splat (float 0x3EF0000000000000)
+  %390 = fmul reassoc nsz arcp contract afn <8 x float> %386, splat (float 0x3EF0000000000000)
   %391 = getelementptr inbounds i8, ptr %8, i64 1644
   %392 = getelementptr inbounds i8, ptr %8, i64 1676
   %393 = getelementptr inbounds i8, ptr %8, i64 1708
@@ -3421,10 +3421,10 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %517 = uitofp <8 x i16> %513 to <8 x float>
   %518 = uitofp <8 x i16> %514 to <8 x float>
   %519 = uitofp <8 x i16> %515 to <8 x float>
-  %520 = fmul reassoc nsz arcp contract afn <8 x float> %516, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %521 = fmul reassoc nsz arcp contract afn <8 x float> %517, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %522 = fmul reassoc nsz arcp contract afn <8 x float> %518, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %523 = fmul reassoc nsz arcp contract afn <8 x float> %519, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %520 = fmul reassoc nsz arcp contract afn <8 x float> %516, splat (float 0x3EF0000000000000)
+  %521 = fmul reassoc nsz arcp contract afn <8 x float> %517, splat (float 0x3EF0000000000000)
+  %522 = fmul reassoc nsz arcp contract afn <8 x float> %518, splat (float 0x3EF0000000000000)
+  %523 = fmul reassoc nsz arcp contract afn <8 x float> %519, splat (float 0x3EF0000000000000)
   store <8 x float> %520, ptr %401, align 4, !tbaa !13
   store <8 x float> %521, ptr %411, align 4, !tbaa !13
   store <8 x float> %522, ptr %412, align 4, !tbaa !13
@@ -3441,10 +3441,10 @@ define internal noundef i32 @rawdenoise_draw(ptr noundef %0, ptr noundef %1, ptr
   %533 = uitofp <8 x i16> %529 to <8 x float>
   %534 = uitofp <8 x i16> %530 to <8 x float>
   %535 = uitofp <8 x i16> %531 to <8 x float>
-  %536 = fmul reassoc nsz arcp contract afn <8 x float> %532, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %537 = fmul reassoc nsz arcp contract afn <8 x float> %533, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %538 = fmul reassoc nsz arcp contract afn <8 x float> %534, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
-  %539 = fmul reassoc nsz arcp contract afn <8 x float> %535, <float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000, float 0x3EF0000000000000>
+  %536 = fmul reassoc nsz arcp contract afn <8 x float> %532, splat (float 0x3EF0000000000000)
+  %537 = fmul reassoc nsz arcp contract afn <8 x float> %533, splat (float 0x3EF0000000000000)
+  %538 = fmul reassoc nsz arcp contract afn <8 x float> %534, splat (float 0x3EF0000000000000)
+  %539 = fmul reassoc nsz arcp contract afn <8 x float> %535, splat (float 0x3EF0000000000000)
   store <8 x float> %536, ptr %414, align 4, !tbaa !13
   store <8 x float> %537, ptr %415, align 4, !tbaa !13
   store <8 x float> %538, ptr %416, align 4, !tbaa !13
@@ -4222,7 +4222,7 @@ define internal noundef i32 @rawdenoise_motion_notify(ptr noundef %0, ptr nocapt
   %91 = fdiv reassoc nsz arcp contract afn <4 x double> %88, %90
   %92 = fptrunc <4 x double> %91 to <4 x float>
   %93 = call reassoc nsz arcp contract afn <4 x float> @llvm.exp.v4f32(<4 x float> %92)
-  %94 = fsub reassoc nsz arcp contract afn <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %93
+  %94 = fsub reassoc nsz arcp contract afn <4 x float> splat (float 1.000000e+00), %93
   %95 = load <4 x float>, ptr %81, align 4, !tbaa !13
   %96 = fmul reassoc nsz arcp contract afn <4 x float> %94, %95
   %97 = fpext <4 x float> %96 to <4 x double>

@@ -557,7 +557,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %while.body.i.i
-  %cmp.i.i.i12.i.i = icmp eq <16 x i8> %7, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i.i12.i.i = icmp eq <16 x i8> %7, splat (i8 -128)
   %12 = bitcast <16 x i1> %cmp.i.i.i12.i.i to i16
   %cmp.i13.not.i.i = icmp eq i16 %12, 0
   br i1 %cmp.i13.not.i.i, label %if.end31.i.i, label %if.then.i
@@ -846,7 +846,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %while.body.i.i
-  %cmp.i.i.i10.i.i = icmp eq <16 x i8> %7, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i.i10.i.i = icmp eq <16 x i8> %7, splat (i8 -128)
   %12 = bitcast <16 x i1> %cmp.i.i.i10.i.i to i16
   %cmp.i11.not.i.i = icmp eq i16 %12, 0
   br i1 %cmp.i11.not.i.i, label %if.end29.i.i, label %return
@@ -878,11 +878,11 @@ _ZN4absl7debian218container_internal12AssertIsFullEPa.exit.i: ; preds = %lor.lhs
   %sub.i.i = add i64 %and.i.i.i, -16
   %and.i.i = and i64 %sub.i.i, %3
   %15 = load <16 x i8>, ptr %add.ptr.i.i.i, align 1
-  %cmp.i.i.i.i.i = icmp eq <16 x i8> %15, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i.i.i.i = icmp eq <16 x i8> %15, splat (i8 -128)
   %16 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
   %add.ptr.i.i4 = getelementptr inbounds i8, ptr %2, i64 %and.i.i
   %17 = load <16 x i8>, ptr %add.ptr.i.i4, align 1
-  %cmp.i.i.i4.i.i = icmp eq <16 x i8> %17, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i.i4.i.i = icmp eq <16 x i8> %17, splat (i8 -128)
   %18 = bitcast <16 x i1> %cmp.i.i.i4.i.i to i16
   %cmp.i.i1.i = icmp ne i16 %18, 0
   %cmp.i5.i.i = icmp ne i16 %16, 0
@@ -1093,7 +1093,7 @@ for.inc.i.i.i:                                    ; preds = %for.body.i.i.i
   br i1 %cmp.i.not.i.i.i, label %for.end.i.i.i, label %for.body.i.i.i
 
 for.end.i.i.i:                                    ; preds = %for.inc.i.i.i, %while.body.i.i.i
-  %cmp.i.i.i12.i.i.i = icmp eq <16 x i8> %17, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i.i12.i.i.i = icmp eq <16 x i8> %17, splat (i8 -128)
   %22 = bitcast <16 x i1> %cmp.i.i.i12.i.i.i to i16
   %cmp.i13.not.i.i.i = icmp eq i16 %22, 0
   br i1 %cmp.i13.not.i.i.i, label %if.end31.i.i.i, label %if.then.i.i
@@ -6018,7 +6018,7 @@ entry:
   %and.i.i.i = and i64 %xor.i.i.i, %1
   %add.ptr12.i = getelementptr inbounds i8, ptr %0, i64 %and.i.i.i
   %3 = load <16 x i8>, ptr %add.ptr12.i, align 1
-  %cmp.i.i.i13.i = icmp slt <16 x i8> %3, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %3, splat (i8 -1)
   %4 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
   %cmp.i.not14.i = icmp eq i16 %4, 0
   br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
@@ -6031,7 +6031,7 @@ if.end.i:                                         ; preds = %entry, %if.end.i
   %and.i6.i = and i64 %add3.i.i, %1
   %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %and.i6.i
   %5 = load <16 x i8>, ptr %add.ptr.i, align 1
-  %cmp.i.i.i.i = icmp slt <16 x i8> %5, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i = icmp slt <16 x i8> %5, splat (i8 -1)
   %6 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %6, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !61
@@ -6090,7 +6090,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPN3re
   %and.i.i.i11 = and i64 %xor.i.i.i10, %12
   %add.ptr12.i12 = getelementptr inbounds i8, ptr %11, i64 %and.i.i.i11
   %14 = load <16 x i8>, ptr %add.ptr12.i12, align 1
-  %cmp.i.i.i13.i13 = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13.i13 = icmp slt <16 x i8> %14, splat (i8 -1)
   %15 = bitcast <16 x i1> %cmp.i.i.i13.i13 to i16
   %cmp.i.not14.i14 = icmp eq i16 %15, 0
   br i1 %cmp.i.not14.i14, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33
@@ -6103,7 +6103,7 @@ if.end.i24:                                       ; preds = %_ZN4absl7debian218c
   %and.i6.i29 = and i64 %add3.i.i28, %12
   %add.ptr.i30 = getelementptr inbounds i8, ptr %11, i64 %and.i6.i29
   %16 = load <16 x i8>, ptr %add.ptr.i30, align 1
-  %cmp.i.i.i.i31 = icmp slt <16 x i8> %16, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i31 = icmp slt <16 x i8> %16, splat (i8 -1)
   %17 = bitcast <16 x i1> %cmp.i.i.i.i31 to i16
   %cmp.i.not.i32 = icmp eq i16 %17, 0
   br i1 %cmp.i.not.i32, label %if.end.i24, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit33, !llvm.loop !61
@@ -6224,7 +6224,7 @@ if.then:                                          ; preds = %for.body
   %and.i.i.i = and i64 %xor.i.i.i, %10
   %add.ptr12.i = getelementptr inbounds i8, ptr %9, i64 %and.i.i.i
   %12 = load <16 x i8>, ptr %add.ptr12.i, align 1
-  %cmp.i.i.i13.i = icmp slt <16 x i8> %12, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %12, splat (i8 -1)
   %13 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
   %cmp.i.not14.i = icmp eq i16 %13, 0
   br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
@@ -6237,7 +6237,7 @@ if.end.i:                                         ; preds = %if.then, %if.end.i
   %and.i6.i = and i64 %add3.i.i, %10
   %add.ptr.i = getelementptr inbounds i8, ptr %9, i64 %and.i6.i
   %14 = load <16 x i8>, ptr %add.ptr.i, align 1
-  %cmp.i.i.i.i15 = icmp slt <16 x i8> %14, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i15 = icmp slt <16 x i8> %14, splat (i8 -1)
   %15 = bitcast <16 x i1> %cmp.i.i.i.i15 to i16
   %cmp.i.not.i = icmp eq i16 %15, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !61
@@ -6329,7 +6329,7 @@ if.end:                                           ; preds = %for.body
   %and.i.i.i = and i64 %xor.i.i.i, %3
   %add.ptr12.i = getelementptr inbounds i8, ptr %4, i64 %and.i.i.i
   %10 = load <16 x i8>, ptr %add.ptr12.i, align 1
-  %cmp.i.i.i13.i = icmp slt <16 x i8> %10, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i13.i = icmp slt <16 x i8> %10, splat (i8 -1)
   %11 = bitcast <16 x i1> %cmp.i.i.i13.i to i16
   %cmp.i.not14.i = icmp eq i16 %11, 0
   br i1 %cmp.i.not14.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit
@@ -6342,7 +6342,7 @@ if.end.i:                                         ; preds = %if.end, %if.end.i
   %and.i6.i = and i64 %add3.i.i, %3
   %add.ptr.i = getelementptr inbounds i8, ptr %4, i64 %and.i6.i
   %12 = load <16 x i8>, ptr %add.ptr.i, align 1
-  %cmp.i.i.i.i = icmp slt <16 x i8> %12, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i = icmp slt <16 x i8> %12, splat (i8 -1)
   %13 = bitcast <16 x i1> %cmp.i.i.i.i to i16
   %cmp.i.not.i = icmp eq i16 %13, 0
   br i1 %cmp.i.not.i, label %if.end.i, label %_ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit, !llvm.loop !61

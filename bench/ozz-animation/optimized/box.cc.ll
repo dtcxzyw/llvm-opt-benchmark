@@ -37,8 +37,8 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.094 = phi ptr [ %28, %.lr.ph ], [ %1, %4 ]
   %.sroa.882.093 = phi float [ %19, %.lr.ph ], [ 0x47EFFFFFE0000000, %4 ]
-  %.sroa.075.092 = phi <2 x float> [ %.sroa.0.4.vec.insert, %.lr.ph ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %4 ]
-  %.sroa.067.091 = phi <2 x float> [ %.sroa.064.4.vec.insert, %.lr.ph ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %4 ]
+  %.sroa.075.092 = phi <2 x float> [ %.sroa.0.4.vec.insert, %.lr.ph ], [ splat (float 0x47EFFFFFE0000000), %4 ]
+  %.sroa.067.091 = phi <2 x float> [ %.sroa.064.4.vec.insert, %.lr.ph ], [ splat (float 0xC7EFFFFFE0000000), %4 ]
   %.sroa.8.090 = phi float [ %25, %.lr.ph ], [ 0xC7EFFFFFE0000000, %4 ]
   %.sroa.075.0.vec.extract77 = extractelement <2 x float> %.sroa.075.092, i64 0
   %10 = load float, ptr %.094, align 4
@@ -73,8 +73,8 @@ define dso_local void @_ZN3ozz4math3BoxC2EPKNS0_6Float3Emm(ptr nocapture noundef
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   %.sroa.8.0.lcssa = phi float [ 0xC7EFFFFFE0000000, %4 ], [ %25, %.lr.ph ]
-  %.sroa.067.0.lcssa = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %4 ], [ %.sroa.064.4.vec.insert, %.lr.ph ]
-  %.sroa.075.0.lcssa = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %4 ], [ %.sroa.0.4.vec.insert, %.lr.ph ]
+  %.sroa.067.0.lcssa = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %4 ], [ %.sroa.064.4.vec.insert, %.lr.ph ]
+  %.sroa.075.0.lcssa = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %4 ], [ %.sroa.0.4.vec.insert, %.lr.ph ]
   %.sroa.882.0.lcssa = phi float [ 0x47EFFFFFE0000000, %4 ], [ %19, %.lr.ph ]
   store <2 x float> %.sroa.075.0.lcssa, ptr %0, align 4
   %.sroa.882.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

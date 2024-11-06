@@ -836,7 +836,7 @@ define dso_local range(i32 0, 19) i32 @json_lex(ptr nocapture noundef %0) local_
 185:                                              ; preds = %183
   %186 = getelementptr i8, ptr %.0271.i, i64 %.013.i.i
   %.val14.i.i = load <16 x i8>, ptr %186, align 1
-  %187 = icmp eq <16 x i8> %.val14.i.i, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %187 = icmp eq <16 x i8> %.val14.i.i, splat (i8 92)
   %188 = bitcast <16 x i1> %187 to i16
   %.not.i.i = icmp eq i16 %188, 0
   br i1 %.not.i.i, label %183, label %.critedge.i, !llvm.loop !12
@@ -849,7 +849,7 @@ pg_lfind8.exit.i:                                 ; preds = %183, %190
 190:                                              ; preds = %pg_lfind8.exit.i
   %191 = getelementptr i8, ptr %.0271.i, i64 %.013.i180.i
   %.val14.i181.i = load <16 x i8>, ptr %191, align 1
-  %192 = icmp eq <16 x i8> %.val14.i181.i, <i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34, i8 34>
+  %192 = icmp eq <16 x i8> %.val14.i181.i, splat (i8 34)
   %193 = bitcast <16 x i1> %192 to i16
   %.not.i182.i = icmp eq i16 %193, 0
   br i1 %.not.i182.i, label %pg_lfind8.exit.i, label %.critedge.i, !llvm.loop !12
@@ -862,7 +862,7 @@ pg_lfind8.exit183.i:                              ; preds = %pg_lfind8.exit.i, %
 195:                                              ; preds = %pg_lfind8.exit183.i
   %196 = getelementptr i8, ptr %.0271.i, i64 %.013.i184.i
   %.val14.i185.i = load <16 x i8>, ptr %196, align 1
-  %197 = icmp ult <16 x i8> %.val14.i185.i, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %197 = icmp ult <16 x i8> %.val14.i185.i, splat (i8 32)
   %198 = bitcast <16 x i1> %197 to i16
   %.not.i186.i = icmp eq i16 %198, 0
   br i1 %.not.i186.i, label %pg_lfind8.exit183.i, label %.critedge.i, !llvm.loop !13

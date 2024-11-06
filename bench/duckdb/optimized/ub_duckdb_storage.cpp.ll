@@ -21932,7 +21932,7 @@ vector.ph:                                        ; preds = %for.body.lr.ph.i
   %n.vec = and i64 %sub, -8
   %broadcast.splatinsert = insertelement <4 x i64> poison, i64 %start_in_chunk.0, i64 0
   %broadcast.splat = shufflevector <4 x i64> %broadcast.splatinsert, <4 x i64> poison, <4 x i32> zeroinitializer
-  %step.add = add <4 x i64> %broadcast.splat, <i64 4, i64 4, i64 4, i64 4>
+  %step.add = add <4 x i64> %broadcast.splat, splat (i64 4)
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -21947,7 +21947,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %26, ptr %28, align 4, !tbaa !399
   store <4 x i32> %27, ptr %29, align 4, !tbaa !399
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 8)
   %30 = icmp eq i64 %index.next, %n.vec
   br i1 %30, label %middle.block, label %vector.body, !llvm.loop !889
 

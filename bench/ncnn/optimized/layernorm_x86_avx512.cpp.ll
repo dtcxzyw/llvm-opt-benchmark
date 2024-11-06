@@ -822,7 +822,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %391 = shufflevector <16 x float> %390, <16 x float> poison, <16 x i32> zeroinitializer
   %392 = fadd fast <16 x float> %.sroa.06685.4, %391
   %393 = tail call fast noundef <16 x float> @llvm.sqrt.v16f32(<16 x float> %392)
-  %394 = fdiv fast <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %393
+  %394 = fdiv fast <16 x float> splat (float 1.000000e+00), %393
   %395 = fneg fast <16 x float> %.sroa.06720.480908097
   %396 = fmul fast <16 x float> %394, %395
   br label %397
@@ -838,7 +838,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %.sroa.06685.0.vec.extract = shufflevector <16 x float> %.sroa.06685.5, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %401 = fadd fast <8 x float> %.sroa.06685.0.vec.extract, %400
   %402 = tail call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> %401)
-  %403 = fdiv fast <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %402
+  %403 = fdiv fast <8 x float> splat (float 1.000000e+00), %402
   %.sroa.06720.0.vec.extract = shufflevector <16 x float> %.sroa.06720.5, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %404 = fneg fast <8 x float> %.sroa.06720.0.vec.extract
   %405 = fmul fast <8 x float> %403, %404
@@ -859,7 +859,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %.sroa.06685.0.vec.extract6698 = shufflevector <16 x float> %.sroa.06685.6, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %410 = fadd fast <4 x float> %.sroa.06685.0.vec.extract6698, %409
   %411 = tail call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %410)
-  %412 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %411
+  %412 = fdiv fast <4 x float> splat (float 1.000000e+00), %411
   %.sroa.06720.0.vec.extract6736 = shufflevector <16 x float> %.sroa.06720.6, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %413 = fneg fast <4 x float> %.sroa.06720.0.vec.extract6736
   %414 = fmul fast <4 x float> %412, %413
@@ -1663,7 +1663,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %835 = shufflevector <16 x float> %834, <16 x float> poison, <16 x i32> zeroinitializer
   %836 = fadd fast <16 x float> %.sroa.06760.5.us, %835
   %837 = tail call fast noundef <16 x float> @llvm.sqrt.v16f32(<16 x float> %836)
-  %838 = fdiv fast <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %837
+  %838 = fdiv fast <16 x float> splat (float 1.000000e+00), %837
   %839 = fneg fast <16 x float> %.sroa.06795.5.us81088115
   %840 = fmul fast <16 x float> %838, %839
   br label %841
@@ -1679,7 +1679,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %.sroa.06760.0.vec.extract.us = shufflevector <16 x float> %.sroa.06760.6.us, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %845 = fadd fast <8 x float> %.sroa.06760.0.vec.extract.us, %844
   %846 = tail call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> %845)
-  %847 = fdiv fast <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %846
+  %847 = fdiv fast <8 x float> splat (float 1.000000e+00), %846
   %.sroa.06795.0.vec.extract.us = shufflevector <16 x float> %.sroa.06795.6.us, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %848 = fneg fast <8 x float> %.sroa.06795.0.vec.extract.us
   %849 = fmul fast <8 x float> %847, %848
@@ -1700,7 +1700,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %.sroa.06760.0.vec.extract6773.us = shufflevector <16 x float> %.sroa.06760.7.us, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %854 = fadd fast <4 x float> %.sroa.06760.0.vec.extract6773.us, %853
   %855 = tail call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %854)
-  %856 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %855
+  %856 = fdiv fast <4 x float> splat (float 1.000000e+00), %855
   %.sroa.06795.0.vec.extract6811.us = shufflevector <16 x float> %.sroa.06795.7.us, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %857 = fneg fast <4 x float> %.sroa.06795.0.vec.extract6811.us
   %858 = fmul fast <4 x float> %856, %857
@@ -2569,7 +2569,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %1264 = shufflevector <16 x float> %1263, <16 x float> poison, <16 x i32> zeroinitializer
   %1265 = fadd fast <16 x float> %.sroa.06835.4, %1264
   %1266 = tail call fast noundef <16 x float> @llvm.sqrt.v16f32(<16 x float> %1265)
-  %1267 = fdiv fast <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %1266
+  %1267 = fdiv fast <16 x float> splat (float 1.000000e+00), %1266
   %1268 = fneg fast <16 x float> %.sroa.06870.481288135
   %1269 = fmul fast <16 x float> %1267, %1268
   br label %1270
@@ -2585,7 +2585,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %.sroa.06835.0.vec.extract6843 = shufflevector <16 x float> %.sroa.06835.5, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %1274 = fadd fast <8 x float> %.sroa.06835.0.vec.extract6843, %1273
   %1275 = tail call fast noundef <8 x float> @llvm.sqrt.v8f32(<8 x float> %1274)
-  %1276 = fdiv fast <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %1275
+  %1276 = fdiv fast <8 x float> splat (float 1.000000e+00), %1275
   %.sroa.06870.0.vec.extract6879 = shufflevector <16 x float> %.sroa.06870.5, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %1277 = fneg fast <8 x float> %.sroa.06870.0.vec.extract6879
   %1278 = fmul fast <8 x float> %1276, %1277
@@ -2606,7 +2606,7 @@ define hidden noundef i32 @_ZNK4ncnn20LayerNorm_x86_avx51215forward_inplaceERNS_
   %.sroa.06835.0.vec.extract6855 = shufflevector <16 x float> %.sroa.06835.6, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %1283 = fadd fast <4 x float> %.sroa.06835.0.vec.extract6855, %1282
   %1284 = tail call fast noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %1283)
-  %1285 = fdiv fast <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %1284
+  %1285 = fdiv fast <4 x float> splat (float 1.000000e+00), %1284
   %.sroa.06870.0.vec.extract6893 = shufflevector <16 x float> %.sroa.06870.6, <16 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %1286 = fneg fast <4 x float> %.sroa.06870.0.vec.extract6893
   %1287 = fmul fast <4 x float> %1285, %1286

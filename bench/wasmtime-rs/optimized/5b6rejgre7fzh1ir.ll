@@ -18684,7 +18684,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6retain17h888baadca4279e20E"
   br i1 %.not.i.i.i.not.i.i, label %35, label %38
 
 35:                                               ; preds = %34
-  %36 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %36 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %cond.i.i.i.i.i = icmp eq i16 %37, 0
   br i1 %cond.i.i.i.i.i, label %47, label %.loopexit

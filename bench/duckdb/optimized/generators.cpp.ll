@@ -514,7 +514,7 @@ vector.ph:                                        ; preds = %vector.main.loop.it
   %10 = mul i8 %.cast, %6
   %11 = add <16 x i8> %.splatinsert38, %.splatinsert36
   %invariant.op = shufflevector <16 x i8> %11, <16 x i8> poison, <16 x i32> zeroinitializer
-  %12 = shl <16 x i8> %.splatinsert38, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %12 = shl <16 x i8> %.splatinsert38, splat (i8 1)
   %invariant.op2 = shufflevector <16 x i8> %12, <16 x i8> poison, <16 x i32> zeroinitializer
   br label %vector.body
 
@@ -1010,7 +1010,7 @@ vector.ph163:                                     ; preds = %for.body.us.i.prehe
 vector.body168:                                   ; preds = %vector.body168, %vector.ph163
   %index169 = phi i64 [ 0, %vector.ph163 ], [ %index.next177, %vector.body168 ]
   %vec.ind170 = phi <2 x i64> [ <i64 0, i64 1>, %vector.ph163 ], [ %vec.ind.next172, %vector.body168 ]
-  %step.add = add <2 x i64> %vec.ind170, <i64 2, i64 2>
+  %step.add = add <2 x i64> %vec.ind170, splat (i64 2)
   %10 = mul <2 x i64> %vec.ind170, %broadcast.splat174
   %11 = mul <2 x i64> %step.add, %broadcast.splat174
   %12 = add <2 x i64> %10, %broadcast.splat176
@@ -1020,7 +1020,7 @@ vector.body168:                                   ; preds = %vector.body168, %ve
   store <2 x i64> %12, ptr %14, align 8, !tbaa !27
   store <2 x i64> %13, ptr %15, align 8, !tbaa !27
   %index.next177 = add nuw i64 %index169, 4
-  %vec.ind.next172 = add <2 x i64> %vec.ind170, <i64 4, i64 4>
+  %vec.ind.next172 = add <2 x i64> %vec.ind170, splat (i64 4)
   %16 = icmp eq i64 %index.next177, %n.vec165
   br i1 %16, label %middle.block160, label %vector.body168, !llvm.loop !59
 
@@ -1122,7 +1122,7 @@ vector.body151:                                   ; preds = %vector.body151, %ve
   %27 = getelementptr inbounds float, ptr %21, i64 %index152
   store <4 x float> %26, ptr %27, align 4, !tbaa !34
   %index.next159 = add nuw i64 %index152, 4
-  %vec.ind.next154 = add <4 x i64> %vec.ind153, <i64 4, i64 4, i64 4, i64 4>
+  %vec.ind.next154 = add <4 x i64> %vec.ind153, splat (i64 4)
   %28 = icmp eq i64 %index.next159, %n.vec148
   br i1 %28, label %middle.block143, label %vector.body151, !llvm.loop !62
 
@@ -1211,7 +1211,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %37 = getelementptr inbounds double, ptr %31, i64 %index
   store <2 x double> %36, ptr %37, align 8, !tbaa !37
   %index.next = add nuw i64 %index, 2
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 2, i64 2>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 2)
   %38 = icmp eq i64 %index.next, %n.vec
   br i1 %38, label %middle.block, label %vector.body, !llvm.loop !65
 
@@ -1629,7 +1629,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = getelementptr inbounds i16, ptr %5, i64 %index
   store <8 x i16> %10, ptr %11, align 2, !tbaa !47
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next = add <8 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <8 x i64> %vec.ind, splat (i64 8)
   %12 = icmp eq i64 %index.next, %n.vec
   br i1 %12, label %middle.block, label %vector.body, !llvm.loop !70
 
@@ -1828,7 +1828,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = getelementptr inbounds i32, ptr %5, i64 %index
   store <4 x i32> %10, ptr %11, align 4, !tbaa !51
   %index.next = add nuw i64 %index, 4
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 4, i64 4, i64 4, i64 4>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 4)
   %12 = icmp eq i64 %index.next, %n.vec
   br i1 %12, label %middle.block, label %vector.body, !llvm.loop !74
 

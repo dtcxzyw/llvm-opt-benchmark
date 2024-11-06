@@ -648,7 +648,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 67:                                               ; preds = %60, %50
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %60 ], [ %.sroa.6.0.i.i, %50 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i17.i.i, %60 ], [ 1, %50 ]
-  %68 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %68 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %69 = bitcast <16 x i1> %68 to i16
   %.not11.i.i = icmp eq i16 %69, 0
   br i1 %.not11.i.i, label %70, label %73

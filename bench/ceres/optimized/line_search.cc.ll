@@ -817,7 +817,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
 
 12:                                               ; preds = %5
   %13 = load <2 x i64>, ptr %7, align 16
-  %14 = and <2 x i64> %13, <i64 9223372036854775807, i64 9223372036854775807>
+  %14 = and <2 x i64> %13, splat (i64 9223372036854775807)
   %15 = bitcast <2 x i64> %14 to <2 x double>
   %16 = icmp sgt i64 %3, 3
   br i1 %16, label %17, label %41
@@ -825,7 +825,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
 17:                                               ; preds = %12
   %18 = getelementptr inbounds i8, ptr %7, i64 16
   %19 = load <2 x i64>, ptr %18, align 16
-  %20 = and <2 x i64> %19, <i64 9223372036854775807, i64 9223372036854775807>
+  %20 = and <2 x i64> %19, splat (i64 9223372036854775807)
   %21 = bitcast <2 x i64> %20 to <2 x double>
   %invariant.gep.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 48
   %22 = icmp ugt i64 %3, 7
@@ -838,12 +838,12 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
   %.17375.i.i.i.i.i.i = phi <2 x double> [ %27, %.lr.ph.i.i.i.i.i.i ], [ %15, %17 ]
   %23 = getelementptr inbounds double, ptr %7, i64 %.05478.i.i.i.i.i.i
   %24 = load <2 x i64>, ptr %23, align 16
-  %25 = and <2 x i64> %24, <i64 9223372036854775807, i64 9223372036854775807>
+  %25 = and <2 x i64> %24, splat (i64 9223372036854775807)
   %26 = bitcast <2 x i64> %25 to <2 x double>
   %27 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i, <2 x double> %26) #28, !srcloc !20
   %gep.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i
   %28 = load <2 x i64>, ptr %gep.i.i.i.i.i.i, align 16
-  %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
+  %29 = and <2 x i64> %28, splat (i64 9223372036854775807)
   %30 = bitcast <2 x i64> %29 to <2 x double>
   %31 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge76.i.i.i.i.i.i, <2 x double> %30) #28, !srcloc !20
   %.054.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i, 4
@@ -860,7 +860,7 @@ define hidden noundef double @_ZNK5ceres8internal18LineSearchFunction21Direction
 35:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %36 = getelementptr inbounds double, ptr %7, i64 %9
   %37 = load <2 x i64>, ptr %36, align 16
-  %38 = and <2 x i64> %37, <i64 9223372036854775807, i64 9223372036854775807>
+  %38 = and <2 x i64> %37, splat (i64 9223372036854775807)
   %39 = bitcast <2 x i64> %38 to <2 x double>
   %40 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %33, <2 x double> %39) #28, !srcloc !20
   br label %41
@@ -2201,7 +2201,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 117:                                              ; preds = %110
   %118 = load <2 x i64>, ptr %112, align 16
-  %119 = and <2 x i64> %118, <i64 9223372036854775807, i64 9223372036854775807>
+  %119 = and <2 x i64> %118, splat (i64 9223372036854775807)
   %120 = bitcast <2 x i64> %119 to <2 x double>
   %121 = icmp sgt i64 %108, 3
   br i1 %121, label %122, label %146
@@ -2209,7 +2209,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 122:                                              ; preds = %117
   %123 = getelementptr inbounds i8, ptr %112, i64 16
   %124 = load <2 x i64>, ptr %123, align 16
-  %125 = and <2 x i64> %124, <i64 9223372036854775807, i64 9223372036854775807>
+  %125 = and <2 x i64> %124, splat (i64 9223372036854775807)
   %126 = bitcast <2 x i64> %125 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %112, i64 48
   %127 = icmp ugt i64 %108, 7
@@ -2222,12 +2222,12 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
   %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %132, %.lr.ph.i.i.i.i.i.i.i ], [ %120, %122 ]
   %128 = getelementptr inbounds double, ptr %112, i64 %.05478.i.i.i.i.i.i.i
   %129 = load <2 x i64>, ptr %128, align 16
-  %130 = and <2 x i64> %129, <i64 9223372036854775807, i64 9223372036854775807>
+  %130 = and <2 x i64> %129, splat (i64 9223372036854775807)
   %131 = bitcast <2 x i64> %130 to <2 x double>
   %132 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i.i, <2 x double> %131) #28, !srcloc !20
   %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %133 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
-  %134 = and <2 x i64> %133, <i64 9223372036854775807, i64 9223372036854775807>
+  %134 = and <2 x i64> %133, splat (i64 9223372036854775807)
   %135 = bitcast <2 x i64> %134 to <2 x double>
   %136 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge76.i.i.i.i.i.i.i, <2 x double> %135) #28, !srcloc !20
   %.054.i.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i.i, 4
@@ -2244,7 +2244,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 140:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   %141 = getelementptr inbounds double, ptr %112, i64 %114
   %142 = load <2 x i64>, ptr %141, align 16
-  %143 = and <2 x i64> %142, <i64 9223372036854775807, i64 9223372036854775807>
+  %143 = and <2 x i64> %142, splat (i64 9223372036854775807)
   %144 = bitcast <2 x i64> %143 to <2 x double>
   %145 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %138, <2 x double> %144) #28, !srcloc !20
   br label %146
@@ -3312,7 +3312,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
 
 35:                                               ; preds = %28
   %36 = load <2 x i64>, ptr %30, align 16
-  %37 = and <2 x i64> %36, <i64 9223372036854775807, i64 9223372036854775807>
+  %37 = and <2 x i64> %36, splat (i64 9223372036854775807)
   %38 = bitcast <2 x i64> %37 to <2 x double>
   %39 = icmp sgt i64 %26, 3
   br i1 %39, label %40, label %64
@@ -3320,7 +3320,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
 40:                                               ; preds = %35
   %41 = getelementptr inbounds i8, ptr %30, i64 16
   %42 = load <2 x i64>, ptr %41, align 16
-  %43 = and <2 x i64> %42, <i64 9223372036854775807, i64 9223372036854775807>
+  %43 = and <2 x i64> %42, splat (i64 9223372036854775807)
   %44 = bitcast <2 x i64> %43 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %30, i64 48
   %45 = icmp ugt i64 %26, 7
@@ -3333,12 +3333,12 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
   %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %50, %.lr.ph.i.i.i.i.i.i.i ], [ %38, %40 ]
   %46 = getelementptr inbounds double, ptr %30, i64 %.05478.i.i.i.i.i.i.i
   %47 = load <2 x i64>, ptr %46, align 16
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i.i, <2 x double> %49) #28, !srcloc !20
   %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %51 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
-  %52 = and <2 x i64> %51, <i64 9223372036854775807, i64 9223372036854775807>
+  %52 = and <2 x i64> %51, splat (i64 9223372036854775807)
   %53 = bitcast <2 x i64> %52 to <2 x double>
   %54 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge76.i.i.i.i.i.i.i, <2 x double> %53) #28, !srcloc !20
   %.054.i.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i.i, 4
@@ -3355,7 +3355,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch15Bracketi
 58:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %59 = getelementptr inbounds double, ptr %30, i64 %32
   %60 = load <2 x i64>, ptr %59, align 16
-  %61 = and <2 x i64> %60, <i64 9223372036854775807, i64 9223372036854775807>
+  %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %56, <2 x double> %62) #28, !srcloc !20
   br label %64
@@ -4384,7 +4384,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
 
 155:                                              ; preds = %148
   %156 = load <2 x i64>, ptr %150, align 16
-  %157 = and <2 x i64> %156, <i64 9223372036854775807, i64 9223372036854775807>
+  %157 = and <2 x i64> %156, splat (i64 9223372036854775807)
   %158 = bitcast <2 x i64> %157 to <2 x double>
   %159 = icmp sgt i64 %146, 3
   br i1 %159, label %160, label %184
@@ -4392,7 +4392,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
 160:                                              ; preds = %155
   %161 = getelementptr inbounds i8, ptr %150, i64 16
   %162 = load <2 x i64>, ptr %161, align 16
-  %163 = and <2 x i64> %162, <i64 9223372036854775807, i64 9223372036854775807>
+  %163 = and <2 x i64> %162, splat (i64 9223372036854775807)
   %164 = bitcast <2 x i64> %163 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %150, i64 48
   %165 = icmp ugt i64 %146, 7
@@ -4405,12 +4405,12 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
   %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %170, %.lr.ph.i.i.i.i.i.i.i ], [ %158, %160 ]
   %166 = getelementptr inbounds double, ptr %150, i64 %.05478.i.i.i.i.i.i.i
   %167 = load <2 x i64>, ptr %166, align 16
-  %168 = and <2 x i64> %167, <i64 9223372036854775807, i64 9223372036854775807>
+  %168 = and <2 x i64> %167, splat (i64 9223372036854775807)
   %169 = bitcast <2 x i64> %168 to <2 x double>
   %170 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i.i.i.i, <2 x double> %169) #28, !srcloc !20
   %gep.i.i.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %171 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 16
-  %172 = and <2 x i64> %171, <i64 9223372036854775807, i64 9223372036854775807>
+  %172 = and <2 x i64> %171, splat (i64 9223372036854775807)
   %173 = bitcast <2 x i64> %172 to <2 x double>
   %174 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge76.i.i.i.i.i.i.i, <2 x double> %173) #28, !srcloc !20
   %.054.i.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i.i, 4
@@ -4427,7 +4427,7 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal15WolfeLineSearch9ZoomPhase
 178:                                              ; preds = %._crit_edge.i.i.i.i.i.i.i
   %179 = getelementptr inbounds double, ptr %150, i64 %152
   %180 = load <2 x i64>, ptr %179, align 16
-  %181 = and <2 x i64> %180, <i64 9223372036854775807, i64 9223372036854775807>
+  %181 = and <2 x i64> %180, splat (i64 9223372036854775807)
   %182 = bitcast <2 x i64> %181 to <2 x double>
   %183 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %176, <2 x double> %182) #28, !srcloc !20
   br label %184

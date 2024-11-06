@@ -1134,7 +1134,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %513 = getelementptr inbounds double, ptr %509, i64 %.011.i.i.i.i.i.i.i.i
   %514 = getelementptr inbounds double, ptr %497, i64 %.011.i.i.i.i.i.i.i.i
   %515 = load <2 x i64>, ptr %514, align 16
-  %516 = xor <2 x i64> %515, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %516 = xor <2 x i64> %515, splat (i64 -9223372036854775808)
   store <2 x i64> %516, ptr %513, align 16
   %517 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
   %518 = icmp slt i64 %517, %511
@@ -1346,7 +1346,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %604 = getelementptr inbounds double, ptr %600, i64 %.011.i.i.i.i.i.i.i.i278
   %605 = getelementptr inbounds double, ptr %589, i64 %.011.i.i.i.i.i.i.i.i278
   %606 = load <2 x i64>, ptr %605, align 16
-  %607 = xor <2 x i64> %606, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %607 = xor <2 x i64> %606, splat (i64 -9223372036854775808)
   store <2 x i64> %607, ptr %604, align 16
   %608 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i278, 2
   %609 = icmp slt i64 %608, %602
@@ -2580,7 +2580,7 @@ define internal fastcc noundef zeroext i1 @_ZN5ceres8internal12_GLOBAL__N_121Eva
   %23 = getelementptr inbounds double, ptr %14, i64 %.011.i.i.i.i.i.i
   %24 = getelementptr inbounds double, ptr %21, i64 %.011.i.i.i.i.i.i
   %25 = load <2 x i64>, ptr %24, align 16
-  %26 = xor <2 x i64> %25, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %26 = xor <2 x i64> %25, splat (i64 -9223372036854775808)
   store <2 x i64> %26, ptr %23, align 16
   %27 = add nuw nsw i64 %.011.i.i.i.i.i.i, 2
   %28 = icmp samesign ult i64 %27, %22

@@ -54016,7 +54016,7 @@ _ZNSt6vectorIN3ozz9animation7offline12RawAnimation11RotationKeyENS0_12StdAllocat
   br i1 %262, label %263, label %264
 
 263:                                              ; preds = %259
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.4..4..4..4..4..sroa_idx180, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %.4..4..4..4..4..sroa_idx180, align 4
   br label %273
 
 264:                                              ; preds = %259
@@ -55288,7 +55288,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %12, i8 0, i64 20, i1 false)
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %.sroa.3.0..sroa_idx.i, align 4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 84
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %.sroa.4.0..sroa_idx.i, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %.sroa.4.0..sroa_idx.i, align 4
   %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 92
   store float 1.000000e+00, ptr %.sroa.4.sroa.2.0..sroa.4.0..sroa_idx.sroa_idx.i, align 4
   %13 = getelementptr inbounds i8, ptr %1, i64 144
@@ -55372,7 +55372,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %89 = fadd <4 x float> %85, %88
   %90 = tail call noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %89)
   %91 = tail call <4 x float> @llvm.fabs.v4f32(<4 x float> %89)
-  %92 = fcmp olt <4 x float> %91, <float 0x3C9CD2B2A0000000, float 0x3C9CD2B2A0000000, float 0x3C9CD2B2A0000000, float 0x3C9CD2B2A0000000>
+  %92 = fcmp olt <4 x float> %91, splat (float 0x3C9CD2B2A0000000)
   %93 = bitcast <4 x i1> %92 to i4
   %94 = zext i4 %93 to i32
   %95 = and i32 %94, 1
@@ -55555,16 +55555,16 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12GltfImporter10ImportNodeE
   %238 = fsub <4 x float> %233, %234
   %239 = fsub <4 x float> %238, %235
   %.uncasted.i = shufflevector <4 x float> %239, <4 x float> %237, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
-  %240 = fadd <4 x float> %.uncasted.i, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %240 = fadd <4 x float> %.uncasted.i, splat (float 1.000000e+00)
   %241 = tail call noundef <4 x float> @llvm.sqrt.v4f32(<4 x float> %240)
-  %242 = fdiv <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %241
+  %242 = fdiv <4 x float> splat (float 1.000000e+00), %241
   %243 = shufflevector <4 x float> %.sroa.0.0.i, <4 x float> %.sroa.13.0.i, <4 x i32> <i32 0, i32 1, i32 6, i32 poison>
   %244 = shufflevector <4 x float> %243, <4 x float> %.sroa.26.0.i, <4 x i32> <i32 2, i32 4, i32 1, i32 0>
   %.uncasted1130.i = shufflevector <4 x float> %.sroa.13.0.i, <4 x float> %.sroa.0.0.i, <4 x i32> <i32 0, i32 poison, i32 6, i32 poison>
   %245 = shufflevector <4 x float> %.sroa.26.0.i, <4 x float> %.uncasted1130.i, <4 x i32> <i32 1, i32 6, i32 4, i32 4>
   %246 = fadd <4 x float> %244, %245
   %247 = fsub <4 x float> %244, %245
-  %248 = fmul <4 x float> %242, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %248 = fmul <4 x float> %242, splat (float 5.000000e-01)
   %249 = shufflevector <4 x float> %246, <4 x float> %247, <4 x i32> <i32 poison, i32 2, i32 1, i32 4>
   %250 = shufflevector <4 x float> %240, <4 x float> %249, <4 x i32> <i32 0, i32 5, i32 6, i32 7>
   %251 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> zeroinitializer

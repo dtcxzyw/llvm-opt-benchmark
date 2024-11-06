@@ -719,7 +719,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr nocapture noundef no
   %184 = getelementptr i8, ptr %183, i64 88
   store double %181, ptr %184, align 8
   %185 = load <2 x i64>, ptr %38, align 1
-  %186 = xor <2 x i64> %185, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %186 = xor <2 x i64> %185, splat (i64 -9223372036854775808)
   %187 = load double, ptr %11, align 8
   %bc = bitcast <2 x i64> %186 to <2 x double>
   %188 = extractelement <2 x double> %bc, i64 0
@@ -738,7 +738,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr nocapture noundef no
   %200 = getelementptr i8, ptr %199, i64 8
   store double %197, ptr %200, align 8
   %201 = load <2 x i64>, ptr %42, align 1
-  %202 = xor <2 x i64> %201, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %202 = xor <2 x i64> %201, splat (i64 -9223372036854775808)
   %203 = load double, ptr %15, align 8
   %bc206 = bitcast <2 x i64> %202 to <2 x double>
   %204 = extractelement <2 x double> %bc206, i64 0
@@ -758,7 +758,7 @@ define void @_ZN3g2o15EdgeProjectP2MC14linearizeOplusEv(ptr nocapture noundef no
   %217 = getelementptr i8, ptr %216, i64 24
   store double %214, ptr %217, align 8
   %218 = load <2 x i64>, ptr %47, align 1
-  %219 = xor <2 x i64> %218, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %219 = xor <2 x i64> %218, splat (i64 -9223372036854775808)
   %220 = load double, ptr %20, align 8
   %bc208 = bitcast <2 x i64> %219 to <2 x double>
   %221 = extractelement <2 x double> %bc208, i64 0
@@ -977,14 +977,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %23 = load <2 x i64>, ptr %21, align 16
-  %24 = xor <2 x i64> %23, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %24 = xor <2 x i64> %23, splat (i64 -9223372036854775808)
   %25 = bitcast <2 x i64> %24 to <2 x double>
   %26 = load <2 x double>, ptr %22, align 16
   %27 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> zeroinitializer
   %28 = fmul <2 x double> %27, %25
   %29 = getelementptr inbounds i8, ptr %0, i64 208
   %30 = load <2 x i64>, ptr %29, align 16
-  %31 = xor <2 x i64> %30, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %31 = xor <2 x i64> %30, splat (i64 -9223372036854775808)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %34 = fmul <2 x double> %33, %32
@@ -1104,14 +1104,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi2EN5Eigen6MatrixIdLi2ELi
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %113 = load <2 x i64>, ptr %111, align 16
-  %114 = xor <2 x i64> %113, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %114 = xor <2 x i64> %113, splat (i64 -9223372036854775808)
   %115 = bitcast <2 x i64> %114 to <2 x double>
   %116 = load <2 x double>, ptr %112, align 16
   %117 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> zeroinitializer
   %118 = fmul <2 x double> %117, %115
   %119 = getelementptr inbounds i8, ptr %0, i64 208
   %120 = load <2 x i64>, ptr %119, align 16
-  %121 = xor <2 x i64> %120, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %121 = xor <2 x i64> %120, splat (i64 -9223372036854775808)
   %122 = bitcast <2 x i64> %121 to <2 x double>
   %123 = shufflevector <2 x double> %116, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %124 = fmul <2 x double> %123, %122

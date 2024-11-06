@@ -1650,7 +1650,7 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %216 = fmul contract <4 x float> %209, %215
   %217 = shufflevector <4 x float> %214, <4 x float> poison, <4 x i32> zeroinitializer
   %.sroa.0344.0 = select i1 %212, <4 x float> %216, <4 x float> %217
-  %218 = fsub contract <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.sroa.0344.0
+  %218 = fsub contract <4 x float> splat (float 1.000000e+00), %.sroa.0344.0
   %219 = fdiv contract <4 x float> %209, %218
   %220 = getelementptr inbounds i8, ptr %1, i64 84
   %221 = load float, ptr %220, align 4
@@ -1877,7 +1877,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %109 = fmul contract <4 x float> %102, %108
   %110 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> zeroinitializer
   %.sroa.0.0 = select i1 %105, <4 x float> %109, <4 x float> %110
-  %111 = fsub contract <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.sroa.0.0
+  %111 = fsub contract <4 x float> splat (float 1.000000e+00), %.sroa.0.0
   %112 = load float, ptr %22, align 8
   %113 = fmul contract float %112, 0x3FD45F3060000000
   %114 = getelementptr inbounds i8, ptr %1, i64 84
@@ -2223,7 +2223,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %113 = fmul contract <4 x float> %106, %112
   %.sroa.0251.0 = select i1 %109, <4 x float> %113, <4 x float> %112
   %114 = extractelement <4 x float> %111, i64 2
-  %115 = fsub contract <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.sroa.0251.0
+  %115 = fsub contract <4 x float> splat (float 1.000000e+00), %.sroa.0251.0
   %116 = fdiv contract <4 x float> %106, %115
   %117 = load float, ptr %26, align 8
   %118 = fmul contract float %117, 0x3FD45F3060000000

@@ -3265,7 +3265,7 @@ vector.ph:                                        ; preds = %for.body.lr.ph
   %n.vec = and i64 %cond.i, -8
   %broadcast.splatinsert = insertelement <4 x i64> poison, i64 %sub, i64 0
   %broadcast.splat = shufflevector <4 x i64> %broadcast.splatinsert, <4 x i64> poison, <4 x i32> zeroinitializer
-  %step.add = add <4 x i64> %broadcast.splat, <i64 4, i64 4, i64 4, i64 4>
+  %step.add = add <4 x i64> %broadcast.splat, splat (i64 4)
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -3280,7 +3280,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <4 x i32> %5, ptr %7, align 4, !tbaa !251
   store <4 x i32> %6, ptr %8, align 4, !tbaa !251
   %index.next = add nuw i64 %index, 8
-  %vec.ind.next = add <4 x i64> %vec.ind, <i64 8, i64 8, i64 8, i64 8>
+  %vec.ind.next = add <4 x i64> %vec.ind, splat (i64 8)
   %9 = icmp eq i64 %index.next, %n.vec
   br i1 %9, label %middle.block, label %vector.body, !llvm.loop !253
 
@@ -7972,7 +7972,7 @@ _ZNSt10unique_ptrIN6duckdb27StreamingLimitOperatorStateESt14default_deleteIS1_EE
   %0 = load <2 x ptr>, ptr %limit_expression.i.i, align 8, !tbaa !83, !noalias !392
   %1 = icmp eq <2 x ptr> %0, zeroinitializer
   %2 = load <2 x i64>, ptr %limit_value.i.i, align 8, !noalias !392
-  %3 = select <2 x i1> %1, <2 x i64> %2, <2 x i64> <i64 -1, i64 -1>
+  %3 = select <2 x i1> %1, <2 x i64> %2, <2 x i64> splat (i64 -1)
   store <2 x i64> %3, ptr %limit.i.i, align 8, !tbaa !81, !noalias !392
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !395
   ret void

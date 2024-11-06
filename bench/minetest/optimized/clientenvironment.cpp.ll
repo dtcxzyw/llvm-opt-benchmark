@@ -1303,7 +1303,7 @@ invoke.cont145:                                   ; preds = %lor.end
   %speed.sroa.0.4.vec.extract794 = extractelement <2 x float> %retval.sroa.0.0.copyload.i581, i64 1
   %div2.i609 = fdiv nsz float %speed.sroa.0.4.vec.extract794, -1.000000e+01
   %41 = insertelement <2 x float> %retval.sroa.0.0.copyload.i581, float %retval.sroa.2.0.copyload.i583, i64 1
-  %42 = fdiv nsz <2 x float> %41, <float -1.000000e+01, float -1.000000e+01>
+  %42 = fdiv nsz <2 x float> %41, splat (float -1.000000e+01)
   br label %invoke.cont152
 
 invoke.cont152:                                   ; preds = %invoke.cont145, %invoke.cont134
@@ -3959,7 +3959,7 @@ invoke.cont9:                                     ; preds = %cleanup, %invoke.co
   %8 = load ptr, ptr %__begin1.sroa.0.0231, align 8, !tbaa !283
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %selection_box) #33
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %selection_box, align 16, !tbaa !114
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !114
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !114
   %vtable = load ptr, ptr %8, align 8, !tbaa !12
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
   %9 = load ptr, ptr %vfn, align 8
@@ -4045,7 +4045,7 @@ invoke.cont45:                                    ; preds = %invoke.cont41
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call46, i64 4
   %22 = load <2 x float>, ptr %arrayidx.i.i, align 4, !tbaa !114
   %23 = call nsz <2 x float> @llvm.fabs.v2f32(<2 x float> %22)
-  %24 = fcmp nsz ugt <2 x float> %23, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
+  %24 = fcmp nsz ugt <2 x float> %23, splat (float 0x3EB0C6F7A0000000)
   %25 = extractelement <2 x i1> %24, i64 0
   %26 = extractelement <2 x i1> %24, i64 1
   %or.cond.i.i = select i1 %25, i1 true, i1 %26
@@ -6079,7 +6079,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %23 = insertelement <2 x double> poison, double %X32.0, i64 0
   %24 = insertelement <2 x double> %23, double %mul31, i64 1
   %25 = fcmp nsz olt <2 x double> %24, zeroinitializer
-  %26 = fadd nsz <2 x double> %24, <double 3.600000e+02, double 3.600000e+02>
+  %26 = fadd nsz <2 x double> %24, splat (double 3.600000e+02)
   %27 = select <2 x i1> %25, <2 x double> %26, <2 x double> %24
   %28 = fptrunc <2 x double> %27 to <2 x float>
   %conv84 = fptrunc double %Z33.1 to float

@@ -2042,7 +2042,7 @@ if.end:                                           ; preds = %entry
   %0 = insertelement <2 x double> poison, double %call3, i64 0
   %1 = insertelement <2 x double> %0, double %call2, i64 1
   %2 = fcmp nsz ogt <2 x double> %1, zeroinitializer
-  %3 = select <2 x i1> %2, <2 x double> <double 5.000000e-01, double 5.000000e-01>, <2 x double> <double -5.000000e-01, double -5.000000e-01>
+  %3 = select <2 x i1> %2, <2 x double> splat (double 5.000000e-01), <2 x double> splat (double -5.000000e-01)
   %4 = fadd nsz <2 x double> %1, %3
   %5 = fptosi <2 x double> %4 to <2 x i16>
   %6 = zext <2 x i16> %5 to <2 x i48>
@@ -4552,12 +4552,12 @@ if.end:                                           ; preds = %entry
   %call2 = tail call { <2 x float>, float } @_Z8read_v3fP9lua_Statei(ptr noundef %L, i32 noundef 1)
   %call2.fca.0.extract = extractvalue { <2 x float>, float } %call2, 0
   %call2.fca.1.extract = extractvalue { <2 x float>, float } %call2, 1
-  %0 = fmul nsz <2 x float> %call2.fca.0.extract, <float 1.000000e+01, float 1.000000e+01>
+  %0 = fmul nsz <2 x float> %call2.fca.0.extract, splat (float 1.000000e+01)
   %mul3.i = fmul nsz float %call2.fca.1.extract, 1.000000e+01
   %call6 = tail call { <2 x float>, float } @_Z8read_v3fP9lua_Statei(ptr noundef %L, i32 noundef 2)
   %call6.fca.0.extract = extractvalue { <2 x float>, float } %call6, 0
   %call6.fca.1.extract = extractvalue { <2 x float>, float } %call6, 1
-  %1 = fmul nsz <2 x float> %call6.fca.0.extract, <float 1.000000e+01, float 1.000000e+01>
+  %1 = fmul nsz <2 x float> %call6.fca.0.extract, splat (float 1.000000e+01)
   %mul3.i45 = fmul nsz float %call6.fca.1.extract, 1.000000e+01
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %box) #30
   store <2 x float> %0, ptr %box, align 8, !tbaa.struct !125
@@ -5355,7 +5355,7 @@ entry:
   %add13.i.i.i = add i16 %reass.sub, 1
   %1 = load <2 x i16>, ptr %maxp, align 2, !tbaa !149
   %2 = sub <2 x i16> %1, %0
-  %3 = add <2 x i16> %2, <i16 1, i16 1>
+  %3 = add <2 x i16> %2, splat (i16 1)
   %4 = extractelement <2 x i16> %3, i64 0
   %5 = sext i16 %4 to i32
   %6 = extractelement <2 x i16> %3, i64 1
@@ -5422,18 +5422,18 @@ cleanup.done:                                     ; preds = %cleanup.action, %eh
   resume { ptr, i32 } %.pn49
 
 if.end:                                           ; preds = %entry
-  %13 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %0, <2 x i16> <i16 -31007, i16 -31007>)
+  %13 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %0, <2 x i16> splat (i16 -31007))
   %14 = tail call i16 @llvm.smax.i16(i16 %ref.tmp.sroa.5.0.copyload, i16 -31007)
   %15 = tail call noundef i16 @llvm.smin.i16(i16 %14, i16 31007)
-  %16 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %13, <2 x i16> <i16 31007, i16 31007>)
+  %16 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %13, <2 x i16> splat (i16 31007))
   store <2 x i16> %16, ptr %minp, align 2, !tbaa !149
   store i16 %15, ptr %ref.tmp.sroa.5.0.minp.sroa_idx, align 2, !tbaa !149
   %17 = load i16, ptr %ref.tmp.sroa.9.6.maxp.sroa_idx, align 2
   %18 = tail call i16 @llvm.smax.i16(i16 %17, i16 -31007)
   %19 = tail call noundef i16 @llvm.smin.i16(i16 %18, i16 31007)
   %20 = load <2 x i16>, ptr %maxp, align 2
-  %21 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %20, <2 x i16> <i16 -31007, i16 -31007>)
-  %22 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %21, <2 x i16> <i16 31007, i16 31007>)
+  %21 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %20, <2 x i16> splat (i16 -31007))
+  %22 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %21, <2 x i16> splat (i16 31007))
   store <2 x i16> %22, ptr %maxp, align 2, !tbaa !149
   store i16 %19, ptr %ref.tmp.sroa.9.6.maxp.sroa_idx, align 2, !tbaa !149
   ret void
@@ -5620,7 +5620,7 @@ if.end15:                                         ; preds = %if.then8, %if.end
   %reass.sub = sub i16 %maxp.sroa.13.1, %minp.sroa.12.1
   %add13.i.i.i.i10 = add i16 %reass.sub, 1
   %15 = sub <2 x i16> %maxp.sroa.0.2, %minp.sroa.0.2
-  %16 = add <2 x i16> %15, <i16 1, i16 1>
+  %16 = add <2 x i16> %15, splat (i16 1)
   %17 = extractelement <2 x i16> %16, i64 0
   %18 = sext i16 %17 to i32
   %19 = extractelement <2 x i16> %16, i64 1
@@ -5690,14 +5690,14 @@ unreachable.i:                                    ; preds = %invoke.cont4.i
   unreachable
 
 _ZN13ModApiEnvBase9checkAreaERN3irr4core8vector3dIsEES4_.exit: ; preds = %if.end15
-  %26 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.2, <2 x i16> <i16 -31007, i16 -31007>)
+  %26 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.2, <2 x i16> splat (i16 -31007))
   %27 = tail call i16 @llvm.smax.i16(i16 %minp.sroa.12.1, i16 -31007)
   %28 = tail call noundef i16 @llvm.smin.i16(i16 %27, i16 31007)
-  %29 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %26, <2 x i16> <i16 31007, i16 31007>)
+  %29 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %26, <2 x i16> splat (i16 31007))
   %30 = tail call i16 @llvm.smax.i16(i16 %maxp.sroa.13.1, i16 -31007)
   %31 = tail call noundef i16 @llvm.smin.i16(i16 %30, i16 31007)
-  %32 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.2, <2 x i16> <i16 -31007, i16 -31007>)
-  %33 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %32, <2 x i16> <i16 31007, i16 31007>)
+  %32 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.2, <2 x i16> splat (i16 -31007))
+  %33 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %32, <2 x i16> splat (i16 31007))
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %filter) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %filter, i8 0, i64 24, i1 false)
   invoke void @_ZN13ModApiEnvBase14collectNodeIdsEP9lua_StateiPK14NodeDefManagerRSt6vectorItSaItEE(ptr noundef %L, i32 noundef 3, ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(24) %filter)
@@ -6946,7 +6946,7 @@ if.end15:                                         ; preds = %if.then8, %if.end
   %reass.sub = sub i16 %maxp.sroa.12.1, %minp.sroa.11.1
   %add13.i.i.i.i = add i16 %reass.sub, 1
   %15 = sub <2 x i16> %maxp.sroa.0.2, %minp.sroa.0.2
-  %16 = add <2 x i16> %15, <i16 1, i16 1>
+  %16 = add <2 x i16> %15, splat (i16 1)
   %17 = extractelement <2 x i16> %16, i64 0
   %18 = sext i16 %17 to i32
   %19 = extractelement <2 x i16> %16, i64 1
@@ -7022,12 +7022,12 @@ _ZN13ModApiEnvBase9checkAreaERN3irr4core8vector3dIsEES4_.exit: ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN13ModApiEnvBase9checkAreaERN3irr4core8vector3dIsEES4_.exit
-  %26 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.2, <2 x i16> <i16 -31007, i16 -31007>)
-  %27 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %26, <2 x i16> <i16 31007, i16 31007>)
+  %26 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.2, <2 x i16> splat (i16 -31007))
+  %27 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %26, <2 x i16> splat (i16 31007))
   %28 = call i16 @llvm.smax.i16(i16 %maxp.sroa.12.1, i16 -31007)
   %29 = call noundef i16 @llvm.smin.i16(i16 %28, i16 31007)
-  %30 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.2, <2 x i16> <i16 -31007, i16 -31007>)
-  %31 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %30, <2 x i16> <i16 31007, i16 31007>)
+  %30 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.2, <2 x i16> splat (i16 -31007))
+  %31 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %30, <2 x i16> splat (i16 31007))
   %32 = call i16 @llvm.smax.i16(i16 %minp.sroa.11.1, i16 -31007)
   %33 = call noundef i16 @llvm.smin.i16(i16 %32, i16 31007)
   %34 = bitcast <2 x i16> %31 to i32
@@ -10999,7 +10999,7 @@ if.end:                                           ; preds = %_ZN11ModApiEnvVM9ge
   %reass.sub = sub i16 %maxp.sroa.13.0, %minp.sroa.12.0
   %add13.i.i.i.i = add i16 %reass.sub, 1
   %11 = sub <2 x i16> %maxp.sroa.0.1, %minp.sroa.0.1
-  %12 = add <2 x i16> %11, <i16 1, i16 1>
+  %12 = add <2 x i16> %11, splat (i16 1)
   %13 = extractelement <2 x i16> %12, i64 0
   %14 = sext i16 %13 to i32
   %15 = extractelement <2 x i16> %12, i64 1
@@ -11069,14 +11069,14 @@ unreachable.i:                                    ; preds = %invoke.cont4.i
   unreachable
 
 _ZN13ModApiEnvBase9checkAreaERN3irr4core8vector3dIsEES4_.exit: ; preds = %if.end
-  %22 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.1, <2 x i16> <i16 -31007, i16 -31007>)
+  %22 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.1, <2 x i16> splat (i16 -31007))
   %23 = tail call i16 @llvm.smax.i16(i16 %minp.sroa.12.0, i16 -31007)
   %24 = tail call noundef i16 @llvm.smin.i16(i16 %23, i16 31007)
-  %25 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %22, <2 x i16> <i16 31007, i16 31007>)
+  %25 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %22, <2 x i16> splat (i16 31007))
   %26 = tail call i16 @llvm.smax.i16(i16 %maxp.sroa.13.0, i16 -31007)
   %27 = tail call noundef i16 @llvm.smin.i16(i16 %26, i16 31007)
-  %28 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.1, <2 x i16> <i16 -31007, i16 -31007>)
-  %29 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %28, <2 x i16> <i16 31007, i16 31007>)
+  %28 = tail call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.1, <2 x i16> splat (i16 -31007))
+  %29 = tail call <2 x i16> @llvm.smin.v2i16(<2 x i16> %28, <2 x i16> splat (i16 31007))
   %minp.sroa.0.0.vec.extract = extractelement <2 x i16> %25, i64 0
   %minp.sroa.0.2.vec.extract = extractelement <2 x i16> %25, i64 1
   %maxp.sroa.0.0.vec.extract = extractelement <2 x i16> %29, i64 0
@@ -12007,7 +12007,7 @@ if.end:                                           ; preds = %_ZN11ModApiEnvVM9ge
   %reass.sub = sub i16 %maxp.sroa.10.0, %minp.sroa.9.0
   %add13.i.i.i.i = add i16 %reass.sub, 1
   %11 = sub <2 x i16> %maxp.sroa.0.1, %minp.sroa.0.1
-  %12 = add <2 x i16> %11, <i16 1, i16 1>
+  %12 = add <2 x i16> %11, splat (i16 1)
   %13 = extractelement <2 x i16> %12, i64 0
   %14 = sext i16 %13 to i32
   %15 = extractelement <2 x i16> %12, i64 1
@@ -12083,12 +12083,12 @@ _ZN13ModApiEnvBase9checkAreaERN3irr4core8vector3dIsEES4_.exit: ; preds = %if.end
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZN13ModApiEnvBase9checkAreaERN3irr4core8vector3dIsEES4_.exit
-  %22 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.1, <2 x i16> <i16 -31007, i16 -31007>)
-  %23 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %22, <2 x i16> <i16 31007, i16 31007>)
+  %22 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %maxp.sroa.0.1, <2 x i16> splat (i16 -31007))
+  %23 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %22, <2 x i16> splat (i16 31007))
   %24 = call i16 @llvm.smax.i16(i16 %maxp.sroa.10.0, i16 -31007)
   %25 = call noundef i16 @llvm.smin.i16(i16 %24, i16 31007)
-  %26 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.1, <2 x i16> <i16 -31007, i16 -31007>)
-  %27 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %26, <2 x i16> <i16 31007, i16 31007>)
+  %26 = call <2 x i16> @llvm.smax.v2i16(<2 x i16> %minp.sroa.0.1, <2 x i16> splat (i16 -31007))
+  %27 = call <2 x i16> @llvm.smin.v2i16(<2 x i16> %26, <2 x i16> splat (i16 31007))
   %28 = call i16 @llvm.smax.i16(i16 %minp.sroa.9.0, i16 -31007)
   %29 = call noundef i16 @llvm.smin.i16(i16 %28, i16 31007)
   %30 = bitcast <2 x i16> %27 to i32

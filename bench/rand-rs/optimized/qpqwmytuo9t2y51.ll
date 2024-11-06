@@ -1441,7 +1441,7 @@ define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..NoS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2017h8d813f8191f23eb1E.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 12))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1449,7 +1449,7 @@ define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..NoS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2417h9e6b045d520049eeE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 8))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1457,7 +1457,7 @@ define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN134_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..NoS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2517h06432d229c0daeb4E.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 7))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1497,7 +1497,7 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..YesS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2017h9939330d7b4cec8cE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 12))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1505,7 +1505,7 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..YesS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2017hfcd624f2009e11edE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 12))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1545,7 +1545,7 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..YesS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2517ha2eb11e1a6e3604bE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 7))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1553,7 +1553,7 @@ define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN135_$LT$ppv_lite86..x86_64..sse2..u32x4_sse2$LT$ppv_lite86..x86_64..YesS3$C$S4$C$NI$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2517heafb53aae4eaa52aE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 7))
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -1861,7 +1861,7 @@ define hidden void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c0988
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f046e0E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<4 x i64>) align 32 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 32 dereferenceable(32) %1) unnamed_addr #10 {
   %3 = load <8 x i32>, ptr %1, align 32
-  %4 = shl <8 x i32> %3, <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>
+  %4 = shl <8 x i32> %3, splat (i32 7)
   store <8 x i32> %4, ptr %0, align 32
   ret void
 }
@@ -1869,7 +1869,7 @@ define hidden void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h0bbaf78fd5f
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db048dfc4E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<4 x i64>) align 32 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 32 dereferenceable(32) %1) unnamed_addr #10 {
   %3 = load <8 x i32>, ptr %1, align 32
-  %4 = shl <8 x i32> %3, <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>
+  %4 = shl <8 x i32> %3, splat (i32 12)
   store <8 x i32> %4, ptr %0, align 32
   ret void
 }
@@ -1877,7 +1877,7 @@ define hidden void @_ZN4core9core_arch3x864avx217_mm256_slli_epi3217h6838a81db04
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d6057dE.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<4 x i64>) align 32 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 32 dereferenceable(32) %1) unnamed_addr #10 {
   %3 = load <8 x i32>, ptr %1, align 32
-  %4 = lshr <8 x i32> %3, <i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20, i32 20>
+  %4 = lshr <8 x i32> %3, splat (i32 20)
   store <8 x i32> %4, ptr %0, align 32
   ret void
 }
@@ -1885,7 +1885,7 @@ define hidden void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217h0ab0106033d
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864avx217_mm256_srli_epi3217hd31da4c19aa57fc6E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<4 x i64>) align 32 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 32 dereferenceable(32) %1) unnamed_addr #10 {
   %3 = load <8 x i32>, ptr %1, align 32
-  %4 = lshr <8 x i32> %3, <i32 25, i32 25, i32 25, i32 25, i32 25, i32 25, i32 25, i32 25>
+  %4 = lshr <8 x i32> %3, splat (i32 25)
   store <8 x i32> %4, ptr %0, align 32
   ret void
 }
@@ -2004,7 +2004,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_set_epi64x17hcc40417e30ae83
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse214_mm_slli_epi3217h26bebd0065d48cbeE.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = shl <4 x i32> %3, <i32 8, i32 8, i32 8, i32 8>
+  %4 = shl <4 x i32> %3, splat (i32 8)
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -2012,7 +2012,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_slli_epi3217h26bebd0065d48c
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse214_mm_slli_epi3217h755ad6026031e709E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = shl <4 x i32> %3, <i32 12, i32 12, i32 12, i32 12>
+  %4 = shl <4 x i32> %3, splat (i32 12)
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -2020,7 +2020,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_slli_epi3217h755ad6026031e7
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse214_mm_slli_epi3217h75cfed9e4fdf702bE.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = shl <4 x i32> %3, <i32 7, i32 7, i32 7, i32 7>
+  %4 = shl <4 x i32> %3, splat (i32 7)
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -2044,7 +2044,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_slli_si12817hdbc28900b5e2a6
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse214_mm_srli_epi3217h52a4c7b7b52985a2E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = lshr <4 x i32> %3, <i32 24, i32 24, i32 24, i32 24>
+  %4 = lshr <4 x i32> %3, splat (i32 24)
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -2052,7 +2052,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_srli_epi3217h52a4c7b7b52985
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse214_mm_srli_epi3217h6a73270eef1a4cb2E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = lshr <4 x i32> %3, <i32 25, i32 25, i32 25, i32 25>
+  %4 = lshr <4 x i32> %3, splat (i32 25)
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -2060,7 +2060,7 @@ define hidden void @_ZN4core9core_arch3x864sse214_mm_srli_epi3217h6a73270eef1a4c
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse214_mm_srli_epi3217h882136db2e5e1522E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = lshr <4 x i32> %3, <i32 20, i32 20, i32 20, i32 20>
+  %4 = lshr <4 x i32> %3, splat (i32 20)
   store <4 x i32> %4, ptr %0, align 16
   ret void
 }
@@ -2075,7 +2075,7 @@ define hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h6e27a46ce99be
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4core9core_arch3x864sse216_mm_andnot_si12817h322f55f4e697d699E.llvm.17720110283109806325(ptr noalias nocapture noundef writeonly sret(<2 x i64>) align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %2) unnamed_addr #11 {
   %4 = load <2 x i64>, ptr %1, align 16
-  %5 = xor <2 x i64> %4, <i64 -1, i64 -1>
+  %5 = xor <2 x i64> %4, splat (i64 -1)
   %6 = load <2 x i64>, ptr %2, align 16
   %7 = and <2 x i64> %6, %5
   store <2 x i64> %7, ptr %0, align 16
@@ -3374,16 +3374,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2017h2b88de274fd92e00E.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 12))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 12))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 12))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 12))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3397,16 +3397,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2017h6c505714d9b876edE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 12))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 12))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 12))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 12))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3420,16 +3420,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2017hb6255297740f9ffcE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 12))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 12))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 12))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 12))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3514,16 +3514,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2417h7490917072c85b2dE.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 8))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 8))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 8))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 8))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3608,16 +3608,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2517h1a8d8a6342b6b803E.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 7))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 7))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 7))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 7))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3631,16 +3631,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2517h29db646d21487991E.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 7))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 7))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 7))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 7))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -3654,16 +3654,16 @@ define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN85_$LT$ppv_lite86..soft..x4$LT$W$GT$$u20$as$u20$ppv_lite86..types..RotateEachWord32$GT$24rotate_each_word_right2517hf783292210907565E.llvm.17720110283109806325"(ptr noalias nocapture noundef writeonly sret({ [4 x <2 x i64>] }) align 16 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = load <4 x i32>, ptr %1, align 16
-  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %4 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %3, <4 x i32> %3, <4 x i32> splat (i32 7))
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load <4 x i32>, ptr %5, align 16
-  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %7 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %6, <4 x i32> %6, <4 x i32> splat (i32 7))
   %8 = getelementptr inbounds i8, ptr %1, i64 32
   %9 = load <4 x i32>, ptr %8, align 16
-  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %10 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %9, <4 x i32> %9, <4 x i32> splat (i32 7))
   %11 = getelementptr inbounds i8, ptr %1, i64 48
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %13 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %12, <4 x i32> %12, <4 x i32> splat (i32 7))
   store <4 x i32> %4, ptr %0, align 16
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x i32> %7, ptr %.sroa.4.0..sroa_idx, align 16
@@ -4678,13 +4678,13 @@ define hidden void @_ZN11rand_chacha4guts5round17h72140ea2265f12f8E.llvm.1772011
   %66 = bitcast <2 x i64> %51 to <4 x i32>
   %67 = add <4 x i32> %65, %66
   %68 = xor <4 x i32> %55, %.sroa.0.0.copyload384
-  %69 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %68, <4 x i32> %68, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %69 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %68, <4 x i32> %68, <4 x i32> splat (i32 12))
   %70 = xor <4 x i32> %59, %.sroa.4.0.copyload385
-  %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> splat (i32 12))
   %72 = xor <4 x i32> %63, %.sroa.5.0.copyload386
-  %73 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %73 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> splat (i32 12))
   %74 = xor <4 x i32> %67, %.sroa.6.0.copyload387
-  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 12))
   %76 = add <4 x i32> %69, %29
   %77 = bitcast <4 x i32> %76 to <2 x i64>
   store <4 x i32> %76, ptr %1, align 16, !alias.scope !679, !noalias !684
@@ -4761,10 +4761,10 @@ define hidden void @_ZN11rand_chacha4guts5round17h72140ea2265f12f8E.llvm.1772011
   %101 = xor <4 x i32> %95, %71
   %102 = xor <4 x i32> %97, %73
   %103 = xor <4 x i32> %99, %75
-  %104 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %100, <4 x i32> %100, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %105 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %101, <4 x i32> %101, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %106 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %102, <4 x i32> %102, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %107 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %103, <4 x i32> %103, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %104 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %100, <4 x i32> %100, <4 x i32> splat (i32 7))
+  %105 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %101, <4 x i32> %101, <4 x i32> splat (i32 7))
+  %106 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %102, <4 x i32> %102, <4 x i32> splat (i32 7))
+  %107 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %103, <4 x i32> %103, <4 x i32> splat (i32 7))
   store <4 x i32> %104, ptr %27, align 16
   store <4 x i32> %105, ptr %.sroa.4.0..sroa_idx, align 16
   store <4 x i32> %106, ptr %.sroa.5.0..sroa_idx, align 16
@@ -4891,13 +4891,13 @@ define hidden void @_ZN11rand_chacha4guts5round17h76070a4dfc60bb32E.llvm.1772011
   %66 = bitcast <2 x i64> %51 to <4 x i32>
   %67 = add <4 x i32> %65, %66
   %68 = xor <4 x i32> %55, %.sroa.0.0.copyload384
-  %69 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %68, <4 x i32> %68, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %69 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %68, <4 x i32> %68, <4 x i32> splat (i32 12))
   %70 = xor <4 x i32> %59, %.sroa.4.0.copyload385
-  %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> splat (i32 12))
   %72 = xor <4 x i32> %63, %.sroa.5.0.copyload386
-  %73 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %73 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> splat (i32 12))
   %74 = xor <4 x i32> %67, %.sroa.6.0.copyload387
-  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 12))
   %76 = add <4 x i32> %69, %29
   %77 = bitcast <4 x i32> %76 to <2 x i64>
   store <4 x i32> %76, ptr %1, align 16, !alias.scope !811, !noalias !816
@@ -4974,10 +4974,10 @@ define hidden void @_ZN11rand_chacha4guts5round17h76070a4dfc60bb32E.llvm.1772011
   %101 = xor <4 x i32> %95, %71
   %102 = xor <4 x i32> %97, %73
   %103 = xor <4 x i32> %99, %75
-  %104 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %100, <4 x i32> %100, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %105 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %101, <4 x i32> %101, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %106 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %102, <4 x i32> %102, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %107 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %103, <4 x i32> %103, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %104 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %100, <4 x i32> %100, <4 x i32> splat (i32 7))
+  %105 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %101, <4 x i32> %101, <4 x i32> splat (i32 7))
+  %106 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %102, <4 x i32> %102, <4 x i32> splat (i32 7))
+  %107 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %103, <4 x i32> %103, <4 x i32> splat (i32 7))
   store <4 x i32> %104, ptr %27, align 16
   store <4 x i32> %105, ptr %.sroa.4.0..sroa_idx, align 16
   store <4 x i32> %106, ptr %.sroa.5.0..sroa_idx, align 16
@@ -5052,13 +5052,13 @@ define hidden void @_ZN11rand_chacha4guts5round17he7d99b6a6d43fda5E.llvm.1772011
   %50 = bitcast <8 x i16> %35 to <4 x i32>
   %51 = add <4 x i32> %49, %50
   %52 = xor <4 x i32> %39, %.sroa.0.0.copyload436
-  %53 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %52, <4 x i32> %52, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %53 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %52, <4 x i32> %52, <4 x i32> splat (i32 12))
   %54 = xor <4 x i32> %43, %.sroa.4.0.copyload437
-  %55 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %54, <4 x i32> %54, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %55 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %54, <4 x i32> %54, <4 x i32> splat (i32 12))
   %56 = xor <4 x i32> %47, %.sroa.5.0.copyload438
-  %57 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %56, <4 x i32> %56, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %57 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %56, <4 x i32> %56, <4 x i32> splat (i32 12))
   %58 = xor <4 x i32> %51, %.sroa.6.0.copyload439
-  %59 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %58, <4 x i32> %58, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %59 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %58, <4 x i32> %58, <4 x i32> splat (i32 12))
   %60 = add <4 x i32> %53, %5
   store <4 x i32> %60, ptr %1, align 16, !alias.scope !923, !noalias !928
   %61 = add <4 x i32> %55, %9
@@ -5068,13 +5068,13 @@ define hidden void @_ZN11rand_chacha4guts5round17he7d99b6a6d43fda5E.llvm.1772011
   %63 = add <4 x i32> %59, %17
   store <4 x i32> %63, ptr %15, align 16, !alias.scope !941, !noalias !944
   %64 = xor <4 x i32> %60, %38
-  %65 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %64, <4 x i32> %64, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %65 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %64, <4 x i32> %64, <4 x i32> splat (i32 8))
   %66 = xor <4 x i32> %61, %42
-  %67 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %66, <4 x i32> %66, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %67 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %66, <4 x i32> %66, <4 x i32> splat (i32 8))
   %68 = xor <4 x i32> %62, %46
-  %69 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %68, <4 x i32> %68, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %69 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %68, <4 x i32> %68, <4 x i32> splat (i32 8))
   %70 = xor <4 x i32> %63, %50
-  %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> splat (i32 8))
   store <4 x i32> %65, ptr %19, align 16
   store <4 x i32> %67, ptr %.sroa.430.0..sroa_idx, align 16
   store <4 x i32> %69, ptr %.sroa.531.0..sroa_idx, align 16
@@ -5091,10 +5091,10 @@ define hidden void @_ZN11rand_chacha4guts5round17he7d99b6a6d43fda5E.llvm.1772011
   %77 = xor <4 x i32> %73, %55
   %78 = xor <4 x i32> %74, %57
   %79 = xor <4 x i32> %75, %59
-  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %82 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %78, <4 x i32> %78, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %83 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %79, <4 x i32> %79, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> splat (i32 7))
+  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> splat (i32 7))
+  %82 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %78, <4 x i32> %78, <4 x i32> splat (i32 7))
+  %83 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %79, <4 x i32> %79, <4 x i32> splat (i32 7))
   store <4 x i32> %80, ptr %3, align 16
   store <4 x i32> %81, ptr %.sroa.4.0..sroa_idx, align 16
   store <4 x i32> %82, ptr %.sroa.5.0..sroa_idx, align 16
@@ -6118,13 +6118,13 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %147 = bitcast <2 x i64> %140 to <4 x i32>
   %148 = add <4 x i32> %.sroa.50.01868, %147
   %149 = xor <4 x i32> %142, %.sroa.21.01875
-  %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> splat (i32 12))
   %151 = xor <4 x i32> %144, %.sroa.29.01874
-  %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> splat (i32 12))
   %153 = xor <4 x i32> %146, %.sroa.30.01873
-  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> splat (i32 12))
   %155 = xor <4 x i32> %148, %.sroa.31.01872
-  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %155, <4 x i32> %155, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %155, <4 x i32> %155, <4 x i32> splat (i32 12))
   %157 = add <4 x i32> %150, %125
   %158 = bitcast <4 x i32> %157 to <2 x i64>
   %159 = add <4 x i32> %152, %127
@@ -6185,10 +6185,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %178 = xor <4 x i32> %174, %152
   %179 = xor <4 x i32> %175, %154
   %180 = xor <4 x i32> %176, %156
-  %181 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %177, <4 x i32> %177, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %182 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %178, <4 x i32> %178, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %183 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %179, <4 x i32> %179, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %184 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %180, <4 x i32> %180, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %181 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %177, <4 x i32> %177, <4 x i32> splat (i32 7))
+  %182 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %178, <4 x i32> %178, <4 x i32> splat (i32 7))
+  %183 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %179, <4 x i32> %179, <4 x i32> splat (i32 7))
+  %184 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %180, <4 x i32> %180, <4 x i32> splat (i32 7))
   %185 = shufflevector <4 x i32> %181, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %186 = shufflevector <4 x i32> %182, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %187 = shufflevector <4 x i32> %183, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -6261,10 +6261,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %218 = xor <4 x i32> %212, %186
   %219 = xor <4 x i32> %214, %187
   %220 = xor <4 x i32> %216, %188
-  %221 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %217, <4 x i32> %217, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %222 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %218, <4 x i32> %218, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %223 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %219, <4 x i32> %219, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %224 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %220, <4 x i32> %220, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %221 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %217, <4 x i32> %217, <4 x i32> splat (i32 12))
+  %222 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %218, <4 x i32> %218, <4 x i32> splat (i32 12))
+  %223 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %219, <4 x i32> %219, <4 x i32> splat (i32 12))
+  %224 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %220, <4 x i32> %220, <4 x i32> splat (i32 12))
   %225 = add <4 x i32> %221, %197
   %226 = bitcast <4 x i32> %225 to <2 x i64>
   %227 = add <4 x i32> %222, %198
@@ -6325,10 +6325,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %246 = xor <4 x i32> %242, %222
   %247 = xor <4 x i32> %243, %223
   %248 = xor <4 x i32> %244, %224
-  %249 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %245, <4 x i32> %245, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %250 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %246, <4 x i32> %246, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %251 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %247, <4 x i32> %247, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %252 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %248, <4 x i32> %248, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %249 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %245, <4 x i32> %245, <4 x i32> splat (i32 7))
+  %250 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %246, <4 x i32> %246, <4 x i32> splat (i32 7))
+  %251 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %247, <4 x i32> %247, <4 x i32> splat (i32 7))
+  %252 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %248, <4 x i32> %248, <4 x i32> splat (i32 7))
   %253 = shufflevector <4 x i32> %249, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %254 = shufflevector <4 x i32> %250, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %255 = shufflevector <4 x i32> %251, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -6493,25 +6493,25 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %72 = bitcast <8 x i16> %65 to <4 x i32>
   %73 = add <4 x i32> %.sroa.50.02095, %72
   %74 = xor <4 x i32> %67, %.sroa.21.02102
-  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 12))
   %76 = xor <4 x i32> %69, %.sroa.29.02101
-  %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> splat (i32 12))
   %78 = xor <4 x i32> %71, %.sroa.30.02100
-  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %78, <4 x i32> %78, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %78, <4 x i32> %78, <4 x i32> splat (i32 12))
   %80 = xor <4 x i32> %73, %.sroa.31.02099
-  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %80, <4 x i32> %80, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %80, <4 x i32> %80, <4 x i32> splat (i32 12))
   %82 = add <4 x i32> %75, %42
   %83 = add <4 x i32> %77, %44
   %84 = add <4 x i32> %79, %46
   %85 = add <4 x i32> %81, %48
   %86 = xor <4 x i32> %82, %66
-  %87 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %86, <4 x i32> %86, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %87 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %86, <4 x i32> %86, <4 x i32> splat (i32 8))
   %88 = xor <4 x i32> %83, %68
-  %89 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %88, <4 x i32> %88, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %89 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %88, <4 x i32> %88, <4 x i32> splat (i32 8))
   %90 = xor <4 x i32> %84, %70
-  %91 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %90, <4 x i32> %90, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %91 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %90, <4 x i32> %90, <4 x i32> splat (i32 8))
   %92 = xor <4 x i32> %85, %72
-  %93 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %92, <4 x i32> %92, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %93 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %92, <4 x i32> %92, <4 x i32> splat (i32 8))
   %94 = add <4 x i32> %87, %67
   %95 = add <4 x i32> %89, %69
   %96 = add <4 x i32> %91, %71
@@ -6520,10 +6520,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %99 = xor <4 x i32> %95, %77
   %100 = xor <4 x i32> %96, %79
   %101 = xor <4 x i32> %97, %81
-  %102 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %98, <4 x i32> %98, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %103 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %99, <4 x i32> %99, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %104 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %100, <4 x i32> %100, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %105 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %101, <4 x i32> %101, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %102 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %98, <4 x i32> %98, <4 x i32> splat (i32 7))
+  %103 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %99, <4 x i32> %99, <4 x i32> splat (i32 7))
+  %104 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %100, <4 x i32> %100, <4 x i32> splat (i32 7))
+  %105 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %101, <4 x i32> %101, <4 x i32> splat (i32 7))
   %106 = shufflevector <4 x i32> %102, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %107 = shufflevector <4 x i32> %103, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %108 = shufflevector <4 x i32> %104, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -6568,22 +6568,22 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %147 = xor <4 x i32> %141, %107
   %148 = xor <4 x i32> %143, %108
   %149 = xor <4 x i32> %145, %109
-  %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %146, <4 x i32> %146, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %151 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %147, <4 x i32> %147, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %148, <4 x i32> %148, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %153 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %146, <4 x i32> %146, <4 x i32> splat (i32 12))
+  %151 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %147, <4 x i32> %147, <4 x i32> splat (i32 12))
+  %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %148, <4 x i32> %148, <4 x i32> splat (i32 12))
+  %153 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> splat (i32 12))
   %154 = add <4 x i32> %150, %118
   %155 = add <4 x i32> %151, %119
   %156 = add <4 x i32> %152, %120
   %157 = add <4 x i32> %153, %121
   %158 = xor <4 x i32> %154, %138
-  %159 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %158, <4 x i32> %158, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %159 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %158, <4 x i32> %158, <4 x i32> splat (i32 8))
   %160 = xor <4 x i32> %155, %140
-  %161 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %160, <4 x i32> %160, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %161 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %160, <4 x i32> %160, <4 x i32> splat (i32 8))
   %162 = xor <4 x i32> %156, %142
-  %163 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %162, <4 x i32> %162, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %163 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %162, <4 x i32> %162, <4 x i32> splat (i32 8))
   %164 = xor <4 x i32> %157, %144
-  %165 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %164, <4 x i32> %164, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %165 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %164, <4 x i32> %164, <4 x i32> splat (i32 8))
   %166 = add <4 x i32> %159, %139
   %167 = add <4 x i32> %161, %141
   %168 = add <4 x i32> %163, %143
@@ -6592,10 +6592,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %171 = xor <4 x i32> %167, %151
   %172 = xor <4 x i32> %168, %152
   %173 = xor <4 x i32> %169, %153
-  %174 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %170, <4 x i32> %170, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %175 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %171, <4 x i32> %171, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %176 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %172, <4 x i32> %172, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %177 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %173, <4 x i32> %173, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %174 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %170, <4 x i32> %170, <4 x i32> splat (i32 7))
+  %175 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %171, <4 x i32> %171, <4 x i32> splat (i32 7))
+  %176 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %172, <4 x i32> %172, <4 x i32> splat (i32 7))
+  %177 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %173, <4 x i32> %173, <4 x i32> splat (i32 7))
   %178 = shufflevector <4 x i32> %174, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %179 = shufflevector <4 x i32> %175, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %180 = shufflevector <4 x i32> %176, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -8083,13 +8083,13 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %116 = bitcast <2 x i64> %109 to <4 x i32>
   %117 = add <4 x i32> %.sroa.50.01961, %116
   %118 = xor <4 x i32> %111, %.sroa.21.01968
-  %119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
   %120 = xor <4 x i32> %113, %.sroa.29.01967
-  %121 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %121 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
   %122 = xor <4 x i32> %115, %.sroa.30.01966
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %122, <4 x i32> %122, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %122, <4 x i32> %122, <4 x i32> splat (i32 12))
   %124 = xor <4 x i32> %117, %.sroa.31.01965
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %124, <4 x i32> %124, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %124, <4 x i32> %124, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %119, %94
   %127 = bitcast <4 x i32> %126 to <2 x i64>
   %128 = add <4 x i32> %121, %96
@@ -8150,10 +8150,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %147 = xor <4 x i32> %143, %121
   %148 = xor <4 x i32> %144, %123
   %149 = xor <4 x i32> %145, %125
-  %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %146, <4 x i32> %146, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %151 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %147, <4 x i32> %147, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %148, <4 x i32> %148, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %153 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %146, <4 x i32> %146, <4 x i32> splat (i32 7))
+  %151 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %147, <4 x i32> %147, <4 x i32> splat (i32 7))
+  %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %148, <4 x i32> %148, <4 x i32> splat (i32 7))
+  %153 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> splat (i32 7))
   %154 = shufflevector <4 x i32> %150, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %155 = shufflevector <4 x i32> %151, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %156 = shufflevector <4 x i32> %152, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -8226,10 +8226,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %187 = xor <4 x i32> %181, %155
   %188 = xor <4 x i32> %183, %156
   %189 = xor <4 x i32> %185, %157
-  %190 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %186, <4 x i32> %186, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %191 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %187, <4 x i32> %187, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %192 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %188, <4 x i32> %188, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %193 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %189, <4 x i32> %189, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %190 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %186, <4 x i32> %186, <4 x i32> splat (i32 12))
+  %191 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %187, <4 x i32> %187, <4 x i32> splat (i32 12))
+  %192 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %188, <4 x i32> %188, <4 x i32> splat (i32 12))
+  %193 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %189, <4 x i32> %189, <4 x i32> splat (i32 12))
   %194 = add <4 x i32> %190, %166
   %195 = bitcast <4 x i32> %194 to <2 x i64>
   %196 = add <4 x i32> %191, %167
@@ -8290,10 +8290,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %215 = xor <4 x i32> %211, %191
   %216 = xor <4 x i32> %212, %192
   %217 = xor <4 x i32> %213, %193
-  %218 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %214, <4 x i32> %214, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %219 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %215, <4 x i32> %215, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %220 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %216, <4 x i32> %216, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %221 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %217, <4 x i32> %217, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %218 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %214, <4 x i32> %214, <4 x i32> splat (i32 7))
+  %219 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %215, <4 x i32> %215, <4 x i32> splat (i32 7))
+  %220 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %216, <4 x i32> %216, <4 x i32> splat (i32 7))
+  %221 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %217, <4 x i32> %217, <4 x i32> splat (i32 7))
   %222 = shufflevector <4 x i32> %218, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %223 = shufflevector <4 x i32> %219, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %224 = shufflevector <4 x i32> %220, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -8565,13 +8565,13 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %88 = bitcast <2 x i64> %81 to <4 x i32>
   %89 = add <4 x i32> %.sroa.52.01894, %88
   %90 = xor <4 x i32> %83, %.sroa.23.01901
-  %91 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %90, <4 x i32> %90, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %91 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %90, <4 x i32> %90, <4 x i32> splat (i32 12))
   %92 = xor <4 x i32> %85, %.sroa.31.01900
-  %93 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %92, <4 x i32> %92, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %93 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %92, <4 x i32> %92, <4 x i32> splat (i32 12))
   %94 = xor <4 x i32> %87, %.sroa.32.01899
-  %95 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %94, <4 x i32> %94, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %95 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %94, <4 x i32> %94, <4 x i32> splat (i32 12))
   %96 = xor <4 x i32> %89, %.sroa.33.01898
-  %97 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %96, <4 x i32> %96, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %97 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %96, <4 x i32> %96, <4 x i32> splat (i32 12))
   %98 = add <4 x i32> %91, %66
   %99 = bitcast <4 x i32> %98 to <2 x i64>
   %100 = add <4 x i32> %93, %68
@@ -8632,10 +8632,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %119 = xor <4 x i32> %115, %93
   %120 = xor <4 x i32> %116, %95
   %121 = xor <4 x i32> %117, %97
-  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 7))
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> splat (i32 7))
+  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 7))
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> splat (i32 7))
   %126 = shufflevector <4 x i32> %122, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %127 = shufflevector <4 x i32> %123, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %128 = shufflevector <4 x i32> %124, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -8708,10 +8708,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %159 = xor <4 x i32> %153, %127
   %160 = xor <4 x i32> %155, %128
   %161 = xor <4 x i32> %157, %129
-  %162 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %158, <4 x i32> %158, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %163 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %159, <4 x i32> %159, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %164 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %160, <4 x i32> %160, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %165 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %161, <4 x i32> %161, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %162 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %158, <4 x i32> %158, <4 x i32> splat (i32 12))
+  %163 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %159, <4 x i32> %159, <4 x i32> splat (i32 12))
+  %164 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %160, <4 x i32> %160, <4 x i32> splat (i32 12))
+  %165 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %161, <4 x i32> %161, <4 x i32> splat (i32 12))
   %166 = add <4 x i32> %162, %138
   %167 = bitcast <4 x i32> %166 to <2 x i64>
   %168 = add <4 x i32> %163, %139
@@ -8772,10 +8772,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %187 = xor <4 x i32> %183, %163
   %188 = xor <4 x i32> %184, %164
   %189 = xor <4 x i32> %185, %165
-  %190 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %186, <4 x i32> %186, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %191 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %187, <4 x i32> %187, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %192 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %188, <4 x i32> %188, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %193 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %189, <4 x i32> %189, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %190 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %186, <4 x i32> %186, <4 x i32> splat (i32 7))
+  %191 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %187, <4 x i32> %187, <4 x i32> splat (i32 7))
+  %192 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %188, <4 x i32> %188, <4 x i32> splat (i32 7))
+  %193 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %189, <4 x i32> %189, <4 x i32> splat (i32 7))
   %194 = shufflevector <4 x i32> %190, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %195 = shufflevector <4 x i32> %191, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %196 = shufflevector <4 x i32> %192, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -10183,25 +10183,25 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %44 = bitcast <8 x i16> %37 to <4 x i32>
   %45 = add <4 x i32> %.sroa.52.02028, %44
   %46 = xor <4 x i32> %39, %.sroa.23.02035
-  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
   %48 = xor <4 x i32> %41, %.sroa.31.02034
-  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = xor <4 x i32> %43, %.sroa.32.02033
-  %51 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %50, <4 x i32> %50, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %51 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %50, <4 x i32> %50, <4 x i32> splat (i32 12))
   %52 = xor <4 x i32> %45, %.sroa.33.02032
-  %53 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %52, <4 x i32> %52, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %53 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %52, <4 x i32> %52, <4 x i32> splat (i32 12))
   %54 = add <4 x i32> %47, %14
   %55 = add <4 x i32> %49, %16
   %56 = add <4 x i32> %51, %18
   %57 = add <4 x i32> %53, %20
   %58 = xor <4 x i32> %54, %38
-  %59 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %58, <4 x i32> %58, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %59 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %58, <4 x i32> %58, <4 x i32> splat (i32 8))
   %60 = xor <4 x i32> %55, %40
-  %61 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %60, <4 x i32> %60, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %61 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %60, <4 x i32> %60, <4 x i32> splat (i32 8))
   %62 = xor <4 x i32> %56, %42
-  %63 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %62, <4 x i32> %62, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %63 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %62, <4 x i32> %62, <4 x i32> splat (i32 8))
   %64 = xor <4 x i32> %57, %44
-  %65 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %64, <4 x i32> %64, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %65 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %64, <4 x i32> %64, <4 x i32> splat (i32 8))
   %66 = add <4 x i32> %59, %39
   %67 = add <4 x i32> %61, %41
   %68 = add <4 x i32> %63, %43
@@ -10210,10 +10210,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %71 = xor <4 x i32> %67, %49
   %72 = xor <4 x i32> %68, %51
   %73 = xor <4 x i32> %69, %53
-  %74 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %71, <4 x i32> %71, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %76 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %73, <4 x i32> %73, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %74 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> splat (i32 7))
+  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %71, <4 x i32> %71, <4 x i32> splat (i32 7))
+  %76 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> splat (i32 7))
+  %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %73, <4 x i32> %73, <4 x i32> splat (i32 7))
   %78 = shufflevector <4 x i32> %74, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %79 = shufflevector <4 x i32> %75, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %80 = shufflevector <4 x i32> %76, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -10258,22 +10258,22 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %119 = xor <4 x i32> %113, %79
   %120 = xor <4 x i32> %115, %80
   %121 = xor <4 x i32> %117, %81
-  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> splat (i32 12))
+  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %122, %90
   %127 = add <4 x i32> %123, %91
   %128 = add <4 x i32> %124, %92
   %129 = add <4 x i32> %125, %93
   %130 = xor <4 x i32> %126, %110
-  %131 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %130, <4 x i32> %130, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %131 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %130, <4 x i32> %130, <4 x i32> splat (i32 8))
   %132 = xor <4 x i32> %127, %112
-  %133 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %132, <4 x i32> %132, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %133 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %132, <4 x i32> %132, <4 x i32> splat (i32 8))
   %134 = xor <4 x i32> %128, %114
-  %135 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %134, <4 x i32> %134, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %135 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %134, <4 x i32> %134, <4 x i32> splat (i32 8))
   %136 = xor <4 x i32> %129, %116
-  %137 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %136, <4 x i32> %136, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %137 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %136, <4 x i32> %136, <4 x i32> splat (i32 8))
   %138 = add <4 x i32> %131, %111
   %139 = add <4 x i32> %133, %113
   %140 = add <4 x i32> %135, %115
@@ -10282,10 +10282,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %143 = xor <4 x i32> %139, %123
   %144 = xor <4 x i32> %140, %124
   %145 = xor <4 x i32> %141, %125
-  %146 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %142, <4 x i32> %142, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %147 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %143, <4 x i32> %143, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %148 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %144, <4 x i32> %144, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %149 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %145, <4 x i32> %145, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %146 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %142, <4 x i32> %142, <4 x i32> splat (i32 7))
+  %147 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %143, <4 x i32> %143, <4 x i32> splat (i32 7))
+  %148 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %144, <4 x i32> %144, <4 x i32> splat (i32 7))
+  %149 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %145, <4 x i32> %145, <4 x i32> splat (i32 7))
   %150 = shufflevector <4 x i32> %146, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %151 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %152 = shufflevector <4 x i32> %148, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -10591,13 +10591,13 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %110 = bitcast <2 x i64> %103 to <4 x i32>
   %111 = add <4 x i32> %.sroa.52.01801, %110
   %112 = xor <4 x i32> %105, %.sroa.23.01808
-  %113 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %112, <4 x i32> %112, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %113 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %112, <4 x i32> %112, <4 x i32> splat (i32 12))
   %114 = xor <4 x i32> %107, %.sroa.31.01807
-  %115 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %114, <4 x i32> %114, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %115 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %114, <4 x i32> %114, <4 x i32> splat (i32 12))
   %116 = xor <4 x i32> %109, %.sroa.32.01806
-  %117 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %116, <4 x i32> %116, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %117 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %116, <4 x i32> %116, <4 x i32> splat (i32 12))
   %118 = xor <4 x i32> %111, %.sroa.33.01805
-  %119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
   %120 = add <4 x i32> %113, %88
   %121 = bitcast <4 x i32> %120 to <2 x i64>
   %122 = add <4 x i32> %115, %90
@@ -10658,10 +10658,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %141 = xor <4 x i32> %137, %115
   %142 = xor <4 x i32> %138, %117
   %143 = xor <4 x i32> %139, %119
-  %144 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %140, <4 x i32> %140, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %145 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %141, <4 x i32> %141, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %146 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %142, <4 x i32> %142, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %147 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %143, <4 x i32> %143, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %144 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %140, <4 x i32> %140, <4 x i32> splat (i32 7))
+  %145 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %141, <4 x i32> %141, <4 x i32> splat (i32 7))
+  %146 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %142, <4 x i32> %142, <4 x i32> splat (i32 7))
+  %147 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %143, <4 x i32> %143, <4 x i32> splat (i32 7))
   %148 = shufflevector <4 x i32> %144, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %149 = shufflevector <4 x i32> %145, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %150 = shufflevector <4 x i32> %146, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -10734,10 +10734,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %181 = xor <4 x i32> %175, %149
   %182 = xor <4 x i32> %177, %150
   %183 = xor <4 x i32> %179, %151
-  %184 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %180, <4 x i32> %180, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %185 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %181, <4 x i32> %181, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %186 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %182, <4 x i32> %182, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %187 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %183, <4 x i32> %183, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %184 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %180, <4 x i32> %180, <4 x i32> splat (i32 12))
+  %185 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %181, <4 x i32> %181, <4 x i32> splat (i32 12))
+  %186 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %182, <4 x i32> %182, <4 x i32> splat (i32 12))
+  %187 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %183, <4 x i32> %183, <4 x i32> splat (i32 12))
   %188 = add <4 x i32> %184, %160
   %189 = bitcast <4 x i32> %188 to <2 x i64>
   %190 = add <4 x i32> %185, %161
@@ -10798,10 +10798,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %209 = xor <4 x i32> %205, %185
   %210 = xor <4 x i32> %206, %186
   %211 = xor <4 x i32> %207, %187
-  %212 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %208, <4 x i32> %208, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %213 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %209, <4 x i32> %209, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %214 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %210, <4 x i32> %210, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %215 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %211, <4 x i32> %211, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %212 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %208, <4 x i32> %208, <4 x i32> splat (i32 7))
+  %213 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %209, <4 x i32> %209, <4 x i32> splat (i32 7))
+  %214 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %210, <4 x i32> %210, <4 x i32> splat (i32 7))
+  %215 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %211, <4 x i32> %211, <4 x i32> splat (i32 7))
   %216 = shufflevector <4 x i32> %212, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %217 = shufflevector <4 x i32> %213, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %218 = shufflevector <4 x i32> %214, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -10994,9 +10994,9 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %26 = bitcast <32 x i8> %23 to <8 x i32>
   %27 = add <8 x i32> %.sroa.30121.01150, %26
   %28 = xor <8 x i32> %25, %.sroa.13.01153
-  %29 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %28, <8 x i32> %28, <8 x i32> <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>)
+  %29 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %28, <8 x i32> %28, <8 x i32> splat (i32 12))
   %30 = xor <8 x i32> %27, %.sroa.21.01152
-  %31 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %30, <8 x i32> %30, <8 x i32> <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>)
+  %31 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %30, <8 x i32> %30, <8 x i32> splat (i32 12))
   %32 = add <8 x i32> %29, %14
   %33 = add <8 x i32> %31, %16
   %34 = bitcast <8 x i32> %32 to <32 x i8>
@@ -11011,8 +11011,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %43 = add <8 x i32> %27, %42
   %44 = xor <8 x i32> %41, %29
   %45 = xor <8 x i32> %43, %31
-  %46 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %44, <8 x i32> %44, <8 x i32> <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>)
-  %47 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %45, <8 x i32> %45, <8 x i32> <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>)
+  %46 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %44, <8 x i32> %44, <8 x i32> splat (i32 7))
+  %47 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %45, <8 x i32> %45, <8 x i32> splat (i32 7))
   %48 = shufflevector <8 x i32> %46, <8 x i32> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 0, i32 5, i32 6, i32 7, i32 4>
   %49 = shufflevector <8 x i32> %47, <8 x i32> poison, <8 x i32> <i32 1, i32 2, i32 3, i32 0, i32 5, i32 6, i32 7, i32 4>
   %50 = shufflevector <8 x i32> %41, <8 x i32> poison, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5>
@@ -11033,8 +11033,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %65 = add <8 x i32> %51, %64
   %66 = xor <8 x i32> %63, %48
   %67 = xor <8 x i32> %65, %49
-  %68 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %66, <8 x i32> %66, <8 x i32> <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>)
-  %69 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %67, <8 x i32> %67, <8 x i32> <i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12, i32 12>)
+  %68 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %66, <8 x i32> %66, <8 x i32> splat (i32 12))
+  %69 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %67, <8 x i32> %67, <8 x i32> splat (i32 12))
   %70 = add <8 x i32> %68, %54
   %71 = add <8 x i32> %69, %55
   %72 = bitcast <8 x i32> %70 to <32 x i8>
@@ -11049,8 +11049,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %81 = add <8 x i32> %65, %80
   %82 = xor <8 x i32> %79, %68
   %83 = xor <8 x i32> %81, %69
-  %84 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %82, <8 x i32> %82, <8 x i32> <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>)
-  %85 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %83, <8 x i32> %83, <8 x i32> <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>)
+  %84 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %82, <8 x i32> %82, <8 x i32> splat (i32 7))
+  %85 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %83, <8 x i32> %83, <8 x i32> splat (i32 7))
   %86 = shufflevector <8 x i32> %84, <8 x i32> poison, <8 x i32> <i32 3, i32 0, i32 1, i32 2, i32 7, i32 4, i32 5, i32 6>
   %87 = shufflevector <8 x i32> %85, <8 x i32> poison, <8 x i32> <i32 3, i32 0, i32 1, i32 2, i32 7, i32 4, i32 5, i32 6>
   %88 = shufflevector <8 x i32> %79, <8 x i32> poison, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5>
@@ -11180,13 +11180,13 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %40 = bitcast <16 x i8> %33 to <4 x i32>
   %41 = add <4 x i32> %.sroa.52.01912, %40
   %42 = xor <4 x i32> %35, %.sroa.23.01919
-  %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
   %44 = xor <4 x i32> %37, %.sroa.31.01918
-  %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
   %46 = xor <4 x i32> %39, %.sroa.32.01917
-  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
   %48 = xor <4 x i32> %41, %.sroa.33.01916
-  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
   %52 = add <4 x i32> %47, %18
@@ -11215,10 +11215,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %75 = xor <4 x i32> %69, %45
   %76 = xor <4 x i32> %71, %47
   %77 = xor <4 x i32> %73, %49
-  %78 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %75, <4 x i32> %75, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %78 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 7))
+  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %75, <4 x i32> %75, <4 x i32> splat (i32 7))
+  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> splat (i32 7))
+  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> splat (i32 7))
   %82 = shufflevector <4 x i32> %78, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %83 = shufflevector <4 x i32> %79, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %84 = shufflevector <4 x i32> %80, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -11259,10 +11259,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %119 = xor <4 x i32> %113, %83
   %120 = xor <4 x i32> %115, %84
   %121 = xor <4 x i32> %117, %85
-  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> splat (i32 12))
+  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %122, %94
   %127 = add <4 x i32> %123, %95
   %128 = add <4 x i32> %124, %96
@@ -11291,10 +11291,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %151 = xor <4 x i32> %145, %123
   %152 = xor <4 x i32> %147, %124
   %153 = xor <4 x i32> %149, %125
-  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %150, <4 x i32> %150, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %155 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %152, <4 x i32> %152, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %157 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %150, <4 x i32> %150, <4 x i32> splat (i32 7))
+  %155 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> splat (i32 7))
+  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %152, <4 x i32> %152, <4 x i32> splat (i32 7))
+  %157 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> splat (i32 7))
   %158 = shufflevector <4 x i32> %154, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %159 = shufflevector <4 x i32> %155, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %160 = shufflevector <4 x i32> %156, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -11456,13 +11456,13 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %40 = bitcast <16 x i8> %33 to <4 x i32>
   %41 = add <4 x i32> %.sroa.52.01912, %40
   %42 = xor <4 x i32> %35, %.sroa.23.01919
-  %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
   %44 = xor <4 x i32> %37, %.sroa.31.01918
-  %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
   %46 = xor <4 x i32> %39, %.sroa.32.01917
-  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
   %48 = xor <4 x i32> %41, %.sroa.33.01916
-  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
   %52 = add <4 x i32> %47, %18
@@ -11491,10 +11491,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %75 = xor <4 x i32> %69, %45
   %76 = xor <4 x i32> %71, %47
   %77 = xor <4 x i32> %73, %49
-  %78 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %75, <4 x i32> %75, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %78 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 7))
+  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %75, <4 x i32> %75, <4 x i32> splat (i32 7))
+  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> splat (i32 7))
+  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> splat (i32 7))
   %82 = shufflevector <4 x i32> %78, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %83 = shufflevector <4 x i32> %79, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %84 = shufflevector <4 x i32> %80, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -11535,10 +11535,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %119 = xor <4 x i32> %113, %83
   %120 = xor <4 x i32> %115, %84
   %121 = xor <4 x i32> %117, %85
-  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> splat (i32 12))
+  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %122, %94
   %127 = add <4 x i32> %123, %95
   %128 = add <4 x i32> %124, %96
@@ -11567,10 +11567,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %151 = xor <4 x i32> %145, %123
   %152 = xor <4 x i32> %147, %124
   %153 = xor <4 x i32> %149, %125
-  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %150, <4 x i32> %150, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %155 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %152, <4 x i32> %152, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %157 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %150, <4 x i32> %150, <4 x i32> splat (i32 7))
+  %155 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> splat (i32 7))
+  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %152, <4 x i32> %152, <4 x i32> splat (i32 7))
+  %157 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> splat (i32 7))
   %158 = shufflevector <4 x i32> %154, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %159 = shufflevector <4 x i32> %155, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %160 = shufflevector <4 x i32> %156, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -11731,13 +11731,13 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %40 = bitcast <16 x i8> %33 to <4 x i32>
   %41 = add <4 x i32> %.sroa.52.01972, %40
   %42 = xor <4 x i32> %35, %.sroa.23.01979
-  %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
   %44 = xor <4 x i32> %37, %.sroa.31.01978
-  %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
   %46 = xor <4 x i32> %39, %.sroa.32.01977
-  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
   %48 = xor <4 x i32> %41, %.sroa.33.01976
-  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
   %52 = add <4 x i32> %47, %18
@@ -11766,10 +11766,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %75 = xor <4 x i32> %69, %45
   %76 = xor <4 x i32> %71, %47
   %77 = xor <4 x i32> %73, %49
-  %78 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %75, <4 x i32> %75, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %78 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 7))
+  %79 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %75, <4 x i32> %75, <4 x i32> splat (i32 7))
+  %80 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> splat (i32 7))
+  %81 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %77, <4 x i32> %77, <4 x i32> splat (i32 7))
   %82 = shufflevector <4 x i32> %78, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %83 = shufflevector <4 x i32> %79, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %84 = shufflevector <4 x i32> %80, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -11810,10 +11810,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %119 = xor <4 x i32> %113, %83
   %120 = xor <4 x i32> %115, %84
   %121 = xor <4 x i32> %117, %85
-  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> splat (i32 12))
+  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %122, %94
   %127 = add <4 x i32> %123, %95
   %128 = add <4 x i32> %124, %96
@@ -11842,10 +11842,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %151 = xor <4 x i32> %145, %123
   %152 = xor <4 x i32> %147, %124
   %153 = xor <4 x i32> %149, %125
-  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %150, <4 x i32> %150, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %155 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %152, <4 x i32> %152, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %157 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %150, <4 x i32> %150, <4 x i32> splat (i32 7))
+  %155 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> splat (i32 7))
+  %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %152, <4 x i32> %152, <4 x i32> splat (i32 7))
+  %157 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> splat (i32 7))
   %158 = shufflevector <4 x i32> %154, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %159 = shufflevector <4 x i32> %155, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %160 = shufflevector <4 x i32> %156, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -12010,25 +12010,25 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %44 = bitcast <8 x i16> %37 to <4 x i32>
   %45 = add <4 x i32> %.sroa.52.02028, %44
   %46 = xor <4 x i32> %39, %.sroa.23.02035
-  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
   %48 = xor <4 x i32> %41, %.sroa.31.02034
-  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = xor <4 x i32> %43, %.sroa.32.02033
-  %51 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %50, <4 x i32> %50, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %51 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %50, <4 x i32> %50, <4 x i32> splat (i32 12))
   %52 = xor <4 x i32> %45, %.sroa.33.02032
-  %53 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %52, <4 x i32> %52, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %53 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %52, <4 x i32> %52, <4 x i32> splat (i32 12))
   %54 = add <4 x i32> %47, %14
   %55 = add <4 x i32> %49, %16
   %56 = add <4 x i32> %51, %18
   %57 = add <4 x i32> %53, %20
   %58 = xor <4 x i32> %54, %38
-  %59 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %58, <4 x i32> %58, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %59 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %58, <4 x i32> %58, <4 x i32> splat (i32 8))
   %60 = xor <4 x i32> %55, %40
-  %61 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %60, <4 x i32> %60, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %61 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %60, <4 x i32> %60, <4 x i32> splat (i32 8))
   %62 = xor <4 x i32> %56, %42
-  %63 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %62, <4 x i32> %62, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %63 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %62, <4 x i32> %62, <4 x i32> splat (i32 8))
   %64 = xor <4 x i32> %57, %44
-  %65 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %64, <4 x i32> %64, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %65 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %64, <4 x i32> %64, <4 x i32> splat (i32 8))
   %66 = add <4 x i32> %59, %39
   %67 = add <4 x i32> %61, %41
   %68 = add <4 x i32> %63, %43
@@ -12037,10 +12037,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %71 = xor <4 x i32> %67, %49
   %72 = xor <4 x i32> %68, %51
   %73 = xor <4 x i32> %69, %53
-  %74 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %71, <4 x i32> %71, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %76 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %73, <4 x i32> %73, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %74 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> splat (i32 7))
+  %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %71, <4 x i32> %71, <4 x i32> splat (i32 7))
+  %76 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> splat (i32 7))
+  %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %73, <4 x i32> %73, <4 x i32> splat (i32 7))
   %78 = shufflevector <4 x i32> %74, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %79 = shufflevector <4 x i32> %75, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %80 = shufflevector <4 x i32> %76, <4 x i32> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -12085,22 +12085,22 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %119 = xor <4 x i32> %113, %79
   %120 = xor <4 x i32> %115, %80
   %121 = xor <4 x i32> %117, %81
-  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
-  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> <i32 12, i32 12, i32 12, i32 12>)
+  %122 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
+  %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %119, <4 x i32> %119, <4 x i32> splat (i32 12))
+  %124 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
+  %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %121, <4 x i32> %121, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %122, %90
   %127 = add <4 x i32> %123, %91
   %128 = add <4 x i32> %124, %92
   %129 = add <4 x i32> %125, %93
   %130 = xor <4 x i32> %126, %110
-  %131 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %130, <4 x i32> %130, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %131 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %130, <4 x i32> %130, <4 x i32> splat (i32 8))
   %132 = xor <4 x i32> %127, %112
-  %133 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %132, <4 x i32> %132, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %133 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %132, <4 x i32> %132, <4 x i32> splat (i32 8))
   %134 = xor <4 x i32> %128, %114
-  %135 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %134, <4 x i32> %134, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %135 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %134, <4 x i32> %134, <4 x i32> splat (i32 8))
   %136 = xor <4 x i32> %129, %116
-  %137 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %136, <4 x i32> %136, <4 x i32> <i32 8, i32 8, i32 8, i32 8>)
+  %137 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %136, <4 x i32> %136, <4 x i32> splat (i32 8))
   %138 = add <4 x i32> %131, %111
   %139 = add <4 x i32> %133, %113
   %140 = add <4 x i32> %135, %115
@@ -12109,10 +12109,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %143 = xor <4 x i32> %139, %123
   %144 = xor <4 x i32> %140, %124
   %145 = xor <4 x i32> %141, %125
-  %146 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %142, <4 x i32> %142, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %147 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %143, <4 x i32> %143, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %148 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %144, <4 x i32> %144, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
-  %149 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %145, <4 x i32> %145, <4 x i32> <i32 7, i32 7, i32 7, i32 7>)
+  %146 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %142, <4 x i32> %142, <4 x i32> splat (i32 7))
+  %147 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %143, <4 x i32> %143, <4 x i32> splat (i32 7))
+  %148 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %144, <4 x i32> %144, <4 x i32> splat (i32 7))
+  %149 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %145, <4 x i32> %145, <4 x i32> splat (i32 7))
   %150 = shufflevector <4 x i32> %146, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %151 = shufflevector <4 x i32> %147, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %152 = shufflevector <4 x i32> %148, <4 x i32> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>

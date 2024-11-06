@@ -224,7 +224,7 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %cmp.i.not.i.i, label %for.end.i.i, label %for.body.i.i
 
 for.end.i.i:                                      ; preds = %for.inc.i.i, %while.body.i.i
-  %cmp.i.i13.i.i = icmp eq <16 x i8> %7, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i13.i.i = icmp eq <16 x i8> %7, splat (i8 -128)
   %12 = bitcast <16 x i1> %cmp.i.i13.i.i to i16
   %cmp.i14.not.i.i = icmp eq i16 %12, 0
   br i1 %cmp.i14.not.i.i, label %if.end34.i.i, label %invoke.cont31
@@ -318,7 +318,7 @@ for.inc.i.i.i.i:                                  ; preds = %for.body.i.i.i.i
   br i1 %cmp.i.not.i.i.i.i, label %for.end.i.i.i.i, label %for.body.i.i.i.i
 
 for.end.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i, %while.body.i.i.i.i
-  %cmp.i.i14.i.i.i.i = icmp eq <16 x i8> %22, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i14.i.i.i.i = icmp eq <16 x i8> %22, splat (i8 -128)
   %27 = bitcast <16 x i1> %cmp.i.i14.i.i.i.i to i16
   %cmp.i15.not.i.i.i.i = icmp eq i16 %27, 0
   br i1 %cmp.i15.not.i.i.i.i, label %if.end36.i.i.i.i, label %while.end.i.i.i.i
@@ -545,7 +545,7 @@ while.body.i.i48:                                 ; preds = %sw.bb48, %while.bod
   %58 = phi ptr [ %add.ptr6.i.i, %while.body.i.i48 ], [ %allocated.val30, %sw.bb48 ]
   %add.ptr24.i.i = phi ptr [ %add.ptr.i.i50, %while.body.i.i48 ], [ %allocated.val, %sw.bb48 ]
   %59 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
-  %cmp.i.i.i.i.i = icmp slt <16 x i8> %59, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i.i = icmp slt <16 x i8> %59, splat (i8 -1)
   %60 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
   %61 = zext i16 %60 to i32
   %add.i.i.i49 = add nuw nsw i32 %61, 1
@@ -635,7 +635,7 @@ while.body.i.i76:                                 ; preds = %while.cond, %while.
   %72 = phi ptr [ %add.ptr6.i.i82, %while.body.i.i76 ], [ %allocated.val32, %while.cond ]
   %add.ptr24.i.i77 = phi ptr [ %add.ptr.i.i81, %while.body.i.i76 ], [ %allocated.val31, %while.cond ]
   %73 = load <16 x i8>, ptr %add.ptr24.i.i77, align 1
-  %cmp.i.i.i.i.i78 = icmp slt <16 x i8> %73, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i.i78 = icmp slt <16 x i8> %73, splat (i8 -1)
   %74 = bitcast <16 x i1> %cmp.i.i.i.i.i78 to i16
   %75 = zext i16 %74 to i32
   %add.i.i.i79 = add nuw nsw i32 %75, 1

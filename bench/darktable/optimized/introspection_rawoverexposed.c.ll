@@ -218,7 +218,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %130 = shufflevector <8 x float> %125, <8 x float> %128, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x float> %130, ptr %129, align 64, !tbaa !79
   %131 = add nuw nsw i64 %118, 8
-  %132 = add <8 x i32> %119, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %132 = add <8 x i32> %119, splat (i32 8)
   %133 = icmp eq i64 %131, %114
   br i1 %133, label %134, label %117, !llvm.loop !80
 
@@ -449,11 +449,11 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %296 = phi i64 [ 0, %292 ], [ %301, %295 ]
   %297 = phi <8 x i64> [ <i64 3, i64 7, i64 11, i64 15, i64 19, i64 23, i64 27, i64 31>, %292 ], [ %302, %295 ]
   %298 = getelementptr inbounds float, ptr %2, <8 x i64> %297
-  %299 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %298, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !79, !alias.scope !85
+  %299 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %298, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !79, !alias.scope !85
   %300 = getelementptr inbounds float, ptr %3, <8 x i64> %297
-  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %299, <8 x ptr> %300, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>), !tbaa !79, !alias.scope !88, !noalias !85
+  call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %299, <8 x ptr> %300, i32 4, <8 x i1> splat (i1 true)), !tbaa !79, !alias.scope !88, !noalias !85
   %301 = add nuw i64 %296, 8
-  %302 = add <8 x i64> %297, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %302 = add <8 x i64> %297, splat (i64 32)
   %303 = icmp eq i64 %301, %293
   br i1 %303, label %304, label %295, !llvm.loop !90
 

@@ -1689,7 +1689,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.016.i.i.i.i = phi i64 [ 0, %44 ], [ %51, %46 ]
   %47 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %45, i64 0, i64 %.016.i.i.i.i
   %48 = load <4 x i32>, ptr %47, align 16, !noalias !71
-  %49 = xor <4 x i32> %48, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %49 = xor <4 x i32> %48, splat (i32 -2147483648)
   %50 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %17, i64 0, i64 %.016.i.i.i.i
   store <4 x i32> %49, ptr %50, align 16, !alias.scope !74, !noalias !75
   %51 = add nuw nsw i64 %.016.i.i.i.i, 1

@@ -8728,9 +8728,9 @@ if.then3:                                         ; preds = %if.end
 
 for.body.i14:                                     ; preds = %for.body.i14, %if.then3
   %i.012.i15 = phi i32 [ 0, %if.then3 ], [ %inc.i55, %for.body.i14 ]
-  %retval.sroa.0.4.vec.insert.i.i411.i16 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %if.then3 ], [ %retval.sroa.0.4.vec.insert.i.i.i46, %for.body.i14 ]
+  %retval.sroa.0.4.vec.insert.i.i411.i16 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %if.then3 ], [ %retval.sroa.0.4.vec.insert.i.i.i46, %for.body.i14 ]
   %.sroa.speculated.i.i510.i17 = phi float [ 0x47EFFFFFE0000000, %if.then3 ], [ %.sroa.speculated.i.i.i44, %for.body.i14 ]
-  %retval.sroa.0.4.vec.insert.i12.i69.i18 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %if.then3 ], [ %retval.sroa.0.4.vec.insert.i12.i.i54, %for.body.i14 ]
+  %retval.sroa.0.4.vec.insert.i12.i69.i18 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %if.then3 ], [ %retval.sroa.0.4.vec.insert.i12.i.i54, %for.body.i14 ]
   %.sroa.speculated.i10.i78.i19 = phi float [ 0xC7EFFFFFE0000000, %if.then3 ], [ %.sroa.speculated.i10.i.i52, %for.body.i14 ]
   %and.i.i20 = and i32 %i.012.i15, 1
   %cmp.i.i.i21 = icmp eq i32 %and.i.i20, 0
@@ -8784,9 +8784,9 @@ _ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57:   ; preds = %for.body.i14
 
 for.body.i66:                                     ; preds = %for.body.i66, %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57
   %i.012.i67 = phi i32 [ 0, %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %inc.i107, %for.body.i66 ]
-  %retval.sroa.0.4.vec.insert.i.i411.i68 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %retval.sroa.0.4.vec.insert.i.i.i98, %for.body.i66 ]
+  %retval.sroa.0.4.vec.insert.i.i411.i68 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %retval.sroa.0.4.vec.insert.i.i.i98, %for.body.i66 ]
   %.sroa.speculated.i.i510.i69 = phi float [ 0x47EFFFFFE0000000, %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %.sroa.speculated.i.i.i96, %for.body.i66 ]
-  %retval.sroa.0.4.vec.insert.i12.i69.i70 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %retval.sroa.0.4.vec.insert.i12.i.i106, %for.body.i66 ]
+  %retval.sroa.0.4.vec.insert.i12.i69.i70 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %retval.sroa.0.4.vec.insert.i12.i.i106, %for.body.i66 ]
   %.sroa.speculated.i10.i78.i71 = phi float [ 0xC7EFFFFFE0000000, %_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE.exit57 ], [ %.sroa.speculated.i10.i.i104, %for.body.i66 ]
   %and.i.i72 = and i32 %i.012.i67, 1
   %cmp.i.i.i73 = icmp eq i32 %and.i.i72, 0

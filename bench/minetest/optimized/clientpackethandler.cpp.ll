@@ -4539,7 +4539,7 @@ entry:
   %6 = insertelement <4 x float> %5, float %2, i64 1
   %7 = insertelement <4 x float> %6, float %3, i64 2
   %8 = insertelement <4 x float> %7, float %4, i64 3
-  %9 = fmul nsz <4 x float> %8, <float 1.000000e+01, float 1.000000e+01, float 1.000000e+01, float 1.000000e+01>
+  %9 = fmul nsz <4 x float> %8, splat (float 1.000000e+01)
   store <4 x float> %9, ptr %movement_acceleration_default, align 8, !tbaa !173
   %10 = load float, ptr %mscr, align 4, !tbaa !173
   %movement_speed_crouch = getelementptr inbounds i8, ptr %0, i64 104
@@ -4550,7 +4550,7 @@ entry:
   %15 = insertelement <4 x float> %14, float %11, i64 1
   %16 = insertelement <4 x float> %15, float %12, i64 2
   %17 = insertelement <4 x float> %16, float %13, i64 3
-  %18 = fmul nsz <4 x float> %17, <float 1.000000e+01, float 1.000000e+01, float 1.000000e+01, float 1.000000e+01>
+  %18 = fmul nsz <4 x float> %17, splat (float 1.000000e+01)
   store <4 x float> %18, ptr %movement_speed_crouch, align 8, !tbaa !173
   %19 = load float, ptr %lf, align 4, !tbaa !173
   %movement_liquid_fluidity = getelementptr inbounds i8, ptr %0, i64 120
@@ -4561,7 +4561,7 @@ entry:
   %24 = insertelement <4 x float> %23, float %20, i64 1
   %25 = insertelement <4 x float> %24, float %21, i64 2
   %26 = insertelement <4 x float> %25, float %22, i64 3
-  %27 = fmul nsz <4 x float> %26, <float 1.000000e+01, float 1.000000e+01, float 1.000000e+01, float 1.000000e+01>
+  %27 = fmul nsz <4 x float> %26, splat (float 1.000000e+01)
   store <4 x float> %27, ptr %movement_liquid_fluidity, align 8, !tbaa !173
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %g) #29
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ls) #29
@@ -7225,7 +7225,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
 
 invoke.cont14:                                    ; preds = %invoke.cont12
   %1 = load <2 x float>, ptr %pos, align 8, !tbaa !173
-  %2 = fmul nsz <2 x float> %1, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %2 = fmul nsz <2 x float> %1, splat (float 0x3FB99999A0000000)
   store <2 x float> %2, ptr %pos, align 8, !tbaa !173
   %3 = load float, ptr %Z.i, align 8, !tbaa !174
   %mul3.i = fmul nsz float %3, 0x3FB99999A0000000
@@ -7423,7 +7423,7 @@ if.then:                                          ; preds = %invoke.cont43
 invoke.cont55:                                    ; preds = %if.then
   %call54.fca.0.extract = extractvalue { <2 x float>, float } %call54, 0
   %call54.fca.1.extract = extractvalue { <2 x float>, float } %call54, 1
-  %31 = fmul nsz <2 x float> %call54.fca.0.extract, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %31 = fmul nsz <2 x float> %call54.fca.0.extract, splat (float 0x3FB99999A0000000)
   %mul3.i155 = fmul nsz float %call54.fca.1.extract, 0x3FB99999A0000000
   store <2 x float> %31, ptr %pos, align 8, !tbaa.struct !178
   store float %mul3.i155, ptr %Z.i, align 8, !tbaa !173
@@ -7436,7 +7436,7 @@ invoke.cont55:                                    ; preds = %if.then
 invoke.cont66:                                    ; preds = %invoke.cont55
   %call64.fca.0.extract = extractvalue { <2 x float>, float } %call64, 0
   %call64.fca.1.extract = extractvalue { <2 x float>, float } %call64, 1
-  %33 = fmul nsz <2 x float> %call64.fca.0.extract, <float 0x3FB99999A0000000, float 0x3FB99999A0000000>
+  %33 = fmul nsz <2 x float> %call64.fca.0.extract, splat (float 0x3FB99999A0000000)
   %mul3.i160 = fmul nsz float %call64.fca.1.extract, 0x3FB99999A0000000
   store <2 x float> %33, ptr %vel, align 8, !tbaa.struct !178
   store float %mul3.i160, ptr %Z.i150, align 8, !tbaa !173
@@ -9348,11 +9348,11 @@ invoke.cont6:                                     ; preds = %invoke.cont
   store float 0.000000e+00, ptr %beginning.i3.i.i.i.i, align 4, !tbaa !347
   %start.i4.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 80
   %val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 88
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %val.i.i.i.i.i.i.i, align 8, !tbaa.struct !348
+  store <2 x float> splat (float 1.000000e+00), ptr %val.i.i.i.i.i.i.i, align 8, !tbaa.struct !348
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i4.i.i.i.i, align 8, !tbaa !26
   %end.i5.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 96
   %val.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 104
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %val.i.i4.i.i.i.i.i, align 8, !tbaa.struct !348
+  store <2 x float> splat (float 1.000000e+00), ptr %val.i.i4.i.i.i.i.i, align 8, !tbaa.struct !348
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i5.i.i.i.i, align 8, !tbaa !26
   %string.i.i.i = getelementptr inbounds i8, ptr %p, i64 112
   %7 = getelementptr inbounds i8, ptr %p, i64 128
@@ -9371,7 +9371,7 @@ invoke.cont6:                                     ; preds = %invoke.cont
   %pos.i = getelementptr inbounds i8, ptr %p, i64 172
   %size.i = getelementptr inbounds i8, ptr %p, i64 220
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %pos.i, i8 0, i64 48, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %size.i, align 4, !tbaa !173
+  store <2 x float> splat (float 1.000000e+00), ptr %size.i, align 4, !tbaa !173
   %bounce.i = getelementptr inbounds i8, ptr %p, i64 232
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 16), ptr %bounce.i, align 8, !tbaa !26
   %val.i.i.i = getelementptr inbounds i8, ptr %p, i64 240
@@ -9805,11 +9805,11 @@ invoke.cont6:                                     ; preds = %invoke.cont
   store float 0.000000e+00, ptr %beginning.i3.i.i.i.i, align 4, !tbaa !347
   %start.i4.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 80
   %val.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 88
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %val.i.i.i.i.i.i.i, align 8, !tbaa.struct !348
+  store <2 x float> splat (float 1.000000e+00), ptr %val.i.i.i.i.i.i.i, align 8, !tbaa.struct !348
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i4.i.i.i.i, align 8, !tbaa !26
   %end.i5.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 96
   %val.i.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %p, i64 104
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %val.i.i4.i.i.i.i.i, align 8, !tbaa.struct !348
+  store <2 x float> splat (float 1.000000e+00), ptr %val.i.i4.i.i.i.i.i, align 8, !tbaa.struct !348
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i5.i.i.i.i, align 8, !tbaa !26
   %string.i.i.i = getelementptr inbounds i8, ptr %p, i64 112
   %7 = getelementptr inbounds i8, ptr %p, i64 128
@@ -10764,9 +10764,9 @@ invoke.cont161:                                   ; preds = %_ZN21ServerParticle
   store i8 0, ptr %scale.i.i, align 8, !tbaa !345
   store i16 1, ptr %reps.i2.i.i, align 2, !tbaa !346
   store float 0.000000e+00, ptr %beginning.i3.i.i, align 4, !tbaa !347
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %val.i.i.i.i.i365, align 8, !tbaa.struct !348
+  store <2 x float> splat (float 1.000000e+00), ptr %val.i.i.i.i.i365, align 8, !tbaa.struct !348
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %start.i4.i.i, align 8, !tbaa !26
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %val.i.i4.i.i.i, align 8, !tbaa.struct !348
+  store <2 x float> splat (float 1.000000e+00), ptr %val.i.i4.i.i.i, align 8, !tbaa.struct !348
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 16), ptr %end.i5.i.i, align 8, !tbaa !26
   store ptr %50, ptr %string.i, align 8, !tbaa !4
   store i64 0, ptr %_M_string_length.i.i.i.i366, align 8, !tbaa !14

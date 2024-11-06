@@ -65,7 +65,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloatC2Ev(ptr noundef nonnull alig
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   store double 1.000000e+00, ptr %10, align 8, !tbaa !75
   %11 = getelementptr inbounds i8, ptr %0, i64 256
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %11, align 8, !tbaa !76
+  store <4 x float> splat (float 0x7FF8000000000000), ptr %11, align 8, !tbaa !76
   %12 = getelementptr inbounds i8, ptr %0, i64 272
   %13 = getelementptr inbounds i8, ptr %0, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, i8 0, i64 28, i1 false)
@@ -352,9 +352,9 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %155 = phi <8 x float> [ %147, %.split ], [ %205, %151 ]
   %156 = phi i64 [ 0, %.split ], [ %209, %151 ]
   %157 = phi <8 x i64> [ %67, %.split ], [ %210, %151 ]
-  %158 = add <8 x i64> %157, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %159 = add <8 x i64> %157, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %160 = add <8 x i64> %157, <i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24>
+  %158 = add <8 x i64> %157, splat (i64 8)
+  %159 = add <8 x i64> %157, splat (i64 16)
+  %160 = add <8 x i64> %157, splat (i64 24)
   %161 = icmp ult <8 x i64> %157, %57
   %162 = icmp ult <8 x i64> %158, %57
   %163 = icmp ult <8 x i64> %159, %57
@@ -436,7 +436,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %207 = fadd <8 x float> %153, %203
   %208 = fadd <8 x float> %152, %204
   %209 = add nuw i64 %156, 32
-  %210 = add <8 x i64> %157, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %210 = add <8 x i64> %157, splat (i64 32)
   %211 = icmp eq i64 %209, %64
   br i1 %211, label %212, label %151, !llvm.loop !105
 
@@ -536,13 +536,13 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %279 = phi <8 x float> [ %271, %259 ], [ %369, %275 ]
   %280 = phi i64 [ 0, %259 ], [ %373, %275 ]
   %281 = phi <8 x i64> [ %244, %259 ], [ %374, %275 ]
-  %282 = add <8 x i64> %281, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %283 = add <8 x i64> %281, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %284 = add <8 x i64> %281, <i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24>
-  %285 = and <8 x i64> %281, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %286 = and <8 x i64> %282, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %287 = and <8 x i64> %283, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %288 = and <8 x i64> %284, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %282 = add <8 x i64> %281, splat (i64 8)
+  %283 = add <8 x i64> %281, splat (i64 16)
+  %284 = add <8 x i64> %281, splat (i64 24)
+  %285 = and <8 x i64> %281, splat (i64 2147483648)
+  %286 = and <8 x i64> %282, splat (i64 2147483648)
+  %287 = and <8 x i64> %283, splat (i64 2147483648)
+  %288 = and <8 x i64> %284, splat (i64 2147483648)
   %289 = icmp eq <8 x i64> %285, zeroinitializer
   %290 = icmp eq <8 x i64> %286, zeroinitializer
   %291 = icmp eq <8 x i64> %287, zeroinitializer
@@ -692,7 +692,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %371 = fadd <8 x float> %277, %367
   %372 = fadd <8 x float> %276, %368
   %373 = add nuw i64 %280, 32
-  %374 = add <8 x i64> %281, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %374 = add <8 x i64> %281, splat (i64 32)
   %375 = icmp eq i64 %373, %240
   br i1 %375, label %376, label %275, !llvm.loop !107
 
@@ -816,7 +816,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   %451 = sdiv i32 %70, 4
   %452 = sitofp i32 %451 to float
   %453 = load <4 x float>, ptr %2, align 16, !tbaa !76
-  %454 = fmul <4 x float> %453, <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>
+  %454 = fmul <4 x float> %453, splat (float 6.553500e+04)
   %455 = insertelement <4 x float> poison, float %452, i64 0
   %456 = shufflevector <4 x float> %455, <4 x float> poison, <4 x i32> zeroinitializer
   %457 = fdiv <4 x float> %454, %456
@@ -1390,11 +1390,11 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat11scaleValuesEii(ptr nocaptur
   %96 = insertelement <4 x ptr> poison, ptr %51, i64 0
   %97 = shufflevector <4 x ptr> %96, <4 x ptr> poison, <4 x i32> zeroinitializer
   %98 = getelementptr i32, <4 x ptr> %97, <4 x i64> %95
-  %99 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %98, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> poison), !tbaa !99
+  %99 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %98, i32 4, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !99
   %100 = shufflevector <4 x i32> %82, <4 x i32> poison, <4 x i32> zeroinitializer
   %101 = sub nsw <4 x i32> %100, %99
   %102 = sitofp <4 x i32> %101 to <4 x float>
-  %103 = fdiv <4 x float> <float 6.553500e+04, float 6.553500e+04, float 6.553500e+04, float 6.553500e+04>, %102
+  %103 = fdiv <4 x float> splat (float 6.553500e+04), %102
   store <4 x float> %103, ptr %4, align 16, !tbaa !76
   %104 = sitofp <4 x i32> %99 to <4 x float>
   store <4 x float> %104, ptr %5, align 16, !tbaa !76

@@ -473,7 +473,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %138 = insertelement <2 x float> poison, float %133, i64 0
   %139 = shufflevector <2 x float> %138, <2 x float> poison, <2 x i32> zeroinitializer
   %140 = fmul reassoc nsz arcp contract afn <2 x float> %139, %137
-  %141 = fadd reassoc nsz arcp contract afn <2 x float> %140, <float -1.000000e+00, float -1.000000e+00>
+  %141 = fadd reassoc nsz arcp contract afn <2 x float> %140, splat (float -1.000000e+00)
   %142 = fcmp reassoc nsz arcp contract afn olt <2 x float> %141, %134
   %143 = uitofp nneg <2 x i32> %135 to <2 x float>
   %144 = select <2 x i1> %142, <2 x float> %141, <2 x float> %143
@@ -484,7 +484,7 @@ define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef
   %148 = sitofp <2 x i32> %145 to <2 x float>
   %149 = fsub reassoc nsz arcp contract afn <2 x float> %140, %148
   %150 = fcmp reassoc nsz arcp contract afn olt <2 x float> %149, %147
-  %151 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %146, <2 x i32> <i32 1, i32 1>)
+  %151 = call <2 x i32> @llvm.smax.v2i32(<2 x i32> %146, <2 x i32> splat (i32 1))
   %152 = uitofp nneg <2 x i32> %151 to <2 x float>
   %153 = select <2 x i1> %150, <2 x float> %149, <2 x float> %152
   %154 = fptosi <2 x float> %153 to <2 x i32>
@@ -745,9 +745,9 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
 201:                                              ; preds = %201, %192
   %202 = phi i64 [ 0, %192 ], [ %243, %201 ]
   %203 = phi <8 x i32> [ %197, %192 ], [ %244, %201 ]
-  %204 = add <8 x i32> %203, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %205 = add <8 x i32> %203, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %206 = add <8 x i32> %203, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %204 = add <8 x i32> %203, splat (i32 8)
+  %205 = add <8 x i32> %203, splat (i32 16)
+  %206 = add <8 x i32> %203, splat (i32 24)
   %207 = sitofp <8 x i32> %203 to <8 x float>
   %208 = sitofp <8 x i32> %204 to <8 x float>
   %209 = sitofp <8 x i32> %205 to <8 x float>
@@ -760,22 +760,22 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   %216 = call reassoc nsz arcp contract afn <8 x float> @llvm.fabs.v8f32(<8 x float> %212)
   %217 = call reassoc nsz arcp contract afn <8 x float> @llvm.fabs.v8f32(<8 x float> %213)
   %218 = call reassoc nsz arcp contract afn <8 x float> @llvm.fabs.v8f32(<8 x float> %214)
-  %219 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %215
-  %220 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %216
-  %221 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %217
-  %222 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %218
+  %219 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %215
+  %220 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %216
+  %221 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %217
+  %222 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %218
   %223 = fmul reassoc nsz arcp contract afn <8 x float> %219, %219
   %224 = fmul reassoc nsz arcp contract afn <8 x float> %220, %220
   %225 = fmul reassoc nsz arcp contract afn <8 x float> %221, %221
   %226 = fmul reassoc nsz arcp contract afn <8 x float> %222, %222
-  %227 = fmul reassoc nsz arcp contract afn <8 x float> %219, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %228 = fmul reassoc nsz arcp contract afn <8 x float> %220, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %229 = fmul reassoc nsz arcp contract afn <8 x float> %221, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %230 = fmul reassoc nsz arcp contract afn <8 x float> %222, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
-  %231 = fsub reassoc nsz arcp contract afn <8 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %227
-  %232 = fsub reassoc nsz arcp contract afn <8 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %228
-  %233 = fsub reassoc nsz arcp contract afn <8 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %229
-  %234 = fsub reassoc nsz arcp contract afn <8 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %230
+  %227 = fmul reassoc nsz arcp contract afn <8 x float> %219, splat (float 2.000000e+00)
+  %228 = fmul reassoc nsz arcp contract afn <8 x float> %220, splat (float 2.000000e+00)
+  %229 = fmul reassoc nsz arcp contract afn <8 x float> %221, splat (float 2.000000e+00)
+  %230 = fmul reassoc nsz arcp contract afn <8 x float> %222, splat (float 2.000000e+00)
+  %231 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 3.000000e+00), %227
+  %232 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 3.000000e+00), %228
+  %233 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 3.000000e+00), %229
+  %234 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 3.000000e+00), %230
   %235 = fmul reassoc nsz arcp contract afn <8 x float> %223, %231
   %236 = fmul reassoc nsz arcp contract afn <8 x float> %224, %232
   %237 = fmul reassoc nsz arcp contract afn <8 x float> %225, %233
@@ -789,7 +789,7 @@ define hidden void @_process(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr
   store <8 x float> %237, ptr %241, align 4, !tbaa !23
   store <8 x float> %238, ptr %242, align 4, !tbaa !23
   %243 = add nuw i64 %202, 32
-  %244 = add <8 x i32> %203, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %244 = add <8 x i32> %203, splat (i32 32)
   %245 = icmp eq i64 %243, %194
   br i1 %245, label %.loopexit48.loopexit, label %201, !llvm.loop !83
 

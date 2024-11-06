@@ -591,27 +591,27 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %258 = getelementptr inbounds i16, ptr %47, i64 %219
   %259 = load <16 x i16>, ptr %258, align 2, !tbaa !32
   %260 = sext <16 x i16> %259 to <16 x i32>
-  %261 = mul nsw <16 x i32> %260, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
+  %261 = mul nsw <16 x i32> %260, splat (i32 11)
   %262 = getelementptr inbounds i16, ptr %258, i64 %70
   %263 = load <16 x i16>, ptr %262, align 2, !tbaa !32
   %264 = sext <16 x i16> %263 to <16 x i32>
   %265 = getelementptr inbounds i16, ptr %258, i64 %75
   %266 = load <16 x i16>, ptr %265, align 2, !tbaa !32
   %267 = sext <16 x i16> %266 to <16 x i32>
-  %268 = add nsw <16 x i32> %261, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %269 = shl nsw <16 x i32> %264, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %268 = add nsw <16 x i32> %261, splat (i32 4)
+  %269 = shl nsw <16 x i32> %264, splat (i32 2)
   %270 = sub nsw <16 x i32> %268, %269
   %271 = add nsw <16 x i32> %270, %267
-  %272 = lshr <16 x i32> %271, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %272 = lshr <16 x i32> %271, splat (i32 3)
   %273 = add nsw <16 x i32> %272, %240
-  %274 = lshr <16 x i32> %273, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %275 = mul nsw <16 x i32> %260, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
-  %276 = add nsw <16 x i32> %275, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %274 = lshr <16 x i32> %273, splat (i32 1)
+  %275 = mul nsw <16 x i32> %260, splat (i32 5)
+  %276 = add nsw <16 x i32> %275, splat (i32 4)
   %277 = add nsw <16 x i32> %276, %269
   %278 = sub nsw <16 x i32> %277, %267
-  %279 = lshr <16 x i32> %278, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %279 = lshr <16 x i32> %278, splat (i32 3)
   %280 = sub nsw <16 x i32> %279, %240
-  %281 = lshr <16 x i32> %280, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %281 = lshr <16 x i32> %280, splat (i32 1)
   %282 = trunc <16 x i32> %274 to <16 x i16>
   %283 = getelementptr inbounds i16, ptr %35, i64 %219
   store <16 x i16> %282, ptr %283, align 2, !tbaa !32
@@ -619,7 +619,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %285 = getelementptr inbounds i16, ptr %79, i64 %219
   store <16 x i16> %284, ptr %285, align 2, !tbaa !32
   %286 = add nuw i64 %219, 16
-  %287 = add <16 x i64> %220, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %287 = add <16 x i64> %220, splat (i64 16)
   %288 = icmp eq i64 %286, %165
   br i1 %288, label %289, label %.preheader36, !llvm.loop !33
 
@@ -679,27 +679,27 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %320 = getelementptr inbounds i16, ptr %47, i64 %297
   %321 = load <8 x i16>, ptr %320, align 2, !tbaa !32
   %322 = sext <8 x i16> %321 to <8 x i32>
-  %323 = mul nsw <8 x i32> %322, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
+  %323 = mul nsw <8 x i32> %322, splat (i32 11)
   %324 = getelementptr inbounds i16, ptr %320, i64 %70
   %325 = load <8 x i16>, ptr %324, align 2, !tbaa !32
   %326 = sext <8 x i16> %325 to <8 x i32>
   %327 = getelementptr inbounds i16, ptr %320, i64 %75
   %328 = load <8 x i16>, ptr %327, align 2, !tbaa !32
   %329 = sext <8 x i16> %328 to <8 x i32>
-  %330 = add nsw <8 x i32> %323, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %331 = shl nsw <8 x i32> %326, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %330 = add nsw <8 x i32> %323, splat (i32 4)
+  %331 = shl nsw <8 x i32> %326, splat (i32 2)
   %332 = sub nsw <8 x i32> %330, %331
   %333 = add nsw <8 x i32> %332, %329
-  %334 = lshr <8 x i32> %333, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %334 = lshr <8 x i32> %333, splat (i32 3)
   %335 = add nsw <8 x i32> %334, %310
-  %336 = lshr <8 x i32> %335, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %337 = mul nsw <8 x i32> %322, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
-  %338 = add nsw <8 x i32> %337, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %336 = lshr <8 x i32> %335, splat (i32 1)
+  %337 = mul nsw <8 x i32> %322, splat (i32 5)
+  %338 = add nsw <8 x i32> %337, splat (i32 4)
   %339 = add nsw <8 x i32> %338, %331
   %340 = sub nsw <8 x i32> %339, %329
-  %341 = lshr <8 x i32> %340, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %341 = lshr <8 x i32> %340, splat (i32 3)
   %342 = sub nsw <8 x i32> %341, %310
-  %343 = lshr <8 x i32> %342, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %343 = lshr <8 x i32> %342, splat (i32 1)
   %344 = trunc <8 x i32> %336 to <8 x i16>
   %345 = getelementptr inbounds i16, ptr %35, i64 %297
   store <8 x i16> %344, ptr %345, align 2, !tbaa !32
@@ -707,7 +707,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %347 = getelementptr inbounds i16, ptr %79, i64 %297
   store <8 x i16> %346, ptr %347, align 2, !tbaa !32
   %348 = add nuw i64 %297, 8
-  %349 = add <8 x i64> %298, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %349 = add <8 x i64> %298, splat (i64 8)
   %350 = icmp eq i64 %348, %173
   br i1 %350, label %351, label %296, !llvm.loop !37
 
@@ -990,24 +990,24 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %547 = getelementptr inbounds i16, ptr %543, i64 %481
   %548 = load <16 x i16>, ptr %547, align 2, !tbaa !32, !alias.scope !44
   %549 = sext <16 x i16> %548 to <16 x i32>
-  %550 = shl nsw <16 x i32> %549, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %550 = shl nsw <16 x i32> %549, splat (i32 2)
   %551 = getelementptr inbounds i16, ptr %543, i64 %486
   %552 = load <16 x i16>, ptr %551, align 2, !tbaa !32, !alias.scope !46
   %553 = sext <16 x i16> %552 to <16 x i32>
-  %554 = mul nsw <16 x i32> %553, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
+  %554 = mul nsw <16 x i32> %553, splat (i32 5)
   %reass.sub = sub nsw <16 x i32> %550, %546
-  %555 = add nsw <16 x i32> %reass.sub, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %555 = add nsw <16 x i32> %reass.sub, splat (i32 4)
   %556 = add nsw <16 x i32> %555, %554
-  %557 = lshr <16 x i32> %556, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %557 = lshr <16 x i32> %556, splat (i32 3)
   %558 = add nsw <16 x i32> %557, %525
-  %559 = lshr <16 x i32> %558, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %560 = mul nsw <16 x i32> %553, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
-  %561 = add nsw <16 x i32> %546, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %559 = lshr <16 x i32> %558, splat (i32 1)
+  %560 = mul nsw <16 x i32> %553, splat (i32 11)
+  %561 = add nsw <16 x i32> %546, splat (i32 4)
   %562 = sub nsw <16 x i32> %561, %550
   %563 = add nsw <16 x i32> %562, %560
-  %564 = lshr <16 x i32> %563, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %564 = lshr <16 x i32> %563, splat (i32 3)
   %565 = sub nsw <16 x i32> %564, %525
-  %566 = lshr <16 x i32> %565, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %566 = lshr <16 x i32> %565, splat (i32 1)
   %567 = trunc <16 x i32> %559 to <16 x i16>
   %568 = getelementptr inbounds i16, ptr %495, i64 %504
   store <16 x i16> %567, ptr %568, align 2, !tbaa !32, !alias.scope !48, !noalias !50
@@ -1015,7 +1015,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %570 = getelementptr inbounds i16, ptr %502, i64 %504
   store <16 x i16> %569, ptr %570, align 2, !tbaa !32, !alias.scope !51, !noalias !50
   %571 = add nuw nsw i64 %504, 16
-  %572 = add <16 x i64> %505, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %572 = add <16 x i64> %505, splat (i64 16)
   %573 = icmp eq i64 %571, %165
   br i1 %573, label %574, label %.preheader42, !llvm.loop !53
 
@@ -1079,24 +1079,24 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %609 = getelementptr inbounds i16, ptr %605, i64 %481
   %610 = load <8 x i16>, ptr %609, align 2, !tbaa !32, !alias.scope !59
   %611 = sext <8 x i16> %610 to <8 x i32>
-  %612 = shl nsw <8 x i32> %611, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %612 = shl nsw <8 x i32> %611, splat (i32 2)
   %613 = getelementptr inbounds i16, ptr %605, i64 %486
   %614 = load <8 x i16>, ptr %613, align 2, !tbaa !32, !alias.scope !61
   %615 = sext <8 x i16> %614 to <8 x i32>
-  %616 = mul nsw <8 x i32> %615, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
+  %616 = mul nsw <8 x i32> %615, splat (i32 5)
   %reass.sub43 = sub nsw <8 x i32> %612, %608
-  %617 = add nsw <8 x i32> %reass.sub43, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %617 = add nsw <8 x i32> %reass.sub43, splat (i32 4)
   %618 = add nsw <8 x i32> %617, %616
-  %619 = lshr <8 x i32> %618, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %619 = lshr <8 x i32> %618, splat (i32 3)
   %620 = add nsw <8 x i32> %619, %595
-  %621 = lshr <8 x i32> %620, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %622 = mul nsw <8 x i32> %615, <i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11>
-  %623 = add nsw <8 x i32> %608, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %621 = lshr <8 x i32> %620, splat (i32 1)
+  %622 = mul nsw <8 x i32> %615, splat (i32 11)
+  %623 = add nsw <8 x i32> %608, splat (i32 4)
   %624 = sub nsw <8 x i32> %623, %612
   %625 = add nsw <8 x i32> %624, %622
-  %626 = lshr <8 x i32> %625, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %626 = lshr <8 x i32> %625, splat (i32 3)
   %627 = sub nsw <8 x i32> %626, %595
-  %628 = lshr <8 x i32> %627, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %628 = lshr <8 x i32> %627, splat (i32 1)
   %629 = trunc <8 x i32> %621 to <8 x i16>
   %630 = getelementptr inbounds i16, ptr %495, i64 %582
   store <8 x i16> %629, ptr %630, align 2, !tbaa !32, !alias.scope !63, !noalias !65
@@ -1104,7 +1104,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %632 = getelementptr inbounds i16, ptr %502, i64 %582
   store <8 x i16> %631, ptr %632, align 2, !tbaa !32, !alias.scope !66, !noalias !65
   %633 = add nuw i64 %582, 8
-  %634 = add <8 x i64> %583, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %634 = add <8 x i64> %583, splat (i64 8)
   %635 = icmp eq i64 %633, %173
   br i1 %635, label %636, label %581, !llvm.loop !68
 
@@ -1284,22 +1284,22 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %751 = getelementptr inbounds i16, ptr %747, i64 %685
   %752 = load <16 x i16>, ptr %751, align 2, !tbaa !32, !alias.scope !74
   %753 = sext <16 x i16> %752 to <16 x i32>
-  %754 = shl nsw <16 x i32> %753, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %754 = shl nsw <16 x i32> %753, splat (i32 3)
   %755 = getelementptr inbounds i16, ptr %747, i64 %690
   %756 = load <16 x i16>, ptr %755, align 2, !tbaa !32, !alias.scope !76
   %757 = sext <16 x i16> %756 to <16 x i32>
-  %758 = add nsw <16 x i32> %750, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %758 = add nsw <16 x i32> %750, splat (i32 4)
   %759 = add nsw <16 x i32> %758, %754
   %760 = sub nsw <16 x i32> %759, %757
-  %761 = lshr <16 x i32> %760, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %761 = lshr <16 x i32> %760, splat (i32 3)
   %762 = add nsw <16 x i32> %761, %729
-  %763 = lshr <16 x i32> %762, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %763 = lshr <16 x i32> %762, splat (i32 1)
   %reass.sub47 = sub nsw <16 x i32> %754, %750
-  %764 = add nsw <16 x i32> %reass.sub47, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %764 = add nsw <16 x i32> %reass.sub47, splat (i32 4)
   %765 = add nsw <16 x i32> %764, %757
-  %766 = lshr <16 x i32> %765, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %766 = lshr <16 x i32> %765, splat (i32 3)
   %767 = sub nsw <16 x i32> %766, %729
-  %768 = lshr <16 x i32> %767, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %768 = lshr <16 x i32> %767, splat (i32 1)
   %769 = trunc <16 x i32> %763 to <16 x i16>
   %770 = getelementptr inbounds i16, ptr %699, i64 %708
   store <16 x i16> %769, ptr %770, align 2, !tbaa !32, !alias.scope !78, !noalias !80
@@ -1307,7 +1307,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %772 = getelementptr inbounds i16, ptr %706, i64 %708
   store <16 x i16> %771, ptr %772, align 2, !tbaa !32, !alias.scope !81, !noalias !80
   %773 = add nuw nsw i64 %708, 16
-  %774 = add <16 x i64> %709, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %774 = add <16 x i64> %709, splat (i64 16)
   %775 = icmp eq i64 %773, %165
   br i1 %775, label %776, label %.preheader39, !llvm.loop !83
 
@@ -1371,22 +1371,22 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %811 = getelementptr inbounds i16, ptr %807, i64 %685
   %812 = load <8 x i16>, ptr %811, align 2, !tbaa !32, !alias.scope !89
   %813 = sext <8 x i16> %812 to <8 x i32>
-  %814 = shl nsw <8 x i32> %813, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %814 = shl nsw <8 x i32> %813, splat (i32 3)
   %815 = getelementptr inbounds i16, ptr %807, i64 %690
   %816 = load <8 x i16>, ptr %815, align 2, !tbaa !32, !alias.scope !91
   %817 = sext <8 x i16> %816 to <8 x i32>
-  %818 = add nsw <8 x i32> %810, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %818 = add nsw <8 x i32> %810, splat (i32 4)
   %819 = add nsw <8 x i32> %818, %814
   %820 = sub nsw <8 x i32> %819, %817
-  %821 = lshr <8 x i32> %820, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %821 = lshr <8 x i32> %820, splat (i32 3)
   %822 = add nsw <8 x i32> %821, %797
-  %823 = lshr <8 x i32> %822, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %823 = lshr <8 x i32> %822, splat (i32 1)
   %reass.sub48 = sub nsw <8 x i32> %814, %810
-  %824 = add nsw <8 x i32> %reass.sub48, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %824 = add nsw <8 x i32> %reass.sub48, splat (i32 4)
   %825 = add nsw <8 x i32> %824, %817
-  %826 = lshr <8 x i32> %825, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %826 = lshr <8 x i32> %825, splat (i32 3)
   %827 = sub nsw <8 x i32> %826, %797
-  %828 = lshr <8 x i32> %827, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %828 = lshr <8 x i32> %827, splat (i32 1)
   %829 = trunc <8 x i32> %823 to <8 x i16>
   %830 = getelementptr inbounds i16, ptr %699, i64 %784
   store <8 x i16> %829, ptr %830, align 2, !tbaa !32, !alias.scope !93, !noalias !95
@@ -1394,7 +1394,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10
   %832 = getelementptr inbounds i16, ptr %706, i64 %784
   store <8 x i16> %831, ptr %832, align 2, !tbaa !32, !alias.scope !96, !noalias !95
   %833 = add nuw i64 %784, 8
-  %834 = add <8 x i64> %785, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %834 = add <8 x i64> %785, splat (i64 8)
   %835 = icmp eq i64 %833, %173
   br i1 %835, label %836, label %783, !llvm.loop !98
 
@@ -1940,7 +1940,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %222 = getelementptr inbounds i16, ptr %134, i64 %205
   %223 = load <8 x i16>, ptr %222, align 2, !tbaa !32, !alias.scope !108
   %224 = sext <8 x i16> %223 to <8 x i32>
-  %225 = shl nsw <8 x i32> %224, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %225 = shl nsw <8 x i32> %224, splat (i32 3)
   %226 = icmp ult <8 x i64> %204, %106
   %227 = extractelement <8 x i1> %226, i64 0
   tail call void @llvm.assume(i1 %227)
@@ -1961,21 +1961,21 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %235 = getelementptr inbounds i16, ptr %134, i64 %206
   %236 = load <8 x i16>, ptr %235, align 2, !tbaa !32, !alias.scope !108
   %237 = sext <8 x i16> %236 to <8 x i32>
-  %238 = add nsw <8 x i32> %221, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %238 = add nsw <8 x i32> %221, splat (i32 4)
   %239 = add nsw <8 x i32> %238, %225
   %240 = sub nsw <8 x i32> %239, %237
-  %241 = lshr <8 x i32> %240, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %241 = lshr <8 x i32> %240, splat (i32 3)
   %242 = add nsw <8 x i32> %241, %218
   %243 = shl <8 x i32> %242, %108
-  %244 = lshr <8 x i32> %243, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %244 = lshr <8 x i32> %243, splat (i32 1)
   %reass.sub = sub nsw <8 x i32> %225, %221
-  %245 = add nsw <8 x i32> %reass.sub, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %245 = add nsw <8 x i32> %reass.sub, splat (i32 4)
   %246 = add nsw <8 x i32> %245, %237
-  %247 = lshr <8 x i32> %246, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %247 = lshr <8 x i32> %246, splat (i32 3)
   %248 = sub nsw <8 x i32> %247, %218
   %249 = shl <8 x i32> %248, %108
-  %250 = lshr <8 x i32> %249, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %251 = shl nuw nsw <8 x i64> %203, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %250 = lshr <8 x i32> %249, splat (i32 1)
+  %251 = shl nuw nsw <8 x i64> %203, splat (i64 1)
   %252 = icmp samesign ult <8 x i64> %251, %110
   %253 = extractelement <8 x i1> %252, i64 0
   tail call void @llvm.assume(i1 %253)
@@ -1993,7 +1993,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   tail call void @llvm.assume(i1 %259)
   %260 = extractelement <8 x i1> %252, i64 7
   tail call void @llvm.assume(i1 %260)
-  %261 = or disjoint <8 x i64> %251, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %261 = or disjoint <8 x i64> %251, splat (i64 1)
   %262 = icmp samesign ult <8 x i64> %261, %110
   %263 = extractelement <8 x i1> %262, i64 0
   tail call void @llvm.assume(i1 %263)
@@ -2017,8 +2017,8 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %274 = trunc <16 x i32> %273 to <16 x i16>
   store <16 x i16> %274, ptr %272, align 2, !tbaa !32
   %275 = add nuw i64 %202, 8
-  %276 = add <8 x i64> %203, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %277 = add <8 x i64> %204, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %276 = add <8 x i64> %203, splat (i64 8)
+  %277 = add <8 x i64> %204, splat (i64 8)
   %278 = icmp eq i64 %275, %100
   br i1 %278, label %279, label %201, !llvm.loop !110
 
@@ -2065,7 +2065,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %305 = getelementptr inbounds i16, ptr %134, i64 %288
   %306 = load <8 x i16>, ptr %305, align 2, !tbaa !32, !alias.scope !114
   %307 = sext <8 x i16> %306 to <8 x i32>
-  %308 = shl nsw <8 x i32> %307, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %308 = shl nsw <8 x i32> %307, splat (i32 3)
   %309 = icmp ult <8 x i64> %287, %106
   %310 = extractelement <8 x i1> %309, i64 0
   tail call void @llvm.assume(i1 %310)
@@ -2086,25 +2086,25 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %318 = getelementptr inbounds i16, ptr %134, i64 %289
   %319 = load <8 x i16>, ptr %318, align 2, !tbaa !32, !alias.scope !114
   %320 = sext <8 x i16> %319 to <8 x i32>
-  %321 = add nsw <8 x i32> %304, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %321 = add nsw <8 x i32> %304, splat (i32 4)
   %322 = add nsw <8 x i32> %321, %308
   %323 = sub nsw <8 x i32> %322, %320
-  %324 = ashr <8 x i32> %323, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %324 = ashr <8 x i32> %323, splat (i32 3)
   %325 = add nsw <8 x i32> %324, %301
   %326 = shl <8 x i32> %325, %108
-  %327 = ashr <8 x i32> %326, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %327 = ashr <8 x i32> %326, splat (i32 1)
   %reass.sub16 = sub nsw <8 x i32> %308, %304
-  %328 = add nsw <8 x i32> %reass.sub16, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
+  %328 = add nsw <8 x i32> %reass.sub16, splat (i32 4)
   %329 = add nsw <8 x i32> %328, %320
-  %330 = ashr <8 x i32> %329, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %330 = ashr <8 x i32> %329, splat (i32 3)
   %331 = sub nsw <8 x i32> %330, %301
   %332 = shl <8 x i32> %331, %108
-  %333 = ashr <8 x i32> %332, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %333 = ashr <8 x i32> %332, splat (i32 1)
   %334 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %327, <8 x i32> zeroinitializer)
-  %335 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %334, <8 x i32> <i32 16383, i32 16383, i32 16383, i32 16383, i32 16383, i32 16383, i32 16383, i32 16383>)
+  %335 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %334, <8 x i32> splat (i32 16383))
   %336 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %333, <8 x i32> zeroinitializer)
-  %337 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %336, <8 x i32> <i32 16383, i32 16383, i32 16383, i32 16383, i32 16383, i32 16383, i32 16383, i32 16383>)
-  %338 = shl nuw nsw <8 x i64> %286, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %337 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %336, <8 x i32> splat (i32 16383))
+  %338 = shl nuw nsw <8 x i64> %286, splat (i64 1)
   %339 = icmp samesign ult <8 x i64> %338, %110
   %340 = extractelement <8 x i1> %339, i64 0
   tail call void @llvm.assume(i1 %340)
@@ -2122,7 +2122,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   tail call void @llvm.assume(i1 %346)
   %347 = extractelement <8 x i1> %339, i64 7
   tail call void @llvm.assume(i1 %347)
-  %348 = or disjoint <8 x i64> %338, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %348 = or disjoint <8 x i64> %338, splat (i64 1)
   %349 = icmp samesign ult <8 x i64> %348, %110
   %350 = extractelement <8 x i1> %349, i64 0
   tail call void @llvm.assume(i1 %350)
@@ -2146,8 +2146,8 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS
   %361 = trunc nuw nsw <16 x i32> %360 to <16 x i16>
   store <16 x i16> %361, ptr %359, align 2, !tbaa !32
   %362 = add nuw i64 %285, 8
-  %363 = add <8 x i64> %286, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %364 = add <8 x i64> %287, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %363 = add <8 x i64> %286, splat (i64 8)
+  %364 = add <8 x i64> %287, splat (i64 8)
   %365 = icmp eq i64 %362, %100
   br i1 %365, label %366, label %284, !llvm.loop !116
 
@@ -3056,9 +3056,9 @@ _ZN8rawspeed15getAsBayerPhaseERKNS_16ColorFilterArrayE.exit.thread: ; preds = %.
   %132 = phi ptr [ %121, %120 ], [ %240, %239 ]
   %133 = phi <2 x i16> [ %128, %120 ], [ %138, %239 ]
   %134 = icmp eq <2 x i16> %133, zeroinitializer
-  %135 = add <2 x i16> %133, <i16 -1, i16 -1>
-  %136 = lshr <2 x i16> %135, <i16 1, i16 1>
-  %137 = add nuw <2 x i16> %136, <i16 1, i16 1>
+  %135 = add <2 x i16> %133, splat (i16 -1)
+  %136 = lshr <2 x i16> %135, splat (i16 1)
+  %137 = add nuw <2 x i16> %136, splat (i16 1)
   %138 = select <2 x i1> %134, <2 x i16> zeroinitializer, <2 x i16> %137
   %139 = zext <2 x i16> %138 to <2 x i32>
   store <2 x i32> %139, ptr %132, align 8, !tbaa !19
@@ -7458,36 +7458,36 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %364 = sext <8 x i16> %353 to <8 x i32>
   %365 = load <8 x i16>, ptr %363, align 2, !tbaa !32, !alias.scope !395, !noalias !386
   %366 = sext <8 x i16> %365 to <8 x i32>
-  %367 = add nsw <8 x i32> %366, <i32 -2048, i32 -2048, i32 -2048, i32 -2048, i32 -2048, i32 -2048, i32 -2048, i32 -2048>
-  %368 = shl nsw <8 x i32> %342, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %369 = add nsw <8 x i32> %330, <i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096, i32 -4096>
+  %367 = add nsw <8 x i32> %366, splat (i32 -2048)
+  %368 = shl nsw <8 x i32> %342, splat (i32 1)
+  %369 = add nsw <8 x i32> %330, splat (i32 -4096)
   %370 = add nsw <8 x i32> %368, %369
-  %371 = shl nsw <8 x i32> %364, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %371 = shl nsw <8 x i32> %364, splat (i32 1)
   %372 = add nsw <8 x i32> %371, %369
   %373 = add nsw <8 x i32> %367, %330
   %374 = sub nsw <8 x i32> %330, %367
   %375 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %370, <8 x i32> zeroinitializer)
-  %376 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %375, <8 x i32> <i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095>)
+  %376 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %375, <8 x i32> splat (i32 4095))
   %377 = zext nneg <8 x i32> %376 to <8 x i64>
   %378 = getelementptr inbounds i32, ptr %138, <8 x i64> %377
-  %379 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %378, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !19
+  %379 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %378, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !19
   %380 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %373, <8 x i32> zeroinitializer)
-  %381 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %380, <8 x i32> <i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095>)
+  %381 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %380, <8 x i32> splat (i32 4095))
   %382 = zext nneg <8 x i32> %381 to <8 x i64>
   %383 = getelementptr inbounds i32, ptr %138, <8 x i64> %382
-  %384 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %383, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !19
+  %384 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %383, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !19
   %385 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %374, <8 x i32> zeroinitializer)
-  %386 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %385, <8 x i32> <i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095>)
+  %386 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %385, <8 x i32> splat (i32 4095))
   %387 = zext nneg <8 x i32> %386 to <8 x i64>
   %388 = getelementptr inbounds i32, ptr %138, <8 x i64> %387
-  %389 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %388, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !19
+  %389 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %388, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !19
   %390 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %372, <8 x i32> zeroinitializer)
-  %391 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %390, <8 x i32> <i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095, i32 4095>)
+  %391 = tail call <8 x i32> @llvm.umin.v8i32(<8 x i32> %390, <8 x i32> splat (i32 4095))
   %392 = zext nneg <8 x i32> %391 to <8 x i64>
   %393 = getelementptr inbounds i32, ptr %138, <8 x i64> %392
-  %394 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %393, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> poison), !tbaa !19
-  %395 = shl nuw nsw <8 x i64> %318, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
-  %396 = or disjoint <8 x i64> %395, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %394 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %393, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !19
+  %395 = shl nuw nsw <8 x i64> %318, splat (i64 1)
+  %396 = or disjoint <8 x i64> %395, splat (i64 1)
   %397 = icmp samesign ult <8 x i64> %396, %257
   %398 = extractelement <8 x i1> %397, i64 0
   tail call void @llvm.assume(i1 %398)
@@ -7515,7 +7515,7 @@ define linkonce_odr hidden void @_ZNK8rawspeed15VC5Decompressor28combineFinalLow
   %412 = trunc <16 x i32> %411 to <16 x i16>
   store <16 x i16> %412, ptr %410, align 2, !tbaa !32
   %413 = add nuw i64 %317, 8
-  %414 = add <8 x i64> %318, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %414 = add <8 x i64> %318, splat (i64 8)
   %415 = icmp eq i64 %413, %247
   br i1 %415, label %416, label %316, !llvm.loop !397
 

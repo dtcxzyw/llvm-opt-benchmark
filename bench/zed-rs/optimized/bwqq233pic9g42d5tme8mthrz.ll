@@ -529,9 +529,9 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit: ; p
   %137 = add nsw i64 %.sroa.5.06.i.i, -1
   %138 = getelementptr inbounds i8, ptr %.val10.i, i64 %.sroa.0.07.i.i
   %139 = load <16 x i8>, ptr %138, align 16, !noalias !72
-  %.lobit.i.i.i = ashr <16 x i8> %139, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %139, splat (i8 7)
   %140 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %141 = or <2 x i64> %140, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %141 = or <2 x i64> %140, splat (i64 -9187201950435737472)
   store <2 x i64> %141, ptr %138, align 16, !noalias !75
   %.not.i.i = icmp eq i64 %137, 0
   br i1 %.not.i.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h050e4510560d0497E.exit.i, label %135

@@ -82,7 +82,7 @@ if.else:                                          ; preds = %entry
   %sum_.i = getelementptr inbounds i8, ptr %digests, i64 32
   %max_.i = getelementptr inbounds i8, ptr %digests, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum_.i, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i, align 8, !tbaa !25
+  store <2 x double> splat (double 0x7FF8000000000000), ptr %max_.i, align 8, !tbaa !25
   %arrayinit.element = getelementptr inbounds i8, ptr %digests, i64 64
   store ptr %1, ptr %agg.tmp, align 8, !tbaa !23
   %_M_finish.i.i.i.i31 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
@@ -237,7 +237,7 @@ if.then:                                          ; preds = %for.cond.cleanup, %
   %sum_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %max_.i = getelementptr inbounds i8, ptr %agg.result, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum_.i, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i, align 8, !tbaa !25
+  store <2 x double> splat (double 0x7FF8000000000000), ptr %max_.i, align 8, !tbaa !25
   br label %cleanup
 
 if.end:                                           ; preds = %for.cond.cleanup
@@ -448,7 +448,7 @@ for.cond.cleanup133:                              ; preds = %for.cond.cleanup137
   %sum_.i432 = getelementptr inbounds i8, ptr %agg.result, i64 32
   %max_.i433 = getelementptr inbounds i8, ptr %agg.result, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sum_.i432, i8 0, i64 16, i1 false)
-  store <2 x double> <double 0x7FF8000000000000, double 0x7FF8000000000000>, ptr %max_.i433, align 8, !tbaa !25
+  store <2 x double> splat (double 0x7FF8000000000000), ptr %max_.i433, align 8, !tbaa !25
   %cmp.i435 = icmp ugt i64 %20, 576460752303423487
   br i1 %cmp.i435, label %if.then.i461, label %if.end.i436
 

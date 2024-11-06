@@ -1734,7 +1734,7 @@ define void @_Z21orthogonal_procrustesRKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEERS
 75:                                               ; preds = %40
   %76 = getelementptr inbounds i8, ptr %6, i64 48
   %77 = load <2 x i64>, ptr %76, align 8
-  %78 = xor <2 x i64> %77, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %78 = xor <2 x i64> %77, splat (i64 -9223372036854775808)
   store <2 x i64> %78, ptr %76, align 8
   %79 = getelementptr inbounds i8, ptr %6, i64 64
   %80 = load double, ptr %79, align 8
@@ -1850,22 +1850,22 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(376) ptr @_ZN5Eigen9
 
 _ZN5Eigen9JacobiSVDINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi2EE8allocateEllj.exit: ; preds = %3, %17
   %34 = load <2 x i64>, ptr %1, align 8
-  %35 = and <2 x i64> %34, <i64 9223372036854775807, i64 9223372036854775807>
+  %35 = and <2 x i64> %34, splat (i64 9223372036854775807)
   %36 = bitcast <2 x i64> %35 to <2 x double>
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load <2 x i64>, ptr %37, align 8
-  %39 = and <2 x i64> %38, <i64 9223372036854775807, i64 9223372036854775807>
+  %39 = and <2 x i64> %38, splat (i64 9223372036854775807)
   %40 = bitcast <2 x i64> %39 to <2 x double>
   %41 = fcmp uno <2 x double> %36, zeroinitializer
   %42 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %40, <2 x double> %36) #11, !srcloc !9
   %43 = select <2 x i1> %41, <2 x double> %36, <2 x double> %42
   %44 = getelementptr inbounds i8, ptr %1, i64 32
   %45 = load <2 x i64>, ptr %44, align 8
-  %46 = and <2 x i64> %45, <i64 9223372036854775807, i64 9223372036854775807>
+  %46 = and <2 x i64> %45, splat (i64 9223372036854775807)
   %47 = bitcast <2 x i64> %46 to <2 x double>
   %48 = getelementptr inbounds i8, ptr %1, i64 48
   %49 = load <2 x i64>, ptr %48, align 8
-  %50 = and <2 x i64> %49, <i64 9223372036854775807, i64 9223372036854775807>
+  %50 = and <2 x i64> %49, splat (i64 9223372036854775807)
   %51 = bitcast <2 x i64> %50 to <2 x double>
   %52 = fcmp uno <2 x double> %47, zeroinitializer
   %53 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %51, <2 x double> %47) #11, !srcloc !9
@@ -2352,7 +2352,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEE15applyOnTheRightIdEEvl
 314:                                              ; preds = %302
   %315 = getelementptr inbounds i8, ptr %0, i64 %.idx.i99
   %316 = load <2 x i64>, ptr %315, align 8
-  %317 = xor <2 x i64> %316, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %317 = xor <2 x i64> %316, splat (i64 -9223372036854775808)
   store <2 x i64> %317, ptr %315, align 8
   %318 = getelementptr i8, ptr %315, i64 16
   %319 = load double, ptr %318, align 8

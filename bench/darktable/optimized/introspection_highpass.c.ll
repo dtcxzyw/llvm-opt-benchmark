@@ -171,21 +171,21 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
 35:                                               ; preds = %35, %33
   %36 = phi i64 [ 0, %33 ], [ %50, %35 ]
   %37 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %33 ], [ %51, %35 ]
-  %38 = shl <8 x i64> %37, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
+  %38 = shl <8 x i64> %37, splat (i64 2)
   %39 = getelementptr inbounds float, ptr %2, <8 x i64> %38
-  %40 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %39, i32 4, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x float> poison), !tbaa !25, !alias.scope !35
+  %40 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %39, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !25, !alias.scope !35
   %41 = fcmp reassoc nsz arcp contract afn uge <8 x float> %40, zeroinitializer
-  %42 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %40, <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
-  %43 = xor <8 x i1> %42, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %42 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %40, splat (float 1.000000e+02)
+  %43 = xor <8 x i1> %42, splat (i1 true)
   %44 = and <8 x i1> %41, %43
   %45 = and <8 x i1> %41, %42
-  %46 = fsub reassoc nsz arcp contract afn <8 x float> <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>, %40
-  %47 = select <8 x i1> %44, <8 x float> %46, <8 x float> <float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02, float 1.000000e+02>
+  %46 = fsub reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+02), %40
+  %47 = select <8 x i1> %44, <8 x float> %46, <8 x float> splat (float 1.000000e+02)
   %48 = select <8 x i1> %45, <8 x float> zeroinitializer, <8 x float> %47
   %49 = getelementptr inbounds float, ptr %3, i64 %36
   store <8 x float> %48, ptr %49, align 4, !tbaa !25, !alias.scope !38, !noalias !35
   %50 = add nuw i64 %36, 8
-  %51 = add <8 x i64> %37, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %51 = add <8 x i64> %37, splat (i64 8)
   %52 = icmp eq i64 %50, %34
   br i1 %52, label %53, label %35, !llvm.loop !40
 

@@ -4241,9 +4241,9 @@ for.body501.lr.ph:                                ; preds = %for.cond498.prehead
 
 for.body501:                                      ; preds = %for.body501.lr.ph, %for.inc527
   %indvars.iv763 = phi i64 [ 0, %for.body501.lr.ph ], [ %indvars.iv.next764, %for.inc527 ]
-  %max.sroa.0.0693 = phi <2 x float> [ <float -1.000000e+10, float -1.000000e+10>, %for.body501.lr.ph ], [ %max.sroa.0.1.lcssa, %for.inc527 ]
+  %max.sroa.0.0693 = phi <2 x float> [ splat (float -1.000000e+10), %for.body501.lr.ph ], [ %max.sroa.0.1.lcssa, %for.inc527 ]
   %max.sroa.9.0692 = phi float [ -1.000000e+10, %for.body501.lr.ph ], [ %max.sroa.9.1.lcssa, %for.inc527 ]
-  %min.sroa.0.0691 = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.body501.lr.ph ], [ %min.sroa.0.1.lcssa, %for.inc527 ]
+  %min.sroa.0.0691 = phi <2 x float> [ splat (float 1.000000e+10), %for.body501.lr.ph ], [ %min.sroa.0.1.lcssa, %for.inc527 ]
   %min.sroa.11.0690 = phi float [ 1.000000e+10, %for.body501.lr.ph ], [ %min.sroa.11.1.lcssa, %for.inc527 ]
   %arrayidx504 = getelementptr inbounds ptr, ptr %349, i64 %indvars.iv763
   %350 = load ptr, ptr %arrayidx504, align 8
@@ -4305,9 +4305,9 @@ for.inc527:                                       ; preds = %invoke.cont521, %fo
 
 invoke.cont542:                                   ; preds = %for.inc527, %for.cond498.preheader
   %min.sroa.11.0.lcssa = phi float [ 1.000000e+10, %for.cond498.preheader ], [ %min.sroa.11.1.lcssa, %for.inc527 ]
-  %min.sroa.0.0.lcssa = phi <2 x float> [ <float 1.000000e+10, float 1.000000e+10>, %for.cond498.preheader ], [ %min.sroa.0.1.lcssa, %for.inc527 ]
+  %min.sroa.0.0.lcssa = phi <2 x float> [ splat (float 1.000000e+10), %for.cond498.preheader ], [ %min.sroa.0.1.lcssa, %for.inc527 ]
   %max.sroa.9.0.lcssa = phi float [ -1.000000e+10, %for.cond498.preheader ], [ %max.sroa.9.1.lcssa, %for.inc527 ]
-  %max.sroa.0.0.lcssa = phi <2 x float> [ <float -1.000000e+10, float -1.000000e+10>, %for.cond498.preheader ], [ %max.sroa.0.1.lcssa, %for.inc527 ]
+  %max.sroa.0.0.lcssa = phi <2 x float> [ splat (float -1.000000e+10), %for.cond498.preheader ], [ %max.sroa.0.1.lcssa, %for.inc527 ]
   %min.sroa.0.0.vec.extract534 = extractelement <2 x float> %min.sroa.0.0.lcssa, i64 0
   %362 = fsub <2 x float> %max.sroa.0.0.lcssa, %min.sroa.0.0.lcssa
   %sub.i = extractelement <2 x float> %362, i64 0

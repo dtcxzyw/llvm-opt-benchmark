@@ -3712,7 +3712,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5
 
 40:                                               ; preds = %29
   %41 = load <2 x i64>, ptr %35, align 1
-  %42 = and <2 x i64> %41, <i64 9223372036854775807, i64 9223372036854775807>
+  %42 = and <2 x i64> %41, splat (i64 9223372036854775807)
   %43 = bitcast <2 x i64> %42 to <2 x double>
   %44 = icmp sgt i64 %33, 3
   br i1 %44, label %45, label %69
@@ -3720,7 +3720,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5
 45:                                               ; preds = %40
   %46 = getelementptr inbounds i8, ptr %35, i64 16
   %47 = load <2 x i64>, ptr %46, align 1
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %35, i64 48
   %50 = icmp ugt i64 %33, 7
@@ -3733,12 +3733,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5
   %.17375.i.i.i.i.i = phi <2 x double> [ %55, %.lr.ph.i.i.i.i.i ], [ %43, %45 ]
   %51 = getelementptr inbounds double, ptr %35, i64 %.05478.i.i.i.i.i
   %52 = load <2 x i64>, ptr %51, align 1
-  %53 = and <2 x i64> %52, <i64 9223372036854775807, i64 9223372036854775807>
+  %53 = and <2 x i64> %52, splat (i64 9223372036854775807)
   %54 = bitcast <2 x i64> %53 to <2 x double>
   %55 = fadd <2 x double> %.17375.i.i.i.i.i, %54
   %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %56 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
-  %57 = and <2 x i64> %56, <i64 9223372036854775807, i64 9223372036854775807>
+  %57 = and <2 x i64> %56, splat (i64 9223372036854775807)
   %58 = bitcast <2 x i64> %57 to <2 x double>
   %59 = fadd <2 x double> %storemerge76.i.i.i.i.i, %58
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 4
@@ -3755,7 +3755,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN5
 63:                                               ; preds = %._crit_edge.i.i.i.i.i
   %64 = getelementptr inbounds double, ptr %35, i64 %37
   %65 = load <2 x i64>, ptr %64, align 1
-  %66 = and <2 x i64> %65, <i64 9223372036854775807, i64 9223372036854775807>
+  %66 = and <2 x i64> %65, splat (i64 9223372036854775807)
   %67 = bitcast <2 x i64> %66 to <2 x double>
   %68 = fadd <2 x double> %61, %67
   br label %69
@@ -10375,7 +10375,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 38:                                               ; preds = %27
   %39 = load <4 x i32>, ptr %33, align 1
-  %40 = and <4 x i32> %39, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %40 = and <4 x i32> %39, splat (i32 2147483647)
   %41 = bitcast <4 x i32> %40 to <4 x float>
   %42 = icmp sgt i64 %31, 7
   br i1 %42, label %43, label %67
@@ -10383,7 +10383,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 43:                                               ; preds = %38
   %44 = getelementptr inbounds i8, ptr %33, i64 16
   %45 = load <4 x i32>, ptr %44, align 1
-  %46 = and <4 x i32> %45, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %46 = and <4 x i32> %45, splat (i32 2147483647)
   %47 = bitcast <4 x i32> %46 to <4 x float>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %33, i64 48
   %48 = icmp ugt i64 %31, 15
@@ -10396,12 +10396,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.17375.i.i.i.i.i = phi <4 x float> [ %53, %.lr.ph.i.i.i.i.i ], [ %41, %43 ]
   %49 = getelementptr inbounds float, ptr %33, i64 %.05478.i.i.i.i.i
   %50 = load <4 x i32>, ptr %49, align 1
-  %51 = and <4 x i32> %50, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %51 = and <4 x i32> %50, splat (i32 2147483647)
   %52 = bitcast <4 x i32> %51 to <4 x float>
   %53 = fadd <4 x float> %.17375.i.i.i.i.i, %52
   %gep.i.i.i.i.i = getelementptr inbounds float, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %54 = load <4 x i32>, ptr %gep.i.i.i.i.i, align 1
-  %55 = and <4 x i32> %54, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %55 = and <4 x i32> %54, splat (i32 2147483647)
   %56 = bitcast <4 x i32> %55 to <4 x float>
   %57 = fadd <4 x float> %storemerge76.i.i.i.i.i, %56
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 8
@@ -10418,7 +10418,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 61:                                               ; preds = %._crit_edge.i.i.i.i.i
   %62 = getelementptr inbounds float, ptr %33, i64 %35
   %63 = load <4 x i32>, ptr %62, align 1
-  %64 = and <4 x i32> %63, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %64 = and <4 x i32> %63, splat (i32 2147483647)
   %65 = bitcast <4 x i32> %64 to <4 x float>
   %66 = fadd <4 x float> %59, %65
   br label %67

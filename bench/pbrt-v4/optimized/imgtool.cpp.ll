@@ -40163,7 +40163,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 invoke.cont129:                                   ; preds = %if.then.i.i.i, %invoke.cont.i
   %call.i66 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #34
-  invoke void @_ZN4pbrt14GaussianFilterC2ENS_7Vector2IfEEfN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(200) %filter, <2 x float> <float 1.500000e+00, float 1.500000e+00>, float noundef 2.000000e+00, ptr %call.i66)
+  invoke void @_ZN4pbrt14GaussianFilterC2ENS_7Vector2IfEEfN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(200) %filter, <2 x float> splat (float 1.500000e+00), float noundef 2.000000e+00, ptr %call.i66)
           to label %invoke.cont135 unwind label %lpad128
 
 invoke.cont135:                                   ; preds = %invoke.cont129

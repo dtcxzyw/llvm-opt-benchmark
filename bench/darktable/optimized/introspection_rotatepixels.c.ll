@@ -336,13 +336,13 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   %26 = insertelement <2 x float> poison, float %15, i64 0
   %27 = insertelement <2 x float> %26, float %19, i64 1
   %28 = fmul reassoc nsz arcp contract afn <2 x float> %27, %27
-  %29 = fmul reassoc nsz arcp contract afn <2 x float> %28, <float 2.000000e+00, float 2.000000e+00>
+  %29 = fmul reassoc nsz arcp contract afn <2 x float> %28, splat (float 2.000000e+00)
   %30 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.sqrt.v2f32(<2 x float> %29)
   %31 = insertelement <2 x float> poison, float %24, i64 0
   %32 = shufflevector <2 x float> %31, <2 x float> poison, <2 x i32> zeroinitializer
   %33 = fsub reassoc nsz arcp contract afn <2 x float> %30, %32
   %34 = fptosi <2 x float> %33 to <2 x i32>
-  %35 = and <2 x i32> %34, <i32 -2, i32 -2>
+  %35 = and <2 x i32> %34, splat (i32 -2)
   %36 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %35, <2 x i32> zeroinitializer)
   store <2 x i32> %36, ptr %25, align 4, !tbaa !24
   ret void
@@ -404,7 +404,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %50 = shufflevector <2 x float> %45, <2 x float> %47, <2 x i32> <i32 0, i32 3>
   %51 = fsub reassoc nsz arcp contract afn <2 x float> %49, %50
   %52 = fadd reassoc nsz arcp contract afn <2 x float> %51, %38
-  %53 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %52, <2 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>)
+  %53 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %52, <2 x float> splat (float 0x47EFFFFFE0000000))
   %54 = fsub reassoc nsz arcp contract afn <2 x float> %43, %45
   %55 = fadd reassoc nsz arcp contract afn <2 x float> %54, %38
   %56 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %53, <2 x float> %55)
@@ -438,7 +438,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %84 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %80, <2 x i32> zeroinitializer)
   %85 = select <2 x i1> %83, <2 x i32> %82, <2 x i32> %84
   store <2 x i32> %85, ptr %3, align 4, !tbaa !24
-  %86 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %52, <2 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>)
+  %86 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %52, <2 x float> splat (float 0xC7EFFFFFE0000000))
   %87 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %86, <2 x float> %55)
   %88 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %87, <2 x float> %58)
   %89 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %88, <2 x float> %63)
@@ -452,7 +452,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %97 = fptosi <2 x float> %96 to <2 x i32>
   %98 = sub nsw <2 x i32> %97, %85
   %99 = icmp slt <2 x i32> %98, %95
-  %100 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %95, <2 x i32> <i32 1, i32 1>)
+  %100 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %95, <2 x i32> splat (i32 1))
   %101 = select <2 x i1> %99, <2 x i32> %98, <2 x i32> %100
   store <2 x i32> %101, ptr %31, align 4, !tbaa !24
   ret void

@@ -2281,7 +2281,7 @@ vector.body:                                      ; preds = %pred.store.continue
   %gep = getelementptr i8, ptr %invariant.gep, i64 %offset.idx
   %wide.load = load <16 x i8>, ptr %gep, align 1, !tbaa !8
   %reverse = shufflevector <16 x i8> %wide.load, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %37 = icmp eq <16 x i8> %reverse, <i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46>
+  %37 = icmp eq <16 x i8> %reverse, splat (i8 46)
   %38 = extractelement <16 x i1> %37, i64 0
   br i1 %38, label %pred.store.if, label %pred.store.continue
 
@@ -2458,7 +2458,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %gep368 = getelementptr i8, ptr %invariant.gep367, i64 %offset.idx143
   %wide.load144 = load <8 x i8>, ptr %gep368, align 1, !tbaa !8
   %reverse145 = shufflevector <8 x i8> %wide.load144, <8 x i8> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %55 = icmp eq <8 x i8> %reverse145, <i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46, i8 46>
+  %55 = icmp eq <8 x i8> %reverse145, splat (i8 46)
   %56 = extractelement <8 x i1> %55, i64 0
   br i1 %56, label %pred.store.if146, label %pred.store.continue147
 

@@ -15545,7 +15545,7 @@ define internal fastcc void @_ZN15ide_diagnostics16build_group_dict17h396fe7b788
 
 104:                                              ; preds = %.noexc29
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8), !noalias !3676
-  %105 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %105 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %106 = bitcast <16 x i1> %105 to i16
   %.not.i.i.i = icmp eq i16 %106, 0
   br i1 %.not.i.i.i, label %112, label %115
@@ -16283,7 +16283,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h6ac26fb764ccfc44E.exit: ; pred
   br label %.lr.ph.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he72901856f776eb2E.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he72901856f776eb2E.exit.backedge.i.i.i", %222
-  %228 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %228 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %229 = bitcast <16 x i1> %228 to i16
   %.not.i.i.i.i = icmp eq i16 %229, 0
   br i1 %.not.i.i.i.i, label %243, label %.thread388
@@ -16383,7 +16383,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h6ac26fb764ccfc44E.exit: ; pred
   br label %.lr.ph.i.i.i165
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he72901856f776eb2E.exit._crit_edge.i.i.i171": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17he72901856f776eb2E.exit.backedge.i.i.i169", %265
-  %271 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i162, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %271 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i162, splat (i8 -1)
   %272 = bitcast <16 x i1> %271 to i16
   %.not.i.i.i.i172 = icmp eq i16 %272, 0
   br i1 %.not.i.i.i.i172, label %286, label %.thread388
@@ -16472,7 +16472,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h6ac26fb764ccfc44E.exit: ; pred
   br label %.lr.ph.i.i.i197
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbce3ede434abed55E.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbce3ede434abed55E.exit.backedge.i.i.i", %302
-  %308 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i194, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %308 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i194, splat (i8 -1)
   %309 = bitcast <16 x i1> %308 to i16
   %.not.i.i.i.i202 = icmp eq i16 %309, 0
   br i1 %.not.i.i.i.i202, label %323, label %.thread409
@@ -16765,7 +16765,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h6ac26fb764ccfc44E.exit: ; pred
 
 409:                                              ; preds = %.noexc.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %16), !noalias !4124
-  %410 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %410 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %411 = bitcast <16 x i1> %410 to i16
   %.not.i.i.i = icmp eq i16 %411, 0
   br i1 %.not.i.i.i, label %417, label %420
@@ -17013,7 +17013,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h6ac26fb764ccfc44E.exit: ; pred
 
 504:                                              ; preds = %.noexc.i243
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9), !noalias !4207
-  %505 = icmp eq <16 x i8> %.0.copyload.i21.i.i240, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %505 = icmp eq <16 x i8> %.0.copyload.i21.i.i240, splat (i8 -1)
   %506 = bitcast <16 x i1> %505 to i16
   %.not.i.i.i249 = icmp eq i16 %506, 0
   br i1 %.not.i.i.i249, label %512, label %515

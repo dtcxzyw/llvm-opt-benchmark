@@ -85,8 +85,8 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %21 = sitofp <2 x i32> %20 to <2 x float>
   %22 = fcmp reassoc nsz arcp contract afn olt <2 x float> %19, %21
   %23 = select <2 x i1> %22, <2 x float> %19, <2 x float> %21
-  %24 = fcmp reassoc nsz arcp contract afn olt <2 x float> %23, <float 1.600000e+01, float 1.600000e+01>
-  %25 = select <2 x i1> %24, <2 x float> <float 1.600000e+01, float 1.600000e+01>, <2 x float> %23
+  %24 = fcmp reassoc nsz arcp contract afn olt <2 x float> %23, splat (float 1.600000e+01)
+  %25 = select <2 x i1> %24, <2 x float> splat (float 1.600000e+01), <2 x float> %23
   %26 = shufflevector <2 x float> %12, <2 x float> %25, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %27 = fptosi <4 x float> %26 to <4 x i32>
   store <4 x i32> %27, ptr %3, align 4, !tbaa !7

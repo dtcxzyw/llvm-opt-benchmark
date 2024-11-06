@@ -705,7 +705,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1312) %pGlActiveTexture, i8 0, i64 1312, i1 false)
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %MaxTextureLODBias, align 4, !tbaa !21
   %arrayidx7 = getelementptr inbounds i8, ptr %this, i64 36
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx7, align 4, !tbaa !21
+  store <4 x float> splat (float 1.000000e+00), ptr %arrayidx7, align 4, !tbaa !21
   %arrayidx13 = getelementptr inbounds i8, ptr %this, i64 52
   store float 1.000000e+00, ptr %arrayidx13, align 4, !tbaa !21
   ret void

@@ -204,11 +204,11 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
   %54 = getelementptr inbounds i8, ptr %2, i64 8
   %55 = load i32, ptr %54, align 4, !tbaa !30
   %56 = load <2 x i32>, ptr %7, align 4, !tbaa !28
-  %57 = mul nsw <2 x i32> %56, <i32 3, i32 3>
+  %57 = mul nsw <2 x i32> %56, splat (i32 3)
   %58 = insertelement <2 x i32> poison, i32 %55, i64 0
   %59 = insertelement <2 x i32> %58, i32 %53, i64 1
   %60 = icmp sgt <2 x i32> %59, %57
-  %61 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %59, <2 x i32> <i32 5, i32 5>)
+  %61 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %59, <2 x i32> splat (i32 5))
   %62 = select <2 x i1> %60, <2 x i32> %57, <2 x i32> %61
   store <2 x i32> %62, ptr %54, align 4, !tbaa !28
   ret void
@@ -296,7 +296,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
   %65 = sitofp <2 x i32> %55 to <2 x float>
   %66 = fsub reassoc nsz arcp contract afn <2 x float> %65, %64
   %67 = fptosi <2 x float> %66 to <2 x i32>
-  %68 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %67, <2 x i32> <i32 1, i32 1>)
+  %68 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %67, <2 x i32> splat (i32 1))
   %69 = uitofp nneg <2 x i32> %68 to <2 x float>
   %70 = fcmp reassoc nsz arcp contract afn olt <2 x float> %58, %69
   %71 = select <2 x i1> %70, <2 x float> %58, <2 x float> %69
@@ -754,7 +754,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noun
 
 50:                                               ; preds = %41, %49, %48, %47, %46
   %.sink = phi float [ 0.000000e+00, %49 ], [ 0.000000e+00, %48 ], [ 1.000000e+00, %47 ], [ 1.000000e+00, %46 ], [ 0.000000e+00, %41 ]
-  %51 = phi <2 x float> [ <float 0.000000e+00, float 2.000000e+00>, %49 ], [ <float 1.000000e+00, float 0.000000e+00>, %48 ], [ zeroinitializer, %47 ], [ <float 1.000000e+00, float 1.000000e+00>, %46 ], [ zeroinitializer, %41 ]
+  %51 = phi <2 x float> [ <float 0.000000e+00, float 2.000000e+00>, %49 ], [ <float 1.000000e+00, float 0.000000e+00>, %48 ], [ zeroinitializer, %47 ], [ splat (float 1.000000e+00), %46 ], [ zeroinitializer, %41 ]
   store float %.sink, ptr %8, align 16, !tbaa !29
   %52 = getelementptr inbounds i8, ptr %8, i64 4
   store <2 x float> %51, ptr %52, align 4, !tbaa !29

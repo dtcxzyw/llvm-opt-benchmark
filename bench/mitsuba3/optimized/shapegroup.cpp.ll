@@ -231,9 +231,9 @@ define weak_odr void @_ZN7mitsuba10ShapeGroupIfN5drjit6MatrixINS_8SpectrumIfLm4E
   tail call void @_ZN7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(403) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10ShapeGroupIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 16), ptr %0, align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %11, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %11, align 16
   %12 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %12, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %12, align 16
   %13 = getelementptr inbounds i8, ptr %0, i64 448
   %14 = getelementptr inbounds i8, ptr %0, i64 480
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %13, i8 0, i64 56, i1 false)

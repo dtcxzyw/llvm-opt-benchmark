@@ -84,7 +84,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
   %40 = shufflevector <4 x float> %39, <4 x float> poison, <16 x i32> zeroinitializer
   %41 = tail call fast noundef <16 x float> @llvm.fma.v16f32(<16 x float> %35, <16 x float> %40, <16 x float> %38)
   %42 = tail call fast noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %41, <16 x float> zeroinitializer, i32 4)
-  %43 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %42, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, i32 4)
+  %43 = tail call fast noundef <16 x float> @llvm.x86.avx512.min.ps.512(<16 x float> %42, <16 x float> splat (float 1.000000e+00), i32 4)
   store <16 x float> %43, ptr %.0239268, align 1
   %44 = getelementptr inbounds i8, ptr %.0239268, i64 64
   %45 = add nuw nsw i32 %.0240267, 16
@@ -110,7 +110,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
   %55 = shufflevector <4 x float> %54, <4 x float> poison, <8 x i32> zeroinitializer
   %56 = tail call fast noundef <8 x float> @llvm.fma.v8f32(<8 x float> %50, <8 x float> %55, <8 x float> %53)
   %57 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %56, <8 x float> zeroinitializer)
-  %58 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %57, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %58 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %57, <8 x float> splat (float 1.000000e+00))
   store <8 x float> %58, ptr %.1271, align 1
   %59 = getelementptr inbounds i8, ptr %.1271, i64 32
   %60 = add nuw nsw i32 %.1241270, 8
@@ -136,7 +136,7 @@ define hidden noundef i32 @_ZNK4ncnn22HardSigmoid_x86_avx51215forward_inplaceERN
   %70 = fmul fast <4 x float> %69, %64
   %71 = fadd fast <4 x float> %70, %67
   %72 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %71, <4 x float> zeroinitializer)
-  %73 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %72, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %73 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %72, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %73, ptr %.2276, align 16
   %74 = getelementptr inbounds i8, ptr %.2276, i64 16
   %75 = add nuw nsw i32 %.2242275, 4

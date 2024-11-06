@@ -541,7 +541,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   call void @llvm.assume(i1 %259)
   %260 = extractelement <32 x i1> %228, i64 31
   call void @llvm.assume(i1 %260)
-  %261 = and <32 x i64> %227, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %261 = and <32 x i64> %227, splat (i64 2147483648)
   %262 = icmp eq <32 x i64> %261, zeroinitializer
   %263 = extractelement <32 x i1> %262, i64 0
   call void @llvm.assume(i1 %263)
@@ -613,8 +613,8 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %298 = add <32 x i8> %297, %226
   store <32 x i8> %298, ptr %225, align 1, !tbaa !88, !alias.scope !101, !noalias !104
   %299 = add nuw i64 %189, 32
-  %300 = add <32 x i64> %190, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
-  %301 = add <32 x i32> %191, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
+  %300 = add <32 x i64> %190, splat (i64 32)
+  %301 = add <32 x i32> %191, splat (i32 32)
   %302 = icmp eq i64 %299, %181
   br i1 %302, label %303, label %188, !llvm.loop !106
 
@@ -716,7 +716,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   call void @llvm.assume(i1 %361)
   %362 = extractelement <16 x i1> %346, i64 15
   call void @llvm.assume(i1 %362)
-  %363 = and <16 x i64> %345, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %363 = and <16 x i64> %345, splat (i64 2147483648)
   %364 = icmp eq <16 x i64> %363, zeroinitializer
   %365 = extractelement <16 x i1> %364, i64 0
   call void @llvm.assume(i1 %365)
@@ -756,8 +756,8 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %384 = add <16 x i8> %383, %344
   store <16 x i8> %384, ptr %343, align 1, !tbaa !88, !alias.scope !110, !noalias !113
   %385 = add nuw i64 %323, 16
-  %386 = add <16 x i64> %324, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %387 = add <16 x i32> %325, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %386 = add <16 x i64> %324, splat (i64 16)
+  %387 = add <16 x i32> %325, splat (i32 16)
   %388 = icmp eq i64 %385, %312
   br i1 %388, label %389, label %322, !llvm.loop !115
 
@@ -864,35 +864,35 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %448 = getelementptr inbounds i8, ptr %146, i64 %447
   %449 = load <8 x i8>, ptr %448, align 1, !tbaa !88, !alias.scope !120
   %450 = zext <8 x i8> %449 to <8 x i16>
-  %451 = shl nuw <8 x i16> %450, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %451 = shl nuw <8 x i16> %450, splat (i16 8)
   %452 = zext <8 x i8> %435 to <8 x i16>
   %453 = or disjoint <8 x i16> %451, %452
   %454 = call <8 x i16> @llvm.bswap.v8i16(<8 x i16> %453)
   %455 = zext <8 x i16> %454 to <8 x i32>
-  %456 = lshr <8 x i32> %455, <i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10, i32 10>
-  %457 = and <8 x i32> %456, <i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31>
-  %458 = and <8 x i32> %455, <i32 1023, i32 1023, i32 1023, i32 1023, i32 1023, i32 1023, i32 1023, i32 1023>
-  %459 = shl nuw nsw <8 x i32> %458, <i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13, i32 13>
-  %460 = icmp ne <8 x i32> %457, <i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31>
-  %461 = add nuw nsw <8 x i32> %457, <i32 112, i32 112, i32 112, i32 112, i32 112, i32 112, i32 112, i32 112>
+  %456 = lshr <8 x i32> %455, splat (i32 10)
+  %457 = and <8 x i32> %456, splat (i32 31)
+  %458 = and <8 x i32> %455, splat (i32 1023)
+  %459 = shl nuw nsw <8 x i32> %458, splat (i32 13)
+  %460 = icmp ne <8 x i32> %457, splat (i32 31)
+  %461 = add nuw nsw <8 x i32> %457, splat (i32 112)
   %462 = icmp eq <8 x i32> %457, zeroinitializer
   %463 = icmp eq <8 x i32> %458, zeroinitializer
   %464 = call <8 x i32> @llvm.ctlz.v8i32(<8 x i32> %459, i1 true), !range !122
-  %465 = sub nuw nsw <8 x i32> <i32 121, i32 121, i32 121, i32 121, i32 121, i32 121, i32 121, i32 121>, %464
-  %466 = xor <8 x i32> %464, <i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31>
-  %467 = sub nuw nsw <8 x i32> <i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23>, %466
+  %465 = sub nuw nsw <8 x i32> splat (i32 121), %464
+  %466 = xor <8 x i32> %464, splat (i32 31)
+  %467 = sub nuw nsw <8 x i32> splat (i32 23), %466
   %468 = shl <8 x i32> %459, %467
-  %469 = and <8 x i32> %468, <i32 8380416, i32 8380416, i32 8380416, i32 8380416, i32 8380416, i32 8380416, i32 8380416, i32 8380416>
+  %469 = and <8 x i32> %468, splat (i32 8380416)
   %470 = select <8 x i1> %462, <8 x i1> %463, <8 x i1> zeroinitializer
   %471 = xor <8 x i1> %462, %460
   %472 = select <8 x i1> %471, <8 x i32> %461, <8 x i32> %465
-  %473 = shl nuw nsw <8 x i32> %472, <i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23>
-  %474 = select <8 x i1> %460, <8 x i32> %473, <8 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %473 = shl nuw nsw <8 x i32> %472, splat (i32 23)
+  %474 = select <8 x i1> %460, <8 x i32> %473, <8 x i32> splat (i32 2139095040)
   %475 = select <8 x i1> %471, <8 x i32> %459, <8 x i32> %469
   %476 = select <8 x i1> %460, <8 x i32> %475, <8 x i32> %459
   %477 = select <8 x i1> %470, <8 x i32> zeroinitializer, <8 x i32> %476
   %478 = sext <8 x i16> %454 to <8 x i32>
-  %479 = and <8 x i32> %478, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %479 = and <8 x i32> %478, splat (i32 -2147483648)
   %480 = select <8 x i1> %470, <8 x i32> zeroinitializer, <8 x i32> %474
   %481 = or disjoint <8 x i32> %480, %479
   %482 = or disjoint <8 x i32> %481, %477
@@ -918,7 +918,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %494 = getelementptr inbounds float, ptr %413, i64 %493
   store <8 x i32> %482, ptr %494, align 4, !tbaa !123, !alias.scope !125, !noalias !127
   %495 = add nuw i64 %423, 8
-  %496 = add <8 x i64> %424, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %496 = add <8 x i64> %424, splat (i64 8)
   %497 = icmp eq i64 %495, %127
   br i1 %497, label %498, label %.preheader, !llvm.loop !128
 
@@ -1074,37 +1074,37 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %597 = getelementptr inbounds i8, ptr %146, i64 %596
   %598 = load <8 x i8>, ptr %597, align 1, !tbaa !88, !alias.scope !135
   %599 = zext <8 x i8> %598 to <8 x i32>
-  %600 = shl nuw nsw <8 x i32> %599, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %600 = shl nuw nsw <8 x i32> %599, splat (i32 16)
   %601 = zext <8 x i8> %584 to <8 x i32>
-  %602 = shl nuw nsw <8 x i32> %601, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %602 = shl nuw nsw <8 x i32> %601, splat (i32 8)
   %603 = zext <8 x i8> %570 to <8 x i32>
   %604 = or disjoint <8 x i32> %602, %603
   %605 = or disjoint <8 x i32> %604, %600
   %606 = call <8 x i32> @llvm.bswap.v8i32(<8 x i32> %605)
-  %607 = lshr exact <8 x i32> %606, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
-  %608 = lshr <8 x i32> %606, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
-  %609 = and <8 x i32> %608, <i32 127, i32 127, i32 127, i32 127, i32 127, i32 127, i32 127, i32 127>
-  %610 = and <8 x i32> %607, <i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535, i32 65535>
-  %611 = shl nuw nsw <8 x i32> %610, <i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7, i32 7>
-  %612 = icmp ne <8 x i32> %609, <i32 127, i32 127, i32 127, i32 127, i32 127, i32 127, i32 127, i32 127>
-  %613 = add nuw nsw <8 x i32> %609, <i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64>
+  %607 = lshr exact <8 x i32> %606, splat (i32 8)
+  %608 = lshr <8 x i32> %606, splat (i32 24)
+  %609 = and <8 x i32> %608, splat (i32 127)
+  %610 = and <8 x i32> %607, splat (i32 65535)
+  %611 = shl nuw nsw <8 x i32> %610, splat (i32 7)
+  %612 = icmp ne <8 x i32> %609, splat (i32 127)
+  %613 = add nuw nsw <8 x i32> %609, splat (i32 64)
   %614 = icmp eq <8 x i32> %609, zeroinitializer
   %615 = icmp eq <8 x i32> %610, zeroinitializer
   %616 = call <8 x i32> @llvm.ctlz.v8i32(<8 x i32> %611, i1 true), !range !122
-  %617 = sub nuw nsw <8 x i32> <i32 73, i32 73, i32 73, i32 73, i32 73, i32 73, i32 73, i32 73>, %616
-  %618 = xor <8 x i32> %616, <i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31, i32 31>
-  %619 = sub nuw nsw <8 x i32> <i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23>, %618
+  %617 = sub nuw nsw <8 x i32> splat (i32 73), %616
+  %618 = xor <8 x i32> %616, splat (i32 31)
+  %619 = sub nuw nsw <8 x i32> splat (i32 23), %618
   %620 = shl <8 x i32> %611, %619
-  %621 = and <8 x i32> %620, <i32 8388480, i32 8388480, i32 8388480, i32 8388480, i32 8388480, i32 8388480, i32 8388480, i32 8388480>
+  %621 = and <8 x i32> %620, splat (i32 8388480)
   %622 = select <8 x i1> %614, <8 x i1> %615, <8 x i1> zeroinitializer
   %623 = xor <8 x i1> %614, %612
   %624 = select <8 x i1> %623, <8 x i32> %613, <8 x i32> %617
-  %625 = shl nuw nsw <8 x i32> %624, <i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23, i32 23>
-  %626 = select <8 x i1> %612, <8 x i32> %625, <8 x i32> <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %625 = shl nuw nsw <8 x i32> %624, splat (i32 23)
+  %626 = select <8 x i1> %612, <8 x i32> %625, <8 x i32> splat (i32 2139095040)
   %627 = select <8 x i1> %623, <8 x i32> %611, <8 x i32> %621
   %628 = select <8 x i1> %612, <8 x i32> %627, <8 x i32> %611
   %629 = select <8 x i1> %622, <8 x i32> zeroinitializer, <8 x i32> %628
-  %630 = and <8 x i32> %606, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %630 = and <8 x i32> %606, splat (i32 -2147483648)
   %631 = select <8 x i1> %622, <8 x i32> zeroinitializer, <8 x i32> %626
   %632 = or disjoint <8 x i32> %631, %630
   %633 = or disjoint <8 x i32> %632, %629
@@ -1130,7 +1130,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %645 = getelementptr inbounds float, ptr %413, i64 %644
   store <8 x i32> %633, ptr %645, align 4, !tbaa !123, !alias.scope !137, !noalias !139
   %646 = add nuw i64 %558, 8
-  %647 = add <8 x i64> %559, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %647 = add <8 x i64> %559, splat (i64 8)
   %648 = icmp eq i64 %646, %127
   br i1 %648, label %649, label %.preheader15, !llvm.loop !140
 
@@ -1320,11 +1320,11 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %773 = getelementptr inbounds i8, ptr %146, i64 %772
   %774 = load <8 x i8>, ptr %773, align 1, !tbaa !88, !alias.scope !149
   %775 = zext <8 x i8> %774 to <8 x i32>
-  %776 = shl nuw <8 x i32> %775, <i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24, i32 24>
+  %776 = shl nuw <8 x i32> %775, splat (i32 24)
   %777 = zext <8 x i8> %760 to <8 x i32>
-  %778 = shl nuw nsw <8 x i32> %777, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %778 = shl nuw nsw <8 x i32> %777, splat (i32 16)
   %779 = zext <8 x i8> %746 to <8 x i32>
-  %780 = shl nuw nsw <8 x i32> %779, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %780 = shl nuw nsw <8 x i32> %779, splat (i32 8)
   %781 = zext <8 x i8> %732 to <8 x i32>
   %782 = or disjoint <8 x i32> %780, %781
   %783 = or disjoint <8 x i32> %782, %778
@@ -1352,7 +1352,7 @@ define hidden void @_ZN8rawspeed19DeflateDecompressor6decodeEPSt10unique_ptrIA_h
   %797 = getelementptr inbounds float, ptr %413, i64 %796
   store <8 x i32> %785, ptr %797, align 4, !tbaa !123, !alias.scope !151, !noalias !153
   %798 = add nuw i64 %720, 8
-  %799 = add <8 x i64> %721, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %799 = add <8 x i64> %721, splat (i64 8)
   %800 = icmp eq i64 %798, %127
   br i1 %800, label %801, label %.preheader18, !llvm.loop !154
 

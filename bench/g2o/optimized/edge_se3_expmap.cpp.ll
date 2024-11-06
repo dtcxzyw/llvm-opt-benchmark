@@ -388,7 +388,7 @@ _ZN3g2o7SE3QuatC2IN5Eigen6MatrixIdLi7ELi1ELi0ELi7ELi1EEEEERKNS2_10MatrixBaseIT_E
   %.sroa.5.1 = phi <2 x i64> [ %51, %44 ], [ %.sroa.5.0, %35 ]
   %.sroa.0.1 = phi <2 x i64> [ %49, %44 ], [ %.sroa.0.0, %35 ]
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %53 = xor <2 x i64> %.sroa.0.1, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %53 = xor <2 x i64> %.sroa.0.1, splat (i64 -9223372036854775808)
   %54 = xor <2 x i64> %.sroa.5.1, <i64 -9223372036854775808, i64 0>
   store <2 x i64> %53, ptr %4, align 16, !alias.scope !12
   %.sroa.24.0..sroa_idx.i = getelementptr inbounds i8, ptr %4, i64 16
@@ -524,7 +524,7 @@ define noundef zeroext i1 @_ZNK3g2o13EdgeSE3Expmap5writeERSo(ptr nocapture nound
   %3 = alloca %"class.Eigen::Matrix.73", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load <2 x i64>, ptr %4, align 16, !noalias !17
-  %6 = xor <2 x i64> %5, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %6 = xor <2 x i64> %5, splat (i64 -9223372036854775808)
   %7 = getelementptr inbounds i8, ptr %0, i64 192
   %8 = load <2 x i64>, ptr %7, align 16, !noalias !17
   %9 = xor <2 x i64> %8, <i64 -9223372036854775808, i64 0>
@@ -660,7 +660,7 @@ define void @_ZN3g2o13EdgeSE3Expmap12computeErrorEv(ptr nocapture noundef nonnul
   %.sroa.748.32.copyload = load double, ptr %.sroa.748.32..sroa_idx, align 16
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 192
   %12 = load <2 x i64>, ptr %11, align 16, !noalias !35
-  %13 = xor <2 x i64> %12, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %13 = xor <2 x i64> %12, splat (i64 -9223372036854775808)
   %14 = getelementptr inbounds i8, ptr %8, i64 208
   %15 = load <2 x i64>, ptr %14, align 16, !noalias !35
   %16 = xor <2 x i64> %15, <i64 -9223372036854775808, i64 0>
@@ -1014,7 +1014,7 @@ define linkonce_odr void @_ZNK3g2o7SE3Quat3logEv(ptr dead_on_unwind noalias writ
   br i1 %46, label %47, label %135
 
 47:                                               ; preds = %2
-  %48 = fmul <2 x double> %.sroa.0.8.vec.insert, <double 5.000000e-01, double 5.000000e-01>
+  %48 = fmul <2 x double> %.sroa.0.8.vec.insert, splat (double 5.000000e-01)
   %49 = fmul double %44, 5.000000e-01
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 72, i1 false), !alias.scope !71
   %50 = fneg double %49
@@ -1040,9 +1040,9 @@ define linkonce_odr void @_ZNK3g2o7SE3Quat3logEv(ptr dead_on_unwind noalias writ
   %.pre.i.i.i.i.i.i.i = load <2 x double>, ptr %5, align 16
   %.pre34.i.i.i.i.i.i.i = load <2 x double>, ptr %51, align 8
   %.pre35.i.i.i.i.i.i.i = load <2 x double>, ptr %52, align 16
-  %61 = fmul <2 x double> %.pre.i.i.i.i.i.i.i, <double 0x3FB5555555555555, double 0x3FB5555555555555>
-  %62 = fmul <2 x double> %.pre34.i.i.i.i.i.i.i, <double 0x3FB5555555555555, double 0x3FB5555555555555>
-  %63 = fmul <2 x double> %.pre35.i.i.i.i.i.i.i, <double 0x3FB5555555555555, double 0x3FB5555555555555>
+  %61 = fmul <2 x double> %.pre.i.i.i.i.i.i.i, splat (double 0x3FB5555555555555)
+  %62 = fmul <2 x double> %.pre34.i.i.i.i.i.i.i, splat (double 0x3FB5555555555555)
+  %63 = fmul <2 x double> %.pre35.i.i.i.i.i.i.i, splat (double 0x3FB5555555555555)
   %64 = fmul double %.sroa.098.8.vec.extract, 0x3FB5555555555555
   %65 = fmul double %.sroa.098.0.vec.extract, 0x3FB5555555555555
   %66 = extractelement <2 x double> %.pre.i.i.i.i.i.i.i, i64 0
@@ -1343,7 +1343,7 @@ define void @_ZN3g2o13EdgeSE3Expmap14linearizeOplusEv(ptr nocapture noundef nonn
   %.sroa.5.32.copyload = load double, ptr %.sroa.5.32..sroa_idx, align 16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %16 = load <2 x i64>, ptr %15, align 16, !noalias !78
-  %17 = xor <2 x i64> %16, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %17 = xor <2 x i64> %16, splat (i64 -9223372036854775808)
   %18 = getelementptr inbounds i8, ptr %0, i64 192
   %19 = load <2 x i64>, ptr %18, align 16, !noalias !78
   %20 = xor <2 x i64> %19, <i64 -9223372036854775808, i64 0>
@@ -1393,7 +1393,7 @@ define void @_ZN3g2o13EdgeSE3Expmap14linearizeOplusEv(ptr nocapture noundef nonn
   %54 = fmul double %40, %39
   %55 = fsub double %54, %25
   %56 = fadd double %55, %49
-  %57 = xor <2 x i64> %.sroa.056.0.copyload, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %57 = xor <2 x i64> %.sroa.056.0.copyload, splat (i64 -9223372036854775808)
   %58 = xor <2 x i64> %.sroa.257.0.copyload, <i64 -9223372036854775808, i64 0>
   %59 = fneg <2 x double> %.sroa.3.32.copyload
   %60 = fneg double %.sroa.5.32.copyload
@@ -1546,7 +1546,7 @@ define void @_ZN3g2o13EdgeSE3Expmap14linearizeOplusEv(ptr nocapture noundef nonn
   br label %_ZNK3g2o7SE3QuatmlERKS0_.exit
 
 _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %164
-  %170 = xor <2 x i64> %.sroa.058.0.copyload, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %170 = xor <2 x i64> %.sroa.058.0.copyload, splat (i64 -9223372036854775808)
   %171 = xor <2 x i64> %.sroa.259.0.copyload, <i64 -9223372036854775808, i64 0>
   %172 = fneg <2 x double> %.sroa.360.32.copyload
   %173 = fneg double %.sroa.561.32.copyload
@@ -1775,92 +1775,92 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit47:                  ; preds = %._crit_edge.i.i46, 
   %335 = load ptr, ptr %334, align 16
   %336 = load ptr, ptr %335, align 8
   %337 = load <2 x i64>, ptr %5, align 16
-  %338 = xor <2 x i64> %337, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %338 = xor <2 x i64> %337, splat (i64 -9223372036854775808)
   store <2 x i64> %338, ptr %336, align 16
   %339 = getelementptr i8, ptr %336, i64 16
   %340 = getelementptr inbounds i8, ptr %5, i64 16
   %341 = load <2 x i64>, ptr %340, align 16
-  %342 = xor <2 x i64> %341, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %342 = xor <2 x i64> %341, splat (i64 -9223372036854775808)
   store <2 x i64> %342, ptr %339, align 16
   %343 = getelementptr i8, ptr %336, i64 32
   %344 = getelementptr inbounds i8, ptr %5, i64 32
   %345 = load <2 x i64>, ptr %344, align 16
-  %346 = xor <2 x i64> %345, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %346 = xor <2 x i64> %345, splat (i64 -9223372036854775808)
   store <2 x i64> %346, ptr %343, align 16
   %347 = getelementptr i8, ptr %336, i64 48
   %348 = getelementptr inbounds i8, ptr %5, i64 48
   %349 = load <2 x i64>, ptr %348, align 16
-  %350 = xor <2 x i64> %349, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %350 = xor <2 x i64> %349, splat (i64 -9223372036854775808)
   store <2 x i64> %350, ptr %347, align 16
   %351 = getelementptr i8, ptr %336, i64 64
   %352 = getelementptr inbounds i8, ptr %5, i64 64
   %353 = load <2 x i64>, ptr %352, align 16
-  %354 = xor <2 x i64> %353, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %354 = xor <2 x i64> %353, splat (i64 -9223372036854775808)
   store <2 x i64> %354, ptr %351, align 16
   %355 = getelementptr i8, ptr %336, i64 80
   %356 = getelementptr inbounds i8, ptr %5, i64 80
   %357 = load <2 x i64>, ptr %356, align 16
-  %358 = xor <2 x i64> %357, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %358 = xor <2 x i64> %357, splat (i64 -9223372036854775808)
   store <2 x i64> %358, ptr %355, align 16
   %359 = getelementptr i8, ptr %336, i64 96
   %360 = getelementptr inbounds i8, ptr %5, i64 96
   %361 = load <2 x i64>, ptr %360, align 16
-  %362 = xor <2 x i64> %361, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %362 = xor <2 x i64> %361, splat (i64 -9223372036854775808)
   store <2 x i64> %362, ptr %359, align 16
   %363 = getelementptr i8, ptr %336, i64 112
   %364 = getelementptr inbounds i8, ptr %5, i64 112
   %365 = load <2 x i64>, ptr %364, align 16
-  %366 = xor <2 x i64> %365, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %366 = xor <2 x i64> %365, splat (i64 -9223372036854775808)
   store <2 x i64> %366, ptr %363, align 16
   %367 = getelementptr i8, ptr %336, i64 128
   %368 = getelementptr inbounds i8, ptr %5, i64 128
   %369 = load <2 x i64>, ptr %368, align 16
-  %370 = xor <2 x i64> %369, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %370 = xor <2 x i64> %369, splat (i64 -9223372036854775808)
   store <2 x i64> %370, ptr %367, align 16
   %371 = getelementptr i8, ptr %336, i64 144
   %372 = getelementptr inbounds i8, ptr %5, i64 144
   %373 = load <2 x i64>, ptr %372, align 16
-  %374 = xor <2 x i64> %373, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %374 = xor <2 x i64> %373, splat (i64 -9223372036854775808)
   store <2 x i64> %374, ptr %371, align 16
   %375 = getelementptr i8, ptr %336, i64 160
   %376 = getelementptr inbounds i8, ptr %5, i64 160
   %377 = load <2 x i64>, ptr %376, align 16
-  %378 = xor <2 x i64> %377, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %378 = xor <2 x i64> %377, splat (i64 -9223372036854775808)
   store <2 x i64> %378, ptr %375, align 16
   %379 = getelementptr i8, ptr %336, i64 176
   %380 = getelementptr inbounds i8, ptr %5, i64 176
   %381 = load <2 x i64>, ptr %380, align 16
-  %382 = xor <2 x i64> %381, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %382 = xor <2 x i64> %381, splat (i64 -9223372036854775808)
   store <2 x i64> %382, ptr %379, align 16
   %383 = getelementptr i8, ptr %336, i64 192
   %384 = getelementptr inbounds i8, ptr %5, i64 192
   %385 = load <2 x i64>, ptr %384, align 16
-  %386 = xor <2 x i64> %385, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %386 = xor <2 x i64> %385, splat (i64 -9223372036854775808)
   store <2 x i64> %386, ptr %383, align 16
   %387 = getelementptr i8, ptr %336, i64 208
   %388 = getelementptr inbounds i8, ptr %5, i64 208
   %389 = load <2 x i64>, ptr %388, align 16
-  %390 = xor <2 x i64> %389, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %390 = xor <2 x i64> %389, splat (i64 -9223372036854775808)
   store <2 x i64> %390, ptr %387, align 16
   %391 = getelementptr i8, ptr %336, i64 224
   %392 = getelementptr inbounds i8, ptr %5, i64 224
   %393 = load <2 x i64>, ptr %392, align 16
-  %394 = xor <2 x i64> %393, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %394 = xor <2 x i64> %393, splat (i64 -9223372036854775808)
   store <2 x i64> %394, ptr %391, align 16
   %395 = getelementptr i8, ptr %336, i64 240
   %396 = getelementptr inbounds i8, ptr %5, i64 240
   %397 = load <2 x i64>, ptr %396, align 16
-  %398 = xor <2 x i64> %397, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %398 = xor <2 x i64> %397, splat (i64 -9223372036854775808)
   store <2 x i64> %398, ptr %395, align 16
   %399 = getelementptr i8, ptr %336, i64 256
   %400 = getelementptr inbounds i8, ptr %5, i64 256
   %401 = load <2 x i64>, ptr %400, align 16
-  %402 = xor <2 x i64> %401, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %402 = xor <2 x i64> %401, splat (i64 -9223372036854775808)
   store <2 x i64> %402, ptr %399, align 16
   %403 = getelementptr i8, ptr %336, i64 272
   %404 = getelementptr inbounds i8, ptr %5, i64 272
   %405 = load <2 x i64>, ptr %404, align 16
-  %406 = xor <2 x i64> %405, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %406 = xor <2 x i64> %405, splat (i64 -9223372036854775808)
   store <2 x i64> %406, ptr %403, align 16
   ret void
 }
@@ -2319,14 +2319,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %19 = load <2 x i64>, ptr %17, align 16
-  %20 = xor <2 x i64> %19, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %20 = xor <2 x i64> %19, splat (i64 -9223372036854775808)
   %21 = bitcast <2 x i64> %20 to <2 x double>
   %22 = load <2 x double>, ptr %18, align 16
   %23 = shufflevector <2 x double> %22, <2 x double> poison, <2 x i32> zeroinitializer
   %24 = fmul <2 x double> %23, %21
   %25 = getelementptr inbounds i8, ptr %0, i64 288
   %26 = load <2 x i64>, ptr %25, align 16
-  %27 = xor <2 x i64> %26, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %27 = xor <2 x i64> %26, splat (i64 -9223372036854775808)
   %28 = bitcast <2 x i64> %27 to <2 x double>
   %29 = getelementptr inbounds i8, ptr %0, i64 536
   %30 = load <2 x double>, ptr %29, align 8
@@ -2335,7 +2335,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %33 = fadd <2 x double> %24, %32
   %34 = getelementptr inbounds i8, ptr %0, i64 336
   %35 = load <2 x i64>, ptr %34, align 16
-  %36 = xor <2 x i64> %35, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %36 = xor <2 x i64> %35, splat (i64 -9223372036854775808)
   %37 = bitcast <2 x i64> %36 to <2 x double>
   %38 = getelementptr inbounds i8, ptr %0, i64 544
   %39 = load <2 x double>, ptr %38, align 16
@@ -2344,7 +2344,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %42 = fadd <2 x double> %33, %41
   %43 = getelementptr inbounds i8, ptr %0, i64 384
   %44 = load <2 x i64>, ptr %43, align 16
-  %45 = xor <2 x i64> %44, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %45 = xor <2 x i64> %44, splat (i64 -9223372036854775808)
   %46 = bitcast <2 x i64> %45 to <2 x double>
   %47 = getelementptr inbounds i8, ptr %0, i64 552
   %48 = load <2 x double>, ptr %47, align 8
@@ -2353,7 +2353,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %51 = fadd <2 x double> %42, %50
   %52 = getelementptr inbounds i8, ptr %0, i64 432
   %53 = load <2 x i64>, ptr %52, align 16
-  %54 = xor <2 x i64> %53, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %54 = xor <2 x i64> %53, splat (i64 -9223372036854775808)
   %55 = bitcast <2 x i64> %54 to <2 x double>
   %56 = getelementptr inbounds i8, ptr %0, i64 560
   %57 = load <2 x double>, ptr %56, align 16
@@ -2362,7 +2362,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %60 = fadd <2 x double> %51, %59
   %61 = getelementptr inbounds i8, ptr %0, i64 480
   %62 = load <2 x i64>, ptr %61, align 16
-  %63 = xor <2 x i64> %62, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %63 = xor <2 x i64> %62, splat (i64 -9223372036854775808)
   %64 = bitcast <2 x i64> %63 to <2 x double>
   %65 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %66 = fmul <2 x double> %65, %64
@@ -2370,72 +2370,72 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %68 = getelementptr inbounds i8, ptr %3, i64 16
   %69 = getelementptr inbounds i8, ptr %0, i64 256
   %70 = load <2 x i64>, ptr %69, align 16
-  %71 = xor <2 x i64> %70, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %71 = xor <2 x i64> %70, splat (i64 -9223372036854775808)
   %72 = bitcast <2 x i64> %71 to <2 x double>
   %73 = fmul <2 x double> %23, %72
   %74 = getelementptr inbounds i8, ptr %0, i64 304
   %75 = load <2 x i64>, ptr %74, align 16
-  %76 = xor <2 x i64> %75, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %76 = xor <2 x i64> %75, splat (i64 -9223372036854775808)
   %77 = bitcast <2 x i64> %76 to <2 x double>
   %78 = fmul <2 x double> %31, %77
   %79 = fadd <2 x double> %73, %78
   %80 = getelementptr inbounds i8, ptr %0, i64 352
   %81 = load <2 x i64>, ptr %80, align 16
-  %82 = xor <2 x i64> %81, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %82 = xor <2 x i64> %81, splat (i64 -9223372036854775808)
   %83 = bitcast <2 x i64> %82 to <2 x double>
   %84 = fmul <2 x double> %40, %83
   %85 = fadd <2 x double> %79, %84
   %86 = getelementptr inbounds i8, ptr %0, i64 400
   %87 = load <2 x i64>, ptr %86, align 16
-  %88 = xor <2 x i64> %87, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %88 = xor <2 x i64> %87, splat (i64 -9223372036854775808)
   %89 = bitcast <2 x i64> %88 to <2 x double>
   %90 = fmul <2 x double> %49, %89
   %91 = fadd <2 x double> %85, %90
   %92 = getelementptr inbounds i8, ptr %0, i64 448
   %93 = load <2 x i64>, ptr %92, align 16
-  %94 = xor <2 x i64> %93, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %94 = xor <2 x i64> %93, splat (i64 -9223372036854775808)
   %95 = bitcast <2 x i64> %94 to <2 x double>
   %96 = fmul <2 x double> %58, %95
   %97 = fadd <2 x double> %91, %96
   %98 = getelementptr inbounds i8, ptr %0, i64 496
   %99 = load <2 x i64>, ptr %98, align 16
-  %100 = xor <2 x i64> %99, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %100 = xor <2 x i64> %99, splat (i64 -9223372036854775808)
   %101 = bitcast <2 x i64> %100 to <2 x double>
   %102 = fmul <2 x double> %65, %101
   %103 = fadd <2 x double> %97, %102
   %104 = getelementptr inbounds i8, ptr %3, i64 32
   %105 = getelementptr inbounds i8, ptr %0, i64 272
   %106 = load <2 x i64>, ptr %105, align 16
-  %107 = xor <2 x i64> %106, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %107 = xor <2 x i64> %106, splat (i64 -9223372036854775808)
   %108 = bitcast <2 x i64> %107 to <2 x double>
   %109 = fmul <2 x double> %23, %108
   %110 = getelementptr inbounds i8, ptr %0, i64 320
   %111 = load <2 x i64>, ptr %110, align 16
-  %112 = xor <2 x i64> %111, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %112 = xor <2 x i64> %111, splat (i64 -9223372036854775808)
   %113 = bitcast <2 x i64> %112 to <2 x double>
   %114 = fmul <2 x double> %31, %113
   %115 = fadd <2 x double> %109, %114
   %116 = getelementptr inbounds i8, ptr %0, i64 368
   %117 = load <2 x i64>, ptr %116, align 16
-  %118 = xor <2 x i64> %117, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %118 = xor <2 x i64> %117, splat (i64 -9223372036854775808)
   %119 = bitcast <2 x i64> %118 to <2 x double>
   %120 = fmul <2 x double> %40, %119
   %121 = fadd <2 x double> %115, %120
   %122 = getelementptr inbounds i8, ptr %0, i64 416
   %123 = load <2 x i64>, ptr %122, align 16
-  %124 = xor <2 x i64> %123, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %124 = xor <2 x i64> %123, splat (i64 -9223372036854775808)
   %125 = bitcast <2 x i64> %124 to <2 x double>
   %126 = fmul <2 x double> %49, %125
   %127 = fadd <2 x double> %121, %126
   %128 = getelementptr inbounds i8, ptr %0, i64 464
   %129 = load <2 x i64>, ptr %128, align 16
-  %130 = xor <2 x i64> %129, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %130 = xor <2 x i64> %129, splat (i64 -9223372036854775808)
   %131 = bitcast <2 x i64> %130 to <2 x double>
   %132 = fmul <2 x double> %58, %131
   %133 = fadd <2 x double> %127, %132
   %134 = getelementptr inbounds i8, ptr %0, i64 512
   %135 = load <2 x i64>, ptr %134, align 16
-  %136 = xor <2 x i64> %135, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %136 = xor <2 x i64> %135, splat (i64 -9223372036854775808)
   %137 = bitcast <2 x i64> %136 to <2 x double>
   %138 = fmul <2 x double> %65, %137
   %139 = fadd <2 x double> %133, %138
@@ -2555,14 +2555,14 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %223 = load <2 x i64>, ptr %221, align 16
-  %224 = xor <2 x i64> %223, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %224 = xor <2 x i64> %223, splat (i64 -9223372036854775808)
   %225 = bitcast <2 x i64> %224 to <2 x double>
   %226 = load <2 x double>, ptr %222, align 16
   %227 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> zeroinitializer
   %228 = fmul <2 x double> %227, %225
   %229 = getelementptr inbounds i8, ptr %0, i64 288
   %230 = load <2 x i64>, ptr %229, align 16
-  %231 = xor <2 x i64> %230, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %231 = xor <2 x i64> %230, splat (i64 -9223372036854775808)
   %232 = bitcast <2 x i64> %231 to <2 x double>
   %233 = getelementptr inbounds i8, ptr %0, i64 536
   %234 = load <2 x double>, ptr %233, align 8
@@ -2571,7 +2571,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %237 = fadd <2 x double> %228, %236
   %238 = getelementptr inbounds i8, ptr %0, i64 336
   %239 = load <2 x i64>, ptr %238, align 16
-  %240 = xor <2 x i64> %239, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %240 = xor <2 x i64> %239, splat (i64 -9223372036854775808)
   %241 = bitcast <2 x i64> %240 to <2 x double>
   %242 = getelementptr inbounds i8, ptr %0, i64 544
   %243 = load <2 x double>, ptr %242, align 16
@@ -2580,7 +2580,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %246 = fadd <2 x double> %237, %245
   %247 = getelementptr inbounds i8, ptr %0, i64 384
   %248 = load <2 x i64>, ptr %247, align 16
-  %249 = xor <2 x i64> %248, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %249 = xor <2 x i64> %248, splat (i64 -9223372036854775808)
   %250 = bitcast <2 x i64> %249 to <2 x double>
   %251 = getelementptr inbounds i8, ptr %0, i64 552
   %252 = load <2 x double>, ptr %251, align 8
@@ -2589,7 +2589,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %255 = fadd <2 x double> %246, %254
   %256 = getelementptr inbounds i8, ptr %0, i64 432
   %257 = load <2 x i64>, ptr %256, align 16
-  %258 = xor <2 x i64> %257, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %258 = xor <2 x i64> %257, splat (i64 -9223372036854775808)
   %259 = bitcast <2 x i64> %258 to <2 x double>
   %260 = getelementptr inbounds i8, ptr %0, i64 560
   %261 = load <2 x double>, ptr %260, align 16
@@ -2598,7 +2598,7 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %264 = fadd <2 x double> %255, %263
   %265 = getelementptr inbounds i8, ptr %0, i64 480
   %266 = load <2 x i64>, ptr %265, align 16
-  %267 = xor <2 x i64> %266, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %267 = xor <2 x i64> %266, splat (i64 -9223372036854775808)
   %268 = bitcast <2 x i64> %267 to <2 x double>
   %269 = shufflevector <2 x double> %261, <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %270 = fmul <2 x double> %269, %268
@@ -2607,36 +2607,36 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %272 = getelementptr inbounds i8, ptr %5, i64 16
   %273 = getelementptr inbounds i8, ptr %0, i64 256
   %274 = load <2 x i64>, ptr %273, align 16
-  %275 = xor <2 x i64> %274, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %275 = xor <2 x i64> %274, splat (i64 -9223372036854775808)
   %276 = bitcast <2 x i64> %275 to <2 x double>
   %277 = fmul <2 x double> %227, %276
   %278 = getelementptr inbounds i8, ptr %0, i64 304
   %279 = load <2 x i64>, ptr %278, align 16
-  %280 = xor <2 x i64> %279, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %280 = xor <2 x i64> %279, splat (i64 -9223372036854775808)
   %281 = bitcast <2 x i64> %280 to <2 x double>
   %282 = fmul <2 x double> %235, %281
   %283 = fadd <2 x double> %277, %282
   %284 = getelementptr inbounds i8, ptr %0, i64 352
   %285 = load <2 x i64>, ptr %284, align 16
-  %286 = xor <2 x i64> %285, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %286 = xor <2 x i64> %285, splat (i64 -9223372036854775808)
   %287 = bitcast <2 x i64> %286 to <2 x double>
   %288 = fmul <2 x double> %244, %287
   %289 = fadd <2 x double> %283, %288
   %290 = getelementptr inbounds i8, ptr %0, i64 400
   %291 = load <2 x i64>, ptr %290, align 16
-  %292 = xor <2 x i64> %291, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %292 = xor <2 x i64> %291, splat (i64 -9223372036854775808)
   %293 = bitcast <2 x i64> %292 to <2 x double>
   %294 = fmul <2 x double> %253, %293
   %295 = fadd <2 x double> %289, %294
   %296 = getelementptr inbounds i8, ptr %0, i64 448
   %297 = load <2 x i64>, ptr %296, align 16
-  %298 = xor <2 x i64> %297, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %298 = xor <2 x i64> %297, splat (i64 -9223372036854775808)
   %299 = bitcast <2 x i64> %298 to <2 x double>
   %300 = fmul <2 x double> %262, %299
   %301 = fadd <2 x double> %295, %300
   %302 = getelementptr inbounds i8, ptr %0, i64 496
   %303 = load <2 x i64>, ptr %302, align 16
-  %304 = xor <2 x i64> %303, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %304 = xor <2 x i64> %303, splat (i64 -9223372036854775808)
   %305 = bitcast <2 x i64> %304 to <2 x double>
   %306 = fmul <2 x double> %269, %305
   %307 = fadd <2 x double> %301, %306
@@ -2644,36 +2644,36 @@ define linkonce_odr void @_ZN3g2o18BaseFixedSizedEdgeILi6ENS_7SE3QuatEJNS_15Vert
   %308 = getelementptr inbounds i8, ptr %5, i64 32
   %309 = getelementptr inbounds i8, ptr %0, i64 272
   %310 = load <2 x i64>, ptr %309, align 16
-  %311 = xor <2 x i64> %310, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %311 = xor <2 x i64> %310, splat (i64 -9223372036854775808)
   %312 = bitcast <2 x i64> %311 to <2 x double>
   %313 = fmul <2 x double> %227, %312
   %314 = getelementptr inbounds i8, ptr %0, i64 320
   %315 = load <2 x i64>, ptr %314, align 16
-  %316 = xor <2 x i64> %315, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %316 = xor <2 x i64> %315, splat (i64 -9223372036854775808)
   %317 = bitcast <2 x i64> %316 to <2 x double>
   %318 = fmul <2 x double> %235, %317
   %319 = fadd <2 x double> %313, %318
   %320 = getelementptr inbounds i8, ptr %0, i64 368
   %321 = load <2 x i64>, ptr %320, align 16
-  %322 = xor <2 x i64> %321, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %322 = xor <2 x i64> %321, splat (i64 -9223372036854775808)
   %323 = bitcast <2 x i64> %322 to <2 x double>
   %324 = fmul <2 x double> %244, %323
   %325 = fadd <2 x double> %319, %324
   %326 = getelementptr inbounds i8, ptr %0, i64 416
   %327 = load <2 x i64>, ptr %326, align 16
-  %328 = xor <2 x i64> %327, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %328 = xor <2 x i64> %327, splat (i64 -9223372036854775808)
   %329 = bitcast <2 x i64> %328 to <2 x double>
   %330 = fmul <2 x double> %253, %329
   %331 = fadd <2 x double> %325, %330
   %332 = getelementptr inbounds i8, ptr %0, i64 464
   %333 = load <2 x i64>, ptr %332, align 16
-  %334 = xor <2 x i64> %333, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %334 = xor <2 x i64> %333, splat (i64 -9223372036854775808)
   %335 = bitcast <2 x i64> %334 to <2 x double>
   %336 = fmul <2 x double> %262, %335
   %337 = fadd <2 x double> %331, %336
   %338 = getelementptr inbounds i8, ptr %0, i64 512
   %339 = load <2 x i64>, ptr %338, align 16
-  %340 = xor <2 x i64> %339, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %340 = xor <2 x i64> %339, splat (i64 -9223372036854775808)
   %341 = bitcast <2 x i64> %340 to <2 x double>
   %342 = fmul <2 x double> %269, %341
   %343 = fadd <2 x double> %337, %342

@@ -8611,7 +8611,7 @@ select.unfold.loopexit264.split.us:               ; preds = %354
   br label %.lr.ph.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h23ca88fcb1c97d39E.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h23ca88fcb1c97d39E.exit.backedge.i.i.i", %399
-  %405 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %405 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %406 = bitcast <16 x i1> %405 to i16
   %.not.i.i.i.i = icmp eq i16 %406, 0
   br i1 %.not.i.i.i.i, label %420, label %select.unfold

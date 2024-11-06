@@ -5644,49 +5644,49 @@ for.body2959.i:                                   ; preds = %for.body2959.i, %fo
 
 for.end.i:                                        ; preds = %for.body2959.i
   %5 = load <4 x float>, ptr %arrayidx2963.i, align 16
-  %mul.i3169.i = fmul <4 x float> %5, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %mul.i3166.i = fmul <4 x float> %5, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %mul.i3169.i = fmul <4 x float> %5, splat (float 0x3FDD906C00000000)
+  %mul.i3166.i = fmul <4 x float> %5, splat (float 0x3FC87DE6C0000000)
   %6 = load <4 x float>, ptr %arrayidx2969.i, align 16
-  %mul.i3163.i = fmul <4 x float> %6, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %mul.i3160.i = fmul <4 x float> %6, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %mul.i3163.i = fmul <4 x float> %6, splat (float 0x3FDD906C00000000)
+  %mul.i3160.i = fmul <4 x float> %6, splat (float 0x3FC87DE6C0000000)
   %7 = load <4 x float>, ptr %arrayidx2975.i, align 16
-  %mul.i3157.i = fmul <4 x float> %7, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3157.i = fmul <4 x float> %7, splat (float 0x3FDF629820000000)
   %8 = load <4 x float>, ptr %arrayidx2977.i, align 16
-  %mul.i3154.i = fmul <4 x float> %8, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3154.i = fmul <4 x float> %8, splat (float 0x3FDA9B6680000000)
   %add.i4148.i = fadd <4 x float> %mul.i3157.i, %mul.i3154.i
   %9 = load <4 x float>, ptr %arrayidx2980.i, align 16
-  %mul.i3151.i = fmul <4 x float> %9, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3151.i = fmul <4 x float> %9, splat (float 0x3FD1C73CE0000000)
   %10 = load <4 x float>, ptr %arrayidx2982.i, align 16
-  %mul.i3148.i = fmul <4 x float> %10, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3148.i = fmul <4 x float> %10, splat (float 0x3FB8F8C1C0000000)
   %add.i4145.i = fadd <4 x float> %mul.i3151.i, %mul.i3148.i
   %add.i4142.i = fadd <4 x float> %add.i4148.i, %add.i4145.i
-  %mul.i3145.i = fmul <4 x float> %7, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %mul.i3142.i = fmul <4 x float> %8, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3145.i = fmul <4 x float> %7, splat (float 0x3FDA9B6680000000)
+  %mul.i3142.i = fmul <4 x float> %8, splat (float 0x3FB8F8C1C0000000)
   %sub.i5158.i = fsub <4 x float> %mul.i3145.i, %mul.i3142.i
-  %mul.i3139.i = fmul <4 x float> %9, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
-  %mul.i3136.i = fmul <4 x float> %10, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3139.i = fmul <4 x float> %9, splat (float 0x3FDF629820000000)
+  %mul.i3136.i = fmul <4 x float> %10, splat (float 0x3FD1C73CE0000000)
   %add.i4139.i = fadd <4 x float> %mul.i3139.i, %mul.i3136.i
   %sub.i5155.i = fsub <4 x float> %sub.i5158.i, %add.i4139.i
-  %mul.i3133.i = fmul <4 x float> %7, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
-  %mul.i3130.i = fmul <4 x float> %8, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3133.i = fmul <4 x float> %7, splat (float 0x3FD1C73CE0000000)
+  %mul.i3130.i = fmul <4 x float> %8, splat (float 0x3FDF629820000000)
   %sub.i5152.i = fsub <4 x float> %mul.i3133.i, %mul.i3130.i
-  %mul.i3127.i = fmul <4 x float> %9, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3124.i = fmul <4 x float> %10, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3127.i = fmul <4 x float> %9, splat (float 0x3FB8F8C1C0000000)
+  %mul.i3124.i = fmul <4 x float> %10, splat (float 0x3FDA9B6680000000)
   %add.i4136.i = fadd <4 x float> %mul.i3127.i, %mul.i3124.i
   %add.i4133.i = fadd <4 x float> %sub.i5152.i, %add.i4136.i
-  %mul.i3121.i = fmul <4 x float> %7, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3118.i = fmul <4 x float> %8, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3121.i = fmul <4 x float> %7, splat (float 0x3FB8F8C1C0000000)
+  %mul.i3118.i = fmul <4 x float> %8, splat (float 0x3FD1C73CE0000000)
   %sub.i5149.i = fsub <4 x float> %mul.i3121.i, %mul.i3118.i
-  %mul.i3115.i = fmul <4 x float> %9, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %mul.i3112.i = fmul <4 x float> %10, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3115.i = fmul <4 x float> %9, splat (float 0x3FDA9B6680000000)
+  %mul.i3112.i = fmul <4 x float> %10, splat (float 0x3FDF629820000000)
   %sub.i5146.i = fsub <4 x float> %mul.i3115.i, %mul.i3112.i
   %add.i4130.i = fadd <4 x float> %sub.i5149.i, %sub.i5146.i
   %11 = load <4 x float>, ptr %in.i, align 16
   %12 = load <4 x float>, ptr %arrayidx3024.i, align 16
   %add.i4127.i = fadd <4 x float> %11, %12
-  %mul.i3109.i = fmul <4 x float> %add.i4127.i, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i3109.i = fmul <4 x float> %add.i4127.i, splat (float 0x3FD6A09F40000000)
   %sub.i5143.i = fsub <4 x float> %11, %12
-  %mul.i.i = fmul <4 x float> %sub.i5143.i, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i.i = fmul <4 x float> %sub.i5143.i, splat (float 0x3FD6A09F40000000)
   %add.i4124.i = fadd <4 x float> %mul.i3169.i, %mul.i3160.i
   %sub.i5140.i = fsub <4 x float> %mul.i3166.i, %mul.i3163.i
   %add.i4121.i = fadd <4 x float> %add.i4124.i, %mul.i3109.i
@@ -6264,49 +6264,49 @@ for.body2959:                                     ; preds = %for.cond2957.prehea
 
 for.end:                                          ; preds = %for.body2959
   %33 = load <4 x float>, ptr %arrayidx2963, align 16
-  %mul.i3169 = fmul <4 x float> %33, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %mul.i3166 = fmul <4 x float> %33, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %mul.i3169 = fmul <4 x float> %33, splat (float 0x3FDD906C00000000)
+  %mul.i3166 = fmul <4 x float> %33, splat (float 0x3FC87DE6C0000000)
   %34 = load <4 x float>, ptr %arrayidx2969, align 16
-  %mul.i3163 = fmul <4 x float> %34, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %mul.i3160 = fmul <4 x float> %34, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %mul.i3163 = fmul <4 x float> %34, splat (float 0x3FDD906C00000000)
+  %mul.i3160 = fmul <4 x float> %34, splat (float 0x3FC87DE6C0000000)
   %35 = load <4 x float>, ptr %arrayidx2975, align 16
-  %mul.i3157 = fmul <4 x float> %35, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3157 = fmul <4 x float> %35, splat (float 0x3FDF629820000000)
   %36 = load <4 x float>, ptr %arrayidx2977, align 16
-  %mul.i3154 = fmul <4 x float> %36, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3154 = fmul <4 x float> %36, splat (float 0x3FDA9B6680000000)
   %add.i4148 = fadd <4 x float> %mul.i3157, %mul.i3154
   %37 = load <4 x float>, ptr %arrayidx2980, align 16
-  %mul.i3151 = fmul <4 x float> %37, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3151 = fmul <4 x float> %37, splat (float 0x3FD1C73CE0000000)
   %38 = load <4 x float>, ptr %arrayidx2982, align 16
-  %mul.i3148 = fmul <4 x float> %38, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3148 = fmul <4 x float> %38, splat (float 0x3FB8F8C1C0000000)
   %add.i4145 = fadd <4 x float> %mul.i3151, %mul.i3148
   %add.i4142 = fadd <4 x float> %add.i4148, %add.i4145
-  %mul.i3145 = fmul <4 x float> %35, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %mul.i3142 = fmul <4 x float> %36, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3145 = fmul <4 x float> %35, splat (float 0x3FDA9B6680000000)
+  %mul.i3142 = fmul <4 x float> %36, splat (float 0x3FB8F8C1C0000000)
   %sub.i5158 = fsub <4 x float> %mul.i3145, %mul.i3142
-  %mul.i3139 = fmul <4 x float> %37, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
-  %mul.i3136 = fmul <4 x float> %38, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3139 = fmul <4 x float> %37, splat (float 0x3FDF629820000000)
+  %mul.i3136 = fmul <4 x float> %38, splat (float 0x3FD1C73CE0000000)
   %add.i4139 = fadd <4 x float> %mul.i3139, %mul.i3136
   %sub.i5155 = fsub <4 x float> %sub.i5158, %add.i4139
-  %mul.i3133 = fmul <4 x float> %35, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
-  %mul.i3130 = fmul <4 x float> %36, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3133 = fmul <4 x float> %35, splat (float 0x3FD1C73CE0000000)
+  %mul.i3130 = fmul <4 x float> %36, splat (float 0x3FDF629820000000)
   %sub.i5152 = fsub <4 x float> %mul.i3133, %mul.i3130
-  %mul.i3127 = fmul <4 x float> %37, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3124 = fmul <4 x float> %38, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3127 = fmul <4 x float> %37, splat (float 0x3FB8F8C1C0000000)
+  %mul.i3124 = fmul <4 x float> %38, splat (float 0x3FDA9B6680000000)
   %add.i4136 = fadd <4 x float> %mul.i3127, %mul.i3124
   %add.i4133 = fadd <4 x float> %sub.i5152, %add.i4136
-  %mul.i3121 = fmul <4 x float> %35, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3118 = fmul <4 x float> %36, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3121 = fmul <4 x float> %35, splat (float 0x3FB8F8C1C0000000)
+  %mul.i3118 = fmul <4 x float> %36, splat (float 0x3FD1C73CE0000000)
   %sub.i5149 = fsub <4 x float> %mul.i3121, %mul.i3118
-  %mul.i3115 = fmul <4 x float> %37, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %mul.i3112 = fmul <4 x float> %38, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3115 = fmul <4 x float> %37, splat (float 0x3FDA9B6680000000)
+  %mul.i3112 = fmul <4 x float> %38, splat (float 0x3FDF629820000000)
   %sub.i5146 = fsub <4 x float> %mul.i3115, %mul.i3112
   %add.i4130 = fadd <4 x float> %sub.i5149, %sub.i5146
   %39 = load <4 x float>, ptr %in, align 16
   %40 = load <4 x float>, ptr %arrayidx3024, align 16
   %add.i4127 = fadd <4 x float> %39, %40
-  %mul.i3109 = fmul <4 x float> %add.i4127, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i3109 = fmul <4 x float> %add.i4127, splat (float 0x3FD6A09F40000000)
   %sub.i5143 = fsub <4 x float> %39, %40
-  %mul.i = fmul <4 x float> %sub.i5143, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i = fmul <4 x float> %sub.i5143, splat (float 0x3FD6A09F40000000)
   %add.i4124 = fadd <4 x float> %mul.i3169, %mul.i3160
   %sub.i5140 = fsub <4 x float> %mul.i3166, %mul.i3163
   %add.i4121 = fadd <4 x float> %add.i4124, %mul.i3109
@@ -7459,46 +7459,46 @@ for.body3.i.us:                                   ; preds = %for.body3.i.us, %fo
   %sub.i375.i.us = fsub <4 x float> %62, %64
   %add.i334.i.us = fadd <4 x float> %add.i346.i.us, %add.i340.i.us
   %add.i331.i.us = fadd <4 x float> %add.i343.i.us, %add.i337.i.us
-  %mul.i308.i.us = fmul <4 x float> %add.i334.i.us, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
-  %mul.i305.i.us = fmul <4 x float> %add.i331.i.us, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
+  %mul.i308.i.us = fmul <4 x float> %add.i334.i.us, splat (float 0x3FE6A09E60000000)
+  %mul.i305.i.us = fmul <4 x float> %add.i331.i.us, splat (float 0x3FE6A09E60000000)
   %add.i328.i.us = fadd <4 x float> %mul.i308.i.us, %mul.i305.i.us
   %sub.i372.i.us = fsub <4 x float> %mul.i308.i.us, %mul.i305.i.us
-  %mul.i302.i.us = fmul <4 x float> %add.i328.i.us, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %mul.i302.i.us = fmul <4 x float> %add.i328.i.us, splat (float 5.000000e-01)
   store <4 x float> %mul.i302.i.us, ptr %arrayidx.i99.us, align 16
-  %mul.i299.i.us = fmul <4 x float> %sub.i372.i.us, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %mul.i299.i.us = fmul <4 x float> %sub.i372.i.us, splat (float 5.000000e-01)
   store <4 x float> %mul.i299.i.us, ptr %arrayidx19.i.us, align 16
   %sub.i369.i.us = fsub <4 x float> %sub.i381.i.us, %sub.i375.i.us
   %sub.i366.i.us = fsub <4 x float> %add.i346.i.us, %add.i340.i.us
-  %mul.i296.i.us = fmul <4 x float> %sub.i369.i.us, <float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000>
-  %mul.i293.i.us = fmul <4 x float> %sub.i366.i.us, <float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000>
+  %mul.i296.i.us = fmul <4 x float> %sub.i369.i.us, splat (float 0x3FC87DE2A0000000)
+  %mul.i293.i.us = fmul <4 x float> %sub.i366.i.us, splat (float 0x3FDD906BE0000000)
   %add.i325.i.us = fadd <4 x float> %mul.i293.i.us, %mul.i296.i.us
   store <4 x float> %add.i325.i.us, ptr %arrayidx12.i.us, align 16
-  %mul.i290.i.us = fmul <4 x float> %sub.i366.i.us, <float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000, float 0x3FC87DE2A0000000>
-  %mul.i287.i.us = fmul <4 x float> %sub.i369.i.us, <float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000, float 0x3FDD906BE0000000>
+  %mul.i290.i.us = fmul <4 x float> %sub.i366.i.us, splat (float 0x3FC87DE2A0000000)
+  %mul.i287.i.us = fmul <4 x float> %sub.i369.i.us, splat (float 0x3FDD906BE0000000)
   %sub.i363.i.us = fsub <4 x float> %mul.i290.i.us, %mul.i287.i.us
   store <4 x float> %sub.i363.i.us, ptr %arrayidx26.i.us, align 16
   %sub.i360.i.us = fsub <4 x float> %add.i343.i.us, %add.i337.i.us
-  %mul.i284.i.us = fmul <4 x float> %sub.i360.i.us, <float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000, float 0x3FE6A09E60000000>
+  %mul.i284.i.us = fmul <4 x float> %sub.i360.i.us, splat (float 0x3FE6A09E60000000)
   %add.i322.i.us = fadd <4 x float> %sub.i381.i.us, %sub.i375.i.us
-  %mul.i281.i.us = fmul <4 x float> %add.i322.i.us, <float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000, float 0xBFE6A09E60000000>
+  %mul.i281.i.us = fmul <4 x float> %add.i322.i.us, splat (float 0xBFE6A09E60000000)
   %sub.i357.i.us = fsub <4 x float> %sub.i384.i.us, %mul.i284.i.us
   %add.i319.i.us = fadd <4 x float> %sub.i378.i.us, %mul.i281.i.us
-  %mul.i278.i.us = fmul <4 x float> %sub.i357.i.us, <float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000>
-  %mul.i275.i.us = fmul <4 x float> %add.i319.i.us, <float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000>
+  %mul.i278.i.us = fmul <4 x float> %sub.i357.i.us, splat (float 0x3FDA9B6620000000)
+  %mul.i275.i.us = fmul <4 x float> %add.i319.i.us, splat (float 0x3FD1C73B40000000)
   %sub.i354.i.us = fsub <4 x float> %mul.i278.i.us, %mul.i275.i.us
   store <4 x float> %sub.i354.i.us, ptr %arrayidx16.i.us, align 16
-  %mul.i272.i.us = fmul <4 x float> %sub.i357.i.us, <float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000, float 0x3FD1C73B40000000>
-  %mul.i269.i.us = fmul <4 x float> %add.i319.i.us, <float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000, float 0x3FDA9B6620000000>
+  %mul.i272.i.us = fmul <4 x float> %sub.i357.i.us, splat (float 0x3FD1C73B40000000)
+  %mul.i269.i.us = fmul <4 x float> %add.i319.i.us, splat (float 0x3FDA9B6620000000)
   %add.i316.i.us = fadd <4 x float> %mul.i272.i.us, %mul.i269.i.us
   store <4 x float> %add.i316.i.us, ptr %arrayidx23.i.us, align 16
   %add.i313.i.us = fadd <4 x float> %sub.i384.i.us, %mul.i284.i.us
   %sub.i351.i.us = fsub <4 x float> %mul.i281.i.us, %sub.i378.i.us
-  %mul.i266.i.us = fmul <4 x float> %add.i313.i.us, <float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000>
-  %mul.i263.i.us = fmul <4 x float> %sub.i351.i.us, <float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000>
+  %mul.i266.i.us = fmul <4 x float> %add.i313.i.us, splat (float 0x3FDF6297C0000000)
+  %mul.i263.i.us = fmul <4 x float> %sub.i351.i.us, splat (float 0x3FB8F8B840000000)
   %sub.i.i101.us = fsub <4 x float> %mul.i266.i.us, %mul.i263.i.us
   store <4 x float> %sub.i.i101.us, ptr %arrayidx9.i.us, align 16
-  %mul.i260.i.us = fmul <4 x float> %add.i313.i.us, <float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000, float 0x3FB8F8B840000000>
-  %mul.i.i.us = fmul <4 x float> %sub.i351.i.us, <float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000, float 0x3FDF6297C0000000>
+  %mul.i260.i.us = fmul <4 x float> %add.i313.i.us, splat (float 0x3FB8F8B840000000)
+  %mul.i.i.us = fmul <4 x float> %sub.i351.i.us, splat (float 0x3FDF6297C0000000)
   %add.i.i102.us = fadd <4 x float> %mul.i260.i.us, %mul.i.i.us
   store <4 x float> %add.i.i102.us, ptr %arrayidx6.i100.us, align 16
   br i1 %cmp2.i.us, label %for.body3.i.us, label %for.end.i.us, !llvm.loop !69
@@ -8526,241 +8526,241 @@ if.end199.thread.thread:                          ; preds = %if.then176
   %32 = load <4 x float>, ptr %13, align 16
   %33 = load <4 x float>, ptr %14, align 16
   %34 = load <4 x float>, ptr %15, align 16
-  %mul.i699.i = fmul <4 x float> %34, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i699.i = fmul <4 x float> %34, splat (float 0x3FF931F8A0000000)
   %add.i890.i = fadd <4 x float> %32, %mul.i699.i
   store <4 x float> %add.i890.i, ptr %13, align 16
   %35 = load <4 x float>, ptr %14, align 16
-  %mul.i696.i = fmul <4 x float> %35, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i693.i = fmul <4 x float> %34, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i696.i = fmul <4 x float> %35, splat (float 0x3FC7F97240000000)
+  %mul.i693.i = fmul <4 x float> %34, splat (float 0x3FDDF6FD20000000)
   %36 = fsub <4 x float> %32, %mul.i696.i
   %37 = fsub <4 x float> %36, %mul.i693.i
   store <4 x float> %37, ptr %14, align 16
-  %mul.i690.i = fmul <4 x float> %33, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i690.i = fmul <4 x float> %33, splat (float 0x3FFDB089A0000000)
   %add.i881.i = fadd <4 x float> %32, %mul.i690.i
   store <4 x float> %add.i881.i, ptr %15, align 16
   %38 = load <4 x float>, ptr %arrayidx31.i, align 16
   %39 = load <4 x float>, ptr %arrayidx33.i, align 16
   %40 = load <4 x float>, ptr %arrayidx35.i, align 16
-  %mul.i687.i = fmul <4 x float> %40, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i687.i = fmul <4 x float> %40, splat (float 0x3FF931F8A0000000)
   %add.i878.i = fadd <4 x float> %38, %mul.i687.i
   store <4 x float> %add.i878.i, ptr %arrayidx31.i, align 16
   %41 = load <4 x float>, ptr %arrayidx33.i, align 16
-  %mul.i684.i = fmul <4 x float> %41, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i681.i = fmul <4 x float> %40, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i684.i = fmul <4 x float> %41, splat (float 0x3FC7F97240000000)
+  %mul.i681.i = fmul <4 x float> %40, splat (float 0x3FDDF6FD20000000)
   %42 = fsub <4 x float> %38, %mul.i684.i
   %43 = fsub <4 x float> %42, %mul.i681.i
   store <4 x float> %43, ptr %arrayidx33.i, align 16
-  %mul.i678.i = fmul <4 x float> %39, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i678.i = fmul <4 x float> %39, splat (float 0x3FFDB089A0000000)
   %add.i869.i = fadd <4 x float> %38, %mul.i678.i
   store <4 x float> %add.i869.i, ptr %arrayidx35.i, align 16
   %44 = load <4 x float>, ptr %arrayidx63.i, align 16
   %45 = load <4 x float>, ptr %arrayidx65.i, align 16
   %46 = load <4 x float>, ptr %arrayidx67.i, align 16
-  %mul.i675.i = fmul <4 x float> %46, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i675.i = fmul <4 x float> %46, splat (float 0x3FF931F8A0000000)
   %add.i866.i = fadd <4 x float> %44, %mul.i675.i
   store <4 x float> %add.i866.i, ptr %arrayidx63.i, align 16
   %47 = load <4 x float>, ptr %arrayidx65.i, align 16
-  %mul.i672.i = fmul <4 x float> %47, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i669.i = fmul <4 x float> %46, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i672.i = fmul <4 x float> %47, splat (float 0x3FC7F97240000000)
+  %mul.i669.i = fmul <4 x float> %46, splat (float 0x3FDDF6FD20000000)
   %48 = fsub <4 x float> %44, %mul.i672.i
   %49 = fsub <4 x float> %48, %mul.i669.i
   store <4 x float> %49, ptr %arrayidx65.i, align 16
-  %mul.i666.i = fmul <4 x float> %45, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i666.i = fmul <4 x float> %45, splat (float 0x3FFDB089A0000000)
   %add.i857.i = fadd <4 x float> %44, %mul.i666.i
   store <4 x float> %add.i857.i, ptr %arrayidx67.i, align 16
   %50 = load <4 x float>, ptr %arrayidx95.i, align 16
   %51 = load <4 x float>, ptr %arrayidx97.i, align 16
   %52 = load <4 x float>, ptr %arrayidx99.i, align 16
-  %mul.i663.i = fmul <4 x float> %52, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i663.i = fmul <4 x float> %52, splat (float 0x3FF931F8A0000000)
   %add.i854.i = fadd <4 x float> %50, %mul.i663.i
   store <4 x float> %add.i854.i, ptr %arrayidx95.i, align 16
   %53 = load <4 x float>, ptr %arrayidx97.i, align 16
-  %mul.i660.i = fmul <4 x float> %53, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i657.i = fmul <4 x float> %52, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i660.i = fmul <4 x float> %53, splat (float 0x3FC7F97240000000)
+  %mul.i657.i = fmul <4 x float> %52, splat (float 0x3FDDF6FD20000000)
   %54 = fsub <4 x float> %50, %mul.i660.i
   %55 = fsub <4 x float> %54, %mul.i657.i
   store <4 x float> %55, ptr %arrayidx97.i, align 16
-  %mul.i654.i = fmul <4 x float> %51, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i654.i = fmul <4 x float> %51, splat (float 0x3FFDB089A0000000)
   %add.i845.i = fadd <4 x float> %50, %mul.i654.i
   store <4 x float> %add.i845.i, ptr %arrayidx99.i, align 16
   %56 = load <4 x float>, ptr %arrayidx127.i, align 16
   %57 = load <4 x float>, ptr %arrayidx129.i, align 16
   %58 = load <4 x float>, ptr %arrayidx131.i, align 16
-  %mul.i651.i = fmul <4 x float> %58, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i651.i = fmul <4 x float> %58, splat (float 0x3FF931F8A0000000)
   %add.i842.i = fadd <4 x float> %56, %mul.i651.i
   store <4 x float> %add.i842.i, ptr %arrayidx127.i, align 16
   %59 = load <4 x float>, ptr %arrayidx129.i, align 16
-  %mul.i648.i = fmul <4 x float> %59, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i645.i = fmul <4 x float> %58, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i648.i = fmul <4 x float> %59, splat (float 0x3FC7F97240000000)
+  %mul.i645.i = fmul <4 x float> %58, splat (float 0x3FDDF6FD20000000)
   %60 = fsub <4 x float> %56, %mul.i648.i
   %61 = fsub <4 x float> %60, %mul.i645.i
   store <4 x float> %61, ptr %arrayidx129.i, align 16
-  %mul.i642.i = fmul <4 x float> %57, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i642.i = fmul <4 x float> %57, splat (float 0x3FFDB089A0000000)
   %add.i833.i = fadd <4 x float> %56, %mul.i642.i
   store <4 x float> %add.i833.i, ptr %arrayidx131.i, align 16
   %62 = load <4 x float>, ptr %arrayidx159.i, align 16
   %63 = load <4 x float>, ptr %arrayidx161.i, align 16
   %64 = load <4 x float>, ptr %arrayidx163.i, align 16
-  %mul.i639.i = fmul <4 x float> %64, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i639.i = fmul <4 x float> %64, splat (float 0x3FF931F8A0000000)
   %add.i830.i = fadd <4 x float> %62, %mul.i639.i
   store <4 x float> %add.i830.i, ptr %arrayidx159.i, align 16
   %65 = load <4 x float>, ptr %arrayidx161.i, align 16
-  %mul.i636.i = fmul <4 x float> %65, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i633.i = fmul <4 x float> %64, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i636.i = fmul <4 x float> %65, splat (float 0x3FC7F97240000000)
+  %mul.i633.i = fmul <4 x float> %64, splat (float 0x3FDDF6FD20000000)
   %66 = fsub <4 x float> %62, %mul.i636.i
   %67 = fsub <4 x float> %66, %mul.i633.i
   store <4 x float> %67, ptr %arrayidx161.i, align 16
-  %mul.i630.i = fmul <4 x float> %63, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i630.i = fmul <4 x float> %63, splat (float 0x3FFDB089A0000000)
   %add.i821.i = fadd <4 x float> %62, %mul.i630.i
   store <4 x float> %add.i821.i, ptr %arrayidx163.i, align 16
   %68 = load <4 x float>, ptr %arrayidx191.i, align 16
   %69 = load <4 x float>, ptr %arrayidx193.i, align 16
   %70 = load <4 x float>, ptr %arrayidx195.i, align 16
-  %mul.i627.i = fmul <4 x float> %70, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i627.i = fmul <4 x float> %70, splat (float 0x3FF931F8A0000000)
   %add.i818.i = fadd <4 x float> %68, %mul.i627.i
   store <4 x float> %add.i818.i, ptr %arrayidx191.i, align 16
   %71 = load <4 x float>, ptr %arrayidx193.i, align 16
-  %mul.i624.i = fmul <4 x float> %71, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i621.i = fmul <4 x float> %70, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i624.i = fmul <4 x float> %71, splat (float 0x3FC7F97240000000)
+  %mul.i621.i = fmul <4 x float> %70, splat (float 0x3FDDF6FD20000000)
   %72 = fsub <4 x float> %68, %mul.i624.i
   %73 = fsub <4 x float> %72, %mul.i621.i
   store <4 x float> %73, ptr %arrayidx193.i, align 16
-  %mul.i618.i = fmul <4 x float> %69, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i618.i = fmul <4 x float> %69, splat (float 0x3FFDB089A0000000)
   %add.i809.i = fadd <4 x float> %68, %mul.i618.i
   store <4 x float> %add.i809.i, ptr %arrayidx195.i, align 16
   %74 = load <4 x float>, ptr %arrayidx223.i, align 16
   %75 = load <4 x float>, ptr %arrayidx225.i, align 16
   %76 = load <4 x float>, ptr %arrayidx227.i, align 16
-  %mul.i615.i = fmul <4 x float> %76, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i615.i = fmul <4 x float> %76, splat (float 0x3FF931F8A0000000)
   %add.i806.i = fadd <4 x float> %74, %mul.i615.i
   store <4 x float> %add.i806.i, ptr %arrayidx223.i, align 16
   %77 = load <4 x float>, ptr %arrayidx225.i, align 16
-  %mul.i612.i = fmul <4 x float> %77, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i609.i = fmul <4 x float> %76, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i612.i = fmul <4 x float> %77, splat (float 0x3FC7F97240000000)
+  %mul.i609.i = fmul <4 x float> %76, splat (float 0x3FDDF6FD20000000)
   %78 = fsub <4 x float> %74, %mul.i612.i
   %79 = fsub <4 x float> %78, %mul.i609.i
   store <4 x float> %79, ptr %arrayidx225.i, align 16
-  %mul.i606.i = fmul <4 x float> %75, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i606.i = fmul <4 x float> %75, splat (float 0x3FFDB089A0000000)
   %add.i797.i = fadd <4 x float> %74, %mul.i606.i
   store <4 x float> %add.i797.i, ptr %arrayidx227.i, align 16
   %80 = load <4 x float>, ptr %arrayidx255.i, align 16
   %81 = load <4 x float>, ptr %arrayidx257.i, align 16
   %82 = load <4 x float>, ptr %arrayidx259.i, align 16
-  %mul.i603.i = fmul <4 x float> %82, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i603.i = fmul <4 x float> %82, splat (float 0x3FF931F8A0000000)
   %add.i794.i = fadd <4 x float> %80, %mul.i603.i
   store <4 x float> %add.i794.i, ptr %arrayidx255.i, align 16
   %83 = load <4 x float>, ptr %arrayidx257.i, align 16
-  %mul.i600.i = fmul <4 x float> %83, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i597.i = fmul <4 x float> %82, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i600.i = fmul <4 x float> %83, splat (float 0x3FC7F97240000000)
+  %mul.i597.i = fmul <4 x float> %82, splat (float 0x3FDDF6FD20000000)
   %84 = fsub <4 x float> %80, %mul.i600.i
   %85 = fsub <4 x float> %84, %mul.i597.i
   store <4 x float> %85, ptr %arrayidx257.i, align 16
-  %mul.i594.i = fmul <4 x float> %81, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i594.i = fmul <4 x float> %81, splat (float 0x3FFDB089A0000000)
   %add.i785.i = fadd <4 x float> %80, %mul.i594.i
   store <4 x float> %add.i785.i, ptr %arrayidx259.i, align 16
   %86 = load <4 x float>, ptr %arrayidx287.i, align 16
   %87 = load <4 x float>, ptr %arrayidx289.i, align 16
   %88 = load <4 x float>, ptr %arrayidx291.i, align 16
-  %mul.i591.i = fmul <4 x float> %88, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i591.i = fmul <4 x float> %88, splat (float 0x3FF931F8A0000000)
   %add.i782.i = fadd <4 x float> %86, %mul.i591.i
   store <4 x float> %add.i782.i, ptr %arrayidx287.i, align 16
   %89 = load <4 x float>, ptr %arrayidx289.i, align 16
-  %mul.i588.i = fmul <4 x float> %89, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i585.i = fmul <4 x float> %88, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i588.i = fmul <4 x float> %89, splat (float 0x3FC7F97240000000)
+  %mul.i585.i = fmul <4 x float> %88, splat (float 0x3FDDF6FD20000000)
   %90 = fsub <4 x float> %86, %mul.i588.i
   %91 = fsub <4 x float> %90, %mul.i585.i
   store <4 x float> %91, ptr %arrayidx289.i, align 16
-  %mul.i582.i = fmul <4 x float> %87, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i582.i = fmul <4 x float> %87, splat (float 0x3FFDB089A0000000)
   %add.i773.i = fadd <4 x float> %86, %mul.i582.i
   store <4 x float> %add.i773.i, ptr %arrayidx291.i, align 16
   %92 = load <4 x float>, ptr %arrayidx319.i, align 16
   %93 = load <4 x float>, ptr %arrayidx321.i, align 16
   %94 = load <4 x float>, ptr %arrayidx323.i, align 16
-  %mul.i579.i = fmul <4 x float> %94, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i579.i = fmul <4 x float> %94, splat (float 0x3FF931F8A0000000)
   %add.i770.i = fadd <4 x float> %92, %mul.i579.i
   store <4 x float> %add.i770.i, ptr %arrayidx319.i, align 16
   %95 = load <4 x float>, ptr %arrayidx321.i, align 16
-  %mul.i576.i = fmul <4 x float> %95, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i573.i = fmul <4 x float> %94, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i576.i = fmul <4 x float> %95, splat (float 0x3FC7F97240000000)
+  %mul.i573.i = fmul <4 x float> %94, splat (float 0x3FDDF6FD20000000)
   %96 = fsub <4 x float> %92, %mul.i576.i
   %97 = fsub <4 x float> %96, %mul.i573.i
   store <4 x float> %97, ptr %arrayidx321.i, align 16
-  %mul.i570.i = fmul <4 x float> %93, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i570.i = fmul <4 x float> %93, splat (float 0x3FFDB089A0000000)
   %add.i761.i = fadd <4 x float> %92, %mul.i570.i
   store <4 x float> %add.i761.i, ptr %arrayidx323.i, align 16
   %98 = load <4 x float>, ptr %arrayidx351.i, align 16
   %99 = load <4 x float>, ptr %arrayidx353.i, align 16
   %100 = load <4 x float>, ptr %arrayidx355.i, align 16
-  %mul.i567.i = fmul <4 x float> %100, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i567.i = fmul <4 x float> %100, splat (float 0x3FF931F8A0000000)
   %add.i758.i = fadd <4 x float> %98, %mul.i567.i
   store <4 x float> %add.i758.i, ptr %arrayidx351.i, align 16
   %101 = load <4 x float>, ptr %arrayidx353.i, align 16
-  %mul.i564.i = fmul <4 x float> %101, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i561.i = fmul <4 x float> %100, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i564.i = fmul <4 x float> %101, splat (float 0x3FC7F97240000000)
+  %mul.i561.i = fmul <4 x float> %100, splat (float 0x3FDDF6FD20000000)
   %102 = fsub <4 x float> %98, %mul.i564.i
   %103 = fsub <4 x float> %102, %mul.i561.i
   store <4 x float> %103, ptr %arrayidx353.i, align 16
-  %mul.i558.i = fmul <4 x float> %99, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i558.i = fmul <4 x float> %99, splat (float 0x3FFDB089A0000000)
   %add.i749.i = fadd <4 x float> %98, %mul.i558.i
   store <4 x float> %add.i749.i, ptr %arrayidx355.i, align 16
   %104 = load <4 x float>, ptr %arrayidx383.i, align 16
   %105 = load <4 x float>, ptr %arrayidx385.i, align 16
   %106 = load <4 x float>, ptr %arrayidx387.i, align 16
-  %mul.i555.i = fmul <4 x float> %106, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i555.i = fmul <4 x float> %106, splat (float 0x3FF931F8A0000000)
   %add.i746.i = fadd <4 x float> %104, %mul.i555.i
   store <4 x float> %add.i746.i, ptr %arrayidx383.i, align 16
   %107 = load <4 x float>, ptr %arrayidx385.i, align 16
-  %mul.i552.i = fmul <4 x float> %107, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i549.i = fmul <4 x float> %106, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i552.i = fmul <4 x float> %107, splat (float 0x3FC7F97240000000)
+  %mul.i549.i = fmul <4 x float> %106, splat (float 0x3FDDF6FD20000000)
   %108 = fsub <4 x float> %104, %mul.i552.i
   %109 = fsub <4 x float> %108, %mul.i549.i
   store <4 x float> %109, ptr %arrayidx385.i, align 16
-  %mul.i546.i = fmul <4 x float> %105, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i546.i = fmul <4 x float> %105, splat (float 0x3FFDB089A0000000)
   %add.i737.i = fadd <4 x float> %104, %mul.i546.i
   store <4 x float> %add.i737.i, ptr %arrayidx387.i, align 16
   %110 = load <4 x float>, ptr %arrayidx415.i, align 16
   %111 = load <4 x float>, ptr %arrayidx417.i, align 16
   %112 = load <4 x float>, ptr %arrayidx419.i, align 16
-  %mul.i543.i = fmul <4 x float> %112, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i543.i = fmul <4 x float> %112, splat (float 0x3FF931F8A0000000)
   %add.i734.i = fadd <4 x float> %110, %mul.i543.i
   store <4 x float> %add.i734.i, ptr %arrayidx415.i, align 16
   %113 = load <4 x float>, ptr %arrayidx417.i, align 16
-  %mul.i540.i = fmul <4 x float> %113, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i537.i = fmul <4 x float> %112, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i540.i = fmul <4 x float> %113, splat (float 0x3FC7F97240000000)
+  %mul.i537.i = fmul <4 x float> %112, splat (float 0x3FDDF6FD20000000)
   %114 = fsub <4 x float> %110, %mul.i540.i
   %115 = fsub <4 x float> %114, %mul.i537.i
   store <4 x float> %115, ptr %arrayidx417.i, align 16
-  %mul.i534.i = fmul <4 x float> %111, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i534.i = fmul <4 x float> %111, splat (float 0x3FFDB089A0000000)
   %add.i725.i = fadd <4 x float> %110, %mul.i534.i
   store <4 x float> %add.i725.i, ptr %arrayidx419.i, align 16
   %116 = load <4 x float>, ptr %arrayidx447.i, align 16
   %117 = load <4 x float>, ptr %arrayidx449.i, align 16
   %118 = load <4 x float>, ptr %arrayidx451.i, align 16
-  %mul.i531.i = fmul <4 x float> %118, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i531.i = fmul <4 x float> %118, splat (float 0x3FF931F8A0000000)
   %add.i722.i = fadd <4 x float> %116, %mul.i531.i
   store <4 x float> %add.i722.i, ptr %arrayidx447.i, align 16
   %119 = load <4 x float>, ptr %arrayidx449.i, align 16
-  %mul.i528.i = fmul <4 x float> %119, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i525.i = fmul <4 x float> %118, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i528.i = fmul <4 x float> %119, splat (float 0x3FC7F97240000000)
+  %mul.i525.i = fmul <4 x float> %118, splat (float 0x3FDDF6FD20000000)
   %120 = fsub <4 x float> %116, %mul.i528.i
   %121 = fsub <4 x float> %120, %mul.i525.i
   store <4 x float> %121, ptr %arrayidx449.i, align 16
-  %mul.i522.i = fmul <4 x float> %117, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i522.i = fmul <4 x float> %117, splat (float 0x3FFDB089A0000000)
   %add.i713.i = fadd <4 x float> %116, %mul.i522.i
   store <4 x float> %add.i713.i, ptr %arrayidx451.i, align 16
   %122 = load <4 x float>, ptr %arrayidx479.i, align 16
   %123 = load <4 x float>, ptr %arrayidx481.i, align 16
   %124 = load <4 x float>, ptr %arrayidx483.i, align 16
-  %mul.i519.i = fmul <4 x float> %124, <float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000, float 0x3FF931F8A0000000>
+  %mul.i519.i = fmul <4 x float> %124, splat (float 0x3FF931F8A0000000)
   %add.i710.i = fadd <4 x float> %122, %mul.i519.i
   store <4 x float> %add.i710.i, ptr %arrayidx479.i, align 16
   %125 = load <4 x float>, ptr %arrayidx481.i, align 16
-  %mul.i516.i = fmul <4 x float> %125, <float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000, float 0x3FC7F97240000000>
-  %mul.i513.i = fmul <4 x float> %124, <float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000, float 0x3FDDF6FD20000000>
+  %mul.i516.i = fmul <4 x float> %125, splat (float 0x3FC7F97240000000)
+  %mul.i513.i = fmul <4 x float> %124, splat (float 0x3FDDF6FD20000000)
   %126 = fsub <4 x float> %122, %mul.i516.i
   %127 = fsub <4 x float> %126, %mul.i513.i
   store <4 x float> %127, ptr %arrayidx481.i, align 16
-  %mul.i.i = fmul <4 x float> %123, <float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000, float 0x3FFDB089A0000000>
+  %mul.i.i = fmul <4 x float> %123, splat (float 0x3FFDB089A0000000)
   %add.i.i227 = fadd <4 x float> %122, %mul.i.i
   store <4 x float> %add.i.i227, ptr %arrayidx483.i, align 16
   %128 = shl nsw i64 %indvars.iv372, 6

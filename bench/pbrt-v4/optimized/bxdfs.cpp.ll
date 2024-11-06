@@ -3774,7 +3774,7 @@ if.then.i:                                        ; preds = %if.else
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %if.else
-  %n.sroa.0.0.i = phi <2 x float> [ <float -0.000000e+00, float -0.000000e+00>, %if.then.i ], [ zeroinitializer, %if.else ]
+  %n.sroa.0.0.i = phi <2 x float> [ splat (float -0.000000e+00), %if.then.i ], [ zeroinitializer, %if.else ]
   %n.sroa.5.0.i = phi float [ -1.000000e+00, %if.then.i ], [ 1.000000e+00, %if.else ]
   %cosTheta_i.0.i = phi float [ %fneg.i84, %if.then.i ], [ %8, %if.else ]
   %eta.addr.0.i78 = phi float [ %div.i, %if.then.i ], [ %0, %if.else ]

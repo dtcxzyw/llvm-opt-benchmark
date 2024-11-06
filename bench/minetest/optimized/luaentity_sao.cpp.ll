@@ -850,7 +850,7 @@ invoke.cont26:                                    ; preds = %invoke.cont22
   %50 = load <2 x i32>, ptr %buf.i152, align 8
   %51 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %50)
   %52 = sitofp <2 x i32> %51 to <2 x float>
-  %53 = fdiv nsz <2 x float> %52, <float 1.000000e+03, float 1.000000e+03>
+  %53 = fdiv nsz <2 x float> %52, splat (float 1.000000e+03)
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %buf.i152, i64 8
   %val.0.copyload.i.i.i11.i.i = load i32, ptr %arrayidx3.i.i, align 8
   %or7.i.i.i.i12.i.i = call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i.i11.i.i)
@@ -914,7 +914,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
   %59 = insertelement <2 x i32> %58, i32 %val.0.copyload.i.i.i.i161, i64 1
   %60 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %59)
   %61 = sitofp <2 x i32> %60 to <2 x float>
-  %62 = fdiv nsz <2 x float> %61, <float 1.000000e+03, float 1.000000e+03>
+  %62 = fdiv nsz <2 x float> %61, splat (float 1.000000e+03)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %buf.i167) #32
   br label %cleanup
 
@@ -2219,11 +2219,11 @@ if.then58:                                        ; preds = %if.else
   %collisionbox = getelementptr inbounds i8, ptr %this, i64 328
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %box, ptr noundef nonnull align 8 dereferenceable(24) %collisionbox, i64 24, i1 false), !tbaa.struct !204
   %37 = load <4 x float>, ptr %box, align 16, !tbaa !88
-  %38 = fmul nsz <4 x float> %37, <float 1.000000e+01, float 1.000000e+01, float 1.000000e+01, float 1.000000e+01>
+  %38 = fmul nsz <4 x float> %37, splat (float 1.000000e+01)
   store <4 x float> %38, ptr %box, align 16, !tbaa !88
   %Y.i327 = getelementptr inbounds i8, ptr %box, i64 16
   %39 = load <2 x float>, ptr %Y.i327, align 16, !tbaa !88
-  %40 = fmul nsz <2 x float> %39, <float 1.000000e+01, float 1.000000e+01>
+  %40 = fmul nsz <2 x float> %39, splat (float 1.000000e+01)
   store <2 x float> %40, ptr %Y.i327, align 16, !tbaa !88
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %p_pos) #32
   %m_base_position65 = getelementptr inbounds i8, ptr %this, i64 32
@@ -2292,7 +2292,7 @@ invoke.cont117:                                   ; preds = %if.else
   %mul3.i359 = fmul nsz float %dtime, %add6.i
   %m_base_position107 = getelementptr inbounds i8, ptr %this, i64 32
   %51 = load <2 x float>, ptr %m_acceleration93, align 8, !tbaa !88
-  %52 = fmul nsz <2 x float> %51, <float 5.000000e-01, float 5.000000e-01>
+  %52 = fmul nsz <2 x float> %51, splat (float 5.000000e-01)
   %53 = insertelement <2 x float> poison, float %dtime, i64 0
   %54 = shufflevector <2 x float> %53, <2 x float> poison, <2 x i32> zeroinitializer
   %55 = fmul nsz <2 x float> %54, %52
@@ -4513,11 +4513,11 @@ invoke.cont36:                                    ; preds = %if.end
   %cmp.i2.i.i6.i = fcmp nsz olt float %49, 0x4140624D80000000
   %50 = select i1 %cmp.i2.i.i6.i, float %49, float 0x4140624D80000000
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i122) #32
-  %51 = fcmp nsz olt <2 x float> %agg.tmp35.sroa.0.0.copyload, <float 0xC140624D80000000, float 0xC140624D80000000>
-  %52 = select <2 x i1> %51, <2 x float> <float 0xC140624D80000000, float 0xC140624D80000000>, <2 x float> %agg.tmp35.sroa.0.0.copyload
-  %53 = fcmp nsz olt <2 x float> %52, <float 0x4140624D80000000, float 0x4140624D80000000>
-  %54 = select <2 x i1> %53, <2 x float> %52, <2 x float> <float 0x4140624D80000000, float 0x4140624D80000000>
-  %55 = fmul nsz <2 x float> %54, <float 1.000000e+03, float 1.000000e+03>
+  %51 = fcmp nsz olt <2 x float> %agg.tmp35.sroa.0.0.copyload, splat (float 0xC140624D80000000)
+  %52 = select <2 x i1> %51, <2 x float> splat (float 0xC140624D80000000), <2 x float> %agg.tmp35.sroa.0.0.copyload
+  %53 = fcmp nsz olt <2 x float> %52, splat (float 0x4140624D80000000)
+  %54 = select <2 x i1> %53, <2 x float> %52, <2 x float> splat (float 0x4140624D80000000)
+  %55 = fmul nsz <2 x float> %54, splat (float 1.000000e+03)
   %56 = fptosi <2 x float> %55 to <2 x i32>
   %57 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %56)
   store <2 x i32> %57, ptr %buf.i122, align 8
@@ -6227,7 +6227,7 @@ if.then:                                          ; preds = %entry
   %m_base_position = getelementptr inbounds i8, ptr %this, i64 32
   %Y.i27 = getelementptr inbounds i8, ptr %this, i64 36
   %2 = load <2 x float>, ptr %collisionbox, align 8, !tbaa !88
-  %3 = fmul nsz <2 x float> %2, <float 1.000000e+01, float 1.000000e+01>
+  %3 = fmul nsz <2 x float> %2, splat (float 1.000000e+01)
   store <2 x float> %3, ptr %toset, align 4, !tbaa.struct !87
   %Z.i28 = getelementptr inbounds i8, ptr %this, i64 40
   %mul3.i = fmul nsz float %1, 1.000000e+01
@@ -6239,7 +6239,7 @@ if.then:                                          ; preds = %entry
   %6 = insertelement <2 x float> %5, float %mul.i18, i64 1
   %Y3.i31 = getelementptr inbounds i8, ptr %toset, i64 16
   %7 = load <2 x float>, ptr %Y.i19, align 8, !tbaa !88
-  %8 = fmul nsz <2 x float> %7, <float 1.000000e+01, float 1.000000e+01>
+  %8 = fmul nsz <2 x float> %7, splat (float 1.000000e+01)
   %9 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i23, <2 x float> %8, <2 x i32> <i32 0, i32 2>
   store <2 x float> %9, ptr %MaxEdge9, align 4, !tbaa.struct !87
   %10 = extractelement <2 x float> %8, i64 1
@@ -6273,7 +6273,7 @@ entry:
 if.end:                                           ; preds = %entry
   %selectionbox = getelementptr inbounds i8, ptr %this, i64 352
   %1 = load <2 x float>, ptr %selectionbox, align 8, !tbaa !88
-  %2 = fmul nsz <2 x float> %1, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fmul nsz <2 x float> %1, splat (float 1.000000e+01)
   %Z.i = getelementptr inbounds i8, ptr %this, i64 360
   %3 = load float, ptr %Z.i, align 8, !tbaa !209
   %mul3.i = fmul nsz float %3, 1.000000e+01
@@ -6282,7 +6282,7 @@ if.end:                                           ; preds = %entry
   store float %mul3.i, ptr %ref.tmp.sroa.4.0.MinEdge3.sroa_idx, align 4, !tbaa !88
   %MaxEdge = getelementptr inbounds i8, ptr %this, i64 364
   %4 = load <2 x float>, ptr %MaxEdge, align 4, !tbaa !88
-  %5 = fmul nsz <2 x float> %4, <float 1.000000e+01, float 1.000000e+01>
+  %5 = fmul nsz <2 x float> %4, splat (float 1.000000e+01)
   %Z.i14 = getelementptr inbounds i8, ptr %this, i64 372
   %6 = load float, ptr %Z.i14, align 4, !tbaa !209
   %mul3.i15 = fmul nsz float %6, 1.000000e+01

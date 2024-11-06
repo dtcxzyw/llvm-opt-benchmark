@@ -2319,7 +2319,7 @@ common.resume:                                    ; preds = %740, %70
 
 361:                                              ; preds = %.noexc287
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %22), !noalias !521
-  %362 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %362 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %363 = bitcast <16 x i1> %362 to i16
   %.not.i.i.i285 = icmp eq i16 %363, 0
   br i1 %.not.i.i.i285, label %369, label %372
@@ -2406,7 +2406,7 @@ common.resume:                                    ; preds = %740, %70
 
 395:                                              ; preds = %.noexc301
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %18), !noalias !548
-  %396 = icmp eq <16 x i8> %.0.copyload.i21.i.i295, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %396 = icmp eq <16 x i8> %.0.copyload.i21.i.i295, splat (i8 -1)
   %397 = bitcast <16 x i1> %396 to i16
   %.not.i.i.i300 = icmp eq i16 %397, 0
   br i1 %.not.i.i.i300, label %403, label %406

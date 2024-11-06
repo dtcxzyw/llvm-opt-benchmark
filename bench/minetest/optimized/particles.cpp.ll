@@ -572,7 +572,7 @@ entry:
   %9 = insertelement <2 x float> poison, float %add, i64 0
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
   %11 = tail call nsz <2 x float> @llvm.pow.v2f32(<2 x float> %8, <2 x float> %10)
-  %12 = fsub nsz <2 x float> <float 1.000000e+00, float 1.000000e+00>, %11
+  %12 = fsub nsz <2 x float> splat (float 1.000000e+00), %11
   %13 = select <2 x i1> %5, <2 x float> %12, <2 x float> %11
   %14 = tail call nsz noundef float @llvm.pow.f32(float %call4.2, float %add)
   %sub.2 = fsub nsz float 1.000000e+00, %14

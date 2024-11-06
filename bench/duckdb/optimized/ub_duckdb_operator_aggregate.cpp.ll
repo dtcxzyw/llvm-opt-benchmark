@@ -38152,7 +38152,7 @@ for.body155.preheader:                            ; preds = %sw.bb144
 vector.ph:                                        ; preds = %for.body155.preheader
   %broadcast.splatinsert = insertelement <2 x i64> poison, i64 %98, i64 0
   %broadcast.splat = shufflevector <2 x i64> %broadcast.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
-  %step.add = add <2 x i64> %broadcast.splat, <i64 2, i64 2>
+  %step.add = add <2 x i64> %broadcast.splat, splat (i64 2)
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
@@ -38165,7 +38165,7 @@ vector.body:                                      ; preds = %vector.body, %vecto
   store <2 x i64> %100, ptr %102, align 8, !tbaa !161
   store <2 x i64> %101, ptr %103, align 8, !tbaa !161
   %index.next = add nuw i64 %index, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %104 = icmp eq i64 %index.next, %n.vec
   br i1 %104, label %middle.block, label %vector.body, !llvm.loop !1347
 

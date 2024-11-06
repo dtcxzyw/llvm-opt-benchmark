@@ -483,9 +483,9 @@ common.resume:                                    ; preds = %129, %64
   %120 = add nsw i64 %.sroa.52.013.i, -1
   %121 = getelementptr inbounds i8, ptr %.val10, i64 %.sroa.01.012.i
   %122 = load <16 x i8>, ptr %121, align 16, !noalias !40
-  %.lobit.i.i = ashr <16 x i8> %122, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %122, splat (i8 7)
   %123 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %124 = or <2 x i64> %123, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %124 = or <2 x i64> %123, splat (i64 -9187201950435737472)
   store <2 x i64> %124, ptr %121, align 16, !noalias !43
   %.not.i.i15 = icmp eq i64 %120, 0
   br i1 %.not.i.i15, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit", label %118

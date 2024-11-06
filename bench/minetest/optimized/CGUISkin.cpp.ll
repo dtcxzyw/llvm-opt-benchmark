@@ -1264,7 +1264,7 @@ if.end15:                                         ; preds = %if.end
   %15 = load ptr, ptr %vfn24, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call20, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %16 = load <2 x i32>, ptr %LowerRightCorner, align 8, !tbaa !22
-  %17 = add nsw <2 x i32> %16, <i32 -1, i32 -1>
+  %17 = add nsw <2 x i32> %16, splat (i32 -1)
   store <2 x i32> %17, ptr %LowerRightCorner, align 8, !tbaa !22
   %18 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable33 = load ptr, ptr %this, align 8, !tbaa !3
@@ -1275,7 +1275,7 @@ if.end15:                                         ; preds = %if.end
   %20 = load ptr, ptr %vfn39, align 8
   call void %20(ptr noundef nonnull align 8 dereferenceable(8) %18, i32 %call35, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %21 = load <2 x i32>, ptr %rect, align 16, !tbaa !22
-  %22 = add nsw <2 x i32> %21, <i32 1, i32 1>
+  %22 = add nsw <2 x i32> %21, splat (i32 1)
   store <2 x i32> %22, ptr %rect, align 16, !tbaa !22
   %23 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable48 = load ptr, ptr %this, align 8, !tbaa !3
@@ -1286,7 +1286,7 @@ if.end15:                                         ; preds = %if.end
   %25 = load ptr, ptr %vfn54, align 8
   call void %25(ptr noundef nonnull align 8 dereferenceable(8) %23, i32 %call50, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %26 = load <2 x i32>, ptr %LowerRightCorner, align 8, !tbaa !22
-  %27 = add nsw <2 x i32> %26, <i32 -1, i32 -1>
+  %27 = add nsw <2 x i32> %26, splat (i32 -1)
   store <2 x i32> %27, ptr %LowerRightCorner, align 8, !tbaa !22
   %UseGradient = getelementptr inbounds i8, ptr %this, i64 608
   %28 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
@@ -1396,7 +1396,7 @@ if.end:                                           ; preds = %entry
   call void %2(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %LowerRightCorner = getelementptr inbounds i8, ptr %rect, i64 8
   %3 = load <2 x i32>, ptr %LowerRightCorner, align 8, !tbaa !22
-  %4 = add nsw <2 x i32> %3, <i32 -1, i32 -1>
+  %4 = add nsw <2 x i32> %3, splat (i32 -1)
   store <2 x i32> %4, ptr %LowerRightCorner, align 8, !tbaa !22
   %5 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable10 = load ptr, ptr %this, align 8, !tbaa !3
@@ -1407,7 +1407,7 @@ if.end:                                           ; preds = %entry
   %7 = load ptr, ptr %vfn16, align 8
   call void %7(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 %call12, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %8 = load <2 x i32>, ptr %rect, align 8, !tbaa !22
-  %9 = add nsw <2 x i32> %8, <i32 1, i32 1>
+  %9 = add nsw <2 x i32> %8, splat (i32 1)
   store <2 x i32> %9, ptr %rect, align 8, !tbaa !22
   %10 = load ptr, ptr %Driver, align 8, !tbaa !20
   %vtable23 = load ptr, ptr %this, align 8, !tbaa !3
@@ -1418,7 +1418,7 @@ if.end:                                           ; preds = %entry
   %12 = load ptr, ptr %vfn29, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(8) %10, i32 %call25, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %13 = load <2 x i32>, ptr %rect, align 8, !tbaa !22
-  %14 = add nsw <2 x i32> %13, <i32 1, i32 1>
+  %14 = add nsw <2 x i32> %13, splat (i32 1)
   store <2 x i32> %14, ptr %rect, align 8, !tbaa !22
   %UseGradient = getelementptr inbounds i8, ptr %this, i64 608
   %15 = load i8, ptr %UseGradient, align 8, !tbaa !26, !range !38, !noundef !39
@@ -1551,7 +1551,7 @@ if.then9:                                         ; preds = %if.end7
   %6 = load i32, ptr %Y22, align 4, !tbaa !43
   store i32 %6, ptr %Y10, align 4, !tbaa !43
   %7 = load <2 x i32>, ptr %rect, align 16, !tbaa !22
-  %8 = add nsw <2 x i32> %7, <i32 1, i32 1>
+  %8 = add nsw <2 x i32> %7, splat (i32 1)
   %9 = shufflevector <2 x i32> %8, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %9, ptr %Y, align 4, !tbaa !22
   %10 = load ptr, ptr %Driver, align 8, !tbaa !20
@@ -1596,7 +1596,7 @@ if.else:                                          ; preds = %if.end7
   %25 = load <2 x i32>, ptr %r, align 4, !tbaa !22
   %26 = extractelement <2 x i32> %25, i64 0
   store i32 %26, ptr %rect, align 16, !tbaa !44
-  %27 = add nsw <2 x i32> %25, <i32 1, i32 1>
+  %27 = add nsw <2 x i32> %25, splat (i32 1)
   %28 = shufflevector <2 x i32> %27, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %28, ptr %Y, align 4, !tbaa !22
   %Y123 = getelementptr inbounds i8, ptr %r, i64 12
@@ -1611,7 +1611,7 @@ if.else:                                          ; preds = %if.end7
   %32 = load ptr, ptr %vfn134, align 8
   call void %32(ptr noundef nonnull align 8 dereferenceable(8) %30, i32 %call130, ptr noundef nonnull align 4 dereferenceable(16) %rect, ptr noundef %clip) #16
   %33 = load <2 x i32>, ptr %rect, align 16, !tbaa !22
-  %34 = add nsw <2 x i32> %33, <i32 1, i32 1>
+  %34 = add nsw <2 x i32> %33, splat (i32 1)
   store <2 x i32> %34, ptr %rect, align 16, !tbaa !22
   %35 = load <2 x i32>, ptr %LowerRightCorner, align 8, !tbaa !22
   %36 = add nsw <2 x i32> %35, <i32 1, i32 -1>
@@ -2003,7 +2003,7 @@ if.else194:                                       ; preds = %if.else
 if.end218:                                        ; preds = %if.else194, %if.then167, %if.then157, %if.then152.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %retval, ptr noundef nonnull align 4 dereferenceable(16) %r, i64 16, i1 false), !tbaa.struct !37
   %70 = load <2 x i32>, ptr %retval, align 16, !tbaa !22
-  %71 = add nsw <2 x i32> %70, <i32 2, i32 2>
+  %71 = add nsw <2 x i32> %70, splat (i32 2)
   store <2 x i32> %71, ptr %retval, align 16, !tbaa !22
   %72 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
   %sub227 = add nsw i32 %72, -2
@@ -2408,7 +2408,7 @@ if.then2:                                         ; preds = %if.end
   call void %5(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 %call, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
   %6 = load <2 x i32>, ptr %tr, align 16, !tbaa !22
-  %7 = add nsw <2 x i32> %6, <i32 1, i32 1>
+  %7 = add nsw <2 x i32> %6, splat (i32 1)
   %8 = shufflevector <2 x i32> %7, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %8, ptr %Y, align 4, !tbaa !22
   %9 = load ptr, ptr %Driver, align 8, !tbaa !20
@@ -2421,7 +2421,7 @@ if.then2:                                         ; preds = %if.end
   call void %11(ptr noundef nonnull align 8 dereferenceable(8) %9, i32 %call24, ptr noundef nonnull align 4 dereferenceable(16) %tr, ptr noundef %clip) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tr, ptr noundef nonnull align 4 dereferenceable(16) %frameRect, i64 16, i1 false), !tbaa.struct !37
   %12 = load <2 x i32>, ptr %tr, align 16, !tbaa !22
-  %13 = add nsw <2 x i32> %12, <i32 1, i32 1>
+  %13 = add nsw <2 x i32> %12, splat (i32 1)
   store <2 x i32> %13, ptr %tr, align 16, !tbaa !22
   %14 = load i32, ptr %LowerRightCorner, align 8, !tbaa !45
   %sub37 = add nsw i32 %14, -2

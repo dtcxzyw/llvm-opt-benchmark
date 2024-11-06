@@ -60,7 +60,7 @@ define weak_odr void @_ZN3gmx15nbnxmKernelSimdIL12KernelLayout1ELNS_17KernelCoul
   %16 = fcmp ogt <8 x float> %.sroa.08.012.i.i, zeroinitializer
   %17 = sext <8 x i1> %16 to <8 x i32>
   store <8 x i32> %17, ptr %indvars.iv.i.sroa.phi.i, align 32, !alias.scope !5
-  %18 = fadd <8 x float> %.sroa.08.012.i.i, <float -2.000000e+00, float -2.000000e+00, float -2.000000e+00, float -2.000000e+00, float -2.000000e+00, float -2.000000e+00, float -2.000000e+00, float -2.000000e+00>
+  %18 = fadd <8 x float> %.sroa.08.012.i.i, splat (float -2.000000e+00)
   br i1 %15, label %14, label %_ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKN16nbnxn_atomdata_t9SimdMasksE.exit, !llvm.loop !8
 
 _ZN3gmx14DiagonalMaskerILi2EL12KernelLayout1EL24KernelLayoutClusterRatio0EEC2ERKN16nbnxn_atomdata_t9SimdMasksE.exit: ; preds = %14
@@ -392,17 +392,17 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %244 = select <8 x i1> %240, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i255928083051, <8 x i32> zeroinitializer
   %.sroa.52322.0 = select i1 %242, <8 x i32> %244, <8 x i32> %241
   %.sroa.02319.0 = select i1 %242, <8 x i32> %243, <8 x i32> %239
-  %245 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %232, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
-  %246 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %237, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
+  %245 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %232, <8 x float> splat (float 0x3E99A2B5C0000000))
+  %246 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %237, <8 x float> splat (float 0x3E99A2B5C0000000))
   %247 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %245)
   %248 = fmul <8 x float> %245, %247
-  %249 = fmul <8 x float> %247, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %250 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %248, <8 x float> %247, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %249 = fmul <8 x float> %247, splat (float -5.000000e-01)
+  %250 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %248, <8 x float> %247, <8 x float> splat (float -3.000000e+00))
   %251 = fmul <8 x float> %249, %250
   %252 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %246)
   %253 = fmul <8 x float> %246, %252
-  %254 = fmul <8 x float> %252, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %255 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %253, <8 x float> %252, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %254 = fmul <8 x float> %252, splat (float -5.000000e-01)
+  %255 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %253, <8 x float> %252, <8 x float> splat (float -3.000000e+00))
   %256 = fmul <8 x float> %254, %255
   %257 = bitcast <8 x float> %251 to <8 x i32>
   %258 = bitcast <8 x float> %256 to <8 x i32>
@@ -575,8 +575,8 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %383 = fmul <8 x float> %381, %377
   %384 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %376, <8 x float> %42, <8 x float> %382)
   %385 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %377, <8 x float> %45, <8 x float> %383)
-  %386 = fmul <8 x float> %384, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %387 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %385, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %386)
+  %386 = fmul <8 x float> %384, splat (float 0xBFC5555560000000)
+  %387 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %385, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %386)
   %388 = select <8 x i1> %367, <8 x i1> %215, <8 x i1> zeroinitializer
   %.promoted.i = load <8 x float>, ptr %.val550.val, align 32
   br label %389
@@ -705,17 +705,17 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4EL
   %463 = fadd <8 x float> %461, %462
   %464 = fcmp olt <8 x float> %458, %50
   %465 = fcmp olt <8 x float> %463, %50
-  %466 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %458, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
-  %467 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %463, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
+  %466 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %458, <8 x float> splat (float 0x3E99A2B5C0000000))
+  %467 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %463, <8 x float> splat (float 0x3E99A2B5C0000000))
   %468 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %466)
   %469 = fmul <8 x float> %466, %468
-  %470 = fmul <8 x float> %468, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %471 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %469, <8 x float> %468, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %470 = fmul <8 x float> %468, splat (float -5.000000e-01)
+  %471 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %469, <8 x float> %468, <8 x float> splat (float -3.000000e+00))
   %472 = fmul <8 x float> %470, %471
   %473 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %467)
   %474 = fmul <8 x float> %467, %473
-  %475 = fmul <8 x float> %473, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %476 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %474, <8 x float> %473, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %475 = fmul <8 x float> %473, splat (float -5.000000e-01)
+  %476 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %474, <8 x float> %473, <8 x float> splat (float -3.000000e+00))
   %477 = fmul <8 x float> %475, %476
   %478 = sext i32 %441 to i64
   %479 = getelementptr inbounds float, ptr %57, i64 %478
@@ -873,7 +873,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %589 = fmul <8 x float> %587, %584
   %590 = fsub <8 x float> %589, %588
   %591 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %583, <8 x float> %42, <8 x float> %588)
-  %592 = fmul <8 x float> %591, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
+  %592 = fmul <8 x float> %591, splat (float 0xBFC5555560000000)
   %593 = select <8 x i1> %574, <8 x float> %590, <8 x float> zeroinitializer
   %.promoted.i763 = load <8 x float>, ptr %.val550.val, align 32
   br label %594
@@ -890,7 +890,7 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi2ELi1EL12KernelLayout1ELi4EL
   %599 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %558, <8 x float> %485, <8 x float> %483)
   %600 = fmul <8 x float> %546, %599
   %601 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %584, <8 x float> %45, <8 x float> %589)
-  %602 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %601, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %592)
+  %602 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %601, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %592)
   %603 = select <8 x i1> %574, <8 x float> %602, <8 x float> zeroinitializer
   store <8 x float> %597, ptr %.val550.val, align 32
   %.sroa.01.0.copyload.i766 = load <8 x float>, ptr %73, align 32
@@ -1028,17 +1028,17 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %687 = select <8 x i1> %683, <8 x i32> %.sroa.2.i.0..sroa.2.i.0..sroa.2.i.0..sroa.2.0..sroa.2.0..sroa.2.0.copyload.i255928083051, <8 x i32> zeroinitializer
   %.sroa.02424.0 = select i1 %685, <8 x i32> %686, <8 x i32> %682
   %.sroa.52427.0 = select i1 %685, <8 x i32> %687, <8 x i32> %684
-  %688 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %675, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
-  %689 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %680, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
+  %688 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %675, <8 x float> splat (float 0x3E99A2B5C0000000))
+  %689 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %680, <8 x float> splat (float 0x3E99A2B5C0000000))
   %690 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %688)
   %691 = fmul <8 x float> %688, %690
-  %692 = fmul <8 x float> %690, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %693 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %691, <8 x float> %690, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %692 = fmul <8 x float> %690, splat (float -5.000000e-01)
+  %693 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %691, <8 x float> %690, <8 x float> splat (float -3.000000e+00))
   %694 = fmul <8 x float> %692, %693
   %695 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %689)
   %696 = fmul <8 x float> %689, %695
-  %697 = fmul <8 x float> %695, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %698 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %696, <8 x float> %695, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %697 = fmul <8 x float> %695, splat (float -5.000000e-01)
+  %698 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %696, <8 x float> %695, <8 x float> splat (float -3.000000e+00))
   %699 = fmul <8 x float> %697, %698
   %700 = bitcast <8 x float> %694 to <8 x i32>
   %701 = bitcast <8 x float> %699 to <8 x i32>
@@ -1220,9 +1220,9 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %833 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %821, <8 x float> %42, <8 x float> %829)
   %834 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %822, <8 x float> %42, <8 x float> %830)
   %835 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %823, <8 x float> %45, <8 x float> %831)
-  %836 = fmul <8 x float> %833, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %837 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %835, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %836)
-  %838 = fmul <8 x float> %834, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
+  %836 = fmul <8 x float> %833, splat (float 0xBFC5555560000000)
+  %837 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %835, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %836)
+  %838 = fmul <8 x float> %834, splat (float 0xBFC5555560000000)
   %839 = select <8 x i1> %811, <8 x i1> %657, <8 x i1> zeroinitializer
   %840 = select <8 x i1> %812, <8 x i1> %659, <8 x i1> zeroinitializer
   %.promoted.i931 = load <8 x float>, ptr %.val550.val, align 32
@@ -1234,7 +1234,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %843 = fmul <8 x float> %.sroa.01.0.copyload.i1.i.cast.i.i, %.sroa.01.0.copyload.i1.i.cast.i.i
   %844 = fmul <8 x float> %843, %842
   %845 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %842, <8 x float> %45, <8 x float> %844)
-  %846 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %845, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %838)
+  %846 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %845, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %838)
   %847 = select <8 x i1> %839, <8 x float> %837, <8 x float> zeroinitializer
   %848 = select <8 x i1> %840, <8 x float> %846, <8 x float> zeroinitializer
   store <8 x float> %852, ptr %.val550.val, align 32
@@ -1370,17 +1370,17 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi2ELi2EL12KernelLayout1ELi4EL
   %924 = fadd <8 x float> %922, %923
   %925 = fcmp olt <8 x float> %919, %50
   %926 = fcmp olt <8 x float> %924, %50
-  %927 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %919, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
-  %928 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %924, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
+  %927 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %919, <8 x float> splat (float 0x3E99A2B5C0000000))
+  %928 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %924, <8 x float> splat (float 0x3E99A2B5C0000000))
   %929 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %927)
   %930 = fmul <8 x float> %927, %929
-  %931 = fmul <8 x float> %929, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %932 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %930, <8 x float> %929, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %931 = fmul <8 x float> %929, splat (float -5.000000e-01)
+  %932 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %930, <8 x float> %929, <8 x float> splat (float -3.000000e+00))
   %933 = fmul <8 x float> %931, %932
   %934 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %928)
   %935 = fmul <8 x float> %928, %934
-  %936 = fmul <8 x float> %934, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %937 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %935, <8 x float> %934, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %936 = fmul <8 x float> %934, splat (float -5.000000e-01)
+  %937 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %935, <8 x float> %934, <8 x float> splat (float -3.000000e+00))
   %938 = fmul <8 x float> %936, %937
   %939 = sext i32 %902 to i64
   %940 = getelementptr inbounds float, ptr %57, i64 %939
@@ -1545,9 +1545,9 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %1057 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1045, <8 x float> %42, <8 x float> %1053)
   %1058 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1046, <8 x float> %42, <8 x float> %1054)
   %1059 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1047, <8 x float> %45, <8 x float> %1055)
-  %1060 = fmul <8 x float> %1057, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %1061 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1059, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %1060)
-  %1062 = fmul <8 x float> %1058, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
+  %1060 = fmul <8 x float> %1057, splat (float 0xBFC5555560000000)
+  %1061 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1059, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %1060)
+  %1062 = fmul <8 x float> %1058, splat (float 0xBFC5555560000000)
   %1063 = select <8 x i1> %1036, <8 x float> %1061, <8 x float> zeroinitializer
   %.promoted.i1088 = load <8 x float>, ptr %.val550.val, align 32
   br label %1072
@@ -1559,7 +1559,7 @@ _ZN3gmx17CoulombCalculatorILNS_17KernelCoulombTypeE2EE24forceAndCorrectionEnergy
   %1067 = fmul <8 x float> %1051, %1051
   %1068 = fmul <8 x float> %1067, %1066
   %1069 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1066, <8 x float> %45, <8 x float> %1068)
-  %1070 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1069, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %1062)
+  %1070 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1069, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %1062)
   %1071 = select <8 x i1> %1065, <8 x float> %1070, <8 x float> zeroinitializer
   store <8 x float> %1075, ptr %.val550.val, align 32
   %.promoted15.i1092 = load <8 x float>, ptr %73, align 32
@@ -1685,17 +1685,17 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1157 = fcmp olt <8 x float> %1155, %50
   %narrow = select <8 x i1> %1156, <8 x i1> %1132, <8 x i1> zeroinitializer
   %narrow2809 = select <8 x i1> %1157, <8 x i1> %1134, <8 x i1> zeroinitializer
-  %1158 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1150, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
-  %1159 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1155, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
+  %1158 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1150, <8 x float> splat (float 0x3E99A2B5C0000000))
+  %1159 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1155, <8 x float> splat (float 0x3E99A2B5C0000000))
   %1160 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %1158)
   %1161 = fmul <8 x float> %1158, %1160
-  %1162 = fmul <8 x float> %1160, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %1163 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1161, <8 x float> %1160, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %1162 = fmul <8 x float> %1160, splat (float -5.000000e-01)
+  %1163 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1161, <8 x float> %1160, <8 x float> splat (float -3.000000e+00))
   %1164 = fmul <8 x float> %1162, %1163
   %1165 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %1159)
   %1166 = fmul <8 x float> %1159, %1165
-  %1167 = fmul <8 x float> %1165, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %1168 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1166, <8 x float> %1165, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %1167 = fmul <8 x float> %1165, splat (float -5.000000e-01)
+  %1168 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1166, <8 x float> %1165, <8 x float> splat (float -3.000000e+00))
   %1169 = fmul <8 x float> %1167, %1168
   %1170 = select <8 x i1> %narrow, <8 x float> %1164, <8 x float> zeroinitializer
   %1171 = fmul <8 x float> %1170, %1170
@@ -1731,11 +1731,11 @@ _ZN3gmx28loadSimdPairInteractionMasksILb1EL12KernelLayout1EEENSt9enable_ifIXaaT_
   %1199 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1184, <8 x float> %42, <8 x float> %1194)
   %1200 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1185, <8 x float> %42, <8 x float> %1195)
   %1201 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1186, <8 x float> %45, <8 x float> %1196)
-  %1202 = fmul <8 x float> %1199, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %1203 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1201, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %1202)
+  %1202 = fmul <8 x float> %1199, splat (float 0xBFC5555560000000)
+  %1203 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1201, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %1202)
   %1204 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1187, <8 x float> %45, <8 x float> %1197)
-  %1205 = fmul <8 x float> %1200, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %1206 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1204, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %1205)
+  %1205 = fmul <8 x float> %1200, splat (float 0xBFC5555560000000)
+  %1206 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1204, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %1205)
   %1207 = select <8 x i1> %1174, <8 x i1> %1132, <8 x i1> zeroinitializer
   %1208 = select <8 x i1> %1207, <8 x float> %1203, <8 x float> zeroinitializer
   %1209 = select <8 x i1> %1175, <8 x i1> %1134, <8 x i1> zeroinitializer
@@ -1860,17 +1860,17 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1279 = fadd <8 x float> %1277, %1278
   %1280 = fcmp olt <8 x float> %1274, %50
   %1281 = fcmp olt <8 x float> %1279, %50
-  %1282 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1274, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
-  %1283 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1279, <8 x float> <float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000, float 0x3E99A2B5C0000000>)
+  %1282 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1274, <8 x float> splat (float 0x3E99A2B5C0000000))
+  %1283 = tail call noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %1279, <8 x float> splat (float 0x3E99A2B5C0000000))
   %1284 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %1282)
   %1285 = fmul <8 x float> %1282, %1284
-  %1286 = fmul <8 x float> %1284, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %1287 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1285, <8 x float> %1284, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %1286 = fmul <8 x float> %1284, splat (float -5.000000e-01)
+  %1287 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1285, <8 x float> %1284, <8 x float> splat (float -3.000000e+00))
   %1288 = fmul <8 x float> %1286, %1287
   %1289 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %1283)
   %1290 = fmul <8 x float> %1283, %1289
-  %1291 = fmul <8 x float> %1289, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %1292 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1290, <8 x float> %1289, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %1291 = fmul <8 x float> %1289, splat (float -5.000000e-01)
+  %1292 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1290, <8 x float> %1289, <8 x float> splat (float -3.000000e+00))
   %1293 = fmul <8 x float> %1291, %1292
   %1294 = select <8 x i1> %1280, <8 x float> %1288, <8 x float> zeroinitializer
   %1295 = fmul <8 x float> %1294, %1294
@@ -1906,11 +1906,11 @@ _ZN3gmx17EnergyAccumulatorILb0ELb1EE11addEnergiesILi0ELi2EL12KernelLayout1ELi4EL
   %1323 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1308, <8 x float> %42, <8 x float> %1318)
   %1324 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1309, <8 x float> %42, <8 x float> %1319)
   %1325 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1310, <8 x float> %45, <8 x float> %1320)
-  %1326 = fmul <8 x float> %1323, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %1327 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1325, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %1326)
+  %1326 = fmul <8 x float> %1323, splat (float 0xBFC5555560000000)
+  %1327 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1325, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %1326)
   %1328 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1311, <8 x float> %45, <8 x float> %1321)
-  %1329 = fmul <8 x float> %1324, <float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000, float 0xBFC5555560000000>
-  %1330 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1328, <8 x float> <float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000, float 0x3FB5555560000000>, <8 x float> %1329)
+  %1329 = fmul <8 x float> %1324, splat (float 0xBFC5555560000000)
+  %1330 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %1328, <8 x float> splat (float 0x3FB5555560000000), <8 x float> %1329)
   %1331 = select <8 x i1> %1298, <8 x float> %1327, <8 x float> zeroinitializer
   %1332 = select <8 x i1> %1299, <8 x float> %1330, <8 x float> zeroinitializer
   %.promoted.i1311 = load <8 x float>, ptr %73, align 32

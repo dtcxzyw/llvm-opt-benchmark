@@ -3530,7 +3530,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br i1 %.not.not.i.i.i.i, label %874, label %877
 
 874:                                              ; preds = %873
-  %875 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %875 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %876 = bitcast <16 x i1> %875 to i16
   %.not.i.i.i.i326 = icmp eq i16 %876, 0
   br i1 %.not.i.i.i.i326, label %886, label %.thread441

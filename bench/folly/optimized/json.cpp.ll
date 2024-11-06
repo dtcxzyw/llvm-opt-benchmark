@@ -7934,8 +7934,8 @@ if.then98:                                        ; preds = %if.then93
   %45 = insertelement <4 x i8> %44, i8 %conv17.i, i64 3
   %46 = icmp ult <4 x i8> %45, <i8 10, i8 10, i8 -96, i8 10>
   %47 = insertelement <4 x i8> %45, i8 %41, i64 2
-  %48 = or disjoint <4 x i8> %47, <i8 48, i8 48, i8 48, i8 48>
-  %49 = add nuw nsw <4 x i8> %47, <i8 87, i8 87, i8 87, i8 87>
+  %48 = or disjoint <4 x i8> %47, splat (i8 48)
+  %49 = add nuw nsw <4 x i8> %47, splat (i8 87)
   %50 = select <4 x i1> %46, <4 x i8> %48, <4 x i8> %49
   store <4 x i8> %50, ptr %arrayidx.i223, align 1, !tbaa !7
   %51 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15
@@ -8566,8 +8566,8 @@ if.then83:                                        ; preds = %if.then78
   %37 = insertelement <4 x i8> %36, i8 %conv17.i, i64 3
   %38 = icmp ult <4 x i8> %37, <i8 10, i8 10, i8 -96, i8 10>
   %39 = insertelement <4 x i8> %37, i8 %33, i64 2
-  %40 = or disjoint <4 x i8> %39, <i8 48, i8 48, i8 48, i8 48>
-  %41 = add nuw nsw <4 x i8> %39, <i8 87, i8 87, i8 87, i8 87>
+  %40 = or disjoint <4 x i8> %39, splat (i8 48)
+  %41 = add nuw nsw <4 x i8> %39, splat (i8 87)
   %42 = select <4 x i1> %38, <4 x i8> %40, <4 x i8> %41
   store <4 x i8> %42, ptr %arrayidx.i206, align 1, !tbaa !7
   %43 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !15

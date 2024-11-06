@@ -17113,7 +17113,7 @@ define hidden noundef nonnull ptr @"_ZN6intern17Interned$LT$T$GT$3new17h949d85f5
   br i1 %.not.i.not.i.i, label %21, label %25
 
 21:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %22 = icmp eq <16 x i8> %.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %22 = icmp eq <16 x i8> %.0.copyload.i23.i.i, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
   %24 = icmp eq i16 %23, 0
   br i1 %24, label %41, label %54
@@ -17780,7 +17780,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.llvm.2875332049115192089.exit
   br i1 %.not.i.not.i.i, label %130, label %134
 
 130:                                              ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %131 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %131 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %132 = bitcast <16 x i1> %131 to i16
   %133 = icmp eq i16 %132, 0
   br i1 %133, label %143, label %173
@@ -17833,11 +17833,11 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.llvm.2875332049115192089.exit
   %159 = and i64 %157, %158
   %160 = getelementptr inbounds i8, ptr %152, i64 %159
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %160, align 1, !noalias !4124
-  %161 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %161 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %162 = bitcast <16 x i1> %161 to i16
   %163 = getelementptr inbounds i8, ptr %152, i64 %156
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %163, align 1, !noalias !4127
-  %164 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %164 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %165 = bitcast <16 x i1> %164 to i16
   %166 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %162, i1 false)
   %167 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %165, i1 false)
@@ -18134,7 +18134,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h31625fb21be3021cE
   br label %82
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit._crit_edge.i.i": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.backedge.i.i", %73
-  %79 = icmp eq <16 x i8> %.0.copyload.i24.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %79 = icmp eq <16 x i8> %.0.copyload.i24.i.i, splat (i8 -1)
   %80 = bitcast <16 x i1> %79 to i16
   %81 = icmp eq i16 %80, 0
   br i1 %81, label %100, label %"_ZN9hashbrown3map39RawEntryBuilderMut$LT$K$C$V$C$S$C$A$GT$6search17he7e97e1c2697faf0E.exit"
@@ -18200,11 +18200,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h31625fb21be3021cE
   %112 = and i64 %111, %71
   %113 = getelementptr inbounds i8, ptr %72, i64 %112
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %113, align 1, !noalias !4216
-  %114 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %114 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %115 = bitcast <16 x i1> %114 to i16
   %116 = getelementptr inbounds i8, ptr %72, i64 %110
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %116, align 1, !noalias !4220
-  %117 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %117 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %118 = bitcast <16 x i1> %117 to i16
   %119 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %115, i1 false)
   %120 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %118, i1 false)
@@ -18822,7 +18822,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h4101ad582dcca5c6E
   br i1 %.not.i.not.i.i, label %338, label %342
 
 338:                                              ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %339 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %339 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %340 = bitcast <16 x i1> %339 to i16
   %341 = icmp eq i16 %340, 0
   br i1 %341, label %355, label %385
@@ -18884,11 +18884,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h4101ad582dcca5c6E
   %371 = and i64 %369, %370
   %372 = getelementptr inbounds i8, ptr %364, i64 %371
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %372, align 1, !noalias !4421
-  %373 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %373 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %374 = bitcast <16 x i1> %373 to i16
   %375 = getelementptr inbounds i8, ptr %364, i64 %368
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %375, align 1, !noalias !4424
-  %376 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %376 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %377 = bitcast <16 x i1> %376 to i16
   %378 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %374, i1 false)
   %379 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %377, i1 false)
@@ -19132,7 +19132,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h578c0cb93a2661e2E
   br i1 %.not.i.not.i.i, label %46, label %50
 
 46:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %47 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %47 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %59, label %88
@@ -19181,11 +19181,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h578c0cb93a2661e2E
   %74 = and i64 %72, %73
   %75 = getelementptr inbounds i8, ptr %67, i64 %74
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %75, align 1, !noalias !4483
-  %76 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %76 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %77 = bitcast <16 x i1> %76 to i16
   %78 = getelementptr inbounds i8, ptr %67, i64 %71
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %78, align 1, !noalias !4486
-  %79 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %79 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %80 = bitcast <16 x i1> %79 to i16
   %81 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %77, i1 false)
   %82 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %80, i1 false)
@@ -19477,7 +19477,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h7bf54a4fdb80e166E
   br i1 %.not.i.not.i.i, label %70, label %74
 
 70:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %71 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %71 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %72 = bitcast <16 x i1> %71 to i16
   %73 = icmp eq i16 %72, 0
   br i1 %73, label %83, label %113
@@ -19530,11 +19530,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h7bf54a4fdb80e166E
   %99 = and i64 %97, %98
   %100 = getelementptr inbounds i8, ptr %92, i64 %99
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %100, align 1, !noalias !4562
-  %101 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %101 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %102 = bitcast <16 x i1> %101 to i16
   %103 = getelementptr inbounds i8, ptr %92, i64 %96
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %103, align 1, !noalias !4565
-  %104 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %104 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %105 = bitcast <16 x i1> %104 to i16
   %106 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %102, i1 false)
   %107 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %105, i1 false)
@@ -19866,7 +19866,7 @@ default.unreachable:                              ; preds = %"_ZN3std4sync9once_
   br label %107
 
 "_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc3b5e21e787ead67E.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc3b5e21e787ead67E.exit.backedge.i.i", %98
-  %104 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %104 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %105 = bitcast <16 x i1> %104 to i16
   %106 = icmp eq i16 %105, 0
   br i1 %106, label %125, label %154
@@ -19936,11 +19936,11 @@ default.unreachable:                              ; preds = %"_ZN3std4sync9once_
   %140 = and i64 %138, %139
   %141 = getelementptr inbounds i8, ptr %133, i64 %140
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %141, align 1, !noalias !4685
-  %142 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %142 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %143 = bitcast <16 x i1> %142 to i16
   %144 = getelementptr inbounds i8, ptr %133, i64 %137
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %144, align 1, !noalias !4688
-  %145 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %145 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %146 = bitcast <16 x i1> %145 to i16
   %147 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %143, i1 false)
   %148 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %146, i1 false)
@@ -20146,7 +20146,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h8ff096d170184069E
   br i1 %.not.i.not.i.i, label %29, label %33
 
 29:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %30 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %30 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %31 = bitcast <16 x i1> %30 to i16
   %32 = icmp eq i16 %31, 0
   br i1 %32, label %48, label %79
@@ -20213,11 +20213,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h8ff096d170184069E
   %65 = and i64 %63, %64
   %66 = getelementptr inbounds i8, ptr %58, i64 %65
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %66, align 1, !noalias !4744
-  %67 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %67 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %68 = bitcast <16 x i1> %67 to i16
   %69 = getelementptr inbounds i8, ptr %58, i64 %62
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %69, align 1, !noalias !4747
-  %70 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %70 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %71 = bitcast <16 x i1> %70 to i16
   %72 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %68, i1 false)
   %73 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %71, i1 false)
@@ -20682,7 +20682,7 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.llvm.2875332049115192089.exit
   br i1 %.not.i.not.i.i, label %151, label %155
 
 151:                                              ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %152 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %152 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %153 = bitcast <16 x i1> %152 to i16
   %154 = icmp eq i16 %153, 0
   br i1 %154, label %164, label %193
@@ -20731,11 +20731,11 @@ _ZN4core4hash6Hasher9write_str17h43f64857bd7a4672E.llvm.2875332049115192089.exit
   %179 = and i64 %177, %178
   %180 = getelementptr inbounds i8, ptr %172, i64 %179
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %180, align 1, !noalias !4889
-  %181 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %181 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %182 = bitcast <16 x i1> %181 to i16
   %183 = getelementptr inbounds i8, ptr %172, i64 %176
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %183, align 1, !noalias !4892
-  %184 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %184 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %185 = bitcast <16 x i1> %184 to i16
   %186 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %182, i1 false)
   %187 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %185, i1 false)
@@ -21037,7 +21037,7 @@ _ZN4core4hash4Hash10hash_slice17h1a95ea476349a910E.exit.loopexit.i.i: ; preds = 
   br label %81
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit._crit_edge.i.i": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.backedge.i.i", %72
-  %78 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %78 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %79 = bitcast <16 x i1> %78 to i16
   %80 = icmp eq i16 %79, 0
   br i1 %80, label %115, label %144
@@ -21128,11 +21128,11 @@ _ZN4core4hash4Hash10hash_slice17h1a95ea476349a910E.exit.loopexit.i.i: ; preds = 
   %130 = and i64 %128, %129
   %131 = getelementptr inbounds i8, ptr %123, i64 %130
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %131, align 1, !noalias !4987
-  %132 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %132 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %133 = bitcast <16 x i1> %132 to i16
   %134 = getelementptr inbounds i8, ptr %123, i64 %127
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %134, align 1, !noalias !4990
-  %135 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %135 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %136 = bitcast <16 x i1> %135 to i16
   %137 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %133, i1 false)
   %138 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %136, i1 false)
@@ -21429,7 +21429,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hb0f644a713745784E
   br i1 %.not.i.not.i.i, label %75, label %79
 
 75:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %76 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %76 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %77 = bitcast <16 x i1> %76 to i16
   %78 = icmp eq i16 %77, 0
   br i1 %78, label %88, label %118
@@ -21482,11 +21482,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hb0f644a713745784E
   %104 = and i64 %102, %103
   %105 = getelementptr inbounds i8, ptr %97, i64 %104
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %105, align 1, !noalias !5074
-  %106 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %106 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %107 = bitcast <16 x i1> %106 to i16
   %108 = getelementptr inbounds i8, ptr %97, i64 %101
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %108, align 1, !noalias !5077
-  %109 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %109 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %110 = bitcast <16 x i1> %109 to i16
   %111 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %107, i1 false)
   %112 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %110, i1 false)
@@ -21954,7 +21954,7 @@ _ZN4core4hash4Hash10hash_slice17hb912843435fcf9b6E.exit.i: ; preds = %"_ZN73_$LT
   br label %151
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit._crit_edge.i.i": ; preds = %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf2df7f6e3b0a62d3E.exit.i.i", %142
-  %148 = icmp eq <16 x i8> %.0.copyload.i27.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %148 = icmp eq <16 x i8> %.0.copyload.i27.i.i, splat (i8 -1)
   %149 = bitcast <16 x i1> %148 to i16
   %150 = icmp eq i16 %149, 0
   br i1 %150, label %179, label %207
@@ -22046,11 +22046,11 @@ _ZN4core4hash4Hash10hash_slice17hb912843435fcf9b6E.exit.i: ; preds = %"_ZN73_$LT
   %193 = and i64 %191, %192
   %194 = getelementptr inbounds i8, ptr %186, i64 %193
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %194, align 1, !noalias !5224
-  %195 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %195 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %196 = bitcast <16 x i1> %195 to i16
   %197 = getelementptr inbounds i8, ptr %186, i64 %190
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %197, align 1, !noalias !5227
-  %198 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %198 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %199 = bitcast <16 x i1> %198 to i16
   %200 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %196, i1 false)
   %201 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %199, i1 false)
@@ -22386,7 +22386,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hd268bd7af7df95deE
   br i1 %.not.i.not.i.i, label %93, label %97
 
 93:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %94 = icmp eq <16 x i8> %.0.copyload.i23.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %94 = icmp eq <16 x i8> %.0.copyload.i23.i.i, splat (i8 -1)
   %95 = bitcast <16 x i1> %94 to i16
   %96 = icmp eq i16 %95, 0
   br i1 %96, label %106, label %135
@@ -22431,11 +22431,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hd268bd7af7df95deE
   %121 = and i64 %119, %120
   %122 = getelementptr inbounds i8, ptr %114, i64 %121
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %122, align 1, !noalias !5328
-  %123 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %123 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %124 = bitcast <16 x i1> %123 to i16
   %125 = getelementptr inbounds i8, ptr %114, i64 %118
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %125, align 1, !noalias !5331
-  %126 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %126 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %127 = bitcast <16 x i1> %126 to i16
   %128 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %124, i1 false)
   %129 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %127, i1 false)
@@ -22725,7 +22725,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17he92b802c4dc4a559E
   br i1 %.not.i.not.i.i, label %76, label %80
 
 76:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %77 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %77 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %78 = bitcast <16 x i1> %77 to i16
   %79 = icmp eq i16 %78, 0
   br i1 %79, label %89, label %119
@@ -22778,11 +22778,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17he92b802c4dc4a559E
   %105 = and i64 %103, %104
   %106 = getelementptr inbounds i8, ptr %98, i64 %105
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %106, align 1, !noalias !5399
-  %107 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %107 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %108 = bitcast <16 x i1> %107 to i16
   %109 = getelementptr inbounds i8, ptr %98, i64 %102
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %109, align 1, !noalias !5402
-  %110 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %110 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %111 = bitcast <16 x i1> %110 to i16
   %112 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %108, i1 false)
   %113 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %111, i1 false)
@@ -23078,7 +23078,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hed3ba86e04b41958E
   br i1 %.not.i.not.i.i, label %70, label %74
 
 70:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %71 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %71 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %72 = bitcast <16 x i1> %71 to i16
   %73 = icmp eq i16 %72, 0
   br i1 %73, label %83, label %112
@@ -23127,11 +23127,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hed3ba86e04b41958E
   %98 = and i64 %96, %97
   %99 = getelementptr inbounds i8, ptr %91, i64 %98
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %99, align 1, !noalias !5506
-  %100 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %100 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %101 = bitcast <16 x i1> %100 to i16
   %102 = getelementptr inbounds i8, ptr %91, i64 %95
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %102, align 1, !noalias !5509
-  %103 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %103 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %104 = bitcast <16 x i1> %103 to i16
   %105 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %101, i1 false)
   %106 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %104, i1 false)
@@ -23375,7 +23375,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hee4ed680c171b99dE
   br i1 %.not.i.not.i.i, label %46, label %50
 
 46:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %47 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %47 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %49 = icmp eq i16 %48, 0
   br i1 %49, label %59, label %89
@@ -23428,11 +23428,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hee4ed680c171b99dE
   %75 = and i64 %73, %74
   %76 = getelementptr inbounds i8, ptr %68, i64 %75
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %76, align 1, !noalias !5568
-  %77 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %77 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %78 = bitcast <16 x i1> %77 to i16
   %79 = getelementptr inbounds i8, ptr %68, i64 %72
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %79, align 1, !noalias !5571
-  %80 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %80 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %81 = bitcast <16 x i1> %80 to i16
   %82 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %78, i1 false)
   %83 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %81, i1 false)
@@ -23714,7 +23714,7 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hff06b3eb04b6a7f3E
   br i1 %.not.i.not.i.i, label %61, label %65
 
 61:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8e40875c48646275E.exit.i.i"
-  %62 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %62 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %63 = bitcast <16 x i1> %62 to i16
   %64 = icmp eq i16 %63, 0
   br i1 %64, label %74, label %103
@@ -23763,11 +23763,11 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hff06b3eb04b6a7f3E
   %89 = and i64 %87, %88
   %90 = getelementptr inbounds i8, ptr %82, i64 %89
   %.0.copyload.i20.i.i = load <16 x i8>, ptr %90, align 1, !noalias !5662
-  %91 = icmp eq <16 x i8> %.0.copyload.i20.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %91 = icmp eq <16 x i8> %.0.copyload.i20.i.i, splat (i8 -1)
   %92 = bitcast <16 x i1> %91 to i16
   %93 = getelementptr inbounds i8, ptr %82, i64 %86
   %.0.copyload.i421.i.i = load <16 x i8>, ptr %93, align 1, !noalias !5665
-  %94 = icmp eq <16 x i8> %.0.copyload.i421.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %94 = icmp eq <16 x i8> %.0.copyload.i421.i.i, splat (i8 -1)
   %95 = bitcast <16 x i1> %94 to i16
   %96 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %92, i1 false)
   %97 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %95, i1 false)

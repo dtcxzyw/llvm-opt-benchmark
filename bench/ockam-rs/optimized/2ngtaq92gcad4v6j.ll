@@ -93782,7 +93782,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
 35:                                               ; preds = %39, %22
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %39 ], [ 1, %22 ]
   %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %39 ], [ %.sroa.4.0.i.i, %22 ]
-  %36 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %36 = icmp eq <16 x i8> %.0.copyload.i28.i.i, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %46, label %49
@@ -93935,7 +93935,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
 37:                                               ; preds = %41, %22
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %41 ], [ 1, %22 ]
   %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %41 ], [ %.sroa.4.0.i.i, %22 ]
-  %38 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %38 = icmp eq <16 x i8> %.0.copyload.i28.i.i, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %48, label %51
@@ -94095,7 +94095,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
 37:                                               ; preds = %41, %22
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %41 ], [ 1, %22 ]
   %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %41 ], [ %.sroa.4.0.i.i, %22 ]
-  %38 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %38 = icmp eq <16 x i8> %.0.copyload.i28.i.i, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %48, label %51
@@ -94255,7 +94255,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
 37:                                               ; preds = %41, %22
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %41 ], [ 1, %22 ]
   %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %41 ], [ %.sroa.4.0.i.i, %22 ]
-  %38 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %38 = icmp eq <16 x i8> %.0.copyload.i28.i.i, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
   %40 = icmp eq i16 %39, 0
   br i1 %40, label %48, label %51
@@ -94416,7 +94416,7 @@ define hidden { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..
 35:                                               ; preds = %39, %22
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %39 ], [ 1, %22 ]
   %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %39 ], [ %.sroa.4.0.i.i, %22 ]
-  %36 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %36 = icmp eq <16 x i8> %.0.copyload.i28.i.i, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %38 = icmp eq i16 %37, 0
   br i1 %38, label %46, label %49
@@ -95081,7 +95081,7 @@ define internal fastcc void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6in
 49:                                               ; preds = %53, %37
   %.sroa.05.1.i.i = phi i64 [ %.sroa.0.0.i12.i.i, %53 ], [ 1, %37 ]
   %.sroa.4.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %53 ], [ %.sroa.4.0.i.i, %37 ]
-  %50 = icmp eq <16 x i8> %.0.copyload.i28.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %50 = icmp eq <16 x i8> %.0.copyload.i28.i.i, splat (i8 -1)
   %51 = bitcast <16 x i1> %50 to i16
   %52 = icmp eq i16 %51, 0
   br i1 %52, label %60, label %63
@@ -119145,7 +119145,7 @@ default.unreachable888:                           ; preds = %1543, %1099, %944, 
   br i1 %.not.not.i.i.i.i, label %212, label %216
 
 212:                                              ; preds = %211
-  %213 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %213 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %214 = bitcast <16 x i1> %213 to i16
   %215 = icmp eq i16 %214, 0
   br i1 %215, label %225, label %.thread770
@@ -120921,7 +120921,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.2498697912442943783.exit.th
   br i1 %.not.not.i.i.i.not.i.i, label %858, label %862
 
 858:                                              ; preds = %857
-  %859 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %859 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %860 = bitcast <16 x i1> %859 to i16
   %861 = icmp eq i16 %860, 0
   br i1 %861, label %871, label %.loopexit.loopexit.i
@@ -122603,7 +122603,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.llvm.2498697912442943783.exit.i.i: ; pr
 1379:                                             ; preds = %1383, %1367
   %.sroa.05.1.i.i.i.i = phi i64 [ %.sroa.0.0.i12.i.i.i.i, %1383 ], [ 1, %1367 ]
   %.sroa.4.1.i.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i.i, %1383 ], [ %.sroa.4.0.i.i.i.i, %1367 ]
-  %1380 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1380 = icmp eq <16 x i8> %.0.copyload.i28.i.i.i.i, splat (i8 -1)
   %1381 = bitcast <16 x i1> %1380 to i16
   %1382 = icmp eq i16 %1381, 0
   br i1 %1382, label %1390, label %1393

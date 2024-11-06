@@ -20079,7 +20079,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr251dro
   br i1 %159, label %169, label %162
 
 ._crit_edge.i.i.i:                                ; preds = %162, %149
-  %160 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %160 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i, splat (i8 -1)
   %161 = bitcast <16 x i1> %160 to i16
   %.not.i.i.i.i = icmp eq i16 %161, 0
   br i1 %.not.i.i.i.i, label %166, label %select.unfold

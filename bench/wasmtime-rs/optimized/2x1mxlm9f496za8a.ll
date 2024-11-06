@@ -2518,7 +2518,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h44
 81:                                               ; preds = %74, %59
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %74 ], [ %.sroa.6.0.i.i, %59 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i17.i.i, %74 ], [ 1, %59 ]
-  %82 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %82 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %83 = bitcast <16 x i1> %82 to i16
   %.not11.i.i = icmp eq i16 %83, 0
   br i1 %.not11.i.i, label %84, label %87
@@ -3380,9 +3380,9 @@ common.resume:                                    ; preds = %207, %83
   %187 = add i64 %.sroa.01.06.i.i, 16
   %188 = getelementptr inbounds i8, ptr %.val15.i, i64 %.sroa.01.06.i.i
   %189 = load <16 x i8>, ptr %188, align 16, !noalias !547
-  %.lobit.i.i.i = ashr <16 x i8> %189, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %189, splat (i8 7)
   %190 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %191 = or <2 x i64> %190, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %191 = or <2 x i64> %190, splat (i64 -9187201950435737472)
   store <2 x i64> %191, ptr %188, align 16, !noalias !550
   %.not.not.i.i = icmp eq i64 %186, 0
   br i1 %.not.not.i.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit.i, label %185

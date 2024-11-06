@@ -10644,7 +10644,7 @@ define hidden noundef align 4 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   br i1 %.not.i4.not.i.i, label %19, label %22
 
 19:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit.i.i"
-  %20 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %20 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i, label %31, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17ha1331ae6e5c2a5edE.llvm.1710812290736639100.exit"
@@ -10826,7 +10826,7 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17heaf63
   br i1 %.not.i.not.not.not.not.not, label %18, label %15
 
 15:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit"
-  %16 = icmp eq <16 x i8> %.0.copyload.i29, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %16 = icmp eq <16 x i8> %.0.copyload.i29, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not = icmp eq i16 %17, 0
   br i1 %.not, label %27, label %.loopexit
@@ -11288,9 +11288,9 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %14 = add i64 %.sroa.01.06.i, 16
   %15 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.06.i
   %16 = load <16 x i8>, ptr %15, align 16, !noalias !1988
-  %.lobit.i.i = ashr <16 x i8> %16, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %16, splat (i8 7)
   %17 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %18 = or <2 x i64> %17, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %18 = or <2 x i64> %17, splat (i64 -9187201950435737472)
   store <2 x i64> %18, ptr %15, align 16, !noalias !1991
   %.not.not.i = icmp eq i64 %13, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit, label %12
@@ -13294,11 +13294,11 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner5erase17h86e2a65e36278b42E.l
   %7 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds i8, ptr %7, i64 %6
   %.0.copyload.i19 = load <16 x i8>, ptr %8, align 1, !noalias !2172
-  %9 = icmp eq <16 x i8> %.0.copyload.i19, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %9 = icmp eq <16 x i8> %.0.copyload.i19, splat (i8 -1)
   %10 = bitcast <16 x i1> %9 to i16
   %11 = getelementptr inbounds i8, ptr %7, i64 %1
   %.0.copyload.i320 = load <16 x i8>, ptr %11, align 1, !noalias !2175
-  %12 = icmp eq <16 x i8> %.0.copyload.i320, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %12 = icmp eq <16 x i8> %.0.copyload.i320, splat (i8 -1)
   %13 = bitcast <16 x i1> %12 to i16
   %14 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %10, i1 false)
   %15 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %13, i1 false)
@@ -16676,7 +16676,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h17
   br i1 %.not.i4.not.i, label %17, label %20
 
 17:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit.i"
-  %18 = icmp eq <16 x i8> %.0.copyload.i25.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %18 = icmp eq <16 x i8> %.0.copyload.i25.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i, label %33, label %.loopexit
@@ -16715,11 +16715,11 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_entry17h17
   %39 = and i64 %38, %8
   %40 = getelementptr inbounds i8, ptr %9, i64 %39
   %.0.copyload.i19.i.i.i = load <16 x i8>, ptr %40, align 1, !noalias !2648
-  %41 = icmp eq <16 x i8> %.0.copyload.i19.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %41 = icmp eq <16 x i8> %.0.copyload.i19.i.i.i, splat (i8 -1)
   %42 = bitcast <16 x i1> %41 to i16
   %43 = getelementptr inbounds i8, ptr %9, i64 %37
   %.0.copyload.i320.i.i.i = load <16 x i8>, ptr %43, align 1, !noalias !2653
-  %44 = icmp eq <16 x i8> %.0.copyload.i320.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %44 = icmp eq <16 x i8> %.0.copyload.i320.i.i.i, splat (i8 -1)
   %45 = bitcast <16 x i1> %44 to i16
   %46 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %42, i1 false)
   %47 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %45, i1 false)
@@ -16783,7 +16783,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_en
   br i1 %.not.i4.not.i, label %14, label %17
 
 14:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit.i"
-  %15 = icmp eq <16 x i8> %.0.copyload.i25.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %15 = icmp eq <16 x i8> %.0.copyload.i25.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i, label %26, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha1273b46fecf4964E.llvm.1710812290736639100.exit.thread"
@@ -16817,11 +16817,11 @@ define hidden { i32, i32 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$12remove_en
   %33 = and i64 %32, %7
   %34 = getelementptr inbounds i8, ptr %8, i64 %33
   %.0.copyload.i19.i.i.i = load <16 x i8>, ptr %34, align 1, !noalias !2689
-  %35 = icmp eq <16 x i8> %.0.copyload.i19.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %35 = icmp eq <16 x i8> %.0.copyload.i19.i.i.i, splat (i8 -1)
   %36 = bitcast <16 x i1> %35 to i16
   %37 = getelementptr inbounds i8, ptr %8, i64 %31
   %.0.copyload.i320.i.i.i = load <16 x i8>, ptr %37, align 1, !noalias !2693
-  %38 = icmp eq <16 x i8> %.0.copyload.i320.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %38 = icmp eq <16 x i8> %.0.copyload.i320.i.i.i, splat (i8 -1)
   %39 = bitcast <16 x i1> %38 to i16
   %40 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %36, i1 false)
   %41 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %39, i1 false)
@@ -17660,11 +17660,11 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17h4
   %12 = and i64 %9, %11
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %.0.copyload.i19.i = load <16 x i8>, ptr %13, align 1, !noalias !2943
-  %14 = icmp eq <16 x i8> %.0.copyload.i19.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %14 = icmp eq <16 x i8> %.0.copyload.i19.i, splat (i8 -1)
   %15 = bitcast <16 x i1> %14 to i16
   %16 = getelementptr inbounds i8, ptr %3, i64 %8
   %.0.copyload.i320.i = load <16 x i8>, ptr %16, align 1, !noalias !2946
-  %17 = icmp eq <16 x i8> %.0.copyload.i320.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %17 = icmp eq <16 x i8> %.0.copyload.i320.i, splat (i8 -1)
   %18 = bitcast <16 x i1> %17 to i16
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
@@ -17706,11 +17706,11 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$13erase_no_drop17he
   %12 = and i64 %9, %11
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   %.0.copyload.i19.i = load <16 x i8>, ptr %13, align 1, !noalias !2955
-  %14 = icmp eq <16 x i8> %.0.copyload.i19.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %14 = icmp eq <16 x i8> %.0.copyload.i19.i, splat (i8 -1)
   %15 = bitcast <16 x i1> %14 to i16
   %16 = getelementptr inbounds i8, ptr %3, i64 %8
   %.0.copyload.i320.i = load <16 x i8>, ptr %16, align 1, !noalias !2958
-  %17 = icmp eq <16 x i8> %.0.copyload.i320.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %17 = icmp eq <16 x i8> %.0.copyload.i320.i, splat (i8 -1)
   %18 = bitcast <16 x i1> %17 to i16
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
@@ -19052,9 +19052,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !3156
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !3159
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -19455,9 +19455,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !3205
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !3208
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -19858,9 +19858,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !3254
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !3257
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -21325,9 +21325,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %125 = add i64 %.sroa.01.06.i, 16
   %126 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %127 = load <16 x i8>, ptr %126, align 16, !noalias !3541
-  %.lobit.i.i = ashr <16 x i8> %127, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %127, splat (i8 7)
   %128 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %129 = or <2 x i64> %128, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %129 = or <2 x i64> %128, splat (i64 -9187201950435737472)
   store <2 x i64> %129, ptr %126, align 16, !noalias !3544
   %.not.not.i = icmp eq i64 %124, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %123
@@ -22493,9 +22493,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %123 = add i64 %.sroa.01.06.i, 16
   %124 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %125 = load <16 x i8>, ptr %124, align 16, !noalias !3778
-  %.lobit.i.i = ashr <16 x i8> %125, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %125, splat (i8 7)
   %126 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %127 = or <2 x i64> %126, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %127 = or <2 x i64> %126, splat (i64 -9187201950435737472)
   store <2 x i64> %127, ptr %124, align 16, !noalias !3781
   %.not.not.i = icmp eq i64 %122, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %121
@@ -23330,9 +23330,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !3932
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !3935
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -23744,9 +23744,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %125 = add i64 %.sroa.01.06.i, 16
   %126 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %127 = load <16 x i8>, ptr %126, align 16, !noalias !3981
-  %.lobit.i.i = ashr <16 x i8> %127, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %127, splat (i8 7)
   %128 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %129 = or <2 x i64> %128, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %129 = or <2 x i64> %128, splat (i64 -9187201950435737472)
   store <2 x i64> %129, ptr %126, align 16, !noalias !3984
   %.not.not.i = icmp eq i64 %124, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %123
@@ -26180,9 +26180,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !4484
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !4487
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -26582,9 +26582,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %113 = add i64 %.sroa.01.06.i, 16
   %114 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %115 = load <16 x i8>, ptr %114, align 16, !noalias !4533
-  %.lobit.i.i = ashr <16 x i8> %115, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %115, splat (i8 7)
   %116 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %117 = or <2 x i64> %116, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %117 = or <2 x i64> %116, splat (i64 -9187201950435737472)
   store <2 x i64> %117, ptr %114, align 16, !noalias !4536
   %.not.not.i = icmp eq i64 %112, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %111
@@ -26984,9 +26984,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !4582
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !4585
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -27386,9 +27386,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %113 = add i64 %.sroa.01.06.i, 16
   %114 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %115 = load <16 x i8>, ptr %114, align 16, !noalias !4631
-  %.lobit.i.i = ashr <16 x i8> %115, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %115, splat (i8 7)
   %116 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %117 = or <2 x i64> %116, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %117 = or <2 x i64> %116, splat (i64 -9187201950435737472)
   store <2 x i64> %117, ptr %114, align 16, !noalias !4634
   %.not.not.i = icmp eq i64 %112, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %111
@@ -27787,9 +27787,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %113 = add i64 %.sroa.01.06.i, 16
   %114 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %115 = load <16 x i8>, ptr %114, align 16, !noalias !4680
-  %.lobit.i.i = ashr <16 x i8> %115, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %115, splat (i8 7)
   %116 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %117 = or <2 x i64> %116, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %117 = or <2 x i64> %116, splat (i64 -9187201950435737472)
   store <2 x i64> %117, ptr %114, align 16, !noalias !4683
   %.not.not.i = icmp eq i64 %112, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %111
@@ -28518,9 +28518,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %113 = add i64 %.sroa.01.06.i, 16
   %114 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %115 = load <16 x i8>, ptr %114, align 16, !noalias !4805
-  %.lobit.i.i = ashr <16 x i8> %115, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %115, splat (i8 7)
   %116 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %117 = or <2 x i64> %116, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %117 = or <2 x i64> %116, splat (i64 -9187201950435737472)
   store <2 x i64> %117, ptr %114, align 16, !noalias !4808
   %.not.not.i = icmp eq i64 %112, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %111
@@ -29346,9 +29346,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %112 = add i64 %.sroa.01.06.i, 16
   %113 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %114 = load <16 x i8>, ptr %113, align 16, !noalias !4972
-  %.lobit.i.i = ashr <16 x i8> %114, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %114, splat (i8 7)
   %115 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %116 = or <2 x i64> %115, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %116 = or <2 x i64> %115, splat (i64 -9187201950435737472)
   store <2 x i64> %116, ptr %113, align 16, !noalias !4975
   %.not.not.i = icmp eq i64 %111, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %110
@@ -31180,9 +31180,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %120 = add i64 %.sroa.01.06.i, 16
   %121 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %122 = load <16 x i8>, ptr %121, align 16, !noalias !5361
-  %.lobit.i.i = ashr <16 x i8> %122, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %122, splat (i8 7)
   %123 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %124 = or <2 x i64> %123, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %124 = or <2 x i64> %123, splat (i64 -9187201950435737472)
   store <2 x i64> %124, ptr %121, align 16, !noalias !5364
   %.not.not.i = icmp eq i64 %119, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %118
@@ -31918,9 +31918,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %113 = add i64 %.sroa.01.06.i, 16
   %114 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %115 = load <16 x i8>, ptr %114, align 16, !noalias !5486
-  %.lobit.i.i = ashr <16 x i8> %115, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %115, splat (i8 7)
   %116 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %117 = or <2 x i64> %116, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %117 = or <2 x i64> %116, splat (i64 -9187201950435737472)
   store <2 x i64> %117, ptr %114, align 16, !noalias !5489
   %.not.not.i = icmp eq i64 %112, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %111
@@ -32320,9 +32320,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %114 = add i64 %.sroa.01.06.i, 16
   %115 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %116 = load <16 x i8>, ptr %115, align 16, !noalias !5535
-  %.lobit.i.i = ashr <16 x i8> %116, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %116, splat (i8 7)
   %117 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %118 = or <2 x i64> %117, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %118 = or <2 x i64> %117, splat (i64 -9187201950435737472)
   store <2 x i64> %118, ptr %115, align 16, !noalias !5538
   %.not.not.i = icmp eq i64 %113, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %112
@@ -34642,9 +34642,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %112 = add i64 %.sroa.01.06.i, 16
   %113 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %114 = load <16 x i8>, ptr %113, align 16, !noalias !6062
-  %.lobit.i.i = ashr <16 x i8> %114, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %114, splat (i8 7)
   %115 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %116 = or <2 x i64> %115, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %116 = or <2 x i64> %115, splat (i64 -9187201950435737472)
   store <2 x i64> %116, ptr %113, align 16, !noalias !6065
   %.not.not.i = icmp eq i64 %111, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %110
@@ -35053,9 +35053,9 @@ _ZN4core3ptr19swap_nonoverlapping17he15c2fe7381eeb4eE.exit: ; preds = %.preheade
   %124 = add i64 %.sroa.01.06.i, 16
   %125 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %126 = load <16 x i8>, ptr %125, align 16, !noalias !6111
-  %.lobit.i.i = ashr <16 x i8> %126, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %126, splat (i8 7)
   %127 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %128 = or <2 x i64> %127, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %128 = or <2 x i64> %127, splat (i64 -9187201950435737472)
   store <2 x i64> %128, ptr %125, align 16, !noalias !6114
   %.not.not.i = icmp eq i64 %123, 0
   br i1 %.not.not.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h819eed4d2904c9fcE.exit", label %122
@@ -37367,7 +37367,7 @@ define hidden noundef align 4 dereferenceable_or_null(20) ptr @"_ZN9hashbrown3ra
   br i1 %.not.i4.not.i, label %14, label %17
 
 14:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit.i"
-  %15 = icmp eq <16 x i8> %.0.copyload.i25.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %15 = icmp eq <16 x i8> %.0.copyload.i25.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i, label %26, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hd5e0daf0a3afc4acE.llvm.1710812290736639100.exit"
@@ -37433,7 +37433,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h85d8
   br i1 %.not.i4.not, label %16, label %19
 
 16:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit"
-  %17 = icmp eq <16 x i8> %.0.copyload.i25, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %17 = icmp eq <16 x i8> %.0.copyload.i25, splat (i8 -1)
   %18 = bitcast <16 x i1> %17 to i16
   %.not.i = icmp eq i16 %18, 0
   br i1 %.not.i, label %32, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.1710812290736639100.exit.thread
@@ -37496,7 +37496,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha127
   br i1 %.not.i4.not, label %14, label %17
 
 14:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit"
-  %15 = icmp eq <16 x i8> %.0.copyload.i25, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %15 = icmp eq <16 x i8> %.0.copyload.i25, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i = icmp eq i16 %16, 0
   br i1 %.not.i, label %26, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.1710812290736639100.exit.thread
@@ -37558,7 +37558,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hd5e0
   br i1 %.not.i4.not, label %14, label %17
 
 14:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit"
-  %15 = icmp eq <16 x i8> %.0.copyload.i25, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %15 = icmp eq <16 x i8> %.0.copyload.i25, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i = icmp eq i16 %16, 0
   br i1 %.not.i, label %26, label %_ZN9hashbrown3raw13RawTableInner10find_inner17heaf636810d0ea7b2E.llvm.1710812290736639100.exit.thread
@@ -38252,11 +38252,11 @@ define hidden { i32, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h1
   %11 = and i64 %8, %10
   %12 = getelementptr inbounds i8, ptr %3, i64 %11
   %.0.copyload.i19.i.i = load <16 x i8>, ptr %12, align 1, !noalias !6973
-  %13 = icmp eq <16 x i8> %.0.copyload.i19.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %13 = icmp eq <16 x i8> %.0.copyload.i19.i.i, splat (i8 -1)
   %14 = bitcast <16 x i1> %13 to i16
   %15 = getelementptr inbounds i8, ptr %3, i64 %7
   %.0.copyload.i320.i.i = load <16 x i8>, ptr %15, align 1, !noalias !6976
-  %16 = icmp eq <16 x i8> %.0.copyload.i320.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %16 = icmp eq <16 x i8> %.0.copyload.i320.i.i, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %18 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %14, i1 false)
   %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %17, i1 false)
@@ -38302,11 +38302,11 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17ha71f1e70d
   %12 = and i64 %9, %11
   %13 = getelementptr inbounds i8, ptr %4, i64 %12
   %.0.copyload.i19.i.i = load <16 x i8>, ptr %13, align 1, !noalias !6989
-  %14 = icmp eq <16 x i8> %.0.copyload.i19.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %14 = icmp eq <16 x i8> %.0.copyload.i19.i.i, splat (i8 -1)
   %15 = bitcast <16 x i1> %14 to i16
   %16 = getelementptr inbounds i8, ptr %4, i64 %8
   %.0.copyload.i320.i.i = load <16 x i8>, ptr %16, align 1, !noalias !6992
-  %17 = icmp eq <16 x i8> %.0.copyload.i320.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %17 = icmp eq <16 x i8> %.0.copyload.i320.i.i, splat (i8 -1)
   %18 = bitcast <16 x i1> %17 to i16
   %19 = tail call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %15, i1 false)
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %18, i1 false)
@@ -39360,9 +39360,9 @@ _ZN4core3ptr19swap_nonoverlapping17hb1a354744e0652ccE.exit: ; preds = %.preheade
   %139 = add i64 %.sroa.01.06.i.i, 16
   %140 = getelementptr inbounds i8, ptr %.val16.i, i64 %.sroa.01.06.i.i
   %141 = load <16 x i8>, ptr %140, align 16, !noalias !7041
-  %.lobit.i.i.i = ashr <16 x i8> %141, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %141, splat (i8 7)
   %142 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %143 = or <2 x i64> %142, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %143 = or <2 x i64> %142, splat (i64 -9187201950435737472)
   store <2 x i64> %143, ptr %140, align 16, !noalias !7044
   %.not.not.i.i = icmp eq i64 %138, 0
   br i1 %.not.not.i.i, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17hebf38cef116832e2E.exit.i", label %137
@@ -39658,7 +39658,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find1
   br label %.lr.ph
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit._crit_edge": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit.backedge", %16
-  %22 = icmp eq <16 x i8> %.0.copyload.i23, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %22 = icmp eq <16 x i8> %.0.copyload.i23, splat (i8 -1)
   %23 = bitcast <16 x i1> %22 to i16
   %24 = icmp eq i16 %23, 0
   br i1 %24, label %48, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$10find_inner17h41443a43bbf35257E.llvm.1710812290736639100.exit.thread"
@@ -39819,7 +39819,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$10fi
   br i1 %.not.i.not.not.not.not.not, label %19, label %15
 
 15:                                               ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit"
-  %16 = icmp eq <16 x i8> %.0.copyload.i27, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %16 = icmp eq <16 x i8> %.0.copyload.i27, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %18 = icmp eq i16 %17, 0
   br i1 %18, label %28, label %.loopexit
@@ -43787,7 +43787,7 @@ define hidden { i32, i32 } @"_ZN17cranelift_codegen7ctxhash23CtxHashMap$LT$K$C$V
   br label %.lr.ph.i
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit._crit_edge.i": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit.backedge.i", %19
-  %25 = icmp eq <16 x i8> %.0.copyload.i23.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %25 = icmp eq <16 x i8> %.0.copyload.i23.i, splat (i8 -1)
   %26 = bitcast <16 x i1> %25 to i16
   %27 = icmp eq i16 %26, 0
   br i1 %27, label %48, label %51
@@ -44028,7 +44028,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN17cranelift_co
   br label %.lr.ph.i
 
 "_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit._crit_edge.i": ; preds = %"_ZN102_$LT$hashbrown..raw..inner..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcfa4dfb957261695E.llvm.1710812290736639100.exit.backedge.i", %18
-  %24 = icmp eq <16 x i8> %.0.copyload.i23.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %24 = icmp eq <16 x i8> %.0.copyload.i23.i, splat (i8 -1)
   %25 = bitcast <16 x i1> %24 to i16
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %46, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$4find17hd27b5539fa86135bE.llvm.1710812290736639100.exit"
@@ -44647,7 +44647,7 @@ define hidden noundef align 4 dereferenceable_or_null(8) ptr @"_ZN17cranelift_co
   br i1 %.not.i4.not.i.i.i, label %19, label %22
 
 19:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.llvm.1710812290736639100.exit.i.i.i"
-  %20 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %20 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i.i, label %31, label %"_ZN4core6option15Option$LT$T$GT$6filter17ha4f9851c63759274E.llvm.1710812290736639100.exit"

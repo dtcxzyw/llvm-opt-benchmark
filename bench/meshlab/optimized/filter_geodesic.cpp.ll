@@ -27529,9 +27529,9 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %68, %71
   %.sroa.0224.2 = phi <2 x i64> [ %.sroa.0224.1253, %.lr.ph ], [ %.sroa.0224.8.vec.insert, %99 ], [ %.sroa.0224.8.vec.insert232, %74 ], [ %.sroa.0224.8.vec.insert234, %43 ]
   %.sroa.8.2 = phi double [ %.sroa.8.1254, %.lr.ph ], [ %105, %99 ], [ %80, %74 ], [ %49, %43 ]
   %.sroa.0.2 = phi <2 x i64> [ %.sroa.0.1255, %.lr.ph ], [ %.sroa.0.8.vec.insert, %99 ], [ %.sroa.0.8.vec.insert220, %74 ], [ %.sroa.0.8.vec.insert222, %43 ]
-  %125 = xor <2 x i64> %.sroa.0.2, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %125 = xor <2 x i64> %.sroa.0.2, splat (i64 -9223372036854775808)
   %126 = fneg double %.sroa.8.2
-  %127 = xor <2 x i64> %.sroa.0224.2, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %127 = xor <2 x i64> %.sroa.0224.2, splat (i64 -9223372036854775808)
   %128 = fneg double %.sroa.8235.2
   %129 = bitcast <2 x i64> %125 to <2 x double>
   %130 = bitcast <2 x i64> %127 to <2 x double>
@@ -27564,7 +27564,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %68, %71
   %153 = call noundef <2 x double> @llvm.sqrt.v2f64(<2 x double> %152)
   %154 = extractelement <2 x double> %153, i64 0
   %155 = fdiv double %135, %154
-  %156 = xor <2 x i64> %.sroa.0237.2, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %156 = xor <2 x i64> %.sroa.0237.2, splat (i64 -9223372036854775808)
   %157 = fneg double %.sroa.8248.2
   %158 = bitcast <2 x i64> %156 to <2 x double>
   %159 = bitcast <2 x i64> %.sroa.0224.2 to <2 x double>
@@ -28050,7 +28050,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %190 = load <2 x double>, ptr %189, align 16
   %191 = getelementptr inbounds double, ptr %178, i64 %.011.i.i.i.i.i.i.i19
   %192 = load <2 x double>, ptr %191, align 16
-  %193 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %192
+  %193 = fdiv <2 x double> splat (double 1.000000e+00), %192
   %194 = fmul <2 x double> %190, %193
   store <2 x double> %194, ptr %188, align 16
   %195 = add nuw nsw i64 %.011.i.i.i.i.i.i.i19, 2
@@ -28562,7 +28562,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.
   %25 = getelementptr inbounds double, ptr %20, i64 %.011.i.i.i.i.i
   %26 = getelementptr inbounds double, ptr %9, i64 %.011.i.i.i.i.i
   %27 = load <2 x i64>, ptr %26, align 16
-  %28 = xor <2 x i64> %27, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %28 = xor <2 x i64> %27, splat (i64 -9223372036854775808)
   store <2 x i64> %28, ptr %25, align 16
   %29 = add nuw nsw i64 %.011.i.i.i.i.i, 2
   %30 = icmp slt i64 %29, %23

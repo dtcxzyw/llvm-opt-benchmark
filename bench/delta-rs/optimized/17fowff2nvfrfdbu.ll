@@ -9857,9 +9857,9 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17
   %14 = add i64 %.sroa.01.06.i, 16
   %15 = getelementptr inbounds i8, ptr %.val18, i64 %.sroa.01.06.i
   %16 = load <16 x i8>, ptr %15, align 16, !noalias !1822
-  %.lobit.i.i = ashr <16 x i8> %16, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %16, splat (i8 7)
   %17 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %18 = or <2 x i64> %17, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %18 = or <2 x i64> %17, splat (i64 -9187201950435737472)
   store <2 x i64> %18, ptr %15, align 16, !noalias !1825
   %.not.not.i = icmp eq i64 %13, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit, label %12
@@ -21194,9 +21194,9 @@ _ZN9hashbrown3raw5inner13RawTableInner12resize_inner17h4c498b976d6ddadcE.exit.i:
   %208 = add i64 %.sroa.01.06.i, 16
   %209 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %210 = load <16 x i8>, ptr %209, align 16, !noalias !3760
-  %.lobit.i.i = ashr <16 x i8> %210, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %210, splat (i8 7)
   %211 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %212 = or <2 x i64> %211, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %212 = or <2 x i64> %211, splat (i64 -9187201950435737472)
   store <2 x i64> %212, ptr %209, align 16, !noalias !3763
   %.not.not.i = icmp eq i64 %207, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17h01207ac9850591faE.exit, label %206
@@ -21962,9 +21962,9 @@ _ZN9hashbrown3raw5inner13RawTableInner12resize_inner17h4c498b976d6ddadcE.exit.i:
   %208 = add i64 %.sroa.01.06.i, 16
   %209 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %210 = load <16 x i8>, ptr %209, align 16, !noalias !3853
-  %.lobit.i.i = ashr <16 x i8> %210, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %210, splat (i8 7)
   %211 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %212 = or <2 x i64> %211, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %212 = or <2 x i64> %211, splat (i64 -9187201950435737472)
   store <2 x i64> %212, ptr %209, align 16, !noalias !3856
   %.not.not.i = icmp eq i64 %207, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17h01207ac9850591faE.exit, label %206

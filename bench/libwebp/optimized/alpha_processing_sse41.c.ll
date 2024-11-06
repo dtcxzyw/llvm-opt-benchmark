@@ -34,7 +34,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
   %.0153173.us = phi ptr [ %16, %._crit_edge.us ], [ %4, %.preheader161.us.preheader ]
   %.0154172.us = phi i32 [ %.1.lcssa.us, %._crit_edge.us ], [ 255, %.preheader161.us.preheader ]
   %.0157171.us = phi i32 [ %17, %._crit_edge.us ], [ 0, %.preheader161.us.preheader ]
-  %.0158170.us = phi <2 x i64> [ %42, %._crit_edge.us ], [ <i64 -1, i64 -1>, %.preheader161.us.preheader ]
+  %.0158170.us = phi <2 x i64> [ %42, %._crit_edge.us ], [ splat (i64 -1), %.preheader161.us.preheader ]
   br label %25
 
 ._crit_edge.us:                                   ; preds = %.lr.ph168.us, %..preheader_crit_edge.us
@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @ExtractAlpha_SSE41(ptr noalias nocapture no
 
 ._crit_edge175.loopexit:                          ; preds = %._crit_edge.us
   %58 = bitcast <2 x i64> %42 to <16 x i8>
-  %59 = icmp eq <16 x i8> %58, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %59 = icmp eq <16 x i8> %58, splat (i8 -1)
   %60 = bitcast <16 x i1> %59 to i16
   %61 = zext i16 %60 to i32
   br label %._crit_edge175

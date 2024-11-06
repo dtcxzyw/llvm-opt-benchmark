@@ -276,7 +276,7 @@ _ZN3ozz9animation7offline15IterateJointsDFIRNS1_12_GLOBAL__N_111JointListerEEET_
 123:                                              ; preds = %82, %85
   %.sink317 = phi <4 x float> [ %97, %85 ], [ zeroinitializer, %82 ]
   %.sink316 = phi <4 x float> [ %112, %85 ], [ <float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00>, %82 ]
-  %.sink = phi <4 x float> [ %122, %85 ], [ <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %82 ]
+  %.sink = phi <4 x float> [ %122, %85 ], [ splat (float 1.000000e+00), %82 ]
   %124 = getelementptr inbounds [4 x <4 x float>], ptr %5, i64 0, i64 %indvars.iv309
   store <4 x float> %.sink317, ptr %124, align 16
   %125 = getelementptr inbounds [4 x <4 x float>], ptr %7, i64 0, i64 %indvars.iv309

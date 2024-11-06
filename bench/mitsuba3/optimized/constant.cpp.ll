@@ -513,7 +513,7 @@ define weak_odr void @_ZN7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS_
   %15 = load <4 x float>, ptr %14, align 16, !noalias !7
   %16 = load <4 x float>, ptr %13, align 16, !noalias !7
   %17 = fadd contract <4 x float> %15, %16
-  %18 = fmul contract <4 x float> %17, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %18 = fmul contract <4 x float> %17, splat (float 5.000000e-01)
   %19 = fsub contract <4 x float> %18, %15
   %20 = fmul contract <4 x float> %19, %19
   %shift = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -645,8 +645,8 @@ define weak_odr void @_ZNK7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS
   %33 = insertelement <4 x float> poison, float %3, i64 0
   %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> zeroinitializer
   %35 = fadd contract <4 x float> %34, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %36 = fcmp contract ogt <4 x float> %35, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %37 = fadd contract <4 x float> %35, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %36 = fcmp contract ogt <4 x float> %35, splat (float 1.000000e+00)
+  %37 = fadd contract <4 x float> %35, splat (float -1.000000e+00)
   %38 = select contract <4 x i1> %36, <4 x float> %37, <4 x float> %35
   store <4 x float> %38, ptr %15, align 16, !noalias !17
   %39 = load ptr, ptr %32, align 8, !noalias !17
@@ -959,8 +959,8 @@ define weak_odr void @_ZNK7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS
   %12 = insertelement <4 x float> poison, float %3, i64 0
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
   %14 = fadd contract <4 x float> %13, <float 0.000000e+00, float 2.500000e-01, float 5.000000e-01, float 7.500000e-01>
-  %15 = fcmp contract ogt <4 x float> %14, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %16 = fadd contract <4 x float> %14, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %15 = fcmp contract ogt <4 x float> %14, splat (float 1.000000e+00)
+  %16 = fadd contract <4 x float> %14, splat (float -1.000000e+00)
   %17 = select contract <4 x i1> %15, <4 x float> %16, <4 x float> %14
   store <4 x float> %17, ptr %9, align 16
   %18 = load ptr, ptr %11, align 8
@@ -1100,11 +1100,11 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(240) %.sroa.0.i.16.i.16..sroa_idx, i8 0, i64 240, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(256) %13, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %9)
-  %51 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> <float 0x3FB45F3060000000, float 0x3FB45F3060000000, float 0x3FB45F3060000000, float 0x3FB45F3060000000>, <4 x float> zeroinitializer, i8 -1)
+  %51 = call contract noundef <4 x float> @llvm.x86.avx512.rcp14.ps.128(<4 x float> splat (float 0x3FB45F3060000000), <4 x float> zeroinitializer, i8 -1)
   %52 = fadd contract <4 x float> %51, %51
-  %53 = fmul contract <4 x float> %51, <float 0xBFB45F3060000000, float 0xBFB45F3060000000, float 0xBFB45F3060000000, float 0xBFB45F3060000000>
+  %53 = fmul contract <4 x float> %51, splat (float 0xBFB45F3060000000)
   %54 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %53, <4 x float> %51, <4 x float> %52)
-  %55 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %54, <4 x float> <float 0x3FB45F3060000000, float 0x3FB45F3060000000, float 0x3FB45F3060000000, float 0x3FB45F3060000000>, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %55 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %54, <4 x float> splat (float 0x3FB45F3060000000), <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7), !noalias !40
   br label %56
 
@@ -1455,9 +1455,9 @@ define weak_odr noundef ptr @_ZNK7mitsuba25ConstantBackgroundEmitterIfN5drjit6Ma
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba25ConstantBackgroundEmitterIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(272) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 

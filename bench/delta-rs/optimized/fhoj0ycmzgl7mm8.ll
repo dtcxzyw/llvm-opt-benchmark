@@ -4490,9 +4490,9 @@ _ZN4core3ptr19swap_nonoverlapping17hbb78b80775cff7cdE.exit: ; preds = %93
   %154 = add i64 %.sroa.01.06.i.i, 16
   %155 = getelementptr inbounds i8, ptr %.val15.i, i64 %.sroa.01.06.i.i
   %156 = load <16 x i8>, ptr %155, align 16, !noalias !852
-  %.lobit.i.i.i = ashr <16 x i8> %156, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %156, splat (i8 7)
   %157 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %158 = or <2 x i64> %157, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %158 = or <2 x i64> %157, splat (i64 -9187201950435737472)
   store <2 x i64> %158, ptr %155, align 16, !noalias !855
   %.not.not.i.i = icmp eq i64 %153, 0
   br i1 %.not.not.i.i, label %_ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17h2d7ad79becd9a34aE.exit.i, label %152

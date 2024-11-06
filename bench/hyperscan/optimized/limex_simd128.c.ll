@@ -1829,7 +1829,7 @@ with_accel.i.i:                                   ; preds = %if.end87.i.i, %if.e
   br i1 %cmp26.i.not1007.i, label %for.end.i.i, label %for.body.i.lr.ph.i
 
 for.body.i.lr.ph.i:                               ; preds = %with_accel.i.i
-  %not.i.i136 = xor <2 x i64> %40, <i64 -1, i64 -1>
+  %not.i.i136 = xor <2 x i64> %40, splat (i64 -1)
   br label %for.body.i.i137
 
 for.body.i.i137:                                  ; preds = %if.end143.i.i, %for.body.i.lr.ph.i
@@ -1855,7 +1855,7 @@ if.then33.i.i:                                    ; preds = %land.lhs.true.i.i
   store <2 x i64> %s.i.41008.i, ptr %s.addr.i.i, align 16
   %call.i255.i = call i64 @doAccel128(ptr noundef nonnull %s.addr.i.i, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr.i.i134, ptr noundef nonnull %add.ptr6.i.i, ptr noundef %add.ptr40, i64 noundef %i.i.41009.i, i64 noundef %sub) #10
   %cmp37.i.not.i = icmp eq i64 %call.i255.i, %i.i.41009.i
-  %and.i2101.i = select i1 %cmp37.i.not.i, <2 x i64> <i64 -1, i64 -1>, <2 x i64> %39
+  %and.i2101.i = select i1 %cmp37.i.not.i, <2 x i64> splat (i64 -1), <2 x i64> %39
   %spec.select833.i = and <2 x i64> %and.i2101.i, %s.i.41008.i
   %cmp58.i.i = icmp eq i64 %call.i255.i, %sub
   br i1 %cmp58.i.i, label %for.end.i.i, label %if.then33.i.i.without_accel.i.i_crit_edge
@@ -2713,7 +2713,7 @@ if.end49.i:                                       ; preds = %if.else.i, %repeatL
   br i1 %cmp53.i.not, label %for.inc.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  %not.i.i = xor <2 x i64> %336, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %336, splat (i64 -1)
   %and.i.i = and <2 x i64> %ctx.sroa.0.3275, %not.i.i
   br label %for.inc.i
 
@@ -3250,7 +3250,7 @@ if.end49.i:                                       ; preds = %if.else.i, %repeatL
   br i1 %cmp53.i.not, label %for.inc.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  %not.i.i = xor <2 x i64> %73, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %73, splat (i64 -1)
   %and.i.i = and <2 x i64> %69, %not.i.i
   br label %for.inc.i
 
@@ -4324,7 +4324,7 @@ with_accel.i:                                     ; preds = %if.end87.i, %if.end
   br i1 %cmp26.i.not913, label %for.end.i, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %with_accel.i
-  %not.i = xor <2 x i64> %1, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %1, splat (i64 -1)
   %shift.i = getelementptr inbounds i8, ptr %limex, i64 528
   %shiftAmount.i = getelementptr inbounds i8, ptr %limex, i64 660
   %shiftCount.i = getelementptr inbounds i8, ptr %limex, i64 656
@@ -4371,7 +4371,7 @@ if.then33.i:                                      ; preds = %land.lhs.true.i
   store <2 x i64> %s.i.4914, ptr %s.addr.i, align 16
   %call.i255 = call i64 @doAccel128(ptr noundef nonnull %s.addr.i, ptr noundef nonnull %limex, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr6.i, ptr noundef %input, i64 noundef %i.i.4915, i64 noundef %length) #10
   %cmp37.i.not = icmp eq i64 %call.i255, %i.i.4915
-  %and.i2101 = select i1 %cmp37.i.not, <2 x i64> <i64 -1, i64 -1>, <2 x i64> %0
+  %and.i2101 = select i1 %cmp37.i.not, <2 x i64> splat (i64 -1), <2 x i64> %0
   %spec.select828 = and <2 x i64> %and.i2101, %s.i.4914
   %tobool42.i.not = icmp ne i64 %i.i.4915, 0
   %add44.i = add i64 %min_accel_offset.i.1, 4
@@ -5161,7 +5161,7 @@ if.end49.i:                                       ; preds = %if.else.i, %repeatL
   br i1 %cmp53.i.not, label %for.inc.i, label %if.then55.i
 
 if.then55.i:                                      ; preds = %if.end49.i
-  %not.i.i388 = xor <2 x i64> %34, <i64 -1, i64 -1>
+  %not.i.i388 = xor <2 x i64> %34, splat (i64 -1)
   %and.i.i389 = and <2 x i64> %30, %not.i.i388
   br label %for.inc.i
 
@@ -5294,7 +5294,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i157, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i331, %sw.bb1.i, %if.end6.i, %sw.bb3.i312, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %66, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %66, splat (i64 -1)
   %and.i.i = and <2 x i64> %accepts.i.1193, %not.i.i
   br label %for.inc.i157
 
@@ -6386,7 +6386,7 @@ with_accel.i:                                     ; preds = %if.end87.i, %if.end
   br i1 %cmp26.i.not891, label %for.end.i, label %for.body.i.lr.ph
 
 for.body.i.lr.ph:                                 ; preds = %with_accel.i
-  %not.i = xor <2 x i64> %1, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %1, splat (i64 -1)
   %shift.i = getelementptr inbounds i8, ptr %limex, i64 528
   %shiftAmount.i = getelementptr inbounds i8, ptr %limex, i64 660
   %shiftCount.i = getelementptr inbounds i8, ptr %limex, i64 656
@@ -6432,7 +6432,7 @@ if.then33.i:                                      ; preds = %land.lhs.true.i
   store <2 x i64> %s.i.4892, ptr %s.addr.i, align 16
   %call.i255 = call i64 @doAccel128(ptr noundef nonnull %s.addr.i, ptr noundef nonnull %limex, ptr noundef nonnull %add.ptr.i, ptr noundef nonnull %add.ptr6.i, ptr noundef %input, i64 noundef %i.i.4893, i64 noundef %length) #10
   %cmp37.i.not = icmp eq i64 %call.i255, %i.i.4893
-  %and.i2101 = select i1 %cmp37.i.not, <2 x i64> <i64 -1, i64 -1>, <2 x i64> %0
+  %and.i2101 = select i1 %cmp37.i.not, <2 x i64> splat (i64 -1), <2 x i64> %0
   %spec.select828 = and <2 x i64> %and.i2101, %s.i.4892
   %tobool42.i.not = icmp ne i64 %i.i.4893, 0
   %add44.i = add i64 %min_accel_offset.i.1, 4
@@ -7003,7 +7003,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i53, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %8, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %8, splat (i64 -1)
   %and.i.i = and <2 x i64> %foundAccepts.i.174, %not.i.i
   br label %for.inc.i
 
@@ -7373,7 +7373,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end6.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %11, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %11, splat (i64 -1)
   %and.i.i = and <2 x i64> %foundAccepts.i.185, %not.i.i
   br label %for.inc.i
 
@@ -8097,7 +8097,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i80, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %16, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %16, splat (i64 -1)
   %and.i.i = and <2 x i64> %accepts.i.180, %not.i.i
   br label %for.inc.i
 
@@ -8331,7 +8331,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i67, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %16, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %16, splat (i64 -1)
   %and.i.i = and <2 x i64> %accstate.i.162, %not.i.i
   br label %for.inc.i
 
@@ -8481,7 +8481,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i54, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %10, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %10, splat (i64 -1)
   %and.i.i = and <2 x i64> %state.161, %not.i.i
   br label %for.inc.i
 

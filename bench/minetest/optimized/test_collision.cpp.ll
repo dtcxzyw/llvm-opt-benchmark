@@ -1641,7 +1641,7 @@ if.end675:                                        ; preds = %if.end655
   store float %conv717, ptr %Z.i3.i1669, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime719) #22
   store float 1.000000e+00, ptr %dtime719, align 4, !tbaa !27
-  %call721 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s680, ptr noundef nonnull align 4 dereferenceable(24) %m693, <2 x float> <float 0xBFD5555560000000, float 0xBFD5555560000000>, float 0xBFD5555560000000, ptr noundef nonnull %dtime719)
+  %call721 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s680, ptr noundef nonnull align 4 dereferenceable(24) %m693, <2 x float> splat (float 0xBFD5555560000000), float 0xBFD5555560000000, ptr noundef nonnull %dtime719)
   %cmp722 = icmp eq i32 %call721, 0
   br i1 %cmp722, label %if.end739, label %if.then723
 
@@ -1770,7 +1770,7 @@ if.end759:                                        ; preds = %if.end739
   store float %conv717, ptr %Z.i3.i1693, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime803) #22
   store float 1.000000e+00, ptr %dtime803, align 4, !tbaa !27
-  %call805 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s764, ptr noundef nonnull align 4 dereferenceable(24) %m777, <2 x float> <float 0xBFD5555560000000, float 0xBFD5555560000000>, float 0xBFD5555560000000, ptr noundef nonnull %dtime803)
+  %call805 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s764, ptr noundef nonnull align 4 dereferenceable(24) %m777, <2 x float> splat (float 0xBFD5555560000000), float 0xBFD5555560000000, ptr noundef nonnull %dtime803)
   %cmp806 = icmp eq i32 %call805, 1
   br i1 %cmp806, label %if.end823, label %if.then807
 
@@ -1901,7 +1901,7 @@ if.end843:                                        ; preds = %if.end823
   store float %conv717, ptr %Z.i3.i1717, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime887) #22
   store float 1.000000e+00, ptr %dtime887, align 4, !tbaa !27
-  %call889 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s848, ptr noundef nonnull align 4 dereferenceable(24) %m861, <2 x float> <float 0xBFD5555560000000, float 0xBFD5555560000000>, float 0xBFD5555560000000, ptr noundef nonnull %dtime887)
+  %call889 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s848, ptr noundef nonnull align 4 dereferenceable(24) %m861, <2 x float> splat (float 0xBFD5555560000000), float 0xBFD5555560000000, ptr noundef nonnull %dtime887)
   %cmp890 = icmp eq i32 %call889, 2
   br i1 %cmp890, label %if.end907, label %if.then891
 
@@ -2034,7 +2034,7 @@ if.end927:                                        ; preds = %if.end907
   store float %conv969, ptr %Z.i3.i1741, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime971) #22
   store float 1.700000e+01, ptr %dtime971, align 4, !tbaa !27
-  %call973 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s932, ptr noundef nonnull align 4 dereferenceable(24) %m945, <2 x float> <float 0x3FC24924A0000000, float 0x3FC24924A0000000>, float 0x3FC24924A0000000, ptr noundef nonnull %dtime971)
+  %call973 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s932, ptr noundef nonnull align 4 dereferenceable(24) %m945, <2 x float> splat (float 0x3FC24924A0000000), float 0x3FC24924A0000000, ptr noundef nonnull %dtime971)
   %cmp974 = icmp eq i32 %call973, 0
   br i1 %cmp974, label %if.end991, label %if.then975
 
@@ -2163,7 +2163,7 @@ if.end1011:                                       ; preds = %if.end991
   store float %conv969, ptr %Z.i3.i1765, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime1055) #22
   store float 1.700000e+01, ptr %dtime1055, align 4, !tbaa !27
-  %call1057 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s1016, ptr noundef nonnull align 4 dereferenceable(24) %m1029, <2 x float> <float 0x3FC24924A0000000, float 0x3FC24924A0000000>, float 0x3FC24924A0000000, ptr noundef nonnull %dtime1055)
+  %call1057 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s1016, ptr noundef nonnull align 4 dereferenceable(24) %m1029, <2 x float> splat (float 0x3FC24924A0000000), float 0x3FC24924A0000000, ptr noundef nonnull %dtime1055)
   %cmp1058 = icmp eq i32 %call1057, 1
   br i1 %cmp1058, label %if.end1075, label %if.then1059
 
@@ -2294,7 +2294,7 @@ if.end1095:                                       ; preds = %if.end1075
   store float %conv1137, ptr %Z.i3.i1789, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %dtime1139) #22
   store float 1.700000e+01, ptr %dtime1139, align 4, !tbaa !27
-  %call1141 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s1100, ptr noundef nonnull align 4 dereferenceable(24) %m1113, <2 x float> <float 0x3FC24924A0000000, float 0x3FC24924A0000000>, float 0x3FC24924A0000000, ptr noundef nonnull %dtime1139)
+  %call1141 = call noundef i32 @_Z20axisAlignedCollisionRKN3irr4core8aabbox3dIfEES4_NS0_8vector3dIfEEPf(ptr noundef nonnull align 4 dereferenceable(24) %s1100, ptr noundef nonnull align 4 dereferenceable(24) %m1113, <2 x float> splat (float 0x3FC24924A0000000), float 0x3FC24924A0000000, ptr noundef nonnull %dtime1139)
   %cmp1142 = icmp eq i32 %call1141, 2
   br i1 %cmp1142, label %if.end1159, label %if.then1143
 

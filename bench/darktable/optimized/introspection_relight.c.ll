@@ -65,7 +65,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !20
   %9 = tail call i32 (...) %8() #17
-  store <2 x float> <float 2.500000e-01, float 2.500000e-01>, ptr %2, align 8, !tbaa !23
+  store <2 x float> splat (float 2.500000e-01), ptr %2, align 8, !tbaa !23
   %10 = getelementptr inbounds i8, ptr %2, i64 8
   store float 4.000000e+00, ptr %10, align 8, !tbaa !25
   call void @dt_gui_presets_add_generic(ptr noundef %5, ptr noundef nonnull %6, i32 noundef %9, ptr noundef nonnull %2, i32 noundef 12, i32 noundef 1, i32 noundef 3) #17
@@ -288,10 +288,10 @@ define void @color_picker_apply(ptr nocapture noundef readonly %0, ptr nocapture
   %13 = load float, ptr %12, align 16, !tbaa !23
   %14 = insertelement <2 x float> poison, float %11, i64 0
   %15 = insertelement <2 x float> %14, float %13, i64 1
-  %16 = fmul reassoc nsz arcp contract afn <2 x float> %15, <float 0x3F847AE140000000, float 0x3F847AE140000000>
+  %16 = fmul reassoc nsz arcp contract afn <2 x float> %15, splat (float 0x3F847AE140000000)
   %17 = fpext <2 x float> %16 to <2 x double>
   %18 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.maxnum.v2f64(<2 x double> %17, <2 x double> zeroinitializer)
-  %19 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.minnum.v2f64(<2 x double> %18, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
+  %19 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.minnum.v2f64(<2 x double> %18, <2 x double> splat (double 1.000000e+00))
   %20 = fptrunc <2 x double> %19 to <2 x float>
   %21 = fmul reassoc nsz arcp contract afn float %7, 0x3F847AE140000000
   %22 = fpext float %21 to double
@@ -304,7 +304,7 @@ define void @color_picker_apply(ptr nocapture noundef readonly %0, ptr nocapture
 
 28:                                               ; preds = %9, %3
   %29 = phi double [ %27, %9 ], [ 0x7FF8000000000000, %3 ]
-  %30 = phi <2 x double> [ %26, %9 ], [ <double 0x7FF8000000000000, double 0x7FF8000000000000>, %3 ]
+  %30 = phi <2 x double> [ %26, %9 ], [ splat (double 0x7FF8000000000000), %3 ]
   %31 = getelementptr inbounds i8, ptr %5, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !61
   %33 = tail call i64 @dtgtk_gradient_slider_get_type() #17

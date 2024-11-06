@@ -10987,7 +10987,7 @@ _ZN10DecoSimpleC2Ev.exit:                         ; preds = %sw.bb
   %fill_ratio.i.i = getelementptr inbounds i8, ptr %call, i64 176
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !188
   %Y.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
-  store <2 x float> <float 2.500000e+02, float 2.500000e+02>, ptr %Y.i.i.i.i, align 4, !tbaa !188
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !188
   %seed.i.i.i = getelementptr inbounds i8, ptr %call, i64 200
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !212
   %octaves.i.i.i = getelementptr inbounds i8, ptr %call, i64 204
@@ -11062,7 +11062,7 @@ _ZN13DecoSchematicC2Ev.exit:                      ; preds = %sw.bb1
   %fill_ratio.i.i23 = getelementptr inbounds i8, ptr %call2, i64 176
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i23, align 8, !tbaa !188
   %Y.i.i.i.i27 = getelementptr inbounds i8, ptr %call2, i64 192
-  store <2 x float> <float 2.500000e+02, float 2.500000e+02>, ptr %Y.i.i.i.i27, align 4, !tbaa !188
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i27, align 4, !tbaa !188
   %seed.i.i.i29 = getelementptr inbounds i8, ptr %call2, i64 200
   store i32 12345, ptr %seed.i.i.i29, align 4, !tbaa !212
   %octaves.i.i.i30 = getelementptr inbounds i8, ptr %call2, i64 204
@@ -11139,7 +11139,7 @@ _ZN11DecoLSystemC2Ev.exit:                        ; preds = %sw.bb5
   %fill_ratio.i.i56 = getelementptr inbounds i8, ptr %call6, i64 176
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i56, align 8, !tbaa !188
   %Y.i.i.i.i60 = getelementptr inbounds i8, ptr %call6, i64 192
-  store <2 x float> <float 2.500000e+02, float 2.500000e+02>, ptr %Y.i.i.i.i60, align 4, !tbaa !188
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i60, align 4, !tbaa !188
   %seed.i.i.i62 = getelementptr inbounds i8, ptr %call6, i64 200
   store i32 12345, ptr %seed.i.i.i62, align 4, !tbaa !212
   %octaves.i.i.i63 = getelementptr inbounds i8, ptr %call6, i64 204

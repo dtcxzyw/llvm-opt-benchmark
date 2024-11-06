@@ -5793,9 +5793,9 @@ define hidden void @_ZN9typst_pdf8gradient11write_patch17h26173c724b39c16dE(ptr 
   %152 = phi i64 [ %146, %75 ], [ %.pre.i.i, %150 ]
   %153 = load ptr, ptr %77, align 8, !alias.scope !820, !noalias !825, !nonnull !4, !noundef !4
   %154 = getelementptr inbounds i8, ptr %153, i64 %152
-  store <2 x i16> <i16 128, i16 128>, ptr %154, align 1
+  store <2 x i16> splat (i16 128), ptr %154, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 4
-  store <2 x i16> <i16 128, i16 128>, ptr %.sroa.4.0..sroa_idx, align 1
+  store <2 x i16> splat (i16 128), ptr %.sroa.4.0..sroa_idx, align 1
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 8
   store <2 x i16> %.sroa.025.2.vec.insert, ptr %.sroa.5.0..sroa_idx, align 1
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 12
@@ -5809,13 +5809,13 @@ define hidden void @_ZN9typst_pdf8gradient11write_patch17h26173c724b39c16dE(ptr 
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 28
   store <2 x i16> %.sroa.035.2.vec.insert, ptr %.sroa.10.0..sroa_idx, align 1
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 32
-  store <2 x i16> <i16 128, i16 128>, ptr %.sroa.11.0..sroa_idx, align 1
+  store <2 x i16> splat (i16 128), ptr %.sroa.11.0..sroa_idx, align 1
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 36
-  store <2 x i16> <i16 128, i16 128>, ptr %.sroa.12.0..sroa_idx, align 1
+  store <2 x i16> splat (i16 128), ptr %.sroa.12.0..sroa_idx, align 1
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 40
-  store <2 x i16> <i16 128, i16 128>, ptr %.sroa.13.0..sroa_idx, align 1
+  store <2 x i16> splat (i16 128), ptr %.sroa.13.0..sroa_idx, align 1
   %.sroa.14.0..sroa_idx = getelementptr inbounds i8, ptr %154, i64 44
-  store <2 x i16> <i16 128, i16 128>, ptr %.sroa.14.0..sroa_idx, align 1
+  store <2 x i16> splat (i16 128), ptr %.sroa.14.0..sroa_idx, align 1
   %155 = load i64, ptr %70, align 8, !alias.scope !820, !noalias !825, !noundef !4
   %156 = add i64 %155, 48
   store i64 %156, ptr %70, align 8, !alias.scope !820, !noalias !825
@@ -7544,7 +7544,7 @@ define hidden void @_ZN9typst_pdf5image12write_images17habacb3ce58dd39c3E(ptr no
   br i1 %.not.i4.not.i.i.i, label %91, label %94
 
 91:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i"
-  %92 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %92 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %93 = bitcast <16 x i1> %92 to i16
   %.not.i.i.i.i = icmp eq i16 %93, 0
   br i1 %.not.i.i.i.i, label %103, label %select.unfold
@@ -8109,7 +8109,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   br i1 %.not.i4.not.i.i.i82, label %289, label %292
 
 289:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b835245503edddcE.exit.i.i.i80"
-  %290 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i79, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %290 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i79, splat (i8 -1)
   %291 = bitcast <16 x i1> %290 to i16
   %.not.i.i.i.i89 = icmp eq i16 %291, 0
   br i1 %.not.i.i.i.i89, label %301, label %select.unfold123

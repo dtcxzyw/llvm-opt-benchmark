@@ -614,9 +614,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %8 = fmul nsz <2 x float> %7, %7
-  %9 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> <float 6.000000e+00, float 6.000000e+00>, <2 x float> <float -1.500000e+01, float -1.500000e+01>)
+  %9 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> splat (float 6.000000e+00), <2 x float> splat (float -1.500000e+01))
   %10 = fmul nsz <2 x float> %7, %8
-  %11 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %9, <2 x float> <float 1.000000e+01, float 1.000000e+01>)
+  %11 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %9, <2 x float> splat (float 1.000000e+01))
   %12 = fmul nsz <2 x float> %10, %11
   br label %_Z21biLinearInterpolationffffffb.exit
 
@@ -714,9 +714,9 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %8 = fmul nsz <2 x float> %7, %7
-  %9 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> <float 6.000000e+00, float 6.000000e+00>, <2 x float> <float -1.500000e+01, float -1.500000e+01>)
+  %9 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> splat (float 6.000000e+00), <2 x float> splat (float -1.500000e+01))
   %10 = fmul nsz <2 x float> %7, %8
-  %11 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %9, <2 x float> <float 1.000000e+01, float 1.000000e+01>)
+  %11 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %9, <2 x float> splat (float 1.000000e+01))
   %12 = fmul nsz <2 x float> %10, %11
   %mul.i14.i = fmul nsz float %sub26, %sub26
   %mul1.i15.i = fmul nsz float %sub26, %mul.i14.i
@@ -895,9 +895,9 @@ for.body:                                         ; preds = %entry, %_Z16noise2d
 
 if.then.i.i:                                      ; preds = %for.body
   %8 = fmul nsz <2 x float> %7, %7
-  %9 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> <float 6.000000e+00, float 6.000000e+00>, <2 x float> <float -1.500000e+01, float -1.500000e+01>)
+  %9 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> splat (float 6.000000e+00), <2 x float> splat (float -1.500000e+01))
   %10 = fmul nsz <2 x float> %7, %8
-  %11 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %9, <2 x float> <float 1.000000e+01, float 1.000000e+01>)
+  %11 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %7, <2 x float> %9, <2 x float> splat (float 1.000000e+01))
   %12 = fmul nsz <2 x float> %10, %11
   br label %_Z16noise2d_gradientffib.exit
 
@@ -1025,7 +1025,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %_Z16noise2d_gradientffib.exit
   %i.039.us = phi i64 [ %inc.us, %_Z16noise2d_gradientffib.exit ], [ 0, %for.body.lr.ph ]
   %a.036.us = phi float [ %33, %_Z16noise2d_gradientffib.exit ], [ 0.000000e+00, %for.body.lr.ph ]
-  %6 = phi <2 x float> [ %34, %_Z16noise2d_gradientffib.exit ], [ <float 1.000000e+00, float 1.000000e+00>, %for.body.lr.ph ]
+  %6 = phi <2 x float> [ %34, %_Z16noise2d_gradientffib.exit ], [ splat (float 1.000000e+00), %for.body.lr.ph ]
   %7 = extractelement <2 x float> %6, i64 1
   %mul.us = fmul nsz float %div, %7
   %mul4.us = fmul nsz float %div2, %7
@@ -1043,9 +1043,9 @@ for.body.us:                                      ; preds = %for.body.lr.ph, %_Z
 
 if.then.i.i:                                      ; preds = %for.body.us
   %17 = fmul nsz <2 x float> %16, %16
-  %18 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> <float 6.000000e+00, float 6.000000e+00>, <2 x float> <float -1.500000e+01, float -1.500000e+01>)
+  %18 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> splat (float 6.000000e+00), <2 x float> splat (float -1.500000e+01))
   %19 = fmul nsz <2 x float> %16, %17
-  %20 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> %18, <2 x float> <float 1.000000e+01, float 1.000000e+01>)
+  %20 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %16, <2 x float> %18, <2 x float> splat (float 1.000000e+01))
   %21 = fmul nsz <2 x float> %19, %20
   br label %_Z16noise2d_gradientffib.exit
 
@@ -1137,7 +1137,7 @@ for.cond.cleanup:                                 ; preds = %_Z16noise2d_gradien
 for.body:                                         ; preds = %for.body.lr.ph, %_Z16noise2d_gradientffib.exit61
   %i.039 = phi i64 [ %inc, %_Z16noise2d_gradientffib.exit61 ], [ 0, %for.body.lr.ph ]
   %a.036 = phi float [ %66, %_Z16noise2d_gradientffib.exit61 ], [ 0.000000e+00, %for.body.lr.ph ]
-  %38 = phi <2 x float> [ %67, %_Z16noise2d_gradientffib.exit61 ], [ <float 1.000000e+00, float 1.000000e+00>, %for.body.lr.ph ]
+  %38 = phi <2 x float> [ %67, %_Z16noise2d_gradientffib.exit61 ], [ splat (float 1.000000e+00), %for.body.lr.ph ]
   %39 = extractelement <2 x float> %38, i64 1
   %mul = fmul nsz float %div, %39
   %mul4 = fmul nsz float %div2, %39
@@ -1155,9 +1155,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 if.then.i.i60:                                    ; preds = %for.body
   %49 = fmul nsz <2 x float> %48, %48
-  %50 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> <float 6.000000e+00, float 6.000000e+00>, <2 x float> <float -1.500000e+01, float -1.500000e+01>)
+  %50 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> splat (float 6.000000e+00), <2 x float> splat (float -1.500000e+01))
   %51 = fmul nsz <2 x float> %48, %49
-  %52 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %50, <2 x float> <float 1.000000e+01, float 1.000000e+01>)
+  %52 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %48, <2 x float> %50, <2 x float> splat (float 1.000000e+01))
   %53 = fmul nsz <2 x float> %51, %52
   br label %_Z16noise2d_gradientffib.exit61
 
@@ -1276,7 +1276,7 @@ for.body.lr.ph:                                   ; preds = %entry
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.body.us
   %i.045.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.body.lr.ph ]
   %a.042.us = phi float [ %11, %for.body.us ], [ 0.000000e+00, %for.body.lr.ph ]
-  %7 = phi <2 x float> [ %12, %for.body.us ], [ <float 1.000000e+00, float 1.000000e+00>, %for.body.lr.ph ]
+  %7 = phi <2 x float> [ %12, %for.body.us ], [ splat (float 1.000000e+00), %for.body.lr.ph ]
   %8 = extractelement <2 x float> %7, i64 1
   %mul.us = fmul nsz float %div, %8
   %mul6.us = fmul nsz float %div2, %8
@@ -1302,7 +1302,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %for.body
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.045 = phi i64 [ %inc, %for.body ], [ 0, %for.body.lr.ph ]
   %a.042 = phi float [ %21, %for.body ], [ 0.000000e+00, %for.body.lr.ph ]
-  %16 = phi <2 x float> [ %22, %for.body ], [ <float 1.000000e+00, float 1.000000e+00>, %for.body.lr.ph ]
+  %16 = phi <2 x float> [ %22, %for.body ], [ splat (float 1.000000e+00), %for.body.lr.ph ]
   %17 = extractelement <2 x float> %16, i64 1
   %mul = fmul nsz float %div, %17
   %mul6 = fmul nsz float %div2, %17
@@ -1578,7 +1578,7 @@ cond.end:                                         ; preds = %cond.true, %entry
   %10 = shufflevector <2 x float> %9, <2 x float> poison, <2 x i32> zeroinitializer
   %11 = fmul nsz <2 x float> %10, %8
   %12 = fdiv nsz <2 x float> %11, %4
-  %13 = fcmp nsz ogt <2 x float> %12, <float 1.000000e+09, float 1.000000e+09>
+  %13 = fcmp nsz ogt <2 x float> %12, splat (float 1.000000e+09)
   %14 = extractelement <2 x i1> %13, i64 0
   %15 = extractelement <2 x i1> %13, i64 1
   %or.cond = select i1 %14, i1 true, i1 %15
@@ -1603,7 +1603,7 @@ lpad:                                             ; preds = %if.then
 
 if.end:                                           ; preds = %cond.end
   %17 = fdiv nsz <2 x float> %4, %10
-  %18 = fcmp nsz olt <2 x float> %17, <float 1.000000e+00, float 1.000000e+00>
+  %18 = fcmp nsz olt <2 x float> %17, splat (float 1.000000e+00)
   %19 = extractelement <2 x i1> %18, i64 0
   %20 = extractelement <2 x i1> %18, i64 1
   %or.cond111 = select i1 %19, i1 true, i1 %20
@@ -2176,25 +2176,25 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %11 = trunc nuw i64 %indvars.iv to i32
   %offset.idx = add i32 %index.0135, %11
   %12 = add <4 x i32> %vec.ind, %broadcast.splat
-  %13 = mul nsw <4 x i32> %12, <i32 1619, i32 1619, i32 1619, i32 1619>
+  %13 = mul nsw <4 x i32> %12, splat (i32 1619)
   %14 = add <4 x i32> %13, %broadcast.splat160
-  %15 = and <4 x i32> %14, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %16 = lshr <4 x i32> %15, <i32 13, i32 13, i32 13, i32 13>
+  %15 = and <4 x i32> %14, splat (i32 2147483647)
+  %16 = lshr <4 x i32> %15, splat (i32 13)
   %17 = xor <4 x i32> %16, %15
-  %18 = mul <4 x i32> %17, <i32 60493, i32 60493, i32 60493, i32 60493>
+  %18 = mul <4 x i32> %17, splat (i32 60493)
   %19 = mul <4 x i32> %18, %17
-  %20 = add <4 x i32> %19, <i32 19990303, i32 19990303, i32 19990303, i32 19990303>
+  %20 = add <4 x i32> %19, splat (i32 19990303)
   %21 = mul <4 x i32> %20, %17
-  %22 = add <4 x i32> %21, <i32 1376312589, i32 1376312589, i32 1376312589, i32 1376312589>
-  %23 = and <4 x i32> %22, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %22 = add <4 x i32> %21, splat (i32 1376312589)
+  %23 = and <4 x i32> %22, splat (i32 2147483647)
   %24 = uitofp nneg <4 x i32> %23 to <4 x float>
-  %25 = fmul nsz <4 x float> %24, <float 0x3E10000000000000, float 0x3E10000000000000, float 0x3E10000000000000, float 0x3E10000000000000>
-  %26 = fsub nsz <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %25
+  %25 = fmul nsz <4 x float> %24, splat (float 0x3E10000000000000)
+  %26 = fsub nsz <4 x float> splat (float 1.000000e+00), %25
   %27 = zext i32 %offset.idx to i64
   %28 = getelementptr inbounds float, ptr %7, i64 %27
   store <4 x float> %26, ptr %28, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %vec.ind.next = add <4 x i32> %vec.ind, <i32 4, i32 4, i32 4, i32 4>
+  %vec.ind.next = add <4 x i32> %vec.ind, splat (i32 4)
   %29 = icmp eq i64 %indvars.iv.next, %9
   br i1 %29, label %middle.block, label %vector.body, !llvm.loop !73
 
@@ -2462,7 +2462,7 @@ entry:
   %12 = tail call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %9, <2 x float> %11, <2 x float> %7)
   %13 = fptoui <2 x float> %12 to <2 x i32>
   %.fr = freeze <2 x i32> %13
-  %14 = add <2 x i32> %.fr, <i32 2, i32 2>
+  %14 = add <2 x i32> %.fr, splat (i32 2)
   %sz = getelementptr inbounds i8, ptr %this, i64 52
   %15 = load i32, ptr %sz, align 4, !tbaa !49
   %conv16 = uitofp i32 %15 to float
@@ -2753,25 +2753,25 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %82 = trunc nuw i64 %indvars.iv to i32
   %offset.idx = add i32 %index.1306, %82
   %83 = add <4 x i32> %vec.ind, %broadcast.splat
-  %84 = mul nsw <4 x i32> %83, <i32 1619, i32 1619, i32 1619, i32 1619>
+  %84 = mul nsw <4 x i32> %83, splat (i32 1619)
   %85 = add <4 x i32> %84, %broadcast.splat370
-  %86 = and <4 x i32> %85, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %87 = lshr <4 x i32> %86, <i32 13, i32 13, i32 13, i32 13>
+  %86 = and <4 x i32> %85, splat (i32 2147483647)
+  %87 = lshr <4 x i32> %86, splat (i32 13)
   %88 = xor <4 x i32> %87, %86
-  %89 = mul <4 x i32> %88, <i32 60493, i32 60493, i32 60493, i32 60493>
+  %89 = mul <4 x i32> %88, splat (i32 60493)
   %90 = mul <4 x i32> %89, %88
-  %91 = add <4 x i32> %90, <i32 19990303, i32 19990303, i32 19990303, i32 19990303>
+  %91 = add <4 x i32> %90, splat (i32 19990303)
   %92 = mul <4 x i32> %91, %88
-  %93 = add <4 x i32> %92, <i32 1376312589, i32 1376312589, i32 1376312589, i32 1376312589>
-  %94 = and <4 x i32> %93, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %93 = add <4 x i32> %92, splat (i32 1376312589)
+  %94 = and <4 x i32> %93, splat (i32 2147483647)
   %95 = uitofp nneg <4 x i32> %94 to <4 x float>
-  %96 = fmul nsz <4 x float> %95, <float 0x3E10000000000000, float 0x3E10000000000000, float 0x3E10000000000000, float 0x3E10000000000000>
-  %97 = fsub nsz <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %96
+  %96 = fmul nsz <4 x float> %95, splat (float 0x3E10000000000000)
+  %97 = fsub nsz <4 x float> splat (float 1.000000e+00), %96
   %98 = zext i32 %offset.idx to i64
   %99 = getelementptr inbounds float, ptr %27, i64 %98
   store <4 x float> %97, ptr %99, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %vec.ind.next = add <4 x i32> %vec.ind, <i32 4, i32 4, i32 4, i32 4>
+  %vec.ind.next = add <4 x i32> %vec.ind, splat (i32 4)
   %100 = icmp eq i64 %indvars.iv.next, %25
   br i1 %100, label %middle.block, label %vector.body, !llvm.loop !83
 
@@ -3040,8 +3040,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %7 = getelementptr inbounds float, ptr %6, i64 %index
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %7, align 4, !tbaa !35
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %8, align 4, !tbaa !35
+  store <4 x float> splat (float 1.000000e+00), ptr %7, align 4, !tbaa !35
+  store <4 x float> splat (float 1.000000e+00), ptr %8, align 4, !tbaa !35
   %index.next = add nuw i64 %index, 8
   %9 = icmp eq i64 %index.next, %n.vec
   br i1 %9, label %middle.block, label %vector.body, !llvm.loop !86
@@ -3096,7 +3096,7 @@ for.cond.cleanup15:                               ; preds = %_ZN5Noise13updateRe
 
 for.body16:                                       ; preds = %_ZN5Noise13updateResultsEfPfPKfm.exit, %for.body16.lr.ph
   %oct.097 = phi i64 [ 0, %for.body16.lr.ph ], [ %inc38, %_ZN5Noise13updateResultsEfPfPKfm.exit ]
-  %14 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %for.body16.lr.ph ], [ %116, %_ZN5Noise13updateResultsEfPfPKfm.exit ]
+  %14 = phi <2 x float> [ splat (float 1.000000e+00), %for.body16.lr.ph ], [ %116, %_ZN5Noise13updateResultsEfPfPKfm.exit ]
   %15 = extractelement <2 x float> %14, i64 1
   %mul17 = fmul nsz float %div, %15
   %mul18 = fmul nsz float %div4, %15
@@ -4077,8 +4077,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %9 = getelementptr inbounds float, ptr %8, i64 %index
   %10 = getelementptr inbounds i8, ptr %9, i64 16
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %9, align 4, !tbaa !35
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %10, align 4, !tbaa !35
+  store <4 x float> splat (float 1.000000e+00), ptr %9, align 4, !tbaa !35
+  store <4 x float> splat (float 1.000000e+00), ptr %10, align 4, !tbaa !35
   %index.next = add nuw i64 %index, 8
   %11 = icmp eq i64 %index.next, %n.vec
   br i1 %11, label %middle.block, label %vector.body, !llvm.loop !179
@@ -4133,7 +4133,7 @@ for.cond.cleanup19:                               ; preds = %_ZN5Noise13updateRe
 
 for.body20:                                       ; preds = %_ZN5Noise13updateResultsEfPfPKfm.exit, %for.body20.lr.ph
   %oct.0109 = phi i64 [ 0, %for.body20.lr.ph ], [ %inc47, %_ZN5Noise13updateResultsEfPfPKfm.exit ]
-  %16 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %for.body20.lr.ph ], [ %119, %_ZN5Noise13updateResultsEfPfPKfm.exit ]
+  %16 = phi <2 x float> [ splat (float 1.000000e+00), %for.body20.lr.ph ], [ %119, %_ZN5Noise13updateResultsEfPfPKfm.exit ]
   %17 = extractelement <2 x float> %16, i64 1
   %mul21 = fmul nsz float %div, %17
   %mul22 = fmul nsz float %div5, %17

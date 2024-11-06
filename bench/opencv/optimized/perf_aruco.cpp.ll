@@ -9919,7 +9919,7 @@ define linkonce_odr hidden void @_ZN11opencv_test13MarkerPainter16getProjectMark
 
 .lr.ph.i.i.i.i.i.i77.preheader:                   ; preds = %48
   %51 = getelementptr inbounds i8, ptr %50, i64 12
-  store <2 x float> <float 0x3F999999A0000000, float 0x3F999999A0000000>, ptr %51, align 4
+  store <2 x float> splat (float 0x3F999999A0000000), ptr %51, align 4
   %.sroa.3246.0..sroa_idx247 = getelementptr inbounds i8, ptr %50, i64 20
   store float 0.000000e+00, ptr %.sroa.3246.0..sroa_idx247, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %50, ptr noundef nonnull align 4 dereferenceable(12) %47, i64 12, i1 false), !alias.scope !88

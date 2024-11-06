@@ -166,7 +166,7 @@ entry:
   %m_needsUpdate = getelementptr inbounds i8, ptr %this, i64 384
   store i8 1, ptr %m_needsUpdate, align 16
   %m_lastW = getelementptr inbounds i8, ptr %this, i64 304
-  store <2 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000>, ptr %m_lastW, align 16
+  store <2 x float> splat (float 0x43ABC16D60000000), ptr %m_lastW, align 16
   %ref.tmp.sroa.2.0.m_lastW.sroa_idx = getelementptr inbounds i8, ptr %this, i64 312
   store <2 x float> <float 0x43ABC16D60000000, float 0.000000e+00>, ptr %ref.tmp.sroa.2.0.m_lastW.sroa_idx, align 8
   %m_barycentricCoords.i.i = getelementptr inbounds i8, ptr %this, i64 356

@@ -1288,41 +1288,41 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1041 = mul nsw i64 %993, %9
   %1042 = add nsw i64 %1041, %975
   %1043 = getelementptr inbounds double, ptr %8, i64 %1042
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1043, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1040, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1043, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1040, i32 8)
   %1044 = fmul <8 x double> %18, %1033
   %1045 = or disjoint i64 %1042, 1
   %1046 = getelementptr inbounds double, ptr %8, i64 %1045
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1046, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1044, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1046, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1044, i32 8)
   %1047 = fmul <8 x double> %18, %1034
   %1048 = or disjoint i64 %993, 8
   %1049 = mul nsw i64 %1048, %9
   %1050 = add nsw i64 %1049, %975
   %1051 = getelementptr inbounds double, ptr %8, i64 %1050
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1051, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1047, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1051, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1047, i32 8)
   %1052 = fmul <8 x double> %18, %1035
   %1053 = or disjoint i64 %1050, 1
   %1054 = getelementptr inbounds double, ptr %8, i64 %1053
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1054, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1052, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1054, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1052, i32 8)
   %1055 = fmul <8 x double> %18, %1036
   %1056 = or disjoint i64 %993, 16
   %1057 = mul nsw i64 %1056, %9
   %1058 = add nsw i64 %1057, %975
   %1059 = getelementptr inbounds double, ptr %8, i64 %1058
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1059, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1055, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1059, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1055, i32 8)
   %1060 = fmul <8 x double> %18, %1037
   %1061 = or disjoint i64 %1058, 1
   %1062 = getelementptr inbounds double, ptr %8, i64 %1061
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1062, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1060, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1062, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1060, i32 8)
   %1063 = fmul <8 x double> %18, %1038
   %1064 = or disjoint i64 %993, 24
   %1065 = mul nsw i64 %1064, %9
   %1066 = add nsw i64 %1065, %975
   %1067 = getelementptr inbounds double, ptr %8, i64 %1066
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1067, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1063, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1067, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1063, i32 8)
   %1068 = fmul <8 x double> %18, %1039
   %1069 = or disjoint i64 %1066, 1
   %1070 = getelementptr inbounds double, ptr %8, i64 %1069
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1070, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1068, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1070, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1068, i32 8)
   %1071 = add nuw nsw i64 %993, 32
   %1072 = icmp slt i64 %1071, %15
   br i1 %1072, label %992, label %.loopexit69, !llvm.loop !24
@@ -1380,21 +1380,21 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1112 = mul nsw i64 %1080, %9
   %1113 = add nsw i64 %1112, %975
   %1114 = getelementptr inbounds double, ptr %8, i64 %1113
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1114, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1111, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1114, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1111, i32 8)
   %1115 = fmul <8 x double> %18, %1108
   %1116 = or disjoint i64 %1113, 1
   %1117 = getelementptr inbounds double, ptr %8, i64 %1116
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1117, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1115, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1117, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1115, i32 8)
   %1118 = fmul <8 x double> %18, %1109
   %1119 = add nuw nsw i64 %1080, 8
   %1120 = mul nsw i64 %1119, %9
   %1121 = add nsw i64 %1120, %975
   %1122 = getelementptr inbounds double, ptr %8, i64 %1121
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1122, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1118, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1122, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1118, i32 8)
   %1123 = fmul <8 x double> %18, %1110
   %1124 = or disjoint i64 %1121, 1
   %1125 = getelementptr inbounds double, ptr %8, i64 %1124
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1125, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1123, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr nonnull %1125, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1123, i32 8)
   %1126 = add nuw nsw i64 %1080, 16
   %1127 = icmp slt i64 %1126, %16
   br i1 %1127, label %1079, label %.loopexit68, !llvm.loop !26
@@ -1504,12 +1504,12 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1202 = fmul <8 x double> %18, %1198
   %1203 = mul nsw i64 %1183, %9
   %1204 = getelementptr double, ptr %1174, i64 %1203
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1204, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1202, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1204, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1202, i32 8)
   %1205 = fmul <8 x double> %18, %1199
   %1206 = add nuw nsw i64 %1183, 8
   %1207 = mul nsw i64 %1206, %9
   %1208 = getelementptr double, ptr %1174, i64 %1207
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1208, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %1205, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1208, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %1205, i32 8)
   %1209 = add nuw nsw i64 %1183, 16
   %1210 = icmp slt i64 %1209, %16
   br i1 %1210, label %.preheader.us, label %.loopexit59, !llvm.loop !31
@@ -1560,19 +1560,19 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %.pre-phi = phi <8 x double> [ %.pre, %.loopexit57.loopexit ], [ %985, %1211 ]
   %1238 = mul nsw i64 %1212, %9
   %1239 = getelementptr double, ptr %1174, i64 %1238
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1239, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %.pre-phi, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1239, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %.pre-phi, i32 8)
   %1240 = or disjoint i64 %1212, 8
   %1241 = mul nsw i64 %1240, %9
   %1242 = getelementptr double, ptr %1174, i64 %1241
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1242, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %.pre-phi253, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1242, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %.pre-phi253, i32 8)
   %1243 = or disjoint i64 %1212, 16
   %1244 = mul nsw i64 %1243, %9
   %1245 = getelementptr double, ptr %1174, i64 %1244
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1245, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %.pre-phi255, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1245, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %.pre-phi255, i32 8)
   %1246 = or disjoint i64 %1212, 24
   %1247 = mul nsw i64 %1246, %9
   %1248 = getelementptr double, ptr %1174, i64 %1247
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1248, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %.pre-phi257, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1248, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %.pre-phi257, i32 8)
   %1249 = add nuw nsw i64 %1212, 32
   %1250 = icmp slt i64 %1249, %15
   br i1 %1250, label %1211, label %.loopexit60, !llvm.loop !33
@@ -1591,11 +1591,11 @@ define noundef i32 @dgemm_small_kernel_b0_tt(i64 noundef %0, i64 noundef %1, i64
   %1256 = phi i64 [ %1262, %.split ], [ %1178, %1180 ]
   %1257 = mul nsw i64 %1256, %9
   %1258 = getelementptr double, ptr %1174, i64 %1257
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1258, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %985, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1258, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %985, i32 8)
   %1259 = add nuw nsw i64 %1256, 8
   %1260 = mul nsw i64 %1259, %9
   %1261 = getelementptr double, ptr %1174, i64 %1260
-  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1261, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i64> %963, <8 x double> %985, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatter.qpd.512(ptr %1261, <8 x i1> splat (i1 true), <8 x i64> %963, <8 x double> %985, i32 8)
   %1262 = add nuw nsw i64 %1256, 16
   %1263 = icmp slt i64 %1262, %16
   br i1 %1263, label %.split, label %.loopexit59, !llvm.loop !31

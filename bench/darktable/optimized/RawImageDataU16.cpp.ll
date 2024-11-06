@@ -65,7 +65,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU16C2Ev(ptr noundef nonnull align 
   %10 = getelementptr inbounds i8, ptr %0, i64 248
   store double 1.000000e+00, ptr %10, align 8, !tbaa !75
   %11 = getelementptr inbounds i8, ptr %0, i64 256
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %11, align 8, !tbaa !76
+  store <4 x float> splat (float 0x7FF8000000000000), ptr %11, align 8, !tbaa !76
   %12 = getelementptr inbounds i8, ptr %0, i64 272
   %13 = getelementptr inbounds i8, ptr %0, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %12, i8 0, i64 28, i1 false)
@@ -334,9 +334,9 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
 149:                                              ; preds = %149, %146
   %150 = phi i32 [ 0, %146 ], [ %197, %149 ]
   %151 = phi <8 x i32> [ %70, %146 ], [ %198, %149 ]
-  %152 = and <8 x i32> %151, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %152 = and <8 x i32> %151, splat (i32 1)
   %153 = or disjoint <8 x i32> %152, %148
-  %154 = shl nuw nsw <8 x i32> %153, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %154 = shl nuw nsw <8 x i32> %153, splat (i32 16)
   %155 = zext nneg <8 x i32> %154 to <8 x i64>
   %156 = extractelement <8 x i64> %155, i64 0
   %157 = getelementptr inbounds i16, ptr %131, i64 %156
@@ -370,7 +370,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
   %185 = insertelement <8 x i16> %184, i16 %177, i64 5
   %186 = insertelement <8 x i16> %185, i16 %178, i64 6
   %187 = insertelement <8 x i16> %186, i16 %179, i64 7
-  %188 = add <8 x i16> %187, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %188 = add <8 x i16> %187, splat (i16 1)
   %189 = extractelement <8 x i16> %188, i64 0
   store i16 %189, ptr %157, align 2, !tbaa !98
   %190 = extractelement <8 x i16> %188, i64 1
@@ -388,7 +388,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
   %196 = extractelement <8 x i16> %188, i64 7
   store i16 %196, ptr %171, align 2, !tbaa !98
   %197 = add nuw i32 %150, 8
-  %198 = add <8 x i32> %151, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %198 = add <8 x i32> %151, splat (i32 8)
   %199 = icmp eq i32 %197, %66
   br i1 %199, label %200, label %149, !llvm.loop !104
 
@@ -516,9 +516,9 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
 281:                                              ; preds = %281, %278
   %282 = phi i32 [ 0, %278 ], [ %329, %281 ]
   %283 = phi <8 x i32> [ %245, %278 ], [ %330, %281 ]
-  %284 = and <8 x i32> %283, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %284 = and <8 x i32> %283, splat (i32 1)
   %285 = or disjoint <8 x i32> %284, %280
-  %286 = shl nuw nsw <8 x i32> %285, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %286 = shl nuw nsw <8 x i32> %285, splat (i32 16)
   %287 = zext nneg <8 x i32> %286 to <8 x i64>
   %288 = extractelement <8 x i64> %287, i64 0
   %289 = getelementptr inbounds i16, ptr %262, i64 %288
@@ -552,7 +552,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
   %317 = insertelement <8 x i16> %316, i16 %309, i64 5
   %318 = insertelement <8 x i16> %317, i16 %310, i64 6
   %319 = insertelement <8 x i16> %318, i16 %311, i64 7
-  %320 = add <8 x i16> %319, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %320 = add <8 x i16> %319, splat (i16 1)
   %321 = extractelement <8 x i16> %320, i64 0
   store i16 %321, ptr %289, align 2, !tbaa !98
   %322 = extractelement <8 x i16> %320, i64 1
@@ -570,7 +570,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1619calculateBlackAreasEv(ptr nou
   %328 = extractelement <8 x i16> %320, i64 7
   store i16 %328, ptr %303, align 2, !tbaa !98
   %329 = add nuw i32 %282, 8
-  %330 = add <8 x i32> %283, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %330 = add <8 x i32> %283, splat (i32 8)
   %331 = icmp eq i32 %329, %241
   br i1 %331, label %332, label %281, !llvm.loop !106
 
@@ -963,10 +963,10 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %90 = insertelement <8 x i64> poison, i64 %77, i64 0
   %91 = shufflevector <8 x i64> %90, <8 x i64> poison, <8 x i32> zeroinitializer
   %92 = icmp eq i64 %82, %84
-  %invariant.op = add nuw nsw <8 x i64> %89, <i64 250, i64 250, i64 250, i64 250, i64 250, i64 250, i64 250, i64 250>
-  %invariant.op16 = add nuw nsw <8 x i64> %89, <i64 258, i64 258, i64 258, i64 258, i64 258, i64 258, i64 258, i64 258>
-  %invariant.op18 = add nuw nsw <8 x i64> %89, <i64 266, i64 266, i64 266, i64 266, i64 266, i64 266, i64 266, i64 266>
-  %invariant.op20 = add nuw nsw <8 x i64> %89, <i64 274, i64 274, i64 274, i64 274, i64 274, i64 274, i64 274, i64 274>
+  %invariant.op = add nuw nsw <8 x i64> %89, splat (i64 250)
+  %invariant.op16 = add nuw nsw <8 x i64> %89, splat (i64 258)
+  %invariant.op18 = add nuw nsw <8 x i64> %89, splat (i64 266)
+  %invariant.op20 = add nuw nsw <8 x i64> %89, splat (i64 274)
   %invariant.op22 = add nuw nsw i64 %76, 250
   br i1 %83, label %.split.us, label %.split
 
@@ -1041,10 +1041,10 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %143 = phi <8 x i32> [ %134, %.split ], [ %240, %135 ]
   %144 = phi <8 x i32> [ %134, %.split ], [ %241, %135 ]
   %145 = phi <8 x i32> [ %134, %.split ], [ %242, %135 ]
-  %146 = add nuw nsw <8 x i64> %137, <i64 250, i64 250, i64 250, i64 250, i64 250, i64 250, i64 250, i64 250>
-  %147 = add <8 x i64> %137, <i64 258, i64 258, i64 258, i64 258, i64 258, i64 258, i64 258, i64 258>
-  %148 = add <8 x i64> %137, <i64 266, i64 266, i64 266, i64 266, i64 266, i64 266, i64 266, i64 266>
-  %149 = add <8 x i64> %137, <i64 274, i64 274, i64 274, i64 274, i64 274, i64 274, i64 274, i64 274>
+  %146 = add nuw nsw <8 x i64> %137, splat (i64 250)
+  %147 = add <8 x i64> %137, splat (i64 258)
+  %148 = add <8 x i64> %137, splat (i64 266)
+  %149 = add <8 x i64> %137, splat (i64 274)
   %150 = icmp ult <8 x i64> %146, %87
   %151 = icmp ult <8 x i64> %147, %87
   %152 = icmp ult <8 x i64> %148, %87
@@ -1207,7 +1207,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %241 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %144, <8 x i32> %233)
   %242 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %145, <8 x i32> %234)
   %243 = add nuw i64 %136, 32
-  %244 = add <8 x i64> %137, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %244 = add <8 x i64> %137, splat (i64 32)
   %245 = icmp eq i64 %243, %84
   br i1 %245, label %246, label %135, !llvm.loop !127
 
@@ -1560,7 +1560,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1616scaleValues_SSE2Eii(ptr nocap
   %121 = insertelement <4 x i32> poison, i32 %120, i64 0
   %122 = shufflevector <4 x i32> %121, <4 x i32> poison, <4 x i32> zeroinitializer
   %123 = icmp eq i8 %60, 0
-  %124 = select i1 %123, <2 x i64> zeroinitializer, <2 x i64> <i64 5593221364105289010, i64 5593221364105289010>
+  %124 = select i1 %123, <2 x i64> zeroinitializer, <2 x i64> splat (i64 5593221364105289010)
   %125 = ashr i32 %88, 4
   %126 = shl i32 %106, 16
   %127 = or i32 %126, %106
@@ -1649,7 +1649,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1616scaleValues_SSE2Eii(ptr nocap
   %190 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %170, <8 x i16> %131)
   %191 = mul <8 x i16> %170, %131
   %192 = xor <8 x i16> %190, %191
-  %193 = and <8 x i16> %192, <i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255>
+  %193 = and <8 x i16> %192, splat (i16 255)
   %194 = mul <8 x i16> %193, %133
   %195 = shufflevector <8 x i16> %194, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %196 = bitcast <8 x i16> %195 to <4 x i32>
@@ -1659,13 +1659,13 @@ define hidden void @_ZN8rawspeed15RawImageDataU1616scaleValues_SSE2Eii(ptr nocap
   %200 = sub <4 x i32> %199, %196
   %201 = add <4 x i32> %136, %189
   %202 = sub <4 x i32> %201, %198
-  %203 = ashr <4 x i32> %200, <i32 10, i32 10, i32 10, i32 10>
-  %204 = ashr <4 x i32> %202, <i32 10, i32 10, i32 10, i32 10>
-  %205 = add nsw <4 x i32> %203, <i32 -32768, i32 -32768, i32 -32768, i32 -32768>
-  %206 = add nsw <4 x i32> %204, <i32 -32768, i32 -32768, i32 -32768, i32 -32768>
+  %203 = ashr <4 x i32> %200, splat (i32 10)
+  %204 = ashr <4 x i32> %202, splat (i32 10)
+  %205 = add nsw <4 x i32> %203, splat (i32 -32768)
+  %206 = add nsw <4 x i32> %204, splat (i32 -32768)
   %207 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %205, <4 x i32> %206)
   %208 = bitcast <8 x i16> %207 to <2 x i64>
-  %209 = xor <2 x i64> %208, <i64 -9223231297218904064, i64 -9223231297218904064>
+  %209 = xor <2 x i64> %208, splat (i64 -9223231297218904064)
   store <2 x i64> %209, ptr %181, align 16, !tbaa !82
   %210 = add nuw nsw i64 %169, 8
   %211 = load i32, ptr %65, align 8, !tbaa !119
@@ -1810,12 +1810,12 @@ define hidden void @_ZN8rawspeed15RawImageDataU1617scaleValues_plainEii(ptr noca
   %103 = insertelement <4 x ptr> poison, ptr %51, i64 0
   %104 = shufflevector <4 x ptr> %103, <4 x ptr> poison, <4 x i32> zeroinitializer
   %105 = getelementptr i32, <4 x ptr> %104, <4 x i64> %102
-  %106 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %105, i32 4, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> poison), !tbaa !96
+  %106 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %105, i32 4, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !96
   %107 = insertelement <4 x i32> poison, i32 %79, i64 0
   %108 = shufflevector <4 x i32> %107, <4 x i32> poison, <4 x i32> zeroinitializer
   %109 = sub nsw <4 x i32> %108, %106
   %110 = sitofp <4 x i32> %109 to <4 x float>
-  %111 = fdiv <4 x float> <float 0x41CFFFE000000000, float 0x41CFFFE000000000, float 0x41CFFFE000000000, float 0x41CFFFE000000000>, %110
+  %111 = fdiv <4 x float> splat (float 0x41CFFFE000000000), %110
   %112 = fptosi <4 x float> %111 to <4 x i32>
   store <4 x i32> %112, ptr %4, align 16, !tbaa !96
   store <4 x i32> %106, ptr %5, align 16, !tbaa !96

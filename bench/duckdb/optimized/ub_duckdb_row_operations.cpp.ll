@@ -1624,8 +1624,8 @@ vector.body1296:                                  ; preds = %vector.body1296, %v
   %offset.idx = shl i64 %index1297, 3
   %next.gep = getelementptr i8, ptr %entry_sizes, i64 %offset.idx
   %34 = getelementptr i8, ptr %next.gep, i64 16
-  store <2 x i64> <i64 4, i64 4>, ptr %next.gep, align 16, !tbaa !38
-  store <2 x i64> <i64 4, i64 4>, ptr %34, align 16, !tbaa !38
+  store <2 x i64> splat (i64 4), ptr %next.gep, align 16, !tbaa !38
+  store <2 x i64> splat (i64 4), ptr %34, align 16, !tbaa !38
   %index.next1299 = add nuw nsw i64 %index1297, 4
   %35 = icmp eq i64 %index.next1299, %n.vec1293
   br i1 %35, label %middle.block1289, label %vector.body1296, !llvm.loop !135
@@ -4342,8 +4342,8 @@ vector.body322:                                   ; preds = %vector.body322, %ve
   %30 = insertelement <2 x i32> %29, i32 %28, i64 1
   %31 = zext <2 x i32> %26 to <2 x i64>
   %32 = zext <2 x i32> %30 to <2 x i64>
-  %33 = add nuw nsw <2 x i64> %31, <i64 4, i64 4>
-  %34 = add nuw nsw <2 x i64> %32, <i64 4, i64 4>
+  %33 = add nuw nsw <2 x i64> %31, splat (i64 4)
+  %34 = add nuw nsw <2 x i64> %32, splat (i64 4)
   %35 = getelementptr inbounds i64, ptr %entry_sizes, i64 %index323
   %36 = getelementptr inbounds i8, ptr %35, i64 16
   %wide.load324 = load <2 x i64>, ptr %35, align 8, !tbaa !38, !alias.scope !191, !noalias !188
@@ -10874,8 +10874,8 @@ vector.body:                                      ; preds = %vector.main.loop.it
   %15 = getelementptr inbounds i8, ptr %14, i64 16
   %wide.load = load <16 x i8>, ptr %14, align 1, !tbaa !41
   %wide.load228 = load <16 x i8>, ptr %15, align 1, !tbaa !41
-  %16 = xor <16 x i8> %wide.load, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %17 = xor <16 x i8> %wide.load228, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %16 = xor <16 x i8> %wide.load, splat (i8 -1)
+  %17 = xor <16 x i8> %wide.load228, splat (i8 -1)
   store <16 x i8> %16, ptr %14, align 1, !tbaa !41
   store <16 x i8> %17, ptr %15, align 1, !tbaa !41
   %index.next = add nuw i64 %index, 32
@@ -10896,7 +10896,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index232 = phi i64 [ %index.next234, %vec.epilog.vector.body ], [ %index232.ph, %vec.epilog.vector.body.preheader ]
   %19 = getelementptr inbounds i8, ptr %9, i64 %index232
   %wide.load233 = load <8 x i8>, ptr %19, align 1, !tbaa !41
-  %20 = xor <8 x i8> %wide.load233, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %20 = xor <8 x i8> %wide.load233, splat (i8 -1)
   store <8 x i8> %20, ptr %19, align 1, !tbaa !41
   %index.next234 = add nuw i64 %index232, 8
   %21 = icmp eq i64 %index.next234, %n.vec230
@@ -11036,8 +11036,8 @@ vector.body245:                                   ; preds = %vector.main.loop.it
   %37 = getelementptr inbounds i8, ptr %36, i64 16
   %wide.load247 = load <16 x i8>, ptr %36, align 1, !tbaa !41
   %wide.load248 = load <16 x i8>, ptr %37, align 1, !tbaa !41
-  %38 = xor <16 x i8> %wide.load247, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %39 = xor <16 x i8> %wide.load248, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %38 = xor <16 x i8> %wide.load247, splat (i8 -1)
+  %39 = xor <16 x i8> %wide.load248, splat (i8 -1)
   store <16 x i8> %38, ptr %36, align 1, !tbaa !41
   store <16 x i8> %39, ptr %37, align 1, !tbaa !41
   %index.next249 = add nuw i64 %index246, 32
@@ -11058,7 +11058,7 @@ vec.epilog.vector.body261:                        ; preds = %vec.epilog.vector.b
   %index262 = phi i64 [ %index.next264, %vec.epilog.vector.body261 ], [ %index262.ph, %vec.epilog.vector.body261.preheader ]
   %41 = getelementptr inbounds i8, ptr %add.ptr, i64 %index262
   %wide.load263 = load <8 x i8>, ptr %41, align 1, !tbaa !41
-  %42 = xor <8 x i8> %wide.load263, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %42 = xor <8 x i8> %wide.load263, splat (i8 -1)
   store <8 x i8> %42, ptr %41, align 1, !tbaa !41
   %index.next264 = add nuw i64 %index262, 8
   %43 = icmp eq i64 %index.next264, %n.vec258
@@ -11624,8 +11624,8 @@ vector.body:                                      ; preds = %vector.main.loop.it
   %16 = getelementptr inbounds i8, ptr %15, i64 16
   %wide.load = load <16 x i8>, ptr %15, align 1, !tbaa !41
   %wide.load114 = load <16 x i8>, ptr %16, align 1, !tbaa !41
-  %17 = xor <16 x i8> %wide.load, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
-  %18 = xor <16 x i8> %wide.load114, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %17 = xor <16 x i8> %wide.load, splat (i8 -1)
+  %18 = xor <16 x i8> %wide.load114, splat (i8 -1)
   store <16 x i8> %17, ptr %15, align 1, !tbaa !41
   store <16 x i8> %18, ptr %16, align 1, !tbaa !41
   %index.next = add nuw i64 %index, 32
@@ -11646,7 +11646,7 @@ vec.epilog.vector.body:                           ; preds = %vec.epilog.vector.b
   %index118 = phi i64 [ %index.next120, %vec.epilog.vector.body ], [ %index118.ph, %vec.epilog.vector.body.preheader ]
   %20 = getelementptr inbounds i8, ptr %14, i64 %index118
   %wide.load119 = load <8 x i8>, ptr %20, align 1, !tbaa !41
-  %21 = xor <8 x i8> %wide.load119, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %21 = xor <8 x i8> %wide.load119, splat (i8 -1)
   store <8 x i8> %21, ptr %20, align 1, !tbaa !41
   %index.next120 = add nuw i64 %index118, 8
   %22 = icmp eq i64 %index.next120, %n.vec116

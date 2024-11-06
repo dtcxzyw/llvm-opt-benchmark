@@ -16441,14 +16441,14 @@ vector.ph:                                        ; preds = %for.body146.prehead
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
   %vec.ind = phi <2 x i64> [ <i64 0, i64 1>, %vector.ph ], [ %vec.ind.next, %vector.body ]
-  %251 = shl <2 x i64> %vec.ind, <i64 20, i64 20>
-  %252 = add <2 x i64> %251, <i64 2097152, i64 2097152>
+  %251 = shl <2 x i64> %vec.ind, splat (i64 20)
+  %252 = add <2 x i64> %251, splat (i64 2097152)
   %253 = getelementptr inbounds i64, ptr %call5.i.i.i.i4.i.i956, i64 %index
   %254 = getelementptr inbounds i8, ptr %253, i64 16
   store <2 x i64> %251, ptr %253, align 8, !tbaa !14
   store <2 x i64> %252, ptr %254, align 8, !tbaa !14
   %index.next = add nuw i64 %index, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %255 = icmp eq i64 %index.next, %n.vec
   br i1 %255, label %middle.block, label %vector.body, !llvm.loop !277
 

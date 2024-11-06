@@ -170,8 +170,8 @@ vector.body:                                      ; preds = %pred.store.continue
   %9 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !25
   %wide.load45 = load <16 x i8>, ptr %9, align 1, !tbaa !25
-  %10 = icmp eq <16 x i8> %wide.load, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %11 = icmp eq <16 x i8> %wide.load45, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %10 = icmp eq <16 x i8> %wide.load, splat (i8 92)
+  %11 = icmp eq <16 x i8> %wide.load45, splat (i8 92)
   %12 = extractelement <16 x i1> %10, i64 0
   br i1 %12, label %pred.store.if, label %pred.store.continue
 
@@ -513,7 +513,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index112 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next138, %pred.store.continue137 ]
   %next.gep113 = getelementptr i8, ptr %8, i64 %index112
   %wide.load121 = load <8 x i8>, ptr %next.gep113, align 1, !tbaa !25
-  %76 = icmp eq <8 x i8> %wide.load121, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %76 = icmp eq <8 x i8> %wide.load121, splat (i8 92)
   %77 = extractelement <8 x i1> %76, i64 0
   br i1 %77, label %pred.store.if122, label %pred.store.continue123
 
@@ -686,8 +686,8 @@ vector.body:                                      ; preds = %pred.store.continue
   %3 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !25
   %wide.load44 = load <16 x i8>, ptr %3, align 1, !tbaa !25
-  %4 = icmp eq <16 x i8> %wide.load, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %5 = icmp eq <16 x i8> %wide.load44, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %4 = icmp eq <16 x i8> %wide.load, splat (i8 92)
+  %5 = icmp eq <16 x i8> %wide.load44, splat (i8 92)
   %6 = extractelement <16 x i1> %4, i64 0
   br i1 %6, label %pred.store.if, label %pred.store.continue
 
@@ -1029,7 +1029,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index111 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next137, %pred.store.continue136 ]
   %next.gep112 = getelementptr i8, ptr %2, i64 %index111
   %wide.load120 = load <8 x i8>, ptr %next.gep112, align 1, !tbaa !25
-  %70 = icmp eq <8 x i8> %wide.load120, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %70 = icmp eq <8 x i8> %wide.load120, splat (i8 92)
   %71 = extractelement <8 x i1> %70, i64 0
   br i1 %71, label %pred.store.if121, label %pred.store.continue122
 
@@ -1512,8 +1512,8 @@ vector.body:                                      ; preds = %pred.store.continue
   %4 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !25
   %wide.load116 = load <16 x i8>, ptr %4, align 1, !tbaa !25
-  %5 = icmp eq <16 x i8> %wide.load, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %6 = icmp eq <16 x i8> %wide.load116, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %5 = icmp eq <16 x i8> %wide.load, splat (i8 92)
+  %6 = icmp eq <16 x i8> %wide.load116, splat (i8 92)
   %7 = extractelement <16 x i1> %5, i64 0
   br i1 %7, label %pred.store.if, label %pred.store.continue
 
@@ -1855,7 +1855,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index183 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next209, %pred.store.continue208 ]
   %next.gep184 = getelementptr i8, ptr %.pre, i64 %index183
   %wide.load192 = load <8 x i8>, ptr %next.gep184, align 1, !tbaa !25
-  %71 = icmp eq <8 x i8> %wide.load192, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %71 = icmp eq <8 x i8> %wide.load192, splat (i8 92)
   %72 = extractelement <8 x i1> %71, i64 0
   br i1 %72, label %pred.store.if193, label %pred.store.continue194
 
@@ -2027,9 +2027,9 @@ vector.body220:                                   ; preds = %vector.body220, %ve
   %next.gep222 = getelementptr i8, ptr %95, i64 %index221
   %wide.load223 = load <16 x i8>, ptr %next.gep222, align 1, !tbaa !25
   %97 = sext <16 x i8> %wide.load223 to <16 x i32>
-  %98 = add nsw <16 x i32> %97, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %99 = icmp ult <16 x i32> %98, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %100 = add <16 x i8> %wide.load223, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %98 = add nsw <16 x i32> %97, splat (i32 -65)
+  %99 = icmp ult <16 x i32> %98, splat (i32 26)
+  %100 = add <16 x i8> %wide.load223, splat (i8 32)
   %101 = select <16 x i1> %99, <16 x i8> %100, <16 x i8> %wide.load223
   store <16 x i8> %101, ptr %next.gep222, align 1, !tbaa !25
   %index.next224 = add nuw i64 %index221, 16
@@ -2056,9 +2056,9 @@ vec.epilog.vector.body238:                        ; preds = %vec.epilog.vector.b
   %next.gep240 = getelementptr i8, ptr %95, i64 %index239
   %wide.load241 = load <8 x i8>, ptr %next.gep240, align 1, !tbaa !25
   %103 = sext <8 x i8> %wide.load241 to <8 x i32>
-  %104 = add nsw <8 x i32> %103, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %105 = icmp ult <8 x i32> %104, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %106 = add <8 x i8> %wide.load241, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %104 = add nsw <8 x i32> %103, splat (i32 -65)
+  %105 = icmp ult <8 x i32> %104, splat (i32 26)
+  %106 = add <8 x i8> %wide.load241, splat (i8 32)
   %107 = select <8 x i1> %105, <8 x i8> %106, <8 x i8> %wide.load241
   store <8 x i8> %107, ptr %next.gep240, align 1, !tbaa !25
   %index.next242 = add nuw i64 %index239, 8
@@ -2446,8 +2446,8 @@ vector.body:                                      ; preds = %pred.store.continue
   %2 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !25
   %wide.load94 = load <16 x i8>, ptr %2, align 1, !tbaa !25
-  %3 = icmp eq <16 x i8> %wide.load, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %4 = icmp eq <16 x i8> %wide.load94, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %3 = icmp eq <16 x i8> %wide.load, splat (i8 92)
+  %4 = icmp eq <16 x i8> %wide.load94, splat (i8 92)
   %5 = extractelement <16 x i1> %3, i64 0
   br i1 %5, label %pred.store.if, label %pred.store.continue
 
@@ -2789,7 +2789,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index161 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next187, %pred.store.continue186 ]
   %next.gep162 = getelementptr i8, ptr %.pre, i64 %index161
   %wide.load170 = load <8 x i8>, ptr %next.gep162, align 1, !tbaa !25
-  %69 = icmp eq <8 x i8> %wide.load170, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %69 = icmp eq <8 x i8> %wide.load170, splat (i8 92)
   %70 = extractelement <8 x i1> %69, i64 0
   br i1 %70, label %pred.store.if171, label %pred.store.continue172
 
@@ -2958,9 +2958,9 @@ vector.body198:                                   ; preds = %vector.body198, %ve
   %next.gep200 = getelementptr i8, ptr %93, i64 %index199
   %wide.load201 = load <16 x i8>, ptr %next.gep200, align 1, !tbaa !25
   %95 = sext <16 x i8> %wide.load201 to <16 x i32>
-  %96 = add nsw <16 x i32> %95, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %97 = icmp ult <16 x i32> %96, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %98 = add <16 x i8> %wide.load201, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %96 = add nsw <16 x i32> %95, splat (i32 -65)
+  %97 = icmp ult <16 x i32> %96, splat (i32 26)
+  %98 = add <16 x i8> %wide.load201, splat (i8 32)
   %99 = select <16 x i1> %97, <16 x i8> %98, <16 x i8> %wide.load201
   store <16 x i8> %99, ptr %next.gep200, align 1, !tbaa !25
   %index.next202 = add nuw i64 %index199, 16
@@ -2987,9 +2987,9 @@ vec.epilog.vector.body216:                        ; preds = %vec.epilog.vector.b
   %next.gep218 = getelementptr i8, ptr %93, i64 %index217
   %wide.load219 = load <8 x i8>, ptr %next.gep218, align 1, !tbaa !25
   %101 = sext <8 x i8> %wide.load219 to <8 x i32>
-  %102 = add nsw <8 x i32> %101, <i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65, i32 -65>
-  %103 = icmp ult <8 x i32> %102, <i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26, i32 26>
-  %104 = add <8 x i8> %wide.load219, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
+  %102 = add nsw <8 x i32> %101, splat (i32 -65)
+  %103 = icmp ult <8 x i32> %102, splat (i32 26)
+  %104 = add <8 x i8> %wide.load219, splat (i8 32)
   %105 = select <8 x i1> %103, <8 x i8> %104, <8 x i8> %wide.load219
   store <8 x i8> %105, ptr %next.gep218, align 1, !tbaa !25
   %index.next220 = add nuw i64 %index217, 8

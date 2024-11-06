@@ -76,7 +76,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
   %.11268.us.i = phi ptr [ %50, %.lr.ph10.us.i ], [ %64, %..preheader1_crit_edge.us.i ]
   %.11297.us.i = phi ptr [ %49, %.lr.ph10.us.i ], [ %63, %..preheader1_crit_edge.us.i ]
   %44 = load <8 x i32>, ptr %.11297.us.i, align 1
-  %45 = lshr <8 x i32> %44, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %45 = lshr <8 x i32> %44, splat (i32 16)
   %46 = shufflevector <8 x i32> %45, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %47 = shufflevector <8 x i32> %45, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %48 = tail call <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32> %46, <4 x i32> %47)
@@ -95,8 +95,8 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
   %55 = load <8 x i32>, ptr %.01282.us.i, align 1
   %56 = getelementptr inbounds i8, ptr %.01282.us.i, i64 32
   %57 = load <8 x i32>, ptr %56, align 1
-  %58 = lshr <8 x i32> %55, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
-  %59 = lshr <8 x i32> %57, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %58 = lshr <8 x i32> %55, splat (i32 16)
+  %59 = lshr <8 x i32> %57, splat (i32 16)
   %60 = tail call <16 x i16> @llvm.x86.avx2.packusdw(<8 x i32> %58, <8 x i32> %59)
   %61 = bitcast <16 x i16> %60 to <4 x i64>
   %62 = shufflevector <4 x i64> %61, <4 x i64> poison, <4 x i32> <i32 0, i32 2, i32 1, i32 3>
@@ -149,7 +149,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
   %.11268.us28.i.us = phi ptr [ %82, %.preheader1.us22.i.us ], [ %90, %83 ]
   %.11297.us29.i.us = phi ptr [ %76, %.preheader1.us22.i.us ], [ %89, %83 ]
   %84 = load <8 x i32>, ptr %.11297.us29.i.us, align 1
-  %85 = lshr <8 x i32> %84, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %85 = lshr <8 x i32> %84, splat (i32 16)
   %86 = shufflevector <8 x i32> %85, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %87 = shufflevector <8 x i32> %85, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %88 = tail call <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32> %86, <4 x i32> %87)
@@ -206,7 +206,7 @@ define hidden void @_ZN4ncnn26cast_fp32_to_bf16_sse_avx2ERKNS_3MatERS0_RKNS_6Opt
   %.11268.us28.i = phi ptr [ %105, %.preheader1.us22.i ], [ %119, %112 ]
   %.11297.us29.i = phi ptr [ %99, %.preheader1.us22.i ], [ %118, %112 ]
   %113 = load <8 x i32>, ptr %.11297.us29.i, align 1
-  %114 = lshr <8 x i32> %113, <i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16, i32 16>
+  %114 = lshr <8 x i32> %113, splat (i32 16)
   %115 = shufflevector <8 x i32> %114, <8 x i32> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %116 = shufflevector <8 x i32> %114, <8 x i32> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
   %117 = tail call <8 x i16> @llvm.x86.sse41.packusdw(<4 x i32> %115, <4 x i32> %116)

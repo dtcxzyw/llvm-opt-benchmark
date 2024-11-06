@@ -8282,7 +8282,7 @@ entry:
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !298
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !298
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !298
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !336
   call void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEE6appendEPKvjPKtj(ptr noundef nonnull align 8 dereferenceable(308) %call, ptr noundef nonnull %vertices, i32 noundef 4, ptr noundef nonnull %indices, i32 noundef 6)
@@ -9087,7 +9087,7 @@ invoke.cont152:                                   ; preds = %invoke.cont143
   store <2 x float> zeroinitializer, ptr %ref.tmp153, align 8, !tbaa !298
   store float 0.000000e+00, ptr %Z.i418, align 8, !tbaa !356
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp156) #30
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp156, align 8, !tbaa !298
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp156, align 8, !tbaa !298
   store float 1.000000e+00, ptr %Z.i420, align 8, !tbaa !356
   %vtable159 = load ptr, ptr %smgr, align 8, !tbaa !12
   %vfn160 = getelementptr inbounds i8, ptr %vtable159, i64 32
@@ -11014,7 +11014,7 @@ if.end:                                           ; preds = %entry
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %bufferbox, align 16, !tbaa !298
   %Y.i2.i = getelementptr inbounds i8, ptr %bufferbox, i64 16
   %Z.i3.i = getelementptr inbounds i8, ptr %bufferbox, i64 20
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !298
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !298
   %vtable52 = load ptr, ptr %mesh, align 8, !tbaa !12
   %0 = load ptr, ptr %vtable52, align 8
   %call53 = tail call noundef i32 %0(ptr noundef nonnull align 8 dereferenceable(8) %mesh)
@@ -11256,7 +11256,7 @@ if.end:                                           ; preds = %entry
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %bufferbox, align 16, !tbaa !298
   %Y.i2.i = getelementptr inbounds i8, ptr %bufferbox, i64 16
   %Z.i3.i = getelementptr inbounds i8, ptr %bufferbox, i64 20
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 16, !tbaa !298
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 16, !tbaa !298
   %vtable75 = load ptr, ptr %buffer, align 8, !tbaa !12
   %vfn76 = getelementptr inbounds i8, ptr %vtable75, i64 40
   %0 = load ptr, ptr %vfn76, align 8
@@ -14359,7 +14359,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 8), i8 0, i64 24, i1 false)
   store i8 1, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 32), align 8, !tbaa !338
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 40), align 8, !tbaa !298
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 56), align 8, !tbaa !298
+  store <2 x float> splat (float 1.000000e+00), ptr getelementptr inbounds (i8, ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 56), align 8, !tbaa !298
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN3irr5scene5SMeshD1Ev, ptr nonnull @_ZN3irr3gui10CGUITTFont13shared_plane_E, ptr nonnull @__dso_handle) #30
   ret void
 }

@@ -579,10 +579,10 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %broadcast.splat = shufflevector <2 x i64> %broadcast.splatinsert, <2 x i64> poison, <2 x i32> zeroinitializer
   %30 = lshr <2 x i64> %broadcast.splat, %vec.ind
   %31 = trunc <2 x i64> %30 to <2 x i32>
-  %32 = and <2 x i32> %31, <i32 1, i32 1>
+  %32 = and <2 x i32> %31, splat (i32 1)
   %33 = add <2 x i32> %32, %vec.phi
   %index.next = add nuw i64 %index, 2
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 2, i64 2>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 2)
   %34 = icmp eq i64 %index.next, %n.vec
   br i1 %34, label %middle.block, label %vector.body, !llvm.loop !10
 

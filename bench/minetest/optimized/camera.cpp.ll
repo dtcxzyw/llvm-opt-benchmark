@@ -485,7 +485,7 @@ entry:
   %m_arm_dir = getelementptr inbounds i8, ptr %this, i64 124
   %m_aspect = getelementptr inbounds i8, ptr %this, i64 156
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %m_arm_dir, i8 0, i64 32, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_aspect, align 4, !tbaa !47
+  store <2 x float> splat (float 1.000000e+00), ptr %m_aspect, align 4, !tbaa !47
   %m_fov_y = getelementptr inbounds i8, ptr %this, i64 164
   store float 1.000000e+00, ptr %m_fov_y, align 4, !tbaa !48
   %m_view_bobbing_anim = getelementptr inbounds i8, ptr %this, i64 168
@@ -2068,9 +2068,9 @@ if.end241:                                        ; preds = %if.then232, %for.bo
   %140 = shufflevector <2 x float> %my_cp.sroa.0.1, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %141 = insertelement <2 x float> %140, float %132, i64 1
   %142 = fcmp nsz ogt <2 x float> %141, zeroinitializer
-  %143 = select <2 x i1> %142, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %143 = select <2 x i1> %142, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %144 = fadd nsz <2 x float> %141, %143
-  %145 = fdiv nsz <2 x float> %144, <float 1.000000e+01, float 1.000000e+01>
+  %145 = fdiv nsz <2 x float> %144, splat (float 1.000000e+01)
   %146 = fptosi <2 x float> %145 to <2 x i16>
   %147 = zext <2 x i16> %146 to <2 x i48>
   %148 = shl nuw <2 x i48> %147, <i48 16, i48 32>
@@ -2116,8 +2116,8 @@ cleanup277.thread:                                ; preds = %_ZNK14NodeDefManage
   %div264 = fmul nsz float %mul263, 5.000000e-01
   %add266 = fadd nsz float %132, %div264
   %156 = load <2 x float>, ptr %m_camera_direction, align 8, !tbaa !47
-  %157 = fmul nsz <2 x float> %156, <float 1.000000e+01, float 1.000000e+01>
-  %158 = fmul nsz <2 x float> %157, <float 5.000000e-01, float 5.000000e-01>
+  %157 = fmul nsz <2 x float> %156, splat (float 1.000000e+01)
+  %158 = fmul nsz <2 x float> %157, splat (float 5.000000e-01)
   %159 = fadd nsz <2 x float> %my_cp.sroa.0.1, %158
   %160 = load float, ptr %Y, align 4, !tbaa !190
   %add282 = fadd nsz float %160, 2.000000e+01
@@ -2186,7 +2186,7 @@ if.end289:                                        ; preds = %for.cond, %if.then2
   %175 = insertelement <2 x i48> %174, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %176 = trunc <2 x i48> %175 to <2 x i16>
   %177 = sitofp <2 x i16> %176 to <2 x float>
-  %178 = fmul nsz <2 x float> %177, <float 1.000000e+01, float 1.000000e+01>
+  %178 = fmul nsz <2 x float> %177, splat (float 1.000000e+01)
   %179 = fsub nsz <2 x float> %my_cp.sroa.0.4, %178
   %sub6.i898 = fsub nsz float %my_cp.sroa.22.3, %mul4.i887
   store <2 x float> %179, ptr %ref.tmp334, align 8
@@ -2222,10 +2222,10 @@ if.end289:                                        ; preds = %for.cond, %if.then2
   %188 = insertelement <2 x i48> %187, i48 %p.sroa.2.0.extract.shift.i904, i64 1
   %189 = trunc <2 x i48> %188 to <2 x i16>
   %190 = sitofp <2 x i16> %189 to <2 x float>
-  %191 = fmul nsz <2 x float> %190, <float 1.000000e+01, float 1.000000e+01>
+  %191 = fmul nsz <2 x float> %190, splat (float 1.000000e+01)
   %192 = fsub nsz <2 x float> %my_cp.sroa.0.4, %191
   %193 = load <2 x float>, ptr %m_camera_direction, align 8, !tbaa !47
-  %194 = fmul nsz <2 x float> %193, <float 1.000000e+02, float 1.000000e+02>
+  %194 = fmul nsz <2 x float> %193, splat (float 1.000000e+02)
   %195 = fadd nsz <2 x float> %194, %192
   %add6.i935 = fadd nsz float %mul3.i.i, %sub6.i924
   store <2 x float> %195, ptr %ref.tmp351, align 8
@@ -2475,7 +2475,7 @@ if.then523:                                       ; preds = %if.end521
   %mul533 = fmul nsz double %conv482, 1.800000e+00
   %248 = insertelement <2 x double> poison, double %conv526, i64 0
   %249 = insertelement <2 x double> %248, double %mul533, i64 1
-  %250 = fmul nsz <2 x double> %249, <double 0x400921FB54442D18, double 0x400921FB54442D18>
+  %250 = fmul nsz <2 x double> %249, splat (double 0x400921FB54442D18)
   %251 = call nsz <2 x double> @llvm.sin.v2f64(<2 x double> %250)
   %252 = fpext <2 x float> %245 to <2 x double>
   %253 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %251, <2 x double> <double -5.000000e+01, double 2.400000e+01>, <2 x double> %252)
@@ -2491,7 +2491,7 @@ if.then523:                                       ; preds = %if.end521
   %261 = shufflevector <2 x double> %260, <2 x double> poison, <2 x i32> zeroinitializer
   %262 = fmul nsz <2 x double> %261, <double 0x3FE491B7506B2987, double 0xBFE8836FA4556E5A>
   %263 = fmul nsz <2 x double> %262, <double 0x3FE8836FA4556E5A, double 0xBFE8836FA4556E5A>
-  %264 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %259, <2 x double> <double 0x3FE491B7506B2987, double 0x3FE491B7506B2987>, <2 x double> %263)
+  %264 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %259, <2 x double> splat (double 0x3FE491B7506B2987), <2 x double> %263)
   %265 = fptrunc <2 x double> %264 to <2 x float>
   %266 = extractelement <2 x float> %265, i64 0
   %267 = extractelement <2 x float> %265, i64 1
@@ -2599,7 +2599,7 @@ _ZN3irr4core10quaternion5slerpES1_S1_ff.exit:     ; preds = %if.else.i, %if.then
   store <2 x float> %retval.sroa.3.12.vec.insert.i59.sink.i, ptr %Z.i1008, align 8
   call void @_ZNK3irr4core10quaternion7toEulerERNS0_8vector3dIfEE(ptr noundef nonnull align 4 dereferenceable(16) %quat_slerp, ptr noundef nonnull align 4 dereferenceable(12) %wield_rotation)
   %328 = load <2 x float>, ptr %wield_rotation, align 8, !tbaa !47
-  %329 = fmul nsz <2 x float> %328, <float 0x404CA5DC00000000, float 0x404CA5DC00000000>
+  %329 = fmul nsz <2 x float> %328, splat (float 0x404CA5DC00000000)
   store <2 x float> %329, ptr %wield_rotation, align 8, !tbaa !47
   %330 = load float, ptr %Z.i946, align 8, !tbaa !72
   %mul3.i1026 = fmul nsz float %330, 0x404CA5DC00000000
@@ -2628,7 +2628,7 @@ if.else557:                                       ; preds = %if.end521
   %334 = call nsz double @llvm.sin.f64(double %mul574)
   %335 = insertelement <2 x double> poison, double %neg567, i64 0
   %336 = insertelement <2 x double> %335, double %334, i64 1
-  %337 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %336, <2 x double> <double 3.000000e+00, double 3.000000e+00>, <2 x double> %333)
+  %337 = call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %336, <2 x double> splat (double 3.000000e+00), <2 x double> %333)
   %338 = fptrunc <2 x double> %337 to <2 x float>
   store <2 x float> %338, ptr %wield_position, align 8, !tbaa !47
   br label %if.end579

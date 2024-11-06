@@ -11951,7 +11951,7 @@ define void @_ZN13project_model15cargo_workspace14CargoWorkspace3new17hb969229d4
   br label %.lr.ph.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf0ee0c1ba9dcce79E.exit._crit_edge.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf0ee0c1ba9dcce79E.exit.backedge.i.i.i", %257
-  %263 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %263 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %264 = bitcast <16 x i1> %263 to i16
   %.not.i.i.i.i = icmp eq i16 %264, 0
   br i1 %.not.i.i.i.i, label %278, label %select.unfold
@@ -12538,7 +12538,7 @@ _ZN4core3ops8function6FnOnce9call_once17h70b2e0e2df993411E.exit.i11.i: ; preds =
   br label %.lr.ph.i.i.i323
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf0ee0c1ba9dcce79E.exit._crit_edge.i.i.i329": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hf0ee0c1ba9dcce79E.exit.backedge.i.i.i327", %422
-  %428 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i320, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %428 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i320, splat (i8 -1)
   %429 = bitcast <16 x i1> %428 to i16
   %.not.i.i.i.i330 = icmp eq i16 %429, 0
   br i1 %.not.i.i.i.i330, label %443, label %select.unfold565
@@ -13542,8 +13542,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.0.copyload.i.i.i.i = load <16 x i8>, ptr %gep.i.i.i, align 1, !alias.scope !2587, !noalias !2588
   %700 = getelementptr inbounds i8, ptr %gep.i.i.i, i64 2
   %.0.copyload2.i.i.i.i = load <16 x i8>, ptr %700, align 1, !alias.scope !2587, !noalias !2588
-  %701 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, <i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108>
-  %702 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, <i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98>
+  %701 = icmp eq <16 x i8> %.0.copyload.i.i.i.i, splat (i8 108)
+  %702 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i, splat (i8 98)
   %703 = and <16 x i1> %702, %701
   %704 = getelementptr inbounds [4 x i16], ptr %17, i64 0, i64 %.sroa.019.044.i.i.i
   store <16 x i1> %703, ptr %704, align 2, !noalias !2577
@@ -13567,8 +13567,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.0.copyload.i80.i.i.i = load <16 x i8>, ptr %707, align 1, !alias.scope !2587, !noalias !2591
   %708 = getelementptr inbounds i8, ptr %707, i64 2
   %.0.copyload2.i81.i.i.i = load <16 x i8>, ptr %708, align 1, !alias.scope !2587, !noalias !2591
-  %709 = icmp eq <16 x i8> %.0.copyload.i80.i.i.i, <i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108>
-  %710 = icmp eq <16 x i8> %.0.copyload2.i81.i.i.i, <i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98>
+  %709 = icmp eq <16 x i8> %.0.copyload.i80.i.i.i, splat (i8 108)
+  %710 = icmp eq <16 x i8> %.0.copyload2.i81.i.i.i, splat (i8 98)
   %711 = and <16 x i1> %710, %709
   %712 = bitcast <16 x i1> %711 to i16
   %713 = icmp eq i16 %712, 0
@@ -13579,8 +13579,8 @@ _ZN4core3str7pattern14small_slice_eq17h3a53943bb1188393E.exit.thread.loopexit.us
   %.0.copyload.i82.i.i.i = load <16 x i8>, ptr %715, align 1, !alias.scope !2587, !noalias !2594
   %716 = getelementptr inbounds i8, ptr %715, i64 2
   %.0.copyload2.i83.i.i.i = load <16 x i8>, ptr %716, align 1, !alias.scope !2587, !noalias !2594
-  %717 = icmp eq <16 x i8> %.0.copyload.i82.i.i.i, <i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108, i8 108>
-  %718 = icmp eq <16 x i8> %.0.copyload2.i83.i.i.i, <i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98, i8 98>
+  %717 = icmp eq <16 x i8> %.0.copyload.i82.i.i.i, splat (i8 108)
+  %718 = icmp eq <16 x i8> %.0.copyload2.i83.i.i.i, splat (i8 98)
   %719 = and <16 x i1> %718, %717
   %720 = bitcast <16 x i1> %719 to i16
   %721 = icmp eq i16 %720, 0

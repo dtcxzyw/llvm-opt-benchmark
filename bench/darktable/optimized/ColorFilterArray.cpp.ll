@@ -1562,7 +1562,7 @@ define hidden noundef i32 @_ZN8rawspeed16ColorFilterArray16shiftDcrawFilterEjii(
   %27 = lshr <2 x i32> %26, <i32 16, i32 12>
   %28 = lshr <2 x i32> %26, <i32 18, i32 14>
   %29 = xor <2 x i32> %28, %27
-  %30 = and <2 x i32> %29, <i32 3, i32 3>
+  %30 = and <2 x i32> %29, splat (i32 3)
   %31 = shufflevector <2 x i32> %30, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %32 = shl nuw nsw <4 x i32> %31, <i32 18, i32 16, i32 14, i32 12>
   %33 = tail call i32 @llvm.vector.reduce.or.v4i32(<4 x i32> %32)
@@ -1574,7 +1574,7 @@ define hidden noundef i32 @_ZN8rawspeed16ColorFilterArray16shiftDcrawFilterEjii(
   %39 = lshr <2 x i32> %38, <i32 24, i32 20>
   %40 = lshr <2 x i32> %38, <i32 26, i32 22>
   %41 = xor <2 x i32> %40, %39
-  %42 = and <2 x i32> %41, <i32 3, i32 3>
+  %42 = and <2 x i32> %41, splat (i32 3)
   %43 = shufflevector <2 x i32> %42, <2 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %44 = shl nuw nsw <4 x i32> %43, <i32 26, i32 24, i32 22, i32 20>
   %45 = lshr i32 %36, 28

@@ -6565,7 +6565,7 @@ for.body.i428:                                    ; preds = %invoke.cont15.i, %f
   %indvars.iv.i430 = phi i64 [ %indvars.iv.next.i433, %for.body.i428 ], [ 8, %invoke.cont15.i ]
   %add.ptr.i431 = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload.i, i64 %indvars.iv20.i429
   %270 = load <8 x i32>, ptr %add.ptr.i431, align 1
-  %271 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %262, <8 x i32> %270, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
+  %271 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %262, <8 x i32> %270, <8 x i32> splat (i32 -1), i8 4)
   %add.ptr18.i432 = getelementptr inbounds i32, ptr %call3.i, i64 %indvars.iv20.i429
   store <8 x i32> %271, ptr %add.ptr18.i432, align 1
   %indvars.iv.next.i433 = add nuw nsw i64 %indvars.iv.i430, 8
@@ -7045,7 +7045,7 @@ for.body.i98:                                     ; preds = %for.end63, %for.bod
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i101, %for.body.i98 ], [ 8, %for.end63 ]
   %add.ptr.i100 = getelementptr inbounds i32, ptr %call44, i64 %indvars.iv20.i
   %329 = load <8 x i32>, ptr %add.ptr.i100, align 1
-  %330 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %328, <8 x i32> %329, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
+  %330 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %328, <8 x i32> %329, <8 x i32> splat (i32 -1), i8 4)
   store <8 x i32> %330, ptr %add.ptr.i100, align 1
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i99, 8
   %cmp.i102 = icmp ult i64 %indvars.iv.next.i101, %conv67
@@ -24947,7 +24947,7 @@ for.body.i80:                                     ; preds = %if.end, %for.body.i
   %indvars.iv.i81 = phi i64 [ %indvars.iv.next.i83, %for.body.i80 ], [ 8, %if.end ]
   %add.ptr.i82 = getelementptr inbounds i32, ptr %call15, i64 %indvars.iv20.i
   %28 = load <8 x i32>, ptr %add.ptr.i82, align 1
-  %29 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %rows.coerce0, <8 x i32> %28, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
+  %29 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %rows.coerce0, <8 x i32> %28, <8 x i32> splat (i32 -1), i8 4)
   %add.ptr18.i = getelementptr inbounds i32, ptr %call18, i64 %indvars.iv20.i
   store <8 x i32> %29, ptr %add.ptr18.i, align 1
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i81, 8
@@ -74459,7 +74459,7 @@ for.body.i241:                                    ; preds = %invoke.cont25.i, %f
   %indvars.iv.i242 = phi i64 [ %indvars.iv.next.i244, %for.body.i241 ], [ 8, %invoke.cont25.i ]
   %add.ptr.i243 = getelementptr inbounds i32, ptr %call16.i, i64 %indvars.iv20.i
   %424 = load <8 x i32>, ptr %add.ptr.i243, align 1
-  %425 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %423, <8 x i32> %424, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
+  %425 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %423, <8 x i32> %424, <8 x i32> splat (i32 -1), i8 4)
   store <8 x i32> %425, ptr %add.ptr.i243, align 1
   %indvars.iv.next.i244 = add nuw nsw i64 %indvars.iv.i242, 8
   %cmp.i245 = icmp ult i64 %indvars.iv.next.i244, %conv21.i
@@ -75072,7 +75072,7 @@ for.body.i:                                       ; preds = %invoke.cont9, %for.
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 8, %invoke.cont9 ]
   %add.ptr.i = getelementptr inbounds i32, ptr %agg.tmp.sroa.0.0.copyload, i64 %indvars.iv20.i
   %15 = load <8 x i32>, ptr %add.ptr.i, align 1
-  %16 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6, <8 x i32> %15, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
+  %16 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6, <8 x i32> %15, <8 x i32> splat (i32 -1), i8 4)
   %add.ptr18.i = getelementptr inbounds i32, ptr %call1, i64 %indvars.iv20.i
   store <8 x i32> %16, ptr %add.ptr18.i, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
@@ -75730,7 +75730,7 @@ for.body.i87.i:                                   ; preds = %invoke.cont33.i, %f
   %indvars.iv.i88.i = phi i64 [ %indvars.iv.next.i90.i, %for.body.i87.i ], [ 8, %invoke.cont33.i ]
   %add.ptr.i89.i = getelementptr inbounds i32, ptr %call26.i, i64 %indvars.iv20.i.i
   %39 = load <8 x i32>, ptr %add.ptr.i89.i, align 1
-  %40 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %38, <8 x i32> %39, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 4)
+  %40 = call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %38, <8 x i32> %39, <8 x i32> splat (i32 -1), i8 4)
   store <8 x i32> %40, ptr %add.ptr.i89.i, align 1
   %indvars.iv.next.i90.i = add nuw nsw i64 %indvars.iv.i88.i, 8
   %cmp.i.i = icmp ult i64 %indvars.iv.next.i90.i, %conv36.i

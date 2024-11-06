@@ -5863,7 +5863,7 @@ define void @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, d
   %49 = getelementptr inbounds i8, ptr %39, i64 16
   %50 = load <2 x i32>, ptr %45, align 4, !tbaa !59
   %51 = sitofp <2 x i32> %50 to <2 x float>
-  %52 = fdiv reassoc nsz arcp contract afn <2 x float> <float 1.000000e+00, float 1.000000e+00>, %51
+  %52 = fdiv reassoc nsz arcp contract afn <2 x float> splat (float 1.000000e+00), %51
   %53 = load <2 x float>, ptr %39, align 16, !tbaa !94
   %54 = insertelement <2 x float> poison, float %46, i64 0
   %55 = insertelement <2 x float> %54, float %48, i64 1
@@ -5875,7 +5875,7 @@ define void @mouse_moved(ptr nocapture noundef readonly %0, double noundef %1, d
   %60 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %53, %55
   %61 = select <2 x i1> %60, <2 x float> %53, <2 x float> %55
   %62 = fadd reassoc nsz arcp contract afn <2 x float> %61, %52
-  %63 = call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %62, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %63 = call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %62, <2 x float> splat (float 1.000000e+00))
   store <2 x float> %63, ptr %49, align 8, !tbaa !94
   br label %71
 
@@ -6364,7 +6364,7 @@ define i32 @button_pressed(ptr nocapture noundef readonly %0, double noundef %1,
   store <2 x float> %109, ptr %73, align 8, !tbaa !94
   %110 = insertelement <2 x float> <float 0x3F847AE140000000, float poison>, float %59, i64 1
   %111 = fadd reassoc nsz arcp contract afn <2 x float> %104, %110
-  %112 = call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %111, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  %112 = call reassoc nsz arcp contract afn <2 x float> @llvm.minnum.v2f32(<2 x float> %111, <2 x float> splat (float 1.000000e+00))
   store <2 x float> %112, ptr %78, align 8, !tbaa !94
   br label %113
 

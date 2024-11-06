@@ -675,11 +675,11 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
   %36 = fadd reassoc nsz arcp contract afn float %35, %25
   %37 = insertelement <4 x float> %34, float %35, i64 2
   %38 = insertelement <4 x float> %37, float %36, i64 3
-  %39 = fmul reassoc nsz arcp contract afn <4 x float> %38, <float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01>
+  %39 = fmul reassoc nsz arcp contract afn <4 x float> %38, splat (float 2.500000e-01)
   %40 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.ceil.v4f32(<4 x float> %39)
-  %41 = fmul reassoc nsz arcp contract afn <4 x float> %40, <float 4.000000e+00, float 4.000000e+00, float 4.000000e+00, float 4.000000e+00>
+  %41 = fmul reassoc nsz arcp contract afn <4 x float> %40, splat (float 4.000000e+00)
   %42 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.floor.v4f32(<4 x float> %39)
-  %43 = fmul reassoc nsz arcp contract afn <4 x float> %42, <float 4.000000e+00, float 4.000000e+00, float 4.000000e+00, float 4.000000e+00>
+  %43 = fmul reassoc nsz arcp contract afn <4 x float> %42, splat (float 4.000000e+00)
   %44 = fsub reassoc nsz arcp contract afn <4 x float> %41, %38
   %45 = fsub reassoc nsz arcp contract afn <4 x float> %38, %43
   %46 = fcmp reassoc nsz arcp contract afn olt <4 x float> %44, %45
@@ -753,7 +753,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
 112:                                              ; preds = %5
   %113 = sub nsw i32 4, %110
   %114 = add nsw i32 %110, -4
-  %115 = add nsw <4 x i32> %48, <i32 -4, i32 -4, i32 -4, i32 -4>
+  %115 = add nsw <4 x i32> %48, splat (i32 -4)
   %116 = insertelement <4 x i32> poison, i32 %113, i64 0
   %117 = shufflevector <4 x i32> %116, <4 x i32> poison, <4 x i32> zeroinitializer
   %118 = icmp slt <4 x i32> %109, %117
@@ -773,7 +773,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE5splatEPfS1
 128:                                              ; preds = %126
   %129 = sub nsw i32 0, %110
   %130 = add nsw i32 %110, 4
-  %131 = add nsw <4 x i32> %48, <i32 4, i32 4, i32 4, i32 4>
+  %131 = add nsw <4 x i32> %48, splat (i32 4)
   %132 = insertelement <4 x i32> poison, i32 %129, i64 0
   %133 = shufflevector <4 x i32> %132, <4 x i32> poison, <4 x i32> zeroinitializer
   %134 = icmp slt <4 x i32> %109, %133
@@ -1095,41 +1095,41 @@ define linkonce_odr hidden void @_ZN20PermutohedralLatticeILi3ELi2EE19merge_spla
   %34 = phi <4 x i64> [ %23, %18 ], [ %50, %24 ]
   %35 = phi <4 x i64> [ zeroinitializer, %18 ], [ %51, %24 ]
   %36 = phi <4 x i64> [ <i64 1, i64 2, i64 3, i64 4>, %18 ], [ %71, %24 ]
-  %37 = add <4 x i64> %36, <i64 4, i64 4, i64 4, i64 4>
+  %37 = add <4 x i64> %36, splat (i64 4)
   %38 = getelementptr inbounds %class.HashTablePermutohedral, ptr %7, <4 x i64> %36
   %39 = getelementptr inbounds %class.HashTablePermutohedral, ptr %7, <4 x i64> %37
   %40 = getelementptr inbounds i8, <4 x ptr> %38, i64 40
   %41 = getelementptr inbounds i8, <4 x ptr> %39, i64 40
-  %42 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %40, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !62
-  %43 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %41, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !62
+  %42 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %40, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !62
+  %43 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %41, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !62
   %44 = add <4 x i64> %42, %26
   %45 = add <4 x i64> %43, %27
   %46 = getelementptr inbounds i8, <4 x ptr> %38, i64 32
   %47 = getelementptr inbounds i8, <4 x ptr> %39, i64 32
-  %48 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %46, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !61
-  %49 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %47, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !61
+  %48 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %46, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !61
+  %49 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %47, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !61
   %50 = add <4 x i64> %48, %34
   %51 = add <4 x i64> %49, %35
   %52 = getelementptr inbounds i8, <4 x ptr> %38, i64 56
   %53 = getelementptr inbounds i8, <4 x ptr> %39, i64 56
-  %54 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %52, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !70
-  %55 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %53, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !70
+  %54 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %52, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !70
+  %55 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %53, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !70
   %56 = add <4 x i64> %54, %32
   %57 = add <4 x i64> %55, %33
   %58 = getelementptr inbounds i8, <4 x ptr> %38, i64 64
   %59 = getelementptr inbounds i8, <4 x ptr> %39, i64 64
-  %60 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %58, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !71
-  %61 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %59, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !71
+  %60 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %58, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !71
+  %61 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %59, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !71
   %62 = add <4 x i64> %60, %28
   %63 = add <4 x i64> %61, %29
   %64 = getelementptr inbounds i8, <4 x ptr> %38, i64 72
   %65 = getelementptr inbounds i8, <4 x ptr> %39, i64 72
-  %66 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %64, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !63
-  %67 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %65, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> poison), !tbaa !63
+  %66 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %64, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !63
+  %67 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %65, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !63
   %68 = add <4 x i64> %66, %30
   %69 = add <4 x i64> %67, %31
   %70 = add nuw i64 %25, 8
-  %71 = add <4 x i64> %36, <i64 8, i64 8, i64 8, i64 8>
+  %71 = add <4 x i64> %36, splat (i64 8)
   %72 = icmp eq i64 %70, %19
   br i1 %72, label %73, label %24, !llvm.loop !72
 
@@ -1772,7 +1772,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %2) #25
   %81 = getelementptr inbounds i8, ptr %80, i64 4
   %82 = load <2 x i16>, ptr %81, align 2, !tbaa !56
-  %83 = add <2 x i16> %82, <i16 1, i16 1>
+  %83 = add <2 x i16> %82, splat (i16 1)
   store <2 x i16> %83, ptr %60, align 4, !tbaa !56
   %84 = getelementptr inbounds i8, ptr %80, i64 8
   %85 = load i16, ptr %84, align 2, !tbaa !56
@@ -1794,7 +1794,7 @@ define linkonce_odr hidden void @_ZNK20PermutohedralLatticeILi3ELi2EE4blurEv(ptr
   %99 = add i32 %96, %98
   %100 = mul i32 %99, 2531011
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #25
-  %101 = add <2 x i16> %82, <i16 -1, i16 -1>
+  %101 = add <2 x i16> %82, splat (i16 -1)
   store <2 x i16> %101, ptr %63, align 4, !tbaa !56
   %102 = add i16 %85, -1
   store i16 %102, ptr %65, align 4, !tbaa !56

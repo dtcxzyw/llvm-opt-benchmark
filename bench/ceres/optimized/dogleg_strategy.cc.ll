@@ -3304,7 +3304,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %135 = getelementptr inbounds double, ptr %129, i64 %.011.i.i.i.i.i.i
   %136 = getelementptr inbounds double, ptr %128, i64 %.011.i.i.i.i.i.i
   %137 = load <2 x i64>, ptr %136, align 16
-  %138 = xor <2 x i64> %137, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %138 = xor <2 x i64> %137, splat (i64 -9223372036854775808)
   %139 = bitcast <2 x i64> %138 to <2 x double>
   %140 = load <2 x double>, ptr %135, align 16
   %141 = fmul <2 x double> %140, %139
@@ -4486,7 +4486,7 @@ _ZN5Eigen8internal18partial_lu_inplaceINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEENS_14Tr
   store double %109, ptr %71, align 16
   %110 = load ptr, ptr %70, align 16
   %111 = load <2 x i64>, ptr %110, align 16
-  %112 = xor <2 x i64> %111, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %112 = xor <2 x i64> %111, splat (i64 -9223372036854775808)
   store <2 x i64> %112, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   ret void

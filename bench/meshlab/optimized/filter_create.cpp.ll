@@ -26377,10 +26377,10 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(70) ptr @_ZN5Eigen22
   %24 = getelementptr i8, ptr %1, i64 32
   %25 = load float, ptr %24, align 4
   %26 = load <4 x i32>, ptr %0, align 4
-  %27 = and <4 x i32> %26, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %27 = and <4 x i32> %26, splat (i32 2147483647)
   %28 = bitcast <4 x i32> %27 to <4 x float>
   %29 = load <4 x i32>, ptr %15, align 4
-  %30 = and <4 x i32> %29, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %30 = and <4 x i32> %29, splat (i32 2147483647)
   %31 = bitcast <4 x i32> %30 to <4 x float>
   %32 = tail call noundef <4 x float> asm "maxps $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<4 x float> %28, <4 x float> %31) #33, !srcloc !309
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -26972,14 +26972,14 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(134) ptr @_ZN5Eigen
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   %24 = load double, ptr %23, align 8
   %25 = load <2 x i64>, ptr %0, align 16
-  %26 = and <2 x i64> %25, <i64 9223372036854775807, i64 9223372036854775807>
+  %26 = and <2 x i64> %25, splat (i64 9223372036854775807)
   %27 = bitcast <2 x i64> %26 to <2 x double>
   %28 = load <2 x i64>, ptr %11, align 16
-  %29 = and <2 x i64> %28, <i64 9223372036854775807, i64 9223372036854775807>
+  %29 = and <2 x i64> %28, splat (i64 9223372036854775807)
   %30 = bitcast <2 x i64> %29 to <2 x double>
   %31 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %27, <2 x double> %30) #33, !srcloc !323
   %32 = load <2 x i64>, ptr %15, align 16
-  %33 = and <2 x i64> %32, <i64 9223372036854775807, i64 9223372036854775807>
+  %33 = and <2 x i64> %32, splat (i64 9223372036854775807)
   %34 = bitcast <2 x i64> %33 to <2 x double>
   %35 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %34, <2 x double> zeroinitializer) #33, !srcloc !323
   %36 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %31, <2 x double> %35) #33, !srcloc !323

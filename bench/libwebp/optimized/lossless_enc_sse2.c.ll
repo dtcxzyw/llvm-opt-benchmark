@@ -62,7 +62,7 @@ define internal void @SubtractGreenFromBlueAndRed_SSE2(ptr noundef %0, i32 nound
   %4 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv30
   %5 = load <2 x i64>, ptr %4, align 1
   %6 = bitcast <2 x i64> %5 to <8 x i16>
-  %7 = lshr <8 x i16> %6, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %7 = lshr <8 x i16> %6, splat (i16 8)
   %8 = shufflevector <8 x i16> %7, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 poison, i32 6, i32 poison>
   %9 = shufflevector <8 x i16> %8, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 6, i32 6>
   %10 = bitcast <2 x i64> %5 to <16 x i8>
@@ -139,10 +139,10 @@ define internal void @TransformColor_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %36 = shufflevector <8 x i16> %35, <8 x i16> poison, <8 x i32> <i32 0, i32 0, i32 2, i32 2, i32 4, i32 poison, i32 6, i32 poison>
   %37 = shufflevector <8 x i16> %36, <8 x i16> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 4, i32 6, i32 6>
   %38 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %37, <8 x i16> %28)
-  %39 = shl <8 x i16> %34, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %39 = shl <8 x i16> %34, splat (i16 8)
   %40 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %39, <8 x i16> %29)
   %41 = bitcast <8 x i16> %40 to <4 x i32>
-  %42 = lshr <4 x i32> %41, <i32 16, i32 16, i32 16, i32 16>
+  %42 = lshr <4 x i32> %41, splat (i32 16)
   %43 = bitcast <4 x i32> %42 to <16 x i8>
   %44 = bitcast <8 x i16> %38 to <16 x i8>
   %45 = add <16 x i8> %43, %44
@@ -227,9 +227,9 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noundef %0, i32 nounde
   %31 = getelementptr inbounds i32, ptr %26, i64 %30
   %32 = load <2 x i64>, ptr %31, align 1
   %33 = bitcast <2 x i64> %29 to <8 x i16>
-  %34 = shl <8 x i16> %33, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %34 = shl <8 x i16> %33, splat (i16 8)
   %35 = bitcast <2 x i64> %32 to <8 x i16>
-  %36 = shl <8 x i16> %35, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %36 = shl <8 x i16> %35, splat (i16 8)
   %37 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %34, <8 x i16> %21)
   %38 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %36, <8 x i16> %21)
   %39 = and <8 x i16> %33, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
@@ -241,9 +241,9 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noundef %0, i32 nounde
   %45 = bitcast <2 x i64> %32 to <16 x i8>
   %46 = bitcast <8 x i16> %42 to <16 x i8>
   %47 = bitcast <8 x i16> %37 to <4 x i32>
-  %48 = lshr <4 x i32> %47, <i32 16, i32 16, i32 16, i32 16>
+  %48 = lshr <4 x i32> %47, splat (i32 16)
   %49 = bitcast <8 x i16> %38 to <4 x i32>
-  %50 = lshr <4 x i32> %49, <i32 16, i32 16, i32 16, i32 16>
+  %50 = lshr <4 x i32> %49, splat (i32 16)
   %51 = bitcast <4 x i32> %48 to <16 x i8>
   %52 = add <16 x i8> %51, %44
   %53 = sub <16 x i8> %43, %52
@@ -251,9 +251,9 @@ define internal void @CollectColorBlueTransforms_SSE2(ptr noundef %0, i32 nounde
   %55 = add <16 x i8> %54, %46
   %56 = sub <16 x i8> %45, %55
   %57 = bitcast <16 x i8> %53 to <4 x i32>
-  %58 = and <4 x i32> %57, <i32 255, i32 255, i32 255, i32 255>
+  %58 = and <4 x i32> %57, splat (i32 255)
   %59 = bitcast <16 x i8> %56 to <4 x i32>
-  %60 = and <4 x i32> %59, <i32 255, i32 255, i32 255, i32 255>
+  %60 = and <4 x i32> %59, splat (i32 255)
   %61 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %58, <4 x i32> %60)
   store <8 x i16> %61, ptr %8, align 16
   br label %62
@@ -338,9 +338,9 @@ define internal void @CollectColorRedTransforms_SSE2(ptr noundef %0, i32 noundef
   %23 = getelementptr inbounds i32, ptr %18, i64 %22
   %24 = load <2 x i64>, ptr %23, align 1
   %25 = bitcast <2 x i64> %21 to <4 x i32>
-  %26 = lshr <4 x i32> %25, <i32 16, i32 16, i32 16, i32 16>
+  %26 = lshr <4 x i32> %25, splat (i32 16)
   %27 = bitcast <2 x i64> %24 to <4 x i32>
-  %28 = lshr <4 x i32> %27, <i32 16, i32 16, i32 16, i32 16>
+  %28 = lshr <4 x i32> %27, splat (i32 16)
   %29 = bitcast <2 x i64> %21 to <8 x i16>
   %30 = and <8 x i16> %29, <i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0, i16 -256, i16 0>
   %31 = tail call <8 x i16> @llvm.x86.sse2.pmulh.w(<8 x i16> %30, <8 x i16> %14)
@@ -354,9 +354,9 @@ define internal void @CollectColorRedTransforms_SSE2(ptr noundef %0, i32 noundef
   %39 = bitcast <8 x i16> %34 to <16 x i8>
   %40 = sub <16 x i8> %38, %39
   %41 = bitcast <16 x i8> %37 to <4 x i32>
-  %42 = and <4 x i32> %41, <i32 255, i32 255, i32 255, i32 255>
+  %42 = and <4 x i32> %41, splat (i32 255)
   %43 = bitcast <16 x i8> %40 to <4 x i32>
-  %44 = and <4 x i32> %43, <i32 255, i32 255, i32 255, i32 255>
+  %44 = and <4 x i32> %43, splat (i32 255)
   %45 = tail call <8 x i16> @llvm.x86.sse2.packssdw.128(<4 x i32> %42, <4 x i32> %44)
   store <8 x i16> %45, ptr %7, align 16
   br label %46
@@ -721,7 +721,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %7 = icmp eq <4 x i32> %5, %6
   %8 = sext <4 x i1> %7 to <4 x i32>
   %9 = bitcast <4 x i32> %8 to <16 x i8>
-  %10 = icmp sgt <16 x i8> %9, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
   %11 = bitcast <16 x i1> %10 to i16
   %.not = icmp eq i16 %11, 0
   br i1 %.not, label %12, label %.loopexit.loopexit.split.loop.exit70
@@ -735,7 +735,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %18 = icmp eq <4 x i32> %17, %15
   %19 = sext <4 x i1> %18 to <4 x i32>
   %20 = bitcast <4 x i32> %19 to <16 x i8>
-  %21 = icmp sgt <16 x i8> %20, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %21 = icmp sgt <16 x i8> %20, splat (i8 -1)
   %22 = bitcast <16 x i1> %21 to i16
   %.not60 = icmp eq i16 %22, 0
   br i1 %.not60, label %23, label %.loopexit.loopexit.split.loop.exit
@@ -757,7 +757,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %32 = icmp eq <4 x i32> %30, %31
   %33 = sext <4 x i1> %32 to <4 x i32>
   %34 = bitcast <4 x i32> %33 to <16 x i8>
-  %35 = icmp sgt <16 x i8> %34, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %35 = icmp sgt <16 x i8> %34, splat (i8 -1)
   %36 = bitcast <16 x i1> %35 to i16
   %37 = icmp eq i16 %36, 0
   br i1 %37, label %38, label %.loopexit
@@ -774,7 +774,7 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %45 = icmp eq <4 x i32> %42, %44
   %46 = sext <4 x i1> %45 to <4 x i32>
   %47 = bitcast <4 x i32> %46 to <16 x i8>
-  %48 = icmp sgt <16 x i8> %47, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %48 = icmp sgt <16 x i8> %47, splat (i8 -1)
   %49 = bitcast <16 x i1> %48 to i16
   %50 = icmp eq i16 %49, 0
   %spec.select = select i1 %50, i32 8, i32 4
@@ -896,8 +896,8 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   %.2253 = phi ptr [ %3, %.lr.ph254.preheader ], [ %30, %.lr.ph254 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv286
   %24 = load <8 x i16>, ptr %23, align 1
-  %25 = mul <8 x i16> %24, <i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272>
-  %26 = and <8 x i16> %25, <i16 -256, i16 -256, i16 -256, i16 -256, i16 -256, i16 -256, i16 -256, i16 -256>
+  %25 = mul <8 x i16> %24, splat (i16 272)
+  %26 = and <8 x i16> %25, splat (i16 -256)
   %27 = shufflevector <8 x i16> %26, <8 x i16> <i16 -256, i16 -256, i16 -256, i16 -256, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %28 = shufflevector <8 x i16> %26, <8 x i16> <i16 poison, i16 poison, i16 poison, i16 poison, i16 -256, i16 -256, i16 -256, i16 -256>, <8 x i32> <i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <8 x i16> %27, ptr %.2253, align 1
@@ -915,13 +915,13 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   %.3249 = phi ptr [ %3, %.lr.ph.preheader ], [ %41, %.lr.ph ]
   %31 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv279
   %32 = load <8 x i16>, ptr %31, align 1
-  %33 = mul <8 x i16> %32, <i16 260, i16 260, i16 260, i16 260, i16 260, i16 260, i16 260, i16 260>
+  %33 = mul <8 x i16> %32, splat (i16 260)
   %34 = bitcast <8 x i16> %33 to <2 x i64>
-  %35 = and <2 x i64> %34, <i64 1080880403494997760, i64 1080880403494997760>
+  %35 = and <2 x i64> %34, splat (i64 1080880403494997760)
   %36 = bitcast <2 x i64> %35 to <4 x i32>
-  %37 = lshr <4 x i32> %36, <i32 12, i32 12, i32 12, i32 12>
+  %37 = lshr <4 x i32> %36, splat (i32 12)
   %38 = bitcast <4 x i32> %37 to <2 x i64>
-  %39 = or <2 x i64> %35, <i64 -72057589759737856, i64 -72057589759737856>
+  %39 = or <2 x i64> %35, splat (i64 -72057589759737856)
   %40 = or <2 x i64> %39, %38
   store <2 x i64> %40, ptr %.3249, align 1
   %41 = getelementptr inbounds i8, ptr %.3249, i64 16
@@ -936,7 +936,7 @@ define internal void @BundleColorMap_SSE2(ptr noundef %0, i32 noundef %1, i32 no
   %.4265 = phi ptr [ %3, %.lr.ph266.preheader ], [ %55, %.lr.ph266 ]
   %42 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv300
   %43 = load <2 x i64>, ptr %42, align 1
-  %44 = shl <2 x i64> %43, <i64 7, i64 7>
+  %44 = shl <2 x i64> %43, splat (i64 7)
   %45 = bitcast <2 x i64> %44 to <16 x i8>
   %46 = icmp slt <16 x i8> %45, zeroinitializer
   %47 = bitcast <16 x i1> %46 to i16
@@ -1256,11 +1256,11 @@ define internal void @PredictorSub5_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %17 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %15, <16 x i8> %16)
   %18 = xor <2 x i64> %13, %8
   %19 = bitcast <2 x i64> %18 to <16 x i8>
-  %20 = and <16 x i8> %19, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %20 = and <16 x i8> %19, splat (i8 1)
   %21 = sub <16 x i8> %17, %20
   %22 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %21, <16 x i8> %10)
   %23 = xor <16 x i8> %21, %10
-  %24 = and <16 x i8> %23, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %24 = and <16 x i8> %23, splat (i8 1)
   %.neg = sub <16 x i8> %14, %22
   %25 = add <16 x i8> %.neg, %24
   %26 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv46
@@ -1317,7 +1317,7 @@ define internal void @PredictorSub6_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %15 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %13, <16 x i8> %14)
   %16 = xor <2 x i64> %10, %8
   %17 = bitcast <2 x i64> %16 to <16 x i8>
-  %18 = and <16 x i8> %17, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %18 = and <16 x i8> %17, splat (i8 1)
   %.neg = sub <16 x i8> %12, %15
   %19 = add <16 x i8> %.neg, %18
   %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
@@ -1373,7 +1373,7 @@ define internal void @PredictorSub7_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %14 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %12, <16 x i8> %13)
   %15 = xor <2 x i64> %10, %8
   %16 = bitcast <2 x i64> %15 to <16 x i8>
-  %17 = and <16 x i8> %16, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %17 = and <16 x i8> %16, splat (i8 1)
   %.neg = sub <16 x i8> %11, %14
   %18 = add <16 x i8> %.neg, %17
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
@@ -1429,7 +1429,7 @@ define internal void @PredictorSub8_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %14 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %12, <16 x i8> %13)
   %15 = xor <2 x i64> %9, %8
   %16 = bitcast <2 x i64> %15 to <16 x i8>
-  %17 = and <16 x i8> %16, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %17 = and <16 x i8> %16, splat (i8 1)
   %.neg = sub <16 x i8> %11, %14
   %18 = add <16 x i8> %.neg, %17
   %19 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
@@ -1486,7 +1486,7 @@ define internal void @PredictorSub9_SSE2(ptr noundef %0, ptr noundef %1, i32 nou
   %15 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %13, <16 x i8> %14)
   %16 = xor <2 x i64> %10, %7
   %17 = bitcast <2 x i64> %16 to <16 x i8>
-  %18 = and <16 x i8> %17, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %18 = and <16 x i8> %17, splat (i8 1)
   %.neg = sub <16 x i8> %12, %15
   %19 = add <16 x i8> %.neg, %18
   %20 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv37
@@ -1548,18 +1548,18 @@ define internal void @PredictorSub10_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %20 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %18, <16 x i8> %19)
   %21 = xor <2 x i64> %17, %14
   %22 = bitcast <2 x i64> %21 to <16 x i8>
-  %23 = and <16 x i8> %22, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %23 = and <16 x i8> %22, splat (i8 1)
   %24 = sub <16 x i8> %20, %23
   %25 = bitcast <2 x i64> %8 to <16 x i8>
   %26 = bitcast <2 x i64> %12 to <16 x i8>
   %27 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %25, <16 x i8> %26)
   %28 = xor <2 x i64> %12, %8
   %29 = bitcast <2 x i64> %28 to <16 x i8>
-  %30 = and <16 x i8> %29, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %30 = and <16 x i8> %29, splat (i8 1)
   %31 = sub <16 x i8> %27, %30
   %32 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %24, <16 x i8> %31)
   %33 = xor <16 x i8> %24, %31
-  %34 = and <16 x i8> %33, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %34 = and <16 x i8> %33, splat (i8 1)
   %.neg = sub <16 x i8> %10, %32
   %35 = add <16 x i8> %.neg, %34
   %36 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv55
@@ -1778,13 +1778,13 @@ define internal void @PredictorSub13_SSE2(ptr noundef %0, ptr noundef %1, i32 no
   %25 = bitcast <16 x i8> %22 to <8 x i16>
   %26 = bitcast <16 x i8> %20 to <8 x i16>
   %27 = add nuw nsw <8 x i16> %25, %26
-  %28 = lshr <8 x i16> %27, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %28 = lshr <8 x i16> %27, splat (i16 1)
   %29 = bitcast <16 x i8> %24 to <8 x i16>
   %30 = sub nsw <8 x i16> %28, %29
   %31 = icmp samesign ult <8 x i16> %28, %29
   %.neg = zext <8 x i1> %31 to <8 x i16>
   %32 = add nsw <8 x i16> %30, %.neg
-  %33 = ashr <8 x i16> %32, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %33 = ashr <8 x i16> %32, splat (i16 1)
   %34 = add nsw <8 x i16> %33, %28
   %35 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %34, <8 x i16> poison)
   %36 = bitcast <2 x i64> %12 to <16 x i8>

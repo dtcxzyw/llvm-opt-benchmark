@@ -835,9 +835,9 @@ common.resume:                                    ; preds = %166, %46
   %154 = add i64 %.sroa.01.06.i, 16
   %155 = getelementptr inbounds i8, ptr %.val5, i64 %.sroa.01.06.i
   %156 = load <16 x i8>, ptr %155, align 16, !noalias !111
-  %.lobit.i.i = ashr <16 x i8> %156, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i = ashr <16 x i8> %156, splat (i8 7)
   %157 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
-  %158 = or <2 x i64> %157, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %158 = or <2 x i64> %157, splat (i64 -9187201950435737472)
   store <2 x i64> %158, ptr %155, align 16, !noalias !114
   %.not.not.i = icmp eq i64 %153, 0
   br i1 %.not.not.i, label %_ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca53027982E.exit, label %152

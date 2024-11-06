@@ -323,7 +323,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
   %.sroa.0.8.vec.insert.i.i = insertelement <2 x double> %.sroa.0.0.vec.insert.i.i, double %27, i64 1
   %.sroa.3.16.vec.insert.i.i = insertelement <2 x double> poison, double %29, i64 0
   %.sroa.3.24.vec.insert.i.i = insertelement <2 x double> %.sroa.3.16.vec.insert.i.i, double %28, i64 1
-  %30 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i, <double 2.000000e+00, double 2.000000e+00>
+  %30 = fmul <2 x double> %.sroa.0.8.vec.insert.i.i, splat (double 2.000000e+00)
   %31 = fmul <2 x double> %.sroa.3.24.vec.insert.i.i, zeroinitializer
   %32 = fadd <2 x double> %31, %30
   %33 = fadd <2 x double> %.sroa.5.16.copyload, %32

@@ -863,7 +863,7 @@ define linkonce_odr hidden void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5Shape
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = xor <4 x i32> %12, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %13 = xor <4 x i32> %12, splat (i32 -2147483648)
   %14 = getelementptr inbounds i8, ptr %2, i64 48
   %.sroa.5161.16.copyload = load <4 x float>, ptr %14, align 16
   store float 0x7FF0000000000000, ptr %0, align 16
@@ -1012,7 +1012,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19ini
   %105 = phi <4 x float> [ %.pre75.i, %.critedge._crit_edge.i ], [ %92, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
   %106 = getelementptr inbounds i8, ptr %2, i64 16
   %107 = load <4 x i32>, ptr %106, align 16
-  %108 = xor <4 x i32> %107, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %108 = xor <4 x i32> %107, splat (i32 -2147483648)
   %109 = bitcast <4 x i32> %108 to <4 x float>
   %110 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %109, <4 x float> %105, i8 113)
   %111 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %109, <4 x float> %104, i8 113)
@@ -1106,7 +1106,7 @@ define weak_odr i8 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.73") align 16 %5, ptr noundef nonnull align 16 dereferenceable(403) %0, ptr noundef nonnull align 16 dereferenceable(144) %1, i32 noundef %2, i8 %3)
   %9 = load <4 x float>, ptr %5, align 16
-  %10 = fcmp contract une <4 x float> %9, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %10 = fcmp contract une <4 x float> %9, splat (float 0x7FF0000000000000)
   %11 = shufflevector <4 x i1> %10, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %12 = bitcast <8 x i1> %11 to i8
   ret i8 %12
@@ -1142,7 +1142,7 @@ define weak_odr i8 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EE
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.105") align 32 %5, ptr noundef nonnull align 16 dereferenceable(403) %0, ptr noundef nonnull align 32 dereferenceable(272) %1, i32 noundef %2, i8 %3)
   %9 = load <8 x float>, ptr %5, align 32
-  %10 = fcmp contract une <8 x float> %9, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %10 = fcmp contract une <8 x float> %9, splat (float 0x7FF0000000000000)
   %11 = bitcast <8 x i1> %10 to i8
   ret i8 %11
 }
@@ -1177,7 +1177,7 @@ define weak_odr i16 @_ZNK7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %8 = load ptr, ptr %7, align 8
   call void %8(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 64 %5, ptr noundef nonnull align 16 dereferenceable(403) %0, ptr noundef nonnull align 64 dereferenceable(528) %1, i32 noundef %2, i16 %3)
   %9 = load <16 x float>, ptr %5, align 64
-  %10 = fcmp contract une <16 x float> %9, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %10 = fcmp contract une <16 x float> %9, splat (float 0x7FF0000000000000)
   %11 = bitcast <16 x i1> %10 to i16
   ret i16 %11
 }
@@ -1879,7 +1879,7 @@ _ZN7mitsuba23embree_intersect_scalarIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE
 
 103:                                              ; preds = %85
   %104 = getelementptr inbounds i8, ptr %14, i64 96
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %104, align 16
+  store <4 x float> splat (float 0x47EFFFFFE0000000), ptr %104, align 16
   %105 = getelementptr inbounds i8, ptr %14, i64 112
   call void @llvm.assume(i1 true) [ "align"(ptr %98, i64 16) ]
   %106 = load <4 x float>, ptr %98, align 16
@@ -1974,7 +1974,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   call void %150(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.73") align 16 %16, ptr noundef nonnull align 16 dereferenceable(403) %88, ptr noundef nonnull align 16 dereferenceable(144) %14, i32 noundef %96, i8 %102)
   %151 = getelementptr inbounds i8, ptr %16, i64 16
   %152 = load <4 x float>, ptr %16, align 16
-  %153 = fcmp contract une <4 x float> %152, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %153 = fcmp contract une <4 x float> %152, splat (float 0x7FF0000000000000)
   %154 = load <4 x float>, ptr %104, align 16
   %155 = and <4 x i1> %153, %100
   %156 = select contract <4 x i1> %155, <4 x float> %152, <4 x float> %154
@@ -2057,7 +2057,7 @@ _ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEE
 
 199:                                              ; preds = %181
   %200 = getelementptr inbounds i8, ptr %9, i64 192
-  store <8 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %200, align 32
+  store <8 x float> splat (float 0x47EFFFFFE0000000), ptr %200, align 32
   %201 = getelementptr inbounds i8, ptr %9, i64 224
   call void @llvm.assume(i1 true) [ "align"(ptr %194, i64 32) ]
   %202 = load <8 x float>, ptr %194, align 32
@@ -2152,7 +2152,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   call void %246(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.105") align 32 %11, ptr noundef nonnull align 16 dereferenceable(403) %184, ptr noundef nonnull align 32 dereferenceable(272) %9, i32 noundef %192, i8 %197)
   %247 = getelementptr inbounds i8, ptr %11, i64 32
   %248 = load <8 x float>, ptr %11, align 32
-  %249 = fcmp contract une <8 x float> %248, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %249 = fcmp contract une <8 x float> %248, splat (float 0x7FF0000000000000)
   %250 = and <8 x i1> %249, %196
   %251 = load <8 x float>, ptr %200, align 32
   %252 = select contract <8 x i1> %250, <8 x float> %248, <8 x float> %251
@@ -2235,7 +2235,7 @@ _ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEE
 
 295:                                              ; preds = %277
   %296 = getelementptr inbounds i8, ptr %4, i64 384
-  store <16 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %296, align 64
+  store <16 x float> splat (float 0x47EFFFFFE0000000), ptr %296, align 64
   %297 = getelementptr inbounds i8, ptr %4, i64 448
   call void @llvm.assume(i1 true) [ "align"(ptr %290, i64 64) ]
   %298 = load <16 x float>, ptr %290, align 64
@@ -2330,7 +2330,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6V
   call void %342(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::tuple.138") align 64 %6, ptr noundef nonnull align 16 dereferenceable(403) %280, ptr noundef nonnull align 64 dereferenceable(528) %4, i32 noundef %288, i16 %293)
   %343 = getelementptr inbounds i8, ptr %6, i64 64
   %344 = load <16 x float>, ptr %6, align 64
-  %345 = fcmp contract une <16 x float> %344, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %345 = fcmp contract une <16 x float> %344, splat (float 0x7FF0000000000000)
   %346 = and <16 x i1> %345, %292
   %347 = load <16 x float>, ptr %296, align 64
   %348 = select contract <16 x i1> %346, <16 x float> %344, <16 x float> %347
@@ -2524,7 +2524,7 @@ _ZN7mitsuba23embree_intersect_scalarIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE
 
 77:                                               ; preds = %65
   %78 = getelementptr inbounds i8, ptr %12, i64 96
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %78, align 16
+  store <4 x float> splat (float 0x47EFFFFFE0000000), ptr %78, align 16
   %79 = getelementptr inbounds i8, ptr %12, i64 112
   call void @llvm.assume(i1 true) [ "align"(ptr %72, i64 16) ]
   %80 = load <4 x float>, ptr %72, align 16
@@ -2620,7 +2620,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm4EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %126 = bitcast i8 %125 to <8 x i1>
   %127 = and <8 x i1> %75, %126
   %128 = shufflevector <8 x i1> %127, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %129 = select contract <4 x i1> %128, <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, <4 x float> %101
+  %129 = select contract <4 x i1> %128, <4 x float> splat (float 0xFFF0000000000000), <4 x float> %101
   call void @llvm.assume(i1 true) [ "align"(ptr %100, i64 16) ]
   store <4 x float> %129, ptr %100, align 16
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm4E7RTCRay47RTCHit4EEvPiPvjjjPT2_PT3_.exit
@@ -2653,7 +2653,7 @@ _ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEE
 
 142:                                              ; preds = %130
   %143 = getelementptr inbounds i8, ptr %8, i64 192
-  store <8 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %143, align 32
+  store <8 x float> splat (float 0x47EFFFFFE0000000), ptr %143, align 32
   %144 = getelementptr inbounds i8, ptr %8, i64 224
   call void @llvm.assume(i1 true) [ "align"(ptr %137, i64 32) ]
   %145 = load <8 x float>, ptr %137, align 32
@@ -2748,7 +2748,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm8EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6Ve
   %190 = call i8 %189(ptr noundef nonnull align 16 dereferenceable(403) %133, ptr noundef nonnull align 32 dereferenceable(272) %8, i32 noundef %135, i8 %140)
   %191 = bitcast i8 %190 to <8 x i1>
   %192 = and <8 x i1> %139, %191
-  %193 = select contract <8 x i1> %192, <8 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, <8 x float> %166
+  %193 = select contract <8 x i1> %192, <8 x float> splat (float 0xFFF0000000000000), <8 x float> %166
   call void @llvm.assume(i1 true) [ "align"(ptr %165, i64 32) ]
   store <8 x float> %193, ptr %165, align 32
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm8E7RTCRay87RTCHit8EEvPiPvjjjPT2_PT3_.exit
@@ -2781,7 +2781,7 @@ _ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEE
 
 206:                                              ; preds = %194
   %207 = getelementptr inbounds i8, ptr %4, i64 384
-  store <16 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %207, align 64
+  store <16 x float> splat (float 0x47EFFFFFE0000000), ptr %207, align 64
   %208 = getelementptr inbounds i8, ptr %4, i64 448
   call void @llvm.assume(i1 true) [ "align"(ptr %201, i64 64) ]
   %209 = load <16 x float>, ptr %201, align 64
@@ -2876,7 +2876,7 @@ _ZN7mitsubaplIN5drjit6PacketIfLm16EEELm3ES3_Lm3EEEDaRKNS_5PointIT_XT0_EEERKNS_6V
   %254 = call i16 %253(ptr noundef nonnull align 16 dereferenceable(403) %197, ptr noundef nonnull align 64 dereferenceable(528) %4, i32 noundef %199, i16 %204)
   %255 = bitcast i16 %254 to <16 x i1>
   %256 = and <16 x i1> %203, %255
-  %257 = select contract <16 x i1> %256, <16 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, <16 x float> %230
+  %257 = select contract <16 x i1> %256, <16 x float> splat (float 0xFFF0000000000000), <16 x float> %230
   call void @llvm.assume(i1 true) [ "align"(ptr %229, i64 64) ]
   store <16 x float> %257, ptr %229, align 64
   br label %_ZN7mitsubaL23embree_intersect_packetIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELm16E8RTCRay168RTCHit16EEvPiPvjjjPT2_PT3_.exit

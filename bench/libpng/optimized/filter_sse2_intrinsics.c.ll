@@ -99,7 +99,7 @@ define void @png_read_filter_row_avg3_sse2(ptr nocapture noundef readonly %0, pt
   %12 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %10, <16 x i8> %11)
   %13 = xor <2 x i64> %.0121128, %8
   %14 = bitcast <2 x i64> %13 to <16 x i8>
-  %15 = and <16 x i8> %14, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %15 = and <16 x i8> %14, splat (i8 1)
   %16 = sub <16 x i8> %12, %15
   %17 = bitcast <4 x i32> %9 to <16 x i8>
   %18 = add <16 x i8> %16, %17
@@ -171,7 +171,7 @@ define void @png_read_filter_row_avg4_sse2(ptr nocapture noundef readonly %0, pt
   %13 = tail call <16 x i8> @llvm.x86.sse2.pavg.b(<16 x i8> %11, <16 x i8> %12)
   %14 = xor <2 x i64> %.06166, %9
   %15 = bitcast <2 x i64> %14 to <16 x i8>
-  %16 = and <16 x i8> %15, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
+  %16 = and <16 x i8> %15, splat (i8 1)
   %17 = sub <16 x i8> %13, %16
   %18 = bitcast <4 x i32> %10 to <16 x i8>
   %19 = add <16 x i8> %17, %18

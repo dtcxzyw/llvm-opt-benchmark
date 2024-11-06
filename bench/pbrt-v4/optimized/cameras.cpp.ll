@@ -2285,7 +2285,7 @@ entry:
   %set.i.i = getelementptr inbounds i8, ptr %metadata, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %cameraFromWorld, ptr noundef nonnull align 4 dereferenceable(64) %ref.tmp.sroa.0, i64 64, i1 false)
   store i8 1, ptr %set.i.i, align 4
-  call void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp5, <2 x float> <float 5.000000e-01, float 5.000000e-01>, float 5.000000e-01)
+  call void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp5, <2 x float> splat (float 5.000000e-01), float 5.000000e-01)
   call void @_ZN4pbrt5ScaleEfff(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp6, float noundef 5.000000e-01, float noundef 5.000000e-01, float noundef 5.000000e-01)
   call void @_ZNK4pbrt9TransformmlERKS0_(ptr nonnull sret(%"class.pbrt::Transform") align 4 %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp5, ptr noundef nonnull align 4 dereferenceable(128) %ref.tmp6)
   %screenFromCamera = getelementptr inbounds i8, ptr %this, i64 896
@@ -9017,8 +9017,8 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %retval.sroa.12.0129 = phi <2 x float> [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %entry ], [ %retval.sroa.12.1, %for.inc ]
-  %retval.sroa.0.0128 = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ], [ %retval.sroa.0.1, %for.inc ]
+  %retval.sroa.12.0129 = phi <2 x float> [ splat (float 0xC7EFFFFFE0000000), %entry ], [ %retval.sroa.12.1, %for.inc ]
+  %retval.sroa.0.0128 = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %entry ], [ %retval.sroa.0.1, %for.inc ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %conv = uitofp nneg i32 %8 to float
   %add = fadd float %conv, 5.000000e-01

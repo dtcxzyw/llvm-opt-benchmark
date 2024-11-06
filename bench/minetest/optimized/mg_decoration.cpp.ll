@@ -2010,7 +2010,7 @@ invoke.cont:                                      ; preds = %entry
   %np.i.i = getelementptr inbounds i8, ptr %call, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !94
   %Y.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
-  store <2 x float> <float 2.500000e+02, float 2.500000e+02>, ptr %Y.i.i.i.i, align 4, !tbaa !94
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !94
   %seed.i.i.i = getelementptr inbounds i8, ptr %call, i64 200
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !102
   %octaves.i.i.i = getelementptr inbounds i8, ptr %call, i64 204
@@ -2652,7 +2652,7 @@ invoke.cont:                                      ; preds = %entry
   %np.i.i = getelementptr inbounds i8, ptr %call, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !94
   %Y.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
-  store <2 x float> <float 2.500000e+02, float 2.500000e+02>, ptr %Y.i.i.i.i, align 4, !tbaa !94
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !94
   %seed.i.i.i = getelementptr inbounds i8, ptr %call, i64 200
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !102
   %octaves.i.i.i = getelementptr inbounds i8, ptr %call, i64 204
@@ -2968,7 +2968,7 @@ invoke.cont:                                      ; preds = %entry
   %np.i.i = getelementptr inbounds i8, ptr %call, i64 180
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 2.500000e+02>, ptr %fill_ratio.i.i, align 8, !tbaa !94
   %Y.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 192
-  store <2 x float> <float 2.500000e+02, float 2.500000e+02>, ptr %Y.i.i.i.i, align 4, !tbaa !94
+  store <2 x float> splat (float 2.500000e+02), ptr %Y.i.i.i.i, align 4, !tbaa !94
   %seed.i.i.i = getelementptr inbounds i8, ptr %call, i64 200
   store i32 12345, ptr %seed.i.i.i, align 4, !tbaa !102
   %octaves.i.i.i = getelementptr inbounds i8, ptr %call, i64 204

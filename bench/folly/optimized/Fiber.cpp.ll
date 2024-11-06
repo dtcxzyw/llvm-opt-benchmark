@@ -1034,8 +1034,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %offset.idx = shl i64 %index, 3
   %next.gep = getelementptr i8, ptr %7, i64 %offset.idx
   %12 = getelementptr i8, ptr %next.gep, i64 16
-  store <2 x i64> <i64 -374168149231226868, i64 -374168149231226868>, ptr %next.gep, align 8, !tbaa !30
-  store <2 x i64> <i64 -374168149231226868, i64 -374168149231226868>, ptr %12, align 8, !tbaa !30
+  store <2 x i64> splat (i64 -374168149231226868), ptr %next.gep, align 8, !tbaa !30
+  store <2 x i64> splat (i64 -374168149231226868), ptr %12, align 8, !tbaa !30
   %index.next = add nuw i64 %index, 4
   %13 = icmp eq i64 %index.next, %n.vec
   br i1 %13, label %middle.block, label %vector.body, !llvm.loop !117

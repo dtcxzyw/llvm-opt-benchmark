@@ -2235,9 +2235,9 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i173
   %284 = load <2 x i64>, ptr %accel_and_friends.i.i, align 16, !noalias !170
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i254.i.i, i64 16) ], !noalias !170
   %285 = load <2 x i64>, ptr %add.ptr.i254.i.i, align 16, !noalias !170
-  %not.i.i175 = xor <2 x i64> %284, <i64 -1, i64 -1>
+  %not.i.i175 = xor <2 x i64> %284, splat (i64 -1)
   %and.i826.i = and <2 x i64> %s.i.sroa.0.41427.i, %not.i.i175
-  %not.i829.i = xor <2 x i64> %285, <i64 -1, i64 -1>
+  %not.i829.i = xor <2 x i64> %285, splat (i64 -1)
   %and.i830.i = and <2 x i64> %s.i.sroa.22.41428.i, %not.i829.i
   %or.i428.i.i = or <2 x i64> %and.i830.i, %and.i826.i
   %286 = bitcast <2 x i64> %or.i428.i.i to <16 x i8>
@@ -3293,7 +3293,7 @@ if.end47.i:                                       ; preds = %if.else.i, %repeatL
 
 if.then53.i:                                      ; preds = %if.end47.i
   %.sroa.speculated = select i1 %cmp.i194, <2 x i64> %ctx.sroa.0.3414, <2 x i64> %ctx.sroa.13.3413
-  %not.i.i = xor <2 x i64> %446, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %446, splat (i64 -1)
   %and.i.i = and <2 x i64> %.sroa.speculated, %not.i.i
   br i1 %cmp.i194, label %for.inc.i, label %if.then53.i.else
 
@@ -3882,7 +3882,7 @@ if.end47.i:                                       ; preds = %if.else.i, %repeatL
 if.then53.i:                                      ; preds = %if.end47.i
   %sub.i441.0 = select i1 %cmp.i247, ptr %ctx, ptr %.sroa.2135.0.ctx.addr.i173.0..sroa_idx
   %85 = load <2 x i64>, ptr %sub.i441.0, align 16
-  %not.i.i = xor <2 x i64> %68, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %68, splat (i64 -1)
   %and.i.i = and <2 x i64> %85, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i441.0, align 16
   br label %for.inc.i
@@ -5299,9 +5299,9 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %241 = load <2 x i64>, ptr %accel_and_friends.i, align 16, !noalias !350
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i254.i, i64 16) ], !noalias !350
   %242 = load <2 x i64>, ptr %add.ptr.i254.i, align 16, !noalias !350
-  %not.i = xor <2 x i64> %241, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %241, splat (i64 -1)
   %and.i826 = and <2 x i64> %s.i.sroa.0.41326, %not.i
-  %not.i829 = xor <2 x i64> %242, <i64 -1, i64 -1>
+  %not.i829 = xor <2 x i64> %242, splat (i64 -1)
   %and.i830 = and <2 x i64> %s.i.sroa.22.41327, %not.i829
   %or.i428.i = or <2 x i64> %and.i830, %and.i826
   %243 = bitcast <2 x i64> %or.i428.i to <16 x i8>
@@ -6292,7 +6292,7 @@ if.end47.i:                                       ; preds = %if.else.i, %repeatL
 if.then53.i:                                      ; preds = %if.end47.i
   %sub.i485.0 = select i1 %cmp.i219, ptr %ctx, ptr %.sroa.2114.0.ctx.addr.i78.0..sroa_idx
   %49 = load <2 x i64>, ptr %sub.i485.0, align 16
-  %not.i.i = xor <2 x i64> %34, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %34, splat (i64 -1)
   %and.i.i = and <2 x i64> %49, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i485.0, align 16
   br label %for.inc.i
@@ -6440,7 +6440,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i166, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i431, %sw.bb1.i, %if.end6.i, %sw.bb3.i411, %repeatHasMatch.exit
-  %not.i.i519 = xor <2 x i64> %64, <i64 -1, i64 -1>
+  %not.i.i519 = xor <2 x i64> %64, splat (i64 -1)
   %and.i.i520 = and <2 x i64> %sub.i187.0.sroa.speculated, %not.i.i519
   br i1 %cmp.i188, label %for.inc.i166, label %if.then14.i.else
 
@@ -7871,9 +7871,9 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %231 = load <2 x i64>, ptr %accel_and_friends.i, align 16, !noalias !513
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i254.i, i64 16) ], !noalias !513
   %232 = load <2 x i64>, ptr %add.ptr.i254.i, align 16, !noalias !513
-  %not.i = xor <2 x i64> %231, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %231, splat (i64 -1)
   %and.i826 = and <2 x i64> %s.i.sroa.0.41292, %not.i
-  %not.i829 = xor <2 x i64> %232, <i64 -1, i64 -1>
+  %not.i829 = xor <2 x i64> %232, splat (i64 -1)
   %and.i830 = and <2 x i64> %s.i.sroa.22.41293, %not.i829
   %or.i428.i = or <2 x i64> %and.i830, %and.i826
   %233 = bitcast <2 x i64> %or.i428.i to <16 x i8>
@@ -8611,7 +8611,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i74, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %8, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %8, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i.0, %not.i.i
   br i1 %cmp.i18, label %for.inc.i, label %if.then14.i.else
 
@@ -9027,7 +9027,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end6.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %12, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %12, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i.0, %not.i.i
   br i1 %cmp.i48, label %for.inc.i, label %if.then14.i.else
 
@@ -9925,7 +9925,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i103, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %16, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %16, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i33.0.sroa.speculated, %not.i.i
   br i1 %cmp.i34, label %for.inc.i, label %if.then14.i.else
 
@@ -10182,7 +10182,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i101, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %16, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %16, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i22.0.sroa.speculated, %not.i.i
   br i1 %cmp.i23, label %for.inc.i, label %if.then14.i.else
 
@@ -10348,7 +10348,7 @@ repeatHasMatch.exit:                              ; preds = %sw.bb11.i, %sw.bb9.
   br i1 %cmp13.i.not, label %for.inc.i, label %if.then14.i
 
 if.then14.i:                                      ; preds = %if.end.i69, %sw.bb1.i, %if.end6.i, %sw.bb3.i, %repeatHasMatch.exit
-  %not.i.i = xor <2 x i64> %10, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %10, splat (i64 -1)
   %and.i.i = and <2 x i64> %sub.i.0.sroa.speculated, %not.i.i
   br i1 %cmp.i20, label %for.inc.i, label %if.then14.i.else
 

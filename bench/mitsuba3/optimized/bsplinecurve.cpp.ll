@@ -340,9 +340,9 @@ define weak_odr void @_ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm
   tail call void @_ZN7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 16 dereferenceable(403) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 16), ptr %0, align 16
   %19 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %19, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %19, align 16
   %20 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %20, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %20, align 16
   %21 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %21, align 16
   %22 = getelementptr inbounds i8, ptr %0, i64 456
@@ -936,9 +936,9 @@ _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit:       ; preds = %242
   %267 = icmp eq ptr %266, %248
   %268 = or i1 %250, %267
   %269 = load <4 x i32>, ptr %16, align 16
-  %270 = and <4 x i32> %269, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %270 = and <4 x i32> %269, splat (i32 2147483647)
   %271 = bitcast <4 x i32> %270 to <4 x float>
-  %272 = fcmp contract one <4 x float> %271, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %272 = fcmp contract one <4 x float> %271, splat (float 0x7FF0000000000000)
   %273 = shufflevector <4 x i1> %272, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %274 = bitcast <8 x i1> %273 to i8
   %275 = and i8 %274, 7
@@ -1326,8 +1326,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %_ZN5drjit12DynamicA
 
 ._crit_edge628.thread:                            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit
   %441 = load ptr, ptr %12, align 8
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %19, align 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %20, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %19, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %20, align 16
   br label %._crit_edge634
 
 .noexc.i395:                                      ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit
@@ -1412,8 +1412,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit421.thread:    ; preds = %.noexc.i398
   br label %586
 
 ._crit_edge628:                                   ; preds = %451
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %19, align 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %20, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %19, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %20, align 16
   %.not639 = icmp eq i32 %484, 0
   br i1 %.not639, label %._crit_edge634, label %.lr.ph633
 
@@ -1423,8 +1423,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit421.thread:    ; preds = %.noexc.i398
 
 490:                                              ; preds = %.lr.ph633, %490
   %indvars.iv676 = phi i64 [ 0, %.lr.ph633 ], [ %indvars.iv.next677, %490 ]
-  %491 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph633 ], [ %535, %490 ]
-  %492 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph633 ], [ %536, %490 ]
+  %491 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph633 ], [ %535, %490 ]
+  %492 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph633 ], [ %536, %490 ]
   %493 = trunc nuw i64 %indvars.iv676 to i32
   %494 = mul i32 %493, 3
   %495 = zext i32 %494 to i64
@@ -2194,9 +2194,9 @@ define weak_odr void @_ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm
   %12 = getelementptr inbounds i8, ptr %0, i64 504
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %14, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %14, align 16
   %15 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %15, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %15, align 16
   %16 = getelementptr inbounds i8, ptr %0, i64 448
   %17 = load i32, ptr %16, align 16
   %.not.i = icmp eq i32 %17, 0
@@ -2208,8 +2208,8 @@ define weak_odr void @_ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph.preheader.i ], [ %64, %.lr.ph.i ]
-  %19 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph.preheader.i ], [ %65, %.lr.ph.i ]
+  %18 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph.preheader.i ], [ %64, %.lr.ph.i ]
+  %19 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph.preheader.i ], [ %65, %.lr.ph.i ]
   %20 = trunc nuw i64 %indvars.iv.i to i32
   %21 = shl i32 %20, 2
   %22 = zext i32 %21 to i64
@@ -2326,9 +2326,9 @@ define weak_odr void @_ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm
   %2 = getelementptr inbounds i8, ptr %0, i64 504
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %4, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %5, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 448
   %7 = load i32, ptr %6, align 16
   %.not = icmp eq i32 %7, 0
@@ -2340,8 +2340,8 @@ define weak_odr void @_ZN7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfLm
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph.preheader ], [ %54, %.lr.ph ]
-  %9 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph.preheader ], [ %55, %.lr.ph ]
+  %8 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %9 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph.preheader ], [ %55, %.lr.ph ]
   %10 = trunc nuw i64 %indvars.iv to i32
   %11 = shl i32 %10, 2
   %12 = zext i32 %11 to i64
@@ -2747,7 +2747,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28fin
   %228 = phi <4 x float> [ %.pre77.i, %.critedge._crit_edge.i ], [ %225, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
   %229 = phi <4 x float> [ %.pre75.i, %.critedge._crit_edge.i ], [ %217, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
   %230 = load <4 x i32>, ptr %148, align 16
-  %231 = xor <4 x i32> %230, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %231 = xor <4 x i32> %230, splat (i32 -2147483648)
   %232 = bitcast <4 x i32> %231 to <4 x float>
   %233 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %232, <4 x float> %229, i8 113)
   %234 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %232, <4 x float> %228, i8 113)
@@ -2780,7 +2780,7 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   br label %_ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit
 
 _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds = %5, %6
-  %15 = phi <4 x i1> [ <i1 true, i1 true, i1 true, i1 true>, %6 ], [ zeroinitializer, %5 ]
+  %15 = phi <4 x i1> [ splat (i1 true), %6 ], [ zeroinitializer, %5 ]
   %16 = phi i32 [ %14, %6 ], [ 0, %5 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 504
   %18 = zext i32 %16 to i64
@@ -2844,7 +2844,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %72 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> zeroinitializer
   %73 = fmul contract <4 x float> %72, %45
   %74 = fadd contract <4 x float> %70, %73
-  %75 = fmul contract <4 x float> %74, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
+  %75 = fmul contract <4 x float> %74, splat (float 0x3FC5555560000000)
   %76 = fmul contract float %2, 6.000000e+00
   %77 = fsub contract float %76, %48
   %78 = fadd contract float %77, -3.000000e+00
@@ -2868,7 +2868,7 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %96 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> zeroinitializer
   %97 = fmul contract <4 x float> %96, %45
   %98 = fadd contract <4 x float> %94, %97
-  %99 = fmul contract <4 x float> %98, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
+  %99 = fmul contract <4 x float> %98, splat (float 0x3FC5555560000000)
   %100 = fsub contract float 1.000000e+00, %2
   %101 = insertelement <4 x float> poison, float %100, i64 0
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
@@ -2887,9 +2887,9 @@ _ZN5drjit6gatherIjLb0ERNS_12DynamicArrayIjEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   %115 = shufflevector <4 x float> %114, <4 x float> poison, <4 x i32> zeroinitializer
   %116 = fmul contract <4 x float> %115, %45
   %117 = fadd contract <4 x float> %113, %116
-  %118 = fmul contract <4 x float> %43, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
+  %118 = fmul contract <4 x float> %43, splat (float 3.000000e+00)
   %119 = fsub contract <4 x float> %118, %42
-  %120 = fmul contract <4 x float> %44, <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>
+  %120 = fmul contract <4 x float> %44, splat (float 3.000000e+00)
   %121 = fsub contract <4 x float> %119, %120
   %122 = fadd contract <4 x float> %45, %121
   %123 = fmul contract float %52, %.sroa.0473.12.vec.extract
@@ -3082,7 +3082,7 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   %95 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> zeroinitializer
   %96 = fmul contract <4 x float> %95, %68
   %97 = fadd contract <4 x float> %93, %96
-  %98 = fmul contract <4 x float> %97, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
+  %98 = fmul contract <4 x float> %97, splat (float 0x3FC5555560000000)
   %99 = fmul contract float %33, 6.000000e+00
   %100 = fsub contract float %99, %71
   %101 = fadd contract float %100, -3.000000e+00
@@ -3106,7 +3106,7 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> zeroinitializer
   %120 = fmul contract <4 x float> %119, %68
   %121 = fadd contract <4 x float> %117, %120
-  %122 = fmul contract <4 x float> %121, <float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000, float 0x3FC5555560000000>
+  %122 = fmul contract <4 x float> %121, splat (float 0x3FC5555560000000)
   %123 = fsub contract float 1.000000e+00, %33
   %124 = insertelement <4 x float> poison, float %123, i64 0
   %125 = shufflevector <4 x float> %124, <4 x float> poison, <4 x i32> zeroinitializer
@@ -4209,9 +4209,9 @@ define weak_odr void @_ZNK7mitsuba12BSplineCurveIfN5drjit6MatrixINS_8SpectrumIfL
   %302 = fmul contract <4 x float> %212, %230
   %303 = fmul contract <4 x float> %281, %279
   %304 = fadd contract <4 x float> %302, %303
-  %305 = fmul contract <4 x float> %282, <float 0x401921FB60000000, float 0x401921FB60000000, float 0x401921FB60000000, float 0x401921FB60000000>
-  %306 = fmul contract <4 x float> %304, <float 0x401921FB60000000, float 0x401921FB60000000, float 0x401921FB60000000, float 0x401921FB60000000>
-  %307 = fmul contract <4 x float> %290, <float 0x4043BD3CE0000000, float 0x4043BD3CE0000000, float 0x4043BD3CE0000000, float 0x4043BD3CE0000000>
+  %305 = fmul contract <4 x float> %282, splat (float 0x401921FB60000000)
+  %306 = fmul contract <4 x float> %304, splat (float 0x401921FB60000000)
+  %307 = fmul contract <4 x float> %290, splat (float 0x4043BD3CE0000000)
   %308 = load i64, ptr %6, align 8
   %309 = uitofp i64 %308 to float
   %310 = fmul contract float %309, %309

@@ -676,7 +676,7 @@ common.resume:                                    ; preds = %.thread272, %99, %.
   br i1 %.not.not.i34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %125
-  %129 = icmp eq <16 x i8> %.0.copyload.i31.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %129 = icmp eq <16 x i8> %.0.copyload.i31.i.i, splat (i8 -1)
   %130 = bitcast <16 x i1> %129 to i16
   %.not.i.i.i = icmp eq i16 %130, 0
   br i1 %.not.i.i.i, label %157, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hb25b97d9e8976a59E.exit.i"

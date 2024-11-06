@@ -1391,11 +1391,11 @@ define linkonce_odr noundef nonnull align 16 dereferenceable(224) ptr @_ZN5Eigen
 
 _ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2EE8allocateEllj.exit: ; preds = %3, %17
   %34 = load <2 x i64>, ptr %1, align 16
-  %35 = and <2 x i64> %34, <i64 9223372036854775807, i64 9223372036854775807>
+  %35 = and <2 x i64> %34, splat (i64 9223372036854775807)
   %36 = bitcast <2 x i64> %35 to <2 x double>
   %37 = getelementptr inbounds i8, ptr %1, i64 16
   %38 = load <2 x i64>, ptr %37, align 16
-  %39 = and <2 x i64> %38, <i64 9223372036854775807, i64 9223372036854775807>
+  %39 = and <2 x i64> %38, splat (i64 9223372036854775807)
   %40 = bitcast <2 x i64> %39 to <2 x double>
   %41 = fcmp uno <2 x double> %36, zeroinitializer
   %42 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %40, <2 x double> %36) #28, !srcloc !18
@@ -1841,7 +1841,7 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEEE15applyOnTheRightIdEEvl
 275:                                              ; preds = %.lr.ph
   %276 = getelementptr inbounds i8, ptr %0, i64 %.idx.i99
   %277 = load <2 x i64>, ptr %276, align 16
-  %278 = xor <2 x i64> %277, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %278 = xor <2 x i64> %277, splat (i64 -9223372036854775808)
   store <2 x i64> %278, ptr %276, align 16
   br label %279
 

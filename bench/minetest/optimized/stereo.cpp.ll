@@ -346,7 +346,7 @@ invoke.cont3:
   store float 1.000000e+00, ptr %arrayidx4.i.i10, align 8, !tbaa !14
   %arrayidx6.i.i11 = getelementptr inbounds i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i11, align 4, !tbaa !14
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 120
   store float %eye_offset, ptr %arrayidx.i, align 8, !tbaa !14
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -375,7 +375,7 @@ invoke.cont2:
   store float 1.000000e+00, ptr %arrayidx4.i.i10, align 8, !tbaa !14
   %arrayidx6.i.i11 = getelementptr inbounds i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i11, align 4, !tbaa !14
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 120
   store float %eye_offset, ptr %arrayidx.i, align 8, !tbaa !14
   %arrayidx3.i = getelementptr inbounds i8, ptr %this, i64 124
@@ -431,7 +431,7 @@ invoke.cont3:
   store float 1.000000e+00, ptr %arrayidx4.i.i25, align 8, !tbaa !14
   %arrayidx6.i.i26 = getelementptr inbounds i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i26, align 4, !tbaa !14
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
   %13 = load ptr, ptr @g_settings, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
   %14 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
@@ -525,7 +525,7 @@ invoke.cont2:
   store float 1.000000e+00, ptr %arrayidx4.i.i25, align 8, !tbaa !14
   %arrayidx6.i.i26 = getelementptr inbounds i8, ptr %this, i64 92
   store float 1.000000e+00, ptr %arrayidx6.i.i26, align 4, !tbaa !14
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !14
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i, align 4, !tbaa !14
   %2 = load ptr, ptr @g_settings, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #20
   %3 = getelementptr inbounds i8, ptr %ref.tmp, i64 16

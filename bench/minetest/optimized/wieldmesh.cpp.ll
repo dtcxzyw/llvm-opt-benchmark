@@ -681,7 +681,7 @@ invoke.cont7:
   %Z.i122 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   store float 0.000000e+00, ptr %Z.i122, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp4) #27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp4, align 8, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp4, align 8, !tbaa !17
   %Z.i124 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store float 1.000000e+00, ptr %Z.i124, align 8, !tbaa !19
   %1 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -708,7 +708,7 @@ invoke.cont7:
   %m_bounding_box = getelementptr inbounds i8, ptr %this, i64 276
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %m_bounding_box, align 4, !tbaa !17
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 292
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 4, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 4, !tbaa !17
   %5 = load ptr, ptr @g_settings, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp8) #27
   %6 = getelementptr inbounds i8, ptr %ref.tmp8, i64 16
@@ -890,7 +890,7 @@ invoke.cont55:                                    ; preds = %if.then
 
 for.cond.cleanup.i:                               ; preds = %invoke.cont3.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %resolution.i) #27
-  %call8.i = invoke noundef ptr @_Z14createCubeMeshN3irr4core8vector3dIfEE(<2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00)
+  %call8.i = invoke noundef ptr @_Z14createCubeMeshN3irr4core8vector3dIfEE(<2 x float> splat (float 1.000000e+00), float 1.000000e+00)
           to label %invoke.cont58 unwind label %lpad5.i
 
 for.body.i:                                       ; preds = %invoke.cont3.i, %invoke.cont55
@@ -1066,7 +1066,7 @@ if.end:                                           ; preds = %if.else, %invoke.co
   %Z.i214 = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
   store float 0.000000e+00, ptr %Z.i214, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp71) #27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp71, align 8, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp71, align 8, !tbaa !17
   %Z.i216 = getelementptr inbounds i8, ptr %ref.tmp71, i64 8
   store float 1.000000e+00, ptr %Z.i216, align 8, !tbaa !19
   %vtable74 = load ptr, ptr %48, align 8, !tbaa !15
@@ -1397,7 +1397,7 @@ entry:
   %Z.i132 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   store float 0.000000e+00, ptr %Z.i132, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp7) #27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp7, align 8, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp7, align 8, !tbaa !17
   %Z.i134 = getelementptr inbounds i8, ptr %ref.tmp7, i64 8
   store float 1.000000e+00, ptr %Z.i134, align 8, !tbaa !19
   call void @_ZN3irr5scene10ISceneNodeC2EPS1_PNS0_13ISceneManagerEiRKNS_4core8vector3dIfEES9_S9_(ptr noundef nonnull align 8 dereferenceable(222) %this, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT18WieldMeshSceneNode, i64 8), ptr noundef %call, ptr noundef nonnull %mgr, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp4, ptr noundef nonnull align 4 dereferenceable(12) %ref.tmp7)
@@ -1417,7 +1417,7 @@ entry:
   %m_bounding_box = getelementptr inbounds i8, ptr %this, i64 276
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %m_bounding_box, align 4, !tbaa !17
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 292
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 4, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 4, !tbaa !17
   %2 = load ptr, ptr @g_settings, align 8, !tbaa !50
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp16) #27
   %3 = getelementptr inbounds i8, ptr %ref.tmp16, i64 16
@@ -1599,7 +1599,7 @@ invoke.cont65:                                    ; preds = %if.then
 
 for.cond.cleanup.i:                               ; preds = %invoke.cont3.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %resolution.i) #27
-  %call8.i = invoke noundef ptr @_Z14createCubeMeshN3irr4core8vector3dIfEE(<2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00)
+  %call8.i = invoke noundef ptr @_Z14createCubeMeshN3irr4core8vector3dIfEE(<2 x float> splat (float 1.000000e+00), float 1.000000e+00)
           to label %invoke.cont68 unwind label %lpad5.i
 
 for.body.i:                                       ; preds = %invoke.cont3.i, %invoke.cont65
@@ -1775,7 +1775,7 @@ if.end:                                           ; preds = %if.else, %invoke.co
   %Z.i225 = getelementptr inbounds i8, ptr %ref.tmp78, i64 8
   store float 0.000000e+00, ptr %Z.i225, align 8, !tbaa !19
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp81) #27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp81, align 8, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp81, align 8, !tbaa !17
   %Z.i227 = getelementptr inbounds i8, ptr %ref.tmp81, i64 8
   store float 1.000000e+00, ptr %Z.i227, align 8, !tbaa !19
   %vtable84 = load ptr, ptr %45, align 8, !tbaa !15
@@ -2134,7 +2134,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit21:        ; preds = %delete.notnull.i18,
   %m_meshnode = getelementptr inbounds i8, ptr %this, i64 224
   %7 = load ptr, ptr %m_meshnode, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #27
-  %8 = fmul nsz <2 x float> %wield_scale.coerce0, <float 3.000000e+01, float 3.000000e+01>
+  %8 = fmul nsz <2 x float> %wield_scale.coerce0, splat (float 3.000000e+01)
   %mul3.i = fmul nsz float %wield_scale.coerce1, 3.000000e+01
   store <2 x float> %8, ptr %ref.tmp, align 8
   %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -2931,7 +2931,7 @@ delete.notnull.i132:                              ; preds = %_ZN18WieldMeshScene
 _ZNK3irr17IReferenceCounted4dropEv.exit135:       ; preds = %delete.notnull.i132, %_ZN18WieldMeshSceneNode12changeToMeshEPN3irr5scene5IMeshE.exit
   %36 = load ptr, ptr %m_meshnode7.i, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp43) #27
-  %37 = fmul nsz <2 x float> %wield_scale.coerce0, <float 4.000000e+01, float 4.000000e+01>
+  %37 = fmul nsz <2 x float> %wield_scale.coerce0, splat (float 4.000000e+01)
   %mul3.i = fmul nsz float %wield_scale.coerce1, 4.000000e+01
   store <2 x float> %37, ptr %ref.tmp43, align 8
   %tmp.coerce.sroa.2.0.ref.tmp43.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp43, i64 8
@@ -3540,7 +3540,7 @@ call2.i11.i.noexc470:                             ; preds = %sw.bb
   %_M_string_length.i.i.i.i477 = getelementptr inbounds i8, ptr %ref.tmp68, i64 8
   store i64 0, ptr %_M_string_length.i.i.i.i477, align 8, !tbaa !14
   store i8 0, ptr %42, align 8, !tbaa !13
-  invoke void @_ZN18WieldMeshSceneNode11setExtrudedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N3irr4core8vector3dIfEEP14ITextureSourceh(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00, ptr noundef %call, i8 noundef zeroext 1)
+  invoke void @_ZN18WieldMeshSceneNode11setExtrudedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_N3irr4core8vector3dIfEEP14ITextureSourceh(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp68, <2 x float> splat (float 1.000000e+00), float 1.000000e+00, ptr noundef %call, i8 noundef zeroext 1)
           to label %invoke.cont75 unwind label %lpad73
 
 invoke.cont75:                                    ; preds = %call2.i11.i.noexc470
@@ -3996,7 +3996,7 @@ invoke.cont204:                                   ; preds = %delete.notnull.i, %
   %visual_scale = getelementptr inbounds i8, ptr %call10, i64 1772
   %111 = load float, ptr %visual_scale, align 4, !tbaa !216
   %mul203 = fmul nsz float %111, 1.000000e+01
-  %112 = fmul nsz <2 x float> %call33.fca.0.extract, <float 3.000000e+01, float 3.000000e+01>
+  %112 = fmul nsz <2 x float> %call33.fca.0.extract, splat (float 3.000000e+01)
   %113 = insertelement <2 x float> poison, float %mul203, i64 0
   %114 = shufflevector <2 x float> %113, <2 x float> poison, <2 x i32> zeroinitializer
   %115 = fdiv nsz <2 x float> %112, %114
@@ -4989,7 +4989,7 @@ invoke.cont51:                                    ; preds = %_ZNSt6vectorI13Item
   %BoundingBox.i = getelementptr inbounds i8, ptr %call49, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !17
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call49, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !17
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %call49, i64 16
   %_M_end_of_storage.i.i.i = getelementptr inbounds i8, ptr %call49, i64 24
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %colors, i64 16
@@ -5241,7 +5241,7 @@ invoke.cont90:                                    ; preds = %for.cond.cleanup80
   %BoundingBox.i186 = getelementptr inbounds i8, ptr %call88, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i186, align 4, !tbaa !17
   %Y.i2.i.i190 = getelementptr inbounds i8, ptr %call88, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i190, align 4, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i190, align 4, !tbaa !17
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call88, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !265
   %Material = getelementptr inbounds i8, ptr %call88, i64 32
@@ -6048,7 +6048,7 @@ lpad43:                                           ; preds = %if.then69, %if.end,
   br label %ehcleanup210
 
 if.else60:                                        ; preds = %_ZNK3irr17IReferenceCounted4dropEv.exit
-  invoke void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef %call47, <2 x float> <float 0x3FF3333340000000, float 0x3FF3333340000000>, float 0x3FF3333340000000)
+  invoke void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef %call47, <2 x float> splat (float 0x3FF3333340000000), float 0x3FF3333340000000)
           to label %if.end unwind label %lpad43
 
 if.end:                                           ; preds = %if.else60, %invoke.cont56
@@ -6344,7 +6344,7 @@ sw.default:                                       ; preds = %if.then40
           to label %invoke.cont162 unwind label %lpad161
 
 invoke.cont162:                                   ; preds = %sw.default
-  invoke void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef nonnull %call163, <2 x float> <float 0x3FBEB851E0000000, float 0x3FBEB851E0000000>, float 0x3FBEB851E0000000)
+  invoke void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef nonnull %call163, <2 x float> splat (float 0x3FBEB851E0000000), float 0x3FBEB851E0000000)
           to label %sw.epilog unwind label %lpad161
 
 lpad161:                                          ; preds = %invoke.cont162, %sw.default
@@ -6721,7 +6721,7 @@ if.end33:                                         ; preds = %delete.notnull.i83,
   br i1 %cmp90.not, label %for.cond.cleanup, label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %if.end33
-  tail call void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef nonnull %call7, <2 x float> <float 2.000000e+00, float 2.000000e+00>, float 2.000000e+00)
+  tail call void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef nonnull %call7, <2 x float> splat (float 2.000000e+00), float 2.000000e+00)
   br label %cleanup
 
 for.body:                                         ; preds = %if.end33, %for.body
@@ -7363,7 +7363,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !17
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !17
   %12 = fadd nsz <2 x float> %10, %11
-  %13 = fmul nsz <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul nsz <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub nsz <2 x float> %13, %11
   %15 = fadd nsz <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !17
@@ -8482,7 +8482,7 @@ invoke.cont:
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !17
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !17
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !265
   call void @llvm.lifetime.start.p0(i64 288, ptr nonnull %vertices) #27
@@ -8817,7 +8817,7 @@ _ZN3irr5scene5SMesh13addMeshBufferEPNS0_11IMeshBufferE.exit: ; preds = %for.body
   %BoundingBox.i304 = getelementptr inbounds i8, ptr %call124, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i304, align 4, !tbaa !17
   %Y.i2.i.i308 = getelementptr inbounds i8, ptr %call124, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i308, align 4, !tbaa !17
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i308, align 4, !tbaa !17
   %vtable.i = load ptr, ptr %call, align 8, !tbaa !15
   %vbase.offset.ptr.i = getelementptr i8, ptr %vtable.i, i64 -24
   %vbase.offset.i = load i64, ptr %vbase.offset.ptr.i, align 8
@@ -8852,7 +8852,7 @@ delete.notnull.i:                                 ; preds = %_ZN3irr5scene5SMesh
   br label %_ZNK3irr17IReferenceCounted4dropEv.exit
 
 _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %_ZN3irr5scene5SMesh13addMeshBufferEPNS0_11IMeshBufferE.exit
-  call void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef nonnull %call124, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 0x3FB99999A0000000)
+  call void @_Z9scaleMeshPN3irr5scene5IMeshENS_4core8vector3dIfEE(ptr noundef nonnull %call124, <2 x float> splat (float 1.000000e+00), float 0x3FB99999A0000000)
   ret ptr %call124
 }
 

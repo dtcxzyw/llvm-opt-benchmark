@@ -2186,7 +2186,7 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1566 = mul nsw i64 %1445, %9
   %1567 = add nsw i64 %1566, %1413
   %1568 = getelementptr inbounds float, ptr %8, i64 %1567
-  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %1568, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %887, <4 x float> %1565, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %1568, <4 x i1> splat (i1 true), <4 x i32> %887, <4 x float> %1565, i32 4)
   %1569 = shufflevector <16 x float> %1540, <16 x float> %1542, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
   %1570 = shufflevector <16 x float> %1540, <16 x float> %1542, <16 x i32> <i32 2, i32 18, i32 3, i32 19, i32 6, i32 22, i32 7, i32 23, i32 10, i32 26, i32 11, i32 27, i32 14, i32 30, i32 15, i32 31>
   %1571 = shufflevector <16 x float> %1544, <16 x float> %1546, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 4, i32 20, i32 5, i32 21, i32 8, i32 24, i32 9, i32 25, i32 12, i32 28, i32 13, i32 29>
@@ -2208,7 +2208,7 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1587 = fmul <4 x float> %881, %1586
   %1588 = or disjoint i64 %1567, 1
   %1589 = getelementptr inbounds float, ptr %8, i64 %1588
-  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr nonnull %1589, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %887, <4 x float> %1587, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr nonnull %1589, <4 x i1> splat (i1 true), <4 x i32> %887, <4 x float> %1587, i32 4)
   %1590 = add nuw nsw i64 %1445, 4
   %1591 = icmp slt i64 %1590, %18
   br i1 %1591, label %1444, label %.loopexit150, !llvm.loop !48
@@ -2535,7 +2535,7 @@ define noundef i32 @sgemm_small_kernel_b0_nn(i64 noundef %0, i64 noundef %1, i64
   %1846 = fmul <4 x float> %881, %1845
   %1847 = mul nsw i64 %1750, %9
   %1848 = getelementptr float, ptr %1740, i64 %1847
-  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %1848, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %887, <4 x float> %1846, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.sf(ptr %1848, <4 x i1> splat (i1 true), <4 x i32> %887, <4 x float> %1846, i32 4)
   %1849 = add nuw nsw i64 %1750, 4
   %1850 = icmp slt i64 %1849, %18
   br i1 %1850, label %1749, label %.loopexit143, !llvm.loop !55

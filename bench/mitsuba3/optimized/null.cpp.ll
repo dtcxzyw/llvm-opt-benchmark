@@ -287,7 +287,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 35:                                               ; preds = %33
   %36 = getelementptr inbounds i8, ptr %3, i64 208
   %37 = load <4 x i32>, ptr %36, align 16
-  %38 = xor <4 x i32> %37, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %38 = xor <4 x i32> %37, splat (i32 -2147483648)
   store <4 x float> zeroinitializer, ptr %9, align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   br label %39
@@ -323,7 +323,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.089 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit80 ], [ %52, %49 ]
   %50 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %12, i64 0, i64 %.089
   %51 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %50, i64 0, i64 %.089
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %51, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %51, align 16
   %52 = add nuw nsw i64 %.089, 1
   %exitcond90.not = icmp eq i64 %52, 4
   br i1 %exitcond90.not, label %53, label %49, !llvm.loop !7
@@ -457,7 +457,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.016 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %20, %17 ]
   %18 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %0, i64 0, i64 %.016
   %19 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %18, i64 0, i64 %.016
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %19, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %19, align 16
   %20 = add nuw nsw i64 %.016, 1
   %exitcond.not = icmp eq i64 %20, 4
   br i1 %exitcond.not, label %21, label %17, !llvm.loop !7

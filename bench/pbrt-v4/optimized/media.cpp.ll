@@ -3901,7 +3901,7 @@ lpad.i197:                                        ; preds = %.noexc200
   br label %ehcleanup194
 
 invoke.cont188:                                   ; preds = %.noexc200
-  %call190 = invoke { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary13GetOnePoint3fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00)
+  %call190 = invoke { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary13GetOnePoint3fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp182, <2 x float> splat (float 1.000000e+00), float 1.000000e+00)
           to label %invoke.cont189 unwind label %lpad187
 
 invoke.cont189:                                   ; preds = %invoke.cont188
@@ -6684,7 +6684,7 @@ lpad.i329:                                        ; preds = %.noexc332
   br label %ehcleanup213
 
 invoke.cont207:                                   ; preds = %.noexc332
-  %call209 = invoke { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary13GetOnePoint3fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00)
+  %call209 = invoke { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary13GetOnePoint3fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp201, <2 x float> splat (float 1.000000e+00), float 1.000000e+00)
           to label %invoke.cont208 unwind label %lpad206
 
 invoke.cont208:                                   ; preds = %invoke.cont207
@@ -7687,7 +7687,7 @@ lpad.i81:                                         ; preds = %.noexc84
   br label %ehcleanup90
 
 invoke.cont84:                                    ; preds = %.noexc84
-  %call86 = invoke { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary13GetOnePoint3fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00)
+  %call86 = invoke { <2 x float>, float } @_ZNK4pbrt19ParameterDictionary13GetOnePoint3fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78, <2 x float> splat (float 1.000000e+00), float 1.000000e+00)
           to label %invoke.cont85 unwind label %lpad83
 
 invoke.cont85:                                    ; preds = %invoke.cont84

@@ -3377,7 +3377,7 @@ while.end:                                        ; preds = %while.body, %if.end
   br label %return
 
 return:                                           ; preds = %entry, %while.end
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert78, %while.end ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
+  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert78, %while.end ], [ splat (float 0x47EFFFFFE0000000), %entry ]
   %retval.sroa.18.0 = phi <2 x float> [ %retval.sroa.18.8.vec.insert90, %while.end ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.18.0, 1
@@ -3517,7 +3517,7 @@ if.else:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.else, %if.then6
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i10, %if.then6 ], [ %retval.sroa.0.4.vec.insert.i46, %if.else ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
+  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i10, %if.then6 ], [ %retval.sroa.0.4.vec.insert.i46, %if.else ], [ splat (float 0x47EFFFFFE0000000), %entry ]
   %retval.sroa.5.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i11, %if.then6 ], [ %retval.sroa.3.12.vec.insert.i47, %if.else ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.5.0, 1
@@ -3644,7 +3644,7 @@ while.end:                                        ; preds = %while.body, %if.end
   br label %return
 
 return:                                           ; preds = %entry, %while.end
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40, %while.end ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
+  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40, %while.end ], [ splat (float 0x47EFFFFFE0000000), %entry ]
   %retval.sroa.10.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i41, %while.end ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.10.0, 1
@@ -3766,7 +3766,7 @@ if.else:                                          ; preds = %if.end
   br label %return
 
 return:                                           ; preds = %entry, %if.else, %if.then6
-  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.then6 ], [ %retval.sroa.0.4.vec.insert.i24, %if.else ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
+  %retval.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i, %if.then6 ], [ %retval.sroa.0.4.vec.insert.i24, %if.else ], [ splat (float 0x47EFFFFFE0000000), %entry ]
   %retval.sroa.5.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i, %if.then6 ], [ %retval.sroa.3.12.vec.insert.i25, %if.else ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.5.0, 1
@@ -4123,10 +4123,10 @@ while.end.i135:                                   ; preds = %while.body.i108, %_
 
 _ZNK11btMultiBody15localDirToWorldEiRK9btVector3.exit158: ; preds = %entry, %while.end.i135
   %retval.sroa.10.0.i22182 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i41.i81, %while.end.i135 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
-  %retval.sroa.0.0.i21181 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40.i80, %while.end.i135 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
-  %retval.sroa.0.0.i167180 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40.i, %while.end.i135 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
+  %retval.sroa.0.0.i21181 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40.i80, %while.end.i135 ], [ splat (float 0x47EFFFFFE0000000), %entry ]
+  %retval.sroa.0.0.i167180 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40.i, %while.end.i135 ], [ splat (float 0x47EFFFFFE0000000), %entry ]
   %retval.sroa.10.0.i168179 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i41.i, %while.end.i135 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
-  %retval.sroa.0.0.i97 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40.i156, %while.end.i135 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %entry ]
+  %retval.sroa.0.0.i97 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i40.i156, %while.end.i135 ], [ splat (float 0x47EFFFFFE0000000), %entry ]
   %retval.sroa.10.0.i98 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i41.i157, %while.end.i135 ], [ <float 0x47EFFFFFE0000000, float 0.000000e+00>, %entry ]
   %arrayidx12.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   %arrayidx8.i = getelementptr inbounds i8, ptr %agg.result, i64 16

@@ -131,11 +131,11 @@ entry:
   %cmp.i2.i.i6.i = fcmp nsz olt float %1, 0x4140624D80000000
   %2 = select i1 %cmp.i2.i.i6.i, float %1, float 0x4140624D80000000
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i9) #21
-  %3 = fcmp nsz olt <2 x float> %agg.tmp2.sroa.0.0.copyload, <float 0xC140624D80000000, float 0xC140624D80000000>
-  %4 = select <2 x i1> %3, <2 x float> <float 0xC140624D80000000, float 0xC140624D80000000>, <2 x float> %agg.tmp2.sroa.0.0.copyload
-  %5 = fcmp nsz olt <2 x float> %4, <float 0x4140624D80000000, float 0x4140624D80000000>
-  %6 = select <2 x i1> %5, <2 x float> %4, <2 x float> <float 0x4140624D80000000, float 0x4140624D80000000>
-  %7 = fmul nsz <2 x float> %6, <float 1.000000e+03, float 1.000000e+03>
+  %3 = fcmp nsz olt <2 x float> %agg.tmp2.sroa.0.0.copyload, splat (float 0xC140624D80000000)
+  %4 = select <2 x i1> %3, <2 x float> splat (float 0xC140624D80000000), <2 x float> %agg.tmp2.sroa.0.0.copyload
+  %5 = fcmp nsz olt <2 x float> %4, splat (float 0x4140624D80000000)
+  %6 = select <2 x i1> %5, <2 x float> %4, <2 x float> splat (float 0x4140624D80000000)
+  %7 = fmul nsz <2 x float> %6, splat (float 1.000000e+03)
   %8 = fptosi <2 x float> %7 to <2 x i32>
   %9 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %8)
   store <2 x i32> %9, ptr %buf.i9, align 8
@@ -227,7 +227,7 @@ entry:
   %1 = load <2 x i32>, ptr %buf.i7, align 8
   %2 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %1)
   %3 = sitofp <2 x i32> %2 to <2 x float>
-  %4 = fdiv nsz <2 x float> %3, <float 1.000000e+03, float 1.000000e+03>
+  %4 = fdiv nsz <2 x float> %3, splat (float 1.000000e+03)
   %arrayidx3.i.i = getelementptr inbounds i8, ptr %buf.i7, i64 8
   %val.0.copyload.i.i.i11.i.i = load i32, ptr %arrayidx3.i.i, align 8
   %or7.i.i.i.i12.i.i = call noundef i32 @llvm.bswap.i32(i32 %val.0.copyload.i.i.i11.i.i)
@@ -607,11 +607,11 @@ for.body61:                                       ; preds = %for.body61.preheade
   %cmp.i2.i.i6.i.i = fcmp nsz olt float %28, 0x4140624D80000000
   %29 = select i1 %cmp.i2.i.i6.i.i, float %28, float 0x4140624D80000000
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i9.i) #21
-  %30 = fcmp nsz olt <2 x float> %agg.tmp2.sroa.0.0.copyload.i, <float 0xC140624D80000000, float 0xC140624D80000000>
-  %31 = select <2 x i1> %30, <2 x float> <float 0xC140624D80000000, float 0xC140624D80000000>, <2 x float> %agg.tmp2.sroa.0.0.copyload.i
-  %32 = fcmp nsz olt <2 x float> %31, <float 0x4140624D80000000, float 0x4140624D80000000>
-  %33 = select <2 x i1> %32, <2 x float> %31, <2 x float> <float 0x4140624D80000000, float 0x4140624D80000000>
-  %34 = fmul nsz <2 x float> %33, <float 1.000000e+03, float 1.000000e+03>
+  %30 = fcmp nsz olt <2 x float> %agg.tmp2.sroa.0.0.copyload.i, splat (float 0xC140624D80000000)
+  %31 = select <2 x i1> %30, <2 x float> splat (float 0xC140624D80000000), <2 x float> %agg.tmp2.sroa.0.0.copyload.i
+  %32 = fcmp nsz olt <2 x float> %31, splat (float 0x4140624D80000000)
+  %33 = select <2 x i1> %32, <2 x float> %31, <2 x float> splat (float 0x4140624D80000000)
+  %34 = fmul nsz <2 x float> %33, splat (float 1.000000e+03)
   %35 = fptosi <2 x float> %34 to <2 x i32>
   %36 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %35)
   store <2 x i32> %36, ptr %buf.i9.i, align 8
@@ -738,11 +738,11 @@ call.i.i19.noexc:                                 ; preds = %_ZN12StaticObjectC2
   %cmp.i2.i.i6.i.i25 = fcmp nsz olt float %54, 0x4140624D80000000
   %55 = select i1 %cmp.i2.i.i6.i.i25, float %54, float 0x4140624D80000000
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %buf.i9.i16) #21
-  %56 = fcmp nsz olt <2 x float> %agg.tmp2.sroa.0.0.copyload.i21, <float 0xC140624D80000000, float 0xC140624D80000000>
-  %57 = select <2 x i1> %56, <2 x float> <float 0xC140624D80000000, float 0xC140624D80000000>, <2 x float> %agg.tmp2.sroa.0.0.copyload.i21
-  %58 = fcmp nsz olt <2 x float> %57, <float 0x4140624D80000000, float 0x4140624D80000000>
-  %59 = select <2 x i1> %58, <2 x float> %57, <2 x float> <float 0x4140624D80000000, float 0x4140624D80000000>
-  %60 = fmul nsz <2 x float> %59, <float 1.000000e+03, float 1.000000e+03>
+  %56 = fcmp nsz olt <2 x float> %agg.tmp2.sroa.0.0.copyload.i21, splat (float 0xC140624D80000000)
+  %57 = select <2 x i1> %56, <2 x float> splat (float 0xC140624D80000000), <2 x float> %agg.tmp2.sroa.0.0.copyload.i21
+  %58 = fcmp nsz olt <2 x float> %57, splat (float 0x4140624D80000000)
+  %59 = select <2 x i1> %58, <2 x float> %57, <2 x float> splat (float 0x4140624D80000000)
+  %60 = fmul nsz <2 x float> %59, splat (float 1.000000e+03)
   %61 = fptosi <2 x float> %60 to <2 x i32>
   %62 = call <2 x i32> @llvm.bswap.v2i32(<2 x i32> %61)
   store <2 x i32> %62, ptr %buf.i9.i16, align 8

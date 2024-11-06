@@ -199,7 +199,7 @@ if.else.i:
   store i64 0, ptr %_M_string_length.i.i.i54, align 8, !tbaa !11
   store i8 0, ptr %5, align 8, !tbaa !14
   %visual_size = getelementptr inbounds i8, ptr %this, i64 288
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %visual_size, align 8, !tbaa !4
+  store <2 x float> splat (float 1.000000e+00), ptr %visual_size, align 8, !tbaa !4
   %Z.i = getelementptr inbounds i8, ptr %this, i64 296
   store float 1.000000e+00, ptr %Z.i, align 8, !tbaa !15
   %nametag_color = getelementptr inbounds i8, ptr %this, i64 300

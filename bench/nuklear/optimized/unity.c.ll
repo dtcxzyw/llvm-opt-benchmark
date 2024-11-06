@@ -123,7 +123,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @nk_get_null_rect() local_unnamed_addr #0 {
 entry:
-  ret { <2 x float>, <2 x float> } { <2 x float> <float -8.192000e+03, float -8.192000e+03>, <2 x float> <float 1.638400e+04, float 1.638400e+04> }
+  ret { <2 x float>, <2 x float> } { <2 x float> splat (float -8.192000e+03), <2 x float> splat (float 1.638400e+04) }
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -12031,7 +12031,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  tail call fastcc void @nk_draw_list_add_clip(ptr noundef %list, <2 x float> <float -8.192000e+03, float -8.192000e+03>, <2 x float> <float 1.638400e+04, float 1.638400e+04>)
+  tail call fastcc void @nk_draw_list_add_clip(ptr noundef %list, <2 x float> splat (float -8.192000e+03), <2 x float> splat (float 1.638400e+04))
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
@@ -12287,17 +12287,17 @@ nk_buffer_total.exit.i:                           ; preds = %if.end.i16.i, %if.t
 if.end7.i:                                        ; preds = %nk_buffer_total.exit.i, %if.end.i
   store i32 0, ptr %call.i, align 8
   %clip_rect.i = getelementptr inbounds i8, ptr %call.i, i64 4
-  store <2 x float> <float -8.192000e+03, float -8.192000e+03>, ptr %clip_rect.i, align 4
+  store <2 x float> splat (float -8.192000e+03), ptr %clip_rect.i, align 4
   %clip.sroa.3.0.clip_rect.sroa_idx.i = getelementptr inbounds i8, ptr %call.i, i64 12
-  store <2 x float> <float 1.638400e+04, float 1.638400e+04>, ptr %clip.sroa.3.0.clip_rect.sroa_idx.i, align 4
+  store <2 x float> splat (float 1.638400e+04), ptr %clip.sroa.3.0.clip_rect.sroa_idx.i, align 4
   %texture8.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %texture.coerce, ptr %texture8.i, align 8
   %6 = load i32, ptr %cmd_count, align 8
   %inc.i = add i32 %6, 1
   store i32 %inc.i, ptr %cmd_count, align 8
-  store <2 x float> <float -8.192000e+03, float -8.192000e+03>, ptr %list, align 8
+  store <2 x float> splat (float -8.192000e+03), ptr %list, align 8
   %clip.sroa.3.0.clip_rect10.sroa_idx.i = getelementptr inbounds i8, ptr %list, i64 8
-  store <2 x float> <float 1.638400e+04, float 1.638400e+04>, ptr %clip.sroa.3.0.clip_rect10.sroa_idx.i, align 8
+  store <2 x float> splat (float 1.638400e+04), ptr %clip.sroa.3.0.clip_rect10.sroa_idx.i, align 8
   br label %if.end15
 
 if.else:                                          ; preds = %entry
@@ -13730,7 +13730,7 @@ if.else:                                          ; preds = %if.end
   %9 = fadd <2 x float> %rect.coerce0, %rect.coerce1
   %10 = fadd <2 x float> %rect.coerce0, %rect.coerce1
   %retval.sroa.0.4.vec.insert.i28 = shufflevector <2 x float> %9, <2 x float> %10, <2 x i32> <i32 0, i32 3>
-  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %retval.sroa.0.4.vec.insert.i28, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, i32 %color.coerce)
+  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef %list, <2 x float> %rect.coerce0, <2 x float> %retval.sroa.0.4.vec.insert.i28, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), i32 %color.coerce)
   br label %if.end65
 
 if.end65:                                         ; preds = %entry, %if.else, %if.then2
@@ -15500,7 +15500,7 @@ if.else.i510:                                     ; preds = %sw.bb352
   %add59.i = fadd float %conv359, %conv363
   %retval.sroa.0.0.vec.insert.i27.i = insertelement <2 x float> poison, float %add56.i, i64 0
   %retval.sroa.0.4.vec.insert.i28.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i27.i, float %add59.i, i64 1
-  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull %draw_list, <2 x float> %retval.sroa.0.4.vec.insert.i495, <2 x float> %retval.sroa.0.4.vec.insert.i28.i, <2 x float> zeroinitializer, <2 x float> <float 1.000000e+00, float 1.000000e+00>, i32 %303)
+  tail call fastcc void @nk_draw_list_push_rect_uv(ptr noundef nonnull %draw_list, <2 x float> %retval.sroa.0.4.vec.insert.i495, <2 x float> %retval.sroa.0.4.vec.insert.i28.i, <2 x float> zeroinitializer, <2 x float> splat (float 1.000000e+00), i32 %303)
   br label %lor.lhs.false2.i
 
 sw.bb365:                                         ; preds = %for.body
@@ -31963,7 +31963,7 @@ if.then:                                          ; preds = %entry
 
 if.end4.thread:                                   ; preds = %if.then
   %uv = getelementptr inbounds i8, ptr %tex_null, i64 8
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %uv, align 8
+  store <2 x float> splat (float 5.000000e-01), ptr %uv, align 8
   br label %if.then6
 
 if.end4:                                          ; preds = %entry
@@ -33397,7 +33397,7 @@ nk_zero.exit:                                     ; preds = %if.end19.i.i.thread
   %9 = load i32, ptr %cond, align 1
   store i32 %9, ptr %text_active, align 4
   %padding16 = getelementptr inbounds i8, ptr %ctx, i64 624
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding16, align 8
+  store <2 x float> splat (float 2.000000e+00), ptr %padding16, align 8
   %image_padding = getelementptr inbounds i8, ptr %ctx, i64 632
   %userdata = getelementptr inbounds i8, ptr %ctx, i64 656
   store ptr null, ptr %userdata, align 8
@@ -33467,7 +33467,7 @@ nk_zero.exit723:                                  ; preds = %if.end19.i.i715.thr
   %18 = load i32, ptr %cond, align 1
   store i32 %18, ptr %text_active43, align 4
   %padding45 = getelementptr inbounds i8, ptr %ctx, i64 840
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding45, align 8
+  store <2 x float> splat (float 2.000000e+00), ptr %padding45, align 8
   %touch_padding48 = getelementptr inbounds i8, ptr %ctx, i64 856
   store <2 x float> zeroinitializer, ptr %touch_padding48, align 8
   %userdata51 = getelementptr inbounds i8, ptr %ctx, i64 872
@@ -33536,7 +33536,7 @@ nk_zero.exit741:                                  ; preds = %if.end19.i.i733.thr
   %27 = load i32, ptr %cond, align 1
   store i32 %27, ptr %text_active80, align 4
   %padding82 = getelementptr inbounds i8, ptr %ctx, i64 1056
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding82, align 8
+  store <2 x float> splat (float 2.000000e+00), ptr %padding82, align 8
   %touch_padding85 = getelementptr inbounds i8, ptr %ctx, i64 1072
   store <2 x float> zeroinitializer, ptr %touch_padding85, align 8
   %userdata88 = getelementptr inbounds i8, ptr %ctx, i64 1088
@@ -33617,7 +33617,7 @@ nk_zero.exit759:                                  ; preds = %if.end19.i.i751.thr
   %37 = load i32, ptr %cond, align 1
   store i32 %37, ptr %text_active123, align 8
   %padding125 = getelementptr inbounds i8, ptr %ctx, i64 1628
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding125, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %padding125, align 4
   %touch_padding128 = getelementptr inbounds i8, ptr %ctx, i64 1636
   store <2 x float> zeroinitializer, ptr %touch_padding128, align 4
   %border_color131 = getelementptr inbounds i8, ptr %ctx, i64 1520
@@ -33689,7 +33689,7 @@ nk_zero.exit779:                                  ; preds = %if.end19.i.i771.thr
   %47 = load i32, ptr %cond, align 1
   store i32 %47, ptr %text_active162, align 8
   %padding164 = getelementptr inbounds i8, ptr %ctx, i64 1340
-  store <2 x float> <float 3.000000e+00, float 3.000000e+00>, ptr %padding164, align 4
+  store <2 x float> splat (float 3.000000e+00), ptr %padding164, align 4
   %touch_padding167 = getelementptr inbounds i8, ptr %ctx, i64 1348
   store <2 x float> zeroinitializer, ptr %touch_padding167, align 4
   %border_color170 = getelementptr inbounds i8, ptr %ctx, i64 1232
@@ -33772,9 +33772,9 @@ nk_zero.exit799:                                  ; preds = %if.end19.i.i791.thr
   %60 = load i32, ptr %cond, align 1
   store i32 %60, ptr %text_pressed_active, align 4
   %padding199 = getelementptr inbounds i8, ptr %ctx, i64 1964
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding199, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %padding199, align 4
   %image_padding202 = getelementptr inbounds i8, ptr %ctx, i64 1980
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %image_padding202, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %image_padding202, align 4
   %touch_padding205 = getelementptr inbounds i8, ptr %ctx, i64 1972
   store <2 x float> zeroinitializer, ptr %touch_padding205, align 4
   %userdata208 = getelementptr inbounds i8, ptr %ctx, i64 2000
@@ -33855,11 +33855,11 @@ nk_zero.exit820:                                  ; preds = %if.end19.i.i812.thr
   %dec_symbol = getelementptr inbounds i8, ptr %ctx, i64 2772
   store i32 9, ptr %dec_symbol, align 4
   %cursor_size = getelementptr inbounds i8, ptr %ctx, i64 2316
-  store <2 x float> <float 1.600000e+01, float 1.600000e+01>, ptr %cursor_size, align 4
+  store <2 x float> splat (float 1.600000e+01), ptr %cursor_size, align 4
   %padding238 = getelementptr inbounds i8, ptr %ctx, i64 2300
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding238, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %padding238, align 4
   %spacing241 = getelementptr inbounds i8, ptr %ctx, i64 2308
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %spacing241, align 4
+  store <2 x float> splat (float 2.000000e+00), ptr %spacing241, align 4
   %userdata244 = getelementptr inbounds i8, ptr %ctx, i64 2776
   store ptr null, ptr %userdata244, align 8
   %show_buttons = getelementptr inbounds i8, ptr %ctx, i64 2332
@@ -33897,7 +33897,7 @@ nk_zero.exit820:                                  ; preds = %if.end19.i.i812.thr
   %text_active277 = getelementptr inbounds i8, ptr %ctx, i64 2476
   store i32 -5263441, ptr %text_active277, align 4
   %padding280 = getelementptr inbounds i8, ptr %ctx, i64 2496
-  store <2 x float> <float 8.000000e+00, float 8.000000e+00>, ptr %padding280, align 8
+  store <2 x float> splat (float 8.000000e+00), ptr %padding280, align 8
   %touch_padding283 = getelementptr inbounds i8, ptr %ctx, i64 2512
   store <2 x float> zeroinitializer, ptr %touch_padding283, align 8
   %userdata286 = getelementptr inbounds i8, ptr %ctx, i64 2528
@@ -33974,7 +33974,7 @@ nk_zero.exit844:                                  ; preds = %if.end19.i.i836.thr
   %userdata324 = getelementptr inbounds i8, ptr %ctx, i64 3088
   store ptr null, ptr %userdata324, align 8
   %padding328 = getelementptr inbounds i8, ptr %ctx, i64 3068
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding328, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %padding328, align 4
   %rounding331 = getelementptr inbounds i8, ptr %ctx, i64 3052
   %color_factor333 = getelementptr inbounds i8, ptr %ctx, i64 3076
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %rounding331, i8 0, i64 16, i1 false)
@@ -34083,7 +34083,7 @@ nk_zero.exit865:                                  ; preds = %if.end19.i.i857.thr
   %text_active402 = getelementptr inbounds i8, ptr %ctx, i64 6180
   store i32 -5263441, ptr %text_active402, align 4
   %padding405 = getelementptr inbounds i8, ptr %ctx, i64 6200
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding405, align 8
+  store <2 x float> splat (float 4.000000e+00), ptr %padding405, align 8
   %touch_padding408 = getelementptr inbounds i8, ptr %ctx, i64 6216
   store <2 x float> zeroinitializer, ptr %touch_padding408, align 8
   %userdata411 = getelementptr inbounds i8, ptr %ctx, i64 6232
@@ -34180,11 +34180,11 @@ nk_zero.exit889:                                  ; preds = %if.end19.i.i881.thr
   %101 = load i32, ptr %arrayidx438, align 1
   store i32 %101, ptr %selected_text_hover, align 8
   %scrollbar_size = getelementptr inbounds i8, ptr %ctx, i64 5640
-  store <2 x float> <float 1.000000e+01, float 1.000000e+01>, ptr %scrollbar_size, align 8
+  store <2 x float> splat (float 1.000000e+01), ptr %scrollbar_size, align 8
   %scrollbar = getelementptr inbounds i8, ptr %ctx, i64 4832
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(752) %scrollbar, ptr noundef nonnull align 8 dereferenceable(752) %scrollv, i64 752, i1 false)
   %padding466 = getelementptr inbounds i8, ptr %ctx, i64 5648
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding466, align 8
+  store <2 x float> splat (float 4.000000e+00), ptr %padding466, align 8
   %row_padding = getelementptr inbounds i8, ptr %ctx, i64 5656
   store float 2.000000e+00, ptr %row_padding, align 8
   %cursor_size469 = getelementptr inbounds i8, ptr %ctx, i64 5636
@@ -34251,7 +34251,7 @@ nk_zero.exit907:                                  ; preds = %if.end19.i.i899.thr
   %userdata489 = getelementptr inbounds i8, ptr %ctx, i64 4680
   store ptr null, ptr %userdata489, align 8
   %padding493 = getelementptr inbounds i8, ptr %ctx, i64 3264
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding493, align 8
+  store <2 x float> splat (float 4.000000e+00), ptr %padding493, align 8
   %border496 = getelementptr inbounds i8, ptr %ctx, i64 3256
   store float 1.000000e+00, ptr %border496, align 8
   %rounding497 = getelementptr inbounds i8, ptr %ctx, i64 3260
@@ -34450,7 +34450,7 @@ nk_zero.exit961:                                  ; preds = %if.end19.i.i953.thr
   %137 = load i32, ptr %arrayidx597, align 1
   store i32 %137, ptr %color596, align 8
   %padding598 = getelementptr inbounds i8, ptr %ctx, i64 5732
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding598, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %padding598, align 4
   %border601 = getelementptr inbounds i8, ptr %ctx, i64 5724
   store float 0.000000e+00, ptr %border601, align 4
   %rounding602 = getelementptr inbounds i8, ptr %ctx, i64 5728
@@ -34494,7 +34494,7 @@ nk_zero.exit961:                                  ; preds = %if.end19.i.i953.thr
   %sym_active = getelementptr inbounds i8, ptr %ctx, i64 8592
   store i32 8, ptr %sym_active, align 8
   %content_padding = getelementptr inbounds i8, ptr %ctx, i64 8604
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %content_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %content_padding, align 4
   %button_padding = getelementptr inbounds i8, ptr %ctx, i64 8612
   store <2 x float> <float 0.000000e+00, float 4.000000e+00>, ptr %button_padding, align 4
   %spacing627 = getelementptr inbounds i8, ptr %ctx, i64 8620
@@ -34556,7 +34556,7 @@ nk_zero.exit980:                                  ; preds = %if.end19.i.i972.thr
   %152 = load i32, ptr %cond, align 1
   store i32 %152, ptr %text_active654, align 4
   %padding656 = getelementptr inbounds i8, ptr %ctx, i64 8528
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding656, align 8
+  store <2 x float> splat (float 2.000000e+00), ptr %padding656, align 8
   %touch_padding659 = getelementptr inbounds i8, ptr %ctx, i64 8544
   store <2 x float> zeroinitializer, ptr %touch_padding659, align 8
   %userdata662 = getelementptr inbounds i8, ptr %ctx, i64 8560
@@ -34592,9 +34592,9 @@ nk_zero.exit980:                                  ; preds = %if.end19.i.i972.thr
   %sym_maximize = getelementptr inbounds i8, ptr %ctx, i64 8172
   store i32 8, ptr %sym_maximize, align 4
   %padding682 = getelementptr inbounds i8, ptr %ctx, i64 8188
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding682, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %padding682, align 4
   %spacing685 = getelementptr inbounds i8, ptr %ctx, i64 8196
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %spacing685, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %spacing685, align 4
   %indent = getelementptr inbounds i8, ptr %ctx, i64 8184
   store float 1.000000e+01, ptr %indent, align 8
   %border688 = getelementptr inbounds i8, ptr %ctx, i64 8176
@@ -34654,7 +34654,7 @@ nk_zero.exit999:                                  ; preds = %if.end19.i.i991.thr
   %163 = load i32, ptr %cond, align 1
   store i32 %163, ptr %text_active711, align 4
   %padding713 = getelementptr inbounds i8, ptr %ctx, i64 7680
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding713, align 8
+  store <2 x float> splat (float 2.000000e+00), ptr %padding713, align 8
   %touch_padding716 = getelementptr inbounds i8, ptr %ctx, i64 7696
   store <2 x float> zeroinitializer, ptr %touch_padding716, align 8
   %userdata719 = getelementptr inbounds i8, ptr %ctx, i64 7712
@@ -34724,7 +34724,7 @@ nk_zero.exit1017:                                 ; preds = %if.end19.i.i1009.th
   %171 = load i32, ptr %cond, align 1
   store i32 %171, ptr %text_active751, align 4
   %padding753 = getelementptr inbounds i8, ptr %ctx, i64 8112
-  store <2 x float> <float 2.000000e+00, float 2.000000e+00>, ptr %padding753, align 8
+  store <2 x float> splat (float 2.000000e+00), ptr %padding753, align 8
   %touch_padding756 = getelementptr inbounds i8, ptr %ctx, i64 8128
   store <2 x float> zeroinitializer, ptr %touch_padding756, align 8
   %userdata759 = getelementptr inbounds i8, ptr %ctx, i64 8144
@@ -34779,9 +34779,9 @@ nk_zero.exit1017:                                 ; preds = %if.end19.i.i1009.th
   %177 = load i32, ptr %cond, align 1
   store i32 %177, ptr %label_active794, align 4
   %label_padding = getelementptr inbounds i8, ptr %ctx, i64 9228
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %label_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %label_padding, align 4
   %padding800 = getelementptr inbounds i8, ptr %ctx, i64 9220
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding800, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %padding800, align 4
   %spacing804 = getelementptr inbounds i8, ptr %ctx, i64 9236
   store <2 x float> zeroinitializer, ptr %spacing804, align 4
   %close_button = getelementptr inbounds i8, ptr %ctx, i64 8760
@@ -34957,11 +34957,11 @@ nk_zero.exit1056:                                 ; preds = %if.end19.i.i1048.th
   %rounding901 = getelementptr inbounds i8, ptr %ctx, i64 9392
   store float 0.000000e+00, ptr %rounding901, align 8
   %spacing902 = getelementptr inbounds i8, ptr %ctx, i64 9396
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %spacing902, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %spacing902, align 4
   %scrollbar_size905 = getelementptr inbounds i8, ptr %ctx, i64 9404
-  store <2 x float> <float 1.000000e+01, float 1.000000e+01>, ptr %scrollbar_size905, align 4
+  store <2 x float> splat (float 1.000000e+01), ptr %scrollbar_size905, align 4
   %min_size = getelementptr inbounds i8, ptr %ctx, i64 9412
-  store <2 x float> <float 6.400000e+01, float 6.400000e+01>, ptr %min_size, align 4
+  store <2 x float> splat (float 6.400000e+01), ptr %min_size, align 4
   %combo_border = getelementptr inbounds i8, ptr %ctx, i64 9364
   store float 1.000000e+00, ptr %combo_border, align 4
   %contextual_border = getelementptr inbounds i8, ptr %ctx, i64 9368
@@ -34979,19 +34979,19 @@ nk_zero.exit1056:                                 ; preds = %if.end19.i.i1048.th
   %min_row_height_padding = getelementptr inbounds i8, ptr %ctx, i64 9388
   store float 8.000000e+00, ptr %min_row_height_padding, align 4
   %padding911 = getelementptr inbounds i8, ptr %ctx, i64 9420
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %padding911, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %padding911, align 4
   %group_padding = getelementptr inbounds i8, ptr %ctx, i64 9428
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %group_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %group_padding, align 4
   %popup_padding = getelementptr inbounds i8, ptr %ctx, i64 9436
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %popup_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %popup_padding, align 4
   %combo_padding = getelementptr inbounds i8, ptr %ctx, i64 9444
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %combo_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %combo_padding, align 4
   %contextual_padding = getelementptr inbounds i8, ptr %ctx, i64 9452
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %contextual_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %contextual_padding, align 4
   %menu_padding = getelementptr inbounds i8, ptr %ctx, i64 9460
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %menu_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %menu_padding, align 4
   %tooltip_padding = getelementptr inbounds i8, ptr %ctx, i64 9468
-  store <2 x float> <float 4.000000e+00, float 4.000000e+00>, ptr %tooltip_padding, align 4
+  store <2 x float> splat (float 4.000000e+00), ptr %tooltip_padding, align 4
   br label %return
 
 return:                                           ; preds = %entry, %nk_zero.exit1056
@@ -43055,7 +43055,7 @@ if.else:                                          ; preds = %if.end35.thread, %i
 if.end56:                                         ; preds = %if.else, %if.then46
   %body.sroa.0.0 = phi <2 x float> [ %body.sroa.0.4.vec.insert, %if.then46 ], [ %body.sroa.0.4.vec.insert11, %if.else ]
   %or = or i32 %flags, 32
-  %call59 = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef %or, <2 x float> %body.sroa.0.0, <2 x float> %size.coerce, <2 x float> <float -1.000000e+00, float -1.000000e+00>, <2 x float> zeroinitializer, i32 noundef 16)
+  %call59 = tail call fastcc i32 @nk_nonblock_begin(ptr noundef %ctx, i32 noundef %or, <2 x float> %body.sroa.0.0, <2 x float> %size.coerce, <2 x float> splat (float -1.000000e+00), <2 x float> zeroinitializer, i32 noundef 16)
   %tobool60.not = icmp eq i32 %call59, 0
   br i1 %tobool60.not, label %if.else64, label %if.then61
 
@@ -65985,7 +65985,7 @@ land.end.i:                                       ; preds = %land.rhs.i, %if.end
 if.end.i:                                         ; preds = %land.end.i, %land.lhs.true73.i, %land.lhs.true50.i, %if.then.i
   %color.sroa.0.0.i = phi i32 [ %color.sroa.0.0.copyload2.i, %land.end.i ], [ %color.sroa.0.0.copyload.i, %land.lhs.true73.i ], [ %color.sroa.0.0.copyload.i, %land.lhs.true50.i ], [ %color.sroa.0.0.copyload.i, %if.then.i ]
   %ret.0.i = phi i32 [ %or.i, %land.end.i ], [ 0, %land.lhs.true73.i ], [ 0, %land.lhs.true50.i ], [ 0, %if.then.i ]
-  tail call void @nk_fill_rect(ptr noundef nonnull %buffer.i, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> <float 4.000000e+00, float 4.000000e+00>, float noundef 0.000000e+00, i32 %color.sroa.0.0.i)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer.i, <2 x float> %bounds.sroa.0.4.vec.insert.i, <2 x float> splat (float 4.000000e+00), float noundef 0.000000e+00, i32 %color.sroa.0.0.i)
   br label %nk_chart_push_line.exit
 
 if.end117.i:                                      ; preds = %sw.bb
@@ -66115,7 +66115,7 @@ if.end181.i:                                      ; preds = %land.end173.i, %lan
   %sub185.i = fadd float %25, -2.000000e+00
   %retval.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %sub183.i, i64 0
   %retval.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i, float %sub185.i, i64 1
-  tail call void @nk_fill_rect(ptr noundef nonnull %buffer.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i, <2 x float> <float 4.000000e+00, float 4.000000e+00>, float noundef 0.000000e+00, i32 %color.sroa.0.1.i)
+  tail call void @nk_fill_rect(ptr noundef nonnull %buffer.i, <2 x float> %retval.sroa.0.4.vec.insert.i.i, <2 x float> splat (float 4.000000e+00), float noundef 0.000000e+00, i32 %color.sroa.0.1.i)
   store float %22, ptr %last138.i, align 4
   store float %25, ptr %y144.i, align 4
   br label %nk_chart_push_line.exit

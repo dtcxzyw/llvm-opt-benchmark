@@ -1181,19 +1181,19 @@ if.then130:                                       ; preds = %invoke.cont128
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp134) #19
   %82 = load <2 x i32>, ptr %LowerRightCorner.i272, align 4, !tbaa !86
   %83 = load <2 x i32>, ptr %destrect, align 4, !tbaa !86
-  %84 = xor <2 x i32> %83, <i32 -1, i32 -1>
+  %84 = xor <2 x i32> %83, splat (i32 -1)
   %85 = add <2 x i32> %82, %84
-  %86 = lshr <2 x i32> %85, <i32 1, i32 1>
+  %86 = lshr <2 x i32> %85, splat (i32 1)
   %87 = or <2 x i32> %86, %85
-  %88 = lshr <2 x i32> %87, <i32 2, i32 2>
+  %88 = lshr <2 x i32> %87, splat (i32 2)
   %89 = or <2 x i32> %88, %87
-  %90 = lshr <2 x i32> %89, <i32 4, i32 4>
+  %90 = lshr <2 x i32> %89, splat (i32 4)
   %91 = or <2 x i32> %90, %89
-  %92 = lshr <2 x i32> %91, <i32 8, i32 8>
+  %92 = lshr <2 x i32> %91, splat (i32 8)
   %93 = or <2 x i32> %92, %91
-  %94 = lshr <2 x i32> %93, <i32 16, i32 16>
+  %94 = lshr <2 x i32> %93, splat (i32 16)
   %95 = or <2 x i32> %94, %93
-  %96 = add <2 x i32> %95, <i32 1, i32 1>
+  %96 = add <2 x i32> %95, splat (i32 1)
   store <2 x i32> %96, ptr %ref.tmp134, align 8, !tbaa !86
   %vtable148 = load ptr, ptr %driver, align 8, !tbaa !28
   %vfn149 = getelementptr inbounds i8, ptr %vtable148, i64 592

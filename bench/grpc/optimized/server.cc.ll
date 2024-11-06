@@ -2599,7 +2599,7 @@ while.body.i.i:                                   ; preds = %if.end14, %while.bo
   %15 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %13, %if.end14 ]
   %add.ptr24.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %12, %if.end14 ]
   %16 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
-  %cmp.i.i.i.i.i = icmp slt <16 x i8> %16, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i.i = icmp slt <16 x i8> %16, splat (i8 -1)
   %17 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
   %18 = zext i16 %17 to i32
   %add.i.i.i = add nuw nsw i32 %18, 1
@@ -2678,7 +2678,7 @@ while.body.i.i35:                                 ; preds = %for.inc33, %while.b
   %28 = phi ptr [ %add.ptr6.i.i41, %while.body.i.i35 ], [ %incdec.ptr4.i, %for.inc33 ]
   %add.ptr24.i.i36 = phi ptr [ %add.ptr.i.i40, %while.body.i.i35 ], [ %incdec.ptr.i30, %for.inc33 ]
   %29 = load <16 x i8>, ptr %add.ptr24.i.i36, align 1
-  %cmp.i.i.i.i.i37 = icmp slt <16 x i8> %29, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i.i37 = icmp slt <16 x i8> %29, splat (i8 -1)
   %30 = bitcast <16 x i1> %cmp.i.i.i.i.i37 to i16
   %31 = zext i16 %30 to i32
   %add.i.i.i38 = add nuw nsw i32 %31, 1
@@ -4176,7 +4176,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %while.body.i
-  %cmp.i.i10.i = icmp eq <16 x i8> %8, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i10.i = icmp eq <16 x i8> %8, splat (i8 -128)
   %14 = bitcast <16 x i1> %cmp.i.i10.i to i16
   %cmp.i11.not.i = icmp eq i16 %14, 0
   br i1 %cmp.i11.not.i, label %if.end34.i, label %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_ESt10unique_ptrIN9grpc_core6Server16RegisteredMethodESt14default_deleteISF_EEEENSE_28StringViewStringViewPairHashENSE_26StringViewStringViewPairEqESaIS4_IKSB_SI_EEE4findIS4_IPKcSS_EEENSP_8iteratorERKT_m.exit
@@ -4611,7 +4611,7 @@ while.body.i.i:                                   ; preds = %_ZN4absl12lts_20230
   %14 = phi ptr [ %add.ptr6.i.i, %while.body.i.i ], [ %12, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   %add.ptr24.i.i = phi ptr [ %add.ptr.i.i, %while.body.i.i ], [ %11, %_ZN4absl12lts_202308026StatusD2Ev.exit ]
   %15 = load <16 x i8>, ptr %add.ptr24.i.i, align 1
-  %cmp.i.i.i.i.i = icmp slt <16 x i8> %15, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i.i = icmp slt <16 x i8> %15, splat (i8 -1)
   %16 = bitcast <16 x i1> %cmp.i.i.i.i.i to i16
   %17 = zext i16 %16 to i32
   %add.i.i.i = add nuw nsw i32 %17, 1
@@ -4691,7 +4691,7 @@ while.body.i.i23:                                 ; preds = %_ZN4absl12lts_20230
   %33 = phi ptr [ %add.ptr6.i.i29, %while.body.i.i23 ], [ %incdec.ptr4.i, %_ZN4absl12lts_202308026StatusD2Ev.exit18 ]
   %add.ptr24.i.i24 = phi ptr [ %add.ptr.i.i28, %while.body.i.i23 ], [ %incdec.ptr.i, %_ZN4absl12lts_202308026StatusD2Ev.exit18 ]
   %34 = load <16 x i8>, ptr %add.ptr24.i.i24, align 1
-  %cmp.i.i.i.i.i25 = icmp slt <16 x i8> %34, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %cmp.i.i.i.i.i25 = icmp slt <16 x i8> %34, splat (i8 -1)
   %35 = bitcast <16 x i1> %cmp.i.i.i.i.i25 to i16
   %36 = zext i16 %35 to i32
   %add.i.i.i26 = add nuw nsw i32 %36, 1
@@ -20977,7 +20977,7 @@ for.inc:                                          ; preds = %for.body
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %while.body
-  %cmp.i.i12 = icmp eq <16 x i8> %7, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i12 = icmp eq <16 x i8> %7, splat (i8 -128)
   %12 = bitcast <16 x i1> %cmp.i.i12 to i16
   %cmp.i13.not = icmp eq i16 %12, 0
   br i1 %cmp.i13.not, label %if.end37, label %while.end
@@ -21764,7 +21764,7 @@ for.inc:                                          ; preds = %land.rhs.i.i.i.i.i.
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %while.body
-  %cmp.i.i10 = icmp eq <16 x i8> %5, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i10 = icmp eq <16 x i8> %5, splat (i8 -128)
   %15 = bitcast <16 x i1> %cmp.i.i10 to i16
   %cmp.i11.not = icmp eq i16 %15, 0
   br i1 %cmp.i11.not, label %if.end34, label %return
@@ -21875,7 +21875,7 @@ for.inc:                                          ; preds = %land.rhs.i.i.i.i.i.
   br i1 %cmp.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %while.body
-  %cmp.i.i10 = icmp eq <16 x i8> %5, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i10 = icmp eq <16 x i8> %5, splat (i8 -128)
   %16 = bitcast <16 x i1> %cmp.i.i10 to i16
   %cmp.i11.not = icmp eq i16 %16, 0
   br i1 %cmp.i11.not, label %if.end34, label %return

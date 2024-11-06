@@ -168,7 +168,7 @@ entry:
   %RelativeTranslation.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %RelativeScale.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i.i, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %RelativeScale.i.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %RelativeScale.i.i, align 8, !tbaa !10
   %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 144
   store float 1.000000e+00, ptr %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx.i, align 8, !tbaa !10
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -236,7 +236,7 @@ _ZN3irr5scene29IDummyTransformationSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneMa
   store float 1.000000e+00, ptr %RelativeTransformationMatrix, align 8, !tbaa !10
   store <4 x float> <float 1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !10
   %MaxEdge.i = getelementptr inbounds i8, ptr %this, i64 300
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %MaxEdge.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %MaxEdge.i, align 4, !tbaa !10
   %Z.i3.i = getelementptr inbounds i8, ptr %this, i64 308
   store float 1.000000e+00, ptr %Z.i3.i, align 4, !tbaa !42
   store i32 0, ptr %AutomaticCullingState.i.i, align 4, !tbaa !38
@@ -268,7 +268,7 @@ entry:
   %RelativeTranslation.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %RelativeScale.i.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i.i, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %RelativeScale.i.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %RelativeScale.i.i, align 8, !tbaa !10
   %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 144
   store float 1.000000e+00, ptr %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx.i, align 8, !tbaa !10
   %Children.i.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -322,7 +322,7 @@ _ZN3irr5scene29IDummyTransformationSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneMa
   store float 1.000000e+00, ptr %RelativeTransformationMatrix, align 8, !tbaa !10
   store <4 x float> <float 1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, ptr %arrayidx.i.i, align 4, !tbaa !10
   %MaxEdge.i = getelementptr inbounds i8, ptr %this, i64 300
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %MaxEdge.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %MaxEdge.i, align 4, !tbaa !10
   %Z.i3.i = getelementptr inbounds i8, ptr %this, i64 308
   store float 1.000000e+00, ptr %Z.i3.i, align 4, !tbaa !42
   store i32 0, ptr %AutomaticCullingState.i.i, align 4, !tbaa !38
@@ -387,7 +387,7 @@ entry:
   %RelativeTranslation.i.i.i = getelementptr inbounds i8, ptr %call, i64 112
   %RelativeScale.i.i.i = getelementptr inbounds i8, ptr %call, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i.i.i, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %RelativeScale.i.i.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %RelativeScale.i.i.i, align 8, !tbaa !10
   %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %call, i64 144
   store float 1.000000e+00, ptr %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx.i.i, align 8, !tbaa !10
   %Children.i.i.i = getelementptr inbounds i8, ptr %call, i64 152
@@ -442,7 +442,7 @@ _ZN3irr5scene29CDummyTransformationSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneMa
   %Box.i = getelementptr inbounds i8, ptr %call, i64 288
   store <4 x float> <float 1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, ptr %arrayidx.i.i.i, align 4, !tbaa !10
   %MaxEdge.i.i = getelementptr inbounds i8, ptr %call, i64 300
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %MaxEdge.i.i, align 4, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %MaxEdge.i.i, align 4, !tbaa !10
   %Z.i3.i.i = getelementptr inbounds i8, ptr %call, i64 308
   store float 1.000000e+00, ptr %Z.i3.i.i, align 4, !tbaa !42
   store i32 0, ptr %AutomaticCullingState.i.i.i, align 4, !tbaa !38
@@ -877,7 +877,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !10
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !10
   %12 = fadd <2 x float> %10, %11
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub <2 x float> %13, %11
   %15 = fadd <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !10

@@ -200,7 +200,7 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   %46 = getelementptr inbounds i8, ptr %8, i64 24
   store i32 1, ptr %46, align 4, !tbaa !23
   %47 = getelementptr inbounds i8, ptr %8, i64 28
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %47, align 4, !tbaa !15
+  store <2 x float> splat (float 1.000000e+00), ptr %47, align 4, !tbaa !15
   br label %74
 
 48:                                               ; preds = %6
@@ -277,8 +277,8 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
   %13 = fpext <2 x float> %12 to <2 x double>
   %14 = load <2 x float>, ptr %10, align 4, !tbaa !15
   %15 = fpext <2 x float> %14 to <2 x double>
-  %16 = fmul reassoc nsz arcp contract afn <2 x double> %15, <double 5.000000e-01, double 5.000000e-01>
-  %17 = fadd reassoc nsz arcp contract afn <2 x double> %16, <double 5.000000e-01, double 5.000000e-01>
+  %16 = fmul reassoc nsz arcp contract afn <2 x double> %15, splat (double 5.000000e-01)
+  %17 = fadd reassoc nsz arcp contract afn <2 x double> %16, splat (double 5.000000e-01)
   %18 = fmul reassoc nsz arcp contract afn <2 x double> %17, %13
   %19 = fptrunc <2 x double> %18 to <2 x float>
   %20 = extractelement <2 x float> %19, i64 0
@@ -1791,7 +1791,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   store i32 0, ptr %5, align 8, !tbaa !45
   %6 = getelementptr inbounds i8, ptr %2, i64 28
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %6, align 4, !tbaa !15
+  store <2 x float> splat (float 1.000000e+00), ptr %6, align 4, !tbaa !15
   %7 = getelementptr inbounds i8, ptr %2, i64 36
   store i32 0, ptr %7, align 4, !tbaa !128
   %8 = getelementptr inbounds i8, ptr %2, i64 40

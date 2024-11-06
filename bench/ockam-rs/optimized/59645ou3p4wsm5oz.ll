@@ -3287,9 +3287,9 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb6e79ba0f31224c4E.llvm.18
   %130 = add i64 %.sroa.01.06.i.i, 16
   %131 = getelementptr inbounds i8, ptr %.val15.i, i64 %.sroa.01.06.i.i
   %132 = load <16 x i8>, ptr %131, align 16, !noalias !691
-  %.lobit.i.i.i = ashr <16 x i8> %132, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.i.i.i = ashr <16 x i8> %132, splat (i8 7)
   %133 = bitcast <16 x i8> %.lobit.i.i.i to <2 x i64>
-  %134 = or <2 x i64> %133, <i64 -9187201950435737472, i64 -9187201950435737472>
+  %134 = or <2 x i64> %133, splat (i64 -9187201950435737472)
   store <2 x i64> %134, ptr %131, align 16, !noalias !694
   %.not.not.i.i = icmp eq i64 %129, 0
   br i1 %.not.not.i.i, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h816ba2a0e59828b5E.exit.i", label %128

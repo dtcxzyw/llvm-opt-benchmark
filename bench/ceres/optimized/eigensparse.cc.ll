@@ -8151,7 +8151,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %210 = load <2 x double>, ptr %209, align 1
   %211 = getelementptr inbounds double, ptr %188, i64 %.021.i.i.i.i.i.i.i21
   %212 = load <2 x double>, ptr %211, align 1
-  %213 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %212
+  %213 = fdiv <2 x double> splat (double 1.000000e+00), %212
   %214 = fmul <2 x double> %210, %213
   store <2 x double> %214, ptr %209, align 16
   %215 = add nsw i64 %.021.i.i.i.i.i.i.i21, 2
@@ -10604,7 +10604,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %210 = load <2 x double>, ptr %209, align 1
   %211 = getelementptr inbounds double, ptr %188, i64 %.021.i.i.i.i.i.i.i21
   %212 = load <2 x double>, ptr %211, align 1
-  %213 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %212
+  %213 = fdiv <2 x double> splat (double 1.000000e+00), %212
   %214 = fmul <2 x double> %210, %213
   store <2 x double> %214, ptr %209, align 16
   %215 = add nsw i64 %.021.i.i.i.i.i.i.i21, 2
@@ -18206,7 +18206,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %190 = load <4 x float>, ptr %189, align 16
   %191 = getelementptr inbounds float, ptr %178, i64 %.011.i.i.i.i.i.i.i
   %192 = load <4 x float>, ptr %191, align 16
-  %193 = fdiv <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %192
+  %193 = fdiv <4 x float> splat (float 1.000000e+00), %192
   %194 = fmul <4 x float> %190, %193
   store <4 x float> %194, ptr %188, align 16
   %195 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 4
@@ -20647,7 +20647,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %190 = load <4 x float>, ptr %189, align 16
   %191 = getelementptr inbounds float, ptr %178, i64 %.011.i.i.i.i.i.i.i
   %192 = load <4 x float>, ptr %191, align 16
-  %193 = fdiv <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %192
+  %193 = fdiv <4 x float> splat (float 1.000000e+00), %192
   %194 = fmul <4 x float> %190, %193
   store <4 x float> %194, ptr %188, align 16
   %195 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 4

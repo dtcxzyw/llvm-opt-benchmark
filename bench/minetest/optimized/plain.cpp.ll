@@ -886,7 +886,7 @@ invoke.cont44:                                    ; preds = %_ZNSt7__cxx1112basi
   %upstream.i6.i = getelementptr inbounds i8, ptr %call42, i64 88
   store ptr null, ptr %upstream.i6.i, align 8, !tbaa !208
   %scale.i = getelementptr inbounds i8, ptr %call42, i64 96
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %scale.i, align 4, !tbaa !210
+  store <2 x float> splat (float 1.000000e+00), ptr %scale.i, align 4, !tbaa !210
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp46) #22
   store ptr %call, ptr %ref.tmp46, align 8, !tbaa !199
   %call49 = invoke noundef ptr @_ZN14RenderPipeline3ownI10RenderStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %call42, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp46)

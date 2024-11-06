@@ -240,8 +240,8 @@ define range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %0, ptr n
   %127 = zext nneg i32 %126 to i64
   %128 = getelementptr inbounds float, ptr %2, i64 %127
   %129 = load <2 x float>, ptr %128, align 4, !tbaa !37
-  %130 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %129, <float 0x3F50624DE0000000, float 0x3F50624DE0000000>
-  %131 = select <2 x i1> %130, <2 x float> %129, <2 x float> <float 0x3F50624DE0000000, float 0x3F50624DE0000000>
+  %130 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %129, splat (float 0x3F50624DE0000000)
+  %131 = select <2 x i1> %130, <2 x float> %129, <2 x float> splat (float 0x3F50624DE0000000)
   %132 = extractelement <2 x float> %131, i64 0
   %133 = extractelement <2 x float> %131, i64 1
   %134 = fdiv reassoc nsz arcp contract afn float %132, %133

@@ -23542,7 +23542,7 @@ define noundef <2 x float> @Vector2Zero() local_unnamed_addr #16 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef <2 x float> @Vector2One() local_unnamed_addr #16 {
-  ret <2 x float> <float 1.000000e+00, float 1.000000e+00>
+  ret <2 x float> splat (float 1.000000e+00)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -24014,7 +24014,7 @@ define { <2 x float>, float } @Vector3Zero() local_unnamed_addr #12 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, float } @Vector3One() local_unnamed_addr #12 {
-  ret { <2 x float>, float } { <2 x float> <float 1.000000e+00, float 1.000000e+00>, float 1.000000e+00 }
+  ret { <2 x float>, float } { <2 x float> splat (float 1.000000e+00), float 1.000000e+00 }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -25169,7 +25169,7 @@ define { <2 x float>, <2 x float> } @Vector4Zero() local_unnamed_addr #12 {
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define { <2 x float>, <2 x float> } @Vector4One() local_unnamed_addr #12 {
-  ret { <2 x float>, <2 x float> } { <2 x float> <float 1.000000e+00, float 1.000000e+00>, <2 x float> <float 1.000000e+00, float 1.000000e+00> }
+  ret { <2 x float>, <2 x float> } { <2 x float> splat (float 1.000000e+00), <2 x float> splat (float 1.000000e+00) }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -32997,7 +32997,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
   %119 = getelementptr inbounds [16 x i32], ptr @msf_cook_frame.ditherKernel, i64 0, i64 %118
   %120 = load <4 x i32>, ptr %119, align 16
   %121 = tail call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %120, i32 %58)
-  %122 = shl <4 x i32> %121, <i32 16, i32 16, i32 16, i32 16>
+  %122 = shl <4 x i32> %121, splat (i32 16)
   %123 = tail call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %120, i32 %54)
   %124 = or <4 x i32> %122, %123
   %125 = mul nsw i64 %indvars.iv321.i, %49
@@ -33035,16 +33035,16 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %139
   %140 = load <2 x i64>, ptr %gep.i, align 1
   %141 = bitcast <2 x i64> %140 to <8 x i16>
-  %142 = and <8 x i16> %141, <i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255>
+  %142 = and <8 x i16> %141, splat (i16 255)
   %143 = mul <8 x i16> %142, %97
   %144 = tail call <8 x i16> @llvm.uadd.sat.v8i16(<8 x i16> %143, <8 x i16> %126)
   %145 = bitcast <8 x i16> %144 to <4 x i32>
-  %146 = and <4 x i32> %145, <i32 65535, i32 65535, i32 65535, i32 65535>
+  %146 = and <4 x i32> %145, splat (i32 65535)
   %147 = tail call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %146, i32 %98)
   %148 = tail call <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32> %145, i32 %99)
   %149 = and <4 x i32> %148, %101
   %150 = bitcast <2 x i64> %140 to <4 x i32>
-  %151 = lshr <4 x i32> %150, <i32 8, i32 8, i32 8, i32 8>
+  %151 = lshr <4 x i32> %150, splat (i32 8)
   %152 = bitcast <4 x i32> %151 to <8 x i16>
   %153 = and <8 x i16> %152, <i16 255, i16 0, i16 255, i16 0, i16 255, i16 0, i16 255, i16 0>
   %154 = mul <8 x i16> %153, %105
@@ -33054,7 +33054,7 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr nocapture noundef %0, ptr n
   %158 = and <4 x i32> %157, %108
   %159 = or <4 x i32> %149, %147
   %160 = or <4 x i32> %159, %158
-  %161 = lshr <4 x i32> %150, <i32 24, i32 24, i32 24, i32 24>
+  %161 = lshr <4 x i32> %150, splat (i32 24)
   %.not299.i = icmp sgt <4 x i32> %131, %161
   %162 = select <4 x i1> %.not299.i, <4 x i32> %110, <4 x i32> %160
   %gep343.i = getelementptr i32, ptr %invariant.gep342.i, i64 %indvars.iv.i
@@ -40262,7 +40262,7 @@ define void @InitWindow(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_un
   %.sroa.03.0.vec.insert = insertelement <2 x float> poison, float %36, i64 0
   %37 = fadd float %.sroa.39.0.copyload, 2.000000e+00
   %.sroa.03.4.vec.insert = insertelement <2 x float> %.sroa.03.0.vec.insert, float %37, i64 1
-  call void @SetShapesTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %5, <2 x float> %.sroa.03.4.vec.insert, <2 x float> <float 1.000000e+00, float 1.000000e+00>) #54
+  call void @SetShapesTexture(ptr noundef nonnull byval(%struct.Texture) align 8 %5, <2 x float> %.sroa.03.4.vec.insert, <2 x float> splat (float 1.000000e+00)) #54
   br label %44
 
 38:                                               ; preds = %14
@@ -46549,7 +46549,7 @@ define <2 x float> @GetTouchPosition(i32 noundef %0) local_unnamed_addr #25 {
   br label %7
 
 7:                                                ; preds = %6, %3
-  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload2, %3 ], [ <float -1.000000e+00, float -1.000000e+00>, %6 ]
+  %.sroa.0.0 = phi <2 x float> [ %.sroa.0.0.copyload2, %3 ], [ splat (float -1.000000e+00), %6 ]
   ret <2 x float> %.sroa.0.0
 }
 

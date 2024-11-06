@@ -659,7 +659,7 @@ entry:
   %ref.tmp15 = alloca float, align 4
   %ref.tmp17 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
-  call void @_Z13create3DStageP6ClientN3irr4core8vector2dIfEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef %client, <2 x float> <float 1.000000e+00, float 1.000000e+00>)
+  call void @_Z13create3DStageP6ClientN3irr4core8vector2dIfEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr") align 8 %ref.tmp, ptr noundef %client, <2 x float> splat (float 1.000000e+00))
   %call = invoke noundef ptr @_ZN14RenderPipeline3ownI10RenderStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %pipeline, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont unwind label %lpad
 

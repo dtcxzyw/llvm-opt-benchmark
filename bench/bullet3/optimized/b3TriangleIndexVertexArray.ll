@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN26b3TriangleIndexVertexArrayC2EiPiiiPfi(ptr noundef nonnull align 16 dereferenceable(112) %this, i32 noundef %numTriangles, ptr noundef %triangleIndexBase, i32 noundef %triangleIndexStride, i32 noundef %numVertices, ptr noundef %vertexBase, i32 noundef %vertexStride) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_scaling.i = getelementptr inbounds i8, ptr %this, i64 16
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_scaling.i, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_scaling.i, align 16
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV26b3TriangleIndexVertexArray, i64 16), ptr %this, align 16

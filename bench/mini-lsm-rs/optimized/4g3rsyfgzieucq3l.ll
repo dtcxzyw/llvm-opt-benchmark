@@ -3347,7 +3347,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   br i1 %.not.not.i.i.i, label %46, label %49
 
 46:                                               ; preds = %45
-  %47 = icmp eq <16 x i8> %.0.copyload.i30.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %47 = icmp eq <16 x i8> %.0.copyload.i30.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i.i = icmp eq i16 %48, 0
   br i1 %.not.i.i.i, label %58, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h891f0761efde93dbE.exit"
@@ -3766,7 +3766,7 @@ default.unreachable784:                           ; preds = %456, %310, %"_ZN4co
   br i1 %.not.not.i.i.i.i, label %177, label %180
 
 177:                                              ; preds = %176
-  %178 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %178 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %179 = bitcast <16 x i1> %178 to i16
   %.not.i.i.i.i = icmp eq i16 %179, 0
   br i1 %.not.i.i.i.i, label %189, label %select.unfold
@@ -10849,7 +10849,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   br i1 %.not.not.i.i.i.i, label %322, label %325
 
 322:                                              ; preds = %321
-  %323 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %323 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
   %324 = bitcast <16 x i1> %323 to i16
   %.not.i.i.i.i = icmp eq i16 %324, 0
   br i1 %.not.i.i.i.i, label %334, label %select.unfold

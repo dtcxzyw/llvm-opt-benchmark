@@ -12792,7 +12792,7 @@ _ZN5clang5Lexer18FormTokenWithCharsERNS_5TokenEPKcNS_3tok9TokenKindE.exit: ; pre
   br i1 %.not127, label %132, label %.loopexit197
 
 132:                                              ; preds = %128
-  %133 = icmp eq <16 x i8> %129, <i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47, i8 47>
+  %133 = icmp eq <16 x i8> %129, splat (i8 47)
   %134 = bitcast <16 x i1> %133 to i16
   %.not128 = icmp eq i16 %134, 0
   br i1 %.not128, label %.preheader198, label %135, !llvm.loop !111

@@ -381,7 +381,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %control, i8 0, i64 7, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pitch.i, i8 0, i64 16, i1 false)
   %physics_override = getelementptr inbounds i8, ptr %this, i64 264
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %physics_override, align 8, !tbaa !18
+  store <2 x float> splat (float 1.000000e+00), ptr %physics_override, align 8, !tbaa !18
   %gravity.i = getelementptr inbounds i8, ptr %this, i64 272
   store float 1.000000e+00, ptr %gravity.i, align 8, !tbaa !20
   %sneak.i = getelementptr inbounds i8, ptr %this, i64 276
@@ -391,9 +391,9 @@ entry:
   %new_move.i = getelementptr inbounds i8, ptr %this, i64 278
   store i8 1, ptr %new_move.i, align 2, !tbaa !25
   %speed_climb.i = getelementptr inbounds i8, ptr %this, i64 280
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %speed_climb.i, align 8, !tbaa !18
+  store <4 x float> splat (float 1.000000e+00), ptr %speed_climb.i, align 8, !tbaa !18
   %liquid_sink.i = getelementptr inbounds i8, ptr %this, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %liquid_sink.i, align 8, !tbaa !18
+  store <2 x float> splat (float 1.000000e+00), ptr %liquid_sink.i, align 8, !tbaa !18
   %acceleration_air.i = getelementptr inbounds i8, ptr %this, i64 304
   store float 1.000000e+00, ptr %acceleration_air.i, align 8, !tbaa !26
   %m_speed = getelementptr inbounds i8, ptr %this, i64 336

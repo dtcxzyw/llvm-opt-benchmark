@@ -775,9 +775,9 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %666 = mul nsw i64 %549, %10
   %667 = add nsw i64 %666, %524
   %668 = getelementptr inbounds double, ptr %9, i64 %667
-  %669 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %668, <4 x i64> %21, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
+  %669 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %668, <4 x i64> %21, <4 x double> splat (double 0xFFFFFFFFFFFFFFFF), i8 8)
   %670 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %669, <4 x double> %25, <4 x double> %665)
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %668, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %21, <4 x double> %670, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %668, <4 x i1> splat (i1 true), <4 x i64> %21, <4 x double> %670, i32 8)
   %671 = shufflevector <8 x double> %649, <8 x double> %647, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %672 = shufflevector <8 x double> %649, <8 x double> %647, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %673 = shufflevector <8 x double> %645, <8 x double> %643, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
@@ -795,9 +795,9 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %685 = fmul <4 x double> %23, %684
   %686 = or disjoint i64 %667, 1
   %687 = getelementptr inbounds double, ptr %9, i64 %686
-  %688 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr nonnull %687, <4 x i64> %21, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
+  %688 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr nonnull %687, <4 x i64> %21, <4 x double> splat (double 0xFFFFFFFFFFFFFFFF), i8 8)
   %689 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %688, <4 x double> %25, <4 x double> %685)
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %687, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %21, <4 x double> %689, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %687, <4 x i1> splat (i1 true), <4 x i64> %21, <4 x double> %689, i32 8)
   %690 = add nuw nsw i64 %549, 4
   %691 = icmp slt i64 %690, %14
   br i1 %691, label %548, label %.loopexit65, !llvm.loop !23
@@ -1129,9 +1129,9 @@ define noundef i32 @dgemm_small_kernel_tn(i64 noundef %0, i64 noundef %1, i64 no
   %951 = fmul <4 x double> %23, %950
   %952 = mul nsw i64 %859, %10
   %953 = getelementptr double, ptr %849, i64 %952
-  %954 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %953, <4 x i64> %21, <4 x double> <double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF, double 0xFFFFFFFFFFFFFFFF>, i8 8)
+  %954 = tail call <4 x double> @llvm.x86.avx2.gather.q.pd.256(<4 x double> zeroinitializer, ptr %953, <4 x i64> %21, <4 x double> splat (double 0xFFFFFFFFFFFFFFFF), i8 8)
   %955 = tail call <4 x double> @llvm.fma.v4f64(<4 x double> %954, <4 x double> %25, <4 x double> %951)
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %953, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %21, <4 x double> %955, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %953, <4 x i1> splat (i1 true), <4 x i64> %21, <4 x double> %955, i32 8)
   %956 = add nuw nsw i64 %859, 4
   %957 = icmp slt i64 %956, %14
   br i1 %957, label %858, label %.loopexit58, !llvm.loop !32

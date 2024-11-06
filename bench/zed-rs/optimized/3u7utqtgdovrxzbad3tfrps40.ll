@@ -3871,8 +3871,8 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %.val3.i.i.i = load <16 x i8>, ptr %gep.i.i, align 1, !alias.scope !696, !noalias !697
   %86 = getelementptr inbounds i8, ptr %gep.i.i, i64 2
   %.val.i.i.i = load <16 x i8>, ptr %86, align 1, !alias.scope !696, !noalias !697
-  %87 = icmp eq <16 x i8> %.val3.i.i.i, <i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115>
-  %88 = icmp eq <16 x i8> %.val.i.i.i, <i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103>
+  %87 = icmp eq <16 x i8> %.val3.i.i.i, splat (i8 115)
+  %88 = icmp eq <16 x i8> %.val.i.i.i, splat (i8 103)
   %narrow.i.i.i = select <16 x i1> %87, <16 x i1> %88, <16 x i1> zeroinitializer
   %89 = getelementptr inbounds [4 x i16], ptr %8, i64 0, i64 %.sroa.020.045.i.i
   store <16 x i1> %narrow.i.i.i, ptr %89, align 2, !noalias !696
@@ -3892,8 +3892,8 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %.val3.i62.i.i = load <16 x i8>, ptr %92, align 1, !alias.scope !696, !noalias !700
   %93 = getelementptr inbounds i8, ptr %92, i64 2
   %.val.i63.i.i = load <16 x i8>, ptr %93, align 1, !alias.scope !696, !noalias !700
-  %94 = icmp eq <16 x i8> %.val3.i62.i.i, <i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115>
-  %95 = icmp eq <16 x i8> %.val.i63.i.i, <i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103>
+  %94 = icmp eq <16 x i8> %.val3.i62.i.i, splat (i8 115)
+  %95 = icmp eq <16 x i8> %.val.i63.i.i, splat (i8 103)
   %narrow.i64.i.i = select <16 x i1> %94, <16 x i1> %95, <16 x i1> zeroinitializer
   %96 = bitcast <16 x i1> %narrow.i64.i.i to i16
   %97 = icmp eq i16 %96, 0
@@ -3904,8 +3904,8 @@ define void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$GT$8try
   %.val3.i65.i.i = load <16 x i8>, ptr %99, align 1, !alias.scope !696, !noalias !703
   %100 = getelementptr inbounds i8, ptr %99, i64 2
   %.val.i66.i.i = load <16 x i8>, ptr %100, align 1, !alias.scope !696, !noalias !703
-  %101 = icmp eq <16 x i8> %.val3.i65.i.i, <i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115, i8 115>
-  %102 = icmp eq <16 x i8> %.val.i66.i.i, <i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103, i8 103>
+  %101 = icmp eq <16 x i8> %.val3.i65.i.i, splat (i8 115)
+  %102 = icmp eq <16 x i8> %.val.i66.i.i, splat (i8 103)
   %narrow.i67.i.i = select <16 x i1> %101, <16 x i1> %102, <16 x i1> zeroinitializer
   %103 = bitcast <16 x i1> %narrow.i67.i.i to i16
   %104 = icmp eq i16 %103, 0

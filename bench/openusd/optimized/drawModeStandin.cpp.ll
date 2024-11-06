@@ -19171,7 +19171,7 @@ define internal { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__12_
   resume { ptr, i32 } %13
 
 14:                                               ; preds = %2, %11
-  %.sroa.0.1 = phi <2 x float> [ %.fca.0.extract, %11 ], [ <float 0x3FC70A3D80000000, float 0x3FC70A3D80000000>, %2 ]
+  %.sroa.0.1 = phi <2 x float> [ %.fca.0.extract, %11 ], [ splat (float 0x3FC70A3D80000000), %2 ]
   %.sroa.4.1 = phi float [ %.fca.1.extract, %11 ], [ 0x3FC70A3D80000000, %2 ]
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -35308,7 +35308,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_17UsdGeomTokensTypeENS_2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57), !noalias !157
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58), !noalias !157
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59), !noalias !157
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %56, align 8, !noalias !157
+  store <2 x float> splat (float 1.000000e+00), ptr %56, align 8, !noalias !157
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE9push_backEOS1_(ptr noundef nonnull align 8 dereferenceable(40) %71, ptr noundef nonnull align 4 dereferenceable(8) %56)
           to label %.noexc29.i unwind label %.loopexit.i37
 

@@ -28673,7 +28673,7 @@ default.unreachable947:                           ; preds = %3
   br i1 %317, label %334, label %320
 
 ._crit_edge.i.i.i:                                ; preds = %320, %308
-  %318 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %318 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i, splat (i8 -1)
   %319 = bitcast <16 x i1> %318 to i16
   %.not.i.i.i.i = icmp eq i16 %319, 0
   br i1 %.not.i.i.i.i, label %324, label %327
@@ -28928,7 +28928,7 @@ default.unreachable947:                           ; preds = %3
   br i1 %419, label %436, label %422
 
 ._crit_edge.i.i.i168:                             ; preds = %422, %410
-  %420 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i165, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %420 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i165, splat (i8 -1)
   %421 = bitcast <16 x i1> %420 to i16
   %.not.i.i.i.i169 = icmp eq i16 %421, 0
   br i1 %.not.i.i.i.i169, label %426, label %429
@@ -29125,7 +29125,7 @@ default.unreachable947:                           ; preds = %3
   br i1 %485, label %502, label %488
 
 ._crit_edge.i.i.i192:                             ; preds = %488, %476
-  %486 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i189, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %486 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i189, splat (i8 -1)
   %487 = bitcast <16 x i1> %486 to i16
   %.not.i.i.i.i193 = icmp eq i16 %487, 0
   br i1 %.not.i.i.i.i193, label %492, label %495
@@ -29516,7 +29516,7 @@ default.unreachable947:                           ; preds = %3
   br i1 %623, label %705, label %626
 
 ._crit_edge.i.i.i237:                             ; preds = %626, %614
-  %624 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i234, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %624 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i234, splat (i8 -1)
   %625 = bitcast <16 x i1> %624 to i16
   %.not.i.i.i.i238 = icmp eq i16 %625, 0
   br i1 %.not.i.i.i.i238, label %630, label %633
@@ -30073,7 +30073,7 @@ default.unreachable947:                           ; preds = %3
   br i1 %840, label %857, label %843
 
 ._crit_edge.i.i.i280:                             ; preds = %843, %831
-  %841 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i277, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %841 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i.i277, splat (i8 -1)
   %842 = bitcast <16 x i1> %841 to i16
   %.not.i.i.i.i281 = icmp eq i16 %842, 0
   br i1 %.not.i.i.i.i281, label %847, label %850

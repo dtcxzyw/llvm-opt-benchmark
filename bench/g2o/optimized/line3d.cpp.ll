@@ -110,7 +110,7 @@ define void @_ZNK3g2o6Line3D11toCartesianEv(ptr dead_on_unwind noalias nocapture
   %33 = insertelement <2 x i64> <i64 -9223372036854775808, i64 poison>, i64 %.scalar47, i64 1
   %.sroa.3.16..sroa_idx60 = getelementptr inbounds i8, ptr %.sroa.3, i64 16
   store <2 x i64> %33, ptr %.sroa.3.16..sroa_idx60, align 16
-  %34 = xor <2 x i64> %.sroa.9.56.vec.insert, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %34 = xor <2 x i64> %.sroa.9.56.vec.insert, splat (i64 -9223372036854775808)
   %35 = bitcast <2 x i64> %30 to <2 x double>
   %36 = fmul <2 x double> %35, %35
   %shift49 = shufflevector <2 x double> %36, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
@@ -742,7 +742,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(132) ptr @_ZN5Eigen4
 22:                                               ; preds = %17
   %23 = and i64 %20, 2
   %24 = load <2 x i64>, ptr %21, align 8
-  %25 = and <2 x i64> %24, <i64 9223372036854775807, i64 9223372036854775807>
+  %25 = and <2 x i64> %24, splat (i64 9223372036854775807)
   %26 = bitcast <2 x i64> %25 to <2 x double>
   %shift = shufflevector <2 x double> %26, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %27 = fadd <2 x double> %shift, %26

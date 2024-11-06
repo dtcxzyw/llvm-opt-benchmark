@@ -1966,57 +1966,57 @@ define noundef i32 @sgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %1593 = mul nsw i64 %1545, %10
   %1594 = add nsw i64 %1593, %1527
   %1595 = getelementptr inbounds float, ptr %9, i64 %1594
-  %1596 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1595, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1596 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1595, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1597 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1596, <16 x float> %1513, <16 x float> %1592)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1597, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1595, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1597, i32 4)
   %1598 = fmul <16 x float> %19, %1585
   %1599 = or disjoint i64 %1594, 1
   %1600 = getelementptr inbounds float, ptr %9, i64 %1599
-  %1601 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1600, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1601 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1600, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1602 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1601, <16 x float> %1513, <16 x float> %1598)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1600, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1602, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1600, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1602, i32 4)
   %1603 = fmul <16 x float> %19, %1586
   %1604 = or disjoint i64 %1545, 16
   %1605 = mul nsw i64 %1604, %10
   %1606 = add nsw i64 %1605, %1527
   %1607 = getelementptr inbounds float, ptr %9, i64 %1606
-  %1608 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1607, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1608 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1607, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1609 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1608, <16 x float> %1513, <16 x float> %1603)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1607, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1609, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1607, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1609, i32 4)
   %1610 = fmul <16 x float> %19, %1587
   %1611 = or disjoint i64 %1606, 1
   %1612 = getelementptr inbounds float, ptr %9, i64 %1611
-  %1613 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1612, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1613 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1612, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1614 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1613, <16 x float> %1513, <16 x float> %1610)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1612, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1614, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1612, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1614, i32 4)
   %1615 = fmul <16 x float> %19, %1588
   %1616 = or disjoint i64 %1545, 32
   %1617 = mul nsw i64 %1616, %10
   %1618 = add nsw i64 %1617, %1527
   %1619 = getelementptr inbounds float, ptr %9, i64 %1618
-  %1620 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1619, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1620 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1619, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1621 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1620, <16 x float> %1513, <16 x float> %1615)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1619, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1621, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1619, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1621, i32 4)
   %1622 = fmul <16 x float> %19, %1589
   %1623 = or disjoint i64 %1618, 1
   %1624 = getelementptr inbounds float, ptr %9, i64 %1623
-  %1625 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1624, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1625 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1624, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1626 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1625, <16 x float> %1513, <16 x float> %1622)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1624, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1626, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1624, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1626, i32 4)
   %1627 = fmul <16 x float> %19, %1590
   %1628 = or disjoint i64 %1545, 48
   %1629 = mul nsw i64 %1628, %10
   %1630 = add nsw i64 %1629, %1527
   %1631 = getelementptr inbounds float, ptr %9, i64 %1630
-  %1632 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1631, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1632 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1631, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1633 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1632, <16 x float> %1513, <16 x float> %1627)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1631, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1633, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1631, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1633, i32 4)
   %1634 = fmul <16 x float> %19, %1591
   %1635 = or disjoint i64 %1630, 1
   %1636 = getelementptr inbounds float, ptr %9, i64 %1635
-  %1637 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1636, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1637 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1636, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1638 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1637, <16 x float> %1513, <16 x float> %1634)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1636, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1638, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1636, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1638, i32 4)
   %1639 = add nuw nsw i64 %1545, 64
   %1640 = icmp slt i64 %1639, %16
   br i1 %1640, label %1544, label %.loopexit69, !llvm.loop !184
@@ -2074,29 +2074,29 @@ define noundef i32 @sgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %1680 = mul nsw i64 %1648, %10
   %1681 = add nsw i64 %1680, %1527
   %1682 = getelementptr inbounds float, ptr %9, i64 %1681
-  %1683 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1682, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1683 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1682, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1684 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1683, <16 x float> %1513, <16 x float> %1679)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1682, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1684, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1682, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1684, i32 4)
   %1685 = fmul <16 x float> %19, %1676
   %1686 = or disjoint i64 %1681, 1
   %1687 = getelementptr inbounds float, ptr %9, i64 %1686
-  %1688 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1687, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1688 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1687, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1689 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1688, <16 x float> %1513, <16 x float> %1685)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1687, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1689, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1687, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1689, i32 4)
   %1690 = fmul <16 x float> %19, %1677
   %1691 = add nuw nsw i64 %1648, 16
   %1692 = mul nsw i64 %1691, %10
   %1693 = add nsw i64 %1692, %1527
   %1694 = getelementptr inbounds float, ptr %9, i64 %1693
-  %1695 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1694, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1695 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1694, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1696 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1695, <16 x float> %1513, <16 x float> %1690)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1694, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1696, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1694, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1696, i32 4)
   %1697 = fmul <16 x float> %19, %1678
   %1698 = or disjoint i64 %1693, 1
   %1699 = getelementptr inbounds float, ptr %9, i64 %1698
-  %1700 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1699, <16 x i32> %1518, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1700 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr nonnull %1699, <16 x i32> %1518, <16 x i1> splat (i1 true), i32 4)
   %1701 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1700, <16 x float> %1513, <16 x float> %1697)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1699, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1518, <16 x float> %1701, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr nonnull %1699, <16 x i1> splat (i1 true), <16 x i32> %1518, <16 x float> %1701, i32 4)
   %1702 = add nuw nsw i64 %1648, 32
   %1703 = icmp slt i64 %1702, %17
   br i1 %1703, label %1647, label %.loopexit68, !llvm.loop !186
@@ -2222,30 +2222,30 @@ define noundef i32 @sgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %1794 = fmul <16 x float> %19, %1790
   %1795 = mul nsw i64 %1764, %10
   %1796 = getelementptr float, ptr %1754, i64 %1795
-  %1797 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1796, <16 x i32> %1537, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1797 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1796, <16 x i32> %1537, <16 x i1> splat (i1 true), i32 4)
   %1798 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1797, <16 x float> %1513, <16 x float> %1794)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1796, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1537, <16 x float> %1798, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1796, <16 x i1> splat (i1 true), <16 x i32> %1537, <16 x float> %1798, i32 4)
   %1799 = fmul <16 x float> %19, %1791
   %1800 = or disjoint i64 %1764, 16
   %1801 = mul nsw i64 %1800, %10
   %1802 = getelementptr float, ptr %1754, i64 %1801
-  %1803 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1802, <16 x i32> %1537, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1803 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1802, <16 x i32> %1537, <16 x i1> splat (i1 true), i32 4)
   %1804 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1803, <16 x float> %1513, <16 x float> %1799)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1802, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1537, <16 x float> %1804, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1802, <16 x i1> splat (i1 true), <16 x i32> %1537, <16 x float> %1804, i32 4)
   %1805 = fmul <16 x float> %19, %1792
   %1806 = or disjoint i64 %1764, 32
   %1807 = mul nsw i64 %1806, %10
   %1808 = getelementptr float, ptr %1754, i64 %1807
-  %1809 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1808, <16 x i32> %1537, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1809 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1808, <16 x i32> %1537, <16 x i1> splat (i1 true), i32 4)
   %1810 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1809, <16 x float> %1513, <16 x float> %1805)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1808, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1537, <16 x float> %1810, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1808, <16 x i1> splat (i1 true), <16 x i32> %1537, <16 x float> %1810, i32 4)
   %1811 = fmul <16 x float> %19, %1793
   %1812 = or disjoint i64 %1764, 48
   %1813 = mul nsw i64 %1812, %10
   %1814 = getelementptr float, ptr %1754, i64 %1813
-  %1815 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1814, <16 x i32> %1537, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1815 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1814, <16 x i32> %1537, <16 x i1> splat (i1 true), i32 4)
   %1816 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1815, <16 x float> %1513, <16 x float> %1811)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1814, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1537, <16 x float> %1816, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1814, <16 x i1> splat (i1 true), <16 x i32> %1537, <16 x float> %1816, i32 4)
   %1817 = add nuw nsw i64 %1764, 64
   %1818 = icmp slt i64 %1817, %16
   br i1 %1818, label %1763, label %.loopexit60, !llvm.loop !191
@@ -2290,16 +2290,16 @@ define noundef i32 @sgemm_small_kernel_tt(i64 noundef %0, i64 noundef %1, i64 no
   %1845 = fmul <16 x float> %19, %1843
   %1846 = mul nsw i64 %1825, %10
   %1847 = getelementptr float, ptr %1754, i64 %1846
-  %1848 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1847, <16 x i32> %1537, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1848 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1847, <16 x i32> %1537, <16 x i1> splat (i1 true), i32 4)
   %1849 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1848, <16 x float> %1513, <16 x float> %1845)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1847, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1537, <16 x float> %1849, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1847, <16 x i1> splat (i1 true), <16 x i32> %1537, <16 x float> %1849, i32 4)
   %1850 = fmul <16 x float> %19, %1844
   %1851 = add nuw nsw i64 %1825, 16
   %1852 = mul nsw i64 %1851, %10
   %1853 = getelementptr float, ptr %1754, i64 %1852
-  %1854 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1853, <16 x i32> %1537, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 4)
+  %1854 = tail call <16 x float> @llvm.x86.avx512.mask.gather.dps.512(<16 x float> zeroinitializer, ptr %1853, <16 x i32> %1537, <16 x i1> splat (i1 true), i32 4)
   %1855 = tail call <16 x float> @llvm.fma.v16f32(<16 x float> %1854, <16 x float> %1513, <16 x float> %1850)
-  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1853, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %1537, <16 x float> %1855, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dps.512(ptr %1853, <16 x i1> splat (i1 true), <16 x i32> %1537, <16 x float> %1855, i32 4)
   %1856 = add nuw nsw i64 %1825, 32
   %1857 = icmp slt i64 %1856, %17
   br i1 %1857, label %1824, label %.loopexit59, !llvm.loop !193

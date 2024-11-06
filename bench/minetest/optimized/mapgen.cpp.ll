@@ -1758,8 +1758,8 @@ vector.body.us:                                   ; preds = %vector.body.us, %fo
   %index.us = phi i64 [ 0, %for.cond5.preheader.us31.us3 ], [ %index.next.us, %vector.body.us ]
   %16 = getelementptr i16, ptr %15, i64 %index.us
   %17 = getelementptr inbounds i8, ptr %16, i64 16
-  store <8 x i16> <i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007>, ptr %16, align 2, !tbaa !58
-  store <8 x i16> <i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007>, ptr %17, align 2, !tbaa !58
+  store <8 x i16> splat (i16 -31007), ptr %16, align 2, !tbaa !58
+  store <8 x i16> splat (i16 -31007), ptr %17, align 2, !tbaa !58
   %index.next.us = add nuw i64 %index.us, 16
   %18 = icmp eq i64 %index.next.us, %7
   br i1 %18, label %middle.block.us, label %vector.body.us, !llvm.loop !136
@@ -1783,8 +1783,8 @@ vector.body:                                      ; preds = %vector.body, %for.c
   %index = phi i64 [ 0, %for.cond5.preheader.us31 ], [ %index.next, %vector.body ]
   %21 = getelementptr i16, ptr %20, i64 %index
   %22 = getelementptr inbounds i8, ptr %21, i64 16
-  store <8 x i16> <i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007>, ptr %21, align 2, !tbaa !58
-  store <8 x i16> <i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007, i16 -31007>, ptr %22, align 2, !tbaa !58
+  store <8 x i16> splat (i16 -31007), ptr %21, align 2, !tbaa !58
+  store <8 x i16> splat (i16 -31007), ptr %22, align 2, !tbaa !58
   %index.next = add nuw i64 %index, 16
   %23 = icmp eq i64 %index.next, %n.vec
   br i1 %23, label %for.body11.us.us.preheader, label %vector.body, !llvm.loop !136
@@ -6858,7 +6858,7 @@ if.end26:                                         ; preds = %if.end
   %add.i.i116 = add i32 %mul.i.i115, 12345
   %13 = insertelement <2 x i32> poison, i32 %add.i.i116, i64 0
   %14 = insertelement <2 x i32> %13, i32 %add.i.i109, i64 1
-  %15 = sdiv <2 x i32> %14, <i32 65536, i32 65536>
+  %15 = sdiv <2 x i32> %14, splat (i32 65536)
   %16 = and <2 x i32> %15, <i32 7, i32 3>
   %17 = icmp eq <2 x i32> %16, zeroinitializer
   %18 = extractelement <2 x i1> %17, i64 1
@@ -6896,7 +6896,7 @@ cond.end:                                         ; preds = %cond.false, %if.end
   %25 = load <2 x i16>, ptr %Y9, align 8, !tbaa !58
   %26 = load <2 x i16>, ptr %Y, align 2, !tbaa !58
   %27 = sub <2 x i16> %25, %26
-  %28 = sdiv <2 x i16> %27, <i16 2, i16 2>
+  %28 = sdiv <2 x i16> %27, splat (i16 2)
   %29 = add <2 x i16> %28, %26
   %30 = zext <2 x i16> %29 to <2 x i48>
   %31 = shl nuw <2 x i48> %30, <i48 16, i48 32>

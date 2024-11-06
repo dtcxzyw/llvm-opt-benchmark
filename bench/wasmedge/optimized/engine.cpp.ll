@@ -7178,7 +7178,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2196 = zext nneg i8 %2195 to i32
   %2197 = extractelement <16 x i8> %2119, i32 %2196
   %2198 = insertelement <16 x i8> %2193, i8 %2197, i64 15
-  %2199 = icmp ult <16 x i8> %2118, <i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16, i8 16>
+  %2199 = icmp ult <16 x i8> %2118, splat (i8 16)
   %2200 = select <16 x i1> %2199, <16 x i8> %2198, <16 x i8> zeroinitializer
   store <16 x i8> %2200, ptr %2117, align 16
   store i64 1, ptr %0, align 4
@@ -8390,7 +8390,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2826 = getelementptr inbounds i8, ptr %2825, i64 8
   %2827 = load ptr, ptr %2826, align 8
   %2828 = getelementptr inbounds i8, ptr %2827, i64 -16
-  %2829 = xor <2 x i64> %.sroa.02181.8.vec.insert, <i64 -1, i64 -1>
+  %2829 = xor <2 x i64> %.sroa.02181.8.vec.insert, splat (i64 -1)
   %2830 = load <2 x i64>, ptr %2828, align 16
   %2831 = and <2 x i64> %2830, %2829
   store <2 x i64> %2831, ptr %2828, align 16
@@ -8463,7 +8463,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2863 = getelementptr inbounds i8, ptr %2862, i64 -16
   %2864 = load <2 x i64>, ptr %2863, align 16
   %2865 = and <2 x i64> %2864, %.sroa.02175.8.vec.insert
-  %2866 = xor <2 x i64> %.sroa.02175.8.vec.insert, <i64 -1, i64 -1>
+  %2866 = xor <2 x i64> %.sroa.02175.8.vec.insert, splat (i64 -1)
   %2867 = and <2 x i64> %.sroa.02173.8.vec.insert, %2866
   %2868 = or <2 x i64> %2865, %2867
   store <2 x i64> %2868, ptr %2863, align 16
@@ -8514,16 +8514,16 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2894 = getelementptr inbounds i8, ptr %2893, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !596)
   %2895 = load <16 x i8>, ptr %2894, align 16, !noalias !596
-  %2896 = lshr <16 x i8> %2895, <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1>
-  %2897 = and <16 x i8> %2896, <i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85, i8 85>
+  %2896 = lshr <16 x i8> %2895, splat (i8 1)
+  %2897 = and <16 x i8> %2896, splat (i8 85)
   %2898 = sub <16 x i8> %2895, %2897
-  %2899 = and <16 x i8> %2898, <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>
-  %2900 = lshr <16 x i8> %2898, <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2>
-  %2901 = and <16 x i8> %2900, <i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51, i8 51>
+  %2899 = and <16 x i8> %2898, splat (i8 51)
+  %2900 = lshr <16 x i8> %2898, splat (i8 2)
+  %2901 = and <16 x i8> %2900, splat (i8 51)
   %2902 = add nuw nsw <16 x i8> %2901, %2899
-  %2903 = lshr <16 x i8> %2902, <i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4, i8 4>
+  %2903 = lshr <16 x i8> %2902, splat (i8 4)
   %2904 = add nuw nsw <16 x i8> %2903, %2902
-  %2905 = and <16 x i8> %2904, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %2905 = and <16 x i8> %2904, splat (i8 15)
   store <16 x i8> %2905, ptr %2894, align 16, !noalias !596
   store i64 1, ptr %0, align 4, !alias.scope !596
   br label %5018
@@ -8559,10 +8559,10 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !599)
   %2922 = load <8 x i16>, ptr %2921, align 16, !noalias !599
   %2923 = bitcast <2 x i64> %.sroa.02171.8.vec.insert to <8 x i16>
-  %2924 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2922, <8 x i16> <i16 -128, i16 -128, i16 -128, i16 -128, i16 -128, i16 -128, i16 -128, i16 -128>)
-  %2925 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %2924, <8 x i16> <i16 127, i16 127, i16 127, i16 127, i16 127, i16 127, i16 127, i16 127>)
-  %2926 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2923, <8 x i16> <i16 -128, i16 -128, i16 -128, i16 -128, i16 -128, i16 -128, i16 -128, i16 -128>)
-  %2927 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %2926, <8 x i16> <i16 127, i16 127, i16 127, i16 127, i16 127, i16 127, i16 127, i16 127>)
+  %2924 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2922, <8 x i16> splat (i16 -128))
+  %2925 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %2924, <8 x i16> splat (i16 127))
+  %2926 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2923, <8 x i16> splat (i16 -128))
+  %2927 = tail call <8 x i16> @llvm.smin.v8i16(<8 x i16> %2926, <8 x i16> splat (i16 127))
   %2928 = shufflevector <8 x i16> %2925, <8 x i16> %2927, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %2929 = trunc nsw <16 x i16> %2928 to <16 x i8>
   store <16 x i8> %2929, ptr %2921, align 16, !noalias !599
@@ -8587,9 +8587,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %2938 = load <8 x i16>, ptr %2937, align 16, !noalias !602
   %2939 = bitcast <2 x i64> %.sroa.02169.8.vec.insert to <8 x i16>
   %2940 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2938, <8 x i16> zeroinitializer)
-  %2941 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %2940, <8 x i16> <i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255>)
+  %2941 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %2940, <8 x i16> splat (i16 255))
   %2942 = tail call <8 x i16> @llvm.smax.v8i16(<8 x i16> %2939, <8 x i16> zeroinitializer)
-  %2943 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %2942, <8 x i16> <i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255>)
+  %2943 = tail call <8 x i16> @llvm.umin.v8i16(<8 x i16> %2942, <8 x i16> splat (i16 255))
   %2944 = shufflevector <8 x i16> %2941, <8 x i16> %2943, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %2945 = trunc nuw <16 x i16> %2944 to <16 x i8>
   store <16 x i8> %2945, ptr %2937, align 16, !noalias !602
@@ -8699,11 +8699,11 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3007 = load <16 x i8>, ptr %3006, align 16, !noalias !617
   %3008 = bitcast <2 x i64> %.sroa.02150.8.vec.insert to <16 x i8>
   %3009 = add <16 x i8> %3007, %3008
-  %3010 = lshr <16 x i8> %3007, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
-  %3011 = add nuw <16 x i8> %3010, <i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127>
+  %3010 = lshr <16 x i8> %3007, splat (i8 7)
+  %3011 = add nuw <16 x i8> %3010, splat (i8 127)
   %3012 = xor <16 x i8> %3007, %3008
   %3013 = xor <16 x i8> %3009, %3008
-  %3014 = xor <16 x i8> %3013, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %3014 = xor <16 x i8> %3013, splat (i8 -1)
   %3015 = or <16 x i8> %3012, %3014
   %3016 = icmp slt <16 x i8> %3015, zeroinitializer
   %3017 = select <16 x i1> %3016, <16 x i8> %3009, <16 x i8> %3011
@@ -8773,8 +8773,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3048 = load <16 x i8>, ptr %3047, align 16, !noalias !626
   %3049 = bitcast <2 x i64> %.sroa.02144.8.vec.insert to <16 x i8>
   %3050 = sub <16 x i8> %3048, %3049
-  %3051 = lshr <16 x i8> %3048, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
-  %3052 = add nuw <16 x i8> %3051, <i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127>
+  %3051 = lshr <16 x i8> %3048, splat (i8 7)
+  %3052 = add nuw <16 x i8> %3051, splat (i8 127)
   %3053 = xor <16 x i8> %3048, %3049
   %3054 = xor <16 x i8> %3050, %3048
   %3055 = and <16 x i8> %3054, %3053
@@ -8913,9 +8913,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3121 = zext <16 x i8> %3120 to <16 x i16>
   %3122 = bitcast <2 x i64> %.sroa.02132.8.vec.insert to <16 x i8>
   %3123 = zext <16 x i8> %3122 to <16 x i16>
-  %3124 = add nuw nsw <16 x i16> %3123, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %3124 = add nuw nsw <16 x i16> %3123, splat (i16 1)
   %3125 = add nuw nsw <16 x i16> %3124, %3121
-  %3126 = lshr <16 x i16> %3125, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %3126 = lshr <16 x i16> %3125, splat (i16 1)
   %3127 = trunc nuw <16 x i16> %3126 to <16 x i8>
   store <16 x i8> %3127, ptr %3119, align 16, !noalias !644
   store i64 1, ptr %0, align 4, !alias.scope !644
@@ -8978,10 +8978,10 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   %3159 = load <4 x i32>, ptr %3158, align 16, !noalias !653
   %3160 = bitcast <2 x i64> %.sroa.02130.8.vec.insert to <4 x i32>
-  %3161 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3159, <4 x i32> <i32 -32768, i32 -32768, i32 -32768, i32 -32768>)
-  %3162 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3161, <4 x i32> <i32 32767, i32 32767, i32 32767, i32 32767>)
-  %3163 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3160, <4 x i32> <i32 -32768, i32 -32768, i32 -32768, i32 -32768>)
-  %3164 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3163, <4 x i32> <i32 32767, i32 32767, i32 32767, i32 32767>)
+  %3161 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3159, <4 x i32> splat (i32 -32768))
+  %3162 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3161, <4 x i32> splat (i32 32767))
+  %3163 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3160, <4 x i32> splat (i32 -32768))
+  %3164 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %3163, <4 x i32> splat (i32 32767))
   %3165 = shufflevector <4 x i32> %3162, <4 x i32> %3164, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %3166 = trunc nsw <8 x i32> %3165 to <8 x i16>
   store <8 x i16> %3166, ptr %3158, align 16, !noalias !653
@@ -9006,9 +9006,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3175 = load <4 x i32>, ptr %3174, align 16, !noalias !656
   %3176 = bitcast <2 x i64> %.sroa.02128.8.vec.insert to <4 x i32>
   %3177 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3175, <4 x i32> zeroinitializer)
-  %3178 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3177, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %3178 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3177, <4 x i32> splat (i32 65535))
   %3179 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %3176, <4 x i32> zeroinitializer)
-  %3180 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3179, <4 x i32> <i32 65535, i32 65535, i32 65535, i32 65535>)
+  %3180 = tail call <4 x i32> @llvm.umin.v4i32(<4 x i32> %3179, <4 x i32> splat (i32 65535))
   %3181 = shufflevector <4 x i32> %3178, <4 x i32> %3180, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %3182 = trunc nuw <8 x i32> %3181 to <8 x i16>
   store <8 x i16> %3182, ptr %3174, align 16, !noalias !656
@@ -9166,11 +9166,11 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3272 = load <8 x i16>, ptr %3271, align 16, !noalias !683
   %3273 = bitcast <2 x i64> %.sroa.02109.8.vec.insert to <8 x i16>
   %3274 = add <8 x i16> %3272, %3273
-  %3275 = lshr <8 x i16> %3272, <i16 15, i16 15, i16 15, i16 15, i16 15, i16 15, i16 15, i16 15>
-  %3276 = add nuw <8 x i16> %3275, <i16 32767, i16 32767, i16 32767, i16 32767, i16 32767, i16 32767, i16 32767, i16 32767>
+  %3275 = lshr <8 x i16> %3272, splat (i16 15)
+  %3276 = add nuw <8 x i16> %3275, splat (i16 32767)
   %3277 = xor <8 x i16> %3272, %3273
   %3278 = xor <8 x i16> %3274, %3273
-  %3279 = xor <8 x i16> %3278, <i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1>
+  %3279 = xor <8 x i16> %3278, splat (i16 -1)
   %3280 = or <8 x i16> %3277, %3279
   %3281 = icmp slt <8 x i16> %3280, zeroinitializer
   %3282 = select <8 x i1> %3281, <8 x i16> %3274, <8 x i16> %3276
@@ -9240,8 +9240,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3313 = load <8 x i16>, ptr %3312, align 16, !noalias !692
   %3314 = bitcast <2 x i64> %.sroa.02103.8.vec.insert to <8 x i16>
   %3315 = sub <8 x i16> %3313, %3314
-  %3316 = lshr <8 x i16> %3313, <i16 15, i16 15, i16 15, i16 15, i16 15, i16 15, i16 15, i16 15>
-  %3317 = add nuw <8 x i16> %3316, <i16 32767, i16 32767, i16 32767, i16 32767, i16 32767, i16 32767, i16 32767, i16 32767>
+  %3316 = lshr <8 x i16> %3313, splat (i16 15)
+  %3317 = add nuw <8 x i16> %3316, splat (i16 32767)
   %3318 = xor <8 x i16> %3313, %3314
   %3319 = xor <8 x i16> %3315, %3313
   %3320 = and <8 x i16> %3319, %3318
@@ -9402,9 +9402,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3397 = zext <8 x i16> %3396 to <8 x i32>
   %3398 = bitcast <2 x i64> %.sroa.02089.8.vec.insert to <8 x i16>
   %3399 = zext <8 x i16> %3398 to <8 x i32>
-  %3400 = add nuw nsw <8 x i32> %3399, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %3400 = add nuw nsw <8 x i32> %3399, splat (i32 1)
   %3401 = add nuw nsw <8 x i32> %3400, %3397
-  %3402 = lshr <8 x i32> %3401, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %3402 = lshr <8 x i32> %3401, splat (i32 1)
   %3403 = trunc nuw <8 x i32> %3402 to <8 x i16>
   store <8 x i16> %3403, ptr %3395, align 16, !noalias !713
   store i64 1, ptr %0, align 4, !alias.scope !713
@@ -9518,9 +9518,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3470 = bitcast <2 x i64> %.sroa.02079.8.vec.insert to <8 x i16>
   %3471 = sext <8 x i16> %3470 to <8 x i32>
   %3472 = mul nsw <8 x i32> %3469, %3471
-  %3473 = add nsw <8 x i32> %3472, <i32 16384, i32 16384, i32 16384, i32 16384, i32 16384, i32 16384, i32 16384, i32 16384>
-  %3474 = ashr <8 x i32> %3473, <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
-  %3475 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %3474, <8 x i32> <i32 32767, i32 32767, i32 32767, i32 32767, i32 32767, i32 32767, i32 32767, i32 32767>)
+  %3473 = add nsw <8 x i32> %3472, splat (i32 16384)
+  %3474 = ashr <8 x i32> %3473, splat (i32 15)
+  %3475 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %3474, <8 x i32> splat (i32 32767))
   %3476 = trunc nsw <8 x i32> %3475 to <8 x i16>
   store <8 x i16> %3476, ptr %3467, align 16, !noalias !728
   store i64 1, ptr %0, align 4, !alias.scope !728
@@ -9532,9 +9532,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3480 = getelementptr inbounds i8, ptr %3479, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !731)
   %3481 = load <8 x i16>, ptr %3480, align 16, !noalias !731
-  %3482 = ashr <8 x i16> %3481, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %3483 = shl <8 x i16> %3481, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %3484 = ashr exact <8 x i16> %3483, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %3482 = ashr <8 x i16> %3481, splat (i16 8)
+  %3483 = shl <8 x i16> %3481, splat (i16 8)
+  %3484 = ashr exact <8 x i16> %3483, splat (i16 8)
   %3485 = add nsw <8 x i16> %3484, %3482
   store <8 x i16> %3485, ptr %3480, align 16, !noalias !731
   store i64 1, ptr %0, align 4, !alias.scope !731
@@ -9546,8 +9546,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3489 = getelementptr inbounds i8, ptr %3488, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !734)
   %3490 = load <8 x i16>, ptr %3489, align 16, !noalias !734
-  %3491 = lshr <8 x i16> %3490, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %3492 = and <8 x i16> %3490, <i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255, i16 255>
+  %3491 = lshr <8 x i16> %3490, splat (i16 8)
+  %3492 = and <8 x i16> %3490, splat (i16 255)
   %3493 = add nuw nsw <8 x i16> %3491, %3492
   store <8 x i16> %3493, ptr %3489, align 16, !noalias !734
   store i64 1, ptr %0, align 4, !alias.scope !734
@@ -9982,9 +9982,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3742 = getelementptr inbounds i8, ptr %3741, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
   %3743 = load <4 x i32>, ptr %3742, align 16, !noalias !803
-  %3744 = ashr <4 x i32> %3743, <i32 16, i32 16, i32 16, i32 16>
-  %3745 = shl <4 x i32> %3743, <i32 16, i32 16, i32 16, i32 16>
-  %3746 = ashr exact <4 x i32> %3745, <i32 16, i32 16, i32 16, i32 16>
+  %3744 = ashr <4 x i32> %3743, splat (i32 16)
+  %3745 = shl <4 x i32> %3743, splat (i32 16)
+  %3746 = ashr exact <4 x i32> %3745, splat (i32 16)
   %3747 = add nsw <4 x i32> %3746, %3744
   store <4 x i32> %3747, ptr %3742, align 16, !noalias !803
   store i64 1, ptr %0, align 4, !alias.scope !803
@@ -9996,8 +9996,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3751 = getelementptr inbounds i8, ptr %3750, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
   %3752 = load <4 x i32>, ptr %3751, align 16, !noalias !806
-  %3753 = lshr <4 x i32> %3752, <i32 16, i32 16, i32 16, i32 16>
-  %3754 = and <4 x i32> %3752, <i32 65535, i32 65535, i32 65535, i32 65535>
+  %3753 = lshr <4 x i32> %3752, splat (i32 16)
+  %3754 = and <4 x i32> %3752, splat (i32 65535)
   %3755 = add nuw nsw <4 x i32> %3753, %3754
   store <4 x i32> %3755, ptr %3751, align 16, !noalias !806
   store i64 1, ptr %0, align 4, !alias.scope !806
@@ -10334,7 +10334,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %3952 = getelementptr inbounds i8, ptr %3951, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !863)
   %3953 = load <4 x i32>, ptr %3952, align 16, !noalias !863
-  %3954 = and <4 x i32> %3953, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %3954 = and <4 x i32> %3953, splat (i32 2147483647)
   store <4 x i32> %3954, ptr %3952, align 16, !noalias !863
   store i64 1, ptr %0, align 4, !alias.scope !863
   br label %5018
@@ -10583,7 +10583,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4094 = getelementptr inbounds i8, ptr %4093, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !896)
   %4095 = load <2 x i64>, ptr %4094, align 16, !noalias !896
-  %4096 = and <2 x i64> %4095, <i64 9223372036854775807, i64 9223372036854775807>
+  %4096 = and <2 x i64> %4095, splat (i64 9223372036854775807)
   store <2 x i64> %4096, ptr %4094, align 16, !noalias !896
   store i64 1, ptr %0, align 4, !alias.scope !896
   br label %5018
@@ -10750,7 +10750,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4184 = bitcast <2 x double> %4183 to <2 x i64>
   %4185 = bitcast <2 x double> %.sroa.01989.8.vec.insert to <2 x i64>
   %4186 = fcmp uge <2 x double> %4183, %.sroa.01989.8.vec.insert
-  %4187 = select <2 x i1> %4186, <2 x i64> %4184, <2 x i64> <i64 -1, i64 -1>
+  %4187 = select <2 x i1> %4186, <2 x i64> %4184, <2 x i64> splat (i64 -1)
   %4188 = and <2 x i64> %4187, %4185
   %4189 = fcmp ule <2 x double> %4183, %.sroa.01989.8.vec.insert
   %4190 = select <2 x i1> %4189, <2 x i64> %4188, <2 x i64> %4184
@@ -10854,11 +10854,11 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4241 = extractelement <2 x double> %4237, i64 1
   %4242 = tail call double @llvm.trunc.f64(double %4241)
   %4243 = insertelement <2 x double> %4240, double %4242, i64 1
-  %.inv.i1794 = fcmp ole <2 x double> %4243, <double 0xC1E0000000000000, double 0xC1E0000000000000>
-  %4244 = select <2 x i1> %.inv.i1794, <2 x double> <double 0xC1E0000000000000, double 0xC1E0000000000000>, <2 x double> %4243
+  %.inv.i1794 = fcmp ole <2 x double> %4243, splat (double 0xC1E0000000000000)
+  %4244 = select <2 x i1> %.inv.i1794, <2 x double> splat (double 0xC1E0000000000000), <2 x double> %4243
   %4245 = fptosi <2 x double> %4244 to <2 x i64>
-  %4246 = fcmp ult <2 x double> %4243, <double 0x41DFFFFFFFC00000, double 0x41DFFFFFFFC00000>
-  %4247 = select <2 x i1> %4246, <2 x i64> %4245, <2 x i64> <i64 2147483647, i64 2147483647>
+  %4246 = fcmp ult <2 x double> %4243, splat (double 0x41DFFFFFFFC00000)
+  %4247 = select <2 x i1> %4246, <2 x i64> %4245, <2 x i64> splat (i64 2147483647)
   %4248 = shufflevector <2 x i64> %4247, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %4249 = shufflevector <4 x i64> %4248, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %4250 = trunc <4 x i64> %4249 to <4 x i32>
@@ -10881,8 +10881,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %.inv.i1795 = fcmp ole <2 x double> %4261, zeroinitializer
   %4262 = select <2 x i1> %.inv.i1795, <2 x double> zeroinitializer, <2 x double> %4261
   %4263 = fptoui <2 x double> %4262 to <2 x i64>
-  %4264 = fcmp ult <2 x double> %4261, <double 0x41EFFFFFFFE00000, double 0x41EFFFFFFFE00000>
-  %4265 = select <2 x i1> %4264, <2 x i64> %4263, <2 x i64> <i64 4294967295, i64 4294967295>
+  %4264 = fcmp ult <2 x double> %4261, splat (double 0x41EFFFFFFFE00000)
+  %4265 = select <2 x i1> %4264, <2 x i64> %4263, <2 x i64> splat (i64 4294967295)
   %4266 = shufflevector <2 x i64> %4265, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %4267 = shufflevector <4 x i64> %4266, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %4268 = trunc <4 x i64> %4267 to <4 x i32>
@@ -11191,11 +11191,11 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4468 = extractelement <2 x double> %4464, i64 1
   %4469 = tail call double @llvm.trunc.f64(double %4468)
   %4470 = insertelement <2 x double> %4467, double %4469, i64 1
-  %.inv.i1806 = fcmp ole <2 x double> %4470, <double 0xC1E0000000000000, double 0xC1E0000000000000>
-  %4471 = select <2 x i1> %.inv.i1806, <2 x double> <double 0xC1E0000000000000, double 0xC1E0000000000000>, <2 x double> %4470
+  %.inv.i1806 = fcmp ole <2 x double> %4470, splat (double 0xC1E0000000000000)
+  %4471 = select <2 x i1> %.inv.i1806, <2 x double> splat (double 0xC1E0000000000000), <2 x double> %4470
   %4472 = fptosi <2 x double> %4471 to <2 x i64>
-  %4473 = fcmp ult <2 x double> %4470, <double 0x41DFFFFFFFC00000, double 0x41DFFFFFFFC00000>
-  %4474 = select <2 x i1> %4473, <2 x i64> %4472, <2 x i64> <i64 2147483647, i64 2147483647>
+  %4473 = fcmp ult <2 x double> %4470, splat (double 0x41DFFFFFFFC00000)
+  %4474 = select <2 x i1> %4473, <2 x i64> %4472, <2 x i64> splat (i64 2147483647)
   %4475 = shufflevector <2 x i64> %4474, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %4476 = shufflevector <4 x i64> %4475, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %4477 = trunc <4 x i64> %4476 to <4 x i32>
@@ -11218,8 +11218,8 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %.inv.i1807 = fcmp ole <2 x double> %4488, zeroinitializer
   %4489 = select <2 x i1> %.inv.i1807, <2 x double> zeroinitializer, <2 x double> %4488
   %4490 = fptoui <2 x double> %4489 to <2 x i64>
-  %4491 = fcmp ult <2 x double> %4488, <double 0x41EFFFFFFFE00000, double 0x41EFFFFFFFE00000>
-  %4492 = select <2 x i1> %4491, <2 x i64> %4490, <2 x i64> <i64 4294967295, i64 4294967295>
+  %4491 = fcmp ult <2 x double> %4488, splat (double 0x41EFFFFFFFE00000)
+  %4492 = select <2 x i1> %4491, <2 x i64> %4490, <2 x i64> splat (i64 4294967295)
   %4493 = shufflevector <2 x i64> %4492, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %4494 = shufflevector <4 x i64> %4493, <4 x i64> <i64 poison, i64 poison, i64 0, i64 0>, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %4495 = trunc <4 x i64> %4494 to <4 x i32>
@@ -11426,7 +11426,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4605 = bitcast <2 x i64> %.sroa.01957.8.vec.insert to <16 x i8>
   %4606 = and <16 x i8> %4604, %4605
   %4607 = bitcast <2 x i64> %.sroa.01955.8.vec.insert to <16 x i8>
-  %4608 = xor <16 x i8> %4605, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %4608 = xor <16 x i8> %4605, splat (i8 -1)
   %4609 = and <16 x i8> %4607, %4608
   %4610 = or <16 x i8> %4606, %4609
   store <16 x i8> %4610, ptr %4603, align 16, !noalias !1014
@@ -11462,7 +11462,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4624 = bitcast <2 x i64> %.sroa.01953.8.vec.insert to <8 x i16>
   %4625 = and <8 x i16> %4623, %4624
   %4626 = bitcast <2 x i64> %.sroa.01951.8.vec.insert to <8 x i16>
-  %4627 = xor <8 x i16> %4624, <i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1, i16 -1>
+  %4627 = xor <8 x i16> %4624, splat (i16 -1)
   %4628 = and <8 x i16> %4626, %4627
   %4629 = or <8 x i16> %4625, %4628
   store <8 x i16> %4629, ptr %4622, align 16, !noalias !1017
@@ -11498,7 +11498,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4643 = bitcast <2 x i64> %.sroa.01949.8.vec.insert to <4 x i32>
   %4644 = and <4 x i32> %4642, %4643
   %4645 = bitcast <2 x i64> %.sroa.01947.8.vec.insert to <4 x i32>
-  %4646 = xor <4 x i32> %4643, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %4646 = xor <4 x i32> %4643, splat (i32 -1)
   %4647 = and <4 x i32> %4645, %4646
   %4648 = or <4 x i32> %4644, %4647
   store <4 x i32> %4648, ptr %4641, align 16, !noalias !1020
@@ -11532,7 +11532,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1023)
   %4661 = load <2 x i64>, ptr %4660, align 16, !noalias !1023
   %4662 = and <2 x i64> %4661, %.sroa.01945.8.vec.insert
-  %4663 = xor <2 x i64> %.sroa.01945.8.vec.insert, <i64 -1, i64 -1>
+  %4663 = xor <2 x i64> %.sroa.01945.8.vec.insert, splat (i64 -1)
   %4664 = and <2 x i64> %.sroa.01943.8.vec.insert, %4663
   %4665 = or <2 x i64> %4662, %4664
   store <2 x i64> %4665, ptr %4660, align 16, !noalias !1023
@@ -11657,7 +11657,7 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4741 = bitcast <2 x double> %4740 to <2 x i64>
   %4742 = bitcast <2 x double> %.sroa.01935.8.vec.insert to <2 x i64>
   %4743 = fcmp uge <2 x double> %4740, %.sroa.01935.8.vec.insert
-  %4744 = select <2 x i1> %4743, <2 x i64> %4741, <2 x i64> <i64 -1, i64 -1>
+  %4744 = select <2 x i1> %4743, <2 x i64> %4741, <2 x i64> splat (i64 -1)
   %4745 = and <2 x i64> %4744, %4742
   %4746 = fcmp ule <2 x double> %4740, %.sroa.01935.8.vec.insert
   %4747 = select <2 x i1> %4746, <2 x i64> %4745, <2 x i64> %4741
@@ -11689,9 +11689,9 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4762 = bitcast <2 x i64> %.sroa.01933.8.vec.insert to <8 x i16>
   %4763 = sext <8 x i16> %4762 to <8 x i32>
   %4764 = mul nsw <8 x i32> %4761, %4763
-  %4765 = add nsw <8 x i32> %4764, <i32 16384, i32 16384, i32 16384, i32 16384, i32 16384, i32 16384, i32 16384, i32 16384>
-  %4766 = ashr <8 x i32> %4765, <i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15, i32 15>
-  %4767 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %4766, <8 x i32> <i32 32767, i32 32767, i32 32767, i32 32767, i32 32767, i32 32767, i32 32767, i32 32767>)
+  %4765 = add nsw <8 x i32> %4764, splat (i32 16384)
+  %4766 = ashr <8 x i32> %4765, splat (i32 15)
+  %4767 = tail call <8 x i32> @llvm.smin.v8i32(<8 x i32> %4766, <8 x i32> splat (i32 32767))
   %4768 = trunc nsw <8 x i32> %4767 to <8 x i16>
   store <8 x i16> %4768, ptr %4759, align 16, !noalias !1038
   store i64 1, ptr %0, align 4, !alias.scope !1038
@@ -11713,13 +11713,13 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4776 = getelementptr inbounds i8, ptr %4775, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1041)
   %4777 = load <8 x i16>, ptr %4776, align 16, !noalias !1041
-  %4778 = ashr <8 x i16> %4777, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4779 = shl <8 x i16> %4777, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4780 = ashr exact <8 x i16> %4779, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %4778 = ashr <8 x i16> %4777, splat (i16 8)
+  %4779 = shl <8 x i16> %4777, splat (i16 8)
+  %4780 = ashr exact <8 x i16> %4779, splat (i16 8)
   %4781 = bitcast <2 x i64> %.sroa.01931.8.vec.insert to <8 x i16>
-  %4782 = ashr <8 x i16> %4781, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4783 = shl <8 x i16> %4781, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4784 = ashr exact <8 x i16> %4783, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %4782 = ashr <8 x i16> %4781, splat (i16 8)
+  %4783 = shl <8 x i16> %4781, splat (i16 8)
+  %4784 = ashr exact <8 x i16> %4783, splat (i16 8)
   %4785 = mul nsw <8 x i16> %4778, %4782
   %4786 = mul nsw <8 x i16> %4780, %4784
   %4787 = add <8 x i16> %4786, %4785
@@ -11753,20 +11753,20 @@ _ZNK8WasmEdge8Executor8Executor9runRotrOpImEENSt9enable_ifIX13IsWasmUnsignVIT_EE
   %4799 = getelementptr inbounds i8, ptr %4798, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1044)
   %4800 = load <8 x i16>, ptr %4799, align 16, !noalias !1044
-  %4801 = ashr <8 x i16> %4800, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4802 = shl <8 x i16> %4800, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4803 = ashr exact <8 x i16> %4802, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %4801 = ashr <8 x i16> %4800, splat (i16 8)
+  %4802 = shl <8 x i16> %4800, splat (i16 8)
+  %4803 = ashr exact <8 x i16> %4802, splat (i16 8)
   %4804 = bitcast <2 x i64> %.sroa.0.8.vec.insert to <8 x i16>
-  %4805 = ashr <8 x i16> %4804, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4806 = shl <8 x i16> %4804, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %4807 = ashr exact <8 x i16> %4806, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %4805 = ashr <8 x i16> %4804, splat (i16 8)
+  %4806 = shl <8 x i16> %4804, splat (i16 8)
+  %4807 = ashr exact <8 x i16> %4806, splat (i16 8)
   %4808 = mul nsw <8 x i16> %4801, %4805
   %4809 = mul nsw <8 x i16> %4803, %4807
   %4810 = add <8 x i16> %4809, %4808
   %4811 = bitcast <8 x i16> %4810 to <4 x i32>
-  %4812 = ashr <4 x i32> %4811, <i32 16, i32 16, i32 16, i32 16>
-  %4813 = shl <4 x i32> %4811, <i32 16, i32 16, i32 16, i32 16>
-  %4814 = ashr exact <4 x i32> %4813, <i32 16, i32 16, i32 16, i32 16>
+  %4812 = ashr <4 x i32> %4811, splat (i32 16)
+  %4813 = shl <4 x i32> %4811, splat (i32 16)
+  %4814 = ashr exact <4 x i32> %4813, splat (i32 16)
   %4815 = bitcast <2 x i64> %.sroa.01929.8.vec.insert to <4 x i32>
   %4816 = add <4 x i32> %4812, %4815
   %4817 = add <4 x i32> %4816, %4814
@@ -52885,13 +52885,13 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIf
   %16 = insertelement <4 x float> %13, float %15, i64 3
   %17 = fptosi <4 x float> %16 to <4 x i32>
   %18 = fcmp ord <4 x float> %16, zeroinitializer
-  %19 = fcmp ugt <4 x float> %16, <float 0xC1E0000000000000, float 0xC1E0000000000000, float 0xC1E0000000000000, float 0xC1E0000000000000>
-  %20 = select <4 x i1> %19, <4 x i32> zeroinitializer, <4 x i32> <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %19 = fcmp ugt <4 x float> %16, splat (float 0xC1E0000000000000)
+  %20 = select <4 x i1> %19, <4 x i32> zeroinitializer, <4 x i32> splat (i32 -2147483648)
   %21 = and <4 x i1> %19, %18
   %22 = select <4 x i1> %21, <4 x i32> %17, <4 x i32> zeroinitializer
   %23 = or <4 x i32> %22, %20
-  %24 = fcmp ult <4 x float> %16, <float 0x41E0000000000000, float 0x41E0000000000000, float 0x41E0000000000000, float 0x41E0000000000000>
-  %25 = select <4 x i1> %24, <4 x i32> %23, <4 x i32> <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %24 = fcmp ult <4 x float> %16, splat (float 0x41E0000000000000)
+  %25 = select <4 x i1> %24, <4 x i32> %23, <4 x i32> splat (i32 2147483647)
   store <4 x i32> %25, ptr %2, align 16
   store i64 1, ptr %0, align 4
   ret void
@@ -52915,8 +52915,8 @@ define linkonce_odr void @_ZNK8WasmEdge8Executor8Executor19runVectorTruncSatOpIf
   %17 = fcmp ogt <4 x float> %16, zeroinitializer
   %18 = select <4 x i1> %17, <4 x float> %16, <4 x float> zeroinitializer
   %19 = fptoui <4 x float> %18 to <4 x i32>
-  %20 = fcmp oge <4 x float> %16, <float 0x41F0000000000000, float 0x41F0000000000000, float 0x41F0000000000000, float 0x41F0000000000000>
-  %21 = select <4 x i1> %20, <4 x i32> <i32 -1, i32 -1, i32 -1, i32 -1>, <4 x i32> %19
+  %20 = fcmp oge <4 x float> %16, splat (float 0x41F0000000000000)
+  %21 = select <4 x i1> %20, <4 x i32> splat (i32 -1), <4 x i32> %19
   store <4 x i32> %21, ptr %2, align 16
   store i64 1, ptr %0, align 4
   ret void

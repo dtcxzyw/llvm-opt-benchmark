@@ -11404,7 +11404,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
 
 14:                                               ; preds = %8
   %15 = load <2 x i64>, ptr %9, align 1
-  %16 = and <2 x i64> %15, <i64 9223372036854775807, i64 9223372036854775807>
+  %16 = and <2 x i64> %15, splat (i64 9223372036854775807)
   %17 = bitcast <2 x i64> %16 to <2 x double>
   %18 = icmp sgt i64 %6, 3
   br i1 %18, label %19, label %43
@@ -11412,7 +11412,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %9, i64 16
   %21 = load <2 x i64>, ptr %20, align 1
-  %22 = and <2 x i64> %21, <i64 9223372036854775807, i64 9223372036854775807>
+  %22 = and <2 x i64> %21, splat (i64 9223372036854775807)
   %23 = bitcast <2 x i64> %22 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i = getelementptr i8, ptr %9, i64 48
   %24 = icmp ugt i64 %6, 7
@@ -11425,12 +11425,12 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
   %.17375.i.i.i.i.i.i.i = phi <2 x double> [ %29, %.lr.ph.i.i.i.i.i.i.i ], [ %17, %19 ]
   %25 = getelementptr double, ptr %9, i64 %.05478.i.i.i.i.i.i.i
   %26 = load <2 x i64>, ptr %25, align 1
-  %27 = and <2 x i64> %26, <i64 9223372036854775807, i64 9223372036854775807>
+  %27 = and <2 x i64> %26, splat (i64 9223372036854775807)
   %28 = bitcast <2 x i64> %27 to <2 x double>
   %29 = fadd <2 x double> %.17375.i.i.i.i.i.i.i, %28
   %gep.i.i.i.i.i.i.i = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i.i.i
   %30 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i, align 1
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i, %32
   %.054.i.i.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i.i.i, 4
@@ -11447,7 +11447,7 @@ define linkonce_odr noundef double @_ZN5Eigen8internal10redux_implINS0_13scalar_
 37:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %38 = getelementptr double, ptr %9, i64 %11
   %39 = load <2 x i64>, ptr %38, align 1
-  %40 = and <2 x i64> %39, <i64 9223372036854775807, i64 9223372036854775807>
+  %40 = and <2 x i64> %39, splat (i64 9223372036854775807)
   %41 = bitcast <2 x i64> %40 to <2 x double>
   %42 = fadd <2 x double> %35, %41
   br label %43
@@ -11533,11 +11533,11 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %79 = mul nuw nsw i64 %.01769.us76, %6
   %80 = getelementptr double, ptr %71, i64 %79
   %81 = load <2 x i64>, ptr %80, align 1
-  %82 = and <2 x i64> %81, <i64 9223372036854775807, i64 9223372036854775807>
+  %82 = and <2 x i64> %81, splat (i64 9223372036854775807)
   %83 = bitcast <2 x i64> %82 to <2 x double>
   %84 = getelementptr i8, ptr %80, i64 16
   %85 = load <2 x i64>, ptr %84, align 1
-  %86 = and <2 x i64> %85, <i64 9223372036854775807, i64 9223372036854775807>
+  %86 = and <2 x i64> %85, splat (i64 9223372036854775807)
   %87 = bitcast <2 x i64> %86 to <2 x double>
   %invariant.gep.i.i.i.i.i.i.i26.us = getelementptr i8, ptr %80, i64 48
   br i1 %65, label %.lr.ph.i.i.i.i.i.i.i30.us, label %._crit_edge.i.i.i.i.i.i.i27.us
@@ -11549,12 +11549,12 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %.17375.i.i.i.i.i.i.i34.us = phi <2 x double> [ %92, %.lr.ph.i.i.i.i.i.i.i30.us ], [ %83, %.lr.ph.split.split.split.us ]
   %88 = getelementptr double, ptr %80, i64 %.05478.i.i.i.i.i.i.i31.us
   %89 = load <2 x i64>, ptr %88, align 1
-  %90 = and <2 x i64> %89, <i64 9223372036854775807, i64 9223372036854775807>
+  %90 = and <2 x i64> %89, splat (i64 9223372036854775807)
   %91 = bitcast <2 x i64> %90 to <2 x double>
   %92 = fadd <2 x double> %.17375.i.i.i.i.i.i.i34.us, %91
   %gep.i.i.i.i.i.i.i35.us = getelementptr double, ptr %invariant.gep.i.i.i.i.i.i.i26.us, i64 %.054.in77.i.i.i.i.i.i.i32.us
   %93 = load <2 x i64>, ptr %gep.i.i.i.i.i.i.i35.us, align 1
-  %94 = and <2 x i64> %93, <i64 9223372036854775807, i64 9223372036854775807>
+  %94 = and <2 x i64> %93, splat (i64 9223372036854775807)
   %95 = bitcast <2 x i64> %94 to <2 x double>
   %96 = fadd <2 x double> %storemerge76.i.i.i.i.i.i.i33.us, %95
   %.054.i.i.i.i.i.i.i36.us = add nuw nsw i64 %.05478.i.i.i.i.i.i.i31.us, 4
@@ -11570,7 +11570,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
 99:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i27.us
   %100 = getelementptr double, ptr %80, i64 %61
   %101 = load <2 x i64>, ptr %100, align 1
-  %102 = and <2 x i64> %101, <i64 9223372036854775807, i64 9223372036854775807>
+  %102 = and <2 x i64> %101, splat (i64 9223372036854775807)
   %103 = bitcast <2 x i64> %102 to <2 x double>
   %104 = fadd <2 x double> %98, %103
   br label %105
@@ -11610,7 +11610,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %116 = mul nsw i64 %.01769.us82, %6
   %117 = getelementptr double, ptr %71, i64 %116
   %118 = load <2 x i64>, ptr %117, align 1
-  %119 = and <2 x i64> %118, <i64 9223372036854775807, i64 9223372036854775807>
+  %119 = and <2 x i64> %118, splat (i64 9223372036854775807)
   %120 = bitcast <2 x i64> %119 to <2 x double>
   %shift145 = shufflevector <2 x double> %120, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %121 = fadd <2 x double> %shift145, %120
@@ -11641,7 +11641,7 @@ _ZNK5Eigen8internal15redux_evaluatorINS_16PartialReduxExprIKNS_12CwiseUnaryOpINS
   %131 = mul nsw i64 %.01769, %6
   %132 = getelementptr double, ptr %71, i64 %131
   %133 = load <2 x i64>, ptr %132, align 1
-  %134 = and <2 x i64> %133, <i64 9223372036854775807, i64 9223372036854775807>
+  %134 = and <2 x i64> %133, splat (i64 9223372036854775807)
   %135 = bitcast <2 x i64> %134 to <2 x double>
   %shift146 = shufflevector <2 x double> %135, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %136 = fadd <2 x double> %shift146, %135
@@ -22956,7 +22956,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(76) ptr @_ZN5Eigen4L
 
 22:                                               ; preds = %11
   %23 = load <2 x i64>, ptr %17, align 1
-  %24 = and <2 x i64> %23, <i64 9223372036854775807, i64 9223372036854775807>
+  %24 = and <2 x i64> %23, splat (i64 9223372036854775807)
   %25 = bitcast <2 x i64> %24 to <2 x double>
   %26 = icmp sgt i64 %15, 3
   br i1 %26, label %27, label %51
@@ -22964,7 +22964,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(76) ptr @_ZN5Eigen4L
 27:                                               ; preds = %22
   %28 = getelementptr inbounds i8, ptr %17, i64 16
   %29 = load <2 x i64>, ptr %28, align 1
-  %30 = and <2 x i64> %29, <i64 9223372036854775807, i64 9223372036854775807>
+  %30 = and <2 x i64> %29, splat (i64 9223372036854775807)
   %31 = bitcast <2 x i64> %30 to <2 x double>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %17, i64 48
   %32 = icmp ugt i64 %15, 7
@@ -22977,12 +22977,12 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(76) ptr @_ZN5Eigen4L
   %.17375.i.i.i.i.i = phi <2 x double> [ %37, %.lr.ph.i.i.i.i.i ], [ %25, %27 ]
   %33 = getelementptr inbounds double, ptr %17, i64 %.05478.i.i.i.i.i
   %34 = load <2 x i64>, ptr %33, align 1
-  %35 = and <2 x i64> %34, <i64 9223372036854775807, i64 9223372036854775807>
+  %35 = and <2 x i64> %34, splat (i64 9223372036854775807)
   %36 = bitcast <2 x i64> %35 to <2 x double>
   %37 = fadd <2 x double> %.17375.i.i.i.i.i, %36
   %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %38 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
-  %39 = and <2 x i64> %38, <i64 9223372036854775807, i64 9223372036854775807>
+  %39 = and <2 x i64> %38, splat (i64 9223372036854775807)
   %40 = bitcast <2 x i64> %39 to <2 x double>
   %41 = fadd <2 x double> %storemerge76.i.i.i.i.i, %40
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 4
@@ -22999,7 +22999,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(76) ptr @_ZN5Eigen4L
 45:                                               ; preds = %._crit_edge.i.i.i.i.i
   %46 = getelementptr inbounds double, ptr %17, i64 %19
   %47 = load <2 x i64>, ptr %46, align 1
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = fadd <2 x double> %43, %49
   br label %51

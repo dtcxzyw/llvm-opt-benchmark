@@ -538,9 +538,9 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
   %15 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %15, align 16
   %16 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %16, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %16, align 16
   %17 = getelementptr inbounds i8, ptr %0, i64 48
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %17, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %17, align 16
   %18 = getelementptr inbounds i8, ptr %0, i64 64
   %19 = getelementptr inbounds i8, ptr %0, i64 88
   %20 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4923,9 +4923,9 @@ define weak_odr void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4E
 .critedge:                                        ; preds = %.lr.ph52, %._crit_edge53
   tail call void @_ZN7mitsuba5SceneIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE28accel_parameters_changed_cpuEv(ptr noundef nonnull align 16 dereferenceable(345) %0)
   %26 = getelementptr inbounds i8, ptr %0, i64 32
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %26, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %26, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %.sroa.2.0..sroa_idx, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %.sroa.2.0..sroa_idx, align 16
   %27 = load ptr, ptr %11, align 16
   %28 = load ptr, ptr %13, align 8
   %.not3954 = icmp eq ptr %27, %28
@@ -6724,7 +6724,7 @@ define linkonce_odr hidden void @_ZN7mitsuba23PreliminaryIntersectionIfNS_5Shape
 10:                                               ; preds = %5
   %11 = getelementptr inbounds i8, ptr %2, i64 16
   %12 = load <4 x i32>, ptr %11, align 16
-  %13 = xor <4 x i32> %12, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %13 = xor <4 x i32> %12, splat (i32 -2147483648)
   %14 = getelementptr inbounds i8, ptr %2, i64 48
   %.sroa.5161.16.copyload = load <4 x float>, ptr %14, align 16
   store float 0x7FF0000000000000, ptr %0, align 16
@@ -6873,7 +6873,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19ini
   %105 = phi <4 x float> [ %.pre75.i, %.critedge._crit_edge.i ], [ %92, %_ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE19initialize_sh_frameEv.exit.i ]
   %106 = getelementptr inbounds i8, ptr %2, i64 16
   %107 = load <4 x i32>, ptr %106, align 16
-  %108 = xor <4 x i32> %107, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %108 = xor <4 x i32> %107, splat (i32 -2147483648)
   %109 = bitcast <4 x i32> %108 to <4 x float>
   %110 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %109, <4 x float> %105, i8 113)
   %111 = call contract <4 x float> @llvm.x86.sse41.dpps(<4 x float> %109, <4 x float> %104, i8 113)

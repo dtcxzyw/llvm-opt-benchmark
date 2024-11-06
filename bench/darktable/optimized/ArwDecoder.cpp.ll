@@ -2163,9 +2163,9 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 30:                                               ; preds = %30, %27
   %31 = phi i64 [ 0, %27 ], [ %67, %30 ]
   %32 = phi <16 x i16> [ <i16 0, i16 1, i16 2, i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15>, %27 ], [ %68, %30 ]
-  %33 = add <16 x i16> %32, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
-  %34 = add <16 x i16> %32, <i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32>
-  %35 = add <16 x i16> %32, <i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48, i16 48>
+  %33 = add <16 x i16> %32, splat (i16 16)
+  %34 = add <16 x i16> %32, splat (i16 32)
+  %35 = add <16 x i16> %32, splat (i16 48)
   %36 = getelementptr inbounds i16, ptr %3, i64 %31
   %37 = getelementptr inbounds i8, ptr %36, i64 32
   %38 = getelementptr inbounds i8, ptr %36, i64 64
@@ -2175,10 +2175,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %34, ptr %38, align 2, !tbaa !53
   store <16 x i16> %35, ptr %39, align 2, !tbaa !53
   %40 = or disjoint i64 %31, 64
-  %41 = add <16 x i16> %32, <i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64>
-  %42 = add <16 x i16> %32, <i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80, i16 80>
-  %43 = add <16 x i16> %32, <i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96, i16 96>
-  %44 = add <16 x i16> %32, <i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112, i16 112>
+  %41 = add <16 x i16> %32, splat (i16 64)
+  %42 = add <16 x i16> %32, splat (i16 80)
+  %43 = add <16 x i16> %32, splat (i16 96)
+  %44 = add <16 x i16> %32, splat (i16 112)
   %45 = getelementptr inbounds i16, ptr %3, i64 %40
   %46 = getelementptr inbounds i8, ptr %45, i64 32
   %47 = getelementptr inbounds i8, ptr %45, i64 64
@@ -2188,10 +2188,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %43, ptr %47, align 2, !tbaa !53
   store <16 x i16> %44, ptr %48, align 2, !tbaa !53
   %49 = or disjoint i64 %31, 128
-  %50 = add <16 x i16> %32, <i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128>
-  %51 = add <16 x i16> %32, <i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144, i16 144>
-  %52 = add <16 x i16> %32, <i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160, i16 160>
-  %53 = add <16 x i16> %32, <i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176, i16 176>
+  %50 = add <16 x i16> %32, splat (i16 128)
+  %51 = add <16 x i16> %32, splat (i16 144)
+  %52 = add <16 x i16> %32, splat (i16 160)
+  %53 = add <16 x i16> %32, splat (i16 176)
   %54 = getelementptr inbounds i16, ptr %3, i64 %49
   %55 = getelementptr inbounds i8, ptr %54, i64 32
   %56 = getelementptr inbounds i8, ptr %54, i64 64
@@ -2201,10 +2201,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %52, ptr %56, align 2, !tbaa !53
   store <16 x i16> %53, ptr %57, align 2, !tbaa !53
   %58 = or disjoint i64 %31, 192
-  %59 = add <16 x i16> %32, <i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192, i16 192>
-  %60 = add <16 x i16> %32, <i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208, i16 208>
-  %61 = add <16 x i16> %32, <i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224, i16 224>
-  %62 = add <16 x i16> %32, <i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240, i16 240>
+  %59 = add <16 x i16> %32, splat (i16 192)
+  %60 = add <16 x i16> %32, splat (i16 208)
+  %61 = add <16 x i16> %32, splat (i16 224)
+  %62 = add <16 x i16> %32, splat (i16 240)
   %63 = getelementptr inbounds i16, ptr %3, i64 %58
   %64 = getelementptr inbounds i8, ptr %63, i64 32
   %65 = getelementptr inbounds i8, ptr %63, i64 64
@@ -2214,7 +2214,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %61, ptr %65, align 2, !tbaa !53
   store <16 x i16> %62, ptr %66, align 2, !tbaa !53
   %67 = add nuw nsw i64 %31, 256
-  %68 = add <16 x i16> %32, <i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256>
+  %68 = add <16 x i16> %32, splat (i16 256)
   %69 = icmp eq i64 %67, 16384
   br i1 %69, label %72, label %30, !llvm.loop !55
 
@@ -2262,10 +2262,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %95 = phi <16 x i16> [ %107, %94 ], [ %90, %86 ]
   %96 = trunc nuw i64 %indvars.iv29 to i32
   %97 = add i32 %78, %96
-  %98 = add <16 x i16> %95, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %99 = add <16 x i16> %95, <i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34, i16 34>
-  %100 = add <16 x i16> %95, <i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66, i16 66>
-  %101 = add <16 x i16> %95, <i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98, i16 98>
+  %98 = add <16 x i16> %95, splat (i16 2)
+  %99 = add <16 x i16> %95, splat (i16 34)
+  %100 = add <16 x i16> %95, splat (i16 66)
+  %101 = add <16 x i16> %95, splat (i16 98)
   %102 = zext i32 %97 to i64
   %103 = getelementptr inbounds i16, ptr %3, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 32
@@ -2276,7 +2276,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %100, ptr %105, align 2, !tbaa !53
   store <16 x i16> %101, ptr %106, align 2, !tbaa !53
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 64
-  %107 = add <16 x i16> %95, <i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128>
+  %107 = add <16 x i16> %95, splat (i16 128)
   %108 = icmp eq i64 %indvars.iv.next30, %93
   br i1 %108, label %109, label %94, !llvm.loop !58
 
@@ -2310,12 +2310,12 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %128 = phi <8 x i16> [ %134, %127 ], [ %124, %._crit_edge55 ]
   %129 = trunc nuw i64 %indvars.iv32 to i32
   %130 = add i32 %78, %129
-  %131 = add <8 x i16> %128, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %131 = add <8 x i16> %128, splat (i16 2)
   %132 = zext i32 %130 to i64
   %133 = getelementptr inbounds i16, ptr %3, i64 %132
   store <8 x i16> %131, ptr %133, align 2, !tbaa !53
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 8
-  %134 = add <8 x i16> %128, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
+  %134 = add <8 x i16> %128, splat (i16 16)
   %135 = icmp eq i64 %indvars.iv.next33, %126
   br i1 %135, label %136, label %127, !llvm.loop !59
 
@@ -2372,10 +2372,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %166 = phi <16 x i16> [ %178, %165 ], [ %161, %157 ]
   %167 = trunc nuw i64 %indvars.iv35 to i32
   %168 = add i32 %149, %167
-  %169 = add <16 x i16> %166, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %170 = add <16 x i16> %166, <i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68, i16 68>
-  %171 = add <16 x i16> %166, <i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132, i16 132>
-  %172 = add <16 x i16> %166, <i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196, i16 196>
+  %169 = add <16 x i16> %166, splat (i16 4)
+  %170 = add <16 x i16> %166, splat (i16 68)
+  %171 = add <16 x i16> %166, splat (i16 132)
+  %172 = add <16 x i16> %166, splat (i16 196)
   %173 = zext i32 %168 to i64
   %174 = getelementptr inbounds i16, ptr %3, i64 %173
   %175 = getelementptr inbounds i8, ptr %174, i64 32
@@ -2386,7 +2386,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %171, ptr %176, align 2, !tbaa !53
   store <16 x i16> %172, ptr %177, align 2, !tbaa !53
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 64
-  %178 = add <16 x i16> %166, <i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256, i16 256>
+  %178 = add <16 x i16> %166, splat (i16 256)
   %179 = icmp eq i64 %indvars.iv.next36, %164
   br i1 %179, label %180, label %165, !llvm.loop !61
 
@@ -2420,12 +2420,12 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %199 = phi <8 x i16> [ %205, %198 ], [ %195, %._crit_edge56 ]
   %200 = trunc nuw i64 %indvars.iv38 to i32
   %201 = add i32 %149, %200
-  %202 = add <8 x i16> %199, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %202 = add <8 x i16> %199, splat (i16 4)
   %203 = zext i32 %201 to i64
   %204 = getelementptr inbounds i16, ptr %3, i64 %203
   store <8 x i16> %202, ptr %204, align 2, !tbaa !53
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 8
-  %205 = add <8 x i16> %199, <i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32, i16 32>
+  %205 = add <8 x i16> %199, splat (i16 32)
   %206 = icmp eq i64 %indvars.iv.next39, %197
   br i1 %206, label %207, label %198, !llvm.loop !62
 
@@ -2482,10 +2482,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %237 = phi <16 x i16> [ %249, %236 ], [ %232, %228 ]
   %238 = trunc nuw i64 %indvars.iv41 to i32
   %239 = add i32 %220, %238
-  %240 = add <16 x i16> %237, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
-  %241 = add <16 x i16> %237, <i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136, i16 136>
-  %242 = add <16 x i16> %237, <i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264, i16 264>
-  %243 = add <16 x i16> %237, <i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392, i16 392>
+  %240 = add <16 x i16> %237, splat (i16 8)
+  %241 = add <16 x i16> %237, splat (i16 136)
+  %242 = add <16 x i16> %237, splat (i16 264)
+  %243 = add <16 x i16> %237, splat (i16 392)
   %244 = zext i32 %239 to i64
   %245 = getelementptr inbounds i16, ptr %3, i64 %244
   %246 = getelementptr inbounds i8, ptr %245, i64 32
@@ -2496,7 +2496,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %242, ptr %247, align 2, !tbaa !53
   store <16 x i16> %243, ptr %248, align 2, !tbaa !53
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 64
-  %249 = add <16 x i16> %237, <i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512, i16 512>
+  %249 = add <16 x i16> %237, splat (i16 512)
   %250 = icmp eq i64 %indvars.iv.next42, %235
   br i1 %250, label %251, label %236, !llvm.loop !64
 
@@ -2530,12 +2530,12 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %270 = phi <8 x i16> [ %276, %269 ], [ %266, %._crit_edge57 ]
   %271 = trunc nuw i64 %indvars.iv44 to i32
   %272 = add i32 %220, %271
-  %273 = add <8 x i16> %270, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %273 = add <8 x i16> %270, splat (i16 8)
   %274 = zext i32 %272 to i64
   %275 = getelementptr inbounds i16, ptr %3, i64 %274
   store <8 x i16> %273, ptr %275, align 2, !tbaa !53
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 8
-  %276 = add <8 x i16> %270, <i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64>
+  %276 = add <8 x i16> %270, splat (i16 64)
   %277 = icmp eq i64 %indvars.iv.next45, %268
   br i1 %277, label %278, label %269, !llvm.loop !65
 
@@ -2592,10 +2592,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
 308:                                              ; preds = %308, %299
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %308 ], [ 0, %299 ]
   %309 = phi <16 x i16> [ %317, %308 ], [ %303, %299 ]
-  %310 = add <16 x i16> %309, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
-  %311 = add <16 x i16> %309, <i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272, i16 272>
-  %312 = add <16 x i16> %309, <i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528, i16 528>
-  %313 = add <16 x i16> %309, <i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784, i16 784>
+  %310 = add <16 x i16> %309, splat (i16 16)
+  %311 = add <16 x i16> %309, splat (i16 272)
+  %312 = add <16 x i16> %309, splat (i16 528)
+  %313 = add <16 x i16> %309, splat (i16 784)
   %gep = getelementptr inbounds i16, ptr %invariant.gep, i64 %indvars.iv47
   %314 = getelementptr inbounds i8, ptr %gep, i64 32
   %315 = getelementptr inbounds i8, ptr %gep, i64 64
@@ -2605,7 +2605,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %312, ptr %315, align 2, !tbaa !53
   store <16 x i16> %313, ptr %316, align 2, !tbaa !53
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 64
-  %317 = add <16 x i16> %309, <i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024, i16 1024>
+  %317 = add <16 x i16> %309, splat (i16 1024)
   %318 = icmp eq i64 %indvars.iv.next48, %307
   br i1 %318, label %319, label %308, !llvm.loop !67
 
@@ -2639,12 +2639,12 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %338 = phi <8 x i16> [ %344, %337 ], [ %334, %._crit_edge58 ]
   %339 = trunc nuw i64 %indvars.iv50 to i32
   %340 = add i32 %291, %339
-  %341 = add <8 x i16> %338, <i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16, i16 16>
+  %341 = add <8 x i16> %338, splat (i16 16)
   %342 = zext i32 %340 to i64
   %343 = getelementptr inbounds i16, ptr %3, i64 %342
   store <8 x i16> %341, ptr %343, align 2, !tbaa !53
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 8
-  %344 = add <8 x i16> %338, <i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128, i16 128>
+  %344 = add <8 x i16> %338, splat (i16 128)
   %345 = icmp eq i64 %indvars.iv.next51, %336
   br i1 %345, label %346, label %337, !llvm.loop !68
 
@@ -2694,10 +2694,10 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %indvars.iv = phi i64 [ %indvars.iv.next, %370 ], [ 0, %363 ]
   %371 = phi <16 x i16> [ %381, %370 ], [ %367, %363 ]
   %372 = or disjoint i64 %indvars.iv, 1
-  %373 = add <16 x i16> %371, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
-  %374 = add <16 x i16> %371, <i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17, i16 17>
-  %375 = add <16 x i16> %371, <i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33, i16 33>
-  %376 = add <16 x i16> %371, <i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49, i16 49>
+  %373 = add <16 x i16> %371, splat (i16 1)
+  %374 = add <16 x i16> %371, splat (i16 17)
+  %375 = add <16 x i16> %371, splat (i16 33)
+  %376 = add <16 x i16> %371, splat (i16 49)
   %377 = getelementptr inbounds i16, ptr %3, i64 %372
   %378 = getelementptr inbounds i8, ptr %377, i64 32
   %379 = getelementptr inbounds i8, ptr %377, i64 64
@@ -2707,7 +2707,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   store <16 x i16> %375, ptr %379, align 2, !tbaa !53
   store <16 x i16> %376, ptr %380, align 2, !tbaa !53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %381 = add <16 x i16> %371, <i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64, i16 64>
+  %381 = add <16 x i16> %371, splat (i16 64)
   %382 = icmp eq i64 %indvars.iv.next, %369
   br i1 %382, label %383, label %370, !llvm.loop !70
 
@@ -2739,11 +2739,11 @@ define hidden void @_ZN8rawspeed10ArwDecoder11decodeCurveEPKNS_7TiffIFDE(ptr dea
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %400 ], [ %398, %._crit_edge ]
   %401 = phi <8 x i16> [ %405, %400 ], [ %397, %._crit_edge ]
   %402 = or disjoint i64 %indvars.iv24, 1
-  %403 = add <8 x i16> %401, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %403 = add <8 x i16> %401, splat (i16 1)
   %404 = getelementptr inbounds i16, ptr %3, i64 %402
   store <8 x i16> %403, ptr %404, align 2, !tbaa !53
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 8
-  %405 = add <8 x i16> %401, <i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8, i16 8>
+  %405 = add <8 x i16> %401, splat (i16 8)
   %406 = icmp eq i64 %indvars.iv.next25, %399
   br i1 %406, label %407, label %400, !llvm.loop !71
 
@@ -5771,8 +5771,8 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
 318:                                              ; preds = %318, %315
   %319 = phi i64 [ 0, %315 ], [ %365, %318 ]
   %320 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %315 ], [ %366, %318 ]
-  %321 = shl nsw <8 x i64> %320, <i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2, i64 2>
-  %322 = shl nuw nsw <8 x i64> %320, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %321 = shl nsw <8 x i64> %320, splat (i64 2)
+  %322 = shl nuw nsw <8 x i64> %320, splat (i64 1)
   %323 = extractelement <8 x i64> %321, i64 0
   %324 = getelementptr inbounds i16, ptr %301, i64 %323
   %325 = load <32 x i16>, ptr %324, align 2, !tbaa !53
@@ -5780,7 +5780,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %327 = shufflevector <32 x i16> %325, <32 x i16> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %328 = shufflevector <32 x i16> %325, <32 x i16> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
   %329 = shufflevector <32 x i16> %325, <32 x i16> poison, <8 x i32> <i32 3, i32 7, i32 11, i32 15, i32 19, i32 23, i32 27, i32 31>
-  %330 = or disjoint <8 x i64> %321, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %330 = or disjoint <8 x i64> %321, splat (i64 1)
   %331 = icmp ult <8 x i64> %330, %288
   %332 = extractelement <8 x i1> %331, i64 0
   call void @llvm.assume(i1 %332)
@@ -5798,7 +5798,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   call void @llvm.assume(i1 %338)
   %339 = extractelement <8 x i1> %331, i64 7
   call void @llvm.assume(i1 %339)
-  %340 = or disjoint <8 x i64> %322, <i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1, i64 1>
+  %340 = or disjoint <8 x i64> %322, splat (i64 1)
   %341 = icmp samesign ult <8 x i64> %340, %290
   %342 = extractelement <8 x i1> %341, i64 0
   call void @llvm.assume(i1 %342)
@@ -5820,7 +5820,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %351 = getelementptr i16, ptr %316, i64 %350
   %352 = shufflevector <8 x i16> %326, <8 x i16> %327, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i16> %352, ptr %351, align 2, !tbaa !53
-  %353 = or disjoint <8 x i64> %321, <i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3, i64 3>
+  %353 = or disjoint <8 x i64> %321, splat (i64 3)
   %354 = icmp ult <8 x i64> %353, %288
   %355 = extractelement <8 x i1> %354, i64 0
   call void @llvm.assume(i1 %355)
@@ -5842,7 +5842,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %364 = shufflevector <8 x i16> %328, <8 x i16> %329, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i16> %364, ptr %363, align 2, !tbaa !53
   %365 = add nuw i64 %319, 8
-  %366 = add <8 x i64> %320, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %366 = add <8 x i64> %320, splat (i64 8)
   %367 = icmp eq i64 %365, %286
   br i1 %367, label %368, label %318, !llvm.loop !209
 

@@ -643,7 +643,7 @@ entry:
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_data.i, i8 0, i64 16, i1 false)
   %m_blockpos = getelementptr inbounds i8, ptr %this, i64 48
-  store <4 x i16> <i16 -1337, i16 -1337, i16 -1337, i16 -1337>, ptr %m_blockpos, align 8, !tbaa !22
+  store <4 x i16> splat (i16 -1337), ptr %m_blockpos, align 8, !tbaa !22
   %Y.i6 = getelementptr inbounds i8, ptr %this, i64 56
   store i16 -1337, ptr %Y.i6, align 8, !tbaa !20
   %Z.i7 = getelementptr inbounds i8, ptr %this, i64 58
@@ -1458,7 +1458,7 @@ entry:
   %g = getelementptr inbounds i8, ptr %sunlight, i64 4
   %0 = insertelement <2 x float> poison, float %conv, i64 0
   %1 = insertelement <2 x float> %0, float %mul, i64 1
-  %2 = fdiv nsz <2 x float> %1, <float 1.000000e+03, float 1.000000e+03>
+  %2 = fdiv nsz <2 x float> %1, splat (float 1.000000e+03)
   %3 = fadd nsz <2 x float> %2, <float 0xBFA47AE140000000, float 0x3FB3F7CEE0000000>
   %4 = extractelement <2 x float> %3, i64 0
   store float %4, ptr %sunlight, align 4, !tbaa !39
@@ -1479,7 +1479,7 @@ entry:
   %mul.i = fmul nsz float %conv.i, 0x3FEF5C2900000000
   %0 = insertelement <2 x float> poison, float %conv.i, i64 0
   %1 = insertelement <2 x float> %0, float %mul.i, i64 1
-  %2 = fdiv nsz <2 x float> %1, <float 1.000000e+03, float 1.000000e+03>
+  %2 = fdiv nsz <2 x float> %1, splat (float 1.000000e+03)
   %3 = fadd nsz <2 x float> %2, <float 0xBFA47AE140000000, float 0x3FB3F7CEE0000000>
   %4 = extractelement <2 x float> %3, i64 0
   store float %4, ptr %dayLight, align 4, !tbaa !39
@@ -3466,7 +3466,7 @@ invoke.cont13:                                    ; preds = %invoke.cont2
   %BoundingBox.i = getelementptr inbounds i8, ptr %call11, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !37
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call11, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !37
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !37
   store ptr %call11, ptr %this, align 8, !tbaa !32
   %call11.1 = invoke noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #34
           to label %invoke.cont13.1 unwind label %lpad9
@@ -3487,7 +3487,7 @@ invoke.cont13.1:                                  ; preds = %invoke.cont13
   %BoundingBox.i.1 = getelementptr inbounds i8, ptr %call11.1, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i.1, align 4, !tbaa !37
   %Y.i2.i.i.1 = getelementptr inbounds i8, ptr %call11.1, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i.1, align 4, !tbaa !37
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i.1, align 4, !tbaa !37
   store ptr %call11.1, ptr %__begin1.0.ptr1490.1, align 8, !tbaa !32
   %m_use_shaders = getelementptr inbounds i8, ptr %data, i64 72
   %9 = load i8, ptr %m_use_shaders, align 8, !tbaa !30, !range !34, !noundef !35
@@ -4067,28 +4067,28 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %81 = insertelement <4 x i32> %80, i32 %77, i64 1
   %82 = insertelement <4 x i32> %81, i32 %78, i64 2
   %83 = insertelement <4 x i32> %82, i32 %79, i64 3
-  %84 = and <4 x i32> %83, <i32 -16777216, i32 -16777216, i32 -16777216, i32 -16777216>
-  %85 = lshr <4 x i32> %83, <i32 16, i32 16, i32 16, i32 16>
-  %86 = and <4 x i32> %85, <i32 255, i32 255, i32 255, i32 255>
+  %84 = and <4 x i32> %83, splat (i32 -16777216)
+  %85 = lshr <4 x i32> %83, splat (i32 16)
+  %86 = and <4 x i32> %85, splat (i32 255)
   %87 = mul nuw nsw <4 x i32> %86, %broadcast.splat
   %88 = trunc nuw <4 x i32> %87 to <4 x i16>
-  %89 = udiv <4 x i16> %88, <i16 255, i16 255, i16 255, i16 255>
+  %89 = udiv <4 x i16> %88, splat (i16 255)
   %90 = zext nneg <4 x i16> %89 to <4 x i32>
-  %91 = lshr <4 x i32> %83, <i32 8, i32 8, i32 8, i32 8>
-  %92 = and <4 x i32> %91, <i32 255, i32 255, i32 255, i32 255>
+  %91 = lshr <4 x i32> %83, splat (i32 8)
+  %92 = and <4 x i32> %91, splat (i32 255)
   %93 = mul nuw nsw <4 x i32> %92, %broadcast.splat1554
   %94 = trunc nuw <4 x i32> %93 to <4 x i16>
-  %95 = udiv <4 x i16> %94, <i16 255, i16 255, i16 255, i16 255>
+  %95 = udiv <4 x i16> %94, splat (i16 255)
   %96 = zext nneg <4 x i16> %95 to <4 x i32>
-  %97 = and <4 x i32> %83, <i32 255, i32 255, i32 255, i32 255>
+  %97 = and <4 x i32> %83, splat (i32 255)
   %98 = mul nuw nsw <4 x i32> %97, %broadcast.splat1556
   %99 = trunc nuw <4 x i32> %98 to <4 x i16>
-  %100 = udiv <4 x i16> %99, <i16 255, i16 255, i16 255, i16 255>
+  %100 = udiv <4 x i16> %99, splat (i16 255)
   %101 = zext nneg <4 x i16> %100 to <4 x i32>
-  %102 = shl nuw nsw <4 x i32> %90, <i32 16, i32 16, i32 16, i32 16>
-  %103 = and <4 x i32> %102, <i32 16711680, i32 16711680, i32 16711680, i32 16711680>
-  %104 = shl nuw nsw <4 x i32> %96, <i32 8, i32 8, i32 8, i32 8>
-  %105 = and <4 x i32> %104, <i32 65280, i32 65280, i32 65280, i32 65280>
+  %102 = shl nuw nsw <4 x i32> %90, splat (i32 16)
+  %103 = and <4 x i32> %102, splat (i32 16711680)
+  %104 = shl nuw nsw <4 x i32> %96, splat (i32 8)
+  %105 = and <4 x i32> %104, splat (i32 65280)
   %106 = or disjoint <4 x i32> %84, %101
   %107 = or disjoint <4 x i32> %106, %103
   %108 = or <4 x i32> %107, %105
@@ -5689,7 +5689,7 @@ invoke.cont395:                                   ; preds = %if.end390
   %BoundingBox.i1018 = getelementptr inbounds i8, ptr %call393, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i1018, align 4, !tbaa !37
   %Y.i2.i.i1022 = getelementptr inbounds i8, ptr %call393, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i1022, align 4, !tbaa !37
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i1022, align 4, !tbaa !37
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call393, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !406
   %Material = getelementptr inbounds i8, ptr %call393, i64 32
@@ -5867,7 +5867,7 @@ invoke.cont436:                                   ; preds = %call6.i.noexc
   %add6.i35.i = fadd nsz float %add6.i.i, %v3.sroa.7.0.copyload.i
   %327 = load <2 x float>, ptr %call11.i1065, align 4, !tbaa !37
   %328 = fadd nsz <2 x float> %326, %327
-  %329 = fdiv nsz <2 x float> %328, <float 3.000000e+00, float 3.000000e+00>
+  %329 = fdiv nsz <2 x float> %328, splat (float 3.000000e+00)
   %div3.i.i = fdiv nsz float %add6.i35.i, 3.000000e+00
   %330 = fsub nsz <2 x float> %324, %322
   %sub.i.i = extractelement <2 x float> %330, i64 0

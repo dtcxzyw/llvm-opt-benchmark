@@ -1419,7 +1419,7 @@ define internal fastcc void @"_ZN127_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %30, label %33
 
 30:                                               ; preds = %29
-  %31 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %31 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i.i.i.i.i, splat (i8 -1)
   %32 = bitcast <16 x i1> %31 to i16
   %cond.i.i.i.i.i.i.i.i.i = icmp eq i16 %32, 0
   br i1 %cond.i.i.i.i.i.i.i.i.i, label %42, label %47
@@ -3184,7 +3184,7 @@ common.resume:                                    ; preds = %191, %127, %2401
   br i1 %.not.i.i.i.i, label %155, label %158
 
 155:                                              ; preds = %154
-  %156 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %156 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %157 = bitcast <16 x i1> %156 to i16
   %cond.i.i.i.i = icmp eq i16 %157, 0
   br i1 %cond.i.i.i.i, label %167, label %170
@@ -4575,7 +4575,7 @@ _ZN4core3ptr19swap_nonoverlapping17h84ea683258d89640E.exit.i.i: ; preds = %644
   br i1 %.not.i.i.i.i913, label %842, label %845
 
 842:                                              ; preds = %841
-  %843 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i911, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %843 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i911, splat (i8 -1)
   %844 = bitcast <16 x i1> %843 to i16
   %cond.i.i.i.i919 = icmp eq i16 %844, 0
   br i1 %cond.i.i.i.i919, label %854, label %.thread1635
@@ -4690,7 +4690,7 @@ _ZN4core3ptr19swap_nonoverlapping17h84ea683258d89640E.exit.i.i: ; preds = %644
   br i1 %.not.i.i.i.i932, label %892, label %895
 
 892:                                              ; preds = %891
-  %893 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i930, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %893 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i930, splat (i8 -1)
   %894 = bitcast <16 x i1> %893 to i16
   %cond.i.i.i.i939 = icmp eq i16 %894, 0
   br i1 %cond.i.i.i.i939, label %904, label %_ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit
@@ -5398,7 +5398,7 @@ default.unreachable:                              ; preds = %1932, %1377
   br i1 %.not.i.i.i.i975, label %1183, label %1186
 
 1183:                                             ; preds = %1182
-  %1184 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i973, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1184 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i973, splat (i8 -1)
   %1185 = bitcast <16 x i1> %1184 to i16
   %cond.i.i.i.i982 = icmp eq i16 %1185, 0
   br i1 %cond.i.i.i.i982, label %1195, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd5cd67d0a077acc7E.exit"
@@ -5489,7 +5489,7 @@ default.unreachable:                              ; preds = %1932, %1377
   br i1 %.not.i.i.i.not.not.not.i.not, label %1219, label %1222
 
 1219:                                             ; preds = %1218
-  %1220 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i993, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1220 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i993, splat (i8 -1)
   %1221 = bitcast <16 x i1> %1220 to i16
   %cond.i.i.i.i995 = icmp eq i16 %1221, 0
   br i1 %cond.i.i.i.i995, label %1231, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7get_mut17h40952af4fb1e7e6eE.exit.i"
@@ -5719,7 +5719,7 @@ default.unreachable:                              ; preds = %1932, %1377
   br i1 %.not.i.i.i.i1027, label %1322, label %1325
 
 1322:                                             ; preds = %1321
-  %1323 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1025, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1323 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1025, splat (i8 -1)
   %1324 = bitcast <16 x i1> %1323 to i16
   %cond.i.i.i.i1034 = icmp eq i16 %1324, 0
   br i1 %cond.i.i.i.i1034, label %1334, label %.thread1544
@@ -6091,7 +6091,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.i632.thread: ; preds 
   br i1 %.not.i.i.i.i1050, label %1471, label %1474
 
 1471:                                             ; preds = %1470
-  %1472 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1048, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1472 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1048, splat (i8 -1)
   %1473 = bitcast <16 x i1> %1472 to i16
   %cond.i.i.i.i1058 = icmp eq i16 %1473, 0
   br i1 %cond.i.i.i.i1058, label %1483, label %_ZN9regalloc28indexset11AdaptiveMap3get17ha6a3e35ef1f17d37E.exit.i717.thread
@@ -6418,7 +6418,7 @@ _ZN9regalloc28indexset11AdaptiveMap3get17ha6a3e35ef1f17d37E.exit.i717: ; preds =
   br i1 %.not.i.i.i1076, label %1592, label %1595
 
 1592:                                             ; preds = %1591
-  %1593 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1593 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %1594 = bitcast <16 x i1> %1593 to i16
   %cond.i.i.i1077 = icmp eq i16 %1594, 0
   br i1 %cond.i.i.i1077, label %1604, label %1609
@@ -6661,7 +6661,7 @@ _ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit764: ; preds = %1621
   br i1 %.not.i.i.i.i1088, label %1699, label %1702
 
 1699:                                             ; preds = %1698
-  %1700 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1086, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1700 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1086, splat (i8 -1)
   %1701 = bitcast <16 x i1> %1700 to i16
   %cond.i.i.i.i1096 = icmp eq i16 %1701, 0
   br i1 %cond.i.i.i.i1096, label %1711, label %_ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit687
@@ -6800,7 +6800,7 @@ _ZN9regalloc27Operand4vreg17hfc8010cac40dece7E.exit687: ; preds = %1716, %1699, 
   br i1 %.not.i.i.i.i1108, label %1765, label %1768
 
 1765:                                             ; preds = %1764
-  %1766 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1106, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1766 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1106, splat (i8 -1)
   %1767 = bitcast <16 x i1> %1766 to i16
   %cond.i.i.i.i1116 = icmp eq i16 %1767, 0
   br i1 %cond.i.i.i.i1116, label %1777, label %_ZN9regalloc28indexset11AdaptiveMap3get17ha6a3e35ef1f17d37E.exit.i732.thread
@@ -7140,7 +7140,7 @@ _ZN9regalloc28indexset11AdaptiveMap3get17ha6a3e35ef1f17d37E.exit.i732.thread: ; 
   br i1 %.not.i.i.i1152, label %1895, label %1898
 
 1895:                                             ; preds = %1894
-  %1896 = icmp eq <16 x i8> %.0.copyload.i29.i.i1150, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1896 = icmp eq <16 x i8> %.0.copyload.i29.i.i1150, splat (i8 -1)
   %1897 = bitcast <16 x i1> %1896 to i16
   %cond.i.i.i1159 = icmp eq i16 %1897, 0
   br i1 %cond.i.i.i1159, label %1907, label %1912
@@ -7315,7 +7315,7 @@ _ZN9regalloc28indexset11AdaptiveMap3get17ha6a3e35ef1f17d37E.exit.i732.thread: ; 
   br i1 %.not.i.i.i.i1173, label %1967, label %1970
 
 1967:                                             ; preds = %1966
-  %1968 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1171, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1968 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1171, splat (i8 -1)
   %1969 = bitcast <16 x i1> %1968 to i16
   %cond.i.i.i.i1181 = icmp eq i16 %1969, 0
   br i1 %cond.i.i.i.i1181, label %1979, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4aae47036ebc7976E.exit"
@@ -7573,7 +7573,7 @@ select.unfold.i1190:                              ; preds = %.noexc1191, %2015
   br i1 %.not.i.i.i.i1204, label %2069, label %2072
 
 2069:                                             ; preds = %2068
-  %2070 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1202, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2070 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i1202, splat (i8 -1)
   %2071 = bitcast <16 x i1> %2070 to i16
   %cond.i.i.i.i1209 = icmp eq i16 %2071, 0
   br i1 %cond.i.i.i.i1209, label %2081, label %2087
@@ -8135,7 +8135,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc1247
   br i1 %.not.i.i.i1288, label %2302, label %2305
 
 2302:                                             ; preds = %2301
-  %2303 = icmp eq <16 x i8> %.0.copyload.i29.i.i1286, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %2303 = icmp eq <16 x i8> %.0.copyload.i29.i.i1286, splat (i8 -1)
   %2304 = bitcast <16 x i1> %2303 to i16
   %cond.i.i.i1295 = icmp eq i16 %2304, 0
   br i1 %cond.i.i.i1295, label %2314, label %2319
@@ -9988,7 +9988,7 @@ define hidden void @"_ZN9regalloc23ion4dump63_$LT$impl$u20$regalloc2..ion..data_
   br i1 %.not.i.i.i.i, label %266, label %269
 
 266:                                              ; preds = %265
-  %267 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %267 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %268 = bitcast <16 x i1> %267 to i16
   %cond.i.i.i.i = icmp eq i16 %268, 0
   br i1 %cond.i.i.i.i, label %278, label %._crit_edge
@@ -10345,7 +10345,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %360
   br i1 %.not.i.i.i.i195, label %401, label %404
 
 401:                                              ; preds = %400
-  %402 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i193, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %402 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i193, splat (i8 -1)
   %403 = bitcast <16 x i1> %402 to i16
   %cond.i.i.i.i203 = icmp eq i16 %403, 0
   br i1 %cond.i.i.i.i203, label %413, label %._crit_edge464
@@ -11096,7 +11096,7 @@ define internal fastcc void @"_ZN9regalloc23ion4dump63_$LT$impl$u20$regalloc2..i
   br i1 %.not.i.i.i, label %35, label %38
 
 35:                                               ; preds = %34
-  %36 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %36 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %37 = bitcast <16 x i1> %36 to i16
   %cond.i.i.i = icmp eq i16 %37, 0
   br i1 %cond.i.i.i, label %47, label %51
@@ -14051,7 +14051,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %201
   br i1 %.not.i.i.i.i219, label %457, label %460
 
 457:                                              ; preds = %456
-  %458 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %458 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %459 = bitcast <16 x i1> %458 to i16
   %cond.i.i.i.i = icmp eq i16 %459, 0
   br i1 %cond.i.i.i.i, label %469, label %select.unfold
@@ -14156,7 +14156,7 @@ select.unfold:                                    ; preds = %457, %486
   br i1 %.not.i.i.i.i234, label %500, label %503
 
 500:                                              ; preds = %499
-  %501 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i232, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %501 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i232, splat (i8 -1)
   %502 = bitcast <16 x i1> %501 to i16
   %cond.i.i.i.i242 = icmp eq i16 %502, 0
   br i1 %cond.i.i.i.i242, label %512, label %select.unfold428
@@ -14479,7 +14479,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i: ; preds = %.noexc258
   br i1 %.not.i.i.i.i269, label %638, label %641
 
 638:                                              ; preds = %637
-  %639 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i267, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %639 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i267, splat (i8 -1)
   %640 = bitcast <16 x i1> %639 to i16
   %cond.i.i.i.i274 = icmp eq i16 %640, 0
   br i1 %cond.i.i.i.i274, label %650, label %655
@@ -15983,7 +15983,7 @@ define hidden void @"_ZN9regalloc23ion5moves63_$LT$impl$u20$regalloc2..ion..data
   br i1 %.not.i.i.i.i, label %481, label %484
 
 481:                                              ; preds = %480
-  %482 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %482 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %483 = bitcast <16 x i1> %482 to i16
   %cond.i.i.i.i = icmp eq i16 %483, 0
   br i1 %cond.i.i.i.i, label %493, label %select.unfold
@@ -17290,7 +17290,7 @@ switch.edge.i:                                    ; preds = %874
   br i1 %.not.i.i.i.i796, label %1034, label %1037
 
 1034:                                             ; preds = %1033
-  %1035 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i794, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1035 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i794, splat (i8 -1)
   %1036 = bitcast <16 x i1> %1035 to i16
   %cond.i.i.i.i803 = icmp eq i16 %1036, 0
   br i1 %cond.i.i.i.i803, label %1046, label %select.unfold1178
@@ -17966,7 +17966,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit830: ; preds = %1201
   br i1 %.not.i.i.i836, label %1301, label %1304
 
 1301:                                             ; preds = %1300
-  %1302 = icmp eq <16 x i8> %.0.copyload.i29.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1302 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %1303 = bitcast <16 x i1> %1302 to i16
   %cond.i.i.i = icmp eq i16 %1303, 0
   br i1 %cond.i.i.i, label %1313, label %1327
@@ -18281,7 +18281,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit830: ; preds = %1201
   br i1 %.not.i.i.i852, label %1442, label %1445
 
 1442:                                             ; preds = %1441
-  %1443 = icmp eq <16 x i8> %.0.copyload.i29.i.i850, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1443 = icmp eq <16 x i8> %.0.copyload.i29.i.i850, splat (i8 -1)
   %1444 = bitcast <16 x i1> %1443 to i16
   %cond.i.i.i859 = icmp eq i16 %1444, 0
   br i1 %cond.i.i.i859, label %1454, label %1470
@@ -18716,7 +18716,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit906: ; preds = %1544
   br i1 %.not.i.i.i.i.i908, label %1622, label %1625
 
 1622:                                             ; preds = %1621
-  %1623 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1623 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %1624 = bitcast <16 x i1> %1623 to i16
   %cond.i.i.i.i.i = icmp eq i16 %1624, 0
   br i1 %cond.i.i.i.i.i, label %1634, label %.backedge1278
@@ -21588,7 +21588,7 @@ define hidden void @"_ZN9regalloc23ion63_$LT$impl$u20$regalloc2..ion..data_struc
   br i1 %.not.i.i.i286.i, label %400, label %403
 
 400:                                              ; preds = %399
-  %401 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %401 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %402 = bitcast <16 x i1> %401 to i16
   %cond.i.i.i.i = icmp eq i16 %402, 0
   br i1 %cond.i.i.i.i, label %412, label %.loopexit716.i
@@ -21620,11 +21620,11 @@ define hidden void @"_ZN9regalloc23ion63_$LT$impl$u20$regalloc2..ion..data_struc
   %418 = and i64 %417, %393
   %419 = getelementptr inbounds i8, ptr %394, i64 %418
   %.0.copyload.i20.i.i.i.i = load <16 x i8>, ptr %419, align 1, !noalias !3386
-  %420 = icmp eq <16 x i8> %.0.copyload.i20.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %420 = icmp eq <16 x i8> %.0.copyload.i20.i.i.i.i, splat (i8 -1)
   %421 = bitcast <16 x i1> %420 to i16
   %422 = getelementptr inbounds i8, ptr %394, i64 %416
   %.0.copyload.i421.i.i.i.i = load <16 x i8>, ptr %422, align 1, !noalias !3389
-  %423 = icmp eq <16 x i8> %.0.copyload.i421.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %423 = icmp eq <16 x i8> %.0.copyload.i421.i.i.i.i, splat (i8 -1)
   %424 = bitcast <16 x i1> %423 to i16
   %425 = call range(i16 0, 17) i16 @llvm.ctlz.i16(i16 %421, i1 false)
   %426 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %424, i1 false)
@@ -21975,7 +21975,7 @@ define hidden void @"_ZN9regalloc23ion63_$LT$impl$u20$regalloc2..ion..data_struc
   br i1 %.not.i.i.i.i.i, label %577, label %580
 
 577:                                              ; preds = %576
-  %578 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %578 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %579 = bitcast <16 x i1> %578 to i16
   %cond.i.i.i.i.i = icmp eq i16 %579, 0
   br i1 %cond.i.i.i.i.i, label %589, label %_ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit.i
@@ -22222,7 +22222,7 @@ _ZN9regalloc28indexset8IndexSet14maybe_elem_mut17h41db4d866c1e0842E.exit.i.i: ; 
   br i1 %.not.i.i.i.not.i.i, label %669, label %672
 
 669:                                              ; preds = %668
-  %670 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i314.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %670 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i314.i, splat (i8 -1)
   %671 = bitcast <16 x i1> %670 to i16
   %cond.i.i.i.i319.i = icmp eq i16 %671, 0
   br i1 %cond.i.i.i.i319.i, label %681, label %.loopexit.i24
@@ -22270,7 +22270,7 @@ _ZN9regalloc28indexset8IndexSet14maybe_elem_mut17h41db4d866c1e0842E.exit.i.i: ; 
   br i1 %.not.i.i.i.not.not.not.i.not.i, label %690, label %693
 
 690:                                              ; preds = %689
-  %691 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i327.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %691 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i327.i, splat (i8 -1)
   %692 = bitcast <16 x i1> %691 to i16
   %cond.i.i.i.i329.i = icmp eq i16 %692, 0
   br i1 %cond.i.i.i.i329.i, label %702, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7get_mut17hbe4d898a4d3cc59aE.exit.i.i"
@@ -22617,7 +22617,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.i.thread.i: ; preds =
   br i1 %.not.i.i.i.i356.i, label %841, label %844
 
 841:                                              ; preds = %840
-  %842 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i354.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %842 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i354.i, splat (i8 -1)
   %843 = bitcast <16 x i1> %842 to i16
   %cond.i.i.i.i363.i = icmp eq i16 %843, 0
   br i1 %cond.i.i.i.i363.i, label %853, label %.thread649.i
@@ -22779,7 +22779,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.i.thread.i: ; preds =
   br i1 %.not.i.i.i.i376.i, label %913, label %916
 
 913:                                              ; preds = %912
-  %914 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i374.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %914 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i374.i, splat (i8 -1)
   %915 = bitcast <16 x i1> %914 to i16
   %cond.i.i.i.i384.i = icmp eq i16 %915, 0
   br i1 %cond.i.i.i.i384.i, label %925, label %_ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit221.i
@@ -23044,7 +23044,7 @@ _ZN9regalloc28indexset8IndexSet3set17hbba845ad6eb3a646E.exit221.i: ; preds = %93
   br i1 %.not.i.i.i403.i, label %1011, label %1014
 
 1011:                                             ; preds = %1010
-  %1012 = icmp eq <16 x i8> %.0.copyload.i29.i.i401.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1012 = icmp eq <16 x i8> %.0.copyload.i29.i.i401.i, splat (i8 -1)
   %1013 = bitcast <16 x i1> %1012 to i16
   %cond.i.i.i406.i = icmp eq i16 %1013, 0
   br i1 %cond.i.i.i406.i, label %1023, label %1028
@@ -23343,7 +23343,7 @@ switch.lookup:                                    ; preds = %1041
   br i1 %.not.i.i.i445.i, label %1117, label %1120
 
 1117:                                             ; preds = %1116
-  %1118 = icmp eq <16 x i8> %.0.copyload.i29.i.i443.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1118 = icmp eq <16 x i8> %.0.copyload.i29.i.i443.i, splat (i8 -1)
   %1119 = bitcast <16 x i1> %1118 to i16
   %cond.i.i.i452.i = icmp eq i16 %1119, 0
   br i1 %cond.i.i.i452.i, label %1129, label %1134
@@ -23800,7 +23800,7 @@ switch.lookup:                                    ; preds = %1041
   br i1 %.not.i.i.i.not.not.not.i479.not.i, label %1303, label %1306
 
 1303:                                             ; preds = %1302
-  %1304 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i477.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1304 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i477.i, splat (i8 -1)
   %1305 = bitcast <16 x i1> %1304 to i16
   %cond.i.i.i.i480.i = icmp eq i16 %1305, 0
   br i1 %cond.i.i.i.i480.i, label %1315, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7get_mut17hbe4d898a4d3cc59aE.exit.i481.i"
@@ -30717,7 +30717,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i: ; preds = %.noexc449.i
   br i1 %.not.i.i.i.not.not.not.i.not.i, label %529, label %532
 
 529:                                              ; preds = %528
-  %530 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %530 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %531 = bitcast <16 x i1> %530 to i16
   %cond.i.i.i.i.i = icmp eq i16 %531, 0
   br i1 %cond.i.i.i.i.i, label %541, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7get_mut17h5c7fd0792aae1c3dE.exit.i.i"
@@ -30913,7 +30913,7 @@ _ZN8smallvec10infallible17heb7d46c8e758169bE.exit.i.i: ; preds = %.noexc449.i
   br i1 %.not.i.i.i.not.not.not.i464.not.i, label %621, label %624
 
 621:                                              ; preds = %620
-  %622 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i462.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %622 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i462.i, splat (i8 -1)
   %623 = bitcast <16 x i1> %622 to i16
   %cond.i.i.i.i465.i = icmp eq i16 %623, 0
   br i1 %cond.i.i.i.i465.i, label %633, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7get_mut17h9b78223c41a5391bE.exit.i.i"
@@ -36738,7 +36738,7 @@ _ZN5alloc11collections5btree3mem7replace17h901013d7eff92206E.llvm.26514680571674
   br i1 %.not.i.i.i.not.not.not.i.not, label %363, label %366
 
 363:                                              ; preds = %362
-  %364 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %364 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %365 = bitcast <16 x i1> %364 to i16
   %cond.i.i.i.i = icmp eq i16 %365, 0
   br i1 %cond.i.i.i.i, label %375, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7get_mut17haf29ede63233e3b3E.exit.i"
@@ -37562,7 +37562,7 @@ define hidden void @"_ZN9regalloc23ion8stackmap63_$LT$impl$u20$regalloc2..ion..d
   br i1 %.not.i.i.i.i, label %145, label %148
 
 145:                                              ; preds = %144
-  %146 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %146 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %147 = bitcast <16 x i1> %146 to i16
   %cond.i.i.i.i = icmp eq i16 %147, 0
   br i1 %cond.i.i.i.i, label %157, label %select.unfold

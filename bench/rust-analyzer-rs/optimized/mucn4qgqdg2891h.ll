@@ -18553,7 +18553,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9has
   br i1 %.not.i4.not.i.i, label %15, label %18
 
 15:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i"
-  %16 = icmp eq <16 x i8> %.0.copyload.i25.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %16 = icmp eq <16 x i8> %.0.copyload.i25.i.i, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not.i.i.i = icmp eq i16 %17, 0
   br i1 %.not.i.i.i, label %27, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h124e8400e0fc6686E.exit"
@@ -22744,7 +22744,7 @@ define hidden void @_ZN7hir_def9item_tree6pretty15print_item_tree17h975f15a25043
   br i1 %.not.i4.not.i.i.i, label %26, label %29
 
 26:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %27 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %27 = icmp eq <16 x i8> %.0.copyload.i21.i.i.i, splat (i8 -1)
   %28 = bitcast <16 x i1> %27 to i16
   %.not.i.i.i.i = icmp eq i16 %28, 0
   br i1 %.not.i.i.i.i, label %38, label %.thread
@@ -38502,7 +38502,7 @@ define hidden void @_ZN7hir_def7nameres9collector12collect_defs17h9f264215de8675
   br i1 %.not.i4.not.i.i.i, label %218, label %221
 
 218:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %219 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %219 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %220 = bitcast <16 x i1> %219 to i16
   %.not.i.i.i.i = icmp eq i16 %220, 0
   br i1 %.not.i.i.i.i, label %230, label %select.unfold
@@ -42588,7 +42588,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit.i.i: ; preds = %1116, %11
   br i1 %.not.i4.not.i.i.i.i.i.i, label %1495, label %1498
 
 1495:                                             ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i.i.i.i"
-  %1496 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1496 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i.i.i, splat (i8 -1)
   %1497 = bitcast <16 x i1> %1496 to i16
   %.not.i.i.i.i.i.i.i = icmp eq i16 %1497, 0
   br i1 %.not.i.i.i.i.i.i.i, label %1507, label %select.unfold.i.i.i
@@ -46237,7 +46237,7 @@ define internal fastcc { i32, i32 } @_ZN7hir_def7nameres9collector12DefCollector
   br label %.lr.ph.us.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h53d9de0f7782019fE.exit._crit_edge.split.us.us.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h53d9de0f7782019fE.exit.backedge.us.us.i.i.i", %.split36.us.i.i.i
-  %46 = icmp eq <16 x i8> %.0.copyload.i26.us.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %46 = icmp eq <16 x i8> %.0.copyload.i26.us.i.i.i, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
   %.not.i.us.i.i.i = icmp eq i16 %47, 0
   br i1 %.not.i.us.i.i.i, label %48, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1124517e1e80e2f4E.exit.thread"
@@ -46290,7 +46290,7 @@ define internal fastcc { i32, i32 } @_ZN7hir_def7nameres9collector12DefCollector
   br label %.lr.ph.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h53d9de0f7782019fE.exit._crit_edge.split.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h53d9de0f7782019fE.exit.backedge.i.i.i", %.split36.i.i.i
-  %72 = icmp eq <16 x i8> %.0.copyload.i26.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %72 = icmp eq <16 x i8> %.0.copyload.i26.i.i.i, splat (i8 -1)
   %73 = bitcast <16 x i1> %72 to i16
   %.not.i.i.i.i = icmp eq i16 %73, 0
   br i1 %.not.i.i.i.i, label %86, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h1124517e1e80e2f4E.exit.thread"
@@ -47510,7 +47510,7 @@ _ZN7hir_def8ModuleId7def_map17h12ba535c1628be3bE.exit379: ; preds = %411
   br i1 %.not.i4.not.i.i.i, label %440, label %443
 
 440:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %441 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %441 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %442 = bitcast <16 x i1> %441 to i16
   %.not.i.i.i.i = icmp eq i16 %442, 0
   br i1 %.not.i.i.i.i, label %452, label %select.unfold
@@ -48353,7 +48353,7 @@ define internal fastcc void @_ZN7hir_def7nameres9collector12DefCollector16update
   br i1 %.not.i4.not.i.i.i, label %80, label %83
 
 80:                                               ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %81 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %81 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %82 = bitcast <16 x i1> %81 to i16
   %.not.i.i.i.i = icmp eq i16 %82, 0
   br i1 %.not.i.i.i.i, label %92, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h7ebc00e5cba159f2E.exit.i"
@@ -49603,7 +49603,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %.not.i4.not.i.i.i, label %248, label %251
 
 248:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %249 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %249 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %250 = bitcast <16 x i1> %249 to i16
   %.not.i.i.i.i = icmp eq i16 %250, 0
   br i1 %.not.i.i.i.i, label %260, label %select.unfold
@@ -50706,7 +50706,7 @@ define internal fastcc void @"_ZN7hir_def7nameres9collector12ModCollector7collec
   br label %.lr.ph.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h80c1f1a9c61ad7e2E.exit._crit_edge.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h80c1f1a9c61ad7e2E.exit.backedge.i.i.i.i", %233
-  %239 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %239 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %240 = bitcast <16 x i1> %239 to i16
   %.not.i.i.i.i.i = icmp eq i16 %240, 0
   br i1 %.not.i.i.i.i.i, label %256, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17he6829337e159cd3cE.exit.thread.i"

@@ -8618,7 +8618,7 @@ common.ret:                                       ; preds = %752, %755
   br i1 %406, label %"_ZN3std11collections4hash3set20HashSet$LT$T$C$S$GT$8contains17h7f7a9757072bac6dE.exit.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h583941f38a98709bE.exit.thread.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h583941f38a98709bE.exit.thread.i.i.i.i", %383
-  %407 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %407 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, splat (i8 -1)
   %408 = bitcast <16 x i1> %407 to i16
   %.not.i.i.i.i.i = icmp eq i16 %408, 0
   br i1 %.not.i.i.i.i.i, label %412, label %.loopexit429.loopexit.i
@@ -12503,7 +12503,7 @@ common.ret:                                       ; preds = %822, %825
   br i1 %430, label %"_ZN3std11collections4hash3set20HashSet$LT$T$C$S$GT$8contains17h7f7a9757072bac6dE.exit.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h583941f38a98709bE.exit.thread.i.i.i.i"
 
 ._crit_edge.i.i.i.i:                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h583941f38a98709bE.exit.thread.i.i.i.i", %407
-  %431 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %431 = icmp eq <16 x i8> %.sroa.0.0.copyload.i24.i.i.i.i, splat (i8 -1)
   %432 = bitcast <16 x i1> %431 to i16
   %.not.i.i.i.i.i = icmp eq i16 %432, 0
   br i1 %.not.i.i.i.i.i, label %436, label %.loopexit447.loopexit.i

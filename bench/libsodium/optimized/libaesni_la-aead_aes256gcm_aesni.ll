@@ -202,14 +202,14 @@ encrypt.exit:                                     ; preds = %for.body.i
   %56 = bitcast <2 x i64> %55 to <16 x i8>
   %57 = shufflevector <16 x i8> %56, <16 x i8> poison, <16 x i32> <i32 15, i32 14, i32 13, i32 12, i32 11, i32 10, i32 9, i32 8, i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   %58 = bitcast <16 x i8> %57 to <2 x i64>
-  %.neg.i = ashr <2 x i64> %58, <i64 63, i64 63>
+  %.neg.i = ashr <2 x i64> %58, splat (i64 63)
   %59 = bitcast <2 x i64> %.neg.i to <4 x i32>
   %permil.i6 = shufflevector <4 x i32> %59, <4 x i32> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %60 = bitcast <4 x i32> %permil.i6 to <2 x i64>
   %and.i.i = and <2 x i64> %60, <i64 1, i64 -4467570830351532032>
   %pslldq.i7 = shufflevector <16 x i8> <i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0, i8 0>, <16 x i8> %57, <16 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
   %cast9.i = bitcast <16 x i8> %pslldq.i7 to <2 x i64>
-  %or.i.i = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %58, <2 x i64> %cast9.i, <2 x i64> <i64 1, i64 1>)
+  %or.i.i = tail call <2 x i64> @llvm.fshl.v2i64(<2 x i64> %58, <2 x i64> %cast9.i, <2 x i64> splat (i64 1))
   %xor.i.i8 = xor <2 x i64> %and.i.i, %or.i.i
   store <2 x i64> %xor.i.i8, ptr %hx, align 16
   %61 = tail call <2 x i64> @llvm.x86.pclmulqdq(<2 x i64> %xor.i.i8, <2 x i64> %xor.i.i8, i8 0)

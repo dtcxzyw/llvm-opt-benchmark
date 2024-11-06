@@ -139,130 +139,130 @@ entry:
   %encode_buf.i = getelementptr inbounds i8, ptr %call.i, i64 1280
   tail call void @strbuf_init(ptr noundef nonnull %encode_buf.i, i64 noundef 0) #12
   %0 = getelementptr inbounds i8, ptr %call.i, i64 16
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %call.i, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %0, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %call.i, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %0, align 4, !tbaa !4
   %1 = getelementptr inbounds i8, ptr %call.i, i64 32
   %2 = getelementptr inbounds i8, ptr %call.i, i64 48
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %1, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %2, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %1, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %2, align 4, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %call.i, i64 64
   %4 = getelementptr inbounds i8, ptr %call.i, i64 80
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %3, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %4, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %3, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %4, align 4, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %call.i, i64 96
   %6 = getelementptr inbounds i8, ptr %call.i, i64 112
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %5, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %6, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %5, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %6, align 4, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %call.i, i64 128
   %8 = getelementptr inbounds i8, ptr %call.i, i64 144
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %7, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %8, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %7, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %8, align 4, !tbaa !4
   %9 = getelementptr inbounds i8, ptr %call.i, i64 160
   %10 = getelementptr inbounds i8, ptr %call.i, i64 176
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %9, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %10, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %9, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %10, align 4, !tbaa !4
   %11 = getelementptr inbounds i8, ptr %call.i, i64 192
   %12 = getelementptr inbounds i8, ptr %call.i, i64 208
   %13 = getelementptr inbounds i8, ptr %call.i, i64 224
   %14 = getelementptr inbounds i8, ptr %call.i, i64 240
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %13, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %14, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %13, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %14, align 4, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %call.i, i64 256
   %16 = getelementptr inbounds i8, ptr %call.i, i64 272
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %15, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %16, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %15, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %16, align 4, !tbaa !4
   %17 = getelementptr inbounds i8, ptr %call.i, i64 288
   %18 = getelementptr inbounds i8, ptr %call.i, i64 304
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %17, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %18, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %17, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %18, align 4, !tbaa !4
   %19 = getelementptr inbounds i8, ptr %call.i, i64 320
   %20 = getelementptr inbounds i8, ptr %call.i, i64 336
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %19, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %20, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %19, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %20, align 4, !tbaa !4
   %21 = getelementptr inbounds i8, ptr %call.i, i64 352
   %22 = getelementptr inbounds i8, ptr %call.i, i64 368
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %21, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %22, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %21, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %22, align 4, !tbaa !4
   %23 = getelementptr inbounds i8, ptr %call.i, i64 384
   %24 = getelementptr inbounds i8, ptr %call.i, i64 400
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %23, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %24, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %23, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %24, align 4, !tbaa !4
   %25 = getelementptr inbounds i8, ptr %call.i, i64 416
   %26 = getelementptr inbounds i8, ptr %call.i, i64 432
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %25, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %26, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %25, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %26, align 4, !tbaa !4
   %27 = getelementptr inbounds i8, ptr %call.i, i64 448
   %28 = getelementptr inbounds i8, ptr %call.i, i64 464
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %27, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %28, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %27, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %28, align 4, !tbaa !4
   %29 = getelementptr inbounds i8, ptr %call.i, i64 480
   %30 = getelementptr inbounds i8, ptr %call.i, i64 496
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %29, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %30, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %29, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %30, align 4, !tbaa !4
   %31 = getelementptr inbounds i8, ptr %call.i, i64 512
   %32 = getelementptr inbounds i8, ptr %call.i, i64 528
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %31, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %32, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %31, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %32, align 4, !tbaa !4
   %33 = getelementptr inbounds i8, ptr %call.i, i64 544
   %34 = getelementptr inbounds i8, ptr %call.i, i64 560
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %33, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %34, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %33, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %34, align 4, !tbaa !4
   %35 = getelementptr inbounds i8, ptr %call.i, i64 576
   %36 = getelementptr inbounds i8, ptr %call.i, i64 592
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %35, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %36, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %35, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %36, align 4, !tbaa !4
   %37 = getelementptr inbounds i8, ptr %call.i, i64 608
   %38 = getelementptr inbounds i8, ptr %call.i, i64 624
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %37, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %38, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %37, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %38, align 4, !tbaa !4
   %39 = getelementptr inbounds i8, ptr %call.i, i64 640
   %40 = getelementptr inbounds i8, ptr %call.i, i64 656
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %39, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %40, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %39, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %40, align 4, !tbaa !4
   %41 = getelementptr inbounds i8, ptr %call.i, i64 672
   %42 = getelementptr inbounds i8, ptr %call.i, i64 688
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %41, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %42, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %41, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %42, align 4, !tbaa !4
   %43 = getelementptr inbounds i8, ptr %call.i, i64 704
   %44 = getelementptr inbounds i8, ptr %call.i, i64 720
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %43, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %44, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %43, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %44, align 4, !tbaa !4
   %45 = getelementptr inbounds i8, ptr %call.i, i64 736
   %46 = getelementptr inbounds i8, ptr %call.i, i64 752
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %45, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %46, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %45, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %46, align 4, !tbaa !4
   %47 = getelementptr inbounds i8, ptr %call.i, i64 768
   %48 = getelementptr inbounds i8, ptr %call.i, i64 784
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %47, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %48, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %47, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %48, align 4, !tbaa !4
   %49 = getelementptr inbounds i8, ptr %call.i, i64 800
   %50 = getelementptr inbounds i8, ptr %call.i, i64 816
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %49, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %50, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %49, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %50, align 4, !tbaa !4
   %51 = getelementptr inbounds i8, ptr %call.i, i64 832
   %52 = getelementptr inbounds i8, ptr %call.i, i64 848
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %51, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %52, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %51, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %52, align 4, !tbaa !4
   %53 = getelementptr inbounds i8, ptr %call.i, i64 864
   %54 = getelementptr inbounds i8, ptr %call.i, i64 880
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %53, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %54, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %53, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %54, align 4, !tbaa !4
   %55 = getelementptr inbounds i8, ptr %call.i, i64 896
   %56 = getelementptr inbounds i8, ptr %call.i, i64 912
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %55, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %56, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %55, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %56, align 4, !tbaa !4
   %57 = getelementptr inbounds i8, ptr %call.i, i64 928
   %58 = getelementptr inbounds i8, ptr %call.i, i64 944
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %57, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %58, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %57, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %58, align 4, !tbaa !4
   %59 = getelementptr inbounds i8, ptr %call.i, i64 960
   %60 = getelementptr inbounds i8, ptr %call.i, i64 976
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %59, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %60, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %59, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %60, align 4, !tbaa !4
   %61 = getelementptr inbounds i8, ptr %call.i, i64 992
   %62 = getelementptr inbounds i8, ptr %call.i, i64 1008
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %61, align 4, !tbaa !4
-  store <4 x i32> <i32 12, i32 12, i32 12, i32 12>, ptr %62, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %61, align 4, !tbaa !4
+  store <4 x i32> splat (i32 12), ptr %62, align 4, !tbaa !4
   %arrayidx3.i = getelementptr inbounds i8, ptr %call.i, i64 492
   store i32 0, ptr %arrayidx3.i, align 4, !tbaa !4
   %arrayidx5.i = getelementptr inbounds i8, ptr %call.i, i64 500
@@ -299,8 +299,8 @@ entry:
   store i32 13, ptr %arrayidx39.i, align 4, !tbaa !4
   %arrayidx41.i = getelementptr inbounds i8, ptr %call.i, i64 180
   store i32 13, ptr %arrayidx41.i, align 4, !tbaa !4
-  store <4 x i32> <i32 13, i32 13, i32 13, i32 13>, ptr %11, align 4, !tbaa !4
-  store <4 x i32> <i32 13, i32 13, i32 13, i32 13>, ptr %12, align 4, !tbaa !4
+  store <4 x i32> splat (i32 13), ptr %11, align 4, !tbaa !4
+  store <4 x i32> splat (i32 13), ptr %12, align 4, !tbaa !4
   store i32 13, ptr %13, align 4, !tbaa !4
   %arrayidx47.9.i = getelementptr inbounds i8, ptr %call.i, i64 228
   store i32 13, ptr %arrayidx47.9.i, align 4, !tbaa !4

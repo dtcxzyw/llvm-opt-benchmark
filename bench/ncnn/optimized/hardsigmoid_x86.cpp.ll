@@ -115,7 +115,7 @@ define hidden noundef i32 @_ZNK4ncnn15HardSigmoid_x8615forward_inplaceERNS_3MatE
   %54 = fmul fast <4 x float> %53, %48
   %55 = fadd fast <4 x float> %54, %51
   %56 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %55, <4 x float> zeroinitializer)
-  %57 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %56, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %57 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %56, <4 x float> splat (float 1.000000e+00))
   store <4 x float> %57, ptr %.091110.us, align 16
   %58 = getelementptr inbounds i8, ptr %.091110.us, i64 16
   %59 = add nuw nsw i32 %.092109.us, 4

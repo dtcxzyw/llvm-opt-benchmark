@@ -766,7 +766,7 @@ define noundef i32 @dgemm_small_kernel_b0_tn(i64 noundef %0, i64 noundef %1, i64
   %656 = mul nsw i64 %539, %9
   %657 = add nsw i64 %656, %514
   %658 = getelementptr inbounds double, ptr %8, i64 %657
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %658, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %20, <4 x double> %655, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %658, <4 x i1> splat (i1 true), <4 x i64> %20, <4 x double> %655, i32 8)
   %659 = shufflevector <8 x double> %639, <8 x double> %637, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
   %660 = shufflevector <8 x double> %639, <8 x double> %637, <8 x i32> <i32 1, i32 9, i32 3, i32 11, i32 5, i32 13, i32 7, i32 15>
   %661 = shufflevector <8 x double> %635, <8 x double> %633, <8 x i32> <i32 0, i32 8, i32 2, i32 10, i32 4, i32 12, i32 6, i32 14>
@@ -784,7 +784,7 @@ define noundef i32 @dgemm_small_kernel_b0_tn(i64 noundef %0, i64 noundef %1, i64
   %673 = fmul <4 x double> %22, %672
   %674 = or disjoint i64 %657, 1
   %675 = getelementptr inbounds double, ptr %8, i64 %674
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %675, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %20, <4 x double> %673, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr nonnull %675, <4 x i1> splat (i1 true), <4 x i64> %20, <4 x double> %673, i32 8)
   %676 = add nuw nsw i64 %539, 4
   %677 = icmp slt i64 %676, %13
   br i1 %677, label %538, label %.loopexit65, !llvm.loop !16
@@ -1104,7 +1104,7 @@ define noundef i32 @dgemm_small_kernel_b0_tn(i64 noundef %0, i64 noundef %1, i64
   %925 = fmul <4 x double> %22, %924
   %926 = mul nsw i64 %833, %9
   %927 = getelementptr double, ptr %823, i64 %926
-  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %927, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i64> %20, <4 x double> %925, i32 8)
+  tail call void @llvm.x86.avx512.mask.scatterdiv4.df(ptr %927, <4 x i1> splat (i1 true), <4 x i64> %20, <4 x double> %925, i32 8)
   %928 = add nuw nsw i64 %833, 4
   %929 = icmp slt i64 %928, %13
   br i1 %929, label %832, label %.loopexit58, !llvm.loop !25

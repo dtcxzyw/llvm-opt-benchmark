@@ -9139,7 +9139,7 @@ define hidden void @_ZN8type_map10concurrent7TypeMap5entry17he63e81e3f6526c3eE(p
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %11
   %15 = getelementptr inbounds i8, ptr %10, i64 %.sroa.01.0.i.i.i
   %.0.copyload.i21.i.i = load <16 x i8>, ptr %15, align 1, !noalias !1392
-  %16 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40, i8 40>
+  %16 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 40)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3), !noalias !1395
   store <16 x i1> %16, ptr %3, align 2, !noalias !1395
   br label %17
@@ -9152,7 +9152,7 @@ define hidden void @_ZN8type_map10concurrent7TypeMap5entry17he63e81e3f6526c3eE(p
 
 19:                                               ; preds = %17
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %3), !noalias !1395
-  %20 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %20 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i, label %26, label %29

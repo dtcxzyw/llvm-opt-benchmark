@@ -395,9 +395,9 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 220:                                              ; preds = %220, %216
   %221 = phi i64 [ 0, %216 ], [ %238, %220 ]
   %222 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %216 ], [ %239, %220 ]
-  %223 = add <4 x i64> %222, <i64 4, i64 4, i64 4, i64 4>
-  %224 = add <4 x i64> %222, <i64 8, i64 8, i64 8, i64 8>
-  %225 = add <4 x i64> %222, <i64 12, i64 12, i64 12, i64 12>
+  %223 = add <4 x i64> %222, splat (i64 4)
+  %224 = add <4 x i64> %222, splat (i64 8)
+  %225 = add <4 x i64> %222, splat (i64 12)
   %226 = mul <4 x i64> %222, %219
   %227 = mul <4 x i64> %223, %219
   %228 = mul <4 x i64> %224, %219
@@ -415,7 +415,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   store <4 x ptr> %232, ptr %236, align 64, !tbaa !14
   store <4 x ptr> %233, ptr %237, align 32, !tbaa !14
   %238 = add nuw nsw i64 %221, 16
-  %239 = add <4 x i64> %222, <i64 16, i64 16, i64 16, i64 16>
+  %239 = add <4 x i64> %222, splat (i64 16)
   %240 = icmp eq i64 %238, %217
   br i1 %240, label %241, label %220, !llvm.loop !28
 
@@ -445,9 +445,9 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
 255:                                              ; preds = %255, %251
   %256 = phi i64 [ 0, %251 ], [ %273, %255 ]
   %257 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %251 ], [ %274, %255 ]
-  %258 = add <4 x i64> %257, <i64 4, i64 4, i64 4, i64 4>
-  %259 = add <4 x i64> %257, <i64 8, i64 8, i64 8, i64 8>
-  %260 = add <4 x i64> %257, <i64 12, i64 12, i64 12, i64 12>
+  %258 = add <4 x i64> %257, splat (i64 4)
+  %259 = add <4 x i64> %257, splat (i64 8)
+  %260 = add <4 x i64> %257, splat (i64 12)
   %261 = mul <4 x i64> %257, %254
   %262 = mul <4 x i64> %258, %254
   %263 = mul <4 x i64> %259, %254
@@ -465,7 +465,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   store <4 x ptr> %267, ptr %271, align 64, !tbaa !14
   store <4 x ptr> %268, ptr %272, align 32, !tbaa !14
   %273 = add nuw nsw i64 %256, 16
-  %274 = add <4 x i64> %257, <i64 16, i64 16, i64 16, i64 16>
+  %274 = add <4 x i64> %257, splat (i64 16)
   %275 = icmp eq i64 %273, %252
   br i1 %275, label %276, label %255, !llvm.loop !31
 

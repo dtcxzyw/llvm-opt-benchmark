@@ -11595,7 +11595,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression24is_old_expression_format17h
   br i1 %.not.i4.not.i.i.i, label %162, label %165
 
 162:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %163 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %163 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %164 = bitcast <16 x i1> %163 to i16
   %.not.i.i.i.i = icmp eq i16 %164, 0
   br i1 %.not.i.i.i.i, label %174, label %.thread889
@@ -12483,7 +12483,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_ule
   br i1 %.not.i4.not.i.i.i655, label %481, label %484
 
 481:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i653"
-  %482 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i652, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %482 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i652, splat (i8 -1)
   %483 = bitcast <16 x i1> %482 to i16
   %.not.i.i.i.i663 = icmp eq i16 %483, 0
   br i1 %.not.i.i.i.i663, label %493, label %select.unfold917
@@ -13194,7 +13194,7 @@ _ZN18wasmtime_cranelift5debug9transform10expression16ExpressionWriter13write_ule
   br i1 %.not.i4.not.i.i.i753, label %744, label %747
 
 744:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i751"
-  %745 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i750, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %745 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i750, splat (i8 -1)
   %746 = bitcast <16 x i1> %745 to i16
   %.not.i.i.i.i761 = icmp eq i16 %746, 0
   br i1 %.not.i.i.i.i761, label %756, label %.thread941
@@ -15070,7 +15070,7 @@ _ZN18wasmtime_cranelift5debug9transform8simulate28autogenerate_dwarf_wasm_path17
   br i1 %.not.i4.not.i.i.i, label %520, label %523
 
 520:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %521 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %521 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %522 = bitcast <16 x i1> %521 to i16
   %.not.i.i.i.i = icmp eq i16 %522, 0
   br i1 %.not.i.i.i.i, label %532, label %.loopexit311
@@ -15260,7 +15260,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br i1 %.not.i4.not.i.i.i192, label %592, label %595
 
 592:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i190"
-  %593 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i189, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %593 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i189, splat (i8 -1)
   %594 = bitcast <16 x i1> %593 to i16
   %.not.i.i.i.i199 = icmp eq i16 %594, 0
   br i1 %.not.i.i.i.i199, label %604, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf808d3de2b47e479E.exit.i"
@@ -15852,7 +15852,7 @@ _ZN18wasmtime_cranelift5debug9transform5utils23get_function_frame_info17h0d4451c
   br i1 %.not.i4.not.i.i.i.i, label %811, label %814
 
 811:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i.i"
-  %812 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %812 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i.i, splat (i8 -1)
   %813 = bitcast <16 x i1> %812 to i16
   %.not.i.i.i.i84.i = icmp eq i16 %813, 0
   br i1 %.not.i.i.i.i84.i, label %823, label %.loopexit.i211

@@ -170,7 +170,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %108 = extractelement <4 x i32> %81, i64 1
   %109 = and i32 %108, 2097152
   %110 = zext nneg i32 %109 to i64
-  %111 = and <4 x i32> %81, <i32 1, i32 1, i32 1, i32 1>
+  %111 = and <4 x i32> %81, splat (i32 1)
   %112 = zext nneg <4 x i32> %111 to <4 x i64>
   %113 = shl nuw nsw <4 x i64> %112, <i64 58, i64 43, i64 33, i64 51>
   %114 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %113)
@@ -190,7 +190,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %128 = and i32 %127, 262144
   %129 = zext nneg i32 %128 to i64
   %130 = or disjoint i64 %126, %129
-  %131 = and <4 x i32> %85, <i32 1, i32 1, i32 1, i32 1>
+  %131 = and <4 x i32> %85, splat (i32 1)
   %132 = zext nneg <4 x i32> %131 to <4 x i64>
   %133 = shl nuw nsw <4 x i64> %132, <i64 46, i64 49, i64 42, i64 48>
   %134 = lshr i32 %41, 13
@@ -333,7 +333,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %262 = insertelement <4 x i32> %261, i32 %192, i64 1
   %263 = shufflevector <4 x i32> %262, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 0>
   %264 = lshr <4 x i32> %263, <i32 9, i32 10, i32 29, i32 5>
-  %265 = and <4 x i32> %264, <i32 1, i32 1, i32 1, i32 1>
+  %265 = and <4 x i32> %264, splat (i32 1)
   %266 = zext nneg <4 x i32> %265 to <4 x i64>
   %267 = shl nuw nsw <4 x i64> %266, <i64 57, i64 59, i64 39, i64 60>
   %268 = shl i32 %193, 9
@@ -489,7 +489,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %402 = insertelement <4 x i32> poison, i32 %397, i64 0
   %403 = shufflevector <4 x i32> %402, <4 x i32> poison, <4 x i32> zeroinitializer
   %404 = lshr <4 x i32> %403, <i32 12, i32 11, i32 10, i32 7>
-  %405 = and <4 x i32> %404, <i32 1, i32 1, i32 1, i32 1>
+  %405 = and <4 x i32> %404, splat (i32 1)
   %406 = zext nneg <4 x i32> %405 to <4 x i64>
   %407 = shl nuw <4 x i64> %406, <i64 59, i64 60, i64 63, i64 47>
   %408 = lshr i32 %397, 19
@@ -528,7 +528,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %439 = insertelement <4 x i32> %402, i32 %398, i64 1
   %440 = shufflevector <4 x i32> %439, <4 x i32> poison, <4 x i32> <i32 0, i32 0, i32 1, i32 1>
   %441 = lshr <4 x i32> %440, <i32 23, i32 4, i32 4, i32 5>
-  %442 = and <4 x i32> %441, <i32 1, i32 1, i32 1, i32 1>
+  %442 = and <4 x i32> %441, splat (i32 1)
   %443 = zext nneg <4 x i32> %442 to <4 x i64>
   %444 = shl nuw nsw <4 x i64> %443, <i64 32, i64 34, i64 35, i64 33>
   %445 = tail call i64 @llvm.vector.reduce.or.v4i64(<4 x i64> %444)
@@ -659,7 +659,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %540 = lshr i32 %505, 11
   %541 = and i32 %540, 2048
   %542 = lshr i32 %505, 2
-  %543 = and <4 x i32> %514, <i32 1, i32 1, i32 1, i32 1>
+  %543 = and <4 x i32> %514, splat (i32 1)
   %544 = zext nneg <4 x i32> %543 to <4 x i64>
   %545 = shl nuw nsw <4 x i64> %544, <i64 52, i64 36, i64 11, i64 50>
   %546 = extractelement <4 x i64> %544, i64 2

@@ -70857,7 +70857,7 @@ default.unreachable343:                           ; preds = %1696, %1489, %1467,
   br i1 %.not.not.i.i.i.i.i.i, label %480, label %484
 
 480:                                              ; preds = %479
-  %481 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %481 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i.i, splat (i8 -1)
   %482 = bitcast <16 x i1> %481 to i16
   %483 = icmp eq i16 %482, 0
   br i1 %483, label %493, label %.loopexit.i.i

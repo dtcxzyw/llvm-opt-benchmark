@@ -699,7 +699,7 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE5clearEv.exit: ; preds = %invoke.con
   %wall_side = getelementptr inbounds i8, ptr %this, i64 80
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side, align 8, !tbaa !30
   %ref.tmp3.sroa.7.0.wall_side.sroa_idx = getelementptr inbounds i8, ptr %this, i64 96
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx, align 8, !tbaa !30
   %connected = getelementptr inbounds i8, ptr %this, i64 104
   store ptr null, ptr %connected, align 8, !tbaa !31
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -1976,7 +1976,7 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE5clearEv.exit.i: ; preds = %invoke.c
   %wall_side.i = getelementptr inbounds i8, ptr %this, i64 80
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i, align 8, !tbaa !30
   %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 96
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i, align 8, !tbaa !30
   %connected.i96 = getelementptr inbounds i8, ptr %this, i64 104
   store ptr null, ptr %connected.i96, align 8, !tbaa !31
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -7430,7 +7430,7 @@ if.end.i.i.i.i:
   store <4 x float> <float 5.000000e+00, float 5.000000e+00, float -5.000000e+00, float -5.000000e+00>, ptr %Y.i2.i.i, align 8, !tbaa !30
   store <4 x float> <float -5.000000e+00, float 5.000000e+00, float -4.375000e+00, float 5.000000e+00>, ptr %Z.i.i9.i, align 8, !tbaa !30
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i, align 8, !tbaa !30
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %Y.i2.i16.i, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %Y.i2.i16.i, align 8, !tbaa !30
   %selection_box = getelementptr inbounds i8, ptr %this, i64 3296
   %fixed.i154 = getelementptr inbounds i8, ptr %this, i64 3304
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fixed.i154, i8 0, i64 24, i1 false)
@@ -7446,7 +7446,7 @@ if.end.i.i.i.i:
   store <4 x float> <float 5.000000e+00, float 5.000000e+00, float -5.000000e+00, float -5.000000e+00>, ptr %Y.i2.i.i159, align 8, !tbaa !30
   store <4 x float> <float -5.000000e+00, float 5.000000e+00, float -4.375000e+00, float 5.000000e+00>, ptr %Z.i.i9.i163, align 8, !tbaa !30
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i167, align 8, !tbaa !30
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %Y.i2.i16.i171, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %Y.i2.i16.i171, align 8, !tbaa !30
   %collision_box = getelementptr inbounds i8, ptr %this, i64 3416
   %fixed.i180 = getelementptr inbounds i8, ptr %this, i64 3424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %fixed.i180, i8 0, i64 24, i1 false)
@@ -7462,7 +7462,7 @@ if.end.i.i.i.i:
   store <4 x float> <float 5.000000e+00, float 5.000000e+00, float -5.000000e+00, float -5.000000e+00>, ptr %Y.i2.i.i185, align 8, !tbaa !30
   store <4 x float> <float -5.000000e+00, float 5.000000e+00, float -4.375000e+00, float 5.000000e+00>, ptr %Z.i.i9.i189, align 8, !tbaa !30
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i193, align 8, !tbaa !30
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %Y.i2.i16.i197, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %Y.i2.i16.i197, align 8, !tbaa !30
   %sound_footstep = getelementptr inbounds i8, ptr %this, i64 3536
   %24 = getelementptr inbounds i8, ptr %this, i64 3552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %connected.i199, i8 0, i64 16, i1 false)
@@ -9010,7 +9010,7 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE5clearEv.exit.i: ; preds = %invoke.c
   %wall_side.i = getelementptr inbounds i8, ptr %this, i64 3256
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i, align 8, !tbaa !30
   %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 3272
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i, align 8, !tbaa !30
   %connected.i = getelementptr inbounds i8, ptr %this, i64 3280
   store ptr null, ptr %connected.i, align 8, !tbaa !31
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3288
@@ -9087,7 +9087,7 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE5clearEv.exit.i28: ; preds = %invoke
   %wall_side.i32 = getelementptr inbounds i8, ptr %this, i64 3376
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i32, align 8, !tbaa !30
   %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i33 = getelementptr inbounds i8, ptr %this, i64 3392
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i33, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i33, align 8, !tbaa !30
   %connected.i34 = getelementptr inbounds i8, ptr %this, i64 3400
   store ptr null, ptr %connected.i34, align 8, !tbaa !31
   %_M_refcount3.i.i.i35 = getelementptr inbounds i8, ptr %this, i64 3408
@@ -9164,7 +9164,7 @@ _ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE5clearEv.exit.i60: ; preds = %invoke
   %wall_side.i64 = getelementptr inbounds i8, ptr %this, i64 3496
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float -4.375000e+00>, ptr %wall_side.i64, align 8, !tbaa !30
   %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i65 = getelementptr inbounds i8, ptr %this, i64 3512
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i65, align 8, !tbaa !30
+  store <2 x float> splat (float 5.000000e+00), ptr %ref.tmp3.sroa.7.0.wall_side.sroa_idx.i65, align 8, !tbaa !30
   %connected.i66 = getelementptr inbounds i8, ptr %this, i64 3520
   store ptr null, ptr %connected.i66, align 8, !tbaa !31
   %_M_refcount3.i.i.i67 = getelementptr inbounds i8, ptr %this, i64 3528
@@ -16639,7 +16639,7 @@ invoke.cont2:
   %m_selection_box_union = getelementptr inbounds i8, ptr %this, i64 252
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %m_selection_box_union, align 4, !tbaa !30
   %Y.i2.i = getelementptr inbounds i8, ptr %this, i64 268
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i, align 4, !tbaa !30
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i, align 4, !tbaa !30
   %m_selection_box_int_union = getelementptr inbounds i8, ptr %this, i64 276
   store <4 x i16> <i16 -1, i16 -1, i16 -1, i16 1>, ptr %m_selection_box_int_union, align 4, !tbaa !302
   %Y.i2.i18 = getelementptr inbounds i8, ptr %this, i64 284
@@ -22344,8 +22344,8 @@ _ZN11StreamProxylsEPFRSoS0_E.exit103:             ; preds = %_ZSt4endlIcSt11char
   %m_selection_box_int_union.i = getelementptr inbounds i8, ptr %this, i64 276
   %Y.i = getelementptr inbounds i8, ptr %this, i64 256
   %49 = load <2 x float>, ptr %Y.i, align 8, !tbaa !30
-  %50 = fdiv nsz <2 x float> %49, <float 1.000000e+01, float 1.000000e+01>
-  %51 = fadd nsz <2 x float> %50, <float 5.000000e-01, float 5.000000e-01>
+  %50 = fdiv nsz <2 x float> %49, splat (float 1.000000e+01)
+  %51 = fadd nsz <2 x float> %50, splat (float 5.000000e-01)
   %52 = call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %51)
   %MaxEdge.i = getelementptr inbounds i8, ptr %this, i64 264
   %53 = load float, ptr %MaxEdge.i, align 8, !tbaa !438
@@ -22361,8 +22361,8 @@ _ZN11StreamProxylsEPFRSoS0_E.exit103:             ; preds = %_ZSt4endlIcSt11char
   %Y29.i = getelementptr inbounds i8, ptr %this, i64 268
   %Y35.i = getelementptr inbounds i8, ptr %this, i64 284
   %60 = load <2 x float>, ptr %Y29.i, align 4, !tbaa !30
-  %61 = fdiv nsz <2 x float> %60, <float 1.000000e+01, float 1.000000e+01>
-  %62 = fadd nsz <2 x float> %61, <float -5.000000e-01, float -5.000000e-01>
+  %61 = fdiv nsz <2 x float> %60, splat (float 1.000000e+01)
+  %62 = fadd nsz <2 x float> %61, splat (float -5.000000e-01)
   %63 = call nsz <2 x float> @llvm.ceil.v2f32(<2 x float> %62)
   %64 = fptosi <2 x float> %63 to <2 x i16>
   store <2 x i16> %64, ptr %Y35.i, align 4, !tbaa !302
@@ -24505,8 +24505,8 @@ do.end:                                           ; preds = %call1.i.noexc390, %
   %add.i = fadd nsz float %div.i, 5.000000e-01
   %88 = call nsz float @llvm.floor.f32(float %add.i)
   %89 = load <2 x float>, ptr %Y.i, align 8, !tbaa !30
-  %90 = fdiv nsz <2 x float> %89, <float 1.000000e+01, float 1.000000e+01>
-  %91 = fadd nsz <2 x float> %90, <float 5.000000e-01, float 5.000000e-01>
+  %90 = fdiv nsz <2 x float> %89, splat (float 1.000000e+01)
+  %91 = fadd nsz <2 x float> %90, splat (float 5.000000e-01)
   %92 = call nsz <2 x float> @llvm.floor.v2f32(<2 x float> %91)
   %93 = load float, ptr %MaxEdge.i, align 8, !tbaa !438
   %div22.i = fdiv nsz float %93, 1.000000e+01
@@ -24519,8 +24519,8 @@ do.end:                                           ; preds = %call1.i.noexc390, %
   %99 = fptosi <4 x float> %98 to <4 x i16>
   store <4 x i16> %99, ptr %m_selection_box_int_union.i, align 4, !tbaa !302
   %100 = load <2 x float>, ptr %Y29.i, align 4, !tbaa !30
-  %101 = fdiv nsz <2 x float> %100, <float 1.000000e+01, float 1.000000e+01>
-  %102 = fadd nsz <2 x float> %101, <float -5.000000e-01, float -5.000000e-01>
+  %101 = fdiv nsz <2 x float> %100, splat (float 1.000000e+01)
+  %102 = fadd nsz <2 x float> %101, splat (float -5.000000e-01)
   %103 = call nsz <2 x float> @llvm.ceil.v2f32(<2 x float> %102)
   %104 = fptosi <2 x float> %103 to <2 x i16>
   store <2 x i16> %104, ptr %Y35.i, align 4, !tbaa !302

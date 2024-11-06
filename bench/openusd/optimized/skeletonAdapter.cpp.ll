@@ -13842,14 +13842,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i31: ; preds = %142
 
 _ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit.sink.split: ; preds = %148, %107
   %.sink53 = phi ptr [ %106, %107 ], [ %147, %148 ]
-  %.sroa.048.0.ph = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %107 ], [ %.sroa.048.1, %148 ]
+  %.sroa.048.0.ph = phi <2 x float> [ splat (float 5.000000e-01), %107 ], [ %.sroa.048.1, %148 ]
   %.sroa.5.0.ph = phi float [ 5.000000e-01, %107 ], [ %.sroa.5.1, %148 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Usd_PrimDataD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.sink53) #30
   call void @_ZdlPvm(ptr noundef nonnull %.sink53, i64 noundef 64) #31
   br label %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit.sink.split, %148, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i31, %107, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i
-  %.sroa.048.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i ], [ <float 5.000000e-01, float 5.000000e-01>, %107 ], [ %.sroa.048.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i31 ], [ %.sroa.048.1, %148 ], [ %.sroa.048.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit.sink.split ]
+  %.sroa.048.0 = phi <2 x float> [ splat (float 5.000000e-01), %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i ], [ splat (float 5.000000e-01), %107 ], [ %.sroa.048.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i31 ], [ %.sroa.048.1, %148 ], [ %.sroa.048.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit.sink.split ]
   %.sroa.5.0 = phi float [ 5.000000e-01, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i ], [ 5.000000e-01, %107 ], [ %.sroa.5.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i31 ], [ %.sroa.5.1, %148 ], [ %.sroa.5.0.ph, %_ZN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarD2Ev.exit.sink.split ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #30
   %151 = load ptr, ptr %6, align 8

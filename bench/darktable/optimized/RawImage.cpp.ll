@@ -120,7 +120,7 @@ define hidden void @_ZN8rawspeed12RawImageDataC2ENS_12RawImageTypeERKNS_8iPoint2
   %22 = getelementptr inbounds i8, ptr %0, i64 248
   store double 1.000000e+00, ptr %22, align 8, !tbaa !81
   %23 = getelementptr inbounds i8, ptr %0, i64 256
-  store <4 x float> <float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000, float 0x7FF8000000000000>, ptr %23, align 8, !tbaa !82
+  store <4 x float> splat (float 0x7FF8000000000000), ptr %23, align 8, !tbaa !82
   %24 = getelementptr inbounds i8, ptr %0, i64 272
   %25 = getelementptr inbounds i8, ptr %0, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %24, i8 0, i64 28, i1 false)

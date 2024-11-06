@@ -3631,7 +3631,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %441
 
 361:                                              ; preds = %357, %349
-  %.sroa.0222.0 = phi <2 x double> [ <double 1.000000e+00, double 1.000000e+00>, %349 ], [ %.sroa.0222.0.vec.insert, %357 ]
+  %.sroa.0222.0 = phi <2 x double> [ splat (double 1.000000e+00), %349 ], [ %.sroa.0222.0.vec.insert, %357 ]
   %362 = invoke noundef ptr @_ZNK4pugi8xml_nodecvPFvPPPS0_EEv(ptr noundef nonnull align 8 dereferenceable(8) %41)
           to label %363 unwind label %.loopexit
 
@@ -3752,7 +3752,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   br label %441
 
 410:                                              ; preds = %405, %381
-  %411 = fcmp contract une <2 x double> %.sroa.0222.1, <double 1.000000e+00, double 1.000000e+00>
+  %411 = fcmp contract une <2 x double> %.sroa.0222.1, splat (double 1.000000e+00)
   %412 = shufflevector <2 x i1> %411, <2 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 2, i32 3, i32 2, i32 3>
   %413 = bitcast <8 x i1> %412 to i8
   %.not239 = icmp eq i8 %413, 0
@@ -4357,7 +4357,7 @@ define void @_ZN7mitsuba3xml6detail28create_texture_from_spectrumERKNSt3__112bas
   br i1 %brmerge73, label %107, label %59
 
 59:                                               ; preds = %58
-  store <4 x double> <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, ptr %15, align 32
+  store <4 x double> splat (double 1.000000e+00), ptr %15, align 32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %11)
   store double 0x4009EC8040000000, ptr %10, align 16
@@ -13745,7 +13745,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %.020.i = phi i64 [ 0, %2535 ], [ %2541, %2536 ]
   %2537 = getelementptr inbounds [4 x %"struct.drjit::Mask.275"], ptr %22, i64 0, i64 %.020.i
   %2538 = load <8 x i1>, ptr %2537, align 1
-  %2539 = xor <8 x i1> %2538, <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>
+  %2539 = xor <8 x i1> %2538, splat (i1 true)
   %2540 = getelementptr inbounds [4 x %"struct.drjit::Mask.275"], ptr %12, i64 0, i64 %.020.i
   store <8 x i1> %2539, ptr %2540, align 1
   %2541 = add nuw nsw i64 %.020.i, 1
@@ -20405,7 +20405,7 @@ _ZN5drjit5scaleINS_6MatrixIdLm4EEEEET_RKNS_5ArrayINS3_5EntryEXmi12array_size_vIS
   %19 = fadd contract <4 x double> %18, %18
   %20 = fmul contract <4 x double> %18, %15
   %21 = tail call contract noundef <4 x double> @llvm.fma.v4f64(<4 x double> %20, <4 x double> %18, <4 x double> %19)
-  %22 = tail call contract <4 x double> @llvm.x86.avx512.mask.fixupimm.pd.256(<4 x double> %21, <4 x double> %7, <4 x i64> <i64 38181786823927330, i64 38181786823927330, i64 38181786823927330, i64 38181786823927330>, i32 0, i8 -1)
+  %22 = tail call contract <4 x double> @llvm.x86.avx512.mask.fixupimm.pd.256(<4 x double> %21, <4 x double> %7, <4 x i64> splat (i64 38181786823927330), i32 0, i8 -1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %.sroa.012.24.vec.insert.i.i40 = insertelement <4 x double> %22, double 1.000000e+00, i64 3

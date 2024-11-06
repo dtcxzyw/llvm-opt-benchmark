@@ -3754,7 +3754,7 @@ entry:
   %2 = insertelement <2 x float> poison, float %1, i64 0
   %3 = shufflevector <2 x float> %2, <2 x float> poison, <2 x i32> zeroinitializer
   %4 = fmul nsz <2 x float> %3, <float 8.350000e+02, float 4.300000e+02>
-  %5 = fmul nsz <2 x float> %4, <float 5.000000e-01, float 5.000000e-01>
+  %5 = fmul nsz <2 x float> %4, splat (float 5.000000e-01)
   %DesiredRect = getelementptr inbounds i8, ptr %this, i64 96
   %ref.tmp.sroa.4.0.DesiredRect.sroa_idx = getelementptr inbounds i8, ptr %this, i64 100
   %ref.tmp.sroa.5.0.DesiredRect.sroa_idx = getelementptr inbounds i8, ptr %this, i64 104

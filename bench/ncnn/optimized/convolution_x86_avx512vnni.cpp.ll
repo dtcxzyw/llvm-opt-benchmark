@@ -3496,16 +3496,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %229
 
 216:                                              ; preds = %178
-  %217 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %186, <16 x i32> %94, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %217 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %186, <16 x i32> %94, <16 x i1> splat (i1 true), i32 1)
   %218 = trunc <16 x i32> %217 to <16 x i8>
   %219 = bitcast <16 x i8> %218 to <2 x i64>
-  %220 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %187, <16 x i32> %94, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %220 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %187, <16 x i32> %94, <16 x i1> splat (i1 true), i32 1)
   %221 = trunc <16 x i32> %220 to <16 x i8>
   %222 = bitcast <16 x i8> %221 to <2 x i64>
-  %223 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %188, <16 x i32> %94, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %223 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %188, <16 x i32> %94, <16 x i1> splat (i1 true), i32 1)
   %224 = trunc <16 x i32> %223 to <16 x i8>
   %225 = bitcast <16 x i8> %224 to <2 x i64>
-  %226 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %189, <16 x i32> %94, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %226 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %189, <16 x i32> %94, <16 x i1> splat (i1 true), i32 1)
   %227 = trunc <16 x i32> %226 to <16 x i8>
   %228 = bitcast <16 x i8> %227 to <2 x i64>
   br label %229
@@ -3950,13 +3950,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %583 = getelementptr inbounds i8, ptr %495, i64 %581
   %584 = getelementptr inbounds i8, ptr %497, i64 %581
   %585 = getelementptr inbounds i8, ptr %499, i64 %581
-  %586 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %582, <8 x i32> %97, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %586 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %582, <8 x i32> %97, <8 x i32> splat (i32 -1), i8 1)
   %587 = trunc <8 x i32> %586 to <8 x i8>
-  %588 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %583, <8 x i32> %97, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %588 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %583, <8 x i32> %97, <8 x i32> splat (i32 -1), i8 1)
   %589 = trunc <8 x i32> %588 to <8 x i8>
-  %590 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %584, <8 x i32> %97, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %590 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %584, <8 x i32> %97, <8 x i32> splat (i32 -1), i8 1)
   %591 = trunc <8 x i32> %590 to <8 x i8>
-  %592 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %585, <8 x i32> %97, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %592 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %585, <8 x i32> %97, <8 x i32> splat (i32 -1), i8 1)
   %593 = trunc <8 x i32> %592 to <8 x i8>
   %594 = sext <8 x i8> %587 to <8 x i16>
   %595 = sext <8 x i8> %589 to <8 x i16>
@@ -4266,13 +4266,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %.thread9
 
 798:                                              ; preds = %._crit_edge409
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.014596428, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %100, <16 x i32> %.lcssa250, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.014596428, <16 x i1> splat (i1 true), <16 x i32> %100, <16 x i32> %.lcssa250, i32 4)
   %799 = getelementptr inbounds i8, ptr %.014596428, i64 4
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %799, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %100, <16 x i32> %.lcssa251, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %799, <16 x i1> splat (i1 true), <16 x i32> %100, <16 x i32> %.lcssa251, i32 4)
   %800 = getelementptr inbounds i8, ptr %.014596428, i64 8
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %800, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %100, <16 x i32> %.lcssa252, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %800, <16 x i1> splat (i1 true), <16 x i32> %100, <16 x i32> %.lcssa252, i32 4)
   %801 = getelementptr inbounds i8, ptr %.014596428, i64 12
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %801, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %100, <16 x i32> %.lcssa253, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %801, <16 x i1> splat (i1 true), <16 x i32> %100, <16 x i32> %.lcssa253, i32 4)
   %802 = getelementptr inbounds i8, ptr %.014596428, i64 16
   br label %.thread9
 
@@ -4396,10 +4396,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %890
 
 883:                                              ; preds = %859
-  %884 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %867, <16 x i32> %111, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %884 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %867, <16 x i32> %111, <16 x i1> splat (i1 true), i32 1)
   %885 = trunc <16 x i32> %884 to <16 x i8>
   %886 = bitcast <16 x i8> %885 to <2 x i64>
-  %887 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %868, <16 x i32> %111, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %887 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %868, <16 x i32> %111, <16 x i1> splat (i1 true), i32 1)
   %888 = trunc <16 x i32> %887 to <16 x i8>
   %889 = bitcast <16 x i8> %888 to <2 x i64>
   br label %890
@@ -4723,9 +4723,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %1126 = sext i32 %1125 to i64
   %1127 = getelementptr inbounds i8, ptr %1066, i64 %1126
   %1128 = getelementptr inbounds i8, ptr %1068, i64 %1126
-  %1129 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1127, <8 x i32> %114, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1129 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1127, <8 x i32> %114, <8 x i32> splat (i32 -1), i8 1)
   %1130 = trunc <8 x i32> %1129 to <8 x i8>
-  %1131 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1128, <8 x i32> %114, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1131 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1128, <8 x i32> %114, <8 x i32> splat (i32 -1), i8 1)
   %1132 = trunc <8 x i32> %1131 to <8 x i8>
   %1133 = sext <8 x i8> %1130 to <8 x i16>
   %1134 = sext <8 x i8> %1132 to <8 x i16>
@@ -4939,9 +4939,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %.thread17
 
 1259:                                             ; preds = %._crit_edge527
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.514601539, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %117, <16 x i32> %1229, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.514601539, <16 x i1> splat (i1 true), <16 x i32> %117, <16 x i32> %1229, i32 4)
   %1260 = getelementptr inbounds i8, ptr %.514601539, i64 4
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %1260, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %117, <16 x i32> %1230, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %1260, <16 x i1> splat (i1 true), <16 x i32> %117, <16 x i32> %1230, i32 4)
   %1261 = getelementptr inbounds i8, ptr %.514601539, i64 8
   br label %.thread17
 
@@ -5024,7 +5024,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %1311
 
 1307:                                             ; preds = %1290
-  %1308 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1298, <16 x i32> %810, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %1308 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1298, <16 x i32> %810, <16 x i1> splat (i1 true), i32 1)
   %1309 = trunc <16 x i32> %1308 to <16 x i8>
   %1310 = bitcast <16 x i8> %1309 to <2 x i64>
   br label %1311
@@ -5287,7 +5287,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %1482 = load i32, ptr %1481, align 4
   %1483 = sext i32 %1482 to i64
   %1484 = getelementptr inbounds i8, ptr %gep604, i64 %1483
-  %1485 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1484, <8 x i32> %813, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %1485 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %1484, <8 x i32> %813, <8 x i32> splat (i32 -1), i8 1)
   %1486 = trunc <8 x i32> %1485 to <8 x i8>
   %1487 = sext <8 x i8> %1486 to <8 x i16>
   %1488 = load <8 x i64>, ptr %.314765575, align 64
@@ -5453,7 +5453,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %.thread25
 
 1571:                                             ; preds = %._crit_edge636
-  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.10647, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %816, <16 x i32> %1555, i32 4)
+  tail call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.10647, <16 x i1> splat (i1 true), <16 x i32> %816, <16 x i32> %1555, i32 4)
   %1572 = getelementptr inbounds i8, ptr %.10647, i64 4
   br label %.thread25
 
@@ -5703,16 +5703,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %1752
 
 1739:                                             ; preds = %1705
-  %1740 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1709, <16 x i32> %1624, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %1740 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1709, <16 x i32> %1624, <16 x i1> splat (i1 true), i32 1)
   %1741 = trunc <16 x i32> %1740 to <16 x i8>
   %1742 = bitcast <16 x i8> %1741 to <2 x i64>
-  %1743 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1710, <16 x i32> %1624, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %1743 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1710, <16 x i32> %1624, <16 x i1> splat (i1 true), i32 1)
   %1744 = trunc <16 x i32> %1743 to <16 x i8>
   %1745 = bitcast <16 x i8> %1744 to <2 x i64>
-  %1746 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1711, <16 x i32> %1624, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %1746 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1711, <16 x i32> %1624, <16 x i1> splat (i1 true), i32 1)
   %1747 = trunc <16 x i32> %1746 to <16 x i8>
   %1748 = bitcast <16 x i8> %1747 to <2 x i64>
-  %1749 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1712, <16 x i32> %1624, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %1749 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %1712, <16 x i32> %1624, <16 x i1> splat (i1 true), i32 1)
   %1750 = trunc <16 x i32> %1749 to <16 x i8>
   %1751 = bitcast <16 x i8> %1750 to <2 x i64>
   br label %1752
@@ -6081,13 +6081,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %2032
 
 2023:                                             ; preds = %.lr.ph705
-  %2024 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2014, <8 x i32> %1627, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2024 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2014, <8 x i32> %1627, <8 x i32> splat (i32 -1), i8 1)
   %2025 = trunc <8 x i32> %2024 to <8 x i8>
-  %2026 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2015, <8 x i32> %1627, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2026 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2015, <8 x i32> %1627, <8 x i32> splat (i32 -1), i8 1)
   %2027 = trunc <8 x i32> %2026 to <8 x i8>
-  %2028 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2016, <8 x i32> %1627, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2028 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2016, <8 x i32> %1627, <8 x i32> splat (i32 -1), i8 1)
   %2029 = trunc <8 x i32> %2028 to <8 x i8>
-  %2030 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2017, <8 x i32> %1627, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2030 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2017, <8 x i32> %1627, <8 x i32> splat (i32 -1), i8 1)
   %2031 = trunc <8 x i32> %2030 to <8 x i8>
   br label %2032
 
@@ -6368,16 +6368,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 
 2212:                                             ; preds = %._crit_edge792
   %2213 = bitcast <4 x i64> %.414805.lcssa to <8 x i32>
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.014786812, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %1630, <8 x i32> %2213, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.014786812, <8 x i1> splat (i1 true), <8 x i32> %1630, <8 x i32> %2213, i32 4)
   %2214 = getelementptr inbounds i8, ptr %.014786812, i64 4
   %2215 = bitcast <4 x i64> %.414819.lcssa to <8 x i32>
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2214, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %1630, <8 x i32> %2215, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2214, <8 x i1> splat (i1 true), <8 x i32> %1630, <8 x i32> %2215, i32 4)
   %2216 = getelementptr inbounds i8, ptr %.014786812, i64 8
   %2217 = bitcast <4 x i64> %.414825.lcssa to <8 x i32>
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2216, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %1630, <8 x i32> %2217, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2216, <8 x i1> splat (i1 true), <8 x i32> %1630, <8 x i32> %2217, i32 4)
   %2218 = getelementptr inbounds i8, ptr %.014786812, i64 12
   %2219 = bitcast <4 x i64> %.414831.lcssa to <8 x i32>
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2218, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %1630, <8 x i32> %2219, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2218, <8 x i1> splat (i1 true), <8 x i32> %1630, <8 x i32> %2219, i32 4)
   %2220 = getelementptr inbounds i8, ptr %.014786812, i64 16
   br label %.thread30
 
@@ -6502,10 +6502,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %2305
 
 2298:                                             ; preds = %2278
-  %2299 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %2282, <16 x i32> %1642, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %2299 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %2282, <16 x i32> %1642, <16 x i1> splat (i1 true), i32 1)
   %2300 = trunc <16 x i32> %2299 to <16 x i8>
   %2301 = bitcast <16 x i8> %2300 to <2 x i64>
-  %2302 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %2283, <16 x i32> %1642, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %2302 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %2283, <16 x i32> %1642, <16 x i1> splat (i1 true), i32 1)
   %2303 = trunc <16 x i32> %2302 to <16 x i8>
   %2304 = bitcast <16 x i8> %2303 to <2 x i64>
   br label %2305
@@ -6817,9 +6817,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2533 = sext i32 %2532 to i64
   %2534 = getelementptr inbounds i8, ptr %2473, i64 %2533
   %2535 = getelementptr inbounds i8, ptr %2475, i64 %2533
-  %2536 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2534, <8 x i32> %1645, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2536 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2534, <8 x i32> %1645, <8 x i32> splat (i32 -1), i8 1)
   %2537 = trunc <8 x i32> %2536 to <8 x i8>
-  %2538 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2535, <8 x i32> %1645, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2538 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2535, <8 x i32> %1645, <8 x i32> splat (i32 -1), i8 1)
   %2539 = trunc <8 x i32> %2538 to <8 x i8>
   %2540 = sext <8 x i8> %2537 to <8 x i16>
   %2541 = sext <8 x i8> %2539 to <8 x i16>
@@ -7007,9 +7007,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %.thread35
 
 2651:                                             ; preds = %._crit_edge921
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.414790933, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %1648, <8 x i32> %2636, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.414790933, <8 x i1> splat (i1 true), <8 x i32> %1648, <8 x i32> %2636, i32 4)
   %2652 = getelementptr inbounds i8, ptr %.414790933, i64 4
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2652, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %1648, <8 x i32> %2637, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2652, <8 x i1> splat (i1 true), <8 x i32> %1648, <8 x i32> %2637, i32 4)
   %2653 = getelementptr inbounds i8, ptr %.414790933, i64 8
   br label %.thread35
 
@@ -7092,7 +7092,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %2703
 
 2699:                                             ; preds = %2682
-  %2700 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %2690, <16 x i32> %2233, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %2700 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %2690, <16 x i32> %2233, <16 x i1> splat (i1 true), i32 1)
   %2701 = trunc <16 x i32> %2700 to <16 x i8>
   %2702 = bitcast <16 x i8> %2701 to <2 x i64>
   br label %2703
@@ -7255,7 +7255,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %2814 = load i32, ptr %2813, align 4
   %2815 = sext i32 %2814 to i64
   %2816 = getelementptr inbounds i8, ptr %gep1002, i64 %2815
-  %2817 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2816, <8 x i32> %2236, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %2817 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %2816, <8 x i32> %2236, <8 x i32> splat (i32 -1), i8 1)
   %2818 = trunc <8 x i32> %2817 to <8 x i8>
   %2819 = sext <8 x i8> %2818 to <8 x i16>
   %2820 = load <4 x i64>, ptr %.314960971, align 32
@@ -7491,7 +7491,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %.thread40
 
 2937:                                             ; preds = %._crit_edge1039
-  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.8147941050, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %2239, <8 x i32> %.414946.lcssa.in, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.8147941050, <8 x i1> splat (i1 true), <8 x i32> %2239, <8 x i32> %.414946.lcssa.in, i32 4)
   %2938 = getelementptr inbounds i8, ptr %.8147941050, i64 4
   br label %.thread40
 
@@ -7753,16 +7753,16 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %3124
 
 3111:                                             ; preds = %3077
-  %3112 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3081, <16 x i32> %2995, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %3112 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3081, <16 x i32> %2995, <16 x i1> splat (i1 true), i32 1)
   %3113 = trunc <16 x i32> %3112 to <16 x i8>
   %3114 = bitcast <16 x i8> %3113 to <2 x i64>
-  %3115 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3082, <16 x i32> %2995, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %3115 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3082, <16 x i32> %2995, <16 x i1> splat (i1 true), i32 1)
   %3116 = trunc <16 x i32> %3115 to <16 x i8>
   %3117 = bitcast <16 x i8> %3116 to <2 x i64>
-  %3118 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3083, <16 x i32> %2995, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %3118 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3083, <16 x i32> %2995, <16 x i1> splat (i1 true), i32 1)
   %3119 = trunc <16 x i32> %3118 to <16 x i8>
   %3120 = bitcast <16 x i8> %3119 to <2 x i64>
-  %3121 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3084, <16 x i32> %2995, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %3121 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3084, <16 x i32> %2995, <16 x i1> splat (i1 true), i32 1)
   %3122 = trunc <16 x i32> %3121 to <16 x i8>
   %3123 = bitcast <16 x i8> %3122 to <2 x i64>
   br label %3124
@@ -8011,13 +8011,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3315 = getelementptr inbounds i8, ptr %3253, i64 %3313
   %3316 = getelementptr inbounds i8, ptr %3255, i64 %3313
   %3317 = getelementptr inbounds i8, ptr %3257, i64 %3313
-  %3318 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3314, <8 x i32> %2998, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3318 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3314, <8 x i32> %2998, <8 x i32> splat (i32 -1), i8 1)
   %3319 = trunc <8 x i32> %3318 to <8 x i8>
-  %3320 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3315, <8 x i32> %2998, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3320 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3315, <8 x i32> %2998, <8 x i32> splat (i32 -1), i8 1)
   %3321 = trunc <8 x i32> %3320 to <8 x i8>
-  %3322 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3316, <8 x i32> %2998, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3322 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3316, <8 x i32> %2998, <8 x i32> splat (i32 -1), i8 1)
   %3323 = trunc <8 x i32> %3322 to <8 x i8>
-  %3324 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3317, <8 x i32> %2998, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3324 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3317, <8 x i32> %2998, <8 x i32> splat (i32 -1), i8 1)
   %3325 = trunc <8 x i32> %3324 to <8 x i8>
   %3326 = sext <8 x i8> %3319 to <8 x i16>
   %3327 = sext <8 x i8> %3321 to <8 x i16>
@@ -8421,13 +8421,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %3630
 
 3625:                                             ; preds = %._crit_edge1186
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.0149931206, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3001, <4 x i32> %.lcssa164, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.0149931206, <4 x i1> splat (i1 true), <4 x i32> %3001, <4 x i32> %.lcssa164, i32 4)
   %3626 = getelementptr inbounds i8, ptr %.0149931206, i64 4
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3626, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3001, <4 x i32> %.lcssa165, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3626, <4 x i1> splat (i1 true), <4 x i32> %3001, <4 x i32> %.lcssa165, i32 4)
   %3627 = getelementptr inbounds i8, ptr %.0149931206, i64 8
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3627, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3001, <4 x i32> %.lcssa166, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3627, <4 x i1> splat (i1 true), <4 x i32> %3001, <4 x i32> %.lcssa166, i32 4)
   %3628 = getelementptr inbounds i8, ptr %.0149931206, i64 12
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3628, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3001, <4 x i32> %.lcssa167, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3628, <4 x i1> splat (i1 true), <4 x i32> %3001, <4 x i32> %.lcssa167, i32 4)
   %3629 = getelementptr inbounds i8, ptr %.0149931206, i64 16
   br label %3630
 
@@ -8556,10 +8556,10 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %3717
 
 3710:                                             ; preds = %3690
-  %3711 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3694, <16 x i32> %3015, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %3711 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3694, <16 x i32> %3015, <16 x i1> splat (i1 true), i32 1)
   %3712 = trunc <16 x i32> %3711 to <16 x i8>
   %3713 = bitcast <16 x i8> %3712 to <2 x i64>
-  %3714 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3695, <16 x i32> %3015, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %3714 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %3695, <16 x i32> %3015, <16 x i1> splat (i1 true), i32 1)
   %3715 = trunc <16 x i32> %3714 to <16 x i8>
   %3716 = bitcast <16 x i8> %3715 to <2 x i64>
   br label %3717
@@ -8743,9 +8743,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %3846 = sext i32 %3845 to i64
   %3847 = getelementptr inbounds i8, ptr %3808, i64 %3846
   %3848 = getelementptr inbounds i8, ptr %3810, i64 %3846
-  %3849 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3847, <8 x i32> %3018, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3849 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3847, <8 x i32> %3018, <8 x i32> splat (i32 -1), i8 1)
   %3850 = trunc <8 x i32> %3849 to <8 x i8>
-  %3851 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3848, <8 x i32> %3018, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %3851 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %3848, <8 x i32> %3018, <8 x i32> splat (i32 -1), i8 1)
   %3852 = trunc <8 x i32> %3851 to <8 x i8>
   %3853 = sext <8 x i8> %3850 to <8 x i16>
   %3854 = sext <8 x i8> %3852 to <8 x i16>
@@ -9039,9 +9039,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %4051
 
 4048:                                             ; preds = %._crit_edge1325
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.3149961337, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3021, <4 x i32> %4041, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.3149961337, <4 x i1> splat (i1 true), <4 x i32> %3021, <4 x i32> %4041, i32 4)
   %4049 = getelementptr inbounds i8, ptr %.3149961337, i64 4
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %4049, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3021, <4 x i32> %4045, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %4049, <4 x i1> splat (i1 true), <4 x i32> %3021, <4 x i32> %4045, i32 4)
   %4050 = getelementptr inbounds i8, ptr %.3149961337, i64 8
   br label %4051
 
@@ -9105,7 +9105,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %4081 = load i32, ptr %4080, align 4
   %4082 = sext i32 %4081 to i64
   %4083 = getelementptr inbounds i8, ptr %gep1376.us, i64 %4082
-  %4084 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4083, <16 x i32> %3646, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %4084 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4083, <16 x i32> %3646, <16 x i1> splat (i1 true), i32 1)
   %4085 = trunc <16 x i32> %4084 to <16 x i8>
   %4086 = sext <16 x i8> %4085 to <16 x i16>
   %4087 = load <8 x i64>, ptr %.1150711341.us1378, align 64
@@ -9309,7 +9309,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %4228 = load i32, ptr %4227, align 4
   %4229 = sext i32 %4228 to i64
   %4230 = getelementptr inbounds i8, ptr %gep1415, i64 %4229
-  %4231 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4230, <8 x i32> %3649, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %4231 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4230, <8 x i32> %3649, <8 x i32> splat (i32 -1), i8 1)
   %4232 = trunc <8 x i32> %4231 to <8 x i8>
   %4233 = sext <8 x i8> %4232 to <8 x i16>
   %4234 = load <4 x i64>, ptr %.3150731389, align 32
@@ -9529,7 +9529,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   br label %4348
 
 4346:                                             ; preds = %._crit_edge1448
-  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.6149991459, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %3652, <4 x i32> %.lcssa188, i32 4)
+  tail call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.6149991459, <4 x i1> splat (i1 true), <4 x i32> %3652, <4 x i32> %.lcssa188, i32 4)
   %4347 = getelementptr inbounds i8, ptr %.6149991459, i64 4
   br label %4348
 
@@ -9771,13 +9771,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %4493 = getelementptr inbounds i8, ptr %4484, i64 %4491
   %4494 = getelementptr inbounds i8, ptr %4486, i64 %4491
   %4495 = getelementptr inbounds i8, ptr %4488, i64 %4491
-  %4496 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4492, <16 x i32> %4409, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %4496 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4492, <16 x i32> %4409, <16 x i1> splat (i1 true), i32 1)
   %4497 = trunc <16 x i32> %4496 to <16 x i8>
-  %4498 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4493, <16 x i32> %4409, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %4498 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4493, <16 x i32> %4409, <16 x i1> splat (i1 true), i32 1)
   %4499 = trunc <16 x i32> %4498 to <16 x i8>
-  %4500 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4494, <16 x i32> %4409, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %4500 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4494, <16 x i32> %4409, <16 x i1> splat (i1 true), i32 1)
   %4501 = trunc <16 x i32> %4500 to <16 x i8>
-  %4502 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4495, <16 x i32> %4409, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %4502 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %4495, <16 x i32> %4409, <16 x i1> splat (i1 true), i32 1)
   %4503 = trunc <16 x i32> %4502 to <16 x i8>
   %4504 = sext <16 x i8> %4497 to <16 x i16>
   %4505 = sext <16 x i8> %4499 to <16 x i16>
@@ -10059,13 +10059,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %4716 = getelementptr inbounds i8, ptr %4668, i64 %4714
   %4717 = getelementptr inbounds i8, ptr %4670, i64 %4714
   %4718 = getelementptr inbounds i8, ptr %4672, i64 %4714
-  %4719 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4715, <8 x i32> %4412, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %4719 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4715, <8 x i32> %4412, <8 x i32> splat (i32 -1), i8 1)
   %4720 = trunc <8 x i32> %4719 to <8 x i8>
-  %4721 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4716, <8 x i32> %4412, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %4721 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4716, <8 x i32> %4412, <8 x i32> splat (i32 -1), i8 1)
   %4722 = trunc <8 x i32> %4721 to <8 x i8>
-  %4723 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4717, <8 x i32> %4412, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %4723 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4717, <8 x i32> %4412, <8 x i32> splat (i32 -1), i8 1)
   %4724 = trunc <8 x i32> %4723 to <8 x i8>
-  %4725 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4718, <8 x i32> %4412, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %4725 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %4718, <8 x i32> %4412, <8 x i32> splat (i32 -1), i8 1)
   %4726 = trunc <8 x i32> %4725 to <8 x i8>
   %4727 = sext <8 x i8> %4720 to <8 x i16>
   %4728 = sext <8 x i8> %4722 to <8 x i16>
@@ -10498,9 +10498,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %5028 = sext i32 %5027 to i64
   %5029 = getelementptr inbounds i8, ptr %5023, i64 %5028
   %5030 = getelementptr inbounds i8, ptr %5025, i64 %5028
-  %5031 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5029, <16 x i32> %4430, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5031 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5029, <16 x i32> %4430, <16 x i1> splat (i1 true), i32 1)
   %5032 = trunc <16 x i32> %5031 to <16 x i8>
-  %5033 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5030, <16 x i32> %4430, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5033 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5030, <16 x i32> %4430, <16 x i1> splat (i1 true), i32 1)
   %5034 = trunc <16 x i32> %5033 to <16 x i8>
   %5035 = sext <16 x i8> %5032 to <16 x i16>
   %5036 = sext <16 x i8> %5034 to <16 x i16>
@@ -10698,9 +10698,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %5163 = sext i32 %5162 to i64
   %5164 = getelementptr inbounds i8, ptr %5139, i64 %5163
   %5165 = getelementptr inbounds i8, ptr %5141, i64 %5163
-  %5166 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5164, <8 x i32> %4433, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5166 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5164, <8 x i32> %4433, <8 x i32> splat (i32 -1), i8 1)
   %5167 = trunc <8 x i32> %5166 to <8 x i8>
-  %5168 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5165, <8 x i32> %4433, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5168 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5165, <8 x i32> %4433, <8 x i32> splat (i32 -1), i8 1)
   %5169 = trunc <8 x i32> %5168 to <8 x i8>
   %5170 = sext <8 x i8> %5167 to <8 x i16>
   %5171 = sext <8 x i8> %5169 to <8 x i16>
@@ -11049,7 +11049,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %5374 = load i32, ptr %5373, align 4
   %5375 = sext i32 %5374 to i64
   %5376 = getelementptr inbounds i8, ptr %gep1841.us, i64 %5375
-  %5377 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5376, <16 x i32> %4987, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5377 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5376, <16 x i32> %4987, <16 x i1> splat (i1 true), i32 1)
   %5378 = trunc <16 x i32> %5377 to <16 x i8>
   %5379 = sext <16 x i8> %5378 to <16 x i16>
   %5380 = load <32 x i8>, ptr %.1145631808.us1844, align 32
@@ -11195,7 +11195,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %5460 = load i32, ptr %5459, align 4
   %5461 = sext i32 %5460 to i64
   %5462 = getelementptr inbounds i8, ptr %gep1878, i64 %5461
-  %5463 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5462, <8 x i32> %4990, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5463 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5462, <8 x i32> %4990, <8 x i32> splat (i32 -1), i8 1)
   %5464 = trunc <8 x i32> %5463 to <8 x i8>
   %5465 = sext <8 x i8> %5464 to <8 x i16>
   %5466 = load <16 x i8>, ptr %.3145651853, align 16
@@ -11637,13 +11637,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %5712 = getelementptr inbounds i8, ptr %5699, i64 %5710
   %5713 = getelementptr inbounds i8, ptr %5701, i64 %5710
   %5714 = getelementptr inbounds i8, ptr %5703, i64 %5710
-  %5715 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5711, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5715 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5711, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %5716 = trunc <16 x i32> %5715 to <16 x i8>
-  %5717 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5712, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5717 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5712, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %5718 = trunc <16 x i32> %5717 to <16 x i8>
-  %5719 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5713, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5719 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5713, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %5720 = trunc <16 x i32> %5719 to <16 x i8>
-  %5721 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5714, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %5721 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %5714, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %5722 = trunc <16 x i32> %5721 to <16 x i8>
   %5723 = sext <16 x i8> %5716 to <16 x i16>
   %5724 = sext <16 x i8> %5718 to <16 x i16>
@@ -11895,13 +11895,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %5909 = getelementptr inbounds i8, ptr %5865, i64 %5907
   %5910 = getelementptr inbounds i8, ptr %5867, i64 %5907
   %5911 = getelementptr inbounds i8, ptr %5869, i64 %5907
-  %5912 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5908, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5912 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5908, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %5913 = trunc <8 x i32> %5912 to <8 x i8>
-  %5914 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5909, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5914 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5909, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %5915 = trunc <8 x i32> %5914 to <8 x i8>
-  %5916 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5910, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5916 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5910, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %5917 = trunc <8 x i32> %5916 to <8 x i8>
-  %5918 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5911, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %5918 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %5911, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %5919 = trunc <8 x i32> %5918 to <8 x i8>
   %5920 = sext <8 x i8> %5913 to <8 x i16>
   %5921 = sext <8 x i8> %5915 to <8 x i16>
@@ -12282,9 +12282,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %6172 = sext i32 %6171 to i64
   %6173 = getelementptr inbounds i8, ptr %6167, i64 %6172
   %6174 = getelementptr inbounds i8, ptr %6169, i64 %6172
-  %6175 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %6173, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %6175 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %6173, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %6176 = trunc <16 x i32> %6175 to <16 x i8>
-  %6177 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %6174, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %6177 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %6174, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %6178 = trunc <16 x i32> %6177 to <16 x i8>
   %6179 = sext <16 x i8> %6176 to <16 x i16>
   %6180 = sext <16 x i8> %6178 to <16 x i16>
@@ -12468,9 +12468,9 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %6297 = sext i32 %6296 to i64
   %6298 = getelementptr inbounds i8, ptr %6275, i64 %6297
   %6299 = getelementptr inbounds i8, ptr %6277, i64 %6297
-  %6300 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6298, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %6300 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6298, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %6301 = trunc <8 x i32> %6300 to <8 x i8>
-  %6302 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6299, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %6302 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6299, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %6303 = trunc <8 x i32> %6302 to <8 x i8>
   %6304 = sext <8 x i8> %6301 to <8 x i16>
   %6305 = sext <8 x i8> %6303 to <8 x i16>
@@ -12761,7 +12761,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %6467 = load i32, ptr %6466, align 4
   %6468 = sext i32 %6467 to i64
   %6469 = getelementptr inbounds i8, ptr %gep2273.us, i64 %6468
-  %6470 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %6469, <16 x i32> %5595, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %6470 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %6469, <16 x i32> %5595, <16 x i1> splat (i1 true), i32 1)
   %6471 = trunc <16 x i32> %6470 to <16 x i8>
   %6472 = sext <16 x i8> %6471 to <16 x i16>
   %6473 = load <16 x i8>, ptr %.1144542240.us2276, align 16
@@ -12900,7 +12900,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %6548 = load i32, ptr %6547, align 4
   %6549 = sext i32 %6548 to i64
   %6550 = getelementptr inbounds i8, ptr %gep2310, i64 %6549
-  %6551 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6550, <8 x i32> %5599, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %6551 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %6550, <8 x i32> %5599, <8 x i32> splat (i32 -1), i8 1)
   %6552 = trunc <8 x i32> %6551 to <8 x i8>
   %6553 = sext <8 x i8> %6552 to <8 x i16>
   %6554 = load <8 x i8>, ptr %.3144562285, align 1
@@ -16044,9 +16044,9 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   ]
 
 1949:                                             ; preds = %1943
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.156992488.i.us.us, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %739, <16 x i32> %1946, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.156992488.i.us.us, <16 x i1> splat (i1 true), <16 x i32> %739, <16 x i32> %1946, i32 4)
   %1950 = getelementptr inbounds i8, ptr %.156992488.i.us.us, i64 4
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %1950, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %739, <16 x i32> %1948, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %1950, <16 x i1> splat (i1 true), <16 x i32> %739, <16 x i32> %1948, i32 4)
   %1951 = getelementptr inbounds i8, ptr %.156992488.i.us.us, i64 8
   br label %.thread88.i.us.us
 
@@ -16199,7 +16199,7 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   ]
 
 2019:                                             ; preds = %2018
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.206997513.i.us.us, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %739, <16 x i32> %.lcssa345.i.us.us, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.206997513.i.us.us, <16 x i1> splat (i1 true), <16 x i32> %739, <16 x i32> %.lcssa345.i.us.us, i32 4)
   %2020 = getelementptr inbounds i8, ptr %.206997513.i.us.us, i64 4
   br label %.thread96.i.us.us
 
@@ -17303,9 +17303,9 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   ]
 
 2728:                                             ; preds = %2722
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.127317648.i.us.us, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %2060, <8 x i32> %2725, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.127317648.i.us.us, <8 x i1> splat (i1 true), <8 x i32> %2060, <8 x i32> %2725, i32 4)
   %2729 = getelementptr inbounds i8, ptr %.127317648.i.us.us, i64 4
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2729, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %2060, <8 x i32> %2727, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %2729, <8 x i1> splat (i1 true), <8 x i32> %2060, <8 x i32> %2727, i32 4)
   %2730 = getelementptr inbounds i8, ptr %.127317648.i.us.us, i64 8
   br label %.thread133.i.us.us
 
@@ -17444,7 +17444,7 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
 
 2782:                                             ; preds = %2781
   %2783 = bitcast <4 x i64> %.27508.lcssa.i.us.us to <8 x i32>
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.167321675.i.us.us, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %2060, <8 x i32> %2783, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.167321675.i.us.us, <8 x i1> splat (i1 true), <8 x i32> %2060, <8 x i32> %2783, i32 4)
   %2784 = getelementptr inbounds i8, ptr %.167321675.i.us.us, i64 4
   br label %.thread138.i.us.us
 
@@ -18236,9 +18236,9 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   ]
 
 3246:                                             ; preds = %3240
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.97520801.i.us.us, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %2810, <4 x i32> %3243, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.97520801.i.us.us, <4 x i1> splat (i1 true), <4 x i32> %2810, <4 x i32> %3243, i32 4)
   %3247 = getelementptr inbounds i8, ptr %.97520801.i.us.us, i64 4
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3247, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %2810, <4 x i32> %3245, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %3247, <4 x i1> splat (i1 true), <4 x i32> %2810, <4 x i32> %3245, i32 4)
   %3248 = getelementptr inbounds i8, ptr %.97520801.i.us.us, i64 8
   br label %3253
 
@@ -18353,7 +18353,7 @@ _ZN4ncnnL34convolution_im2col_input_tile_int8ERKNS_3MatERS0_iiiiiiiiii.exit: ; p
   ]
 
 3295:                                             ; preds = %3294
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.127523826.i.us.us, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %2810, <4 x i32> %.lcssa247.i.us.us, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.127523826.i.us.us, <4 x i1> splat (i1 true), <4 x i32> %2810, <4 x i32> %.lcssa247.i.us.us, i32 4)
   %3296 = getelementptr inbounds i8, ptr %.127523826.i.us.us, i64 4
   br label %3299
 
@@ -20573,8 +20573,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd23_int
   %445 = add <16 x i32> %444, %441
   %446 = sub <16 x i32> %439, %441
   %447 = add <16 x i32> %446, %443
-  %448 = ashr <16 x i32> %445, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %449 = ashr <16 x i32> %447, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %448 = ashr <16 x i32> %445, splat (i32 2)
+  %449 = ashr <16 x i32> %447, splat (i32 2)
   switch i32 %359, label %482 [
     i32 16, label %479
     i32 8, label %470
@@ -20583,12 +20583,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd23_int
   ]
 
 450:                                              ; preds = %436
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.088726.us.i.us.i, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %375, <16 x i32> %448, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.088726.us.i.us.i, <16 x i1> splat (i1 true), <16 x i32> %375, <16 x i32> %448, i32 4)
   br i1 %432, label %451, label %482
 
 451:                                              ; preds = %450
   %452 = getelementptr inbounds i8, ptr %.088726.us.i.us.i, i64 4
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %452, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %375, <16 x i32> %449, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %452, <16 x i1> splat (i1 true), <16 x i32> %375, <16 x i32> %449, i32 4)
   br label %482
 
 453:                                              ; preds = %436
@@ -20797,8 +20797,8 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd23_int
   %572 = add <8 x i32> %571, %568
   %573 = sub <8 x i32> %566, %568
   %574 = add <8 x i32> %573, %570
-  %575 = ashr <8 x i32> %572, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %576 = ashr <8 x i32> %574, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %575 = ashr <8 x i32> %572, splat (i32 2)
+  %576 = ashr <8 x i32> %574, splat (i32 2)
   %577 = bitcast <8 x i32> %576 to <4 x i64>
   switch i32 %359, label %594 [
     i32 8, label %591
@@ -20807,12 +20807,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd23_int
   ]
 
 578:                                              ; preds = %563
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.090236.us.i.us.i, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %501, <8 x i32> %575, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.090236.us.i.us.i, <8 x i1> splat (i1 true), <8 x i32> %501, <8 x i32> %575, i32 4)
   br i1 %559, label %579, label %594
 
 579:                                              ; preds = %578
   %580 = getelementptr inbounds i8, ptr %.090236.us.i.us.i, i64 4
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %580, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %501, <8 x i32> %576, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %580, <8 x i1> splat (i1 true), <8 x i32> %501, <8 x i32> %576, i32 4)
   br label %594
 
 581:                                              ; preds = %563
@@ -20990,14 +20990,14 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd23_int
   %677 = load <4 x i32>, ptr %676, align 1
   %678 = add <4 x i32> %675, %673
   %679 = add <4 x i32> %678, %677
-  %680 = ashr <4 x i32> %679, <i32 2, i32 2, i32 2, i32 2>
+  %680 = ashr <4 x i32> %679, splat (i32 2)
   switch i32 %359, label %683 [
     i32 4, label %682
     i32 1, label %681
   ]
 
 681:                                              ; preds = %672
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.088549.us.i.us798.i, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %613, <4 x i32> %680, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.088549.us.i.us798.i, <4 x i1> splat (i1 true), <4 x i32> %613, <4 x i32> %680, i32 4)
   br label %683
 
 682:                                              ; preds = %672
@@ -21457,17 +21457,17 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd23_int
   %936 = add <4 x i32> %935, %932
   %937 = sub <4 x i32> %930, %932
   %938 = add <4 x i32> %937, %934
-  %939 = ashr <4 x i32> %936, <i32 2, i32 2, i32 2, i32 2>
-  %940 = ashr <4 x i32> %938, <i32 2, i32 2, i32 2, i32 2>
+  %939 = ashr <4 x i32> %936, splat (i32 2)
+  %940 = ashr <4 x i32> %938, splat (i32 2)
   switch i32 %359, label %945 [
     i32 4, label %943
     i32 1, label %941
   ]
 
 941:                                              ; preds = %927
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.088549.us.i.us.us.i, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %613, <4 x i32> %939, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.088549.us.i.us.us.i, <4 x i1> splat (i1 true), <4 x i32> %613, <4 x i32> %939, i32 4)
   %942 = getelementptr inbounds i8, ptr %.088549.us.i.us.us.i, i64 4
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %942, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %613, <4 x i32> %940, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %942, <4 x i1> splat (i1 true), <4 x i32> %613, <4 x i32> %940, i32 4)
   br label %945
 
 943:                                              ; preds = %927
@@ -22473,13 +22473,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %450 = sub <16 x i32> %444, %445
   %451 = add <16 x i32> %447, %441
   %452 = add <16 x i32> %451, %448
-  %453 = shl <16 x i32> %450, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %453 = shl <16 x i32> %450, splat (i32 1)
   %454 = add <16 x i32> %453, %449
-  %455 = shl <16 x i32> %448, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %455 = shl <16 x i32> %448, splat (i32 2)
   %456 = add <16 x i32> %455, %447
-  %457 = shl <16 x i32> %450, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %457 = shl <16 x i32> %450, splat (i32 3)
   %458 = add <16 x i32> %457, %449
-  %459 = shl <16 x i32> %446, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %459 = shl <16 x i32> %446, splat (i32 2)
   %460 = add <16 x i32> %458, %459
   %461 = getelementptr inbounds [6 x [16 x i32]], ptr %6, i64 0, i64 %indvars.iv.i.us.i
   store <16 x i32> %452, ptr %461, align 64
@@ -22515,15 +22515,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %483 = sub <16 x i32> %477, %478
   %484 = add <16 x i32> %480, %474
   %485 = add <16 x i32> %484, %481
-  %486 = shl <16 x i32> %485, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %487 = shl <16 x i32> %483, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
-  %488 = shl <16 x i32> %482, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %486 = shl <16 x i32> %485, splat (i32 2)
+  %487 = shl <16 x i32> %483, splat (i32 3)
+  %488 = shl <16 x i32> %482, splat (i32 2)
   %489 = add <16 x i32> %487, %488
-  %490 = shl <16 x i32> %481, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %491 = shl <16 x i32> %480, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %490 = shl <16 x i32> %481, splat (i32 4)
+  %491 = shl <16 x i32> %480, splat (i32 2)
   %492 = add <16 x i32> %490, %491
-  %493 = shl <16 x i32> %479, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %494 = shl <16 x i32> %483, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
+  %493 = shl <16 x i32> %479, splat (i32 4)
+  %494 = shl <16 x i32> %483, splat (i32 5)
   %495 = add <16 x i32> %494, %488
   %496 = add <16 x i32> %495, %493
   store <16 x i32> %486, ptr %333, align 64
@@ -22582,24 +22582,24 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %539 = sub <16 x i32> %531, %533
   %540 = add <16 x i32> %536, %525
   %541 = add <16 x i32> %540, %537
-  %542 = shl <16 x i32> %539, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %542 = shl <16 x i32> %539, splat (i32 1)
   %543 = add <16 x i32> %542, %538
-  %544 = shl <16 x i32> %537, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %544 = shl <16 x i32> %537, splat (i32 2)
   %545 = add <16 x i32> %544, %536
-  %546 = shl <16 x i32> %539, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %546 = shl <16 x i32> %539, splat (i32 3)
   %547 = add <16 x i32> %535, %538
   %548 = add <16 x i32> %547, %546
   %549 = sitofp <16 x i32> %541 to <16 x float>
-  %550 = fmul fast <16 x float> %549, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %550 = fmul fast <16 x float> %549, splat (float 0x3F5C71C720000000)
   %551 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %550, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %552 = sitofp <16 x i32> %543 to <16 x float>
-  %553 = fmul fast <16 x float> %552, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %553 = fmul fast <16 x float> %552, splat (float 0x3F5C71C720000000)
   %554 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %553, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %555 = sitofp <16 x i32> %545 to <16 x float>
-  %556 = fmul fast <16 x float> %555, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %556 = fmul fast <16 x float> %555, splat (float 0x3F5C71C720000000)
   %557 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %556, <16 x i32> zeroinitializer, i16 -1, i32 4)
   %558 = sitofp <16 x i32> %548 to <16 x float>
-  %559 = fmul fast <16 x float> %558, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %559 = fmul fast <16 x float> %558, splat (float 0x3F5C71C720000000)
   %560 = call <16 x i32> @llvm.x86.avx512.mask.cvttps2dq.512(<16 x float> %559, <16 x i32> zeroinitializer, i16 -1, i32 4)
   switch i32 %397, label %637 [
     i32 16, label %628
@@ -22609,12 +22609,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   ]
 
 561:                                              ; preds = %523
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.0192631.us.i.us.i, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %418, <16 x i32> %551, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr %.0192631.us.i.us.i, <16 x i1> splat (i1 true), <16 x i32> %418, <16 x i32> %551, i32 4)
   br i1 %515, label %562, label %564
 
 562:                                              ; preds = %561
   %563 = getelementptr inbounds i8, ptr %.0192631.us.i.us.i, i64 4
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %563, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %418, <16 x i32> %554, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %563, <16 x i1> splat (i1 true), <16 x i32> %418, <16 x i32> %554, i32 4)
   br label %564
 
 564:                                              ; preds = %562, %561
@@ -22622,7 +22622,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
 
 565:                                              ; preds = %564
   %566 = getelementptr inbounds i8, ptr %.0192631.us.i.us.i, i64 8
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %566, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %418, <16 x i32> %557, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %566, <16 x i1> splat (i1 true), <16 x i32> %418, <16 x i32> %557, i32 4)
   br label %567
 
 567:                                              ; preds = %565, %564
@@ -22630,7 +22630,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
 
 568:                                              ; preds = %567
   %569 = getelementptr inbounds i8, ptr %.0192631.us.i.us.i, i64 12
-  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %569, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <16 x i32> %418, <16 x i32> %560, i32 4)
+  call void @llvm.x86.avx512.mask.scatter.dpi.512(ptr nonnull %569, <16 x i1> splat (i1 true), <16 x i32> %418, <16 x i32> %560, i32 4)
   br label %637
 
 570:                                              ; preds = %523
@@ -22872,13 +22872,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %694 = sub <8 x i32> %688, %689
   %695 = add <8 x i32> %691, %685
   %696 = add <8 x i32> %695, %692
-  %697 = shl <8 x i32> %694, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %697 = shl <8 x i32> %694, splat (i32 1)
   %698 = add <8 x i32> %697, %693
-  %699 = shl <8 x i32> %692, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %699 = shl <8 x i32> %692, splat (i32 2)
   %700 = add <8 x i32> %699, %691
-  %701 = shl <8 x i32> %694, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %701 = shl <8 x i32> %694, splat (i32 3)
   %702 = add <8 x i32> %701, %693
-  %703 = shl <8 x i32> %690, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %703 = shl <8 x i32> %690, splat (i32 2)
   %704 = add <8 x i32> %702, %703
   %705 = getelementptr inbounds [6 x [8 x i32]], ptr %7, i64 0, i64 %indvars.iv281.i.us.i
   store <8 x i32> %696, ptr %705, align 32
@@ -22914,15 +22914,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %727 = sub <8 x i32> %721, %722
   %728 = add <8 x i32> %724, %718
   %729 = add <8 x i32> %728, %725
-  %730 = shl <8 x i32> %729, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %731 = shl <8 x i32> %727, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
-  %732 = shl <8 x i32> %726, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %730 = shl <8 x i32> %729, splat (i32 2)
+  %731 = shl <8 x i32> %727, splat (i32 3)
+  %732 = shl <8 x i32> %726, splat (i32 2)
   %733 = add <8 x i32> %731, %732
-  %734 = shl <8 x i32> %725, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %735 = shl <8 x i32> %724, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %734 = shl <8 x i32> %725, splat (i32 4)
+  %735 = shl <8 x i32> %724, splat (i32 2)
   %736 = add <8 x i32> %734, %735
-  %737 = shl <8 x i32> %723, <i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4>
-  %738 = shl <8 x i32> %727, <i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5, i32 5>
+  %737 = shl <8 x i32> %723, splat (i32 4)
+  %738 = shl <8 x i32> %727, splat (i32 5)
   %739 = add <8 x i32> %738, %732
   %740 = add <8 x i32> %739, %737
   store <8 x i32> %730, ptr %341, align 32
@@ -22981,26 +22981,26 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %783 = sub <8 x i32> %775, %777
   %784 = add <8 x i32> %780, %769
   %785 = add <8 x i32> %784, %781
-  %786 = shl <8 x i32> %783, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
+  %786 = shl <8 x i32> %783, splat (i32 1)
   %787 = add <8 x i32> %786, %782
-  %788 = shl <8 x i32> %781, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %788 = shl <8 x i32> %781, splat (i32 2)
   %789 = add <8 x i32> %788, %780
-  %790 = shl <8 x i32> %783, <i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3, i32 3>
+  %790 = shl <8 x i32> %783, splat (i32 3)
   %791 = add <8 x i32> %779, %782
   %792 = add <8 x i32> %791, %790
   %793 = sitofp <8 x i32> %785 to <8 x float>
-  %794 = fmul fast <8 x float> %793, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %794 = fmul fast <8 x float> %793, splat (float 0x3F5C71C720000000)
   %795 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %794)
   %796 = sitofp <8 x i32> %787 to <8 x float>
-  %797 = fmul fast <8 x float> %796, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %797 = fmul fast <8 x float> %796, splat (float 0x3F5C71C720000000)
   %798 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %797)
   %799 = bitcast <8 x i32> %798 to <4 x i64>
   %800 = sitofp <8 x i32> %789 to <8 x float>
-  %801 = fmul fast <8 x float> %800, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %801 = fmul fast <8 x float> %800, splat (float 0x3F5C71C720000000)
   %802 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %801)
   %803 = bitcast <8 x i32> %802 to <4 x i64>
   %804 = sitofp <8 x i32> %792 to <8 x float>
-  %805 = fmul fast <8 x float> %804, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %805 = fmul fast <8 x float> %804, splat (float 0x3F5C71C720000000)
   %806 = call <8 x i32> @llvm.x86.avx.cvtt.ps2dq.256(<8 x float> %805)
   %807 = bitcast <8 x i32> %806 to <4 x i64>
   switch i32 %397, label %848 [
@@ -23010,12 +23010,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   ]
 
 808:                                              ; preds = %767
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.0195876.us.i.us.i, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %661, <8 x i32> %795, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr %.0195876.us.i.us.i, <8 x i1> splat (i1 true), <8 x i32> %661, <8 x i32> %795, i32 4)
   br i1 %759, label %809, label %811
 
 809:                                              ; preds = %808
   %810 = getelementptr inbounds i8, ptr %.0195876.us.i.us.i, i64 4
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %810, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %661, <8 x i32> %798, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %810, <8 x i1> splat (i1 true), <8 x i32> %661, <8 x i32> %798, i32 4)
   br label %811
 
 811:                                              ; preds = %809, %808
@@ -23023,7 +23023,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
 
 812:                                              ; preds = %811
   %813 = getelementptr inbounds i8, ptr %.0195876.us.i.us.i, i64 8
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %813, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %661, <8 x i32> %802, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %813, <8 x i1> splat (i1 true), <8 x i32> %661, <8 x i32> %802, i32 4)
   br label %814
 
 814:                                              ; preds = %812, %811
@@ -23031,7 +23031,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
 
 815:                                              ; preds = %814
   %816 = getelementptr inbounds i8, ptr %.0195876.us.i.us.i, i64 12
-  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %816, <8 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, <8 x i32> %661, <8 x i32> %806, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv8.si(ptr nonnull %816, <8 x i1> splat (i1 true), <8 x i32> %661, <8 x i32> %806, i32 4)
   br label %848
 
 817:                                              ; preds = %767
@@ -23209,13 +23209,13 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %903 = sub <4 x i32> %897, %898
   %904 = add <4 x i32> %900, %894
   %905 = add <4 x i32> %904, %901
-  %906 = shl <4 x i32> %903, <i32 1, i32 1, i32 1, i32 1>
+  %906 = shl <4 x i32> %903, splat (i32 1)
   %907 = add <4 x i32> %906, %902
-  %908 = shl <4 x i32> %901, <i32 2, i32 2, i32 2, i32 2>
+  %908 = shl <4 x i32> %901, splat (i32 2)
   %909 = add <4 x i32> %908, %900
-  %910 = shl <4 x i32> %903, <i32 3, i32 3, i32 3, i32 3>
+  %910 = shl <4 x i32> %903, splat (i32 3)
   %911 = add <4 x i32> %910, %902
-  %912 = shl <4 x i32> %899, <i32 2, i32 2, i32 2, i32 2>
+  %912 = shl <4 x i32> %899, splat (i32 2)
   %913 = add <4 x i32> %911, %912
   %914 = getelementptr inbounds [6 x [4 x i32]], ptr %8, i64 0, i64 %indvars.iv297.i.us.i
   store <4 x i32> %905, ptr %914, align 16
@@ -23251,15 +23251,15 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %936 = sub <4 x i32> %930, %931
   %937 = add <4 x i32> %933, %927
   %938 = add <4 x i32> %937, %934
-  %939 = shl <4 x i32> %938, <i32 2, i32 2, i32 2, i32 2>
-  %940 = shl <4 x i32> %936, <i32 3, i32 3, i32 3, i32 3>
-  %941 = shl <4 x i32> %935, <i32 2, i32 2, i32 2, i32 2>
+  %939 = shl <4 x i32> %938, splat (i32 2)
+  %940 = shl <4 x i32> %936, splat (i32 3)
+  %941 = shl <4 x i32> %935, splat (i32 2)
   %942 = add <4 x i32> %940, %941
-  %943 = shl <4 x i32> %934, <i32 4, i32 4, i32 4, i32 4>
-  %944 = shl <4 x i32> %933, <i32 2, i32 2, i32 2, i32 2>
+  %943 = shl <4 x i32> %934, splat (i32 4)
+  %944 = shl <4 x i32> %933, splat (i32 2)
   %945 = add <4 x i32> %943, %944
-  %946 = shl <4 x i32> %932, <i32 4, i32 4, i32 4, i32 4>
-  %947 = shl <4 x i32> %936, <i32 5, i32 5, i32 5, i32 5>
+  %946 = shl <4 x i32> %932, splat (i32 4)
+  %947 = shl <4 x i32> %936, splat (i32 5)
   %948 = add <4 x i32> %947, %941
   %949 = add <4 x i32> %948, %946
   store <4 x i32> %939, ptr %348, align 16
@@ -23318,24 +23318,24 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   %992 = sub <4 x i32> %984, %986
   %993 = add <4 x i32> %989, %978
   %994 = add <4 x i32> %993, %990
-  %995 = shl <4 x i32> %992, <i32 1, i32 1, i32 1, i32 1>
+  %995 = shl <4 x i32> %992, splat (i32 1)
   %996 = add <4 x i32> %995, %991
-  %997 = shl <4 x i32> %990, <i32 2, i32 2, i32 2, i32 2>
+  %997 = shl <4 x i32> %990, splat (i32 2)
   %998 = add <4 x i32> %997, %989
-  %999 = shl <4 x i32> %992, <i32 3, i32 3, i32 3, i32 3>
+  %999 = shl <4 x i32> %992, splat (i32 3)
   %1000 = add <4 x i32> %988, %991
   %1001 = add <4 x i32> %1000, %999
   %1002 = sitofp <4 x i32> %994 to <4 x float>
-  %1003 = fmul fast <4 x float> %1002, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %1003 = fmul fast <4 x float> %1002, splat (float 0x3F5C71C720000000)
   %1004 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %1003)
   %1005 = sitofp <4 x i32> %996 to <4 x float>
-  %1006 = fmul fast <4 x float> %1005, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %1006 = fmul fast <4 x float> %1005, splat (float 0x3F5C71C720000000)
   %1007 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %1006)
   %1008 = sitofp <4 x i32> %998 to <4 x float>
-  %1009 = fmul fast <4 x float> %1008, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %1009 = fmul fast <4 x float> %1008, splat (float 0x3F5C71C720000000)
   %1010 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %1009)
   %1011 = sitofp <4 x i32> %1001 to <4 x float>
-  %1012 = fmul fast <4 x float> %1011, <float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000, float 0x3F5C71C720000000>
+  %1012 = fmul fast <4 x float> %1011, splat (float 0x3F5C71C720000000)
   %1013 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %1012)
   switch i32 %397, label %1032 [
     i32 4, label %1023
@@ -23343,12 +23343,12 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
   ]
 
 1014:                                             ; preds = %976
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.01979125.us.i.us.i, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %872, <4 x i32> %1004, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr %.01979125.us.i.us.i, <4 x i1> splat (i1 true), <4 x i32> %872, <4 x i32> %1004, i32 4)
   br i1 %968, label %1015, label %1017
 
 1015:                                             ; preds = %1014
   %1016 = getelementptr inbounds i8, ptr %.01979125.us.i.us.i, i64 4
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %1016, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %872, <4 x i32> %1007, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %1016, <4 x i1> splat (i1 true), <4 x i32> %872, <4 x i32> %1007, i32 4)
   br label %1017
 
 1017:                                             ; preds = %1015, %1014
@@ -23356,7 +23356,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
 
 1018:                                             ; preds = %1017
   %1019 = getelementptr inbounds i8, ptr %.01979125.us.i.us.i, i64 8
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %1019, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %872, <4 x i32> %1010, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %1019, <4 x i1> splat (i1 true), <4 x i32> %872, <4 x i32> %1010, i32 4)
   br label %1020
 
 1020:                                             ; preds = %1018, %1017
@@ -23364,7 +23364,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn36conv3x3s1_winograd43_int
 
 1021:                                             ; preds = %1020
   %1022 = getelementptr inbounds i8, ptr %.01979125.us.i.us.i, i64 12
-  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %1022, <4 x i1> <i1 true, i1 true, i1 true, i1 true>, <4 x i32> %872, <4 x i32> %1013, i32 4)
+  call void @llvm.x86.avx512.mask.scattersiv4.si(ptr nonnull %1022, <4 x i1> splat (i1 true), <4 x i32> %872, <4 x i32> %1013, i32 4)
   br label %1032
 
 1023:                                             ; preds = %976
@@ -24613,14 +24613,14 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   ]
 
 107:                                              ; preds = %106
-  %108 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %.09061089.us, <16 x i32> %34, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %108 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %.09061089.us, <16 x i32> %34, <16 x i1> splat (i1 true), i32 1)
   %109 = trunc <16 x i32> %108 to <16 x i8>
   %110 = sext <16 x i8> %109 to <16 x i16>
   br i1 %74, label %111, label %116
 
 111:                                              ; preds = %107
   %112 = getelementptr inbounds i8, ptr %.09061089.us, i64 1
-  %113 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %112, <16 x i32> %34, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %113 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %112, <16 x i32> %34, <16 x i1> splat (i1 true), i32 1)
   %114 = trunc <16 x i32> %113 to <16 x i8>
   %115 = sext <16 x i8> %114 to <16 x i16>
   br label %116
@@ -24631,7 +24631,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 118:                                              ; preds = %116
   %119 = getelementptr inbounds i8, ptr %.09061089.us, i64 2
-  %120 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %119, <16 x i32> %34, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %120 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %119, <16 x i32> %34, <16 x i1> splat (i1 true), i32 1)
   %121 = trunc <16 x i32> %120 to <16 x i8>
   %122 = sext <16 x i8> %121 to <16 x i16>
   br label %123
@@ -24642,7 +24642,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 125:                                              ; preds = %123
   %126 = getelementptr inbounds i8, ptr %.09061089.us, i64 3
-  %127 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %126, <16 x i32> %34, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %127 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %126, <16 x i32> %34, <16 x i1> splat (i1 true), i32 1)
   %128 = trunc <16 x i32> %127 to <16 x i8>
   %129 = sext <16 x i8> %128 to <16 x i16>
   br label %.thread1081.us
@@ -24893,7 +24893,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   ]
 
 286:                                              ; preds = %285
-  %287 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.09501102.us, <8 x i32> %214, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %287 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.09501102.us, <8 x i32> %214, <8 x i32> splat (i32 -1), i8 1)
   %288 = trunc <8 x i32> %287 to <8 x i8>
   %289 = sext <8 x i8> %288 to <8 x i16>
   %290 = bitcast <8 x i16> %289 to <2 x i64>
@@ -24901,7 +24901,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 291:                                              ; preds = %286
   %292 = getelementptr inbounds i8, ptr %.09501102.us, i64 1
-  %293 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %292, <8 x i32> %214, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %293 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %292, <8 x i32> %214, <8 x i32> splat (i32 -1), i8 1)
   %294 = trunc <8 x i32> %293 to <8 x i8>
   %295 = sext <8 x i8> %294 to <8 x i16>
   %296 = bitcast <8 x i16> %295 to <2 x i64>
@@ -24913,7 +24913,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 298:                                              ; preds = %297
   %299 = getelementptr inbounds i8, ptr %.09501102.us, i64 2
-  %300 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %299, <8 x i32> %214, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %300 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %299, <8 x i32> %214, <8 x i32> splat (i32 -1), i8 1)
   %301 = trunc <8 x i32> %300 to <8 x i8>
   %302 = sext <8 x i8> %301 to <8 x i16>
   %303 = bitcast <8 x i16> %302 to <2 x i64>
@@ -24925,7 +24925,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
 
 305:                                              ; preds = %304
   %306 = getelementptr inbounds i8, ptr %.09501102.us, i64 3
-  %307 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %306, <8 x i32> %214, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %307 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %306, <8 x i32> %214, <8 x i32> splat (i32 -1), i8 1)
   %308 = trunc <8 x i32> %307 to <8 x i8>
   %309 = sext <8 x i8> %308 to <8 x i16>
   br label %.thread1083.us
@@ -24934,7 +24934,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %311 = load i64, ptr %.09501102.us, align 1
   %312 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %311, i64 0
   %313 = bitcast <2 x i64> %312 to <16 x i8>
-  %.lobit.us = ashr <16 x i8> %313, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.us = ashr <16 x i8> %313, splat (i8 7)
   %314 = shufflevector <16 x i8> %313, <16 x i8> %.lobit.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %315 = bitcast <16 x i8> %314 to <2 x i64>
   br i1 %253, label %316, label %323
@@ -24944,7 +24944,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %318 = load i64, ptr %317, align 1
   %319 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %318, i64 0
   %320 = bitcast <2 x i64> %319 to <16 x i8>
-  %.lobit1073.us = ashr <16 x i8> %320, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1073.us = ashr <16 x i8> %320, splat (i8 7)
   %321 = shufflevector <16 x i8> %320, <16 x i8> %.lobit1073.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %322 = bitcast <16 x i8> %321 to <2 x i64>
   br label %323
@@ -24958,7 +24958,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %326 = load i64, ptr %325, align 1
   %327 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %326, i64 0
   %328 = bitcast <2 x i64> %327 to <16 x i8>
-  %.lobit1074.us = ashr <16 x i8> %328, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1074.us = ashr <16 x i8> %328, splat (i8 7)
   %329 = shufflevector <16 x i8> %328, <16 x i8> %.lobit1074.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %330 = bitcast <16 x i8> %329 to <2 x i64>
   br label %331
@@ -24972,7 +24972,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd23_transform_input_til
   %334 = load i64, ptr %333, align 1
   %335 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %334, i64 0
   %336 = bitcast <2 x i64> %335 to <16 x i8>
-  %.lobit1075.us = ashr <16 x i8> %336, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1075.us = ashr <16 x i8> %336, splat (i8 7)
   %337 = shufflevector <16 x i8> %336, <16 x i8> %.lobit1075.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %338 = bitcast <16 x i8> %337 to <8 x i16>
   br label %.thread1083.us
@@ -30663,22 +30663,22 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %110 = load <16 x i16>, ptr %109, align 64
   %111 = getelementptr inbounds i8, ptr %101, i64 160
   %112 = load <16 x i16>, ptr %111, align 32
-  %113 = shl <16 x i16> %104, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %113 = shl <16 x i16> %104, splat (i16 2)
   %114 = sub <16 x i16> %108, %113
-  %115 = shl <16 x i16> %106, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %115 = shl <16 x i16> %106, splat (i16 2)
   %116 = sub <16 x i16> %110, %115
   %117 = sub <16 x i16> %108, %104
-  %118 = shl <16 x i16> %117, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %118 = shl <16 x i16> %117, splat (i16 1)
   %119 = sub <16 x i16> %110, %106
-  %120 = shl <16 x i16> %102, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %.neg1799.us = mul <16 x i16> %106, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %120 = shl <16 x i16> %102, splat (i16 2)
+  %.neg1799.us = mul <16 x i16> %106, splat (i16 -5)
   %121 = add <16 x i16> %.neg1799.us, %120
   %122 = add <16 x i16> %121, %110
   %123 = add <16 x i16> %116, %114
   %124 = sub <16 x i16> %116, %114
   %125 = add <16 x i16> %119, %118
   %126 = sub <16 x i16> %119, %118
-  %.neg1800.us = mul <16 x i16> %108, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %.neg1800.us = mul <16 x i16> %108, splat (i16 -5)
   %127 = add <16 x i16> %.neg1800.us, %113
   %128 = add <16 x i16> %127, %112
   store <16 x i16> %122, ptr %.016041827.us, align 32
@@ -30711,14 +30711,14 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   ]
 
 138:                                              ; preds = %137
-  %139 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %.015561820.us, <16 x i32> %36, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %139 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr %.015561820.us, <16 x i32> %36, <16 x i1> splat (i1 true), i32 1)
   %140 = trunc <16 x i32> %139 to <16 x i8>
   %141 = sext <16 x i8> %140 to <16 x i16>
   br i1 %81, label %142, label %147
 
 142:                                              ; preds = %138
   %143 = getelementptr inbounds i8, ptr %.015561820.us, i64 1
-  %144 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %143, <16 x i32> %36, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %144 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %143, <16 x i32> %36, <16 x i1> splat (i1 true), i32 1)
   %145 = trunc <16 x i32> %144 to <16 x i8>
   %146 = sext <16 x i8> %145 to <16 x i16>
   br label %147
@@ -30729,7 +30729,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds i8, ptr %.015561820.us, i64 2
-  %151 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %150, <16 x i32> %36, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %151 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %150, <16 x i32> %36, <16 x i1> splat (i1 true), i32 1)
   %152 = trunc <16 x i32> %151 to <16 x i8>
   %153 = sext <16 x i8> %152 to <16 x i16>
   br label %154
@@ -30740,7 +30740,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 156:                                              ; preds = %154
   %157 = getelementptr inbounds i8, ptr %.015561820.us, i64 3
-  %158 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %157, <16 x i32> %36, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %158 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %157, <16 x i32> %36, <16 x i1> splat (i1 true), i32 1)
   %159 = trunc <16 x i32> %158 to <16 x i8>
   %160 = sext <16 x i8> %159 to <16 x i16>
   br label %161
@@ -30751,7 +30751,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 163:                                              ; preds = %161
   %164 = getelementptr inbounds i8, ptr %.015561820.us, i64 4
-  %165 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %164, <16 x i32> %36, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %165 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %164, <16 x i32> %36, <16 x i1> splat (i1 true), i32 1)
   %166 = trunc <16 x i32> %165 to <16 x i8>
   %167 = sext <16 x i8> %166 to <16 x i16>
   br label %168
@@ -30762,7 +30762,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 170:                                              ; preds = %168
   %171 = getelementptr inbounds i8, ptr %.015561820.us, i64 5
-  %172 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %171, <16 x i32> %36, <16 x i1> <i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true, i1 true>, i32 1)
+  %172 = tail call <16 x i32> @llvm.x86.avx512.mask.gather.dpi.512(<16 x i32> zeroinitializer, ptr nonnull %171, <16 x i32> %36, <16 x i1> splat (i1 true), i32 1)
   %173 = trunc <16 x i32> %172 to <16 x i8>
   %174 = sext <16 x i8> %173 to <16 x i16>
   br label %.thread1810.us
@@ -30906,22 +30906,22 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %270 = phi <16 x i16> [ %155, %170 ], [ %155, %168 ], [ zeroinitializer, %135 ], [ %204, %225 ], [ %204, %227 ], [ %250, %261 ], [ %250, %263 ], [ zeroinitializer, %137 ]
   %271 = phi <16 x i16> [ %148, %170 ], [ %148, %168 ], [ zeroinitializer, %135 ], [ %193, %225 ], [ %193, %227 ], [ %244, %261 ], [ %244, %263 ], [ zeroinitializer, %137 ]
   %272 = phi <16 x i16> [ %141, %170 ], [ %141, %168 ], [ zeroinitializer, %135 ], [ %182, %225 ], [ %182, %227 ], [ %238, %261 ], [ %238, %263 ], [ zeroinitializer, %137 ]
-  %273 = shl nsw <16 x i16> %271, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %273 = shl nsw <16 x i16> %271, splat (i16 2)
   %274 = sub nsw <16 x i16> %269, %273
-  %275 = shl nsw <16 x i16> %270, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %275 = shl nsw <16 x i16> %270, splat (i16 2)
   %276 = sub nsw <16 x i16> %268, %275
   %277 = sub nsw <16 x i16> %269, %271
-  %278 = shl nsw <16 x i16> %277, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %278 = shl nsw <16 x i16> %277, splat (i16 1)
   %279 = sub nsw <16 x i16> %268, %270
-  %280 = shl nsw <16 x i16> %272, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %.neg1801.us = mul nsw <16 x i16> %270, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %280 = shl nsw <16 x i16> %272, splat (i16 2)
+  %.neg1801.us = mul nsw <16 x i16> %270, splat (i16 -5)
   %281 = add nsw <16 x i16> %.neg1801.us, %268
   %282 = add nsw <16 x i16> %281, %280
   %283 = add nsw <16 x i16> %274, %276
   %284 = sub nsw <16 x i16> %276, %274
   %285 = add nsw <16 x i16> %278, %279
   %286 = sub nsw <16 x i16> %279, %278
-  %.neg1802.us = mul nsw <16 x i16> %269, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %.neg1802.us = mul nsw <16 x i16> %269, splat (i16 -5)
   %287 = add nsw <16 x i16> %.neg1802.us, %267
   %288 = add nsw <16 x i16> %287, %273
   %289 = getelementptr inbounds [6 x [16 x i16]], ptr %7, i64 0, i64 %indvars.iv
@@ -31073,22 +31073,22 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %384 = load <8 x i16>, ptr %383, align 32
   %385 = getelementptr inbounds i8, ptr %375, i64 80
   %386 = load <8 x i16>, ptr %385, align 16
-  %387 = shl <8 x i16> %378, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %387 = shl <8 x i16> %378, splat (i16 2)
   %388 = sub <8 x i16> %382, %387
-  %389 = shl <8 x i16> %380, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %389 = shl <8 x i16> %380, splat (i16 2)
   %390 = sub <8 x i16> %384, %389
   %391 = sub <8 x i16> %382, %378
-  %392 = shl <8 x i16> %391, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %392 = shl <8 x i16> %391, splat (i16 1)
   %393 = sub <8 x i16> %384, %380
-  %394 = shl <8 x i16> %376, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %.neg1790.us = mul <8 x i16> %380, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %394 = shl <8 x i16> %376, splat (i16 2)
+  %.neg1790.us = mul <8 x i16> %380, splat (i16 -5)
   %395 = add <8 x i16> %.neg1790.us, %394
   %396 = add <8 x i16> %395, %384
   %397 = add <8 x i16> %390, %388
   %398 = sub <8 x i16> %390, %388
   %399 = add <8 x i16> %393, %392
   %400 = sub <8 x i16> %393, %392
-  %.neg1791.us = mul <8 x i16> %382, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %.neg1791.us = mul <8 x i16> %382, splat (i16 -5)
   %401 = add <8 x i16> %.neg1791.us, %387
   %402 = add <8 x i16> %401, %386
   store <8 x i16> %396, ptr %.016351842.us, align 16
@@ -31120,7 +31120,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   ]
 
 412:                                              ; preds = %411
-  %413 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.016131835.us, <8 x i32> %311, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %413 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr %.016131835.us, <8 x i32> %311, <8 x i32> splat (i32 -1), i8 1)
   %414 = trunc <8 x i32> %413 to <8 x i8>
   %415 = sext <8 x i8> %414 to <8 x i16>
   %416 = bitcast <8 x i16> %415 to <2 x i64>
@@ -31128,7 +31128,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 417:                                              ; preds = %412
   %418 = getelementptr inbounds i8, ptr %.016131835.us, i64 1
-  %419 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %418, <8 x i32> %311, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %419 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %418, <8 x i32> %311, <8 x i32> splat (i32 -1), i8 1)
   %420 = trunc <8 x i32> %419 to <8 x i8>
   %421 = sext <8 x i8> %420 to <8 x i16>
   %422 = bitcast <8 x i16> %421 to <2 x i64>
@@ -31140,7 +31140,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 424:                                              ; preds = %423
   %425 = getelementptr inbounds i8, ptr %.016131835.us, i64 2
-  %426 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %425, <8 x i32> %311, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %426 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %425, <8 x i32> %311, <8 x i32> splat (i32 -1), i8 1)
   %427 = trunc <8 x i32> %426 to <8 x i8>
   %428 = sext <8 x i8> %427 to <8 x i16>
   %429 = bitcast <8 x i16> %428 to <2 x i64>
@@ -31152,7 +31152,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 431:                                              ; preds = %430
   %432 = getelementptr inbounds i8, ptr %.016131835.us, i64 3
-  %433 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %432, <8 x i32> %311, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %433 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %432, <8 x i32> %311, <8 x i32> splat (i32 -1), i8 1)
   %434 = trunc <8 x i32> %433 to <8 x i8>
   %435 = sext <8 x i8> %434 to <8 x i16>
   %436 = bitcast <8 x i16> %435 to <2 x i64>
@@ -31164,7 +31164,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 438:                                              ; preds = %437
   %439 = getelementptr inbounds i8, ptr %.016131835.us, i64 4
-  %440 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %439, <8 x i32> %311, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %440 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %439, <8 x i32> %311, <8 x i32> splat (i32 -1), i8 1)
   %441 = trunc <8 x i32> %440 to <8 x i8>
   %442 = sext <8 x i8> %441 to <8 x i16>
   %443 = bitcast <8 x i16> %442 to <2 x i64>
@@ -31176,7 +31176,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
 
 445:                                              ; preds = %444
   %446 = getelementptr inbounds i8, ptr %.016131835.us, i64 5
-  %447 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %446, <8 x i32> %311, <8 x i32> <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>, i8 1)
+  %447 = tail call <8 x i32> @llvm.x86.avx2.gather.d.d.256(<8 x i32> zeroinitializer, ptr nonnull %446, <8 x i32> %311, <8 x i32> splat (i32 -1), i8 1)
   %448 = trunc <8 x i32> %447 to <8 x i8>
   %449 = sext <8 x i8> %448 to <8 x i16>
   br label %.thread1812.us
@@ -31185,7 +31185,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %451 = load i64, ptr %.016131835.us, align 1
   %452 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %451, i64 0
   %453 = bitcast <2 x i64> %452 to <16 x i8>
-  %.lobit.us = ashr <16 x i8> %453, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit.us = ashr <16 x i8> %453, splat (i8 7)
   %454 = shufflevector <16 x i8> %453, <16 x i8> %.lobit.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %455 = bitcast <16 x i8> %454 to <2 x i64>
   br i1 %355, label %456, label %463
@@ -31195,7 +31195,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %458 = load i64, ptr %457, align 1
   %459 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %458, i64 0
   %460 = bitcast <2 x i64> %459 to <16 x i8>
-  %.lobit1792.us = ashr <16 x i8> %460, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1792.us = ashr <16 x i8> %460, splat (i8 7)
   %461 = shufflevector <16 x i8> %460, <16 x i8> %.lobit1792.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %462 = bitcast <16 x i8> %461 to <2 x i64>
   br label %463
@@ -31209,7 +31209,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %466 = load i64, ptr %465, align 1
   %467 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %466, i64 0
   %468 = bitcast <2 x i64> %467 to <16 x i8>
-  %.lobit1793.us = ashr <16 x i8> %468, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1793.us = ashr <16 x i8> %468, splat (i8 7)
   %469 = shufflevector <16 x i8> %468, <16 x i8> %.lobit1793.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %470 = bitcast <16 x i8> %469 to <2 x i64>
   br label %471
@@ -31223,7 +31223,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %474 = load i64, ptr %473, align 1
   %475 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %474, i64 0
   %476 = bitcast <2 x i64> %475 to <16 x i8>
-  %.lobit1794.us = ashr <16 x i8> %476, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1794.us = ashr <16 x i8> %476, splat (i8 7)
   %477 = shufflevector <16 x i8> %476, <16 x i8> %.lobit1794.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %478 = bitcast <16 x i8> %477 to <2 x i64>
   br label %479
@@ -31237,7 +31237,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %482 = load i64, ptr %481, align 1
   %483 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %482, i64 0
   %484 = bitcast <2 x i64> %483 to <16 x i8>
-  %.lobit1795.us = ashr <16 x i8> %484, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1795.us = ashr <16 x i8> %484, splat (i8 7)
   %485 = shufflevector <16 x i8> %484, <16 x i8> %.lobit1795.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %486 = bitcast <16 x i8> %485 to <2 x i64>
   br label %487
@@ -31251,7 +31251,7 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %490 = load i64, ptr %489, align 1
   %491 = insertelement <2 x i64> <i64 poison, i64 0>, i64 %490, i64 0
   %492 = bitcast <2 x i64> %491 to <16 x i8>
-  %.lobit1796.us = ashr <16 x i8> %492, <i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7, i8 7>
+  %.lobit1796.us = ashr <16 x i8> %492, splat (i8 7)
   %493 = shufflevector <16 x i8> %492, <16 x i8> %.lobit1796.us, <16 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23>
   %494 = bitcast <16 x i8> %493 to <8 x i16>
   br label %.thread1812.us
@@ -31264,26 +31264,26 @@ define internal fastcc void @_ZN4ncnnL46conv3x3s1_winograd43_transform_input_til
   %.01617.us = phi <2 x i64> [ %.31620.us, %445 ], [ %.31620.us, %444 ], [ zeroinitializer, %409 ], [ %.21619.us, %487 ], [ %.21619.us, %488 ], [ zeroinitializer, %411 ]
   %.01615.us = phi <2 x i64> [ %416, %445 ], [ %416, %444 ], [ zeroinitializer, %409 ], [ %455, %487 ], [ %455, %488 ], [ zeroinitializer, %411 ]
   %495 = bitcast <2 x i64> %.01617.us to <8 x i16>
-  %496 = shl <8 x i16> %495, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %496 = shl <8 x i16> %495, splat (i16 2)
   %497 = bitcast <2 x i64> %.01625.us to <8 x i16>
   %498 = sub <8 x i16> %497, %496
   %499 = bitcast <2 x i64> %.01621.us to <8 x i16>
-  %500 = shl <8 x i16> %499, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
+  %500 = shl <8 x i16> %499, splat (i16 2)
   %501 = bitcast <2 x i64> %.01629.us to <8 x i16>
   %502 = sub <8 x i16> %501, %500
   %503 = sub <8 x i16> %497, %495
-  %504 = shl <8 x i16> %503, <i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1, i16 1>
+  %504 = shl <8 x i16> %503, splat (i16 1)
   %505 = sub <8 x i16> %501, %499
   %506 = bitcast <2 x i64> %.01615.us to <8 x i16>
-  %507 = shl <8 x i16> %506, <i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2, i16 2>
-  %.neg1797.us = mul <8 x i16> %499, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %507 = shl <8 x i16> %506, splat (i16 2)
+  %.neg1797.us = mul <8 x i16> %499, splat (i16 -5)
   %508 = add <8 x i16> %.neg1797.us, %501
   %509 = add <8 x i16> %508, %507
   %510 = add <8 x i16> %498, %502
   %511 = sub <8 x i16> %502, %498
   %512 = add <8 x i16> %504, %505
   %513 = sub <8 x i16> %505, %504
-  %.neg1798.us = mul <8 x i16> %497, <i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5, i16 -5>
+  %.neg1798.us = mul <8 x i16> %497, splat (i16 -5)
   %514 = add <8 x i16> %.neg1798.us, %.01633.us
   %515 = add <8 x i16> %514, %496
   %516 = getelementptr inbounds [6 x [8 x i16]], ptr %8, i64 0, i64 %indvars.iv1907

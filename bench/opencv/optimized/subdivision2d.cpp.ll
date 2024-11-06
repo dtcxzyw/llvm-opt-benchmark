@@ -3003,7 +3003,7 @@ _ZN2cv8Subdiv2D12clearVoronoiEv.exit:             ; preds = %39, %._crit_edge.i
   br label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit
 
 _ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit: ; preds = %56, %107
-  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %107 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %56 ]
+  %.sroa.0.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i, %107 ], [ splat (float 0x47EFFFFFE0000000), %56 ]
   %.sroa.018.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i, i64 0
   %135 = tail call noundef float @llvm.fabs.f32(float %.sroa.018.0.vec.extract)
   %136 = fcmp olt float %135, 0x47DFFFFFE0000000
@@ -3129,7 +3129,7 @@ _ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit: ; preds = %56, %107
   br label %_ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63
 
 _ZN2cvL19computeVoronoiPointENS_6Point_IfEES1_S1_S1_.exit63: ; preds = %156, %208
-  %.sroa.0.0.i60 = phi <2 x float> [ %.sroa.0.4.vec.insert.i62, %208 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %156 ]
+  %.sroa.0.0.i60 = phi <2 x float> [ %.sroa.0.4.vec.insert.i62, %208 ], [ splat (float 0x47EFFFFFE0000000), %156 ]
   %.sroa.05.0.vec.extract = extractelement <2 x float> %.sroa.0.0.i60, i64 0
   %236 = tail call noundef float @llvm.fabs.f32(float %.sroa.05.0.vec.extract)
   %237 = fcmp olt float %236, 0x47DFFFFFE0000000

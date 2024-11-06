@@ -874,7 +874,7 @@ _ZN7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bsdf
   %257 = load ptr, ptr %256, align 8
   call void %257(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.98") align 16 %64, ptr noundef nonnull align 8 dereferenceable(64) %136, ptr noundef nonnull align 4 dereferenceable(12) %59, ptr noundef nonnull align 16 dereferenceable(240) %56, ptr noundef nonnull align 16 dereferenceable(16) %63, i1 noundef zeroext true)
   %258 = load <4 x i32>, ptr %63, align 16
-  %259 = xor <4 x i32> %258, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %259 = xor <4 x i32> %258, splat (i32 -2147483648)
   %260 = bitcast <4 x i32> %259 to <4 x float>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %41)
@@ -1345,7 +1345,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %545 = load ptr, ptr %544, align 8
   call void %545(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.114") align 16 %69, ptr noundef nonnull align 8 dereferenceable(64) %136, ptr noundef nonnull align 4 dereferenceable(12) %59, ptr noundef nonnull align 16 dereferenceable(240) %56, float noundef %538, ptr noundef nonnull align 4 dereferenceable(8) %70, i1 noundef zeroext true)
   %546 = load <4 x i32>, ptr %69, align 16
-  %547 = xor <4 x i32> %546, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %547 = xor <4 x i32> %546, splat (i32 -2147483648)
   %548 = bitcast <4 x i32> %547 to <4 x float>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %25)
@@ -1525,7 +1525,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %693 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %692, <4 x float> %691, <4 x float> %690)
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %694 = load <4 x i32>, ptr %506, align 16, !noalias !82
-  %695 = and <4 x i32> %694, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %695 = and <4 x i32> %694, splat (i32 2147483647)
   %696 = bitcast <4 x i32> %695 to <4 x float>
   %697 = shufflevector <4 x float> %696, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
   %698 = call contract noundef <4 x float> @llvm.x86.sse.max.ss(<4 x float> %696, <4 x float> %697)
@@ -1607,7 +1607,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %746 = shufflevector <4 x float> %745, <4 x float> poison, <4 x i32> zeroinitializer
   %747 = fmul contract <4 x float> %736, %746
   %748 = load <4 x i32>, ptr %527, align 16
-  %749 = xor <4 x i32> %748, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %749 = xor <4 x i32> %748, splat (i32 -2147483648)
   %750 = bitcast <4 x i32> %749 to <4 x float>
   %751 = select i1 %743, i8 7, i8 0
   %752 = bitcast i8 %751 to <8 x i1>

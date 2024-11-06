@@ -595,9 +595,9 @@ declare void @_ZN7mitsuba6SensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEED2Ev
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK7mitsuba13DistantSensorIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(256) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 
@@ -956,7 +956,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %131 = getelementptr inbounds i8, ptr %3, i64 48
   store <4 x float> %128, ptr %131, align 16, !alias.scope !7, !noalias !10
   store <4 x float> <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float 1.000000e+00>, ptr %4, align 16, !noalias !10
-  %132 = fmul contract <4 x float> %125, <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float -0.000000e+00>
+  %132 = fmul contract <4 x float> %125, splat (float -0.000000e+00)
   br label %133
 
 133:                                              ; preds = %133, %70
@@ -1374,7 +1374,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %130 = getelementptr inbounds i8, ptr %3, i64 48
   store <4 x float> %127, ptr %130, align 16, !alias.scope !15, !noalias !18
   store <4 x float> <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float 1.000000e+00>, ptr %4, align 16, !noalias !18
-  %131 = fmul contract <4 x float> %124, <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float -0.000000e+00>
+  %131 = fmul contract <4 x float> %124, splat (float -0.000000e+00)
   br label %132
 
 132:                                              ; preds = %132, %69
@@ -1708,7 +1708,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0E
   %130 = getelementptr inbounds i8, ptr %3, i64 48
   store <4 x float> %127, ptr %130, align 16, !alias.scope !21, !noalias !24
   store <4 x float> <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float 1.000000e+00>, ptr %4, align 16, !noalias !24
-  %131 = fmul contract <4 x float> %124, <float -0.000000e+00, float -0.000000e+00, float -0.000000e+00, float -0.000000e+00>
+  %131 = fmul contract <4 x float> %124, splat (float -0.000000e+00)
   br label %132
 
 132:                                              ; preds = %132, %69
@@ -4377,7 +4377,7 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   %65 = fneg contract <4 x float> %62
   %66 = fmul contract <4 x float> %63, %65
   %67 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %66, <4 x float> %63, <4 x float> %64)
-  %68 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %67, <4 x float> %62, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %68 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %67, <4 x float> %62, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !42
   br label %69
 
@@ -4474,7 +4474,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
   %102 = fmul contract <4 x float> %.sroa.0278.0.copyload, zeroinitializer
   %103 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %41, <4 x float> zeroinitializer, <4 x float> %102)
   %104 = fadd contract <4 x float> %43, %103
-  %105 = fmul contract <4 x float> %104, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %105 = fmul contract <4 x float> %104, splat (float 2.000000e+00)
   %106 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> zeroinitializer
   %107 = fmul contract <4 x float> %105, %106
   %108 = fsub contract <4 x float> %52, %107
@@ -4495,9 +4495,9 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7mitsuba17DistantSensorImplIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELNS_13RayTargetTypeE0EE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(304) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 
@@ -4508,7 +4508,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17DistantSensorImplIfN5drjit6MatrixI
   %5 = load <4 x float>, ptr %4, align 16, !noalias !78
   %6 = load <4 x float>, ptr %3, align 16, !noalias !78
   %7 = fadd contract <4 x float> %5, %6
-  %8 = fmul contract <4 x float> %7, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %8 = fmul contract <4 x float> %7, splat (float 5.000000e-01)
   %9 = fsub contract <4 x float> %8, %5
   %10 = fmul contract <4 x float> %9, %9
   %shift = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -5470,7 +5470,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
   %57 = fmul contract <4 x float> %.sroa.0273.0.copyload, zeroinitializer
   %58 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %35, <4 x float> zeroinitializer, <4 x float> %57)
   %59 = fadd contract <4 x float> %37, %58
-  %60 = fmul contract <4 x float> %59, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %60 = fmul contract <4 x float> %59, splat (float 2.000000e+00)
   %61 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> zeroinitializer
   %62 = fmul contract <4 x float> %60, %61
   %63 = fsub contract <4 x float> %42, %62
@@ -5491,9 +5491,9 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7mitsuba17DistantSensorImplIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELNS_13RayTargetTypeE1EE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(304) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 
@@ -5504,7 +5504,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17DistantSensorImplIfN5drjit6MatrixI
   %5 = load <4 x float>, ptr %4, align 16, !noalias !109
   %6 = load <4 x float>, ptr %3, align 16, !noalias !109
   %7 = fadd contract <4 x float> %5, %6
-  %8 = fmul contract <4 x float> %7, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %8 = fmul contract <4 x float> %7, splat (float 5.000000e-01)
   %9 = fsub contract <4 x float> %8, %5
   %10 = fmul contract <4 x float> %9, %9
   %shift = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -5683,7 +5683,7 @@ _ZN5drjit6detail4and_INS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEENS_4MaskIS5_Lm4E
   %74 = fmul contract <4 x float> %.sroa.0273.0.copyload.i, zeroinitializer
   %75 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %37, <4 x float> zeroinitializer, <4 x float> %74)
   %76 = fadd contract <4 x float> %39, %75
-  %77 = fmul contract <4 x float> %76, <float 2.000000e+00, float 2.000000e+00, float 2.000000e+00, float 2.000000e+00>
+  %77 = fmul contract <4 x float> %76, splat (float 2.000000e+00)
   %78 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> zeroinitializer
   %79 = fmul contract <4 x float> %77, %78
   %80 = fsub contract <4 x float> %44, %79
@@ -6379,9 +6379,9 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7mitsuba17DistantSensorImplIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEELNS_13RayTargetTypeE2EE4bboxEv(ptr dead_on_unwind noalias writable sret(%"struct.mitsuba::BoundingBox") align 16 %0, ptr noundef nonnull align 16 dereferenceable(304) %1) unnamed_addr #0 comdat align 2 {
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %0, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %3, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %3, align 16
   ret void
 }
 
@@ -6392,7 +6392,7 @@ define linkonce_odr hidden void @_ZN7mitsuba17DistantSensorImplIfN5drjit6MatrixI
   %5 = load <4 x float>, ptr %4, align 16, !noalias !155
   %6 = load <4 x float>, ptr %3, align 16, !noalias !155
   %7 = fadd contract <4 x float> %5, %6
-  %8 = fmul contract <4 x float> %7, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %8 = fmul contract <4 x float> %7, splat (float 5.000000e-01)
   %9 = fsub contract <4 x float> %8, %5
   %10 = fmul contract <4 x float> %9, %9
   %shift = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>

@@ -436,7 +436,7 @@ define weak_odr void @_ZNK7mitsuba15IrradianceMeterIfN5drjit6MatrixINS_8Spectrum
 30:                                               ; preds = %30, %29
   %.09.i.i.i = phi i64 [ 0, %29 ], [ %32, %30 ]
   %31 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %8, i64 0, i64 %.09.i.i.i
-  store <4 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, ptr %31, align 16, !alias.scope !7, !noalias !10
+  store <4 x float> splat (float 0x400921FB60000000), ptr %31, align 16, !alias.scope !7, !noalias !10
   %32 = add nuw nsw i64 %.09.i.i.i, 1
   %exitcond.not.i.i18.i = icmp eq i64 %32, 4
   br i1 %exitcond.not.i.i18.i, label %_ZN5drjit15StaticArrayBaseIN7mitsuba8SpectrumIfLm4EEELm4ELb0ENS_5ArrayIS3_Lm4EEEE5full_IS3_EES5_RKT_m.exit.i.i, label %30, !llvm.loop !13
@@ -589,7 +589,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %142 = fmul contract <4 x float> %141, %139
   %143 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %119, <4 x float> %121, <4 x float> %142)
   %144 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %27, <4 x float> %108, <4 x float> %143)
-  %145 = fmul contract <4 x float> %144, <float 0x3F17700000000000, float 0x3F17700000000000, float 0x3F17700000000000, float 0x3F17700000000000>
+  %145 = fmul contract <4 x float> %144, splat (float 0x3F17700000000000)
   %146 = fadd contract <4 x float> %28, %145
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %10)
   store <4 x float> %146, ptr %0, align 16
@@ -659,7 +659,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.019.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i ], [ %28, %25 ]
   %26 = getelementptr inbounds [4 x %"struct.drjit::Array.47"], ptr %14, i64 0, i64 %.019.i
   %27 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %26, i64 0, i64 %.019.i
-  store <4 x float> <float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000, float 0x400921FB60000000>, ptr %27, align 16
+  store <4 x float> splat (float 0x400921FB60000000), ptr %27, align 16
   %28 = add nuw nsw i64 %.019.i, 1
   %exitcond.not.i = icmp eq i64 %28, 4
   br i1 %exitcond.not.i, label %_ZNSt3__14pairIN7mitsuba15DirectionSampleIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEES7_EC2B8ne190000IS8_RKfTnNS_9enable_ifIXclsr10_CheckArgsE23__is_pair_constructibleIT_T0_EEEiE4typeELi0EEEOSE_OSF_.exit, label %25, !llvm.loop !27

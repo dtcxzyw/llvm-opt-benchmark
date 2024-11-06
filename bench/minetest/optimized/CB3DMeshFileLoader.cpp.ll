@@ -1104,8 +1104,8 @@ vector.body:                                      ; preds = %pred.store.continue
   %45 = getelementptr i8, ptr %next.gep, i64 16
   %wide.load = load <16 x i8>, ptr %next.gep, align 1, !tbaa !51
   %wide.load115 = load <16 x i8>, ptr %45, align 1, !tbaa !51
-  %46 = icmp eq <16 x i8> %wide.load, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %47 = icmp eq <16 x i8> %wide.load115, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %46 = icmp eq <16 x i8> %wide.load, splat (i8 92)
+  %47 = icmp eq <16 x i8> %wide.load115, splat (i8 92)
   %48 = extractelement <16 x i1> %46, i64 0
   br i1 %48, label %pred.store.if, label %pred.store.continue
 
@@ -1447,7 +1447,7 @@ vec.epilog.vector.body:                           ; preds = %pred.store.continue
   %index182 = phi i64 [ %vec.epilog.resume.val, %vec.epilog.ph ], [ %index.next208, %pred.store.continue207 ]
   %next.gep183 = getelementptr i8, ptr %43, i64 %index182
   %wide.load191 = load <8 x i8>, ptr %next.gep183, align 1, !tbaa !51
-  %112 = icmp eq <8 x i8> %wide.load191, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %112 = icmp eq <8 x i8> %wide.load191, splat (i8 92)
   %113 = extractelement <8 x i1> %112, i64 0
   br i1 %113, label %pred.store.if192, label %pred.store.continue193
 
@@ -1851,7 +1851,7 @@ _ZN3irr5scene18CB3DMeshFileLoader10readStringB5cxx11Ev.exit: ; preds = %cleanup.
   %bf.clear15.i.i = and i16 %bf.load8.i.i, -2048
   %bf.set37.i.i = or disjoint i16 %bf.clear15.i.i, 1116
   store i16 %bf.set37.i.i, ptr %Wireframe.i.i, align 8
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %red.i, align 8, !tbaa !113
+  store <4 x float> splat (float 1.000000e+00), ptr %red.i, align 8, !tbaa !113
   store float 0.000000e+00, ptr %shininess.i, align 8, !tbaa !123
   store i32 1, ptr %blend.i, align 4, !tbaa !125
   store i32 0, ptr %fx.i, align 8, !tbaa !126
@@ -2240,8 +2240,8 @@ if.end174:                                        ; preds = %if.else164, %if.the
   %conv.i13.i = fptosi float %76 to i32
   %and.i.i = shl i32 %conv.i.i, 24
   %77 = load <2 x float>, ptr %red, align 8, !tbaa !113
-  %78 = fmul <2 x float> %77, <float 2.550000e+02, float 2.550000e+02>
-  %79 = fadd <2 x float> %78, <float 5.000000e-01, float 5.000000e-01>
+  %78 = fmul <2 x float> %77, splat (float 2.550000e+02)
+  %79 = fadd <2 x float> %78, splat (float 5.000000e-01)
   %80 = call <2 x float> @llvm.floor.v2f32(<2 x float> %79)
   %81 = fptosi <2 x float> %80 to <2 x i32>
   %82 = shl <2 x i32> %81, <i32 16, i32 8>

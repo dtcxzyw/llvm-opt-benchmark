@@ -215,7 +215,7 @@ entry:
   %RelativeTranslation.i = getelementptr inbounds i8, ptr %this, i64 120
   %RelativeScale.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %RelativeScale.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %RelativeScale.i, align 8, !tbaa !10
   %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 152
   store float 1.000000e+00, ptr %ref.tmp4.sroa.5.0.RelativeScale.i.sroa_idx, align 8, !tbaa !10
   %Children.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -646,7 +646,7 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   %RelativeTranslation.i = getelementptr inbounds i8, ptr %this, i64 120
   %RelativeScale.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %RelativeTranslation.i, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %RelativeScale.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %RelativeScale.i, align 8, !tbaa !10
   %ref.tmp3.sroa.5.0.RelativeScale.i.sroa_idx = getelementptr inbounds i8, ptr %this, i64 152
   store float 1.000000e+00, ptr %ref.tmp3.sroa.5.0.RelativeScale.i.sroa_idx, align 8, !tbaa !10
   %Children.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -2371,7 +2371,7 @@ if.then58:                                        ; preds = %land.lhs.true54
   store float 1.000000e+00, ptr %arrayidx4.i.i.i, align 4, !tbaa !10
   %arrayidx6.i.i.i = getelementptr inbounds i8, ptr %frust, i64 152
   store float 1.000000e+00, ptr %arrayidx6.i.i.i, align 8, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Z.i3.i.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %Z.i3.i.i, align 8, !tbaa !10
   %arrayctor.cur5.ptr.1.i = getelementptr inbounds i8, ptr %frust, i64 196
   %44 = getelementptr inbounds i8, ptr %frust, i64 200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %44, i8 0, i64 56, i1 false)
@@ -2381,7 +2381,7 @@ if.then58:                                        ; preds = %land.lhs.true54
   store float 1.000000e+00, ptr %arrayidx4.i.i.1.i, align 4, !tbaa !10
   %arrayidx6.i.i.1.i = getelementptr inbounds i8, ptr %frust, i64 216
   store float 1.000000e+00, ptr %arrayidx6.i.i.1.i, align 8, !tbaa !10
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i.i, align 8, !tbaa !10
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i.i, align 8, !tbaa !10
   %BoundingCenter.i130 = getelementptr inbounds i8, ptr %frust, i64 268
   store <2 x float> zeroinitializer, ptr %BoundingCenter.i130, align 4, !tbaa !10
   %Z.i49.i = getelementptr inbounds i8, ptr %frust, i64 276
@@ -6305,7 +6305,7 @@ _ZNSt6vectorIN3irr4core8vector3dIfEESaIS3_EE6resizeEm.exit: ; preds = %_ZSt27__u
   %10 = load <2 x float>, ptr %call, align 4, !tbaa !10
   %11 = load <2 x float>, ptr %MaxEdge.i.i, align 4, !tbaa !10
   %12 = fadd <2 x float> %10, %11
-  %13 = fmul <2 x float> %12, <float 5.000000e-01, float 5.000000e-01>
+  %13 = fmul <2 x float> %12, splat (float 5.000000e-01)
   %14 = fsub <2 x float> %13, %11
   %15 = fadd <2 x float> %13, %14
   store <2 x float> %15, ptr %spec.select.i, align 4, !tbaa !10

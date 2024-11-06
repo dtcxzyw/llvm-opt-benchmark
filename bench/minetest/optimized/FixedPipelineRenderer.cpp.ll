@@ -1076,9 +1076,9 @@ entry:
   %3 = insertelement <4 x i32> %2, i32 %and3.i, i64 2
   %4 = insertelement <4 x i32> %3, i32 %and5.i, i64 3
   %.fr = freeze <4 x i32> %4
-  %5 = and <4 x i32> %.fr, <i32 15, i32 15, i32 15, i32 15>
-  %6 = add nsw <4 x i32> %5, <i32 -6, i32 -6, i32 -6, i32 -6>
-  %7 = icmp ult <4 x i32> %6, <i32 5, i32 5, i32 5, i32 5>
+  %5 = and <4 x i32> %.fr, splat (i32 15)
+  %6 = add nsw <4 x i32> %5, splat (i32 -6)
+  %7 = icmp ult <4 x i32> %6, splat (i32 5)
   %8 = bitcast <4 x i1> %7 to i4
   %.not = icmp eq i4 %8, 0
   br i1 %.not, label %if.end13, label %if.then

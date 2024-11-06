@@ -12744,7 +12744,7 @@ if.end51:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %self_buffer.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %other_buffer.i.i.i.i.i)
   store <4 x i64> %x.coerce, ptr %self_buffer.i.i.i.i.i, align 32
-  store <4 x i64> <i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123>, ptr %other_buffer.i.i.i.i.i, align 32
+  store <4 x i64> splat (i64 -4132994306676758123), ptr %other_buffer.i.i.i.i.i, align 32
   br label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %if.end51
@@ -12769,19 +12769,19 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit: ; preds = %for.body.i.i
   %vecinit.i.i.i.i = insertelement <4 x i64> poison, i64 %conv, i64 0
   %vecinit3.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i, %10
-  %12 = xor <4 x i1> %or.i.i.i35, <i1 true, i1 true, i1 true, i1 true>
+  %12 = xor <4 x i1> %or.i.i.i35, splat (i1 true)
   %xor.i.i.i = sext <4 x i1> %12 to <4 x i64>
-  %13 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>, ptr %2, <4 x i64> %and.i.i.i.i, <4 x i64> %xor.i.i.i, i8 8)
+  %13 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %2, <4 x i64> %and.i.i.i.i, <4 x i64> %xor.i.i.i, i8 8)
   %cmp.i.i.i.i12 = icmp eq <4 x i64> %x.coerce, %13
   %sext.i.i.i.i13 = sext <4 x i1> %cmp.i.i.i.i12 to <4 x i64>
-  %cmp.i.i.i.i14 = icmp eq <4 x i64> %13, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i14 = icmp eq <4 x i64> %13, splat (i64 -2401053089476968723)
   %or3637 = or <4 x i1> %cmp.i.i.i.i12, %cmp.i.i.i.i14
   %or36 = bitcast <4 x i1> %or3637 to i4
   %tobool147.not = icmp eq i4 %or36, -1
   br i1 %tobool147.not, label %return, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit
-  %add.i.i.i.i = add <4 x i64> %and.i.i.i.i, <i64 1, i64 1, i64 1, i64 1>
+  %add.i.i.i.i = add <4 x i64> %and.i.i.i.i, splat (i64 1)
   store <4 x i64> %add.i.i.i.i, ptr %indicesArray, align 32
   store <4 x i64> %x.coerce, ptr %valuesArray, align 32
   %14 = bitcast <4 x i1> %cmp.i.i.i.i12 to i4
@@ -12819,7 +12819,7 @@ if.then187:                                       ; preds = %if.end205, %while.b
 if.end189:                                        ; preds = %while.body, %if.end205
   %23 = phi <4 x i64> [ %25, %if.end205 ], [ %21, %while.body ]
   %index.041 = phi i64 [ %spec.store.select, %if.end205 ], [ %19, %while.body ]
-  %cmp.i.i.i.i21 = icmp eq <4 x i64> %23, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i21 = icmp eq <4 x i64> %23, splat (i64 -2401053089476968723)
   %24 = bitcast <4 x i1> %cmp.i.i.i.i21 to i4
   %tobool202.not = icmp eq i4 %24, 0
   br i1 %tobool202.not, label %if.end205, label %if.then203
@@ -12973,7 +12973,7 @@ if.end51.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %self_buffer.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %other_buffer.i.i.i.i.i.i)
   store <4 x i64> %conv.i.i.i, ptr %self_buffer.i.i.i.i.i.i, align 32
-  store <4 x i64> <i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123>, ptr %other_buffer.i.i.i.i.i.i, align 32
+  store <4 x i64> splat (i64 -4132994306676758123), ptr %other_buffer.i.i.i.i.i.i, align 32
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end51.i
@@ -12998,18 +12998,18 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i
   %vecinit.i.i.i.i.i = insertelement <4 x i64> poison, i64 %conv.i, i64 0
   %vecinit3.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %12
-  %14 = xor <4 x i1> %or.i.i.i35.i, <i1 true, i1 true, i1 true, i1 true>
+  %14 = xor <4 x i1> %or.i.i.i35.i, splat (i1 true)
   %xor.i.i.i.i = sext <4 x i1> %14 to <4 x i64>
-  %15 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>, ptr %4, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
+  %15 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %4, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
   %cmp.i.i.i.i12.i = icmp eq <4 x i64> %15, %conv.i.i.i
-  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %15, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %15, splat (i64 -2401053089476968723)
   %or3637.i = or <4 x i1> %cmp.i.i.i.i12.i, %cmp.i.i.i.i14.i
   %or36.i = bitcast <4 x i1> %or3637.i to i4
   %tobool147.not.i = icmp eq i4 %or36.i, -1
   br i1 %tobool147.not.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i
-  %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, <i64 1, i64 1, i64 1, i64 1>
+  %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, splat (i64 1)
   store <4 x i64> %add.i.i.i.i.i, ptr %indicesArray.i, align 32
   store <4 x i64> %conv.i.i.i, ptr %valuesArray.i, align 32
   %16 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
@@ -13047,7 +13047,7 @@ if.then187.i:                                     ; preds = %if.end205.i, %while
 if.end189.i:                                      ; preds = %while.body.i, %if.end205.i
   %25 = phi <4 x i64> [ %27, %if.end205.i ], [ %23, %while.body.i ]
   %index.041.i = phi i64 [ %spec.store.select.i, %if.end205.i ], [ %21, %while.body.i ]
-  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %25, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %25, splat (i64 -2401053089476968723)
   %26 = bitcast <4 x i1> %cmp.i.i.i.i21.i to i4
   %tobool202.not.i = icmp eq i4 %26, 0
   br i1 %tobool202.not.i, label %if.end205.i, label %if.then203.i
@@ -13138,7 +13138,7 @@ if.end51.i24:                                     ; preds = %if.end.i21
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %self_buffer.i.i.i.i.i.i5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %other_buffer.i.i.i.i.i.i6)
   store <4 x i64> %conv.i.i.i4, ptr %self_buffer.i.i.i.i.i.i5, align 32
-  store <4 x i64> <i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123>, ptr %other_buffer.i.i.i.i.i.i6, align 32
+  store <4 x i64> splat (i64 -4132994306676758123), ptr %other_buffer.i.i.i.i.i.i6, align 32
   br label %for.body.i.i.i.i.i.i25
 
 for.body.i.i.i.i.i.i25:                           ; preds = %for.body.i.i.i.i.i.i25, %if.end51.i24
@@ -13163,18 +13163,18 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32: ; preds = %for.body
   %vecinit.i.i.i.i.i35 = insertelement <4 x i64> poison, i64 %conv.i34, i64 0
   %vecinit3.i.i.i.i.i36 = shufflevector <4 x i64> %vecinit.i.i.i.i.i35, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i.i37 = and <4 x i64> %vecinit3.i.i.i.i.i36, %40
-  %42 = xor <4 x i1> %or.i.i.i35.i19, <i1 true, i1 true, i1 true, i1 true>
+  %42 = xor <4 x i1> %or.i.i.i35.i19, splat (i1 true)
   %xor.i.i.i.i38 = sext <4 x i1> %42 to <4 x i64>
-  %43 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>, ptr %.pre-phi107, <4 x i64> %and.i.i.i.i.i37, <4 x i64> %xor.i.i.i.i38, i8 8)
+  %43 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %.pre-phi107, <4 x i64> %and.i.i.i.i.i37, <4 x i64> %xor.i.i.i.i38, i8 8)
   %cmp.i.i.i.i12.i39 = icmp eq <4 x i64> %43, %conv.i.i.i4
-  %cmp.i.i.i.i14.i41 = icmp eq <4 x i64> %43, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i14.i41 = icmp eq <4 x i64> %43, splat (i64 -2401053089476968723)
   %or3637.i42 = or <4 x i1> %cmp.i.i.i.i12.i39, %cmp.i.i.i.i14.i41
   %or36.i43 = bitcast <4 x i1> %or3637.i42 to i4
   %tobool147.not.i44 = icmp eq i4 %or36.i43, -1
   br i1 %tobool147.not.i44, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit100, label %while.body.preheader.i45
 
 while.body.preheader.i45:                         ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i32
-  %add.i.i.i.i.i46 = add <4 x i64> %and.i.i.i.i.i37, <i64 1, i64 1, i64 1, i64 1>
+  %add.i.i.i.i.i46 = add <4 x i64> %and.i.i.i.i.i37, splat (i64 1)
   store <4 x i64> %add.i.i.i.i.i46, ptr %indicesArray.i9, align 32
   store <4 x i64> %conv.i.i.i4, ptr %valuesArray.i10, align 32
   %44 = bitcast <4 x i1> %cmp.i.i.i.i12.i39 to i4
@@ -13212,7 +13212,7 @@ if.then187.i61:                                   ; preds = %if.end205.i80, %whi
 if.end189.i72:                                    ; preds = %while.body.i48, %if.end205.i80
   %53 = phi <4 x i64> [ %55, %if.end205.i80 ], [ %51, %while.body.i48 ]
   %index.041.i73 = phi i64 [ %spec.store.select.i83, %if.end205.i80 ], [ %49, %while.body.i48 ]
-  %cmp.i.i.i.i21.i74 = icmp eq <4 x i64> %53, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i21.i74 = icmp eq <4 x i64> %53, splat (i64 -2401053089476968723)
   %54 = bitcast <4 x i1> %cmp.i.i.i.i21.i74 to i4
   %tobool202.not.i75 = icmp eq i4 %54, 0
   br i1 %tobool202.not.i75, label %if.end205.i80, label %if.then203.i76
@@ -28546,7 +28546,7 @@ if.end.i:                                         ; preds = %entry
 
 _ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit: ; preds = %if.then.i, %if.end.i
   %retval.sroa.0.0.in.i = phi <4 x i1> [ %cmp.i.i.i.i.i, %if.then.i ], [ %and.i.i.i9.i, %if.end.i ]
-  %6 = xor <4 x i1> %retval.sroa.0.0.in.i, <i1 true, i1 true, i1 true, i1 true>
+  %6 = xor <4 x i1> %retval.sroa.0.0.in.i, splat (i1 true)
   %xor.i.i.i = sext <4 x i1> %6 to <4 x i64>
   ret <4 x i64> %xor.i.i.i
 }
@@ -28593,7 +28593,7 @@ if.end18.i:                                       ; preds = %entry
 
 _ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE.exit: ; preds = %if.then.i, %if.end.i, %if.end18.i
   %retval.sroa.0.0.i = phi <4 x i64> [ %5, %if.end.i ], [ %and.i.i.i.i, %if.end18.i ], [ zeroinitializer, %if.then.i ]
-  %xor.i.i.i = xor <4 x i64> %retval.sroa.0.0.i, <i64 -1, i64 -1, i64 -1, i64 -1>
+  %xor.i.i.i = xor <4 x i64> %retval.sroa.0.0.i, splat (i64 -1)
   ret <4 x i64> %xor.i.i.i
 }
 
@@ -28642,7 +28642,7 @@ if.end18.i:                                       ; preds = %entry
 
 _ZNK8facebook5velox6common11BigintRange10testValuesEN5xsimd5batchIsNS3_4fma3INS3_4avx2EEEEE.exit: ; preds = %if.then.i, %if.end.i, %if.end18.i
   %retval.sroa.0.0.i = phi <4 x i64> [ %5, %if.end.i ], [ %and.i.i.i.i, %if.end18.i ], [ zeroinitializer, %if.then.i ]
-  %xor.i.i.i = xor <4 x i64> %retval.sroa.0.0.i, <i64 -1, i64 -1, i64 -1, i64 -1>
+  %xor.i.i.i = xor <4 x i64> %retval.sroa.0.0.i, splat (i64 -1)
   ret <4 x i64> %xor.i.i.i
 }
 
@@ -29465,7 +29465,7 @@ if.end51.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %self_buffer.i.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %other_buffer.i.i.i.i.i.i)
   store <4 x i64> %x.coerce, ptr %self_buffer.i.i.i.i.i.i, align 32
-  store <4 x i64> <i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123, i64 -4132994306676758123>, ptr %other_buffer.i.i.i.i.i.i, align 32
+  store <4 x i64> splat (i64 -4132994306676758123), ptr %other_buffer.i.i.i.i.i.i, align 32
   br label %for.body.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %if.end51.i
@@ -29490,19 +29490,19 @@ _ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i: ; preds = %for.body.i
   %vecinit.i.i.i.i.i = insertelement <4 x i64> poison, i64 %conv.i, i64 0
   %vecinit3.i.i.i.i.i = shufflevector <4 x i64> %vecinit.i.i.i.i.i, <4 x i64> poison, <4 x i32> zeroinitializer
   %and.i.i.i.i.i = and <4 x i64> %vecinit3.i.i.i.i.i, %11
-  %13 = xor <4 x i1> %or.i.i.i35.i, <i1 true, i1 true, i1 true, i1 true>
+  %13 = xor <4 x i1> %or.i.i.i35.i, splat (i1 true)
   %xor.i.i.i.i = sext <4 x i1> %13 to <4 x i64>
-  %14 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>, ptr %3, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
+  %14 = tail call <4 x i64> @llvm.x86.avx2.gather.q.q.256(<4 x i64> splat (i64 -2401053089476968723), ptr %3, <4 x i64> %and.i.i.i.i.i, <4 x i64> %xor.i.i.i.i, i8 8)
   %cmp.i.i.i.i12.i = icmp eq <4 x i64> %x.coerce, %14
   %sext.i.i.i.i13.i = sext <4 x i1> %cmp.i.i.i.i12.i to <4 x i64>
-  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %14, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i14.i = icmp eq <4 x i64> %14, splat (i64 -2401053089476968723)
   %or3637.i = or <4 x i1> %cmp.i.i.i.i12.i, %cmp.i.i.i.i14.i
   %or36.i = bitcast <4 x i1> %or3637.i to i4
   %tobool147.not.i = icmp eq i4 %or36.i, -1
   br i1 %tobool147.not.i, label %_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i
-  %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, <i64 1, i64 1, i64 1, i64 1>
+  %add.i.i.i.i.i = add <4 x i64> %and.i.i.i.i.i, splat (i64 1)
   store <4 x i64> %add.i.i.i.i.i, ptr %indicesArray.i, align 32
   store <4 x i64> %x.coerce, ptr %valuesArray.i, align 32
   %15 = bitcast <4 x i1> %cmp.i.i.i.i12.i to i4
@@ -29540,7 +29540,7 @@ if.then187.i:                                     ; preds = %if.end205.i, %while
 if.end189.i:                                      ; preds = %while.body.i, %if.end205.i
   %24 = phi <4 x i64> [ %26, %if.end205.i ], [ %22, %while.body.i ]
   %index.041.i = phi i64 [ %spec.store.select.i, %if.end205.i ], [ %20, %while.body.i ]
-  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %24, <i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723, i64 -2401053089476968723>
+  %cmp.i.i.i.i21.i = icmp eq <4 x i64> %24, splat (i64 -2401053089476968723)
   %25 = bitcast <4 x i1> %cmp.i.i.i.i21.i to i4
   %tobool202.not.i = icmp eq i4 %25, 0
   br i1 %tobool202.not.i, label %if.end205.i, label %if.then203.i
@@ -29577,7 +29577,7 @@ _ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batch
   %retval.sroa.0.0.i = phi <4 x i64> [ %xor.i.i.i.i.i.i.i.i.i, %_ZNK8facebook5velox6common6Filter10testValuesEN5xsimd5batchIlNS3_4fma3INS3_4avx2EEEEE.exit.i ], [ %retval.sroa.0.0.copyload.i.i.i.i, %while.end.i ], [ zeroinitializer, %entry ], [ %sext.i.i.i.i13.i, %_ZN5xsimdmlERKNS_5batchImNS_4fma3INS_4avx2EEEEES6_.exit.i ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %indicesArray.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %valuesArray.i)
-  %xor.i.i.i = xor <4 x i64> %retval.sroa.0.0.i, <i64 -1, i64 -1, i64 -1, i64 -1>
+  %xor.i.i.i = xor <4 x i64> %retval.sroa.0.0.i, splat (i64 -1)
   ret <4 x i64> %xor.i.i.i
 }
 
@@ -29587,7 +29587,7 @@ entry:
   %nonNegated_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %nonNegated_, align 8
   %call9 = tail call <4 x i64> @_ZNK8facebook5velox6common26BigintValuesUsingHashTable10testValuesEN5xsimd5batchIiNS3_4fma3INS3_4avx2EEEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, <4 x i64> %x.coerce)
-  %xor.i.i.i = xor <4 x i64> %call9, <i64 -1, i64 -1, i64 -1, i64 -1>
+  %xor.i.i.i = xor <4 x i64> %call9, splat (i64 -1)
   ret <4 x i64> %xor.i.i.i
 }
 

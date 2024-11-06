@@ -350,7 +350,7 @@ _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit: ; pr
 ._crit_edge.i.i:                                  ; preds = %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 192
   %34 = load <2 x i64>, ptr %33, align 16, !noalias !12
-  %35 = xor <2 x i64> %34, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %35 = xor <2 x i64> %34, splat (i64 -9223372036854775808)
   %36 = getelementptr inbounds i8, ptr %15, i64 208
   %37 = load <2 x i64>, ptr %36, align 16, !noalias !12
   %38 = xor <2 x i64> %37, <i64 -9223372036854775808, i64 0>
@@ -647,7 +647,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit28:                  ; preds = %._crit_edge.i.i27, 
 _ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit.thread: ; preds = %21, %_ZNKSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i, %_ZNKSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5countERKS3_.exit
   %260 = getelementptr inbounds nuw i8, ptr %22, i64 192
   %261 = load <2 x i64>, ptr %260, align 16, !noalias !55
-  %262 = xor <2 x i64> %261, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %262 = xor <2 x i64> %261, splat (i64 -9223372036854775808)
   %263 = getelementptr inbounds i8, ptr %22, i64 208
   %264 = load <2 x i64>, ptr %263, align 16, !noalias !55
   %265 = xor <2 x i64> %264, <i64 -9223372036854775808, i64 0>

@@ -33508,7 +33508,7 @@ for.body.lr.ph.i637:                              ; preds = %if.end28.i
 for.body.i641:                                    ; preds = %for.inc.i, %for.body.lr.ph.i637
   %indvars.iv.i642 = phi i64 [ 0, %for.body.lr.ph.i637 ], [ %indvars.iv.next.i659, %for.inc.i ]
   %ret_auto_fit_mask.062.i = phi i32 [ 0, %for.body.lr.ph.i637 ], [ %ret_auto_fit_mask.1.i, %for.inc.i ]
-  %pos_target.sroa.0.060.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %for.body.lr.ph.i637 ], [ %pos_target.sroa.0.3.i, %for.inc.i ]
+  %pos_target.sroa.0.060.i = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %for.body.lr.ph.i637 ], [ %pos_target.sroa.0.3.i, %for.inc.i ]
   %call5.i5759.i = phi <2 x float> [ %size_target.promoted.i, %for.body.lr.ph.i637 ], [ %call5.i56.i, %for.inc.i ]
   %arrayidx.i643 = getelementptr inbounds [4 x %struct.ImGuiResizeGripDef], ptr @_ZL15resize_grip_def, i64 0, i64 %indvars.iv.i642
   %Pos.val.i644 = load float, ptr %Pos656, align 4
@@ -33801,7 +33801,7 @@ for.inc.i:                                        ; preds = %402, %lor.lhs.false
 
 for.end.i660:                                     ; preds = %for.inc.i, %if.end28.i
   %call5.i57.lcssa.i = phi <2 x float> [ %size_target.promoted.i, %if.end28.i ], [ %call5.i56.i, %for.inc.i ]
-  %pos_target.sroa.0.0.lcssa.i = phi <2 x float> [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %if.end28.i ], [ %pos_target.sroa.0.3.i, %for.inc.i ]
+  %pos_target.sroa.0.0.lcssa.i = phi <2 x float> [ splat (float 0x47EFFFFFE0000000), %if.end28.i ], [ %pos_target.sroa.0.3.i, %for.inc.i ]
   %ret_auto_fit_mask.0.lcssa.i = phi i32 [ 0, %if.end28.i ], [ %ret_auto_fit_mask.1.i, %for.inc.i ]
   store <2 x float> %call5.i57.lcssa.i, ptr %size_target.i, align 8
   %413 = load i32, ptr %Flags.i457, align 4
@@ -43039,7 +43039,7 @@ cond.false.i11:                                   ; preds = %if.else.i7
   br label %cond.end.i8
 
 cond.end.i8:                                      ; preds = %cond.false.i11, %if.else.i7
-  %size_max.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i44.i, %cond.false.i11 ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %if.else.i7 ]
+  %size_max.sroa.0.0.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i44.i, %cond.false.i11 ], [ splat (float 0x47EFFFFFE0000000), %if.else.i7 ]
   %size_min.sroa.0.0.vec.extract.i = extractelement <2 x float> %call7.i, i64 0
   %size_min.sroa.0.4.vec.extract.i = extractelement <2 x float> %call7.i, i64 1
   %cmp13.i.i = fcmp olt float %add3.i35.i, %size_min.sroa.0.4.vec.extract.i
@@ -43328,7 +43328,7 @@ cond.false:                                       ; preds = %if.else
   br label %cond.end
 
 cond.end:                                         ; preds = %if.else, %cond.false
-  %size_max.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i44, %cond.false ], [ <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, %if.else ]
+  %size_max.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i44, %cond.false ], [ splat (float 0x47EFFFFFE0000000), %if.else ]
   %size_min.sroa.0.0.vec.extract = extractelement <2 x float> %call7, i64 0
   %size_min.sroa.0.4.vec.extract = extractelement <2 x float> %call7, i64 1
   %cmp13.i = fcmp olt float %add3.i35, %size_min.sroa.0.4.vec.extract

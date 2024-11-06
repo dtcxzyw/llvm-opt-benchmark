@@ -3310,7 +3310,7 @@ define void @_ZN14proc_macro_api3msg4flat8FlatTree7new_raw17hc6ad1cb5cb885d82E(p
   %33 = getelementptr inbounds i8, ptr %12, i64 16
   store i8 %31, ptr %33, align 4, !noalias !362
   %34 = getelementptr inbounds i8, ptr %12, i64 8
-  store <2 x i32> <i32 -1, i32 -1>, ptr %34, align 4, !noalias !362
+  store <2 x i32> splat (i32 -1), ptr %34, align 4, !noalias !362
   invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6109a4e1916a078fE.llvm.13576623291743085369"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %12)
           to label %.noexc unwind label %.loopexit.split-lp
 

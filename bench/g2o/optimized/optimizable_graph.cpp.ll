@@ -5857,7 +5857,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14TriangularViewIKNS_3MapIS1_Li
 
 52:                                               ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14TriangularViewIKNS_3MapIS1_Li0ENS_6StrideILi0ELi0EEEEELj1EEEEERS1_RKNS_9EigenBaseIT_EE.exit
   %53 = load <2 x i64>, ptr %42, align 16
-  %54 = and <2 x i64> %53, <i64 9223372036854775807, i64 9223372036854775807>
+  %54 = and <2 x i64> %53, splat (i64 9223372036854775807)
   %55 = bitcast <2 x i64> %54 to <2 x double>
   %56 = icmp sgt i64 %47, 3
   br i1 %56, label %57, label %81
@@ -5865,7 +5865,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14TriangularViewIKNS_3MapIS1_Li
 57:                                               ; preds = %52
   %58 = getelementptr inbounds i8, ptr %42, i64 16
   %59 = load <2 x i64>, ptr %58, align 16
-  %60 = and <2 x i64> %59, <i64 9223372036854775807, i64 9223372036854775807>
+  %60 = and <2 x i64> %59, splat (i64 9223372036854775807)
   %61 = bitcast <2 x i64> %60 to <2 x double>
   %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %42, i64 48
   %62 = icmp ugt i64 %47, 7
@@ -5878,12 +5878,12 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14TriangularViewIKNS_3MapIS1_Li
   %.17375.i.i.i.i = phi <2 x double> [ %67, %.lr.ph.i.i.i.i ], [ %55, %57 ]
   %63 = getelementptr inbounds double, ptr %42, i64 %.05478.i.i.i.i
   %64 = load <2 x i64>, ptr %63, align 16
-  %65 = and <2 x i64> %64, <i64 9223372036854775807, i64 9223372036854775807>
+  %65 = and <2 x i64> %64, splat (i64 9223372036854775807)
   %66 = bitcast <2 x i64> %65 to <2 x double>
   %67 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17375.i.i.i.i, <2 x double> %66) #43, !srcloc !40
   %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in77.i.i.i.i
   %68 = load <2 x i64>, ptr %gep.i.i.i.i, align 16
-  %69 = and <2 x i64> %68, <i64 9223372036854775807, i64 9223372036854775807>
+  %69 = and <2 x i64> %68, splat (i64 9223372036854775807)
   %70 = bitcast <2 x i64> %69 to <2 x double>
   %71 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge76.i.i.i.i, <2 x double> %70) #43, !srcloc !40
   %.054.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i, 4
@@ -5900,7 +5900,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSINS_14TriangularViewIKNS_3MapIS1_Li
 75:                                               ; preds = %._crit_edge.i.i.i.i
   %76 = getelementptr inbounds double, ptr %42, i64 %49
   %77 = load <2 x i64>, ptr %76, align 16
-  %78 = and <2 x i64> %77, <i64 9223372036854775807, i64 9223372036854775807>
+  %78 = and <2 x i64> %77, splat (i64 9223372036854775807)
   %79 = bitcast <2 x i64> %78 to <2 x double>
   %80 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %73, <2 x double> %79) #43, !srcloc !40
   br label %81

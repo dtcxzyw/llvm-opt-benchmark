@@ -1165,7 +1165,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT2ERKNS0_11SkinningJobE(ptr
   %27 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %26, i64 %25
   %28 = zext i16 %24 to i64
   %29 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %26, i64 %28
-  %30 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %21
+  %30 = fsub <4 x float> splat (float 1.000000e+00), %21
   %31 = load <4 x float>, ptr %27, align 16, !noalias !11
   %32 = fmul <4 x float> %21, %31
   %33 = getelementptr inbounds i8, ptr %27, i64 16
@@ -1247,7 +1247,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT2ERKNS0_11SkinningJobE(ptr
   %98 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %97, i64 %96
   %99 = zext i16 %94 to i64
   %100 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %97, i64 %99
-  %101 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %91
+  %101 = fsub <4 x float> splat (float 1.000000e+00), %91
   %102 = load <4 x float>, ptr %98, align 16, !noalias !18
   %103 = fmul <4 x float> %91, %102
   %104 = getelementptr inbounds i8, ptr %98, i64 16
@@ -1350,7 +1350,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT2ERKNS0_11SkinningJobE(pt
   %33 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %32, i64 %31
   %34 = zext i16 %30 to i64
   %35 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %32, i64 %34
-  %36 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %27
+  %36 = fsub <4 x float> splat (float 1.000000e+00), %27
   %37 = load <4 x float>, ptr %33, align 16, !noalias !24
   %38 = fmul <4 x float> %27, %37
   %39 = getelementptr inbounds i8, ptr %33, i64 16
@@ -1459,7 +1459,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT2ERKNS0_11SkinningJobE(pt
   %126 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %125, i64 %124
   %127 = zext i16 %122 to i64
   %128 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %125, i64 %127
-  %129 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %119
+  %129 = fsub <4 x float> splat (float 1.000000e+00), %119
   %130 = load <4 x float>, ptr %126, align 16, !noalias !31
   %131 = fmul <4 x float> %119, %130
   %132 = getelementptr inbounds i8, ptr %126, i64 16
@@ -1594,7 +1594,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT2ERKNS0_11SkinningJobE(p
   %39 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %38, i64 %37
   %40 = zext i16 %36 to i64
   %41 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %38, i64 %40
-  %42 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %33
+  %42 = fsub <4 x float> splat (float 1.000000e+00), %33
   %43 = load <4 x float>, ptr %39, align 16, !noalias !37
   %44 = fmul <4 x float> %33, %43
   %45 = getelementptr inbounds i8, ptr %39, i64 16
@@ -1730,7 +1730,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT2ERKNS0_11SkinningJobE(p
   %154 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %153, i64 %152
   %155 = zext i16 %150 to i64
   %156 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %153, i64 %155
-  %157 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %147
+  %157 = fsub <4 x float> splat (float 1.000000e+00), %147
   %158 = load <4 x float>, ptr %154, align 16, !noalias !44
   %159 = fmul <4 x float> %147, %158
   %160 = getelementptr inbounds i8, ptr %154, i64 16
@@ -1882,7 +1882,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT2ERKNS0_11SkinningJobE(ptr 
   %34 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %33, i64 %32
   %35 = zext i16 %31 to i64
   %36 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %33, i64 %35
-  %37 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %28
+  %37 = fsub <4 x float> splat (float 1.000000e+00), %28
   %38 = load <4 x float>, ptr %34, align 16, !noalias !50
   %39 = fmul <4 x float> %28, %38
   %40 = getelementptr inbounds i8, ptr %34, i64 16
@@ -2013,7 +2013,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT2ERKNS0_11SkinningJobE(ptr 
   %149 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %148, i64 %147
   %150 = zext i16 %145 to i64
   %151 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %148, i64 %150
-  %152 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %142
+  %152 = fsub <4 x float> splat (float 1.000000e+00), %142
   %153 = load <4 x float>, ptr %149, align 16, !noalias !63
   %154 = fmul <4 x float> %142, %153
   %155 = getelementptr inbounds i8, ptr %149, i64 16
@@ -2172,7 +2172,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT2ERKNS0_11SkinningJobE(ptr
   %40 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %39, i64 %38
   %41 = zext i16 %37 to i64
   %42 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %39, i64 %41
-  %43 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %34
+  %43 = fsub <4 x float> splat (float 1.000000e+00), %34
   %44 = load <4 x float>, ptr %40, align 16, !noalias !75
   %45 = fmul <4 x float> %34, %44
   %46 = getelementptr inbounds i8, ptr %40, i64 16
@@ -2330,7 +2330,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT2ERKNS0_11SkinningJobE(ptr
   %177 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %176, i64 %175
   %178 = zext i16 %173 to i64
   %179 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %176, i64 %178
-  %180 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %170
+  %180 = fsub <4 x float> splat (float 1.000000e+00), %170
   %181 = load <4 x float>, ptr %177, align 16, !noalias !88
   %182 = fmul <4 x float> %170, %181
   %183 = getelementptr inbounds i8, ptr %177, i64 16
@@ -2501,7 +2501,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT3ERKNS0_11SkinningJobE(ptr
   %32 = zext i16 %26 to i64
   %33 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %28, i64 %32
   %34 = fadd <4 x float> %20, %21
-  %35 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %34
+  %35 = fsub <4 x float> splat (float 1.000000e+00), %34
   %36 = load <4 x float>, ptr %29, align 16, !noalias !100
   %37 = fmul <4 x float> %20, %36
   %38 = getelementptr inbounds i8, ptr %29, i64 16
@@ -2607,7 +2607,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT3ERKNS0_11SkinningJobE(ptr
   %127 = zext i16 %120 to i64
   %128 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %123, i64 %127
   %129 = fadd <4 x float> %111, %115
-  %130 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %129
+  %130 = fsub <4 x float> splat (float 1.000000e+00), %129
   %131 = load <4 x float>, ptr %124, align 16, !noalias !110
   %132 = fmul <4 x float> %111, %131
   %133 = getelementptr inbounds i8, ptr %124, i64 16
@@ -2730,7 +2730,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT3ERKNS0_11SkinningJobE(pt
   %38 = zext i16 %32 to i64
   %39 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %34, i64 %38
   %40 = fadd <4 x float> %26, %27
-  %41 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %40
+  %41 = fsub <4 x float> splat (float 1.000000e+00), %40
   %42 = load <4 x float>, ptr %35, align 16, !noalias !119
   %43 = fmul <4 x float> %26, %42
   %44 = getelementptr inbounds i8, ptr %35, i64 16
@@ -2863,7 +2863,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT3ERKNS0_11SkinningJobE(pt
   %155 = zext i16 %148 to i64
   %156 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %151, i64 %155
   %157 = fadd <4 x float> %139, %143
-  %158 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %157
+  %158 = fsub <4 x float> splat (float 1.000000e+00), %157
   %159 = load <4 x float>, ptr %152, align 16, !noalias !129
   %160 = fmul <4 x float> %139, %159
   %161 = getelementptr inbounds i8, ptr %152, i64 16
@@ -3018,7 +3018,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT3ERKNS0_11SkinningJobE(p
   %44 = zext i16 %38 to i64
   %45 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %40, i64 %44
   %46 = fadd <4 x float> %32, %33
-  %47 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %46
+  %47 = fsub <4 x float> splat (float 1.000000e+00), %46
   %48 = load <4 x float>, ptr %41, align 16, !noalias !138
   %49 = fmul <4 x float> %32, %48
   %50 = getelementptr inbounds i8, ptr %41, i64 16
@@ -3178,7 +3178,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT3ERKNS0_11SkinningJobE(p
   %183 = zext i16 %176 to i64
   %184 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %179, i64 %183
   %185 = fadd <4 x float> %167, %171
-  %186 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %185
+  %186 = fsub <4 x float> splat (float 1.000000e+00), %185
   %187 = load <4 x float>, ptr %180, align 16, !noalias !148
   %188 = fmul <4 x float> %167, %187
   %189 = getelementptr inbounds i8, ptr %180, i64 16
@@ -3350,7 +3350,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT3ERKNS0_11SkinningJobE(ptr 
   %39 = zext i16 %33 to i64
   %40 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %35, i64 %39
   %41 = fadd <4 x float> %27, %28
-  %42 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %41
+  %42 = fsub <4 x float> splat (float 1.000000e+00), %41
   %43 = load <4 x float>, ptr %36, align 16, !noalias !157
   %44 = fmul <4 x float> %27, %43
   %45 = getelementptr inbounds i8, ptr %36, i64 16
@@ -3517,7 +3517,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT3ERKNS0_11SkinningJobE(ptr 
   %190 = zext i16 %183 to i64
   %191 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %186, i64 %190
   %192 = fadd <4 x float> %174, %178
-  %193 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %192
+  %193 = fsub <4 x float> splat (float 1.000000e+00), %192
   %194 = load <4 x float>, ptr %187, align 16, !noalias !176
   %195 = fmul <4 x float> %174, %194
   %196 = getelementptr inbounds i8, ptr %187, i64 16
@@ -3708,7 +3708,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT3ERKNS0_11SkinningJobE(ptr
   %45 = zext i16 %39 to i64
   %46 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %41, i64 %45
   %47 = fadd <4 x float> %33, %34
-  %48 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %47
+  %48 = fsub <4 x float> splat (float 1.000000e+00), %47
   %49 = load <4 x float>, ptr %42, align 16, !noalias !194
   %50 = fmul <4 x float> %33, %49
   %51 = getelementptr inbounds i8, ptr %42, i64 16
@@ -3902,7 +3902,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT3ERKNS0_11SkinningJobE(ptr
   %218 = zext i16 %211 to i64
   %219 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %214, i64 %218
   %220 = fadd <4 x float> %202, %206
-  %221 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %220
+  %221 = fsub <4 x float> splat (float 1.000000e+00), %220
   %222 = load <4 x float>, ptr %215, align 16, !noalias !213
   %223 = fmul <4 x float> %202, %222
   %224 = getelementptr inbounds i8, ptr %215, i64 16
@@ -4106,7 +4106,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT4ERKNS0_11SkinningJobE(ptr
   %38 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %31, i64 %37
   %39 = fadd <4 x float> %20, %21
   %40 = fadd <4 x float> %22, %39
-  %41 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %40
+  %41 = fsub <4 x float> splat (float 1.000000e+00), %40
   %42 = load <4 x float>, ptr %32, align 16, !noalias !231
   %43 = fmul <4 x float> %20, %42
   %44 = getelementptr inbounds i8, ptr %32, i64 16
@@ -4236,7 +4236,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOIT4ERKNS0_11SkinningJobE(ptr
   %157 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %150, i64 %156
   %158 = fadd <4 x float> %132, %136
   %159 = fadd <4 x float> %158, %140
-  %160 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %159
+  %160 = fsub <4 x float> splat (float 1.000000e+00), %159
   %161 = load <4 x float>, ptr %151, align 16, !noalias !244
   %162 = fmul <4 x float> %132, %161
   %163 = getelementptr inbounds i8, ptr %151, i64 16
@@ -4380,7 +4380,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT4ERKNS0_11SkinningJobE(pt
   %44 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %37, i64 %43
   %45 = fadd <4 x float> %26, %27
   %46 = fadd <4 x float> %28, %45
-  %47 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %46
+  %47 = fsub <4 x float> splat (float 1.000000e+00), %46
   %48 = load <4 x float>, ptr %38, align 16, !noalias !256
   %49 = fmul <4 x float> %26, %48
   %50 = getelementptr inbounds i8, ptr %38, i64 16
@@ -4537,7 +4537,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOIT4ERKNS0_11SkinningJobE(pt
   %185 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %178, i64 %184
   %186 = fadd <4 x float> %160, %164
   %187 = fadd <4 x float> %186, %168
-  %188 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %187
+  %188 = fsub <4 x float> splat (float 1.000000e+00), %187
   %189 = load <4 x float>, ptr %179, align 16, !noalias !269
   %190 = fmul <4 x float> %160, %189
   %191 = getelementptr inbounds i8, ptr %179, i64 16
@@ -4713,7 +4713,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT4ERKNS0_11SkinningJobE(p
   %50 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %43, i64 %49
   %51 = fadd <4 x float> %32, %33
   %52 = fadd <4 x float> %34, %51
-  %53 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %52
+  %53 = fsub <4 x float> splat (float 1.000000e+00), %52
   %54 = load <4 x float>, ptr %44, align 16, !noalias !281
   %55 = fmul <4 x float> %32, %54
   %56 = getelementptr inbounds i8, ptr %44, i64 16
@@ -4897,7 +4897,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOIT4ERKNS0_11SkinningJobE(p
   %213 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %206, i64 %212
   %214 = fadd <4 x float> %188, %192
   %215 = fadd <4 x float> %214, %196
-  %216 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %215
+  %216 = fsub <4 x float> splat (float 1.000000e+00), %215
   %217 = load <4 x float>, ptr %207, align 16, !noalias !294
   %218 = fmul <4 x float> %188, %217
   %219 = getelementptr inbounds i8, ptr %207, i64 16
@@ -5090,7 +5090,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT4ERKNS0_11SkinningJobE(ptr 
   %45 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %38, i64 %44
   %46 = fadd <4 x float> %27, %28
   %47 = fadd <4 x float> %29, %46
-  %48 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %47
+  %48 = fsub <4 x float> splat (float 1.000000e+00), %47
   %49 = load <4 x float>, ptr %39, align 16, !noalias !306
   %50 = fmul <4 x float> %27, %49
   %51 = getelementptr inbounds i8, ptr %39, i64 16
@@ -5293,7 +5293,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNIT4ERKNS0_11SkinningJobE(ptr 
   %232 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %225, i64 %231
   %233 = fadd <4 x float> %207, %211
   %234 = fadd <4 x float> %233, %215
-  %235 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %234
+  %235 = fsub <4 x float> splat (float 1.000000e+00), %234
   %236 = load <4 x float>, ptr %226, align 16, !noalias !331
   %237 = fmul <4 x float> %207, %236
   %238 = getelementptr inbounds i8, ptr %226, i64 16
@@ -5517,7 +5517,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT4ERKNS0_11SkinningJobE(ptr
   %51 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %44, i64 %50
   %52 = fadd <4 x float> %33, %34
   %53 = fadd <4 x float> %35, %52
-  %54 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %53
+  %54 = fsub <4 x float> splat (float 1.000000e+00), %53
   %55 = load <4 x float>, ptr %45, align 16, !noalias !355
   %56 = fmul <4 x float> %33, %55
   %57 = getelementptr inbounds i8, ptr %45, i64 16
@@ -5747,7 +5747,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTIT4ERKNS0_11SkinningJobE(ptr
   %260 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %253, i64 %259
   %261 = fadd <4 x float> %235, %239
   %262 = fadd <4 x float> %261, %243
-  %263 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %262
+  %263 = fsub <4 x float> splat (float 1.000000e+00), %262
   %264 = load <4 x float>, ptr %254, align 16, !noalias !380
   %265 = fmul <4 x float> %235, %264
   %266 = getelementptr inbounds i8, ptr %254, i64 16
@@ -6030,7 +6030,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOITNERKNS0_11SkinningJobE(ptr
   %67 = load i16, ptr %66, align 2
   %68 = zext i16 %67 to i64
   %69 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %25, i64 %68
-  %70 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0379.lcssa
+  %70 = fsub <4 x float> splat (float 1.000000e+00), %.0379.lcssa
   %71 = load <4 x float>, ptr %69, align 16, !noalias !411
   %72 = fmul <4 x float> %70, %71
   %73 = getelementptr inbounds i8, ptr %69, i64 16
@@ -6164,7 +6164,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNOITNERKNS0_11SkinningJobE(ptr
   %167 = load i16, ptr %166, align 2
   %168 = zext i16 %167 to i64
   %169 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %124, i64 %168
-  %170 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0381.lcssa
+  %170 = fsub <4 x float> splat (float 1.000000e+00), %.0381.lcssa
   %171 = load <4 x float>, ptr %169, align 16, !noalias !422
   %172 = fmul <4 x float> %170, %171
   %173 = getelementptr inbounds i8, ptr %169, i64 16
@@ -6319,7 +6319,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOITNERKNS0_11SkinningJobE(pt
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i64
   %75 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %31, i64 %74
-  %76 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0491.lcssa
+  %76 = fsub <4 x float> splat (float 1.000000e+00), %.0491.lcssa
   %77 = load <4 x float>, ptr %75, align 16, !noalias !432
   %78 = fmul <4 x float> %76, %77
   %79 = getelementptr inbounds i8, ptr %75, i64 16
@@ -6480,7 +6480,7 @@ define dso_local void @_ZN3ozz8geometry15SkinningPNNOITNERKNS0_11SkinningJobE(pt
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i64
   %197 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %152, i64 %196
-  %198 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0493.lcssa
+  %198 = fsub <4 x float> splat (float 1.000000e+00), %.0493.lcssa
   %199 = load <4 x float>, ptr %197, align 16, !noalias !443
   %200 = fmul <4 x float> %198, %199
   %201 = getelementptr inbounds i8, ptr %197, i64 16
@@ -6667,7 +6667,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOITNERKNS0_11SkinningJobE(p
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
   %81 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %37, i64 %80
-  %82 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0603.lcssa
+  %82 = fsub <4 x float> splat (float 1.000000e+00), %.0603.lcssa
   %83 = load <4 x float>, ptr %81, align 16, !noalias !453
   %84 = fmul <4 x float> %82, %83
   %85 = getelementptr inbounds i8, ptr %81, i64 16
@@ -6855,7 +6855,7 @@ define dso_local void @_ZN3ozz8geometry16SkinningPNTNOITNERKNS0_11SkinningJobE(p
   %223 = load i16, ptr %222, align 2
   %224 = zext i16 %223 to i64
   %225 = getelementptr inbounds %"struct.ozz::math::Float4x4", ptr %180, i64 %224
-  %226 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0605.lcssa
+  %226 = fsub <4 x float> splat (float 1.000000e+00), %.0605.lcssa
   %227 = load <4 x float>, ptr %225, align 16, !noalias !464
   %228 = fmul <4 x float> %226, %227
   %229 = getelementptr inbounds i8, ptr %225, i64 16
@@ -7082,7 +7082,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNITNERKNS0_11SkinningJobE(ptr 
   %.sroa.12749.0.lcssa = phi <4 x float> [ %41, %26 ], [ %80, %.lr.ph ]
   %.sroa.18752.0.lcssa = phi <4 x float> [ %44, %26 ], [ %81, %.lr.ph ]
   %.0691.lcssa = phi <4 x float> [ %29, %26 ], [ %64, %.lr.ph ]
-  %94 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0691.lcssa
+  %94 = fsub <4 x float> splat (float 1.000000e+00), %.0691.lcssa
   %95 = sext i32 %56 to i64
   %96 = getelementptr inbounds i16, ptr %.0791, i64 %95
   %97 = load i16, ptr %96, align 2
@@ -7284,7 +7284,7 @@ define dso_local void @_ZN3ozz8geometry13SkinningPNITNERKNS0_11SkinningJobE(ptr 
   %.sroa.12761.0.lcssa = phi <4 x float> [ %196, %._crit_edge794 ], [ %237, %.lr.ph811 ]
   %.sroa.18764.0.lcssa = phi <4 x float> [ %199, %._crit_edge794 ], [ %238, %.lr.ph811 ]
   %.0693.lcssa = phi <4 x float> [ %183, %._crit_edge794 ], [ %221, %.lr.ph811 ]
-  %251 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0693.lcssa
+  %251 = fsub <4 x float> splat (float 1.000000e+00), %.0693.lcssa
   %252 = sext i32 %213 to i64
   %253 = getelementptr inbounds i16, ptr %.0.lcssa, i64 %252
   %254 = load i16, ptr %253, align 2
@@ -7512,7 +7512,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTITNERKNS0_11SkinningJobE(ptr
   %.sroa.12.0.lcssa = phi <4 x float> [ %47, %32 ], [ %86, %.lr.ph ]
   %.sroa.18.0.lcssa = phi <4 x float> [ %50, %32 ], [ %87, %.lr.ph ]
   %.0801.lcssa = phi <4 x float> [ %35, %32 ], [ %70, %.lr.ph ]
-  %100 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0801.lcssa
+  %100 = fsub <4 x float> splat (float 1.000000e+00), %.0801.lcssa
   %101 = sext i32 %62 to i64
   %102 = getelementptr inbounds i16, ptr %.0906, i64 %101
   %103 = load i16, ptr %102, align 2
@@ -7741,7 +7741,7 @@ define dso_local void @_ZN3ozz8geometry14SkinningPNTITNERKNS0_11SkinningJobE(ptr
   %.sroa.12874.0.lcssa = phi <4 x float> [ %224, %._crit_edge909 ], [ %265, %.lr.ph928 ]
   %.sroa.18877.0.lcssa = phi <4 x float> [ %227, %._crit_edge909 ], [ %266, %.lr.ph928 ]
   %.0803.lcssa = phi <4 x float> [ %211, %._crit_edge909 ], [ %249, %.lr.ph928 ]
-  %279 = fsub <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %.0803.lcssa
+  %279 = fsub <4 x float> splat (float 1.000000e+00), %.0803.lcssa
   %280 = sext i32 %241 to i64
   %281 = getelementptr inbounds i16, ptr %.0.lcssa, i64 %280
   %282 = load i16, ptr %281, align 2

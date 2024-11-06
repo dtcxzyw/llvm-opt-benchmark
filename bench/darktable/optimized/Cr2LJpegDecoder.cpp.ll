@@ -650,8 +650,8 @@ define hidden noundef i32 @_ZN8rawspeed15Cr2LJpegDecoder10decodeScanEv(ptr nound
   br i1 %178, label %183, label %179
 
 179:                                              ; preds = %177
-  %180 = mul nsw <2 x i32> %50, <i32 3, i32 3>
-  %181 = sdiv <2 x i32> %180, <i32 2, i32 2>
+  %180 = mul nsw <2 x i32> %50, splat (i32 3)
+  %181 = sdiv <2 x i32> %180, splat (i32 2)
   store <2 x i32> %181, ptr %22, align 8, !tbaa !11
   br label %183
 
@@ -667,7 +667,7 @@ define hidden noundef i32 @_ZN8rawspeed15Cr2LJpegDecoder10decodeScanEv(ptr nound
 
 183:                                              ; preds = %182, %182, %179, %177
   %184 = phi i32 [ 3, %179 ], [ 3, %177 ], [ %49, %182 ], [ %49, %182 ]
-  %185 = phi <2 x i32> [ <i32 1, i32 2>, %179 ], [ <i32 2, i32 2>, %177 ], [ <i32 1, i32 1>, %182 ], [ <i32 1, i32 1>, %182 ]
+  %185 = phi <2 x i32> [ <i32 1, i32 2>, %179 ], [ splat (i32 2), %177 ], [ splat (i32 1), %182 ], [ splat (i32 1), %182 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %186 = zext nneg i32 %184 to i64

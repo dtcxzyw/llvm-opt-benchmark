@@ -834,9 +834,9 @@ sw.bb:                                            ; preds = %if.end
 if.then24:                                        ; preds = %sw.bb
   %48 = fpext <2 x float> %43 to <2 x double>
   %49 = fpext <2 x float> %45 to <2 x double>
-  %50 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %48, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %49)
+  %50 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %48, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %49)
   %51 = fptrunc <2 x double> %50 to <2 x float>
-  %52 = fmul nsz <2 x double> %49, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %52 = fmul nsz <2 x double> %49, splat (double 0x3C91A62633145C07)
   %53 = fsub nsz <2 x double> %52, %48
   %54 = fptrunc <2 x double> %53 to <2 x float>
   br label %sw.epilog
@@ -844,11 +844,11 @@ if.then24:                                        ; preds = %sw.bb
 if.then28:                                        ; preds = %sw.bb
   %55 = fpext <2 x float> %43 to <2 x double>
   %56 = fpext <2 x float> %45 to <2 x double>
-  %57 = fmul nsz <2 x double> %56, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %57 = fmul nsz <2 x double> %56, splat (double 0xBCA1A62633145C07)
   %58 = fsub nsz <2 x double> %57, %55
   %59 = fptrunc <2 x double> %58 to <2 x float>
   %60 = fneg nsz <2 x double> %56
-  %61 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %60)
+  %61 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %55, <2 x double> splat (double 0x3CA1A62633145C07), <2 x double> %60)
   %62 = fptrunc <2 x double> %61 to <2 x float>
   br label %sw.epilog
 
@@ -856,9 +856,9 @@ if.then35:                                        ; preds = %sw.bb
   %63 = fpext <2 x float> %43 to <2 x double>
   %64 = fpext <2 x float> %45 to <2 x double>
   %65 = fneg nsz <2 x double> %64
-  %66 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %63, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %65)
+  %66 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %63, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %65)
   %67 = fptrunc <2 x double> %66 to <2 x float>
-  %68 = fmul nsz <2 x double> %64, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %68 = fmul nsz <2 x double> %64, splat (double 0x3C91A62633145C07)
   %69 = fadd nsz <2 x double> %68, %63
   %70 = fptrunc <2 x double> %69 to <2 x float>
   br label %sw.epilog
@@ -867,9 +867,9 @@ sw.bb43:                                          ; preds = %if.end
   %71 = fpext <2 x float> %47 to <2 x double>
   %72 = fpext <2 x float> %45 to <2 x double>
   %73 = fneg nsz <2 x double> %72
-  %74 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %73)
+  %74 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %71, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %73)
   %75 = fptrunc <2 x double> %74 to <2 x float>
-  %76 = fmul nsz <2 x double> %72, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %76 = fmul nsz <2 x double> %72, splat (double 0x3C91A62633145C07)
   %77 = fadd nsz <2 x double> %76, %71
   %78 = fptrunc <2 x double> %77 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
@@ -883,9 +883,9 @@ if.then49:                                        ; preds = %sw.bb43
   %79 = fpext <2 x float> %43 to <2 x double>
   %80 = fpext <2 x float> %75 to <2 x double>
   %81 = fneg nsz <2 x double> %80
-  %82 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %79, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %81)
+  %82 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %79, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %81)
   %83 = fptrunc <2 x double> %82 to <2 x float>
-  %84 = fmul nsz <2 x double> %80, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %84 = fmul nsz <2 x double> %80, splat (double 0x3C91A62633145C07)
   %85 = fadd nsz <2 x double> %84, %79
   %86 = fptrunc <2 x double> %85 to <2 x float>
   br label %sw.epilog
@@ -893,20 +893,20 @@ if.then49:                                        ; preds = %sw.bb43
 if.then56:                                        ; preds = %sw.bb43
   %87 = fpext <2 x float> %43 to <2 x double>
   %88 = fpext <2 x float> %75 to <2 x double>
-  %89 = fmul nsz <2 x double> %88, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %89 = fmul nsz <2 x double> %88, splat (double 0xBCA1A62633145C07)
   %90 = fsub nsz <2 x double> %89, %87
   %91 = fptrunc <2 x double> %90 to <2 x float>
   %92 = fneg nsz <2 x double> %88
-  %93 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %92)
+  %93 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %87, <2 x double> splat (double 0x3CA1A62633145C07), <2 x double> %92)
   %94 = fptrunc <2 x double> %93 to <2 x float>
   br label %sw.epilog
 
 if.then63:                                        ; preds = %sw.bb43
   %95 = fpext <2 x float> %43 to <2 x double>
   %96 = fpext <2 x float> %75 to <2 x double>
-  %97 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %95, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %96)
+  %97 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %95, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %96)
   %98 = fptrunc <2 x double> %97 to <2 x float>
-  %99 = fmul nsz <2 x double> %96, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %99 = fmul nsz <2 x double> %96, splat (double 0x3C91A62633145C07)
   %100 = fsub nsz <2 x double> %99, %95
   %101 = fptrunc <2 x double> %100 to <2 x float>
   br label %sw.epilog
@@ -914,9 +914,9 @@ if.then63:                                        ; preds = %sw.bb43
 sw.bb71:                                          ; preds = %if.end
   %102 = fpext <2 x float> %47 to <2 x double>
   %103 = fpext <2 x float> %45 to <2 x double>
-  %104 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %103)
+  %104 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %102, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %103)
   %105 = fptrunc <2 x double> %104 to <2 x float>
-  %106 = fmul nsz <2 x double> %103, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %106 = fmul nsz <2 x double> %103, splat (double 0x3C91A62633145C07)
   %107 = fsub nsz <2 x double> %106, %102
   %108 = fptrunc <2 x double> %107 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
@@ -929,9 +929,9 @@ sw.bb71:                                          ; preds = %if.end
 if.then77:                                        ; preds = %sw.bb71
   %109 = fpext <2 x float> %43 to <2 x double>
   %110 = fpext <2 x float> %105 to <2 x double>
-  %111 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %109, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %110)
+  %111 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %109, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %110)
   %112 = fptrunc <2 x double> %111 to <2 x float>
-  %113 = fmul nsz <2 x double> %110, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %113 = fmul nsz <2 x double> %110, splat (double 0x3C91A62633145C07)
   %114 = fsub nsz <2 x double> %113, %109
   %115 = fptrunc <2 x double> %114 to <2 x float>
   br label %sw.epilog
@@ -939,11 +939,11 @@ if.then77:                                        ; preds = %sw.bb71
 if.then84:                                        ; preds = %sw.bb71
   %116 = fpext <2 x float> %43 to <2 x double>
   %117 = fpext <2 x float> %105 to <2 x double>
-  %118 = fmul nsz <2 x double> %117, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %118 = fmul nsz <2 x double> %117, splat (double 0xBCA1A62633145C07)
   %119 = fsub nsz <2 x double> %118, %116
   %120 = fptrunc <2 x double> %119 to <2 x float>
   %121 = fneg nsz <2 x double> %117
-  %122 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %116, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %121)
+  %122 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %116, <2 x double> splat (double 0x3CA1A62633145C07), <2 x double> %121)
   %123 = fptrunc <2 x double> %122 to <2 x float>
   br label %sw.epilog
 
@@ -951,9 +951,9 @@ if.then91:                                        ; preds = %sw.bb71
   %124 = fpext <2 x float> %43 to <2 x double>
   %125 = fpext <2 x float> %105 to <2 x double>
   %126 = fneg nsz <2 x double> %125
-  %127 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %124, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %126)
+  %127 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %124, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %126)
   %128 = fptrunc <2 x double> %127 to <2 x float>
-  %129 = fmul nsz <2 x double> %125, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %129 = fmul nsz <2 x double> %125, splat (double 0x3C91A62633145C07)
   %130 = fadd nsz <2 x double> %129, %124
   %131 = fptrunc <2 x double> %130 to <2 x float>
   br label %sw.epilog
@@ -961,9 +961,9 @@ if.then91:                                        ; preds = %sw.bb71
 sw.bb99:                                          ; preds = %if.end
   %132 = fpext <2 x float> %43 to <2 x double>
   %133 = fpext <2 x float> %47 to <2 x double>
-  %134 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %132, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %133)
+  %134 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %132, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %133)
   %135 = fptrunc <2 x double> %134 to <2 x float>
-  %136 = fmul nsz <2 x double> %133, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %136 = fmul nsz <2 x double> %133, splat (double 0x3C91A62633145C07)
   %137 = fsub nsz <2 x double> %136, %132
   %138 = fptrunc <2 x double> %137 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
@@ -977,9 +977,9 @@ if.then105:                                       ; preds = %sw.bb99
   %139 = fpext <2 x float> %138 to <2 x double>
   %140 = fpext <2 x float> %45 to <2 x double>
   %141 = fneg nsz <2 x double> %140
-  %142 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %139, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %141)
+  %142 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %139, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %141)
   %143 = fptrunc <2 x double> %142 to <2 x float>
-  %144 = fmul nsz <2 x double> %140, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %144 = fmul nsz <2 x double> %140, splat (double 0x3C91A62633145C07)
   %145 = fadd nsz <2 x double> %144, %139
   %146 = fptrunc <2 x double> %145 to <2 x float>
   br label %sw.epilog
@@ -987,20 +987,20 @@ if.then105:                                       ; preds = %sw.bb99
 if.then112:                                       ; preds = %sw.bb99
   %147 = fpext <2 x float> %138 to <2 x double>
   %148 = fpext <2 x float> %45 to <2 x double>
-  %149 = fmul nsz <2 x double> %148, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %149 = fmul nsz <2 x double> %148, splat (double 0xBCA1A62633145C07)
   %150 = fsub nsz <2 x double> %149, %147
   %151 = fptrunc <2 x double> %150 to <2 x float>
   %152 = fneg nsz <2 x double> %148
-  %153 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %152)
+  %153 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %147, <2 x double> splat (double 0x3CA1A62633145C07), <2 x double> %152)
   %154 = fptrunc <2 x double> %153 to <2 x float>
   br label %sw.epilog
 
 if.then119:                                       ; preds = %sw.bb99
   %155 = fpext <2 x float> %138 to <2 x double>
   %156 = fpext <2 x float> %45 to <2 x double>
-  %157 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %155, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %156)
+  %157 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %155, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %156)
   %158 = fptrunc <2 x double> %157 to <2 x float>
-  %159 = fmul nsz <2 x double> %156, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %159 = fmul nsz <2 x double> %156, splat (double 0x3C91A62633145C07)
   %160 = fsub nsz <2 x double> %159, %155
   %161 = fptrunc <2 x double> %160 to <2 x float>
   br label %sw.epilog
@@ -1009,9 +1009,9 @@ sw.bb127:                                         ; preds = %if.end
   %162 = fpext <2 x float> %43 to <2 x double>
   %163 = fpext <2 x float> %47 to <2 x double>
   %164 = fneg nsz <2 x double> %163
-  %165 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %162, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %164)
+  %165 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %162, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %164)
   %166 = fptrunc <2 x double> %165 to <2 x float>
-  %167 = fmul nsz <2 x double> %163, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %167 = fmul nsz <2 x double> %163, splat (double 0x3C91A62633145C07)
   %168 = fadd nsz <2 x double> %167, %162
   %169 = fptrunc <2 x double> %168 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
@@ -1024,9 +1024,9 @@ sw.bb127:                                         ; preds = %if.end
 if.then133:                                       ; preds = %sw.bb127
   %170 = fpext <2 x float> %169 to <2 x double>
   %171 = fpext <2 x float> %45 to <2 x double>
-  %172 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %170, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %171)
+  %172 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %170, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %171)
   %173 = fptrunc <2 x double> %172 to <2 x float>
-  %174 = fmul nsz <2 x double> %171, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %174 = fmul nsz <2 x double> %171, splat (double 0x3C91A62633145C07)
   %175 = fsub nsz <2 x double> %174, %170
   %176 = fptrunc <2 x double> %175 to <2 x float>
   br label %sw.epilog
@@ -1034,11 +1034,11 @@ if.then133:                                       ; preds = %sw.bb127
 if.then140:                                       ; preds = %sw.bb127
   %177 = fpext <2 x float> %169 to <2 x double>
   %178 = fpext <2 x float> %45 to <2 x double>
-  %179 = fmul nsz <2 x double> %178, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %179 = fmul nsz <2 x double> %178, splat (double 0xBCA1A62633145C07)
   %180 = fsub nsz <2 x double> %179, %177
   %181 = fptrunc <2 x double> %180 to <2 x float>
   %182 = fneg nsz <2 x double> %178
-  %183 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %182)
+  %183 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %177, <2 x double> splat (double 0x3CA1A62633145C07), <2 x double> %182)
   %184 = fptrunc <2 x double> %183 to <2 x float>
   br label %sw.epilog
 
@@ -1046,9 +1046,9 @@ if.then147:                                       ; preds = %sw.bb127
   %185 = fpext <2 x float> %169 to <2 x double>
   %186 = fpext <2 x float> %45 to <2 x double>
   %187 = fneg nsz <2 x double> %186
-  %188 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %185, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %187)
+  %188 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %185, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %187)
   %189 = fptrunc <2 x double> %188 to <2 x float>
-  %190 = fmul nsz <2 x double> %186, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %190 = fmul nsz <2 x double> %186, splat (double 0x3C91A62633145C07)
   %191 = fadd nsz <2 x double> %190, %185
   %192 = fptrunc <2 x double> %191 to <2 x float>
   br label %sw.epilog
@@ -1056,11 +1056,11 @@ if.then147:                                       ; preds = %sw.bb127
 sw.bb155:                                         ; preds = %if.end
   %193 = fpext <2 x float> %43 to <2 x double>
   %194 = fpext <2 x float> %47 to <2 x double>
-  %195 = fmul nsz <2 x double> %194, <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>
+  %195 = fmul nsz <2 x double> %194, splat (double 0x3CA1A62633145C07)
   %196 = fsub nsz <2 x double> %195, %193
   %197 = fptrunc <2 x double> %196 to <2 x float>
   %198 = fneg nsz <2 x double> %194
-  %199 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>, <2 x double> %198)
+  %199 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %193, <2 x double> splat (double 0xBCA1A62633145C07), <2 x double> %198)
   %200 = fptrunc <2 x double> %199 to <2 x float>
   switch i8 %15, label %default.unreachable152 [
     i8 1, label %if.then161
@@ -1073,9 +1073,9 @@ if.then161:                                       ; preds = %sw.bb155
   %201 = fpext <2 x float> %197 to <2 x double>
   %202 = fpext <2 x float> %45 to <2 x double>
   %203 = fneg nsz <2 x double> %202
-  %204 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %201, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %203)
+  %204 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %201, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %203)
   %205 = fptrunc <2 x double> %204 to <2 x float>
-  %206 = fmul nsz <2 x double> %202, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %206 = fmul nsz <2 x double> %202, splat (double 0x3C91A62633145C07)
   %207 = fadd nsz <2 x double> %206, %201
   %208 = fptrunc <2 x double> %207 to <2 x float>
   br label %sw.epilog
@@ -1083,20 +1083,20 @@ if.then161:                                       ; preds = %sw.bb155
 if.then168:                                       ; preds = %sw.bb155
   %209 = fpext <2 x float> %197 to <2 x double>
   %210 = fpext <2 x float> %45 to <2 x double>
-  %211 = fmul nsz <2 x double> %210, <double 0xBCA1A62633145C07, double 0xBCA1A62633145C07>
+  %211 = fmul nsz <2 x double> %210, splat (double 0xBCA1A62633145C07)
   %212 = fsub nsz <2 x double> %211, %209
   %213 = fptrunc <2 x double> %212 to <2 x float>
   %214 = fneg nsz <2 x double> %210
-  %215 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %209, <2 x double> <double 0x3CA1A62633145C07, double 0x3CA1A62633145C07>, <2 x double> %214)
+  %215 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %209, <2 x double> splat (double 0x3CA1A62633145C07), <2 x double> %214)
   %216 = fptrunc <2 x double> %215 to <2 x float>
   br label %sw.epilog
 
 if.then175:                                       ; preds = %sw.bb155
   %217 = fpext <2 x float> %197 to <2 x double>
   %218 = fpext <2 x float> %45 to <2 x double>
-  %219 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %217, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %218)
+  %219 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %217, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %218)
   %220 = fptrunc <2 x double> %219 to <2 x float>
-  %221 = fmul nsz <2 x double> %218, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %221 = fmul nsz <2 x double> %218, splat (double 0x3C91A62633145C07)
   %222 = fsub nsz <2 x double> %221, %217
   %223 = fptrunc <2 x double> %222 to <2 x float>
   br label %sw.epilog
@@ -1375,9 +1375,9 @@ if.then196:                                       ; preds = %if.then193
   %260 = insertelement <2 x float> %251, float %255, i64 1
   %261 = fpext <2 x float> %260 to <2 x double>
   %262 = fneg nsz <2 x double> %259
-  %263 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %261, <2 x double> <double 0x3C91A62633145C07, double 0x3C91A62633145C07>, <2 x double> %262)
+  %263 = tail call nsz <2 x double> @llvm.fmuladd.v2f64(<2 x double> %261, <2 x double> splat (double 0x3C91A62633145C07), <2 x double> %262)
   %264 = fptrunc <2 x double> %263 to <2 x float>
-  %265 = fmul nsz <2 x double> %259, <double 0x3C91A62633145C07, double 0x3C91A62633145C07>
+  %265 = fmul nsz <2 x double> %259, splat (double 0x3C91A62633145C07)
   %266 = fadd nsz <2 x double> %265, %261
   %267 = fptrunc <2 x double> %266 to <2 x float>
   %268 = extractelement <2 x float> %264, i64 0
@@ -3593,7 +3593,7 @@ if.else654:                                       ; preds = %entry
 if.then.i2688:                                    ; preds = %if.else654
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float 5.000000e+00>, ptr %526, align 4, !tbaa !67
   %Y.i2.i.i.i.i = getelementptr inbounds i8, ptr %526, i64 16
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %Y.i2.i.i.i.i, align 4, !tbaa !67
+  store <2 x float> splat (float 5.000000e+00), ptr %Y.i2.i.i.i.i, align 4, !tbaa !67
   %incdec.ptr.i2689 = getelementptr inbounds i8, ptr %526, i64 24
   store ptr %incdec.ptr.i2689, ptr %_M_finish.i2685, align 8, !tbaa !74
   br label %if.end664
@@ -3630,7 +3630,7 @@ invoke.cont.i:                                    ; preds = %cond.true.i.i, %_ZN
   %add.ptr.i2698 = getelementptr inbounds %"class.irr::core::aabbox3d", ptr %cond.i57.i, i64 %sub.ptr.div.i.i.i
   store <4 x float> <float -5.000000e+00, float -5.000000e+00, float -5.000000e+00, float 5.000000e+00>, ptr %add.ptr.i2698, align 4, !tbaa !67
   %Y.i2.i.i.i.i2702 = getelementptr inbounds i8, ptr %add.ptr.i2698, i64 16
-  store <2 x float> <float 5.000000e+00, float 5.000000e+00>, ptr %Y.i2.i.i.i.i2702, align 4, !tbaa !67
+  store <2 x float> splat (float 5.000000e+00), ptr %Y.i2.i.i.i.i2702, align 4, !tbaa !67
   %cmp.not6.i.i.i.i2704 = icmp eq ptr %528, %526
   br i1 %cmp.not6.i.i.i.i2704, label %_ZNSt6vectorIN3irr4core8aabbox3dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit66.i, label %for.body.i.i.i.i2705
 

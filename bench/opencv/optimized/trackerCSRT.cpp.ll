@@ -4061,7 +4061,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN2c
   br label %115
 
 115:                                              ; preds = %29, %68, %112
-  %.sroa.028.0 = phi <2 x float> [ %.sroa.028.3, %68 ], [ %.sroa.028.4.vec.insert, %112 ], [ <float -1.000000e+00, float -1.000000e+00>, %29 ]
+  %.sroa.028.0 = phi <2 x float> [ %.sroa.028.3, %68 ], [ %.sroa.028.4.vec.insert, %112 ], [ splat (float -1.000000e+00), %29 ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #25
   ret <2 x float> %.sroa.028.0
 

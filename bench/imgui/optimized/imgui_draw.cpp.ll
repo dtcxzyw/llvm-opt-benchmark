@@ -743,21 +743,21 @@ cond.end:                                         ; preds = %entry, %cond.false
   %ref.tmp63.sroa.4.0.arrayidx64.sroa_idx = getelementptr inbounds i8, ptr %cond, i64 752
   store float 0x3FECCCCCC0000000, ptr %ref.tmp63.sroa.4.0.arrayidx64.sroa_idx, align 4
   %arrayidx69 = getelementptr inbounds i8, ptr %cond, i64 756
-  store <2 x float> <float 0x3FD5810620000000, float 0x3FD5810620000000>, ptr %arrayidx69, align 4
+  store <2 x float> splat (float 0x3FD5810620000000), ptr %arrayidx69, align 4
   %ref.tmp65.sroa.2.0.arrayidx69.sroa_idx = getelementptr inbounds i8, ptr %cond, i64 764
   store <2 x float> <float 0x3FE5E35400000000, float 0x3FE926E980000000>, ptr %ref.tmp65.sroa.2.0.arrayidx69.sroa_idx, align 4
   %arrayidx71 = getelementptr inbounds i8, ptr %cond, i64 772
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %arrayidx71, ptr noundef nonnull align 4 dereferenceable(16) %arrayidx50, i64 16, i1 false)
   %arrayidx76 = getelementptr inbounds i8, ptr %cond, i64 788
-  store <2 x float> <float 0x3FD9DB22C0000000, float 0x3FD9DB22C0000000>, ptr %arrayidx76, align 4
+  store <2 x float> splat (float 0x3FD9DB22C0000000), ptr %arrayidx76, align 4
   %ref.tmp72.sroa.2.0.arrayidx76.sroa_idx = getelementptr inbounds i8, ptr %cond, i64 796
   store <2 x float> <float 0x3FE73B6460000000, float 0x3FEAF1AA00000000>, ptr %ref.tmp72.sroa.2.0.arrayidx76.sroa_idx, align 4
   %arrayidx81 = getelementptr inbounds i8, ptr %cond, i64 804
-  store <2 x float> <float 0x3FD21FF2E0000000, float 0x3FD21FF2E0000000>, ptr %arrayidx81, align 4
+  store <2 x float> splat (float 0x3FD21FF2E0000000), ptr %arrayidx81, align 4
   %ref.tmp77.sroa.2.0.arrayidx81.sroa_idx = getelementptr inbounds i8, ptr %cond, i64 812
   store <2 x float> <float 0x3FE2339C20000000, float 0x3FEA474540000000>, ptr %ref.tmp77.sroa.2.0.arrayidx81.sroa_idx, align 4
   %arrayidx86 = getelementptr inbounds i8, ptr %cond, i64 820
-  store <2 x float> <float 0x3FD66CF420000000, float 0x3FD66CF420000000>, ptr %arrayidx86, align 4
+  store <2 x float> splat (float 0x3FD66CF420000000), ptr %arrayidx86, align 4
   %ref.tmp82.sroa.2.0.arrayidx86.sroa_idx = getelementptr inbounds i8, ptr %cond, i64 828
   store <2 x float> <float 0x3FE4D9E840000000, float 0x3FEACA57A0000000>, ptr %ref.tmp82.sroa.2.0.arrayidx86.sroa_idx, align 4
   %arrayidx88 = getelementptr inbounds i8, ptr %cond, i64 836

@@ -2363,7 +2363,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br i1 %426, label %782, label %429
 
 ._crit_edge.i.i:                                  ; preds = %429, %417
-  %427 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %427 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %428 = bitcast <16 x i1> %427 to i16
   %.not.i.i.i126 = icmp eq i16 %428, 0
   br i1 %.not.i.i.i126, label %433, label %436
@@ -2464,7 +2464,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br i1 %472, label %489, label %475
 
 ._crit_edge.i.i137:                               ; preds = %475, %463
-  %473 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i134, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %473 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i134, splat (i8 -1)
   %474 = bitcast <16 x i1> %473 to i16
   %.not.i.i.i138 = icmp eq i16 %474, 0
   br i1 %.not.i.i.i138, label %479, label %482
@@ -2659,7 +2659,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br i1 %559, label %576, label %562
 
 ._crit_edge.i.i164:                               ; preds = %562, %550
-  %560 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i161, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %560 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i161, splat (i8 -1)
   %561 = bitcast <16 x i1> %560 to i16
   %.not.i.i.i165 = icmp eq i16 %561, 0
   br i1 %.not.i.i.i165, label %566, label %569
@@ -2981,7 +2981,7 @@ define hidden void @_ZN12multi_buffer11MultiBuffer4edit17h66ae797c9956a754E(ptr 
   br i1 %695, label %712, label %698
 
 ._crit_edge.i.i217:                               ; preds = %698, %686
-  %696 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i214, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %696 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i214, splat (i8 -1)
   %697 = bitcast <16 x i1> %696 to i16
   %.not.i.i.i218 = icmp eq i16 %697, 0
   br i1 %.not.i.i.i218, label %702, label %705

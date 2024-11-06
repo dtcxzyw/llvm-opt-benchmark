@@ -453,7 +453,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.018302635 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %202, %199 ]
   %200 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %136, i64 0, i64 %.018302635
   %201 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %200, i64 0, i64 %.018302635
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %201, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %201, align 16
   %202 = add nuw nsw i64 %.018302635, 1
   %exitcond.not = icmp eq i64 %202, 4
   br i1 %exitcond.not, label %203, label %199, !llvm.loop !7
@@ -1704,7 +1704,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %bc.i.i = bitcast <4 x float> %786 to <4 x i32>
   %787 = extractelement <4 x i32> %bc.i.i, i64 0
   %788 = and i32 %787, -2147483648
-  %789 = and <4 x i32> %781, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %789 = and <4 x i32> %781, splat (i32 2147483647)
   %790 = bitcast <4 x i32> %789 to <4 x float>
   %791 = shufflevector <4 x float> %790, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %792 = shufflevector <4 x float> %790, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -1951,7 +1951,7 @@ _ZNK7mitsuba18SurfaceInteractionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE7emi
   %898 = shufflevector <4 x float> %897, <4 x float> poison, <4 x i32> zeroinitializer
   %899 = fmul contract <4 x float> %888, %898
   %900 = load <4 x i32>, ptr %241, align 16
-  %901 = xor <4 x i32> %900, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %901 = xor <4 x i32> %900, splat (i32 -2147483648)
   %902 = bitcast <4 x i32> %901 to <4 x float>
   %903 = select i1 %895, i8 7, i8 0
   %904 = bitcast i8 %903 to <8 x i1>
@@ -2408,7 +2408,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1100 = load ptr, ptr %1099, align 8
   call void %1100(ptr dead_on_unwind nonnull writable sret(%"struct.drjit::Matrix") align 16 %170, ptr noundef nonnull align 8 dereferenceable(64) %1068, ptr noundef nonnull align 4 dereferenceable(12) %167, ptr noundef nonnull align 16 dereferenceable(240) %139, ptr noundef nonnull align 16 dereferenceable(16) %169, i1 noundef zeroext true)
   %1101 = load <4 x i32>, ptr %169, align 16
-  %1102 = xor <4 x i32> %1101, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %1102 = xor <4 x i32> %1101, splat (i32 -2147483648)
   %1103 = bitcast <4 x i32> %1102 to <4 x float>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
@@ -2919,7 +2919,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE4add_ERKS
   %1377 = load ptr, ptr %1376, align 8
   call void %1377(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair.146") align 16 %176, ptr noundef nonnull align 8 dereferenceable(64) %1068, ptr noundef nonnull align 4 dereferenceable(12) %167, ptr noundef nonnull align 16 dereferenceable(240) %139, float noundef %1370, ptr noundef nonnull align 4 dereferenceable(8) %177, i1 noundef zeroext true)
   %1378 = load <4 x i32>, ptr %176, align 16
-  %1379 = xor <4 x i32> %1378, <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>
+  %1379 = xor <4 x i32> %1378, splat (i32 -2147483648)
   %1380 = bitcast <4 x i32> %1379 to <4 x float>
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
@@ -3229,7 +3229,7 @@ _ZNK5drjit9ArrayBaseIN7mitsuba8SpectrumIfLm4EEELb0ENS_5ArrayIS3_Lm4EEEE6fmadd_ER
   %bc.i.i2260 = bitcast <4 x float> %1579 to <4 x i32>
   %1580 = extractelement <4 x i32> %bc.i.i2260, i64 0
   %1581 = and i32 %1580, -2147483648
-  %1582 = and <4 x i32> %1570, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %1582 = and <4 x i32> %1570, splat (i32 2147483647)
   %1583 = bitcast <4 x i32> %1582 to <4 x float>
   %1584 = shufflevector <4 x float> %1583, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %1585 = shufflevector <4 x float> %1583, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -3445,7 +3445,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.08931213 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %88, %85 ]
   %86 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %58, i64 0, i64 %.08931213
   %87 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %86, i64 0, i64 %.08931213
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %87, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %87, align 16
   %88 = add nuw nsw i64 %.08931213, 1
   %exitcond.not = icmp eq i64 %88, 4
   br i1 %exitcond.not, label %89, label %85, !llvm.loop !7
@@ -3722,24 +3722,24 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   %239 = shufflevector <4 x float> %238, <4 x float> poison, <4 x i32> zeroinitializer
   %240 = load <4 x float>, ptr %195, align 16
   %241 = fmul contract <4 x float> %240, %239
-  %242 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %241, <4 x float> <float 0x3FF7154760000000, float 0x3FF7154760000000, float 0x3FF7154760000000, float 0x3FF7154760000000>, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %242 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %241, <4 x float> splat (float 0x3FF7154760000000), <4 x float> splat (float 5.000000e-01))
   %243 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %242, i32 9)
-  %244 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %243, <4 x float> <float 0xBFE6300000000000, float 0xBFE6300000000000, float 0xBFE6300000000000, float 0xBFE6300000000000>, <4 x float> %241)
-  %245 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %243, <4 x float> <float 0x3F2BD01060000000, float 0x3F2BD01060000000, float 0x3F2BD01060000000, float 0x3F2BD01060000000>, <4 x float> %244)
-  %246 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %245, <4 x float> <float 0x3FC5555540000000, float 0x3FC5555540000000, float 0x3FC5555540000000, float 0x3FC5555540000000>, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %247 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %245, <4 x float> <float 0x3F81112100000000, float 0x3F81112100000000, float 0x3F81112100000000, float 0x3F81112100000000>, <4 x float> <float 0x3FA5553820000000, float 0x3FA5553820000000, float 0x3FA5553820000000, float 0x3FA5553820000000>)
-  %248 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %245, <4 x float> <float 0x3F2A0D2CE0000000, float 0x3F2A0D2CE0000000, float 0x3F2A0D2CE0000000, float 0x3F2A0D2CE0000000>, <4 x float> <float 0x3F56E879C0000000, float 0x3F56E879C0000000, float 0x3F56E879C0000000, float 0x3F56E879C0000000>)
+  %244 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %243, <4 x float> splat (float 0xBFE6300000000000), <4 x float> %241)
+  %245 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %243, <4 x float> splat (float 0x3F2BD01060000000), <4 x float> %244)
+  %246 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %245, <4 x float> splat (float 0x3FC5555540000000), <4 x float> splat (float 5.000000e-01))
+  %247 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %245, <4 x float> splat (float 0x3F81112100000000), <4 x float> splat (float 0x3FA5553820000000))
+  %248 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %245, <4 x float> splat (float 0x3F2A0D2CE0000000), <4 x float> splat (float 0x3F56E879C0000000))
   %249 = fmul contract <4 x float> %245, %245
   %250 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %249, <4 x float> %247, <4 x float> %246)
   %251 = fmul contract <4 x float> %249, %249
   %252 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %251, <4 x float> %248, <4 x float> %250)
-  %253 = fcmp contract olt <4 x float> %241, <float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000>
-  %254 = fcmp contract ogt <4 x float> %241, <float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000>
-  %255 = fadd contract <4 x float> %245, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %253 = fcmp contract olt <4 x float> %241, splat (float 0xC0561814A0000000)
+  %254 = fcmp contract ogt <4 x float> %241, splat (float 0x40561814A0000000)
+  %255 = fadd contract <4 x float> %245, splat (float 1.000000e+00)
   %256 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %252, <4 x float> %249, <4 x float> %255)
   %257 = call contract noundef <4 x float> @llvm.x86.avx512.mask.scalef.ps.128(<4 x float> %256, <4 x float> %243, <4 x float> zeroinitializer, i8 -1)
   %258 = select contract <4 x i1> %253, <4 x float> zeroinitializer, <4 x float> %257
-  %259 = select contract <4 x i1> %254, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, <4 x float> %258
+  %259 = select contract <4 x i1> %254, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %258
   %260 = fcmp contract ogt float %229, %209
   %261 = or i1 %233, %260
   %262 = fmul contract <4 x float> %240, %259
@@ -4426,7 +4426,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
   %bc.i.i1014 = bitcast <4 x float> %593 to <4 x i32>
   %594 = extractelement <4 x i32> %bc.i.i1014, i64 0
   %595 = and i32 %594, -2147483648
-  %596 = and <4 x i32> %589, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %596 = and <4 x i32> %589, splat (i32 2147483647)
   %597 = bitcast <4 x i32> %596 to <4 x float>
   %598 = shufflevector <4 x float> %597, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %599 = shufflevector <4 x float> %597, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
@@ -4709,7 +4709,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.08991226 = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit ], [ %88, %85 ]
   %86 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %58, i64 0, i64 %.08991226
   %87 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %86, i64 0, i64 %.08991226
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %87, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %87, align 16
   %88 = add nuw nsw i64 %.08991226, 1
   %exitcond.not = icmp eq i64 %88, 4
   br i1 %exitcond.not, label %89, label %85, !llvm.loop !7
@@ -4998,24 +4998,24 @@ _ZN5drjit4MaskINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_8MaskBaseIS4_Lm4E
   %249 = shufflevector <4 x float> %248, <4 x float> poison, <4 x i32> zeroinitializer
   %250 = load <4 x float>, ptr %205, align 16
   %251 = fmul contract <4 x float> %250, %249
-  %252 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %251, <4 x float> <float 0x3FF7154760000000, float 0x3FF7154760000000, float 0x3FF7154760000000, float 0x3FF7154760000000>, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %252 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %251, <4 x float> splat (float 0x3FF7154760000000), <4 x float> splat (float 5.000000e-01))
   %253 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %252, i32 9)
-  %254 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> <float 0xBFE6300000000000, float 0xBFE6300000000000, float 0xBFE6300000000000, float 0xBFE6300000000000>, <4 x float> %251)
-  %255 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> <float 0x3F2BD01060000000, float 0x3F2BD01060000000, float 0x3F2BD01060000000, float 0x3F2BD01060000000>, <4 x float> %254)
-  %256 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %255, <4 x float> <float 0x3FC5555540000000, float 0x3FC5555540000000, float 0x3FC5555540000000, float 0x3FC5555540000000>, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %257 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %255, <4 x float> <float 0x3F81112100000000, float 0x3F81112100000000, float 0x3F81112100000000, float 0x3F81112100000000>, <4 x float> <float 0x3FA5553820000000, float 0x3FA5553820000000, float 0x3FA5553820000000, float 0x3FA5553820000000>)
-  %258 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %255, <4 x float> <float 0x3F2A0D2CE0000000, float 0x3F2A0D2CE0000000, float 0x3F2A0D2CE0000000, float 0x3F2A0D2CE0000000>, <4 x float> <float 0x3F56E879C0000000, float 0x3F56E879C0000000, float 0x3F56E879C0000000, float 0x3F56E879C0000000>)
+  %254 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> splat (float 0xBFE6300000000000), <4 x float> %251)
+  %255 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> splat (float 0x3F2BD01060000000), <4 x float> %254)
+  %256 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %255, <4 x float> splat (float 0x3FC5555540000000), <4 x float> splat (float 5.000000e-01))
+  %257 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %255, <4 x float> splat (float 0x3F81112100000000), <4 x float> splat (float 0x3FA5553820000000))
+  %258 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %255, <4 x float> splat (float 0x3F2A0D2CE0000000), <4 x float> splat (float 0x3F56E879C0000000))
   %259 = fmul contract <4 x float> %255, %255
   %260 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %259, <4 x float> %257, <4 x float> %256)
   %261 = fmul contract <4 x float> %259, %259
   %262 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %261, <4 x float> %258, <4 x float> %260)
-  %263 = fcmp contract olt <4 x float> %251, <float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000, float 0xC0561814A0000000>
-  %264 = fcmp contract ogt <4 x float> %251, <float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000, float 0x40561814A0000000>
-  %265 = fadd contract <4 x float> %255, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %263 = fcmp contract olt <4 x float> %251, splat (float 0xC0561814A0000000)
+  %264 = fcmp contract ogt <4 x float> %251, splat (float 0x40561814A0000000)
+  %265 = fadd contract <4 x float> %255, splat (float 1.000000e+00)
   %266 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %262, <4 x float> %259, <4 x float> %265)
   %267 = call contract noundef <4 x float> @llvm.x86.avx512.mask.scalef.ps.128(<4 x float> %266, <4 x float> %253, <4 x float> zeroinitializer, i8 -1)
   %268 = select contract <4 x i1> %263, <4 x float> zeroinitializer, <4 x float> %267
-  %269 = select contract <4 x i1> %264, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, <4 x float> %268
+  %269 = select contract <4 x i1> %264, <4 x float> splat (float 0x7FF0000000000000), <4 x float> %268
   %270 = fcmp contract ogt float %239, %219
   %271 = or i1 %243, %270
   %272 = fmul contract <4 x float> %250, %269
@@ -5702,7 +5702,7 @@ _ZN5drjitmlIN7mitsuba8SpectrumIfLm4EEES3_Lm4EEENS_6MatrixINS_6detail14replace_sc
   %bc.i.i1021 = bitcast <4 x float> %603 to <4 x i32>
   %604 = extractelement <4 x i32> %bc.i.i1021, i64 0
   %605 = and i32 %604, -2147483648
-  %606 = and <4 x i32> %599, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %606 = and <4 x i32> %599, splat (i32 2147483647)
   %607 = bitcast <4 x i32> %606 to <4 x float>
   %608 = shufflevector <4 x float> %607, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
   %609 = shufflevector <4 x float> %607, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>

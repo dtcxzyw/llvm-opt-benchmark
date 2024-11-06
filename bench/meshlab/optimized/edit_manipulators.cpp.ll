@@ -1109,7 +1109,7 @@ _ZN3vcg9NormalizeIfEERNS_6Point3IT_EES4_.exit186: ; preds = %95, %_ZN3vcg9Normal
   br label %127
 
 127:                                              ; preds = %118, %126, %125, %124, %123, %122, %121
-  %.sroa.0683.0 = phi <2 x float> [ <float 1.000000e+00, float 1.000000e+00>, %126 ], [ %.sroa.0615.0, %125 ], [ %.sroa.0618.0, %124 ], [ %.sroa.0622.0, %123 ], [ zeroinitializer, %122 ], [ <float 0.000000e+00, float 1.000000e+00>, %121 ], [ <float 1.000000e+00, float 0.000000e+00>, %118 ]
+  %.sroa.0683.0 = phi <2 x float> [ splat (float 1.000000e+00), %126 ], [ %.sroa.0615.0, %125 ], [ %.sroa.0618.0, %124 ], [ %.sroa.0622.0, %123 ], [ zeroinitializer, %122 ], [ <float 0.000000e+00, float 1.000000e+00>, %121 ], [ <float 1.000000e+00, float 0.000000e+00>, %118 ]
   %.sroa.19.0 = phi float [ 1.000000e+00, %126 ], [ %.sroa.6.0, %125 ], [ %.sroa.6621.0, %124 ], [ %.sroa.6625.0, %123 ], [ 1.000000e+00, %122 ], [ 0.000000e+00, %121 ], [ 0.000000e+00, %118 ]
   switch i32 %114, label %849 [
     i32 1, label %128

@@ -894,7 +894,7 @@ _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit:       ; preds = %261
   %281 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %280, <4 x float> %279, <4 x float> %278)
   store <4 x float> %281, ptr %29, align 16
   %282 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %281)
-  %283 = fcmp contract one <4 x float> %282, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %283 = fcmp contract one <4 x float> %282, splat (float 0x7FF0000000000000)
   %284 = shufflevector <4 x i1> %283, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %285 = bitcast <8 x i1> %284 to i8
   %286 = and i8 %285, 7
@@ -977,7 +977,7 @@ _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit468:    ; preds = %301
   %329 = fmul contract <4 x float> %320, %328
   store <4 x float> %329, ptr %31, align 16
   %330 = call <4 x float> @llvm.fabs.v4f32(<4 x float> %329)
-  %331 = fcmp contract one <4 x float> %330, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %331 = fcmp contract one <4 x float> %330, splat (float 0x7FF0000000000000)
   %332 = shufflevector <4 x i1> %331, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %333 = bitcast <8 x i1> %332 to i8
   %334 = and i8 %333, 7

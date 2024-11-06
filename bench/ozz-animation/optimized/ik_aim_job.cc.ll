@@ -402,10 +402,10 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %280 = shufflevector <4 x float> %264, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %281 = shufflevector <4 x float> %260, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 0, i32 3>
   %282 = tail call noundef <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %274)
-  %283 = fmul <4 x float> %282, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %283 = fmul <4 x float> %282, splat (float 5.000000e-01)
   %284 = fmul <4 x float> %274, %282
   %285 = fmul <4 x float> %282, %284
-  %286 = fsub <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>, %285
+  %286 = fsub <4 x float> splat (float 3.000000e+00), %285
   %287 = fmul <4 x float> %283, %286
   %288 = shufflevector <4 x float> %287, <4 x float> poison, <4 x i32> zeroinitializer
   %289 = fmul <4 x float> %140, %288
@@ -430,10 +430,10 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
   %304 = bitcast <4 x float> %289 to <4 x i32>
   %305 = xor <4 x i32> %303, %304
   %306 = bitcast <4 x i32> %305 to <4 x float>
-  %307 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %297, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %308 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>, <4 x float> %307)
-  %309 = fadd <4 x float> %308, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
-  %310 = fmul <4 x float> %309, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %307 = tail call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %297, <4 x float> splat (float 1.000000e+00))
+  %308 = tail call noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> splat (float -1.000000e+00), <4 x float> %307)
+  %309 = fadd <4 x float> %308, splat (float 1.000000e+00)
+  %310 = fmul <4 x float> %309, splat (float 5.000000e-01)
   %311 = fsub <4 x float> <float 1.000000e+00, float poison, float poison, float poison>, %310
   %312 = shufflevector <4 x float> %310, <4 x float> %311, <4 x i32> <i32 0, i32 4, i32 poison, i32 poison>
   %313 = shufflevector <4 x float> %312, <4 x float> %310, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
@@ -541,7 +541,7 @@ _ZN3ozz9animation12_GLOBAL__N_123ComputeOffsettedForwardEDv4_fS2_S2_PS2_.exit: ;
 395:                                              ; preds = %362
   %396 = fcmp olt <4 x float> %.sroa.04.0, zeroinitializer
   %397 = shufflevector <4 x i1> %396, <4 x i1> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %398 = select <4 x i1> %397, <4 x i32> <i32 -2147483648, i32 -2147483648, i32 -2147483648, i32 -2147483648>, <4 x i32> zeroinitializer
+  %398 = select <4 x i1> %397, <4 x i32> splat (i32 -2147483648), <4 x i32> zeroinitializer
   %399 = xor <4 x i32> %398, %.sroa.04.0.in
   %400 = load ptr, ptr %5, align 16
   store <4 x i32> %399, ptr %400, align 16

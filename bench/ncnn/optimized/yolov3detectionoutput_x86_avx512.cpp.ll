@@ -439,7 +439,7 @@ _ZNSt6vectorIN4ncnn21Yolov3DetectionOutput8BBoxRectESaIS2_EE9push_backERKS2_.exi
   %.0403710.us = phi float [ %.1404.us, %236 ], [ 0xC7EFFFFFE0000000, %136 ]
   %.0407709.us = phi ptr [ %237, %236 ], [ %137, %136 ]
   %.0409708.us = phi i32 [ %238, %236 ], [ 0, %136 ]
-  %221 = tail call fast <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %.0407709.us, <8 x i32> %125, <8 x float> <float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000, float 0xFFFFFFFFE0000000>, i8 4)
+  %221 = tail call fast <8 x float> @llvm.x86.avx2.gather.d.ps.256(<8 x float> zeroinitializer, ptr %.0407709.us, <8 x i32> %125, <8 x float> splat (float 0xFFFFFFFFE0000000), i8 4)
   %222 = shufflevector <8 x float> %221, <8 x float> poison, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 0, i32 1, i32 2, i32 3>
   %223 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %221, <8 x float> %222)
   %224 = shufflevector <8 x float> %223, <8 x float> poison, <8 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5>

@@ -2977,13 +2977,13 @@ land.lhs.true.i.i:                                ; preds = %for.body.i.i212
   %430 = load <2 x i64>, ptr %add.ptr.i234.i.i, align 16, !noalias !278
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214.i, i64 16) ], !noalias !278
   %431 = load <2 x i64>, ptr %add.ptr.i5214.i, align 16, !noalias !278
-  %not.i1045.i = xor <2 x i64> %428, <i64 -1, i64 -1>
+  %not.i1045.i = xor <2 x i64> %428, splat (i64 -1)
   %and.i1046.i = and <2 x i64> %s.i.sroa.0.42152.i, %not.i1045.i
-  %not.i1049.i = xor <2 x i64> %429, <i64 -1, i64 -1>
+  %not.i1049.i = xor <2 x i64> %429, splat (i64 -1)
   %and.i1050.i = and <2 x i64> %s.i.sroa.22.42153.i, %not.i1049.i
-  %not.i.i214 = xor <2 x i64> %430, <i64 -1, i64 -1>
+  %not.i.i214 = xor <2 x i64> %430, splat (i64 -1)
   %and.i1038.i = and <2 x i64> %s.i.sroa.40.42154.i, %not.i.i214
-  %not.i1041.i = xor <2 x i64> %431, <i64 -1, i64 -1>
+  %not.i1041.i = xor <2 x i64> %431, splat (i64 -1)
   %and.i1042.i = and <2 x i64> %s.i.sroa.58.42155.i, %not.i1041.i
   %or.i567.i.i = or <2 x i64> %and.i1050.i, %and.i1046.i
   %or.i564.i.i = or <2 x i64> %or.i567.i.i, %and.i1038.i
@@ -4407,7 +4407,7 @@ if.else5.i498:                                    ; preds = %if.else.i496
 clearbit512.exit:                                 ; preds = %if.else5.i498, %if.else.i496, %if.then53.i
   %sub.i494.0 = phi ptr [ %ctx.sroa.0, %if.then53.i ], [ %ctx.sroa.13, %if.else.i496 ], [ %spec.select206, %if.else5.i498 ]
   %697 = load <2 x i64>, ptr %sub.i494.0, align 16
-  %not.i.i = xor <2 x i64> %672, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %672, splat (i64 -1)
   %and.i.i = and <2 x i64> %697, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i494.0, align 16
   br label %for.inc.i
@@ -5144,7 +5144,7 @@ if.else5.i539:                                    ; preds = %if.else.i537
 clearbit512.exit:                                 ; preds = %if.else5.i539, %if.else.i537, %if.then53.i
   %sub.i535.0 = phi ptr [ %ctx, %if.then53.i ], [ %.sroa.0.sroa.2224.0.ctx.addr.i173.0..sroa_idx, %if.else.i537 ], [ %spec.select236, %if.else5.i539 ]
   %105 = load <2 x i64>, ptr %sub.i535.0, align 16
-  %not.i.i = xor <2 x i64> %78, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %78, splat (i64 -1)
   %and.i.i = and <2 x i64> %105, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i535.0, align 16
   br label %for.inc.i
@@ -7115,13 +7115,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %384 = load <2 x i64>, ptr %add.ptr.i234.i, align 16, !noalias !626
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214, i64 16) ], !noalias !626
   %385 = load <2 x i64>, ptr %add.ptr.i5214, align 16, !noalias !626
-  %not.i1045 = xor <2 x i64> %382, <i64 -1, i64 -1>
+  %not.i1045 = xor <2 x i64> %382, splat (i64 -1)
   %and.i1046 = and <2 x i64> %s.i.sroa.0.42020, %not.i1045
-  %not.i1049 = xor <2 x i64> %383, <i64 -1, i64 -1>
+  %not.i1049 = xor <2 x i64> %383, splat (i64 -1)
   %and.i1050 = and <2 x i64> %s.i.sroa.22.42021, %not.i1049
-  %not.i = xor <2 x i64> %384, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %384, splat (i64 -1)
   %and.i1038 = and <2 x i64> %s.i.sroa.40.42022, %not.i
-  %not.i1041 = xor <2 x i64> %385, <i64 -1, i64 -1>
+  %not.i1041 = xor <2 x i64> %385, splat (i64 -1)
   %and.i1042 = and <2 x i64> %s.i.sroa.58.42023, %not.i1041
   %or.i567.i = or <2 x i64> %and.i1050, %and.i1046
   %or.i564.i = or <2 x i64> %or.i567.i, %and.i1038
@@ -8506,7 +8506,7 @@ if.else5.i602:                                    ; preds = %if.else.i600
 clearbit512.exit615:                              ; preds = %if.else5.i602, %if.else.i600, %if.then53.i
   %sub.i598.0 = phi ptr [ %ctx, %if.then53.i ], [ %.sroa.0252.sroa.2.0.ctx.addr.i76.0..sroa_idx, %if.else.i600 ], [ %spec.select273, %if.else5.i602 ]
   %68 = load <2 x i64>, ptr %sub.i598.0, align 16
-  %not.i.i = xor <2 x i64> %41, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %41, splat (i64 -1)
   %and.i.i = and <2 x i64> %68, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i598.0, align 16
   br label %for.inc.i
@@ -8698,7 +8698,7 @@ if.else5.i583:                                    ; preds = %if.else.i581
 clearbit512.exit:                                 ; preds = %if.else5.i583, %if.else.i581, %if.then14.i
   %sub.i579.0 = phi ptr [ %accepts.i.sroa.0, %if.then14.i ], [ %accepts.i.sroa.5, %if.else.i581 ], [ %accepts.i.sroa.9.accepts.i.sroa.13, %if.else5.i583 ]
   %95 = load <2 x i64>, ptr %sub.i579.0, align 16
-  %not.i.i642 = xor <2 x i64> %86, <i64 -1, i64 -1>
+  %not.i.i642 = xor <2 x i64> %86, splat (i64 -1)
   %and.i.i643 = and <2 x i64> %95, %not.i.i642
   store <2 x i64> %and.i.i643, ptr %sub.i579.0, align 16
   br label %for.inc.i161
@@ -10691,13 +10691,13 @@ land.lhs.true.i:                                  ; preds = %for.body.i
   %370 = load <2 x i64>, ptr %add.ptr.i234.i, align 16, !noalias !942
   call void @llvm.assume(i1 true) [ "align"(ptr %add.ptr.i5214, i64 16) ], !noalias !942
   %371 = load <2 x i64>, ptr %add.ptr.i5214, align 16, !noalias !942
-  %not.i1045 = xor <2 x i64> %368, <i64 -1, i64 -1>
+  %not.i1045 = xor <2 x i64> %368, splat (i64 -1)
   %and.i1046 = and <2 x i64> %s.i.sroa.0.41964, %not.i1045
-  %not.i1049 = xor <2 x i64> %369, <i64 -1, i64 -1>
+  %not.i1049 = xor <2 x i64> %369, splat (i64 -1)
   %and.i1050 = and <2 x i64> %s.i.sroa.22.41965, %not.i1049
-  %not.i = xor <2 x i64> %370, <i64 -1, i64 -1>
+  %not.i = xor <2 x i64> %370, splat (i64 -1)
   %and.i1038 = and <2 x i64> %s.i.sroa.40.41966, %not.i
-  %not.i1041 = xor <2 x i64> %371, <i64 -1, i64 -1>
+  %not.i1041 = xor <2 x i64> %371, splat (i64 -1)
   %and.i1042 = and <2 x i64> %s.i.sroa.58.41967, %not.i1041
   %or.i567.i = or <2 x i64> %and.i1050, %and.i1046
   %or.i564.i = or <2 x i64> %or.i567.i, %and.i1038
@@ -11723,7 +11723,7 @@ if.else5.i89:                                     ; preds = %if.else.i87
 clearbit512.exit:                                 ; preds = %if.else5.i89, %if.else.i87, %if.then14.i
   %sub.i85.0 = phi ptr [ %foundAccepts.i.sroa.0, %if.then14.i ], [ %foundAccepts.i.sroa.5, %if.else.i87 ], [ %hi.i16.tmp3.i.sroa.2.0.hi.i16.sroa_idx, %if.else5.i89 ]
   %19 = load <2 x i64>, ptr %sub.i85.0, align 16
-  %not.i.i = xor <2 x i64> %10, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %10, splat (i64 -1)
   %and.i.i = and <2 x i64> %19, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i85.0, align 16
   br label %for.inc.i
@@ -12238,7 +12238,7 @@ if.else5.i161:                                    ; preds = %if.else.i159
 clearbit512.exit:                                 ; preds = %if.else5.i161, %if.else.i159, %if.then14.i
   %sub.i157.0 = phi ptr [ %foundAccepts.i.sroa.0, %if.then14.i ], [ %foundAccepts.i.sroa.5, %if.else.i159 ], [ %hi.i40.tmp3.i.sroa.2.0.hi.i40.sroa_idx, %if.else5.i161 ]
   %21 = load <2 x i64>, ptr %sub.i157.0, align 16
-  %not.i.i = xor <2 x i64> %17, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %17, splat (i64 -1)
   %and.i.i = and <2 x i64> %21, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i157.0, align 16
   br label %for.inc.i
@@ -13458,7 +13458,7 @@ if.else5.i114:                                    ; preds = %if.else.i112
 clearbit512.exit:                                 ; preds = %if.else5.i114, %if.else.i112, %if.then14.i
   %sub.i110.0 = phi ptr [ %accepts.i.sroa.0, %if.then14.i ], [ %accepts.i.sroa.5, %if.else.i112 ], [ %accepts.i.sroa.9.accepts.i.sroa.13, %if.else5.i114 ]
   %28 = load <2 x i64>, ptr %sub.i110.0, align 16
-  %not.i.i = xor <2 x i64> %19, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %19, splat (i64 -1)
   %and.i.i = and <2 x i64> %28, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i110.0, align 16
   br label %for.inc.i
@@ -13780,7 +13780,7 @@ if.else5.i126:                                    ; preds = %if.else.i124
 clearbit512.exit:                                 ; preds = %if.else5.i126, %if.else.i124, %if.then14.i
   %sub.i122.0 = phi ptr [ %accstate.i.sroa.0, %if.then14.i ], [ %accstate.i.sroa.5, %if.else.i124 ], [ %accstate.i.sroa.10.accstate.i.sroa.15, %if.else5.i126 ]
   %28 = load <2 x i64>, ptr %sub.i122.0, align 16
-  %not.i.i = xor <2 x i64> %19, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %19, splat (i64 -1)
   %and.i.i = and <2 x i64> %28, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i122.0, align 16
   br label %for.inc.i
@@ -13998,7 +13998,7 @@ if.else5.i87:                                     ; preds = %if.else.i85
 clearbit512.exit:                                 ; preds = %if.else5.i87, %if.else.i85, %if.then14.i
   %sub.i83.0 = phi ptr [ %state.sroa.0, %if.then14.i ], [ %state.sroa.4, %if.else.i85 ], [ %state.sroa.7.state.sroa.10, %if.else5.i87 ]
   %21 = load <2 x i64>, ptr %sub.i83.0, align 16
-  %not.i.i = xor <2 x i64> %12, <i64 -1, i64 -1>
+  %not.i.i = xor <2 x i64> %12, splat (i64 -1)
   %and.i.i = and <2 x i64> %21, %not.i.i
   store <2 x i64> %and.i.i, ptr %sub.i83.0, align 16
   br label %for.inc.i

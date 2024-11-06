@@ -4804,7 +4804,7 @@ default.unreachable:                              ; preds = %129, %289
 
 332:                                              ; preds = %.noexc12.i
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11), !noalias !943
-  %333 = icmp eq <16 x i8> %.0.copyload.i21.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %333 = icmp eq <16 x i8> %.0.copyload.i21.i.i, splat (i8 -1)
   %334 = bitcast <16 x i1> %333 to i16
   %.not.i.i.i = icmp eq i16 %334, 0
   br i1 %.not.i.i.i, label %340, label %343

@@ -321,7 +321,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %vecinit7.i.i.i.i.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %4 = lshr <8 x i32> %vecinit7.i.i.i.i.i.i, <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %5 = bitcast <8 x i32> %4 to <4 x i64>
-  %and.i.i.i.i.i.i = and <4 x i64> %5, <i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297>
+  %and.i.i.i.i.i.i = and <4 x i64> %5, splat (i64 4294967297)
   store <4 x i64> %and.i.i.i.i.i.i, ptr %add.ptr10.i, align 1
   %add.ptr27.i.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 32
   %ret.0.copyload.i48.i.i = load i32, ptr %in.addr.12015.i, align 4
@@ -329,7 +329,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %vecinit7.i.i.i.i63.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i56.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %6 = lshr <8 x i32> %vecinit7.i.i.i.i63.i.i, <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %7 = bitcast <8 x i32> %6 to <4 x i64>
-  %and.i.i.i.i66.i.i = and <4 x i64> %7, <i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297>
+  %and.i.i.i.i66.i.i = and <4 x i64> %7, splat (i64 4294967297)
   store <4 x i64> %and.i.i.i.i66.i.i, ptr %add.ptr27.i.i, align 1
   %add.ptr58.i.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 64
   %ret.0.copyload.i67.i.i = load i32, ptr %in.addr.12015.i, align 4
@@ -337,7 +337,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %vecinit7.i.i.i.i82.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i75.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %8 = lshr <8 x i32> %vecinit7.i.i.i.i82.i.i, <i32 16, i32 17, i32 18, i32 19, i32 20, i32 21, i32 22, i32 23>
   %9 = bitcast <8 x i32> %8 to <4 x i64>
-  %and.i.i.i.i85.i.i = and <4 x i64> %9, <i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297>
+  %and.i.i.i.i85.i.i = and <4 x i64> %9, splat (i64 4294967297)
   store <4 x i64> %and.i.i.i.i85.i.i, ptr %add.ptr58.i.i, align 1
   %add.ptr89.i.i = getelementptr inbounds i8, ptr %add.ptr10.i, i64 96
   %ret.0.copyload.i86.i.i = load i32, ptr %in.addr.12015.i, align 4
@@ -345,7 +345,7 @@ for.body7.i:                                      ; preds = %for.body7.i, %for.b
   %vecinit7.i.i.i.i101.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i94.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %10 = lshr <8 x i32> %vecinit7.i.i.i.i101.i.i, <i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 31>
   %11 = bitcast <8 x i32> %10 to <4 x i64>
-  %and.i.i.i.i104.i.i = and <4 x i64> %11, <i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297>
+  %and.i.i.i.i104.i.i = and <4 x i64> %11, splat (i64 4294967297)
   store <4 x i64> %and.i.i.i.i104.i.i, ptr %add.ptr89.i.i, align 1
   %add.ptr121.i.i = getelementptr inbounds i8, ptr %in.addr.12015.i, i64 4
   %indvars.iv.next2234.i = add nuw nsw i64 %indvars.iv2233.i, 1
@@ -362,7 +362,7 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   %vecinit7.i.i.i.i.i167.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i166.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %12 = lshr <8 x i32> %vecinit7.i.i.i.i.i167.i, <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %13 = bitcast <8 x i32> %12 to <4 x i64>
-  %and.i.i.i.i.i168.i = and <4 x i64> %13, <i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891>
+  %and.i.i.i.i.i168.i = and <4 x i64> %13, splat (i64 12884901891)
   store <4 x i64> %and.i.i.i.i.i168.i, ptr %add.ptr22.i, align 1
   %add.ptr27.i169.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 32
   %ret.0.copyload.i48.i170.i = load i32, ptr %in.addr.22012.i, align 4
@@ -370,7 +370,7 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   %vecinit7.i.i.i.i63.i172.i = shufflevector <8 x i32> %vecinit.i.i.i.i56.i171.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %14 = lshr <8 x i32> %vecinit7.i.i.i.i63.i172.i, <i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30>
   %15 = bitcast <8 x i32> %14 to <4 x i64>
-  %and.i.i.i.i66.i173.i = and <4 x i64> %15, <i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891>
+  %and.i.i.i.i66.i173.i = and <4 x i64> %15, splat (i64 12884901891)
   store <4 x i64> %and.i.i.i.i66.i173.i, ptr %add.ptr27.i169.i, align 1
   %add.ptr58.i174.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 64
   %add.ptr60.i.i = getelementptr inbounds i8, ptr %in.addr.22012.i, i64 4
@@ -379,7 +379,7 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   %vecinit7.i.i.i.i82.i177.i = shufflevector <8 x i32> %vecinit.i.i.i.i75.i176.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %16 = lshr <8 x i32> %vecinit7.i.i.i.i82.i177.i, <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %17 = bitcast <8 x i32> %16 to <4 x i64>
-  %and.i.i.i.i85.i178.i = and <4 x i64> %17, <i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891>
+  %and.i.i.i.i85.i178.i = and <4 x i64> %17, splat (i64 12884901891)
   store <4 x i64> %and.i.i.i.i85.i178.i, ptr %add.ptr58.i174.i, align 1
   %add.ptr89.i179.i = getelementptr inbounds i8, ptr %add.ptr22.i, i64 96
   %ret.0.copyload.i86.i180.i = load i32, ptr %add.ptr60.i.i, align 4
@@ -387,7 +387,7 @@ for.body19.i:                                     ; preds = %for.body19.i, %for.
   %vecinit7.i.i.i.i101.i182.i = shufflevector <8 x i32> %vecinit.i.i.i.i94.i181.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %18 = lshr <8 x i32> %vecinit7.i.i.i.i101.i182.i, <i32 16, i32 18, i32 20, i32 22, i32 24, i32 26, i32 28, i32 30>
   %19 = bitcast <8 x i32> %18 to <4 x i64>
-  %and.i.i.i.i104.i183.i = and <4 x i64> %19, <i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891>
+  %and.i.i.i.i104.i183.i = and <4 x i64> %19, splat (i64 12884901891)
   store <4 x i64> %and.i.i.i.i104.i183.i, ptr %add.ptr89.i179.i, align 1
   %add.ptr121.i184.i = getelementptr inbounds i8, ptr %in.addr.22012.i, i64 8
   %indvars.iv.next2228.i = add nuw nsw i64 %indvars.iv2227.i, 1
@@ -404,7 +404,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   %vecinit7.i.i.i.i.i187.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i186.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %20 = lshr <8 x i32> %vecinit7.i.i.i.i.i187.i, <i32 0, i32 3, i32 6, i32 9, i32 12, i32 15, i32 18, i32 21>
   %21 = bitcast <8 x i32> %20 to <4 x i64>
-  %and.i.i.i.i.i188.i = and <4 x i64> %21, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i.i188.i = and <4 x i64> %21, splat (i64 30064771079)
   store <4 x i64> %and.i.i.i.i.i188.i, ptr %add.ptr34.i, align 1
   %add.ptr27.i189.i = getelementptr inbounds i8, ptr %add.ptr34.i, i64 32
   %ret.0.copyload.i50.i.i = load i32, ptr %in.addr.32009.i, align 4
@@ -421,7 +421,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   %vecinit7.i.i.i.i66.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i65.i.i, i32 %ret.0.copyload.i53.i.i, i64 7
   %22 = lshr <8 x i32> %vecinit7.i.i.i.i66.i.i, <i32 24, i32 27, i32 0, i32 1, i32 4, i32 7, i32 10, i32 13>
   %23 = bitcast <8 x i32> %22 to <4 x i64>
-  %and.i.i.i.i69.i.i = and <4 x i64> %23, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i69.i.i = and <4 x i64> %23, splat (i64 30064771079)
   store <4 x i64> %and.i.i.i.i69.i.i, ptr %add.ptr27.i189.i, align 1
   %add.ptr60.i190.i = getelementptr inbounds i8, ptr %add.ptr34.i, i64 64
   %ret.0.copyload.i70.i.i = load i32, ptr %add.ptr35.i.i, align 4
@@ -438,7 +438,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   %vecinit7.i.i.i.i86.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i85.i.i, i32 %ret.0.copyload.i76.i.i, i64 7
   %24 = lshr <8 x i32> %vecinit7.i.i.i.i86.i.i, <i32 16, i32 19, i32 22, i32 25, i32 28, i32 0, i32 2, i32 5>
   %25 = bitcast <8 x i32> %24 to <4 x i64>
-  %and.i.i.i.i89.i.i = and <4 x i64> %25, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i89.i.i = and <4 x i64> %25, splat (i64 30064771079)
   store <4 x i64> %and.i.i.i.i89.i.i, ptr %add.ptr60.i190.i, align 1
   %add.ptr96.i.i = getelementptr inbounds i8, ptr %add.ptr34.i, i64 96
   %ret.0.copyload.i90.i.i = load i32, ptr %add.ptr75.i.i, align 4
@@ -446,7 +446,7 @@ for.body31.i:                                     ; preds = %for.body31.i, %for.
   %vecinit7.i.i.i.i105.i.i = shufflevector <8 x i32> %vecinit.i.i.i.i98.i.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %26 = lshr <8 x i32> %vecinit7.i.i.i.i105.i.i, <i32 8, i32 11, i32 14, i32 17, i32 20, i32 23, i32 26, i32 29>
   %27 = bitcast <8 x i32> %26 to <4 x i64>
-  %and.i.i.i.i108.i.i = and <4 x i64> %27, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i108.i.i = and <4 x i64> %27, splat (i64 30064771079)
   store <4 x i64> %and.i.i.i.i108.i.i, ptr %add.ptr96.i.i, align 1
   %add.ptr128.i.i = getelementptr inbounds i8, ptr %in.addr.32009.i, i64 12
   %indvars.iv.next2222.i = add nuw nsw i64 %indvars.iv2221.i, 1
@@ -463,7 +463,7 @@ for.body43.i:                                     ; preds = %for.body43.i, %for.
   %vecinit7.i.i.i.i.i193.i = shufflevector <8 x i32> %vecinit.i.i.i.i.i192.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %28 = lshr <8 x i32> %vecinit7.i.i.i.i.i193.i, <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %29 = bitcast <8 x i32> %28 to <4 x i64>
-  %and.i.i.i.i.i194.i = and <4 x i64> %29, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i.i194.i = and <4 x i64> %29, splat (i64 64424509455)
   store <4 x i64> %and.i.i.i.i.i194.i, ptr %add.ptr46.i, align 1
   %add.ptr27.i195.i = getelementptr inbounds i8, ptr %add.ptr46.i, i64 32
   %add.ptr29.i.i = getelementptr inbounds i8, ptr %in.addr.42006.i, i64 4
@@ -472,7 +472,7 @@ for.body43.i:                                     ; preds = %for.body43.i, %for.
   %vecinit7.i.i.i.i63.i198.i = shufflevector <8 x i32> %vecinit.i.i.i.i56.i197.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %30 = lshr <8 x i32> %vecinit7.i.i.i.i63.i198.i, <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %31 = bitcast <8 x i32> %30 to <4 x i64>
-  %and.i.i.i.i66.i199.i = and <4 x i64> %31, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i66.i199.i = and <4 x i64> %31, splat (i64 64424509455)
   store <4 x i64> %and.i.i.i.i66.i199.i, ptr %add.ptr27.i195.i, align 1
   %add.ptr58.i200.i = getelementptr inbounds i8, ptr %add.ptr46.i, i64 64
   %add.ptr60.i201.i = getelementptr inbounds i8, ptr %in.addr.42006.i, i64 8
@@ -481,7 +481,7 @@ for.body43.i:                                     ; preds = %for.body43.i, %for.
   %vecinit7.i.i.i.i82.i204.i = shufflevector <8 x i32> %vecinit.i.i.i.i75.i203.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %32 = lshr <8 x i32> %vecinit7.i.i.i.i82.i204.i, <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %33 = bitcast <8 x i32> %32 to <4 x i64>
-  %and.i.i.i.i85.i205.i = and <4 x i64> %33, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i85.i205.i = and <4 x i64> %33, splat (i64 64424509455)
   store <4 x i64> %and.i.i.i.i85.i205.i, ptr %add.ptr58.i200.i, align 1
   %add.ptr89.i206.i = getelementptr inbounds i8, ptr %add.ptr46.i, i64 96
   %add.ptr91.i.i = getelementptr inbounds i8, ptr %in.addr.42006.i, i64 12
@@ -490,7 +490,7 @@ for.body43.i:                                     ; preds = %for.body43.i, %for.
   %vecinit7.i.i.i.i101.i209.i = shufflevector <8 x i32> %vecinit.i.i.i.i94.i208.i, <8 x i32> poison, <8 x i32> zeroinitializer
   %34 = lshr <8 x i32> %vecinit7.i.i.i.i101.i209.i, <i32 0, i32 4, i32 8, i32 12, i32 16, i32 20, i32 24, i32 28>
   %35 = bitcast <8 x i32> %34 to <4 x i64>
-  %and.i.i.i.i104.i210.i = and <4 x i64> %35, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i104.i210.i = and <4 x i64> %35, splat (i64 64424509455)
   store <4 x i64> %and.i.i.i.i104.i210.i, ptr %add.ptr89.i206.i, align 1
   %add.ptr121.i211.i = getelementptr inbounds i8, ptr %in.addr.42006.i, i64 16
   %indvars.iv.next2216.i = add nuw nsw i64 %indvars.iv2215.i, 1
@@ -516,7 +516,7 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
   %vecinit7.i.i.i.i.i215.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i.i, i32 %ret.0.copyload.i51.i.i, i64 7
   %36 = lshr <8 x i32> %vecinit7.i.i.i.i.i215.i, <i32 0, i32 5, i32 10, i32 15, i32 20, i32 25, i32 0, i32 3>
   %37 = bitcast <8 x i32> %36 to <4 x i64>
-  %and.i.i.i.i.i216.i = and <4 x i64> %37, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i.i216.i = and <4 x i64> %37, splat (i64 133143986207)
   store <4 x i64> %and.i.i.i.i.i216.i, ptr %add.ptr58.i, align 1
   %add.ptr29.i217.i = getelementptr inbounds i8, ptr %add.ptr58.i, i64 32
   %ret.0.copyload.i53.i218.i = load i32, ptr %add.ptr13.i.i, align 4
@@ -533,7 +533,7 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
   %vecinit7.i.i.i.i69.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i68.i.i, i32 %ret.0.copyload.i58.i.i, i64 7
   %38 = lshr <8 x i32> %vecinit7.i.i.i.i69.i.i, <i32 8, i32 13, i32 18, i32 23, i32 0, i32 1, i32 6, i32 11>
   %39 = bitcast <8 x i32> %38 to <4 x i64>
-  %and.i.i.i.i72.i.i = and <4 x i64> %39, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i72.i.i = and <4 x i64> %39, splat (i64 133143986207)
   store <4 x i64> %and.i.i.i.i72.i.i, ptr %add.ptr29.i217.i, align 1
   %add.ptr65.i.i = getelementptr inbounds i8, ptr %add.ptr58.i, i64 64
   %ret.0.copyload.i73.i.i = load i32, ptr %add.ptr42.i.i, align 4
@@ -550,7 +550,7 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
   %vecinit7.i.i.i.i89.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i88.i.i, i32 %ret.0.copyload.i77.i.i, i64 7
   %40 = lshr <8 x i32> %vecinit7.i.i.i.i89.i.i, <i32 16, i32 21, i32 26, i32 0, i32 4, i32 9, i32 14, i32 19>
   %41 = bitcast <8 x i32> %40 to <4 x i64>
-  %and.i.i.i.i92.i.i = and <4 x i64> %41, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i92.i.i = and <4 x i64> %41, splat (i64 133143986207)
   store <4 x i64> %and.i.i.i.i92.i.i, ptr %add.ptr65.i.i, align 1
   %add.ptr101.i.i = getelementptr inbounds i8, ptr %add.ptr58.i, i64 96
   %ret.0.copyload.i93.i.i = load i32, ptr %add.ptr76.i.i, align 4
@@ -567,7 +567,7 @@ for.body55.i:                                     ; preds = %for.body55.i, %for.
   %vecinit7.i.i.i.i109.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i108.i.i, i32 %ret.0.copyload.i95.i.i, i64 7
   %42 = lshr <8 x i32> %vecinit7.i.i.i.i109.i.i, <i32 24, i32 0, i32 2, i32 7, i32 12, i32 17, i32 22, i32 27>
   %43 = bitcast <8 x i32> %42 to <4 x i64>
-  %and.i.i.i.i112.i.i = and <4 x i64> %43, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i112.i.i = and <4 x i64> %43, splat (i64 133143986207)
   store <4 x i64> %and.i.i.i.i112.i.i, ptr %add.ptr101.i.i, align 1
   %add.ptr138.i.i = getelementptr inbounds i8, ptr %in.addr.52003.i, i64 20
   %indvars.iv.next2210.i = add nuw nsw i64 %indvars.iv2209.i, 1
@@ -593,7 +593,7 @@ for.body67.i:                                     ; preds = %for.body67.i, %for.
   %vecinit7.i.i.i.i.i229.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i228.i, i32 %ret.0.copyload.i50.i220.i, i64 7
   %44 = lshr <8 x i32> %vecinit7.i.i.i.i.i229.i, <i32 0, i32 6, i32 12, i32 18, i32 24, i32 0, i32 4, i32 10>
   %45 = bitcast <8 x i32> %44 to <4 x i64>
-  %and.i.i.i.i.i230.i = and <4 x i64> %45, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i.i230.i = and <4 x i64> %45, splat (i64 270582939711)
   store <4 x i64> %and.i.i.i.i.i230.i, ptr %add.ptr70.i, align 1
   %add.ptr29.i231.i = getelementptr inbounds i8, ptr %add.ptr70.i, i64 32
   %ret.0.copyload.i53.i232.i = load i32, ptr %add.ptr11.i.i, align 4
@@ -610,7 +610,7 @@ for.body67.i:                                     ; preds = %for.body67.i, %for.
   %vecinit7.i.i.i.i69.i240.i = insertelement <8 x i32> %vecinit6.i.i.i.i68.i239.i, i32 %ret.0.copyload.i56.i.i, i64 7
   %46 = lshr <8 x i32> %vecinit7.i.i.i.i69.i240.i, <i32 16, i32 22, i32 0, i32 2, i32 8, i32 14, i32 20, i32 26>
   %47 = bitcast <8 x i32> %46 to <4 x i64>
-  %and.i.i.i.i72.i241.i = and <4 x i64> %47, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i72.i241.i = and <4 x i64> %47, splat (i64 270582939711)
   store <4 x i64> %and.i.i.i.i72.i241.i, ptr %add.ptr29.i231.i, align 1
   %add.ptr65.i242.i = getelementptr inbounds i8, ptr %add.ptr70.i, i64 64
   %add.ptr67.i.i = getelementptr inbounds i8, ptr %in.addr.62000.i, i64 12
@@ -628,7 +628,7 @@ for.body67.i:                                     ; preds = %for.body67.i, %for.
   %vecinit7.i.i.i.i89.i251.i = insertelement <8 x i32> %vecinit6.i.i.i.i88.i250.i, i32 %ret.0.copyload.i79.i.i, i64 7
   %48 = lshr <8 x i32> %vecinit7.i.i.i.i89.i251.i, <i32 0, i32 6, i32 12, i32 18, i32 24, i32 0, i32 4, i32 10>
   %49 = bitcast <8 x i32> %48 to <4 x i64>
-  %and.i.i.i.i92.i252.i = and <4 x i64> %49, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i92.i252.i = and <4 x i64> %49, splat (i64 270582939711)
   store <4 x i64> %and.i.i.i.i92.i252.i, ptr %add.ptr65.i242.i, align 1
   %add.ptr101.i253.i = getelementptr inbounds i8, ptr %add.ptr70.i, i64 96
   %ret.0.copyload.i93.i254.i = load i32, ptr %add.ptr80.i.i, align 4
@@ -645,7 +645,7 @@ for.body67.i:                                     ; preds = %for.body67.i, %for.
   %vecinit7.i.i.i.i109.i262.i = insertelement <8 x i32> %vecinit6.i.i.i.i108.i261.i, i32 %ret.0.copyload.i96.i.i, i64 7
   %50 = lshr <8 x i32> %vecinit7.i.i.i.i109.i262.i, <i32 16, i32 22, i32 0, i32 2, i32 8, i32 14, i32 20, i32 26>
   %51 = bitcast <8 x i32> %50 to <4 x i64>
-  %and.i.i.i.i112.i263.i = and <4 x i64> %51, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i112.i263.i = and <4 x i64> %51, splat (i64 270582939711)
   store <4 x i64> %and.i.i.i.i112.i263.i, ptr %add.ptr101.i253.i, align 1
   %add.ptr138.i264.i = getelementptr inbounds i8, ptr %in.addr.62000.i, i64 24
   %indvars.iv.next2204.i = add nuw nsw i64 %indvars.iv2203.i, 1
@@ -671,7 +671,7 @@ for.body79.i:                                     ; preds = %for.body79.i, %for.
   %vecinit7.i.i.i.i.i275.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i274.i, i32 %ret.0.copyload.i51.i266.i, i64 7
   %52 = lshr <8 x i32> %vecinit7.i.i.i.i.i275.i, <i32 0, i32 7, i32 14, i32 21, i32 0, i32 3, i32 10, i32 17>
   %53 = bitcast <8 x i32> %52 to <4 x i64>
-  %and.i.i.i.i.i276.i = and <4 x i64> %53, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i.i276.i = and <4 x i64> %53, splat (i64 545460846719)
   store <4 x i64> %and.i.i.i.i.i276.i, ptr %add.ptr82.i, align 1
   %add.ptr29.i277.i = getelementptr inbounds i8, ptr %add.ptr82.i, i64 32
   %ret.0.copyload.i55.i.i = load i32, ptr %add.ptr9.i.i, align 4
@@ -691,7 +691,7 @@ for.body79.i:                                     ; preds = %for.body79.i, %for.
   %vecinit7.i.i.i.i72.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i71.i.i, i32 %ret.0.copyload.i62.i.i, i64 7
   %54 = lshr <8 x i32> %vecinit7.i.i.i.i72.i.i, <i32 24, i32 0, i32 6, i32 13, i32 20, i32 0, i32 2, i32 9>
   %55 = bitcast <8 x i32> %54 to <4 x i64>
-  %and.i.i.i.i75.i.i = and <4 x i64> %55, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i75.i.i = and <4 x i64> %55, splat (i64 545460846719)
   store <4 x i64> %and.i.i.i.i75.i.i, ptr %add.ptr29.i277.i, align 1
   %add.ptr70.i.i = getelementptr inbounds i8, ptr %add.ptr82.i, i64 64
   %ret.0.copyload.i76.i278.i = load i32, ptr %add.ptr49.i.i, align 4
@@ -711,7 +711,7 @@ for.body79.i:                                     ; preds = %for.body79.i, %for.
   %vecinit7.i.i.i.i93.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i92.i.i, i32 %ret.0.copyload.i84.i.i, i64 7
   %56 = lshr <8 x i32> %vecinit7.i.i.i.i93.i.i, <i32 16, i32 23, i32 0, i32 5, i32 12, i32 19, i32 0, i32 1>
   %57 = bitcast <8 x i32> %56 to <4 x i64>
-  %and.i.i.i.i96.i.i = and <4 x i64> %57, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i96.i.i = and <4 x i64> %57, splat (i64 545460846719)
   store <4 x i64> %and.i.i.i.i96.i.i, ptr %add.ptr70.i.i, align 1
   %add.ptr111.i.i = getelementptr inbounds i8, ptr %add.ptr82.i, i64 96
   %ret.0.copyload.i97.i.i = load i32, ptr %add.ptr92.i.i, align 4
@@ -728,7 +728,7 @@ for.body79.i:                                     ; preds = %for.body79.i, %for.
   %vecinit7.i.i.i.i113.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i112.i.i, i32 %ret.0.copyload.i101.i.i, i64 7
   %58 = lshr <8 x i32> %vecinit7.i.i.i.i113.i.i, <i32 8, i32 15, i32 22, i32 0, i32 4, i32 11, i32 18, i32 25>
   %59 = bitcast <8 x i32> %58 to <4 x i64>
-  %and.i.i.i.i116.i.i = and <4 x i64> %59, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i116.i.i = and <4 x i64> %59, splat (i64 545460846719)
   store <4 x i64> %and.i.i.i.i116.i.i, ptr %add.ptr111.i.i, align 1
   %add.ptr148.i.i = getelementptr inbounds i8, ptr %in.addr.71997.i, i64 28
   %indvars.iv.next2198.i = add nuw nsw i64 %indvars.iv2197.i, 1
@@ -753,7 +753,7 @@ for.body91.i:                                     ; preds = %for.body91.i, %for.
   %vecinit7.i.i.i.i.i288.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i287.i, i32 %ret.0.copyload.i44.i.i, i64 7
   %60 = lshr <8 x i32> %vecinit7.i.i.i.i.i288.i, <i32 0, i32 8, i32 16, i32 24, i32 0, i32 8, i32 16, i32 24>
   %61 = bitcast <8 x i32> %60 to <4 x i64>
-  %and.i.i.i.i.i289.i = and <4 x i64> %61, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i.i289.i = and <4 x i64> %61, splat (i64 1095216660735)
   store <4 x i64> %and.i.i.i.i.i289.i, ptr %add.ptr94.i, align 1
   %add.ptr27.i290.i = getelementptr inbounds i8, ptr %add.ptr94.i, i64 32
   %add.ptr29.i291.i = getelementptr inbounds i8, ptr %in.addr.81994.i, i64 8
@@ -770,7 +770,7 @@ for.body91.i:                                     ; preds = %for.body91.i, %for.
   %vecinit7.i.i.i.i63.i294.i = insertelement <8 x i32> %vecinit6.i.i.i.i62.i.i, i32 %ret.0.copyload.i52.i.i, i64 7
   %62 = lshr <8 x i32> %vecinit7.i.i.i.i63.i294.i, <i32 0, i32 8, i32 16, i32 24, i32 0, i32 8, i32 16, i32 24>
   %63 = bitcast <8 x i32> %62 to <4 x i64>
-  %and.i.i.i.i66.i295.i = and <4 x i64> %63, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i66.i295.i = and <4 x i64> %63, splat (i64 1095216660735)
   store <4 x i64> %and.i.i.i.i66.i295.i, ptr %add.ptr27.i290.i, align 1
   %add.ptr58.i296.i = getelementptr inbounds i8, ptr %add.ptr94.i, i64 64
   %add.ptr60.i297.i = getelementptr inbounds i8, ptr %in.addr.81994.i, i64 16
@@ -787,7 +787,7 @@ for.body91.i:                                     ; preds = %for.body91.i, %for.
   %vecinit7.i.i.i.i82.i300.i = insertelement <8 x i32> %vecinit6.i.i.i.i81.i.i, i32 %ret.0.copyload.i71.i.i, i64 7
   %64 = lshr <8 x i32> %vecinit7.i.i.i.i82.i300.i, <i32 0, i32 8, i32 16, i32 24, i32 0, i32 8, i32 16, i32 24>
   %65 = bitcast <8 x i32> %64 to <4 x i64>
-  %and.i.i.i.i85.i301.i = and <4 x i64> %65, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i85.i301.i = and <4 x i64> %65, splat (i64 1095216660735)
   store <4 x i64> %and.i.i.i.i85.i301.i, ptr %add.ptr58.i296.i, align 1
   %add.ptr89.i302.i = getelementptr inbounds i8, ptr %add.ptr94.i, i64 96
   %add.ptr91.i303.i = getelementptr inbounds i8, ptr %in.addr.81994.i, i64 24
@@ -804,7 +804,7 @@ for.body91.i:                                     ; preds = %for.body91.i, %for.
   %vecinit7.i.i.i.i101.i307.i = insertelement <8 x i32> %vecinit6.i.i.i.i100.i.i, i32 %ret.0.copyload.i90.i305.i, i64 7
   %66 = lshr <8 x i32> %vecinit7.i.i.i.i101.i307.i, <i32 0, i32 8, i32 16, i32 24, i32 0, i32 8, i32 16, i32 24>
   %67 = bitcast <8 x i32> %66 to <4 x i64>
-  %and.i.i.i.i104.i308.i = and <4 x i64> %67, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i104.i308.i = and <4 x i64> %67, splat (i64 1095216660735)
   store <4 x i64> %and.i.i.i.i104.i308.i, ptr %add.ptr89.i302.i, align 1
   %add.ptr121.i309.i = getelementptr inbounds i8, ptr %in.addr.81994.i, i64 32
   %indvars.iv.next2192.i = add nuw nsw i64 %indvars.iv2191.i, 1
@@ -833,7 +833,7 @@ for.body103.i:                                    ; preds = %for.body103.i, %for
   %vecinit7.i.i.i.i.i322.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i321.i, i32 %or21.i.i, i64 7
   %68 = lshr <8 x i32> %vecinit7.i.i.i.i.i322.i, <i32 0, i32 9, i32 18, i32 0, i32 4, i32 13, i32 22, i32 0>
   %69 = bitcast <8 x i32> %68 to <4 x i64>
-  %and.i.i.i.i.i323.i = and <4 x i64> %69, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i.i323.i = and <4 x i64> %69, splat (i64 2194728288767)
   store <4 x i64> %and.i.i.i.i.i323.i, ptr %add.ptr106.i, align 1
   %add.ptr34.i.i = getelementptr inbounds i8, ptr %add.ptr106.i, i64 32
   %ret.0.copyload.i58.i324.i = load i32, ptr %add.ptr18.i.i, align 4
@@ -853,7 +853,7 @@ for.body103.i:                                    ; preds = %for.body103.i, %for
   %vecinit7.i.i.i.i75.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i74.i.i, i32 %ret.0.copyload.i66.i.i, i64 7
   %70 = lshr <8 x i32> %vecinit7.i.i.i.i75.i.i, <i32 8, i32 17, i32 0, i32 3, i32 12, i32 21, i32 0, i32 7>
   %71 = bitcast <8 x i32> %70 to <4 x i64>
-  %and.i.i.i.i78.i.i = and <4 x i64> %71, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i78.i.i = and <4 x i64> %71, splat (i64 2194728288767)
   store <4 x i64> %and.i.i.i.i78.i.i, ptr %add.ptr34.i.i, align 1
   %add.ptr75.i325.i = getelementptr inbounds i8, ptr %add.ptr106.i, i64 64
   %ret.0.copyload.i79.i326.i = load i32, ptr %add.ptr56.i.i, align 4
@@ -873,7 +873,7 @@ for.body103.i:                                    ; preds = %for.body103.i, %for
   %vecinit7.i.i.i.i96.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i95.i.i, i32 %ret.0.copyload.i86.i327.i, i64 7
   %72 = lshr <8 x i32> %vecinit7.i.i.i.i96.i.i, <i32 16, i32 0, i32 2, i32 11, i32 20, i32 0, i32 6, i32 15>
   %73 = bitcast <8 x i32> %72 to <4 x i64>
-  %and.i.i.i.i99.i.i = and <4 x i64> %73, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i99.i.i = and <4 x i64> %73, splat (i64 2194728288767)
   store <4 x i64> %and.i.i.i.i99.i.i, ptr %add.ptr75.i325.i, align 1
   %add.ptr116.i.i = getelementptr inbounds i8, ptr %add.ptr106.i, i64 96
   %ret.0.copyload.i100.i.i = load i32, ptr %add.ptr95.i.i, align 4
@@ -893,7 +893,7 @@ for.body103.i:                                    ; preds = %for.body103.i, %for
   %vecinit7.i.i.i.i117.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i116.i.i, i32 %ret.0.copyload.i106.i.i, i64 7
   %74 = lshr <8 x i32> %vecinit7.i.i.i.i117.i.i, <i32 0, i32 1, i32 10, i32 19, i32 0, i32 5, i32 14, i32 23>
   %75 = bitcast <8 x i32> %74 to <4 x i64>
-  %and.i.i.i.i120.i.i = and <4 x i64> %75, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i120.i.i = and <4 x i64> %75, splat (i64 2194728288767)
   store <4 x i64> %and.i.i.i.i120.i.i, ptr %add.ptr116.i.i, align 1
   %add.ptr158.i.i = getelementptr inbounds i8, ptr %in.addr.91991.i, i64 36
   %indvars.iv.next2186.i = add nuw nsw i64 %indvars.iv2185.i, 1
@@ -922,7 +922,7 @@ for.body115.i:                                    ; preds = %for.body115.i, %for
   %vecinit7.i.i.i.i.i342.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i341.i, i32 %ret.0.copyload.i56.i334.i, i64 7
   %76 = lshr <8 x i32> %vecinit7.i.i.i.i.i342.i, <i32 0, i32 10, i32 20, i32 0, i32 8, i32 18, i32 0, i32 6>
   %77 = bitcast <8 x i32> %76 to <4 x i64>
-  %and.i.i.i.i.i343.i = and <4 x i64> %77, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i.i343.i = and <4 x i64> %77, splat (i64 4393751544831)
   store <4 x i64> %and.i.i.i.i.i343.i, ptr %add.ptr118.i, align 1
   %add.ptr34.i344.i = getelementptr inbounds i8, ptr %add.ptr118.i, i64 32
   %ret.0.copyload.i58.i345.i = load i32, ptr %add.ptr16.i.i, align 4
@@ -942,7 +942,7 @@ for.body115.i:                                    ; preds = %for.body115.i, %for
   %vecinit7.i.i.i.i75.i353.i = insertelement <8 x i32> %vecinit6.i.i.i.i74.i352.i, i32 %ret.0.copyload.i64.i.i, i64 7
   %78 = lshr <8 x i32> %vecinit7.i.i.i.i75.i353.i, <i32 16, i32 0, i32 4, i32 14, i32 0, i32 2, i32 12, i32 22>
   %79 = bitcast <8 x i32> %78 to <4 x i64>
-  %and.i.i.i.i78.i354.i = and <4 x i64> %79, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i78.i354.i = and <4 x i64> %79, splat (i64 4393751544831)
   store <4 x i64> %and.i.i.i.i78.i354.i, ptr %add.ptr34.i344.i, align 1
   %add.ptr75.i355.i = getelementptr inbounds i8, ptr %add.ptr118.i, i64 64
   %add.ptr77.i.i = getelementptr inbounds i8, ptr %in.addr.101988.i, i64 20
@@ -963,7 +963,7 @@ for.body115.i:                                    ; preds = %for.body115.i, %for
   %vecinit7.i.i.i.i96.i364.i = insertelement <8 x i32> %vecinit6.i.i.i.i95.i363.i, i32 %ret.0.copyload.i87.i.i, i64 7
   %80 = lshr <8 x i32> %vecinit7.i.i.i.i96.i364.i, <i32 0, i32 10, i32 20, i32 0, i32 8, i32 18, i32 0, i32 6>
   %81 = bitcast <8 x i32> %80 to <4 x i64>
-  %and.i.i.i.i99.i365.i = and <4 x i64> %81, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i99.i365.i = and <4 x i64> %81, splat (i64 4393751544831)
   store <4 x i64> %and.i.i.i.i99.i365.i, ptr %add.ptr75.i355.i, align 1
   %add.ptr116.i366.i = getelementptr inbounds i8, ptr %add.ptr118.i, i64 96
   %ret.0.copyload.i100.i367.i = load i32, ptr %add.ptr97.i.i, align 4
@@ -983,7 +983,7 @@ for.body115.i:                                    ; preds = %for.body115.i, %for
   %vecinit7.i.i.i.i117.i378.i = insertelement <8 x i32> %vecinit6.i.i.i.i116.i377.i, i32 %ret.0.copyload.i106.i369.i, i64 7
   %82 = lshr <8 x i32> %vecinit7.i.i.i.i117.i378.i, <i32 16, i32 0, i32 4, i32 14, i32 0, i32 2, i32 12, i32 22>
   %83 = bitcast <8 x i32> %82 to <4 x i64>
-  %and.i.i.i.i120.i379.i = and <4 x i64> %83, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i120.i379.i = and <4 x i64> %83, splat (i64 4393751544831)
   store <4 x i64> %and.i.i.i.i120.i379.i, ptr %add.ptr116.i366.i, align 1
   %add.ptr158.i380.i = getelementptr inbounds i8, ptr %in.addr.101988.i, i64 40
   %indvars.iv.next2180.i = add nuw nsw i64 %indvars.iv2179.i, 1
@@ -1012,7 +1012,7 @@ for.body127.i:                                    ; preds = %for.body127.i, %for
   %vecinit7.i.i.i.i.i392.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i391.i, i32 %ret.0.copyload.i57.i384.i, i64 7
   %84 = lshr <8 x i32> %vecinit7.i.i.i.i.i392.i, <i32 0, i32 11, i32 0, i32 1, i32 12, i32 0, i32 2, i32 13>
   %85 = bitcast <8 x i32> %84 to <4 x i64>
-  %and.i.i.i.i.i393.i = and <4 x i64> %85, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i.i393.i = and <4 x i64> %85, splat (i64 8791798056959)
   store <4 x i64> %and.i.i.i.i.i393.i, ptr %add.ptr130.i, align 1
   %add.ptr34.i394.i = getelementptr inbounds i8, ptr %add.ptr130.i, i64 32
   %ret.0.copyload.i60.i395.i = load i32, ptr %add.ptr14.i.i, align 4
@@ -1035,7 +1035,7 @@ for.body127.i:                                    ; preds = %for.body127.i, %for
   %vecinit7.i.i.i.i78.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i77.i.i, i32 %ret.0.copyload.i69.i.i, i64 7
   %86 = lshr <8 x i32> %vecinit7.i.i.i.i78.i.i, <i32 0, i32 3, i32 14, i32 0, i32 4, i32 15, i32 0, i32 5>
   %87 = bitcast <8 x i32> %86 to <4 x i64>
-  %and.i.i.i.i81.i.i = and <4 x i64> %87, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i81.i.i = and <4 x i64> %87, splat (i64 8791798056959)
   store <4 x i64> %and.i.i.i.i81.i.i, ptr %add.ptr34.i394.i, align 1
   %add.ptr80.i397.i = getelementptr inbounds i8, ptr %add.ptr130.i, i64 64
   %ret.0.copyload.i82.i.i = load i32, ptr %add.ptr61.i.i, align 4
@@ -1058,7 +1058,7 @@ for.body127.i:                                    ; preds = %for.body127.i, %for
   %vecinit7.i.i.i.i100.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i99.i.i, i32 %or112.i.i, i64 7
   %88 = lshr <8 x i32> %vecinit7.i.i.i.i100.i.i, <i32 16, i32 0, i32 6, i32 17, i32 0, i32 7, i32 18, i32 0>
   %89 = bitcast <8 x i32> %88 to <4 x i64>
-  %and.i.i.i.i103.i.i = and <4 x i64> %89, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i103.i.i = and <4 x i64> %89, splat (i64 8791798056959)
   store <4 x i64> %and.i.i.i.i103.i.i, ptr %add.ptr80.i397.i, align 1
   %add.ptr126.i.i = getelementptr inbounds i8, ptr %add.ptr130.i, i64 96
   %ret.0.copyload.i104.i.i = load i32, ptr %add.ptr109.i.i, align 4
@@ -1078,7 +1078,7 @@ for.body127.i:                                    ; preds = %for.body127.i, %for
   %vecinit7.i.i.i.i121.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i120.i.i, i32 %ret.0.copyload.i111.i.i, i64 7
   %90 = lshr <8 x i32> %vecinit7.i.i.i.i121.i.i, <i32 8, i32 19, i32 0, i32 9, i32 20, i32 0, i32 10, i32 21>
   %91 = bitcast <8 x i32> %90 to <4 x i64>
-  %and.i.i.i.i124.i.i = and <4 x i64> %91, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i124.i.i = and <4 x i64> %91, splat (i64 8791798056959)
   store <4 x i64> %and.i.i.i.i124.i.i, ptr %add.ptr126.i.i, align 1
   %add.ptr168.i.i = getelementptr inbounds i8, ptr %in.addr.111985.i, i64 44
   %indvars.iv.next2174.i = add nuw nsw i64 %indvars.iv2173.i, 1
@@ -1107,7 +1107,7 @@ for.body139.i:                                    ; preds = %for.body139.i, %for
   %vecinit7.i.i.i.i.i413.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i412.i, i32 %ret.0.copyload.i55.i404.i, i64 7
   %92 = lshr <8 x i32> %vecinit7.i.i.i.i.i413.i, <i32 0, i32 12, i32 0, i32 4, i32 16, i32 0, i32 8, i32 20>
   %93 = bitcast <8 x i32> %92 to <4 x i64>
-  %and.i.i.i.i.i414.i = and <4 x i64> %93, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i.i414.i = and <4 x i64> %93, splat (i64 17587891081215)
   store <4 x i64> %and.i.i.i.i.i414.i, ptr %add.ptr142.i, align 1
   %add.ptr34.i415.i = getelementptr inbounds i8, ptr %add.ptr142.i, i64 32
   %add.ptr36.i416.i = getelementptr inbounds i8, ptr %in.addr.121982.i, i64 12
@@ -1128,7 +1128,7 @@ for.body139.i:                                    ; preds = %for.body139.i, %for
   %vecinit7.i.i.i.i75.i429.i = insertelement <8 x i32> %vecinit6.i.i.i.i74.i428.i, i32 %ret.0.copyload.i65.i421.i, i64 7
   %94 = lshr <8 x i32> %vecinit7.i.i.i.i75.i429.i, <i32 0, i32 12, i32 0, i32 4, i32 16, i32 0, i32 8, i32 20>
   %95 = bitcast <8 x i32> %94 to <4 x i64>
-  %and.i.i.i.i78.i430.i = and <4 x i64> %95, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i78.i430.i = and <4 x i64> %95, splat (i64 17587891081215)
   store <4 x i64> %and.i.i.i.i78.i430.i, ptr %add.ptr34.i415.i, align 1
   %add.ptr75.i431.i = getelementptr inbounds i8, ptr %add.ptr142.i, i64 64
   %add.ptr77.i432.i = getelementptr inbounds i8, ptr %in.addr.121982.i, i64 24
@@ -1149,7 +1149,7 @@ for.body139.i:                                    ; preds = %for.body139.i, %for
   %vecinit7.i.i.i.i96.i445.i = insertelement <8 x i32> %vecinit6.i.i.i.i95.i444.i, i32 %ret.0.copyload.i86.i436.i, i64 7
   %96 = lshr <8 x i32> %vecinit7.i.i.i.i96.i445.i, <i32 0, i32 12, i32 0, i32 4, i32 16, i32 0, i32 8, i32 20>
   %97 = bitcast <8 x i32> %96 to <4 x i64>
-  %and.i.i.i.i99.i446.i = and <4 x i64> %97, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i99.i446.i = and <4 x i64> %97, splat (i64 17587891081215)
   store <4 x i64> %and.i.i.i.i99.i446.i, ptr %add.ptr75.i431.i, align 1
   %add.ptr116.i447.i = getelementptr inbounds i8, ptr %add.ptr142.i, i64 96
   %add.ptr118.i.i = getelementptr inbounds i8, ptr %in.addr.121982.i, i64 36
@@ -1170,7 +1170,7 @@ for.body139.i:                                    ; preds = %for.body139.i, %for
   %vecinit7.i.i.i.i117.i457.i = insertelement <8 x i32> %vecinit6.i.i.i.i116.i456.i, i32 %ret.0.copyload.i107.i449.i, i64 7
   %98 = lshr <8 x i32> %vecinit7.i.i.i.i117.i457.i, <i32 0, i32 12, i32 0, i32 4, i32 16, i32 0, i32 8, i32 20>
   %99 = bitcast <8 x i32> %98 to <4 x i64>
-  %and.i.i.i.i120.i458.i = and <4 x i64> %99, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i120.i458.i = and <4 x i64> %99, splat (i64 17587891081215)
   store <4 x i64> %and.i.i.i.i120.i458.i, ptr %add.ptr116.i447.i, align 1
   %add.ptr158.i459.i = getelementptr inbounds i8, ptr %in.addr.121982.i, i64 48
   %indvars.iv.next2168.i = add nuw nsw i64 %indvars.iv2167.i, 1
@@ -1202,7 +1202,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   %vecinit7.i.i.i.i.i473.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i472.i, i32 %or26.i.i, i64 7
   %100 = lshr <8 x i32> %vecinit7.i.i.i.i.i473.i, <i32 0, i32 13, i32 0, i32 7, i32 0, i32 1, i32 14, i32 0>
   %101 = bitcast <8 x i32> %100 to <4 x i64>
-  %and.i.i.i.i.i474.i = and <4 x i64> %101, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i.i474.i = and <4 x i64> %101, splat (i64 35180077129727)
   store <4 x i64> %and.i.i.i.i.i474.i, ptr %add.ptr154.i, align 1
   %add.ptr39.i475.i = getelementptr inbounds i8, ptr %add.ptr154.i, i64 32
   %ret.0.copyload.i63.i.i = load i32, ptr %add.ptr23.i.i, align 4
@@ -1225,7 +1225,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   %vecinit7.i.i.i.i81.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i80.i.i, i32 %ret.0.copyload.i72.i.i, i64 7
   %102 = lshr <8 x i32> %vecinit7.i.i.i.i81.i.i, <i32 8, i32 0, i32 2, i32 15, i32 0, i32 9, i32 0, i32 3>
   %103 = bitcast <8 x i32> %102 to <4 x i64>
-  %and.i.i.i.i84.i.i = and <4 x i64> %103, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i84.i.i = and <4 x i64> %103, splat (i64 35180077129727)
   store <4 x i64> %and.i.i.i.i84.i.i, ptr %add.ptr39.i475.i, align 1
   %add.ptr85.i.i = getelementptr inbounds i8, ptr %add.ptr154.i, i64 64
   %ret.0.copyload.i85.i.i = load i32, ptr %add.ptr66.i.i, align 4
@@ -1248,7 +1248,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   %vecinit7.i.i.i.i103.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i102.i.i, i32 %ret.0.copyload.i94.i.i, i64 7
   %104 = lshr <8 x i32> %vecinit7.i.i.i.i103.i.i, <i32 16, i32 0, i32 10, i32 0, i32 4, i32 17, i32 0, i32 11>
   %105 = bitcast <8 x i32> %104 to <4 x i64>
-  %and.i.i.i.i106.i.i = and <4 x i64> %105, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i106.i.i = and <4 x i64> %105, splat (i64 35180077129727)
   store <4 x i64> %and.i.i.i.i106.i.i, ptr %add.ptr85.i.i, align 1
   %add.ptr131.i.i = getelementptr inbounds i8, ptr %add.ptr154.i, i64 96
   %ret.0.copyload.i107.i483.i = load i32, ptr %add.ptr112.i.i, align 4
@@ -1271,7 +1271,7 @@ for.body151.i:                                    ; preds = %for.body151.i, %for
   %vecinit7.i.i.i.i125.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i124.i.i, i32 %ret.0.copyload.i115.i.i, i64 7
   %106 = lshr <8 x i32> %vecinit7.i.i.i.i125.i.i, <i32 0, i32 5, i32 18, i32 0, i32 12, i32 0, i32 6, i32 19>
   %107 = bitcast <8 x i32> %106 to <4 x i64>
-  %and.i.i.i.i128.i.i = and <4 x i64> %107, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i128.i.i = and <4 x i64> %107, splat (i64 35180077129727)
   store <4 x i64> %and.i.i.i.i128.i.i, ptr %add.ptr131.i.i, align 1
   %add.ptr178.i.i = getelementptr inbounds i8, ptr %in.addr.131979.i, i64 52
   %indvars.iv.next2162.i = add nuw nsw i64 %indvars.iv2161.i, 1
@@ -1303,7 +1303,7 @@ for.body163.i:                                    ; preds = %for.body163.i, %for
   %vecinit7.i.i.i.i.i501.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i500.i, i32 %ret.0.copyload.i61.i493.i, i64 7
   %108 = lshr <8 x i32> %vecinit7.i.i.i.i.i501.i, <i32 0, i32 14, i32 0, i32 10, i32 0, i32 6, i32 0, i32 2>
   %109 = bitcast <8 x i32> %108 to <4 x i64>
-  %and.i.i.i.i.i502.i = and <4 x i64> %109, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i.i502.i = and <4 x i64> %109, splat (i64 70364449226751)
   store <4 x i64> %and.i.i.i.i.i502.i, ptr %add.ptr166.i, align 1
   %add.ptr39.i503.i = getelementptr inbounds i8, ptr %add.ptr166.i, i64 32
   %ret.0.copyload.i63.i504.i = load i32, ptr %add.ptr21.i.i, align 4
@@ -1326,7 +1326,7 @@ for.body163.i:                                    ; preds = %for.body163.i, %for
   %vecinit7.i.i.i.i81.i516.i = insertelement <8 x i32> %vecinit6.i.i.i.i80.i515.i, i32 %ret.0.copyload.i71.i508.i, i64 7
   %110 = lshr <8 x i32> %vecinit7.i.i.i.i81.i516.i, <i32 16, i32 0, i32 12, i32 0, i32 8, i32 0, i32 4, i32 18>
   %111 = bitcast <8 x i32> %110 to <4 x i64>
-  %and.i.i.i.i84.i517.i = and <4 x i64> %111, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i84.i517.i = and <4 x i64> %111, splat (i64 70364449226751)
   store <4 x i64> %and.i.i.i.i84.i517.i, ptr %add.ptr39.i503.i, align 1
   %add.ptr85.i518.i = getelementptr inbounds i8, ptr %add.ptr166.i, i64 64
   %add.ptr87.i519.i = getelementptr inbounds i8, ptr %in.addr.141976.i, i64 28
@@ -1350,7 +1350,7 @@ for.body163.i:                                    ; preds = %for.body163.i, %for
   %vecinit7.i.i.i.i103.i532.i = insertelement <8 x i32> %vecinit6.i.i.i.i102.i531.i, i32 %ret.0.copyload.i94.i523.i, i64 7
   %112 = lshr <8 x i32> %vecinit7.i.i.i.i103.i532.i, <i32 0, i32 14, i32 0, i32 10, i32 0, i32 6, i32 0, i32 2>
   %113 = bitcast <8 x i32> %112 to <4 x i64>
-  %and.i.i.i.i106.i533.i = and <4 x i64> %113, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i106.i533.i = and <4 x i64> %113, splat (i64 70364449226751)
   store <4 x i64> %and.i.i.i.i106.i533.i, ptr %add.ptr85.i518.i, align 1
   %add.ptr131.i534.i = getelementptr inbounds i8, ptr %add.ptr166.i, i64 96
   %ret.0.copyload.i107.i535.i = load i32, ptr %add.ptr112.i522.i, align 4
@@ -1373,7 +1373,7 @@ for.body163.i:                                    ; preds = %for.body163.i, %for
   %vecinit7.i.i.i.i125.i550.i = insertelement <8 x i32> %vecinit6.i.i.i.i124.i549.i, i32 %ret.0.copyload.i115.i541.i, i64 7
   %114 = lshr <8 x i32> %vecinit7.i.i.i.i125.i550.i, <i32 16, i32 0, i32 12, i32 0, i32 8, i32 0, i32 4, i32 18>
   %115 = bitcast <8 x i32> %114 to <4 x i64>
-  %and.i.i.i.i128.i551.i = and <4 x i64> %115, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i128.i551.i = and <4 x i64> %115, splat (i64 70364449226751)
   store <4 x i64> %and.i.i.i.i128.i551.i, ptr %add.ptr131.i534.i, align 1
   %add.ptr178.i552.i = getelementptr inbounds i8, ptr %in.addr.141976.i, i64 56
   %indvars.iv.next2156.i = add nuw nsw i64 %indvars.iv2155.i, 1
@@ -1405,7 +1405,7 @@ for.body175.i:                                    ; preds = %for.body175.i, %for
   %vecinit7.i.i.i.i.i570.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i569.i, i32 %ret.0.copyload.i63.i561.i, i64 7
   %116 = lshr <8 x i32> %vecinit7.i.i.i.i.i570.i, <i32 0, i32 15, i32 0, i32 13, i32 0, i32 11, i32 0, i32 9>
   %117 = bitcast <8 x i32> %116 to <4 x i64>
-  %and.i.i.i.i.i571.i = and <4 x i64> %117, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i.i571.i = and <4 x i64> %117, splat (i64 140733193420799)
   store <4 x i64> %and.i.i.i.i.i571.i, ptr %add.ptr178.i, align 1
   %add.ptr39.i572.i = getelementptr inbounds i8, ptr %add.ptr178.i, i64 32
   %ret.0.copyload.i65.i573.i = load i32, ptr %add.ptr21.i560.i, align 4
@@ -1431,7 +1431,7 @@ for.body175.i:                                    ; preds = %for.body175.i, %for
   %vecinit7.i.i.i.i84.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i83.i.i, i32 %ret.0.copyload.i75.i.i, i64 7
   %118 = lshr <8 x i32> %vecinit7.i.i.i.i84.i.i, <i32 0, i32 7, i32 0, i32 5, i32 0, i32 3, i32 0, i32 1>
   %119 = bitcast <8 x i32> %118 to <4 x i64>
-  %and.i.i.i.i87.i.i = and <4 x i64> %119, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i87.i.i = and <4 x i64> %119, splat (i64 140733193420799)
   store <4 x i64> %and.i.i.i.i87.i.i, ptr %add.ptr39.i572.i, align 1
   %add.ptr90.i.i = getelementptr inbounds i8, ptr %add.ptr178.i, i64 64
   %ret.0.copyload.i88.i577.i = load i32, ptr %add.ptr71.i.i, align 4
@@ -1457,7 +1457,7 @@ for.body175.i:                                    ; preds = %for.body175.i, %for
   %vecinit7.i.i.i.i107.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i106.i.i, i32 %or127.i.i, i64 7
   %120 = lshr <8 x i32> %vecinit7.i.i.i.i107.i.i, <i32 16, i32 0, i32 14, i32 0, i32 12, i32 0, i32 10, i32 0>
   %121 = bitcast <8 x i32> %120 to <4 x i64>
-  %and.i.i.i.i110.i.i = and <4 x i64> %121, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i110.i.i = and <4 x i64> %121, splat (i64 140733193420799)
   store <4 x i64> %and.i.i.i.i110.i.i, ptr %add.ptr90.i.i, align 1
   %add.ptr141.i.i = getelementptr inbounds i8, ptr %add.ptr178.i, i64 96
   %ret.0.copyload.i111.i583.i = load i32, ptr %add.ptr124.i.i, align 4
@@ -1480,7 +1480,7 @@ for.body175.i:                                    ; preds = %for.body175.i, %for
   %vecinit7.i.i.i.i129.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i128.i.i, i32 %ret.0.copyload.i119.i.i, i64 7
   %122 = lshr <8 x i32> %vecinit7.i.i.i.i129.i.i, <i32 8, i32 0, i32 6, i32 0, i32 4, i32 0, i32 2, i32 17>
   %123 = bitcast <8 x i32> %122 to <4 x i64>
-  %and.i.i.i.i132.i.i = and <4 x i64> %123, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i132.i.i = and <4 x i64> %123, splat (i64 140733193420799)
   store <4 x i64> %and.i.i.i.i132.i.i, ptr %add.ptr141.i.i, align 1
   %add.ptr188.i.i = getelementptr inbounds i8, ptr %in.addr.151973.i, i64 60
   %indvars.iv.next2150.i = add nuw nsw i64 %indvars.iv2149.i, 1
@@ -1509,7 +1509,7 @@ for.body187.i:                                    ; preds = %for.body187.i, %for
   %vecinit7.i.i.i.i.i596.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i595.i, i32 %ret.0.copyload.i46.i.i, i64 7
   %124 = lshr <8 x i32> %vecinit7.i.i.i.i.i596.i, <i32 0, i32 16, i32 0, i32 16, i32 0, i32 16, i32 0, i32 16>
   %125 = bitcast <8 x i32> %124 to <4 x i64>
-  %and.i.i.i.i.i597.i = and <4 x i64> %125, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i.i597.i = and <4 x i64> %125, splat (i64 281470681808895)
   store <4 x i64> %and.i.i.i.i.i597.i, ptr %add.ptr190.i, align 1
   %add.ptr27.i598.i = getelementptr inbounds i8, ptr %add.ptr190.i, i64 32
   %add.ptr29.i599.i = getelementptr inbounds i8, ptr %in.addr.161970.i, i64 16
@@ -1530,7 +1530,7 @@ for.body187.i:                                    ; preds = %for.body187.i, %for
   %vecinit7.i.i.i.i63.i612.i = insertelement <8 x i32> %vecinit6.i.i.i.i62.i611.i, i32 %ret.0.copyload.i54.i.i, i64 7
   %126 = lshr <8 x i32> %vecinit7.i.i.i.i63.i612.i, <i32 0, i32 16, i32 0, i32 16, i32 0, i32 16, i32 0, i32 16>
   %127 = bitcast <8 x i32> %126 to <4 x i64>
-  %and.i.i.i.i66.i613.i = and <4 x i64> %127, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i66.i613.i = and <4 x i64> %127, splat (i64 281470681808895)
   store <4 x i64> %and.i.i.i.i66.i613.i, ptr %add.ptr27.i598.i, align 1
   %add.ptr58.i614.i = getelementptr inbounds i8, ptr %add.ptr190.i, i64 64
   %add.ptr60.i615.i = getelementptr inbounds i8, ptr %in.addr.161970.i, i64 32
@@ -1551,7 +1551,7 @@ for.body187.i:                                    ; preds = %for.body187.i, %for
   %vecinit7.i.i.i.i82.i629.i = insertelement <8 x i32> %vecinit6.i.i.i.i81.i628.i, i32 %ret.0.copyload.i73.i621.i, i64 7
   %128 = lshr <8 x i32> %vecinit7.i.i.i.i82.i629.i, <i32 0, i32 16, i32 0, i32 16, i32 0, i32 16, i32 0, i32 16>
   %129 = bitcast <8 x i32> %128 to <4 x i64>
-  %and.i.i.i.i85.i630.i = and <4 x i64> %129, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i85.i630.i = and <4 x i64> %129, splat (i64 281470681808895)
   store <4 x i64> %and.i.i.i.i85.i630.i, ptr %add.ptr58.i614.i, align 1
   %add.ptr89.i631.i = getelementptr inbounds i8, ptr %add.ptr190.i, i64 96
   %add.ptr91.i632.i = getelementptr inbounds i8, ptr %in.addr.161970.i, i64 48
@@ -1572,7 +1572,7 @@ for.body187.i:                                    ; preds = %for.body187.i, %for
   %vecinit7.i.i.i.i101.i647.i = insertelement <8 x i32> %vecinit6.i.i.i.i100.i646.i, i32 %ret.0.copyload.i92.i639.i, i64 7
   %130 = lshr <8 x i32> %vecinit7.i.i.i.i101.i647.i, <i32 0, i32 16, i32 0, i32 16, i32 0, i32 16, i32 0, i32 16>
   %131 = bitcast <8 x i32> %130 to <4 x i64>
-  %and.i.i.i.i104.i648.i = and <4 x i64> %131, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i104.i648.i = and <4 x i64> %131, splat (i64 281470681808895)
   store <4 x i64> %and.i.i.i.i104.i648.i, ptr %add.ptr89.i631.i, align 1
   %add.ptr121.i649.i = getelementptr inbounds i8, ptr %in.addr.161970.i, i64 64
   %indvars.iv.next2144.i = add nuw nsw i64 %indvars.iv2143.i, 1
@@ -1607,7 +1607,7 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   %vecinit7.i.i.i.i.i664.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i663.i, i32 %or31.i.i, i64 7
   %132 = lshr <8 x i32> %vecinit7.i.i.i.i.i664.i, <i32 0, i32 0, i32 2, i32 0, i32 4, i32 0, i32 6, i32 0>
   %133 = bitcast <8 x i32> %132 to <4 x i64>
-  %and.i.i.i.i.i665.i = and <4 x i64> %133, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i.i665.i = and <4 x i64> %133, splat (i64 562945658585087)
   store <4 x i64> %and.i.i.i.i.i665.i, ptr %add.ptr202.i, align 1
   %add.ptr44.i666.i = getelementptr inbounds i8, ptr %add.ptr202.i, i64 32
   %ret.0.copyload.i68.i667.i = load i32, ptr %add.ptr28.i.i, align 4
@@ -1633,7 +1633,7 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   %vecinit7.i.i.i.i87.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i86.i.i, i32 %or81.i.i, i64 7
   %134 = lshr <8 x i32> %vecinit7.i.i.i.i87.i.i, <i32 8, i32 0, i32 10, i32 0, i32 12, i32 0, i32 14, i32 0>
   %135 = bitcast <8 x i32> %134 to <4 x i64>
-  %and.i.i.i.i90.i.i = and <4 x i64> %135, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i90.i.i = and <4 x i64> %135, splat (i64 562945658585087)
   store <4 x i64> %and.i.i.i.i90.i.i, ptr %add.ptr44.i666.i, align 1
   %add.ptr95.i673.i = getelementptr inbounds i8, ptr %add.ptr202.i, i64 64
   %ret.0.copyload.i91.i674.i = load i32, ptr %add.ptr78.i.i, align 4
@@ -1659,7 +1659,7 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   %vecinit7.i.i.i.i110.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i109.i.i, i32 %ret.0.copyload.i101.i680.i, i64 7
   %136 = lshr <8 x i32> %vecinit7.i.i.i.i110.i.i, <i32 0, i32 1, i32 0, i32 3, i32 0, i32 5, i32 0, i32 7>
   %137 = bitcast <8 x i32> %136 to <4 x i64>
-  %and.i.i.i.i113.i.i = and <4 x i64> %137, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i113.i.i = and <4 x i64> %137, splat (i64 562945658585087)
   store <4 x i64> %and.i.i.i.i113.i.i, ptr %add.ptr95.i673.i, align 1
   %add.ptr146.i681.i = getelementptr inbounds i8, ptr %add.ptr202.i, i64 96
   %ret.0.copyload.i114.i.i = load i32, ptr %add.ptr127.i.i, align 4
@@ -1685,7 +1685,7 @@ for.body199.i:                                    ; preds = %for.body199.i, %for
   %vecinit7.i.i.i.i133.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i132.i.i, i32 %ret.0.copyload.i124.i.i, i64 7
   %138 = lshr <8 x i32> %vecinit7.i.i.i.i133.i.i, <i32 0, i32 9, i32 0, i32 11, i32 0, i32 13, i32 0, i32 15>
   %139 = bitcast <8 x i32> %138 to <4 x i64>
-  %and.i.i.i.i136.i.i = and <4 x i64> %139, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i136.i.i = and <4 x i64> %139, splat (i64 562945658585087)
   store <4 x i64> %and.i.i.i.i136.i.i, ptr %add.ptr146.i681.i, align 1
   %add.ptr198.i.i = getelementptr inbounds i8, ptr %in.addr.171967.i, i64 68
   %indvars.iv.next2138.i = add nuw nsw i64 %indvars.iv2137.i, 1
@@ -1720,7 +1720,7 @@ for.body211.i:                                    ; preds = %for.body211.i, %for
   %vecinit7.i.i.i.i.i704.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i703.i, i32 %or31.i696.i, i64 7
   %140 = lshr <8 x i32> %vecinit7.i.i.i.i.i704.i, <i32 0, i32 0, i32 4, i32 0, i32 8, i32 0, i32 12, i32 0>
   %141 = bitcast <8 x i32> %140 to <4 x i64>
-  %and.i.i.i.i.i705.i = and <4 x i64> %141, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i.i705.i = and <4 x i64> %141, splat (i64 1125895612137471)
   store <4 x i64> %and.i.i.i.i.i705.i, ptr %add.ptr214.i, align 1
   %add.ptr44.i706.i = getelementptr inbounds i8, ptr %add.ptr214.i, i64 32
   %ret.0.copyload.i68.i707.i = load i32, ptr %add.ptr28.i694.i, align 4
@@ -1746,7 +1746,7 @@ for.body211.i:                                    ; preds = %for.body211.i, %for
   %vecinit7.i.i.i.i87.i724.i = insertelement <8 x i32> %vecinit6.i.i.i.i86.i723.i, i32 %ret.0.copyload.i78.i.i, i64 7
   %142 = lshr <8 x i32> %vecinit7.i.i.i.i87.i724.i, <i32 0, i32 2, i32 0, i32 6, i32 0, i32 10, i32 0, i32 14>
   %143 = bitcast <8 x i32> %142 to <4 x i64>
-  %and.i.i.i.i90.i725.i = and <4 x i64> %143, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i90.i725.i = and <4 x i64> %143, splat (i64 1125895612137471)
   store <4 x i64> %and.i.i.i.i90.i725.i, ptr %add.ptr44.i706.i, align 1
   %add.ptr95.i726.i = getelementptr inbounds i8, ptr %add.ptr214.i, i64 64
   %add.ptr97.i727.i = getelementptr inbounds i8, ptr %in.addr.181964.i, i64 36
@@ -1773,7 +1773,7 @@ for.body211.i:                                    ; preds = %for.body211.i, %for
   %vecinit7.i.i.i.i110.i741.i = insertelement <8 x i32> %vecinit6.i.i.i.i109.i740.i, i32 %or132.i.i, i64 7
   %144 = lshr <8 x i32> %vecinit7.i.i.i.i110.i741.i, <i32 0, i32 0, i32 4, i32 0, i32 8, i32 0, i32 12, i32 0>
   %145 = bitcast <8 x i32> %144 to <4 x i64>
-  %and.i.i.i.i113.i742.i = and <4 x i64> %145, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i113.i742.i = and <4 x i64> %145, splat (i64 1125895612137471)
   store <4 x i64> %and.i.i.i.i113.i742.i, ptr %add.ptr95.i726.i, align 1
   %add.ptr146.i743.i = getelementptr inbounds i8, ptr %add.ptr214.i, i64 96
   %ret.0.copyload.i114.i744.i = load i32, ptr %add.ptr129.i.i, align 4
@@ -1799,7 +1799,7 @@ for.body211.i:                                    ; preds = %for.body211.i, %for
   %vecinit7.i.i.i.i133.i764.i = insertelement <8 x i32> %vecinit6.i.i.i.i132.i763.i, i32 %ret.0.copyload.i124.i755.i, i64 7
   %146 = lshr <8 x i32> %vecinit7.i.i.i.i133.i764.i, <i32 0, i32 2, i32 0, i32 6, i32 0, i32 10, i32 0, i32 14>
   %147 = bitcast <8 x i32> %146 to <4 x i64>
-  %and.i.i.i.i136.i765.i = and <4 x i64> %147, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i136.i765.i = and <4 x i64> %147, splat (i64 1125895612137471)
   store <4 x i64> %and.i.i.i.i136.i765.i, ptr %add.ptr146.i743.i, align 1
   %add.ptr198.i766.i = getelementptr inbounds i8, ptr %in.addr.181964.i, i64 72
   %indvars.iv.next2132.i = add nuw nsw i64 %indvars.iv2131.i, 1
@@ -1834,7 +1834,7 @@ for.body223.i:                                    ; preds = %for.body223.i, %for
   %vecinit7.i.i.i.i.i785.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i784.i, i32 %ret.0.copyload.i68.i777.i, i64 7
   %148 = lshr <8 x i32> %vecinit7.i.i.i.i.i785.i, <i32 0, i32 0, i32 6, i32 0, i32 12, i32 0, i32 0, i32 5>
   %149 = bitcast <8 x i32> %148 to <4 x i64>
-  %and.i.i.i.i.i786.i = and <4 x i64> %149, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i.i786.i = and <4 x i64> %149, splat (i64 2251795519242239)
   store <4 x i64> %and.i.i.i.i.i786.i, ptr %add.ptr226.i, align 1
   %add.ptr44.i787.i = getelementptr inbounds i8, ptr %add.ptr226.i, i64 32
   %ret.0.copyload.i70.i788.i = load i32, ptr %add.ptr26.i.i, align 4
@@ -1863,7 +1863,7 @@ for.body223.i:                                    ; preds = %for.body223.i, %for
   %vecinit7.i.i.i.i90.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i89.i.i, i32 %or86.i.i, i64 7
   %150 = lshr <8 x i32> %vecinit7.i.i.i.i90.i.i, <i32 0, i32 11, i32 0, i32 0, i32 4, i32 0, i32 10, i32 0>
   %151 = bitcast <8 x i32> %150 to <4 x i64>
-  %and.i.i.i.i93.i.i = and <4 x i64> %151, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i93.i.i = and <4 x i64> %151, splat (i64 2251795519242239)
   store <4 x i64> %and.i.i.i.i93.i.i, ptr %add.ptr44.i787.i, align 1
   %add.ptr100.i798.i = getelementptr inbounds i8, ptr %add.ptr226.i, i64 64
   %ret.0.copyload.i94.i799.i = load i32, ptr %add.ptr83.i.i, align 4
@@ -1892,7 +1892,7 @@ for.body223.i:                                    ; preds = %for.body223.i, %for
   %vecinit7.i.i.i.i114.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i113.i.i, i32 %or142.i.i, i64 7
   %152 = lshr <8 x i32> %vecinit7.i.i.i.i114.i.i, <i32 0, i32 3, i32 0, i32 9, i32 0, i32 0, i32 2, i32 0>
   %153 = bitcast <8 x i32> %152 to <4 x i64>
-  %and.i.i.i.i117.i.i = and <4 x i64> %153, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i117.i.i = and <4 x i64> %153, splat (i64 2251795519242239)
   store <4 x i64> %and.i.i.i.i117.i.i, ptr %add.ptr100.i798.i, align 1
   %add.ptr156.i807.i = getelementptr inbounds i8, ptr %add.ptr226.i, i64 96
   %ret.0.copyload.i118.i808.i = load i32, ptr %add.ptr139.i.i, align 4
@@ -1918,7 +1918,7 @@ for.body223.i:                                    ; preds = %for.body223.i, %for
   %vecinit7.i.i.i.i137.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i136.i.i, i32 %ret.0.copyload.i128.i.i, i64 7
   %154 = lshr <8 x i32> %vecinit7.i.i.i.i137.i.i, <i32 8, i32 0, i32 0, i32 1, i32 0, i32 7, i32 0, i32 13>
   %155 = bitcast <8 x i32> %154 to <4 x i64>
-  %and.i.i.i.i140.i.i = and <4 x i64> %155, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i140.i.i = and <4 x i64> %155, splat (i64 2251795519242239)
   store <4 x i64> %and.i.i.i.i140.i.i, ptr %add.ptr156.i807.i, align 1
   %add.ptr208.i.i = getelementptr inbounds i8, ptr %in.addr.191961.i, i64 76
   %indvars.iv.next2126.i = add nuw nsw i64 %indvars.iv2125.i, 1
@@ -1953,7 +1953,7 @@ for.body235.i:                                    ; preds = %for.body235.i, %for
   %vecinit7.i.i.i.i.i828.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i827.i, i32 %ret.0.copyload.i66.i819.i, i64 7
   %156 = lshr <8 x i32> %vecinit7.i.i.i.i.i828.i, <i32 0, i32 0, i32 8, i32 0, i32 0, i32 4, i32 0, i32 12>
   %157 = bitcast <8 x i32> %156 to <4 x i64>
-  %and.i.i.i.i.i829.i = and <4 x i64> %157, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i.i829.i = and <4 x i64> %157, splat (i64 4503595333451775)
   store <4 x i64> %and.i.i.i.i.i829.i, ptr %add.ptr238.i, align 1
   %add.ptr44.i830.i = getelementptr inbounds i8, ptr %add.ptr238.i, i64 32
   %add.ptr46.i831.i = getelementptr inbounds i8, ptr %in.addr.201958.i, i64 20
@@ -1980,7 +1980,7 @@ for.body235.i:                                    ; preds = %for.body235.i, %for
   %vecinit7.i.i.i.i87.i852.i = insertelement <8 x i32> %vecinit6.i.i.i.i86.i851.i, i32 %ret.0.copyload.i78.i843.i, i64 7
   %158 = lshr <8 x i32> %vecinit7.i.i.i.i87.i852.i, <i32 0, i32 0, i32 8, i32 0, i32 0, i32 4, i32 0, i32 12>
   %159 = bitcast <8 x i32> %158 to <4 x i64>
-  %and.i.i.i.i90.i853.i = and <4 x i64> %159, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i90.i853.i = and <4 x i64> %159, splat (i64 4503595333451775)
   store <4 x i64> %and.i.i.i.i90.i853.i, ptr %add.ptr44.i830.i, align 1
   %add.ptr95.i854.i = getelementptr inbounds i8, ptr %add.ptr238.i, i64 64
   %add.ptr97.i855.i = getelementptr inbounds i8, ptr %in.addr.201958.i, i64 40
@@ -2007,7 +2007,7 @@ for.body235.i:                                    ; preds = %for.body235.i, %for
   %vecinit7.i.i.i.i110.i876.i = insertelement <8 x i32> %vecinit6.i.i.i.i109.i875.i, i32 %ret.0.copyload.i101.i867.i, i64 7
   %160 = lshr <8 x i32> %vecinit7.i.i.i.i110.i876.i, <i32 0, i32 0, i32 8, i32 0, i32 0, i32 4, i32 0, i32 12>
   %161 = bitcast <8 x i32> %160 to <4 x i64>
-  %and.i.i.i.i113.i877.i = and <4 x i64> %161, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i113.i877.i = and <4 x i64> %161, splat (i64 4503595333451775)
   store <4 x i64> %and.i.i.i.i113.i877.i, ptr %add.ptr95.i854.i, align 1
   %add.ptr146.i878.i = getelementptr inbounds i8, ptr %add.ptr238.i, i64 96
   %add.ptr148.i879.i = getelementptr inbounds i8, ptr %in.addr.201958.i, i64 60
@@ -2034,7 +2034,7 @@ for.body235.i:                                    ; preds = %for.body235.i, %for
   %vecinit7.i.i.i.i133.i896.i = insertelement <8 x i32> %vecinit6.i.i.i.i132.i895.i, i32 %ret.0.copyload.i124.i887.i, i64 7
   %162 = lshr <8 x i32> %vecinit7.i.i.i.i133.i896.i, <i32 0, i32 0, i32 8, i32 0, i32 0, i32 4, i32 0, i32 12>
   %163 = bitcast <8 x i32> %162 to <4 x i64>
-  %and.i.i.i.i136.i897.i = and <4 x i64> %163, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i136.i897.i = and <4 x i64> %163, splat (i64 4503595333451775)
   store <4 x i64> %and.i.i.i.i136.i897.i, ptr %add.ptr146.i878.i, align 1
   %add.ptr198.i898.i = getelementptr inbounds i8, ptr %in.addr.201958.i, i64 80
   %indvars.iv.next2120.i = add nuw nsw i64 %indvars.iv2119.i, 1
@@ -2072,7 +2072,7 @@ for.body247.i:                                    ; preds = %for.body247.i, %for
   %vecinit7.i.i.i.i.i921.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i920.i, i32 %or36.i.i, i64 7
   %164 = lshr <8 x i32> %vecinit7.i.i.i.i.i921.i, <i32 0, i32 0, i32 10, i32 0, i32 0, i32 9, i32 0, i32 0>
   %165 = bitcast <8 x i32> %164 to <4 x i64>
-  %and.i.i.i.i.i922.i = and <4 x i64> %165, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i.i922.i = and <4 x i64> %165, splat (i64 9007194961870847)
   store <4 x i64> %and.i.i.i.i.i922.i, ptr %add.ptr250.i, align 1
   %add.ptr49.i923.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 32
   %ret.0.copyload.i73.i924.i = load i32, ptr %add.ptr33.i912.i, align 4
@@ -2101,7 +2101,7 @@ for.body247.i:                                    ; preds = %for.body247.i, %for
   %vecinit7.i.i.i.i93.i941.i = insertelement <8 x i32> %vecinit6.i.i.i.i92.i940.i, i32 %or91.i.i, i64 7
   %166 = lshr <8 x i32> %vecinit7.i.i.i.i93.i941.i, <i32 8, i32 0, i32 0, i32 7, i32 0, i32 0, i32 6, i32 0>
   %167 = bitcast <8 x i32> %166 to <4 x i64>
-  %and.i.i.i.i96.i942.i = and <4 x i64> %167, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i96.i942.i = and <4 x i64> %167, splat (i64 9007194961870847)
   store <4 x i64> %and.i.i.i.i96.i942.i, ptr %add.ptr49.i923.i, align 1
   %add.ptr105.i943.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 64
   %ret.0.copyload.i97.i944.i = load i32, ptr %add.ptr88.i.i, align 4
@@ -2130,7 +2130,7 @@ for.body247.i:                                    ; preds = %for.body247.i, %for
   %vecinit7.i.i.i.i117.i962.i = insertelement <8 x i32> %vecinit6.i.i.i.i116.i961.i, i32 %ret.0.copyload.i108.i954.i, i64 7
   %168 = lshr <8 x i32> %vecinit7.i.i.i.i117.i962.i, <i32 0, i32 5, i32 0, i32 0, i32 4, i32 0, i32 0, i32 3>
   %169 = bitcast <8 x i32> %168 to <4 x i64>
-  %and.i.i.i.i120.i963.i = and <4 x i64> %169, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i120.i963.i = and <4 x i64> %169, splat (i64 9007194961870847)
   store <4 x i64> %and.i.i.i.i120.i963.i, ptr %add.ptr105.i943.i, align 1
   %add.ptr161.i.i = getelementptr inbounds i8, ptr %add.ptr250.i, i64 96
   %ret.0.copyload.i121.i964.i = load i32, ptr %add.ptr142.i.i, align 4
@@ -2159,7 +2159,7 @@ for.body247.i:                                    ; preds = %for.body247.i, %for
   %vecinit7.i.i.i.i141.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i140.i.i, i32 %ret.0.copyload.i132.i.i, i64 7
   %170 = lshr <8 x i32> %vecinit7.i.i.i.i141.i.i, <i32 0, i32 0, i32 2, i32 0, i32 0, i32 1, i32 0, i32 11>
   %171 = bitcast <8 x i32> %170 to <4 x i64>
-  %and.i.i.i.i144.i.i = and <4 x i64> %171, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i144.i.i = and <4 x i64> %171, splat (i64 9007194961870847)
   store <4 x i64> %and.i.i.i.i144.i.i, ptr %add.ptr161.i.i, align 1
   %add.ptr218.i.i = getelementptr inbounds i8, ptr %in.addr.211955.i, i64 84
   %indvars.iv.next2114.i = add nuw nsw i64 %indvars.iv2113.i, 1
@@ -2197,7 +2197,7 @@ for.body259.i:                                    ; preds = %for.body259.i, %for
   %vecinit7.i.i.i.i.i989.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i988.i, i32 %or36.i981.i, i64 7
   %172 = lshr <8 x i32> %vecinit7.i.i.i.i.i989.i, <i32 0, i32 0, i32 0, i32 2, i32 0, i32 0, i32 4, i32 0>
   %173 = bitcast <8 x i32> %172 to <4 x i64>
-  %and.i.i.i.i.i990.i = and <4 x i64> %173, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i.i990.i = and <4 x i64> %173, splat (i64 18014394218708991)
   store <4 x i64> %and.i.i.i.i.i990.i, ptr %add.ptr262.i, align 1
   %add.ptr49.i991.i = getelementptr inbounds i8, ptr %add.ptr262.i, i64 32
   %ret.0.copyload.i73.i992.i = load i32, ptr %add.ptr33.i979.i, align 4
@@ -2226,7 +2226,7 @@ for.body259.i:                                    ; preds = %for.body259.i, %for
   %vecinit7.i.i.i.i93.i1014.i = insertelement <8 x i32> %vecinit6.i.i.i.i92.i1013.i, i32 %ret.0.copyload.i84.i1005.i, i64 7
   %174 = lshr <8 x i32> %vecinit7.i.i.i.i93.i1014.i, <i32 0, i32 6, i32 0, i32 0, i32 8, i32 0, i32 0, i32 10>
   %175 = bitcast <8 x i32> %174 to <4 x i64>
-  %and.i.i.i.i96.i1015.i = and <4 x i64> %175, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i96.i1015.i = and <4 x i64> %175, splat (i64 18014394218708991)
   store <4 x i64> %and.i.i.i.i96.i1015.i, ptr %add.ptr49.i991.i, align 1
   %add.ptr105.i1016.i = getelementptr inbounds i8, ptr %add.ptr262.i, i64 64
   %add.ptr107.i.i = getelementptr inbounds i8, ptr %in.addr.221952.i, i64 44
@@ -2256,7 +2256,7 @@ for.body259.i:                                    ; preds = %for.body259.i, %for
   %vecinit7.i.i.i.i117.i1037.i = insertelement <8 x i32> %vecinit6.i.i.i.i116.i1036.i, i32 %or147.i.i, i64 7
   %176 = lshr <8 x i32> %vecinit7.i.i.i.i117.i1037.i, <i32 0, i32 0, i32 0, i32 2, i32 0, i32 0, i32 4, i32 0>
   %177 = bitcast <8 x i32> %176 to <4 x i64>
-  %and.i.i.i.i120.i1038.i = and <4 x i64> %177, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i120.i1038.i = and <4 x i64> %177, splat (i64 18014394218708991)
   store <4 x i64> %and.i.i.i.i120.i1038.i, ptr %add.ptr105.i1016.i, align 1
   %add.ptr161.i1039.i = getelementptr inbounds i8, ptr %add.ptr262.i, i64 96
   %ret.0.copyload.i121.i1040.i = load i32, ptr %add.ptr144.i.i, align 4
@@ -2285,7 +2285,7 @@ for.body259.i:                                    ; preds = %for.body259.i, %for
   %vecinit7.i.i.i.i141.i1058.i = insertelement <8 x i32> %vecinit6.i.i.i.i140.i1057.i, i32 %ret.0.copyload.i132.i1049.i, i64 7
   %178 = lshr <8 x i32> %vecinit7.i.i.i.i141.i1058.i, <i32 0, i32 6, i32 0, i32 0, i32 8, i32 0, i32 0, i32 10>
   %179 = bitcast <8 x i32> %178 to <4 x i64>
-  %and.i.i.i.i144.i1059.i = and <4 x i64> %179, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i144.i1059.i = and <4 x i64> %179, splat (i64 18014394218708991)
   store <4 x i64> %and.i.i.i.i144.i1059.i, ptr %add.ptr161.i1039.i, align 1
   %add.ptr218.i1060.i = getelementptr inbounds i8, ptr %in.addr.221952.i, i64 88
   %indvars.iv.next2108.i = add nuw nsw i64 %indvars.iv2107.i, 1
@@ -2323,7 +2323,7 @@ for.body271.i:                                    ; preds = %for.body271.i, %for
   %vecinit7.i.i.i.i.i1082.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1081.i, i32 %ret.0.copyload.i73.i1074.i, i64 7
   %180 = lshr <8 x i32> %vecinit7.i.i.i.i.i1082.i, <i32 0, i32 0, i32 0, i32 5, i32 0, i32 0, i32 0, i32 1>
   %181 = bitcast <8 x i32> %180 to <4 x i64>
-  %and.i.i.i.i.i1083.i = and <4 x i64> %181, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i.i1083.i = and <4 x i64> %181, splat (i64 36028792732385279)
   store <4 x i64> %and.i.i.i.i.i1083.i, ptr %add.ptr274.i, align 1
   %add.ptr49.i1084.i = getelementptr inbounds i8, ptr %add.ptr274.i, i64 32
   %ret.0.copyload.i75.i1085.i = load i32, ptr %add.ptr31.i.i, align 4
@@ -2355,7 +2355,7 @@ for.body271.i:                                    ; preds = %for.body271.i, %for
   %vecinit7.i.i.i.i96.i1108.i = insertelement <8 x i32> %vecinit6.i.i.i.i95.i1107.i, i32 %or96.i.i, i64 7
   %182 = lshr <8 x i32> %vecinit7.i.i.i.i96.i1108.i, <i32 0, i32 0, i32 6, i32 0, i32 0, i32 0, i32 2, i32 0>
   %183 = bitcast <8 x i32> %182 to <4 x i64>
-  %and.i.i.i.i99.i1109.i = and <4 x i64> %183, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i99.i1109.i = and <4 x i64> %183, splat (i64 36028792732385279)
   store <4 x i64> %and.i.i.i.i99.i1109.i, ptr %add.ptr49.i1084.i, align 1
   %add.ptr110.i1110.i = getelementptr inbounds i8, ptr %add.ptr274.i, i64 64
   %ret.0.copyload.i100.i1111.i = load i32, ptr %add.ptr93.i.i, align 4
@@ -2387,7 +2387,7 @@ for.body271.i:                                    ; preds = %for.body271.i, %for
   %vecinit7.i.i.i.i121.i1134.i = insertelement <8 x i32> %vecinit6.i.i.i.i120.i1133.i, i32 %or157.i.i, i64 7
   %184 = lshr <8 x i32> %vecinit7.i.i.i.i121.i1134.i, <i32 0, i32 7, i32 0, i32 0, i32 0, i32 3, i32 0, i32 0>
   %185 = bitcast <8 x i32> %184 to <4 x i64>
-  %and.i.i.i.i124.i1135.i = and <4 x i64> %185, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i124.i1135.i = and <4 x i64> %185, splat (i64 36028792732385279)
   store <4 x i64> %and.i.i.i.i124.i1135.i, ptr %add.ptr110.i1110.i, align 1
   %add.ptr171.i.i = getelementptr inbounds i8, ptr %add.ptr274.i, i64 96
   %ret.0.copyload.i125.i1136.i = load i32, ptr %add.ptr154.i.i, align 4
@@ -2416,7 +2416,7 @@ for.body271.i:                                    ; preds = %for.body271.i, %for
   %vecinit7.i.i.i.i145.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i144.i.i, i32 %ret.0.copyload.i136.i.i, i64 7
   %186 = lshr <8 x i32> %vecinit7.i.i.i.i145.i.i, <i32 8, i32 0, i32 0, i32 0, i32 4, i32 0, i32 0, i32 9>
   %187 = bitcast <8 x i32> %186 to <4 x i64>
-  %and.i.i.i.i148.i.i = and <4 x i64> %187, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i148.i.i = and <4 x i64> %187, splat (i64 36028792732385279)
   store <4 x i64> %and.i.i.i.i148.i.i, ptr %add.ptr171.i.i, align 1
   %add.ptr228.i.i = getelementptr inbounds i8, ptr %in.addr.231949.i, i64 92
   %indvars.iv.next2102.i = add nuw nsw i64 %indvars.iv2101.i, 1
@@ -2453,7 +2453,7 @@ for.body283.i:                                    ; preds = %for.body283.i, %for
   %vecinit7.i.i.i.i.i1164.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1163.i, i32 %ret.0.copyload.i66.i1155.i, i64 7
   %188 = lshr <8 x i32> %vecinit7.i.i.i.i.i1164.i, <i32 0, i32 0, i32 0, i32 8, i32 0, i32 0, i32 0, i32 8>
   %189 = bitcast <8 x i32> %188 to <4 x i64>
-  %and.i.i.i.i.i1165.i = and <4 x i64> %189, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i.i1165.i = and <4 x i64> %189, splat (i64 72057589759737855)
   store <4 x i64> %and.i.i.i.i.i1165.i, ptr %add.ptr286.i, align 1
   %add.ptr44.i1166.i = getelementptr inbounds i8, ptr %add.ptr286.i, i64 32
   %add.ptr46.i1167.i = getelementptr inbounds i8, ptr %in.addr.241946.i, i64 24
@@ -2482,7 +2482,7 @@ for.body283.i:                                    ; preds = %for.body283.i, %for
   %vecinit7.i.i.i.i87.i1190.i = insertelement <8 x i32> %vecinit6.i.i.i.i86.i1189.i, i32 %ret.0.copyload.i78.i1181.i, i64 7
   %190 = lshr <8 x i32> %vecinit7.i.i.i.i87.i1190.i, <i32 0, i32 0, i32 0, i32 8, i32 0, i32 0, i32 0, i32 8>
   %191 = bitcast <8 x i32> %190 to <4 x i64>
-  %and.i.i.i.i90.i1191.i = and <4 x i64> %191, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i90.i1191.i = and <4 x i64> %191, splat (i64 72057589759737855)
   store <4 x i64> %and.i.i.i.i90.i1191.i, ptr %add.ptr44.i1166.i, align 1
   %add.ptr95.i1192.i = getelementptr inbounds i8, ptr %add.ptr286.i, i64 64
   %add.ptr97.i1193.i = getelementptr inbounds i8, ptr %in.addr.241946.i, i64 48
@@ -2511,7 +2511,7 @@ for.body283.i:                                    ; preds = %for.body283.i, %for
   %vecinit7.i.i.i.i110.i1216.i = insertelement <8 x i32> %vecinit6.i.i.i.i109.i1215.i, i32 %ret.0.copyload.i101.i1207.i, i64 7
   %192 = lshr <8 x i32> %vecinit7.i.i.i.i110.i1216.i, <i32 0, i32 0, i32 0, i32 8, i32 0, i32 0, i32 0, i32 8>
   %193 = bitcast <8 x i32> %192 to <4 x i64>
-  %and.i.i.i.i113.i1217.i = and <4 x i64> %193, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i113.i1217.i = and <4 x i64> %193, splat (i64 72057589759737855)
   store <4 x i64> %and.i.i.i.i113.i1217.i, ptr %add.ptr95.i1192.i, align 1
   %add.ptr146.i1218.i = getelementptr inbounds i8, ptr %add.ptr286.i, i64 96
   %add.ptr148.i1219.i = getelementptr inbounds i8, ptr %in.addr.241946.i, i64 72
@@ -2540,7 +2540,7 @@ for.body283.i:                                    ; preds = %for.body283.i, %for
   %vecinit7.i.i.i.i133.i1241.i = insertelement <8 x i32> %vecinit6.i.i.i.i132.i1240.i, i32 %ret.0.copyload.i124.i1232.i, i64 7
   %194 = lshr <8 x i32> %vecinit7.i.i.i.i133.i1241.i, <i32 0, i32 0, i32 0, i32 8, i32 0, i32 0, i32 0, i32 8>
   %195 = bitcast <8 x i32> %194 to <4 x i64>
-  %and.i.i.i.i136.i1242.i = and <4 x i64> %195, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i136.i1242.i = and <4 x i64> %195, splat (i64 72057589759737855)
   store <4 x i64> %and.i.i.i.i136.i1242.i, ptr %add.ptr146.i1218.i, align 1
   %add.ptr198.i1243.i = getelementptr inbounds i8, ptr %in.addr.241946.i, i64 96
   %indvars.iv.next2096.i = add nuw nsw i64 %indvars.iv2095.i, 1
@@ -2581,7 +2581,7 @@ for.body295.i:                                    ; preds = %for.body295.i, %for
   %vecinit7.i.i.i.i.i1268.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1267.i, i32 %or41.i1260.i, i64 7
   %196 = lshr <8 x i32> %vecinit7.i.i.i.i.i1268.i, <i32 0, i32 0, i32 0, i32 0, i32 4, i32 0, i32 0, i32 0>
   %197 = bitcast <8 x i32> %196 to <4 x i64>
-  %and.i.i.i.i.i1269.i = and <4 x i64> %197, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i.i1269.i = and <4 x i64> %197, splat (i64 144115183814443007)
   store <4 x i64> %and.i.i.i.i.i1269.i, ptr %add.ptr298.i, align 1
   %add.ptr54.i1270.i = getelementptr inbounds i8, ptr %add.ptr298.i, i64 32
   %ret.0.copyload.i78.i1271.i = load i32, ptr %add.ptr38.i1258.i, align 4
@@ -2613,7 +2613,7 @@ for.body295.i:                                    ; preds = %for.body295.i, %for
   %vecinit7.i.i.i.i99.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i98.i.i, i32 %or101.i1284.i, i64 7
   %198 = lshr <8 x i32> %vecinit7.i.i.i.i99.i.i, <i32 0, i32 1, i32 0, i32 0, i32 0, i32 5, i32 0, i32 0>
   %199 = bitcast <8 x i32> %198 to <4 x i64>
-  %and.i.i.i.i102.i.i = and <4 x i64> %199, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i102.i.i = and <4 x i64> %199, splat (i64 144115183814443007)
   store <4 x i64> %and.i.i.i.i102.i.i, ptr %add.ptr54.i1270.i, align 1
   %add.ptr115.i1285.i = getelementptr inbounds i8, ptr %add.ptr298.i, i64 64
   %ret.0.copyload.i103.i1286.i = load i32, ptr %add.ptr98.i1282.i, align 4
@@ -2645,7 +2645,7 @@ for.body295.i:                                    ; preds = %for.body295.i, %for
   %vecinit7.i.i.i.i124.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i123.i.i, i32 %or162.i.i, i64 7
   %200 = lshr <8 x i32> %vecinit7.i.i.i.i124.i.i, <i32 0, i32 0, i32 2, i32 0, i32 0, i32 0, i32 6, i32 0>
   %201 = bitcast <8 x i32> %200 to <4 x i64>
-  %and.i.i.i.i127.i.i = and <4 x i64> %201, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i127.i.i = and <4 x i64> %201, splat (i64 144115183814443007)
   store <4 x i64> %and.i.i.i.i127.i.i, ptr %add.ptr115.i1285.i, align 1
   %add.ptr176.i.i = getelementptr inbounds i8, ptr %add.ptr298.i, i64 96
   %ret.0.copyload.i128.i1299.i = load i32, ptr %add.ptr159.i.i, align 4
@@ -2677,7 +2677,7 @@ for.body295.i:                                    ; preds = %for.body295.i, %for
   %vecinit7.i.i.i.i149.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i148.i.i, i32 %ret.0.copyload.i140.i.i, i64 7
   %202 = lshr <8 x i32> %vecinit7.i.i.i.i149.i.i, <i32 0, i32 0, i32 0, i32 3, i32 0, i32 0, i32 0, i32 7>
   %203 = bitcast <8 x i32> %202 to <4 x i64>
-  %and.i.i.i.i152.i.i = and <4 x i64> %203, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i152.i.i = and <4 x i64> %203, splat (i64 144115183814443007)
   store <4 x i64> %and.i.i.i.i152.i.i, ptr %add.ptr176.i.i, align 1
   %add.ptr238.i.i = getelementptr inbounds i8, ptr %in.addr.251943.i, i64 100
   %indvars.iv.next2090.i = add nuw nsw i64 %indvars.iv2089.i, 1
@@ -2718,7 +2718,7 @@ for.body307.i:                                    ; preds = %for.body307.i, %for
   %vecinit7.i.i.i.i.i1330.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1329.i, i32 %or41.i1322.i, i64 7
   %204 = lshr <8 x i32> %vecinit7.i.i.i.i.i1330.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0, i32 0>
   %205 = bitcast <8 x i32> %204 to <4 x i64>
-  %and.i.i.i.i.i1331.i = and <4 x i64> %205, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i.i1331.i = and <4 x i64> %205, splat (i64 288230371923853311)
   store <4 x i64> %and.i.i.i.i.i1331.i, ptr %add.ptr310.i, align 1
   %add.ptr54.i1332.i = getelementptr inbounds i8, ptr %add.ptr310.i, i64 32
   %ret.0.copyload.i78.i1333.i = load i32, ptr %add.ptr38.i1320.i, align 4
@@ -2750,7 +2750,7 @@ for.body307.i:                                    ; preds = %for.body307.i, %for
   %vecinit7.i.i.i.i99.i1357.i = insertelement <8 x i32> %vecinit6.i.i.i.i98.i1356.i, i32 %ret.0.copyload.i90.i1349.i, i64 7
   %206 = lshr <8 x i32> %vecinit7.i.i.i.i99.i1357.i, <i32 0, i32 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 6>
   %207 = bitcast <8 x i32> %206 to <4 x i64>
-  %and.i.i.i.i102.i1358.i = and <4 x i64> %207, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i102.i1358.i = and <4 x i64> %207, splat (i64 288230371923853311)
   store <4 x i64> %and.i.i.i.i102.i1358.i, ptr %add.ptr54.i1332.i, align 1
   %add.ptr115.i1359.i = getelementptr inbounds i8, ptr %add.ptr310.i, i64 64
   %add.ptr117.i.i = getelementptr inbounds i8, ptr %in.addr.261940.i, i64 52
@@ -2783,7 +2783,7 @@ for.body307.i:                                    ; preds = %for.body307.i, %for
   %vecinit7.i.i.i.i124.i1383.i = insertelement <8 x i32> %vecinit6.i.i.i.i123.i1382.i, i32 %or162.i1375.i, i64 7
   %208 = lshr <8 x i32> %vecinit7.i.i.i.i124.i1383.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0, i32 0>
   %209 = bitcast <8 x i32> %208 to <4 x i64>
-  %and.i.i.i.i127.i1384.i = and <4 x i64> %209, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i127.i1384.i = and <4 x i64> %209, splat (i64 288230371923853311)
   store <4 x i64> %and.i.i.i.i127.i1384.i, ptr %add.ptr115.i1359.i, align 1
   %add.ptr176.i1385.i = getelementptr inbounds i8, ptr %add.ptr310.i, i64 96
   %ret.0.copyload.i128.i1386.i = load i32, ptr %add.ptr159.i1373.i, align 4
@@ -2815,7 +2815,7 @@ for.body307.i:                                    ; preds = %for.body307.i, %for
   %vecinit7.i.i.i.i149.i1410.i = insertelement <8 x i32> %vecinit6.i.i.i.i148.i1409.i, i32 %ret.0.copyload.i140.i1401.i, i64 7
   %210 = lshr <8 x i32> %vecinit7.i.i.i.i149.i1410.i, <i32 0, i32 0, i32 4, i32 0, i32 0, i32 0, i32 0, i32 6>
   %211 = bitcast <8 x i32> %210 to <4 x i64>
-  %and.i.i.i.i152.i1411.i = and <4 x i64> %211, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i152.i1411.i = and <4 x i64> %211, splat (i64 288230371923853311)
   store <4 x i64> %and.i.i.i.i152.i1411.i, ptr %add.ptr176.i1385.i, align 1
   %add.ptr238.i1412.i = getelementptr inbounds i8, ptr %in.addr.261940.i, i64 104
   %indvars.iv.next2084.i = add nuw nsw i64 %indvars.iv2083.i, 1
@@ -2856,7 +2856,7 @@ for.body319.i:                                    ; preds = %for.body319.i, %for
   %vecinit7.i.i.i.i.i1438.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1437.i, i32 %or41.i1430.i, i64 7
   %212 = lshr <8 x i32> %vecinit7.i.i.i.i.i1438.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2, i32 0>
   %213 = bitcast <8 x i32> %212 to <4 x i64>
-  %and.i.i.i.i.i1439.i = and <4 x i64> %213, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i.i1439.i = and <4 x i64> %213, splat (i64 576460748142673919)
   store <4 x i64> %and.i.i.i.i.i1439.i, ptr %add.ptr322.i, align 1
   %add.ptr54.i1440.i = getelementptr inbounds i8, ptr %add.ptr322.i, i64 32
   %ret.0.copyload.i80.i1441.i = load i32, ptr %add.ptr38.i1428.i, align 4
@@ -2891,7 +2891,7 @@ for.body319.i:                                    ; preds = %for.body319.i, %for
   %vecinit7.i.i.i.i102.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i101.i.i, i32 %or106.i1460.i, i64 7
   %214 = lshr <8 x i32> %vecinit7.i.i.i.i102.i.i, <i32 0, i32 0, i32 0, i32 0, i32 4, i32 0, i32 0, i32 0>
   %215 = bitcast <8 x i32> %214 to <4 x i64>
-  %and.i.i.i.i105.i.i = and <4 x i64> %215, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i105.i.i = and <4 x i64> %215, splat (i64 576460748142673919)
   store <4 x i64> %and.i.i.i.i105.i.i, ptr %add.ptr54.i1440.i, align 1
   %add.ptr120.i1461.i = getelementptr inbounds i8, ptr %add.ptr322.i, i64 64
   %ret.0.copyload.i106.i1462.i = load i32, ptr %add.ptr103.i1458.i, align 4
@@ -2926,7 +2926,7 @@ for.body319.i:                                    ; preds = %for.body319.i, %for
   %vecinit7.i.i.i.i128.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i127.i.i, i32 %or172.i1479.i, i64 7
   %216 = lshr <8 x i32> %vecinit7.i.i.i.i128.i.i, <i32 0, i32 0, i32 0, i32 1, i32 0, i32 0, i32 0, i32 0>
   %217 = bitcast <8 x i32> %216 to <4 x i64>
-  %and.i.i.i.i131.i.i = and <4 x i64> %217, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i131.i.i = and <4 x i64> %217, splat (i64 576460748142673919)
   store <4 x i64> %and.i.i.i.i131.i.i, ptr %add.ptr120.i1461.i, align 1
   %add.ptr186.i.i = getelementptr inbounds i8, ptr %add.ptr322.i, i64 96
   %ret.0.copyload.i132.i1480.i = load i32, ptr %add.ptr169.i1477.i, align 4
@@ -2958,7 +2958,7 @@ for.body319.i:                                    ; preds = %for.body319.i, %for
   %vecinit7.i.i.i.i153.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i152.i.i, i32 %ret.0.copyload.i144.i.i, i64 7
   %218 = lshr <8 x i32> %vecinit7.i.i.i.i153.i.i, <i32 0, i32 3, i32 0, i32 0, i32 0, i32 0, i32 0, i32 5>
   %219 = bitcast <8 x i32> %218 to <4 x i64>
-  %and.i.i.i.i156.i.i = and <4 x i64> %219, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i156.i.i = and <4 x i64> %219, splat (i64 576460748142673919)
   store <4 x i64> %and.i.i.i.i156.i.i, ptr %add.ptr186.i.i, align 1
   %add.ptr248.i.i = getelementptr inbounds i8, ptr %in.addr.271937.i, i64 108
   %indvars.iv.next2078.i = add nuw nsw i64 %indvars.iv2077.i, 1
@@ -2999,7 +2999,7 @@ for.body331.i:                                    ; preds = %for.body331.i, %for
   %vecinit7.i.i.i.i.i1514.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1513.i, i32 %ret.0.copyload.i76.i1505.i, i64 7
   %220 = lshr <8 x i32> %vecinit7.i.i.i.i.i1514.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 4>
   %221 = bitcast <8 x i32> %220 to <4 x i64>
-  %and.i.i.i.i.i1515.i = and <4 x i64> %221, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i.i1515.i = and <4 x i64> %221, splat (i64 1152921500580315135)
   store <4 x i64> %and.i.i.i.i.i1515.i, ptr %add.ptr334.i, align 1
   %add.ptr54.i1516.i = getelementptr inbounds i8, ptr %add.ptr334.i, i64 32
   %add.ptr56.i1517.i = getelementptr inbounds i8, ptr %in.addr.281934.i, i64 28
@@ -3032,7 +3032,7 @@ for.body331.i:                                    ; preds = %for.body331.i, %for
   %vecinit7.i.i.i.i99.i1544.i = insertelement <8 x i32> %vecinit6.i.i.i.i98.i1543.i, i32 %ret.0.copyload.i90.i1535.i, i64 7
   %222 = lshr <8 x i32> %vecinit7.i.i.i.i99.i1544.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 4>
   %223 = bitcast <8 x i32> %222 to <4 x i64>
-  %and.i.i.i.i102.i1545.i = and <4 x i64> %223, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i102.i1545.i = and <4 x i64> %223, splat (i64 1152921500580315135)
   store <4 x i64> %and.i.i.i.i102.i1545.i, ptr %add.ptr54.i1516.i, align 1
   %add.ptr115.i1546.i = getelementptr inbounds i8, ptr %add.ptr334.i, i64 64
   %add.ptr117.i1547.i = getelementptr inbounds i8, ptr %in.addr.281934.i, i64 56
@@ -3065,7 +3065,7 @@ for.body331.i:                                    ; preds = %for.body331.i, %for
   %vecinit7.i.i.i.i124.i1574.i = insertelement <8 x i32> %vecinit6.i.i.i.i123.i1573.i, i32 %ret.0.copyload.i115.i1565.i, i64 7
   %224 = lshr <8 x i32> %vecinit7.i.i.i.i124.i1574.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 4>
   %225 = bitcast <8 x i32> %224 to <4 x i64>
-  %and.i.i.i.i127.i1575.i = and <4 x i64> %225, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i127.i1575.i = and <4 x i64> %225, splat (i64 1152921500580315135)
   store <4 x i64> %and.i.i.i.i127.i1575.i, ptr %add.ptr115.i1546.i, align 1
   %add.ptr176.i1576.i = getelementptr inbounds i8, ptr %add.ptr334.i, i64 96
   %add.ptr178.i1577.i = getelementptr inbounds i8, ptr %in.addr.281934.i, i64 84
@@ -3098,7 +3098,7 @@ for.body331.i:                                    ; preds = %for.body331.i, %for
   %vecinit7.i.i.i.i149.i1600.i = insertelement <8 x i32> %vecinit6.i.i.i.i148.i1599.i, i32 %ret.0.copyload.i140.i1591.i, i64 7
   %226 = lshr <8 x i32> %vecinit7.i.i.i.i149.i1600.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 4>
   %227 = bitcast <8 x i32> %226 to <4 x i64>
-  %and.i.i.i.i152.i1601.i = and <4 x i64> %227, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i152.i1601.i = and <4 x i64> %227, splat (i64 1152921500580315135)
   store <4 x i64> %and.i.i.i.i152.i1601.i, ptr %add.ptr176.i1576.i, align 1
   %add.ptr238.i1602.i = getelementptr inbounds i8, ptr %in.addr.281934.i, i64 112
   %indvars.iv.next2072.i = add nuw nsw i64 %indvars.iv2071.i, 1
@@ -3141,7 +3141,7 @@ for.body343.i:                                    ; preds = %for.body343.i, %for
   %vecinit6.i.i.i.i.i1631.i = insertelement <8 x i32> %vecinit5.i.i.i.i.i1630.i, i32 %or39.i1621.i, i64 6
   %vecinit7.i.i.i.i.i1632.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1631.i, i32 %or46.i1624.i, i64 7
   %228 = bitcast <8 x i32> %vecinit7.i.i.i.i.i1632.i to <4 x i64>
-  %and.i.i.i.i.i1633.i = and <4 x i64> %228, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i.i1633.i = and <4 x i64> %228, splat (i64 2305843005455597567)
   store <4 x i64> %and.i.i.i.i.i1633.i, ptr %add.ptr346.i, align 1
   %add.ptr59.i1634.i = getelementptr inbounds i8, ptr %add.ptr346.i, i64 32
   %ret.0.copyload.i83.i1635.i = load i32, ptr %add.ptr43.i1622.i, align 4
@@ -3176,7 +3176,7 @@ for.body343.i:                                    ; preds = %for.body343.i, %for
   %vecinit7.i.i.i.i105.i1658.i = insertelement <8 x i32> %vecinit6.i.i.i.i104.i.i, i32 %or111.i1656.i, i64 7
   %229 = lshr <8 x i32> %vecinit7.i.i.i.i105.i1658.i, <i32 0, i32 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 0>
   %230 = bitcast <8 x i32> %229 to <4 x i64>
-  %and.i.i.i.i108.i1659.i = and <4 x i64> %230, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i108.i1659.i = and <4 x i64> %230, splat (i64 2305843005455597567)
   store <4 x i64> %and.i.i.i.i108.i1659.i, ptr %add.ptr59.i1634.i, align 1
   %add.ptr125.i1660.i = getelementptr inbounds i8, ptr %add.ptr346.i, i64 64
   %ret.0.copyload.i109.i1661.i = load i32, ptr %add.ptr108.i1654.i, align 4
@@ -3211,7 +3211,7 @@ for.body343.i:                                    ; preds = %for.body343.i, %for
   %vecinit7.i.i.i.i131.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i130.i.i, i32 %or177.i.i, i64 7
   %231 = lshr <8 x i32> %vecinit7.i.i.i.i131.i.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 1, i32 0, i32 0>
   %232 = bitcast <8 x i32> %231 to <4 x i64>
-  %and.i.i.i.i134.i.i = and <4 x i64> %232, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i134.i.i = and <4 x i64> %232, splat (i64 2305843005455597567)
   store <4 x i64> %and.i.i.i.i134.i.i, ptr %add.ptr125.i1660.i, align 1
   %add.ptr191.i1674.i = getelementptr inbounds i8, ptr %add.ptr346.i, i64 96
   %ret.0.copyload.i135.i.i = load i32, ptr %add.ptr174.i.i, align 4
@@ -3246,7 +3246,7 @@ for.body343.i:                                    ; preds = %for.body343.i, %for
   %vecinit7.i.i.i.i157.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i156.i.i, i32 %ret.0.copyload.i148.i.i, i64 7
   %233 = lshr <8 x i32> %vecinit7.i.i.i.i157.i.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 3>
   %234 = bitcast <8 x i32> %233 to <4 x i64>
-  %and.i.i.i.i160.i.i = and <4 x i64> %234, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i160.i.i = and <4 x i64> %234, splat (i64 2305843005455597567)
   store <4 x i64> %and.i.i.i.i160.i.i, ptr %add.ptr191.i1674.i, align 1
   %add.ptr258.i.i = getelementptr inbounds i8, ptr %in.addr.291931.i, i64 116
   %indvars.iv.next2066.i = add nuw nsw i64 %indvars.iv2065.i, 1
@@ -3289,7 +3289,7 @@ for.body355.i:                                    ; preds = %for.body355.i, %for
   %vecinit6.i.i.i.i.i1709.i = insertelement <8 x i32> %vecinit5.i.i.i.i.i1708.i, i32 %or39.i1699.i, i64 6
   %vecinit7.i.i.i.i.i1710.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1709.i, i32 %or46.i1702.i, i64 7
   %235 = bitcast <8 x i32> %vecinit7.i.i.i.i.i1710.i to <4 x i64>
-  %and.i.i.i.i.i1711.i = and <4 x i64> %235, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i.i1711.i = and <4 x i64> %235, splat (i64 4611686015206162431)
   store <4 x i64> %and.i.i.i.i.i1711.i, ptr %add.ptr358.i, align 1
   %add.ptr59.i1712.i = getelementptr inbounds i8, ptr %add.ptr358.i, i64 32
   %ret.0.copyload.i83.i1713.i = load i32, ptr %add.ptr43.i1700.i, align 4
@@ -3324,7 +3324,7 @@ for.body355.i:                                    ; preds = %for.body355.i, %for
   %vecinit7.i.i.i.i105.i1740.i = insertelement <8 x i32> %vecinit6.i.i.i.i104.i1739.i, i32 %ret.0.copyload.i96.i1731.i, i64 7
   %236 = lshr <8 x i32> %vecinit7.i.i.i.i105.i1740.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2>
   %237 = bitcast <8 x i32> %236 to <4 x i64>
-  %and.i.i.i.i108.i1741.i = and <4 x i64> %237, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i108.i1741.i = and <4 x i64> %237, splat (i64 4611686015206162431)
   store <4 x i64> %and.i.i.i.i108.i1741.i, ptr %add.ptr59.i1712.i, align 1
   %add.ptr125.i1742.i = getelementptr inbounds i8, ptr %add.ptr358.i, i64 64
   %add.ptr127.i1743.i = getelementptr inbounds i8, ptr %in.addr.301928.i, i64 60
@@ -3359,7 +3359,7 @@ for.body355.i:                                    ; preds = %for.body355.i, %for
   %vecinit6.i.i.i.i130.i1771.i = insertelement <8 x i32> %vecinit5.i.i.i.i129.i1770.i, i32 %or170.i1761.i, i64 6
   %vecinit7.i.i.i.i131.i1772.i = insertelement <8 x i32> %vecinit6.i.i.i.i130.i1771.i, i32 %or177.i1764.i, i64 7
   %238 = bitcast <8 x i32> %vecinit7.i.i.i.i131.i1772.i to <4 x i64>
-  %and.i.i.i.i134.i1773.i = and <4 x i64> %238, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i134.i1773.i = and <4 x i64> %238, splat (i64 4611686015206162431)
   store <4 x i64> %and.i.i.i.i134.i1773.i, ptr %add.ptr125.i1742.i, align 1
   %add.ptr191.i1774.i = getelementptr inbounds i8, ptr %add.ptr358.i, i64 96
   %ret.0.copyload.i135.i1775.i = load i32, ptr %add.ptr174.i1762.i, align 4
@@ -3394,7 +3394,7 @@ for.body355.i:                                    ; preds = %for.body355.i, %for
   %vecinit7.i.i.i.i157.i1804.i = insertelement <8 x i32> %vecinit6.i.i.i.i156.i1803.i, i32 %ret.0.copyload.i148.i1795.i, i64 7
   %239 = lshr <8 x i32> %vecinit7.i.i.i.i157.i1804.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 2>
   %240 = bitcast <8 x i32> %239 to <4 x i64>
-  %and.i.i.i.i160.i1805.i = and <4 x i64> %240, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i160.i1805.i = and <4 x i64> %240, splat (i64 4611686015206162431)
   store <4 x i64> %and.i.i.i.i160.i1805.i, ptr %add.ptr191.i1774.i, align 1
   %add.ptr258.i1806.i = getelementptr inbounds i8, ptr %in.addr.301928.i, i64 120
   %indvars.iv.next2060.i = add nuw nsw i64 %indvars.iv2059.i, 1
@@ -3437,7 +3437,7 @@ for.body367.i:                                    ; preds = %for.body367.i, %for
   %vecinit6.i.i.i.i.i1835.i = insertelement <8 x i32> %vecinit5.i.i.i.i.i1834.i, i32 %or39.i1825.i, i64 6
   %vecinit7.i.i.i.i.i1836.i = insertelement <8 x i32> %vecinit6.i.i.i.i.i1835.i, i32 %or46.i1828.i, i64 7
   %241 = bitcast <8 x i32> %vecinit7.i.i.i.i.i1836.i to <4 x i64>
-  %and.i.i.i.i.i1837.i = and <4 x i64> %241, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i.i1837.i = and <4 x i64> %241, splat (i64 9223372034707292159)
   store <4 x i64> %and.i.i.i.i.i1837.i, ptr %add.ptr370.i, align 1
   %add.ptr59.i1838.i = getelementptr inbounds i8, ptr %add.ptr370.i, i64 32
   %ret.0.copyload.i85.i1839.i = load i32, ptr %add.ptr43.i1826.i, align 4
@@ -3474,7 +3474,7 @@ for.body367.i:                                    ; preds = %for.body367.i, %for
   %vecinit6.i.i.i.i107.i.i = insertelement <8 x i32> %vecinit5.i.i.i.i106.i.i, i32 %or109.i1860.i, i64 6
   %vecinit7.i.i.i.i108.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i107.i.i, i32 %or116.i.i, i64 7
   %242 = bitcast <8 x i32> %vecinit7.i.i.i.i108.i.i to <4 x i64>
-  %and.i.i.i.i111.i.i = and <4 x i64> %242, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i111.i.i = and <4 x i64> %242, splat (i64 9223372034707292159)
   store <4 x i64> %and.i.i.i.i111.i.i, ptr %add.ptr59.i1838.i, align 1
   %add.ptr130.i1862.i = getelementptr inbounds i8, ptr %add.ptr370.i, i64 64
   %ret.0.copyload.i112.i1863.i = load i32, ptr %add.ptr113.i.i, align 4
@@ -3511,7 +3511,7 @@ for.body367.i:                                    ; preds = %for.body367.i, %for
   %vecinit6.i.i.i.i134.i.i = insertelement <8 x i32> %vecinit5.i.i.i.i133.i.i, i32 %or180.i.i, i64 6
   %vecinit7.i.i.i.i135.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i134.i.i, i32 %or187.i.i, i64 7
   %243 = bitcast <8 x i32> %vecinit7.i.i.i.i135.i.i to <4 x i64>
-  %and.i.i.i.i138.i.i = and <4 x i64> %243, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i138.i.i = and <4 x i64> %243, splat (i64 9223372034707292159)
   store <4 x i64> %and.i.i.i.i138.i.i, ptr %add.ptr130.i1862.i, align 1
   %add.ptr201.i1882.i = getelementptr inbounds i8, ptr %add.ptr370.i, i64 96
   %ret.0.copyload.i139.i.i = load i32, ptr %add.ptr184.i.i, align 4
@@ -3546,7 +3546,7 @@ for.body367.i:                                    ; preds = %for.body367.i, %for
   %vecinit7.i.i.i.i161.i.i = insertelement <8 x i32> %vecinit6.i.i.i.i160.i.i, i32 %ret.0.copyload.i152.i.i, i64 7
   %244 = lshr <8 x i32> %vecinit7.i.i.i.i161.i.i, <i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 1>
   %245 = bitcast <8 x i32> %244 to <4 x i64>
-  %and.i.i.i.i164.i.i = and <4 x i64> %245, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i164.i.i = and <4 x i64> %245, splat (i64 9223372034707292159)
   store <4 x i64> %and.i.i.i.i164.i.i, ptr %add.ptr201.i1882.i, align 1
   %add.ptr268.i.i = getelementptr inbounds i8, ptr %in.addr.311925.i, i64 124
   %indvars.iv.next2054.i = add nuw nsw i64 %indvars.iv2053.i, 1

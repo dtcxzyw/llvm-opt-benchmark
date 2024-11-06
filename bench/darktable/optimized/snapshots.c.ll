@@ -869,7 +869,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %3, ptr %4, align 8, !tbaa !6
   %5 = getelementptr inbounds i8, ptr %3, i64 1416
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %5, align 8, !tbaa !97
+  store <2 x double> splat (double 5.000000e-01), ptr %5, align 8, !tbaa !97
   %6 = getelementptr inbounds i8, ptr %3, i64 1432
   %7 = getelementptr inbounds i8, ptr %3, i64 1388
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)

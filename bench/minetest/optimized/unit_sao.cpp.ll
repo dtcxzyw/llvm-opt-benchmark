@@ -1171,7 +1171,7 @@ entry:
   %interp_timer.i2.i = getelementptr inbounds i8, ptr %agg.result, i64 68
   %vector.i.i = getelementptr inbounds i8, ptr %agg.result, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %interp_timer.i2.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %vector.i.i, align 4, !tbaa !121
+  store <2 x float> splat (float 1.000000e+00), ptr %vector.i.i, align 4, !tbaa !121
   %Z.i3.i6.i = getelementptr inbounds i8, ptr %agg.result, i64 92
   store float 1.000000e+00, ptr %Z.i3.i6.i, align 4, !tbaa !134
   %absolute.i7.i = getelementptr inbounds i8, ptr %agg.result, i64 96
@@ -7138,7 +7138,7 @@ invoke.cont10:                                    ; preds = %if.end.i.i.i.i.i.i.
   %interp_timer.i2.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 108
   %vector.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %interp_timer.i2.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %vector.i.i.i.i.i.i, align 4, !tbaa !121
+  store <2 x float> splat (float 1.000000e+00), ptr %vector.i.i.i.i.i.i, align 4, !tbaa !121
   %Z.i3.i6.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 132
   store float 1.000000e+00, ptr %Z.i3.i6.i.i.i.i.i, align 4, !tbaa !134
   %dtime_passed.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 144

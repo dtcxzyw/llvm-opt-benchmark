@@ -295,9 +295,9 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
   tail call void @_ZN7mitsuba5ShapeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEC2ERKNS_10PropertiesE(ptr noundef nonnull align 16 dereferenceable(403) %0, ptr noundef nonnull align 8 dereferenceable(8) %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEEE, i64 16), ptr %0, align 16
   %19 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %19, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %19, align 16
   %20 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %20, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %20, align 16
   %21 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %21, align 16
   %22 = getelementptr inbounds i8, ptr %0, i64 456
@@ -887,9 +887,9 @@ _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit:       ; preds = %239
   %264 = icmp eq ptr %263, %245
   %265 = or i1 %247, %264
   %266 = load <4 x i32>, ptr %16, align 16
-  %267 = and <4 x i32> %266, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
+  %267 = and <4 x i32> %266, splat (i32 2147483647)
   %268 = bitcast <4 x i32> %267 to <4 x float>
-  %269 = fcmp contract one <4 x float> %268, <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>
+  %269 = fcmp contract one <4 x float> %268, splat (float 0x7FF0000000000000)
   %270 = shufflevector <4 x i1> %269, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %271 = bitcast <8 x i1> %270 to i8
   %272 = and i8 %271, 7
@@ -1223,8 +1223,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit:              ; preds = %_ZN5drjit12DynamicA
 
 ._crit_edge593.thread:                            ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit
   %417 = load ptr, ptr %12, align 8
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %19, align 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %20, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %19, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %20, align 16
   br label %._crit_edge599
 
 .noexc.i381:                                      ; preds = %_ZN5drjit12DynamicArrayIfED2Ev.exit
@@ -1309,8 +1309,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit404.thread:    ; preds = %.noexc.i384
   br label %561
 
 ._crit_edge593:                                   ; preds = %427
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %19, align 16
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %20, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %19, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %20, align 16
   %.not604 = icmp eq i32 %460, 0
   br i1 %.not604, label %._crit_edge599, label %.lr.ph598
 
@@ -1320,8 +1320,8 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit404.thread:    ; preds = %.noexc.i384
 
 466:                                              ; preds = %.lr.ph598, %466
   %indvars.iv640 = phi i64 [ 0, %.lr.ph598 ], [ %indvars.iv.next641, %466 ]
-  %467 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph598 ], [ %511, %466 ]
-  %468 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph598 ], [ %512, %466 ]
+  %467 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph598 ], [ %511, %466 ]
+  %468 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph598 ], [ %512, %466 ]
   %469 = trunc nuw i64 %indvars.iv640 to i32
   %470 = mul i32 %469, 3
   %471 = zext i32 %470 to i64
@@ -2302,9 +2302,9 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
   %12 = getelementptr inbounds i8, ptr %0, i64 480
   %13 = load ptr, ptr %12, align 16
   %14 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %14, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %14, align 16
   %15 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %15, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %15, align 16
   %16 = getelementptr inbounds i8, ptr %0, i64 448
   %17 = load i32, ptr %16, align 16
   %.not.i = icmp eq i32 %17, 0
@@ -2316,8 +2316,8 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %18 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph.preheader.i ], [ %64, %.lr.ph.i ]
-  %19 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph.preheader.i ], [ %65, %.lr.ph.i ]
+  %18 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph.preheader.i ], [ %64, %.lr.ph.i ]
+  %19 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph.preheader.i ], [ %65, %.lr.ph.i ]
   %20 = trunc nuw i64 %indvars.iv.i to i32
   %21 = shl i32 %20, 2
   %22 = zext i32 %21 to i64
@@ -2434,9 +2434,9 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 416
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %4, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %4, align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 432
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %5, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %5, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 448
   %7 = load i32, ptr %6, align 16
   %.not = icmp eq i32 %7, 0
@@ -2448,8 +2448,8 @@ define weak_odr void @_ZN7mitsuba11LinearCurveIfN5drjit6MatrixINS_8SpectrumIfLm4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = phi <4 x float> [ <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, %.lr.ph.preheader ], [ %54, %.lr.ph ]
-  %9 = phi <4 x float> [ <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, %.lr.ph.preheader ], [ %55, %.lr.ph ]
+  %8 = phi <4 x float> [ splat (float 0x7FF0000000000000), %.lr.ph.preheader ], [ %54, %.lr.ph ]
+  %9 = phi <4 x float> [ splat (float 0xFFF0000000000000), %.lr.ph.preheader ], [ %55, %.lr.ph ]
   %10 = trunc nuw i64 %indvars.iv to i32
   %11 = shl i32 %10, 2
   %12 = zext i32 %11 to i64

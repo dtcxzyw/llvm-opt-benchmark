@@ -2109,7 +2109,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i
   %115 = phi ptr [ %70, %110 ], [ %70, %112 ], [ %70, %114 ], [ %99, %_ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i ], [ %70, %_ZSt27__uninitialized_default_n_aIPN3vcg11SimpleVoxelIfEEmS2_ET_S4_T0_RSaIT1_E.exit.i ]
   %116 = phi i32 [ %58, %110 ], [ %58, %112 ], [ %58, %114 ], [ %76, %_ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit35.i ], [ %76, %_ZSt27__uninitialized_default_n_aIPN3vcg11SimpleVoxelIfEEmS2_ET_S4_T0_RSaIT1_E.exit.i ]
   %117 = getelementptr inbounds i8, ptr %10, i64 24
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %117, align 8
+  store <2 x float> splat (float 1.000000e+00), ptr %117, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %10, i64 32
   store float 1.000000e+00, ptr %.sroa.22.0..sroa_idx.i.i, align 8
   %118 = sitofp i32 %116 to float

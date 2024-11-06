@@ -1345,15 +1345,15 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %vec.phi = phi <2 x i64> [ %18, %vector.ph ], [ %23, %vector.body ]
   %vec.phi101 = phi <2 x i64> [ zeroinitializer, %vector.ph ], [ %24, %vector.body ]
   %vec.ind = phi <2 x i64> [ <i64 0, i64 1>, %vector.ph ], [ %vec.ind.next, %vector.body ]
-  %step.add = add <2 x i64> %vec.ind, <i64 2, i64 2>
+  %step.add = add <2 x i64> %vec.ind, splat (i64 2)
   %19 = lshr <2 x i64> %broadcast.splat, %vec.ind
   %20 = lshr <2 x i64> %broadcast.splat, %step.add
-  %21 = and <2 x i64> %19, <i64 1, i64 1>
-  %22 = and <2 x i64> %20, <i64 1, i64 1>
+  %21 = and <2 x i64> %19, splat (i64 1)
+  %22 = and <2 x i64> %20, splat (i64 1)
   %23 = add <2 x i64> %21, %vec.phi
   %24 = add <2 x i64> %22, %vec.phi101
   %index.next = add nuw i64 %index, 4
-  %vec.ind.next = add <2 x i64> %vec.ind, <i64 4, i64 4>
+  %vec.ind.next = add <2 x i64> %vec.ind, splat (i64 4)
   %25 = icmp eq i64 %index.next, %n.vec
   br i1 %25, label %middle.block, label %vector.body, !llvm.loop !52
 

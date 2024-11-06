@@ -1119,7 +1119,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_119PushBackIdentityKeyINS1_12RawAnimation8
   store i16 %495, ptr %48, align 4
   store float %.0.i.i194, ptr %226, align 4
   store float 0.000000e+00, ptr %227, align 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %228, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %228, align 4
   store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx.i.i, align 4
   invoke fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEENS0_12StdAllocatorIS7_EEE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 4 dereferenceable(24) %48)
           to label %.noexc209 unwind label %.loopexit.split-lp.loopexit
@@ -1149,7 +1149,7 @@ _ZN3ozz9animation7offline12_GLOBAL__N_119PushBackIdentityKeyINS1_12RawAnimation8
   store i16 %495, ptr %47, align 4
   store float %.0.i40.i197, ptr %229, align 4
   store float %83, ptr %230, align 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %231, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %231, align 4
   store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx.i41.i198, align 4
   invoke fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEENS0_12StdAllocatorIS7_EEE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 4 dereferenceable(24) %47)
           to label %.noexc210 unwind label %.loopexit.split-lp.loopexit
@@ -1540,7 +1540,7 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimatio
   store i16 %.197860, ptr %42, align 4
   store float %.0.i236, ptr %255, align 4
   store float 0.000000e+00, ptr %256, align 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %257, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %257, align 4
   store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx.i237, align 4
   invoke fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEENS0_12StdAllocatorIS7_EEE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 4 dereferenceable(24) %42)
           to label %639 unwind label %.loopexit
@@ -1569,7 +1569,7 @@ _ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimatio
   store i16 %.197860, ptr %41, align 4
   store float %.0.i241, ptr %258, align 4
   store float %83, ptr %259, align 4
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %260, align 4
+  store <2 x float> splat (float 1.000000e+00), ptr %260, align 4
   store float 1.000000e+00, ptr %.sroa.2.0..sroa_idx.i242, align 4
   invoke fastcc void @_ZNSt6vectorIN3ozz9animation7offline12_GLOBAL__N_110SortingKeyINS2_12RawAnimation8ScaleKeyEEENS0_12StdAllocatorIS7_EEE9push_backERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 4 dereferenceable(24) %41)
           to label %649 unwind label %.loopexit
@@ -4954,26 +4954,26 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i.i.i:           ; preds = %1978, %_ZSt7advance
   %2018 = insertelement <4 x float> poison, float %2017, i64 0
   %2019 = bitcast <4 x float> %2018 to <4 x i32>
   %2020 = shufflevector <4 x i32> %2019, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2021 = and <4 x i32> %2020, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %2022 = icmp samesign ugt <4 x i32> %2021, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %2021 = and <4 x i32> %2020, splat (i32 2147483647)
+  %2022 = icmp samesign ugt <4 x i32> %2021, splat (i32 2139095040)
   %2023 = sext <4 x i1> %2022 to <4 x i32>
   %2024 = bitcast <4 x i32> %2023 to <2 x i64>
-  %2025 = icmp samesign ugt <4 x i32> %2021, <i32 2139095039, i32 2139095039, i32 2139095039, i32 2139095039>
+  %2025 = icmp samesign ugt <4 x i32> %2021, splat (i32 2139095039)
   %2026 = and <2 x i64> %2024, <i64 2199023256064, i64 poison>
   %2027 = or disjoint <2 x i64> %2026, <i64 136339441875968, i64 poison>
-  %2028 = and <4 x i32> %2020, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %2028 = and <4 x i32> %2020, splat (i32 2147479552)
   %2029 = bitcast <4 x i32> %2028 to <4 x float>
-  %2030 = fmul <4 x float> %2029, <float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000>
-  %2031 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2030, <4 x float> <float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000>)
+  %2030 = fmul <4 x float> %2029, splat (float 0x38F0000000000000)
+  %2031 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2030, <4 x float> splat (float 0x39EFFE0000000000))
   %2032 = bitcast <4 x float> %2031 to <4 x i32>
-  %2033 = add <4 x i32> %2032, <i32 4096, i32 4096, i32 4096, i32 4096>
-  %2034 = lshr <4 x i32> %2033, <i32 13, i32 13, i32 13, i32 13>
+  %2033 = add <4 x i32> %2032, splat (i32 4096)
+  %2034 = lshr <4 x i32> %2033, splat (i32 13)
   %2035 = select <4 x i1> %2025, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %2034
   %2036 = bitcast <4 x i32> %2035 to <2 x i64>
   %2037 = sext <4 x i1> %2025 to <4 x i32>
   %2038 = bitcast <4 x i32> %2037 to <2 x i64>
   %2039 = and <2 x i64> %2027, %2038
-  %2040 = lshr <4 x i32> %2020, <i32 16, i32 16, i32 16, i32 16>
+  %2040 = lshr <4 x i32> %2020, splat (i32 16)
   %2041 = bitcast <4 x i32> %2040 to <2 x i64>
   %2042 = and <2 x i64> %2041, <i64 140737488388096, i64 poison>
   %2043 = or <2 x i64> %2042, %2036
@@ -4986,26 +4986,26 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i.i.i:           ; preds = %1978, %_ZSt7advance
   %2049 = insertelement <4 x float> poison, float %2048, i64 0
   %2050 = bitcast <4 x float> %2049 to <4 x i32>
   %2051 = shufflevector <4 x i32> %2050, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2052 = and <4 x i32> %2051, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %2053 = icmp samesign ugt <4 x i32> %2052, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %2052 = and <4 x i32> %2051, splat (i32 2147483647)
+  %2053 = icmp samesign ugt <4 x i32> %2052, splat (i32 2139095040)
   %2054 = sext <4 x i1> %2053 to <4 x i32>
   %2055 = bitcast <4 x i32> %2054 to <2 x i64>
-  %2056 = icmp samesign ugt <4 x i32> %2052, <i32 2139095039, i32 2139095039, i32 2139095039, i32 2139095039>
+  %2056 = icmp samesign ugt <4 x i32> %2052, splat (i32 2139095039)
   %2057 = and <2 x i64> %2055, <i64 2199023256064, i64 poison>
   %2058 = or disjoint <2 x i64> %2057, <i64 136339441875968, i64 poison>
-  %2059 = and <4 x i32> %2051, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %2059 = and <4 x i32> %2051, splat (i32 2147479552)
   %2060 = bitcast <4 x i32> %2059 to <4 x float>
-  %2061 = fmul <4 x float> %2060, <float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000>
-  %2062 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2061, <4 x float> <float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000>)
+  %2061 = fmul <4 x float> %2060, splat (float 0x38F0000000000000)
+  %2062 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2061, <4 x float> splat (float 0x39EFFE0000000000))
   %2063 = bitcast <4 x float> %2062 to <4 x i32>
-  %2064 = add <4 x i32> %2063, <i32 4096, i32 4096, i32 4096, i32 4096>
-  %2065 = lshr <4 x i32> %2064, <i32 13, i32 13, i32 13, i32 13>
+  %2064 = add <4 x i32> %2063, splat (i32 4096)
+  %2065 = lshr <4 x i32> %2064, splat (i32 13)
   %2066 = select <4 x i1> %2056, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %2065
   %2067 = bitcast <4 x i32> %2066 to <2 x i64>
   %2068 = sext <4 x i1> %2056 to <4 x i32>
   %2069 = bitcast <4 x i32> %2068 to <2 x i64>
   %2070 = and <2 x i64> %2058, %2069
-  %2071 = lshr <4 x i32> %2051, <i32 16, i32 16, i32 16, i32 16>
+  %2071 = lshr <4 x i32> %2051, splat (i32 16)
   %2072 = bitcast <4 x i32> %2071 to <2 x i64>
   %2073 = and <2 x i64> %2072, <i64 140737488388096, i64 poison>
   %2074 = or <2 x i64> %2073, %2067
@@ -5019,26 +5019,26 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i.i.i:           ; preds = %1978, %_ZSt7advance
   %2081 = insertelement <4 x float> poison, float %2080, i64 0
   %2082 = bitcast <4 x float> %2081 to <4 x i32>
   %2083 = shufflevector <4 x i32> %2082, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2084 = and <4 x i32> %2083, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %2085 = icmp samesign ugt <4 x i32> %2084, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %2084 = and <4 x i32> %2083, splat (i32 2147483647)
+  %2085 = icmp samesign ugt <4 x i32> %2084, splat (i32 2139095040)
   %2086 = sext <4 x i1> %2085 to <4 x i32>
   %2087 = bitcast <4 x i32> %2086 to <2 x i64>
-  %2088 = icmp samesign ugt <4 x i32> %2084, <i32 2139095039, i32 2139095039, i32 2139095039, i32 2139095039>
+  %2088 = icmp samesign ugt <4 x i32> %2084, splat (i32 2139095039)
   %2089 = and <2 x i64> %2087, <i64 2199023256064, i64 poison>
   %2090 = or disjoint <2 x i64> %2089, <i64 136339441875968, i64 poison>
-  %2091 = and <4 x i32> %2083, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %2091 = and <4 x i32> %2083, splat (i32 2147479552)
   %2092 = bitcast <4 x i32> %2091 to <4 x float>
-  %2093 = fmul <4 x float> %2092, <float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000>
-  %2094 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2093, <4 x float> <float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000>)
+  %2093 = fmul <4 x float> %2092, splat (float 0x38F0000000000000)
+  %2094 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2093, <4 x float> splat (float 0x39EFFE0000000000))
   %2095 = bitcast <4 x float> %2094 to <4 x i32>
-  %2096 = add <4 x i32> %2095, <i32 4096, i32 4096, i32 4096, i32 4096>
-  %2097 = lshr <4 x i32> %2096, <i32 13, i32 13, i32 13, i32 13>
+  %2096 = add <4 x i32> %2095, splat (i32 4096)
+  %2097 = lshr <4 x i32> %2096, splat (i32 13)
   %2098 = select <4 x i1> %2088, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %2097
   %2099 = bitcast <4 x i32> %2098 to <2 x i64>
   %2100 = sext <4 x i1> %2088 to <4 x i32>
   %2101 = bitcast <4 x i32> %2100 to <2 x i64>
   %2102 = and <2 x i64> %2090, %2101
-  %2103 = lshr <4 x i32> %2083, <i32 16, i32 16, i32 16, i32 16>
+  %2103 = lshr <4 x i32> %2083, splat (i32 16)
   %2104 = bitcast <4 x i32> %2103 to <2 x i64>
   %2105 = and <2 x i64> %2104, <i64 140737488388096, i64 poison>
   %2106 = or <2 x i64> %2105, %2099
@@ -5497,26 +5497,26 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i.i.i634:        ; preds = %2328, %_ZSt7advance
   %2368 = insertelement <4 x float> poison, float %2367, i64 0
   %2369 = bitcast <4 x float> %2368 to <4 x i32>
   %2370 = shufflevector <4 x i32> %2369, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2371 = and <4 x i32> %2370, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %2372 = icmp samesign ugt <4 x i32> %2371, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %2371 = and <4 x i32> %2370, splat (i32 2147483647)
+  %2372 = icmp samesign ugt <4 x i32> %2371, splat (i32 2139095040)
   %2373 = sext <4 x i1> %2372 to <4 x i32>
   %2374 = bitcast <4 x i32> %2373 to <2 x i64>
-  %2375 = icmp samesign ugt <4 x i32> %2371, <i32 2139095039, i32 2139095039, i32 2139095039, i32 2139095039>
+  %2375 = icmp samesign ugt <4 x i32> %2371, splat (i32 2139095039)
   %2376 = and <2 x i64> %2374, <i64 2199023256064, i64 poison>
   %2377 = or disjoint <2 x i64> %2376, <i64 136339441875968, i64 poison>
-  %2378 = and <4 x i32> %2370, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %2378 = and <4 x i32> %2370, splat (i32 2147479552)
   %2379 = bitcast <4 x i32> %2378 to <4 x float>
-  %2380 = fmul <4 x float> %2379, <float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000>
-  %2381 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2380, <4 x float> <float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000>)
+  %2380 = fmul <4 x float> %2379, splat (float 0x38F0000000000000)
+  %2381 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2380, <4 x float> splat (float 0x39EFFE0000000000))
   %2382 = bitcast <4 x float> %2381 to <4 x i32>
-  %2383 = add <4 x i32> %2382, <i32 4096, i32 4096, i32 4096, i32 4096>
-  %2384 = lshr <4 x i32> %2383, <i32 13, i32 13, i32 13, i32 13>
+  %2383 = add <4 x i32> %2382, splat (i32 4096)
+  %2384 = lshr <4 x i32> %2383, splat (i32 13)
   %2385 = select <4 x i1> %2375, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %2384
   %2386 = bitcast <4 x i32> %2385 to <2 x i64>
   %2387 = sext <4 x i1> %2375 to <4 x i32>
   %2388 = bitcast <4 x i32> %2387 to <2 x i64>
   %2389 = and <2 x i64> %2377, %2388
-  %2390 = lshr <4 x i32> %2370, <i32 16, i32 16, i32 16, i32 16>
+  %2390 = lshr <4 x i32> %2370, splat (i32 16)
   %2391 = bitcast <4 x i32> %2390 to <2 x i64>
   %2392 = and <2 x i64> %2391, <i64 140737488388096, i64 poison>
   %2393 = or <2 x i64> %2392, %2386
@@ -5529,26 +5529,26 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i.i.i634:        ; preds = %2328, %_ZSt7advance
   %2399 = insertelement <4 x float> poison, float %2398, i64 0
   %2400 = bitcast <4 x float> %2399 to <4 x i32>
   %2401 = shufflevector <4 x i32> %2400, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2402 = and <4 x i32> %2401, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %2403 = icmp samesign ugt <4 x i32> %2402, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %2402 = and <4 x i32> %2401, splat (i32 2147483647)
+  %2403 = icmp samesign ugt <4 x i32> %2402, splat (i32 2139095040)
   %2404 = sext <4 x i1> %2403 to <4 x i32>
   %2405 = bitcast <4 x i32> %2404 to <2 x i64>
-  %2406 = icmp samesign ugt <4 x i32> %2402, <i32 2139095039, i32 2139095039, i32 2139095039, i32 2139095039>
+  %2406 = icmp samesign ugt <4 x i32> %2402, splat (i32 2139095039)
   %2407 = and <2 x i64> %2405, <i64 2199023256064, i64 poison>
   %2408 = or disjoint <2 x i64> %2407, <i64 136339441875968, i64 poison>
-  %2409 = and <4 x i32> %2401, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %2409 = and <4 x i32> %2401, splat (i32 2147479552)
   %2410 = bitcast <4 x i32> %2409 to <4 x float>
-  %2411 = fmul <4 x float> %2410, <float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000>
-  %2412 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2411, <4 x float> <float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000>)
+  %2411 = fmul <4 x float> %2410, splat (float 0x38F0000000000000)
+  %2412 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2411, <4 x float> splat (float 0x39EFFE0000000000))
   %2413 = bitcast <4 x float> %2412 to <4 x i32>
-  %2414 = add <4 x i32> %2413, <i32 4096, i32 4096, i32 4096, i32 4096>
-  %2415 = lshr <4 x i32> %2414, <i32 13, i32 13, i32 13, i32 13>
+  %2414 = add <4 x i32> %2413, splat (i32 4096)
+  %2415 = lshr <4 x i32> %2414, splat (i32 13)
   %2416 = select <4 x i1> %2406, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %2415
   %2417 = bitcast <4 x i32> %2416 to <2 x i64>
   %2418 = sext <4 x i1> %2406 to <4 x i32>
   %2419 = bitcast <4 x i32> %2418 to <2 x i64>
   %2420 = and <2 x i64> %2408, %2419
-  %2421 = lshr <4 x i32> %2401, <i32 16, i32 16, i32 16, i32 16>
+  %2421 = lshr <4 x i32> %2401, splat (i32 16)
   %2422 = bitcast <4 x i32> %2421 to <2 x i64>
   %2423 = and <2 x i64> %2422, <i64 140737488388096, i64 poison>
   %2424 = or <2 x i64> %2423, %2417
@@ -5562,26 +5562,26 @@ _ZSt7advanceIPKflEvRT_T0_.exit.i.i.i.i634:        ; preds = %2328, %_ZSt7advance
   %2431 = insertelement <4 x float> poison, float %2430, i64 0
   %2432 = bitcast <4 x float> %2431 to <4 x i32>
   %2433 = shufflevector <4 x i32> %2432, <4 x i32> poison, <4 x i32> zeroinitializer
-  %2434 = and <4 x i32> %2433, <i32 2147483647, i32 2147483647, i32 2147483647, i32 2147483647>
-  %2435 = icmp samesign ugt <4 x i32> %2434, <i32 2139095040, i32 2139095040, i32 2139095040, i32 2139095040>
+  %2434 = and <4 x i32> %2433, splat (i32 2147483647)
+  %2435 = icmp samesign ugt <4 x i32> %2434, splat (i32 2139095040)
   %2436 = sext <4 x i1> %2435 to <4 x i32>
   %2437 = bitcast <4 x i32> %2436 to <2 x i64>
-  %2438 = icmp samesign ugt <4 x i32> %2434, <i32 2139095039, i32 2139095039, i32 2139095039, i32 2139095039>
+  %2438 = icmp samesign ugt <4 x i32> %2434, splat (i32 2139095039)
   %2439 = and <2 x i64> %2437, <i64 2199023256064, i64 poison>
   %2440 = or disjoint <2 x i64> %2439, <i64 136339441875968, i64 poison>
-  %2441 = and <4 x i32> %2433, <i32 2147479552, i32 2147479552, i32 2147479552, i32 2147479552>
+  %2441 = and <4 x i32> %2433, splat (i32 2147479552)
   %2442 = bitcast <4 x i32> %2441 to <4 x float>
-  %2443 = fmul <4 x float> %2442, <float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000, float 0x38F0000000000000>
-  %2444 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2443, <4 x float> <float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000, float 0x39EFFE0000000000>)
+  %2443 = fmul <4 x float> %2442, splat (float 0x38F0000000000000)
+  %2444 = call noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %2443, <4 x float> splat (float 0x39EFFE0000000000))
   %2445 = bitcast <4 x float> %2444 to <4 x i32>
-  %2446 = add <4 x i32> %2445, <i32 4096, i32 4096, i32 4096, i32 4096>
-  %2447 = lshr <4 x i32> %2446, <i32 13, i32 13, i32 13, i32 13>
+  %2446 = add <4 x i32> %2445, splat (i32 4096)
+  %2447 = lshr <4 x i32> %2446, splat (i32 13)
   %2448 = select <4 x i1> %2438, <4 x i32> <i32 0, i32 0, i32 poison, i32 poison>, <4 x i32> %2447
   %2449 = bitcast <4 x i32> %2448 to <2 x i64>
   %2450 = sext <4 x i1> %2438 to <4 x i32>
   %2451 = bitcast <4 x i32> %2450 to <2 x i64>
   %2452 = and <2 x i64> %2440, %2451
-  %2453 = lshr <4 x i32> %2433, <i32 16, i32 16, i32 16, i32 16>
+  %2453 = lshr <4 x i32> %2433, splat (i32 16)
   %2454 = bitcast <4 x i32> %2453 to <2 x i64>
   %2455 = and <2 x i64> %2454, <i64 140737488388096, i64 poison>
   %2456 = or <2 x i64> %2455, %2449

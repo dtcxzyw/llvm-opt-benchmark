@@ -7081,11 +7081,11 @@ if.end17:                                         ; preds = %if.then15, %if.end
 
 if.then36:                                        ; preds = %if.end17
   %12 = sitofp <2 x i32> %9 to <2 x float>
-  %13 = fdiv nsz <2 x float> %12, <float 1.000000e+02, float 1.000000e+02>
+  %13 = fdiv nsz <2 x float> %12, splat (float 1.000000e+02)
   %conv31 = sitofp i32 %10 to float
   %div32 = fdiv nsz float %conv31, 1.000000e+02
   %14 = sitofp <2 x i32> %7 to <2 x float>
-  %15 = fdiv nsz <2 x float> %14, <float 1.000000e+02, float 1.000000e+02>
+  %15 = fdiv nsz <2 x float> %14, splat (float 1.000000e+02)
   %conv22 = sitofp i32 %8 to float
   %div23 = fdiv nsz float %conv22, 1.000000e+02
   call void @_ZN9PlayerSAO15setBasePositionEN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(1089) %playersao, <2 x float> %15, float %div23)
@@ -13915,7 +13915,7 @@ invoke.cont269:                                   ; preds = %if.then260
   %166 = insertelement <2 x i48> %165, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %167 = trunc <2 x i48> %166 to <2 x i16>
   %168 = sitofp <2 x i16> %167 to <2 x float>
-  %169 = fmul nsz <2 x float> %168, <float 1.000000e+01, float 1.000000e+01>
+  %169 = fmul nsz <2 x float> %168, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
   %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
   br label %if.end321

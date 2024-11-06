@@ -984,7 +984,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %vecinit3.i74 = shufflevector <4 x i32> %vecinit.i71, <4 x i32> poison, <4 x i32> zeroinitializer
   %2 = bitcast <4 x i32> %vecinit3.i74 to <2 x i64>
   %m_optLut = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = and <2 x i64> %2, <i64 4294967295, i64 4294967295>
+  %3 = and <2 x i64> %2, splat (i64 4294967295)
   %4 = load <4 x float>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
   br label %for.body
 
@@ -1022,12 +1022,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %shuffle.i150 = shufflevector <4 x i32> %shuffle.i, <4 x i32> poison, <4 x i32> <i32 2, i32 2, i32 3, i32 3>
   %shuffle.i156 = shufflevector <2 x i64> %13, <2 x i64> poison, <2 x i32> zeroinitializer
   %16 = load ptr, ptr %m_optLut, align 8
-  %17 = and <2 x i64> %14, <i64 4294967295, i64 4294967295>
+  %17 = and <2 x i64> %14, splat (i64 4294967295)
   %18 = mul nuw <2 x i64> %17, %3
   %cast.i.i = bitcast <4 x i32> %permil to <16 x i8>
   %psrldq.i.i = shufflevector <16 x i8> %cast.i.i, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
   %cast1.i.i = bitcast <16 x i8> %psrldq.i.i to <2 x i64>
-  %19 = and <2 x i64> %cast1.i.i, <i64 4294967295, i64 4294967295>
+  %19 = and <2 x i64> %cast1.i.i, splat (i64 4294967295)
   %20 = mul nuw <2 x i64> %19, %3
   %21 = bitcast <2 x i64> %18 to <4 x i32>
   %add.i36.i.i = add <4 x i32> %shuffle.i150, %21
@@ -1036,9 +1036,9 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %24 = bitcast <2 x i64> %20 to <4 x i32>
   %add.i33.i.i = add <4 x i32> %23, %24
   %25 = bitcast <4 x i32> %add.i33.i.i to <2 x i64>
-  %26 = and <2 x i64> %22, <i64 4294967295, i64 4294967295>
+  %26 = and <2 x i64> %22, splat (i64 4294967295)
   %27 = mul nuw <2 x i64> %26, %3
-  %28 = and <2 x i64> %25, <i64 4294967295, i64 4294967295>
+  %28 = and <2 x i64> %25, splat (i64 4294967295)
   %29 = mul nuw <2 x i64> %28, %3
   %30 = bitcast <2 x i64> %shuffle.i156 to <4 x i32>
   %31 = bitcast <2 x i64> %27 to <4 x i32>
@@ -1048,7 +1048,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %34 = bitcast <2 x i64> %29 to <4 x i32>
   %add.i.i.i = add <4 x i32> %33, %34
   %shuffle.i.i.i = shufflevector <4 x i32> %add.i30.i.i, <4 x i32> %add.i.i.i, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %35 = shl <4 x i32> %shuffle.i.i.i, <i32 2, i32 2, i32 2, i32 2>
+  %35 = shl <4 x i32> %shuffle.i.i.i, splat (i32 2)
   %offsets.sroa.0.0.vec.extract.i = extractelement <4 x i32> %35, i64 0
   %idx.ext.i = sext i32 %offsets.sroa.0.0.vec.extract.i to i64
   %add.ptr.i = getelementptr inbounds float, ptr %16, i64 %idx.ext.i
@@ -1065,12 +1065,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idx.ext14.i = sext i32 %offsets.sroa.0.12.vec.extract.i to i64
   %add.ptr15.i = getelementptr inbounds float, ptr %16, i64 %idx.ext14.i
   %39 = load <4 x float>, ptr %add.ptr15.i, align 16
-  %40 = and <2 x i64> %15, <i64 4294967295, i64 4294967295>
+  %40 = and <2 x i64> %15, splat (i64 4294967295)
   %41 = mul nuw <2 x i64> %40, %3
   %cast.i.i50 = bitcast <4 x i32> %permil22 to <16 x i8>
   %psrldq.i.i51 = shufflevector <16 x i8> %cast.i.i50, <16 x i8> <i8 0, i8 0, i8 0, i8 0, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, <16 x i32> <i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15, i32 16, i32 17, i32 18, i32 19>
   %cast1.i.i52 = bitcast <16 x i8> %psrldq.i.i51 to <2 x i64>
-  %42 = and <2 x i64> %cast1.i.i52, <i64 4294967295, i64 4294967295>
+  %42 = and <2 x i64> %cast1.i.i52, splat (i64 4294967295)
   %43 = mul nuw <2 x i64> %42, %3
   %44 = bitcast <2 x i64> %41 to <4 x i32>
   %add.i36.i.i53 = add <4 x i32> %shuffle.i150, %44
@@ -1078,16 +1078,16 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %46 = bitcast <2 x i64> %43 to <4 x i32>
   %add.i33.i.i56 = add <4 x i32> %23, %46
   %47 = bitcast <4 x i32> %add.i33.i.i56 to <2 x i64>
-  %48 = and <2 x i64> %45, <i64 4294967295, i64 4294967295>
+  %48 = and <2 x i64> %45, splat (i64 4294967295)
   %49 = mul nuw <2 x i64> %48, %3
-  %50 = and <2 x i64> %47, <i64 4294967295, i64 4294967295>
+  %50 = and <2 x i64> %47, splat (i64 4294967295)
   %51 = mul nuw <2 x i64> %50, %3
   %52 = bitcast <2 x i64> %49 to <4 x i32>
   %add.i30.i.i57 = add <4 x i32> %52, %30
   %53 = bitcast <2 x i64> %51 to <4 x i32>
   %add.i.i.i60 = add <4 x i32> %33, %53
   %shuffle.i.i.i63 = shufflevector <4 x i32> %add.i30.i.i57, <4 x i32> %add.i.i.i60, <4 x i32> <i32 0, i32 4, i32 2, i32 6>
-  %54 = shl <4 x i32> %shuffle.i.i.i63, <i32 2, i32 2, i32 2, i32 2>
+  %54 = shl <4 x i32> %shuffle.i.i.i63, splat (i32 2)
   %offsets.sroa.0.0.vec.extract.i64 = extractelement <4 x i32> %54, i64 0
   %idx.ext.i65 = sext i32 %offsets.sroa.0.0.vec.extract.i64 to i64
   %add.ptr.i66 = getelementptr inbounds float, ptr %16, i64 %idx.ext.i65
@@ -5110,7 +5110,7 @@ define internal void @_GLOBAL__sub_I_Lut3DOpCPU.cpp() #23 section ".text.startup
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #29
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr @_ZN19OpenColorIO_v2_4devL4EONEE, align 16
   ret void
 }
 

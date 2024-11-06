@@ -2470,7 +2470,7 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIfEENS1_5ColorIT_Lm3E
   br i1 %exitcond.not, label %80, label %12, !llvm.loop !11
 
 80:                                               ; preds = %77
-  %81 = fmul contract <4 x float> %78, <float 0x3FDE147AE0000000, float 0x3FDE147AE0000000, float 0x3FDE147AE0000000, float 0x3FDE147AE0000000>
+  %81 = fmul contract <4 x float> %78, splat (float 0x3FDE147AE0000000)
   store <4 x float> %81, ptr %10, align 16
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6)
@@ -2543,7 +2543,7 @@ _ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typ
   br i1 %2, label %114, label %.critedge192
 
 114:                                              ; preds = %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
-  %115 = fcmp contract ogt <4 x float> %111, <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>
+  %115 = fcmp contract ogt <4 x float> %111, splat (float 1.000000e+00)
   %116 = or <4 x i1> %113, %115
   %117 = shufflevector <4 x i1> %116, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %118 = bitcast <8 x i1> %117 to i8
@@ -2587,7 +2587,7 @@ common.resume:                                    ; preds = %148, %130
 
 132:                                              ; preds = %120, %124, %129
   %133 = phi <4 x float> [ %111, %120 ], [ %111, %124 ], [ %.pre213, %129 ]
-  %134 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, <4 x float> %133)
+  %134 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> splat (float 1.000000e+00), <4 x float> %133)
   br label %.critedge2.sink.split
 
 .critedge192:                                     ; preds = %_ZN7mitsuba11xyz_to_srgbIfEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
@@ -3011,7 +3011,7 @@ _ZN5drjit13binary_searchIjZN7mitsuba21spectrum_list_to_srgbIdEENS1_5ColorIT_Lm3E
   br i1 %exitcond.not, label %80, label %12, !llvm.loop !16
 
 80:                                               ; preds = %77
-  %81 = fmul contract <4 x double> %78, <double 4.700000e-01, double 4.700000e-01, double 4.700000e-01, double 4.700000e-01>
+  %81 = fmul contract <4 x double> %78, splat (double 4.700000e-01)
   store <4 x double> %81, ptr %10, align 32
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %6)
@@ -3084,7 +3084,7 @@ _ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typ
   br i1 %2, label %114, label %.critedge192
 
 114:                                              ; preds = %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit
-  %115 = fcmp contract ogt <4 x double> %111, <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>
+  %115 = fcmp contract ogt <4 x double> %111, splat (double 1.000000e+00)
   %116 = or <4 x i1> %113, %115
   %117 = shufflevector <4 x i1> %116, <4 x i1> zeroinitializer, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
   %118 = bitcast <8 x i1> %117 to i8
@@ -3128,7 +3128,7 @@ common.resume:                                    ; preds = %148, %130
 
 132:                                              ; preds = %120, %124, %129
   %133 = phi <4 x double> [ %111, %120 ], [ %111, %124 ], [ %.pre213, %129 ]
-  %134 = call contract noundef <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> <double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00>, <4 x double> %133)
+  %134 = call contract noundef <4 x double> @llvm.x86.avx.min.pd.256(<4 x double> splat (double 1.000000e+00), <4 x double> %133)
   br label %.critedge2.sink.split
 
 .critedge192:                                     ; preds = %_ZN7mitsuba11xyz_to_srgbIdEENS_5ColorIT_Lm3EEERKS3_N5drjit6detail4maskIS2_iE4typeE.exit

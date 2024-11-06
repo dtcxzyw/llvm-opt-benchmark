@@ -225,7 +225,7 @@ entry:
   %SourceRect = getelementptr inbounds i8, ptr %this, i64 328
   %LowerRightCorner.i = getelementptr inbounds i8, ptr %this, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %SourceRect, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %LowerRightCorner.i, align 8, !tbaa !40
+  store <2 x float> splat (float 1.000000e+00), ptr %LowerRightCorner.i, align 8, !tbaa !40
   %DrawBackground = getelementptr inbounds i8, ptr %this, i64 360
   store i8 1, ptr %DrawBackground, align 8, !tbaa !41
   ret void
@@ -263,7 +263,7 @@ entry:
   %SourceRect = getelementptr inbounds i8, ptr %this, i64 328
   %LowerRightCorner.i = getelementptr inbounds i8, ptr %this, i64 352
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %SourceRect, i8 0, i64 24, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %LowerRightCorner.i, align 8, !tbaa !40
+  store <2 x float> splat (float 1.000000e+00), ptr %LowerRightCorner.i, align 8, !tbaa !40
   %DrawBackground = getelementptr inbounds i8, ptr %this, i64 360
   store i8 1, ptr %DrawBackground, align 8, !tbaa !41
   ret void
@@ -624,7 +624,7 @@ if.then17:                                        ; preds = %if.end15
   %bc = bitcast <4 x float> %19 to <2 x i64>
   %20 = extractelement <2 x i64> %bc, i64 1
   %21 = bitcast i64 %20 to <2 x float>
-  %22 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %21
+  %22 = fsub <2 x float> splat (float 1.000000e+00), %21
   %23 = load <4 x i32>, ptr %clippingRect, align 16, !tbaa !45
   %24 = shufflevector <4 x i32> %23, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %25 = shufflevector <4 x i32> %23, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
@@ -634,7 +634,7 @@ if.then17:                                        ; preds = %if.end15
   %29 = shufflevector <2 x float> %22, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %30 = shufflevector <4 x float> %19, <4 x float> %29, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %31 = fmul <4 x float> %30, %28
-  %32 = fadd <4 x float> %31, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %32 = fadd <4 x float> %31, splat (float 5.000000e-01)
   %33 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %32)
   %34 = fptosi <4 x float> %33 to <4 x i32>
   %35 = add nsw <4 x i32> %23, %34
@@ -810,7 +810,7 @@ if.then43:                                        ; preds = %if.else41
   %bc13 = bitcast <4 x float> %63 to <2 x i64>
   %64 = extractelement <2 x i64> %bc13, i64 1
   %65 = bitcast i64 %64 to <2 x float>
-  %66 = fsub <2 x float> <float 1.000000e+00, float 1.000000e+00>, %65
+  %66 = fsub <2 x float> splat (float 1.000000e+00), %65
   %67 = load <4 x i32>, ptr %clippingRect44, align 16, !tbaa !45
   %68 = shufflevector <4 x i32> %67, <4 x i32> poison, <2 x i32> <i32 2, i32 3>
   %69 = shufflevector <4 x i32> %67, <4 x i32> poison, <2 x i32> <i32 0, i32 1>
@@ -820,7 +820,7 @@ if.then43:                                        ; preds = %if.else41
   %73 = shufflevector <2 x float> %66, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %74 = shufflevector <4 x float> %63, <4 x float> %73, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %75 = fmul <4 x float> %74, %72
-  %76 = fadd <4 x float> %75, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %76 = fadd <4 x float> %75, splat (float 5.000000e-01)
   %77 = tail call <4 x float> @llvm.floor.v4f32(<4 x float> %76)
   %78 = fptosi <4 x float> %77 to <4 x i32>
   %79 = add nsw <4 x i32> %67, %78
@@ -972,8 +972,8 @@ entry:
   %0 = load <2 x float>, ptr %DrawBounds, align 8
   %1 = fcmp olt <2 x float> %0, zeroinitializer
   %2 = select <2 x i1> %1, <2 x float> zeroinitializer, <2 x float> %0
-  %3 = fcmp olt <2 x float> %2, <float 1.000000e+00, float 1.000000e+00>
-  %4 = select <2 x i1> %3, <2 x float> %2, <2 x float> <float 1.000000e+00, float 1.000000e+00>
+  %3 = fcmp olt <2 x float> %2, splat (float 1.000000e+00)
+  %4 = select <2 x i1> %3, <2 x float> %2, <2 x float> splat (float 1.000000e+00)
   store <2 x float> %4, ptr %DrawBounds, align 8, !tbaa !40
   %LowerRightCorner = getelementptr inbounds i8, ptr %this, i64 352
   %5 = load float, ptr %LowerRightCorner, align 8

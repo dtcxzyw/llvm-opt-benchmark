@@ -2838,7 +2838,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %291
   br i1 %.not.i4.not.i.i.i, label %552, label %555
 
 552:                                              ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i"
-  %553 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %553 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i, splat (i8 -1)
   %554 = bitcast <16 x i1> %553 to i16
   %.not.i.i.i.i644 = icmp eq i16 %554, 0
   br i1 %.not.i.i.i.i644, label %564, label %select.unfold.invoke
@@ -5695,7 +5695,7 @@ select.unfold.cont:                               ; preds = %select.unfold.invok
   br i1 %.not.i4.not.i.i.i764, label %1318, label %1321
 
 1318:                                             ; preds = %"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30a062793616a2b2E.exit.i.i.i762"
-  %1319 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i761, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %1319 = icmp eq <16 x i8> %.0.copyload.i25.i.i.i761, splat (i8 -1)
   %1320 = bitcast <16 x i1> %1319 to i16
   %.not.i.i.i.i771 = icmp eq i16 %1320, 0
   br i1 %.not.i.i.i.i771, label %1330, label %select.unfold.invoke

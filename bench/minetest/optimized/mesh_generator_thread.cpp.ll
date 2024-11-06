@@ -6437,23 +6437,23 @@ vector.body:                                      ; preds = %vector.body, %__cxx
   %index = phi i64 [ 0, %__cxx_global_var_init.1.exit ], [ %index.next.3, %vector.body ]
   %37 = getelementptr inbounds [4096 x %struct.MapNode], ptr @_ZL17block_placeholder, i64 0, i64 %index
   %38 = getelementptr inbounds i8, ptr %37, i64 16
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %37, align 4
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %38, align 4
+  store <4 x i32> splat (i32 127), ptr %37, align 4
+  store <4 x i32> splat (i32 127), ptr %38, align 4
   %index.next = or disjoint i64 %index, 8
   %39 = getelementptr inbounds [4096 x %struct.MapNode], ptr @_ZL17block_placeholder, i64 0, i64 %index.next
   %40 = getelementptr inbounds i8, ptr %39, i64 16
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %39, align 4
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %40, align 4
+  store <4 x i32> splat (i32 127), ptr %39, align 4
+  store <4 x i32> splat (i32 127), ptr %40, align 4
   %index.next.1 = or disjoint i64 %index, 16
   %41 = getelementptr inbounds [4096 x %struct.MapNode], ptr @_ZL17block_placeholder, i64 0, i64 %index.next.1
   %42 = getelementptr inbounds i8, ptr %41, i64 16
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %41, align 4
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %42, align 4
+  store <4 x i32> splat (i32 127), ptr %41, align 4
+  store <4 x i32> splat (i32 127), ptr %42, align 4
   %index.next.2 = or disjoint i64 %index, 24
   %43 = getelementptr inbounds [4096 x %struct.MapNode], ptr @_ZL17block_placeholder, i64 0, i64 %index.next.2
   %44 = getelementptr inbounds i8, ptr %43, i64 16
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %43, align 4
-  store <4 x i32> <i32 127, i32 127, i32 127, i32 127>, ptr %44, align 4
+  store <4 x i32> splat (i32 127), ptr %43, align 4
+  store <4 x i32> splat (i32 127), ptr %44, align 4
   %index.next.3 = add nuw nsw i64 %index, 32
   %45 = icmp eq i64 %index.next.3, 4096
   br i1 %45, label %__cxx_global_var_init.14.exit, label %vector.body, !llvm.loop !242

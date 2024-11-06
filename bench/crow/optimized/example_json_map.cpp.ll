@@ -24245,8 +24245,8 @@ define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112ba
   %31 = getelementptr i8, ptr %30, i64 16
   %32 = load <16 x i8>, ptr %30, align 1, !tbaa !14
   %33 = load <16 x i8>, ptr %31, align 1, !tbaa !14
-  %34 = icmp eq <16 x i8> %32, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
-  %35 = icmp eq <16 x i8> %33, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %34 = icmp eq <16 x i8> %32, splat (i8 92)
+  %35 = icmp eq <16 x i8> %33, splat (i8 92)
   %36 = extractelement <16 x i1> %34, i64 0
   br i1 %36, label %37, label %38
 
@@ -24588,7 +24588,7 @@ define internal fastcc void @_ZN4crow7utilityL14normalize_pathERKNSt7__cxx1112ba
   %206 = phi i64 [ %203, %202 ], [ %248, %247 ]
   %207 = getelementptr i8, ptr %18, i64 %206
   %208 = load <8 x i8>, ptr %207, align 1, !tbaa !14
-  %209 = icmp eq <8 x i8> %208, <i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92, i8 92>
+  %209 = icmp eq <8 x i8> %208, splat (i8 92)
   %210 = extractelement <8 x i1> %209, i64 0
   br i1 %210, label %211, label %212
 

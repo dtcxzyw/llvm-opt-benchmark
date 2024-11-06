@@ -7180,7 +7180,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 51:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit
   %52 = load <2 x i64>, ptr %46, align 1
-  %53 = and <2 x i64> %52, <i64 9223372036854775807, i64 9223372036854775807>
+  %53 = and <2 x i64> %52, splat (i64 9223372036854775807)
   %54 = bitcast <2 x i64> %53 to <2 x double>
   %55 = icmp sgt i64 %44, 3
   br i1 %55, label %56, label %80
@@ -7188,7 +7188,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 56:                                               ; preds = %51
   %57 = getelementptr inbounds i8, ptr %46, i64 16
   %58 = load <2 x i64>, ptr %57, align 1
-  %59 = and <2 x i64> %58, <i64 9223372036854775807, i64 9223372036854775807>
+  %59 = and <2 x i64> %58, splat (i64 9223372036854775807)
   %60 = bitcast <2 x i64> %59 to <2 x double>
   %invariant.gep.i.i.i.i.i = getelementptr inbounds i8, ptr %46, i64 48
   %61 = icmp ugt i64 %44, 7
@@ -7201,12 +7201,12 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
   %.17375.i.i.i.i.i = phi <2 x double> [ %66, %.lr.ph.i.i.i.i.i21 ], [ %54, %56 ]
   %62 = getelementptr inbounds double, ptr %46, i64 %.05478.i.i.i.i.i
   %63 = load <2 x i64>, ptr %62, align 1
-  %64 = and <2 x i64> %63, <i64 9223372036854775807, i64 9223372036854775807>
+  %64 = and <2 x i64> %63, splat (i64 9223372036854775807)
   %65 = bitcast <2 x i64> %64 to <2 x double>
   %66 = fadd <2 x double> %.17375.i.i.i.i.i, %65
   %gep.i.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i.i, i64 %.054.in77.i.i.i.i.i
   %67 = load <2 x i64>, ptr %gep.i.i.i.i.i, align 1
-  %68 = and <2 x i64> %67, <i64 9223372036854775807, i64 9223372036854775807>
+  %68 = and <2 x i64> %67, splat (i64 9223372036854775807)
   %69 = bitcast <2 x i64> %68 to <2 x double>
   %70 = fadd <2 x double> %storemerge76.i.i.i.i.i, %69
   %.054.i.i.i.i.i = add nuw nsw i64 %.05478.i.i.i.i.i, 4
@@ -7223,7 +7223,7 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 74:                                               ; preds = %._crit_edge.i.i.i.i.i
   %75 = getelementptr inbounds double, ptr %46, i64 %48
   %76 = load <2 x i64>, ptr %75, align 1
-  %77 = and <2 x i64> %76, <i64 9223372036854775807, i64 9223372036854775807>
+  %77 = and <2 x i64> %76, splat (i64 9223372036854775807)
   %78 = bitcast <2 x i64> %77 to <2 x double>
   %79 = fadd <2 x double> %72, %78
   br label %80
@@ -13159,7 +13159,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 
 29:                                               ; preds = %3
   %30 = load <2 x i64>, ptr %21, align 16
-  %31 = and <2 x i64> %30, <i64 9223372036854775807, i64 9223372036854775807>
+  %31 = and <2 x i64> %30, splat (i64 9223372036854775807)
   %32 = bitcast <2 x i64> %31 to <2 x double>
   %33 = icmp sgt i64 %24, 3
   br i1 %33, label %34, label %66
@@ -13167,7 +13167,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %21, i64 16
   %36 = load <2 x i64>, ptr %35, align 16
-  %37 = and <2 x i64> %36, <i64 9223372036854775807, i64 9223372036854775807>
+  %37 = and <2 x i64> %36, splat (i64 9223372036854775807)
   %38 = bitcast <2 x i64> %37 to <2 x double>
   %invariant.gep.i.i.i = getelementptr inbounds i8, ptr %21, i64 48
   %39 = icmp ugt i64 %24, 7
@@ -13180,14 +13180,14 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
   %.17375.i.i.i = phi <2 x double> [ %46, %.lr.ph.i.i.i ], [ %32, %34 ]
   %40 = getelementptr inbounds double, ptr %21, i64 %.05478.i.i.i
   %41 = load <2 x i64>, ptr %40, align 16
-  %42 = and <2 x i64> %41, <i64 9223372036854775807, i64 9223372036854775807>
+  %42 = and <2 x i64> %41, splat (i64 9223372036854775807)
   %43 = bitcast <2 x i64> %42 to <2 x double>
   %44 = fcmp uno <2 x double> %.17375.i.i.i, zeroinitializer
   %45 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %43, <2 x double> %.17375.i.i.i) #34, !srcloc !293
   %46 = select <2 x i1> %44, <2 x double> %.17375.i.i.i, <2 x double> %45
   %gep.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i, i64 %.054.in77.i.i.i
   %47 = load <2 x i64>, ptr %gep.i.i.i, align 16
-  %48 = and <2 x i64> %47, <i64 9223372036854775807, i64 9223372036854775807>
+  %48 = and <2 x i64> %47, splat (i64 9223372036854775807)
   %49 = bitcast <2 x i64> %48 to <2 x double>
   %50 = fcmp uno <2 x double> %storemerge76.i.i.i, zeroinitializer
   %51 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %49, <2 x double> %storemerge76.i.i.i) #34, !srcloc !293
@@ -13208,7 +13208,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(544) ptr @_ZN
 58:                                               ; preds = %._crit_edge.i.i.i
   %59 = getelementptr inbounds double, ptr %21, i64 %26
   %60 = load <2 x i64>, ptr %59, align 16
-  %61 = and <2 x i64> %60, <i64 9223372036854775807, i64 9223372036854775807>
+  %61 = and <2 x i64> %60, splat (i64 9223372036854775807)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = fcmp uno <2 x double> %56, zeroinitializer
   %64 = tail call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %62, <2 x double> %56) #34, !srcloc !293
@@ -26312,7 +26312,7 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds double, ptr %54, i64 %.03143
   %56 = load <2 x double>, ptr %55, align 1
-  %57 = fdiv <2 x double> <double 1.000000e+00, double 1.000000e+00>, %56
+  %57 = fdiv <2 x double> splat (double 1.000000e+00), %56
   %58 = fmul <2 x double> %52, %57
   store <2 x double> %58, ptr %43, align 16
   %59 = add nsw i64 %.03143, 2

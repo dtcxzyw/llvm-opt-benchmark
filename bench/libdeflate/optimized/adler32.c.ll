@@ -142,7 +142,7 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
 
 adler32_avx2_chunk.exit:                          ; preds = %do.body.i
   %conv23 = add nuw nsw i32 %5, %s2.281
-  %22 = shl <8 x i32> %add.i138, <i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6, i32 6>
+  %22 = shl <8 x i32> %add.i138, splat (i32 6)
   %23 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %add.i178, <16 x i16> <i16 64, i16 63, i16 62, i16 61, i16 60, i16 59, i16 58, i16 57, i16 48, i16 47, i16 46, i16 45, i16 44, i16 43, i16 42, i16 41>)
   %add.i117 = add <8 x i32> %23, %22
   %24 = tail call <8 x i32> @llvm.x86.avx2.pmadd.wd(<16 x i16> %add.i171, <16 x i16> <i16 56, i16 55, i16 54, i16 53, i16 52, i16 51, i16 50, i16 49, i16 40, i16 39, i16 38, i16 37, i16 36, i16 35, i16 34, i16 33>)
@@ -303,7 +303,7 @@ do.body.i:                                        ; preds = %do.body.i, %while.b
 
 adler32_sse2_chunk.exit:                          ; preds = %do.body.i
   %conv23 = add nuw nsw i32 %5, %s2.279
-  %22 = shl <4 x i32> %add.i62.i, <i32 5, i32 5, i32 5, i32 5>
+  %22 = shl <4 x i32> %add.i62.i, splat (i32 5)
   %23 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %add.i83, <8 x i16> <i16 32, i16 31, i16 30, i16 29, i16 28, i16 27, i16 26, i16 25>)
   %add.i53.i = add <4 x i32> %23, %22
   %24 = tail call <4 x i32> @llvm.x86.sse2.pmadd.wd(<8 x i16> %add.i80, <8 x i16> <i16 24, i16 23, i16 22, i16 21, i16 20, i16 19, i16 18, i16 17>)

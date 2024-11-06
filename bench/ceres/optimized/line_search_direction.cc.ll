@@ -433,7 +433,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %17 = getelementptr inbounds double, ptr %13, i64 %.011.i.i.i.i.i.i.i.i
   %18 = getelementptr inbounds double, ptr %6, i64 %.011.i.i.i.i.i.i.i.i
   %19 = load <2 x i64>, ptr %18, align 16
-  %20 = xor <2 x i64> %19, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %20 = xor <2 x i64> %19, splat (i64 -9223372036854775808)
   store <2 x i64> %20, ptr %17, align 16
   %21 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 2
   %22 = icmp slt i64 %21, %15
@@ -1044,7 +1044,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %279 = getelementptr inbounds double, ptr %274, i64 %.011.i.i.i.i.i.i.i.i79
   %280 = getelementptr inbounds double, ptr %264, i64 %.011.i.i.i.i.i.i.i.i79
   %281 = load <2 x i64>, ptr %280, align 16
-  %282 = xor <2 x i64> %281, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %282 = xor <2 x i64> %281, splat (i64 -9223372036854775808)
   %283 = bitcast <2 x i64> %282 to <2 x double>
   %284 = getelementptr inbounds double, ptr %268, i64 %.011.i.i.i.i.i.i.i.i79
   %285 = load <2 x double>, ptr %284, align 16
@@ -1224,7 +1224,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEll.exit.
   %380 = getelementptr inbounds double, ptr %376, i64 %.011.i.i.i.i.i.i.i.i107
   %381 = getelementptr inbounds double, ptr %370, i64 %.011.i.i.i.i.i.i.i.i107
   %382 = load <2 x i64>, ptr %381, align 16
-  %383 = xor <2 x i64> %382, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %383 = xor <2 x i64> %382, splat (i64 -9223372036854775808)
   store <2 x i64> %383, ptr %380, align 16
   %384 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i107, 2
   %385 = icmp slt i64 %384, %378

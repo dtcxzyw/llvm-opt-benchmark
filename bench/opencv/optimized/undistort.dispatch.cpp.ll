@@ -7244,7 +7244,7 @@ _ZN2cvmIIddLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.critedge.i.us: ; pr
   br label %_ZN2cvL20invMapPointSphericalENS_6Point_IfEEfNS_14UndistortTypesE.exit.us
 
 _ZN2cvL20invMapPointSphericalENS_6Point_IfEEfNS_14UndistortTypesE.exit.us: ; preds = %_ZN2cvmIIddLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.critedge.i.us, %423
-  %.sroa.058.0.i.us = phi <2 x float> [ %.sroa.058.4.vec.insert.i.us, %423 ], [ <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %_ZN2cvmIIddLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.critedge.i.us ]
+  %.sroa.058.0.i.us = phi <2 x float> [ %.sroa.058.4.vec.insert.i.us, %423 ], [ splat (float 0xC7EFFFFFE0000000), %_ZN2cvmIIddLi2EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit.critedge.i.us ]
   %.sroa.042.0.vec.extract.us = extractelement <2 x float> %.sroa.058.0.i.us, i64 0
   %424 = fcmp ole float %.sroa.042.0.vec.extract.us, 0xC7EFFFFFE0000000
   %.sroa.042.4.vec.extract58.us = extractelement <2 x float> %.sroa.058.0.i.us, i64 1

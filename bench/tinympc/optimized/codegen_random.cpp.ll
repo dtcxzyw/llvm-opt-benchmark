@@ -238,7 +238,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #5 personality ptr @__gx
   store ptr %32, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 2, ptr %42, align 8
-  store <2 x double> <double 1.000000e+00, double 1.000000e+00>, ptr %32, align 16
+  store <2 x double> splat (double 1.000000e+00), ptr %32, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %43 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %44 = icmp eq ptr %43, null
@@ -264,7 +264,7 @@ define dso_local noundef i32 @main() local_unnamed_addr #5 personality ptr @__gx
   store ptr %43, ptr %4, align 8
   %51 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 2, ptr %51, align 8
-  store <2 x double> <double 2.000000e+00, double 2.000000e+00>, ptr %43, align 16
+  store <2 x double> splat (double 2.000000e+00), ptr %43, align 16
   %52 = tail call noalias dereferenceable_or_null(48) ptr @malloc(i64 noundef 48) #16
   %53 = icmp eq ptr %52, null
   br i1 %53, label %56, label %.lr.ph.i.i.i.i.i.i.i.preheader

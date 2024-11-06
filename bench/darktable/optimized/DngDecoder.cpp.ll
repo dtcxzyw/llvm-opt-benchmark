@@ -2021,7 +2021,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder10decodeDataEPKNS_7TiffIFDEj(ptr no
   store i32 %258, ptr %249, align 4, !tbaa !193
   %259 = insertelement <2 x i32> poison, i32 %257, i64 0
   %260 = insertelement <2 x i32> %259, i32 %258, i64 1
-  %261 = add <2 x i32> %260, <i32 1, i32 1>
+  %261 = add <2 x i32> %260, splat (i32 1)
   %262 = icmp eq <2 x i32> %261, %255
   %263 = extractelement <2 x i1> %262, i64 0
   %264 = zext i1 %263 to i8
@@ -2141,7 +2141,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder10decodeDataEPKNS_7TiffIFDEj(ptr no
   store i32 %338, ptr %329, align 4, !tbaa !193
   %339 = insertelement <2 x i32> poison, i32 %337, i64 0
   %340 = insertelement <2 x i32> %339, i32 %338, i64 1
-  %341 = add <2 x i32> %340, <i32 1, i32 1>
+  %341 = add <2 x i32> %340, splat (i32 1)
   %342 = icmp eq <2 x i32> %341, %335
   %343 = extractelement <2 x i1> %342, i64 0
   %344 = zext i1 %343 to i8
@@ -4447,7 +4447,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder17parseWhiteBalanceEv(ptr nocapture
   %112 = shufflevector <2 x float> %111, <2 x float> poison, <2 x i32> zeroinitializer
   %113 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %110, <2 x float> %112, <2 x float> %103)
   %114 = fcmp ogt <2 x float> %113, zeroinitializer
-  %115 = fdiv <2 x float> <float 1.000000e+00, float 1.000000e+00>, %113
+  %115 = fdiv <2 x float> splat (float 1.000000e+00), %113
   %116 = select <2 x i1> %114, <2 x float> %115, <2 x float> zeroinitializer
   store <2 x float> %116, ptr %63, align 4, !tbaa !286
   %117 = getelementptr i8, ptr %62, i64 48

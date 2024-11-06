@@ -163,12 +163,12 @@ define void @_ZN3g2o6SBACam7setKcamEddddd(ptr nocapture noundef nonnull align 16
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8
   %60 = load <2 x i64>, ptr %15, align 16
-  %61 = xor <2 x i64> %60, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %61 = xor <2 x i64> %60, splat (i64 -9223372036854775808)
   %62 = bitcast <2 x i64> %61 to <2 x double>
   %63 = shufflevector <2 x double> %57, <2 x double> poison, <2 x i32> zeroinitializer
   %64 = fmul <2 x double> %63, %62
   %65 = load <2 x i64>, ptr %50, align 8
-  %66 = xor <2 x i64> %65, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %66 = xor <2 x i64> %65, splat (i64 -9223372036854775808)
   %67 = bitcast <2 x i64> %66 to <2 x double>
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i = load <2 x double>, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
@@ -176,7 +176,7 @@ define void @_ZN3g2o6SBACam7setKcamEddddd(ptr nocapture noundef nonnull align 16
   %69 = fmul <2 x double> %68, %67
   %70 = fadd <2 x double> %64, %69
   %71 = load <2 x i64>, ptr %53, align 16
-  %72 = xor <2 x i64> %71, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %72 = xor <2 x i64> %71, splat (i64 -9223372036854775808)
   %73 = bitcast <2 x i64> %72 to <2 x double>
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i = load <2 x double>, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
@@ -397,12 +397,12 @@ _ZN3g2o7SE3QuatC2ERKN5Eigen10QuaternionIdLi0EEERKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8
   %83 = load <2 x i64>, ptr %46, align 16
-  %84 = xor <2 x i64> %83, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %84 = xor <2 x i64> %83, splat (i64 -9223372036854775808)
   %85 = bitcast <2 x i64> %84 to <2 x double>
   %86 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
   %87 = fmul <2 x double> %86, %85
   %88 = load <2 x i64>, ptr %73, align 8
-  %89 = xor <2 x i64> %88, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %89 = xor <2 x i64> %88, splat (i64 -9223372036854775808)
   %90 = bitcast <2 x i64> %89 to <2 x double>
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i = load <2 x double>, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
@@ -410,7 +410,7 @@ _ZN3g2o7SE3QuatC2ERKN5Eigen10QuaternionIdLi0EEERKNS1_6MatrixIdLi3ELi1ELi0ELi3ELi
   %92 = fmul <2 x double> %91, %90
   %93 = fadd <2 x double> %87, %92
   %94 = load <2 x i64>, ptr %76, align 16
-  %95 = xor <2 x i64> %94, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %95 = xor <2 x i64> %94, splat (i64 -9223372036854775808)
   %96 = bitcast <2 x i64> %95 to <2 x double>
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i = load <2 x double>, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
@@ -760,12 +760,12 @@ define void @_ZN3g2o6SBACamC2ERKNS_7SE3QuatE(ptr nocapture noundef nonnull align
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8
   %51 = load <2 x i64>, ptr %7, align 16
-  %52 = xor <2 x i64> %51, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %52 = xor <2 x i64> %51, splat (i64 -9223372036854775808)
   %53 = bitcast <2 x i64> %52 to <2 x double>
   %54 = shufflevector <2 x double> %48, <2 x double> poison, <2 x i32> zeroinitializer
   %55 = fmul <2 x double> %54, %53
   %56 = load <2 x i64>, ptr %41, align 8
-  %57 = xor <2 x i64> %56, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %57 = xor <2 x i64> %56, splat (i64 -9223372036854775808)
   %58 = bitcast <2 x i64> %57 to <2 x double>
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i = load <2 x double>, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
@@ -773,7 +773,7 @@ define void @_ZN3g2o6SBACamC2ERKNS_7SE3QuatE(ptr nocapture noundef nonnull align
   %60 = fmul <2 x double> %59, %58
   %61 = fadd <2 x double> %55, %60
   %62 = load <2 x i64>, ptr %44, align 16
-  %63 = xor <2 x i64> %62, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %63 = xor <2 x i64> %62, splat (i64 -9223372036854775808)
   %64 = bitcast <2 x i64> %63 to <2 x double>
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i = load <2 x double>, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
@@ -1019,12 +1019,12 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %
   %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 24
   store double 1.000000e+00, ptr %.sroa.0.i.i.24.i.i.24.i.i.24.i.24.i.24..sroa_idx, align 8
   %113 = load <2 x i64>, ptr %77, align 16
-  %114 = xor <2 x i64> %113, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %114 = xor <2 x i64> %113, splat (i64 -9223372036854775808)
   %115 = bitcast <2 x i64> %114 to <2 x double>
   %116 = shufflevector <2 x double> %111, <2 x double> poison, <2 x i32> zeroinitializer
   %117 = fmul <2 x double> %116, %115
   %118 = load <2 x i64>, ptr %104, align 8
-  %119 = xor <2 x i64> %118, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %119 = xor <2 x i64> %118, splat (i64 -9223372036854775808)
   %120 = bitcast <2 x i64> %119 to <2 x double>
   %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 8
   %.sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.i.8..sroa.0.i.8..sroa.0.i.8..sroa.0.8..sroa.0.8..i.i = load <2 x double>, ptr %.sroa.0.i.i.8.i.i.8.i.i.8.i.8.i.8..sroa_idx, align 8
@@ -1032,7 +1032,7 @@ _ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEE9normalizeEv.exit: ; preds = %
   %122 = fmul <2 x double> %121, %120
   %123 = fadd <2 x double> %117, %122
   %124 = load <2 x i64>, ptr %107, align 16
-  %125 = xor <2 x i64> %124, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %125 = xor <2 x i64> %124, splat (i64 -9223372036854775808)
   %126 = bitcast <2 x i64> %125 to <2 x double>
   %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i.i, i64 16
   %.sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.i.16..sroa.0.i.16..sroa.0.i.16..sroa.0.16..sroa.0.16..i.i = load <2 x double>, ptr %.sroa.0.i.i.16.i.i.16.i.i.16.i.16.i.16..sroa_idx, align 16
@@ -1201,12 +1201,12 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i:
   %.sroa.0.24..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 24
   store double 1.000000e+00, ptr %.sroa.0.24..sroa_idx, align 8
   %46 = load <2 x i64>, ptr %0, align 16
-  %47 = xor <2 x i64> %46, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %47 = xor <2 x i64> %46, splat (i64 -9223372036854775808)
   %48 = bitcast <2 x i64> %47 to <2 x double>
   %49 = shufflevector <2 x double> %43, <2 x double> poison, <2 x i32> zeroinitializer
   %50 = fmul <2 x double> %49, %48
   %51 = load <2 x i64>, ptr %36, align 8
-  %52 = xor <2 x i64> %51, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %52 = xor <2 x i64> %51, splat (i64 -9223372036854775808)
   %53 = bitcast <2 x i64> %52 to <2 x double>
   %.sroa.0.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 8
   %.sroa.0.8..sroa.0.8..sroa.0.8. = load <2 x double>, ptr %.sroa.0.8..sroa_idx, align 8
@@ -1214,7 +1214,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i.i.i.i.i:
   %55 = fmul <2 x double> %54, %53
   %56 = fadd <2 x double> %50, %55
   %57 = load <2 x i64>, ptr %39, align 16
-  %58 = xor <2 x i64> %57, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %58 = xor <2 x i64> %57, splat (i64 -9223372036854775808)
   %59 = bitcast <2 x i64> %58 to <2 x double>
   %.sroa.0.16..sroa_idx = getelementptr inbounds i8, ptr %.sroa.0, i64 16
   %.sroa.0.16..sroa.0.16..sroa.0.16. = load <2 x double>, ptr %.sroa.0.16..sroa_idx, align 16

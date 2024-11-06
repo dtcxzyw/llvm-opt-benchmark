@@ -676,7 +676,7 @@ if.end4:                                          ; preds = %if.end
   %BoundingBox.i.i = getelementptr inbounds i8, ptr %call.i, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i.i, align 4, !tbaa !84
   %Y.i2.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i.i, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i.i, align 4, !tbaa !84
   %PrimitiveType.i.i = getelementptr inbounds i8, ptr %call.i, i64 304
   store i32 6, ptr %PrimitiveType.i.i, align 8, !tbaa !88
   store ptr %call.i, ptr %Meshbuffer.i, align 8, !tbaa !89
@@ -3455,7 +3455,7 @@ if.end217:                                        ; preds = %_ZN3irr4core6string
   %BoundingBox.i = getelementptr inbounds i8, ptr %call218, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !84
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call218, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !84
   %303 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !93
   %304 = load ptr, ptr %Materials, align 8, !tbaa !22
   %sub.ptr.lhs.cast.i.i9901304 = ptrtoint ptr %303 to i64
@@ -3564,7 +3564,7 @@ if.then265:                                       ; preds = %for.cond.cleanup223
   %Box.i = getelementptr inbounds i8, ptr %call266, i64 40
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %Box.i, align 4, !tbaa !84
   %Y.i2.i.i1011 = getelementptr inbounds i8, ptr %call266, i64 56
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i1011, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i1011, align 4, !tbaa !84
   %FramesPerSecond.i = getelementptr inbounds i8, ptr %call266, i64 64
   store float 2.500000e+01, ptr %FramesPerSecond.i, align 8, !tbaa !192
   %Type.i = getelementptr inbounds i8, ptr %call266, i64 68
@@ -7833,7 +7833,7 @@ _ZN3irr4core6stringIcEC2ERKS2_.exit17:            ; preds = %if.end.i.i16, %_ZN3
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 280
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !84
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 296
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !84
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !84
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 304
   store i32 6, ptr %PrimitiveType.i, align 8, !tbaa !88
   %Meshbuffer = getelementptr inbounds i8, ptr %this, i64 48

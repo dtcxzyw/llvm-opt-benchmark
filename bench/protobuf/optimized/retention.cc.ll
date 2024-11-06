@@ -602,7 +602,7 @@ for.inc.i.i.i.i.i.i.i.i:                          ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.i.not.i.i.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
 for.end.i.i.i.i.i.i.i.i:                          ; preds = %for.inc.i.i.i.i.i.i.i.i, %while.body.i.i.i.i.i.i.i.i
-  %cmp.i.i13.i.i.i.i.i.i.i.i = icmp eq <16 x i8> %37, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i13.i.i.i.i.i.i.i.i = icmp eq <16 x i8> %37, splat (i8 -128)
   %42 = bitcast <16 x i1> %cmp.i.i13.i.i.i.i.i.i.i.i to i16
   %cmp.i14.not.i.i.i.i.i.i.i.i = icmp eq i16 %42, 0
   br i1 %cmp.i14.not.i.i.i.i.i.i.i.i, label %if.end36.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -850,7 +850,7 @@ for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i80.
   br i1 %cmp.i.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i80.i
 
 for.end.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %while.body.i.i.i.i.i
-  %cmp.i.i10.i.i.i.i.i = icmp eq <16 x i8> %62, <i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128, i8 -128>
+  %cmp.i.i10.i.i.i.i.i = icmp eq <16 x i8> %62, splat (i8 -128)
   %67 = bitcast <16 x i1> %cmp.i.i10.i.i.i.i.i to i16
   %cmp.i11.not.i.i.i.i.i = icmp eq i16 %67, 0
   br i1 %cmp.i11.not.i.i.i.i.i, label %if.end34.i.i.i.i.i, label %if.else70.i

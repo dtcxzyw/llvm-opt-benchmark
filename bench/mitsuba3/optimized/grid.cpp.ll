@@ -4118,7 +4118,7 @@ _ZNK5drjit7TextureIfLm3EE4evalERKNS_5ArrayIfLm3EEEPfb.exit: ; preds = %57
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %133 = load <4 x i32>, ptr %131, align 16
   %134 = uitofp <4 x i32> %133 to <4 x float>
-  %135 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %116, <4 x float> %134, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %135 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %116, <4 x float> %134, <4 x float> splat (float -5.000000e-01))
   %136 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %135, i32 9)
   %137 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %136)
   %.sroa.041.0.vec.extract.i.i = extractelement <4 x i32> %137, i64 0
@@ -4253,7 +4253,7 @@ _ZNK5drjit7TextureIfLm3EE10eval_fetchERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEEb.exit: ;
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %192 = load <4 x i32>, ptr %131, align 16
   %193 = uitofp <4 x i32> %192 to <4 x float>
-  %194 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %116, <4 x float> %193, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %194 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %116, <4 x float> %193, <4 x float> splat (float -5.000000e-01))
   %195 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %194, i32 9)
   %196 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %195)
   %.sroa.041.0.vec.extract.i = extractelement <4 x i32> %196, i64 0
@@ -4396,16 +4396,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %260 = fcmp contract oeq float %259, 0x7FF0000000000000
   %261 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02697.8.vec.extract)
   %262 = call contract noundef float @llvm.fma.f32(float %261, float 5.000000e-01, float 5.000000e-01)
-  %263 = fmul contract <4 x float> %258, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %264 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %258, <4 x float> %258, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %263 = fmul contract <4 x float> %258, splat (float 5.000000e-01)
+  %264 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %258, <4 x float> %258, <4 x float> splat (float 1.000000e+00))
   %265 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %264, <4 x float> zeroinitializer, i8 -1)
-  %266 = fmul contract <4 x float> %265, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %266 = fmul contract <4 x float> %265, splat (float 5.000000e-01)
   %267 = fneg contract <4 x float> %264
   %268 = fmul contract <4 x float> %265, %267
-  %269 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %268, <4 x float> %265, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %269 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %268, <4 x float> %265, <4 x float> splat (float 3.000000e+00))
   %270 = fmul contract <4 x float> %266, %269
-  %271 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %270, <4 x float> %264, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %272 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %263, <4 x float> %271, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %271 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %270, <4 x float> %264, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %272 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %263, <4 x float> %271, <4 x float> splat (float 5.000000e-01))
   %273 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %272, <4 x float> zeroinitializer)
   %274 = select i1 %260, i8 15, i8 0
   %275 = insertelement <4 x float> poison, float %262, i64 0
@@ -4424,16 +4424,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %287 = fcmp contract oeq float %286, 0x7FF0000000000000
   %288 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02692.8.vec.extract)
   %289 = call contract noundef float @llvm.fma.f32(float %288, float 5.000000e-01, float 5.000000e-01)
-  %290 = fmul contract <4 x float> %285, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %291 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %285, <4 x float> %285, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %290 = fmul contract <4 x float> %285, splat (float 5.000000e-01)
+  %291 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %285, <4 x float> %285, <4 x float> splat (float 1.000000e+00))
   %292 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %291, <4 x float> zeroinitializer, i8 -1)
-  %293 = fmul contract <4 x float> %292, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %293 = fmul contract <4 x float> %292, splat (float 5.000000e-01)
   %294 = fneg contract <4 x float> %291
   %295 = fmul contract <4 x float> %292, %294
-  %296 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %295, <4 x float> %292, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %296 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %295, <4 x float> %292, <4 x float> splat (float 3.000000e+00))
   %297 = fmul contract <4 x float> %293, %296
-  %298 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %297, <4 x float> %291, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %299 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %290, <4 x float> %298, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %298 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %297, <4 x float> %291, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %299 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %290, <4 x float> %298, <4 x float> splat (float 5.000000e-01))
   %300 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %299, <4 x float> zeroinitializer)
   %301 = select i1 %287, i8 15, i8 0
   %302 = insertelement <4 x float> poison, float %289, i64 0
@@ -4452,16 +4452,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %314 = fcmp contract oeq float %313, 0x7FF0000000000000
   %315 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02687.8.vec.extract)
   %316 = call contract noundef float @llvm.fma.f32(float %315, float 5.000000e-01, float 5.000000e-01)
-  %317 = fmul contract <4 x float> %312, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %318 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %312, <4 x float> %312, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %317 = fmul contract <4 x float> %312, splat (float 5.000000e-01)
+  %318 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %312, <4 x float> %312, <4 x float> splat (float 1.000000e+00))
   %319 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %318, <4 x float> zeroinitializer, i8 -1)
-  %320 = fmul contract <4 x float> %319, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %320 = fmul contract <4 x float> %319, splat (float 5.000000e-01)
   %321 = fneg contract <4 x float> %318
   %322 = fmul contract <4 x float> %319, %321
-  %323 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %322, <4 x float> %319, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %323 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %322, <4 x float> %319, <4 x float> splat (float 3.000000e+00))
   %324 = fmul contract <4 x float> %320, %323
-  %325 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %324, <4 x float> %318, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %326 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %317, <4 x float> %325, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %325 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %324, <4 x float> %318, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %326 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %317, <4 x float> %325, <4 x float> splat (float 5.000000e-01))
   %327 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %326, <4 x float> zeroinitializer)
   %328 = select i1 %314, i8 15, i8 0
   %329 = insertelement <4 x float> poison, float %316, i64 0
@@ -4480,16 +4480,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %341 = fcmp contract oeq float %340, 0x7FF0000000000000
   %342 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02682.8.vec.extract)
   %343 = call contract noundef float @llvm.fma.f32(float %342, float 5.000000e-01, float 5.000000e-01)
-  %344 = fmul contract <4 x float> %339, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %345 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %339, <4 x float> %339, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %344 = fmul contract <4 x float> %339, splat (float 5.000000e-01)
+  %345 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %339, <4 x float> %339, <4 x float> splat (float 1.000000e+00))
   %346 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %345, <4 x float> zeroinitializer, i8 -1)
-  %347 = fmul contract <4 x float> %346, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %347 = fmul contract <4 x float> %346, splat (float 5.000000e-01)
   %348 = fneg contract <4 x float> %345
   %349 = fmul contract <4 x float> %346, %348
-  %350 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %349, <4 x float> %346, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %350 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %349, <4 x float> %346, <4 x float> splat (float 3.000000e+00))
   %351 = fmul contract <4 x float> %347, %350
-  %352 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %351, <4 x float> %345, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %353 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %344, <4 x float> %352, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %352 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %351, <4 x float> %345, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %353 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %344, <4 x float> %352, <4 x float> splat (float 5.000000e-01))
   %354 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %353, <4 x float> zeroinitializer)
   %355 = select i1 %341, i8 15, i8 0
   %356 = insertelement <4 x float> poison, float %343, i64 0
@@ -4508,16 +4508,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %368 = fcmp contract oeq float %367, 0x7FF0000000000000
   %369 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02677.8.vec.extract)
   %370 = call contract noundef float @llvm.fma.f32(float %369, float 5.000000e-01, float 5.000000e-01)
-  %371 = fmul contract <4 x float> %366, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %372 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %366, <4 x float> %366, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %371 = fmul contract <4 x float> %366, splat (float 5.000000e-01)
+  %372 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %366, <4 x float> %366, <4 x float> splat (float 1.000000e+00))
   %373 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %372, <4 x float> zeroinitializer, i8 -1)
-  %374 = fmul contract <4 x float> %373, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %374 = fmul contract <4 x float> %373, splat (float 5.000000e-01)
   %375 = fneg contract <4 x float> %372
   %376 = fmul contract <4 x float> %373, %375
-  %377 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %376, <4 x float> %373, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %377 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %376, <4 x float> %373, <4 x float> splat (float 3.000000e+00))
   %378 = fmul contract <4 x float> %374, %377
-  %379 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %378, <4 x float> %372, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %380 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %371, <4 x float> %379, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %379 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %378, <4 x float> %372, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %380 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %371, <4 x float> %379, <4 x float> splat (float 5.000000e-01))
   %381 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %380, <4 x float> zeroinitializer)
   %382 = select i1 %368, i8 15, i8 0
   %383 = insertelement <4 x float> poison, float %370, i64 0
@@ -4536,16 +4536,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %395 = fcmp contract oeq float %394, 0x7FF0000000000000
   %396 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02672.8.vec.extract)
   %397 = call contract noundef float @llvm.fma.f32(float %396, float 5.000000e-01, float 5.000000e-01)
-  %398 = fmul contract <4 x float> %393, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %399 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %393, <4 x float> %393, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %398 = fmul contract <4 x float> %393, splat (float 5.000000e-01)
+  %399 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %393, <4 x float> %393, <4 x float> splat (float 1.000000e+00))
   %400 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %399, <4 x float> zeroinitializer, i8 -1)
-  %401 = fmul contract <4 x float> %400, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %401 = fmul contract <4 x float> %400, splat (float 5.000000e-01)
   %402 = fneg contract <4 x float> %399
   %403 = fmul contract <4 x float> %400, %402
-  %404 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %403, <4 x float> %400, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %404 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %403, <4 x float> %400, <4 x float> splat (float 3.000000e+00))
   %405 = fmul contract <4 x float> %401, %404
-  %406 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %405, <4 x float> %399, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %407 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %398, <4 x float> %406, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %406 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %405, <4 x float> %399, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %407 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %398, <4 x float> %406, <4 x float> splat (float 5.000000e-01))
   %408 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %407, <4 x float> zeroinitializer)
   %409 = select i1 %395, i8 15, i8 0
   %410 = insertelement <4 x float> poison, float %397, i64 0
@@ -4564,16 +4564,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %422 = fcmp contract oeq float %421, 0x7FF0000000000000
   %423 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02667.8.vec.extract)
   %424 = call contract noundef float @llvm.fma.f32(float %423, float 5.000000e-01, float 5.000000e-01)
-  %425 = fmul contract <4 x float> %420, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %426 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %420, <4 x float> %420, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %425 = fmul contract <4 x float> %420, splat (float 5.000000e-01)
+  %426 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %420, <4 x float> %420, <4 x float> splat (float 1.000000e+00))
   %427 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %426, <4 x float> zeroinitializer, i8 -1)
-  %428 = fmul contract <4 x float> %427, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %428 = fmul contract <4 x float> %427, splat (float 5.000000e-01)
   %429 = fneg contract <4 x float> %426
   %430 = fmul contract <4 x float> %427, %429
-  %431 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %430, <4 x float> %427, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %431 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %430, <4 x float> %427, <4 x float> splat (float 3.000000e+00))
   %432 = fmul contract <4 x float> %428, %431
-  %433 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %432, <4 x float> %426, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %434 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %425, <4 x float> %433, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %433 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %432, <4 x float> %426, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %434 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %425, <4 x float> %433, <4 x float> splat (float 5.000000e-01))
   %435 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %434, <4 x float> zeroinitializer)
   %436 = select i1 %422, i8 15, i8 0
   %437 = insertelement <4 x float> poison, float %424, i64 0
@@ -4592,16 +4592,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %449 = fcmp contract oeq float %448, 0x7FF0000000000000
   %450 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02662.8.vec.extract)
   %451 = call contract noundef float @llvm.fma.f32(float %450, float 5.000000e-01, float 5.000000e-01)
-  %452 = fmul contract <4 x float> %447, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %453 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %447, <4 x float> %447, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %452 = fmul contract <4 x float> %447, splat (float 5.000000e-01)
+  %453 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %447, <4 x float> %447, <4 x float> splat (float 1.000000e+00))
   %454 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %453, <4 x float> zeroinitializer, i8 -1)
-  %455 = fmul contract <4 x float> %454, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %455 = fmul contract <4 x float> %454, splat (float 5.000000e-01)
   %456 = fneg contract <4 x float> %453
   %457 = fmul contract <4 x float> %454, %456
-  %458 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %457, <4 x float> %454, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %458 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %457, <4 x float> %454, <4 x float> splat (float 3.000000e+00))
   %459 = fmul contract <4 x float> %455, %458
-  %460 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %459, <4 x float> %453, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %461 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %452, <4 x float> %460, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %460 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %459, <4 x float> %453, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %461 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %452, <4 x float> %460, <4 x float> splat (float 5.000000e-01))
   %462 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %461, <4 x float> zeroinitializer)
   %463 = select i1 %449, i8 15, i8 0
   %464 = insertelement <4 x float> poison, float %451, i64 0
@@ -4622,7 +4622,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %479 = insertelement <4 x i32> %478, i32 %475, i64 1
   %480 = insertelement <4 x i32> %479, i32 %477, i64 2
   %481 = sitofp <4 x i32> %480 to <4 x float>
-  %482 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %116, <4 x float> %481, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %482 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %116, <4 x float> %481, <4 x float> splat (float -5.000000e-01))
   %483 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %482, i32 9)
   %484 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %483)
   %485 = sitofp <4 x i32> %484 to <4 x float>
@@ -4709,16 +4709,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %553 = fcmp contract oeq float %552, 0x7FF0000000000000
   %554 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02605.8.vec.extract)
   %555 = call contract noundef float @llvm.fma.f32(float %554, float 5.000000e-01, float 5.000000e-01)
-  %556 = fmul contract <4 x float> %551, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %557 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %551, <4 x float> %551, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %556 = fmul contract <4 x float> %551, splat (float 5.000000e-01)
+  %557 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %551, <4 x float> %551, <4 x float> splat (float 1.000000e+00))
   %558 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %557, <4 x float> zeroinitializer, i8 -1)
-  %559 = fmul contract <4 x float> %558, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %559 = fmul contract <4 x float> %558, splat (float 5.000000e-01)
   %560 = fneg contract <4 x float> %557
   %561 = fmul contract <4 x float> %558, %560
-  %562 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %561, <4 x float> %558, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %562 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %561, <4 x float> %558, <4 x float> splat (float 3.000000e+00))
   %563 = fmul contract <4 x float> %559, %562
-  %564 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %563, <4 x float> %557, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %565 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %556, <4 x float> %564, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %564 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %563, <4 x float> %557, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %565 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %556, <4 x float> %564, <4 x float> splat (float 5.000000e-01))
   %566 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %565, <4 x float> zeroinitializer)
   %567 = select i1 %553, i8 15, i8 0
   %568 = insertelement <4 x float> poison, float %555, i64 0
@@ -4867,7 +4867,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba10GridVolumeIfN5drjit6MatrixINS_8Spectr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   %65 = load <4 x i32>, ptr %63, align 16
   %66 = uitofp <4 x i32> %65 to <4 x float>
-  %67 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %47, <4 x float> %66, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %67 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %47, <4 x float> %66, <4 x float> splat (float -5.000000e-01))
   %68 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %67, i32 9)
   %69 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %68)
   %.sroa.041.0.vec.extract.i.i = extractelement <4 x i32> %69, i64 0
@@ -5003,7 +5003,7 @@ _ZNK5drjit7TextureIfLm3EE10eval_fetchERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEEb.exit: ;
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %126 = load <4 x i32>, ptr %63, align 16
   %127 = uitofp <4 x i32> %126 to <4 x float>
-  %128 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %47, <4 x float> %127, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %128 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %47, <4 x float> %127, <4 x float> splat (float -5.000000e-01))
   %129 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %128, i32 9)
   %130 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %129)
   %.sroa.041.0.vec.extract.i = extractelement <4 x i32> %130, i64 0
@@ -5147,16 +5147,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %196 = fcmp contract oeq float %195, 0x7FF0000000000000
   %197 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02607.8.vec.extract)
   %198 = call contract noundef float @llvm.fma.f32(float %197, float 5.000000e-01, float 5.000000e-01)
-  %199 = fmul contract <4 x float> %194, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %200 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %194, <4 x float> %194, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %199 = fmul contract <4 x float> %194, splat (float 5.000000e-01)
+  %200 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %194, <4 x float> %194, <4 x float> splat (float 1.000000e+00))
   %201 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %200, <4 x float> zeroinitializer, i8 -1)
-  %202 = fmul contract <4 x float> %201, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %202 = fmul contract <4 x float> %201, splat (float 5.000000e-01)
   %203 = fneg contract <4 x float> %200
   %204 = fmul contract <4 x float> %201, %203
-  %205 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %204, <4 x float> %201, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %205 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %204, <4 x float> %201, <4 x float> splat (float 3.000000e+00))
   %206 = fmul contract <4 x float> %202, %205
-  %207 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %206, <4 x float> %200, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %208 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %199, <4 x float> %207, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %207 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %206, <4 x float> %200, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %208 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %199, <4 x float> %207, <4 x float> splat (float 5.000000e-01))
   %209 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %208, <4 x float> zeroinitializer)
   %210 = select i1 %196, i8 15, i8 0
   %211 = insertelement <4 x float> poison, float %198, i64 0
@@ -5175,16 +5175,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %223 = fcmp contract oeq float %222, 0x7FF0000000000000
   %224 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02602.8.vec.extract)
   %225 = call contract noundef float @llvm.fma.f32(float %224, float 5.000000e-01, float 5.000000e-01)
-  %226 = fmul contract <4 x float> %221, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %227 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %221, <4 x float> %221, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %226 = fmul contract <4 x float> %221, splat (float 5.000000e-01)
+  %227 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %221, <4 x float> %221, <4 x float> splat (float 1.000000e+00))
   %228 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %227, <4 x float> zeroinitializer, i8 -1)
-  %229 = fmul contract <4 x float> %228, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %229 = fmul contract <4 x float> %228, splat (float 5.000000e-01)
   %230 = fneg contract <4 x float> %227
   %231 = fmul contract <4 x float> %228, %230
-  %232 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %231, <4 x float> %228, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %232 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %231, <4 x float> %228, <4 x float> splat (float 3.000000e+00))
   %233 = fmul contract <4 x float> %229, %232
-  %234 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %233, <4 x float> %227, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %235 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %234, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %234 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %233, <4 x float> %227, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %235 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %226, <4 x float> %234, <4 x float> splat (float 5.000000e-01))
   %236 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %235, <4 x float> zeroinitializer)
   %237 = select i1 %223, i8 15, i8 0
   %238 = insertelement <4 x float> poison, float %225, i64 0
@@ -5203,16 +5203,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %250 = fcmp contract oeq float %249, 0x7FF0000000000000
   %251 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02597.8.vec.extract)
   %252 = call contract noundef float @llvm.fma.f32(float %251, float 5.000000e-01, float 5.000000e-01)
-  %253 = fmul contract <4 x float> %248, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %254 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %248, <4 x float> %248, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %253 = fmul contract <4 x float> %248, splat (float 5.000000e-01)
+  %254 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %248, <4 x float> %248, <4 x float> splat (float 1.000000e+00))
   %255 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %254, <4 x float> zeroinitializer, i8 -1)
-  %256 = fmul contract <4 x float> %255, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %256 = fmul contract <4 x float> %255, splat (float 5.000000e-01)
   %257 = fneg contract <4 x float> %254
   %258 = fmul contract <4 x float> %255, %257
-  %259 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %258, <4 x float> %255, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %259 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %258, <4 x float> %255, <4 x float> splat (float 3.000000e+00))
   %260 = fmul contract <4 x float> %256, %259
-  %261 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %260, <4 x float> %254, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %262 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> %261, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %261 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %260, <4 x float> %254, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %262 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %253, <4 x float> %261, <4 x float> splat (float 5.000000e-01))
   %263 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %262, <4 x float> zeroinitializer)
   %264 = select i1 %250, i8 15, i8 0
   %265 = insertelement <4 x float> poison, float %252, i64 0
@@ -5231,16 +5231,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %277 = fcmp contract oeq float %276, 0x7FF0000000000000
   %278 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02592.8.vec.extract)
   %279 = call contract noundef float @llvm.fma.f32(float %278, float 5.000000e-01, float 5.000000e-01)
-  %280 = fmul contract <4 x float> %275, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %281 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %275, <4 x float> %275, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %280 = fmul contract <4 x float> %275, splat (float 5.000000e-01)
+  %281 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %275, <4 x float> %275, <4 x float> splat (float 1.000000e+00))
   %282 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %281, <4 x float> zeroinitializer, i8 -1)
-  %283 = fmul contract <4 x float> %282, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %283 = fmul contract <4 x float> %282, splat (float 5.000000e-01)
   %284 = fneg contract <4 x float> %281
   %285 = fmul contract <4 x float> %282, %284
-  %286 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %285, <4 x float> %282, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %286 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %285, <4 x float> %282, <4 x float> splat (float 3.000000e+00))
   %287 = fmul contract <4 x float> %283, %286
-  %288 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %287, <4 x float> %281, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %289 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %280, <4 x float> %288, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %288 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %287, <4 x float> %281, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %289 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %280, <4 x float> %288, <4 x float> splat (float 5.000000e-01))
   %290 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %289, <4 x float> zeroinitializer)
   %291 = select i1 %277, i8 15, i8 0
   %292 = insertelement <4 x float> poison, float %279, i64 0
@@ -5259,16 +5259,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %304 = fcmp contract oeq float %303, 0x7FF0000000000000
   %305 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02587.8.vec.extract)
   %306 = call contract noundef float @llvm.fma.f32(float %305, float 5.000000e-01, float 5.000000e-01)
-  %307 = fmul contract <4 x float> %302, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %308 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %302, <4 x float> %302, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %307 = fmul contract <4 x float> %302, splat (float 5.000000e-01)
+  %308 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %302, <4 x float> %302, <4 x float> splat (float 1.000000e+00))
   %309 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %308, <4 x float> zeroinitializer, i8 -1)
-  %310 = fmul contract <4 x float> %309, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %310 = fmul contract <4 x float> %309, splat (float 5.000000e-01)
   %311 = fneg contract <4 x float> %308
   %312 = fmul contract <4 x float> %309, %311
-  %313 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %312, <4 x float> %309, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %313 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %312, <4 x float> %309, <4 x float> splat (float 3.000000e+00))
   %314 = fmul contract <4 x float> %310, %313
-  %315 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %314, <4 x float> %308, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %316 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %307, <4 x float> %315, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %315 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %314, <4 x float> %308, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %316 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %307, <4 x float> %315, <4 x float> splat (float 5.000000e-01))
   %317 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %316, <4 x float> zeroinitializer)
   %318 = select i1 %304, i8 15, i8 0
   %319 = insertelement <4 x float> poison, float %306, i64 0
@@ -5287,16 +5287,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %331 = fcmp contract oeq float %330, 0x7FF0000000000000
   %332 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02582.8.vec.extract)
   %333 = call contract noundef float @llvm.fma.f32(float %332, float 5.000000e-01, float 5.000000e-01)
-  %334 = fmul contract <4 x float> %329, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %335 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %329, <4 x float> %329, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %334 = fmul contract <4 x float> %329, splat (float 5.000000e-01)
+  %335 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %329, <4 x float> %329, <4 x float> splat (float 1.000000e+00))
   %336 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %335, <4 x float> zeroinitializer, i8 -1)
-  %337 = fmul contract <4 x float> %336, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %337 = fmul contract <4 x float> %336, splat (float 5.000000e-01)
   %338 = fneg contract <4 x float> %335
   %339 = fmul contract <4 x float> %336, %338
-  %340 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %339, <4 x float> %336, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %340 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %339, <4 x float> %336, <4 x float> splat (float 3.000000e+00))
   %341 = fmul contract <4 x float> %337, %340
-  %342 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %341, <4 x float> %335, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %343 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %334, <4 x float> %342, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %342 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %341, <4 x float> %335, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %343 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %334, <4 x float> %342, <4 x float> splat (float 5.000000e-01))
   %344 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %343, <4 x float> zeroinitializer)
   %345 = select i1 %331, i8 15, i8 0
   %346 = insertelement <4 x float> poison, float %333, i64 0
@@ -5315,16 +5315,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %358 = fcmp contract oeq float %357, 0x7FF0000000000000
   %359 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02577.8.vec.extract)
   %360 = call contract noundef float @llvm.fma.f32(float %359, float 5.000000e-01, float 5.000000e-01)
-  %361 = fmul contract <4 x float> %356, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %362 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %356, <4 x float> %356, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %361 = fmul contract <4 x float> %356, splat (float 5.000000e-01)
+  %362 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %356, <4 x float> %356, <4 x float> splat (float 1.000000e+00))
   %363 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %362, <4 x float> zeroinitializer, i8 -1)
-  %364 = fmul contract <4 x float> %363, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %364 = fmul contract <4 x float> %363, splat (float 5.000000e-01)
   %365 = fneg contract <4 x float> %362
   %366 = fmul contract <4 x float> %363, %365
-  %367 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %366, <4 x float> %363, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %367 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %366, <4 x float> %363, <4 x float> splat (float 3.000000e+00))
   %368 = fmul contract <4 x float> %364, %367
-  %369 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %368, <4 x float> %362, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %370 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %361, <4 x float> %369, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %369 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %368, <4 x float> %362, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %370 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %361, <4 x float> %369, <4 x float> splat (float 5.000000e-01))
   %371 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %370, <4 x float> zeroinitializer)
   %372 = select i1 %358, i8 15, i8 0
   %373 = insertelement <4 x float> poison, float %360, i64 0
@@ -5343,16 +5343,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %385 = fcmp contract oeq float %384, 0x7FF0000000000000
   %386 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02572.8.vec.extract)
   %387 = call contract noundef float @llvm.fma.f32(float %386, float 5.000000e-01, float 5.000000e-01)
-  %388 = fmul contract <4 x float> %383, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %389 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %383, <4 x float> %383, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %388 = fmul contract <4 x float> %383, splat (float 5.000000e-01)
+  %389 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %383, <4 x float> %383, <4 x float> splat (float 1.000000e+00))
   %390 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %389, <4 x float> zeroinitializer, i8 -1)
-  %391 = fmul contract <4 x float> %390, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %391 = fmul contract <4 x float> %390, splat (float 5.000000e-01)
   %392 = fneg contract <4 x float> %389
   %393 = fmul contract <4 x float> %390, %392
-  %394 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %393, <4 x float> %390, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %394 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %393, <4 x float> %390, <4 x float> splat (float 3.000000e+00))
   %395 = fmul contract <4 x float> %391, %394
-  %396 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %395, <4 x float> %389, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %397 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %388, <4 x float> %396, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %396 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %395, <4 x float> %389, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %397 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %388, <4 x float> %396, <4 x float> splat (float 5.000000e-01))
   %398 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %397, <4 x float> zeroinitializer)
   %399 = select i1 %385, i8 15, i8 0
   %400 = insertelement <4 x float> poison, float %387, i64 0
@@ -5374,7 +5374,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %416 = insertelement <4 x i32> %415, i32 %412, i64 1
   %417 = insertelement <4 x i32> %416, i32 %414, i64 2
   %418 = sitofp <4 x i32> %417 to <4 x float>
-  %419 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %47, <4 x float> %418, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %419 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %47, <4 x float> %418, <4 x float> splat (float -5.000000e-01))
   %420 = call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %419, i32 9)
   %421 = call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %420)
   %422 = sitofp <4 x i32> %421 to <4 x float>
@@ -5461,16 +5461,16 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %490 = fcmp contract oeq float %489, 0x7FF0000000000000
   %491 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.0.8.vec.extract)
   %492 = call contract noundef float @llvm.fma.f32(float %491, float 5.000000e-01, float 5.000000e-01)
-  %493 = fmul contract <4 x float> %488, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %494 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %488, <4 x float> %488, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %493 = fmul contract <4 x float> %488, splat (float 5.000000e-01)
+  %494 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %488, <4 x float> %488, <4 x float> splat (float 1.000000e+00))
   %495 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %494, <4 x float> zeroinitializer, i8 -1)
-  %496 = fmul contract <4 x float> %495, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %496 = fmul contract <4 x float> %495, splat (float 5.000000e-01)
   %497 = fneg contract <4 x float> %494
   %498 = fmul contract <4 x float> %495, %497
-  %499 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %498, <4 x float> %495, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %499 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %498, <4 x float> %495, <4 x float> splat (float 3.000000e+00))
   %500 = fmul contract <4 x float> %496, %499
-  %501 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %500, <4 x float> %494, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %502 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %493, <4 x float> %501, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %501 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %500, <4 x float> %494, <4 x i32> splat (i32 58959394), i32 0, i8 -1)
+  %502 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %493, <4 x float> %501, <4 x float> splat (float 5.000000e-01))
   %503 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %502, <4 x float> zeroinitializer)
   %504 = select i1 %490, i8 15, i8 0
   %505 = insertelement <4 x float> poison, float %492, i64 0
@@ -6581,13 +6581,13 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %4
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %25
-  %33 = add <4 x i32> %22, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %33 = add <4 x i32> %22, splat (i32 -1)
   %34 = tail call <4 x i32> @llvm.smin.v4i32(<4 x i32> %33, <4 x i32> %28)
   %35 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %34, <4 x i32> zeroinitializer)
   br label %_ZNK5drjit7TextureIfLm3EE5indexINS_5ArrayIiLm3EEEEENS_6detail14replace_scalarINS5_5valueIT_iE4typeEjiE4typeERKS8_.exit
 
 36:                                               ; preds = %25
-  %.lobit288.i = lshr <4 x i32> %28, <i32 31, i32 31, i32 31, i32 31>
+  %.lobit288.i = lshr <4 x i32> %28, splat (i32 31)
   %37 = add <4 x i32> %.lobit288.i, %28
   store <4 x i32> %37, ptr %5, align 16
   %38 = getelementptr inbounds i8, ptr %0, i64 80
@@ -6651,10 +6651,10 @@ _ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit: ; preds = %4
 
 78:                                               ; preds = %70
   %79 = icmp slt <4 x i32> %28, zeroinitializer
-  %80 = and <4 x i32> %71, <i32 1, i32 1, i32 1, i32 1>
+  %80 = and <4 x i32> %71, splat (i32 1)
   %81 = icmp eq <4 x i32> %80, zeroinitializer
   %82 = xor <4 x i1> %81, %79
-  %83 = xor <4 x i32> %76, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %83 = xor <4 x i32> %76, splat (i32 -1)
   %84 = add <4 x i32> %22, %83
   %85 = select <4 x i1> %82, <4 x i32> %76, <4 x i32> %84
   br label %_ZNK5drjit7TextureIfLm3EE5indexINS_5ArrayIiLm3EEEEENS_6detail14replace_scalarINS5_5valueIT_iE4typeEjiE4typeERKS8_.exit
@@ -6697,7 +6697,7 @@ _ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit: ; preds =
   br i1 %exitcond512.not, label %.loopexit, label %_ZN5drjit6gatherIfLb0ERNS_12DynamicArrayIfEEjbEET_OT1_RKT2_RKT3_.exit, !llvm.loop !67
 
 102:                                              ; preds = %_ZNK5drjit6TensorINS_12DynamicArrayIfEEE5shapeEm.exit
-  %103 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %24, <4 x float> %23, <4 x float> <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>)
+  %103 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %24, <4 x float> %23, <4 x float> splat (float -5.000000e-01))
   %104 = tail call contract <4 x float> @llvm.x86.sse41.round.ps(<4 x float> %103, i32 9)
   %105 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %104)
   %.sroa.0391.0.vec.extract = extractelement <4 x i32> %105, i64 0
@@ -10715,7 +10715,7 @@ define linkonce_odr hidden void @_ZNK5drjit7TextureIfLm3EE4wrapINS_5ArrayINS3_Ii
   br label %_ZN5drjit5ArrayINS0_IiLm8EEELm3EECI2NS_15StaticArrayImplIS1_Lm3ELb0ES2_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit
 
 42:                                               ; preds = %3
-  %43 = add <4 x i32> %41, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %43 = add <4 x i32> %41, splat (i32 -1)
   store <4 x i32> %43, ptr %25, align 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %5)
@@ -10797,7 +10797,7 @@ _ZN5drjit5ArrayINS0_IiLm8EEELm3EECI2NS_15StaticArrayImplIS1_Lm3ELb0ES2_iEEIiTnNS
 75:                                               ; preds = %75, %74
   %.05.i.i631 = phi i64 [ 0, %74 ], [ %77, %75 ]
   %76 = getelementptr inbounds [3 x %"struct.drjit::Array.154"], ptr %20, i64 0, i64 %.05.i.i631
-  store <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>, ptr %76, align 32, !noalias !118
+  store <8 x i32> splat (i32 1), ptr %76, align 32, !noalias !118
   %77 = add nuw nsw i64 %.05.i.i631, 1
   %exitcond.not.i.i632 = icmp eq i64 %77, 3
   br i1 %exitcond.not.i.i632, label %_ZN5drjit5ArrayINS0_IiLm8EEELm3EECI2NS_15StaticArrayImplIS1_Lm3ELb0ES2_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit633, label %75, !llvm.loop !121
@@ -10858,14 +10858,14 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIiLm8EEELb0ENS1_IS2_Lm3EEEE4add_ERKS3_.exit: ; pre
   %106 = shufflevector <8 x i32> %105, <8 x i32> poison, <8 x i32> zeroinitializer
   %107 = bitcast <8 x i32> %106 to <4 x i64>
   %108 = load <4 x i64>, ptr %99, align 32
-  %109 = shl <4 x i64> %107, <i64 32, i64 32, i64 32, i64 32>
-  %110 = ashr exact <4 x i64> %109, <i64 32, i64 32, i64 32, i64 32>
-  %111 = shl <4 x i64> %108, <i64 32, i64 32, i64 32, i64 32>
-  %112 = ashr exact <4 x i64> %111, <i64 32, i64 32, i64 32, i64 32>
+  %109 = shl <4 x i64> %107, splat (i64 32)
+  %110 = ashr exact <4 x i64> %109, splat (i64 32)
+  %111 = shl <4 x i64> %108, splat (i64 32)
+  %112 = ashr exact <4 x i64> %111, splat (i64 32)
   %113 = mul nsw <4 x i64> %110, %112
-  %114 = lshr <4 x i64> %113, <i64 32, i64 32, i64 32, i64 32>
-  %115 = ashr <4 x i64> %107, <i64 32, i64 32, i64 32, i64 32>
-  %116 = ashr <4 x i64> %108, <i64 32, i64 32, i64 32, i64 32>
+  %114 = lshr <4 x i64> %113, splat (i64 32)
+  %115 = ashr <4 x i64> %107, splat (i64 32)
+  %116 = ashr <4 x i64> %108, splat (i64 32)
   %117 = mul nsw <4 x i64> %115, %116
   %118 = bitcast <4 x i64> %114 to <8 x i32>
   %119 = bitcast <4 x i64> %117 to <8 x i32>
@@ -11021,7 +11021,7 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIiLm8EEELb0ENS1_IS2_Lm3EEEE4add_ERKS3_.exit647: ; 
 .preheader:                                       ; preds = %198, %.preheader
   %.05.i.i648 = phi i64 [ %201, %.preheader ], [ 0, %198 ]
   %200 = getelementptr inbounds [3 x %"struct.drjit::Array.154"], ptr %16, i64 0, i64 %.05.i.i648
-  store <8 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>, ptr %200, align 32, !noalias !148
+  store <8 x i32> splat (i32 1), ptr %200, align 32, !noalias !148
   %201 = add nuw nsw i64 %.05.i.i648, 1
   %exitcond.not.i.i649 = icmp eq i64 %201, 3
   br i1 %exitcond.not.i.i649, label %_ZN5drjit5ArrayINS0_IiLm8EEELm3EECI2NS_15StaticArrayImplIS1_Lm3ELb0ES2_iEEIiTnNSt3__19enable_ifIXsr3stdE11is_scalar_vIT_EEiE4typeELi0EEES6_.exit650, label %.preheader, !llvm.loop !121
@@ -11091,7 +11091,7 @@ _ZN5drjit5ArrayINS0_IiLm8EEELm3EECI2NS_15StaticArrayImplIS1_Lm3ELb0ES2_iEEIiTnNS
   br i1 %exitcond.not.i658, label %_ZNK5drjit9ArrayBaseINS_4MaskIiLm8EEELb1ENS1_INS_5ArrayIiLm8EEELm3EEEE4xor_IS5_EES5_RKT_.exit, label %.preheader716, !llvm.loop !156
 
 _ZNK5drjit9ArrayBaseINS_4MaskIiLm8EEELb1ENS1_INS_5ArrayIiLm8EEELm3EEEE4xor_IS5_EES5_RKT_.exit: ; preds = %.preheader716
-  %231 = add <4 x i32> %41, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %231 = add <4 x i32> %41, splat (i32 -1)
   store <4 x i32> %231, ptr %35, align 16
   br label %232
 

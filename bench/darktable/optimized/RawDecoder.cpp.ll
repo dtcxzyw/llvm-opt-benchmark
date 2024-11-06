@@ -1328,9 +1328,9 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
 218:                                              ; preds = %218, %214
   %219 = phi i64 [ 0, %214 ], [ %272, %218 ]
   %220 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %214 ], [ %273, %218 ]
-  %221 = add <8 x i64> %220, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
-  %222 = add <8 x i64> %220, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
-  %223 = add <8 x i64> %220, <i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24, i64 24>
+  %221 = add <8 x i64> %220, splat (i64 8)
+  %222 = add <8 x i64> %220, splat (i64 16)
+  %223 = add <8 x i64> %220, splat (i64 24)
   %224 = getelementptr inbounds i32, ptr %206, i64 %219
   %225 = getelementptr inbounds i8, ptr %224, i64 32
   %226 = getelementptr inbounds i8, ptr %224, i64 64
@@ -1416,7 +1416,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   store <8 x i32> %230, ptr %270, align 4, !tbaa !31
   store <8 x i32> %231, ptr %271, align 4, !tbaa !31
   %272 = add nuw i64 %219, 32
-  %273 = add <8 x i64> %220, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %273 = add <8 x i64> %220, splat (i64 32)
   %274 = icmp eq i64 %272, %215
   br i1 %274, label %275, label %218, !llvm.loop !174
 

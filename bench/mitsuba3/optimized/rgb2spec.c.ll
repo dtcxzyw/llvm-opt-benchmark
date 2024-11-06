@@ -386,10 +386,10 @@ define noundef <4 x float> @rgb2spec_eval_sse(ptr nocapture noundef readonly %0,
   %13 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> zeroinitializer
   %14 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %5, <4 x float> %1, <4 x float> %9)
   %15 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %14, <4 x float> %1, <4 x float> %13)
-  %16 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> %15, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %16 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> %15, <4 x float> splat (float 1.000000e+00))
   %17 = tail call contract <4 x float> @llvm.x86.sse.rsqrt.ps(<4 x float> %16)
-  %18 = fmul contract <4 x float> %15, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %19 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> %17, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %18 = fmul contract <4 x float> %15, splat (float 5.000000e-01)
+  %19 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> %17, <4 x float> splat (float 5.000000e-01))
   ret <4 x float> %19
 }
 
@@ -414,10 +414,10 @@ define noundef <8 x float> @rgb2spec_eval_avx(ptr nocapture noundef readonly %0,
   %13 = shufflevector <8 x float> %12, <8 x float> poison, <8 x i32> zeroinitializer
   %14 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %5, <8 x float> %1, <8 x float> %9)
   %15 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %14, <8 x float> %1, <8 x float> %13)
-  %16 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %15, <8 x float> %15, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %16 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %15, <8 x float> %15, <8 x float> splat (float 1.000000e+00))
   %17 = tail call contract <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %16)
-  %18 = fmul contract <8 x float> %15, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %19 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %18, <8 x float> %17, <8 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %18 = fmul contract <8 x float> %15, splat (float 5.000000e-01)
+  %19 = tail call contract noundef <8 x float> @llvm.fma.v8f32(<8 x float> %18, <8 x float> %17, <8 x float> splat (float 5.000000e-01))
   ret <8 x float> %19
 }
 
@@ -436,10 +436,10 @@ define <16 x float> @rgb2spec_eval_avx512(ptr nocapture noundef readonly %0, <16
   %13 = shufflevector <16 x float> %12, <16 x float> poison, <16 x i32> zeroinitializer
   %14 = tail call contract <16 x float> @llvm.fma.v16f32(<16 x float> %5, <16 x float> %1, <16 x float> %9)
   %15 = tail call contract <16 x float> @llvm.fma.v16f32(<16 x float> %14, <16 x float> %1, <16 x float> %13)
-  %16 = tail call contract <16 x float> @llvm.fma.v16f32(<16 x float> %15, <16 x float> %15, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %16 = tail call contract <16 x float> @llvm.fma.v16f32(<16 x float> %15, <16 x float> %15, <16 x float> splat (float 1.000000e+00))
   %17 = tail call contract <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %16, <16 x float> zeroinitializer, i16 -1)
-  %18 = fmul contract <16 x float> %15, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %19 = tail call contract <16 x float> @llvm.fma.v16f32(<16 x float> %18, <16 x float> %17, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %18 = fmul contract <16 x float> %15, splat (float 5.000000e-01)
+  %19 = tail call contract <16 x float> @llvm.fma.v16f32(<16 x float> %18, <16 x float> %17, <16 x float> splat (float 5.000000e-01))
   ret <16 x float> %19
 }
 

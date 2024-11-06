@@ -85,7 +85,7 @@ define hidden noundef i32 @_ZNK4ncnn17HardSwish_x86_avx15forward_inplaceERNS_3Ma
   %41 = fmul fast <8 x float> %40, %35
   %42 = fadd fast <8 x float> %41, %38
   %43 = tail call fast noundef <8 x float> @llvm.x86.avx.max.ps.256(<8 x float> %42, <8 x float> zeroinitializer)
-  %44 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %43, <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %44 = tail call fast noundef <8 x float> @llvm.x86.avx.min.ps.256(<8 x float> %43, <8 x float> splat (float 1.000000e+00))
   %45 = fmul fast <8 x float> %44, %35
   store <8 x float> %45, ptr %.0171200, align 1
   %46 = getelementptr inbounds i8, ptr %.0171200, i64 32
@@ -112,7 +112,7 @@ define hidden noundef i32 @_ZNK4ncnn17HardSwish_x86_avx15forward_inplaceERNS_3Ma
   %57 = fmul fast <4 x float> %56, %51
   %58 = fadd fast <4 x float> %57, %54
   %59 = tail call fast noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %58, <4 x float> zeroinitializer)
-  %60 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %59, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %60 = tail call fast noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %59, <4 x float> splat (float 1.000000e+00))
   %61 = fmul fast <4 x float> %60, %51
   store <4 x float> %61, ptr %.1203, align 16
   %62 = getelementptr inbounds i8, ptr %.1203, i64 16

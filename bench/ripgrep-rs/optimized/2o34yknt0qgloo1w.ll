@@ -866,7 +866,7 @@ define hidden void @_ZN10grep_regex7matcher19RegexMatcherBuilder10build_many17he
 
 104:                                              ; preds = %105, %143
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9), !noalias !95
-  store <4 x i64> <i64 -1, i64 -1, i64 -1, i64 -1>, ptr %9, align 8, !noalias !95
+  store <4 x i64> splat (i64 -1), ptr %9, align 8, !noalias !95
   invoke void @_ZN10grep_regex12non_matching21remove_matching_bytes17h9d6073d9c418b589E.llvm.8118306253422699639(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %24, ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %144 unwind label %102
 

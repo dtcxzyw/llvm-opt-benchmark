@@ -4716,8 +4716,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %wide.load1520 = load <2 x ptr>, ptr %26, align 8, !tbaa !48
   %27 = icmp eq <2 x ptr> %wide.load, %broadcast.splat
   %28 = icmp eq <2 x ptr> %wide.load1520, %broadcast.splat
-  %29 = select <2 x i1> %27, <2 x i8> <i8 1, i8 1>, <2 x i8> %vec.phi
-  %30 = select <2 x i1> %28, <2 x i8> <i8 1, i8 1>, <2 x i8> %vec.phi1519
+  %29 = select <2 x i1> %27, <2 x i8> splat (i8 1), <2 x i8> %vec.phi
+  %30 = select <2 x i1> %28, <2 x i8> splat (i8 1), <2 x i8> %vec.phi1519
   %index.next = add nuw i64 %index, 4
   %31 = icmp eq i64 %index.next, %n.vec
   br i1 %31, label %middle.block, label %vector.body, !llvm.loop !211
@@ -7488,7 +7488,7 @@ entry:
   %BoundingBox.i = getelementptr inbounds i8, ptr %call, i64 396
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr %BoundingBox.i, align 4, !tbaa !27
   %Y.i2.i.i = getelementptr inbounds i8, ptr %call, i64 412
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %Y.i2.i.i, align 4, !tbaa !27
+  store <2 x float> splat (float 1.000000e+00), ptr %Y.i2.i.i, align 4, !tbaa !27
   %PrimitiveType.i = getelementptr inbounds i8, ptr %call, i64 420
   store i32 6, ptr %PrimitiveType.i, align 4, !tbaa !329
   %MappingHint_Vertex.i = getelementptr inbounds i8, ptr %call, i64 424
@@ -7636,7 +7636,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i11.i, align 4, !tbaa !27
   %arrayidx6.i.i12.i = getelementptr inbounds i8, ptr %call, i64 380
   store float 1.000000e+00, ptr %arrayidx6.i.i12.i, align 4, !tbaa !27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i7.i, align 4, !tbaa !27
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i7.i, align 4, !tbaa !27
   %3 = getelementptr inbounds i8, ptr %call, i64 428
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   %arrayidx.i.i13.i = getelementptr inbounds i8, ptr %call, i64 484
@@ -7645,7 +7645,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i14.i, align 4, !tbaa !27
   %arrayidx6.i.i15.i = getelementptr inbounds i8, ptr %call, i64 444
   store float 1.000000e+00, ptr %arrayidx6.i.i15.i, align 4, !tbaa !27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %arrayidx.i.i10.i, align 4, !tbaa !27
+  store <2 x float> splat (float 1.000000e+00), ptr %arrayidx.i.i10.i, align 4, !tbaa !27
   %Animatedposition.i = getelementptr inbounds i8, ptr %call, i64 488
   %W.i.i = getelementptr inbounds i8, ptr %call, i64 524
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %Animatedposition.i, i8 0, i64 36, i1 false)
@@ -7657,7 +7657,7 @@ entry:
   store float 1.000000e+00, ptr %arrayidx4.i.i21.i, align 4, !tbaa !27
   %arrayidx6.i.i22.i = getelementptr inbounds i8, ptr %call, i64 548
   store float 1.000000e+00, ptr %arrayidx6.i.i22.i, align 4, !tbaa !27
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %W.i.i, align 4, !tbaa !27
+  store <2 x float> splat (float 1.000000e+00), ptr %W.i.i, align 4, !tbaa !27
   %UseAnimationFrom.i = getelementptr inbounds i8, ptr %call, i64 592
   store ptr null, ptr %UseAnimationFrom.i, align 8, !tbaa !85
   %GlobalSkinningSpace.i = getelementptr inbounds i8, ptr %call, i64 600
@@ -8378,7 +8378,7 @@ for.body:                                         ; preds = %_ZNK3irr4core8CMatr
   %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 428
   %10 = load <2 x float>, ptr %arrayidx.i.i, align 4, !tbaa !27
   %11 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %10)
-  %12 = fcmp ugt <2 x float> %11, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
+  %12 = fcmp ugt <2 x float> %11, splat (float 0x3EB0C6F7A0000000)
   %13 = extractelement <2 x i1> %12, i64 0
   %14 = extractelement <2 x i1> %12, i64 1
   %or.cond.i.i = select i1 %13, i1 true, i1 %14
@@ -8492,7 +8492,7 @@ _ZNK3irr4core8CMatrix4IfE18getRotationDegreesEv.exit: ; preds = %if.else19.threa
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp12) #31
   %43 = load <2 x float>, ptr %arrayidx.i.i, align 4, !tbaa !27
   %44 = call <2 x float> @llvm.fabs.v2f32(<2 x float> %43)
-  %45 = fcmp ugt <2 x float> %44, <float 0x3EB0C6F7A0000000, float 0x3EB0C6F7A0000000>
+  %45 = fcmp ugt <2 x float> %44, splat (float 0x3EB0C6F7A0000000)
   %46 = extractelement <2 x i1> %45, i64 0
   %47 = extractelement <2 x i1> %45, i64 1
   %or.cond.i = select i1 %46, i1 true, i1 %47
@@ -14059,7 +14059,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %22 = insertelement <2 x double> poison, double %X33.0, i64 0
   %23 = insertelement <2 x double> %22, double %mul32, i64 1
   %24 = fcmp olt <2 x double> %23, zeroinitializer
-  %25 = fadd <2 x double> %23, <double 3.600000e+02, double 3.600000e+02>
+  %25 = fadd <2 x double> %23, splat (double 3.600000e+02)
   %26 = select <2 x i1> %24, <2 x double> %25, <2 x double> %23
   %27 = fptrunc <2 x double> %26 to <2 x float>
   %conv85 = fptrunc double %Z34.1 to float

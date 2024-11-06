@@ -412,11 +412,11 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %80 = fadd reassoc nsz arcp contract afn float %79, %76
   %81 = insertelement <2 x float> poison, float %79, i64 0
   %82 = insertelement <2 x float> %81, float %80, i64 1
-  %83 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %82, <float 0x3FCA7B9620000000, float 0x3FCA7B9620000000>
+  %83 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %82, splat (float 0x3FCA7B9620000000)
   %84 = fmul reassoc nsz arcp contract afn <2 x float> %82, %82
   %85 = fmul reassoc nsz arcp contract afn <2 x float> %84, %82
-  %86 = fmul reassoc nsz arcp contract afn <2 x float> %82, <float 0x3FC07004C0000000, float 0x3FC07004C0000000>
-  %87 = fadd reassoc nsz arcp contract afn <2 x float> %86, <float 0xBF922354C0000000, float 0xBF922354C0000000>
+  %86 = fmul reassoc nsz arcp contract afn <2 x float> %82, splat (float 0x3FC07004C0000000)
+  %87 = fadd reassoc nsz arcp contract afn <2 x float> %86, splat (float 0xBF922354C0000000)
   %88 = select <2 x i1> %83, <2 x float> %85, <2 x float> %87
   %89 = shufflevector <2 x float> %88, <2 x float> poison, <4 x i32> <i32 0, i32 0, i32 0, i32 1>
   %90 = fsub reassoc nsz arcp contract afn float %79, %78

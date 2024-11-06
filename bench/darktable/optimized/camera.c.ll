@@ -924,14 +924,14 @@ define internal void @_add_property_button_clicked(ptr nocapture readnone %0, pt
   %42 = load <32 x i8>, ptr %38, align 1, !tbaa !76
   %43 = load <32 x i8>, ptr %39, align 1, !tbaa !76
   %44 = load <32 x i8>, ptr %40, align 1, !tbaa !76
-  %45 = icmp eq <32 x i8> %41, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
-  %46 = icmp eq <32 x i8> %42, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
-  %47 = icmp eq <32 x i8> %43, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
-  %48 = icmp eq <32 x i8> %44, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>, ptr %37, i32 1, <32 x i1> %45), !tbaa !76
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>, ptr %38, i32 1, <32 x i1> %46), !tbaa !76
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>, ptr %39, i32 1, <32 x i1> %47), !tbaa !76
-  call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>, ptr %40, i32 1, <32 x i1> %48), !tbaa !76
+  %45 = icmp eq <32 x i8> %41, splat (i8 32)
+  %46 = icmp eq <32 x i8> %42, splat (i8 32)
+  %47 = icmp eq <32 x i8> %43, splat (i8 32)
+  %48 = icmp eq <32 x i8> %44, splat (i8 32)
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 95), ptr %37, i32 1, <32 x i1> %45), !tbaa !76
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 95), ptr %38, i32 1, <32 x i1> %46), !tbaa !76
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 95), ptr %39, i32 1, <32 x i1> %47), !tbaa !76
+  call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 95), ptr %40, i32 1, <32 x i1> %48), !tbaa !76
   %49 = add nuw i64 %36, 128
   %50 = icmp eq i64 %49, %34
   br i1 %50, label %51, label %35, !llvm.loop !77
@@ -956,8 +956,8 @@ define internal void @_add_property_button_clicked(ptr nocapture readnone %0, pt
   %62 = phi i64 [ %58, %57 ], [ %66, %61 ]
   %63 = getelementptr i8, ptr %25, i64 %62
   %64 = load <16 x i8>, ptr %63, align 1, !tbaa !76
-  %65 = icmp eq <16 x i8> %64, <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>
-  call void @llvm.masked.store.v16i8.p0(<16 x i8> <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>, ptr %63, i32 1, <16 x i1> %65), !tbaa !76
+  %65 = icmp eq <16 x i8> %64, splat (i8 32)
+  call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 95), ptr %63, i32 1, <16 x i1> %65), !tbaa !76
   %66 = add nuw i64 %62, 16
   %67 = icmp eq i64 %66, %60
   br i1 %67, label %68, label %61, !llvm.loop !80
@@ -1186,14 +1186,14 @@ define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %94 = load <32 x i8>, ptr %90, align 1, !tbaa !76
   %95 = load <32 x i8>, ptr %91, align 1, !tbaa !76
   %96 = load <32 x i8>, ptr %92, align 1, !tbaa !76
-  %97 = icmp eq <32 x i8> %93, <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>
-  %98 = icmp eq <32 x i8> %94, <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>
-  %99 = icmp eq <32 x i8> %95, <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>
-  %100 = icmp eq <32 x i8> %96, <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, ptr %89, i32 1, <32 x i1> %97), !tbaa !76
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, ptr %90, i32 1, <32 x i1> %98), !tbaa !76
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, ptr %91, i32 1, <32 x i1> %99), !tbaa !76
-  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, ptr %92, i32 1, <32 x i1> %100), !tbaa !76
+  %97 = icmp eq <32 x i8> %93, splat (i8 95)
+  %98 = icmp eq <32 x i8> %94, splat (i8 95)
+  %99 = icmp eq <32 x i8> %95, splat (i8 95)
+  %100 = icmp eq <32 x i8> %96, splat (i8 95)
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 32), ptr %89, i32 1, <32 x i1> %97), !tbaa !76
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 32), ptr %90, i32 1, <32 x i1> %98), !tbaa !76
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 32), ptr %91, i32 1, <32 x i1> %99), !tbaa !76
+  tail call void @llvm.masked.store.v32i8.p0(<32 x i8> splat (i8 32), ptr %92, i32 1, <32 x i1> %100), !tbaa !76
   %101 = add nuw i64 %87, 128
   %102 = icmp eq i64 %101, %85
   br i1 %102, label %103, label %86, !llvm.loop !86
@@ -1218,8 +1218,8 @@ define void @view_enter(ptr nocapture noundef readonly %0, ptr nocapture noundef
   %114 = phi i64 [ %110, %109 ], [ %118, %113 ]
   %115 = getelementptr i8, ptr %112, i64 %114
   %116 = load <16 x i8>, ptr %115, align 1, !tbaa !76
-  %117 = icmp eq <16 x i8> %116, <i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95, i8 95>
-  tail call void @llvm.masked.store.v16i8.p0(<16 x i8> <i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32, i8 32>, ptr %115, i32 1, <16 x i1> %117), !tbaa !76
+  %117 = icmp eq <16 x i8> %116, splat (i8 95)
+  tail call void @llvm.masked.store.v16i8.p0(<16 x i8> splat (i8 32), ptr %115, i32 1, <16 x i1> %117), !tbaa !76
   %118 = add nuw i64 %114, 16
   %119 = icmp eq i64 %118, %111
   br i1 %119, label %120, label %113, !llvm.loop !87

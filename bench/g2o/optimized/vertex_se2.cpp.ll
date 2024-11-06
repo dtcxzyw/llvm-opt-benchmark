@@ -1429,7 +1429,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(88) ptr @_ZN5Eigen3L
 25:                                               ; preds = %20
   %26 = and i64 %23, 2
   %27 = load <2 x i64>, ptr %24, align 8
-  %28 = and <2 x i64> %27, <i64 9223372036854775807, i64 9223372036854775807>
+  %28 = and <2 x i64> %27, splat (i64 9223372036854775807)
   %29 = bitcast <2 x i64> %28 to <2 x double>
   %shift = shufflevector <2 x double> %29, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
   %30 = fadd <2 x double> %shift, %29

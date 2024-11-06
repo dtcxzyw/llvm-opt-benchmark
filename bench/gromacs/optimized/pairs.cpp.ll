@@ -1587,7 +1587,7 @@ define internal fastcc void @_ZL15do_pairs_simpleIN3gmx9SimdFloatELi8EPKfEviPKiP
   br i1 %exitcond.not.i, label %_ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit, label %.preheader, !llvm.loop !11
 
 _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit: ; preds = %.preheader
-  %196 = fmul <8 x float> %.val122, <float 1.200000e+01, float 1.200000e+01, float 1.200000e+01, float 1.200000e+01, float 1.200000e+01, float 1.200000e+01, float 1.200000e+01, float 1.200000e+01>
+  %196 = fmul <8 x float> %.val122, splat (float 1.200000e+01)
   %.sroa.039.0.copyload.i.i = load <8 x float>, ptr %39, align 32
   %.val72.i.i = load <8 x float>, ptr %5, align 32
   %197 = fmul <8 x float> %.sroa.039.0.copyload.i.i, %.val72.i.i
@@ -1628,15 +1628,15 @@ _ZL11pbc_dx_aiucPKfPKN3gmx9SimdFloatES4_PS2_.exit: ; preds = %.preheader
   %219 = fadd <8 x float> %218, %217
   %220 = tail call noundef <8 x float> @llvm.x86.avx.rsqrt.ps.256(<8 x float> %219)
   %221 = fmul <8 x float> %220, %219
-  %222 = fmul <8 x float> %220, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
-  %223 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %221, <8 x float> %220, <8 x float> <float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00, float -3.000000e+00>)
+  %222 = fmul <8 x float> %220, splat (float -5.000000e-01)
+  %223 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %221, <8 x float> %220, <8 x float> splat (float -3.000000e+00))
   %224 = fmul <8 x float> %222, %223
   %225 = fmul <8 x float> %224, %224
   %226 = fmul <8 x float> %225, %225
   %227 = fmul <8 x float> %225, %226
   %228 = fmul <8 x float> %15, %.val123
   %229 = fmul <8 x float> %228, %224
-  %230 = fmul <8 x float> %.val, <float -6.000000e+00, float -6.000000e+00, float -6.000000e+00, float -6.000000e+00, float -6.000000e+00, float -6.000000e+00, float -6.000000e+00, float -6.000000e+00>
+  %230 = fmul <8 x float> %.val, splat (float -6.000000e+00)
   %231 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %196, <8 x float> %227, <8 x float> %230)
   %232 = tail call noundef <8 x float> @llvm.fma.v8f32(<8 x float> %231, <8 x float> %227, <8 x float> %229)
   %233 = fmul <8 x float> %225, %232

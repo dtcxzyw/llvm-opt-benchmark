@@ -4164,7 +4164,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
 613:                                              ; preds = %613, %611
   %614 = phi i64 [ 0, %611 ], [ %632, %613 ]
   %615 = phi <4 x i64> [ <i64 0, i64 1, i64 2, i64 3>, %611 ], [ %633, %613 ]
-  %616 = add <4 x i64> %615, <i64 4, i64 4, i64 4, i64 4>
+  %616 = add <4 x i64> %615, splat (i64 4)
   %617 = or disjoint i64 %614, 4
   %618 = getelementptr inbounds %"class.rawspeed::iPoint2D", ptr %541, i64 %614
   %619 = getelementptr inbounds %"class.rawspeed::iPoint2D", ptr %541, i64 %617
@@ -4182,10 +4182,10 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %629 = sitofp <4 x i32> %625 to <4 x double>
   %630 = getelementptr inbounds %"struct.rawspeed::Spline<>::Segment", ptr %596, <4 x i64> %615
   %631 = getelementptr inbounds %"struct.rawspeed::Spline<>::Segment", ptr %596, <4 x i64> %616
-  call void @llvm.masked.scatter.v4f64.v4p0(<4 x double> %628, <4 x ptr> %630, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !302
-  call void @llvm.masked.scatter.v4f64.v4p0(<4 x double> %629, <4 x ptr> %631, i32 8, <4 x i1> <i1 true, i1 true, i1 true, i1 true>), !tbaa !302
+  call void @llvm.masked.scatter.v4f64.v4p0(<4 x double> %628, <4 x ptr> %630, i32 8, <4 x i1> splat (i1 true)), !tbaa !302
+  call void @llvm.masked.scatter.v4f64.v4p0(<4 x double> %629, <4 x ptr> %631, i32 8, <4 x i1> splat (i1 true)), !tbaa !302
   %632 = add nuw nsw i64 %614, 8
-  %633 = add <4 x i64> %615, <i64 8, i64 8, i64 8, i64 8>
+  %633 = add <4 x i64> %615, splat (i64 8)
   %634 = icmp eq i64 %632, %612
   br i1 %634, label %635, label %613, !llvm.loop !304
 
@@ -4304,9 +4304,9 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %708 = phi i64 [ 0, %693 ], [ %762, %707 ]
   %709 = phi <4 x i32> [ %697, %693 ], [ %763, %707 ]
   %710 = sub <4 x i32> %709, %696
-  %711 = add <4 x i32> %710, <i32 4, i32 4, i32 4, i32 4>
-  %712 = add <4 x i32> %710, <i32 8, i32 8, i32 8, i32 8>
-  %713 = add <4 x i32> %710, <i32 12, i32 12, i32 12, i32 12>
+  %711 = add <4 x i32> %710, splat (i32 4)
+  %712 = add <4 x i32> %710, splat (i32 8)
+  %713 = add <4 x i32> %710, splat (i32 12)
   %714 = sitofp <4 x i32> %710 to <4 x double>
   %715 = sitofp <4 x i32> %711 to <4 x double>
   %716 = sitofp <4 x i32> %712 to <4 x double>
@@ -4339,14 +4339,14 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %743 = select <4 x i1> %739, <4 x double> zeroinitializer, <4 x double> %735
   %744 = select <4 x i1> %740, <4 x double> zeroinitializer, <4 x double> %736
   %745 = select <4 x i1> %741, <4 x double> zeroinitializer, <4 x double> %737
-  %746 = fcmp ogt <4 x double> %742, <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>
-  %747 = fcmp ogt <4 x double> %743, <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>
-  %748 = fcmp ogt <4 x double> %744, <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>
-  %749 = fcmp ogt <4 x double> %745, <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>
-  %750 = select <4 x i1> %746, <4 x double> <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>, <4 x double> %742
-  %751 = select <4 x i1> %747, <4 x double> <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>, <4 x double> %743
-  %752 = select <4 x i1> %748, <4 x double> <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>, <4 x double> %744
-  %753 = select <4 x i1> %749, <4 x double> <double 6.553500e+04, double 6.553500e+04, double 6.553500e+04, double 6.553500e+04>, <4 x double> %745
+  %746 = fcmp ogt <4 x double> %742, splat (double 6.553500e+04)
+  %747 = fcmp ogt <4 x double> %743, splat (double 6.553500e+04)
+  %748 = fcmp ogt <4 x double> %744, splat (double 6.553500e+04)
+  %749 = fcmp ogt <4 x double> %745, splat (double 6.553500e+04)
+  %750 = select <4 x i1> %746, <4 x double> splat (double 6.553500e+04), <4 x double> %742
+  %751 = select <4 x i1> %747, <4 x double> splat (double 6.553500e+04), <4 x double> %743
+  %752 = select <4 x i1> %748, <4 x double> splat (double 6.553500e+04), <4 x double> %744
+  %753 = select <4 x i1> %749, <4 x double> splat (double 6.553500e+04), <4 x double> %745
   %754 = fptoui <4 x double> %750 to <4 x i16>
   %755 = fptoui <4 x double> %751 to <4 x i16>
   %756 = fptoui <4 x double> %752 to <4 x i16>
@@ -4360,7 +4360,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   store <4 x i16> %756, ptr %760, align 2, !tbaa !225, !noalias !306
   store <4 x i16> %757, ptr %761, align 2, !tbaa !225, !noalias !306
   %762 = add nuw i64 %708, 16
-  %763 = add <4 x i32> %709, <i32 16, i32 16, i32 16, i32 16>
+  %763 = add <4 x i32> %709, splat (i32 16)
   %764 = icmp eq i64 %762, %694
   br i1 %764, label %765, label %707, !llvm.loop !313
 
@@ -6569,7 +6569,7 @@ define linkonce_odr hidden void @_ZN8rawspeed6SplineItE7prepareEv(ptr noundef no
   %152 = getelementptr inbounds %"struct.rawspeed::Spline<>::Segment", ptr %95, i64 %151
   %153 = getelementptr inbounds double, ptr %23, i64 %148
   %154 = load <4 x double>, ptr %153, align 8, !tbaa !290, !alias.scope !354
-  %155 = fdiv <4 x double> <double 3.000000e+00, double 3.000000e+00, double 3.000000e+00, double 3.000000e+00>, %154
+  %155 = fdiv <4 x double> splat (double 3.000000e+00), %154
   %156 = load <16 x double>, ptr %152, align 8, !tbaa !302
   %157 = load <16 x double>, ptr %150, align 8, !tbaa !302
   %158 = fsub <16 x double> %156, %157
@@ -6579,7 +6579,7 @@ define linkonce_odr hidden void @_ZN8rawspeed6SplineItE7prepareEv(ptr noundef no
   %162 = load <16 x double>, ptr %149, align 8, !tbaa !302
   %163 = fsub <16 x double> %157, %162
   %164 = shufflevector <16 x double> %163, <16 x double> poison, <4 x i32> <i32 0, i32 4, i32 8, i32 12>
-  %165 = fdiv <4 x double> <double -3.000000e+00, double -3.000000e+00, double -3.000000e+00, double -3.000000e+00>, %161
+  %165 = fdiv <4 x double> splat (double -3.000000e+00), %161
   %166 = fmul <4 x double> %165, %164
   %167 = tail call <4 x double> @llvm.fmuladd.v4f64(<4 x double> %155, <4 x double> %159, <4 x double> %166)
   %168 = getelementptr inbounds double, ptr %24, i64 %148

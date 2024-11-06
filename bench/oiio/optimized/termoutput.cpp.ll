@@ -2650,7 +2650,7 @@ invoke.cont357:                                   ; preds = %for.body349
   %64 = load <4 x float>, ptr %rgborig, align 16
   %add.i = fadd <4 x float> %leftover.sroa.0.0, %64
   store <4 x float> %add.i, ptr %rgborig, align 16
-  %mul.i746 = fmul <4 x float> %add.i, <float 5.000000e+00, float 5.000000e+00, float 5.000000e+00, float 5.000000e+00>
+  %mul.i746 = fmul <4 x float> %add.i, splat (float 5.000000e+00)
   store <4 x float> %mul.i746, ptr %rgb361, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %f.i)
   br label %for.body.i.i
@@ -2672,9 +2672,9 @@ invoke.cont364:                                   ; preds = %for.body.i.i
   store <4 x i32> %68, ptr %rgbi, align 16, !noalias !51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i)
   %conv.i = sitofp <4 x i32> %68 to <4 x float>
-  %mul.i743 = fmul <4 x float> %conv.i, <float 0x3FC99999A0000000, float 0x3FC99999A0000000, float 0x3FC99999A0000000, float 0x3FC99999A0000000>
+  %mul.i743 = fmul <4 x float> %conv.i, splat (float 0x3FC99999A0000000)
   store <2 x i64> zeroinitializer, ptr %ref.tmp374, align 16
-  store <2 x i64> <i64 21474836485, i64 21474836485>, ptr %ref.tmp376, align 16
+  store <2 x i64> splat (i64 21474836485), ptr %ref.tmp376, align 16
   br label %for.body.i785
 
 for.body.i785:                                    ; preds = %invoke.cont364, %for.body.i785
@@ -2823,7 +2823,7 @@ for.body437:                                      ; preds = %for.cond435
 
 invoke.cont446:                                   ; preds = %for.body437
   %81 = load <4 x float>, ptr %rgborig438, align 16
-  %mul.i = fmul <4 x float> %81, <float 5.000000e+00, float 5.000000e+00, float 5.000000e+00, float 5.000000e+00>
+  %mul.i = fmul <4 x float> %81, splat (float 5.000000e+00)
   store <4 x float> %mul.i, ptr %rgb448, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %f.i463)
   br label %for.body.i.i464
@@ -2845,7 +2845,7 @@ invoke.cont453:                                   ; preds = %for.body.i.i464
   store <4 x i32> %85, ptr %rgbi450, align 16, !noalias !59
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i463)
   store <2 x i64> zeroinitializer, ptr %ref.tmp455, align 16
-  store <2 x i64> <i64 21474836485, i64 21474836485>, ptr %ref.tmp457, align 16
+  store <2 x i64> splat (i64 21474836485), ptr %ref.tmp457, align 16
   br label %for.body.i803
 
 for.body.i803:                                    ; preds = %invoke.cont453, %for.body.i803

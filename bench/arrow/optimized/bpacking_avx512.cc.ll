@@ -465,7 +465,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i.i: ; preds = %for.body.i.i.i.
   %6 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i.i)
-  %and.i.i.i.i.i.i = and <8 x i64> %6, <i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297>
+  %and.i.i.i.i.i.i = and <8 x i64> %6, splat (i64 4294967297)
   store <8 x i64> %and.i.i.i.i.i.i, ptr %add.ptr10.i, align 1
   %ret.0.copyload.i53.i.i = load i32, ptr %in.addr.12464.i, align 4
   %vecinit.i.i.i69.i.i = insertelement <16 x i32> poison, i32 %ret.0.copyload.i53.i.i, i64 0
@@ -493,7 +493,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %9 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i.i)
-  %and.i.i.i.i97.i.i = and <8 x i64> %9, <i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297, i64 4294967297>
+  %and.i.i.i.i97.i.i = and <8 x i64> %9, splat (i64 4294967297)
   store <8 x i64> %and.i.i.i.i97.i.i, ptr %add.ptr45.i.i, align 1
   %add.ptr95.i.i = getelementptr inbounds i8, ptr %in.addr.12464.i, i64 4
   %indvars.iv.next2683.i = add nuw nsw i64 %indvars.iv2682.i, 1
@@ -530,7 +530,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i179.i: ; preds = %for.body.i.i
   %12 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i167.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i167.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i168.i)
-  %and.i.i.i.i.i180.i = and <8 x i64> %12, <i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891>
+  %and.i.i.i.i.i180.i = and <8 x i64> %12, splat (i64 12884901891)
   store <8 x i64> %and.i.i.i.i.i180.i, ptr %add.ptr22.i, align 1
   %add.ptr47.i.i = getelementptr inbounds i8, ptr %in.addr.22461.i, i64 4
   %ret.0.copyload.i53.i181.i = load i32, ptr %add.ptr47.i.i, align 4
@@ -559,7 +559,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %15 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i165.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i165.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i166.i)
-  %and.i.i.i.i97.i192.i = and <8 x i64> %15, <i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891, i64 12884901891>
+  %and.i.i.i.i97.i192.i = and <8 x i64> %15, splat (i64 12884901891)
   store <8 x i64> %and.i.i.i.i97.i192.i, ptr %add.ptr45.i191.i, align 1
   %add.ptr95.i193.i = getelementptr inbounds i8, ptr %in.addr.22461.i, i64 8
   %indvars.iv.next2677.i = add nuw nsw i64 %indvars.iv2676.i, 1
@@ -613,7 +613,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i206.i: ; preds = %for.body.i.i
   %18 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i194.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i194.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i195.i)
-  %and.i.i.i.i.i207.i = and <8 x i64> %18, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i.i207.i = and <8 x i64> %18, splat (i64 30064771079)
   store <8 x i64> %and.i.i.i.i.i207.i, ptr %add.ptr34.i, align 1
   %ret.0.copyload.i56.i.i = load i32, ptr %add.ptr21.i.i, align 4
   %add.ptr62.i.i = getelementptr inbounds i8, ptr %in.addr.32458.i, i64 8
@@ -658,7 +658,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %21 = load <8 x i64>, ptr %self_buffer.i.i.i.i89.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i89.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i90.i.i)
-  %and.i.i.i.i101.i.i = and <8 x i64> %21, <i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079, i64 30064771079>
+  %and.i.i.i.i101.i.i = and <8 x i64> %21, splat (i64 30064771079)
   store <8 x i64> %and.i.i.i.i101.i.i, ptr %add.ptr47.i208.i, align 1
   %add.ptr102.i.i = getelementptr inbounds i8, ptr %in.addr.32458.i, i64 12
   %indvars.iv.next2671.i = add nuw nsw i64 %indvars.iv2670.i, 1
@@ -711,7 +711,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i237.i: ; preds = %for.body.i.i
   %24 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i211.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i211.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i212.i)
-  %and.i.i.i.i.i238.i = and <8 x i64> %24, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i.i238.i = and <8 x i64> %24, splat (i64 64424509455)
   store <8 x i64> %and.i.i.i.i.i238.i, ptr %add.ptr46.i, align 1
   %add.ptr47.i239.i = getelementptr inbounds i8, ptr %in.addr.42455.i, i64 8
   %ret.0.copyload.i53.i240.i = load i32, ptr %add.ptr47.i239.i, align 4
@@ -756,7 +756,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %27 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i209.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i209.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i210.i)
-  %and.i.i.i.i97.i251.i = and <8 x i64> %27, <i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455, i64 64424509455>
+  %and.i.i.i.i97.i251.i = and <8 x i64> %27, splat (i64 64424509455)
   store <8 x i64> %and.i.i.i.i97.i251.i, ptr %add.ptr45.i250.i, align 1
   %add.ptr95.i252.i = getelementptr inbounds i8, ptr %in.addr.42455.i, i64 16
   %indvars.iv.next2665.i = add nuw nsw i64 %indvars.iv2664.i, 1
@@ -813,7 +813,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i280.i: ; preds = %for.body.i.i
   %30 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i253.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i253.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i254.i)
-  %and.i.i.i.i.i281.i = and <8 x i64> %30, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i.i281.i = and <8 x i64> %30, splat (i64 133143986207)
   store <8 x i64> %and.i.i.i.i.i281.i, ptr %add.ptr58.i, align 1
   %ret.0.copyload.i59.i.i = load i32, ptr %add.ptr28.i.i, align 4
   %add.ptr63.i282.i = getelementptr inbounds i8, ptr %in.addr.52452.i, i64 12
@@ -861,7 +861,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %33 = load <8 x i64>, ptr %self_buffer.i.i.i.i93.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i93.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i94.i.i)
-  %and.i.i.i.i105.i.i = and <8 x i64> %33, <i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207, i64 133143986207>
+  %and.i.i.i.i105.i.i = and <8 x i64> %33, splat (i64 133143986207)
   store <8 x i64> %and.i.i.i.i105.i.i, ptr %add.ptr52.i.i, align 1
   %add.ptr112.i.i = getelementptr inbounds i8, ptr %in.addr.52452.i, i64 20
   %indvars.iv.next2659.i = add nuw nsw i64 %indvars.iv2658.i, 1
@@ -918,7 +918,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i312.i: ; preds = %for.body.i.i
   %36 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i285.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i285.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i286.i)
-  %and.i.i.i.i.i313.i = and <8 x i64> %36, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i.i313.i = and <8 x i64> %36, splat (i64 270582939711)
   store <8 x i64> %and.i.i.i.i.i313.i, ptr %add.ptr70.i, align 1
   %add.ptr54.i.i = getelementptr inbounds i8, ptr %in.addr.62449.i, i64 12
   %ret.0.copyload.i59.i314.i = load i32, ptr %add.ptr54.i.i, align 4
@@ -967,7 +967,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %39 = load <8 x i64>, ptr %self_buffer.i.i.i.i93.i283.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i93.i283.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i94.i284.i)
-  %and.i.i.i.i105.i339.i = and <8 x i64> %39, <i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711, i64 270582939711>
+  %and.i.i.i.i105.i339.i = and <8 x i64> %39, splat (i64 270582939711)
   store <8 x i64> %and.i.i.i.i105.i339.i, ptr %add.ptr52.i338.i, align 1
   %add.ptr112.i340.i = getelementptr inbounds i8, ptr %in.addr.62449.i, i64 24
   %indvars.iv.next2653.i = add nuw nsw i64 %indvars.iv2652.i, 1
@@ -1027,7 +1027,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i370.i: ; preds = %for.body.i.i
   %42 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i341.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i341.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i342.i)
-  %and.i.i.i.i.i371.i = and <8 x i64> %42, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i.i371.i = and <8 x i64> %42, splat (i64 545460846719)
   store <8 x i64> %and.i.i.i.i.i371.i, ptr %add.ptr82.i, align 1
   %ret.0.copyload.i62.i372.i = load i32, ptr %add.ptr35.i.i, align 4
   %add.ptr66.i.i = getelementptr inbounds i8, ptr %in.addr.72446.i, i64 16
@@ -1078,7 +1078,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %45 = load <8 x i64>, ptr %self_buffer.i.i.i.i97.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i97.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i98.i.i)
-  %and.i.i.i.i109.i.i = and <8 x i64> %45, <i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719, i64 545460846719>
+  %and.i.i.i.i109.i.i = and <8 x i64> %45, splat (i64 545460846719)
   store <8 x i64> %and.i.i.i.i109.i.i, ptr %add.ptr57.i.i, align 1
   %add.ptr122.i.i = getelementptr inbounds i8, ptr %in.addr.72446.i, i64 28
   %indvars.iv.next2647.i = add nuw nsw i64 %indvars.iv2646.i, 1
@@ -1135,7 +1135,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i405.i: ; preds = %for.body.i.i
   %48 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i377.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i377.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i378.i)
-  %and.i.i.i.i.i406.i = and <8 x i64> %48, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i.i406.i = and <8 x i64> %48, splat (i64 1095216660735)
   store <8 x i64> %and.i.i.i.i.i406.i, ptr %add.ptr94.i, align 1
   %add.ptr47.i407.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 16
   %ret.0.copyload.i53.i408.i = load i32, ptr %add.ptr47.i407.i, align 4
@@ -1184,7 +1184,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %51 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i375.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i375.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i376.i)
-  %and.i.i.i.i97.i436.i = and <8 x i64> %51, <i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735, i64 1095216660735>
+  %and.i.i.i.i97.i436.i = and <8 x i64> %51, splat (i64 1095216660735)
   store <8 x i64> %and.i.i.i.i97.i436.i, ptr %add.ptr45.i435.i, align 1
   %add.ptr95.i437.i = getelementptr inbounds i8, ptr %in.addr.82443.i, i64 32
   %indvars.iv.next2641.i = add nuw nsw i64 %indvars.iv2640.i, 1
@@ -1247,7 +1247,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i470.i: ; preds = %for.body.i.i
   %54 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i438.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i438.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i439.i)
-  %and.i.i.i.i.i471.i = and <8 x i64> %54, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i.i471.i = and <8 x i64> %54, splat (i64 2194728288767)
   store <8 x i64> %and.i.i.i.i.i471.i, ptr %add.ptr106.i, align 1
   %ret.0.copyload.i65.i472.i = load i32, ptr %add.ptr42.i.i, align 4
   %add.ptr69.i.i = getelementptr inbounds i8, ptr %in.addr.92440.i, i64 20
@@ -1301,7 +1301,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE10unpack
   %57 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i101.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i102.i.i)
-  %and.i.i.i.i113.i.i = and <8 x i64> %57, <i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767, i64 2194728288767>
+  %and.i.i.i.i113.i.i = and <8 x i64> %57, splat (i64 2194728288767)
   store <8 x i64> %and.i.i.i.i113.i.i, ptr %add.ptr62.i476.i, align 1
   %add.ptr132.i.i = getelementptr inbounds i8, ptr %in.addr.92440.i, i64 36
   %indvars.iv.next2635.i = add nuw nsw i64 %indvars.iv2634.i, 1
@@ -1364,7 +1364,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i510.i: ; preds = %for.body.i.i
   %60 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i479.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i479.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i480.i)
-  %and.i.i.i.i.i511.i = and <8 x i64> %60, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i.i511.i = and <8 x i64> %60, splat (i64 4393751544831)
   store <8 x i64> %and.i.i.i.i.i511.i, ptr %add.ptr118.i, align 1
   %add.ptr64.i.i = getelementptr inbounds i8, ptr %in.addr.102437.i, i64 20
   %ret.0.copyload.i65.i512.i = load i32, ptr %add.ptr64.i.i, align 4
@@ -1419,7 +1419,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %63 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i477.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i101.i477.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i102.i478.i)
-  %and.i.i.i.i113.i541.i = and <8 x i64> %63, <i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831, i64 4393751544831>
+  %and.i.i.i.i113.i541.i = and <8 x i64> %63, splat (i64 4393751544831)
   store <8 x i64> %and.i.i.i.i113.i541.i, ptr %add.ptr62.i540.i, align 1
   %add.ptr132.i542.i = getelementptr inbounds i8, ptr %in.addr.102437.i, i64 40
   %indvars.iv.next2629.i = add nuw nsw i64 %indvars.iv2628.i, 1
@@ -1485,7 +1485,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i576.i: ; preds = %for.body.i.i
   %66 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i543.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i543.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i544.i)
-  %and.i.i.i.i.i577.i = and <8 x i64> %66, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i.i577.i = and <8 x i64> %66, splat (i64 8791798056959)
   store <8 x i64> %and.i.i.i.i.i577.i, ptr %add.ptr130.i, align 1
   %ret.0.copyload.i68.i.i = load i32, ptr %add.ptr47.i551.i, align 4
   %add.ptr74.i.i = getelementptr inbounds i8, ptr %in.addr.112434.i, i64 24
@@ -1542,7 +1542,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %69 = load <8 x i64>, ptr %self_buffer.i.i.i.i105.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i105.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i106.i.i)
-  %and.i.i.i.i117.i.i = and <8 x i64> %69, <i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959, i64 8791798056959>
+  %and.i.i.i.i117.i.i = and <8 x i64> %69, splat (i64 8791798056959)
   store <8 x i64> %and.i.i.i.i117.i.i, ptr %add.ptr67.i579.i, align 1
   %add.ptr142.i.i = getelementptr inbounds i8, ptr %in.addr.112434.i, i64 44
   %indvars.iv.next2623.i = add nuw nsw i64 %indvars.iv2622.i, 1
@@ -1607,7 +1607,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i619.i: ; preds = %for.body.i.i
   %72 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i582.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i582.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i583.i)
-  %and.i.i.i.i.i620.i = and <8 x i64> %72, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i.i620.i = and <8 x i64> %72, splat (i64 17587891081215)
   store <8 x i64> %and.i.i.i.i.i620.i, ptr %add.ptr142.i, align 1
   %add.ptr64.i621.i = getelementptr inbounds i8, ptr %in.addr.122431.i, i64 24
   %ret.0.copyload.i65.i622.i = load i32, ptr %add.ptr64.i621.i, align 4
@@ -1664,7 +1664,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %75 = load <8 x i64>, ptr %self_buffer.i.i.i.i101.i580.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i101.i580.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i102.i581.i)
-  %and.i.i.i.i113.i654.i = and <8 x i64> %75, <i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215, i64 17587891081215>
+  %and.i.i.i.i113.i654.i = and <8 x i64> %75, splat (i64 17587891081215)
   store <8 x i64> %and.i.i.i.i113.i654.i, ptr %add.ptr62.i653.i, align 1
   %add.ptr132.i655.i = getelementptr inbounds i8, ptr %in.addr.122431.i, i64 48
   %indvars.iv.next2617.i = add nuw nsw i64 %indvars.iv2616.i, 1
@@ -1733,7 +1733,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i692.i: ; preds = %for.body.i.i
   %78 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i656.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i656.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i657.i)
-  %and.i.i.i.i.i693.i = and <8 x i64> %78, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i.i693.i = and <8 x i64> %78, splat (i64 35180077129727)
   store <8 x i64> %and.i.i.i.i.i693.i, ptr %add.ptr154.i, align 1
   %ret.0.copyload.i71.i694.i = load i32, ptr %add.ptr52.i667.i, align 4
   %add.ptr79.i695.i = getelementptr inbounds i8, ptr %in.addr.132428.i, i64 28
@@ -1793,7 +1793,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %81 = load <8 x i64>, ptr %self_buffer.i.i.i.i109.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i109.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i110.i.i)
-  %and.i.i.i.i121.i.i = and <8 x i64> %81, <i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727, i64 35180077129727>
+  %and.i.i.i.i121.i.i = and <8 x i64> %81, splat (i64 35180077129727)
   store <8 x i64> %and.i.i.i.i121.i.i, ptr %add.ptr72.i.i, align 1
   %add.ptr152.i.i = getelementptr inbounds i8, ptr %in.addr.132428.i, i64 52
   %indvars.iv.next2611.i = add nuw nsw i64 %indvars.iv2610.i, 1
@@ -1862,7 +1862,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i741.i: ; preds = %for.body.i.i
   %84 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i703.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i703.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i704.i)
-  %and.i.i.i.i.i742.i = and <8 x i64> %84, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i.i742.i = and <8 x i64> %84, splat (i64 70364449226751)
   store <8 x i64> %and.i.i.i.i.i742.i, ptr %add.ptr166.i, align 1
   %add.ptr74.i743.i = getelementptr inbounds i8, ptr %in.addr.142425.i, i64 28
   %ret.0.copyload.i71.i744.i = load i32, ptr %add.ptr74.i743.i, align 4
@@ -1923,7 +1923,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %87 = load <8 x i64>, ptr %self_buffer.i.i.i.i109.i701.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i109.i701.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i110.i702.i)
-  %and.i.i.i.i121.i781.i = and <8 x i64> %87, <i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751, i64 70364449226751>
+  %and.i.i.i.i121.i781.i = and <8 x i64> %87, splat (i64 70364449226751)
   store <8 x i64> %and.i.i.i.i121.i781.i, ptr %add.ptr72.i780.i, align 1
   %add.ptr152.i782.i = getelementptr inbounds i8, ptr %in.addr.142425.i, i64 56
   %indvars.iv.next2605.i = add nuw nsw i64 %indvars.iv2604.i, 1
@@ -1995,7 +1995,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i823.i: ; preds = %for.body.i.i
   %90 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i783.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i783.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i784.i)
-  %and.i.i.i.i.i824.i = and <8 x i64> %90, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i.i824.i = and <8 x i64> %90, splat (i64 140733193420799)
   store <8 x i64> %and.i.i.i.i.i824.i, ptr %add.ptr178.i, align 1
   %ret.0.copyload.i74.i825.i = load i32, ptr %add.ptr57.i798.i, align 4
   %add.ptr84.i826.i = getelementptr inbounds i8, ptr %in.addr.152422.i, i64 32
@@ -2058,7 +2058,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %93 = load <8 x i64>, ptr %self_buffer.i.i.i.i113.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i113.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i114.i.i)
-  %and.i.i.i.i125.i.i = and <8 x i64> %93, <i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799, i64 140733193420799>
+  %and.i.i.i.i125.i.i = and <8 x i64> %93, splat (i64 140733193420799)
   store <8 x i64> %and.i.i.i.i125.i.i, ptr %add.ptr77.i.i, align 1
   %add.ptr162.i.i = getelementptr inbounds i8, ptr %in.addr.152422.i, i64 60
   %indvars.iv.next2599.i = add nuw nsw i64 %indvars.iv2598.i, 1
@@ -2102,7 +2102,7 @@ for.body187.i:                                    ; preds = %_ZN5arrow8internal1
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i835.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i836.i)
   store <16 x i32> %vecinit15.i.i.i.i862.i, ptr %self_buffer.i.i.i.i.i835.i, align 64
-  store <8 x i64> <i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736>, ptr %other_buffer.i.i.i.i.i836.i, align 64
+  store <8 x i64> splat (i64 68719476736), ptr %other_buffer.i.i.i.i.i836.i, align 64
   br label %for.body.i.i.i.i.i863.i
 
 for.body.i.i.i.i.i863.i:                          ; preds = %for.body.i.i.i.i.i863.i, %for.body187.i
@@ -2123,7 +2123,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i870.i: ; preds = %for.body.i.i
   %96 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i835.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i835.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i836.i)
-  %and.i.i.i.i.i871.i = and <8 x i64> %96, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i.i871.i = and <8 x i64> %96, splat (i64 281470681808895)
   store <8 x i64> %and.i.i.i.i.i871.i, ptr %add.ptr190.i, align 1
   %add.ptr47.i872.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 32
   %ret.0.copyload.i53.i873.i = load i32, ptr %add.ptr47.i872.i, align 4
@@ -2160,7 +2160,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i870.i: ; preds = %for.body.i.i
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i833.i)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i834.i)
   store <16 x i32> %vecinit15.i.i.i84.i899.i, ptr %self_buffer.i.i.i.i85.i833.i, align 64
-  store <8 x i64> <i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736, i64 68719476736>, ptr %other_buffer.i.i.i.i86.i834.i, align 64
+  store <8 x i64> splat (i64 68719476736), ptr %other_buffer.i.i.i.i86.i834.i, align 64
   br label %for.body.i.i.i.i88.i900.i
 
 for.body.i.i.i.i88.i900.i:                        ; preds = %for.body.i.i.i.i88.i900.i, %_ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i870.i
@@ -2180,7 +2180,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %99 = load <8 x i64>, ptr %self_buffer.i.i.i.i85.i833.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i85.i833.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i86.i834.i)
-  %and.i.i.i.i97.i908.i = and <8 x i64> %99, <i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895, i64 281470681808895>
+  %and.i.i.i.i97.i908.i = and <8 x i64> %99, splat (i64 281470681808895)
   store <8 x i64> %and.i.i.i.i97.i908.i, ptr %add.ptr45.i907.i, align 1
   %add.ptr95.i909.i = getelementptr inbounds i8, ptr %in.addr.162419.i, i64 64
   %indvars.iv.next2593.i = add nuw nsw i64 %indvars.iv2592.i, 1
@@ -2255,7 +2255,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i950.i: ; preds = %for.body.i.i
   %102 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i910.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i910.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i911.i)
-  %and.i.i.i.i.i951.i = and <8 x i64> %102, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i.i951.i = and <8 x i64> %102, splat (i64 562945658585087)
   store <8 x i64> %and.i.i.i.i.i951.i, ptr %add.ptr202.i, align 1
   %ret.0.copyload.i77.i952.i = load i32, ptr %add.ptr64.i925.i, align 4
   %add.ptr87.i.i = getelementptr inbounds i8, ptr %in.addr.172416.i, i64 36
@@ -2321,7 +2321,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %105 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i.i)
-  %and.i.i.i.i129.i.i = and <8 x i64> %105, <i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087, i64 562945658585087>
+  %and.i.i.i.i129.i.i = and <8 x i64> %105, splat (i64 562945658585087)
   store <8 x i64> %and.i.i.i.i129.i.i, ptr %add.ptr82.i961.i, align 1
   %add.ptr172.i.i = getelementptr inbounds i8, ptr %in.addr.172416.i, i64 68
   %indvars.iv.next2587.i = add nuw nsw i64 %indvars.iv2586.i, 1
@@ -2396,7 +2396,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1010.i: ; preds = %for.body.i.
   %108 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i964.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i964.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i965.i)
-  %and.i.i.i.i.i1011.i = and <8 x i64> %108, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i.i1011.i = and <8 x i64> %108, splat (i64 1125895612137471)
   store <8 x i64> %and.i.i.i.i.i1011.i, ptr %add.ptr214.i, align 1
   %add.ptr84.i1012.i = getelementptr inbounds i8, ptr %in.addr.182413.i, i64 36
   %ret.0.copyload.i77.i1013.i = load i32, ptr %add.ptr84.i1012.i, align 4
@@ -2463,7 +2463,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %111 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i962.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i962.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i963.i)
-  %and.i.i.i.i129.i1056.i = and <8 x i64> %111, <i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471, i64 1125895612137471>
+  %and.i.i.i.i129.i1056.i = and <8 x i64> %111, splat (i64 1125895612137471)
   store <8 x i64> %and.i.i.i.i129.i1056.i, ptr %add.ptr82.i1055.i, align 1
   %add.ptr172.i1057.i = getelementptr inbounds i8, ptr %in.addr.182413.i, i64 72
   %indvars.iv.next2581.i = add nuw nsw i64 %indvars.iv2580.i, 1
@@ -2541,7 +2541,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1106.i: ; preds = %for.body.i.
   %114 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1058.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1058.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1059.i)
-  %and.i.i.i.i.i1107.i = and <8 x i64> %114, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i.i1107.i = and <8 x i64> %114, splat (i64 2251795519242239)
   store <8 x i64> %and.i.i.i.i.i1107.i, ptr %add.ptr226.i, align 1
   %ret.0.copyload.i80.i1108.i = load i32, ptr %add.ptr69.i1080.i, align 4
   %add.ptr92.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 40
@@ -2610,7 +2610,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %117 = load <8 x i64>, ptr %self_buffer.i.i.i.i121.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i121.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i122.i.i)
-  %and.i.i.i.i133.i.i = and <8 x i64> %117, <i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239, i64 2251795519242239>
+  %and.i.i.i.i133.i.i = and <8 x i64> %117, splat (i64 2251795519242239)
   store <8 x i64> %and.i.i.i.i133.i.i, ptr %add.ptr87.i1115.i, align 1
   %add.ptr182.i.i = getelementptr inbounds i8, ptr %in.addr.192410.i, i64 76
   %indvars.iv.next2575.i = add nuw nsw i64 %indvars.iv2574.i, 1
@@ -2687,7 +2687,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1168.i: ; preds = %for.body.i.
   %120 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1118.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1118.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1119.i)
-  %and.i.i.i.i.i1169.i = and <8 x i64> %120, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i.i1169.i = and <8 x i64> %120, splat (i64 4503595333451775)
   store <8 x i64> %and.i.i.i.i.i1169.i, ptr %add.ptr238.i, align 1
   %add.ptr84.i1170.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 40
   %ret.0.copyload.i77.i1171.i = load i32, ptr %add.ptr84.i1170.i, align 4
@@ -2756,7 +2756,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %123 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i1116.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i1116.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i1117.i)
-  %and.i.i.i.i129.i1218.i = and <8 x i64> %123, <i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775, i64 4503595333451775>
+  %and.i.i.i.i129.i1218.i = and <8 x i64> %123, splat (i64 4503595333451775)
   store <8 x i64> %and.i.i.i.i129.i1218.i, ptr %add.ptr82.i1217.i, align 1
   %add.ptr172.i1219.i = getelementptr inbounds i8, ptr %in.addr.202407.i, i64 80
   %indvars.iv.next2569.i = add nuw nsw i64 %indvars.iv2568.i, 1
@@ -2837,7 +2837,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1268.i: ; preds = %for.body.i.
   %126 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1220.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1220.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1221.i)
-  %and.i.i.i.i.i1269.i = and <8 x i64> %126, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i.i1269.i = and <8 x i64> %126, splat (i64 9007194961870847)
   store <8 x i64> %and.i.i.i.i.i1269.i, ptr %add.ptr250.i, align 1
   %ret.0.copyload.i83.i1270.i = load i32, ptr %add.ptr74.i1242.i, align 4
   %add.ptr97.i1271.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 44
@@ -2909,7 +2909,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %129 = load <8 x i64>, ptr %self_buffer.i.i.i.i125.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i125.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i126.i.i)
-  %and.i.i.i.i137.i.i = and <8 x i64> %129, <i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847, i64 9007194961870847>
+  %and.i.i.i.i137.i.i = and <8 x i64> %129, splat (i64 9007194961870847)
   store <8 x i64> %and.i.i.i.i137.i.i, ptr %add.ptr92.i1287.i, align 1
   %add.ptr192.i.i = getelementptr inbounds i8, ptr %in.addr.212404.i, i64 84
   %indvars.iv.next2563.i = add nuw nsw i64 %indvars.iv2562.i, 1
@@ -2990,7 +2990,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1341.i: ; preds = %for.body.i.
   %132 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1290.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1290.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1291.i)
-  %and.i.i.i.i.i1342.i = and <8 x i64> %132, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i.i1342.i = and <8 x i64> %132, splat (i64 18014394218708991)
   store <8 x i64> %and.i.i.i.i.i1342.i, ptr %add.ptr262.i, align 1
   %add.ptr94.i1343.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 44
   %ret.0.copyload.i83.i1344.i = load i32, ptr %add.ptr94.i1343.i, align 4
@@ -3063,7 +3063,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %135 = load <8 x i64>, ptr %self_buffer.i.i.i.i125.i1288.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i125.i1288.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i126.i1289.i)
-  %and.i.i.i.i137.i1390.i = and <8 x i64> %135, <i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991, i64 18014394218708991>
+  %and.i.i.i.i137.i1390.i = and <8 x i64> %135, splat (i64 18014394218708991)
   store <8 x i64> %and.i.i.i.i137.i1390.i, ptr %add.ptr92.i1389.i, align 1
   %add.ptr192.i1391.i = getelementptr inbounds i8, ptr %in.addr.222401.i, i64 88
   %indvars.iv.next2557.i = add nuw nsw i64 %indvars.iv2556.i, 1
@@ -3147,7 +3147,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1447.i: ; preds = %for.body.i.
   %138 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1392.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1392.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1393.i)
-  %and.i.i.i.i.i1448.i = and <8 x i64> %138, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i.i1448.i = and <8 x i64> %138, splat (i64 36028792732385279)
   store <8 x i64> %and.i.i.i.i.i1448.i, ptr %add.ptr274.i, align 1
   %ret.0.copyload.i86.i1449.i = load i32, ptr %add.ptr79.i1421.i, align 4
   %add.ptr102.i1450.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 48
@@ -3222,7 +3222,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %141 = load <8 x i64>, ptr %self_buffer.i.i.i.i129.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i129.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i130.i.i)
-  %and.i.i.i.i141.i.i = and <8 x i64> %141, <i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279, i64 36028792732385279>
+  %and.i.i.i.i141.i.i = and <8 x i64> %141, splat (i64 36028792732385279)
   store <8 x i64> %and.i.i.i.i141.i.i, ptr %add.ptr97.i1472.i, align 1
   %add.ptr202.i.i = getelementptr inbounds i8, ptr %in.addr.232398.i, i64 92
   %indvars.iv.next2551.i = add nuw nsw i64 %indvars.iv2550.i, 1
@@ -3303,7 +3303,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1531.i: ; preds = %for.body.i.
   %144 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1475.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1475.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1476.i)
-  %and.i.i.i.i.i1532.i = and <8 x i64> %144, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i.i1532.i = and <8 x i64> %144, splat (i64 72057589759737855)
   store <8 x i64> %and.i.i.i.i.i1532.i, ptr %add.ptr286.i, align 1
   %add.ptr84.i1533.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 48
   %ret.0.copyload.i77.i1534.i = load i32, ptr %add.ptr84.i1533.i, align 4
@@ -3376,7 +3376,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %147 = load <8 x i64>, ptr %self_buffer.i.i.i.i117.i1473.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i117.i1473.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i118.i1474.i)
-  %and.i.i.i.i129.i1587.i = and <8 x i64> %147, <i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855, i64 72057589759737855>
+  %and.i.i.i.i129.i1587.i = and <8 x i64> %147, splat (i64 72057589759737855)
   store <8 x i64> %and.i.i.i.i129.i1587.i, ptr %add.ptr82.i1586.i, align 1
   %add.ptr172.i1588.i = getelementptr inbounds i8, ptr %in.addr.242395.i, i64 96
   %indvars.iv.next2545.i = add nuw nsw i64 %indvars.iv2544.i, 1
@@ -3463,7 +3463,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1643.i: ; preds = %for.body.i.
   %150 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1589.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1589.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1590.i)
-  %and.i.i.i.i.i1644.i = and <8 x i64> %150, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i.i1644.i = and <8 x i64> %150, splat (i64 144115183814443007)
   store <8 x i64> %and.i.i.i.i.i1644.i, ptr %add.ptr298.i, align 1
   %ret.0.copyload.i89.i1645.i = load i32, ptr %add.ptr84.i1617.i, align 4
   %add.ptr107.i1646.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 52
@@ -3541,7 +3541,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %153 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i.i)
-  %and.i.i.i.i145.i.i = and <8 x i64> %153, <i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007, i64 144115183814443007>
+  %and.i.i.i.i145.i.i = and <8 x i64> %153, splat (i64 144115183814443007)
   store <8 x i64> %and.i.i.i.i145.i.i, ptr %add.ptr102.i1663.i, align 1
   %add.ptr212.i.i = getelementptr inbounds i8, ptr %in.addr.252392.i, i64 100
   %indvars.iv.next2539.i = add nuw nsw i64 %indvars.iv2538.i, 1
@@ -3628,7 +3628,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1727.i: ; preds = %for.body.i.
   %156 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1666.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1666.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1667.i)
-  %and.i.i.i.i.i1728.i = and <8 x i64> %156, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i.i1728.i = and <8 x i64> %156, splat (i64 288230371923853311)
   store <8 x i64> %and.i.i.i.i.i1728.i, ptr %add.ptr310.i, align 1
   %add.ptr104.i.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 52
   %ret.0.copyload.i89.i1729.i = load i32, ptr %add.ptr104.i.i, align 4
@@ -3707,7 +3707,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %159 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i1664.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i1664.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i1665.i)
-  %and.i.i.i.i145.i1784.i = and <8 x i64> %159, <i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311, i64 288230371923853311>
+  %and.i.i.i.i145.i1784.i = and <8 x i64> %159, splat (i64 288230371923853311)
   store <8 x i64> %and.i.i.i.i145.i1784.i, ptr %add.ptr102.i1783.i, align 1
   %add.ptr212.i1785.i = getelementptr inbounds i8, ptr %in.addr.262389.i, i64 104
   %indvars.iv.next2533.i = add nuw nsw i64 %indvars.iv2532.i, 1
@@ -3797,7 +3797,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1850.i: ; preds = %for.body.i.
   %162 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1786.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1786.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1787.i)
-  %and.i.i.i.i.i1851.i = and <8 x i64> %162, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i.i1851.i = and <8 x i64> %162, splat (i64 576460748142673919)
   store <8 x i64> %and.i.i.i.i.i1851.i, ptr %add.ptr322.i, align 1
   %ret.0.copyload.i92.i1852.i = load i32, ptr %add.ptr89.i1824.i, align 4
   %add.ptr112.i1853.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 56
@@ -3878,7 +3878,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %165 = load <8 x i64>, ptr %self_buffer.i.i.i.i137.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i137.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i138.i.i)
-  %and.i.i.i.i149.i.i = and <8 x i64> %165, <i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919, i64 576460748142673919>
+  %and.i.i.i.i149.i.i = and <8 x i64> %165, splat (i64 576460748142673919)
   store <8 x i64> %and.i.i.i.i149.i.i, ptr %add.ptr107.i1876.i, align 1
   %add.ptr222.i.i = getelementptr inbounds i8, ptr %in.addr.272386.i, i64 108
   %indvars.iv.next2527.i = add nuw nsw i64 %indvars.iv2526.i, 1
@@ -3967,7 +3967,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i1943.i: ; preds = %for.body.i.
   %168 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i1879.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i1879.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i1880.i)
-  %and.i.i.i.i.i1944.i = and <8 x i64> %168, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i.i1944.i = and <8 x i64> %168, splat (i64 1152921500580315135)
   store <8 x i64> %and.i.i.i.i.i1944.i, ptr %add.ptr334.i, align 1
   %add.ptr104.i1945.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 56
   %ret.0.copyload.i89.i1946.i = load i32, ptr %add.ptr104.i1945.i, align 4
@@ -4048,7 +4048,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %171 = load <8 x i64>, ptr %self_buffer.i.i.i.i133.i1877.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i133.i1877.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i134.i1878.i)
-  %and.i.i.i.i145.i2003.i = and <8 x i64> %171, <i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135, i64 1152921500580315135>
+  %and.i.i.i.i145.i2003.i = and <8 x i64> %171, splat (i64 1152921500580315135)
   store <8 x i64> %and.i.i.i.i145.i2003.i, ptr %add.ptr102.i2002.i, align 1
   %add.ptr212.i2004.i = getelementptr inbounds i8, ptr %in.addr.282383.i, i64 112
   %indvars.iv.next2521.i = add nuw nsw i64 %indvars.iv2520.i, 1
@@ -4141,7 +4141,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2073.i: ; preds = %for.body.i.
   %174 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2005.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2005.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2006.i)
-  %and.i.i.i.i.i2074.i = and <8 x i64> %174, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i.i2074.i = and <8 x i64> %174, splat (i64 2305843005455597567)
   store <8 x i64> %and.i.i.i.i.i2074.i, ptr %add.ptr346.i, align 1
   %ret.0.copyload.i95.i2075.i = load i32, ptr %add.ptr94.i2047.i, align 4
   %add.ptr117.i2076.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 60
@@ -4225,7 +4225,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %177 = load <8 x i64>, ptr %self_buffer.i.i.i.i141.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i141.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i142.i.i)
-  %and.i.i.i.i153.i.i = and <8 x i64> %177, <i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567, i64 2305843005455597567>
+  %and.i.i.i.i153.i.i = and <8 x i64> %177, splat (i64 2305843005455597567)
   store <8 x i64> %and.i.i.i.i153.i.i, ptr %add.ptr112.i2100.i, align 1
   %add.ptr232.i.i = getelementptr inbounds i8, ptr %in.addr.292380.i, i64 116
   %indvars.iv.next2515.i = add nuw nsw i64 %indvars.iv2514.i, 1
@@ -4318,7 +4318,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2169.i: ; preds = %for.body.i.
   %180 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2103.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2103.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2104.i)
-  %and.i.i.i.i.i2170.i = and <8 x i64> %180, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i.i2170.i = and <8 x i64> %180, splat (i64 4611686015206162431)
   store <8 x i64> %and.i.i.i.i.i2170.i, ptr %add.ptr358.i, align 1
   %add.ptr114.i2171.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 60
   %ret.0.copyload.i95.i2172.i = load i32, ptr %add.ptr114.i2171.i, align 4
@@ -4403,7 +4403,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %183 = load <8 x i64>, ptr %self_buffer.i.i.i.i141.i2101.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i141.i2101.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i142.i2102.i)
-  %and.i.i.i.i153.i2235.i = and <8 x i64> %183, <i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431, i64 4611686015206162431>
+  %and.i.i.i.i153.i2235.i = and <8 x i64> %183, splat (i64 4611686015206162431)
   store <8 x i64> %and.i.i.i.i153.i2235.i, ptr %add.ptr112.i2234.i, align 1
   %add.ptr232.i2236.i = getelementptr inbounds i8, ptr %in.addr.302377.i, i64 120
   %indvars.iv.next2509.i = add nuw nsw i64 %indvars.iv2508.i, 1
@@ -4499,7 +4499,7 @@ _ZN5xsimdrsERKNS_5batchIjNS_8avx512bwEEES4_.exit.i2308.i: ; preds = %for.body.i.
   %186 = load <8 x i64>, ptr %self_buffer.i.i.i.i.i2237.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i.i2237.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i.i2238.i)
-  %and.i.i.i.i.i2309.i = and <8 x i64> %186, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i.i2309.i = and <8 x i64> %186, splat (i64 9223372034707292159)
   store <8 x i64> %and.i.i.i.i.i2309.i, ptr %add.ptr370.i, align 1
   %ret.0.copyload.i98.i2310.i = load i32, ptr %add.ptr99.i2282.i, align 4
   %add.ptr122.i2311.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 64
@@ -4586,7 +4586,7 @@ _ZN5arrow8internal12_GLOBAL__N_113UnpackBits512ILNS0_13DispatchLevelE3EE11unpack
   %189 = load <8 x i64>, ptr %self_buffer.i.i.i.i145.i.i, align 64
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %self_buffer.i.i.i.i145.i.i)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other_buffer.i.i.i.i146.i.i)
-  %and.i.i.i.i157.i.i = and <8 x i64> %189, <i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159, i64 9223372034707292159>
+  %and.i.i.i.i157.i.i = and <8 x i64> %189, splat (i64 9223372034707292159)
   store <8 x i64> %and.i.i.i.i157.i.i, ptr %add.ptr117.i2337.i, align 1
   %add.ptr242.i.i = getelementptr inbounds i8, ptr %in.addr.312374.i, i64 124
   %indvars.iv.next2503.i = add nuw nsw i64 %indvars.iv2502.i, 1

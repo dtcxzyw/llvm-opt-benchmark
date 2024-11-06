@@ -265,7 +265,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %107 = zext <16 x i16> %106 to <16 x i32>
   %108 = tail call <16 x i32> @llvm.umax.v16i32(<16 x i32> %105, <16 x i32> %98)
   %109 = sub nsw <16 x i32> %108, %107
-  %110 = icmp sgt <16 x i32> %109, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %110 = icmp sgt <16 x i32> %109, splat (i32 -1)
   %111 = extractelement <16 x i1> %110, i64 0
   tail call void @llvm.assume(i1 %111)
   %112 = extractelement <16 x i1> %110, i64 1
@@ -298,12 +298,12 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %125)
   %126 = extractelement <16 x i1> %110, i64 15
   tail call void @llvm.assume(i1 %126)
-  %127 = add nuw nsw <16 x i32> %109, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %128 = lshr <16 x i32> %127, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %127 = add nuw nsw <16 x i32> %109, splat (i32 2)
+  %128 = lshr <16 x i32> %127, splat (i32 2)
   %129 = sub nsw <16 x i32> %98, %128
   %130 = tail call <16 x i32> @llvm.smax.v16i32(<16 x i32> %129, <16 x i32> zeroinitializer)
   %131 = trunc nuw <16 x i32> %130 to <16 x i16>
-  %132 = icmp ult <16 x i64> %94, <i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536>
+  %132 = icmp ult <16 x i64> %94, splat (i64 65536)
   %133 = extractelement <16 x i1> %132, i64 0
   tail call void @llvm.assume(i1 %133)
   %134 = extractelement <16 x i1> %132, i64 1
@@ -342,7 +342,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %151 = shufflevector <16 x i16> %131, <16 x i16> %149, <32 x i32> <i32 0, i32 16, i32 1, i32 17, i32 2, i32 18, i32 3, i32 19, i32 4, i32 20, i32 5, i32 21, i32 6, i32 22, i32 7, i32 23, i32 8, i32 24, i32 9, i32 25, i32 10, i32 26, i32 11, i32 27, i32 12, i32 28, i32 13, i32 29, i32 14, i32 30, i32 15, i32 31>
   store <32 x i16> %151, ptr %150, align 2, !tbaa !18
   %152 = add nuw i64 %93, 16
-  %153 = add <16 x i64> %94, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %153 = add <16 x i64> %94, splat (i64 16)
   %154 = icmp eq i64 %152, %89
   br i1 %154, label %155, label %92, !llvm.loop !27
 
@@ -385,7 +385,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %185 = zext <8 x i16> %184 to <8 x i32>
   %186 = tail call <8 x i32> @llvm.umax.v8i32(<8 x i32> %183, <8 x i32> %176)
   %187 = sub nsw <8 x i32> %186, %185
-  %188 = icmp sgt <8 x i32> %187, <i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1>
+  %188 = icmp sgt <8 x i32> %187, splat (i32 -1)
   %189 = extractelement <8 x i1> %188, i64 0
   tail call void @llvm.assume(i1 %189)
   %190 = extractelement <8 x i1> %188, i64 1
@@ -402,11 +402,11 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %195)
   %196 = extractelement <8 x i1> %188, i64 7
   tail call void @llvm.assume(i1 %196)
-  %197 = add nuw nsw <8 x i32> %187, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
-  %198 = lshr <8 x i32> %197, <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %197 = add nuw nsw <8 x i32> %187, splat (i32 2)
+  %198 = lshr <8 x i32> %197, splat (i32 2)
   %199 = sub nsw <8 x i32> %176, %198
   %200 = tail call <8 x i32> @llvm.smax.v8i32(<8 x i32> %199, <8 x i32> zeroinitializer)
-  %201 = icmp ult <8 x i64> %172, <i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536, i64 65536>
+  %201 = icmp ult <8 x i64> %172, splat (i64 65536)
   %202 = extractelement <8 x i1> %201, i64 0
   tail call void @llvm.assume(i1 %202)
   %203 = extractelement <8 x i1> %201, i64 1
@@ -429,7 +429,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %212 = trunc <16 x i32> %211 to <16 x i16>
   store <16 x i16> %212, ptr %210, align 2, !tbaa !18
   %213 = add nuw i64 %171, 8
-  %214 = add <8 x i64> %172, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %214 = add <8 x i64> %172, splat (i64 8)
   %215 = icmp eq i64 %213, %164
   br i1 %215, label %216, label %170, !llvm.loop !35
 
@@ -589,7 +589,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %349 = getelementptr inbounds i16, ptr %31, i64 %281
   store <16 x i16> %348, ptr %349, align 2, !tbaa !18, !alias.scope !39, !noalias !41
   %350 = add nuw nsw i64 %281, 16
-  %351 = add <16 x i64> %282, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %351 = add <16 x i64> %282, splat (i64 16)
   %352 = icmp eq i64 %350, 65536
   br i1 %352, label %.loopexit, label %280, !llvm.loop !43
 
@@ -705,14 +705,14 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %439 = load i16, ptr %404, align 2, !tbaa !18, !alias.scope !45
   %440 = insertelement <16 x i16> poison, i16 %439, i64 0
   %441 = shufflevector <16 x i16> %440, <16 x i16> poison, <16 x i32> zeroinitializer
-  %442 = shl <16 x i32> %438, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %443 = add <16 x i32> %442, <i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32, i32 32>
-  %444 = add <16 x i32> %442, <i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64>
-  %445 = add <16 x i32> %442, <i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96, i32 96>
-  %446 = icmp ult <16 x i32> %442, <i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072>
-  %447 = icmp ult <16 x i32> %443, <i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072>
-  %448 = icmp ult <16 x i32> %444, <i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072>
-  %449 = icmp ult <16 x i32> %445, <i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072>
+  %442 = shl <16 x i32> %438, splat (i32 1)
+  %443 = add <16 x i32> %442, splat (i32 32)
+  %444 = add <16 x i32> %442, splat (i32 64)
+  %445 = add <16 x i32> %442, splat (i32 96)
+  %446 = icmp ult <16 x i32> %442, splat (i32 131072)
+  %447 = icmp ult <16 x i32> %443, splat (i32 131072)
+  %448 = icmp ult <16 x i32> %444, splat (i32 131072)
+  %449 = icmp ult <16 x i32> %445, splat (i32 131072)
   %450 = extractelement <16 x i1> %446, i64 0
   tail call void @llvm.assume(i1 %450)
   %451 = extractelement <16 x i1> %446, i64 1
@@ -863,7 +863,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   store <32 x i16> %530, ptr %528, align 2, !tbaa !18
   store <32 x i16> %530, ptr %529, align 2, !tbaa !18
   %531 = add nuw i32 %437, 64
-  %532 = add <16 x i32> %438, <i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64, i32 64>
+  %532 = add <16 x i32> %438, splat (i32 64)
   %533 = icmp eq i32 %531, %431
   br i1 %533, label %534, label %436, !llvm.loop !48
 
@@ -893,8 +893,8 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %551 = load i16, ptr %404, align 2, !tbaa !18, !alias.scope !49
   %552 = insertelement <8 x i16> poison, i16 %551, i64 0
   %553 = shufflevector <8 x i16> %552, <8 x i16> poison, <8 x i32> zeroinitializer
-  %554 = shl nsw <8 x i32> %550, <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
-  %555 = icmp ult <8 x i32> %554, <i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072, i32 131072>
+  %554 = shl nsw <8 x i32> %550, splat (i32 1)
+  %555 = icmp ult <8 x i32> %554, splat (i32 131072)
   %556 = extractelement <8 x i1> %555, i64 0
   tail call void @llvm.assume(i1 %556)
   %557 = extractelement <8 x i1> %555, i64 1
@@ -918,7 +918,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %568 = shufflevector <8 x i16> %553, <8 x i16> zeroinitializer, <16 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11, i32 4, i32 12, i32 5, i32 13, i32 6, i32 14, i32 7, i32 15>
   store <16 x i16> %568, ptr %567, align 2, !tbaa !18
   %569 = add nuw i32 %549, 8
-  %570 = add <8 x i32> %550, <i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8, i32 8>
+  %570 = add <8 x i32> %550, splat (i32 8)
   %571 = icmp eq i32 %569, %543
   br i1 %571, label %572, label %548, !llvm.loop !52
 

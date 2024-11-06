@@ -1829,11 +1829,11 @@ invoke.cont39:                                    ; preds = %invoke.cont39.lr.ph
   %59 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %59, ptr %58, align 16
   %m_angularFactor.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 32
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_angularFactor.i, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_angularFactor.i, align 16
   %ref.tmp19.sroa.2.0.m_angularFactor.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 40
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp19.sroa.2.0.m_angularFactor.sroa_idx.i, align 8
   %m_linearFactor.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 48
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_linearFactor.i, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_linearFactor.i, align 16
   %ref.tmp23.sroa.2.0.m_linearFactor.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i212, i64 56
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp23.sroa.2.0.m_linearFactor.sroa_idx.i, align 8
   %m_linVel.i.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 32
@@ -4200,11 +4200,11 @@ entry:
   %1 = getelementptr inbounds i8, ptr %solverBody, i64 144
   store i32 %bodyIndex, ptr %1, align 16
   %m_angularFactor = getelementptr inbounds i8, ptr %solverBody, i64 32
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_angularFactor, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_angularFactor, align 16
   %ref.tmp19.sroa.2.0.m_angularFactor.sroa_idx = getelementptr inbounds i8, ptr %solverBody, i64 40
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp19.sroa.2.0.m_angularFactor.sroa_idx, align 8
   %m_linearFactor = getelementptr inbounds i8, ptr %solverBody, i64 48
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %m_linearFactor, align 16
+  store <2 x float> splat (float 1.000000e+00), ptr %m_linearFactor, align 16
   %ref.tmp23.sroa.2.0.m_linearFactor.sroa_idx = getelementptr inbounds i8, ptr %solverBody, i64 56
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %ref.tmp23.sroa.2.0.m_linearFactor.sroa_idx, align 8
   %m_linVel.i = getelementptr inbounds i8, ptr %rb, i64 32

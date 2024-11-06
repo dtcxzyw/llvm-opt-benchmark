@@ -8008,10 +8008,10 @@ entry:
   %Y.i = getelementptr inbounds i8, ptr %this, i64 28
   %Z.i = getelementptr inbounds i8, ptr %this, i64 32
   %m_intersection_multi_inc = getelementptr inbounds i8, ptr %this, i64 36
-  store <4 x float> <float 1.000000e+04, float 1.000000e+04, float 1.000000e+04, float 1.000000e+04>, ptr %m_next_intersection_multi, align 4, !tbaa !253
+  store <4 x float> splat (float 1.000000e+04), ptr %m_next_intersection_multi, align 4, !tbaa !253
   %Y.i182 = getelementptr inbounds i8, ptr %this, i64 40
   %Z.i183 = getelementptr inbounds i8, ptr %this, i64 44
-  store <2 x float> <float 1.000000e+04, float 1.000000e+04>, ptr %Y.i182, align 4, !tbaa !253
+  store <2 x float> splat (float 1.000000e+04), ptr %Y.i182, align 4, !tbaa !253
   %m_step_directions = getelementptr inbounds i8, ptr %this, i64 48
   store i16 1, ptr %m_step_directions, align 4, !tbaa !4
   %Y.i184 = getelementptr inbounds i8, ptr %this, i64 50

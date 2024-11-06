@@ -295,7 +295,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %173 = icmp eq i64 %166, %144
   %174 = and i64 %144, 7
   %175 = icmp eq i64 %174, 0
-  %invariant.op = add nuw nsw <16 x i64> %160, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %invariant.op = add nuw nsw <16 x i64> %160, splat (i64 16)
   br label %176
 
 176:                                              ; preds = %.loopexit, %136
@@ -337,7 +337,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
 .preheader11:                                     ; preds = %200, %.preheader11
   %201 = phi i64 [ %318, %.preheader11 ], [ 0, %200 ]
   %202 = phi <16 x i64> [ %319, %.preheader11 ], [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7, i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, %200 ]
-  %203 = add <16 x i64> %202, <i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16, i64 16>
+  %203 = add <16 x i64> %202, splat (i64 16)
   %204 = icmp ult <16 x i64> %202, %158
   %205 = icmp ult <16 x i64> %203, %158
   %206 = extractelement <16 x i1> %204, i64 0
@@ -410,8 +410,8 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %241 = load <16 x i8>, ptr %239, align 1, !tbaa !90, !alias.scope !105
   %242 = add nuw nsw <16 x i64> %202, %160
   %.reass = add <16 x i64> %202, %invariant.op
-  %243 = and <16 x i64> %242, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
-  %244 = and <16 x i64> %.reass, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %243 = and <16 x i64> %242, splat (i64 2147483648)
+  %244 = and <16 x i64> %.reass, splat (i64 2147483648)
   %245 = icmp eq <16 x i64> %243, zeroinitializer
   %246 = icmp eq <16 x i64> %244, zeroinitializer
   %247 = extractelement <16 x i1> %245, i64 0
@@ -552,7 +552,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   store <16 x i16> %315, ptr %314, align 2, !tbaa !108, !alias.scope !109, !noalias !105
   store <16 x i16> %316, ptr %317, align 2, !tbaa !108, !alias.scope !109, !noalias !105
   %318 = add nuw i64 %201, 32
-  %319 = add <16 x i64> %202, <i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32, i64 32>
+  %319 = add <16 x i64> %202, splat (i64 32)
   %320 = icmp eq i64 %318, %156
   br i1 %320, label %321, label %.preheader11, !llvm.loop !111
 
@@ -592,7 +592,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %340 = getelementptr inbounds i8, ptr %183, i64 %329
   %341 = load <8 x i8>, ptr %340, align 1, !tbaa !90, !alias.scope !114
   %342 = add nuw nsw <8 x i64> %330, %170
-  %343 = and <8 x i64> %342, <i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648, i64 2147483648>
+  %343 = and <8 x i64> %342, splat (i64 2147483648)
   %344 = icmp eq <8 x i64> %343, zeroinitializer
   %345 = extractelement <8 x i1> %344, i64 0
   call void @llvm.assume(i1 %345)
@@ -632,7 +632,7 @@ define hidden void @_ZN8rawspeed16JpegDecompressor6decodeEjj(ptr nocapture nound
   %364 = zext <8 x i8> %341 to <8 x i16>
   store <8 x i16> %364, ptr %363, align 2, !tbaa !108, !alias.scope !117, !noalias !114
   %365 = add nuw i64 %329, 8
-  %366 = add <8 x i64> %330, <i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8, i64 8>
+  %366 = add <8 x i64> %330, splat (i64 8)
   %367 = icmp eq i64 %365, %166
   br i1 %367, label %368, label %328, !llvm.loop !119
 

@@ -893,9 +893,9 @@ _ZN5drjit8identityINS_6MatrixIfLm4EEETnNSt3__19enable_ifIX11is_matrix_vIT_EEiE4t
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %0, i64 144
-  store <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>, ptr %18, align 16
+  store <4 x float> splat (float 0x7FF0000000000000), ptr %18, align 16
   %19 = getelementptr inbounds i8, ptr %0, i64 160
-  store <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>, ptr %19, align 16
+  store <4 x float> splat (float 0xFFF0000000000000), ptr %19, align 16
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6__initEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull @.str.15, i64 noundef 8)
           to label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC2B8ne190000ILi0EEEPKc.exit unwind label %136
 
@@ -999,8 +999,8 @@ _ZN7mitsuba9TransformINS_5PointIfLm4EEEEC2Ev.exit11: ; preds = %25
   %78 = insertelement <4 x float> poison, float %77, i64 0
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <4 x i32> zeroinitializer
   %80 = fmul contract <4 x float> %76, %79
-  %81 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %80, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>)
-  %82 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %80, <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>)
+  %81 = call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %80, <4 x float> splat (float 0x7FF0000000000000))
+  %82 = call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %80, <4 x float> splat (float 0xFFF0000000000000))
   %83 = fadd contract <4 x float> %72, %75
   %.sroa.0460.12.vec.extract.i = extractelement <4 x float> %83, i64 3
   %84 = fdiv contract float 1.000000e+00, %.sroa.0460.12.vec.extract.i
@@ -1115,8 +1115,8 @@ define weak_odr void @_ZN7mitsuba6VolumeIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4
   %23 = insertelement <4 x float> poison, float %22, i64 0
   %24 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> zeroinitializer
   %25 = fmul contract <4 x float> %21, %24
-  %26 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %25, <4 x float> <float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000, float 0x7FF0000000000000>)
-  %27 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %25, <4 x float> <float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000, float 0xFFF0000000000000>)
+  %26 = tail call contract noundef <4 x float> @llvm.x86.sse.min.ps(<4 x float> %25, <4 x float> splat (float 0x7FF0000000000000))
+  %27 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %25, <4 x float> splat (float 0xFFF0000000000000))
   %28 = fadd contract <4 x float> %16, %20
   %.sroa.0460.12.vec.extract = extractelement <4 x float> %28, i64 3
   %29 = fdiv contract float 1.000000e+00, %.sroa.0460.12.vec.extract

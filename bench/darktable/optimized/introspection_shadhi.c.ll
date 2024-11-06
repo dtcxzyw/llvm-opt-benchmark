@@ -294,11 +294,11 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %29 = fdiv reassoc nsz arcp contract afn float %26, %28
   %30 = getelementptr inbounds i8, ptr %15, i64 8
   %31 = load <2 x float>, ptr %30, align 4, !tbaa !23
-  %32 = fmul reassoc nsz arcp contract afn <2 x float> %31, <float 0x3F847AE140000000, float 0x3F847AE140000000>
+  %32 = fmul reassoc nsz arcp contract afn <2 x float> %31, splat (float 0x3F847AE140000000)
   %33 = fpext <2 x float> %32 to <2 x double>
-  %34 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.maxnum.v2f64(<2 x double> %33, <2 x double> <double -1.000000e+00, double -1.000000e+00>)
-  %35 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.minnum.v2f64(<2 x double> %34, <2 x double> <double 1.000000e+00, double 1.000000e+00>)
-  %36 = fmul reassoc nsz arcp contract afn <2 x double> %35, <double 2.000000e+00, double 2.000000e+00>
+  %34 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.maxnum.v2f64(<2 x double> %33, <2 x double> splat (double -1.000000e+00))
+  %35 = tail call reassoc nsz arcp contract afn <2 x double> @llvm.minnum.v2f64(<2 x double> %34, <2 x double> splat (double 1.000000e+00))
+  %36 = fmul reassoc nsz arcp contract afn <2 x double> %35, splat (double 2.000000e+00)
   %37 = fptrunc <2 x double> %36 to <2 x float>
   %38 = getelementptr inbounds i8, ptr %15, i64 16
   %39 = load float, ptr %38, align 4, !tbaa !63
@@ -373,8 +373,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   br i1 %94, label %98, label %99
 
 98:                                               ; preds = %97
-  store <4 x float> <float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000, float 0x47EFFFFFE0000000>, ptr %7, align 16, !tbaa !23
-  store <4 x float> <float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000, float 0xC7EFFFFFE0000000>, ptr %8, align 16, !tbaa !23
+  store <4 x float> splat (float 0x47EFFFFFE0000000), ptr %7, align 16, !tbaa !23
+  store <4 x float> splat (float 0xC7EFFFFFE0000000), ptr %8, align 16, !tbaa !23
   br label %99
 
 99:                                               ; preds = %98, %97
@@ -523,7 +523,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %200 = call reassoc nsz arcp contract afn <2 x float> @llvm.fabs.v2f32(<2 x float> %199)
   %201 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %200, %135
   %202 = select <2 x i1> %201, <2 x float> %200, <2 x float> %135
-  %203 = fdiv reassoc nsz arcp contract afn <2 x float> <float 1.000000e+00, float 1.000000e+00>, %202
+  %203 = fdiv reassoc nsz arcp contract afn <2 x float> splat (float 1.000000e+00), %202
   %204 = call reassoc nsz arcp contract afn <2 x float> @llvm.copysign.v2f32(<2 x float> %203, <2 x float> %199)
   %205 = fcmp reassoc nsz arcp contract afn ogt float %176, 1.000000e+00
   %206 = select reassoc nsz arcp contract afn i1 %205, float 1.000000e+00, float %176
@@ -671,7 +671,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %296 = call reassoc nsz arcp contract afn <2 x float> @llvm.fabs.v2f32(<2 x float> %295)
   %297 = fcmp reassoc nsz arcp contract afn ogt <2 x float> %296, %135
   %298 = select <2 x i1> %297, <2 x float> %296, <2 x float> %135
-  %299 = fdiv reassoc nsz arcp contract afn <2 x float> <float 1.000000e+00, float 1.000000e+00>, %298
+  %299 = fdiv reassoc nsz arcp contract afn <2 x float> splat (float 1.000000e+00), %298
   %300 = call reassoc nsz arcp contract afn <2 x float> @llvm.copysign.v2f32(<2 x float> %299, <2 x float> %295)
   %301 = fcmp reassoc nsz arcp contract afn ogt float %272, 1.000000e+00
   %302 = select reassoc nsz arcp contract afn i1 %301, float 1.000000e+00, float %272

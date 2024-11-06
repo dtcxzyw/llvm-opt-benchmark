@@ -2382,13 +2382,13 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %968 = fdiv reassoc nsz arcp contract afn float %965, %967
   %969 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float %968, float 0x4060C119A0000000)
   %970 = call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %956, <2 x float> zeroinitializer)
-  %971 = call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %970, <2 x float> <float 0x3FC4640000000000, float 0x3FC4640000000000>)
-  %972 = fmul reassoc nsz arcp contract afn <2 x float> %971, <float 0x4032DA0000000000, float 0x4032DA0000000000>
-  %973 = fadd reassoc nsz arcp contract afn <2 x float> %972, <float 0x3FEAC00000000000, float 0x3FEAC00000000000>
-  %974 = fmul reassoc nsz arcp contract afn <2 x float> %971, <float 1.868750e+01, float 1.868750e+01>
-  %975 = fadd reassoc nsz arcp contract afn <2 x float> %974, <float 1.000000e+00, float 1.000000e+00>
+  %971 = call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %970, <2 x float> splat (float 0x3FC4640000000000))
+  %972 = fmul reassoc nsz arcp contract afn <2 x float> %971, splat (float 0x4032DA0000000000)
+  %973 = fadd reassoc nsz arcp contract afn <2 x float> %972, splat (float 0x3FEAC00000000000)
+  %974 = fmul reassoc nsz arcp contract afn <2 x float> %971, splat (float 1.868750e+01)
+  %975 = fadd reassoc nsz arcp contract afn <2 x float> %974, splat (float 1.000000e+00)
   %976 = fdiv reassoc nsz arcp contract afn <2 x float> %973, %975
-  %977 = call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %976, <2 x float> <float 0x4060C119A0000000, float 0x4060C119A0000000>)
+  %977 = call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %976, <2 x float> splat (float 0x4060C119A0000000))
   %978 = fmul reassoc nsz arcp contract afn <2 x float> %977, <float 0xC010444F20000000, float 0x3FC97B5280000000>
   %979 = fmul reassoc nsz arcp contract afn <2 x float> %977, <float 0x3FF18C7D20000000, float 0x400C3126E0000000>
   %980 = shufflevector <2 x float> %979, <2 x float> poison, <2 x i32> <i32 1, i32 0>
@@ -2516,7 +2516,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1068 = insertelement <2 x float> poison, float %1066, i64 0
   %1069 = insertelement <2 x float> %1068, float %1067, i64 1
   %1070 = fpext <2 x float> %1069 to <2 x double>
-  %1071 = fmul reassoc nsz arcp contract afn <2 x double> %1070, <double 1.000000e-02, double 1.000000e-02>
+  %1071 = fmul reassoc nsz arcp contract afn <2 x double> %1070, splat (double 1.000000e-02)
   %1072 = fptrunc <2 x double> %1071 to <2 x float>
   br label %1074
 
@@ -2893,7 +2893,7 @@ define internal void @dt_lib_histogram_process(ptr nocapture noundef readonly %0
   %1315 = fadd reassoc nsz arcp contract afn <4 x float> %1313, %1314
   %1316 = load <4 x float>, ptr %1310, align 16, !tbaa !144
   %1317 = fadd reassoc nsz arcp contract afn <4 x float> %1315, %1316
-  %1318 = fmul reassoc nsz arcp contract afn <4 x float> %1317, <float 2.500000e-01, float 2.500000e-01, float 2.500000e-01, float 2.500000e-01>
+  %1318 = fmul reassoc nsz arcp contract afn <4 x float> %1317, splat (float 2.500000e-01)
   store <4 x float> %1318, ptr %10, align 16, !tbaa !144
   call fastcc void @_get_chromaticity(ptr noundef nonnull %10, ptr noundef nonnull %11, i32 noundef %731, ptr noundef %750, ptr noundef %1266)
   %1319 = load float, ptr %1284, align 4, !tbaa !144
@@ -6625,15 +6625,15 @@ define internal fastcc void @_get_chromaticity(ptr nocapture noundef nonnull rea
   %111 = fmul reassoc nsz arcp contract afn float %110, 0.000000e+00
   %112 = getelementptr inbounds i8, ptr %1, i64 4
   %113 = fadd reassoc nsz arcp contract afn <2 x float> %97, %92
-  %114 = fmul reassoc nsz arcp contract afn <2 x float> %113, <float 0x3F1A36E2E0000000, float 0x3F1A36E2E0000000>
+  %114 = fmul reassoc nsz arcp contract afn <2 x float> %113, splat (float 0x3F1A36E2E0000000)
   %115 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.maxnum.v2f32(<2 x float> %114, <2 x float> zeroinitializer)
-  %116 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %115, <2 x float> <float 0x3FC4640000000000, float 0x3FC4640000000000>)
-  %117 = fmul reassoc nsz arcp contract afn <2 x float> %116, <float 0x4032DA0000000000, float 0x4032DA0000000000>
-  %118 = fadd reassoc nsz arcp contract afn <2 x float> %117, <float 0x3FEAC00000000000, float 0x3FEAC00000000000>
-  %119 = fmul reassoc nsz arcp contract afn <2 x float> %116, <float 1.868750e+01, float 1.868750e+01>
-  %120 = fadd reassoc nsz arcp contract afn <2 x float> %119, <float 1.000000e+00, float 1.000000e+00>
+  %116 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %115, <2 x float> splat (float 0x3FC4640000000000))
+  %117 = fmul reassoc nsz arcp contract afn <2 x float> %116, splat (float 0x4032DA0000000000)
+  %118 = fadd reassoc nsz arcp contract afn <2 x float> %117, splat (float 0x3FEAC00000000000)
+  %119 = fmul reassoc nsz arcp contract afn <2 x float> %116, splat (float 1.868750e+01)
+  %120 = fadd reassoc nsz arcp contract afn <2 x float> %119, splat (float 1.000000e+00)
   %121 = fdiv reassoc nsz arcp contract afn <2 x float> %118, %120
-  %122 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %121, <2 x float> <float 0x4060C119A0000000, float 0x4060C119A0000000>)
+  %122 = tail call reassoc nsz arcp contract afn <2 x float> @llvm.pow.v2f32(<2 x float> %121, <2 x float> splat (float 0x4060C119A0000000))
   %123 = shufflevector <2 x float> %122, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %124 = fadd reassoc nsz arcp contract afn <2 x float> %123, %122
   %125 = extractelement <2 x float> %124, i64 0
@@ -6670,31 +6670,31 @@ define internal fastcc void @_get_chromaticity(ptr nocapture noundef nonnull rea
   %150 = fmul reassoc nsz arcp contract afn float %149, 0x3FB3D07220000000
   %151 = extractelement <4 x float> %146, i64 2
   %152 = fmul reassoc nsz arcp contract afn float %151, 0x3FB3D07220000000
-  %153 = fmul reassoc nsz arcp contract afn <4 x float> %146, <float 0x3FEE54EDE0000000, float 0x3FEE54EDE0000000, float 0x3FEE54EDE0000000, float 0x3FEE54EDE0000000>
-  %154 = fadd reassoc nsz arcp contract afn <4 x float> %153, <float 0x3FAAB12340000000, float 0x3FAAB12340000000, float 0x3FAAB12340000000, float 0x3FAAB12340000000>
+  %153 = fmul reassoc nsz arcp contract afn <4 x float> %146, splat (float 0x3FEE54EDE0000000)
+  %154 = fadd reassoc nsz arcp contract afn <4 x float> %153, splat (float 0x3FAAB12340000000)
   %155 = bitcast <4 x float> %154 to <4 x i32>
-  %156 = and <4 x i32> %155, <i32 8388607, i32 8388607, i32 8388607, i32 8388607>
-  %157 = or disjoint <4 x i32> %156, <i32 1065353216, i32 1065353216, i32 1065353216, i32 1065353216>
+  %156 = and <4 x i32> %155, splat (i32 8388607)
+  %157 = or disjoint <4 x i32> %156, splat (i32 1065353216)
   %158 = bitcast <4 x i32> %157 to <4 x float>
-  %159 = lshr <4 x i32> %155, <i32 23, i32 23, i32 23, i32 23>
-  %160 = and <4 x i32> %159, <i32 255, i32 255, i32 255, i32 255>
-  %161 = add nsw <4 x i32> %160, <i32 -127, i32 -127, i32 -127, i32 -127>
+  %159 = lshr <4 x i32> %155, splat (i32 23)
+  %160 = and <4 x i32> %159, splat (i32 255)
+  %161 = add nsw <4 x i32> %160, splat (i32 -127)
   %162 = sitofp <4 x i32> %161 to <4 x float>
-  %163 = fmul reassoc nsz arcp contract afn <4 x float> %158, <float 0x3FAE8AA5E0000000, float 0x3FAE8AA5E0000000, float 0x3FAE8AA5E0000000, float 0x3FAE8AA5E0000000>
-  %164 = fadd reassoc nsz arcp contract afn <4 x float> %163, <float 0xBFDDCE72E0000000, float 0xBFDDCE72E0000000, float 0xBFDDCE72E0000000, float 0xBFDDCE72E0000000>
+  %163 = fmul reassoc nsz arcp contract afn <4 x float> %158, splat (float 0x3FAE8AA5E0000000)
+  %164 = fadd reassoc nsz arcp contract afn <4 x float> %163, splat (float 0xBFDDCE72E0000000)
   %165 = fmul reassoc nsz arcp contract afn <4 x float> %164, %158
-  %166 = fadd reassoc nsz arcp contract afn <4 x float> %165, <float 0x3FF7B2DBA0000000, float 0x3FF7B2DBA0000000, float 0x3FF7B2DBA0000000, float 0x3FF7B2DBA0000000>
+  %166 = fadd reassoc nsz arcp contract afn <4 x float> %165, splat (float 0x3FF7B2DBA0000000)
   %167 = fmul reassoc nsz arcp contract afn <4 x float> %166, %158
-  %168 = fadd reassoc nsz arcp contract afn <4 x float> %167, <float 0xC0042A7EC0000000, float 0xC0042A7EC0000000, float 0xC0042A7EC0000000, float 0xC0042A7EC0000000>
+  %168 = fadd reassoc nsz arcp contract afn <4 x float> %167, splat (float 0xC0042A7EC0000000)
   %169 = fmul reassoc nsz arcp contract afn <4 x float> %168, %158
-  %170 = fadd reassoc nsz arcp contract afn <4 x float> %169, <float 0x40071B2D80000000, float 0x40071B2D80000000, float 0x40071B2D80000000, float 0x40071B2D80000000>
-  %171 = fadd reassoc nsz arcp contract afn <4 x float> %158, <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float -1.000000e+00>
+  %170 = fadd reassoc nsz arcp contract afn <4 x float> %169, splat (float 0x40071B2D80000000)
+  %171 = fadd reassoc nsz arcp contract afn <4 x float> %158, splat (float -1.000000e+00)
   %172 = fmul reassoc nsz arcp contract afn <4 x float> %170, %171
   %173 = fadd reassoc nsz arcp contract afn <4 x float> %172, %162
-  %174 = fmul reassoc nsz arcp contract afn <4 x float> %173, <float 0x4003333340000000, float 0x4003333340000000, float 0x4003333340000000, float 0x4003333340000000>
-  %175 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %174, <4 x float> <float 1.290000e+02, float 1.290000e+02, float 1.290000e+02, float 1.290000e+02>)
-  %176 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %175, <4 x float> <float 0xC05FBFFFE0000000, float 0xC05FBFFFE0000000, float 0xC05FBFFFE0000000, float 0xC05FBFFFE0000000>)
-  %177 = fadd reassoc nsz arcp contract afn <4 x float> %176, <float -5.000000e-01, float -5.000000e-01, float -5.000000e-01, float -5.000000e-01>
+  %174 = fmul reassoc nsz arcp contract afn <4 x float> %173, splat (float 0x4003333340000000)
+  %175 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.min.ps(<4 x float> %174, <4 x float> splat (float 1.290000e+02))
+  %176 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.x86.sse.max.ps(<4 x float> %175, <4 x float> splat (float 0xC05FBFFFE0000000))
+  %177 = fadd reassoc nsz arcp contract afn <4 x float> %176, splat (float -5.000000e-01)
   %178 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %177)
   %179 = sitofp <4 x i32> %178 to <4 x float>
   %180 = extractelement <4 x float> %179, i64 0
@@ -6901,7 +6901,7 @@ define internal fastcc void @_get_chromaticity(ptr nocapture noundef nonnull rea
   %335 = shufflevector <2 x float> %334, <2 x float> poison, <2 x i32> zeroinitializer
   %336 = fmul reassoc nsz arcp contract afn <2 x float> %333, %335
   %337 = fpext <2 x float> %336 to <2 x double>
-  %338 = fmul reassoc nsz arcp contract afn <2 x double> %337, <double 1.000000e-02, double 1.000000e-02>
+  %338 = fmul reassoc nsz arcp contract afn <2 x double> %337, splat (double 1.000000e-02)
   %339 = fptrunc <2 x double> %338 to <2 x float>
   store <2 x float> %339, ptr %330, align 4, !tbaa !144
   br label %341

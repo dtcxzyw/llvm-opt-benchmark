@@ -70,7 +70,7 @@ entry:
   %25 = bitcast <32 x i8> %24 to <4 x i64>
   %add.i1873 = add <4 x i64> %add.i1882, %25
   %xor.i1278 = xor <4 x i64> %add.i1873, %21
-  %or.i3699 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1278, <4 x i64> %xor.i1278, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3699 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1278, <4 x i64> %xor.i1278, <4 x i64> splat (i64 1))
   %perm = shufflevector <4 x i64> %add.i1876, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm69 = shufflevector <4 x i64> %25, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm70 = shufflevector <4 x i64> %add.i1873, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -99,7 +99,7 @@ entry:
   %35 = bitcast <32 x i8> %34 to <4 x i64>
   %add.i1852 = add <4 x i64> %add.i1861, %35
   %xor.i1266 = xor <4 x i64> %add.i1852, %31
-  %or.i3696 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1266, <4 x i64> %xor.i1266, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3696 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1266, <4 x i64> %xor.i1266, <4 x i64> splat (i64 1))
   %perm105 = shufflevector <4 x i64> %add.i1855, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm106 = shufflevector <4 x i64> %35, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm107 = shufflevector <4 x i64> %add.i1852, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -128,7 +128,7 @@ entry:
   %46 = bitcast <32 x i8> %45 to <4 x i64>
   %add.i1831 = add <4 x i64> %add.i1840, %46
   %xor.i1254 = xor <4 x i64> %add.i1831, %41
-  %or.i3693 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1254, <4 x i64> %xor.i1254, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3693 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1254, <4 x i64> %xor.i1254, <4 x i64> splat (i64 1))
   %perm144 = shufflevector <4 x i64> %add.i1834, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm145 = shufflevector <4 x i64> %46, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm146 = shufflevector <4 x i64> %add.i1831, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -160,7 +160,7 @@ entry:
   %62 = bitcast <32 x i8> %61 to <4 x i64>
   %add.i1810 = add <4 x i64> %add.i1819, %62
   %xor.i1242 = xor <4 x i64> %add.i1810, %54
-  %or.i3690 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1242, <4 x i64> %xor.i1242, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3690 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1242, <4 x i64> %xor.i1242, <4 x i64> splat (i64 1))
   %perm181 = shufflevector <4 x i64> %add.i1813, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm182 = shufflevector <4 x i64> %62, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm183 = shufflevector <4 x i64> %add.i1810, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -190,7 +190,7 @@ entry:
   %75 = bitcast <32 x i8> %74 to <4 x i64>
   %add.i1789 = add <4 x i64> %add.i1798, %75
   %xor.i1230 = xor <4 x i64> %add.i1789, %69
-  %or.i3687 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1230, <4 x i64> %xor.i1230, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3687 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1230, <4 x i64> %xor.i1230, <4 x i64> splat (i64 1))
   %perm221 = shufflevector <4 x i64> %add.i1792, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm222 = shufflevector <4 x i64> %75, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm223 = shufflevector <4 x i64> %add.i1789, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -219,7 +219,7 @@ entry:
   %87 = bitcast <32 x i8> %86 to <4 x i64>
   %add.i1768 = add <4 x i64> %add.i1777, %87
   %xor.i1218 = xor <4 x i64> %add.i1768, %82
-  %or.i3684 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1218, <4 x i64> %xor.i1218, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3684 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1218, <4 x i64> %xor.i1218, <4 x i64> splat (i64 1))
   %perm258 = shufflevector <4 x i64> %add.i1771, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm259 = shufflevector <4 x i64> %87, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm260 = shufflevector <4 x i64> %add.i1768, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -248,7 +248,7 @@ entry:
   %97 = bitcast <32 x i8> %96 to <4 x i64>
   %add.i1747 = add <4 x i64> %add.i1756, %97
   %xor.i1206 = xor <4 x i64> %add.i1747, %93
-  %or.i3681 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1206, <4 x i64> %xor.i1206, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3681 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1206, <4 x i64> %xor.i1206, <4 x i64> splat (i64 1))
   %perm298 = shufflevector <4 x i64> %add.i1750, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm299 = shufflevector <4 x i64> %97, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm300 = shufflevector <4 x i64> %add.i1747, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -279,7 +279,7 @@ entry:
   %110 = bitcast <32 x i8> %109 to <4 x i64>
   %add.i1726 = add <4 x i64> %add.i1735, %110
   %xor.i1194 = xor <4 x i64> %add.i1726, %106
-  %or.i3678 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1194, <4 x i64> %xor.i1194, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3678 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1194, <4 x i64> %xor.i1194, <4 x i64> splat (i64 1))
   %perm335 = shufflevector <4 x i64> %add.i1729, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm336 = shufflevector <4 x i64> %110, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm337 = shufflevector <4 x i64> %add.i1726, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -309,7 +309,7 @@ entry:
   %122 = bitcast <32 x i8> %121 to <4 x i64>
   %add.i1705 = add <4 x i64> %add.i1714, %122
   %xor.i1182 = xor <4 x i64> %add.i1705, %116
-  %or.i3675 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1182, <4 x i64> %xor.i1182, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3675 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1182, <4 x i64> %xor.i1182, <4 x i64> splat (i64 1))
   %perm375 = shufflevector <4 x i64> %add.i1708, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm376 = shufflevector <4 x i64> %122, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm377 = shufflevector <4 x i64> %add.i1705, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -338,7 +338,7 @@ entry:
   %134 = bitcast <32 x i8> %133 to <4 x i64>
   %add.i1684 = add <4 x i64> %add.i1693, %134
   %xor.i1170 = xor <4 x i64> %add.i1684, %130
-  %or.i3672 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1170, <4 x i64> %xor.i1170, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3672 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1170, <4 x i64> %xor.i1170, <4 x i64> splat (i64 1))
   %perm412 = shufflevector <4 x i64> %add.i1687, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm413 = shufflevector <4 x i64> %134, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm414 = shufflevector <4 x i64> %add.i1684, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -367,7 +367,7 @@ entry:
   %144 = bitcast <32 x i8> %143 to <4 x i64>
   %add.i1663 = add <4 x i64> %add.i1672, %144
   %xor.i1158 = xor <4 x i64> %add.i1663, %140
-  %or.i3669 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1158, <4 x i64> %xor.i1158, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3669 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1158, <4 x i64> %xor.i1158, <4 x i64> splat (i64 1))
   %perm452 = shufflevector <4 x i64> %add.i1666, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm453 = shufflevector <4 x i64> %144, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm454 = shufflevector <4 x i64> %add.i1663, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -395,7 +395,7 @@ entry:
   %156 = bitcast <32 x i8> %155 to <4 x i64>
   %add.i1642 = add <4 x i64> %add.i1651, %156
   %xor.i1146 = xor <4 x i64> %add.i1642, %151
-  %or.i3666 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1146, <4 x i64> %xor.i1146, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3666 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1146, <4 x i64> %xor.i1146, <4 x i64> splat (i64 1))
   %perm489 = shufflevector <4 x i64> %add.i1645, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm490 = shufflevector <4 x i64> %156, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm491 = shufflevector <4 x i64> %add.i1642, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -423,7 +423,7 @@ entry:
   %168 = bitcast <32 x i8> %167 to <4 x i64>
   %add.i1621 = add <4 x i64> %add.i1630, %168
   %xor.i1134 = xor <4 x i64> %add.i1621, %163
-  %or.i3663 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1134, <4 x i64> %xor.i1134, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3663 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1134, <4 x i64> %xor.i1134, <4 x i64> splat (i64 1))
   %perm529 = shufflevector <4 x i64> %add.i1624, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm530 = shufflevector <4 x i64> %168, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm531 = shufflevector <4 x i64> %add.i1621, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -452,7 +452,7 @@ entry:
   %180 = bitcast <32 x i8> %179 to <4 x i64>
   %add.i1600 = add <4 x i64> %add.i1609, %180
   %xor.i1122 = xor <4 x i64> %add.i1600, %175
-  %or.i3660 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1122, <4 x i64> %xor.i1122, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3660 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1122, <4 x i64> %xor.i1122, <4 x i64> splat (i64 1))
   %perm566 = shufflevector <4 x i64> %add.i1603, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm567 = shufflevector <4 x i64> %180, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm568 = shufflevector <4 x i64> %add.i1600, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -481,7 +481,7 @@ entry:
   %192 = bitcast <32 x i8> %191 to <4 x i64>
   %add.i1579 = add <4 x i64> %add.i1588, %192
   %xor.i1110 = xor <4 x i64> %add.i1579, %187
-  %or.i3657 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1110, <4 x i64> %xor.i1110, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3657 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1110, <4 x i64> %xor.i1110, <4 x i64> splat (i64 1))
   %perm606 = shufflevector <4 x i64> %add.i1582, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm607 = shufflevector <4 x i64> %192, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm608 = shufflevector <4 x i64> %add.i1579, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -509,7 +509,7 @@ entry:
   %204 = bitcast <32 x i8> %203 to <4 x i64>
   %add.i1558 = add <4 x i64> %add.i1567, %204
   %xor.i1098 = xor <4 x i64> %add.i1558, %200
-  %or.i3654 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1098, <4 x i64> %xor.i1098, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3654 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1098, <4 x i64> %xor.i1098, <4 x i64> splat (i64 1))
   %perm643 = shufflevector <4 x i64> %add.i1561, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm644 = shufflevector <4 x i64> %204, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm645 = shufflevector <4 x i64> %add.i1558, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -537,7 +537,7 @@ entry:
   %216 = bitcast <32 x i8> %215 to <4 x i64>
   %add.i1537 = add <4 x i64> %add.i1546, %216
   %xor.i1086 = xor <4 x i64> %add.i1537, %211
-  %or.i3651 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1086, <4 x i64> %xor.i1086, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3651 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1086, <4 x i64> %xor.i1086, <4 x i64> splat (i64 1))
   %perm683 = shufflevector <4 x i64> %add.i1540, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm684 = shufflevector <4 x i64> %216, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm685 = shufflevector <4 x i64> %add.i1537, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -564,7 +564,7 @@ entry:
   %228 = bitcast <32 x i8> %227 to <4 x i64>
   %add.i1516 = add <4 x i64> %add.i1525, %228
   %xor.i1074 = xor <4 x i64> %add.i1516, %222
-  %or.i3648 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1074, <4 x i64> %xor.i1074, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3648 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1074, <4 x i64> %xor.i1074, <4 x i64> splat (i64 1))
   %perm720 = shufflevector <4 x i64> %add.i1519, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm721 = shufflevector <4 x i64> %228, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm722 = shufflevector <4 x i64> %add.i1516, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -592,7 +592,7 @@ entry:
   %239 = bitcast <32 x i8> %238 to <4 x i64>
   %add.i1495 = add <4 x i64> %add.i1504, %239
   %xor.i1062 = xor <4 x i64> %add.i1495, %234
-  %or.i3645 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1062, <4 x i64> %xor.i1062, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3645 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1062, <4 x i64> %xor.i1062, <4 x i64> splat (i64 1))
   %perm760 = shufflevector <4 x i64> %add.i1498, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm761 = shufflevector <4 x i64> %239, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm762 = shufflevector <4 x i64> %add.i1495, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -620,7 +620,7 @@ entry:
   %249 = bitcast <32 x i8> %248 to <4 x i64>
   %add.i1474 = add <4 x i64> %add.i1483, %249
   %xor.i1050 = xor <4 x i64> %add.i1474, %245
-  %or.i3642 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1050, <4 x i64> %xor.i1050, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3642 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1050, <4 x i64> %xor.i1050, <4 x i64> splat (i64 1))
   %perm797 = shufflevector <4 x i64> %add.i1477, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm798 = shufflevector <4 x i64> %249, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm799 = shufflevector <4 x i64> %add.i1474, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -643,7 +643,7 @@ entry:
   %257 = bitcast <32 x i8> %256 to <4 x i64>
   %add.i1453 = add <4 x i64> %add.i1462, %257
   %xor.i1038 = xor <4 x i64> %add.i1453, %254
-  %or.i3639 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1038, <4 x i64> %xor.i1038, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3639 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1038, <4 x i64> %xor.i1038, <4 x i64> splat (i64 1))
   %perm837 = shufflevector <4 x i64> %add.i1456, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm838 = shufflevector <4 x i64> %257, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm839 = shufflevector <4 x i64> %add.i1453, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -666,7 +666,7 @@ entry:
   %265 = bitcast <32 x i8> %264 to <4 x i64>
   %add.i1432 = add <4 x i64> %add.i1441, %265
   %xor.i1026 = xor <4 x i64> %add.i1432, %262
-  %or.i3636 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1026, <4 x i64> %xor.i1026, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3636 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1026, <4 x i64> %xor.i1026, <4 x i64> splat (i64 1))
   %perm874 = shufflevector <4 x i64> %add.i1435, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm875 = shufflevector <4 x i64> %265, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm876 = shufflevector <4 x i64> %add.i1432, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
@@ -689,7 +689,7 @@ entry:
   %273 = bitcast <32 x i8> %272 to <4 x i64>
   %add.i1411 = add <4 x i64> %add.i1420, %273
   %xor.i1014 = xor <4 x i64> %add.i1411, %270
-  %or.i3633 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1014, <4 x i64> %xor.i1014, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i3633 = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1014, <4 x i64> %xor.i1014, <4 x i64> splat (i64 1))
   %perm914 = shufflevector <4 x i64> %add.i1414, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>
   %perm915 = shufflevector <4 x i64> %273, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm916 = shufflevector <4 x i64> %add.i1411, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
@@ -712,7 +712,7 @@ entry:
   %281 = bitcast <32 x i8> %280 to <4 x i64>
   %add.i1390 = add <4 x i64> %add.i1399, %281
   %xor.i1002 = xor <4 x i64> %add.i1390, %278
-  %or.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1002, <4 x i64> %xor.i1002, <4 x i64> <i64 1, i64 1, i64 1, i64 1>)
+  %or.i = tail call <4 x i64> @llvm.fshl.v4i64(<4 x i64> %xor.i1002, <4 x i64> %xor.i1002, <4 x i64> splat (i64 1))
   %perm951 = shufflevector <4 x i64> %add.i1393, <4 x i64> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   %perm952 = shufflevector <4 x i64> %281, <4 x i64> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
   %perm953 = shufflevector <4 x i64> %add.i1390, <4 x i64> poison, <4 x i32> <i32 3, i32 0, i32 1, i32 2>

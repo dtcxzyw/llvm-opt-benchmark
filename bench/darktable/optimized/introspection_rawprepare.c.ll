@@ -631,9 +631,9 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %130 = getelementptr inbounds i8, ptr %128, i64 -60
   %131 = load <8 x float>, ptr %129, align 4, !tbaa !41, !alias.scope !69
   %132 = load <8 x float>, ptr %130, align 4, !tbaa !41, !alias.scope !69
-  %133 = fdiv reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %131
+  %133 = fdiv reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %131
   %134 = shufflevector <8 x float> %133, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %135 = fdiv reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %132
+  %135 = fdiv reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %132
   %136 = shufflevector <8 x float> %135, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   br label %137
 
@@ -832,9 +832,9 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
   %297 = getelementptr inbounds i8, ptr %295, i64 -60
   %298 = load <8 x float>, ptr %296, align 4, !tbaa !41, !alias.scope !76
   %299 = load <8 x float>, ptr %297, align 4, !tbaa !41, !alias.scope !76
-  %300 = fdiv reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %298
+  %300 = fdiv reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %298
   %301 = shufflevector <8 x float> %300, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
-  %302 = fdiv reassoc nsz arcp contract afn <8 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, %299
+  %302 = fdiv reassoc nsz arcp contract afn <8 x float> splat (float 1.000000e+00), %299
   %303 = shufflevector <8 x float> %302, <8 x float> poison, <8 x i32> <i32 7, i32 6, i32 5, i32 4, i32 3, i32 2, i32 1, i32 0>
   br label %304
 
@@ -1588,7 +1588,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noca
 894:                                              ; preds = %891, %887, %.loopexit25
   %895 = phi ptr [ %893, %891 ], [ %886, %887 ], [ %886, %.loopexit25 ]
   %896 = getelementptr inbounds i8, ptr %895, i64 272
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %896, align 4, !tbaa !41
+  store <4 x float> splat (float 1.000000e+00), ptr %896, align 4, !tbaa !41
   ret void
 }
 

@@ -1166,7 +1166,7 @@ if.end:                                           ; preds = %land.lhs.true.i
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_base_position.i, align 8, !tbaa.struct !102
   %retval.sroa.2.0.m_base_position.sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 40
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_base_position.sroa_idx.i, align 8, !tbaa !103
-  %5 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, <float 1.000000e+01, float 1.000000e+01>
+  %5 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %5, float %div3.i)
   br label %cleanup
@@ -3149,7 +3149,7 @@ cond.false.i:                                     ; preds = %if.end
   br label %_ZN9LuaHelper9readParamIN3irr4core8vector2dIfEEEET_P9lua_StateiRKS5_.exit
 
 _ZN9LuaHelper9readParamIN3irr4core8vector2dIfEEEET_P9lua_StateiRKS5_.exit: ; preds = %cond.false.i, %if.end
-  %retval.sroa.0.0.i = phi <2 x float> [ %call1.i, %cond.false.i ], [ <float 1.000000e+00, float 1.000000e+00>, %if.end ]
+  %retval.sroa.0.0.i = phi <2 x float> [ %call1.i, %cond.false.i ], [ splat (float 1.000000e+00), %if.end ]
   %call.i16 = tail call i32 @lua_type(ptr noundef %L, i32 noundef 3)
   %cmp.i17 = icmp slt i32 %call.i16, 1
   br i1 %cmp.i17, label %_ZN9LuaHelper9readParamIfEET_P9lua_StateiRKS1_.exit, label %cond.false.i18
@@ -3215,7 +3215,7 @@ land.lhs.true.i:                                  ; preds = %entry
 
 if.end:                                           ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %frames) #32
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %frames, align 8, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %frames, align 8, !tbaa !103
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %frame_speed) #32
   store float 1.500000e+01, ptr %frame_speed, align 4, !tbaa !103
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %frame_blend) #32
@@ -3941,7 +3941,7 @@ invoke.cont17:                                    ; preds = %_ZNSt7__cxx1112basi
   %interp_timer.i2.i = getelementptr inbounds i8, ptr %props, i64 68
   %vector.i.i = getelementptr inbounds i8, ptr %props, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %interp_timer.i2.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %vector.i.i, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %vector.i.i, align 4, !tbaa !103
   %Z.i3.i6.i = getelementptr inbounds i8, ptr %props, i64 92
   store float 1.000000e+00, ptr %Z.i3.i6.i, align 4, !tbaa !172
   %absolute.i7.i = getelementptr inbounds i8, ptr %props, i64 96
@@ -4003,9 +4003,9 @@ invoke.cont42:                                    ; preds = %if.then31
   %39 = fneg nsz double %36
   %40 = shufflevector <2 x float> %call37.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %41 = insertelement <2 x float> %40, float %call37.fca.1.extract, i64 1
-  %42 = fmul nsz <2 x float> %41, <float 0x3F91DF46A0000000, float 0x3F91DF46A0000000>
+  %42 = fmul nsz <2 x float> %41, splat (float 0x3F91DF46A0000000)
   %43 = fpext <2 x float> %42 to <2 x double>
-  %44 = fmul nsz <2 x double> %43, <double 5.000000e-01, double 5.000000e-01>
+  %44 = fmul nsz <2 x double> %43, splat (double 5.000000e-01)
   %45 = extractelement <2 x double> %44, i64 0
   %46 = call nsz double @llvm.cos.f64(double %45)
   %47 = call nsz <2 x double> @llvm.sin.v2f64(<2 x double> %44)
@@ -4305,7 +4305,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
 
 invoke.cont23:                                    ; preds = %invoke.cont18
   %24 = load <2 x float>, ptr %euler_rot, align 8, !tbaa !103
-  %25 = fmul nsz <2 x float> %24, <float 0x404CA5DC00000000, float 0x404CA5DC00000000>
+  %25 = fmul nsz <2 x float> %24, splat (float 0x404CA5DC00000000)
   %26 = load float, ptr %Z.i, align 8, !tbaa !172
   %mul3.i = fmul nsz float %26, 0x404CA5DC00000000
   invoke void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %25, float %mul3.i)
@@ -4530,7 +4530,7 @@ invoke.cont:                                      ; preds = %land.lhs.true.i
   %interp_timer.i2.i = getelementptr inbounds i8, ptr %props, i64 68
   %vector.i.i = getelementptr inbounds i8, ptr %props, i64 84
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %interp_timer.i2.i, i8 0, i64 16, i1 false)
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %vector.i.i, align 4, !tbaa !103
+  store <2 x float> splat (float 1.000000e+00), ptr %vector.i.i, align 4, !tbaa !103
   %Z.i3.i6.i = getelementptr inbounds i8, ptr %props, i64 92
   store float 1.000000e+00, ptr %Z.i3.i6.i, align 4, !tbaa !172
   %absolute.i7.i = getelementptr inbounds i8, ptr %props, i64 96
@@ -4693,7 +4693,7 @@ invoke.cont44:                                    ; preds = %if.then37
   %13 = shufflevector <2 x float> %call42.fca.0.extract, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
   %14 = insertelement <2 x float> %13, float %call42.fca.1.extract, i64 1
   %15 = fpext <2 x float> %14 to <2 x double>
-  %16 = fmul nsz <2 x double> %15, <double 5.000000e-01, double 5.000000e-01>
+  %16 = fmul nsz <2 x double> %15, splat (double 5.000000e-01)
   %17 = extractelement <2 x double> %16, i64 0
   %18 = call nsz double @llvm.cos.f64(double %17)
   %19 = call nsz <2 x double> @llvm.sin.v2f64(<2 x double> %16)
@@ -4824,7 +4824,7 @@ invoke.cont63:                                    ; preds = %cond.false
 
 cond.end:                                         ; preds = %invoke.cont63, %invoke.cont59
   %ref.tmp57.sroa.7.0 = phi float [ %call64.fca.1.extract, %invoke.cont63 ], [ 1.000000e+00, %invoke.cont59 ]
-  %ref.tmp57.sroa.0.0 = phi <2 x float> [ %call64.fca.0.extract, %invoke.cont63 ], [ <float 1.000000e+00, float 1.000000e+00>, %invoke.cont59 ]
+  %ref.tmp57.sroa.0.0 = phi <2 x float> [ %call64.fca.0.extract, %invoke.cont63 ], [ splat (float 1.000000e+00), %invoke.cont59 ]
   store <2 x float> %ref.tmp57.sroa.0.0, ptr %vector.i.i, align 4, !tbaa.struct !102
   store float %ref.tmp57.sroa.7.0, ptr %Z.i3.i6.i, align 4, !tbaa !103
   invoke void @lua_settop(ptr noundef %L, i32 noundef -2)
@@ -7915,7 +7915,7 @@ if.then10:                                        ; preds = %if.else
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_speed.i, align 8, !tbaa.struct !102
   %retval.sroa.2.0.m_speed.sroa_idx.i = getelementptr inbounds i8, ptr %9, i64 344
   %retval.sroa.2.0.copyload.i = load float, ptr %retval.sroa.2.0.m_speed.sroa_idx.i, align 8, !tbaa !103
-  %10 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, <float 1.000000e+01, float 1.000000e+01>
+  %10 = fdiv nsz <2 x float> %retval.sroa.0.0.copyload.i, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %retval.sroa.2.0.copyload.i, 1.000000e+01
   tail call void @_Z8push_v3fP9lua_StateN3irr4core8vector3dIfEE(ptr noundef %L, <2 x float> %10, float %div3.i)
   br label %cleanup
@@ -8042,7 +8042,7 @@ if.end:                                           ; preds = %if.end.i
   %call2 = tail call { <2 x float>, float } @_Z9check_v3fP9lua_Statei(ptr noundef %L, i32 noundef 2)
   %call2.fca.0.extract = extractvalue { <2 x float>, float } %call2, 0
   %call2.fca.1.extract = extractvalue { <2 x float>, float } %call2, 1
-  %6 = fmul nsz <2 x float> %call2.fca.0.extract, <float 0x404CA5DC00000000, float 0x404CA5DC00000000>
+  %6 = fmul nsz <2 x float> %call2.fca.0.extract, splat (float 0x404CA5DC00000000)
   %mul3.i = fmul nsz float %call2.fca.1.extract, 0x404CA5DC00000000
   %m_rotation.i = getelementptr inbounds i8, ptr %1, i64 196
   store <2 x float> %6, ptr %m_rotation.i, align 4, !tbaa.struct !102
@@ -8083,7 +8083,7 @@ if.end.i:                                         ; preds = %land.lhs.true.i.i
 if.end:                                           ; preds = %if.end.i
   %m_rotation.i = getelementptr inbounds i8, ptr %1, i64 196
   %6 = load <2 x float>, ptr %m_rotation.i, align 4, !tbaa !103
-  %7 = fmul nsz <2 x float> %6, <float 0x3F91DF46A0000000, float 0x3F91DF46A0000000>
+  %7 = fmul nsz <2 x float> %6, splat (float 0x3F91DF46A0000000)
   %Z.i = getelementptr inbounds i8, ptr %1, i64 204
   %8 = load float, ptr %Z.i, align 4, !tbaa !172
   %mul3.i = fmul nsz float %8, 0x3F91DF46A0000000

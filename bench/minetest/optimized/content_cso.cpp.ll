@@ -411,7 +411,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %if.end.i.i.i, %
 
 invoke.cont2:                                     ; preds = %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i, %if.then.i.i, %_ZTW10infostream.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #22
-  store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %ref.tmp, align 8, !tbaa !43
+  store <2 x float> splat (float 1.000000e+00), ptr %ref.tmp, align 8, !tbaa !43
   %vtable = load ptr, ptr %smgr, align 8, !tbaa !15
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
   %9 = load ptr, ptr %vfn, align 8

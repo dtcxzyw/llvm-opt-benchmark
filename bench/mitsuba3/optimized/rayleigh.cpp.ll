@@ -442,7 +442,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %.018.i.i.i = phi i64 [ 0, %_ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_6MatrixIS4_Lm4EEEiEC2IfS4_S7_TnNSt3__19enable_ifIXoonesrT1_4SizesrT0_4SizenesrSC_5DepthsrSD_5DepthEiE4typeELi0EEERKNS_9ArrayBaseIT_Lb0ESD_EE.exit.i.i.i ], [ %193, %190 ]
   %191 = getelementptr inbounds [4 x %"struct.drjit::Array"], ptr %179, i64 0, i64 %.018.i.i.i
   %192 = getelementptr inbounds [4 x %"struct.mitsuba::Spectrum"], ptr %191, i64 0, i64 %.018.i.i.i
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>, ptr %192, align 16
+  store <4 x float> splat (float 1.000000e+00), ptr %192, align 16
   %193 = add nuw nsw i64 %.018.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %193, 4
   br i1 %exitcond.not.i.i.i, label %194, label %190, !llvm.loop !7

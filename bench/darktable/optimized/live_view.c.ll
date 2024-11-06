@@ -127,7 +127,7 @@ define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %4, ptr %5, align 8, !tbaa !6
   %6 = getelementptr inbounds i8, ptr %4, i64 40
-  store <2 x double> <double 5.000000e-01, double 5.000000e-01>, ptr %6, align 8, !tbaa !13
+  store <2 x double> splat (double 5.000000e-01), ptr %6, align 8, !tbaa !13
   %7 = tail call ptr @gtk_box_new(i32 noundef 1, i32 noundef 0) #12
   %8 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr %7, ptr %8, align 8, !tbaa !15

@@ -5092,7 +5092,7 @@ _ZN5drjit5ArrayINS0_IN7mitsuba8SpectrumIfLm4EEELm4EEELm4EECI2NS_15StaticArrayImp
   %397 = fneg contract <4 x float> %394
   %398 = fmul contract <4 x float> %395, %397
   %399 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %398, <4 x float> %395, <4 x float> %396)
-  %400 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %399, <4 x float> %394, <4 x i32> <i32 8889890, i32 8889890, i32 8889890, i32 8889890>, i32 0, i8 -1)
+  %400 = call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %399, <4 x float> %394, <4 x i32> splat (i32 8889890), i32 0, i8 -1)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10), !noalias !76
   br label %401
 

@@ -1083,7 +1083,7 @@ entry:
   %ref.tmp3 = alloca %"class.irr::core::vector3d", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %iterator) #20
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp) #20
-  %0 = fdiv nsz <2 x float> %pos1.coerce0, <float 1.000000e+01, float 1.000000e+01>
+  %0 = fdiv nsz <2 x float> %pos1.coerce0, splat (float 1.000000e+01)
   %div3.i = fdiv nsz float %pos1.coerce1, 1.000000e+01
   store <2 x float> %0, ptr %ref.tmp, align 8
   %tmp.coerce.sroa.2.0.ref.tmp.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -1091,7 +1091,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %ref.tmp3) #20
   %sub6.i = fsub nsz float %pos2.coerce1, %pos1.coerce1
   %1 = fsub nsz <2 x float> %pos2.coerce0, %pos1.coerce0
-  %2 = fdiv nsz <2 x float> %1, <float 1.000000e+01, float 1.000000e+01>
+  %2 = fdiv nsz <2 x float> %1, splat (float 1.000000e+01)
   %div3.i29 = fdiv nsz float %sub6.i, 1.000000e+01
   store <2 x float> %2, ptr %ref.tmp3, align 8
   %tmp.coerce8.sroa.2.0.ref.tmp3.sroa_idx = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
@@ -1310,9 +1310,9 @@ if.then29:                                        ; preds = %if.end26
   %conv.i = fptosi float %div3.i to i16
   %14 = insertelement <2 x float> %agg.tmp31.sroa.0.0.copyload, float %agg.tmp31.sroa.2.0.copyload, i64 0
   %15 = fcmp nsz ogt <2 x float> %14, zeroinitializer
-  %16 = select <2 x i1> %15, <2 x float> <float 5.000000e+00, float 5.000000e+00>, <2 x float> <float -5.000000e+00, float -5.000000e+00>
+  %16 = select <2 x i1> %15, <2 x float> splat (float 5.000000e+00), <2 x float> splat (float -5.000000e+00)
   %17 = fadd nsz <2 x float> %14, %16
-  %18 = fdiv nsz <2 x float> %17, <float 1.000000e+01, float 1.000000e+01>
+  %18 = fdiv nsz <2 x float> %17, splat (float 1.000000e+01)
   %19 = fptosi <2 x float> %18 to <2 x i16>
   %20 = zext <2 x i16> %19 to <2 x i48>
   %21 = shl nuw <2 x i48> %20, <i48 32, i48 16>
@@ -1648,7 +1648,7 @@ invoke.cont224:                                   ; preds = %invoke.cont212
   %67 = load <2 x float>, ptr %__begin5.sroa.0.01067, align 4, !tbaa !42
   %68 = load <2 x float>, ptr %MaxEdge.i570, align 4, !tbaa !42
   %69 = fadd nsz <2 x float> %67, %68
-  %70 = fmul nsz <2 x float> %69, <float 5.000000e-01, float 5.000000e-01>
+  %70 = fmul nsz <2 x float> %69, splat (float 5.000000e-01)
   %div3.i.i = fmul nsz float %add6.i.i, 5.000000e-01
   br label %cleanup
 
@@ -1676,7 +1676,7 @@ if.end249:                                        ; preds = %for.cond.cleanup188
   %fake_intersection.sroa.15.0.v = select i1 %cmp275, float 0x3F947AE140000000, float 0xBF947AE140000000
   %fake_intersection.sroa.15.0 = fadd nsz float %result.sroa.18.5, %fake_intersection.sroa.15.0.v
   %72 = fcmp nsz olt <2 x float> %result.sroa.15669.5, %71
-  %73 = select <2 x i1> %72, <2 x float> <float 0x3F947AE140000000, float 0x3F947AE140000000>, <2 x float> <float 0xBF947AE140000000, float 0xBF947AE140000000>
+  %73 = select <2 x i1> %72, <2 x float> splat (float 0x3F947AE140000000), <2 x float> splat (float 0xBF947AE140000000)
   %74 = fadd nsz <2 x float> %result.sroa.15669.5, %73
   %75 = fcmp nsz ogt <2 x float> %74, zeroinitializer
   %76 = extractelement <2 x i1> %75, i64 0

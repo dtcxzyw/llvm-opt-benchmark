@@ -12080,8 +12080,8 @@ if.end730:                                        ; preds = %_ZL13roundTripsDegR
   %call.fca.0.extract.i1251 = extractvalue { <2 x float>, float } %call.i1250, 0
   %call.fca.1.extract.i1252 = extractvalue { <2 x float>, float } %call.i1250, 1
   %mul3.i.i1257 = fmul nsz float %call.fca.1.extract.i1252, 0x404CA5DC00000000
-  %197 = fmul nsz <2 x float> %call.fca.0.extract.i1251, <float 0x404CA5DC00000000, float 0x404CA5DC00000000>
-  %198 = fmul nsz <2 x float> %197, <float 0x3F91DF46A0000000, float 0x3F91DF46A0000000>
+  %197 = fmul nsz <2 x float> %call.fca.0.extract.i1251, splat (float 0x404CA5DC00000000)
+  %198 = fmul nsz <2 x float> %197, splat (float 0x3F91DF46A0000000)
   %mul3.i.i1266 = fmul nsz float %mul3.i.i1257, 0x3F91DF46A0000000
   call void @_Z18setPitchYawRollRadRN3irr4core8CMatrix4IfEENS0_8vector3dIfEE(ptr noundef nonnull align 4 dereferenceable(64) %m2, <2 x float> %198, float %mul3.i.i1266)
   %call737 = call fastcc noundef zeroext i1 @_ZL6withinRKN3irr4core8CMatrix4IfEES4_f(ptr noundef nonnull align 4 dereferenceable(64) %m1, ptr noundef nonnull align 4 dereferenceable(64) %m2)

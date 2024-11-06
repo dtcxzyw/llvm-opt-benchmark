@@ -5529,7 +5529,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1ff1f393a5
   br i1 %50, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.exit.i.i.i.i.i", label %53
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %53, %40
-  %51 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %51 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i.i.i, splat (i8 -1)
   %52 = bitcast <16 x i1> %51 to i16
   %.not.i.i.i.i.i.i.i.i = icmp eq i16 %52, 0
   br i1 %.not.i.i.i.i.i.i.i.i, label %57, label %select.unfold.i.i.i.i.i
@@ -5905,7 +5905,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h904e2dbdc6c44ab5E.exit.i.i.i.i: ; pred
   br i1 %87, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hf62f87b3c4da2fe3E.exit.i.i.i.i", label %90
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %90, %77
-  %88 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %88 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i.i, splat (i8 -1)
   %89 = bitcast <16 x i1> %88 to i16
   %.not.i.i.i.i.i.i.i = icmp eq i16 %89, 0
   br i1 %.not.i.i.i.i.i.i.i, label %94, label %select.unfold.i.i.i.i

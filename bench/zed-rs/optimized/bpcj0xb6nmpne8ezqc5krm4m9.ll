@@ -5315,8 +5315,8 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %.val3.i.i.i.i.i = load <16 x i8>, ptr %gep.i.i.i.i, align 1, !alias.scope !636, !noalias !637
   %50 = getelementptr inbounds i8, ptr %gep.i.i.i.i, i64 5
   %.val.i.i.i.i.i = load <16 x i8>, ptr %50, align 1, !alias.scope !636, !noalias !637
-  %51 = icmp eq <16 x i8> %.val3.i.i.i.i.i, <i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45>
-  %52 = icmp eq <16 x i8> %.val.i.i.i.i.i, <i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100>
+  %51 = icmp eq <16 x i8> %.val3.i.i.i.i.i, splat (i8 45)
+  %52 = icmp eq <16 x i8> %.val.i.i.i.i.i, splat (i8 100)
   %narrow.i.i.i.i.i = select <16 x i1> %51, <16 x i1> %52, <16 x i1> zeroinitializer
   %53 = getelementptr inbounds [4 x i16], ptr %7, i64 0, i64 %.sroa.020.046.i.i.i.i
   store <16 x i1> %narrow.i.i.i.i.i, ptr %53, align 2, !noalias !635
@@ -5412,8 +5412,8 @@ _ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread.i: ; preds 
   %.val3.i62.i.i.i.i = load <16 x i8>, ptr %81, align 1, !alias.scope !636, !noalias !649
   %82 = getelementptr inbounds i8, ptr %81, i64 5
   %.val.i63.i.i.i.i = load <16 x i8>, ptr %82, align 1, !alias.scope !636, !noalias !649
-  %83 = icmp eq <16 x i8> %.val3.i62.i.i.i.i, <i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45>
-  %84 = icmp eq <16 x i8> %.val.i63.i.i.i.i, <i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100>
+  %83 = icmp eq <16 x i8> %.val3.i62.i.i.i.i, splat (i8 45)
+  %84 = icmp eq <16 x i8> %.val.i63.i.i.i.i, splat (i8 100)
   %narrow.i64.i.i.i.i = select <16 x i1> %83, <16 x i1> %84, <16 x i1> zeroinitializer
   %85 = bitcast <16 x i1> %narrow.i64.i.i.i.i to i16
   %86 = icmp eq i16 %85, 0
@@ -5424,8 +5424,8 @@ _ZN4core3str7pattern14small_slice_eq17hd45e01b9d0f41d47E.exit.thread.i: ; preds 
   %.val3.i65.i.i.i.i = load <16 x i8>, ptr %88, align 1, !alias.scope !636, !noalias !652
   %89 = getelementptr inbounds i8, ptr %88, i64 5
   %.val.i66.i.i.i.i = load <16 x i8>, ptr %89, align 1, !alias.scope !636, !noalias !652
-  %90 = icmp eq <16 x i8> %.val3.i65.i.i.i.i, <i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45, i8 45>
-  %91 = icmp eq <16 x i8> %.val.i66.i.i.i.i, <i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100, i8 100>
+  %90 = icmp eq <16 x i8> %.val3.i65.i.i.i.i, splat (i8 45)
+  %91 = icmp eq <16 x i8> %.val.i66.i.i.i.i, splat (i8 100)
   %narrow.i67.i.i.i.i = select <16 x i1> %90, <16 x i1> %91, <16 x i1> zeroinitializer
   %92 = bitcast <16 x i1> %narrow.i67.i.i.i.i to i16
   %93 = icmp eq i16 %92, 0

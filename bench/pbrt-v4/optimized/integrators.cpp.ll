@@ -5172,7 +5172,7 @@ if.then.i:                                        ; preds = %entry
 
 _ZN4pbrt15GetCameraSampleINS_7SamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit: ; preds = %entry, %if.then.i
   %cameraSample.sroa.0.0 = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i31.i, %if.then.i ], [ %retval.sroa.0.4.vec.insert.i9.i, %entry ]
-  %cameraSample.sroa.3.0 = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i ], [ %call3.i.i21.i, %entry ]
+  %cameraSample.sroa.3.0 = phi <2 x float> [ splat (float 5.000000e-01), %if.then.i ], [ %call3.i.i21.i, %entry ]
   %cameraSample.sroa.9.0 = phi float [ 1.000000e+00, %if.then.i ], [ %call3.fca.1.extract.i, %entry ]
   %cameraSample.sroa.7.0 = phi float [ 5.000000e-01, %if.then.i ], [ %call3.i.i15.i, %entry ]
   store <2 x float> %cameraSample.sroa.0.0, ptr %agg.tmp8, align 8
@@ -34712,7 +34712,7 @@ invoke.cont29:                                    ; preds = %if.end
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %invoke.cont29
-  store <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr %call32, align 4
+  store <2 x float> splat (float 5.000000e-01), ptr %call32, align 4
   %12 = ptrtoint ptr %call32 to i64
   %or.i.i = or i64 %12, 144115188075855872
   %13 = load i64, ptr %film.i.i9.i.i.i, align 8, !noalias !454
@@ -35353,7 +35353,7 @@ invoke.cont82:                                    ; preds = %.thread
   store <2 x float> %agg.tmp3.sroa.0.4.vec.insert.i.i, ptr %z4.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %time.i43, i8 0, i64 36, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mediumInterface2.i, i8 0, i64 16, i1 false)
-  call void @_ZNK4pbrt6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.149") align 8 %cs, ptr noundef nonnull align 8 dereferenceable(8) %camera, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp75, <2 x float> <float 5.000000e-01, float 5.000000e-01>, ptr noundef nonnull align 4 dereferenceable(32) %lambda)
+  call void @_ZNK4pbrt6Camera8SampleWiERKNS_11InteractionENS_6Point2IfEERNS_18SampledWavelengthsE(ptr nonnull sret(%"class.pstd::optional.149") align 8 %cs, ptr noundef nonnull align 8 dereferenceable(8) %camera, ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp75, <2 x float> splat (float 5.000000e-01), ptr noundef nonnull align 4 dereferenceable(32) %lambda)
   %38 = load atomic i8, ptr @_ZGVZNK4pbrt14BDPTIntegrator2LiENS_15RayDifferentialERNS_18SampledWavelengthsENS_7SamplerERNS_13ScratchBufferEPNS_14VisibleSurfaceEE3reg acquire, align 8
   %guard.uninitialized = icmp eq i8 %38, 0
   br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !465
@@ -91385,7 +91385,7 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
 
 _ZN4pbrt15GetCameraSampleINS_7SamplerEEENS_12CameraSampleET_NS_6Point2IiEENS_6FilterE.exit.i.i.i: ; preds = %if.then.i.i.i.i, %for.body.i.i.i
   %cs.sroa.0.0.i.i.i = phi <2 x float> [ %retval.sroa.0.4.vec.insert.i31.i.i.i.i, %if.then.i.i.i.i ], [ %retval.sroa.0.4.vec.insert.i9.i.i.i.i, %for.body.i.i.i ]
-  %cs.sroa.3.1.i.i.i = phi <2 x float> [ <float 5.000000e-01, float 5.000000e-01>, %if.then.i.i.i.i ], [ %call3.i.i21.i.i.i.i, %for.body.i.i.i ]
+  %cs.sroa.3.1.i.i.i = phi <2 x float> [ splat (float 5.000000e-01), %if.then.i.i.i.i ], [ %call3.i.i21.i.i.i.i, %for.body.i.i.i ]
   %cs.sroa.9.0.i.i.i = phi float [ 1.000000e+00, %if.then.i.i.i.i ], [ %call3.fca.1.extract.i.i.i.i, %for.body.i.i.i ]
   %cs.sroa.7.1.i.i.i = phi float [ 5.000000e-01, %if.then.i.i.i.i ], [ %call3.i.i15.i.i.i.i, %for.body.i.i.i ]
   store <2 x float> %cs.sroa.0.0.i.i.i, ptr %agg.tmp12.i.i.i, align 8

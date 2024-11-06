@@ -2794,7 +2794,7 @@ define hidden void @"_ZN127_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20
 72:                                               ; preds = %76, %62
   %.sroa.05.1.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.0.0.i12.i.i.i.i.i.i.i.i.i.i.i, %76 ], [ 1, %62 ]
   %.sroa.4.1.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i.i.i.i.i.i.i.i.i, %76 ], [ %.sroa.4.0.i.i.i.i.i.i.i.i.i.i.i, %62 ]
-  %73 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i.i.i.i.i.i.i.i.i, <i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1, i8 -1>
+  %73 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i.i.i.i.i.i.i.i.i, splat (i8 -1)
   %74 = bitcast <16 x i1> %73 to i16
   %75 = icmp eq i16 %74, 0
   br i1 %75, label %83, label %86

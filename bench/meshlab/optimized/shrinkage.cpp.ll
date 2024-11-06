@@ -212,7 +212,7 @@ common.resume:                                    ; preds = %139, %46
   %73 = getelementptr inbounds double, ptr %66, i64 %.011.i.i.i.i.i.i.i
   %74 = getelementptr inbounds double, ptr %70, i64 %.011.i.i.i.i.i.i.i
   %75 = load <2 x i64>, ptr %74, align 16
-  %76 = xor <2 x i64> %75, <i64 -9223372036854775808, i64 -9223372036854775808>
+  %76 = xor <2 x i64> %75, splat (i64 -9223372036854775808)
   %77 = bitcast <2 x i64> %76 to <2 x double>
   %78 = fsub <2 x double> %77, %72
   store <2 x double> %78, ptr %73, align 16

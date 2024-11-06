@@ -1633,7 +1633,7 @@ define internal fastcc void @_update_sample_label(ptr nocapture readonly %0, ptr
   %17 = getelementptr inbounds i8, ptr %1, i64 192
   %18 = getelementptr inbounds [3 x [4 x float]], ptr %16, i64 0, i64 %7, i64 0
   %19 = load <4 x float>, ptr %18, align 4, !tbaa !57
-  %20 = fmul reassoc nsz arcp contract afn <4 x float> %19, <float 2.550000e+02, float 2.550000e+02, float 2.550000e+02, float 2.550000e+02>
+  %20 = fmul reassoc nsz arcp contract afn <4 x float> %19, splat (float 2.550000e+02)
   %21 = tail call reassoc nsz arcp contract afn <4 x float> @llvm.round.v4f32(<4 x float> %20)
   %22 = fptosi <4 x float> %21 to <4 x i32>
   store <4 x i32> %22, ptr %17, align 4, !tbaa !72
