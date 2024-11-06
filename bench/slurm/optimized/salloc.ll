@@ -2161,7 +2161,7 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   %56 = tail call i32 @slurm_job_node_ready(i32 noundef %55) #16
   %.not67.i = icmp eq i32 %56, -2
   %.b48.pr.pre.i = load i1, ptr @allocation_interrupted, align 1
-  br i1 %.not67.i, label %76, label %57
+  br i1 %.not67.i, label %75, label %57
 
 57:                                               ; preds = %53
   br i1 %.b48.pr.pre.i, label %_wait_nodes_ready.exit, label %58
@@ -2177,67 +2177,66 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
   ]
 
 60:                                               ; preds = %59
-  %61 = zext i32 %56 to i64
-  %62 = and i64 %61, 2
-  %63 = icmp eq i64 %62, 0
-  br i1 %63, label %.thread65.i, label %64
+  %61 = and i32 %56, 2
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %.thread65.i, label %63
 
-64:                                               ; preds = %60
-  %65 = and i64 %61, 4
-  %.not44.i = icmp eq i64 %65, 0
-  br i1 %.not44.i, label %.backedge.i.backedge, label %66
+63:                                               ; preds = %60
+  %64 = and i32 %56, 4
+  %.not44.i = icmp eq i32 %64, 0
+  br i1 %.not44.i, label %.backedge.i.backedge, label %65
 
-66:                                               ; preds = %64
-  %67 = and i64 %61, 1
-  %.not45.i = icmp ne i64 %67, 0
-  %68 = load i16, ptr getelementptr inbounds (i8, ptr @saopt, i64 10), align 2
-  %.not46.i = icmp eq i16 %68, 0
+65:                                               ; preds = %63
+  %66 = and i32 %56, 1
+  %.not45.i = icmp ne i32 %66, 0
+  %67 = load i16, ptr getelementptr inbounds (i8, ptr @saopt, i64 10), align 2
+  %.not46.i = icmp eq i16 %67, 0
   %or.cond.i = select i1 %.not45.i, i1 true, i1 %.not46.i
-  br i1 %or.cond.i, label %69, label %.backedge.i.backedge
+  br i1 %or.cond.i, label %68, label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %66, %64, %59, %59
+.backedge.i.backedge:                             ; preds = %65, %63, %59, %59
   br label %.backedge.i
 
-69:                                               ; preds = %66
-  br i1 %.not41.i, label %_wait_nodes_ready.exit, label %70
+68:                                               ; preds = %65
+  br i1 %.not41.i, label %_wait_nodes_ready.exit, label %69
 
-70:                                               ; preds = %69
-  %71 = tail call i32 @get_log_level() #16
-  %72 = icmp sgt i32 %71, 2
-  br i1 %72, label %73, label %_wait_nodes_ready.exit
+69:                                               ; preds = %68
+  %70 = tail call i32 @get_log_level() #16
+  %71 = icmp sgt i32 %70, 2
+  br i1 %71, label %72, label %_wait_nodes_ready.exit
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %0, i64 120
-  %75 = load ptr, ptr %74, align 8
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.43, ptr noundef %75) #16
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %0, i64 120
+  %74 = load ptr, ptr %73, align 8
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.43, ptr noundef %74) #16
   br label %_wait_nodes_ready.exit
 
-76:                                               ; preds = %53
-  br i1 %.b48.pr.pre.i, label %_wait_nodes_ready.exit, label %77
+75:                                               ; preds = %53
+  br i1 %.b48.pr.pre.i, label %_wait_nodes_ready.exit, label %76
 
-77:                                               ; preds = %76
+76:                                               ; preds = %75
   %.b3849.pr.i = load i1, ptr @allocation_revoked, align 1
-  br i1 %.b3849.pr.i, label %.thread65.i, label %80
+  br i1 %.b3849.pr.i, label %.thread65.i, label %79
 
-.thread65.i:                                      ; preds = %60, %58, %77
-  %78 = load i32, ptr %28, align 8
-  %79 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, i32 noundef %78) #16
+.thread65.i:                                      ; preds = %60, %58, %76
+  %77 = load i32, ptr %28, align 8
+  %78 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.44, i32 noundef %77) #16
   store i1 true, ptr @allocation_interrupted, align 1
   br label %_wait_nodes_ready.exit
 
-80:                                               ; preds = %77
-  %81 = getelementptr inbounds i8, ptr %0, i64 120
-  %82 = load ptr, ptr %81, align 8
-  %83 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, ptr noundef %82) #16
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %0, i64 120
+  %81 = load ptr, ptr %80, align 8
+  %82 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.45, ptr noundef %81) #16
   %.b4.pr = load i1, ptr @allocation_interrupted, align 1
-  br i1 %.b4.pr, label %_wait_nodes_ready.exit, label %84
+  br i1 %.b4.pr, label %_wait_nodes_ready.exit, label %83
 
-84:                                               ; preds = %80
-  %85 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #16
+83:                                               ; preds = %79
+  %84 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.39) #16
   br label %_wait_nodes_ready.exit
 
-_wait_nodes_ready.exit:                           ; preds = %57, %76, %.thread65.i, %73, %70, %69, %80, %84
-  %.0 = phi i32 [ -1, %84 ], [ -1, %80 ], [ 0, %69 ], [ 0, %70 ], [ 0, %73 ], [ -1, %.thread65.i ], [ -1, %76 ], [ -1, %57 ]
+_wait_nodes_ready.exit:                           ; preds = %57, %75, %.thread65.i, %72, %69, %68, %79, %83
+  %.0 = phi i32 [ -1, %83 ], [ -1, %79 ], [ 0, %68 ], [ 0, %69 ], [ 0, %72 ], [ -1, %.thread65.i ], [ -1, %75 ], [ -1, %57 ]
   ret i32 %.0
 }
 

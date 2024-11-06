@@ -138,24 +138,24 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 42
   %31 = load i16, ptr %30, align 2
-  %32 = sext i16 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %29, i64 56
-  %34 = load ptr, ptr %33, align 8
-  %35 = and i32 %32, -2147483647
-  %.not81 = icmp eq i32 %35, 1
-  br i1 %.not81, label %39, label %36
+  %32 = getelementptr inbounds i8, ptr %29, i64 56
+  %33 = load ptr, ptr %32, align 8
+  %34 = and i16 %31, -32767
+  %.not81 = icmp eq i16 %34, 1
+  br i1 %.not81, label %38, label %35
 
-36:                                               ; preds = %26
-  %37 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  tail call void @llvm.assume(i1 %37)
-  %38 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
+35:                                               ; preds = %26
+  %36 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  tail call void @llvm.assume(i1 %36)
+  %37 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 103, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-39:                                               ; preds = %26
-  %40 = lshr i32 %32, 1
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr ptr, ptr %34, i64 %41
+38:                                               ; preds = %26
+  %39 = lshr i16 %31, 1
+  %40 = zext nneg i16 %39 to i32
+  %41 = zext nneg i16 %39 to i64
+  %42 = getelementptr ptr, ptr %33, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %6, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -165,14 +165,14 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %49 = icmp slt i32 %48, 0
   br i1 %49, label %50, label %53
 
-50:                                               ; preds = %39
+50:                                               ; preds = %38
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   tail call void @llvm.assume(i1 %51)
   %52 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.5, i32 noundef %48) #9
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 113, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-53:                                               ; preds = %39
+53:                                               ; preds = %38
   %54 = shl nuw nsw i64 %41, 3
   %55 = tail call ptr @palloc(i64 noundef %54) #9
   %56 = getelementptr inbounds i8, ptr %29, i64 8
@@ -197,20 +197,19 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
   br i1 %.not90, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %68
-  %umax = call i32 @llvm.umax.i32(i32 %40, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
+  %wide.trip.count = zext nneg i16 %39 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %91 ]
-  %69 = getelementptr ptr, ptr %34, i64 %indvars.iv
+  %69 = getelementptr ptr, ptr %33, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   %71 = call i32 @SPI_fnumber(ptr noundef %47, ptr noundef %70) #9
   %72 = icmp slt i32 %71, 1
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %.lr.ph
-  %74 = getelementptr ptr, ptr %34, i64 %indvars.iv
+  %74 = getelementptr ptr, ptr %33, i64 %indvars.iv
   %75 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %75)
   %76 = call i32 @errcode(i32 noundef 50360452) #9
@@ -247,12 +246,12 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
 ._crit_edge:                                      ; preds = %91
   %92 = load i32, ptr %62, align 8
   %93 = icmp slt i32 %92, 1
-  br i1 %93, label %.lr.ph88, label %130
+  br i1 %93, label %.lr.ph88, label %126
 
 ._crit_edge.thread:                               ; preds = %68
   %94 = load i32, ptr %62, align 8
   %95 = icmp slt i32 %94, 1
-  br i1 %95, label %.thread, label %130
+  br i1 %95, label %.thread, label %126
 
 .thread:                                          ; preds = %._crit_edge.thread
   %96 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef nonnull @.str.8, ptr noundef %43) #9
@@ -260,11 +259,12 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
 
 .lr.ph88:                                         ; preds = %._crit_edge
   %97 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 8192, ptr noundef nonnull @.str.8, ptr noundef %43) #9
-  %98 = add nuw nsw i32 %40, 1
-  %99 = add nsw i32 %40, -1
-  %100 = sext i32 %99 to i64
-  %umax98 = call i32 @llvm.umax.i32(i32 %40, i32 1)
-  %wide.trip.count99 = zext nneg i32 %umax98 to i64
+  %98 = add nsw i32 %40, -1
+  %99 = sext i32 %98 to i64
+  %wide.trip.count98 = zext nneg i16 %39 to i64
+  %100 = zext nneg i16 %39 to i64
+  %invariant.gep = getelementptr ptr, ptr %33, i64 %100
+  %invariant.gep102 = getelementptr i8, ptr %invariant.gep, i64 8
   br label %101
 
 101:                                              ; preds = %.lr.ph88, %101
@@ -272,86 +272,83 @@ define i64 @check_primary_key(ptr nocapture noundef readonly %0) local_unnamed_a
   %102 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #10
   %103 = getelementptr i8, ptr %4, i64 %102
   %104 = sub i64 8192, %102
-  %105 = trunc i64 %indvars.iv95 to i32
-  %106 = add i32 %98, %105
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr ptr, ptr %34, i64 %107
-  %109 = load ptr, ptr %108, align 8
+  %gep103 = getelementptr ptr, ptr %invariant.gep102, i64 %indvars.iv95
+  %105 = load ptr, ptr %gep103, align 8
   %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %110 = icmp slt i64 %indvars.iv95, %100
-  %111 = select i1 %110, ptr @.str.10, ptr @.str.11
-  %112 = trunc nuw nsw i64 %indvars.iv.next96 to i32
-  %113 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %103, i64 noundef %104, ptr noundef nonnull @.str.9, ptr noundef %109, i32 noundef %112, ptr noundef nonnull %111) #9
-  %exitcond100.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge89, label %101, !llvm.loop !6
+  %106 = icmp slt i64 %indvars.iv95, %99
+  %107 = select i1 %106, ptr @.str.10, ptr @.str.11
+  %108 = trunc nuw nsw i64 %indvars.iv.next96 to i32
+  %109 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %103, i64 noundef %104, ptr noundef nonnull @.str.9, ptr noundef %105, i32 noundef %108, ptr noundef nonnull %107) #9
+  %exitcond99.not = icmp eq i64 %indvars.iv.next96, %wide.trip.count98
+  br i1 %exitcond99.not, label %._crit_edge89, label %101, !llvm.loop !6
 
 ._crit_edge89:                                    ; preds = %101, %.thread
-  %114 = call ptr @SPI_prepare(ptr noundef nonnull %4, i32 noundef %40, ptr noundef %.072) #9
-  %115 = icmp eq ptr %114, null
-  br i1 %115, label %116, label %121
+  %110 = call ptr @SPI_prepare(ptr noundef nonnull %4, i32 noundef %40, ptr noundef %.072) #9
+  %111 = icmp eq ptr %110, null
+  br i1 %111, label %112, label %117
 
-116:                                              ; preds = %._crit_edge89
-  %117 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %117)
-  %118 = load i32, ptr @SPI_result, align 4
-  %119 = call ptr @SPI_result_code_string(i32 noundef %118) #9
-  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %119) #9
+112:                                              ; preds = %._crit_edge89
+  %113 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %113)
+  %114 = load i32, ptr @SPI_result, align 4
+  %115 = call ptr @SPI_result_code_string(i32 noundef %114) #9
+  %116 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %115) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 186, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-121:                                              ; preds = %._crit_edge89
-  %122 = call i32 @SPI_keepplan(ptr noundef nonnull %114) #9
-  %.not82 = icmp eq i32 %122, 0
-  br i1 %.not82, label %126, label %123
+117:                                              ; preds = %._crit_edge89
+  %118 = call i32 @SPI_keepplan(ptr noundef nonnull %110) #9
+  %.not82 = icmp eq i32 %118, 0
+  br i1 %.not82, label %122, label %119
 
-123:                                              ; preds = %121
-  %124 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %124)
-  %125 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
+119:                                              ; preds = %117
+  %120 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %120)
+  %121 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 194, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-126:                                              ; preds = %121
-  %127 = load ptr, ptr @TopMemoryContext, align 8
-  %128 = call ptr @MemoryContextAlloc(ptr noundef %127, i64 noundef 8) #9
-  %129 = getelementptr inbounds i8, ptr %61, i64 16
-  store ptr %128, ptr %129, align 8
-  store ptr %114, ptr %128, align 8
+122:                                              ; preds = %117
+  %123 = load ptr, ptr @TopMemoryContext, align 8
+  %124 = call ptr @MemoryContextAlloc(ptr noundef %123, i64 noundef 8) #9
+  %125 = getelementptr inbounds i8, ptr %61, i64 16
+  store ptr %124, ptr %125, align 8
+  store ptr %110, ptr %124, align 8
   store i32 1, ptr %62, align 8
-  br label %130
+  br label %126
 
-130:                                              ; preds = %._crit_edge.thread, %126, %._crit_edge
-  %131 = getelementptr inbounds i8, ptr %61, i64 16
-  %132 = load ptr, ptr %131, align 8
-  %133 = load ptr, ptr %132, align 8
-  %134 = call i32 @SPI_execp(ptr noundef %133, ptr noundef %55, ptr noundef null, i64 noundef 1) #9
-  %135 = icmp slt i32 %134, 0
-  br i1 %135, label %136, label %139
+126:                                              ; preds = %._crit_edge.thread, %122, %._crit_edge
+  %127 = getelementptr inbounds i8, ptr %61, i64 16
+  %128 = load ptr, ptr %127, align 8
+  %129 = load ptr, ptr %128, align 8
+  %130 = call i32 @SPI_execp(ptr noundef %129, ptr noundef %55, ptr noundef null, i64 noundef 1) #9
+  %131 = icmp slt i32 %130, 0
+  br i1 %131, label %132, label %135
 
-136:                                              ; preds = %130
-  %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %137)
-  %138 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %134) #9
+132:                                              ; preds = %126
+  %133 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %133)
+  %134 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.14, i32 noundef %130) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 209, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-139:                                              ; preds = %130
-  %140 = load i64, ptr @SPI_processed, align 8
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %142, label %.loopexit
+135:                                              ; preds = %126
+  %136 = load i64, ptr @SPI_processed, align 8
+  %137 = icmp eq i64 %136, 0
+  br i1 %137, label %138, label %.loopexit
 
-142:                                              ; preds = %139
-  %143 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
-  call void @llvm.assume(i1 %143)
-  %144 = call i32 @errcode(i32 noundef 576) #9
-  %145 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
-  %146 = load ptr, ptr %56, align 8
-  %147 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef %146, ptr noundef %43) #9
+138:                                              ; preds = %135
+  %139 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
+  call void @llvm.assume(i1 %139)
+  %140 = call i32 @errcode(i32 noundef 576) #9
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.15) #9
+  %142 = load ptr, ptr %56, align 8
+  %143 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.16, ptr noundef %142, ptr noundef %43) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 218, ptr noundef nonnull @__func__.check_primary_key) #9
   unreachable
 
-.loopexit:                                        ; preds = %80, %139
-  %148 = call i32 @SPI_finish() #9
+.loopexit:                                        ; preds = %80, %135
+  %144 = call i32 @SPI_finish() #9
   %.0 = ptrtoint ptr %.070 to i64
   ret i64 %.0
 }
@@ -1096,9 +1093,6 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

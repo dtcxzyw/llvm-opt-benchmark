@@ -2448,18 +2448,19 @@ if.end137:                                        ; preds = %for.body123
 
 return.loopexit240.unr-lcssa:                     ; preds = %for.body.us, %for.body.us.preheader
   %vi.0225.us.unr = phi i32 [ %add.i, %for.body.us.preheader ], [ %add.i204.us.3, %for.body.us ]
-  %lcmp.mod245.not = icmp eq i32 %xtraiter243, 0
+  %61 = and i16 %cond, 3
+  %lcmp.mod245.not = icmp eq i16 %61, 0
   br i1 %lcmp.mod245.not, label %return, label %for.body.us.epil
 
 for.body.us.epil:                                 ; preds = %return.loopexit240.unr-lcssa, %for.body.us.epil
   %vi.0225.us.epil = phi i32 [ %add.i204.us.epil, %for.body.us.epil ], [ %vi.0225.us.unr, %return.loopexit240.unr-lcssa ]
   %epil.iter244 = phi i32 [ %epil.iter244.next, %for.body.us.epil ], [ 0, %return.loopexit240.unr-lcssa ]
-  %61 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
-  %conv1.i202.us.epil = sext i16 %61 to i32
+  %62 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %conv1.i202.us.epil = sext i16 %62 to i32
   %add.i204.us.epil = sub i32 %vi.0225.us.epil, %conv1.i202.us.epil
-  %62 = load ptr, ptr %m_data, align 8, !tbaa !79
+  %63 = load ptr, ptr %m_data, align 8, !tbaa !79
   %idxprom.us.epil = zext i32 %add.i204.us.epil to i64
-  %arrayidx.us.epil = getelementptr inbounds %struct.MapNode, ptr %62, i64 %idxprom.us.epil
+  %arrayidx.us.epil = getelementptr inbounds %struct.MapNode, ptr %63, i64 %idxprom.us.epil
   store i32 %ref.tmp.sroa.0.0.insert.insert, ptr %arrayidx.us.epil, align 4, !tbaa.struct !115
   %epil.iter244.next = add nuw nsw i32 %epil.iter244, 1
   %epil.iter244.cmp.not = icmp eq i32 %epil.iter244.next, %xtraiter243
@@ -2467,18 +2468,19 @@ for.body.us.epil:                                 ; preds = %return.loopexit240.
 
 return.loopexit242.unr-lcssa:                     ; preds = %for.body123.us, %for.body123.us.preheader
   %vi.1222.us.unr = phi i32 [ %add.i208, %for.body123.us.preheader ], [ %add.i210.us.3, %for.body123.us ]
-  %lcmp.mod.not = icmp eq i32 %xtraiter, 0
+  %64 = and i16 %cond, 3
+  %lcmp.mod.not = icmp eq i16 %64, 0
   br i1 %lcmp.mod.not, label %return, label %for.body123.us.epil
 
 for.body123.us.epil:                              ; preds = %return.loopexit242.unr-lcssa, %for.body123.us.epil
   %vi.1222.us.epil = phi i32 [ %add.i210.us.epil, %for.body123.us.epil ], [ %vi.1222.us.unr, %return.loopexit242.unr-lcssa ]
   %epil.iter = phi i32 [ %epil.iter.next, %for.body123.us.epil ], [ 0, %return.loopexit242.unr-lcssa ]
-  %63 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
-  %conv1.i209.us.epil = sext i16 %63 to i32
+  %65 = load i16, ptr %m_cache_extent.i, align 2, !tbaa !85
+  %conv1.i209.us.epil = sext i16 %65 to i32
   %add.i210.us.epil = add i32 %vi.1222.us.epil, %conv1.i209.us.epil
-  %64 = load ptr, ptr %m_data125, align 8, !tbaa !79
+  %66 = load ptr, ptr %m_data125, align 8, !tbaa !79
   %idxprom126.us.epil = zext i32 %add.i210.us.epil to i64
-  %arrayidx127.us.epil = getelementptr inbounds %struct.MapNode, ptr %64, i64 %idxprom126.us.epil
+  %arrayidx127.us.epil = getelementptr inbounds %struct.MapNode, ptr %66, i64 %idxprom126.us.epil
   store i32 %ref.tmp138.sroa.0.0.insert.insert, ptr %arrayidx127.us.epil, align 4, !tbaa.struct !115
   %epil.iter.next = add nuw nsw i32 %epil.iter, 1
   %epil.iter.cmp.not = icmp eq i32 %epil.iter.next, %xtraiter

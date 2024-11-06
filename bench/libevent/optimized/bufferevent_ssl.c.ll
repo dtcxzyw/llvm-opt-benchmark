@@ -21,19 +21,18 @@ entry:
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %bev..i = select i1 %tobool.not.i, ptr %bev, ptr null
-  %conv30 = zext i16 %events to i32
-  %and = and i32 %conv30, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %2 = and i16 %events, 2
+  %tobool.not = icmp eq i16 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %underlying.i = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %2 = load ptr, ptr %underlying.i, align 8
-  %tobool.not.i18 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %underlying.i, align 8
+  %tobool.not.i18 = icmp eq ptr %3, null
   br i1 %tobool.not.i18, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then
-  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %2, i16 noundef zeroext 16) #7
+  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %3, i16 noundef zeroext 16) #7
   br label %start_reading.exit
 
 if.else.i:                                        ; preds = %if.then
@@ -58,30 +57,30 @@ if.then5.i:                                       ; preds = %land.lhs.true.i
 
 start_reading.exit:                               ; preds = %if.then.i, %if.else.i, %land.lhs.true.i, %if.then5.i
   %retval.0.i = phi i32 [ 0, %if.then.i ], [ %call6.i, %if.then5.i ], [ 0, %land.lhs.true.i ], [ %call.i, %if.else.i ]
-  %3 = icmp slt i32 %retval.0.i, 0
+  %4 = icmp slt i32 %retval.0.i, 0
   br label %if.end
 
 if.end:                                           ; preds = %start_reading.exit, %entry
-  %r1.0 = phi i1 [ %3, %start_reading.exit ], [ false, %entry ]
-  %and3 = and i32 %conv30, 4
-  %tobool4.not = icmp eq i32 %and3, 0
+  %r1.0 = phi i1 [ %4, %start_reading.exit ], [ false, %entry ]
+  %5 = and i16 %events, 4
+  %tobool4.not = icmp eq i16 %5, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %underlying.i19 = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %4 = load ptr, ptr %underlying.i19, align 8
-  %tobool.not.i20 = icmp eq ptr %4, null
+  %6 = load ptr, ptr %underlying.i19, align 8
+  %tobool.not.i20 = icmp eq ptr %6, null
   br i1 %tobool.not.i20, label %if.else.i23, label %if.then.i21
 
 if.then.i21:                                      ; preds = %if.then5
   %write_blocked_on_read.i = getelementptr inbounds i8, ptr %bev..i, i64 588
   %bf.load.i22 = load i8, ptr %write_blocked_on_read.i, align 4
-  %5 = and i8 %bf.load.i22, 2
-  %tobool1.not.i = icmp eq i8 %5, 0
+  %7 = and i8 %bf.load.i22, 2
+  %tobool1.not.i = icmp eq i8 %7, 0
   br i1 %tobool1.not.i, label %start_writing.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.then.i21
-  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %4, i16 noundef zeroext 16) #7
+  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %6, i16 noundef zeroext 16) #7
   br label %start_writing.exit
 
 if.else.i23:                                      ; preds = %if.then5
@@ -94,8 +93,8 @@ if.else.i23:                                      ; preds = %if.then5
 land.lhs.true.i27:                                ; preds = %if.else.i23
   %write_blocked_on_read7.i = getelementptr inbounds i8, ptr %bev..i, i64 588
   %bf.load8.i = load i8, ptr %write_blocked_on_read7.i, align 4
-  %6 = and i8 %bf.load8.i, 2
-  %tobool12.not.i = icmp eq i8 %6, 0
+  %8 = and i8 %bf.load8.i, 2
+  %tobool12.not.i = icmp eq i8 %8, 0
   br i1 %tobool12.not.i, label %start_writing.exit, label %if.then13.i
 
 if.then13.i:                                      ; preds = %land.lhs.true.i27
@@ -106,14 +105,14 @@ if.then13.i:                                      ; preds = %land.lhs.true.i27
 
 start_writing.exit:                               ; preds = %if.then.i21, %if.then2.i, %if.else.i23, %land.lhs.true.i27, %if.then13.i
   %r.0.i = phi i32 [ 0, %if.then2.i ], [ 0, %if.then.i21 ], [ %call.i26, %if.else.i23 ], [ %call14.i, %if.then13.i ], [ 0, %land.lhs.true.i27 ]
-  %7 = icmp slt i32 %r.0.i, 0
+  %9 = icmp slt i32 %r.0.i, 0
   br label %if.end7
 
 if.end7:                                          ; preds = %start_writing.exit, %if.end
-  %r2.0 = phi i1 [ %7, %start_writing.exit ], [ false, %if.end ]
+  %r2.0 = phi i1 [ %9, %start_writing.exit ], [ false, %if.end ]
   %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %8 = load ptr, ptr %underlying, align 8
-  %tobool8.not = icmp eq ptr %8, null
+  %10 = load ptr, ptr %underlying, align 8
+  %tobool8.not = icmp eq ptr %10, null
   br i1 %tobool8.not, label %if.end49, label %if.then9
 
 if.then9:                                         ; preds = %if.end7
@@ -121,14 +120,14 @@ if.then9:                                         ; preds = %if.end7
 
 do.body:                                          ; preds = %if.then9
   %timeout_read = getelementptr inbounds i8, ptr %bev, i64 336
-  %9 = load i64, ptr %timeout_read, align 8
-  %tobool14.not = icmp eq i64 %9, 0
+  %11 = load i64, ptr %timeout_read, align 8
+  %tobool14.not = icmp eq i64 %11, 0
   br i1 %tobool14.not, label %lor.lhs.false, label %if.then17
 
 lor.lhs.false:                                    ; preds = %do.body
   %tv_usec = getelementptr inbounds i8, ptr %bev, i64 344
-  %10 = load i64, ptr %tv_usec, align 8
-  %tobool16.not = icmp eq i64 %10, 0
+  %12 = load i64, ptr %tv_usec, align 8
+  %tobool16.not = icmp eq i64 %12, 0
   br i1 %tobool16.not, label %if.end21, label %if.then17
 
 if.then17:                                        ; preds = %lor.lhs.false, %do.body
@@ -141,14 +140,14 @@ if.end21:                                         ; preds = %if.then17, %lor.lhs
 
 do.body26:                                        ; preds = %if.end21
   %timeout_write = getelementptr inbounds i8, ptr %bev, i64 352
-  %11 = load i64, ptr %timeout_write, align 8
-  %tobool28.not = icmp eq i64 %11, 0
+  %13 = load i64, ptr %timeout_write, align 8
+  %tobool28.not = icmp eq i64 %13, 0
   br i1 %tobool28.not, label %lor.lhs.false29, label %if.then33
 
 lor.lhs.false29:                                  ; preds = %do.body26
   %tv_usec31 = getelementptr inbounds i8, ptr %bev, i64 360
-  %12 = load i64, ptr %tv_usec31, align 8
-  %tobool32.not = icmp eq i64 %12, 0
+  %14 = load i64, ptr %tv_usec31, align 8
+  %tobool32.not = icmp eq i64 %14, 0
   br i1 %tobool32.not, label %if.end38, label %if.then33
 
 if.then33:                                        ; preds = %lor.lhs.false29, %do.body26
@@ -171,8 +170,8 @@ if.then47:                                        ; preds = %if.end43
   br label %if.end49
 
 if.end49:                                         ; preds = %if.end43, %if.then47, %if.end7
-  %13 = select i1 %r1.0, i1 true, i1 %r2.0
-  %cond = sext i1 %13 to i32
+  %15 = select i1 %r1.0, i1 true, i1 %r2.0
+  %cond = sext i1 %15 to i32
   ret i32 %cond
 }
 
@@ -185,26 +184,25 @@ entry:
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %1, ptr noundef nonnull dereferenceable(3) @.str, i64 3)
   %tobool.not.i = icmp eq i32 %bcmp.i, 0
   %bev..i = select i1 %tobool.not.i, ptr %bev, ptr null
-  %conv17 = zext i16 %events to i32
-  %and = and i32 %conv17, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %2 = and i16 %events, 2
+  %tobool.not = icmp eq i16 %2, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %write_blocked_on_read.i = getelementptr inbounds i8, ptr %bev..i, i64 588
   %bf.load.i = load i8, ptr %write_blocked_on_read.i, align 4
-  %2 = and i8 %bf.load.i, 2
-  %tobool.not.i8 = icmp eq i8 %2, 0
+  %3 = and i8 %bf.load.i, 2
+  %tobool.not.i8 = icmp eq i8 %3, 0
   br i1 %tobool.not.i8, label %if.end.i, label %if.end
 
 if.end.i:                                         ; preds = %if.then
   %underlying.i = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %3 = load ptr, ptr %underlying.i, align 8
-  %tobool1.not.i = icmp eq ptr %3, null
+  %4 = load ptr, ptr %underlying.i, align 8
+  %tobool1.not.i = icmp eq ptr %4, null
   br i1 %tobool1.not.i, label %if.else.i, label %if.then2.i
 
 if.then2.i:                                       ; preds = %if.end.i
-  tail call void @bufferevent_suspend_read_(ptr noundef nonnull %3, i16 noundef zeroext 16) #7
+  tail call void @bufferevent_suspend_read_(ptr noundef nonnull %4, i16 noundef zeroext 16) #7
   br label %if.end
 
 if.else.i:                                        ; preds = %if.end.i
@@ -213,8 +211,8 @@ if.else.i:                                        ; preds = %if.end.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then2.i, %if.then, %entry
-  %and2 = and i32 %conv17, 4
-  %tobool3.not = icmp eq i32 %and2, 0
+  %5 = and i16 %events, 4
+  %tobool3.not = icmp eq i16 %5, 0
   br i1 %tobool3.not, label %if.end5, label %if.then4
 
 if.then4:                                         ; preds = %if.end
@@ -226,12 +224,12 @@ if.then4:                                         ; preds = %if.end
 
 if.end.i11:                                       ; preds = %if.then4
   %underlying.i12 = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %4 = load ptr, ptr %underlying.i12, align 8
-  %tobool1.not.i13 = icmp eq ptr %4, null
+  %6 = load ptr, ptr %underlying.i12, align 8
+  %tobool1.not.i13 = icmp eq ptr %6, null
   br i1 %tobool1.not.i13, label %if.else.i15, label %if.then2.i14
 
 if.then2.i14:                                     ; preds = %if.end.i11
-  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %4, i16 noundef zeroext 16) #7
+  tail call void @bufferevent_unsuspend_read_(ptr noundef nonnull %6, i16 noundef zeroext 16) #7
   br label %if.end5
 
 if.else.i15:                                      ; preds = %if.end.i11
@@ -241,8 +239,8 @@ if.else.i15:                                      ; preds = %if.end.i11
 
 if.end5:                                          ; preds = %if.else.i15, %if.then2.i14, %if.then4, %if.end
   %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %5 = load ptr, ptr %underlying, align 8
-  %tobool6.not = icmp eq ptr %5, null
+  %7 = load ptr, ptr %underlying, align 8
+  %tobool6.not = icmp eq ptr %7, null
   br i1 %tobool6.not, label %if.end20, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
@@ -1484,26 +1482,25 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @be_ssl_eventcb(ptr nocapture readnone %bev_base, i16 noundef signext %what, ptr noundef %ctx) #0 {
 entry:
-  %conv15 = zext i16 %what to i32
-  %and = and i32 %conv15, 16
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %what, 16
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.else4, label %if.end24.thread10
 
 if.end24.thread10:                                ; preds = %entry
   %flags = getelementptr inbounds i8, ptr %ctx, i64 592
-  %0 = load i64, ptr %flags, align 8
-  %and1 = and i64 %0, 1
+  %1 = load i64, ptr %flags, align 8
+  %and1 = and i64 %1, 1
   %tobool2.not = icmp eq i64 %and1, 0
-  %1 = select i1 %tobool2.not, i16 32, i16 16
+  %2 = select i1 %tobool2.not, i16 32, i16 16
   br label %if.then26
 
 if.else4:                                         ; preds = %entry
-  %2 = and i32 %conv15, 96
-  %or.cond = icmp eq i32 %2, 0
+  %3 = and i16 %what, 96
+  %or.cond = icmp eq i16 %3, 0
   br i1 %or.cond, label %if.end29, label %if.then26
 
 if.then26:                                        ; preds = %if.else4, %if.end24.thread10
-  %event.013 = phi i16 [ %1, %if.end24.thread10 ], [ %what, %if.else4 ]
+  %event.013 = phi i16 [ %2, %if.end24.thread10 ], [ %what, %if.else4 ]
   tail call void @bufferevent_run_eventcb_(ptr noundef %ctx, i16 noundef signext %event.013, i32 noundef 0) #7
   br label %if.end29
 

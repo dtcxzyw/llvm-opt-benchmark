@@ -43609,20 +43609,23 @@ define internal fastcc void @_ZL19getEnumNameForTokenB5cxx11N4llvm9StringRefE(pt
   br label %55
 
 43:                                               ; preds = %34
-  %44 = and i64 %15, 4294967295
   call void @llvm.experimental.noalias.scope.decl(metadata !503)
   call void @llvm.lifetime.start.p0(i64 21, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %.thread.i, label %.lr.ph.i
+  %44 = icmp eq i8 %14, 0
+  br i1 %44, label %.thread.i, label %.lr.ph.i.preheader
+
+.lr.ph.i.preheader:                               ; preds = %43
+  %45 = and i64 %15, 4294967295
+  br label %.lr.ph.i
 
 .thread.i:                                        ; preds = %43
   store i8 48, ptr %11, align 4, !noalias !503
   br label %_ZN4llvm6utostrB5cxx11Emb.exit
 
-.lr.ph.i:                                         ; preds = %43, %.lr.ph.i
-  %.111.i = phi ptr [ %49, %.lr.ph.i ], [ %10, %43 ]
-  %.0810.i = phi i64 [ %50, %.lr.ph.i ], [ %44, %43 ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.111.i = phi ptr [ %49, %.lr.ph.i ], [ %10, %.lr.ph.i.preheader ]
+  %.0810.i = phi i64 [ %50, %.lr.ph.i ], [ %45, %.lr.ph.i.preheader ]
   %46 = urem i64 %.0810.i, 10
   %47 = trunc nuw nsw i64 %46 to i8
   %48 = or disjoint i8 %47, 48

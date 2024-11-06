@@ -876,8 +876,8 @@ define internal i32 @dissect_ansi_637_tele(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i.i, label %dissect_ansi_637_tele_param.exit.i, label %69
 
 69:                                               ; preds = %50
-  %70 = and i64 %52, 2305843009213693950
-  %71 = icmp eq i64 %70, 22
+  %70 = and i32 %51, -2
+  %71 = icmp eq i32 %70, 22
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %69
@@ -974,7 +974,7 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   %36 = zext i8 %35 to i32
   %37 = call ptr @try_val_to_str_idx(i32 noundef %36, ptr noundef nonnull @ansi_trans_param_strings, ptr noundef nonnull %5) #6
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %69, label %39
+  br i1 %38, label %68, label %39
 
 39:                                               ; preds = %34
   %40 = load i32, ptr %5, align 4
@@ -1000,45 +1000,44 @@ define internal i32 @dissect_ansi_637_trans(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %.not.i, label %dissect_ansi_637_trans_param.exit, label %58
 
 58:                                               ; preds = %39
-  %59 = and i64 %41, 2305843009213693951
-  %60 = icmp eq i64 %59, 9
-  br i1 %60, label %61, label %63
+  %59 = icmp eq i32 %40, 9
+  br i1 %59, label %60, label %62
 
-61:                                               ; preds = %58
-  %62 = call ptr @proto_tree_add_expert(ptr noundef %46, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_no_trans_parameter_dissector, ptr noundef %0, i32 noundef %53, i32 noundef %52) #6
+60:                                               ; preds = %58
+  %61 = call ptr @proto_tree_add_expert(ptr noundef %46, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_no_trans_parameter_dissector, ptr noundef %0, i32 noundef %53, i32 noundef %52) #6
   br label %dissect_ansi_637_trans_param.exit
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %33, align 8
-  %65 = call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 1024) #6
-  store i8 0, ptr %65, align 1
-  call void %45(ptr noundef %0, ptr noundef %1, ptr noundef %46, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %65, i32 noundef 1024) #6
-  %66 = load i8, ptr %65, align 1
-  %.not51.i = icmp eq i8 %66, 0
-  br i1 %.not51.i, label %dissect_ansi_637_trans_param.exit, label %67
+62:                                               ; preds = %58
+  %63 = load ptr, ptr %33, align 8
+  %64 = call noalias ptr @wmem_alloc(ptr noundef %63, i64 noundef 1024) #6
+  store i8 0, ptr %64, align 1
+  call void %45(ptr noundef %0, ptr noundef %1, ptr noundef %46, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %64, i32 noundef 1024) #6
+  %65 = load i8, ptr %64, align 1
+  %.not51.i = icmp eq i8 %65, 0
+  br i1 %.not51.i, label %dissect_ansi_637_trans_param.exit, label %66
 
-67:                                               ; preds = %63
-  %68 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %68, ptr noundef nonnull @.str.324, ptr noundef nonnull %65) #6
+66:                                               ; preds = %62
+  %67 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.324, ptr noundef nonnull %64) #6
   br label %dissect_ansi_637_trans_param.exit
 
-dissect_ansi_637_trans_param.exit:                ; preds = %39, %61, %63, %67
-  %.1 = phi i32 [ %53, %39 ], [ %54, %63 ], [ %54, %67 ], [ %54, %61 ]
+dissect_ansi_637_trans_param.exit:                ; preds = %39, %60, %62, %66
+  %.1 = phi i32 [ %53, %39 ], [ %54, %62 ], [ %54, %66 ], [ %54, %60 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   %.not27 = icmp eq i32 %32, %.1
   br i1 %.not27, label %.loopexit, label %34, !llvm.loop !10
 
-69:                                               ; preds = %34
+68:                                               ; preds = %34
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %70 = sub i32 %32, %.03240
-  %71 = call ptr @proto_tree_add_expert(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_unknown_trans_parameter, ptr noundef %0, i32 noundef %.03240, i32 noundef %70) #6
+  %69 = sub i32 %32, %.03240
+  %70 = call ptr @proto_tree_add_expert(ptr noundef %.0, ptr noundef %1, ptr noundef nonnull @ei_ansi_637_unknown_trans_parameter, ptr noundef %0, i32 noundef %.03240, i32 noundef %69) #6
   br label %.loopexit
 
-.loopexit:                                        ; preds = %dissect_ansi_637_trans_param.exit, %30, %69, %4
-  %72 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  ret i32 %72
+.loopexit:                                        ; preds = %dissect_ansi_637_trans_param.exit, %30, %68, %4
+  %71 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  ret i32 %71
 }
 
 ; Function Attrs: nounwind uwtable

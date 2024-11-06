@@ -394,9 +394,8 @@ entry:
   %val = alloca i32, align 4
   %alpn = alloca ptr, align 8
   %alpnlen = alloca i32, align 4
-  %conv13 = zext i16 %events to i32
-  %and = and i32 %conv13, 128
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %events, 128
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end23, label %if.end
 
 if.end:                                           ; preds = %entry
@@ -404,11 +403,11 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %val, align 4
   store ptr null, ptr %alpn, align 8
   store i32 0, ptr %alpnlen, align 4
-  %0 = load ptr, ptr @stderr, align 8
-  %1 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 10, i64 1, ptr %0) #18
+  %1 = load ptr, ptr @stderr, align 8
+  %2 = tail call i64 @fwrite(ptr nonnull @.str.9, i64 10, i64 1, ptr %1) #18
   %bev2 = getelementptr inbounds i8, ptr %ptr, i64 16
-  %2 = load ptr, ptr %bev2, align 8
-  %call3 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %2) #20
+  %3 = load ptr, ptr %bev2, align 8
+  %call3 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #20
   call void @SSL_get0_alpn_selected(ptr noundef %call3, ptr noundef nonnull %alpn, ptr noundef nonnull %alpnlen) #20
   %.pre = load ptr, ptr %alpn, align 8
   %.pre12 = load i32, ptr %alpnlen, align 4
@@ -423,8 +422,8 @@ lor.lhs.false10:                                  ; preds = %if.end
   br i1 %cmp12.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %lor.lhs.false10, %if.end
-  %3 = load ptr, ptr @stderr, align 8
-  %4 = call i64 @fwrite(ptr nonnull @.str.11, i64 21, i64 1, ptr %3) #18
+  %4 = load ptr, ptr @stderr, align 8
+  %5 = call i64 @fwrite(ptr nonnull @.str.11, i64 21, i64 1, ptr %4) #18
   call fastcc void @delete_http2_session_data(ptr noundef nonnull %ptr)
   br label %return
 
@@ -444,18 +443,18 @@ if.then21:                                        ; preds = %if.end16
   br label %return
 
 if.end23:                                         ; preds = %entry
-  %and25 = and i32 %conv13, 16
-  %tobool26.not = icmp eq i32 %and25, 0
+  %6 = and i16 %events, 16
+  %tobool26.not = icmp eq i16 %6, 0
   br i1 %tobool26.not, label %if.else, label %if.end39.sink.split
 
 if.else:                                          ; preds = %if.end23
-  %and29 = and i32 %conv13, 32
-  %tobool30.not = icmp eq i32 %and29, 0
+  %7 = and i16 %events, 32
+  %tobool30.not = icmp eq i16 %7, 0
   br i1 %tobool30.not, label %if.else32, label %if.end39.sink.split
 
 if.else32:                                        ; preds = %if.else
-  %and34 = and i32 %conv13, 64
-  %tobool35.not = icmp eq i32 %and34, 0
+  %8 = and i16 %events, 64
+  %tobool35.not = icmp eq i16 %8, 0
   br i1 %tobool35.not, label %if.end39, label %if.end39.sink.split
 
 if.end39.sink.split:                              ; preds = %if.else32, %if.else, %if.end23

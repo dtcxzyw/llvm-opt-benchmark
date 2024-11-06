@@ -2029,15 +2029,15 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   %38 = getelementptr inbounds i8, ptr %0, i64 202
   store i16 0, ptr %38, align 2
   store i16 0, ptr %37, align 8
-  %39 = zext i32 %spec.select to i64
-  %40 = and i64 %39, 1
-  %41 = and i64 %39, 3
-  %42 = icmp eq i64 %41, 0
-  %43 = zext i1 %42 to i8
-  %44 = trunc nuw nsw i64 %40 to i8
+  %39 = and i32 %spec.select, 1
+  %40 = and i32 %spec.select, 3
+  %41 = icmp eq i32 %40, 0
+  %42 = zext i1 %41 to i8
+  %43 = trunc i32 %spec.select to i8
+  %44 = and i8 %43, 1
   %45 = xor i8 %44, 1
   %46 = getelementptr inbounds i8, ptr %0, i64 304
-  store i8 %43, ptr %46, align 8
+  store i8 %42, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %0, i64 305
   store i8 %45, ptr %47, align 1
   %48 = getelementptr inbounds i8, ptr %0, i64 144
@@ -2049,14 +2049,14 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   %53 = load ptr, ptr %52, align 8
   %54 = lshr i32 %spec.select, 16
   %55 = and i32 %54, 15
-  %56 = call i32 %49(ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %51, ptr noundef %53, i8 noundef zeroext %43, i32 noundef %55, ptr noundef nonnull @T1_Parse_Glyph) #16
+  %56 = call i32 %49(ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull %0, ptr noundef %51, ptr noundef %53, i8 noundef zeroext %42, i32 noundef %55, ptr noundef nonnull @T1_Parse_Glyph) #16
   %.not160 = icmp eq i32 %56, 0
   br i1 %.not160, label %57, label %.thread173
 
 57:                                               ; preds = %35
-  %58 = and i64 %39, 1024
-  %.lobit = lshr exact i64 %58, 10
-  %59 = trunc nuw nsw i64 %.lobit to i8
+  %58 = and i32 %spec.select, 1024
+  %.lobit = lshr exact i32 %58, 10
+  %59 = trunc nuw nsw i32 %.lobit to i8
   %60 = getelementptr inbounds i8, ptr %5, i64 133
   store i8 %59, ptr %60, align 1
   %61 = getelementptr inbounds i8, ptr %11, i64 608
@@ -2088,7 +2088,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not162, label %80, label %285
 
 80:                                               ; preds = %57
-  %.not161 = icmp eq i64 %58, 0
+  %.not161 = icmp eq i32 %58, 0
   %81 = load i8, ptr %46, align 8
   %82 = getelementptr inbounds i8, ptr %5, i64 2744
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %82, i64 32, i1 false)
@@ -2148,8 +2148,8 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds i8, ptr %118, i64 12
   store i8 0, ptr %119, align 4
-  %120 = and i64 %39, 16
-  %.not163 = icmp eq i64 %120, 0
+  %120 = and i32 %spec.select, 16
+  %.not163 = icmp eq i32 %120, 0
   br i1 %.not163, label %129, label %121
 
 121:                                              ; preds = %106
@@ -2260,7 +2260,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %190
 
 190:                                              ; preds = %181, %184
-  %191 = icmp eq i64 %40, 0
+  %191 = icmp eq i32 %39, 0
   %192 = load i8, ptr %6, align 1
   %193 = icmp ne i8 %192, 0
   %or.cond14 = select i1 %191, i1 true, i1 %193

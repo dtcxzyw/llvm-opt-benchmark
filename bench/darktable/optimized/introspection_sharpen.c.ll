@@ -401,7 +401,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %183 = shl nsw i64 %179, 4
   %184 = load ptr, ptr %7, align 8
   %185 = and i64 %179, -4
-  %186 = icmp eq i64 %185, 0
+  %186 = icmp ult i32 %178, 4
   %187 = icmp eq i64 %185, %179
   %188 = shl nsw i64 %179, 2
   %189 = icmp sgt i32 %26, 0

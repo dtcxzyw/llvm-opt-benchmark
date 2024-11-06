@@ -129,8 +129,8 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241: ; pred
   %59 = icmp sgt i32 %55, -1
   br i1 %59, label %61, label %63
 
-60:                                               ; preds = %11, %108, %4, %230
-  %.0165 = phi i16 [ %.0.i, %230 ], [ -32768, %4 ], [ 0, %108 ], [ %spec.select227, %11 ]
+60:                                               ; preds = %11, %108, %4, %225
+  %.0165 = phi i16 [ %.0.i, %225 ], [ -32768, %4 ], [ 0, %108 ], [ %spec.select227, %11 ]
   ret i16 %.0165
 
 61:                                               ; preds = %63, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit241
@@ -226,8 +226,6 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit255: ; pred
 _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = %93, %99
   %.sroa.51.0.in.i = phi i8 [ %100, %99 ], [ %94, %93 ]
   %.sroa.0.0.i = phi i16 [ %103, %99 ], [ %98, %93 ]
-  %.sroa.51.0.i = sext i8 %.sroa.51.0.in.i to i64
-  %.sroa.6.0.extract.shift = and i64 %.sroa.51.0.i, 4294967295
   %.sroa.6.0.extract.trunc = sext i8 %.sroa.51.0.in.i to i32
   %104 = icmp ugt i8 %.sroa.51.0.in.i, 14
   br i1 %104, label %197, label %194
@@ -421,69 +419,61 @@ _ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit: ; preds = 
 
 194:                                              ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %195 = and i32 %.1187, 1073741823
-  %196 = icmp eq i64 %.sroa.6.0.extract.shift, 14
-  br i1 %196, label %198, label %199
+  %196 = icmp eq i8 %.sroa.51.0.in.i, 14
+  br i1 %196, label %205, label %.thread298
 
 197:                                              ; preds = %_ZN9softposit5p16e15P16E116calculate_regime17he80d131ebda81979E.exit
   %. = select i1 %92, i16 1, i16 32767
-  br label %230
+  br label %225
 
-198:                                              ; preds = %194
+.thread298:                                       ; preds = %194
+  %198 = add nuw nsw i32 %.sroa.6.0.extract.trunc, 17
+  %199 = and i32 %198, 31
+  %200 = lshr i32 %195, %199
+  %201 = trunc nuw nsw i32 %200 to i16
+  %202 = shl nuw i32 65536, %.sroa.6.0.extract.trunc
+  %203 = and i32 %202, %195
+  %204 = icmp ne i32 %203, 0
+  br label %207
+
+205:                                              ; preds = %194
   %.not220 = icmp eq i32 %195, 0
   %spec.select224 = select i1 %.not220, i8 %.0192, i8 1
-  br label %207
+  %206 = icmp eq i8 %.2182, 0
+  br i1 %206, label %207, label %215
 
-199:                                              ; preds = %194
-  %200 = add nuw nsw i32 %.sroa.6.0.extract.trunc, 17
-  %201 = and i32 %200, 31
-  %202 = lshr i32 %195, %201
-  %203 = trunc nuw nsw i32 %202 to i16
-  %204 = shl nuw i32 65536, %.sroa.6.0.extract.trunc
-  %205 = and i32 %204, %195
-  %206 = icmp ne i32 %205, 0
-  br label %207
+207:                                              ; preds = %.thread298, %205
+  %.0184306 = phi i16 [ %201, %.thread298 ], [ 0, %205 ]
+  %.0185305 = phi i1 [ %204, %.thread298 ], [ false, %205 ]
+  %.9201304 = phi i8 [ %.0192, %.thread298 ], [ %spec.select224, %205 ]
+  %208 = zext nneg i8 %.2182 to i16
+  %209 = sub nsw i8 13, %.sroa.51.0.in.i
+  %210 = and i8 %209, 15
+  %211 = zext nneg i8 %210 to i16
+  %212 = shl i16 %208, %211
+  %.0164 = select i1 %196, i16 0, i16 %212
+  %213 = add i16 %.0164, %.sroa.0.0.i
+  %214 = add i16 %213, %.0184306
+  br i1 %.0185305, label %215, label %225
 
-207:                                              ; preds = %198, %199
-  %.9201 = phi i8 [ %.0192, %199 ], [ %spec.select224, %198 ]
-  %.0185 = phi i1 [ %206, %199 ], [ false, %198 ]
-  %.0184 = phi i16 [ %203, %199 ], [ 0, %198 ]
-  %208 = icmp ne i64 %.sroa.6.0.extract.shift, 14
-  %209 = icmp eq i8 %.2182, 0
-  %or.cond10 = select i1 %208, i1 true, i1 %209
-  br i1 %or.cond10, label %210, label %218
+215:                                              ; preds = %205, %207
+  %.9201303 = phi i8 [ %.9201304, %207 ], [ %spec.select224, %205 ]
+  %.0178 = phi i16 [ %214, %207 ], [ %.sroa.0.0.i, %205 ]
+  %216 = sub nuw nsw i32 16, %.sroa.6.0.extract.trunc
+  %217 = shl i32 %195, %216
+  %218 = icmp eq i32 %217, 0
+  %219 = and i8 %.9201303, 1
+  %220 = and i16 %.0178, 1
+  %221 = zext nneg i8 %219 to i16
+  %222 = select i1 %218, i16 %221, i16 1
+  %223 = or i16 %220, %222
+  %224 = add i16 %223, %.0178
+  br label %225
 
-210:                                              ; preds = %207
-  %211 = zext nneg i8 %.2182 to i16
-  %212 = sub nsw i8 13, %.sroa.51.0.in.i
-  %213 = and i8 %212, 15
-  %214 = zext nneg i8 %213 to i16
-  %215 = shl i16 %211, %214
-  %.0164 = select i1 %196, i16 0, i16 %215
-  %216 = add i16 %.0164, %.sroa.0.0.i
-  %217 = add i16 %216, %.0184
-  br i1 %.0185, label %220, label %230
-
-218:                                              ; preds = %207
-  %219 = add i16 %.0184, %.sroa.0.0.i
-  br label %220
-
-220:                                              ; preds = %210, %218
-  %.0178 = phi i16 [ %217, %210 ], [ %219, %218 ]
-  %221 = sub nuw nsw i32 16, %.sroa.6.0.extract.trunc
-  %222 = shl i32 %195, %221
-  %223 = icmp eq i32 %222, 0
-  %224 = and i8 %.9201, 1
-  %225 = and i16 %.0178, 1
-  %226 = zext nneg i8 %224 to i16
-  %227 = select i1 %223, i16 %226, i16 1
-  %228 = or i16 %225, %227
-  %229 = add i16 %228, %.0178
-  br label %230
-
-230:                                              ; preds = %197, %220, %210
-  %.1179 = phi i16 [ %229, %220 ], [ %217, %210 ], [ %., %197 ]
-  %231 = sub i16 0, %.1179
-  %.0.i = select i1 %.0173, i16 %231, i16 %.1179
+225:                                              ; preds = %197, %215, %207
+  %.1179 = phi i16 [ %224, %215 ], [ %214, %207 ], [ %., %197 ]
+  %226 = sub i16 0, %.1179
+  %.0.i = select i1 %.0173, i16 %226, i16 %.1179
   br label %60
 }
 

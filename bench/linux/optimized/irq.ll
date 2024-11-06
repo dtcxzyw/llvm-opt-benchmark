@@ -2361,15 +2361,14 @@ define internal range(i32 0, 16) i32 @pirq_via586_get(ptr noundef %0, ptr nocapt
   %12 = lshr i32 %11, 1
   %13 = add nuw i32 %12, 85
   %14 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %13, ptr noundef nonnull %4) #12
-  %15 = and i64 %9, 4611686018427387903
-  %16 = icmp eq i64 %15, 1
-  %17 = load i8, ptr %4, align 1
-  %18 = zext i8 %17 to i32
-  %19 = lshr i32 %18, 4
-  %20 = and i32 %18, 15
-  %21 = select i1 %16, i32 %20, i32 %19
+  %15 = icmp eq i32 %8, 1
+  %16 = load i8, ptr %4, align 1
+  %17 = zext i8 %16 to i32
+  %18 = lshr i32 %17, 4
+  %19 = and i32 %17, 15
+  %20 = select i1 %15, i32 %19, i32 %18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #12
-  ret i32 %21
+  ret i32 %20
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -2394,29 +2393,28 @@ define internal noundef i32 @pirq_via586_set(ptr noundef %0, ptr nocapture readn
   %13 = lshr i32 %12, 1
   %14 = add nuw i32 %13, 85
   %15 = call i32 @pci_read_config_byte(ptr noundef %0, i32 noundef %14, ptr noundef nonnull %5) #12
-  %16 = and i64 %10, 4611686018427387903
-  %17 = icmp eq i64 %16, 1
-  %18 = load i8, ptr %5, align 1
-  br i1 %17, label %24, label %19
+  %16 = icmp eq i32 %9, 1
+  %17 = load i8, ptr %5, align 1
+  br i1 %16, label %23, label %18
 
-19:                                               ; preds = %8
-  %20 = and i8 %18, 15
-  %21 = zext nneg i8 %20 to i32
-  %22 = shl i32 %3, 4
-  %23 = or disjoint i32 %22, %21
-  br label %28
+18:                                               ; preds = %8
+  %19 = and i8 %17, 15
+  %20 = zext nneg i8 %19 to i32
+  %21 = shl i32 %3, 4
+  %22 = or disjoint i32 %21, %20
+  br label %27
 
-24:                                               ; preds = %8
-  %25 = and i8 %18, -16
-  %26 = zext i8 %25 to i32
-  %27 = or i32 %3, %26
-  br label %28
+23:                                               ; preds = %8
+  %24 = and i8 %17, -16
+  %25 = zext i8 %24 to i32
+  %26 = or i32 %3, %25
+  br label %27
 
-28:                                               ; preds = %24, %19
-  %29 = phi i32 [ %23, %19 ], [ %27, %24 ]
-  %30 = trunc i32 %29 to i8
-  store i8 %30, ptr %5, align 1
-  %31 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %14, i8 noundef zeroext %30) #12
+27:                                               ; preds = %23, %18
+  %28 = phi i32 [ %22, %18 ], [ %26, %23 ]
+  %29 = trunc i32 %28 to i8
+  store i8 %29, ptr %5, align 1
+  %30 = call i32 @pci_write_config_byte(ptr noundef %0, i32 noundef %14, i8 noundef zeroext %29) #12
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #12
   ret i32 1
 }

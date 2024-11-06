@@ -5378,20 +5378,19 @@ define internal void @decode_zcl_drlc_temp_set_point(ptr nocapture noundef write
 
 ; Function Attrs: nofree nounwind uwtable
 define internal void @decode_zcl_drlc_average_load_adjustment_percentage(ptr nocapture noundef writeonly %0, i8 noundef signext %1) #3 {
-  %3 = sext i8 %1 to i32
-  %4 = and i32 %3, 128
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %6, label %5
+  %.not = icmp sgt i8 %1, -1
+  br i1 %.not, label %4, label %3
 
-5:                                                ; preds = %2
+3:                                                ; preds = %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %0, ptr noundef nonnull align 1 dereferenceable(9) @.str.2301, i64 9, i1 false)
-  br label %8
+  br label %7
 
-6:                                                ; preds = %2
-  %7 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2303, i32 noundef %3) #6
-  br label %8
+4:                                                ; preds = %2
+  %5 = zext nneg i8 %1 to i32
+  %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2303, i32 noundef %5) #6
+  br label %7
 
-8:                                                ; preds = %6, %5
+7:                                                ; preds = %4, %3
   ret void
 }
 

@@ -9985,7 +9985,7 @@ invoke.cont.i.i:                                  ; preds = %if.then.i.i
 
 common.resume:                                    ; preds = %lpad.i39, %lpad.i30, %lpad.i21, %lpad.i12, %lpad.i, %lpad.i.i
   %exception.i38.sink = phi ptr [ %exception.i38, %lpad.i39 ], [ %exception.i29, %lpad.i30 ], [ %exception.i20, %lpad.i21 ], [ %exception.i11, %lpad.i12 ], [ %exception.i, %lpad.i ], [ %exception.i.i, %lpad.i.i ]
-  %common.resume.op = phi { ptr, i32 } [ %24, %lpad.i39 ], [ %20, %lpad.i30 ], [ %16, %lpad.i21 ], [ %12, %lpad.i12 ], [ %8, %lpad.i ], [ %3, %lpad.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %29, %lpad.i39 ], [ %24, %lpad.i30 ], [ %19, %lpad.i21 ], [ %14, %lpad.i12 ], [ %9, %lpad.i ], [ %3, %lpad.i.i ]
   tail call void @__cxa_free_exception(ptr %exception.i38.sink) #24
   resume { ptr, i32 } %common.resume.op
 
@@ -9997,7 +9997,6 @@ lpad.i.i:                                         ; preds = %if.then.i.i
 _ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit:  ; preds = %entry
   %4 = load i16, ptr %1, align 1
   store ptr %add.ptr.i.i, ptr %mCurrent.i.i, align 8
-  %conv52 = zext i16 %4 to i32
   %tobool.not = icmp eq i16 %4, 0
   br i1 %tobool.not, label %if.end21.thread, label %if.end
 
@@ -10007,19 +10006,19 @@ if.end21.thread:                                  ; preds = %_ZN6Assimp12StreamR
   br label %if.end26
 
 if.end:                                           ; preds = %_ZN6Assimp12StreamReaderILb0ELb0EE5GetI2Ev.exit
-  %and = and i32 %conv52, 1
-  %tobool3.not = icmp eq i32 %and, 0
+  %5 = and i16 %4, 1
+  %tobool3.not = icmp eq i16 %5, 0
   br i1 %tobool3.not, label %if.end6, label %if.then4
 
 if.then4:                                         ; preds = %if.end
-  %5 = load ptr, ptr %stream, align 8
-  %mCurrent.i = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load ptr, ptr %mCurrent.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 4
+  %6 = load ptr, ptr %stream, align 8
+  %mCurrent.i = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %mCurrent.i, align 8
+  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 4
   store ptr %add.ptr.i, ptr %mCurrent.i, align 8
-  %mLimit.i = getelementptr inbounds i8, ptr %5, i64 40
-  %7 = load ptr, ptr %mLimit.i, align 8
-  %cmp.i = icmp ugt ptr %add.ptr.i, %7
+  %mLimit.i = getelementptr inbounds i8, ptr %6, i64 40
+  %8 = load ptr, ptr %mLimit.i, align 8
+  %cmp.i = icmp ugt ptr %add.ptr.i, %8
   br i1 %cmp.i, label %if.then.i, label %if.end6
 
 if.then.i:                                        ; preds = %if.then4
@@ -10032,24 +10031,24 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i:                                           ; preds = %if.then.i
-  %8 = landingpad { ptr, i32 }
+  %9 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end6:                                          ; preds = %if.then4, %if.end
-  %and7 = and i32 %conv52, 4
-  %tobool8.not = icmp eq i32 %and7, 0
+  %10 = and i16 %4, 4
+  %tobool8.not = icmp eq i16 %10, 0
   br i1 %tobool8.not, label %if.end11, label %if.then9
 
 if.then9:                                         ; preds = %if.end6
-  %9 = load ptr, ptr %stream, align 8
-  %mCurrent.i6 = getelementptr inbounds i8, ptr %9, i64 24
-  %10 = load ptr, ptr %mCurrent.i6, align 8
-  %add.ptr.i7 = getelementptr inbounds i8, ptr %10, i64 4
+  %11 = load ptr, ptr %stream, align 8
+  %mCurrent.i6 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = load ptr, ptr %mCurrent.i6, align 8
+  %add.ptr.i7 = getelementptr inbounds i8, ptr %12, i64 4
   store ptr %add.ptr.i7, ptr %mCurrent.i6, align 8
-  %mLimit.i8 = getelementptr inbounds i8, ptr %9, i64 40
-  %11 = load ptr, ptr %mLimit.i8, align 8
-  %cmp.i9 = icmp ugt ptr %add.ptr.i7, %11
+  %mLimit.i8 = getelementptr inbounds i8, ptr %11, i64 40
+  %13 = load ptr, ptr %mLimit.i8, align 8
+  %cmp.i9 = icmp ugt ptr %add.ptr.i7, %13
   br i1 %cmp.i9, label %if.then.i10, label %if.end11
 
 if.then.i10:                                      ; preds = %if.then9
@@ -10062,24 +10061,24 @@ invoke.cont.i13:                                  ; preds = %if.then.i10
   unreachable
 
 lpad.i12:                                         ; preds = %if.then.i10
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end11:                                         ; preds = %if.then9, %if.end6
-  %and12 = and i32 %conv52, 2
-  %tobool13.not = icmp eq i32 %and12, 0
+  %15 = and i16 %4, 2
+  %tobool13.not = icmp eq i16 %15, 0
   br i1 %tobool13.not, label %if.end16, label %if.then14
 
 if.then14:                                        ; preds = %if.end11
-  %13 = load ptr, ptr %stream, align 8
-  %mCurrent.i15 = getelementptr inbounds i8, ptr %13, i64 24
-  %14 = load ptr, ptr %mCurrent.i15, align 8
-  %add.ptr.i16 = getelementptr inbounds i8, ptr %14, i64 4
+  %16 = load ptr, ptr %stream, align 8
+  %mCurrent.i15 = getelementptr inbounds i8, ptr %16, i64 24
+  %17 = load ptr, ptr %mCurrent.i15, align 8
+  %add.ptr.i16 = getelementptr inbounds i8, ptr %17, i64 4
   store ptr %add.ptr.i16, ptr %mCurrent.i15, align 8
-  %mLimit.i17 = getelementptr inbounds i8, ptr %13, i64 40
-  %15 = load ptr, ptr %mLimit.i17, align 8
-  %cmp.i18 = icmp ugt ptr %add.ptr.i16, %15
+  %mLimit.i17 = getelementptr inbounds i8, ptr %16, i64 40
+  %18 = load ptr, ptr %mLimit.i17, align 8
+  %cmp.i18 = icmp ugt ptr %add.ptr.i16, %18
   br i1 %cmp.i18, label %if.then.i19, label %if.end16
 
 if.then.i19:                                      ; preds = %if.then14
@@ -10092,24 +10091,24 @@ invoke.cont.i22:                                  ; preds = %if.then.i19
   unreachable
 
 lpad.i21:                                         ; preds = %if.then.i19
-  %16 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end16:                                         ; preds = %if.then14, %if.end11
-  %and17 = and i32 %conv52, 16
-  %tobool18.not = icmp eq i32 %and17, 0
+  %20 = and i16 %4, 16
+  %tobool18.not = icmp eq i16 %20, 0
   br i1 %tobool18.not, label %if.end21, label %if.then19
 
 if.then19:                                        ; preds = %if.end16
-  %17 = load ptr, ptr %stream, align 8
-  %mCurrent.i24 = getelementptr inbounds i8, ptr %17, i64 24
-  %18 = load ptr, ptr %mCurrent.i24, align 8
-  %add.ptr.i25 = getelementptr inbounds i8, ptr %18, i64 4
+  %21 = load ptr, ptr %stream, align 8
+  %mCurrent.i24 = getelementptr inbounds i8, ptr %21, i64 24
+  %22 = load ptr, ptr %mCurrent.i24, align 8
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %22, i64 4
   store ptr %add.ptr.i25, ptr %mCurrent.i24, align 8
-  %mLimit.i26 = getelementptr inbounds i8, ptr %17, i64 40
-  %19 = load ptr, ptr %mLimit.i26, align 8
-  %cmp.i27 = icmp ugt ptr %add.ptr.i25, %19
+  %mLimit.i26 = getelementptr inbounds i8, ptr %21, i64 40
+  %23 = load ptr, ptr %mLimit.i26, align 8
+  %cmp.i27 = icmp ugt ptr %add.ptr.i25, %23
   br i1 %cmp.i27, label %if.then.i28, label %if.end21
 
 if.then.i28:                                      ; preds = %if.then19
@@ -10122,24 +10121,24 @@ invoke.cont.i31:                                  ; preds = %if.then.i28
   unreachable
 
 lpad.i30:                                         ; preds = %if.then.i28
-  %20 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
 if.end21:                                         ; preds = %if.then19, %if.end16
-  %and22 = and i32 %conv52, 8
-  %tobool23.not = icmp eq i32 %and22, 0
+  %25 = and i16 %4, 8
+  %tobool23.not = icmp eq i16 %25, 0
   br i1 %tobool23.not, label %if.end26, label %if.then24
 
 if.then24:                                        ; preds = %if.end21
-  %21 = load ptr, ptr %stream, align 8
-  %mCurrent.i33 = getelementptr inbounds i8, ptr %21, i64 24
-  %22 = load ptr, ptr %mCurrent.i33, align 8
-  %add.ptr.i34 = getelementptr inbounds i8, ptr %22, i64 4
+  %26 = load ptr, ptr %stream, align 8
+  %mCurrent.i33 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = load ptr, ptr %mCurrent.i33, align 8
+  %add.ptr.i34 = getelementptr inbounds i8, ptr %27, i64 4
   store ptr %add.ptr.i34, ptr %mCurrent.i33, align 8
-  %mLimit.i35 = getelementptr inbounds i8, ptr %21, i64 40
-  %23 = load ptr, ptr %mLimit.i35, align 8
-  %cmp.i36 = icmp ugt ptr %add.ptr.i34, %23
+  %mLimit.i35 = getelementptr inbounds i8, ptr %26, i64 40
+  %28 = load ptr, ptr %mLimit.i35, align 8
+  %cmp.i36 = icmp ugt ptr %add.ptr.i34, %28
   br i1 %cmp.i36, label %if.then.i37, label %if.end26
 
 if.then.i37:                                      ; preds = %if.then24
@@ -10152,7 +10151,7 @@ invoke.cont.i40:                                  ; preds = %if.then.i37
   unreachable
 
 lpad.i39:                                         ; preds = %if.then.i37
-  %24 = landingpad { ptr, i32 }
+  %29 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 

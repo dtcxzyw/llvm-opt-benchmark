@@ -2156,74 +2156,73 @@ define range(i32 0, 2) i32 @cli_isutf8(ptr nocapture noundef readonly %0, i32 no
   br i1 %.not42, label %.loopexit32, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.loopexit
-  %.02737 = phi i32 [ %35, %.loopexit ], [ 0, %2 ]
+  %.02737 = phi i32 [ %34, %.loopexit ], [ 0, %2 ]
   %3 = zext i32 %.02737 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   %5 = load i8, ptr %4, align 1
-  %6 = zext i8 %5 to i32
-  %7 = icmp sgt i8 %5, -1
-  br i1 %7, label %.loopexit, label %8
+  %6 = icmp sgt i8 %5, -1
+  br i1 %6, label %.loopexit, label %7
 
-8:                                                ; preds = %.lr.ph
-  %9 = and i32 %6, 64
-  %10 = icmp eq i32 %9, 0
-  br i1 %10, label %.loopexit32, label %11
+7:                                                ; preds = %.lr.ph
+  %8 = and i8 %5, 64
+  %9 = icmp eq i8 %8, 0
+  br i1 %9, label %.loopexit32, label %10
 
-11:                                               ; preds = %8
-  %12 = and i32 %6, 32
-  %13 = icmp eq i32 %12, 0
-  br i1 %13, label %26, label %14
+10:                                               ; preds = %7
+  %11 = and i8 %5, 32
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %25, label %13
 
-14:                                               ; preds = %11
-  %15 = and i32 %6, 16
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %26, label %17
+13:                                               ; preds = %10
+  %14 = and i8 %5, 16
+  %15 = icmp eq i8 %14, 0
+  br i1 %15, label %25, label %16
 
-17:                                               ; preds = %14
-  %18 = and i32 %6, 8
-  %19 = icmp eq i32 %18, 0
-  br i1 %19, label %26, label %20
+16:                                               ; preds = %13
+  %17 = and i8 %5, 8
+  %18 = icmp eq i8 %17, 0
+  br i1 %18, label %25, label %19
 
-20:                                               ; preds = %17
-  %21 = and i32 %6, 4
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %26, label %23
+19:                                               ; preds = %16
+  %20 = and i8 %5, 4
+  %21 = icmp eq i8 %20, 0
+  br i1 %21, label %25, label %22
 
-23:                                               ; preds = %20
-  %24 = and i32 %6, 2
-  %25 = icmp eq i32 %24, 0
-  br i1 %25, label %26, label %.loopexit32
+22:                                               ; preds = %19
+  %23 = and i8 %5, 2
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %25, label %.loopexit32
 
-26:                                               ; preds = %23, %20, %17, %14, %11
-  %.0 = phi i32 [ 1, %11 ], [ 2, %14 ], [ 3, %17 ], [ 4, %20 ], [ 5, %23 ]
-  %27 = add i32 %.0, %.02737
-  br label %29
+25:                                               ; preds = %22, %19, %16, %13, %10
+  %.0 = phi i32 [ 1, %10 ], [ 2, %13 ], [ 3, %16 ], [ 4, %19 ], [ 5, %22 ]
+  %26 = add i32 %.0, %.02737
+  br label %28
 
-28:                                               ; preds = %31
-  %exitcond.not = icmp eq i32 %30, %27
-  br i1 %exitcond.not, label %.loopexit, label %29
+27:                                               ; preds = %30
+  %exitcond.not = icmp eq i32 %29, %26
+  br i1 %exitcond.not, label %.loopexit, label %28
 
-29:                                               ; preds = %26, %28
-  %.235 = phi i32 [ %.02737, %26 ], [ %30, %28 ]
-  %30 = add nuw i32 %.235, 1
-  %.not = icmp ult i32 %30, %1
-  br i1 %.not, label %31, label %.loopexit32
+28:                                               ; preds = %25, %27
+  %.235 = phi i32 [ %.02737, %25 ], [ %29, %27 ]
+  %29 = add nuw i32 %.235, 1
+  %.not = icmp ult i32 %29, %1
+  br i1 %.not, label %30, label %.loopexit32
 
-31:                                               ; preds = %29
-  %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds i8, ptr %0, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %or.cond = icmp slt i8 %34, -64
-  br i1 %or.cond, label %28, label %.loopexit32
+30:                                               ; preds = %28
+  %31 = zext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %0, i64 %31
+  %33 = load i8, ptr %32, align 1
+  %or.cond = icmp slt i8 %33, -64
+  br i1 %or.cond, label %27, label %.loopexit32
 
-.loopexit:                                        ; preds = %28, %.lr.ph
-  %.1 = phi i32 [ %.02737, %.lr.ph ], [ %27, %28 ]
-  %35 = add i32 %.1, 1
-  %36 = icmp ult i32 %35, %1
-  br i1 %36, label %.lr.ph, label %.loopexit32
+.loopexit:                                        ; preds = %27, %.lr.ph
+  %.1 = phi i32 [ %.02737, %.lr.ph ], [ %26, %27 ]
+  %34 = add i32 %.1, 1
+  %35 = icmp ult i32 %34, %1
+  br i1 %35, label %.lr.ph, label %.loopexit32
 
-.loopexit32:                                      ; preds = %8, %23, %.loopexit, %31, %29, %2
-  %.028 = phi i32 [ 1, %2 ], [ 0, %29 ], [ 0, %31 ], [ 0, %8 ], [ 0, %23 ], [ 1, %.loopexit ]
+.loopexit32:                                      ; preds = %7, %22, %.loopexit, %30, %28, %2
+  %.028 = phi i32 [ 1, %2 ], [ 0, %28 ], [ 0, %30 ], [ 0, %7 ], [ 0, %22 ], [ 1, %.loopexit ]
   ret i32 %.028
 }
 

@@ -11024,10 +11024,10 @@ if.then16:                                        ; preds = %land.lhs.true
   br i1 %cmp17, label %if.end31, label %if.else21
 
 if.else21:                                        ; preds = %if.then16
-  %and24 = and i8 %27, -16
+  %28 = and i8 %27, -16
   %switch.selectcmp = icmp ugt i8 %27, -17
   %switch.select = select i1 %switch.selectcmp, i64 4, i64 2
-  %switch.selectcmp80 = icmp eq i8 %and24, -32
+  %switch.selectcmp80 = icmp eq i8 %28, -32
   %switch.select81 = select i1 %switch.selectcmp80, i64 3, i64 %switch.select
   br label %if.end31
 
@@ -11049,41 +11049,41 @@ if.end31.if.end35_crit_edge:                      ; preds = %if.end31
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end31.if.end35_crit_edge, %land.lhs.true
-  %28 = phi i32 [ %.pre75, %if.end31.if.end35_crit_edge ], [ 0, %land.lhs.true ]
-  %29 = phi i32 [ %.pre, %if.end31.if.end35_crit_edge ], [ 0, %land.lhs.true ]
+  %29 = phi i32 [ %.pre75, %if.end31.if.end35_crit_edge ], [ 0, %land.lhs.true ]
+  %30 = phi i32 [ %.pre, %if.end31.if.end35_crit_edge ], [ 0, %land.lhs.true ]
   %rv.058 = phi i32 [ %call30, %if.end31.if.end35_crit_edge ], [ 0, %land.lhs.true ]
-  %call36 = call fastcc ptr @tzinfo_from_isoformat_results(i32 noundef %rv.058, i32 noundef %29, i32 noundef %28)
+  %call36 = call fastcc ptr @tzinfo_from_isoformat_results(i32 noundef %rv.058, i32 noundef %30, i32 noundef %29)
   %cmp37 = icmp eq ptr %call36, null
   br i1 %cmp37, label %if.then.i, label %if.end40
 
 if.end40:                                         ; preds = %if.end35
-  %30 = load i32, ptr %year, align 4
-  %31 = load i32, ptr %month, align 4
-  %32 = load i32, ptr %day, align 4
-  %33 = load i32, ptr %hour, align 4
-  %34 = load i32, ptr %minute, align 4
-  %35 = load i32, ptr %second, align 4
-  %36 = load i32, ptr %microsecond, align 4
+  %31 = load i32, ptr %year, align 4
+  %32 = load i32, ptr %month, align 4
+  %33 = load i32, ptr %day, align 4
+  %34 = load i32, ptr %hour, align 4
+  %35 = load i32, ptr %minute, align 4
+  %36 = load i32, ptr %second, align 4
+  %37 = load i32, ptr %microsecond, align 4
   %cmp.i.i40 = icmp eq ptr %cls, @PyDateTime_DateTimeType
   br i1 %cmp.i.i40, label %if.then.i.i41, label %if.else.i.i
 
 if.then.i.i41:                                    ; preds = %if.end40
-  %call.i.i = call ptr @new_datetime_ex2(i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %call36, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %call.i.i = call ptr @new_datetime_ex2(i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef nonnull %call36, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %new_datetime_subclass_ex.exit
 
 if.else.i.i:                                      ; preds = %if.end40
-  %call1.i.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %cls, ptr noundef nonnull @.str.40, i32 noundef %30, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, ptr noundef nonnull %call36) #15
+  %call1.i.i = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %cls, ptr noundef nonnull @.str.40, i32 noundef %31, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37, ptr noundef nonnull %call36) #15
   br label %new_datetime_subclass_ex.exit
 
 new_datetime_subclass_ex.exit:                    ; preds = %if.then.i.i41, %if.else.i.i
   %dt.0.i.i = phi ptr [ %call.i.i, %if.then.i.i41 ], [ %call1.i.i, %if.else.i.i ]
-  %37 = load i64, ptr %call36, align 8
-  %38 = and i64 %37, 2147483648
-  %cmp.i53.not = icmp eq i64 %38, 0
+  %38 = load i64, ptr %call36, align 8
+  %39 = and i64 %38, 2147483648
+  %cmp.i53.not = icmp eq i64 %39, 0
   br i1 %cmp.i53.not, label %if.end.i46, label %Py_DECREF.exit51
 
 if.end.i46:                                       ; preds = %new_datetime_subclass_ex.exit
-  %dec.i47 = add i64 %37, -1
+  %dec.i47 = add i64 %38, -1
   store i64 %dec.i47, ptr %call36, align 8
   %cmp.i48 = icmp eq i64 %dec.i47, 0
   br i1 %cmp.i48, label %if.then1.i49, label %Py_DECREF.exit51
@@ -11093,13 +11093,13 @@ if.then1.i49:                                     ; preds = %if.end.i46
   br label %Py_DECREF.exit51
 
 Py_DECREF.exit51:                                 ; preds = %new_datetime_subclass_ex.exit, %if.then1.i49, %if.end.i46
-  %39 = load i64, ptr %retval.0.i, align 8
-  %40 = and i64 %39, 2147483648
-  %cmp.i56.not = icmp eq i64 %40, 0
+  %40 = load i64, ptr %retval.0.i, align 8
+  %41 = and i64 %40, 2147483648
+  %cmp.i56.not = icmp eq i64 %41, 0
   br i1 %cmp.i56.not, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %Py_DECREF.exit51
-  %dec.i = add i64 %39, -1
+  %dec.i = add i64 %40, -1
   store i64 %dec.i, ptr %retval.0.i, align 8
   %cmp.i = icmp eq i64 %dec.i, 0
   br i1 %cmp.i, label %if.then1.i, label %return
@@ -11109,23 +11109,23 @@ if.then1.i:                                       ; preds = %if.end.i
   br label %return
 
 error.thread63:                                   ; preds = %if.end31, %if.then7, %_find_isoformat_datetime_separator.exit
-  %41 = load ptr, ptr @PyExc_ValueError, align 8
-  %call4266 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %41, ptr noundef nonnull @.str.94, ptr noundef %dtstr) #15
+  %42 = load ptr, ptr @PyExc_ValueError, align 8
+  %call4266 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %42, ptr noundef nonnull @.str.94, ptr noundef %dtstr) #15
   br label %if.then.i
 
 error:                                            ; preds = %if.end, %if.end13.i, %if.then20.i, %if.then1.i.i, %if.end.i.i
-  %42 = load ptr, ptr @PyExc_ValueError, align 8
-  %call42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %42, ptr noundef nonnull @.str.94, ptr noundef %dtstr) #15
+  %43 = load ptr, ptr @PyExc_ValueError, align 8
+  %call42 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %43, ptr noundef nonnull @.str.94, ptr noundef %dtstr) #15
   br label %return
 
 if.then.i:                                        ; preds = %if.then7, %if.end35, %error.thread63
-  %43 = load i64, ptr %retval.0.i, align 8
-  %44 = and i64 %43, 2147483648
-  %cmp.i2.not.i = icmp eq i64 %44, 0
+  %44 = load i64, ptr %retval.0.i, align 8
+  %45 = and i64 %44, 2147483648
+  %cmp.i2.not.i = icmp eq i64 %45, 0
   br i1 %cmp.i2.not.i, label %if.end.i.i43, label %return
 
 if.end.i.i43:                                     ; preds = %if.then.i
-  %dec.i.i44 = add i64 %43, -1
+  %dec.i.i44 = add i64 %44, -1
   store i64 %dec.i.i44, ptr %retval.0.i, align 8
   %cmp.i.i45 = icmp eq i64 %dec.i.i44, 0
   br i1 %cmp.i.i45, label %if.then1.i.i46, label %return

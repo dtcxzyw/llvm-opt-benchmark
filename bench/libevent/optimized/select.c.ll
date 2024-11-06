@@ -193,9 +193,8 @@ if.end18:                                         ; preds = %select_resize.exit.
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end18, %entry
-  %conv2120 = zext i16 %events to i32
-  %and = and i32 %conv2120, 2
-  %tobool22.not = icmp eq i32 %and, 0
+  %9 = and i16 %events, 2
+  %tobool22.not = icmp eq i16 %9, 0
   br i1 %tobool22.not, label %if.end25, label %if.then23
 
 if.then23:                                        ; preds = %if.end20
@@ -203,18 +202,18 @@ if.then23:                                        ; preds = %if.end20
   %sh_prom = zext nneg i32 %rem to i64
   %shl = shl nuw i64 1, %sh_prom
   %event_readset_in = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = load ptr, ptr %event_readset_in, align 8
+  %10 = load ptr, ptr %event_readset_in, align 8
   %div24 = sdiv i32 %fd, 64
   %idxprom = sext i32 %div24 to i64
-  %arrayidx = getelementptr inbounds [16 x i64], ptr %9, i64 0, i64 %idxprom
-  %10 = load i64, ptr %arrayidx, align 8
-  %or = or i64 %10, %shl
+  %arrayidx = getelementptr inbounds [16 x i64], ptr %10, i64 0, i64 %idxprom
+  %11 = load i64, ptr %arrayidx, align 8
+  %or = or i64 %11, %shl
   store i64 %or, ptr %arrayidx, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.then23, %if.end20
-  %and27 = and i32 %conv2120, 4
-  %tobool28.not = icmp eq i32 %and27, 0
+  %12 = and i16 %events, 4
+  %tobool28.not = icmp eq i16 %12, 0
   br i1 %tobool28.not, label %return, label %if.then29
 
 if.then29:                                        ; preds = %if.end25
@@ -222,12 +221,12 @@ if.then29:                                        ; preds = %if.end25
   %sh_prom31 = zext nneg i32 %rem30 to i64
   %shl32 = shl nuw i64 1, %sh_prom31
   %event_writeset_in = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load ptr, ptr %event_writeset_in, align 8
+  %13 = load ptr, ptr %event_writeset_in, align 8
   %div34 = sdiv i32 %fd, 64
   %idxprom35 = sext i32 %div34 to i64
-  %arrayidx36 = getelementptr inbounds [16 x i64], ptr %11, i64 0, i64 %idxprom35
-  %12 = load i64, ptr %arrayidx36, align 8
-  %or37 = or i64 %12, %shl32
+  %arrayidx36 = getelementptr inbounds [16 x i64], ptr %13, i64 0, i64 %idxprom35
+  %14 = load i64, ptr %arrayidx36, align 8
+  %or37 = or i64 %14, %shl32
   store i64 %or37, ptr %arrayidx36, align 8
   br label %return
 
@@ -246,9 +245,8 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %conv8 = zext i16 %events to i32
-  %and = and i32 %conv8, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %2 = and i16 %events, 2
+  %tobool.not = icmp eq i16 %2, 0
   br i1 %tobool.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
@@ -257,18 +255,18 @@ if.then5:                                         ; preds = %if.end
   %shl = shl nuw i64 1, %sh_prom
   %not = xor i64 %shl, -1
   %event_readset_in = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %event_readset_in, align 8
+  %3 = load ptr, ptr %event_readset_in, align 8
   %div = sdiv i32 %fd, 64
   %idxprom = sext i32 %div to i64
-  %arrayidx = getelementptr inbounds [16 x i64], ptr %2, i64 0, i64 %idxprom
-  %3 = load i64, ptr %arrayidx, align 8
-  %and6 = and i64 %3, %not
+  %arrayidx = getelementptr inbounds [16 x i64], ptr %3, i64 0, i64 %idxprom
+  %4 = load i64, ptr %arrayidx, align 8
+  %and6 = and i64 %4, %not
   store i64 %and6, ptr %arrayidx, align 8
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
-  %and9 = and i32 %conv8, 4
-  %tobool10.not = icmp eq i32 %and9, 0
+  %5 = and i16 %events, 4
+  %tobool10.not = icmp eq i16 %5, 0
   br i1 %tobool10.not, label %return, label %if.then11
 
 if.then11:                                        ; preds = %if.end7
@@ -277,12 +275,12 @@ if.then11:                                        ; preds = %if.end7
   %shl14 = shl nuw i64 1, %sh_prom13
   %not15 = xor i64 %shl14, -1
   %event_writeset_in = getelementptr inbounds i8, ptr %0, i64 24
-  %4 = load ptr, ptr %event_writeset_in, align 8
+  %6 = load ptr, ptr %event_writeset_in, align 8
   %div17 = sdiv i32 %fd, 64
   %idxprom18 = sext i32 %div17 to i64
-  %arrayidx19 = getelementptr inbounds [16 x i64], ptr %4, i64 0, i64 %idxprom18
-  %5 = load i64, ptr %arrayidx19, align 8
-  %and20 = and i64 %5, %not15
+  %arrayidx19 = getelementptr inbounds [16 x i64], ptr %6, i64 0, i64 %idxprom18
+  %7 = load i64, ptr %arrayidx19, align 8
+  %and20 = and i64 %7, %not15
   store i64 %and20, ptr %arrayidx19, align 8
   br label %return
 

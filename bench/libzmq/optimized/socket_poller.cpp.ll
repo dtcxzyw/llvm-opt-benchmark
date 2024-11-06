@@ -1107,16 +1107,16 @@ do.end:                                           ; preds = %do.body, %if.then41
   %idxprom47 = sext i32 %14 to i64
   %revents49 = getelementptr inbounds %struct.pollfd, ptr %15, i64 %idxprom47, i32 2
   %16 = load i16, ptr %revents49, align 2
-  %and52 = and i16 %16, 1
-  %17 = lshr i16 %16, 1
-  %18 = and i16 %17, 2
-  %events50.1 = or disjoint i16 %18, %and52
-  %19 = shl i16 %16, 2
-  %20 = and i16 %19, 8
-  %events50.2 = or disjoint i16 %events50.1, %20
+  %17 = and i16 %16, 1
+  %18 = lshr i16 %16, 1
+  %19 = and i16 %18, 2
+  %events50.1 = or disjoint i16 %19, %17
+  %20 = shl i16 %16, 2
+  %21 = and i16 %20, 8
+  %events50.2 = or disjoint i16 %events50.1, %21
   %tobool76.not = icmp ult i16 %16, 8
-  %21 = or disjoint i16 %events50.2, 4
-  %events50.3 = select i1 %tobool76.not, i16 %events50.2, i16 %21
+  %22 = or disjoint i16 %events50.2, 4
+  %events50.3 = select i1 %tobool76.not, i16 %events50.2, i16 %22
   %tobool82.not = icmp eq i16 %events50.3, 0
   br i1 %tobool82.not, label %for.inc, label %if.then83
 
@@ -1125,19 +1125,19 @@ if.then83:                                        ; preds = %do.end
   %arrayidx85 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %idxprom84
   store ptr null, ptr %arrayidx85, align 8
   %fd88 = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 8
-  %22 = load i32, ptr %fd88, align 8
+  %23 = load i32, ptr %fd88, align 8
   %fd91 = getelementptr inbounds i8, ptr %arrayidx85, i64 8
-  store i32 %22, ptr %fd91, align 8
+  store i32 %23, ptr %fd91, align 8
   %user_data93 = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 16
-  %23 = load ptr, ptr %user_data93, align 8
+  %24 = load ptr, ptr %user_data93, align 8
   %user_data96 = getelementptr inbounds i8, ptr %arrayidx85, i64 16
-  store ptr %23, ptr %user_data96, align 8
+  store ptr %24, ptr %user_data96, align 8
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %if.then83, %if.then15
-  %24 = phi i64 [ %idxprom, %if.then15 ], [ %idxprom84, %if.then83 ]
+  %25 = phi i64 [ %idxprom, %if.then15 ], [ %idxprom84, %if.then83 ]
   %conv29.sink = phi i16 [ %conv29, %if.then15 ], [ %events50.3, %if.then83 ]
-  %events32 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %24, i32 3
+  %events32 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %events_, i64 %25, i32 3
   store i16 %conv29.sink, ptr %events32, align 8
   %inc = add nsw i32 %found.042, 1
   br label %for.inc
@@ -1147,8 +1147,8 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %incdec.ptr.i = getelementptr inbounds i8, ptr %it.sroa.0.041, i64 32
   %cmp.i = icmp ne ptr %incdec.ptr.i, %1
   %cmp = icmp slt i32 %found.1, %n_events_
-  %25 = select i1 %cmp.i, i1 %cmp, i1 false
-  br i1 %25, label %for.body, label %return, !llvm.loop !12
+  %26 = select i1 %cmp.i, i1 %cmp, i1 false
+  br i1 %26, label %for.body, label %return, !llvm.loop !12
 
 return:                                           ; preds = %if.then, %for.inc, %entry
   %retval.0 = phi i32 [ 0, %entry ], [ %found.1, %for.inc ], [ -1, %if.then ]

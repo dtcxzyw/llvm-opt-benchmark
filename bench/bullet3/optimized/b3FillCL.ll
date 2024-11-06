@@ -578,8 +578,8 @@ invoke.cont5:                                     ; preds = %if.end.i33
   store i64 1, ptr %arrayidx3.i.i, align 8
   %conv5.i.i = sext i32 %48 to i64
   %div.i.i152 = lshr i64 %conv5.i.i, 6
-  %rem.i.i = and i64 %conv5.i.i, 63
-  %tobool.not.i.i = icmp ne i64 %rem.i.i, 0
+  %49 = and i32 %48, 63
+  %tobool.not.i.i = icmp ne i32 %49, 0
   %conv9.i.i = zext i1 %tobool.not.i.i to i64
   %add.i.i = add nuw nsw i64 %div.i.i152, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i, i64 1)
@@ -587,11 +587,11 @@ invoke.cont5:                                     ; preds = %if.end.i33
   store i64 %mul.i.i, ptr %gRange.i.i, align 16
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %gRange.i.i, i64 8
   store i64 1, ptr %arrayidx27.i.i, align 8
-  %49 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
+  %50 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
   %m_commandQueue.i.i = getelementptr inbounds i8, ptr %launcher, i64 8
-  %50 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %51 = load ptr, ptr %m_kernel.i, align 8
-  %call32.i.i62 = invoke i32 %49(ptr noundef %50, ptr noundef %51, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %51 = load ptr, ptr %m_commandQueue.i.i, align 8
+  %52 = load ptr, ptr %m_kernel.i, align 8
+  %call32.i.i62 = invoke i32 %50(ptr noundef %51, ptr noundef %52, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %call32.i.i.noexc unwind label %lpad
 
 call32.i.i.noexc:                                 ; preds = %invoke.cont5
@@ -609,10 +609,10 @@ invoke.cont6:                                     ; preds = %if.then.i.i61, %cal
   ret void
 
 lpad:                                             ; preds = %if.then3.i.i134, %.noexc148, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i144, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i117, %if.then3.i.i95, %.noexc109, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i105, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i78, %if.then3.i.i, %.noexc71, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i, %invoke.cont5, %if.end.i33, %if.end.i4, %if.end.i, %entry
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #13
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %53
 }
 
 declare void @_ZN12b3LauncherCLC1EP17_cl_command_queueP10_cl_kernelPKc(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
@@ -1031,8 +1031,8 @@ invoke.cont5:                                     ; preds = %if.end.i34
   store i64 1, ptr %arrayidx3.i.i, align 8
   %conv5.i.i = sext i32 %48 to i64
   %div.i.i153 = lshr i64 %conv5.i.i, 6
-  %rem.i.i = and i64 %conv5.i.i, 63
-  %tobool.not.i.i = icmp ne i64 %rem.i.i, 0
+  %49 = and i32 %48, 63
+  %tobool.not.i.i = icmp ne i32 %49, 0
   %conv9.i.i = zext i1 %tobool.not.i.i to i64
   %add.i.i = add nuw nsw i64 %div.i.i153, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i, i64 1)
@@ -1040,11 +1040,11 @@ invoke.cont5:                                     ; preds = %if.end.i34
   store i64 %mul.i.i, ptr %gRange.i.i, align 16
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %gRange.i.i, i64 8
   store i64 1, ptr %arrayidx27.i.i, align 8
-  %49 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
+  %50 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
   %m_commandQueue.i.i = getelementptr inbounds i8, ptr %launcher, i64 8
-  %50 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %51 = load ptr, ptr %m_kernel.i, align 8
-  %call32.i.i63 = invoke i32 %49(ptr noundef %50, ptr noundef %51, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %51 = load ptr, ptr %m_commandQueue.i.i, align 8
+  %52 = load ptr, ptr %m_kernel.i, align 8
+  %call32.i.i63 = invoke i32 %50(ptr noundef %51, ptr noundef %52, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %call32.i.i.noexc unwind label %lpad
 
 call32.i.i.noexc:                                 ; preds = %invoke.cont5
@@ -1062,10 +1062,10 @@ invoke.cont6:                                     ; preds = %if.then.i.i62, %cal
   ret void
 
 lpad:                                             ; preds = %if.then3.i.i135, %.noexc149, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i145, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i118, %if.then3.i.i96, %.noexc110, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i106, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i79, %if.then3.i.i, %.noexc72, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i, %invoke.cont5, %if.end.i34, %if.end.i4, %if.end.i, %entry
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #13
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %53
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1481,8 +1481,8 @@ invoke.cont4:                                     ; preds = %if.end.i33
   store i64 1, ptr %arrayidx3.i.i, align 8
   %conv5.i.i = sext i32 %48 to i64
   %div.i.i152 = lshr i64 %conv5.i.i, 6
-  %rem.i.i = and i64 %conv5.i.i, 63
-  %tobool.not.i.i = icmp ne i64 %rem.i.i, 0
+  %49 = and i32 %48, 63
+  %tobool.not.i.i = icmp ne i32 %49, 0
   %conv9.i.i = zext i1 %tobool.not.i.i to i64
   %add.i.i = add nuw nsw i64 %div.i.i152, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i, i64 1)
@@ -1490,11 +1490,11 @@ invoke.cont4:                                     ; preds = %if.end.i33
   store i64 %mul.i.i, ptr %gRange.i.i, align 16
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %gRange.i.i, i64 8
   store i64 1, ptr %arrayidx27.i.i, align 8
-  %49 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
+  %50 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
   %m_commandQueue.i.i = getelementptr inbounds i8, ptr %launcher, i64 8
-  %50 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %51 = load ptr, ptr %m_kernel.i, align 8
-  %call32.i.i62 = invoke i32 %49(ptr noundef %50, ptr noundef %51, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %51 = load ptr, ptr %m_commandQueue.i.i, align 8
+  %52 = load ptr, ptr %m_kernel.i, align 8
+  %call32.i.i62 = invoke i32 %50(ptr noundef %51, ptr noundef %52, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %call32.i.i.noexc unwind label %lpad
 
 call32.i.i.noexc:                                 ; preds = %invoke.cont4
@@ -1512,10 +1512,10 @@ invoke.cont5:                                     ; preds = %if.then.i.i61, %cal
   ret void
 
 lpad:                                             ; preds = %if.then3.i.i134, %.noexc148, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i144, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i117, %if.then3.i.i95, %.noexc109, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i105, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i78, %if.then3.i.i, %.noexc71, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i, %invoke.cont4, %if.end.i33, %if.end.i4, %if.end.i, %entry
-  %52 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #13
-  resume { ptr, i32 } %52
+  resume { ptr, i32 } %53
 }
 
 declare void @_ZN12b3LauncherCL10setBuffersEP14b3BufferInfoCLi(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef) local_unnamed_addr #5
@@ -1988,8 +1988,8 @@ invoke.cont4:                                     ; preds = %if.end.i33
   store i64 1, ptr %arrayidx3.i.i, align 8
   %conv5.i.i = sext i32 %49 to i64
   %div.i.i152 = lshr i64 %conv5.i.i, 6
-  %rem.i.i = and i64 %conv5.i.i, 63
-  %tobool.not.i.i = icmp ne i64 %rem.i.i, 0
+  %50 = and i32 %49, 63
+  %tobool.not.i.i = icmp ne i32 %50, 0
   %conv9.i.i = zext i1 %tobool.not.i.i to i64
   %add.i.i = add nuw nsw i64 %div.i.i152, %conv9.i.i
   %.sroa.speculated8.i.i = call i64 @llvm.umax.i64(i64 %add.i.i, i64 1)
@@ -1997,11 +1997,11 @@ invoke.cont4:                                     ; preds = %if.end.i33
   store i64 %mul.i.i, ptr %gRange.i.i, align 16
   %arrayidx27.i.i = getelementptr inbounds i8, ptr %gRange.i.i, i64 8
   store i64 1, ptr %arrayidx27.i.i, align 8
-  %50 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
+  %51 = load ptr, ptr @__clewEnqueueNDRangeKernel, align 8
   %m_commandQueue.i.i = getelementptr inbounds i8, ptr %launcher, i64 8
-  %51 = load ptr, ptr %m_commandQueue.i.i, align 8
-  %52 = load ptr, ptr %m_kernel.i, align 8
-  %call32.i.i62 = invoke i32 %50(ptr noundef %51, ptr noundef %52, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
+  %52 = load ptr, ptr %m_commandQueue.i.i, align 8
+  %53 = load ptr, ptr %m_kernel.i, align 8
+  %call32.i.i62 = invoke i32 %51(ptr noundef %52, ptr noundef %53, i32 noundef 2, ptr noundef null, ptr noundef nonnull %gRange.i.i, ptr noundef nonnull %lRange.i.i, i32 noundef 0, ptr noundef null, ptr noundef null)
           to label %call32.i.i.noexc unwind label %lpad
 
 call32.i.i.noexc:                                 ; preds = %invoke.cont4
@@ -2019,10 +2019,10 @@ invoke.cont5:                                     ; preds = %if.then.i.i61, %cal
   ret void
 
 lpad:                                             ; preds = %if.then3.i.i134, %.noexc148, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i144, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i117, %if.then3.i.i95, %.noexc109, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i105, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i78, %if.then3.i.i, %.noexc71, %_ZNK20b3AlignedObjectArrayI15b3KernelArgDataE4copyEiiPS0_.exit18.i, %_ZN20b3AlignedObjectArrayI15b3KernelArgDataE8allocateEi.exit.i, %invoke.cont4, %if.end.i33, %if.end.i4, %if.end.i, %entry
-  %53 = landingpad { ptr, i32 }
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %launcher) #13
-  resume { ptr, i32 } %53
+  resume { ptr, i32 } %54
 }
 
 declare ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5

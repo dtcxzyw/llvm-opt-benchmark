@@ -10733,29 +10733,29 @@ define internal i32 @tt_face_load_sbit(ptr noundef %0, ptr noundef %1) #0 {
   %19 = load ptr, ptr %9, align 8
   %20 = call i32 %19(ptr noundef nonnull %0, i64 noundef 1935829368, ptr noundef %1, ptr noundef nonnull %3) #27
   %.not132 = icmp eq i32 %20, 0
-  br i1 %.not132, label %.critedge, label %129
+  br i1 %.not132, label %.critedge, label %126
 
 .critedge:                                        ; preds = %.critedge154, %15, %12, %2
   %.sink = phi i32 [ 2, %2 ], [ 1, %12 ], [ 1, %15 ], [ 3, %.critedge154 ]
   store i32 %.sink, ptr %7, align 8
   %21 = load i64, ptr %3, align 8
   %22 = icmp ult i64 %21, 8
-  br i1 %22, label %129, label %23
+  br i1 %22, label %126, label %23
 
 23:                                               ; preds = %.critedge
   %24 = call i64 @FT_Stream_Pos(ptr noundef %1) #27
   %25 = load i32, ptr %7, align 8
-  switch i32 %25, label %109 [
+  switch i32 %25, label %106 [
     i32 1, label %26
     i32 2, label %26
-    i32 3, label %77
+    i32 3, label %74
   ]
 
 26:                                               ; preds = %23, %23
   %27 = load i64, ptr %3, align 8
   %28 = call i32 @FT_Stream_ExtractFrame(ptr noundef %1, i64 noundef %27, ptr noundef nonnull %5) #27
   %.not140 = icmp eq i32 %28, 0
-  br i1 %.not140, label %29, label %129
+  br i1 %.not140, label %29, label %126
 
 29:                                               ; preds = %26
   %30 = load i64, ptr %3, align 8
@@ -10769,197 +10769,194 @@ define internal i32 @tt_face_load_sbit(ptr noundef %0, ptr noundef %1) #0 {
   %37 = zext i8 %36 to i32
   %38 = shl nuw nsw i32 %37, 16
   %39 = or disjoint i32 %38, %34
-  %40 = getelementptr inbounds i8, ptr %31, i64 2
+  %.fr = freeze i32 %39
+  %40 = getelementptr inbounds i8, ptr %31, i64 4
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i32
-  %43 = shl nuw nsw i32 %42, 8
-  %44 = or disjoint i32 %39, %43
-  %45 = getelementptr inbounds i8, ptr %31, i64 3
-  %46 = load i8, ptr %45, align 1
-  %47 = zext i8 %46 to i32
-  %48 = or disjoint i32 %44, %47
-  %.fr = freeze i32 %48
-  %49 = getelementptr inbounds i8, ptr %31, i64 4
+  %43 = shl nuw i32 %42, 24
+  %44 = getelementptr inbounds i8, ptr %31, i64 5
+  %45 = load i8, ptr %44, align 1
+  %46 = zext i8 %45 to i32
+  %47 = shl nuw nsw i32 %46, 16
+  %48 = or disjoint i32 %47, %43
+  %49 = getelementptr inbounds i8, ptr %31, i64 6
   %50 = load i8, ptr %49, align 1
   %51 = zext i8 %50 to i32
-  %52 = shl nuw i32 %51, 24
-  %53 = getelementptr inbounds i8, ptr %31, i64 5
+  %52 = shl nuw nsw i32 %51, 8
+  %53 = getelementptr inbounds i8, ptr %31, i64 7
   %54 = load i8, ptr %53, align 1
   %55 = zext i8 %54 to i32
-  %56 = shl nuw nsw i32 %55, 16
-  %57 = or disjoint i32 %56, %52
-  %58 = getelementptr inbounds i8, ptr %31, i64 6
-  %59 = load i8, ptr %58, align 1
-  %60 = zext i8 %59 to i32
-  %61 = shl nuw nsw i32 %60, 8
-  %62 = getelementptr inbounds i8, ptr %31, i64 7
-  %63 = load i8, ptr %62, align 1
-  %64 = zext i8 %63 to i32
-  %65 = or disjoint i32 %61, %64
-  %66 = or disjoint i32 %65, %57
-  %67 = and i32 %.fr, -65536
-  switch i32 %67, label %switch.early.test [
-    i32 131072, label %68
-    i32 196608, label %68
+  %56 = or disjoint i32 %52, %55
+  %57 = or disjoint i32 %56, %48
+  switch i32 %.fr, label %switch.early.test [
+    i32 131072, label %65
+    i32 196608, label %65
   ]
 
 switch.early.test:                                ; preds = %29
-  %trunc = trunc i32 %.fr to i16
-  switch i16 %trunc, label %129 [
-    i16 768, label %68
-    i16 512, label %68
+  %58 = getelementptr inbounds i8, ptr %31, i64 2
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i16
+  %61 = shl nuw i16 %60, 8
+  %62 = getelementptr inbounds i8, ptr %31, i64 3
+  %63 = load i8, ptr %62, align 1
+  %64 = zext i8 %63 to i16
+  %trunc = or disjoint i16 %61, %64
+  switch i16 %trunc, label %126 [
+    i16 768, label %65
+    i16 512, label %65
   ]
 
-68:                                               ; preds = %29, %29, %switch.early.test, %switch.early.test
-  %.not145 = icmp eq i32 %57, 0
-  br i1 %.not145, label %69, label %129
+65:                                               ; preds = %29, %29, %switch.early.test, %switch.early.test
+  %.not145 = icmp eq i32 %48, 0
+  br i1 %.not145, label %66, label %126
 
-69:                                               ; preds = %68
-  %narrow146 = mul nuw nsw i32 %65, 48
-  %70 = or disjoint i32 %narrow146, 8
-  %71 = zext nneg i32 %70 to i64
-  %72 = icmp ult i64 %30, %71
-  br i1 %72, label %73, label %thread-pre-split
+66:                                               ; preds = %65
+  %narrow146 = mul nuw nsw i32 %56, 48
+  %67 = or disjoint i32 %narrow146, 8
+  %68 = zext nneg i32 %67 to i64
+  %69 = icmp ult i64 %30, %68
+  br i1 %69, label %70, label %thread-pre-split
 
-73:                                               ; preds = %69
-  %74 = add nsw i64 %30, -8
-  %75 = udiv i64 %74, 48
-  %76 = trunc i64 %75 to i32
+70:                                               ; preds = %66
+  %71 = add nsw i64 %30, -8
+  %72 = udiv i64 %71, 48
+  %73 = trunc i64 %72 to i32
   br label %thread-pre-split
 
-77:                                               ; preds = %23
-  %78 = call i32 @FT_Stream_EnterFrame(ptr noundef %1, i64 noundef 8) #27
-  %.not134 = icmp eq i32 %78, 0
-  br i1 %.not134, label %79, label %129
+74:                                               ; preds = %23
+  %75 = call i32 @FT_Stream_EnterFrame(ptr noundef %1, i64 noundef 8) #27
+  %.not134 = icmp eq i32 %75, 0
+  br i1 %.not134, label %76, label %126
 
-79:                                               ; preds = %77
-  %80 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %1) #27
-  %81 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %1) #27
-  %82 = call i32 @FT_Stream_GetULong(ptr noundef %1) #27
+76:                                               ; preds = %74
+  %77 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %1) #27
+  %78 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %1) #27
+  %79 = call i32 @FT_Stream_GetULong(ptr noundef %1) #27
   call void @FT_Stream_ExitFrame(ptr noundef %1) #27
-  %83 = icmp eq i16 %80, 0
-  br i1 %83, label %129, label %84
+  %80 = icmp eq i16 %77, 0
+  br i1 %80, label %126, label %81
 
-84:                                               ; preds = %79
-  %85 = icmp ne i16 %81, 1
-  %86 = icmp ne i16 %81, 3
-  %or.cond.not137 = and i1 %85, %86
-  %87 = icmp ugt i32 %82, 65535
-  %or.cond4 = select i1 %or.cond.not137, i1 true, i1 %87
-  br i1 %or.cond4, label %129, label %88
+81:                                               ; preds = %76
+  %82 = icmp ne i16 %78, 1
+  %83 = icmp ne i16 %78, 3
+  %or.cond.not137 = and i1 %82, %83
+  %84 = icmp ugt i32 %79, 65535
+  %or.cond4 = select i1 %or.cond.not137, i1 true, i1 %84
+  br i1 %or.cond4, label %126, label %85
 
-88:                                               ; preds = %84
-  br i1 %86, label %93, label %89
+85:                                               ; preds = %81
+  br i1 %83, label %90, label %86
 
-89:                                               ; preds = %88
-  %90 = getelementptr inbounds i8, ptr %0, i64 16
-  %91 = load i64, ptr %90, align 8
-  %92 = or i64 %91, 262144
-  store i64 %92, ptr %90, align 8
-  br label %93
+86:                                               ; preds = %85
+  %87 = getelementptr inbounds i8, ptr %0, i64 16
+  %88 = load i64, ptr %87, align 8
+  %89 = or i64 %88, 262144
+  store i64 %89, ptr %87, align 8
+  br label %90
 
-93:                                               ; preds = %89, %88
-  %94 = load i64, ptr %3, align 8
-  %95 = call i64 @FT_Stream_Pos(ptr noundef %1) #27
-  %96 = add i64 %95, -8
-  %97 = call i32 @FT_Stream_Seek(ptr noundef %1, i64 noundef %96) #27
-  %.not138 = icmp eq i32 %97, 0
-  br i1 %.not138, label %98, label %129
+90:                                               ; preds = %86, %85
+  %91 = load i64, ptr %3, align 8
+  %92 = call i64 @FT_Stream_Pos(ptr noundef %1) #27
+  %93 = add i64 %92, -8
+  %94 = call i32 @FT_Stream_Seek(ptr noundef %1, i64 noundef %93) #27
+  %.not138 = icmp eq i32 %94, 0
+  br i1 %.not138, label %95, label %126
 
-98:                                               ; preds = %93
-  %99 = shl nuw nsw i32 %82, 2
-  %narrow = add nuw nsw i32 %99, 8
-  %100 = zext nneg i32 %narrow to i64
-  %101 = icmp ult i64 %94, %100
-  %102 = add i64 %94, 17179869176
-  %103 = lshr i64 %102, 2
-  %104 = trunc i64 %103 to i32
-  %.0 = select i1 %101, i32 %104, i32 %82
-  %105 = shl i32 %.0, 2
-  %106 = add i32 %105, 8
-  %107 = zext i32 %106 to i64
-  store i64 %107, ptr %6, align 8
-  %108 = call i32 @FT_Stream_ExtractFrame(ptr noundef %1, i64 noundef %107, ptr noundef nonnull %5) #27
-  %.not139 = icmp eq i32 %108, 0
-  br i1 %.not139, label %thread-pre-split, label %129
+95:                                               ; preds = %90
+  %96 = shl nuw nsw i32 %79, 2
+  %narrow = add nuw nsw i32 %96, 8
+  %97 = zext nneg i32 %narrow to i64
+  %98 = icmp ult i64 %91, %97
+  %99 = add i64 %91, 17179869176
+  %100 = lshr i64 %99, 2
+  %101 = trunc i64 %100 to i32
+  %.0 = select i1 %98, i32 %101, i32 %79
+  %102 = shl i32 %.0, 2
+  %103 = add i32 %102, 8
+  %104 = zext i32 %103 to i64
+  store i64 %104, ptr %6, align 8
+  %105 = call i32 @FT_Stream_ExtractFrame(ptr noundef %1, i64 noundef %104, ptr noundef nonnull %5) #27
+  %.not139 = icmp eq i32 %105, 0
+  br i1 %.not139, label %thread-pre-split, label %126
 
-thread-pre-split:                                 ; preds = %98, %69, %73
-  %storemerge = phi i32 [ %76, %73 ], [ %66, %69 ], [ %.0, %98 ]
+thread-pre-split:                                 ; preds = %95, %66, %70
+  %storemerge = phi i32 [ %73, %70 ], [ %57, %66 ], [ %.0, %95 ]
   store i32 %storemerge, ptr %8, align 4
   %.pr = load i32, ptr %7, align 8
-  br label %109
+  br label %106
 
-109:                                              ; preds = %thread-pre-split, %23
-  %110 = phi i32 [ %.pr, %thread-pre-split ], [ %25, %23 ]
-  %111 = getelementptr inbounds i8, ptr %0, i64 1448
-  %112 = getelementptr inbounds i8, ptr %0, i64 1456
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
-  switch i32 %110, label %115 [
-    i32 3, label %113
+106:                                              ; preds = %thread-pre-split, %23
+  %107 = phi i32 [ %.pr, %thread-pre-split ], [ %25, %23 ]
+  %108 = getelementptr inbounds i8, ptr %0, i64 1448
+  %109 = getelementptr inbounds i8, ptr %0, i64 1456
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, i8 0, i64 16, i1 false)
+  switch i32 %107, label %112 [
+    i32 3, label %110
     i32 0, label %.thread163
   ]
 
-113:                                              ; preds = %109
-  store i64 %24, ptr %111, align 8
-  %114 = load i64, ptr %3, align 8
-  store i64 %114, ptr %112, align 8
-  br label %127
+110:                                              ; preds = %106
+  store i64 %24, ptr %108, align 8
+  %111 = load i64, ptr %3, align 8
+  store i64 %111, ptr %109, align 8
+  br label %124
 
-115:                                              ; preds = %109
+112:                                              ; preds = %106
+  %113 = load ptr, ptr %9, align 8
+  %114 = call i32 %113(ptr noundef nonnull %0, i64 noundef 1128416340, ptr noundef %1, ptr noundef nonnull %4) #27
+  %.not148 = icmp eq i32 %114, 0
+  br i1 %.not148, label %.critedge158, label %115
+
+115:                                              ; preds = %112
   %116 = load ptr, ptr %9, align 8
-  %117 = call i32 %116(ptr noundef nonnull %0, i64 noundef 1128416340, ptr noundef %1, ptr noundef nonnull %4) #27
-  %.not148 = icmp eq i32 %117, 0
-  br i1 %.not148, label %.critedge158, label %118
+  %117 = call i32 %116(ptr noundef nonnull %0, i64 noundef 1161970772, ptr noundef %1, ptr noundef nonnull %4) #27
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %.critedge158, label %.critedge157
 
-118:                                              ; preds = %115
+.critedge157:                                     ; preds = %115
   %119 = load ptr, ptr %9, align 8
-  %120 = call i32 %119(ptr noundef nonnull %0, i64 noundef 1161970772, ptr noundef %1, ptr noundef nonnull %4) #27
+  %120 = call i32 %119(ptr noundef nonnull %0, i64 noundef 1650745716, ptr noundef %1, ptr noundef nonnull %4) #27
   %121 = icmp eq i32 %120, 0
-  br i1 %121, label %.critedge158, label %.critedge157
+  br i1 %121, label %.critedge158, label %thread-pre-split161
 
-.critedge157:                                     ; preds = %118
-  %122 = load ptr, ptr %9, align 8
-  %123 = call i32 %122(ptr noundef nonnull %0, i64 noundef 1650745716, ptr noundef %1, ptr noundef nonnull %4) #27
-  %124 = icmp eq i32 %123, 0
-  br i1 %124, label %.critedge158, label %thread-pre-split161
-
-.critedge158:                                     ; preds = %118, %115, %.critedge157
-  %125 = call i64 @FT_Stream_Pos(ptr noundef %1) #27
-  store i64 %125, ptr %111, align 8
-  %126 = load i64, ptr %4, align 8
-  store i64 %126, ptr %112, align 8
-  br label %127
+.critedge158:                                     ; preds = %115, %112, %.critedge157
+  %122 = call i64 @FT_Stream_Pos(ptr noundef %1) #27
+  store i64 %122, ptr %108, align 8
+  %123 = load i64, ptr %4, align 8
+  store i64 %123, ptr %109, align 8
+  br label %124
 
 thread-pre-split161:                              ; preds = %.critedge157
-  %.pr162 = load i64, ptr %112, align 8
-  br label %127
+  %.pr162 = load i64, ptr %109, align 8
+  br label %124
 
-127:                                              ; preds = %thread-pre-split161, %.critedge158, %113
-  %128 = phi i64 [ %.pr162, %thread-pre-split161 ], [ %126, %.critedge158 ], [ %114, %113 ]
-  %.not151 = icmp eq i64 %128, 0
-  br i1 %.not151, label %.thread163, label %133
+124:                                              ; preds = %thread-pre-split161, %.critedge158, %110
+  %125 = phi i64 [ %.pr162, %thread-pre-split161 ], [ %123, %.critedge158 ], [ %111, %110 ]
+  %.not151 = icmp eq i64 %125, 0
+  br i1 %.not151, label %.thread163, label %130
 
-.thread163:                                       ; preds = %109, %127
+.thread163:                                       ; preds = %106, %124
   store i32 0, ptr %8, align 4
-  br label %133
+  br label %130
 
-129:                                              ; preds = %.critedge154, %switch.early.test, %26, %77, %93, %98, %.critedge, %68, %79, %84
-  %.3 = phi i32 [ %78, %77 ], [ %97, %93 ], [ %108, %98 ], [ %28, %26 ], [ 3, %.critedge ], [ 2, %switch.early.test ], [ 3, %68 ], [ 2, %79 ], [ 3, %84 ], [ %20, %.critedge154 ]
-  %130 = load ptr, ptr %5, align 8
-  %.not152 = icmp eq ptr %130, null
-  br i1 %.not152, label %132, label %131
+126:                                              ; preds = %.critedge154, %switch.early.test, %26, %74, %90, %95, %.critedge, %65, %76, %81
+  %.3 = phi i32 [ %75, %74 ], [ %94, %90 ], [ %105, %95 ], [ %28, %26 ], [ 3, %.critedge ], [ 2, %switch.early.test ], [ 3, %65 ], [ 2, %76 ], [ 3, %81 ], [ %20, %.critedge154 ]
+  %127 = load ptr, ptr %5, align 8
+  %.not152 = icmp eq ptr %127, null
+  br i1 %.not152, label %129, label %128
 
-131:                                              ; preds = %129
+128:                                              ; preds = %126
   call void @FT_Stream_ReleaseFrame(ptr noundef %1, ptr noundef nonnull %5) #27
-  br label %132
+  br label %129
 
-132:                                              ; preds = %131, %129
+129:                                              ; preds = %128, %126
   store i64 0, ptr %6, align 8
   store i32 0, ptr %7, align 8
-  br label %133
+  br label %130
 
-133:                                              ; preds = %127, %.thread163, %132
-  %.0108 = phi i32 [ %.3, %132 ], [ 0, %.thread163 ], [ 0, %127 ]
+130:                                              ; preds = %124, %.thread163, %129
+  %.0108 = phi i32 [ %.3, %129 ], [ 0, %.thread163 ], [ 0, %124 ]
   ret i32 %.0108
 }
 

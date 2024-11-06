@@ -680,8 +680,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %5 = and i64 %conv.i, 1073741824
-  %cmp.i.not.i = icmp eq i64 %5, 0
+  %5 = and i32 %3, 1073741824
+  %cmp.i.not.i = icmp eq i32 %5, 0
   br i1 %cmp.i.not.i, label %lor.lhs.false.i.i, label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i
@@ -739,8 +739,8 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end
-  %5 = and i64 %conv.i, 1073741824
-  %cmp.i.not.i = icmp eq i64 %5, 0
+  %5 = and i32 %3, 1073741824
+  %cmp.i.not.i = icmp eq i32 %5, 0
   br i1 %cmp.i.not.i, label %lor.lhs.false.i.i, label %if.then.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end.i

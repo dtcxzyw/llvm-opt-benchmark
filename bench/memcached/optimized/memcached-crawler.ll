@@ -1663,35 +1663,34 @@ if.then31:                                        ; preds = %land.lhs.true, %if.
 
 if.end33:                                         ; preds = %if.then14, %land.lhs.true, %if.end12
   %10 = load i16, ptr %revents, align 2
-  %conv3624 = zext i16 %10 to i32
-  %and37 = and i32 %conv3624, 24
-  %tobool38.not = icmp eq i32 %and37, 0
+  %11 = and i16 %10, 24
+  %tobool38.not = icmp eq i16 %11, 0
   br i1 %tobool38.not, label %if.else, label %if.then39
 
 if.then39:                                        ; preds = %if.end33
-  %11 = load ptr, ptr %c, align 8
-  call void @sidethread_conn_close(ptr noundef %11) #17
+  %12 = load ptr, ptr %c, align 8
+  call void @sidethread_conn_close(ptr noundef %12) #17
   store ptr null, ptr %c, align 8
-  %12 = load ptr, ptr %buf48, align 8
-  call void @free(ptr noundef %12) #17
+  %13 = load ptr, ptr %buf48, align 8
+  call void @free(ptr noundef %13) #17
   store ptr null, ptr %buf48, align 8
   br label %return
 
 if.else:                                          ; preds = %if.end33
-  %and43 = and i32 %conv3624, 4
-  %tobool44.not = icmp eq i32 %and43, 0
+  %14 = and i16 %10, 4
+  %tobool44.not = icmp eq i16 %14, 0
   br i1 %tobool44.not, label %if.end71, label %if.then45
 
 if.then45:                                        ; preds = %if.else
-  %13 = load ptr, ptr %c, align 8
-  %write = getelementptr inbounds i8, ptr %13, i64 488
-  %14 = load ptr, ptr %write, align 8
-  %15 = load ptr, ptr %buf48, align 8
+  %15 = load ptr, ptr %c, align 8
+  %write = getelementptr inbounds i8, ptr %15, i64 488
+  %16 = load ptr, ptr %write, align 8
+  %17 = load ptr, ptr %buf48, align 8
   %idx.ext = zext i32 %sent.023 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %15, i64 %idx.ext
+  %add.ptr = getelementptr inbounds i8, ptr %17, i64 %idx.ext
   %sub = sub i32 %0, %sent.023
   %conv49 = zext i32 %sub to i64
-  %call50 = call i64 %14(ptr noundef %13, ptr noundef %add.ptr, i64 noundef %conv49) #17
+  %call50 = call i64 %16(ptr noundef %15, ptr noundef %add.ptr, i64 noundef %conv49) #17
   %conv51 = trunc i64 %call50 to i32
   switch i32 %conv51, label %if.end69 [
     i32 -1, label %if.then54
@@ -1700,8 +1699,8 @@ if.then45:                                        ; preds = %if.else
 
 if.then54:                                        ; preds = %if.then45
   %call55 = tail call ptr @__errno_location() #22
-  %16 = load i32, ptr %call55, align 4
-  %cmp56.not = icmp eq i32 %16, 11
+  %18 = load i32, ptr %call55, align 4
+  %cmp56.not = icmp eq i32 %18, 11
   br i1 %cmp56.not, label %if.end69, label %if.then62
 
 if.then62:                                        ; preds = %if.then54

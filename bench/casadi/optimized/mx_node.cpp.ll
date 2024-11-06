@@ -11067,11 +11067,11 @@ define linkonce_odr noundef ptr @_ZN6casadi8BinaryMXILb0ELb0EE11deserializeERNS_
   %4 = alloca %"class.std::allocator.2", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #32
   %5 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-          to label %.noexc unwind label %16
+          to label %.noexc unwind label %15
 
 .noexc:                                           ; preds = %1
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %5, ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %.noexc17 unwind label %16
+          to label %.noexc17 unwind label %15
 
 .noexc17:                                         ; preds = %.noexc
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull @.str.111, ptr noundef nonnull getelementptr inbounds (i8, ptr @.str.111, i64 22))
@@ -11085,87 +11085,86 @@ define linkonce_odr noundef ptr @_ZN6casadi8BinaryMXILb0ELb0EE11deserializeERNS_
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; preds = %.noexc17
   invoke void @_ZN6casadi19DeserializingStream6unpackIcEEvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERT_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
-          to label %8 unwind label %18
+          to label %8 unwind label %17
 
 8:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #32
   %9 = load i8, ptr %2, align 1
-  %10 = zext i8 %9 to i32
-  %11 = and i32 %10, 1
-  %.not = icmp eq i32 %11, 0
-  %12 = and i32 %10, 2
-  %.not14 = icmp eq i32 %12, 0
-  %13 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #36
-  br i1 %.not, label %25, label %14
+  %10 = and i8 %9, 1
+  %.not = icmp eq i8 %10, 0
+  %11 = and i8 %9, 2
+  %.not14 = icmp eq i8 %11, 0
+  %12 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #36
+  br i1 %.not, label %24, label %13
 
-14:                                               ; preds = %8
-  br i1 %.not14, label %22, label %15
+13:                                               ; preds = %8
+  br i1 %.not14, label %21, label %14
 
-15:                                               ; preds = %14
-  invoke void @_ZN6casadi8BinaryMXILb1ELb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %13, ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %32 unwind label %20
+14:                                               ; preds = %13
+  invoke void @_ZN6casadi8BinaryMXILb1ELb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %12, ptr noundef nonnull align 8 dereferenceable(41) %0)
+          to label %31 unwind label %19
 
-16:                                               ; preds = %.noexc, %1
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %.noexc, %1
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
+  %18 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #32
   br label %.body
 
-.body:                                            ; preds = %16, %6, %18
-  %.pn = phi { ptr, i32 } [ %19, %18 ], [ %17, %16 ], [ %7, %6 ]
+.body:                                            ; preds = %15, %6, %17
+  %.pn = phi { ptr, i32 } [ %18, %17 ], [ %16, %15 ], [ %7, %6 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #32
-  br label %33
+  br label %32
 
-20:                                               ; preds = %15
-  %21 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %13) #33
-  br label %33
+  call void @_ZdlPv(ptr noundef nonnull %12) #33
+  br label %32
 
-22:                                               ; preds = %14
-  invoke void @_ZN6casadi8BinaryMXILb1ELb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %13, ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %32 unwind label %23
+21:                                               ; preds = %13
+  invoke void @_ZN6casadi8BinaryMXILb1ELb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %12, ptr noundef nonnull align 8 dereferenceable(41) %0)
+          to label %31 unwind label %22
 
-23:                                               ; preds = %22
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %13) #33
-  br label %33
+  call void @_ZdlPv(ptr noundef nonnull %12) #33
+  br label %32
 
-25:                                               ; preds = %8
-  br i1 %.not14, label %29, label %26
+24:                                               ; preds = %8
+  br i1 %.not14, label %28, label %25
+
+25:                                               ; preds = %24
+  invoke void @_ZN6casadi8BinaryMXILb0ELb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %12, ptr noundef nonnull align 8 dereferenceable(41) %0)
+          to label %31 unwind label %26
 
 26:                                               ; preds = %25
-  invoke void @_ZN6casadi8BinaryMXILb0ELb1EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %13, ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %32 unwind label %27
-
-27:                                               ; preds = %26
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %13) #33
-  br label %33
+  call void @_ZdlPv(ptr noundef nonnull %12) #33
+  br label %32
 
-29:                                               ; preds = %25
-  invoke void @_ZN6casadi8BinaryMXILb0ELb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %13, ptr noundef nonnull align 8 dereferenceable(41) %0)
-          to label %32 unwind label %30
+28:                                               ; preds = %24
+  invoke void @_ZN6casadi8BinaryMXILb0ELb0EEC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(68) %12, ptr noundef nonnull align 8 dereferenceable(41) %0)
+          to label %31 unwind label %29
 
-30:                                               ; preds = %29
-  %31 = landingpad { ptr, i32 }
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZdlPv(ptr noundef nonnull %13) #33
-  br label %33
+  call void @_ZdlPv(ptr noundef nonnull %12) #33
+  br label %32
 
-32:                                               ; preds = %29, %26, %22, %15
-  ret ptr %13
+31:                                               ; preds = %28, %25, %21, %14
+  ret ptr %12
 
-33:                                               ; preds = %30, %27, %23, %20, %.body
-  %.pn15 = phi { ptr, i32 } [ %21, %20 ], [ %24, %23 ], [ %28, %27 ], [ %31, %30 ], [ %.pn, %.body ]
+32:                                               ; preds = %29, %26, %22, %19, %.body
+  %.pn15 = phi { ptr, i32 } [ %20, %19 ], [ %23, %22 ], [ %27, %26 ], [ %30, %29 ], [ %.pn, %.body ]
   resume { ptr, i32 } %.pn15
 }
 

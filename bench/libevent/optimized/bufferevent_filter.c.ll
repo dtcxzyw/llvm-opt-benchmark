@@ -18,21 +18,20 @@ entry:
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp eq ptr %0, @bufferevent_ops_filter
   %bev..i = select i1 %cmp.i, ptr %bev, ptr null
-  %conv10 = zext i16 %event to i32
-  %and = and i32 %conv10, 4
-  %tobool.not = icmp eq i32 %and, 0
+  %1 = and i16 %event, 4
+  %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end7, label %do.body
 
 do.body:                                          ; preds = %entry
   %timeout_write = getelementptr inbounds i8, ptr %bev, i64 352
-  %1 = load i64, ptr %timeout_write, align 8
-  %tobool1.not = icmp eq i64 %1, 0
+  %2 = load i64, ptr %timeout_write, align 8
+  %tobool1.not = icmp eq i64 %2, 0
   br i1 %tobool1.not, label %lor.lhs.false, label %if.then4
 
 lor.lhs.false:                                    ; preds = %do.body
   %tv_usec = getelementptr inbounds i8, ptr %bev, i64 360
-  %2 = load i64, ptr %tv_usec, align 8
-  %tobool3.not = icmp eq i64 %2, 0
+  %3 = load i64, ptr %tv_usec, align 8
+  %tobool3.not = icmp eq i64 %3, 0
   br i1 %tobool3.not, label %if.end7, label %if.then4
 
 if.then4:                                         ; preds = %lor.lhs.false, %do.body
@@ -41,20 +40,20 @@ if.then4:                                         ; preds = %lor.lhs.false, %do.
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then4, %lor.lhs.false, %entry
-  %and9 = and i32 %conv10, 2
-  %tobool10.not = icmp eq i32 %and9, 0
+  %4 = and i16 %event, 2
+  %tobool10.not = icmp eq i16 %4, 0
   br i1 %tobool10.not, label %if.end24, label %do.body12
 
 do.body12:                                        ; preds = %if.end7
   %timeout_read = getelementptr inbounds i8, ptr %bev, i64 336
-  %3 = load i64, ptr %timeout_read, align 8
-  %tobool14.not = icmp eq i64 %3, 0
+  %5 = load i64, ptr %timeout_read, align 8
+  %tobool14.not = icmp eq i64 %5, 0
   br i1 %tobool14.not, label %lor.lhs.false15, label %if.then19
 
 lor.lhs.false15:                                  ; preds = %do.body12
   %tv_usec17 = getelementptr inbounds i8, ptr %bev, i64 344
-  %4 = load i64, ptr %tv_usec17, align 8
-  %tobool18.not = icmp eq i64 %4, 0
+  %6 = load i64, ptr %tv_usec17, align 8
+  %tobool18.not = icmp eq i64 %6, 0
   br i1 %tobool18.not, label %do.end23, label %if.then19
 
 if.then19:                                        ; preds = %lor.lhs.false15, %do.body12
@@ -64,8 +63,8 @@ if.then19:                                        ; preds = %lor.lhs.false15, %d
 
 do.end23:                                         ; preds = %lor.lhs.false15, %if.then19
   %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %5 = load ptr, ptr %underlying, align 8
-  tail call void @bufferevent_unsuspend_read_(ptr noundef %5, i16 noundef zeroext 16) #2
+  %7 = load ptr, ptr %underlying, align 8
+  tail call void @bufferevent_unsuspend_read_(ptr noundef %7, i16 noundef zeroext 16) #2
   br label %if.end24
 
 if.end24:                                         ; preds = %do.end23, %if.end7
@@ -79,9 +78,8 @@ entry:
   %0 = load ptr, ptr %be_ops.i, align 8
   %cmp.i = icmp eq ptr %0, @bufferevent_ops_filter
   %bev..i = select i1 %cmp.i, ptr %bev, ptr null
-  %conv4 = zext i16 %event to i32
-  %and = and i32 %conv4, 4
-  %tobool.not = icmp eq i32 %and, 0
+  %1 = and i16 %event, 4
+  %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -90,16 +88,16 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %and3 = and i32 %conv4, 2
-  %tobool4.not = icmp eq i32 %and3, 0
+  %2 = and i16 %event, 2
+  %tobool4.not = icmp eq i16 %2, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
   %ev_read = getelementptr inbounds i8, ptr %bev, i64 16
   %call6 = tail call i32 @event_del(ptr noundef nonnull %ev_read) #2
   %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %1 = load ptr, ptr %underlying, align 8
-  tail call void @bufferevent_suspend_read_(ptr noundef %1, i16 noundef zeroext 16) #2
+  %3 = load ptr, ptr %underlying, align 8
+  tail call void @bufferevent_suspend_read_(ptr noundef %3, i16 noundef zeroext 16) #2
   br label %if.end7
 
 if.end7:                                          ; preds = %if.then5, %if.end
@@ -217,9 +215,8 @@ entry:
   %bev..i = select i1 %cmp.i, ptr %bufev, ptr null
   store i32 0, ptr %processed_any, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %bufev) #2
-  %conv9 = zext i16 %iotype to i32
-  %and = and i32 %conv9, 2
-  %tobool.not = icmp eq i32 %and, 0
+  %1 = and i16 %iotype, 2
+  %tobool.not = icmp eq i16 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -227,8 +224,8 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  %and3 = and i32 %conv9, 4
-  %tobool4.not = icmp eq i32 %and3, 0
+  %2 = and i16 %iotype, 4
+  %tobool4.not = icmp eq i16 %2, 0
   br i1 %tobool4.not, label %if.end7, label %if.then5
 
 if.then5:                                         ; preds = %if.end
@@ -237,11 +234,11 @@ if.then5:                                         ; preds = %if.end
 
 if.end7:                                          ; preds = %if.then5, %if.end
   %underlying = getelementptr inbounds i8, ptr %bev..i, i64 520
-  %1 = load ptr, ptr %underlying, align 8
-  %call8 = tail call i32 @bufferevent_flush(ptr noundef %1, i16 noundef signext %iotype, i32 noundef %mode) #2
+  %3 = load ptr, ptr %underlying, align 8
+  %call8 = tail call i32 @bufferevent_flush(ptr noundef %3, i16 noundef signext %iotype, i32 noundef %mode) #2
   %call9 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef nonnull %bufev) #2
-  %2 = load i32, ptr %processed_any, align 4
-  ret i32 %2
+  %4 = load i32, ptr %processed_any, align 4
+  ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable

@@ -526,7 +526,6 @@ if.end14:                                         ; preds = %if.end11
   %4 = and i64 %ram_addr, 262143
   %cmp.i = icmp eq i64 %4, 0
   %5 = and i32 %call.i.i, -4096
-  %div145.mask.i = sext i32 %5 to i64
   %cmp3.i = icmp eq i32 %5, 4096
   %or.cond.i = select i1 %cmp.i, i1 %cmp3.i, i1 false
   br i1 %or.cond.i, label %if.then.i, label %if.else.i
@@ -711,11 +710,15 @@ if.else.i:                                        ; preds = %if.end14
   %33 = and i8 %conv67.i, 3
   %spec.select50.i = select i1 %tobool68.not.i, i8 %33, i8 %conv67.i
   %cmp7559.not.i = icmp ult i64 %sub.i, 64
-  br i1 %cmp7559.not.i, label %cpu_physical_memory_set_dirty_lebitmap.exit, label %for.body77.i
+  br i1 %cmp7559.not.i, label %cpu_physical_memory_set_dirty_lebitmap.exit, label %for.body77.lr.ph.i
 
-for.body77.i:                                     ; preds = %if.else.i, %for.inc114.i
-  %i.161.i = phi i64 [ %inc115.i, %for.inc114.i ], [ 0, %if.else.i ]
-  %num_dirty.460.i = phi i64 [ %num_dirty.5.i, %for.inc114.i ], [ 0, %if.else.i ]
+for.body77.lr.ph.i:                               ; preds = %if.else.i
+  %mul105.i = sext i32 %5 to i64
+  br label %for.body77.i
+
+for.body77.i:                                     ; preds = %for.inc114.i, %for.body77.lr.ph.i
+  %i.161.i = phi i64 [ 0, %for.body77.lr.ph.i ], [ %inc115.i, %for.inc114.i ]
+  %num_dirty.460.i = phi i64 [ 0, %for.body77.lr.ph.i ], [ %num_dirty.5.i, %for.inc114.i ]
   %arrayidx78.i = getelementptr i64, ptr %.pre27, i64 %i.161.i
   %34 = load i64, ptr %arrayidx78.i, align 8
   %cmp79.not.i = icmp eq i64 %34, 0
@@ -745,9 +748,9 @@ do.body98.i:                                      ; preds = %do.body98.i, %if.en
   %not.i = xor i64 %shl101.i, -1
   %and102.i = and i64 %c.0.i, %not.i
   %add104.i = or disjoint i64 %38, %mul103.i
-  %mul106.i = mul i64 %add104.i, %div145.mask.i
+  %mul106.i = mul i64 %add104.i, %mul105.i
   %add107.i = add i64 %mul106.i, %ram_addr
-  call fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %add107.i, i64 noundef %div145.mask.i, i8 noundef zeroext %spec.select50.i)
+  call fastcc void @cpu_physical_memory_set_dirty_range(i64 noundef %add107.i, i64 noundef %mul105.i, i8 noundef zeroext %spec.select50.i)
   %cmp110.not.i = icmp eq i64 %and102.i, 0
   br i1 %cmp110.not.i, label %for.inc114.loopexit.i, label %do.body98.i, !llvm.loop !16
 

@@ -4882,26 +4882,24 @@ if.else:                                          ; preds = %entry
 if.then19:                                        ; preds = %if.else
   %arrayidx21 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %arrayidx21, align 1
-  %conv22 = sext i8 %3 to i32
-  %4 = and i32 %conv22, 192
-  %.not43 = icmp eq i32 %4, 128
+  %.not43 = icmp slt i8 %3, -64
   tail call void @llvm.assume(i1 %.not43)
   %arrayidx32 = getelementptr inbounds i8, ptr %0, i64 2
-  %5 = load i8, ptr %arrayidx32, align 1
-  %conv3383 = zext i8 %5 to i32
-  %6 = and i32 %conv3383, 192
-  %.not44 = icmp eq i32 %6, 128
+  %4 = load i8, ptr %arrayidx32, align 1
+  %.not44 = icmp slt i8 %4, -64
   tail call void @llvm.assume(i1 %.not44)
   %add.ptr45 = getelementptr inbounds i8, ptr %0, i64 3
   store ptr %add.ptr45, ptr %from, align 8
   %and46 = shl nsw i32 %conv, 12
   %shl47 = and i32 %and46, 61440
-  %and48 = shl nsw i32 %conv22, 6
-  %shl49 = and i32 %and48, 4032
+  %5 = and i8 %3, 63
+  %and48 = zext nneg i8 %5 to i32
+  %shl49 = shl nuw nsw i32 %and48, 6
   %or50 = or disjoint i32 %shl49, %shl47
   %cmp53 = icmp samesign ugt i32 %or50, 2047
   tail call void @llvm.assume(i1 %cmp53)
-  %and51 = and i32 %conv3383, 63
+  %6 = and i8 %4, 63
+  %and51 = zext nneg i8 %6 to i32
   %or52 = or disjoint i32 %or50, %and51
   br label %return
 
@@ -4911,32 +4909,29 @@ if.else68:                                        ; preds = %if.else
   tail call void @llvm.assume(i1 %cmp70)
   %arrayidx73 = getelementptr inbounds i8, ptr %0, i64 1
   %7 = load i8, ptr %arrayidx73, align 1
-  %conv74 = sext i8 %7 to i32
-  %8 = and i32 %conv74, 192
-  %.not = icmp eq i32 %8, 128
+  %.not = icmp slt i8 %7, -64
   tail call void @llvm.assume(i1 %.not)
   %arrayidx87 = getelementptr inbounds i8, ptr %0, i64 2
-  %9 = load i8, ptr %arrayidx87, align 1
-  %conv88 = sext i8 %9 to i32
-  %10 = and i32 %conv88, 192
-  %.not41 = icmp eq i32 %10, 128
+  %8 = load i8, ptr %arrayidx87, align 1
+  %.not41 = icmp slt i8 %8, -64
   tail call void @llvm.assume(i1 %.not41)
   %arrayidx100 = getelementptr inbounds i8, ptr %0, i64 3
-  %11 = load i8, ptr %arrayidx100, align 1
-  %conv10184 = zext i8 %11 to i32
-  %12 = and i32 %conv10184, 192
-  %.not42 = icmp eq i32 %12, 128
+  %9 = load i8, ptr %arrayidx100, align 1
+  %.not42 = icmp slt i8 %9, -64
   tail call void @llvm.assume(i1 %.not42)
   %add.ptr113 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %add.ptr113, ptr %from, align 8
   %and114 = shl nsw i32 %conv, 18
   %shl115 = and i32 %and114, 1835008
-  %and116 = shl nsw i32 %conv74, 12
-  %shl117 = and i32 %and116, 258048
+  %10 = and i8 %7, 63
+  %and116 = zext nneg i8 %10 to i32
+  %shl117 = shl nuw nsw i32 %and116, 12
   %or118 = or disjoint i32 %shl117, %shl115
-  %and119 = shl nsw i32 %conv88, 6
-  %shl120 = and i32 %and119, 4032
-  %and122 = and i32 %conv10184, 63
+  %11 = and i8 %8, 63
+  %and119 = zext nneg i8 %11 to i32
+  %shl120 = shl nuw nsw i32 %and119, 6
+  %12 = and i8 %9, 63
+  %and122 = zext nneg i8 %12 to i32
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
   %cmp124 = icmp samesign ugt i32 %or118, 65535
@@ -5164,26 +5159,24 @@ if.else:                                          ; preds = %entry
 if.then19:                                        ; preds = %if.else
   %arrayidx21 = getelementptr inbounds i8, ptr %0, i64 1
   %3 = load i8, ptr %arrayidx21, align 1
-  %conv22 = sext i8 %3 to i32
-  %4 = and i32 %conv22, 192
-  %.not43 = icmp eq i32 %4, 128
+  %.not43 = icmp slt i8 %3, -64
   tail call void @llvm.assume(i1 %.not43)
   %arrayidx32 = getelementptr inbounds i8, ptr %0, i64 2
-  %5 = load i8, ptr %arrayidx32, align 1
-  %conv3383 = zext i8 %5 to i32
-  %6 = and i32 %conv3383, 192
-  %.not44 = icmp eq i32 %6, 128
+  %4 = load i8, ptr %arrayidx32, align 1
+  %.not44 = icmp slt i8 %4, -64
   tail call void @llvm.assume(i1 %.not44)
   %add.ptr45 = getelementptr inbounds i8, ptr %0, i64 3
   store ptr %add.ptr45, ptr %from, align 8
   %and46 = shl nsw i32 %conv, 12
   %shl47 = and i32 %and46, 61440
-  %and48 = shl nsw i32 %conv22, 6
-  %shl49 = and i32 %and48, 4032
+  %5 = and i8 %3, 63
+  %and48 = zext nneg i8 %5 to i32
+  %shl49 = shl nuw nsw i32 %and48, 6
   %or50 = or disjoint i32 %shl49, %shl47
   %cmp53 = icmp samesign ugt i32 %or50, 2047
   tail call void @llvm.assume(i1 %cmp53)
-  %and51 = and i32 %conv3383, 63
+  %6 = and i8 %4, 63
+  %and51 = zext nneg i8 %6 to i32
   %or52 = or disjoint i32 %or50, %and51
   br label %return
 
@@ -5193,32 +5186,29 @@ if.else68:                                        ; preds = %if.else
   tail call void @llvm.assume(i1 %cmp70)
   %arrayidx73 = getelementptr inbounds i8, ptr %0, i64 1
   %7 = load i8, ptr %arrayidx73, align 1
-  %conv74 = sext i8 %7 to i32
-  %8 = and i32 %conv74, 192
-  %.not = icmp eq i32 %8, 128
+  %.not = icmp slt i8 %7, -64
   tail call void @llvm.assume(i1 %.not)
   %arrayidx87 = getelementptr inbounds i8, ptr %0, i64 2
-  %9 = load i8, ptr %arrayidx87, align 1
-  %conv88 = sext i8 %9 to i32
-  %10 = and i32 %conv88, 192
-  %.not41 = icmp eq i32 %10, 128
+  %8 = load i8, ptr %arrayidx87, align 1
+  %.not41 = icmp slt i8 %8, -64
   tail call void @llvm.assume(i1 %.not41)
   %arrayidx100 = getelementptr inbounds i8, ptr %0, i64 3
-  %11 = load i8, ptr %arrayidx100, align 1
-  %conv10184 = zext i8 %11 to i32
-  %12 = and i32 %conv10184, 192
-  %.not42 = icmp eq i32 %12, 128
+  %9 = load i8, ptr %arrayidx100, align 1
+  %.not42 = icmp slt i8 %9, -64
   tail call void @llvm.assume(i1 %.not42)
   %add.ptr113 = getelementptr inbounds i8, ptr %0, i64 4
   store ptr %add.ptr113, ptr %from, align 8
   %and114 = shl nsw i32 %conv, 18
   %shl115 = and i32 %and114, 1835008
-  %and116 = shl nsw i32 %conv74, 12
-  %shl117 = and i32 %and116, 258048
+  %10 = and i8 %7, 63
+  %and116 = zext nneg i8 %10 to i32
+  %shl117 = shl nuw nsw i32 %and116, 12
   %or118 = or disjoint i32 %shl117, %shl115
-  %and119 = shl nsw i32 %conv88, 6
-  %shl120 = and i32 %and119, 4032
-  %and122 = and i32 %conv10184, 63
+  %11 = and i8 %8, 63
+  %and119 = zext nneg i8 %11 to i32
+  %shl120 = shl nuw nsw i32 %and119, 6
+  %12 = and i8 %9, 63
+  %and122 = zext nneg i8 %12 to i32
   %13 = or disjoint i32 %shl120, %and122
   %or123 = or disjoint i32 %13, %or118
   %cmp124 = icmp samesign ugt i32 %or118, 65535

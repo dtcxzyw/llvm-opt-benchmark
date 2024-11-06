@@ -1040,9 +1040,8 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   br label %48
 
 48:                                               ; preds = %46, %34
-  %49 = and i64 %35, 4611686018427387902
-  %.not81 = icmp eq i64 %49, 0
-  br i1 %.not81, label %.thread87, label %50
+  %49 = icmp ugt i32 %.074, 1
+  br i1 %49, label %50, label %.thread86
 
 50:                                               ; preds = %48
   %51 = load i32, ptr @ett_dvb_s2_modeadapt, align 4
@@ -1059,13 +1058,13 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
 56:                                               ; preds = %50
   %.074.off = add i32 %.074, -2
   %switch = icmp ult i32 %.074.off, 3
-  br i1 %switch, label %57, label %.thread87
+  br i1 %switch, label %57, label %.thread86
 
 57:                                               ; preds = %.thread, %56
-  %.186 = phi i32 [ 1, %.thread ], [ 0, %56 ]
-  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.186) #9
-  %.not82 = icmp sgt i8 %58, -1
-  br i1 %.not82, label %78, label %59
+  %.185 = phi i32 [ 1, %.thread ], [ 0, %56 ]
+  %58 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.185) #9
+  %.not81 = icmp sgt i8 %58, -1
+  br i1 %.not81, label %78, label %59
 
 59:                                               ; preds = %57
   %60 = zext i8 %58 to i32
@@ -1076,40 +1075,40 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %65 = or disjoint i32 %64, %62
   %66 = or disjoint i32 %65, 128
   %67 = load i32, ptr @hf_dvb_s2_modeadapt_acm, align 4
-  %68 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %67, ptr noundef %0, i32 noundef %.186, i32 noundef 1, i32 noundef 0) #9
+  %68 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %67, ptr noundef %0, i32 noundef %.185, i32 noundef 1, i32 noundef 0) #9
   %69 = load i32, ptr @ett_dvb_s2_modeadapt_acm, align 4
   %70 = tail call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69) #9
   %71 = load i32, ptr @hf_dvb_s2_modeadapt_acm_pilot, align 4
-  %72 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %0, i32 noundef %.186, i32 noundef 1, i32 noundef 0) #9
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %0, i32 noundef %.185, i32 noundef 1, i32 noundef 0) #9
   %73 = load i32, ptr @hf_dvb_s2_modeadapt_acm_modcod_s2x, align 4
   %74 = zext nneg i32 %66 to i64
   %75 = getelementptr [257 x %struct._value_string], ptr @modeadapt_modcods, i64 0, i64 %74, i32 1
   %76 = load ptr, ptr %75, align 8
-  %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %70, i32 noundef %73, ptr noundef %0, i32 noundef %.186, i32 noundef 1, i32 noundef %60, ptr noundef nonnull @.str.649, ptr noundef %76, i32 noundef %66) #9
+  %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %70, i32 noundef %73, ptr noundef %0, i32 noundef %.185, i32 noundef 1, i32 noundef %60, ptr noundef nonnull @.str.649, ptr noundef %76, i32 noundef %66) #9
   br label %82
 
 78:                                               ; preds = %57
   %79 = load i32, ptr @hf_dvb_s2_modeadapt_acm, align 4
   %80 = load i32, ptr @ett_dvb_s2_modeadapt_acm, align 4
-  %81 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %52, ptr noundef %0, i32 noundef %.186, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @dissect_dvb_s2_modeadapt.modeadapt_acm_bitfields, i32 noundef 0, i32 noundef 0) #9
+  %81 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %52, ptr noundef %0, i32 noundef %.185, i32 noundef %79, i32 noundef %80, ptr noundef nonnull @dissect_dvb_s2_modeadapt.modeadapt_acm_bitfields, i32 noundef 0, i32 noundef 0) #9
   br label %82
 
 82:                                               ; preds = %59, %78
-  %83 = add nuw nsw i32 %.186, 1
+  %83 = add nuw nsw i32 %.185, 1
   %84 = add nsw i32 %.074, -3
   %or.cond7 = icmp ult i32 %84, 2
-  br i1 %or.cond7, label %85, label %.thread87
+  br i1 %or.cond7, label %85, label %.thread86
 
 85:                                               ; preds = %82
   %86 = load i32, ptr @hf_dvb_s2_modeadapt_cni, align 4
   %87 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %86, ptr noundef %0, i32 noundef %83, i32 noundef 1, i32 noundef 0) #9
-  %88 = or disjoint i32 %.186, 2
+  %88 = or disjoint i32 %.185, 2
   %89 = load i32, ptr @hf_dvb_s2_modeadapt_frameno, align 4
   %90 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 1, i32 noundef 0) #9
-  %91 = add nuw nsw i32 %.186, 3
-  br label %.thread87
+  %91 = add nuw nsw i32 %.185, 3
+  br label %.thread86
 
-.thread87:                                        ; preds = %56, %85, %82, %48
+.thread86:                                        ; preds = %56, %85, %82, %48
   %.0 = phi i32 [ %91, %85 ], [ %83, %82 ], [ 0, %48 ], [ 0, %56 ]
   %92 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0) #9
   %93 = tail call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #9
@@ -1134,15 +1133,15 @@ define internal i32 @dissect_dvb_s2_modeadapt(ptr noundef %0, ptr noundef %1, pt
   %.not.i.i = icmp eq ptr %108, null
   br i1 %.not.i.i, label %109, label %get_dvbs2_bb_conv_data.exit.i
 
-109:                                              ; preds = %.thread87
+109:                                              ; preds = %.thread86
   %110 = tail call ptr @wmem_file_scope() #9
   %111 = tail call noalias ptr @wmem_alloc0(ptr noundef %110, i64 noundef 4) #9
   %112 = load i32, ptr @proto_dvb_s2_bb, align 4
   tail call void @conversation_add_proto_data(ptr noundef nonnull %93, i32 noundef %112, ptr noundef %111) #9
   br label %get_dvbs2_bb_conv_data.exit.i
 
-get_dvbs2_bb_conv_data.exit.i:                    ; preds = %109, %.thread87
-  %.0.i.i = phi ptr [ %108, %.thread87 ], [ %111, %109 ]
+get_dvbs2_bb_conv_data.exit.i:                    ; preds = %109, %.thread86
+  %.0.i.i = phi ptr [ %108, %.thread86 ], [ %111, %109 ]
   %113 = and i32 %101, 3
   %114 = icmp eq i32 %113, 3
   %115 = load i32, ptr %.0.i.i, align 4

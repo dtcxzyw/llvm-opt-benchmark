@@ -353,41 +353,40 @@ define internal fastcc i32 @dissect_wmio_objectblock(ptr noundef %0, i32 noundef
   %7 = load i32, ptr @ett_wmio_object_flags, align 4
   %8 = tail call ptr @proto_tree_add_bitmask(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef %6, i32 noundef %7, ptr noundef nonnull @wmio_object_flags, i32 noundef 0) #4
   %9 = add i32 %1, 1
-  %10 = zext i8 %5 to i32
-  %11 = and i32 %10, 4
-  %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %22, label %12
+  %10 = and i8 %5, 4
+  %.not = icmp eq i8 %10, 0
+  br i1 %.not, label %21, label %11
 
-12:                                               ; preds = %4
-  %13 = load i32, ptr @hf_wmio_decoration, align 4
-  %14 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %13, ptr noundef %0, i32 noundef %9, i32 noundef -1, i32 noundef 0) #4
-  %15 = load i32, ptr @ett_wmio_decoration, align 4
-  %16 = tail call ptr @proto_item_add_subtree(ptr noundef %14, i32 noundef %15) #4
-  %17 = load i32, ptr @hf_wmio_decoration_server_name, align 4
-  %18 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %9, i32 noundef %17, ptr noundef readonly %2, ptr noundef %16, i32 noundef 0, i32 noundef 0)
-  %19 = load i32, ptr @hf_wmio_decoration_namespace, align 4
-  %20 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %18, i32 noundef %19, ptr noundef readonly %2, ptr noundef %16, i32 noundef 0, i32 noundef 0)
-  %21 = sub i32 %20, %9
-  tail call void @proto_item_set_len(ptr noundef %14, i32 noundef %21) #4
-  br label %22
+11:                                               ; preds = %4
+  %12 = load i32, ptr @hf_wmio_decoration, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %12, ptr noundef %0, i32 noundef %9, i32 noundef -1, i32 noundef 0) #4
+  %14 = load i32, ptr @ett_wmio_decoration, align 4
+  %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #4
+  %16 = load i32, ptr @hf_wmio_decoration_server_name, align 4
+  %17 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %9, i32 noundef %16, ptr noundef readonly %2, ptr noundef %15, i32 noundef 0, i32 noundef 0)
+  %18 = load i32, ptr @hf_wmio_decoration_namespace, align 4
+  %19 = tail call fastcc i32 @dissect_wmio_encoded_string(ptr noundef %0, i32 noundef %17, i32 noundef %18, ptr noundef readonly %2, ptr noundef %15, i32 noundef 0, i32 noundef 0)
+  %20 = sub i32 %19, %9
+  tail call void @proto_item_set_len(ptr noundef %13, i32 noundef %20) #4
+  br label %21
 
-22:                                               ; preds = %12, %4
-  %.0 = phi i32 [ %20, %12 ], [ %9, %4 ]
-  %23 = and i32 %10, 1
-  %.not16 = icmp eq i32 %23, 0
-  br i1 %.not16, label %31, label %24
+21:                                               ; preds = %11, %4
+  %.0 = phi i32 [ %19, %11 ], [ %9, %4 ]
+  %22 = and i8 %5, 1
+  %.not16 = icmp eq i8 %22, 0
+  br i1 %.not16, label %30, label %23
 
-24:                                               ; preds = %22
-  %25 = load i32, ptr @hf_parentclass, align 4
-  %26 = load i32, ptr @ett_parentclass, align 4
-  %27 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, i32 noundef %25, i32 noundef %26)
-  %28 = load i32, ptr @hf_currentclass, align 4
-  %29 = load i32, ptr @ett_currentclass, align 4
-  %30 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %27, ptr noundef %2, ptr noundef %3, i32 noundef %28, i32 noundef %29)
-  br label %31
+23:                                               ; preds = %21
+  %24 = load i32, ptr @hf_parentclass, align 4
+  %25 = load i32, ptr @ett_parentclass, align 4
+  %26 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %.0, ptr noundef %2, ptr noundef %3, i32 noundef %24, i32 noundef %25)
+  %27 = load i32, ptr @hf_currentclass, align 4
+  %28 = load i32, ptr @ett_currentclass, align 4
+  %29 = tail call fastcc i32 @dissect_wmio_encoding_classandmethodspart(ptr noundef %0, i32 noundef %26, ptr noundef %2, ptr noundef %3, i32 noundef %27, i32 noundef %28)
+  br label %30
 
-31:                                               ; preds = %24, %22
-  %.1 = phi i32 [ %30, %24 ], [ %.0, %22 ]
+30:                                               ; preds = %23, %21
+  %.1 = phi i32 [ %29, %23 ], [ %.0, %21 ]
   ret i32 %.1
 }
 

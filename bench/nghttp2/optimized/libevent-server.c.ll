@@ -371,59 +371,58 @@ entry:
   %callbacks.i = alloca ptr, align 8
   %alpn = alloca ptr, align 8
   %alpnlen = alloca i32, align 4
-  %conv27 = zext i16 %events to i32
-  %and = and i32 %conv27, 128
-  %tobool.not = icmp eq i32 %and, 0
+  %0 = and i16 %events, 128
+  %tobool.not = icmp eq i16 %0, 0
   br i1 %tobool.not, label %if.end22, label %if.then
 
 if.then:                                          ; preds = %entry
   store ptr null, ptr %alpn, align 8
   store i32 0, ptr %alpnlen, align 4
-  %0 = load ptr, ptr @stderr, align 8
+  %1 = load ptr, ptr @stderr, align 8
   %client_addr = getelementptr inbounds i8, ptr %ptr, i64 56
-  %1 = load ptr, ptr %client_addr, align 8
-  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef %1) #21
+  %2 = load ptr, ptr %client_addr, align 8
+  %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.13, ptr noundef %2) #21
   %bev1 = getelementptr inbounds i8, ptr %ptr, i64 32
-  %2 = load ptr, ptr %bev1, align 8
-  %call2 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %2) #23
+  %3 = load ptr, ptr %bev1, align 8
+  %call2 = tail call ptr @bufferevent_openssl_get_ssl(ptr noundef %3) #23
   call void @SSL_get0_alpn_selected(ptr noundef %call2, ptr noundef nonnull %alpn, ptr noundef nonnull %alpnlen) #23
-  %3 = load ptr, ptr %alpn, align 8
-  %cmp = icmp eq ptr %3, null
-  %4 = load i32, ptr %alpnlen, align 4
-  %cmp4 = icmp ne i32 %4, 2
+  %4 = load ptr, ptr %alpn, align 8
+  %cmp = icmp eq ptr %4, null
+  %5 = load i32, ptr %alpnlen, align 4
+  %cmp4 = icmp ne i32 %5, 2
   %or.cond = select i1 %cmp, i1 true, i1 %cmp4
   br i1 %or.cond, label %if.then10, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %if.then
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.14, ptr noundef nonnull dereferenceable(2) %3, i64 2)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) @.str.14, ptr noundef nonnull dereferenceable(2) %4, i64 2)
   %cmp8.not = icmp eq i32 %bcmp, 0
   br i1 %cmp8.not, label %if.end, label %if.then10
 
 if.then10:                                        ; preds = %lor.lhs.false6, %if.then
-  %5 = load ptr, ptr @stderr, align 8
-  %6 = load ptr, ptr %client_addr, align 8
-  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.15, ptr noundef %6) #21
+  %6 = load ptr, ptr @stderr, align 8
+  %7 = load ptr, ptr %client_addr, align 8
+  %call12 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.15, ptr noundef %7) #21
   call fastcc void @delete_http2_session_data(ptr noundef nonnull %ptr)
   br label %return
 
 if.end:                                           ; preds = %lor.lhs.false6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %callbacks.i)
   %call.i = call i32 @nghttp2_session_callbacks_new(ptr noundef nonnull %callbacks.i) #23
-  %7 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_set_send_callback(ptr noundef %7, ptr noundef nonnull @send_callback) #23
   %8 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %8, ptr noundef nonnull @on_frame_recv_callback) #23
+  call void @nghttp2_session_callbacks_set_send_callback(ptr noundef %8, ptr noundef nonnull @send_callback) #23
   %9 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %9, ptr noundef nonnull @on_stream_close_callback) #23
+  call void @nghttp2_session_callbacks_set_on_frame_recv_callback(ptr noundef %9, ptr noundef nonnull @on_frame_recv_callback) #23
   %10 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %10, ptr noundef nonnull @on_header_callback) #23
+  call void @nghttp2_session_callbacks_set_on_stream_close_callback(ptr noundef %10, ptr noundef nonnull @on_stream_close_callback) #23
   %11 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef %11, ptr noundef nonnull @on_begin_headers_callback) #23
-  %session.i = getelementptr inbounds i8, ptr %ptr, i64 48
+  call void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef %11, ptr noundef nonnull @on_header_callback) #23
   %12 = load ptr, ptr %callbacks.i, align 8
-  %call1.i = call i32 @nghttp2_session_server_new(ptr noundef nonnull %session.i, ptr noundef %12, ptr noundef nonnull %ptr) #23
+  call void @nghttp2_session_callbacks_set_on_begin_headers_callback(ptr noundef %12, ptr noundef nonnull @on_begin_headers_callback) #23
+  %session.i = getelementptr inbounds i8, ptr %ptr, i64 48
   %13 = load ptr, ptr %callbacks.i, align 8
-  call void @nghttp2_session_callbacks_del(ptr noundef %13) #23
+  %call1.i = call i32 @nghttp2_session_server_new(ptr noundef nonnull %session.i, ptr noundef %13, ptr noundef nonnull %ptr) #23
+  %14 = load ptr, ptr %callbacks.i, align 8
+  call void @nghttp2_session_callbacks_del(ptr noundef %14) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %callbacks.i)
   %ptr.val = load ptr, ptr %session.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %iv.i)
@@ -455,26 +454,26 @@ if.then20:                                        ; preds = %session_send.exit, 
   br label %return
 
 if.end22:                                         ; preds = %entry
-  %and24 = and i32 %conv27, 16
-  %tobool25.not = icmp eq i32 %and24, 0
+  %15 = and i16 %events, 16
+  %tobool25.not = icmp eq i16 %15, 0
   br i1 %tobool25.not, label %if.else, label %if.end44.sink.split
 
 if.else:                                          ; preds = %if.end22
-  %and30 = and i32 %conv27, 32
-  %tobool31.not = icmp eq i32 %and30, 0
+  %16 = and i16 %events, 32
+  %tobool31.not = icmp eq i16 %16, 0
   br i1 %tobool31.not, label %if.else35, label %if.end44.sink.split
 
 if.else35:                                        ; preds = %if.else
-  %and37 = and i32 %conv27, 64
-  %tobool38.not = icmp eq i32 %and37, 0
+  %17 = and i16 %events, 64
+  %tobool38.not = icmp eq i16 %17, 0
   br i1 %tobool38.not, label %if.end44, label %if.end44.sink.split
 
 if.end44.sink.split:                              ; preds = %if.else35, %if.else, %if.end22
   %.str.17.sink = phi ptr [ @.str.16, %if.end22 ], [ @.str.17, %if.else ], [ @.str.18, %if.else35 ]
-  %14 = load ptr, ptr @stderr, align 8
+  %18 = load ptr, ptr @stderr, align 8
   %client_addr33 = getelementptr inbounds i8, ptr %ptr, i64 56
-  %15 = load ptr, ptr %client_addr33, align 8
-  %call34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull %.str.17.sink, ptr noundef %15) #21
+  %19 = load ptr, ptr %client_addr33, align 8
+  %call34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull %.str.17.sink, ptr noundef %19) #21
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.sink.split, %if.else35

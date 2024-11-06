@@ -129150,103 +129150,103 @@ define internal fastcc double @set_date_fields(ptr nocapture noundef nonnull rea
   br i1 %37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %38 = and i64 %22, 3
-  %.not.i = icmp eq i64 %38, 0
-  %39 = select i1 %.not.i, i64 366, i64 365
-  %40 = srem i32 %20, 100
-  %.not3.i = icmp eq i32 %40, 0
-  %41 = srem i32 %20, 400
-  %.not4.i = icmp eq i32 %41, 0
-  %42 = zext i1 %.not4.i to i64
-  %43 = select i1 %.not3.i, i64 -366, i64 -365
-  %44 = add nsw i64 %43, %39
-  %45 = add nsw i64 %44, %42
+  %38 = and i32 %20, 3
+  %.not.i = icmp eq i32 %38, 0
+  %39 = srem i32 %20, 100
+  %.not3.i = icmp eq i32 %39, 0
+  %.neg.i53 = sext i1 %.not3.i to i64
+  %40 = srem i32 %20, 400
+  %.not4.i = icmp eq i32 %40, 0
+  %41 = zext i1 %.not4.i to i64
+  %42 = zext i1 %.not.i to i64
+  %43 = add nsw i64 %42, %.neg.i53
+  %44 = add nsw i64 %43, %41
   %wide.trip.count = zext nneg i32 %21 to i64
-  br label %46
+  br label %45
 
-46:                                               ; preds = %.lr.ph, %46
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %.04556 = phi i64 [ %36, %.lr.ph ], [ %spec.select, %46 ]
-  %47 = getelementptr [12 x i32], ptr @month_days, i64 0, i64 %indvars.iv
-  %48 = load i32, ptr %47, align 4
-  %49 = sext i32 %48 to i64
-  %50 = add i64 %.04556, %49
-  %51 = icmp eq i64 %indvars.iv, 1
-  %52 = select i1 %51, i64 %45, i64 0
-  %spec.select = add i64 %50, %52
+45:                                               ; preds = %.lr.ph, %45
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
+  %.04556 = phi i64 [ %36, %.lr.ph ], [ %spec.select, %45 ]
+  %46 = getelementptr [12 x i32], ptr @month_days, i64 0, i64 %indvars.iv
+  %47 = load i32, ptr %46, align 4
+  %48 = sext i32 %47 to i64
+  %49 = add i64 %.04556, %48
+  %50 = icmp eq i64 %indvars.iv, 1
+  %51 = select i1 %50, i64 %44, i64 0
+  %spec.select = add i64 %49, %51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %46, !llvm.loop !365
+  br i1 %exitcond.not, label %._crit_edge, label %45, !llvm.loop !365
 
-._crit_edge:                                      ; preds = %46, %17
-  %.045.lcssa = phi i64 [ %36, %17 ], [ %spec.select, %46 ]
-  %53 = sitofp i64 %.045.lcssa to double
-  %54 = fadd double %10, %53
-  %55 = fadd double %54, -1.000000e+00
-  %56 = getelementptr i8, ptr %0, i64 24
-  %57 = load double, ptr %56, align 8
-  %58 = getelementptr i8, ptr %0, i64 32
-  %59 = load double, ptr %58, align 8
-  %60 = getelementptr i8, ptr %0, i64 40
-  %61 = load double, ptr %60, align 8
-  %62 = getelementptr i8, ptr %0, i64 48
-  %63 = load double, ptr %62, align 8
-  %64 = fmul double %57, 3.600000e+06
-  %65 = fmul double %59, 6.000000e+04
-  store volatile double %65, ptr %5, align 8
-  %66 = fadd double %64, %65
-  %67 = fmul double %61, 1.000000e+03
-  store volatile double %67, ptr %5, align 8
-  %68 = fadd double %66, %67
-  %69 = fadd double %63, %68
-  %70 = fmul double %55, 8.640000e+07
-  store volatile double %70, ptr %5, align 8
-  %71 = fadd double %70, %69
-  %72 = tail call double @llvm.fabs.f64(double %71)
-  %73 = fcmp ueq double %72, 0x7FF0000000000000
-  br i1 %73, label %time_clip.exit, label %74
+._crit_edge:                                      ; preds = %45, %17
+  %.045.lcssa = phi i64 [ %36, %17 ], [ %spec.select, %45 ]
+  %52 = sitofp i64 %.045.lcssa to double
+  %53 = fadd double %10, %52
+  %54 = fadd double %53, -1.000000e+00
+  %55 = getelementptr i8, ptr %0, i64 24
+  %56 = load double, ptr %55, align 8
+  %57 = getelementptr i8, ptr %0, i64 32
+  %58 = load double, ptr %57, align 8
+  %59 = getelementptr i8, ptr %0, i64 40
+  %60 = load double, ptr %59, align 8
+  %61 = getelementptr i8, ptr %0, i64 48
+  %62 = load double, ptr %61, align 8
+  %63 = fmul double %56, 3.600000e+06
+  %64 = fmul double %58, 6.000000e+04
+  store volatile double %64, ptr %5, align 8
+  %65 = fadd double %63, %64
+  %66 = fmul double %60, 1.000000e+03
+  store volatile double %66, ptr %5, align 8
+  %67 = fadd double %65, %66
+  %68 = fadd double %62, %67
+  %69 = fmul double %54, 8.640000e+07
+  store volatile double %69, ptr %5, align 8
+  %70 = fadd double %69, %68
+  %71 = tail call double @llvm.fabs.f64(double %70)
+  %72 = fcmp ueq double %71, 0x7FF0000000000000
+  br i1 %72, label %time_clip.exit, label %73
 
-74:                                               ; preds = %._crit_edge
+73:                                               ; preds = %._crit_edge
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %91, label %75
+  br i1 %.not, label %90, label %74
 
-75:                                               ; preds = %74
-  %76 = fcmp olt double %71, 0xC3E0000000000000
-  %77 = fcmp oge double %71, 0x43E0000000000000
-  %78 = fptosi double %71 to i64
-  %79 = sdiv i64 %78, 1000
-  %80 = select i1 %77, i64 9223372036854775, i64 %79
+74:                                               ; preds = %73
+  %75 = fcmp olt double %70, 0xC3E0000000000000
+  %76 = fcmp oge double %70, 0x43E0000000000000
+  %77 = fptosi double %70 to i64
+  %78 = sdiv i64 %77, 1000
+  %79 = select i1 %76, i64 9223372036854775, i64 %78
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
-  %81 = select i1 %76, i64 -9223372036854775, i64 %80
-  store i64 %81, ptr %3, align 8
-  %82 = call ptr @localtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #42
-  %83 = getelementptr inbounds i8, ptr %4, i64 40
-  %84 = load i64, ptr %83, align 8
-  %85 = sub i64 0, %84
-  %86 = sdiv i64 %85, 60
-  %87 = trunc i64 %86 to i32
+  %80 = select i1 %75, i64 -9223372036854775, i64 %79
+  store i64 %80, ptr %3, align 8
+  %81 = call ptr @localtime_r(ptr noundef nonnull %3, ptr noundef nonnull %4) #42
+  %82 = getelementptr inbounds i8, ptr %4, i64 40
+  %83 = load i64, ptr %82, align 8
+  %84 = sub i64 0, %83
+  %85 = sdiv i64 %84, 60
+  %86 = trunc i64 %85 to i32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %88 = mul i32 %87, 60000
-  %89 = sitofp i32 %88 to double
-  %90 = fadd double %71, %89
-  %.pre = call double @llvm.fabs.f64(double %90)
-  br label %91
+  %87 = mul i32 %86, 60000
+  %88 = sitofp i32 %87 to double
+  %89 = fadd double %70, %88
+  %.pre = call double @llvm.fabs.f64(double %89)
+  br label %90
 
-91:                                               ; preds = %75, %74
-  %.pre-phi = phi double [ %.pre, %75 ], [ %72, %74 ]
-  %.048 = phi double [ %90, %75 ], [ %71, %74 ]
+90:                                               ; preds = %74, %73
+  %.pre-phi = phi double [ %.pre, %74 ], [ %71, %73 ]
+  %.048 = phi double [ %89, %74 ], [ %70, %73 ]
   %or.cond.i = fcmp ugt double %.pre-phi, 8.640000e+15
-  br i1 %or.cond.i, label %time_clip.exit, label %92
+  br i1 %or.cond.i, label %time_clip.exit, label %91
 
-92:                                               ; preds = %91
-  %93 = call double @llvm.trunc.f64(double %.048)
-  %94 = fadd double %93, 0.000000e+00
+91:                                               ; preds = %90
+  %92 = call double @llvm.trunc.f64(double %.048)
+  %93 = fadd double %92, 0.000000e+00
   br label %time_clip.exit
 
-time_clip.exit:                                   ; preds = %92, %91, %._crit_edge, %2
-  %.0 = phi double [ 0x7FF8000000000000, %2 ], [ 0x7FF8000000000000, %._crit_edge ], [ %94, %92 ], [ 0x7FF8000000000000, %91 ]
+time_clip.exit:                                   ; preds = %91, %90, %._crit_edge, %2
+  %.0 = phi double [ 0x7FF8000000000000, %2 ], [ 0x7FF8000000000000, %._crit_edge ], [ %93, %91 ], [ 0x7FF8000000000000, %90 ]
   ret double %.0
 }
 

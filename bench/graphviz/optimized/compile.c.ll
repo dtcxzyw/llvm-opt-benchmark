@@ -4728,58 +4728,57 @@ deparse.exit77:                                   ; preds = %agxbclear.exit.thre
   %153 = zext nneg i16 %110 to i64
   %154 = getelementptr inbounds [70 x %struct.TrieState], ptr @TrieStateTbl, i64 0, i64 %153
   %155 = load i16, ptr %154, align 16
-  %156 = zext i16 %155 to i32
-  %157 = icmp slt i16 %155, 0
-  br i1 %157, label %assignable.exit, label %158
+  %156 = icmp slt i16 %155, 0
+  br i1 %156, label %assignable.exit, label %157
 
-158:                                              ; preds = %152
-  %159 = load i32, ptr %.048, align 8
-  %160 = and i32 %159, 3
-  switch i32 %160, label %165 [
-    i32 0, label %161
-    i32 1, label %163
+157:                                              ; preds = %152
+  %158 = load i32, ptr %.048, align 8
+  %159 = and i32 %158, 3
+  switch i32 %159, label %164 [
+    i32 0, label %160
+    i32 1, label %162
   ]
 
-161:                                              ; preds = %158
-  %162 = and i32 %156, 64
-  %.not28.i = icmp eq i32 %162, 0
+160:                                              ; preds = %157
+  %161 = and i16 %155, 64
+  %.not28.i = icmp eq i16 %161, 0
   br i1 %.not28.i, label %assignable.exit, label %assignable.exit.sink.split
 
-163:                                              ; preds = %158
-  %164 = and i32 %156, 16
-  %.not27.i = icmp eq i32 %164, 0
+162:                                              ; preds = %157
+  %163 = and i16 %155, 16
+  %.not27.i = icmp eq i16 %163, 0
   br i1 %.not27.i, label %assignable.exit, label %assignable.exit.sink.split
 
-165:                                              ; preds = %158
-  %166 = and i32 %156, 32
-  %.not29.i = icmp eq i32 %166, 0
+164:                                              ; preds = %157
+  %165 = and i16 %155, 32
+  %.not29.i = icmp eq i16 %165, 0
   br i1 %.not29.i, label %assignable.exit, label %assignable.exit.sink.split
 
-assignable.exit.sink.split:                       ; preds = %165, %163, %161
-  %.str.184.sink = phi ptr [ @.str.184, %161 ], [ @.str.185, %163 ], [ @.str.186, %165 ]
+assignable.exit.sink.split:                       ; preds = %164, %162, %160
+  %.str.184.sink = phi ptr [ @.str.184, %160 ], [ @.str.185, %162 ], [ @.str.186, %164 ]
   tail call void (ptr, ...) @exerror(ptr noundef nonnull %.str.184.sink, ptr noundef nonnull %108) #24
   br label %assignable.exit
 
-assignable.exit:                                  ; preds = %147, %128, %124, %assignable.exit.sink.split, %152, %161, %163, %165
-  %167 = tail call ptr @agattrsym(ptr noundef nonnull %.048, ptr noundef nonnull %108) #24
-  %.not.i79 = icmp eq ptr %167, null
-  br i1 %.not.i79, label %168, label %setattr.exit
+assignable.exit:                                  ; preds = %147, %128, %124, %assignable.exit.sink.split, %152, %160, %162, %164
+  %166 = tail call ptr @agattrsym(ptr noundef nonnull %.048, ptr noundef nonnull %108) #24
+  %.not.i79 = icmp eq ptr %166, null
+  br i1 %.not.i79, label %167, label %setattr.exit
 
-168:                                              ; preds = %assignable.exit
-  %169 = tail call ptr @agraphof(ptr noundef nonnull %.048) #24
-  %170 = tail call ptr @agroot(ptr noundef %169) #24
-  %171 = load i32, ptr %.048, align 8
-  %172 = and i32 %171, 3
-  %173 = tail call ptr @agattr(ptr noundef %170, i32 noundef %172, ptr noundef nonnull %108, ptr noundef nonnull @.str.121) #24
+167:                                              ; preds = %assignable.exit
+  %168 = tail call ptr @agraphof(ptr noundef nonnull %.048) #24
+  %169 = tail call ptr @agroot(ptr noundef %168) #24
+  %170 = load i32, ptr %.048, align 8
+  %171 = and i32 %170, 3
+  %172 = tail call ptr @agattr(ptr noundef %169, i32 noundef %171, ptr noundef nonnull %108, ptr noundef nonnull @.str.121) #24
   br label %setattr.exit
 
-setattr.exit:                                     ; preds = %assignable.exit, %168
-  %.0.i80 = phi ptr [ %167, %assignable.exit ], [ %173, %168 ]
-  %174 = tail call i32 @agxset(ptr noundef nonnull %.048, ptr noundef %.0.i80, ptr noundef %5) #24
+setattr.exit:                                     ; preds = %assignable.exit, %167
+  %.0.i80 = phi ptr [ %166, %assignable.exit ], [ %172, %167 ]
+  %173 = tail call i32 @agxset(ptr noundef nonnull %.048, ptr noundef %.0.i80, ptr noundef %5) #24
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %106, %deparse.exit77, %38, %deparse.exit, %44, %74, %52, %49, %60, %58, %72, %67, %43, %setattr.exit
-  %.0 = phi i32 [ %174, %setattr.exit ], [ 0, %74 ], [ 0, %67 ], [ 0, %72 ], [ 0, %58 ], [ 0, %60 ], [ 0, %49 ], [ 0, %52 ], [ 0, %44 ], [ -1, %43 ], [ -1, %deparse.exit ], [ -1, %38 ], [ -1, %deparse.exit77 ], [ -1, %106 ]
+  %.0 = phi i32 [ %173, %setattr.exit ], [ 0, %74 ], [ 0, %67 ], [ 0, %72 ], [ 0, %58 ], [ 0, %60 ], [ 0, %49 ], [ 0, %52 ], [ 0, %44 ], [ -1, %43 ], [ -1, %deparse.exit ], [ -1, %38 ], [ -1, %deparse.exit77 ], [ -1, %106 ]
   ret i32 %.0
 }
 

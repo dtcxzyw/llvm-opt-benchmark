@@ -35507,23 +35507,20 @@ entry:
   %mul = mul i64 %n, 336
   %offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %0 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %0 to i64
-  %rem.i = and i64 %conv.i, 7
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %1 = and i32 %0, 7
+  %cmp.not.i = icmp eq i32 %1, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %0, %1
+  %reass.sub = and i32 %0, -8
   %conv7.i = add i32 %reass.sub, 8
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %2 = phi i32 [ %conv7.i, %if.then.i ], [ %0, %entry ]
-  %add10.i = add i64 %conv9.pre-phi.i, %mul
+  %conv9.pre-phi.i = sext i32 %2 to i64
+  %add10.i = add i64 %mul, %conv9.pre-phi.i
   %allocSize.i = getelementptr inbounds i8, ptr %this, i64 8
   %3 = load i32, ptr %allocSize.i, align 8
   %conv11.i = sext i32 %3 to i64
@@ -61528,22 +61525,19 @@ entry:
   %0 = load ptr, ptr %this, align 8
   %offset.i = getelementptr inbounds i8, ptr %0, i64 12
   %1 = load i32, ptr %offset.i, align 4
-  %conv.i = sext i32 %1 to i64
-  %rem.i = and i64 %conv.i, 3
-  %cmp.not.i = icmp eq i64 %rem.i, 0
+  %2 = and i32 %1, 3
+  %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
 
 if.then.i:                                        ; preds = %entry
-  %2 = trunc nuw nsw i64 %rem.i to i32
-  %reass.sub = sub i32 %1, %2
+  %reass.sub = and i32 %1, -4
   %conv7.i = add i32 %reass.sub, 4
   store i32 %conv7.i, ptr %offset.i, align 4
-  %.pre5.i = sext i32 %conv7.i to i64
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %conv9.pre-phi.i = phi i64 [ %.pre5.i, %if.then.i ], [ %conv.i, %entry ]
   %3 = phi i32 [ %conv7.i, %if.then.i ], [ %1, %entry ]
+  %conv9.pre-phi.i = sext i32 %3 to i64
   %add10.i = add nsw i64 %conv9.pre-phi.i, 4
   %allocSize.i = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %allocSize.i, align 8
@@ -93395,22 +93389,19 @@ if.then42.i.i.i:                                  ; preds = %for.body37.i.i.i
 
 do.end.i.i.i:                                     ; preds = %for.body37.i.i.i
   %33 = load i32, ptr %offset.i.i.i.i.i, align 4
-  %conv.i.i.i.i.i = sext i32 %33 to i64
-  %rem.i.i.i.i.i = and i64 %conv.i.i.i.i.i, 7
-  %cmp.not.i.i128.i.i.i = icmp eq i64 %rem.i.i.i.i.i, 0
+  %34 = and i32 %33, 7
+  %cmp.not.i.i128.i.i.i = icmp eq i32 %34, 0
   br i1 %cmp.not.i.i128.i.i.i, label %if.end.i.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %do.end.i.i.i
-  %34 = trunc nuw nsw i64 %rem.i.i.i.i.i to i32
-  %reass.sub.i.i.i.i = sub i32 %33, %34
+  %reass.sub.i.i.i.i = and i32 %33, -8
   %conv7.i.i.i.i.i = add i32 %reass.sub.i.i.i.i, 8
   store i32 %conv7.i.i.i.i.i, ptr %offset.i.i.i.i.i, align 4
-  %.pre5.i.i.i.i.i = sext i32 %conv7.i.i.i.i.i to i64
   br label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i.i.i, %do.end.i.i.i
-  %conv9.pre-phi.i.i.i.i.i = phi i64 [ %.pre5.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %conv.i.i.i.i.i, %do.end.i.i.i ]
   %35 = phi i32 [ %conv7.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %33, %do.end.i.i.i ]
+  %conv9.pre-phi.i.i.i.i.i = sext i32 %35 to i64
   %add10.i.i.i.i.i = add nsw i64 %conv9.pre-phi.i.i.i.i.i, 16
   %36 = load i32, ptr %allocSize.i.i.i.i.i, align 8
   %conv11.i.i.i.i.i = sext i32 %36 to i64

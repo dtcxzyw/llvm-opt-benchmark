@@ -11,17 +11,17 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @freeinit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
-  %3 = sext i32 %1 to i64
-  %4 = and i64 %3, 7
-  %5 = icmp eq i64 %4, 0
-  br i1 %5, label %17, label %6
+  %3 = and i32 %1, 7
+  %4 = icmp eq i32 %3, 0
+  br i1 %4, label %17, label %5
 
-6:                                                ; preds = %2
-  %7 = urem i64 8, %3
+5:                                                ; preds = %2
+  %6 = sext i32 %1 to i64
+  %7 = urem i64 8, %6
   %8 = icmp eq i64 %7, 0
   br i1 %8, label %17, label %9
 
-9:                                                ; preds = %6
+9:                                                ; preds = %5
   %.not11.i = icmp eq i32 %1, 8
   br i1 %.not11.i, label %gcd.exit, label %.lr.ph.i
 
@@ -47,8 +47,8 @@ gcd.exit:                                         ; preds = %gcd.exit.loopexit, 
   %16 = mul i32 %1, %15
   br label %17
 
-17:                                               ; preds = %2, %gcd.exit, %6
-  %18 = phi i32 [ %16, %gcd.exit ], [ 8, %6 ], [ %1, %2 ]
+17:                                               ; preds = %2, %gcd.exit, %5
+  %18 = phi i32 [ %16, %gcd.exit ], [ 8, %5 ], [ %1, %2 ]
   %19 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %18, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 8
