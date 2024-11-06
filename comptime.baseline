@@ -32181,7 +32181,7 @@ redis/ehooks.ll 82629087
 redis/ehooks.sym.ll 82643712
 redis/emap.ll 446479653
 redis/emap.sym.ll 446592735
-redis/endianconv.ll 44507392
+redis/endianconv.ll 44552069
 redis/eset.ll 248971249
 redis/eset.sym.ll 249168282
 redis/eval.ll 658441926
