@@ -7239,7 +7239,7 @@ folly/ShutdownSocketSet.cpp.ll 93556263
 folly/SignalHandler.cpp.ll 220966200
 folly/SimpleAsyncIO.cpp.ll 338201077
 folly/SimpleLoopController.cpp.ll 373394017
-folly/SimpleSimdStringUtils.cpp.ll 88238199
+folly/SimpleSimdStringUtils.cpp.ll 88326524
 folly/Singleton.cpp.ll 2849549342
 folly/SmartExceptionTracerSingleton.cpp.ll 37819322
 folly/SocketAddress.cpp.ll 418483419
@@ -11888,7 +11888,7 @@ libwebp/dec_mips_dsp_r2.c.ll 31867686
 libwebp/dec_msa.c.ll 31864958
 libwebp/dec_neon.c.ll 31865321
 libwebp/dec_sse2.c.ll 929367403
-libwebp/dec_sse41.c.ll 43153239
+libwebp/dec_sse41.c.ll 43110082
 libwebp/demux.c.ll 387471809
 libwebp/dwebp.c.ll 249935674
 libwebp/enc.c.ll 707922405
