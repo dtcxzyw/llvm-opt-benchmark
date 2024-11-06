@@ -4601,12 +4601,12 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
   br label %105
 
 .preheader.loopexit:                              ; preds = %._crit_edge, %_ZN6DfgSel5frompEP9DfgVertex.exit
-  %97 = phi ptr [ %.sroa.0250.1463689, %_ZN6DfgSel5frompEP9DfgVertex.exit ], [ %401, %._crit_edge ]
-  %.pre547 = load ptr, ptr %4, align 8
+  %97 = phi ptr [ %.sroa.0250.1463691, %_ZN6DfgSel5frompEP9DfgVertex.exit ], [ %401, %._crit_edge ]
+  %.pre549 = load ptr, ptr %4, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit
-  %98 = phi ptr [ %.pre547, %.preheader.loopexit ], [ %94, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit ]
+  %98 = phi ptr [ %.pre549, %.preheader.loopexit ], [ %94, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit ]
   %99 = phi ptr [ %97, %.preheader.loopexit ], [ %94, %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit ]
   %100 = ptrtoint ptr %99 to i64
   %101 = ptrtoint ptr %98 to i64
@@ -4634,14 +4634,14 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
 .lr.ph.preheader:                                 ; preds = %105
   %117 = getelementptr inbounds i8, ptr %.sroa.0250.0467, i64 40
   %118 = load i32, ptr %117, align 8
-  %.not103688 = icmp ult i32 %118, %116
-  br i1 %.not103688, label %.lr.ph690, label %._crit_edge
+  %.not103690 = icmp ult i32 %118, %116
+  br i1 %.not103690, label %.lr.ph692, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit144
   %119 = getelementptr inbounds i8, ptr %.sroa.0250.2, i64 16
   %120 = load i32, ptr %119, align 8
   %.not103 = icmp ult i32 %120, %116
-  br i1 %.not103, label %.lr.ph690, label %._crit_edge, !llvm.loop !12
+  br i1 %.not103, label %.lr.ph692, label %._crit_edge, !llvm.loop !12
 
 .loopexit294:                                     ; preds = %46, %_ZNSt12_Vector_baseIN15AstToDfgVisitor6DriverESaIS1_EE11_M_allocateEm.exit.i, %_ZNSt6vectorIN15AstToDfgVisitor6DriverESaIS1_EE7reserveEm.exit, %_ZNSt8functionIFvR7DfgEdgemEED2Ev.exit
   %lpad.loopexit296 = landingpad { ptr, i32 }
@@ -4720,11 +4720,11 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
           cleanup
   br label %.body
 
-.lr.ph690:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph692:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %127 = phi i32 [ %120, %.lr.ph ], [ %118, %.lr.ph.preheader ]
   %128 = phi ptr [ %119, %.lr.ph ], [ %117, %.lr.ph.preheader ]
-  %.sroa.0250.1463689 = phi ptr [ %.sroa.0250.2, %.lr.ph ], [ %107, %.lr.ph.preheader ]
-  %129 = getelementptr inbounds i8, ptr %.sroa.0250.1463689, i64 8
+  %.sroa.0250.1463691 = phi ptr [ %.sroa.0250.2, %.lr.ph ], [ %107, %.lr.ph.preheader ]
+  %129 = getelementptr inbounds i8, ptr %.sroa.0250.1463691, i64 8
   %130 = load ptr, ptr %129, align 8
   %131 = getelementptr inbounds i8, ptr %130, i64 40
   %132 = load ptr, ptr %131, align 8
@@ -4734,7 +4734,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %135, i32 %116)
   %136 = add i32 %.sroa.speculated, -1
   %137 = load ptr, ptr %.sroa.0250.0467, align 8
-  %138 = load ptr, ptr %.sroa.0250.1463689, align 8
+  %138 = load ptr, ptr %.sroa.0250.1463691, align 8
   %139 = getelementptr inbounds i8, ptr %137, i64 2
   %140 = load i16, ptr %139, align 2
   %141 = getelementptr inbounds i8, ptr %138, i64 2
@@ -4742,7 +4742,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6v
   %.not.i122 = icmp eq i16 %140, %142
   br i1 %.not.i122, label %143, label %.noexc128
 
-143:                                              ; preds = %.lr.ph690
+143:                                              ; preds = %.lr.ph692
   %144 = getelementptr inbounds i8, ptr %137, i64 8
   %145 = load i32, ptr %144, align 8
   %146 = getelementptr inbounds i8, ptr %138, i64 8
@@ -4962,7 +4962,7 @@ _ZN8FileLine9singletonEv.exit.i:                  ; preds = %240, %237, %233
   %exitcond.not.i123 = icmp eq i64 %234, 119
   br i1 %exitcond.not.i123, label %_ZNK8FileLine15operatorCompareERKS_.exit, label %_ZNKSt6bitsetILm119EE4testEm.exit34.i, !llvm.loop !14
 
-.noexc128:                                        ; preds = %.noexc127, %158, %153, %148, %143, %.lr.ph690
+.noexc128:                                        ; preds = %.noexc127, %158, %153, %148, %143, %.lr.ph692
   %252 = load ptr, ptr %96, align 8
   %253 = invoke noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error11v3errorPrepB5cxx11E11V3ErrorCodeb(i8 68, i1 noundef zeroext true)
           to label %254 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -5048,7 +5048,7 @@ _ZN8FileLine9singletonEv.exit.i:                  ; preds = %240, %237, %233
           to label %290 unwind label %312
 
 290:                                              ; preds = %288
-  %291 = load ptr, ptr %.sroa.0250.1463689, align 8
+  %291 = load ptr, ptr %.sroa.0250.1463691, align 8
   invoke void @_ZNK8FileLine9warnOtherB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull align 8 dereferenceable(40) %291)
           to label %292 unwind label %312
 
@@ -5061,7 +5061,7 @@ _ZN8FileLine9singletonEv.exit.i:                  ; preds = %240, %237, %233
           to label %296 unwind label %314
 
 296:                                              ; preds = %294
-  %297 = load ptr, ptr %.sroa.0250.1463689, align 8
+  %297 = load ptr, ptr %.sroa.0250.1463691, align 8
   invoke void @_ZNK8FileLine11warnContextB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %11, ptr noundef nonnull align 8 dereferenceable(40) %297)
           to label %_ZNK8FileLine20warnContextSecondaryB5cxx11Ev.exit unwind label %314
 
@@ -5226,7 +5226,7 @@ select.unfold.i:                                  ; preds = %336, %._crit_edge.t
 
 348:                                              ; preds = %.thread21.i, %347
   %349 = load ptr, ptr %4, align 8
-  %350 = ptrtoint ptr %.sroa.0250.1463689 to i64
+  %350 = ptrtoint ptr %.sroa.0250.1463691 to i64
   %351 = ptrtoint ptr %349 to i64
   %352 = sub i64 %350, %351
   %353 = getelementptr inbounds i8, ptr %349, i64 %352
@@ -5288,12 +5288,12 @@ _ZN6DfgSel5frompEP9DfgVertex.exit:                ; preds = %_ZN18DfgVertexWithA
   store i32 %116, ptr %128, align 8
   store ptr %368, ptr %129, align 8
   %380 = load ptr, ptr %19, align 8
-  %381 = icmp eq ptr %.sroa.0250.1463689, %380
+  %381 = icmp eq ptr %.sroa.0250.1463691, %380
   br i1 %381, label %.preheader.loopexit, label %382
 
 382:                                              ; preds = %_ZN6DfgSel5frompEP9DfgVertex.exit
   %383 = ptrtoint ptr %380 to i64
-  %384 = ptrtoint ptr %.sroa.0250.1463689 to i64
+  %384 = ptrtoint ptr %.sroa.0250.1463691 to i64
   %385 = sub i64 %383, %384
   %386 = icmp sgt i64 %385, 0
   br i1 %386, label %.lr.ph.i.i.preheader.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i
@@ -5321,7 +5321,7 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
   br i1 %392, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i, label %393
 
 393:                                              ; preds = %390
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %389, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0250.1463689, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %389, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0250.1463691, i64 24, i1 false)
   %.not18.i.i.i.i = icmp eq i64 %storemerge26.i.i.i, 1
   br i1 %.not18.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i, label %.lr.ph.i.i.preheader.i.i
 
@@ -5339,11 +5339,11 @@ select.unfold.i.i.i:                              ; preds = %.lr.ph.i.i.i
   br i1 %.not.i.i.i.i219, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i, label %.lr.ph.i.i.i.i218, !llvm.loop !23
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i: ; preds = %.lr.ph.i.i.i.i218
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0250.1463689, ptr noundef nonnull align 8 dereferenceable(20) %394, i64 20, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %.sroa.0250.1463691, ptr noundef nonnull align 8 dereferenceable(20) %394, i64 20, i1 false)
   br label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i: ; preds = %select.unfold.i.i.i, %382
-  invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_SF_T0_(ptr nonnull %.sroa.0250.1463689, ptr %380)
+  invoke void @_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_SF_T0_(ptr nonnull %.sroa.0250.1463691, ptr %380)
           to label %397 unwind label %395
 
 395:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i
@@ -5354,7 +5354,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6Driv
   br label %.body
 
 _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i: ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.i, %393, %390
-  invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_SF_T0_T1_T2_(ptr nonnull %.sroa.0250.1463689, ptr %380, ptr noundef nonnull %389, i64 noundef %storemerge26.i.i.i)
+  invoke void @_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES4_lNS0_5__ops15_Iter_comp_iterIZNS2_18canonicalizePackedEvEUlRKS3_SC_E_EEEvT_SF_T0_T1_T2_(ptr nonnull %.sroa.0250.1463691, ptr %380, ptr noundef nonnull %389, i64 noundef %storemerge26.i.i.i)
           to label %397 unwind label %395
 
 397:                                              ; preds = %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread21.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEES3_EC2ES8_l.exit.thread.i
@@ -5371,7 +5371,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6Driv
 
 _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN15AstToDfgVisitor6DriverESt6vectorIS3_SaIS3_EEEEZNS2_18canonicalizePackedEvEUlRKS3_SA_E_EvT_SC_T0_.exit144: ; preds = %397, %359
   %400 = phi ptr [ %361, %359 ], [ %.pre, %397 ]
-  %.sroa.0250.2 = phi ptr [ %353, %359 ], [ %.sroa.0250.1463689, %397 ]
+  %.sroa.0250.2 = phi ptr [ %353, %359 ], [ %.sroa.0250.1463691, %397 ]
   %.not267 = icmp eq ptr %.sroa.0250.2, %400
   br i1 %.not267, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -5692,7 +5692,7 @@ _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit
   br i1 %535, label %536, label %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i._ZN17DfgVertexVariadic9addSourceEv.exit.i_crit_edge
 
 _ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i._ZN17DfgVertexVariadic9addSourceEv.exit.i_crit_edge: ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i
-  %.pre550 = load ptr, ptr %496, align 8
+  %.pre552 = load ptr, ptr %496, align 8
   br label %_ZN17DfgVertexVariadic9addSourceEv.exit.i
 
 536:                                              ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i
@@ -5755,7 +5755,7 @@ _ZN17DfgVertexVariadic12allocSourcesEm.exit.i:    ; preds = %.lr.ph.i.i222, %.no
   br i1 %556, label %.lr.ph.i224, label %._crit_edge.i, !llvm.loop !33
 
 ._crit_edge.i:                                    ; preds = %552, %_ZN17DfgVertexVariadic12allocSourcesEm.exit.i
-  %.pre.i.i167549 = phi i32 [ 0, %_ZN17DfgVertexVariadic12allocSourcesEm.exit.i ], [ %553, %552 ]
+  %.pre.i.i167551 = phi i32 [ 0, %_ZN17DfgVertexVariadic12allocSourcesEm.exit.i ], [ %553, %552 ]
   %557 = load ptr, ptr %496, align 8
   %558 = icmp eq ptr %557, null
   br i1 %558, label %.noexc171, label %559
@@ -5766,12 +5766,12 @@ _ZN17DfgVertexVariadic12allocSourcesEm.exit.i:    ; preds = %.lr.ph.i.i222, %.no
   br label %.noexc171
 
 .noexc171:                                        ; preds = %559, %._crit_edge.i
-  %.pre.i.i167 = phi i32 [ %.pre.i.i167.pre, %559 ], [ %.pre.i.i167549, %._crit_edge.i ]
+  %.pre.i.i167 = phi i32 [ %.pre.i.i167.pre, %559 ], [ %.pre.i.i167551, %._crit_edge.i ]
   store ptr %540, ptr %496, align 8
   br label %_ZN17DfgVertexVariadic9addSourceEv.exit.i
 
 _ZN17DfgVertexVariadic9addSourceEv.exit.i:        ; preds = %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i._ZN17DfgVertexVariadic9addSourceEv.exit.i_crit_edge, %.noexc171
-  %560 = phi ptr [ %540, %.noexc171 ], [ %.pre550, %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i._ZN17DfgVertexVariadic9addSourceEv.exit.i_crit_edge ]
+  %560 = phi ptr [ %540, %.noexc171 ], [ %.pre552, %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i._ZN17DfgVertexVariadic9addSourceEv.exit.i_crit_edge ]
   %561 = phi i32 [ %.pre.i.i167, %.noexc171 ], [ %533, %_ZNSt6vectorISt4pairIP8FileLinejESaIS3_EE12emplace_backIJRS2_RjEEERS3_DpOT_.exit.i._ZN17DfgVertexVariadic9addSourceEv.exit.i_crit_edge ]
   %562 = add i32 %561, 1
   store i32 %562, ptr %480, align 8
@@ -5812,7 +5812,7 @@ _ZN12DfgVarPacked9addDriverEP8FileLinejP9DfgVertex.exit: ; preds = %_ZN17DfgVert
   br i1 %spec.select.i.i, label %.backedge, label %581
 
 .backedge:                                        ; preds = %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit..backedge_crit_edge, %.lr.ph482, %576
-  %579 = phi i64 [ %.pre551, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit..backedge_crit_edge ], [ %573, %.lr.ph482 ], [ %573, %576 ]
+  %579 = phi i64 [ %.pre553, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit..backedge_crit_edge ], [ %573, %.lr.ph482 ], [ %573, %576 ]
   %580 = icmp eq i64 %579, 0
   br i1 %580, label %._crit_edge483, label %.lr.ph482, !llvm.loop !34
 
@@ -5884,7 +5884,7 @@ _ZNSt8functionIFvR9DfgVertexEED2Ev.exit:          ; preds = %_ZN9DfgVertex13forE
           to label %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit..backedge_crit_edge unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZNSt8functionIFvR9DfgVertexEED2Ev.exit..backedge_crit_edge: ; preds = %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit
-  %.pre551 = load i64, ptr %26, align 8
+  %.pre553 = load i64, ptr %26, align 8
   br label %.backedge
 
 .loopexit268:                                     ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i

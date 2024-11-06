@@ -21282,12 +21282,12 @@ _ZN4pkpy8Compiler5matchEh.exit153.preheader:      ; preds = %_ZNK4pkpy8Compiler4
 311:                                              ; preds = %310
   call void @_ZN4pkpy3StrD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #36
   %.pre = load i32, ptr %10, align 4
-  %.pre470 = load ptr, ptr %11, align 8
-  %.pre471 = load ptr, ptr %9, align 8
-  %.pre472 = ptrtoint ptr %.pre470 to i64
-  %.pre473 = ptrtoint ptr %.pre471 to i64
-  %.pre475 = sub i64 %.pre472, %.pre473
-  %.pre477 = sdiv exact i64 %.pre475, 72
+  %.pre472 = load ptr, ptr %11, align 8
+  %.pre473 = load ptr, ptr %9, align 8
+  %.pre474 = ptrtoint ptr %.pre472 to i64
+  %.pre475 = ptrtoint ptr %.pre473 to i64
+  %.pre477 = sub i64 %.pre474, %.pre475
+  %.pre479 = sdiv exact i64 %.pre477, 72
   %312 = add nsw i32 %.pre, -1
   br label %317
 
@@ -21304,11 +21304,11 @@ _ZN4pkpy8Compiler5matchEh.exit153.preheader:      ; preds = %_ZNK4pkpy8Compiler4
   br label %.body
 
 317:                                              ; preds = %296, %311
-  %.pre-phi478 = phi i64 [ %290, %296 ], [ %.pre477, %311 ]
-  %318 = phi ptr [ %286, %296 ], [ %.pre471, %311 ]
+  %.pre-phi480 = phi i64 [ %290, %296 ], [ %.pre479, %311 ]
+  %318 = phi ptr [ %286, %296 ], [ %.pre473, %311 ]
   %319 = phi i32 [ %283, %296 ], [ %312, %311 ]
   %320 = sext i32 %319 to i64
-  %.not.i.i.i154 = icmp ugt i64 %.pre-phi478, %320
+  %.not.i.i.i154 = icmp ugt i64 %.pre-phi480, %320
   br i1 %.not.i.i.i154, label %321, label %.invoke
 
 321:                                              ; preds = %317
@@ -21441,15 +21441,15 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit:               ; preds = %367
   %381 = sub i64 %379, %380
   %382 = sdiv exact i64 %381, 72
   %.not.i.i.i177 = icmp ugt i64 %382, %376
-  br i1 %.not.i.i.i177, label %385, label %.invoke570
+  br i1 %.not.i.i.i177, label %385, label %.invoke572
 
-.invoke570:                                       ; preds = %432, %_ZN4pkpy2TKEPKc.exit192, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit219
+.invoke572:                                       ; preds = %432, %_ZN4pkpy2TKEPKc.exit192, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit219
   %383 = phi i64 [ %470, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit219 ], [ %376, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit ], [ %405, %_ZN4pkpy2TKEPKc.exit192 ], [ %435, %432 ]
   %384 = phi i64 [ %476, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit219 ], [ %382, %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit ], [ %411, %_ZN4pkpy2TKEPKc.exit192 ], [ %441, %432 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %383, i64 noundef %384) #35
-          to label %.cont571 unwind label %.loopexit.split-lp252
+          to label %.cont573 unwind label %.loopexit.split-lp252
 
-.cont571:                                         ; preds = %.invoke570
+.cont573:                                         ; preds = %.invoke572
   unreachable
 
 385:                                              ; preds = %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit
@@ -21508,7 +21508,7 @@ _ZN4pkpy2TKEPKc.exit192:                          ; preds = %403, %401
   %410 = sub i64 %408, %409
   %411 = sdiv exact i64 %410, 72
   %.not.i.i.i.i193 = icmp ugt i64 %411, %405
-  br i1 %.not.i.i.i.i193, label %_ZNK4pkpy8Compiler4currEv.exit.i194, label %.invoke570
+  br i1 %.not.i.i.i.i193, label %_ZNK4pkpy8Compiler4currEv.exit.i194, label %.invoke572
 
 _ZNK4pkpy8Compiler4currEv.exit.i194:              ; preds = %_ZN4pkpy2TKEPKc.exit192
   %412 = getelementptr inbounds %"struct.pkpy::Token", ptr %407, i64 %405
@@ -21576,7 +21576,7 @@ _ZN4pkpy2TKEPKc.exit210:                          ; preds = %431, %429
   %440 = sub i64 %438, %439
   %441 = sdiv exact i64 %440, 72
   %.not.i.i.i211 = icmp ugt i64 %441, %435
-  br i1 %.not.i.i.i211, label %442, label %.invoke570
+  br i1 %.not.i.i.i211, label %442, label %.invoke572
 
 442:                                              ; preds = %432
   %443 = getelementptr inbounds %"struct.pkpy::Token", ptr %437, i64 %435
@@ -21600,7 +21600,7 @@ _ZNK4pkpy5Token3strEv.exit215:                    ; preds = %442
           cleanup
   br label %523
 
-.loopexit.split-lp252:                            ; preds = %.invoke570
+.loopexit.split-lp252:                            ; preds = %.invoke572
   %lpad.loopexit.split-lp254 = landingpad { ptr, i32 }
           cleanup
   br label %523
@@ -21642,7 +21642,7 @@ _ZN4pkpy7StrNameC2ERKNS_3StrE.exit219:            ; preds = %452
   %475 = sub i64 %473, %474
   %476 = sdiv exact i64 %475, 72
   %.not.i.i.i220 = icmp ugt i64 %476, %470
-  br i1 %.not.i.i.i220, label %477, label %.invoke570
+  br i1 %.not.i.i.i220, label %477, label %.invoke572
 
 477:                                              ; preds = %_ZN4pkpy7StrNameC2ERKNS_3StrE.exit219
   %478 = getelementptr inbounds %"struct.pkpy::Token", ptr %472, i64 %470, i32 3
@@ -21708,7 +21708,7 @@ _ZN4pkpy2TKEPKc.exit235:                          ; preds = %496, %494
 
 .invoke:                                          ; preds = %112, %_ZN4pkpy2TKEPKc.exit40, %208, %_ZN4pkpy2TKEPKc.exit94, %_ZN4pkpy2TKEPKc.exit235, %351, %317, %_ZN4pkpy2TKEPKc.exit148, %145, %_ZN4pkpy2TKEPKc.exit
   %505 = phi i64 [ %50, %_ZN4pkpy2TKEPKc.exit ], [ %148, %145 ], [ %284, %_ZN4pkpy2TKEPKc.exit148 ], [ %320, %317 ], [ %354, %351 ], [ %498, %_ZN4pkpy2TKEPKc.exit235 ], [ %179, %_ZN4pkpy2TKEPKc.exit94 ], [ %211, %208 ], [ %83, %_ZN4pkpy2TKEPKc.exit40 ], [ %115, %112 ]
-  %506 = phi i64 [ %56, %_ZN4pkpy2TKEPKc.exit ], [ %154, %145 ], [ %290, %_ZN4pkpy2TKEPKc.exit148 ], [ %.pre-phi478, %317 ], [ %360, %351 ], [ %504, %_ZN4pkpy2TKEPKc.exit235 ], [ %185, %_ZN4pkpy2TKEPKc.exit94 ], [ %217, %208 ], [ %89, %_ZN4pkpy2TKEPKc.exit40 ], [ %121, %112 ]
+  %506 = phi i64 [ %56, %_ZN4pkpy2TKEPKc.exit ], [ %154, %145 ], [ %290, %_ZN4pkpy2TKEPKc.exit148 ], [ %.pre-phi480, %317 ], [ %360, %351 ], [ %504, %_ZN4pkpy2TKEPKc.exit235 ], [ %185, %_ZN4pkpy2TKEPKc.exit94 ], [ %217, %208 ], [ %89, %_ZN4pkpy2TKEPKc.exit40 ], [ %121, %112 ]
   invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.106, i64 noundef %505, i64 noundef %506) #35
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

@@ -4292,7 +4292,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge248, %._
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %61, align 4
   %.not65 = icmp eq i32 %62, %58
-  br i1 %.not65, label %.preheader210, label %._crit_edge236.split.loop.exit317
+  br i1 %.not65, label %.preheader210, label %._crit_edge236.split.loop.exit323
 
 .preheader210:                                    ; preds = %.lr.ph235
   %63 = getelementptr inbounds i8, ptr %60, i64 8
@@ -4467,18 +4467,18 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE10_M_insert_IRKiNS5_11_Alloc_nod
   %exitcond.not = icmp eq i64 %indvars.iv.next285, %51
   br i1 %exitcond.not, label %._crit_edge236, label %.lr.ph235, !llvm.loop !42
 
-._crit_edge236.split.loop.exit317:                ; preds = %.lr.ph235
+._crit_edge236.split.loop.exit323:                ; preds = %.lr.ph235
   %117 = trunc nsw i64 %indvars.iv284 to i32
   br label %._crit_edge236
 
-._crit_edge236:                                   ; preds = %._crit_edge232, %._crit_edge236.split.loop.exit317
-  %.1.lcssa.ph = phi i32 [ %117, %._crit_edge236.split.loop.exit317 ], [ %37, %._crit_edge232 ]
-  %.pre295 = load ptr, ptr %43, align 8
-  %.not169244 = icmp eq ptr %.pre295, %41
+._crit_edge236:                                   ; preds = %._crit_edge232, %._crit_edge236.split.loop.exit323
+  %.1.lcssa.ph = phi i32 [ %117, %._crit_edge236.split.loop.exit323 ], [ %37, %._crit_edge232 ]
+  %.pre301 = load ptr, ptr %43, align 8
+  %.not169244 = icmp eq ptr %.pre301, %41
   br i1 %.not169244, label %._crit_edge248, label %.lr.ph247
 
 .lr.ph247:                                        ; preds = %._crit_edge236, %._crit_edge243
-  %.sroa.0148.0245 = phi ptr [ %245, %._crit_edge243 ], [ %.pre295, %._crit_edge236 ]
+  %.sroa.0148.0245 = phi ptr [ %245, %._crit_edge243 ], [ %.pre301, %._crit_edge236 ]
   %118 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.0148.0245) #25
   %.not170239 = icmp eq ptr %118, %41
   br i1 %.not170239, label %._crit_edge243, label %.lr.ph242
@@ -4739,9 +4739,9 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit5.i.i:    ; preds = %223
   br label %251
 
 251:                                              ; preds = %.lr.ph259, %._crit_edge256
-  %indvars.iv290 = phi i64 [ %250, %.lr.ph259 ], [ %indvars.iv.next291, %._crit_edge256 ]
+  %indvars.iv296 = phi i64 [ %250, %.lr.ph259 ], [ %indvars.iv.next297, %._crit_edge256 ]
   %252 = load ptr, ptr %29, align 8
-  %253 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %252, i64 %indvars.iv290, i32 1
+  %253 = getelementptr inbounds %"struct.ceres::internal::CompressedList", ptr %252, i64 %indvars.iv296, i32 1
   %254 = load ptr, ptr %253, align 8
   %255 = load i32, ptr %254, align 4
   %.not.i.i74 = icmp slt i32 %255, %40
@@ -5050,11 +5050,11 @@ _ZNKSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN
 
 ._crit_edge253.loopexit:                          ; preds = %_ZNKSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN5ceres8internal9pair_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE4findERKS1_.exit108.thread
   %.pre = load ptr, ptr %265, align 8
-  %.pre294 = load ptr, ptr %253, align 8
+  %.pre300 = load ptr, ptr %253, align 8
   br label %._crit_edge253
 
 ._crit_edge253:                                   ; preds = %._crit_edge253.loopexit, %.lr.ph255
-  %399 = phi ptr [ %.pre294, %._crit_edge253.loopexit ], [ %273, %.lr.ph255 ]
+  %399 = phi ptr [ %.pre300, %._crit_edge253.loopexit ], [ %273, %.lr.ph255 ]
   %400 = phi ptr [ %.pre, %._crit_edge253.loopexit ], [ %274, %.lr.ph255 ]
   %indvars.iv.next288 = add nuw nsw i64 %indvars.iv287, 1
   %401 = ptrtoint ptr %400 to i64
@@ -5065,10 +5065,10 @@ _ZNKSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN
   br i1 %405, label %.lr.ph255, label %._crit_edge256, !llvm.loop !49
 
 ._crit_edge256:                                   ; preds = %._crit_edge253, %.preheader
-  %indvars.iv.next291 = add nsw i64 %indvars.iv290, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next291 to i32
-  %exitcond293.not = icmp eq i32 %lftr.wideiv, %37
-  br i1 %exitcond293.not, label %._crit_edge260, label %251, !llvm.loop !50
+  %indvars.iv.next297 = add nsw i64 %indvars.iv296, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next297 to i32
+  %exitcond299.not = icmp eq i32 %lftr.wideiv, %37
+  br i1 %exitcond299.not, label %._crit_edge260, label %251, !llvm.loop !50
 
 ._crit_edge260:                                   ; preds = %_ZNSt3setIiSt4lessIiESaIiEED2Ev.exit, %._crit_edge256
   %406 = load ptr, ptr @_ZZN5ceres8internal29VisibilityBasedPreconditioner33ComputeBlockPairsInPreconditionerERKNS0_27CompressedRowBlockStructureEE8vlocal__, align 8

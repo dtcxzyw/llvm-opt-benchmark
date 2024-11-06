@@ -5314,13 +5314,13 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_connect_levels(ptr nocapture 
 55:                                               ; preds = %51
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next265, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit306, label %51, !llvm.loop !58
+  br i1 %exitcond.not, label %.split.loop.exit307, label %51, !llvm.loop !58
 
 .split.loop.exit:                                 ; preds = %51
   %56 = trunc nuw i64 %indvars.iv264 to i32
-  br label %.split.loop.exit306
+  br label %.split.loop.exit307
 
-.split.loop.exit306:                              ; preds = %55, %.split.loop.exit
+.split.loop.exit307:                              ; preds = %55, %.split.loop.exit
   %.0171.lcssa = phi i32 [ %56, %.split.loop.exit ], [ %.0170246, %55 ]
   %57 = icmp eq i32 %.0171.lcssa, %.0170246
   %narrow = select i1 %57, i32 0, i32 %.0171.lcssa
@@ -5329,9 +5329,9 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_connect_levels(ptr nocapture 
   %58 = load ptr, ptr %.in, align 8
   br label %59
 
-59:                                               ; preds = %.split.loop.exit306, %hwloc_type_cmp.exit
-  %indvars.iv267 = phi i64 [ 0, %.split.loop.exit306 ], [ %indvars.iv.next268, %hwloc_type_cmp.exit ]
-  %.0175233 = phi ptr [ %58, %.split.loop.exit306 ], [ %.1176, %hwloc_type_cmp.exit ]
+59:                                               ; preds = %.split.loop.exit307, %hwloc_type_cmp.exit
+  %indvars.iv267 = phi i64 [ 0, %.split.loop.exit307 ], [ %indvars.iv.next268, %hwloc_type_cmp.exit ]
+  %.0175233 = phi ptr [ %58, %.split.loop.exit307 ], [ %.1176, %hwloc_type_cmp.exit ]
   %60 = getelementptr inbounds ptr, ptr %.0178245, i64 %indvars.iv267
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %.0175233, align 8
@@ -5529,7 +5529,7 @@ hwloc_type_cmp.exit209:                           ; preds = %153, %143
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %166, ptr align 8 %168, i64 %170, i1 false)
   %.pre = load ptr, ptr %120, align 8
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 104
-  %.pre288 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre289 = load i32, ptr %.phi.trans.insert, align 8
   br label %174
 
 171:                                              ; preds = %153, %145, %133, %138
@@ -5540,7 +5540,7 @@ hwloc_type_cmp.exit209:                           ; preds = %153, %143
 
 174:                                              ; preds = %hwloc_type_cmp.exit209, %164, %171
   %.1169 = phi i32 [ %.0168238, %171 ], [ %158, %164 ], [ %158, %hwloc_type_cmp.exit209 ]
-  %.pn = phi i32 [ 1, %171 ], [ %.pre288, %164 ], [ 0, %hwloc_type_cmp.exit209 ]
+  %.pn = phi i32 [ 1, %171 ], [ %.pre289, %164 ], [ 0, %hwloc_type_cmp.exit209 ]
   %.3 = add i32 %.pn, %.2239
   %indvars.iv.next279 = add nuw nsw i64 %indvars.iv278, 1
   %exitcond282.not = icmp eq i64 %indvars.iv.next279, %wide.trip.count
@@ -5560,7 +5560,7 @@ hwloc_type_cmp.exit209:                           ; preds = %153, %143
   br i1 %.not249, label %._crit_edge243, label %.lr.ph242.preheader
 
 .lr.ph242.preheader:                              ; preds = %177
-  %wide.trip.count286 = zext i32 %.1169 to i64
+  %wide.trip.count287 = zext i32 %.1169 to i64
   %invariant.gep = getelementptr i8, ptr %105, i64 -8
   br label %.lr.ph242
 
@@ -5591,8 +5591,8 @@ hwloc_type_cmp.exit209:                           ; preds = %153, %143
 
 191:                                              ; preds = %.lr.ph242, %185
   %indvars.iv.next284 = add nuw nsw i64 %indvars.iv283, 1
-  %exitcond287.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count286
-  br i1 %exitcond287.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !62
+  %exitcond288.not = icmp eq i64 %indvars.iv.next284, %wide.trip.count287
+  br i1 %exitcond288.not, label %._crit_edge243, label %.lr.ph242, !llvm.loop !62
 
 ._crit_edge243:                                   ; preds = %191, %177
   %192 = load ptr, ptr %105, align 8
@@ -5609,23 +5609,23 @@ hwloc_type_cmp.exit209:                           ; preds = %153, %143
   %201 = getelementptr inbounds [20 x i32], ptr %26, i64 0, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = icmp eq i32 %202, -1
-  %.pre289 = load i32, ptr %2, align 4
-  %spec.select308 = select i1 %203, i32 %.pre289, i32 -2
-  store i32 %spec.select308, ptr %201, align 4
+  %.pre290 = load i32, ptr %2, align 4
+  %spec.select309 = select i1 %203, i32 %.pre290, i32 -2
+  store i32 %spec.select309, ptr %201, align 4
   %204 = zext i32 %.1169 to i64
   %205 = getelementptr inbounds ptr, ptr %105, i64 %204
   store ptr null, ptr %205, align 8
   %206 = load i32, ptr %50, align 8
-  %207 = icmp eq i32 %.pre289, %206
-  br i1 %207, label %208, label %._crit_edge290
+  %207 = icmp eq i32 %.pre290, %206
+  br i1 %207, label %208, label %._crit_edge291
 
-._crit_edge290:                                   ; preds = %._crit_edge243
-  %.pre291 = load ptr, ptr %19, align 8
+._crit_edge291:                                   ; preds = %._crit_edge243
+  %.pre292 = load ptr, ptr %19, align 8
   br label %249
 
 208:                                              ; preds = %._crit_edge243
   %209 = load ptr, ptr %13, align 8
-  %210 = shl i32 %.pre289, 1
+  %210 = shl i32 %.pre290, 1
   %211 = zext i32 %210 to i64
   %212 = shl nuw nsw i64 %211, 3
   %213 = tail call ptr @realloc(ptr noundef %209, i64 noundef %212) #37
@@ -5705,12 +5705,12 @@ hwloc_hide_errors.exit:                           ; preds = %222, %227
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %246, i8 0, i64 %247, i1 false)
   %248 = shl i32 %242, 1
   store i32 %248, ptr %50, align 8
-  %.pre292 = load i32, ptr %2, align 4
+  %.pre293 = load i32, ptr %2, align 4
   br label %249
 
-249:                                              ; preds = %._crit_edge290, %241
-  %250 = phi i32 [ %.pre289, %._crit_edge290 ], [ %.pre292, %241 ]
-  %251 = phi ptr [ %.pre291, %._crit_edge290 ], [ %219, %241 ]
+249:                                              ; preds = %._crit_edge291, %241
+  %250 = phi i32 [ %.pre290, %._crit_edge291 ], [ %.pre293, %241 ]
+  %251 = phi ptr [ %.pre292, %._crit_edge291 ], [ %219, %241 ]
   %252 = zext i32 %250 to i64
   %253 = getelementptr inbounds i32, ptr %251, i64 %252
   store i32 %.1169, ptr %253, align 4

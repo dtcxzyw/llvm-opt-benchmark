@@ -923,7 +923,7 @@ GetBackwardReferencesLowEffort.exit.thread53:     ; preds = %26, %GetBackwardRef
   %96 = zext nneg i32 %93 to i64
   %97 = add nsw i32 %0, -8
   %98 = add i32 %0, 24
-  %wide.trip.count267.i.i = zext nneg i32 %90 to i64
+  %wide.trip.count269.i.i = zext nneg i32 %90 to i64
   %99 = getelementptr inbounds i8, ptr %87, i64 16
   %100 = getelementptr inbounds i8, ptr %87, i64 24
   %101 = getelementptr i8, ptr %87, i64 8
@@ -1456,8 +1456,8 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
 347:                                              ; preds = %._crit_edge.us.i.i, %343
   %.1159.us.i.i = phi i32 [ %.0158215.us.i.i, %._crit_edge.us.i.i ], [ %346, %343 ]
   %indvars.iv.next251.i.i = add nuw nsw i64 %indvars.iv250.i.i, 1
-  %exitcond253.not.i.i = icmp eq i64 %indvars.iv.next251.i.i, %340
-  br i1 %exitcond253.not.i.i, label %._crit_edge217.i.i, label %.preheader195.us.i.i, !llvm.loop !22
+  %exitcond254.not.i.i = icmp eq i64 %indvars.iv.next251.i.i, %340
+  br i1 %exitcond254.not.i.i, label %._crit_edge217.i.i, label %.preheader195.us.i.i, !llvm.loop !22
 
 348:                                              ; preds = %348, %.preheader195.us.i.i
   %indvars.iv247.i.i = phi i64 [ 0, %.preheader195.us.i.i ], [ %indvars.iv.next248.i.i, %348 ]
@@ -1501,15 +1501,15 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   br i1 %95, label %.lr.ph232.i.i, label %._crit_edge.i.i
 
 .lr.ph232.i.i:                                    ; preds = %._crit_edge217.i.i
-  %wide.trip.count257.i.i = zext nneg i32 %.1145.i.i to i64
+  %wide.trip.count259.i.i = zext nneg i32 %.1145.i.i to i64
   br label %364
 
 364:                                              ; preds = %426, %.lr.ph232.i.i
-  %indvars.iv264.i.i = phi i64 [ 1, %.lr.ph232.i.i ], [ %indvars.iv.next265.i.i, %426 ]
+  %indvars.iv266.i.i = phi i64 [ 1, %.lr.ph232.i.i ], [ %indvars.iv.next267.i.i, %426 ]
   %.0160227.i.i = phi i32 [ -1, %.lr.ph232.i.i ], [ %.1161.i.i, %426 ]
   %.0164226.i.i = phi i32 [ -1, %.lr.ph232.i.i ], [ %.1165.i.i, %426 ]
   %.val182.i.i = load ptr, ptr %8, align 8
-  %365 = getelementptr inbounds i32, ptr %.val182.i.i, i64 %indvars.iv264.i.i
+  %365 = getelementptr inbounds i32, ptr %.val182.i.i, i64 %indvars.iv266.i.i
   %366 = load i32, ptr %365, align 4
   %367 = and i32 %366, 4095
   %368 = icmp eq i32 %367, 4095
@@ -1520,13 +1520,13 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   br i1 %339, label %.lr.ph220.i.i, label %.loopexit193.i.i
 
 371:                                              ; preds = %.lr.ph220.i.i
-  %indvars.iv.next255.i.i = add nuw nsw i64 %indvars.iv254.i.i, 1
-  %exitcond258.not.i.i = icmp eq i64 %indvars.iv.next255.i.i, %wide.trip.count257.i.i
-  br i1 %exitcond258.not.i.i, label %.loopexit193.i.i, label %.lr.ph220.i.i, !llvm.loop !25
+  %indvars.iv.next256.i.i = add nuw nsw i64 %indvars.iv255.i.i, 1
+  %exitcond260.not.i.i = icmp eq i64 %indvars.iv.next256.i.i, %wide.trip.count259.i.i
+  br i1 %exitcond260.not.i.i, label %.loopexit193.i.i, label %.lr.ph220.i.i, !llvm.loop !25
 
 .lr.ph220.i.i:                                    ; preds = %369, %371
-  %indvars.iv254.i.i = phi i64 [ %indvars.iv.next255.i.i, %371 ], [ 0, %369 ]
-  %372 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %indvars.iv254.i.i
+  %indvars.iv255.i.i = phi i64 [ %indvars.iv.next256.i.i, %371 ], [ 0, %369 ]
+  %372 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %indvars.iv255.i.i
   %373 = load i32, ptr %372, align 4
   %374 = icmp eq i32 %370, %373
   br i1 %374, label %.thread186.i.i, label %371
@@ -1542,17 +1542,17 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   br i1 %381, label %.lr.ph224.i.i, label %.loopexit.i.i
 
 .lr.ph224.i.i:                                    ; preds = %.loopexit193.i.i
-  %382 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv264.i.i
-  %wide.trip.count262.i.i = zext nneg i32 %377 to i64
-  %383 = trunc nuw nsw i64 %indvars.iv264.i.i to i32
+  %382 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv266.i.i
+  %wide.trip.count264.i.i = zext nneg i32 %377 to i64
+  %383 = trunc nuw nsw i64 %indvars.iv266.i.i to i32
   br label %384
 
 384:                                              ; preds = %422, %.lr.ph224.i.i
-  %indvars.iv259.i.i = phi i64 [ 0, %.lr.ph224.i.i ], [ %indvars.iv.next260.i.i, %422 ]
+  %indvars.iv261.i.i = phi i64 [ 0, %.lr.ph224.i.i ], [ %indvars.iv.next262.i.i, %422 ]
   %.3150223.i.i = phi i32 [ %380, %.lr.ph224.i.i ], [ %.4.i.i, %422 ]
   %.1152222.i.i = phi i32 [ %379, %.lr.ph224.i.i ], [ %.2153.i.i, %422 ]
-  %385 = getelementptr inbounds [32 x i32], ptr %22, i64 0, i64 %indvars.iv259.i.i
-  %386 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %indvars.iv259.i.i
+  %385 = getelementptr inbounds [32 x i32], ptr %22, i64 0, i64 %indvars.iv261.i.i
+  %386 = getelementptr inbounds [32 x i32], ptr %21, i64 0, i64 %indvars.iv261.i.i
   %.pn.in.i.i = select i1 %376, ptr %385, ptr %386
   %.pn.i123.i = load i32, ptr %.pn.in.i.i, align 4
   %387 = sub nsw i32 %383, %.pn.i123.i
@@ -1618,9 +1618,9 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
 422:                                              ; preds = %420, %.critedge.i.i, %389, %384
   %.2153.i.i = phi i32 [ %.1152222.i.i, %384 ], [ %.1152222.i.i, %389 ], [ %.1152222.i.i, %.critedge.i.i ], [ %.1142.i.i, %420 ]
   %.4.i.i = phi i32 [ %.3150223.i.i, %384 ], [ %.3150223.i.i, %389 ], [ %.3150223.i.i, %.critedge.i.i ], [ %.pn.i123.i, %420 ]
-  %indvars.iv.next260.i.i = add nuw nsw i64 %indvars.iv259.i.i, 1
-  %exitcond263.not.i.i = icmp eq i64 %indvars.iv.next260.i.i, %wide.trip.count262.i.i
-  br i1 %exitcond263.not.i.i, label %.loopexit.i.i, label %384, !llvm.loop !27
+  %indvars.iv.next262.i.i = add nuw nsw i64 %indvars.iv261.i.i, 1
+  %exitcond265.not.i.i = icmp eq i64 %indvars.iv.next262.i.i, %wide.trip.count264.i.i
+  br i1 %exitcond265.not.i.i, label %.loopexit.i.i, label %384, !llvm.loop !27
 
 .loopexit.i.i:                                    ; preds = %422, %.loopexit193.i.i
   %.0151.i.i = phi i32 [ %379, %.loopexit193.i.i ], [ %.2153.i.i, %422 ]
@@ -1640,11 +1640,11 @@ VP8LDistanceToPlaneCode.exit.thread.i.i:          ; preds = %333, %VP8LDistanceT
   %.1165.i.i = phi i32 [ %.0151189.i.i, %.thread186.i.i ], [ 0, %.loopexit.i.i ]
   %.1161.i.i = phi i32 [ %.2149190.i.i, %.thread186.i.i ], [ 0, %.loopexit.i.i ]
   %427 = load ptr, ptr %25, align 8
-  %428 = getelementptr inbounds i32, ptr %427, i64 %indvars.iv264.i.i
+  %428 = getelementptr inbounds i32, ptr %427, i64 %indvars.iv266.i.i
   store i32 %.sink.i.i, ptr %428, align 4
-  %indvars.iv.next265.i.i = add nuw nsw i64 %indvars.iv264.i.i, 1
-  %exitcond268.not.i.i = icmp eq i64 %indvars.iv.next265.i.i, %wide.trip.count267.i.i
-  br i1 %exitcond268.not.i.i, label %._crit_edge.i.i, label %364, !llvm.loop !28
+  %indvars.iv.next267.i.i = add nuw nsw i64 %indvars.iv266.i.i, 1
+  %exitcond270.not.i.i = icmp eq i64 %indvars.iv.next267.i.i, %wide.trip.count269.i.i
+  br i1 %exitcond270.not.i.i, label %._crit_edge.i.i, label %364, !llvm.loop !28
 
 ._crit_edge.i.i:                                  ; preds = %426, %._crit_edge217.i.i
   %429 = load ptr, ptr %25, align 8

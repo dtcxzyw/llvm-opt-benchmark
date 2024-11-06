@@ -13448,11 +13448,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp16.i.i, label %while.body.i.i.preheader, label %if.then5
 
 while.body.i.i.preheader:                         ; preds = %if.end
-  %sub.ptr.div.i34 = udiv exact i64 %sub.ptr.sub.i, 24
+  %sub.ptr.div.i36 = udiv exact i64 %sub.ptr.sub.i, 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end4.i.i
-  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div.i34, %while.body.i.i.preheader ]
+  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div.i36, %while.body.i.i.preheader ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
   %mul.i.i = mul nuw nsw i64 %storemerge27.i.i, 24
@@ -15994,11 +15994,11 @@ if.end:                                           ; preds = %entry
   br i1 %cmp16.i.i, label %while.body.i.i.preheader, label %if.then5
 
 while.body.i.i.preheader:                         ; preds = %if.end
-  %sub.ptr.div.i34 = udiv exact i64 %sub.ptr.sub.i, 24
+  %sub.ptr.div.i36 = udiv exact i64 %sub.ptr.sub.i, 24
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %if.end4.i.i
-  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div.i34, %while.body.i.i.preheader ]
+  %storemerge27.i.i.in.in = phi i64 [ %storemerge27.i.i, %if.end4.i.i ], [ %sub.ptr.div.i36, %while.body.i.i.preheader ]
   %storemerge27.i.i.in = add nuw nsw i64 %storemerge27.i.i.in.in, 1
   %storemerge27.i.i = lshr i64 %storemerge27.i.i.in, 1
   %mul.i.i = mul nuw nsw i64 %storemerge27.i.i, 24

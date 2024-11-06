@@ -617,7 +617,7 @@ define internal fastcc void @emit_header(ptr nocapture noundef %0, i32 noundef %
   br label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %smax80 = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
+  %smax82 = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %78
@@ -632,16 +632,16 @@ define internal fastcc void @emit_header(ptr nocapture noundef %0, i32 noundef %
   br label %78
 
 78:                                               ; preds = %.lr.ph.split.us, %74
-  %.sink86 = phi i32 [ %77, %74 ], [ %67, %.lr.ph.split.us ]
+  %.sink88 = phi i32 [ %77, %74 ], [ %67, %.lr.ph.split.us ]
   %79 = load ptr, ptr %24, align 8
-  %80 = tail call i32 @putc(i32 noundef %.sink86, ptr noundef %79)
+  %80 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %79)
   %81 = load ptr, ptr %24, align 8
-  %82 = tail call i32 @putc(i32 noundef %.sink86, ptr noundef %81)
+  %82 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %81)
   %83 = load ptr, ptr %24, align 8
-  %84 = tail call i32 @putc(i32 noundef %.sink86, ptr noundef %83)
+  %84 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %83)
   %85 = add nuw nsw i32 %.076.us, 1
-  %exitcond81.not = icmp eq i32 %85, %smax80
-  br i1 %exitcond81.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+  %exitcond83.not = icmp eq i32 %85, %smax82
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %120
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %120 ]
@@ -690,9 +690,9 @@ define internal fastcc void @emit_header(ptr nocapture noundef %0, i32 noundef %
   br label %120
 
 120:                                              ; preds = %115, %99, %112
-  %.sink88 = phi i32 [ %67, %115 ], [ %111, %99 ], [ %96, %112 ]
+  %.sink90 = phi i32 [ %67, %115 ], [ %111, %99 ], [ %96, %112 ]
   %121 = load ptr, ptr %24, align 8
-  %122 = tail call i32 @putc(i32 noundef %.sink88, ptr noundef %121)
+  %122 = tail call i32 @putc(i32 noundef %.sink90, ptr noundef %121)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9

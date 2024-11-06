@@ -1149,18 +1149,18 @@ for.body.preheader.i.i.i:                         ; preds = %while.end.i.i.i
   %19 = trunc i16 %add.ptr34.val.i.i.i to i8
   %cmp48.i.i.i = icmp eq i8 %18, %19
   %inc.i.i.i = zext i1 %cmp48.i.i.i to i32
-  %scevgep314.i.i.i = getelementptr i8, ptr %arrayidx1.i.i.i, i64 1
+  %scevgep315.i.i.i = getelementptr i8, ptr %arrayidx1.i.i.i, i64 1
   %20 = or disjoint i32 %patternEnd.0.i.i.i, %inc.i.i.i
   %umax.i.i.i = tail call i32 @llvm.umax.i32(i32 %20, i32 2)
   %21 = add i32 %umax.i.i.i, -1
   %22 = zext i32 %21 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep314.i.i.i, i8 1, i64 %22, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep315.i.i.i, i8 1, i64 %22, i1 false)
   br label %ZDICT_analyzePos.exit.thread.i.i
 
 do.body.i.i.i:                                    ; preds = %ZDICT_count.exit.i.i.i, %do.body.preheader.i.i.i
-  %indvars.iv311.in.i.i.i = phi i32 [ %16, %do.body.preheader.i.i.i ], [ %indvars.iv311.i.i.i, %ZDICT_count.exit.i.i.i ]
-  %indvars.iv311.i.i.i = add i32 %indvars.iv311.in.i.i.i, 1
-  %idxprom60.i.i.i = zext i32 %indvars.iv311.i.i.i to i64
+  %indvars.iv312.in.i.i.i = phi i32 [ %16, %do.body.preheader.i.i.i ], [ %indvars.iv312.i.i.i, %ZDICT_count.exit.i.i.i ]
+  %indvars.iv312.i.i.i = add i32 %indvars.iv312.in.i.i.i, 1
+  %idxprom60.i.i.i = zext i32 %indvars.iv312.i.i.i to i64
   %arrayidx61.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %idxprom60.i.i.i
   %23 = load i32, ptr %arrayidx61.i.i.i, align 4
   %idx.ext62.i.i.i = sext i32 %23 to i64
@@ -1228,25 +1228,25 @@ ZDICT_count.exit189.i.i.i:                        ; preds = %if.then.i181.i.i.i,
   br i1 %cmp76.i.i.i, label %do.body68.i.i.i, label %do.end83.i.i.i, !llvm.loop !28
 
 do.end83.i.i.i:                                   ; preds = %ZDICT_count.exit189.i.i.i
-  %sub84.i.i.i = sub i32 %indvars.iv311.i.i.i, %start.addr.0.i.i.i
+  %sub84.i.i.i = sub i32 %indvars.iv312.i.i.i, %start.addr.0.i.i.i
   %cmp85.i.i.i = icmp ult i32 %sub84.i.i.i, %spec.store.select.i.i
   br i1 %cmp85.i.i.i, label %for.cond88.preheader.i.i.i, label %if.end99.i.i.i
 
 for.cond88.preheader.i.i.i:                       ; preds = %do.end83.i.i.i
-  %cmp89278.i.i.i = icmp ult i32 %start.addr.0.i.i.i, %indvars.iv311.i.i.i
+  %cmp89278.i.i.i = icmp ult i32 %start.addr.0.i.i.i, %indvars.iv312.i.i.i
   br i1 %cmp89278.i.i.i, label %for.body91.i.i.i, label %ZDICT_analyzePos.exit.thread.i.i
 
 for.body91.i.i.i:                                 ; preds = %for.cond88.preheader.i.i.i, %for.body91.i.i.i
-  %indvars.iv308.i.i.i = phi i64 [ %indvars.iv.next309.i.i.i, %for.body91.i.i.i ], [ %idx.ext70.i.i.i, %for.cond88.preheader.i.i.i ]
-  %arrayidx93.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %indvars.iv308.i.i.i
+  %indvars.iv309.i.i.i = phi i64 [ %indvars.iv.next310.i.i.i, %for.body91.i.i.i ], [ %idx.ext70.i.i.i, %for.cond88.preheader.i.i.i ]
+  %arrayidx93.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %indvars.iv309.i.i.i
   %27 = load i32, ptr %arrayidx93.i.i.i, align 4
   %idxprom94.i.i.i = sext i32 %27 to i64
   %arrayidx95.i.i.i = getelementptr inbounds i8, ptr %call5.i.i, i64 %idxprom94.i.i.i
   store i8 1, ptr %arrayidx95.i.i.i, align 1
-  %indvars.iv.next309.i.i.i = add nuw nsw i64 %indvars.iv308.i.i.i, 1
-  %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next309.i.i.i to i32
-  %exitcond313.not.i.i.i = icmp eq i32 %indvars.iv311.i.i.i, %lftr.wideiv.i.i.i
-  br i1 %exitcond313.not.i.i.i, label %ZDICT_analyzePos.exit.thread.i.i, label %for.body91.i.i.i, !llvm.loop !29
+  %indvars.iv.next310.i.i.i = add nuw nsw i64 %indvars.iv309.i.i.i, 1
+  %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next310.i.i.i to i32
+  %exitcond314.not.i.i.i = icmp eq i32 %indvars.iv312.i.i.i, %lftr.wideiv.i.i.i
+  br i1 %exitcond314.not.i.i.i, label %ZDICT_analyzePos.exit.thread.i.i, label %for.body91.i.i.i, !llvm.loop !29
 
 if.end99.i.i.i:                                   ; preds = %do.end83.i.i.i
   br i1 %cmp101.i.i.i, label %do.body104.i.i.i, label %for.cond138.i.i.i.preheader
@@ -1272,7 +1272,7 @@ for.cond138.i.i.i.preheader:                      ; preds = %do.body104.i.i.i, %
 for.cond138.i.i.i:                                ; preds = %for.cond138.i.i.i.preheader, %if.end174.i.i.i
   %mml.0.i.i.i = phi i32 [ %inc177.i.i.i, %if.end174.i.i.i ], [ 7, %for.cond138.i.i.i.preheader ]
   %refinedStart.0.i.i.i = phi i32 [ %spec.select165.i.i.i, %if.end174.i.i.i ], [ %start.addr.0.i.i.i, %for.cond138.i.i.i.preheader ]
-  %refinedEnd.0.i.i.i = phi i32 [ %add175.i.i.i, %if.end174.i.i.i ], [ %indvars.iv311.i.i.i, %for.cond138.i.i.i.preheader ]
+  %refinedEnd.0.i.i.i = phi i32 [ %add175.i.i.i, %if.end174.i.i.i ], [ %indvars.iv312.i.i.i, %for.cond138.i.i.i.preheader ]
   %cmp140255.i.i.i = icmp ult i32 %refinedStart.0.i.i.i, %refinedEnd.0.i.i.i
   br i1 %cmp140255.i.i.i, label %for.body142.preheader.i.i.i, label %for.end166.i.i.i
 
@@ -1343,9 +1343,9 @@ for.end178.i.i.i:                                 ; preds = %for.end166.i.i.i
   br label %do.body183.i.i.i
 
 do.body183.i.i.i:                                 ; preds = %ZDICT_count.exit210.i.i.i, %for.end178.i.i.i
-  %indvars.iv303.in.i.i.i = phi i32 [ %indvars.iv303.i.i.i, %ZDICT_count.exit210.i.i.i ], [ %refinedStart.0.i.i.i, %for.end178.i.i.i ]
-  %indvars.iv303.i.i.i = add i32 %indvars.iv303.in.i.i.i, 1
-  %idxprom186.i.i.i = zext i32 %indvars.iv303.i.i.i to i64
+  %indvars.iv304.in.i.i.i = phi i32 [ %indvars.iv304.i.i.i, %ZDICT_count.exit210.i.i.i ], [ %refinedStart.0.i.i.i, %for.end178.i.i.i ]
+  %indvars.iv304.i.i.i = add i32 %indvars.iv304.in.i.i.i, 1
+  %idxprom186.i.i.i = zext i32 %indvars.iv304.i.i.i to i64
   %arrayidx187.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i, i64 %idxprom186.i.i.i
   %39 = load i32, ptr %arrayidx187.i.i.i, align 4
   %idx.ext188.i.i.i = sext i32 %39 to i64
@@ -1515,7 +1515,7 @@ do.body302.i.i.i:                                 ; preds = %for.body289.i.i.i, 
 
 do.body302.do.end319_crit_edge.i.i.i:             ; preds = %do.body302.i.i.i
   %arrayidx324.phi.trans.insert.i.i.i = getelementptr inbounds [64 x i32], ptr %savings.i.i.i, i64 0, i64 %conv268.i.i.i
-  %.pre319.i.i.i = load i32, ptr %arrayidx324.phi.trans.insert.i.i.i, align 4
+  %.pre320.i.i.i = load i32, ptr %arrayidx324.phi.trans.insert.i.i.i, align 4
   br label %do.end319.i.i.i
 
 do.body306.i.i.i:                                 ; preds = %do.body302.i.i.i
@@ -1531,8 +1531,8 @@ do.body306.i.i.i:                                 ; preds = %do.body302.i.i.i
   br label %do.end319.i.i.i
 
 do.end319.i.i.i:                                  ; preds = %do.body306.i.i.i, %do.body302.do.end319_crit_edge.i.i.i
-  %60 = phi i32 [ %.pre319.i.i.i, %do.body302.do.end319_crit_edge.i.i.i ], [ %58, %do.body306.i.i.i ]
-  %cmp328276.i.i.i = icmp ult i32 %start.addr.2.lcssa.i.i.i, %indvars.iv303.i.i.i
+  %60 = phi i32 [ %.pre320.i.i.i, %do.body302.do.end319_crit_edge.i.i.i ], [ %58, %do.body306.i.i.i ]
+  %cmp328276.i.i.i = icmp ult i32 %start.addr.2.lcssa.i.i.i, %indvars.iv304.i.i.i
   br i1 %cmp328276.i.i.i, label %for.body330.preheader.i.i.i, label %ZDICT_analyzePos.exit.i.i
 
 for.body330.preheader.i.i.i:                      ; preds = %do.end319.i.i.i
@@ -1594,8 +1594,8 @@ for.body355.preheader.i.i.i:                      ; preds = %if.end350.i.i.i
 
 for.inc361.i.i.i:                                 ; preds = %for.body355.preheader.i.i.i, %if.end350.i.i.i
   %indvars.iv.next301.i.i.i = add nuw nsw i64 %indvars.iv300.i.i.i, 1
-  %exitcond306.not.i.i.i = icmp eq i64 %indvars.iv.next301.i.i.i, %idxprom186.i.i.i
-  br i1 %exitcond306.not.i.i.i, label %ZDICT_analyzePos.exit.i.i, label %for.body330.i.i.i, !llvm.loop !37
+  %exitcond307.not.i.i.i = icmp eq i64 %indvars.iv.next301.i.i.i, %idxprom186.i.i.i
+  br i1 %exitcond307.not.i.i.i, label %ZDICT_analyzePos.exit.i.i, label %for.body330.i.i.i, !llvm.loop !37
 
 ZDICT_analyzePos.exit.thread.i.i:                 ; preds = %for.body91.i.i.i, %while.end278.i.i.i, %for.cond88.preheader.i.i.i, %for.body.preheader.i.i.i, %while.end.i.i.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %lengthList.i.i.i)

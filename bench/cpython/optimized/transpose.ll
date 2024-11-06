@@ -233,8 +233,8 @@ for.body20:                                       ; preds = %squaretrans.exit, %
   %add.ptr22 = getelementptr i64, ptr %from.1121, i64 %b.0
   %add.ptr23 = getelementptr i64, ptr %to.1120, i64 %size
   %inc25 = add nuw nsw i64 %i.1122, 1
-  %exitcond130.not = icmp eq i64 %inc25, %b.0
-  br i1 %exitcond130.not, label %for.inc67, label %for.body20, !llvm.loop !11
+  %exitcond135.not = icmp eq i64 %inc25, %b.0
+  br i1 %exitcond135.not, label %for.inc67, label %for.body20, !llvm.loop !11
 
 for.body33.preheader:                             ; preds = %squaretrans.exit
   %mul27 = mul i64 %c.0123, %size
@@ -249,8 +249,8 @@ for.body33:                                       ; preds = %for.body33.preheade
   %add.ptr35 = getelementptr i64, ptr %from.2109, i64 %size
   %add.ptr36 = getelementptr i64, ptr %to.2108, i64 %b.0
   %inc38 = add nuw nsw i64 %i.2110, 1
-  %exitcond127.not = icmp eq i64 %inc38, %b.0
-  br i1 %exitcond127.not, label %for.body.i80, label %for.body33, !llvm.loop !12
+  %exitcond129.not = icmp eq i64 %inc38, %b.0
+  br i1 %exitcond129.not, label %for.body.i80, label %for.body33, !llvm.loop !12
 
 for.cond.loopexit.i84:                            ; preds = %for.body7.i91, %for.body.i80
   %exitcond26.not.i85 = icmp eq i64 %add.i82, %b.0
@@ -293,8 +293,8 @@ for.body47:                                       ; preds = %for.cond.loopexit.i
   %add.ptr49 = getelementptr i64, ptr %from.3113, i64 %b.0
   %add.ptr50 = getelementptr i64, ptr %to.3112, i64 %size
   %inc52 = add nuw nsw i64 %i.3114, 1
-  %exitcond128.not = icmp eq i64 %inc52, %b.0
-  br i1 %exitcond128.not, label %for.body60, label %for.body47, !llvm.loop !13
+  %exitcond131.not = icmp eq i64 %inc52, %b.0
+  br i1 %exitcond131.not, label %for.body60, label %for.body47, !llvm.loop !13
 
 for.body60:                                       ; preds = %for.body47, %for.body60
   %i.4118 = phi i64 [ %inc65, %for.body60 ], [ 0, %for.body47 ]
@@ -304,8 +304,8 @@ for.body60:                                       ; preds = %for.body47, %for.bo
   %add.ptr62 = getelementptr i64, ptr %from.4117, i64 %b.0
   %add.ptr63 = getelementptr i64, ptr %to.4116, i64 %size
   %inc65 = add nuw nsw i64 %i.4118, 1
-  %exitcond129.not = icmp eq i64 %inc65, %b.0
-  br i1 %exitcond129.not, label %for.inc67, label %for.body60, !llvm.loop !14
+  %exitcond133.not = icmp eq i64 %inc65, %b.0
+  br i1 %exitcond133.not, label %for.inc67, label %for.body60, !llvm.loop !14
 
 for.inc67:                                        ; preds = %for.body60, %for.body20, %for.body4
   %add = add i64 %c.0123, %b.0

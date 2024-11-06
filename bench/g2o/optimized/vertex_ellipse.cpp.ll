@@ -5746,9 +5746,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %93 = getelementptr inbounds i8, ptr %13, i64 32
   %94 = getelementptr inbounds i8, ptr %13, i64 48
   %95 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %smin654 = tail call i64 @llvm.smin.i64(i64 %26, i64 %24)
-  %smin655 = tail call i64 @llvm.smin.i64(i64 %smin654, i64 %2)
-  %smin656 = tail call i64 @llvm.smin.i64(i64 %smin655, i64 %0)
+  %smin655 = tail call i64 @llvm.smin.i64(i64 %26, i64 %24)
+  %smin656 = tail call i64 @llvm.smin.i64(i64 %smin655, i64 %2)
+  %smin657 = tail call i64 @llvm.smin.i64(i64 %smin656, i64 %0)
   br label %96
 
 96:                                               ; preds = %.lr.ph608, %472
@@ -5808,16 +5808,16 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   br label %110
 
 110:                                              ; preds = %.lr.ph565, %335
-  %indvar650 = phi i64 [ 0, %.lr.ph565 ], [ %indvar.next651, %335 ]
+  %indvar651 = phi i64 [ 0, %.lr.ph565 ], [ %indvar.next652, %335 ]
   %indvars.iv = phi i64 [ %.0237, %.lr.ph565 ], [ %indvars.iv.next, %335 ]
   %.0238564 = phi i64 [ 0, %.lr.ph565 ], [ %336, %335 ]
-  %smin657 = call i64 @llvm.smin.i64(i64 %smin656, i64 %indvars.iv)
-  %smin658 = call i64 @llvm.smin.i64(i64 %smin657, i64 16)
-  %111 = mul i64 %.sroa.speculated434, %indvar650
+  %smin658 = call i64 @llvm.smin.i64(i64 %smin657, i64 %indvars.iv)
+  %smin659 = call i64 @llvm.smin.i64(i64 %smin658, i64 16)
+  %111 = mul i64 %.sroa.speculated434, %indvar651
   %112 = sub i64 %.0237, %111
-  %smin652 = call i64 @llvm.smin.i64(i64 %smin656, i64 %112)
-  %smin653 = call i64 @llvm.smin.i64(i64 %smin652, i64 16)
-  %113 = shl nuw i64 %smin653, 2
+  %smin653 = call i64 @llvm.smin.i64(i64 %smin657, i64 %112)
+  %smin654 = call i64 @llvm.smin.i64(i64 %smin653, i64 16)
+  %113 = shl nuw i64 %smin654, 2
   %114 = sub nsw i64 %.0237, %.0238564
   %.sroa.speculated402 = call i64 @llvm.smin.i64(i64 %.sroa.speculated434, i64 %114)
   %115 = add nsw i64 %.0238564, %.0234606
@@ -5853,7 +5853,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
 
 ._crit_edge:                                      ; preds = %120, %.preheader
   %127 = add nuw nsw i64 %.0236503, 1
-  %exitcond645.not = icmp eq i64 %127, %smin658
+  %exitcond645.not = icmp eq i64 %127, %smin659
   br i1 %exitcond645.not, label %._crit_edge504, label %.preheader, !llvm.loop !217
 
 ._crit_edge504:                                   ; preds = %._crit_edge, %110
@@ -5876,11 +5876,11 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %.2148221.us.i = phi i64 [ %137, %.preheader.us.i ], [ %.1147.lcssa.i, %.preheader160.i ]
   %133 = add i64 %.1147.lcssa.i, %indvar
   %134 = shl i64 %133, 6
-  %scevgep646 = getelementptr i8, ptr %16, i64 %134
+  %scevgep647 = getelementptr i8, ptr %16, i64 %134
   %135 = shl i64 %.8222.us.i, 2
   %scevgep = getelementptr i8, ptr %46, i64 %135
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 16 %scevgep646, i64 %113, i1 false)
-  %136 = add i64 %smin658, %.8222.us.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 16 %scevgep647, i64 %113, i1 false)
+  %136 = add i64 %smin659, %.8222.us.i
   %137 = add nsw i64 %.2148221.us.i, 1
   %exitcond249.not.i = icmp eq i64 %137, %.sroa.speculated402
   %indvar.next = add nuw i64 %indvar, 1
@@ -6356,7 +6356,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %336 = add nsw i64 %.0238564, %.sroa.speculated434
   %337 = icmp slt i64 %336, %.0237
   %indvars.iv.next = sub i64 %indvars.iv, %.sroa.speculated434
-  %indvar.next651 = add i64 %indvar650, 1
+  %indvar.next652 = add i64 %indvar651, 1
   br i1 %337, label %110, label %.loopexit484, !llvm.loop !229
 
 .loopexit484:                                     ; preds = %335, %106
@@ -8754,9 +8754,9 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %94 = getelementptr inbounds i8, ptr %13, i64 32
   %95 = getelementptr inbounds i8, ptr %13, i64 48
   %96 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %smin666 = tail call i64 @llvm.smin.i64(i64 %26, i64 %24)
-  %smin667 = tail call i64 @llvm.smin.i64(i64 %smin666, i64 %2)
-  %smin668 = tail call i64 @llvm.smin.i64(i64 %smin667, i64 %0)
+  %smin667 = tail call i64 @llvm.smin.i64(i64 %26, i64 %24)
+  %smin668 = tail call i64 @llvm.smin.i64(i64 %smin667, i64 %2)
+  %smin669 = tail call i64 @llvm.smin.i64(i64 %smin668, i64 %0)
   br label %97
 
 97:                                               ; preds = %.lr.ph620, %477
@@ -8816,16 +8816,16 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   br label %111
 
 111:                                              ; preds = %.lr.ph577, %340
-  %indvar662 = phi i64 [ 0, %.lr.ph577 ], [ %indvar.next663, %340 ]
+  %indvar663 = phi i64 [ 0, %.lr.ph577 ], [ %indvar.next664, %340 ]
   %indvars.iv = phi i64 [ %.0246, %.lr.ph577 ], [ %indvars.iv.next, %340 ]
   %.0247576 = phi i64 [ 0, %.lr.ph577 ], [ %341, %340 ]
-  %smin669 = call i64 @llvm.smin.i64(i64 %smin668, i64 %indvars.iv)
-  %smin670 = call i64 @llvm.smin.i64(i64 %smin669, i64 16)
-  %112 = mul i64 %.sroa.speculated445, %indvar662
+  %smin670 = call i64 @llvm.smin.i64(i64 %smin669, i64 %indvars.iv)
+  %smin671 = call i64 @llvm.smin.i64(i64 %smin670, i64 16)
+  %112 = mul i64 %.sroa.speculated445, %indvar663
   %113 = sub i64 %.0246, %112
-  %smin664 = call i64 @llvm.smin.i64(i64 %smin668, i64 %113)
-  %smin665 = call i64 @llvm.smin.i64(i64 %smin664, i64 16)
-  %114 = shl nuw i64 %smin665, 2
+  %smin665 = call i64 @llvm.smin.i64(i64 %smin669, i64 %113)
+  %smin666 = call i64 @llvm.smin.i64(i64 %smin665, i64 16)
+  %114 = shl nuw i64 %smin666, 2
   %115 = sub nsw i64 %.0246, %.0247576
   %.sroa.speculated413 = call i64 @llvm.smin.i64(i64 %.sroa.speculated445, i64 %115)
   %116 = add nsw i64 %.0247576, %.0243618
@@ -8864,7 +8864,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
 
 ._crit_edge:                                      ; preds = %125, %.lr.ph515
   %132 = add nuw nsw i64 %.0245513, 1
-  %exitcond657.not = icmp eq i64 %132, %smin670
+  %exitcond657.not = icmp eq i64 %132, %smin671
   br i1 %exitcond657.not, label %._crit_edge516, label %.lr.ph515, !llvm.loop !345
 
 ._crit_edge516:                                   ; preds = %._crit_edge, %111
@@ -8887,11 +8887,11 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %.2148221.us.i = phi i64 [ %142, %.preheader.us.i ], [ %.1147.lcssa.i, %.preheader160.i ]
   %138 = add i64 %.1147.lcssa.i, %indvar
   %139 = shl i64 %138, 6
-  %scevgep658 = getelementptr i8, ptr %16, i64 %139
+  %scevgep659 = getelementptr i8, ptr %16, i64 %139
   %140 = shl i64 %.8222.us.i, 2
   %scevgep = getelementptr i8, ptr %46, i64 %140
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 16 %scevgep658, i64 %114, i1 false)
-  %141 = add i64 %smin670, %.8222.us.i
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %scevgep, ptr align 16 %scevgep659, i64 %114, i1 false)
+  %141 = add i64 %smin671, %.8222.us.i
   %142 = add nsw i64 %.2148221.us.i, 1
   %exitcond249.not.i = icmp eq i64 %142, %.sroa.speculated413
   %indvar.next = add nuw i64 %indvar, 1
@@ -9367,7 +9367,7 @@ _ZN5Eigen8internal14aligned_mallocEm.exit:        ; preds = %40, %32, %37
   %341 = add nsw i64 %.0247576, %.sroa.speculated445
   %342 = icmp slt i64 %341, %.0246
   %indvars.iv.next = sub i64 %indvars.iv, %.sroa.speculated445
-  %indvar.next663 = add i64 %indvar662, 1
+  %indvar.next664 = add i64 %indvar663, 1
   br i1 %342, label %111, label %.loopexit494, !llvm.loop !346
 
 .loopexit494:                                     ; preds = %340, %107

@@ -25,7 +25,7 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
 
 .preheader480:                                    ; preds = %512, %4
   %.0336.lcssa = phi i64 [ %1, %4 ], [ %515, %512 ]
-  %.0.lcssa = phi ptr [ %0, %4 ], [ %.fr673, %512 ]
+  %.0.lcssa = phi ptr [ %0, %4 ], [ %.fr685, %512 ]
   %or.cond.lcssa = phi i1 [ %or.cond541, %4 ], [ %or.cond, %512 ]
   %.lcssa = phi i32 [ %11, %4 ], [ %519, %512 ]
   %15 = mul i64 %.0336.lcssa, %2
@@ -51,7 +51,7 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   br i1 %21, label %.lr.ph577.us.us.preheader, label %.critedge.us.us
 
 .lr.ph577.us.us.preheader:                        ; preds = %.preheader479.us.us
-  %.pre671 = load i32, ptr %.0351583.us.us, align 4
+  %.pre683 = load i32, ptr %.0351583.us.us, align 4
   br label %.lr.ph577.us.us
 
 .critedge.us.us:                                  ; preds = %swapfunc.exit.us.us.us.us, %.lr.ph577.us.us, %.preheader479.us.us
@@ -60,7 +60,7 @@ define void @cli_qsort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nound
   br i1 %22, label %.preheader479.us.us, label %.loopexit
 
 .lr.ph577.us.us:                                  ; preds = %.lr.ph577.us.us.preheader, %swapfunc.exit.us.us.us.us
-  %23 = phi i32 [ %31, %swapfunc.exit.us.us.us.us ], [ %.pre671, %.lr.ph577.us.us.preheader ]
+  %23 = phi i32 [ %31, %swapfunc.exit.us.us.us.us ], [ %.pre683, %.lr.ph577.us.us.preheader ]
   %.0348576.us.us.us.us = phi ptr [ %24, %swapfunc.exit.us.us.us.us ], [ %.0351583.us.us, %.lr.ph577.us.us.preheader ]
   %24 = getelementptr inbounds i8, ptr %.0348576.us.us.us.us, i64 %5
   %25 = load i32, ptr %24, align 4
@@ -125,12 +125,12 @@ swapfunc.exit.us.us590:                           ; preds = %.lr.ph577.us
   %44 = load i32, ptr %.0348576.us579.us.us.us, align 4
   %45 = sub i32 %43, %44
   %46 = icmp sgt i32 %45, 0
-  br i1 %46, label %.preheader719, label %.critedge.us596.us
+  br i1 %46, label %.preheader731, label %.critedge.us596.us
 
-.preheader719:                                    ; preds = %.lr.ph577.us598.us, %.preheader719
-  %.022.i.us.us.us.us = phi ptr [ %50, %.preheader719 ], [ %42, %.lr.ph577.us598.us ]
-  %.021.i.us.us.us.us = phi ptr [ %49, %.preheader719 ], [ %.0348576.us579.us.us.us, %.lr.ph577.us598.us ]
-  %.0.i.us.us.us.us = phi i64 [ %51, %.preheader719 ], [ %20, %.lr.ph577.us598.us ]
+.preheader731:                                    ; preds = %.lr.ph577.us598.us, %.preheader731
+  %.022.i.us.us.us.us = phi ptr [ %50, %.preheader731 ], [ %42, %.lr.ph577.us598.us ]
+  %.021.i.us.us.us.us = phi ptr [ %49, %.preheader731 ], [ %.0348576.us579.us.us.us, %.lr.ph577.us598.us ]
+  %.0.i.us.us.us.us = phi i64 [ %51, %.preheader731 ], [ %20, %.lr.ph577.us598.us ]
   %47 = load i64, ptr %.021.i.us.us.us.us, align 8
   %48 = load i64, ptr %.022.i.us.us.us.us, align 8
   %49 = getelementptr inbounds i8, ptr %.021.i.us.us.us.us, i64 8
@@ -139,9 +139,9 @@ swapfunc.exit.us.us590:                           ; preds = %.lr.ph577.us
   store i64 %47, ptr %.022.i.us.us.us.us, align 8
   %51 = add nsw i64 %.0.i.us.us.us.us, -1
   %52 = icmp ugt i64 %.0.i.us.us.us.us, 1
-  br i1 %52, label %.preheader719, label %swapfunc.exit.loopexit.us.us.us.us
+  br i1 %52, label %.preheader731, label %swapfunc.exit.loopexit.us.us.us.us
 
-swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader719
+swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader731
   %53 = icmp ugt ptr %42, %.0.lcssa
   br i1 %53, label %.lr.ph577.us598.us, label %.critedge.us596.us
 
@@ -160,12 +160,12 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader719
   %56 = getelementptr inbounds i8, ptr %.0348576.us579.us, i64 %5
   %57 = tail call i32 %3(ptr noundef nonnull %56, ptr noundef nonnull %.0348576.us579.us) #2
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.preheader721, label %.critedge.us596
+  br i1 %58, label %.preheader733, label %.critedge.us596
 
-.preheader721:                                    ; preds = %.lr.ph577.us598, %.preheader721
-  %.022.i.us.us = phi ptr [ %62, %.preheader721 ], [ %56, %.lr.ph577.us598 ]
-  %.021.i.us.us = phi ptr [ %61, %.preheader721 ], [ %.0348576.us579.us, %.lr.ph577.us598 ]
-  %.0.i.us.us = phi i64 [ %63, %.preheader721 ], [ %20, %.lr.ph577.us598 ]
+.preheader733:                                    ; preds = %.lr.ph577.us598, %.preheader733
+  %.022.i.us.us = phi ptr [ %62, %.preheader733 ], [ %56, %.lr.ph577.us598 ]
+  %.021.i.us.us = phi ptr [ %61, %.preheader733 ], [ %.0348576.us579.us, %.lr.ph577.us598 ]
+  %.0.i.us.us = phi i64 [ %63, %.preheader733 ], [ %20, %.lr.ph577.us598 ]
   %59 = load i64, ptr %.021.i.us.us, align 8
   %60 = load i64, ptr %.022.i.us.us, align 8
   %61 = getelementptr inbounds i8, ptr %.021.i.us.us, i64 8
@@ -174,9 +174,9 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader719
   store i64 %59, ptr %.022.i.us.us, align 8
   %63 = add nsw i64 %.0.i.us.us, -1
   %64 = icmp ugt i64 %.0.i.us.us, 1
-  br i1 %64, label %.preheader721, label %swapfunc.exit.loopexit.us.us
+  br i1 %64, label %.preheader733, label %swapfunc.exit.loopexit.us.us
 
-swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader721
+swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader733
   %65 = icmp ugt ptr %56, %.0.lcssa
   br i1 %65, label %.lr.ph577.us598, label %.critedge.us596
 
@@ -259,7 +259,7 @@ swapfunc.exit.loopexit478:                        ; preds = %.preheader
   %93 = phi i32 [ %11, %.lr.ph546 ], [ %519, %512 ]
   %or.cond544 = phi i1 [ %or.cond541, %.lr.ph546 ], [ %or.cond, %512 ]
   %94 = phi i64 [ %8, %.lr.ph546 ], [ %516, %512 ]
-  %.0543 = phi ptr [ %0, %.lr.ph546 ], [ %.fr673, %512 ]
+  %.0543 = phi ptr [ %0, %.lr.ph546 ], [ %.fr685, %512 ]
   %.0336542 = phi i64 [ %1, %.lr.ph546 ], [ %515, %512 ]
   %95 = lshr i64 %.0336542, 1
   %96 = mul i64 %95, %2
@@ -486,7 +486,7 @@ med3.exit402:                                     ; preds = %98
 
 med3.exit402.med3.exit402.thread_crit_edge:       ; preds = %med3.exit402
   %.pre = load i32, ptr %.0543, align 4
-  %.pre669 = load i32, ptr %97, align 4
+  %.pre681 = load i32, ptr %97, align 4
   br label %med3.exit402.thread
 
 med3.exit402.thread463:                           ; preds = %201, %203, %207, %209, %med3.exit402
@@ -519,7 +519,7 @@ med3.exit402.thread463:                           ; preds = %201, %203, %207, %2
   br label %med3.exit403
 
 med3.exit402.thread:                              ; preds = %med3.exit402.med3.exit402.thread_crit_edge, %233, %231, %228, %226
-  %251 = phi i32 [ %.pre669, %med3.exit402.med3.exit402.thread_crit_edge ], [ %214, %226 ], [ %214, %228 ], [ %214, %231 ], [ %214, %233 ]
+  %251 = phi i32 [ %.pre681, %med3.exit402.med3.exit402.thread_crit_edge ], [ %214, %226 ], [ %214, %228 ], [ %214, %231 ], [ %214, %233 ]
   %252 = phi i32 [ %.pre, %med3.exit402.med3.exit402.thread_crit_edge ], [ %172, %226 ], [ %172, %228 ], [ %172, %231 ], [ %172, %233 ]
   %.1349460 = phi ptr [ %.0543, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph, %226 ], [ %.ph, %228 ], [ %.ph, %231 ], [ %.ph, %233 ]
   %.2353459 = phi ptr [ %97, %med3.exit402.med3.exit402.thread_crit_edge ], [ %.ph453, %226 ], [ %.ph453, %228 ], [ %.ph453, %231 ], [ %.ph453, %233 ]
@@ -841,7 +841,7 @@ swapfunc.exit431:                                 ; preds = %.preheader490, %.pr
   br i1 %375, label %.lr.ph552.us.us.preheader, label %.critedge6.us.us
 
 .lr.ph552.us.us.preheader:                        ; preds = %.preheader483.us.us
-  %.pre670 = load i32, ptr %.3354557.us.us, align 4
+  %.pre682 = load i32, ptr %.3354557.us.us, align 4
   br label %.lr.ph552.us.us
 
 .critedge6.us.us:                                 ; preds = %swapfunc.exit438.us.us.us.us, %.lr.ph552.us.us, %.preheader483.us.us
@@ -850,7 +850,7 @@ swapfunc.exit431:                                 ; preds = %.preheader490, %.pr
   br i1 %377, label %.preheader483.us.us, label %.loopexit
 
 .lr.ph552.us.us:                                  ; preds = %.lr.ph552.us.us.preheader, %swapfunc.exit438.us.us.us.us
-  %378 = phi i32 [ %386, %swapfunc.exit438.us.us.us.us ], [ %.pre670, %.lr.ph552.us.us.preheader ]
+  %378 = phi i32 [ %386, %swapfunc.exit438.us.us.us.us ], [ %.pre682, %.lr.ph552.us.us.preheader ]
   %.2350551.us.us.us.us = phi ptr [ %379, %swapfunc.exit438.us.us.us.us ], [ %.3354557.us.us, %.lr.ph552.us.us.preheader ]
   %379 = getelementptr inbounds i8, ptr %.2350551.us.us.us.us, i64 %5
   %380 = load i32, ptr %379, align 4
@@ -915,12 +915,12 @@ swapfunc.exit438.us.us564:                        ; preds = %.lr.ph552.us
   %401 = load i32, ptr %.2350551.us554.us.us.us, align 4
   %402 = sub i32 %400, %401
   %403 = icmp sgt i32 %402, 0
-  br i1 %403, label %.preheader727, label %.critedge6.us570.us
+  br i1 %403, label %.preheader739, label %.critedge6.us570.us
 
-.preheader727:                                    ; preds = %.lr.ph552.us571.us, %.preheader727
-  %.022.i435.us.us.us.us = phi ptr [ %407, %.preheader727 ], [ %399, %.lr.ph552.us571.us ]
-  %.021.i436.us.us.us.us = phi ptr [ %406, %.preheader727 ], [ %.2350551.us554.us.us.us, %.lr.ph552.us571.us ]
-  %.0.i437.us.us.us.us = phi i64 [ %408, %.preheader727 ], [ %14, %.lr.ph552.us571.us ]
+.preheader739:                                    ; preds = %.lr.ph552.us571.us, %.preheader739
+  %.022.i435.us.us.us.us = phi ptr [ %407, %.preheader739 ], [ %399, %.lr.ph552.us571.us ]
+  %.021.i436.us.us.us.us = phi ptr [ %406, %.preheader739 ], [ %.2350551.us554.us.us.us, %.lr.ph552.us571.us ]
+  %.0.i437.us.us.us.us = phi i64 [ %408, %.preheader739 ], [ %14, %.lr.ph552.us571.us ]
   %404 = load i64, ptr %.021.i436.us.us.us.us, align 8
   %405 = load i64, ptr %.022.i435.us.us.us.us, align 8
   %406 = getelementptr inbounds i8, ptr %.021.i436.us.us.us.us, i64 8
@@ -929,9 +929,9 @@ swapfunc.exit438.us.us564:                        ; preds = %.lr.ph552.us
   store i64 %404, ptr %.022.i435.us.us.us.us, align 8
   %408 = add nsw i64 %.0.i437.us.us.us.us, -1
   %409 = icmp ugt i64 %.0.i437.us.us.us.us, 1
-  br i1 %409, label %.preheader727, label %swapfunc.exit438.loopexit.us.us.us.us
+  br i1 %409, label %.preheader739, label %swapfunc.exit438.loopexit.us.us.us.us
 
-swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader727
+swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader739
   %410 = icmp ugt ptr %399, %.0543
   br i1 %410, label %.lr.ph552.us571.us, label %.critedge6.us570.us
 
@@ -950,12 +950,12 @@ swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader727
   %414 = getelementptr inbounds i8, ptr %.2350551.us554.us, i64 %5
   %415 = tail call i32 %3(ptr noundef nonnull %414, ptr noundef nonnull %.2350551.us554.us) #2
   %416 = icmp sgt i32 %415, 0
-  br i1 %416, label %.preheader729, label %.critedge6.us570
+  br i1 %416, label %.preheader741, label %.critedge6.us570
 
-.preheader729:                                    ; preds = %.lr.ph552.us571, %.preheader729
-  %.022.i435.us.us = phi ptr [ %420, %.preheader729 ], [ %414, %.lr.ph552.us571 ]
-  %.021.i436.us.us = phi ptr [ %419, %.preheader729 ], [ %.2350551.us554.us, %.lr.ph552.us571 ]
-  %.0.i437.us.us = phi i64 [ %421, %.preheader729 ], [ %14, %.lr.ph552.us571 ]
+.preheader741:                                    ; preds = %.lr.ph552.us571, %.preheader741
+  %.022.i435.us.us = phi ptr [ %420, %.preheader741 ], [ %414, %.lr.ph552.us571 ]
+  %.021.i436.us.us = phi ptr [ %419, %.preheader741 ], [ %.2350551.us554.us, %.lr.ph552.us571 ]
+  %.0.i437.us.us = phi i64 [ %421, %.preheader741 ], [ %14, %.lr.ph552.us571 ]
   %417 = load i64, ptr %.021.i436.us.us, align 8
   %418 = load i64, ptr %.022.i435.us.us, align 8
   %419 = getelementptr inbounds i8, ptr %.021.i436.us.us, i64 8
@@ -964,9 +964,9 @@ swapfunc.exit438.loopexit.us.us.us.us:            ; preds = %.preheader727
   store i64 %417, ptr %.022.i435.us.us, align 8
   %421 = add nsw i64 %.0.i437.us.us, -1
   %422 = icmp ugt i64 %.0.i437.us.us, 1
-  br i1 %422, label %.preheader729, label %swapfunc.exit438.loopexit.us.us
+  br i1 %422, label %.preheader741, label %swapfunc.exit438.loopexit.us.us
 
-swapfunc.exit438.loopexit.us.us:                  ; preds = %.preheader729
+swapfunc.exit438.loopexit.us.us:                  ; preds = %.preheader741
   %423 = icmp ugt ptr %414, %.0543
   br i1 %423, label %.lr.ph552.us571, label %.critedge6.us570
 
@@ -1163,9 +1163,9 @@ swapfunc.exit452:                                 ; preds = %.preheader492, %492
 512:                                              ; preds = %509
   %513 = sub nsw i64 0, %510
   %514 = getelementptr inbounds i8, ptr %373, i64 %513
-  %.fr673 = freeze ptr %514
+  %.fr685 = freeze ptr %514
   %515 = udiv i64 %510, %2
-  %516 = ptrtoint ptr %.fr673 to i64
+  %516 = ptrtoint ptr %.fr685 to i64
   %517 = or i64 %2, %516
   %518 = and i64 %517, 7
   %or.cond = icmp eq i64 %518, 0
@@ -1199,7 +1199,7 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
 
 .preheader489:                                    ; preds = %513, %5
   %.0345.lcssa = phi i64 [ %1, %5 ], [ %516, %513 ]
-  %.0.lcssa = phi ptr [ %0, %5 ], [ %.fr682, %513 ]
+  %.0.lcssa = phi ptr [ %0, %5 ], [ %.fr694, %513 ]
   %or.cond.lcssa = phi i1 [ %or.cond550, %5 ], [ %or.cond, %513 ]
   %.lcssa = phi i32 [ %12, %5 ], [ %520, %513 ]
   %16 = mul i64 %.0345.lcssa, %2
@@ -1225,7 +1225,7 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
   br i1 %22, label %.lr.ph586.us.us.preheader, label %.critedge.us.us
 
 .lr.ph586.us.us.preheader:                        ; preds = %.preheader488.us.us
-  %.pre680 = load i32, ptr %.0360592.us.us, align 4
+  %.pre692 = load i32, ptr %.0360592.us.us, align 4
   br label %.lr.ph586.us.us
 
 .critedge.us.us:                                  ; preds = %swapfunc.exit.us.us.us.us, %.lr.ph586.us.us, %.preheader488.us.us
@@ -1234,7 +1234,7 @@ define void @cli_qsort_r(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nou
   br i1 %23, label %.preheader488.us.us, label %.loopexit
 
 .lr.ph586.us.us:                                  ; preds = %.lr.ph586.us.us.preheader, %swapfunc.exit.us.us.us.us
-  %24 = phi i32 [ %32, %swapfunc.exit.us.us.us.us ], [ %.pre680, %.lr.ph586.us.us.preheader ]
+  %24 = phi i32 [ %32, %swapfunc.exit.us.us.us.us ], [ %.pre692, %.lr.ph586.us.us.preheader ]
   %.0357585.us.us.us.us = phi ptr [ %25, %swapfunc.exit.us.us.us.us ], [ %.0360592.us.us, %.lr.ph586.us.us.preheader ]
   %25 = getelementptr inbounds i8, ptr %.0357585.us.us.us.us, i64 %6
   %26 = load i32, ptr %25, align 4
@@ -1299,12 +1299,12 @@ swapfunc.exit.us.us599:                           ; preds = %.lr.ph586.us
   %45 = load i32, ptr %.0357585.us588.us.us.us, align 4
   %46 = sub i32 %44, %45
   %47 = icmp sgt i32 %46, 0
-  br i1 %47, label %.preheader728, label %.critedge.us605.us
+  br i1 %47, label %.preheader740, label %.critedge.us605.us
 
-.preheader728:                                    ; preds = %.lr.ph586.us607.us, %.preheader728
-  %.022.i.us.us.us.us = phi ptr [ %51, %.preheader728 ], [ %43, %.lr.ph586.us607.us ]
-  %.021.i.us.us.us.us = phi ptr [ %50, %.preheader728 ], [ %.0357585.us588.us.us.us, %.lr.ph586.us607.us ]
-  %.0.i.us.us.us.us = phi i64 [ %52, %.preheader728 ], [ %21, %.lr.ph586.us607.us ]
+.preheader740:                                    ; preds = %.lr.ph586.us607.us, %.preheader740
+  %.022.i.us.us.us.us = phi ptr [ %51, %.preheader740 ], [ %43, %.lr.ph586.us607.us ]
+  %.021.i.us.us.us.us = phi ptr [ %50, %.preheader740 ], [ %.0357585.us588.us.us.us, %.lr.ph586.us607.us ]
+  %.0.i.us.us.us.us = phi i64 [ %52, %.preheader740 ], [ %21, %.lr.ph586.us607.us ]
   %48 = load i64, ptr %.021.i.us.us.us.us, align 8
   %49 = load i64, ptr %.022.i.us.us.us.us, align 8
   %50 = getelementptr inbounds i8, ptr %.021.i.us.us.us.us, i64 8
@@ -1313,9 +1313,9 @@ swapfunc.exit.us.us599:                           ; preds = %.lr.ph586.us
   store i64 %48, ptr %.022.i.us.us.us.us, align 8
   %52 = add nsw i64 %.0.i.us.us.us.us, -1
   %53 = icmp ugt i64 %.0.i.us.us.us.us, 1
-  br i1 %53, label %.preheader728, label %swapfunc.exit.loopexit.us.us.us.us
+  br i1 %53, label %.preheader740, label %swapfunc.exit.loopexit.us.us.us.us
 
-swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader728
+swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader740
   %54 = icmp ugt ptr %43, %.0.lcssa
   br i1 %54, label %.lr.ph586.us607.us, label %.critedge.us605.us
 
@@ -1334,12 +1334,12 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader728
   %57 = getelementptr inbounds i8, ptr %.0357585.us588.us, i64 %6
   %58 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %57, ptr noundef nonnull %.0357585.us588.us) #2
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.preheader730, label %.critedge.us605
+  br i1 %59, label %.preheader742, label %.critedge.us605
 
-.preheader730:                                    ; preds = %.lr.ph586.us607, %.preheader730
-  %.022.i.us.us = phi ptr [ %63, %.preheader730 ], [ %57, %.lr.ph586.us607 ]
-  %.021.i.us.us = phi ptr [ %62, %.preheader730 ], [ %.0357585.us588.us, %.lr.ph586.us607 ]
-  %.0.i.us.us = phi i64 [ %64, %.preheader730 ], [ %21, %.lr.ph586.us607 ]
+.preheader742:                                    ; preds = %.lr.ph586.us607, %.preheader742
+  %.022.i.us.us = phi ptr [ %63, %.preheader742 ], [ %57, %.lr.ph586.us607 ]
+  %.021.i.us.us = phi ptr [ %62, %.preheader742 ], [ %.0357585.us588.us, %.lr.ph586.us607 ]
+  %.0.i.us.us = phi i64 [ %64, %.preheader742 ], [ %21, %.lr.ph586.us607 ]
   %60 = load i64, ptr %.021.i.us.us, align 8
   %61 = load i64, ptr %.022.i.us.us, align 8
   %62 = getelementptr inbounds i8, ptr %.021.i.us.us, i64 8
@@ -1348,9 +1348,9 @@ swapfunc.exit.loopexit.us.us.us.us:               ; preds = %.preheader728
   store i64 %60, ptr %.022.i.us.us, align 8
   %64 = add nsw i64 %.0.i.us.us, -1
   %65 = icmp ugt i64 %.0.i.us.us, 1
-  br i1 %65, label %.preheader730, label %swapfunc.exit.loopexit.us.us
+  br i1 %65, label %.preheader742, label %swapfunc.exit.loopexit.us.us
 
-swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader730
+swapfunc.exit.loopexit.us.us:                     ; preds = %.preheader742
   %66 = icmp ugt ptr %57, %.0.lcssa
   br i1 %66, label %.lr.ph586.us607, label %.critedge.us605
 
@@ -1433,7 +1433,7 @@ swapfunc.exit.loopexit487:                        ; preds = %.preheader
   %94 = phi i32 [ %12, %.lr.ph555 ], [ %520, %513 ]
   %or.cond553 = phi i1 [ %or.cond550, %.lr.ph555 ], [ %or.cond, %513 ]
   %95 = phi i64 [ %9, %.lr.ph555 ], [ %517, %513 ]
-  %.0552 = phi ptr [ %0, %.lr.ph555 ], [ %.fr682, %513 ]
+  %.0552 = phi ptr [ %0, %.lr.ph555 ], [ %.fr694, %513 ]
   %.0345551 = phi i64 [ %1, %.lr.ph555 ], [ %516, %513 ]
   %96 = lshr i64 %.0345551, 1
   %97 = mul i64 %96, %2
@@ -1660,7 +1660,7 @@ med3_r.exit411:                                   ; preds = %99
 
 med3_r.exit411.med3_r.exit411.thread_crit_edge:   ; preds = %med3_r.exit411
   %.pre = load i32, ptr %.0552, align 4
-  %.pre678 = load i32, ptr %98, align 4
+  %.pre690 = load i32, ptr %98, align 4
   br label %med3_r.exit411.thread
 
 med3_r.exit411.thread472:                         ; preds = %202, %204, %208, %210, %med3_r.exit411
@@ -1693,7 +1693,7 @@ med3_r.exit411.thread472:                         ; preds = %202, %204, %208, %2
   br label %med3_r.exit412
 
 med3_r.exit411.thread:                            ; preds = %med3_r.exit411.med3_r.exit411.thread_crit_edge, %234, %232, %229, %227
-  %252 = phi i32 [ %.pre678, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %215, %227 ], [ %215, %229 ], [ %215, %232 ], [ %215, %234 ]
+  %252 = phi i32 [ %.pre690, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %215, %227 ], [ %215, %229 ], [ %215, %232 ], [ %215, %234 ]
   %253 = phi i32 [ %.pre, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %173, %227 ], [ %173, %229 ], [ %173, %232 ], [ %173, %234 ]
   %.1358469 = phi ptr [ %.0552, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph, %227 ], [ %.ph, %229 ], [ %.ph, %232 ], [ %.ph, %234 ]
   %.2362468 = phi ptr [ %98, %med3_r.exit411.med3_r.exit411.thread_crit_edge ], [ %.ph462, %227 ], [ %.ph462, %229 ], [ %.ph462, %232 ], [ %.ph462, %234 ]
@@ -2015,7 +2015,7 @@ swapfunc.exit440:                                 ; preds = %.preheader499, %.pr
   br i1 %376, label %.lr.ph561.us.us.preheader, label %.critedge6.us.us
 
 .lr.ph561.us.us.preheader:                        ; preds = %.preheader492.us.us
-  %.pre679 = load i32, ptr %.3363566.us.us, align 4
+  %.pre691 = load i32, ptr %.3363566.us.us, align 4
   br label %.lr.ph561.us.us
 
 .critedge6.us.us:                                 ; preds = %swapfunc.exit447.us.us.us.us, %.lr.ph561.us.us, %.preheader492.us.us
@@ -2024,7 +2024,7 @@ swapfunc.exit440:                                 ; preds = %.preheader499, %.pr
   br i1 %378, label %.preheader492.us.us, label %.loopexit
 
 .lr.ph561.us.us:                                  ; preds = %.lr.ph561.us.us.preheader, %swapfunc.exit447.us.us.us.us
-  %379 = phi i32 [ %387, %swapfunc.exit447.us.us.us.us ], [ %.pre679, %.lr.ph561.us.us.preheader ]
+  %379 = phi i32 [ %387, %swapfunc.exit447.us.us.us.us ], [ %.pre691, %.lr.ph561.us.us.preheader ]
   %.2359560.us.us.us.us = phi ptr [ %380, %swapfunc.exit447.us.us.us.us ], [ %.3363566.us.us, %.lr.ph561.us.us.preheader ]
   %380 = getelementptr inbounds i8, ptr %.2359560.us.us.us.us, i64 %6
   %381 = load i32, ptr %380, align 4
@@ -2089,12 +2089,12 @@ swapfunc.exit447.us.us573:                        ; preds = %.lr.ph561.us
   %402 = load i32, ptr %.2359560.us563.us.us.us, align 4
   %403 = sub i32 %401, %402
   %404 = icmp sgt i32 %403, 0
-  br i1 %404, label %.preheader736, label %.critedge6.us579.us
+  br i1 %404, label %.preheader748, label %.critedge6.us579.us
 
-.preheader736:                                    ; preds = %.lr.ph561.us580.us, %.preheader736
-  %.022.i444.us.us.us.us = phi ptr [ %408, %.preheader736 ], [ %400, %.lr.ph561.us580.us ]
-  %.021.i445.us.us.us.us = phi ptr [ %407, %.preheader736 ], [ %.2359560.us563.us.us.us, %.lr.ph561.us580.us ]
-  %.0.i446.us.us.us.us = phi i64 [ %409, %.preheader736 ], [ %15, %.lr.ph561.us580.us ]
+.preheader748:                                    ; preds = %.lr.ph561.us580.us, %.preheader748
+  %.022.i444.us.us.us.us = phi ptr [ %408, %.preheader748 ], [ %400, %.lr.ph561.us580.us ]
+  %.021.i445.us.us.us.us = phi ptr [ %407, %.preheader748 ], [ %.2359560.us563.us.us.us, %.lr.ph561.us580.us ]
+  %.0.i446.us.us.us.us = phi i64 [ %409, %.preheader748 ], [ %15, %.lr.ph561.us580.us ]
   %405 = load i64, ptr %.021.i445.us.us.us.us, align 8
   %406 = load i64, ptr %.022.i444.us.us.us.us, align 8
   %407 = getelementptr inbounds i8, ptr %.021.i445.us.us.us.us, i64 8
@@ -2103,9 +2103,9 @@ swapfunc.exit447.us.us573:                        ; preds = %.lr.ph561.us
   store i64 %405, ptr %.022.i444.us.us.us.us, align 8
   %409 = add nsw i64 %.0.i446.us.us.us.us, -1
   %410 = icmp ugt i64 %.0.i446.us.us.us.us, 1
-  br i1 %410, label %.preheader736, label %swapfunc.exit447.loopexit.us.us.us.us
+  br i1 %410, label %.preheader748, label %swapfunc.exit447.loopexit.us.us.us.us
 
-swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader736
+swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader748
   %411 = icmp ugt ptr %400, %.0552
   br i1 %411, label %.lr.ph561.us580.us, label %.critedge6.us579.us
 
@@ -2124,12 +2124,12 @@ swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader736
   %415 = getelementptr inbounds i8, ptr %.2359560.us563.us, i64 %6
   %416 = tail call i32 %3(ptr noundef %4, ptr noundef nonnull %415, ptr noundef nonnull %.2359560.us563.us) #2
   %417 = icmp sgt i32 %416, 0
-  br i1 %417, label %.preheader738, label %.critedge6.us579
+  br i1 %417, label %.preheader750, label %.critedge6.us579
 
-.preheader738:                                    ; preds = %.lr.ph561.us580, %.preheader738
-  %.022.i444.us.us = phi ptr [ %421, %.preheader738 ], [ %415, %.lr.ph561.us580 ]
-  %.021.i445.us.us = phi ptr [ %420, %.preheader738 ], [ %.2359560.us563.us, %.lr.ph561.us580 ]
-  %.0.i446.us.us = phi i64 [ %422, %.preheader738 ], [ %15, %.lr.ph561.us580 ]
+.preheader750:                                    ; preds = %.lr.ph561.us580, %.preheader750
+  %.022.i444.us.us = phi ptr [ %421, %.preheader750 ], [ %415, %.lr.ph561.us580 ]
+  %.021.i445.us.us = phi ptr [ %420, %.preheader750 ], [ %.2359560.us563.us, %.lr.ph561.us580 ]
+  %.0.i446.us.us = phi i64 [ %422, %.preheader750 ], [ %15, %.lr.ph561.us580 ]
   %418 = load i64, ptr %.021.i445.us.us, align 8
   %419 = load i64, ptr %.022.i444.us.us, align 8
   %420 = getelementptr inbounds i8, ptr %.021.i445.us.us, i64 8
@@ -2138,9 +2138,9 @@ swapfunc.exit447.loopexit.us.us.us.us:            ; preds = %.preheader736
   store i64 %418, ptr %.022.i444.us.us, align 8
   %422 = add nsw i64 %.0.i446.us.us, -1
   %423 = icmp ugt i64 %.0.i446.us.us, 1
-  br i1 %423, label %.preheader738, label %swapfunc.exit447.loopexit.us.us
+  br i1 %423, label %.preheader750, label %swapfunc.exit447.loopexit.us.us
 
-swapfunc.exit447.loopexit.us.us:                  ; preds = %.preheader738
+swapfunc.exit447.loopexit.us.us:                  ; preds = %.preheader750
   %424 = icmp ugt ptr %415, %.0552
   br i1 %424, label %.lr.ph561.us580, label %.critedge6.us579
 
@@ -2337,9 +2337,9 @@ swapfunc.exit461:                                 ; preds = %.preheader501, %493
 513:                                              ; preds = %510
   %514 = sub nsw i64 0, %511
   %515 = getelementptr inbounds i8, ptr %374, i64 %514
-  %.fr682 = freeze ptr %515
+  %.fr694 = freeze ptr %515
   %516 = udiv i64 %511, %2
-  %517 = ptrtoint ptr %.fr682 to i64
+  %517 = ptrtoint ptr %.fr694 to i64
   %518 = or i64 %2, %517
   %519 = and i64 %518, 7
   %or.cond = icmp eq i64 %519, 0

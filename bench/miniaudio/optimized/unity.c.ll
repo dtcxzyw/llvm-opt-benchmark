@@ -105376,12 +105376,12 @@ while.body103.i.i:                                ; preds = %while.body103.i.i, 
 
 do.cond.i.loopexit.i:                             ; preds = %while.body103.i.i
   %257 = zext nneg i32 %242 to i64
-  %scevgep180.i = getelementptr i8, ptr %bs_next_ptr.5.i.i, i64 1
-  %scevgep181.i = getelementptr i8, ptr %scevgep180.i, i64 %257
+  %scevgep181.i = getelementptr i8, ptr %bs_next_ptr.5.i.i, i64 1
+  %scevgep182.i = getelementptr i8, ptr %scevgep181.i, i64 %257
   br label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.cond.i.loopexit.i, %while.cond100.preheader.i.i
-  %bs_next_ptr.6.lcssa.i.i = phi ptr [ %bs_next_ptr.5.i.i, %while.cond100.preheader.i.i ], [ %scevgep181.i, %do.cond.i.loopexit.i ]
+  %bs_next_ptr.6.lcssa.i.i = phi ptr [ %bs_next_ptr.5.i.i, %while.cond100.preheader.i.i ], [ %scevgep182.i, %do.cond.i.loopexit.i ]
   %bs_cache.7.lcssa.i.i = phi i32 [ %shl93.i.i, %while.cond100.preheader.i.i ], [ %or107.i.i, %do.cond.i.loopexit.i ]
   %bs_sh.7.lcssa.i.i = phi i32 [ %add96.i.i, %while.cond100.preheader.i.i ], [ %sub108.i.i, %do.cond.i.loopexit.i ]
   %dec.i.i = add nsw i32 %pairs_to_decode.0.i.i, -1
@@ -105503,12 +105503,12 @@ while.body186.i.i:                                ; preds = %while.body186.i.i, 
 
 do.cond193.i.loopexit.i:                          ; preds = %while.body186.i.i
   %267 = zext nneg i32 %262 to i64
-  %scevgep182.i = getelementptr i8, ptr %bs_next_ptr.9.i.i, i64 1
-  %scevgep183.i = getelementptr i8, ptr %scevgep182.i, i64 %267
+  %scevgep183.i = getelementptr i8, ptr %bs_next_ptr.9.i.i, i64 1
+  %scevgep184.i = getelementptr i8, ptr %scevgep183.i, i64 %267
   br label %do.cond193.i.i
 
 do.cond193.i.i:                                   ; preds = %do.cond193.i.loopexit.i, %while.cond183.preheader.i.i
-  %bs_next_ptr.10.lcssa.i.i = phi ptr [ %bs_next_ptr.9.i.i, %while.cond183.preheader.i.i ], [ %scevgep183.i, %do.cond193.i.loopexit.i ]
+  %bs_next_ptr.10.lcssa.i.i = phi ptr [ %bs_next_ptr.9.i.i, %while.cond183.preheader.i.i ], [ %scevgep184.i, %do.cond193.i.loopexit.i ]
   %bs_cache.13.lcssa.i.i = phi i32 [ %shl174.i.i, %while.cond183.preheader.i.i ], [ %or190.i.i, %do.cond193.i.loopexit.i ]
   %bs_sh.13.lcssa.i.i = phi i32 [ %add177.i.i, %while.cond183.preheader.i.i ], [ %sub191.i.i, %do.cond193.i.loopexit.i ]
   %dec194.i.i = add nsw i32 %pairs_to_decode.1.i.i, -1
@@ -105719,10 +105719,10 @@ if.end322.i.i:                                    ; preds = %if.then311.i.i, %if
   br i1 %cmp324235.i.i, label %while.body326.i.preheader.i, label %for.inc333.i.i
 
 while.body326.i.preheader.i:                      ; preds = %if.end322.i.i
-  %scevgep184.i = getelementptr i8, ptr %bs_next_ptr.11.i.i, i64 1
+  %scevgep185.i = getelementptr i8, ptr %bs_next_ptr.11.i.i, i64 1
   %279 = lshr i32 %bs_sh.18.i.i, 3
   %280 = zext nneg i32 %279 to i64
-  %scevgep185.i = getelementptr i8, ptr %scevgep184.i, i64 %280
+  %scevgep186.i = getelementptr i8, ptr %scevgep185.i, i64 %280
   br label %while.body326.i.i
 
 while.body326.i.i:                                ; preds = %while.body326.i.i, %while.body326.i.preheader.i
@@ -105745,7 +105745,7 @@ for.inc333.i.loopexit.i:                          ; preds = %while.body326.i.i
   br label %for.inc333.i.i
 
 for.inc333.i.i:                                   ; preds = %for.inc333.i.loopexit.i, %if.end322.i.i
-  %bs_next_ptr.12.lcssa.i.i = phi ptr [ %bs_next_ptr.11.i.i, %if.end322.i.i ], [ %scevgep185.i, %for.inc333.i.loopexit.i ]
+  %bs_next_ptr.12.lcssa.i.i = phi ptr [ %bs_next_ptr.11.i.i, %if.end322.i.i ], [ %scevgep186.i, %for.inc333.i.loopexit.i ]
   %bs_cache.19.lcssa.i.i = phi i32 [ %bs_cache.18.i.i, %if.end322.i.i ], [ %or330.i.i, %for.inc333.i.loopexit.i ]
   %bs_sh.19.lcssa.i.i = phi i32 [ %bs_sh.18.i.i, %if.end322.i.i ], [ %284, %for.inc333.i.loopexit.i ]
   %add.ptr334.i.i = getelementptr inbounds i8, ptr %dst.addr.8.i.i, i64 16
@@ -106082,11 +106082,11 @@ if.end35.i:                                       ; preds = %for.body.i110.i, %i
   br i1 %cmp170.i, label %for.body39.lr.ph.i, label %ma_dr_mp3_L3_decode.exit
 
 for.body39.lr.ph.i:                               ; preds = %if.end35.i
-  %wide.trip.count190.i = zext nneg i32 %165 to i64
+  %wide.trip.count191.i = zext nneg i32 %165 to i64
   br label %for.body39.i
 
 for.body39.i:                                     ; preds = %ma_dr_mp3_L3_change_sign.exit.i, %for.body39.lr.ph.i
-  %indvars.iv187.i = phi i64 [ 0, %for.body39.lr.ph.i ], [ %indvars.iv.next188.i, %ma_dr_mp3_L3_change_sign.exit.i ]
+  %indvars.iv188.i = phi i64 [ 0, %for.body39.lr.ph.i ], [ %indvars.iv.next189.i, %ma_dr_mp3_L3_change_sign.exit.i ]
   %gr_info.addr.0174.i = phi ptr [ %add.ptr91, %for.body39.lr.ph.i ], [ %incdec.ptr.i210, %ma_dr_mp3_L3_change_sign.exit.i ]
   %mixed_block_flag.i197 = getelementptr inbounds i8, ptr %gr_info.addr.0174.i, i64 16
   %330 = load i8, ptr %mixed_block_flag.i197, align 8
@@ -106114,12 +106114,12 @@ for.body39.i:                                     ; preds = %ma_dr_mp3_L3_change
   br i1 %tobool60.not.i, label %if.end74.thread.i, label %if.then61.i
 
 if.end74.thread.i:                                ; preds = %for.body39.i
-  %arrayidx77194.i = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv187.i
+  %arrayidx77195.i = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv188.i
   br label %for.body3.preheader.i.preheader.i
 
 if.then61.i:                                      ; preds = %for.body39.i
   %sub.i203 = add nsw i32 %shl.i201, -1
-  %arrayidx64.i = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv187.i
+  %arrayidx64.i = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv188.i
   %mul66.i = mul nuw nsw i32 %shl.i201, 18
   %idx.ext67.i = zext nneg i32 %mul66.i to i64
   %add.ptr68.i = getelementptr inbounds float, ptr %arrayidx64.i, i64 %idx.ext67.i
@@ -106171,29 +106171,29 @@ for.inc15.i.i:                                    ; preds = %for.body5.i.i
   br i1 %cmp.not.i.i, label %ma_dr_mp3_L3_reorder.exit.loopexit.i, label %for.cond2.preheader.i.i, !llvm.loop !850
 
 ma_dr_mp3_L3_reorder.exit.loopexit.i:             ; preds = %for.inc15.i.i
-  %.pre192.i = ptrtoint ptr %incdec.ptr13.i.i to i64
+  %.pre193.i = ptrtoint ptr %incdec.ptr13.i.i to i64
   br label %if.end74.i
 
 if.end74.i:                                       ; preds = %ma_dr_mp3_L3_reorder.exit.loopexit.i, %if.then61.i
-  %sub.ptr.lhs.cast.i126.pre-phi.i = phi i64 [ %.pre192.i, %ma_dr_mp3_L3_reorder.exit.loopexit.i ], [ %sub.ptr.rhs.cast.i127.i, %if.then61.i ]
+  %sub.ptr.lhs.cast.i126.pre-phi.i = phi i64 [ %.pre193.i, %ma_dr_mp3_L3_reorder.exit.loopexit.i ], [ %sub.ptr.rhs.cast.i127.i, %if.then61.i ]
   %sub.ptr.sub.i128.i = sub i64 %sub.ptr.lhs.cast.i126.pre-phi.i, %sub.ptr.rhs.cast.i127.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr68.i, ptr nonnull align 8 %syn.i, i64 %sub.ptr.sub.i128.i, i1 false)
   br i1 %tobool41.not.i, label %ma_dr_mp3_L3_antialias.exit.i.thread, label %for.body3.preheader.i.preheader.i
 
 ma_dr_mp3_L3_antialias.exit.i.thread:             ; preds = %if.end74.i
-  %arrayidx84.i560 = getelementptr inbounds [2 x [288 x float]], ptr %dec, i64 0, i64 %indvars.iv187.i
+  %arrayidx84.i560 = getelementptr inbounds [2 x [288 x float]], ptr %dec, i64 0, i64 %indvars.iv188.i
   %block_type.i206561 = getelementptr inbounds i8, ptr %gr_info.addr.0174.i, i64 15
   %344 = load i8, ptr %block_type.i206561, align 1
   br label %if.end.i140.i
 
 for.body3.preheader.i.preheader.i:                ; preds = %if.end74.i, %if.end74.thread.i
-  %arrayidx77198.i = phi ptr [ %arrayidx77194.i, %if.end74.thread.i ], [ %arrayidx64.i, %if.end74.i ]
-  %aa_bands.0196.i = phi i32 [ 31, %if.end74.thread.i ], [ %sub.i203, %if.end74.i ]
+  %arrayidx77199.i = phi ptr [ %arrayidx77195.i, %if.end74.thread.i ], [ %arrayidx64.i, %if.end74.i ]
+  %aa_bands.0197.i = phi i32 [ 31, %if.end74.thread.i ], [ %sub.i203, %if.end74.i ]
   br label %for.body3.preheader.i.i
 
 for.body3.preheader.i.i:                          ; preds = %for.inc30.i.i, %for.body3.preheader.i.preheader.i
-  %grbuf.addr.024.i.i = phi ptr [ %add.ptr.i129.i, %for.inc30.i.i ], [ %arrayidx77198.i, %for.body3.preheader.i.preheader.i ]
-  %nbands.addr.023.i.i = phi i32 [ %dec.i134.i, %for.inc30.i.i ], [ %aa_bands.0196.i, %for.body3.preheader.i.preheader.i ]
+  %grbuf.addr.024.i.i = phi ptr [ %add.ptr.i129.i, %for.inc30.i.i ], [ %arrayidx77199.i, %for.body3.preheader.i.preheader.i ]
+  %nbands.addr.023.i.i = phi i32 [ %dec.i134.i, %for.inc30.i.i ], [ %aa_bands.0197.i, %for.body3.preheader.i.preheader.i ]
   %add.ptr.i129.i = getelementptr inbounds i8, ptr %grbuf.addr.024.i.i, i64 72
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %grbuf.addr.024.i.i, i64 56
   br label %for.body3.i.i
@@ -106228,14 +106228,14 @@ for.inc30.i.i:                                    ; preds = %for.body3.i.i
   br i1 %cmp.i135.i, label %for.body3.preheader.i.i, label %ma_dr_mp3_L3_antialias.exit.i, !llvm.loop !851
 
 ma_dr_mp3_L3_antialias.exit.i:                    ; preds = %for.inc30.i.i
-  %arrayidx84.i = getelementptr inbounds [2 x [288 x float]], ptr %dec, i64 0, i64 %indvars.iv187.i
+  %arrayidx84.i = getelementptr inbounds [2 x [288 x float]], ptr %dec, i64 0, i64 %indvars.iv188.i
   %block_type.i206 = getelementptr inbounds i8, ptr %gr_info.addr.0174.i, i64 15
   %349 = load i8, ptr %block_type.i206, align 1
   br i1 %tobool41.not.i, label %if.end.i140.i, label %if.then.i137.i
 
 if.then.i137.i:                                   ; preds = %ma_dr_mp3_L3_antialias.exit.i
-  %350 = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv187.i
-  call fastcc void @ma_dr_mp3_L3_imdct36(ptr noundef nonnull %arrayidx77198.i, ptr noundef %arrayidx84.i, ptr noundef nonnull @ma_dr_mp3_L3_imdct_gr.g_mdct_window, i32 noundef range(i32 0, 5) %shl.i201)
+  %350 = getelementptr inbounds [2 x [576 x float]], ptr %grbuf, i64 0, i64 %indvars.iv188.i
+  call fastcc void @ma_dr_mp3_L3_imdct36(ptr noundef nonnull %arrayidx77199.i, ptr noundef %arrayidx84.i, ptr noundef nonnull @ma_dr_mp3_L3_imdct_gr.g_mdct_window, i32 noundef range(i32 0, 5) %shl.i201)
   %mul.i.i207 = mul nuw nsw i32 %shl.i201, 18
   %idx.ext.i138.i = zext nneg i32 %mul.i.i207 to i64
   %add.ptr.i139.i = getelementptr inbounds float, ptr %350, i64 %idx.ext.i138.i
@@ -106246,9 +106246,9 @@ if.then.i137.i:                                   ; preds = %ma_dr_mp3_L3_antial
 
 if.end.i140.i:                                    ; preds = %ma_dr_mp3_L3_antialias.exit.i.thread, %if.then.i137.i, %ma_dr_mp3_L3_antialias.exit.i
   %351 = phi i8 [ %349, %if.then.i137.i ], [ %349, %ma_dr_mp3_L3_antialias.exit.i ], [ %344, %ma_dr_mp3_L3_antialias.exit.i.thread ]
-  %arrayidx77197.i562 = phi ptr [ %arrayidx77198.i, %if.then.i137.i ], [ %arrayidx77198.i, %ma_dr_mp3_L3_antialias.exit.i ], [ %arrayidx64.i, %ma_dr_mp3_L3_antialias.exit.i.thread ]
+  %arrayidx77198.i562 = phi ptr [ %arrayidx77199.i, %if.then.i137.i ], [ %arrayidx77199.i, %ma_dr_mp3_L3_antialias.exit.i ], [ %arrayidx64.i, %ma_dr_mp3_L3_antialias.exit.i.thread ]
   %overlap.addr.0.i.i = phi ptr [ %add.ptr3.i.i, %if.then.i137.i ], [ %arrayidx84.i, %ma_dr_mp3_L3_antialias.exit.i ], [ %arrayidx84.i560, %ma_dr_mp3_L3_antialias.exit.i.thread ]
-  %grbuf.addr.0.i.i = phi ptr [ %add.ptr.i139.i, %if.then.i137.i ], [ %arrayidx77198.i, %ma_dr_mp3_L3_antialias.exit.i ], [ %arrayidx64.i, %ma_dr_mp3_L3_antialias.exit.i.thread ]
+  %grbuf.addr.0.i.i = phi ptr [ %add.ptr.i139.i, %if.then.i137.i ], [ %arrayidx77199.i, %ma_dr_mp3_L3_antialias.exit.i ], [ %arrayidx64.i, %ma_dr_mp3_L3_antialias.exit.i.thread ]
   %cmp.i141.i = icmp eq i8 %351, 2
   br i1 %cmp.i141.i, label %if.then4.i.i, label %if.else.i142.i
 
@@ -106519,7 +106519,7 @@ if.else.i142.i:                                   ; preds = %if.end.i140.i
   br label %ma_dr_mp3_L3_imdct_gr.exit.i
 
 ma_dr_mp3_L3_imdct_gr.exit.i:                     ; preds = %ma_dr_mp3_L3_imdct12.exit100.i.i.i, %if.else.i142.i
-  %add.ptr.i157.i = getelementptr inbounds i8, ptr %arrayidx77197.i562, i64 72
+  %add.ptr.i157.i = getelementptr inbounds i8, ptr %arrayidx77198.i562, i64 72
   br label %for.cond1.preheader.i.i
 
 for.cond1.preheader.i.i:                          ; preds = %for.inc6.i.i, %ma_dr_mp3_L3_imdct_gr.exit.i
@@ -106544,10 +106544,10 @@ for.inc6.i.i:                                     ; preds = %for.body3.i158.i
   br i1 %cmp.i165.i, label %for.cond1.preheader.i.i, label %ma_dr_mp3_L3_change_sign.exit.i, !llvm.loop !855
 
 ma_dr_mp3_L3_change_sign.exit.i:                  ; preds = %for.inc6.i.i
-  %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1
+  %indvars.iv.next189.i = add nuw nsw i64 %indvars.iv188.i, 1
   %incdec.ptr.i210 = getelementptr inbounds i8, ptr %gr_info.addr.0174.i, i64 32
-  %exitcond191.not.i = icmp eq i64 %indvars.iv.next188.i, %wide.trip.count190.i
-  br i1 %exitcond191.not.i, label %ma_dr_mp3_L3_decode.exit, label %for.body39.i, !llvm.loop !856
+  %exitcond192.not.i = icmp eq i64 %indvars.iv.next189.i, %wide.trip.count191.i
+  br i1 %exitcond192.not.i, label %ma_dr_mp3_L3_decode.exit, label %for.body39.i, !llvm.loop !856
 
 ma_dr_mp3_L3_decode.exit:                         ; preds = %ma_dr_mp3_L3_change_sign.exit.i, %if.end35.i
   %407 = load i32, ptr %channels, align 4
