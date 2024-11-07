@@ -1569,7 +1569,7 @@ arrow/slow.cc.ll 392507905
 arrow/sparse_tensor.cc.ll 2131202578
 arrow/status.cc.ll 164759555
 arrow/stdio.cc.ll 331795141
-arrow/string-to-double.cc.ll 1339779768
+arrow/string-to-double.cc.ll 1338436442
 arrow/string.cc.ll 477267070
 arrow/strptime.c.ll 118894215
 arrow/strtod.cc.ll 404199500
@@ -7827,7 +7827,7 @@ graphviz/acyclic.c.ll 61874047
 graphviz/adjust.c.ll 484184070
 graphviz/agerror.c.ll 66797569
 graphviz/apply.c.ll 46641487
-graphviz/args.c.ll 130667151
+graphviz/args.c.ll 130535560
 graphviz/arrows.c.ll 403825894
 graphviz/attr.c.ll 257825114
 graphviz/bcomps.c.ll 264645743
@@ -15191,7 +15191,7 @@ llvm/LoopRotation.cpp.ll 687173209
 llvm/LoopRotationUtils.cpp.ll 3297650304
 llvm/LoopSimplify.cpp.ll 2475007550
 llvm/LoopSimplifyCFG.cpp.ll 3263596995
-llvm/LoopSink.cpp.ll 2994276579
+llvm/LoopSink.cpp.ll 2991214071
 llvm/LoopStrengthReduce.cpp.ll 20027476390
 llvm/LoopTermFold.cpp.ll 1833694268
 llvm/LoopTraversal.cpp.ll 596895578
@@ -23597,7 +23597,7 @@ openjdk/pngrutil.ll 912423065
 openjdk/pngset.ll 365454085
 openjdk/pngtrans.ll 182169575
 openjdk/portconfig.ll 40356962
-openjdk/postaloc.ll 1098085582
+openjdk/postaloc.ll 1096977996
 openjdk/predicates.ll 402735381
 openjdk/preserveException.ll 81583117
 openjdk/preservedMarks.ll 217424914
@@ -25024,7 +25024,7 @@ openmpi/osc_rdma_accumulate.ll 1110648732
 openmpi/osc_rdma_active_target.ll 595318217
 openmpi/osc_rdma_btl_comm.ll 62258583
 openmpi/osc_rdma_comm.ll 621964326
-openmpi/osc_rdma_component.ll 631285682
+openmpi/osc_rdma_component.ll 630651484
 openmpi/osc_rdma_dynamic.ll 564732165
 openmpi/osc_rdma_module.ll 146831010
 openmpi/osc_rdma_passive_target.ll 469838865
@@ -28602,7 +28602,7 @@ php/pcre2_serialize.ll 90455582
 php/pcre2_string_utils.ll 63905000
 php/pcre2_study.ll 719145786
 php/pcre2_substitute.ll 463982824
-php/pcre2_substring.ll 202100532
+php/pcre2_substring.ll 201896160
 php/pcre2_valid_utf.ll 91354680
 php/pcre2_xclass.ll 193366417
 php/pdo.ll 198644063
@@ -37048,7 +37048,7 @@ wireshark/manage_interfaces_dialog.cpp.ll 711673519
 wireshark/manuf.c.ll 4155212173
 wireshark/manuf_dialog.cpp.ll 1058094442
 wireshark/manuf_table_model.cpp.ll 378179725
-wireshark/mate_grammar.c.ll 427594524
+wireshark/mate_grammar.c.ll 427165581
 wireshark/mate_parser.c.ll 577923282
 wireshark/mate_runtime.c.ll 425425755
 wireshark/mate_setup.c.ll 241931732
@@ -40932,7 +40932,7 @@ zfp/decode4d.c.ll 692234045
 zfp/decode4f.c.ll 689843724
 zfp/decode4i.c.ll 593994001
 zfp/decode4l.c.ll 596747955
-zfp/encode1d.c.ll 495045202
+zfp/encode1d.c.ll 494543765
 zfp/encode1f.c.ll 492536788
 zfp/encode1i.c.ll 336099729
 zfp/encode1l.c.ll 338499610
