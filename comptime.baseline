@@ -22382,7 +22382,7 @@ openjdk/Inet6Address.ll 41248484
 openjdk/Inet6AddressImpl.ll 198623112
 openjdk/InetAddress.ll 43290706
 openjdk/Inflater.ll 79189356
-openjdk/InheritedChannel.ll 54883630
+openjdk/InheritedChannel.ll 54938778
 openjdk/InstrumentationImplNativeMethods.ll 47970875
 openjdk/IntArgb.ll 883266077
 openjdk/IntArgbBm.ll 539124838
