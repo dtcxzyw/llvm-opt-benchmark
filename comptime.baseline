@@ -21156,7 +21156,7 @@ opencv/gapi_video_perf_tests.cpp.ll 11195665361
 opencv/gapi_video_perf_tests_cpu.cpp.ll 8549823666
 opencv/garray.cpp.ll 218705291
 opencv/gasync.cpp.ll 1939598336
-opencv/gather_elements_layer.cpp.ll 833228413
+opencv/gather_elements_layer.cpp.ll 834061831
 opencv/gather_layer.cpp.ll 673703364
 opencv/gaze_estimation.cpp.ll 6052678449
 opencv/gbackend.cpp.ll 2305137356
@@ -22026,7 +22026,7 @@ opencv/tldModel.cpp.ll 811569101
 opencv/tldTracker.cpp.ll 939386132
 opencv/tldUtils.cpp.ll 446187388
 opencv/tonemap.cpp.ll 35185957
-opencv/topological_sort.cpp.ll 844413927
+opencv/topological_sort.cpp.ll 845258409
 opencv/torch_importer.cpp.ll 3208198555
 opencv/tps_trans.cpp.ll 428380452
 opencv/tr_chars.cpp.ll 739568049
@@ -22303,7 +22303,7 @@ openjdk/CRC32.ll 39615403
 openjdk/CUPSfuncs.ll 189333755
 openjdk/CfgFile.ll 1025117540
 openjdk/CgroupMetrics.ll 37281392
-openjdk/Class.ll 54338027
+openjdk/Class.ll 54392366
 openjdk/ClassLoader.ll 79481710
 openjdk/ClassLoaderReferenceImpl.ll 46000813
 openjdk/ClassLoadingImpl.ll 32999678
@@ -35588,7 +35588,7 @@ tokio-rs/5cdni0zdopovrkgi.ll 2063808824
 tokio-rs/5fqt3exrqd05oqq2.ll 315605589
 tokio-rs/akiz5wks12hp4ug.ll 38996071
 tokio-rs/k2uhbjhe54a6089.ll 41756377
-tokio-rs/qqq7nw5h0oohsoh.ll 53443041
+tokio-rs/qqq7nw5h0oohsoh.ll 53496642
 tokio-rs/r9h5225tdo2hxm6.ll 1963702965
 tokio-rs/rq81hdouiclvz49.ll 59336895
 tokio-rs/um69cc05lgsv45r.ll 2376355435
@@ -36398,7 +36398,7 @@ wasmtime-rs/1ham0fg2czw77e66.ll 75791951
 wasmtime-rs/1hiygxwyk6ulivti.ll 2981220761
 wasmtime-rs/1jbxepb6u2xll6bg.ll 315632513
 wasmtime-rs/1kan0u7yfu7u6hal.ll 3605048629
-wasmtime-rs/1kbx45vk8r0v0j11.ll 49142979
+wasmtime-rs/1kbx45vk8r0v0j11.ll 49192251
 wasmtime-rs/1kzxwcli27ht1701.ll 34377392
 wasmtime-rs/1l4d79e6nzulcsk2.ll 49066310
 wasmtime-rs/1l7vvy5g6vlq5vfq.ll 59672128
