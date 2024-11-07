@@ -59649,7 +59649,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
   %.112.i22.i = phi i64 [ %389, %.lr.ph24.i ], [ %.011.i.lcssa.i, %.preheader18.i ]
   %389 = udiv i64 %.112.i22.i, 100
   %390 = add nsw i32 %.1.i23.i, 2
-  %391 = icmp ugt i64 %.112.i22.i, 9999
+  %391 = icmp samesign ugt i64 %.112.i22.i, 9999
   br i1 %391, label %.lr.ph24.i, label %.preheader.i, !llvm.loop !735
 
 .lr.ph29.i:                                       ; preds = %.preheader.i, %.lr.ph29.i
@@ -59657,7 +59657,7 @@ _ZN5boost4json6detail8charconv6detail10fast_float13compute_floatINS4_13binary_fo
   %.213.i27.i = phi i64 [ %392, %.lr.ph29.i ], [ %.112.i.lcssa.i, %.preheader.i ]
   %392 = udiv i64 %.213.i27.i, 10
   %393 = add nsw i32 %.2.i28.i, 1
-  %394 = icmp ugt i64 %.213.i27.i, 99
+  %394 = icmp samesign ugt i64 %.213.i27.i, 99
   br i1 %394, label %.lr.ph29.i, label %_ZN5boost4json6detail8charconv6detail10fast_float19scientific_exponentIcEEiRNS4_22parsed_number_string_tIT_EE.exit.i, !llvm.loop !736
 
 _ZN5boost4json6detail8charconv6detail10fast_float19scientific_exponentIcEEiRNS4_22parsed_number_string_tIT_EE.exit.i: ; preds = %.lr.ph29.i, %.preheader.i

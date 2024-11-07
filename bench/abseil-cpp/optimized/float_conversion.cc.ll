@@ -6369,7 +6369,7 @@ for.body.i43.i:                                   ; preds = %if.end19.i, %for.bo
   %incdec.ptr.i.i47.i = getelementptr inbounds i8, ptr %36, i64 -1
   store ptr %incdec.ptr.i.i47.i, ptr %begin.i, align 8
   store i8 %conv.i46.i, ptr %incdec.ptr.i.i47.i, align 1
-  %tobool2.not.i49.i = icmp ult i128 %digits.addr.011.i44.i, 10
+  %tobool2.not.i49.i = icmp samesign ult i128 %digits.addr.011.i44.i, 10
   br i1 %tobool2.not.i49.i, label %_ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit59.i, label %for.body.i43.i, !llvm.loop !26
 
 _ZN4absl19str_format_internal12_GLOBAL__N_119PrintIntegralDigitsILNS1_11FormatStyleE1EoEEmT0_PNS1_6BufferE.exit59.i: ; preds = %for.body.i43.i

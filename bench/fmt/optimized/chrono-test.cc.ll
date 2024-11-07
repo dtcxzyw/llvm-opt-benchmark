@@ -71800,7 +71800,7 @@ while.body.i.i114:                                ; preds = %_ZN3fmt3v106detail5
   %30 = load i16, ptr %arrayidx.i.i.i120, align 1
   store i16 %30, ptr %add.ptr2.i.i117, align 1
   %div.i.i121 = udiv i64 %value.addr.021.i.i115, 100
-  %cmp1.i.i122 = icmp ugt i64 %value.addr.021.i.i115, 9999
+  %cmp1.i.i122 = icmp samesign ugt i64 %value.addr.021.i.i115, 9999
   br i1 %cmp1.i.i122, label %while.body.i.i114, label %while.end.i.i82, !llvm.loop !2222
 
 while.end.i.i82:                                  ; preds = %while.body.i.i114, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -74259,7 +74259,7 @@ while.body.i.i114:                                ; preds = %_ZN3fmt3v106detail5
   %30 = load i16, ptr %arrayidx.i.i.i120, align 1
   store i16 %30, ptr %add.ptr2.i.i117, align 1
   %div.i.i121 = udiv i64 %value.addr.021.i.i115, 100
-  %cmp1.i.i122 = icmp ugt i64 %value.addr.021.i.i115, 9999
+  %cmp1.i.i122 = icmp samesign ugt i64 %value.addr.021.i.i115, 9999
   br i1 %cmp1.i.i122, label %while.body.i.i114, label %while.end.i.i82, !llvm.loop !2222
 
 while.end.i.i82:                                  ; preds = %while.body.i.i114, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -76641,7 +76641,7 @@ while.body.i.i114:                                ; preds = %_ZN3fmt3v106detail5
   %30 = load i16, ptr %arrayidx.i.i.i120, align 1
   store i16 %30, ptr %add.ptr2.i.i117, align 1
   %div.i.i121 = udiv i64 %value.addr.021.i.i115, 100
-  %cmp1.i.i122 = icmp ugt i64 %value.addr.021.i.i115, 9999
+  %cmp1.i.i122 = icmp samesign ugt i64 %value.addr.021.i.i115, 9999
   br i1 %cmp1.i.i122, label %while.body.i.i114, label %while.end.i.i82, !llvm.loop !2222
 
 while.end.i.i82:                                  ; preds = %while.body.i.i114, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -79035,7 +79035,7 @@ while.body.i.i115:                                ; preds = %_ZN3fmt3v106detail5
   %31 = load i16, ptr %arrayidx.i.i.i121, align 1
   store i16 %31, ptr %add.ptr2.i.i118, align 1
   %div.i.i122 = udiv i64 %value.addr.021.i.i116, 100
-  %cmp1.i.i123 = icmp ugt i64 %value.addr.021.i.i116, 9999
+  %cmp1.i.i123 = icmp samesign ugt i64 %value.addr.021.i.i116, 9999
   br i1 %cmp1.i.i123, label %while.body.i.i115, label %while.end.i.i83, !llvm.loop !2222
 
 while.end.i.i83:                                  ; preds = %while.body.i.i115, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -81429,7 +81429,7 @@ while.body.i.i115:                                ; preds = %_ZN3fmt3v106detail5
   %31 = load i16, ptr %arrayidx.i.i.i121, align 1
   store i16 %31, ptr %add.ptr2.i.i118, align 1
   %div.i.i122 = udiv i64 %value.addr.021.i.i116, 100
-  %cmp1.i.i123 = icmp ugt i64 %value.addr.021.i.i116, 9999
+  %cmp1.i.i123 = icmp samesign ugt i64 %value.addr.021.i.i116, 9999
   br i1 %cmp1.i.i123, label %while.body.i.i115, label %while.end.i.i83, !llvm.loop !2222
 
 while.end.i.i83:                                  ; preds = %while.body.i.i115, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -83647,9 +83647,9 @@ _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcE
   %idx.ext.i.i = sext i32 %sub.i.i to i64
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp samesign ugt i64 %0, 99
-  br i1 %cmp119.i.i, label %while.body.i.i.preheader, label %while.end.i.i
+  br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i.preheader:                         ; preds = %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit
+while.body.i.i:                                   ; preds = %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -2
   %rem.i.i = urem i64 %0, 100
   %mul.i.i.i = shl nuw nsw i64 %rem.i.i, 1
@@ -83657,11 +83657,11 @@ while.body.i.i.preheader:                         ; preds = %_ZSt6fill_nISt20bac
   %14 = load i16, ptr %arrayidx.i.i.i, align 1
   store i16 %14, ptr %add.ptr2.i.i, align 1
   %div.i.i42 = udiv i64 %0, 100
-  br label %while.end.i.i
+  br label %while.end.i.i, !llvm.loop !2222
 
-while.end.i.i:                                    ; preds = %while.body.i.i.preheader, %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit
-  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit ], [ %add.ptr2.i.i, %while.body.i.i.preheader ]
-  %value.addr.0.lcssa.i.i = phi i64 [ %0, %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit ], [ %div.i.i42, %while.body.i.i.preheader ]
+while.end.i.i:                                    ; preds = %while.body.i.i, %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit
+  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit ], [ %add.ptr2.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i64 [ %0, %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit ], [ %div.i.i42, %while.body.i.i ]
   %cmp4.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -83808,9 +83808,9 @@ _ZN3fmt3v106detail5pow10Ej.exit:                  ; preds = %cond.false.i, %if.t
   %idx.ext.i.i80 = sext i32 %sub45 to i64
   %add.ptr.i.i81 = getelementptr inbounds i8, ptr %buffer.i79, i64 %idx.ext.i.i80
   %cmp119.i.i82 = icmp samesign ugt i64 %div, 99
-  br i1 %cmp119.i.i82, label %while.end.i.i83.loopexit, label %while.end.i.i83
+  br i1 %cmp119.i.i82, label %while.body.i.i115, label %while.end.i.i83
 
-while.end.i.i83.loopexit:                         ; preds = %_ZN3fmt3v106detail5pow10Ej.exit
+while.body.i.i115:                                ; preds = %_ZN3fmt3v106detail5pow10Ej.exit
   %add.ptr2.i.i118 = getelementptr inbounds i8, ptr %add.ptr.i.i81, i64 -2
   %rem.i.i119 = urem i64 %div, 100
   %mul.i.i.i120 = shl nuw nsw i64 %rem.i.i119, 1
@@ -83818,11 +83818,11 @@ while.end.i.i83.loopexit:                         ; preds = %_ZN3fmt3v106detail5
   %31 = load i16, ptr %arrayidx.i.i.i121, align 1
   store i16 %31, ptr %add.ptr2.i.i118, align 1
   %div.i.i122 = udiv i64 %div, 100
-  br label %while.end.i.i83
+  br label %while.end.i.i83, !llvm.loop !2222
 
-while.end.i.i83:                                  ; preds = %while.end.i.i83.loopexit, %_ZN3fmt3v106detail5pow10Ej.exit
-  %out.addr.0.lcssa.i.i84 = phi ptr [ %add.ptr.i.i81, %_ZN3fmt3v106detail5pow10Ej.exit ], [ %add.ptr2.i.i118, %while.end.i.i83.loopexit ]
-  %value.addr.0.lcssa.i.i85 = phi i64 [ %div, %_ZN3fmt3v106detail5pow10Ej.exit ], [ %div.i.i122, %while.end.i.i83.loopexit ]
+while.end.i.i83:                                  ; preds = %while.body.i.i115, %_ZN3fmt3v106detail5pow10Ej.exit
+  %out.addr.0.lcssa.i.i84 = phi ptr [ %add.ptr.i.i81, %_ZN3fmt3v106detail5pow10Ej.exit ], [ %add.ptr2.i.i118, %while.body.i.i115 ]
+  %value.addr.0.lcssa.i.i85 = phi i64 [ %div, %_ZN3fmt3v106detail5pow10Ej.exit ], [ %div.i.i122, %while.body.i.i115 ]
   %cmp4.i.i86 = icmp samesign ult i64 %value.addr.0.lcssa.i.i85, 10
   br i1 %cmp4.i.i86, label %if.then.i.i112, label %if.end.i.i87
 
@@ -83885,9 +83885,9 @@ if.end:                                           ; preds = %_ZSt6fill_nISt20bac
   %idx.ext.i.i126 = sext i32 %sub.i.i to i64
   %add.ptr.i.i127 = getelementptr inbounds i8, ptr %buffer.i125, i64 %idx.ext.i.i126
   %cmp119.i.i128 = icmp samesign ugt i64 %0, 99
-  br i1 %cmp119.i.i128, label %while.body.i.i161.preheader, label %while.end.i.i129
+  br i1 %cmp119.i.i128, label %while.body.i.i161, label %while.end.i.i129
 
-while.body.i.i161.preheader:                      ; preds = %if.end
+while.body.i.i161:                                ; preds = %if.end
   %add.ptr2.i.i164 = getelementptr inbounds i8, ptr %add.ptr.i.i127, i64 -2
   %rem.i.i165 = urem i64 %0, 100
   %mul.i.i.i166 = shl nuw nsw i64 %rem.i.i165, 1
@@ -83895,11 +83895,11 @@ while.body.i.i161.preheader:                      ; preds = %if.end
   %40 = load i16, ptr %arrayidx.i.i.i167, align 1
   store i16 %40, ptr %add.ptr2.i.i164, align 1
   %div.i.i168 = udiv i64 %0, 100
-  br label %while.end.i.i129
+  br label %while.end.i.i129, !llvm.loop !2222
 
-while.end.i.i129:                                 ; preds = %while.body.i.i161.preheader, %if.end
-  %out.addr.0.lcssa.i.i130 = phi ptr [ %add.ptr.i.i127, %if.end ], [ %add.ptr2.i.i164, %while.body.i.i161.preheader ]
-  %value.addr.0.lcssa.i.i131 = phi i64 [ %0, %if.end ], [ %div.i.i168, %while.body.i.i161.preheader ]
+while.end.i.i129:                                 ; preds = %while.body.i.i161, %if.end
+  %out.addr.0.lcssa.i.i130 = phi ptr [ %add.ptr.i.i127, %if.end ], [ %add.ptr2.i.i164, %while.body.i.i161 ]
+  %value.addr.0.lcssa.i.i131 = phi i64 [ %0, %if.end ], [ %div.i.i168, %while.body.i.i161 ]
   %cmp4.i.i132 = icmp samesign ult i64 %value.addr.0.lcssa.i.i131, 10
   br i1 %cmp4.i.i132, label %if.then.i.i158, label %if.end.i.i133
 
@@ -141442,9 +141442,9 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   %idx.ext.i.i = ashr i64 %add.i.i, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i8 %value, 99
-  br i1 %cmp119.i.i, label %while.body.i.i.preheader, label %while.end.i.i
+  br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i.preheader:                         ; preds = %if.end10
+while.body.i.i:                                   ; preds = %if.end10
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -2
   %rem.i.i = urem i32 %conv1.i, 100
   %14 = shl nuw nsw i32 %rem.i.i, 1
@@ -141453,11 +141453,11 @@ while.body.i.i.preheader:                         ; preds = %if.end10
   %15 = load i16, ptr %arrayidx.i.i.i10, align 1
   store i16 %15, ptr %add.ptr2.i.i, align 1
   %div.i.i = udiv i32 %conv1.i, 100
-  br label %while.end.i.i
+  br label %while.end.i.i, !llvm.loop !2506
 
-while.end.i.i:                                    ; preds = %while.body.i.i.preheader, %if.end10
-  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %if.end10 ], [ %add.ptr2.i.i, %while.body.i.i.preheader ]
-  %value.addr.0.lcssa.i.i = phi i32 [ %conv1.i, %if.end10 ], [ %div.i.i, %while.body.i.i.preheader ]
+while.end.i.i:                                    ; preds = %while.body.i.i, %if.end10
+  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %if.end10 ], [ %add.ptr2.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i32 [ %conv1.i, %if.end10 ], [ %div.i.i, %while.body.i.i ]
   %cmp4.i.i = icmp samesign ult i32 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -150961,9 +150961,9 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   %idx.ext.i.i = ashr i64 %add.i.i, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i8 %value, 99
-  br i1 %cmp119.i.i, label %while.body.i.i.preheader, label %while.end.i.i
+  br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i.preheader:                         ; preds = %if.end10
+while.body.i.i:                                   ; preds = %if.end10
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -2
   %rem.i.i = urem i32 %conv1.i, 100
   %14 = shl nuw nsw i32 %rem.i.i, 1
@@ -150972,11 +150972,11 @@ while.body.i.i.preheader:                         ; preds = %if.end10
   %15 = load i16, ptr %arrayidx.i.i.i10, align 1
   store i16 %15, ptr %add.ptr2.i.i, align 1
   %div.i.i = udiv i32 %conv1.i, 100
-  br label %while.end.i.i
+  br label %while.end.i.i, !llvm.loop !2506
 
-while.end.i.i:                                    ; preds = %while.body.i.i.preheader, %if.end10
-  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %if.end10 ], [ %add.ptr2.i.i, %while.body.i.i.preheader ]
-  %value.addr.0.lcssa.i.i = phi i32 [ %conv1.i, %if.end10 ], [ %div.i.i, %while.body.i.i.preheader ]
+while.end.i.i:                                    ; preds = %while.body.i.i, %if.end10
+  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %if.end10 ], [ %add.ptr2.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i32 [ %conv1.i, %if.end10 ], [ %div.i.i, %while.body.i.i ]
   %cmp4.i.i = icmp samesign ult i32 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i
 
@@ -158394,7 +158394,7 @@ while.body.i.i115:                                ; preds = %_ZN3fmt3v106detail5
   %31 = load i16, ptr %arrayidx.i.i.i121, align 1
   store i16 %31, ptr %add.ptr2.i.i118, align 1
   %div.i.i122 = udiv i64 %value.addr.021.i.i116, 100
-  %cmp1.i.i123 = icmp ugt i64 %value.addr.021.i.i116, 9999
+  %cmp1.i.i123 = icmp samesign ugt i64 %value.addr.021.i.i116, 9999
   br i1 %cmp1.i.i123, label %while.body.i.i115, label %while.end.i.i83, !llvm.loop !2222
 
 while.end.i.i83:                                  ; preds = %while.body.i.i115, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -163937,7 +163937,7 @@ while.body.i.i117:                                ; preds = %_ZN3fmt3v106detail5
   %32 = load i16, ptr %arrayidx.i.i.i123, align 1
   store i16 %32, ptr %add.ptr2.i.i120, align 1
   %div.i.i124 = udiv i64 %value.addr.021.i.i118, 100
-  %cmp1.i.i125 = icmp ugt i64 %value.addr.021.i.i118, 9999
+  %cmp1.i.i125 = icmp samesign ugt i64 %value.addr.021.i.i118, 9999
   br i1 %cmp1.i.i125, label %while.body.i.i117, label %while.end.i.i85, !llvm.loop !2222
 
 while.end.i.i85:                                  ; preds = %while.body.i.i117, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -166394,7 +166394,7 @@ while.body.i.i117:                                ; preds = %_ZN3fmt3v106detail5
   %32 = load i16, ptr %arrayidx.i.i.i123, align 1
   store i16 %32, ptr %add.ptr2.i.i120, align 1
   %div.i.i124 = udiv i64 %value.addr.021.i.i118, 100
-  %cmp1.i.i125 = icmp ugt i64 %value.addr.021.i.i118, 9999
+  %cmp1.i.i125 = icmp samesign ugt i64 %value.addr.021.i.i118, 9999
   br i1 %cmp1.i.i125, label %while.body.i.i117, label %while.end.i.i85, !llvm.loop !2222
 
 while.end.i.i85:                                  ; preds = %while.body.i.i117, %_ZN3fmt3v106detail5pow10Ej.exit
@@ -168282,9 +168282,9 @@ if.end10:                                         ; preds = %_ZN3fmt3v106detail1
   %idx.ext.i.i = ashr i64 %add.i.i, 32
   %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.i, i64 %idx.ext.i.i
   %cmp119.i.i = icmp ugt i8 %value, 99
-  br i1 %cmp119.i.i, label %while.body.i.i.preheader, label %while.end.i.i
+  br i1 %cmp119.i.i, label %while.body.i.i, label %while.end.i.i
 
-while.body.i.i.preheader:                         ; preds = %if.end10
+while.body.i.i:                                   ; preds = %if.end10
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -2
   %rem.i.i = urem i32 %conv1.i, 100
   %14 = shl nuw nsw i32 %rem.i.i, 1
@@ -168293,11 +168293,11 @@ while.body.i.i.preheader:                         ; preds = %if.end10
   %15 = load i16, ptr %arrayidx.i.i.i10, align 1
   store i16 %15, ptr %add.ptr2.i.i, align 1
   %div.i.i = udiv i32 %conv1.i, 100
-  br label %while.end.i.i
+  br label %while.end.i.i, !llvm.loop !2506
 
-while.end.i.i:                                    ; preds = %while.body.i.i.preheader, %if.end10
-  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %if.end10 ], [ %add.ptr2.i.i, %while.body.i.i.preheader ]
-  %value.addr.0.lcssa.i.i = phi i32 [ %conv1.i, %if.end10 ], [ %div.i.i, %while.body.i.i.preheader ]
+while.end.i.i:                                    ; preds = %while.body.i.i, %if.end10
+  %out.addr.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %if.end10 ], [ %add.ptr2.i.i, %while.body.i.i ]
+  %value.addr.0.lcssa.i.i = phi i32 [ %conv1.i, %if.end10 ], [ %div.i.i, %while.body.i.i ]
   %cmp4.i.i = icmp samesign ult i32 %value.addr.0.lcssa.i.i, 10
   br i1 %cmp4.i.i, label %if.then.i.i, label %if.end.i.i
 

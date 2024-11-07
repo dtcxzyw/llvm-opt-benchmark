@@ -870,7 +870,7 @@ while.body5.i.i:                                  ; preds = %while.cond3.i.prehe
   %exponent.i.120.i = phi i32 [ %add7.i.i, %while.body5.i.i ], [ %exponent.i.0.lcssa.i, %while.cond3.i.preheader.i ]
   %div6.i.i = udiv i64 %mantissa.i.121.i, 100
   %add7.i.i = add nsw i32 %exponent.i.120.i, 2
-  %cmp4.i.i = icmp ugt i64 %mantissa.i.121.i, 9999
+  %cmp4.i.i = icmp samesign ugt i64 %mantissa.i.121.i, 9999
   br i1 %cmp4.i.i, label %while.body5.i.i, label %while.cond9.i.preheader.i, !llvm.loop !16
 
 while.body11.i.i:                                 ; preds = %while.cond9.i.preheader.i, %while.body11.i.i
@@ -878,7 +878,7 @@ while.body11.i.i:                                 ; preds = %while.cond9.i.prehe
   %exponent.i.225.i = phi i32 [ %add13.i.i, %while.body11.i.i ], [ %exponent.i.1.lcssa.i, %while.cond9.i.preheader.i ]
   %div12.i.i = udiv i64 %mantissa.i.226.i, 10
   %add13.i.i = add nsw i32 %exponent.i.225.i, 1
-  %cmp10.i.i = icmp ugt i64 %mantissa.i.226.i, 99
+  %cmp10.i.i = icmp samesign ugt i64 %mantissa.i.226.i, 99
   br i1 %cmp10.i.i, label %while.body11.i.i, label %_ZN14arrow_vendored10fast_float19scientific_exponentERNS0_20parsed_number_stringE.exit.i, !llvm.loop !17
 
 _ZN14arrow_vendored10fast_float19scientific_exponentERNS0_20parsed_number_stringE.exit.i: ; preds = %while.body11.i.i, %while.cond9.i.preheader.i
@@ -1694,7 +1694,7 @@ while.body5.i.i:                                  ; preds = %while.cond3.i.prehe
   %exponent.i.120.i = phi i32 [ %add7.i.i, %while.body5.i.i ], [ %exponent.i.0.lcssa.i, %while.cond3.i.preheader.i ]
   %div6.i.i = udiv i64 %mantissa.i.121.i, 100
   %add7.i.i = add nsw i32 %exponent.i.120.i, 2
-  %cmp4.i.i = icmp ugt i64 %mantissa.i.121.i, 9999
+  %cmp4.i.i = icmp samesign ugt i64 %mantissa.i.121.i, 9999
   br i1 %cmp4.i.i, label %while.body5.i.i, label %while.cond9.i.preheader.i, !llvm.loop !16
 
 while.body11.i.i:                                 ; preds = %while.cond9.i.preheader.i, %while.body11.i.i
@@ -1702,7 +1702,7 @@ while.body11.i.i:                                 ; preds = %while.cond9.i.prehe
   %exponent.i.225.i = phi i32 [ %add13.i.i, %while.body11.i.i ], [ %exponent.i.1.lcssa.i, %while.cond9.i.preheader.i ]
   %div12.i.i = udiv i64 %mantissa.i.226.i, 10
   %add13.i.i = add nsw i32 %exponent.i.225.i, 1
-  %cmp10.i.i = icmp ugt i64 %mantissa.i.226.i, 99
+  %cmp10.i.i = icmp samesign ugt i64 %mantissa.i.226.i, 99
   br i1 %cmp10.i.i, label %while.body11.i.i, label %_ZN14arrow_vendored10fast_float19scientific_exponentERNS0_20parsed_number_stringE.exit.i, !llvm.loop !17
 
 _ZN14arrow_vendored10fast_float19scientific_exponentERNS0_20parsed_number_stringE.exit.i: ; preds = %while.body11.i.i, %while.cond9.i.preheader.i

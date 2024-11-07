@@ -379,7 +379,7 @@ _ZN5boost8charconv6detail3ryuL22generic_computeInvPow5EjPm.exit.i: ; preds = %62
 
 102:                                              ; preds = %.lr.ph.i.i.i
   %103 = add i32 %.0713.i.i.i, 1
-  %.not.i.i.i = icmp ult i128 %.0812.i.i.i, 5
+  %.not.i.i.i = icmp samesign ult i128 %.0812.i.i.i, 5
   br i1 %.not.i.i.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i, label %.lr.ph.i.i.i, !llvm.loop !16
 
 _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit.i: ; preds = %102, %.lr.ph.i.i.i, %98
@@ -434,7 +434,7 @@ _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit219.i: ; preds = %110,
 
 116:                                              ; preds = %.lr.ph.i.i225.i
   %117 = add i32 %.0713.i.i226.i, 1
-  %.not.i.i230.i = icmp ult i128 %.0812.i.i227.i, 5
+  %.not.i.i230.i = icmp samesign ult i128 %.0812.i.i227.i, 5
   br i1 %.not.i.i230.i, label %_ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit231.i, label %.lr.ph.i.i225.i, !llvm.loop !16
 
 _ZN5boost8charconv6detail3ryuL18multipleOfPowerOf5Eoj.exit231.i: ; preds = %116, %.lr.ph.i.i225.i

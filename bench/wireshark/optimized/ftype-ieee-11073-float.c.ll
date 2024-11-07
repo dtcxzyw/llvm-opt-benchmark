@@ -497,7 +497,7 @@ define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr nocapture noundef r
   %20 = add i8 %.12331.i.i, 1
   %21 = urem i16 %17, 10
   %.not27.i.i = icmp eq i16 %21, 0
-  %22 = icmp ugt i16 %.132.i.i, 9
+  %22 = icmp samesign ugt i16 %.132.i.i, 9
   %23 = and i1 %22, %.not27.i.i
   br i1 %23, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !9
 
@@ -551,7 +551,7 @@ sfloat_to_normal_form.exit.i:                     ; preds = %._crit_edge.i.i, %3
   %49 = add i8 %.12331.i74.i, 1
   %50 = urem i16 %46, 10
   %.not27.i75.i = icmp eq i16 %50, 0
-  %51 = icmp ugt i16 %.132.i73.i, 9
+  %51 = icmp samesign ugt i16 %.132.i73.i, 9
   %52 = and i1 %51, %.not27.i75.i
   br i1 %52, label %.lr.ph.i72.i, label %._crit_edge.i67.i, !llvm.loop !9
 
@@ -694,7 +694,7 @@ sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, 
   %106 = add i8 %.12331.i.i20, 1
   %107 = urem i16 %103, 10
   %.not27.i.i21 = icmp eq i16 %107, 0
-  %108 = icmp ugt i16 %.132.i.i19, 9
+  %108 = icmp samesign ugt i16 %.132.i.i19, 9
   %109 = and i1 %108, %.not27.i.i21
   br i1 %109, label %.lr.ph.i.i18, label %._crit_edge.i.i13, !llvm.loop !9
 
@@ -744,7 +744,7 @@ sfloat_to_normal_form.exit.i16:                   ; preds = %._crit_edge.i.i13, 
   %132 = add i8 %.12331.i15.i, 1
   %133 = urem i16 %129, 10
   %.not27.i16.i = icmp eq i16 %133, 0
-  %134 = icmp ugt i16 %.132.i14.i, 9
+  %134 = icmp samesign ugt i16 %.132.i14.i, 9
   %135 = and i1 %134, %.not27.i16.i
   br i1 %135, label %.lr.ph.i13.i, label %._crit_edge.i8.i, !llvm.loop !9
 

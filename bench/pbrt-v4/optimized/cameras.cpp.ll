@@ -9040,7 +9040,7 @@ while.body.i:                                     ; preds = %for.body, %while.bo
   %reass.mul.i = mul i64 %reass.add.i, %conv.i
   %add.i12 = add i64 %reass.mul.i, %a.addr.016.i
   %mul10.i = fmul float %div3.i, %invBaseM.015.i
-  %tobool.i = icmp uge i64 %a.addr.016.i, %conv.i
+  %tobool.i = icmp samesign uge i64 %a.addr.016.i, %conv.i
   %cmp.i = icmp ult i64 %add.i12, %sub.i11
   %9 = select i1 %tobool.i, i1 %cmp.i, i1 false
   br i1 %9, label %while.body.i, label %_ZN4pbrt14RadicalInverseEim.exit, !llvm.loop !140
@@ -9061,7 +9061,7 @@ while.body.i19:                                   ; preds = %_ZN4pbrt14RadicalIn
   %reass.mul.i25 = mul i64 %reass.add.i24, %conv.i13
   %add.i26 = add i64 %reass.mul.i25, %a.addr.016.i20
   %mul10.i27 = fmul float %div3.i17, %invBaseM.015.i21
-  %tobool.i28 = icmp uge i64 %a.addr.016.i20, %conv.i13
+  %tobool.i28 = icmp samesign uge i64 %a.addr.016.i20, %conv.i13
   %cmp.i29 = icmp ult i64 %add.i26, %sub.i15
   %12 = select i1 %tobool.i28, i1 %cmp.i29, i1 false
   br i1 %12, label %while.body.i19, label %while.end.loopexit.i30, !llvm.loop !140

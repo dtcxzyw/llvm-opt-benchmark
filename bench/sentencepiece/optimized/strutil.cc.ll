@@ -1630,7 +1630,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 nound
   %29 = getelementptr inbounds i8, ptr %.1, i64 -1
   store i8 %28, ptr %.1, align 1
   %30 = udiv i64 %.127, 10
-  %.not = icmp ult i64 %.127, 10
+  %.not = icmp samesign ult i64 %.127, 10
   br i1 %.not, label %31, label %25, !llvm.loop !22
 
 31:                                               ; preds = %25
@@ -1694,7 +1694,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i32 nound
   %29 = getelementptr inbounds i8, ptr %.1, i64 -1
   store i8 %28, ptr %.1, align 1
   %30 = udiv i32 %.127, 10
-  %.not = icmp ult i32 %.127, 10
+  %.not = icmp samesign ult i32 %.127, 10
   br i1 %.not, label %31, label %25, !llvm.loop !24
 
 31:                                               ; preds = %25
@@ -2194,7 +2194,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ei(ptr dead_on_unwind noalias
   %31 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %30, ptr %.1.i, align 1
   %32 = udiv i32 %.127.i, 10
-  %.not.i = icmp ult i32 %.127.i, 10
+  %.not.i = icmp samesign ult i32 %.127.i, 10
   br i1 %.not.i, label %33, label %27, !llvm.loop !24
 
 33:                                               ; preds = %27
@@ -2332,7 +2332,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11El(ptr dead_on_unwind noalias
   %31 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %30, ptr %.1.i, align 1
   %32 = udiv i64 %.127.i, 10
-  %.not.i = icmp ult i64 %.127.i, 10
+  %.not.i = icmp samesign ult i64 %.127.i, 10
   br i1 %.not.i, label %33, label %27, !llvm.loop !22
 
 33:                                               ; preds = %27
@@ -2470,7 +2470,7 @@ define void @_ZN6google8protobuf10SimpleItoaB5cxx11Ex(ptr dead_on_unwind noalias
   %31 = getelementptr inbounds i8, ptr %.1.i, i64 -1
   store i8 %30, ptr %.1.i, align 1
   %32 = udiv i64 %.127.i, 10
-  %.not.i = icmp ult i64 %.127.i, 10
+  %.not.i = icmp samesign ult i64 %.127.i, 10
   br i1 %.not.i, label %33, label %27, !llvm.loop !22
 
 33:                                               ; preds = %27

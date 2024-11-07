@@ -7777,7 +7777,7 @@ define internal fastcc i64 @PS_Conv_ToFixed(ptr nocapture noundef %0, ptr nounde
 122:                                              ; preds = %120, %118
   %.682 = phi i64 [ %.581222, %118 ], [ %121, %120 ]
   %.6 = phi i64 [ %119, %118 ], [ %.575223, %120 ]
-  %123 = icmp ugt i64 %.285221, 9
+  %123 = icmp samesign ugt i64 %.285221, 9
   %124 = icmp ne i64 %.682, 0
   %or.cond10 = select i1 %123, i1 true, i1 %124
   br i1 %or.cond10, label %114, label %.loopexit

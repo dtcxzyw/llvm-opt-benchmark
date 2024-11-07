@@ -6159,7 +6159,7 @@ define dso_local i64 @rb_fix2str(i64 noundef %0, i32 noundef %1) local_unnamed_a
   %19 = getelementptr i8, ptr %.022, i64 -1
   store i8 %18, ptr %19, align 1
   %20 = udiv i64 %.1, %14
-  %.not = icmp ult i64 %.1, %14
+  %.not = icmp samesign ult i64 %.1, %14
   br i1 %.not, label %21, label %15, !llvm.loop !20
 
 21:                                               ; preds = %15
@@ -6345,7 +6345,7 @@ define hidden i64 @rb_int2str(i64 noundef %0, i32 noundef %1) local_unnamed_addr
   %21 = getelementptr i8, ptr %.022.i, i64 -1
   store i8 %20, ptr %21, align 1
   %22 = udiv i64 %.1.i, %16
-  %.not.i = icmp ult i64 %.1.i, %16
+  %.not.i = icmp samesign ult i64 %.1.i, %16
   br i1 %.not.i, label %23, label %17, !llvm.loop !20
 
 23:                                               ; preds = %17

@@ -2437,7 +2437,7 @@ RSTRING_END.exit1362:                             ; preds = %975, %981
   %1010 = getelementptr i8, ptr %.129.i.i, i64 -1
   store i8 %1009, ptr %1010, align 1
   %1011 = udiv i64 %.1.i.i, 10
-  %.not38.i.i = icmp ult i64 %.1.i.i, 10
+  %.not38.i.i = icmp samesign ult i64 %.1.i.i, 10
   br i1 %.not38.i.i, label %ruby_ultoa.exit, label %.preheader1619, !llvm.loop !54
 
 ruby_ultoa.exit:                                  ; preds = %.preheader1619, %1004
@@ -3586,7 +3586,7 @@ rb_float_value_inline.exit1431.thread:            ; preds = %1424, %rb_float_val
   %1503 = getelementptr i8, ptr %.129.i.i.i, i64 -1
   store i8 %1502, ptr %1503, align 1
   %1504 = udiv i64 %.1.i.i.i, 10
-  %.not38.i.i.i = icmp ult i64 %.1.i.i.i, 10
+  %.not38.i.i.i = icmp samesign ult i64 %.1.i.i.i, 10
   br i1 %.not38.i.i.i, label %ruby_ultoa.exit.i, label %1499, !llvm.loop !54
 
 ruby_ultoa.exit.i:                                ; preds = %1499, %1489
@@ -3640,7 +3640,7 @@ ruby_ultoa.exit.i:                                ; preds = %1499, %1489
   %1527 = getelementptr i8, ptr %.129.i.i31.i, i64 -1
   store i8 %1526, ptr %1527, align 1
   %1528 = udiv i64 %.1.i.i32.i, 10
-  %.not38.i.i33.i = icmp ult i64 %.1.i.i32.i, 10
+  %.not38.i.i33.i = icmp samesign ult i64 %.1.i.i32.i, 10
   br i1 %.not38.i.i33.i, label %ruby_ultoa.exit35.i, label %1523, !llvm.loop !54
 
 ruby_ultoa.exit35.i:                              ; preds = %1523, %1511, %1506

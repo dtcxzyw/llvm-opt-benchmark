@@ -2232,7 +2232,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
   %.112.i22.i = phi i64 [ %388, %.lr.ph24.i ], [ %.011.i.lcssa.i, %.preheader18.i ]
   %388 = udiv i64 %.112.i22.i, 100
   %389 = add nsw i32 %.1.i23.i, 2
-  %390 = icmp ugt i64 %.112.i22.i, 9999
+  %390 = icmp samesign ugt i64 %.112.i22.i, 9999
   br i1 %390, label %.lr.ph24.i, label %.preheader.i, !llvm.loop !51
 
 .lr.ph29.i:                                       ; preds = %.preheader.i, %.lr.ph29.i
@@ -2240,7 +2240,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIfEEEENS
   %.213.i27.i = phi i64 [ %391, %.lr.ph29.i ], [ %.112.i.lcssa.i, %.preheader.i ]
   %391 = udiv i64 %.213.i27.i, 10
   %392 = add nsw i32 %.2.i28.i, 1
-  %393 = icmp ugt i64 %.213.i27.i, 99
+  %393 = icmp samesign ugt i64 %.213.i27.i, 99
   br i1 %393, label %.lr.ph29.i, label %_ZN5boost8charconv6detail10fast_float19scientific_exponentIcEEiRNS2_22parsed_number_string_tIT_EE.exit.i, !llvm.loop !52
 
 _ZN5boost8charconv6detail10fast_float19scientific_exponentIcEEiRNS2_22parsed_number_string_tIT_EE.exit.i: ; preds = %.lr.ph29.i, %.preheader.i
@@ -6237,7 +6237,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
   %.112.i22.i = phi i64 [ %394, %.lr.ph24.i ], [ %.011.i.lcssa.i, %.preheader18.i ]
   %394 = udiv i64 %.112.i22.i, 100
   %395 = add nsw i32 %.1.i23.i, 2
-  %396 = icmp ugt i64 %.112.i22.i, 9999
+  %396 = icmp samesign ugt i64 %.112.i22.i, 9999
   br i1 %396, label %.lr.ph24.i, label %.preheader.i, !llvm.loop !51
 
 .lr.ph29.i:                                       ; preds = %.preheader.i, %.lr.ph29.i
@@ -6245,7 +6245,7 @@ _ZN5boost8charconv6detail10fast_float13compute_floatINS2_13binary_formatIdEEEENS
   %.213.i27.i = phi i64 [ %397, %.lr.ph29.i ], [ %.112.i.lcssa.i, %.preheader.i ]
   %397 = udiv i64 %.213.i27.i, 10
   %398 = add nsw i32 %.2.i28.i, 1
-  %399 = icmp ugt i64 %.213.i27.i, 99
+  %399 = icmp samesign ugt i64 %.213.i27.i, 99
   br i1 %399, label %.lr.ph29.i, label %_ZN5boost8charconv6detail10fast_float19scientific_exponentIcEEiRNS2_22parsed_number_string_tIT_EE.exit.i, !llvm.loop !52
 
 _ZN5boost8charconv6detail10fast_float19scientific_exponentIcEEiRNS2_22parsed_number_string_tIT_EE.exit.i: ; preds = %.lr.ph29.i, %.preheader.i

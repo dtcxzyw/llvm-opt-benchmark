@@ -1150,8 +1150,8 @@ for.body.preheader.i.i.us:                        ; preds = %while.end65.i.us
   %32 = zext i16 %31 to i64
   %33 = sub nsw i64 %29, %32
   %34 = shl nsw i64 %33, 1
-  %scevgep = getelementptr i8, ptr %indexes.i, i64 %34
-  call void @llvm.memset.p0.i64(ptr align 2 %scevgep, i8 0, i64 %30, i1 false)
+  %scevgep.i.us = getelementptr i8, ptr %indexes.i, i64 %34
+  call void @llvm.memset.p0.i64(ptr align 2 %scevgep.i.us, i8 0, i64 %30, i1 false)
   br label %for.end.i.i.us
 
 for.end.i.i.us:                                   ; preds = %for.body.preheader.i.i.us, %while.end65.i.us

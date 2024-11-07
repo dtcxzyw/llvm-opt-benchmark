@@ -1628,7 +1628,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   %54 = load i32, ptr %53, align 4
   %55 = urem i32 %.05472.us, %54
   %56 = udiv i32 %.05472.us, %54
-  %57 = uitofp i32 %55 to double
+  %57 = uitofp nneg i32 %55 to double
   %58 = fmul double %57, 6.553500e+04
   %59 = add i32 %54, -1
   %60 = uitofp i32 %59 to double
@@ -1973,7 +1973,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   %54 = load i32, ptr %53, align 4
   %55 = urem i32 %.05472.us, %54
   %56 = udiv i32 %.05472.us, %54
-  %57 = uitofp i32 %55 to double
+  %57 = uitofp nneg i32 %55 to double
   %58 = fmul double %57, 6.553500e+04
   %59 = add i32 %54, -1
   %60 = uitofp i32 %59 to double
@@ -2192,7 +2192,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr nocapture
   %20 = load i32, ptr %19, align 4
   %21 = urem i32 %.02432.us, %20
   %22 = udiv i32 %.02432.us, %20
-  %23 = uitofp i32 %21 to double
+  %23 = uitofp nneg i32 %21 to double
   %24 = fmul double %23, 6.553500e+04
   %25 = add i32 %20, -1
   %26 = uitofp i32 %25 to double
@@ -2298,7 +2298,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nocapt
   %20 = load i32, ptr %19, align 4
   %21 = urem i32 %.02432.us, %20
   %22 = udiv i32 %.02432.us, %20
-  %23 = uitofp i32 %21 to double
+  %23 = uitofp nneg i32 %21 to double
   %24 = fmul double %23, 6.553500e+04
   %25 = add i32 %20, -1
   %26 = uitofp i32 %25 to double

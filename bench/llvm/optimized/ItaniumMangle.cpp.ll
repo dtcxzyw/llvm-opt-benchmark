@@ -1569,7 +1569,7 @@ _ZN5clang13MangleContext32getAnonymousStructIdForDebugInfoEPKNS_9NamedDeclE.exit
   %104 = getelementptr inbounds i8, ptr %.111.i21, i64 -1
   store i8 %103, ptr %104, align 1, !noalias !11
   %105 = udiv i64 %.0810.i22, 10
-  %.not.i23 = icmp ult i64 %.0810.i22, 10
+  %.not.i23 = icmp samesign ult i64 %.0810.i22, 10
   br i1 %.not.i23, label %_ZN4llvm6utostrB5cxx11Emb.exit26, label %.lr.ph.i20, !llvm.loop !9
 
 _ZN4llvm6utostrB5cxx11Emb.exit26:                 ; preds = %.lr.ph.i20, %.thread.i25

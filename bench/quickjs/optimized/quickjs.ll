@@ -196679,7 +196679,7 @@ js_get_radix.exit:                                ; preds = %45
   %67 = load i8, ptr %66, align 1
   %68 = getelementptr i8, ptr %.2.i, i64 -1
   store i8 %67, ptr %68, align 1
-  %.not.i66 = icmp ult i64 %.222.i, %57
+  %.not.i66 = icmp samesign ult i64 %.222.i, %57
   br i1 %.not.i66, label %.loopexit.i, label %63, !llvm.loop !241
 
 .loopexit.i:                                      ; preds = %63, %.preheader.i

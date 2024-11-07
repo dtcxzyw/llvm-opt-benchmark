@@ -370,7 +370,7 @@ while.body:                                       ; preds = %if.end, %while.body
   store i8 %conv51, ptr %arrayidx54, align 1
   %rem = urem i32 %e.124, %multiplier.123
   %div55 = udiv i32 %multiplier.123, 10
-  %tobool49.not = icmp ult i32 %multiplier.123, 10
+  %tobool49.not = icmp samesign ult i32 %multiplier.123, 10
   br i1 %tobool49.not, label %if.end56, label %while.body, !llvm.loop !7
 
 if.end56:                                         ; preds = %while.body
@@ -4594,7 +4594,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
   %rem.i = urem i32 %e.124.i, %multiplier.123.i
   %div55.i = udiv i32 %multiplier.123.i, 10
-  %tobool49.not.i = icmp ult i32 %multiplier.123.i, 10
+  %tobool49.not.i = icmp samesign ult i32 %multiplier.123.i, 10
   br i1 %tobool49.not.i, label %if.end56.i, label %while.body.i, !llvm.loop !7
 
 if.end56.i:                                       ; preds = %while.body.i
@@ -5977,7 +5977,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
   %rem.i = urem i32 %e.124.i, %multiplier.123.i
   %div55.i = udiv i32 %multiplier.123.i, 10
-  %tobool49.not.i = icmp ult i32 %multiplier.123.i, 10
+  %tobool49.not.i = icmp samesign ult i32 %multiplier.123.i, 10
   br i1 %tobool49.not.i, label %if.end56.i, label %while.body.i, !llvm.loop !7
 
 if.end56.i:                                       ; preds = %while.body.i
@@ -7325,7 +7325,7 @@ while.body.i:                                     ; preds = %if.end.i, %while.bo
   store i8 %conv51.i, ptr %arrayidx54.i, align 1
   %rem.i = urem i32 %e.124.i, %multiplier.123.i
   %div55.i = udiv i32 %multiplier.123.i, 10
-  %tobool49.not.i = icmp ult i32 %multiplier.123.i, 10
+  %tobool49.not.i = icmp samesign ult i32 %multiplier.123.i, 10
   br i1 %tobool49.not.i, label %if.end56.i, label %while.body.i, !llvm.loop !7
 
 if.end56.i:                                       ; preds = %while.body.i

@@ -80438,8 +80438,8 @@ if.end.i.i.i:                                     ; preds = %if.end6.i
 if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
   %cmp6.i.i.i = icmp ult i16 %0, 1000
   %cmp11.i.i.i = icmp ult i16 %0, 10000
-  %spec.select.i = select i1 %cmp11.i.i.i, i32 4, i32 5
-  %retval.0.i.i.i.ph = select i1 %cmp6.i.i.i, i32 3, i32 %spec.select.i
+  %..i = select i1 %cmp11.i.i.i, i32 4, i32 5
+  %retval.0.i.i.i.ph = select i1 %cmp6.i.i.i, i32 3, i32 %..i
   %sub.i.i.i = add nsw i32 %retval.0.i.i.i.ph, -1
   br label %while.body.i.i.i
 

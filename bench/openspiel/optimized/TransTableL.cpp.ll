@@ -5930,7 +5930,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
 .lr.ph.i.i:                                       ; preds = %29, %41
   %.02230.i.i = phi i32 [ %42, %41 ], [ %17, %29 ]
   %.02329.i.i = phi i32 [ %43, %41 ], [ 1, %29 ]
-  %30 = icmp ult i32 %.02230.i.i, 100
+  %30 = icmp samesign ult i32 %.02230.i.i, 100
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i.i
@@ -5938,7 +5938,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 33:                                               ; preds = %.lr.ph.i.i
-  %34 = icmp ult i32 %.02230.i.i, 1000
+  %34 = icmp samesign ult i32 %.02230.i.i, 1000
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
@@ -5946,7 +5946,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i
 
 37:                                               ; preds = %33
-  %38 = icmp ult i32 %.02230.i.i, 10000
+  %38 = icmp samesign ult i32 %.02230.i.i, 10000
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %37
@@ -5956,7 +5956,7 @@ define void @_ZNK11TransTableL15PrintAllEntriesERSt14basic_ofstreamIcSt11char_tr
 41:                                               ; preds = %37
   %42 = udiv i32 %.02230.i.i, 10000
   %43 = add i32 %.02329.i.i, 4
-  %44 = icmp ult i32 %.02230.i.i, 100000
+  %44 = icmp samesign ult i32 %.02230.i.i, 100000
   br i1 %44, label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i, label %.lr.ph.i.i, !llvm.loop !36
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i:    ; preds = %41, %39, %35, %31, %29

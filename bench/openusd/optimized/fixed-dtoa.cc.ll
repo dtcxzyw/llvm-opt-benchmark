@@ -441,7 +441,7 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_c
   %19 = getelementptr inbounds i8, ptr %1, i64 %18
   store i8 %15, ptr %19, align 1
   %20 = add nuw nsw i32 %.02228.i, 1
-  %.not.i = icmp ult i32 %.029.i, 10
+  %.not.i = icmp samesign ult i32 %.029.i, 10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !4
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
@@ -534,7 +534,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL23FillDigits32Fixed
   %60 = getelementptr inbounds i8, ptr %1, i64 %59
   store i8 %56, ptr %60, align 1
   %61 = add nuw nsw i32 %.02228.i52, 1
-  %.not.i53 = icmp ult i32 %.029.i51, 10
+  %.not.i53 = icmp samesign ult i32 %.029.i51, 10
   br i1 %.not.i53, label %._crit_edge.i54, label %.lr.ph.i50, !llvm.loop !4
 
 ._crit_edge.i54:                                  ; preds = %.lr.ph.i50
@@ -605,7 +605,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12FillDigits32EjNS0
   %89 = getelementptr inbounds i8, ptr %1, i64 %88
   store i8 %85, ptr %89, align 1
   %90 = add nuw nsw i32 %.02228.i75, 1
-  %.not.i76 = icmp ult i32 %.029.i74, 10
+  %.not.i76 = icmp samesign ult i32 %.029.i74, 10
   br i1 %.not.i76, label %._crit_edge.i77, label %.lr.ph.i73, !llvm.loop !4
 
 ._crit_edge.i77:                                  ; preds = %.lr.ph.i73, %81

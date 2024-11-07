@@ -21998,11 +21998,11 @@ if.end5.i.i.i:                                    ; preds = %if.end.i.i.i
 
 if.end9.i.i.i:                                    ; preds = %if.end5.i.i.i
   %cmp11.i.i.i = icmp ult i16 %value, 10000
-  %spec.select.i = select i1 %cmp11.i.i.i, i32 4, i32 5
+  %..i = select i1 %cmp11.i.i.i, i32 4, i32 5
   br label %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
 
 _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end9.i.i.i, %if.end5.i.i.i, %if.end.i.i.i, %if.end6.i
-  %retval.0.i.i.i = phi i32 [ 1, %if.end6.i ], [ 2, %if.end.i.i.i ], [ 3, %if.end5.i.i.i ], [ %spec.select.i, %if.end9.i.i.i ]
+  %retval.0.i.i.i = phi i32 [ 1, %if.end6.i ], [ 2, %if.end.i.i.i ], [ 3, %if.end5.i.i.i ], [ %..i, %if.end9.i.i.i ]
   %sub.ptr.lhs.cast.i20.i = ptrtoint ptr %call1 to i64
   %sub.ptr.rhs.cast.i21.i = ptrtoint ptr %call to i64
   %sub.ptr.sub.i22.i = sub i64 %sub.ptr.lhs.cast.i20.i, %sub.ptr.rhs.cast.i21.i
@@ -22012,7 +22012,7 @@ _ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i:  ; preds = %if.end9.i.i.i, %if.
 
 while.body.lr.ph.thread:                          ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
   %cmp11.i.i.i17164 = icmp ult i16 %value, 10000
-  %spec.select.i18165 = select i1 %cmp11.i.i.i17164, i32 4, i32 5
+  %..i18165 = select i1 %cmp11.i.i.i17164, i32 4, i32 5
   br label %while.body.lr.ph.split
 
 if.end.i25.i:                                     ; preds = %_ZNSt8__detail14__to_chars_lenIjEEjT_i.exit.i.i
@@ -22079,7 +22079,7 @@ _ZSt12__to_chars_iItENSt9enable_ifIXsr5__or_ISt5__or_IJSt7is_sameINSt9remove_cvI
 
 while.body.lr.ph:                                 ; preds = %invoke.cont
   %cmp11.i.i.i17 = icmp ult i16 %value, 10000
-  %spec.select.i18 = select i1 %cmp11.i.i.i17, i32 4, i32 5
+  %..i18 = select i1 %cmp11.i.i.i17, i32 4, i32 5
   br i1 %cmp2.i9, label %while.body.us, label %while.body.lr.ph.split
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %invoke.cont6.us
@@ -22100,14 +22100,14 @@ lpad2.loopexit.split.us:                          ; preds = %while.body.us
   br label %lpad2
 
 while.body.lr.ph.split:                           ; preds = %while.body.lr.ph.thread, %while.body.lr.ph
-  %spec.select.i18169 = phi i32 [ %spec.select.i18165, %while.body.lr.ph.thread ], [ %spec.select.i18, %while.body.lr.ph ]
+  %..i18169 = phi i32 [ %..i18165, %while.body.lr.ph.thread ], [ %..i18, %while.body.lr.ph ]
   %cmp3.i.i.i13167 = icmp ult i16 %value, 100
   %cmp6.i.i.i15168 = icmp ult i16 %value, 1000
   %cmp14.i.i.i27 = icmp ugt i16 %value, 99
   br i1 %cmp14.i.i.i27, label %while.body.us74.preheader, label %while.body.lr.ph.split.split
 
 while.body.us74.preheader:                        ; preds = %while.body.lr.ph.split
-  %spec.select = select i1 %cmp6.i.i.i15168, i32 3, i32 %spec.select.i18169
+  %spec.select = select i1 %cmp6.i.i.i15168, i32 3, i32 %..i18169
   %conv.i23.i24.us = zext nneg i32 %spec.select to i64
   br label %while.body.us74
 
@@ -22196,7 +22196,7 @@ while.body.lr.ph.split.split:                     ; preds = %while.body.lr.ph.sp
   br i1 %cmp9.i.i.i30, label %while.body.us93.preheader, label %while.body.us125
 
 while.body.us93.preheader:                        ; preds = %while.body.lr.ph.split.split
-  %12 = zext nneg i32 %spec.select.i18169 to i64
+  %12 = zext nneg i32 %..i18169 to i64
   %13 = select i1 %cmp6.i.i.i15168, i64 3, i64 %12
   %conv.i23.i24.us109 = select i1 %cmp3.i.i.i13167, i64 2, i64 %13
   br label %while.body.us93

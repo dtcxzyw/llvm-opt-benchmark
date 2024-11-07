@@ -2823,7 +2823,7 @@ do.body:                                          ; preds = %if.end1023, %do.bod
   %210 = load i16, ptr %arrayidx1031, align 2
   store i16 %210, ptr %add.ptr1027.ptr, align 2
   %div1032 = udiv i32 %n.17, 100
-  %tobool1033.not = icmp ult i32 %n.17, 100
+  %tobool1033.not = icmp samesign ult i32 %n.17, 100
   br i1 %tobool1033.not, label %while.end1055, label %do.body, !llvm.loop !26
 
 if.end1034:                                       ; preds = %if.end1023

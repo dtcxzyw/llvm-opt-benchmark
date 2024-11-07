@@ -1212,7 +1212,7 @@ define hidden range(i32 0, 23) i32 @ma_itoa_s(i32 noundef %0, ptr noundef %1, i6
   %.148 = phi i32 [ %.047, %9 ], [ %17, %11 ]
   %.046 = phi ptr [ %1, %9 ], [ %15, %11 ]
   %12 = urem i32 %.148, %3
-  %13 = icmp sgt i32 %12, 9
+  %13 = icmp samesign ugt i32 %12, 9
   %14 = trunc nuw i32 %12 to i8
   %storemerge.v = select i1 %13, i8 87, i8 48
   %storemerge = add nuw i8 %storemerge.v, %14
