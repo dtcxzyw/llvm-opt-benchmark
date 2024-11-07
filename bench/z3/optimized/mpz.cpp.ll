@@ -6326,11 +6326,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %cmp4.i = icmp eq i32 %shr.i, 1
   %cmp5.i = icmp eq i32 %_b.0, 1
   %or.cond.i = or i1 %cmp4.i, %cmp5.i
-  br i1 %or.cond.i, label %if.then6.i, label %if.end7.i
-
-if.then6.i:                                       ; preds = %if.end3.i
-  %shl.i = shl nuw nsw i32 1, %2
-  br label %if.then.i
+  br i1 %or.cond.i, label %_Z5u_gcdjj.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   %cmp8.i = icmp eq i32 %shr.i, %_b.0
@@ -6349,14 +6345,14 @@ do.body.i:                                        ; preds = %if.end7.i, %do.body
   %cmp15.not.i = icmp eq i32 %sub14.i, 0
   br i1 %cmp15.not.i, label %_Z5u_gcdjj.exit, label %do.body.i, !llvm.loop !6
 
-_Z5u_gcdjj.exit:                                  ; preds = %do.body.i, %if.end7.i
-  %_b.0.pn = phi i32 [ %_b.0, %if.end7.i ], [ %add.i, %do.body.i ]
-  %retval.0.i = shl i32 %_b.0.pn, %2
+_Z5u_gcdjj.exit:                                  ; preds = %do.body.i, %if.end7.i, %if.end3.i
+  %.pn = phi i32 [ 1, %if.end3.i ], [ %_b.0, %if.end7.i ], [ %add.i, %do.body.i ]
+  %retval.0.i = shl i32 %.pn, %2
   %cmp.i54 = icmp sgt i32 %retval.0.i, -1
   br i1 %cmp.i54, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %if.end.i, %if.then, %if.then6.i, %_Z5u_gcdjj.exit
-  %retval.0.i690 = phi i32 [ %retval.0.i, %_Z5u_gcdjj.exit ], [ %spec.select, %if.end.i ], [ %_b.0, %if.then ], [ %shl.i, %if.then6.i ]
+if.then.i:                                        ; preds = %if.end.i, %if.then, %_Z5u_gcdjj.exit
+  %retval.0.i690 = phi i32 [ %retval.0.i, %_Z5u_gcdjj.exit ], [ %spec.select, %if.end.i ], [ %_b.0, %if.then ]
   store i32 %retval.0.i690, ptr %c, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4
@@ -20838,11 +20834,7 @@ if.end3.i:                                        ; preds = %if.end.i
   %cmp4.i = icmp eq i32 %shr.i, 1
   %cmp5.i = icmp eq i32 %_b.0, 1
   %or.cond.i = or i1 %cmp4.i, %cmp5.i
-  br i1 %or.cond.i, label %if.then6.i, label %if.end7.i
-
-if.then6.i:                                       ; preds = %if.end3.i
-  %shl.i = shl nuw nsw i32 1, %2
-  br label %if.then.i
+  br i1 %or.cond.i, label %_Z5u_gcdjj.exit, label %if.end7.i
 
 if.end7.i:                                        ; preds = %if.end3.i
   %cmp8.i = icmp eq i32 %shr.i, %_b.0
@@ -20861,14 +20853,14 @@ do.body.i:                                        ; preds = %if.end7.i, %do.body
   %cmp15.not.i = icmp eq i32 %sub14.i, 0
   br i1 %cmp15.not.i, label %_Z5u_gcdjj.exit, label %do.body.i, !llvm.loop !6
 
-_Z5u_gcdjj.exit:                                  ; preds = %do.body.i, %if.end7.i
-  %_b.0.pn = phi i32 [ %_b.0, %if.end7.i ], [ %add.i, %do.body.i ]
-  %retval.0.i = shl i32 %_b.0.pn, %2
+_Z5u_gcdjj.exit:                                  ; preds = %do.body.i, %if.end7.i, %if.end3.i
+  %.pn = phi i32 [ 1, %if.end3.i ], [ %_b.0, %if.end7.i ], [ %add.i, %do.body.i ]
+  %retval.0.i = shl i32 %.pn, %2
   %cmp.i54 = icmp sgt i32 %retval.0.i, -1
   br i1 %cmp.i54, label %if.then.i, label %if.else.i
 
-if.then.i:                                        ; preds = %if.end.i, %if.then, %if.then6.i, %_Z5u_gcdjj.exit
-  %retval.0.i714 = phi i32 [ %retval.0.i, %_Z5u_gcdjj.exit ], [ %spec.select, %if.end.i ], [ %_b.0, %if.then ], [ %shl.i, %if.then6.i ]
+if.then.i:                                        ; preds = %if.end.i, %if.then, %_Z5u_gcdjj.exit
+  %retval.0.i714 = phi i32 [ %retval.0.i, %_Z5u_gcdjj.exit ], [ %spec.select, %if.end.i ], [ %_b.0, %if.then ]
   store i32 %retval.0.i714, ptr %c, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %c, i64 4
   %bf.load.i.i = load i8, ptr %m_kind.i.i, align 4

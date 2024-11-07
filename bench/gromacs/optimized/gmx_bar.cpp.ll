@@ -11335,173 +11335,173 @@ define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13s
   %44 = getelementptr inbounds i8, ptr %0, i64 24
   %45 = load i32, ptr %44, align 8
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %._crit_edge127.thread, label %.lr.ph126
+  br i1 %46, label %._crit_edge128.thread, label %.lr.ph127
 
-._crit_edge127.thread:                            ; preds = %._crit_edge
+._crit_edge128.thread:                            ; preds = %._crit_edge
   %47 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %47, align 8
   br label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit
 
-.lr.ph126:                                        ; preds = %._crit_edge, %103
-  %indvars.iv132 = phi i64 [ %indvars.iv.next133, %103 ], [ 0, %._crit_edge ]
-  %.089.neg124 = phi i64 [ %.089.neg, %103 ], [ 0, %._crit_edge ]
-  %.089123 = phi i64 [ %104, %103 ], [ 0, %._crit_edge ]
+.lr.ph127:                                        ; preds = %._crit_edge, %104
+  %indvars.iv133 = phi i64 [ %indvars.iv.next134, %104 ], [ 0, %._crit_edge ]
+  %.089.neg125 = phi i64 [ %.089.neg, %104 ], [ 0, %._crit_edge ]
+  %.089124 = phi i64 [ %105, %104 ], [ 0, %._crit_edge ]
   %48 = load ptr, ptr %10, align 8
-  %49 = getelementptr inbounds %struct.sample_range_t, ptr %48, i64 %indvars.iv132
+  %49 = getelementptr inbounds %struct.sample_range_t, ptr %48, i64 %indvars.iv133
   %50 = getelementptr inbounds i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 8
   %52 = trunc i8 %51 to i1
   %.pre = load ptr, ptr %5, align 8
-  %53 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv132
+  %53 = getelementptr inbounds ptr, ptr %.pre, i64 %indvars.iv133
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 64
   %56 = load ptr, ptr %55, align 8
   %.not = icmp eq ptr %56, null
   br i1 %52, label %57, label %63
 
-57:                                               ; preds = %.lr.ph126
-  br i1 %.not, label %.thread138, label %82
+57:                                               ; preds = %.lr.ph127
+  br i1 %.not, label %.thread, label %83
 
-.thread138:                                       ; preds = %57
+.thread:                                          ; preds = %57
   %58 = getelementptr inbounds i8, ptr %49, i64 4
   %59 = load i32, ptr %58, align 4
   %60 = load i32, ptr %49, align 8
   %61 = sub nsw i32 %59, %60
   %62 = sext i32 %61 to i64
-  br label %.thread
+  br label %64
 
-63:                                               ; preds = %.lr.ph126
-  br i1 %.not, label %.thread, label %103
+63:                                               ; preds = %.lr.ph127
+  br i1 %.not, label %64, label %104
 
-.thread:                                          ; preds = %.thread138, %63
-  %.088142 = phi i64 [ %62, %.thread138 ], [ 0, %63 ]
-  %64 = icmp slt i64 %.089123, %38
-  %65 = load i32, ptr %49, align 8
-  %66 = sext i32 %65 to i64
-  %67 = add i64 %.089.neg124, %38
-  %68 = select i1 %64, i64 %67, i64 0
-  %.086 = add nsw i64 %68, %66
-  %69 = add i64 %.089.neg124, %43
-  %70 = add nsw i64 %69, %66
-  %71 = getelementptr inbounds i8, ptr %49, i64 4
-  %72 = load i32, ptr %71, align 4
-  %73 = sext i32 %72 to i64
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %70, i64 %73)
-  %74 = icmp slt i64 %spec.select, %.086
-  %75 = icmp sgt i64 %.086, %73
-  %or.cond = or i1 %74, %75
-  %76 = trunc i64 %.086 to i32
-  %77 = trunc i64 %spec.select to i32
-  %78 = select i1 %or.cond, i32 0, i32 %76
-  store i32 %78, ptr %49, align 8
+64:                                               ; preds = %.thread, %63
+  %.088142 = phi i64 [ %62, %.thread ], [ 0, %63 ]
+  %65 = icmp slt i64 %.089124, %38
+  %66 = load i32, ptr %49, align 8
+  %67 = sext i32 %66 to i64
+  %68 = add i64 %.089.neg125, %38
+  %69 = select i1 %65, i64 %68, i64 0
+  %.086 = add nsw i64 %69, %67
+  %70 = add i64 %.089.neg125, %43
+  %71 = add nsw i64 %70, %67
+  %72 = getelementptr inbounds i8, ptr %49, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = sext i32 %73 to i64
+  %spec.select = tail call i64 @llvm.smin.i64(i64 %71, i64 %74)
+  %75 = icmp slt i64 %spec.select, %.086
+  %76 = icmp sgt i64 %.086, %74
+  %or.cond = or i1 %75, %76
+  %77 = trunc i64 %.086 to i32
+  %78 = trunc i64 %spec.select to i32
   %79 = select i1 %or.cond, i32 0, i32 %77
-  %80 = load ptr, ptr %10, align 8
-  %81 = getelementptr inbounds %struct.sample_range_t, ptr %80, i64 %indvars.iv132, i32 1
-  store i32 %79, ptr %81, align 4
-  br label %103
+  store i32 %79, ptr %49, align 8
+  %80 = select i1 %or.cond, i32 0, i32 %78
+  %81 = load ptr, ptr %10, align 8
+  %82 = getelementptr inbounds %struct.sample_range_t, ptr %81, i64 %indvars.iv133, i32 1
+  store i32 %80, ptr %82, align 4
+  br label %104
 
-82:                                               ; preds = %57
-  %83 = getelementptr inbounds i8, ptr %56, i64 56
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds %struct.sample_range_t, ptr %48, i64 %indvars.iv132, i32 2
-  %86 = sub nsw i64 %38, %.089123
-  %87 = sitofp i64 %86 to double
-  %88 = sitofp i64 %84 to double
-  %89 = fdiv double %87, %88
-  %90 = sub nsw i64 %43, %.089123
-  %91 = sitofp i64 %90 to double
-  %92 = fdiv double %91, %88
-  %93 = fcmp ogt double %89, 0.000000e+00
-  %.sroa.speculated114 = select i1 %93, double %89, double 0.000000e+00
-  %94 = fcmp olt double %.sroa.speculated114, 1.000000e+00
-  %.sroa.speculated107 = select i1 %94, double %.sroa.speculated114, double 1.000000e+00
-  %95 = fcmp olt double %92, 1.000000e+00
-  %.sroa.speculated110 = select i1 %95, double %92, double 1.000000e+00
-  %96 = fcmp ogt double %.sroa.speculated110, 0.000000e+00
-  %.sroa.speculated = select i1 %96, double %.sroa.speculated110, double 0.000000e+00
-  %97 = fsub double %.sroa.speculated, %.sroa.speculated107
-  %98 = fcmp ogt double %97, 0x3FEE666666666666
-  br i1 %98, label %99, label %100
+83:                                               ; preds = %57
+  %84 = getelementptr inbounds i8, ptr %56, i64 56
+  %85 = load i64, ptr %84, align 8
+  %86 = getelementptr inbounds %struct.sample_range_t, ptr %48, i64 %indvars.iv133, i32 2
+  %87 = sub nsw i64 %38, %.089124
+  %88 = sitofp i64 %87 to double
+  %89 = sitofp i64 %85 to double
+  %90 = fdiv double %88, %89
+  %91 = sub nsw i64 %43, %.089124
+  %92 = sitofp i64 %91 to double
+  %93 = fdiv double %92, %89
+  %94 = fcmp ogt double %90, 0.000000e+00
+  %.sroa.speculated114 = select i1 %94, double %90, double 0.000000e+00
+  %95 = fcmp olt double %.sroa.speculated114, 1.000000e+00
+  %.sroa.speculated107 = select i1 %95, double %.sroa.speculated114, double 1.000000e+00
+  %96 = fcmp olt double %93, 1.000000e+00
+  %.sroa.speculated110 = select i1 %96, double %93, double 1.000000e+00
+  %97 = fcmp ogt double %.sroa.speculated110, 0.000000e+00
+  %.sroa.speculated = select i1 %97, double %.sroa.speculated110, double 0.000000e+00
+  %98 = fsub double %.sroa.speculated, %.sroa.speculated107
+  %99 = fcmp ogt double %98, 0x3FEE666666666666
+  br i1 %99, label %100, label %101
 
-99:                                               ; preds = %82
-  store i8 1, ptr %85, align 8
-  br label %103
+100:                                              ; preds = %83
+  store i8 1, ptr %86, align 8
+  br label %104
 
-100:                                              ; preds = %82
-  %101 = fcmp olt double %97, 5.000000e-02
-  br i1 %101, label %102, label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit
+101:                                              ; preds = %83
+  %102 = fcmp olt double %98, 5.000000e-02
+  br i1 %102, label %103, label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit
 
-102:                                              ; preds = %100
-  store i8 0, ptr %85, align 8
-  br label %103
+103:                                              ; preds = %101
+  store i8 0, ptr %86, align 8
+  br label %104
 
-103:                                              ; preds = %63, %102, %99, %.thread
-  %.088141 = phi i64 [ %84, %102 ], [ %84, %99 ], [ %.088142, %.thread ], [ 0, %63 ]
-  %104 = add nsw i64 %.088141, %.089123
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %.089.neg = sub i64 0, %104
-  %105 = load i32, ptr %44, align 8
-  %106 = sext i32 %105 to i64
-  %.not129 = icmp slt i64 %indvars.iv.next133, %106
-  br i1 %.not129, label %.lr.ph126, label %._crit_edge127, !llvm.loop !105
+104:                                              ; preds = %63, %103, %100, %64
+  %.088141 = phi i64 [ %85, %103 ], [ %85, %100 ], [ %.088142, %64 ], [ 0, %63 ]
+  %105 = add nsw i64 %.088141, %.089124
+  %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
+  %.089.neg = sub i64 0, %105
+  %106 = load i32, ptr %44, align 8
+  %107 = sext i32 %106 to i64
+  %.not130 = icmp slt i64 %indvars.iv.next134, %107
+  br i1 %.not130, label %.lr.ph127, label %._crit_edge128, !llvm.loop !105
 
-._crit_edge127:                                   ; preds = %103
-  %107 = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 0, ptr %107, align 8
-  %108 = icmp sgt i32 %105, 0
-  br i1 %108, label %.lr.ph.i, label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit
+._crit_edge128:                                   ; preds = %104
+  %108 = getelementptr inbounds i8, ptr %0, i64 56
+  store i64 0, ptr %108, align 8
+  %109 = icmp sgt i32 %106, 0
+  br i1 %109, label %.lr.ph.i, label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit
 
-.lr.ph.i:                                         ; preds = %._crit_edge127
-  %109 = load ptr, ptr %10, align 8
-  %wide.trip.count.i = zext nneg i32 %105 to i64
-  br label %110
+.lr.ph.i:                                         ; preds = %._crit_edge128
+  %110 = load ptr, ptr %10, align 8
+  %wide.trip.count.i = zext nneg i32 %106 to i64
+  br label %111
 
-110:                                              ; preds = %132, %.lr.ph.i
-  %111 = phi i64 [ 0, %.lr.ph.i ], [ %133, %132 ]
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %132 ]
-  %112 = getelementptr inbounds %struct.sample_range_t, ptr %109, i64 %indvars.iv.i
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
-  %114 = load i8, ptr %113, align 8
-  %115 = trunc i8 %114 to i1
-  br i1 %115, label %116, label %132
+111:                                              ; preds = %133, %.lr.ph.i
+  %112 = phi i64 [ 0, %.lr.ph.i ], [ %134, %133 ]
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %133 ]
+  %113 = getelementptr inbounds %struct.sample_range_t, ptr %110, i64 %indvars.iv.i
+  %114 = getelementptr inbounds i8, ptr %113, i64 8
+  %115 = load i8, ptr %114, align 8
+  %116 = trunc i8 %115 to i1
+  br i1 %116, label %117, label %133
 
-116:                                              ; preds = %110
-  %117 = load ptr, ptr %5, align 8
-  %118 = getelementptr inbounds ptr, ptr %117, i64 %indvars.iv.i
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 64
-  %121 = load ptr, ptr %120, align 8
-  %.not.i = icmp eq ptr %121, null
-  br i1 %.not.i, label %125, label %122
+117:                                              ; preds = %111
+  %118 = load ptr, ptr %5, align 8
+  %119 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv.i
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds i8, ptr %120, i64 64
+  %122 = load ptr, ptr %121, align 8
+  %.not.i = icmp eq ptr %122, null
+  br i1 %.not.i, label %126, label %123
 
-122:                                              ; preds = %116
-  %123 = getelementptr inbounds i8, ptr %119, i64 88
-  %124 = load i64, ptr %123, align 8
+123:                                              ; preds = %117
+  %124 = getelementptr inbounds i8, ptr %120, i64 88
+  %125 = load i64, ptr %124, align 8
   br label %.sink.split.i
 
-125:                                              ; preds = %116
-  %126 = getelementptr inbounds i8, ptr %112, i64 4
-  %127 = load i32, ptr %126, align 4
-  %128 = load i32, ptr %112, align 8
-  %129 = sub nsw i32 %127, %128
-  %130 = sext i32 %129 to i64
+126:                                              ; preds = %117
+  %127 = getelementptr inbounds i8, ptr %113, i64 4
+  %128 = load i32, ptr %127, align 4
+  %129 = load i32, ptr %113, align 8
+  %130 = sub nsw i32 %128, %129
+  %131 = sext i32 %130 to i64
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %125, %122
-  %.sink17.i = phi i64 [ %130, %125 ], [ %124, %122 ]
-  %131 = add nsw i64 %.sink17.i, %111
-  store i64 %131, ptr %107, align 8
-  br label %132
+.sink.split.i:                                    ; preds = %126, %123
+  %.sink17.i = phi i64 [ %131, %126 ], [ %125, %123 ]
+  %132 = add nsw i64 %.sink17.i, %112
+  store i64 %132, ptr %108, align 8
+  br label %133
 
-132:                                              ; preds = %.sink.split.i, %110
-  %133 = phi i64 [ %111, %110 ], [ %131, %.sink.split.i ]
+133:                                              ; preds = %.sink.split.i, %111
+  %134 = phi i64 [ %112, %111 ], [ %132, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit, label %110, !llvm.loop !45
+  br i1 %exitcond.not.i, label %_ZL21sample_coll_calc_ntotP13sample_coll_t.exit, label %111, !llvm.loop !45
 
-_ZL21sample_coll_calc_ntotP13sample_coll_t.exit:  ; preds = %100, %132, %._crit_edge127.thread, %._crit_edge127
-  %134 = phi i1 [ true, %._crit_edge127 ], [ true, %._crit_edge127.thread ], [ true, %132 ], [ false, %100 ]
-  ret i1 %134
+_ZL21sample_coll_calc_ntotP13sample_coll_t.exit:  ; preds = %101, %133, %._crit_edge128.thread, %._crit_edge128
+  %135 = phi i1 [ true, %._crit_edge128 ], [ true, %._crit_edge128.thread ], [ true, %133 ], [ false, %101 ]
+  ret i1 %135
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)

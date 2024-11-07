@@ -71721,10 +71721,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i47, ptr %size_.i.i, align 8
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i49, align 1
-  %.sroa.speculated193 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated193 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i57.not = icmp eq i32 %.sroa.speculated193, 0
-  br i1 %cmp2.i.i.i57.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75, label %for.body.lr.ph.i.i.i58
+  %cmp2.i.i.i57 = icmp sgt i32 %.sroa.speculated193, 0
+  br i1 %cmp2.i.i.i57, label %for.body.lr.ph.i.i.i58, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75
 
 for.body.lr.ph.i.i.i58:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   %size_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -71762,7 +71762,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i66, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated193
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -74180,10 +74180,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i47, ptr %size_.i.i, align 8
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i49, align 1
-  %.sroa.speculated193 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated193 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i57.not = icmp eq i32 %.sroa.speculated193, 0
-  br i1 %cmp2.i.i.i57.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75, label %for.body.lr.ph.i.i.i58
+  %cmp2.i.i.i57 = icmp sgt i32 %.sroa.speculated193, 0
+  br i1 %cmp2.i.i.i57, label %for.body.lr.ph.i.i.i58, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75
 
 for.body.lr.ph.i.i.i58:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   %size_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -74221,7 +74221,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i66, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated193
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -76562,10 +76562,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i47, ptr %size_.i.i, align 8
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i49, align 1
-  %.sroa.speculated193 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated193 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i57.not = icmp eq i32 %.sroa.speculated193, 0
-  br i1 %cmp2.i.i.i57.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75, label %for.body.lr.ph.i.i.i58
+  %cmp2.i.i.i57 = icmp sgt i32 %.sroa.speculated193, 0
+  br i1 %cmp2.i.i.i57, label %for.body.lr.ph.i.i.i58, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75
 
 for.body.lr.ph.i.i.i58:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   %size_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -76603,7 +76603,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i66, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated193
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -78956,10 +78956,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -78997,7 +78997,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -81350,10 +81350,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -81391,7 +81391,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -83741,10 +83741,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -83782,7 +83782,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -86123,10 +86123,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i47, ptr %size_.i.i, align 8
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i49, align 1
-  %.sroa.speculated193 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated193 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i57.not = icmp eq i32 %.sroa.speculated193, 0
-  br i1 %cmp2.i.i.i57.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75, label %for.body.lr.ph.i.i.i58
+  %cmp2.i.i.i57 = icmp sgt i32 %.sroa.speculated193, 0
+  br i1 %cmp2.i.i.i57, label %for.body.lr.ph.i.i.i58, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75
 
 for.body.lr.ph.i.i.i58:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   %size_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -86164,7 +86164,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i66, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated193
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -88511,10 +88511,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i47, ptr %size_.i.i, align 8
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i49, align 1
-  %.sroa.speculated193 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated193 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i57.not = icmp eq i32 %.sroa.speculated193, 0
-  br i1 %cmp2.i.i.i57.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75, label %for.body.lr.ph.i.i.i58
+  %cmp2.i.i.i57 = icmp sgt i32 %.sroa.speculated193, 0
+  br i1 %cmp2.i.i.i57, label %for.body.lr.ph.i.i.i58, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75
 
 for.body.lr.ph.i.i.i58:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   %size_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -88552,7 +88552,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i66, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated193
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -115756,10 +115756,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -115797,7 +115797,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -121525,10 +121525,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -121566,7 +121566,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -141871,10 +141871,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i47, ptr %size_.i.i, align 8
   %arrayidx.i.i49 = getelementptr inbounds i8, ptr %24, i64 %23
   store i8 46, ptr %arrayidx.i.i49, align 1
-  %.sroa.speculated193 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated193 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i57.not = icmp eq i32 %.sroa.speculated193, 0
-  br i1 %cmp2.i.i.i57.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75, label %for.body.lr.ph.i.i.i58
+  %cmp2.i.i.i57 = icmp sgt i32 %.sroa.speculated193, 0
+  br i1 %cmp2.i.i.i57, label %for.body.lr.ph.i.i.i58, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75
 
 for.body.lr.ph.i.i.i58:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   %size_.i.i.i.i.i59 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -141912,7 +141912,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit75: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i66, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit54
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated193
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -158315,10 +158315,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -158356,7 +158356,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -163858,10 +163858,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i50, ptr %size_.i.i, align 8
   %arrayidx.i.i52 = getelementptr inbounds i8, ptr %26, i64 %25
   store i8 46, ptr %arrayidx.i.i52, align 1
-  %.sroa.speculated196 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated196 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i60.not = icmp eq i32 %.sroa.speculated196, 0
-  br i1 %cmp2.i.i.i60.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit78, label %for.body.lr.ph.i.i.i61
+  %cmp2.i.i.i60 = icmp sgt i32 %.sroa.speculated196, 0
+  br i1 %cmp2.i.i.i60, label %for.body.lr.ph.i.i.i61, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit78
 
 for.body.lr.ph.i.i.i61:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit57
   %size_.i.i.i.i.i62 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -163899,7 +163899,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit78: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i69, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit57
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated196
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -166315,10 +166315,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i50, ptr %size_.i.i, align 8
   %arrayidx.i.i52 = getelementptr inbounds i8, ptr %26, i64 %25
   store i8 46, ptr %arrayidx.i.i52, align 1
-  %.sroa.speculated196 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated196 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i60.not = icmp eq i32 %.sroa.speculated196, 0
-  br i1 %cmp2.i.i.i60.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit78, label %for.body.lr.ph.i.i.i61
+  %cmp2.i.i.i60 = icmp sgt i32 %.sroa.speculated196, 0
+  br i1 %cmp2.i.i.i60, label %for.body.lr.ph.i.i.i61, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit78
 
 for.body.lr.ph.i.i.i61:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit57
   %size_.i.i.i.i.i62 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -166356,7 +166356,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit78: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i69, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit57
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated196
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -175692,10 +175692,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -175733,7 +175733,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -201592,10 +201592,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i49, ptr %size_.i.i, align 8
   %arrayidx.i.i51 = getelementptr inbounds i8, ptr %26, i64 %25
   store i8 46, ptr %arrayidx.i.i51, align 1
-  %.sroa.speculated195 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated195 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i59.not = icmp eq i32 %.sroa.speculated195, 0
-  br i1 %cmp2.i.i.i59.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit77, label %for.body.lr.ph.i.i.i60
+  %cmp2.i.i.i59 = icmp sgt i32 %.sroa.speculated195, 0
+  br i1 %cmp2.i.i.i59, label %for.body.lr.ph.i.i.i60, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit77
 
 for.body.lr.ph.i.i.i60:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit56
   %size_.i.i.i.i.i61 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -201633,7 +201633,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit77: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i68, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit56
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated195
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end
@@ -217561,10 +217561,10 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.
   store i64 %inc.pre-phi.i.i48, ptr %size_.i.i, align 8
   %arrayidx.i.i50 = getelementptr inbounds i8, ptr %25, i64 %24
   store i8 46, ptr %arrayidx.i.i50, align 1
-  %.sroa.speculated194 = tail call i32 @llvm.umin.i32(i32 %precision, i32 %.sroa.speculated)
+  %.sroa.speculated194 = tail call i32 @llvm.smin.i32(i32 %precision, i32 %.sroa.speculated)
   %agg.tmp40.sroa.0.0.copyload = load ptr, ptr %out, align 8
-  %cmp2.i.i.i58.not = icmp eq i32 %.sroa.speculated194, 0
-  br i1 %cmp2.i.i.i58.not, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76, label %for.body.lr.ph.i.i.i59
+  %cmp2.i.i.i58 = icmp sgt i32 %.sroa.speculated194, 0
+  br i1 %cmp2.i.i.i58, label %for.body.lr.ph.i.i.i59, label %_ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76
 
 for.body.lr.ph.i.i.i59:                           ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   %size_.i.i.i.i.i60 = getelementptr inbounds i8, ptr %agg.tmp40.sroa.0.0.copyload, i64 16
@@ -217602,7 +217602,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc
 _ZSt6fill_nISt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEicET_S7_T0_RKT1_.exit76: ; preds = %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSERKc.exit.i.i.i67, %_ZNSt20back_insert_iteratorIN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEEEaSEOc.exit55
   store ptr %agg.tmp40.sroa.0.0.copyload, ptr %out, align 8
   %sub45 = sub nsw i32 %precision, %.sroa.speculated194
-  %cmp46.not = icmp ugt i32 %precision, %.sroa.speculated
+  %cmp46.not = icmp sgt i32 %precision, %.sroa.speculated
   %cmp47 = icmp slt i32 %sub45, %sub.i.i
   %or.cond = select i1 %cmp46.not, i1 %cmp47, i1 false
   br i1 %or.cond, label %if.then48, label %if.end

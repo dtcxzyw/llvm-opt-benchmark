@@ -1811,23 +1811,23 @@ resolve_divisor_64.exit.i:                        ; preds = %133, %123
   %158 = mul nsw i64 %.sroa.064.0.lcssa.i, %151
   %159 = mul nsw i64 %.sroa.079.0.lcssa.i, %.sroa.5.0.lcssa.i
   %160 = add nsw i64 %159, %158
-  %161 = sext i16 %.0127.i to i64
-  %162 = mul nsw i64 %150, %161
-  %163 = icmp slt i64 %162, 0
-  %164 = zext nneg i16 %storemerge.i to i64
-  %165 = shl nuw nsw i64 1, %164
+  %161 = zext nneg i16 %storemerge.i to i64
+  %162 = sext i16 %.0127.i to i64
+  %163 = mul nsw i64 %150, %162
+  %164 = icmp slt i64 %163, 0
+  %165 = shl nuw nsw i64 1, %161
   %166 = lshr i64 %165, 1
-  br i1 %163, label %167, label %171
+  br i1 %164, label %167, label %171
 
 167:                                              ; preds = %resolve_divisor_64.exit.i
-  %168 = sub nsw i64 %166, %162
-  %169 = lshr i64 %168, %164
+  %168 = sub nsw i64 %166, %163
+  %169 = lshr i64 %168, %161
   %170 = sub nsw i64 0, %169
   br label %get_mult_shift_diag.exit.i
 
 171:                                              ; preds = %resolve_divisor_64.exit.i
-  %172 = add nuw nsw i64 %162, %166
-  %173 = lshr i64 %172, %164
+  %172 = add nuw nsw i64 %163, %166
+  %173 = lshr i64 %172, %161
   br label %get_mult_shift_diag.exit.i
 
 get_mult_shift_diag.exit.i:                       ; preds = %171, %167
@@ -1837,19 +1837,19 @@ get_mult_shift_diag.exit.i:                       ; preds = %171, %167
   %177 = trunc nuw nsw i64 %176 to i32
   %178 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %177, ptr %178, align 4
-  %179 = mul nsw i64 %154, %161
+  %179 = mul nsw i64 %154, %162
   %180 = icmp slt i64 %179, 0
   br i1 %180, label %181, label %185
 
 181:                                              ; preds = %get_mult_shift_diag.exit.i
   %182 = sub nsw i64 %166, %179
-  %183 = lshr i64 %182, %164
+  %183 = lshr i64 %182, %161
   %184 = sub nsw i64 0, %183
   br label %get_mult_shift_ndiag.exit.i
 
 185:                                              ; preds = %get_mult_shift_diag.exit.i
   %186 = add nuw nsw i64 %179, %166
-  %187 = lshr i64 %186, %164
+  %187 = lshr i64 %186, %161
   br label %get_mult_shift_ndiag.exit.i
 
 get_mult_shift_ndiag.exit.i:                      ; preds = %185, %181
@@ -1859,19 +1859,19 @@ get_mult_shift_ndiag.exit.i:                      ; preds = %185, %181
   %191 = trunc nsw i64 %190 to i32
   %192 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %191, ptr %192, align 4
-  %193 = mul nsw i64 %157, %161
+  %193 = mul nsw i64 %157, %162
   %194 = icmp slt i64 %193, 0
   br i1 %194, label %195, label %199
 
 195:                                              ; preds = %get_mult_shift_ndiag.exit.i
   %196 = sub nsw i64 %166, %193
-  %197 = lshr i64 %196, %164
+  %197 = lshr i64 %196, %161
   %198 = sub nsw i64 0, %197
   br label %get_mult_shift_ndiag.exit131.i
 
 199:                                              ; preds = %get_mult_shift_ndiag.exit.i
   %200 = add nuw nsw i64 %193, %166
-  %201 = lshr i64 %200, %164
+  %201 = lshr i64 %200, %161
   br label %get_mult_shift_ndiag.exit131.i
 
 get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
@@ -1881,19 +1881,19 @@ get_mult_shift_ndiag.exit131.i:                   ; preds = %199, %195
   %205 = trunc nsw i64 %204 to i32
   %206 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 %205, ptr %206, align 4
-  %207 = mul nsw i64 %160, %161
+  %207 = mul nsw i64 %160, %162
   %208 = icmp slt i64 %207, 0
   br i1 %208, label %209, label %213
 
 209:                                              ; preds = %get_mult_shift_ndiag.exit131.i
   %210 = sub nsw i64 %166, %207
-  %211 = lshr i64 %210, %164
+  %211 = lshr i64 %210, %161
   %212 = sub nsw i64 0, %211
   br label %216
 
 213:                                              ; preds = %get_mult_shift_ndiag.exit131.i
   %214 = add nuw nsw i64 %207, %166
-  %215 = lshr i64 %214, %164
+  %215 = lshr i64 %214, %161
   br label %216
 
 216:                                              ; preds = %209, %213

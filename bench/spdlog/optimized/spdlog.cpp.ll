@@ -65550,9 +65550,9 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %last_message_time_, align 8
   %sub.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i1.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
-  %div.i.i14 = udiv i64 %.sroa.speculated, 1000
+  %div.i.i = udiv i64 %.sroa.speculated, 1000
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %last_message_time_, align 8
-  %or.i.i.i.i = or i64 %div.i.i14, 1
+  %or.i.i.i.i = or i64 %div.i.i, 1
   %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i = xor i64 %1, 63
   %arrayidx.i.i.i.i = getelementptr inbounds [64 x i8], ptr @_ZZN3fmt2v96detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %xor.i.i.i.i
@@ -65560,7 +65560,7 @@ entry:
   %conv.i.i.i.i = zext i8 %2 to i64
   %arrayidx2.i.i.i.i = getelementptr inbounds [21 x i64], ptr @_ZZN3fmt2v96detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %conv.i.i.i.i
   %3 = load i64, ptr %arrayidx2.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %div.i.i14, %3
+  %cmp.i.i.i.i = icmp ult i64 %div.i.i, %3
   %conv3.neg.i.i.i.i = sext i1 %cmp.i.i.i.i to i64
   %sub.i.i.i.i = add nsw i64 %conv3.neg.i.i.i.i, %conv.i.i.i.i
   %conv = and i64 %sub.i.i.i.i, 4294967295
@@ -65572,7 +65572,7 @@ entry:
   br i1 %cmp119.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i14, %entry ]
+  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i, %entry ]
   %out.addr.020.i.i.i.i = phi ptr [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %out.addr.020.i.i.i.i, i64 -2
   %rem.i.i.i.i = urem i64 %value.addr.021.i.i.i.i, 100
@@ -65586,7 +65586,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %out.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i14, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
   %cmp4.i.i.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i.i.i, 10
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
@@ -65820,9 +65820,9 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %last_message_time_, align 8
   %sub.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i1.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
-  %div.i.i14 = udiv i64 %.sroa.speculated, 1000000
+  %div.i.i = udiv i64 %.sroa.speculated, 1000000
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %last_message_time_, align 8
-  %or.i.i.i.i = or i64 %div.i.i14, 1
+  %or.i.i.i.i = or i64 %div.i.i, 1
   %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i = xor i64 %1, 63
   %arrayidx.i.i.i.i = getelementptr inbounds [64 x i8], ptr @_ZZN3fmt2v96detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %xor.i.i.i.i
@@ -65830,7 +65830,7 @@ entry:
   %conv.i.i.i.i = zext i8 %2 to i64
   %arrayidx2.i.i.i.i = getelementptr inbounds [21 x i64], ptr @_ZZN3fmt2v96detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %conv.i.i.i.i
   %3 = load i64, ptr %arrayidx2.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %div.i.i14, %3
+  %cmp.i.i.i.i = icmp ult i64 %div.i.i, %3
   %conv3.neg.i.i.i.i = sext i1 %cmp.i.i.i.i to i64
   %sub.i.i.i.i = add nsw i64 %conv3.neg.i.i.i.i, %conv.i.i.i.i
   %conv = and i64 %sub.i.i.i.i, 4294967295
@@ -65842,7 +65842,7 @@ entry:
   br i1 %cmp119.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i14, %entry ]
+  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i, %entry ]
   %out.addr.020.i.i.i.i = phi ptr [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %out.addr.020.i.i.i.i, i64 -2
   %rem.i.i.i.i = urem i64 %value.addr.021.i.i.i.i, 100
@@ -65856,7 +65856,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %out.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i14, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
   %cmp4.i.i.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i.i.i, 10
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
@@ -66090,9 +66090,9 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %last_message_time_, align 8
   %sub.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i1.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
-  %div.i.i14 = udiv i64 %.sroa.speculated, 1000000000
+  %div.i.i = udiv i64 %.sroa.speculated, 1000000000
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %last_message_time_, align 8
-  %or.i.i.i.i = or i64 %div.i.i14, 1
+  %or.i.i.i.i = or i64 %div.i.i, 1
   %1 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
   %xor.i.i.i.i = xor i64 %1, 63
   %arrayidx.i.i.i.i = getelementptr inbounds [64 x i8], ptr @_ZZN3fmt2v96detail15do_count_digitsEmE9bsr2log10, i64 0, i64 %xor.i.i.i.i
@@ -66100,7 +66100,7 @@ entry:
   %conv.i.i.i.i = zext i8 %2 to i64
   %arrayidx2.i.i.i.i = getelementptr inbounds [21 x i64], ptr @_ZZN3fmt2v96detail15do_count_digitsEmE20zero_or_powers_of_10, i64 0, i64 %conv.i.i.i.i
   %3 = load i64, ptr %arrayidx2.i.i.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %div.i.i14, %3
+  %cmp.i.i.i.i = icmp ult i64 %div.i.i, %3
   %conv3.neg.i.i.i.i = sext i1 %cmp.i.i.i.i to i64
   %sub.i.i.i.i = add nsw i64 %conv3.neg.i.i.i.i, %conv.i.i.i.i
   %conv = and i64 %sub.i.i.i.i, 4294967295
@@ -66112,7 +66112,7 @@ entry:
   br i1 %cmp119.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i14, %entry ]
+  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i, %entry ]
   %out.addr.020.i.i.i.i = phi ptr [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %out.addr.020.i.i.i.i, i64 -2
   %rem.i.i.i.i = urem i64 %value.addr.021.i.i.i.i, 100
@@ -66126,7 +66126,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %out.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i14, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
   %cmp4.i.i.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i.i.i, 10
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
@@ -69617,7 +69617,7 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %last_message_time_, align 8
   %sub.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i1.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
-  %div.i.i7 = udiv i64 %.sroa.speculated, 1000
+  %div.i.i = udiv i64 %.sroa.speculated, 1000
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %last_message_time_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %i.i, i64 21
@@ -69625,7 +69625,7 @@ entry:
   br i1 %cmp119.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i7, %entry ]
+  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i, %entry ]
   %out.addr.020.i.i.i.i = phi ptr [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %out.addr.020.i.i.i.i, i64 -2
   %rem.i.i.i.i = urem i64 %value.addr.021.i.i.i.i, 100
@@ -69639,7 +69639,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %out.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i7, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
   %cmp4.i.i.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i.i.i, 10
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
@@ -69746,7 +69746,7 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %last_message_time_, align 8
   %sub.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i1.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
-  %div.i.i7 = udiv i64 %.sroa.speculated, 1000000
+  %div.i.i = udiv i64 %.sroa.speculated, 1000000
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %last_message_time_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %i.i, i64 21
@@ -69754,7 +69754,7 @@ entry:
   br i1 %cmp119.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i7, %entry ]
+  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i, %entry ]
   %out.addr.020.i.i.i.i = phi ptr [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %out.addr.020.i.i.i.i, i64 -2
   %rem.i.i.i.i = urem i64 %value.addr.021.i.i.i.i, 100
@@ -69768,7 +69768,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %out.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i7, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
   %cmp4.i.i.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i.i.i, 10
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 
@@ -69875,7 +69875,7 @@ entry:
   %retval.sroa.0.0.copyload.i1.i = load i64, ptr %last_message_time_, align 8
   %sub.i.i = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %retval.sroa.0.0.copyload.i1.i
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %sub.i.i, i64 0)
-  %div.i.i7 = udiv i64 %.sroa.speculated, 1000000000
+  %div.i.i = udiv i64 %.sroa.speculated, 1000000000
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %last_message_time_, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %i.i, i64 21
@@ -69883,7 +69883,7 @@ entry:
   br i1 %cmp119.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %entry, %while.body.i.i.i.i
-  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i7, %entry ]
+  %value.addr.021.i.i.i.i = phi i64 [ %div.i.i.i.i, %while.body.i.i.i.i ], [ %div.i.i, %entry ]
   %out.addr.020.i.i.i.i = phi ptr [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ], [ %add.ptr.i.i.i.i, %entry ]
   %add.ptr2.i.i.i.i = getelementptr inbounds i8, ptr %out.addr.020.i.i.i.i, i64 -2
   %rem.i.i.i.i = urem i64 %value.addr.021.i.i.i.i, 100
@@ -69897,7 +69897,7 @@ while.body.i.i.i.i:                               ; preds = %entry, %while.body.
 
 while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i, %entry
   %out.addr.0.lcssa.i.i.i.i = phi ptr [ %add.ptr.i.i.i.i, %entry ], [ %add.ptr2.i.i.i.i, %while.body.i.i.i.i ]
-  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i7, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
+  %value.addr.0.lcssa.i.i.i.i = phi i64 [ %div.i.i, %entry ], [ %div.i.i.i.i, %while.body.i.i.i.i ]
   %cmp4.i.i.i.i = icmp samesign ult i64 %value.addr.0.lcssa.i.i.i.i, 10
   br i1 %cmp4.i.i.i.i, label %if.then.i.i.i.i, label %if.end.i.i.i.i
 

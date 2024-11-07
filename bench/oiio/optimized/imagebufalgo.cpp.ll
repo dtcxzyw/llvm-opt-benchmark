@@ -6212,23 +6212,23 @@ entry:
   call void @_ZN18OpenImageIO_v2_6_09ImageSpecC1EiiiNS_8TypeDescE(ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %or, i32 noundef %or10, i32 noundef 1, ptr noundef nonnull %agg.tmp) #25
   %depth12 = getelementptr inbounds i8, ptr %spec, i64 20
   store i32 %or11, ptr %depth12, align 4
-  %div345350 = lshr i32 %.sroa.speculated336, 1
-  %div345.neg = sub nsw i32 0, %div345350
-  store i32 %div345.neg, ptr %spec, align 8
-  %div14347351 = lshr i32 %.sroa.speculated333, 1
-  %div14347.neg = sub nsw i32 0, %div14347351
+  %div345 = lshr i32 %.sroa.speculated336, 1
+  %div = sub nsw i32 0, %div345
+  store i32 %div, ptr %spec, align 8
+  %div14346 = lshr i32 %.sroa.speculated333, 1
+  %div14 = sub nsw i32 0, %div14346
   %y = getelementptr inbounds i8, ptr %spec, i64 4
-  store i32 %div14347.neg, ptr %y, align 4
-  %div16349352 = lshr i32 %.sroa.speculated, 1
-  %div16349.neg = sub nsw i32 0, %div16349352
+  store i32 %div14, ptr %y, align 4
+  %div16347 = lshr i32 %.sroa.speculated, 1
+  %div16 = sub nsw i32 0, %div16347
   %z = getelementptr inbounds i8, ptr %spec, i64 8
-  store i32 %div16349.neg, ptr %z, align 8
+  store i32 %div16, ptr %z, align 8
   %full_x = getelementptr inbounds i8, ptr %spec, i64 24
-  store i32 %div345.neg, ptr %full_x, align 8
+  store i32 %div, ptr %full_x, align 8
   %full_y = getelementptr inbounds i8, ptr %spec, i64 28
-  store i32 %div14347.neg, ptr %full_y, align 4
+  store i32 %div14, ptr %full_y, align 4
   %full_z = getelementptr inbounds i8, ptr %spec, i64 32
-  store i32 %div16349.neg, ptr %full_z, align 8
+  store i32 %div16, ptr %full_z, align 8
   %width20 = getelementptr inbounds i8, ptr %spec, i64 12
   %3 = load i32, ptr %width20, align 4
   %full_width = getelementptr inbounds i8, ptr %spec, i64 36
@@ -6282,17 +6282,17 @@ for.cond:                                         ; preds = %for.cond.backedge, 
   br i1 %cmp.i49, label %land.lhs.true.i, label %for.cond.for.body_crit_edge
 
 for.cond.for.body_crit_edge:                      ; preds = %for.cond
-  %.pre369 = load i32, ptr %m_y.i, align 8
+  %.pre364 = load i32, ptr %m_y.i, align 8
   br label %for.body
 
 land.lhs.true.i:                                  ; preds = %for.cond
   %9 = load i32, ptr %m_rng_xbegin.i, align 4
   %cmp2.i = icmp eq i32 %.pre, %9
-  %.pre370 = load i32, ptr %m_y.i, align 8
+  %.pre365 = load i32, ptr %m_y.i, align 8
   %10 = load i32, ptr %m_rng_ybegin.i, align 4
-  %cmp4.i = icmp eq i32 %.pre370, %10
-  %or.cond386 = select i1 %cmp2.i, i1 %cmp4.i, i1 false
-  br i1 %or.cond386, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit, label %for.body
+  %cmp4.i = icmp eq i32 %.pre365, %10
+  %or.cond381 = select i1 %cmp2.i, i1 %cmp4.i, i1 false
+  br i1 %or.cond381, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit, label %for.body
 
 _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit: ; preds = %land.lhs.true.i
   %11 = load i32, ptr %m_z.i, align 4
@@ -6339,7 +6339,7 @@ ehcleanup.thread:                                 ; preds = %for.body, %if.then2
   br label %_ZNKSt14default_deleteIN18OpenImageIO_v2_6_08Filter2DEEclEPS1_.exit.i324
 
 for.body:                                         ; preds = %for.cond.for.body_crit_edge, %land.lhs.true.i, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit
-  %20 = phi i32 [ %.pre369, %for.cond.for.body_crit_edge ], [ %.pre370, %land.lhs.true.i ], [ %.pre370, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
+  %20 = phi i32 [ %.pre364, %for.cond.for.body_crit_edge ], [ %.pre365, %land.lhs.true.i ], [ %.pre365, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit ]
   %conv37 = sitofp i32 %.pre to float
   %conv40 = sitofp i32 %20 to float
   %vtable = load ptr, ptr %call27, align 8
@@ -6365,7 +6365,7 @@ if.then.i:                                        ; preds = %invoke.cont44
 
 if.then.if.end13_crit_edge.i:                     ; preds = %if.then.i
   %.pre.i = load i32, ptr %m_y.i, align 8
-  %.pre371 = load i32, ptr %m_z.i, align 4
+  %.pre366 = load i32, ptr %m_z.i, align 4
   br label %if.end13.i
 
 if.then2.i:                                       ; preds = %if.then.i
@@ -6380,13 +6380,13 @@ if.else.i:                                        ; preds = %invoke.cont44
   store i32 %inc4.i, ptr %m_y.i, align 8
   %28 = load i32, ptr %m_rng_yend.i, align 8
   %cmp5.not.i = icmp slt i32 %inc4.i, %28
-  %.pre372 = load i32, ptr %m_z.i, align 4
+  %.pre367 = load i32, ptr %m_z.i, align 4
   br i1 %cmp5.not.i, label %if.end13.i, label %if.then6.i
 
 if.then6.i:                                       ; preds = %if.else.i
   %29 = load i32, ptr %m_rng_ybegin.i, align 4
   store i32 %29, ptr %m_y.i, align 8
-  %inc8.i = add nsw i32 %.pre372, 1
+  %inc8.i = add nsw i32 %.pre367, 1
   store i32 %inc8.i, ptr %m_z.i, align 4
   %30 = load i32, ptr %m_rng_zend.i, align 8
   %cmp9.not.i = icmp slt i32 %inc8.i, %30
@@ -6397,7 +6397,7 @@ if.then10.i:                                      ; preds = %if.then6.i
   br label %for.cond.backedge
 
 if.end13.i:                                       ; preds = %if.then6.i, %if.else.i, %if.then.if.end13_crit_edge.i
-  %31 = phi i32 [ %.pre372, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre371, %if.then.if.end13_crit_edge.i ]
+  %31 = phi i32 [ %.pre367, %if.else.i ], [ %inc8.i, %if.then6.i ], [ %.pre366, %if.then.if.end13_crit_edge.i ]
   %32 = phi i32 [ %inc4.i, %if.else.i ], [ %29, %if.then6.i ], [ %.pre.i, %if.then.if.end13_crit_edge.i ]
   %33 = phi i32 [ %26, %if.else.i ], [ %26, %if.then6.i ], [ %inc.i, %if.then.if.end13_crit_edge.i ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %p, i32 noundef %33, i32 noundef %32, i32 noundef %31)
@@ -6429,8 +6429,8 @@ cond.true:                                        ; preds = %if.then53
 
 cond.end:                                         ; preds = %if.then53, %cond.true
   %cond = phi ptr [ %36, %cond.true ], [ null, %if.then53 ]
-  %cmp57354 = fcmp ogt float %width, 0.000000e+00
-  br i1 %cmp57354, label %for.body58.lr.ph, label %for.end64
+  %cmp57349 = fcmp ogt float %width, 0.000000e+00
+  br i1 %cmp57349, label %for.body58.lr.ph, label %for.end64
 
 for.body58.lr.ph:                                 ; preds = %cond.end
   %sub59 = fadd float %width, -1.000000e+00
@@ -6487,20 +6487,20 @@ cond.true69:                                      ; preds = %cond.false67
 cond.end75:                                       ; preds = %for.end64, %cond.true69, %cond.false67
   %cond76 = phi ptr [ %40, %cond.true69 ], [ null, %cond.false67 ], [ %cond, %for.end64 ]
   %cmp77 = fcmp une float %height, %width
-  %cmp82356 = fcmp ogt float %height, 0.000000e+00
-  %or.cond360 = and i1 %cmp77, %cmp82356
-  br i1 %or.cond360, label %for.body83, label %if.end
+  %cmp82351 = fcmp ogt float %height, 0.000000e+00
+  %or.cond355 = and i1 %cmp77, %cmp82351
+  br i1 %or.cond355, label %for.body83, label %if.end
 
 for.body83:                                       ; preds = %cond.end75, %_ZN18OpenImageIO_v2_6_08binomialEii.exit81
-  %indvars.iv363 = phi i64 [ %indvars.iv.next364, %_ZN18OpenImageIO_v2_6_08binomialEii.exit81 ], [ 0, %cond.end75 ]
+  %indvars.iv358 = phi i64 [ %indvars.iv.next359, %_ZN18OpenImageIO_v2_6_08binomialEii.exit81 ], [ 0, %cond.end75 ]
   %41 = phi float [ %45, %_ZN18OpenImageIO_v2_6_08binomialEii.exit81 ], [ %height, %cond.end75 ]
-  %cmp.not6.i67 = icmp eq i64 %indvars.iv363, 0
+  %cmp.not6.i67 = icmp eq i64 %indvars.iv358, 0
   br i1 %cmp.not6.i67, label %_ZN18OpenImageIO_v2_6_08binomialEii.exit81, label %for.body.lr.ph.i68
 
 for.body.lr.ph.i68:                               ; preds = %for.body83
   %sub84 = fadd float %41, -1.000000e+00
   %conv85 = fptosi float %sub84 to i32
-  %42 = trunc nuw nsw i64 %indvars.iv363 to i32
+  %42 = trunc nuw nsw i64 %indvars.iv358 to i32
   %sub.neg.i69 = sub i32 %conv85, %42
   br label %for.body.i70
 
@@ -6514,15 +6514,15 @@ for.body.i70:                                     ; preds = %for.body.i70, %for.
   %mul.i77 = fmul float %p.07.i72, %div.i76
   %inc.i78 = add nuw i32 %i.08.i71, 1
   %43 = zext i32 %i.08.i71 to i64
-  %exitcond.not.i79 = icmp eq i64 %indvars.iv363, %43
+  %exitcond.not.i79 = icmp eq i64 %indvars.iv358, %43
   br i1 %exitcond.not.i79, label %_ZN18OpenImageIO_v2_6_08binomialEii.exit81, label %for.body.i70, !llvm.loop !72
 
 _ZN18OpenImageIO_v2_6_08binomialEii.exit81:       ; preds = %for.body.i70, %for.body83
   %p.0.lcssa.i80 = phi float [ 1.000000e+00, %for.body83 ], [ %mul.i77, %for.body.i70 ]
-  %arrayidx89 = getelementptr inbounds float, ptr %cond76, i64 %indvars.iv363
+  %arrayidx89 = getelementptr inbounds float, ptr %cond76, i64 %indvars.iv358
   store float %p.0.lcssa.i80, ptr %arrayidx89, align 4
-  %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %44 = trunc nuw nsw i64 %indvars.iv.next364 to i32
+  %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
+  %44 = trunc nuw nsw i64 %indvars.iv.next359 to i32
   %conv81 = uitofp nneg i32 %44 to float
   %45 = load float, ptr %height.addr, align 4
   %cmp82 = fcmp ogt float %45, %conv81
@@ -6544,8 +6544,8 @@ cond.end98:                                       ; preds = %if.end, %cond.true9
   br i1 %cmp100, label %if.then101, label %for.cond105.preheader
 
 for.cond105.preheader:                            ; preds = %cond.end98
-  %cmp107358 = fcmp ogt float %depth, 0.000000e+00
-  br i1 %cmp107358, label %for.body108.lr.ph, label %if.end118
+  %cmp107353 = fcmp ogt float %depth, 0.000000e+00
+  br i1 %cmp107353, label %for.body108.lr.ph, label %if.end118
 
 for.body108.lr.ph:                                ; preds = %for.cond105.preheader
   %sub109 = fadd float %depth, -1.000000e+00
@@ -6557,12 +6557,12 @@ if.then101:                                       ; preds = %cond.end98
   br label %if.end118
 
 for.body108:                                      ; preds = %for.body108.lr.ph, %_ZN18OpenImageIO_v2_6_08binomialEii.exit96
-  %indvars.iv366 = phi i64 [ 0, %for.body108.lr.ph ], [ %indvars.iv.next367, %_ZN18OpenImageIO_v2_6_08binomialEii.exit96 ]
-  %cmp.not6.i82 = icmp eq i64 %indvars.iv366, 0
+  %indvars.iv361 = phi i64 [ 0, %for.body108.lr.ph ], [ %indvars.iv.next362, %_ZN18OpenImageIO_v2_6_08binomialEii.exit96 ]
+  %cmp.not6.i82 = icmp eq i64 %indvars.iv361, 0
   br i1 %cmp.not6.i82, label %_ZN18OpenImageIO_v2_6_08binomialEii.exit96, label %for.body.lr.ph.i83
 
 for.body.lr.ph.i83:                               ; preds = %for.body108
-  %47 = trunc nuw nsw i64 %indvars.iv366 to i32
+  %47 = trunc nuw nsw i64 %indvars.iv361 to i32
   %sub.neg.i84 = sub i32 %conv110, %47
   br label %for.body.i85
 
@@ -6576,15 +6576,15 @@ for.body.i85:                                     ; preds = %for.body.i85, %for.
   %mul.i92 = fmul float %p.07.i87, %div.i91
   %inc.i93 = add nuw i32 %i.08.i86, 1
   %48 = zext i32 %i.08.i86 to i64
-  %exitcond.not.i94 = icmp eq i64 %indvars.iv366, %48
+  %exitcond.not.i94 = icmp eq i64 %indvars.iv361, %48
   br i1 %exitcond.not.i94, label %_ZN18OpenImageIO_v2_6_08binomialEii.exit96, label %for.body.i85, !llvm.loop !72
 
 _ZN18OpenImageIO_v2_6_08binomialEii.exit96:       ; preds = %for.body.i85, %for.body108
   %p.0.lcssa.i95 = phi float [ 1.000000e+00, %for.body108 ], [ %mul.i92, %for.body.i85 ]
-  %arrayidx114 = getelementptr inbounds float, ptr %cond99, i64 %indvars.iv366
+  %arrayidx114 = getelementptr inbounds float, ptr %cond99, i64 %indvars.iv361
   store float %p.0.lcssa.i95, ptr %arrayidx114, align 4
-  %indvars.iv.next367 = add nuw nsw i64 %indvars.iv366, 1
-  %49 = trunc nuw nsw i64 %indvars.iv.next367 to i32
+  %indvars.iv.next362 = add nuw nsw i64 %indvars.iv361, 1
+  %49 = trunc nuw nsw i64 %indvars.iv.next362 to i32
   %conv106 = uitofp nneg i32 %49 to float
   %cmp107 = fcmp ogt float %depth, %conv106
   br i1 %cmp107, label %for.body108, label %if.end118, !llvm.loop !75
@@ -6611,21 +6611,21 @@ for.cond121:                                      ; preds = %for.cond121.backedg
   %50 = load i8, ptr %m_valid.i99, align 8
   %51 = and i8 %50, 1
   %cmp.i100 = icmp eq i8 %51, 0
-  %.pre375 = load i32, ptr %m_x.i102, align 4
+  %.pre370 = load i32, ptr %m_x.i102, align 4
   br i1 %cmp.i100, label %land.lhs.true.i101, label %for.cond121.invoke.cont149_crit_edge
 
 for.cond121.invoke.cont149_crit_edge:             ; preds = %for.cond121
-  %.pre376 = load i32, ptr %m_y.i106, align 8
+  %.pre371 = load i32, ptr %m_y.i106, align 8
   br label %invoke.cont149
 
 land.lhs.true.i101:                               ; preds = %for.cond121
   %52 = load i32, ptr %m_rng_xbegin.i103, align 4
-  %cmp2.i104 = icmp eq i32 %.pre375, %52
-  %.pre377 = load i32, ptr %m_y.i106, align 8
+  %cmp2.i104 = icmp eq i32 %.pre370, %52
+  %.pre372 = load i32, ptr %m_y.i106, align 8
   %53 = load i32, ptr %m_rng_ybegin.i107, align 4
-  %cmp4.i108 = icmp eq i32 %.pre377, %53
-  %or.cond387 = select i1 %cmp2.i104, i1 %cmp4.i108, i1 false
-  br i1 %or.cond387, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit113, label %invoke.cont149
+  %cmp4.i108 = icmp eq i32 %.pre372, %53
+  %or.cond382 = select i1 %cmp2.i104, i1 %cmp4.i108, i1 false
+  br i1 %or.cond382, label %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit113, label %invoke.cont149
 
 _ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit113: ; preds = %land.lhs.true.i101
   %54 = load i32, ptr %m_z.i110, align 4
@@ -6657,9 +6657,9 @@ lpad122:                                          ; preds = %if.end13.i141, %if.
   br label %ehcleanup
 
 invoke.cont149:                                   ; preds = %for.cond121.invoke.cont149_crit_edge, %land.lhs.true.i101, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit113
-  %60 = phi i32 [ %.pre376, %for.cond121.invoke.cont149_crit_edge ], [ %.pre377, %land.lhs.true.i101 ], [ %.pre377, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit113 ]
+  %60 = phi i32 [ %.pre371, %for.cond121.invoke.cont149_crit_edge ], [ %.pre372, %land.lhs.true.i101 ], [ %.pre372, %_ZNK18OpenImageIO_v2_6_08ImageBuf12IteratorBase4doneEv.exit113 ]
   %61 = load i32, ptr %spec, align 8
-  %sub131 = sub nsw i32 %.pre375, %61
+  %sub131 = sub nsw i32 %.pre370, %61
   %idxprom132 = sext i32 %sub131 to i64
   %arrayidx133 = getelementptr inbounds float, ptr %cond, i64 %idxprom132
   %62 = load float, ptr %arrayidx133, align 4
@@ -6692,7 +6692,7 @@ if.then.i143:                                     ; preds = %invoke.cont149
 
 if.then.if.end13_crit_edge.i146:                  ; preds = %if.then.i143
   %.pre.i148 = load i32, ptr %m_y.i106, align 8
-  %.pre378 = load i32, ptr %m_z.i110, align 4
+  %.pre373 = load i32, ptr %m_z.i110, align 4
   br label %if.end13.i141
 
 if.then2.i149:                                    ; preds = %if.then.i143
@@ -6707,13 +6707,13 @@ if.else.i127:                                     ; preds = %invoke.cont149
   store i32 %inc4.i130, ptr %m_y.i106, align 8
   %74 = load i32, ptr %m_rng_yend.i131, align 8
   %cmp5.not.i132 = icmp slt i32 %inc4.i130, %74
-  %.pre379 = load i32, ptr %m_z.i110, align 4
+  %.pre374 = load i32, ptr %m_z.i110, align 4
   br i1 %cmp5.not.i132, label %if.end13.i141, label %if.then6.i133
 
 if.then6.i133:                                    ; preds = %if.else.i127
   %75 = load i32, ptr %m_rng_ybegin.i107, align 4
   store i32 %75, ptr %m_y.i106, align 8
-  %inc8.i136 = add nsw i32 %.pre379, 1
+  %inc8.i136 = add nsw i32 %.pre374, 1
   store i32 %inc8.i136, ptr %m_z.i110, align 4
   %76 = load i32, ptr %m_rng_zend.i111, align 8
   %cmp9.not.i138 = icmp slt i32 %inc8.i136, %76
@@ -6724,7 +6724,7 @@ if.then10.i139:                                   ; preds = %if.then6.i133
   br label %for.cond121.backedge
 
 if.end13.i141:                                    ; preds = %if.then6.i133, %if.else.i127, %if.then.if.end13_crit_edge.i146
-  %77 = phi i32 [ %.pre379, %if.else.i127 ], [ %inc8.i136, %if.then6.i133 ], [ %.pre378, %if.then.if.end13_crit_edge.i146 ]
+  %77 = phi i32 [ %.pre374, %if.else.i127 ], [ %inc8.i136, %if.then6.i133 ], [ %.pre373, %if.then.if.end13_crit_edge.i146 ]
   %78 = phi i32 [ %inc4.i130, %if.else.i127 ], [ %75, %if.then6.i133 ], [ %.pre.i148, %if.then.if.end13_crit_edge.i146 ]
   %79 = phi i32 [ %72, %if.else.i127 ], [ %72, %if.then6.i133 ], [ %inc.i124, %if.then.if.end13_crit_edge.i146 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %p119, i32 noundef %79, i32 noundef %78, i32 noundef %77)
@@ -6871,7 +6871,7 @@ if.then.i206:                                     ; preds = %invoke.cont195
 
 if.then.if.end13_crit_edge.i209:                  ; preds = %if.then.i206
   %.pre.i211 = load i32, ptr %m_y.i172, align 8
-  %.pre373 = load i32, ptr %m_z.i176, align 4
+  %.pre368 = load i32, ptr %m_z.i176, align 4
   br label %if.end13.i204
 
 if.then2.i212:                                    ; preds = %if.then.i206
@@ -6886,13 +6886,13 @@ if.else.i190:                                     ; preds = %invoke.cont195
   store i32 %inc4.i193, ptr %m_y.i172, align 8
   %103 = load i32, ptr %m_rng_yend.i194, align 8
   %cmp5.not.i195 = icmp slt i32 %inc4.i193, %103
-  %.pre374 = load i32, ptr %m_z.i176, align 4
+  %.pre369 = load i32, ptr %m_z.i176, align 4
   br i1 %cmp5.not.i195, label %if.end13.i204, label %if.then6.i196
 
 if.then6.i196:                                    ; preds = %if.else.i190
   %104 = load i32, ptr %m_rng_ybegin.i173, align 4
   store i32 %104, ptr %m_y.i172, align 8
-  %inc8.i199 = add nsw i32 %.pre374, 1
+  %inc8.i199 = add nsw i32 %.pre369, 1
   store i32 %inc8.i199, ptr %m_z.i176, align 4
   %105 = load i32, ptr %m_rng_zend.i177, align 8
   %cmp9.not.i201 = icmp slt i32 %inc8.i199, %105
@@ -6903,7 +6903,7 @@ if.then10.i202:                                   ; preds = %if.then6.i196
   br label %for.cond187.backedge
 
 if.end13.i204:                                    ; preds = %if.then6.i196, %if.else.i190, %if.then.if.end13_crit_edge.i209
-  %106 = phi i32 [ %.pre374, %if.else.i190 ], [ %inc8.i199, %if.then6.i196 ], [ %.pre373, %if.then.if.end13_crit_edge.i209 ]
+  %106 = phi i32 [ %.pre369, %if.else.i190 ], [ %inc8.i199, %if.then6.i196 ], [ %.pre368, %if.then.if.end13_crit_edge.i209 ]
   %107 = phi i32 [ %inc4.i193, %if.else.i190 ], [ %104, %if.then6.i196 ], [ %.pre.i211, %if.then.if.end13_crit_edge.i209 ]
   %108 = phi i32 [ %101, %if.else.i190 ], [ %101, %if.then6.i196 ], [ %inc.i187, %if.then.if.end13_crit_edge.i209 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %p185, i32 noundef %108, i32 noundef %107, i32 noundef %106)
@@ -6938,11 +6938,11 @@ for.cond211:                                      ; preds = %for.cond211.backedg
   %109 = load i8, ptr %m_valid.i218, align 8
   %110 = and i8 %109, 1
   %cmp.i219 = icmp eq i8 %110, 0
-  %.pre380 = load i32, ptr %m_x.i221, align 4
+  %.pre375 = load i32, ptr %m_x.i221, align 4
   %111 = load i32, ptr %m_rng_xbegin.i222, align 4
-  %cmp2.i223 = icmp eq i32 %.pre380, %111
-  %or.cond388 = select i1 %cmp.i219, i1 %cmp2.i223, i1 false
-  br i1 %or.cond388, label %land.lhs.true3.i224, label %invoke.cont219
+  %cmp2.i223 = icmp eq i32 %.pre375, %111
+  %or.cond383 = select i1 %cmp.i219, i1 %cmp2.i223, i1 false
+  br i1 %or.cond383, label %land.lhs.true3.i224, label %invoke.cont219
 
 land.lhs.true3.i224:                              ; preds = %for.cond211
   %112 = load i32, ptr %m_y.i225, align 8
@@ -6987,7 +6987,7 @@ invoke.cont219:                                   ; preds = %for.cond211, %land.
   %120 = load ptr, ptr %m_proxydata.i238, align 8
   %121 = load float, ptr %120, align 4
   %add = fadd float %sum.0, %121
-  %inc.i240 = add nsw i32 %.pre380, 1
+  %inc.i240 = add nsw i32 %.pre375, 1
   store i32 %inc.i240, ptr %m_x.i221, align 4
   %122 = load i32, ptr %m_rng_xend.i241, align 8
   %cmp.i242 = icmp slt i32 %inc.i240, %122
@@ -7000,7 +7000,7 @@ if.then.i259:                                     ; preds = %invoke.cont219
 
 if.then.if.end13_crit_edge.i262:                  ; preds = %if.then.i259
   %.pre.i264 = load i32, ptr %m_y.i225, align 8
-  %.pre381 = load i32, ptr %m_z.i229, align 4
+  %.pre376 = load i32, ptr %m_z.i229, align 4
   br label %if.end13.i257
 
 if.then2.i265:                                    ; preds = %if.then.i259
@@ -7015,13 +7015,13 @@ if.else.i243:                                     ; preds = %invoke.cont219
   store i32 %inc4.i246, ptr %m_y.i225, align 8
   %126 = load i32, ptr %m_rng_yend.i247, align 8
   %cmp5.not.i248 = icmp slt i32 %inc4.i246, %126
-  %.pre382 = load i32, ptr %m_z.i229, align 4
+  %.pre377 = load i32, ptr %m_z.i229, align 4
   br i1 %cmp5.not.i248, label %if.end13.i257, label %if.then6.i249
 
 if.then6.i249:                                    ; preds = %if.else.i243
   %127 = load i32, ptr %m_rng_ybegin.i226, align 4
   store i32 %127, ptr %m_y.i225, align 8
-  %inc8.i252 = add nsw i32 %.pre382, 1
+  %inc8.i252 = add nsw i32 %.pre377, 1
   store i32 %inc8.i252, ptr %m_z.i229, align 4
   %128 = load i32, ptr %m_rng_zend.i230, align 8
   %cmp9.not.i254 = icmp slt i32 %inc8.i252, %128
@@ -7032,7 +7032,7 @@ if.then10.i255:                                   ; preds = %if.then6.i249
   br label %for.cond211.backedge
 
 if.end13.i257:                                    ; preds = %if.then6.i249, %if.else.i243, %if.then.if.end13_crit_edge.i262
-  %129 = phi i32 [ %.pre382, %if.else.i243 ], [ %inc8.i252, %if.then6.i249 ], [ %.pre381, %if.then.if.end13_crit_edge.i262 ]
+  %129 = phi i32 [ %.pre377, %if.else.i243 ], [ %inc8.i252, %if.then6.i249 ], [ %.pre376, %if.then.if.end13_crit_edge.i262 ]
   %130 = phi i32 [ %inc4.i246, %if.else.i243 ], [ %127, %if.then6.i249 ], [ %.pre.i264, %if.then.if.end13_crit_edge.i262 ]
   %131 = phi i32 [ %124, %if.else.i243 ], [ %124, %if.then6.i249 ], [ %inc.i240, %if.then.if.end13_crit_edge.i262 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %p209, i32 noundef %131, i32 noundef %130, i32 noundef %129)
@@ -7125,7 +7125,7 @@ if.then.i313:                                     ; preds = %invoke.cont246
 
 if.then.if.end13_crit_edge.i316:                  ; preds = %if.then.i313
   %.pre.i318 = load i32, ptr %m_y.i278, align 8
-  %.pre383 = load i32, ptr %m_z.i282, align 4
+  %.pre378 = load i32, ptr %m_z.i282, align 4
   br label %if.end13.i311
 
 if.then2.i319:                                    ; preds = %if.then.i313
@@ -7140,13 +7140,13 @@ if.else.i297:                                     ; preds = %invoke.cont246
   store i32 %inc4.i300, ptr %m_y.i278, align 8
   %151 = load i32, ptr %m_rng_yend.i301, align 8
   %cmp5.not.i302 = icmp slt i32 %inc4.i300, %151
-  %.pre384 = load i32, ptr %m_z.i282, align 4
+  %.pre379 = load i32, ptr %m_z.i282, align 4
   br i1 %cmp5.not.i302, label %if.end13.i311, label %if.then6.i303
 
 if.then6.i303:                                    ; preds = %if.else.i297
   %152 = load i32, ptr %m_rng_ybegin.i279, align 4
   store i32 %152, ptr %m_y.i278, align 8
-  %inc8.i306 = add nsw i32 %.pre384, 1
+  %inc8.i306 = add nsw i32 %.pre379, 1
   store i32 %inc8.i306, ptr %m_z.i282, align 4
   %153 = load i32, ptr %m_rng_zend.i283, align 8
   %cmp9.not.i308 = icmp slt i32 %inc8.i306, %153
@@ -7157,7 +7157,7 @@ if.then10.i309:                                   ; preds = %if.then6.i303
   br label %for.cond231.backedge
 
 if.end13.i311:                                    ; preds = %if.then6.i303, %if.else.i297, %if.then.if.end13_crit_edge.i316
-  %154 = phi i32 [ %.pre384, %if.else.i297 ], [ %inc8.i306, %if.then6.i303 ], [ %.pre383, %if.then.if.end13_crit_edge.i316 ]
+  %154 = phi i32 [ %.pre379, %if.else.i297 ], [ %inc8.i306, %if.then6.i303 ], [ %.pre378, %if.then.if.end13_crit_edge.i316 ]
   %155 = phi i32 [ %inc4.i300, %if.else.i297 ], [ %152, %if.then6.i303 ], [ %.pre.i318, %if.then.if.end13_crit_edge.i316 ]
   %156 = phi i32 [ %149, %if.else.i297 ], [ %149, %if.then6.i303 ], [ %inc.i294, %if.then.if.end13_crit_edge.i316 ]
   invoke void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase3posEiii(ptr noundef nonnull align 8 dereferenceable(125) %p229, i32 noundef %156, i32 noundef %155, i32 noundef %154)

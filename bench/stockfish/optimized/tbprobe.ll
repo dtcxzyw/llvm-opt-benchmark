@@ -3917,17 +3917,17 @@ define dso_local noundef zeroext i1 @_ZN9Stockfish10Tablebases10root_probeERNS_8
   %13 = load ptr, ptr %1, align 8
   %14 = getelementptr inbounds i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %.not7274 = icmp eq ptr %13, %15
-  br i1 %.not7274, label %._crit_edge, label %.lr.ph
+  %.not7172 = icmp eq ptr %13, %15
+  br i1 %.not7172, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %16 = getelementptr inbounds i8, ptr %6, i64 2048
   %17 = add i32 %10, -262144
   br label %18
 
-18:                                               ; preds = %.lr.ph, %84
-  %.sroa.064.075 = phi ptr [ %13, %.lr.ph ], [ %87, %84 ]
-  %19 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 32
+18:                                               ; preds = %.lr.ph, %86
+  %.sroa.064.073 = phi ptr [ %13, %.lr.ph ], [ %89, %86 ]
+  %19 = getelementptr inbounds i8, ptr %.sroa.064.073, i64 32
   %20 = load ptr, ptr %19, align 8
   %.sroa.09.0.copyload = load i16, ptr %20, align 2
   %21 = call noundef zeroext i1 @_ZNK9Stockfish8Position11gives_checkENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.09.0.copyload) #24
@@ -3989,8 +3989,8 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit: 
   %.sroa.0.0.copyload = load i16, ptr %49, align 2
   call void @_ZN9Stockfish8Position9undo_moveENS_4MoveE(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %.sroa.0.0.copyload) #24
   %50 = load i32, ptr %4, align 4
-  %.not80.not = icmp ne i32 %50, 0
-  br i1 %.not80.not, label %51, label %._crit_edge
+  %.not78.not = icmp ne i32 %50, 0
+  br i1 %.not78.not, label %51, label %._crit_edge
 
 51:                                               ; preds = %.critedge
   %52 = icmp sgt i32 %.1, 0
@@ -4020,16 +4020,16 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit: 
 
 .thread70:                                        ; preds = %57, %59
   %.ph = phi i32 [ 0, %57 ], [ -262144, %59 ]
-  %65 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 24
+  %65 = getelementptr inbounds i8, ptr %.sroa.064.073, i64 24
   store i32 %.ph, ptr %65, align 8
   br label %76
 
 66:                                               ; preds = %53, %63
   %67 = phi i32 [ %64, %63 ], [ %spec.select54, %53 ]
-  %68 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 24
+  %68 = getelementptr inbounds i8, ptr %.sroa.064.073, i64 24
   store i32 %67, ptr %68, align 8
   %.not52 = icmp slt i32 %67, %12
-  br i1 %.not52, label %69, label %84
+  br i1 %.not52, label %69, label %86
 
 69:                                               ; preds = %66
   %70 = icmp sgt i32 %67, 0
@@ -4039,37 +4039,36 @@ _ZN9Stockfish12_GLOBAL__N_118dtz_before_zeroingENS_10Tablebases8WDLScoreE.exit: 
   %72 = call i32 @llvm.umax.i32(i32 %67, i32 261947)
   %73 = mul i32 %72, 208
   %74 = add i32 %73, -54484352
-  %75 = udiv i32 %74, 200
-  br label %84
+  %75 = sdiv i32 %74, 200
+  br label %86
 
 76:                                               ; preds = %.thread70, %69
   %77 = phi i32 [ %.ph, %.thread70 ], [ %67, %69 ]
   %78 = icmp eq i32 %77, 0
-  br i1 %78, label %84, label %79
+  br i1 %78, label %86, label %79
 
 79:                                               ; preds = %76
   %80 = icmp sgt i32 %77, %.neg
-  br i1 %80, label %81, label %84
+  br i1 %80, label %81, label %86
 
 81:                                               ; preds = %79
   %82 = call i32 @llvm.umin.i32(i32 %77, i32 -261947)
-  %.neg73 = mul i32 %82, -208
-  %.nonneg = add i32 %.neg73, -54484352
-  %83 = udiv i32 %.nonneg, 200
-  %.neg71 = sub nsw i32 0, %83
-  br label %84
+  %83 = mul i32 %82, 208
+  %84 = add i32 %83, 54484352
+  %85 = sdiv i32 %84, 200
+  br label %86
 
-84:                                               ; preds = %71, %81, %79, %76, %66
-  %85 = phi i32 [ 31753, %66 ], [ %75, %71 ], [ 0, %76 ], [ %.neg71, %81 ], [ -31753, %79 ]
-  %86 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 28
-  store i32 %85, ptr %86, align 4
-  %87 = getelementptr inbounds i8, ptr %.sroa.064.075, i64 56
-  %.not72 = icmp eq ptr %87, %15
-  br i1 %.not72, label %._crit_edge, label %18
+86:                                               ; preds = %71, %81, %79, %76, %66
+  %87 = phi i32 [ 31753, %66 ], [ %75, %71 ], [ 0, %76 ], [ %85, %81 ], [ -31753, %79 ]
+  %88 = getelementptr inbounds i8, ptr %.sroa.064.073, i64 28
+  store i32 %87, ptr %88, align 4
+  %89 = getelementptr inbounds i8, ptr %.sroa.064.073, i64 56
+  %.not71 = icmp eq ptr %89, %15
+  br i1 %.not71, label %._crit_edge, label %18
 
-._crit_edge:                                      ; preds = %.critedge, %84, %3
-  %.not72.lcssa = phi i1 [ true, %3 ], [ %.not80.not, %84 ], [ %.not80.not, %.critedge ]
-  ret i1 %.not72.lcssa
+._crit_edge:                                      ; preds = %.critedge, %86, %3
+  %.not71.lcssa = phi i1 [ true, %3 ], [ %.not78.not, %86 ], [ %.not78.not, %.critedge ]
+  ret i1 %.not71.lcssa
 }
 
 declare noundef zeroext i1 @_ZNK9Stockfish8Position12has_repeatedEv(ptr noundef nonnull align 8 dereferenceable(865)) local_unnamed_addr #0

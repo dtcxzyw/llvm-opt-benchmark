@@ -12312,21 +12312,21 @@ if.end183.thread:                                 ; preds = %lor.lhs.false.i189
   %entropyWorkspace = getelementptr inbounds i8, ptr %zc, i64 3520
   store ptr %add.ptr.i169, ptr %entropyWorkspace, align 8
   store ptr %add.ptr.i183, ptr %19, align 8
-  %allocFailed.i199607 = getelementptr inbounds i8, ptr %zc, i64 736
-  store i8 0, ptr %allocFailed.i199607, align 8
-  %phase.i200608 = getelementptr inbounds i8, ptr %zc, i64 744
+  %allocFailed.i199606 = getelementptr inbounds i8, ptr %zc, i64 736
+  store i8 0, ptr %allocFailed.i199606, align 8
+  %phase.i200607 = getelementptr inbounds i8, ptr %zc, i64 744
   br label %ZSTD_cwksp_clear.exit
 
 if.end183:                                        ; preds = %ZSTD_cwksp_check_wasteful.exit
   %objectEnd.i196.phi.trans.insert = getelementptr inbounds i8, ptr %zc, i64 696
   %.pre = load ptr, ptr %objectEnd.i196.phi.trans.insert, align 8
   %phase.i200.phi.trans.insert = getelementptr inbounds i8, ptr %zc, i64 744
-  %.pre598 = load i32, ptr %phase.i200.phi.trans.insert, align 8
-  %.pre600 = and i64 %sub.ptr.lhs.cast.i156, -64
-  %.pre601 = inttoptr i64 %.pre600 to ptr
-  %27 = icmp ugt i32 %.pre598, 1
+  %.pre597 = load i32, ptr %phase.i200.phi.trans.insert, align 8
+  %.pre599 = and i64 %sub.ptr.lhs.cast.i156, -64
+  %.pre600 = inttoptr i64 %.pre599 to ptr
+  %27 = icmp ugt i32 %.pre597, 1
   store ptr %.pre, ptr %19, align 8
-  store ptr %.pre601, ptr %20, align 8
+  store ptr %.pre600, ptr %20, align 8
   %allocFailed.i199 = getelementptr inbounds i8, ptr %zc, i64 736
   store i8 0, ptr %allocFailed.i199, align 8
   %phase.i200 = getelementptr inbounds i8, ptr %zc, i64 744
@@ -12337,10 +12337,10 @@ if.then.i:                                        ; preds = %if.end183
   br label %ZSTD_cwksp_clear.exit
 
 ZSTD_cwksp_clear.exit:                            ; preds = %if.end183.thread, %if.end183, %if.then.i
-  %phase.i200616 = phi ptr [ %phase.i200608, %if.end183.thread ], [ %phase.i200, %if.end183 ], [ %phase.i200, %if.then.i ]
-  %allocFailed.i199614 = phi ptr [ %allocFailed.i199607, %if.end183.thread ], [ %allocFailed.i199, %if.end183 ], [ %allocFailed.i199, %if.then.i ]
-  %needsIndexReset.0609 = phi i32 [ 1, %if.end183.thread ], [ %cond57, %if.end183 ], [ %cond57, %if.then.i ]
-  %objectEnd.i196610 = getelementptr inbounds i8, ptr %zc, i64 696
+  %phase.i200615 = phi ptr [ %phase.i200607, %if.end183.thread ], [ %phase.i200, %if.end183 ], [ %phase.i200, %if.then.i ]
+  %allocFailed.i199613 = phi ptr [ %allocFailed.i199606, %if.end183.thread ], [ %allocFailed.i199, %if.end183 ], [ %allocFailed.i199, %if.then.i ]
+  %needsIndexReset.0608 = phi i32 [ 1, %if.end183.thread ], [ %cond57, %if.end183 ], [ %cond57, %if.then.i ]
+  %objectEnd.i196609 = getelementptr inbounds i8, ptr %zc, i64 696
   %cParams186 = getelementptr inbounds i8, ptr %zc, i64 3472
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %cParams186, ptr noundef nonnull align 4 dereferenceable(28) %cParams4, i64 28, i1 false)
   %prefetchCDictTables = getelementptr inbounds i8, ptr %zc, i64 408
@@ -12384,7 +12384,7 @@ do.end200:                                        ; preds = %if.then196, %ZSTD_c
   %litlength_repeatMode.i = getelementptr inbounds i8, ptr %29, i64 5612
   store i32 0, ptr %litlength_repeatMode.i, align 4
   %30 = load i32, ptr %useRowMatchFinder, align 8
-  %call211 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace, ptr noundef nonnull %cParams4, i32 noundef %30, i32 noundef %crp, i32 noundef %needsIndexReset.0609, i32 noundef 1)
+  %call211 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %matchState, ptr noundef nonnull %workspace, ptr noundef nonnull %cParams4, i32 noundef %30, i32 noundef %crp, i32 noundef %needsIndexReset.0608, i32 noundef 1)
   %cmp.i203 = icmp ult i64 %call211, -119
   br i1 %cmp.i203, label %do.end224, label %return
 
@@ -12392,7 +12392,7 @@ do.end224:                                        ; preds = %do.end200
   %mul = shl i64 %div.i, 3
   %add.i.i = add i64 %mul, 63
   %and.i.i205 = and i64 %add.i.i, -64
-  %31 = load i32, ptr %phase.i200616, align 8
+  %31 = load i32, ptr %phase.i200615, align 8
   %cmp.i.i.i = icmp ult i32 %31, 2
   br i1 %cmp.i.i.i, label %if.then.i.i.i, label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
@@ -12401,7 +12401,7 @@ if.then.i.i.i:                                    ; preds = %do.end224
   br i1 %cmp3.i.i.i, label %if.then5.i.i.i, label %if.end29.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
-  %32 = load ptr, ptr %objectEnd.i196610, align 8
+  %32 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %32, ptr %tableValidEnd.i.i.i, align 8
   %ws.val.i.i.i = load ptr, ptr %18, align 8
@@ -12418,7 +12418,7 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
   br i1 %cmp10.i.i.i, label %ZSTD_cwksp_reserve_aligned.exit, label %do.end20.i.i.i
 
 do.end20.i.i.i:                                   ; preds = %if.then5.i.i.i
-  store ptr %add.ptr.i.i.i, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i, ptr %19, align 8
   %cmp24.not.i.i.i = icmp eq i64 %and2.i.i.i.i, 0
   br i1 %cmp24.not.i.i.i, label %if.end29.i.i.i, label %if.then25.i.i.i
@@ -12428,7 +12428,7 @@ if.then25.i.i.i:                                  ; preds = %do.end20.i.i.i
   br label %if.end29.i.i.i
 
 if.end29.i.i.i:                                   ; preds = %if.then25.i.i.i, %do.end20.i.i.i, %if.then.i.i.i
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i:       ; preds = %if.end29.i.i.i, %do.end224
@@ -12445,7 +12445,7 @@ if.end.i.i206:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i, label %do.end2.i.i.i, label %if.end.i.i.i
 
 do.end2.i.i.i:                                    ; preds = %if.end.i.i206
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit
 
 if.end.i.i.i:                                     ; preds = %if.end.i.i206
@@ -12482,7 +12482,7 @@ if.then230:                                       ; preds = %ZSTD_cwksp_reserve_
   br i1 %cmp.i.i.i214, label %if.then5.i.i.i234, label %ZSTD_cwksp_internal_advance_phase.exit.i.i215
 
 if.then5.i.i.i234:                                ; preds = %if.then230
-  %43 = load ptr, ptr %objectEnd.i196610, align 8
+  %43 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i236 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %43, ptr %tableValidEnd.i.i.i236, align 8
   %ws.val.i.i.i237 = load ptr, ptr %18, align 8
@@ -12499,7 +12499,7 @@ if.then5.i.i.i234:                                ; preds = %if.then230
   br i1 %cmp10.i.i.i243, label %ZSTD_cwksp_reserve_aligned.exit248, label %do.end20.i.i.i244
 
 do.end20.i.i.i244:                                ; preds = %if.then5.i.i.i234
-  store ptr %add.ptr.i.i.i242, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i242, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i242, ptr %19, align 8
   %cmp24.not.i.i.i246 = icmp eq i64 %and2.i.i.i.i241, 0
   br i1 %cmp24.not.i.i.i246, label %if.end29.i.i.i233, label %if.then25.i.i.i247
@@ -12509,7 +12509,7 @@ if.then25.i.i.i247:                               ; preds = %do.end20.i.i.i244
   br label %if.end29.i.i.i233
 
 if.end29.i.i.i233:                                ; preds = %if.then25.i.i.i247, %do.end20.i.i.i244
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i215
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i215:    ; preds = %if.end29.i.i.i233, %if.then230
@@ -12525,7 +12525,7 @@ if.end.i.i217:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i222, label %do.end2.i.i.i229, label %if.end.i.i.i223
 
 do.end2.i.i.i229:                                 ; preds = %if.end.i.i217
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit248
 
 if.end.i.i.i223:                                  ; preds = %if.end.i.i217
@@ -12551,7 +12551,7 @@ ZSTD_cwksp_reserve_aligned.exit248:               ; preds = %if.then5.i.i.i234, 
   %mul239 = mul i64 %call52, 12
   %add.i.i249 = add i64 %mul239, 63
   %and.i.i250 = and i64 %add.i.i249, -64
-  %50 = load i32, ptr %phase.i200616, align 8
+  %50 = load i32, ptr %phase.i200615, align 8
   %cmp.i.i.i252 = icmp ult i32 %50, 2
   br i1 %cmp.i.i.i252, label %if.then.i.i.i269, label %ZSTD_cwksp_internal_advance_phase.exit.i.i253
 
@@ -12560,7 +12560,7 @@ if.then.i.i.i269:                                 ; preds = %ZSTD_cwksp_reserve_
   br i1 %cmp3.i.i.i270, label %if.then5.i.i.i272, label %if.end29.i.i.i271
 
 if.then5.i.i.i272:                                ; preds = %if.then.i.i.i269
-  %51 = load ptr, ptr %objectEnd.i196610, align 8
+  %51 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i274 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %51, ptr %tableValidEnd.i.i.i274, align 8
   %ws.val.i.i.i275 = load ptr, ptr %18, align 8
@@ -12577,7 +12577,7 @@ if.then5.i.i.i272:                                ; preds = %if.then.i.i.i269
   br i1 %cmp10.i.i.i281, label %ZSTD_cwksp_reserve_aligned.exit286, label %do.end20.i.i.i282
 
 do.end20.i.i.i282:                                ; preds = %if.then5.i.i.i272
-  store ptr %add.ptr.i.i.i280, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i280, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i280, ptr %19, align 8
   %cmp24.not.i.i.i284 = icmp eq i64 %and2.i.i.i.i279, 0
   br i1 %cmp24.not.i.i.i284, label %if.end29.i.i.i271, label %if.then25.i.i.i285
@@ -12587,7 +12587,7 @@ if.then25.i.i.i285:                               ; preds = %do.end20.i.i.i282
   br label %if.end29.i.i.i271
 
 if.end29.i.i.i271:                                ; preds = %if.then25.i.i.i285, %do.end20.i.i.i282, %if.then.i.i.i269
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i253
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i253:    ; preds = %if.end29.i.i.i271, %ZSTD_cwksp_reserve_aligned.exit248
@@ -12604,7 +12604,7 @@ if.end.i.i255:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i260, label %do.end2.i.i.i267, label %if.end.i.i.i261
 
 do.end2.i.i.i267:                                 ; preds = %if.end.i.i255
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit286
 
 if.end.i.i.i261:                                  ; preds = %if.end.i.i255
@@ -12661,7 +12661,7 @@ if.then247:                                       ; preds = %if.end244
   br i1 %cmp.i.i.i294, label %if.then5.i.i.i314, label %ZSTD_cwksp_internal_advance_phase.exit.i.i295
 
 if.then5.i.i.i314:                                ; preds = %if.then247
-  %62 = load ptr, ptr %objectEnd.i196610, align 8
+  %62 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i316 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %62, ptr %tableValidEnd.i.i.i316, align 8
   %ws.val.i.i.i317 = load ptr, ptr %18, align 8
@@ -12678,7 +12678,7 @@ if.then5.i.i.i314:                                ; preds = %if.then247
   br i1 %cmp10.i.i.i323, label %ZSTD_cwksp_reserve_aligned.exit328, label %do.end20.i.i.i324
 
 do.end20.i.i.i324:                                ; preds = %if.then5.i.i.i314
-  store ptr %add.ptr.i.i.i322, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i322, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i322, ptr %19, align 8
   %cmp24.not.i.i.i326 = icmp eq i64 %and2.i.i.i.i321, 0
   br i1 %cmp24.not.i.i.i326, label %if.end29.i.i.i313, label %if.then25.i.i.i327
@@ -12688,7 +12688,7 @@ if.then25.i.i.i327:                               ; preds = %do.end20.i.i.i324
   br label %if.end29.i.i.i313
 
 if.end29.i.i.i313:                                ; preds = %if.then25.i.i.i327, %do.end20.i.i.i324
-  store i32 2, ptr %phase.i200616, align 8
+  store i32 2, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i295
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i295:    ; preds = %if.end29.i.i.i313, %if.then247
@@ -12705,7 +12705,7 @@ if.end.i.i297:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i302, label %do.end2.i.i.i309, label %if.end.i.i.i303
 
 do.end2.i.i.i309:                                 ; preds = %if.end.i.i297
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_aligned.exit328
 
 if.end.i.i.i303:                                  ; preds = %if.end.i.i297
@@ -12739,7 +12739,7 @@ if.then.i.i.i347:                                 ; preds = %if.end251
   br i1 %cmp3.i.i.i348, label %if.then5.i.i.i350, label %if.end29.i.i.i349
 
 if.then5.i.i.i350:                                ; preds = %if.then.i.i.i347
-  %72 = load ptr, ptr %objectEnd.i196610, align 8
+  %72 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i352 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %72, ptr %tableValidEnd.i.i.i352, align 8
   %ws.val.i.i.i353 = load ptr, ptr %18, align 8
@@ -12756,7 +12756,7 @@ if.then5.i.i.i350:                                ; preds = %if.then.i.i.i347
   br i1 %cmp10.i.i.i359, label %if.then5.i.i.i385, label %do.end20.i.i.i360
 
 do.end20.i.i.i360:                                ; preds = %if.then5.i.i.i350
-  store ptr %add.ptr.i.i.i358, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i358, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i358, ptr %19, align 8
   %cmp24.not.i.i.i362 = icmp eq i64 %and2.i.i.i.i357, 0
   br i1 %cmp24.not.i.i.i362, label %if.end29.i.i.i349, label %if.then25.i.i.i363
@@ -12766,11 +12766,11 @@ if.then25.i.i.i363:                               ; preds = %do.end20.i.i.i360
   br label %if.end29.i.i.i349
 
 if.end29.i.i.i349:                                ; preds = %if.then25.i.i.i363, %do.end20.i.i.i360, %if.then.i.i.i347
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %if.end.i.i333
 
 if.end.i.i333:                                    ; preds = %if.end251, %if.end29.i.i.i349
-  %76 = phi i32 [ %71, %if.end251 ], [ 3, %if.end29.i.i.i349 ]
+  %76 = phi i32 [ 3, %if.end29.i.i.i349 ], [ %71, %if.end251 ]
   %77 = load ptr, ptr %20, align 8
   %idx.neg.i.i.i335 = sub nuw i64 -32, %.cond27
   %add.ptr.i4.i.i336 = getelementptr inbounds i8, ptr %77, i64 %idx.neg.i.i.i335
@@ -12779,7 +12779,7 @@ if.end.i.i333:                                    ; preds = %if.end251, %if.end2
   br i1 %cmp.i6.i.i338, label %do.end2.i.i.i345, label %if.end.i.i.i339
 
 do.end2.i.i.i345:                                 ; preds = %if.end.i.i333
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit.thread
 
 if.end.i.i.i339:                                  ; preds = %if.end.i.i333
@@ -12798,14 +12798,14 @@ if.end6.i.i.i342:                                 ; preds = %if.then4.i.i.i344, 
 
 ZSTD_cwksp_reserve_buffer.exit.thread:            ; preds = %do.end2.i.i.i345, %if.end6.i.i.i342
   %retval.0.i.i343.ph = phi ptr [ %add.ptr.i4.i.i336, %if.end6.i.i.i342 ], [ null, %do.end2.i.i.i345 ]
-  %litStart620 = getelementptr inbounds i8, ptr %zc, i64 968
-  store ptr %retval.0.i.i343.ph, ptr %litStart620, align 8
-  %maxNbLit621 = getelementptr inbounds i8, ptr %zc, i64 1016
-  store i64 %.cond27, ptr %maxNbLit621, align 8
-  %bufferedPolicy622 = getelementptr inbounds i8, ptr %zc, i64 3528
-  store i32 %zbuff, ptr %bufferedPolicy622, align 8
-  %inBuffSize623 = getelementptr inbounds i8, ptr %zc, i64 3544
-  store i64 %cond50, ptr %inBuffSize623, align 8
+  %litStart619 = getelementptr inbounds i8, ptr %zc, i64 968
+  store ptr %retval.0.i.i343.ph, ptr %litStart619, align 8
+  %maxNbLit620 = getelementptr inbounds i8, ptr %zc, i64 1016
+  store i64 %.cond27, ptr %maxNbLit620, align 8
+  %bufferedPolicy621 = getelementptr inbounds i8, ptr %zc, i64 3528
+  store i32 %zbuff, ptr %bufferedPolicy621, align 8
+  %inBuffSize622 = getelementptr inbounds i8, ptr %zc, i64 3544
+  store i64 %cond50, ptr %inBuffSize622, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i366
 
 if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
@@ -12817,7 +12817,7 @@ if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
   store i32 %zbuff, ptr %bufferedPolicy, align 8
   %inBuffSize = getelementptr inbounds i8, ptr %zc, i64 3544
   store i64 %cond50, ptr %inBuffSize, align 8
-  %80 = load ptr, ptr %objectEnd.i196610, align 8
+  %80 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i387 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %80, ptr %tableValidEnd.i.i.i387, align 8
   %ws.val.i.i.i388 = load ptr, ptr %18, align 8
@@ -12834,7 +12834,7 @@ if.then5.i.i.i385:                                ; preds = %if.then5.i.i.i350
   br i1 %cmp10.i.i.i394, label %if.then5.i.i.i421, label %do.end20.i.i.i395
 
 do.end20.i.i.i395:                                ; preds = %if.then5.i.i.i385
-  store ptr %add.ptr.i.i.i393, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i393, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i393, ptr %19, align 8
   %cmp24.not.i.i.i397 = icmp eq i64 %and2.i.i.i.i392, 0
   br i1 %cmp24.not.i.i.i397, label %if.end29.i.i.i384, label %if.then25.i.i.i398
@@ -12844,7 +12844,7 @@ if.then25.i.i.i398:                               ; preds = %do.end20.i.i.i395
   br label %if.end29.i.i.i384
 
 if.end29.i.i.i384:                                ; preds = %if.then25.i.i.i398, %do.end20.i.i.i395
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i366
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i366:    ; preds = %ZSTD_cwksp_reserve_buffer.exit.thread, %if.end29.i.i.i384
@@ -12861,7 +12861,7 @@ if.end.i.i368:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i373, label %do.end2.i.i.i380, label %if.end.i.i.i374
 
 do.end2.i.i.i380:                                 ; preds = %if.end.i.i368
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit399.thread
 
 if.end.i.i.i374:                                  ; preds = %if.end.i.i368
@@ -12880,10 +12880,10 @@ if.end6.i.i.i377:                                 ; preds = %if.then4.i.i.i379, 
 
 ZSTD_cwksp_reserve_buffer.exit399.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i366, %do.end2.i.i.i380, %if.end6.i.i.i377
   %retval.0.i.i378.ph = phi ptr [ %add.ptr.i4.i.i371, %if.end6.i.i.i377 ], [ null, %do.end2.i.i.i380 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i366 ]
-  %inBuff626 = getelementptr inbounds i8, ptr %zc, i64 3536
-  store ptr %retval.0.i.i378.ph, ptr %inBuff626, align 8
-  %outBuffSize627 = getelementptr inbounds i8, ptr %zc, i64 3584
-  store i64 %cond42581, ptr %outBuffSize627, align 8
+  %inBuff625 = getelementptr inbounds i8, ptr %zc, i64 3536
+  store ptr %retval.0.i.i378.ph, ptr %inBuff625, align 8
+  %outBuffSize626 = getelementptr inbounds i8, ptr %zc, i64 3584
+  store i64 %cond42581, ptr %outBuffSize626, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i402
 
 if.then5.i.i.i421:                                ; preds = %if.then5.i.i.i385
@@ -12891,7 +12891,7 @@ if.then5.i.i.i421:                                ; preds = %if.then5.i.i.i385
   store ptr null, ptr %inBuff, align 8
   %outBuffSize = getelementptr inbounds i8, ptr %zc, i64 3584
   store i64 %cond42581, ptr %outBuffSize, align 8
-  %88 = load ptr, ptr %objectEnd.i196610, align 8
+  %88 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i423 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %88, ptr %tableValidEnd.i.i.i423, align 8
   %ws.val.i.i.i424 = load ptr, ptr %18, align 8
@@ -12908,7 +12908,7 @@ if.then5.i.i.i421:                                ; preds = %if.then5.i.i.i385
   br i1 %cmp10.i.i.i430, label %ZSTD_cwksp_reserve_buffer.exit435, label %do.end20.i.i.i431
 
 do.end20.i.i.i431:                                ; preds = %if.then5.i.i.i421
-  store ptr %add.ptr.i.i.i429, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i429, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i429, ptr %19, align 8
   %cmp24.not.i.i.i433 = icmp eq i64 %and2.i.i.i.i428, 0
   br i1 %cmp24.not.i.i.i433, label %if.end29.i.i.i420, label %if.then25.i.i.i434
@@ -12918,7 +12918,7 @@ if.then25.i.i.i434:                               ; preds = %do.end20.i.i.i431
   br label %if.end29.i.i.i420
 
 if.end29.i.i.i420:                                ; preds = %if.then25.i.i.i434, %do.end20.i.i.i431
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i402
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i402:    ; preds = %ZSTD_cwksp_reserve_buffer.exit399.thread, %if.end29.i.i.i420
@@ -12935,7 +12935,7 @@ if.end.i.i404:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i409, label %do.end2.i.i.i416, label %if.end.i.i.i410
 
 do.end2.i.i.i416:                                 ; preds = %if.end.i.i404
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit435
 
 if.end.i.i.i410:                                  ; preds = %if.end.i.i404
@@ -12973,7 +12973,7 @@ if.then262:                                       ; preds = %ZSTD_cwksp_reserve_
   br i1 %cmp.i.i.i437, label %if.then5.i.i.i457, label %ZSTD_cwksp_internal_advance_phase.exit.i.i438
 
 if.then5.i.i.i457:                                ; preds = %if.then262
-  %100 = load ptr, ptr %objectEnd.i196610, align 8
+  %100 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i459 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %100, ptr %tableValidEnd.i.i.i459, align 8
   %ws.val.i.i.i460 = load ptr, ptr %18, align 8
@@ -12990,7 +12990,7 @@ if.then5.i.i.i457:                                ; preds = %if.then262
   br i1 %cmp10.i.i.i466, label %ZSTD_cwksp_reserve_buffer.exit471, label %do.end20.i.i.i467
 
 do.end20.i.i.i467:                                ; preds = %if.then5.i.i.i457
-  store ptr %add.ptr.i.i.i465, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i465, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i465, ptr %19, align 8
   %cmp24.not.i.i.i469 = icmp eq i64 %and2.i.i.i.i464, 0
   br i1 %cmp24.not.i.i.i469, label %if.end29.i.i.i456, label %if.then25.i.i.i470
@@ -13000,7 +13000,7 @@ if.then25.i.i.i470:                               ; preds = %do.end20.i.i.i467
   br label %if.end29.i.i.i456
 
 if.end29.i.i.i456:                                ; preds = %if.then25.i.i.i470, %do.end20.i.i.i467
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i438
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i438:    ; preds = %if.end29.i.i.i456, %if.then262
@@ -13012,7 +13012,7 @@ ZSTD_cwksp_internal_advance_phase.exit.i.i438:    ; preds = %if.end29.i.i.i456, 
   br i1 %cmp.i6.i.i445, label %do.end2.i.i.i452, label %if.end.i.i.i446
 
 do.end2.i.i.i452:                                 ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit471
 
 if.end.i.i.i446:                                  ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i438
@@ -13034,11 +13034,11 @@ ZSTD_cwksp_reserve_buffer.exit471:                ; preds = %if.then5.i.i.i457, 
   %bucketOffsets = getelementptr inbounds i8, ptr %zc, i64 1088
   store ptr %retval.0.i.i450, ptr %bucketOffsets, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %retval.0.i.i450, i8 0, i64 %shl267, i1 false)
-  %.pre599 = load i32, ptr %phase.i200616, align 8
+  %.pre598 = load i32, ptr %phase.i200615, align 8
   br label %if.end272
 
 if.end272:                                        ; preds = %ZSTD_cwksp_reserve_buffer.exit471, %ZSTD_cwksp_reserve_buffer.exit435
-  %107 = phi i32 [ %.pre599, %ZSTD_cwksp_reserve_buffer.exit471 ], [ %96, %ZSTD_cwksp_reserve_buffer.exit435 ]
+  %107 = phi i32 [ %.pre598, %ZSTD_cwksp_reserve_buffer.exit471 ], [ %96, %ZSTD_cwksp_reserve_buffer.exit435 ]
   %externSeqStore.i = getelementptr inbounds i8, ptr %zc, i64 3160
   %maxNbSeq274 = getelementptr inbounds i8, ptr %zc, i64 1008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %externSeqStore.i, i8 0, i64 40, i1 false)
@@ -13051,7 +13051,7 @@ if.then.i.i.i490:                                 ; preds = %if.end272
   br i1 %cmp3.i.i.i491, label %if.then5.i.i.i493, label %if.end29.i.i.i492
 
 if.then5.i.i.i493:                                ; preds = %if.then.i.i.i490
-  %108 = load ptr, ptr %objectEnd.i196610, align 8
+  %108 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i495 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %108, ptr %tableValidEnd.i.i.i495, align 8
   %ws.val.i.i.i496 = load ptr, ptr %18, align 8
@@ -13068,7 +13068,7 @@ if.then5.i.i.i493:                                ; preds = %if.then.i.i.i490
   br i1 %cmp10.i.i.i502, label %if.then5.i.i.i529, label %do.end20.i.i.i503
 
 do.end20.i.i.i503:                                ; preds = %if.then5.i.i.i493
-  store ptr %add.ptr.i.i.i501, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i501, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i501, ptr %19, align 8
   %cmp24.not.i.i.i505 = icmp eq i64 %and2.i.i.i.i500, 0
   br i1 %cmp24.not.i.i.i505, label %if.end29.i.i.i492, label %if.then25.i.i.i506
@@ -13078,7 +13078,7 @@ if.then25.i.i.i506:                               ; preds = %do.end20.i.i.i503
   br label %if.end29.i.i.i492
 
 if.end29.i.i.i492:                                ; preds = %if.then25.i.i.i506, %do.end20.i.i.i503, %if.then.i.i.i490
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i474
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i474:    ; preds = %if.end29.i.i.i492, %if.end272
@@ -13094,7 +13094,7 @@ if.end.i.i476:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i481, label %do.end2.i.i.i488, label %if.end.i.i.i482
 
 do.end2.i.i.i488:                                 ; preds = %if.end.i.i476
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit507.thread
 
 if.end.i.i.i482:                                  ; preds = %if.end.i.i476
@@ -13113,14 +13113,14 @@ if.end6.i.i.i485:                                 ; preds = %if.then4.i.i.i487, 
 
 ZSTD_cwksp_reserve_buffer.exit507.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i474, %do.end2.i.i.i488, %if.end6.i.i.i485
   %retval.0.i.i486.ph = phi ptr [ %add.ptr.i4.i.i479, %if.end6.i.i.i485 ], [ null, %do.end2.i.i.i488 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i474 ]
-  %llCode630 = getelementptr inbounds i8, ptr %zc, i64 984
-  store ptr %retval.0.i.i486.ph, ptr %llCode630, align 8
+  %llCode629 = getelementptr inbounds i8, ptr %zc, i64 984
+  store ptr %retval.0.i.i486.ph, ptr %llCode629, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i510
 
 if.then5.i.i.i529:                                ; preds = %if.then5.i.i.i493
   %llCode = getelementptr inbounds i8, ptr %zc, i64 984
   store ptr null, ptr %llCode, align 8
-  %115 = load ptr, ptr %objectEnd.i196610, align 8
+  %115 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i531 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %115, ptr %tableValidEnd.i.i.i531, align 8
   %ws.val.i.i.i532 = load ptr, ptr %18, align 8
@@ -13137,7 +13137,7 @@ if.then5.i.i.i529:                                ; preds = %if.then5.i.i.i493
   br i1 %cmp10.i.i.i538, label %if.then5.i.i.i565, label %do.end20.i.i.i539
 
 do.end20.i.i.i539:                                ; preds = %if.then5.i.i.i529
-  store ptr %add.ptr.i.i.i537, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i537, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i537, ptr %19, align 8
   %cmp24.not.i.i.i541 = icmp eq i64 %and2.i.i.i.i536, 0
   br i1 %cmp24.not.i.i.i541, label %if.end29.i.i.i528, label %if.then25.i.i.i542
@@ -13147,7 +13147,7 @@ if.then25.i.i.i542:                               ; preds = %do.end20.i.i.i539
   br label %if.end29.i.i.i528
 
 if.end29.i.i.i528:                                ; preds = %if.then25.i.i.i542, %do.end20.i.i.i539
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i510
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i510:    ; preds = %ZSTD_cwksp_reserve_buffer.exit507.thread, %if.end29.i.i.i528
@@ -13163,7 +13163,7 @@ if.end.i.i512:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i517, label %do.end2.i.i.i524, label %if.end.i.i.i518
 
 do.end2.i.i.i524:                                 ; preds = %if.end.i.i512
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit543.thread
 
 if.end.i.i.i518:                                  ; preds = %if.end.i.i512
@@ -13182,14 +13182,14 @@ if.end6.i.i.i521:                                 ; preds = %if.then4.i.i.i523, 
 
 ZSTD_cwksp_reserve_buffer.exit543.thread:         ; preds = %ZSTD_cwksp_internal_advance_phase.exit.i.i510, %do.end2.i.i.i524, %if.end6.i.i.i521
   %retval.0.i.i522.ph = phi ptr [ %add.ptr.i4.i.i515, %if.end6.i.i.i521 ], [ null, %do.end2.i.i.i524 ], [ null, %ZSTD_cwksp_internal_advance_phase.exit.i.i510 ]
-  %mlCode633 = getelementptr inbounds i8, ptr %zc, i64 992
-  store ptr %retval.0.i.i522.ph, ptr %mlCode633, align 8
+  %mlCode632 = getelementptr inbounds i8, ptr %zc, i64 992
+  store ptr %retval.0.i.i522.ph, ptr %mlCode632, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i546
 
 if.then5.i.i.i565:                                ; preds = %if.then5.i.i.i529
   %mlCode = getelementptr inbounds i8, ptr %zc, i64 992
   store ptr null, ptr %mlCode, align 8
-  %122 = load ptr, ptr %objectEnd.i196610, align 8
+  %122 = load ptr, ptr %objectEnd.i196609, align 8
   %tableValidEnd.i.i.i567 = getelementptr inbounds i8, ptr %zc, i64 712
   store ptr %122, ptr %tableValidEnd.i.i.i567, align 8
   %ws.val.i.i.i568 = load ptr, ptr %18, align 8
@@ -13206,7 +13206,7 @@ if.then5.i.i.i565:                                ; preds = %if.then5.i.i.i529
   br i1 %cmp10.i.i.i574, label %ZSTD_cwksp_reserve_buffer.exit579, label %do.end20.i.i.i575
 
 do.end20.i.i.i575:                                ; preds = %if.then5.i.i.i565
-  store ptr %add.ptr.i.i.i573, ptr %objectEnd.i196610, align 8
+  store ptr %add.ptr.i.i.i573, ptr %objectEnd.i196609, align 8
   store ptr %add.ptr.i.i.i573, ptr %19, align 8
   %cmp24.not.i.i.i577 = icmp eq i64 %and2.i.i.i.i572, 0
   br i1 %cmp24.not.i.i.i577, label %if.end29.i.i.i564, label %if.then25.i.i.i578
@@ -13216,7 +13216,7 @@ if.then25.i.i.i578:                               ; preds = %do.end20.i.i.i575
   br label %if.end29.i.i.i564
 
 if.end29.i.i.i564:                                ; preds = %if.then25.i.i.i578, %do.end20.i.i.i575
-  store i32 3, ptr %phase.i200616, align 8
+  store i32 3, ptr %phase.i200615, align 8
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i546
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i546:    ; preds = %ZSTD_cwksp_reserve_buffer.exit543.thread, %if.end29.i.i.i564
@@ -13232,7 +13232,7 @@ if.end.i.i548:                                    ; preds = %ZSTD_cwksp_internal
   br i1 %cmp.i6.i.i553, label %do.end2.i.i.i560, label %if.end.i.i.i554
 
 do.end2.i.i.i560:                                 ; preds = %if.end.i.i548
-  store i8 1, ptr %allocFailed.i199614, align 8
+  store i8 1, ptr %allocFailed.i199613, align 8
   br label %ZSTD_cwksp_reserve_buffer.exit579
 
 if.end.i.i.i554:                                  ; preds = %if.end.i.i548

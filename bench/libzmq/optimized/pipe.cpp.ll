@@ -1915,17 +1915,17 @@ entry:
   %add4.i = add nsw i32 %.sroa.speculated.i, %outhwm_
   %cmp.i = icmp slt i32 %inhwm_, 1
   %cmp6.i = icmp eq i32 %0, 0
-  %or.cond10.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
-  %add.i = add nuw nsw i32 %inhwm_, 1
-  %2 = add nuw nsw i32 %add.i, %.sroa.speculated7.i
+  %or.cond9.i = select i1 %cmp.i, i1 true, i1 %cmp6.i
+  %add.i = add i32 %inhwm_, 1
+  %2 = add i32 %add.i, %.sroa.speculated7.i
   %cmp7.i = icmp slt i32 %outhwm_, 1
   %cmp10.i = icmp eq i32 %1, 0
   %or.cond.i = select i1 %cmp7.i, i1 true, i1 %cmp10.i
   %out.0.i = select i1 %or.cond.i, i32 0, i32 %add4.i
-  %3 = lshr i32 %2, 1
-  %div.i9.i = select i1 %or.cond10.i, i32 0, i32 %3
+  %3 = sdiv i32 %2, 2
+  %div.i.i = select i1 %or.cond9.i, i32 0, i32 %3
   %_lwm.i = getelementptr inbounds i8, ptr %this, i64 96
-  store i32 %div.i9.i, ptr %_lwm.i, align 8
+  store i32 %div.i.i, ptr %_lwm.i, align 8
   %_hwm.i = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %out.0.i, ptr %_hwm.i, align 4
   ret void
@@ -1943,17 +1943,17 @@ entry:
   %add4 = add nsw i32 %.sroa.speculated, %outhwm_
   %cmp = icmp slt i32 %inhwm_, 1
   %cmp6 = icmp eq i32 %0, 0
-  %or.cond10 = select i1 %cmp, i1 true, i1 %cmp6
-  %add = add nuw nsw i32 %inhwm_, 1
-  %2 = add nuw nsw i32 %add, %.sroa.speculated7
+  %or.cond9 = select i1 %cmp, i1 true, i1 %cmp6
+  %add = add i32 %inhwm_, 1
+  %2 = add i32 %add, %.sroa.speculated7
   %cmp7 = icmp slt i32 %outhwm_, 1
   %cmp10 = icmp eq i32 %1, 0
   %or.cond = select i1 %cmp7, i1 true, i1 %cmp10
   %out.0 = select i1 %or.cond, i32 0, i32 %add4
-  %3 = lshr i32 %2, 1
-  %div.i9 = select i1 %or.cond10, i32 0, i32 %3
+  %3 = sdiv i32 %2, 2
+  %div.i = select i1 %or.cond9, i32 0, i32 %3
   %_lwm = getelementptr inbounds i8, ptr %this, i64 96
-  store i32 %div.i9, ptr %_lwm, align 8
+  store i32 %div.i, ptr %_lwm, align 8
   %_hwm = getelementptr inbounds i8, ptr %this, i64 92
   store i32 %out.0, ptr %_hwm, align 4
   ret void

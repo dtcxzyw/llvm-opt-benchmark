@@ -11825,13 +11825,13 @@ ZSTD_cwksp_reserve_object.exit191.thread:         ; preds = %135
 143:                                              ; preds = %ZSTD_cwksp_check_wasteful.exit
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 672
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert254 = getelementptr inbounds i8, ptr %0, i64 720
-  %.pre255 = load i32, ptr %.phi.trans.insert254, align 8
-  %.pre256 = and i64 %88, -64
-  %.pre258 = inttoptr i64 %.pre256 to ptr
-  %144 = icmp ugt i32 %.pre255, 1
+  %.phi.trans.insert253 = getelementptr inbounds i8, ptr %0, i64 720
+  %.pre254 = load i32, ptr %.phi.trans.insert253, align 8
+  %.pre255 = and i64 %88, -64
+  %.pre257 = inttoptr i64 %.pre255 to ptr
+  %144 = icmp ugt i32 %.pre254, 1
   store ptr %.pre, ptr %92, align 8
-  store ptr %.pre258, ptr %93, align 8
+  store ptr %.pre257, ptr %93, align 8
   %145 = getelementptr inbounds i8, ptr %0, i64 712
   store i8 0, ptr %145, align 8
   %146 = getelementptr inbounds i8, ptr %0, i64 720
@@ -11844,7 +11844,7 @@ ZSTD_cwksp_reserve_object.exit191.thread:         ; preds = %135
 ZSTD_cwksp_clear.exit:                            ; preds = %.thread, %143, %147
   %148 = phi ptr [ %142, %.thread ], [ %146, %143 ], [ %146, %147 ]
   %149 = phi ptr [ %141, %.thread ], [ %145, %143 ], [ %145, %147 ]
-  %.0164262 = phi i32 [ 1, %.thread ], [ %69, %143 ], [ %69, %147 ]
+  %.0164261 = phi i32 [ 1, %.thread ], [ %69, %143 ], [ %69, %147 ]
   %150 = getelementptr inbounds i8, ptr %0, i64 672
   %151 = getelementptr inbounds i8, ptr %0, i64 3448
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %151, ptr noundef nonnull align 4 dereferenceable(28) %16, i64 28, i1 false)
@@ -11889,7 +11889,7 @@ ZSTD_cwksp_clear.exit:                            ; preds = %.thread, %143, %147
   %174 = getelementptr inbounds i8, ptr %169, i64 5612
   store i32 0, ptr %174, align 4
   %175 = load i32, ptr %74, align 8
-  %176 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %57, ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef %175, i32 noundef %4, i32 noundef %.0164262, i32 noundef 1)
+  %176 = tail call fastcc i64 @ZSTD_reset_matchState(ptr noundef nonnull %57, ptr noundef nonnull %7, ptr noundef nonnull %16, i32 noundef %175, i32 noundef %4, i32 noundef %.0164261, i32 noundef 1)
   %177 = icmp ult i64 %176, -119
   br i1 %177, label %178, label %ZSTD_cwksp_create.exit
 
@@ -12275,7 +12275,7 @@ ZSTD_cwksp_reserve_aligned.exit208:               ; preds = %316, %ZSTD_cwksp_in
   br label %ZSTD_cwksp_internal_advance_phase.exit.i.i209
 
 ZSTD_cwksp_internal_advance_phase.exit.i.i209:    ; preds = %348, %367
-  %368 = phi i32 [ %349, %348 ], [ 3, %367 ]
+  %368 = phi i32 [ 3, %367 ], [ %349, %348 ]
   %369 = load ptr, ptr %93, align 8
   %370 = sub nuw i64 -32, %.176
   %371 = getelementptr inbounds i8, ptr %369, i64 %370

@@ -12503,7 +12503,7 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   %22 = getelementptr inbounds [309 x double], ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 0, i64 %21
   %23 = load double, ptr %22, align 8
   %24 = fmul double %.0162233.i, %23
-  br label %.critedge2.thread66
+  br label %.critedge2.thread71
 
 25:                                               ; preds = %19
   %26 = sub nsw i32 0, %1
@@ -12511,7 +12511,7 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   %28 = getelementptr inbounds [309 x double], ptr @_ZZN3pxr9rapidjson8internal5Pow10EiE1e, i64 0, i64 %27
   %29 = load double, ptr %28, align 8
   %30 = fdiv double %0, %29
-  br label %.critedge2.thread66
+  br label %.critedge2.thread71
 
 31:                                               ; preds = %.thread.i, %10
   %32 = trunc i64 %3 to i32
@@ -12522,76 +12522,76 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   br i1 %34, label %.lr.ph, label %.critedge2
 
 .lr.ph:                                           ; preds = %31, %37
-  %.03345 = phi ptr [ %39, %37 ], [ %2, %31 ]
-  %.03444 = phi i32 [ %38, %37 ], [ %32, %31 ]
-  %35 = load i8, ptr %.03345, align 1
+  %.03350 = phi ptr [ %39, %37 ], [ %2, %31 ]
+  %.03449 = phi i32 [ %38, %37 ], [ %32, %31 ]
+  %35 = load i8, ptr %.03350, align 1
   %36 = icmp eq i8 %35, 48
-  br i1 %36, label %37, label %.lr.ph52.preheader
+  br i1 %36, label %37, label %.lr.ph57.preheader
 
 37:                                               ; preds = %.lr.ph
-  %38 = add nsw i32 %.03444, -1
-  %39 = getelementptr inbounds i8, ptr %.03345, i64 1
-  %40 = icmp sgt i32 %.03444, 1
-  br i1 %40, label %.lr.ph, label %.critedge2.thread66, !llvm.loop !107
+  %38 = add nsw i32 %.03449, -1
+  %39 = getelementptr inbounds i8, ptr %.03350, i64 1
+  %40 = icmp sgt i32 %.03449, 1
+  br i1 %40, label %.lr.ph, label %.critedge2.thread71, !llvm.loop !107
 
-.lr.ph52.preheader:                               ; preds = %.lr.ph
-  %41 = zext nneg i32 %.03444 to i64
-  %42 = add i32 %.03444, %5
+.lr.ph57.preheader:                               ; preds = %.lr.ph
+  %41 = zext nneg i32 %.03449 to i64
+  %42 = add i32 %.03449, %5
   %43 = trunc i64 %4 to i32
   %44 = add i32 %42, %43
   %45 = sub i32 %44, %32
-  br label %.lr.ph52
+  br label %.lr.ph57
 
-.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %49
-  %indvars.iv = phi i64 [ %41, %.lr.ph52.preheader ], [ %indvars.iv.next, %49 ]
-  %.03251 = phi i32 [ %33, %.lr.ph52.preheader ], [ %50, %49 ]
+.lr.ph57:                                         ; preds = %.lr.ph57.preheader, %49
+  %indvars.iv = phi i64 [ %41, %.lr.ph57.preheader ], [ %indvars.iv.next, %49 ]
+  %.03256 = phi i32 [ %33, %.lr.ph57.preheader ], [ %50, %49 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %46 = getelementptr inbounds i8, ptr %.03345, i64 %indvars.iv.next
+  %46 = getelementptr inbounds i8, ptr %.03350, i64 %indvars.iv.next
   %47 = load i8, ptr %46, align 1
   %48 = icmp eq i8 %47, 48
   br i1 %48, label %49, label %.critedge2.thread.loopexit
 
-49:                                               ; preds = %.lr.ph52
-  %50 = add nsw i32 %.03251, 1
+49:                                               ; preds = %.lr.ph57
+  %50 = add nsw i32 %.03256, 1
   %51 = icmp ugt i64 %indvars.iv, 1
-  br i1 %51, label %.lr.ph52, label %.critedge2.loopexit, !llvm.loop !108
+  br i1 %51, label %.lr.ph57, label %.critedge2.loopexit, !llvm.loop !108
 
 .critedge2.loopexit:                              ; preds = %49
   %52 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %31, %.critedge2.loopexit
-  %.033.lcssa65 = phi ptr [ %.03345, %.critedge2.loopexit ], [ %2, %31 ]
+  %.033.lcssa70 = phi ptr [ %.03350, %.critedge2.loopexit ], [ %2, %31 ]
   %.135.lcssa = phi i32 [ %52, %.critedge2.loopexit ], [ %32, %31 ]
   %.032.lcssa = phi i32 [ %45, %.critedge2.loopexit ], [ %33, %31 ]
   %53 = icmp eq i32 %.135.lcssa, 0
-  br i1 %53, label %.critedge2.thread66, label %.critedge2.thread
+  br i1 %53, label %.critedge2.thread71, label %.critedge2.thread
 
-.critedge2.thread.loopexit:                       ; preds = %.lr.ph52
+.critedge2.thread.loopexit:                       ; preds = %.lr.ph57
   %54 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2.thread
 
 .critedge2.thread:                                ; preds = %.critedge2.thread.loopexit, %.critedge2
-  %.033.lcssa64 = phi ptr [ %.033.lcssa65, %.critedge2 ], [ %.03345, %.critedge2.thread.loopexit ]
-  %.13543 = phi i32 [ %.135.lcssa, %.critedge2 ], [ %54, %.critedge2.thread.loopexit ]
-  %.03241 = phi i32 [ %.032.lcssa, %.critedge2 ], [ %.03251, %.critedge2.thread.loopexit ]
-  %55 = icmp sgt i32 %.13543, 768
-  %56 = add nsw i32 %.13543, -768
-  %.2 = tail call i32 @llvm.smin.i32(i32 %.13543, i32 768)
+  %.033.lcssa69 = phi ptr [ %.033.lcssa70, %.critedge2 ], [ %.03350, %.critedge2.thread.loopexit ]
+  %.13548 = phi i32 [ %.135.lcssa, %.critedge2 ], [ %54, %.critedge2.thread.loopexit ]
+  %.03246 = phi i32 [ %.032.lcssa, %.critedge2 ], [ %.03256, %.critedge2.thread.loopexit ]
+  %55 = icmp sgt i32 %.13548, 768
+  %56 = add nsw i32 %.13548, -768
+  %.2 = tail call i32 @llvm.smin.i32(i32 %.13548, i32 768)
   %57 = select i1 %55, i32 %56, i32 0
-  %.1 = add nsw i32 %57, %.03241
+  %.1 = add nsw i32 %57, %.03246
   %58 = add nsw i32 %.1, %.2
   %59 = icmp slt i32 %58, -323
-  br i1 %59, label %.critedge2.thread66, label %60
+  br i1 %59, label %.critedge2.thread71, label %60
 
 60:                                               ; preds = %.critedge2.thread
   %61 = icmp sgt i32 %58, 309
-  br i1 %61, label %.critedge2.thread66, label %62
+  br i1 %61, label %.critedge2.thread71, label %62
 
 62:                                               ; preds = %60
-  %63 = call noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPd(ptr noundef %.033.lcssa64, i32 noundef %.2, i32 noundef %.1, ptr noundef nonnull %8)
+  %63 = call noundef zeroext i1 @_ZN3pxr9rapidjson8internal11StrtodDiyFpIcEEbPKT_iiPd(ptr noundef %.033.lcssa69, i32 noundef %.2, i32 noundef %.1, ptr noundef nonnull %8)
   %64 = load double, ptr %8, align 8
-  br i1 %63, label %.critedge2.thread66, label %65
+  br i1 %63, label %.critedge2.thread71, label %65
 
 65:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 3336, ptr nonnull %7)
@@ -12600,12 +12600,12 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   store i64 1, ptr %67, align 8
   store i64 0, ptr %7, align 8
   %68 = icmp ugt i32 %.2, 18
-  br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i
+  br i1 %68, label %.lr.ph.i.i, label %._crit_edge.i.i.thread
 
 .lr.ph.i.i:                                       ; preds = %65, %.lr.ph.i.i
   %.015.i.i = phi i64 [ %71, %.lr.ph.i.i ], [ %66, %65 ]
   %.01314.i.i = phi i64 [ %72, %.lr.ph.i.i ], [ 0, %65 ]
-  %69 = getelementptr inbounds i8, ptr %.033.lcssa64, i64 %.01314.i.i
+  %69 = getelementptr inbounds i8, ptr %.033.lcssa69, i64 %.01314.i.i
   %70 = getelementptr inbounds i8, ptr %69, i64 19
   call void @_ZN3pxr9rapidjson8internal10BigInteger15AppendDecimal64IcEEvPKT_S6_(ptr noundef nonnull align 8 dereferenceable(3336) %7, ptr noundef %69, ptr noundef nonnull %70)
   %71 = add i64 %.015.i.i, -19
@@ -12613,49 +12613,49 @@ define linkonce_odr noundef double @_ZN3pxr9rapidjson8internal19StrtodFullPrecis
   %73 = icmp ugt i64 %71, 18
   br i1 %73, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !109
 
-._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %65
-  %.013.lcssa.i.i = phi i64 [ 0, %65 ], [ %72, %.lr.ph.i.i ]
-  %.0.lcssa.i.i = phi i64 [ %66, %65 ], [ %71, %.lr.ph.i.i ]
-  %.not.i.i = icmp eq i64 %.0.lcssa.i.i, 0
-  br i1 %.not.i.i, label %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i, label %74
+._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
+  %.not.i.i = icmp eq i64 %71, 0
+  br i1 %.not.i.i, label %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i, label %._crit_edge.i.i.thread
 
-74:                                               ; preds = %._crit_edge.i.i
-  %75 = getelementptr inbounds i8, ptr %.033.lcssa64, i64 %.013.lcssa.i.i
-  %76 = getelementptr inbounds i8, ptr %75, i64 %.0.lcssa.i.i
-  call void @_ZN3pxr9rapidjson8internal10BigInteger15AppendDecimal64IcEEvPKT_S6_(ptr noundef nonnull align 8 dereferenceable(3336) %7, ptr noundef %75, ptr noundef nonnull %76)
+._crit_edge.i.i.thread:                           ; preds = %65, %._crit_edge.i.i
+  %.0.lcssa.i.i43 = phi i64 [ %71, %._crit_edge.i.i ], [ %66, %65 ]
+  %.013.lcssa.i.i42 = phi i64 [ %72, %._crit_edge.i.i ], [ 0, %65 ]
+  %74 = getelementptr inbounds i8, ptr %.033.lcssa69, i64 %.013.lcssa.i.i42
+  %75 = getelementptr inbounds i8, ptr %74, i64 %.0.lcssa.i.i43
+  call void @_ZN3pxr9rapidjson8internal10BigInteger15AppendDecimal64IcEEvPKT_S6_(ptr noundef nonnull align 8 dereferenceable(3336) %7, ptr noundef %74, ptr noundef nonnull %75)
   br label %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i
 
-_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i: ; preds = %74, %._crit_edge.i.i
-  %77 = call noundef i32 @_ZN3pxr9rapidjson8internal18CheckWithinHalfULPEdRKNS1_10BigIntegerEi(double noundef %64, ptr noundef nonnull align 8 dereferenceable(3336) %7, i32 noundef %.1)
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit, label %79
+_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i: ; preds = %._crit_edge.i.i.thread, %._crit_edge.i.i
+  %76 = call noundef i32 @_ZN3pxr9rapidjson8internal18CheckWithinHalfULPEdRKNS1_10BigIntegerEi(double noundef %64, ptr noundef nonnull align 8 dereferenceable(3336) %7, i32 noundef %.1)
+  %77 = icmp slt i32 %76, 0
+  br i1 %77, label %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit, label %78
 
-79:                                               ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i
-  %80 = icmp eq i32 %77, 0
-  %81 = bitcast double %64 to i64
-  br i1 %80, label %82, label %87
+78:                                               ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i
+  %79 = icmp eq i32 %76, 0
+  %80 = bitcast double %64 to i64
+  br i1 %79, label %81, label %86
 
-82:                                               ; preds = %79
-  %83 = and i64 %81, 1
-  %.not.i = icmp eq i64 %83, 0
-  br i1 %.not.i, label %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit, label %84
+81:                                               ; preds = %78
+  %82 = and i64 %80, 1
+  %.not.i = icmp eq i64 %82, 0
+  br i1 %.not.i, label %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit, label %83
 
-84:                                               ; preds = %82
-  %85 = add i64 %81, 1
-  %86 = bitcast i64 %85 to double
+83:                                               ; preds = %81
+  %84 = add i64 %80, 1
+  %85 = bitcast i64 %84 to double
   br label %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit
 
-87:                                               ; preds = %79
-  %88 = add i64 %81, 1
-  %89 = bitcast i64 %88 to double
+86:                                               ; preds = %78
+  %87 = add i64 %80, 1
+  %88 = bitcast i64 %87 to double
   br label %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit
 
-_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i, %82, %84, %87
-  %.0.i = phi double [ %86, %84 ], [ %89, %87 ], [ %64, %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i ], [ %64, %82 ]
+_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit: ; preds = %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i, %81, %83, %86
+  %.0.i = phi double [ %85, %83 ], [ %88, %86 ], [ %64, %_ZN3pxr9rapidjson8internal10BigIntegerC2IcEEPKT_m.exit.i ], [ %64, %81 ]
   call void @llvm.lifetime.end.p0(i64 3336, ptr nonnull %7)
-  br label %.critedge2.thread66
+  br label %.critedge2.thread71
 
-.critedge2.thread66:                              ; preds = %37, %62, %.thread26.i, %25, %60, %.critedge2.thread, %.critedge2, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit
+.critedge2.thread71:                              ; preds = %37, %62, %.thread26.i, %25, %60, %.critedge2.thread, %.critedge2, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit
   %.0 = phi double [ %.0.i, %_ZN3pxr9rapidjson8internal16StrtodBigIntegerIcEEddPKT_ii.exit ], [ 0.000000e+00, %.critedge2 ], [ 0.000000e+00, %.critedge2.thread ], [ 0x7FF0000000000000, %60 ], [ %24, %.thread26.i ], [ %30, %25 ], [ %64, %62 ], [ 0.000000e+00, %37 ]
   ret double %.0
 }

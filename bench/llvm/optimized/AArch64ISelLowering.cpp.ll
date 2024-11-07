@@ -92601,14 +92601,13 @@ _ZN4llvm5SDLocC2ERKS0_.exit:                      ; preds = %79, %95
   %.rhs.trunc = trunc nuw i32 %73 to i8
   %104 = udiv i8 64, %.rhs.trunc
   %105 = call i8 @llvm.umax.i8(i8 %104, i8 8)
-  %.sroa.speculated = zext nneg i8 %105 to i32
-  %106 = add nsw i32 %.sroa.speculated, -8
-  %107 = call i32 @llvm.fshl.i32(i32 %106, i32 %106, i32 29)
-  %108 = icmp ult i32 %107, 8
+  %106 = add nsw i8 %105, -8
+  %107 = call i8 @llvm.fshl.i8(i8 %106, i8 %106, i8 5)
+  %108 = icmp ult i8 %107, 8
   br i1 %108, label %switch.lookup331, label %_ZN4llvm3MVT12getIntegerVTEj.exit
 
 switch.lookup331:                                 ; preds = %103
-  %109 = zext nneg i32 %107 to i64
+  %109 = zext nneg i8 %107 to i64
   %switch.gep332 = getelementptr inbounds [8 x i16], ptr @switch.table._ZL21vectorToScalarBitmaskPN4llvm6SDNodeERNS_12SelectionDAGE, i64 0, i64 %109
   %switch.load333 = load i16, ptr %switch.gep332, align 2
   br label %_ZN4llvm3MVT12getIntegerVTEj.exit
@@ -174464,6 +174463,9 @@ declare i32 @llvm.umax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.fshl.i8(i8, i8, i8) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.ctpop.i16(i16) #29

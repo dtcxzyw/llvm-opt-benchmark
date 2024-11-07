@@ -3650,9 +3650,9 @@ if.end8:                                          ; preds = %if.end
   %.sroa.speculated39 = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv12)
   %conv19 = zext i32 %numDigits to i64
   %cmp.i24 = icmp samesign ugt i64 %.sroa.speculated39, %conv19
-  br i1 %cmp.i24, label %return, label %if.end32
+  br i1 %cmp.i24, label %return, label %if.end.i
 
-if.end32:                                         ; preds = %if.end8
+if.end.i:                                         ; preds = %if.end8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %add, i64 %conv19)
   %mul.i25 = shl nuw nsw i64 %.sroa.speculated39, 3
   %conv.i26 = and i64 %mul.i25, 4294967288
@@ -3673,7 +3673,7 @@ if.end32:                                         ; preds = %if.end8
   %cmp35 = icmp samesign ult i64 %div19, %conv34
   br i1 %cmp35, label %if.then36, label %if.end68
 
-if.then36:                                        ; preds = %if.end32
+if.then36:                                        ; preds = %if.end.i
   %cmp37 = icmp eq i32 %operation, 0
   br i1 %cmp37, label %land.end, label %land.end.thread
 
@@ -3737,8 +3737,8 @@ if.end53:                                         ; preds = %land.end.thread, %i
   %.pre67 = load i32, ptr %dst.coerce1, align 4
   br label %if.end68
 
-if.end68:                                         ; preds = %if.end53, %if.end32
-  %27 = phi i32 [ %.pre67, %if.end53 ], [ %15, %if.end32 ]
+if.end68:                                         ; preds = %if.end53, %if.end.i
+  %27 = phi i32 [ %.pre67, %if.end53 ], [ %15, %if.end.i ]
   %mul.i30 = shl i32 %27, 3
   %cmp.i.i.i = icmp eq i32 %mul.i30, 0
   br i1 %cmp.i.i.i, label %return.sink.split, label %if.end.i.i31

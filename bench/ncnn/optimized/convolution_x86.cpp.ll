@@ -40488,7 +40488,7 @@ define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiRiS0_S0_i(i32 no
   %.sroa.speculated58 = tail call i32 @llvm.smin.i32(i32 %51, i32 %.sroa.speculated62)
   store i32 %.sroa.speculated58, ptr %5, align 4
   %52 = icmp sgt i32 %1, 0
-  br i1 %52, label %53, label %71
+  br i1 %52, label %53, label %72
 
 53:                                               ; preds = %37
   %54 = load i32, ptr %3, align 4
@@ -40504,16 +40504,17 @@ define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiRiS0_S0_i(i32 no
   %.sroa.speculated52 = tail call i32 @llvm.smax.i32(i32 %63, i32 4)
   %64 = add nsw i32 %1, -1
   %65 = add nuw i32 %64, %.sroa.speculated52
-  %66 = udiv i32 %65, %.sroa.speculated52
-  %67 = add nuw i32 %64, %66
-  %68 = udiv i32 %67, %66
-  %69 = add nuw nsw i32 %68, 3
-  %70 = and i32 %69, -4
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %70, i32 %.sroa.speculated52)
+  %66 = sdiv i32 %65, %.sroa.speculated52
+  %67 = add i32 %64, %66
+  %68 = sdiv i32 %67, %66
+  %69 = add nsw i32 %68, 3
+  %70 = sdiv i32 %69, 4
+  %71 = shl nsw i32 %70, 2
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %71, i32 %.sroa.speculated52)
   store i32 %.sroa.speculated, ptr %4, align 4
-  br label %71
+  br label %72
 
-71:                                               ; preds = %53, %37
+72:                                               ; preds = %53, %37
   ret void
 }
 
@@ -40592,7 +40593,7 @@ define internal fastcc void @_ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile
   %49 = phi i32 [ %.sroa.speculated83, %44 ], [ %.sroa.speculated88, %13 ]
   store i32 %49, ptr %3, align 4
   %50 = icmp sgt i32 %1, 0
-  br i1 %50, label %51, label %66
+  br i1 %50, label %51, label %67
 
 51:                                               ; preds = %48
   %52 = load i32, ptr %5, align 4
@@ -40607,17 +40608,18 @@ define internal fastcc void @_ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile
   %.sroa.speculated69 = tail call i32 @llvm.smax.i32(i32 %58, i32 4)
   %59 = add nsw i32 %1, -1
   %60 = add nuw i32 %59, %.sroa.speculated69
-  %61 = udiv i32 %60, %.sroa.speculated69
-  %62 = add nuw i32 %59, %61
-  %63 = udiv i32 %62, %61
-  %64 = add nuw nsw i32 %63, 3
-  %65 = and i32 %64, -4
-  %.sroa.speculated64 = tail call i32 @llvm.umin.i32(i32 %65, i32 %.sroa.speculated69)
-  %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %.sroa.speculated64, i32 4)
+  %61 = sdiv i32 %60, %.sroa.speculated69
+  %62 = add i32 %59, %61
+  %63 = sdiv i32 %62, %61
+  %64 = add nsw i32 %63, 3
+  %65 = sdiv i32 %64, 4
+  %66 = shl nsw i32 %65, 2
+  %.sroa.speculated64 = tail call i32 @llvm.smin.i32(i32 %66, i32 %.sroa.speculated69)
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %.sroa.speculated64, i32 4)
   store i32 %.sroa.speculated, ptr %4, align 4
-  br label %66
+  br label %67
 
-66:                                               ; preds = %51, %48
+67:                                               ; preds = %51, %48
   ret void
 }
 
@@ -45899,7 +45901,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
   %.sroa.speculated58 = tail call i32 @llvm.smin.i32(i32 %51, i32 %.sroa.speculated62)
   store i32 %.sroa.speculated58, ptr %5, align 4
   %52 = icmp sgt i32 %1, 0
-  br i1 %52, label %53, label %72
+  br i1 %52, label %53, label %73
 
 53:                                               ; preds = %37
   %54 = load i32, ptr %3, align 4
@@ -45916,16 +45918,17 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
   %.sroa.speculated52 = tail call i32 @llvm.smax.i32(i32 %64, i32 4)
   %65 = add nsw i32 %1, -1
   %66 = add nuw i32 %65, %.sroa.speculated52
-  %67 = udiv i32 %66, %.sroa.speculated52
-  %68 = add nuw i32 %65, %67
-  %69 = udiv i32 %68, %67
-  %70 = add nuw nsw i32 %69, 3
-  %71 = and i32 %70, -4
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %71, i32 %.sroa.speculated52)
+  %67 = sdiv i32 %66, %.sroa.speculated52
+  %68 = add i32 %65, %67
+  %69 = sdiv i32 %68, %67
+  %70 = add nsw i32 %69, 3
+  %71 = sdiv i32 %70, 4
+  %72 = shl nsw i32 %71, 2
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %72, i32 %.sroa.speculated52)
   store i32 %.sroa.speculated, ptr %4, align 4
-  br label %72
+  br label %73
 
-72:                                               ; preds = %53, %37
+73:                                               ; preds = %53, %37
   ret void
 }
 
@@ -45995,7 +45998,7 @@ define internal fastcc void @_ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile
   %51 = phi i32 [ %.sroa.speculated73, %46 ], [ %.sroa.speculated77, %13 ]
   store i32 %51, ptr %3, align 4
   %52 = icmp sgt i32 %1, 0
-  br i1 %52, label %53, label %71
+  br i1 %52, label %53, label %72
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %5, align 4
@@ -46014,16 +46017,17 @@ define internal fastcc void @_ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile
   %.sroa.speculated61 = tail call i32 @llvm.smax.i32(i32 %63, i32 4)
   %64 = add nsw i32 %1, -1
   %65 = add nuw i32 %64, %.sroa.speculated61
-  %66 = udiv i32 %65, %.sroa.speculated61
-  %67 = add nuw i32 %64, %66
-  %68 = udiv i32 %67, %66
-  %69 = add nuw nsw i32 %68, 3
-  %70 = and i32 %69, -4
-  %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %70, i32 %.sroa.speculated61)
+  %66 = sdiv i32 %65, %.sroa.speculated61
+  %67 = add i32 %64, %66
+  %68 = sdiv i32 %67, %66
+  %69 = add nsw i32 %68, 3
+  %70 = sdiv i32 %69, 4
+  %71 = shl nsw i32 %70, 2
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %71, i32 %.sroa.speculated61)
   store i32 %.sroa.speculated, ptr %4, align 4
-  br label %71
+  br label %72
 
-71:                                               ; preds = %53, %50
+72:                                               ; preds = %53, %50
   ret void
 }
 
@@ -50257,9 +50261,6 @@ declare i32 @llvm.smax.i32(i32, i32) #18
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #18
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
 
@@ -50268,9 +50269,6 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18

@@ -1721,9 +1721,10 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %187, %190
 
 312:                                              ; preds = %304
   call void @_ZN2cv16ParallelLoopBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %37) #16
+  %.sroa.6.8.insert.ext = zext nneg i32 %234 to i64
   %.sroa.6.12.insert.ext = zext i32 %236 to i64
   %.sroa.6.12.insert.shift = shl nuw i64 %.sroa.6.12.insert.ext, 32
-  %.sroa.6.12.insert.insert = or disjoint i64 %.sroa.6.12.insert.shift, %302
+  %.sroa.6.12.insert.insert = or disjoint i64 %.sroa.6.12.insert.shift, %.sroa.6.8.insert.ext
   %313 = getelementptr inbounds i8, ptr %0, i64 48
   %.sroa.0180.0.copyload = load i64, ptr %313, align 8
   %.sroa.2181.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56

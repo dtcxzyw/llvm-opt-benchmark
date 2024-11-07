@@ -799,8 +799,8 @@ sw.bb172:                                         ; preds = %if.end60
   store i8 %89, ptr %incdec.ptr.i41.i, align 2
   %div.i4260.i = udiv i32 %spec.select26.i, 36000
   %rem1.i4361.lhs.trunc.i = trunc nuw i32 %div.i4260.i to i16
-  %rem1.i436162.i = urem i16 %rem1.i4361.lhs.trunc.i, 10
-  %idxprom2.i44.i = zext nneg i16 %rem1.i436162.i to i64
+  %rem1.i436166.i = urem i16 %rem1.i4361.lhs.trunc.i, 10
+  %idxprom2.i44.i = zext nneg i16 %rem1.i436166.i to i64
   %arrayidx3.i45.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i44.i
   %90 = load i8, ptr %arrayidx3.i45.i, align 1
   store i8 %90, ptr %incdec.ptr4.i46.i, align 1
@@ -1001,8 +1001,8 @@ if.end219:                                        ; preds = %invoke.cont216, %if
   store i8 %109, ptr %incdec.ptr4.i46.i, align 1
   %div.i4260.i483 = udiv i32 %spec.select26.i465, 36000
   %rem1.i4361.lhs.trunc.i484 = trunc nuw i32 %div.i4260.i483 to i16
-  %rem1.i436162.i485 = urem i16 %rem1.i4361.lhs.trunc.i484, 10
-  %idxprom2.i44.i486 = zext nneg i16 %rem1.i436162.i485 to i64
+  %rem1.i436166.i485 = urem i16 %rem1.i4361.lhs.trunc.i484, 10
+  %idxprom2.i44.i486 = zext nneg i16 %rem1.i436166.i485 to i64
   %arrayidx3.i45.i487 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i44.i486
   %110 = load i8, ptr %arrayidx3.i45.i487, align 1
   store i8 %110, ptr %incdec.ptr37.i, align 16
@@ -1084,14 +1084,14 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit: ; p
   %rem.i509 = urem i32 %spec.select26.i508, 60
   %div.i510 = udiv i32 %spec.select26.i508, 60
   %rem1.i511 = urem i32 %div.i510, 60
-  %rem.i63.lhs.trunc.i = trunc nuw nsw i32 %rem.i509 to i8
-  %rem.i6364.i = urem i8 %rem.i63.lhs.trunc.i, 10
-  %idxprom.i.i543 = zext nneg i8 %rem.i6364.i to i64
+  %rem.i62.lhs.trunc.i = trunc nuw nsw i32 %rem.i509 to i8
+  %rem.i6263.i = urem i8 %rem.i62.lhs.trunc.i, 10
+  %idxprom.i.i543 = zext nneg i8 %rem.i6263.i to i64
   %arrayidx.i.i544 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i.i543
   %116 = load i8, ptr %arrayidx.i.i544, align 1
   store i8 %116, ptr %incdec.ptr.i454, align 4
-  %div.i6566.i = udiv i8 %rem.i63.lhs.trunc.i, 10
-  %idxprom2.i.i = zext nneg i8 %div.i6566.i to i64
+  %div.i6465.i = udiv i8 %rem.i62.lhs.trunc.i, 10
+  %idxprom2.i.i = zext nneg i8 %div.i6465.i to i64
   %arrayidx3.i.i = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i.i
   %117 = load i8, ptr %arrayidx3.i.i, align 1
   store i8 %117, ptr %incdec.ptr4.i37.i, align 1
@@ -1116,8 +1116,8 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit: ; p
   store i8 %120, ptr %incdec.ptr.i41.i687, align 2
   %div.i4260.i526 = udiv i32 %spec.select26.i508, 36000
   %rem1.i4361.lhs.trunc.i527 = trunc nuw i32 %div.i4260.i526 to i16
-  %rem1.i436162.i528 = urem i16 %rem1.i4361.lhs.trunc.i527, 10
-  %idxprom2.i44.i529 = zext nneg i16 %rem1.i436162.i528 to i64
+  %rem1.i436166.i528 = urem i16 %rem1.i4361.lhs.trunc.i527, 10
+  %idxprom2.i44.i529 = zext nneg i16 %rem1.i436166.i528 to i64
   %arrayidx3.i45.i530 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i44.i529
   %121 = load i8, ptr %arrayidx3.i45.i530, align 1
   store i8 %121, ptr %incdec.ptr4.i46.i693, align 1
@@ -1186,14 +1186,14 @@ if.end287:                                        ; preds = %invoke.cont284, %if
   br i1 %cmp15.i552.not, label %if.end22.i, label %if.end22.i.thread
 
 if.end22.i.thread:                                ; preds = %if.end287
-  %rem.i63.lhs.trunc.i587 = trunc nuw nsw i32 %rem.i549 to i8
-  %rem.i6364.i588 = urem i8 %rem.i63.lhs.trunc.i587, 10
-  %idxprom.i.i589 = zext nneg i8 %rem.i6364.i588 to i64
+  %rem.i62.lhs.trunc.i587 = trunc nuw nsw i32 %rem.i549 to i8
+  %rem.i6263.i588 = urem i8 %rem.i62.lhs.trunc.i587, 10
+  %idxprom.i.i589 = zext nneg i8 %rem.i6263.i588 to i64
   %arrayidx.i.i590 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i.i589
   %126 = load i8, ptr %arrayidx.i.i590, align 1
   store i8 %126, ptr %incdec.ptr.i454, align 4
-  %div.i6566.i592 = udiv i8 %rem.i63.lhs.trunc.i587, 10
-  %idxprom2.i.i593 = zext nneg i8 %div.i6566.i592 to i64
+  %div.i6465.i592 = udiv i8 %rem.i62.lhs.trunc.i587, 10
+  %idxprom2.i.i593 = zext nneg i8 %div.i6465.i592 to i64
   %arrayidx3.i.i594 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i.i593
   %127 = load i8, ptr %arrayidx3.i.i594, align 1
   store i8 %127, ptr %incdec.ptr4.i37.i, align 1
@@ -1238,8 +1238,8 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit597: 
   store i8 %130, ptr %incdec.ptr.i41.i568, align 1
   %div.i4260.i569 = udiv i32 %spec.select26.i548, 36000
   %rem1.i4361.lhs.trunc.i570 = trunc nuw i32 %div.i4260.i569 to i16
-  %rem1.i436162.i571 = urem i16 %rem1.i4361.lhs.trunc.i570, 10
-  %idxprom2.i44.i572 = zext nneg i16 %rem1.i436162.i571 to i64
+  %rem1.i436166.i571 = urem i16 %rem1.i4361.lhs.trunc.i570, 10
+  %idxprom2.i44.i572 = zext nneg i16 %rem1.i436166.i571 to i64
   %arrayidx3.i45.i573 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i44.i572
   %131 = load i8, ptr %arrayidx3.i45.i573, align 1
   %incdec.ptr4.i46.i574 = getelementptr inbounds i8, ptr %ep.addr.1.i563, i64 -2
@@ -1408,8 +1408,8 @@ if.end342:                                        ; preds = %invoke.cont339, %if
   store i8 %142, ptr %incdec.ptr4.i46.i, align 1
   %div.i4260.i637 = udiv i32 %spec.select26.i614, 36000
   %rem1.i4361.lhs.trunc.i638 = trunc nuw i32 %div.i4260.i637 to i16
-  %rem1.i436162.i639 = urem i16 %rem1.i4361.lhs.trunc.i638, 10
-  %idxprom2.i44.i640 = zext nneg i16 %rem1.i436162.i639 to i64
+  %rem1.i436166.i639 = urem i16 %rem1.i4361.lhs.trunc.i638, 10
+  %idxprom2.i44.i640 = zext nneg i16 %rem1.i436166.i639 to i64
   %arrayidx3.i45.i641 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i44.i640
   %143 = load i8, ptr %arrayidx3.i45.i641, align 1
   store i8 %143, ptr %incdec.ptr37.i, align 16
@@ -1489,14 +1489,14 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit717: 
   %rem.i665 = urem i32 %spec.select26.i664, 60
   %div.i666 = udiv i32 %spec.select26.i664, 60
   %rem1.i667 = urem i32 %div.i666, 60
-  %rem.i63.lhs.trunc.i707 = trunc nuw nsw i32 %rem.i665 to i8
-  %rem.i6364.i708 = urem i8 %rem.i63.lhs.trunc.i707, 10
-  %idxprom.i.i709 = zext nneg i8 %rem.i6364.i708 to i64
+  %rem.i62.lhs.trunc.i707 = trunc nuw nsw i32 %rem.i665 to i8
+  %rem.i6263.i708 = urem i8 %rem.i62.lhs.trunc.i707, 10
+  %idxprom.i.i709 = zext nneg i8 %rem.i6263.i708 to i64
   %arrayidx.i.i710 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom.i.i709
   %149 = load i8, ptr %arrayidx.i.i710, align 1
   store i8 %149, ptr %incdec.ptr.i454, align 4
-  %div.i6566.i712 = udiv i8 %rem.i63.lhs.trunc.i707, 10
-  %idxprom2.i.i713 = zext nneg i8 %div.i6566.i712 to i64
+  %div.i6465.i712 = udiv i8 %rem.i62.lhs.trunc.i707, 10
+  %idxprom2.i.i713 = zext nneg i8 %div.i6465.i712 to i64
   %arrayidx3.i.i714 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i.i713
   %150 = load i8, ptr %arrayidx3.i.i714, align 1
   store i8 %150, ptr %incdec.ptr4.i37.i, align 1
@@ -1521,8 +1521,8 @@ _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_112FormatOffsetEPciPKc.exit717: 
   store i8 %153, ptr %incdec.ptr.i41.i687, align 2
   %div.i4260.i688 = udiv i32 %spec.select26.i664, 36000
   %rem1.i4361.lhs.trunc.i689 = trunc nuw i32 %div.i4260.i688 to i16
-  %rem1.i436162.i690 = urem i16 %rem1.i4361.lhs.trunc.i689, 10
-  %idxprom2.i44.i691 = zext nneg i16 %rem1.i436162.i690 to i64
+  %rem1.i436166.i690 = urem i16 %rem1.i4361.lhs.trunc.i689, 10
+  %idxprom2.i44.i691 = zext nneg i16 %rem1.i436166.i690 to i64
   %arrayidx3.i45.i692 = getelementptr inbounds [11 x i8], ptr @_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_17kDigitsE, i64 0, i64 %idxprom2.i44.i691
   %154 = load i8, ptr %arrayidx3.i45.i692, align 1
   store i8 %154, ptr %incdec.ptr4.i46.i693, align 1

@@ -927,121 +927,122 @@ define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiiiiRiS0_S0_i(i32
   store i32 %.sroa.speculated109, ptr %7, align 4
   store i32 %.sroa.speculated115, ptr %8, align 4
   %25 = icmp sgt i32 %2, 0
-  br i1 %25, label %26, label %44
+  br i1 %25, label %26, label %45
 
 26:                                               ; preds = %16
   %27 = add nsw i32 %2, -1
   %28 = add nuw i32 %27, %.sroa.speculated115
-  %29 = udiv i32 %28, %.sroa.speculated115
-  %30 = add nuw i32 %27, %29
-  %31 = udiv i32 %30, %29
-  %32 = add nuw nsw i32 %31, 7
-  %33 = and i32 %32, -8
-  %.sroa.speculated99 = tail call i32 @llvm.umin.i32(i32 %33, i32 %.sroa.speculated115)
+  %29 = sdiv i32 %28, %.sroa.speculated115
+  %30 = add i32 %27, %29
+  %31 = sdiv i32 %30, %29
+  %32 = add nsw i32 %31, 7
+  %33 = sdiv i32 %32, 8
+  %34 = shl nsw i32 %33, 3
+  %.sroa.speculated99 = tail call i32 @llvm.smin.i32(i32 %34, i32 %.sroa.speculated115)
   store i32 %.sroa.speculated99, ptr %8, align 4
-  %34 = icmp eq i32 %29, 1
-  br i1 %34, label %35, label %44
+  %35 = icmp eq i32 %29, 1
+  br i1 %35, label %36, label %45
 
-35:                                               ; preds = %26
-  %36 = fmul fast float %17, 1.250000e-01
-  %37 = uitofp nneg i32 %.sroa.speculated99 to float
-  %38 = fdiv fast float %36, %37
-  %39 = fptosi float %38 to i32
-  %40 = sdiv i32 %39, 8
-  %41 = shl nsw i32 %40, 3
-  %.sroa.speculated93 = tail call i32 @llvm.smax.i32(i32 %41, i32 8)
+36:                                               ; preds = %26
+  %37 = fmul fast float %17, 1.250000e-01
+  %38 = sitofp i32 %.sroa.speculated99 to float
+  %39 = fdiv fast float %37, %38
+  %40 = fptosi float %39 to i32
+  %41 = sdiv i32 %40, 8
+  %42 = shl nsw i32 %41, 3
+  %.sroa.speculated93 = tail call i32 @llvm.smax.i32(i32 %42, i32 8)
   store i32 %.sroa.speculated93, ptr %6, align 4
-  %42 = sdiv i32 %39, 4
-  %43 = shl nsw i32 %42, 2
-  %.sroa.speculated87 = tail call i32 @llvm.smax.i32(i32 %43, i32 4)
+  %43 = sdiv i32 %40, 4
+  %44 = shl nsw i32 %43, 2
+  %.sroa.speculated87 = tail call i32 @llvm.smax.i32(i32 %44, i32 4)
   store i32 %.sroa.speculated87, ptr %7, align 4
-  br label %44
+  br label %45
 
-44:                                               ; preds = %26, %35, %16
-  %45 = tail call noundef i32 @_ZN4ncnn22get_physical_cpu_countEv()
-  %.sroa.speculated83 = tail call i32 @llvm.smin.i32(i32 %45, i32 %.0)
-  %46 = load i32, ptr %6, align 4
-  %47 = mul nsw i32 %46, %.sroa.speculated83
-  %48 = icmp sgt i32 %0, 0
-  br i1 %48, label %49, label %58
+45:                                               ; preds = %26, %36, %16
+  %46 = tail call noundef i32 @_ZN4ncnn22get_physical_cpu_countEv()
+  %.sroa.speculated83 = tail call i32 @llvm.smin.i32(i32 %46, i32 %.0)
+  %47 = load i32, ptr %6, align 4
+  %48 = mul nsw i32 %47, %.sroa.speculated83
+  %49 = icmp sgt i32 %0, 0
+  br i1 %49, label %50, label %59
 
-49:                                               ; preds = %44
-  %50 = add nsw i32 %0, -1
-  %51 = add i32 %50, %47
-  %52 = sdiv i32 %51, %47
-  %53 = add i32 %50, %52
-  %54 = sdiv i32 %53, %52
-  %55 = add nsw i32 %54, 7
-  %56 = sdiv i32 %55, 8
-  %57 = shl nsw i32 %56, 3
-  %.sroa.speculated79 = tail call i32 @llvm.smin.i32(i32 %57, i32 %47)
-  br label %58
+50:                                               ; preds = %45
+  %51 = add nsw i32 %0, -1
+  %52 = add i32 %51, %48
+  %53 = sdiv i32 %52, %48
+  %54 = add i32 %51, %53
+  %55 = sdiv i32 %54, %53
+  %56 = add nsw i32 %55, 7
+  %57 = sdiv i32 %56, 8
+  %58 = shl nsw i32 %57, 3
+  %.sroa.speculated79 = tail call i32 @llvm.smin.i32(i32 %58, i32 %48)
+  br label %59
 
-58:                                               ; preds = %49, %44
-  %storemerge = phi i32 [ %.sroa.speculated79, %49 ], [ %47, %44 ]
+59:                                               ; preds = %50, %45
+  %storemerge = phi i32 [ %.sroa.speculated79, %50 ], [ %48, %45 ]
   store i32 %storemerge, ptr %6, align 4
-  %59 = icmp sgt i32 %1, 0
-  br i1 %59, label %60, label %70
+  %60 = icmp sgt i32 %1, 0
+  br i1 %60, label %61, label %71
 
-60:                                               ; preds = %58
-  %61 = load i32, ptr %7, align 4
-  %62 = add nsw i32 %1, -1
-  %63 = add i32 %62, %61
-  %64 = sdiv i32 %63, %61
-  %65 = add i32 %62, %64
-  %66 = sdiv i32 %65, %64
-  %67 = add nsw i32 %66, 3
-  %68 = sdiv i32 %67, 4
-  %69 = shl nsw i32 %68, 2
-  %.sroa.speculated75 = tail call i32 @llvm.smin.i32(i32 %69, i32 %61)
+61:                                               ; preds = %59
+  %62 = load i32, ptr %7, align 4
+  %63 = add nsw i32 %1, -1
+  %64 = add i32 %63, %62
+  %65 = sdiv i32 %64, %62
+  %66 = add i32 %63, %65
+  %67 = sdiv i32 %66, %65
+  %68 = add nsw i32 %67, 3
+  %69 = sdiv i32 %68, 4
+  %70 = shl nsw i32 %69, 2
+  %.sroa.speculated75 = tail call i32 @llvm.smin.i32(i32 %70, i32 %62)
   store i32 %.sroa.speculated75, ptr %7, align 4
-  br label %70
+  br label %71
 
-70:                                               ; preds = %60, %58
-  %71 = icmp sgt i32 %.0, 1
-  br i1 %71, label %72, label %77
+71:                                               ; preds = %61, %59
+  %72 = icmp sgt i32 %.0, 1
+  br i1 %72, label %73, label %78
 
-72:                                               ; preds = %70
-  %73 = load i32, ptr %6, align 4
-  %74 = sdiv i32 %73, %.0
-  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %74, i32 1)
-  %75 = add nuw nsw i32 %.sroa.speculated, 7
-  %76 = and i32 %75, 2147483640
-  %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %76, i32 %73)
+73:                                               ; preds = %71
+  %74 = load i32, ptr %6, align 4
+  %75 = sdiv i32 %74, %.0
+  %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %75, i32 1)
+  %76 = add nuw nsw i32 %.sroa.speculated, 7
+  %77 = and i32 %76, 2147483640
+  %.sroa.speculated71 = tail call i32 @llvm.smin.i32(i32 %77, i32 %74)
   store i32 %.sroa.speculated71, ptr %6, align 4
-  br label %77
+  br label %78
 
-77:                                               ; preds = %72, %70
-  %78 = icmp sgt i32 %3, 0
-  br i1 %78, label %79, label %82
+78:                                               ; preds = %73, %71
+  %79 = icmp sgt i32 %3, 0
+  br i1 %79, label %80, label %83
 
-79:                                               ; preds = %77
-  %80 = add nuw nsw i32 %3, 7
-  %81 = and i32 %80, 2147483640
-  store i32 %81, ptr %6, align 4
-  br label %82
+80:                                               ; preds = %78
+  %81 = add nuw nsw i32 %3, 7
+  %82 = and i32 %81, 2147483640
+  store i32 %82, ptr %6, align 4
+  br label %83
 
-82:                                               ; preds = %79, %77
-  %83 = icmp sgt i32 %4, 0
-  br i1 %83, label %84, label %87
+83:                                               ; preds = %80, %78
+  %84 = icmp sgt i32 %4, 0
+  br i1 %84, label %85, label %88
 
-84:                                               ; preds = %82
-  %85 = add nuw nsw i32 %4, 3
-  %86 = and i32 %85, 2147483644
-  store i32 %86, ptr %7, align 4
-  br label %87
+85:                                               ; preds = %83
+  %86 = add nuw nsw i32 %4, 3
+  %87 = and i32 %86, 2147483644
+  store i32 %87, ptr %7, align 4
+  br label %88
 
-87:                                               ; preds = %84, %82
-  %88 = icmp sgt i32 %5, 0
-  br i1 %88, label %89, label %92
+88:                                               ; preds = %85, %83
+  %89 = icmp sgt i32 %5, 0
+  br i1 %89, label %90, label %93
 
-89:                                               ; preds = %87
-  %90 = add nuw nsw i32 %5, 7
-  %91 = and i32 %90, 2147483640
-  store i32 %91, ptr %8, align 4
-  br label %92
+90:                                               ; preds = %88
+  %91 = add nuw nsw i32 %5, 7
+  %92 = and i32 %91, 2147483640
+  store i32 %92, ptr %8, align 4
+  br label %93
 
-92:                                               ; preds = %89, %87
+93:                                               ; preds = %90, %88
   ret void
 }
 
@@ -13953,9 +13954,6 @@ declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #12
