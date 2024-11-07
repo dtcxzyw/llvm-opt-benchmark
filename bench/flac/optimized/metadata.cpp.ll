@@ -1313,7 +1313,6 @@ if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
   store i32 %field_length, ptr %entry_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %field, i64 %conv.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1369,7 +1368,6 @@ if.then4.i:                                       ; preds = %_ZN4FLAC8Metadata13
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %field_length, ptr %entry_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %field, i64 %conv.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i
   store i8 0, ptr %arrayidx.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1446,7 +1444,6 @@ if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
   %entry_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %conv, ptr %entry_.i.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %field, i64 %conv.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1769,7 +1766,6 @@ if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13
 
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
   store i32 %1, ptr %entry_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %0, i64 %conv.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -1867,7 +1863,6 @@ if.then4.i.i:                                     ; preds = %_ZN4FLAC8Metadata13
 _ZN4FLAC8Metadata13VorbisComment5Entry9set_fieldEPKcj.exit.i: ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i.i
   %entry_.i.i2 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %4, ptr %entry_.i.i2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr align 1 %3, i64 %conv.i.i, i1 false)
   %arrayidx.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -2095,7 +2090,6 @@ if.then4:                                         ; preds = %_ZN4FLAC8Metadata13
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit
   %entry_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %field_length, ptr %entry_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -2182,7 +2176,6 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   br i1 %cmp14, label %return, label %if.end16
 
 if.end16:                                         ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %2, i64 %conv12, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %conv12
   store i8 0, ptr %arrayidx, align 1
   %cmp27 = icmp eq i32 %3, %conv10
@@ -2209,8 +2202,6 @@ if.else:                                          ; preds = %if.end16
   br i1 %cmp44, label %return, label %if.end47
 
 if.end47:                                         ; preds = %if.else
-  %incdec.ptr = getelementptr inbounds i8, ptr %spec.select, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i6, ptr nonnull align 1 %incdec.ptr, i64 %conv41, i1 false)
   %arrayidx54 = getelementptr inbounds i8, ptr %call.i.i6, i64 %conv41
   store i8 0, ptr %arrayidx54, align 1
   br label %if.end55
@@ -2267,7 +2258,6 @@ if.then4.i:                                       ; preds = %_ZN4FLAC8Metadata13
 if.else.i:                                        ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit.i
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %conv, ptr %entry_.i, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr align 1 %field, i64 %conv.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i
   store i8 0, ptr %arrayidx.i, align 1
   tail call void @_ZN4FLAC8Metadata13VorbisComment5Entry11parse_fieldEv(ptr noundef nonnull align 8 dereferenceable(60) %this)
@@ -2522,7 +2512,6 @@ if.then3:                                         ; preds = %_ZN4FLAC8Metadata13
 if.else:                                          ; preds = %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit
   %field_value_length_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %field_value_length, ptr %field_value_length_, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field_value, i64 %conv, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %conv
   store i8 0, ptr %arrayidx, align 1
   %entry2.i.i = getelementptr inbounds i8, ptr %this, i64 24

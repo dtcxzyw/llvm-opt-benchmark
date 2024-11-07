@@ -513,7 +513,7 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
 
 10:                                               ; preds = %7, %4
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.29) #15
-  br label %56
+  br label %55
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %2, align 4
@@ -557,68 +557,65 @@ define internal fastcc range(i32 0, 9) i32 @_x509_to_pem_append(ptr noundef %0, 
 28:                                               ; preds = %27, %23, %15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.30) #15
-  br label %56
+  br label %55
 
 29:                                               ; preds = %24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %26, ptr nonnull align 1 %21, i64 %19, i1 false)
-  %30 = getelementptr inbounds i8, ptr %26, i64 %19
-  store i8 0, ptr %30, align 1
-  %31 = trunc i64 %19 to i32
+  %30 = trunc i64 %19 to i32
   call void @BIO_free_all(ptr noundef nonnull %14) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %32 = load i64, ptr %3, align 8
-  %33 = trunc i64 %32 to i32
-  %34 = icmp sgt i32 %31, %33
-  br i1 %34, label %35, label %45
+  %31 = load i64, ptr %3, align 8
+  %32 = trunc i64 %31 to i32
+  %33 = icmp sgt i32 %30, %32
+  br i1 %33, label %34, label %44
 
-35:                                               ; preds = %29
-  %36 = load ptr, ptr %1, align 8
-  %37 = add i32 %12, 1
-  %38 = add i32 %37, %31
-  %39 = sext i32 %38 to i64
-  %40 = call ptr @realloc(ptr noundef %36, i64 noundef %39) #19
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %42, label %44
+34:                                               ; preds = %29
+  %35 = load ptr, ptr %1, align 8
+  %36 = add i32 %12, 1
+  %37 = add i32 %36, %30
+  %38 = sext i32 %37 to i64
+  %39 = call ptr @realloc(ptr noundef %35, i64 noundef %38) #19
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %35
+41:                                               ; preds = %34
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.31) #15
-  %43 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %43) #15
+  %42 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %42) #15
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
-  br label %56
+  br label %55
 
-44:                                               ; preds = %35
-  store ptr %40, ptr %1, align 8
+43:                                               ; preds = %34
+  store ptr %39, ptr %1, align 8
   %.pre = shl i64 %19, 32
   %.pre42 = ashr exact i64 %.pre, 32
-  br label %48
+  br label %47
 
-45:                                               ; preds = %29
+44:                                               ; preds = %29
   %sext = shl i64 %19, 32
-  %46 = ashr exact i64 %sext, 32
-  %47 = sub i64 %32, %46
-  br label %48
+  %45 = ashr exact i64 %sext, 32
+  %46 = sub i64 %31, %45
+  br label %47
 
-48:                                               ; preds = %45, %44
-  %.pre-phi = phi i64 [ %46, %45 ], [ %.pre42, %44 ]
-  %storemerge = phi i64 [ %47, %45 ], [ 0, %44 ]
+47:                                               ; preds = %44, %43
+  %.pre-phi = phi i64 [ %45, %44 ], [ %.pre42, %43 ]
+  %storemerge = phi i64 [ %46, %44 ], [ 0, %43 ]
   store i64 %storemerge, ptr %3, align 8
-  %49 = load ptr, ptr %1, align 8
-  %50 = sext i32 %12 to i64
-  %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %26, i64 %.pre-phi, i1 false)
-  %52 = add nsw i32 %12, %31
-  store i32 %52, ptr %2, align 4
-  %53 = load ptr, ptr %1, align 8
-  %54 = sext i32 %52 to i64
-  %55 = getelementptr inbounds i8, ptr %53, i64 %54
-  store i8 0, ptr %55, align 1
-  br label %56
+  %48 = load ptr, ptr %1, align 8
+  %49 = sext i32 %12 to i64
+  %50 = getelementptr inbounds i8, ptr %48, i64 %49
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %26, i64 %.pre-phi, i1 false)
+  %51 = add nsw i32 %12, %30
+  store i32 %51, ptr %2, align 4
+  %52 = load ptr, ptr %1, align 8
+  %53 = sext i32 %51 to i64
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  store i8 0, ptr %54, align 1
+  br label %55
 
-56:                                               ; preds = %48, %42, %28, %10
-  %.035 = phi ptr [ null, %10 ], [ %26, %42 ], [ %26, %48 ], [ null, %28 ]
-  %.0 = phi i32 [ 8, %10 ], [ 8, %42 ], [ 0, %48 ], [ 8, %28 ]
+55:                                               ; preds = %47, %41, %28, %10
+  %.035 = phi ptr [ null, %10 ], [ %26, %41 ], [ %26, %47 ], [ null, %28 ]
+  %.0 = phi i32 [ 8, %10 ], [ 8, %41 ], [ 0, %47 ], [ 8, %28 ]
   call void @free(ptr noundef %.035) #15
   ret i32 %.0
 }

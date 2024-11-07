@@ -1393,7 +1393,6 @@ new.ctorloop.i:                                   ; preds = %entry
 invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.ctorloop.i
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
-  store ptr %arrayctor.cur.ptr.ptr.i, ptr %arrayctor.cur.ptr.ptr.i, align 8, !tbaa !48, !noalias !87
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store ptr %arrayctor.cur.ptr.ptr.i, ptr %prev_.i.i.i.i, align 8, !tbaa !49, !noalias !87
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 16
@@ -1495,7 +1494,6 @@ if.end4.if.end7_crit_edge.i.i.i13.i:              ; preds = %if.end4.i.i.i11.i
   br label %if.end7.i.i.i.i
 
 if.then6.i.i.i22.i:                               ; preds = %if.end4.i.i.i11.i
-  store ptr %arrayidx.i, ptr %arrayidx.i, align 8, !tbaa !48
   store ptr %arrayidx.i, ptr %prev_.i.i37.i.i.i12.i, align 8, !tbaa !49
   br label %if.end7.i.i.i.i
 
@@ -1541,7 +1539,6 @@ if.end.i.i.i25.i:                                 ; preds = %if.then16.i.i.i21.i
   br i1 %tobool.not.i35.i.i.i26.i, label %if.then3.i.i.i45.i, label %if.end4.i.i.i28.i
 
 if.then3.i.i.i45.i:                               ; preds = %if.end.i.i.i25.i
-  store ptr %arrayidx.i, ptr %arrayidx.i, align 8, !tbaa !48
   %prev_.i.i.i.i.i46.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %arrayidx.i, ptr %prev_.i.i.i.i.i46.i, align 8, !tbaa !49
   br label %if.end4.i.i.i28.i
@@ -4010,7 +4007,6 @@ new.ctorloop.i:                                   ; preds = %entry
 invoke.cont.i:                                    ; preds = %invoke.cont.i, %new.ctorloop.i
   %arrayctor.cur.idx.i = phi i64 [ 8, %new.ctorloop.i ], [ %arrayctor.cur.add.i, %invoke.cont.i ]
   %arrayctor.cur.ptr.ptr.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i
-  store ptr %arrayctor.cur.ptr.ptr.i, ptr %arrayctor.cur.ptr.ptr.i, align 8, !tbaa !48, !noalias !129
   %prev_.i.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr.i, i64 8
   store ptr %arrayctor.cur.ptr.ptr.i, ptr %prev_.i.i.i.i, align 8, !tbaa !49, !noalias !129
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 16
@@ -4112,7 +4108,6 @@ if.end4.if.end7_crit_edge.i.i.i13.i:              ; preds = %if.end4.i.i.i11.i
   br label %if.end7.i.i.i.i
 
 if.then6.i.i.i22.i:                               ; preds = %if.end4.i.i.i11.i
-  store ptr %arrayidx.i, ptr %arrayidx.i, align 8, !tbaa !48
   store ptr %arrayidx.i, ptr %prev_.i.i37.i.i.i12.i, align 8, !tbaa !49
   br label %if.end7.i.i.i.i
 
@@ -4158,7 +4153,6 @@ if.end.i.i.i25.i:                                 ; preds = %if.then16.i.i.i21.i
   br i1 %tobool.not.i35.i.i.i26.i, label %if.then3.i.i.i45.i, label %if.end4.i.i.i28.i
 
 if.then3.i.i.i45.i:                               ; preds = %if.end.i.i.i25.i
-  store ptr %arrayidx.i, ptr %arrayidx.i, align 8, !tbaa !48
   %prev_.i.i.i.i.i46.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %arrayidx.i, ptr %prev_.i.i.i.i.i46.i, align 8, !tbaa !49
   br label %if.end4.i.i.i28.i

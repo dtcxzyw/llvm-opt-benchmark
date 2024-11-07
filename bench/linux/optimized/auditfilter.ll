@@ -147,7 +147,6 @@ define dso_local ptr @audit_unpack_string(ptr nocapture noundef %0, ptr nocaptur
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %18, i64 %2, i1 false)
   %19 = getelementptr i8, ptr %15, i64 %2
   store i8 0, ptr %19, align 1
   %20 = getelementptr i8, ptr %18, i64 %2
@@ -1576,7 +1575,6 @@ thread-pre-split:                                 ; preds = %117
   br i1 %176, label %.thread54, label %177, !prof !8
 
 177:                                              ; preds = %173
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %175, ptr nonnull align 1 %164, i64 %163, i1 false)
   %178 = getelementptr i8, ptr %175, i64 %163
   store i8 0, ptr %178, align 1
   %179 = getelementptr i8, ptr %164, i64 %163
@@ -1635,7 +1633,6 @@ thread-pre-split:                                 ; preds = %117
   br i1 %209, label %.thread57, label %210, !prof !8
 
 210:                                              ; preds = %206
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %208, ptr nonnull align 1 %197, i64 %196, i1 false)
   %211 = getelementptr i8, ptr %208, i64 %196
   store i8 0, ptr %211, align 1
   %212 = getelementptr i8, ptr %197, i64 %196
@@ -1691,7 +1688,6 @@ thread-pre-split:                                 ; preds = %117
   br i1 %240, label %.thread60, label %241, !prof !8
 
 241:                                              ; preds = %237
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %239, ptr nonnull align 1 %228, i64 %227, i1 false)
   %242 = getelementptr i8, ptr %239, i64 %227
   store i8 0, ptr %242, align 1
   %243 = getelementptr i8, ptr %228, i64 %227

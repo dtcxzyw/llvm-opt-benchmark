@@ -195,7 +195,6 @@ lor.lhs.false.i:                                  ; preds = %rcu_read_unlock.exi
 
 if.end9.i:                                        ; preds = %lor.lhs.false.i
   %arrayidx13.i = getelementptr [0 x %struct.udmabuf_create_item], ptr %list11.i, i64 0, i64 %idxprom.i
-  store i32 %12, ptr %arrayidx13.i, align 8
   %13 = load i64, ptr %offset.i, align 8
   %offset17.i = getelementptr inbounds i8, ptr %arrayidx13.i, i64 8
   store i64 %13, ptr %offset17.i, align 8

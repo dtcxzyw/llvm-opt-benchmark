@@ -348,7 +348,6 @@ if.else.i:                                        ; preds = %if.end59
   br i1 %cmp9.i, label %if.then66, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull align 1 %10, i64 %conv.i93, i1 false)
   %arrayidx17.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i93
   store i8 0, ptr %arrayidx17.i, align 1
   store ptr %call.i.i.i, ptr %entry49, align 8
@@ -406,7 +405,6 @@ if.else.i.i:                                      ; preds = %for.body.i
   br i1 %cmp9.i.i, label %for.body.i.i.preheader, label %if.end12.i.i
 
 if.end12.i.i:                                     ; preds = %if.else.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i.i, ptr nonnull align 1 %14, i64 %conv.i9.i, i1 false)
   %arrayidx17.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 %conv.i9.i
   store i8 0, ptr %arrayidx17.i.i, align 1
   %entry18.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 8
@@ -2013,7 +2011,6 @@ if.else.i:                                        ; preds = %if.then3
   br i1 %cmp9.i, label %return, label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull align 1 %3, i64 %conv.i, i1 false)
   %arrayidx17.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 %conv.i
   store i8 0, ptr %arrayidx17.i, align 1
   store ptr %call.i.i.i, ptr %entry1, align 8
@@ -2659,11 +2656,6 @@ safe_malloc_add_4op_.exit:                        ; preds = %if.end.i
   br i1 %cmp, label %return, label %if.end13
 
 if.end13:                                         ; preds = %safe_malloc_add_4op_.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i, ptr align 1 %field_name, i64 %call6, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %call.i.i, i64 %call6
-  store i8 61, ptr %arrayidx, align 1
-  %add.ptr17 = getelementptr inbounds i8, ptr %arrayidx, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr17, ptr align 1 %field_value, i64 %call7, i1 false)
   %idxprom = and i64 %add8, 4294967295
   %arrayidx20 = getelementptr inbounds i8, ptr %call.i.i, i64 %idxprom
   store i8 0, ptr %arrayidx20, align 1

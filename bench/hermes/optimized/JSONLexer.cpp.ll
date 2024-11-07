@@ -1151,7 +1151,6 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %7 = phi ptr [ %3, %cond.true ], [ %.pre226, %cond.false ]
   %call7.pn = phi { ptr, i64 } [ %.fca.1.insert.i, %cond.true ], [ %call9, %cond.false ]
   %strRef.sroa.3.0 = extractvalue { ptr, i64 } %call7.pn, 1
-  %strRef.sroa.0.0 = extractvalue { ptr, i64 } %call7.pn, 0
   %incdec.ptr.i6 = getelementptr inbounds i8, ptr %7, i64 2
   store ptr %incdec.ptr.i6, ptr %this, align 8
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -1162,6 +1161,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   br i1 %cmp.i.not.i, label %if.then.i, label %if.then.i.i.i.i
 
 if.then.i:                                        ; preds = %cond.end
+  %strRef.sroa.0.0 = extractvalue { ptr, i64 } %call7.pn, 0
   %call3.i = call { i32, i64 } @_ZN6hermes2vm15StringPrimitive30createDynamicWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb(ptr noundef nonnull align 8 dereferenceable(9832) %8, ptr %strRef.sroa.0.0, i64 %strRef.sroa.3.0, i1 noundef zeroext %allAscii.0) #11
   br label %_ZN6hermes2vm15StringPrimitive23createWithKnownEncodingERNS0_7RuntimeEN4llvh8ArrayRefIDsEEb.exit
 
@@ -1183,7 +1183,6 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i.i
   %call5.i.i.i.i.i.i.i = call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i.i) #13
   store ptr %call5.i.i.i.i.i.i.i, ptr %ref.tmp.i, align 8, !alias.scope !45
   store i64 %strRef.sroa.3.0, ptr %10, align 8, !alias.scope !45
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i, ptr align 2 %strRef.sroa.0.0, i64 %add.ptr.i.idx.i.i, i1 false)
   store i64 %strRef.sroa.3.0, ptr %_M_string_length.i.i.i, align 8, !alias.scope !45
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 %add.ptr.i.idx.i.i
   store i16 0, ptr %arrayidx.i.i.i.i.i, align 2

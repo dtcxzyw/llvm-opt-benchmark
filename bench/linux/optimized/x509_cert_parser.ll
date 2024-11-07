@@ -613,7 +613,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr no
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %97
+  br i1 %7, label %8, label %86
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %0, i64 61
@@ -631,40 +631,40 @@ define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr no
   %17 = getelementptr inbounds i8, ptr %0, i64 62
   %18 = load i8, ptr %17, align 2
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %79
+  br i1 %19, label %20, label %74
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 24), align 8
   %22 = tail call noalias align 8 dereferenceable_or_null(1) ptr @kmalloc_trace(ptr noundef %21, i32 noundef 3264, i64 noundef 1) #17
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %97, label %24
+  br i1 %23, label %86, label %24
 
 24:                                               ; preds = %20
   store i8 0, ptr %22, align 8
-  br label %93
+  br label %82
 
 25:                                               ; preds = %8
-  %26 = getelementptr inbounds i8, ptr %0, i64 66
-  %27 = load i16, ptr %26, align 2
-  %28 = zext i16 %27 to i64
-  %29 = getelementptr i8, ptr %5, i64 %28
-  br i1 %14, label %84, label %30
+  br i1 %14, label %74, label %26
 
-30:                                               ; preds = %25
+26:                                               ; preds = %25
+  %27 = getelementptr inbounds i8, ptr %0, i64 66
+  %28 = load i16, ptr %27, align 2
+  %29 = zext i16 %28 to i64
+  %30 = getelementptr i8, ptr %5, i64 %29
   %31 = icmp ult i8 %10, %13
   br i1 %31, label %40, label %32
 
-32:                                               ; preds = %30
+32:                                               ; preds = %26
   %33 = getelementptr inbounds i8, ptr %0, i64 64
   %34 = load i16, ptr %33, align 8
   %35 = zext i16 %34 to i64
   %36 = getelementptr i8, ptr %5, i64 %35
   %37 = zext i8 %13 to i64
-  %38 = tail call i32 @bcmp(ptr %29, ptr %36, i64 %37)
+  %38 = tail call i32 @bcmp(ptr %30, ptr %36, i64 %37)
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %84, label %40
+  br i1 %39, label %74, label %40
 
-40:                                               ; preds = %32, %30
+40:                                               ; preds = %32, %26
   %41 = icmp ugt i8 %10, 6
   %42 = icmp ugt i8 %13, 6
   %43 = and i1 %41, %42
@@ -675,9 +675,9 @@ define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr no
   %46 = load i16, ptr %45, align 8
   %47 = zext i16 %46 to i64
   %48 = getelementptr i8, ptr %5, i64 %47
-  %49 = tail call i32 @bcmp(ptr noundef dereferenceable(7) %29, ptr noundef dereferenceable(7) %48, i64 7)
+  %49 = tail call i32 @bcmp(ptr noundef dereferenceable(7) %30, ptr noundef dereferenceable(7) %48, i64 7)
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %84, label %51
+  br i1 %50, label %74, label %51
 
 51:                                               ; preds = %44, %40
   %52 = zext i8 %10 to i64
@@ -686,7 +686,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr no
   %55 = add nuw nsw i64 %54, %53
   %56 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %55, i32 noundef 3264) #20
   %57 = icmp eq ptr %56, null
-  br i1 %57, label %97, label %58
+  br i1 %57, label %86, label %58
 
 58:                                               ; preds = %51
   %59 = getelementptr inbounds i8, ptr %0, i64 64
@@ -701,7 +701,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr no
   %66 = getelementptr i8, ptr %65, i64 1
   store i8 32, ptr %66, align 1
   %67 = getelementptr i8, ptr %65, i64 2
-  %68 = load i16, ptr %26, align 2
+  %68 = load i16, ptr %27, align 2
   %69 = zext i16 %68 to i64
   %70 = getelementptr i8, ptr %5, i64 %69
   %71 = load i8, ptr %9, align 1
@@ -709,50 +709,34 @@ define internal fastcc noundef range(i32 -22, 1) i32 @x509_fabricate_name(ptr no
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %67, ptr align 1 %70, i64 %72, i1 false)
   %73 = getelementptr i8, ptr %67, i64 %72
   store i8 0, ptr %73, align 1
-  br label %93
+  br label %82
 
-74:                                               ; preds = %15
-  %75 = getelementptr inbounds i8, ptr %0, i64 64
-  %76 = load i16, ptr %75, align 8
-  %77 = zext i16 %76 to i64
-  %78 = getelementptr i8, ptr %5, i64 %77
-  br label %84
+74:                                               ; preds = %16, %15, %25, %44, %32
+  %75 = phi i8 [ %10, %32 ], [ %10, %44 ], [ %10, %25 ], [ %13, %15 ], [ %18, %16 ]
+  %76 = zext i8 %75 to i64
+  %77 = add nuw nsw i64 %76, 1
+  %78 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %77, i32 noundef 3264) #20
+  %79 = icmp eq ptr %78, null
+  br i1 %79, label %86, label %80
 
-79:                                               ; preds = %16
-  %80 = getelementptr inbounds i8, ptr %0, i64 68
-  %81 = load i16, ptr %80, align 4
-  %82 = zext i16 %81 to i64
-  %83 = getelementptr i8, ptr %5, i64 %82
-  br label %84
+80:                                               ; preds = %74
+  %81 = getelementptr i8, ptr %78, i64 %76
+  store i8 0, ptr %81, align 1
+  br label %82
 
-84:                                               ; preds = %25, %79, %74, %44, %32
-  %85 = phi ptr [ %29, %32 ], [ %29, %44 ], [ %78, %74 ], [ %83, %79 ], [ %29, %25 ]
-  %86 = phi i8 [ %10, %32 ], [ %10, %44 ], [ %13, %74 ], [ %18, %79 ], [ %10, %25 ]
-  %87 = zext i8 %86 to i64
-  %88 = add nuw nsw i64 %87, 1
-  %89 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %88, i32 noundef 3264) #20
-  %90 = icmp eq ptr %89, null
-  br i1 %90, label %97, label %91
-
-91:                                               ; preds = %84
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %89, ptr align 1 %85, i64 %87, i1 false)
-  %92 = getelementptr i8, ptr %89, i64 %87
-  store i8 0, ptr %92, align 1
-  br label %93
-
-93:                                               ; preds = %91, %58, %24
-  %94 = phi ptr [ %89, %91 ], [ %56, %58 ], [ %22, %24 ]
-  store ptr %94, ptr %1, align 8
+82:                                               ; preds = %80, %58, %24
+  %83 = phi ptr [ %78, %80 ], [ %56, %58 ], [ %22, %24 ]
+  store ptr %83, ptr %1, align 8
   store i8 0, ptr %9, align 1
-  %95 = getelementptr inbounds i8, ptr %0, i64 60
-  store i8 0, ptr %95, align 4
-  %96 = getelementptr inbounds i8, ptr %0, i64 62
-  store i8 0, ptr %96, align 2
-  br label %97
+  %84 = getelementptr inbounds i8, ptr %0, i64 60
+  store i8 0, ptr %84, align 4
+  %85 = getelementptr inbounds i8, ptr %0, i64 62
+  store i8 0, ptr %85, align 2
+  br label %86
 
-97:                                               ; preds = %93, %84, %51, %20, %2
-  %98 = phi i32 [ 0, %93 ], [ -22, %2 ], [ -12, %20 ], [ -12, %51 ], [ -12, %84 ]
-  ret i32 %98
+86:                                               ; preds = %82, %74, %51, %20, %2
+  %87 = phi i32 [ 0, %82 ], [ -22, %2 ], [ -12, %20 ], [ -12, %51 ], [ -12, %74 ]
+  ret i32 %87
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

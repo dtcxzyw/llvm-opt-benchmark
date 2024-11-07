@@ -1202,7 +1202,6 @@ _ZN5boost8charconv6detail22from_chars_strtod_implIeEENS0_19from_chars_result_tIc
   br i1 %33, label %53, label %34
 
 34:                                               ; preds = %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %0, i64 %9, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 %9
   store i8 0, ptr %35, align 1, !tbaa !19
   %36 = tail call ptr @localeconv() #13
@@ -4855,7 +4854,6 @@ _ZN5boost8charconv6detail22from_chars_strtod_implIfEENS0_19from_chars_result_tIc
   br i1 %33, label %53, label %34
 
 34:                                               ; preds = %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %0, i64 %9, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 %9
   store i8 0, ptr %35, align 1, !tbaa !19
   %36 = tail call ptr @localeconv() #13
@@ -7003,7 +7001,6 @@ _ZN5boost8charconv6detail22from_chars_strtod_implIdEENS0_19from_chars_result_tIc
   br i1 %33, label %53, label %34
 
 34:                                               ; preds = %30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %0, i64 %9, i1 false)
   %35 = getelementptr inbounds i8, ptr %32, i64 %9
   store i8 0, ptr %35, align 1, !tbaa !19
   %36 = tail call ptr @localeconv() #13

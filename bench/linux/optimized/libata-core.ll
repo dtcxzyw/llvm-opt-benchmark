@@ -10298,42 +10298,30 @@ define internal fastcc void @ata_dev_config_cpr(ptr noundef %0) unnamed_addr #1 
   br i1 %49, label %.thread, label %50
 
 50:                                               ; preds = %44
-  store i8 %42, ptr %48, align 8
   %51 = getelementptr i8, ptr %36, i64 64
-  %52 = getelementptr inbounds i8, ptr %48, i64 8
-  br label %53
+  %invariant.gep = getelementptr i8, ptr %48, i64 24
+  br label %52
 
-53:                                               ; preds = %53, %50
-  %54 = phi i64 [ 0, %50 ], [ %67, %53 ]
-  %55 = phi ptr [ %51, %50 ], [ %68, %53 ]
-  %56 = load i8, ptr %55, align 1
-  %57 = getelementptr [0 x %struct.ata_cpr], ptr %52, i64 0, i64 %54
-  store i8 %56, ptr %57, align 8
-  %58 = getelementptr i8, ptr %55, i64 1
-  %59 = load i8, ptr %58, align 1
-  %60 = getelementptr inbounds i8, ptr %57, i64 1
-  store i8 %59, ptr %60, align 1
-  %61 = getelementptr i8, ptr %55, i64 8
-  %62 = load i64, ptr %61, align 1
-  %63 = getelementptr inbounds i8, ptr %57, i64 8
-  store i64 %62, ptr %63, align 8
-  %64 = getelementptr i8, ptr %55, i64 16
-  %65 = load i64, ptr %64, align 1
-  %66 = getelementptr inbounds i8, ptr %57, i64 16
-  store i64 %65, ptr %66, align 8
-  %67 = add nuw nsw i64 %54, 1
-  %68 = getelementptr i8, ptr %55, i64 32
-  %69 = icmp eq i64 %67, %45
-  br i1 %69, label %.thread, label %53, !llvm.loop !83
+52:                                               ; preds = %52, %50
+  %53 = phi i64 [ 0, %50 ], [ %57, %52 ]
+  %54 = phi ptr [ %51, %50 ], [ %58, %52 ]
+  %55 = getelementptr i8, ptr %54, i64 16
+  %56 = load i64, ptr %55, align 1
+  %gep = getelementptr [0 x %struct.ata_cpr], ptr %invariant.gep, i64 0, i64 %53
+  store i64 %56, ptr %gep, align 8
+  %57 = add nuw nsw i64 %53, 1
+  %58 = getelementptr i8, ptr %54, i64 32
+  %59 = icmp eq i64 %57, %45
+  br i1 %59, label %.thread, label %52, !llvm.loop !83
 
-.thread:                                          ; preds = %12, %53, %22, %17, %44, %41, %38, %33, %28, %15, %1
-  %70 = phi ptr [ null, %15 ], [ null, %28 ], [ null, %38 ], [ null, %44 ], [ null, %41 ], [ null, %33 ], [ null, %1 ], [ null, %17 ], [ null, %22 ], [ %48, %53 ], [ null, %12 ]
-  %71 = phi ptr [ null, %15 ], [ null, %28 ], [ %36, %38 ], [ %36, %44 ], [ %36, %41 ], [ null, %33 ], [ null, %1 ], [ null, %17 ], [ null, %22 ], [ %36, %53 ], [ null, %12 ]
-  %72 = getelementptr inbounds i8, ptr %0, i64 1520
-  %73 = load ptr, ptr %72, align 16
-  store ptr %70, ptr %72, align 16
-  tail call void @kfree(ptr noundef %73) #31
-  tail call void @kfree(ptr noundef %71) #31
+.thread:                                          ; preds = %12, %52, %22, %17, %44, %41, %38, %33, %28, %15, %1
+  %60 = phi ptr [ null, %15 ], [ null, %28 ], [ null, %38 ], [ null, %44 ], [ null, %41 ], [ null, %33 ], [ null, %1 ], [ null, %17 ], [ null, %22 ], [ %48, %52 ], [ null, %12 ]
+  %61 = phi ptr [ null, %15 ], [ null, %28 ], [ %36, %38 ], [ %36, %44 ], [ %36, %41 ], [ null, %33 ], [ null, %1 ], [ null, %17 ], [ null, %22 ], [ %36, %52 ], [ null, %12 ]
+  %62 = getelementptr inbounds i8, ptr %0, i64 1520
+  %63 = load ptr, ptr %62, align 16
+  store ptr %60, ptr %62, align 16
+  tail call void @kfree(ptr noundef %63) #31
+  tail call void @kfree(ptr noundef %61) #31
   ret void
 }
 

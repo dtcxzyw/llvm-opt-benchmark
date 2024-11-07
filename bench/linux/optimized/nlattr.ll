@@ -1632,13 +1632,13 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 define dso_local noalias ptr @nla_strdup(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = load i16, ptr %0, align 2
   %4 = add i16 %3, -4
-  %5 = getelementptr i8, ptr %0, i64 4
-  %6 = icmp eq i16 %4, 0
-  br i1 %6, label %15, label %7
+  %5 = icmp eq i16 %4, 0
+  br i1 %5, label %15, label %6
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
+  %7 = getelementptr i8, ptr %0, i64 4
   %8 = zext i16 %4 to i64
-  %9 = getelementptr i8, ptr %5, i64 %8
+  %9 = getelementptr i8, ptr %7, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -1
   %11 = load i8, ptr %10, align 1
   %12 = icmp eq i8 %11, 0
@@ -1646,15 +1646,14 @@ define dso_local noalias ptr @nla_strdup(ptr nocapture noundef readonly %0, i32 
   %14 = add nsw i64 %13, %8
   br label %15
 
-15:                                               ; preds = %7, %2
-  %16 = phi i64 [ 0, %2 ], [ %14, %7 ]
+15:                                               ; preds = %6, %2
+  %16 = phi i64 [ 0, %2 ], [ %14, %6 ]
   %17 = add nuw nsw i64 %16, 1
   %18 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %17, i32 noundef %1) #17
   %19 = icmp eq ptr %18, null
   br i1 %19, label %22, label %20
 
 20:                                               ; preds = %15
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %18, ptr align 1 %5, i64 %16, i1 false)
   %21 = getelementptr i8, ptr %18, i64 %16
   store i8 0, ptr %21, align 1
   br label %22

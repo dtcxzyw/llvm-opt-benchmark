@@ -14298,7 +14298,6 @@ common.resume:                                    ; preds = %20, %32, %44
   br label %common.resume
 
 _ZN4JsonL20duplicateStringValueEPKcm.exit:        ; preds = %33
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr nonnull readonly align 1 %1, i64 %spec.store.select.i, i1 false)
   %45 = getelementptr inbounds i8, ptr %35, i64 %spec.store.select.i
   store i8 0, ptr %45, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
@@ -14336,14 +14335,12 @@ define dso_local void @_ZN4Json5Value8CZStringC2ERKS1_(ptr nocapture noundef non
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 3
   %.not = icmp eq i32 %7, 0
-  %.pre = load ptr, ptr %1, align 8
-  br i1 %.not, label %24, label %8
+  %8 = load ptr, ptr %1, align 8
+  %.not10 = icmp eq ptr %8, null
+  %or.cond = select i1 %.not, i1 true, i1 %.not10
+  br i1 %or.cond, label %24, label %9
 
-8:                                                ; preds = %2
-  %.not10 = icmp eq ptr %.pre, null
-  br i1 %.not10, label %24, label %9
-
-9:                                                ; preds = %8
+9:                                                ; preds = %2
   %10 = lshr i32 %6, 2
   %11 = zext nneg i32 %10 to i64
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -14382,15 +14379,14 @@ define dso_local void @_ZN4Json5Value8CZStringC2ERKS1_(ptr nocapture noundef non
   resume { ptr, i32 } %.pn.i
 
 _ZN4JsonL20duplicateStringValueEPKcm.exit:        ; preds = %9
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %13, ptr nonnull readonly align 1 %.pre, i64 %11, i1 false)
   %23 = getelementptr inbounds i8, ptr %13, i64 %11
   store i8 0, ptr %23, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %24
 
-24:                                               ; preds = %2, %8, %_ZN4JsonL20duplicateStringValueEPKcm.exit
-  %25 = phi ptr [ %13, %_ZN4JsonL20duplicateStringValueEPKcm.exit ], [ null, %8 ], [ %.pre, %2 ]
+24:                                               ; preds = %2, %_ZN4JsonL20duplicateStringValueEPKcm.exit
+  %25 = phi ptr [ %13, %_ZN4JsonL20duplicateStringValueEPKcm.exit ], [ %8, %2 ]
   store ptr %25, ptr %0, align 8
   %26 = load ptr, ptr %1, align 8
   %.not11 = icmp eq ptr %26, null

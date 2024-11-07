@@ -12084,7 +12084,6 @@ new.ctorloop3:                                    ; preds = %arrayctor.cont
 arrayctor.loop5:                                  ; preds = %invoke.cont8, %new.ctorloop3
   %arrayctor.cur6.idx = phi i64 [ 8, %new.ctorloop3 ], [ %arrayctor.cur6.add, %invoke.cont8 ]
   %arrayctor.cur6.ptr.ptr = getelementptr inbounds i8, ptr %call1, i64 %arrayctor.cur6.idx
-  store ptr @.str, ptr %arrayctor.cur6.ptr.ptr, align 8
   %size_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur6.ptr.ptr, i64 8
   store i64 0, ptr %size_.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %arrayctor.cur6.ptr.ptr, i64 16
@@ -12094,8 +12093,6 @@ arrayctor.loop5:                                  ; preds = %invoke.cont8, %new.
 invoke.cont8:                                     ; preds = %arrayctor.loop5
   %self_space_.i = getelementptr inbounds i8, ptr %arrayctor.cur6.ptr.ptr, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #36
-  %pinned_.i = getelementptr inbounds i8, ptr %arrayctor.cur6.ptr.ptr, i64 88
-  store i8 0, ptr %pinned_.i, align 8
   %buf_.i = getelementptr inbounds i8, ptr %arrayctor.cur6.ptr.ptr, i64 80
   store ptr %self_space_.i, ptr %buf_.i, align 8
   %arrayctor.cur6.add = add nuw nsw i64 %arrayctor.cur6.idx, 96

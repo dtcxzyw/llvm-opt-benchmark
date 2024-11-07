@@ -22672,7 +22672,6 @@ ehcleanup50:                                      ; preds = %_ZN6duckdb30ColumnD
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6duckdb9WriteDataINS_8string_tEPKcNS_16CStringConverterEEEvP13duckdb_columnRNS_20ColumnDataCollectionERKNS_6vectorImLb1EEE(ptr noundef %column, ptr noundef nonnull align 8 dereferenceable(97) %source, ptr noundef nonnull align 8 dereferenceable(24) %column_ids) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %input.i = alloca %"struct.duckdb::string_t", align 8
   %agg.tmp.i = alloca %"class.duckdb::vector.96", align 8
   %ref.tmp = alloca %"class.duckdb::ColumnDataChunkIterationHelper", align 8
   %agg.tmp = alloca %"class.duckdb::vector.96", align 8
@@ -22768,8 +22767,6 @@ if.then.i.i.i4.i:                                 ; preds = %lpad.i
 
 _ZN6duckdb30ColumnDataChunkIterationHelper3endEv.exit: ; preds = %if.then.i.i.i.i, %invoke.cont.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp.i)
-  %7 = getelementptr inbounds i8, ptr %input.i, i64 8
-  %inlined.i.i = getelementptr inbounds i8, ptr %input.i, i64 4
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.cleanup23, %_ZN6duckdb30ColumnDataChunkIterationHelper3endEv.exit
@@ -22786,12 +22783,12 @@ for.cond.cleanup:                                 ; preds = %invoke.cont6
   call void @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %__begin2) #34
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %__begin2) #34
   %column_ids.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %8 = load ptr, ptr %column_ids.i, align 8, !tbaa !105
-  %tobool.not.i.i.i.i67 = icmp eq ptr %8, null
+  %7 = load ptr, ptr %column_ids.i, align 8, !tbaa !105
+  %tobool.not.i.i.i.i67 = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i67, label %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit, label %if.then.i.i.i.i68
 
 if.then.i.i.i.i68:                                ; preds = %for.cond.cleanup
-  call void @_ZdlPv(ptr noundef nonnull %8) #37
+  call void @_ZdlPv(ptr noundef nonnull %7) #37
   br label %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit
 
 _ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit: ; preds = %if.then.i.i.i.i68, %for.cond.cleanup
@@ -22799,23 +22796,23 @@ _ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit: ; preds = %if.then.i.i.i.i6
   ret void
 
 lpad:                                             ; preds = %_ZN6duckdb6vectorImLb1EEC2ERKS1_.exit
-  %9 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
-  %10 = load ptr, ptr %agg.tmp, align 8, !tbaa !105
-  %tobool.not.i.i.i70 = icmp eq ptr %10, null
+  %9 = load ptr, ptr %agg.tmp, align 8, !tbaa !105
+  %tobool.not.i.i.i70 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i70, label %ehcleanup46, label %if.then.i.i.i71
 
 if.then.i.i.i71:                                  ; preds = %lpad
-  call void @_ZdlPv(ptr noundef nonnull %10) #37
+  call void @_ZdlPv(ptr noundef nonnull %9) #37
   br label %ehcleanup46
 
 lpad1:                                            ; preds = %_ZNSt6vectorImSaImEED2Ev.exit
-  %11 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup43
 
 lpad5:                                            ; preds = %for.cond.cleanup23, %for.cond
-  %12 = landingpad { ptr, i32 }
+  %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
@@ -22829,15 +22826,15 @@ invoke.cont8:                                     ; preds = %for.body
 
 invoke.cont14:                                    ; preds = %invoke.cont8
   %data.i.i.i = getelementptr inbounds i8, ptr %call13, i64 32
-  %13 = load ptr, ptr %data.i.i.i, align 8, !tbaa !159
+  %12 = load ptr, ptr %data.i.i.i, align 8, !tbaa !159
   %call19 = invoke noundef nonnull align 8 dereferenceable(104) ptr @_ZN6duckdb6vectorINS_6VectorELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %call9, i64 noundef 0)
           to label %invoke.cont18 unwind label %lpad17
 
 invoke.cont18:                                    ; preds = %invoke.cont14
   %validity.i = getelementptr inbounds i8, ptr %call19, i64 40
   %count.i = getelementptr inbounds i8, ptr %call9, i64 24
-  %14 = load i64, ptr %count.i, align 8, !tbaa !78
-  %cmp84.not = icmp eq i64 %14, 0
+  %13 = load i64, ptr %count.i, align 8, !tbaa !78
+  %cmp84.not = icmp eq i64 %13, 0
   br i1 %cmp84.not, label %for.cond.cleanup23, label %for.body24
 
 for.cond.cleanup23:                               ; preds = %for.inc, %invoke.cont18
@@ -22846,75 +22843,58 @@ for.cond.cleanup23:                               ; preds = %for.inc, %invoke.co
           to label %for.cond unwind label %lpad5
 
 lpad7:                                            ; preds = %for.body
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad11:                                           ; preds = %invoke.cont8
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 lpad17:                                           ; preds = %invoke.cont14
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup40
 
 for.body24:                                       ; preds = %invoke.cont18, %for.inc
-  %18 = phi i64 [ %22, %for.inc ], [ %14, %invoke.cont18 ]
   %row.186 = phi i64 [ %inc34, %for.inc ], [ %row.0, %invoke.cont18 ]
   %k.085 = phi i64 [ %inc, %for.inc ], [ 0, %invoke.cont18 ]
-  %19 = load ptr, ptr %validity.i, align 8, !tbaa !172
-  %tobool.not.i = icmp eq ptr %19, null
+  %17 = load ptr, ptr %validity.i, align 8, !tbaa !172
+  %tobool.not.i = icmp eq ptr %17, null
   br i1 %tobool.not.i, label %invoke.cont31, label %invoke.cont26
 
 invoke.cont26:                                    ; preds = %for.body24
   %div2.i.i.i = lshr i64 %k.085, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds i64, ptr %19, i64 %div2.i.i.i
-  %20 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !11
+  %arrayidx.i.i.i.i = getelementptr inbounds i64, ptr %17, i64 %div2.i.i.i
+  %18 = load i64, ptr %arrayidx.i.i.i.i, align 8, !tbaa !11
   %rem.i.i.i = and i64 %k.085, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i
-  %and.i.i.i = and i64 %20, %shl.i.i.i
+  %and.i.i.i = and i64 %18, %shl.i.i.i
   %tobool.i.i.i.not = icmp eq i64 %and.i.i.i, 0
-  br i1 %tobool.i.i.i.not, label %if.then, label %invoke.cont31
-
-if.then:                                          ; preds = %invoke.cont26
-  %arrayidx = getelementptr inbounds ptr, ptr %0, i64 %row.186
-  store ptr null, ptr %arrayidx, align 8, !tbaa !3
-  br label %for.inc
+  br i1 %tobool.i.i.i.not, label %for.inc, label %invoke.cont31
 
 invoke.cont31:                                    ; preds = %invoke.cont26, %for.body24
-  %arrayidx30 = getelementptr inbounds %"struct.duckdb::string_t", ptr %13, i64 %k.085
+  %arrayidx30 = getelementptr inbounds %"struct.duckdb::string_t", ptr %12, i64 %k.085
   %agg.tmp29.sroa.0.0.copyload = load i64, ptr %arrayidx30, align 8, !tbaa.struct !174
-  %agg.tmp29.sroa.2.0.arrayidx30.sroa_idx = getelementptr inbounds i8, ptr %arrayidx30, i64 8
-  %agg.tmp29.sroa.2.0.copyload = load ptr, ptr %agg.tmp29.sroa.2.0.arrayidx30.sroa_idx, align 8, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %input.i)
-  store i64 %agg.tmp29.sroa.0.0.copyload, ptr %input.i, align 8
-  store ptr %agg.tmp29.sroa.2.0.copyload, ptr %7, align 8
-  %21 = trunc i64 %agg.tmp29.sroa.0.0.copyload to i32
   %conv.i.i = and i64 %agg.tmp29.sroa.0.0.copyload, 4294967295
   %add.i = add nuw nsw i64 %conv.i.i, 1
   %call.i.i = call noalias noundef ptr @malloc(i64 noundef %add.i) #39
-  %cmp.i.i.i = icmp ult i32 %21, 13
-  %cond.i.i = select i1 %cmp.i.i.i, ptr %inlined.i.i, ptr %agg.tmp29.sroa.2.0.copyload
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr align 1 %cond.i.i, i64 %conv.i.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call.i.i, i64 %conv.i.i
   store i8 0, ptr %arrayidx.i, align 1, !tbaa !15
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %input.i)
-  %arrayidx33 = getelementptr inbounds ptr, ptr %0, i64 %row.186
-  store ptr %call.i.i, ptr %arrayidx33, align 8, !tbaa !3
-  %.pre = load i64, ptr %count.i, align 8, !tbaa !78
   br label %for.inc
 
-for.inc:                                          ; preds = %invoke.cont31, %if.then
-  %22 = phi i64 [ %18, %if.then ], [ %.pre, %invoke.cont31 ]
+for.inc:                                          ; preds = %invoke.cont26, %invoke.cont31
+  %call.i.i.sink = phi ptr [ %call.i.i, %invoke.cont31 ], [ null, %invoke.cont26 ]
+  %arrayidx33 = getelementptr inbounds ptr, ptr %0, i64 %row.186
+  store ptr %call.i.i.sink, ptr %arrayidx33, align 8, !tbaa !3
   %inc = add nuw i64 %k.085, 1
   %inc34 = add i64 %row.186, 1
-  %cmp = icmp ult i64 %inc, %22
+  %cmp = icmp ult i64 %inc, %13
   br i1 %cmp, label %for.body24, label %for.cond.cleanup23, !llvm.loop !452
 
 ehcleanup40:                                      ; preds = %lpad17, %lpad11, %lpad7, %lpad5
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %12, %lpad5 ], [ %15, %lpad7 ], [ %16, %lpad11 ], [ %17, %lpad17 ]
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %11, %lpad5 ], [ %14, %lpad7 ], [ %15, %lpad11 ], [ %16, %lpad17 ]
   call void @_ZN6duckdb30ColumnDataChunkIterationHelper23ColumnDataChunkIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %__end2) #34
   br label %ehcleanup41
 
@@ -22925,15 +22905,15 @@ ehcleanup41:                                      ; preds = %ehcleanup40, %if.th
   br label %ehcleanup43
 
 ehcleanup43:                                      ; preds = %ehcleanup41, %lpad1
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup41 ], [ %11, %lpad1 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup41 ], [ %10, %lpad1 ]
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %__begin2) #34
   %column_ids.i73 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %23 = load ptr, ptr %column_ids.i73, align 8, !tbaa !105
-  %tobool.not.i.i.i.i74 = icmp eq ptr %23, null
+  %19 = load ptr, ptr %column_ids.i73, align 8, !tbaa !105
+  %tobool.not.i.i.i.i74 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i.i74, label %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76, label %if.then.i.i.i.i75
 
 if.then.i.i.i.i75:                                ; preds = %ehcleanup43
-  call void @_ZdlPv(ptr noundef nonnull %23) #37
+  call void @_ZdlPv(ptr noundef nonnull %19) #37
   br label %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76
 
 _ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76: ; preds = %if.then.i.i.i.i75, %ehcleanup43
@@ -22941,7 +22921,7 @@ _ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76: ; preds = %if.then.i.i.i.
   br label %ehcleanup46
 
 ehcleanup46:                                      ; preds = %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76, %if.then.i.i.i71, %lpad
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76 ], [ %9, %lpad ], [ %9, %if.then.i.i.i71 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %_ZN6duckdb30ColumnDataChunkIterationHelperD2Ev.exit76 ], [ %8, %lpad ], [ %8, %if.then.i.i.i71 ]
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn
 }
 
@@ -59731,7 +59711,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -59739,49 +59718,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIbEENS_8string_tET_RNS_6VectorE(i1 noundef zeroext %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -59795,7 +59762,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -59803,49 +59769,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIaEENS_8string_tET_RNS_6VectorE(i8 noundef signext %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -59857,7 +59811,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -59865,49 +59818,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIsEENS_8string_tET_RNS_6VectorE(i16 noundef signext %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -59919,7 +59860,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -59927,49 +59867,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIiEENS_8string_tET_RNS_6VectorE(i32 noundef %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -59981,7 +59909,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -59989,49 +59916,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIlEENS_8string_tET_RNS_6VectorE(i64 noundef %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60043,7 +59958,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60051,49 +59965,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIhEENS_8string_tET_RNS_6VectorE(i8 noundef zeroext %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60105,7 +60007,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60113,49 +60014,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationItEENS_8string_tET_RNS_6VectorE(i16 noundef zeroext %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60167,7 +60056,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60175,49 +60063,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIjEENS_8string_tET_RNS_6VectorE(i32 noundef %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60229,7 +60105,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60237,49 +60112,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationImEENS_8string_tET_RNS_6VectorE(i64 noundef %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60291,7 +60154,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60299,49 +60161,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIfEENS_8string_tET_RNS_6VectorE(float noundef %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60353,7 +60203,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60361,49 +60210,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationIdEENS_8string_tET_RNS_6VectorE(double noundef %input, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont6 unwind label %lpad1
 
 invoke.cont6:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup11
 
 lpad1:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup11
 
 ehcleanup11:                                      ; preds = %lpad1, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad1 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad1 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60415,7 +60252,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60423,49 +60259,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_6date_tEEENS_8string_tET_RNS_6VectorE(i32 %input.coerce, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup14
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad3, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad3 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60477,7 +60301,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60485,49 +60308,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_7dtime_tEEENS_8string_tET_RNS_6VectorE(i64 %input.coerce, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup14
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad3, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad3 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60539,7 +60350,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60547,49 +60357,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_11timestamp_tEEENS_8string_tET_RNS_6VectorE(i64 %input.coerce, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont9 unwind label %lpad3
 
 invoke.cont9:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup14
 
 lpad3:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup14
 
 ehcleanup14:                                      ; preds = %lpad3, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad3 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad3 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60601,7 +60399,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60609,49 +60406,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_9hugeint_tEEENS_8string_tET_RNS_6VectorE(i64 %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup12
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad2, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad2 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60665,7 +60450,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60673,49 +60457,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_10interval_tEEENS_8string_tET_RNS_6VectorE(i64 %input.coerce0, i64 %input.coerce1, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup12
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad2, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad2 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }
@@ -60727,7 +60499,6 @@ define linkonce_odr noundef zeroext i1 @_ZN6duckdb20ToCStringCastWrapperINS_10St
 entry:
   %result_vector = alloca %"class.duckdb::Vector", align 8
   %agg.tmp = alloca %"struct.duckdb::LogicalType", align 8
-  %result_string = alloca %"struct.duckdb::string_t", align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %result_vector) #34
   call void @_ZN6duckdb11LogicalTypeC1ENS_13LogicalTypeIdE(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 noundef zeroext 25)
   invoke void @_ZN6duckdb6VectorC1ENS_11LogicalTypeEPh(ptr noundef nonnull align 8 dereferenceable(104) %result_vector, ptr noundef nonnull %agg.tmp, ptr noundef null)
@@ -60735,49 +60506,37 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %result_string) #34
   %call = invoke { i64, ptr } @_ZN6duckdb10StringCast9OperationINS_8string_tEEES2_T_RNS_6VectorE(i64 %input.coerce0, ptr %input.coerce1, ptr noundef nonnull align 8 dereferenceable(104) %result_vector)
           to label %invoke.cont7 unwind label %lpad2
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %0 = extractvalue { i64, ptr } %call, 0
-  store i64 %0, ptr %result_string, align 8
-  %1 = getelementptr inbounds i8, ptr %result_string, i64 8
-  %2 = extractvalue { i64, ptr } %call, 1
-  store ptr %2, ptr %1, align 8
-  %3 = trunc i64 %0 to i32
   %conv.i = and i64 %0, 4294967295
-  %cmp.i.i = icmp ult i32 %3, 13
-  %inlined.i = getelementptr inbounds i8, ptr %result_string, i64 4
-  %cond.i = select i1 %cmp.i.i, ptr %inlined.i, ptr %2
   %add = add nuw nsw i64 %conv.i, 1
   %call.i = call noalias noundef ptr @malloc(i64 noundef %add) #39
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr align 1 %cond.i, i64 %conv.i, i1 false)
   %arrayidx = getelementptr inbounds i8, ptr %call.i, i64 %conv.i
   store i8 0, ptr %arrayidx, align 1, !tbaa !15
   store ptr %call.i, ptr %result, align 8, !tbaa !777
   %size = getelementptr inbounds i8, ptr %result, i64 8
   store i64 %conv.i, ptr %size, align 8, !tbaa !779
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   ret i1 true
 
 lpad:                                             ; preds = %entry
-  %4 = landingpad { ptr, i32 }
+  %1 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #34
   br label %ehcleanup12
 
 lpad2:                                            ; preds = %invoke.cont
-  %5 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %result_string) #34
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %result_vector) #34
   br label %ehcleanup12
 
 ehcleanup12:                                      ; preds = %lpad2, %lpad
-  %.pn.pn = phi { ptr, i32 } [ %5, %lpad2 ], [ %4, %lpad ]
+  %.pn.pn = phi { ptr, i32 } [ %2, %lpad2 ], [ %1, %lpad ]
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %result_vector) #34
   resume { ptr, i32 } %.pn.pn
 }

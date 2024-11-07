@@ -39,7 +39,7 @@ entry:
 
 if.end3:                                          ; preds = %entry
   store ptr null, ptr %error_message, align 8
-  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 6) #11
+  %call = tail call ptr @FLAC__metadata_object_new(i32 noundef 6) #10
   %cmp4 = icmp eq ptr %call, null
   br i1 %cmp4, label %if.then5, label %if.end6
 
@@ -48,7 +48,7 @@ if.then5:                                         ; preds = %if.end3
   br label %return
 
 if.end6:                                          ; preds = %if.end3
-  %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec, i32 noundef 124) #12
+  %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec, i32 noundef 124) #11
   %tobool.not = icmp eq ptr %call7, null
   br i1 %tobool.not, label %if.end77, label %for.cond.preheader
 
@@ -128,15 +128,14 @@ if.then24:                                        ; preds = %sw.bb19
 
 safe_malloc_add_2op_.exit.i:                      ; preds = %if.then24
   %add.i.i = add nuw i64 %sub.ptr.sub22, 1
-  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #13
+  %call.i.i.i = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i) #12
   %tobool.not.i = icmp eq ptr %call.i.i.i, null
   br i1 %tobool.not.i, label %if.then151.sink.split, label %if.else
 
 if.else:                                          ; preds = %safe_malloc_add_2op_.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i, ptr nonnull readonly align 1 %p.0150.ph, i64 %sub.ptr.sub22, i1 false)
   %arrayidx.i69 = getelementptr inbounds i8, ptr %call.i.i.i, i64 %sub.ptr.sub22
   store i8 0, ptr %arrayidx.i69, align 1
-  %call32 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i, i32 noundef 0) #11
+  %call32 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i, i32 noundef 0) #10
   %tobool33.not = icmp eq i32 %call32, 0
   br i1 %tobool33.not, label %if.then151.sink.split, label %sw.epilog
 
@@ -149,15 +148,14 @@ sw.bb38:                                          ; preds = %if.then14
 
 safe_malloc_add_2op_.exit.i71:                    ; preds = %sw.bb38
   %add.i.i72 = add nuw i64 %sub.ptr.sub41, 1
-  %call.i.i.i73 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i72) #13
+  %call.i.i.i73 = tail call noalias noundef ptr @malloc(i64 noundef %add.i.i72) #12
   %tobool.not.i74 = icmp eq ptr %call.i.i.i73, null
   br i1 %tobool.not.i74, label %if.then151.sink.split, label %if.else46
 
 if.else46:                                        ; preds = %safe_malloc_add_2op_.exit.i71
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call.i.i.i73, ptr nonnull readonly align 1 %p.0150.ph, i64 %sub.ptr.sub41, i1 false)
   %arrayidx.i76 = getelementptr inbounds i8, ptr %call.i.i.i73, i64 %sub.ptr.sub41
   store i8 0, ptr %arrayidx.i76, align 1
-  %call47 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i73, i32 noundef 0) #11
+  %call47 = tail call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call, ptr noundef nonnull %call.i.i.i73, i32 noundef 0) #10
   %tobool48.not = icmp eq i32 %call47, 0
   br i1 %tobool48.not, label %if.then151.sink.split, label %sw.epilog
 
@@ -286,18 +284,18 @@ if.else84:                                        ; preds = %if.end77, %if.then8
   %spec.addr.2116125 = phi ptr [ %p.0150.ph, %if.then80 ], [ %spec, %if.end77 ]
   %mime_type = getelementptr inbounds i8, ptr %call, i64 24
   %7 = load ptr, ptr %mime_type, align 8
-  %call86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.1) #12
+  %call86 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(4) @.str.1) #11
   %cmp87 = icmp eq i32 %call86, 0
   br i1 %cmp87, label %if.then89, label %if.else115
 
 if.then89:                                        ; preds = %if.else84
-  %call90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.addr.2116125) #12
+  %call90 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.addr.2116125) #11
   %cmp91 = icmp eq i64 %call90, 0
   br i1 %cmp91, label %if.then151.sink.split, label %if.else94
 
 if.else94:                                        ; preds = %if.then89
   %conv96 = trunc i64 %call90 to i32
-  %call97 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call, ptr noundef %spec.addr.2116125, i32 noundef %conv96, i32 noundef 1) #11
+  %call97 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call, ptr noundef %spec.addr.2116125, i32 noundef %conv96, i32 noundef 1) #10
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.then151.sink.split, label %if.else100
 
@@ -341,12 +339,12 @@ if.then122:                                       ; preds = %if.end119
 
 land.lhs.true:                                    ; preds = %if.then122
   %12 = load ptr, ptr %mime_type, align 8
-  %call128 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.2) #12
+  %call128 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(10) @.str.2) #11
   %tobool129.not = icmp eq i32 %call128, 0
   br i1 %tobool129.not, label %lor.lhs.false135, label %land.lhs.true130
 
 land.lhs.true130:                                 ; preds = %land.lhs.true
-  %call133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(4) @.str.1) #12
+  %call133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(4) @.str.1) #11
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %lor.lhs.false135, label %if.then151.sink.split
 
@@ -368,7 +366,7 @@ if.then151.sink.split:                            ; preds = %if.then14, %local__
   br label %if.then151
 
 if.then151:                                       ; preds = %sw.epilog, %if.then151.sink.split, %if.end119, %for.cond.preheader, %if.end77
-  tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %call) #11
+  tail call void @FLAC__metadata_object_delete(ptr noundef nonnull %call) #10
   br label %return
 
 return:                                           ; preds = %lor.lhs.false140, %if.then122, %if.then151, %entry, %if.then5
@@ -396,7 +394,7 @@ declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i3
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @read_file(ptr noundef %filepath, ptr noundef nonnull %obj) unnamed_addr #0 {
 entry:
-  %call = tail call i64 @grabbag__file_get_filesize(ptr noundef %filepath) #11
+  %call = tail call i64 @grabbag__file_get_filesize(ptr noundef %filepath) #10
   %cmp = icmp slt i64 %call, 0
   br i1 %cmp, label %return, label %if.end
 
@@ -412,7 +410,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp4.not, label %if.end7, label %return
 
 if.end7:                                          ; preds = %if.end3
-  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %call) #13
+  %call.i = tail call noalias noundef ptr @malloc(i64 noundef %call) #12
   %cmp9 = icmp eq ptr %call.i, null
   br i1 %cmp9, label %return, label %if.end12
 
@@ -422,7 +420,7 @@ if.end12:                                         ; preds = %if.end7
   br i1 %cmp14, label %if.then16, label %if.end17
 
 if.then16:                                        ; preds = %if.end12
-  tail call void @free(ptr noundef nonnull %call.i) #11
+  tail call void @free(ptr noundef nonnull %call.i) #10
   br label %return
 
 if.end17:                                         ; preds = %if.end12
@@ -432,12 +430,12 @@ if.end17:                                         ; preds = %if.end12
   br i1 %cmp19.not, label %if.end23, label %if.then21
 
 if.then21:                                        ; preds = %if.end17
-  tail call void @free(ptr noundef nonnull %call.i) #11
+  tail call void @free(ptr noundef nonnull %call.i) #10
   br label %return
 
 if.end23:                                         ; preds = %if.end17
   %conv25 = trunc nuw i64 %call to i32
-  %call26 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %obj, ptr noundef nonnull %call.i, i32 noundef %conv25, i32 noundef 0) #11
+  %call26 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %obj, ptr noundef nonnull %call.i, i32 noundef %conv25, i32 noundef 0) #10
   %tobool.not = icmp eq i32 %call26, 0
   br i1 %tobool.not, label %return, label %if.else
 
@@ -500,11 +498,11 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mime_type, ptr noundef nonnull readonly dereferenceable(1) %mime_type_in, i64 noundef 63) #11
+  %call.i = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %mime_type, ptr noundef nonnull readonly dereferenceable(1) %mime_type_in, i64 noundef 63) #10
   %arrayidx.i = getelementptr inbounds i8, ptr %mime_type, i64 63
   store i8 0, ptr %arrayidx.i, align 1
   store ptr null, ptr %error_message, align 8
-  %call1 = call ptr @FLAC__metadata_object_new(i32 noundef 6) #11
+  %call1 = call ptr @FLAC__metadata_object_new(i32 noundef 6) #10
   %cmp2 = icmp eq ptr %call1, null
   br i1 %cmp2, label %if.then3, label %if.end4
 
@@ -521,7 +519,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %tobool.not, label %if.end11, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %call8 = call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call1, ptr noundef nonnull %mime_type, i32 noundef 1) #11
+  %call8 = call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call1, ptr noundef nonnull %mime_type, i32 noundef 1) #10
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
 
@@ -534,7 +532,7 @@ if.end11:                                         ; preds = %land.lhs.true, %if.
   br i1 %tobool12.not, label %if.end17, label %land.lhs.true13
 
 land.lhs.true13:                                  ; preds = %if.end11
-  %call14 = call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call1, ptr noundef nonnull %description, i32 noundef 1) #11
+  %call14 = call i32 @FLAC__metadata_object_picture_set_description(ptr noundef nonnull %call1, ptr noundef nonnull %description, i32 noundef 1) #10
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %if.then16, label %if.end17
 
@@ -577,14 +575,14 @@ if.end36:                                         ; preds = %if.else, %if.then19
   store i32 %.sink, ptr %4, align 4
   %mime_type38 = getelementptr inbounds i8, ptr %call1, i64 24
   %5 = load ptr, ptr %mime_type38, align 8
-  %call39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @.str.1) #12
+  %call39 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(4) @.str.1) #11
   %cmp40 = icmp eq i32 %call39, 0
   br i1 %cmp40, label %if.then41, label %if.else63
 
 if.then41:                                        ; preds = %if.end36
-  %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filepath) #12
+  %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filepath) #11
   %conv = trunc i64 %call42 to i32
-  %call43 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call1, ptr noundef %filepath, i32 noundef %conv, i32 noundef 1) #11
+  %call43 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call1, ptr noundef %filepath, i32 noundef %conv, i32 noundef 1) #10
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.then99.sink.split, label %if.else46
 
@@ -627,12 +625,12 @@ if.then68:                                        ; preds = %if.end65
 
 land.lhs.true73:                                  ; preds = %if.then68
   %10 = load ptr, ptr %mime_type38, align 8
-  %call76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.2) #12
+  %call76 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(10) @.str.2) #11
   %tobool77.not = icmp eq i32 %call76, 0
   br i1 %tobool77.not, label %lor.lhs.false83, label %land.lhs.true78
 
 land.lhs.true78:                                  ; preds = %land.lhs.true73
-  %call81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(4) @.str.1) #12
+  %call81 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(4) @.str.1) #11
   %tobool82.not = icmp eq i32 %call81, 0
   br i1 %tobool82.not, label %lor.lhs.false83, label %if.then99.sink.split
 
@@ -654,7 +652,7 @@ if.then99.sink.split:                             ; preds = %lor.lhs.false88, %l
   br label %if.then99
 
 if.then99:                                        ; preds = %if.then99.sink.split, %if.end65
-  call void @FLAC__metadata_object_delete(ptr noundef nonnull %call1) #11
+  call void @FLAC__metadata_object_delete(ptr noundef nonnull %call1) #10
   br label %return
 
 return:                                           ; preds = %lor.lhs.false88, %if.then68, %if.then99, %entry, %if.then16, %if.then10, %if.then3
@@ -662,25 +660,22 @@ return:                                           ; preds = %lor.lhs.false88, %i
   ret ptr %retval.0
 }
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
-
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 declare i64 @grabbag__file_get_filesize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %obj) unnamed_addr #0 {
@@ -734,7 +729,7 @@ land.lhs.true23:                                  ; preds = %if.else19.land.lhs.
 
 return.sink.split:                                ; preds = %land.lhs.true23, %land.lhs.true8, %lor.lhs.false, %land.lhs.true
   %.str.22.sink = phi ptr [ @.str.2, %land.lhs.true ], [ @.str.20, %lor.lhs.false ], [ @.str.20, %land.lhs.true8 ], [ @.str.22, %land.lhs.true23 ]
-  %call29 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %obj, ptr noundef nonnull %.str.22.sink, i32 noundef 1) #11
+  %call29 = tail call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %obj, ptr noundef nonnull %.str.22.sink, i32 noundef 1) #10
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else19, %land.lhs.true23
@@ -743,7 +738,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr nocapture noundef nonnull %picture) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr nocapture noundef nonnull %picture) unnamed_addr #6 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %picture, i64 48
   %0 = load ptr, ptr %data1, align 8
@@ -751,7 +746,7 @@ entry:
   %1 = load i32, ptr %data_length, align 8
   %mime_type = getelementptr inbounds i8, ptr %picture, i64 8
   %2 = load ptr, ptr %mime_type, align 8
-  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.2) #12
+  %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.2) #11
   %cmp = icmp eq i32 %call, 0
   br i1 %cmp, label %if.then, label %if.else117
 
@@ -918,7 +913,7 @@ if.end116:                                        ; preds = %if.else99, %land.lh
   br i1 %cmp5, label %while.body, label %return, !llvm.loop !9
 
 if.else117:                                       ; preds = %entry
-  %call119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(11) @.str.22) #12
+  %call119 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(11) @.str.22) #11
   %cmp120 = icmp eq i32 %call119, 0
   br i1 %cmp120, label %if.then122, label %if.else243
 
@@ -976,7 +971,7 @@ if.end161:                                        ; preds = %for.body148thread-p
 
 if.else170:                                       ; preds = %if.end161
   %conv162 = zext i8 %.pr to i32
-  %call172 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %conv162, i64 noundef 13) #12
+  %call172 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %conv162, i64 noundef 13) #11
   %tobool173.not = icmp eq ptr %call172, null
   %cmp219 = icmp ult i32 %dec156, 3
   br i1 %tobool173.not, label %if.else216, label %if.then174
@@ -1055,7 +1050,7 @@ if.else222:                                       ; preds = %if.else216
   br i1 %or.cond153, label %return, label %for.body.backedge
 
 if.else243:                                       ; preds = %if.else117
-  %call245 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.20) #12
+  %call245 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(10) @.str.20) #11
   %cmp246 = icmp ne i32 %call245, 0
   %cmp249 = icmp ult i32 %1, 14
   %or.cond117 = select i1 %cmp246, i1 true, i1 %cmp249
@@ -1107,28 +1102,27 @@ return:                                           ; preds = %if.end161, %if.else
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
-attributes #13 = { nounwind allocsize(0) }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
+attributes #12 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -518,31 +518,31 @@ default.unreachable228:                           ; preds = %120
   %268 = zext i8 %267 to i64
   %269 = shl nuw nsw i64 %268, 8
   %270 = or disjoint i64 %269, %265
-  %271 = getelementptr inbounds i8, ptr %235, i64 2
-  %272 = icmp eq i64 %270, 0
-  br i1 %272, label %273, label %277
+  %271 = icmp eq i64 %270, 0
+  br i1 %271, label %272, label %276
 
-273:                                              ; preds = %263
-  %274 = load i64, ptr @H5E_OHDR_g, align 8
-  %275 = load i64, ptr @H5E_CANTLOAD_g, align 8
-  %276 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__link_decode, i32 noundef 227, i64 noundef %274, i64 noundef %275, ptr noundef nonnull @.str.15) #7
+272:                                              ; preds = %263
+  %273 = load i64, ptr @H5E_OHDR_g, align 8
+  %274 = load i64, ptr @H5E_CANTLOAD_g, align 8
+  %275 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__link_decode, i32 noundef 227, i64 noundef %273, i64 noundef %274, ptr noundef nonnull @.str.15) #7
   br label %348
 
-277:                                              ; preds = %263
-  %278 = icmp ugt ptr %271, %.ptr229
-  %279 = ptrtoint ptr %271 to i64
+276:                                              ; preds = %263
+  %277 = getelementptr inbounds i8, ptr %235, i64 2
+  %278 = icmp ugt ptr %277, %.ptr229
+  %279 = ptrtoint ptr %277 to i64
   %280 = sub i64 %217, %279
   %281 = icmp ugt i64 %270, %280
-  %or.cond238 = select i1 %278, i1 true, i1 %281
+  %or.cond238 = or i1 %278, %281
   br i1 %or.cond238, label %282, label %286
 
-282:                                              ; preds = %277
+282:                                              ; preds = %276
   %283 = load i64, ptr @H5E_OHDR_g, align 8
   %284 = load i64, ptr @H5E_OVERFLOW_g, align 8
   %285 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5O__link_decode, i32 noundef 230, i64 noundef %283, i64 noundef %284, ptr noundef nonnull @.str.7) #7
   br label %348
 
-286:                                              ; preds = %277
+286:                                              ; preds = %276
   %287 = add nuw nsw i64 %270, 1
   %288 = tail call noalias ptr @malloc(i64 noundef %287) #8
   %289 = getelementptr inbounds i8, ptr %27, i64 32
@@ -557,7 +557,6 @@ default.unreachable228:                           ; preds = %120
   br label %348
 
 295:                                              ; preds = %286
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %288, ptr nonnull align 1 %271, i64 %270, i1 false)
   %296 = getelementptr inbounds i8, ptr %288, i64 %270
   store i8 0, ptr %296, align 1
   br label %.thread
@@ -649,7 +648,7 @@ default.unreachable228:                           ; preds = %120
   store ptr null, ptr %328, align 8
   br label %.thread
 
-348:                                              ; preds = %38, %46, %57, %76, %104, %114, %128, %142, %161, %190, %209, %220, %229, %248, %259, %273, %282, %291, %299, %308, %323, %335, %342
+348:                                              ; preds = %38, %46, %57, %76, %104, %114, %128, %142, %161, %190, %209, %220, %229, %248, %259, %272, %282, %291, %299, %308, %323, %335, %342
   %349 = getelementptr inbounds i8, ptr %27, i64 24
   %350 = load ptr, ptr %349, align 8
   %351 = tail call ptr @H5MM_xfree(ptr noundef %350) #7

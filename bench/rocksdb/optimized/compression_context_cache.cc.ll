@@ -335,9 +335,6 @@ invoke.cont:                                      ; preds = %while.end
 invoke.cont9:                                     ; preds = %invoke.cont, %invoke.cont9
   %arrayctor.cur.idx = phi i64 [ 8, %invoke.cont ], [ %arrayctor.cur.add, %invoke.cont9 ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call7, i64 %arrayctor.cur.idx
-  store ptr null, ptr %arrayctor.cur.ptr.ptr, align 8
-  %cache_idx_.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
-  store i64 -1, ptr %cache_idx_.i.i, align 8
   %zstd_uncomp_sentinel_.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 16
   store ptr %arrayctor.cur.ptr.ptr, ptr %zstd_uncomp_sentinel_.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
