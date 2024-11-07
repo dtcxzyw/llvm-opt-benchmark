@@ -4114,22 +4114,21 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
 .lr.ph108:                                        ; preds = %.preheader
   %25 = getelementptr inbounds i8, ptr %19, i64 4
   %26 = getelementptr inbounds i8, ptr %19, i64 8
-  %wide.trip.count186 = zext nneg i32 %. to i64
-  %wide.trip.count181 = zext i32 %5 to i64
+  %wide.trip.count185 = zext nneg i32 %. to i64
   br i1 %1, label %.lr.ph108.split.us, label %.lr.ph108.split
 
 .lr.ph108.split.us:                               ; preds = %.lr.ph108
   br i1 %9, label %.lr.ph108.split.us.split.us, label %.lr.ph108.split.us.split
 
 .lr.ph108.split.us.split.us:                      ; preds = %.lr.ph108.split.us, %.thread
-  %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.thread ], [ 0, %.lr.ph108.split.us ]
-  %.073107.us.us = phi float [ %.174.lcssa.us.us193198, %.thread ], [ 0xC26D1A94A0000000, %.lr.ph108.split.us ]
-  %.075106.us.us = phi float [ %.176.lcssa.us.us192199, %.thread ], [ 0x426D1A94A0000000, %.lr.ph108.split.us ]
+  %indvars.iv182 = phi i64 [ %indvars.iv.next183, %.thread ], [ 0, %.lr.ph108.split.us ]
+  %.073107.us.us = phi float [ %.174.lcssa.us.us192197, %.thread ], [ 0xC26D1A94A0000000, %.lr.ph108.split.us ]
+  %.075106.us.us = phi float [ %.176.lcssa.us.us191198, %.thread ], [ 0x426D1A94A0000000, %.lr.ph108.split.us ]
   %.182104.us.us = phi i32 [ %spec.select.us.us, %.thread ], [ 0, %.lr.ph108.split.us ]
-  %27 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv183
+  %27 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv182
   %28 = load i32, ptr %27, align 4
-  %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %29 = trunc nuw nsw i64 %indvars.iv.next184 to i32
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %29 = trunc nuw nsw i64 %indvars.iv.next183 to i32
   %spec.select.us.us = select i1 %.not, i32 %29, i32 %.182104.us.us
   %30 = icmp slt i32 %spec.select.us.us, %5
   br i1 %30, label %.lr.ph.us.us, label %.thread
@@ -4155,24 +4154,24 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   br label %.thread
 
 .thread:                                          ; preds = %.lr.ph108.split.us.split.us, %33, %37, %36
-  %.176.lcssa.us.us192199 = phi float [ %.378.us.us.us, %37 ], [ %.378.us.us.us, %36 ], [ %.378.us.us.us, %33 ], [ %.075106.us.us, %.lr.ph108.split.us.split.us ]
-  %.174.lcssa.us.us193198 = phi float [ %.3.us.us.us, %37 ], [ %.3.us.us.us, %36 ], [ %.3.us.us.us, %33 ], [ %.073107.us.us, %.lr.ph108.split.us.split.us ]
-  %exitcond187.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count186
-  br i1 %exitcond187.not, label %._crit_edge109, label %.lr.ph108.split.us.split.us, !llvm.loop !36
+  %.176.lcssa.us.us191198 = phi float [ %.378.us.us.us, %37 ], [ %.378.us.us.us, %36 ], [ %.378.us.us.us, %33 ], [ %.075106.us.us, %.lr.ph108.split.us.split.us ]
+  %.174.lcssa.us.us192197 = phi float [ %.3.us.us.us, %37 ], [ %.3.us.us.us, %36 ], [ %.3.us.us.us, %33 ], [ %.073107.us.us, %.lr.ph108.split.us.split.us ]
+  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
+  br i1 %exitcond186.not, label %._crit_edge109, label %.lr.ph108.split.us.split.us, !llvm.loop !36
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph108.split.us.split.us
   %40 = sext i32 %28 to i64
   %41 = getelementptr inbounds [3 x float], ptr %4, i64 %40
-  %42 = zext nneg i32 %spec.select.us.us to i64
+  %42 = sext i32 %spec.select.us.us to i64
   br label %43
 
 43:                                               ; preds = %66, %.lr.ph.us.us
-  %indvars.iv178 = phi i64 [ %indvars.iv.next179, %66 ], [ %42, %.lr.ph.us.us ]
+  %indvars.iv177 = phi i64 [ %indvars.iv.next178, %66 ], [ %42, %.lr.ph.us.us ]
   %.097.us.us.us = phi i32 [ %.1.us.us.us, %66 ], [ 0, %.lr.ph.us.us ]
   %.07096.us.us.us = phi i32 [ %.171.us.us.us, %66 ], [ 0, %.lr.ph.us.us ]
   %.17494.us.us.us = phi float [ %.3.us.us.us, %66 ], [ %.073107.us.us, %.lr.ph.us.us ]
   %.17693.us.us.us = phi float [ %.378.us.us.us, %66 ], [ %.075106.us.us, %.lr.ph.us.us ]
-  %44 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv178
+  %44 = getelementptr inbounds i32, ptr %7, i64 %indvars.iv177
   %45 = load i32, ptr %44, align 4
   %.not91.us.us.us = icmp eq i32 %45, %28
   br i1 %.not91.us.us.us, label %66, label %46
@@ -4223,19 +4222,20 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %.3.us.us.us = phi float [ %.2.us.us.us, %62 ], [ %.2.us.us.us, %64 ], [ %.17494.us.us.us, %43 ]
   %.171.us.us.us = phi i32 [ %63, %62 ], [ %.07096.us.us.us, %64 ], [ %.07096.us.us.us, %43 ]
   %.1.us.us.us = phi i32 [ %.097.us.us.us, %62 ], [ %65, %64 ], [ %.097.us.us.us, %43 ]
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %exitcond182.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count181
-  br i1 %exitcond182.not, label %._crit_edge.split.us.us.us, label %43, !llvm.loop !37
+  %indvars.iv.next178 = add nsw i64 %indvars.iv177, 1
+  %lftr.wideiv180 = trunc i64 %indvars.iv.next178 to i32
+  %exitcond181.not = icmp eq i32 %5, %lftr.wideiv180
+  br i1 %exitcond181.not, label %._crit_edge.split.us.us.us, label %43, !llvm.loop !37
 
 .lr.ph108.split.us.split:                         ; preds = %.lr.ph108.split.us, %._crit_edge.split.us.us
-  %indvars.iv173 = phi i64 [ %indvars.iv.next174, %._crit_edge.split.us.us ], [ 0, %.lr.ph108.split.us ]
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.split.us.us ], [ 0, %.lr.ph108.split.us ]
   %.073107.us = phi float [ %.174.lcssa.us, %._crit_edge.split.us.us ], [ 0xC26D1A94A0000000, %.lr.ph108.split.us ]
   %.075106.us = phi float [ %.176.lcssa.us, %._crit_edge.split.us.us ], [ 0x426D1A94A0000000, %.lr.ph108.split.us ]
   %.182104.us = phi i32 [ %spec.select.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph108.split.us ]
-  %67 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv173
+  %67 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv172
   %68 = load i32, ptr %67, align 4
-  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
-  %69 = trunc nuw nsw i64 %indvars.iv.next174 to i32
+  %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
+  %69 = trunc nuw nsw i64 %indvars.iv.next173 to i32
   %spec.select.us = select i1 %.not, i32 %69, i32 %.182104.us
   %70 = icmp slt i32 %spec.select.us, %5
   br i1 %70, label %.lr.ph.us, label %._crit_edge.split.us.us
@@ -4251,13 +4251,13 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %73 = load i32, ptr %13, align 4
   %74 = add nsw i32 %73, %.0.lcssa.us
   store i32 %74, ptr %13, align 4
-  %exitcond177.not = icmp eq i64 %indvars.iv.next174, %wide.trip.count186
-  br i1 %exitcond177.not, label %._crit_edge109, label %.lr.ph108.split.us.split, !llvm.loop !36
+  %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count185
+  br i1 %exitcond176.not, label %._crit_edge109, label %.lr.ph108.split.us.split, !llvm.loop !36
 
 .lr.ph.us:                                        ; preds = %.lr.ph108.split.us.split
   %75 = sext i32 %68 to i64
   %76 = getelementptr inbounds [3 x float], ptr %4, i64 %75
-  %77 = zext nneg i32 %spec.select.us to i64
+  %77 = sext i32 %spec.select.us to i64
   br label %78
 
 78:                                               ; preds = %101, %.lr.ph.us
@@ -4317,25 +4317,27 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %.3.us.us = phi float [ %.2.us.us, %97 ], [ %.2.us.us, %99 ], [ %.17494.us.us, %78 ]
   %.171.us.us = phi i32 [ %98, %97 ], [ %.07096.us.us, %99 ], [ %.07096.us.us, %78 ]
   %.1.us.us = phi i32 [ %.097.us.us, %97 ], [ %100, %99 ], [ %.097.us.us, %78 ]
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %exitcond172.not = icmp eq i64 %indvars.iv.next169, %wide.trip.count181
-  br i1 %exitcond172.not, label %._crit_edge.split.us.us, label %78, !llvm.loop !37
+  %indvars.iv.next169 = add nsw i64 %indvars.iv168, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next169 to i32
+  %exitcond171.not = icmp eq i32 %5, %lftr.wideiv
+  br i1 %exitcond171.not, label %._crit_edge.split.us.us, label %78, !llvm.loop !37
 
 .lr.ph108.split:                                  ; preds = %.lr.ph108
+  %wide.trip.count161 = sext i32 %5 to i64
   br i1 %9, label %.lr.ph108.split.split.us, label %.lr.ph108.split.split
 
-.lr.ph108.split.split.us:                         ; preds = %.lr.ph108.split, %.thread209
-  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.thread209 ], [ 0, %.lr.ph108.split ]
-  %.073107.us121 = phi float [ %.174.lcssa.us127207213, %.thread209 ], [ 0xC26D1A94A0000000, %.lr.ph108.split ]
-  %.075106.us122 = phi float [ %.176.lcssa.us126206214, %.thread209 ], [ 0x426D1A94A0000000, %.lr.ph108.split ]
-  %.182104.us124 = phi i32 [ %spec.select.us125, %.thread209 ], [ 0, %.lr.ph108.split ]
+.lr.ph108.split.split.us:                         ; preds = %.lr.ph108.split, %.thread208
+  %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.thread208 ], [ 0, %.lr.ph108.split ]
+  %.073107.us121 = phi float [ %.174.lcssa.us127206212, %.thread208 ], [ 0xC26D1A94A0000000, %.lr.ph108.split ]
+  %.075106.us122 = phi float [ %.176.lcssa.us126205213, %.thread208 ], [ 0x426D1A94A0000000, %.lr.ph108.split ]
+  %.182104.us124 = phi i32 [ %spec.select.us125, %.thread208 ], [ 0, %.lr.ph108.split ]
   %102 = getelementptr inbounds i32, ptr %.92, i64 %indvars.iv163
   %103 = load i32, ptr %102, align 4
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %104 = trunc nuw nsw i64 %indvars.iv.next164 to i32
   %spec.select.us125 = select i1 %.not, i32 %104, i32 %.182104.us124
   %105 = icmp slt i32 %spec.select.us125, %5
-  br i1 %105, label %.lr.ph.us130, label %.thread209
+  br i1 %105, label %.lr.ph.us130, label %.thread208
 
 ._crit_edge.split.us:                             ; preds = %146
   %106 = icmp sgt i32 %.171.us, 0
@@ -4346,21 +4348,21 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %109 = load i32, ptr %12, align 4
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %12, align 4
-  br i1 %107, label %112, label %.thread209
+  br i1 %107, label %112, label %.thread208
 
 111:                                              ; preds = %._crit_edge.split.us
-  br i1 %107, label %112, label %.thread209
+  br i1 %107, label %112, label %.thread208
 
 112:                                              ; preds = %108, %111
   %113 = load i32, ptr %13, align 4
   %114 = add nsw i32 %113, 1
   store i32 %114, ptr %13, align 4
-  br label %.thread209
+  br label %.thread208
 
-.thread209:                                       ; preds = %.lr.ph108.split.split.us, %108, %112, %111
-  %.176.lcssa.us126206214 = phi float [ %.378.us, %112 ], [ %.378.us, %111 ], [ %.378.us, %108 ], [ %.075106.us122, %.lr.ph108.split.split.us ]
-  %.174.lcssa.us127207213 = phi float [ %.3.us, %112 ], [ %.3.us, %111 ], [ %.3.us, %108 ], [ %.073107.us121, %.lr.ph108.split.split.us ]
-  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count186
+.thread208:                                       ; preds = %.lr.ph108.split.split.us, %108, %112, %111
+  %.176.lcssa.us126205213 = phi float [ %.378.us, %112 ], [ %.378.us, %111 ], [ %.378.us, %108 ], [ %.075106.us122, %.lr.ph108.split.split.us ]
+  %.174.lcssa.us127206212 = phi float [ %.3.us, %112 ], [ %.3.us, %111 ], [ %.3.us, %108 ], [ %.073107.us121, %.lr.ph108.split.split.us ]
+  %exitcond167.not = icmp eq i64 %indvars.iv.next164, %wide.trip.count185
   br i1 %exitcond167.not, label %._crit_edge109, label %.lr.ph108.split.split.us, !llvm.loop !36
 
 115:                                              ; preds = %.lr.ph.us130, %146
@@ -4427,8 +4429,8 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %.3.us = phi float [ %.2.us, %142 ], [ %.2.us, %144 ], [ %.17494.us, %115 ]
   %.171.us = phi i32 [ %143, %142 ], [ %.07096.us, %144 ], [ %.07096.us, %115 ]
   %.1.us = phi i32 [ %.097.us, %142 ], [ %145, %144 ], [ %.097.us, %115 ]
-  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count181
+  %indvars.iv.next159 = add nsw i64 %indvars.iv158, 1
+  %exitcond162.not = icmp eq i64 %indvars.iv.next159, %wide.trip.count161
   br i1 %exitcond162.not, label %._crit_edge.split.us, label %115, !llvm.loop !37
 
 .lr.ph.us130:                                     ; preds = %.lr.ph108.split.split.us
@@ -4436,7 +4438,7 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %148 = getelementptr inbounds [3 x float], ptr %4, i64 %147
   %149 = getelementptr inbounds i8, ptr %148, i64 4
   %150 = getelementptr inbounds i8, ptr %148, i64 8
-  %151 = zext nneg i32 %spec.select.us125 to i64
+  %151 = sext i32 %spec.select.us125 to i64
   br label %115
 
 152:                                              ; preds = %23
@@ -4461,7 +4463,7 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %158 = getelementptr inbounds [3 x float], ptr %4, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 4
   %160 = getelementptr inbounds i8, ptr %158, i64 8
-  %161 = zext nneg i32 %spec.select to i64
+  %161 = sext i32 %spec.select to i64
   br label %162
 
 162:                                              ; preds = %.lr.ph, %193
@@ -4528,8 +4530,8 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %.3 = phi float [ %.2, %189 ], [ %.2, %191 ], [ %.17494, %162 ]
   %.171 = phi i32 [ %190, %189 ], [ %.07096, %191 ], [ %.07096, %162 ]
   %.1 = phi i32 [ %.097, %189 ], [ %192, %191 ], [ %.097, %162 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count181
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count161
   br i1 %exitcond.not, label %._crit_edge.split, label %162, !llvm.loop !37
 
 ._crit_edge.split:                                ; preds = %193, %.lr.ph108.split.split
@@ -4543,12 +4545,12 @@ define internal fastcc void @_ZL9calc_distfb7PbcTypePA3_fS1_iiPiS2_bPfS3_S2_S2_S
   %196 = load i32, ptr %13, align 4
   %197 = add nsw i32 %196, %.0.lcssa
   store i32 %197, ptr %13, align 4
-  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count186
+  %exitcond157.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count185
   br i1 %exitcond157.not, label %._crit_edge109, label %.lr.ph108.split.split, !llvm.loop !36
 
-._crit_edge109:                                   ; preds = %._crit_edge.split, %.thread209, %._crit_edge.split.us.us, %.thread, %.preheader
-  %.075.lcssa = phi float [ 0x426D1A94A0000000, %.preheader ], [ %.176.lcssa.us.us192199, %.thread ], [ %.176.lcssa.us, %._crit_edge.split.us.us ], [ %.176.lcssa.us126206214, %.thread209 ], [ %.176.lcssa, %._crit_edge.split ]
-  %.073.lcssa = phi float [ 0xC26D1A94A0000000, %.preheader ], [ %.174.lcssa.us.us193198, %.thread ], [ %.174.lcssa.us, %._crit_edge.split.us.us ], [ %.174.lcssa.us127207213, %.thread209 ], [ %.174.lcssa, %._crit_edge.split ]
+._crit_edge109:                                   ; preds = %._crit_edge.split, %.thread208, %._crit_edge.split.us.us, %.thread, %.preheader
+  %.075.lcssa = phi float [ 0x426D1A94A0000000, %.preheader ], [ %.176.lcssa.us.us191198, %.thread ], [ %.176.lcssa.us, %._crit_edge.split.us.us ], [ %.176.lcssa.us126205213, %.thread208 ], [ %.176.lcssa, %._crit_edge.split ]
+  %.073.lcssa = phi float [ 0xC26D1A94A0000000, %.preheader ], [ %.174.lcssa.us.us192197, %.thread ], [ %.174.lcssa.us, %._crit_edge.split.us.us ], [ %.174.lcssa.us127206212, %.thread208 ], [ %.174.lcssa, %._crit_edge.split ]
   %198 = call noundef float @sqrtf(float noundef %.075.lcssa) #19
   store float %198, ptr %10, align 4
   %199 = call noundef float @sqrtf(float noundef %.073.lcssa) #19

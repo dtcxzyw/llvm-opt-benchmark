@@ -2549,7 +2549,7 @@ _ZN6icu_757Package18ensureItemCapacityEv.exit:    ; preds = %if.then, %if.end15.
   br i1 %cmp2, label %if.then3, label %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge
 
 _ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge: ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit
-  %.pre31 = zext nneg i32 %not to i64
+  %.pre32 = zext nneg i32 %not to i64
   br label %if.end
 
 if.then3:                                         ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit
@@ -2566,7 +2566,7 @@ if.then3:                                         ; preds = %_ZN6icu_757Package1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge, %if.then3
-  %idx.ext11.pre-phi = phi i64 [ %.pre31, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %idx.ext, %if.then3 ]
+  %idx.ext11.pre-phi = phi i64 [ %.pre32, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %idx.ext, %if.then3 ]
   %9 = phi i32 [ %7, %_ZN6icu_757Package18ensureItemCapacityEv.exit.if.end_crit_edge ], [ %.pre30, %if.then3 ]
   %inc = add nsw i32 %9, 1
   store i32 %inc, ptr %itemCount.i, align 4
@@ -2604,13 +2604,14 @@ _ZN6icu_757Package11allocStringEai.exit:          ; preds = %if.end
   br label %if.end33
 
 if.else:                                          ; preds = %while.body.i
-  %isDataOwned26 = getelementptr inbounds i8, ptr %arrayidx6.i, i64 20
+  %arrayidx25 = getelementptr inbounds %"struct.icu_75::Item", ptr %1, i64 %idxprom5.i
+  %isDataOwned26 = getelementptr inbounds i8, ptr %arrayidx25, i64 20
   %17 = load i8, ptr %isDataOwned26, align 4
   %tobool.not = icmp eq i8 %17, 0
   br i1 %tobool.not, label %if.end33, label %if.then27
 
 if.then27:                                        ; preds = %if.else
-  %data31 = getelementptr inbounds i8, ptr %arrayidx6.i, i64 8
+  %data31 = getelementptr inbounds i8, ptr %arrayidx25, i64 8
   %18 = load ptr, ptr %data31, align 8
   tail call void @uprv_free_75(ptr noundef %18)
   br label %if.end33

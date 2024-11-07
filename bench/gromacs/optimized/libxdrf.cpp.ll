@@ -264,7 +264,7 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
   %136 = call i32 @llvm.abs.i32(i32 %135, i1 true)
   %137 = add nuw nsw i32 %134, %136
   %138 = icmp ugt ptr %.0386602, %1
-  %139 = call i32 @llvm.umin.i32(i32 %137, i32 %.0419601)
+  %139 = call i32 @llvm.smin.i32(i32 %137, i32 %.0419601)
   %.1420 = select i1 %138, i32 %139, i32 %.0419601
   %140 = icmp ult ptr %129, %67
   br i1 %140, label %70, label %._crit_edge, !llvm.loop !5
@@ -2532,7 +2532,7 @@ _ZL25xtc_get_next_frame_numberP8_IO_FILEP3XDRi.exit: ; preds = %22
   %.035..0 = select i1 %34, i64 %.035, i64 %.0
   %.0..033 = select i1 %34, i64 %.0, i64 %.033
   %35 = add nuw nsw i64 %.035..0, %.0..033
-  %36 = lshr exact i64 %35, 1
+  %36 = lshr i64 %35, 1
   %37 = and i64 %36, 9223372036854775804
   %38 = call noundef i32 @_Z9gmx_fseekP8_IO_FILEli(ptr noundef %1, i64 noundef %37, i32 noundef 0)
   %.not45 = icmp eq i32 %38, 0
@@ -3174,9 +3174,6 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16

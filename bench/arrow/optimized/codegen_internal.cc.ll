@@ -2937,7 +2937,7 @@ for.end58:                                        ; preds = %_ZN5arrowL9bit_widt
   br i1 %cmp59, label %if.then60, label %if.end95
 
 if.then60:                                        ; preds = %for.end58
-  %cmp61 = icmp samesign ugt i32 %spec.select229, 63
+  %cmp61 = icmp sgt i32 %spec.select229, 63
   br i1 %cmp61, label %if.then62, label %if.end67
 
 if.then62:                                        ; preds = %if.then60
@@ -3115,7 +3115,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit128: ; preds = %while.end90, %i
   br label %return
 
 if.end95:                                         ; preds = %for.end58
-  %cmp96.not = icmp samesign ugt i32 %spec.select, %spec.select229
+  %cmp96.not = icmp sgt i32 %spec.select, %spec.select229
   br i1 %cmp96.not, label %if.end100, label %if.then97
 
 if.then97:                                        ; preds = %if.end95

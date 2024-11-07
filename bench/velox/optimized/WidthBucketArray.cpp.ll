@@ -3578,7 +3578,7 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i:          ; preds = %while.body.i.i.i.i
   %add7.i.i.i.i = add nuw nsw i32 %div8.i.i.i.i, 1
   %upper.1.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 %div8.i.i.i.i, i32 %upper.03.i.i.i.i
   %lower.1.i.i.i.i = select i1 %cmp5.i.i.i.i, i32 %lower.04.i.i.i.i, i32 %add7.i.i.i.i
-  %cmp.i.i.i.i45 = icmp samesign ult i32 %lower.1.i.i.i.i, %upper.1.i.i.i.i
+  %cmp.i.i.i.i45 = icmp slt i32 %lower.1.i.i.i.i, %upper.1.i.i.i.i
   br i1 %cmp.i.i.i.i45, label %while.body.i.i.i.i, label %while.end.loopexit.i.i.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i.i.i:                       ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i
@@ -3889,7 +3889,7 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i:  ; preds = %while.body.i.i.i.i.
   %add7.i.i.i.i.i.i.i.i = add nuw nsw i32 %div8.i.i.i.i.i.i.i.i, 1
   %upper.1.i.i.i.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i.i.i.i, i32 %div8.i.i.i.i.i.i.i.i, i32 %upper.03.i.i.i.i.i.i.i.i
   %lower.1.i.i.i.i.i.i.i.i = select i1 %cmp5.i.i.i.i.i.i.i.i, i32 %lower.04.i.i.i.i.i.i.i.i, i32 %add7.i.i.i.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i = icmp samesign ult i32 %lower.1.i.i.i.i.i.i.i.i, %upper.1.i.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i = icmp slt i32 %lower.1.i.i.i.i.i.i.i.i, %upper.1.i.i.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i.i.i.i, label %while.end.loopexit.i.i.i.i.i.i.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i.i.i.i.i.i.i:               ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i.i.i.i.i.i.i
@@ -4100,7 +4100,7 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i69.i.i.i.i.i.i: ; preds = %while.body.i.i61.i
   %add7.i.i72.i.i.i.i.i.i = add nuw nsw i32 %div8.i.i65.i.i.i.i.i.i, 1
   %upper.1.i.i73.i.i.i.i.i.i = select i1 %cmp5.i.i71.i.i.i.i.i.i, i32 %div8.i.i65.i.i.i.i.i.i, i32 %upper.03.i.i63.i.i.i.i.i.i
   %lower.1.i.i74.i.i.i.i.i.i = select i1 %cmp5.i.i71.i.i.i.i.i.i, i32 %lower.04.i.i62.i.i.i.i.i.i, i32 %add7.i.i72.i.i.i.i.i.i
-  %cmp.i.i75.i.i.i.i.i.i = icmp samesign ult i32 %lower.1.i.i74.i.i.i.i.i.i, %upper.1.i.i73.i.i.i.i.i.i
+  %cmp.i.i75.i.i.i.i.i.i = icmp slt i32 %lower.1.i.i74.i.i.i.i.i.i, %upper.1.i.i73.i.i.i.i.i.i
   br i1 %cmp.i.i75.i.i.i.i.i.i, label %while.body.i.i61.i.i.i.i.i.i, label %while.end.loopexit.i.i76.i.i.i.i.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i76.i.i.i.i.i.i:             ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i69.i.i.i.i.i.i
@@ -5710,7 +5710,7 @@ _ZNKSt6vectorIdSaIdEE2atEm.exit.i.i:              ; preds = %while.body.i.i
   %add7.i.i = add nuw nsw i32 %div8.i.i, 1
   %upper.1.i.i = select i1 %cmp5.i.i, i32 %div8.i.i, i32 %upper.03.i.i
   %lower.1.i.i = select i1 %cmp5.i.i, i32 %lower.04.i.i, i32 %add7.i.i
-  %cmp.i.i = icmp samesign ult i32 %lower.1.i.i, %upper.1.i.i
+  %cmp.i.i = icmp slt i32 %lower.1.i.i, %upper.1.i.i
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end.loopexit.i.i, !llvm.loop !25
 
 while.end.loopexit.i.i:                           ; preds = %_ZNKSt6vectorIdSaIdEE2atEm.exit.i.i

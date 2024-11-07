@@ -17733,9 +17733,9 @@ define void @Exa6_SortSims(ptr nocapture noundef readonly %0, ptr nocapture noun
   %wide.trip.count = zext nneg i32 %.val to i64
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %27, %.lr.ph43.preheader
-  %indvars.iv48 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next49, %27 ]
-  %indvars.iv = phi i64 [ 1, %.lr.ph43.preheader ], [ %indvars.iv.next, %27 ]
+.lr.ph.preheader:                                 ; preds = %28, %.lr.ph43.preheader
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next49, %28 ]
+  %indvars.iv = phi i64 [ 1, %.lr.ph43.preheader ], [ %indvars.iv.next, %28 ]
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %8 = trunc nuw nsw i64 %indvars.iv48 to i32
   br label %.lr.ph
@@ -17745,7 +17745,7 @@ define void @Exa6_SortSims(ptr nocapture noundef readonly %0, ptr nocapture noun
   %.03540 = phi i32 [ %8, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
   %9 = getelementptr inbounds i64, ptr %.val37, i64 %indvars.iv45
   %10 = load i64, ptr %9, align 8
-  %11 = zext nneg i32 %.03540 to i64
+  %11 = sext i32 %.03540 to i64
   %12 = getelementptr inbounds i64, ptr %.val37, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = icmp ult i64 %10, %13
@@ -17758,29 +17758,30 @@ define void @Exa6_SortSims(ptr nocapture noundef readonly %0, ptr nocapture noun
 ._crit_edge:                                      ; preds = %.lr.ph
   %16 = zext i32 %spec.select to i64
   %17 = icmp eq i64 %indvars.iv48, %16
-  br i1 %17, label %27, label %18
+  br i1 %17, label %28, label %18
 
 18:                                               ; preds = %._crit_edge
   %19 = getelementptr inbounds i64, ptr %.val37, i64 %indvars.iv48
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds i64, ptr %.val37, i64 %16
-  %22 = load i64, ptr %21, align 8
-  store i64 %22, ptr %19, align 8
-  store i64 %20, ptr %21, align 8
-  %23 = getelementptr inbounds i64, ptr %.val38, i64 %indvars.iv48
-  %24 = load i64, ptr %23, align 8
-  %25 = getelementptr inbounds i64, ptr %.val38, i64 %16
-  %26 = load i64, ptr %25, align 8
-  store i64 %26, ptr %23, align 8
-  store i64 %24, ptr %25, align 8
-  br label %27
+  %21 = sext i32 %spec.select to i64
+  %22 = getelementptr inbounds i64, ptr %.val37, i64 %21
+  %23 = load i64, ptr %22, align 8
+  store i64 %23, ptr %19, align 8
+  store i64 %20, ptr %22, align 8
+  %24 = getelementptr inbounds i64, ptr %.val38, i64 %indvars.iv48
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr inbounds i64, ptr %.val38, i64 %21
+  %27 = load i64, ptr %26, align 8
+  store i64 %27, ptr %24, align 8
+  store i64 %25, ptr %26, align 8
+  br label %28
 
-27:                                               ; preds = %._crit_edge, %18
+28:                                               ; preds = %._crit_edge, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
   br i1 %exitcond52.not, label %._crit_edge44, label %.lr.ph.preheader, !llvm.loop !268
 
-._crit_edge44:                                    ; preds = %27, %2
+._crit_edge44:                                    ; preds = %28, %2
   ret void
 }
 
@@ -24198,7 +24199,7 @@ define void @Exa_ManExactSynthesis6(ptr nocapture noundef readonly %0, ptr nound
   store ptr null, ptr %4, align 8
   %7 = call i32 @Exa6_ReadFile(ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %58, label %9
+  br i1 %8, label %59, label %9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %3, align 8
@@ -24218,9 +24219,9 @@ define void @Exa_ManExactSynthesis6(ptr nocapture noundef readonly %0, ptr nound
   %wide.trip.count.i = zext nneg i32 %.val.i to i64
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %36, %.lr.ph43.preheader.i
-  %indvars.iv48.i = phi i64 [ 0, %.lr.ph43.preheader.i ], [ %indvars.iv.next49.i, %36 ]
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph43.preheader.i ], [ %indvars.iv.next.i, %36 ]
+.lr.ph.preheader.i:                               ; preds = %37, %.lr.ph43.preheader.i
+  %indvars.iv48.i = phi i64 [ 0, %.lr.ph43.preheader.i ], [ %indvars.iv.next49.i, %37 ]
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph43.preheader.i ], [ %indvars.iv.next.i, %37 ]
   %17 = trunc nuw nsw i64 %indvars.iv48.i to i32
   br label %.lr.ph.i
 
@@ -24229,7 +24230,7 @@ define void @Exa_ManExactSynthesis6(ptr nocapture noundef readonly %0, ptr nound
   %.03540.i = phi i32 [ %17, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
   %18 = getelementptr inbounds i64, ptr %.val37.i, i64 %indvars.iv45.i
   %19 = load i64, ptr %18, align 8
-  %20 = zext nneg i32 %.03540.i to i64
+  %20 = sext i32 %.03540.i to i64
   %21 = getelementptr inbounds i64, ptr %.val37.i, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = icmp ult i64 %19, %22
@@ -24243,90 +24244,91 @@ define void @Exa_ManExactSynthesis6(ptr nocapture noundef readonly %0, ptr nound
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %25 = zext i32 %spec.select.i to i64
   %26 = icmp eq i64 %indvars.iv48.i, %25
-  br i1 %26, label %36, label %27
+  br i1 %26, label %37, label %27
 
 27:                                               ; preds = %._crit_edge.i
   %28 = getelementptr inbounds i64, ptr %.val37.i, i64 %indvars.iv48.i
   %29 = load i64, ptr %28, align 8
-  %30 = getelementptr inbounds i64, ptr %.val37.i, i64 %25
-  %31 = load i64, ptr %30, align 8
-  store i64 %31, ptr %28, align 8
-  store i64 %29, ptr %30, align 8
-  %32 = getelementptr inbounds i64, ptr %.val38.i, i64 %indvars.iv48.i
-  %33 = load i64, ptr %32, align 8
-  %34 = getelementptr inbounds i64, ptr %.val38.i, i64 %25
-  %35 = load i64, ptr %34, align 8
-  store i64 %35, ptr %32, align 8
-  store i64 %33, ptr %34, align 8
-  br label %36
+  %30 = sext i32 %spec.select.i to i64
+  %31 = getelementptr inbounds i64, ptr %.val37.i, i64 %30
+  %32 = load i64, ptr %31, align 8
+  store i64 %32, ptr %28, align 8
+  store i64 %29, ptr %31, align 8
+  %33 = getelementptr inbounds i64, ptr %.val38.i, i64 %indvars.iv48.i
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i64, ptr %.val38.i, i64 %30
+  %36 = load i64, ptr %35, align 8
+  store i64 %36, ptr %33, align 8
+  store i64 %34, ptr %35, align 8
+  br label %37
 
-36:                                               ; preds = %27, %._crit_edge.i
+37:                                               ; preds = %27, %._crit_edge.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond52.not.i = icmp eq i64 %indvars.iv.next49.i, %wide.trip.count51.i
   br i1 %exitcond52.not.i, label %Exa6_SortSims.exit, label %.lr.ph.preheader.i, !llvm.loop !268
 
-Exa6_SortSims.exit:                               ; preds = %36, %9
-  %37 = load i32, ptr %5, align 4
-  %38 = load i32, ptr %6, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = getelementptr inbounds i8, ptr %0, i64 24
-  %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 64
-  %44 = load i32, ptr %43, align 8
-  %45 = call ptr @Exa_ManExactSynthesis6Int(ptr noundef %10, ptr noundef %11, i32 noundef %7, i32 noundef %37, i32 noundef %38, i32 noundef %40, i32 noundef %42, i32 noundef %44)
-  %46 = icmp eq ptr %10, null
-  br i1 %46, label %Vec_WrdFreeP.exit, label %47
+Exa6_SortSims.exit:                               ; preds = %37, %9
+  %38 = load i32, ptr %5, align 4
+  %39 = load i32, ptr %6, align 4
+  %40 = getelementptr inbounds i8, ptr %0, i64 4
+  %41 = load i32, ptr %40, align 4
+  %42 = getelementptr inbounds i8, ptr %0, i64 24
+  %43 = load i32, ptr %42, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 64
+  %45 = load i32, ptr %44, align 8
+  %46 = call ptr @Exa_ManExactSynthesis6Int(ptr noundef %10, ptr noundef %11, i32 noundef %7, i32 noundef %38, i32 noundef %39, i32 noundef %41, i32 noundef %43, i32 noundef %45)
+  %47 = icmp eq ptr %10, null
+  br i1 %47, label %Vec_WrdFreeP.exit, label %48
 
-47:                                               ; preds = %Exa6_SortSims.exit
-  %48 = load ptr, ptr %12, align 8
-  %.not.i = icmp eq ptr %48, null
-  br i1 %.not.i, label %.thread.i, label %49
+48:                                               ; preds = %Exa6_SortSims.exit
+  %49 = load ptr, ptr %12, align 8
+  %.not.i = icmp eq ptr %49, null
+  br i1 %.not.i, label %.thread.i, label %50
 
-49:                                               ; preds = %47
-  call void @free(ptr noundef nonnull %48) #33
+50:                                               ; preds = %48
+  call void @free(ptr noundef nonnull %49) #33
   br label %.thread.i
 
-.thread.i:                                        ; preds = %49, %47
+.thread.i:                                        ; preds = %50, %48
   call void @free(ptr noundef nonnull %10) #33
   br label %Vec_WrdFreeP.exit
 
 Vec_WrdFreeP.exit:                                ; preds = %Exa6_SortSims.exit, %.thread.i
-  %50 = icmp eq ptr %11, null
-  br i1 %50, label %Vec_WrdFreeP.exit12, label %51
+  %51 = icmp eq ptr %11, null
+  br i1 %51, label %Vec_WrdFreeP.exit12, label %52
 
-51:                                               ; preds = %Vec_WrdFreeP.exit
-  %52 = load ptr, ptr %13, align 8
-  %.not.i8 = icmp eq ptr %52, null
-  br i1 %.not.i8, label %.thread.i11, label %53
+52:                                               ; preds = %Vec_WrdFreeP.exit
+  %53 = load ptr, ptr %13, align 8
+  %.not.i8 = icmp eq ptr %53, null
+  br i1 %.not.i8, label %.thread.i11, label %54
 
-53:                                               ; preds = %51
-  call void @free(ptr noundef nonnull %52) #33
+54:                                               ; preds = %52
+  call void @free(ptr noundef nonnull %53) #33
   br label %.thread.i11
 
-.thread.i11:                                      ; preds = %53, %51
+.thread.i11:                                      ; preds = %54, %52
   call void @free(ptr noundef nonnull %11) #33
   br label %Vec_WrdFreeP.exit12
 
 Vec_WrdFreeP.exit12:                              ; preds = %Vec_WrdFreeP.exit, %.thread.i11
-  %.not = icmp eq ptr %45, null
-  br i1 %.not, label %58, label %54
+  %.not = icmp eq ptr %46, null
+  br i1 %.not, label %59, label %55
 
-54:                                               ; preds = %Vec_WrdFreeP.exit12
-  %55 = getelementptr inbounds i8, ptr %45, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %.not.i13 = icmp eq ptr %56, null
-  br i1 %.not.i13, label %Mini_AigStop.exit, label %57
+55:                                               ; preds = %Vec_WrdFreeP.exit12
+  %56 = getelementptr inbounds i8, ptr %46, i64 16
+  %57 = load ptr, ptr %56, align 8
+  %.not.i13 = icmp eq ptr %57, null
+  br i1 %.not.i13, label %Mini_AigStop.exit, label %58
 
-57:                                               ; preds = %54
-  call void @free(ptr noundef nonnull %56) #33
+58:                                               ; preds = %55
+  call void @free(ptr noundef nonnull %57) #33
   br label %Mini_AigStop.exit
 
-Mini_AigStop.exit:                                ; preds = %54, %57
-  call void @free(ptr noundef nonnull %45) #33
-  br label %58
+Mini_AigStop.exit:                                ; preds = %55, %58
+  call void @free(ptr noundef nonnull %46) #33
+  br label %59
 
-58:                                               ; preds = %2, %Mini_AigStop.exit, %Vec_WrdFreeP.exit12
+59:                                               ; preds = %2, %Mini_AigStop.exit, %Vec_WrdFreeP.exit12
   ret void
 }
 
