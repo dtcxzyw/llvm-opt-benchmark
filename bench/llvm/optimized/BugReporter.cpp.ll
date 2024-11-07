@@ -1172,20 +1172,20 @@ define dso_local void @_ZN5clang4ento22PathSensitiveBugReportC2ERKNS0_7BugTypeEN
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %.sroa.09.0.copyload.i, %32
-  %.pre15.i = load ptr, ptr %11, align 8
+  %.pre17.i = load ptr, ptr %11, align 8
   br i1 %33, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit
 
 _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i: ; preds = %24
-  %34 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre15.i) #26
+  %34 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre17.i) #26
   %.not7.i = icmp eq ptr %34, null
-  br i1 %.not7.i, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26
+  br i1 %.not7.i, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26
 
-_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i
+_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i
   %.pre.i = load ptr, ptr %11, align 8
   br label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit
 
-_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit: ; preds = %12, %24, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i
-  %35 = phi ptr [ %.pre.i, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i ], [ %6, %12 ], [ %.pre15.i, %24 ]
+_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit: ; preds = %12, %24, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i
+  %35 = phi ptr [ %.pre.i, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i ], [ %6, %12 ], [ %.pre17.i, %24 ]
   %36 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %35) #26
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26
@@ -1209,7 +1209,7 @@ _ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26: ; preds = %_ZNK
   %46 = or disjoint i32 %43, %45
   %47 = or disjoint i32 %46, %41
   %48 = icmp eq i32 %47, 1
-  br i1 %48, label %49, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12.i15
+  br i1 %48, label %49, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14.i15
 
 49:                                               ; preds = %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26
   %50 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -1222,25 +1222,25 @@ _ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26: ; preds = %_ZNK
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %.sroa.09.0.copyload.i17, %57
-  %.pre15.i18 = load ptr, ptr %11, align 8
-  br i1 %58, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12.i15
+  %.pre17.i18 = load ptr, ptr %11, align 8
+  br i1 %58, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14.i15
 
 _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19: ; preds = %49
-  %59 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre15.i18) #26
+  %59 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre17.i18) #26
   %.not7.i20 = icmp eq ptr %59, null
-  br i1 %.not7.i20, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i21, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit23
+  br i1 %.not7.i20, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i21, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit23
 
-_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i21: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19
+_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i21: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19
   %.pre.i22 = load ptr, ptr %11, align 8
-  br label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12.i15
+  br label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14.i15
 
-_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12.i15: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i21, %49, %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26
-  %60 = phi ptr [ %.pre.i22, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i21 ], [ %37, %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26 ], [ %.pre15.i18, %49 ]
+_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14.i15: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i21, %49, %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26
+  %60 = phi ptr [ %.pre.i22, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i21 ], [ %37, %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread26 ], [ %.pre17.i18, %49 ]
   %61 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %60) #26
   br label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit23
 
-_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit23: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12.i15
-  %.0.i16 = phi ptr [ %59, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19 ], [ %61, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12.i15 ]
+_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit23: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14.i15
+  %.0.i16 = phi ptr [ %59, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i19 ], [ %61, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14.i15 ]
   %62 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.0.i16) #27
   br label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit.thread
 
@@ -1388,7 +1388,7 @@ define dso_local noundef ptr @_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv(
   %13 = or disjoint i32 %10, %12
   %14 = or disjoint i32 %13, %8
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %16, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12
+  br i1 %15, label %16, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1401,25 +1401,25 @@ define dso_local noundef ptr @_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv(
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %.sroa.09.0.copyload, %24
-  %.pre15 = load ptr, ptr %2, align 8
-  br i1 %25, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12
+  %.pre17 = load ptr, ptr %2, align 8
+  br i1 %25, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14
 
 _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; preds = %16
-  %26 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre15) #26
+  %26 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre17) #26
   %.not7 = icmp eq ptr %26, null
-  br i1 %.not7, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge, label %29
+  br i1 %.not7, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge, label %29
 
-_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit
+_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit
   %.pre = load ptr, ptr %2, align 8
-  br label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12
+  br label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14
 
-_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge, %4, %16
-  %27 = phi ptr [ %.pre, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge ], [ %3, %4 ], [ %.pre15, %16 ]
+_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge, %4, %16
+  %27 = phi ptr [ %.pre, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge ], [ %3, %4 ], [ %.pre17, %16 ]
   %28 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %27) #26
   br label %29
 
-29:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12, %1
-  %.0 = phi ptr [ null, %1 ], [ %26, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit ], [ %28, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12 ]
+29:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14, %1
+  %.0 = phi ptr [ null, %1 ], [ %26, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit ], [ %28, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14 ]
   ret ptr %.0
 }
 
@@ -2815,20 +2815,20 @@ define dso_local { ptr, i64 } @_ZNK5clang4ento22PathSensitiveBugReport9getRanges
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %.sroa.09.0.copyload.i, %27
-  %.pre15.i = load ptr, ptr %5, align 8
+  %.pre17.i = load ptr, ptr %5, align 8
   br i1 %28, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i, label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit
 
 _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i: ; preds = %19
-  %29 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre15.i) #26
+  %29 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %.pre17.i) #26
   %.not7.i = icmp eq ptr %29, null
-  br i1 %.not7.i, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i, label %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPKNS1_4StmtEEEbRKT0_.exit
+  br i1 %.not7.i, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i, label %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPKNS1_4StmtEEEbRKT0_.exit
 
-_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i
+_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i
   %.pre.i = load ptr, ptr %5, align 8
   br label %_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit
 
-_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit: ; preds = %7, %19, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i
-  %30 = phi ptr [ %.pre.i, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread12_crit_edge.i ], [ %6, %7 ], [ %.pre15.i, %19 ]
+_ZNK5clang4ento22PathSensitiveBugReport7getStmtEv.exit: ; preds = %7, %19, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i
+  %30 = phi ptr [ %.pre.i, %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.thread14_crit_edge.i ], [ %6, %7 ], [ %.pre17.i, %19 ]
   %31 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode21getStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %30) #26
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %.critedge, label %_ZN4llvm15isa_and_nonnullIJN5clang4ExprEEPKNS1_4StmtEEEbRKT0_.exit
@@ -2898,7 +2898,7 @@ define dso_local void @_ZNK5clang4ento22PathSensitiveBugReport11getLocationEv(pt
   %27 = and i32 %26, 3
   %28 = or disjoint i32 %25, %27
   %29 = or disjoint i32 %28, %23
-  switch i32 %29, label %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82 [
+  switch i32 %29, label %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86 [
     i32 19, label %30
     i32 18, label %39
   ]
@@ -2941,35 +2941,35 @@ _ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit: ;
   %43 = load ptr, ptr %3, align 8
   %44 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode29getPreviousStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %43) #26
   %.not42 = icmp eq ptr %44, null
-  br i1 %.not42, label %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82_crit_edge, label %.thread
+  br i1 %.not42, label %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86_crit_edge, label %.thread
 
-_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82_crit_edge: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit
+_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86_crit_edge: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit
   %.pre = load ptr, ptr %3, align 8
-  br label %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82
+  br label %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86
 
-_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82_crit_edge, %19
-  %45 = phi ptr [ %.pre, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82_crit_edge ], [ %6, %19 ]
+_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86: ; preds = %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86_crit_edge, %19
+  %45 = phi ptr [ %.pre, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit._ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86_crit_edge ], [ %6, %19 ]
   %46 = tail call noundef ptr @_ZNK5clang4ento12ExplodedNode25getNextStmtForDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(88) %45) #26
   %.not43 = icmp eq ptr %46, null
   br i1 %.not43, label %80, label %.thread
 
-.thread:                                          ; preds = %41, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit, %2, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82
-  %.090 = phi ptr [ %46, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82 ], [ %44, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit ], [ %5, %2 ], [ %42, %41 ]
-  %47 = load i8, ptr %.090, align 8
-  %.not92 = icmp eq i8 %47, -126
-  br i1 %.not92, label %48, label %51
+.thread:                                          ; preds = %41, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit, %2, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86
+  %.094 = phi ptr [ %46, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86 ], [ %44, %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit ], [ %5, %2 ], [ %42, %41 ]
+  %47 = load i8, ptr %.094, align 8
+  %.not96 = icmp eq i8 %47, -126
+  br i1 %.not96, label %48, label %51
 
 48:                                               ; preds = %.thread
-  %49 = getelementptr inbounds nuw i8, ptr %.090, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.094, i64 8
   %50 = load ptr, ptr %49, align 8
-  %.pre97 = load i8, ptr %50, align 8
+  %.pre101 = load i8, ptr %50, align 8
   br label %51
 
 51:                                               ; preds = %48, %.thread
-  %52 = phi i8 [ %.pre97, %48 ], [ %47, %.thread ]
-  %.2 = phi ptr [ %50, %48 ], [ %.090, %.thread ]
-  %.not94 = icmp eq i8 %52, 46
-  br i1 %.not94, label %53, label %54
+  %52 = phi i8 [ %.pre101, %48 ], [ %47, %.thread ]
+  %.2 = phi ptr [ %50, %48 ], [ %.094, %.thread ]
+  %.not98 = icmp eq i8 %52, 46
+  br i1 %.not98, label %53, label %54
 
 53:                                               ; preds = %51
   tail call void @_ZN5clang4ento22PathDiagnosticLocation15createMemberLocEPKNS_10MemberExprERKNS_13SourceManagerE(ptr dead_on_unwind writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %0, ptr noundef nonnull %.2, ptr noundef nonnull align 8 dereferenceable(696) %18) #26
@@ -3004,8 +3004,8 @@ _ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.th
 
 _ZNK5clang12ProgramPoint5getAsINS_24PostStmtPurgeDeadSymbolsEEESt8optionalIT_Ev.exit: ; preds = %57
   %70 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.2) #27
-  %.not96 = icmp eq i32 %70, 0
-  br i1 %.not96, label %72, label %71
+  %.not100 = icmp eq i32 %70, 0
+  br i1 %.not100, label %72, label %71
 
 71:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_24PostStmtPurgeDeadSymbolsEEESt8optionalIT_Ev.exit
   tail call void @_ZN5clang4ento22PathDiagnosticLocationC2EPKNS_4StmtERKNS_13SourceManagerEN4llvm12PointerUnionIJPKNS_15LocationContextEPNS_19AnalysisDeclContextEEEE(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %.2, ptr noundef nonnull align 8 dereferenceable(696) %18, i64 %8)
@@ -3031,7 +3031,7 @@ _ZNK5clang12ProgramPoint5getAsINS_24PostStmtPurgeDeadSymbolsEEESt8optionalIT_Ev.
   store i8 %.fca.1.extract.i58, ptr %.sroa.2.0..sroa_idx.i59, align 8
   br label %84
 
-80:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread82
+80:                                               ; preds = %_ZNK5clang12ProgramPoint5getAsINS_17FunctionExitPointEEESt8optionalIT_Ev.exit.thread86
   %81 = load ptr, ptr %3, align 8
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %81, i64 24
   %.sroa.1.0.copyload.i = load i64, ptr %.sroa.1.0..sroa_idx.i, align 8

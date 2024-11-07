@@ -1225,6 +1225,7 @@ _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12Ch
   br label %229
 
 229:                                              ; preds = %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit, %223
+  %.sroa.0125.0 = phi i32 [ %.sroa.0129.0, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit ], [ undef, %223 ]
   %.sroa.2127.0 = phi ptr [ %227, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit ], [ undef, %223 ]
   %.sroa.3128.0 = phi i64 [ %228, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit ], [ undef, %223 ]
   %.sroa.4.0 = phi i8 [ 1, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12ChecksumKindERNS0_11SmallStringILj64EEEEEENSt9enable_ifIX18is_constructible_vIS4_DpT_EERS4_E4typeEDpOSD_.exit ], [ 0, %223 ]
@@ -1240,7 +1241,7 @@ _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoINS0_9StringRefEEEE7emplaceIJRNS1_12Ch
   call void @_ZNK5clang7CodeGen11CGDebugInfo11remapDIPathB5cxx11EN4llvm9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %27, ptr noundef nonnull align 8 dereferenceable(2472) %0, ptr %236, i64 %237)
   %238 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #24
   %239 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %27) #24
-  store i32 %.sroa.0129.0, ptr %28, align 8
+  store i32 %.sroa.0125.0, ptr %28, align 8
   %.sroa.2127.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 8
   store ptr %.sroa.2127.0, ptr %.sroa.2127.0..sroa_idx, align 8
   %.sroa.3128.0..sroa_idx = getelementptr inbounds i8, ptr %28, i64 16

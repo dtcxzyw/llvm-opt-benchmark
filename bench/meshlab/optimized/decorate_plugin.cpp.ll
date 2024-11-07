@@ -1084,12 +1084,13 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %_ZN7QStringD2Ev.exi
   br i1 %.not95, label %.critedge.loopexit, label %.lr.ph.preheader
 
 .critedge.loopexit:                               ; preds = %_ZN7QStringD2Ev.exit43, %.critedge98
+  %.0.ph = phi i32 [ %45, %_ZN7QStringD2Ev.exit43 ], [ undef, %.critedge98 ]
   %cond.ph = xor i1 %51, true
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader103, %_ZN5QListIiED2Ev.exit
   %cond = phi i1 [ true, %_ZN5QListIiED2Ev.exit ], [ true, %.preheader103 ], [ %cond.ph, %.critedge.loopexit ]
-  %.0 = phi i32 [ undef, %_ZN5QListIiED2Ev.exit ], [ undef, %.preheader103 ], [ %45, %.critedge.loopexit ]
+  %.0 = phi i32 [ undef, %_ZN5QListIiED2Ev.exit ], [ undef, %.preheader103 ], [ %.0.ph, %.critedge.loopexit ]
   %65 = load ptr, ptr %4, align 8
   %66 = load atomic i32, ptr %65 monotonic, align 4
   switch i32 %66, label %_ZN9QtPrivate8RefCount5derefEv.exit.i.i [

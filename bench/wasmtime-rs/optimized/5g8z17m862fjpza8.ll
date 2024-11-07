@@ -28,9 +28,10 @@ define { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$
   %.sroa.3.0.i = extractvalue { i64, i64 } %.pn.i, 1
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
   %11 = icmp ne i64 %.sroa.0.0.i, 0
-  %. = zext i1 %11 to i64
-  %12 = insertvalue { i64, i64 } poison, i64 %., 0
-  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0.i, 1
+  %.sroa.3.0 = select i1 %11, i64 %.sroa.3.0.i, i64 undef
+  %.sroa.0.0 = zext i1 %11 to i64
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0, 1
   ret { i64, i64 } %13
 }
 

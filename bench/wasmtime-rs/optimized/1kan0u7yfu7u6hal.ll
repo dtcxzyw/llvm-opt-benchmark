@@ -3072,22 +3072,22 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$thread_local..ThreadLocal$L
   br label %2
 
 2:                                                ; preds = %.backedge.i, %1
-  %.020.i = phi i64 [ 1, %1 ], [ %spec.select.i, %.backedge.i ]
-  %.sroa.0.0.idx19.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
-  %.sroa.7.018.i = phi i64 [ 0, %1 ], [ %3, %.backedge.i ]
-  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx19.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx19.i, 8
-  %3 = add nuw nsw i64 %.sroa.7.018.i, 1
+  %.021.i = phi i64 [ 1, %1 ], [ %spec.select.i, %.backedge.i ]
+  %.sroa.0.0.idx20.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
+  %.sroa.7.019.i = phi i64 [ 0, %1 ], [ %3, %.backedge.i ]
+  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx20.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx20.i, 8
+  %3 = add nuw nsw i64 %.sroa.7.019.i, 1
   %4 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !1383, !noundef !4
-  %5 = icmp ne i64 %.sroa.7.018.i, 0
+  %5 = icmp ne i64 %.sroa.7.019.i, 0
   %6 = zext i1 %5 to i64
-  %spec.select.i = shl i64 %.020.i, %6
+  %spec.select.i = shl i64 %.021.i, %6
   %7 = icmp eq ptr %4, null
   br i1 %7, label %.backedge.i, label %8
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1386)
-  %9 = icmp eq i64 %.020.i, 0
+  %9 = icmp eq i64 %.021.i, 0
   br i1 %9, label %.backedge.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i"
@@ -3115,11 +3115,11 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$thread_local..ThreadLocal$L
   br label %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i"
 
 "_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i": ; preds = %18, %15, %.lr.ph.i.i.i
-  %21 = icmp eq i64 %11, %.020.i
+  %21 = icmp eq i64 %11, %.021.i
   br i1 %21, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i", label %.lr.ph.i.i.i
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i": ; preds = %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i"
-  %22 = mul nsw i64 %.020.i, 40
+  %22 = mul nsw i64 %.021.i, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %22, i64 noundef 8) #23, !noalias !1383
   br label %.backedge.i
 
@@ -3686,22 +3686,22 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$thread_local..ThreadLocal$L
   br label %2
 
 2:                                                ; preds = %.backedge.i, %1
-  %.020.i = phi i64 [ 1, %1 ], [ %spec.select.i, %.backedge.i ]
-  %.sroa.0.0.idx19.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
-  %.sroa.7.018.i = phi i64 [ 0, %1 ], [ %3, %.backedge.i ]
-  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx19.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx19.i, 8
-  %3 = add nuw nsw i64 %.sroa.7.018.i, 1
+  %.021.i = phi i64 [ 1, %1 ], [ %spec.select.i, %.backedge.i ]
+  %.sroa.0.0.idx20.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
+  %.sroa.7.019.i = phi i64 [ 0, %1 ], [ %3, %.backedge.i ]
+  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx20.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx20.i, 8
+  %3 = add nuw nsw i64 %.sroa.7.019.i, 1
   %4 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !1601, !noundef !4
-  %5 = icmp ne i64 %.sroa.7.018.i, 0
+  %5 = icmp ne i64 %.sroa.7.019.i, 0
   %6 = zext i1 %5 to i64
-  %spec.select.i = shl i64 %.020.i, %6
+  %spec.select.i = shl i64 %.021.i, %6
   %7 = icmp eq ptr %4, null
   br i1 %7, label %.backedge.i, label %8
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1604)
-  %9 = icmp eq i64 %.020.i, 0
+  %9 = icmp eq i64 %.021.i, 0
   br i1 %9, label %.backedge.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8, %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i"
@@ -3734,11 +3734,11 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$thread_local..ThreadLocal$L
   br label %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i"
 
 "_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i": ; preds = %19, %15, %.lr.ph.i.i.i
-  %23 = icmp eq i64 %11, %.020.i
+  %23 = icmp eq i64 %11, %.021.i
   br i1 %23, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i", label %.lr.ph.i.i.i
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i": ; preds = %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i"
-  %24 = mul nsw i64 %.020.i, 40
+  %24 = mul nsw i64 %.021.i, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %4, i64 noundef %24, i64 noundef 8) #23, !noalias !1601
   br label %.backedge.i
 
@@ -11245,22 +11245,22 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$tracing_subscriber..filter..
   br label %38
 
 38:                                               ; preds = %.backedge.i.i, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7"
-  %.020.i.i = phi i64 [ 1, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7" ], [ %spec.select.i.i, %.backedge.i.i ]
-  %.sroa.0.0.idx19.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
-  %.sroa.7.018.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7" ], [ %39, %.backedge.i.i ]
-  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.0.idx19.i.i
-  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx19.i.i, 8
-  %39 = add nuw nsw i64 %.sroa.7.018.i.i, 1
+  %.021.i.i = phi i64 [ 1, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7" ], [ %spec.select.i.i, %.backedge.i.i ]
+  %.sroa.0.0.idx20.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
+  %.sroa.7.019.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17hf3c5fcd8ec5b0927E.llvm.3847999990672408200.exit7" ], [ %39, %.backedge.i.i ]
+  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %37, i64 %.sroa.0.0.idx20.i.i
+  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx20.i.i, 8
+  %39 = add nuw nsw i64 %.sroa.7.019.i.i, 1
   %40 = load ptr, ptr %.sroa.0.0.ptr.i.i, align 8, !alias.scope !4788, !noundef !4
-  %41 = icmp ne i64 %.sroa.7.018.i.i, 0
+  %41 = icmp ne i64 %.sroa.7.019.i.i, 0
   %42 = zext i1 %41 to i64
-  %spec.select.i.i = shl i64 %.020.i.i, %42
+  %spec.select.i.i = shl i64 %.021.i.i, %42
   %43 = icmp eq ptr %40, null
   br i1 %43, label %.backedge.i.i, label %44
 
 44:                                               ; preds = %38
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4789)
-  %45 = icmp eq i64 %.020.i.i, 0
+  %45 = icmp eq i64 %.021.i.i, 0
   br i1 %45, label %.backedge.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %44, %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i.i"
@@ -11293,11 +11293,11 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$tracing_subscriber..filter..
   br label %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i.i"
 
 "_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i.i": ; preds = %55, %51, %.lr.ph.i.i.i.i
-  %59 = icmp eq i64 %47, %.020.i.i
+  %59 = icmp eq i64 %47, %.021.i.i
   br i1 %59, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i.i", label %.lr.ph.i.i.i.i
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i.i": ; preds = %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i.i.i"
-  %60 = mul nsw i64 %.020.i.i, 40
+  %60 = mul nsw i64 %.021.i.i, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %60, i64 noundef 8) #23, !noalias !4788
   br label %.backedge.i.i
 
@@ -11732,22 +11732,22 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$tracing_subscriber..registry
   br label %17
 
 17:                                               ; preds = %.backedge.i.i, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit"
-  %.020.i.i = phi i64 [ 1, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit" ], [ %spec.select.i.i, %.backedge.i.i ]
-  %.sroa.0.0.idx19.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
-  %.sroa.7.018.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit" ], [ %18, %.backedge.i.i ]
-  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 %.sroa.0.0.idx19.i.i
-  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx19.i.i, 8
-  %18 = add nuw nsw i64 %.sroa.7.018.i.i, 1
+  %.021.i.i = phi i64 [ 1, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit" ], [ %spec.select.i.i, %.backedge.i.i ]
+  %.sroa.0.0.idx20.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
+  %.sroa.7.019.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17he8c7c5e2882be9a6E.llvm.3847999990672408200.exit" ], [ %18, %.backedge.i.i ]
+  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %16, i64 %.sroa.0.0.idx20.i.i
+  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx20.i.i, 8
+  %18 = add nuw nsw i64 %.sroa.7.019.i.i, 1
   %19 = load ptr, ptr %.sroa.0.0.ptr.i.i, align 8, !alias.scope !5080, !noundef !4
-  %20 = icmp ne i64 %.sroa.7.018.i.i, 0
+  %20 = icmp ne i64 %.sroa.7.019.i.i, 0
   %21 = zext i1 %20 to i64
-  %spec.select.i.i = shl i64 %.020.i.i, %21
+  %spec.select.i.i = shl i64 %.021.i.i, %21
   %22 = icmp eq ptr %19, null
   br i1 %22, label %.backedge.i.i, label %23
 
 23:                                               ; preds = %17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5081)
-  %24 = icmp eq i64 %.020.i.i, 0
+  %24 = icmp eq i64 %.021.i.i, 0
   br i1 %24, label %.backedge.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %23, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i.i"
@@ -11775,11 +11775,11 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$tracing_subscriber..registry
   br label %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i.i"
 
 "_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i.i": ; preds = %33, %30, %.lr.ph.i.i.i.i
-  %36 = icmp eq i64 %26, %.020.i.i
+  %36 = icmp eq i64 %26, %.021.i.i
   br i1 %36, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i.i", label %.lr.ph.i.i.i.i
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i.i.i": ; preds = %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i.i.i"
-  %37 = mul nsw i64 %.020.i.i, 40
+  %37 = mul nsw i64 %.021.i.i, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef %37, i64 noundef 8) #23, !noalias !5080
   br label %.backedge.i.i
 
@@ -20514,22 +20514,22 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   ret void
 
 3:                                                ; preds = %1, %.backedge
-  %.020 = phi i64 [ 1, %1 ], [ %spec.select, %.backedge ]
-  %.sroa.0.0.idx19 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
-  %.sroa.7.018 = phi i64 [ 0, %1 ], [ %4, %.backedge ]
-  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx19
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx19, 8
-  %4 = add nuw nsw i64 %.sroa.7.018, 1
+  %.021 = phi i64 [ 1, %1 ], [ %spec.select, %.backedge ]
+  %.sroa.0.0.idx20 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
+  %.sroa.7.019 = phi i64 [ 0, %1 ], [ %4, %.backedge ]
+  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx20
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx20, 8
+  %4 = add nuw nsw i64 %.sroa.7.019, 1
   %5 = load ptr, ptr %.sroa.0.0.ptr, align 8, !noundef !4
-  %6 = icmp ne i64 %.sroa.7.018, 0
+  %6 = icmp ne i64 %.sroa.7.019, 0
   %7 = zext i1 %6 to i64
-  %spec.select = shl i64 %.020, %7
+  %spec.select = shl i64 %.021, %7
   %8 = icmp eq ptr %5, null
   br i1 %8, label %.backedge, label %9
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8017)
-  %10 = icmp eq i64 %.020, 0
+  %10 = icmp eq i64 %.021, 0
   br i1 %10, label %.backedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i"
@@ -20562,11 +20562,11 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   br label %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i"
 
 "_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i": ; preds = %20, %16, %.lr.ph.i.i
-  %24 = icmp eq i64 %12, %.020
+  %24 = icmp eq i64 %12, %.021
   br i1 %24, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i", label %.lr.ph.i.i
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i": ; preds = %"_ZN4core3ptr133drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$alloc..vec..Vec$LT$tracing_core..metadata..LevelFilter$GT$$GT$$GT$$GT$17hc6145099feac2a6cE.llvm.3847999990672408200.exit.i.i"
-  %25 = mul nsw i64 %.020, 40
+  %25 = mul nsw i64 %.021, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %25, i64 noundef 8) #23
   br label %.backedge
 
@@ -20583,22 +20583,22 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   ret void
 
 3:                                                ; preds = %1, %.backedge
-  %.020 = phi i64 [ 1, %1 ], [ %spec.select, %.backedge ]
-  %.sroa.0.0.idx19 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
-  %.sroa.7.018 = phi i64 [ 0, %1 ], [ %4, %.backedge ]
-  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx19
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx19, 8
-  %4 = add nuw nsw i64 %.sroa.7.018, 1
+  %.021 = phi i64 [ 1, %1 ], [ %spec.select, %.backedge ]
+  %.sroa.0.0.idx20 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
+  %.sroa.7.019 = phi i64 [ 0, %1 ], [ %4, %.backedge ]
+  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx20
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx20, 8
+  %4 = add nuw nsw i64 %.sroa.7.019, 1
   %5 = load ptr, ptr %.sroa.0.0.ptr, align 8, !noundef !4
-  %6 = icmp ne i64 %.sroa.7.018, 0
+  %6 = icmp ne i64 %.sroa.7.019, 0
   %7 = zext i1 %6 to i64
-  %spec.select = shl i64 %.020, %7
+  %spec.select = shl i64 %.021, %7
   %8 = icmp eq ptr %5, null
   br i1 %8, label %.backedge, label %9
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8048)
-  %10 = icmp eq i64 %.020, 0
+  %10 = icmp eq i64 %.021, 0
   br i1 %10, label %.backedge, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i"
@@ -20626,11 +20626,11 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   br label %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i"
 
 "_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i": ; preds = %19, %16, %.lr.ph.i.i
-  %22 = icmp eq i64 %12, %.020
+  %22 = icmp eq i64 %12, %.021
   br i1 %22, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i", label %.lr.ph.i.i
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.3847999990672408200.exit.i4.i": ; preds = %"_ZN4core3ptr121drop_in_place$LT$thread_local..Entry$LT$core..cell..RefCell$LT$tracing_subscriber..registry..stack..SpanStack$GT$$GT$$GT$17h711a8e53a2a42226E.exit.i.i"
-  %23 = mul nsw i64 %.020, 40
+  %23 = mul nsw i64 %.021, 40
   tail call void @__rust_dealloc(ptr noundef nonnull %5, i64 noundef %23, i64 noundef 8) #23
   br label %.backedge
 

@@ -66778,6 +66778,7 @@ _ZL12stbi__at_eofP13stbi__context.exit.thread.i:  ; preds = %_ZL12stbi__at_eofP1
   br label %.cont
 
 .cont:                                            ; preds = %214, %.else
+  %.2 = phi i32 [ undef, %.else ], [ %216, %214 ]
   br i1 %63, label %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit, label %.preheader264.lr.ph.i
 
 .preheader264.lr.ph.i:                            ; preds = %.cont
@@ -67576,7 +67577,7 @@ _ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit: ; preds = %540, %.cont
   store i32 %50, ptr %2, align 4
   %542 = icmp ne i32 %4, 0
   %brmerge = or i1 %.not, %542
-  %.mux = select i1 %542, i32 %4, i32 %216
+  %.mux = select i1 %542, i32 %4, i32 %.2
   br i1 %brmerge, label %.cont1, label %.else2
 
 .else2:                                           ; preds = %_ZL19stbi__pic_load_coreP13stbi__contextiiPiPh.exit

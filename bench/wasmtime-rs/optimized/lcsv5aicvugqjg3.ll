@@ -814,16 +814,16 @@ define noundef ptr @_ZN13wasmtime_wast4core10match_v12817h48755488c322c4b2E(i128
   %39 = alloca [16 x i8], align 16
   %40 = alloca ptr, align 8
   %41 = load i8, ptr %1, align 8, !range !31, !noundef !4
-  switch i8 %41, label %default.unreachable224 [
+  switch i8 %41, label %default.unreachable226 [
     i8 0, label %42
     i8 1, label %93
     i8 2, label %120
     i8 3, label %135
     i8 4, label %.preheader
-    i8 5, label %.preheader213
+    i8 5, label %.preheader215
   ]
 
-default.unreachable224:                           ; preds = %2
+default.unreachable226:                           ; preds = %2
   unreachable
 
 42:                                               ; preds = %2
@@ -1343,12 +1343,12 @@ default.unreachable224:                           ; preds = %2
   br label %.loopexit
 
 .preheader:                                       ; preds = %2, %216
-  %.sroa.0.0.idx219 = phi i64 [ %.sroa.0.0.add, %216 ], [ 4, %2 ]
-  %.sroa.8.0218 = phi i64 [ %217, %216 ], [ 0, %2 ]
-  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.0.idx219
+  %.sroa.0.0.idx221 = phi i64 [ %.sroa.0.0.add, %216 ], [ 4, %2 ]
+  %.sroa.8.0220 = phi i64 [ %217, %216 ], [ 0, %2 ]
+  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.sroa.0.0.idx221
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16)
-  store i64 %.sroa.8.0218, ptr %16, align 8
-  %200 = shl i64 %.sroa.8.0218, 5
+  store i64 %.sroa.8.0220, ptr %16, align 8
+  %200 = shl i64 %.sroa.8.0220, 5
   %201 = zext nneg i64 %200 to i128
   %202 = lshr i128 %0, %201
   %203 = trunc i128 %202 to i32
@@ -1394,8 +1394,8 @@ common.resume:                                    ; preds = %234, %212
   unreachable
 
 216:                                              ; preds = %.preheader
-  %217 = add nuw nsw i64 %.sroa.8.0218, 1
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx219, 8
+  %217 = add nuw nsw i64 %.sroa.8.0220, 1
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx221, 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   %218 = icmp eq i64 %.sroa.0.0.add, 36
   br i1 %218, label %.loopexit, label %.preheader
@@ -1417,13 +1417,13 @@ common.resume:                                    ; preds = %234, %212
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   br label %.loopexit
 
-.preheader213:                                    ; preds = %2, %238
-  %.sroa.8202.0217 = phi i64 [ %239, %238 ], [ 0, %2 ]
-  %.sroa.0200.0.idx216 = phi i64 [ %.sroa.0200.0.add, %238 ], [ 8, %2 ]
-  %.sroa.0200.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.sroa.0200.0.idx216
+.preheader215:                                    ; preds = %2, %238
+  %.sroa.8202.0219 = phi i64 [ %239, %238 ], [ 0, %2 ]
+  %.sroa.0200.0.idx218 = phi i64 [ %.sroa.0200.0.add, %238 ], [ 8, %2 ]
+  %.sroa.0200.0.ptr = getelementptr inbounds i8, ptr %1, i64 %.sroa.0200.0.idx218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15)
-  store i64 %.sroa.8202.0217, ptr %15, align 8
-  %222 = shl i64 %.sroa.8202.0217, 6
+  store i64 %.sroa.8202.0219, ptr %15, align 8
+  %222 = shl i64 %.sroa.8202.0219, 6
   %223 = zext nneg i64 %222 to i128
   %224 = lshr i128 %0, %223
   %225 = trunc i128 %224 to i64
@@ -1431,7 +1431,7 @@ common.resume:                                    ; preds = %234, %212
   %227 = icmp eq ptr %226, null
   br i1 %227, label %238, label %228
 
-228:                                              ; preds = %.preheader213
+228:                                              ; preds = %.preheader215
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !51
   store ptr %226, ptr %8, align 8, !noalias !51
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !51
@@ -1464,12 +1464,12 @@ common.resume:                                    ; preds = %234, %212
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #8
   unreachable
 
-238:                                              ; preds = %.preheader213
-  %239 = add nuw nsw i64 %.sroa.8202.0217, 1
-  %.sroa.0200.0.add = add nuw nsw i64 %.sroa.0200.0.idx216, 16
+238:                                              ; preds = %.preheader215
+  %239 = add nuw nsw i64 %.sroa.8202.0219, 1
+  %.sroa.0200.0.add = add nuw nsw i64 %.sroa.0200.0.idx218, 16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15)
   %240 = icmp eq i64 %.sroa.0200.0.add, 40
-  br i1 %240, label %.loopexit, label %.preheader213
+  br i1 %240, label %.loopexit, label %.preheader215
 
 241:                                              ; preds = %228
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !54

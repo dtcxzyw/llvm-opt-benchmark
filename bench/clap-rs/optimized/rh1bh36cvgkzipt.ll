@@ -1785,9 +1785,9 @@ define hidden { i64, i128 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i.i": ; preds = %29
   %22 = icmp eq ptr %25, %18
-  br i1 %22, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i.i.i", label %23
+  br i1 %22, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i.i.i", label %23
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i.i.i": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i.i.i": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i.i"
   store ptr %25, ptr %0, align 8, !alias.scope !783, !noalias !786
   store ptr %28, ptr %20, align 8, !alias.scope !788, !noalias !791
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i"
@@ -1802,62 +1802,62 @@ define hidden { i64, i128 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %28 = getelementptr inbounds { { ptr, ptr }, i128 }, ptr %.val13.i.i.i.i.i, i64 %.val14.i.i.i.i.i
   br label %29
 
-29:                                               ; preds = %32, %23
-  %30 = phi ptr [ %33, %32 ], [ %.val13.i.i.i.i.i, %23 ]
-  %31 = icmp eq ptr %30, %28
-  br i1 %31, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i.i", label %32
+29:                                               ; preds = %31, %23
+  %30 = phi ptr [ %32, %31 ], [ %.val13.i.i.i.i.i, %23 ]
+  %.not13.not.not.i.not.i.i.i = icmp eq ptr %30, %28
+  br i1 %.not13.not.not.i.not.i.i.i, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i.i", label %31
 
-32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %30, i64 32
-  %34 = getelementptr i8, ptr %30, i64 16
-  %.val12.i.i.i.i.i.i.i.i = load i128, ptr %34, align 8, !alias.scope !793, !noalias !796, !noundef !4
+31:                                               ; preds = %29
+  %32 = getelementptr inbounds i8, ptr %30, i64 32
+  %33 = getelementptr i8, ptr %30, i64 16
+  %.val12.i.i.i.i.i.i.i.i = load i128, ptr %33, align 8, !alias.scope !793, !noalias !796, !noundef !4
   %.not.i.i.i.not.i.i.i.i.i.i.i.i = icmp eq i128 %.val12.i.i.i.i.i.i.i.i, %21
-  br i1 %.not.i.i.i.not.i.i.i.i.i.i.i.i, label %29, label %37
+  br i1 %.not.i.i.i.not.i.i.i.i.i.i.i.i, label %29, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i.i"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i.i.i", %16, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread.i.i.i"
-  store ptr null, ptr %3, align 8, !alias.scope !754, !noalias !755
-  %35 = getelementptr inbounds i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !alias.scope !754, !noalias !755, !noundef !4
-  %.not37.i.i.i = icmp eq ptr %36, null
-  br i1 %.not37.i.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i.i", label %38
-
-37:                                               ; preds = %32
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i.i": ; preds = %31
   store ptr %25, ptr %0, align 8, !alias.scope !783, !noalias !786
-  store ptr %33, ptr %3, align 8, !alias.scope !802, !noalias !791
+  store ptr %32, ptr %3, align 8, !alias.scope !802, !noalias !791
   store ptr %28, ptr %20, align 8, !alias.scope !788, !noalias !791
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h53f91dfede3c410aE.llvm.16538095213602398362.exit"
 
-38:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i.i.i", %16, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread.i.i.i"
+  store ptr null, ptr %3, align 8, !alias.scope !754, !noalias !755
+  %34 = getelementptr inbounds i8, ptr %0, i64 32
+  %35 = load ptr, ptr %34, align 8, !alias.scope !754, !noalias !755, !noundef !4
+  %.not37.i.i.i = icmp eq ptr %35, null
+  br i1 %.not37.i.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i.i", label %36
+
+36:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !803)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !806)
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !alias.scope !809, !noalias !812, !nonnull !4, !noundef !4
-  %41 = load i128, ptr %1, align 8, !alias.scope !755, !noalias !754
-  br label %42
+  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = load ptr, ptr %37, align 8, !alias.scope !809, !noalias !812, !nonnull !4, !noundef !4
+  %39 = load i128, ptr %1, align 8, !alias.scope !755, !noalias !754
+  br label %40
 
-42:                                               ; preds = %45, %38
-  %43 = phi ptr [ %46, %45 ], [ %36, %38 ]
-  %44 = icmp eq ptr %43, %40
-  br i1 %44, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i.i", label %45
+40:                                               ; preds = %43, %36
+  %41 = phi ptr [ %44, %43 ], [ %35, %36 ]
+  %42 = icmp eq ptr %41, %38
+  br i1 %42, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i.i", label %43
 
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds i8, ptr %43, i64 32
-  store ptr %46, ptr %35, align 8, !alias.scope !809, !noalias !812
-  %47 = getelementptr i8, ptr %43, i64 16
-  %.val12.i.i46.i.i.i = load i128, ptr %47, align 8, !alias.scope !814, !noalias !817, !noundef !4
-  %.not.i.i.i.not.i.i47.i.i.i = icmp eq i128 %.val12.i.i46.i.i.i, %41
-  br i1 %.not.i.i.i.not.i.i47.i.i.i, label %42, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h53f91dfede3c410aE.llvm.16538095213602398362.exit"
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %41, i64 32
+  store ptr %44, ptr %34, align 8, !alias.scope !809, !noalias !812
+  %45 = getelementptr i8, ptr %41, i64 16
+  %.val12.i.i48.i.i.i = load i128, ptr %45, align 8, !alias.scope !814, !noalias !817, !noundef !4
+  %.not.i.i.i.not.i.i49.i.i.i = icmp eq i128 %.val12.i.i48.i.i.i, %39
+  br i1 %.not.i.i.i.not.i.i49.i.i.i, label %40, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h53f91dfede3c410aE.llvm.16538095213602398362.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i.i": ; preds = %42, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i"
-  store ptr null, ptr %35, align 8, !alias.scope !754, !noalias !755
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i.i": ; preds = %40, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i.i"
+  store ptr null, ptr %34, align 8, !alias.scope !754, !noalias !755
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h53f91dfede3c410aE.llvm.16538095213602398362.exit"
 
-"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h53f91dfede3c410aE.llvm.16538095213602398362.exit": ; preds = %12, %45, %37, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i.i"
-  %.sroa.5.0.i.i.i = phi i128 [ %.val12.i.i.i.i.i.i.i.i, %37 ], [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i.i" ], [ %.val12.i.i46.i.i.i, %45 ], [ %.val12.i.i.i.i.i, %12 ]
-  %.sroa.0.0.i.i.i = phi i64 [ 1, %37 ], [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i.i" ], [ 1, %45 ], [ 1, %12 ]
-  %48 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0.i.i.i, 0
-  %49 = insertvalue { i64, i128 } %48, i128 %.sroa.5.0.i.i.i, 1
-  ret { i64, i128 } %49
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h53f91dfede3c410aE.llvm.16538095213602398362.exit": ; preds = %12, %43, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i.i", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i.i"
+  %.sroa.5.0.i.i.i = phi i128 [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i.i" ], [ %.val12.i.i.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i.i" ], [ %.val12.i.i48.i.i.i, %43 ], [ %.val12.i.i.i.i.i, %12 ]
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i.i" ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i.i" ], [ 1, %43 ], [ 1, %12 ]
+  %46 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0.i.i.i, 0
+  %47 = insertvalue { i64, i128 } %46, i128 %.sroa.5.0.i.i.i, 1
+  ret { i64, i128 } %47
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
@@ -2208,9 +2208,10 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb8e581e5a3fef0d9E.llvm.16538095213602398362.exit, label %5
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hb8e581e5a3fef0d9E.llvm.16538095213602398362.exit: ; preds = %5, %8
+  %.sroa.3.0.i = phi i64 [ undef, %8 ], [ %.0.i, %5 ]
   %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %5 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.0.i, 1
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %15
 }
 
@@ -2381,9 +2382,10 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ebf505020e22616E.llvm.16538095213602398362.exit, label %5
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h5ebf505020e22616E.llvm.16538095213602398362.exit: ; preds = %5, %8
+  %.sroa.3.0.i = phi i64 [ undef, %8 ], [ %.0.i, %5 ]
   %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %5 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.0.i, 1
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %15
 }
 
@@ -2606,9 +2608,10 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hde81a876564a26adE.llvm.16538095213602398362.exit, label %5
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17hde81a876564a26adE.llvm.16538095213602398362.exit: ; preds = %5, %8
+  %.sroa.3.0.i = phi i64 [ undef, %8 ], [ %.0.i, %5 ]
   %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %5 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.0.i, 1
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %15
 }
 
@@ -3049,9 +3052,9 @@ define hidden { i64, i128 } @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i": ; preds = %30
   %23 = icmp eq ptr %26, %19
-  br i1 %23, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i.i", label %24
+  br i1 %23, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i.i", label %24
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i.i": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i.i": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i"
   store ptr %26, ptr %0, align 8, !alias.scope !1349, !noalias !1352
   store ptr %29, ptr %21, align 8, !alias.scope !1354, !noalias !1357
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i"
@@ -3066,62 +3069,62 @@ define hidden { i64, i128 } @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$
   %29 = getelementptr inbounds { { ptr, ptr }, i128 }, ptr %.val13.i.i.i.i, i64 %.val14.i.i.i.i
   br label %30
 
-30:                                               ; preds = %33, %24
-  %31 = phi ptr [ %34, %33 ], [ %.val13.i.i.i.i, %24 ]
-  %32 = icmp eq ptr %31, %29
-  br i1 %32, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i", label %33
+30:                                               ; preds = %32, %24
+  %31 = phi ptr [ %33, %32 ], [ %.val13.i.i.i.i, %24 ]
+  %.not13.not.not.i.not.i.i = icmp eq ptr %31, %29
+  br i1 %.not13.not.not.i.not.i.i, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i.i", label %32
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
-  %35 = getelementptr i8, ptr %31, i64 16
-  %.val12.i.i.i.i.i.i.i = load i128, ptr %35, align 8, !alias.scope !1359, !noalias !1362, !noundef !4
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr i8, ptr %31, i64 16
+  %.val12.i.i.i.i.i.i.i = load i128, ptr %34, align 8, !alias.scope !1359, !noalias !1362, !noundef !4
   %.not.i.i.i.not.i.i.i.i.i.i.i = icmp eq i128 %.val12.i.i.i.i.i.i.i, %22
-  br i1 %.not.i.i.i.not.i.i.i.i.i.i.i, label %30, label %38
+  br i1 %.not.i.i.i.not.i.i.i.i.i.i.i, label %30, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i.i", %17, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread.i.i"
-  store ptr null, ptr %4, align 8, !alias.scope !1320, !noalias !1321
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8, !alias.scope !1320, !noalias !1321, !noundef !4
-  %.not37.i.i = icmp eq ptr %37, null
-  br i1 %.not37.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i", label %39
-
-38:                                               ; preds = %33
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i": ; preds = %32
   store ptr %26, ptr %0, align 8, !alias.scope !1349, !noalias !1352
-  store ptr %34, ptr %4, align 8, !alias.scope !1368, !noalias !1357
+  store ptr %33, ptr %4, align 8, !alias.scope !1368, !noalias !1357
   store ptr %29, ptr %21, align 8, !alias.scope !1354, !noalias !1357
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1de76e8e2868a1aaE.llvm.16538095213602398362.exit"
 
-39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i.i", %17, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread.i.i"
+  store ptr null, ptr %4, align 8, !alias.scope !1320, !noalias !1321
+  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8, !alias.scope !1320, !noalias !1321, !noundef !4
+  %.not37.i.i = icmp eq ptr %36, null
+  br i1 %.not37.i.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i", label %37
+
+37:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1369)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1372)
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !alias.scope !1375, !noalias !1378, !nonnull !4, !noundef !4
-  %42 = load i128, ptr %1, align 8, !alias.scope !1321, !noalias !1320
-  br label %43
+  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = load ptr, ptr %38, align 8, !alias.scope !1375, !noalias !1378, !nonnull !4, !noundef !4
+  %40 = load i128, ptr %1, align 8, !alias.scope !1321, !noalias !1320
+  br label %41
 
-43:                                               ; preds = %46, %39
-  %44 = phi ptr [ %47, %46 ], [ %37, %39 ]
-  %45 = icmp eq ptr %44, %41
-  br i1 %45, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i", label %46
+41:                                               ; preds = %44, %37
+  %42 = phi ptr [ %45, %44 ], [ %36, %37 ]
+  %43 = icmp eq ptr %42, %39
+  br i1 %43, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i", label %44
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %47, ptr %36, align 8, !alias.scope !1375, !noalias !1378
-  %48 = getelementptr i8, ptr %44, i64 16
-  %.val12.i.i46.i.i = load i128, ptr %48, align 8, !alias.scope !1380, !noalias !1383, !noundef !4
-  %.not.i.i.i.not.i.i47.i.i = icmp eq i128 %.val12.i.i46.i.i, %42
-  br i1 %.not.i.i.i.not.i.i47.i.i, label %43, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1de76e8e2868a1aaE.llvm.16538095213602398362.exit"
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr %45, ptr %35, align 8, !alias.scope !1375, !noalias !1378
+  %46 = getelementptr i8, ptr %42, i64 16
+  %.val12.i.i48.i.i = load i128, ptr %46, align 8, !alias.scope !1380, !noalias !1383, !noundef !4
+  %.not.i.i.i.not.i.i49.i.i = icmp eq i128 %.val12.i.i48.i.i, %40
+  br i1 %.not.i.i.i.not.i.i49.i.i, label %41, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1de76e8e2868a1aaE.llvm.16538095213602398362.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i": ; preds = %43, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i"
-  store ptr null, ptr %36, align 8, !alias.scope !1320, !noalias !1321
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i": ; preds = %41, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i.i"
+  store ptr null, ptr %35, align 8, !alias.scope !1320, !noalias !1321
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1de76e8e2868a1aaE.llvm.16538095213602398362.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1de76e8e2868a1aaE.llvm.16538095213602398362.exit": ; preds = %13, %46, %38, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i"
-  %.sroa.5.0.i.i = phi i128 [ %.val12.i.i.i.i.i.i.i, %38 ], [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i" ], [ %.val12.i.i46.i.i, %46 ], [ %.val12.i.i.i.i, %13 ]
-  %.sroa.0.0.i.i = phi i64 [ 1, %38 ], [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i.i" ], [ 1, %46 ], [ 1, %13 ]
-  %49 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0.i.i, 0
-  %50 = insertvalue { i64, i128 } %49, i128 %.sroa.5.0.i.i, 1
-  ret { i64, i128 } %50
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h1de76e8e2868a1aaE.llvm.16538095213602398362.exit": ; preds = %13, %44, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i"
+  %.sroa.5.0.i.i = phi i128 [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i" ], [ %.val12.i.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i" ], [ %.val12.i.i48.i.i, %44 ], [ %.val12.i.i.i.i, %13 ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i.i" ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i.i" ], [ 1, %44 ], [ 1, %13 ]
+  %47 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0.i.i, 0
+  %48 = insertvalue { i64, i128 } %47, i128 %.sroa.5.0.i.i, 1
+  ret { i64, i128 } %48
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -3520,9 +3523,9 @@ define hidden { i64, i128 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i": ; preds = %30
   %23 = icmp eq ptr %26, %19
-  br i1 %23, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i", label %24
+  br i1 %23, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i", label %24
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i"
   store ptr %26, ptr %0, align 8, !alias.scope !1617, !noalias !1620
   store ptr %29, ptr %21, align 8, !alias.scope !1622, !noalias !1625
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i"
@@ -3537,62 +3540,62 @@ define hidden { i64, i128 } @"_ZN116_$LT$core..iter..adapters..flatten..FlattenC
   %29 = getelementptr inbounds { { ptr, ptr }, i128 }, ptr %.val13.i.i.i, i64 %.val14.i.i.i
   br label %30
 
-30:                                               ; preds = %33, %24
-  %31 = phi ptr [ %34, %33 ], [ %.val13.i.i.i, %24 ]
-  %32 = icmp eq ptr %31, %29
-  br i1 %32, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i", label %33
+30:                                               ; preds = %32, %24
+  %31 = phi ptr [ %33, %32 ], [ %.val13.i.i.i, %24 ]
+  %.not13.not.not.i.not.i = icmp eq ptr %31, %29
+  br i1 %.not13.not.not.i.not.i, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i.i", label %32
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
-  %35 = getelementptr i8, ptr %31, i64 16
-  %.val12.i.i.i.i.i.i = load i128, ptr %35, align 8, !alias.scope !1627, !noalias !1630, !noundef !4
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr i8, ptr %31, i64 16
+  %.val12.i.i.i.i.i.i = load i128, ptr %34, align 8, !alias.scope !1627, !noalias !1630, !noundef !4
   %.not.i.i.i.not.i.i.i.i.i.i = icmp eq i128 %.val12.i.i.i.i.i.i, %22
-  br i1 %.not.i.i.i.not.i.i.i.i.i.i, label %30, label %38
+  br i1 %.not.i.i.i.not.i.i.i.i.i.i, label %30, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57.i", %17, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread.i"
-  store ptr null, ptr %4, align 8, !alias.scope !1585, !noalias !1588
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8, !alias.scope !1585, !noalias !1588, !noundef !4
-  %.not37.i = icmp eq ptr %37, null
-  br i1 %.not37.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i", label %39
-
-38:                                               ; preds = %33
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i": ; preds = %32
   store ptr %26, ptr %0, align 8, !alias.scope !1617, !noalias !1620
-  store ptr %34, ptr %4, align 8, !alias.scope !1636, !noalias !1625
+  store ptr %33, ptr %4, align 8, !alias.scope !1636, !noalias !1625
   store ptr %29, ptr %21, align 8, !alias.scope !1622, !noalias !1625
   br label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hcbc6afbc090b6929E.llvm.16538095213602398362.exit"
 
-39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83.i", %17, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread.i"
+  store ptr null, ptr %4, align 8, !alias.scope !1585, !noalias !1588
+  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8, !alias.scope !1585, !noalias !1588, !noundef !4
+  %.not37.i = icmp eq ptr %36, null
+  br i1 %.not37.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i", label %37
+
+37:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1637)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1640)
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !alias.scope !1643, !noalias !1646, !nonnull !4, !noundef !4
-  %42 = load i128, ptr %1, align 8, !alias.scope !1588, !noalias !1585
-  br label %43
+  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = load ptr, ptr %38, align 8, !alias.scope !1643, !noalias !1646, !nonnull !4, !noundef !4
+  %40 = load i128, ptr %1, align 8, !alias.scope !1588, !noalias !1585
+  br label %41
 
-43:                                               ; preds = %46, %39
-  %44 = phi ptr [ %47, %46 ], [ %37, %39 ]
-  %45 = icmp eq ptr %44, %41
-  br i1 %45, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i", label %46
+41:                                               ; preds = %44, %37
+  %42 = phi ptr [ %45, %44 ], [ %36, %37 ]
+  %43 = icmp eq ptr %42, %39
+  br i1 %43, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i", label %44
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %47, ptr %36, align 8, !alias.scope !1643, !noalias !1646
-  %48 = getelementptr i8, ptr %44, i64 16
-  %.val12.i.i46.i = load i128, ptr %48, align 8, !alias.scope !1648, !noalias !1651, !noundef !4
-  %.not.i.i.i.not.i.i47.i = icmp eq i128 %.val12.i.i46.i, %42
-  br i1 %.not.i.i.i.not.i.i47.i, label %43, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hcbc6afbc090b6929E.llvm.16538095213602398362.exit"
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr %45, ptr %35, align 8, !alias.scope !1643, !noalias !1646
+  %46 = getelementptr i8, ptr %42, i64 16
+  %.val12.i.i48.i = load i128, ptr %46, align 8, !alias.scope !1648, !noalias !1651, !noundef !4
+  %.not.i.i.i.not.i.i49.i = icmp eq i128 %.val12.i.i48.i, %40
+  br i1 %.not.i.i.i.not.i.i49.i, label %41, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hcbc6afbc090b6929E.llvm.16538095213602398362.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i": ; preds = %43, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i"
-  store ptr null, ptr %36, align 8, !alias.scope !1585, !noalias !1588
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i": ; preds = %41, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread.i"
+  store ptr null, ptr %35, align 8, !alias.scope !1585, !noalias !1588
   br label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hcbc6afbc090b6929E.llvm.16538095213602398362.exit"
 
-"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hcbc6afbc090b6929E.llvm.16538095213602398362.exit": ; preds = %13, %46, %38, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i"
-  %.sroa.5.0.i = phi i128 [ %.val12.i.i.i.i.i.i, %38 ], [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i" ], [ %.val12.i.i46.i, %46 ], [ %.val12.i.i.i, %13 ]
-  %.sroa.0.0.i = phi i64 [ 1, %38 ], [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread.i" ], [ 1, %46 ], [ 1, %13 ]
-  %49 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0.i, 0
-  %50 = insertvalue { i64, i128 } %49, i128 %.sroa.5.0.i, 1
-  ret { i64, i128 } %50
+"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold17hcbc6afbc090b6929E.llvm.16538095213602398362.exit": ; preds = %13, %44, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i"
+  %.sroa.5.0.i = phi i128 [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i" ], [ %.val12.i.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i" ], [ %.val12.i.i48.i, %44 ], [ %.val12.i.i.i, %13 ]
+  %.sroa.0.0.i = phi i64 [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread.i" ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.i" ], [ 1, %44 ], [ 1, %13 ]
+  %47 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0.i, 0
+  %48 = insertvalue { i64, i128 } %47, i128 %.sroa.5.0.i, 1
+  ret { i64, i128 } %48
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5641,9 +5644,10 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h5e
   br i1 %13, label %15, label %6
 
 15:                                               ; preds = %6, %9
+  %.sroa.3.0 = phi i64 [ undef, %9 ], [ %.0, %6 ]
   %.sroa.0.0 = phi i64 [ 0, %9 ], [ 1, %6 ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.0, 1
+  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
   ret { i64, i64 } %17
 }
 
@@ -6608,9 +6612,10 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb8
   br i1 %13, label %15, label %6
 
 15:                                               ; preds = %6, %9
+  %.sroa.3.0 = phi i64 [ undef, %9 ], [ %.0, %6 ]
   %.sroa.0.0 = phi i64 [ 0, %9 ], [ 1, %6 ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.0, 1
+  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
   ret { i64, i64 } %17
 }
 
@@ -6790,9 +6795,10 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hde
   br i1 %13, label %15, label %6
 
 15:                                               ; preds = %6, %9
+  %.sroa.3.0 = phi i64 [ undef, %9 ], [ %.0, %6 ]
   %.sroa.0.0 = phi i64 [ 0, %9 ], [ 1, %6 ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.0, 1
+  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
   ret { i64, i64 } %17
 }
 
@@ -7289,9 +7295,9 @@ define hidden { i64, i128 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I
 
 "_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i": ; preds = %30
   %23 = icmp eq ptr %26, %19
-  br i1 %23, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57", label %24
+  br i1 %23, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83", label %24
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83": ; preds = %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i"
   store ptr %26, ptr %0, align 8, !alias.scope !3319, !noalias !3322
   store ptr %29, ptr %21, align 8, !alias.scope !3324, !noalias !3327
   br label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread"
@@ -7306,62 +7312,62 @@ define hidden { i64, i128 } @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I
   %29 = getelementptr inbounds { { ptr, ptr }, i128 }, ptr %.val13.i.i, i64 %.val14.i.i
   br label %30
 
-30:                                               ; preds = %33, %24
-  %31 = phi ptr [ %34, %33 ], [ %.val13.i.i, %24 ]
-  %32 = icmp eq ptr %31, %29
-  br i1 %32, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i", label %33
+30:                                               ; preds = %32, %24
+  %31 = phi ptr [ %33, %32 ], [ %.val13.i.i, %24 ]
+  %.not13.not.not.i.not = icmp eq ptr %31, %29
+  br i1 %.not13.not.not.i.not, label %"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$13iter_try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h714dd63109f506afE.exit.loopexit.i.i", label %32
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
-  %35 = getelementptr i8, ptr %31, i64 16
-  %.val12.i.i.i.i.i = load i128, ptr %35, align 8, !alias.scope !3329, !noalias !3332, !noundef !4
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds i8, ptr %31, i64 32
+  %34 = getelementptr i8, ptr %31, i64 16
+  %.val12.i.i.i.i.i = load i128, ptr %34, align 8, !alias.scope !3329, !noalias !3332, !noundef !4
   %.not.i.i.i.not.i.i.i.i.i = icmp eq i128 %.val12.i.i.i.i.i, %22
-  br i1 %.not.i.i.i.not.i.i.i.i.i, label %30, label %38
+  br i1 %.not.i.i.i.not.i.i.i.i.i, label %30, label %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit"
 
-"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread": ; preds = %17, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread", %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread57"
-  store ptr null, ptr %4, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 8, !noundef !4
-  %.not37 = icmp eq ptr %37, null
-  br i1 %.not37, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread", label %39
-
-38:                                               ; preds = %33
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit": ; preds = %32
   store ptr %26, ptr %0, align 8, !alias.scope !3319, !noalias !3322
-  store ptr %34, ptr %4, align 8, !alias.scope !3338, !noalias !3327
+  store ptr %33, ptr %4, align 8, !alias.scope !3338, !noalias !3327
   store ptr %29, ptr %21, align 8, !alias.scope !3324, !noalias !3327
   br label %.loopexit
 
-39:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread"
+"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread": ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread83", %17, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit.thread"
+  store ptr null, ptr %4, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 32
+  %36 = load ptr, ptr %35, align 8, !noundef !4
+  %.not37 = icmp eq ptr %36, null
+  br i1 %.not37, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread", label %37
+
+37:                                               ; preds = %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread"
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3339)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3342)
-  %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = load ptr, ptr %40, align 8, !alias.scope !3345, !noalias !3348, !nonnull !4, !noundef !4
-  %42 = load i128, ptr %1, align 8
-  br label %43
+  %38 = getelementptr inbounds i8, ptr %0, i64 40
+  %39 = load ptr, ptr %38, align 8, !alias.scope !3345, !noalias !3348, !nonnull !4, !noundef !4
+  %40 = load i128, ptr %1, align 8
+  br label %41
 
-43:                                               ; preds = %46, %39
-  %44 = phi ptr [ %47, %46 ], [ %37, %39 ]
-  %45 = icmp eq ptr %44, %41
-  br i1 %45, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread", label %46
+41:                                               ; preds = %44, %37
+  %42 = phi ptr [ %45, %44 ], [ %36, %37 ]
+  %43 = icmp eq ptr %42, %39
+  br i1 %43, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread", label %44
 
-46:                                               ; preds = %43
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %47, ptr %36, align 8, !alias.scope !3345, !noalias !3348
-  %48 = getelementptr i8, ptr %44, i64 16
-  %.val12.i.i46 = load i128, ptr %48, align 8, !alias.scope !3350, !noalias !3353, !noundef !4
-  %.not.i.i.i.not.i.i47 = icmp eq i128 %.val12.i.i46, %42
-  br i1 %.not.i.i.i.not.i.i47, label %43, label %.loopexit
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds i8, ptr %42, i64 32
+  store ptr %45, ptr %35, align 8, !alias.scope !3345, !noalias !3348
+  %46 = getelementptr i8, ptr %42, i64 16
+  %.val12.i.i48 = load i128, ptr %46, align 8, !alias.scope !3350, !noalias !3353, !noundef !4
+  %.not.i.i.i.not.i.i49 = icmp eq i128 %.val12.i.i48, %40
+  br i1 %.not.i.i.i.not.i.i49, label %41, label %.loopexit
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread": ; preds = %43, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread"
-  store ptr null, ptr %36, align 8
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread": ; preds = %41, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit.thread"
+  store ptr null, ptr %35, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %13, %46, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread", %38
-  %.sroa.5.0 = phi i128 [ %.val12.i.i.i.i.i, %38 ], [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread" ], [ %.val12.i.i46, %46 ], [ %.val12.i.i, %13 ]
-  %.sroa.0.0 = phi i64 [ 1, %38 ], [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit50.thread" ], [ 1, %46 ], [ 1, %13 ]
-  %49 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0, 0
-  %50 = insertvalue { i64, i128 } %49, i128 %.sroa.5.0, 1
-  ret { i64, i128 } %50
+.loopexit:                                        ; preds = %13, %44, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit", %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread"
+  %.sroa.5.0 = phi i128 [ undef, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread" ], [ %.val12.i.i.i.i.i, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit" ], [ %.val12.i.i48, %44 ], [ %.val12.i.i, %13 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold7flatten28_$u7b$$u7b$closure$u7d$$u7d$17h2cde602a104c00aaE.exit52.thread" ], [ 1, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h6ad060a0e5a27db0E.exit" ], [ 1, %44 ], [ 1, %13 ]
+  %47 = insertvalue { i64, i128 } poison, i64 %.sroa.0.0, 0
+  %48 = insertvalue { i64, i128 } %47, i128 %.sroa.5.0, 1
+  ret { i64, i128 } %48
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -9472,7 +9478,7 @@ _ZN12clap_builder6parser8features11suggestions12did_you_mean17h11b85f54c2ca62b5E
   br i1 %39, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %72, %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.thread.i.i.i"
-  %.014.i.i.i = phi i64 [ %77, %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.thread.i.i.i" ], [ 0, %72 ]
+  %.013.i.i.i = phi i64 [ %77, %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.thread.i.i.i" ], [ 0, %72 ]
   %73 = phi ptr [ %74, %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.thread.i.i.i" ], [ %35, %72 ]
   %74 = getelementptr inbounds i8, ptr %73, i64 16
   %75 = getelementptr i8, ptr %73, i64 8
@@ -9487,7 +9493,7 @@ _ZN12clap_builder6parser8features11suggestions12did_you_mean17h11b85f54c2ca62b5E
   br i1 %76, label %83, label %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.thread.i.i.i"
 
 "_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.thread.i.i.i": ; preds = %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.i.i.i", %.lr.ph.i.i.i
-  %77 = add nuw nsw i64 %.014.i.i.i, 1
+  %77 = add nuw nsw i64 %.013.i.i.i, 1
   %78 = icmp eq ptr %74, %38
   br i1 %78, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -9512,7 +9518,7 @@ _ZN12clap_builder6parser8features11suggestions12did_you_mean17h11b85f54c2ca62b5E
   br label %.thread.i
 
 83:                                               ; preds = %"_ZN12clap_builder6parser8features11suggestions17did_you_mean_flag28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h21c6646e6167d9f7E.exit.i.i.i"
-  %84 = icmp ult i64 %.014.i.i.i, %37
+  %84 = icmp ult i64 %.013.i.i.i, %37
   call void @llvm.assume(i1 %84)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13), !noalias !4163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !noalias !4163
@@ -9571,14 +9577,14 @@ _ZN12clap_builder6parser8features11suggestions12did_you_mean17h11b85f54c2ca62b5E
   store i64 %98, ptr %.sroa.917.72..sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i6.sroa_idx.i, align 8, !noalias !4209
   store ptr %93, ptr %.sroa.1018.72..sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i6.sroa_idx.i, align 8, !noalias !4209
   store i64 %55, ptr %.sroa.11.72..sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i6.sroa_idx.i, align 8, !noalias !4209
-  store i64 %.014.i.i.i, ptr %40, align 8, !noalias !4202
-  store i64 %.014.i.i.i, ptr %.sroa.4.0..sroa_idx.i7.i, align 8, !noalias !4202
+  store i64 %.013.i.i.i, ptr %40, align 8, !noalias !4202
+  store i64 %.013.i.i.i, ptr %.sroa.4.0..sroa_idx.i7.i, align 8, !noalias !4202
   call void @llvm.experimental.noalias.scope.decl(metadata !4210)
   call void @llvm.experimental.noalias.scope.decl(metadata !4213)
   call void @llvm.experimental.noalias.scope.decl(metadata !4215)
   call void @llvm.experimental.noalias.scope.decl(metadata !4218)
   %99 = load i64, ptr %7, align 8, !alias.scope !4220, !noalias !4231, !noundef !4
-  %switch.i.i.i.i = icmp ugt i64 %99, %.014.i.i.i
+  %switch.i.i.i.i = icmp ugt i64 %99, %.013.i.i.i
   %spec.select.i.i.i.i = select i1 %switch.i.i.i.i, ptr %40, ptr %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef nonnull align 8 dereferenceable(64) %spec.select.i.i.i.i, i64 64, i1 false), !alias.scope !4236, !noalias !4237
   %spec.select13.i.i.sroa.sel.v.sroa.sel.i.i = select i1 %switch.i.i.i.i, ptr %.sroa.gep.i.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i6.i

@@ -1793,8 +1793,8 @@ land.lhs.true:                                    ; preds = %_ZN4absl12lts_20230
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i, %land.lhs.true
-  %retval.sroa.0.0.i177 = phi ptr [ %14, %land.lhs.true ], [ undef, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i ]
   %cleanup.dest.slot.0 = phi i1 [ %cmp.not, %land.lhs.true ], [ true, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i ]
+  %retval.0 = phi ptr [ %14, %land.lhs.true ], [ undef, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf10DescriptorEPKNS5_7MessageEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit.i ]
   invoke void @_ZN4absl12lts_202308025Mutex12ReaderUnlockEv(ptr noundef nonnull align 8 dereferenceable(8) %mutex_)
           to label %_ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8 unwind label %terminate.lpad.i7
 
@@ -2138,7 +2138,7 @@ terminate.lpad.i164:                              ; preds = %if.end35
   unreachable
 
 return:                                           ; preds = %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i, %if.end35, %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory13FindInFileMapESt17basic_string_viewIcSt11char_traitsIcEE.exit, %cleanup.cont, %_ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8
-  %retval.1 = phi ptr [ %retval.sroa.0.0.i177, %_ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8 ], [ null, %cleanup.cont ], [ null, %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory13FindInFileMapESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %result.sroa.0.0, %if.end35 ], [ null, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i ]
+  %retval.1 = phi ptr [ %retval.0, %_ZN4absl12lts_2023080215ReaderMutexLockD2Ev.exit8 ], [ null, %cleanup.cont ], [ null, %_ZN6google8protobuf12_GLOBAL__N_123GeneratedMessageFactory13FindInFileMapESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %result.sroa.0.0, %if.end35 ], [ null, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIPKN6google8protobuf8internal15DescriptorTableEEENS5_12_GLOBAL__N_123GeneratedMessageFactory20DescriptorByNameHashENSC_18DescriptorByNameEqESaIS9_EE4findISt17basic_string_viewIcSt11char_traitsIcEEEENSG_8iteratorERKT_.exit.i ]
   ret ptr %retval.1
 
 eh.resume:                                        ; preds = %lpad22

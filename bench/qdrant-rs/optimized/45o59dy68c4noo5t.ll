@@ -123,8 +123,8 @@ define hidden zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern
   store ptr %16, ptr %.sroa.32.0..sroa_idx.i.i, align 8
   %60 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hb7e75b65f9662916E(ptr nonnull align 8 %14, ptr nonnull align 8 %7)
   %61 = extractvalue { i64, i64 } %60, 0
-  %62 = extractvalue { i64, i64 } %60, 1
   %.not.i.i = icmp eq i64 %61, 0
+  %62 = extractvalue { i64, i64 } %60, 1
   br i1 %.not.i.i, label %_ZN4core3str7pattern13simd_contains17hf79408dc36f91aefE.exit.i, label %63
 
 63:                                               ; preds = %57, %50

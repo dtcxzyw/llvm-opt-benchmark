@@ -81,6 +81,7 @@ if.then9:                                         ; preds = %land.lhs.true5
 lor.lhs.false.i:                                  ; preds = %if.then9
   %buf.i = getelementptr inbounds i8, ptr %sb.i, i64 16
   %9 = load ptr, ptr %buf.i, align 8
+  %scevgep.i.i = getelementptr i8, ptr %9, i64 11
   br label %do.body.i.i
 
 do.body.i.i:                                      ; preds = %do.cond.i.i, %lor.lhs.false.i
@@ -99,6 +100,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !5
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
+  %name.0.i = phi ptr [ undef, %do.cond.i.i ], [ %scevgep.i.i, %do.body.i.i ]
   %tobool.not.i.i = icmp eq i8 %10, 0
   br i1 %tobool.not.i.i, label %check_ref_format_branch.exit, label %if.then.i
 
@@ -107,8 +109,7 @@ if.then.i:                                        ; preds = %skip_prefix.exit.i,
   unreachable
 
 check_ref_format_branch.exit:                     ; preds = %skip_prefix.exit.i
-  %scevgep.i.i = getelementptr i8, ptr %9, i64 11
-  %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %scevgep.i.i)
+  %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %name.0.i)
   call void @strbuf_release(ptr noundef nonnull %sb.i) #10
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %sb.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %nongit.i)

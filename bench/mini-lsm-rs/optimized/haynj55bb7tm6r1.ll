@@ -483,8 +483,10 @@ _ZN4core4iter6traits8iterator8Iterator4find17hc45cd1388cec9cd5E.llvm.15192800734
   %.sroa.3.0.i.i = phi ptr [ %17, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.thread.split.loop.exit.i.i" ], [ undef, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.i.i" ], [ undef, %5 ]
   %.sroa.0.0.i.i = phi ptr [ %16, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.thread.split.loop.exit.i.i" ], [ null, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.i.i" ], [ null, %5 ]
   %18 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.3.0.i.i, 1
-  ret { ptr, ptr } %19
+  %19 = icmp eq ptr %.sroa.0.0.i.i, null
+  %spec.select.i = select i1 %19, ptr undef, ptr %.sroa.3.0.i.i
+  %20 = insertvalue { ptr, ptr } %18, ptr %spec.select.i, 1
+  ret { ptr, ptr } %20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -2633,8 +2635,10 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h45d9715ad4e5830fE.exit: ; pred
   %.sroa.3.0.i = phi ptr [ %17, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.thread.split.loop.exit.i" ], [ undef, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.i" ], [ undef, %5 ]
   %.sroa.0.0.i = phi ptr [ %16, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.thread.split.loop.exit.i" ], [ null, %"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd03a7fb7f73525baE.exit.i" ], [ null, %5 ]
   %18 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %19 = insertvalue { ptr, ptr } %18, ptr %.sroa.3.0.i, 1
-  ret { ptr, ptr } %19
+  %19 = icmp eq ptr %.sroa.0.0.i, null
+  %spec.select = select i1 %19, ptr undef, ptr %.sroa.3.0.i
+  %20 = insertvalue { ptr, ptr } %18, ptr %spec.select, 1
+  ret { ptr, ptr } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

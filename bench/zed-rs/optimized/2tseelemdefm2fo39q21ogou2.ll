@@ -25632,9 +25632,9 @@ default.unreachable231:                           ; preds = %138, %62, %2
 "_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h269084b0a149ba2fE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15992447837750267435.exit.i.i.i.i", %107
   %124 = load i64, ptr %32, align 8, !range !45, !noalias !4328, !noundef !4
   %.not.i = icmp eq i64 %124, -9223372036854775808
-  br i1 %.not.i, label %125, label %.thread191
+  br i1 %.not.i, label %125, label %.thread189
 
-.thread191:                                       ; preds = %"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h269084b0a149ba2fE.exit.i"
+.thread189:                                       ; preds = %"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h269084b0a149ba2fE.exit.i"
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !4328
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 16
@@ -25908,16 +25908,16 @@ common.ret:                                       ; preds = %561, %534, %470, %3
   %213 = icmp eq i64 %156, -9223372036854775808
   br i1 %213, label %265, label %214
 
-214:                                              ; preds = %.thread191, %212
-  %.sroa.4.1.i189.ph = phi ptr [ %163, %212 ], [ %.sroa.4.0.copyload.i, %.thread191 ]
-  %.sroa.5.1.i187.ph = phi i64 [ %.val30.i, %212 ], [ %.sroa.5.0.copyload.i, %.thread191 ]
-  %.sroa.0.0.ph = phi i64 [ %156, %212 ], [ %124, %.thread191 ]
+214:                                              ; preds = %.thread189, %212
+  %.sroa.4.1.i187.ph = phi ptr [ %163, %212 ], [ %.sroa.4.0.copyload.i, %.thread189 ]
+  %.sroa.12.0.ph = phi i64 [ %.val30.i, %212 ], [ %.sroa.5.0.copyload.i, %.thread189 ]
+  %.sroa.0.0.ph = phi i64 [ %156, %212 ], [ %124, %.thread189 ]
   %215 = getelementptr inbounds i8, ptr %0, i64 98
   store i64 %.sroa.0.0.ph, ptr %42, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %.sroa.4.1.i189.ph, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.4.1.i187.ph, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
-  store i64 %.sroa.5.1.i187.ph, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.12.0.ph, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
   %216 = getelementptr inbounds i8, ptr %0, i64 56
@@ -26030,12 +26030,12 @@ common.ret:                                       ; preds = %561, %534, %470, %3
   br i1 %264, label %584, label %275
 
 265:                                              ; preds = %212, %.thread183
-  %.sroa.4.1.i190 = phi ptr [ %132, %.thread183 ], [ %163, %212 ]
+  %.sroa.4.1.i188 = phi ptr [ %132, %.thread183 ], [ %163, %212 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   br label %266
 
 266:                                              ; preds = %265, %258
-  %.sroa.020.1 = phi ptr [ %.sroa.020.0, %258 ], [ %.sroa.4.1.i190, %265 ]
+  %.sroa.020.1 = phi ptr [ %.sroa.020.0, %258 ], [ %.sroa.4.1.i188, %265 ]
   %267 = getelementptr inbounds i8, ptr %0, i64 98
   store i8 0, ptr %267, align 2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)

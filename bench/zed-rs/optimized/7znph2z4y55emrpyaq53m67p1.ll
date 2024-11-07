@@ -5791,12 +5791,12 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = tail call { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h24bd32d0d7141cafE(ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8, ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %12), !noalias !1001
   %15 = extractvalue { ptr, i64 } %14, 0
-  %16 = extractvalue { ptr, i64 } %14, 1
-  %17 = icmp eq ptr %15, null
-  br i1 %17, label %"_ZN8worktree13LocalWorktree21copy_external_entries28_$u7b$$u7b$closure$u7d$$u7d$17hd09b5acb34514bbbE.llvm.531992751332406584.exit", label %18
+  %16 = icmp eq ptr %15, null
+  %17 = extractvalue { ptr, i64 } %14, 1
+  br i1 %16, label %"_ZN8worktree13LocalWorktree21copy_external_entries28_$u7b$$u7b$closure$u7d$$u7d$17hd09b5acb34514bbbE.llvm.531992751332406584.exit", label %18
 
 18:                                               ; preds = %2
-  %19 = icmp slt i64 %16, 0
+  %19 = icmp slt i64 %17, 0
   br i1 %19, label %20, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h62c7329bddb10162E.llvm.531992751332406584.exit.i.i.i.i"
 
 20:                                               ; preds = %18
@@ -5805,7 +5805,7 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h62c7329bddb10162E.llvm.531992751332406584.exit.i.i.i.i": ; preds = %18
-  %21 = tail call { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef 1, i64 noundef %16), !noalias !1007
+  %21 = tail call { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef 1, i64 noundef %17), !noalias !1007
   %22 = extractvalue { i64, i64 } %21, 0
   %23 = extractvalue { i64, i64 } %21, 1
   %24 = icmp eq i64 %23, 0
@@ -5840,13 +5840,14 @@ define hidden { ptr, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..op
   %36 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %36, align 8, !noalias !1007
   %37 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %15, i64 %16, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr nonnull readonly align 1 %15, i64 %17, i1 false)
   br label %"_ZN8worktree13LocalWorktree21copy_external_entries28_$u7b$$u7b$closure$u7d$$u7d$17hd09b5acb34514bbbE.llvm.531992751332406584.exit"
 
 "_ZN8worktree13LocalWorktree21copy_external_entries28_$u7b$$u7b$closure$u7d$$u7d$17hd09b5acb34514bbbE.llvm.531992751332406584.exit": ; preds = %2, %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.exit.i"
+  %.sroa.3.0.i = phi i64 [ %17, %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.exit.i" ], [ undef, %2 ]
   %.sroa.0.0.i = phi ptr [ %.sroa.06.0.i.i.i.i.i.i.i, %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.exit.i" ], [ null, %2 ]
   %38 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i, 0
-  %39 = insertvalue { ptr, i64 } %38, i64 %16, 1
+  %39 = insertvalue { ptr, i64 } %38, i64 %.sroa.3.0.i, 1
   ret { ptr, i64 } %39
 }
 
@@ -30786,12 +30787,12 @@ define hidden { ptr, i64 } @"_ZN8worktree13LocalWorktree21copy_external_entries2
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = tail call { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h24bd32d0d7141cafE(ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %7, ptr noalias noundef nonnull readonly align 1 %12, i64 noundef %11), !noalias !6376
   %14 = extractvalue { ptr, i64 } %13, 0
-  %15 = extractvalue { ptr, i64 } %13, 1
-  %16 = icmp eq ptr %14, null
-  br i1 %16, label %37, label %17
+  %15 = icmp eq ptr %14, null
+  %16 = extractvalue { ptr, i64 } %13, 1
+  br i1 %15, label %37, label %17
 
 17:                                               ; preds = %2
-  %18 = icmp slt i64 %15, 0
+  %18 = icmp slt i64 %16, 0
   br i1 %18, label %19, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h62c7329bddb10162E.llvm.531992751332406584.exit.i.i.i"
 
 19:                                               ; preds = %17
@@ -30800,7 +30801,7 @@ define hidden { ptr, i64 } @"_ZN8worktree13LocalWorktree21copy_external_entries2
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h62c7329bddb10162E.llvm.531992751332406584.exit.i.i.i": ; preds = %17
-  %20 = tail call { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef 1, i64 noundef %15), !noalias !6391
+  %20 = tail call { i64, i64 } @_ZN5alloc4sync32arcinner_layout_for_value_layout17hd5ad131baef83e15E(i64 noundef 1, i64 noundef %16), !noalias !6391
   %21 = extractvalue { i64, i64 } %20, 0
   %22 = extractvalue { i64, i64 } %20, 1
   %23 = icmp eq i64 %22, 0
@@ -30835,13 +30836,14 @@ define hidden { ptr, i64 } @"_ZN8worktree13LocalWorktree21copy_external_entries2
   %35 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 8
   store i64 1, ptr %35, align 8, !noalias !6391
   %36 = getelementptr inbounds i8, ptr %.sroa.06.0.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %14, i64 %15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull readonly align 1 %14, i64 %16, i1 false)
   br label %37
 
 37:                                               ; preds = %2, %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.exit"
+  %.sroa.3.0 = phi i64 [ %16, %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.exit" ], [ undef, %2 ]
   %.sroa.0.0 = phi ptr [ %.sroa.06.0.i.i.i.i.i.i, %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.exit" ], [ null, %2 ]
   %38 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %39 = insertvalue { ptr, i64 } %38, i64 %15, 1
+  %39 = insertvalue { ptr, i64 } %38, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %39
 }
 

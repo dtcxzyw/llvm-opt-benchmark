@@ -310,12 +310,12 @@ default.unreachable:                              ; preds = %67
 96:                                               ; preds = %92
   %97 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8, !noalias !8
   %98 = icmp eq i64 %97, 0
-  br i1 %98, label %99, label %.thread199.i
+  br i1 %98, label %99, label %.thread198.i
 
 99:                                               ; preds = %96
   %100 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$12recv_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h50424da50bd0daadE", i64 16) monotonic, align 8, !noalias !8
   switch i8 %100, label %101 [
-    i8 0, label %.thread199.i
+    i8 0, label %.thread198.i
     i8 1, label %.thread.i
     i8 2, label %.thread.i
   ]
@@ -331,12 +331,12 @@ default.unreachable:                              ; preds = %67
 
 105:                                              ; preds = %101
   %106 = icmp eq i8 %102, 0
-  br i1 %106, label %.thread199.i, label %.thread.i
+  br i1 %106, label %.thread198.i, label %.thread.i
 
 .thread.i:                                        ; preds = %99, %105, %99
-  %.0.i198.i = phi i8 [ %102, %105 ], [ %100, %99 ], [ %100, %99 ]
+  %.0.i197.i = phi i8 [ %102, %105 ], [ %100, %99 ], [ %100, %99 ]
   %107 = load ptr, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$12recv_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h50424da50bd0daadE", align 8, !noalias !8, !nonnull !4, !align !6, !noundef !4
-  %108 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %107, i8 noundef %.0.i198.i)
+  %108 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %107, i8 noundef %.0.i197.i)
           to label %111 unwind label %109, !noalias !12
 
 109:                                              ; preds = %.thread.i
@@ -345,14 +345,14 @@ default.unreachable:                              ; preds = %67
   br label %76
 
 111:                                              ; preds = %.thread.i
-  br i1 %108, label %184, label %.thread199.i
+  br i1 %108, label %184, label %.thread198.i
 
-.thread199.i:                                     ; preds = %111, %105, %99, %96
+.thread198.i:                                     ; preds = %111, %105, %99, %96
   %112 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !8
-  %.not208.i = icmp eq i8 %112, 0
-  br i1 %.not208.i, label %113, label %.loopexit
+  %.not207.i = icmp eq i8 %112, 0
+  br i1 %.not207.i, label %113, label %.loopexit
 
-113:                                              ; preds = %.thread199.i
+113:                                              ; preds = %.thread198.i
   %114 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !8
   %115 = icmp ult i64 %114, 6
   tail call void @llvm.assume(i1 %115)
@@ -428,8 +428,8 @@ default.unreachable:                              ; preds = %67
   %150 = load ptr, ptr %149, align 8, !alias.scope !30, !noalias !33, !nonnull !4, !align !6, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !8
-  %.not209.i = icmp eq i64 %145, 0
-  br i1 %.not209.i, label %151, label %154
+  %.not208.i = icmp eq i64 %145, 0
+  br i1 %.not208.i, label %151, label %154
 
 151:                                              ; preds = %141
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.f34e10cb350ba88450f4cf96dacee54d.3, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f34e10cb350ba88450f4cf96dacee54d.16) #24
@@ -744,9 +744,9 @@ default.unreachable:                              ; preds = %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %91, %242, %140, %113, %.thread199.i
-  %.sroa.7.0196.i = phi ptr [ null, %140 ], [ null, %113 ], [ null, %.thread199.i ], [ null, %242 ], [ %.8..8..8..8..8..i, %91 ]
-  %.sroa.0188.0.i = phi i8 [ 0, %140 ], [ 0, %113 ], [ 0, %.thread199.i ], [ 0, %242 ], [ 1, %91 ]
+.loopexit:                                        ; preds = %91, %242, %140, %113, %.thread198.i
+  %.sroa.0188.0.i = phi i8 [ 0, %140 ], [ 0, %113 ], [ 0, %.thread198.i ], [ 0, %242 ], [ 1, %91 ]
+  %.sroa.7190.0.i = phi ptr [ undef, %140 ], [ undef, %113 ], [ undef, %.thread198.i ], [ undef, %242 ], [ %.8..8..8..8..8..i, %91 ]
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %35)
   br label %334
 
@@ -1089,7 +1089,7 @@ default.unreachable:                              ; preds = %67
 334:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i", %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i", %.loopexit
   %.sroa.0188.2.i = phi i8 [ 0, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ 1, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ %.sroa.0188.0.i, %.loopexit ]
   %.sroa.5.2.i = phi i8 [ 1, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ 0, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ 0, %.loopexit ]
-  %.sroa.7190.2.i = phi ptr [ undef, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ %.fca.1.extract66.i.le, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ %.sroa.7.0196.i, %.loopexit ]
+  %.sroa.7190.2.i = phi ptr [ undef, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ %.fca.1.extract66.i.le, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ %.sroa.7190.0.i, %.loopexit ]
   store i8 0, ptr %41, align 1, !noalias !8
   store i8 1, ptr %40, align 2, !noalias !8
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %32)
@@ -1342,12 +1342,12 @@ default.unreachable:                              ; preds = %67
 96:                                               ; preds = %92
   %97 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17ha260197560d85766E monotonic, align 8, !noalias !154
   %98 = icmp eq i64 %97, 0
-  br i1 %98, label %99, label %.thread199.i
+  br i1 %98, label %99, label %.thread198.i
 
 99:                                               ; preds = %96
   %100 = load atomic i8, ptr getelementptr inbounds (i8, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$12recv_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h50424da50bd0daadE", i64 16) monotonic, align 8, !noalias !154
   switch i8 %100, label %101 [
-    i8 0, label %.thread199.i
+    i8 0, label %.thread198.i
     i8 1, label %.thread.i
     i8 2, label %.thread.i
   ]
@@ -1363,12 +1363,12 @@ default.unreachable:                              ; preds = %67
 
 105:                                              ; preds = %101
   %106 = icmp eq i8 %102, 0
-  br i1 %106, label %.thread199.i, label %.thread.i
+  br i1 %106, label %.thread198.i, label %.thread.i
 
 .thread.i:                                        ; preds = %99, %105, %99
-  %.0.i198.i = phi i8 [ %102, %105 ], [ %100, %99 ], [ %100, %99 ]
+  %.0.i197.i = phi i8 [ %102, %105 ], [ %100, %99 ], [ %100, %99 ]
   %107 = load ptr, ptr @"_ZN10ockam_node5relay12worker_relay20WorkerRelay$LT$W$GT$12recv_message28_$u7b$$u7b$closure$u7d$$u7d$10__CALLSITE17h50424da50bd0daadE", align 8, !noalias !154, !nonnull !4, !align !6, !noundef !4
-  %108 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %107, i8 noundef %.0.i198.i)
+  %108 = invoke noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17h93f7a5195e90a5dfE(ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %107, i8 noundef %.0.i197.i)
           to label %111 unwind label %109, !noalias !158
 
 109:                                              ; preds = %.thread.i
@@ -1377,14 +1377,14 @@ default.unreachable:                              ; preds = %67
   br label %76
 
 111:                                              ; preds = %.thread.i
-  br i1 %108, label %184, label %.thread199.i
+  br i1 %108, label %184, label %.thread198.i
 
-.thread199.i:                                     ; preds = %111, %105, %99, %96
+.thread198.i:                                     ; preds = %111, %105, %99, %96
   %112 = load atomic i8, ptr @_ZN12tracing_core10dispatcher6EXISTS17ha75096dd2289f006E monotonic, align 1, !noalias !154
-  %.not208.i = icmp eq i8 %112, 0
-  br i1 %.not208.i, label %113, label %.loopexit
+  %.not207.i = icmp eq i8 %112, 0
+  br i1 %.not207.i, label %113, label %.loopexit
 
-113:                                              ; preds = %.thread199.i
+113:                                              ; preds = %.thread198.i
   %114 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E monotonic, align 8, !noalias !154
   %115 = icmp ult i64 %114, 6
   tail call void @llvm.assume(i1 %115)
@@ -1460,8 +1460,8 @@ default.unreachable:                              ; preds = %67
   %150 = load ptr, ptr %149, align 8, !alias.scope !175, !noalias !178, !nonnull !4, !align !6, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22), !noalias !154
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %21), !noalias !154
-  %.not209.i = icmp eq i64 %145, 0
-  br i1 %.not209.i, label %151, label %154
+  %.not208.i = icmp eq i64 %145, 0
+  br i1 %.not208.i, label %151, label %154
 
 151:                                              ; preds = %141
   invoke void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.f34e10cb350ba88450f4cf96dacee54d.3, i64 noundef 34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f34e10cb350ba88450f4cf96dacee54d.16) #24
@@ -1776,9 +1776,9 @@ default.unreachable:                              ; preds = %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30), !noalias !154
   br label %.loopexit
 
-.loopexit:                                        ; preds = %91, %242, %140, %113, %.thread199.i
-  %.sroa.7.0196.i = phi ptr [ null, %140 ], [ null, %113 ], [ null, %.thread199.i ], [ null, %242 ], [ %.8..8..8..8..8..i, %91 ]
-  %.sroa.0188.0.i = phi i8 [ 0, %140 ], [ 0, %113 ], [ 0, %.thread199.i ], [ 0, %242 ], [ 1, %91 ]
+.loopexit:                                        ; preds = %91, %242, %140, %113, %.thread198.i
+  %.sroa.0188.0.i = phi i8 [ 0, %140 ], [ 0, %113 ], [ 0, %.thread198.i ], [ 0, %242 ], [ 1, %91 ]
+  %.sroa.7190.0.i = phi ptr [ undef, %140 ], [ undef, %113 ], [ undef, %.thread198.i ], [ undef, %242 ], [ %.8..8..8..8..8..i, %91 ]
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %35)
   br label %334
 
@@ -2121,7 +2121,7 @@ default.unreachable:                              ; preds = %67
 334:                                              ; preds = %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i", %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i", %.loopexit
   %.sroa.0188.2.i = phi i8 [ 0, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ 1, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ %.sroa.0188.0.i, %.loopexit ]
   %.sroa.5.2.i = phi i8 [ 1, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ 0, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ 0, %.loopexit ]
-  %.sroa.7190.2.i = phi ptr [ undef, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ %.fca.1.extract66.i.le, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ %.sroa.7.0196.i, %.loopexit ]
+  %.sroa.7190.2.i = phi ptr [ undef, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit.i" ], [ %.fca.1.extract66.i.le, %"_ZN4core3ptr86drop_in_place$LT$ockam_core..routing..message..opentelemetry..OpenTelemetryContext$GT$17hc192e0405301256dE.exit152.i" ], [ %.sroa.7190.0.i, %.loopexit ]
   store i8 0, ptr %41, align 1, !noalias !154
   store i8 1, ptr %40, align 2, !noalias !154
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %32)

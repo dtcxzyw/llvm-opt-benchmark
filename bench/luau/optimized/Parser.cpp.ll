@@ -18441,12 +18441,14 @@ _ZNK4Luau7AstNameeqEPKc.exit:                     ; preds = %99
 _ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split: ; preds = %94, %91, %83, %_ZNK4Luau7AstNameeqEPKc.exit, %98
   %.sroa.0.0.copyload.i2028 = phi ptr [ %78, %_ZNK4Luau7AstNameeqEPKc.exit ], [ %78, %98 ], [ %84, %83 ], [ %92, %91 ], [ %97, %94 ]
   %.sroa.223.1 = phi i8 [ 0, %_ZNK4Luau7AstNameeqEPKc.exit ], [ 0, %98 ], [ 1, %83 ], [ 1, %91 ], [ 1, %94 ]
+  %.sroa.024.1 = phi ptr [ undef, %_ZNK4Luau7AstNameeqEPKc.exit ], [ undef, %98 ], [ %78, %83 ], [ %78, %91 ], [ %78, %94 ]
   %.pr = load i32, ptr %32, align 8
   br label %_ZNK4Luau7AstNameeqEPKc.exit.thread
 
 _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split, %99
   %.sroa.0.0.copyload.i20 = phi ptr [ null, %99 ], [ %.sroa.0.0.copyload.i2028, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
   %.sroa.223.0 = phi i8 [ 0, %99 ], [ %.sroa.223.1, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
+  %.sroa.024.0 = phi ptr [ undef, %99 ], [ %.sroa.024.1, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
   %112 = phi i32 [ %80, %99 ], [ %.pr, %_ZNK4Luau7AstNameeqEPKc.exit.threadthread-pre-split ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   %113 = icmp eq i32 %112, 60
@@ -18475,7 +18477,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.thread:              ; preds = %_ZNK4Luau7AstNameeq
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.022, i64 16, i1 false)
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   store i8 %.sroa.223.0, ptr %.sroa.223.0..sroa_idx, align 8
-  call void @_ZN4Luau16AstTypeReferenceC1ERKNS_8LocationESt8optionalINS_7AstNameEES5_S4_IS1_ES3_bRKNS_8AstArrayINS_13AstTypeOrPackEEE(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr %78, i8 %.sroa.223.0, ptr %.sroa.0.0.copyload.i20, ptr noundef nonnull byval(%"class.std::optional.116") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i1 noundef zeroext %113, ptr noundef nonnull align 8 dereferenceable(16) %18)
+  call void @_ZN4Luau16AstTypeReferenceC1ERKNS_8LocationESt8optionalINS_7AstNameEES5_S4_IS1_ES3_bRKNS_8AstArrayINS_13AstTypeOrPackEEE(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull align 4 dereferenceable(16) %19, ptr %.sroa.024.0, i8 %.sroa.223.0, ptr %.sroa.0.0.copyload.i20, ptr noundef nonnull byval(%"class.std::optional.116") align 8 %4, ptr noundef nonnull align 4 dereferenceable(16) %.sroa.2.0..sroa_idx.i, i1 noundef zeroext %113, ptr noundef nonnull align 8 dereferenceable(16) %18)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
   br label %145
 

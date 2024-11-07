@@ -4912,11 +4912,11 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %41, %_ZNSt10unique_
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %18)
-  %.pre144 = load i8, ptr %33, align 8
+  %.pre147 = load i8, ptr %33, align 8
   br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit
 
 _ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit: ; preds = %32, %_ZN4llvm5ErrorD2Ev.exit.i
-  %45 = phi i8 [ %.pre144, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %34, %32 ]
+  %45 = phi i8 [ %.pre147, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %34, %32 ]
   %46 = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %36, %32 ]
   %47 = inttoptr i64 %46 to ptr
   %48 = trunc i8 %45 to i1
@@ -4959,9 +4959,9 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i: ; preds = %49
   %66 = trunc i8 %65 to i1
   %67 = load i64, ptr %22, align 8
   %68 = inttoptr i64 %67 to ptr
-  br i1 %66, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i48, label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit47
+  br i1 %66, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i49, label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit48
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i48: ; preds = %61
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i49: ; preds = %61
   store ptr null, ptr %22, align 8, !noalias !146
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -4975,46 +4975,47 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i48: ;
   %71 = icmp eq ptr %70, null
   br i1 %71, label %_ZN4llvm5ErrorD2Ev.exit, label %72
 
-72:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i48
+72:                                               ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i49
   %73 = load ptr, ptr %70, align 8
   %74 = getelementptr inbounds i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8
   call void %75(ptr noundef nonnull align 8 dereferenceable(8) %70) #18
   br label %_ZN4llvm5ErrorD2Ev.exit
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %72, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i48
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %72, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   %.pre = load i8, ptr %64, align 8
-  br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit47
+  br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit48
 
-_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit47: ; preds = %61, %_ZN4llvm5ErrorD2Ev.exit
+_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit48: ; preds = %61, %_ZN4llvm5ErrorD2Ev.exit
   %76 = phi i8 [ %.pre, %_ZN4llvm5ErrorD2Ev.exit ], [ %65, %61 ]
+  %.sroa.0138.3 = phi ptr [ undef, %_ZN4llvm5ErrorD2Ev.exit ], [ %68, %61 ]
   %77 = trunc i8 %76 to i1
-  br i1 %77, label %78, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53
+  br i1 %77, label %78, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54
 
-78:                                               ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit47
+78:                                               ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit48
   %79 = load ptr, ptr %22, align 8
-  %.not.i.i50 = icmp eq ptr %79, null
-  br i1 %.not.i.i50, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i52, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i51
+  %.not.i.i51 = icmp eq ptr %79, null
+  br i1 %.not.i.i51, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i53, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i51: ; preds = %78
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52: ; preds = %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
   call void %82(ptr noundef nonnull align 8 dereferenceable(8) %79) #18
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i52
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i53
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i52: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i51, %78
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i53: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52, %78
   store ptr null, ptr %22, align 8
-  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53
+  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54
 
-_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit47, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i52
-  br i1 %66, label %83, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82
+_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit48, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i53
+  br i1 %66, label %83, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84
 
-83:                                               ; preds = %57, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53, %56
-  %.sroa.0135.2 = phi ptr [ undef, %56 ], [ undef, %57 ], [ %68, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53 ]
+83:                                               ; preds = %57, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54, %56
+  %.sroa.0138.2 = phi ptr [ undef, %56 ], [ undef, %57 ], [ %.sroa.0138.3, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54 ]
   %84 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #18
   %85 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 0, ptr %85, align 8
@@ -5042,9 +5043,9 @@ _ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53: ; preds = %_ZN4llvm18expec
   %100 = trunc i8 %99 to i1
   %101 = load i64, ptr %24, align 8
   %102 = inttoptr i64 %101 to ptr
-  br i1 %100, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i66, label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit64
+  br i1 %100, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i68, label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit66
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i66: ; preds = %94
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i68: ; preds = %94
   store ptr null, ptr %24, align 8, !noalias !149
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -5052,122 +5053,122 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i66: ;
   store ptr %102, ptr %11, align 8
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %10, ptr noundef nonnull %11, ptr noundef nonnull align 1 dereferenceable(1) %12)
   %103 = load ptr, ptr %10, align 8
-  %.not.i.i.i68 = icmp eq ptr %103, null
-  call void @llvm.assume(i1 %.not.i.i.i68)
+  %.not.i.i.i70 = icmp eq ptr %103, null
+  call void @llvm.assume(i1 %.not.i.i.i70)
   %104 = load ptr, ptr %11, align 8
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %_ZN4llvm5ErrorD2Ev.exit71, label %106
+  br i1 %105, label %_ZN4llvm5ErrorD2Ev.exit73, label %106
 
-106:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i66
+106:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i68
   %107 = load ptr, ptr %104, align 8
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   call void %109(ptr noundef nonnull align 8 dereferenceable(8) %104) #18
-  br label %_ZN4llvm5ErrorD2Ev.exit71
+  br label %_ZN4llvm5ErrorD2Ev.exit73
 
-_ZN4llvm5ErrorD2Ev.exit71:                        ; preds = %106, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i66
+_ZN4llvm5ErrorD2Ev.exit73:                        ; preds = %106, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12)
-  %.pre141 = load i8, ptr %98, align 8
-  br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit64
+  %.pre144 = load i8, ptr %98, align 8
+  br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit66
 
-_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit64: ; preds = %94, %_ZN4llvm5ErrorD2Ev.exit71
-  %110 = phi i8 [ %.pre141, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %99, %94 ]
-  %.sroa.0135.6 = phi ptr [ %.sroa.0135.2, %_ZN4llvm5ErrorD2Ev.exit71 ], [ %102, %94 ]
+_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit66: ; preds = %94, %_ZN4llvm5ErrorD2Ev.exit73
+  %110 = phi i8 [ %.pre144, %_ZN4llvm5ErrorD2Ev.exit73 ], [ %99, %94 ]
+  %.sroa.0138.6 = phi ptr [ %.sroa.0138.2, %_ZN4llvm5ErrorD2Ev.exit73 ], [ %102, %94 ]
   %111 = trunc i8 %110 to i1
-  br i1 %111, label %112, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75
+  br i1 %111, label %112, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77
 
-112:                                              ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit64
+112:                                              ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit66
   %113 = load ptr, ptr %24, align 8
-  %.not.i.i72 = icmp eq ptr %113, null
-  br i1 %.not.i.i72, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i74, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i73
+  %.not.i.i74 = icmp eq ptr %113, null
+  br i1 %.not.i.i74, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i76, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i73: ; preds = %112
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75: ; preds = %112
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr inbounds i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(8) %113) #18
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i74
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i76
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i74: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i73, %112
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i76: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75, %112
   store ptr null, ptr %24, align 8
-  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75
+  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77
 
-_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit64, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i74
-  %.pre142 = load i8, ptr %86, align 8
+_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit66, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i76
+  %.pre145 = load i8, ptr %86, align 8
   br i1 %100, label %.critedge, label %124
 
-.critedge:                                        ; preds = %89, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75, %83
-  %117 = phi i8 [ %87, %89 ], [ %.pre142, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75 ], [ %87, %83 ]
-  %.sroa.0135.5 = phi ptr [ %.sroa.0135.2, %89 ], [ %.sroa.0135.6, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75 ], [ %.sroa.0135.2, %83 ]
+.critedge:                                        ; preds = %89, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77, %83
+  %117 = phi i8 [ %87, %89 ], [ %.pre145, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77 ], [ %87, %83 ]
+  %.sroa.0138.5 = phi ptr [ %.sroa.0138.2, %89 ], [ %.sroa.0138.6, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77 ], [ %.sroa.0138.2, %83 ]
   %118 = trunc i8 %117 to i1
   br i1 %118, label %119, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit
 
 119:                                              ; preds = %.critedge
   %120 = load ptr, ptr %23, align 8
-  %.not.i.i76 = icmp eq ptr %120, null
-  br i1 %.not.i.i76, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i78, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i77
+  %.not.i.i78 = icmp eq ptr %120, null
+  br i1 %.not.i.i78, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i80, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i79
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i77: ; preds = %119
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i79: ; preds = %119
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
   call void %123(ptr noundef nonnull align 8 dereferenceable(8) %120) #18
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i78
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i80
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i78: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i77, %119
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i80: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i79, %119
   store ptr null, ptr %23, align 8
   br label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit
 
-124:                                              ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit75
-  %125 = trunc i8 %.pre142 to i1
-  br i1 %125, label %126, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82
+124:                                              ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit77
+  %125 = trunc i8 %.pre145 to i1
+  br i1 %125, label %126, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr %23, align 8
-  %.not.i.i79 = icmp eq ptr %127, null
-  br i1 %.not.i.i79, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i81, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i80
+  %.not.i.i81 = icmp eq ptr %127, null
+  br i1 %.not.i.i81, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i82
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i80: ; preds = %126
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i82: ; preds = %126
   %128 = load ptr, ptr %127, align 8
   %129 = getelementptr inbounds i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8
   call void %130(ptr noundef nonnull align 8 dereferenceable(8) %127) #18
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i81
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i81: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i80, %126
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i82, %126
   store ptr null, ptr %23, align 8
-  br label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82
+  br label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84
 
-_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i78, %.critedge, %54
-  %.sroa.0135.1 = phi ptr [ undef, %54 ], [ %.sroa.0135.5, %.critedge ], [ %.sroa.0135.5, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i78 ]
+_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i80, %.critedge, %54
+  %.sroa.0138.1 = phi ptr [ undef, %54 ], [ %.sroa.0138.5, %.critedge ], [ %.sroa.0138.5, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i80 ]
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 288
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 296
   %136 = load ptr, ptr %135, align 8
-  %.not136137 = icmp eq ptr %134, %136
-  br i1 %.not136137, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82, label %.lr.ph
+  %.not139140 = icmp eq ptr %134, %136
+  br i1 %.not139140, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit
   %137 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %138 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %141
 
-139:                                              ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit102
-  %140 = getelementptr inbounds i8, ptr %.sroa.0108.0138, i64 32
-  %.not136 = icmp eq ptr %140, %136
-  br i1 %.not136, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82, label %141
+139:                                              ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit105
+  %140 = getelementptr inbounds i8, ptr %.sroa.0111.0141, i64 32
+  %.not139 = icmp eq ptr %140, %136
+  br i1 %.not139, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84, label %141
 
 141:                                              ; preds = %.lr.ph, %139
-  %.sroa.0135.7139 = phi ptr [ %.sroa.0135.1, %.lr.ph ], [ %.sroa.0135.8, %139 ]
-  %.sroa.0108.0138 = phi ptr [ %134, %.lr.ph ], [ %140, %139 ]
+  %.sroa.0138.7142 = phi ptr [ %.sroa.0138.1, %.lr.ph ], [ %.sroa.0138.8, %139 ]
+  %.sroa.0111.0141 = phi ptr [ %134, %.lr.ph ], [ %140, %139 ]
   %142 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %21) #18
   store i64 0, ptr %137, align 8
-  %143 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0108.0138) #18
-  %144 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0108.0138) #18
+  %143 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0111.0141) #18
+  %144 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0111.0141) #18
   call fastcc void @"_ZZN5clang12Preprocessor15LookupEmbedFileEN4llvm9StringRefEbbPKNS_9FileEntryEENK3$_0clERNS1_15SmallVectorImplIcEES2_S2_b"(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr %143, i64 %144, ptr %1, i64 %2, i1 noundef zeroext false)
   %145 = load ptr, ptr %21, align 8
   %146 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(536) %21) #18
@@ -5176,9 +5177,9 @@ _ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit: ; preds = %_ZNSt10uniqu
   %148 = trunc i8 %147 to i1
   %149 = load i64, ptr %25, align 8
   %150 = inttoptr i64 %149 to ptr
-  br i1 %148, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i93, label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit91
+  br i1 %148, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96, label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit94
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i93: ; preds = %141
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96: ; preds = %141
   store ptr null, ptr %25, align 8, !noalias !152
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -5186,65 +5187,65 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i93: ;
   store ptr %150, ptr %8, align 8
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
   %151 = load ptr, ptr %7, align 8
-  %.not.i.i.i95 = icmp eq ptr %151, null
-  call void @llvm.assume(i1 %.not.i.i.i95)
+  %.not.i.i.i98 = icmp eq ptr %151, null
+  call void @llvm.assume(i1 %.not.i.i.i98)
   %152 = load ptr, ptr %8, align 8
   %153 = icmp eq ptr %152, null
-  br i1 %153, label %_ZN4llvm5ErrorD2Ev.exit98, label %154
+  br i1 %153, label %_ZN4llvm5ErrorD2Ev.exit101, label %154
 
-154:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i93
+154:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96
   %155 = load ptr, ptr %152, align 8
   %156 = getelementptr inbounds i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
   call void %157(ptr noundef nonnull align 8 dereferenceable(8) %152) #18
-  br label %_ZN4llvm5ErrorD2Ev.exit98
+  br label %_ZN4llvm5ErrorD2Ev.exit101
 
-_ZN4llvm5ErrorD2Ev.exit98:                        ; preds = %154, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i93
+_ZN4llvm5ErrorD2Ev.exit101:                       ; preds = %154, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i96
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9)
-  %.pre143 = load i8, ptr %138, align 8
-  br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit91
+  %.pre146 = load i8, ptr %138, align 8
+  br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit94
 
-_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit91: ; preds = %141, %_ZN4llvm5ErrorD2Ev.exit98
-  %158 = phi i8 [ %.pre143, %_ZN4llvm5ErrorD2Ev.exit98 ], [ %147, %141 ]
-  %.sroa.0135.8 = phi ptr [ %.sroa.0135.7139, %_ZN4llvm5ErrorD2Ev.exit98 ], [ %150, %141 ]
+_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit94: ; preds = %141, %_ZN4llvm5ErrorD2Ev.exit101
+  %158 = phi i8 [ %.pre146, %_ZN4llvm5ErrorD2Ev.exit101 ], [ %147, %141 ]
+  %.sroa.0138.8 = phi ptr [ %.sroa.0138.7142, %_ZN4llvm5ErrorD2Ev.exit101 ], [ %150, %141 ]
   %159 = trunc i8 %158 to i1
-  br i1 %159, label %160, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit102
+  br i1 %159, label %160, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit105
 
-160:                                              ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit91
+160:                                              ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit94
   %161 = load ptr, ptr %25, align 8
-  %.not.i.i99 = icmp eq ptr %161, null
-  br i1 %.not.i.i99, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i101, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i100
+  %.not.i.i102 = icmp eq ptr %161, null
+  br i1 %.not.i.i102, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i103
 
-_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i100: ; preds = %160
+_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i103: ; preds = %160
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %162, i64 8
   %164 = load ptr, ptr %163, align 8
   call void %164(ptr noundef nonnull align 8 dereferenceable(8) %161) #18
-  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i101
+  br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i101: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i100, %160
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i103, %160
   store ptr null, ptr %25, align 8
-  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit102
+  br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit105
 
-_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit102: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit91, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i101
-  br i1 %148, label %139, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82
+_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit105: ; preds = %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit94, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104
+  br i1 %148, label %139, label %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84
 
-_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82: ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit102, %139, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i81, %124, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53
-  %.sroa.0135.4 = phi ptr [ %68, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit53 ], [ %.sroa.0135.6, %124 ], [ %.sroa.0135.6, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i81 ], [ null, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit ], [ %.sroa.0135.8, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit102 ], [ null, %139 ]
+_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84: ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit105, %139, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83, %124, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54
+  %.sroa.0138.4 = phi ptr [ %.sroa.0138.3, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit54 ], [ %.sroa.0138.6, %124 ], [ %.sroa.0138.6, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i83 ], [ null, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit ], [ %.sroa.0138.8, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit105 ], [ null, %139 ]
   %165 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(536) %21) #18
   %166 = load ptr, ptr %21, align 8
   %167 = icmp eq ptr %166, %55
   br i1 %167, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit, label %168
 
-168:                                              ; preds = %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82
+168:                                              ; preds = %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84
   call void @free(ptr noundef %166) #18
   br label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
 
-_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %49, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %168, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82, %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit
-  %.sroa.0135.0 = phi ptr [ %47, %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit ], [ %.sroa.0135.4, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit82 ], [ %.sroa.0135.4, %168 ], [ %47, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ %47, %49 ]
-  ret ptr %.sroa.0135.0
+_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %49, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i, %168, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84, %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit
+  %.sroa.0138.0 = phi ptr [ %47, %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit ], [ %.sroa.0138.4, %_ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit84 ], [ %.sroa.0138.4, %168 ], [ %47, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i ], [ %47, %49 ]
+  ret ptr %.sroa.0138.0
 }
 
 declare noundef zeroext i1 @_ZN4llvm3sys4path11is_absoluteERKNS_5TwineENS1_5StyleE(ptr noundef nonnull align 8 dereferenceable(34), i32 noundef) local_unnamed_addr #2

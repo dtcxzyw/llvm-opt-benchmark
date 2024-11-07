@@ -212477,8 +212477,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 
 return:                                           ; preds = %while.end.i.i.i.i, %while.cond.preheader, %entry, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyIiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEE13destroy_slotsEv.exit
   %retval.sroa.0.0 = phi ptr [ null, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyIiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEE13destroy_slotsEv.exit ], [ null, %entry ], [ %last.coerce0, %while.cond.preheader ], [ %last.coerce0, %while.end.i.i.i.i ]
+  %retval.sroa.4.0 = phi ptr [ undef, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyIiEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIiEEE13destroy_slotsEv.exit ], [ undef, %entry ], [ %last.coerce1, %while.cond.preheader ], [ %last.coerce1, %while.end.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %last.coerce1, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -213723,8 +213724,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 
 return:                                           ; preds = %while.end.i.i.i.i, %while.cond.preheader, %entry, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS8_EEE13destroy_slotsEv.exit
   %retval.sroa.0.0 = phi ptr [ null, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS8_EEE13destroy_slotsEv.exit ], [ null, %entry ], [ %last.coerce0, %while.cond.preheader ], [ %last.coerce0, %while.end.i.i.i.i ]
+  %retval.sroa.4.0 = phi ptr [ undef, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS8_EEE13destroy_slotsEv.exit ], [ undef, %entry ], [ %last.coerce1, %while.cond.preheader ], [ %last.coerce1, %while.end.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %last.coerce1, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -214820,8 +214822,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 
 return:                                           ; preds = %while.end.i.i.i.i, %while.cond.preheader, %entry, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINS0_13hash_internal4EnumEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS4_EEE13destroy_slotsEv.exit
   %retval.sroa.0.0 = phi ptr [ null, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINS0_13hash_internal4EnumEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS4_EEE13destroy_slotsEv.exit ], [ null, %entry ], [ %last.coerce0, %while.cond.preheader ], [ %last.coerce0, %while.end.i.i.i.i ]
+  %retval.sroa.4.0 = phi ptr [ undef, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINS0_13hash_internal4EnumEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS4_EEE13destroy_slotsEv.exit ], [ undef, %entry ], [ %last.coerce1, %while.cond.preheader ], [ %last.coerce1, %while.end.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %last.coerce1, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 
@@ -215672,8 +215675,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 
 return:                                           ; preds = %while.end.i.i.i.i, %while.cond.preheader, %entry, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINS0_13hash_internal9EnumClassEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS4_EEE13destroy_slotsEv.exit
   %retval.sroa.0.0 = phi ptr [ null, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINS0_13hash_internal9EnumClassEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS4_EEE13destroy_slotsEv.exit ], [ null, %entry ], [ %last.coerce0, %while.cond.preheader ], [ %last.coerce0, %while.end.i.i.i.i ]
+  %retval.sroa.4.0 = phi ptr [ undef, %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashSetPolicyINS0_13hash_internal9EnumClassEEENS0_19StatefulTestingHashENS0_20StatefulTestingEqualENS0_5AllocIS4_EEE13destroy_slotsEv.exit ], [ undef, %entry ], [ %last.coerce1, %while.cond.preheader ], [ %last.coerce1, %while.end.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %last.coerce1, 1
+  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { ptr, ptr } %.fca.1.insert
 }
 

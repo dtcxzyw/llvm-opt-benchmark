@@ -24115,9 +24115,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h0132d81866dd64f8E(ptr noal
   %switch.i.i.i = icmp eq i8 %18, 0
   %..i = select i1 %switch.i.i.i, i64 3, i64 4
   %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 %..i)
-  %20 = extractvalue { i64, i1 } %19, 0
-  %21 = extractvalue { i64, i1 } %19, 1
-  %spec.select.i = select i1 %21, i64 -1, i64 %20
+  %20 = extractvalue { i64, i1 } %19, 1
+  %21 = extractvalue { i64, i1 } %19, 0
+  %spec.select.i = select i1 %20, i64 -1, i64 %21
   %22 = icmp slt i64 %spec.select.i, 0
   br i1 %22, label %57, label %23
 
@@ -24291,9 +24291,9 @@ switch.lookup:
   %14 = zext i32 %.0.i3.i.i to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %53, label %20
 
@@ -24434,9 +24434,9 @@ switch.lookup:
   %14 = zext i32 %9 to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %55, label %20
 
@@ -24718,9 +24718,9 @@ switch.lookup:
   %18 = zext i32 %9 to i64
   %19 = mul nuw i64 %18, %17
   %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %19, i64 %switch.offset)
-  %21 = extractvalue { i64, i1 } %20, 0
-  %22 = extractvalue { i64, i1 } %20, 1
-  %spec.select.i = select i1 %22, i64 -1, i64 %21
+  %21 = extractvalue { i64, i1 } %20, 1
+  %22 = extractvalue { i64, i1 } %20, 0
+  %spec.select.i = select i1 %21, i64 -1, i64 %22
   %23 = icmp slt i64 %spec.select.i, 0
   br i1 %23, label %58, label %24
 
@@ -24861,9 +24861,9 @@ switch.lookup:
   %14 = and i64 %9, 4294967295
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %54, label %20
 
@@ -25016,9 +25016,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h10a6f3166bbcda8eE(ptr noal
   %19 = zext i32 %14 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %59, label %25
 
@@ -25156,9 +25156,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11a0b4c2ba1f1069E(ptr noal
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %spec.select.i = select i1 %16, i64 -1, i64 %15
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %spec.select.i = select i1 %15, i64 -1, i64 %16
   %17 = icmp slt i64 %spec.select.i, 0
   br i1 %17, label %53, label %18
 
@@ -25308,9 +25308,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h11d0b6870e772209E(ptr noal
   %11 = zext i32 %8 to i64
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
-  %14 = shl nuw i64 %13, 3
-  %15 = icmp ugt i64 %13, 2305843009213693951
-  %spec.select.i = select i1 %15, i64 -1, i64 %14
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  %15 = shl nuw i64 %13, 3
+  %spec.select.i = select i1 %14, i64 -1, i64 %15
   %16 = icmp slt i64 %spec.select.i, 0
   br i1 %16, label %50, label %17
 
@@ -25469,9 +25469,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h15674424aaf85ec6E(ptr noal
   %11 = zext i32 %8 to i64
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
-  %14 = shl nuw i64 %13, 3
-  %15 = icmp ugt i64 %13, 2305843009213693951
-  %spec.select.i = select i1 %15, i64 -1, i64 %14
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  %15 = shl nuw i64 %13, 3
+  %spec.select.i = select i1 %14, i64 -1, i64 %15
   %16 = icmp slt i64 %spec.select.i, 0
   br i1 %16, label %48, label %17
 
@@ -25673,9 +25673,9 @@ default.unreachable:                              ; preds = %2
   %37 = phi i64 [ %16, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %24, %17 ], [ %32, %25 ]
   %.0.i3.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ 4, %17 ], [ %35, %25 ]
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.0.i3.i)
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  %spec.select.i = select i1 %40, i64 -1, i64 %39
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  %spec.select.i = select i1 %39, i64 -1, i64 %40
   %41 = icmp slt i64 %spec.select.i, 0
   br i1 %41, label %74, label %42
 
@@ -25849,9 +25849,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h27cd787d3a16a4a6E(ptr noal
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %spec.select.i = select i1 %16, i64 -1, i64 %15
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %spec.select.i = select i1 %15, i64 -1, i64 %16
   %17 = icmp slt i64 %spec.select.i, 0
   br i1 %17, label %53, label %18
 
@@ -26157,9 +26157,9 @@ switch.lookup:
   %14 = zext i32 %9 to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %55, label %20
 
@@ -26323,9 +26323,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h2a07fc0a07390e85E(ptr noal
   %23 = trunc nuw i8 %spec.select.i.i to i1
   %24 = select i1 %23, i64 16, i64 12
   %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %17, i64 %24)
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  %spec.select.i = select i1 %27, i64 -1, i64 %26
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = extractvalue { i64, i1 } %25, 0
+  %spec.select.i = select i1 %26, i64 -1, i64 %27
   %28 = icmp slt i64 %spec.select.i, 0
   br i1 %28, label %62, label %29
 
@@ -26482,9 +26482,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h2eac3deae8b5fd8aE(ptr noal
   %switch.i.i = icmp eq i8 %15, 3
   %..i = select i1 %switch.i.i, i64 3, i64 4
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %..i)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %51, label %20
 
@@ -26641,9 +26641,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h30ace70bb687d310E(ptr noal
   %11 = zext i32 %8 to i64
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
-  %14 = shl nuw i64 %13, 3
-  %15 = icmp ugt i64 %13, 2305843009213693951
-  %spec.select.i = select i1 %15, i64 -1, i64 %14
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  %15 = shl nuw i64 %13, 3
+  %spec.select.i = select i1 %14, i64 -1, i64 %15
   %16 = icmp slt i64 %spec.select.i, 0
   br i1 %16, label %50, label %17
 
@@ -26817,9 +26817,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h354a9b931984e190E(ptr noal
   %23 = trunc nuw i8 %spec.select.i.i to i1
   %24 = select i1 %23, i64 16, i64 12
   %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %17, i64 %24)
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  %spec.select.i = select i1 %27, i64 -1, i64 %26
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = extractvalue { i64, i1 } %25, 0
+  %spec.select.i = select i1 %26, i64 -1, i64 %27
   %28 = icmp slt i64 %spec.select.i, 0
   br i1 %28, label %60, label %29
 
@@ -26969,9 +26969,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h35d8a00f1aeed9e9E(ptr noal
   %11 = zext i32 %8 to i64
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
-  %14 = shl nuw i64 %13, 3
-  %15 = icmp ugt i64 %13, 2305843009213693951
-  %spec.select.i = select i1 %15, i64 -1, i64 %14
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  %15 = shl nuw i64 %13, 3
+  %spec.select.i = select i1 %14, i64 -1, i64 %15
   %16 = icmp slt i64 %spec.select.i, 0
   br i1 %16, label %17, label %20
 
@@ -27237,9 +27237,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h3ce5cb91a39e2224E(ptr noal
   %switch.i.i = icmp eq i8 %15, 3
   %..i = select i1 %switch.i.i, i64 3, i64 4
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %..i)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %53, label %20
 
@@ -27537,9 +27537,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h413d35f7ee10dbbeE(ptr noal
   %24 = trunc nuw i8 %spec.select.i.i to i1
   %25 = select i1 %24, i64 16, i64 12
   %26 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %18, i64 %25)
-  %27 = extractvalue { i64, i1 } %26, 0
-  %28 = extractvalue { i64, i1 } %26, 1
-  %spec.select.i = select i1 %28, i64 -1, i64 %27
+  %27 = extractvalue { i64, i1 } %26, 1
+  %28 = extractvalue { i64, i1 } %26, 0
+  %spec.select.i = select i1 %27, i64 -1, i64 %28
   %29 = icmp slt i64 %spec.select.i, 0
   br i1 %29, label %60, label %30
 
@@ -27732,9 +27732,9 @@ switch.lookup:
   %14 = zext i32 %.0.i3.i.i to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %54, label %20
 
@@ -28059,9 +28059,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h4353e7904273ef0fE(ptr noal
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %spec.select.i = select i1 %16, i64 -1, i64 %15
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %spec.select.i = select i1 %15, i64 -1, i64 %16
   %17 = icmp slt i64 %spec.select.i, 0
   br i1 %17, label %53, label %18
 
@@ -28337,9 +28337,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h481560c0f2657dc4E(ptr noal
   %switch.i.i = icmp eq i8 %15, 3
   %..i = select i1 %switch.i.i, i64 3, i64 4
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %..i)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %53, label %20
 
@@ -28648,9 +28648,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h495fd2ff4527ed42E(ptr noal
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %spec.select.i = select i1 %16, i64 -1, i64 %15
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %spec.select.i = select i1 %15, i64 -1, i64 %16
   %17 = icmp slt i64 %spec.select.i, 0
   br i1 %17, label %51, label %18
 
@@ -28814,9 +28814,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h49aa8ebf5beebe41E(ptr noal
   %24 = trunc nuw i8 %spec.select.i.i to i1
   %25 = select i1 %24, i64 16, i64 12
   %26 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %18, i64 %25)
-  %27 = extractvalue { i64, i1 } %26, 0
-  %28 = extractvalue { i64, i1 } %26, 1
-  %spec.select.i = select i1 %28, i64 -1, i64 %27
+  %27 = extractvalue { i64, i1 } %26, 1
+  %28 = extractvalue { i64, i1 } %26, 0
+  %spec.select.i = select i1 %27, i64 -1, i64 %28
   %29 = icmp slt i64 %spec.select.i, 0
   br i1 %29, label %62, label %30
 
@@ -29011,9 +29011,9 @@ switch.lookup:
   %14 = zext i32 %.0.i3.i.i to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %51, label %20
 
@@ -29160,9 +29160,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h52fbf0ab8a0e8de0E(ptr noal
   %23 = trunc nuw i8 %spec.select.i.i to i1
   %24 = select i1 %23, i64 16, i64 12
   %25 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %17, i64 %24)
-  %26 = extractvalue { i64, i1 } %25, 0
-  %27 = extractvalue { i64, i1 } %25, 1
-  %spec.select.i = select i1 %27, i64 -1, i64 %26
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = extractvalue { i64, i1 } %25, 0
+  %spec.select.i = select i1 %26, i64 -1, i64 %27
   %28 = icmp slt i64 %spec.select.i, 0
   br i1 %28, label %62, label %29
 
@@ -29314,9 +29314,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h5ff6eb096d571329E(ptr noal
   %11 = zext i32 %8 to i64
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
-  %14 = shl nuw i64 %13, 3
-  %15 = icmp ugt i64 %13, 2305843009213693951
-  %spec.select.i = select i1 %15, i64 -1, i64 %14
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  %15 = shl nuw i64 %13, 3
+  %spec.select.i = select i1 %14, i64 -1, i64 %15
   %16 = icmp slt i64 %spec.select.i, 0
   br i1 %16, label %17, label %20
 
@@ -29437,9 +29437,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h621c52d79f7d8d7aE(ptr noal
   %switch.i.i.i = icmp eq i8 %17, 0
   %..i = select i1 %switch.i.i.i, i64 3, i64 4
   %18 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %..i)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = extractvalue { i64, i1 } %18, 1
-  %spec.select.i = select i1 %20, i64 -1, i64 %19
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  %spec.select.i = select i1 %19, i64 -1, i64 %20
   %21 = icmp slt i64 %spec.select.i, 0
   br i1 %21, label %22, label %25
 
@@ -29570,9 +29570,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6266a6e5c1ea8e42E(ptr noal
   %19 = zext i32 %14 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %59, label %25
 
@@ -29714,9 +29714,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h64314d2df72905bdE(ptr noal
   %switch.i.i = icmp eq i8 %15, 3
   %..i = select i1 %switch.i.i, i64 3, i64 4
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %..i)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %20, label %23
 
@@ -29847,9 +29847,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h65152c0f30928759E(ptr noal
   %19 = zext i32 %14 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %59, label %25
 
@@ -29993,9 +29993,9 @@ switch.lookup:
   %14 = and i64 %9, 4294967295
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %54, label %20
 
@@ -30137,9 +30137,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h6944829bab41c74eE(ptr noal
   %switch.i.i.i = icmp eq i8 %18, 0
   %..i = select i1 %switch.i.i.i, i64 3, i64 4
   %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 %..i)
-  %20 = extractvalue { i64, i1 } %19, 0
-  %21 = extractvalue { i64, i1 } %19, 1
-  %spec.select.i = select i1 %21, i64 -1, i64 %20
+  %20 = extractvalue { i64, i1 } %19, 1
+  %21 = extractvalue { i64, i1 } %19, 0
+  %spec.select.i = select i1 %20, i64 -1, i64 %21
   %22 = icmp slt i64 %spec.select.i, 0
   br i1 %22, label %57, label %23
 
@@ -30388,9 +30388,9 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %45 = phi i64 [ %36, %43 ], [ %36, %42 ], [ %36, %41 ], [ %36, %40 ], [ %36, %39 ], [ %36, %38 ], [ %36, %37 ], [ %36, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
   %.0.i2.i = phi i64 [ 16, %43 ], [ 12, %42 ], [ 8, %41 ], [ 6, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
   %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %.0.i2.i)
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  %spec.select.i = select i1 %48, i64 -1, i64 %47
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  %spec.select.i = select i1 %47, i64 -1, i64 %48
   %49 = icmp slt i64 %spec.select.i, 0
   br i1 %49, label %83, label %50
 
@@ -30561,9 +30561,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h72ce8cce9a9825e1E(ptr noal
   %switch.i.i.i = icmp eq i8 %18, 0
   %..i = select i1 %switch.i.i.i, i64 3, i64 4
   %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 %..i)
-  %20 = extractvalue { i64, i1 } %19, 0
-  %21 = extractvalue { i64, i1 } %19, 1
-  %spec.select.i = select i1 %21, i64 -1, i64 %20
+  %20 = extractvalue { i64, i1 } %19, 1
+  %21 = extractvalue { i64, i1 } %19, 0
+  %spec.select.i = select i1 %20, i64 -1, i64 %21
   %22 = icmp slt i64 %spec.select.i, 0
   br i1 %22, label %55, label %23
 
@@ -30768,9 +30768,9 @@ default.unreachable:                              ; preds = %2
   %37 = phi i64 [ %16, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %24, %17 ], [ %32, %25 ]
   %.0.i3.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ 4, %17 ], [ %35, %25 ]
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.0.i3.i)
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  %spec.select.i = select i1 %40, i64 -1, i64 %39
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  %spec.select.i = select i1 %39, i64 -1, i64 %40
   %41 = icmp slt i64 %spec.select.i, 0
   br i1 %41, label %73, label %42
 
@@ -30947,9 +30947,9 @@ default.unreachable:                              ; preds = %2
   %37 = phi i64 [ %16, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %24, %17 ], [ %32, %25 ]
   %.0.i3.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ 4, %17 ], [ %35, %25 ]
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.0.i3.i)
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  %spec.select.i = select i1 %40, i64 -1, i64 %39
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  %spec.select.i = select i1 %39, i64 -1, i64 %40
   %41 = icmp slt i64 %spec.select.i, 0
   br i1 %41, label %76, label %42
 
@@ -31131,9 +31131,9 @@ switch.lookup:
   %14 = zext i32 %9 to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %53, label %20
 
@@ -31281,9 +31281,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8650234f723d296aE(ptr noal
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %spec.select.i = select i1 %16, i64 -1, i64 %15
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %spec.select.i = select i1 %15, i64 -1, i64 %16
   %17 = icmp slt i64 %spec.select.i, 0
   br i1 %17, label %51, label %18
 
@@ -31436,9 +31436,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h8877c197331db20fE(ptr noal
   %switch.i.i = icmp eq i8 %15, 3
   %..i = select i1 %switch.i.i, i64 3, i64 4
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %..i)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %20, label %23
 
@@ -31597,9 +31597,9 @@ default.unreachable:                              ; preds = %2
   %37 = phi i64 [ %16, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %24, %17 ], [ %32, %25 ]
   %.0.i3.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ 4, %17 ], [ %35, %25 ]
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.0.i3.i)
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  %spec.select.i = select i1 %40, i64 -1, i64 %39
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  %spec.select.i = select i1 %39, i64 -1, i64 %40
   %41 = icmp slt i64 %spec.select.i, 0
   br i1 %41, label %75, label %42
 
@@ -31820,9 +31820,9 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %45 = phi i64 [ %36, %43 ], [ %36, %42 ], [ %36, %41 ], [ %36, %40 ], [ %36, %39 ], [ %36, %38 ], [ %36, %37 ], [ %36, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
   %.0.i2.i = phi i64 [ 16, %43 ], [ 12, %42 ], [ 8, %41 ], [ 6, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
   %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %.0.i2.i)
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  %spec.select.i = select i1 %48, i64 -1, i64 %47
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  %spec.select.i = select i1 %47, i64 -1, i64 %48
   %49 = icmp slt i64 %spec.select.i, 0
   br i1 %49, label %81, label %50
 
@@ -31994,9 +31994,9 @@ switch.lookup:
   %19 = zext i32 %10 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.offset)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %58, label %25
 
@@ -32165,9 +32165,9 @@ switch.lookup:
   %14 = zext i32 %.0.i3.i.i to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %52, label %20
 
@@ -32352,9 +32352,9 @@ switch.lookup:
   %14 = zext i32 %.0.i3.i.i to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %54, label %20
 
@@ -32574,9 +32574,9 @@ default.unreachable:                              ; preds = %2
   %37 = phi i64 [ %16, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ %24, %17 ], [ %32, %25 ]
   %.0.i3.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h6fb27ad4b4d5385bE.exit.thread.i" ], [ 4, %17 ], [ %35, %25 ]
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.0.i3.i)
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  %spec.select.i = select i1 %40, i64 -1, i64 %39
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  %spec.select.i = select i1 %39, i64 -1, i64 %40
   %41 = icmp slt i64 %spec.select.i, 0
   br i1 %41, label %76, label %42
 
@@ -32756,9 +32756,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17h9f9d983b9aeee9c5E(ptr noal
   %switch.i.i = icmp eq i8 %15, 3
   %..i = select i1 %switch.i.i, i64 3, i64 4
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 %..i)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %20, label %23
 
@@ -32882,9 +32882,9 @@ switch.lookup:
   %18 = zext i32 %9 to i64
   %19 = mul nuw i64 %18, %17
   %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %19, i64 %switch.offset)
-  %21 = extractvalue { i64, i1 } %20, 0
-  %22 = extractvalue { i64, i1 } %20, 1
-  %spec.select.i = select i1 %22, i64 -1, i64 %21
+  %21 = extractvalue { i64, i1 } %20, 1
+  %22 = extractvalue { i64, i1 } %20, 0
+  %spec.select.i = select i1 %21, i64 -1, i64 %22
   %23 = icmp slt i64 %spec.select.i, 0
   br i1 %23, label %58, label %24
 
@@ -33025,9 +33025,9 @@ switch.lookup:
   %14 = and i64 %9, 4294967295
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %52, label %20
 
@@ -33166,9 +33166,9 @@ switch.lookup:
   %14 = and i64 %9, 4294967295
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %54, label %20
 
@@ -33302,9 +33302,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17ha64bcaef86084c35E(ptr noal
   %11 = zext i32 %8 to i64
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
-  %14 = shl nuw i64 %13, 3
-  %15 = icmp ugt i64 %13, 2305843009213693951
-  %spec.select.i = select i1 %15, i64 -1, i64 %14
+  %14 = icmp ugt i64 %13, 2305843009213693951
+  %15 = shl nuw i64 %13, 3
+  %spec.select.i = select i1 %14, i64 -1, i64 %15
   %16 = icmp slt i64 %spec.select.i, 0
   br i1 %16, label %17, label %20
 
@@ -33503,9 +33503,9 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %45 = phi i64 [ %36, %43 ], [ %36, %42 ], [ %36, %41 ], [ %36, %40 ], [ %36, %39 ], [ %36, %38 ], [ %36, %37 ], [ %36, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
   %.0.i2.i = phi i64 [ 16, %43 ], [ 12, %42 ], [ 8, %41 ], [ 6, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %.0.i2.i)
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  %spec.select.i = select i1 %48, i64 -1, i64 %47
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  %spec.select.i = select i1 %47, i64 -1, i64 %48
   %49 = icmp slt i64 %spec.select.i, 0
   br i1 %49, label %83, label %50
 
@@ -33658,9 +33658,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17hb155d184d645aca9E(ptr noal
   %19 = zext i32 %14 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %57, label %25
 
@@ -33802,9 +33802,9 @@ switch.lookup:
   %14 = and i64 %9, 4294967295
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %54, label %20
 
@@ -33949,9 +33949,9 @@ switch.lookup:
   %19 = zext i32 %10 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.offset)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %56, label %25
 
@@ -34235,9 +34235,9 @@ switch.lookup:
   %14 = zext i32 %9 to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %55, label %20
 
@@ -34517,9 +34517,9 @@ switch.lookup:
   %19 = zext i32 %10 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.offset)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %58, label %25
 
@@ -34683,9 +34683,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17hcb3dbdfeb4a4ec9fE(ptr noal
   %switch.i.i.i = icmp eq i8 %17, 0
   %..i = select i1 %switch.i.i.i, i64 3, i64 4
   %18 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %..i)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = extractvalue { i64, i1 } %18, 1
-  %spec.select.i = select i1 %20, i64 -1, i64 %19
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  %spec.select.i = select i1 %19, i64 -1, i64 %20
   %21 = icmp slt i64 %spec.select.i, 0
   br i1 %21, label %22, label %25
 
@@ -35007,9 +35007,9 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %45 = phi i64 [ %36, %43 ], [ %36, %42 ], [ %36, %41 ], [ %36, %40 ], [ %36, %39 ], [ %36, %38 ], [ %36, %37 ], [ %36, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ %21, %16 ]
   %.0.i2.i = phi i64 [ 16, %43 ], [ 12, %42 ], [ 8, %41 ], [ 6, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h410dbeaff9944ce0E.exit.i" ], [ 1, %16 ]
   %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %.0.i2.i)
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  %spec.select.i = select i1 %48, i64 -1, i64 %47
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  %spec.select.i = select i1 %47, i64 -1, i64 %48
   %49 = icmp slt i64 %spec.select.i, 0
   br i1 %49, label %83, label %50
 
@@ -35173,9 +35173,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd2db2fc6e67ece71E(ptr noal
   %12 = zext i32 %10 to i64
   %13 = mul nuw i64 %12, %11
   %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 3)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %spec.select.i = select i1 %16, i64 -1, i64 %15
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %spec.select.i = select i1 %15, i64 -1, i64 %16
   %17 = icmp slt i64 %spec.select.i, 0
   br i1 %17, label %53, label %18
 
@@ -35344,9 +35344,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17hd5533ca0609609d5E(ptr noal
   %19 = zext i32 %14 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %57, label %25
 
@@ -35491,9 +35491,9 @@ switch.lookup:
   %18 = zext i32 %9 to i64
   %19 = mul nuw i64 %18, %17
   %20 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %19, i64 %switch.offset)
-  %21 = extractvalue { i64, i1 } %20, 0
-  %22 = extractvalue { i64, i1 } %20, 1
-  %spec.select.i = select i1 %22, i64 -1, i64 %21
+  %21 = extractvalue { i64, i1 } %20, 1
+  %22 = extractvalue { i64, i1 } %20, 0
+  %spec.select.i = select i1 %21, i64 -1, i64 %22
   %23 = icmp slt i64 %spec.select.i, 0
   br i1 %23, label %56, label %24
 
@@ -35788,9 +35788,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17he19fbe1fd17f957aE(ptr noal
   %24 = trunc nuw i8 %spec.select.i.i to i1
   %25 = select i1 %24, i64 16, i64 12
   %26 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %18, i64 %25)
-  %27 = extractvalue { i64, i1 } %26, 0
-  %28 = extractvalue { i64, i1 } %26, 1
-  %spec.select.i = select i1 %28, i64 -1, i64 %27
+  %27 = extractvalue { i64, i1 } %26, 1
+  %28 = extractvalue { i64, i1 } %26, 0
+  %spec.select.i = select i1 %27, i64 -1, i64 %28
   %29 = icmp slt i64 %spec.select.i, 0
   br i1 %29, label %62, label %30
 
@@ -35980,9 +35980,9 @@ switch.lookup:
   %14 = zext i32 %9 to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %53, label %20
 
@@ -36365,9 +36365,9 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %45 = phi i64 [ %36, %43 ], [ %36, %42 ], [ %36, %41 ], [ %36, %40 ], [ %36, %39 ], [ %36, %38 ], [ %36, %37 ], [ %36, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
   %.0.i2.i = phi i64 [ 16, %43 ], [ 12, %42 ], [ 8, %41 ], [ 6, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %.0.i2.i)
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  %spec.select.i = select i1 %48, i64 -1, i64 %47
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  %spec.select.i = select i1 %47, i64 -1, i64 %48
   %49 = icmp slt i64 %spec.select.i, 0
   br i1 %49, label %83, label %50
 
@@ -36508,9 +36508,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17he831180d7bf98000E(ptr noal
   %switch.i.i.i = icmp eq i8 %17, 0
   %..i = select i1 %switch.i.i.i, i64 3, i64 4
   %18 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %..i)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = extractvalue { i64, i1 } %18, 1
-  %spec.select.i = select i1 %20, i64 -1, i64 %19
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  %spec.select.i = select i1 %19, i64 -1, i64 %20
   %21 = icmp slt i64 %spec.select.i, 0
   br i1 %21, label %22, label %25
 
@@ -36643,9 +36643,9 @@ define hidden void @_ZN5image5image14decoder_to_vec17hec4f0027f108377bE(ptr noal
   %19 = zext i32 %14 to i64
   %20 = mul nuw i64 %19, %18
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %20, i64 %switch.load)
-  %22 = extractvalue { i64, i1 } %21, 0
-  %23 = extractvalue { i64, i1 } %21, 1
-  %spec.select.i = select i1 %23, i64 -1, i64 %22
+  %22 = extractvalue { i64, i1 } %21, 1
+  %23 = extractvalue { i64, i1 } %21, 0
+  %spec.select.i = select i1 %22, i64 -1, i64 %23
   %24 = icmp slt i64 %spec.select.i, 0
   br i1 %24, label %59, label %25
 
@@ -36794,9 +36794,9 @@ switch.lookup:
   %14 = zext i32 %.0.i3.i.i to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %53, label %20
 
@@ -36975,9 +36975,9 @@ default.unreachable:                              ; preds = %2
   %37 = phi i64 [ %16, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ %24, %17 ], [ %32, %25 ]
   %.0.i3.i = phi i64 [ 3, %"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10dimensions17h8d4b5735c12f1248E.exit.thread.i" ], [ 4, %17 ], [ %35, %25 ]
   %38 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %37, i64 %.0.i3.i)
-  %39 = extractvalue { i64, i1 } %38, 0
-  %40 = extractvalue { i64, i1 } %38, 1
-  %spec.select.i = select i1 %40, i64 -1, i64 %39
+  %39 = extractvalue { i64, i1 } %38, 1
+  %40 = extractvalue { i64, i1 } %38, 0
+  %spec.select.i = select i1 %39, i64 -1, i64 %40
   %41 = icmp slt i64 %spec.select.i, 0
   br i1 %41, label %75, label %42
 
@@ -37118,9 +37118,9 @@ switch.lookup:
   %14 = zext i32 %9 to i64
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %55, label %20
 
@@ -37356,9 +37356,9 @@ default.unreachable:                              ; preds = %"_ZN95_$LT$image..c
   %45 = phi i64 [ %36, %43 ], [ %36, %42 ], [ %36, %41 ], [ %36, %40 ], [ %36, %39 ], [ %36, %38 ], [ %36, %37 ], [ %36, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ %21, %16 ]
   %.0.i2.i = phi i64 [ 16, %43 ], [ 12, %42 ], [ 8, %41 ], [ 6, %40 ], [ 4, %39 ], [ 3, %38 ], [ 2, %37 ], [ 1, %"_ZN95_$LT$image..codecs..ico..decoder..IcoDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17hde36b7a3e5f8dc59E.exit.i" ], [ 1, %16 ]
   %46 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %45, i64 %.0.i2.i)
-  %47 = extractvalue { i64, i1 } %46, 0
-  %48 = extractvalue { i64, i1 } %46, 1
-  %spec.select.i = select i1 %48, i64 -1, i64 %47
+  %47 = extractvalue { i64, i1 } %46, 1
+  %48 = extractvalue { i64, i1 } %46, 0
+  %spec.select.i = select i1 %47, i64 -1, i64 %48
   %49 = icmp slt i64 %spec.select.i, 0
   br i1 %49, label %81, label %50
 
@@ -37497,9 +37497,9 @@ switch.lookup:
   %14 = and i64 %9, 4294967295
   %15 = mul nuw i64 %14, %13
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %15, i64 %switch.load)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %spec.select.i = select i1 %18, i64 -1, i64 %17
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %spec.select.i = select i1 %17, i64 -1, i64 %18
   %19 = icmp slt i64 %spec.select.i, 0
   br i1 %19, label %52, label %20
 

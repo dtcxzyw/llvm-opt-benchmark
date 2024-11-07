@@ -534,7 +534,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %skip_prefix.exit, !llvm.loop !7
 
 skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
-  %retval.0 = phi ptr [ %str.addr.0.i, %do.body.i ], [ null, %do.cond.i ]
+  %retval.0 = phi ptr [ null, %do.cond.i ], [ %str.addr.0.i, %do.body.i ]
   ret ptr %retval.0
 }
 

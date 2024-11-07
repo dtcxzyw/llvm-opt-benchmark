@@ -10631,14 +10631,14 @@ define internal void @"_ZN191_$LT$ockam_abac..policy..storage..resource_policy_r
   %27 = alloca { { { ptr, [1 x i64] }, { ptr, [2 x i64] }, i8, {}, [7 x i8] }, {} }, align 8
   %28 = getelementptr inbounds i8, ptr %1, i64 104
   %29 = load i8, ptr %28, align 8, !range !124, !noundef !45
-  switch i8 %29, label %default.unreachable133 [
+  switch i8 %29, label %default.unreachable131 [
     i8 0, label %32
     i8 1, label %82
     i8 2, label %83
     i8 3, label %84
   ]
 
-default.unreachable133:                           ; preds = %84, %3
+default.unreachable131:                           ; preds = %84, %3
   unreachable
 
 common.ret:                                       ; preds = %176, %30
@@ -10648,7 +10648,7 @@ common.ret:                                       ; preds = %176, %30
 
 30:                                               ; preds = %191, %193, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit.thread"
   %.sroa.091.0 = phi i8 [ 3, %191 ], [ %.sroa.081.0.ph, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit.thread" ], [ 3, %193 ]
-  %.sroa.593.0 = phi ptr [ %.sroa.886.0.copyload, %191 ], [ %.sroa.886.0122.ph, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit.thread" ], [ %184, %193 ]
+  %.sroa.593.0 = phi ptr [ %.sroa.886.0.copyload, %191 ], [ %.sroa.983.0.ph, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit.thread" ], [ %184, %193 ]
   store i8 %.sroa.091.0, ptr %0, align 8
   %.sroa.492.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.492.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.882, i64 7, i1 false)
@@ -10900,7 +10900,7 @@ common.ret:                                       ; preds = %176, %30
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.1146.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.3.i.sroa.6)
   %86 = getelementptr inbounds i8, ptr %1, i64 96
-  switch i8 %.pre, label %default.unreachable133 [
+  switch i8 %.pre, label %default.unreachable131 [
     i8 0, label %87
     i8 1, label %.invoke
     i8 2, label %109
@@ -10963,7 +10963,7 @@ common.ret:                                       ; preds = %176, %30
 106:                                              ; preds = %84
   %.pre.i = load ptr, ptr %85, align 8, !alias.scope !1383, !noalias !1388
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 32
-  %.pre57.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !1383, !noalias !1388
+  %.pre58.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !1383, !noalias !1388
   br label %112
 
 .body.i:                                          ; preds = %102
@@ -10994,7 +10994,7 @@ common.ret:                                       ; preds = %176, %30
 112:                                              ; preds = %107, %106
   %113 = phi ptr [ %86, %106 ], [ %88, %107 ]
   %114 = phi ptr [ %85, %106 ], [ %89, %107 ]
-  %115 = phi ptr [ %.pre57.i, %106 ], [ @anon.a3a67110ce06a869b442c94fcb10776f.47.llvm.13157132225597385975, %107 ]
+  %115 = phi ptr [ %.pre58.i, %106 ], [ @anon.a3a67110ce06a869b442c94fcb10776f.47.llvm.13157132225597385975, %107 ]
   %116 = phi ptr [ %.pre.i, %106 ], [ %.fca.0.extract.i.i.i, %107 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10), !noalias !1366
   call void @llvm.experimental.noalias.scope.decl(metadata !1391)
@@ -11311,7 +11311,7 @@ common.ret:                                       ; preds = %176, %30
   br label %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit.thread"
 
 "_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit.thread": ; preds = %185, %190, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit"
-  %.sroa.886.0122.ph = phi ptr [ %.sroa.886.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit" ], [ %.sroa.886.0.copyload, %190 ], [ undef, %185 ]
+  %.sroa.983.0.ph = phi ptr [ undef, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit" ], [ %.sroa.886.0.copyload, %190 ], [ undef, %185 ]
   %.sroa.081.0.ph = phi i8 [ 2, %"_ZN4core6option15Option$LT$T$GT$3map17hec622f7a8643215cE.exit" ], [ %.sroa.084.0.copyload, %190 ], [ 2, %185 ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.785)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.1087)

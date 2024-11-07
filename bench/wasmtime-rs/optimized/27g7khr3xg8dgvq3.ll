@@ -39,9 +39,9 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   br label %15
 
 15:                                               ; preds = %.lr.ph, %40
-  %.pn32 = phi { ptr, i64 } [ %10, %.lr.ph ], [ %45, %40 ]
+  %.pn31 = phi { ptr, i64 } [ %10, %.lr.ph ], [ %45, %40 ]
   %16 = phi ptr [ %11, %.lr.ph ], [ %46, %40 ]
-  %17 = extractvalue { ptr, i64 } %.pn32, 1
+  %17 = extractvalue { ptr, i64 } %.pn31, 1
   %18 = load i64, ptr %14, align 8, !noundef !3
   %gep = getelementptr i8, ptr %invariant.gep, i64 %18
   %19 = load i8, ptr %gep, align 1, !noundef !3
@@ -69,8 +69,8 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %30 = add i64 %28, %29
   store i64 %30, ptr %4, align 8
   %31 = load i64, ptr %14, align 8, !noundef !3
-  %.not24 = icmp ult i64 %30, %31
-  br i1 %.not24, label %40, label %34
+  %.not23 = icmp ult i64 %30, %31
+  br i1 %.not23, label %40, label %34
 
 32:                                               ; preds = %25
   %33 = load i64, ptr %5, align 8, !noundef !3
@@ -83,15 +83,15 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %37 = load i64, ptr %3, align 8, !noundef !3
   %38 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h81e8681dd4ec5742E"(i64 %35, i64 %30, ptr nonnull align 1 %36, i64 %37)
   %39 = extractvalue { ptr, i64 } %38, 0
-  %.not25 = icmp eq ptr %39, null
-  br i1 %.not25, label %._crit_edge33, label %48
+  %.not24 = icmp eq ptr %39, null
+  br i1 %.not24, label %._crit_edge32, label %48
 
-._crit_edge33:                                    ; preds = %34
+._crit_edge32:                                    ; preds = %34
   %.pre = load i64, ptr %4, align 8
   br label %40
 
-40:                                               ; preds = %._crit_edge33, %48, %27
-  %41 = phi i64 [ %.pre, %._crit_edge33 ], [ %.pre34, %48 ], [ %30, %27 ]
+40:                                               ; preds = %._crit_edge32, %48, %27
+  %41 = phi i64 [ %.pre, %._crit_edge32 ], [ %.pre33, %48 ], [ %30, %27 ]
   %42 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %43 = load i64, ptr %3, align 8, !noundef !3
   %44 = load i64, ptr %5, align 8, !noundef !3
@@ -109,14 +109,14 @@ define hidden void @"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core.
   %54 = icmp ne ptr %52, null
   tail call void @llvm.assume(i1 %54)
   %55 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hef08bb7ec18bd030E"(ptr nonnull align 1 %39, i64 %49, ptr nonnull align 1 %52, i64 %53)
-  %.pre34 = load i64, ptr %4, align 8
+  %.pre33 = load i64, ptr %4, align 8
   br i1 %55, label %56, label %40
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %35, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.pre34, ptr %58, align 8
+  store i64 %.pre33, ptr %58, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %40, %2, %32, %56

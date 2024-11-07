@@ -230,7 +230,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %do.body.i5.preheader.i, !llvm.loop !7
 
 do.body.i5.preheader.i:                           ; preds = %do.cond.i.i
-  %scevgep28.i = getelementptr i8, ptr %.pre, i64 8
+  %scevgep30.i = getelementptr i8, ptr %.pre, i64 8
   br label %do.body.i5.i
 
 if.then.i18:                                      ; preds = %do.body.i.i
@@ -261,8 +261,8 @@ if.end.i:                                         ; preds = %if.then.i18
 do.body.i5.i:                                     ; preds = %do.cond.i9.i, %do.body.i5.preheader.i
   %str.addr.0.i6.i = phi ptr [ %incdec.ptr.i10.i, %do.cond.i9.i ], [ %add.ptr, %do.body.i5.preheader.i ]
   %prefix.addr.0.i7.idx.i = phi i64 [ %prefix.addr.0.i7.add.i, %do.cond.i9.i ], [ 0, %do.body.i5.preheader.i ]
-  %exitcond29.i = icmp eq i64 %prefix.addr.0.i7.idx.i, 7
-  br i1 %exitcond29.i, label %if.then8.i, label %do.cond.i9.i
+  %exitcond31.i = icmp eq i64 %prefix.addr.0.i7.idx.i, 7
+  br i1 %exitcond31.i, label %if.then8.i, label %do.cond.i9.i
 
 do.cond.i9.i:                                     ; preds = %do.body.i5.i
   %prefix.addr.0.i7.ptr.i = getelementptr inbounds i8, ptr @.str.33, i64 %prefix.addr.0.i7.idx.i
@@ -274,7 +274,7 @@ do.cond.i9.i:                                     ; preds = %do.body.i5.i
   br i1 %cmp.i12.i, label %do.body.i5.i, label %if.end9.i, !llvm.loop !7
 
 if.then8.i:                                       ; preds = %do.body.i5.i
-  call void @parse_list_objects_filter(ptr noundef nonnull %filter.i, ptr noundef %scevgep28.i) #15
+  call void @parse_list_objects_filter(ptr noundef nonnull %filter.i, ptr noundef %scevgep30.i) #15
   br label %while.cond.backedge
 
 if.end9.i:                                        ; preds = %do.cond.i9.i

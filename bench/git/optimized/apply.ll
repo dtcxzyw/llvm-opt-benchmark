@@ -2940,17 +2940,17 @@ land.lhs.true.i.i:                                ; preds = %cond.end.i.i
   br i1 %tobool4.not.i.i, label %if.end8.i.i, label %do.cond.i.i.i
 
 do.body.ithread-pre-split.i.i:                    ; preds = %do.cond.i.i.i
-  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i15.i.i, i64 1
-  %incdec.ptr.i.i74.i = getelementptr inbounds i8, ptr %str.addr.0.i14.i.i, i64 1
+  %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i17.i.i, i64 1
+  %incdec.ptr.i.i74.i = getelementptr inbounds i8, ptr %str.addr.0.i16.i.i, i64 1
   %.pr.i.i = load i8, ptr %incdec.ptr1.i.i.i, align 1
   %tobool.not.i.i75.i = icmp eq i8 %.pr.i.i, 0
   br i1 %tobool.not.i.i75.i, label %lor.lhs.false.i76.i, label %do.cond.i.i.i
 
 do.cond.i.i.i:                                    ; preds = %land.lhs.true.i.i, %do.body.ithread-pre-split.i.i
-  %prefix.addr.0.i15.i.i = phi ptr [ %incdec.ptr1.i.i.i, %do.body.ithread-pre-split.i.i ], [ %44, %land.lhs.true.i.i ]
-  %str.addr.0.i14.i.i = phi ptr [ %incdec.ptr.i.i74.i, %do.body.ithread-pre-split.i.i ], [ %cond.i.i, %land.lhs.true.i.i ]
+  %prefix.addr.0.i17.i.i = phi ptr [ %incdec.ptr1.i.i.i, %do.body.ithread-pre-split.i.i ], [ %44, %land.lhs.true.i.i ]
+  %str.addr.0.i16.i.i = phi ptr [ %incdec.ptr.i.i74.i, %do.body.ithread-pre-split.i.i ], [ %cond.i.i, %land.lhs.true.i.i ]
   %46 = phi i8 [ %.pr.i.i, %do.body.ithread-pre-split.i.i ], [ %45, %land.lhs.true.i.i ]
-  %47 = load i8, ptr %str.addr.0.i14.i.i, align 1
+  %47 = load i8, ptr %str.addr.0.i16.i.i, align 1
   %cmp.i.i72.i = icmp eq i8 %47, %46
   br i1 %cmp.i.i72.i, label %do.body.ithread-pre-split.i.i, label %if.end14.i, !llvm.loop !14
 
@@ -2961,8 +2961,8 @@ lor.lhs.false.i76.i:                              ; preds = %do.body.ithread-pre
 
 if.end8.i.i:                                      ; preds = %lor.lhs.false.i76.i, %land.lhs.true.i.i, %cond.end.i.i
   %49 = load i64, ptr %nr.i.i, align 8
-  %cmp16.not.i.i = icmp eq i64 %49, 0
-  br i1 %cmp16.not.i.i, label %use_patch.exit.i, label %for.body.i.i
+  %cmp18.not.i.i = icmp eq i64 %49, 0
+  br i1 %cmp18.not.i.i, label %use_patch.exit.i, label %for.body.i.i
 
 for.cond.i.i:                                     ; preds = %for.body.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -4179,17 +4179,17 @@ land.lhs.true.i90:                                ; preds = %cond.end.i
   br i1 %tobool4.not.i, label %if.end8.i, label %do.cond.i.i
 
 do.body.ithread-pre-split.i:                      ; preds = %do.cond.i.i
-  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i15.i, i64 1
-  %incdec.ptr.i.i93 = getelementptr inbounds i8, ptr %str.addr.0.i14.i, i64 1
+  %incdec.ptr1.i.i = getelementptr inbounds i8, ptr %prefix.addr.0.i17.i, i64 1
+  %incdec.ptr.i.i93 = getelementptr inbounds i8, ptr %str.addr.0.i16.i, i64 1
   %.pr.i = load i8, ptr %incdec.ptr1.i.i, align 1
   %tobool.not.i.i94 = icmp eq i8 %.pr.i, 0
   br i1 %tobool.not.i.i94, label %lor.lhs.false.i95, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %land.lhs.true.i90, %do.body.ithread-pre-split.i
-  %prefix.addr.0.i15.i = phi ptr [ %incdec.ptr1.i.i, %do.body.ithread-pre-split.i ], [ %189, %land.lhs.true.i90 ]
-  %str.addr.0.i14.i = phi ptr [ %incdec.ptr.i.i93, %do.body.ithread-pre-split.i ], [ %cond.i, %land.lhs.true.i90 ]
+  %prefix.addr.0.i17.i = phi ptr [ %incdec.ptr1.i.i, %do.body.ithread-pre-split.i ], [ %189, %land.lhs.true.i90 ]
+  %str.addr.0.i16.i = phi ptr [ %incdec.ptr.i.i93, %do.body.ithread-pre-split.i ], [ %cond.i, %land.lhs.true.i90 ]
   %191 = phi i8 [ %.pr.i, %do.body.ithread-pre-split.i ], [ %190, %land.lhs.true.i90 ]
-  %192 = load i8, ptr %str.addr.0.i14.i, align 1
+  %192 = load i8, ptr %str.addr.0.i16.i, align 1
   %cmp.i.i91 = icmp eq i8 %192, %191
   br i1 %cmp.i.i91, label %do.body.ithread-pre-split.i, label %if.else49, !llvm.loop !14
 
@@ -4200,8 +4200,8 @@ lor.lhs.false.i95:                                ; preds = %do.body.ithread-pre
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i95, %land.lhs.true.i90, %cond.end.i
   %194 = load i64, ptr %nr.i.i, align 8
-  %cmp16.not.i = icmp eq i64 %194, 0
-  br i1 %cmp16.not.i, label %use_patch.exit, label %for.body.i96
+  %cmp18.not.i = icmp eq i64 %194, 0
+  br i1 %cmp18.not.i, label %use_patch.exit, label %for.body.i96
 
 for.cond.i:                                       ; preds = %for.body.i96
   %indvars.iv.next.i99 = add nuw nsw i64 %indvars.iv.i97, 1

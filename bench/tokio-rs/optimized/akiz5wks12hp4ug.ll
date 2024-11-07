@@ -10,7 +10,7 @@ define { i64, i64 } @"_ZN100_$LT$tokio_stream..stream_ext..timeout..Timeout$LT$S
   %switch = icmp ne i64 %0, 0
   %3 = icmp sgt i64 %1, -1
   %or.cond = select i1 %switch, i1 %3, i1 false
-  %4 = shl i64 %1, 1
+  %4 = shl nuw i64 %1, 1
   %5 = or disjoint i64 %4, 1
   %.sroa.5.1 = select i1 %or.cond, i64 %5, i64 undef
   %.sroa.01.2 = zext i1 %or.cond to i64

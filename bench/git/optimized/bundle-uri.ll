@@ -665,7 +665,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !9
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
-  %spec.select.i = phi ptr [ %scevgep.i, %do.body.i.i ], [ %5, %do.cond.i.i ]
+  %spec.select.i = phi ptr [ %5, %do.cond.i.i ], [ %scevgep.i, %do.body.i.i ]
   %call7.i = tail call i32 @copy_file(ptr noundef nonnull %4, ptr noundef %spec.select.i, i32 noundef 0) #15
   br label %copy_uri_to_file.exit
 

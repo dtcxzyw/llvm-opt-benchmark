@@ -837,7 +837,12 @@ define void @_ZN5paths7AbsPath12canonicalize17hb3fbd971f35643e9E(ptr noalias noc
 ; Function Attrs: nonlazybind uwtable
 define { ptr, i64 } @_ZN5paths7AbsPath12strip_prefix17h959082649b3c8ec5E(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = tail call { ptr, i64 } @_ZN3std4path4Path13_strip_prefix17h9bd2bfa29ca3ec2eE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
-  ret { ptr, i64 } %5
+  %6 = extractvalue { ptr, i64 } %5, 0
+  %7 = icmp eq ptr %6, null
+  %8 = extractvalue { ptr, i64 } %5, 1
+  %.sroa.3.0 = select i1 %7, i64 undef, i64 %8
+  %9 = insertvalue { ptr, i64 } %5, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable

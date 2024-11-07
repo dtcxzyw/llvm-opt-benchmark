@@ -3717,6 +3717,8 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
   br label %"_ZN4core3ptr127drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7381f7f68ccf75aeE.exit"
 
 "_ZN4core3ptr127drop_in_place$LT$reqwest..async_impl..client..Client..request$LT$$RF$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h7381f7f68ccf75aeE.exit": ; preds = %27, %25, %29
+  %.sroa.6.sroa.7.0 = phi ptr [ %14, %29 ], [ undef, %27 ], [ undef, %25 ]
+  %.sroa.5.0 = phi ptr [ undef, %29 ], [ %14, %27 ], [ %14, %25 ]
   %.sroa.0.0 = phi i64 [ 0, %29 ], [ 2, %27 ], [ 2, %25 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %9)
@@ -3729,7 +3731,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
   call void @llvm.lifetime.start.p0(i64 296, ptr nonnull %7)
   store i64 %.sroa.0.0, ptr %7, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %14, ptr %.sroa.5.0..sroa_idx2, align 8
+  store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx2, align 8
   %.sroa.6.0..sroa_idx4 = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.6.0..sroa_idx4, ptr noundef nonnull align 8 dereferenceable(120) %.sroa.5, i64 120, i1 false)
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %7, i64 136
@@ -3737,7 +3739,7 @@ define hidden void @_ZN7reqwest10async_impl6client6Client7request17hb2d861883410
   %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %7, i64 160
   store i64 %11, ptr %.sroa.6.sroa.6.0..sroa.6.0..sroa_idx4.sroa_idx, align 8
   %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %7, i64 168
-  store ptr %14, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx4.sroa_idx, align 8
+  store ptr %.sroa.6.sroa.7.0, ptr %.sroa.6.sroa.7.0..sroa.6.0..sroa_idx4.sroa_idx, align 8
   %.sroa.6.sroa.8.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %7, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.sroa.8.0..sroa.6.0..sroa_idx4.sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.6.sroa.8, i64 72, i1 false)
   %.sroa.6.sroa.10.0..sroa.6.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %7, i64 256

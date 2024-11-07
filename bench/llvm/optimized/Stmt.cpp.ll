@@ -17375,9 +17375,13 @@ declare void @_ZNK5clang4Expr21EvaluateKnownConstIntERKNS_10ASTContextEPN4llvm15
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, i8 } @_ZNK5clang6IfStmt19getNondiscardedCaseERKNS_10ASTContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call { ptr, i8 } @_ZN5clang6IfStmt19getNondiscardedCaseERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1)
-  %4 = extractvalue { ptr, i8 } %3, 1
-  %spec.select = and i8 %4, 1
-  %.fca.1.insert = insertvalue { ptr, i8 } %3, i8 %spec.select, 1
+  %4 = extractvalue { ptr, i8 } %3, 0
+  %5 = extractvalue { ptr, i8 } %3, 1
+  %6 = trunc i8 %5 to i1
+  %spec.select = select i1 %6, ptr %4, ptr undef
+  %spec.select4 = and i8 %5, 1
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %spec.select, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %spec.select4, 1
   ret { ptr, i8 } %.fca.1.insert
 }
 

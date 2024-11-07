@@ -1291,8 +1291,8 @@ define { ptr, i64 } @_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E(ptr no
 
 22:                                               ; preds = %20
   %23 = add i64 %18, %8
-  %.not20 = icmp ult i64 %6, %23
-  br i1 %.not20, label %24, label %26
+  %.not22 = icmp ult i64 %6, %23
+  br i1 %.not22, label %24, label %26
 
 24:                                               ; preds = %22
   %25 = icmp ugt i64 %23, %1
@@ -1441,7 +1441,7 @@ define { ptr, i64 } @_ZN10ockam_core4bare8read_str17h9d0fc3aed588b9d2E(ptr noali
 5:                                                ; preds = %13
   %6 = add i32 %.014.i.i, 7
   %exitcond.not.i.i = icmp eq i64 %9, %1
-  br i1 %exitcond.not.i.i, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8, label %.lr.ph.i.i
+  br i1 %exitcond.not.i.i, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread9, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %5
   %.014.i.i = phi i32 [ %6, %5 ], [ 0, %3 ]
@@ -1453,7 +1453,7 @@ define { ptr, i64 } @_ZN10ockam_core4bare8read_str17h9d0fc3aed588b9d2E(ptr noali
   %11 = icmp ne i32 %.014.i.i, 63
   %12 = icmp eq i8 %10, 1
   %or.cond.i.i = or i1 %11, %12
-  br i1 %or.cond.i.i, label %13, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8
+  br i1 %or.cond.i.i, label %13, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread9
 
 13:                                               ; preds = %.lr.ph.i.i
   %14 = and i8 %10, 127
@@ -1473,8 +1473,8 @@ define { ptr, i64 } @_ZN10ockam_core4bare8read_str17h9d0fc3aed588b9d2E(ptr noali
 
 23:                                               ; preds = %21
   %24 = add i64 %19, %9
-  %.not20.i = icmp ult i64 %7, %24
-  br i1 %.not20.i, label %25, label %27
+  %.not22.i = icmp ult i64 %7, %24
+  br i1 %.not22.i, label %25, label %27
 
 25:                                               ; preds = %23
   %26 = icmp ugt i64 %24, %1
@@ -1488,7 +1488,7 @@ define { ptr, i64 } @_ZN10ockam_core4bare8read_str17h9d0fc3aed588b9d2E(ptr noali
   tail call void @_ZN4core5slice5index24slice_end_index_len_fail17hea09f7e31bfd8b3bE(i64 noundef %24, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.49e9a0265e54857feb382c85f62d0083.18.llvm.14247421389134134460) #30, !noalias !241
   unreachable
 
-_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8: ; preds = %.lr.ph.i.i, %5
+_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread9: ; preds = %.lr.ph.i.i, %5
   %.lcssa.sink.i.ph.sink.i.ph = phi i64 [ %1, %5 ], [ %9, %.lr.ph.i.i ]
   store i64 %.lcssa.sink.i.ph.sink.i.ph, ptr %2, align 8, !alias.scope !232, !noalias !229
   br label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread
@@ -1509,9 +1509,9 @@ _ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8: ; preds = %.l
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread
 
-_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread: ; preds = %3, %21, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8, %29
-  %.sroa.4.0 = phi i64 [ %.sroa.4.1, %29 ], [ undef, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8 ], [ undef, %21 ], [ undef, %3 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %29 ], [ null, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread8 ], [ null, %21 ], [ null, %3 ]
+_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread: ; preds = %3, %21, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread9, %29
+  %.sroa.4.0 = phi i64 [ %.sroa.4.1, %29 ], [ undef, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread9 ], [ undef, %21 ], [ undef, %3 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %29 ], [ null, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread9 ], [ null, %21 ], [ null, %3 ]
   %36 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %37 = insertvalue { ptr, i64 } %36, i64 %.sroa.4.0, 1
   ret { ptr, i64 } %37
@@ -2242,8 +2242,8 @@ _ZN4core5slice6memchr12memchr_naive17hfd0c67ed66d0062bE.exit.us.i.i.i.i: ; preds
   store i64 %153, ptr %.sroa.027.sroa.5.0..sroa_idx, align 8, !alias.scope !331, !noalias !332
   %.not.us.i.i.i.i = icmp ult i64 %153, %134
   %154 = icmp ugt i64 %153, %.val5.i.i.i
-  %or.cond99.i.i.i.i = or i1 %.not.us.i.i.i.i, %154
-  br i1 %or.cond99.i.i.i.i, label %155, label %.split59.us.i.i.i.i
+  %or.cond94.i.i.i.i = or i1 %.not.us.i.i.i.i, %154
+  br i1 %or.cond94.i.i.i.i, label %155, label %.split59.us.i.i.i.i
 
 155:                                              ; preds = %151
   %156 = icmp ugt i64 %153, %129
@@ -4022,10 +4022,10 @@ define void @_ZN10ockam_core7routing5route5Route14contains_route17hff4bc5c58837b
   br label %59
 
 28:                                               ; preds = %18, %60
-  %.sroa.0.018 = phi i64 [ 0, %18 ], [ %spec.select16, %60 ]
-  %29 = icmp ult i64 %.sroa.0.018, %19
+  %.sroa.0.019 = phi i64 [ 0, %18 ], [ %spec.select17, %60 ]
+  %29 = icmp ult i64 %.sroa.0.019, %19
   %30 = zext i1 %29 to i64
-  %spec.select16 = add nuw i64 %.sroa.0.018, %30
+  %spec.select17 = add nuw i64 %.sroa.0.019, %30
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7), !noalias !601
   call void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9as_slices17h449d34e8c5b19755E.llvm.15130365213601569483"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1), !noalias !605
   %31 = load ptr, ptr %7, align 8, !noalias !601, !nonnull !4, !align !10, !noundef !4
@@ -4049,7 +4049,7 @@ define void @_ZN10ockam_core7routing5route5Route14contains_route17hff4bc5c58837b
   store ptr %35, ptr %.sroa.05.sroa.2.0..sroa_idx, align 8, !noalias !618
   store ptr %33, ptr %.sroa.05.sroa.3.0..sroa_idx, align 8, !noalias !618
   store ptr %36, ptr %.sroa.05.sroa.4.0..sroa_idx, align 8, !noalias !618
-  store i64 %.sroa.0.018, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !618
+  store i64 %.sroa.0.019, ptr %.sroa.2.0..sroa_idx, align 8, !noalias !618
   store i64 %9, ptr %.sroa.3.0..sroa_idx, align 8, !noalias !618
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !614
   store ptr %37, ptr %4, align 8, !alias.scope !619, !noalias !623
@@ -4104,7 +4104,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit: ; preds =
   ret void
 
 60:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit.thread, %_ZN4core4iter6traits8iterator8Iterator5eq_by17hd9a32fa60eccc5d6E.exit
-  %.not.i = icmp ule i64 %spec.select16, %19
+  %.not.i = icmp ule i64 %spec.select17, %19
   %or.cond.not = select i1 %29, i1 %.not.i, i1 false
   br i1 %or.cond.not, label %28, label %45
 
@@ -4812,7 +4812,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route13manual_decode17hd5c1a87
 8:                                                ; preds = %16
   %9 = add i32 %.014.i, 7
   %exitcond.not.i = icmp eq i64 %12, %2
-  br i1 %exitcond.not.i, label %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread27, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread29, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %8
   %.014.i = phi i32 [ %9, %8 ], [ 0, %4 ]
@@ -4824,7 +4824,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route13manual_decode17hd5c1a87
   %14 = icmp ne i32 %.014.i, 63
   %15 = icmp eq i8 %13, 1
   %or.cond.i = or i1 %14, %15
-  br i1 %or.cond.i, label %16, label %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread27
+  br i1 %or.cond.i, label %16, label %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread29
 
 16:                                               ; preds = %.lr.ph.i
   %17 = and i8 %13, 127
@@ -4836,7 +4836,7 @@ define hidden void @_ZN10ockam_core7routing5route5Route13manual_decode17hd5c1a87
   %23 = icmp sgt i8 %13, -1
   br i1 %23, label %24, label %8
 
-_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread27: ; preds = %8, %.lr.ph.i
+_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread29: ; preds = %8, %.lr.ph.i
   %.lcssa.sink.i.ph = phi i64 [ %12, %.lr.ph.i ], [ %2, %8 ]
   store i64 %.lcssa.sink.i.ph, ptr %3, align 8, !alias.scope !766, !noalias !763
   br label %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread
@@ -4863,11 +4863,11 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 25
   br label %31
 
-_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread: ; preds = %4, %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread27
+_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread: ; preds = %4, %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread29
   store ptr null, ptr %0, align 8
   br label %69
 
-.loopexit49:                                      ; preds = %67
+.loopexit52:                                      ; preds = %67
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -4877,8 +4877,8 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
           cleanup
   br label %.body
 
-.body:                                            ; preds = %.loopexit49, %.loopexit.split-lp, %79
-  %eh.lpad-body = phi { ptr, i32 } [ %80, %79 ], [ %lpad.loopexit, %.loopexit49 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit52, %.loopexit.split-lp, %79
+  %eh.lpad-body = phi { ptr, i32 } [ %80, %79 ], [ %lpad.loopexit, %.loopexit52 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr105drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$ockam_core..routing..address..Address$GT$$GT$17hf1f3ded3b59b7d0dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #31
           to label %common.resume unwind label %106
 
@@ -4888,8 +4888,8 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
   br label %69
 
 31:                                               ; preds = %.lr.ph, %96
-  %.sroa.02.071 = phi i64 [ 0, %.lr.ph ], [ %32, %96 ]
-  %32 = add nuw i64 %.sroa.02.071, 1
+  %.sroa.02.074 = phi i64 [ 0, %.lr.ph ], [ %32, %96 ]
+  %32 = add nuw i64 %.sroa.02.074, 1
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.10)
   call void @llvm.experimental.noalias.scope.decl(metadata !768)
   call void @llvm.experimental.noalias.scope.decl(metadata !771)
@@ -4917,7 +4917,7 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
 42:                                               ; preds = %50
   %43 = add i32 %.014.i.i.i, 7
   %exitcond.not.i.i.i = icmp eq i64 %46, %2
-  br i1 %exitcond.not.i.i.i, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread11.i, label %.lr.ph.i.i.i
+  br i1 %exitcond.not.i.i.i, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread12.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %38, %42
   %.014.i.i.i = phi i32 [ %43, %42 ], [ 0, %38 ]
@@ -4929,7 +4929,7 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
   %48 = icmp ne i32 %.014.i.i.i, 63
   %49 = icmp eq i8 %47, 1
   %or.cond.i.i.i = or i1 %48, %49
-  br i1 %or.cond.i.i.i, label %50, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread11.i
+  br i1 %or.cond.i.i.i, label %50, label %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread12.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
   %51 = and i8 %47, 127
@@ -4949,8 +4949,8 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
 
 60:                                               ; preds = %58
   %61 = add i64 %56, %46
-  %.not20.i.i = icmp ult i64 %44, %61
-  br i1 %.not20.i.i, label %62, label %64
+  %.not22.i.i = icmp ult i64 %44, %61
+  br i1 %.not22.i.i, label %62, label %64
 
 62:                                               ; preds = %60
   %63 = icmp ugt i64 %61, %2
@@ -4970,7 +4970,7 @@ _ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thre
 .noexc21:                                         ; preds = %65
   unreachable
 
-_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread11.i: ; preds = %.lr.ph.i.i.i, %42
+_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread12.i: ; preds = %.lr.ph.i.i.i, %42
   %.lcssa.sink.i.ph.sink.i.ph.i = phi i64 [ %2, %42 ], [ %46, %.lr.ph.i.i.i ]
   store i64 %.lcssa.sink.i.ph.sink.i.ph.i, ptr %3, align 8, !alias.scope !791, !noalias !792
   br label %.loopexit
@@ -4985,7 +4985,7 @@ _ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread11.i: ; preds = 
 67:                                               ; preds = %62
   store i64 %61, ptr %3, align 8, !alias.scope !791, !noalias !792
   %68 = invoke { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h5d4dcbe078451b82E"(i64 noundef %56, i1 noundef zeroext false)
-          to label %70 unwind label %.loopexit49
+          to label %70 unwind label %.loopexit52
 
 69:                                               ; preds = %"_ZN4core3ptr105drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$ockam_core..routing..address..Address$GT$$GT$17hf1f3ded3b59b7d0dE.exit", %._crit_edge, %_ZN10ockam_core4bare28read_variable_length_integer17h6bc0a23da5421f16E.exit.thread
   ret void
@@ -5030,7 +5030,7 @@ _ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread11.i: ; preds = 
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #33
   unreachable
 
-.loopexit:                                        ; preds = %31, %58, %38, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread11.i
+.loopexit:                                        ; preds = %31, %58, %38, %_ZN10ockam_core4bare10read_slice17h9cbfc3536c099373E.exit.thread12.i
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   store ptr null, ptr %0, align 8
   invoke void @"_ZN94_$LT$alloc..collections..vec_deque..VecDeque$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcc323dcfb682d7e2E.llvm.6783306594713324768"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)

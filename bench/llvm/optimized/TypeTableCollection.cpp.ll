@@ -82,8 +82,9 @@ define dso_local range(i40 0, 8589934592) i40 @_ZN4llvm8codeview19TypeTableColle
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(152) %0) #14
   %.not = icmp eq i32 %5, %9
+  %spec.select5 = select i1 %.not, i32 undef, i32 %3
   %.sroa.2.0.insert.shift = select i1 %.not, i40 0, i40 4294967296
-  %.sroa.04.0.insert.ext = zext i32 %3 to i40
+  %.sroa.04.0.insert.ext = zext i32 %spec.select5 to i40
   %.sroa.04.0.insert.insert = or disjoint i40 %.sroa.2.0.insert.shift, %.sroa.04.0.insert.ext
   ret i40 %.sroa.04.0.insert.insert
 }

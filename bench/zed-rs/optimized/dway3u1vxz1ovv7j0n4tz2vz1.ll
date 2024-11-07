@@ -1479,6 +1479,7 @@ define internal fastcc { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiv
           to label %.sink.split.i unwind label %50, !noalias !232
 
 .sink.split.i:                                    ; preds = %49, %46, %41
+  %.sroa.4.0.ph.i = phi ptr [ undef, %46 ], [ undef, %49 ], [ %44, %41 ]
   %.sroa.0.0.ph.i = phi i64 [ 1, %46 ], [ 1, %49 ], [ 0, %41 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !232
   store atomic i8 0, ptr %39 seq_cst, align 1, !noalias !232
@@ -1491,7 +1492,7 @@ define internal fastcc { i64, ptr } @"_ZN92_$LT$futures_channel..oneshot..Receiv
   br label %37
 
 "_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17h1193b87af1d7d56cE.exit": ; preds = %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4e90a91bf5e8c066E.exit.i", %38, %.sink.split.i
-  %.sroa.4.0.i = phi ptr [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4e90a91bf5e8c066E.exit.i" ], [ undef, %38 ], [ %44, %.sink.split.i ]
+  %.sroa.4.0.i = phi ptr [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4e90a91bf5e8c066E.exit.i" ], [ undef, %38 ], [ %.sroa.4.0.ph.i, %.sink.split.i ]
   %.sroa.0.0.i = phi i64 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17h4e90a91bf5e8c066E.exit.i" ], [ 1, %38 ], [ %.sroa.0.0.ph.i, %.sink.split.i ]
   %52 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
   %53 = insertvalue { i64, ptr } %52, ptr %.sroa.4.0.i, 1

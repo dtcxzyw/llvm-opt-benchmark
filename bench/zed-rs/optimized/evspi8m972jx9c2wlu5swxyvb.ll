@@ -370,6 +370,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17
           to label %.sink.split unwind label %52
 
 .sink.split:                                      ; preds = %39, %47, %44
+  %.sroa.4.0.ph = phi ptr [ undef, %44 ], [ undef, %47 ], [ %42, %39 ]
   %.sroa.0.0.ph = phi i64 [ 1, %44 ], [ 1, %47 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %48 = getelementptr inbounds i8, ptr %0, i64 16
@@ -377,7 +378,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17
   br label %49
 
 49:                                               ; preds = %.sink.split, %36, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17he67de6181acc823bE.exit"
-  %.sroa.4.0 = phi ptr [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17he67de6181acc823bE.exit" ], [ undef, %36 ], [ %42, %.sink.split ]
+  %.sroa.4.0 = phi ptr [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17he67de6181acc823bE.exit" ], [ undef, %36 ], [ %.sroa.4.0.ph, %.sink.split ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17he67de6181acc823bE.exit" ], [ 1, %36 ], [ %.sroa.0.0.ph, %.sink.split ]
   %50 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, ptr } %50, ptr %.sroa.4.0, 1

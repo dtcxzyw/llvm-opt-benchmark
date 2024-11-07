@@ -115,16 +115,16 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i.i.i = load ptr, ptr %8, align 8, !alias.scope !48, !noalias !57
   %.not.i.i.i.i = icmp ne ptr %.val.i.i.i.i, null
-  %.sroa.056.0.not.i.i.i.i = select i1 %trunc.i.i.i.i, i1 %.not.i.i.i.i, i1 false
-  br i1 %.sroa.056.0.not.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1f3f2dfb4093b1a7E.llvm.4103517291658523209.exit", label %9
+  %.sroa.055.0.not.i.i.i.i = select i1 %trunc.i.i.i.i, i1 %.not.i.i.i.i, i1 false
+  br i1 %.sroa.055.0.not.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1f3f2dfb4093b1a7E.llvm.4103517291658523209.exit", label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %1, i64 136
   %11 = load ptr, ptr %10, align 8, !alias.scope !48, !noalias !57, !noundef !9
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds i8, ptr %1, i64 192
-  %.val.i46.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !48, !noalias !57
-  %.sroa.8.0.i.i.i.i = select i1 %12, i64 0, i64 %.val.i46.i.i.i.i
+  %.val.i45.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !48, !noalias !57
+  %.sroa.8.0.i.i.i.i = select i1 %12, i64 0, i64 %.val.i45.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %1, i64 72
   %15 = load ptr, ptr %14, align 8, !alias.scope !48, !noalias !57, !noundef !9
   %16 = icmp eq ptr %15, null
@@ -132,18 +132,18 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$
   %.val.i.i.i.i.i = load i64, ptr %17, align 8, !alias.scope !48, !noalias !57
   %.sroa.7.0.i.i.i.i = select i1 %16, i64 0, i64 %.val.i.i.i.i.i
   %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i.i, i64 %.sroa.8.0.i.i.i.i)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = extractvalue { i64, i1 } %18, 1
-  %not..i.i.i.i = xor i1 %20, true
-  %.45.i.i.i.i = zext i1 %not..i.i.i.i to i64
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  %not..i.i.i.i = xor i1 %19, true
+  %.sroa.036.0.i.i.i.i = zext i1 %not..i.i.i.i to i64
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1f3f2dfb4093b1a7E.llvm.4103517291658523209.exit"
 
 "_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1f3f2dfb4093b1a7E.llvm.4103517291658523209.exit": ; preds = %9, %6, %2
-  %.45.sink.i.i.i.i.sink = phi i64 [ 1, %2 ], [ 0, %6 ], [ %.45.i.i.i.i, %9 ]
-  %.sroa.5.0.i.sink = phi i64 [ 0, %2 ], [ undef, %6 ], [ %19, %9 ]
+  %.sroa.036.0.sink.i.i.i.i.sink = phi i64 [ 1, %2 ], [ 0, %6 ], [ %.sroa.036.0.i.i.i.i, %9 ]
+  %.sroa.5.0.i.sink = phi i64 [ 0, %2 ], [ undef, %6 ], [ %20, %9 ]
   store i64 0, ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.45.sink.i.i.i.i.sink, ptr %21, align 8
+  store i64 %.sroa.036.0.sink.i.i.i.i.sink, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.0.i.sink, ptr %22, align 8
   ret void
@@ -173,32 +173,32 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$
   %8 = load ptr, ptr %7, align 8, !alias.scope !65, !noalias !62, !noundef !9
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds i8, ptr %1, i64 192
-  %.val.i46.i = load i64, ptr %10, align 8, !alias.scope !65, !noalias !62
-  %.sroa.8.0.i = select i1 %9, i64 0, i64 %.val.i46.i
+  %.val.i45.i = load i64, ptr %10, align 8, !alias.scope !65, !noalias !62
+  %.sroa.8.0.i = select i1 %9, i64 0, i64 %.val.i45.i
   %11 = load i64, ptr %1, align 8, !range !47, !alias.scope !65, !noalias !62, !noundef !9
   %trunc.i = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %12, align 8, !alias.scope !65, !noalias !62
   %.not.i = icmp ne ptr %.val.i, null
-  %.sroa.056.0.not.i = select i1 %trunc.i, i1 %.not.i, i1 false
-  br i1 %.sroa.056.0.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0adbb275a4de6f55E.llvm.4103517291658523209.exit", label %13
+  %.sroa.055.0.not.i = select i1 %trunc.i, i1 %.not.i, i1 false
+  br i1 %.sroa.055.0.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0adbb275a4de6f55E.llvm.4103517291658523209.exit", label %13
 
 13:                                               ; preds = %2
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i, i64 %.sroa.8.0.i)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %not..i = xor i1 %16, true
-  %.45.i = zext i1 %not..i to i64
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %not..i = xor i1 %15, true
+  %.sroa.036.0.i = zext i1 %not..i to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %15, ptr %17, align 8, !alias.scope !62, !noalias !65
+  store i64 %16, ptr %17, align 8, !alias.scope !62, !noalias !65
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0adbb275a4de6f55E.llvm.4103517291658523209.exit"
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0adbb275a4de6f55E.llvm.4103517291658523209.exit": ; preds = %2, %13
-  %.45.sink.i = phi i64 [ %.45.i, %13 ], [ 0, %2 ]
+  %.sroa.036.0.sink.i = phi i64 [ %.sroa.036.0.i, %13 ], [ 0, %2 ]
   %18 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i, i64 %.sroa.8.0.i)
   store i64 %18, ptr %0, align 8, !alias.scope !62, !noalias !65
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.45.sink.i, ptr %19, align 8, !alias.scope !62, !noalias !65
+  store i64 %.sroa.036.0.sink.i, ptr %19, align 8, !alias.scope !62, !noalias !65
   ret void
 }
 
@@ -256,32 +256,32 @@ define hidden void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$
   %8 = load ptr, ptr %7, align 8, !alias.scope !84, !noalias !85, !noundef !9
   %9 = icmp eq ptr %8, null
   %10 = getelementptr inbounds i8, ptr %1, i64 192
-  %.val.i46.i.i = load i64, ptr %10, align 8, !alias.scope !84, !noalias !85
-  %.sroa.8.0.i.i = select i1 %9, i64 0, i64 %.val.i46.i.i
+  %.val.i45.i.i = load i64, ptr %10, align 8, !alias.scope !84, !noalias !85
+  %.sroa.8.0.i.i = select i1 %9, i64 0, i64 %.val.i45.i.i
   %11 = load i64, ptr %1, align 8, !range !47, !alias.scope !84, !noalias !85, !noundef !9
   %trunc.i.i = trunc nuw i64 %11 to i1
   %12 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i = load ptr, ptr %12, align 8, !alias.scope !84, !noalias !85
   %.not.i.i = icmp ne ptr %.val.i.i, null
-  %.sroa.056.0.not.i.i = select i1 %trunc.i.i, i1 %.not.i.i, i1 false
-  br i1 %.sroa.056.0.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h02f02a375f7b5d51E.llvm.4103517291658523209.exit", label %13
+  %.sroa.055.0.not.i.i = select i1 %trunc.i.i, i1 %.not.i.i, i1 false
+  br i1 %.sroa.055.0.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h02f02a375f7b5d51E.llvm.4103517291658523209.exit", label %13
 
 13:                                               ; preds = %2
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i, i64 %.sroa.8.0.i.i)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %not..i.i = xor i1 %16, true
-  %.45.i.i = zext i1 %not..i.i to i64
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %not..i.i = xor i1 %15, true
+  %.sroa.036.0.i.i = zext i1 %not..i.i to i64
   %17 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %15, ptr %17, align 8, !alias.scope !85, !noalias !84
+  store i64 %16, ptr %17, align 8, !alias.scope !85, !noalias !84
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h02f02a375f7b5d51E.llvm.4103517291658523209.exit"
 
 "_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h02f02a375f7b5d51E.llvm.4103517291658523209.exit": ; preds = %2, %13
-  %.45.sink.i.i = phi i64 [ %.45.i.i, %13 ], [ 0, %2 ]
+  %.sroa.036.0.sink.i.i = phi i64 [ %.sroa.036.0.i.i, %13 ], [ 0, %2 ]
   %18 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0.i.i, i64 %.sroa.8.0.i.i)
   store i64 %18, ptr %0, align 8, !alias.scope !85, !noalias !84
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.45.sink.i.i, ptr %19, align 8, !alias.scope !85, !noalias !84
+  store i64 %.sroa.036.0.sink.i.i, ptr %19, align 8, !alias.scope !85, !noalias !84
   ret void
 }
 
@@ -310,16 +310,16 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i.i = load ptr, ptr %4, align 8, !alias.scope !98, !noalias !105
   %.not.i.i.i = icmp ne ptr %.val.i.i.i, null
-  %.sroa.056.0.not.i.i.i = select i1 %trunc.i.i.i, i1 %.not.i.i.i, i1 false
-  br i1 %.sroa.056.0.not.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfeb19dcf04467a24E.llvm.4103517291658523209.exit", label %5
+  %.sroa.055.0.not.i.i.i = select i1 %trunc.i.i.i, i1 %.not.i.i.i, i1 false
+  br i1 %.sroa.055.0.not.i.i.i, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfeb19dcf04467a24E.llvm.4103517291658523209.exit", label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %1, i64 136
   %7 = load ptr, ptr %6, align 8, !alias.scope !98, !noalias !105, !noundef !9
   %8 = icmp eq ptr %7, null
   %9 = getelementptr inbounds i8, ptr %1, i64 192
-  %.val.i46.i.i.i = load i64, ptr %9, align 8, !alias.scope !98, !noalias !105
-  %.sroa.8.0.i.i.i = select i1 %8, i64 0, i64 %.val.i46.i.i.i
+  %.val.i45.i.i.i = load i64, ptr %9, align 8, !alias.scope !98, !noalias !105
+  %.sroa.8.0.i.i.i = select i1 %8, i64 0, i64 %.val.i45.i.i.i
   %10 = getelementptr inbounds i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !alias.scope !98, !noalias !105, !noundef !9
   %12 = icmp eq ptr %11, null
@@ -327,18 +327,18 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I
   %.val.i.i.i.i = load i64, ptr %13, align 8, !alias.scope !98, !noalias !105
   %.sroa.7.0.i.i.i = select i1 %12, i64 0, i64 %.val.i.i.i.i
   %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i.i, i64 %.sroa.8.0.i.i.i)
-  %15 = extractvalue { i64, i1 } %14, 0
-  %16 = extractvalue { i64, i1 } %14, 1
-  %not..i.i.i = xor i1 %16, true
-  %.45.i.i.i = zext i1 %not..i.i.i to i64
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %not..i.i.i = xor i1 %15, true
+  %.sroa.036.0.i.i.i = zext i1 %not..i.i.i to i64
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfeb19dcf04467a24E.llvm.4103517291658523209.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfeb19dcf04467a24E.llvm.4103517291658523209.exit": ; preds = %2, %5
-  %.sroa.5.0 = phi i64 [ undef, %2 ], [ %15, %5 ]
-  %.45.sink.i.i.i = phi i64 [ 0, %2 ], [ %.45.i.i.i, %5 ]
+  %.sroa.5.0 = phi i64 [ undef, %2 ], [ %16, %5 ]
+  %.sroa.036.0.sink.i.i.i = phi i64 [ 0, %2 ], [ %.sroa.036.0.i.i.i, %5 ]
   store i64 0, ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.45.sink.i.i.i, ptr %17, align 8
+  store i64 %.sroa.036.0.sink.i.i.i, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.0, ptr %18, align 8
   ret void
@@ -357,32 +357,32 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %7 = load ptr, ptr %6, align 8, !noundef !9
   %8 = icmp eq ptr %7, null
   %9 = getelementptr inbounds i8, ptr %1, i64 192
-  %.val.i46 = load i64, ptr %9, align 8
-  %.sroa.8.0 = select i1 %8, i64 0, i64 %.val.i46
+  %.val.i45 = load i64, ptr %9, align 8
+  %.sroa.8.0 = select i1 %8, i64 0, i64 %.val.i45
   %10 = load i64, ptr %1, align 8, !range !47, !noundef !9
   %trunc = trunc nuw i64 %10 to i1
   %11 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load ptr, ptr %11, align 8
   %.not = icmp ne ptr %.val, null
-  %.sroa.056.0.not = select i1 %trunc, i1 %.not, i1 false
-  br i1 %.sroa.056.0.not, label %17, label %12
+  %.sroa.055.0.not = select i1 %trunc, i1 %.not, i1 false
+  br i1 %.sroa.055.0.not, label %17, label %12
 
 12:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27938e671ed0956E.exit"
   %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0, i64 %.sroa.8.0)
-  %14 = extractvalue { i64, i1 } %13, 0
-  %15 = extractvalue { i64, i1 } %13, 1
-  %not. = xor i1 %15, true
-  %.45 = zext i1 %not. to i64
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = extractvalue { i64, i1 } %13, 0
+  %not. = xor i1 %14, true
+  %.sroa.036.0 = zext i1 %not. to i64
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %14, ptr %16, align 8
+  store i64 %15, ptr %16, align 8
   br label %17
 
 17:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27938e671ed0956E.exit", %12
-  %.45.sink = phi i64 [ %.45, %12 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27938e671ed0956E.exit" ]
+  %.sroa.036.0.sink = phi i64 [ %.sroa.036.0, %12 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc27938e671ed0956E.exit" ]
   %18 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.7.0, i64 %.sroa.8.0)
   store i64 %18, ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.45.sink, ptr %19, align 8
+  store i64 %.sroa.036.0.sink, ptr %19, align 8
   ret void
 }
 

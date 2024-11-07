@@ -17977,8 +17977,10 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 
 220:                                              ; preds = %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit, %139, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit
   %.sroa.058.0 = phi i32 [ 0, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.058.0.copyload, %139 ], [ %.sroa.058.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
+  %.sroa.360.0 = phi i32 [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.360.0.copyload, %139 ], [ %.sroa.360.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
   %.sroa.463.0 = phi i64 [ %spec.select, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.463.0.copyload, %139 ], [ %.sroa.463.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
   %.sroa.566.0 = phi ptr [ %155, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.566.0.copyload, %139 ], [ %.sroa.566.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
+  %.sroa.1081.0 = phi ptr [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.1081.0.copyload, %139 ], [ %.sroa.1081.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
   %.sroa.1184.0 = phi i64 [ %176, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.1184.0.copyload, %139 ], [ %.sroa.1184.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
   %.sroa.5.1 = phi i8 [ %219, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.5.0135, %139 ], [ %.sroa.5.0135, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
   %.sroa.1287.0 = phi i64 [ %218, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.1287.0.copyload, %139 ], [ %.sroa.1287.0.copyload, %_ZN4llvm13IRBuilderBase13CreateFPTruncEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit ]
@@ -17991,14 +17993,14 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
   %222 = and i8 %221, -8
   store i8 %222, ptr %43, align 8, !alias.scope !278
   store i32 %.sroa.058.0, ptr %23, align 8
-  store i32 %.sroa.360.0.copyload, ptr %.sroa.360.0..sroa_idx61, align 4
+  store i32 %.sroa.360.0, ptr %.sroa.360.0..sroa_idx61, align 4
   store i64 %.sroa.463.0, ptr %.sroa.463.0..sroa_idx64, align 8
   store ptr %.sroa.566.0, ptr %.sroa.566.0..sroa_idx67, align 8
   store i64 %.sroa.669.0.copyload, ptr %.sroa.669.0..sroa_idx70, align 8
   store i64 %.sroa.772.0.copyload, ptr %.sroa.772.0..sroa_idx73, align 8
   store ptr %.sroa.875.0.copyload, ptr %.sroa.875.0..sroa_idx76, align 8
   store ptr %.sroa.978.0.copyload, ptr %.sroa.978.0..sroa_idx79, align 8
-  store ptr %.sroa.1081.0.copyload, ptr %.sroa.1081.0..sroa_idx82, align 8
+  store ptr %.sroa.1081.0, ptr %.sroa.1081.0..sroa_idx82, align 8
   store i64 %.sroa.1184.0, ptr %.sroa.1184.0..sroa_idx85, align 8
   store i64 %.sroa.1287.0, ptr %.sroa.1287.0..sroa_idx88, align 8
   store i8 %.sroa.13.0, ptr %.sroa.13.0..sroa_idx90, align 8

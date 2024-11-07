@@ -1249,7 +1249,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %.not35 = phi i1 [ true, %2 ], [ true, %32 ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8fb7f4a0d745a5c0E.llvm.13747326498558855189.exit.i.i" ], [ false, %49 ], [ false, %47 ]
   %.sroa.4.033 = phi ptr [ %0, %2 ], [ %34, %32 ], [ %.sink18.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8fb7f4a0d745a5c0E.llvm.13747326498558855189.exit.i.i" ], [ %.sink18.i.i, %49 ], [ %.sink18.i.i, %47 ]
   %.sroa.16.131 = phi i64 [ 0, %2 ], [ %.sroa.16.0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8fb7f4a0d745a5c0E.llvm.13747326498558855189.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
-  %.sroa.415.029 = phi i64 [ undef, %2 ], [ %.sroa.16.0, %47 ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8fb7f4a0d745a5c0E.llvm.13747326498558855189.exit.i.i" ], [ %.sroa.16.0, %32 ]
+  %.sroa.415.029 = phi i64 [ undef, %2 ], [ undef, %32 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8fb7f4a0d745a5c0E.llvm.13747326498558855189.exit.i.i" ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %47 ]
   %70 = phi i64 [ 0, %2 ], [ 0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h8fb7f4a0d745a5c0E.llvm.13747326498558855189.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
   %71 = icmp eq ptr %.sroa.4.033, %3
   br i1 %71, label %.loopexit, label %.lr.ph.i9
@@ -4449,8 +4449,9 @@ define noundef i32 @"_ZN114_$LT$core..option..Option$LT$char$GT$$u20$as$u20$clap
 define { i64, i64 } @"_ZN116_$LT$core..option..Option$LT$usize$GT$$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$usize$GT$$GT$15into_resettable17h16f169d2f76c0caeE"(i64 noundef %0, i64 %1) unnamed_addr #16 {
   %switch = icmp eq i64 %0, 0
   %. = zext i1 %switch to i64
+  %.2 = select i1 %switch, i64 undef, i64 %1
   %3 = insertvalue { i64, i64 } poison, i64 %., 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
+  %4 = insertvalue { i64, i64 } %3, i64 %.2, 1
   ret { i64, i64 } %4
 }
 
@@ -4548,16 +4549,20 @@ define void @"_ZN157_$LT$core..option..Option$LT$$RF$str$GT$$u20$as$u20$clap_bui
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @"_ZN149_$LT$core..option..Option$LT$$RF$str$GT$$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..os_str..OsStr$GT$$GT$15into_resettable17hdf9ea2de0fbef9e8E"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #16 {
-  %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
-  ret { ptr, i64 } %4
+  %3 = icmp eq ptr %0, null
+  %spec.select = select i1 %3, i64 undef, i64 %1
+  %4 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %spec.select, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @"_ZN144_$LT$core..option..Option$LT$$RF$str$GT$$u20$as$u20$clap_builder..builder..resettable..IntoResettable$LT$clap_builder..builder..str..Str$GT$$GT$15into_resettable17h9d751268da111a8cE"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #16 {
-  %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
-  ret { ptr, i64 } %4
+  %3 = icmp eq ptr %0, null
+  %spec.select = select i1 %3, i64 undef, i64 %1
+  %4 = insertvalue { ptr, i64 } poison, ptr %0, 0
+  %5 = insertvalue { ptr, i64 } %4, i64 %spec.select, 1
+  ret { ptr, i64 } %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -4985,7 +4990,7 @@ define noundef zeroext i1 @"_ZN81_$LT$clap_builder..error..context..ContextValue
   %5 = alloca { { ptr, i64 }, i8, [7 x i8] }, align 8
   %6 = alloca { { { i64, ptr }, i64 } }, align 8
   %7 = load i8, ptr %0, align 8, !range !129, !noundef !4
-  switch i8 %7, label %default.unreachable46 [
+  switch i8 %7, label %default.unreachable47 [
     i8 0, label %8
     i8 1, label %10
     i8 2, label %13
@@ -4995,7 +5000,7 @@ define noundef zeroext i1 @"_ZN81_$LT$clap_builder..error..context..ContextValue
     i8 6, label %45
   ]
 
-default.unreachable46:                            ; preds = %2
+default.unreachable47:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -5117,18 +5122,18 @@ default.unreachable46:                            ; preds = %2
   resume { ptr, i32 } %49
 
 60:                                               ; preds = %.lr.ph, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37"
-  %.sroa.0.043 = phi ptr [ %40, %.lr.ph ], [ %61, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37" ]
-  %.sroa.8.042 = phi i64 [ 0, %.lr.ph ], [ %62, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37" ]
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.043, i64 24
-  %62 = add nuw nsw i64 %.sroa.8.042, 1
-  %63 = icmp eq i64 %.sroa.8.042, 0
+  %.sroa.0.044 = phi ptr [ %40, %.lr.ph ], [ %61, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37" ]
+  %.sroa.8.043 = phi i64 [ 0, %.lr.ph ], [ %62, %"_ZN83_$LT$clap_builder..builder..styled_str..StyledStr$u20$as$u20$core..fmt..Display$GT$3fmt17h18435e8865583d9dE.exit37" ]
+  %61 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 24
+  %62 = add nuw nsw i64 %.sroa.8.043, 1
+  %63 = icmp eq i64 %.sroa.8.043, 0
   br i1 %63, label %64, label %74
 
 64:                                               ; preds = %74, %60
   call void @llvm.experimental.noalias.scope.decl(metadata !872)
-  %65 = getelementptr inbounds i8, ptr %.sroa.0.043, i64 8
+  %65 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 8
   %66 = load ptr, ptr %65, align 8, !alias.scope !875, !noalias !878, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds i8, ptr %.sroa.0.043, i64 16
+  %67 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 16
   %68 = load i64, ptr %67, align 8, !alias.scope !875, !noalias !878, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !881
   store ptr %66, ptr %3, align 8, !noalias !881
@@ -8087,14 +8092,14 @@ define internal fastcc void @_ZN12clap_builder5error6format17write_values_list17
   %32 = icmp eq i8 %.sroa.7.0.copyload, 3
   %or.cond = select i1 %31, i1 %32, i1 false
   %33 = icmp eq i8 %.sroa.11.0.copyload, 3
-  %or.cond50 = select i1 %or.cond, i1 %33, i1 false
+  %or.cond51 = select i1 %or.cond, i1 %33, i1 false
   %34 = icmp eq i16 %.sroa.15.0.copyload, 0
-  %or.cond51 = select i1 %or.cond50, i1 %34, i1 false
-  %spec.select = select i1 %or.cond51, ptr @anon.85f68effae4436bb4f25a144403dc49c.5.llvm.13747326498558855189, ptr @anon.85f68effae4436bb4f25a144403dc49c.56
-  %spec.select54 = select i1 %or.cond51, i64 0, i64 4
+  %or.cond52 = select i1 %or.cond51, i1 %34, i1 false
+  %spec.select = select i1 %or.cond52, ptr @anon.85f68effae4436bb4f25a144403dc49c.5.llvm.13747326498558855189, ptr @anon.85f68effae4436bb4f25a144403dc49c.56
+  %spec.select55 = select i1 %or.cond52, i64 0, i64 4
   store ptr %spec.select, ptr %9, align 8
   %35 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %spec.select54, ptr %35, align 8
+  store i64 %spec.select55, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %37, i64 %21
@@ -8138,20 +8143,20 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   br label %18
 
 62:                                               ; preds = %.lr.ph, %65
-  %.sroa.736.053 = phi i64 [ 0, %.lr.ph ], [ %64, %65 ]
-  %.sroa.034.052 = phi ptr [ %37, %.lr.ph ], [ %63, %65 ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.034.052, i64 24
-  %64 = add nuw nsw i64 %.sroa.736.053, 1
-  %.not31 = icmp eq i64 %.sroa.736.053, 0
+  %.sroa.736.054 = phi i64 [ 0, %.lr.ph ], [ %64, %65 ]
+  %.sroa.034.053 = phi ptr [ %37, %.lr.ph ], [ %63, %65 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.034.053, i64 24
+  %64 = add nuw nsw i64 %.sroa.736.054, 1
+  %.not31 = icmp eq i64 %.sroa.736.054, 0
   br i1 %.not31, label %65, label %72
 
 65:                                               ; preds = %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit33, %62
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
-  %66 = getelementptr inbounds i8, ptr %.sroa.034.052, i64 8
+  %66 = getelementptr inbounds i8, ptr %.sroa.034.053, i64 8
   %67 = load ptr, ptr %66, align 8, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds i8, ptr %.sroa.034.052, i64 16
+  %68 = getelementptr inbounds i8, ptr %.sroa.034.053, i64 16
   %69 = load i64, ptr %68, align 8, !noundef !4
   store ptr %67, ptr %6, align 8
   store i64 %69, ptr %41, align 8
@@ -8618,14 +8623,14 @@ define internal fastcc void @_ZN12clap_builder5error6format12did_you_mean17h40f8
   %27 = icmp eq i8 %.sroa.7.0.copyload, 3
   %or.cond = select i1 %26, i1 %27, i1 false
   %28 = icmp eq i8 %.sroa.11.0.copyload, 3
-  %or.cond148 = select i1 %or.cond, i1 %28, i1 false
+  %or.cond149 = select i1 %or.cond, i1 %28, i1 false
   %29 = icmp eq i16 %.sroa.15.0.copyload, 0
-  %or.cond149 = select i1 %or.cond148, i1 %29, i1 false
-  %spec.select = select i1 %or.cond149, ptr @anon.85f68effae4436bb4f25a144403dc49c.5.llvm.13747326498558855189, ptr @anon.85f68effae4436bb4f25a144403dc49c.56
-  %spec.select162 = select i1 %or.cond149, i64 0, i64 4
+  %or.cond150 = select i1 %or.cond149, i1 %29, i1 false
+  %spec.select = select i1 %or.cond150, ptr @anon.85f68effae4436bb4f25a144403dc49c.5.llvm.13747326498558855189, ptr @anon.85f68effae4436bb4f25a144403dc49c.56
+  %spec.select163 = select i1 %or.cond150, i64 0, i64 4
   store ptr %spec.select, ptr %19, align 8
   %30 = getelementptr inbounds i8, ptr %19, i64 8
-  store i64 %spec.select162, ptr %30, align 8
+  store i64 %spec.select163, ptr %30, align 8
   store ptr @anon.85f68effae4436bb4f25a144403dc49c.58, ptr %21, align 8
   %31 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha516229e008d4484E", ptr %31, align 8
@@ -8666,11 +8671,11 @@ define internal fastcc void @_ZN12clap_builder5error6format12did_you_mean17h40f8
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %15, ptr noundef nonnull align 2 dereferenceable(14) %25, i64 14, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
-  %spec.select163 = select i1 %or.cond149, ptr @anon.85f68effae4436bb4f25a144403dc49c.5.llvm.13747326498558855189, ptr @anon.85f68effae4436bb4f25a144403dc49c.56
-  %spec.select164 = select i1 %or.cond149, i64 0, i64 4
-  store ptr %spec.select163, ptr %14, align 8
+  %spec.select164 = select i1 %or.cond150, ptr @anon.85f68effae4436bb4f25a144403dc49c.5.llvm.13747326498558855189, ptr @anon.85f68effae4436bb4f25a144403dc49c.56
+  %spec.select165 = select i1 %or.cond150, i64 0, i64 4
+  store ptr %spec.select164, ptr %14, align 8
   %43 = getelementptr inbounds i8, ptr %14, i64 8
-  store i64 %spec.select164, ptr %43, align 8
+  store i64 %spec.select165, ptr %43, align 8
   store ptr %23, ptr %16, align 8
   %44 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha516229e008d4484E", ptr %44, align 8
@@ -8769,16 +8774,16 @@ define internal fastcc void @_ZN12clap_builder5error6format12did_you_mean17h40f8
   %86 = getelementptr inbounds i8, ptr %8, i64 32
   %87 = getelementptr inbounds i8, ptr %8, i64 16
   %88 = getelementptr inbounds i8, ptr %8, i64 24
-  br i1 %or.cond149, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %or.cond150, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %103
-  %.sroa.793.0157.us = phi i64 [ %90, %103 ], [ 0, %.lr.ph ]
-  %.sroa.091.0156.us = phi ptr [ %89, %103 ], [ %75, %.lr.ph ]
-  %89 = getelementptr inbounds i8, ptr %.sroa.091.0156.us, i64 24
-  %90 = add nuw nsw i64 %.sroa.793.0157.us, 1
+  %.sroa.793.0158.us = phi i64 [ %90, %103 ], [ 0, %.lr.ph ]
+  %.sroa.091.0157.us = phi ptr [ %89, %103 ], [ %75, %.lr.ph ]
+  %89 = getelementptr inbounds i8, ptr %.sroa.091.0157.us, i64 24
+  %90 = add nuw nsw i64 %.sroa.793.0158.us, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %.sroa.091.0156.us, ptr %9, align 8
-  %91 = icmp eq i64 %.sroa.793.0157.us, 0
+  store ptr %.sroa.091.0157.us, ptr %9, align 8
+  %91 = icmp eq i64 %.sroa.793.0158.us, 0
   br i1 %91, label %103, label %92
 
 92:                                               ; preds = %.lr.ph.split.us
@@ -8832,13 +8837,13 @@ _ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exi
   br i1 %105, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread"
-  %.sroa.793.0157 = phi i64 [ %107, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread" ], [ 0, %.lr.ph ]
-  %.sroa.091.0156 = phi ptr [ %106, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread" ], [ %75, %.lr.ph ]
-  %106 = getelementptr inbounds i8, ptr %.sroa.091.0156, i64 24
-  %107 = add nuw nsw i64 %.sroa.793.0157, 1
+  %.sroa.793.0158 = phi i64 [ %107, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread" ], [ 0, %.lr.ph ]
+  %.sroa.091.0157 = phi ptr [ %106, %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread" ], [ %75, %.lr.ph ]
+  %106 = getelementptr inbounds i8, ptr %.sroa.091.0157, i64 24
+  %107 = add nuw nsw i64 %.sroa.793.0158, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
-  store ptr %.sroa.091.0156, ptr %9, align 8
-  %108 = icmp eq i64 %.sroa.793.0157, 0
+  store ptr %.sroa.091.0157, ptr %9, align 8
+  %108 = icmp eq i64 %.sroa.793.0158, 0
   br i1 %108, label %"_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread", label %111
 
 "_ZN62_$LT$anstyle..style..Style$u20$as$u20$core..cmp..PartialEq$GT$2eq17h31e4c80078394956E.exit77.thread": ; preds = %_ZN12clap_builder7builder10styled_str9StyledStr8push_str17hf3025370b2961e87E.exit, %.lr.ph.split

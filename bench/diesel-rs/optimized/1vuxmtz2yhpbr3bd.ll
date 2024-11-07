@@ -405,8 +405,10 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN180_$LT$diese
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h847905aea5bfb9b8E.llvm.14419527431308106341"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  %spec.select = select i1 %.not, i64 undef, i64 %1
   %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %spec.select, 1
   ret { ptr, i64 } %4
 }
 
@@ -422,8 +424,10 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN180_$LT$diese
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17hb523b59a79e70b40E.llvm.14419527431308106341"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #2 {
+  %.not = icmp eq ptr %0, null
+  %spec.select = select i1 %.not, i64 undef, i64 %1
   %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %spec.select, 1
   ret { ptr, i64 } %4
 }
 
@@ -1667,6 +1671,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
 "_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread": ; preds = %128, %125
   %.sroa.17.3.ph = phi i64 [ undef, %125 ], [ %.sroa.335.i.sroa.4.0.copyload, %128 ]
   %.sroa.14.3.ph = phi ptr [ undef, %125 ], [ %.sroa.335.i.sroa.0.0.copyload, %128 ]
+  %.sroa.10.3.ph = phi ptr [ undef, %125 ], [ %124, %128 ]
   %.sroa.036.3.ph = phi i64 [ -9223372036854775800, %125 ], [ %121, %128 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
@@ -1697,27 +1702,27 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   br label %237
 
 231:                                              ; preds = %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit", %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread"
-  %.sroa.10.374.ph = phi ptr [ %124, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.10.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
-  %.sroa.14.372.ph = phi ptr [ %.sroa.14.3.ph, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.14.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
-  %.sroa.17.370.ph = phi i64 [ %.sroa.17.3.ph, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.17.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
+  %.sroa.76.sroa.0.0.ph = phi ptr [ %.sroa.10.3.ph, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.10.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
+  %.sroa.76.sroa.5.0.ph = phi ptr [ %.sroa.14.3.ph, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.14.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
+  %.sroa.76.sroa.6.0.ph = phi i64 [ %.sroa.17.3.ph, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.17.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
   %.sroa.04.0.ph = phi i64 [ %.sroa.036.3.ph, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit.thread" ], [ %.sroa.036.3, %"_ZN155_$LT$diesel..connection..transaction_manager..AnsiTransactionManager$u20$as$u20$diesel..connection..transaction_manager..TransactionManager$LT$Conn$GT$$GT$18commit_transaction17h65c87298ee6e88efE.exit" ]
   store i64 %.sroa.04.0.ph, ptr %0, align 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.10.374.ph, ptr %.sroa.454.0..sroa_idx, align 8
+  store ptr %.sroa.76.sroa.0.0.ph, ptr %.sroa.454.0..sroa_idx, align 8
   %.sroa.555.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.14.372.ph, ptr %.sroa.555.0..sroa_idx, align 8
+  store ptr %.sroa.76.sroa.5.0.ph, ptr %.sroa.555.0..sroa_idx, align 8
   %.sroa.656.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.17.370.ph, ptr %.sroa.656.0..sroa_idx, align 8
+  store i64 %.sroa.76.sroa.6.0.ph, ptr %.sroa.656.0..sroa_idx, align 8
   br label %237
 
 232:                                              ; preds = %228
   %233 = load i64, ptr %34, align 8, !range !5, !noundef !4
   switch i64 %233, label %236 [
     i64 -9223372036854775798, label %234
-    i64 -9223372036854775799, label %.thread96
+    i64 -9223372036854775799, label %.thread92
   ]
 
-.thread96:                                        ; preds = %232
+.thread92:                                        ; preds = %232
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %36, i64 32, i1 false)
   call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17h4b5b8182eb47705bE"(ptr noalias noundef align 8 dereferenceable(32) %34)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
@@ -1728,7 +1733,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %129
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34)
   br label %235
 
-235:                                              ; preds = %234, %.thread96, %236
+235:                                              ; preds = %234, %.thread92, %236
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
   br label %237
 
@@ -1759,17 +1764,21 @@ define hidden void @"_ZN6diesel10type_impls6tuples87_$LT$impl$u20$diesel..insert
   %3 = load ptr, ptr %1, align 8, !align !94, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
+  %.not.i.i = icmp eq ptr %3, null
+  %spec.select.i.i = select i1 %.not.i.i, i64 undef, i64 %5
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !align !94, !noundef !4
   %8 = getelementptr inbounds i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
+  %.not.i.i4 = icmp eq ptr %7, null
+  %spec.select.i.i5 = select i1 %.not.i.i4, i64 undef, i64 %9
   store ptr %3, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %5, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %spec.select.i.i, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %9, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %spec.select.i.i5, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
 }
 
@@ -1832,16 +1841,16 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
   %15 = load i32, ptr %14, align 8, !noalias !315
   %16 = load ptr, ptr %14, align 8, !noalias !315, !nonnull !4, !align !51
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !315
-  %.sroa.5.8.insert.ext = zext i32 %15 to i64
-  %17 = inttoptr i64 %.sroa.5.8.insert.ext to ptr
-  %.sroa.5.026 = select i1 %13, ptr %17, ptr %16
+  %.sroa.4.0.insert.ext = zext i32 %15 to i64
+  %17 = inttoptr i64 %.sroa.4.0.insert.ext to ptr
   %.sroa.4.0 = select i1 %13, ptr %17, ptr %12
+  %.sroa.6.0 = select i1 %13, ptr undef, ptr %16
   %.sink.i = select i1 %13, i64 -9223372036854775798, i64 -9223372036854775805
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.5.026, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8020533ea92d9a14E.llvm.5273170882542179869"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
           to label %"_ZN4core3ptr72drop_in_place$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$GT$17h0c91327e7d3659d8E.exit" unwind label %21
 
@@ -1936,15 +1945,19 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17hf4b1d212e50906edE.llvm.14419527431308106341"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #2 {
+  %.not.i = icmp eq ptr %0, null
+  %spec.select.i = select i1 %.not.i, i64 undef, i64 %1
   %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %spec.select.i, 1
   ret { ptr, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN91_$LT$core..option..Option$LT$T$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17hfbcebe6d84a0fbadE.llvm.14419527431308106341"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #2 {
+  %.not.i = icmp eq ptr %0, null
+  %spec.select.i = select i1 %.not.i, i64 undef, i64 %1
   %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %spec.select.i, 1
   ret { ptr, i64 } %4
 }
 

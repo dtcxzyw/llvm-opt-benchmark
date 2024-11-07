@@ -4177,15 +4177,15 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   br label %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit.thread"
 
 "_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit.thread": ; preds = %2, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit"
-  %.sroa.0.155 = phi i64 [ %14, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ -9223372036854775808, %2 ]
-  %.sroa.9.154 = phi i64 [ %.sroa.9.0.copyload, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ undef, %2 ]
+  %.sroa.0.154 = phi i64 [ %14, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ -9223372036854775808, %2 ]
+  %.sroa.9.153 = phi i64 [ %.sroa.9.0.copyload, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ undef, %2 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.647, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.647)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
-  store i64 %.sroa.0.155, ptr %8, align 8
+  store i64 %.sroa.0.154, ptr %8, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
-  store i64 %.sroa.9.154, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.9.153, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !795
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !795
@@ -4199,7 +4199,7 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   %17 = load i64, ptr %4, align 8, !range !452, !alias.scope !804, !noalias !806, !noundef !12
   %trunc.i.i = trunc nuw i64 %17 to i1
   %18 = getelementptr inbounds i8, ptr %4, i64 8
-  br i1 %trunc.i.i, label %.thread86, label %23
+  br i1 %trunc.i.i, label %.thread84, label %23
 
 19:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5), !noalias !787
@@ -4213,7 +4213,7 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
 21:                                               ; preds = %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit.thread"
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread81
+  br label %.thread79
 
 23:                                               ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4, ptr noundef nonnull align 8 dereferenceable(12) %18, i64 12, i1 false)
@@ -4225,7 +4225,7 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   invoke void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$21parse_terminated_with17h06911ba255a0138bE"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 %7, ptr noundef nonnull @"_ZN3syn4data7parsing66_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..data..Variant$GT$5parse17h57872e5d447a9ac2E")
           to label %26 unwind label %63
 
-.thread86:                                        ; preds = %.noexc
+.thread84:                                        ; preds = %.noexc
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false), !alias.scope !807
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4), !noalias !795
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
@@ -4291,7 +4291,7 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   ret void
 
-"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h7e458d231d4cdfc6E.exit44": ; preds = %55, %59, %.thread86
+"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h7e458d231d4cdfc6E.exit44": ; preds = %55, %59, %.thread84
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %44 = load i64, ptr %8, align 8, !range !28, !alias.scope !824, !noundef !12
   %45 = icmp eq i64 %44, -9223372036854775808
@@ -4314,11 +4314,11 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   %51 = getelementptr inbounds i8, ptr %7, i64 16
   %52 = load ptr, ptr %51, align 8, !alias.scope !827, !noundef !12
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %.thread81, label %54
+  br i1 %53, label %.thread79, label %54
 
 54:                                               ; preds = %49
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d7840d478fbc505E.llvm.8351105841907204142"(ptr noalias noundef nonnull align 8 dereferenceable(8) %51)
-          to label %.thread81 unwind label %61
+          to label %.thread79 unwind label %61
 
 55:                                               ; preds = %47
   %56 = getelementptr inbounds i8, ptr %7, i64 16
@@ -4328,12 +4328,12 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
 
 59:                                               ; preds = %55
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7d7840d478fbc505E.llvm.8351105841907204142"(ptr noalias noundef nonnull align 8 dereferenceable(8) %56)
-          to label %"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h7e458d231d4cdfc6E.exit44" unwind label %.thread84
+          to label %"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h7e458d231d4cdfc6E.exit44" unwind label %.thread82
 
-.thread84:                                        ; preds = %59
+.thread82:                                        ; preds = %59
   %60 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread81
+  br label %.thread79
 
 61:                                               ; preds = %54
   %62 = landingpad { ptr, i32 }
@@ -4345,7 +4345,7 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   %64 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$syn..parse..ParseBuffer$GT$17h7e458d231d4cdfc6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #27
-          to label %.thread81 unwind label %65
+          to label %.thread79 unwind label %65
 
 65:                                               ; preds = %69, %63
   %66 = landingpad { ptr, i32 }
@@ -4353,17 +4353,17 @@ define internal fastcc void @_ZN3syn6derive7parsing9data_enum17h29a461eb803a02fb
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h7c0faf0a5eab54d5E.exit46": ; preds = %31, %36, %.thread81, %69
-  %.pn75 = phi { ptr, i32 } [ %.pn76, %69 ], [ %.pn76, %.thread81 ], [ %32, %36 ], [ %32, %31 ]
-  resume { ptr, i32 } %.pn75
+"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h7c0faf0a5eab54d5E.exit46": ; preds = %31, %36, %.thread79, %69
+  %.pn73 = phi { ptr, i32 } [ %.pn74, %69 ], [ %.pn74, %.thread79 ], [ %32, %36 ], [ %32, %31 ]
+  resume { ptr, i32 } %.pn73
 
-.thread81:                                        ; preds = %21, %63, %54, %49, %.thread84
-  %.pn76 = phi { ptr, i32 } [ %60, %.thread84 ], [ %50, %49 ], [ %50, %54 ], [ %22, %21 ], [ %64, %63 ]
+.thread79:                                        ; preds = %21, %63, %54, %49, %.thread82
+  %.pn74 = phi { ptr, i32 } [ %60, %.thread82 ], [ %50, %49 ], [ %50, %54 ], [ %22, %21 ], [ %64, %63 ]
   %67 = load i64, ptr %8, align 8, !range !28, !alias.scope !843, !noundef !12
   %68 = icmp eq i64 %67, -9223372036854775808
   br i1 %68, label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h7c0faf0a5eab54d5E.exit46", label %69
 
-69:                                               ; preds = %.thread81
+69:                                               ; preds = %.thread79
   invoke void @"_ZN4core3ptr105drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..generics..WherePredicate$C$syn..token..Comma$GT$$GT$17hd775ed72e6af9231E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
           to label %"_ZN4core3ptr75drop_in_place$LT$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$17h7c0faf0a5eab54d5E.exit46" unwind label %65
 }
@@ -4402,14 +4402,14 @@ define internal fastcc void @_ZN3syn6derive7parsing10data_union17hecd3d4880458f7
 
 "_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit.thread": ; preds = %2, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit"
   %14 = phi i64 [ %11, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ -9223372036854775808, %2 ]
-  %.sroa.9.141 = phi i64 [ %.sroa.9.0.copyload, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ undef, %2 ]
+  %.sroa.9.140 = phi i64 [ %.sroa.9.0.copyload, %"_ZN3syn8generics7parsing102_$LT$impl$u20$syn..parse..Parse$u20$for$u20$core..option..Option$LT$syn..generics..WhereClause$GT$$GT$5parse17h1f374814b516de6bE.exit" ], [ undef, %2 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.635, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.635)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   store i64 %14, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 %.sroa.9.141, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.9.140, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   invoke void @"_ZN3syn4data7parsing70_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..data..FieldsNamed$GT$5parse17h53682a8ba30a2c5fE"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 %1)
           to label %21 unwind label %17

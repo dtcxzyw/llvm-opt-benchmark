@@ -2536,6 +2536,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   %.sroa.31.0.ph = phi i32 [ %.054106, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %25, %.outer.backedge ]
   %.sroa.28.0.ph = phi i32 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %22, %.outer.backedge ]
   %.sroa.25.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %46, %.outer.backedge ]
+  %.sroa.22.0.ph = phi i64 [ %.sroa.3.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %..sroa.22.0, %.outer.backedge ]
   %.sroa.19.0.ph = phi i64 [ %.sroa.010.0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %..sroa.19.0, %.outer.backedge ]
   %.sroa.15.0.ph = phi i64 [ undef, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %.sroa.15.0.ph.be, %.outer.backedge ]
   %.sroa.11.0.ph = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h073a7dc024961fe0E.exit69.thread" ], [ %.sroa.11.0.ph.be, %.outer.backedge ]
@@ -2556,6 +2557,7 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Proper
   %.sroa.31.0 = phi i32 [ %25, %63 ], [ %.sroa.31.0.ph, %.outer ]
   %.sroa.28.0 = phi i32 [ %22, %63 ], [ %.sroa.28.0.ph, %.outer ]
   %.sroa.25.0 = phi i64 [ %46, %63 ], [ %.sroa.25.0.ph, %.outer ]
+  %.sroa.22.0 = phi i64 [ %..sroa.22.0, %63 ], [ %.sroa.22.0.ph, %.outer ]
   %.sroa.19.0 = phi i64 [ %..sroa.19.0, %63 ], [ %.sroa.19.0.ph, %.outer ]
   %.sroa.7.0 = phi i64 [ %.sroa.7.1, %63 ], [ %.sroa.7.0.ph, %.outer ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1, %63 ], [ %.sroa.0.0.ph, %.outer ]
@@ -2617,7 +2619,7 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
   %.sroa.7.0..sroa_idx81 = getelementptr inbounds i8, ptr %37, i64 32
   store i64 %.sroa.19.0, ptr %.sroa.7.0..sroa_idx81, align 8
   %.sroa.882.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 40
-  store i64 %.sroa.3.0, ptr %.sroa.882.0..sroa_idx, align 8
+  store i64 %.sroa.22.0, ptr %.sroa.882.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 48
   store i64 %.sroa.25.0, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 56
@@ -2661,12 +2663,13 @@ _ZN5alloc5alloc15exchange_malloc17hbe31f2048284b3faE.exit: ; preds = %"_ZN102_$L
   %52 = getelementptr inbounds i8, ptr %19, i64 40
   %53 = load i64, ptr %52, align 8
   %.not59 = icmp eq i64 %48, 0
-  %54 = icmp ne i64 %.sroa.3.0, %53
+  %54 = icmp ne i64 %.sroa.22.0, %53
   %spec.select = select i1 %.not59, i1 true, i1 %54
   br label %55
 
 55:                                               ; preds = %51, %49
   %.050 = phi i1 [ %50, %49 ], [ %spec.select, %51 ]
+  %..sroa.22.0 = select i1 %.050, i64 undef, i64 %.sroa.22.0
   %..sroa.19.0 = select i1 %.050, i64 0, i64 %.sroa.19.0
   %56 = trunc nuw i8 %.sroa.47.0 to i1
   br i1 %56, label %57, label %60

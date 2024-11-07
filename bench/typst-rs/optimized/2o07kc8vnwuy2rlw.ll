@@ -55,7 +55,7 @@ _ZN5alloc7raw_vec11finish_grow17hfce61995b065d2d2E.exit.i: ; preds = %18, %14
   store i64 %.0.sroa.speculated.i26.i, ptr %0, align 8, !alias.scope !4
   ret void
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h366e1a439766b608E.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h041014cb650fbffbE.exit.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h041014cb650fbffbE.exit.thread.i", %2
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h366e1a439766b608E.exit.thread": ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h041014cb650fbffbE.exit.thread.i", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h041014cb650fbffbE.exit.i", %2
   tail call void @_ZN5alloc7raw_vec17capacity_overflow17h2434c0983b86c347E() #10
   unreachable
 

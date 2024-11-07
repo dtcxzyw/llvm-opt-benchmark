@@ -80178,6 +80178,7 @@ common.resume.i:                                  ; preds = %.thread162.i, %"_ZN
           to label %.thread151.i unwind label %163, !noalias !9373
 
 204:                                              ; preds = %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i.i.i", %185
+  %.sroa.3.0.i.i.i = phi ptr [ %.val7.i.i, %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i.i.i" ], [ undef, %185 ]
   %205 = getelementptr inbounds i8, ptr %23, i64 44
   %206 = getelementptr inbounds i8, ptr %23, i64 40
   %207 = load i8, ptr %205, align 4, !alias.scope !9394, !noalias !9397, !noundef !388
@@ -80185,7 +80186,7 @@ common.resume.i:                                  ; preds = %.thread162.i, %"_ZN
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !9373
   store ptr %.val.i.i, ptr %19, align 8, !noalias !9373
   %.sroa.5.0..sroa_idx167.i = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %.val7.i.i, ptr %.sroa.5.0..sroa_idx167.i, align 8, !noalias !9373
+  store ptr %.sroa.3.0.i.i.i, ptr %.sroa.5.0..sroa_idx167.i, align 8, !noalias !9373
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 16
   store i32 %208, ptr %.sroa.6.0..sroa_idx.i, align 8, !noalias !9373
   %.sroa.11.0..sroa_idx.i = getelementptr inbounds i8, ptr %19, i64 20
@@ -105692,9 +105693,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.thread126 unwind label %157
 
 119:                                              ; preds = %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i", %89
+  %.sroa.3.0.i = phi ptr [ %.val83, %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i" ], [ undef, %89 ]
   store ptr %.val82, ptr %15, align 8
   %120 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %.val83, ptr %120, align 8
+  store ptr %.sroa.3.0.i, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %15, i64 20
   store i8 %91, ptr %121, align 4
   %122 = getelementptr inbounds i8, ptr %15, i64 16
@@ -107796,9 +107798,10 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
           to label %.thread127 unwind label %163
 
 122:                                              ; preds = %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i", %92
+  %.sroa.3.0.i = phi ptr [ %.val79, %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i" ], [ undef, %92 ]
   store ptr %.val, ptr %15, align 8
   %123 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %.val79, ptr %123, align 8
+  store ptr %.sroa.3.0.i, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %15, i64 20
   store i8 %94, ptr %124, align 4
   %125 = getelementptr inbounds i8, ptr %15, i64 16
@@ -141616,10 +141619,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit244
   br label %251
 
 251:                                              ; preds = %"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$u20$as$u20$salsa..derived..MemoizationPolicy$LT$Q$GT$$GT$17memoized_value_eq17h90320e69c8bae549E.exit.thread", %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i"
+  %.sroa.3.0.i = phi ptr [ %118, %"_ZN65_$LT$chalk_ir..Binders$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb65b569016da400eE.exit.i" ], [ undef, %"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$u20$as$u20$salsa..derived..MemoizationPolicy$LT$Q$GT$$GT$17memoized_value_eq17h90320e69c8bae549E.exit.thread" ]
   %252 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %117, ptr %252, align 8
   %253 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr %118, ptr %253, align 8
+  store ptr %.sroa.3.0.i, ptr %253, align 8
   store i64 1, ptr %26, align 8
   %254 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8
   %.0158 = icmp ult i64 %254, 2

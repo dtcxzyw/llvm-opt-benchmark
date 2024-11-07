@@ -121,8 +121,9 @@ define hidden { i64, ptr } @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$12build_
   br label %11
 
 11:                                               ; preds = %1, %8
+  %.sroa.3.0 = phi ptr [ undef, %8 ], [ %7, %1 ]
   %12 = insertvalue { i64, ptr } poison, i64 %4, 0
-  %13 = insertvalue { i64, ptr } %12, ptr %7, 1
+  %13 = insertvalue { i64, ptr } %12, ptr %.sroa.3.0, 1
   ret { i64, ptr } %13
 }
 

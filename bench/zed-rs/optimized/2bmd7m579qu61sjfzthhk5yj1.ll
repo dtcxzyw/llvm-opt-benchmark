@@ -14129,7 +14129,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   %3 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hbc9cc1d5e680d85dE.llvm.10088771689186574392"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   switch i64 %4, label %5 [
-    i64 2, label %8
+    i64 2, label %9
     i64 0, label %6
     i64 1, label %7
   ]
@@ -14142,13 +14142,14 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   unreachable
 
 7:                                                ; preds = %2
-  br label %8
+  %8 = extractvalue { i64, ptr } %3, 1
+  br label %9
 
-8:                                                ; preds = %2, %7
+9:                                                ; preds = %2, %7
+  %.sroa.3.0 = phi ptr [ %8, %7 ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 0, %7 ], [ 1, %2 ]
-  %9 = extractvalue { i64, ptr } %3, 1
   %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, ptr } %10, ptr %9, 1
+  %11 = insertvalue { i64, ptr } %10, ptr %.sroa.3.0, 1
   ret { i64, ptr } %11
 }
 
@@ -16679,7 +16680,7 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit72: ; preds = %.noexc
 
 275:                                              ; preds = %260, %281
   %.sroa.5.sroa.4.0 = phi ptr [ %.val, %281 ], [ undef, %260 ]
-  %.sroa.5.sroa.5.0 = phi ptr [ %.val24, %281 ], [ undef, %260 ]
+  %.sroa.5.sroa.5.0 = phi ptr [ %.sroa.5.0.i, %281 ], [ undef, %260 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0145.0.copyload, %281 ], [ 7, %260 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2576)
   call void @llvm.experimental.noalias.scope.decl(metadata !2579)
@@ -16714,6 +16715,7 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit72: ; preds = %.noexc
   unreachable
 
 281:                                              ; preds = %272, %.noexc77
+  %.sroa.5.0.i = phi ptr [ %.val24, %272 ], [ undef, %.noexc77 ]
   %.sroa.0145.0.copyload = load i64, ptr %.sroa.0.i, align 8, !alias.scope !2585
   %.sroa.4146.0..sroa.0.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.0.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4146.0..sroa.0.i.sroa_idx, i64 24, i1 false)

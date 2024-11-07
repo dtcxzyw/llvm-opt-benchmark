@@ -26496,8 +26496,9 @@ _ZNK12_GLOBAL__N_122GenericTaintRuleParser11parseConfigERKNSt7__cxx1112basic_str
   %9950 = getelementptr inbounds nuw i8, ptr %.sroa.051.066.i, i64 116
   %9951 = load i32, ptr %9950, align 4, !noalias !56
   %spec.select.i.i = select i1 %9948, i64 4294967296, i64 0
-  %.sroa.015.0.insert.ext.i.i = zext i32 %9951 to i64
-  %.sroa.015.0.insert.insert.i.i = or disjoint i64 %spec.select.i.i, %.sroa.015.0.insert.ext.i.i
+  %narrow.i.i = select i1 %9948, i32 %9951, i32 0
+  %spec.select44.i.i = zext i32 %narrow.i.i to i64
+  %.sroa.015.0.insert.insert.i.i = or disjoint i64 %spec.select.i.i, %spec.select44.i.i
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %9934, i64 noundef 2) #21, !noalias !56
   %9952 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %9944) #21, !noalias !56
   br i1 %9952, label %_ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit.i41.i, label %9953
@@ -26508,8 +26509,10 @@ _ZNK12_GLOBAL__N_122GenericTaintRuleParser11parseConfigERKNSt7__cxx1112basic_str
 
 _ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit.i41.i: ; preds = %9953, %9943
   store i64 %.sroa.015.0.insert.insert.i.i, ptr %9935, align 8, !noalias !56
-  %spec.select44.i.i = select i1 %9949, i64 4294967296, i64 0
-  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %spec.select44.i.i, %.sroa.015.0.insert.ext.i.i
+  %spec.select45.i.i = select i1 %9949, i64 4294967296, i64 0
+  %narrow47.i.i = select i1 %9949, i32 %9951, i32 0
+  %spec.select46.i.i = zext i32 %narrow47.i.i to i64
+  %.sroa.0.0.insert.insert.i.i = or disjoint i64 %spec.select45.i.i, %spec.select46.i.i
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %9936, i64 noundef 2) #21, !noalias !56
   %9955 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24) %9945) #21, !noalias !56
   br i1 %9955, label %_ZN12_GLOBAL__N_16ArgSetC2EON4llvm11SmallVectorIiLj2EEESt8optionalIiE.exit13.i.i, label %9956

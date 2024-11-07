@@ -2613,17 +2613,17 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap27total_
   br label %63
 
 63:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i", %.lr.ph.i78
-  %.030.i = phi i64 [ %19, %.lr.ph.i78 ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i" ]
-  %.sroa.0.029.i = phi ptr [ %.val.i, %.lr.ph.i78 ], [ %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i" ]
-  %.sroa.7.028.i = phi i64 [ 0, %.lr.ph.i78 ], [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i" ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 24
-  %65 = add nuw nsw i64 %.sroa.7.028.i, 1
-  %66 = getelementptr inbounds i8, ptr %.sroa.0.029.i, i64 16
+  %.031.i = phi i64 [ %19, %.lr.ph.i78 ], [ %69, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i" ]
+  %.sroa.0.030.i = phi ptr [ %.val.i, %.lr.ph.i78 ], [ %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i" ]
+  %.sroa.7.029.i = phi i64 [ 0, %.lr.ph.i78 ], [ %65, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i" ]
+  %64 = getelementptr inbounds i8, ptr %.sroa.0.030.i, i64 24
+  %65 = add nuw nsw i64 %.sroa.7.029.i, 1
+  %66 = getelementptr inbounds i8, ptr %.sroa.0.030.i, i64 16
   %67 = load i64, ptr %66, align 8, !noalias !446, !noundef !4
   %68 = mul i64 %67, 12
-  %69 = add i64 %68, %.030.i
-  %70 = shl i64 %.sroa.7.028.i, 4
-  %exitcond.i = icmp eq i64 %.sroa.7.028.i, 1152921504606846975
+  %69 = add i64 %68, %.031.i
+  %70 = shl i64 %.sroa.7.029.i, 4
+  %exitcond.i = icmp eq i64 %.sroa.7.029.i, 1152921504606846975
   br i1 %exitcond.i, label %.invoke, label %71
 
 71:                                               ; preds = %63
@@ -2653,7 +2653,7 @@ _ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap27total_
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit.i": ; preds = %71
   %80 = getelementptr inbounds i8, ptr %61, i64 %70
-  store i64 %.030.i, ptr %80, align 1, !alias.scope !447, !noalias !451
+  store i64 %.031.i, ptr %80, align 1, !alias.scope !447, !noalias !451
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %80, i64 8
   store i64 %69, ptr %.sroa.4.0..sroa_idx.i, align 1, !alias.scope !447, !noalias !451
   %81 = icmp eq ptr %64, %21
@@ -3292,17 +3292,17 @@ define void @_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedInde
   ret void
 
 13:                                               ; preds = %.lr.ph, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit"
-  %.030 = phi i64 [ %2, %.lr.ph ], [ %19, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit" ]
-  %.sroa.0.029 = phi ptr [ %5, %.lr.ph ], [ %14, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit" ]
-  %.sroa.7.028 = phi i64 [ 0, %.lr.ph ], [ %15, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit" ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 24
-  %15 = add nuw nsw i64 %.sroa.7.028, 1
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.029, i64 16
+  %.031 = phi i64 [ %2, %.lr.ph ], [ %19, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit" ]
+  %.sroa.0.030 = phi ptr [ %5, %.lr.ph ], [ %14, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit" ]
+  %.sroa.7.029 = phi i64 [ 0, %.lr.ph ], [ %15, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit" ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 24
+  %15 = add nuw nsw i64 %.sroa.7.029, 1
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.030, i64 16
   %17 = load i64, ptr %16, align 8, !noundef !4
   %18 = mul i64 %17, 12
-  %19 = add i64 %18, %.030
-  %20 = shl i64 %.sroa.7.028, 4
-  %exitcond = icmp eq i64 %.sroa.7.028, 1152921504606846975
+  %19 = add i64 %18, %.031
+  %20 = shl i64 %.sroa.7.029, 4
+  %exitcond = icmp eq i64 %.sroa.7.029, 1152921504606846975
   br i1 %exitcond, label %24, label %21
 
 21:                                               ; preds = %13
@@ -3320,7 +3320,7 @@ define void @_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedInde
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hb9a5b887f1269127E.exit": ; preds = %21
   %26 = getelementptr inbounds i8, ptr %10, i64 %20
-  store i64 %.030, ptr %26, align 1, !alias.scope !553, !noalias !557
+  store i64 %.031, ptr %26, align 1, !alias.scope !553, !noalias !557
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
   store i64 %19, ptr %.sroa.4.0..sroa_idx, align 1, !alias.scope !553, !noalias !557
   %27 = icmp eq ptr %14, %8

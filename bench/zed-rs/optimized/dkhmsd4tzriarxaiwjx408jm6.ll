@@ -232,6 +232,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17
           to label %.sink.split unwind label %52
 
 .sink.split:                                      ; preds = %39, %47, %44
+  %.sroa.4.0.ph = phi ptr [ undef, %44 ], [ undef, %47 ], [ %42, %39 ]
   %.sroa.0.0.ph = phi i64 [ 1, %44 ], [ 1, %47 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %48 = getelementptr inbounds i8, ptr %0, i64 16
@@ -239,7 +240,7 @@ define hidden { i64, ptr } @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4recv17
   br label %49
 
 49:                                               ; preds = %.sink.split, %36, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hae227716574cc5f9E.exit"
-  %.sroa.4.0 = phi ptr [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hae227716574cc5f9E.exit" ], [ undef, %36 ], [ %42, %.sink.split ]
+  %.sroa.4.0 = phi ptr [ undef, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hae227716574cc5f9E.exit" ], [ undef, %36 ], [ %.sroa.4.0.ph, %.sink.split ]
   %.sroa.0.0 = phi i64 [ 2, %"_ZN4core3ptr72drop_in_place$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$17hae227716574cc5f9E.exit" ], [ 1, %36 ], [ %.sroa.0.0.ph, %.sink.split ]
   %50 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %51 = insertvalue { i64, ptr } %50, ptr %.sroa.4.0, 1
@@ -8152,6 +8153,7 @@ _ZN3log13__private_api3log17h87c8e06c9368ea7bE.exit.i.i.i: ; preds = %341
   br label %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17he94c2dbf1f9b3908E.exit.i.i.i"
 
 "_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17he94c2dbf1f9b3908E.exit.i.i.i": ; preds = %.noexc.i31.i.i, %366
+  %.sroa.047.0.i.i.i = phi ptr [ undef, %.noexc.i31.i.i ], [ %.sroa.040.0.copyload.i.i.i, %366 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1786)
   %369 = load i64, ptr %.sroa.850.0..sroa_idx.i.i, align 8, !range !141, !alias.scope !1786, !noalias !1753, !noundef !4
   %370 = icmp eq i64 %369, -9223372036854775808
@@ -8259,7 +8261,7 @@ _ZN3log13__private_api3log17h87c8e06c9368ea7bE.exit.i.i.i: ; preds = %341
   br label %.body35.i
 
 400:                                              ; preds = %397, %329
-  %.sroa.057.0.i.i = phi ptr [ %.sroa.040.0.copyload.i.i.i, %397 ], [ undef, %329 ]
+  %.sroa.057.0.i.i = phi ptr [ %.sroa.047.0.i.i.i, %397 ], [ undef, %329 ]
   %.sroa.3.0.i.i = phi i8 [ %359, %397 ], [ 2, %329 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.464.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.654.i.i, i64 32, i1 false), !noalias !1653
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.666.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1056.i.i, i64 7, i1 false), !noalias !1653

@@ -5500,18 +5500,18 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h0f14183b520fbbcaE
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %.thread, %79
-  %.sroa.731.047 = phi i64 [ undef, %.thread ], [ %.sroa.731.0.copyload, %79 ]
-  %.sroa.530.045 = phi ptr [ %26, %.thread ], [ %.sroa.530.0.copyload, %79 ]
-  %.sroa.029.044 = phi i64 [ -9223372036854775805, %.thread ], [ %.sroa.029.0.copyload, %79 ]
+  %.sroa.731.045 = phi i64 [ undef, %.thread ], [ %.sroa.731.0.copyload, %79 ]
+  %.sroa.530.043 = phi ptr [ %26, %.thread ], [ %.sroa.530.0.copyload, %79 ]
+  %.sroa.029.042 = phi i64 [ -9223372036854775805, %.thread ], [ %.sroa.029.0.copyload, %79 ]
   %.sroa.8.0..sroa_idx4.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.731.047, ptr %.sroa.8.0..sroa_idx4.i, align 8, !alias.scope !1414, !noalias !1417
+  store i64 %.sroa.731.045, ptr %.sroa.8.0..sroa_idx4.i, align 8, !alias.scope !1414, !noalias !1417
   br label %82
 
 82:                                               ; preds = %81, %79
-  %.sroa.530.046 = phi ptr [ %.sroa.530.045, %81 ], [ %.sroa.530.0.copyload, %79 ]
-  %.sink.i = phi i64 [ %.sroa.029.044, %81 ], [ -9223372036854775805, %79 ]
+  %.sroa.530.044 = phi ptr [ %.sroa.530.043, %81 ], [ %.sroa.530.0.copyload, %79 ]
+  %.sink.i = phi i64 [ %.sroa.029.042, %81 ], [ -9223372036854775805, %79 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.530.046, ptr %83, align 8, !alias.scope !1414, !noalias !1417
+  store ptr %.sroa.530.044, ptr %83, align 8, !alias.scope !1414, !noalias !1417
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !1414, !noalias !1417
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4core3ptr65drop_in_place$LT$gpui..view..View$LT$workspace..Workspace$GT$$GT$17h986d598797d51011E.exit" unwind label %84
@@ -7222,17 +7222,17 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h6a63fe8b00babe9eE
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %.thread, %79
-  %.sroa.631.044 = phi ptr [ %26, %.thread ], [ %.sroa.631.0.copyload, %79 ]
-  %.sroa.029.043 = phi i8 [ 2, %.thread ], [ %.sroa.029.0.copyload, %79 ]
+  %.sroa.631.042 = phi ptr [ %26, %.thread ], [ %.sroa.631.0.copyload, %79 ]
+  %.sroa.029.041 = phi i8 [ 2, %.thread ], [ %.sroa.029.0.copyload, %79 ]
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx2.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false), !alias.scope !1804
   br label %82
 
 82:                                               ; preds = %81, %79
-  %.sroa.631.045 = phi ptr [ %.sroa.631.044, %81 ], [ %.sroa.631.0.copyload, %79 ]
-  %.sink.i = phi i8 [ %.sroa.029.043, %81 ], [ 2, %79 ]
+  %.sroa.631.043 = phi ptr [ %.sroa.631.042, %81 ], [ %.sroa.631.0.copyload, %79 ]
+  %.sink.i = phi i8 [ %.sroa.029.041, %81 ], [ 2, %79 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.631.045, ptr %83, align 8, !alias.scope !1806, !noalias !1801
+  store ptr %.sroa.631.043, ptr %83, align 8, !alias.scope !1806, !noalias !1801
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !1806, !noalias !1801
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4)
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
@@ -7962,9 +7962,9 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h9844567ee61f636eE
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !1948
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !1937
   invoke void @"_ZN4core3ptr127drop_in_place$LT$alloc..vec..Vec$LT$$LP$project..task_inventory..TaskSourceKind$C$task..task_template..TaskTemplate$RP$$GT$$GT$17h725c29e150030496E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
-          to label %.thread57 unwind label %89
+          to label %.thread55 unwind label %89
 
-.thread57:                                        ; preds = %34
+.thread55:                                        ; preds = %34
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11), !noalias !1926
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.536)
   br label %93
@@ -8149,18 +8149,18 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h9844567ee61f636eE
   %92 = icmp eq i8 %.sroa.035.0.copyload, 2
   br i1 %92, label %94, label %93
 
-93:                                               ; preds = %.thread57, %91
-  %.sroa.637.061 = phi ptr [ %31, %.thread57 ], [ %.sroa.637.0.copyload, %91 ]
-  %.sroa.035.060 = phi i8 [ 1, %.thread57 ], [ %.sroa.035.0.copyload, %91 ]
+93:                                               ; preds = %.thread55, %91
+  %.sroa.637.059 = phi ptr [ %31, %.thread55 ], [ %.sroa.637.0.copyload, %91 ]
+  %.sroa.035.058 = phi i8 [ 1, %.thread55 ], [ %.sroa.035.0.copyload, %91 ]
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.6.0..sroa_idx2.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.4, i64 7, i1 false), !alias.scope !2001
   br label %94
 
 94:                                               ; preds = %93, %91
-  %.sroa.637.062 = phi ptr [ %.sroa.637.061, %93 ], [ %.sroa.637.0.copyload, %91 ]
-  %.sink.i = phi i8 [ %.sroa.035.060, %93 ], [ 1, %91 ]
+  %.sroa.637.060 = phi ptr [ %.sroa.637.059, %93 ], [ %.sroa.637.0.copyload, %91 ]
+  %.sink.i = phi i8 [ %.sroa.035.058, %93 ], [ 1, %91 ]
   %95 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.637.062, ptr %95, align 8, !alias.scope !2003, !noalias !1998
+  store ptr %.sroa.637.060, ptr %95, align 8, !alias.scope !2003, !noalias !1998
   store i8 %.sink.i, ptr %0, align 8, !alias.scope !2003, !noalias !1998
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.4)
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
@@ -8518,18 +8518,18 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hab327dbccd85a1adE
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %.thread, %79
-  %.sroa.731.047 = phi i64 [ undef, %.thread ], [ %.sroa.731.0.copyload, %79 ]
-  %.sroa.530.045 = phi ptr [ %26, %.thread ], [ %.sroa.530.0.copyload, %79 ]
-  %.sroa.029.044 = phi i64 [ -9223372036854775805, %.thread ], [ %.sroa.029.0.copyload, %79 ]
+  %.sroa.731.045 = phi i64 [ undef, %.thread ], [ %.sroa.731.0.copyload, %79 ]
+  %.sroa.530.043 = phi ptr [ %26, %.thread ], [ %.sroa.530.0.copyload, %79 ]
+  %.sroa.029.042 = phi i64 [ -9223372036854775805, %.thread ], [ %.sroa.029.0.copyload, %79 ]
   %.sroa.8.0..sroa_idx4.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.731.047, ptr %.sroa.8.0..sroa_idx4.i, align 8, !alias.scope !2095, !noalias !2098
+  store i64 %.sroa.731.045, ptr %.sroa.8.0..sroa_idx4.i, align 8, !alias.scope !2095, !noalias !2098
   br label %82
 
 82:                                               ; preds = %81, %79
-  %.sroa.530.046 = phi ptr [ %.sroa.530.045, %81 ], [ %.sroa.530.0.copyload, %79 ]
-  %.sink.i = phi i64 [ %.sroa.029.044, %81 ], [ -9223372036854775805, %79 ]
+  %.sroa.530.044 = phi ptr [ %.sroa.530.043, %81 ], [ %.sroa.530.0.copyload, %79 ]
+  %.sink.i = phi i64 [ %.sroa.029.042, %81 ], [ -9223372036854775805, %79 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.530.046, ptr %83, align 8, !alias.scope !2095, !noalias !2098
+  store ptr %.sroa.530.044, ptr %83, align 8, !alias.scope !2095, !noalias !2098
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !2095, !noalias !2098
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
           to label %"_ZN4core3ptr102drop_in_place$LT$gpui..view..View$LT$picker..Picker$LT$tasks_ui..modal..TasksModalDelegate$GT$$GT$$GT$17hc96c5060cfb47833E.exit" unwind label %84
@@ -8809,17 +8809,17 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hbd15d1a661ea6898E
   br i1 %80, label %82, label %81
 
 81:                                               ; preds = %.thread, %79
-  %.sroa.530.044 = phi ptr [ %26, %.thread ], [ %.sroa.530.0.copyload, %79 ]
-  %.sroa.029.043 = phi i64 [ -9223372036854775805, %.thread ], [ %.sroa.029.0.copyload, %79 ]
+  %.sroa.530.042 = phi ptr [ %26, %.thread ], [ %.sroa.530.0.copyload, %79 ]
+  %.sroa.029.041 = phi i64 [ -9223372036854775805, %.thread ], [ %.sroa.029.0.copyload, %79 ]
   %.sroa.8.0..sroa_idx4.i = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.8.0..sroa_idx4.i, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.5, i64 72, i1 false), !alias.scope !2182
   br label %82
 
 82:                                               ; preds = %81, %79
-  %.sroa.530.045 = phi ptr [ %.sroa.530.044, %81 ], [ %.sroa.530.0.copyload, %79 ]
-  %.sink.i = phi i64 [ %.sroa.029.043, %81 ], [ -9223372036854775805, %79 ]
+  %.sroa.530.043 = phi ptr [ %.sroa.530.042, %81 ], [ %.sroa.530.0.copyload, %79 ]
+  %.sink.i = phi i64 [ %.sroa.029.041, %81 ], [ -9223372036854775805, %79 ]
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.530.045, ptr %83, align 8, !alias.scope !2184, !noalias !2179
+  store ptr %.sroa.530.043, ptr %83, align 8, !alias.scope !2184, !noalias !2179
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !2184, !noalias !2179
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.5)
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11)
@@ -10007,9 +10007,9 @@ define hidden void @"_ZN4gpui4view17WeakView$LT$V$GT$6update17hee483c9c9c541a14E
 "_ZN4core3ptr543drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$picker..Picker$LT$tasks_ui..modal..TasksModalDelegate$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatchCandidate$GT$$C$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..update_matches..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hce69f807b00286d4E.exit.i.i": ; preds = %34
   %40 = getelementptr inbounds i8, ptr %11, i64 24
   invoke void @"_ZN4core3ptr112drop_in_place$LT$alloc..vec..Vec$LT$$LP$project..task_inventory..TaskSourceKind$C$task..ResolvedTask$RP$$GT$$GT$17hb48cc5abd46155c5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %40)
-          to label %.thread56 unwind label %97
+          to label %.thread54 unwind label %97
 
-.thread56:                                        ; preds = %"_ZN4core3ptr543drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$picker..Picker$LT$tasks_ui..modal..TasksModalDelegate$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatchCandidate$GT$$C$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..update_matches..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hce69f807b00286d4E.exit.i.i"
+.thread54:                                        ; preds = %"_ZN4core3ptr543drop_in_place$LT$$LT$gpui..app..async_context..AsyncWindowContext$u20$as$u20$gpui..VisualContext$GT$..update_view$LT$picker..Picker$LT$tasks_ui..modal..TasksModalDelegate$GT$$C$alloc..vec..Vec$LT$fuzzy..strings..StringMatchCandidate$GT$$C$$LT$tasks_ui..modal..TasksModalDelegate$u20$as$u20$picker..PickerDelegate$GT$..update_matches..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hce69f807b00286d4E.exit.i.i"
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11), !noalias !2362
   br label %101
 
@@ -10206,19 +10206,19 @@ common.resume:                                    ; preds = %111, %.body, %104, 
   %100 = icmp eq i64 %.sroa.034.0.copyload, -9223372036854775807
   br i1 %100, label %102, label %101
 
-101:                                              ; preds = %.thread56, %99
-  %.sroa.736.063 = phi i64 [ undef, %.thread56 ], [ %.sroa.736.0.copyload, %99 ]
-  %.sroa.535.061 = phi ptr [ %31, %.thread56 ], [ %.sroa.535.0.copyload, %99 ]
-  %.sroa.034.060 = phi i64 [ -9223372036854775808, %.thread56 ], [ %.sroa.034.0.copyload, %99 ]
+101:                                              ; preds = %.thread54, %99
+  %.sroa.736.061 = phi i64 [ undef, %.thread54 ], [ %.sroa.736.0.copyload, %99 ]
+  %.sroa.535.059 = phi ptr [ %31, %.thread54 ], [ %.sroa.535.0.copyload, %99 ]
+  %.sroa.034.058 = phi i64 [ -9223372036854775808, %.thread54 ], [ %.sroa.034.0.copyload, %99 ]
   %.sroa.8.0..sroa_idx4.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.736.063, ptr %.sroa.8.0..sroa_idx4.i, align 8, !alias.scope !2431, !noalias !2434
+  store i64 %.sroa.736.061, ptr %.sroa.8.0..sroa_idx4.i, align 8, !alias.scope !2431, !noalias !2434
   br label %102
 
 102:                                              ; preds = %101, %99
-  %.sroa.535.062 = phi ptr [ %.sroa.535.061, %101 ], [ %.sroa.535.0.copyload, %99 ]
-  %.sink.i = phi i64 [ %.sroa.034.060, %101 ], [ -9223372036854775808, %99 ]
+  %.sroa.535.060 = phi ptr [ %.sroa.535.059, %101 ], [ %.sroa.535.0.copyload, %99 ]
+  %.sink.i = phi i64 [ %.sroa.034.058, %101 ], [ -9223372036854775808, %99 ]
   %103 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.535.062, ptr %103, align 8, !alias.scope !2431, !noalias !2434
+  store ptr %.sroa.535.060, ptr %103, align 8, !alias.scope !2431, !noalias !2434
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !2431, !noalias !2434
   invoke void @"_ZN73_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdbe4415b1c233cccE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
           to label %"_ZN4core3ptr114drop_in_place$LT$gpui..app..entity_map..Model$LT$picker..Picker$LT$tasks_ui..modal..TasksModalDelegate$GT$$GT$$GT$17h95ec5ef90a456ef3E.exit.i" unwind label %104

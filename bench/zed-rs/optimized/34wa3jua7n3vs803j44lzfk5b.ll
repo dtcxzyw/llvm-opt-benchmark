@@ -1900,10 +1900,10 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 .lr.ph:                                           ; preds = %9, %16
-  %.sroa.10.041 = phi i64 [ %17, %16 ], [ %7, %9 ]
-  %.sroa.011.040 = phi ptr [ %19, %16 ], [ %1, %9 ]
-  %.sroa.7.039 = phi i64 [ %18, %16 ], [ 0, %9 ]
-  %15 = icmp eq ptr %.sroa.011.040, %11
+  %.sroa.10.042 = phi i64 [ %17, %16 ], [ %7, %9 ]
+  %.sroa.011.041 = phi ptr [ %19, %16 ], [ %1, %9 ]
+  %.sroa.7.040 = phi i64 [ %18, %16 ], [ 0, %9 ]
+  %15 = icmp eq ptr %.sroa.011.041, %11
   br i1 %15, label %.thread, label %16
 
 .thread:                                          ; preds = %16, %.lr.ph, %9
@@ -1915,25 +1915,25 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 16:                                               ; preds = %.lr.ph
-  %17 = add nsw i64 %.sroa.10.041, -1
-  %18 = add nuw nsw i64 %.sroa.7.039, 1
-  %19 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 32
-  %20 = load float, ptr %.sroa.011.040, align 4, !alias.scope !196, !noalias !203, !noundef !4
-  %21 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 4
+  %17 = add nsw i64 %.sroa.10.042, -1
+  %18 = add nuw nsw i64 %.sroa.7.040, 1
+  %19 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 32
+  %20 = load float, ptr %.sroa.011.041, align 4, !alias.scope !196, !noalias !203, !noundef !4
+  %21 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 4
   %22 = load float, ptr %21, align 4, !alias.scope !205, !noalias !203, !noundef !4
-  %23 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 8
+  %23 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 8
   %24 = load float, ptr %23, align 4, !alias.scope !208, !noalias !203, !noundef !4
-  %25 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 12
+  %25 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 12
   %26 = load float, ptr %25, align 4, !alias.scope !213, !noalias !203, !noundef !4
-  %27 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 16
+  %27 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 16
   %28 = load float, ptr %27, align 4, !alias.scope !216, !noalias !223, !noundef !4
-  %29 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 20
+  %29 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 20
   %30 = load float, ptr %29, align 4, !alias.scope !225, !noalias !223, !noundef !4
-  %31 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 24
+  %31 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 24
   %.val.i.i = load float, ptr %31, align 4, !alias.scope !228, !noalias !223, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %.sroa.011.040, i64 28
+  %32 = getelementptr inbounds i8, ptr %.sroa.011.041, i64 28
   %.val1.i.i = load float, ptr %32, align 4, !alias.scope !228, !noalias !223, !noundef !4
-  %33 = getelementptr inbounds [0 x { [8 x i32] }], ptr %10, i64 0, i64 %.sroa.7.039
+  %33 = getelementptr inbounds [0 x { [8 x i32] }], ptr %10, i64 0, i64 %.sroa.7.040
   store float %20, ptr %33, align 4
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 4
   store float %22, ptr %.sroa.426.0..sroa_idx, align 4
@@ -9225,32 +9225,32 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   unreachable
 
 .lr.ph.i:                                         ; preds = %12, %19
-  %.sroa.10.041.i = phi i64 [ %20, %19 ], [ %10, %12 ]
-  %.sroa.011.040.i = phi ptr [ %22, %19 ], [ %6, %12 ]
-  %.sroa.7.039.i = phi i64 [ %21, %19 ], [ 0, %12 ]
-  %18 = icmp eq ptr %.sroa.011.040.i, %14
+  %.sroa.10.042.i = phi i64 [ %20, %19 ], [ %10, %12 ]
+  %.sroa.011.041.i = phi ptr [ %22, %19 ], [ %6, %12 ]
+  %.sroa.7.040.i = phi i64 [ %21, %19 ], [ 0, %12 ]
+  %18 = icmp eq ptr %.sroa.011.041.i, %14
   br i1 %18, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h46b67008d7a73f83E.llvm.2586493962398856297.exit", label %19
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = add nsw i64 %.sroa.10.041.i, -1
-  %21 = add nuw nsw i64 %.sroa.7.039.i, 1
-  %22 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 32
-  %23 = load float, ptr %.sroa.011.040.i, align 4, !alias.scope !1227, !noalias !1234, !noundef !4
-  %24 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 4
+  %20 = add nsw i64 %.sroa.10.042.i, -1
+  %21 = add nuw nsw i64 %.sroa.7.040.i, 1
+  %22 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 32
+  %23 = load float, ptr %.sroa.011.041.i, align 4, !alias.scope !1227, !noalias !1234, !noundef !4
+  %24 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 4
   %25 = load float, ptr %24, align 4, !alias.scope !1236, !noalias !1234, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 8
+  %26 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 8
   %27 = load float, ptr %26, align 4, !alias.scope !1239, !noalias !1234, !noundef !4
-  %28 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 12
+  %28 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 12
   %29 = load float, ptr %28, align 4, !alias.scope !1244, !noalias !1234, !noundef !4
-  %30 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 16
+  %30 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 16
   %31 = load float, ptr %30, align 4, !alias.scope !1247, !noalias !1254, !noundef !4
-  %32 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 20
+  %32 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 20
   %33 = load float, ptr %32, align 4, !alias.scope !1256, !noalias !1254, !noundef !4
-  %34 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 24
+  %34 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 24
   %.val.i.i.i = load float, ptr %34, align 4, !alias.scope !1259, !noalias !1254, !noundef !4
-  %35 = getelementptr inbounds i8, ptr %.sroa.011.040.i, i64 28
+  %35 = getelementptr inbounds i8, ptr %.sroa.011.041.i, i64 28
   %.val1.i.i.i = load float, ptr %35, align 4, !alias.scope !1259, !noalias !1254, !noundef !4
-  %36 = getelementptr inbounds [0 x { [8 x i32] }], ptr %13, i64 0, i64 %.sroa.7.039.i
+  %36 = getelementptr inbounds [0 x { [8 x i32] }], ptr %13, i64 0, i64 %.sroa.7.040.i
   store float %23, ptr %36, align 4, !noalias !1221
   %.sroa.426.0..sroa_idx.i = getelementptr inbounds i8, ptr %36, i64 4
   store float %25, ptr %.sroa.426.0..sroa_idx.i, align 4, !noalias !1221

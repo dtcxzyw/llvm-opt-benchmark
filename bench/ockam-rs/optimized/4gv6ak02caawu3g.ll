@@ -2564,8 +2564,8 @@ define hidden noundef align 8 ptr @"_ZN53_$LT$dyn$u20$tracing_core..subscriber..
   %4 = load ptr, ptr %3, align 8, !invariant.load !16, !nonnull !16
   %5 = tail call { i64, ptr } %4(ptr noundef nonnull align 1 %0, i128 noundef 377731369611698580506231877142650986)
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %.fca.0.extract, 0
+  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %.0 = select i1 %switch, ptr null, ptr %.fca.1.extract
   ret ptr %.0
 }

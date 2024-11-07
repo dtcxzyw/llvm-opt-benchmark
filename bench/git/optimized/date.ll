@@ -2107,6 +2107,7 @@ tm_to_time_t.exit.else:                           ; preds = %tm_to_time_t.exit
   br label %tm_to_time_t.exit.cont
 
 tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, %tm_to_time_t.exit.else
+  %dummy_timestamp.3 = phi i64 [ undef, %tm_to_time_t.exit.else ], [ %retval.0.i89, %tm_to_time_t.exit ]
   %cmp53 = icmp eq i64 %retval.0.i89, -1
   br i1 %cmp53, label %return, label %if.end56
 
@@ -2132,7 +2133,7 @@ if.then59.else:                                   ; preds = %if.then59
   br label %if.then59.cont
 
 if.then59.cont:                                   ; preds = %if.then59, %if.then59.else
-  %132 = phi i64 [ %retval.0.i89, %if.then59 ], [ %.else.val102, %if.then59.else ]
+  %132 = phi i64 [ %dummy_timestamp.3, %if.then59 ], [ %.else.val102, %if.then59.else ]
   %cmp62 = icmp sgt i64 %132, %call61
   br i1 %cmp62, label %if.then64, label %if.else66
 
@@ -3613,14 +3614,14 @@ parse_date_type.exit:                             ; preds = %do.body.i.i, %do.bo
   store i32 %retval.0.i, ptr %mode, align 8
   %local = getelementptr inbounds i8, ptr %mode, i64 16
   store i32 0, ptr %local, align 8
-  %scevgep68 = getelementptr i8, ptr %scevgep194.sink.i, i64 6
+  %scevgep70 = getelementptr i8, ptr %scevgep194.sink.i, i64 6
   br label %do.body.i9
 
 do.body.i9:                                       ; preds = %do.cond.i13, %parse_date_type.exit
   %str.addr.0.i10 = phi ptr [ %scevgep194.sink.i, %parse_date_type.exit ], [ %incdec.ptr.i14, %do.cond.i13 ]
   %prefix.addr.0.i11.idx = phi i64 [ 0, %parse_date_type.exit ], [ %prefix.addr.0.i11.add, %do.cond.i13 ]
-  %exitcond69 = icmp eq i64 %prefix.addr.0.i11.idx, 6
-  br i1 %exitcond69, label %if.then12, label %do.cond.i13
+  %exitcond71 = icmp eq i64 %prefix.addr.0.i11.idx, 6
+  br i1 %exitcond71, label %if.then12, label %do.cond.i13
 
 do.cond.i13:                                      ; preds = %do.body.i9
   %prefix.addr.0.i11.ptr = getelementptr inbounds i8, ptr @.str.35, i64 %prefix.addr.0.i11.idx
@@ -3636,18 +3637,18 @@ if.then12:                                        ; preds = %do.body.i9
   br label %if.end14
 
 if.end14:                                         ; preds = %do.cond.i13, %if.then12
-  %p.134 = phi ptr [ %scevgep68, %if.then12 ], [ %scevgep194.sink.i, %do.cond.i13 ]
+  %p.136 = phi ptr [ %scevgep70, %if.then12 ], [ %scevgep194.sink.i, %do.cond.i13 ]
   br i1 %cmp, label %do.body.i19.preheader, label %if.else21
 
 do.body.i19.preheader:                            ; preds = %if.end14
-  %scevgep70 = getelementptr i8, ptr %p.134, i64 1
+  %scevgep72 = getelementptr i8, ptr %p.136, i64 1
   br label %do.body.i19
 
 do.body.i19:                                      ; preds = %do.body.i19.preheader, %do.cond.i23
-  %str.addr.0.i20 = phi ptr [ %incdec.ptr.i24, %do.cond.i23 ], [ %p.134, %do.body.i19.preheader ]
+  %str.addr.0.i20 = phi ptr [ %incdec.ptr.i24, %do.cond.i23 ], [ %p.136, %do.body.i19.preheader ]
   %prefix.addr.0.i21.idx = phi i64 [ %prefix.addr.0.i21.add, %do.cond.i23 ], [ 0, %do.body.i19.preheader ]
-  %exitcond71 = icmp eq i64 %prefix.addr.0.i21.idx, 1
-  br i1 %exitcond71, label %if.end19, label %do.cond.i23
+  %exitcond73 = icmp eq i64 %prefix.addr.0.i21.idx, 1
+  br i1 %exitcond73, label %if.end19, label %do.cond.i23
 
 do.cond.i23:                                      ; preds = %do.body.i19
   %prefix.addr.0.i21.ptr = getelementptr inbounds i8, ptr @.str.36, i64 %prefix.addr.0.i21.idx
@@ -3663,13 +3664,13 @@ if.then18:                                        ; preds = %do.cond.i23
   unreachable
 
 if.end19:                                         ; preds = %do.body.i19
-  %call20 = tail call ptr @xstrdup(ptr noundef %scevgep70) #19
+  %call20 = tail call ptr @xstrdup(ptr noundef %scevgep72) #19
   %strftime_fmt = getelementptr inbounds i8, ptr %mode, i64 8
   store ptr %call20, ptr %strftime_fmt, align 8
   br label %if.end25
 
 if.else21:                                        ; preds = %if.end14
-  %32 = load i8, ptr %p.134, align 1
+  %32 = load i8, ptr %p.136, align 1
   %tobool22.not = icmp eq i8 %32, 0
   br i1 %tobool22.not, label %if.end25, label %if.then23
 

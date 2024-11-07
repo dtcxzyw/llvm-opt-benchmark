@@ -29079,7 +29079,6 @@ define dso_local void @_ZN4llvm15OpenMPIRBuilder14createSectionsERKNS0_19Locatio
   store i64 %5, ptr %19, align 8
   %20 = tail call noundef zeroext i1 @_ZN4llvm15OpenMPIRBuilder16updateToLocationERKNS0_19LocationDescriptionE(ptr noundef nonnull align 8 dereferenceable(3104) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.sink8.i.sroa.gep = getelementptr inbounds i8, ptr %12, i64 8
-  %.sink8.i.sroa.gep44 = getelementptr inbounds i8, ptr %12, i64 24
   br i1 %20, label %22, label %21
 
 21:                                               ; preds = %10
@@ -29214,7 +29213,6 @@ _ZN4llvm15SmallVectorImplINS_15OpenMPIRBuilder16FinalizationInfoEE12pop_back_val
   store i64 %78, ptr %.sink8.i.sroa.gep, align 8, !alias.scope !274
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr @.str.233, ptr %80, align 8, !alias.scope !274
-  store i64 %78, ptr %.sink8.i.sroa.gep44, align 8
   %81 = getelementptr inbounds i8, ptr %12, i64 32
   store i8 5, ptr %81, align 8
   %82 = getelementptr inbounds i8, ptr %12, i64 33
@@ -77927,7 +77925,6 @@ define internal void @"_ZN4llvm12function_refIFvNS_13IRBuilderBase11InsertPointE
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 512
   %.sink8.i.sroa.gep.i = getelementptr inbounds i8, ptr %8, i64 8
-  %.sink8.i.sroa.gep43.i = getelementptr inbounds i8, ptr %8, i64 24
   %.sroa.22.8.insert.ext.i.i = and i64 %.sroa.3.0.copyload, 65535
   tail call void @_ZN4llvm13IRBuilderBase14SetInsertPointEPNS_10BasicBlockENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ES1_EELb0ELb0EEE(ptr noundef nonnull align 8 dereferenceable(128) %13, ptr noundef nonnull %.sroa.01.0.copyload, ptr %.sroa.2.0.copyload, i64 %.sroa.22.8.insert.ext.i.i)
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %12, i64 560
@@ -77940,7 +77937,6 @@ define internal void @"_ZN4llvm12function_refIFvNS_13IRBuilderBase11InsertPointE
   store i64 %15, ptr %.sink8.i.sroa.gep.i, align 8, !alias.scope !1298
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @.str.423, ptr %17, align 8, !alias.scope !1298
-  store i64 %15, ptr %.sink8.i.sroa.gep43.i, align 8
   %18 = getelementptr inbounds i8, ptr %8, i64 32
   store i8 5, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %8, i64 33

@@ -1164,7 +1164,8 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h8
   %.sroa.882.8..sroa.5.i.sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.i, i64 16
   store i64 0, ptr %.sroa.882.8..sroa.5.i.sroa_idx, align 8
   %.not.i.i = icmp eq i64 %.sroa.10.0.copyload, 0
-  %spec.select = select i1 %.not.i.i, ptr null, ptr %.sroa.075.0.copyload
+  %spec.select = select i1 %.not.i.i, i64 undef, i64 %.sroa.6.0.copyload
+  %spec.select133 = select i1 %.not.i.i, ptr null, ptr %.sroa.075.0.copyload
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !165
   store ptr %.sroa.485.0.copyload, ptr %12, align 8, !noalias !174
   %.sroa.7.8..sroa_idx = getelementptr inbounds i8, ptr %12, i64 8
@@ -1173,9 +1174,9 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17h8
   store i64 0, ptr %.sroa.882.8..sroa_idx, align 8, !noalias !174
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11), !noalias !165
   %30 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %spec.select, ptr %30, align 8, !noalias !175
+  store ptr %spec.select133, ptr %30, align 8, !noalias !175
   %.sroa.4.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %.sroa.6.0.copyload, ptr %.sroa.4.0..sroa_idx.i18, align 8, !noalias !175
+  store i64 %spec.select, ptr %.sroa.4.0..sroa_idx.i18, align 8, !noalias !175
   %.sroa.5.0..sroa_idx.i19 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %.sroa.977.0.copyload, ptr %.sroa.5.0..sroa_idx.i19, align 8, !noalias !175
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 32
@@ -1747,7 +1748,8 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
   %.not.i.i = icmp eq i64 %.sroa.10.0.copyload, 0
-  %spec.select = select i1 %.not.i.i, ptr null, ptr %.sroa.053.0.copyload
+  %spec.select = select i1 %.not.i.i, i64 undef, i64 %.sroa.654.0.copyload
+  %spec.select99 = select i1 %.not.i.i, ptr null, ptr %.sroa.053.0.copyload
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15), !noalias !294
   store i64 0, ptr %15, align 8, !noalias !303
   %.sroa.4.0..sroa_idx56 = getelementptr inbounds i8, ptr %15, i64 8
@@ -1756,9 +1758,9 @@ define hidden void @_ZN5rayon4iter8plumbing24bridge_producer_consumer6helper17ha
   store i64 0, ptr %.sroa.557.0..sroa_idx, align 8, !noalias !303
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !304
-  store ptr %spec.select, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !309
+  store ptr %spec.select99, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !309
   %.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
-  store i64 %.sroa.654.0.copyload, ptr %.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !309
+  store i64 %spec.select, ptr %.sroa.4.0..sroa.4.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !309
   %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %.sroa.9.0.copyload, ptr %.sroa.5.0..sroa.4.0..sroa_idx.i.sroa_idx.i, align 8, !noalias !309
   %.sroa.6.0..sroa.4.0..sroa_idx.i.sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 32

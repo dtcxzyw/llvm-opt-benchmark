@@ -304,14 +304,14 @@ define hidden void @"_ZN6wiggle27GuestPtr$LT$$u5b$T$u5d$$GT$6to_vec17h63d55361e5
 22:                                               ; preds = %21, %13
   %.sroa.534.0.copyload.i.sink = phi ptr [ %19, %13 ], [ %.sroa.534.0.copyload.i, %21 ]
   %.sroa.635.0.copyload.i.sink = phi i64 [ %20, %13 ], [ %.sroa.635.0.copyload.i, %21 ]
-  %.sink75.in = phi i64 [ %.sroa.422.0.copyload.i, %13 ], [ %.sroa.736.0.copyload.i, %21 ]
-  %.sink75 = inttoptr i64 %.sink75.in to ptr
+  %.sink73.in = phi i64 [ %.sroa.422.0.copyload.i, %13 ], [ %.sroa.736.0.copyload.i, %21 ]
+  %.sink73 = inttoptr i64 %.sink73.in to ptr
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.534.0.copyload.i.sink, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.635.0.copyload.i.sink, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink75, ptr %25, align 8
+  store ptr %.sink73, ptr %25, align 8
   store i32 %11, ptr %0, align 8
   ret void
 }

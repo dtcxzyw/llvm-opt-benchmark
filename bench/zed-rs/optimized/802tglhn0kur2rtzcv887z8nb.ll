@@ -40,13 +40,13 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br label %15
 
 15:                                               ; preds = %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i", %.lr.ph.i.i
-  %.sroa.7.014.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %17, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i" ]
-  %.sroa.08.013.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %16, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i" ]
-  %16 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i, i64 16
-  %17 = add nuw nsw i64 %.sroa.7.014.i.i, 1
-  %18 = load i64, ptr %.sroa.08.013.i.i, align 8, !alias.scope !10, !noalias !13, !noundef !4
+  %.sroa.7.015.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %17, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i" ]
+  %.sroa.08.014.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %16, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i" ]
+  %16 = getelementptr inbounds i8, ptr %.sroa.08.014.i.i, i64 16
+  %17 = add nuw nsw i64 %.sroa.7.015.i.i, 1
+  %18 = load i64, ptr %.sroa.08.014.i.i, align 8, !alias.scope !10, !noalias !13, !noundef !4
   %.not.i.i.i = icmp ule i64 %18, %3
-  %19 = getelementptr inbounds i8, ptr %.sroa.08.013.i.i, i64 8
+  %19 = getelementptr inbounds i8, ptr %.sroa.08.014.i.i, i64 8
   %20 = load i64, ptr %19, align 8, !alias.scope !10, !noalias !13
   %21 = icmp ult i64 %3, %20
   %.sroa.06.0.i.i.i = select i1 %.not.i.i.i, i1 %21, i1 false
@@ -63,11 +63,11 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br i1 %24, label %"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7b$closure$u7d$$u7d$17hfba981c22ab4483cE.llvm.7869911825158495569.exit.loopexit.i", label %15
 
 25:                                               ; preds = %22
-  %26 = icmp ult i64 %.sroa.7.014.i.i, %10
+  %26 = icmp ult i64 %.sroa.7.015.i.i, %10
   br i1 %26, label %27, label %34
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %14, i64 0, i64 %.sroa.7.014.i.i
+  %28 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %14, i64 0, i64 %.sroa.7.015.i.i
   %29 = getelementptr inbounds i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !16, !nonnull !4, !noundef !4
   %31 = getelementptr inbounds i8, ptr %28, i64 16
@@ -81,7 +81,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   br i1 %33, label %35, label %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit.i.i"
 
 34:                                               ; preds = %25
-  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.014.i.i, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21
+  invoke void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.015.i.i, i64 noundef %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21
           to label %.noexc.i unwind label %.loopexit.split-lp.i
 
 .noexc.i:                                         ; preds = %34
@@ -181,9 +181,9 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %17 = getelementptr inbounds { i64, i64 }, ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %1, i64 64
   %19 = load ptr, ptr %18, align 8, !alias.scope !63, !noalias !64
-  %.fr33.i.i = freeze ptr %19
-  %.not.i.i = icmp eq ptr %.fr33.i.i, null
-  br i1 %.not.i.i, label %.split32.us.i.i, label %.split.i.i
+  %.fr34.i.i = freeze ptr %19
+  %.not.i.i = icmp eq ptr %.fr34.i.i, null
+  br i1 %.not.i.i, label %.split33.us.i.i, label %.split.i.i
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %.sroa.020.0.i.i, i64 16
@@ -199,9 +199,9 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 .split.i.i:                                       ; preds = %12, %28
   %.sroa.021.0.i.i = phi ptr [ %29, %28 ], [ %14, %12 ]
   %27 = icmp eq ptr %.sroa.021.0.i.i, %17
-  br i1 %27, label %.split32.us.i.i, label %28
+  br i1 %27, label %.split33.us.i.i, label %28
 
-.split32.us.i.i:                                  ; preds = %.split.i.i, %12
+.split33.us.i.i:                                  ; preds = %.split.i.i, %12
   store i64 3, ptr %0, align 8, !alias.scope !76, !noalias !77
   br label %_ZN4core3ops8function6FnOnce9call_once17h90fbaa0e26eedc87E.exit
 
@@ -222,7 +222,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
   %38 = load i64, ptr %37, align 8, !range !79, !invariant.load !4, !noalias !75
   %39 = add i64 %38, -1
   %40 = and i64 %39, -16
-  %41 = getelementptr i8, ptr %.fr33.i.i, i64 %40
+  %41 = getelementptr i8, ptr %.fr34.i.i, i64 %40
   %42 = getelementptr i8, ptr %41, i64 16
   %43 = getelementptr inbounds i8, ptr %36, i64 40
   %44 = load ptr, ptr %43, align 8, !invariant.load !4, !noalias !75, !nonnull !4
@@ -269,7 +269,7 @@ define hidden void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.shi
 63:                                               ; preds = %59
   resume { ptr, i32 } %60
 
-_ZN4core3ops8function6FnOnce9call_once17h90fbaa0e26eedc87E.exit: ; preds = %.split32.us.i.i, %34, %49
+_ZN4core3ops8function6FnOnce9call_once17h90fbaa0e26eedc87E.exit: ; preds = %.split33.us.i.i, %34, %49
   tail call void @"_ZN4core3ptr78drop_in_place$LT$rich_text..RichText..element..$u7b$$u7b$closure$u7d$$u7d$$GT$17hafe8cf688cdcbd8aE.llvm.7869911825158495569"(ptr noalias noundef nonnull align 8 dereferenceable(80) %1), !noalias !53
   ret void
 }
@@ -1427,13 +1427,13 @@ define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7
   ret void
 
 11:                                               ; preds = %.lr.ph, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit"
-  %.sroa.7.014 = phi i64 [ 0, %.lr.ph ], [ %13, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit" ]
-  %.sroa.08.013 = phi ptr [ %1, %.lr.ph ], [ %12, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit" ]
-  %12 = getelementptr inbounds i8, ptr %.sroa.08.013, i64 16
-  %13 = add nuw nsw i64 %.sroa.7.014, 1
-  %14 = load i64, ptr %.sroa.08.013, align 8, !noalias !4, !noundef !4
+  %.sroa.7.015 = phi i64 [ 0, %.lr.ph ], [ %13, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit" ]
+  %.sroa.08.014 = phi ptr [ %1, %.lr.ph ], [ %12, %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit" ]
+  %12 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 16
+  %13 = add nuw nsw i64 %.sroa.7.015, 1
+  %14 = load i64, ptr %.sroa.08.014, align 8, !noalias !4, !noundef !4
   %.not.i = icmp ule i64 %14, %3
-  %15 = getelementptr inbounds i8, ptr %.sroa.08.013, i64 8
+  %15 = getelementptr inbounds i8, ptr %.sroa.08.014, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = icmp ult i64 %3, %16
   %.sroa.06.0.i = select i1 %.not.i, i1 %17, i1 false
@@ -1450,11 +1450,11 @@ define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7
   br i1 %20, label %._crit_edge, label %11
 
 21:                                               ; preds = %18
-  %22 = icmp ult i64 %.sroa.7.014, %.val5
+  %22 = icmp ult i64 %.sroa.7.015, %.val5
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %10, i64 0, i64 %.sroa.7.014
+  %24 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %10, i64 0, i64 %.sroa.7.015
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !noalias !315, !nonnull !4, !noundef !4
   %27 = getelementptr inbounds i8, ptr %24, i64 16
@@ -1468,7 +1468,7 @@ define hidden void @"_ZN4gpui8elements4text15InteractiveText8on_click28_$u7b$$u7
   br i1 %29, label %31, label %"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d$17h03f0298fb3a4ddb3E.exit"
 
 30:                                               ; preds = %21
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.014, i64 noundef %.val5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21, !noalias !315
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.7.015, i64 noundef %.val5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5fc69451d0e5e7b135fb5894c1bcdc02.11) #21, !noalias !315
   unreachable
 
 31:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h0706d850b00ac31aE.exit.i"
@@ -1711,9 +1711,9 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
   %17 = getelementptr inbounds { i64, i64 }, ptr %14, i64 %16
   %18 = getelementptr inbounds i8, ptr %1, i64 64
   %19 = load ptr, ptr %18, align 8
-  %.fr33 = freeze ptr %19
-  %.not = icmp eq ptr %.fr33, null
-  br i1 %.not, label %.split32.us, label %.split
+  %.fr34 = freeze ptr %19
+  %.not = icmp eq ptr %.fr34, null
+  br i1 %.not, label %.split33.us, label %.split
 
 20:                                               ; preds = %10
   %21 = getelementptr inbounds i8, ptr %.sroa.020.0, i64 16
@@ -1729,9 +1729,9 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
 .split:                                           ; preds = %12, %28
   %.sroa.021.0 = phi ptr [ %29, %28 ], [ %14, %12 ]
   %27 = icmp eq ptr %.sroa.021.0, %17
-  br i1 %27, label %.split32.us, label %28
+  br i1 %27, label %.split33.us, label %28
 
-.split32.us:                                      ; preds = %.split, %12
+.split33.us:                                      ; preds = %.split, %12
   store i64 3, ptr %0, align 8
   br label %34
 
@@ -1745,7 +1745,7 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
   %.sroa.06.0.i17 = select i1 %.not.i16, i1 %33, i1 false
   br i1 %.sroa.06.0.i17, label %35, label %.split
 
-34:                                               ; preds = %50, %35, %.split32.us
+34:                                               ; preds = %50, %35, %.split33.us
   ret void
 
 35:                                               ; preds = %28
@@ -1755,7 +1755,7 @@ define hidden void @"_ZN9rich_text8RichText7element28_$u7b$$u7b$closure$u7d$$u7d
   %39 = load i64, ptr %38, align 8, !range !79, !invariant.load !4
   %40 = add i64 %39, -1
   %41 = and i64 %40, -16
-  %42 = getelementptr i8, ptr %.fr33, i64 %41
+  %42 = getelementptr i8, ptr %.fr34, i64 %41
   %43 = getelementptr i8, ptr %42, i64 16
   %44 = getelementptr inbounds i8, ptr %37, i64 40
   %45 = load ptr, ptr %44, align 8, !invariant.load !4, !nonnull !4

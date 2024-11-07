@@ -13930,12 +13930,13 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6re
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx, align 8
   store i32 1, ptr %16, align 8
   %switch7.not.not = icmp eq i32 %17, 0
-  %spec.select = select i1 %switch7.not.not, ptr %.sroa.45.0.copyload, ptr null
+  %spec.select = select i1 %switch7.not.not, ptr %.sroa.5.0.copyload, ptr undef
+  %spec.select8 = select i1 %switch7.not.not, ptr %.sroa.45.0.copyload, ptr null
   br label %28
 
 28:                                               ; preds = %24, %21, %3
-  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %.sroa.5.0.copyload, %24 ]
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select, %24 ]
+  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %spec.select, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select8, %24 ]
   %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %30
@@ -24598,49 +24599,49 @@ define hidden { i64, ptr } @"_ZN97_$LT$futures_util..io..copy_buf..CopyBuf$LT$R$
 
 35:                                               ; preds = %30
   %36 = icmp eq i64 %31, %32
-  br i1 %36, label %37, label %42
+  br i1 %36, label %37, label %41
 
 37:                                               ; preds = %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4280)
   %38 = load ptr, ptr %3, align 8, !alias.scope !4280, !noalias !4283, !nonnull !9, !align !35, !noundef !9
   %39 = tail call { i64, ptr } @"_ZN65_$LT$async_fs..File$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_flush17hae4714bb2cbcc336E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %38, ptr noalias noundef nonnull align 8 dereferenceable(32) %1), !noalias !4280
   %40 = extractvalue { i64, ptr } %39, 0
-  %41 = extractvalue { i64, ptr } %39, 1
   %switch34 = icmp eq i64 %40, 0
-  br i1 %switch34, label %49, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit"
+  br i1 %switch34, label %48, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit"
 
-42:                                               ; preds = %35
-  %43 = sub nuw i64 %31, %32
-  %44 = getelementptr inbounds i8, ptr %.pre.i.fr, i64 %32
-  %45 = tail call { i64, ptr } @"_ZN65_$LT$async_fs..File$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h7d7cf6fc4ab77d55E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %44, i64 noundef %43), !noalias !4285
-  %46 = extractvalue { i64, ptr } %45, 0
-  %47 = extractvalue { i64, ptr } %45, 1
-  %48 = icmp eq i64 %46, 2
-  br i1 %48, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit", label %56
+41:                                               ; preds = %35
+  %42 = sub nuw i64 %31, %32
+  %43 = getelementptr inbounds i8, ptr %.pre.i.fr, i64 %32
+  %44 = tail call { i64, ptr } @"_ZN65_$LT$async_fs..File$u20$as$u20$futures_io..if_std..AsyncWrite$GT$10poll_write17h7d7cf6fc4ab77d55E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %11, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %43, i64 noundef %42), !noalias !4285
+  %45 = extractvalue { i64, ptr } %44, 0
+  %46 = extractvalue { i64, ptr } %44, 1
+  %47 = icmp eq i64 %45, 2
+  br i1 %47, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit", label %56
 
-49:                                               ; preds = %37
-  %50 = icmp eq ptr %41, null
+48:                                               ; preds = %37
+  %49 = extractvalue { i64, ptr } %39, 1
+  %50 = icmp eq ptr %49, null
   br i1 %50, label %51, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit"
 
-51:                                               ; preds = %49
+51:                                               ; preds = %48
   %52 = load i64, ptr %4, align 8, !noundef !9
   %53 = inttoptr i64 %52 to ptr
   br label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit"
 
-"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit": ; preds = %26, %58, %56, %42, %12, %.loopexit.split.us, %37, %49, %51
-  %.sroa.9.2 = phi ptr [ %53, %51 ], [ %41, %49 ], [ %41, %37 ], [ %22, %.loopexit.split.us ], [ %15, %12 ], [ %29, %26 ], [ %47, %42 ], [ %47, %56 ], [ inttoptr (i64 98784247811 to ptr), %58 ]
-  %.sroa.0.2 = phi i64 [ 0, %51 ], [ 1, %49 ], [ 2, %37 ], [ 1, %.loopexit.split.us ], [ %14, %12 ], [ %28, %26 ], [ 2, %42 ], [ 1, %56 ], [ 1, %58 ]
+"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit": ; preds = %26, %58, %56, %41, %12, %.loopexit.split.us, %37, %48, %51
+  %.sroa.9.2 = phi ptr [ %53, %51 ], [ undef, %37 ], [ %49, %48 ], [ %22, %.loopexit.split.us ], [ %15, %12 ], [ %29, %26 ], [ %46, %56 ], [ undef, %41 ], [ inttoptr (i64 98784247811 to ptr), %58 ]
+  %.sroa.0.2 = phi i64 [ 0, %51 ], [ 2, %37 ], [ 1, %48 ], [ 1, %.loopexit.split.us ], [ %14, %12 ], [ %28, %26 ], [ 1, %56 ], [ 2, %41 ], [ 1, %58 ]
   %54 = insertvalue { i64, ptr } poison, i64 %.sroa.0.2, 0
   %55 = insertvalue { i64, ptr } %54, ptr %.sroa.9.2, 1
   ret { i64, ptr } %55
 
-56:                                               ; preds = %42
-  %57 = ptrtoint ptr %47 to i64
-  %switch36 = icmp eq i64 %46, 0
+56:                                               ; preds = %41
+  %57 = ptrtoint ptr %46 to i64
+  %switch36 = icmp eq i64 %45, 0
   br i1 %switch36, label %58, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit"
 
 58:                                               ; preds = %56
-  %59 = icmp eq ptr %47, null
+  %59 = icmp eq ptr %46, null
   br i1 %59, label %"_ZN101_$LT$futures_util..io..buf_reader..BufReader$LT$R$GT$$u20$as$u20$futures_io..if_std..AsyncBufRead$GT$13poll_fill_buf17hc91069ffb2e732c0E.exit", label %60
 
 60:                                               ; preds = %58

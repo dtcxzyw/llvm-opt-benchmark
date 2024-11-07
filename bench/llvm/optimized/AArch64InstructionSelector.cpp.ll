@@ -25206,6 +25206,7 @@ _ZNK4llvm3LLT13getSizeInBitsEv.exit.i:            ; preds = %_ZNK4llvm3LLT19getS
   br label %_ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit
 
 _ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit: ; preds = %33, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i, %80, %82, %84, %86, %88
+  %.sroa.011.0.i = phi i64 [ %36, %88 ], [ undef, %33 ], [ undef, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ undef, %80 ], [ undef, %82 ], [ undef, %84 ], [ undef, %86 ]
   %.sroa.212.0.i = phi i1 [ true, %88 ], [ false, %33 ], [ false, %_ZNK4llvm3LLT13getSizeInBitsEv.exit.i ], [ false, %80 ], [ false, %82 ], [ false, %84 ], [ false, %86 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   switch i64 %.sroa.04.0.i, label %125 [
@@ -25266,7 +25267,7 @@ _ZL15getVectorSHLImmN4llvm3LLTENS_8RegisterERNS_19MachineRegisterInfoE.exit: ; p
   %111 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr null, ptr %111, align 8, !alias.scope !464
   %112 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %36, ptr %112, align 8, !alias.scope !464
+  store i64 %.sroa.011.0.i, ptr %112, align 8, !alias.scope !464
   call void @_ZN4llvm12MachineInstr10addOperandERNS_15MachineFunctionERKNS_14MachineOperandE(ptr noundef nonnull align 8 dereferenceable(70) %109, ptr noundef nonnull align 8 dereferenceable(1041) %108, ptr noundef nonnull align 8 dereferenceable(32) %5) #24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %117

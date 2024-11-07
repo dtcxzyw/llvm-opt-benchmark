@@ -4099,8 +4099,8 @@ _ZN4core4sync6atomic11atomic_load17he523159e201644faE.llvm.15766365797701117379.
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h66a205cbd056b06dE.exit": ; preds = %32
   %36 = load i32, ptr %28, align 4, !noalias !612, !noundef !4
-  %.not2.i.i.not = icmp ugt i32 %34, %36
-  br i1 %.not2.i.i.not, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h66a205cbd056b06dE.exit.thread", label %37
+  %.not3.i.i.not = icmp ugt i32 %34, %36
+  br i1 %.not3.i.i.not, label %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h66a205cbd056b06dE.exit.thread", label %37
 
 37:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h66a205cbd056b06dE.exit"
   switch i8 %1, label %38 [
@@ -8711,12 +8711,13 @@ common.resume:                                    ; preds = %147, %49, %.body59.
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h0024702bfc2f6b67E.exit.i": ; preds = %136, %137, %31
-  %.sroa.10.1 = phi i8 [ undef, %31 ], [ %.sroa.3.0.copyload.i, %137 ], [ %.sroa.3.0.copyload.i, %136 ]
+  %.sroa.10.1 = phi i8 [ undef, %31 ], [ %.sroa.3.0.copyload.i, %136 ], [ undef, %137 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !1300
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !1300
   br label %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit"
 
 "_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread": ; preds = %39, %40
+  %.sroa.10.2.ph = phi i8 [ undef, %40 ], [ %30, %39 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
@@ -8733,7 +8734,7 @@ common.resume:                                    ; preds = %147, %49, %.body59.
 
 141:                                              ; preds = %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread", %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit"
   %.sroa.0.0.copyload = phi i64 [ %27, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread" ], [ %.sroa.0.2, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit" ]
-  %.sroa.10.219 = phi i8 [ %30, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread" ], [ %.sroa.10.2, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit" ]
+  %.sroa.10.219 = phi i8 [ %.sroa.10.2.ph, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit.thread" ], [ %.sroa.10.2, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17h6985fb4283c549b7E.exit" ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
   store i64 %.sroa.0.0.copyload, ptr %17, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 8
@@ -9141,8 +9142,8 @@ define hidden void @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_incremen
 
 "_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h66a205cbd056b06dE.exit.i": ; preds = %14
   %18 = load i32, ptr %10, align 4, !noalias !1382, !noundef !4
-  %.not2.i.i.not.i = icmp ugt i32 %16, %18
-  br i1 %.not2.i.i.not.i, label %25, label %19
+  %.not3.i.i.not.i = icmp ugt i32 %16, %18
+  br i1 %.not3.i.i.not.i, label %25, label %19
 
 19:                                               ; preds = %"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$18try_increment_size28_$u7b$$u7b$closure$u7d$$u7d$17h66a205cbd056b06dE.exit.i"
   %20 = cmpxchg weak ptr %7, i32 %.0.i, i32 %16 acq_rel acquire, align 4, !noalias !1379

@@ -787,8 +787,8 @@ entry:
   call void @_ZN2v820EscapableHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(32) %scope, ptr noundef %isolate) #22
   %call = call { i8, i64 } @_ZN4node11StringBytes4SizeEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %isolate, ptr %string.coerce, i32 noundef %enc) #22
   %0 = extractvalue { i8, i64 } %call, 0
-  %1 = extractvalue { i8, i64 } %call, 1
   %tobool.i184 = trunc i8 %0 to i1
+  %1 = extractvalue { i8, i64 } %call, 1
   br i1 %tobool.i184, label %if.end, label %cleanup108
 
 if.end:                                           ; preds = %entry
@@ -7668,8 +7668,8 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   %cond = select i1 %cmp, i64 %and, i64 %73
   %call131 = call { i8, i64 } @_ZN4node11StringBytes4SizeEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %12, ptr %retval.i334.sroa.0.0198, i32 noundef %call70) #22
   %74 = extractvalue { i8, i64 } %call131, 0
-  %75 = extractvalue { i8, i64 } %call131, 1
   %tobool.i1654 = trunc i8 %74 to i1
+  %75 = extractvalue { i8, i64 } %call131, 1
   br i1 %tobool.i1654, label %if.end135, label %return
 
 if.end135:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit

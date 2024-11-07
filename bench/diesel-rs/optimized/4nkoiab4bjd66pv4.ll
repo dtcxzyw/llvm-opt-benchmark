@@ -130,8 +130,8 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us: ; preds = %.lr.
   store i64 %36, ptr %6, align 8
   %.not.us = icmp ult i64 %36, %15
   %37 = icmp ugt i64 %36, %5
-  %or.cond100 = or i1 %.not.us, %37
-  br i1 %or.cond100, label %38, label %.split60.us
+  %or.cond95 = or i1 %.not.us, %37
+  br i1 %or.cond95, label %38, label %.split60.us
 
 38:                                               ; preds = %34
   %39 = icmp ugt i64 %36, %8

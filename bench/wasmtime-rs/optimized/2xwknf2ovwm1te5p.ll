@@ -153,10 +153,11 @@ define { i64, i64 } @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u
   %5 = tail call { i64, i64 } @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h62465c388192d331E"(ptr align 8 %0, i64 %1, ptr nonnull align 8 %2)
   %6 = extractvalue { i64, i64 } %5, 0
   %7 = icmp ne i64 %6, 0
-  %. = zext i1 %7 to i64
   %8 = extractvalue { i64, i64 } %5, 1
-  %9 = insertvalue { i64, i64 } poison, i64 %., 0
-  %10 = insertvalue { i64, i64 } %9, i64 %8, 1
+  %.sroa.3.0 = select i1 %7, i64 %8, i64 undef
+  %.sroa.0.0 = zext i1 %7 to i64
+  %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %10 = insertvalue { i64, i64 } %9, i64 %.sroa.3.0, 1
   ret { i64, i64 } %10
 }
 

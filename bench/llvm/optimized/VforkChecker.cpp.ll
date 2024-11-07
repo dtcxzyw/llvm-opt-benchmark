@@ -1691,9 +1691,9 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i: ; 
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit19.i
   %18 = load ptr, ptr %17, align 8
-  %.not113.i = icmp eq ptr %18, null
+  %.not115.i = icmp eq ptr %18, null
   tail call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %15) #16
-  br i1 %.not113.i, label %19, label %_ZNK12_GLOBAL__N_112VforkChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
+  br i1 %.not115.i, label %19, label %_ZNK12_GLOBAL__N_112VforkChecker13checkPostCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit
 
 19:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.thread.i
   %20 = load ptr, ptr %1, align 8
@@ -1849,8 +1849,8 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
   %.pre.i.i = load ptr, ptr %12, align 8
   %99 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
   %100 = load ptr, ptr %99, align 8
-  %.not114.i = icmp eq ptr %.sroa.082.0.i, %100
-  br i1 %.not114.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i
+  %.not116.i = icmp eq ptr %.sroa.082.0.i, %100
+  br i1 %.not116.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i: ; preds = %98
   %101 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1932,8 +1932,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit37.i: ; preds
   %.pre.i60.i = load ptr, ptr %12, align 8
   %121 = getelementptr inbounds nuw i8, ptr %.pre.i60.i, i64 56
   %122 = load ptr, ptr %121, align 8
-  %.not115.i = icmp eq ptr %.sroa.085.0.i, %122
-  br i1 %.not115.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit47.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i64.i
+  %.not117.i = icmp eq ptr %.sroa.085.0.i, %122
+  br i1 %.not117.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit47.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i64.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i64.i: ; preds = %120
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 16

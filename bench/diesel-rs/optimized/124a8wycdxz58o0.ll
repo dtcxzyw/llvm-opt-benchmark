@@ -1026,7 +1026,7 @@ common.resume:                                    ; preds = %249, %.body, %54
 
 .noexc35:                                         ; preds = %129
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %.thread72, label %133
+  br i1 %131, label %.thread71, label %133
 
 132:                                              ; preds = %.noexc34
   %.sroa.532.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 16
@@ -1034,7 +1034,7 @@ common.resume:                                    ; preds = %249, %.body, %54
   %.sroa.335.i.sroa.4.0..sroa.532.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
   %.sroa.335.i.sroa.4.0.copyload = load i64, ptr %.sroa.335.i.sroa.4.0..sroa.532.0..sroa_idx.i.sroa_idx, align 8, !noalias !137
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21), !noalias !137
-  br label %.thread72
+  br label %.thread71
 
 133:                                              ; preds = %.noexc35
   %134 = icmp eq i32 %130, 1
@@ -1413,9 +1413,10 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   invoke void @"_ZN4core3ptr59drop_in_place$LT$diesel_demo_step_2_mysql..models..Post$GT$17hf60548039a3399ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %37) #10
           to label %common.resume unwind label %240
 
-.thread72:                                        ; preds = %132, %.noexc35
+.thread71:                                        ; preds = %132, %.noexc35
   %.sroa.17.3.ph = phi i64 [ undef, %.noexc35 ], [ %.sroa.335.i.sroa.4.0.copyload, %132 ]
   %.sroa.14.3.ph = phi ptr [ undef, %.noexc35 ], [ %.sroa.335.i.sroa.0.0.copyload, %132 ]
+  %.sroa.10.3.ph = phi ptr [ undef, %.noexc35 ], [ %128, %132 ]
   %.sroa.043.3.ph = phi i64 [ -9223372036854775800, %.noexc35 ], [ %125, %132 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
@@ -1441,19 +1442,19 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %38)
   br label %248
 
-238:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33", %.thread72
-  %.sroa.10.382.ph = phi ptr [ %128, %.thread72 ], [ %.sroa.10.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
-  %.sroa.14.380.ph = phi ptr [ %.sroa.14.3.ph, %.thread72 ], [ %.sroa.14.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
-  %.sroa.17.378.ph = phi i64 [ %.sroa.17.3.ph, %.thread72 ], [ %.sroa.17.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
-  %.sroa.04.0.ph = phi i64 [ %.sroa.043.3.ph, %.thread72 ], [ %.sroa.043.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
+238:                                              ; preds = %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33", %.thread71
+  %.sroa.76.sroa.0.0.ph = phi ptr [ %.sroa.10.3.ph, %.thread71 ], [ %.sroa.10.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
+  %.sroa.76.sroa.5.0.ph = phi ptr [ %.sroa.14.3.ph, %.thread71 ], [ %.sroa.14.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
+  %.sroa.76.sroa.6.0.ph = phi i64 [ %.sroa.17.3.ph, %.thread71 ], [ %.sroa.17.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
+  %.sroa.04.0.ph = phi i64 [ %.sroa.043.3.ph, %.thread71 ], [ %.sroa.043.3, %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h5bb727039fdcf383E.exit.i33" ]
   %239 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.04.0.ph, ptr %239, align 8
   %.sroa.461.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.10.382.ph, ptr %.sroa.461.0..sroa_idx, align 8
+  store ptr %.sroa.76.sroa.0.0.ph, ptr %.sroa.461.0..sroa_idx, align 8
   %.sroa.562.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sroa.14.380.ph, ptr %.sroa.562.0..sroa_idx, align 8
+  store ptr %.sroa.76.sroa.5.0.ph, ptr %.sroa.562.0..sroa_idx, align 8
   %.sroa.663.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.17.378.ph, ptr %.sroa.663.0..sroa_idx, align 8
+  store i64 %.sroa.76.sroa.6.0.ph, ptr %.sroa.663.0..sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   call void @"_ZN4core3ptr59drop_in_place$LT$diesel_demo_step_2_mysql..models..Post$GT$17hf60548039a3399ecE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %37)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %37)
@@ -1471,10 +1472,10 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   %244 = getelementptr inbounds i8, ptr %0, i64 8
   switch i64 %243, label %247 [
     i64 -9223372036854775798, label %245
-    i64 -9223372036854775799, label %.thread105
+    i64 -9223372036854775799, label %.thread101
   ]
 
-.thread105:                                       ; preds = %242
+.thread101:                                       ; preds = %242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %244, ptr noundef nonnull align 8 dereferenceable(32) %232, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   call fastcc void @"_ZN4core3ptr42drop_in_place$LT$diesel..result..Error$GT$17hca09607754b6e178E"(ptr noalias noundef align 8 dereferenceable(32) %35)
@@ -1487,7 +1488,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i25: ; preds = %133
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35)
   br label %246
 
-246:                                              ; preds = %245, %.thread105, %247
+246:                                              ; preds = %245, %.thread101, %247
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %36)
   br label %237
 

@@ -909,7 +909,7 @@ land.rhs.i:                                       ; preds = %sw.epilog, %while.c
   br i1 %cmp1.i, label %while.cond.i, label %return
 
 return:                                           ; preds = %for.inc, %if.then, %for.inc31, %land.rhs26, %while.cond.i, %land.rhs.i, %for.end, %sw.epilog, %for.end21
-  %retval.sroa.0.0 = phi i64 [ undef, %for.end21 ], [ %timeout.sroa.0.0, %sw.epilog ], [ undef, %for.end ], [ %timeout.sroa.0.0, %land.rhs.i ], [ %timeout.sroa.0.0, %while.cond.i ], [ undef, %land.rhs26 ], [ undef, %for.inc31 ], [ 9223372036854775807, %if.then ], [ undef, %for.inc ]
+  %retval.sroa.0.0 = phi i64 [ undef, %for.end21 ], [ %timeout.sroa.0.0, %sw.epilog ], [ undef, %for.end ], [ %timeout.sroa.0.0, %while.cond.i ], [ undef, %land.rhs.i ], [ undef, %land.rhs26 ], [ undef, %for.inc31 ], [ 9223372036854775807, %if.then ], [ undef, %for.inc ]
   %retval.sroa.3.0 = phi i8 [ 0, %for.end21 ], [ 1, %sw.epilog ], [ 0, %for.end ], [ 1, %while.cond.i ], [ 0, %land.rhs.i ], [ 0, %land.rhs26 ], [ 0, %for.inc31 ], [ 1, %if.then ], [ 0, %for.inc ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1

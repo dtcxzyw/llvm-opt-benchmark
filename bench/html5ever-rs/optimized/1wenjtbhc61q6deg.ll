@@ -1312,9 +1312,9 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   %75 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %74, i1 true)
   %76 = lshr i32 -1, %75
   %77 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %76, i32 1)
-  %78 = extractvalue { i32, i1 } %77, 0
-  %79 = extractvalue { i32, i1 } %77, 1
-  br i1 %79, label %.invoke, label %85
+  %78 = extractvalue { i32, i1 } %77, 1
+  %79 = extractvalue { i32, i1 } %77, 0
+  br i1 %78, label %.invoke, label %85
 
 .invoke:                                          ; preds = %73, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i"
   %80 = phi ptr [ @anon.ca33c84f5f46cddb79da9f4933f043aa.43, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$5len3217h9721345a9b4c1050E.exit.i" ], [ @anon.ca33c84f5f46cddb79da9f4933f043aa.38, %73 ]
@@ -1345,7 +1345,7 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   store ptr %70, ptr %91, align 8, !noalias !192
   %92 = getelementptr inbounds i8, ptr %3, i64 16
   store i64 0, ptr %92, align 8, !noalias !192
-  %93 = zext i32 %78 to i64
+  %93 = zext i32 %79 to i64
   %94 = add nuw nsw i64 %93, 15
   %95 = lshr i64 %94, 4
   %96 = add nuw nsw i64 %95, 1
@@ -1393,7 +1393,7 @@ common.resume.sink.split.i:                       ; preds = %142, %61
   unreachable
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h7d44eff04c20425bE.exit.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h1441c95f3f507d51E.exit.i.i.i", %68
-  %.sroa.64.0.i.i = phi i32 [ %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h1441c95f3f507d51E.exit.i.i.i" ], [ %.03.i.i.i, %68 ]
+  %.sroa.64.0.i.i = phi i32 [ %79, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h1441c95f3f507d51E.exit.i.i.i" ], [ %.03.i.i.i, %68 ]
   %.sroa.0.0.i37.i = phi i64 [ %104, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17h1441c95f3f507d51E.exit.i.i.i" ], [ %71, %68 ]
   store i64 %.sroa.0.0.i37.i, ptr %14, align 8, !alias.scope !195, !noalias !179
   store i32 %.sroa.64.0.i.i, ptr %69, align 4, !alias.scope !195, !noalias !179

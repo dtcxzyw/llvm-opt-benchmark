@@ -10443,9 +10443,9 @@ _ZN4llvm16DenseMapIteratorIPNS_5ValueEPNS_10BasicBlockENS_12DenseMapInfoIS2_vEEN
   br i1 %.not66, label %._crit_edge87.loopexit, label %13
 
 ._crit_edge87.loopexit:                           ; preds = %13, %.thread, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit, %._crit_edge80, %.critedge2.i8.i14.i6.i
-  %.064.lcssa.ph = phi i32 [ %.06483, %.critedge2.i8.i14.i6.i ], [ %.06483, %13 ], [ %82, %.thread ], [ %.06483, %._crit_edge80 ], [ %.06483, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit ]
+  %.sroa.061.0.ph = phi i32 [ %.06483, %.critedge2.i8.i14.i6.i ], [ %.06483, %13 ], [ undef, %.thread ], [ %.06483, %._crit_edge80 ], [ %.06483, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit ]
   %.sroa.262.0.ph = phi i64 [ 4294967296, %.critedge2.i8.i14.i6.i ], [ 4294967296, %13 ], [ 0, %.thread ], [ 4294967296, %._crit_edge80 ], [ 4294967296, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_10BasicBlockENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E5beginEv.exit ]
-  %84 = zext i32 %.064.lcssa.ph to i64
+  %84 = zext i32 %.sroa.061.0.ph to i64
   %85 = or disjoint i64 %.sroa.262.0.ph, %84
   br label %._crit_edge87
 

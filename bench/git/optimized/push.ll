@@ -1344,8 +1344,8 @@ if.then:                                          ; preds = %entry
   %tobool2.not = icmp eq i32 %call1, 0
   %0 = load i32, ptr %cb, align 4
   %and = and i32 %0, -1025
-  %masksel43 = select i1 %tobool2.not, i32 0, i32 1024
-  %storemerge = or disjoint i32 %and, %masksel43
+  %masksel45 = select i1 %tobool2.not, i32 0, i32 1024
+  %storemerge = or disjoint i32 %and, %masksel45
   store i32 %storemerge, ptr %cb, align 4
   br label %return
 

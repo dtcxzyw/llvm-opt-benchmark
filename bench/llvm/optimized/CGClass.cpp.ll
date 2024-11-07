@@ -1187,7 +1187,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction37GetAddressOfDirectBas
   %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.16.0.copyload = load i64, ptr %.sroa.16.0..sroa_idx, align 8
   %.sroa.16.sroa.0.0.extract.trunc = trunc i64 %.sroa.16.0.copyload to i8
-  %.sroa.16.sroa.8.0.extract.shift = and i64 %.sroa.16.0.copyload, -256
+  %.sroa.16.sroa.8.0.extract.shift = lshr i64 %.sroa.16.0.copyload, 8
+  %.sroa.16.sroa.8.0.extract.trunc = trunc nuw i64 %.sroa.16.sroa.8.0.extract.shift to i56
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   %.sroa.22.0.copyload = load ptr, ptr %.sroa.22.0..sroa_idx, align 8
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 40
@@ -1227,6 +1228,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %18
   %.sroa.11.0 = phi i64 [ %.sroa.11.0.copyload, %18 ], [ %34, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %.sroa.035.0 = phi i64 [ %.sroa.035.0.copyload, %18 ], [ %38, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %.sroa.16.sroa.0.0 = phi i8 [ %.sroa.16.sroa.0.0.extract.trunc, %18 ], [ 0, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
+  %.sroa.16.sroa.8.sroa.0.0 = phi i56 [ %.sroa.16.sroa.8.0.extract.trunc, %18 ], [ undef, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %41 = load ptr, ptr %40, align 8
   %.not.i.i = icmp eq ptr %41, null
@@ -1251,8 +1253,10 @@ _ZN5clang7CodeGen15CodeGenFunction11ConvertTypeEPKNS_8TypeDeclE.exit: ; preds = 
   br i1 %.not.i11, label %51, label %55
 
 51:                                               ; preds = %_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeEPKNS_8TypeDeclE.exit
+  %.sroa.16.sroa.8.0.insert.ext80 = zext i56 %.sroa.16.sroa.8.sroa.0.0 to i64
+  %.sroa.16.sroa.8.0.insert.shift81 = shl nuw i64 %.sroa.16.sroa.8.0.insert.ext80, 8
   %.sroa.16.sroa.0.0.insert.ext65 = zext i8 %.sroa.16.sroa.0.0 to i64
-  %.sroa.16.sroa.0.0.insert.insert67 = or disjoint i64 %.sroa.16.sroa.8.0.extract.shift, %.sroa.16.sroa.0.0.insert.ext65
+  %.sroa.16.sroa.0.0.insert.insert67 = or disjoint i64 %.sroa.16.sroa.8.0.insert.shift81, %.sroa.16.sroa.0.0.insert.ext65
   %52 = and i64 %.sroa.035.0, -4
   store i64 %52, ptr %0, align 8, !alias.scope !14
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1266,8 +1270,10 @@ _ZN5clang7CodeGen15CodeGenFunction11ConvertTypeEPKNS_8TypeDeclE.exit: ; preds = 
   %.sroa.11.0..sroa_idx44 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx44, align 8
   %.sroa.16.0..sroa_idx48 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.16.sroa.8.0.insert.ext72 = zext i56 %.sroa.16.sroa.8.sroa.0.0 to i64
+  %.sroa.16.sroa.8.0.insert.shift73 = shl nuw i64 %.sroa.16.sroa.8.0.insert.ext72, 8
   %.sroa.16.sroa.0.0.insert.ext59 = zext i8 %.sroa.16.sroa.0.0 to i64
-  %.sroa.16.sroa.0.0.insert.insert61 = or disjoint i64 %.sroa.16.sroa.8.0.extract.shift, %.sroa.16.sroa.0.0.insert.ext59
+  %.sroa.16.sroa.0.0.insert.insert61 = or disjoint i64 %.sroa.16.sroa.8.0.insert.shift73, %.sroa.16.sroa.0.0.insert.ext59
   store i64 %.sroa.16.sroa.0.0.insert.insert61, ptr %.sroa.16.0..sroa_idx48, align 8
   br label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit18
 

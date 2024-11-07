@@ -4991,8 +4991,8 @@ common.resume:                                    ; preds = %"_ZN4core3ptr42drop
 
 60:                                               ; preds = %.noexc19
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1271
-  %cond113 = icmp eq i64 %45, 0
-  br i1 %cond113, label %"_ZN4core3ptr43drop_in_place$LT$serde_json..map..Entry$GT$17hb057679292389e87E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9708849161435668323.exit.i.i1.i.i.i.i.i21"
+  %cond111 = icmp eq i64 %45, 0
+  br i1 %cond111, label %"_ZN4core3ptr43drop_in_place$LT$serde_json..map..Entry$GT$17hb057679292389e87E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9708849161435668323.exit.i.i1.i.i.i.i.i21"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.9708849161435668323.exit.i.i1.i.i.i.i.i21": ; preds = %60
   %61 = icmp ne ptr %48, null

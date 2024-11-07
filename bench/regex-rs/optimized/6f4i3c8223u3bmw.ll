@@ -3421,7 +3421,7 @@ define hidden noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata3nfa8thom
   %3 = alloca i64, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = load i32, ptr %1, align 8, !range !66, !noundef !5
-  switch i32 %5, label %default.unreachable50 [
+  switch i32 %5, label %default.unreachable46 [
     i32 0, label %6
     i32 1, label %28
     i32 2, label %.invoke
@@ -3433,7 +3433,7 @@ define hidden noundef range(i32 0, 2147483647) i32 @_ZN14regex_automata3nfa8thom
     i32 8, label %.loopexit
   ]
 
-default.unreachable50:                            ; preds = %128, %2
+default.unreachable46:                            ; preds = %128, %2
   unreachable
 
 6:                                                ; preds = %2
@@ -3635,11 +3635,11 @@ _ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.ex
   br label %.loopexit
 
 101:                                              ; preds = %.lr.ph, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit14
-  %.sroa.0.048 = phi ptr [ %30, %.lr.ph ], [ %102, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit14 ]
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 8
-  %103 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 4
+  %.sroa.0.044 = phi ptr [ %30, %.lr.ph ], [ %102, %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit14 ]
+  %102 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 8
+  %103 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 4
   %104 = load i8, ptr %103, align 4, !noundef !5
-  %105 = getelementptr inbounds i8, ptr %.sroa.0.048, i64 5
+  %105 = getelementptr inbounds i8, ptr %.sroa.0.044, i64 5
   %106 = load i8, ptr %105, align 1, !noundef !5
   %.not.i11 = icmp eq i8 %104, 0
   br i1 %.not.i11, label %_ZN14regex_automata4util8alphabet12ByteClassSet9set_range17h80899899759d6f5dE.exit14, label %107
@@ -3689,7 +3689,7 @@ _ZN14regex_automata4util4look11LookMatcher14add_to_byteset17h632e907fe7ebe569E.e
 128:                                              ; preds = %.loopexit
   %129 = getelementptr inbounds i8, ptr %1, i64 16
   %.val8 = load i64, ptr %129, align 8
-  switch i32 %5, label %default.unreachable50 [
+  switch i32 %5, label %default.unreachable46 [
     i32 0, label %_ZN14regex_automata3nfa8thompson3nfa5State12memory_usage17hd9357ddd751aa01cE.exit
     i32 1, label %130
     i32 2, label %132

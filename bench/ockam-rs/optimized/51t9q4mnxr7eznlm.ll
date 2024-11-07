@@ -469,8 +469,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %12
 
 12:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h299c1b6c44ae2aa0E.llvm.11973172088018111598.exit.thread", %8
-  %.sink15.i12 = phi i64 [ %11, %8 ], [ %2, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h299c1b6c44ae2aa0E.llvm.11973172088018111598.exit.thread" ]
   %.sink16.i11 = phi i64 [ %10, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h299c1b6c44ae2aa0E.llvm.11973172088018111598.exit.thread" ]
+  %.sroa.5.sroa.4.0 = phi i64 [ %11, %8 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h299c1b6c44ae2aa0E.llvm.11973172088018111598.exit.thread" ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 368, i64 464
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #21
@@ -478,7 +478,7 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink16.i11, ptr %.sroa.5.0..sroa_idx2, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink15.i12, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx, align 8
+  store i64 %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx, align 8
   ret void
 }
 
@@ -501,8 +501,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %12
 
 12:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h9a571d787798b59dE.llvm.11973172088018111598.exit.thread", %8
-  %.sink15.i12 = phi i64 [ %11, %8 ], [ %2, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h9a571d787798b59dE.llvm.11973172088018111598.exit.thread" ]
   %.sink16.i11 = phi i64 [ %10, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h9a571d787798b59dE.llvm.11973172088018111598.exit.thread" ]
+  %.sroa.5.sroa.4.0 = phi i64 [ %11, %8 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h9a571d787798b59dE.llvm.11973172088018111598.exit.thread" ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 632, i64 728
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #21
@@ -510,7 +510,7 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink16.i11, ptr %.sroa.5.0..sroa_idx2, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink15.i12, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx, align 8
+  store i64 %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx, align 8
   ret void
 }
 
@@ -1466,17 +1466,17 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %261
 
 261:                                              ; preds = %261, %259
-  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %259 ], [ %spec.select7.i.i.i.i, %261 ]
-  %262 = icmp ult i64 %.sroa.0.011.i.i.i.i, %251
+  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %259 ], [ %spec.select8.i.i.i.i, %261 ]
+  %262 = icmp ult i64 %.sroa.0.012.i.i.i.i, %251
   %263 = zext i1 %262 to i64
-  %spec.select7.i.i.i.i = add nuw i64 %.sroa.0.011.i.i.i.i, %263
-  %264 = getelementptr inbounds ptr, ptr %252, i64 %.sroa.0.011.i.i.i.i
+  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.012.i.i.i.i, %263
+  %264 = getelementptr inbounds ptr, ptr %252, i64 %.sroa.0.012.i.i.i.i
   %265 = load ptr, ptr %264, align 8, !alias.scope !208, !noalias !211, !nonnull !14, !noundef !14
   store ptr %213, ptr %265, align 8, !noalias !218
-  %266 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %266 = trunc i64 %.sroa.0.012.i.i.i.i to i16
   %267 = getelementptr inbounds i8, ptr %265, i64 536
   store i16 %266, ptr %267, align 8, !noalias !219
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %251
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i, %251
   %or.cond.i.not.i.i.i = select i1 %262, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i, label %261, label %270
 
@@ -2177,18 +2177,18 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %222
 
 222:                                              ; preds = %222, %220
-  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %220 ], [ %spec.select7.i.i.i.i, %222 ]
-  %223 = icmp ult i64 %.sroa.0.011.i.i.i.i, %212
+  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %220 ], [ %spec.select8.i.i.i.i, %222 ]
+  %223 = icmp ult i64 %.sroa.0.012.i.i.i.i, %212
   %224 = zext i1 %223 to i64
-  %spec.select7.i.i.i.i = add nuw i64 %.sroa.0.011.i.i.i.i, %224
-  %225 = getelementptr inbounds ptr, ptr %213, i64 %.sroa.0.011.i.i.i.i
+  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.012.i.i.i.i, %224
+  %225 = getelementptr inbounds ptr, ptr %213, i64 %.sroa.0.012.i.i.i.i
   %226 = load ptr, ptr %225, align 8, !alias.scope !356, !noalias !359, !nonnull !14, !noundef !14
   %227 = getelementptr inbounds i8, ptr %226, i64 352
   store ptr %180, ptr %227, align 8, !noalias !366
-  %228 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %228 = trunc i64 %.sroa.0.012.i.i.i.i to i16
   %229 = getelementptr inbounds i8, ptr %226, i64 360
   store i16 %228, ptr %229, align 8, !noalias !367
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %212
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i, %212
   %or.cond.i.not.i.i.i = select i1 %223, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i, label %222, label %232
 
@@ -3006,18 +3006,18 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %262
 
 262:                                              ; preds = %262, %260
-  %.sroa.0.011.i.i.i.i = phi i64 [ 0, %260 ], [ %spec.select7.i.i.i.i, %262 ]
-  %263 = icmp ult i64 %.sroa.0.011.i.i.i.i, %252
+  %.sroa.0.012.i.i.i.i = phi i64 [ 0, %260 ], [ %spec.select8.i.i.i.i, %262 ]
+  %263 = icmp ult i64 %.sroa.0.012.i.i.i.i, %252
   %264 = zext i1 %263 to i64
-  %spec.select7.i.i.i.i = add nuw i64 %.sroa.0.011.i.i.i.i, %264
-  %265 = getelementptr inbounds ptr, ptr %253, i64 %.sroa.0.011.i.i.i.i
+  %spec.select8.i.i.i.i = add nuw i64 %.sroa.0.012.i.i.i.i, %264
+  %265 = getelementptr inbounds ptr, ptr %253, i64 %.sroa.0.012.i.i.i.i
   %266 = load ptr, ptr %265, align 8, !alias.scope !531, !noalias !534, !nonnull !14, !noundef !14
   %267 = getelementptr inbounds i8, ptr %266, i64 352
   store ptr %214, ptr %267, align 8, !noalias !541
-  %268 = trunc i64 %.sroa.0.011.i.i.i.i to i16
+  %268 = trunc i64 %.sroa.0.012.i.i.i.i to i16
   %269 = getelementptr inbounds i8, ptr %266, i64 624
   store i16 %268, ptr %269, align 8, !noalias !542
-  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select7.i.i.i.i, %252
+  %.not.i.i.i.i.i.i = icmp ule i64 %spec.select8.i.i.i.i, %252
   %or.cond.i.not.i.i.i = select i1 %263, i1 %.not.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.not.i.i.i, label %262, label %272
 

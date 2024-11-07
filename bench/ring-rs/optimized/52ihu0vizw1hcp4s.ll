@@ -1736,11 +1736,11 @@ define hidden { ptr, i64 } @_ZN4ring3rsa10public_key5Inner12exponentiate17hcd4c5
   br i1 %24, label %.sink.split, label %25
 
 25:                                               ; preds = %22
-  %.fca.1.extract = extractvalue { ptr, i64 } %23, 1
+  %.fca.1.extract.i = extractvalue { ptr, i64 } %23, 1
   store ptr %.fca.0.extract, ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 8
-  store i64 %.fca.1.extract, ptr %26, align 8
-  %27 = invoke noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull %.fca.0.extract, i64 noundef %.fca.1.extract)
+  store i64 %.fca.1.extract.i, ptr %26, align 8
+  %27 = invoke noundef i64 @ring_core_0_17_8__LIMBS_are_zero(ptr noundef nonnull %.fca.0.extract, i64 noundef %.fca.1.extract.i)
           to label %30 unwind label %28
 
 .body:                                            ; preds = %34, %44, %28

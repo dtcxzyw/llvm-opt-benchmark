@@ -4396,11 +4396,15 @@ if.else:                                          ; preds = %entry
   %3 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %4 = extractvalue { i64, i8 } %call.i, 1
-  %spec.select = and i8 %4, 1
+  %4 = extractvalue { i64, i8 } %call.i, 0
+  %5 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %5 to i1
+  %spec.select = select i1 %tobool.i.i, i64 %4, i64 undef
+  %spec.select9 = and i8 %5, 1
   %frombool.i.i = and i8 %3, 1
   store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
-  %.fca.1.insert.i = insertvalue { i64, i8 } %call.i, i8 %spec.select, 1
+  %.fca.0.insert.i = insertvalue { i64, i8 } poison, i64 %spec.select, 0
+  %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %spec.select9, 1
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -4417,63 +4421,63 @@ lor.lhs.false:                                    ; preds = %if.end
 if.end12:                                         ; preds = %lor.lhs.false
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
-  %5 = load ptr, ptr %this, align 8
-  %state_.i.i.i = getelementptr inbounds i8, ptr %5, i64 24
-  %6 = load ptr, ptr %state_.i.i.i, align 8
-  %7 = load i32, ptr %6, align 8
-  %conv.i.i.i = zext i32 %7 to i64
-  %8 = load ptr, ptr %5, align 8
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.151", ptr %8, i64 %conv.i.i.i
-  %9 = load ptr, ptr %add.ptr.i.i.i.i, align 8
-  %10 = ptrtoint ptr %9 to i64
-  %offset.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %11 = load i64, ptr %offset.i.i.i, align 8
-  %add.i.i.i.i.i = add i64 %11, 7
-  %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %10
-  %12 = and i64 %sub1.i.i.i.i.i, 7
-  %sub.i.i.i.i = sub i64 %add.i.i.i.i.i, %12
+  %6 = load ptr, ptr %this, align 8
+  %state_.i.i.i = getelementptr inbounds i8, ptr %6, i64 24
+  %7 = load ptr, ptr %state_.i.i.i, align 8
+  %8 = load i32, ptr %7, align 8
+  %conv.i.i.i = zext i32 %8 to i64
+  %9 = load ptr, ptr %6, align 8
+  %add.ptr.i.i.i.i = getelementptr inbounds %"class.std::unique_ptr.151", ptr %9, i64 %conv.i.i.i
+  %10 = load ptr, ptr %add.ptr.i.i.i.i, align 8
+  %11 = ptrtoint ptr %10 to i64
+  %offset.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
+  %12 = load i64, ptr %offset.i.i.i, align 8
+  %add.i.i.i.i.i = add i64 %12, 7
+  %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %11
+  %13 = and i64 %sub1.i.i.i.i.i, 7
+  %sub.i.i.i.i = sub i64 %add.i.i.i.i.i, %13
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
-  %13 = load ptr, ptr %state_.i.i.i, align 8
-  %offset8.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i64, ptr %offset8.i.i.i, align 8
-  %add.i.i.i = add i64 %14, 64
+  %14 = load ptr, ptr %state_.i.i.i, align 8
+  %offset8.i.i.i = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load i64, ptr %offset8.i.i.i, align 8
+  %add.i.i.i = add i64 %15, 64
   %cmp9.i.i.i = icmp ugt i64 %add.i.i.i, 262144
   br i1 %cmp9.i.i.i, label %if.then.i.i.i, label %if.end.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end12
-  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %5, i64 noundef 64, i64 noundef 8) #10
+  %call11.i.i.i = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %6, i64 noundef 64, i64 noundef 8) #10
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 if.end.i.i.i:                                     ; preds = %if.end12
-  %add14.i.i.i = add i64 %14, %10
-  %15 = inttoptr i64 %add14.i.i.i to ptr
+  %add14.i.i.i = add i64 %15, %11
+  %16 = inttoptr i64 %add14.i.i.i to ptr
   store i64 %add.i.i.i, ptr %offset8.i.i.i, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %15, %if.end.i.i.i ]
-  %16 = inttoptr i64 %1 to ptr
-  %17 = inttoptr i64 %optBody.sroa.0.0 to ptr
+  %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %16, %if.end.i.i.i ]
+  %17 = inttoptr i64 %1 to ptr
+  %18 = inttoptr i64 %optBody.sroa.0.0 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 138, ptr %kind_.i.i.i, align 8
   %parens_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 20
   store i32 0, ptr %parens_.i.i.i, align 4
   %_operator.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 48
-  store ptr %16, ptr %_operator.i, align 8
+  store ptr %17, ptr %_operator.i, align 8
   %_typeAnnotation.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 56
-  store ptr %17, ptr %_typeAnnotation.i, align 8
+  store ptr %18, ptr %_typeAnnotation.i, align 8
   %sourceRange_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 24
   store ptr %retval.sroa.0.0.copyload.i, ptr %sourceRange_.i.i, align 8
   %End.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 32
   store ptr %retval.sroa.0.0.copyload.i.i, ptr %End.i.i, align 8
   %debugLoc_.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i, ptr %debugLoc_.i.i, align 8
-  %18 = ptrtoint ptr %retval.0.i.i.i to i64
+  %19 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %18, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %lor.lhs.false ], [ undef, %if.end ]
+  %retval.sroa.0.0 = phi i64 [ %19, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %lor.lhs.false ], [ undef, %if.end ]
   %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %lor.lhs.false ], [ 0, %if.end ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
@@ -5765,12 +5769,17 @@ if.end18:                                         ; preds = %if.end12
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %10 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %10 to i1
-  %frombool.i.i15 = and i8 %9, 1
-  store i8 %frombool.i.i15, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end24, label %return
+  br i1 %tobool.i.i, label %if.end24, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.end18
+  %frombool.i.i = and i8 %9, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end24:                                         ; preds = %if.end18
   %11 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i16 = and i8 %9, 1
+  store i8 %frombool.i.i16, ptr %allowAnonFunctionType_.i, align 4
   %12 = zext i1 %call14 to i8
   br label %if.end27
 
@@ -5836,9 +5845,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %24 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
-return:                                           ; preds = %if.end18, %if.end12, %if.then6, %entry, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %24, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %entry ], [ undef, %if.then6 ], [ undef, %if.end12 ], [ undef, %if.end18 ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %entry ], [ 0, %if.then6 ], [ 0, %if.end12 ], [ 0, %if.end18 ]
+return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.end12, %if.then6, %entry, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
+  %retval.sroa.0.0 = phi i64 [ %24, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %entry ], [ undef, %if.then6 ], [ undef, %if.end12 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %entry ], [ 0, %if.then6 ], [ 0, %if.end12 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -6032,11 +6041,15 @@ if.then.i:                                        ; preds = %if.end46
   %36 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %37 = extractvalue { i64, i8 } %call.i, 1
-  %spec.select = and i8 %37, 1
+  %37 = extractvalue { i64, i8 } %call.i, 0
+  %38 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %38 to i1
+  %spec.select = select i1 %tobool.i.i, i64 %37, i64 undef
+  %spec.select89 = and i8 %38, 1
   %frombool.i.i = and i8 %36, 1
   store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
-  %.fca.1.insert.i = insertvalue { i64, i8 } %call.i, i8 %spec.select, 1
+  %.fca.0.insert.i = insertvalue { i64, i8 } poison, i64 %spec.select, 0
+  %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %spec.select89, 1
   br label %_ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
 
 if.end.i:                                         ; preds = %if.end46
@@ -6045,50 +6058,50 @@ if.end.i:                                         ; preds = %if.end46
 
 _ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.then.i, %if.end.i
   %call2.pn.i = phi { i64, i8 } [ %.fca.1.insert.i, %if.then.i ], [ %call4.i, %if.end.i ]
-  %38 = extractvalue { i64, i8 } %call2.pn.i, 0
-  %39 = extractvalue { i64, i8 } %call2.pn.i, 1
-  %tobool.i = trunc i8 %39 to i1
+  %39 = extractvalue { i64, i8 } %call2.pn.i, 0
+  %40 = extractvalue { i64, i8 } %call2.pn.i, 1
+  %tobool.i = trunc i8 %40 to i1
   br i1 %tobool.i, label %if.end52, label %return
 
 if.end52:                                         ; preds = %_ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i53 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
-  %40 = load ptr, ptr %this, align 8
-  %state_.i.i.i54 = getelementptr inbounds i8, ptr %40, i64 24
-  %41 = load ptr, ptr %state_.i.i.i54, align 8
-  %42 = load i32, ptr %41, align 8
-  %conv.i.i.i55 = zext i32 %42 to i64
-  %43 = load ptr, ptr %40, align 8
-  %add.ptr.i.i.i.i56 = getelementptr inbounds %"class.std::unique_ptr.151", ptr %43, i64 %conv.i.i.i55
-  %44 = load ptr, ptr %add.ptr.i.i.i.i56, align 8
-  %45 = ptrtoint ptr %44 to i64
-  %offset.i.i.i57 = getelementptr inbounds i8, ptr %41, i64 8
-  %46 = load i64, ptr %offset.i.i.i57, align 8
-  %add.i.i.i.i.i58 = add i64 %46, 7
-  %sub1.i.i.i.i.i59 = add i64 %add.i.i.i.i.i58, %45
-  %47 = and i64 %sub1.i.i.i.i.i59, 7
-  %sub.i.i.i.i60 = sub i64 %add.i.i.i.i.i58, %47
+  %41 = load ptr, ptr %this, align 8
+  %state_.i.i.i54 = getelementptr inbounds i8, ptr %41, i64 24
+  %42 = load ptr, ptr %state_.i.i.i54, align 8
+  %43 = load i32, ptr %42, align 8
+  %conv.i.i.i55 = zext i32 %43 to i64
+  %44 = load ptr, ptr %41, align 8
+  %add.ptr.i.i.i.i56 = getelementptr inbounds %"class.std::unique_ptr.151", ptr %44, i64 %conv.i.i.i55
+  %45 = load ptr, ptr %add.ptr.i.i.i.i56, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %offset.i.i.i57 = getelementptr inbounds i8, ptr %42, i64 8
+  %47 = load i64, ptr %offset.i.i.i57, align 8
+  %add.i.i.i.i.i58 = add i64 %47, 7
+  %sub1.i.i.i.i.i59 = add i64 %add.i.i.i.i.i58, %46
+  %48 = and i64 %sub1.i.i.i.i.i59, 7
+  %sub.i.i.i.i60 = sub i64 %add.i.i.i.i.i58, %48
   store i64 %sub.i.i.i.i60, ptr %offset.i.i.i57, align 8
-  %48 = load ptr, ptr %state_.i.i.i54, align 8
-  %offset8.i.i.i61 = getelementptr inbounds i8, ptr %48, i64 8
-  %49 = load i64, ptr %offset8.i.i.i61, align 8
-  %add.i.i.i62 = add i64 %49, 72
+  %49 = load ptr, ptr %state_.i.i.i54, align 8
+  %offset8.i.i.i61 = getelementptr inbounds i8, ptr %49, i64 8
+  %50 = load i64, ptr %offset8.i.i.i61, align 8
+  %add.i.i.i62 = add i64 %50, 72
   %cmp9.i.i.i63 = icmp ugt i64 %add.i.i.i62, 262144
   br i1 %cmp9.i.i.i63, label %if.then.i.i.i67, label %if.end.i.i.i64
 
 if.then.i.i.i67:                                  ; preds = %if.end52
-  %call11.i.i.i68 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %40, i64 noundef 72, i64 noundef 8) #10
+  %call11.i.i.i68 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(656) %41, i64 noundef 72, i64 noundef 8) #10
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69
 
 if.end.i.i.i64:                                   ; preds = %if.end52
-  %add14.i.i.i65 = add i64 %49, %45
-  %50 = inttoptr i64 %add14.i.i.i65 to ptr
+  %add14.i.i.i65 = add i64 %50, %46
+  %51 = inttoptr i64 %add14.i.i.i65 to ptr
   store i64 %add.i.i.i62, ptr %offset8.i.i.i61, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69:  ; preds = %if.then.i.i.i67, %if.end.i.i.i64
-  %retval.0.i.i.i66 = phi ptr [ %call11.i.i.i68, %if.then.i.i.i67 ], [ %50, %if.end.i.i.i64 ]
-  %51 = inttoptr i64 %38 to ptr
+  %retval.0.i.i.i66 = phi ptr [ %call11.i.i.i68, %if.then.i.i.i67 ], [ %51, %if.end.i.i.i64 ]
+  %52 = inttoptr i64 %39 to ptr
   %frombool.i = zext i1 %call39 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i66, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i66, i64 16
@@ -6098,7 +6111,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69:  ; preds = %if.then.i.i.i67, %i
   %_name.i70 = getelementptr inbounds i8, ptr %retval.0.i.i.i66, i64 48
   store ptr %retval.0.i.i.i16.sink87, ptr %_name.i70, align 8
   %_typeAnnotation.i71 = getelementptr inbounds i8, ptr %retval.0.i.i.i66, i64 56
-  store ptr %51, ptr %_typeAnnotation.i71, align 8
+  store ptr %52, ptr %_typeAnnotation.i71, align 8
   %_optional.i72 = getelementptr inbounds i8, ptr %retval.0.i.i.i66, i64 64
   store i8 %frombool.i, ptr %_optional.i72, align 8
   %sourceRange_.i.i73 = getelementptr inbounds i8, ptr %retval.0.i.i.i66, i64 24
@@ -6107,11 +6120,11 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69:  ; preds = %if.then.i.i.i67, %i
   store ptr %retval.sroa.0.0.copyload.i.i53, ptr %End.i.i74, align 8
   %debugLoc_.i.i75 = getelementptr inbounds i8, ptr %retval.0.i.i.i66, i64 40
   store ptr %retval.sroa.0.0.copyload.i, ptr %debugLoc_.i.i75, align 8
-  %52 = ptrtoint ptr %retval.0.i.i.i66 to i64
+  %53 = ptrtoint ptr %retval.0.i.i.i66 to i64
   br label %return
 
 return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.end38, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69, %if.then31, %if.else24
-  %retval.sroa.0.0 = phi i64 [ undef, %if.then31 ], [ %52, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69 ], [ undef, %if.else24 ], [ undef, %if.end38 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
+  %retval.sroa.0.0 = phi i64 [ undef, %if.then31 ], [ %53, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69 ], [ undef, %if.else24 ], [ undef, %if.end38 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
   %retval.sroa.2.0 = phi i8 [ 0, %if.then31 ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit69 ], [ 0, %if.else24 ], [ 0, %if.end38 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl19parseTypeAnnotationEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
@@ -6459,16 +6472,18 @@ if.end92:                                         ; preds = %lor.lhs.false, %if.
   %68 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %69 = extractvalue { i64, i8 } %call.i, 1
-  %spec.select = and i8 %69, 1
+  %69 = extractvalue { i64, i8 } %call.i, 0
+  %70 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %70 to i1
+  %spec.select = select i1 %tobool.i.i, i64 %69, i64 undef
+  %spec.select133 = and i8 %70, 1
   %frombool.i.i = and i8 %68, 1
   store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
-  %70 = extractvalue { i64, i8 } %call.i, 0
   br label %return
 
 return:                                           ; preds = %if.end73, %if.else68, %if.end92, %if.end78, %if.then66, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20
-  %retval.sroa.0.0 = phi i64 [ %35, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %70, %if.end92 ], [ %61, %if.then66 ], [ %67, %if.end78 ], [ undef, %if.else68 ], [ undef, %if.end73 ]
-  %retval.sroa.5.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %spec.select, %if.end92 ], [ 1, %if.then66 ], [ 1, %if.end78 ], [ 0, %if.else68 ], [ 0, %if.end73 ]
+  %retval.sroa.0.0 = phi i64 [ %35, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %spec.select, %if.end92 ], [ %61, %if.then66 ], [ %67, %if.end78 ], [ undef, %if.else68 ], [ undef, %if.end73 ]
+  %retval.sroa.5.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit20 ], [ %spec.select133, %if.end92 ], [ 1, %if.then66 ], [ 1, %if.end78 ], [ 0, %if.else68 ], [ 0, %if.end73 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.5.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -7285,12 +7300,17 @@ if.then6:                                         ; preds = %land.lhs.true
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %6 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %6 to i1
-  %frombool.i.i44 = and i8 %5, 1
-  store i8 %frombool.i.i44, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end, label %return
+  br i1 %tobool.i.i, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.then6
+  %frombool.i.i = and i8 %5, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %if.then6
   %7 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i45 = and i8 %5, 1
+  store i8 %frombool.i.i45, ptr %allowAnonFunctionType_.i, align 4
   %8 = inttoptr i64 %7 to ptr
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i24 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
@@ -7407,9 +7427,9 @@ while.end:                                        ; preds = %if.else46, %while.c
   %spec.select37 = zext i1 %call54 to i8
   br label %return
 
-return:                                           ; preds = %while.body, %if.then6, %while.end
-  %retval.sroa.0.0 = phi i64 [ %spec.select, %while.end ], [ undef, %if.then6 ], [ undef, %while.body ]
-  %retval.sroa.2.0 = phi i8 [ %spec.select37, %while.end ], [ 0, %if.then6 ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %while.end
+  %retval.sroa.0.0 = phi i64 [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ %spec.select, %while.end ], [ undef, %while.body ]
+  %retval.sroa.2.0 = phi i8 [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ %spec.select37, %while.end ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -7443,12 +7463,17 @@ if.then:                                          ; preds = %_ZNK6hermes6parser6
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %5 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %5 to i1
-  %frombool.i.i163 = and i8 %4, 1
-  store i8 %frombool.i.i163, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end, label %return
+  br i1 %tobool.i.i, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.then
+  %frombool.i.i = and i8 %4, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %if.then
   %6 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i164 = and i8 %4, 1
+  store i8 %frombool.i.i164, ptr %allowAnonFunctionType_.i, align 4
   %7 = load ptr, ptr %tok_, align 8
   %8 = load i32, ptr %7, align 8
   %cmp.i6 = icmp eq i32 %8, 1
@@ -7537,12 +7562,17 @@ if.then23:                                        ; preds = %_ZN6hermes6ESTree4N
   %call.i129 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %27 = extractvalue { i64, i8 } %call.i129, 1
   %tobool.i.i130 = trunc i8 %27 to i1
-  %frombool.i.i133168 = and i8 %26, 1
-  store i8 %frombool.i.i133168, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i130, label %if.end30, label %return
+  br i1 %tobool.i.i130, label %if.end30, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit137
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit137: ; preds = %if.then23
+  %frombool.i.i133 = and i8 %26, 1
+  store i8 %frombool.i.i133, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end30:                                         ; preds = %if.then23
   %28 = extractvalue { i64, i8 } %call.i129, 0
+  %frombool.i.i133171 = and i8 %26, 1
+  store i8 %frombool.i.i133171, ptr %allowAnonFunctionType_.i, align 4
   %29 = inttoptr i64 %28 to ptr
   br label %if.end32
 
@@ -7592,12 +7622,17 @@ if.else44:                                        ; preds = %entry, %_ZNK6hermes
   %call.i141 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %42 = extractvalue { i64, i8 } %call.i141, 1
   %tobool.i.i142 = trunc i8 %42 to i1
-  %frombool.i.i145173 = and i8 %41, 1
-  store i8 %frombool.i.i145173, ptr %allowAnonFunctionType_.i138, align 4
-  br i1 %tobool.i.i142, label %if.end51, label %return
+  br i1 %tobool.i.i142, label %if.end51, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit149
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit149: ; preds = %if.else44
+  %frombool.i.i145 = and i8 %41, 1
+  store i8 %frombool.i.i145, ptr %allowAnonFunctionType_.i138, align 4
+  br label %return
 
 if.end51:                                         ; preds = %if.else44
   %43 = extractvalue { i64, i8 } %call.i141, 0
+  %frombool.i.i145178 = and i8 %41, 1
+  store i8 %frombool.i.i145178, ptr %allowAnonFunctionType_.i138, align 4
   %isIdent_52 = getelementptr inbounds i8, ptr %this, i64 1760
   %44 = load ptr, ptr %isIdent_52, align 8
   %call53 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatEPNS_12UniqueStringENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef %44, i32 noundef 3) #10
@@ -7615,14 +7650,14 @@ if.end61:                                         ; preds = %if.then54
   %48 = load i8, ptr %allowAnonFunctionType_.i138, align 4
   store i8 %frombool.i140, ptr %allowAnonFunctionType_.i138, align 4
   %call.i153 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %49 = extractvalue { i64, i8 } %call.i153, 1
-  %tobool.i.i154 = trunc i8 %49 to i1
-  %frombool.i.i157178 = and i8 %48, 1
-  store i8 %frombool.i.i157178, ptr %allowAnonFunctionType_.i138, align 4
+  %49 = extractvalue { i64, i8 } %call.i153, 0
+  %50 = extractvalue { i64, i8 } %call.i153, 1
+  %tobool.i.i154 = trunc i8 %50 to i1
+  %frombool.i.i157185 = and i8 %48, 1
+  store i8 %frombool.i.i157185, ptr %allowAnonFunctionType_.i138, align 4
   br i1 %tobool.i.i154, label %if.end68, label %return
 
 if.end68:                                         ; preds = %if.end61
-  %50 = extractvalue { i64, i8 } %call.i153, 0
   %prevTokenEndLoc_.i.i47 = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i48 = load ptr, ptr %prevTokenEndLoc_.i.i47, align 8
   %51 = load ptr, ptr %this, align 8
@@ -7661,7 +7696,7 @@ if.end.i.i.i59:                                   ; preds = %if.end68
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit64:  ; preds = %if.then.i.i.i62, %if.end.i.i.i59
   %retval.0.i.i.i61 = phi ptr [ %call11.i.i.i63, %if.then.i.i.i62 ], [ %61, %if.end.i.i.i59 ]
   %62 = inttoptr i64 %46 to ptr
-  %63 = inttoptr i64 %50 to ptr
+  %63 = inttoptr i64 %49 to ptr
   br label %if.end83.sink.split
 
 if.end83.sink.split:                              ; preds = %if.end.i.i.i26, %if.then.i.i.i29, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit64
@@ -7753,9 +7788,9 @@ if.end96:                                         ; preds = %if.end83
   %77 = ptrtoint ptr %returnType.0 to i64
   br label %return
 
-return:                                           ; preds = %if.end61, %if.else44, %if.then23, %if.then, %if.then54, %if.then8, %if.end96, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit92
-  %retval.sroa.0.0 = phi i64 [ %76, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit92 ], [ %77, %if.end96 ], [ undef, %if.then8 ], [ undef, %if.then54 ], [ undef, %if.then ], [ undef, %if.then23 ], [ undef, %if.else44 ], [ undef, %if.end61 ]
-  %retval.sroa.3.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit92 ], [ 1, %if.end96 ], [ 0, %if.then8 ], [ 0, %if.then54 ], [ 0, %if.then ], [ 0, %if.then23 ], [ 0, %if.else44 ], [ 0, %if.end61 ]
+return:                                           ; preds = %if.end61, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit149, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit137, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.then54, %if.then8, %if.end96, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit92
+  %retval.sroa.0.0 = phi i64 [ %76, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit92 ], [ %77, %if.end96 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ undef, %if.then8 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit137 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit149 ], [ undef, %if.then54 ], [ undef, %if.end61 ]
+  %retval.sroa.3.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit92 ], [ 1, %if.end96 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ 0, %if.then8 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit137 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit149 ], [ 0, %if.then54 ], [ 0, %if.end61 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -8545,14 +8580,14 @@ if.end20:                                         ; preds = %if.end16
   %7 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %8 = extractvalue { i64, i8 } %call.i, 1
-  %tobool.i.i = trunc i8 %8 to i1
-  %frombool.i.i35 = and i8 %7, 1
-  store i8 %frombool.i.i35, ptr %allowAnonFunctionType_.i, align 4
+  %8 = extractvalue { i64, i8 } %call.i, 0
+  %9 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %9 to i1
+  %frombool.i.i36 = and i8 %7, 1
+  store i8 %frombool.i.i36, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end26, label %cleanup
 
 if.end26:                                         ; preds = %if.end20
-  %9 = extractvalue { i64, i8 } %call.i, 0
   %call29 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 92, i32 noundef 3, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.57, ptr %retval.sroa.0.0.copyload.i) #10
   br i1 %call29, label %if.end31, label %cleanup
 
@@ -8562,19 +8597,24 @@ if.end31:                                         ; preds = %if.end26
   %call.i25 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %11 = extractvalue { i64, i8 } %call.i25, 1
   %tobool.i.i26 = trunc i8 %11 to i1
-  %frombool.i.i2939 = and i8 %10, 1
-  store i8 %frombool.i.i2939, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i26, label %if.end37, label %cleanup
+  br i1 %tobool.i.i26, label %if.end37, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit33
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit33: ; preds = %if.end31
+  %frombool.i.i29 = and i8 %10, 1
+  store i8 %frombool.i.i29, ptr %allowAnonFunctionType_.i, align 4
+  br label %cleanup
 
 if.end37:                                         ; preds = %if.end31
   %12 = extractvalue { i64, i8 } %call.i25, 0
+  %frombool.i.i2943 = and i8 %10, 1
+  store i8 %frombool.i.i2943, ptr %allowAnonFunctionType_.i, align 4
   %13 = inttoptr i64 %2 to ptr
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %14 = load ptr, ptr %this, align 8
   %call43 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 80, ptr noundef nonnull align 8 dereferenceable(656) %14, i64 noundef 8)
   %15 = inttoptr i64 %5 to ptr
-  %16 = inttoptr i64 %9 to ptr
+  %16 = inttoptr i64 %8 to ptr
   %17 = inttoptr i64 %12 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %call43, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %call43, i64 16
@@ -8601,9 +8641,9 @@ if.end37:                                         ; preds = %if.end31
   %18 = ptrtoint ptr %call43 to i64
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end31, %if.end20, %if.end, %if.end26, %if.end16, %if.end7, %entry, %if.end37
-  %retval.sroa.0.0 = phi i64 [ %18, %if.end37 ], [ undef, %entry ], [ undef, %if.end7 ], [ undef, %if.end16 ], [ undef, %if.end26 ], [ %2, %if.end ], [ undef, %if.end20 ], [ undef, %if.end31 ]
-  %retval.sroa.3.0 = phi i8 [ 1, %if.end37 ], [ 0, %entry ], [ 0, %if.end7 ], [ 0, %if.end16 ], [ 0, %if.end26 ], [ %3, %if.end ], [ 0, %if.end20 ], [ 0, %if.end31 ]
+cleanup:                                          ; preds = %if.end20, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit33, %if.end, %if.end26, %if.end16, %if.end7, %entry, %if.end37
+  %retval.sroa.0.0 = phi i64 [ %18, %if.end37 ], [ undef, %entry ], [ undef, %if.end7 ], [ undef, %if.end16 ], [ undef, %if.end26 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit33 ], [ %2, %if.end ], [ undef, %if.end20 ]
+  %retval.sroa.3.0 = phi i8 [ 1, %if.end37 ], [ 0, %entry ], [ 0, %if.end7 ], [ 0, %if.end16 ], [ 0, %if.end26 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit33 ], [ %3, %if.end ], [ 0, %if.end20 ]
   %frombool.i = and i8 %1, 1
   store i8 %frombool.i, ptr %allowConditionalType_, align 1
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
@@ -9202,14 +9242,14 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   %19 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %20 = extractvalue { i64, i8 } %call.i, 1
-  %tobool.i.i = trunc i8 %20 to i1
-  %frombool.i.i85 = and i8 %19, 1
-  store i8 %frombool.i.i85, ptr %allowAnonFunctionType_.i, align 4
+  %20 = extractvalue { i64, i8 } %call.i, 0
+  %21 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %21 to i1
+  %frombool.i.i86 = and i8 %19, 1
+  store i8 %frombool.i.i86, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end31, label %return
 
 if.end31:                                         ; preds = %if.else
-  %21 = extractvalue { i64, i8 } %call.i, 0
   %call34 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl4needENS0_9TokenKindEPKcS5_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, ptr noundef nonnull @.str.60, ptr noundef nonnull @.str.57, ptr %retval.sroa.0.0.copyload.i) #10
   br i1 %call34, label %if.end36, label %return
 
@@ -9257,7 +9297,7 @@ if.end.i.i.i23:                                   ; preds = %if.then38
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit28:  ; preds = %if.then.i.i.i26, %if.end.i.i.i23
   %retval.0.i.i.i25 = phi ptr [ %call11.i.i.i27, %if.then.i.i.i26 ], [ %33, %if.end.i.i.i23 ]
-  %34 = inttoptr i64 %21 to ptr
+  %34 = inttoptr i64 %20 to ptr
   %frombool.i = zext i1 %call8 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i25, i8 0, i64 16, i1 false)
   %kind_.i.i.i29 = getelementptr inbounds i8, ptr %retval.0.i.i.i25, i64 16
@@ -9289,7 +9329,7 @@ if.end.i.i.i53:                                   ; preds = %if.else49
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit58:  ; preds = %if.then.i.i.i56, %if.end.i.i.i53
   %retval.0.i.i.i55 = phi ptr [ %call11.i.i.i57, %if.then.i.i.i56 ], [ %35, %if.end.i.i.i53 ]
-  %36 = inttoptr i64 %21 to ptr
+  %36 = inttoptr i64 %20 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %retval.0.i.i.i55, i8 0, i64 16, i1 false)
   %kind_.i.i.i59 = getelementptr inbounds i8, ptr %retval.0.i.i.i55, i64 16
   store i32 148, ptr %kind_.i.i.i59, align 8
@@ -10874,12 +10914,17 @@ if.then6:                                         ; preds = %land.lhs.true
   %call.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %5 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %5 to i1
-  %frombool.i.i110 = and i8 %4, 1
-  store i8 %frombool.i.i110, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end, label %return
+  br i1 %tobool.i.i, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.then6
+  %frombool.i.i = and i8 %4, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %if.then6
   %6 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i111 = and i8 %4, 1
+  store i8 %frombool.i.i111, ptr %allowAnonFunctionType_.i, align 4
   %7 = inttoptr i64 %6 to ptr
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i29 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
@@ -11224,9 +11269,9 @@ _ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeE
   %70 = ptrtoint ptr %retval.0.i.i.i69 to i64
   br label %return
 
-return:                                           ; preds = %while.body, %while.body.us, %if.then6, %if.end112, %if.then95, %if.end88, %if.else48, %if.then38, %_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_.exit, %if.then111
-  %retval.sroa.0.0 = phi i64 [ %70, %_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_.exit ], [ %49, %if.then111 ], [ undef, %if.then38 ], [ undef, %if.else48 ], [ undef, %if.end88 ], [ undef, %if.then95 ], [ undef, %if.end112 ], [ undef, %if.then6 ], [ undef, %while.body.us ], [ undef, %while.body ]
-  %retval.sroa.3.0 = phi i8 [ 1, %_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_.exit ], [ 1, %if.then111 ], [ 0, %if.then38 ], [ 0, %if.else48 ], [ 0, %if.end88 ], [ 0, %if.then95 ], [ 0, %if.end112 ], [ 0, %if.then6 ], [ 0, %while.body.us ], [ 0, %while.body ]
+return:                                           ; preds = %while.body, %while.body.us, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.end112, %if.then95, %if.end88, %if.else48, %if.then38, %_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_.exit, %if.then111
+  %retval.sroa.0.0 = phi i64 [ %70, %_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_.exit ], [ %49, %if.then111 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ undef, %if.then38 ], [ undef, %if.else48 ], [ undef, %if.end88 ], [ undef, %if.then95 ], [ undef, %if.end112 ], [ undef, %while.body.us ], [ undef, %while.body ]
+  %retval.sroa.3.0 = phi i8 [ 1, %_ZN6hermes6ESTree26FunctionTypeAnnotationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEEPS4_S7_S7_S7_.exit ], [ 1, %if.then111 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ 0, %if.then38 ], [ 0, %if.else48 ], [ 0, %if.end88 ], [ 0, %if.then95 ], [ 0, %if.end112 ], [ 0, %while.body.us ], [ 0, %while.body ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.3.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -11908,12 +11953,17 @@ if.end14:                                         ; preds = %if.then8
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %8 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %8 to i1
-  %frombool.i.i114 = and i8 %7, 1
-  store i8 %frombool.i.i114, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end21, label %return
+  br i1 %tobool.i.i, label %if.end21, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.end14
+  %frombool.i.i = and i8 %7, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end21:                                         ; preds = %if.end14
   %9 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i115 = and i8 %7, 1
+  store i8 %frombool.i.i115, ptr %allowAnonFunctionType_.i, align 4
   %10 = inttoptr i64 %9 to ptr
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
@@ -12131,12 +12181,17 @@ if.end74:                                         ; preds = %if.end67
   %call.i104 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %58 = extractvalue { i64, i8 } %call.i104, 1
   %tobool.i.i105 = trunc i8 %58 to i1
-  %frombool.i.i108119 = and i8 %57, 1
-  store i8 %frombool.i.i108119, ptr %allowAnonFunctionType_.i103, align 4
-  br i1 %tobool.i.i105, label %if.end82, label %return
+  br i1 %tobool.i.i105, label %if.end82, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit112
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit112: ; preds = %if.end74
+  %frombool.i.i108 = and i8 %57, 1
+  store i8 %frombool.i.i108, ptr %allowAnonFunctionType_.i103, align 4
+  br label %return
 
 if.end82:                                         ; preds = %if.end74
   %59 = extractvalue { i64, i8 } %call.i104, 0
+  %frombool.i.i108122 = and i8 %57, 1
+  store i8 %frombool.i.i108122, ptr %allowAnonFunctionType_.i103, align 4
   %60 = extractvalue { i64, i8 } %call70, 0
   %61 = inttoptr i64 %60 to ptr
   %62 = inttoptr i64 %59 to ptr
@@ -12186,9 +12241,9 @@ if.then96:                                        ; preds = %if.end94
   call void @_ZN6hermes18SourceErrorManager7messageENS0_8DiagKindEN4llvh7SMRangeERKNS2_5TwineENS_9SubsystemE(ptr noundef nonnull align 8 dereferenceable(464) %65, i32 noundef 0, ptr %retval.sroa.0.0.copyload.i89, ptr %retval.sroa.2.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(18) %ref.tmp99, i32 noundef 2) #10
   br label %return
 
-return:                                           ; preds = %if.end74, %if.end14, %if.end94, %if.then96, %if.end67, %if.then61, %if.end53, %if.then8, %if.then, %if.end82, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit31, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %22, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %35, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit31 ], [ %64, %if.end82 ], [ undef, %if.then ], [ undef, %if.then8 ], [ undef, %if.end53 ], [ undef, %if.then61 ], [ undef, %if.end67 ], [ %51, %if.then96 ], [ %51, %if.end94 ], [ undef, %if.end14 ], [ undef, %if.end74 ]
-  %retval.sroa.5.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit31 ], [ 1, %if.end82 ], [ 0, %if.then ], [ 0, %if.then8 ], [ 0, %if.end53 ], [ 0, %if.then61 ], [ 0, %if.end67 ], [ 1, %if.then96 ], [ 1, %if.end94 ], [ 0, %if.end14 ], [ 0, %if.end74 ]
+return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit112, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.end94, %if.then96, %if.end67, %if.then61, %if.end53, %if.then8, %if.then, %if.end82, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit31, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
+  %retval.sroa.0.0 = phi i64 [ %22, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %35, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit31 ], [ %64, %if.end82 ], [ undef, %if.then ], [ undef, %if.then8 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ undef, %if.end53 ], [ undef, %if.then61 ], [ undef, %if.end67 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit112 ], [ %51, %if.then96 ], [ %51, %if.end94 ]
+  %retval.sroa.5.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit31 ], [ 1, %if.end82 ], [ 0, %if.then ], [ 0, %if.then8 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ 0, %if.end53 ], [ 0, %if.then61 ], [ 0, %if.end67 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit112 ], [ 1, %if.then96 ], [ 1, %if.end94 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.5.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -12264,12 +12319,17 @@ if.end30:                                         ; preds = %if.end23
   %call.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %14 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %14 to i1
-  %frombool.i.i19 = and i8 %13, 1
-  store i8 %frombool.i.i19, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end36, label %return
+  br i1 %tobool.i.i, label %if.end36, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.end30
+  %frombool.i.i = and i8 %13, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end36:                                         ; preds = %if.end30
   %15 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i20 = and i8 %13, 1
+  store i8 %frombool.i.i20, ptr %allowAnonFunctionType_.i, align 4
   %16 = zext i1 %call25 to i8
   br label %if.end39
 
@@ -12335,9 +12395,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %28 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
-return:                                           ; preds = %if.end30, %if.end23, %if.then17, %if.end10, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %28, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %if.end10 ], [ undef, %if.then17 ], [ undef, %if.end23 ], [ undef, %if.end30 ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %if.end10 ], [ 0, %if.then17 ], [ 0, %if.end23 ], [ 0, %if.end30 ]
+return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.end23, %if.then17, %if.end10, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
+  %retval.sroa.0.0 = phi i64 [ %28, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %if.end10 ], [ undef, %if.then17 ], [ undef, %if.end23 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %if.end10 ], [ 0, %if.then17 ], [ 0, %if.end23 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -12411,14 +12471,14 @@ if.end:                                           ; preds = %if.then12, %if.else
   %7 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %8 = extractvalue { i64, i8 } %call.i, 1
-  %tobool.i.i = trunc i8 %8 to i1
-  %frombool.i.i71 = and i8 %7, 1
-  store i8 %frombool.i.i71, ptr %allowAnonFunctionType_.i, align 4
+  %8 = extractvalue { i64, i8 } %call.i, 0
+  %9 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %9 to i1
+  %frombool.i.i72 = and i8 %7, 1
+  store i8 %frombool.i.i72, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end
-  %9 = extractvalue { i64, i8 } %call.i, 0
   %retval.sroa.0.0.copyload.i.i23 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %10 = load ptr, ptr %this, align 8
   %state_.i.i.i = getelementptr inbounds i8, ptr %10, i64 24
@@ -12455,7 +12515,7 @@ if.end.i.i.i:                                     ; preds = %if.end19
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %20, %if.end.i.i.i ]
-  %21 = inttoptr i64 %9 to ptr
+  %21 = inttoptr i64 %8 to ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
   store i32 173, ptr %kind_.i.i.i, align 8
@@ -12779,7 +12839,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   br label %if.end19
 
 if.end19:                                         ; preds = %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit79, %if.end9, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %isStatic.0382 = phi i1 [ %isStatic.0, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %isStatic.0, %if.end9 ], [ false, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit79 ]
+  %isStatic.0384 = phi i1 [ %isStatic.0, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %isStatic.0, %if.end9 ], [ false, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit79 ]
   %21 = phi i1 [ %7, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ %7, %if.end9 ], [ false, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit79 ]
   %variance.0 = phi ptr [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ null, %if.end9 ], [ null, %_ZNK6hermes6parser6detail12JSParserImpl5checkEPNS_12UniqueStringE.exit79 ]
   %call20 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 55, i32 noundef 3) #10
@@ -12824,7 +12884,7 @@ if.then29:                                        ; preds = %if.end27
 
 if.end32:                                         ; preds = %if.then29, %if.end27
   %cmp = icmp eq i32 %allowStaticProperty, 0
-  %or.cond = and i1 %cmp, %isStatic.0382
+  %or.cond = and i1 %cmp, %isStatic.0384
   br i1 %or.cond, label %if.then35, label %if.end38
 
 if.then35:                                        ; preds = %if.end32
@@ -12969,17 +13029,17 @@ if.end89:                                         ; preds = %if.else
   %call.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %48 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %48 to i1
-  %frombool.i.i372 = and i8 %47, 1
-  store i8 %frombool.i.i372, ptr %allowAnonFunctionType_.i, align 4
+  %frombool.i.i373 = and i8 %47, 1
+  store i8 %frombool.i.i373, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end95, label %return
 
 if.end95:                                         ; preds = %if.end89
-  %.fca.1.insert.i373 = insertvalue { i64, i8 } %call.i, i8 1, 1
+  %.fca.1.insert.i375 = insertvalue { i64, i8 } %call.i, i8 1, 1
   %49 = zext i1 %call84 to i8
   br label %if.end97
 
 if.end97:                                         ; preds = %if.end75, %if.end95
-  %call78.pn = phi { i64, i8 } [ %.fca.1.insert.i373, %if.end95 ], [ %call78, %if.end75 ]
+  %call78.pn = phi { i64, i8 } [ %.fca.1.insert.i375, %if.end95 ], [ %call78, %if.end75 ]
   %optional.0 = phi i8 [ %49, %if.end95 ], [ 0, %if.end75 ]
   %value.0.in.sroa.speculated.in = extractvalue { i64, i8 } %call78.pn, 0
   %value.0.in.sroa.speculated = inttoptr i64 %value.0.in.sroa.speculated.in to ptr
@@ -12987,7 +13047,7 @@ if.end97:                                         ; preds = %if.end75, %if.end95
   %retval.sroa.0.0.copyload.i.i159 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %50 = load ptr, ptr %this, align 8
   %call103 = call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 72, ptr noundef nonnull align 8 dereferenceable(656) %50, i64 noundef 8)
-  %frombool1.i = zext i1 %isStatic.0382 to i8
+  %frombool1.i = zext i1 %isStatic.0384 to i8
   %frombool2.i = zext i1 %spec.select.i152 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(67) %call103, i8 0, i64 16, i1 false)
   %kind_.i.i.i160 = getelementptr inbounds i8, ptr %call103, i64 16
@@ -13038,7 +13098,7 @@ if.then118:                                       ; preds = %if.end115
   br i1 %tobool.i169, label %if.end137, label %return
 
 if.else127:                                       ; preds = %if.end115
-  %call131 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28parseTypeIndexerPropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeES7_b(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %54, ptr noundef %variance.0, i1 noundef zeroext %isStatic.0382)
+  %call131 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl28parseTypeIndexerPropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeES7_b(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %54, ptr noundef %variance.0, i1 noundef zeroext %isStatic.0384)
   %56 = extractvalue { i64, i8 } %call131, 1
   %tobool.i173 = trunc i8 %56 to i1
   br i1 %tobool.i173, label %if.end137, label %return
@@ -13070,7 +13130,7 @@ if.then139:                                       ; preds = %if.end137
 
 if.end142:                                        ; preds = %if.then139, %if.end137
   %cmp145 = icmp eq i32 %allowStaticProperty, 0
-  %or.cond1 = and i1 %cmp145, %isStatic.0382
+  %or.cond1 = and i1 %cmp145, %isStatic.0384
   br i1 %or.cond1, label %if.then146, label %return
 
 if.then146:                                       ; preds = %if.end142
@@ -13094,7 +13154,7 @@ if.end151:                                        ; preds = %if.end19
 
 if.then153:                                       ; preds = %if.end151, %if.end151
   %cmp156 = icmp eq i32 %allowStaticProperty, 0
-  %or.cond2 = and i1 %cmp156, %isStatic.0382
+  %or.cond2 = and i1 %cmp156, %isStatic.0384
   %cmp160 = icmp eq i32 %allowProtoProperty, 0
   %or.cond3 = and i1 %cmp160, %21
   %or.cond69 = or i1 %or.cond3, %or.cond2
@@ -13139,7 +13199,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit201: ; preds = %if.then.i.i.i199, %
   %staticIdent_168 = getelementptr inbounds i8, ptr %this, i64 1352
   %staticIdent_168.val = load ptr, ptr %staticIdent_168, align 8
   %protoIdent_.val = load ptr, ptr %protoIdent_, align 8
-  %cond172 = select i1 %isStatic.0382, ptr %staticIdent_168.val, ptr %protoIdent_.val
+  %cond172 = select i1 %isStatic.0384, ptr %staticIdent_168.val, ptr %protoIdent_.val
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i198, i8 0, i64 16, i1 false)
   %kind_.i.i202 = getelementptr inbounds i8, ptr %retval.0.i.i.i198, i64 16
   store i32 63, ptr %kind_.i.i202, align 8
@@ -13227,7 +13287,7 @@ if.then198:                                       ; preds = %if.end196
   br label %if.end201
 
 if.end201:                                        ; preds = %if.then198, %if.end196
-  %call205 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl25parseTypeCallPropertyFlowEN4llvh5SMLocEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, i1 noundef zeroext %isStatic.0382)
+  %call205 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl25parseTypeCallPropertyFlowEN4llvh5SMLocEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, i1 noundef zeroext %isStatic.0384)
   %82 = extractvalue { i64, i8 } %call205, 1
   %tobool.i235 = trunc i8 %82 to i1
   br i1 %tobool.i235, label %if.end209, label %return
@@ -13245,7 +13305,7 @@ if.end209:                                        ; preds = %if.end201
   br label %return
 
 if.end211:                                        ; preds = %if.end151
-  %brmerge = or i1 %21, %isStatic.0382
+  %brmerge = or i1 %21, %isStatic.0384
   %.off346 = add i32 %63, -91
   %switch347 = icmp ult i32 %.off346, 2
   %or.cond348 = and i1 %brmerge, %switch347
@@ -13309,7 +13369,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit266: ; preds = %if.then.i.i.i264, %
   %staticIdent_230 = getelementptr inbounds i8, ptr %this, i64 1352
   %staticIdent_230.val = load ptr, ptr %staticIdent_230, align 8
   %protoIdent_.val350 = load ptr, ptr %protoIdent_, align 8
-  %cond234 = select i1 %isStatic.0382, ptr %staticIdent_230.val, ptr %protoIdent_.val350
+  %cond234 = select i1 %isStatic.0384, ptr %staticIdent_230.val, ptr %protoIdent_.val350
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65) %retval.0.i.i.i263, i8 0, i64 16, i1 false)
   %kind_.i.i267 = getelementptr inbounds i8, ptr %retval.0.i.i.i263, i64 16
   store i32 63, ptr %kind_.i.i267, align 8
@@ -13397,7 +13457,7 @@ if.then263:                                       ; preds = %if.end261
 
 if.end266:                                        ; preds = %if.then263, %if.end261
   %cmp269 = icmp eq i32 %allowStaticProperty, 0
-  %or.cond4 = and i1 %cmp269, %isStatic.0382
+  %or.cond4 = and i1 %cmp269, %isStatic.0384
   br i1 %or.cond4, label %if.then270, label %if.end273
 
 if.then270:                                       ; preds = %if.end266
@@ -13412,7 +13472,7 @@ if.then270:                                       ; preds = %if.end266
   br label %if.end273
 
 if.end273:                                        ; preds = %if.then270, %if.end266
-  %call278 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl27parseMethodTypePropertyFlowEN4llvh5SMLocEbPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, i1 noundef zeroext %isStatic.0382, ptr noundef %104)
+  %call278 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl27parseMethodTypePropertyFlowEN4llvh5SMLocEbPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, i1 noundef zeroext %isStatic.0384, ptr noundef %104)
   %110 = extractvalue { i64, i8 } %call278, 1
   %tobool.i301 = trunc i8 %110 to i1
   br i1 %tobool.i301, label %if.end282, label %return
@@ -13447,7 +13507,7 @@ if.then290:                                       ; preds = %if.then286
 
 if.end293:                                        ; preds = %if.then290, %if.then286
   %cmp296 = icmp eq i32 %allowStaticProperty, 0
-  %or.cond6 = and i1 %cmp296, %isStatic.0382
+  %or.cond6 = and i1 %cmp296, %isStatic.0384
   br i1 %or.cond6, label %if.then297, label %if.end300
 
 if.then297:                                       ; preds = %if.end293
@@ -13462,7 +13522,7 @@ if.then297:                                       ; preds = %if.end293
   br label %if.end300
 
 if.end300:                                        ; preds = %if.then297, %if.end293
-  %call306 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypePropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeEbbS7_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %variance.0, i1 noundef zeroext %isStatic.0382, i1 noundef zeroext %21, ptr noundef %104)
+  %call306 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypePropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeEbbS7_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %variance.0, i1 noundef zeroext %isStatic.0384, i1 noundef zeroext %21, ptr noundef %104)
   %116 = extractvalue { i64, i8 } %call306, 1
   %tobool.i315 = trunc i8 %116 to i1
   br i1 %tobool.i315, label %if.end310, label %return
@@ -13534,7 +13594,7 @@ if.then328:                                       ; preds = %if.end326
 
 if.end331:                                        ; preds = %if.then328, %if.end326
   %cmp334 = icmp eq i32 %allowStaticProperty, 0
-  %or.cond7 = and i1 %cmp334, %isStatic.0382
+  %or.cond7 = and i1 %cmp334, %isStatic.0384
   br i1 %or.cond7, label %if.then335, label %if.end338
 
 if.then335:                                       ; preds = %if.end331
@@ -13560,7 +13620,7 @@ if.end344:                                        ; preds = %if.end338
   %130 = load ptr, ptr %_name, align 8
   %131 = load ptr, ptr %getIdent_, align 8
   %cmp350 = icmp eq ptr %130, %131
-  %call352 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl29parseGetOrSetTypePropertyFlowEN4llvh5SMLocEbbPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, i1 noundef zeroext %isStatic.0382, i1 noundef zeroext %cmp350, ptr noundef %129)
+  %call352 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl29parseGetOrSetTypePropertyFlowEN4llvh5SMLocEbbPNS_6ESTree4NodeE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, i1 noundef zeroext %isStatic.0384, i1 noundef zeroext %cmp350, ptr noundef %129)
   %132 = extractvalue { i64, i8 } %call352, 1
   %tobool.i337 = trunc i8 %132 to i1
   br i1 %tobool.i337, label %if.end356, label %return
@@ -13617,14 +13677,14 @@ if.end12:                                         ; preds = %if.end7
   %2 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %3 = extractvalue { i64, i8 } %call.i, 1
-  %tobool.i.i = trunc i8 %3 to i1
-  %frombool.i.i11 = and i8 %2, 1
-  store i8 %frombool.i.i11, ptr %allowAnonFunctionType_.i, align 4
+  %3 = extractvalue { i64, i8 } %call.i, 0
+  %4 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %4 to i1
+  %frombool.i.i12 = and i8 %2, 1
+  store i8 %frombool.i.i12, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end18, label %return
 
 if.end18:                                         ; preds = %if.end12
-  %4 = extractvalue { i64, i8 } %call.i, 0
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %5 = load ptr, ptr %this, align 8
@@ -13663,7 +13723,7 @@ if.end.i.i.i:                                     ; preds = %if.end18
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.end.i.i.i
   %retval.0.i.i.i = phi ptr [ %call11.i.i.i, %if.then.i.i.i ], [ %15, %if.end.i.i.i ]
   %16 = load ptr, ptr %thisConstraint, align 8
-  %17 = inttoptr i64 %4 to ptr
+  %17 = inttoptr i64 %3 to ptr
   %18 = inttoptr i64 %0 to ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %retval.0.i.i.i, i8 0, i64 16, i1 false)
   %kind_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 16
@@ -13869,14 +13929,14 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %16 = load i8, ptr %allowAnonFunctionType_.i, align 4
   store i8 1, ptr %allowAnonFunctionType_.i, align 4
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
-  %17 = extractvalue { i64, i8 } %call.i, 1
-  %tobool.i.i = trunc i8 %17 to i1
-  %frombool.i.i44 = and i8 %16, 1
-  store i8 %frombool.i.i44, ptr %allowAnonFunctionType_.i, align 4
+  %17 = extractvalue { i64, i8 } %call.i, 0
+  %18 = extractvalue { i64, i8 } %call.i, 1
+  %tobool.i.i = trunc i8 %18 to i1
+  %frombool.i.i45 = and i8 %16, 1
+  store i8 %frombool.i.i45, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end11, label %return
 
 if.end11:                                         ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %18 = extractvalue { i64, i8 } %call.i, 0
   %call14 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 56, i32 noundef 3, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr %start.coerce) #10
   br i1 %call14, label %if.end16, label %return
 
@@ -13926,18 +13986,23 @@ if.end41:                                         ; preds = %if.end36
   %call.i34 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %23 = extractvalue { i64, i8 } %call.i34, 1
   %tobool.i.i35 = trunc i8 %23 to i1
-  %frombool.i.i3848 = and i8 %22, 1
-  store i8 %frombool.i.i3848, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i35, label %if.end47, label %return
+  br i1 %tobool.i.i35, label %if.end47, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit42
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit42: ; preds = %if.end41
+  %frombool.i.i38 = and i8 %22, 1
+  store i8 %frombool.i.i38, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end47:                                         ; preds = %if.end41
   %24 = extractvalue { i64, i8 } %call.i34, 0
+  %frombool.i.i3852 = and i8 %22, 1
+  store i8 %frombool.i.i3852, ptr %allowAnonFunctionType_.i, align 4
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i17 = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
   %25 = load ptr, ptr %this, align 8
   %call53 = tail call noundef ptr @_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm(i64 noundef 88, ptr noundef nonnull align 8 dereferenceable(656) %25, i64 noundef 8)
   %26 = inttoptr i64 %24 to ptr
-  %27 = inttoptr i64 %18 to ptr
+  %27 = inttoptr i64 %17 to ptr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %call53, i8 0, i64 16, i1 false)
   %kind_.i.i.i18 = getelementptr inbounds i8, ptr %call53, i64 16
   store i32 177, ptr %kind_.i.i.i18, align 8
@@ -13962,9 +14027,9 @@ if.end47:                                         ; preds = %if.end41
   %28 = ptrtoint ptr %call53 to i64
   br label %return
 
-return:                                           ; preds = %if.end41, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %if.end36, %if.then25, %if.then18, %if.end11, %if.end47, %if.then
-  %retval.sroa.0.0 = phi i64 [ %28, %if.end47 ], [ undef, %if.then ], [ undef, %if.end11 ], [ undef, %if.then18 ], [ undef, %if.then25 ], [ undef, %if.end36 ], [ undef, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %if.end41 ]
-  %retval.sroa.2.0 = phi i8 [ 1, %if.end47 ], [ 0, %if.then ], [ 0, %if.end11 ], [ 0, %if.then18 ], [ 0, %if.then25 ], [ 0, %if.end36 ], [ 0, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %if.end41 ]
+return:                                           ; preds = %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit42, %if.end36, %if.then25, %if.then18, %if.end11, %if.end47, %if.then
+  %retval.sroa.0.0 = phi i64 [ %28, %if.end47 ], [ undef, %if.then ], [ undef, %if.end11 ], [ undef, %if.then18 ], [ undef, %if.then25 ], [ undef, %if.end36 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit42 ], [ undef, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
+  %retval.sroa.2.0 = phi i8 [ 1, %if.end47 ], [ 0, %if.then ], [ 0, %if.end11 ], [ 0, %if.then18 ], [ 0, %if.then25 ], [ 0, %if.end36 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit42 ], [ 0, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -13989,12 +14054,17 @@ if.end:                                           ; preds = %if.then
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %2 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %2 to i1
-  %frombool.i.i26 = and i8 %1, 1
-  store i8 %frombool.i.i26, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end11, label %return
+  br i1 %tobool.i.i, label %if.end11, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.end
+  %frombool.i.i = and i8 %1, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end11:                                         ; preds = %if.end
   %3 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i27 = and i8 %1, 1
+  store i8 %frombool.i.i27, ptr %allowAnonFunctionType_.i, align 4
   %4 = extractvalue { i64, i8 } %call2, 0
   %5 = inttoptr i64 %4 to ptr
   %6 = inttoptr i64 %3 to ptr
@@ -14017,12 +14087,17 @@ if.end23:                                         ; preds = %if.end18
   %call.i16 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %8 = extractvalue { i64, i8 } %call.i16, 1
   %tobool.i.i17 = trunc i8 %8 to i1
-  %frombool.i.i2031 = and i8 %7, 1
-  store i8 %frombool.i.i2031, ptr %allowAnonFunctionType_.i15, align 4
-  br i1 %tobool.i.i17, label %if.end29, label %return
+  br i1 %tobool.i.i17, label %if.end29, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit24
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit24: ; preds = %if.end23
+  %frombool.i.i20 = and i8 %7, 1
+  store i8 %frombool.i.i20, ptr %allowAnonFunctionType_.i15, align 4
+  br label %return
 
 if.end29:                                         ; preds = %if.end23
   %9 = extractvalue { i64, i8 } %call.i16, 0
+  %frombool.i.i2034 = and i8 %7, 1
+  store i8 %frombool.i.i2034, ptr %allowAnonFunctionType_.i15, align 4
   %10 = inttoptr i64 %9 to ptr
   %prevTokenEndLoc_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %retval.sroa.0.0.copyload.i.i = load ptr, ptr %prevTokenEndLoc_.i.i, align 8
@@ -14086,9 +14161,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %22 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
-return:                                           ; preds = %if.end23, %if.end, %if.end18, %if.end13, %if.then, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %22, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %if.then ], [ undef, %if.end13 ], [ undef, %if.end18 ], [ undef, %if.end ], [ undef, %if.end23 ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %if.then ], [ 0, %if.end13 ], [ 0, %if.end18 ], [ 0, %if.end ], [ 0, %if.end23 ]
+return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit24, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %if.end18, %if.end13, %if.then, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
+  %retval.sroa.0.0 = phi i64 [ %22, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %if.then ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ undef, %if.end13 ], [ undef, %if.end18 ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit24 ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %if.then ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ], [ 0, %if.end13 ], [ 0, %if.end18 ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit24 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -14312,12 +14387,17 @@ if.end:                                           ; preds = %entry
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %1 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %1 to i1
-  %frombool.i.i7 = and i8 %0, 1
-  store i8 %frombool.i.i7, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end11, label %return
+  br i1 %tobool.i.i, label %if.end11, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %if.end
+  %frombool.i.i = and i8 %0, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end11:                                         ; preds = %if.end
   %2 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i8 = and i8 %0, 1
+  store i8 %frombool.i.i8, ptr %allowAnonFunctionType_.i, align 4
   %3 = inttoptr i64 %2 to ptr
   %initIdent_ = getelementptr inbounds i8, ptr %this, i64 1224
   %4 = load ptr, ptr %initIdent_, align 8
@@ -14391,9 +14471,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit:    ; preds = %if.then.i.i.i, %if.
   %16 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
-return:                                           ; preds = %if.end, %entry, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
-  %retval.sroa.0.0 = phi i64 [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %entry ], [ undef, %if.end ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %entry ], [ 0, %if.end ]
+return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %entry, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit
+  %retval.sroa.0.0 = phi i64 [ %16, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ undef, %entry ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ], [ 0, %entry ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -14775,8 +14855,8 @@ if.then18:                                        ; preds = %if.end12
   %call.i = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %19 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %19 to i1
-  %frombool.i.i155 = and i8 %18, 1
-  store i8 %frombool.i.i155, ptr %allowAnonFunctionType_.i, align 4
+  %frombool.i.i156 = and i8 %18, 1
+  store i8 %frombool.i.i156, ptr %allowAnonFunctionType_.i, align 4
   br i1 %tobool.i.i, label %if.end25, label %return
 
 if.end25:                                         ; preds = %if.then18
@@ -14826,8 +14906,8 @@ if.then37:                                        ; preds = %if.end12
   %call.i135 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %32 = extractvalue { i64, i8 } %call.i135, 1
   %tobool.i.i136 = trunc i8 %32 to i1
-  %frombool.i.i139160 = and i8 %31, 1
-  store i8 %frombool.i.i139160, ptr %allowAnonFunctionType_.i134, align 4
+  %frombool.i.i139163 = and i8 %31, 1
+  store i8 %frombool.i.i139163, ptr %allowAnonFunctionType_.i134, align 4
   br i1 %tobool.i.i136, label %if.end48, label %return
 
 if.end48:                                         ; preds = %if.then37
@@ -14902,12 +14982,17 @@ if.then62:                                        ; preds = %if.end60
   %call.i145 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %46 = extractvalue { i64, i8 } %call.i145, 1
   %tobool.i.i146 = trunc i8 %46 to i1
-  %frombool.i.i149165 = and i8 %45, 1
-  store i8 %frombool.i.i149165, ptr %allowAnonFunctionType_.i144, align 4
-  br i1 %tobool.i.i146, label %if.end68, label %return
+  br i1 %tobool.i.i146, label %if.end68, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit153
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit153: ; preds = %if.then62
+  %frombool.i.i149 = and i8 %45, 1
+  store i8 %frombool.i.i149, ptr %allowAnonFunctionType_.i144, align 4
+  br label %return
 
 if.end68:                                         ; preds = %if.then62
   %47 = extractvalue { i64, i8 } %call.i145, 0
+  %frombool.i.i149170 = and i8 %45, 1
+  store i8 %frombool.i.i149170, ptr %allowAnonFunctionType_.i144, align 4
   %48 = inttoptr i64 %47 to ptr
   br label %if.end70
 
@@ -14974,9 +15059,9 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108: ; preds = %if.then.i.i.i106, %
   %60 = ptrtoint ptr %retval.0.i.i.i105 to i64
   br label %return
 
-return:                                           ; preds = %if.then62, %if.then37, %if.then18, %if.end, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108
-  %retval.sroa.0.0 = phi i64 [ %60, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ undef, %if.end ], [ undef, %if.then18 ], [ undef, %if.then37 ], [ undef, %if.then62 ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ 0, %if.end ], [ 0, %if.then18 ], [ 0, %if.then37 ], [ 0, %if.then62 ]
+return:                                           ; preds = %if.then37, %if.then18, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit153, %if.end, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108
+  %retval.sroa.0.0 = phi i64 [ %60, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ undef, %if.end ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit153 ], [ undef, %if.then18 ], [ undef, %if.then37 ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit108 ], [ 0, %if.end ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit153 ], [ 0, %if.then18 ], [ 0, %if.then37 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -15011,12 +15096,17 @@ while.body:                                       ; preds = %while.cond
   %call.i = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl34parseConditionalTypeAnnotationFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %4 = extractvalue { i64, i8 } %call.i, 1
   %tobool.i.i = trunc i8 %4 to i1
-  %frombool.i.i11 = and i8 %3, 1
-  store i8 %frombool.i.i11, ptr %allowAnonFunctionType_.i, align 4
-  br i1 %tobool.i.i, label %if.end, label %return
+  br i1 %tobool.i.i, label %if.end, label %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit
+
+_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit: ; preds = %while.body
+  %frombool.i.i = and i8 %3, 1
+  store i8 %frombool.i.i, ptr %allowAnonFunctionType_.i, align 4
+  br label %return
 
 if.end:                                           ; preds = %while.body
   %5 = extractvalue { i64, i8 } %call.i, 0
+  %frombool.i.i12 = and i8 %3, 1
+  store i8 %frombool.i.i12, ptr %allowAnonFunctionType_.i, align 4
   %6 = inttoptr i64 %5 to ptr
   %7 = load ptr, ptr %params, align 8
   %Next2.i.i.i.i.i3 = getelementptr inbounds i8, ptr %6, i64 8
@@ -15114,9 +15204,9 @@ _ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4N
   %24 = ptrtoint ptr %retval.0.i.i.i to i64
   br label %return
 
-return:                                           ; preds = %while.body, %while.end, %_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
-  %retval.sroa.0.0 = phi i64 [ %24, %_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit ], [ undef, %while.end ], [ undef, %while.body ]
-  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit ], [ 0, %while.end ], [ 0, %while.body ]
+return:                                           ; preds = %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit, %while.end, %_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit
+  %retval.sroa.0.0 = phi i64 [ %24, %_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit ], [ undef, %while.end ], [ undef, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
+  %retval.sroa.2.0 = phi i8 [ 1, %_ZN6hermes6ESTree30TypeParameterInstantiationNodeC2EON4llvh12simple_ilistINS0_4NodeEJEEE.exit ], [ 0, %while.end ], [ 0, %_ZN6hermes6parser6detail12JSParserImpl23parseTypeAnnotationFlowEN4llvh8OptionalINS3_5SMLocEEENS2_21AllowAnonFunctionTypeE.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

@@ -228,10 +228,10 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator10max_by_key17hf3684a
   %.sroa.313.0.copyload = load ptr, ptr %.sroa.313.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx14 = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx14, align 8
-  %.sroa.4.sroa.2.0 = select i1 %.not, ptr undef, ptr %.sroa.4.0.copyload
-  %spec.select = select i1 %.not, ptr null, ptr %.sroa.313.0.copyload
-  %6 = insertvalue { ptr, ptr } poison, ptr %spec.select, 0
-  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.4.sroa.2.0, 1
+  %spec.select = select i1 %.not, ptr undef, ptr %.sroa.4.0.copyload
+  %spec.select15 = select i1 %.not, ptr null, ptr %.sroa.313.0.copyload
+  %6 = insertvalue { ptr, ptr } poison, ptr %spec.select15, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %spec.select, 1
   ret { ptr, ptr } %7
 }
 

@@ -545,8 +545,8 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17he97c6041
 
 78:                                               ; preds = %76
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %77, 0
-  %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %77, 1
   %switch.i.i.i.i = icmp ne i64 %.fca.0.extract.i.i.i.i, 0
+  %.fca.1.extract.i.i.i.i = extractvalue { i64, ptr } %77, 1
   %79 = icmp ne ptr %.fca.1.extract.i.i.i.i, null
   %80 = select i1 %switch.i.i.i.i, i1 %79, i1 false
   call void @llvm.lifetime.start.p0(i64 1784, ptr nonnull %8), !noalias !34
@@ -586,10 +586,10 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17he97c6041
 
 88:                                               ; preds = %86
   %.fca.0.extract.i.i8.i.i = extractvalue { i64, ptr } %87, 0
-  %.fca.1.extract.i.i9.i.i = extractvalue { i64, ptr } %87, 1
-  %switch.i.i10.i.i = icmp ne i64 %.fca.0.extract.i.i8.i.i, 0
-  %89 = icmp ne ptr %.fca.1.extract.i.i9.i.i, null
-  %90 = select i1 %switch.i.i10.i.i, i1 %89, i1 false
+  %switch.i.i9.i.i = icmp ne i64 %.fca.0.extract.i.i8.i.i, 0
+  %.fca.1.extract.i.i10.i.i = extractvalue { i64, ptr } %87, 1
+  %89 = icmp ne ptr %.fca.1.extract.i.i10.i.i, null
+  %90 = select i1 %switch.i.i9.i.i, i1 %89, i1 false
   call void @llvm.lifetime.start.p0(i64 2336, ptr nonnull %6), !noalias !40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2336) %6, ptr noundef nonnull align 8 dereferenceable(2336) %18, i64 2336, i1 false), !noalias !37
   invoke void @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$3new17hd68de45bd3ef809cE"(ptr noalias nocapture noundef nonnull sret({ { { { { { i64, [56 x i64] }, i64 }, i64 }, { { { i64, [80 x i64] }, i64 }, i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } } }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } } } }, { [63 x { ptr }], { i64 } }, i8, i8, [6 x i8] }, { { { { ptr, i64 }, { i64 } }, {} }, { [63 x { ptr }], { i64 } }, i8, [7 x i8] }, i8, i8, i8, {}, [5 x i8] }, ptr, i8, i8, i8, {}, [5 x i8] }) align 8 dereferenceable(2352) %19, ptr noundef nonnull @"_ZN13tracing_error5layer23ErrorLayer$LT$S$C$F$GT$11get_context17h0da413ef7690dc05E", ptr noalias nocapture noundef nonnull align 8 dereferenceable(2336) %6, i1 noundef zeroext %90)
@@ -641,10 +641,10 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17he97c6041
   %103 = and i8 %102, 1
   %104 = extractvalue { i8, i8 } %97, 1
   %.fca.0.extract.i.i17.i.i = extractvalue { i64, ptr } %99, 0
-  %.fca.1.extract.i.i18.i.i = extractvalue { i64, ptr } %99, 1
-  %switch.i.i19.i.i = icmp ne i64 %.fca.0.extract.i.i17.i.i, 0
-  %105 = icmp ne ptr %.fca.1.extract.i.i18.i.i, null
-  %106 = select i1 %switch.i.i19.i.i, i1 %105, i1 false
+  %switch.i.i18.i.i = icmp ne i64 %.fca.0.extract.i.i17.i.i, 0
+  %.fca.1.extract.i.i19.i.i = extractvalue { i64, ptr } %99, 1
+  %105 = icmp ne ptr %.fca.1.extract.i.i19.i.i, null
+  %106 = select i1 %switch.i.i18.i.i, i1 %105, i1 false
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !49
   store i64 %96, ptr %4, align 8, !noalias !51
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
@@ -11104,6 +11104,7 @@ define hidden void @"_ZN9sqlx_core4pool10connection24PoolConnection$LT$DB$GT$14r
   br label %9
 
 9:                                                ; preds = %2, %"_ZN9sqlx_core4pool10connection24PoolConnection$LT$DB$GT$14return_to_pool28_$u7b$$u7b$closure$u7d$$u7d$17h84086cb132131efaE.llvm.18347223292822670392.exit"
+  %.sroa.614.0 = phi ptr [ %.pre, %"_ZN9sqlx_core4pool10connection24PoolConnection$LT$DB$GT$14return_to_pool28_$u7b$$u7b$closure$u7d$$u7d$17h84086cb132131efaE.llvm.18347223292822670392.exit" ], [ undef, %2 ]
   %10 = atomicrmw add ptr %.pre, i64 1 monotonic, align 8, !noalias !1833
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h566cc05cc8afe216E.llvm.18347223292822670392.exit"
@@ -11117,7 +11118,7 @@ define hidden void @"_ZN9sqlx_core4pool10connection24PoolConnection$LT$DB$GT$14r
   %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.513.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.513, i64 52, i1 false)
   %.sroa.614.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr %.pre, ptr %.sroa.614.0..sroa_idx, align 8
+  store ptr %.sroa.614.0, ptr %.sroa.614.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
   store i8 0, ptr %.sroa.7.0..sroa_idx, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 72
@@ -13932,9 +13933,9 @@ define hidden void @"_ZN182_$LT$ockam_node..storage..database..migrations..node_
   br label %89
 
 .thread54:                                        ; preds = %37, %54, %76
-  %.sroa.0.164 = phi i64 [ 9, %76 ], [ %23, %37 ], [ 9, %54 ]
-  %.sroa.15.163 = phi ptr [ %62, %76 ], [ %.sroa.317.i.sroa.4.0.copyload, %37 ], [ %55, %54 ]
-  %.sroa.17.161 = phi ptr [ %66, %76 ], [ %.sroa.317.i.sroa.5.0.copyload, %37 ], [ %56, %54 ]
+  %.sroa.0.162 = phi i64 [ 9, %76 ], [ %23, %37 ], [ 9, %54 ]
+  %.sroa.15.161 = phi ptr [ %62, %76 ], [ %.sroa.317.i.sroa.4.0.copyload, %37 ], [ %55, %54 ]
+  %.sroa.17.160 = phi ptr [ %66, %76 ], [ %.sroa.317.i.sroa.5.0.copyload, %37 ], [ %56, %54 ]
   %.sroa.748.159 = phi ptr [ %.sroa.4.i.i.sroa.0.0.copyload, %76 ], [ %38, %37 ], [ %.sroa.4.i.sroa.0.0.copyload, %54 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !1969
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15)
@@ -13942,7 +13943,7 @@ define hidden void @"_ZN182_$LT$ockam_node..storage..database..migrations..node_
   %.sroa.748.0.extract.trunc = trunc i64 %80 to i8
   %.sroa.748.1.extract.shift = lshr i64 %80, 8
   %.sroa.748.1.extract.trunc = trunc nuw i64 %.sroa.748.1.extract.shift to i56
-  store i64 %.sroa.0.164, ptr %0, align 8
+  store i64 %.sroa.0.162, ptr %0, align 8
   %.sroa.235.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.748.0.extract.trunc, ptr %.sroa.235.0..sroa_idx, align 8
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
@@ -13950,9 +13951,9 @@ define hidden void @"_ZN182_$LT$ockam_node..storage..database..migrations..node_
   %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.336.sroa.2.0..sroa.336.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14, i64 16, i1 false)
   %.sroa.336.sroa.3.0..sroa.336.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.15.163, ptr %.sroa.336.sroa.3.0..sroa.336.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.15.161, ptr %.sroa.336.sroa.3.0..sroa.336.0..sroa_idx.sroa_idx, align 8
   %.sroa.336.sroa.4.0..sroa.336.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %.sroa.17.161, ptr %.sroa.336.sroa.4.0..sroa.336.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.17.160, ptr %.sroa.336.sroa.4.0..sroa.336.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2021
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb90b82ba8fda85baE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
   %81 = getelementptr inbounds i8, ptr %3, i64 8

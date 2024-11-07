@@ -941,12 +941,12 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.17373186565492141581.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !137)
   %.promoted.i = load ptr, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !140, !noalias !143
   %276 = load ptr, ptr %.sroa.537.sroa.0.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !137, !nonnull !5
-  %.promoted39.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !145, !noalias !148
+  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !145, !noalias !148
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17he51083c8cf0e4488E.exit4.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17he51083c8cf0e4488E.exit4.i": ; preds = %291, %275
-  %277 = phi i64 [ %.promoted39.i, %275 ], [ %292, %291 ]
-  %278 = phi ptr [ %.promoted.i, %275 ], [ %283, %291 ]
+  %277 = phi i64 [ %292, %291 ], [ %.promoted36.i, %275 ]
+  %278 = phi ptr [ %283, %291 ], [ %.promoted.i, %275 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !150)
   %279 = icmp eq ptr %278, null
   br i1 %279, label %.loopexit152, label %280
@@ -8689,7 +8689,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   %3 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17hcb70911875e9f582E.llvm.17373186565492141581"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   switch i64 %4, label %5 [
-    i64 2, label %8
+    i64 2, label %9
     i64 0, label %6
     i64 1, label %7
   ]
@@ -8702,13 +8702,14 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   unreachable
 
 7:                                                ; preds = %2
-  br label %8
+  %8 = extractvalue { i64, ptr } %3, 1
+  br label %9
 
-8:                                                ; preds = %2, %7
+9:                                                ; preds = %2, %7
+  %.sroa.3.0 = phi ptr [ %8, %7 ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 0, %7 ], [ 1, %2 ]
-  %9 = extractvalue { i64, ptr } %3, 1
   %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, ptr } %10, ptr %9, 1
+  %11 = insertvalue { i64, ptr } %10, ptr %.sroa.3.0, 1
   ret { i64, ptr } %11
 }
 

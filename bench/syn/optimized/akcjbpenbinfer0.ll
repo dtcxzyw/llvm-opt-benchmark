@@ -526,9 +526,10 @@ define hidden { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   br i1 %12, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h0d6cf41dcba82926E.llvm.17896666486873179654.exit, label %5
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h0d6cf41dcba82926E.llvm.17896666486873179654.exit: ; preds = %5, %8
+  %.sroa.3.0.i = phi i64 [ undef, %8 ], [ %.0.i, %5 ]
   %.sroa.0.0.i = phi i64 [ 0, %8 ], [ 1, %5 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, i64 } %14, i64 %.0.i, 1
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %15
 }
 
@@ -2164,9 +2165,10 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h0d
   br i1 %13, label %15, label %6
 
 15:                                               ; preds = %6, %9
+  %.sroa.3.0 = phi i64 [ undef, %9 ], [ %.0, %6 ]
   %.sroa.0.0 = phi i64 [ 0, %9 ], [ 1, %6 ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.0, 1
+  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
   ret { i64, i64 } %17
 }
 

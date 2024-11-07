@@ -32671,6 +32671,7 @@ _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12Ch
 152:                                              ; preds = %147, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12ChecksumKindERS4_EEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOSC_.exit
   %.sroa.4.0 = phi i8 [ 1, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12ChecksumKindERS4_EEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOSC_.exit ], [ 0, %147 ]
   %.sroa.311.0 = phi ptr [ %146, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12ChecksumKindERS4_EEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOSC_.exit ], [ undef, %147 ]
+  %.sroa.08.0 = phi i32 [ %.sroa.0.142, %_ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12ChecksumKindERS4_EEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOSC_.exit ], [ undef, %147 ]
   %153 = load i8, ptr %29, align 8
   %154 = trunc i8 %153 to i1
   %155 = load ptr, ptr %19, align 8
@@ -32682,7 +32683,7 @@ _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12Ch
 
 159:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  store i32 %.sroa.0.142, ptr %5, align 8
+  store i32 %.sroa.08.0, ptr %5, align 8
   %.sroa.07.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sroa.311.0, ptr %.sroa.07.sroa.3.0..sroa_idx, align 8
   %.sroa.07.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -32695,7 +32696,7 @@ _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12Ch
 
 161:                                              ; preds = %152
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  store i32 %.sroa.0.142, ptr %4, align 8
+  store i32 %.sroa.08.0, ptr %4, align 8
   %.sroa.0.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.sroa.311.0, ptr %.sroa.0.sroa.3.0..sroa_idx, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16

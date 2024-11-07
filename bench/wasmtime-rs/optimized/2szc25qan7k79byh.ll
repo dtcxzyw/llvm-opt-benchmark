@@ -9,10 +9,10 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$11checked_add17hb7d6061d50f45466E"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %0, i64 %1)
   %4 = extractvalue { i64, i1 } %3, 1
-  %not. = xor i1 %4, true
-  %. = zext i1 %not. to i64
   %5 = extractvalue { i64, i1 } %3, 0
-  %6 = insertvalue { i64, i64 } poison, i64 %., 0
+  %not. = xor i1 %4, true
+  %.sroa.0.0 = zext i1 %not. to i64
+  %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %7 = insertvalue { i64, i64 } %6, i64 %5, 1
   ret { i64, i64 } %7
 }
@@ -20,9 +20,9 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$11checked_add1
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden i64 @"_ZN4core3num23_$LT$impl$u20$usize$GT$14saturating_mul17h08f0c7d98dcb1df4E"(i64 %0, i64 %1) unnamed_addr #0 {
   %3 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %0, i64 %1)
-  %4 = extractvalue { i64, i1 } %3, 0
-  %5 = extractvalue { i64, i1 } %3, 1
-  %.0 = select i1 %5, i64 -1, i64 %4
+  %4 = extractvalue { i64, i1 } %3, 1
+  %5 = extractvalue { i64, i1 } %3, 0
+  %.0 = select i1 %4, i64 -1, i64 %5
   ret i64 %.0
 }
 

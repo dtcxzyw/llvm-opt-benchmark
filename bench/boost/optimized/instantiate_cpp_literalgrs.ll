@@ -11045,7 +11045,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   br i1 %9, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread, label %.lr.ph.i.i.i
 
 10:                                               ; preds = %36
-  %11 = add nuw nsw i64 %.028.i.i.i, 1
+  %11 = add nuw nsw i64 %.026.i.i.i, 1
   %12 = load ptr, ptr %1, align 8, !tbaa !250
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %14 = load ptr, ptr %7, align 8, !tbaa !27
@@ -11056,8 +11056,8 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %16 = phi ptr [ %13, %10 ], [ %6, %2 ]
   %17 = phi ptr [ %12, %10 ], [ %5, %2 ]
   %18 = phi i1 [ true, %10 ], [ false, %2 ]
-  %.028.i.i.i = phi i64 [ %11, %10 ], [ 0, %2 ]
-  %.01127.i.i.i = phi i32 [ %37, %10 ], [ 0, %2 ]
+  %.026.i.i.i = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %.01125.i.i.i = phi i32 [ %37, %10 ], [ 0, %2 ]
   %19 = load i8, ptr %16, align 1, !tbaa !15
   %20 = sext i8 %19 to i32
   %21 = add nsw i32 %20, -48
@@ -11080,11 +11080,11 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
 
 30:                                               ; preds = %27, %.lr.ph.i.i.i
   %.010.ph.i.i.i.i = phi i32 [ %29, %27 ], [ %21, %.lr.ph.i.i.i ]
-  %31 = icmp ugt i32 %.01127.i.i.i, 268435455
+  %31 = icmp ugt i32 %.01125.i.i.i, 268435455
   br i1 %31, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread, label %32
 
 32:                                               ; preds = %30
-  %33 = shl nuw i32 %.01127.i.i.i, 4
+  %33 = shl nuw i32 %.01125.i.i.i, 4
   %34 = xor i32 %.010.ph.i.i.i.i, -1
   %35 = icmp ugt i32 %33, %34
   br i1 %35, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread, label %36
@@ -11093,24 +11093,24 @@ define linkonce_odr hidden { i64, i64 } @_ZNK5boost6spirit7classic6actionINS1_11
   %37 = add i32 %.010.ph.i.i.i.i, %33
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 1
   store ptr %38, ptr %17, align 8, !tbaa !17
-  %exitcond.not.i.i.i = icmp eq i64 %.028.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %.026.i.i.i, 1
   br i1 %exitcond.not.i.i.i, label %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, label %10, !llvm.loop !342
 
 _ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i: ; preds = %36, %23
-  %.213.ph.i.i.i = phi i32 [ %37, %36 ], [ %.01127.i.i.i, %23 ]
-  %.2.ph.i.i.i = phi i64 [ 2, %36 ], [ %.028.i.i.i, %23 ]
+  %.213.ph.i.i.i = phi i32 [ %37, %36 ], [ %.01125.i.i.i, %23 ]
+  %.2.ph.i.i.i = phi i64 [ 2, %36 ], [ %.026.i.i.i, %23 ]
   br i1 %18, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
 _ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit: ; preds = %10, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i
-  %.2.ph43.i.i.i = phi i64 [ %.2.ph.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %11, %10 ]
-  %.213.ph42.i.i.i = phi i32 [ %.213.ph.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %37, %10 ]
-  %39 = zext i32 %.213.ph42.i.i.i to i64
+  %.2.ph41.i.i.i = phi i64 [ %.2.ph.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %11, %10 ]
+  %.213.ph40.i.i.i = phi i32 [ %.213.ph.i.i.i, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ %37, %10 ]
+  %39 = zext i32 %.213.ph40.i.i.i to i64
   %40 = shl nuw i64 %39, 32
   %.sroa.3.8.insert.insert.i.i.i = or disjoint i64 %40, 1
-  store i64 %.2.ph43.i.i.i, ptr %4, align 8
+  store i64 %.2.ph41.i.i.i, ptr %4, align 8
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.3.8.insert.insert.i.i.i, ptr %41, align 8
-  %.not.not = icmp sgt i64 %.2.ph43.i.i.i, -1
+  %.not.not = icmp sgt i64 %.2.ph41.i.i.i, -1
   br i1 %.not.not, label %42, label %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread
 
 42:                                               ; preds = %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit
@@ -11126,7 +11126,7 @@ _ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1
 
 _ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit.thread: ; preds = %30, %32, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i, %2, %42, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit
   %.fca.1.load = phi i64 [ %.fca.1.load.pre, %42 ], [ %.sroa.3.8.insert.insert.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ 0, %2 ], [ 0, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ 0, %32 ], [ 0, %30 ]
-  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %42 ], [ %.2.ph43.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %32 ], [ -1, %30 ]
+  %.fca.0.load = phi i64 [ %.fca.0.load.pre, %42 ], [ %.2.ph41.i.i.i, %_ZNK5boost6spirit7classic11uint_parserIjLi16ELj1ELi2EE5parseINS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEENS1_13parser_resultIS3_T_E4typeERKSF_.exit ], [ -1, %2 ], [ -1, %_ZN5boost6spirit7classic4impl11extract_intILi16ELj1ELi2ENS2_19positive_accumulateIjLi16EEEE1fIKNS1_7scannerIPKcNS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEjEEbRT_RT0_Rm.exit.i.i.i ], [ -1, %32 ], [ -1, %30 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.fca.0.load, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
   ret { i64, i64 } %.fca.1.insert

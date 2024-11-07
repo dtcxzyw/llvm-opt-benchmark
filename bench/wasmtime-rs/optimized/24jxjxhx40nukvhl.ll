@@ -1730,8 +1730,8 @@ define hidden void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14lo
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
   call void @"_ZN104_$LT$tracing_subscriber..registry..sharded..Registry$u20$as$u20$tracing_core..subscriber..Subscriber$GT$12current_span17he92ebc7e9e8c8b17E"(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 %11)
   %14 = load i64, ptr %10, align 8, !range !262, !noundef !4
-  %.not40 = icmp eq i64 %14, 0
-  br i1 %.not40, label %16, label %20
+  %.not38 = icmp eq i64 %14, 0
+  br i1 %.not38, label %16, label %20
 
 15:                                               ; preds = %2
   store ptr null, ptr %0, align 8
@@ -1764,7 +1764,7 @@ define hidden void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14lo
   %25 = load i64, ptr %24, align 8, !noalias !370, !noundef !4
   %26 = and i64 %25, %23
   %.not = icmp eq i64 %26, 0
-  br i1 %.not, label %.thread36, label %27
+  br i1 %.not, label %.thread34, label %27
 
 27:                                               ; preds = %21
   store ptr null, ptr %9, align 8, !alias.scope !365
@@ -1783,7 +1783,7 @@ define hidden void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14lo
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h6bb354fbb0092abbE.exit"
 
-.thread36:                                        ; preds = %21
+.thread34:                                        ; preds = %21
   store ptr %11, ptr %9, align 8, !alias.scope !365
   %.sroa.4.0..sroa_idx.i18 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %18, ptr %.sroa.4.0..sroa_idx.i18, align 8, !alias.scope !382
@@ -1930,7 +1930,7 @@ define hidden void @"_ZN18tracing_subscriber5layer7context16Context$LT$S$GT$14lo
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17hcfe842a42fa646f3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %71, i64 noundef %73), !noalias !451
   br label %"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h6bb354fbb0092abbE.exit"
 
-"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h6bb354fbb0092abbE.exit": ; preds = %58, %.thread36, %65, %69, %31, %20, %15
+"_ZN4core3ptr113drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..registry..sharded..Registry$GT$$GT$17h6bb354fbb0092abbE.exit": ; preds = %58, %.thread34, %65, %69, %31, %20, %15
   ret void
 
 74:                                               ; preds = %.body

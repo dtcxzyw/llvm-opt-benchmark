@@ -206,9 +206,9 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
 
 74:                                               ; preds = %72, %68, %61
   %.sroa.0124.1 = phi i32 [ %.sroa.0124.0, %61 ], [ %.sroa.0124.0, %68 ], [ %.fca.1.extract.i.i, %72 ]
-  %.sink19.i.sroa.phi = phi ptr [ %.sroa.6126, %61 ], [ %.sroa.6126, %68 ], [ %.sroa.11128, %72 ]
+  %.sink20.i.sroa.phi = phi ptr [ %.sroa.6126, %61 ], [ %.sroa.6126, %68 ], [ %.sroa.11128, %72 ]
   %.sink.i = phi ptr [ null, %61 ], [ null, %68 ], [ %70, %72 ]
-  store ptr %.sink.i, ptr %.sink19.i.sroa.phi, align 8, !alias.scope !10, !noalias !13
+  store ptr %.sink.i, ptr %.sink20.i.sroa.phi, align 8, !alias.scope !10, !noalias !13
   %.sroa.6126.0..sroa.6126.0..sroa.6126.0..sroa.6126.8.127 = load ptr, ptr %.sroa.6126, align 8, !noundef !9
   %75 = icmp eq ptr %.sroa.6126.0..sroa.6126.0..sroa.6126.0..sroa.6126.8.127, null
   br i1 %75, label %76, label %245
@@ -261,7 +261,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   br label %"_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h22eaa2114994b3f2E.exit.i"
 
 "_ZN74_$LT$regex_automata..meta..regex..Config$u20$as$u20$core..clone..Clone$GT$5clone17h22eaa2114994b3f2E.exit.i": ; preds = %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i", %88, %76
-  %.sroa.4.054.i.i = phi ptr [ undef, %76 ], [ %.val1.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ], [ undef, %88 ]
+  %.sroa.4.060.i.i = phi ptr [ undef, %76 ], [ %.val1.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ], [ undef, %88 ]
   %.sroa.0.0.i.i = phi ptr [ undef, %76 ], [ %.val.i.i.i.i, %"_ZN81_$LT$regex_automata..util..prefilter..Prefilter$u20$as$u20$core..clone..Clone$GT$5clone17hb70203dde2c9580eE.exit.i.i.i" ], [ undef, %88 ]
   %97 = getelementptr inbounds i8, ptr %1, i64 114
   %98 = load i8, ptr %97, align 2, !range !38, !alias.scope !36, !noalias !37, !noundef !9
@@ -270,13 +270,17 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %101 = icmp eq i64 %100, 2
   %102 = getelementptr inbounds i8, ptr %1, i64 24
   %.val45.i.i = load i64, ptr %102, align 8, !alias.scope !36, !noalias !37
-  %.sroa.5.0.i.i = select i1 %101, i64 undef, i64 %.val45.i.i
+  %trunc.i.i.i = trunc nuw i64 %100 to i1
+  %spec.select.i.i.i = select i1 %trunc.i.i.i, i64 %.val45.i.i, i64 undef
+  %.sroa.5.0.i.i = select i1 %101, i64 undef, i64 %spec.select.i.i.i
   %103 = getelementptr inbounds i8, ptr %1, i64 32
   %104 = load i64, ptr %103, align 8, !range !50, !alias.scope !36, !noalias !37, !noundef !9
   %105 = icmp eq i64 %104, 2
   %106 = getelementptr inbounds i8, ptr %1, i64 40
   %.val43.i.i = load i64, ptr %106, align 8, !alias.scope !36, !noalias !37
-  %.sroa.55.0.i.i = select i1 %105, i64 undef, i64 %.val43.i.i
+  %trunc.i46.i.i = trunc nuw i64 %104 to i1
+  %spec.select.i47.i.i = select i1 %trunc.i46.i.i, i64 %.val43.i.i, i64 undef
+  %.sroa.55.0.i.i = select i1 %105, i64 undef, i64 %spec.select.i47.i.i
   %107 = load i64, ptr %1, align 8, !range !51, !alias.scope !36, !noalias !37, !noundef !9
   %108 = getelementptr inbounds i8, ptr %1, i64 8
   %109 = load i64, ptr %108, align 8, !alias.scope !36, !noalias !37
@@ -289,13 +293,17 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %116 = icmp eq i64 %115, 2
   %117 = getelementptr inbounds i8, ptr %1, i64 56
   %.val41.i.i = load i64, ptr %117, align 8, !alias.scope !36, !noalias !37
-  %.sroa.511.0.i.i = select i1 %116, i64 undef, i64 %.val41.i.i
+  %trunc.i49.i.i = trunc nuw i64 %115 to i1
+  %spec.select.i50.i.i = select i1 %trunc.i49.i.i, i64 %.val41.i.i, i64 undef
+  %.sroa.511.0.i.i = select i1 %116, i64 undef, i64 %spec.select.i50.i.i
   %118 = getelementptr inbounds i8, ptr %1, i64 64
   %119 = load i64, ptr %118, align 8, !range !50, !alias.scope !36, !noalias !37, !noundef !9
   %120 = icmp eq i64 %119, 2
   %121 = getelementptr inbounds i8, ptr %1, i64 72
   %.val39.i.i = load i64, ptr %121, align 8, !alias.scope !36, !noalias !37
-  %.sroa.513.0.i.i = select i1 %120, i64 undef, i64 %.val39.i.i
+  %trunc.i52.i.i = trunc nuw i64 %119 to i1
+  %spec.select.i53.i.i = select i1 %trunc.i52.i.i, i64 %.val39.i.i, i64 undef
+  %.sroa.513.0.i.i = select i1 %120, i64 undef, i64 %spec.select.i53.i.i
   %trunc.i.i = trunc nuw i64 %107 to i1
   %.sroa.57.0.i.i = select i1 %trunc.i.i, i64 %109, i64 undef
   %122 = getelementptr inbounds i8, ptr %1, i64 111
@@ -318,10 +326,10 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   store i8 %84, ptr %134, align 4, !alias.scope !30, !noalias !53
   %135 = getelementptr inbounds i8, ptr %23, i64 80
   store ptr %.sroa.0.0.i.i, ptr %135, align 8, !alias.scope !30, !noalias !53
-  %.sroa.4.0..sroa_idx51.i.i = getelementptr inbounds i8, ptr %23, i64 88
-  store ptr %.sroa.4.054.i.i, ptr %.sroa.4.0..sroa_idx51.i.i, align 8, !alias.scope !30, !noalias !53
-  %.sroa.5.0..sroa_idx52.i.i = getelementptr inbounds i8, ptr %23, i64 96
-  store i8 %86, ptr %.sroa.5.0..sroa_idx52.i.i, align 8, !alias.scope !30, !noalias !53
+  %.sroa.4.0..sroa_idx57.i.i = getelementptr inbounds i8, ptr %23, i64 88
+  store ptr %.sroa.4.060.i.i, ptr %.sroa.4.0..sroa_idx57.i.i, align 8, !alias.scope !30, !noalias !53
+  %.sroa.5.0..sroa_idx58.i.i = getelementptr inbounds i8, ptr %23, i64 96
+  store i8 %86, ptr %.sroa.5.0..sroa_idx58.i.i, align 8, !alias.scope !30, !noalias !53
   %136 = getelementptr inbounds i8, ptr %23, i64 114
   store i8 %98, ptr %136, align 2, !alias.scope !30, !noalias !53
   %137 = getelementptr inbounds i8, ptr %23, i64 16

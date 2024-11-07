@@ -3914,21 +3914,21 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %2, %_ZNK4llvm9Strin
   br i1 %.not.i.i1, label %_ZN4llvm9StringRef12consume_backES0_.exit, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZN4llvm9StringRef13consume_frontES0_.exit
-  %.sroa.5.019 = phi i64 [ %.sroa.5.0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %.sroa.05.017 = phi ptr [ %.sroa.05.0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
-  %7 = getelementptr inbounds i8, ptr %.sroa.05.017, i64 %.sroa.5.019
+  %.sroa.5.017 = phi i64 [ %.sroa.5.0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %1, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %.sroa.05.015 = phi ptr [ %.sroa.05.0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %0, %_ZNK4llvm9StringRef11starts_withES0_.exit.i ]
+  %7 = getelementptr inbounds i8, ptr %.sroa.05.015, i64 %.sroa.5.017
   %8 = getelementptr inbounds i8, ptr %7, i64 -1
   %lhsc = load i8, ptr %8, align 1
   %9 = icmp eq i8 %lhsc, 116
   %10 = sext i1 %9 to i64
-  %spec.select = add i64 %.sroa.5.019, %10
+  %spec.select = add i64 %.sroa.5.017, %10
   br label %_ZN4llvm9StringRef12consume_backES0_.exit
 
 _ZN4llvm9StringRef12consume_backES0_.exit:        ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i, %_ZN4llvm9StringRef13consume_frontES0_.exit
-  %.sroa.05.018 = phi ptr [ %.sroa.05.0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.sroa.05.017, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ]
+  %.sroa.05.016 = phi ptr [ %.sroa.05.0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %.sroa.05.015, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ]
   %.sroa.5.1 = phi i64 [ 0, %_ZN4llvm9StringRef13consume_frontES0_.exit ], [ %spec.select, %_ZNK4llvm9StringRef9ends_withES0_.exit.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %11 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.05.018, i64 %.sroa.5.1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %3) #10
+  %11 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.05.016, i64 %.sroa.5.1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %3) #10
   br i1 %11, label %16, label %12
 
 12:                                               ; preds = %_ZN4llvm9StringRef12consume_backES0_.exit
@@ -5282,21 +5282,21 @@ _ZN4llvm9StringRef13consume_frontES0_.exit.i:     ; preds = %_ZNK4llvm9StringRef
   br i1 %.not.i.i1.i, label %_ZN4llvm9StringRef12consume_backES0_.exit.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i.i:       ; preds = %_ZN4llvm9StringRef13consume_frontES0_.exit.i, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i
-  %.sroa.5.019.i = phi i64 [ %.sroa.5.0.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %5, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ]
-  %.sroa.05.017.i = phi ptr [ %.sroa.05.0.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ]
-  %9 = getelementptr inbounds i8, ptr %.sroa.05.017.i, i64 %.sroa.5.019.i
+  %.sroa.5.017.i = phi i64 [ %.sroa.5.0.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %5, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ]
+  %.sroa.05.015.i = phi ptr [ %.sroa.05.0.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %4, %_ZNK4llvm9StringRef11starts_withES0_.exit.i.i ]
+  %9 = getelementptr inbounds i8, ptr %.sroa.05.015.i, i64 %.sroa.5.017.i
   %10 = getelementptr inbounds i8, ptr %9, i64 -1
   %lhsc.i = load i8, ptr %10, align 1
   %11 = icmp eq i8 %lhsc.i, 116
   %12 = sext i1 %11 to i64
-  %spec.select.i = add i64 %.sroa.5.019.i, %12
+  %spec.select.i = add i64 %.sroa.5.017.i, %12
   br label %_ZN4llvm9StringRef12consume_backES0_.exit.i
 
 _ZN4llvm9StringRef12consume_backES0_.exit.i:      ; preds = %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i
-  %.sroa.05.018.i = phi ptr [ %.sroa.05.0.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %.sroa.05.017.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ]
+  %.sroa.05.016.i = phi ptr [ %.sroa.05.0.i, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %.sroa.05.015.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ]
   %.sroa.5.1.i = phi i64 [ 0, %_ZN4llvm9StringRef13consume_frontES0_.exit.i ], [ %spec.select.i, %_ZNK4llvm9StringRef9ends_withES0_.exit.i.i ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  %13 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.05.018.i, i64 %.sroa.5.1.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2) #10
+  %13 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %.sroa.05.016.i, i64 %.sroa.5.1.i, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %2) #10
   br i1 %13, label %18, label %14
 
 14:                                               ; preds = %_ZN4llvm9StringRef12consume_backES0_.exit.i

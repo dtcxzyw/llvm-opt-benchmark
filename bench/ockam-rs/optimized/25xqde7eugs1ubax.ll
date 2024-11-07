@@ -6989,7 +6989,7 @@ common.ret:                                       ; preds = %837, %795, %689, %3
 194:                                              ; preds = %252, %184
   %195 = phi ptr [ %203, %252 ], [ %188, %184 ]
   %196 = phi ptr [ %204, %252 ], [ %189, %184 ]
-  %197 = phi i64 [ %.pre103.i.i, %252 ], [ %186, %184 ]
+  %197 = phi i64 [ %.pre104.i.i, %252 ], [ %186, %184 ]
   %198 = phi ptr [ %.pre.i.i, %252 ], [ %187, %184 ]
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %30)
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %29), !noalias !1027
@@ -7078,8 +7078,8 @@ common.ret:                                       ; preds = %837, %795, %689, %3
 
 222:                                              ; preds = %219
   %.mask.i.i = and i64 %220, -4294967296
-  %switch101.i.i = icmp eq i64 %.mask.i.i, 55834574848
-  br i1 %switch101.i.i, label %.thread82.i.i, label %.thread.i.i
+  %switch102.i.i = icmp eq i64 %.mask.i.i, 55834574848
+  br i1 %switch102.i.i, label %.thread82.i.i, label %.thread.i.i
 
 223:                                              ; preds = %219
   %224 = lshr i64 %220, 32
@@ -7105,8 +7105,8 @@ common.ret:                                       ; preds = %837, %795, %689, %3
   br label %341
 
 .sink.split.i.i:                                  ; preds = %227, %219
-  %.sink106.i.i = phi i64 [ 15, %227 ], [ 16, %219 ]
-  %232 = getelementptr i8, ptr %.sroa.659.0.copyload.pre.i, i64 %.sink106.i.i
+  %.sink107.i.i = phi i64 [ 15, %227 ], [ 16, %219 ]
+  %232 = getelementptr i8, ptr %.sroa.659.0.copyload.pre.i, i64 %.sink107.i.i
   %233 = load i8, ptr %232, align 8, !range !1039, !noalias !1031, !noundef !5
   br label %234
 
@@ -7180,8 +7180,8 @@ common.ret:                                       ; preds = %837, %795, %689, %3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %25), !noalias !1040
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27), !noalias !1027
   %.pre.i.i = load ptr, ptr %236, align 8, !noalias !1027
-  %.phi.trans.insert102.i.i = getelementptr inbounds i8, ptr %1, i64 152
-  %.pre103.i.i = load i64, ptr %.phi.trans.insert102.i.i, align 8, !noalias !1027
+  %.phi.trans.insert103.i.i = getelementptr inbounds i8, ptr %1, i64 152
+  %.pre104.i.i = load i64, ptr %.phi.trans.insert103.i.i, align 8, !noalias !1027
   br label %194
 
 253:                                              ; preds = %194
@@ -7543,8 +7543,8 @@ common.ret:                                       ; preds = %837, %795, %689, %3
   br label %.body282
 
 363:                                              ; preds = %352, %.thread65.i
-  %.sroa.376.0.i73.i = phi ptr [ %326, %.thread65.i ], [ %.sroa.659.0.copyload.pre.i, %352 ]
-  %364 = icmp ne ptr %.sroa.376.0.i73.i, null
+  %.sroa.376.0.i71.i = phi ptr [ %326, %.thread65.i ], [ %.sroa.659.0.copyload.pre.i, %352 ]
+  %364 = icmp ne ptr %.sroa.376.0.i71.i, null
   call void @llvm.assume(i1 %364)
   br label %373
 
@@ -7582,7 +7582,7 @@ common.ret:                                       ; preds = %837, %795, %689, %3
   br label %169
 
 373:                                              ; preds = %361, %363
-  %.sroa.453.0.i.ph = phi ptr [ %.sroa.376.0.i73.i, %363 ], [ %360, %361 ]
+  %.sroa.453.0.i.ph = phi ptr [ %.sroa.376.0.i71.i, %363 ], [ %360, %361 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.9387, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.754.i, i64 16, i1 false), !noalias !1093
   store i8 1, ptr %175, align 8, !noalias !1023
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.754.i)

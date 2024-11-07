@@ -245,7 +245,12 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17hee3dc89172be7
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h2116028854f35af9E.exit": ; preds = %7, %15
   %.pn.i = phi { ptr, i64 } [ %16, %15 ], [ %9, %7 ]
-  ret { ptr, i64 } %.pn.i
+  %17 = extractvalue { ptr, i64 } %.pn.i, 0
+  %18 = icmp eq ptr %17, null
+  %19 = extractvalue { ptr, i64 } %.pn.i, 1
+  %.sroa.3.0 = select i1 %18, i64 undef, i64 %19
+  %20 = insertvalue { ptr, i64 } %.pn.i, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

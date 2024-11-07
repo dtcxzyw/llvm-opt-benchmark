@@ -337,11 +337,11 @@ _ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit40.thread: ; preds = %43, %_ZNK5cl
 54:                                               ; preds = %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit40.thread
   %55 = inttoptr i64 %26 to ptr
   %56 = load ptr, ptr %55, align 8
-  %.pre153 = load ptr, ptr %56, align 8
+  %.pre155 = load ptr, ptr %56, align 8
   br label %_ZNK5clang4ento12ExplodedNode10succ_beginEv.exit
 
 _ZNK5clang4ento12ExplodedNode10succ_beginEv.exit: ; preds = %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit40.thread, %54
-  %57 = phi ptr [ %.pre153, %54 ], [ %23, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit40.thread ]
+  %57 = phi ptr [ %.pre155, %54 ], [ %23, %_ZNK5clang4ento12ExplodedNode9succ_sizeEv.exit40.thread ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
   %59 = load i64, ptr %58, align 8
   %60 = and i64 %59, 1
@@ -453,8 +453,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit65: ; pre
   br i1 %109, label %110, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit82
 
 _ZNK4llvm12ImmutableMapIPvS1_NS_16ImutKeyValueInfoIS1_S1_EEEneERKS4_.exit: ; preds = %104
-  %.not151 = icmp eq ptr %107, %.pre.i
-  br i1 %.not151, label %110, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit82
+  %.not153 = icmp eq ptr %107, %.pre.i
+  br i1 %.not153, label %110, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit82
 
 110:                                              ; preds = %108, %_ZNK4llvm12ImmutableMapIPvS1_NS_16ImutKeyValueInfoIS1_S1_EEEneERKS4_.exit
   %111 = and i64 %.sroa.9.0.copyload, -8

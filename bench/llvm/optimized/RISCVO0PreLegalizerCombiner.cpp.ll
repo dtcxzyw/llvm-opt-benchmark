@@ -1667,18 +1667,18 @@ _ZNK4llvm9StringRef5splitEc.exit:                 ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %19 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr %14, i64 %13, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   %20 = load i64, ptr %6, align 8
-  %.04.i = select i1 %19, i64 undef, i64 %20
+  %.sroa.01.0.i = select i1 %19, i64 undef, i64 %20
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %21 = call noundef zeroext i1 @_ZN4llvm20getAsUnsignedIntegerENS_9StringRefEjRy(ptr nonnull %18, i64 %17, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   %22 = load i64, ptr %5, align 8
-  %.04.i7 = select i1 %21, i64 undef, i64 %22
+  %.sroa.01.0.i7 = select i1 %21, i64 undef, i64 %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %brmerge = or i1 %19, %21
   br i1 %brmerge, label %32, label %_ZStgeImmENSt9enable_ifIXsr14is_convertibleIDTgeclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
 
 _ZStgeImmENSt9enable_ifIXsr14is_convertibleIDTgeclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit: ; preds = %16
-  %.not51 = icmp ult i64 %.04.i, %.04.i7
+  %.not51 = icmp ult i64 %.sroa.01.0.i, %.sroa.01.0.i7
   br i1 %.not51, label %24, label %23
 
 23:                                               ; preds = %_ZStgeImmENSt9enable_ifIXsr14is_convertibleIDTgeclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
@@ -1686,7 +1686,7 @@ _ZStgeImmENSt9enable_ifIXsr14is_convertibleIDTgeclsr3stdE7declvalIRKT_EEclsr3std
   unreachable
 
 24:                                               ; preds = %_ZStgeImmENSt9enable_ifIXsr14is_convertibleIDTgeclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS1_ERKSA_IS4_E.exit
-  %25 = add i64 %.04.i7, 1
+  %25 = add i64 %.sroa.01.0.i7, 1
   br label %.sink.split
 
 26:                                               ; preds = %_ZNK4llvm9StringRef5splitEc.exit.thread, %_ZNK4llvm9StringRef5splitEc.exit
@@ -1712,7 +1712,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread49:       ; preds = %26, %_ZN4llvmeqENS_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %24, %30
-  %.sink54 = phi i64 [ %29, %30 ], [ %.04.i, %24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.sink54 = phi i64 [ %29, %30 ], [ %.sroa.01.0.i, %24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %.sink53 = phi i64 [ %31, %30 ], [ %25, %24 ], [ 11, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   store i64 %.sink54, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

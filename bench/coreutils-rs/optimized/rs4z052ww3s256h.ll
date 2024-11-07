@@ -592,7 +592,7 @@ define void @_ZN6uu_env15variable_parser14VariableParser14parse_variable17h11ebf
   %.sroa.4.0.copyload.i.i.i123 = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i122, align 8, !noalias !118
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34), !noalias !111
   %66 = icmp eq i64 %.sroa.4.0.copyload.i.i.i123, 0
-  br i1 %66, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread191, label %67
+  br i1 %66, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread188, label %67
 
 67:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
   %68 = load i8, ptr %.sroa.3.0.copyload.i.i.i121, align 1, !noalias !119, !noundef !4
@@ -617,7 +617,7 @@ define void @_ZN6uu_env15variable_parser14VariableParser14parse_variable17h11ebf
   store i8 %76, ptr %.sroa.259.sroa.4.0..sroa.259.0..sroa_idx.sroa_idx, align 8
   br label %315
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread191: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread188: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i"
   %77 = load i64, ptr %38, align 8, !alias.scope !120, !noundef !4
   %78 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef 21, i1 noundef zeroext false)
   %79 = extractvalue { i64, ptr } %78, 0
@@ -908,8 +908,8 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   %171 = load i8, ptr %.sroa.3.0.copyload.i.i.i.i141, align 1, !noalias !231, !noundef !4
   %172 = tail call { i32, i8 } @_ZN6uu_env14native_int_str24get_char_from_native_int17h567f0d96168909e2E(i8 noundef %171), !noalias !231
   %173 = extractvalue { i32, i8 } %172, 0
-  %or.cond88.i = icmp ult i32 %173, 128
-  br i1 %or.cond88.i, label %179, label %.thread22.i
+  %or.cond89.i = icmp ult i32 %173, 128
+  br i1 %or.cond89.i, label %179, label %.thread22.i
 
 _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i.i140"
   %174 = load i64, ptr %38, align 8, !alias.scope !232, !noalias !206, !noundef !4
@@ -1016,7 +1016,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %199
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_checked17h1ddf6854870ffb9eE.llvm.16827823597129230134"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %204, i64 noundef %205, i64 noundef %203), !noalias !284
   %206 = load ptr, ptr %7, align 8, !noalias !279, !noundef !4
   %207 = icmp eq ptr %206, null
-  br i1 %207, label %._crit_edge96.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.lr.ph.i"
+  br i1 %207, label %._crit_edge97.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.lr.ph.i"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.lr.ph.i": ; preds = %202
   %.sroa.3.0..sroa_idx.i.i.i124.i = getelementptr inbounds i8, ptr %7, i64 16
@@ -1064,7 +1064,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %199
   call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.60abe728c86cd201b6b12a3448c31f09.37.llvm.16827823597129230134) #10, !noalias !303
   unreachable
 
-._crit_edge96.i:                                  ; preds = %255, %202
+._crit_edge97.i:                                  ; preds = %255, %202
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !304
   store ptr @anon.60abe728c86cd201b6b12a3448c31f09.23.llvm.16827823597129230134, ptr %6, align 8, !noalias !304
   %222 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1083,7 +1083,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %199
   %.sroa.4.0.copyload.i.i.i127.i = load i64, ptr %.sroa.4.0..sroa_idx.i.i.i126.i, align 8, !noalias !308
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !304
   %226 = icmp eq i64 %.sroa.4.0.copyload.i.i.i127.i, 0
-  br i1 %226, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i, label %227
+  br i1 %226, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i, label %227
 
 227:                                              ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
   %228 = load i8, ptr %.sroa.3.0.copyload.i.i.i125.i, align 1, !noalias !309, !noundef !4
@@ -1092,7 +1092,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %199
   %cond.i = icmp eq i32 %230, 125
   br i1 %cond.i, label %236, label %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread.i
 
-_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
+_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
   %231 = load i64, ptr %38, align 8, !alias.scope !310, !noalias !206, !noundef !4
   %232 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h94b64fd980b0ab3eE"(i64 noundef 41, i1 noundef zeroext false), !noalias !206
   %233 = extractvalue { i64, ptr } %232, 0
@@ -1186,7 +1186,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16split_at_checked17h1ddf6854870ffb9eE.llvm.16827823597129230134"(ptr noalias nocapture noundef nonnull sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %7, ptr noalias noundef nonnull readonly align 1 %257, i64 noundef %258, i64 noundef %256), !noalias !344
   %259 = load ptr, ptr %7, align 8, !noalias !343, !noundef !4
   %260 = icmp eq ptr %259, null
-  br i1 %260, label %._crit_edge96.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
+  br i1 %260, label %._crit_edge97.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i.i.i123.i"
 
 261:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread.i
   %262 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1268,13 +1268,13 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   br label %315
 
 300:                                              ; preds = %254, %275
-  %.054.i = phi i64 [ %203, %275 ], [ %209, %254 ]
+  %.051.i = phi i64 [ %203, %275 ], [ %209, %254 ]
   %.sroa.050.0.i = phi ptr [ %279, %275 ], [ null, %254 ]
   %.sroa.351.0.i = phi i64 [ %280, %275 ], [ undef, %254 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17), !noalias !206
   store i64 %155, ptr %17, align 8, !noalias !206
   %301 = getelementptr inbounds i8, ptr %17, i64 8
-  store i64 %.054.i, ptr %301, align 8, !noalias !206
+  store i64 %.051.i, ptr %301, align 8, !noalias !206
   %302 = call { ptr, i64 } @_ZN6uu_env13string_parser12StringParser9substring17h9deae5bee2eab3fdE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %.val116, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %17), !noalias !206
   %303 = extractvalue { ptr, i64 } %302, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17), !noalias !206
@@ -1282,13 +1282,13 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   call void @llvm.assume(i1 %304)
   br label %307
 
-305:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150, %287, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %268, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i, %253, %261, %164
-  %.sroa.33.0.ph = phi ptr [ %.sroa.257.i.sroa.6.0.copyload, %164 ], [ %267, %261 ], [ %.sroa.280.i.sroa.6.0.copyload, %253 ], [ %234, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ %274, %268 ], [ %.sroa.33.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %293, %287 ], [ %177, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.41.0.ph = phi i64 [ %.sroa.257.i.sroa.7.0.copyload, %164 ], [ undef, %261 ], [ %.sroa.280.i.sroa.7.0.copyload, %253 ], [ 41, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ undef, %268 ], [ %.sroa.41.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %287 ], [ 21, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.24.0.ph = phi i64 [ %.sroa.257.i.sroa.5.0.copyload, %164 ], [ %265, %261 ], [ %.sroa.280.i.sroa.5.0.copyload, %253 ], [ %233, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ %272, %268 ], [ %.sroa.24.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %291, %287 ], [ %176, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.15.0.ph = phi i64 [ %.sroa.257.i.sroa.4.0.copyload, %164 ], [ %265, %261 ], [ %.sroa.280.i.sroa.4.0.copyload, %253 ], [ %231, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ %272, %268 ], [ %200, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %291, %287 ], [ %174, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.12.0.ph = phi i32 [ %.sroa.257.i.sroa.0.0.copyload, %164 ], [ undef, %261 ], [ %.sroa.280.i.sroa.0.0.copyload, %253 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ undef, %268 ], [ undef, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %287 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
-  %.sroa.0161.0.ph = phi i32 [ %156, %164 ], [ 5, %261 ], [ %238, %253 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread39.i ], [ 5, %268 ], [ 4, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 5, %287 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+305:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150, %287, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i, %268, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i, %253, %261, %164
+  %.sroa.33.0.ph = phi ptr [ %.sroa.257.i.sroa.6.0.copyload, %164 ], [ %267, %261 ], [ %.sroa.280.i.sroa.6.0.copyload, %253 ], [ %234, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %274, %268 ], [ %.sroa.33.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %293, %287 ], [ %177, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.41.0.ph = phi i64 [ %.sroa.257.i.sroa.7.0.copyload, %164 ], [ undef, %261 ], [ %.sroa.280.i.sroa.7.0.copyload, %253 ], [ 41, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ undef, %268 ], [ %.sroa.41.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %287 ], [ 21, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.24.0.ph = phi i64 [ %.sroa.257.i.sroa.5.0.copyload, %164 ], [ %265, %261 ], [ %.sroa.280.i.sroa.5.0.copyload, %253 ], [ %233, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %272, %268 ], [ %.sroa.24.16.copyload, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %291, %287 ], [ %176, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.15.0.ph = phi i64 [ %.sroa.257.i.sroa.4.0.copyload, %164 ], [ %265, %261 ], [ %.sroa.280.i.sroa.4.0.copyload, %253 ], [ %231, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ %272, %268 ], [ %200, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ %291, %287 ], [ %174, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.12.0.ph = phi i32 [ %.sroa.257.i.sroa.0.0.copyload, %164 ], [ undef, %261 ], [ %.sroa.280.i.sroa.0.0.copyload, %253 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ undef, %268 ], [ undef, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ undef, %287 ], [ undef, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
+  %.sroa.0161.0.ph = phi i32 [ %156, %164 ], [ 5, %261 ], [ %238, %253 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit130.thread36.i ], [ 5, %268 ], [ 4, %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i ], [ 5, %287 ], [ 4, %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.i150 ]
   %306 = inttoptr i64 %.sroa.15.0.ph to ptr
   store i32 %.sroa.0161.0.ph, ptr %0, align 8
   %.sroa.288.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
@@ -1351,7 +1351,7 @@ _ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381
   store i64 %.sroa.22.0.ph, ptr %.sroa.5107.sroa.2.0..sroa.5107.0..sroa_idx.sroa_idx, align 8
   br label %315
 
-315:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread191, %294, %305, %313, %307, %71
+315:                                              ; preds = %_ZN6uu_env15variable_parser14VariableParser16get_current_char17hfed00b04c60d7381E.exit.thread188, %294, %305, %313, %307, %71
   ret void
 }
 

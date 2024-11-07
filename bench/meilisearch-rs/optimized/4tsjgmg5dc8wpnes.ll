@@ -6602,9 +6602,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
 
 52:                                               ; preds = %50
   %.not = icmp eq ptr %47, null
-  br i1 %.not, label %56, label %.thread64
+  br i1 %.not, label %56, label %.thread67
 
-.thread64:                                        ; preds = %52
+.thread67:                                        ; preds = %52
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.thread
 
@@ -6687,8 +6687,8 @@ common.resume:                                    ; preds = %48, %68
   store i32 %.sroa.6.0.copyload, ptr %.sroa.418.0..sroa_idx, align 4
   br label %74
 
-.thread:                                          ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd1cd57eebf8af7f5E.exit39", %thread-pre-split, %.thread64, %28, %56
-  %.sroa.01.2 = phi ptr [ %.sroa.042.0.copyload, %56 ], [ %29, %28 ], [ %47, %.thread64 ], [ %.sroa.042.0.copyload, %thread-pre-split ], [ %.sroa.042.0.copyload, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd1cd57eebf8af7f5E.exit39" ]
+.thread:                                          ; preds = %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd1cd57eebf8af7f5E.exit39", %thread-pre-split, %.thread67, %28, %56
+  %.sroa.01.2 = phi ptr [ %.sroa.042.0.copyload, %56 ], [ %29, %28 ], [ %47, %.thread67 ], [ %.sroa.042.0.copyload, %thread-pre-split ], [ %.sroa.042.0.copyload, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17hd1cd57eebf8af7f5E.exit39" ]
   %71 = icmp ne ptr %.sroa.01.2, null
   call void @llvm.assume(i1 %71)
   %72 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h5c4bf8e64153d89fE(ptr noalias noundef nonnull align 8 %.sroa.01.2, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)

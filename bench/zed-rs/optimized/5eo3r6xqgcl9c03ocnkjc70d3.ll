@@ -1122,12 +1122,12 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %.promoted.i = load ptr, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !143, !noalias !146
   %229 = load ptr, ptr %.sroa.537.sroa.0.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !140, !nonnull !5
-  %.promoted39.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !148, !noalias !151
+  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !148, !noalias !151
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i": ; preds = %244, %228
-  %230 = phi i64 [ %.promoted39.i, %228 ], [ %245, %244 ]
-  %231 = phi ptr [ %.promoted.i, %228 ], [ %236, %244 ]
+  %230 = phi i64 [ %245, %244 ], [ %.promoted36.i, %228 ]
+  %231 = phi ptr [ %236, %244 ], [ %.promoted.i, %228 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !153)
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.loopexit159, label %233
@@ -2040,12 +2040,12 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.302656264734468722.exit.
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
   %.promoted.i = load ptr, ptr %.sroa.537.0..sroa_idx, align 8, !alias.scope !263, !noalias !266
   %229 = load ptr, ptr %.sroa.537.sroa.0.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !260, !nonnull !5
-  %.promoted39.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !268, !noalias !271
+  %.promoted36.i = load i64, ptr %.sroa.537.sroa.2.0..sroa.537.0..sroa_idx.sroa_idx, align 8, !alias.scope !268, !noalias !271
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17h24d9e03fb85efdb8E.exit4.i": ; preds = %244, %228
-  %230 = phi i64 [ %.promoted39.i, %228 ], [ %245, %244 ]
-  %231 = phi ptr [ %.promoted.i, %228 ], [ %236, %244 ]
+  %230 = phi i64 [ %245, %244 ], [ %.promoted36.i, %228 ]
+  %231 = phi ptr [ %236, %244 ], [ %.promoted.i, %228 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
   %232 = icmp eq ptr %231, null
   br i1 %232, label %.loopexit159, label %233
@@ -8108,12 +8108,13 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6re
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx, align 8
   store i32 1, ptr %16, align 8
   %switch7.not.not = icmp eq i32 %17, 0
-  %spec.select = select i1 %switch7.not.not, ptr %.sroa.45.0.copyload, ptr null
+  %spec.select = select i1 %switch7.not.not, ptr %.sroa.5.0.copyload, ptr undef
+  %spec.select8 = select i1 %switch7.not.not, ptr %.sroa.45.0.copyload, ptr null
   br label %28
 
 28:                                               ; preds = %24, %21, %3
-  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %.sroa.5.0.copyload, %24 ]
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select, %24 ]
+  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %spec.select, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select8, %24 ]
   %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %30
@@ -8151,19 +8152,18 @@ define hidden { i64, ptr } @"_ZN81_$LT$slab..IterMut$LT$T$GT$$u20$as$u20$core..i
   br i1 %trunc, label %15, label %5
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25c1e695e7550981E.llvm.5086258882527994251.exit.thread": ; preds = %5, %15
-  %13 = phi { i64, ptr } [ %17, %15 ], [ { i64 undef, ptr null }, %5 ]
-  %.sroa.3.0 = phi ptr [ %21, %15 ], [ null, %5 ]
+  %13 = phi { i64, ptr } [ %16, %15 ], [ { i64 undef, ptr poison }, %5 ]
+  %.sroa.3.0 = phi ptr [ %20, %15 ], [ null, %5 ]
   %14 = insertvalue { i64, ptr } %13, ptr %.sroa.3.0, 1
   ret { i64, ptr } %14
 
 15:                                               ; preds = %9
   %16 = insertvalue { i64, ptr } poison, i64 %6, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %7, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
-  %19 = load i64, ptr %18, align 8, !noundef !5
-  %20 = add i64 %19, -1
-  store i64 %20, ptr %18, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = load i64, ptr %17, align 8, !noundef !5
+  %19 = add i64 %18, -1
+  store i64 %19, ptr %17, align 8
+  %20 = getelementptr inbounds i8, ptr %7, i64 8
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h25c1e695e7550981E.llvm.5086258882527994251.exit.thread"
 }
 
@@ -16927,11 +16927,12 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h20a3f1dd7c05f6bbE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h20a3f1dd7c05f6bbE.exit": ; preds = %"_ZN7channel13channel_store12ChannelStore21open_channel_resource28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h344d94a91dd2e34eE.exit.i", %48
+  %.sroa.316.0 = phi i32 [ undef, %"_ZN7channel13channel_store12ChannelStore21open_channel_resource28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h344d94a91dd2e34eE.exit.i" ], [ %.sroa.3.0.copyload, %48 ]
   %.sroa.417.0 = phi ptr [ %58, %"_ZN7channel13channel_store12ChannelStore21open_channel_resource28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h344d94a91dd2e34eE.exit.i" ], [ %.sroa.311.0.copyload, %48 ]
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.0.0.copyload, ptr %66, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.3.0.copyload, ptr %.sroa.316.0..sroa_idx, align 4
+  store i32 %.sroa.316.0, ptr %.sroa.316.0..sroa_idx, align 4
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.417.0, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -17155,11 +17156,12 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h302a4e62f24a3dcbE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h302a4e62f24a3dcbE.exit": ; preds = %"_ZN7channel13channel_store12ChannelStore21open_channel_resource28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h233bd8a95021dfafE.exit.i", %48
+  %.sroa.316.0 = phi i32 [ undef, %"_ZN7channel13channel_store12ChannelStore21open_channel_resource28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h233bd8a95021dfafE.exit.i" ], [ %.sroa.3.0.copyload, %48 ]
   %.sroa.417.0 = phi ptr [ %58, %"_ZN7channel13channel_store12ChannelStore21open_channel_resource28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h233bd8a95021dfafE.exit.i" ], [ %.sroa.311.0.copyload, %48 ]
   %66 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.0.0.copyload, ptr %66, align 8
   %.sroa.316.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.3.0.copyload, ptr %.sroa.316.0..sroa_idx, align 4
+  store i32 %.sroa.316.0, ptr %.sroa.316.0..sroa_idx, align 4
   %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.417.0, ptr %.sroa.417.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24

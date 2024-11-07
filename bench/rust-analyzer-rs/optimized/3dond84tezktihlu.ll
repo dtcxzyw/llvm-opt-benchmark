@@ -1833,7 +1833,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %.not35 = phi i1 [ true, %2 ], [ true, %32 ], [ false, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17haf9d535e85127fecE.llvm.17395978385996932917.exit.i.i" ], [ false, %49 ], [ false, %47 ]
   %.sroa.4.033 = phi ptr [ %0, %2 ], [ %34, %32 ], [ %.sink18.i.i, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17haf9d535e85127fecE.llvm.17395978385996932917.exit.i.i" ], [ %.sink18.i.i, %49 ], [ %.sink18.i.i, %47 ]
   %.sroa.16.131 = phi i64 [ 0, %2 ], [ %.sroa.16.0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17haf9d535e85127fecE.llvm.17395978385996932917.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
-  %.sroa.415.029 = phi i64 [ undef, %2 ], [ %.sroa.16.0, %47 ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17haf9d535e85127fecE.llvm.17395978385996932917.exit.i.i" ], [ %.sroa.16.0, %32 ]
+  %.sroa.415.029 = phi i64 [ undef, %2 ], [ undef, %32 ], [ %.sroa.16.0, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17haf9d535e85127fecE.llvm.17395978385996932917.exit.i.i" ], [ %.sroa.16.0, %49 ], [ %.sroa.16.0, %47 ]
   %70 = phi i64 [ 0, %2 ], [ 0, %32 ], [ %46, %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17haf9d535e85127fecE.llvm.17395978385996932917.exit.i.i" ], [ %46, %49 ], [ %46, %47 ]
   %71 = icmp eq ptr %.sroa.4.033, %3
   br i1 %71, label %.loopexit, label %.lr.ph.i9
@@ -5972,22 +5972,22 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
 69:                                               ; preds = %67
   %70 = and i32 %.sroa.13.0102, 2147483647
   %71 = invoke noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %70)
-          to label %.noexc15.i.i unwind label %.loopexit, !noalias !1312
+          to label %.noexc16.i.i unwind label %.loopexit, !noalias !1312
 
-.noexc15.i.i:                                     ; preds = %69
+.noexc16.i.i:                                     ; preds = %69
   call void @llvm.assume(i1 %53)
   call void @llvm.assume(i1 %54)
   %72 = invoke { ptr, i32 } @"_ZN64_$LT$span..MacroFileId$u20$as$u20$hir_expand..MacroFileIdExt$GT$9call_node17hf7d3aac813efdcd8E"(i32 noundef %71, ptr noundef nonnull align 1 %.sroa.0.0.copyload, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.5.0.copyload)
-          to label %.noexc16.i.i unwind label %.loopexit, !noalias !1312
+          to label %.noexc17.i.i unwind label %.loopexit, !noalias !1312
 
-.noexc16.i.i:                                     ; preds = %.noexc15.i.i
+.noexc17.i.i:                                     ; preds = %.noexc16.i.i
   %73 = extractvalue { ptr, i32 } %72, 0
   %74 = extractvalue { ptr, i32 } %72, 1
   call void @llvm.assume(i1 %55)
   %75 = invoke noundef nonnull ptr @_ZN3hir9semantics13SemanticsImpl15parse_or_expand17ha766215ffe22f8cdE(ptr noundef nonnull align 8 %.sroa.6.0.copyload, i32 noundef %74)
           to label %84 unwind label %76, !noalias !1313
 
-76:                                               ; preds = %89, %.noexc16.i.i
+76:                                               ; preds = %89, %.noexc17.i.i
   %77 = landingpad { ptr, i32 }
           cleanup
   %78 = icmp ne ptr %73, null
@@ -6003,7 +6003,7 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %73)
           to label %.body.i.i unwind label %91
 
-84:                                               ; preds = %.noexc16.i.i
+84:                                               ; preds = %.noexc17.i.i
   %85 = getelementptr inbounds i8, ptr %75, i64 48
   %86 = load i32, ptr %85, align 4, !noalias !1323, !noundef !4
   %87 = add i32 %86, -1
@@ -6039,7 +6039,7 @@ select.unfold:                                    ; preds = %.noexc20.select.unf
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.7.0100)
           to label %.thread unwind label %98, !noalias !1312
 
-.loopexit:                                        ; preds = %69, %.noexc15.i.i
+.loopexit:                                        ; preds = %69, %.noexc16.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i

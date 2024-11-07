@@ -8571,21 +8571,21 @@ define internal void @"_ZN88_$LT$object_store..prefix..PrefixStore$LT$T$GT$$u20$
   %10 = alloca { i64, [11 x i64] }, align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 64
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
-  switch i8 %12, label %default.unreachable32 [
+  switch i8 %12, label %default.unreachable33 [
     i8 0, label %15
     i8 1, label %36
     i8 2, label %37
     i8 3, label %13
   ]
 
-default.unreachable32:                            ; preds = %3
+default.unreachable33:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 48
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !1569, !noalias !1574
-  %.phi.trans.insert30 = getelementptr inbounds i8, ptr %1, i64 56
-  %.pre31 = load ptr, ptr %.phi.trans.insert30, align 8, !alias.scope !1569, !noalias !1574
+  %.phi.trans.insert31 = getelementptr inbounds i8, ptr %1, i64 56
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !1569, !noalias !1574
   br label %38
 
 common.ret:                                       ; preds = %57, %14
@@ -8669,7 +8669,7 @@ common.ret:                                       ; preds = %57, %14
   unreachable
 
 38:                                               ; preds = %13, %31
-  %39 = phi ptr [ %.pre31, %13 ], [ %33, %31 ]
+  %39 = phi ptr [ %.pre32, %13 ], [ %33, %31 ]
   %40 = phi ptr [ %.pre, %13 ], [ %32, %31 ]
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %10)
   %41 = getelementptr inbounds i8, ptr %1, i64 48
@@ -10610,6 +10610,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br label %.thread
 
 21:                                               ; preds = %14, %.thread.i.i.i
+  %.sroa.4.0.i.i.i = phi i8 [ %12, %.thread.i.i.i ], [ 0, %14 ]
   %.sroa.0.0.i.i.i = phi i1 [ false, %.thread.i.i.i ], [ true, %14 ]
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %4)
   store i24 0, ptr %4, align 4
@@ -10623,7 +10624,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
 
 .thread26:                                        ; preds = %3, %23
   %.sroa.0.0.i1430.off8 = phi i8 [ %10, %23 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %12, %23 ], [ 0, %3 ]
+  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %23 ], [ 0, %3 ]
   store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
   %24 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.0.0.i1430.off16, ptr %24, align 1

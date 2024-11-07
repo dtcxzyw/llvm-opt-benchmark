@@ -13118,6 +13118,7 @@ if.then158:                                       ; preds = %if.then101
 
 if.end161:                                        ; preds = %if.then101, %if.then158, %_ZN4pbrt17MaxComponentValueINS_6Point3EfEET0_NS_6Tuple3IT_S2_EE.exit299
   %v.0 = phi float [ %div, %if.then158 ], [ undef, %if.then101 ], [ undef, %_ZN4pbrt17MaxComponentValueINS_6Point3EfEET0_NS_6Tuple3IT_S2_EE.exit299 ]
+  %u.0 = phi float [ %u1.0.ph, %if.then158 ], [ undef, %if.then101 ], [ undef, %_ZN4pbrt17MaxComponentValueINS_6Point3EfEET0_NS_6Tuple3IT_S2_EE.exit299 ]
   %t.0 = phi float [ %div159, %if.then158 ], [ %tMax, %if.then101 ], [ %tMax, %_ZN4pbrt17MaxComponentValueINS_6Point3EfEET0_NS_6Tuple3IT_S2_EE.exit299 ]
   %cmp162 = fcmp oge float %u2.0.ph, 0.000000e+00
   %cmp164 = fcmp ole float %u2.0.ph, 1.000000e+00
@@ -13237,7 +13238,7 @@ if.then234:                                       ; preds = %if.then167
 
 if.end237:                                        ; preds = %if.then167, %if.then234, %if.end161
   %v.1 = phi float [ %div235, %if.then234 ], [ %v.0, %if.then167 ], [ %v.0, %if.end161 ]
-  %u.1 = phi float [ %u2.0.ph, %if.then234 ], [ %u1.0.ph, %if.then167 ], [ %u1.0.ph, %if.end161 ]
+  %u.1 = phi float [ %u2.0.ph, %if.then234 ], [ %u.0, %if.then167 ], [ %u.0, %if.end161 ]
   %t.1 = phi float [ %div226, %if.then234 ], [ %t.0, %if.then167 ], [ %t.0, %if.end161 ]
   %cmp238 = fcmp ult float %t.1, %tMax
   br i1 %cmp238, label %if.end240, label %if.then239

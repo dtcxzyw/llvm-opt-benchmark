@@ -1678,8 +1678,8 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52: ; preds =
   %167 = load ptr, ptr %21, align 8
   store ptr %.sroa.075.0, ptr %21, align 8
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.075.0) #15
-  %.not86 = icmp eq ptr %167, null
-  br i1 %.not86, label %168, label %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit48
+  %.not90 = icmp eq ptr %167, null
+  br i1 %.not90, label %168, label %_ZNK5clang4ento4SVal5getAsINS0_11DefinedSValEEESt8optionalIT_Ev.exit48
 
 168:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52
   %169 = load ptr, ptr %1, align 8

@@ -2927,7 +2927,7 @@ define hidden { i64, ptr } @_ZN12futures_util2io11read_to_end20read_to_end_inter
   br i1 %.not, label %48, label %9
 
 .loopexit31:                                      ; preds = %37, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit", %41
-  %.sroa.4.0 = phi ptr [ %43, %41 ], [ %35, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit" ], [ %35, %37 ]
+  %.sroa.4.0 = phi ptr [ %43, %41 ], [ %35, %37 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit" ]
   %.sroa.0.0 = phi i64 [ 0, %41 ], [ 1, %37 ], [ 2, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit" ]
   store i64 %storemerge, ptr %5, align 8
   %46 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
@@ -6492,8 +6492,8 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   br label %12
 
 12:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h7a75a35e1c125d21E.llvm.2634006388847390452.exit.thread", %7
-  %.sink24.i12 = phi i64 [ %11, %7 ], [ %2, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h7a75a35e1c125d21E.llvm.2634006388847390452.exit.thread" ]
   %.sink25.i11 = phi i64 [ %8, %7 ], [ %6, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h7a75a35e1c125d21E.llvm.2634006388847390452.exit.thread" ]
+  %.sroa.5.sroa.4.0 = phi i64 [ %11, %7 ], [ undef, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h7a75a35e1c125d21E.llvm.2634006388847390452.exit.thread" ]
   %.not = icmp eq i64 %2, 0
   %. = select i1 %.not, i64 544, i64 640
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef %., i64 noundef 8) #30
@@ -6501,7 +6501,7 @@ define hidden void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..colle
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink25.i11, ptr %.sroa.5.0..sroa_idx2, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink24.i12, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx, align 8
+  store i64 %.sroa.5.sroa.4.0, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx2.sroa_idx, align 8
   ret void
 }
 
@@ -8803,7 +8803,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   %3 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h6b69f62ee09787d9E.llvm.2634006388847390452"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   switch i64 %4, label %5 [
-    i64 2, label %8
+    i64 2, label %9
     i64 0, label %6
     i64 1, label %7
   ]
@@ -8816,13 +8816,14 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   unreachable
 
 7:                                                ; preds = %2
-  br label %8
+  %8 = extractvalue { i64, ptr } %3, 1
+  br label %9
 
-8:                                                ; preds = %2, %7
+9:                                                ; preds = %2, %7
+  %.sroa.3.0 = phi ptr [ %8, %7 ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 0, %7 ], [ 1, %2 ]
-  %9 = extractvalue { i64, ptr } %3, 1
   %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, ptr } %10, ptr %9, 1
+  %11 = insertvalue { i64, ptr } %10, ptr %.sroa.3.0, 1
   ret { i64, ptr } %11
 }
 
@@ -8868,7 +8869,7 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   %3 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h4231448c5358a89bE.llvm.2634006388847390452"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = extractvalue { i64, ptr } %3, 0
   switch i64 %4, label %5 [
-    i64 2, label %8
+    i64 2, label %9
     i64 0, label %6
     i64 1, label %7
   ]
@@ -8881,13 +8882,14 @@ define hidden { i64, ptr } @"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$a
   unreachable
 
 7:                                                ; preds = %2
-  br label %8
+  %8 = extractvalue { i64, ptr } %3, 1
+  br label %9
 
-8:                                                ; preds = %2, %7
+9:                                                ; preds = %2, %7
+  %.sroa.3.0 = phi ptr [ %8, %7 ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ 0, %7 ], [ 1, %2 ]
-  %9 = extractvalue { i64, ptr } %3, 1
   %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %11 = insertvalue { i64, ptr } %10, ptr %9, 1
+  %11 = insertvalue { i64, ptr } %10, ptr %.sroa.3.0, 1
   ret { i64, ptr } %11
 }
 
@@ -9022,10 +9024,10 @@ define hidden void @"_ZN92_$LT$futures_lite..future..TryZip$LT$F1$C$F2$GT$$u20$a
 ._crit_edge.i:                                    ; preds = %12
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 112
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !alias.scope !1787, !noalias !1790
-  %.phi.trans.insert53.i = getelementptr inbounds i8, ptr %1, i64 120
-  %.pre54.i = load i64, ptr %.phi.trans.insert53.i, align 8, !alias.scope !1787, !noalias !1790
-  %.phi.trans.insert55.i = getelementptr inbounds i8, ptr %1, i64 104
-  %.val.i.pre.i = load ptr, ptr %.phi.trans.insert55.i, align 8, !alias.scope !1787, !noalias !1790
+  %.phi.trans.insert49.i = getelementptr inbounds i8, ptr %1, i64 120
+  %.pre50.i = load i64, ptr %.phi.trans.insert49.i, align 8, !alias.scope !1787, !noalias !1790
+  %.phi.trans.insert51.i = getelementptr inbounds i8, ptr %1, i64 104
+  %.val.i.pre.i = load ptr, ptr %.phi.trans.insert51.i, align 8, !alias.scope !1787, !noalias !1790
   br label %36
 
 default.unreachable:                              ; preds = %141, %12
@@ -9092,7 +9094,7 @@ default.unreachable:                              ; preds = %141, %12
 
 36:                                               ; preds = %27, %._crit_edge.i
   %.val.i.i = phi ptr [ %.val.i.pre.i, %._crit_edge.i ], [ %28, %27 ]
-  %37 = phi i64 [ %.pre54.i, %._crit_edge.i ], [ 0, %27 ]
+  %37 = phi i64 [ %.pre50.i, %._crit_edge.i ], [ 0, %27 ]
   %38 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %19, %27 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1796)
@@ -9225,7 +9227,7 @@ default.unreachable:                              ; preds = %141, %12
   unreachable
 
 _ZN12futures_lite2io20read_to_end_internal17h6b48fa5035d130e1E.exit.i.i: ; preds = %75, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h928cf62ace2875f0E.exit.i.i.i", %80
-  %.sroa.3.0.i.i.i = phi ptr [ %82, %80 ], [ %73, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h928cf62ace2875f0E.exit.i.i.i" ], [ %73, %75 ]
+  %.sroa.3.0.i.i.i = phi ptr [ %82, %80 ], [ %73, %75 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h928cf62ace2875f0E.exit.i.i.i" ]
   invoke void @"_ZN87_$LT$futures_lite..io..read_to_end_internal..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7eac2bf4046b4777E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
           to label %90 unwind label %88, !noalias !1795
 
@@ -9433,10 +9435,10 @@ common.resume:                                    ; preds = %138, %266, %279, %"
 ._crit_edge.i99:                                  ; preds = %141
   %.phi.trans.insert.i100 = getelementptr inbounds i8, ptr %1, i64 200
   %.pre.i101 = load ptr, ptr %.phi.trans.insert.i100, align 8, !alias.scope !1860, !noalias !1863
-  %.phi.trans.insert53.i102 = getelementptr inbounds i8, ptr %1, i64 208
-  %.pre54.i103 = load i64, ptr %.phi.trans.insert53.i102, align 8, !alias.scope !1860, !noalias !1863
-  %.phi.trans.insert55.i104 = getelementptr inbounds i8, ptr %1, i64 192
-  %.val.i.pre.i105 = load ptr, ptr %.phi.trans.insert55.i104, align 8, !alias.scope !1860, !noalias !1863
+  %.phi.trans.insert49.i102 = getelementptr inbounds i8, ptr %1, i64 208
+  %.pre50.i103 = load i64, ptr %.phi.trans.insert49.i102, align 8, !alias.scope !1860, !noalias !1863
+  %.phi.trans.insert51.i104 = getelementptr inbounds i8, ptr %1, i64 192
+  %.val.i.pre.i105 = load ptr, ptr %.phi.trans.insert51.i104, align 8, !alias.scope !1860, !noalias !1863
   br label %164
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h55c7b5271cf21f00E.exit.i116": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.17929084834415715485.exit.i.i1.i.i115", %"_ZN4core3ptr47drop_in_place$LT$async_process..ChildStderr$GT$17h9633fafdc8194568E.exit.i"
@@ -9500,7 +9502,7 @@ common.resume:                                    ; preds = %138, %266, %279, %"
 
 164:                                              ; preds = %155, %._crit_edge.i99
   %.val.i.i106 = phi ptr [ %.val.i.pre.i105, %._crit_edge.i99 ], [ %156, %155 ]
-  %165 = phi i64 [ %.pre54.i103, %._crit_edge.i99 ], [ 0, %155 ]
+  %165 = phi i64 [ %.pre50.i103, %._crit_edge.i99 ], [ 0, %155 ]
   %166 = phi ptr [ %.pre.i101, %._crit_edge.i99 ], [ %147, %155 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1860)
   call void @llvm.experimental.noalias.scope.decl(metadata !1869)
@@ -9633,7 +9635,7 @@ common.resume:                                    ; preds = %138, %266, %279, %"
   unreachable
 
 _ZN12futures_lite2io20read_to_end_internal17h401e1a3938902ee9E.exit.i.i: ; preds = %203, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit.i.i.i", %208
-  %.sroa.3.0.i.i.i120 = phi ptr [ %210, %208 ], [ %201, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit.i.i.i" ], [ %201, %203 ]
+  %.sroa.3.0.i.i.i120 = phi ptr [ %210, %208 ], [ %201, %203 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1635823909210445E.exit.i.i.i" ]
   invoke void @"_ZN87_$LT$futures_lite..io..read_to_end_internal..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7eac2bf4046b4777E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
           to label %218 unwind label %216, !noalias !1868
 
@@ -9844,9 +9846,9 @@ _ZN12futures_lite2io20read_to_end_internal17h401e1a3938902ee9E.exit.i.i: ; preds
   %274 = icmp ne ptr %.sroa.546.sroa.0.0.copyload, null
   call void @llvm.assume(i1 %274)
   invoke fastcc void @"_ZN92_$LT$futures_lite..future..TryZip$LT$F1$C$F2$GT$$u20$as$u20$core..future..future..Future$GT$4poll28_$u7b$$u7b$closure$u7d$$u7d$17h0a4041a78259a0bbE"(ptr noundef nonnull %.sroa.546.sroa.0.0.copyload)
-          to label %.unreachable231 unwind label %286
+          to label %.unreachable235 unwind label %286
 
-.unreachable231:                                  ; preds = %273
+.unreachable235:                                  ; preds = %273
   unreachable
 
 275:                                              ; preds = %271

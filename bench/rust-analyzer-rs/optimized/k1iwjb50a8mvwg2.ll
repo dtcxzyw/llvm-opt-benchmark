@@ -1004,16 +1004,16 @@ define internal fastcc void @"_ZN3fst3raw5build16Builder$LT$W$GT$12compile_from1
   br label %24
 
 22:                                               ; preds = %.lr.ph, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28"
-  %.048 = phi i64 [ 1, %.lr.ph ], [ %.sroa.8.133.ph, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28" ]
+  %.050 = phi i64 [ 1, %.lr.ph ], [ %.sroa.8.133.ph, %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit28" ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %23 = icmp eq i64 %.048, 1
+  %23 = icmp eq i64 %.050, 1
   br i1 %23, label %26, label %25
 
 24:                                               ; preds = %"_ZN4core3ptr49drop_in_place$LT$fst..raw..build..BuilderNode$GT$17he979db75c2673d5bE.exit", %._crit_edge
   ret void
 
 25:                                               ; preds = %22
-  call void @_ZN3fst3raw5build15UnfinishedNodes10pop_freeze17h5befa6b4d75e0895E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.048)
+  call void @_ZN3fst3raw5build15UnfinishedNodes10pop_freeze17h5befa6b4d75e0895E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 }, i64, i8, [7 x i8] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %.050)
   br label %27
 
 26:                                               ; preds = %22
@@ -1514,21 +1514,21 @@ define hidden void @"_ZN3fst3raw5build16Builder$LT$W$GT$6insert17hcbfa93ebd296c7
   unreachable
 
 132:                                              ; preds = %.noexc16, %71
-  %.sroa.8.049.ph = phi i64 [ %53, %71 ], [ %45, %.noexc16 ]
-  %.sroa.9.048.ph = phi ptr [ %54, %71 ], [ %46, %.noexc16 ]
-  %.sroa.10.047.ph = phi i64 [ %36, %71 ], [ %.val15, %.noexc16 ]
-  %.sroa.11.046.ph = phi i64 [ %72, %71 ], [ undef, %.noexc16 ]
   %.sroa.12.045.ph = phi ptr [ %73, %71 ], [ undef, %.noexc16 ]
+  %.sroa.7.sroa.5.0.ph = phi i64 [ %53, %71 ], [ %45, %.noexc16 ]
+  %.sroa.7.sroa.6.0.ph = phi ptr [ %54, %71 ], [ %46, %.noexc16 ]
+  %.sroa.7.sroa.7.0.ph = phi i64 [ %36, %71 ], [ %.val15, %.noexc16 ]
+  %.sroa.7.sroa.8.0.ph = phi i64 [ %72, %71 ], [ undef, %.noexc16 ]
   %.sroa.0.0.ph = phi i32 [ 5, %71 ], [ 4, %.noexc16 ]
   store i32 %.sroa.0.0.ph, ptr %0, align 8
   %.sroa.211.sroa.2.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.8.049.ph, ptr %.sroa.211.sroa.2.0..sroa.211.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7.sroa.5.0.ph, ptr %.sroa.211.sroa.2.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.3.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.9.048.ph, ptr %.sroa.211.sroa.3.0..sroa.211.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.7.sroa.6.0.ph, ptr %.sroa.211.sroa.3.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.4.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.10.047.ph, ptr %.sroa.211.sroa.4.0..sroa.211.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7.sroa.7.0.ph, ptr %.sroa.211.sroa.4.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.5.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.11.046.ph, ptr %.sroa.211.sroa.5.0..sroa.211.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.7.sroa.8.0.ph, ptr %.sroa.211.sroa.5.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.6.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.sroa.12.045.ph, ptr %.sroa.211.sroa.6.0..sroa.211.0..sroa_idx.sroa_idx, align 8
   %.sroa.211.sroa.7.0..sroa.211.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48

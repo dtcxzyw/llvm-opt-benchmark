@@ -4367,10 +4367,10 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds i8, ptr %7, i64 56
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %7, i64 8
-  %.pre50 = load i64, ptr %.phi.trans.insert49, align 8
-  %.phi.trans.insert51 = getelementptr inbounds i8, ptr %7, i64 24
-  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8
+  %.phi.trans.insert53 = getelementptr inbounds i8, ptr %7, i64 8
+  %.pre54 = load i64, ptr %.phi.trans.insert53, align 8
+  %.phi.trans.insert55 = getelementptr inbounds i8, ptr %7, i64 24
+  %.pre56 = load i64, ptr %.phi.trans.insert55, align 8
   br label %74
 
 22:                                               ; preds = %4
@@ -4441,8 +4441,8 @@ define internal fastcc i32 @split_sdf_cubic(ptr noundef nonnull %0, ptr nocaptur
   br label %133
 
 74:                                               ; preds = %._crit_edge, %41, %34, %22
-  %75 = phi i64 [ %.pre52, %._crit_edge ], [ %27, %41 ], [ %27, %34 ], [ %27, %22 ]
-  %76 = phi i64 [ %.pre50, %._crit_edge ], [ %24, %41 ], [ %24, %34 ], [ %24, %22 ]
+  %75 = phi i64 [ %.pre56, %._crit_edge ], [ %27, %41 ], [ %27, %34 ], [ %27, %22 ]
+  %76 = phi i64 [ %.pre54, %._crit_edge ], [ %24, %41 ], [ %24, %34 ], [ %24, %22 ]
   %77 = phi i64 [ %.pre, %._crit_edge ], [ %30, %41 ], [ %30, %34 ], [ %30, %22 ]
   %78 = getelementptr inbounds i8, ptr %7, i64 96
   store i64 %18, ptr %78, align 16

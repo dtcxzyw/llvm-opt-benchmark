@@ -2262,11 +2262,11 @@ define void @_ZN9uu_csplit8patterns12get_patterns17h736866e8f47cbc41E(ptr noalia
   br label %273
 
 "_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit184.i": ; preds = %355, %.loopexit.split-lp380.i, %.loopexit379.i
-  %.not141.not.not.not.i.not.not156 = phi i1 [ false, %355 ], [ %.not141.not.not.not.i.not.not.not.not.not, %.loopexit379.i ], [ %.not141.not.not.not.i.not.not.not.not.not, %.loopexit.split-lp380.i ]
+  %.not141.not.not.not.i.not.not147 = phi i1 [ false, %355 ], [ %.not141.not.not.not.i.not.not.not.not.not, %.loopexit379.i ], [ %.not141.not.not.not.i.not.not.not.not.not, %.loopexit.split-lp380.i ]
   %eh.lpad-body240.i = phi { ptr, i32 } [ %356, %355 ], [ %lpad.loopexit381.i, %.loopexit379.i ], [ %lpad.loopexit.split-lp382.i, %.loopexit.split-lp380.i ]
   %335 = load i64, ptr %32, align 8, !range !224, !noalias !189, !noundef !5
   %.not150.i = icmp eq i64 %335, 2
-  %brmerge166.i = or i1 %.not141.not.not.not.i.not.not156, %.not150.i
+  %brmerge166.i = or i1 %.not141.not.not.not.i.not.not147, %.not150.i
   br i1 %brmerge166.i, label %"_ZN4core3ptr51drop_in_place$LT$regex..regex..string..Captures$GT$17h25e9a831c03cca40E.exit.i", label %384
 
 .loopexit379.i:                                   ; preds = %273, %178
@@ -2619,13 +2619,14 @@ common.resume:                                    ; preds = %432, %47, %385, %.b
   br label %436
 
 435:                                              ; preds = %417, %422
+  %.sroa.737.0 = phi i64 [ undef, %417 ], [ %.032.i.i, %422 ]
   %.sroa.5.0 = phi i64 [ %.sroa.911.031.i.i, %417 ], [ %.val.i.i.i, %422 ]
   %.sroa.036.0 = phi i64 [ 5, %417 ], [ 6, %422 ]
   store i64 %.sroa.036.0, ptr %0, align 8
   %.sroa.228.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.0, ptr %.sroa.228.0..sroa_idx, align 8
   %.sroa.228.sroa.2.0..sroa.228.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.032.i.i, ptr %.sroa.228.sroa.2.0..sroa.228.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.737.0, ptr %.sroa.228.sroa.2.0..sroa.228.0..sroa_idx.sroa_idx, align 8
   call void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$uu_csplit..patterns..Pattern$GT$$GT$17he0b7accbf9dde29eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %41)
   br label %436
 

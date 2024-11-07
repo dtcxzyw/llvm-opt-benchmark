@@ -594,9 +594,10 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   br i1 %.sroa.0.0.i.i, label %51, label %6
 
 51:                                               ; preds = %45, %6
+  %.sroa.3.0 = phi i64 [ undef, %6 ], [ %.sroa.11.0, %45 ]
   %.sroa.0.0 = phi i64 [ 0, %6 ], [ 1, %45 ]
   %52 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.11.0, 1
+  %53 = insertvalue { i64, i64 } %52, i64 %.sroa.3.0, 1
   ret { i64, i64 } %53
 }
 
@@ -679,9 +680,10 @@ _RNvXs2U_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_4IterhENtNtNtNtBa_4iter6traits8
   br i1 %51, label %52, label %7
 
 52:                                               ; preds = %46, %7
+  %.sroa.3.0 = phi i64 [ undef, %7 ], [ %.sroa.11.0, %46 ]
   %.sroa.0.0 = phi i64 [ 0, %7 ], [ 1, %46 ]
   %53 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %54 = insertvalue { i64, i64 } %53, i64 %.sroa.11.0, 1
+  %54 = insertvalue { i64, i64 } %53, i64 %.sroa.3.0, 1
   ret { i64, i64 } %54
 }
 

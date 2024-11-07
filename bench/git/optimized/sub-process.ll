@@ -271,8 +271,8 @@ entry:
 
 for.cond.preheader.i:                             ; preds = %entry
   %1 = load i32, ptr %versions, align 4
-  %tobool6.not43.i = icmp eq i32 %1, 0
-  br i1 %tobool6.not43.i, label %for.end.i, label %for.body.i
+  %tobool6.not45.i = icmp eq i32 %1, 0
+  br i1 %tobool6.not45.i, label %for.end.i, label %for.body.i
 
 if.then2.i:                                       ; preds = %entry
   %call3.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.7) #12
@@ -381,23 +381,23 @@ if.end50.i:                                       ; preds = %lor.lhs.false39.i
 
 for.cond58.preheader.i:                           ; preds = %if.end50.i
   %13 = load i32, ptr %versions, align 4
-  %tobool61.not45.i = icmp eq i32 %13, 0
+  %tobool61.not47.i = icmp eq i32 %13, 0
   %.pre.i = load i32, ptr %spec.select.i, align 4
-  br i1 %tobool61.not45.i, label %if.then73.i, label %for.body62.i
+  br i1 %tobool61.not47.i, label %if.then73.i, label %for.body62.i
 
 if.then54.i:                                      ; preds = %if.end50.i
   %call55.i = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.16, ptr noundef nonnull %call52.i) #12
   br label %handshake_version.exit.thread
 
 for.cond58.i:                                     ; preds = %for.body62.i
-  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %arrayidx60.i = getelementptr inbounds i32, ptr %versions, i64 %indvars.iv.next51.i
+  %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
+  %arrayidx60.i = getelementptr inbounds i32, ptr %versions, i64 %indvars.iv.next53.i
   %14 = load i32, ptr %arrayidx60.i, align 4
   %tobool61.not.i = icmp eq i32 %14, 0
   br i1 %tobool61.not.i, label %if.then73.i, label %for.body62.i, !llvm.loop !8
 
 for.body62.i:                                     ; preds = %for.cond58.preheader.i, %for.cond58.i
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %for.cond58.i ], [ 0, %for.cond58.preheader.i ]
+  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %for.cond58.i ], [ 0, %for.cond58.preheader.i ]
   %15 = phi i32 [ %14, %for.cond58.i ], [ %13, %for.cond58.preheader.i ]
   %cmp.i = icmp eq i32 %15, %.pre.i
   br i1 %cmp.i, label %lor.rhs, label %for.cond58.i

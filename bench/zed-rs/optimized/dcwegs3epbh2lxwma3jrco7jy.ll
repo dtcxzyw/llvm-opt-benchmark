@@ -166,8 +166,6 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   store i64 0, ptr %29, align 8, !alias.scope !21, !noalias !31
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19), !noalias !26
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  %.sroa.4.0..sroa_idx72 = getelementptr inbounds i8, ptr %31, i64 8
-  %.sroa.4.0.copyload73 = load i64, ptr %.sroa.4.0..sroa_idx72, align 8
   br label %"_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7124bd1416e4b63cE.exit"
 
 55:                                               ; preds = %51
@@ -250,8 +248,8 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   br label %70
 
 "_ZN119_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7124bd1416e4b63cE.exit": ; preds = %69, %67, %.thread69
-  %.sroa.4.0.copyload77 = phi i64 [ %.sroa.4.0.copyload, %67 ], [ %.sroa.4.0.copyload73, %.thread69 ], [ %.sroa.4.0.copyload, %69 ]
   %.sroa.049.0.copyload75 = phi ptr [ %.sroa.049.0.copyload.pr, %67 ], [ null, %.thread69 ], [ null, %69 ]
+  %.sroa.657.0 = phi i64 [ %.sroa.4.0.copyload, %67 ], [ undef, %.thread69 ], [ undef, %69 ]
   %.sink26.i = phi i64 [ 1, %67 ], [ 0, %.thread69 ], [ 0, %69 ]
   %.sroa.7.0.copyload.sink.i = phi i64 [ %.sroa.550.0.copyload, %67 ], [ 0, %.thread69 ], [ 0, %69 ]
   store i64 %.sink26.i, ptr %27, align 8
@@ -260,7 +258,7 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   %.sroa.556.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 16
   store ptr %.sroa.049.0.copyload75, ptr %.sroa.556.0..sroa_idx, align 8
   %.sroa.657.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 24
-  store i64 %.sroa.4.0.copyload77, ptr %.sroa.657.0..sroa_idx, align 8
+  store i64 %.sroa.657.0, ptr %.sroa.657.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 32
   store i64 %.sink26.i, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 40
@@ -268,7 +266,7 @@ define void @_ZN7snippet7Snippet5parse17hefe7ef05339a1f0bE(ptr dead_on_unwind no
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 48
   store ptr %.sroa.049.0.copyload75, ptr %.sroa.9.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 56
-  store i64 %.sroa.4.0.copyload77, ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.657.0, ptr %.sroa.10.0..sroa_idx, align 8
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %27, i64 64
   store i64 %.sroa.7.0.copyload.sink.i, ptr %.sroa.11.0..sroa_idx, align 8
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hbcd425a1e084d384E.llvm.2322601527008500888"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(72) %27)
@@ -1392,7 +1390,7 @@ define internal fastcc void @_ZN7snippet9parse_int17hb618848ca3f92ca2E(ptr dead_
   br i1 %.sroa.0.0.i.i.i.i.i.i, label %7, label %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h48408cc5ae564990E.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h48408cc5ae564990E.exit": ; preds = %7, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he232fde0f3ea27c9E.exit.i.i.i"
-  %spec.select = phi i64 [ %2, %7 ], [ %8, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he232fde0f3ea27c9E.exit.i.i.i" ]
+  %spec.select = phi i64 [ %8, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he232fde0f3ea27c9E.exit.i.i.i" ], [ %2, %7 ]
   %53 = icmp eq i64 %spec.select, 0
   br i1 %53, label %54, label %61
 

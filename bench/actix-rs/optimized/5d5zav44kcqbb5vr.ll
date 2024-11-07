@@ -377,13 +377,13 @@ define { i64, i64 } @_ZN12actix_router8resource11ResourceDef10find_match17h3b3ba
   %8 = alloca { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, ptr }, { ptr, i64 } }, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i64, ptr %9, align 8, !range !10, !noundef !3
-  switch i64 %10, label %default.unreachable39 [
+  switch i64 %10, label %default.unreachable38 [
     i64 0, label %11
     i64 1, label %33
     i64 2, label %37
   ]
 
-default.unreachable39:                            ; preds = %3
+default.unreachable38:                            ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -394,15 +394,15 @@ default.unreachable39:                            ; preds = %3
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %16 = tail call { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h4f1529533e466d24E"(ptr nonnull align 1 %13, i64 %15, ptr align 1 %1, i64 %2)
   %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = icmp eq ptr %17, null
-  br i1 %19, label %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit, label %20
+  %18 = icmp eq ptr %17, null
+  %19 = extractvalue { ptr, i64 } %16, 1
+  br i1 %18, label %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit, label %20
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds i8, ptr %0, i64 146
   %22 = load i8, ptr %21, align 2, !range !8, !noundef !3
   %23 = trunc nuw i8 %22 to i1
-  %24 = icmp eq i64 %18, 0
+  %24 = icmp eq i64 %19, 0
   br i1 %23, label %26, label %25
 
 25:                                               ; preds = %20
@@ -419,7 +419,7 @@ default.unreachable39:                            ; preds = %3
   %29 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hffe563a39c372372E(i32 47, ptr nonnull align 1 %4, i64 4)
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
-  %32 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01b27e6e42ee21e8E"(ptr nonnull align 1 %17, i64 %18, ptr align 1 %30, i64 %31)
+  %32 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01b27e6e42ee21e8E"(ptr nonnull align 1 %17, i64 %19, ptr align 1 %30, i64 %31)
   br i1 %32, label %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit, label %27
 
 _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: ; preds = %11, %25, %26, %27, %28
@@ -438,8 +438,8 @@ _ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit: 
   %38 = getelementptr inbounds i8, ptr %0, i64 40
   %39 = tail call { i64, i64 } @_ZN12actix_router9regex_set8RegexSet15first_match_idx17hf7630eea3412d5b6E(ptr nonnull align 8 %38, ptr align 1 %1, i64 %2)
   %40 = extractvalue { i64, i64 } %39, 0
-  %41 = extractvalue { i64, i64 } %39, 1
   %.not = icmp eq i64 %40, 0
+  %41 = extractvalue { i64, i64 } %39, 1
   br i1 %.not, label %.thread, label %53
 
 .thread:                                          ; preds = %57, %33, %37, %68, %48, %_ZN12actix_router8resource11ResourceDef12static_match17h3349c34bd81897fbE.exit
@@ -522,15 +522,15 @@ define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h334
   %6 = alloca [4 x i8], align 4
   %7 = tail call { ptr, i64 } @"_ZN55_$LT$$RF$str$u20$as$u20$core..str..pattern..Pattern$GT$15strip_prefix_of17h4f1529533e466d24E"(ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4)
   %8 = extractvalue { ptr, i64 } %7, 0
-  %9 = extractvalue { ptr, i64 } %7, 1
-  %10 = icmp eq ptr %8, null
-  br i1 %10, label %19, label %11
+  %9 = icmp eq ptr %8, null
+  %10 = extractvalue { ptr, i64 } %7, 1
+  br i1 %9, label %19, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 146
   %13 = load i8, ptr %12, align 2, !range !8, !noundef !3
   %14 = trunc nuw i8 %13 to i1
-  %15 = icmp eq i64 %9, 0
+  %15 = icmp eq i64 %10, 0
   br i1 %14, label %17, label %16
 
 16:                                               ; preds = %11
@@ -543,9 +543,10 @@ define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h334
   br label %19
 
 19:                                               ; preds = %17, %22, %16, %5, %18
+  %.sroa.5.0 = phi i64 [ undef, %18 ], [ undef, %5 ], [ %2, %16 ], [ %2, %22 ], [ %2, %17 ]
   %.sroa.0.0 = phi i64 [ 0, %18 ], [ 0, %5 ], [ 1, %16 ], [ 1, %22 ], [ 1, %17 ]
   %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %2, 1
+  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.5.0, 1
   ret { i64, i64 } %21
 
 22:                                               ; preds = %17
@@ -553,7 +554,7 @@ define { i64, i64 } @_ZN12actix_router8resource11ResourceDef12static_match17h334
   %23 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17hffe563a39c372372E(i32 47, ptr nonnull align 1 %6, i64 4)
   %24 = extractvalue { ptr, i64 } %23, 0
   %25 = extractvalue { ptr, i64 } %23, 1
-  %26 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01b27e6e42ee21e8E"(ptr nonnull align 1 %8, i64 %9, ptr align 1 %24, i64 %25)
+  %26 = call zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h01b27e6e42ee21e8E"(ptr nonnull align 1 %8, i64 %10, ptr align 1 %24, i64 %25)
   br i1 %26, label %19, label %18
 }
 

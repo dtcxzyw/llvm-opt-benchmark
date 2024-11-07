@@ -10221,14 +10221,14 @@ define internal void @"_ZN7project7Project23find_or_create_worktree28_$u7b$$u7b$
   %.sroa.7.sroa.9 = alloca [16 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   %6 = load i8, ptr %5, align 8, !range !399, !noundef !4
-  switch i8 %6, label %default.unreachable56 [
+  switch i8 %6, label %default.unreachable57 [
     i8 0, label %7
     i8 1, label %9
     i8 2, label %10
     i8 3, label %11
   ]
 
-default.unreachable56:                            ; preds = %3
+default.unreachable57:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -10361,10 +10361,10 @@ default.unreachable56:                            ; preds = %3
           to label %"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit" unwind label %39
 
 common.ret:                                       ; preds = %44, %38
-  %.sink63 = phi i64 [ 48, %44 ], [ 32, %38 ]
+  %.sink64 = phi i64 [ 48, %44 ], [ 32, %38 ]
   %.sink = phi i64 [ 0, %44 ], [ -9223372036854775807, %38 ]
   %storemerge = phi i8 [ 1, %44 ], [ 3, %38 ]
-  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink63
+  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink64
   store i64 %.sink, ptr %.sroa.638.0..sroa_idx, align 8
   store i8 %storemerge, ptr %5, align 8
   ret void
@@ -10385,27 +10385,28 @@ common.ret:                                       ; preds = %44, %38
   br label %.body
 
 "_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit": ; preds = %.thread, %23, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i", %34, %36
-  %.sroa.7.sroa.8.14562 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread ], [ %.sroa.7.sroa.8.0.copyload23, %23 ], [ %.sroa.7.sroa.8.0.copyload23, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload23, %34 ], [ %.sroa.7.sroa.8.0.copyload23, %36 ]
-  %.sroa.7.sroa.7.14661 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread ], [ %.sroa.7.sroa.7.0.copyload22, %23 ], [ %.sroa.7.sroa.7.0.copyload22, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload22, %34 ], [ %.sroa.7.sroa.7.0.copyload22, %36 ]
-  %.sroa.7.sroa.0.14760 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread ], [ %.sroa.7.sroa.0.0.copyload21, %23 ], [ %.sroa.7.sroa.0.0.copyload21, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload21, %34 ], [ %.sroa.7.sroa.0.0.copyload21, %36 ]
-  %41 = icmp eq i32 %.sroa.7.sroa.0.14760, 0
+  %.sroa.7.sroa.8.14563 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread ], [ %.sroa.7.sroa.8.0.copyload23, %23 ], [ %.sroa.7.sroa.8.0.copyload23, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload23, %34 ], [ %.sroa.7.sroa.8.0.copyload23, %36 ]
+  %.sroa.7.sroa.7.14662 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread ], [ %.sroa.7.sroa.7.0.copyload22, %23 ], [ %.sroa.7.sroa.7.0.copyload22, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload22, %34 ], [ %.sroa.7.sroa.7.0.copyload22, %36 ]
+  %.sroa.7.sroa.0.14761 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread ], [ %.sroa.7.sroa.0.0.copyload21, %23 ], [ %.sroa.7.sroa.0.0.copyload21, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload21, %34 ], [ %.sroa.7.sroa.0.0.copyload21, %36 ]
+  %41 = icmp eq i32 %.sroa.7.sroa.0.14761, 0
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.sroa.2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.7.sroa.0.14760 to i64
-  %.sroa.0.4.insert.ext = zext i32 %.sroa.7.sroa.7.14661 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.7.sroa.0.14761 to i64
+  %.sroa.0.4.insert.ext = zext i32 %.sroa.7.sroa.7.14662 to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %43 = inttoptr i64 %.sroa.0.4.insert.insert to ptr
   br label %44
 
 44:                                               ; preds = %47, %42
-  %.sroa.033.0 = phi ptr [ %.sroa.7.sroa.8.14562, %47 ], [ %43, %42 ]
+  %.sroa.335.sroa.0.0 = phi ptr [ undef, %47 ], [ %.sroa.7.sroa.8.14563, %42 ]
+  %.sroa.033.0 = phi ptr [ %.sroa.7.sroa.8.14563, %47 ], [ %43, %42 ]
   %.sroa.336.0 = phi i64 [ -9223372036854775808, %47 ], [ 0, %42 ]
   store ptr %.sroa.033.0, ptr %0, align 8
   %.sroa.335.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.7.sroa.8.14562, ptr %.sroa.335.0..sroa_idx, align 8
+  store ptr %.sroa.335.sroa.0.0, ptr %.sroa.335.0..sroa_idx, align 8
   %.sroa.335.sroa.2.0..sroa.335.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.sroa.2.0..sroa.335.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.sroa.2, i64 16, i1 false)
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
@@ -10421,7 +10422,7 @@ common.ret:                                       ; preds = %44, %38
   unreachable
 
 47:                                               ; preds = %"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit"
-  %48 = icmp ne ptr %.sroa.7.sroa.8.14562, null
+  %48 = icmp ne ptr %.sroa.7.sroa.8.14563, null
   tail call void @llvm.assume(i1 %48)
   br label %44
 }
@@ -10434,14 +10435,14 @@ define internal void @"_ZN7project7Project23find_or_create_worktree28_$u7b$$u7b$
   %.sroa.7.sroa.9 = alloca [16 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   %6 = load i8, ptr %5, align 8, !range !399, !noundef !4
-  switch i8 %6, label %default.unreachable56 [
+  switch i8 %6, label %default.unreachable57 [
     i8 0, label %7
     i8 1, label %9
     i8 2, label %10
     i8 3, label %11
   ]
 
-default.unreachable56:                            ; preds = %3
+default.unreachable57:                            ; preds = %3
   unreachable
 
 7:                                                ; preds = %3
@@ -10574,10 +10575,10 @@ default.unreachable56:                            ; preds = %3
           to label %"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit" unwind label %39
 
 common.ret:                                       ; preds = %44, %38
-  %.sink63 = phi i64 [ 48, %44 ], [ 32, %38 ]
+  %.sink64 = phi i64 [ 48, %44 ], [ 32, %38 ]
   %.sink = phi i64 [ 0, %44 ], [ -9223372036854775807, %38 ]
   %storemerge = phi i8 [ 1, %44 ], [ 3, %38 ]
-  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink63
+  %.sroa.638.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink64
   store i64 %.sink, ptr %.sroa.638.0..sroa_idx, align 8
   store i8 %storemerge, ptr %5, align 8
   ret void
@@ -10598,27 +10599,28 @@ common.ret:                                       ; preds = %44, %38
   br label %.body
 
 "_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit": ; preds = %.thread, %23, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i", %34, %36
-  %.sroa.7.sroa.8.14562 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread ], [ %.sroa.7.sroa.8.0.copyload23, %23 ], [ %.sroa.7.sroa.8.0.copyload23, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload23, %34 ], [ %.sroa.7.sroa.8.0.copyload23, %36 ]
-  %.sroa.7.sroa.7.14661 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread ], [ %.sroa.7.sroa.7.0.copyload22, %23 ], [ %.sroa.7.sroa.7.0.copyload22, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload22, %34 ], [ %.sroa.7.sroa.7.0.copyload22, %36 ]
-  %.sroa.7.sroa.0.14760 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread ], [ %.sroa.7.sroa.0.0.copyload21, %23 ], [ %.sroa.7.sroa.0.0.copyload21, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload21, %34 ], [ %.sroa.7.sroa.0.0.copyload21, %36 ]
-  %41 = icmp eq i32 %.sroa.7.sroa.0.14760, 0
+  %.sroa.7.sroa.8.14563 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread ], [ %.sroa.7.sroa.8.0.copyload23, %23 ], [ %.sroa.7.sroa.8.0.copyload23, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload23, %34 ], [ %.sroa.7.sroa.8.0.copyload23, %36 ]
+  %.sroa.7.sroa.7.14662 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread ], [ %.sroa.7.sroa.7.0.copyload22, %23 ], [ %.sroa.7.sroa.7.0.copyload22, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload22, %34 ], [ %.sroa.7.sroa.7.0.copyload22, %36 ]
+  %.sroa.7.sroa.0.14761 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread ], [ %.sroa.7.sroa.0.0.copyload21, %23 ], [ %.sroa.7.sroa.0.0.copyload21, %"_ZN4core3ptr75drop_in_place$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$GT$17hb8782ad7cb9995a3E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload21, %34 ], [ %.sroa.7.sroa.0.0.copyload21, %36 ]
+  %41 = icmp eq i32 %.sroa.7.sroa.0.14761, 0
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.sroa.2, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  %.sroa.0.0.insert.ext = zext i32 %.sroa.7.sroa.0.14760 to i64
-  %.sroa.0.4.insert.ext = zext i32 %.sroa.7.sroa.7.14661 to i64
+  %.sroa.0.0.insert.ext = zext i32 %.sroa.7.sroa.0.14761 to i64
+  %.sroa.0.4.insert.ext = zext i32 %.sroa.7.sroa.7.14662 to i64
   %.sroa.0.4.insert.shift = shl nuw i64 %.sroa.0.4.insert.ext, 32
   %.sroa.0.4.insert.insert = or disjoint i64 %.sroa.0.4.insert.shift, %.sroa.0.0.insert.ext
   %43 = inttoptr i64 %.sroa.0.4.insert.insert to ptr
   br label %44
 
 44:                                               ; preds = %47, %42
-  %.sroa.033.0 = phi ptr [ %.sroa.7.sroa.8.14562, %47 ], [ %43, %42 ]
+  %.sroa.335.sroa.0.0 = phi ptr [ undef, %47 ], [ %.sroa.7.sroa.8.14563, %42 ]
+  %.sroa.033.0 = phi ptr [ %.sroa.7.sroa.8.14563, %47 ], [ %43, %42 ]
   %.sroa.336.0 = phi i64 [ -9223372036854775808, %47 ], [ 0, %42 ]
   store ptr %.sroa.033.0, ptr %0, align 8
   %.sroa.335.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.7.sroa.8.14562, ptr %.sroa.335.0..sroa_idx, align 8
+  store ptr %.sroa.335.sroa.0.0, ptr %.sroa.335.0..sroa_idx, align 8
   %.sroa.335.sroa.2.0..sroa.335.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.sroa.2.0..sroa.335.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.335.sroa.2, i64 16, i1 false)
   %.sroa.336.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
@@ -10634,7 +10636,7 @@ common.ret:                                       ; preds = %44, %38
   unreachable
 
 47:                                               ; preds = %"_ZN4core3ptr147drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$worktree..Worktree$GT$$C$anyhow..Error$GT$$GT$$GT$17h2247b677692f6d08E.exit"
-  %48 = icmp ne ptr %.sroa.7.sroa.8.14562, null
+  %48 = icmp ne ptr %.sroa.7.sroa.8.14563, null
   tail call void @llvm.assume(i1 %48)
   br label %44
 }

@@ -416,8 +416,9 @@ define { ptr, ptr } @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$cor
 define { i64, i64 } @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h3c40453f0bd95eb4E"(i64 %0, i64 %1) unnamed_addr #3 {
   %3 = icmp ne i64 %0, 0
   %. = zext i1 %3 to i64
+  %.2 = select i1 %3, i64 undef, i64 %1
   %4 = insertvalue { i64, i64 } poison, i64 %., 0
-  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %5 = insertvalue { i64, i64 } %4, i64 %.2, 1
   ret { i64, i64 } %5
 }
 

@@ -360,9 +360,9 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit
   unreachable
 
 _ZN14regex_automata4util8captures8Captures9get_match17h280f3cde2d2616dbE.exit: ; preds = %117, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit.thread, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit, %97, %104, %108, %113
-  %.sroa.3.0.i10 = phi i32 [ %.fca.1.extract.i, %113 ], [ %.fca.1.extract.i, %108 ], [ %.fca.1.extract.i, %104 ], [ %.fca.1.extract.i, %97 ], [ %.fca.1.extract.i, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit.thread ], [ %.fca.1.extract.i, %117 ]
   %.sroa.5.0 = phi i64 [ undef, %113 ], [ undef, %108 ], [ undef, %104 ], [ undef, %97 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit.thread ], [ %119, %117 ]
   %.sroa.4.0 = phi i64 [ undef, %113 ], [ undef, %108 ], [ undef, %104 ], [ undef, %97 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit.thread ], [ %118, %117 ]
+  %.sroa.6.0 = phi i32 [ undef, %113 ], [ undef, %108 ], [ undef, %104 ], [ undef, %97 ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit ], [ undef, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit.thread ], [ %.fca.1.extract.i, %117 ]
   %.sink.i = phi i64 [ 0, %113 ], [ 0, %108 ], [ 0, %104 ], [ 0, %97 ], [ 0, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit ], [ 0, %_ZN14regex_automata4meta5regex5Regex17search_slots_with17he5033be66d50759dE.exit.thread ], [ 1, %117 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -370,7 +370,7 @@ _ZN14regex_automata4util8captures8Captures9get_match17h280f3cde2d2616dbE.exit: ;
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sroa.3.0.i10, ptr %.sroa.6.0..sroa_idx, align 8
+  store i32 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   ret void
 }
 
@@ -2990,8 +2990,8 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN53_$LT$dyn$u20
   %4 = load ptr, ptr %3, align 8, !invariant.load !4, !nonnull !4
   %5 = tail call { i64, ptr } %4(ptr noundef nonnull align 1 %0, i128 noundef -19231130740730089354204068098636912151)
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %.fca.0.extract, 0
+  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %.0 = select i1 %switch, ptr null, ptr %.fca.1.extract
   ret ptr %.0
 }
@@ -3002,8 +3002,8 @@ define hidden noundef align 8 ptr @"_ZN53_$LT$dyn$u20$tracing_core..subscriber..
   %4 = load ptr, ptr %3, align 8, !invariant.load !4, !nonnull !4
   %5 = tail call { i64, ptr } %4(ptr noundef nonnull align 1 %0, i128 noundef 62793767160623940916714380623486827931)
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %.fca.0.extract, 0
+  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %.0 = select i1 %switch, ptr null, ptr %.fca.1.extract
   ret ptr %.0
 }
@@ -3014,8 +3014,8 @@ define hidden noundef align 8 ptr @"_ZN53_$LT$dyn$u20$tracing_core..subscriber..
   %4 = load ptr, ptr %3, align 8, !invariant.load !4, !nonnull !4
   %5 = tail call { i64, ptr } %4(ptr noundef nonnull align 1 %0, i128 noundef 377731369611698580506231877142650986)
   %.fca.0.extract = extractvalue { i64, ptr } %5, 0
-  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %switch = icmp eq i64 %.fca.0.extract, 0
+  %.fca.1.extract = extractvalue { i64, ptr } %5, 1
   %.0 = select i1 %switch, ptr null, ptr %.fca.1.extract
   ret ptr %.0
 }
@@ -5077,9 +5077,9 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17he797722a089d65e1E.exit.i: 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) %318, i64 72, i1 false), !noalias !621
   %319 = getelementptr inbounds i8, ptr %28, i64 16
   %320 = load i32, ptr %319, align 8, !range !92, !alias.scope !817, !noalias !820, !noundef !4
+  %trunc.i.i = trunc nuw i32 %320 to i1
   %321 = getelementptr inbounds i8, ptr %28, i64 20
   %322 = load i32, ptr %321, align 4, !alias.scope !817, !noalias !820
-  %trunc.i.i = trunc nuw i32 %320 to i1
   br i1 %trunc.i.i, label %323, label %353
 
 323:                                              ; preds = %317

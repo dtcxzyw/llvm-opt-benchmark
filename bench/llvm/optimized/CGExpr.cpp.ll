@@ -32209,7 +32209,8 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %13 = and i64 %.sroa.052.0.copyload53, -4
   %.sroa.037.0 = select i1 %.not.i, i64 %13, i64 %.sroa.052.0.copyload53
   %.sroa.16.sroa.0.0.extract.trunc85 = trunc i64 %.sroa.16.0.copyload64 to i8
-  %.sroa.16.sroa.8.0.extract.shift101 = and i64 %.sroa.16.0.copyload64, -256
+  %.sroa.16.sroa.8.0.extract.shift101 = lshr i64 %.sroa.16.0.copyload64, 8
+  %.sroa.16.sroa.8.0.extract.trunc102 = trunc nuw i64 %.sroa.16.sroa.8.0.extract.shift101 to i56
   %.sroa.0.0.copyload.i18 = load i64, ptr %11, align 8
   %14 = and i64 %.sroa.0.0.copyload.i18, -16
   %15 = inttoptr i64 %14 to ptr
@@ -32290,6 +32291,7 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %.sroa.22.0 = phi ptr [ null, %24 ], [ %.sroa.22.0.copyload68, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %.sroa.26.0 = phi ptr [ null, %24 ], [ %.sroa.26.0.copyload72, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %.sroa.16.sroa.0.0 = phi i8 [ 0, %24 ], [ %.sroa.16.sroa.0.0.extract.trunc85, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
+  %.sroa.16.sroa.8.sroa.0.0 = phi i56 [ undef, %24 ], [ %.sroa.16.sroa.8.0.extract.trunc102, %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit ]
   %64 = load ptr, ptr %.pre-phi122, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i8, ptr %65, align 16
@@ -32332,8 +32334,10 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %63, %69
   br i1 %.not.i27, label %80, label %84
 
 80:                                               ; preds = %78
+  %.sroa.16.sroa.8.0.insert.ext97 = zext i56 %.sroa.16.sroa.8.sroa.0.0 to i64
+  %.sroa.16.sroa.8.0.insert.shift98 = shl nuw i64 %.sroa.16.sroa.8.0.insert.ext97, 8
   %.sroa.16.sroa.0.0.insert.ext82 = zext i8 %.sroa.16.sroa.0.0 to i64
-  %.sroa.16.sroa.0.0.insert.insert84 = or disjoint i64 %.sroa.16.sroa.8.0.extract.shift101, %.sroa.16.sroa.0.0.insert.ext82
+  %.sroa.16.sroa.0.0.insert.insert84 = or disjoint i64 %.sroa.16.sroa.8.0.insert.shift98, %.sroa.16.sroa.0.0.insert.ext82
   %81 = and i64 %.sroa.052.0, -4
   store i64 %81, ptr %0, align 8, !alias.scope !1217
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -32347,8 +32351,10 @@ _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %63, %69
   %.sroa.11.0..sroa_idx61 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx61, align 8
   %.sroa.16.0..sroa_idx65 = getelementptr inbounds i8, ptr %0, i64 24
+  %.sroa.16.sroa.8.0.insert.ext89 = zext i56 %.sroa.16.sroa.8.sroa.0.0 to i64
+  %.sroa.16.sroa.8.0.insert.shift90 = shl nuw i64 %.sroa.16.sroa.8.0.insert.ext89, 8
   %.sroa.16.sroa.0.0.insert.ext76 = zext i8 %.sroa.16.sroa.0.0 to i64
-  %.sroa.16.sroa.0.0.insert.insert78 = or disjoint i64 %.sroa.16.sroa.8.0.extract.shift101, %.sroa.16.sroa.0.0.insert.ext76
+  %.sroa.16.sroa.0.0.insert.insert78 = or disjoint i64 %.sroa.16.sroa.8.0.insert.shift90, %.sroa.16.sroa.0.0.insert.ext76
   store i64 %.sroa.16.sroa.0.0.insert.insert78, ptr %.sroa.16.0..sroa_idx65, align 8
   br label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit34
 
@@ -33609,7 +33615,6 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %19
   %30 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction11ConvertTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %5) #22
   %.not.i = icmp eq ptr %.sroa.11128.0.copyload, null
   %31 = and i64 %.sroa.1.0.copyload, -4
-  %.sroa.16.sroa.8.0.extract.shift109 = and i64 %.sroa.6127.0.copyload, -256
   %32 = load ptr, ptr %21, align 16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.0.0.copyload.i.i.i.i32 = load i64, ptr %33, align 8
@@ -33680,33 +33685,35 @@ _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit: ; preds = %19
   br label %81
 
 79:                                               ; preds = %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit
+  %.sroa.16.sroa.8.0.extract.shift109 = and i64 %.sroa.6127.0.copyload, -256
   %80 = tail call noundef ptr @_ZN5clang7CodeGen15CodeGenFunction17ConvertTypeForMemENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %6) #22
   br i1 %.not.i, label %81, label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit43
 
 81:                                               ; preds = %.thread, %79
   %82 = phi ptr [ %78, %.thread ], [ %80, %79 ]
-  %.sroa.060.0170 = phi i64 [ %77, %.thread ], [ %31, %79 ]
-  %.sroa.11.0169 = phi i64 [ %73, %.thread ], [ %.sroa.5126.0.copyload, %79 ]
-  %.sroa.22.0168 = phi ptr [ null, %.thread ], [ %.sroa.9.0.copyload, %79 ]
-  %.sroa.16.sroa.0.0167 = phi i64 [ 0, %.thread ], [ %.sroa.6127.0.copyload, %79 ]
-  %.sroa.16.sroa.0.0.insert.ext90 = and i64 %.sroa.16.sroa.0.0167, 255
-  %.sroa.16.sroa.0.0.insert.insert92 = or disjoint i64 %.sroa.16.sroa.0.0.insert.ext90, %.sroa.16.sroa.8.0.extract.shift109
+  %.sroa.060.0172 = phi i64 [ %77, %.thread ], [ %31, %79 ]
+  %.sroa.11.0171 = phi i64 [ %73, %.thread ], [ %.sroa.5126.0.copyload, %79 ]
+  %.sroa.22.0170 = phi ptr [ null, %.thread ], [ %.sroa.9.0.copyload, %79 ]
+  %.sroa.16.sroa.0.0169 = phi i64 [ 0, %.thread ], [ %.sroa.6127.0.copyload, %79 ]
+  %.sroa.16.sroa.8.sroa.0.0168 = phi i64 [ 0, %.thread ], [ %.sroa.16.sroa.8.0.extract.shift109, %79 ]
+  %.sroa.16.sroa.0.0.insert.ext90 = and i64 %.sroa.16.sroa.0.0169, 255
+  %.sroa.16.sroa.0.0.insert.insert92 = or disjoint i64 %.sroa.16.sroa.8.sroa.0.0168, %.sroa.16.sroa.0.0.insert.ext90
   br label %_ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit43
 
 _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit43: ; preds = %79, %81
-  %.sroa.060.0170.sink = phi i64 [ %.sroa.060.0170, %81 ], [ %.sroa.1.0.copyload, %79 ]
-  %.sroa.11.0169.sink = phi i64 [ %.sroa.11.0169, %81 ], [ %.sroa.5126.0.copyload, %79 ]
+  %.sroa.060.0172.sink = phi i64 [ %.sroa.060.0172, %81 ], [ %.sroa.1.0.copyload, %79 ]
+  %.sroa.11.0171.sink = phi i64 [ %.sroa.11.0171, %81 ], [ %.sroa.5126.0.copyload, %79 ]
   %.sroa.16.sroa.0.0.insert.insert92.sink = phi i64 [ %.sroa.16.sroa.0.0.insert.insert92, %81 ], [ %.sroa.6127.0.copyload, %79 ]
-  %.sroa.22.0168.sink = phi ptr [ %.sroa.22.0168, %81 ], [ %.sroa.9.0.copyload, %79 ]
+  %.sroa.22.0170.sink = phi ptr [ %.sroa.22.0170, %81 ], [ %.sroa.9.0.copyload, %79 ]
   %.sink = phi ptr [ null, %81 ], [ %.sroa.11128.0.copyload, %79 ]
   %83 = phi ptr [ %82, %81 ], [ %80, %79 ]
-  store i64 %.sroa.060.0170.sink, ptr %0, align 8
+  store i64 %.sroa.060.0172.sink, ptr %0, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.11.0169.sink, ptr %84, align 8
+  store i64 %.sroa.11.0171.sink, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.16.sroa.0.0.insert.insert92.sink, ptr %85, align 8
   %.sroa.2.0..sroa_idx.i.i42 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.sroa.22.0168.sink, ptr %.sroa.2.0..sroa_idx.i.i42, align 8
+  store ptr %.sroa.22.0170.sink, ptr %.sroa.2.0..sroa_idx.i.i42, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %.sink, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -100136,7 +100136,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i: ; preds = %17
   unreachable
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i.i", %80, %61
-  %.sroa.0.291.i = phi ptr [ %57, %61 ], [ %.sroa.0.2.ph.i, %80 ], [ %.sroa.0.2.ph.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i.i" ]
+  %.sroa.0.292.i = phi ptr [ %57, %61 ], [ %.sroa.0.2.ph.i, %80 ], [ %.sroa.0.2.ph.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i.i" ]
   %78 = icmp eq i64 %.sroa.9.0.copyload, 0
   br i1 %78, label %"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58.i"
 
@@ -100156,7 +100156,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i: ; preds = %17
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i"
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64.i", %84, %.body.thread.i, %.body.i
-  %.pn95.i = phi { ptr, i32 } [ %.pn.ph.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64.i" ], [ %.pn.ph.i, %84 ], [ %lpad.thr_comm.split-lp.i, %.body.i ], [ %50, %.body.thread.i ]
+  %.pn96.i = phi { ptr, i32 } [ %.pn.ph.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64.i" ], [ %.pn.ph.i, %84 ], [ %lpad.thr_comm.split-lp.i, %.body.i ], [ %50, %.body.thread.i ]
   %82 = icmp eq i64 %.sroa.9.0.copyload, 0
   br i1 %82, label %.body, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i62.i"
 
@@ -100177,15 +100177,15 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit.i: ; preds = %17
 
 .body:                                            ; preds = %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65.i", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i62.i"
   store i8 2, ptr %9, align 8
-  resume { ptr, i32 } %.pn95.i
+  resume { ptr, i32 } %.pn96.i
 
 "_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit.sink.split": ; preds = %58, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58.i"
-  %.sroa.0.0.i.ph = phi ptr [ %.sroa.0.291.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58.i" ], [ null, %58 ]
+  %.sroa.0.0.i.ph = phi ptr [ %.sroa.0.292.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58.i" ], [ null, %58 ]
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.12.0.copyload, i64 noundef %.sroa.9.0.copyload, i64 noundef 1) #18, !noalias !29220
   br label %"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit"
 
 "_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit": ; preds = %"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit.sink.split", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i", %58
-  %.sroa.0.0.i = phi ptr [ null, %58 ], [ %.sroa.0.291.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i" ], [ %.sroa.0.0.i.ph, %"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit.sink.split" ]
+  %.sroa.0.0.i = phi ptr [ null, %58 ], [ %.sroa.0.292.i, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit.i" ], [ %.sroa.0.0.i.ph, %"_ZN37_$LT$fs..RealFs$u20$as$u20$fs..Fs$GT$12atomic_write28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h12695778360ba923E.exit.sink.split" ]
   store i8 1, ptr %9, align 8
   ret ptr %.sroa.0.0.i
 

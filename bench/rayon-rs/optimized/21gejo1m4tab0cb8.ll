@@ -19,15 +19,15 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 8:                                                ; preds = %1
   %9 = trunc nuw i128 %.0.i.i.i to i64
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 1)
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  %not. = xor i1 %12, true
-  %.11 = zext i1 %not. to i64
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  %not. = xor i1 %11, true
+  %.sroa.0.1 = zext i1 %not. to i64
   br label %13
 
 13:                                               ; preds = %1, %8
-  %.sroa.5.1 = phi i64 [ %11, %8 ], [ undef, %1 ]
-  %.sroa.0.2 = phi i64 [ %.11, %8 ], [ 0, %1 ]
+  %.sroa.5.1 = phi i64 [ %12, %8 ], [ undef, %1 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %8 ], [ 0, %1 ]
   %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %15 = insertvalue { i64, i64 } %14, i64 %.sroa.5.1, 1
   ret { i64, i64 } %15
@@ -42,12 +42,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %6 = sub i64 %4, %2
   %spec.select.i.i.i.i = select i1 %5, i64 %6, i64 0
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i, i64 1)
-  %8 = extractvalue { i64, i1 } %7, 0
-  %9 = extractvalue { i64, i1 } %7, 1
-  %not. = xor i1 %9, true
-  %.11 = zext i1 %not. to i64
-  %10 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %8, 1
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = extractvalue { i64, i1 } %7, 0
+  %not. = xor i1 %8, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %11 = insertvalue { i64, i64 } %10, i64 %9, 1
   ret { i64, i64 } %11
 }
 
@@ -58,12 +58,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %4 = load i64, ptr %0, align 8, !alias.scope !23, !noalias !32, !noundef !11
   %spec.select.i.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
   %5 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i, i64 1)
-  %6 = extractvalue { i64, i1 } %5, 0
-  %7 = extractvalue { i64, i1 } %5, 1
-  %not. = xor i1 %7, true
-  %.11 = zext i1 %not. to i64
-  %8 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %9 = insertvalue { i64, i64 } %8, i64 %6, 1
+  %6 = extractvalue { i64, i1 } %5, 1
+  %7 = extractvalue { i64, i1 } %5, 0
+  %not. = xor i1 %6, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
   ret { i64, i64 } %9
 }
 
@@ -90,12 +90,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i.i.i = select i1 %5, i64 %8, i64 0
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i.i.i.i, i64 1)
-  %10 = extractvalue { i64, i1 } %9, 0
-  %11 = extractvalue { i64, i1 } %9, 1
-  %not. = xor i1 %11, true
-  %.11 = zext i1 %not. to i64
-  %12 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %10, 1
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = extractvalue { i64, i1 } %9, 0
+  %not. = xor i1 %10, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %11, 1
   ret { i64, i64 } %13
 }
 
@@ -120,12 +120,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %6 = sub i64 %3, %4
   %.0.i.i.i = select i1 %5, i64 %6, i64 0
   %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i, i64 1)
-  %8 = extractvalue { i64, i1 } %7, 0
-  %9 = extractvalue { i64, i1 } %7, 1
-  %not. = xor i1 %9, true
-  %.11 = zext i1 %not. to i64
-  %10 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %11 = insertvalue { i64, i64 } %10, i64 %8, 1
+  %8 = extractvalue { i64, i1 } %7, 1
+  %9 = extractvalue { i64, i1 } %7, 0
+  %not. = xor i1 %8, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %10 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %11 = insertvalue { i64, i64 } %10, i64 %9, 1
   ret { i64, i64 } %11
 }
 
@@ -140,12 +140,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i.i.i = select i1 %5, i64 %8, i64 0
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i.i.i.i, i64 1)
-  %10 = extractvalue { i64, i1 } %9, 0
-  %11 = extractvalue { i64, i1 } %9, 1
-  %not. = xor i1 %11, true
-  %.11 = zext i1 %not. to i64
-  %12 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %10, 1
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = extractvalue { i64, i1 } %9, 0
+  %not. = xor i1 %10, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %11, 1
   ret { i64, i64 } %13
 }
 
@@ -161,15 +161,15 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
 6:                                                ; preds = %1
   %7 = trunc nuw i128 %.0.i.i.i to i64
   %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %7, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 0
-  %10 = extractvalue { i64, i1 } %8, 1
-  %not. = xor i1 %10, true
-  %.11 = zext i1 %not. to i64
+  %9 = extractvalue { i64, i1 } %8, 1
+  %10 = extractvalue { i64, i1 } %8, 0
+  %not. = xor i1 %9, true
+  %.sroa.0.1 = zext i1 %not. to i64
   br label %11
 
 11:                                               ; preds = %1, %6
-  %.sroa.5.1 = phi i64 [ %9, %6 ], [ undef, %1 ]
-  %.sroa.0.2 = phi i64 [ %.11, %6 ], [ 0, %1 ]
+  %.sroa.5.1 = phi i64 [ %10, %6 ], [ undef, %1 ]
+  %.sroa.0.2 = phi i64 [ %.sroa.0.1, %6 ], [ 0, %1 ]
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.2, 0
   %13 = insertvalue { i64, i64 } %12, i64 %.sroa.5.1, 1
   ret { i64, i64 } %13
@@ -194,12 +194,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %4 = load i64, ptr %0, align 8, !alias.scope !103, !noundef !11
   %.0.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
   %5 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i, i64 1)
-  %6 = extractvalue { i64, i1 } %5, 0
-  %7 = extractvalue { i64, i1 } %5, 1
-  %not. = xor i1 %7, true
-  %.11 = zext i1 %not. to i64
-  %8 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %9 = insertvalue { i64, i64 } %8, i64 %6, 1
+  %6 = extractvalue { i64, i1 } %5, 1
+  %7 = extractvalue { i64, i1 } %5, 0
+  %not. = xor i1 %6, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %8 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
   ret { i64, i64 } %9
 }
 
@@ -214,12 +214,12 @@ define hidden { i64, i64 } @"_ZN88_$LT$rayon..iter..chain..Chain$LT$A$C$B$GT$$u2
   %8 = sub nsw i64 %6, %7
   %.sink4.i.i.i.i = select i1 %5, i64 %8, i64 0
   %9 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sink4.i.i.i.i, i64 1)
-  %10 = extractvalue { i64, i1 } %9, 0
-  %11 = extractvalue { i64, i1 } %9, 1
-  %not. = xor i1 %11, true
-  %.11 = zext i1 %not. to i64
-  %12 = insertvalue { i64, i64 } poison, i64 %.11, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %10, 1
+  %10 = extractvalue { i64, i1 } %9, 1
+  %11 = extractvalue { i64, i1 } %9, 0
+  %not. = xor i1 %10, true
+  %.sroa.0.1 = zext i1 %not. to i64
+  %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %11, 1
   ret { i64, i64 } %13
 }
 

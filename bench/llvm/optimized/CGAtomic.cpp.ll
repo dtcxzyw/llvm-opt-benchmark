@@ -11286,6 +11286,7 @@ _ZN5clang7CodeGen6LValue16MakeExtVectorEltENS0_7AddressEPN4llvm8ConstantENS_8Qua
 83:                                               ; preds = %82, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit
   %.sroa.0130.0 = phi i32 [ 0, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.0107.0, %82 ]
   %.sroa.11134.0 = phi i8 [ %.sroa.2199.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.11134.1, %82 ]
+  %.sroa.14141.0 = phi ptr [ undef, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.4177.0.copyload, %82 ]
   %.sroa.35154.0 = phi i32 [ 2, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.17184.0.copyload, %82 ]
   %.sroa.40.0 = phi i32 [ %.sroa.0201.0.copyload, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.23185.sroa.0.0.copyload, %82 ]
   %.sroa.23.0 = phi i64 [ %37, %_ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0_15AlignmentSourceE.exit ], [ %.sroa.23.1, %82 ]
@@ -11314,7 +11315,7 @@ _ZN5clang7CodeGen6LValue16MakeExtVectorEltENS0_7AddressEPN4llvm8ConstantENS_8Qua
   %.sroa.13.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.13.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.13, i64 23, i1 false)
   %.sroa.14141.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 56
-  store ptr %.sroa.4177.0.copyload, ptr %.sroa.14141.0..sroa_idx, align 8
+  store ptr %.sroa.14141.0, ptr %.sroa.14141.0..sroa_idx, align 8
   %.sroa.18144.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 64
   store i64 %.sroa.10183.0.copyload, ptr %.sroa.18144.0..sroa_idx, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %12, i64 72
@@ -11346,7 +11347,7 @@ _ZN5clang7CodeGen6LValue16MakeExtVectorEltENS0_7AddressEPN4llvm8ConstantENS_8Qua
   %.sroa.13.0..sroa_idx140 = getelementptr inbounds i8, ptr %13, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %.sroa.13.0..sroa_idx140, ptr noundef nonnull align 1 dereferenceable(23) %.sroa.13, i64 23, i1 false)
   %.sroa.14141.0..sroa_idx142 = getelementptr inbounds i8, ptr %13, i64 56
-  store ptr %.sroa.4177.0.copyload, ptr %.sroa.14141.0..sroa_idx142, align 8
+  store ptr %.sroa.14141.0, ptr %.sroa.14141.0..sroa_idx142, align 8
   %.sroa.18144.0..sroa_idx145 = getelementptr inbounds i8, ptr %13, i64 64
   store i64 %.sroa.10183.0.copyload, ptr %.sroa.18144.0..sroa_idx145, align 8
   %.sroa.23.0..sroa_idx147 = getelementptr inbounds i8, ptr %13, i64 72

@@ -1555,7 +1555,7 @@ if.then85.i:                                      ; preds = %if.end82.i
 if.end86.i:                                       ; preds = %if.end82.i
   %98 = load i32, ptr @use_mailmap, align 4
   %tobool87.not.i = icmp eq i32 %98, 0
-  %.pre43.i = load i64, ptr %size.i, align 8
+  %.pre45.i = load i64, ptr %size.i, align 8
   br i1 %tobool87.not.i, label %if.end127.i, label %if.then88.i
 
 if.then88.i:                                      ; preds = %if.end86.i
@@ -1563,8 +1563,8 @@ if.then88.i:                                      ; preds = %if.end86.i
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %headers.i21.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sb.i20.i, ptr noundef nonnull align 8 dereferenceable(24) @__const.cat_one_file.sb, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %headers.i21.i, ptr noundef nonnull align 16 dereferenceable(32) @__const.replace_idents_using_mailmap.headers, i64 32, i1 false)
-  %add.i22.i = add i64 %.pre43.i, 1
-  call void @strbuf_attach(ptr noundef nonnull %sb.i20.i, ptr noundef nonnull %call83.i, i64 noundef %.pre43.i, i64 noundef %add.i22.i) #13
+  %add.i22.i = add i64 %.pre45.i, 1
+  call void @strbuf_attach(ptr noundef nonnull %sb.i20.i, ptr noundef nonnull %call83.i, i64 noundef %.pre45.i, i64 noundef %add.i22.i) #13
   call void @apply_mailmap_to_header(ptr noundef nonnull %sb.i20.i, ptr noundef nonnull %headers.i21.i, ptr noundef nonnull @mailmap) #13
   %len.i23.i = getelementptr inbounds i8, ptr %sb.i20.i, i64 8
   %99 = load i64, ptr %len.i23.i, align 8
@@ -1693,7 +1693,7 @@ if.then126.i:                                     ; preds = %sw.epilog.i
   unreachable
 
 if.end127.i:                                      ; preds = %sw.epilog.if.end127_crit_edge.i, %if.end86.i
-  %111 = phi i64 [ %.pre.i28, %sw.epilog.if.end127_crit_edge.i ], [ %.pre43.i, %if.end86.i ]
+  %111 = phi i64 [ %.pre.i28, %sw.epilog.if.end127_crit_edge.i ], [ %.pre45.i, %if.end86.i ]
   %112 = phi ptr [ %110, %sw.epilog.if.end127_crit_edge.i ], [ %call83.i, %if.end86.i ]
   call void @write_or_die(i32 noundef 1, ptr noundef nonnull %112, i64 noundef %111) #13
   br label %cleanup.i29

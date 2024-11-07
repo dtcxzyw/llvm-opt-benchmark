@@ -3045,9 +3045,9 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats
 19:                                               ; preds = %5
   %20 = tail call { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate15write_prog_line17hb48418dfc6ad4255E(ptr noalias noundef nonnull readonly align 16 dereferenceable(96) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext false)
   %21 = extractvalue { ptr, ptr } %20, 0
-  %22 = extractvalue { ptr, ptr } %20, 1
-  %23 = icmp eq ptr %21, null
-  %spec.select21 = select i1 %23, ptr undef, ptr %22
+  %22 = icmp eq ptr %21, null
+  %23 = extractvalue { ptr, ptr } %20, 1
+  %spec.select22 = select i1 %22, ptr undef, ptr %23
   br label %28
 
 24:                                               ; preds = %5
@@ -3057,7 +3057,7 @@ define hidden { ptr, ptr } @_ZN5uu_dd8progress10ProgUpdate20write_transfer_stats
   br label %28
 
 28:                                               ; preds = %19, %24, %15
-  %.sroa.5.0 = phi ptr [ %27, %24 ], [ %18, %15 ], [ %spec.select21, %19 ]
+  %.sroa.5.0 = phi ptr [ %27, %24 ], [ %18, %15 ], [ %spec.select22, %19 ]
   %.sroa.0.0 = phi ptr [ %26, %24 ], [ %17, %15 ], [ %21, %19 ]
   %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.5.0, 1

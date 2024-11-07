@@ -36318,11 +36318,11 @@ _ZN5serde2de9SeqAccess12next_element17h1e73823c59761dd2E.exit.thread: ; preds = 
   br label %1048
 
 1046:                                             ; preds = %"_ZN4core3ptr81drop_in_place$LT$zvariant..gvariant..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17h219b86f585b70283E.exit211.i.i471", %"_ZN4core3ptr81drop_in_place$LT$zvariant..gvariant..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17h219b86f585b70283E.exit188.i.i499"
-  %.sroa.13.2.ph825 = phi i32 [ %929, %"_ZN4core3ptr81drop_in_place$LT$zvariant..gvariant..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17h219b86f585b70283E.exit188.i.i499" ], [ %1025, %"_ZN4core3ptr81drop_in_place$LT$zvariant..gvariant..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17h219b86f585b70283E.exit211.i.i471" ]
+  %.sroa.13.2.ph823 = phi i32 [ %929, %"_ZN4core3ptr81drop_in_place$LT$zvariant..gvariant..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17h219b86f585b70283E.exit188.i.i499" ], [ %1025, %"_ZN4core3ptr81drop_in_place$LT$zvariant..gvariant..de..Deserializer$LT$zvariant..fd..Fd$GT$$GT$17h219b86f585b70283E.exit211.i.i471" ]
   %1047 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.21.0.ph797, ptr %1047, align 8
   %.sroa.477.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.13.2.ph825, ptr %.sroa.477.0..sroa_idx, align 4
+  store i32 %.sroa.13.2.ph823, ptr %.sroa.477.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %.sroa.14.1.extract.trunc584, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.678.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 17
@@ -41329,8 +41329,8 @@ _ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit: ; preds = %_ZN5se
   br i1 %1669, label %1672, label %1673
 
 1670:                                             ; preds = %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit.thread, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit
-  %.sroa.0713.4803 = phi i64 [ %1427, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit.thread ], [ %.sroa.0713.4, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit ]
-  %.sroa.25.4802 = phi i64 [ %.sroa.10.i.i469.sroa.6.0.copyload, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit.thread ], [ %.sroa.25.4, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit ]
+  %.sroa.0713.4802 = phi i64 [ %1427, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit.thread ], [ %.sroa.0713.4, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit ]
+  %.sroa.25.4801 = phi i64 [ %.sroa.10.i.i469.sroa.6.0.copyload, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit.thread ], [ %.sroa.25.4, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit ]
   %.sroa.12.4800 = phi ptr [ %.sroa.10.i.i469.sroa.0.0.copyload, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit.thread ], [ %.sroa.12.4, %_ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit ]
   %1671 = ptrtoint ptr %.sroa.12.4800 to i64
   %.sroa.12.0.extract.trunc728 = trunc i64 %1671 to i32
@@ -41339,13 +41339,13 @@ _ZN5serde2de9SeqAccess12next_element17h2ab7721640aeb35cE.exit: ; preds = %_ZN5se
   %.sroa.3143.sroa.3.0..sroa.3143.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.3143.sroa.3.0..sroa.3143.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.27725, i64 40, i1 false)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.27725)
-  store i64 %.sroa.0713.4803, ptr %0, align 8
+  store i64 %.sroa.0713.4802, ptr %0, align 8
   %.sroa.2142.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.12.0.extract.trunc728, ptr %.sroa.2142.0..sroa_idx, align 8
   %.sroa.3143.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %.sroa.12.4.extract.trunc, ptr %.sroa.3143.0..sroa_idx, align 4
   %.sroa.3143.sroa.2.0..sroa.3143.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.25.4802, ptr %.sroa.3143.sroa.2.0..sroa.3143.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.25.4801, ptr %.sroa.3143.sroa.2.0..sroa.3143.0..sroa_idx.sroa_idx, align 8
   br label %1675
 
 1672:                                             ; preds = %1667

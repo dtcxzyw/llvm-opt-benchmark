@@ -7741,9 +7741,9 @@ default.unreachable:                              ; preds = %36
   %75 = icmp eq i32 %74, -1
   br i1 %75, label %79, label %80
 
-"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit": ; preds = %107, %87, %.thread103, %119, %76
-  %.4 = phi i1 [ true, %76 ], [ true, %119 ], [ false, %.thread103 ], [ false, %87 ], [ false, %107 ]
-  %.pn48 = phi { ptr, i32 } [ %77, %76 ], [ %120, %119 ], [ %.pn107, %.thread103 ], [ %88, %87 ], [ %108, %107 ]
+"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit": ; preds = %107, %87, %.thread101, %119, %76
+  %.4 = phi i1 [ true, %76 ], [ true, %119 ], [ false, %.thread101 ], [ false, %87 ], [ false, %107 ]
+  %.pn48 = phi { ptr, i32 } [ %77, %76 ], [ %120, %119 ], [ %.pn105, %.thread101 ], [ %88, %87 ], [ %108, %107 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h67e4963f96d1f7f9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #20
           to label %57 unwind label %117
 
@@ -7773,12 +7773,12 @@ default.unreachable:                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %13)
   invoke void @_ZN4stdx6thread7Builder3new17h4a1d6f636051a7fcE(ptr noalias nocapture noundef nonnull sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) %13, i1 noundef zeroext false)
-          to label %89 unwind label %.thread111
+          to label %89 unwind label %.thread109
 
-.thread111:                                       ; preds = %80
+.thread109:                                       ; preds = %80
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread103
+  br label %.thread101
 
 87:                                               ; preds = %97
   %88 = landingpad { ptr, i32 }
@@ -7793,7 +7793,7 @@ default.unreachable:                              ; preds = %36
 91:                                               ; preds = %93
   %92 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread103
+  br label %.thread101
 
 93:                                               ; preds = %89
   %94 = extractvalue { i64, ptr } %90, 0
@@ -7898,16 +7898,16 @@ default.unreachable:                              ; preds = %36
   %116 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$stdx..thread..Builder$GT$17hafef05a007298dc6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %13) #20
-          to label %.thread103 unwind label %117
+          to label %.thread101 unwind label %117
 
-117:                                              ; preds = %122, %119, %125, %.thread103, %115, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit", %57, %49, %44
+117:                                              ; preds = %122, %119, %125, %.thread101, %115, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit", %57, %49, %44
   %118 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21
   unreachable
 
-.thread103:                                       ; preds = %91, %115, %.thread111
-  %.pn107 = phi { ptr, i32 } [ %86, %.thread111 ], [ %92, %91 ], [ %116, %115 ]
+.thread101:                                       ; preds = %91, %115, %.thread109
+  %.pn105 = phi { ptr, i32 } [ %86, %.thread109 ], [ %92, %91 ], [ %116, %115 ]
   invoke void @"_ZN4core3ptr85drop_in_place$LT$flycheck..command..CargoActor$LT$flycheck..CargoCheckMessage$GT$$GT$17hae79edfadc470badE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %15) #20
           to label %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit" unwind label %117
 
@@ -9111,9 +9111,9 @@ default.unreachable:                              ; preds = %110
   %148 = icmp eq i32 %147, -1
   br i1 %148, label %152, label %153
 
-"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit.i": ; preds = %192, %.thread103.i, %180, %160, %149
-  %.4.i = phi i1 [ true, %149 ], [ true, %192 ], [ false, %.thread103.i ], [ false, %160 ], [ false, %180 ]
-  %.pn48.i = phi { ptr, i32 } [ %150, %149 ], [ %193, %192 ], [ %.pn107.i, %.thread103.i ], [ %161, %160 ], [ %181, %180 ]
+"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit.i": ; preds = %192, %.thread101.i, %180, %160, %149
+  %.4.i = phi i1 [ true, %149 ], [ true, %192 ], [ false, %.thread101.i ], [ false, %160 ], [ false, %180 ]
+  %.pn48.i = phi { ptr, i32 } [ %150, %149 ], [ %193, %192 ], [ %.pn105.i, %.thread101.i ], [ %161, %160 ], [ %181, %180 ]
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$17h67e4963f96d1f7f9E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %20) #20
           to label %130 unwind label %190, !noalias !2208
 
@@ -9143,12 +9143,12 @@ default.unreachable:                              ; preds = %110
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %18), !noalias !2206
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !2206
   invoke void @_ZN4stdx6thread7Builder3new17h4a1d6f636051a7fcE(ptr noalias nocapture noundef nonnull sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) %17, i1 noundef zeroext false)
-          to label %162 unwind label %.thread111.i, !noalias !2208
+          to label %162 unwind label %.thread109.i, !noalias !2208
 
-.thread111.i:                                     ; preds = %153
+.thread109.i:                                     ; preds = %153
   %159 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread103.i
+  br label %.thread101.i
 
 160:                                              ; preds = %170
   %161 = landingpad { ptr, i32 }
@@ -9163,7 +9163,7 @@ default.unreachable:                              ; preds = %110
 164:                                              ; preds = %166
   %165 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread103.i
+  br label %.thread101.i
 
 166:                                              ; preds = %162
   %167 = extractvalue { i64, ptr } %163, 0
@@ -9261,16 +9261,16 @@ default.unreachable:                              ; preds = %110
   %189 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$stdx..thread..Builder$GT$17hafef05a007298dc6E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %17) #20
-          to label %.thread103.i unwind label %190, !noalias !2208
+          to label %.thread101.i unwind label %190, !noalias !2208
 
-190:                                              ; preds = %198, %195, %192, %.thread103.i, %188, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit.i", %130, %122, %117
+190:                                              ; preds = %198, %195, %192, %.thread101.i, %188, %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit.i", %130, %122, %117
   %191 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #21, !noalias !2208
   unreachable
 
-.thread103.i:                                     ; preds = %188, %164, %.thread111.i
-  %.pn107.i = phi { ptr, i32 } [ %159, %.thread111.i ], [ %165, %164 ], [ %189, %188 ]
+.thread101.i:                                     ; preds = %188, %164, %.thread109.i
+  %.pn105.i = phi { ptr, i32 } [ %159, %.thread109.i ], [ %165, %164 ], [ %189, %188 ]
   invoke void @"_ZN4core3ptr97drop_in_place$LT$flycheck..command..CargoActor$LT$flycheck..test_runner..CargoTestMessage$GT$$GT$17hb99825073c1c4a3dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %19) #20
           to label %"_ZN4core3ptr46drop_in_place$LT$std..process..ChildStdout$GT$17h12f3d8036a77a4dbE.exit.i" unwind label %190, !noalias !2208
 

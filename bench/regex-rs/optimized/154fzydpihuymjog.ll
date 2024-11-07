@@ -7671,19 +7671,19 @@ define noalias noundef nonnull align 8 ptr @_ZN12regex_syntax3hir10Properties10r
 
 22:                                               ; preds = %19
   %23 = load i32, ptr %18, align 4
-  %24 = getelementptr inbounds i8, ptr %5, i64 24
-  %25 = load i64, ptr %24, align 8
-  %26 = zext i32 %23 to i64
-  %27 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %25, i64 %26)
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  %26 = load i64, ptr %25, align 8
+  %27 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %26, i64 %24)
   %28 = extractvalue { i64, i1 } %27, 1
   %29 = extractvalue { i64, i1 } %27, 0
   %not..i = xor i1 %28, true
-  %spec.select11.i = zext i1 %not..i to i64
+  %spec.select12.i = zext i1 %not..i to i64
   br label %"_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit"
 
 "_ZN12regex_syntax3hir10Properties10repetition28_$u7b$$u7b$closure$u7d$$u7d$17h5876377fb8317222E.exit": ; preds = %22, %19, %16
-  %.sroa.05.0 = phi i64 [ 0, %16 ], [ 0, %19 ], [ %spec.select11.i, %22 ]
-  %.sroa.36.0 = phi i64 [ undef, %16 ], [ undef, %19 ], [ %29, %22 ]
+  %.sroa.05.0 = phi i64 [ 0, %16 ], [ %spec.select12.i, %22 ], [ 0, %19 ]
+  %.sroa.36.0 = phi i64 [ undef, %16 ], [ %29, %22 ], [ undef, %19 ]
   %30 = getelementptr inbounds i8, ptr %5, i64 56
   %31 = load i32, ptr %30, align 8, !noundef !9
   %32 = getelementptr inbounds i8, ptr %5, i64 68

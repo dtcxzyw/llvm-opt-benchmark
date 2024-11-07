@@ -3140,7 +3140,7 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   br i1 %26, label %27, label %63
 
 27:                                               ; preds = %25, %.thread51
-  %.sroa.8.061 = phi i64 [ %.fca.1.extract, %.thread51 ], [ %.sroa.8.0.copyload, %25 ]
+  %.sroa.8.059 = phi i64 [ %.fca.1.extract, %.thread51 ], [ %.sroa.8.0.copyload, %25 ]
   %.sroa.619.056 = phi ptr [ %.fca.0.extract, %.thread51 ], [ %.sroa.619.0.copyload, %25 ]
   %28 = icmp ne ptr %.sroa.619.056, null
   tail call void @llvm.assume(i1 %28)
@@ -3148,7 +3148,7 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.5)
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %10), !noalias !450
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %9), !noalias !450
-  call void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h676582423d32aca3E"(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.619.056, i64 noundef %.sroa.8.061), !noalias !454
+  call void @"_ZN4sec15point24EncodedPoint$LT$Size$GT$10from_bytes17h676582423d32aca3E"(ptr noalias nocapture noundef nonnull sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %9, ptr noalias noundef nonnull readonly align 1 %.sroa.619.056, i64 noundef %.sroa.8.059), !noalias !454
   %29 = load i8, ptr %9, align 8, !range !455, !alias.scope !456, !noalias !459, !noundef !4
   %trunc.i.i = trunc nuw i8 %29 to i1
   br i1 %trunc.i.i, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread", label %30
@@ -3209,9 +3209,9 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.02.i.i), !noalias !450
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !450
   %54 = icmp eq i8 %53, 1
-  br i1 %54, label %55, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72"
+  br i1 %54, label %55, label %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread70"
 
-"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72": ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
+"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread70": ; preds = %"_ZN6subtle17CtOption$LT$T$GT$8and_then17h3823605dd6d79942E.exit.i"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.013.i)
   br label %61
 
@@ -3235,7 +3235,7 @@ define hidden void @"_ZN201_$LT$elliptic_curve..public_key..PublicKey$LT$C$GT$$u
   store i8 %59, ptr %.sroa.748.8..sroa_idx, align 8, !alias.scope !502
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h944904dda22797eeE.exit"
 
-61:                                               ; preds = %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread72", %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread"
+61:                                               ; preds = %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread70", %"_ZN14elliptic_curve10public_key18PublicKey$LT$C$GT$15from_sec1_bytes17h1bf97a7b1aac4a75E.exit.thread"
   call void @llvm.lifetime.end.p0(i64 65, ptr nonnull %10), !noalias !450
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !502
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !503

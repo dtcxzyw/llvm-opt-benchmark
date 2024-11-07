@@ -256,7 +256,7 @@ cond.true:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp5) #25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp7) #25
   invoke void @_ZN8QuantLib17FirstDerivativeOpC1EmRKN5boost10shared_ptrINS_9FdmMesherEEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp7, i64 noundef %direction, ptr noundef nonnull align 8 dereferenceable(16) %mesher)
-          to label %invoke.cont11 unwind label %cleanup.done925.thread1151
+          to label %invoke.cont11 unwind label %cleanup.done925.thread1134
 
 invoke.cont11:                                    ; preds = %cond.true
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp13) #25
@@ -267,7 +267,7 @@ invoke.cont11:                                    ; preds = %cond.true
 
 cond.false.i:                                     ; preds = %invoke.cont11
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv, ptr noundef nonnull @.str.10, i64 noundef 784)
-          to label %.noexc unwind label %cleanup.done925.thread1157
+          to label %.noexc unwind label %cleanup.done925.thread1140
 
 .noexc:                                           ; preds = %cond.false.i
   %.pre.i = load ptr, ptr %mesher, align 8, !tbaa !28
@@ -280,7 +280,7 @@ invoke.cont22:                                    ; preds = %.noexc, %invoke.con
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
   %3 = load ptr, ptr %vfn, align 8
   invoke void %3(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp19, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2)
-          to label %invoke.cont25 unwind label %cleanup.done925.thread1157
+          to label %invoke.cont25 unwind label %cleanup.done925.thread1140
 
 invoke.cont25:                                    ; preds = %invoke.cont22
   %4 = load ptr, ptr %ref.tmp19, align 8, !tbaa !31, !noalias !32
@@ -480,7 +480,7 @@ cond.true89:                                      ; preds = %cond.false
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp98) #25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp100) #25
   invoke void @_ZN8QuantLib18SecondDerivativeOpC1EmRKN5boost10shared_ptrINS_9FdmMesherEEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp100, i64 noundef %direction, ptr noundef nonnull align 8 dereferenceable(16) %mesher)
-          to label %invoke.cont104 unwind label %cleanup.done739.thread1053
+          to label %invoke.cont104 unwind label %cleanup.done739.thread1036
 
 invoke.cont104:                                   ; preds = %cond.true89
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp106) #25
@@ -493,7 +493,7 @@ invoke.cont104:                                   ; preds = %cond.true89
 
 cond.false.i150:                                  ; preds = %invoke.cont104
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv, ptr noundef nonnull @.str.10, i64 noundef 784)
-          to label %.noexc152 unwind label %cleanup.done739.thread1063
+          to label %.noexc152 unwind label %cleanup.done739.thread1046
 
 .noexc152:                                        ; preds = %cond.false.i150
   %.pre.i151 = load ptr, ptr %mesher, align 8, !tbaa !28
@@ -506,7 +506,7 @@ invoke.cont113:                                   ; preds = %.noexc152, %invoke.
   %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 40
   %28 = load ptr, ptr %vfn117, align 8
   invoke void %28(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp110, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 noundef %27)
-          to label %invoke.cont118 unwind label %cleanup.done739.thread1063
+          to label %invoke.cont118 unwind label %cleanup.done739.thread1046
 
 invoke.cont118:                                   ; preds = %invoke.cont113
   call void @llvm.experimental.noalias.scope.decl(metadata !62)
@@ -694,7 +694,7 @@ cond.false182:                                    ; preds = %cond.false
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp191) #25
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %ref.tmp193) #25
   invoke void @_ZN8QuantLib17FirstDerivativeOpC1EmRKN5boost10shared_ptrINS_9FdmMesherEEE(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp193, i64 noundef %direction, ptr noundef nonnull align 8 dereferenceable(16) %mesher)
-          to label %invoke.cont197 unwind label %cleanup.done567.thread911
+          to label %invoke.cont197 unwind label %cleanup.done567.thread897
 
 invoke.cont197:                                   ; preds = %cond.false182
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp199) #25
@@ -705,7 +705,7 @@ invoke.cont197:                                   ; preds = %cond.false182
 
 cond.false.i216:                                  ; preds = %invoke.cont197
   invoke void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef nonnull @.str.9, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv, ptr noundef nonnull @.str.10, i64 noundef 784)
-          to label %.noexc218 unwind label %cleanup.done567.thread925
+          to label %.noexc218 unwind label %cleanup.done567.thread911
 
 .noexc218:                                        ; preds = %cond.false.i216
   %.pre.i217 = load ptr, ptr %mesher, align 8, !tbaa !28
@@ -717,7 +717,7 @@ invoke.cont210:                                   ; preds = %.noexc218, %invoke.
   %vfn213 = getelementptr inbounds i8, ptr %vtable212, i64 40
   %51 = load ptr, ptr %vfn213, align 8
   invoke void %51(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp207, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 noundef %direction)
-          to label %invoke.cont214 unwind label %cleanup.done567.thread925
+          to label %invoke.cont214 unwind label %cleanup.done567.thread911
 
 invoke.cont214:                                   ; preds = %invoke.cont210
   %52 = load ptr, ptr %ref.tmp207, align 8, !tbaa !31, !noalias !73
@@ -1392,8 +1392,8 @@ invoke.cont950:                                   ; preds = %call5.i.i.i.i2.i.i.
   store i64 %118, ptr %__end1, align 8, !tbaa !127, !alias.scope !129
   %dim_.i.i433 = getelementptr inbounds nuw i8, ptr %__end1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %dim_.i.i433, i8 0, i64 48, i1 false), !alias.scope !129
-  %cmp.i.not1176 = icmp eq i64 %118, 0
-  br i1 %cmp.i.not1176, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body.lr.ph
+  %cmp.i.not1159 = icmp eq i64 %118, 0
+  br i1 %cmp.i.not1159, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %invoke.cont950
   %coordinates_.i537 = getelementptr inbounds nuw i8, ptr %__begin1, i64 32
@@ -1415,11 +1415,11 @@ if.then.i.i.i.i440:                               ; preds = %_ZN8QuantLib19FdmLi
   %sub.ptr.sub.i.i.i444 = sub i64 %sub.ptr.lhs.cast.i.i.i442, %sub.ptr.rhs.cast.i.i.i443
   call void @_ZdlPvm(ptr noundef nonnull %119, i64 noundef %sub.ptr.sub.i.i.i444) #28
   %dim_.i446.phi.trans.insert = getelementptr inbounds nuw i8, ptr %__begin1, i64 8
-  %.pre1177 = load ptr, ptr %dim_.i446.phi.trans.insert, align 8, !tbaa !121
+  %.pre1160 = load ptr, ptr %dim_.i446.phi.trans.insert, align 8, !tbaa !121
   br label %_ZNSt6vectorImSaImEED2Ev.exit.i445
 
 _ZNSt6vectorImSaImEED2Ev.exit.i445:               ; preds = %if.then.i.i.i.i440, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit
-  %121 = phi ptr [ %.pre1177, %if.then.i.i.i.i440 ], [ %116, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit ]
+  %121 = phi ptr [ %.pre1160, %if.then.i.i.i.i440 ], [ %116, %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit ]
   %tobool.not.i.i.i1.i447 = icmp eq ptr %121, null
   br i1 %tobool.not.i.i.i1.i447, label %_ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit453, label %if.then.i.i.i2.i448
 
@@ -1437,12 +1437,12 @@ _ZN8QuantLib19FdmLinearOpIteratorD2Ev.exit453:    ; preds = %_ZNSt6vectorImSaImE
   invoke void @_ZN8QuantLib18FdmSquareRootFwdOp10setLowerBCERKN5boost10shared_ptrINS_9FdmMesherEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher)
           to label %invoke.cont983 unwind label %lpad982
 
-cleanup.done925.thread1151:                       ; preds = %cond.true
+cleanup.done925.thread1134:                       ; preds = %cond.true
   %123 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action928.sink.split
 
-cleanup.done925.thread1157:                       ; preds = %invoke.cont22, %cond.false.i
+cleanup.done925.thread1140:                       ; preds = %invoke.cont22, %cond.false.i
   %124 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp19) #25
@@ -1490,12 +1490,12 @@ lpad86:                                           ; preds = %invoke.cont84
           cleanup
   br label %cleanup.action749
 
-cleanup.done739.thread1053:                       ; preds = %cond.true89
+cleanup.done739.thread1036:                       ; preds = %cond.true89
   %133 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action742.thread
 
-cleanup.done739.thread1063:                       ; preds = %invoke.cont113, %cond.false.i150
+cleanup.done739.thread1046:                       ; preds = %invoke.cont113, %cond.false.i150
   %134 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp110) #25
@@ -1543,12 +1543,12 @@ lpad180:                                          ; preds = %invoke.cont178
           cleanup
   br label %cleanup.action577
 
-cleanup.done567.thread911:                        ; preds = %cond.false182
+cleanup.done567.thread897:                        ; preds = %cond.false182
   %143 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action570.thread
 
-cleanup.done567.thread925:                        ; preds = %invoke.cont210, %cond.false.i216
+cleanup.done567.thread911:                        ; preds = %invoke.cont210, %cond.false.i216
   %144 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp207) #25
@@ -1752,8 +1752,8 @@ cleanup.done567:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp187) #25
   br i1 %cleanup.cond186.8.ph, label %cleanup.action570, label %ehcleanup575
 
-cleanup.action570.thread:                         ; preds = %cleanup.done567.thread911, %cleanup.done567.thread925
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph924.ph = phi { ptr, i32 } [ %144, %cleanup.done567.thread925 ], [ %143, %cleanup.done567.thread911 ]
+cleanup.action570.thread:                         ; preds = %cleanup.done567.thread897, %cleanup.done567.thread911
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph910.ph = phi { ptr, i32 } [ %144, %cleanup.done567.thread911 ], [ %143, %cleanup.done567.thread897 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp193) #25
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp191) #25
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp189) #25
@@ -1769,20 +1769,20 @@ ehcleanup575:                                     ; preds = %cleanup.done567
   br i1 %cleanup.cond179.10.ph, label %cleanup.action577, label %cleanup.done739.thread
 
 cleanup.action577:                                ; preds = %lpad180, %cleanup.done567.thread, %cleanup.action570, %ehcleanup575
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn937 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.action570 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup575 ], [ %142, %lpad180 ], [ %79, %cleanup.done567.thread ]
-  %cond-cleanup.save.29936 = phi ptr [ %cond-cleanup.save.36.ph, %cleanup.action570 ], [ %cond-cleanup.save.36.ph, %ehcleanup575 ], [ undef, %lpad180 ], [ %cond-cleanup.save.1, %cleanup.done567.thread ]
-  %cleanup.cond93.15935 = phi i1 [ false, %cleanup.action570 ], [ false, %ehcleanup575 ], [ true, %lpad180 ], [ false, %cleanup.done567.thread ]
-  %cond-cleanup.save92.15934 = phi ptr [ %cond-cleanup.save92.22.ph, %cleanup.action570 ], [ %cond-cleanup.save92.22.ph, %ehcleanup575 ], [ %call91, %lpad180 ], [ %cond-cleanup.save92.0, %cleanup.done567.thread ]
-  %cleanup.cond85.16933 = phi i1 [ %cleanup.cond85.23.ph, %cleanup.action570 ], [ %cleanup.cond85.23.ph, %ehcleanup575 ], [ false, %lpad180 ], [ %cmp, %cleanup.done567.thread ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn923 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.action570 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup575 ], [ %142, %lpad180 ], [ %79, %cleanup.done567.thread ]
+  %cond-cleanup.save.29922 = phi ptr [ %cond-cleanup.save.36.ph, %cleanup.action570 ], [ %cond-cleanup.save.36.ph, %ehcleanup575 ], [ undef, %lpad180 ], [ %cond-cleanup.save.1, %cleanup.done567.thread ]
+  %cleanup.cond93.15921 = phi i1 [ false, %cleanup.action570 ], [ false, %ehcleanup575 ], [ true, %lpad180 ], [ false, %cleanup.done567.thread ]
+  %cond-cleanup.save92.15920 = phi ptr [ %cond-cleanup.save92.22.ph, %cleanup.action570 ], [ %cond-cleanup.save92.22.ph, %ehcleanup575 ], [ %call91, %lpad180 ], [ %cond-cleanup.save92.0, %cleanup.done567.thread ]
+  %cleanup.cond85.16919 = phi i1 [ %cleanup.cond85.23.ph, %cleanup.action570 ], [ %cleanup.cond85.23.ph, %ehcleanup575 ], [ false, %lpad180 ], [ %cmp, %cleanup.done567.thread ]
   call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp94) #25
   br label %cleanup.action584
 
 cleanup.action584:                                ; preds = %lpad177, %cleanup.action577
-  %cleanup.cond85.15 = phi i1 [ %cleanup.cond85.16933, %cleanup.action577 ], [ false, %lpad177 ]
-  %cond-cleanup.save92.14 = phi ptr [ %cond-cleanup.save92.15934, %cleanup.action577 ], [ %call91, %lpad177 ]
-  %cleanup.cond93.14 = phi i1 [ %cleanup.cond93.15935, %cleanup.action577 ], [ true, %lpad177 ]
-  %cond-cleanup.save.28 = phi ptr [ %cond-cleanup.save.29936, %cleanup.action577 ], [ undef, %lpad177 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn937, %cleanup.action577 ], [ %141, %lpad177 ]
+  %cleanup.cond85.15 = phi i1 [ %cleanup.cond85.16919, %cleanup.action577 ], [ false, %lpad177 ]
+  %cond-cleanup.save92.14 = phi ptr [ %cond-cleanup.save92.15920, %cleanup.action577 ], [ %call91, %lpad177 ]
+  %cleanup.cond93.14 = phi i1 [ %cleanup.cond93.15921, %cleanup.action577 ], [ true, %lpad177 ]
+  %cond-cleanup.save.28 = phi ptr [ %cond-cleanup.save.29922, %cleanup.action577 ], [ undef, %lpad177 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn923, %cleanup.action577 ], [ %141, %lpad177 ]
   %159 = load ptr, ptr %ref.tmp160, align 8, !tbaa !31
   %cmp.not.i.i493 = icmp eq ptr %159, null
   br i1 %cmp.not.i.i493, label %cleanup.action591, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i494
@@ -1881,10 +1881,10 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %cleanup.done739
 
 cleanup.done739.thread:                           ; preds = %ehcleanup575, %cleanup.action570, %cleanup.done567.thread
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1046.ph = phi { ptr, i32 } [ %79, %cleanup.done567.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.action570 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup575 ]
-  %cond-cleanup.save.171044.ph = phi ptr [ %cond-cleanup.save.1, %cleanup.done567.thread ], [ %cond-cleanup.save.36.ph, %cleanup.action570 ], [ %cond-cleanup.save.36.ph, %ehcleanup575 ]
-  %cleanup.cond85.41038.ph = phi i1 [ %cmp, %cleanup.done567.thread ], [ %cleanup.cond85.23.ph, %cleanup.action570 ], [ %cleanup.cond85.23.ph, %ehcleanup575 ]
-  br i1 %cleanup.cond85.41038.ph, label %cleanup.action749, label %ehcleanup987
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1029.ph = phi { ptr, i32 } [ %79, %cleanup.done567.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.action570 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %ehcleanup575 ]
+  %cond-cleanup.save.171027.ph = phi ptr [ %cond-cleanup.save.1, %cleanup.done567.thread ], [ %cond-cleanup.save.36.ph, %cleanup.action570 ], [ %cond-cleanup.save.36.ph, %ehcleanup575 ]
+  %cleanup.cond85.41021.ph = phi i1 [ %cmp, %cleanup.done567.thread ], [ %cleanup.cond85.23.ph, %cleanup.action570 ], [ %cleanup.cond85.23.ph, %ehcleanup575 ]
+  br i1 %cleanup.cond85.41021.ph, label %cleanup.action749, label %ehcleanup987
 
 cleanup.done739:                                  ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i509, %_ZN8QuantLib5ArrayD2Ev.exit507
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp110) #25
@@ -1896,8 +1896,8 @@ cleanup.done739:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp94) #25
   br i1 %cleanup.cond93.6, label %cleanup.action742, label %ehcleanup747
 
-cleanup.action742.thread:                         ; preds = %cleanup.done739.thread1053, %cleanup.done739.thread1063
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1062.ph = phi { ptr, i32 } [ %134, %cleanup.done739.thread1063 ], [ %133, %cleanup.done739.thread1053 ]
+cleanup.action742.thread:                         ; preds = %cleanup.done739.thread1036, %cleanup.done739.thread1046
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1045.ph = phi { ptr, i32 } [ %134, %cleanup.done739.thread1046 ], [ %133, %cleanup.done739.thread1036 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp100) #25
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp98) #25
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp96) #25
@@ -1913,16 +1913,16 @@ ehcleanup747:                                     ; preds = %cleanup.done739
   br i1 %cleanup.cond85.7, label %cleanup.action749, label %ehcleanup987
 
 cleanup.action749:                                ; preds = %lpad86, %cleanup.done739.thread, %cleanup.action742, %ehcleanup747
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1071 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.action742 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup747 ], [ %132, %lpad86 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1046.ph, %cleanup.done739.thread ]
-  %cond-cleanup.save.161070 = phi ptr [ %cond-cleanup.save.20, %cleanup.action742 ], [ %cond-cleanup.save.20, %ehcleanup747 ], [ %call, %lpad86 ], [ %cond-cleanup.save.171044.ph, %cleanup.done739.thread ]
-  %cleanup.cond.161069 = phi i1 [ false, %cleanup.action742 ], [ false, %ehcleanup747 ], [ true, %lpad86 ], [ false, %cleanup.done739.thread ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1054 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.action742 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup747 ], [ %132, %lpad86 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1029.ph, %cleanup.done739.thread ]
+  %cond-cleanup.save.161053 = phi ptr [ %cond-cleanup.save.20, %cleanup.action742 ], [ %cond-cleanup.save.20, %ehcleanup747 ], [ %call, %lpad86 ], [ %cond-cleanup.save.171027.ph, %cleanup.done739.thread ]
+  %cleanup.cond.161052 = phi i1 [ false, %cleanup.action742 ], [ false, %ehcleanup747 ], [ true, %lpad86 ], [ false, %cleanup.done739.thread ]
   call void @_ZN8QuantLib18TripleBandLinearOpD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %ref.tmp) #25
   br label %cleanup.action756
 
 cleanup.action756:                                ; preds = %lpad83, %cleanup.action749
-  %cleanup.cond.15 = phi i1 [ %cleanup.cond.161069, %cleanup.action749 ], [ true, %lpad83 ]
-  %cond-cleanup.save.15 = phi ptr [ %cond-cleanup.save.161070, %cleanup.action749 ], [ %call, %lpad83 ]
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1071, %cleanup.action749 ], [ %131, %lpad83 ]
+  %cleanup.cond.15 = phi i1 [ %cleanup.cond.161052, %cleanup.action749 ], [ true, %lpad83 ]
+  %cond-cleanup.save.15 = phi ptr [ %cond-cleanup.save.161053, %cleanup.action749 ], [ %call, %lpad83 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1054, %cleanup.action749 ], [ %131, %lpad83 ]
   %164 = load ptr, ptr %ref.tmp70, align 8, !tbaa !31
   %cmp.not.i.i511 = icmp eq ptr %164, null
   br i1 %cmp.not.i.i511, label %cleanup.action763, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i512
@@ -2018,8 +2018,8 @@ cleanup.done925:                                  ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp) #25
   br i1 %cleanup.cond.8.ph, label %cleanup.action928, label %ehcleanup987
 
-cleanup.action928.sink.split:                     ; preds = %cleanup.done925.thread1151, %cleanup.done925.thread1157
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1156.ph = phi { ptr, i32 } [ %124, %cleanup.done925.thread1157 ], [ %123, %cleanup.done925.thread1151 ]
+cleanup.action928.sink.split:                     ; preds = %cleanup.done925.thread1134, %cleanup.done925.thread1140
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1139.ph = phi { ptr, i32 } [ %124, %cleanup.done925.thread1140 ], [ %123, %cleanup.done925.thread1134 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp7) #25
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp5) #25
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %ref.tmp3) #25
@@ -2027,9 +2027,9 @@ cleanup.action928.sink.split:                     ; preds = %cleanup.done925.thr
   br label %cleanup.action928
 
 cleanup.action928:                                ; preds = %cleanup.action928.sink.split, %cleanup.done925
-  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1156 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.done925 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1156.ph, %cleanup.action928.sink.split ]
-  %cond-cleanup.save.3.ph1155 = phi ptr [ %cond-cleanup.save.8.ph, %cleanup.done925 ], [ %call, %cleanup.action928.sink.split ]
-  call void @_ZdlPvm(ptr noundef %cond-cleanup.save.3.ph1155, i64 noundef 80) #28
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1139 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.done925 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1139.ph, %cleanup.action928.sink.split ]
+  %cond-cleanup.save.3.ph1138 = phi ptr [ %cond-cleanup.save.8.ph, %cleanup.done925 ], [ %call, %cleanup.action928.sink.split ]
+  call void @_ZdlPvm(ptr noundef %cond-cleanup.save.3.ph1138, i64 noundef 80) #28
   br label %ehcleanup987
 
 lpad930:                                          ; preds = %cond.true.i, %cond.false.i411, %cond.false.i405
@@ -2168,7 +2168,7 @@ ehcleanup986:                                     ; preds = %_ZN8QuantLib5ArrayD
   br label %ehcleanup987
 
 ehcleanup987:                                     ; preds = %cleanup.action570.thread, %cleanup.action742.thread, %cleanup.done739.thread, %cleanup.action742, %ehcleanup747, %cleanup.done925, %cleanup.action928, %ehcleanup986
-  %.pn98.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn, %ehcleanup986 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1156, %cleanup.action928 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.done925 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1046.ph, %cleanup.done739.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.action742 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup747 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1062.ph, %cleanup.action742.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph924.ph, %cleanup.action570.thread ]
+  %.pn98.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn98.pn.pn.pn.pn, %ehcleanup986 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1139, %cleanup.action928 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %cleanup.done925 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn1029.ph, %cleanup.done739.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %cleanup.action742 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup747 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph1045.ph, %cleanup.action742.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph910.ph, %cleanup.action570.thread ]
   resume { ptr, i32 } %.pn98.pn.pn.pn.pn.pn
 }
 

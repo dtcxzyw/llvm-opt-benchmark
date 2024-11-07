@@ -737,12 +737,12 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
 
 if.end32:                                         ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   %19 = extractvalue { i8, i64 } %call29, 1
-  %conv = trunc i64 %19 to i32
+  %20 = trunc i64 %19 to i32
   %handle_ = getelementptr inbounds i8, ptr %retval.i11.0.i, i64 160
-  %call33 = tail call i32 @uv_tcp_open(ptr noundef nonnull %handle_, i32 noundef %conv) #17
+  %call33 = tail call i32 @uv_tcp_open(ptr noundef nonnull %handle_, i32 noundef %20) #17
   %conv.i = sext i32 %call33 to i64
-  %20 = load ptr, ptr %args, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = load ptr, ptr %args, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %21, i64 24
   %shl.i = shl nsw i64 %conv.i, 32
   store i64 %shl.i, ptr %arrayidx.i, align 8
   br label %return

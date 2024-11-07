@@ -6571,7 +6571,7 @@ _ZN10async_task5utils14abort_on_panic17hd17cc68cba61cb27E.exit: ; preds = %30
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
   %95 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %94)
-          to label %.thread251 unwind label %96
+          to label %.thread250 unwind label %96
 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
@@ -6607,7 +6607,7 @@ _ZN10async_task5utils14abort_on_panic17hd17cc68cba61cb27E.exit: ; preds = %30
   %108 = icmp ne i32 %106, 1000000004
   br i1 %108, label %122, label %.preheader
 
-.thread251:                                       ; preds = %92
+.thread250:                                       ; preds = %92
   %109 = extractvalue { ptr, ptr } %95, 0
   %110 = extractvalue { ptr, ptr } %95, 1
   %111 = icmp ne ptr %110, null
@@ -6632,19 +6632,19 @@ _ZN10async_task5utils14abort_on_panic17hd17cc68cba61cb27E.exit: ; preds = %30
     i32 1000000003, label %118
   ]
 
-114:                                              ; preds = %.thread251, %112
-  %.sroa.79.0258 = phi ptr [ %109, %.thread251 ], [ %.sroa.14.0.copyload, %112 ]
-  %.sroa.9.0257 = phi ptr [ %110, %.thread251 ], [ %.sroa.15.0.copyload, %112 ]
-  %115 = icmp ne ptr %.sroa.79.0258, null
+114:                                              ; preds = %.thread250, %112
+  %.sroa.79.0257 = phi ptr [ %109, %.thread250 ], [ %.sroa.14.0.copyload, %112 ]
+  %.sroa.9.0256 = phi ptr [ %110, %.thread250 ], [ %.sroa.15.0.copyload, %112 ]
+  %115 = icmp ne ptr %.sroa.79.0257, null
   call void @llvm.assume(i1 %115)
-  %116 = icmp ne ptr %.sroa.9.0257, null
+  %116 = icmp ne ptr %.sroa.9.0256, null
   call void @llvm.assume(i1 %116)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0258, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0257, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0257, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0256, ptr %.sroa.527.0..sroa_idx, align 8
   br label %120
 
 117:                                              ; preds = %112
@@ -6703,12 +6703,12 @@ _ZN10async_task5utils14abort_on_panic17hd17cc68cba61cb27E.exit: ; preds = %30
 127:                                              ; preds = %127, %126
   %.sroa.037.2 = phi i64 [ %26, %126 ], [ %135, %127 ]
   %128 = and i64 %.sroa.037.2, 16
-  %.not287 = icmp eq i64 %128, 0
+  %.not286 = icmp eq i64 %128, 0
   %129 = and i64 %.sroa.037.2, -32
   %130 = or disjoint i64 %129, 12
   %131 = and i64 %.sroa.037.2, -8
   %132 = or disjoint i64 %131, 4
-  %.sroa.031.0 = select i1 %.not287, i64 %130, i64 %132
+  %.sroa.031.0 = select i1 %.not286, i64 %130, i64 %132
   %133 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
@@ -9359,7 +9359,7 @@ _ZN10async_task5utils14abort_on_panic17hfaa5264bfa269f97E.exit: ; preds = %30
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
   %95 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %94)
-          to label %.thread251 unwind label %96
+          to label %.thread250 unwind label %96
 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
@@ -9395,7 +9395,7 @@ _ZN10async_task5utils14abort_on_panic17hfaa5264bfa269f97E.exit: ; preds = %30
   %108 = icmp ne i32 %106, 1000000004
   br i1 %108, label %122, label %.preheader
 
-.thread251:                                       ; preds = %92
+.thread250:                                       ; preds = %92
   %109 = extractvalue { ptr, ptr } %95, 0
   %110 = extractvalue { ptr, ptr } %95, 1
   %111 = icmp ne ptr %110, null
@@ -9420,19 +9420,19 @@ _ZN10async_task5utils14abort_on_panic17hfaa5264bfa269f97E.exit: ; preds = %30
     i32 1000000003, label %118
   ]
 
-114:                                              ; preds = %.thread251, %112
-  %.sroa.79.0258 = phi ptr [ %109, %.thread251 ], [ %.sroa.14.0.copyload, %112 ]
-  %.sroa.9.0257 = phi ptr [ %110, %.thread251 ], [ %.sroa.15.0.copyload, %112 ]
-  %115 = icmp ne ptr %.sroa.79.0258, null
+114:                                              ; preds = %.thread250, %112
+  %.sroa.79.0257 = phi ptr [ %109, %.thread250 ], [ %.sroa.14.0.copyload, %112 ]
+  %.sroa.9.0256 = phi ptr [ %110, %.thread250 ], [ %.sroa.15.0.copyload, %112 ]
+  %115 = icmp ne ptr %.sroa.79.0257, null
   call void @llvm.assume(i1 %115)
-  %116 = icmp ne ptr %.sroa.9.0257, null
+  %116 = icmp ne ptr %.sroa.9.0256, null
   call void @llvm.assume(i1 %116)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0258, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0257, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0257, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0256, ptr %.sroa.527.0..sroa_idx, align 8
   br label %120
 
 117:                                              ; preds = %112
@@ -9491,12 +9491,12 @@ _ZN10async_task5utils14abort_on_panic17hfaa5264bfa269f97E.exit: ; preds = %30
 127:                                              ; preds = %127, %126
   %.sroa.037.2 = phi i64 [ %26, %126 ], [ %135, %127 ]
   %128 = and i64 %.sroa.037.2, 16
-  %.not287 = icmp eq i64 %128, 0
+  %.not286 = icmp eq i64 %128, 0
   %129 = and i64 %.sroa.037.2, -32
   %130 = or disjoint i64 %129, 12
   %131 = and i64 %.sroa.037.2, -8
   %132 = or disjoint i64 %131, 4
-  %.sroa.031.0 = select i1 %.not287, i64 %130, i64 %132
+  %.sroa.031.0 = select i1 %.not286, i64 %130, i64 %132
   %133 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
@@ -11238,7 +11238,7 @@ _ZN10async_task5utils14abort_on_panic17h7235b1248204319aE.exit: ; preds = %30
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %95)
-          to label %.thread249 unwind label %97
+          to label %.thread248 unwind label %97
 
 97:                                               ; preds = %93
   %98 = landingpad { ptr, i32 }
@@ -11274,7 +11274,7 @@ _ZN10async_task5utils14abort_on_panic17h7235b1248204319aE.exit: ; preds = %30
   %109 = icmp ne i32 %107, 1000000004
   br i1 %109, label %123, label %.preheader
 
-.thread249:                                       ; preds = %93
+.thread248:                                       ; preds = %93
   %110 = extractvalue { ptr, ptr } %96, 0
   %111 = extractvalue { ptr, ptr } %96, 1
   %112 = icmp ne ptr %111, null
@@ -11299,19 +11299,19 @@ _ZN10async_task5utils14abort_on_panic17h7235b1248204319aE.exit: ; preds = %30
     i32 1000000003, label %119
   ]
 
-115:                                              ; preds = %.thread249, %113
-  %.sroa.79.0256 = phi ptr [ %110, %.thread249 ], [ %.sroa.14.0.copyload, %113 ]
-  %.sroa.9.0255 = phi ptr [ %111, %.thread249 ], [ %.sroa.15.0.copyload, %113 ]
-  %116 = icmp ne ptr %.sroa.79.0256, null
+115:                                              ; preds = %.thread248, %113
+  %.sroa.79.0255 = phi ptr [ %110, %.thread248 ], [ %.sroa.14.0.copyload, %113 ]
+  %.sroa.9.0254 = phi ptr [ %111, %.thread248 ], [ %.sroa.15.0.copyload, %113 ]
+  %116 = icmp ne ptr %.sroa.79.0255, null
   call void @llvm.assume(i1 %116)
-  %117 = icmp ne ptr %.sroa.9.0255, null
+  %117 = icmp ne ptr %.sroa.9.0254, null
   call void @llvm.assume(i1 %117)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0256, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0255, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0255, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0254, ptr %.sroa.527.0..sroa_idx, align 8
   br label %121
 
 118:                                              ; preds = %113
@@ -11367,12 +11367,12 @@ _ZN10async_task5utils14abort_on_panic17h7235b1248204319aE.exit: ; preds = %30
 129:                                              ; preds = %129, %128
   %.sroa.037.2 = phi i64 [ %26, %128 ], [ %137, %129 ]
   %130 = and i64 %.sroa.037.2, 16
-  %.not285 = icmp eq i64 %130, 0
+  %.not284 = icmp eq i64 %130, 0
   %131 = and i64 %.sroa.037.2, -32
   %132 = or disjoint i64 %131, 12
   %133 = and i64 %.sroa.037.2, -8
   %134 = or disjoint i64 %133, 4
-  %.sroa.031.0 = select i1 %.not285, i64 %132, i64 %134
+  %.sroa.031.0 = select i1 %.not284, i64 %132, i64 %134
   %135 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %136 = extractvalue { i64, i1 } %135, 1
   %137 = extractvalue { i64, i1 } %135, 0
@@ -13108,7 +13108,7 @@ _ZN10async_task5utils14abort_on_panic17hf81c67a1ef74fb69E.exit: ; preds = %30
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %95)
-          to label %.thread249 unwind label %97
+          to label %.thread248 unwind label %97
 
 97:                                               ; preds = %93
   %98 = landingpad { ptr, i32 }
@@ -13144,7 +13144,7 @@ _ZN10async_task5utils14abort_on_panic17hf81c67a1ef74fb69E.exit: ; preds = %30
   %109 = icmp ne i32 %107, 1000000004
   br i1 %109, label %123, label %.preheader
 
-.thread249:                                       ; preds = %93
+.thread248:                                       ; preds = %93
   %110 = extractvalue { ptr, ptr } %96, 0
   %111 = extractvalue { ptr, ptr } %96, 1
   %112 = icmp ne ptr %111, null
@@ -13169,19 +13169,19 @@ _ZN10async_task5utils14abort_on_panic17hf81c67a1ef74fb69E.exit: ; preds = %30
     i32 1000000003, label %119
   ]
 
-115:                                              ; preds = %.thread249, %113
-  %.sroa.79.0256 = phi ptr [ %110, %.thread249 ], [ %.sroa.14.0.copyload, %113 ]
-  %.sroa.9.0255 = phi ptr [ %111, %.thread249 ], [ %.sroa.15.0.copyload, %113 ]
-  %116 = icmp ne ptr %.sroa.79.0256, null
+115:                                              ; preds = %.thread248, %113
+  %.sroa.79.0255 = phi ptr [ %110, %.thread248 ], [ %.sroa.14.0.copyload, %113 ]
+  %.sroa.9.0254 = phi ptr [ %111, %.thread248 ], [ %.sroa.15.0.copyload, %113 ]
+  %116 = icmp ne ptr %.sroa.79.0255, null
   call void @llvm.assume(i1 %116)
-  %117 = icmp ne ptr %.sroa.9.0255, null
+  %117 = icmp ne ptr %.sroa.9.0254, null
   call void @llvm.assume(i1 %117)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0256, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0255, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0255, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0254, ptr %.sroa.527.0..sroa_idx, align 8
   br label %121
 
 118:                                              ; preds = %113
@@ -13237,12 +13237,12 @@ _ZN10async_task5utils14abort_on_panic17hf81c67a1ef74fb69E.exit: ; preds = %30
 129:                                              ; preds = %129, %128
   %.sroa.037.2 = phi i64 [ %26, %128 ], [ %137, %129 ]
   %130 = and i64 %.sroa.037.2, 16
-  %.not285 = icmp eq i64 %130, 0
+  %.not284 = icmp eq i64 %130, 0
   %131 = and i64 %.sroa.037.2, -32
   %132 = or disjoint i64 %131, 12
   %133 = and i64 %.sroa.037.2, -8
   %134 = or disjoint i64 %133, 4
-  %.sroa.031.0 = select i1 %.not285, i64 %132, i64 %134
+  %.sroa.031.0 = select i1 %.not284, i64 %132, i64 %134
   %135 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %136 = extractvalue { i64, i1 } %135, 1
   %137 = extractvalue { i64, i1 } %135, 0
@@ -14058,7 +14058,7 @@ _ZN10async_task5utils14abort_on_panic17h515825208dce5370E.exit: ; preds = %30
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %95)
-          to label %.thread249 unwind label %97
+          to label %.thread248 unwind label %97
 
 97:                                               ; preds = %93
   %98 = landingpad { ptr, i32 }
@@ -14094,7 +14094,7 @@ _ZN10async_task5utils14abort_on_panic17h515825208dce5370E.exit: ; preds = %30
   %109 = icmp ne i32 %107, 1000000004
   br i1 %109, label %123, label %.preheader
 
-.thread249:                                       ; preds = %93
+.thread248:                                       ; preds = %93
   %110 = extractvalue { ptr, ptr } %96, 0
   %111 = extractvalue { ptr, ptr } %96, 1
   %112 = icmp ne ptr %111, null
@@ -14119,19 +14119,19 @@ _ZN10async_task5utils14abort_on_panic17h515825208dce5370E.exit: ; preds = %30
     i32 1000000003, label %119
   ]
 
-115:                                              ; preds = %.thread249, %113
-  %.sroa.79.0256 = phi ptr [ %110, %.thread249 ], [ %.sroa.14.0.copyload, %113 ]
-  %.sroa.9.0255 = phi ptr [ %111, %.thread249 ], [ %.sroa.15.0.copyload, %113 ]
-  %116 = icmp ne ptr %.sroa.79.0256, null
+115:                                              ; preds = %.thread248, %113
+  %.sroa.79.0255 = phi ptr [ %110, %.thread248 ], [ %.sroa.14.0.copyload, %113 ]
+  %.sroa.9.0254 = phi ptr [ %111, %.thread248 ], [ %.sroa.15.0.copyload, %113 ]
+  %116 = icmp ne ptr %.sroa.79.0255, null
   call void @llvm.assume(i1 %116)
-  %117 = icmp ne ptr %.sroa.9.0255, null
+  %117 = icmp ne ptr %.sroa.9.0254, null
   call void @llvm.assume(i1 %117)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0256, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0255, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0255, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0254, ptr %.sroa.527.0..sroa_idx, align 8
   br label %121
 
 118:                                              ; preds = %113
@@ -14187,12 +14187,12 @@ _ZN10async_task5utils14abort_on_panic17h515825208dce5370E.exit: ; preds = %30
 129:                                              ; preds = %129, %128
   %.sroa.037.2 = phi i64 [ %26, %128 ], [ %137, %129 ]
   %130 = and i64 %.sroa.037.2, 16
-  %.not285 = icmp eq i64 %130, 0
+  %.not284 = icmp eq i64 %130, 0
   %131 = and i64 %.sroa.037.2, -32
   %132 = or disjoint i64 %131, 12
   %133 = and i64 %.sroa.037.2, -8
   %134 = or disjoint i64 %133, 4
-  %.sroa.031.0 = select i1 %.not285, i64 %132, i64 %134
+  %.sroa.031.0 = select i1 %.not284, i64 %132, i64 %134
   %135 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %136 = extractvalue { i64, i1 } %135, 1
   %137 = extractvalue { i64, i1 } %135, 0
@@ -15014,7 +15014,7 @@ _ZN10async_task5utils14abort_on_panic17he3614591475f7a22E.exit: ; preds = %30
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
   %95 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %94)
-          to label %.thread251 unwind label %96
+          to label %.thread250 unwind label %96
 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
@@ -15050,7 +15050,7 @@ _ZN10async_task5utils14abort_on_panic17he3614591475f7a22E.exit: ; preds = %30
   %108 = icmp ne i32 %106, 1000000004
   br i1 %108, label %122, label %.preheader
 
-.thread251:                                       ; preds = %92
+.thread250:                                       ; preds = %92
   %109 = extractvalue { ptr, ptr } %95, 0
   %110 = extractvalue { ptr, ptr } %95, 1
   %111 = icmp ne ptr %110, null
@@ -15075,19 +15075,19 @@ _ZN10async_task5utils14abort_on_panic17he3614591475f7a22E.exit: ; preds = %30
     i32 1000000003, label %118
   ]
 
-114:                                              ; preds = %.thread251, %112
-  %.sroa.79.0258 = phi ptr [ %109, %.thread251 ], [ %.sroa.14.0.copyload, %112 ]
-  %.sroa.9.0257 = phi ptr [ %110, %.thread251 ], [ %.sroa.15.0.copyload, %112 ]
-  %115 = icmp ne ptr %.sroa.79.0258, null
+114:                                              ; preds = %.thread250, %112
+  %.sroa.79.0257 = phi ptr [ %109, %.thread250 ], [ %.sroa.14.0.copyload, %112 ]
+  %.sroa.9.0256 = phi ptr [ %110, %.thread250 ], [ %.sroa.15.0.copyload, %112 ]
+  %115 = icmp ne ptr %.sroa.79.0257, null
   call void @llvm.assume(i1 %115)
-  %116 = icmp ne ptr %.sroa.9.0257, null
+  %116 = icmp ne ptr %.sroa.9.0256, null
   call void @llvm.assume(i1 %116)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0258, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0257, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0257, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0256, ptr %.sroa.527.0..sroa_idx, align 8
   br label %120
 
 117:                                              ; preds = %112
@@ -15146,12 +15146,12 @@ _ZN10async_task5utils14abort_on_panic17he3614591475f7a22E.exit: ; preds = %30
 127:                                              ; preds = %127, %126
   %.sroa.037.2 = phi i64 [ %26, %126 ], [ %135, %127 ]
   %128 = and i64 %.sroa.037.2, 16
-  %.not287 = icmp eq i64 %128, 0
+  %.not286 = icmp eq i64 %128, 0
   %129 = and i64 %.sroa.037.2, -32
   %130 = or disjoint i64 %129, 12
   %131 = and i64 %.sroa.037.2, -8
   %132 = or disjoint i64 %131, 4
-  %.sroa.031.0 = select i1 %.not287, i64 %130, i64 %132
+  %.sroa.031.0 = select i1 %.not286, i64 %130, i64 %132
   %133 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
@@ -17836,7 +17836,7 @@ _ZN10async_task5utils14abort_on_panic17h2dd8de89cf7da858E.exit: ; preds = %30
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
   %95 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %94)
-          to label %.thread251 unwind label %96
+          to label %.thread250 unwind label %96
 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
@@ -17872,7 +17872,7 @@ _ZN10async_task5utils14abort_on_panic17h2dd8de89cf7da858E.exit: ; preds = %30
   %108 = icmp ne i32 %106, 1000000004
   br i1 %108, label %122, label %.preheader
 
-.thread251:                                       ; preds = %92
+.thread250:                                       ; preds = %92
   %109 = extractvalue { ptr, ptr } %95, 0
   %110 = extractvalue { ptr, ptr } %95, 1
   %111 = icmp ne ptr %110, null
@@ -17897,19 +17897,19 @@ _ZN10async_task5utils14abort_on_panic17h2dd8de89cf7da858E.exit: ; preds = %30
     i32 1000000003, label %118
   ]
 
-114:                                              ; preds = %.thread251, %112
-  %.sroa.79.0258 = phi ptr [ %109, %.thread251 ], [ %.sroa.14.0.copyload, %112 ]
-  %.sroa.9.0257 = phi ptr [ %110, %.thread251 ], [ %.sroa.15.0.copyload, %112 ]
-  %115 = icmp ne ptr %.sroa.79.0258, null
+114:                                              ; preds = %.thread250, %112
+  %.sroa.79.0257 = phi ptr [ %109, %.thread250 ], [ %.sroa.14.0.copyload, %112 ]
+  %.sroa.9.0256 = phi ptr [ %110, %.thread250 ], [ %.sroa.15.0.copyload, %112 ]
+  %115 = icmp ne ptr %.sroa.79.0257, null
   call void @llvm.assume(i1 %115)
-  %116 = icmp ne ptr %.sroa.9.0257, null
+  %116 = icmp ne ptr %.sroa.9.0256, null
   call void @llvm.assume(i1 %116)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0258, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0257, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0257, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0256, ptr %.sroa.527.0..sroa_idx, align 8
   br label %120
 
 117:                                              ; preds = %112
@@ -17968,12 +17968,12 @@ _ZN10async_task5utils14abort_on_panic17h2dd8de89cf7da858E.exit: ; preds = %30
 127:                                              ; preds = %127, %126
   %.sroa.037.2 = phi i64 [ %26, %126 ], [ %135, %127 ]
   %128 = and i64 %.sroa.037.2, 16
-  %.not287 = icmp eq i64 %128, 0
+  %.not286 = icmp eq i64 %128, 0
   %129 = and i64 %.sroa.037.2, -32
   %130 = or disjoint i64 %129, 12
   %131 = and i64 %.sroa.037.2, -8
   %132 = or disjoint i64 %131, 4
-  %.sroa.031.0 = select i1 %.not287, i64 %130, i64 %132
+  %.sroa.031.0 = select i1 %.not286, i64 %130, i64 %132
   %133 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %134 = extractvalue { i64, i1 } %133, 1
   %135 = extractvalue { i64, i1 } %133, 0
@@ -20660,7 +20660,7 @@ _ZN10async_task5utils14abort_on_panic17hd62a6f7384094034E.exit: ; preds = %30
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %95)
-          to label %.thread249 unwind label %97
+          to label %.thread248 unwind label %97
 
 97:                                               ; preds = %93
   %98 = landingpad { ptr, i32 }
@@ -20696,7 +20696,7 @@ _ZN10async_task5utils14abort_on_panic17hd62a6f7384094034E.exit: ; preds = %30
   %109 = icmp ne i32 %107, 1000000004
   br i1 %109, label %123, label %.preheader
 
-.thread249:                                       ; preds = %93
+.thread248:                                       ; preds = %93
   %110 = extractvalue { ptr, ptr } %96, 0
   %111 = extractvalue { ptr, ptr } %96, 1
   %112 = icmp ne ptr %111, null
@@ -20721,19 +20721,19 @@ _ZN10async_task5utils14abort_on_panic17hd62a6f7384094034E.exit: ; preds = %30
     i32 1000000003, label %119
   ]
 
-115:                                              ; preds = %.thread249, %113
-  %.sroa.79.0256 = phi ptr [ %110, %.thread249 ], [ %.sroa.14.0.copyload, %113 ]
-  %.sroa.9.0255 = phi ptr [ %111, %.thread249 ], [ %.sroa.15.0.copyload, %113 ]
-  %116 = icmp ne ptr %.sroa.79.0256, null
+115:                                              ; preds = %.thread248, %113
+  %.sroa.79.0255 = phi ptr [ %110, %.thread248 ], [ %.sroa.14.0.copyload, %113 ]
+  %.sroa.9.0254 = phi ptr [ %111, %.thread248 ], [ %.sroa.15.0.copyload, %113 ]
+  %116 = icmp ne ptr %.sroa.79.0255, null
   call void @llvm.assume(i1 %116)
-  %117 = icmp ne ptr %.sroa.9.0255, null
+  %117 = icmp ne ptr %.sroa.9.0254, null
   call void @llvm.assume(i1 %117)
   %.sroa.324.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
   store i32 1000000003, ptr %.sroa.324.0..sroa_idx, align 8
   %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.79.0256, ptr %.sroa.426.0..sroa_idx, align 8
+  store ptr %.sroa.79.0255, ptr %.sroa.426.0..sroa_idx, align 8
   %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %.sroa.9.0255, ptr %.sroa.527.0..sroa_idx, align 8
+  store ptr %.sroa.9.0254, ptr %.sroa.527.0..sroa_idx, align 8
   br label %121
 
 118:                                              ; preds = %113
@@ -20789,12 +20789,12 @@ _ZN10async_task5utils14abort_on_panic17hd62a6f7384094034E.exit: ; preds = %30
 129:                                              ; preds = %129, %128
   %.sroa.037.2 = phi i64 [ %26, %128 ], [ %137, %129 ]
   %130 = and i64 %.sroa.037.2, 16
-  %.not285 = icmp eq i64 %130, 0
+  %.not284 = icmp eq i64 %130, 0
   %131 = and i64 %.sroa.037.2, -32
   %132 = or disjoint i64 %131, 12
   %133 = and i64 %.sroa.037.2, -8
   %134 = or disjoint i64 %133, 4
-  %.sroa.031.0 = select i1 %.not285, i64 %132, i64 %134
+  %.sroa.031.0 = select i1 %.not284, i64 %132, i64 %134
   %135 = cmpxchg weak ptr %19, i64 %.sroa.037.2, i64 %.sroa.031.0 acq_rel acquire, align 8
   %136 = extractvalue { i64, i1 } %135, 1
   %137 = extractvalue { i64, i1 } %135, 0

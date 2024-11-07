@@ -2229,10 +2229,10 @@ define hidden void @"_ZN170_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %"_ZN298_$LT$$LT$ockam_transport_udp..rendezvous_service..messages.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..rendezvous_service..messages..RendezvousRequest$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h26f4c6260bea4f21E.llvm.281566960213045120.exit"
 
 "_ZN298_$LT$$LT$ockam_transport_udp..rendezvous_service..messages.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..rendezvous_service..messages..RendezvousRequest$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17h26f4c6260bea4f21E.llvm.281566960213045120.exit": ; preds = %10, %11
-  %.sink26.i = phi ptr [ %9, %11 ], [ %6, %10 ]
+  %.sink34.i = phi ptr [ %9, %11 ], [ %6, %10 ]
   %.sink.i = phi i64 [ 3, %11 ], [ 0, %10 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink26.i, ptr %13, align 8, !alias.scope !577, !noalias !587
+  store ptr %.sink34.i, ptr %13, align 8, !alias.scope !577, !noalias !587
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !577, !noalias !587
   ret void
 }
@@ -2271,10 +2271,10 @@ define hidden void @"_ZN170_$LT$$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$
   br label %"_ZN298_$LT$$LT$ockam_transport_udp..rendezvous_service..messages.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..rendezvous_service..messages..RendezvousRequest$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hcc17f3ed65cd3802E.llvm.281566960213045120.exit"
 
 "_ZN298_$LT$$LT$ockam_transport_udp..rendezvous_service..messages.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$ockam_transport_udp..rendezvous_service..messages..RendezvousRequest$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_enum..__Visitor$u20$as$u20$serde..de..Visitor$GT$9visit_seq17hcc17f3ed65cd3802E.llvm.281566960213045120.exit": ; preds = %10, %11
-  %.sink26.i = phi ptr [ %9, %11 ], [ %6, %10 ]
+  %.sink34.i = phi ptr [ %9, %11 ], [ %6, %10 ]
   %.sink.i = phi i64 [ 3, %11 ], [ 1, %10 ]
   %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink26.i, ptr %13, align 8, !alias.scope !588, !noalias !598
+  store ptr %.sink34.i, ptr %13, align 8, !alias.scope !588, !noalias !598
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !588, !noalias !598
   ret void
 }
@@ -3354,9 +3354,9 @@ define hidden void @"_ZN243_$LT$$LT$ockam_core..error..inner.._..$LT$impl$u20$se
   br label %46
 
 36:                                               ; preds = %32, %30
-  %.sink110 = phi ptr [ %25, %30 ], [ %33, %32 ]
+  %.sink106 = phi ptr [ %25, %30 ], [ %33, %32 ]
   %37 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink110, ptr %37, align 8
+  store ptr %.sink106, ptr %37, align 8
   store i64 1, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1013
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb7d61c66a55662cfE"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
@@ -7840,9 +7840,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %38
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i140 = phi i64 [ %24, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i139 = phi i64 [ %25, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i138 = phi i32 [ %11, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i139 = phi i64 [ %24, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i138 = phi i64 [ %25, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i137 = phi i32 [ %11, %.lr.ph.i ], [ 0, %2 ]
   %11 = phi i32 [ %26, %.lr.ph.i ], [ 1, %2 ]
   %12 = load i8, ptr %6, align 1, !noalias !2253
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6), !noalias !2253
@@ -7850,7 +7850,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %16, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = icmp eq i32 %.058.i138, 9
+  %14 = icmp eq i32 %.058.i137, 9
   %15 = icmp ugt i8 %12, 1
   %or.cond.i = and i1 %14, %15
   br i1 %or.cond.i, label %16, label %18
@@ -7866,10 +7866,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %18
   %20 = and i8 %12, 127
   %21 = zext nneg i8 %20 to i64
-  %22 = and i64 %.01557.i139, 63
+  %22 = and i64 %.01557.i138, 63
   %23 = shl i64 %21, %22
-  %24 = or i64 %23, %.01656.i140
-  %25 = add nuw nsw i64 %.01557.i139, 7
+  %24 = or i64 %23, %.01656.i139
+  %25 = add nuw nsw i64 %.01557.i138, 7
   %26 = add nuw nsw i32 %11, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6), !noalias !2253
   store i8 0, ptr %6, align 1, !noalias !2253
@@ -7879,9 +7879,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 29:                                               ; preds = %18
   %30 = zext nneg i8 %12 to i64
-  %31 = and i64 %.01557.i139, 63
+  %31 = and i64 %.01557.i138, 63
   %32 = shl i64 %30, %31
-  %33 = or i64 %32, %.01656.i140
+  %33 = or i64 %32, %.01656.i139
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @"_ZN66_$LT$serde_bare..de..SliceRead$u20$as$u20$serde_bare..de..Read$GT$28read_exact_vec_incrementally17h173848edadf610fcE"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %33)
   %34 = load ptr, ptr %8, align 8, !noundef !115
@@ -7921,9 +7921,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 43:                                               ; preds = %40
   %44 = load i64, ptr %5, align 8, !range !130, !noalias !2274, !noundef !115
   %trunc.i = trunc nuw i64 %44 to i1
-  br i1 %trunc.i, label %_ZN5alloc6string6String9from_utf817h9d46060a92d3d8f4E.exit, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit.thread89"
+  br i1 %trunc.i, label %_ZN5alloc6string6String9from_utf817h9d46060a92d3d8f4E.exit, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit.thread88"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit.thread89": ; preds = %43
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit.thread88": ; preds = %43
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !2274
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit"
@@ -7997,7 +7997,7 @@ _ZN5alloc6string6String9from_utf817h9d46060a92d3d8f4E.exit: ; preds = %43
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #21, !noalias !2280
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit": ; preds = %_ZN5alloc6string6String9from_utf817h9d46060a92d3d8f4E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit.thread89"
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit": ; preds = %_ZN5alloc6string6String9from_utf817h9d46060a92d3d8f4E.exit, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h1a110a8d2bd1a31aE.exit.thread88"
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.10)
   store ptr %34, ptr %0, align 8, !alias.scope !2297
   %.sroa.462.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -8209,9 +8209,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i75 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i74 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i73 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2371
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2371
@@ -8219,7 +8219,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i72, 9
+  %10 = icmp eq i32 %.058.i73, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8235,10 +8235,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i73, 63
+  %18 = and i64 %.01557.i74, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i74
-  %21 = add nuw nsw i64 %.01557.i73, 7
+  %20 = or i64 %19, %.01656.i75
+  %21 = add nuw nsw i64 %.01557.i74, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2371
   store i8 0, ptr %4, align 1, !noalias !2371
@@ -8248,9 +8248,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i73, 63
+  %27 = and i64 %.01557.i74, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i74
+  %29 = or i64 %28, %.01656.i75
   %30 = icmp ugt i64 %29, 4294967295
   br i1 %30, label %49, label %33
 
@@ -8336,9 +8336,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i75 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i74 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i73 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2402
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2402
@@ -8346,7 +8346,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i72, 9
+  %10 = icmp eq i32 %.058.i73, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8362,10 +8362,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i73, 63
+  %18 = and i64 %.01557.i74, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i74
-  %21 = add nuw nsw i64 %.01557.i73, 7
+  %20 = or i64 %19, %.01656.i75
+  %21 = add nuw nsw i64 %.01557.i74, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2402
   store i8 0, ptr %4, align 1, !noalias !2402
@@ -8375,9 +8375,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i73, 63
+  %27 = and i64 %.01557.i74, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i74
+  %29 = or i64 %28, %.01656.i75
   %30 = icmp ugt i64 %29, 4294967295
   br i1 %30, label %43, label %33
 
@@ -8445,9 +8445,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i75 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i74 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i73 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2433
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2433
@@ -8455,7 +8455,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i72, 9
+  %10 = icmp eq i32 %.058.i73, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8471,10 +8471,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i73, 63
+  %18 = and i64 %.01557.i74, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i74
-  %21 = add nuw nsw i64 %.01557.i73, 7
+  %20 = or i64 %19, %.01656.i75
+  %21 = add nuw nsw i64 %.01557.i74, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2433
   store i8 0, ptr %4, align 1, !noalias !2433
@@ -8484,9 +8484,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i73, 63
+  %27 = and i64 %.01557.i74, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i74
+  %29 = or i64 %28, %.01656.i75
   %30 = icmp ugt i64 %29, 4294967295
   br i1 %30, label %67, label %33
 
@@ -8626,9 +8626,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i75 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i74 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i73 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2464
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2464
@@ -8636,7 +8636,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i72, 9
+  %10 = icmp eq i32 %.058.i73, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8652,10 +8652,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i73, 63
+  %18 = and i64 %.01557.i74, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i74
-  %21 = add nuw nsw i64 %.01557.i73, 7
+  %20 = or i64 %19, %.01656.i75
+  %21 = add nuw nsw i64 %.01557.i74, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2464
   store i8 0, ptr %4, align 1, !noalias !2464
@@ -8665,9 +8665,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i73, 63
+  %27 = and i64 %.01557.i74, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i74
+  %29 = or i64 %28, %.01656.i75
   %30 = icmp ugt i64 %29, 4294967295
   br i1 %30, label %43, label %33
 
@@ -8735,9 +8735,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %31
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i73 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i72 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i75 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i74 = phi i64 [ %21, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i73 = phi i32 [ %7, %.lr.ph.i ], [ 0, %2 ]
   %7 = phi i32 [ %22, %.lr.ph.i ], [ 1, %2 ]
   %8 = load i8, ptr %4, align 1, !noalias !2495
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !2495
@@ -8745,7 +8745,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = icmp eq i32 %.058.i72, 9
+  %10 = icmp eq i32 %.058.i73, 9
   %11 = icmp ugt i8 %8, 1
   %or.cond.i = and i1 %10, %11
   br i1 %or.cond.i, label %12, label %14
@@ -8761,10 +8761,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %14
   %16 = and i8 %8, 127
   %17 = zext nneg i8 %16 to i64
-  %18 = and i64 %.01557.i73, 63
+  %18 = and i64 %.01557.i74, 63
   %19 = shl i64 %17, %18
-  %20 = or i64 %19, %.01656.i74
-  %21 = add nuw nsw i64 %.01557.i73, 7
+  %20 = or i64 %19, %.01656.i75
+  %21 = add nuw nsw i64 %.01557.i74, 7
   %22 = add nuw nsw i32 %7, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !2495
   store i8 0, ptr %4, align 1, !noalias !2495
@@ -8774,9 +8774,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 25:                                               ; preds = %14
   %26 = zext nneg i8 %8 to i64
-  %27 = and i64 %.01557.i73, 63
+  %27 = and i64 %.01557.i74, 63
   %28 = shl i64 %26, %27
-  %29 = or i64 %28, %.01656.i74
+  %29 = or i64 %28, %.01656.i75
   %30 = icmp ugt i64 %29, 4294967295
   br i1 %30, label %45, label %33
 
@@ -8850,9 +8850,9 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   br label %_ZN5serde2de7Visitor9visit_u3217h55a6d97214591d26E.exit
 
 .lr.ph:                                           ; preds = %1, %.lr.ph.i
-  %.01656.i75 = phi i64 [ %19, %.lr.ph.i ], [ 0, %1 ]
-  %.01557.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %1 ]
-  %.058.i73 = phi i32 [ %6, %.lr.ph.i ], [ 0, %1 ]
+  %.01656.i76 = phi i64 [ %19, %.lr.ph.i ], [ 0, %1 ]
+  %.01557.i75 = phi i64 [ %20, %.lr.ph.i ], [ 0, %1 ]
+  %.058.i74 = phi i32 [ %6, %.lr.ph.i ], [ 0, %1 ]
   %6 = phi i32 [ %21, %.lr.ph.i ], [ 1, %1 ]
   %7 = load i8, ptr %3, align 1, !noalias !2526
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !2526
@@ -8860,7 +8860,7 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
   br i1 %exitcond.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = icmp eq i32 %.058.i73, 9
+  %9 = icmp eq i32 %.058.i74, 9
   %10 = icmp ugt i8 %7, 1
   %or.cond.i = and i1 %9, %10
   br i1 %or.cond.i, label %11, label %13
@@ -8876,10 +8876,10 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 .lr.ph.i:                                         ; preds = %13
   %15 = and i8 %7, 127
   %16 = zext nneg i8 %15 to i64
-  %17 = and i64 %.01557.i74, 63
+  %17 = and i64 %.01557.i75, 63
   %18 = shl i64 %16, %17
-  %19 = or i64 %18, %.01656.i75
-  %20 = add nuw nsw i64 %.01557.i74, 7
+  %19 = or i64 %18, %.01656.i76
+  %20 = add nuw nsw i64 %.01557.i75, 7
   %21 = add nuw nsw i32 %6, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2526
   store i8 0, ptr %3, align 1, !noalias !2526
@@ -8889,9 +8889,9 @@ define hidden noundef align 8 ptr @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deseri
 
 24:                                               ; preds = %13
   %25 = zext nneg i8 %7 to i64
-  %26 = and i64 %.01557.i74, 63
+  %26 = and i64 %.01557.i75, 63
   %27 = shl i64 %25, %26
-  %28 = or i64 %27, %.01656.i75
+  %28 = or i64 %27, %.01656.i76
   %29 = icmp ugt i64 %28, 4294967295
   br i1 %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h75376be103d7d365E.exit", label %31
 
@@ -8932,9 +8932,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br label %30
 
 .lr.ph:                                           ; preds = %2, %.lr.ph.i
-  %.01656.i74 = phi i64 [ %19, %.lr.ph.i ], [ 0, %2 ]
-  %.01557.i73 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
-  %.058.i72 = phi i32 [ %6, %.lr.ph.i ], [ 0, %2 ]
+  %.01656.i75 = phi i64 [ %19, %.lr.ph.i ], [ 0, %2 ]
+  %.01557.i74 = phi i64 [ %20, %.lr.ph.i ], [ 0, %2 ]
+  %.058.i73 = phi i32 [ %6, %.lr.ph.i ], [ 0, %2 ]
   %6 = phi i32 [ %21, %.lr.ph.i ], [ 1, %2 ]
   %7 = load i8, ptr %3, align 1, !noalias !2550
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3), !noalias !2550
@@ -8942,7 +8942,7 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
   br i1 %exitcond.i, label %11, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = icmp eq i32 %.058.i72, 9
+  %9 = icmp eq i32 %.058.i73, 9
   %10 = icmp ugt i8 %7, 1
   %or.cond.i = and i1 %9, %10
   br i1 %or.cond.i, label %11, label %13
@@ -8958,10 +8958,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 .lr.ph.i:                                         ; preds = %13
   %15 = and i8 %7, 127
   %16 = zext nneg i8 %15 to i64
-  %17 = and i64 %.01557.i73, 63
+  %17 = and i64 %.01557.i74, 63
   %18 = shl i64 %16, %17
-  %19 = or i64 %18, %.01656.i74
-  %20 = add nuw nsw i64 %.01557.i73, 7
+  %19 = or i64 %18, %.01656.i75
+  %20 = add nuw nsw i64 %.01557.i74, 7
   %21 = add nuw nsw i32 %6, 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3), !noalias !2550
   store i8 0, ptr %3, align 1, !noalias !2550
@@ -8971,9 +8971,9 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 24:                                               ; preds = %13
   %25 = zext nneg i8 %7 to i64
-  %26 = and i64 %.01557.i73, 63
+  %26 = and i64 %.01557.i74, 63
   %27 = shl i64 %25, %26
-  %28 = or i64 %27, %.01656.i74
+  %28 = or i64 %27, %.01656.i75
   %29 = icmp ugt i64 %28, 4294967295
   br i1 %29, label %33, label %32
 
@@ -9599,10 +9599,10 @@ define hidden void @"_ZN298_$LT$$LT$ockam_transport_udp..rendezvous_service..mes
   br label %11
 
 11:                                               ; preds = %9, %8
-  %.sink26 = phi ptr [ %7, %9 ], [ %4, %8 ]
+  %.sink34 = phi ptr [ %7, %9 ], [ %4, %8 ]
   %.sink = phi i64 [ 3, %9 ], [ 0, %8 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink26, ptr %12, align 8
+  store ptr %.sink34, ptr %12, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -9634,10 +9634,10 @@ define hidden void @"_ZN298_$LT$$LT$ockam_transport_udp..rendezvous_service..mes
   br label %11
 
 11:                                               ; preds = %9, %8
-  %.sink26 = phi ptr [ %7, %9 ], [ %4, %8 ]
+  %.sink34 = phi ptr [ %7, %9 ], [ %4, %8 ]
   %.sink = phi i64 [ 3, %9 ], [ 1, %8 ]
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink26, ptr %12, align 8
+  store ptr %.sink34, ptr %12, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

@@ -1489,11 +1489,11 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   br label %5
 
 5:                                                ; preds = %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i, %1
-  %.sroa.0.0.idx16.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
-  %.sroa.10.015.i = phi i64 [ 256, %1 ], [ %6, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
-  %.sroa.7.014.i = phi i32 [ 0, %1 ], [ %15, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
-  %6 = add nsw i64 %.sroa.10.015.i, -1
-  %7 = shl i32 %.sroa.7.014.i, 24
+  %.sroa.0.0.idx17.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
+  %.sroa.10.016.i = phi i64 [ 256, %1 ], [ %6, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
+  %.sroa.7.015.i = phi i32 [ 0, %1 ], [ %15, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i ]
+  %6 = add nsw i64 %.sroa.10.016.i, -1
+  %7 = shl i32 %.sroa.7.015.i, 24
   br label %8
 
 8:                                                ; preds = %8, %5
@@ -1514,10 +1514,10 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   br i1 %exitcond.not.i.i, label %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i, label %8
 
 _ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i: ; preds = %8
-  %.sroa.0.0.ptr17.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.0.0.idx16.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx16.i, 4
-  %15 = add nuw nsw i32 %.sroa.7.014.i, 1
-  store i32 %13, ptr %.sroa.0.0.ptr17.i, align 4
+  %.sroa.0.0.ptr18.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.0.0.idx17.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx17.i, 4
+  %15 = add nuw nsw i32 %.sroa.7.015.i, 1
+  store i32 %13, ptr %.sroa.0.0.ptr18.i, align 4
   %16 = icmp eq i64 %6, 0
   br i1 %16, label %_ZN6uucore8features3sum3CRC18generate_crc_table17h0d819af0a796075fE.exit, label %5
 
@@ -1727,10 +1727,10 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   br label %5
 
 5:                                                ; preds = %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i, %1
-  %.sroa.0.0.idx16.i.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i.i, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i ]
-  %.sroa.10.015.i.i = phi i64 [ 256, %1 ], [ %14, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i ]
-  %.sroa.7.014.i.i = phi i32 [ 0, %1 ], [ %15, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i ]
-  %6 = shl i32 %.sroa.7.014.i.i, 24
+  %.sroa.0.0.idx17.i.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i.i, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i ]
+  %.sroa.10.016.i.i = phi i64 [ 256, %1 ], [ %14, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i ]
+  %.sroa.7.015.i.i = phi i32 [ 0, %1 ], [ %15, %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i ]
+  %6 = shl i32 %.sroa.7.015.i.i, 24
   br label %7
 
 7:                                                ; preds = %7, %5
@@ -1751,11 +1751,11 @@ define void @"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..
   br i1 %exitcond.not.i.i.i, label %_ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i, label %7
 
 _ZN6uucore8features3sum3CRC9crc_entry17h1d980bb0a685bf66E.exit.i.i: ; preds = %7
-  %14 = add nsw i64 %.sroa.10.015.i.i, -1
-  %.sroa.0.0.ptr17.i.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.0.0.idx16.i.i
-  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx16.i.i, 4
-  %15 = add nuw nsw i32 %.sroa.7.014.i.i, 1
-  store i32 %12, ptr %.sroa.0.0.ptr17.i.i, align 4
+  %14 = add nsw i64 %.sroa.10.016.i.i, -1
+  %.sroa.0.0.ptr18.i.i = getelementptr inbounds i8, ptr %3, i64 %.sroa.0.0.idx17.i.i
+  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx17.i.i, 4
+  %15 = add nuw nsw i32 %.sroa.7.015.i.i, 1
+  store i32 %12, ptr %.sroa.0.0.ptr18.i.i, align 4
   %16 = icmp eq i64 %14, 0
   br i1 %16, label %"_ZN76_$LT$uucore..features..sum..CRC$u20$as$u20$uucore..features..sum..Digest$GT$3new17hbcd23417e7c87c1fE.exit", label %5
 

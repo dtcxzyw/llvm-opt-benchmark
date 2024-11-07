@@ -1695,11 +1695,11 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   unreachable
 
 .lr.ph:                                           ; preds = %9, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit"
-  %.sroa.10.028 = phi i64 [ %15, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit" ], [ %7, %9 ]
-  %.sroa.011.027 = phi ptr [ %18, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit" ], [ %1, %9 ]
-  %.sroa.7.026 = phi i64 [ %19, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit" ], [ 0, %9 ]
-  %15 = add nsw i64 %.sroa.10.028, -1
-  %16 = icmp eq ptr %.sroa.011.027, %11
+  %.sroa.10.029 = phi i64 [ %15, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit" ], [ %7, %9 ]
+  %.sroa.011.028 = phi ptr [ %18, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit" ], [ %1, %9 ]
+  %.sroa.7.027 = phi i64 [ %19, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit" ], [ 0, %9 ]
+  %15 = add nsw i64 %.sroa.10.029, -1
+  %16 = icmp eq ptr %.sroa.011.028, %11
   br i1 %16, label %.thread, label %17
 
 .thread:                                          ; preds = %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit", %.lr.ph, %9
@@ -1711,15 +1711,15 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %.sroa.011.027, i64 24
-  %19 = add nuw nsw i64 %.sroa.7.026, 1
+  %18 = getelementptr inbounds i8, ptr %.sroa.011.028, i64 24
+  %19 = add nuw nsw i64 %.sroa.7.027, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
-  %20 = load i64, ptr %.sroa.011.027, align 8, !range !6, !alias.scope !358, !noalias !359, !noundef !5
+  %20 = load i64, ptr %.sroa.011.028, align 8, !range !6, !alias.scope !358, !noalias !359, !noundef !5
   %trunc.i.i = trunc nuw i64 %20 to i1
-  %21 = getelementptr inbounds i8, ptr %.sroa.011.027, i64 8
+  %21 = getelementptr inbounds i8, ptr %.sroa.011.028, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !358, !noalias !359, !nonnull !5, !noundef !5
-  %23 = getelementptr inbounds i8, ptr %.sroa.011.027, i64 16
+  %23 = getelementptr inbounds i8, ptr %.sroa.011.028, i64 16
   %24 = load i64, ptr %23, align 8, !alias.scope !358, !noalias !359, !noundef !5
   br i1 %trunc.i.i, label %25, label %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit"
 
@@ -1734,7 +1734,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 "_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit": ; preds = %25, %17
   %storemerge.i.i = phi i64 [ 1, %25 ], [ 0, %17 ]
-  %29 = getelementptr inbounds [0 x { [3 x i64] }], ptr %10, i64 0, i64 %.sroa.7.026
+  %29 = getelementptr inbounds [0 x { [3 x i64] }], ptr %10, i64 0, i64 %.sroa.7.027
   store i64 %storemerge.i.i, ptr %29, align 8
   %.sroa.419.0..sroa_idx = getelementptr inbounds i8, ptr %29, i64 8
   store ptr %22, ptr %.sroa.419.0..sroa_idx, align 8
@@ -2556,23 +2556,23 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   unreachable
 
 .lr.ph.i:                                         ; preds = %12, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i"
-  %.sroa.10.028.i = phi i64 [ %18, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i" ], [ %10, %12 ]
-  %.sroa.011.027.i = phi ptr [ %21, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i" ], [ %6, %12 ]
-  %.sroa.7.026.i = phi i64 [ %22, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i" ], [ 0, %12 ]
-  %18 = add nsw i64 %.sroa.10.028.i, -1
-  %19 = icmp eq ptr %.sroa.011.027.i, %14
+  %.sroa.10.029.i = phi i64 [ %18, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i" ], [ %10, %12 ]
+  %.sroa.011.028.i = phi ptr [ %21, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i" ], [ %6, %12 ]
+  %.sroa.7.027.i = phi i64 [ %22, %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i" ], [ 0, %12 ]
+  %18 = add nsw i64 %.sroa.10.029.i, -1
+  %19 = icmp eq ptr %.sroa.011.028.i, %14
   br i1 %19, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4908cf969ef4d77bE.llvm.17903372834228012966.exit", label %20
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds i8, ptr %.sroa.011.027.i, i64 24
-  %22 = add nuw nsw i64 %.sroa.7.026.i, 1
+  %21 = getelementptr inbounds i8, ptr %.sroa.011.028.i, i64 24
+  %22 = add nuw nsw i64 %.sroa.7.027.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
-  %23 = load i64, ptr %.sroa.011.027.i, align 8, !range !6, !alias.scope !484, !noalias !485, !noundef !5
+  %23 = load i64, ptr %.sroa.011.028.i, align 8, !range !6, !alias.scope !484, !noalias !485, !noundef !5
   %trunc.i.i.i = trunc nuw i64 %23 to i1
-  %24 = getelementptr inbounds i8, ptr %.sroa.011.027.i, i64 8
+  %24 = getelementptr inbounds i8, ptr %.sroa.011.028.i, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !484, !noalias !485, !nonnull !5, !noundef !5
-  %26 = getelementptr inbounds i8, ptr %.sroa.011.027.i, i64 16
+  %26 = getelementptr inbounds i8, ptr %.sroa.011.028.i, i64 16
   %27 = load i64, ptr %26, align 8, !alias.scope !484, !noalias !485, !noundef !5
   br i1 %trunc.i.i.i, label %28, label %"_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i"
 
@@ -2587,7 +2587,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 "_ZN72_$LT$gpui..shared_string..SharedString$u20$as$u20$core..clone..Clone$GT$5clone17h6b7f988be2a2e2d3E.exit.i": ; preds = %28, %20
   %storemerge.i.i.i = phi i64 [ 1, %28 ], [ 0, %20 ]
-  %32 = getelementptr inbounds [0 x { [3 x i64] }], ptr %13, i64 0, i64 %.sroa.7.026.i
+  %32 = getelementptr inbounds [0 x { [3 x i64] }], ptr %13, i64 0, i64 %.sroa.7.027.i
   store i64 %storemerge.i.i.i, ptr %32, align 8, !noalias !489
   %.sroa.419.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
   store ptr %25, ptr %.sroa.419.0..sroa_idx.i, align 8, !noalias !489

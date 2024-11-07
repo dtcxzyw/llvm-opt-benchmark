@@ -89198,6 +89198,7 @@ _ZSt3getIlJlN4llvm7SDValueEEERT_RSt7variantIJDpT0_EE.exit: ; preds = %195
 210:                                              ; preds = %_ZSt3getIlJlN4llvm7SDValueEEERT_RSt7variantIJDpT0_EE.exit, %_ZSt3getIN4llvm7SDValueEJlS1_EERT_RSt7variantIJDpT0_EE.exit
   %.sroa.0208.0 = phi ptr [ %194, %_ZSt3getIN4llvm7SDValueEJlS1_EERT_RSt7variantIJDpT0_EE.exit ], [ %.fca.0.extract66, %_ZSt3getIlJlN4llvm7SDValueEEERT_RSt7variantIJDpT0_EE.exit ]
   %.sroa.7.0 = phi i32 [ %.sroa.3216.0.copyload, %_ZSt3getIN4llvm7SDValueEJlS1_EERT_RSt7variantIJDpT0_EE.exit ], [ %.fca.1.extract67, %_ZSt3getIlJlN4llvm7SDValueEEERT_RSt7variantIJDpT0_EE.exit ]
+  %.sroa.11.0 = phi i32 [ %.sroa.4.0.copyload, %_ZSt3getIN4llvm7SDValueEJlS1_EERT_RSt7variantIJDpT0_EE.exit ], [ undef, %_ZSt3getIlJlN4llvm7SDValueEEERT_RSt7variantIJDpT0_EE.exit ]
   %211 = trunc i8 %.sroa.8219.0.copyload to i1
   br i1 %211, label %212, label %218
 
@@ -89326,7 +89327,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
   %.sroa.7.0..sroa_idx211 = getelementptr inbounds i8, ptr %14, i64 8
   store i32 %.sroa.7.1, ptr %.sroa.7.0..sroa_idx211, align 8
   %.sroa.11.0..sroa_idx213 = getelementptr inbounds i8, ptr %14, i64 12
-  store i32 %.sroa.4.0.copyload, ptr %.sroa.11.0..sroa_idx213, align 4
+  store i32 %.sroa.11.0, ptr %.sroa.11.0..sroa_idx213, align 4
   store ptr %.fca.0.extract41, ptr %15, align 8
   %.sroa.253.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store i32 %.fca.1.extract42, ptr %.sroa.253.0..sroa_idx, align 8

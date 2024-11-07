@@ -25122,12 +25122,13 @@ define hidden { ptr, ptr } @"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6re
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx, align 8
   store i32 1, ptr %16, align 8
   %switch7.not.not = icmp eq i32 %17, 0
-  %spec.select = select i1 %switch7.not.not, ptr %.sroa.45.0.copyload, ptr null
+  %spec.select = select i1 %switch7.not.not, ptr %.sroa.5.0.copyload, ptr undef
+  %spec.select8 = select i1 %switch7.not.not, ptr %.sroa.45.0.copyload, ptr null
   br label %28
 
 28:                                               ; preds = %24, %21, %3
-  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %.sroa.5.0.copyload, %24 ]
-  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select, %24 ]
+  %.sroa.4.0 = phi ptr [ undef, %3 ], [ undef, %21 ], [ %spec.select, %24 ]
+  %.sroa.0.0 = phi ptr [ null, %3 ], [ null, %21 ], [ %spec.select8, %24 ]
   %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
   %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.4.0, 1
   ret { ptr, ptr } %30
@@ -29571,8 +29572,8 @@ define hidden void @_ZN13terminal_view16terminal_element26to_highlighted_range_l
   store ptr inttoptr (i64 4 to ptr), ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %6, i64 16
   store i64 0, ptr %38, align 8
-  %.not.i15 = icmp ugt i32 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0.sroa.speculated.i9
-  br i1 %.not.i15, label %._crit_edge, label %.lr.ph
+  %.not.i16 = icmp ugt i32 %.sroa.0.0.sroa.speculated.i, %.sroa.0.0.sroa.speculated.i9
+  br i1 %.not.i16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %39 = uitofp i64 %13 to float
@@ -29582,10 +29583,10 @@ define hidden void @_ZN13terminal_view16terminal_element26to_highlighted_range_l
   br label %43
 
 43:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b8ca58a05100ce4E.exit"
-  %.sroa.0.017 = phi i64 [ %28, %.lr.ph ], [ %spec.select14, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b8ca58a05100ce4E.exit" ]
-  %44 = icmp ult i64 %.sroa.0.017, %31
+  %.sroa.0.018 = phi i64 [ %28, %.lr.ph ], [ %spec.select15, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1b8ca58a05100ce4E.exit" ]
+  %44 = icmp ult i64 %.sroa.0.018, %31
   %45 = zext i1 %44 to i64
-  %spec.select14 = add nuw i64 %.sroa.0.017, %45
+  %spec.select15 = add nuw i64 %.sroa.0.018, %45
   %46 = invoke noundef i64 @"_ZN79_$LT$terminal..TerminalSize$u20$as$u20$alacritty_terminal..grid..Dimensions$GT$7columns17h73a12a14e175c37eE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %21)
           to label %55 unwind label %47
 
@@ -29620,13 +29621,13 @@ define hidden void @_ZN13terminal_view16terminal_element26to_highlighted_range_l
   ret void
 
 55:                                               ; preds = %43
-  %56 = icmp eq i64 %.sroa.0.017, %28
+  %56 = icmp eq i64 %.sroa.0.018, %28
   %.sroa.02.0 = select i1 %56, float %39, float 0.000000e+00
   %57 = invoke noundef float @"_ZN4gpui8geometry85_$LT$impl$u20$core..ops..arith..Mul$LT$gpui..geometry..Pixels$GT$$u20$for$u20$f32$GT$3mul17h80f64fe16a56aad5E"(float noundef %.sroa.02.0, float noundef %41)
           to label %58 unwind label %47
 
 58:                                               ; preds = %55
-  %59 = icmp eq i64 %.sroa.0.017, %31
+  %59 = icmp eq i64 %.sroa.0.018, %31
   %.sroa.03.0 = select i1 %59, i64 %42, i64 %46
   %60 = uitofp i64 %.sroa.03.0 to float
   %61 = invoke noundef float @"_ZN4gpui8geometry85_$LT$impl$u20$core..ops..arith..Mul$LT$gpui..geometry..Pixels$GT$$u20$for$u20$f32$GT$3mul17h80f64fe16a56aad5E"(float noundef %60, float noundef %41)
@@ -29652,7 +29653,7 @@ define hidden void @_ZN13terminal_view16terminal_element26to_highlighted_range_l
   store float %64, ptr %71, align 4
   %72 = add i64 %65, 1
   store i64 %72, ptr %38, align 8
-  %.not.i = icmp ule i64 %spec.select14, %31
+  %.not.i = icmp ule i64 %spec.select15, %31
   %or.cond.not = select i1 %44, i1 %.not.i, i1 false
   br i1 %or.cond.not, label %43, label %._crit_edge
 

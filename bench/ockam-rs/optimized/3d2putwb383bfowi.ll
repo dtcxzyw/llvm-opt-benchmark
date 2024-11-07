@@ -3939,7 +3939,7 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
   %16 = alloca { i8, [15 x i8] }, align 8
   %17 = getelementptr inbounds i8, ptr %1, i64 96
   %18 = load i8, ptr %17, align 8, !range !71, !noundef !19
-  switch i8 %18, label %default.unreachable91 [
+  switch i8 %18, label %default.unreachable94 [
     i8 0, label %23
     i8 1, label %50
     i8 2, label %51
@@ -3949,11 +3949,11 @@ define internal void @"_ZN127_$LT$ockam_vault_aws..aws_signing_vault..AwsSigning
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 80
   %.val43.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !869
-  %.phi.trans.insert89 = getelementptr i8, ptr %1, i64 88
-  %.val44.pre = load ptr, ptr %.phi.trans.insert89, align 8, !alias.scope !869
+  %.phi.trans.insert92 = getelementptr i8, ptr %1, i64 88
+  %.val44.pre = load ptr, ptr %.phi.trans.insert92, align 8, !alias.scope !869
   br label %52
 
-default.unreachable91:                            ; preds = %3
+default.unreachable94:                            ; preds = %3
   unreachable
 
 19:                                               ; preds = %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i63", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i65"
@@ -4334,11 +4334,12 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9405825265181994393.exit.th
 "_ZN4core3ptr72drop_in_place$LT$ockam_vault..types..secrets..SigningSecretKeyHandle$GT$17h63ddc25c278bcde2E.exit": ; preds = %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i", %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i", %19
   %.sroa.082.0 = phi i8 [ 1, %19 ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ 0, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ 1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
   %.sroa.383.0 = phi i8 [ undef, %19 ], [ %.sroa.383.1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ %.sroa.383.1, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
+  %.sroa.584.0 = phi ptr [ %.sroa.378.0.copyload, %19 ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i" ], [ undef, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i" ], [ %.sroa.378.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit.i72" ], [ %.sroa.378.0.copyload, %"_ZN4core3ptr64drop_in_place$LT$ockam_vault..types..secrets..HandleToSecret$GT$17hb2e909acfdd0ee1bE.exit2.i70" ]
   store i8 %.sroa.082.0, ptr %0, align 8
   %.sroa.383.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.sroa.383.0, ptr %.sroa.383.0..sroa_idx, align 1
   %.sroa.584.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.378.0.copyload, ptr %.sroa.584.0..sroa_idx, align 8
+  store ptr %.sroa.584.0, ptr %.sroa.584.0..sroa_idx, align 8
   br label %common.ret
 
 .body55:                                          ; preds = %136, %133

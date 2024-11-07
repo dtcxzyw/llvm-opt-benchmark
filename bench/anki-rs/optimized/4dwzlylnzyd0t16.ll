@@ -987,8 +987,9 @@ define { ptr, i32 } @_ZN14anki_proto_gen6Method5input17h365368cd04bdfe87E(ptr al
 
 _ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %17
   %.sroa.0.0.i = phi ptr [ null, %17 ], [ %15, %14 ]
+  %.sroa.3.0.i = phi i32 [ undef, %17 ], [ %16, %14 ]
   %21 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %16, 1
+  %22 = insertvalue { ptr, i32 } %21, i32 %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret { ptr, i32 } %22
 }
@@ -1041,8 +1042,9 @@ define { ptr, i32 } @_ZN14anki_proto_gen6Method6output17hc1049834832083d4E(ptr a
 
 _ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %17
   %.sroa.0.0.i = phi ptr [ null, %17 ], [ %15, %14 ]
+  %.sroa.3.0.i = phi i32 [ undef, %17 ], [ %16, %14 ]
   %21 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %16, 1
+  %22 = insertvalue { ptr, i32 } %21, i32 %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   ret { ptr, i32 } %22
 }

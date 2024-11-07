@@ -231,7 +231,7 @@ define hidden { i64, ptr } @_ZN12futures_util2io11read_to_end20read_to_end_inter
   br i1 %.not, label %48, label %9
 
 .loopexit31:                                      ; preds = %37, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h2130d195db114d4fE.exit", %41
-  %.sroa.4.0 = phi ptr [ %43, %41 ], [ %35, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h2130d195db114d4fE.exit" ], [ %35, %37 ]
+  %.sroa.4.0 = phi ptr [ %43, %41 ], [ %35, %37 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h2130d195db114d4fE.exit" ]
   %.sroa.0.0 = phi i64 [ 0, %41 ], [ 1, %37 ], [ 2, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h2130d195db114d4fE.exit" ]
   store i64 %storemerge, ptr %5, align 8
   %46 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
@@ -350,7 +350,7 @@ define hidden { i64, ptr } @_ZN12futures_util2io11read_to_end20read_to_end_inter
   br i1 %.not, label %48, label %9
 
 .loopexit31:                                      ; preds = %37, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h139e921ea09d21a1E.exit", %41
-  %.sroa.4.0 = phi ptr [ %43, %41 ], [ %35, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h139e921ea09d21a1E.exit" ], [ %35, %37 ]
+  %.sroa.4.0 = phi ptr [ %43, %41 ], [ %35, %37 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h139e921ea09d21a1E.exit" ]
   %.sroa.0.0 = phi i64 [ 0, %41 ], [ 1, %37 ], [ 2, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h139e921ea09d21a1E.exit" ]
   store i64 %storemerge, ptr %5, align 8
   %46 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0

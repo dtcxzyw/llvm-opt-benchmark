@@ -315,7 +315,7 @@ default.unreachable54:                            ; preds = %1
 common.ret.sink.split.i:                          ; preds = %45, %.body
   %.sink.i = phi ptr [ %46, %45 ], [ %2, %.body ]
   invoke void @"_ZN4core3ptr149drop_in_place$LT$futures_channel..oneshot..Receiver$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$$GT$17h66ea950098d6c1ddE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %.sink.i)
-          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h379bbf6cd3184207E.exit31" unwind label %49
+          to label %"_ZN4core3ptr44drop_in_place$LT$core..task..wake..Waker$GT$17h379bbf6cd3184207E.exit31" unwind label %50
 
 45:                                               ; preds = %.body
   %46 = getelementptr inbounds i8, ptr %2, i64 8
@@ -328,18 +328,20 @@ common.ret.sink.split.i21:                        ; preds = %"_ZN4core3ptr72drop
 
 "_ZN4core3ptr114drop_in_place$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb73c097d0abe323aE.exit20": ; preds = %40, %38
   %.sroa.07.0.i = phi i64 [ %.sroa.0.0.i.i.ph.i, %38 ], [ 1, %40 ]
-  %.sroa.4.0.i.i.ph.pn.i = phi ptr [ %.sroa.4.0.i.i.ph.i, %38 ], [ %41, %40 ]
+  %.4.i.pn.i = phi ptr [ %.sroa.4.0.i.i.ph.i, %38 ], [ %41, %40 ]
   %47 = insertvalue { i64, ptr } poison, i64 %.sroa.07.0.i, 0
-  %48 = insertvalue { i64, ptr } %47, ptr %.sroa.4.0.i.i.ph.pn.i, 1
+  %48 = insertvalue { i64, ptr } %47, ptr %.4.i.pn.i, 1
   br label %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$17he7af626dd07c7711E.exit"
 
 "_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$alloc..sync..Arc$LT$language..Language$GT$$C$anyhow..Error$GT$$GT$17he7af626dd07c7711E.exit": ; preds = %common.ret.sink.split.i21, %"_ZN4core3ptr114drop_in_place$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb73c097d0abe323aE.exit20"
   %common.ret.op.i40 = phi { i64, ptr } [ %48, %"_ZN4core3ptr114drop_in_place$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb73c097d0abe323aE.exit20" ], [ { i64 2, ptr undef }, %common.ret.sink.split.i21 ]
+  %.sroa.3.0 = phi ptr [ %.4.i.pn.i, %"_ZN4core3ptr114drop_in_place$LT$language..language_registry..LanguageRegistry..language_for_name..$u7b$$u7b$closure$u7d$$u7d$$GT$17hb73c097d0abe323aE.exit20" ], [ undef, %common.ret.sink.split.i21 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  ret { i64, ptr } %common.ret.op.i40
+  %49 = insertvalue { i64, ptr } %common.ret.op.i40, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %49
 
-49:                                               ; preds = %common.ret.sink.split.i
-  %50 = landingpad { ptr, i32 }
+50:                                               ; preds = %common.ret.sink.split.i
+  %51 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #18
   unreachable

@@ -14309,15 +14309,16 @@ define hidden void @_ZN11file_finder10FileFinder3new17h8e9199b369a7bb7eE(ptr dea
           to label %14 unwind label %8
 
 14:                                               ; preds = %12
-  %.sroa.08.0.extract.trunc = trunc i40 %13 to i8
-  %.sroa.0.0 = select i1 %11, i8 %.sroa.08.0.extract.trunc, i8 2
   %.sroa.08.1.extract.shift = lshr i40 %13, 8
   %.sroa.08.1.extract.trunc = trunc nuw i40 %.sroa.08.1.extract.shift to i32
+  %.sroa.08.0.extract.trunc = trunc i40 %13 to i8
+  %.sroa.5.0 = select i1 %11, i32 %.sroa.08.1.extract.trunc, i32 undef
+  %.sroa.0.0 = select i1 %11, i8 %.sroa.08.0.extract.trunc, i8 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %.sroa.0.0, ptr %15, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 33
-  store i32 %.sroa.08.1.extract.trunc, ptr %.sroa.5.0..sroa_idx2, align 1
+  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx2, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4)
   ret void
@@ -14932,7 +14933,7 @@ default.unreachable.i.i:                          ; preds = %_ZN11file_finder7Ma
   br label %86
 
 86:                                               ; preds = %92, %.lr.ph.i7
-  %.sroa.02.013.i = phi i64 [ 0, %.lr.ph.i7 ], [ %94, %92 ]
+  %.sroa.02.012.i = phi i64 [ 0, %.lr.ph.i7 ], [ %94, %92 ]
   %87 = phi ptr [ %13, %.lr.ph.i7 ], [ %93, %92 ]
   %88 = getelementptr i8, ptr %87, i64 32
   %.val8.i = load ptr, ptr %88, align 8, !noalias !2873, !nonnull !4, !noundef !4
@@ -14950,17 +14951,17 @@ default.unreachable.i.i:                          ; preds = %_ZN11file_finder7Ma
 
 92:                                               ; preds = %86
   %93 = getelementptr inbounds i8, ptr %87, i64 144
-  %94 = add nuw nsw i64 %.sroa.02.013.i, 1
+  %94 = add nuw nsw i64 %.sroa.02.012.i, 1
   %95 = icmp eq ptr %93, %79
   br i1 %95, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb79147c1c94288e8E.exit", label %86
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8660882f4e827911E.exit": ; preds = %86
-  %96 = icmp ult i64 %.sroa.02.013.i, %15
+  %96 = icmp ult i64 %.sroa.02.012.i, %15
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb79147c1c94288e8E.exit.sink.split"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb79147c1c94288e8E.exit.sink.split": ; preds = %._crit_edge.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8660882f4e827911E.exit"
   %.sink = phi i1 [ %96, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8660882f4e827911E.exit" ], [ %77, %._crit_edge.i ]
-  %.sroa.4.0.ph = phi i64 [ %.sroa.02.013.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8660882f4e827911E.exit" ], [ %.sroa.03.0.lcssa.i, %._crit_edge.i ]
+  %.sroa.4.0.ph = phi i64 [ %.sroa.02.012.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8660882f4e827911E.exit" ], [ %.sroa.03.0.lcssa.i, %._crit_edge.i ]
   %.sroa.0.0.ph = phi i64 [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h8660882f4e827911E.exit" ], [ 1, %._crit_edge.i ]
   tail call void @llvm.assume(i1 %.sink)
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17hb79147c1c94288e8E.exit"
@@ -18367,13 +18368,13 @@ define void @"_ZN74_$LT$file_finder..FileFinderDelegate$u20$as$u20$picker..Picke
   br i1 %24, label %29, label %27
 
 .loopexit:                                        ; preds = %12, %2, %20, %27
-  %.sink14 = phi i64 [ 1, %27 ], [ 0, %20 ], [ 0, %2 ], [ 0, %12 ]
-  %.sink12 = phi ptr [ %23, %27 ], [ inttoptr (i64 8 to ptr), %20 ], [ inttoptr (i64 8 to ptr), %2 ], [ inttoptr (i64 8 to ptr), %12 ]
-  store i64 %.sink14, ptr %0, align 8
+  %.sink16 = phi i64 [ 1, %27 ], [ 0, %20 ], [ 0, %2 ], [ 0, %12 ]
+  %.sink14 = phi ptr [ %23, %27 ], [ inttoptr (i64 8 to ptr), %20 ], [ inttoptr (i64 8 to ptr), %2 ], [ inttoptr (i64 8 to ptr), %12 ]
+  store i64 %.sink16, ptr %0, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink12, ptr %25, align 8
+  store ptr %.sink14, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink14, ptr %26, align 8
+  store i64 %.sink16, ptr %26, align 8
   ret void
 
 27:                                               ; preds = %21

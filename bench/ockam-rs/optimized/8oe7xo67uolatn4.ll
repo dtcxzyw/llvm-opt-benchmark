@@ -995,8 +995,8 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br i1 %33, label %38, label %41
 
 .lr.ph:                                           ; preds = %29, %45
-  %.0127210 = phi i32 [ %50, %45 ], [ 0, %29 ]
-  %.sroa.025.0209 = phi i64 [ %47, %45 ], [ 0, %29 ]
+  %.0127204 = phi i32 [ %50, %45 ], [ 0, %29 ]
+  %.sroa.025.0203 = phi i64 [ %47, %45 ], [ 0, %29 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !246
   store i8 0, ptr %4, align 1, !noalias !246
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !246
@@ -1043,8 +1043,8 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %52
 
 45:                                               ; preds = %.lr.ph
-  %46 = shl i32 %.0127210, 8
-  %47 = add nuw nsw i64 %.sroa.025.0209, 1
+  %46 = shl i32 %.0127204, 8
+  %47 = add nuw nsw i64 %.sroa.025.0203, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !246
   %48 = load i8, ptr %4, align 1, !noalias !246, !noundef !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !246
@@ -1194,8 +1194,8 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br i1 %33, label %38, label %41
 
 .lr.ph:                                           ; preds = %29, %45
-  %.0127210 = phi i32 [ %50, %45 ], [ 0, %29 ]
-  %.sroa.025.0209 = phi i64 [ %47, %45 ], [ 0, %29 ]
+  %.0127204 = phi i32 [ %50, %45 ], [ 0, %29 ]
+  %.sroa.025.0203 = phi i64 [ %47, %45 ], [ 0, %29 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !256
   store i8 0, ptr %4, align 1, !noalias !256
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !256
@@ -1242,8 +1242,8 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %52
 
 45:                                               ; preds = %.lr.ph
-  %46 = shl i32 %.0127210, 8
-  %47 = add nuw nsw i64 %.sroa.025.0209, 1
+  %46 = shl i32 %.0127204, 8
+  %47 = add nuw nsw i64 %.sroa.025.0203, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !256
   %48 = load i8, ptr %4, align 1, !noalias !256, !noundef !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !256
@@ -1393,8 +1393,8 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br i1 %33, label %38, label %41
 
 .lr.ph:                                           ; preds = %29, %45
-  %.0127210 = phi i32 [ %50, %45 ], [ 0, %29 ]
-  %.sroa.025.0209 = phi i64 [ %47, %45 ], [ 0, %29 ]
+  %.0127204 = phi i32 [ %50, %45 ], [ 0, %29 ]
+  %.sroa.025.0203 = phi i64 [ %47, %45 ], [ 0, %29 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !266
   store i8 0, ptr %4, align 1, !noalias !266
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !266
@@ -1441,8 +1441,8 @@ define hidden void @"_ZN59_$LT$der..length..Length$u20$as$u20$der..decode..Decod
   br label %52
 
 45:                                               ; preds = %.lr.ph
-  %46 = shl i32 %.0127210, 8
-  %47 = add nuw nsw i64 %.sroa.025.0209, 1
+  %46 = shl i32 %.0127204, 8
+  %47 = add nuw nsw i64 %.sroa.025.0203, 1
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !266
   %48 = load i8, ptr %4, align 1, !noalias !266, !noundef !4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4), !noalias !266
@@ -1907,17 +1907,17 @@ define hidden void @"_ZN89_$LT$sec1..point..EncodedPoint$LT$Size$GT$$u20$as$u20$
   ret void
 
 8:                                                ; preds = %8, %4
-  %.sroa.0.0.idx22 = phi i64 [ 0, %4 ], [ %.sroa.0.0.add, %8 ]
-  %.sroa.0.0.ptr23 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.idx22
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx22, 1
-  %9 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.0.0.idx22
-  %10 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.sroa.0.0.idx22
+  %.sroa.0.0.idx23 = phi i64 [ 0, %4 ], [ %.sroa.0.0.add, %8 ]
+  %.sroa.0.0.ptr24 = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.idx23
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx23, 1
+  %9 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.0.0.idx23
+  %10 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.sroa.0.0.idx23
   %11 = load i8, ptr %9, align 1, !noundef !4
   %12 = load i8, ptr %10, align 1, !noundef !4
   %13 = xor i8 %12, %11
   %14 = and i8 %13, %6
   %15 = xor i8 %14, %11
-  store i8 %15, ptr %.sroa.0.0.ptr23, align 1
+  store i8 %15, ptr %.sroa.0.0.ptr24, align 1
   %16 = icmp eq i64 %.sroa.0.0.add, 65
   br i1 %16, label %7, label %8
 }

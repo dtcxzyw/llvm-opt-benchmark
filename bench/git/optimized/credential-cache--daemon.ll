@@ -369,14 +369,14 @@ if.end.i.i.i.i:                                   ; preds = %do.body.i.i.i.i.i
   call void @strbuf_add(ptr noundef nonnull %action.i.i.i, ptr noundef %scevgep.i.i.i.i, i64 noundef %call.i.i.i.i.i) #15
   %call4.i.i.i.i = call i32 @strbuf_getline_lf(ptr noundef nonnull @read_request.item, ptr noundef %call25.i.i) #15
   %26 = load ptr, ptr getelementptr inbounds (i8, ptr @read_request.item, i64 16), align 8
-  %scevgep20.i.i.i.i = getelementptr i8, ptr %26, i64 8
+  %scevgep22.i.i.i.i = getelementptr i8, ptr %26, i64 8
   br label %do.body.i3.i.i.i.i
 
 do.body.i3.i.i.i.i:                               ; preds = %do.cond.i7.i.i.i.i, %if.end.i.i.i.i
   %str.addr.0.i4.i.i.i.i = phi ptr [ %26, %if.end.i.i.i.i ], [ %incdec.ptr.i8.i.i.i.i, %do.cond.i7.i.i.i.i ]
   %prefix.addr.0.i5.idx.i.i.i.i = phi i64 [ 0, %if.end.i.i.i.i ], [ %prefix.addr.0.i5.add.i.i.i.i, %do.cond.i7.i.i.i.i ]
-  %exitcond21.i.i.i.i = icmp eq i64 %prefix.addr.0.i5.idx.i.i.i.i, 8
-  br i1 %exitcond21.i.i.i.i, label %read_request.exit.i.i.i, label %do.cond.i7.i.i.i.i
+  %exitcond23.i.i.i.i = icmp eq i64 %prefix.addr.0.i5.idx.i.i.i.i, 8
+  br i1 %exitcond23.i.i.i.i, label %read_request.exit.i.i.i, label %do.cond.i7.i.i.i.i
 
 do.cond.i7.i.i.i.i:                               ; preds = %do.body.i3.i.i.i.i
   %prefix.addr.0.i5.ptr.i.i.i.i = getelementptr inbounds i8, ptr @.str.31, i64 %prefix.addr.0.i5.idx.i.i.i.i
@@ -392,7 +392,7 @@ if.then6.i.i.i.i:                                 ; preds = %do.cond.i7.i.i.i.i
   br label %serve_one_client.exit.i.i
 
 read_request.exit.i.i.i:                          ; preds = %do.body.i3.i.i.i.i
-  %call10.i.i.i.i = call i32 @atoi(ptr nocapture noundef %scevgep20.i.i.i.i) #18
+  %call10.i.i.i.i = call i32 @atoi(ptr nocapture noundef %scevgep22.i.i.i.i) #18
   %call11.i.i.i.i = call i32 @credential_read(ptr noundef nonnull %c.i.i.i, ptr noundef %call25.i.i) #15
   %cmp.i10.i.i = icmp slt i32 %call11.i.i.i.i, 0
   br i1 %cmp.i10.i.i, label %serve_one_client.exit.i.i, label %if.else.i11.i.i

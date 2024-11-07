@@ -421,12 +421,12 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
   br label %175
 
 175:                                              ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i, %.lr.ph.i
-  %.sroa.0.0.idx20.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.0.add.i, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i ]
-  %.sroa.10.019.i = phi i64 [ %173, %.lr.ph.i ], [ %176, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i ]
-  %.sroa.7.018.i = phi i64 [ 0, %.lr.ph.i ], [ %181, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i ]
-  %.sroa.0.0.ptr21.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.idx20.i
-  %176 = add i64 %.sroa.10.019.i, -1
-  %177 = icmp eq i64 %.sroa.0.0.idx20.i, 256
+  %.sroa.0.0.idx21.i = phi i64 [ 0, %.lr.ph.i ], [ %.sroa.0.0.add.i, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i ]
+  %.sroa.10.020.i = phi i64 [ %173, %.lr.ph.i ], [ %176, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i ]
+  %.sroa.7.019.i = phi i64 [ 0, %.lr.ph.i ], [ %181, %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i ]
+  %.sroa.0.0.ptr22.i = getelementptr inbounds i8, ptr %5, i64 %.sroa.0.0.idx21.i
+  %176 = add i64 %.sroa.10.020.i, -1
+  %177 = icmp eq i64 %.sroa.0.0.idx21.i, 256
   br i1 %177, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtBa_5slice4iter7IterMutINtNtNtBa_3mem12maybe_uninit11MaybeUninitRShEEENtNtNtB8_6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.exit.thread.i, label %180
 
 _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtBa_5slice4iter7IterMutINtNtNtBa_3mem12maybe_uninit11MaybeUninitRShEEENtNtNtB8_6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.exit.thread.i: ; preds = %_RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i, %175
@@ -438,9 +438,9 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
   unreachable
 
 180:                                              ; preds = %175
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx20.i, 16
-  %181 = add nuw nsw i64 %.sroa.7.018.i, 1
-  %182 = getelementptr inbounds [16 x { i64, i64 }], ptr %0, i64 0, i64 %.sroa.7.018.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx21.i, 16
+  %181 = add nuw nsw i64 %.sroa.7.019.i, 1
+  %182 = getelementptr inbounds [16 x { i64, i64 }], ptr %0, i64 0, i64 %.sroa.7.019.i
   %183 = load i64, ptr %182, align 8, !alias.scope !53, !noalias !57, !noundef !4
   %184 = getelementptr inbounds i8, ptr %182, i64 8
   %185 = load i64, ptr %184, align 8, !alias.scope !53, !noalias !57, !noundef !4
@@ -462,8 +462,8 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtB
 _RNvXs2_NtNtCs1LoaDTb72WA_4core5slice5indexINtNtNtB9_3ops5range5RangejEINtB5_10SliceIndexShE5indexCs8mTrBI1stz4_15turborepo_vt100.exit.i: ; preds = %187
   %191 = sub nuw i64 %185, %183
   %192 = getelementptr inbounds i8, ptr %174, i64 %183
-  store ptr %192, ptr %.sroa.0.0.ptr21.i, align 8, !noalias !55
-  %193 = getelementptr inbounds i8, ptr %.sroa.0.0.ptr21.i, i64 8
+  store ptr %192, ptr %.sroa.0.0.ptr22.i, align 8, !noalias !55
+  %193 = getelementptr inbounds i8, ptr %.sroa.0.0.ptr22.i, i64 8
   store i64 %191, ptr %193, align 8, !noalias !55
   %194 = icmp eq i64 %176, 0
   br i1 %194, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters9enumerateINtB4_9EnumerateINtNtNtBa_5slice4iter7IterMutINtNtNtBa_3mem12maybe_uninit11MaybeUninitRShEEENtNtNtB8_6traits8iterator8Iterator4nextCs8mTrBI1stz4_15turborepo_vt100.exit.thread.i, label %175

@@ -129,8 +129,9 @@ define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as
 define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h7a593dd8456c62baE"(i64 %0, i64 %1) unnamed_addr #1 {
   %3 = icmp ne i64 %0, 0
   %. = zext i1 %3 to i64
+  %.2 = select i1 %3, i64 %1, i64 undef
   %4 = insertvalue { i64, i64 } poison, i64 %., 0
-  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %5 = insertvalue { i64, i64 } %4, i64 %.2, 1
   ret { i64, i64 } %5
 }
 

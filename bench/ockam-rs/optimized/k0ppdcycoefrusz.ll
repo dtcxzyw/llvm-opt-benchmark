@@ -46,28 +46,28 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$aws_s
   %.pn.i.i.i.i = phi i64 [ 5316663989960556303, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !28
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 36)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !28
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 36)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -138,28 +138,28 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$aws_s
   %.pn.i.i.i.i = phi i64 [ -8627355513458797776, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !75
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 68)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !75
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 68)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -230,28 +230,28 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_s
   %.pn.i.i.i.i = phi i64 [ 3278194403494023219, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !120
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 22)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !120
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 22)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -322,28 +322,28 @@ define hidden noundef align 8 ptr @"_ZN106_$LT$aws_smithy_types..config_bag..Ite
   %.pn.i.i.i.i = phi i64 [ 5590659345110524829, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !165
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 38)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !165
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 38)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -414,28 +414,28 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_s
   %.pn.i.i.i.i = phi i64 [ -5403331856108410198, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !210
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 90)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !210
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 90)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -506,28 +506,28 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_s
   %.pn.i.i.i.i = phi i64 [ -1085440418206852995, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !255
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 120)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !255
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 120)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -598,28 +598,28 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @"_ZN106_$LT$aws_
   %.pn.i.i.i.i = phi i64 [ -5259979506089284770, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !300
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 91)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !300
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 91)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -690,28 +690,28 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN106_$LT$aws_s
   %.pn.i.i.i.i = phi i64 [ -6136622341969893901, %8 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i, %10
   %13 = getelementptr inbounds i8, ptr %11, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i16.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !345
-  %14 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 85)
+  %.0.copyload.i18.i.i.i.i = load <16 x i8>, ptr %13, align 1, !noalias !345
+  %14 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 85)
   %15 = bitcast <16 x i1> %14 to i16
   br label %16
 
 16:                                               ; preds = %20, %12
-  %.08.i.i.i.i = phi i16 [ %15, %12 ], [ %22, %20 ]
-  %.not.not.i.i.i.i.i = icmp eq i16 %.08.i.i.i.i, 0
+  %.09.i.i.i.i = phi i16 [ %15, %12 ], [ %24, %20 ]
+  %.not.not.i.i.i.i.i = icmp eq i16 %.09.i.i.i.i, 0
   br i1 %.not.not.i.i.i.i.i, label %17, label %20
 
 17:                                               ; preds = %16
-  %18 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i.i, splat (i8 -1)
+  %18 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i.i, splat (i8 -1)
   %19 = bitcast <16 x i1> %18 to i16
   %.not.i.i.i.i.i = icmp eq i16 %19, 0
   br i1 %.not.i.i.i.i.i, label %29, label %tailrecurse
 
 20:                                               ; preds = %16
-  %21 = add i16 %.08.i.i.i.i, -1
-  %22 = and i16 %21, %.08.i.i.i.i
-  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i.i, i1 true)
-  %24 = zext nneg i16 %23 to i64
-  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %24
+  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i.i, i1 true)
+  %22 = zext nneg i16 %21 to i64
+  %23 = add i16 %.09.i.i.i.i, -1
+  %24 = and i16 %23, %.09.i.i.i.i
+  %25 = add i64 %.sroa.01.0.i.i.i.i.i, %22
   %26 = and i64 %25, %10
   %27 = sub nsw i64 0, %26
   %gep.i.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i.i, i64 %27
@@ -895,28 +895,28 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   %.pn.i.i.i = phi i64 [ -6136622341969893901, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !396
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 85)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !396
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 85)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h9a381fa9940e19f6E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -975,28 +975,28 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %.pn.i.i.i = phi i64 [ 5316663989960556303, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !435
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 36)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !435
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 36)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h8f119a98b61c2756E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -1055,28 +1055,28 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %.pn.i.i.i = phi i64 [ 3278194403494023219, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !474
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 22)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !474
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 22)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h540f87c84a3fe832E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -1135,28 +1135,28 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %.pn.i.i.i = phi i64 [ -5403331856108410198, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !513
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 90)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !513
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 90)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hd494553b7f096c52E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -1215,28 +1215,28 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   %.pn.i.i.i = phi i64 [ -5259979506089284770, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !552
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 91)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !552
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 91)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17hbc8c7f668bdae816E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -1295,28 +1295,28 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag5Layer3get17
   %.pn.i.i.i = phi i64 [ 5590659345110524829, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !591
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 38)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !591
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 38)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h1dcd0403601a0021E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -1375,28 +1375,28 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %.pn.i.i.i = phi i64 [ -8627355513458797776, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !630
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 68)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !630
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 68)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h21482764ee41235cE.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -1455,28 +1455,28 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %.pn.i.i.i = phi i64 [ -1085440418206852995, %5 ], [ %28, %26 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i16.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !669
-  %11 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 120)
+  %.0.copyload.i18.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !669
+  %11 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 120)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
 13:                                               ; preds = %17, %9
-  %.08.i.i.i = phi i16 [ %12, %9 ], [ %19, %17 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.08.i.i.i, 0
+  %.09.i.i.i = phi i16 [ %12, %9 ], [ %21, %17 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.09.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i16.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i18.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %26, label %"_ZN16aws_smithy_types10config_bag5Layer3get28_$u7b$$u7b$closure$u7d$$u7d$17h18b29cfbfcb3e8a6E.llvm.11161914831801431366.exit"
 
 17:                                               ; preds = %13
-  %18 = add i16 %.08.i.i.i, -1
-  %19 = and i16 %18, %.08.i.i.i
-  %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i.i, i1 true)
-  %21 = zext nneg i16 %20 to i64
-  %22 = add i64 %.sroa.01.0.i.i.i.i, %21
+  %18 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i.i, i1 true)
+  %19 = zext nneg i16 %18 to i64
+  %20 = add i16 %.09.i.i.i, -1
+  %21 = and i16 %20, %.09.i.i.i
+  %22 = add i64 %.sroa.01.0.i.i.i.i, %19
   %23 = and i64 %22, %7
   %24 = sub nsw i64 0, %23
   %gep.i.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i.i, i64 %24
@@ -2105,7 +2105,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hca8721df1fea94caE(ptr n
   %20 = load i32, ptr %19, align 4, !alias.scope !759, !noalias !762, !noundef !13
   %21 = tail call noundef i32 @_ZN3der6length6Length14saturating_sub17h11a552f75512ffdaE(i32 noundef %18, i32 noundef %20), !noalias !764
   %22 = icmp ugt i32 %2, %21
-  br i1 %22, label %23, label %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread184"
+  br i1 %22, label %23, label %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread183"
 
 23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %15), !noalias !767
@@ -2189,9 +2189,9 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hca8721df1fea94caE(ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.16, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.16.0..sroa_idx, i64 32, i1 false), !noalias !759
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15), !noalias !767
   %41 = icmp eq i32 %.sroa.0.0.copyload, 2
-  br i1 %41, label %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread184", label %54
+  br i1 %41, label %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread183", label %54
 
-"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread184": ; preds = %3, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit"
+"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread183": ; preds = %3, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit"
   %.sroa.10.1179.ph = phi ptr [ %.sroa.10.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ], [ %1, %3 ]
   %.sroa.14.1177.ph = phi i32 [ %.sroa.14.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ], [ %2, %3 ]
   %.sroa.15.1175.ph = phi i32 [ %.sroa.15.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ], [ 0, %3 ]
@@ -2215,7 +2215,7 @@ define hidden void @_ZN3der6reader6Reader11read_nested17hca8721df1fea94caE(ptr n
   %43 = icmp eq i32 %42, 2
   br i1 %43, label %_ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.thread.i, label %_ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.i
 
-_ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.thread.i: ; preds = %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread184"
+_ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.thread.i: ; preds = %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread183"
   %44 = getelementptr inbounds i8, ptr %11, i64 4
   %.sroa.533.i.sroa.0.0.copyload133 = load i32, ptr %44, align 4, !alias.scope !788, !noalias !789
   %.sroa.533.i.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 8
@@ -2237,7 +2237,7 @@ _ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.thread.i: ; preds = %"_ZN3
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %11), !noalias !777
   br label %46
 
-_ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.i: ; preds = %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread184"
+_ZN3der6reader6Reader6decode17h2a96d961de52d267E.exit.i: ; preds = %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread183"
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %10), !noalias !790
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9), !noalias !790
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !787
@@ -2363,8 +2363,8 @@ _ZN3der6reader6Reader6decode17hd51f47996d597c4eE.exit.i: ; preds = %46
   store i8 %.sroa.535.i.sroa.16.0.copyload, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, align 8, !noalias !771
   %.sroa.77.i.sroa.15.28..sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.sroa_idx = getelementptr inbounds i8, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.77.i.sroa.15.28..sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.77.i.sroa.15, i64 7, i1 false), !noalias !771
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx266 = getelementptr inbounds i8, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 8
-  store i32 %.sroa.837.i.sroa.0.0.copyload, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx266, align 8, !noalias !771
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx262 = getelementptr inbounds i8, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 8
+  store i32 %.sroa.837.i.sroa.0.0.copyload, ptr %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.8..sroa_idx262, align 8, !noalias !771
   br label %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread"
 
 "_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread": ; preds = %52, %51
@@ -2400,16 +2400,16 @@ _ZN3der6reader6Reader6decode17hd51f47996d597c4eE.exit.i: ; preds = %46
   br i1 %53, label %65, label %56
 
 54:                                               ; preds = %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread", %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit"
-  %.sroa.0.1183 = phi i32 [ %.sroa.0.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.0.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
-  %.sroa.734.1182 = phi i32 [ %.sroa.734.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.734.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
+  %.sroa.0.1182 = phi i32 [ %.sroa.0.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.0.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
+  %.sroa.734.1181 = phi i32 [ %.sroa.734.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.734.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
   %.sroa.10.1180 = phi ptr [ %.sroa.10.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.10.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
   %.sroa.14.1178 = phi i32 [ %.sroa.14.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.14.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
   %.sroa.15.1176 = phi i32 [ %.sroa.15.1.ph, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit.thread" ], [ %.sroa.15.0.copyload, %"_ZN3der6reader6nested21NestedReader$LT$R$GT$3new17h6a1e332da6b3821fE.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.324, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.16, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.16)
-  store i32 %.sroa.0.1183, ptr %0, align 8
+  store i32 %.sroa.0.1182, ptr %0, align 8
   %.sroa.223.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.734.1182, ptr %.sroa.223.0..sroa_idx, align 4
+  store i32 %.sroa.734.1181, ptr %.sroa.223.0..sroa_idx, align 4
   %.sroa.223.sroa.2.0..sroa.223.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.10.1180, ptr %.sroa.223.sroa.2.0..sroa.223.0..sroa_idx.sroa_idx, align 8
   %.sroa.223.sroa.3.0..sroa.223.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -2489,43 +2489,43 @@ _ZN3der6reader6Reader6finish17ha14eaf6dbd4441dbE.exit: ; preds = %59, %63
   br label %67
 
 65:                                               ; preds = %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit", %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread"
-  %.sroa.041.0238 = phi i32 [ %.sroa.041.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.0.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.8.0234 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.8.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.535.i.sroa.12.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.7.0232 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.7.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.535.i.sroa.10.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.0.0230 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.535.i.sroa.8.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0228 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.19.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0226 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.17.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0224 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.15.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.0.0222 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.13.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.7.sroa.0.0220 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.11.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.0.0218 = phi i32 [ %.sroa.744.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.7.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
-  %.sroa.744.sroa.7.sroa.0.0216 = phi i32 [ %.sroa.744.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.9.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.041.0234 = phi i32 [ %.sroa.041.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.0.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.8.0232 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.8.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.535.i.sroa.12.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.7.0230 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.7.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.535.i.sroa.10.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.0.0228 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.535.i.sroa.8.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0226 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.19.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0224 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.17.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0222 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.15.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.0.0220 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.13.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.7.sroa.0.0218 = phi i32 [ %.sroa.744.sroa.7.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.11.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.0.0216 = phi i32 [ %.sroa.744.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.7.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
+  %.sroa.744.sroa.7.sroa.0.0214 = phi i32 [ %.sroa.744.sroa.7.sroa.0.0.ph, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit.thread" ], [ %.sroa.533.i.sroa.9.0, %"_ZN95_$LT$spki..algorithm..AlgorithmIdentifier$LT$Params$GT$$u20$as$u20$der..decode..DecodeValue$GT$12decode_value28_$u7b$$u7b$closure$u7d$$u7d$17hde656001c13af066E.exit" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.sroa.7.sroa.13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0)
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.1548)
-  store i32 %.sroa.041.0238, ptr %0, align 8
+  store i32 %.sroa.041.0234, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.sroa.744.sroa.0.0218, ptr %.sroa.2.0..sroa_idx, align 4
+  store i32 %.sroa.744.sroa.0.0216, ptr %.sroa.2.0..sroa_idx, align 4
   %.sroa.2.sroa.2129.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sroa.744.sroa.7.sroa.0.0216, ptr %.sroa.2.sroa.2129.0..sroa.2.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.744.sroa.7.sroa.0.0214, ptr %.sroa.2.sroa.2129.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.3130.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.0.0220, ptr %.sroa.2.sroa.3130.0..sroa.2.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.0.0218, ptr %.sroa.2.sroa.3130.0..sroa.2.0..sroa_idx.sroa_idx, align 4
   %.sroa.2.sroa.4131.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.0.0222, ptr %.sroa.2.sroa.4131.0..sroa.2.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.0.0220, ptr %.sroa.2.sroa.4131.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0224, ptr %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0222, ptr %.sroa.2.sroa.5.0..sroa.2.0..sroa_idx.sroa_idx, align 4
   %.sroa.2.sroa.6.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0226, ptr %.sroa.2.sroa.6.0..sroa.2.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0224, ptr %.sroa.2.sroa.6.0..sroa.2.0..sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.7.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0228, ptr %.sroa.2.sroa.7.0..sroa.2.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.0.0226, ptr %.sroa.2.sroa.7.0..sroa.2.0..sroa_idx.sroa_idx, align 4
   %.sroa.2.sroa.8.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.2.sroa.8.0..sroa.2.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.06.sroa.7.sroa.13, i64 12, i1 false)
   %.sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.0.0230, ptr %.sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.0.0228, ptr %.sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx, align 4
   %.sroa.2.sroa.9.sroa.2.0..sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.7.0232, ptr %.sroa.2.sroa.9.sroa.2.0..sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.7.0230, ptr %.sroa.2.sroa.9.sroa.2.0..sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx, align 8
   %.sroa.2.sroa.9.sroa.3.0..sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.8.0234, ptr %.sroa.2.sroa.9.sroa.3.0..sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx, align 4
+  store i32 %.sroa.744.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.7.sroa.10.sroa.8.0232, ptr %.sroa.2.sroa.9.sroa.3.0..sroa.2.sroa.9.0..sroa.2.0..sroa_idx.sroa_idx.sroa_idx, align 4
   %66 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 24, ptr %66, align 8
   br label %67
@@ -4039,28 +4039,28 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ma
   %.pn.i.i = phi i64 [ %8, %6 ], [ %33, %31 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %12
   %15 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.0.i.i.i
-  %.0.copyload.i16.i.i = load <16 x i8>, ptr %15, align 1, !noalias !965
-  %16 = icmp eq <16 x i8> %.15.vec.insert.i.i.i.i, %.0.copyload.i16.i.i
+  %.0.copyload.i18.i.i = load <16 x i8>, ptr %15, align 1, !noalias !965
+  %16 = icmp eq <16 x i8> %.15.vec.insert.i.i.i.i, %.0.copyload.i18.i.i
   %17 = bitcast <16 x i1> %16 to i16
   br label %18
 
 18:                                               ; preds = %22, %14
-  %.08.i.i = phi i16 [ %17, %14 ], [ %24, %22 ]
-  %.not.not.i.i.i = icmp eq i16 %.08.i.i, 0
+  %.09.i.i = phi i16 [ %17, %14 ], [ %26, %22 ]
+  %.not.not.i.i.i = icmp eq i16 %.09.i.i, 0
   br i1 %.not.not.i.i.i, label %19, label %22
 
 19:                                               ; preds = %18
-  %20 = icmp eq <16 x i8> %.0.copyload.i16.i.i, splat (i8 -1)
+  %20 = icmp eq <16 x i8> %.0.copyload.i18.i.i, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i, label %31, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hc7befd69393a7ce0E.llvm.11161914831801431366.exit"
 
 22:                                               ; preds = %18
-  %23 = add i16 %.08.i.i, -1
-  %24 = and i16 %23, %.08.i.i
-  %25 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i.i, i1 true)
-  %26 = zext nneg i16 %25 to i64
-  %27 = add i64 %.sroa.01.0.i.i.i, %26
+  %23 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i.i, i1 true)
+  %24 = zext nneg i16 %23 to i64
+  %25 = add i16 %.09.i.i, -1
+  %26 = and i16 %25, %.09.i.i
+  %27 = add i64 %.sroa.01.0.i.i.i, %24
   %28 = and i64 %27, %12
   %29 = sub nsw i64 0, %28
   %gep.i.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i.i, i64 %29
@@ -4130,13 +4130,13 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b
   %.sroa.01.0.i.i = phi i64 [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h9399dcb749ff2812E.exit.i" ], [ %.sroa.01.1.i.i, %42 ]
   %.sroa.0.013.i.i = and i64 %.pn.i.i, %.val4.i
   %18 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.0.013.i.i
-  %.0.copyload.i17.i.i = load <16 x i8>, ptr %18, align 1, !noalias !988
-  %19 = icmp eq <16 x i8> %.15.vec.insert.i.i.i.i, %.0.copyload.i17.i.i
+  %.0.copyload.i18.i.i = load <16 x i8>, ptr %18, align 1, !noalias !988
+  %19 = icmp eq <16 x i8> %.15.vec.insert.i.i.i.i, %.0.copyload.i18.i.i
   %20 = bitcast <16 x i1> %19 to i16
   br label %21
 
 21:                                               ; preds = %23, %17
-  %.0.i.i = phi i16 [ %20, %17 ], [ %25, %23 ]
+  %.0.i.i = phi i16 [ %20, %17 ], [ %27, %23 ]
   %.not.not.i.i.i = icmp eq i16 %.0.i.i, 0
   br i1 %.not.not.i.i.i, label %22, label %23
 
@@ -4145,11 +4145,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b
   br i1 %.not.i.i, label %39, label %32
 
 23:                                               ; preds = %21
-  %24 = add i16 %.0.i.i, -1
-  %25 = and i16 %24, %.0.i.i
-  %26 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
-  %27 = zext nneg i16 %26 to i64
-  %28 = add i64 %.sroa.0.013.i.i, %27
+  %24 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0.i.i, i1 true)
+  %25 = zext nneg i16 %24 to i64
+  %26 = add i16 %.0.i.i, -1
+  %27 = and i16 %26, %.0.i.i
+  %28 = add i64 %.sroa.0.013.i.i, %25
   %29 = and i64 %28, %.val4.i
   %30 = sub nsw i64 0, %29
   %gep.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i, i64 %30
@@ -4158,7 +4158,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b
   br i1 %31, label %56, label %21
 
 32:                                               ; preds = %22
-  %33 = icmp slt <16 x i8> %.0.copyload.i17.i.i, zeroinitializer
+  %33 = icmp slt <16 x i8> %.0.copyload.i18.i.i, zeroinitializer
   %34 = bitcast <16 x i1> %33 to i16
   %.not.not.i17.i.i = icmp ne i16 %34, 0
   %35 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %34, i1 true)
@@ -4166,14 +4166,14 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h7b
   %.sroa.6.0.i.i.i = select i1 %.not.not.i17.i.i, i64 %36, i64 undef
   %37 = add i64 %.sroa.6.0.i.i.i, %.sroa.0.013.i.i
   %38 = and i64 %37, %.val4.i
-  %.sroa.3.0.i.i.i = select i1 %.not.not.i17.i.i, i64 %38, i64 undef
-  %.sroa.0.0.i18.i.i = zext i1 %.not.not.i17.i.i to i64
+  %.sroa.3.0.i18.i.i = select i1 %.not.not.i17.i.i, i64 %38, i64 undef
+  %.sroa.0.0.i19.i.i = zext i1 %.not.not.i17.i.i to i64
   br label %39
 
 39:                                               ; preds = %32, %22
-  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i.i.i, %32 ], [ %.sroa.6.0.i.i, %22 ]
-  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i18.i.i, %32 ], [ 1, %22 ]
-  %40 = icmp eq <16 x i8> %.0.copyload.i17.i.i, splat (i8 -1)
+  %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i18.i.i, %32 ], [ %.sroa.6.0.i.i, %22 ]
+  %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i19.i.i, %32 ], [ 1, %22 ]
+  %40 = icmp eq <16 x i8> %.0.copyload.i18.i.i, splat (i8 -1)
   %41 = bitcast <16 x i1> %40 to i16
   %.not11.i.i = icmp eq i16 %41, 0
   br i1 %.not11.i.i, label %42, label %45
@@ -4282,28 +4282,28 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN9hashbrown3ra
   %.pn.i = phi i64 [ %1, %3 ], [ %29, %27 ]
   %.sroa.01.0.i.i = and i64 %.pn.i, %7
   %11 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i
-  %.0.copyload.i16.i = load <16 x i8>, ptr %11, align 1, !noalias !1019
-  %12 = icmp eq <16 x i8> %.15.vec.insert.i.i.i, %.0.copyload.i16.i
+  %.0.copyload.i18.i = load <16 x i8>, ptr %11, align 1, !noalias !1019
+  %12 = icmp eq <16 x i8> %.15.vec.insert.i.i.i, %.0.copyload.i18.i
   %13 = bitcast <16 x i1> %12 to i16
   br label %14
 
 14:                                               ; preds = %18, %10
-  %.08.i = phi i16 [ %13, %10 ], [ %20, %18 ]
-  %.not.not.i.i = icmp eq i16 %.08.i, 0
+  %.09.i = phi i16 [ %13, %10 ], [ %22, %18 ]
+  %.not.not.i.i = icmp eq i16 %.09.i, 0
   br i1 %.not.not.i.i, label %15, label %18
 
 15:                                               ; preds = %14
-  %16 = icmp eq <16 x i8> %.0.copyload.i16.i, splat (i8 -1)
+  %16 = icmp eq <16 x i8> %.0.copyload.i18.i, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not.i.i = icmp eq i16 %17, 0
   br i1 %.not.i.i, label %27, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h41856a28681b6780E.llvm.11161914831801431366.exit"
 
 18:                                               ; preds = %14
-  %19 = add i16 %.08.i, -1
-  %20 = and i16 %19, %.08.i
-  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08.i, i1 true)
-  %22 = zext nneg i16 %21 to i64
-  %23 = add i64 %.sroa.01.0.i.i, %22
+  %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09.i, i1 true)
+  %20 = zext nneg i16 %19 to i64
+  %21 = add i16 %.09.i, -1
+  %22 = and i16 %21, %.09.i
+  %23 = add i64 %.sroa.01.0.i.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
   %gep.i = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep.i, i64 %25
@@ -4347,28 +4347,28 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h4185
   %.pn = phi i64 [ %1, %3 ], [ %29, %27 ]
   %.sroa.01.0.i = and i64 %.pn, %7
   %11 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i
-  %.0.copyload.i16 = load <16 x i8>, ptr %11, align 1, !noalias !1035
-  %12 = icmp eq <16 x i8> %.15.vec.insert.i.i, %.0.copyload.i16
+  %.0.copyload.i18 = load <16 x i8>, ptr %11, align 1, !noalias !1035
+  %12 = icmp eq <16 x i8> %.15.vec.insert.i.i, %.0.copyload.i18
   %13 = bitcast <16 x i1> %12 to i16
   br label %14
 
 14:                                               ; preds = %18, %10
-  %.08 = phi i16 [ %13, %10 ], [ %20, %18 ]
-  %.not.not.i = icmp eq i16 %.08, 0
+  %.09 = phi i16 [ %13, %10 ], [ %22, %18 ]
+  %.not.not.i = icmp eq i16 %.09, 0
   br i1 %.not.not.i, label %15, label %18
 
 15:                                               ; preds = %14
-  %16 = icmp eq <16 x i8> %.0.copyload.i16, splat (i8 -1)
+  %16 = icmp eq <16 x i8> %.0.copyload.i18, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not.i = icmp eq i16 %17, 0
   br i1 %.not.i, label %27, label %"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$10find_inner17hd102c1ae991a41eaE.exit.thread"
 
 18:                                               ; preds = %14
-  %19 = add i16 %.08, -1
-  %20 = and i16 %19, %.08
-  %21 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.08, i1 true)
-  %22 = zext nneg i16 %21 to i64
-  %23 = add i64 %.sroa.01.0.i, %22
+  %19 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.09, i1 true)
+  %20 = zext nneg i16 %19 to i64
+  %21 = add i16 %.09, -1
+  %22 = and i16 %21, %.09
+  %23 = add i64 %.sroa.01.0.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
   %gep = getelementptr { i128, { { ptr, ptr }, { ptr, ptr }, { ptr, ptr } } }, ptr %invariant.gep, i64 %25

@@ -259,7 +259,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %do.body.i14.preheader, !llvm.loop !7
 
 do.body.i14.preheader:                            ; preds = %do.cond.i
-  %scevgep35 = getelementptr i8, ptr %var, i64 7
+  %scevgep38 = getelementptr i8, ptr %var, i64 7
   br label %do.body.i14
 
 if.then3:                                         ; preds = %do.body.i
@@ -289,8 +289,8 @@ if.end11:                                         ; preds = %if.end6
 do.body.i14:                                      ; preds = %do.body.i14.preheader, %do.cond.i18
   %str.addr.0.i15 = phi ptr [ %incdec.ptr.i19, %do.cond.i18 ], [ %var, %do.body.i14.preheader ]
   %prefix.addr.0.i16.idx = phi i64 [ %prefix.addr.0.i16.add, %do.cond.i18 ], [ 0, %do.body.i14.preheader ]
-  %exitcond36 = icmp eq i64 %prefix.addr.0.i16.idx, 7
-  br i1 %exitcond36, label %for.body, label %do.cond.i18
+  %exitcond39 = icmp eq i64 %prefix.addr.0.i16.idx, 7
+  br i1 %exitcond39, label %for.body, label %do.cond.i18
 
 do.cond.i18:                                      ; preds = %do.body.i14
   %prefix.addr.0.i16.ptr = getelementptr inbounds i8, ptr @.str.3, i64 %prefix.addr.0.i16.idx
@@ -303,14 +303,14 @@ do.cond.i18:                                      ; preds = %do.body.i14
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond38.not = icmp eq i64 %indvars.iv.next, 39
-  br i1 %exitcond38.not, label %return, label %for.body, !llvm.loop !8
+  %exitcond41.not = icmp eq i64 %indvars.iv.next, 39
+  br i1 %exitcond41.not, label %return, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %do.body.i14, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %do.body.i14 ]
   %arrayidx20 = getelementptr inbounds [39 x %struct.anon], ptr @advice_setting, i64 0, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx20, align 16
-  %call21 = tail call i32 @strcasecmp(ptr noundef %scevgep35, ptr noundef %4) #12
+  %call21 = tail call i32 @strcasecmp(ptr noundef %scevgep38, ptr noundef %4) #12
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %if.end24, label %for.cond
 

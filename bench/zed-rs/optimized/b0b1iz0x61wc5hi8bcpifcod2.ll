@@ -6594,7 +6594,7 @@ _ZN10async_task5utils14abort_on_panic17h031a9f60c1621439E.exit: ; preds = %30
           catch ptr null
   %95 = extractvalue { ptr, i32 } %94, 0
   %96 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %95)
-          to label %.thread234 unwind label %97
+          to label %.thread233 unwind label %97
 
 97:                                               ; preds = %93
   %98 = landingpad { ptr, i32 }
@@ -6605,9 +6605,9 @@ _ZN10async_task5utils14abort_on_panic17h031a9f60c1621439E.exit: ; preds = %30
 "_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h905e217316698415E.exit": ; preds = %61
   %99 = load i64, ptr %9, align 8, !range !1326, !noundef !11
   %100 = icmp eq i64 %99, 3
-  br i1 %100, label %thread-pre-split.thread286, label %thread-pre-split
+  br i1 %100, label %thread-pre-split.thread285, label %thread-pre-split
 
-thread-pre-split.thread286:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h905e217316698415E.exit"
+thread-pre-split.thread285:                       ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h905e217316698415E.exit"
   store i64 4, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %.preheader.preheader
@@ -6619,12 +6619,12 @@ thread-pre-split:                                 ; preds = %"_ZN118_$LT$async_t
   %101 = icmp eq i64 %.pr.pre.pre, 4
   br i1 %101, label %.preheader.preheader, label %108
 
-.thread234:                                       ; preds = %93
+.thread233:                                       ; preds = %93
   %102 = extractvalue { ptr, ptr } %96, 0
   %103 = extractvalue { ptr, ptr } %96, 1
   %104 = icmp ne ptr %103, null
   call void @llvm.assume(i1 %104)
-  br label %.thread233
+  br label %.thread232
 
 105:                                              ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h04c766f051243a96E.exit.i"
   %.sroa.0207.0.copyload = load i64, ptr %5, align 8
@@ -6636,22 +6636,22 @@ thread-pre-split:                                 ; preds = %"_ZN118_$LT$async_t
   %.sroa.14.0.copyload = load i64, ptr %.sroa.14.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   switch i64 %.sroa.0207.0.copyload, label %thread-pre-split.thread [
-    i64 4, label %.thread233
+    i64 4, label %.thread232
     i64 3, label %.critedge
   ]
 
-.thread233:                                       ; preds = %105, %.thread234
-  %.sroa.7.0240 = phi ptr [ %102, %.thread234 ], [ %.sroa.8.0.copyload, %105 ]
-  %.sroa.9.0239 = phi ptr [ %103, %.thread234 ], [ %.sroa.13.0.copyload, %105 ]
-  %106 = icmp ne ptr %.sroa.7.0240, null
+.thread232:                                       ; preds = %105, %.thread233
+  %.sroa.7.0239 = phi ptr [ %102, %.thread233 ], [ %.sroa.8.0.copyload, %105 ]
+  %.sroa.9.0238 = phi ptr [ %103, %.thread233 ], [ %.sroa.13.0.copyload, %105 ]
+  %106 = icmp ne ptr %.sroa.7.0239, null
   call void @llvm.assume(i1 %106)
-  %107 = icmp ne ptr %.sroa.9.0239, null
+  %107 = icmp ne ptr %.sroa.9.0238, null
   call void @llvm.assume(i1 %107)
   store i64 3, ptr %10, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %.sroa.7.0240, ptr %.sroa.416.0..sroa_idx, align 8
+  store ptr %.sroa.7.0239, ptr %.sroa.416.0..sroa_idx, align 8
   %.sroa.517.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.9.0239, ptr %.sroa.517.0..sroa_idx, align 8
+  store ptr %.sroa.9.0238, ptr %.sroa.517.0..sroa_idx, align 8
   br label %108
 
 thread-pre-split.thread:                          ; preds = %105
@@ -6668,10 +6668,10 @@ thread-pre-split.thread:                          ; preds = %105
   store i64 4, ptr %10, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread286, %thread-pre-split, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread285, %thread-pre-split, %.critedge
   br label %.preheader
 
-108:                                              ; preds = %thread-pre-split.thread, %.thread233, %thread-pre-split
+108:                                              ; preds = %thread-pre-split.thread, %.thread232, %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -6698,12 +6698,12 @@ thread-pre-split.thread:                          ; preds = %105
 114:                                              ; preds = %114, %113
   %.sroa.027.2 = phi i64 [ %26, %113 ], [ %122, %114 ]
   %115 = and i64 %.sroa.027.2, 16
-  %.not280 = icmp eq i64 %115, 0
+  %.not279 = icmp eq i64 %115, 0
   %116 = and i64 %.sroa.027.2, -32
   %117 = or disjoint i64 %116, 12
   %118 = and i64 %.sroa.027.2, -8
   %119 = or disjoint i64 %118, 4
-  %.sroa.021.0 = select i1 %.not280, i64 %117, i64 %119
+  %.sroa.021.0 = select i1 %.not279, i64 %117, i64 %119
   %120 = cmpxchg weak ptr %19, i64 %.sroa.027.2, i64 %.sroa.021.0 acq_rel acquire, align 8
   %121 = extractvalue { i64, i1 } %120, 1
   %122 = extractvalue { i64, i1 } %120, 0
@@ -16585,7 +16585,7 @@ _ZN10async_task5utils14abort_on_panic17h233b8445fd0251a9E.exit: ; preds = %30
           catch ptr null
   %94 = extractvalue { ptr, i32 } %93, 0
   %95 = invoke { ptr, ptr } @_ZN3std9panicking3try7cleanup17h772e0283c130983aE(ptr noundef %94)
-          to label %.thread236 unwind label %96
+          to label %.thread235 unwind label %96
 
 96:                                               ; preds = %92
   %97 = landingpad { ptr, i32 }
@@ -16596,9 +16596,9 @@ _ZN10async_task5utils14abort_on_panic17h233b8445fd0251a9E.exit: ; preds = %30
 "_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd48505639c5e1485E.exit": ; preds = %"_ZN118_$LT$async_task..runnable..Builder$LT$M$GT$..spawn_local..Checked$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h905e217316698415E.exit.i"
   %98 = load i64, ptr %9, align 8, !range !1326, !noundef !11
   %99 = icmp eq i64 %98, 3
-  br i1 %99, label %thread-pre-split.thread288, label %thread-pre-split
+  br i1 %99, label %thread-pre-split.thread287, label %thread-pre-split
 
-thread-pre-split.thread288:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd48505639c5e1485E.exit"
+thread-pre-split.thread287:                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hd48505639c5e1485E.exit"
   store i64 4, ptr %10, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   br label %.preheader.preheader
@@ -16610,12 +16610,12 @@ thread-pre-split:                                 ; preds = %"_ZN72_$LT$core..pi
   %100 = icmp eq i64 %.pr.pre.pre, 4
   br i1 %100, label %.preheader.preheader, label %107
 
-.thread236:                                       ; preds = %92
+.thread235:                                       ; preds = %92
   %101 = extractvalue { ptr, ptr } %95, 0
   %102 = extractvalue { ptr, ptr } %95, 1
   %103 = icmp ne ptr %102, null
   call void @llvm.assume(i1 %103)
-  br label %.thread235
+  br label %.thread234
 
 104:                                              ; preds = %"_ZN115_$LT$core..panic..unwind_safe..AssertUnwindSafe$LT$F$GT$$u20$as$u20$core..ops..function..FnOnce$LT$$LP$$RP$$GT$$GT$9call_once17h5cabadcd940d0427E.exit.i"
   %.sroa.0209.0.copyload = load i64, ptr %5, align 8
@@ -16627,22 +16627,22 @@ thread-pre-split:                                 ; preds = %"_ZN72_$LT$core..pi
   %.sroa.14.0.copyload = load i64, ptr %.sroa.14.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   switch i64 %.sroa.0209.0.copyload, label %thread-pre-split.thread [
-    i64 4, label %.thread235
+    i64 4, label %.thread234
     i64 3, label %.critedge
   ]
 
-.thread235:                                       ; preds = %104, %.thread236
-  %.sroa.7.0242 = phi ptr [ %101, %.thread236 ], [ %.sroa.8.0.copyload, %104 ]
-  %.sroa.9.0241 = phi ptr [ %102, %.thread236 ], [ %.sroa.13.0.copyload, %104 ]
-  %105 = icmp ne ptr %.sroa.7.0242, null
+.thread234:                                       ; preds = %104, %.thread235
+  %.sroa.7.0241 = phi ptr [ %101, %.thread235 ], [ %.sroa.8.0.copyload, %104 ]
+  %.sroa.9.0240 = phi ptr [ %102, %.thread235 ], [ %.sroa.13.0.copyload, %104 ]
+  %105 = icmp ne ptr %.sroa.7.0241, null
   call void @llvm.assume(i1 %105)
-  %106 = icmp ne ptr %.sroa.9.0241, null
+  %106 = icmp ne ptr %.sroa.9.0240, null
   call void @llvm.assume(i1 %106)
   store i64 3, ptr %10, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %.sroa.7.0242, ptr %.sroa.416.0..sroa_idx, align 8
+  store ptr %.sroa.7.0241, ptr %.sroa.416.0..sroa_idx, align 8
   %.sroa.517.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr %.sroa.9.0241, ptr %.sroa.517.0..sroa_idx, align 8
+  store ptr %.sroa.9.0240, ptr %.sroa.517.0..sroa_idx, align 8
   br label %107
 
 thread-pre-split.thread:                          ; preds = %104
@@ -16659,10 +16659,10 @@ thread-pre-split.thread:                          ; preds = %104
   store i64 4, ptr %10, align 8
   br label %.preheader.preheader
 
-.preheader.preheader:                             ; preds = %thread-pre-split.thread288, %thread-pre-split, %.critedge
+.preheader.preheader:                             ; preds = %thread-pre-split.thread287, %thread-pre-split, %.critedge
   br label %.preheader
 
-107:                                              ; preds = %thread-pre-split.thread, %.thread235, %thread-pre-split
+107:                                              ; preds = %thread-pre-split.thread, %.thread234, %thread-pre-split
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %10, i64 32, i1 false)
   %.val116.val = load ptr, ptr %15, align 8, !alias.scope !613, !noundef !11
@@ -16692,12 +16692,12 @@ thread-pre-split.thread:                          ; preds = %104
 112:                                              ; preds = %112, %111
   %.sroa.027.2 = phi i64 [ %26, %111 ], [ %120, %112 ]
   %113 = and i64 %.sroa.027.2, 16
-  %.not282 = icmp eq i64 %113, 0
+  %.not281 = icmp eq i64 %113, 0
   %114 = and i64 %.sroa.027.2, -32
   %115 = or disjoint i64 %114, 12
   %116 = and i64 %.sroa.027.2, -8
   %117 = or disjoint i64 %116, 4
-  %.sroa.021.0 = select i1 %.not282, i64 %115, i64 %117
+  %.sroa.021.0 = select i1 %.not281, i64 %115, i64 %117
   %118 = cmpxchg weak ptr %19, i64 %.sroa.027.2, i64 %.sroa.021.0 acq_rel acquire, align 8
   %119 = extractvalue { i64, i1 } %118, 1
   %120 = extractvalue { i64, i1 } %118, 0

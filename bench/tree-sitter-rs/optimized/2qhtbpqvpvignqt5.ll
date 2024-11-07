@@ -1074,28 +1074,28 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %38, label %.loopexit27, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i"
-  %.sroa.315.041.i.i = phi i64 [ %.sroa.315.1.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ undef, %.noexc ]
-  %.sroa.014.040.i.i = phi i64 [ %.sroa.014.1.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ 0, %.noexc ]
-  %.039.i.i = phi i32 [ %.1.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ 0, %.noexc ]
-  %.sroa.0.038.i.i = phi ptr [ %39, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ %35, %.noexc ]
-  %.sroa.7.037.i.i = phi i64 [ %40, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ 0, %.noexc ]
-  %39 = getelementptr inbounds i8, ptr %.sroa.0.038.i.i, i64 24
-  %40 = add nuw nsw i64 %.sroa.7.037.i.i, 1
-  %41 = getelementptr i8, ptr %.sroa.0.038.i.i, i64 8
+  %.sroa.315.042.i.i = phi i64 [ %.sroa.315.1.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ undef, %.noexc ]
+  %.sroa.014.041.i.i = phi i64 [ %.sroa.014.1.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ 0, %.noexc ]
+  %.040.i.i = phi i32 [ %.1.i.i, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ 0, %.noexc ]
+  %.sroa.0.039.i.i = phi ptr [ %39, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ %35, %.noexc ]
+  %.sroa.7.038.i.i = phi i64 [ %40, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i" ], [ 0, %.noexc ]
+  %39 = getelementptr inbounds i8, ptr %.sroa.0.039.i.i, i64 24
+  %40 = add nuw nsw i64 %.sroa.7.038.i.i, 1
+  %41 = getelementptr i8, ptr %.sroa.0.039.i.i, i64 8
   %.fca.1.extract.val.i.i = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
-  %42 = getelementptr i8, ptr %.sroa.0.038.i.i, i64 16
+  %42 = getelementptr i8, ptr %.sroa.0.039.i.i, i64 16
   %.fca.1.extract.val29.i.i = load i64, ptr %42, align 8, !noundef !4
   br label %43
 
 43:                                               ; preds = %81, %.lr.ph.i.i
-  %.02732.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %69, %81 ]
-  %.lcssa212731.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.lcssa2125.i.i, %81 ]
-  %.lcssa132930.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.lcssa1328.i.i, %81 ]
-  %44 = icmp ugt i64 %.lcssa212731.i.i, %.fca.1.extract.val29.i.i
+  %.02733.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %69, %81 ]
+  %.lcssa222832.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.lcssa2226.i.i, %81 ]
+  %.lcssa143031.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.lcssa1429.i.i, %81 ]
+  %44 = icmp ugt i64 %.lcssa222832.i.i, %.fca.1.extract.val29.i.i
   br i1 %44, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.i", label %.lr.ph.split.split.i.i.i.i
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %43, %63
-  %45 = phi i64 [ %60, %63 ], [ %.lcssa212731.i.i, %43 ]
+  %45 = phi i64 [ %60, %63 ], [ %.lcssa222832.i.i, %43 ]
   %.sroa.7.157.i.i.i.i = sub nuw i64 %.fca.1.extract.val29.i.i, %45
   %.sroa.0.058.i.i.i.i = getelementptr inbounds i8, ptr %.fca.1.extract.val.i.i, i64 %45
   %46 = icmp ult i64 %.sroa.7.157.i.i.i.i, 16
@@ -1153,22 +1153,22 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.i.i.i.i: ; preds = 
   br i1 %65, label %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.i", label %63
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$4next17hdb4b6c6b3f43553bE.exit.i.i": ; preds = %81, %80
-  %66 = icmp sgt i32 %69, %.039.i.i
+  %66 = icmp sgt i32 %69, %.040.i.i
   %or.cond.i.i = select i1 %.not.not.not.not.i.not.not.not.i.not.not.i.not.not.not.i.not.not.not.not.not, i1 %66, i1 false
-  %.1.i.i = select i1 %or.cond.i.i, i32 %69, i32 %.039.i.i
-  %.sroa.014.1.i.i = select i1 %or.cond.i.i, i64 1, i64 %.sroa.014.040.i.i
-  %.sroa.315.1.i.i = select i1 %or.cond.i.i, i64 %.sroa.7.037.i.i, i64 %.sroa.315.041.i.i
+  %.1.i.i = select i1 %or.cond.i.i, i32 %69, i32 %.040.i.i
+  %.sroa.014.1.i.i = select i1 %or.cond.i.i, i64 1, i64 %.sroa.014.041.i.i
+  %.sroa.315.1.i.i = select i1 %or.cond.i.i, i64 %.sroa.7.038.i.i, i64 %.sroa.315.042.i.i
   %67 = icmp eq ptr %39, %37
   br i1 %67, label %.loopexit27, label %.lr.ph.i.i
 
 "_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h0eeb938c61540f57E.exit.i.i.i": ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i", %63, %.noexc17, %43
-  %.lcssa1328.i.i = phi i64 [ %.lcssa132930.i.i, %43 ], [ %60, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i" ], [ %.lcssa132930.i.i, %.noexc17 ], [ %.lcssa132930.i.i, %63 ]
-  %.lcssa2125.i.i = phi i64 [ %.lcssa212731.i.i, %43 ], [ %60, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i" ], [ %.fca.1.extract.val29.i.i, %.noexc17 ], [ %60, %63 ]
+  %.lcssa1429.i.i = phi i64 [ %.lcssa143031.i.i, %43 ], [ %60, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i" ], [ %.lcssa143031.i.i, %.noexc17 ], [ %.lcssa143031.i.i, %63 ]
+  %.lcssa2226.i.i = phi i64 [ %.lcssa222832.i.i, %43 ], [ %60, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i" ], [ %.fca.1.extract.val29.i.i, %.noexc17 ], [ %60, %63 ]
   %68 = phi i1 [ true, %43 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i" ], [ true, %.noexc17 ], [ true, %63 ]
   %.fca.1.extract.val29.pn.i.i = phi i64 [ %.fca.1.extract.val29.i.i, %43 ], [ %62, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hab73950af7f367c1E.exit.i.i.i.i" ], [ %.fca.1.extract.val29.i.i, %.noexc17 ], [ %.fca.1.extract.val29.i.i, %63 ]
-  %.sroa.4.0.i.ph.i.i = sub i64 %.fca.1.extract.val29.pn.i.i, %.lcssa132930.i.i
-  %.sroa.0.0.i40.ph.i.i = getelementptr inbounds i8, ptr %.fca.1.extract.val.i.i, i64 %.lcssa132930.i.i
-  %69 = add i32 %.02732.i.i, 1
+  %.sroa.4.0.i.ph.i.i = sub i64 %.fca.1.extract.val29.pn.i.i, %.lcssa143031.i.i
+  %.sroa.0.0.i40.ph.i.i = getelementptr inbounds i8, ptr %.fca.1.extract.val.i.i, i64 %.lcssa143031.i.i
+  %69 = add i32 %.02733.i.i, 1
   %70 = load ptr, ptr %15, align 8, !alias.scope !443, !nonnull !4, !noundef !4
   %71 = load i64, ptr %16, align 8, !alias.scope !443, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !458

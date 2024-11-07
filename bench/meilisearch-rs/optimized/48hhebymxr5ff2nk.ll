@@ -96551,7 +96551,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   %23 = getelementptr i8, ptr %19, i64 %22
   %24 = getelementptr i8, ptr %23, i64 -1
   %25 = icmp ugt i8 %21, 4
-  %.pre95.i.i = load i8, ptr %24, align 1, !alias.scope !18437, !noalias !18438
+  %.pre97.i.i = load i8, ptr %24, align 1, !alias.scope !18437, !noalias !18438
   br i1 %25, label %.lr.ph.split.us.split.i.i, label %.lr.ph.split.split.i.i
 
 .lr.ph.split.us.split.i.i:                        ; preds = %.lr.ph.i.i, %43
@@ -96562,7 +96562,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %.lr.ph.split.us.split.i.i
-  %29 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hfe696ca7fcf9a53fE(i8 noundef %.pre95.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i48.us.i.i, i64 noundef %.sroa.3.0.i47.us.i.i), !noalias !18440
+  %29 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hfe696ca7fcf9a53fE(i8 noundef %.pre97.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i48.us.i.i, i64 noundef %.sroa.3.0.i47.us.i.i), !noalias !18440
   br label %38
 
 30:                                               ; preds = %.lr.ph.split.us.split.i.i
@@ -96573,7 +96573,7 @@ define internal fastcc { ptr, i64 } @"_ZN91_$LT$core..str..iter..SplitN$LT$P$GT$
   %.sroa.01.05.i.us.i.i = phi i64 [ %35, %34 ], [ 0, %30 ]
   %31 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0.i48.us.i.i, i64 0, i64 %.sroa.01.05.i.us.i.i
   %32 = load i8, ptr %31, align 1, !alias.scope !18441, !noalias !18440, !noundef !4
-  %33 = icmp eq i8 %32, %.pre95.i.i
+  %33 = icmp eq i8 %32, %.pre97.i.i
   br i1 %33, label %_ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.us.i.i, label %34
 
 34:                                               ; preds = %.lr.ph.i.us.i.i
@@ -96601,8 +96601,8 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.us.i.i: ; preds = %
   store i64 %41, ptr %12, align 8, !alias.scope !18437, !noalias !18438
   %.not.us.i.i = icmp ult i64 %41, %22
   %42 = icmp ugt i64 %41, %.val4.i
-  %or.cond85.i.i = or i1 %.not.us.i.i, %42
-  br i1 %or.cond85.i.i, label %43, label %.split51.us.i.i
+  %or.cond86.i.i = or i1 %.not.us.i.i, %42
+  br i1 %or.cond86.i.i, label %43, label %.split51.us.i.i
 
 43:                                               ; preds = %39
   %44 = icmp ugt i64 %41, %14
@@ -96618,7 +96618,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.us.i.i: ; preds = %
   br i1 %48, label %51, label %49
 
 49:                                               ; preds = %.lr.ph.split.split.i.i
-  %50 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hfe696ca7fcf9a53fE(i8 noundef %.pre95.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i48.i.i, i64 noundef %.sroa.3.0.i47.i.i), !noalias !18440
+  %50 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17hfe696ca7fcf9a53fE(i8 noundef %.pre97.i.i, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i48.i.i, i64 noundef %.sroa.3.0.i47.i.i), !noalias !18440
   br label %59
 
 51:                                               ; preds = %.lr.ph.split.split.i.i
@@ -96629,7 +96629,7 @@ _ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.us.i.i: ; preds = %
   %.sroa.01.05.i.i.i = phi i64 [ %56, %55 ], [ 0, %51 ]
   %52 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0.i48.i.i, i64 0, i64 %.sroa.01.05.i.i.i
   %53 = load i8, ptr %52, align 1, !alias.scope !18441, !noalias !18440, !noundef !4
-  %54 = icmp eq i8 %53, %.pre95.i.i
+  %54 = icmp eq i8 %53, %.pre97.i.i
   br i1 %54, label %_ZN4core5slice6memchr12memchr_naive17he786c2df6c28d6b1E.exit.i.i, label %55
 
 55:                                               ; preds = %.lr.ph.i.i.i

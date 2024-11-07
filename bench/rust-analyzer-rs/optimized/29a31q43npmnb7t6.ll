@@ -3768,18 +3768,18 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !1880, !noalias !1881, !noundef !11
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i.i", label %15
+  br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i.i", label %15
 
 15:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i.i"
   %16 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val3.i47.i.i = load ptr, ptr %16, align 8, !alias.scope !1891, !noalias !1896, !nonnull !11, !noundef !11
-  %17 = ptrtoint ptr %.val3.i47.i.i to i64
+  %.val3.i46.i.i = load ptr, ptr %16, align 8, !alias.scope !1891, !noalias !1896, !nonnull !11, !noundef !11
+  %17 = ptrtoint ptr %.val3.i46.i.i to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub nuw i64 %17, %18
   %20 = udiv exact i64 %19, 24
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i.i"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i.i": ; preds = %15, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i.i"
+"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i.i": ; preds = %15, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i.i"
   %.sroa.8.0.i.i = phi i64 [ %20, %15 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i.i" ]
   %21 = add nuw nsw i64 %.sroa.8.0.i.i, %.sroa.7.0.i.i
   %22 = load i64, ptr %1, align 8, !range !714, !alias.scope !1880, !noalias !1881, !noundef !11
@@ -3787,16 +3787,16 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i.i = load ptr, ptr %23, align 8, !alias.scope !1880, !noalias !1881
   %.not.i.i = icmp ne ptr %.val.i.i, null
-  %.sroa.057.0.not.i.i = select i1 %trunc.i.i, i1 %.not.i.i, i1 false
-  br i1 %.sroa.057.0.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb94596d22614f472E.llvm.1686074433831124249.exit", label %24
+  %.sroa.056.0.not.i.i = select i1 %trunc.i.i, i1 %.not.i.i, i1 false
+  br i1 %.sroa.056.0.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb94596d22614f472E.llvm.1686074433831124249.exit", label %24
 
-24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i.i"
+24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i.i"
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %21, ptr %25, align 8, !alias.scope !1881, !noalias !1880
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb94596d22614f472E.llvm.1686074433831124249.exit"
 
-"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb94596d22614f472E.llvm.1686074433831124249.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i.i", %24
-  %.sink.i.i = phi i64 [ 1, %24 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i.i" ]
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb94596d22614f472E.llvm.1686074433831124249.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i.i", %24
+  %.sink.i.i = phi i64 [ 1, %24 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i.i" ]
   store i64 %21, ptr %0, align 8, !alias.scope !1881, !noalias !1880
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink.i.i, ptr %26, align 8, !alias.scope !1881, !noalias !1880
@@ -5012,18 +5012,18 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %22 = getelementptr inbounds i8, ptr %1, i64 72
   %23 = load ptr, ptr %22, align 8, !alias.scope !2257, !noalias !2258, !noundef !11
   %24 = icmp eq ptr %23, null
-  br i1 %24, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i", label %25
+  br i1 %24, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i", label %25
 
 25:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i"
   %26 = getelementptr inbounds i8, ptr %1, i64 80
-  %.val3.i47.i.i = load ptr, ptr %26, align 8, !alias.scope !2268, !noalias !2273, !nonnull !11, !noundef !11
-  %27 = ptrtoint ptr %.val3.i47.i.i to i64
+  %.val3.i46.i.i = load ptr, ptr %26, align 8, !alias.scope !2268, !noalias !2273, !nonnull !11, !noundef !11
+  %27 = ptrtoint ptr %.val3.i46.i.i to i64
   %28 = ptrtoint ptr %23 to i64
   %29 = sub nuw i64 %27, %28
   %30 = udiv exact i64 %29, 304
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i": ; preds = %25, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i"
+"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i": ; preds = %25, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i"
   %.sroa.8.0.i.i = phi i64 [ %30, %25 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i" ]
   %31 = add nuw nsw i64 %.sroa.8.0.i.i, %.sroa.7.0.i.i
   %32 = load ptr, ptr %12, align 8, !alias.scope !2257, !noalias !2258, !noundef !11
@@ -5034,20 +5034,20 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %or.cond.i.i = select i1 %33, i1 true, i1 %35
   br i1 %or.cond.i.i, label %.thread.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit"
 
-.thread.i.i:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i"
+.thread.i.i:                                      ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i"
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %31, ptr %36, align 8, !alias.scope !2258, !noalias !2257
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit"
 
-"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i", %.thread.i.i
-  %.sink.i.i = phi i64 [ 1, %.thread.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i" ]
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i", %.thread.i.i
+  %.sink.i.i = phi i64 [ 1, %.thread.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i" ]
   store i64 %31, ptr %0, align 8, !alias.scope !2258, !noalias !2257
   br label %37
 
-37:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit", %9
-  %.sink49 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 16, %9 ]
-  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34" ], [ %.sink.i.i17, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ %.sink.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 0, %9 ]
-  %38 = getelementptr inbounds i8, ptr %0, i64 %.sink49
+37:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit40.thread", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit", %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit", %9
+  %.sink52 = phi i64 [ 16, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit40.thread" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ 8, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 16, %9 ]
+  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit40.thread" ], [ %.sink.i.i17, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit" ], [ %.sink.i.i, %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit" ], [ 0, %9 ]
+  %38 = getelementptr inbounds i8, ptr %0, i64 %.sink52
   store i64 %.sroa.6.0.sink, ptr %38, align 8
   ret void
 
@@ -5075,34 +5075,34 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %49 = getelementptr inbounds i8, ptr %1, i64 120
   %50 = load ptr, ptr %49, align 8, !alias.scope !2287, !noalias !2288, !noundef !11
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i14", label %52
+  br i1 %51, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i14", label %52
 
 52:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i11"
   %53 = getelementptr inbounds i8, ptr %1, i64 128
-  %.val3.i47.i.i13 = load ptr, ptr %53, align 8, !alias.scope !2298, !noalias !2303, !nonnull !11, !noundef !11
-  %54 = ptrtoint ptr %.val3.i47.i.i13 to i64
+  %.val3.i46.i.i13 = load ptr, ptr %53, align 8, !alias.scope !2298, !noalias !2303, !nonnull !11, !noundef !11
+  %54 = ptrtoint ptr %.val3.i46.i.i13 to i64
   %55 = ptrtoint ptr %50 to i64
   %56 = sub nuw i64 %54, %55
   %57 = udiv exact i64 %56, 304
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i14"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i14"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i14": ; preds = %52, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i11"
+"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i14": ; preds = %52, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i11"
   %.sroa.8.0.i.i15 = phi i64 [ %57, %52 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i11" ]
   %58 = add nuw nsw i64 %.sroa.8.0.i.i15, %.sroa.7.0.i.i12
   %trunc.i.i = trunc nuw i64 %4 to i1
   %59 = getelementptr inbounds i8, ptr %1, i64 96
   %.val.i.i16 = load ptr, ptr %59, align 8, !alias.scope !2287, !noalias !2288
   %.not.i.i = icmp ne ptr %.val.i.i16, null
-  %.sroa.057.0.not.i.i = select i1 %trunc.i.i, i1 %.not.i.i, i1 false
-  br i1 %.sroa.057.0.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit", label %60
+  %.sroa.056.0.not.i.i = select i1 %trunc.i.i, i1 %.not.i.i, i1 false
+  br i1 %.sroa.056.0.not.i.i, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit", label %60
 
-60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i14"
+60:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i14"
   %61 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %58, ptr %61, align 8, !alias.scope !2288, !noalias !2287
   br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit"
 
-"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i14", %60
-  %.sink.i.i17 = phi i64 [ 1, %60 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i14" ]
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda3e5252c704c94eE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i14", %60
+  %.sink.i.i17 = phi i64 [ 1, %60 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i14" ]
   store i64 %58, ptr %0, align 8, !alias.scope !2288, !noalias !2287
   br label %37
 
@@ -5126,32 +5126,33 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %72 = getelementptr inbounds i8, ptr %1, i64 120
   %73 = load ptr, ptr %72, align 8, !alias.scope !2307, !noalias !2312, !noundef !11
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i22", label %75
+  br i1 %74, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i22", label %75
 
 75:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i19"
   %76 = getelementptr inbounds i8, ptr %1, i64 128
-  %.val3.i47.i.i21 = load ptr, ptr %76, align 8, !alias.scope !2324, !noalias !2329, !nonnull !11, !noundef !11
-  %77 = ptrtoint ptr %.val3.i47.i.i21 to i64
+  %.val3.i46.i.i21 = load ptr, ptr %76, align 8, !alias.scope !2324, !noalias !2329, !nonnull !11, !noundef !11
+  %77 = ptrtoint ptr %.val3.i46.i.i21 to i64
   %78 = ptrtoint ptr %73 to i64
   %79 = sub nuw i64 %77, %78
   %80 = udiv exact i64 %79, 304
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i22"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i22"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i22": ; preds = %75, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i19"
+"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i22": ; preds = %75, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i19"
   %.sroa.8.0.i.i23 = phi i64 [ %80, %75 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i19" ]
   %81 = add nuw nsw i64 %.sroa.8.0.i.i23, %.sroa.7.0.i.i20
   %trunc.i.i24 = trunc nuw i64 %4 to i1
   %82 = getelementptr inbounds i8, ptr %1, i64 96
   %.val.i.i25 = load ptr, ptr %82, align 8, !alias.scope !2307, !noalias !2312
   %.not.i.i26 = icmp ne ptr %.val.i.i25, null
-  %.sroa.057.0.not.i.i27.not = select i1 %trunc.i.i24, i1 %.not.i.i26, i1 false
+  %.sroa.056.0.not.i.i27 = select i1 %trunc.i.i24, i1 %.not.i.i26, i1 false
+  %spec.select48 = select i1 %.sroa.056.0.not.i.i27, i64 undef, i64 %81
   %83 = getelementptr inbounds i8, ptr %1, i64 8
   %84 = getelementptr inbounds i8, ptr %1, i64 56
   %85 = load ptr, ptr %84, align 8, !alias.scope !2333, !noalias !2338, !noundef !11
   %86 = icmp eq ptr %85, null
   br i1 %86, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31", label %87
 
-87:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i22"
+87:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i22"
   %88 = getelementptr inbounds i8, ptr %1, i64 64
   %.val3.i.i.i30 = load ptr, ptr %88, align 8, !alias.scope !2341, !noalias !2346, !nonnull !11, !noundef !11
   %89 = ptrtoint ptr %.val3.i.i.i30 to i64
@@ -5160,40 +5161,49 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %92 = udiv exact i64 %91, 304
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31": ; preds = %87, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i22"
-  %.sroa.7.0.i.i32 = phi i64 [ %92, %87 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i22" ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31": ; preds = %87, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i22"
+  %.sroa.7.0.i.i32 = phi i64 [ %92, %87 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i22" ]
   %93 = getelementptr inbounds i8, ptr %1, i64 72
   %94 = load ptr, ptr %93, align 8, !alias.scope !2333, !noalias !2338, !noundef !11
   %95 = icmp eq ptr %94, null
-  br i1 %95, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34", label %96
+  br i1 %95, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34", label %96
 
 96:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31"
   %97 = getelementptr inbounds i8, ptr %1, i64 80
-  %.val3.i47.i.i33 = load ptr, ptr %97, align 8, !alias.scope !2350, !noalias !2355, !nonnull !11, !noundef !11
-  %98 = ptrtoint ptr %.val3.i47.i.i33 to i64
+  %.val3.i46.i.i33 = load ptr, ptr %97, align 8, !alias.scope !2350, !noalias !2355, !nonnull !11, !noundef !11
+  %98 = ptrtoint ptr %.val3.i46.i.i33 to i64
   %99 = ptrtoint ptr %94 to i64
   %100 = sub nuw i64 %98, %99
   %101 = udiv exact i64 %100, 304
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit48.i.i34": ; preds = %96, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31"
+"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34": ; preds = %96, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31"
   %.sroa.8.0.i.i35 = phi i64 [ %101, %96 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit.i.i31" ]
   %102 = add nuw nsw i64 %.sroa.8.0.i.i35, %.sroa.7.0.i.i32
   %103 = load ptr, ptr %83, align 8, !alias.scope !2333, !noalias !2338, !noundef !11
-  %104 = icmp eq ptr %103, null
+  %104 = icmp ne ptr %103, null
   %105 = getelementptr inbounds i8, ptr %1, i64 40
   %.val.i.i36 = load i64, ptr %105, align 8, !alias.scope !2333, !noalias !2338
-  %106 = icmp eq i64 %.val.i.i36, 0
-  %or.cond.i.i37 = select i1 %104, i1 true, i1 %106
-  %107 = add nuw nsw i64 %102, %81
-  %not..sroa.057.0.not.i.i27.not = xor i1 %.sroa.057.0.not.i.i27.not, true
-  %spec.select48 = select i1 %.sroa.057.0.not.i.i27.not, i64 undef, i64 %107
-  %narrow = select i1 %or.cond.i.i37, i1 %not..sroa.057.0.not.i.i27.not, i1 false
-  %.sroa.04.0 = zext i1 %narrow to i64
-  %.sroa.6.0 = select i1 %or.cond.i.i37, i64 %spec.select48, i64 undef
-  store i64 %107, ptr %0, align 8
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.04.0, ptr %108, align 8
+  %106 = icmp ne i64 %.val.i.i36, 0
+  %or.cond.i.i37.not51 = select i1 %104, i1 %106, i1 false
+  %brmerge = select i1 %or.cond.i.i37.not51, i1 true, i1 %.sroa.056.0.not.i.i27
+  br i1 %brmerge, label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit40.thread", label %107
+
+107:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34"
+  %108 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select48, i64 %102)
+  %109 = extractvalue { i64, i1 } %108, 1
+  %110 = extractvalue { i64, i1 } %108, 0
+  %not. = xor i1 %109, true
+  %spec.select = zext i1 %not. to i64
+  br label %"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit40.thread"
+
+"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdc8e118cb656fae4E.exit40.thread": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34", %107
+  %.sroa.04.0 = phi i64 [ %spec.select, %107 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34" ]
+  %.sroa.6.0 = phi i64 [ %110, %107 ], [ undef, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3c54d56b19b42673E.exit47.i.i34" ]
+  %111 = add nuw nsw i64 %102, %81
+  store i64 %111, ptr %0, align 8
+  %112 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.04.0, ptr %112, align 8
   br label %37
 }
 
@@ -5226,18 +5236,18 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !alias.scope !2362, !noalias !2359, !noundef !11
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i", label %15
+  br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i", label %15
 
 15:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i"
   %16 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val3.i47.i = load ptr, ptr %16, align 8, !alias.scope !2373, !noalias !2378, !nonnull !11, !noundef !11
-  %17 = ptrtoint ptr %.val3.i47.i to i64
+  %.val3.i46.i = load ptr, ptr %16, align 8, !alias.scope !2373, !noalias !2378, !nonnull !11, !noundef !11
+  %17 = ptrtoint ptr %.val3.i46.i to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub nuw i64 %17, %18
   %20 = udiv exact i64 %19, 24
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i": ; preds = %15, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i"
+"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i": ; preds = %15, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i"
   %.sroa.8.0.i = phi i64 [ %20, %15 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit.i" ]
   %21 = add nuw nsw i64 %.sroa.8.0.i, %.sroa.7.0.i
   %22 = load i64, ptr %1, align 8, !range !714, !alias.scope !2362, !noalias !2359, !noundef !11
@@ -5245,16 +5255,16 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %23, align 8, !alias.scope !2362, !noalias !2359
   %.not.i = icmp ne ptr %.val.i, null
-  %.sroa.057.0.not.i = select i1 %trunc.i, i1 %.not.i, i1 false
-  br i1 %.sroa.057.0.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9f9283e5c618bd05E.llvm.1686074433831124249.exit", label %24
+  %.sroa.056.0.not.i = select i1 %trunc.i, i1 %.not.i, i1 false
+  br i1 %.sroa.056.0.not.i, label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9f9283e5c618bd05E.llvm.1686074433831124249.exit", label %24
 
-24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i"
+24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i"
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %21, ptr %25, align 8, !alias.scope !2359, !noalias !2362
   br label %"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9f9283e5c618bd05E.llvm.1686074433831124249.exit"
 
-"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9f9283e5c618bd05E.llvm.1686074433831124249.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i", %24
-  %.sink.i = phi i64 [ 1, %24 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48.i" ]
+"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9f9283e5c618bd05E.llvm.1686074433831124249.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i", %24
+  %.sink.i = phi i64 [ 1, %24 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47.i" ]
   store i64 %21, ptr %0, align 8, !alias.scope !2359, !noalias !2362
   %26 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink.i, ptr %26, align 8, !alias.scope !2359, !noalias !2362
@@ -7417,18 +7427,18 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %12 = getelementptr inbounds i8, ptr %1, i64 40
   %13 = load ptr, ptr %12, align 8, !noundef !11
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48", label %15
+  br i1 %14, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47", label %15
 
 15:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit"
   %16 = getelementptr inbounds i8, ptr %1, i64 48
-  %.val3.i47 = load ptr, ptr %16, align 8, !alias.scope !3327, !noalias !3332, !nonnull !11, !noundef !11
-  %17 = ptrtoint ptr %.val3.i47 to i64
+  %.val3.i46 = load ptr, ptr %16, align 8, !alias.scope !3327, !noalias !3332, !nonnull !11, !noundef !11
+  %17 = ptrtoint ptr %.val3.i46 to i64
   %18 = ptrtoint ptr %13 to i64
   %19 = sub nuw i64 %17, %18
   %20 = udiv exact i64 %19, 24
-  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48"
+  br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit", %15
+"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit", %15
   %.sroa.8.0 = phi i64 [ %20, %15 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit" ]
   %21 = add nuw nsw i64 %.sroa.8.0, %.sroa.7.0
   %22 = load i64, ptr %1, align 8, !range !714, !noundef !11
@@ -7436,16 +7446,16 @@ define hidden void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$
   %23 = getelementptr inbounds i8, ptr %1, i64 8
   %.val = load ptr, ptr %23, align 8
   %.not = icmp ne ptr %.val, null
-  %.sroa.057.0.not = select i1 %trunc, i1 %.not, i1 false
-  br i1 %.sroa.057.0.not, label %26, label %24
+  %.sroa.056.0.not = select i1 %trunc, i1 %.not, i1 false
+  br i1 %.sroa.056.0.not, label %26, label %24
 
-24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48"
+24:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47"
   %25 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %21, ptr %25, align 8
   br label %26
 
-26:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48", %24
-  %.sink = phi i64 [ 1, %24 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit48" ]
+26:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47", %24
+  %.sink = phi i64 [ 1, %24 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hacdb2a5626da935bE.exit47" ]
   store i64 %21, ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink, ptr %27, align 8
@@ -84479,23 +84489,26 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #38
 
-; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #39
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr noalias noundef nonnull readonly align 1, i64 noundef, i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
+
+; Function Attrs: cold noreturn nonlazybind uwtable
+declare void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #40
+declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #41
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i64 @_ZN3ryu6pretty8format6417h455529766ce5eb78E(double noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare noundef i64 @_ZN10std_detect6detect5cache21detect_and_initialize17h2ce5a3d3e3f86595E() unnamed_addr #41
+declare noundef i64 @_ZN10std_detect6detect5cache21detect_and_initialize17h2ce5a3d3e3f86595E() unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN8chalk_ir5debug65_$LT$impl$u20$core..fmt..Debug$u20$for$u20$chalk_ir..BoundVar$GT$3fmt17hd74d9d9e68d4b3d8E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -84765,16 +84778,16 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare void @"_ZN110_$LT$project_model..manifest_path..ManifestPath$u20$as$u20$core..convert..TryFrom$LT$paths..AbsPathBuf$GT$$GT$8try_from17h4f1f4c1e0d48570bE"(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17hdc2b5b480f96c4a9E(ptr noundef nonnull) unnamed_addr #41
+declare noundef nonnull align 8 ptr @_ZN10serde_json5error5Error2io17hdc2b5b480f96c4a9E(ptr noundef nonnull) unnamed_addr #42
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #42
+declare void @llvm.assume(i1 noundef) #43
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN68_$LT$std..thread..local..AccessError$u20$as$u20$core..fmt..Debug$GT$3fmt17haba4ac0654b537dcE"(ptr noalias noundef nonnull readonly align 1, ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN4core3fmt9Formatter11debug_tuple17hf44c0e7e7a051c59E(ptr noalias nocapture noundef sret({ i64, ptr, i8, i8, [6 x i8] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #1
@@ -84861,7 +84874,7 @@ declare hidden noundef nonnull ptr @"_ZN8chalk_ir4fold5shift1_113_$LT$impl$u20$c
 declare hidden noundef nonnull ptr @"_ZN8chalk_ir4fold5shift1_113_$LT$impl$u20$chalk_ir..fold..FallibleTypeFolder$LT$I$GT$$u20$for$u20$chalk_ir..fold..shift..Shifter$LT$I$GT$$GT$24try_fold_inference_const17hc597277fe53ff676E"(ptr noalias noundef align 4 dereferenceable(4), ptr noundef nonnull, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #43
+declare i64 @llvm.fshl.i64(i64, i64, i64) #39
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h2378437639b8a73eE"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #1
@@ -84927,7 +84940,7 @@ declare noundef zeroext i1 @_ZN4core3fmt9Formatter26debug_struct_field2_finish17
 declare hidden void @"_ZN4core3ptr100drop_in_place$LT$chalk_ir..InEnvironment$LT$chalk_ir..Goal$LT$hir_ty..interner..Interner$GT$$GT$$GT$17h2949b0a3fa15b140E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN3std7process5abort17h1cffb1827d7e6c16E() unnamed_addr #39
+declare void @_ZN3std7process5abort17h1cffb1827d7e6c16E() unnamed_addr #40
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #45
@@ -84960,10 +84973,10 @@ declare noundef zeroext i1 @_ZN4core3fmt5write17he40921d4802ce2acE(ptr noundef n
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h70ac88092bee57adE"(i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare hidden void @_ZN3std9panicking11begin_panic17hf320352f5efc7a17E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare hidden void @_ZN3std9panicking11begin_panic17hf320352f5efc7a17E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #1
@@ -85008,7 +85021,7 @@ declare { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir.
 declare { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$19variable_kinds_data17h9e0946516c6f64ecE"(ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare hidden void @_ZN4core9panicking13assert_failed17h2233c9025819f5a2E(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare hidden void @_ZN4core9panicking13assert_failed17h2233c9025819f5a2E(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #1
@@ -85128,7 +85141,7 @@ declare hidden noundef zeroext i1 @"_ZN62_$LT$intern..Interned$LT$T$GT$$u20$as$u
 declare noundef i8 @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$32debug_program_clause_implication17h32fd2986845e9b5bE"(ptr noalias noundef readonly align 8 dereferenceable(96), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #39
+declare void @_ZN4core5slice5index26slice_start_index_len_fail17h6f35008186d11abeE(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #40
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef align 8 dereferenceable(24) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$13lifetime_data17ha793ff32f5dd617fE"(ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #1
@@ -85173,7 +85186,7 @@ declare hidden void @_ZN9lsp_types7url_map9serialize17h7cc79ac9d0300047E(ptr noa
 declare hidden noundef align 8 ptr @"_ZN5serde3ser5impls67_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$std..path..Path$GT$9serialize17h8a56dee7af38548eE.llvm.13625555649392560756"(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h2a011e80c51c7a62E"(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #41
+declare hidden noundef nonnull align 8 ptr @"_ZN61_$LT$serde_json..error..Error$u20$as$u20$serde..de..Error$GT$6custom17h2a011e80c51c7a62E"(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #42
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$12serialize_u817ha71dfab031371b21E.llvm.13625555649392560756"(ptr noalias nocapture noundef sret({ i64, [8 x i64] }) align 8 dereferenceable(72), i8 noundef) unnamed_addr #0
@@ -85260,7 +85273,7 @@ declare hidden void @"_ZN4core3ptr191drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h8c558bec3c5cdb37E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hc2bf638252c0e5f6E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hc2bf638252c0e5f6E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr167drop_in_place$LT$triomphe..arc..Arc$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..VariableKind$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17hd262ac0c13f5c98aE.llvm.10409712727403535664"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
@@ -85269,7 +85282,7 @@ declare hidden void @"_ZN4core3ptr167drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h0c31edff5d71378dE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h61668f39e93cd43fE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h61668f39e93cd43fE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN62_$LT$ide_db..RootDatabase$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fb8b711582e23deE"(ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
@@ -85320,7 +85333,7 @@ declare hidden void @"_ZN4core3ptr189drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h31d7090380262f90E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h5be58d667278acf5E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h5be58d667278acf5E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr138drop_in_place$LT$triomphe..arc..Arc$LT$hir_ty..interner..InternedWrapper$LT$chalk_ir..TyData$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$17h2db4cd4bd9c6a448E.llvm.10409712727403535664"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
@@ -85329,7 +85342,7 @@ declare hidden void @"_ZN4core3ptr138drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h581a8f81db895606E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h05138deb80ef4bb9E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h05138deb80ef4bb9E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr77drop_in_place$LT$chalk_ir..TypeOutlives$LT$hir_ty..interner..Interner$GT$$GT$17h902256451fc4e0a5E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #1
@@ -85350,7 +85363,7 @@ declare hidden void @"_ZN4core3ptr144drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h1fac68ec352aab0fE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h3636e1e28a398338E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h3636e1e28a398338E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr115drop_in_place$LT$hashbrown..raw..RawTable$LT$$LP$chalk_ir..Ty$LT$hir_ty..interner..Interner$GT$$C$usize$RP$$GT$$GT$17hd80df534123f6332E"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #1
@@ -85362,7 +85375,7 @@ declare hidden void @"_ZN4core3ptr141drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h50e1465fe8a7a106E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h074f723544d0d5a7E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h074f723544d0d5a7E"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr168drop_in_place$LT$triomphe..arc..Arc$LT$hir_ty..interner..InternedWrapper$LT$alloc..vec..Vec$LT$chalk_ir..ProgramClause$LT$hir_ty..interner..Interner$GT$$GT$$GT$$GT$$GT$17h7b4ac4c28a044b02E.llvm.10409712727403535664"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
@@ -85371,7 +85384,7 @@ declare hidden void @"_ZN4core3ptr168drop_in_place$LT$triomphe..arc..Arc$LT$hir_
 declare hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hf800bb5bb025024cE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h1224dc21caed285bE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #41
+declare hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h1224dc21caed285bE"(ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #42
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr166drop_in_place$LT$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$project_model..cargo_workspace..PackageData$GT$$C$project_model..build_scripts..BuildScriptOutput$GT$$GT$17h50dbf450eba19e29E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #1
@@ -85725,7 +85738,7 @@ declare hidden void @_ZN9lsp_types15semantic_tokens13SemanticToken20serialize_to
 declare hidden noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h05418e0e1f923b1eE.llvm.13207202256514997924"() unnamed_addr #1
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef, i64 noundef) unnamed_addr #39
+declare void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef, i64 noundef) unnamed_addr #40
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17he427ea841aae41a6E.llvm.13207202256514997924"() unnamed_addr #1
@@ -86018,11 +86031,11 @@ attributes #35 = { inlinehint mustprogress nofree norecurse nosync nounwind nonl
 attributes #36 = { inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #37 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #38 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #39 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #40 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #41 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #42 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #43 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #39 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #40 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #41 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #42 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #43 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #44 = { nounwind nonlazybind allockind("free") uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #45 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #46 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

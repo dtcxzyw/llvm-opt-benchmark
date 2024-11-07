@@ -444,16 +444,16 @@ define dso_local void @_ZN5clang4ento10ExprEngine18performTrivialCopyERNS0_11Nod
   br i1 %44, label %_ZNK5clang13CXXMethodDecl9getParentEv.exit, label %_ZNK5clang13CXXMethodDecl9getParentEv.exit.sink.split
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit.sink.split: ; preds = %31, %18
-  %.sink98 = phi ptr [ %30, %18 ], [ %46, %31 ]
+  %.sink100 = phi ptr [ %30, %18 ], [ %46, %31 ]
   %.pn.ph = phi { ptr, i8 } [ %19, %18 ], [ %35, %31 ]
-  %47 = load ptr, ptr %.sink98, align 8
+  %47 = load ptr, ptr %.sink100, align 8
   br label %_ZNK5clang13CXXMethodDecl9getParentEv.exit
 
 _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit.sink.split, %31, %18
-  %.0.i.i.i.i63.sink97 = phi ptr [ %30, %18 ], [ %46, %31 ], [ %47, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.sink.split ]
+  %.0.i.i.i.i63.sink99 = phi ptr [ %30, %18 ], [ %46, %31 ], [ %47, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.sink.split ]
   %.pn = phi { ptr, i8 } [ %19, %18 ], [ %35, %31 ], [ %.pn.ph, %_ZNK5clang13CXXMethodDecl9getParentEv.exit.sink.split ]
-  %48 = icmp eq ptr %.0.i.i.i.i63.sink97, null
-  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i63.sink97, i64 -64
+  %48 = icmp eq ptr %.0.i.i.i.i63.sink99, null
+  %49 = getelementptr inbounds i8, ptr %.0.i.i.i.i63.sink99, i64 -64
   %50 = select i1 %48, ptr null, ptr %49
   %.sroa.5.0 = extractvalue { ptr, i8 } %.pn, 1
   %.sroa.089.0 = extractvalue { ptr, i8 } %.pn, 0
@@ -483,8 +483,8 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %_ZNK5clang13CXXMeth
   %67 = load ptr, ptr %66, align 8
   %68 = load i64, ptr %67, align 8
   %69 = and i64 %68, 512
-  %.not93 = icmp eq i64 %69, 0
-  br i1 %.not93, label %70, label %80
+  %.not95 = icmp eq i64 %69, 0
+  br i1 %.not95, label %70, label %80
 
 70:                                               ; preds = %_ZNK5clang13CXXMethodDecl9getParentEv.exit
   %71 = load ptr, ptr %3, align 8
@@ -543,12 +543,12 @@ _ZN5clang4ento15ExplodedNodeSet3AddEPNS0_12ExplodedNodeE.exit: ; preds = %80, %8
   %91 = load ptr, ptr %57, align 8
   %92 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %57) #14
   %93 = getelementptr inbounds ptr, ptr %91, i64 %92
-  %.not6194 = icmp eq i64 %92, 0
-  br i1 %.not6194, label %._crit_edge, label %.lr.ph
+  %.not6196 = icmp eq i64 %92, 0
+  br i1 %.not6196, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %86, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77
-  %.05995 = phi ptr [ %111, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77 ], [ %91, %86 ]
-  %94 = load ptr, ptr %.05995, align 8
+  %.05997 = phi ptr [ %111, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77 ], [ %91, %86 ]
+  %94 = load ptr, ptr %.05997, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8
   %.not.i.i = icmp eq ptr %96, null
@@ -626,7 +626,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77: ; preds =
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.079.0) #14
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.079.0) #14
-  %111 = getelementptr inbounds i8, ptr %.05995, i64 8
+  %111 = getelementptr inbounds i8, ptr %.05997, i64 8
   %.not61 = icmp eq ptr %111, %93
   br i1 %.not61, label %._crit_edge, label %.lr.ph
 

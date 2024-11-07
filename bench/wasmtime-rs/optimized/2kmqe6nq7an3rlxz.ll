@@ -68,9 +68,11 @@ define align 8 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, ptr } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hc488424291524f3aE"(ptr align 8 %0, ptr %1) unnamed_addr #2 {
-  %3 = insertvalue { ptr, ptr } poison, ptr %0, 0
-  %4 = insertvalue { ptr, ptr } %3, ptr %1, 1
-  ret { ptr, ptr } %4
+  %3 = icmp eq ptr %0, null
+  %spec.select5 = select i1 %3, ptr undef, ptr %1
+  %4 = insertvalue { ptr, ptr } poison, ptr %0, 0
+  %5 = insertvalue { ptr, ptr } %4, ptr %spec.select5, 1
+  ret { ptr, ptr } %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

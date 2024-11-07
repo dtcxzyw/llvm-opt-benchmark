@@ -42,9 +42,9 @@ target triple = "x86_64-unknown-linux-gnu"
 define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_group17h5f0fff42a9bc64b9E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8, !range !4, !noundef !5
+  %trunc = trunc nuw i32 %5 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 28
   %7 = load i32, ptr %6, align 4
-  %trunc = trunc nuw i32 %5 to i1
   br i1 %trunc, label %8, label %46
 
 8:                                                ; preds = %3
@@ -64,8 +64,8 @@ define internal fastcc void @_ZN14regex_automata4util8captures8Captures9get_grou
   %.val = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
   %18 = getelementptr inbounds i8, ptr %.val, i64 16
   %19 = tail call noundef i64 @_ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E(ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %18, i32 noundef %7)
-  %.not.i = icmp ult i64 %2, %19
-  br i1 %.not.i, label %20, label %46
+  %.not.i.not = icmp ult i64 %2, %19
+  br i1 %.not.i.not, label %20, label %46
 
 20:                                               ; preds = %16
   %21 = icmp eq i64 %2, 0

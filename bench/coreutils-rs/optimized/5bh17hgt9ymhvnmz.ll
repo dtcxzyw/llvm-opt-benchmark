@@ -743,9 +743,9 @@ define void @_ZN6uu_env14native_int_str9NativeStr11into_native17h0469172fe97f573
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 0, 3) i8 @_ZN6uu_env14native_int_str9NativeStr8contains17hf8d5c30969619803E(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4, !range !64, !alias.scope !87, !noundef !5
-  %4 = icmp samesign ult i32 %3, 128
+  %4 = icmp samesign ugt i32 %3, 127
   %5 = trunc nuw i32 %3 to i8
-  br i1 %4, label %6, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit
+  br i1 %4, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.llvm.11676108902394252037.exit, label %6
 
 6:                                                ; preds = %2
   %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -821,9 +821,9 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   %11 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] } }, align 8
   %12 = alloca { i64, [2 x i64] }, align 8
   %13 = load i32, ptr %2, align 4, !range !64, !alias.scope !103, !noundef !5
-  %14 = icmp samesign ult i32 %13, 128
+  %14 = icmp samesign ugt i32 %13, 127
   %15 = trunc nuw i32 %13 to i8
-  br i1 %14, label %16, label %25
+  br i1 %14, label %25, label %16
 
 16:                                               ; preds = %3
   %.sroa.0.0.in.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -835,7 +835,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   br i1 %18, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %21
-  %.012.i = phi i64 [ %23, %21 ], [ 0, %16 ]
+  %.011.i = phi i64 [ %23, %21 ], [ 0, %16 ]
   %19 = phi ptr [ %22, %21 ], [ %.sroa.0.0.i, %16 ]
   %.val7.i = load i8, ptr %19, align 1, !noalias !106, !noundef !5
   %20 = icmp eq i8 %.val7.i, %15
@@ -843,7 +843,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
 
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds i8, ptr %19, i64 1
-  %23 = add nuw i64 %.012.i, 1
+  %23 = add nuw i64 %.011.i, 1
   %24 = icmp eq ptr %22, %17
   br i1 %24, label %.loopexit, label %.lr.ph.i
 
@@ -852,14 +852,14 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   br label %40
 
 26:                                               ; preds = %.lr.ph.i
-  %27 = icmp ult i64 %.012.i, %.sroa.5.0.i
+  %27 = icmp ult i64 %.011.i, %.sroa.5.0.i
   tail call void @llvm.assume(i1 %27)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 0, ptr %10, align 8, !noalias !110
-  store i64 %.012.i, ptr %9, align 8, !noalias !110
+  store i64 %.011.i, ptr %9, align 8, !noalias !110
   call void @_ZN6uu_env14native_int_str9NativeStr9match_cow17h3b77c9e55f5c324fE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9), !noalias !114
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.experimental.noalias.scope.decl(metadata !118)
@@ -888,7 +888,7 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %34 = add nuw i64 %.012.i, 1
+  %34 = add nuw i64 %.011.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -905,9 +905,9 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
 
 37:                                               ; preds = %.noexc
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.33683ce109590f0b3fb10d2ea2f16572.18, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.28) #17
-          to label %.noexc18 unwind label %31
+          to label %.noexc19 unwind label %31
 
-.noexc18:                                         ; preds = %37
+.noexc19:                                         ; preds = %37
   unreachable
 
 38:                                               ; preds = %.noexc

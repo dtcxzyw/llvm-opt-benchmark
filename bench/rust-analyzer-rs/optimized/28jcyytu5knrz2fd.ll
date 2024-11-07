@@ -6693,10 +6693,10 @@ switch.lookup:
 define hidden { i32, i32 } @"_ZN81_$LT$text_size..size..TextSize$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17ha1c8b6c82649711cE.llvm.4613852783100018038"(i64 noundef %0) unnamed_addr #4 {
   %2 = icmp ugt i64 %0, 4294967295
   %3 = trunc nuw i64 %0 to i32
-  %.sroa.5.0 = select i1 %2, i32 undef, i32 %3
-  %spec.select = zext i1 %2 to i32
-  %4 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
-  %5 = insertvalue { i32, i32 } %4, i32 %.sroa.5.0, 1
+  %.sroa.6.0. = select i1 %2, i32 undef, i32 %3
+  %. = zext i1 %2 to i32
+  %4 = insertvalue { i32, i32 } poison, i32 %., 0
+  %5 = insertvalue { i32, i32 } %4, i32 %.sroa.6.0., 1
   ret { i32, i32 } %5
 }
 

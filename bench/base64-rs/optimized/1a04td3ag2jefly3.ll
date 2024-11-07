@@ -27,11 +27,11 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader", %.outer
-  %.074.ph186 = phi i64 [ %.074174, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
-  %.078.ph185 = phi i64 [ %99, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
-  %.079.ph184 = phi i8 [ %22, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
-  %.sroa.0.0.ph183 = phi ptr [ %20, %.outer ], [ %17, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
-  %.sroa.8.0.ph182 = phi i64 [ %21, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
+  %.074.ph187 = phi i64 [ %.074175, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
+  %.078.ph186 = phi i64 [ %99, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
+  %.079.ph185 = phi i8 [ %22, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
+  %.sroa.0.0.ph184 = phi ptr [ %20, %.outer ], [ %17, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
+  %.sroa.8.0.ph183 = phi i64 [ %21, %.outer ], [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph.preheader" ]
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
 
 19:                                               ; preds = %10
@@ -39,13 +39,13 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph", %102
-  %.074174 = phi i64 [ %.074.ph186, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %spec.select, %102 ]
-  %.075173 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %104, %102 ]
-  %.sroa.0.0172 = phi ptr [ %.sroa.0.0.ph183, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %20, %102 ]
-  %.sroa.8.0171 = phi i64 [ %.sroa.8.0.ph182, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %21, %102 ]
-  %20 = getelementptr inbounds i8, ptr %.sroa.0.0172, i64 1
-  %21 = add i64 %.sroa.8.0171, 1
-  %22 = load i8, ptr %.sroa.0.0172, align 1, !noundef !4
+  %.074175 = phi i64 [ %.074.ph187, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %spec.select, %102 ]
+  %.075174 = phi i64 [ 0, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %104, %102 ]
+  %.sroa.0.0173 = phi ptr [ %.sroa.0.0.ph184, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %20, %102 ]
+  %.sroa.8.0172 = phi i64 [ %.sroa.8.0.ph183, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph" ], [ %21, %102 ]
+  %20 = getelementptr inbounds i8, ptr %.sroa.0.0173, i64 1
+  %21 = add i64 %.sroa.8.0172, 1
+  %22 = load i8, ptr %.sroa.0.0173, align 1, !noundef !4
   %23 = icmp eq i8 %22, 61
   br i1 %23, label %84, label %83
 
@@ -53,17 +53,17 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   unreachable
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit": ; preds = %102
-  %.sroa.0.0.ph183234.le = ptrtoint ptr %.sroa.0.0.ph183 to i64
-  %25 = sub i64 %18, %.sroa.0.0.ph183234.le
+  %.sroa.0.0.ph184235.le = ptrtoint ptr %.sroa.0.0.ph184 to i64
+  %25 = sub i64 %18, %.sroa.0.0.ph184235.le
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread": ; preds = %.outer, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit", %14
-  %.079.ph.lcssa170 = phi i8 [ 0, %14 ], [ %.079.ph184, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ %22, %.outer ]
-  %.078.ph.lcssa166 = phi i64 [ 0, %14 ], [ %.078.ph185, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ %99, %.outer ]
+  %.079.ph.lcssa171 = phi i8 [ 0, %14 ], [ %.079.ph185, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ %22, %.outer ]
+  %.078.ph.lcssa167 = phi i64 [ 0, %14 ], [ %.078.ph186, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ %99, %.outer ]
   %.075.lcssa = phi i64 [ 0, %14 ], [ %25, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ 0, %.outer ]
-  %.074.lcssa = phi i64 [ 0, %14 ], [ %spec.select, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ %.074174, %.outer ]
+  %.074.lcssa = phi i64 [ 0, %14 ], [ %spec.select, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit" ], [ %.074175, %.outer ]
   %26 = icmp ne i64 %2, 0
-  %27 = icmp ult i64 %.078.ph.lcssa166, 2
+  %27 = icmp ult i64 %.078.ph.lcssa167, 2
   %or.cond = select i1 %26, i1 %27, i1 false
   br i1 %or.cond, label %29, label %28
 
@@ -75,7 +75,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   ]
 
 29:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread"
-  %30 = add i64 %.078.ph.lcssa166, %3
+  %30 = add i64 %.078.ph.lcssa167, %3
   %31 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %31, align 8
   %.sroa.5120.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -84,7 +84,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %74
 
 32:                                               ; preds = %57, %53, %28
-  %33 = mul nuw nsw i64 %.078.ph.lcssa166, 6
+  %33 = mul nuw nsw i64 %.078.ph.lcssa167, 6
   %34 = lshr i64 %33, 3
   %35 = load i8, ptr %12, align 4, !noundef !4
   %36 = zext i8 %35 to i32
@@ -107,7 +107,7 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br i1 %8, label %68, label %62
 
 53:                                               ; preds = %28
-  %54 = add i64 %.075.lcssa, %.078.ph.lcssa166
+  %54 = add i64 %.075.lcssa, %.078.ph.lcssa167
   %55 = and i64 %54, 3
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %32, label %58
@@ -137,8 +137,8 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %62, %32
-  %.not195 = icmp ult i64 %.078.ph.lcssa166, 2
-  br i1 %.not195, label %.split81, label %.lr.ph.preheader
+  %.not196 = icmp ult i64 %.078.ph.lcssa167, 2
+  br i1 %.not196, label %.split81, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %68
   %umax = tail call i64 @llvm.umax.i64(i64 %34, i64 1)
@@ -146,11 +146,11 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
 
 69:                                               ; preds = %62
   %70 = add i64 %3, -1
-  %71 = add i64 %70, %.078.ph.lcssa166
+  %71 = add i64 %70, %.078.ph.lcssa167
   %72 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 2, ptr %72, align 8
   %.sroa.4134.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 %.079.ph.lcssa170, ptr %.sroa.4134.0..sroa_idx, align 1
+  store i8 %.079.ph.lcssa171, ptr %.sroa.4134.0..sroa_idx, align 1
   %.sroa.6136.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %71, ptr %.sroa.6136.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
@@ -170,11 +170,11 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %74
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.0193 = phi i64 [ %82, %.critedge ], [ %6, %.lr.ph.preheader ]
-  %.077192 = phi i32 [ %78, %.critedge ], [ %52, %.lr.ph.preheader ]
-  %.sroa.024.0191 = phi i64 [ %81, %.critedge ], [ 0, %.lr.ph.preheader ]
-  %.not144 = icmp ult i64 %.0193, %5
-  br i1 %.not144, label %.critedge, label %75
+  %.0194 = phi i64 [ %82, %.critedge ], [ %6, %.lr.ph.preheader ]
+  %.077193 = phi i32 [ %78, %.critedge ], [ %52, %.lr.ph.preheader ]
+  %.sroa.024.0192 = phi i64 [ %81, %.critedge ], [ 0, %.lr.ph.preheader ]
+  %.not145 = icmp ult i64 %.0194, %5
+  br i1 %.not145, label %.critedge, label %75
 
 74:                                               ; preds = %29, %58, %60, %75, %69, %106, %95, %86, %.split81
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12)
@@ -189,26 +189,26 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %74
 
 .critedge:                                        ; preds = %.lr.ph
-  %77 = getelementptr inbounds i8, ptr %4, i64 %.0193
-  %78 = shl i32 %.077192, 8
-  %79 = lshr i32 %.077192, 24
+  %77 = getelementptr inbounds i8, ptr %4, i64 %.0194
+  %78 = shl i32 %.077193, 8
+  %79 = lshr i32 %.077193, 24
   %80 = trunc nuw i32 %79 to i8
-  %81 = add nuw nsw i64 %.sroa.024.0191, 1
+  %81 = add nuw nsw i64 %.sroa.024.0192, 1
   store i8 %80, ptr %77, align 1
-  %82 = add nuw i64 %.0193, 1
-  %exitcond235.not = icmp eq i64 %81, %umax
-  br i1 %exitcond235.not, label %.split81, label %.lr.ph
+  %82 = add nuw i64 %.0194, 1
+  %exitcond236.not = icmp eq i64 %81, %umax
+  br i1 %exitcond236.not, label %.split81, label %.lr.ph
 
 83:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
-  %.not = icmp eq i64 %.075173, 0
+  %.not = icmp eq i64 %.075174, 0
   br i1 %.not, label %89, label %86
 
 84:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
-  %85 = icmp ult i64 %.sroa.8.0171, 2
+  %85 = icmp ult i64 %.sroa.8.0172, 2
   br i1 %85, label %106, label %102
 
 86:                                               ; preds = %83
-  %87 = add i64 %.074174, %3
+  %87 = add i64 %.074175, %3
   %88 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %88, align 8
   %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
@@ -226,11 +226,11 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br i1 %93, label %95, label %94
 
 94:                                               ; preds = %89
-  %exitcond.not = icmp eq i64 %.078.ph185, 4
+  %exitcond.not = icmp eq i64 %.078.ph186, 4
   br i1 %exitcond.not, label %101, label %.outer, !prof !5
 
 95:                                               ; preds = %89
-  %96 = add i64 %.sroa.8.0171, %3
+  %96 = add i64 %.sroa.8.0172, %3
   %97 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %97, align 8
   %.sroa.4112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
@@ -241,9 +241,9 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   br label %74
 
 .outer:                                           ; preds = %94
-  %98 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 %.078.ph185
+  %98 = getelementptr inbounds [4 x i8], ptr %12, i64 0, i64 %.078.ph186
   store i8 %92, ptr %98, align 1
-  %99 = add nuw nsw i64 %.078.ph185, 1
+  %99 = add nuw nsw i64 %.078.ph186, 1
   %100 = icmp eq ptr %20, %15
   br i1 %100, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.lr.ph"
 
@@ -252,14 +252,14 @@ define hidden void @_ZN6base646engine15general_purpose13decode_suffix13decode_su
   unreachable
 
 102:                                              ; preds = %84
-  %103 = icmp eq i64 %.075173, 0
-  %spec.select = select i1 %103, i64 %.sroa.8.0171, i64 %.074174
-  %104 = add i64 %.075173, 1
+  %103 = icmp eq i64 %.075174, 0
+  %spec.select = select i1 %103, i64 %.sroa.8.0172, i64 %.074175
+  %104 = add i64 %.075174, 1
   %105 = icmp eq ptr %20, %15
   br i1 %105, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit.thread.loopexit", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha200998484683afbE.exit"
 
 106:                                              ; preds = %84
-  %107 = add i64 %.sroa.8.0171, %3
+  %107 = add i64 %.sroa.8.0172, %3
   %108 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %108, align 8
   %.sroa.496.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9

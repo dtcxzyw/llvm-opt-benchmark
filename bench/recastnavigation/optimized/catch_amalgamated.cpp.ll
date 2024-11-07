@@ -77321,8 +77321,9 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit91:    ; preds = %_ZN5Catch9XmlWriter
   br label %149
 
 149:                                              ; preds = %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit, %._crit_edge
-  store ptr %24, ptr %6, align 8
-  store ptr %24, ptr %16, align 8, !alias.scope !1117
+  %.lcssa107 = phi ptr [ %24, %._crit_edge ], [ undef, %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit ]
+  store ptr %.lcssa107, ptr %6, align 8
+  store ptr %.lcssa107, ptr %16, align 8, !alias.scope !1117
   %150 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter10endElementENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %24, i32 noundef 3)
           to label %_ZN5Catch9XmlWriter13ScopedElementD2Ev.exit93 unwind label %151
 
@@ -78044,8 +78045,9 @@ _ZN5Catch9XmlWriter13ScopedElementD2Ev.exit78:    ; preds = %_ZN5Catch9XmlWriter
   br label %156
 
 156:                                              ; preds = %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit, %._crit_edge108
-  store ptr %21, ptr %10, align 8
-  store ptr %21, ptr %16, align 8, !alias.scope !1128
+  %.lcssa95 = phi ptr [ %21, %._crit_edge108 ], [ undef, %_ZN5Catch9XmlWriter13scopedElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13XmlFormattingE.exit ]
+  store ptr %.lcssa95, ptr %10, align 8
+  store ptr %.lcssa95, ptr %16, align 8, !alias.scope !1128
   %157 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZN5Catch9XmlWriter10endElementENS_13XmlFormattingE(ptr noundef nonnull align 8 dereferenceable(72) %21, i32 noundef 3)
           to label %_ZN5Catch9XmlWriter13ScopedElementD2Ev.exit80 unwind label %158
 

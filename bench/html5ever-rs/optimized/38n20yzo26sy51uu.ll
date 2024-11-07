@@ -945,9 +945,9 @@ common.resume:                                    ; preds = %common.resume.sink.
   %69 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %68, i1 true)
   %70 = lshr i32 -1, %69
   %71 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %70, i32 1)
-  %72 = extractvalue { i32, i1 } %71, 0
-  %73 = extractvalue { i32, i1 } %71, 1
-  br i1 %73, label %74, label %79
+  %72 = extractvalue { i32, i1 } %71, 1
+  %73 = extractvalue { i32, i1 } %71, 0
+  br i1 %72, label %74, label %79
 
 74:                                               ; preds = %67
   %75 = load i64, ptr getelementptr inbounds (i8, ptr @_ZN7tendril5OFLOW17hdc69e70c4b83c50eE, i64 8), align 8, !noalias !92, !noundef !18
@@ -974,7 +974,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   store ptr %64, ptr %85, align 8, !noalias !92
   %86 = getelementptr inbounds i8, ptr %4, i64 16
   store i64 0, ptr %86, align 8, !noalias !92
-  %87 = zext i32 %72 to i64
+  %87 = zext i32 %73 to i64
   %88 = add nuw nsw i64 %87, 15
   %89 = lshr i64 %88, 4
   %90 = add nuw nsw i64 %89, 1
@@ -1022,7 +1022,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   unreachable
 
 "_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$24make_owned_with_capacity17h6dfe7c80cbe9f6b1E.exit": ; preds = %62, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hf1786205da69ff5bE.exit.i.i"
-  %.sroa.64.0.i = phi i32 [ %72, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hf1786205da69ff5bE.exit.i.i" ], [ %.03.i.i, %62 ]
+  %.sroa.64.0.i = phi i32 [ %73, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hf1786205da69ff5bE.exit.i.i" ], [ %.03.i.i, %62 ]
   %.sroa.0.0.i38 = phi i64 [ %98, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$13reserve_exact17hf1786205da69ff5bE.exit.i.i" ], [ %65, %62 ]
   store i64 %.sroa.0.0.i38, ptr %0, align 8, !alias.scope !72
   store i32 %.sroa.64.0.i, ptr %63, align 4, !alias.scope !72

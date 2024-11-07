@@ -687,8 +687,8 @@ _ZNK5clang4ento4SVal5getAsINS0_3LocEEESt8optionalIT_Ev.exit.i: ; preds = %50, %4
   %.pre.i.i = load ptr, ptr %8, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
   %68 = load ptr, ptr %67, align 8
-  %.not26.i = icmp eq ptr %.sroa.09.0.i, %68
-  br i1 %.not26.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i
+  %.not28.i = icmp eq ptr %.sroa.09.0.i, %68
+  br i1 %.not28.i, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i: ; preds = %66
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 16

@@ -1025,7 +1025,7 @@ if.then82:                                        ; preds = %for.end
   br label %return
 
 return:                                           ; preds = %cleanup, %for.end, %if.then82, %if.then29, %if.then9
-  %retval.0 = phi i1 [ %cmp, %if.then9 ], [ %5, %if.then29 ], [ %20, %if.then82 ], [ %12, %cleanup ], [ %20, %for.end ]
+  %retval.0 = phi i1 [ %cmp, %if.then9 ], [ %5, %if.then29 ], [ %20, %if.then82 ], [ %20, %for.end ], [ %12, %cleanup ]
   ret i1 %retval.0
 }
 

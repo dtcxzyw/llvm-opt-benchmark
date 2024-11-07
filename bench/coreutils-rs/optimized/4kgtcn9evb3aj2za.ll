@@ -1376,7 +1376,7 @@ define hidden void @"_ZN11signal_hook8iterator7backend27SignalDelivery$LT$R$C$E$
   call void @"_ZN4core3ptr162drop_in_place$LT$signal_hook..iterator..backend..SignalDelivery$LT$std..os..unix..net..stream..UnixStream$C$signal_hook..iterator..exfiltrator..SignalOnly$GT$$GT$17ha3607b12b1ac3278E"(ptr noalias noundef nonnull align 8 dereferenceable(56) %9)
   br label %57
 
-64:                                               ; preds = %.thread60, %70, %69, %58
+64:                                               ; preds = %.thread61, %70, %69, %58
   %65 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26
@@ -1388,25 +1388,25 @@ define hidden void @"_ZN11signal_hook8iterator7backend27SignalDelivery$LT$R$C$E$
   %66 = load ptr, ptr %10, align 8, !alias.scope !266, !nonnull !4, !noundef !4
   %67 = atomicrmw sub ptr %66, i64 1 release, align 8, !noalias !266
   %68 = icmp eq i64 %67, 1
-  br i1 %68, label %69, label %.thread60
+  br i1 %68, label %69, label %.thread61
 
 69:                                               ; preds = %.thread46
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6558a6b5bd1c8925E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10)
-          to label %.thread60 unwind label %64
+          to label %.thread61 unwind label %64
 
 70:                                               ; preds = %14
   %71 = landingpad { ptr, i32 }
           cleanup
   %72 = invoke noundef i32 @close(i32 noundef %2)
-          to label %.thread60 unwind label %64
+          to label %.thread61 unwind label %64
 
-"_ZN4core3ptr59drop_in_place$LT$std..os..unix..net..stream..UnixStream$GT$17h066902e1afb93889E.exit31": ; preds = %.thread60, %58
-  %.pn25.pn5963 = phi { ptr, i32 } [ %59, %58 ], [ %.pn25.pn5964, %.thread60 ]
-  resume { ptr, i32 } %.pn25.pn5963
+"_ZN4core3ptr59drop_in_place$LT$std..os..unix..net..stream..UnixStream$GT$17h066902e1afb93889E.exit31": ; preds = %.thread61, %58
+  %.pn25.pn6064 = phi { ptr, i32 } [ %59, %58 ], [ %.pn25.pn6065, %.thread61 ]
+  resume { ptr, i32 } %.pn25.pn6064
 
-.thread60:                                        ; preds = %69, %.thread46, %70
-  %.pn25.pn5964 = phi { ptr, i32 } [ %71, %70 ], [ %.pn.i, %.thread46 ], [ %.pn.i, %69 ]
+.thread61:                                        ; preds = %69, %.thread46, %70
+  %.pn25.pn6065 = phi { ptr, i32 } [ %71, %70 ], [ %.pn.i, %.thread46 ], [ %.pn.i, %69 ]
   %73 = invoke noundef i32 @close(i32 noundef %1)
           to label %"_ZN4core3ptr59drop_in_place$LT$std..os..unix..net..stream..UnixStream$GT$17h066902e1afb93889E.exit31" unwind label %64
 }

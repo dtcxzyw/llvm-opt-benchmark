@@ -12723,8 +12723,8 @@ _ZN5boost6spirit7classic4impl12extract_signINS1_7scannerIN9__gnu_cxx17__normal_i
   %.228 = phi i32 [ %.127, %.lr.ph.i ], [ %29, %28 ]
   %.3 = phi i64 [ %.2, %.lr.ph.i ], [ %34, %28 ]
   %.0.lcssa.ph.i = phi i64 [ %.011.i, %.lr.ph.i ], [ %30, %28 ]
-  %.not51 = icmp eq i64 %.0.lcssa.ph.i, 0
-  br i1 %.not51, label %.thread, label %58
+  %.not47 = icmp eq i64 %.0.lcssa.ph.i, 0
+  br i1 %.not47, label %.thread, label %58
 
 37:                                               ; preds = %_ZN5boost6spirit7classic4impl12extract_signINS1_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEEEbRKT_Rm.exit
   br i1 %16, label %.thread, label %.lr.ph.i12
@@ -12775,15 +12775,15 @@ _ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumula
   br label %61
 
 58:                                               ; preds = %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit, %.critedge.loopexit.i
-  %.043 = phi i64 [ %.3, %.critedge.loopexit.i ], [ %.6, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
-  %.02642 = phi i32 [ %.228, %.critedge.loopexit.i ], [ %.531, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
-  %59 = zext i32 %.02642 to i64
+  %.039 = phi i64 [ %.3, %.critedge.loopexit.i ], [ %.6, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
+  %.02638 = phi i32 [ %.228, %.critedge.loopexit.i ], [ %.531, %_ZN5boost6spirit7classic4impl11extract_intILi10ELj1ELin1ENS2_19negative_accumulateIiLi10EEEE1fIKNS1_7scannerIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEENS1_16scanner_policiesINS1_16iteration_policyENS1_12match_policyENS1_13action_policyEEEEEiEEbRT_RT0_Rm.exit ]
+  %59 = zext i32 %.02638 to i64
   %60 = shl nuw i64 %59, 32
   br label %61
 
 61:                                               ; preds = %2, %.thread, %58
   %.sroa.3.1 = phi i64 [ 1, %58 ], [ 0, %.thread ], [ 0, %2 ]
-  %.sroa.024.1 = phi i64 [ %.043, %58 ], [ -1, %.thread ], [ -1, %2 ]
+  %.sroa.024.1 = phi i64 [ %.039, %58 ], [ -1, %.thread ], [ -1, %2 ]
   %.sroa.625.1 = phi i64 [ %60, %58 ], [ 0, %.thread ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.024.1, 0
   %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.625.1, %.sroa.3.1

@@ -323,33 +323,33 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   br label %105
 
 52:                                               ; preds = %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i", %.lr.ph.i.i
-  %.sroa.10.042.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %53, %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i" ]
-  %.sroa.014.041.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %56, %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i" ]
-  %.sroa.7.039.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i" ]
-  %53 = add i64 %.sroa.10.042.i.i, -1
-  %54 = icmp eq ptr %.sroa.014.041.i.i, %50
+  %.sroa.10.044.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ %53, %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i" ]
+  %.sroa.014.043.i.i = phi ptr [ %7, %.lr.ph.i.i ], [ %56, %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i" ]
+  %.sroa.7.041.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %57, %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i" ]
+  %53 = add i64 %.sroa.10.044.i.i, -1
+  %54 = icmp eq ptr %.sroa.014.043.i.i, %50
   br i1 %54, label %.loopexit.i.loopexit, label %55
 
 55:                                               ; preds = %52
-  %56 = getelementptr inbounds i8, ptr %.sroa.014.041.i.i, i64 16
-  %57 = add nuw nsw i64 %.sroa.7.039.i.i, 1
+  %56 = getelementptr inbounds i8, ptr %.sroa.014.043.i.i, i64 16
+  %57 = add nuw nsw i64 %.sroa.7.041.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
-  %58 = load i32, ptr %.sroa.014.041.i.i, align 8, !range !68, !alias.scope !69, !noalias !70, !noundef !5
+  %58 = load i32, ptr %.sroa.014.043.i.i, align 8, !range !68, !alias.scope !69, !noalias !70, !noundef !5
   %trunc.i.i.i.i = trunc nuw i32 %58 to i1
   br i1 %trunc.i.i.i.i, label %63, label %59
 
 59:                                               ; preds = %55
-  %60 = getelementptr inbounds i8, ptr %.sroa.014.041.i.i, i64 4
+  %60 = getelementptr inbounds i8, ptr %.sroa.014.043.i.i, i64 4
   %.val.i.i.i.i = load i32, ptr %60, align 4, !alias.scope !69, !noalias !70, !noundef !5
-  %61 = getelementptr inbounds i8, ptr %.sroa.014.041.i.i, i64 8
+  %61 = getelementptr inbounds i8, ptr %.sroa.014.043.i.i, i64 8
   %.val1.i.i.i.i = load i32, ptr %61, align 4, !alias.scope !69, !noalias !70, !noundef !5
   %.sroa.5.8.insert.ext.i.i.i = zext i32 %.val1.i.i.i.i to i64
   %62 = inttoptr i64 %.sroa.5.8.insert.ext.i.i.i to ptr
   br label %"_ZN74_$LT$diesel..pg..backend..PgTypeMetadata$u20$as$u20$core..clone..Clone$GT$5clone17hdcb9afa57977ec98E.exit.i.i"
 
 63:                                               ; preds = %55
-  %64 = getelementptr inbounds i8, ptr %.sroa.014.041.i.i, i64 8
+  %64 = getelementptr inbounds i8, ptr %.sroa.014.043.i.i, i64 8
   %.val2.i.i.i.i = load ptr, ptr %64, align 8, !alias.scope !69, !noalias !70
   %65 = invoke noundef align 8 ptr @"_ZN5alloc5boxed16Box$LT$T$C$A$GT$17try_new_uninit_in17h80e5cc5b41b5ebb6E.llvm.17465734484173925188"()
           to label %.noexc.i.i unwind label %.loopexit.i.i, !noalias !73
@@ -471,7 +471,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %.sroa.4.0.i.i.i = phi i32 [ undef, %"_ZN83_$LT$diesel..pg..backend..FailedToLookupTypeError$u20$as$u20$core..clone..Clone$GT$5clone17h74a5a0e6e3a5bec4E.exit.i.i.i.i" ], [ %.val.i.i.i.i, %59 ]
   %.sroa.5.0.i.i.i = phi ptr [ %65, %"_ZN83_$LT$diesel..pg..backend..FailedToLookupTypeError$u20$as$u20$core..clone..Clone$GT$5clone17h74a5a0e6e3a5bec4E.exit.i.i.i.i" ], [ %62, %59 ]
   %storemerge.i.i.i.i = phi i32 [ 1, %"_ZN83_$LT$diesel..pg..backend..FailedToLookupTypeError$u20$as$u20$core..clone..Clone$GT$5clone17h74a5a0e6e3a5bec4E.exit.i.i.i.i" ], [ 0, %59 ]
-  %103 = getelementptr inbounds [0 x { [2 x i64] }], ptr %47, i64 0, i64 %.sroa.7.039.i.i
+  %103 = getelementptr inbounds [0 x { [2 x i64] }], ptr %47, i64 0, i64 %.sroa.7.041.i.i
   store i32 %storemerge.i.i.i.i, ptr %103, align 8
   %.sroa.07.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %103, i64 4
   store i32 %.sroa.4.0.i.i.i, ptr %.sroa.07.sroa.4.0..sroa_idx.i.i, align 4
@@ -482,7 +482,7 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
 
 105:                                              ; preds = %102, %.loopexit.split-lp.i.i, %.loopexit.i.i
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i, %102 ], [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  store i64 %.sroa.7.039.i.i, ptr %49, align 8, !noalias !60
+  store i64 %.sroa.7.041.i.i, ptr %49, align 8, !noalias !60
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$diesel..pg..backend..PgTypeMetadata$GT$$GT$17h4c3dcf4c5809f10fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %23) #11
           to label %.body.i unwind label %106, !noalias !73
 

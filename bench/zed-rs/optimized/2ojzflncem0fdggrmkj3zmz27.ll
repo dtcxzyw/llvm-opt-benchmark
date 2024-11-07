@@ -1132,7 +1132,12 @@ default.unreachable:                              ; preds = %65
 ; Function Attrs: nonlazybind uwtable
 define hidden { i32, i32 } @"_ZN112_$LT$alloc..collections..btree..set..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h078b7ca978e3f9b7E"(ptr noalias noundef align 8 dereferenceable(72) %0) unnamed_addr #1 {
   %2 = tail call { i32, i32 } @"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6495d07730106b1aE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %0)
-  ret { i32, i32 } %2
+  %3 = extractvalue { i32, i32 } %2, 0
+  %switch = icmp eq i32 %3, 0
+  %4 = extractvalue { i32, i32 } %2, 1
+  %.sroa.3.0 = select i1 %switch, i32 undef, i32 %4
+  %5 = insertvalue { i32, i32 } %2, i32 %.sroa.3.0, 1
+  ret { i32, i32 } %5
 }
 
 ; Function Attrs: cold nonlazybind uwtable

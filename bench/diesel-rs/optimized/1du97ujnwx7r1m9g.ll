@@ -676,25 +676,25 @@ common.resume:                                    ; preds = %.thread272, %99, %.
   %.pn.i.i = phi i64 [ %108, %100 ], [ %159, %157 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %112
   %126 = getelementptr inbounds i8, ptr %113, i64 %.sroa.01.0.i.i.i
-  %.0.copyload.i31.i.i = load <16 x i8>, ptr %126, align 1, !noalias !156
-  %127 = icmp eq <16 x i8> %.0.copyload.i31.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i33.i.i = load <16 x i8>, ptr %126, align 1, !noalias !156
+  %127 = icmp eq <16 x i8> %.0.copyload.i33.i.i, %.15.vec.insert.i.i.i
   %128 = bitcast <16 x i1> %127 to i16
-  %.not.not.i34.i.i = icmp eq i16 %128, 0
-  br i1 %.not.not.i34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not.not.i36.i.i = icmp eq i16 %128, 0
+  br i1 %.not.not.i36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.backedge.i.i, %125
-  %129 = icmp eq <16 x i8> %.0.copyload.i31.i.i, splat (i8 -1)
+  %129 = icmp eq <16 x i8> %.0.copyload.i33.i.i, splat (i8 -1)
   %130 = bitcast <16 x i1> %129 to i16
   %.not.i.i.i = icmp eq i16 %130, 0
   br i1 %.not.i.i.i, label %157, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h71b4edeb5b814ac2E.exit.i"
 
 .lr.ph.i.i:                                       ; preds = %125, %.backedge.i.i
-  %.02135.i.i = phi i16 [ %132, %.backedge.i.i ], [ %128, %125 ]
-  %131 = add i16 %.02135.i.i, -1
-  %132 = and i16 %131, %.02135.i.i
-  %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02135.i.i, i1 true)
-  %134 = zext nneg i16 %133 to i64
-  %135 = add i64 %.sroa.01.0.i.i.i, %134
+  %.02237.i.i = phi i16 [ %134, %.backedge.i.i ], [ %128, %125 ]
+  %131 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02237.i.i, i1 true)
+  %132 = zext nneg i16 %131 to i64
+  %133 = add i16 %.02237.i.i, -1
+  %134 = and i16 %133, %.02237.i.i
+  %135 = add i64 %.sroa.01.0.i.i.i, %132
   %136 = and i64 %135, %112
   %137 = sub nsw i64 0, %136
   %138 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, { { i64, [2 x i64] }, ptr } }, ptr %113, i64 %137
@@ -717,7 +717,7 @@ common.resume:                                    ; preds = %.thread272, %99, %.
   br i1 %147, label %190, label %.backedge.i.i
 
 .backedge.i.i:                                    ; preds = %.noexc12.i, %152, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h521d4c58c4ab6bb8E.exit.i.i.i.i.i", %148, %145, %.lr.ph.i.i
-  %.not.not.i.i.i = icmp eq i16 %132, 0
+  %.not.not.i.i.i = icmp eq i16 %134, 0
   br i1 %.not.not.i.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 148:                                              ; preds = %144

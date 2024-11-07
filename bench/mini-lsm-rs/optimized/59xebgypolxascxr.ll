@@ -11191,12 +11191,12 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator24create_
   br label %.thread42
 
 .thread46.loopexit.split-lp.loopexit:             ; preds = %.lr.ph.i
-  %lpad.loopexit64 = landingpad { ptr, i32 }
+  %lpad.loopexit62 = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
 
 .thread46.loopexit.split-lp.loopexit.split-lp:    ; preds = %.invoke, %51
-  %lpad.loopexit.split-lp65 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp63 = landingpad { ptr, i32 }
           cleanup
   br label %.thread42
 
@@ -11337,7 +11337,7 @@ _ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h88
   resume { ptr, i32 } %.pn41
 
 .thread42:                                        ; preds = %.thread46.loopexit, %.thread46.loopexit.split-lp.loopexit.split-lp, %.thread46.loopexit.split-lp.loopexit, %42, %38
-  %eh.lpad-body45 = phi { ptr, i32 } [ %39, %38 ], [ %39, %42 ], [ %lpad.loopexit, %.thread46.loopexit ], [ %lpad.loopexit64, %.thread46.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %.thread46.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body45 = phi { ptr, i32 } [ %39, %38 ], [ %39, %42 ], [ %lpad.loopexit, %.thread46.loopexit ], [ %lpad.loopexit62, %.thread46.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp63, %.thread46.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h27df61cc1bba22ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #27
           to label %.thread unwind label %66
 }
@@ -11419,22 +11419,22 @@ define void @_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator22create_
   br label %.thread50
 
 .thread54.loopexit.split-lp.loopexit:             ; preds = %.lr.ph.i
-  %lpad.loopexit72 = landingpad { ptr, i32 }
+  %lpad.loopexit70 = landingpad { ptr, i32 }
           cleanup
   br label %.thread50
 
 .thread54.loopexit.split-lp.loopexit.split-lp:    ; preds = %.invoke, %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit, %64
-  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp71 = landingpad { ptr, i32 }
           cleanup
   br label %.thread50
 
 _ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit.loopexit: ; preds = %22
   %.pre = load ptr, ptr %11, align 8
-  %.pre75 = load i64, ptr %13, align 8
+  %.pre73 = load i64, ptr %13, align 8
   br label %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit
 
 _ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit: ; preds = %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit.loopexit, %4
-  %38 = phi i64 [ %.pre75, %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit.loopexit ], [ 0, %4 ]
+  %38 = phi i64 [ %.pre73, %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit.loopexit ], [ 0, %4 ]
   %39 = phi ptr [ %.pre, %_ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h881e2eefecfbb48fE.exit.loopexit ], [ %12, %4 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   store ptr %9, ptr %7, align 8, !noalias !1246
@@ -11585,7 +11585,7 @@ _ZN8mini_lsm9iterators15concat_iterator17SstConcatIterator15check_sst_valid17h88
   resume { ptr, i32 } %.pn49
 
 .thread50:                                        ; preds = %.thread54.loopexit, %.thread54.loopexit.split-lp.loopexit.split-lp, %.thread54.loopexit.split-lp.loopexit, %55, %51
-  %eh.lpad-body53 = phi { ptr, i32 } [ %52, %51 ], [ %52, %55 ], [ %lpad.loopexit, %.thread54.loopexit ], [ %lpad.loopexit72, %.thread54.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp73, %.thread54.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body53 = phi { ptr, i32 } [ %52, %51 ], [ %52, %55 ], [ %lpad.loopexit, %.thread54.loopexit ], [ %lpad.loopexit70, %.thread54.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp71, %.thread54.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr92drop_in_place$LT$alloc..vec..Vec$LT$alloc..sync..Arc$LT$mini_lsm..table..SsTable$GT$$GT$$GT$17h27df61cc1bba22ddE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #27
           to label %.thread unwind label %80
 }

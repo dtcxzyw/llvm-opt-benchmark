@@ -347,14 +347,14 @@ define hidden { i64, ptr } @"_ZN101_$LT$async_std..task..builder..SupportTaskLoc
 _ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit: ; preds = %2
   %6 = tail call noundef ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h2f420258a3647171E"(ptr noundef nonnull align 8 @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", ptr noalias noundef align 8 dereferenceable_or_null(16) null), !noalias !124
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %16, label %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit.thread
+  br i1 %7, label %17, label %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit.thread
 
 _ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit.thread: ; preds = %2, %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit
   %.sroa.0.0.i.i.i3 = phi ptr [ %6, %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit ], [ getelementptr inbounds (i8, ptr @"_ZN9async_std4task19task_locals_wrapper7CURRENT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h6364543a29236c97E", i64 8), %2 ]
   %8 = load ptr, ptr %.sroa.0.0.i.i.i3, align 8, !noalias !125, !noundef !16
   store ptr %4, ptr %.sroa.0.0.i.i.i3, align 8, !noalias !125
   %9 = invoke { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h18b3c45ff8f6ebf8E.llvm.13795161181114573335"(ptr noalias noundef nonnull align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-          to label %.noexc.i.i unwind label %14, !noalias !125
+          to label %.noexc.i.i unwind label %15, !noalias !125
 
 .noexc.i.i:                                       ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit.thread
   %10 = extractvalue { i64, ptr } %9, 0
@@ -369,31 +369,32 @@ _ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.1059137466032395
 
 12:                                               ; preds = %.noexc.i.i
   invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.997b6d37ae38ac16da9542a782ba701c.113.llvm.13795161181114573335, i64 noundef 28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.997b6d37ae38ac16da9542a782ba701c.115.llvm.13795161181114573335) #42
-          to label %.noexc3.i.i unwind label %14, !noalias !125
+          to label %.noexc3.i.i unwind label %15, !noalias !125
 
 .noexc3.i.i:                                      ; preds = %12
   unreachable
 
 13:                                               ; preds = %.noexc.i.i
+  %14 = extractvalue { i64, ptr } %9, 1
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb7b8423c14d35c7aE.llvm.10591374660323954188.exit"
 
-14:                                               ; preds = %12, %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit.thread
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %12, %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit.thread
+  %16 = landingpad { ptr, i32 }
           cleanup
   store ptr %8, ptr %.sroa.0.0.i.i.i3, align 8, !noalias !128
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
-16:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit
+17:                                               ; preds = %_ZN4core3ops8function6FnOnce9call_once17hb143a8072917ea61E.llvm.10591374660323954188.exit
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   call void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.91aace067c7ef914f37cecf5f4dbb7b7.1.llvm.10591374660323954188, i64 noundef 70, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.91aace067c7ef914f37cecf5f4dbb7b7.44.llvm.10591374660323954188, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.91aace067c7ef914f37cecf5f4dbb7b7.3.llvm.10591374660323954188) #42
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17hb7b8423c14d35c7aE.llvm.10591374660323954188.exit": ; preds = %13, %.noexc.i.i
+  %.sroa.3.0.i.i.i.i = phi ptr [ %14, %13 ], [ undef, %.noexc.i.i ]
   %.sroa.0.0.i.i.i.i = phi i64 [ 0, %13 ], [ 1, %.noexc.i.i ]
-  %17 = extractvalue { i64, ptr } %9, 1
   store ptr %8, ptr %.sroa.0.0.i.i.i3, align 8, !noalias !138
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i.i.i, 0
-  %19 = insertvalue { i64, ptr } %18, ptr %17, 1
+  %19 = insertvalue { i64, ptr } %18, ptr %.sroa.3.0.i.i.i.i, 1
   ret { i64, ptr } %19
 }
 
@@ -1006,14 +1007,14 @@ define hidden { i64, ptr } @"_ZN14async_executor8Executor11spawn_inner28_$u7b$$u
   %3 = alloca [0 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i8, ptr %4, align 8, !range !203, !noundef !16
-  switch i8 %5, label %default.unreachable16 [
+  switch i8 %5, label %default.unreachable18 [
     i8 0, label %6
     i8 1, label %16
     i8 2, label %17
     i8 3, label %18
   ]
 
-default.unreachable16:                            ; preds = %2
+default.unreachable18:                            ; preds = %2
   unreachable
 
 6:                                                ; preds = %2
@@ -1933,7 +1934,7 @@ define hidden { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   store ptr %7, ptr %4, align 8, !noalias !585
   %.val.i = load ptr, ptr %.sroa.5.0.copyload, align 8, !noalias !585, !nonnull !16, !align !202, !noundef !16
   %9 = invoke { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h18b3c45ff8f6ebf8E.llvm.13795161181114573335"(ptr noalias noundef nonnull align 8 dereferenceable(48) %.sroa.4.0.copyload, ptr noalias noundef nonnull align 8 dereferenceable(32) %.val.i)
-          to label %.noexc.i unwind label %14, !noalias !585
+          to label %.noexc.i unwind label %15, !noalias !585
 
 .noexc.i:                                         ; preds = %6
   %10 = extractvalue { i64, ptr } %9, 0
@@ -1948,28 +1949,29 @@ define hidden { i64, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
 
 12:                                               ; preds = %.noexc.i
   invoke void @_ZN4core6option13expect_failed17h3a757a693188cc6eE(ptr noalias noundef nonnull readonly align 1 @anon.997b6d37ae38ac16da9542a782ba701c.113.llvm.13795161181114573335, i64 noundef 28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.997b6d37ae38ac16da9542a782ba701c.115.llvm.13795161181114573335) #42
-          to label %.noexc3.i unwind label %14, !noalias !585
+          to label %.noexc3.i unwind label %15, !noalias !585
 
 .noexc3.i:                                        ; preds = %12
   unreachable
 
 13:                                               ; preds = %.noexc.i
+  %14 = extractvalue { i64, ptr } %9, 1
   br label %"_ZN9async_std4task19task_locals_wrapper17TaskLocalsWrapper11set_current28_$u7b$$u7b$closure$u7d$$u7d$17h3f52497f187b5e63E.llvm.10591374660323954188.exit"
 
-14:                                               ; preds = %12, %6
-  %15 = landingpad { ptr, i32 }
+15:                                               ; preds = %12, %6
+  %16 = landingpad { ptr, i32 }
           cleanup
   store ptr %8, ptr %4, align 8, !noalias !588
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 
 "_ZN9async_std4task19task_locals_wrapper17TaskLocalsWrapper11set_current28_$u7b$$u7b$closure$u7d$$u7d$17h3f52497f187b5e63E.llvm.10591374660323954188.exit": ; preds = %.noexc.i, %13
+  %.sroa.3.0.i.i.i = phi ptr [ %14, %13 ], [ undef, %.noexc.i ]
   %.sroa.0.0.i.i.i = phi i64 [ 0, %13 ], [ 1, %.noexc.i ]
-  %16 = extractvalue { i64, ptr } %9, 1
   store ptr %8, ptr %4, align 8, !noalias !598
   br label %17
 
 17:                                               ; preds = %2, %"_ZN9async_std4task19task_locals_wrapper17TaskLocalsWrapper11set_current28_$u7b$$u7b$closure$u7d$$u7d$17h3f52497f187b5e63E.llvm.10591374660323954188.exit"
-  %.sroa.3.0 = phi ptr [ %16, %"_ZN9async_std4task19task_locals_wrapper17TaskLocalsWrapper11set_current28_$u7b$$u7b$closure$u7d$$u7d$17h3f52497f187b5e63E.llvm.10591374660323954188.exit" ], [ undef, %2 ]
+  %.sroa.3.0 = phi ptr [ %.sroa.3.0.i.i.i, %"_ZN9async_std4task19task_locals_wrapper17TaskLocalsWrapper11set_current28_$u7b$$u7b$closure$u7d$$u7d$17h3f52497f187b5e63E.llvm.10591374660323954188.exit" ], [ undef, %2 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.0.i.i.i, %"_ZN9async_std4task19task_locals_wrapper17TaskLocalsWrapper11set_current28_$u7b$$u7b$closure$u7d$$u7d$17h3f52497f187b5e63E.llvm.10591374660323954188.exit" ], [ 2, %2 ]
   %18 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %19 = insertvalue { i64, ptr } %18, ptr %.sroa.3.0, 1
@@ -20632,13 +20634,14 @@ define hidden { i64, ptr } @"_ZN9async_std4task19task_locals_wrapper17TaskLocals
   unreachable
 
 14:                                               ; preds = %.noexc
+  %15 = extractvalue { i64, ptr } %10, 1
   br label %"_ZN4core3ptr584drop_in_place$LT$async_std..task..task_locals_wrapper..TaskLocalsWrapper..set_current..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_std..task..task_locals_wrapper..TaskLocalsWrapper..set_current$LT$$LT$async_std..task..builder..SupportTaskLocals$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$$u20$as$u20$core..future..future..Future$GT$..poll..$u7b$$u7b$closure$u7d$$u7d$$C$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7b8e8f0f73e07dc3E.exit4"
 
 "_ZN4core3ptr584drop_in_place$LT$async_std..task..task_locals_wrapper..TaskLocalsWrapper..set_current..$u7b$$u7b$closure$u7d$$u7d$..Guard$LT$async_std..task..task_locals_wrapper..TaskLocalsWrapper..set_current$LT$$LT$async_std..task..builder..SupportTaskLocals$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$$u20$as$u20$core..future..future..Future$GT$..poll..$u7b$$u7b$closure$u7d$$u7d$$C$core..task..poll..Poll$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h7b8e8f0f73e07dc3E.exit4": ; preds = %14, %.noexc
+  %.sroa.3.0.i.i = phi ptr [ %15, %14 ], [ undef, %.noexc ]
   %.sroa.0.0.i.i = phi i64 [ 0, %14 ], [ 1, %.noexc ]
-  %15 = extractvalue { i64, ptr } %10, 1
   %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i.i, 0
-  %17 = insertvalue { i64, ptr } %16, ptr %15, 1
+  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0.i.i, 1
   store ptr %5, ptr %1, align 8, !noalias !4285
   ret { i64, ptr } %17
 
@@ -26669,14 +26672,14 @@ define internal { i64, ptr } @"_ZN7copilot7Copilot17accept_completion28_$u7b$$u7
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 288
   %7 = load i8, ptr %6, align 8, !range !203, !noundef !16
-  switch i8 %7, label %default.unreachable19 [
+  switch i8 %7, label %default.unreachable20 [
     i8 0, label %9
     i8 1, label %11
     i8 2, label %12
     i8 3, label %8
   ]
 
-default.unreachable19:                            ; preds = %2
+default.unreachable20:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -26975,14 +26978,14 @@ define hidden { i64, ptr } @"_ZN7copilot7Copilot19discard_completions28_$u7b$$u7
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 288
   %7 = load i8, ptr %6, align 8, !range !203, !noundef !16
-  switch i8 %7, label %default.unreachable19 [
+  switch i8 %7, label %default.unreachable20 [
     i8 0, label %9
     i8 1, label %11
     i8 2, label %12
     i8 3, label %8
   ]
 
-default.unreachable19:                            ; preds = %2
+default.unreachable20:                            ; preds = %2
   unreachable
 
 8:                                                ; preds = %2
@@ -28121,7 +28124,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
   %17 = alloca [368 x i8], align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 141
   %19 = load i8, ptr %18, align 1, !range !953, !noundef !16
-  switch i8 %19, label %default.unreachable89 [
+  switch i8 %19, label %default.unreachable91 [
     i8 0, label %22
     i8 1, label %27
     i8 2, label %28
@@ -28129,7 +28132,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
     i8 4, label %21
   ]
 
-default.unreachable89:                            ; preds = %3
+default.unreachable91:                            ; preds = %3
   unreachable
 
 20:                                               ; preds = %3
@@ -28701,7 +28704,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
   %17 = alloca [368 x i8], align 8
   %18 = getelementptr inbounds i8, ptr %1, i64 141
   %19 = load i8, ptr %18, align 1, !range !953, !noundef !16
-  switch i8 %19, label %default.unreachable89 [
+  switch i8 %19, label %default.unreachable91 [
     i8 0, label %22
     i8 1, label %27
     i8 2, label %28
@@ -28709,7 +28712,7 @@ define internal void @"_ZN7copilot7Copilot19request_completions28_$u7b$$u7b$clos
     i8 4, label %21
   ]
 
-default.unreachable89:                            ; preds = %3
+default.unreachable91:                            ; preds = %3
   unreachable
 
 20:                                               ; preds = %3

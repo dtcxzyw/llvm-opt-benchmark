@@ -8,12 +8,12 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %30, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %30, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %7)
+  %10 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %8)
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = load i64, ptr %0, align 8, !noundef !3
@@ -47,11 +47,11 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa
   %28 = inttoptr i64 %26 to ptr
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  store i64 %7, ptr %0, align 8
+  store i64 %8, ptr %0, align 8
   br label %30
 
 30:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit", %3, %27
-  %.sroa.4.0 = phi i64 [ undef, %27 ], [ %7, %3 ], [ %25, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %27 ], [ %8, %3 ], [ %25, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %27 ], [ 0, %3 ], [ %26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit" ]
   %31 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %32 = insertvalue { i64, i64 } %31, i64 %.sroa.4.0, 1
@@ -63,12 +63,12 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cb
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %30, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %30, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 16, i64 8, i64 %7)
+  %10 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 16, i64 8, i64 %8)
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = load i64, ptr %0, align 8, !noundef !3
@@ -102,11 +102,11 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cb
   %28 = inttoptr i64 %26 to ptr
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  store i64 %7, ptr %0, align 8
+  store i64 %8, ptr %0, align 8
   br label %30
 
 30:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit", %3, %27
-  %.sroa.4.0 = phi i64 [ undef, %27 ], [ %7, %3 ], [ %25, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %27 ], [ %8, %3 ], [ %25, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %27 ], [ 0, %3 ], [ %26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit" ]
   %31 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %32 = insertvalue { i64, i64 } %31, i64 %.sroa.4.0, 1
@@ -118,12 +118,12 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56ac
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %30, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %30, label %9
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %7)
+  %10 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %8)
   %11 = extractvalue { i64, i64 } %10, 0
   %12 = extractvalue { i64, i64 } %10, 1
   %13 = load i64, ptr %0, align 8, !noundef !3
@@ -157,11 +157,11 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56ac
   %28 = inttoptr i64 %26 to ptr
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %29, align 8
-  store i64 %7, ptr %0, align 8
+  store i64 %8, ptr %0, align 8
   br label %30
 
 30:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit", %3, %27
-  %.sroa.4.0 = phi i64 [ undef, %27 ], [ %7, %3 ], [ %25, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %27 ], [ %8, %3 ], [ %25, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %27 ], [ 0, %3 ], [ %26, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit" ]
   %31 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %32 = insertvalue { i64, i64 } %31, i64 %.sroa.4.0, 1
@@ -583,9 +583,9 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a5
 7:                                                ; preds = %3
   %8 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h736f6b2cce9b2e5bE"(ptr nonnull align 8 %0, i64 %1, i64 %2)
   %9 = extractvalue { i64, i64 } %8, 0
-  %10 = extractvalue { i64, i64 } %8, 1
-  %11 = icmp eq i64 %9, -9223372036854775807
-  br i1 %11, label %._crit_edge, label %14
+  %10 = icmp eq i64 %9, -9223372036854775807
+  %11 = extractvalue { i64, i64 } %8, 1
+  br i1 %10, label %._crit_edge, label %14
 
 ._crit_edge:                                      ; preds = %7
   %.pre = load i64, ptr %0, align 8
@@ -599,7 +599,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11try_reserve17h88a5
   br label %14
 
 14:                                               ; preds = %7, %12
-  %.sroa.3.0 = phi i64 [ undef, %12 ], [ %10, %7 ]
+  %.sroa.3.0 = phi i64 [ undef, %12 ], [ %11, %7 ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %12 ], [ %9, %7 ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 %.sroa.3.0, 1
@@ -897,14 +897,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -944,7 +944,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h0
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdce4672db925054bE.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdce4672db925054bE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdce4672db925054bE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdce4672db925054bE.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -956,14 +956,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 72, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1003,7 +1003,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h1
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f52f74ecc867a72E.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f52f74ecc867a72E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f52f74ecc867a72E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h6f52f74ecc867a72E.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1015,14 +1015,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 8, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1062,7 +1062,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h2
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4b641c1f69ba567fE.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4b641c1f69ba567fE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4b641c1f69ba567fE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4b641c1f69ba567fE.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1074,14 +1074,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1121,7 +1121,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h3
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hdf80ab8ce5ab8ea1E.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1133,14 +1133,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 16, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1180,7 +1180,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h8
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h53a749dcb03826f3E.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h53a749dcb03826f3E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h53a749dcb03826f3E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h53a749dcb03826f3E.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1192,14 +1192,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1239,7 +1239,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hf667d8c105deb52aE.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1251,14 +1251,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 16, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1298,7 +1298,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h9
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h962e401350946cafE.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1310,14 +1310,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 8, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1357,7 +1357,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17he
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbd65cd27653026bcE.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbd65cd27653026bcE.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbd65cd27653026bcE.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hbd65cd27653026bcE.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1369,14 +1369,14 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %7 = extractvalue { i64, i1 } %6, 0
-  %8 = extractvalue { i64, i1 } %6, 1
-  br i1 %8, label %34, label %9
+  %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
+  br i1 %7, label %34, label %9
 
 9:                                                ; preds = %3
   %10 = load i64, ptr %0, align 8, !noundef !3
   %11 = shl i64 %10, 1
-  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %7)
+  %12 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 %11, i64 %8)
   %13 = tail call i64 @_ZN4core3cmp6max_by17hec6e036f7fe612e4E(i64 4, i64 %12)
   %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 40, i64 8, i64 %13)
   %15 = extractvalue { i64, i64 } %14, 0
@@ -1416,7 +1416,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hf
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ffd5840e05cfda8E.exit", %3, %31
-  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %7, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ffd5840e05cfda8E.exit" ]
+  %.sroa.4.0 = phi i64 [ undef, %31 ], [ %8, %3 ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ffd5840e05cfda8E.exit" ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %31 ], [ 0, %3 ], [ %30, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h0ffd5840e05cfda8E.exit" ]
   %35 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %36 = insertvalue { i64, i64 } %35, i64 %.sroa.4.0, 1
@@ -1508,17 +1508,17 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread13", label %13
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread14", label %13
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread13": ; preds = %9
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread14": ; preds = %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %38
 
 13:                                               ; preds = %9
-  %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 16, i64 8, i64 %11)
+  %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 16, i64 8, i64 %12)
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   %17 = load i64, ptr %0, align 8, !noundef !3
@@ -1550,7 +1550,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
-  store i64 %11, ptr %0, align 8
+  store i64 %12, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %34
@@ -1568,15 +1568,15 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit._crit_edge", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread", %3
-  %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit._crit_edge" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread" ], [ %6, %3 ]
+  %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit._crit_edge" ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread" ], [ %6, %3 ]
   %36 = sub i64 %35, %1
   %37 = icmp ule i64 %2, %36
   call void @llvm.assume(i1 %37)
   br label %38
 
-38:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread13", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit", %34
-  %.sroa.3.0 = phi i64 [ undef, %34 ], [ %32, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread13" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %34 ], [ %28, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread13" ]
+38:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread14", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit", %34
+  %.sroa.3.0 = phi i64 [ undef, %34 ], [ %32, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit" ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread14" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %34 ], [ %28, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h788cbd0f1a9a7bf5E.exit.thread14" ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.3.0, 1
   ret { i64, i64 } %40
@@ -1595,17 +1595,17 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread13", label %13
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread14", label %13
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread13": ; preds = %9
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread14": ; preds = %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %38
 
 13:                                               ; preds = %9
-  %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %11)
+  %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %12)
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   %17 = load i64, ptr %0, align 8, !noundef !3
@@ -1637,7 +1637,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
-  store i64 %11, ptr %0, align 8
+  store i64 %12, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %34
@@ -1655,15 +1655,15 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit._crit_edge", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread", %3
-  %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit._crit_edge" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread" ], [ %6, %3 ]
+  %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit._crit_edge" ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread" ], [ %6, %3 ]
   %36 = sub i64 %35, %1
   %37 = icmp ule i64 %2, %36
   call void @llvm.assume(i1 %37)
   br label %38
 
-38:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread13", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit", %34
-  %.sroa.3.0 = phi i64 [ undef, %34 ], [ %32, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread13" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %34 ], [ %28, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread13" ]
+38:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread14", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit", %34
+  %.sroa.3.0 = phi i64 [ undef, %34 ], [ %32, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit" ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread14" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %34 ], [ %28, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17h482fa5c69b437288E.exit.thread14" ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.3.0, 1
   ret { i64, i64 } %40
@@ -1682,17 +1682,17 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %10 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %2)
-  %11 = extractvalue { i64, i1 } %10, 0
-  %12 = extractvalue { i64, i1 } %10, 1
-  br i1 %12, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread13", label %13
+  %11 = extractvalue { i64, i1 } %10, 1
+  %12 = extractvalue { i64, i1 } %10, 0
+  br i1 %11, label %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread14", label %13
 
-"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread13": ; preds = %9
+"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread14": ; preds = %9
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %38
 
 13:                                               ; preds = %9
-  %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %11)
+  %14 = tail call { i64, i64 } @_ZN4core5alloc6layout6Layout5array5inner17h341a8094fe49fe15E(i64 48, i64 8, i64 %12)
   %15 = extractvalue { i64, i64 } %14, 0
   %16 = extractvalue { i64, i64 } %14, 1
   %17 = load i64, ptr %0, align 8, !noundef !3
@@ -1724,7 +1724,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   %29 = inttoptr i64 %28 to ptr
   %30 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %29, ptr %30, align 8
-  store i64 %11, ptr %0, align 8
+  store i64 %12, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %34
@@ -1742,15 +1742,15 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact1
   br label %34
 
 34:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit._crit_edge", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread", %3
-  %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit._crit_edge" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread" ], [ %6, %3 ]
+  %35 = phi i64 [ %.pre, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit._crit_edge" ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread" ], [ %6, %3 ]
   %36 = sub i64 %35, %1
   %37 = icmp ule i64 %2, %36
   call void @llvm.assume(i1 %37)
   br label %38
 
-38:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread13", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit", %34
-  %.sroa.3.0 = phi i64 [ undef, %34 ], [ %32, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit" ], [ %11, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread13" ]
-  %.sroa.0.0 = phi i64 [ -9223372036854775807, %34 ], [ %28, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread13" ]
+38:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread14", %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit", %34
+  %.sroa.3.0 = phi i64 [ undef, %34 ], [ %32, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit" ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread14" ]
+  %.sroa.0.0 = phi i64 [ -9223372036854775807, %34 ], [ %28, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit" ], [ 0, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$10grow_exact17hc56acccd71802179E.exit.thread14" ]
   %39 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %40 = insertvalue { i64, i64 } %39, i64 %.sroa.3.0, 1
   ret { i64, i64 } %40

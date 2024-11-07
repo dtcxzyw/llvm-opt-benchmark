@@ -622,9 +622,9 @@ _ZN14regex_automata4util4iter8Searcher7advance17h5f837468ec77f924E.exit.i.i: ; p
   br label %206
 
 206:                                              ; preds = %_ZN14regex_automata4util4iter8Searcher7advance17h5f837468ec77f924E.exit.i.i, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i", %198
-  %.sink57 = phi i64 [ 72, %198 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17h5f837468ec77f924E.exit.i.i ]
+  %.sink58 = phi i64 [ 72, %198 ], [ 8, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i" ], [ 8, %_ZN14regex_automata4util4iter8Searcher7advance17h5f837468ec77f924E.exit.i.i ]
   %.sink = phi i64 [ %200, %198 ], [ 2, %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h079326073e003297E.exit.i" ], [ 2, %_ZN14regex_automata4util4iter8Searcher7advance17h5f837468ec77f924E.exit.i.i ]
-  %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink57
+  %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink58
   store i64 %.sink, ptr %.sroa.4.sroa.12.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   ret void
 }
@@ -16088,13 +16088,13 @@ define noundef zeroext i1 @_ZN4text10LineEnding6detect17h9976f650da63e15cE(ptr n
   br i1 %12, label %.split19, label %.lr.ph
 
 .split19:                                         ; preds = %10, %2, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h22d573d649d97c1aE.exit"
-  %phi.call = phi { i64, i64 } [ %65, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h22d573d649d97c1aE.exit" ], [ { i64 0, i64 undef }, %2 ], [ { i64 0, i64 undef }, %10 ]
+  %phi.call = phi { i64, i64 } [ %66, %"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h22d573d649d97c1aE.exit" ], [ { i64 0, i64 undef }, %2 ], [ { i64 0, i64 undef }, %10 ]
   %13 = extractvalue { i64, i64 } %phi.call, 0
   %14 = extractvalue { i64, i64 } %phi.call, 1
   %switch = icmp ne i64 %13, 1
   %.not = icmp eq i64 %14, 0
   %or.cond = select i1 %switch, i1 true, i1 %.not
-  br i1 %or.cond, label %74, label %66
+  br i1 %or.cond, label %75, label %67
 
 .split:                                           ; preds = %.lr.ph, %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3033)
@@ -16190,28 +16190,29 @@ define noundef zeroext i1 @_ZN4text10LineEnding6detect17h9976f650da63e15cE(ptr n
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$4find17h22d573d649d97c1aE.exit": ; preds = %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he436c1a8caddcb71E.exit.loopexit.i.i.i", %62
   %.sroa.03.020.i = phi i64 [ 1, %62 ], [ 0, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he436c1a8caddcb71E.exit.loopexit.i.i.i" ]
+  %64 = phi i64 [ %17, %62 ], [ undef, %"_ZN97_$LT$core..str..pattern..MultiCharEqSearcher$LT$C$GT$$u20$as$u20$core..str..pattern..Searcher$GT$4next17he436c1a8caddcb71E.exit.loopexit.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !3033
-  %64 = insertvalue { i64, i64 } poison, i64 %.sroa.03.020.i, 0
-  %65 = insertvalue { i64, i64 } %64, i64 %17, 1
+  %65 = insertvalue { i64, i64 } poison, i64 %.sroa.03.020.i, 0
+  %66 = insertvalue { i64, i64 } %65, i64 %64, 1
   br label %.split19
 
-66:                                               ; preds = %.split19
-  %67 = add i64 %14, -1
-  %68 = icmp ult i64 %67, %1
-  br i1 %68, label %69, label %73
+67:                                               ; preds = %.split19
+  %68 = add i64 %14, -1
+  %69 = icmp ult i64 %68, %1
+  br i1 %69, label %70, label %74
 
-69:                                               ; preds = %66
-  %70 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %67
-  %71 = load i8, ptr %70, align 1, !noundef !9
-  %72 = icmp eq i8 %71, 13
-  br label %74
+70:                                               ; preds = %67
+  %71 = getelementptr inbounds [0 x i8], ptr %0, i64 0, i64 %68
+  %72 = load i8, ptr %71, align 1, !noundef !9
+  %73 = icmp eq i8 %72, 13
+  br label %75
 
-73:                                               ; preds = %66
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %67, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5d443eac470b995ea7043842dd24c6a8.177) #25
+74:                                               ; preds = %67
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %68, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5d443eac470b995ea7043842dd24c6a8.177) #25
   unreachable
 
-74:                                               ; preds = %.split19, %69
-  %.sroa.0.0 = phi i1 [ %72, %69 ], [ false, %.split19 ]
+75:                                               ; preds = %.split19, %70
+  %.sroa.0.0 = phi i1 [ %73, %70 ], [ false, %.split19 ]
   ret i1 %.sroa.0.0
 }
 

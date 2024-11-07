@@ -658,7 +658,7 @@ define hidden void @_ZN6uu_env14split_iterator13SplitIterator15state_delimiter17
   store i32 8, ptr %0, align 8
   br label %69
 
-69:                                               ; preds = %216, %214, %.loopexit214, %195, %.loopexit, %154, %68
+69:                                               ; preds = %216, %214, %.loopexit220, %195, %.loopexit, %154, %68
   ret void
 
 70:                                               ; preds = %63
@@ -955,7 +955,7 @@ _ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8b3d743738e497
     i32 35, label %182
     i32 39, label %182
     i32 34, label %182
-    i32 99, label %.loopexit214
+    i32 99, label %.loopexit220
   ]
 
 161:                                              ; preds = %156
@@ -969,7 +969,7 @@ _ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8b3d743738e497
   store i64 %163, ptr %.sroa.241.sroa.3.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store ptr %164, ptr %.sroa.241.sroa.4.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store i64 9, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
-  br label %.loopexit214
+  br label %.loopexit220
 
 166:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %17), !noalias !254
@@ -999,17 +999,17 @@ _ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8b3d743738e497
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hcc050a43dddd9647E.llvm.12269880611312064175"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15), !noalias !259
   %176 = load i64, ptr %42, align 8, !range !15, !noalias !260, !noundef !5
   %.not.i.i.i.i.i90 = icmp eq i64 %176, 0
-  br i1 %.not.i.i.i.i.i90, label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread188, label %177
+  br i1 %.not.i.i.i.i.i90, label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread192, label %177
 
 177:                                              ; preds = %175
   %178 = load i64, ptr %43, align 8, !noalias !260, !noundef !5
   %179 = icmp eq i64 %178, 0
-  br i1 %179, label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread188, label %180
+  br i1 %179, label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread192, label %180
 
 180:                                              ; preds = %177
   %181 = load ptr, ptr %13, align 8, !noalias !260, !nonnull !5, !noundef !5
   call void @__rust_dealloc(ptr noundef nonnull %181, i64 noundef %178, i64 noundef %176) #10, !noalias !259
-  br label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread188
+  br label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread192
 
 182:                                              ; preds = %156, %156, %156, %156, %156
   %183 = call { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8take_one17ha9db1a818a534a24E(ptr noalias noundef nonnull align 8 dereferenceable(88) %1), !noalias !267
@@ -1017,7 +1017,7 @@ _ZN6uu_env13string_parser12StringParser22skip_until_char_or_end17h8b3d743738e497
   %185 = icmp eq i8 %184, 2
   br i1 %185, label %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, label %187
 
-_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread188: ; preds = %175, %177, %180
+_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread192: ; preds = %175, %177, %180
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !260
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15), !noalias !255
   br label %196
@@ -1028,7 +1028,7 @@ _ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae80
   store i64 %173, ptr %.sroa.241.sroa.2.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store i64 %173, ptr %.sroa.241.sroa.3.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store i8 %174, ptr %.sroa.241.sroa.4.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
-  br label %.loopexit214
+  br label %.loopexit220
 
 187:                                              ; preds = %182
   %188 = extractvalue { i64, i8 } %183, 0
@@ -1036,7 +1036,7 @@ _ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae80
   store i64 %188, ptr %.sroa.241.sroa.2.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store i64 %188, ptr %.sroa.241.sroa.3.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
   store i8 %189, ptr %.sroa.241.sroa.4.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
-  br label %.loopexit214
+  br label %.loopexit220
 
 190:                                              ; preds = %166
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !254
@@ -1050,20 +1050,20 @@ _ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae80
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %17), !noalias !254
   %.sroa.249.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 4
   store i8 %169, ptr %.sroa.249.0..sroa_idx.i, align 4, !alias.scope !246, !noalias !249
-  br label %.loopexit214
+  br label %.loopexit220
 
 193:                                              ; preds = %190
   %.val.i = load i64, ptr %33, align 8, !alias.scope !270, !noalias !246, !noundef !5
   %.sroa.464.0..sroa_idx.i = getelementptr inbounds i8, ptr %31, i64 4
   store i32 %.0.i.i85, ptr %.sroa.464.0..sroa_idx.i, align 4, !alias.scope !246, !noalias !249
   store i64 %.val.i, ptr %.sroa.241.sroa.2.0..sroa.241.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !246, !noalias !249
-  br label %.loopexit214
+  br label %.loopexit220
 
 _ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit: ; preds = %190, %182
   call fastcc void @_ZN6uu_env14split_iterator13SplitIterator14state_unquoted17h3f5cbbc84f125db2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %31, ptr noalias noundef nonnull align 8 dereferenceable(88) %1)
   %.pr.pr = load i32, ptr %31, align 8
   %194 = icmp eq i32 %.pr.pr, 8
-  br i1 %194, label %196, label %.loopexit214
+  br i1 %194, label %196, label %.loopexit220
 
 195:                                              ; preds = %88
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !173
@@ -1077,11 +1077,11 @@ _ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae80
   store i8 %92, ptr %.sroa.250.sroa.4.0..sroa.250.0..sroa_idx.sroa_idx, align 8
   br label %69
 
-196:                                              ; preds = %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread188
+196:                                              ; preds = %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit.thread192
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)
   br label %.backedge
 
-.loopexit214:                                     ; preds = %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, %156, %192, %193, %161, %186, %187
+.loopexit220:                                     ; preds = %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit, %156, %192, %193, %161, %186, %187
   %197 = phi i32 [ 3, %193 ], [ %167, %192 ], [ 5, %187 ], [ 5, %186 ], [ 1, %161 ], [ %.pr.pr, %_ZN6uu_env14split_iterator13SplitIterator25state_delimiter_backslash17hf69e1ae800e6eb42E.exit ], [ 6, %156 ]
   %.sroa.454.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.256, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.454.0..sroa_idx, i64 36, i1 false)
@@ -1318,7 +1318,7 @@ define internal fastcc void @_ZN6uu_env14split_iterator13SplitIterator14state_un
   %106 = getelementptr inbounds i8, ptr %52, i64 8
   br label %107
 
-107:                                              ; preds = %.backedge1077, %2
+107:                                              ; preds = %.backedge1089, %2
   call void @llvm.experimental.noalias.scope.decl(metadata !285)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %54), !noalias !285
   %108 = load i64, ptr %57, align 8, !alias.scope !288, !noalias !293, !noundef !5
@@ -1513,7 +1513,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 
 175:                                              ; preds = %136
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %55)
-  br label %.backedge1077
+  br label %.backedge1089
 
 176:                                              ; preds = %136
   %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %55, i64 4
@@ -1766,7 +1766,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 261:                                              ; preds = %199, %196, %194
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39), !noalias !388
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !383
-  br label %.backedge1077
+  br label %.backedge1089
 
 .loopexit:                                        ; preds = %214, %.preheader.i.i, %257, %256, %213, %183, %238, %239, %253
   %.sroa.21.2.ph = phi i8 [ %255, %253 ], [ %241, %239 ], [ %225, %238 ], [ undef, %183 ], [ %193, %213 ], [ %205, %256 ], [ %259, %257 ], [ undef, %.preheader.i.i ], [ undef, %214 ]
@@ -1791,7 +1791,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
   br label %263
 
-263:                                              ; preds = %.backedge1076, %262
+263:                                              ; preds = %.backedge1088, %262
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !455
   %264 = load i64, ptr %57, align 8, !alias.scope !457, !noalias !462, !noundef !5
@@ -1816,7 +1816,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %271 = call { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8take_one17ha9db1a818a534a24E(ptr noalias noundef nonnull align 8 dereferenceable(88) %1), !noalias !469
   %272 = extractvalue { i64, i8 } %271, 1
   %273 = icmp eq i8 %272, 2
-  br i1 %273, label %.backedge1076, label %339
+  br i1 %273, label %.backedge1088, label %339
 
 274:                                              ; preds = %263
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %29), !noalias !472
@@ -1891,7 +1891,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 
 301:                                              ; preds = %274
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %29), !noalias !472
-  br label %.backedge1076
+  br label %.backedge1088
 
 302:                                              ; preds = %274
   %.sroa.433.0..sroa_idx.i = getelementptr inbounds i8, ptr %29, i64 4
@@ -1977,12 +1977,12 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %326 = call { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8take_one17ha9db1a818a534a24E(ptr noalias noundef nonnull align 8 dereferenceable(88) %1), !noalias !519
   %327 = extractvalue { i64, i8 } %326, 1
   %328 = icmp eq i8 %327, 2
-  br i1 %328, label %.backedge1076, label %331
+  br i1 %328, label %.backedge1088, label %331
 
 329:                                              ; preds = %323, %320, %318
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !512
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !507
-  br label %.backedge1076
+  br label %.backedge1088
 
 330:                                              ; preds = %313
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !507
@@ -1997,9 +1997,9 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 334:                                              ; preds = %309
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %21), !noalias !506
   %335 = trunc nuw i8 %312 to i1
-  br i1 %335, label %.backedge1076, label %337
+  br i1 %335, label %.backedge1088, label %337
 
-.backedge1076:                                    ; preds = %334, %329, %325, %301, %270
+.backedge1088:                                    ; preds = %334, %329, %325, %301, %270
   br label %263
 
 336:                                              ; preds = %309
@@ -2064,7 +2064,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 343:                                              ; preds = %287, %284, %282
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25), !noalias !478
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27), !noalias !473
-  br label %.backedge1077
+  br label %.backedge1089
 
 344:                                              ; preds = %339, %338, %.loopexit.i144, %303, %302, %268
   %.sroa.23.2.ph = phi i8 [ undef, %268 ], [ %.sroa.235.i.sroa.6.0.copyload, %302 ], [ %281, %303 ], [ %.sroa.24.2.ph.i, %.loopexit.i144 ], [ %293, %338 ], [ %341, %339 ]
@@ -2251,12 +2251,12 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %406 = call { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8take_one17ha9db1a818a534a24E(ptr noalias noundef nonnull align 8 dereferenceable(88) %1), !noalias !584
   %407 = extractvalue { i64, i8 } %406, 1
   %408 = icmp eq i8 %407, 2
-  br i1 %408, label %.backedge1077, label %431
+  br i1 %408, label %.backedge1089, label %431
 
 409:                                              ; preds = %370, %367, %365
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !551
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !546
-  br label %.backedge1077
+  br label %.backedge1089
 
 410:                                              ; preds = %360
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !546
@@ -2332,7 +2332,7 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
 435:                                              ; preds = %356
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %16), !noalias !545
   %436 = trunc nuw i8 %359 to i1
-  br i1 %436, label %.backedge1077, label %438
+  br i1 %436, label %.backedge1089, label %438
 
 437:                                              ; preds = %356
   %.sroa.561.0..sroa_idx.i = getelementptr inbounds i8, ptr %16, i64 5
@@ -2397,9 +2397,9 @@ _ZN6uu_env14split_iterator13SplitIterator18push_word_to_words17h85f10d1136547468
   %442 = call { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8take_one17ha9db1a818a534a24E(ptr noalias noundef nonnull align 8 dereferenceable(88) %1), !noalias !604
   %443 = extractvalue { i64, i8 } %442, 1
   %444 = icmp eq i8 %443, 2
-  br i1 %444, label %.backedge1077, label %477
+  br i1 %444, label %.backedge1089, label %477
 
-.backedge1077:                                    ; preds = %441, %409, %405, %435, %343, %261, %175
+.backedge1089:                                    ; preds = %441, %409, %405, %435, %343, %261, %175
   br label %107
 
 445:                                              ; preds = %133

@@ -106,8 +106,8 @@ define hidden noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_posi
 define hidden void @"_ZN125_$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$u20$as$u20$diesel..row..Row$LT$diesel..mysql..backend..Mysql$GT$$GT$3get17h2d778408e2536d6eE.llvm.12717259899696012883"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = tail call { i64, i64 } @"_ZN106_$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hfa4eb5a5f2a604a1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
-  %.fca.1.extract = extractvalue { i64, i64 } %4, 1
   %switch = icmp eq i64 %.fca.0.extract, 0
+  %.fca.1.extract = extractvalue { i64, i64 } %4, 1
   br i1 %switch, label %10, label %5
 
 5:                                                ; preds = %3
@@ -2441,8 +2441,8 @@ define hidden void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRo
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %6 = tail call { i64, i64 } @"_ZN106_$LT$diesel..mysql..connection..stmt..iterator..MysqlRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hfa4eb5a5f2a604a1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef 0), !noalias !263
   %.fca.0.extract.i = extractvalue { i64, i64 } %6, 0
-  %.fca.1.extract.i = extractvalue { i64, i64 } %6, 1
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, i64 } %6, 1
   br i1 %switch.i, label %23, label %7
 
 7:                                                ; preds = %2

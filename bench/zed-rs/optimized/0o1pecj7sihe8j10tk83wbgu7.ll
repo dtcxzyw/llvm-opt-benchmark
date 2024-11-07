@@ -17546,7 +17546,7 @@ _ZN4core3ops8function6FnOnce9call_once17he0dcccff74f9e356E.llvm.1734546477400346
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h7e9babbecc9b4473E.llvm.17345464774003463743"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias noundef align 8 dereferenceable(600) %1, ptr noalias noundef align 8 dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [80 x i8], align 8
-  %.sroa.8.sroa.5.i184 = alloca [64 x i8], align 8
+  %.sroa.8.sroa.5.i183 = alloca [64 x i8], align 8
   %6 = alloca [72 x i8], align 8
   %7 = alloca [80 x i8], align 8
   %.sroa.8.i.i.i = alloca [64 x i8], align 8
@@ -17610,19 +17610,21 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
 
 "_ZN14ordered_stream4join26JoinState$LT$A$C$B$C$T$GT$10take_split17h8862215f8d31a7b9E.exit": ; preds = %4, %18, %19, %21, %22, %23
   %.sroa.0230.0 = phi i64 [ 4, %23 ], [ 4, %22 ], [ 2, %21 ], [ 2, %19 ], [ %.sroa.0230.0.copyload231, %18 ], [ 2, %4 ]
+  %.sroa.9232.0 = phi i64 [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ undef, %19 ], [ %.sroa.4.0.copyload.i, %18 ], [ undef, %4 ]
   %.sroa.10233.0 = phi i64 [ 4, %23 ], [ 2, %22 ], [ 4, %21 ], [ %20, %19 ], [ 2, %18 ], [ 2, %4 ]
+  %.sroa.17235.0 = phi i64 [ undef, %23 ], [ undef, %22 ], [ undef, %21 ], [ %.sroa.4.0.copyload.i, %19 ], [ undef, %18 ], [ undef, %4 ]
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %14)
   store i64 %.sroa.0230.0, ptr %14, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.9, i64 72, i1 false)
   %.sroa.9232.0..sroa_idx = getelementptr inbounds i8, ptr %14, i64 80
-  store i64 %.sroa.4.0.copyload.i, ptr %.sroa.9232.0..sroa_idx, align 8
+  store i64 %.sroa.9232.0, ptr %.sroa.9232.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %13)
   store i64 %.sroa.10233.0, ptr %13, align 8
   %.sroa.17.88..sroa_idx = getelementptr inbounds i8, ptr %13, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.17.88..sroa_idx, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.17, i64 72, i1 false)
   %.sroa.17235.88..sroa_idx = getelementptr inbounds i8, ptr %13, i64 80
-  store i64 %.sroa.4.0.copyload.i, ptr %.sroa.17235.88..sroa_idx, align 8
+  store i64 %.sroa.17235.0, ptr %.sroa.17235.88..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6724)
@@ -17631,8 +17633,8 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   %24 = add nsw i64 %.sroa.0230.0, -2
   %25 = icmp ult i64 %24, 3
   %26 = and i64 %.sroa.0230.0, 6
-  %switch10.i = icmp eq i64 %26, 2
-  %switch.i = and i1 %25, %switch10.i
+  %switch11.i = icmp eq i64 %26, 2
+  %switch.i = and i1 %25, %switch11.i
   br i1 %switch.i, label %27, label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17hdb867d2a51ef5cfaE.exit"
 
 27:                                               ; preds = %"_ZN14ordered_stream4join26JoinState$LT$A$C$B$C$T$GT$10take_split17h8862215f8d31a7b9E.exit"
@@ -17656,8 +17658,6 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   br i1 %32, label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i", label %33
 
 33:                                               ; preds = %.noexc
-  %.sroa.32.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
-  %.sroa.32.0.copyload.i.i.i = load i64, ptr %.sroa.32.0..sroa_idx.i.i.i, align 8, !noalias !6731
   %34 = and i64 %31, 30
   %35 = icmp eq i64 %34, 22
   %36 = add nsw i64 %31, -21
@@ -17672,6 +17672,8 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   unreachable
 
 .thread.i:                                        ; preds = %33
+  %.sroa.32.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 72
+  %.sroa.32.0.copyload.i.i.i = load i64, ptr %.sroa.32.0..sroa_idx.i.i.i, align 8, !noalias !6731
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3.0..sroa_idx.i.i.i, i64 64, i1 false), !noalias !6741
   br label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i"
@@ -17687,14 +17689,14 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   br label %30
 
 "_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i": ; preds = %33, %.thread.i, %39, %.noexc
-  %.sroa.83.07.i = phi i64 [ undef, %.noexc ], [ %.sroa.32.0.copyload.i.i.i, %39 ], [ %.sroa.32.0.copyload.i.i.i, %.thread.i ], [ %.sroa.32.0.copyload.i.i.i, %33 ]
-  %.sroa.09.0.i = phi i64 [ 2, %.noexc ], [ 4, %39 ], [ 0, %.thread.i ], [ 3, %33 ]
+  %.sroa.814.0.i = phi i64 [ undef, %.noexc ], [ %.sroa.32.0.copyload.i.i.i, %.thread.i ], [ undef, %39 ], [ undef, %33 ]
+  %.sroa.09.0.i = phi i64 [ 2, %.noexc ], [ 0, %.thread.i ], [ 4, %39 ], [ 3, %33 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8), !noalias !6731
   store i64 %.sroa.09.0.i, ptr %14, align 8, !alias.scope !6724, !noalias !6744
   store i64 %31, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !6724, !noalias !6744
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i = getelementptr inbounds i8, ptr %14, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.i, i64 64, i1 false), !noalias !6744
-  store i64 %.sroa.83.07.i, ptr %.sroa.9232.0..sroa_idx, align 8, !alias.scope !6724, !noalias !6744
+  store i64 %.sroa.814.0.i, ptr %.sroa.9232.0..sroa_idx, align 8, !alias.scope !6724, !noalias !6744
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.sroa.5.i)
   %.pre = load i64, ptr %13, align 8
   br label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17hdb867d2a51ef5cfaE.exit"
@@ -17719,9 +17721,9 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   %46 = add nsw i64 %44, -2
   %47 = icmp ult i64 %46, 3
   %48 = and i64 %44, 6
-  %switch10.i172 = icmp eq i64 %48, 2
-  %switch.i173 = and i1 %47, %switch10.i172
-  br i1 %switch.i173, label %49, label %.thread
+  %switch10.i = icmp eq i64 %48, 2
+  %switch.i172 = and i1 %47, %switch10.i
+  br i1 %switch.i172, label %49, label %.thread
 
 .thread:                                          ; preds = %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17hdb867d2a51ef5cfaE.exit"
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.i.i.i)
@@ -17736,7 +17738,7 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   br i1 %brmerge275, label %52, label %73
 
 52:                                               ; preds = %49, %73
-  %.sroa.017.0.i176 = phi ptr [ %spec.select22.i175, %73 ], [ %.sroa.08.0.mux, %49 ]
+  %.sroa.017.0.i175 = phi ptr [ %spec.select22.i174, %73 ], [ %.sroa.08.0.mux, %49 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !6752)
   call void @llvm.experimental.noalias.scope.decl(metadata !6755)
   %53 = load i64, ptr %15, align 8, !range !678, !alias.scope !6758, !noalias !6759, !noundef !19
@@ -17745,10 +17747,10 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
 
 55:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7), !noalias !6769
-  invoke void @"_ZN85_$LT$zbus..connection..PendingMethodCall$u20$as$u20$ordered_stream..OrderedFuture$GT$11poll_before17h55bbbc19463fb447E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.017.0.i176)
-          to label %.noexc183 unwind label %42
+  invoke void @"_ZN85_$LT$zbus..connection..PendingMethodCall$u20$as$u20$ordered_stream..OrderedFuture$GT$11poll_before17h55bbbc19463fb447E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %7, ptr noalias noundef nonnull align 8 dereferenceable(256) %15, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(8) %.sroa.017.0.i175)
+          to label %.noexc182 unwind label %42
 
-.noexc183:                                        ; preds = %55
+.noexc182:                                        ; preds = %55
   %56 = getelementptr inbounds i8, ptr %7, i64 8
   %57 = load i64, ptr %56, align 8, !range !3403, !noalias !6770, !noundef !19
   switch i64 %57, label %59 [
@@ -17763,7 +17765,7 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   invoke void @"_ZN4core3ptr92drop_in_place$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$17h78da2d280f51b2dcE.llvm.17345464774003463743"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6) #39
           to label %.body unwind label %65, !noalias !6774
 
-59:                                               ; preds = %.noexc183
+59:                                               ; preds = %.noexc182
   %60 = load i64, ptr %7, align 8, !noalias !6769, !noundef !19
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6), !noalias !6769
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 8 dereferenceable(72) %56, i64 72, i1 false), !noalias !6769
@@ -17789,8 +17791,8 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37, !noalias !6774
   unreachable
 
-"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread12.i.i.i": ; preds = %64, %.noexc183
-  %.sroa.84.0.ph.i.i.i = phi i64 [ %60, %64 ], [ undef, %.noexc183 ]
+"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread12.i.i.i": ; preds = %64, %.noexc182
+  %.sroa.84.0.ph.i.i.i = phi i64 [ %60, %64 ], [ undef, %.noexc182 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !6769
   br label %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i"
 
@@ -17813,7 +17815,7 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
 72:                                               ; preds = %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i"
   br label %.thread249
 
-"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i": ; preds = %.noexc183
+"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i": ; preds = %.noexc182
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7), !noalias !6769
   br label %.thread249
 
@@ -17821,14 +17823,14 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   %.val.i = load i64, ptr %3, align 8, !alias.scope !6748, !noalias !6779, !noundef !19
   %.val23.i = load i64, ptr %.sroa.9232.0..sroa_idx, align 8, !alias.scope !6750, !noalias !6780, !noundef !19
   %74 = icmp ugt i64 %.val.i, %.val23.i
-  %spec.select22.i175 = select i1 %74, ptr %.sroa.9232.0..sroa_idx, ptr %3
+  %spec.select22.i174 = select i1 %74, ptr %.sroa.9232.0..sroa_idx, ptr %3
   br label %52
 
 .thread249:                                       ; preds = %"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i", %72, %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i"
   %.sroa.5.07.i.ph = phi i64 [ %.sroa.0.111.i.i.i, %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i" ], [ %.sroa.0.111.i.i.i, %72 ], [ undef, %"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i" ]
   %.sroa.81.06.i.ph = phi i64 [ %.val22.i, %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i" ], [ %.val22.i, %72 ], [ undef, %"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i" ]
-  %.sroa.09.0.i178.ph = phi i64 [ 3, %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i" ], [ 4, %72 ], [ 2, %"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i" ]
-  store i64 %.sroa.09.0.i178.ph, ptr %13, align 8, !alias.scope !6745, !noalias !6781
+  %.sroa.09.0.i177.ph = phi i64 [ 3, %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i" ], [ 4, %72 ], [ 2, %"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before28_$u7b$$u7b$closure$u7d$$u7d$17h7df08b9254a76dd9E.exit.thread.i" ]
+  store i64 %.sroa.09.0.i177.ph, ptr %13, align 8, !alias.scope !6745, !noalias !6781
   store i64 %.sroa.5.07.i.ph, ptr %.sroa.17.88..sroa_idx, align 8, !alias.scope !6745, !noalias !6781
   store i64 %.sroa.81.06.i.ph, ptr %.sroa.17235.88..sroa_idx, align 8, !alias.scope !6745, !noalias !6781
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.i.i.i)
@@ -17836,8 +17838,8 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   br label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit"
 
 75:                                               ; preds = %"_ZN95_$LT$ordered_stream..adapters..FromFuture$LT$F$GT$$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17h2476fde12c5fc89cE.exit.thread.i.i.i"
-  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i180 = getelementptr inbounds i8, ptr %13, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i180, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.i.i.i, i64 64, i1 false), !noalias !6781
+  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i179 = getelementptr inbounds i8, ptr %13, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i179, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.i.i.i, i64 64, i1 false), !noalias !6781
   store i64 1, ptr %13, align 8, !alias.scope !6745, !noalias !6781
   store i64 %.sroa.0.111.i.i.i, ptr %.sroa.17.88..sroa_idx, align 8, !alias.scope !6745, !noalias !6781
   store i64 %.val22.i, ptr %.sroa.17235.88..sroa_idx, align 8, !alias.scope !6745, !noalias !6781
@@ -17845,14 +17847,14 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
   call void @llvm.experimental.noalias.scope.decl(metadata !6782)
   call void @llvm.experimental.noalias.scope.decl(metadata !6785)
   %76 = load i64, ptr %14, align 8, !range !1377, !noundef !19
-  %switch10.i185 = icmp eq i64 %76, 2
-  br i1 %switch10.i185, label %77, label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit"
+  %switch11.i184 = icmp eq i64 %76, 2
+  br i1 %switch11.i184, label %77, label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit"
 
 77:                                               ; preds = %75
   br i1 %51, label %78, label %88
 
 78:                                               ; preds = %77, %88
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.8.sroa.5.i184)
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.8.sroa.5.i183)
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5), !noalias !6787
   invoke void @"_ZN85_$LT$zbus..message_stream..MessageStream$u20$as$u20$ordered_stream..OrderedStream$GT$16poll_next_before17hf02d75bcf3f74bf4E"(ptr noalias nocapture noundef nonnull sret([80 x i8]) align 8 dereferenceable(80) %5, ptr noalias noundef nonnull align 8 dereferenceable(248) %1, ptr noalias noundef nonnull align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(8) %.sroa.17235.88..sroa_idx)
           to label %.noexc201 unwind label %42
@@ -17860,53 +17862,53 @@ define hidden void @"_ZN89_$LT$ordered_stream..join..Join$LT$A$C$B$GT$$u20$as$u2
 .noexc201:                                        ; preds = %78
   %79 = load i64, ptr %5, align 8, !range !6740, !noalias !6787, !noundef !19
   %80 = icmp eq i64 %79, 24
-  br i1 %80, label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193", label %81
+  br i1 %80, label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191", label %81
 
 81:                                               ; preds = %.noexc201
-  %.sroa.32.0..sroa_idx.i.i.i189 = getelementptr inbounds i8, ptr %5, i64 72
-  %.sroa.32.0.copyload.i.i.i190 = load i64, ptr %.sroa.32.0..sroa_idx.i.i.i189, align 8, !noalias !6787
   %82 = and i64 %79, 30
   %83 = icmp eq i64 %82, 22
   %84 = add nsw i64 %79, -21
   %85 = select i1 %83, i64 %84, i64 0
   switch i64 %85, label %86 [
-    i64 0, label %.thread.i199
-    i64 1, label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193"
+    i64 0, label %.thread.i197
+    i64 1, label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191"
     i64 2, label %87
   ]
 
 86:                                               ; preds = %81
   unreachable
 
-.thread.i199:                                     ; preds = %81
+.thread.i197:                                     ; preds = %81
+  %.sroa.32.0..sroa_idx.i.i.i198 = getelementptr inbounds i8, ptr %5, i64 72
+  %.sroa.32.0.copyload.i.i.i199 = load i64, ptr %.sroa.32.0..sroa_idx.i.i.i198, align 8, !noalias !6787
   %.sroa.3.0..sroa_idx.i.i.i200 = getelementptr inbounds i8, ptr %5, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.i184, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3.0..sroa_idx.i.i.i200, i64 64, i1 false), !noalias !6797
-  br label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193"
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.i183, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.3.0..sroa_idx.i.i.i200, i64 64, i1 false), !noalias !6797
+  br label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191"
 
 87:                                               ; preds = %81
-  br label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193"
+  br label %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191"
 
 88:                                               ; preds = %77
-  %.val.i187 = load i64, ptr %3, align 8, !alias.scope !6785, !noalias !6798, !noundef !19
-  %89 = icmp ugt i64 %.val.i187, %.val22.i
+  %.val.i186 = load i64, ptr %3, align 8, !alias.scope !6785, !noalias !6798, !noundef !19
+  %89 = icmp ugt i64 %.val.i186, %.val22.i
   br i1 %89, label %78, label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit"
 
-"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193": ; preds = %81, %.thread.i199, %87, %.noexc201
-  %.sroa.83.07.i194 = phi i64 [ undef, %.noexc201 ], [ %.sroa.32.0.copyload.i.i.i190, %87 ], [ %.sroa.32.0.copyload.i.i.i190, %.thread.i199 ], [ %.sroa.32.0.copyload.i.i.i190, %81 ]
-  %.sroa.09.0.i195 = phi i64 [ 2, %.noexc201 ], [ 4, %87 ], [ 0, %.thread.i199 ], [ 3, %81 ]
+"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191": ; preds = %81, %.thread.i197, %87, %.noexc201
+  %.sroa.814.0.i192 = phi i64 [ undef, %.noexc201 ], [ %.sroa.32.0.copyload.i.i.i199, %.thread.i197 ], [ undef, %87 ], [ undef, %81 ]
+  %.sroa.09.0.i193 = phi i64 [ 2, %.noexc201 ], [ 0, %.thread.i197 ], [ 4, %87 ], [ 3, %81 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5), !noalias !6787
-  store i64 %.sroa.09.0.i195, ptr %14, align 8, !alias.scope !6782, !noalias !6799
+  store i64 %.sroa.09.0.i193, ptr %14, align 8, !alias.scope !6782, !noalias !6799
   store i64 %79, ptr %.sroa.9.0..sroa_idx, align 8, !alias.scope !6782, !noalias !6799
-  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i197 = getelementptr inbounds i8, ptr %14, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i197, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.i184, i64 64, i1 false), !noalias !6799
-  store i64 %.sroa.83.07.i194, ptr %.sroa.9232.0..sroa_idx, align 8, !alias.scope !6782, !noalias !6799
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.sroa.5.i184)
+  %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i195 = getelementptr inbounds i8, ptr %14, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx12.sroa_idx.i195, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.8.sroa.5.i183, i64 64, i1 false), !noalias !6799
+  store i64 %.sroa.814.0.i192, ptr %.sroa.9232.0..sroa_idx, align 8, !alias.scope !6782, !noalias !6799
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %.sroa.8.sroa.5.i183)
   %.sroa.024.0.copyload.pre = load i64, ptr %13, align 8
   br label %"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit"
 
-"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit": ; preds = %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193", %88, %75, %.thread249, %.thread
-  %.sroa.075.0.copyload = phi i64 [ %.sroa.024.0.copyload.pre, %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193" ], [ 1, %88 ], [ 1, %75 ], [ %.sroa.09.0.i178.ph, %.thread249 ], [ %44, %.thread ]
-  %.sroa.066.0.copyload = phi i64 [ %.sroa.09.0.i195, %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i193" ], [ 2, %88 ], [ %76, %75 ], [ %.sroa.010.0.copyload.pre, %.thread249 ], [ %45, %.thread ]
+"_ZN14ordered_stream4join22PollState$LT$I$C$T$GT$6update17h8ab12cdffccdb705E.exit": ; preds = %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191", %88, %75, %.thread249, %.thread
+  %.sroa.075.0.copyload = phi i64 [ %.sroa.024.0.copyload.pre, %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191" ], [ 1, %88 ], [ 1, %75 ], [ %.sroa.09.0.i177.ph, %.thread249 ], [ %44, %.thread ]
+  %.sroa.066.0.copyload = phi i64 [ %.sroa.09.0.i193, %"_ZN4core3ptr275drop_in_place$LT$ordered_stream..join..PollState$LT$futures_util..future..either..Either$LT$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$C$core..result..Result$LT$zbus..message..Message$C$zbus..error..Error$GT$$GT$$C$zbus..message..Sequence$GT$$GT$17h2fadab54a186dee9E.exit.i191" ], [ 2, %88 ], [ %76, %75 ], [ %.sroa.010.0.copyload.pre, %.thread249 ], [ %45, %.thread ]
   %.sroa.619.0.copyload = load i64, ptr %.sroa.9232.0..sroa_idx, align 8
   %.sroa.835.0.copyload = load i64, ptr %.sroa.17235.88..sroa_idx, align 8
   %90 = add i64 %.sroa.066.0.copyload, -2
@@ -25414,7 +25416,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit", %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i", %63
-  %.sroa.0.0 = phi ptr [ null, %63 ], [ null, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i" ], [ %.sroa.0.291, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit" ], [ %.sroa.0.291, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58" ]
+  %.sroa.0.0 = phi ptr [ null, %63 ], [ null, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i" ], [ %.sroa.0.292, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit" ], [ %.sroa.0.292, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i58" ]
   ret ptr %.sroa.0.0
 
 67:                                               ; preds = %58
@@ -25481,7 +25483,7 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   unreachable
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i", %89, %67
-  %.sroa.0.291 = phi ptr [ %62, %67 ], [ %.sroa.0.2.ph, %89 ], [ %.sroa.0.2.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ]
+  %.sroa.0.292 = phi ptr [ %62, %67 ], [ %.sroa.0.2.ph, %89 ], [ %.sroa.0.2.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i" ]
   %84 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !10266)
   call void @llvm.experimental.noalias.scope.decl(metadata !10269)
@@ -25515,10 +25517,10 @@ _ZN8tempfile7Builder11tempfile_in17h1081eee5ce1c9570E.exit: ; preds = %18
   br label %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hc49bb468b2640d11E.exit63": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i62", %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65"
-  resume { ptr, i32 } %.pn95
+  resume { ptr, i32 } %.pn96
 
 "_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17h2ac0c91537a990acE.exit65": ; preds = %.body.thread, %.body, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64", %97
-  %.pn95 = phi { ptr, i32 } [ %.pn.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64" ], [ %.pn.ph, %97 ], [ %lpad.thr_comm.split-lp, %.body ], [ %55, %.body.thread ]
+  %.pn96 = phi { ptr, i32 } [ %.pn.ph, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.16563453502491001324.exit.i.i1.i.i.i.i64" ], [ %.pn.ph, %97 ], [ %lpad.thr_comm.split-lp, %.body ], [ %55, %.body.thread ]
   %92 = getelementptr inbounds i8, ptr %0, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !10308)
   call void @llvm.experimental.noalias.scope.decl(metadata !10311)

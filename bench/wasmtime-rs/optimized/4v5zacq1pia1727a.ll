@@ -1043,11 +1043,12 @@ define { ptr, i64 } @"_ZN14cranelift_isle9serialize12group_by_mut28_$u7b$$u7b$cl
   store i64 0, ptr %2, align 8
   %13 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h796e0cc7c040a691E(ptr nonnull align 8 %4, ptr nonnull align 8 %12, ptr nonnull align 8 %2)
   %14 = extractvalue { i64, i64 } %13, 0
-  %15 = extractvalue { i64, i64 } %13, 1
-  %16 = icmp ne i64 %14, 0
-  %. = zext i1 %16 to i64
+  %15 = icmp ne i64 %14, 0
+  %16 = extractvalue { i64, i64 } %13, 1
+  %.sroa.32.0 = select i1 %15, i64 %16, i64 undef
+  %.sroa.01.0 = zext i1 %15 to i64
   %17 = load i64, ptr %5, align 8, !noundef !3
-  %18 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17ha647d545e2607418E"(i64 %., i64 %15, i64 %17)
+  %18 = call i64 @"_ZN4core6option15Option$LT$T$GT$6map_or17ha647d545e2607418E"(i64 %.sroa.01.0, i64 %.sroa.32.0, i64 %17)
   %19 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %20 = load i64, ptr %5, align 8, !noundef !3
   store ptr @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.2, ptr %0, align 8

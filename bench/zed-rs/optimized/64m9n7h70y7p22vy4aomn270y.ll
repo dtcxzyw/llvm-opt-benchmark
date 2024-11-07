@@ -13436,46 +13436,46 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
   %.sroa.0187.0 = phi float [ %.sroa.59.sroa.0.0.copyload, %9 ], [ 0.000000e+00, %7 ]
   %11 = getelementptr inbounds i8, ptr %1, i64 60
   %.sroa.012.0.copyload = load i32, ptr %11, align 4
-  %switch748 = icmp eq i32 %.sroa.012.0.copyload, 0
-  br i1 %switch748, label %13, label %12
+  %switch670 = icmp eq i32 %.sroa.012.0.copyload, 0
+  br i1 %switch670, label %13, label %12
 
 12:                                               ; preds = %10
   %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 76
   %.sroa.4.sroa.6.0.copyload = load float, ptr %.sroa.4.sroa.6.0..sroa.4.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 72
   %.sroa.4.sroa.5.0.copyload = load float, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 68
   %.sroa.4.sroa.4.0.copyload = load float, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.4.sroa.0.0.copyload = load float, ptr %.sroa.4.0..sroa_idx, align 4
   br label %13
 
 13:                                               ; preds = %10, %12
-  %.sroa.5205.0 = phi float [ %.sroa.4.sroa.6.0.copyload, %12 ], [ 0.000000e+00, %10 ]
-  %.sroa.4203.0 = phi float [ %.sroa.4.sroa.5.0.copyload, %12 ], [ 0.000000e+00, %10 ]
-  %.sroa.3201.0 = phi float [ %.sroa.4.sroa.4.0.copyload, %12 ], [ 0.000000e+00, %10 ]
-  %.sroa.0199.0 = phi float [ %.sroa.4.sroa.0.0.copyload, %12 ], [ 0.000000e+00, %10 ]
+  %..sroa.511.sroa.0.0 = phi float [ %.sroa.4.sroa.0.0.copyload, %12 ], [ 0.000000e+00, %10 ]
+  %..sroa.511.sroa.4.0 = phi float [ %.sroa.4.sroa.4.0.copyload, %12 ], [ 0.000000e+00, %10 ]
+  %..sroa.511.sroa.5.0 = phi float [ %.sroa.4.sroa.5.0.copyload, %12 ], [ 0.000000e+00, %10 ]
+  %..sroa.511.sroa.6.0 = phi float [ %.sroa.4.sroa.6.0.copyload, %12 ], [ 0.000000e+00, %10 ]
   %14 = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.015.0.copyload = load i32, ptr %14, align 4
-  %switch749 = icmp eq i32 %.sroa.015.0.copyload, 0
-  br i1 %switch749, label %16, label %15
+  %switch750 = icmp eq i32 %.sroa.015.0.copyload, 0
+  br i1 %switch750, label %16, label %15
 
 15:                                               ; preds = %13
   %.sroa.416.sroa.6.0..sroa.416.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 96
   %.sroa.416.sroa.6.0.copyload = load float, ptr %.sroa.416.sroa.6.0..sroa.416.0..sroa_idx.sroa_idx, align 4
+  %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 84
   %.sroa.416.sroa.5.0..sroa.416.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 92
   %.sroa.416.sroa.5.0.copyload = load float, ptr %.sroa.416.sroa.5.0..sroa.416.0..sroa_idx.sroa_idx, align 4
   %.sroa.416.sroa.4.0..sroa.416.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 88
   %.sroa.416.sroa.4.0.copyload = load float, ptr %.sroa.416.sroa.4.0..sroa.416.0..sroa_idx.sroa_idx, align 4
-  %.sroa.416.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 84
   %.sroa.416.sroa.0.0.copyload = load float, ptr %.sroa.416.0..sroa_idx, align 4
   br label %16
 
 16:                                               ; preds = %13, %15
-  %.sroa.5217.0 = phi float [ %.sroa.416.sroa.6.0.copyload, %15 ], [ 0.000000e+00, %13 ]
-  %.sroa.4.0 = phi float [ %.sroa.416.sroa.5.0.copyload, %15 ], [ 0.000000e+00, %13 ]
-  %.sroa.3213.0 = phi float [ %.sroa.416.sroa.4.0.copyload, %15 ], [ 0.000000e+00, %13 ]
-  %.sroa.0211.0 = phi float [ %.sroa.416.sroa.0.0.copyload, %15 ], [ 0.000000e+00, %13 ]
+  %..sroa.514.sroa.0.0 = phi float [ %.sroa.416.sroa.0.0.copyload, %15 ], [ 0.000000e+00, %13 ]
+  %..sroa.514.sroa.4.0 = phi float [ %.sroa.416.sroa.4.0.copyload, %15 ], [ 0.000000e+00, %13 ]
+  %..sroa.514.sroa.5.0 = phi float [ %.sroa.416.sroa.5.0.copyload, %15 ], [ 0.000000e+00, %13 ]
+  %..sroa.514.sroa.6.0 = phi float [ %.sroa.416.sroa.6.0.copyload, %15 ], [ 0.000000e+00, %13 ]
   %17 = getelementptr inbounds i8, ptr %1, i64 100
   %.sroa.019.0.copyload = load i32, ptr %17, align 4
   %switch751 = icmp eq i32 %.sroa.019.0.copyload, 0
@@ -13484,19 +13484,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 18:                                               ; preds = %16
   %.sroa.420.sroa.6.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 116
   %.sroa.420.sroa.6.0.copyload = load float, ptr %.sroa.420.sroa.6.0..sroa.420.0..sroa_idx.sroa_idx, align 4
+  %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.420.sroa.5.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 112
   %.sroa.420.sroa.5.0.copyload = load float, ptr %.sroa.420.sroa.5.0..sroa.420.0..sroa_idx.sroa_idx, align 4
   %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 108
   %.sroa.420.sroa.4.0.copyload = load float, ptr %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx, align 4
-  %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 104
   %.sroa.420.sroa.0.0.copyload = load float, ptr %.sroa.420.0..sroa_idx, align 4
   br label %19
 
 19:                                               ; preds = %16, %18
-  %.sroa.5229.0 = phi float [ %.sroa.420.sroa.6.0.copyload, %18 ], [ 0.000000e+00, %16 ]
-  %.sroa.4227.0 = phi float [ %.sroa.420.sroa.5.0.copyload, %18 ], [ 0.000000e+00, %16 ]
-  %.sroa.3225.0 = phi float [ %.sroa.420.sroa.4.0.copyload, %18 ], [ 0.000000e+00, %16 ]
-  %.sroa.0223.0 = phi float [ %.sroa.420.sroa.0.0.copyload, %18 ], [ 0.000000e+00, %16 ]
+  %..sroa.518.sroa.0.0 = phi float [ %.sroa.420.sroa.0.0.copyload, %18 ], [ 0.000000e+00, %16 ]
+  %..sroa.518.sroa.4.0 = phi float [ %.sroa.420.sroa.4.0.copyload, %18 ], [ 0.000000e+00, %16 ]
+  %..sroa.518.sroa.5.0 = phi float [ %.sroa.420.sroa.5.0.copyload, %18 ], [ 0.000000e+00, %16 ]
+  %..sroa.518.sroa.6.0 = phi float [ %.sroa.420.sroa.6.0.copyload, %18 ], [ 0.000000e+00, %16 ]
   %20 = getelementptr inbounds i8, ptr %1, i64 120
   %.sroa.023.0.copyload = load i32, ptr %20, align 4
   %switch753 = icmp eq i32 %.sroa.023.0.copyload, 0
@@ -13505,19 +13505,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 21:                                               ; preds = %19
   %.sroa.424.sroa.6.0..sroa.424.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 136
   %.sroa.424.sroa.6.0.copyload = load float, ptr %.sroa.424.sroa.6.0..sroa.424.0..sroa_idx.sroa_idx, align 4
+  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 124
   %.sroa.424.sroa.5.0..sroa.424.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 132
   %.sroa.424.sroa.5.0.copyload = load float, ptr %.sroa.424.sroa.5.0..sroa.424.0..sroa_idx.sroa_idx, align 4
   %.sroa.424.sroa.4.0..sroa.424.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 128
   %.sroa.424.sroa.4.0.copyload = load float, ptr %.sroa.424.sroa.4.0..sroa.424.0..sroa_idx.sroa_idx, align 4
-  %.sroa.424.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 124
   %.sroa.424.sroa.0.0.copyload = load float, ptr %.sroa.424.0..sroa_idx, align 4
   br label %22
 
 22:                                               ; preds = %19, %21
-  %.sroa.5241.0 = phi float [ %.sroa.424.sroa.6.0.copyload, %21 ], [ 0.000000e+00, %19 ]
-  %.sroa.4239.0 = phi float [ %.sroa.424.sroa.5.0.copyload, %21 ], [ 0.000000e+00, %19 ]
-  %.sroa.3237.0 = phi float [ %.sroa.424.sroa.4.0.copyload, %21 ], [ 0.000000e+00, %19 ]
-  %.sroa.0235.0 = phi float [ %.sroa.424.sroa.0.0.copyload, %21 ], [ 0.000000e+00, %19 ]
+  %..sroa.522.sroa.0.0 = phi float [ %.sroa.424.sroa.0.0.copyload, %21 ], [ 0.000000e+00, %19 ]
+  %..sroa.522.sroa.4.0 = phi float [ %.sroa.424.sroa.4.0.copyload, %21 ], [ 0.000000e+00, %19 ]
+  %..sroa.522.sroa.5.0 = phi float [ %.sroa.424.sroa.5.0.copyload, %21 ], [ 0.000000e+00, %19 ]
+  %..sroa.522.sroa.6.0 = phi float [ %.sroa.424.sroa.6.0.copyload, %21 ], [ 0.000000e+00, %19 ]
   %23 = getelementptr inbounds i8, ptr %1, i64 140
   %.sroa.027.0.copyload = load i32, ptr %23, align 4
   %switch755 = icmp eq i32 %.sroa.027.0.copyload, 0
@@ -13526,19 +13526,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 24:                                               ; preds = %22
   %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 156
   %.sroa.428.sroa.6.0.copyload = load float, ptr %.sroa.428.sroa.6.0..sroa.428.0..sroa_idx.sroa_idx, align 4
+  %.sroa.428.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 144
   %.sroa.428.sroa.5.0..sroa.428.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 152
   %.sroa.428.sroa.5.0.copyload = load float, ptr %.sroa.428.sroa.5.0..sroa.428.0..sroa_idx.sroa_idx, align 4
   %.sroa.428.sroa.4.0..sroa.428.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 148
   %.sroa.428.sroa.4.0.copyload = load float, ptr %.sroa.428.sroa.4.0..sroa.428.0..sroa_idx.sroa_idx, align 4
-  %.sroa.428.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 144
   %.sroa.428.sroa.0.0.copyload = load float, ptr %.sroa.428.0..sroa_idx, align 4
   br label %25
 
 25:                                               ; preds = %22, %24
-  %.sroa.5253.0 = phi float [ %.sroa.428.sroa.6.0.copyload, %24 ], [ 0.000000e+00, %22 ]
-  %.sroa.4251.0 = phi float [ %.sroa.428.sroa.5.0.copyload, %24 ], [ 0.000000e+00, %22 ]
-  %.sroa.3249.0 = phi float [ %.sroa.428.sroa.4.0.copyload, %24 ], [ 0.000000e+00, %22 ]
-  %.sroa.0247.0 = phi float [ %.sroa.428.sroa.0.0.copyload, %24 ], [ 0.000000e+00, %22 ]
+  %..sroa.526.sroa.0.0 = phi float [ %.sroa.428.sroa.0.0.copyload, %24 ], [ 0.000000e+00, %22 ]
+  %..sroa.526.sroa.4.0 = phi float [ %.sroa.428.sroa.4.0.copyload, %24 ], [ 0.000000e+00, %22 ]
+  %..sroa.526.sroa.5.0 = phi float [ %.sroa.428.sroa.5.0.copyload, %24 ], [ 0.000000e+00, %22 ]
+  %..sroa.526.sroa.6.0 = phi float [ %.sroa.428.sroa.6.0.copyload, %24 ], [ 0.000000e+00, %22 ]
   %26 = getelementptr inbounds i8, ptr %1, i64 160
   %.sroa.031.0.copyload = load i32, ptr %26, align 4
   %switch757 = icmp eq i32 %.sroa.031.0.copyload, 0
@@ -13547,19 +13547,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 27:                                               ; preds = %25
   %.sroa.432.sroa.6.0..sroa.432.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 176
   %.sroa.432.sroa.6.0.copyload = load float, ptr %.sroa.432.sroa.6.0..sroa.432.0..sroa_idx.sroa_idx, align 4
+  %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 164
   %.sroa.432.sroa.5.0..sroa.432.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 172
   %.sroa.432.sroa.5.0.copyload = load float, ptr %.sroa.432.sroa.5.0..sroa.432.0..sroa_idx.sroa_idx, align 4
   %.sroa.432.sroa.4.0..sroa.432.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 168
   %.sroa.432.sroa.4.0.copyload = load float, ptr %.sroa.432.sroa.4.0..sroa.432.0..sroa_idx.sroa_idx, align 4
-  %.sroa.432.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 164
   %.sroa.432.sroa.0.0.copyload = load float, ptr %.sroa.432.0..sroa_idx, align 4
   br label %28
 
 28:                                               ; preds = %25, %27
-  %.sroa.5265.0 = phi float [ %.sroa.432.sroa.6.0.copyload, %27 ], [ 0.000000e+00, %25 ]
-  %.sroa.4263.0 = phi float [ %.sroa.432.sroa.5.0.copyload, %27 ], [ 0.000000e+00, %25 ]
-  %.sroa.3261.0 = phi float [ %.sroa.432.sroa.4.0.copyload, %27 ], [ 0.000000e+00, %25 ]
-  %.sroa.0259.0 = phi float [ %.sroa.432.sroa.0.0.copyload, %27 ], [ 0.000000e+00, %25 ]
+  %..sroa.530.sroa.0.0 = phi float [ %.sroa.432.sroa.0.0.copyload, %27 ], [ 0.000000e+00, %25 ]
+  %..sroa.530.sroa.4.0 = phi float [ %.sroa.432.sroa.4.0.copyload, %27 ], [ 0.000000e+00, %25 ]
+  %..sroa.530.sroa.5.0 = phi float [ %.sroa.432.sroa.5.0.copyload, %27 ], [ 0.000000e+00, %25 ]
+  %..sroa.530.sroa.6.0 = phi float [ %.sroa.432.sroa.6.0.copyload, %27 ], [ 0.000000e+00, %25 ]
   %29 = getelementptr inbounds i8, ptr %1, i64 180
   %.sroa.035.0.copyload = load i32, ptr %29, align 4
   %switch759 = icmp eq i32 %.sroa.035.0.copyload, 0
@@ -13568,19 +13568,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 30:                                               ; preds = %28
   %.sroa.436.sroa.6.0..sroa.436.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 196
   %.sroa.436.sroa.6.0.copyload = load float, ptr %.sroa.436.sroa.6.0..sroa.436.0..sroa_idx.sroa_idx, align 4
+  %.sroa.436.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 184
   %.sroa.436.sroa.5.0..sroa.436.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 192
   %.sroa.436.sroa.5.0.copyload = load float, ptr %.sroa.436.sroa.5.0..sroa.436.0..sroa_idx.sroa_idx, align 4
   %.sroa.436.sroa.4.0..sroa.436.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 188
   %.sroa.436.sroa.4.0.copyload = load float, ptr %.sroa.436.sroa.4.0..sroa.436.0..sroa_idx.sroa_idx, align 4
-  %.sroa.436.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 184
   %.sroa.436.sroa.0.0.copyload = load float, ptr %.sroa.436.0..sroa_idx, align 4
   br label %31
 
 31:                                               ; preds = %28, %30
-  %.sroa.5277.0 = phi float [ %.sroa.436.sroa.6.0.copyload, %30 ], [ 0.000000e+00, %28 ]
-  %.sroa.4275.0 = phi float [ %.sroa.436.sroa.5.0.copyload, %30 ], [ 0.000000e+00, %28 ]
-  %.sroa.3273.0 = phi float [ %.sroa.436.sroa.4.0.copyload, %30 ], [ 0.000000e+00, %28 ]
-  %.sroa.0271.0 = phi float [ %.sroa.436.sroa.0.0.copyload, %30 ], [ 0.000000e+00, %28 ]
+  %..sroa.534.sroa.0.0 = phi float [ %.sroa.436.sroa.0.0.copyload, %30 ], [ 0.000000e+00, %28 ]
+  %..sroa.534.sroa.4.0 = phi float [ %.sroa.436.sroa.4.0.copyload, %30 ], [ 0.000000e+00, %28 ]
+  %..sroa.534.sroa.5.0 = phi float [ %.sroa.436.sroa.5.0.copyload, %30 ], [ 0.000000e+00, %28 ]
+  %..sroa.534.sroa.6.0 = phi float [ %.sroa.436.sroa.6.0.copyload, %30 ], [ 0.000000e+00, %28 ]
   %32 = getelementptr inbounds i8, ptr %1, i64 200
   %.sroa.039.0.copyload = load i32, ptr %32, align 4
   %switch761 = icmp eq i32 %.sroa.039.0.copyload, 0
@@ -13589,19 +13589,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 33:                                               ; preds = %31
   %.sroa.440.sroa.6.0..sroa.440.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 216
   %.sroa.440.sroa.6.0.copyload = load float, ptr %.sroa.440.sroa.6.0..sroa.440.0..sroa_idx.sroa_idx, align 4
+  %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 204
   %.sroa.440.sroa.5.0..sroa.440.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 212
   %.sroa.440.sroa.5.0.copyload = load float, ptr %.sroa.440.sroa.5.0..sroa.440.0..sroa_idx.sroa_idx, align 4
   %.sroa.440.sroa.4.0..sroa.440.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 208
   %.sroa.440.sroa.4.0.copyload = load float, ptr %.sroa.440.sroa.4.0..sroa.440.0..sroa_idx.sroa_idx, align 4
-  %.sroa.440.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 204
   %.sroa.440.sroa.0.0.copyload = load float, ptr %.sroa.440.0..sroa_idx, align 4
   br label %34
 
 34:                                               ; preds = %31, %33
-  %.sroa.5289.0 = phi float [ %.sroa.440.sroa.6.0.copyload, %33 ], [ 0.000000e+00, %31 ]
-  %.sroa.4287.0 = phi float [ %.sroa.440.sroa.5.0.copyload, %33 ], [ 0.000000e+00, %31 ]
-  %.sroa.3285.0 = phi float [ %.sroa.440.sroa.4.0.copyload, %33 ], [ 0.000000e+00, %31 ]
-  %.sroa.0283.0 = phi float [ %.sroa.440.sroa.0.0.copyload, %33 ], [ 0.000000e+00, %31 ]
+  %..sroa.538.sroa.0.0 = phi float [ %.sroa.440.sroa.0.0.copyload, %33 ], [ 0.000000e+00, %31 ]
+  %..sroa.538.sroa.4.0 = phi float [ %.sroa.440.sroa.4.0.copyload, %33 ], [ 0.000000e+00, %31 ]
+  %..sroa.538.sroa.5.0 = phi float [ %.sroa.440.sroa.5.0.copyload, %33 ], [ 0.000000e+00, %31 ]
+  %..sroa.538.sroa.6.0 = phi float [ %.sroa.440.sroa.6.0.copyload, %33 ], [ 0.000000e+00, %31 ]
   %35 = getelementptr inbounds i8, ptr %1, i64 220
   %.sroa.043.0.copyload = load i32, ptr %35, align 4
   %switch763 = icmp eq i32 %.sroa.043.0.copyload, 0
@@ -13610,19 +13610,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 36:                                               ; preds = %34
   %.sroa.444.sroa.6.0..sroa.444.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 236
   %.sroa.444.sroa.6.0.copyload = load float, ptr %.sroa.444.sroa.6.0..sroa.444.0..sroa_idx.sroa_idx, align 4
+  %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 224
   %.sroa.444.sroa.5.0..sroa.444.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 232
   %.sroa.444.sroa.5.0.copyload = load float, ptr %.sroa.444.sroa.5.0..sroa.444.0..sroa_idx.sroa_idx, align 4
   %.sroa.444.sroa.4.0..sroa.444.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 228
   %.sroa.444.sroa.4.0.copyload = load float, ptr %.sroa.444.sroa.4.0..sroa.444.0..sroa_idx.sroa_idx, align 4
-  %.sroa.444.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 224
   %.sroa.444.sroa.0.0.copyload = load float, ptr %.sroa.444.0..sroa_idx, align 4
   br label %37
 
 37:                                               ; preds = %34, %36
-  %.sroa.5301.0 = phi float [ %.sroa.444.sroa.6.0.copyload, %36 ], [ 0.000000e+00, %34 ]
-  %.sroa.4299.0 = phi float [ %.sroa.444.sroa.5.0.copyload, %36 ], [ 0.000000e+00, %34 ]
-  %.sroa.3297.0 = phi float [ %.sroa.444.sroa.4.0.copyload, %36 ], [ 0.000000e+00, %34 ]
-  %.sroa.0295.0 = phi float [ %.sroa.444.sroa.0.0.copyload, %36 ], [ 0.000000e+00, %34 ]
+  %..sroa.542.sroa.0.0 = phi float [ %.sroa.444.sroa.0.0.copyload, %36 ], [ 0.000000e+00, %34 ]
+  %..sroa.542.sroa.4.0 = phi float [ %.sroa.444.sroa.4.0.copyload, %36 ], [ 0.000000e+00, %34 ]
+  %..sroa.542.sroa.5.0 = phi float [ %.sroa.444.sroa.5.0.copyload, %36 ], [ 0.000000e+00, %34 ]
+  %..sroa.542.sroa.6.0 = phi float [ %.sroa.444.sroa.6.0.copyload, %36 ], [ 0.000000e+00, %34 ]
   %38 = getelementptr inbounds i8, ptr %1, i64 240
   %.sroa.047.0.copyload = load i32, ptr %38, align 4
   %switch765 = icmp eq i32 %.sroa.047.0.copyload, 0
@@ -13631,19 +13631,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 39:                                               ; preds = %37
   %.sroa.448.sroa.6.0..sroa.448.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 256
   %.sroa.448.sroa.6.0.copyload = load float, ptr %.sroa.448.sroa.6.0..sroa.448.0..sroa_idx.sroa_idx, align 4
+  %.sroa.448.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 244
   %.sroa.448.sroa.5.0..sroa.448.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 252
   %.sroa.448.sroa.5.0.copyload = load float, ptr %.sroa.448.sroa.5.0..sroa.448.0..sroa_idx.sroa_idx, align 4
   %.sroa.448.sroa.4.0..sroa.448.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 248
   %.sroa.448.sroa.4.0.copyload = load float, ptr %.sroa.448.sroa.4.0..sroa.448.0..sroa_idx.sroa_idx, align 4
-  %.sroa.448.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 244
   %.sroa.448.sroa.0.0.copyload = load float, ptr %.sroa.448.0..sroa_idx, align 4
   br label %40
 
 40:                                               ; preds = %37, %39
-  %.sroa.5313.0 = phi float [ %.sroa.448.sroa.6.0.copyload, %39 ], [ 0.000000e+00, %37 ]
-  %.sroa.4311.0 = phi float [ %.sroa.448.sroa.5.0.copyload, %39 ], [ 0.000000e+00, %37 ]
-  %.sroa.3309.0 = phi float [ %.sroa.448.sroa.4.0.copyload, %39 ], [ 0.000000e+00, %37 ]
-  %.sroa.0307.0 = phi float [ %.sroa.448.sroa.0.0.copyload, %39 ], [ 0.000000e+00, %37 ]
+  %..sroa.546.sroa.0.0 = phi float [ %.sroa.448.sroa.0.0.copyload, %39 ], [ 0.000000e+00, %37 ]
+  %..sroa.546.sroa.4.0 = phi float [ %.sroa.448.sroa.4.0.copyload, %39 ], [ 0.000000e+00, %37 ]
+  %..sroa.546.sroa.5.0 = phi float [ %.sroa.448.sroa.5.0.copyload, %39 ], [ 0.000000e+00, %37 ]
+  %..sroa.546.sroa.6.0 = phi float [ %.sroa.448.sroa.6.0.copyload, %39 ], [ 0.000000e+00, %37 ]
   %41 = getelementptr inbounds i8, ptr %1, i64 260
   %.sroa.051.0.copyload = load i32, ptr %41, align 4
   %switch767 = icmp eq i32 %.sroa.051.0.copyload, 0
@@ -13652,19 +13652,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 42:                                               ; preds = %40
   %.sroa.452.sroa.6.0..sroa.452.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 276
   %.sroa.452.sroa.6.0.copyload = load float, ptr %.sroa.452.sroa.6.0..sroa.452.0..sroa_idx.sroa_idx, align 4
+  %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 264
   %.sroa.452.sroa.5.0..sroa.452.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 272
   %.sroa.452.sroa.5.0.copyload = load float, ptr %.sroa.452.sroa.5.0..sroa.452.0..sroa_idx.sroa_idx, align 4
   %.sroa.452.sroa.4.0..sroa.452.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 268
   %.sroa.452.sroa.4.0.copyload = load float, ptr %.sroa.452.sroa.4.0..sroa.452.0..sroa_idx.sroa_idx, align 4
-  %.sroa.452.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 264
   %.sroa.452.sroa.0.0.copyload = load float, ptr %.sroa.452.0..sroa_idx, align 4
   br label %43
 
 43:                                               ; preds = %40, %42
-  %.sroa.5325.0 = phi float [ %.sroa.452.sroa.6.0.copyload, %42 ], [ 0.000000e+00, %40 ]
-  %.sroa.4323.0 = phi float [ %.sroa.452.sroa.5.0.copyload, %42 ], [ 0.000000e+00, %40 ]
-  %.sroa.3321.0 = phi float [ %.sroa.452.sroa.4.0.copyload, %42 ], [ 0.000000e+00, %40 ]
-  %.sroa.0319.0 = phi float [ %.sroa.452.sroa.0.0.copyload, %42 ], [ 0.000000e+00, %40 ]
+  %..sroa.550.sroa.0.0 = phi float [ %.sroa.452.sroa.0.0.copyload, %42 ], [ 0.000000e+00, %40 ]
+  %..sroa.550.sroa.4.0 = phi float [ %.sroa.452.sroa.4.0.copyload, %42 ], [ 0.000000e+00, %40 ]
+  %..sroa.550.sroa.5.0 = phi float [ %.sroa.452.sroa.5.0.copyload, %42 ], [ 0.000000e+00, %40 ]
+  %..sroa.550.sroa.6.0 = phi float [ %.sroa.452.sroa.6.0.copyload, %42 ], [ 0.000000e+00, %40 ]
   %44 = getelementptr inbounds i8, ptr %1, i64 280
   %.sroa.055.0.copyload = load i32, ptr %44, align 4
   %switch769 = icmp eq i32 %.sroa.055.0.copyload, 0
@@ -13673,19 +13673,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 45:                                               ; preds = %43
   %.sroa.456.sroa.6.0..sroa.456.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 296
   %.sroa.456.sroa.6.0.copyload = load float, ptr %.sroa.456.sroa.6.0..sroa.456.0..sroa_idx.sroa_idx, align 4
+  %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 284
   %.sroa.456.sroa.5.0..sroa.456.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 292
   %.sroa.456.sroa.5.0.copyload = load float, ptr %.sroa.456.sroa.5.0..sroa.456.0..sroa_idx.sroa_idx, align 4
   %.sroa.456.sroa.4.0..sroa.456.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 288
   %.sroa.456.sroa.4.0.copyload = load float, ptr %.sroa.456.sroa.4.0..sroa.456.0..sroa_idx.sroa_idx, align 4
-  %.sroa.456.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 284
   %.sroa.456.sroa.0.0.copyload = load float, ptr %.sroa.456.0..sroa_idx, align 4
   br label %46
 
 46:                                               ; preds = %43, %45
-  %.sroa.5337.0 = phi float [ %.sroa.456.sroa.6.0.copyload, %45 ], [ 0.000000e+00, %43 ]
-  %.sroa.4335.0 = phi float [ %.sroa.456.sroa.5.0.copyload, %45 ], [ 0.000000e+00, %43 ]
-  %.sroa.3333.0 = phi float [ %.sroa.456.sroa.4.0.copyload, %45 ], [ 0.000000e+00, %43 ]
-  %.sroa.0331.0 = phi float [ %.sroa.456.sroa.0.0.copyload, %45 ], [ 0.000000e+00, %43 ]
+  %..sroa.554.sroa.0.0 = phi float [ %.sroa.456.sroa.0.0.copyload, %45 ], [ 0.000000e+00, %43 ]
+  %..sroa.554.sroa.4.0 = phi float [ %.sroa.456.sroa.4.0.copyload, %45 ], [ 0.000000e+00, %43 ]
+  %..sroa.554.sroa.5.0 = phi float [ %.sroa.456.sroa.5.0.copyload, %45 ], [ 0.000000e+00, %43 ]
+  %..sroa.554.sroa.6.0 = phi float [ %.sroa.456.sroa.6.0.copyload, %45 ], [ 0.000000e+00, %43 ]
   %47 = getelementptr inbounds i8, ptr %1, i64 300
   %.sroa.059.0.copyload = load i32, ptr %47, align 4
   %switch771 = icmp eq i32 %.sroa.059.0.copyload, 0
@@ -13694,19 +13694,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 48:                                               ; preds = %46
   %.sroa.460.sroa.6.0..sroa.460.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 316
   %.sroa.460.sroa.6.0.copyload = load float, ptr %.sroa.460.sroa.6.0..sroa.460.0..sroa_idx.sroa_idx, align 4
+  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 304
   %.sroa.460.sroa.5.0..sroa.460.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 312
   %.sroa.460.sroa.5.0.copyload = load float, ptr %.sroa.460.sroa.5.0..sroa.460.0..sroa_idx.sroa_idx, align 4
   %.sroa.460.sroa.4.0..sroa.460.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 308
   %.sroa.460.sroa.4.0.copyload = load float, ptr %.sroa.460.sroa.4.0..sroa.460.0..sroa_idx.sroa_idx, align 4
-  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 304
   %.sroa.460.sroa.0.0.copyload = load float, ptr %.sroa.460.0..sroa_idx, align 4
   br label %49
 
 49:                                               ; preds = %46, %48
-  %.sroa.5349.0 = phi float [ %.sroa.460.sroa.6.0.copyload, %48 ], [ 0.000000e+00, %46 ]
-  %.sroa.4347.0 = phi float [ %.sroa.460.sroa.5.0.copyload, %48 ], [ 0.000000e+00, %46 ]
-  %.sroa.3345.0 = phi float [ %.sroa.460.sroa.4.0.copyload, %48 ], [ 0.000000e+00, %46 ]
-  %.sroa.0343.0 = phi float [ %.sroa.460.sroa.0.0.copyload, %48 ], [ 0.000000e+00, %46 ]
+  %..sroa.558.sroa.0.0 = phi float [ %.sroa.460.sroa.0.0.copyload, %48 ], [ 0.000000e+00, %46 ]
+  %..sroa.558.sroa.4.0 = phi float [ %.sroa.460.sroa.4.0.copyload, %48 ], [ 0.000000e+00, %46 ]
+  %..sroa.558.sroa.5.0 = phi float [ %.sroa.460.sroa.5.0.copyload, %48 ], [ 0.000000e+00, %46 ]
+  %..sroa.558.sroa.6.0 = phi float [ %.sroa.460.sroa.6.0.copyload, %48 ], [ 0.000000e+00, %46 ]
   %50 = getelementptr inbounds i8, ptr %1, i64 320
   %.sroa.063.0.copyload = load i32, ptr %50, align 4
   %switch773 = icmp eq i32 %.sroa.063.0.copyload, 0
@@ -13715,19 +13715,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 51:                                               ; preds = %49
   %.sroa.464.sroa.6.0..sroa.464.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 336
   %.sroa.464.sroa.6.0.copyload = load float, ptr %.sroa.464.sroa.6.0..sroa.464.0..sroa_idx.sroa_idx, align 4
+  %.sroa.464.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 324
   %.sroa.464.sroa.5.0..sroa.464.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 332
   %.sroa.464.sroa.5.0.copyload = load float, ptr %.sroa.464.sroa.5.0..sroa.464.0..sroa_idx.sroa_idx, align 4
   %.sroa.464.sroa.4.0..sroa.464.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 328
   %.sroa.464.sroa.4.0.copyload = load float, ptr %.sroa.464.sroa.4.0..sroa.464.0..sroa_idx.sroa_idx, align 4
-  %.sroa.464.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 324
   %.sroa.464.sroa.0.0.copyload = load float, ptr %.sroa.464.0..sroa_idx, align 4
   br label %52
 
 52:                                               ; preds = %49, %51
-  %.sroa.5361.0 = phi float [ %.sroa.464.sroa.6.0.copyload, %51 ], [ 0.000000e+00, %49 ]
-  %.sroa.4359.0 = phi float [ %.sroa.464.sroa.5.0.copyload, %51 ], [ 0.000000e+00, %49 ]
-  %.sroa.3357.0 = phi float [ %.sroa.464.sroa.4.0.copyload, %51 ], [ 0.000000e+00, %49 ]
-  %.sroa.0355.0 = phi float [ %.sroa.464.sroa.0.0.copyload, %51 ], [ 0.000000e+00, %49 ]
+  %..sroa.562.sroa.0.0 = phi float [ %.sroa.464.sroa.0.0.copyload, %51 ], [ 0.000000e+00, %49 ]
+  %..sroa.562.sroa.4.0 = phi float [ %.sroa.464.sroa.4.0.copyload, %51 ], [ 0.000000e+00, %49 ]
+  %..sroa.562.sroa.5.0 = phi float [ %.sroa.464.sroa.5.0.copyload, %51 ], [ 0.000000e+00, %49 ]
+  %..sroa.562.sroa.6.0 = phi float [ %.sroa.464.sroa.6.0.copyload, %51 ], [ 0.000000e+00, %49 ]
   %53 = getelementptr inbounds i8, ptr %1, i64 340
   %.sroa.067.0.copyload = load i32, ptr %53, align 4
   %switch775 = icmp eq i32 %.sroa.067.0.copyload, 0
@@ -13736,19 +13736,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 54:                                               ; preds = %52
   %.sroa.468.sroa.6.0..sroa.468.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 356
   %.sroa.468.sroa.6.0.copyload = load float, ptr %.sroa.468.sroa.6.0..sroa.468.0..sroa_idx.sroa_idx, align 4
+  %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 344
   %.sroa.468.sroa.5.0..sroa.468.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 352
   %.sroa.468.sroa.5.0.copyload = load float, ptr %.sroa.468.sroa.5.0..sroa.468.0..sroa_idx.sroa_idx, align 4
   %.sroa.468.sroa.4.0..sroa.468.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 348
   %.sroa.468.sroa.4.0.copyload = load float, ptr %.sroa.468.sroa.4.0..sroa.468.0..sroa_idx.sroa_idx, align 4
-  %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 344
   %.sroa.468.sroa.0.0.copyload = load float, ptr %.sroa.468.0..sroa_idx, align 4
   br label %55
 
 55:                                               ; preds = %52, %54
-  %.sroa.5373.0 = phi float [ %.sroa.468.sroa.6.0.copyload, %54 ], [ 0.000000e+00, %52 ]
-  %.sroa.4371.0 = phi float [ %.sroa.468.sroa.5.0.copyload, %54 ], [ 0.000000e+00, %52 ]
-  %.sroa.3369.0 = phi float [ %.sroa.468.sroa.4.0.copyload, %54 ], [ 0.000000e+00, %52 ]
-  %.sroa.0367.0 = phi float [ %.sroa.468.sroa.0.0.copyload, %54 ], [ 0.000000e+00, %52 ]
+  %..sroa.566.sroa.0.0 = phi float [ %.sroa.468.sroa.0.0.copyload, %54 ], [ 0.000000e+00, %52 ]
+  %..sroa.566.sroa.4.0 = phi float [ %.sroa.468.sroa.4.0.copyload, %54 ], [ 0.000000e+00, %52 ]
+  %..sroa.566.sroa.5.0 = phi float [ %.sroa.468.sroa.5.0.copyload, %54 ], [ 0.000000e+00, %52 ]
+  %..sroa.566.sroa.6.0 = phi float [ %.sroa.468.sroa.6.0.copyload, %54 ], [ 0.000000e+00, %52 ]
   %56 = getelementptr inbounds i8, ptr %1, i64 360
   %.sroa.071.0.copyload = load i32, ptr %56, align 4
   %switch777 = icmp eq i32 %.sroa.071.0.copyload, 0
@@ -13757,19 +13757,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 57:                                               ; preds = %55
   %.sroa.472.sroa.6.0..sroa.472.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 376
   %.sroa.472.sroa.6.0.copyload = load float, ptr %.sroa.472.sroa.6.0..sroa.472.0..sroa_idx.sroa_idx, align 4
+  %.sroa.472.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 364
   %.sroa.472.sroa.5.0..sroa.472.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 372
   %.sroa.472.sroa.5.0.copyload = load float, ptr %.sroa.472.sroa.5.0..sroa.472.0..sroa_idx.sroa_idx, align 4
   %.sroa.472.sroa.4.0..sroa.472.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 368
   %.sroa.472.sroa.4.0.copyload = load float, ptr %.sroa.472.sroa.4.0..sroa.472.0..sroa_idx.sroa_idx, align 4
-  %.sroa.472.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 364
   %.sroa.472.sroa.0.0.copyload = load float, ptr %.sroa.472.0..sroa_idx, align 4
   br label %58
 
 58:                                               ; preds = %55, %57
-  %.sroa.0379.0 = phi float [ %.sroa.472.sroa.0.0.copyload, %57 ], [ 0.000000e+00, %55 ]
-  %.sroa.3381.0 = phi float [ %.sroa.472.sroa.4.0.copyload, %57 ], [ 0.000000e+00, %55 ]
-  %.sroa.4383.0 = phi float [ %.sroa.472.sroa.5.0.copyload, %57 ], [ 0.000000e+00, %55 ]
-  %.sroa.5385.0 = phi float [ %.sroa.472.sroa.6.0.copyload, %57 ], [ 0.000000e+00, %55 ]
+  %..sroa.570.sroa.6.0 = phi float [ %.sroa.472.sroa.6.0.copyload, %57 ], [ 0.000000e+00, %55 ]
+  %..sroa.570.sroa.5.0 = phi float [ %.sroa.472.sroa.5.0.copyload, %57 ], [ 0.000000e+00, %55 ]
+  %..sroa.570.sroa.4.0 = phi float [ %.sroa.472.sroa.4.0.copyload, %57 ], [ 0.000000e+00, %55 ]
+  %..sroa.570.sroa.0.0 = phi float [ %.sroa.472.sroa.0.0.copyload, %57 ], [ 0.000000e+00, %55 ]
   %59 = getelementptr inbounds i8, ptr %1, i64 380
   %.sroa.075.0.copyload = load i32, ptr %59, align 4
   %switch779 = icmp eq i32 %.sroa.075.0.copyload, 0
@@ -13778,19 +13778,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 60:                                               ; preds = %58
   %.sroa.476.sroa.6.0..sroa.476.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 396
   %.sroa.476.sroa.6.0.copyload = load float, ptr %.sroa.476.sroa.6.0..sroa.476.0..sroa_idx.sroa_idx, align 4
+  %.sroa.476.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 384
   %.sroa.476.sroa.5.0..sroa.476.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 392
   %.sroa.476.sroa.5.0.copyload = load float, ptr %.sroa.476.sroa.5.0..sroa.476.0..sroa_idx.sroa_idx, align 4
   %.sroa.476.sroa.4.0..sroa.476.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 388
   %.sroa.476.sroa.4.0.copyload = load float, ptr %.sroa.476.sroa.4.0..sroa.476.0..sroa_idx.sroa_idx, align 4
-  %.sroa.476.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 384
   %.sroa.476.sroa.0.0.copyload = load float, ptr %.sroa.476.0..sroa_idx, align 4
   br label %61
 
 61:                                               ; preds = %58, %60
-  %.sroa.0391.0 = phi float [ %.sroa.476.sroa.0.0.copyload, %60 ], [ 0.000000e+00, %58 ]
-  %.sroa.3393.0 = phi float [ %.sroa.476.sroa.4.0.copyload, %60 ], [ 0.000000e+00, %58 ]
-  %.sroa.4395.0 = phi float [ %.sroa.476.sroa.5.0.copyload, %60 ], [ 0.000000e+00, %58 ]
-  %.sroa.5397.0 = phi float [ %.sroa.476.sroa.6.0.copyload, %60 ], [ 0.000000e+00, %58 ]
+  %..sroa.574.sroa.6.0 = phi float [ %.sroa.476.sroa.6.0.copyload, %60 ], [ 0.000000e+00, %58 ]
+  %..sroa.574.sroa.5.0 = phi float [ %.sroa.476.sroa.5.0.copyload, %60 ], [ 0.000000e+00, %58 ]
+  %..sroa.574.sroa.4.0 = phi float [ %.sroa.476.sroa.4.0.copyload, %60 ], [ 0.000000e+00, %58 ]
+  %..sroa.574.sroa.0.0 = phi float [ %.sroa.476.sroa.0.0.copyload, %60 ], [ 0.000000e+00, %58 ]
   %62 = getelementptr inbounds i8, ptr %1, i64 400
   %.sroa.079.0.copyload = load i32, ptr %62, align 4
   %switch781 = icmp eq i32 %.sroa.079.0.copyload, 0
@@ -13799,19 +13799,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 63:                                               ; preds = %61
   %.sroa.480.sroa.6.0..sroa.480.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 416
   %.sroa.480.sroa.6.0.copyload = load float, ptr %.sroa.480.sroa.6.0..sroa.480.0..sroa_idx.sroa_idx, align 4
+  %.sroa.480.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 404
   %.sroa.480.sroa.5.0..sroa.480.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 412
   %.sroa.480.sroa.5.0.copyload = load float, ptr %.sroa.480.sroa.5.0..sroa.480.0..sroa_idx.sroa_idx, align 4
   %.sroa.480.sroa.4.0..sroa.480.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 408
   %.sroa.480.sroa.4.0.copyload = load float, ptr %.sroa.480.sroa.4.0..sroa.480.0..sroa_idx.sroa_idx, align 4
-  %.sroa.480.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 404
   %.sroa.480.sroa.0.0.copyload = load float, ptr %.sroa.480.0..sroa_idx, align 4
   br label %64
 
 64:                                               ; preds = %61, %63
-  %.sroa.0403.0 = phi float [ %.sroa.480.sroa.0.0.copyload, %63 ], [ 0.000000e+00, %61 ]
-  %.sroa.3405.0 = phi float [ %.sroa.480.sroa.4.0.copyload, %63 ], [ 0.000000e+00, %61 ]
-  %.sroa.4407.0 = phi float [ %.sroa.480.sroa.5.0.copyload, %63 ], [ 0.000000e+00, %61 ]
-  %.sroa.5409.0 = phi float [ %.sroa.480.sroa.6.0.copyload, %63 ], [ 0.000000e+00, %61 ]
+  %..sroa.578.sroa.6.0 = phi float [ %.sroa.480.sroa.6.0.copyload, %63 ], [ 0.000000e+00, %61 ]
+  %..sroa.578.sroa.5.0 = phi float [ %.sroa.480.sroa.5.0.copyload, %63 ], [ 0.000000e+00, %61 ]
+  %..sroa.578.sroa.4.0 = phi float [ %.sroa.480.sroa.4.0.copyload, %63 ], [ 0.000000e+00, %61 ]
+  %..sroa.578.sroa.0.0 = phi float [ %.sroa.480.sroa.0.0.copyload, %63 ], [ 0.000000e+00, %61 ]
   %65 = getelementptr inbounds i8, ptr %1, i64 420
   %.sroa.083.0.copyload = load i32, ptr %65, align 4
   %switch783 = icmp eq i32 %.sroa.083.0.copyload, 0
@@ -13820,19 +13820,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 66:                                               ; preds = %64
   %.sroa.484.sroa.6.0..sroa.484.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 436
   %.sroa.484.sroa.6.0.copyload = load float, ptr %.sroa.484.sroa.6.0..sroa.484.0..sroa_idx.sroa_idx, align 4
+  %.sroa.484.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 424
   %.sroa.484.sroa.5.0..sroa.484.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 432
   %.sroa.484.sroa.5.0.copyload = load float, ptr %.sroa.484.sroa.5.0..sroa.484.0..sroa_idx.sroa_idx, align 4
   %.sroa.484.sroa.4.0..sroa.484.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 428
   %.sroa.484.sroa.4.0.copyload = load float, ptr %.sroa.484.sroa.4.0..sroa.484.0..sroa_idx.sroa_idx, align 4
-  %.sroa.484.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 424
   %.sroa.484.sroa.0.0.copyload = load float, ptr %.sroa.484.0..sroa_idx, align 4
   br label %67
 
 67:                                               ; preds = %64, %66
-  %.sroa.0415.0 = phi float [ %.sroa.484.sroa.0.0.copyload, %66 ], [ 0.000000e+00, %64 ]
-  %.sroa.3417.0 = phi float [ %.sroa.484.sroa.4.0.copyload, %66 ], [ 0.000000e+00, %64 ]
-  %.sroa.4419.0 = phi float [ %.sroa.484.sroa.5.0.copyload, %66 ], [ 0.000000e+00, %64 ]
-  %.sroa.5421.0 = phi float [ %.sroa.484.sroa.6.0.copyload, %66 ], [ 0.000000e+00, %64 ]
+  %..sroa.582.sroa.6.0 = phi float [ %.sroa.484.sroa.6.0.copyload, %66 ], [ 0.000000e+00, %64 ]
+  %..sroa.582.sroa.5.0 = phi float [ %.sroa.484.sroa.5.0.copyload, %66 ], [ 0.000000e+00, %64 ]
+  %..sroa.582.sroa.4.0 = phi float [ %.sroa.484.sroa.4.0.copyload, %66 ], [ 0.000000e+00, %64 ]
+  %..sroa.582.sroa.0.0 = phi float [ %.sroa.484.sroa.0.0.copyload, %66 ], [ 0.000000e+00, %64 ]
   %68 = getelementptr inbounds i8, ptr %1, i64 440
   %.sroa.087.0.copyload = load i32, ptr %68, align 4
   %switch785 = icmp eq i32 %.sroa.087.0.copyload, 0
@@ -13841,19 +13841,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 69:                                               ; preds = %67
   %.sroa.488.sroa.6.0..sroa.488.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 456
   %.sroa.488.sroa.6.0.copyload = load float, ptr %.sroa.488.sroa.6.0..sroa.488.0..sroa_idx.sroa_idx, align 4
+  %.sroa.488.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 444
   %.sroa.488.sroa.5.0..sroa.488.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 452
   %.sroa.488.sroa.5.0.copyload = load float, ptr %.sroa.488.sroa.5.0..sroa.488.0..sroa_idx.sroa_idx, align 4
   %.sroa.488.sroa.4.0..sroa.488.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 448
   %.sroa.488.sroa.4.0.copyload = load float, ptr %.sroa.488.sroa.4.0..sroa.488.0..sroa_idx.sroa_idx, align 4
-  %.sroa.488.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 444
   %.sroa.488.sroa.0.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   br label %70
 
 70:                                               ; preds = %67, %69
-  %.sroa.0427.0 = phi float [ %.sroa.488.sroa.0.0.copyload, %69 ], [ 0.000000e+00, %67 ]
-  %.sroa.3429.0 = phi float [ %.sroa.488.sroa.4.0.copyload, %69 ], [ 0.000000e+00, %67 ]
-  %.sroa.4431.0 = phi float [ %.sroa.488.sroa.5.0.copyload, %69 ], [ 0.000000e+00, %67 ]
-  %.sroa.5433.0 = phi float [ %.sroa.488.sroa.6.0.copyload, %69 ], [ 0.000000e+00, %67 ]
+  %..sroa.586.sroa.6.0 = phi float [ %.sroa.488.sroa.6.0.copyload, %69 ], [ 0.000000e+00, %67 ]
+  %..sroa.586.sroa.5.0 = phi float [ %.sroa.488.sroa.5.0.copyload, %69 ], [ 0.000000e+00, %67 ]
+  %..sroa.586.sroa.4.0 = phi float [ %.sroa.488.sroa.4.0.copyload, %69 ], [ 0.000000e+00, %67 ]
+  %..sroa.586.sroa.0.0 = phi float [ %.sroa.488.sroa.0.0.copyload, %69 ], [ 0.000000e+00, %67 ]
   %71 = getelementptr inbounds i8, ptr %1, i64 460
   %.sroa.091.0.copyload = load i32, ptr %71, align 4
   %switch787 = icmp eq i32 %.sroa.091.0.copyload, 0
@@ -13862,19 +13862,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 72:                                               ; preds = %70
   %.sroa.492.sroa.6.0..sroa.492.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 476
   %.sroa.492.sroa.6.0.copyload = load float, ptr %.sroa.492.sroa.6.0..sroa.492.0..sroa_idx.sroa_idx, align 4
+  %.sroa.492.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 464
   %.sroa.492.sroa.5.0..sroa.492.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 472
   %.sroa.492.sroa.5.0.copyload = load float, ptr %.sroa.492.sroa.5.0..sroa.492.0..sroa_idx.sroa_idx, align 4
   %.sroa.492.sroa.4.0..sroa.492.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 468
   %.sroa.492.sroa.4.0.copyload = load float, ptr %.sroa.492.sroa.4.0..sroa.492.0..sroa_idx.sroa_idx, align 4
-  %.sroa.492.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 464
   %.sroa.492.sroa.0.0.copyload = load float, ptr %.sroa.492.0..sroa_idx, align 4
   br label %73
 
 73:                                               ; preds = %70, %72
-  %.sroa.0439.0 = phi float [ %.sroa.492.sroa.0.0.copyload, %72 ], [ 0.000000e+00, %70 ]
-  %.sroa.3441.0 = phi float [ %.sroa.492.sroa.4.0.copyload, %72 ], [ 0.000000e+00, %70 ]
-  %.sroa.4443.0 = phi float [ %.sroa.492.sroa.5.0.copyload, %72 ], [ 0.000000e+00, %70 ]
-  %.sroa.5445.0 = phi float [ %.sroa.492.sroa.6.0.copyload, %72 ], [ 0.000000e+00, %70 ]
+  %..sroa.590.sroa.6.0 = phi float [ %.sroa.492.sroa.6.0.copyload, %72 ], [ 0.000000e+00, %70 ]
+  %..sroa.590.sroa.5.0 = phi float [ %.sroa.492.sroa.5.0.copyload, %72 ], [ 0.000000e+00, %70 ]
+  %..sroa.590.sroa.4.0 = phi float [ %.sroa.492.sroa.4.0.copyload, %72 ], [ 0.000000e+00, %70 ]
+  %..sroa.590.sroa.0.0 = phi float [ %.sroa.492.sroa.0.0.copyload, %72 ], [ 0.000000e+00, %70 ]
   %74 = getelementptr inbounds i8, ptr %1, i64 480
   %.sroa.095.0.copyload = load i32, ptr %74, align 4
   %switch789 = icmp eq i32 %.sroa.095.0.copyload, 0
@@ -13883,19 +13883,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 75:                                               ; preds = %73
   %.sroa.496.sroa.6.0..sroa.496.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 496
   %.sroa.496.sroa.6.0.copyload = load float, ptr %.sroa.496.sroa.6.0..sroa.496.0..sroa_idx.sroa_idx, align 4
+  %.sroa.496.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 484
   %.sroa.496.sroa.5.0..sroa.496.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 492
   %.sroa.496.sroa.5.0.copyload = load float, ptr %.sroa.496.sroa.5.0..sroa.496.0..sroa_idx.sroa_idx, align 4
   %.sroa.496.sroa.4.0..sroa.496.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 488
   %.sroa.496.sroa.4.0.copyload = load float, ptr %.sroa.496.sroa.4.0..sroa.496.0..sroa_idx.sroa_idx, align 4
-  %.sroa.496.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 484
   %.sroa.496.sroa.0.0.copyload = load float, ptr %.sroa.496.0..sroa_idx, align 4
   br label %76
 
 76:                                               ; preds = %73, %75
-  %.sroa.0451.0 = phi float [ %.sroa.496.sroa.0.0.copyload, %75 ], [ 0.000000e+00, %73 ]
-  %.sroa.3453.0 = phi float [ %.sroa.496.sroa.4.0.copyload, %75 ], [ 0.000000e+00, %73 ]
-  %.sroa.4455.0 = phi float [ %.sroa.496.sroa.5.0.copyload, %75 ], [ 0.000000e+00, %73 ]
-  %.sroa.5457.0 = phi float [ %.sroa.496.sroa.6.0.copyload, %75 ], [ 0.000000e+00, %73 ]
+  %..sroa.594.sroa.6.0 = phi float [ %.sroa.496.sroa.6.0.copyload, %75 ], [ 0.000000e+00, %73 ]
+  %..sroa.594.sroa.5.0 = phi float [ %.sroa.496.sroa.5.0.copyload, %75 ], [ 0.000000e+00, %73 ]
+  %..sroa.594.sroa.4.0 = phi float [ %.sroa.496.sroa.4.0.copyload, %75 ], [ 0.000000e+00, %73 ]
+  %..sroa.594.sroa.0.0 = phi float [ %.sroa.496.sroa.0.0.copyload, %75 ], [ 0.000000e+00, %73 ]
   %77 = getelementptr inbounds i8, ptr %1, i64 500
   %.sroa.099.0.copyload = load i32, ptr %77, align 4
   %switch791 = icmp eq i32 %.sroa.099.0.copyload, 0
@@ -13904,19 +13904,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 78:                                               ; preds = %76
   %.sroa.4100.sroa.6.0..sroa.4100.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 516
   %.sroa.4100.sroa.6.0.copyload = load float, ptr %.sroa.4100.sroa.6.0..sroa.4100.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4100.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 504
   %.sroa.4100.sroa.5.0..sroa.4100.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 512
   %.sroa.4100.sroa.5.0.copyload = load float, ptr %.sroa.4100.sroa.5.0..sroa.4100.0..sroa_idx.sroa_idx, align 4
   %.sroa.4100.sroa.4.0..sroa.4100.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 508
   %.sroa.4100.sroa.4.0.copyload = load float, ptr %.sroa.4100.sroa.4.0..sroa.4100.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4100.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 504
   %.sroa.4100.sroa.0.0.copyload = load float, ptr %.sroa.4100.0..sroa_idx, align 4
   br label %79
 
 79:                                               ; preds = %76, %78
-  %.sroa.0463.0 = phi float [ %.sroa.4100.sroa.0.0.copyload, %78 ], [ 0.000000e+00, %76 ]
-  %.sroa.3465.0 = phi float [ %.sroa.4100.sroa.4.0.copyload, %78 ], [ 0.000000e+00, %76 ]
-  %.sroa.4467.0 = phi float [ %.sroa.4100.sroa.5.0.copyload, %78 ], [ 0.000000e+00, %76 ]
-  %.sroa.5469.0 = phi float [ %.sroa.4100.sroa.6.0.copyload, %78 ], [ 0.000000e+00, %76 ]
+  %..sroa.598.sroa.6.0 = phi float [ %.sroa.4100.sroa.6.0.copyload, %78 ], [ 0.000000e+00, %76 ]
+  %..sroa.598.sroa.5.0 = phi float [ %.sroa.4100.sroa.5.0.copyload, %78 ], [ 0.000000e+00, %76 ]
+  %..sroa.598.sroa.4.0 = phi float [ %.sroa.4100.sroa.4.0.copyload, %78 ], [ 0.000000e+00, %76 ]
+  %..sroa.598.sroa.0.0 = phi float [ %.sroa.4100.sroa.0.0.copyload, %78 ], [ 0.000000e+00, %76 ]
   %80 = getelementptr inbounds i8, ptr %1, i64 520
   %.sroa.0103.0.copyload = load i32, ptr %80, align 4
   %switch793 = icmp eq i32 %.sroa.0103.0.copyload, 0
@@ -13925,19 +13925,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 81:                                               ; preds = %79
   %.sroa.4104.sroa.6.0..sroa.4104.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 536
   %.sroa.4104.sroa.6.0.copyload = load float, ptr %.sroa.4104.sroa.6.0..sroa.4104.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 524
   %.sroa.4104.sroa.5.0..sroa.4104.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 532
   %.sroa.4104.sroa.5.0.copyload = load float, ptr %.sroa.4104.sroa.5.0..sroa.4104.0..sroa_idx.sroa_idx, align 4
   %.sroa.4104.sroa.4.0..sroa.4104.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 528
   %.sroa.4104.sroa.4.0.copyload = load float, ptr %.sroa.4104.sroa.4.0..sroa.4104.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4104.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 524
   %.sroa.4104.sroa.0.0.copyload = load float, ptr %.sroa.4104.0..sroa_idx, align 4
   br label %82
 
 82:                                               ; preds = %79, %81
-  %.sroa.0475.0 = phi float [ %.sroa.4104.sroa.0.0.copyload, %81 ], [ 0.000000e+00, %79 ]
-  %.sroa.3477.0 = phi float [ %.sroa.4104.sroa.4.0.copyload, %81 ], [ 0.000000e+00, %79 ]
-  %.sroa.4479.0 = phi float [ %.sroa.4104.sroa.5.0.copyload, %81 ], [ 0.000000e+00, %79 ]
-  %.sroa.5481.0 = phi float [ %.sroa.4104.sroa.6.0.copyload, %81 ], [ 0.000000e+00, %79 ]
+  %..sroa.5102.sroa.6.0 = phi float [ %.sroa.4104.sroa.6.0.copyload, %81 ], [ 0.000000e+00, %79 ]
+  %..sroa.5102.sroa.5.0 = phi float [ %.sroa.4104.sroa.5.0.copyload, %81 ], [ 0.000000e+00, %79 ]
+  %..sroa.5102.sroa.4.0 = phi float [ %.sroa.4104.sroa.4.0.copyload, %81 ], [ 0.000000e+00, %79 ]
+  %..sroa.5102.sroa.0.0 = phi float [ %.sroa.4104.sroa.0.0.copyload, %81 ], [ 0.000000e+00, %79 ]
   %83 = getelementptr inbounds i8, ptr %1, i64 540
   %.sroa.0107.0.copyload = load i32, ptr %83, align 4
   %switch795 = icmp eq i32 %.sroa.0107.0.copyload, 0
@@ -13946,19 +13946,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 84:                                               ; preds = %82
   %.sroa.4108.sroa.6.0..sroa.4108.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 556
   %.sroa.4108.sroa.6.0.copyload = load float, ptr %.sroa.4108.sroa.6.0..sroa.4108.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4108.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 544
   %.sroa.4108.sroa.5.0..sroa.4108.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 552
   %.sroa.4108.sroa.5.0.copyload = load float, ptr %.sroa.4108.sroa.5.0..sroa.4108.0..sroa_idx.sroa_idx, align 4
   %.sroa.4108.sroa.4.0..sroa.4108.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 548
   %.sroa.4108.sroa.4.0.copyload = load float, ptr %.sroa.4108.sroa.4.0..sroa.4108.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4108.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 544
   %.sroa.4108.sroa.0.0.copyload = load float, ptr %.sroa.4108.0..sroa_idx, align 4
   br label %85
 
 85:                                               ; preds = %82, %84
-  %.sroa.0487.0 = phi float [ %.sroa.4108.sroa.0.0.copyload, %84 ], [ 0.000000e+00, %82 ]
-  %.sroa.3489.0 = phi float [ %.sroa.4108.sroa.4.0.copyload, %84 ], [ 0.000000e+00, %82 ]
-  %.sroa.4491.0 = phi float [ %.sroa.4108.sroa.5.0.copyload, %84 ], [ 0.000000e+00, %82 ]
-  %.sroa.5493.0 = phi float [ %.sroa.4108.sroa.6.0.copyload, %84 ], [ 0.000000e+00, %82 ]
+  %..sroa.5106.sroa.6.0 = phi float [ %.sroa.4108.sroa.6.0.copyload, %84 ], [ 0.000000e+00, %82 ]
+  %..sroa.5106.sroa.5.0 = phi float [ %.sroa.4108.sroa.5.0.copyload, %84 ], [ 0.000000e+00, %82 ]
+  %..sroa.5106.sroa.4.0 = phi float [ %.sroa.4108.sroa.4.0.copyload, %84 ], [ 0.000000e+00, %82 ]
+  %..sroa.5106.sroa.0.0 = phi float [ %.sroa.4108.sroa.0.0.copyload, %84 ], [ 0.000000e+00, %82 ]
   %86 = getelementptr inbounds i8, ptr %1, i64 560
   %.sroa.0111.0.copyload = load i32, ptr %86, align 4
   %switch797 = icmp eq i32 %.sroa.0111.0.copyload, 0
@@ -13967,19 +13967,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 87:                                               ; preds = %85
   %.sroa.4112.sroa.6.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 576
   %.sroa.4112.sroa.6.0.copyload = load float, ptr %.sroa.4112.sroa.6.0..sroa.4112.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4112.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 564
   %.sroa.4112.sroa.5.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 572
   %.sroa.4112.sroa.5.0.copyload = load float, ptr %.sroa.4112.sroa.5.0..sroa.4112.0..sroa_idx.sroa_idx, align 4
   %.sroa.4112.sroa.4.0..sroa.4112.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 568
   %.sroa.4112.sroa.4.0.copyload = load float, ptr %.sroa.4112.sroa.4.0..sroa.4112.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4112.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 564
   %.sroa.4112.sroa.0.0.copyload = load float, ptr %.sroa.4112.0..sroa_idx, align 4
   br label %88
 
 88:                                               ; preds = %85, %87
-  %.sroa.0499.0 = phi float [ %.sroa.4112.sroa.0.0.copyload, %87 ], [ 0.000000e+00, %85 ]
-  %.sroa.3501.0 = phi float [ %.sroa.4112.sroa.4.0.copyload, %87 ], [ 0.000000e+00, %85 ]
-  %.sroa.4503.0 = phi float [ %.sroa.4112.sroa.5.0.copyload, %87 ], [ 0.000000e+00, %85 ]
-  %.sroa.5505.0 = phi float [ %.sroa.4112.sroa.6.0.copyload, %87 ], [ 0.000000e+00, %85 ]
+  %..sroa.5110.sroa.6.0 = phi float [ %.sroa.4112.sroa.6.0.copyload, %87 ], [ 0.000000e+00, %85 ]
+  %..sroa.5110.sroa.5.0 = phi float [ %.sroa.4112.sroa.5.0.copyload, %87 ], [ 0.000000e+00, %85 ]
+  %..sroa.5110.sroa.4.0 = phi float [ %.sroa.4112.sroa.4.0.copyload, %87 ], [ 0.000000e+00, %85 ]
+  %..sroa.5110.sroa.0.0 = phi float [ %.sroa.4112.sroa.0.0.copyload, %87 ], [ 0.000000e+00, %85 ]
   %89 = getelementptr inbounds i8, ptr %1, i64 580
   %.sroa.0115.0.copyload = load i32, ptr %89, align 4
   %switch799 = icmp eq i32 %.sroa.0115.0.copyload, 0
@@ -13988,19 +13988,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 90:                                               ; preds = %88
   %.sroa.4116.sroa.6.0..sroa.4116.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 596
   %.sroa.4116.sroa.6.0.copyload = load float, ptr %.sroa.4116.sroa.6.0..sroa.4116.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4116.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 584
   %.sroa.4116.sroa.5.0..sroa.4116.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 592
   %.sroa.4116.sroa.5.0.copyload = load float, ptr %.sroa.4116.sroa.5.0..sroa.4116.0..sroa_idx.sroa_idx, align 4
   %.sroa.4116.sroa.4.0..sroa.4116.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 588
   %.sroa.4116.sroa.4.0.copyload = load float, ptr %.sroa.4116.sroa.4.0..sroa.4116.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4116.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 584
   %.sroa.4116.sroa.0.0.copyload = load float, ptr %.sroa.4116.0..sroa_idx, align 4
   br label %91
 
 91:                                               ; preds = %88, %90
-  %.sroa.0511.0 = phi float [ %.sroa.4116.sroa.0.0.copyload, %90 ], [ 0.000000e+00, %88 ]
-  %.sroa.3513.0 = phi float [ %.sroa.4116.sroa.4.0.copyload, %90 ], [ 0.000000e+00, %88 ]
-  %.sroa.4515.0 = phi float [ %.sroa.4116.sroa.5.0.copyload, %90 ], [ 0.000000e+00, %88 ]
-  %.sroa.5517.0 = phi float [ %.sroa.4116.sroa.6.0.copyload, %90 ], [ 0.000000e+00, %88 ]
+  %..sroa.5114.sroa.6.0 = phi float [ %.sroa.4116.sroa.6.0.copyload, %90 ], [ 0.000000e+00, %88 ]
+  %..sroa.5114.sroa.5.0 = phi float [ %.sroa.4116.sroa.5.0.copyload, %90 ], [ 0.000000e+00, %88 ]
+  %..sroa.5114.sroa.4.0 = phi float [ %.sroa.4116.sroa.4.0.copyload, %90 ], [ 0.000000e+00, %88 ]
+  %..sroa.5114.sroa.0.0 = phi float [ %.sroa.4116.sroa.0.0.copyload, %90 ], [ 0.000000e+00, %88 ]
   %92 = getelementptr inbounds i8, ptr %1, i64 600
   %.sroa.0119.0.copyload = load i32, ptr %92, align 4
   %switch801 = icmp eq i32 %.sroa.0119.0.copyload, 0
@@ -14009,19 +14009,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 93:                                               ; preds = %91
   %.sroa.4120.sroa.6.0..sroa.4120.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 616
   %.sroa.4120.sroa.6.0.copyload = load float, ptr %.sroa.4120.sroa.6.0..sroa.4120.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4120.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 604
   %.sroa.4120.sroa.5.0..sroa.4120.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 612
   %.sroa.4120.sroa.5.0.copyload = load float, ptr %.sroa.4120.sroa.5.0..sroa.4120.0..sroa_idx.sroa_idx, align 4
   %.sroa.4120.sroa.4.0..sroa.4120.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 608
   %.sroa.4120.sroa.4.0.copyload = load float, ptr %.sroa.4120.sroa.4.0..sroa.4120.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4120.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 604
   %.sroa.4120.sroa.0.0.copyload = load float, ptr %.sroa.4120.0..sroa_idx, align 4
   br label %94
 
 94:                                               ; preds = %91, %93
-  %.sroa.0523.0 = phi float [ %.sroa.4120.sroa.0.0.copyload, %93 ], [ 0.000000e+00, %91 ]
-  %.sroa.3525.0 = phi float [ %.sroa.4120.sroa.4.0.copyload, %93 ], [ 0.000000e+00, %91 ]
-  %.sroa.4527.0 = phi float [ %.sroa.4120.sroa.5.0.copyload, %93 ], [ 0.000000e+00, %91 ]
-  %.sroa.5529.0 = phi float [ %.sroa.4120.sroa.6.0.copyload, %93 ], [ 0.000000e+00, %91 ]
+  %..sroa.5118.sroa.6.0 = phi float [ %.sroa.4120.sroa.6.0.copyload, %93 ], [ 0.000000e+00, %91 ]
+  %..sroa.5118.sroa.5.0 = phi float [ %.sroa.4120.sroa.5.0.copyload, %93 ], [ 0.000000e+00, %91 ]
+  %..sroa.5118.sroa.4.0 = phi float [ %.sroa.4120.sroa.4.0.copyload, %93 ], [ 0.000000e+00, %91 ]
+  %..sroa.5118.sroa.0.0 = phi float [ %.sroa.4120.sroa.0.0.copyload, %93 ], [ 0.000000e+00, %91 ]
   %95 = getelementptr inbounds i8, ptr %1, i64 620
   %.sroa.0123.0.copyload = load i32, ptr %95, align 4
   %switch803 = icmp eq i32 %.sroa.0123.0.copyload, 0
@@ -14030,19 +14030,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 96:                                               ; preds = %94
   %.sroa.4124.sroa.6.0..sroa.4124.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 636
   %.sroa.4124.sroa.6.0.copyload = load float, ptr %.sroa.4124.sroa.6.0..sroa.4124.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4124.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 624
   %.sroa.4124.sroa.5.0..sroa.4124.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 632
   %.sroa.4124.sroa.5.0.copyload = load float, ptr %.sroa.4124.sroa.5.0..sroa.4124.0..sroa_idx.sroa_idx, align 4
   %.sroa.4124.sroa.4.0..sroa.4124.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 628
   %.sroa.4124.sroa.4.0.copyload = load float, ptr %.sroa.4124.sroa.4.0..sroa.4124.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4124.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 624
   %.sroa.4124.sroa.0.0.copyload = load float, ptr %.sroa.4124.0..sroa_idx, align 4
   br label %97
 
 97:                                               ; preds = %94, %96
-  %.sroa.0535.0 = phi float [ %.sroa.4124.sroa.0.0.copyload, %96 ], [ 0.000000e+00, %94 ]
-  %.sroa.3537.0 = phi float [ %.sroa.4124.sroa.4.0.copyload, %96 ], [ 0.000000e+00, %94 ]
-  %.sroa.4539.0 = phi float [ %.sroa.4124.sroa.5.0.copyload, %96 ], [ 0.000000e+00, %94 ]
-  %.sroa.5541.0 = phi float [ %.sroa.4124.sroa.6.0.copyload, %96 ], [ 0.000000e+00, %94 ]
+  %..sroa.5122.sroa.6.0 = phi float [ %.sroa.4124.sroa.6.0.copyload, %96 ], [ 0.000000e+00, %94 ]
+  %..sroa.5122.sroa.5.0 = phi float [ %.sroa.4124.sroa.5.0.copyload, %96 ], [ 0.000000e+00, %94 ]
+  %..sroa.5122.sroa.4.0 = phi float [ %.sroa.4124.sroa.4.0.copyload, %96 ], [ 0.000000e+00, %94 ]
+  %..sroa.5122.sroa.0.0 = phi float [ %.sroa.4124.sroa.0.0.copyload, %96 ], [ 0.000000e+00, %94 ]
   %98 = getelementptr inbounds i8, ptr %1, i64 640
   %.sroa.0127.0.copyload = load i32, ptr %98, align 4
   %switch805 = icmp eq i32 %.sroa.0127.0.copyload, 0
@@ -14051,19 +14051,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 99:                                               ; preds = %97
   %.sroa.4128.sroa.6.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 656
   %.sroa.4128.sroa.6.0.copyload = load float, ptr %.sroa.4128.sroa.6.0..sroa.4128.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 644
   %.sroa.4128.sroa.5.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 652
   %.sroa.4128.sroa.5.0.copyload = load float, ptr %.sroa.4128.sroa.5.0..sroa.4128.0..sroa_idx.sroa_idx, align 4
   %.sroa.4128.sroa.4.0..sroa.4128.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 648
   %.sroa.4128.sroa.4.0.copyload = load float, ptr %.sroa.4128.sroa.4.0..sroa.4128.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4128.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 644
   %.sroa.4128.sroa.0.0.copyload = load float, ptr %.sroa.4128.0..sroa_idx, align 4
   br label %100
 
 100:                                              ; preds = %97, %99
-  %.sroa.0547.0 = phi float [ %.sroa.4128.sroa.0.0.copyload, %99 ], [ 0.000000e+00, %97 ]
-  %.sroa.3549.0 = phi float [ %.sroa.4128.sroa.4.0.copyload, %99 ], [ 0.000000e+00, %97 ]
-  %.sroa.4551.0 = phi float [ %.sroa.4128.sroa.5.0.copyload, %99 ], [ 0.000000e+00, %97 ]
-  %.sroa.5553.0 = phi float [ %.sroa.4128.sroa.6.0.copyload, %99 ], [ 0.000000e+00, %97 ]
+  %..sroa.5126.sroa.6.0 = phi float [ %.sroa.4128.sroa.6.0.copyload, %99 ], [ 0.000000e+00, %97 ]
+  %..sroa.5126.sroa.5.0 = phi float [ %.sroa.4128.sroa.5.0.copyload, %99 ], [ 0.000000e+00, %97 ]
+  %..sroa.5126.sroa.4.0 = phi float [ %.sroa.4128.sroa.4.0.copyload, %99 ], [ 0.000000e+00, %97 ]
+  %..sroa.5126.sroa.0.0 = phi float [ %.sroa.4128.sroa.0.0.copyload, %99 ], [ 0.000000e+00, %97 ]
   %101 = getelementptr inbounds i8, ptr %1, i64 660
   %.sroa.0131.0.copyload = load i32, ptr %101, align 4
   %switch807 = icmp eq i32 %.sroa.0131.0.copyload, 0
@@ -14072,19 +14072,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 102:                                              ; preds = %100
   %.sroa.4132.sroa.6.0..sroa.4132.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 676
   %.sroa.4132.sroa.6.0.copyload = load float, ptr %.sroa.4132.sroa.6.0..sroa.4132.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4132.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 664
   %.sroa.4132.sroa.5.0..sroa.4132.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 672
   %.sroa.4132.sroa.5.0.copyload = load float, ptr %.sroa.4132.sroa.5.0..sroa.4132.0..sroa_idx.sroa_idx, align 4
   %.sroa.4132.sroa.4.0..sroa.4132.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 668
   %.sroa.4132.sroa.4.0.copyload = load float, ptr %.sroa.4132.sroa.4.0..sroa.4132.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4132.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 664
   %.sroa.4132.sroa.0.0.copyload = load float, ptr %.sroa.4132.0..sroa_idx, align 4
   br label %103
 
 103:                                              ; preds = %100, %102
-  %.sroa.0559.0 = phi float [ %.sroa.4132.sroa.0.0.copyload, %102 ], [ 0.000000e+00, %100 ]
-  %.sroa.3561.0 = phi float [ %.sroa.4132.sroa.4.0.copyload, %102 ], [ 0.000000e+00, %100 ]
-  %.sroa.4563.0 = phi float [ %.sroa.4132.sroa.5.0.copyload, %102 ], [ 0.000000e+00, %100 ]
-  %.sroa.5565.0 = phi float [ %.sroa.4132.sroa.6.0.copyload, %102 ], [ 0.000000e+00, %100 ]
+  %..sroa.5130.sroa.6.0 = phi float [ %.sroa.4132.sroa.6.0.copyload, %102 ], [ 0.000000e+00, %100 ]
+  %..sroa.5130.sroa.5.0 = phi float [ %.sroa.4132.sroa.5.0.copyload, %102 ], [ 0.000000e+00, %100 ]
+  %..sroa.5130.sroa.4.0 = phi float [ %.sroa.4132.sroa.4.0.copyload, %102 ], [ 0.000000e+00, %100 ]
+  %..sroa.5130.sroa.0.0 = phi float [ %.sroa.4132.sroa.0.0.copyload, %102 ], [ 0.000000e+00, %100 ]
   %104 = getelementptr inbounds i8, ptr %1, i64 680
   %.sroa.0135.0.copyload = load i32, ptr %104, align 4
   %switch809 = icmp eq i32 %.sroa.0135.0.copyload, 0
@@ -14093,19 +14093,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 105:                                              ; preds = %103
   %.sroa.4136.sroa.6.0..sroa.4136.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 696
   %.sroa.4136.sroa.6.0.copyload = load float, ptr %.sroa.4136.sroa.6.0..sroa.4136.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4136.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 684
   %.sroa.4136.sroa.5.0..sroa.4136.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 692
   %.sroa.4136.sroa.5.0.copyload = load float, ptr %.sroa.4136.sroa.5.0..sroa.4136.0..sroa_idx.sroa_idx, align 4
   %.sroa.4136.sroa.4.0..sroa.4136.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 688
   %.sroa.4136.sroa.4.0.copyload = load float, ptr %.sroa.4136.sroa.4.0..sroa.4136.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4136.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 684
   %.sroa.4136.sroa.0.0.copyload = load float, ptr %.sroa.4136.0..sroa_idx, align 4
   br label %106
 
 106:                                              ; preds = %103, %105
-  %.sroa.0571.0 = phi float [ %.sroa.4136.sroa.0.0.copyload, %105 ], [ 0.000000e+00, %103 ]
-  %.sroa.3573.0 = phi float [ %.sroa.4136.sroa.4.0.copyload, %105 ], [ 0.000000e+00, %103 ]
-  %.sroa.4575.0 = phi float [ %.sroa.4136.sroa.5.0.copyload, %105 ], [ 0.000000e+00, %103 ]
-  %.sroa.5577.0 = phi float [ %.sroa.4136.sroa.6.0.copyload, %105 ], [ 0.000000e+00, %103 ]
+  %..sroa.5134.sroa.6.0 = phi float [ %.sroa.4136.sroa.6.0.copyload, %105 ], [ 0.000000e+00, %103 ]
+  %..sroa.5134.sroa.5.0 = phi float [ %.sroa.4136.sroa.5.0.copyload, %105 ], [ 0.000000e+00, %103 ]
+  %..sroa.5134.sroa.4.0 = phi float [ %.sroa.4136.sroa.4.0.copyload, %105 ], [ 0.000000e+00, %103 ]
+  %..sroa.5134.sroa.0.0 = phi float [ %.sroa.4136.sroa.0.0.copyload, %105 ], [ 0.000000e+00, %103 ]
   %107 = getelementptr inbounds i8, ptr %1, i64 700
   %.sroa.0139.0.copyload = load i32, ptr %107, align 4
   %switch811 = icmp eq i32 %.sroa.0139.0.copyload, 0
@@ -14114,19 +14114,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 108:                                              ; preds = %106
   %.sroa.4140.sroa.6.0..sroa.4140.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 716
   %.sroa.4140.sroa.6.0.copyload = load float, ptr %.sroa.4140.sroa.6.0..sroa.4140.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4140.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 704
   %.sroa.4140.sroa.5.0..sroa.4140.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 712
   %.sroa.4140.sroa.5.0.copyload = load float, ptr %.sroa.4140.sroa.5.0..sroa.4140.0..sroa_idx.sroa_idx, align 4
   %.sroa.4140.sroa.4.0..sroa.4140.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 708
   %.sroa.4140.sroa.4.0.copyload = load float, ptr %.sroa.4140.sroa.4.0..sroa.4140.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4140.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 704
   %.sroa.4140.sroa.0.0.copyload = load float, ptr %.sroa.4140.0..sroa_idx, align 4
   br label %109
 
 109:                                              ; preds = %106, %108
-  %.sroa.0583.0 = phi float [ %.sroa.4140.sroa.0.0.copyload, %108 ], [ 0.000000e+00, %106 ]
-  %.sroa.3585.0 = phi float [ %.sroa.4140.sroa.4.0.copyload, %108 ], [ 0.000000e+00, %106 ]
-  %.sroa.4587.0 = phi float [ %.sroa.4140.sroa.5.0.copyload, %108 ], [ 0.000000e+00, %106 ]
-  %.sroa.5589.0 = phi float [ %.sroa.4140.sroa.6.0.copyload, %108 ], [ 0.000000e+00, %106 ]
+  %..sroa.5138.sroa.6.0 = phi float [ %.sroa.4140.sroa.6.0.copyload, %108 ], [ 0.000000e+00, %106 ]
+  %..sroa.5138.sroa.5.0 = phi float [ %.sroa.4140.sroa.5.0.copyload, %108 ], [ 0.000000e+00, %106 ]
+  %..sroa.5138.sroa.4.0 = phi float [ %.sroa.4140.sroa.4.0.copyload, %108 ], [ 0.000000e+00, %106 ]
+  %..sroa.5138.sroa.0.0 = phi float [ %.sroa.4140.sroa.0.0.copyload, %108 ], [ 0.000000e+00, %106 ]
   %110 = getelementptr inbounds i8, ptr %1, i64 720
   %.sroa.0143.0.copyload = load i32, ptr %110, align 4
   %switch813 = icmp eq i32 %.sroa.0143.0.copyload, 0
@@ -14135,19 +14135,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 111:                                              ; preds = %109
   %.sroa.4144.sroa.6.0..sroa.4144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 736
   %.sroa.4144.sroa.6.0.copyload = load float, ptr %.sroa.4144.sroa.6.0..sroa.4144.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4144.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 724
   %.sroa.4144.sroa.5.0..sroa.4144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 732
   %.sroa.4144.sroa.5.0.copyload = load float, ptr %.sroa.4144.sroa.5.0..sroa.4144.0..sroa_idx.sroa_idx, align 4
   %.sroa.4144.sroa.4.0..sroa.4144.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 728
   %.sroa.4144.sroa.4.0.copyload = load float, ptr %.sroa.4144.sroa.4.0..sroa.4144.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4144.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 724
   %.sroa.4144.sroa.0.0.copyload = load float, ptr %.sroa.4144.0..sroa_idx, align 4
   br label %112
 
 112:                                              ; preds = %109, %111
-  %.sroa.0595.0 = phi float [ %.sroa.4144.sroa.0.0.copyload, %111 ], [ 0.000000e+00, %109 ]
-  %.sroa.3597.0 = phi float [ %.sroa.4144.sroa.4.0.copyload, %111 ], [ 0.000000e+00, %109 ]
-  %.sroa.4599.0 = phi float [ %.sroa.4144.sroa.5.0.copyload, %111 ], [ 0.000000e+00, %109 ]
-  %.sroa.5601.0 = phi float [ %.sroa.4144.sroa.6.0.copyload, %111 ], [ 0.000000e+00, %109 ]
+  %..sroa.5142.sroa.6.0 = phi float [ %.sroa.4144.sroa.6.0.copyload, %111 ], [ 0.000000e+00, %109 ]
+  %..sroa.5142.sroa.5.0 = phi float [ %.sroa.4144.sroa.5.0.copyload, %111 ], [ 0.000000e+00, %109 ]
+  %..sroa.5142.sroa.4.0 = phi float [ %.sroa.4144.sroa.4.0.copyload, %111 ], [ 0.000000e+00, %109 ]
+  %..sroa.5142.sroa.0.0 = phi float [ %.sroa.4144.sroa.0.0.copyload, %111 ], [ 0.000000e+00, %109 ]
   %113 = getelementptr inbounds i8, ptr %1, i64 740
   %.sroa.0147.0.copyload = load i32, ptr %113, align 4
   %switch815 = icmp eq i32 %.sroa.0147.0.copyload, 0
@@ -14156,19 +14156,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 114:                                              ; preds = %112
   %.sroa.4148.sroa.6.0..sroa.4148.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 756
   %.sroa.4148.sroa.6.0.copyload = load float, ptr %.sroa.4148.sroa.6.0..sroa.4148.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4148.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 744
   %.sroa.4148.sroa.5.0..sroa.4148.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 752
   %.sroa.4148.sroa.5.0.copyload = load float, ptr %.sroa.4148.sroa.5.0..sroa.4148.0..sroa_idx.sroa_idx, align 4
   %.sroa.4148.sroa.4.0..sroa.4148.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 748
   %.sroa.4148.sroa.4.0.copyload = load float, ptr %.sroa.4148.sroa.4.0..sroa.4148.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4148.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 744
   %.sroa.4148.sroa.0.0.copyload = load float, ptr %.sroa.4148.0..sroa_idx, align 4
   br label %115
 
 115:                                              ; preds = %112, %114
-  %.sroa.0607.0 = phi float [ %.sroa.4148.sroa.0.0.copyload, %114 ], [ 0.000000e+00, %112 ]
-  %.sroa.3609.0 = phi float [ %.sroa.4148.sroa.4.0.copyload, %114 ], [ 0.000000e+00, %112 ]
-  %.sroa.4611.0 = phi float [ %.sroa.4148.sroa.5.0.copyload, %114 ], [ 0.000000e+00, %112 ]
-  %.sroa.5613.0 = phi float [ %.sroa.4148.sroa.6.0.copyload, %114 ], [ 0.000000e+00, %112 ]
+  %..sroa.5146.sroa.6.0 = phi float [ %.sroa.4148.sroa.6.0.copyload, %114 ], [ 0.000000e+00, %112 ]
+  %..sroa.5146.sroa.5.0 = phi float [ %.sroa.4148.sroa.5.0.copyload, %114 ], [ 0.000000e+00, %112 ]
+  %..sroa.5146.sroa.4.0 = phi float [ %.sroa.4148.sroa.4.0.copyload, %114 ], [ 0.000000e+00, %112 ]
+  %..sroa.5146.sroa.0.0 = phi float [ %.sroa.4148.sroa.0.0.copyload, %114 ], [ 0.000000e+00, %112 ]
   %116 = getelementptr inbounds i8, ptr %1, i64 760
   %.sroa.0151.0.copyload = load i32, ptr %116, align 4
   %switch817 = icmp eq i32 %.sroa.0151.0.copyload, 0
@@ -14177,19 +14177,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 117:                                              ; preds = %115
   %.sroa.4152.sroa.6.0..sroa.4152.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 776
   %.sroa.4152.sroa.6.0.copyload = load float, ptr %.sroa.4152.sroa.6.0..sroa.4152.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4152.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 764
   %.sroa.4152.sroa.5.0..sroa.4152.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 772
   %.sroa.4152.sroa.5.0.copyload = load float, ptr %.sroa.4152.sroa.5.0..sroa.4152.0..sroa_idx.sroa_idx, align 4
   %.sroa.4152.sroa.4.0..sroa.4152.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 768
   %.sroa.4152.sroa.4.0.copyload = load float, ptr %.sroa.4152.sroa.4.0..sroa.4152.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4152.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 764
   %.sroa.4152.sroa.0.0.copyload = load float, ptr %.sroa.4152.0..sroa_idx, align 4
   br label %118
 
 118:                                              ; preds = %115, %117
-  %.sroa.0619.0 = phi float [ %.sroa.4152.sroa.0.0.copyload, %117 ], [ 0.000000e+00, %115 ]
-  %.sroa.3621.0 = phi float [ %.sroa.4152.sroa.4.0.copyload, %117 ], [ 0.000000e+00, %115 ]
-  %.sroa.4623.0 = phi float [ %.sroa.4152.sroa.5.0.copyload, %117 ], [ 0.000000e+00, %115 ]
-  %.sroa.5625.0 = phi float [ %.sroa.4152.sroa.6.0.copyload, %117 ], [ 0.000000e+00, %115 ]
+  %..sroa.5150.sroa.6.0 = phi float [ %.sroa.4152.sroa.6.0.copyload, %117 ], [ 0.000000e+00, %115 ]
+  %..sroa.5150.sroa.5.0 = phi float [ %.sroa.4152.sroa.5.0.copyload, %117 ], [ 0.000000e+00, %115 ]
+  %..sroa.5150.sroa.4.0 = phi float [ %.sroa.4152.sroa.4.0.copyload, %117 ], [ 0.000000e+00, %115 ]
+  %..sroa.5150.sroa.0.0 = phi float [ %.sroa.4152.sroa.0.0.copyload, %117 ], [ 0.000000e+00, %115 ]
   %119 = getelementptr inbounds i8, ptr %1, i64 780
   %.sroa.0155.0.copyload = load i32, ptr %119, align 4
   %switch819 = icmp eq i32 %.sroa.0155.0.copyload, 0
@@ -14198,19 +14198,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 120:                                              ; preds = %118
   %.sroa.4156.sroa.6.0..sroa.4156.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 796
   %.sroa.4156.sroa.6.0.copyload = load float, ptr %.sroa.4156.sroa.6.0..sroa.4156.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4156.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 784
   %.sroa.4156.sroa.5.0..sroa.4156.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 792
   %.sroa.4156.sroa.5.0.copyload = load float, ptr %.sroa.4156.sroa.5.0..sroa.4156.0..sroa_idx.sroa_idx, align 4
   %.sroa.4156.sroa.4.0..sroa.4156.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 788
   %.sroa.4156.sroa.4.0.copyload = load float, ptr %.sroa.4156.sroa.4.0..sroa.4156.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4156.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 784
   %.sroa.4156.sroa.0.0.copyload = load float, ptr %.sroa.4156.0..sroa_idx, align 4
   br label %121
 
 121:                                              ; preds = %118, %120
-  %.sroa.0631.0 = phi float [ %.sroa.4156.sroa.0.0.copyload, %120 ], [ 0.000000e+00, %118 ]
-  %.sroa.3633.0 = phi float [ %.sroa.4156.sroa.4.0.copyload, %120 ], [ 0.000000e+00, %118 ]
-  %.sroa.4635.0 = phi float [ %.sroa.4156.sroa.5.0.copyload, %120 ], [ 0.000000e+00, %118 ]
-  %.sroa.5637.0 = phi float [ %.sroa.4156.sroa.6.0.copyload, %120 ], [ 0.000000e+00, %118 ]
+  %..sroa.5154.sroa.6.0 = phi float [ %.sroa.4156.sroa.6.0.copyload, %120 ], [ 0.000000e+00, %118 ]
+  %..sroa.5154.sroa.5.0 = phi float [ %.sroa.4156.sroa.5.0.copyload, %120 ], [ 0.000000e+00, %118 ]
+  %..sroa.5154.sroa.4.0 = phi float [ %.sroa.4156.sroa.4.0.copyload, %120 ], [ 0.000000e+00, %118 ]
+  %..sroa.5154.sroa.0.0 = phi float [ %.sroa.4156.sroa.0.0.copyload, %120 ], [ 0.000000e+00, %118 ]
   %122 = getelementptr inbounds i8, ptr %1, i64 800
   %.sroa.0159.0.copyload = load i32, ptr %122, align 4
   %switch821 = icmp eq i32 %.sroa.0159.0.copyload, 0
@@ -14219,19 +14219,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 123:                                              ; preds = %121
   %.sroa.4160.sroa.6.0..sroa.4160.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 816
   %.sroa.4160.sroa.6.0.copyload = load float, ptr %.sroa.4160.sroa.6.0..sroa.4160.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4160.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 804
   %.sroa.4160.sroa.5.0..sroa.4160.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 812
   %.sroa.4160.sroa.5.0.copyload = load float, ptr %.sroa.4160.sroa.5.0..sroa.4160.0..sroa_idx.sroa_idx, align 4
   %.sroa.4160.sroa.4.0..sroa.4160.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 808
   %.sroa.4160.sroa.4.0.copyload = load float, ptr %.sroa.4160.sroa.4.0..sroa.4160.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4160.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 804
   %.sroa.4160.sroa.0.0.copyload = load float, ptr %.sroa.4160.0..sroa_idx, align 4
   br label %124
 
 124:                                              ; preds = %121, %123
-  %.sroa.0643.0 = phi float [ %.sroa.4160.sroa.0.0.copyload, %123 ], [ 0.000000e+00, %121 ]
-  %.sroa.3645.0 = phi float [ %.sroa.4160.sroa.4.0.copyload, %123 ], [ 0.000000e+00, %121 ]
-  %.sroa.4647.0 = phi float [ %.sroa.4160.sroa.5.0.copyload, %123 ], [ 0.000000e+00, %121 ]
-  %.sroa.5649.0 = phi float [ %.sroa.4160.sroa.6.0.copyload, %123 ], [ 0.000000e+00, %121 ]
+  %..sroa.5158.sroa.6.0 = phi float [ %.sroa.4160.sroa.6.0.copyload, %123 ], [ 0.000000e+00, %121 ]
+  %..sroa.5158.sroa.5.0 = phi float [ %.sroa.4160.sroa.5.0.copyload, %123 ], [ 0.000000e+00, %121 ]
+  %..sroa.5158.sroa.4.0 = phi float [ %.sroa.4160.sroa.4.0.copyload, %123 ], [ 0.000000e+00, %121 ]
+  %..sroa.5158.sroa.0.0 = phi float [ %.sroa.4160.sroa.0.0.copyload, %123 ], [ 0.000000e+00, %121 ]
   %125 = getelementptr inbounds i8, ptr %1, i64 820
   %.sroa.0163.0.copyload = load i32, ptr %125, align 4
   %switch823 = icmp eq i32 %.sroa.0163.0.copyload, 0
@@ -14240,19 +14240,19 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
 126:                                              ; preds = %124
   %.sroa.4164.sroa.6.0..sroa.4164.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 836
   %.sroa.4164.sroa.6.0.copyload = load float, ptr %.sroa.4164.sroa.6.0..sroa.4164.0..sroa_idx.sroa_idx, align 4
+  %.sroa.4164.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 824
   %.sroa.4164.sroa.5.0..sroa.4164.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 832
   %.sroa.4164.sroa.5.0.copyload = load float, ptr %.sroa.4164.sroa.5.0..sroa.4164.0..sroa_idx.sroa_idx, align 4
   %.sroa.4164.sroa.4.0..sroa.4164.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 828
   %.sroa.4164.sroa.4.0.copyload = load float, ptr %.sroa.4164.sroa.4.0..sroa.4164.0..sroa_idx.sroa_idx, align 4
-  %.sroa.4164.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 824
   %.sroa.4164.sroa.0.0.copyload = load float, ptr %.sroa.4164.0..sroa_idx, align 4
   br label %127
 
 127:                                              ; preds = %124, %126
-  %.sroa.0655.0 = phi float [ %.sroa.4164.sroa.0.0.copyload, %126 ], [ 0.000000e+00, %124 ]
-  %.sroa.3657.0 = phi float [ %.sroa.4164.sroa.4.0.copyload, %126 ], [ 0.000000e+00, %124 ]
-  %.sroa.4659.0 = phi float [ %.sroa.4164.sroa.5.0.copyload, %126 ], [ 0.000000e+00, %124 ]
-  %.sroa.5661.0 = phi float [ %.sroa.4164.sroa.6.0.copyload, %126 ], [ 0.000000e+00, %124 ]
+  %..sroa.5162.sroa.6.0 = phi float [ %.sroa.4164.sroa.6.0.copyload, %126 ], [ 0.000000e+00, %124 ]
+  %..sroa.5162.sroa.5.0 = phi float [ %.sroa.4164.sroa.5.0.copyload, %126 ], [ 0.000000e+00, %124 ]
+  %..sroa.5162.sroa.4.0 = phi float [ %.sroa.4164.sroa.4.0.copyload, %126 ], [ 0.000000e+00, %124 ]
+  %..sroa.5162.sroa.0.0 = phi float [ %.sroa.4164.sroa.0.0.copyload, %126 ], [ 0.000000e+00, %124 ]
   store float %.sroa.0165.0, ptr %0, align 4
   %.sroa.3167.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store float %.sroa.3167.0, ptr %.sroa.3167.0..sroa_idx, align 4
@@ -14277,317 +14277,317 @@ define void @"_ZN128_$LT$theme..styles..status..StatusColors$u20$as$u20$core..co
   %.sroa.5193.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
   store float %.sroa.5193.0, ptr %.sroa.5193.0..sroa_idx, align 4
   %130 = getelementptr inbounds i8, ptr %0, i64 48
-  store float %.sroa.0199.0, ptr %130, align 4
+  store float %..sroa.511.sroa.0.0, ptr %130, align 4
   %.sroa.3201.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 52
-  store float %.sroa.3201.0, ptr %.sroa.3201.0..sroa_idx, align 4
+  store float %..sroa.511.sroa.4.0, ptr %.sroa.3201.0..sroa_idx, align 4
   %.sroa.4203.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store float %.sroa.4203.0, ptr %.sroa.4203.0..sroa_idx, align 4
+  store float %..sroa.511.sroa.5.0, ptr %.sroa.4203.0..sroa_idx, align 4
   %.sroa.5205.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
-  store float %.sroa.5205.0, ptr %.sroa.5205.0..sroa_idx, align 4
+  store float %..sroa.511.sroa.6.0, ptr %.sroa.5205.0..sroa_idx, align 4
   %131 = getelementptr inbounds i8, ptr %0, i64 64
-  store float %.sroa.0211.0, ptr %131, align 4
+  store float %..sroa.514.sroa.0.0, ptr %131, align 4
   %.sroa.3213.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
-  store float %.sroa.3213.0, ptr %.sroa.3213.0..sroa_idx, align 4
+  store float %..sroa.514.sroa.4.0, ptr %.sroa.3213.0..sroa_idx, align 4
   %.sroa.4.0..sroa_idx215 = getelementptr inbounds i8, ptr %0, i64 72
-  store float %.sroa.4.0, ptr %.sroa.4.0..sroa_idx215, align 4
+  store float %..sroa.514.sroa.5.0, ptr %.sroa.4.0..sroa_idx215, align 4
   %.sroa.5217.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 76
-  store float %.sroa.5217.0, ptr %.sroa.5217.0..sroa_idx, align 4
+  store float %..sroa.514.sroa.6.0, ptr %.sroa.5217.0..sroa_idx, align 4
   %132 = getelementptr inbounds i8, ptr %0, i64 80
-  store float %.sroa.0223.0, ptr %132, align 4
+  store float %..sroa.518.sroa.0.0, ptr %132, align 4
   %.sroa.3225.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 84
-  store float %.sroa.3225.0, ptr %.sroa.3225.0..sroa_idx, align 4
+  store float %..sroa.518.sroa.4.0, ptr %.sroa.3225.0..sroa_idx, align 4
   %.sroa.4227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
-  store float %.sroa.4227.0, ptr %.sroa.4227.0..sroa_idx, align 4
+  store float %..sroa.518.sroa.5.0, ptr %.sroa.4227.0..sroa_idx, align 4
   %.sroa.5229.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 92
-  store float %.sroa.5229.0, ptr %.sroa.5229.0..sroa_idx, align 4
+  store float %..sroa.518.sroa.6.0, ptr %.sroa.5229.0..sroa_idx, align 4
   %133 = getelementptr inbounds i8, ptr %0, i64 96
-  store float %.sroa.0235.0, ptr %133, align 4
+  store float %..sroa.522.sroa.0.0, ptr %133, align 4
   %.sroa.3237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 100
-  store float %.sroa.3237.0, ptr %.sroa.3237.0..sroa_idx, align 4
+  store float %..sroa.522.sroa.4.0, ptr %.sroa.3237.0..sroa_idx, align 4
   %.sroa.4239.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
-  store float %.sroa.4239.0, ptr %.sroa.4239.0..sroa_idx, align 4
+  store float %..sroa.522.sroa.5.0, ptr %.sroa.4239.0..sroa_idx, align 4
   %.sroa.5241.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 108
-  store float %.sroa.5241.0, ptr %.sroa.5241.0..sroa_idx, align 4
+  store float %..sroa.522.sroa.6.0, ptr %.sroa.5241.0..sroa_idx, align 4
   %134 = getelementptr inbounds i8, ptr %0, i64 112
-  store float %.sroa.0247.0, ptr %134, align 4
+  store float %..sroa.526.sroa.0.0, ptr %134, align 4
   %.sroa.3249.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 116
-  store float %.sroa.3249.0, ptr %.sroa.3249.0..sroa_idx, align 4
+  store float %..sroa.526.sroa.4.0, ptr %.sroa.3249.0..sroa_idx, align 4
   %.sroa.4251.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 120
-  store float %.sroa.4251.0, ptr %.sroa.4251.0..sroa_idx, align 4
+  store float %..sroa.526.sroa.5.0, ptr %.sroa.4251.0..sroa_idx, align 4
   %.sroa.5253.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 124
-  store float %.sroa.5253.0, ptr %.sroa.5253.0..sroa_idx, align 4
+  store float %..sroa.526.sroa.6.0, ptr %.sroa.5253.0..sroa_idx, align 4
   %135 = getelementptr inbounds i8, ptr %0, i64 128
-  store float %.sroa.0259.0, ptr %135, align 4
+  store float %..sroa.530.sroa.0.0, ptr %135, align 4
   %.sroa.3261.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 132
-  store float %.sroa.3261.0, ptr %.sroa.3261.0..sroa_idx, align 4
+  store float %..sroa.530.sroa.4.0, ptr %.sroa.3261.0..sroa_idx, align 4
   %.sroa.4263.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 136
-  store float %.sroa.4263.0, ptr %.sroa.4263.0..sroa_idx, align 4
+  store float %..sroa.530.sroa.5.0, ptr %.sroa.4263.0..sroa_idx, align 4
   %.sroa.5265.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 140
-  store float %.sroa.5265.0, ptr %.sroa.5265.0..sroa_idx, align 4
+  store float %..sroa.530.sroa.6.0, ptr %.sroa.5265.0..sroa_idx, align 4
   %136 = getelementptr inbounds i8, ptr %0, i64 144
-  store float %.sroa.0271.0, ptr %136, align 4
+  store float %..sroa.534.sroa.0.0, ptr %136, align 4
   %.sroa.3273.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 148
-  store float %.sroa.3273.0, ptr %.sroa.3273.0..sroa_idx, align 4
+  store float %..sroa.534.sroa.4.0, ptr %.sroa.3273.0..sroa_idx, align 4
   %.sroa.4275.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 152
-  store float %.sroa.4275.0, ptr %.sroa.4275.0..sroa_idx, align 4
+  store float %..sroa.534.sroa.5.0, ptr %.sroa.4275.0..sroa_idx, align 4
   %.sroa.5277.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 156
-  store float %.sroa.5277.0, ptr %.sroa.5277.0..sroa_idx, align 4
+  store float %..sroa.534.sroa.6.0, ptr %.sroa.5277.0..sroa_idx, align 4
   %137 = getelementptr inbounds i8, ptr %0, i64 160
-  store float %.sroa.0283.0, ptr %137, align 4
+  store float %..sroa.538.sroa.0.0, ptr %137, align 4
   %.sroa.3285.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 164
-  store float %.sroa.3285.0, ptr %.sroa.3285.0..sroa_idx, align 4
+  store float %..sroa.538.sroa.4.0, ptr %.sroa.3285.0..sroa_idx, align 4
   %.sroa.4287.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 168
-  store float %.sroa.4287.0, ptr %.sroa.4287.0..sroa_idx, align 4
+  store float %..sroa.538.sroa.5.0, ptr %.sroa.4287.0..sroa_idx, align 4
   %.sroa.5289.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 172
-  store float %.sroa.5289.0, ptr %.sroa.5289.0..sroa_idx, align 4
+  store float %..sroa.538.sroa.6.0, ptr %.sroa.5289.0..sroa_idx, align 4
   %138 = getelementptr inbounds i8, ptr %0, i64 176
-  store float %.sroa.0295.0, ptr %138, align 4
+  store float %..sroa.542.sroa.0.0, ptr %138, align 4
   %.sroa.3297.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 180
-  store float %.sroa.3297.0, ptr %.sroa.3297.0..sroa_idx, align 4
+  store float %..sroa.542.sroa.4.0, ptr %.sroa.3297.0..sroa_idx, align 4
   %.sroa.4299.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
-  store float %.sroa.4299.0, ptr %.sroa.4299.0..sroa_idx, align 4
+  store float %..sroa.542.sroa.5.0, ptr %.sroa.4299.0..sroa_idx, align 4
   %.sroa.5301.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 188
-  store float %.sroa.5301.0, ptr %.sroa.5301.0..sroa_idx, align 4
+  store float %..sroa.542.sroa.6.0, ptr %.sroa.5301.0..sroa_idx, align 4
   %139 = getelementptr inbounds i8, ptr %0, i64 192
-  store float %.sroa.0307.0, ptr %139, align 4
+  store float %..sroa.546.sroa.0.0, ptr %139, align 4
   %.sroa.3309.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 196
-  store float %.sroa.3309.0, ptr %.sroa.3309.0..sroa_idx, align 4
+  store float %..sroa.546.sroa.4.0, ptr %.sroa.3309.0..sroa_idx, align 4
   %.sroa.4311.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 200
-  store float %.sroa.4311.0, ptr %.sroa.4311.0..sroa_idx, align 4
+  store float %..sroa.546.sroa.5.0, ptr %.sroa.4311.0..sroa_idx, align 4
   %.sroa.5313.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 204
-  store float %.sroa.5313.0, ptr %.sroa.5313.0..sroa_idx, align 4
+  store float %..sroa.546.sroa.6.0, ptr %.sroa.5313.0..sroa_idx, align 4
   %140 = getelementptr inbounds i8, ptr %0, i64 208
-  store float %.sroa.0319.0, ptr %140, align 4
+  store float %..sroa.550.sroa.0.0, ptr %140, align 4
   %.sroa.3321.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 212
-  store float %.sroa.3321.0, ptr %.sroa.3321.0..sroa_idx, align 4
+  store float %..sroa.550.sroa.4.0, ptr %.sroa.3321.0..sroa_idx, align 4
   %.sroa.4323.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 216
-  store float %.sroa.4323.0, ptr %.sroa.4323.0..sroa_idx, align 4
+  store float %..sroa.550.sroa.5.0, ptr %.sroa.4323.0..sroa_idx, align 4
   %.sroa.5325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 220
-  store float %.sroa.5325.0, ptr %.sroa.5325.0..sroa_idx, align 4
+  store float %..sroa.550.sroa.6.0, ptr %.sroa.5325.0..sroa_idx, align 4
   %141 = getelementptr inbounds i8, ptr %0, i64 224
-  store float %.sroa.0331.0, ptr %141, align 4
+  store float %..sroa.554.sroa.0.0, ptr %141, align 4
   %.sroa.3333.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 228
-  store float %.sroa.3333.0, ptr %.sroa.3333.0..sroa_idx, align 4
+  store float %..sroa.554.sroa.4.0, ptr %.sroa.3333.0..sroa_idx, align 4
   %.sroa.4335.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 232
-  store float %.sroa.4335.0, ptr %.sroa.4335.0..sroa_idx, align 4
+  store float %..sroa.554.sroa.5.0, ptr %.sroa.4335.0..sroa_idx, align 4
   %.sroa.5337.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 236
-  store float %.sroa.5337.0, ptr %.sroa.5337.0..sroa_idx, align 4
+  store float %..sroa.554.sroa.6.0, ptr %.sroa.5337.0..sroa_idx, align 4
   %142 = getelementptr inbounds i8, ptr %0, i64 240
-  store float %.sroa.0343.0, ptr %142, align 4
+  store float %..sroa.558.sroa.0.0, ptr %142, align 4
   %.sroa.3345.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 244
-  store float %.sroa.3345.0, ptr %.sroa.3345.0..sroa_idx, align 4
+  store float %..sroa.558.sroa.4.0, ptr %.sroa.3345.0..sroa_idx, align 4
   %.sroa.4347.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 248
-  store float %.sroa.4347.0, ptr %.sroa.4347.0..sroa_idx, align 4
+  store float %..sroa.558.sroa.5.0, ptr %.sroa.4347.0..sroa_idx, align 4
   %.sroa.5349.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 252
-  store float %.sroa.5349.0, ptr %.sroa.5349.0..sroa_idx, align 4
+  store float %..sroa.558.sroa.6.0, ptr %.sroa.5349.0..sroa_idx, align 4
   %143 = getelementptr inbounds i8, ptr %0, i64 256
-  store float %.sroa.0355.0, ptr %143, align 4
+  store float %..sroa.562.sroa.0.0, ptr %143, align 4
   %.sroa.3357.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 260
-  store float %.sroa.3357.0, ptr %.sroa.3357.0..sroa_idx, align 4
+  store float %..sroa.562.sroa.4.0, ptr %.sroa.3357.0..sroa_idx, align 4
   %.sroa.4359.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 264
-  store float %.sroa.4359.0, ptr %.sroa.4359.0..sroa_idx, align 4
+  store float %..sroa.562.sroa.5.0, ptr %.sroa.4359.0..sroa_idx, align 4
   %.sroa.5361.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 268
-  store float %.sroa.5361.0, ptr %.sroa.5361.0..sroa_idx, align 4
+  store float %..sroa.562.sroa.6.0, ptr %.sroa.5361.0..sroa_idx, align 4
   %144 = getelementptr inbounds i8, ptr %0, i64 272
-  store float %.sroa.0367.0, ptr %144, align 4
+  store float %..sroa.566.sroa.0.0, ptr %144, align 4
   %.sroa.3369.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 276
-  store float %.sroa.3369.0, ptr %.sroa.3369.0..sroa_idx, align 4
+  store float %..sroa.566.sroa.4.0, ptr %.sroa.3369.0..sroa_idx, align 4
   %.sroa.4371.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 280
-  store float %.sroa.4371.0, ptr %.sroa.4371.0..sroa_idx, align 4
+  store float %..sroa.566.sroa.5.0, ptr %.sroa.4371.0..sroa_idx, align 4
   %.sroa.5373.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 284
-  store float %.sroa.5373.0, ptr %.sroa.5373.0..sroa_idx, align 4
+  store float %..sroa.566.sroa.6.0, ptr %.sroa.5373.0..sroa_idx, align 4
   %145 = getelementptr inbounds i8, ptr %0, i64 288
-  store float %.sroa.0379.0, ptr %145, align 4
+  store float %..sroa.570.sroa.0.0, ptr %145, align 4
   %.sroa.3381.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 292
-  store float %.sroa.3381.0, ptr %.sroa.3381.0..sroa_idx, align 4
+  store float %..sroa.570.sroa.4.0, ptr %.sroa.3381.0..sroa_idx, align 4
   %.sroa.4383.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 296
-  store float %.sroa.4383.0, ptr %.sroa.4383.0..sroa_idx, align 4
+  store float %..sroa.570.sroa.5.0, ptr %.sroa.4383.0..sroa_idx, align 4
   %.sroa.5385.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 300
-  store float %.sroa.5385.0, ptr %.sroa.5385.0..sroa_idx, align 4
+  store float %..sroa.570.sroa.6.0, ptr %.sroa.5385.0..sroa_idx, align 4
   %146 = getelementptr inbounds i8, ptr %0, i64 304
-  store float %.sroa.0391.0, ptr %146, align 4
+  store float %..sroa.574.sroa.0.0, ptr %146, align 4
   %.sroa.3393.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 308
-  store float %.sroa.3393.0, ptr %.sroa.3393.0..sroa_idx, align 4
+  store float %..sroa.574.sroa.4.0, ptr %.sroa.3393.0..sroa_idx, align 4
   %.sroa.4395.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 312
-  store float %.sroa.4395.0, ptr %.sroa.4395.0..sroa_idx, align 4
+  store float %..sroa.574.sroa.5.0, ptr %.sroa.4395.0..sroa_idx, align 4
   %.sroa.5397.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 316
-  store float %.sroa.5397.0, ptr %.sroa.5397.0..sroa_idx, align 4
+  store float %..sroa.574.sroa.6.0, ptr %.sroa.5397.0..sroa_idx, align 4
   %147 = getelementptr inbounds i8, ptr %0, i64 320
-  store float %.sroa.0403.0, ptr %147, align 4
+  store float %..sroa.578.sroa.0.0, ptr %147, align 4
   %.sroa.3405.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 324
-  store float %.sroa.3405.0, ptr %.sroa.3405.0..sroa_idx, align 4
+  store float %..sroa.578.sroa.4.0, ptr %.sroa.3405.0..sroa_idx, align 4
   %.sroa.4407.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 328
-  store float %.sroa.4407.0, ptr %.sroa.4407.0..sroa_idx, align 4
+  store float %..sroa.578.sroa.5.0, ptr %.sroa.4407.0..sroa_idx, align 4
   %.sroa.5409.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 332
-  store float %.sroa.5409.0, ptr %.sroa.5409.0..sroa_idx, align 4
+  store float %..sroa.578.sroa.6.0, ptr %.sroa.5409.0..sroa_idx, align 4
   %148 = getelementptr inbounds i8, ptr %0, i64 336
-  store float %.sroa.0415.0, ptr %148, align 4
+  store float %..sroa.582.sroa.0.0, ptr %148, align 4
   %.sroa.3417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 340
-  store float %.sroa.3417.0, ptr %.sroa.3417.0..sroa_idx, align 4
+  store float %..sroa.582.sroa.4.0, ptr %.sroa.3417.0..sroa_idx, align 4
   %.sroa.4419.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 344
-  store float %.sroa.4419.0, ptr %.sroa.4419.0..sroa_idx, align 4
+  store float %..sroa.582.sroa.5.0, ptr %.sroa.4419.0..sroa_idx, align 4
   %.sroa.5421.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 348
-  store float %.sroa.5421.0, ptr %.sroa.5421.0..sroa_idx, align 4
+  store float %..sroa.582.sroa.6.0, ptr %.sroa.5421.0..sroa_idx, align 4
   %149 = getelementptr inbounds i8, ptr %0, i64 352
-  store float %.sroa.0427.0, ptr %149, align 4
+  store float %..sroa.586.sroa.0.0, ptr %149, align 4
   %.sroa.3429.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 356
-  store float %.sroa.3429.0, ptr %.sroa.3429.0..sroa_idx, align 4
+  store float %..sroa.586.sroa.4.0, ptr %.sroa.3429.0..sroa_idx, align 4
   %.sroa.4431.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 360
-  store float %.sroa.4431.0, ptr %.sroa.4431.0..sroa_idx, align 4
+  store float %..sroa.586.sroa.5.0, ptr %.sroa.4431.0..sroa_idx, align 4
   %.sroa.5433.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 364
-  store float %.sroa.5433.0, ptr %.sroa.5433.0..sroa_idx, align 4
+  store float %..sroa.586.sroa.6.0, ptr %.sroa.5433.0..sroa_idx, align 4
   %150 = getelementptr inbounds i8, ptr %0, i64 368
-  store float %.sroa.0439.0, ptr %150, align 4
+  store float %..sroa.590.sroa.0.0, ptr %150, align 4
   %.sroa.3441.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 372
-  store float %.sroa.3441.0, ptr %.sroa.3441.0..sroa_idx, align 4
+  store float %..sroa.590.sroa.4.0, ptr %.sroa.3441.0..sroa_idx, align 4
   %.sroa.4443.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 376
-  store float %.sroa.4443.0, ptr %.sroa.4443.0..sroa_idx, align 4
+  store float %..sroa.590.sroa.5.0, ptr %.sroa.4443.0..sroa_idx, align 4
   %.sroa.5445.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 380
-  store float %.sroa.5445.0, ptr %.sroa.5445.0..sroa_idx, align 4
+  store float %..sroa.590.sroa.6.0, ptr %.sroa.5445.0..sroa_idx, align 4
   %151 = getelementptr inbounds i8, ptr %0, i64 384
-  store float %.sroa.0451.0, ptr %151, align 4
+  store float %..sroa.594.sroa.0.0, ptr %151, align 4
   %.sroa.3453.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 388
-  store float %.sroa.3453.0, ptr %.sroa.3453.0..sroa_idx, align 4
+  store float %..sroa.594.sroa.4.0, ptr %.sroa.3453.0..sroa_idx, align 4
   %.sroa.4455.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 392
-  store float %.sroa.4455.0, ptr %.sroa.4455.0..sroa_idx, align 4
+  store float %..sroa.594.sroa.5.0, ptr %.sroa.4455.0..sroa_idx, align 4
   %.sroa.5457.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 396
-  store float %.sroa.5457.0, ptr %.sroa.5457.0..sroa_idx, align 4
+  store float %..sroa.594.sroa.6.0, ptr %.sroa.5457.0..sroa_idx, align 4
   %152 = getelementptr inbounds i8, ptr %0, i64 400
-  store float %.sroa.0463.0, ptr %152, align 4
+  store float %..sroa.598.sroa.0.0, ptr %152, align 4
   %.sroa.3465.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 404
-  store float %.sroa.3465.0, ptr %.sroa.3465.0..sroa_idx, align 4
+  store float %..sroa.598.sroa.4.0, ptr %.sroa.3465.0..sroa_idx, align 4
   %.sroa.4467.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 408
-  store float %.sroa.4467.0, ptr %.sroa.4467.0..sroa_idx, align 4
+  store float %..sroa.598.sroa.5.0, ptr %.sroa.4467.0..sroa_idx, align 4
   %.sroa.5469.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 412
-  store float %.sroa.5469.0, ptr %.sroa.5469.0..sroa_idx, align 4
+  store float %..sroa.598.sroa.6.0, ptr %.sroa.5469.0..sroa_idx, align 4
   %153 = getelementptr inbounds i8, ptr %0, i64 416
-  store float %.sroa.0475.0, ptr %153, align 4
+  store float %..sroa.5102.sroa.0.0, ptr %153, align 4
   %.sroa.3477.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 420
-  store float %.sroa.3477.0, ptr %.sroa.3477.0..sroa_idx, align 4
+  store float %..sroa.5102.sroa.4.0, ptr %.sroa.3477.0..sroa_idx, align 4
   %.sroa.4479.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 424
-  store float %.sroa.4479.0, ptr %.sroa.4479.0..sroa_idx, align 4
+  store float %..sroa.5102.sroa.5.0, ptr %.sroa.4479.0..sroa_idx, align 4
   %.sroa.5481.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 428
-  store float %.sroa.5481.0, ptr %.sroa.5481.0..sroa_idx, align 4
+  store float %..sroa.5102.sroa.6.0, ptr %.sroa.5481.0..sroa_idx, align 4
   %154 = getelementptr inbounds i8, ptr %0, i64 432
-  store float %.sroa.0487.0, ptr %154, align 4
+  store float %..sroa.5106.sroa.0.0, ptr %154, align 4
   %.sroa.3489.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 436
-  store float %.sroa.3489.0, ptr %.sroa.3489.0..sroa_idx, align 4
+  store float %..sroa.5106.sroa.4.0, ptr %.sroa.3489.0..sroa_idx, align 4
   %.sroa.4491.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 440
-  store float %.sroa.4491.0, ptr %.sroa.4491.0..sroa_idx, align 4
+  store float %..sroa.5106.sroa.5.0, ptr %.sroa.4491.0..sroa_idx, align 4
   %.sroa.5493.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 444
-  store float %.sroa.5493.0, ptr %.sroa.5493.0..sroa_idx, align 4
+  store float %..sroa.5106.sroa.6.0, ptr %.sroa.5493.0..sroa_idx, align 4
   %155 = getelementptr inbounds i8, ptr %0, i64 448
-  store float %.sroa.0499.0, ptr %155, align 4
+  store float %..sroa.5110.sroa.0.0, ptr %155, align 4
   %.sroa.3501.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 452
-  store float %.sroa.3501.0, ptr %.sroa.3501.0..sroa_idx, align 4
+  store float %..sroa.5110.sroa.4.0, ptr %.sroa.3501.0..sroa_idx, align 4
   %.sroa.4503.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 456
-  store float %.sroa.4503.0, ptr %.sroa.4503.0..sroa_idx, align 4
+  store float %..sroa.5110.sroa.5.0, ptr %.sroa.4503.0..sroa_idx, align 4
   %.sroa.5505.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 460
-  store float %.sroa.5505.0, ptr %.sroa.5505.0..sroa_idx, align 4
+  store float %..sroa.5110.sroa.6.0, ptr %.sroa.5505.0..sroa_idx, align 4
   %156 = getelementptr inbounds i8, ptr %0, i64 464
-  store float %.sroa.0511.0, ptr %156, align 4
+  store float %..sroa.5114.sroa.0.0, ptr %156, align 4
   %.sroa.3513.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 468
-  store float %.sroa.3513.0, ptr %.sroa.3513.0..sroa_idx, align 4
+  store float %..sroa.5114.sroa.4.0, ptr %.sroa.3513.0..sroa_idx, align 4
   %.sroa.4515.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 472
-  store float %.sroa.4515.0, ptr %.sroa.4515.0..sroa_idx, align 4
+  store float %..sroa.5114.sroa.5.0, ptr %.sroa.4515.0..sroa_idx, align 4
   %.sroa.5517.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 476
-  store float %.sroa.5517.0, ptr %.sroa.5517.0..sroa_idx, align 4
+  store float %..sroa.5114.sroa.6.0, ptr %.sroa.5517.0..sroa_idx, align 4
   %157 = getelementptr inbounds i8, ptr %0, i64 480
-  store float %.sroa.0523.0, ptr %157, align 4
+  store float %..sroa.5118.sroa.0.0, ptr %157, align 4
   %.sroa.3525.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 484
-  store float %.sroa.3525.0, ptr %.sroa.3525.0..sroa_idx, align 4
+  store float %..sroa.5118.sroa.4.0, ptr %.sroa.3525.0..sroa_idx, align 4
   %.sroa.4527.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 488
-  store float %.sroa.4527.0, ptr %.sroa.4527.0..sroa_idx, align 4
+  store float %..sroa.5118.sroa.5.0, ptr %.sroa.4527.0..sroa_idx, align 4
   %.sroa.5529.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 492
-  store float %.sroa.5529.0, ptr %.sroa.5529.0..sroa_idx, align 4
+  store float %..sroa.5118.sroa.6.0, ptr %.sroa.5529.0..sroa_idx, align 4
   %158 = getelementptr inbounds i8, ptr %0, i64 496
-  store float %.sroa.0535.0, ptr %158, align 4
+  store float %..sroa.5122.sroa.0.0, ptr %158, align 4
   %.sroa.3537.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 500
-  store float %.sroa.3537.0, ptr %.sroa.3537.0..sroa_idx, align 4
+  store float %..sroa.5122.sroa.4.0, ptr %.sroa.3537.0..sroa_idx, align 4
   %.sroa.4539.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 504
-  store float %.sroa.4539.0, ptr %.sroa.4539.0..sroa_idx, align 4
+  store float %..sroa.5122.sroa.5.0, ptr %.sroa.4539.0..sroa_idx, align 4
   %.sroa.5541.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 508
-  store float %.sroa.5541.0, ptr %.sroa.5541.0..sroa_idx, align 4
+  store float %..sroa.5122.sroa.6.0, ptr %.sroa.5541.0..sroa_idx, align 4
   %159 = getelementptr inbounds i8, ptr %0, i64 512
-  store float %.sroa.0547.0, ptr %159, align 4
+  store float %..sroa.5126.sroa.0.0, ptr %159, align 4
   %.sroa.3549.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 516
-  store float %.sroa.3549.0, ptr %.sroa.3549.0..sroa_idx, align 4
+  store float %..sroa.5126.sroa.4.0, ptr %.sroa.3549.0..sroa_idx, align 4
   %.sroa.4551.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 520
-  store float %.sroa.4551.0, ptr %.sroa.4551.0..sroa_idx, align 4
+  store float %..sroa.5126.sroa.5.0, ptr %.sroa.4551.0..sroa_idx, align 4
   %.sroa.5553.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 524
-  store float %.sroa.5553.0, ptr %.sroa.5553.0..sroa_idx, align 4
+  store float %..sroa.5126.sroa.6.0, ptr %.sroa.5553.0..sroa_idx, align 4
   %160 = getelementptr inbounds i8, ptr %0, i64 528
-  store float %.sroa.0559.0, ptr %160, align 4
+  store float %..sroa.5130.sroa.0.0, ptr %160, align 4
   %.sroa.3561.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 532
-  store float %.sroa.3561.0, ptr %.sroa.3561.0..sroa_idx, align 4
+  store float %..sroa.5130.sroa.4.0, ptr %.sroa.3561.0..sroa_idx, align 4
   %.sroa.4563.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 536
-  store float %.sroa.4563.0, ptr %.sroa.4563.0..sroa_idx, align 4
+  store float %..sroa.5130.sroa.5.0, ptr %.sroa.4563.0..sroa_idx, align 4
   %.sroa.5565.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 540
-  store float %.sroa.5565.0, ptr %.sroa.5565.0..sroa_idx, align 4
+  store float %..sroa.5130.sroa.6.0, ptr %.sroa.5565.0..sroa_idx, align 4
   %161 = getelementptr inbounds i8, ptr %0, i64 544
-  store float %.sroa.0571.0, ptr %161, align 4
+  store float %..sroa.5134.sroa.0.0, ptr %161, align 4
   %.sroa.3573.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 548
-  store float %.sroa.3573.0, ptr %.sroa.3573.0..sroa_idx, align 4
+  store float %..sroa.5134.sroa.4.0, ptr %.sroa.3573.0..sroa_idx, align 4
   %.sroa.4575.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 552
-  store float %.sroa.4575.0, ptr %.sroa.4575.0..sroa_idx, align 4
+  store float %..sroa.5134.sroa.5.0, ptr %.sroa.4575.0..sroa_idx, align 4
   %.sroa.5577.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 556
-  store float %.sroa.5577.0, ptr %.sroa.5577.0..sroa_idx, align 4
+  store float %..sroa.5134.sroa.6.0, ptr %.sroa.5577.0..sroa_idx, align 4
   %162 = getelementptr inbounds i8, ptr %0, i64 560
-  store float %.sroa.0583.0, ptr %162, align 4
+  store float %..sroa.5138.sroa.0.0, ptr %162, align 4
   %.sroa.3585.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 564
-  store float %.sroa.3585.0, ptr %.sroa.3585.0..sroa_idx, align 4
+  store float %..sroa.5138.sroa.4.0, ptr %.sroa.3585.0..sroa_idx, align 4
   %.sroa.4587.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 568
-  store float %.sroa.4587.0, ptr %.sroa.4587.0..sroa_idx, align 4
+  store float %..sroa.5138.sroa.5.0, ptr %.sroa.4587.0..sroa_idx, align 4
   %.sroa.5589.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 572
-  store float %.sroa.5589.0, ptr %.sroa.5589.0..sroa_idx, align 4
+  store float %..sroa.5138.sroa.6.0, ptr %.sroa.5589.0..sroa_idx, align 4
   %163 = getelementptr inbounds i8, ptr %0, i64 576
-  store float %.sroa.0595.0, ptr %163, align 4
+  store float %..sroa.5142.sroa.0.0, ptr %163, align 4
   %.sroa.3597.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 580
-  store float %.sroa.3597.0, ptr %.sroa.3597.0..sroa_idx, align 4
+  store float %..sroa.5142.sroa.4.0, ptr %.sroa.3597.0..sroa_idx, align 4
   %.sroa.4599.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 584
-  store float %.sroa.4599.0, ptr %.sroa.4599.0..sroa_idx, align 4
+  store float %..sroa.5142.sroa.5.0, ptr %.sroa.4599.0..sroa_idx, align 4
   %.sroa.5601.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 588
-  store float %.sroa.5601.0, ptr %.sroa.5601.0..sroa_idx, align 4
+  store float %..sroa.5142.sroa.6.0, ptr %.sroa.5601.0..sroa_idx, align 4
   %164 = getelementptr inbounds i8, ptr %0, i64 592
-  store float %.sroa.0607.0, ptr %164, align 4
+  store float %..sroa.5146.sroa.0.0, ptr %164, align 4
   %.sroa.3609.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 596
-  store float %.sroa.3609.0, ptr %.sroa.3609.0..sroa_idx, align 4
+  store float %..sroa.5146.sroa.4.0, ptr %.sroa.3609.0..sroa_idx, align 4
   %.sroa.4611.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 600
-  store float %.sroa.4611.0, ptr %.sroa.4611.0..sroa_idx, align 4
+  store float %..sroa.5146.sroa.5.0, ptr %.sroa.4611.0..sroa_idx, align 4
   %.sroa.5613.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 604
-  store float %.sroa.5613.0, ptr %.sroa.5613.0..sroa_idx, align 4
+  store float %..sroa.5146.sroa.6.0, ptr %.sroa.5613.0..sroa_idx, align 4
   %165 = getelementptr inbounds i8, ptr %0, i64 608
-  store float %.sroa.0619.0, ptr %165, align 4
+  store float %..sroa.5150.sroa.0.0, ptr %165, align 4
   %.sroa.3621.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 612
-  store float %.sroa.3621.0, ptr %.sroa.3621.0..sroa_idx, align 4
+  store float %..sroa.5150.sroa.4.0, ptr %.sroa.3621.0..sroa_idx, align 4
   %.sroa.4623.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 616
-  store float %.sroa.4623.0, ptr %.sroa.4623.0..sroa_idx, align 4
+  store float %..sroa.5150.sroa.5.0, ptr %.sroa.4623.0..sroa_idx, align 4
   %.sroa.5625.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 620
-  store float %.sroa.5625.0, ptr %.sroa.5625.0..sroa_idx, align 4
+  store float %..sroa.5150.sroa.6.0, ptr %.sroa.5625.0..sroa_idx, align 4
   %166 = getelementptr inbounds i8, ptr %0, i64 624
-  store float %.sroa.0631.0, ptr %166, align 4
+  store float %..sroa.5154.sroa.0.0, ptr %166, align 4
   %.sroa.3633.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 628
-  store float %.sroa.3633.0, ptr %.sroa.3633.0..sroa_idx, align 4
+  store float %..sroa.5154.sroa.4.0, ptr %.sroa.3633.0..sroa_idx, align 4
   %.sroa.4635.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 632
-  store float %.sroa.4635.0, ptr %.sroa.4635.0..sroa_idx, align 4
+  store float %..sroa.5154.sroa.5.0, ptr %.sroa.4635.0..sroa_idx, align 4
   %.sroa.5637.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 636
-  store float %.sroa.5637.0, ptr %.sroa.5637.0..sroa_idx, align 4
+  store float %..sroa.5154.sroa.6.0, ptr %.sroa.5637.0..sroa_idx, align 4
   %167 = getelementptr inbounds i8, ptr %0, i64 640
-  store float %.sroa.0643.0, ptr %167, align 4
+  store float %..sroa.5158.sroa.0.0, ptr %167, align 4
   %.sroa.3645.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 644
-  store float %.sroa.3645.0, ptr %.sroa.3645.0..sroa_idx, align 4
+  store float %..sroa.5158.sroa.4.0, ptr %.sroa.3645.0..sroa_idx, align 4
   %.sroa.4647.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 648
-  store float %.sroa.4647.0, ptr %.sroa.4647.0..sroa_idx, align 4
+  store float %..sroa.5158.sroa.5.0, ptr %.sroa.4647.0..sroa_idx, align 4
   %.sroa.5649.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 652
-  store float %.sroa.5649.0, ptr %.sroa.5649.0..sroa_idx, align 4
+  store float %..sroa.5158.sroa.6.0, ptr %.sroa.5649.0..sroa_idx, align 4
   %168 = getelementptr inbounds i8, ptr %0, i64 656
-  store float %.sroa.0655.0, ptr %168, align 4
+  store float %..sroa.5162.sroa.0.0, ptr %168, align 4
   %.sroa.3657.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 660
-  store float %.sroa.3657.0, ptr %.sroa.3657.0..sroa_idx, align 4
+  store float %..sroa.5162.sroa.4.0, ptr %.sroa.3657.0..sroa_idx, align 4
   %.sroa.4659.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 664
-  store float %.sroa.4659.0, ptr %.sroa.4659.0..sroa_idx, align 4
+  store float %..sroa.5162.sroa.5.0, ptr %.sroa.4659.0..sroa_idx, align 4
   %.sroa.5661.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 668
-  store float %.sroa.5661.0, ptr %.sroa.5661.0..sroa_idx, align 4
+  store float %..sroa.5162.sroa.6.0, ptr %.sroa.5661.0..sroa_idx, align 4
   ret void
 }
 

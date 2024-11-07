@@ -52,15 +52,19 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN152_$LT$diese
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h29f6cda7a288d257E"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  %spec.select = select i1 %.not, i64 undef, i64 %1
   %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %spec.select, 1
   ret { ptr, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN180_$LT$diesel..insertable..private..InsertableOptionHelper$LT$T$C$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..Insertable$LT$Tab$GT$$GT$6values17h31917455192878c7E"(ptr noalias noundef readonly align 1 %0, i64 %1) unnamed_addr #1 {
+  %.not = icmp eq ptr %0, null
+  %spec.select = select i1 %.not, i64 undef, i64 %1
   %3 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %4 = insertvalue { ptr, i64 } %3, i64 %1, 1
+  %4 = insertvalue { ptr, i64 } %3, i64 %spec.select, 1
   ret { ptr, i64 } %4
 }
 

@@ -174,11 +174,12 @@ define i48 @"_ZN4core6option15Option$LT$T$GT$3zip17h3773f34f313af084E"(i16 %0, i
   %5 = icmp eq i16 %0, 1
   %6 = icmp eq i16 %2, 1
   %or.cond = select i1 %5, i1 %6, i1 false
-  %.sroa.4.0.insert.ext = zext i16 %3 to i48
-  %.sroa.4.0.insert.shift = shl nuw i48 %.sroa.4.0.insert.ext, 32
-  %.sroa.3.0.insert.ext = zext i16 %1 to i48
-  %.sroa.3.0.insert.shift = shl nuw nsw i48 %.sroa.3.0.insert.ext, 16
-  %.sroa.3.0.insert.insert = or disjoint i48 %.sroa.4.0.insert.shift, %.sroa.3.0.insert.shift
+  %7 = zext i16 %3 to i48
+  %8 = zext i16 %1 to i48
+  %9 = shl nuw i48 %7, 32
+  %10 = shl nuw nsw i48 %8, 16
+  %11 = or disjoint i48 %9, %10
+  %.sroa.3.0.insert.insert = select i1 %or.cond, i48 %11, i48 0
   %.sroa.0.0.insert.ext = zext i1 %or.cond to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %.sroa.3.0.insert.insert, %.sroa.0.0.insert.ext
   ret i48 %.sroa.0.0.insert.insert
@@ -454,8 +455,9 @@ define void @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_
 define { i64, i64 } @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h2145b61ce08fabedE"(i64 %0, i64 %1) unnamed_addr #3 {
   %3 = icmp eq i64 %0, 0
   %. = zext i1 %3 to i64
+  %.2 = select i1 %3, i64 undef, i64 %1
   %4 = insertvalue { i64, i64 } poison, i64 %., 0
-  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %5 = insertvalue { i64, i64 } %4, i64 %.2, 1
   ret { i64, i64 } %5
 }
 

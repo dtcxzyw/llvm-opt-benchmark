@@ -695,9 +695,9 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 68:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9bea7e77cb3773eE.exit"
   %69 = shl nuw i32 %45, 5
   %70 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %69, i32 88)
-  %71 = extractvalue { i32, i1 } %70, 0
-  %72 = extractvalue { i32, i1 } %70, 1
-  br i1 %72, label %73, label %74
+  %71 = extractvalue { i32, i1 } %70, 1
+  %72 = extractvalue { i32, i1 } %70, 0
+  br i1 %71, label %73, label %74
 
 73:                                               ; preds = %68
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -713,10 +713,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 77:                                               ; preds = %74
   %78 = shl nuw i32 %48, 4
-  %79 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %71, i32 %78)
-  %80 = extractvalue { i32, i1 } %79, 0
-  %81 = extractvalue { i32, i1 } %79, 1
-  br i1 %81, label %82, label %83
+  %79 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %72, i32 %78)
+  %80 = extractvalue { i32, i1 } %79, 1
+  %81 = extractvalue { i32, i1 } %79, 0
+  br i1 %80, label %82, label %83
 
 82:                                               ; preds = %77
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -733,10 +733,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 87:                                               ; preds = %83
   %88 = extractvalue { i32, i1 } %84, 0
-  %89 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %80, i32 %88)
-  %90 = extractvalue { i32, i1 } %89, 0
-  %91 = extractvalue { i32, i1 } %89, 1
-  br i1 %91, label %92, label %93
+  %89 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %81, i32 %88)
+  %90 = extractvalue { i32, i1 } %89, 1
+  %91 = extractvalue { i32, i1 } %89, 0
+  br i1 %90, label %92, label %93
 
 92:                                               ; preds = %87
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -752,10 +752,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 96:                                               ; preds = %93
   %97 = shl nuw i32 %52, 3
-  %98 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %90, i32 %97)
-  %99 = extractvalue { i32, i1 } %98, 0
-  %100 = extractvalue { i32, i1 } %98, 1
-  br i1 %100, label %101, label %102
+  %98 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %91, i32 %97)
+  %99 = extractvalue { i32, i1 } %98, 1
+  %100 = extractvalue { i32, i1 } %98, 0
+  br i1 %99, label %101, label %102
 
 101:                                              ; preds = %96
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -771,10 +771,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 105:                                              ; preds = %102
   %106 = shl nuw i32 %56, 4
-  %107 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %99, i32 %106)
-  %108 = extractvalue { i32, i1 } %107, 0
-  %109 = extractvalue { i32, i1 } %107, 1
-  br i1 %109, label %110, label %111
+  %107 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %100, i32 %106)
+  %108 = extractvalue { i32, i1 } %107, 1
+  %109 = extractvalue { i32, i1 } %107, 0
+  br i1 %108, label %110, label %111
 
 110:                                              ; preds = %105
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -790,10 +790,10 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 114:                                              ; preds = %111
   %115 = shl nuw i32 %58, 3
-  %116 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %108, i32 %115)
-  %117 = extractvalue { i32, i1 } %116, 0
-  %118 = extractvalue { i32, i1 } %116, 1
-  br i1 %118, label %119, label %120
+  %116 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %109, i32 %115)
+  %117 = extractvalue { i32, i1 } %116, 1
+  %118 = extractvalue { i32, i1 } %116, 0
+  br i1 %117, label %119, label %120
 
 119:                                              ; preds = %114
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -809,31 +809,31 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 123:                                              ; preds = %120
   %124 = shl nuw i32 %.sroa.5.011, 4
-  %125 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %117, i32 %124)
+  %125 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %118, i32 %124)
   %126 = extractvalue { i32, i1 } %125, 1
-  br i1 %126, label %127, label %128
+  %127 = extractvalue { i32, i1 } %125, 0
+  %128 = add i32 %127, 15
+  %129 = and i32 %128, -16
+  br i1 %126, label %130, label %131
 
-127:                                              ; preds = %123
+130:                                              ; preds = %123
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
   unreachable
 
-128:                                              ; preds = %123
-  %129 = extractvalue { i32, i1 } %125, 0
-  %130 = add i32 %129, 15
-  %131 = and i32 %130, -16
+131:                                              ; preds = %123
   %132 = icmp ugt i32 %62, 268435455
   br i1 %132, label %133, label %134
 
-133:                                              ; preds = %128
+133:                                              ; preds = %131
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.6) #30, !noalias !41
   unreachable
 
-134:                                              ; preds = %128
+134:                                              ; preds = %131
   %135 = shl nuw i32 %62, 4
-  %136 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %131, i32 %135)
-  %137 = extractvalue { i32, i1 } %136, 0
-  %138 = extractvalue { i32, i1 } %136, 1
-  br i1 %138, label %139, label %140
+  %136 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %129, i32 %135)
+  %137 = extractvalue { i32, i1 } %136, 1
+  %138 = extractvalue { i32, i1 } %136, 0
+  br i1 %137, label %139, label %140
 
 139:                                              ; preds = %134
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f3b90557b61ab883507bc0abd2bbf363.4) #30, !noalias !41
@@ -850,7 +850,7 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
 
 144:                                              ; preds = %140
   %145 = extractvalue { i32, i1 } %141, 0
-  %146 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %137, i32 %145)
+  %146 = call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %138, i32 %145)
   %147 = extractvalue { i32, i1 } %146, 1
   br i1 %147, label %148, label %"_ZN148_$LT$wasmtime_environ..vmoffsets..VMOffsets$LT$P$GT$$u20$as$u20$core..convert..From$LT$wasmtime_environ..vmoffsets..VMOffsetsFields$LT$P$GT$$GT$$GT$4from17h108c93f1d69f1013E.exit"
 
@@ -900,21 +900,21 @@ _ZN4core4iter6traits8iterator8Iterator3nth17ha1e919a8d359a642E.exit.i: ; preds =
   %.sroa.32.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 76
   store i32 88, ptr %.sroa.32.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.34.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 80
-  store i32 %71, ptr %.sroa.34.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %72, ptr %.sroa.34.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.36.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 84
-  store i32 %80, ptr %.sroa.36.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %81, ptr %.sroa.36.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.38.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 88
-  store i32 %90, ptr %.sroa.38.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %91, ptr %.sroa.38.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.40.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 %99, ptr %.sroa.40.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %100, ptr %.sroa.40.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 %108, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %109, ptr %.sroa.42.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 100
-  store i32 %117, ptr %.sroa.44.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %118, ptr %.sroa.44.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %131, ptr %.sroa.46.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %129, ptr %.sroa.46.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.48.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 %137, ptr %.sroa.48.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
+  store i32 %138, ptr %.sroa.48.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   %.sroa.50.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %149, ptr %.sroa.50.0..sroa_idx.i, align 4, !alias.scope !38, !noalias !43
   ret void

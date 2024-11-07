@@ -11459,13 +11459,13 @@ common.resume:                                    ; preds = %22, %25, %30, %34, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h203306263507845dE.exit": ; preds = %12, %9, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit
-  %.sroa.8.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
-  %.sroa.9.09 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
+  %.sroa.8.011 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
+  %.sroa.9.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !3176
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.sroa.8.010, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !3176
+  store i64 %.sroa.8.011, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !3176
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.9.09, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !3176
+  store i64 %.sroa.9.010, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !3176
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h7325879e3081502dE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 %0)
           to label %24 unwind label %22
@@ -11621,13 +11621,13 @@ common.resume:                                    ; preds = %22, %25, %30, %34, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h203306263507845dE.exit": ; preds = %12, %9, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit
-  %.sroa.8.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
-  %.sroa.9.09 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
+  %.sroa.8.011 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
+  %.sroa.9.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !3212
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.sroa.8.010, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !3212
+  store i64 %.sroa.8.011, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !3212
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.9.09, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !3212
+  store i64 %.sroa.9.010, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !3212
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17hb2c81a97f53ce091E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 %0)
           to label %24 unwind label %22
@@ -11783,13 +11783,13 @@ common.resume:                                    ; preds = %22, %25, %30, %34, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h203306263507845dE.exit": ; preds = %12, %9, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit
-  %.sroa.8.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
-  %.sroa.9.09 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
+  %.sroa.8.011 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
+  %.sroa.9.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !3248
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.sroa.8.010, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !3248
+  store i64 %.sroa.8.011, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !3248
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.9.09, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !3248
+  store i64 %.sroa.9.010, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !3248
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h1915de18e6a94305E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 %0)
           to label %24 unwind label %22
@@ -37839,20 +37839,20 @@ _ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i: ; preds = %71
   br i1 %87, label %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.thread.i, label %88
 
 _ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.thread.i: ; preds = %78, %82, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i
-  %.sroa.734.060.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.4.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ %.sroa.734.8.copyload.i, %82 ], [ %.sroa.734.8.copyload.i, %78 ]
-  %.sroa.9.059.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ %.sroa.9.8.copyload.i, %82 ], [ %.sroa.9.8.copyload.i, %78 ]
-  %.sroa.1037.058.i = phi ptr [ %.sroa.0.sroa.0.i.sroa.6.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ %.sroa.1037.8.copyload.i, %82 ], [ %.sroa.1037.8.copyload.i, %78 ]
-  %.sroa.11.057.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.7.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ 5949906041037142319, %82 ], [ 5949906041037142319, %78 ]
-  %.sroa.13.056.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.8.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ 9195852986326615580, %82 ], [ 9195852986326615580, %78 ]
-  store i32 %.sroa.734.060.i, ptr %11, align 8, !noalias !7634
+  %.sroa.734.061.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.4.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ %.sroa.734.8.copyload.i, %82 ], [ %.sroa.734.8.copyload.i, %78 ]
+  %.sroa.9.060.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ %.sroa.9.8.copyload.i, %82 ], [ %.sroa.9.8.copyload.i, %78 ]
+  %.sroa.1037.059.i = phi ptr [ %.sroa.0.sroa.0.i.sroa.6.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ %.sroa.1037.8.copyload.i, %82 ], [ %.sroa.1037.8.copyload.i, %78 ]
+  %.sroa.11.058.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.7.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ 5949906041037142319, %82 ], [ 5949906041037142319, %78 ]
+  %.sroa.13.057.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.8.0.copyload.i, %_ZN4gpui4view7AnyView8downcast17h8b8f3a77b8a886e5E.exit.i ], [ 9195852986326615580, %82 ], [ 9195852986326615580, %78 ]
+  store i32 %.sroa.734.061.i, ptr %11, align 8, !noalias !7634
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 4
-  store i32 %.sroa.9.059.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !7634
+  store i32 %.sroa.9.060.i, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !7634
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %.sroa.1037.058.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !7634
+  store ptr %.sroa.1037.059.i, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !7634
   %.sroa.621.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %.sroa.11.057.i, ptr %.sroa.621.0..sroa_idx.i, align 8, !noalias !7634
+  store i64 %.sroa.11.058.i, ptr %.sroa.621.0..sroa_idx.i, align 8, !noalias !7634
   %.sroa.621.sroa.4.0..sroa.621.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 24
-  store i64 %.sroa.13.056.i, ptr %.sroa.621.sroa.4.0..sroa.621.0..sroa_idx.sroa_idx.i, align 8, !noalias !7634
+  store i64 %.sroa.13.057.i, ptr %.sroa.621.sroa.4.0..sroa.621.0..sroa_idx.sroa_idx.i, align 8, !noalias !7634
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10), !noalias !7634
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h612f822173f31bf0E"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %10, ptr noalias noundef nonnull align 8 dereferenceable(16) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %2)
           to label %93 unwind label %91, !noalias !7629

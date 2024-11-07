@@ -3361,12 +3361,12 @@ if.end.thread.i.i:                                ; preds = %if.end131.i
   %315 = load ptr, ptr @the_repository, align 8
   %call2.i78.i = call ptr @lookup_commit_reference_gently(ptr noundef %315, ptr noundef nonnull %rev.i.i, i32 noundef 1) #16
   %316 = load i32, ptr %flag.i.i, align 4
-  %and123.i.i = and i32 %316, 1
-  %tobool3.not124.i.i = icmp eq i32 %and123.i.i, 0
-  br i1 %tobool3.not124.i.i, label %if.end7.thread.i.i, label %do.body.i.preheader.i.i
+  %and125.i.i = and i32 %316, 1
+  %tobool3.not126.i.i = icmp eq i32 %and125.i.i, 0
+  br i1 %tobool3.not126.i.i, label %if.end7.thread.i.i, label %do.body.i.preheader.i.i
 
 if.end7.thread.i.i:                               ; preds = %if.end.thread.i.i, %if.end.i87.i
-  %old_branch_info.sroa.20.0127.i.i = phi ptr [ %call2.i78.i, %if.end.thread.i.i ], [ null, %if.end.i87.i ]
+  %old_branch_info.sroa.20.0129.i.i = phi ptr [ %call2.i78.i, %if.end.thread.i.i ], [ null, %if.end.i87.i ]
   call void @free(ptr noundef %call.i76.i) #16
   br label %if.end16.i.i
 
@@ -3394,7 +3394,7 @@ if.then13.i.i:                                    ; preds = %do.body.i.i.i
   br label %if.end16.i.i
 
 if.end16.i.i:                                     ; preds = %do.cond.i.i.i, %if.then13.i.i, %if.end7.thread.i.i, %if.end.i87.i
-  %old_branch_info.sroa.20.0125.i.i = phi ptr [ %call2.i78.i, %if.then13.i.i ], [ %old_branch_info.sroa.20.0127.i.i, %if.end7.thread.i.i ], [ null, %if.end.i87.i ], [ %call2.i78.i, %do.cond.i.i.i ]
+  %old_branch_info.sroa.20.0127.i.i = phi ptr [ %call2.i78.i, %if.then13.i.i ], [ %old_branch_info.sroa.20.0129.i.i, %if.end7.thread.i.i ], [ null, %if.end.i87.i ], [ %call2.i78.i, %do.cond.i.i.i ]
   %tobool9.not115.i.i = phi i1 [ false, %if.then13.i.i ], [ true, %if.end7.thread.i.i ], [ true, %if.end.i87.i ], [ false, %do.cond.i.i.i ]
   %old_branch_info.sroa.8.0114.i.i = phi ptr [ %call.i76.i, %if.then13.i.i ], [ null, %if.end7.thread.i.i ], [ null, %if.end.i87.i ], [ %call.i76.i, %do.cond.i.i.i ]
   %old_branch_info.sroa.0.0.i.i = phi ptr [ %call14.i.i, %if.then13.i.i ], [ null, %if.end7.thread.i.i ], [ null, %if.end.i87.i ], [ null, %do.cond.i.i.i ]
@@ -3435,8 +3435,8 @@ if.end27.i.i:                                     ; preds = %if.end27thread-pre-
 if.then30.i.i:                                    ; preds = %if.end27.i.i
   %call31.i.i = call ptr @xstrdup(ptr noundef nonnull @.str.76) #16
   store ptr %call31.i.i, ptr %new_branch_info, align 8
-  store ptr %old_branch_info.sroa.20.0125.i.i, ptr %commit115.i, align 8
-  %tobool36.not.i.i = icmp eq ptr %old_branch_info.sroa.20.0125.i.i, null
+  store ptr %old_branch_info.sroa.20.0127.i.i, ptr %commit115.i, align 8
+  %tobool36.not.i.i = icmp eq ptr %old_branch_info.sroa.20.0127.i.i, null
   br i1 %tobool36.not.i.i, label %if.then37.i.i, label %if.end39.i.i
 
 if.then37.i.i:                                    ; preds = %if.then30.i.i
@@ -3445,7 +3445,7 @@ if.then37.i.i:                                    ; preds = %if.then30.i.i
   unreachable
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  call void @parse_commit_or_die(ptr noundef nonnull %old_branch_info.sroa.20.0125.i.i) #16
+  call void @parse_commit_or_die(ptr noundef nonnull %old_branch_info.sroa.20.0127.i.i) #16
   %only_merge_on_switching_branches.i.i = getelementptr inbounds i8, ptr %opts, i64 72
   %323 = load i32, ptr %only_merge_on_switching_branches.i.i, align 8
   %tobool41.not.not.i.i = icmp eq i32 %323, 0
@@ -3549,7 +3549,7 @@ if.end28.i.i.i:                                   ; preds = %if.else20.i.i.i
   store i32 1, ptr %update.i.i.i.i, align 4
   store i32 1, ptr %topts.i.i.i, align 8
   %tobool.i.i.i.i = icmp ne i32 %337, 0
-  %tobool2.i.i.i.i = icmp ne ptr %old_branch_info.sroa.20.0125.i.i, null
+  %tobool2.i.i.i.i = icmp ne ptr %old_branch_info.sroa.20.0127.i.i, null
   %340 = and i1 %tobool2.i.i.i.i, %tobool.i.i.i.i
   %land.ext.i.i.i.i = zext i1 %340 to i32
   %quiet.i.i.i.i = getelementptr inbounds i8, ptr %topts.i.i.i, i64 48
@@ -3571,11 +3571,11 @@ if.end28.i.i.i:                                   ; preds = %if.else20.i.i.i
   %oid33.i.i.i = getelementptr inbounds i8, ptr %new_branch_info, i64 32
   %cond.i.i.i213 = select i1 %tobool31.not.i.i.i, ptr %oid33.i.i.i, ptr %oid.i.i.i212
   call void @init_checkout_metadata(ptr noundef nonnull %meta.i.i.i, ptr noundef %341, ptr noundef nonnull %cond.i.i.i213, ptr noundef null) #16
-  %tobool35.not.i.i.i = icmp eq ptr %old_branch_info.sroa.20.0125.i.i, null
+  %tobool35.not.i.i.i = icmp eq ptr %old_branch_info.sroa.20.0127.i.i, null
   br i1 %tobool35.not.i.i.i, label %cond.false40.i.i.i, label %cond.true36.i.i.i
 
 cond.true36.i.i.i:                                ; preds = %if.end28.i.i.i
-  %oid39.i.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0125.i.i, i64 4
+  %oid39.i.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0127.i.i, i64 4
   br label %cond.end43.i.i.i
 
 cond.false40.i.i.i:                               ; preds = %if.end28.i.i.i
@@ -3626,7 +3626,7 @@ if.then57.i.i.i:                                  ; preds = %if.end50.i.i.i
 
 if.end65.i.i.i:                                   ; preds = %if.then57.i.i.i
   %351 = load ptr, ptr @the_repository, align 8
-  %call67.i.i.i = call ptr @repo_get_commit_tree(ptr noundef %351, ptr noundef nonnull %old_branch_info.sroa.20.0125.i.i) #16
+  %call67.i.i.i = call ptr @repo_get_commit_tree(ptr noundef %351, ptr noundef nonnull %old_branch_info.sroa.20.0127.i.i) #16
   %352 = load ptr, ptr @the_repository, align 8
   %call68.i.i.i = call i32 @repo_index_has_changes(ptr noundef %352, ptr noundef %call67.i.i.i, ptr noundef nonnull %sb.i.i.i) #16
   %tobool69.not.i.i.i = icmp eq i32 %call68.i.i.i, 0
@@ -3660,7 +3660,7 @@ if.end78.i.i.i:                                   ; preds = %if.end72.i.i.i
   br i1 %tobool80.not.i.i.i, label %if.then81.i.i.i, label %if.end87.i.i.i
 
 if.then81.i.i.i:                                  ; preds = %if.end78.i.i.i
-  %oid84.i.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0125.i.i, i64 4
+  %oid84.i.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0127.i.i, i64 4
   %357 = load i32, ptr @default_abbrev, align 4
   call void @strbuf_add_unique_abbrev(ptr noundef nonnull %old_commit_shortname.i.i.i, ptr noundef nonnull %oid84.i.i.i, i32 noundef %357) #16
   %buf85.i.i.i = getelementptr inbounds i8, ptr %old_commit_shortname.i.i.i, i64 16
@@ -3770,13 +3770,13 @@ if.end51.i.i:                                     ; preds = %merge_working_tree.
   %364 = load i32, ptr %quiet.i84.i, align 4
   %tobool52.i.i195 = icmp eq i32 %364, 0
   %or.cond.not24.i.i = and i1 %tobool9.not115.i.i, %tobool52.i.i195
-  %tobool58.i.i = icmp ne ptr %old_branch_info.sroa.20.0125.i.i, null
+  %tobool58.i.i = icmp ne ptr %old_branch_info.sroa.20.0127.i.i, null
   %or.cond1.i.i196 = select i1 %or.cond.not24.i.i, i1 %tobool58.i.i, i1 false
   br i1 %or.cond1.i.i196, label %land.lhs.true59.i.i, label %if.end65.i.i
 
 land.lhs.true59.i.i:                              ; preds = %if.end51.i.i
   %365 = load ptr, ptr %commit115.i, align 8
-  %cmp.not.i.i = icmp eq ptr %365, %old_branch_info.sroa.20.0125.i.i
+  %cmp.not.i.i = icmp eq ptr %365, %old_branch_info.sroa.20.0127.i.i
   br i1 %cmp.not.i.i, label %if.end65.i.i, label %if.then62.i.i
 
 if.then62.i.i:                                    ; preds = %land.lhs.true59.i.i
@@ -3784,12 +3784,12 @@ if.then62.i.i:                                    ; preds = %land.lhs.true59.i.i
   %366 = load ptr, ptr @the_repository, align 8
   call void @repo_init_revisions(ptr noundef %366, ptr noundef nonnull %revs.i.i.i, ptr noundef null) #16
   %call.i29.i.i = call i32 @setup_revisions(i32 noundef 0, ptr noundef null, ptr noundef nonnull %revs.i.i.i, ptr noundef null) #16
-  %bf.load.i.i.i = load i32, ptr %old_branch_info.sroa.20.0125.i.i, align 4
+  %bf.load.i.i.i = load i32, ptr %old_branch_info.sroa.20.0127.i.i, align 4
   %bf.set.i.i.i = and i32 %bf.load.i.i.i, -33
-  store i32 %bf.set.i.i.i, ptr %old_branch_info.sroa.20.0125.i.i, align 4
-  %oid.i30.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0125.i.i, i64 4
+  store i32 %bf.set.i.i.i, ptr %old_branch_info.sroa.20.0127.i.i, align 4
+  %oid.i30.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0127.i.i, i64 4
   %call3.i31.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i30.i.i) #16
-  call void @add_pending_object(ptr noundef nonnull %revs.i.i.i, ptr noundef nonnull %old_branch_info.sroa.20.0125.i.i, ptr noundef %call3.i31.i.i) #16
+  call void @add_pending_object(ptr noundef nonnull %revs.i.i.i, ptr noundef nonnull %old_branch_info.sroa.20.0127.i.i, ptr noundef %call3.i31.i.i) #16
   %call4.i.i.i = call i32 @for_each_ref(ptr noundef nonnull @add_pending_uninteresting_ref, ptr noundef nonnull %revs.i.i.i) #16
   %tobool.not.i32.i.i = icmp eq ptr %365, null
   br i1 %tobool.not.i32.i.i, label %if.end.i34.i.i, label %if.then.i33.i.i
@@ -3810,7 +3810,7 @@ if.then9.i.i.i204:                                ; preds = %if.end.i34.i.i
   unreachable
 
 if.end11.i.i.i205:                                ; preds = %if.end.i34.i.i
-  %bf.load13.i.i.i = load i32, ptr %old_branch_info.sroa.20.0125.i.i, align 8
+  %bf.load13.i.i.i = load i32, ptr %old_branch_info.sroa.20.0127.i.i, align 8
   %367 = and i32 %bf.load13.i.i.i, 32
   %tobool16.not.i.i.i = icmp eq i32 %367, 0
   br i1 %tobool16.not.i.i.i, label %if.then17.i.i.i, label %if.else.i36.i.i
@@ -4069,7 +4069,7 @@ if.end3.i.i38.i.i:                                ; preds = %if.else.i36.i.i
 
 _.exit.i39.i.i:                                   ; preds = %if.end3.i.i38.i.i, %if.else.i36.i.i
   %retval.0.i.i40.i.i = phi ptr [ %call.i8.i.i.i, %if.end3.i.i38.i.i ], [ @.str.185, %if.else.i36.i.i ]
-  call fastcc void @describe_detached_head(ptr noundef %retval.0.i.i40.i.i, ptr noundef nonnull %old_branch_info.sroa.20.0125.i.i)
+  call fastcc void @describe_detached_head(ptr noundef %retval.0.i.i40.i.i, ptr noundef nonnull %old_branch_info.sroa.20.0127.i.i)
   br label %orphaned_commit_warning.exit.i.i
 
 orphaned_commit_warning.exit.i.i:                 ; preds = %_.exit.i39.i.i, %suggest_reattach.exit.i.i.i
@@ -4168,11 +4168,11 @@ if.end27.i.i.i:                                   ; preds = %if.end21.i.i.i, %if
   br i1 %tobool29.not.i.i.i, label %land.lhs.true30.i.i.i, label %if.end35.i.i.i198
 
 land.lhs.true30.i.i.i:                            ; preds = %if.end27.i.i.i
-  %tobool31.not.i60.i.i = icmp eq ptr %old_branch_info.sroa.20.0125.i.i, null
+  %tobool31.not.i60.i.i = icmp eq ptr %old_branch_info.sroa.20.0127.i.i, null
   br i1 %tobool31.not.i60.i.i, label %if.end35.i.i.i198, label %if.then32.i.i.i
 
 if.then32.i.i.i:                                  ; preds = %land.lhs.true30.i.i.i
-  %oid.i61.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0125.i.i, i64 4
+  %oid.i61.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0127.i.i, i64 4
   %call34.i.i.i = call ptr @oid_to_hex(ptr noundef nonnull %oid.i61.i.i) #16
   br label %if.end35.i.i.i198
 
@@ -4355,8 +4355,8 @@ _.exit97.i.i.i:                                   ; preds = %if.end3.i94.i.i.i, 
   br label %if.end132.i.i.i
 
 if.end132.i.i.i:                                  ; preds = %_.exit97.i.i.i, %_.exit92.i.i.i, %_.exit87.i.i.i, %if.end89.i.i.i
-  %brmerge119.i.i = or i1 %tobool9.not115.i.i, %tobool29.not.i.i.i
-  br i1 %brmerge119.i.i, label %if.end153.i.i.i, label %if.then138.i.i.i
+  %brmerge121.i.i = or i1 %tobool9.not115.i.i, %tobool29.not.i.i.i
+  br i1 %brmerge121.i.i, label %if.end153.i.i.i, label %if.then138.i.i.i
 
 land.lhs.true135.i.sink.split.i.i:                ; preds = %if.then100.i.i.i
   %call.i80.i.i.i = call ptr @gettext(ptr noundef nonnull %.str.201..str.200.i.i) #16
@@ -4438,11 +4438,11 @@ update_refs_for_switch.exit.i.i:                  ; preds = %report_tracking.exi
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %msg.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %err.i.i.i)
   %458 = load ptr, ptr %commit115.i, align 8
-  %tobool.not.i73.i.i = icmp eq ptr %old_branch_info.sroa.20.0125.i.i, null
+  %tobool.not.i73.i.i = icmp eq ptr %old_branch_info.sroa.20.0127.i.i, null
   br i1 %tobool.not.i73.i.i, label %cond.false.i.i.i, label %cond.true.i.i.i
 
 cond.true.i.i.i:                                  ; preds = %update_refs_for_switch.exit.i.i
-  %oid.i74.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0125.i.i, i64 4
+  %oid.i74.i.i = getelementptr inbounds i8, ptr %old_branch_info.sroa.20.0127.i.i, i64 4
   br label %cond.end.i.i.i
 
 cond.false.i.i.i:                                 ; preds = %update_refs_for_switch.exit.i.i

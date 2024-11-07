@@ -448,9 +448,10 @@ define hidden { i64, ptr } @"_ZN10rayon_core26ThreadPoolBuilder$LT$S$GT$12build_
   br i1 %18, label %_ZN10rayon_core8registry8Registry17wait_until_primed17he3defff33130b5e6E.exit, label %.lr.ph.i
 
 _ZN10rayon_core8registry8Registry17wait_until_primed17he3defff33130b5e6E.exit: ; preds = %.lr.ph.i, %8, %1
+  %.sroa.3.0 = phi ptr [ %7, %1 ], [ undef, %8 ], [ undef, %.lr.ph.i ]
   %.sroa.0.0 = phi i64 [ %4, %1 ], [ 3, %8 ], [ 3, %.lr.ph.i ]
   %19 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %20 = insertvalue { i64, ptr } %19, ptr %7, 1
+  %20 = insertvalue { i64, ptr } %19, ptr %.sroa.3.0, 1
   ret { i64, ptr } %20
 }
 

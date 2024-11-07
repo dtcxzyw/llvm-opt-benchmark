@@ -380,8 +380,8 @@ if.then.i:                                        ; preds = %if.end3.i
   br i1 %cmp1.i, label %if.end, label %return
 
 if.then.i.thread:                                 ; preds = %entry
-  %cmp1.i7 = icmp eq i32 %call9.i, -1
-  br i1 %cmp1.i7, label %if.end3, label %return
+  %cmp1.i8 = icmp eq i32 %call9.i, -1
+  br i1 %cmp1.i8, label %if.end3, label %return
 
 if.end3.i:                                        ; preds = %entry, %if.end3.i
   %call12.i = phi i32 [ %call.i, %if.end3.i ], [ %call9.i, %entry ]
@@ -397,12 +397,12 @@ if.end:                                           ; preds = %if.then.i
   br i1 %cmp1, label %return, label %if.end3
 
 if.end3:                                          ; preds = %if.then.i.thread, %if.end
-  %max.0.lcssa.i812 = phi i32 [ %spec.select.i, %if.end ], [ 0, %if.then.i.thread ]
+  %max.0.lcssa.i913 = phi i32 [ %spec.select.i, %if.end ], [ 0, %if.then.i.thread ]
   %tobool.not = icmp eq ptr %phandle, null
   br i1 %tobool.not, label %return, label %if.then4
 
 if.then4:                                         ; preds = %if.end3
-  %add = add i32 %max.0.lcssa.i812, 1
+  %add = add i32 %max.0.lcssa.i913, 1
   store i32 %add, ptr %phandle, align 4
   br label %return
 

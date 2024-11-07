@@ -1135,6 +1135,7 @@ common.ret:                                       ; preds = %161, %47
   br label %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit": ; preds = %.noexc31, %149
+  %.sroa.668.0 = phi i64 [ undef, %149 ], [ %151, %.noexc31 ]
   %.sroa.567.0 = phi ptr [ undef, %149 ], [ %156, %.noexc31 ]
   %.sink.i = phi i64 [ -9223372036854775808, %149 ], [ %155, %.noexc31 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.14, ptr noundef nonnull align 8 dereferenceable(32) %13, i64 32, i1 false)
@@ -1177,7 +1178,7 @@ common.ret:                                       ; preds = %161, %47
   %.sroa.10.1 = phi i64 [ %.sroa.069.sroa.10.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %.sroa.10.0, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %.sroa.1184.0 = phi i64 [ %.sink.i, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %.sroa.12.0 = phi ptr [ %.sroa.567.0, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
-  %.sroa.1385.0 = phi i64 [ %151, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
+  %.sroa.1385.0 = phi i64 [ %.sroa.668.0, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ undef, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %.sroa.982.sroa.0.1 = phi i64 [ %.sroa.069.sroa.9.sroa.0.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %.sroa.982.sroa.0.0, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   %.sroa.982.sroa.4.1 = phi i64 [ %.sroa.069.sroa.9.sroa.6.0.copyload, %"_ZN4core6option15Option$LT$T$GT$3map17h8276443cf8e88238E.exit" ], [ %.sroa.982.sroa.4.0, %"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h175db85c27cd6b8dE.exit" ]
   store i64 %.sroa.074.1, ptr %0, align 8

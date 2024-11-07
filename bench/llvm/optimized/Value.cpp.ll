@@ -8090,9 +8090,9 @@ _ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit49: ; preds = %147, %155
   br i1 %.not26, label %._crit_edge81, label %57, !llvm.loop !80
 
 ._crit_edge81:                                    ; preds = %57, %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit49, %._crit_edge
-  %.063.lcssa = phi i64 [ 0, %._crit_edge ], [ %.1, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit49 ], [ %.06377, %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit ], [ %.06377, %57 ]
+  %.sroa.061.0 = phi i64 [ 0, %._crit_edge ], [ %.1, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit49 ], [ undef, %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit ], [ undef, %57 ]
   %.sroa.262.0 = phi i8 [ 1, %._crit_edge ], [ 1, %_ZN4llvm25generic_gep_type_iteratorIPKNS_3UseEEppEv.exit49 ], [ 0, %_ZNK4llvm25generic_gep_type_iteratorIPKNS_3UseEE26getSequentialElementStrideERKNS_10DataLayoutE.exit ], [ 0, %57 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.063.lcssa, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.061.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.262.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

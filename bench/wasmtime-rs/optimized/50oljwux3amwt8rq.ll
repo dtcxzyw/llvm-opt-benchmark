@@ -676,6 +676,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 _ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for17h6bd602bf2742d020E.exit: ; preds = %20, %5, %16, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i
   %.sroa.02.0.i = phi ptr [ null, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ null, %5 ], [ null, %16 ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ], [ %3, %20 ]
+  %.sroa.6.0.i = phi i64 [ undef, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.thread.i ], [ undef, %5 ], [ undef, %16 ], [ %4, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit.i ], [ %4, %20 ]
   %24 = tail call align 8 ptr @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$7resolve17hbfac70c8993c61e3E"(ptr align 8 %0)
   %25 = getelementptr inbounds i8, ptr %24, i64 64
   %26 = tail call align 8 ptr @"_ZN128_$LT$id_arena..Arena$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$$LT$A$u20$as$u20$id_arena..ArenaBehavior$GT$..Id$GT$$GT$5index17ha84aa2f870282f85E"(ptr nonnull align 8 %25, i64 %1, i32 %2, ptr nonnull align 8 @anon.1ed22c87c0bfd8076dc71e37a923bb51.23)
@@ -777,7 +778,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %.noexc unwind label %46
 
 .noexc:                                           ; preds = %55
-  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %4)
+  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.6.0.i)
           to label %.noexc60 unwind label %46
 
 .noexc60:                                         ; preds = %.noexc
@@ -1072,8 +1073,9 @@ define void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator10print_list17h468cacc
 10:                                               ; preds = %12, %7
   %anon.1ed22c87c0bfd8076dc71e37a923bb51.52.sink = phi ptr [ @anon.1ed22c87c0bfd8076dc71e37a923bb51.52, %12 ], [ @anon.1ed22c87c0bfd8076dc71e37a923bb51.44, %7 ]
   %11 = icmp eq i8 %5, 2
+  %.14 = select i1 %11, i64 undef, i64 %3
   %. = select i1 %11, ptr null, ptr %2
-  tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %., i64 %3)
+  tail call void @_ZN20wasmtime_wit_bindgen4rust13RustGenerator8print_ty17h0e0f031eb0f4129bE(ptr align 8 %0, ptr align 8 %1, ptr align 1 %., i64 %.14)
   tail call void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %anon.1ed22c87c0bfd8076dc71e37a923bb51.52.sink, i64 1)
   ret void
 
@@ -1497,8 +1499,9 @@ define { ptr, i64 } @_ZN20wasmtime_wit_bindgen4rust13RustGenerator12lifetime_for
 
 7:                                                ; preds = %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit, %26, %10, %4, %25
   %.sroa.02.0 = phi ptr [ null, %25 ], [ null, %4 ], [ null, %10 ], [ %2, %26 ], [ %2, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit ]
+  %.sroa.6.0 = phi i64 [ undef, %25 ], [ undef, %4 ], [ undef, %10 ], [ %3, %26 ], [ %3, %_ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6faE.exit ]
   %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 %3, 1
+  %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.6.0, 1
   ret { ptr, i64 } %9
 
 10:                                               ; preds = %4
@@ -1755,6 +1758,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
 
 118:                                              ; preds = %115, %114, %.noexc71, %101, %.noexc
   %.sroa.02.0.i = phi ptr [ null, %114 ], [ null, %.noexc ], [ null, %101 ], [ %90, %115 ], [ %90, %.noexc71 ]
+  %.sroa.6.0.i = phi i64 [ undef, %114 ], [ undef, %.noexc ], [ undef, %101 ], [ %91, %115 ], [ %91, %.noexc71 ]
   invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 @anon.1ed22c87c0bfd8076dc71e37a923bb51.72, i64 46)
           to label %119 unwind label %.loopexit.split-lp
 
@@ -1852,7 +1856,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14uses_two_names17hcf90db91714bb6fa
           to label %.noexc73 unwind label %.loopexit.split-lp
 
 .noexc73:                                         ; preds = %147
-  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %91)
+  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.6.0.i)
           to label %.noexc74 unwind label %.loopexit.split-lp
 
 .noexc74:                                         ; preds = %.noexc73
@@ -2202,7 +2206,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %.noexc107 unwind label %.loopexit.split-lp
 
 .noexc107:                                        ; preds = %237
-  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %91)
+  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.6.0.i)
           to label %.noexc108 unwind label %.loopexit.split-lp
 
 .noexc108:                                        ; preds = %.noexc107
@@ -2231,7 +2235,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %.noexc113 unwind label %.loopexit.split-lp
 
 .noexc113:                                        ; preds = %242
-  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %91)
+  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.6.0.i)
           to label %.noexc114 unwind label %.loopexit.split-lp
 
 .noexc114:                                        ; preds = %.noexc113
@@ -2278,7 +2282,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %.noexc119 unwind label %.loopexit.split-lp
 
 .noexc119:                                        ; preds = %250
-  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %91)
+  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.6.0.i)
           to label %.noexc120 unwind label %.loopexit.split-lp
 
 .noexc120:                                        ; preds = %.noexc119
@@ -2307,7 +2311,7 @@ _ZN20wasmtime_wit_bindgen4rust13RustGenerator14print_generics17h2d89f37bcf921759
           to label %.noexc125 unwind label %.loopexit.split-lp
 
 .noexc125:                                        ; preds = %255
-  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %91)
+  invoke void @"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E"(ptr align 8 %0, ptr nonnull align 1 %.sroa.02.0.i, i64 %.sroa.6.0.i)
           to label %.noexc126 unwind label %.loopexit.split-lp
 
 .noexc126:                                        ; preds = %.noexc125

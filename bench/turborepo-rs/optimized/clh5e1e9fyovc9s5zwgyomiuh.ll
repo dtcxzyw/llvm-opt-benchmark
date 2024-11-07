@@ -1081,13 +1081,13 @@ default.unreachable:                              ; preds = %.noexc118, %.noexc1
   unreachable
 
 68:                                               ; preds = %63
-  %switch265 = icmp ult ptr %65, inttoptr (i64 4294967296 to ptr)
-  br i1 %switch265, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread
+  %switch268 = icmp ult ptr %65, inttoptr (i64 4294967296 to ptr)
+  br i1 %switch268, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread266, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread
 
 69:                                               ; preds = %63
   %.mask = and i64 %66, -4294967296
   %cond = icmp eq i64 %.mask, 8589934592
-  br i1 %cond, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread
+  br i1 %cond, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread266, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread
 
 70:                                               ; preds = %63
   %71 = getelementptr i8, ptr %65, i64 -1
@@ -1101,12 +1101,12 @@ default.unreachable:                              ; preds = %.noexc118, %.noexc1
   br label %.thread229
 
 .thread232.loopexit.split-lp.loopexit:            ; preds = %124
-  %lpad.loopexit266 = landingpad { ptr, i32 }
+  %lpad.loopexit269 = landingpad { ptr, i32 }
           cleanup
   br label %.thread229
 
 .thread232.loopexit.split-lp.loopexit.split-lp:   ; preds = %59, %138, %167, %76, %79, %173
-  %lpad.loopexit.split-lp267 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp270 = landingpad { ptr, i32 }
           cleanup
   br label %.thread229
 
@@ -1915,7 +1915,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCs68wO5nsWeTG_5alloc6string6Str
   br label %.thread226
 
 .thread229:                                       ; preds = %.thread232.loopexit, %.thread232.loopexit.split-lp.loopexit.split-lp, %.thread232.loopexit.split-lp.loopexit, %.body, %119, %.body133, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i.i122", %152
-  %.pn91225 = phi { ptr, i32 } [ %153, %152 ], [ %153, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i.i122" ], [ %120, %119 ], [ %186, %.body133 ], [ %103, %.body ], [ %lpad.loopexit, %.thread232.loopexit ], [ %lpad.loopexit266, %.thread232.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp267, %.thread232.loopexit.split-lp.loopexit.split-lp ]
+  %.pn91225 = phi { ptr, i32 } [ %153, %152 ], [ %153, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h7539cf4a200804dcE.llvm.10760115039776594612.exit.i.i1.i.i.i122" ], [ %120, %119 ], [ %186, %.body133 ], [ %103, %.body ], [ %lpad.loopexit, %.thread232.loopexit ], [ %lpad.loopexit269, %.thread232.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp270, %.thread232.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.experimental.noalias.scope.decl(metadata !775)
   call void @llvm.experimental.noalias.scope.decl(metadata !778)
   call void @llvm.experimental.noalias.scope.decl(metadata !781)
@@ -1934,9 +1934,9 @@ _ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit: ; preds = %63, %70
   %272 = getelementptr i8, ptr %65, i64 %.sink
   %.sroa.0.0.i = load i8, ptr %272, align 8, !range !793, !noundef !5
   %273 = icmp eq i8 %.sroa.0.0.i, 0
-  br i1 %273, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread
+  br i1 %273, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread266, label %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread
 
-_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263: ; preds = %68, %69, %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit
+_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread266: ; preds = %68, %69, %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit
   store i32 0, ptr %0, align 8
   %274 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 -9223372036854775805, ptr %274, align 8
@@ -1946,12 +1946,12 @@ _ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263: ; preds = %68, %
   %switch.not.i.i.i.i = icmp eq i8 %275, 3
   br i1 %switch.not.i.i.i.i, label %276, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit
 
-276:                                              ; preds = %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263
+276:                                              ; preds = %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread266
   %277 = getelementptr inbounds i8, ptr %6, i64 8
   call void @_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc5boxed3BoxNtNtNtCsapf13pIxsjn_3std2io5error6CustomEECslOtZNRIhnDi_7pidlock.llvm.10760115039776594612(ptr noalias noundef nonnull align 8 dereferenceable(8) %277), !noalias !794
   br label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit
 
-_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit: ; preds = %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread263, %276
+_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtCsapf13pIxsjn_3std2io5error5ErrorECslOtZNRIhnDi_7pidlock.exit: ; preds = %_ZN3std2io5error5Error4kind17ha0747a0fb6165dc0E.exit.thread266, %276
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !794
   br label %293
 

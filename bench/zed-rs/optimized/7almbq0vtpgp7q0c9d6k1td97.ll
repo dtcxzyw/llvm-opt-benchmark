@@ -14510,11 +14510,11 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit:
   br label %18
 
 18:                                               ; preds = %13, %32
-  %.sroa.1166.096 = phi i64 [ 3, %13 ], [ %19, %32 ]
-  %.sroa.865.095 = phi i64 [ 0, %13 ], [ %24, %32 ]
-  %.sroa.064.094 = phi ptr [ %15, %13 ], [ %23, %32 ]
-  %19 = add nsw i64 %.sroa.1166.096, -1
-  %20 = icmp eq ptr %.sroa.064.094, %16
+  %.sroa.1166.097 = phi i64 [ 3, %13 ], [ %19, %32 ]
+  %.sroa.865.096 = phi i64 [ 0, %13 ], [ %24, %32 ]
+  %.sroa.064.095 = phi ptr [ %15, %13 ], [ %23, %32 ]
+  %19 = add nsw i64 %.sroa.1166.097, -1
+  %20 = icmp eq ptr %.sroa.064.095, %16
   br i1 %20, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd373901326d26791E.exit.thread", label %22
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd373901326d26791E.exit.thread": ; preds = %18, %32
@@ -14523,11 +14523,11 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit:
   br i1 %21, label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit44, label %27
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds i8, ptr %.sroa.064.094, i64 4
-  %24 = add nuw nsw i64 %.sroa.865.095, 1
+  %23 = getelementptr inbounds i8, ptr %.sroa.064.095, i64 4
+  %24 = add nuw nsw i64 %.sroa.865.096, 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  store ptr %.sroa.064.094, ptr %6, align 8
-  %25 = icmp eq i64 %.sroa.865.095, 0
+  store ptr %.sroa.064.095, ptr %6, align 8
+  %25 = icmp eq i64 %.sroa.865.096, 0
   br i1 %25, label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit54, label %_ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit59
 
 _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.exit44: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd373901326d26791E.exit.thread"

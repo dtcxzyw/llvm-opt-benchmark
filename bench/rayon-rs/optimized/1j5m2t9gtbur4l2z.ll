@@ -227,25 +227,25 @@ define noundef range(i64 -254, 257) i64 @"_ZN5rayon15range_inclusive85_$LT$impl$
   %15 = sub nsw i64 %13, %14
   %16 = tail call i64 @llvm.uadd.sat.i64(i64 %15, i64 1)
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 1)
-  %18 = extractvalue { i64, i1 } %17, 0
-  %19 = extractvalue { i64, i1 } %17, 1
-  %not..i.i = xor i1 %19, true
-  %..i.i = zext i1 %not..i.i to i64
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = extractvalue { i64, i1 } %17, 0
+  %not..i.i = xor i1 %18, true
+  %.sroa.03.0.i.i = zext i1 %not..i.i to i64
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i"
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h8d2464da7fe50bcaE.exit.i": ; preds = %12, %7, %1
   %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %7 ]
-  %..sink.i.i = phi i64 [ %..i.i, %12 ], [ 1, %1 ], [ 1, %7 ]
-  %.sink.i.i = phi i64 [ %18, %12 ], [ 0, %1 ], [ 0, %7 ]
+  %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %7 ]
+  %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %7 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !35
-  store i64 %..sink.i.i, ptr %4, align 8, !noalias !35
+  store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !35
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !35
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !35
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.sink11.i.i, ptr %21, align 8, !noalias !35
   store i64 1, ptr %3, align 8, !noalias !35
-  %trunc.i = trunc nuw i64 %..sink.i.i to i1
+  %trunc.i = trunc nuw i64 %.sroa.03.0.sink.i.i to i1
   %22 = icmp eq i64 %.sink.i.i, %.sink11.i.i
   %.0.i = select i1 %trunc.i, i1 %22, i1 false
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h4be8c75358d8f93cE.exit, label %23
@@ -337,25 +337,25 @@ define noundef range(i64 -65534, 65537) i64 @"_ZN5rayon15range_inclusive86_$LT$i
   %15 = sub nsw i64 %13, %14
   %16 = tail call i64 @llvm.uadd.sat.i64(i64 %15, i64 1)
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 1)
-  %18 = extractvalue { i64, i1 } %17, 0
-  %19 = extractvalue { i64, i1 } %17, 1
-  %not..i.i = xor i1 %19, true
-  %..i.i = zext i1 %not..i.i to i64
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = extractvalue { i64, i1 } %17, 0
+  %not..i.i = xor i1 %18, true
+  %.sroa.03.0.i.i = zext i1 %not..i.i to i64
   br label %"_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i"
 
 "_ZN4core4iter5range110_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..RangeInclusive$LT$A$GT$$GT$9size_hint17h389648f455d80c73E.exit.i": ; preds = %12, %8, %1
   %.sink11.i.i = phi i64 [ %16, %12 ], [ 0, %1 ], [ 0, %8 ]
-  %..sink.i.i = phi i64 [ %..i.i, %12 ], [ 1, %1 ], [ 1, %8 ]
-  %.sink.i.i = phi i64 [ %18, %12 ], [ 0, %1 ], [ 0, %8 ]
+  %.sroa.03.0.sink.i.i = phi i64 [ %.sroa.03.0.i.i, %12 ], [ 1, %1 ], [ 1, %8 ]
+  %.sink.i.i = phi i64 [ %19, %12 ], [ 0, %1 ], [ 0, %8 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !46
-  store i64 %..sink.i.i, ptr %4, align 8, !noalias !46
+  store i64 %.sroa.03.0.sink.i.i, ptr %4, align 8, !noalias !46
   %20 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %.sink.i.i, ptr %20, align 8, !noalias !46
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !46
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %.sink11.i.i, ptr %21, align 8, !noalias !46
   store i64 1, ptr %3, align 8, !noalias !46
-  %trunc.i = trunc nuw i64 %..sink.i.i to i1
+  %trunc.i = trunc nuw i64 %.sroa.03.0.sink.i.i to i1
   %22 = icmp eq i64 %.sink.i.i, %.sink11.i.i
   %.0.i = select i1 %trunc.i, i1 %22, i1 false
   br i1 %.0.i, label %_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h01ec6519ebae4e75E.exit, label %23
@@ -448,15 +448,15 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
 11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
   %spec.select.i.i.i.i.i22 = sub nuw nsw i64 %4, %2
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i22, i64 1)
-  %13 = extractvalue { i64, i1 } %12, 0
-  %14 = extractvalue { i64, i1 } %12, 1
-  %not..i = xor i1 %14, true
-  %.11.i = zext i1 %not..i to i64
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = extractvalue { i64, i1 } %12, 0
+  %not..i = xor i1 %13, true
+  %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread": ; preds = %9, %11, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %13, %11 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %14, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %11 ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
   ret { i64, i64 } %16
@@ -496,15 +496,15 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
   %15 = sub i64 %4, %2
   %spec.select.i.i.i.i.i = select i1 %14, i64 %15, i64 0
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i, i64 1)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %not..i = xor i1 %18, true
-  %.11.i = zext i1 %not..i to i64
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %not..i = xor i1 %17, true
+  %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %9, %13, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %17, %13 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %18, %13 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %13 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20
@@ -626,15 +626,15 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
 11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
   %.0.i.i.i.i22 = sub nuw nsw i64 %4, %2
   %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i22, i64 1)
-  %13 = extractvalue { i64, i1 } %12, 0
-  %14 = extractvalue { i64, i1 } %12, 1
-  %not..i = xor i1 %14, true
-  %.11.i = zext i1 %not..i to i64
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = extractvalue { i64, i1 } %12, 0
+  %not..i = xor i1 %13, true
+  %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread": ; preds = %9, %11, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %13, %11 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %11 ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %14, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %11 ]
   %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
   ret { i64, i64 } %16
@@ -674,15 +674,15 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %15 = sub i64 %4, %2
   %.0.i.i.i.i = select i1 %14, i64 %15, i64 0
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i, i64 1)
-  %17 = extractvalue { i64, i1 } %16, 0
-  %18 = extractvalue { i64, i1 } %16, 1
-  %not..i = xor i1 %18, true
-  %.11.i = zext i1 %not..i to i64
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %not..i = xor i1 %17, true
+  %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %9, %13, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %17, %13 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.11.i, %13 ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %18, %13 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %13 ]
   %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
   ret { i64, i64 } %20

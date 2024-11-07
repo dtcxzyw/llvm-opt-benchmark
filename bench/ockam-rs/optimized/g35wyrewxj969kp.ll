@@ -7959,7 +7959,7 @@ define internal void @"_ZN9sqlx_core4pool8executor95_$LT$impl$u20$sqlx_core..exe
   %9 = alloca { i32, [15 x i32] }, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 153
   %11 = load i8, ptr %10, align 1, !range !814, !noundef !4
-  switch i8 %11, label %default.unreachable156 [
+  switch i8 %11, label %default.unreachable158 [
     i8 0, label %12
     i8 1, label %23
     i8 2, label %24
@@ -7973,7 +7973,7 @@ define internal void @"_ZN9sqlx_core4pool8executor95_$LT$impl$u20$sqlx_core..exe
   %.val.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %142
 
-default.unreachable156:                           ; preds = %61, %3
+default.unreachable158:                           ; preds = %61, %3
   unreachable
 
 12:                                               ; preds = %3
@@ -8148,11 +8148,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr79drop
 
 61:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %.sroa.0126)
-  %.phi.trans.insert155 = getelementptr inbounds i8, ptr %1, i64 250
-  %.pre = load i8, ptr %.phi.trans.insert155, align 2, !range !54
+  %.phi.trans.insert157 = getelementptr inbounds i8, ptr %1, i64 250
+  %.pre = load i8, ptr %.phi.trans.insert157, align 2, !range !54
   %62 = getelementptr inbounds i8, ptr %1, i64 160
   %63 = getelementptr inbounds i8, ptr %1, i64 250
-  switch i8 %.pre, label %default.unreachable156 [
+  switch i8 %.pre, label %default.unreachable158 [
     i8 0, label %64
     i8 1, label %.invoke
     i8 2, label %116

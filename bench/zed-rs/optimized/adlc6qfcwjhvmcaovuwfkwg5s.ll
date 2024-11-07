@@ -872,12 +872,12 @@ define { i32, i32 } @_ZN4rope5point5Point9parse_str17h7de359ddfe6263d3E(ptr noal
 
 .lr.ph.split.split.i.i.i.i.preheader:             ; preds = %.lr.ph.split.split.preheader, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i"
   %2 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %27, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
-  %.pre.i.i.i.i4550137 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %.pre.i.i.i.i44, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
-  %.lcssa4360136 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %.lcssa4358, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
+  %.pre.i.i.i.i4550138 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %.pre.i.i.i.i44, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
+  %.lcssa4360137 = phi i64 [ 0, %.lr.ph.split.split.preheader ], [ %.lcssa4358, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
   br label %.lr.ph.split.split.i.i.i.i
 
 .lr.ph.split.split.i.i.i.i:                       ; preds = %.lr.ph.split.split.i.i.i.i.preheader, %18
-  %3 = phi i64 [ %16, %18 ], [ %.lcssa4360136, %.lr.ph.split.split.i.i.i.i.preheader ]
+  %3 = phi i64 [ %16, %18 ], [ %.lcssa4360137, %.lr.ph.split.split.i.i.i.i.preheader ]
   %4 = sub nuw i64 %1, %3
   %5 = getelementptr inbounds i8, ptr %0, i64 %3
   %6 = icmp ult i64 %4, 16
@@ -930,9 +930,9 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i.i.i: ; preds 
   br i1 %trunc.i.i.i, label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i", label %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i.thread"
 
 "_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i.thread": ; preds = %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.loopexit20", %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i", %18, %.preheader.i.i.i.i.i, %10
-  %.pre.i.i.i.i4550135 = phi i64 [ %.pre.i.i.i.i4550137, %10 ], [ %.pre.i.i.i.i4550137, %.preheader.i.i.i.i.i ], [ %.pre.i.i.i.i4550137, %18 ], [ %.pre.i.i.i.i4550137, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.loopexit20" ], [ %.pre.i.i.i.i44, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
+  %.pre.i.i.i.i4550136 = phi i64 [ %.pre.i.i.i.i4550138, %10 ], [ %.pre.i.i.i.i4550138, %.preheader.i.i.i.i.i ], [ %.pre.i.i.i.i4550138, %18 ], [ %.pre.i.i.i.i4550138, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.loopexit20" ], [ %.pre.i.i.i.i44, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
   %22 = phi i64 [ %2, %10 ], [ %2, %.preheader.i.i.i.i.i ], [ %2, %18 ], [ %2, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.i.i.i.loopexit20" ], [ %27, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h9816e5a8d5bad087E.exit.thread9.i.i.i" ]
-  %.sroa.4.0.i.i.i = sub nuw i64 %1, %.pre.i.i.i.i4550135
+  %.sroa.4.0.i.i.i = sub nuw i64 %1, %.pre.i.i.i.i4550136
   %23 = trunc i64 %.sroa.4.0.i.i.i to i32
   %24 = trunc i64 %22 to i32
   %25 = insertvalue { i32, i32 } poison, i32 %24, 0

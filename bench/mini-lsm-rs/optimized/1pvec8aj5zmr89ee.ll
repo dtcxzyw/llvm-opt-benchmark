@@ -853,6 +853,7 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist3map20SkipMap$LT$K$C$V$GT$3g
           to label %32 unwind label %30
 
 .thread:                                          ; preds = %.noexc6, %.noexc
+  %.sroa.3.0 = phi ptr [ %.sroa.411.0.copyload.i, %.noexc6 ], [ undef, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !72)
   call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %15 = load ptr, ptr %5, align 8, !alias.scope !78, !noundef !9
@@ -882,7 +883,7 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist3map20SkipMap$LT$K$C$V$GT$3g
 "_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h5a1f276cb451f579E.llvm.3998950267652723875.exit": ; preds = %.thread, %17, %22, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %28 = insertvalue { ptr, ptr } poison, ptr %8, 0
-  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.411.0.copyload.i, 1
+  %29 = insertvalue { ptr, ptr } %28, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %29
 
 30:                                               ; preds = %13
@@ -933,6 +934,7 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist3map20SkipMap$LT$K$C$V$GT$3g
           to label %31 unwind label %29
 
 .thread:                                          ; preds = %.noexc6, %.noexc
+  %.sroa.3.0 = phi ptr [ %.sroa.411.0.copyload.i, %.noexc6 ], [ undef, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %14 = load ptr, ptr %4, align 8, !alias.scope !88, !noundef !9
@@ -962,7 +964,7 @@ define hidden { ptr, ptr } @"_ZN18crossbeam_skiplist3map20SkipMap$LT$K$C$V$GT$3g
 "_ZN4core3ptr50drop_in_place$LT$crossbeam_epoch..guard..Guard$GT$17h5a1f276cb451f579E.llvm.3998950267652723875.exit": ; preds = %.thread, %16, %21, %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %27 = insertvalue { ptr, ptr } poison, ptr %7, 0
-  %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.411.0.copyload.i, 1
+  %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %28
 
 29:                                               ; preds = %12

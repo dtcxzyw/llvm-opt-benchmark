@@ -7050,7 +7050,7 @@ define hidden void @_ZN15command_palette22CommandPaletteDelegate15matches_update
   br label %101
 
 101:                                              ; preds = %121, %.lr.ph.i
-  %.sroa.02.015.i = phi i64 [ 0, %.lr.ph.i ], [ %122, %121 ]
+  %.sroa.02.014.i = phi i64 [ 0, %.lr.ph.i ], [ %122, %121 ]
   %102 = phi ptr [ %94, %.lr.ph.i ], [ %103, %121 ]
   %103 = getelementptr inbounds i8, ptr %102, i64 64
   %104 = getelementptr i8, ptr %102, i64 48
@@ -7090,7 +7090,7 @@ define hidden void @_ZN15command_palette22CommandPaletteDelegate15matches_update
   br i1 %.sroa.0.0.i8.i, label %126, label %121
 
 121:                                              ; preds = %.noexc54
-  %122 = add nuw nsw i64 %.sroa.02.015.i, 1
+  %122 = add nuw nsw i64 %.sroa.02.014.i, 1
   %123 = icmp eq ptr %103, %97
   br i1 %123, label %.thread109, label %101
 
@@ -7113,16 +7113,16 @@ define hidden void @_ZN15command_palette22CommandPaletteDelegate15matches_update
   br label %190
 
 126:                                              ; preds = %.noexc54
-  %127 = icmp ult i64 %.sroa.02.015.i, %96
+  %127 = icmp ult i64 %.sroa.02.014.i, %96
   call void @llvm.assume(i1 %127)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !1791)
   %128 = load i64, ptr %95, align 8, !alias.scope !1791, !noalias !1794, !noundef !4
-  %.not.i = icmp ult i64 %.sroa.02.015.i, %128
+  %.not.i = icmp ult i64 %.sroa.02.014.i, %128
   br i1 %.not.i, label %130, label %129
 
 129:                                              ; preds = %126
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove13assert_failed17h3ab1610b915da1ccE"(i64 noundef %.sroa.02.015.i, i64 noundef %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4bf4439c51102504348ead5750977e6c.78) #44
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove13assert_failed17h3ab1610b915da1ccE"(i64 noundef %.sroa.02.014.i, i64 noundef %128, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.4bf4439c51102504348ead5750977e6c.78) #44
           to label %.noexc55 unwind label %.loopexit.split-lp
 
 .noexc55:                                         ; preds = %129
@@ -7136,10 +7136,10 @@ define hidden void @_ZN15command_palette22CommandPaletteDelegate15matches_update
 
 130:                                              ; preds = %126
   %131 = load ptr, ptr %93, align 8, !alias.scope !1791, !noalias !1794, !nonnull !4, !noundef !4
-  %132 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %131, i64 %.sroa.02.015.i
+  %132 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i64, double }, ptr %131, i64 %.sroa.02.014.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef nonnull align 8 dereferenceable(64) %132, i64 64, i1 false), !noalias !1797
   %133 = getelementptr inbounds i8, ptr %132, i64 64
-  %134 = xor i64 %.sroa.02.015.i, -1
+  %134 = xor i64 %.sroa.02.014.i, -1
   %135 = add i64 %128, %134
   %136 = shl i64 %135, 6
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %132, ptr nonnull align 8 %133, i64 %136, i1 false), !noalias !1798
@@ -9149,10 +9149,10 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h44b6ed67eda2e1bbE.exit.i: ; pre
   br label %248
 
 248:                                              ; preds = %_ZN4gpui8executor5Scope5spawn17hc79695783f927c30E.exit.i.i.i, %.lr.ph.i.i.i47
-  %.sroa.0.010.i.i.i = phi ptr [ %226, %.lr.ph.i.i.i47 ], [ %249, %_ZN4gpui8executor5Scope5spawn17hc79695783f927c30E.exit.i.i.i ]
-  %.sroa.7.09.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i47 ], [ %250, %_ZN4gpui8executor5Scope5spawn17hc79695783f927c30E.exit.i.i.i ]
-  %249 = getelementptr inbounds i8, ptr %.sroa.0.010.i.i.i, i64 24
-  %250 = add nuw nsw i64 %.sroa.7.09.i.i.i, 1
+  %.sroa.0.011.i.i.i = phi ptr [ %226, %.lr.ph.i.i.i47 ], [ %249, %_ZN4gpui8executor5Scope5spawn17hc79695783f927c30E.exit.i.i.i ]
+  %.sroa.7.010.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i47 ], [ %250, %_ZN4gpui8executor5Scope5spawn17hc79695783f927c30E.exit.i.i.i ]
+  %249 = getelementptr inbounds i8, ptr %.sroa.0.011.i.i.i, i64 24
+  %250 = add nuw nsw i64 %.sroa.7.010.i.i.i, 1
   %251 = load i64, ptr %.sroa.839.0.copyload.i.i, align 8, !noalias !2201, !noundef !4
   %252 = load ptr, ptr %.sroa.940.0.copyload.i.i, align 8, !noalias !2201, !nonnull !4, !align !15, !noundef !4
   %253 = load i64, ptr %239, align 8, !noalias !2201, !noundef !4
@@ -9194,13 +9194,13 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h44b6ed67eda2e1bbE.exit.i: ; pre
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %13), !noalias !2208
   store ptr %252, ptr %242, align 8, !noalias !2209
   store i64 %253, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !noalias !2209
-  store i64 %.sroa.7.09.i.i.i, ptr %.sroa.54.0..sroa_idx.i.i.i, align 8, !noalias !2209
+  store i64 %.sroa.7.010.i.i.i, ptr %.sroa.54.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store i64 %251, ptr %.sroa.6.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store i64 %256, ptr %.sroa.75.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store i64 %258, ptr %.sroa.8.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store ptr %254, ptr %.sroa.9.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store ptr %255, ptr %.sroa.10.0..sroa_idx.i.i.i, align 8, !noalias !2209
-  store ptr %.sroa.0.010.i.i.i, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !2209
+  store ptr %.sroa.0.011.i.i.i, ptr %.sroa.11.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store ptr %.sroa.738.0.copyload.i.i, ptr %.sroa.12.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store i8 0, ptr %.sroa.13.0..sroa_idx.i.i.i, align 8, !noalias !2209
   store i8 %257, ptr %.sroa.14.0..sroa_idx.i.i.i, align 1, !noalias !2209

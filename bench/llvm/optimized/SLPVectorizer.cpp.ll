@@ -73786,12 +73786,12 @@ _ZN4llvm13slpvectorizer7BoUpSLP12getTreeEntryEPNS_5ValueE.exit.thread: ; preds =
 ._crit_edge448:                                   ; preds = %_ZN4llvm13slpvectorizer7BoUpSLP12getTreeEntryEPNS_5ValueE.exit.thread, %162
   %223 = load ptr, ptr %6, align 8
   %224 = call { ptr, i8 } @_ZNK4llvm13slpvectorizer7BoUpSLP25ShuffleInstructionBuilder11needToDelayEPKNS1_9TreeEntryENS_8ArrayRefINS_11SmallVectorIS5_Lj6EEEEE(ptr noundef nonnull align 8 dereferenceable(128) %14, ptr noundef %223, ptr nonnull %23, i64 1)
-  %225 = extractvalue { ptr, i8 } %224, 0
-  %226 = extractvalue { ptr, i8 } %224, 1
-  %227 = trunc i8 %226 to i1
-  br i1 %227, label %228, label %231
+  %225 = extractvalue { ptr, i8 } %224, 1
+  %226 = trunc i8 %225 to i1
+  br i1 %226, label %227, label %231
 
-228:                                              ; preds = %._crit_edge448
+227:                                              ; preds = %._crit_edge448
+  %228 = extractvalue { ptr, i8 } %224, 0
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %230 = call noundef zeroext i1 @_ZN4llvm9SetVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryENS_11SmallVectorIS5_Lj0EEENS_8DenseSetIS5_NS_12DenseMapInfoIS5_vEEEELj0EE6insertERKS5_(ptr noundef nonnull align 8 dereferenceable(40) %229, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br label %259
@@ -73839,9 +73839,10 @@ _ZN4llvm13slpvectorizer7BoUpSLP12getTreeEntryEPNS_5ValueE.exit.thread: ; preds =
   call void @_ZN4llvm15SmallVectorImplIPNS_5ValueEE6appendEmS2_(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %256, ptr noundef %258)
   br label %259
 
-259:                                              ; preds = %231, %245, %250, %254, %238, %228
-  %.1148 = phi i1 [ false, %228 ], [ true, %254 ], [ false, %250 ], [ false, %245 ], [ false, %238 ], [ false, %231 ]
-  %.2145 = phi ptr [ null, %228 ], [ %237, %254 ], [ %237, %250 ], [ %237, %245 ], [ %237, %238 ], [ null, %231 ]
+259:                                              ; preds = %231, %245, %250, %254, %238, %227
+  %.1148 = phi i1 [ false, %227 ], [ true, %254 ], [ false, %250 ], [ false, %245 ], [ false, %238 ], [ false, %231 ]
+  %.2145 = phi ptr [ null, %227 ], [ %237, %254 ], [ %237, %250 ], [ %237, %245 ], [ %237, %238 ], [ null, %231 ]
+  %.0 = phi ptr [ %228, %227 ], [ undef, %254 ], [ undef, %250 ], [ undef, %245 ], [ undef, %238 ], [ undef, %231 ]
   %260 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %23) #25
   %261 = load ptr, ptr %23, align 8
   %262 = icmp eq ptr %261, %163
@@ -73852,7 +73853,7 @@ _ZN4llvm13slpvectorizer7BoUpSLP12getTreeEntryEPNS_5ValueE.exit.thread: ; preds =
   br label %_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit
 
 _ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit: ; preds = %259, %263
-  br i1 %227, label %944, label %264
+  br i1 %226, label %944, label %264
 
 264:                                              ; preds = %_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit, %_ZN4llvm11SmallVectorISt8optionalINS_19TargetTransformInfo11ShuffleKindEELj6EED2Ev.exit
   %.0147 = phi i1 [ false, %_ZN4llvm11SmallVectorISt8optionalINS_19TargetTransformInfo11ShuffleKindEELj6EED2Ev.exit ], [ %.1148, %_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit ]
@@ -75217,7 +75218,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit:  ; preds = %_ZN4llvm11SmallVect
   br label %944
 
 944:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit, %942, %_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit, %_ZSt4iotaIPiiEvT_S1_T0_.exit, %314
-  %.1 = phi ptr [ %315, %314 ], [ %382, %_ZSt4iotaIPiiEvT_S1_T0_.exit ], [ %225, %_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit ], [ %943, %942 ], [ %.1142, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit ]
+  %.1 = phi ptr [ %315, %314 ], [ %382, %_ZSt4iotaIPiiEvT_S1_T0_.exit ], [ %.0, %_ZN4llvm11SmallVectorIPKNS_13slpvectorizer7BoUpSLP9TreeEntryELj6EED2Ev.exit ], [ %943, %942 ], [ %.1142, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EED2Ev.exit ]
   %945 = load ptr, ptr %20, align 8
   %946 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %20) #25
   %.not4.i.i269 = icmp eq i64 %946, 0
@@ -199563,22 +199564,22 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %_ZSt10accu
   br i1 %.not58, label %._crit_edge.loopexit, label %23
 
 ._crit_edge.loopexit:                             ; preds = %121, %_ZN4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E6insertERKi.exit
-  %.039.lcssa.ph = phi i32 [ %.03965, %_ZN4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E6insertERKi.exit ], [ %.140, %121 ]
+  %.sroa.034.1.ph = phi i32 [ undef, %_ZN4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E6insertERKi.exit ], [ %.140, %121 ]
   %.sroa.235.1.ph = phi i64 [ 0, %_ZN4llvm6detail12DenseSetImplIiNS_8DenseMapIiNS0_13DenseSetEmptyENS_12DenseMapInfoIivEENS0_12DenseSetPairIiEEEES5_E6insertERKi.exit ], [ 4294967296, %121 ]
   %.pre73 = load ptr, ptr %5, align 8
   %.pre74 = load i32, ptr %20, align 8
   %124 = zext i32 %.pre74 to i64
   %125 = shl nuw nsw i64 %124, 2
-  %126 = zext nneg i32 %.039.lcssa.ph to i64
+  %126 = zext i32 %.sroa.034.1.ph to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZSt10accumulateIPiiZZN4llvm13slpvectorizer7BoUpSLP20ShuffleCostEstimator18computeExtractCostENS1_8ArrayRefIPNS1_5ValueEEENS5_IiEENS5_ISt8optionalINS1_19TargetTransformInfo11ShuffleKindEEEEjENKUlNS1_15MutableArrayRefIiEERNS1_15SmallVectorImplIjEEE_clESG_SJ_EUliiE_ET0_T_SN_SM_T1_.exit
   %127 = phi i64 [ 0, %_ZSt10accumulateIPiiZZN4llvm13slpvectorizer7BoUpSLP20ShuffleCostEstimator18computeExtractCostENS1_8ArrayRefIPNS1_5ValueEEENS5_IiEENS5_ISt8optionalINS1_19TargetTransformInfo11ShuffleKindEEEEjENKUlNS1_15MutableArrayRefIiEERNS1_15SmallVectorImplIjEEE_clESG_SJ_EUliiE_ET0_T_SN_SM_T1_.exit ], [ %125, %._crit_edge.loopexit ]
   %128 = phi ptr [ null, %_ZSt10accumulateIPiiZZN4llvm13slpvectorizer7BoUpSLP20ShuffleCostEstimator18computeExtractCostENS1_8ArrayRefIPNS1_5ValueEEENS5_IiEENS5_ISt8optionalINS1_19TargetTransformInfo11ShuffleKindEEEEjENKUlNS1_15MutableArrayRefIiEERNS1_15SmallVectorImplIjEEE_clESG_SJ_EUliiE_ET0_T_SN_SM_T1_.exit ], [ %.pre73, %._crit_edge.loopexit ]
-  %.039.lcssa = phi i64 [ 7, %_ZSt10accumulateIPiiZZN4llvm13slpvectorizer7BoUpSLP20ShuffleCostEstimator18computeExtractCostENS1_8ArrayRefIPNS1_5ValueEEENS5_IiEENS5_ISt8optionalINS1_19TargetTransformInfo11ShuffleKindEEEEjENKUlNS1_15MutableArrayRefIiEERNS1_15SmallVectorImplIjEEE_clESG_SJ_EUliiE_ET0_T_SN_SM_T1_.exit ], [ %126, %._crit_edge.loopexit ]
+  %.sroa.034.1 = phi i64 [ 7, %_ZSt10accumulateIPiiZZN4llvm13slpvectorizer7BoUpSLP20ShuffleCostEstimator18computeExtractCostENS1_8ArrayRefIPNS1_5ValueEEENS5_IiEENS5_ISt8optionalINS1_19TargetTransformInfo11ShuffleKindEEEEjENKUlNS1_15MutableArrayRefIiEERNS1_15SmallVectorImplIjEEE_clESG_SJ_EUliiE_ET0_T_SN_SM_T1_.exit ], [ %126, %._crit_edge.loopexit ]
   %.sroa.235.1 = phi i64 [ 4294967296, %_ZSt10accumulateIPiiZZN4llvm13slpvectorizer7BoUpSLP20ShuffleCostEstimator18computeExtractCostENS1_8ArrayRefIPNS1_5ValueEEENS5_IiEENS5_ISt8optionalINS1_19TargetTransformInfo11ShuffleKindEEEEjENKUlNS1_15MutableArrayRefIiEERNS1_15SmallVectorImplIjEEE_clESG_SJ_EUliiE_ET0_T_SN_SM_T1_.exit ], [ %.sroa.235.1.ph, %._crit_edge.loopexit ]
   call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %128, i64 noundef %127, i64 noundef 4) #25
-  %129 = or disjoint i64 %.sroa.235.1, %.039.lcssa
+  %129 = or disjoint i64 %.sroa.235.1, %.sroa.034.1
   br label %130
 
 130:                                              ; preds = %4, %._crit_edge

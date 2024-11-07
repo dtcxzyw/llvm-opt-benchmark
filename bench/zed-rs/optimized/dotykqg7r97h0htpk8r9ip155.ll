@@ -743,12 +743,12 @@ _ZN3std4sync6poison4Flag5guard17he6a8ad3ae7c4397eE.llvm.1967658085918081990.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %.promoted.i = load ptr, ptr %.sroa.539.0..sroa_idx, align 8, !alias.scope !72, !noalias !75
   %236 = load ptr, ptr %.sroa.539.sroa.0.sroa.2.0..sroa.539.0..sroa_idx.sroa_idx, align 8, !alias.scope !69, !nonnull !4
-  %.promoted38.i = load i64, ptr %.sroa.539.sroa.2.0..sroa.539.0..sroa_idx.sroa_idx, align 8, !alias.scope !77, !noalias !80
+  %.promoted35.i = load i64, ptr %.sroa.539.sroa.2.0..sroa.539.0..sroa_idx.sroa_idx, align 8, !alias.scope !77, !noalias !80
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17hac1d796d8efbbaefE.exit5.i"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..IntoIter$LT$core..task..wake..Waker$GT$$GT$17hac1d796d8efbbaefE.exit5.i": ; preds = %251, %235
-  %237 = phi i64 [ %.promoted38.i, %235 ], [ %252, %251 ]
-  %238 = phi ptr [ %.promoted.i, %235 ], [ %243, %251 ]
+  %237 = phi i64 [ %252, %251 ], [ %.promoted35.i, %235 ]
+  %238 = phi ptr [ %243, %251 ], [ %.promoted.i, %235 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !82)
   %239 = icmp eq ptr %238, null
   br i1 %239, label %.loopexit156, label %240

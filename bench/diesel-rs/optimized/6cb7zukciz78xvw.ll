@@ -1647,10 +1647,11 @@ define hidden { i32, i32 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %.fca.0.extract1.i = extractvalue { i32, i32 } %4, 0
   %5 = icmp eq i32 %.fca.0.extract1.i, 2
   %.fca.1.extract2.i = extractvalue { i32, i32 } %4, 1
-  %spec.select.i = select i1 %5, i32 undef, i32 %.fca.1.extract2.i
   %spec.select8.i = select i1 %5, i32 0, i32 %.fca.0.extract1.i
   %6 = insertvalue { i32, i32 } poison, i32 %spec.select8.i, 0
-  %7 = insertvalue { i32, i32 } %6, i32 %spec.select.i, 1
+  %switch = icmp eq i32 %spec.select8.i, 0
+  %.sroa.3.0 = select i1 %switch, i32 undef, i32 %.fca.1.extract2.i
+  %7 = insertvalue { i32, i32 } %6, i32 %.sroa.3.0, 1
   ret { i32, i32 } %7
 }
 

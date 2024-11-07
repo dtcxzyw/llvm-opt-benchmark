@@ -21470,14 +21470,14 @@ define internal { i64, ptr } @"_ZN4call10ActiveCall6invite28_$u7b$$u7b$closure$u
   %8 = alloca [32 x i8], align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   %10 = load i8, ptr %9, align 8, !range !561, !noundef !7
-  switch i8 %10, label %default.unreachable37 [
+  switch i8 %10, label %default.unreachable39 [
     i8 0, label %12
     i8 1, label %18
     i8 2, label %19
     i8 3, label %11
   ]
 
-default.unreachable37:                            ; preds = %2
+default.unreachable39:                            ; preds = %2
   unreachable
 
 11:                                               ; preds = %2

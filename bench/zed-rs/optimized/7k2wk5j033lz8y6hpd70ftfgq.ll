@@ -1353,13 +1353,13 @@ common.resume:                                    ; preds = %22, %25, %30, %34, 
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hdcf1678579b80930E.exit": ; preds = %12, %9, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit
-  %.sroa.8.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
-  %.sroa.9.09 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
+  %.sroa.8.011 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit ], [ 5949906041037142319, %9 ], [ 5949906041037142319, %12 ]
+  %.sroa.9.010 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit ], [ 9195852986326615580, %9 ], [ 9195852986326615580, %12 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !353
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %.sroa.8.010, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !353
+  store i64 %.sroa.8.011, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !353
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 %.sroa.9.09, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !353
+  store i64 %.sroa.9.010, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !353
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17he17ce041d2db0303E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 1 %0)
           to label %24 unwind label %22
@@ -4125,20 +4125,20 @@ _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i: ; preds = %128
   br i1 %144, label %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.thread.i.i.i, label %145
 
 _ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.thread.i.i.i: ; preds = %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i, %139, %135
-  %.sroa.733.066.i.i.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.4.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ %.sroa.733.8.copyload.i.i.i, %139 ], [ %.sroa.733.8.copyload.i.i.i, %135 ]
-  %.sroa.9.065.i.i.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ %.sroa.9.8.copyload.i.i.i, %139 ], [ %.sroa.9.8.copyload.i.i.i, %135 ]
-  %.sroa.1036.064.i.i.i = phi ptr [ %.sroa.0.sroa.0.i.sroa.6.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ %.sroa.1036.8.copyload.i.i.i, %139 ], [ %.sroa.1036.8.copyload.i.i.i, %135 ]
-  %.sroa.11.063.i.i.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.7.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ 5949906041037142319, %139 ], [ 5949906041037142319, %135 ]
-  %.sroa.13.062.i.i.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.8.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ 9195852986326615580, %139 ], [ 9195852986326615580, %135 ]
-  store i32 %.sroa.733.066.i.i.i, ptr %13, align 8, !noalias !790
+  %.sroa.733.067.i.i.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.4.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ %.sroa.733.8.copyload.i.i.i, %139 ], [ %.sroa.733.8.copyload.i.i.i, %135 ]
+  %.sroa.9.066.i.i.i = phi i32 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ %.sroa.9.8.copyload.i.i.i, %139 ], [ %.sroa.9.8.copyload.i.i.i, %135 ]
+  %.sroa.1036.065.i.i.i = phi ptr [ %.sroa.0.sroa.0.i.sroa.6.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ %.sroa.1036.8.copyload.i.i.i, %139 ], [ %.sroa.1036.8.copyload.i.i.i, %135 ]
+  %.sroa.11.064.i.i.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.7.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ 5949906041037142319, %139 ], [ 5949906041037142319, %135 ]
+  %.sroa.13.063.i.i.i = phi i64 [ %.sroa.0.sroa.0.i.sroa.8.0.copyload.i.i.i, %_ZN4gpui4view7AnyView8downcast17h78b5b0eb0f911255E.exit.i.i.i ], [ 9195852986326615580, %139 ], [ 9195852986326615580, %135 ]
+  store i32 %.sroa.733.067.i.i.i, ptr %13, align 8, !noalias !790
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 4
-  store i32 %.sroa.9.065.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !790
+  store i32 %.sroa.9.066.i.i.i, ptr %.sroa.4.0..sroa_idx.i.i.i, align 4, !noalias !790
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr %.sroa.1036.064.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !790
+  store ptr %.sroa.1036.065.i.i.i, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !noalias !790
   %.sroa.620.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  store i64 %.sroa.11.063.i.i.i, ptr %.sroa.620.0..sroa_idx.i.i.i, align 8, !noalias !790
+  store i64 %.sroa.11.064.i.i.i, ptr %.sroa.620.0..sroa_idx.i.i.i, align 8, !noalias !790
   %.sroa.620.sroa.4.0..sroa.620.0..sroa_idx.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
-  store i64 %.sroa.13.062.i.i.i, ptr %.sroa.620.sroa.4.0..sroa.620.0..sroa_idx.sroa_idx.i.i.i, align 8, !noalias !790
+  store i64 %.sroa.13.063.i.i.i, ptr %.sroa.620.sroa.4.0..sroa.620.0..sroa_idx.sroa_idx.i.i.i, align 8, !noalias !790
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !790
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !790
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !805

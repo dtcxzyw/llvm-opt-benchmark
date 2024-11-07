@@ -363,14 +363,14 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %do.body.i10.preheader.i, !llvm.loop !13
 
 do.body.i10.preheader.i:                          ; preds = %do.cond.i.i
-  %scevgep27.i = getelementptr i8, ptr %1, i64 7
+  %scevgep28.i = getelementptr i8, ptr %1, i64 7
   br label %do.body.i10.i
 
 do.body.i10.i:                                    ; preds = %do.cond.i14.i, %do.body.i10.preheader.i
   %str.addr.0.i11.i = phi ptr [ %incdec.ptr.i15.i, %do.cond.i14.i ], [ %1, %do.body.i10.preheader.i ]
   %prefix.addr.0.i12.idx.i = phi i64 [ %prefix.addr.0.i12.add.i, %do.cond.i14.i ], [ 0, %do.body.i10.preheader.i ]
-  %exitcond28.i = icmp eq i64 %prefix.addr.0.i12.idx.i, 7
-  br i1 %exitcond28.i, label %if.end.i, label %do.cond.i14.i
+  %exitcond29.i = icmp eq i64 %prefix.addr.0.i12.idx.i, 7
+  br i1 %exitcond29.i, label %if.end.i, label %do.cond.i14.i
 
 do.cond.i14.i:                                    ; preds = %do.body.i10.i
   %prefix.addr.0.i12.ptr.i = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i
@@ -382,7 +382,7 @@ do.cond.i14.i:                                    ; preds = %do.body.i10.i
   br i1 %cmp.i17.i, label %do.body.i10.i, label %for.inc, !llvm.loop !13
 
 if.end.i:                                         ; preds = %do.body.i.i, %do.body.i10.i
-  %p.0.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
+  %p.0.i = phi ptr [ %scevgep28.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
   %call2.i = tail call i64 @strcspn(ptr noundef %p.0.i, ptr noundef nonnull @.str.11) #11
   %arrayidx.i = getelementptr inbounds i8, ptr %p.0.i, i64 %call2.i
   %6 = load i8, ptr %arrayidx.i, align 1
@@ -492,14 +492,14 @@ do.cond.i.i45:                                    ; preds = %do.body.i.i41
   br i1 %cmp.i.i49, label %do.body.i.i41, label %do.body.i10.preheader.i50, !llvm.loop !13
 
 do.body.i10.preheader.i50:                        ; preds = %do.cond.i.i45
-  %scevgep27.i51 = getelementptr i8, ptr %11, i64 7
+  %scevgep28.i51 = getelementptr i8, ptr %11, i64 7
   br label %do.body.i10.i52
 
 do.body.i10.i52:                                  ; preds = %do.cond.i14.i56, %do.body.i10.preheader.i50
   %str.addr.0.i11.i53 = phi ptr [ %incdec.ptr.i15.i58, %do.cond.i14.i56 ], [ %11, %do.body.i10.preheader.i50 ]
   %prefix.addr.0.i12.idx.i54 = phi i64 [ %prefix.addr.0.i12.add.i59, %do.cond.i14.i56 ], [ 0, %do.body.i10.preheader.i50 ]
-  %exitcond28.i55 = icmp eq i64 %prefix.addr.0.i12.idx.i54, 7
-  br i1 %exitcond28.i55, label %if.end.i62, label %do.cond.i14.i56
+  %exitcond29.i55 = icmp eq i64 %prefix.addr.0.i12.idx.i54, 7
+  br i1 %exitcond29.i55, label %if.end.i62, label %do.cond.i14.i56
 
 do.cond.i14.i56:                                  ; preds = %do.body.i10.i52
   %prefix.addr.0.i12.ptr.i57 = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i54
@@ -511,7 +511,7 @@ do.cond.i14.i56:                                  ; preds = %do.body.i10.i52
   br i1 %cmp.i17.i60, label %do.body.i10.i52, label %redact_arg.exit76, !llvm.loop !13
 
 if.end.i62:                                       ; preds = %do.body.i.i41, %do.body.i10.i52
-  %p.0.i63 = phi ptr [ %scevgep27.i51, %do.body.i10.i52 ], [ %scevgep.i40, %do.body.i.i41 ]
+  %p.0.i63 = phi ptr [ %scevgep28.i51, %do.body.i10.i52 ], [ %scevgep.i40, %do.body.i.i41 ]
   %call2.i64 = tail call i64 @strcspn(ptr noundef %p.0.i63, ptr noundef nonnull @.str.11) #11
   %arrayidx.i65 = getelementptr inbounds i8, ptr %p.0.i63, i64 %call2.i64
   %16 = load i8, ptr %arrayidx.i65, align 1
@@ -1499,14 +1499,14 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i.i, label %do.body.i.i, label %do.body.i10.preheader.i, !llvm.loop !13
 
 do.body.i10.preheader.i:                          ; preds = %do.cond.i.i
-  %scevgep27.i = getelementptr i8, ptr %value, i64 7
+  %scevgep28.i = getelementptr i8, ptr %value, i64 7
   br label %do.body.i10.i
 
 do.body.i10.i:                                    ; preds = %do.cond.i14.i, %do.body.i10.preheader.i
   %str.addr.0.i11.i = phi ptr [ %incdec.ptr.i15.i, %do.cond.i14.i ], [ %value, %do.body.i10.preheader.i ]
   %prefix.addr.0.i12.idx.i = phi i64 [ %prefix.addr.0.i12.add.i, %do.cond.i14.i ], [ 0, %do.body.i10.preheader.i ]
-  %exitcond28.i = icmp eq i64 %prefix.addr.0.i12.idx.i, 7
-  br i1 %exitcond28.i, label %if.end.i, label %do.cond.i14.i
+  %exitcond29.i = icmp eq i64 %prefix.addr.0.i12.idx.i, 7
+  br i1 %exitcond29.i, label %if.end.i, label %do.cond.i14.i
 
 do.cond.i14.i:                                    ; preds = %do.body.i10.i
   %prefix.addr.0.i12.ptr.i = getelementptr inbounds i8, ptr @.str.10, i64 %prefix.addr.0.i12.idx.i
@@ -1518,7 +1518,7 @@ do.cond.i14.i:                                    ; preds = %do.body.i10.i
   br i1 %cmp.i17.i, label %do.body.i10.i, label %redact_arg.exit, !llvm.loop !13
 
 if.end.i:                                         ; preds = %do.body.i.i, %do.body.i10.i
-  %p.0.i = phi ptr [ %scevgep27.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
+  %p.0.i = phi ptr [ %scevgep28.i, %do.body.i10.i ], [ %scevgep.i, %do.body.i.i ]
   %call2.i = tail call i64 @strcspn(ptr noundef %p.0.i, ptr noundef nonnull @.str.11) #11
   %arrayidx.i = getelementptr inbounds i8, ptr %p.0.i, i64 %call2.i
   %4 = load i8, ptr %arrayidx.i, align 1

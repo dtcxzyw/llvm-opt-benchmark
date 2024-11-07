@@ -433,7 +433,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2f
   br i1 %6, label %.lr.ph, label %15
 
 .lr.ph:                                           ; preds = %2
-  %.promoted14 = load i64, ptr %1, align 8
+  %.promoted15 = load i64, ptr %1, align 8
   %.val4.i.i = load ptr, ptr %0, align 8, !alias.scope !113, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %7, align 8, !alias.scope !113, !nonnull !4, !noundef !4
@@ -441,7 +441,7 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2f
 
 8:                                                ; preds = %.lr.ph, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit"
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %11, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
-  %10 = phi i64 [ %.promoted14, %.lr.ph ], [ %14, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
+  %10 = phi i64 [ %.promoted15, %.lr.ph ], [ %14, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
   %11 = add i64 %9, 1
   %12 = getelementptr inbounds i8, ptr %.val4.i.i, i64 %9
   %13 = getelementptr inbounds i8, ptr %.val.i.i, i64 %9
@@ -458,12 +458,13 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h2f
 
 .sink.split:                                      ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit", %8
   %.sink = phi i64 [ %11, %8 ], [ %5, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
+  %.sroa.3.0.ph = phi i64 [ %10, %8 ], [ undef, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
   %.sroa.0.0.ph = phi i64 [ 1, %8 ], [ 0, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17hd303a2f4968ccecdE.exit" ]
   store i64 %.sink, ptr %3, align 8, !alias.scope !113
   br label %15
 
 15:                                               ; preds = %.sink.split, %2
-  %.sroa.3.0 = phi i64 [ undef, %2 ], [ %10, %.sink.split ]
+  %.sroa.3.0 = phi i64 [ undef, %2 ], [ %.sroa.3.0.ph, %.sink.split ]
   %.sroa.0.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.ph, %.sink.split ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1

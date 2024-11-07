@@ -1539,11 +1539,11 @@ define void @_ZN10rayon_core8registry8Registry9terminate17h483558ace8b06c66E(ptr
   br label %13
 
 13:                                               ; preds = %.lr.ph, %21
-  %.sroa.0.013 = phi ptr [ %7, %.lr.ph ], [ %14, %21 ]
-  %.sroa.7.012 = phi i64 [ 0, %.lr.ph ], [ %15, %21 ]
-  %14 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 48
-  %15 = add nuw nsw i64 %.sroa.7.012, 1
-  %16 = getelementptr inbounds i8, ptr %.sroa.0.013, i64 16
+  %.sroa.0.014 = phi ptr [ %7, %.lr.ph ], [ %14, %21 ]
+  %.sroa.7.013 = phi i64 [ 0, %.lr.ph ], [ %15, %21 ]
+  %14 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 48
+  %15 = add nuw nsw i64 %.sroa.7.013, 1
+  %16 = getelementptr inbounds i8, ptr %.sroa.0.014, i64 16
   %17 = atomicrmw xchg ptr %16, i64 3 acq_rel, align 8
   %18 = icmp eq i64 %17, 2
   br i1 %18, label %19, label %21
@@ -1552,7 +1552,7 @@ define void @_ZN10rayon_core8registry8Registry9terminate17h483558ace8b06c66E(ptr
   ret void
 
 19:                                               ; preds = %13
-  %20 = tail call noundef zeroext i1 @_ZN10rayon_core5sleep5Sleep20wake_specific_thread17hf48531fa87462249E.llvm.4364434838112105284(ptr noundef nonnull align 8 %12, i64 noundef %.sroa.7.012)
+  %20 = tail call noundef zeroext i1 @_ZN10rayon_core5sleep5Sleep20wake_specific_thread17hf48531fa87462249E.llvm.4364434838112105284(ptr noundef nonnull align 8 %12, i64 noundef %.sroa.7.013)
   br label %21
 
 21:                                               ; preds = %13, %19

@@ -7566,12 +7566,12 @@ define void @_ZN6diesel2pg10connection4stmt9Statement7execute17h33c0af010e3add02
   resume { ptr, i32 } %.pn50.pn
 
 111:                                              ; preds = %67, %47
-  %.sink169 = phi ptr [ %60, %67 ], [ %37, %47 ]
+  %.sink167 = phi ptr [ %60, %67 ], [ %37, %47 ]
   %.sink = phi i8 [ 8, %67 ], [ 2, %47 ]
   %112 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -9223372036854775808, ptr %112, align 8
   %.sroa.237.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sink169, ptr %.sroa.237.0..sroa_idx, align 8
+  store ptr %.sink167, ptr %.sroa.237.0..sroa_idx, align 8
   %.sroa.237.sroa.2.0..sroa.237.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr @anon.4ecf52d27cf3a2b5cf5817e9e2e41738.111.llvm.2648289344551647319, ptr %.sroa.237.sroa.2.0..sroa.237.0..sroa_idx.sroa_idx, align 8
   %.sroa.237.sroa.3.0..sroa.237.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32

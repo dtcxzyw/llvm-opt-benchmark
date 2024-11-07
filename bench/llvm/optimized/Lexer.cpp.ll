@@ -15643,7 +15643,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN5clang5Lexer15tryReadNamedUCNE
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %16 = load i8, ptr %15, align 2
   %17 = trunc i8 %16 to i1
-  %.not143 = select i1 %.not, i1 true, i1 %17
+  %.not144 = select i1 %.not, i1 true, i1 %17
   %18 = load ptr, ptr %1, align 8
   %19 = load i8, ptr %18, align 1
   switch i8 %19, label %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit [
@@ -15681,7 +15681,7 @@ _ZN5clang5Lexer14getCharAndSizeEPKcRj.exit71:     ; preds = %_ZN5clang5Lexer14ge
   br i1 %.not60, label %55, label %28
 
 28:                                               ; preds = %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit71
-  br i1 %.not143, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %29
+  br i1 %.not144, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %29
 
 29:                                               ; preds = %28
   call void @_ZNK5clang5Lexer4DiagEPKcj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %5, ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %2, i32 noundef 1403)
@@ -15739,15 +15739,15 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %33, %29
   br label %58
 
 58:                                               ; preds = %55, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
-  %.057148 = phi ptr [ %56, %55 ], [ %62, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
-  %59 = load i8, ptr %.057148, align 1
+  %.057149 = phi ptr [ %56, %55 ], [ %62, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
+  %59 = load i8, ptr %.057149, align 1
   switch i8 %59, label %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit76 [
     i8 92, label %60
     i8 63, label %60
   ]
 
 60:                                               ; preds = %58, %58
-  %61 = call i64 @_ZN5clang5Lexer18getCharAndSizeSlowEPKcPNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %.057148, ptr noundef null)
+  %61 = call i64 @_ZN5clang5Lexer18getCharAndSizeSlowEPKcPNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %.057149, ptr noundef null)
   %.sroa.0.0.extract.trunc.i72 = trunc i64 %61 to i8
   %.sroa.21.0.extract.shift.i73 = lshr i64 %61, 32
   br label %_ZN5clang5Lexer14getCharAndSizeEPKcRj.exit76
@@ -15755,7 +15755,7 @@ _ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %33, %29
 _ZN5clang5Lexer14getCharAndSizeEPKcRj.exit76:     ; preds = %58, %60
   %.4 = phi i64 [ %.sroa.21.0.extract.shift.i73, %60 ], [ 1, %58 ]
   %.0.i75 = phi i8 [ %.sroa.0.0.extract.trunc.i72, %60 ], [ %59, %58 ]
-  %62 = getelementptr inbounds i8, ptr %.057148, i64 %.4
+  %62 = getelementptr inbounds i8, ptr %.057149, i64 %.4
   %63 = icmp eq i8 %.0.i75, 125
   br i1 %63, label %79, label %64
 
@@ -15764,8 +15764,8 @@ _ZN5clang5Lexer14getCharAndSizeEPKcRj.exit76:     ; preds = %58, %60
   %66 = getelementptr inbounds [256 x i16], ptr @_ZN5clang8charinfo9InfoTableE, i64 0, i64 %65
   %67 = load i16, ptr %66, align 2
   %68 = and i16 %67, 2
-  %.not144 = icmp eq i16 %68, 0
-  br i1 %.not144, label %69, label %.thread
+  %.not145 = icmp eq i16 %68, 0
+  br i1 %.not145, label %69, label %.thread
 
 69:                                               ; preds = %64
   %70 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
@@ -15795,7 +15795,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %69, %73
 
 .thread:                                          ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit, %64, %79
   %.058136 = phi i32 [ 1342, %79 ], [ 1343, %64 ], [ 1343, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
-  br i1 %.not143, label %_ZN5clang17DiagnosticBuilderD2Ev.exit83, label %81
+  br i1 %.not144, label %_ZN5clang17DiagnosticBuilderD2Ev.exit83, label %81
 
 81:                                               ; preds = %.thread
   call void @_ZNK5clang5Lexer4DiagEPKcj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %2, i32 noundef %.058136)
@@ -15888,14 +15888,14 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   br label %_ZNSt8optionalIN4llvm3sys7unicode19LooseMatchingResultEED2Ev.exit
 
 _ZNSt8optionalIN4llvm3sys7unicode19LooseMatchingResultEED2Ev.exit: ; preds = %113, %117, %123
-  br i1 %.not143, label %.critedge.thread, label %124
+  br i1 %.not144, label %.critedge.thread, label %124
 
 124:                                              ; preds = %_ZNSt8optionalIN4llvm3sys7unicode19LooseMatchingResultEED2Ev.exit
   call void @_ZNK5clang5Lexer4DiagEPKcj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %10, ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %56, i32 noundef 1052)
   %125 = load ptr, ptr %6, align 8
   %126 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(26) %10, ptr %125, i64 %126)
-  %127 = call fastcc { i64, i8 } @_ZL13makeCharRangeRN5clang5LexerEPKcS3_(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %56, ptr noundef nonnull %.057148)
+  %127 = call fastcc { i64, i8 } @_ZL13makeCharRangeRN5clang5LexerEPKcS3_(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %56, ptr noundef nonnull %.057149)
   %.fca.0.extract7 = extractvalue { i64, i8 } %127, 0
   %.fca.1.extract8 = extractvalue { i64, i8 } %127, 1
   store i64 %.fca.0.extract7, ptr %11, align 8
@@ -15963,7 +15963,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit92:          ; preds = %_ZN5clang17Diagnost
 
 155:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit92
   call void @_ZNK5clang5Lexer4DiagEPKcj(ptr dead_on_unwind nonnull writable sret(%"class.clang::DiagnosticBuilder") align 8 %12, ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %56, i32 noundef 1261)
-  %156 = call fastcc { i64, i8 } @_ZL13makeCharRangeRN5clang5LexerEPKcS3_(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %56, ptr noundef nonnull %.057148)
+  %156 = call fastcc { i64, i8 } @_ZL13makeCharRangeRN5clang5LexerEPKcS3_(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull %56, ptr noundef nonnull %.057149)
   %.fca.0.extract = extractvalue { i64, i8 } %156, 0
   %.fca.1.extract = extractvalue { i64, i8 } %156, 1
   %157 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -15977,7 +15977,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit92:          ; preds = %_ZN5clang17Diagnost
   br label %.critedge.thread.thread
 
 162:                                              ; preds = %107
-  br i1 %.not143, label %.critedge.thread, label %163
+  br i1 %.not144, label %.critedge.thread, label %163
 
 163:                                              ; preds = %162
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16080,16 +16080,16 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
   %.not65 = xor i1 %217, true
   %brmerge = or i1 %17, %.not65
   %218 = load i32, ptr %8, align 8
-  %spec.select145 = select i1 %brmerge, i32 %.sroa.0110.0.extract.trunc, i32 %218
-  %spec.select146 = select i1 %brmerge, i8 %.sroa.3.0.extract.trunc, i8 1
+  %spec.select146 = select i1 %brmerge, i32 %.sroa.0110.0.extract.trunc, i32 %218
+  %spec.select147 = select i1 %brmerge, i8 %.sroa.3.0.extract.trunc, i8 1
   br label %219
 
 .critedge.thread:                                 ; preds = %162, %_ZNSt8optionalIN4llvm3sys7unicode19LooseMatchingResultEED2Ev.exit
   br i1 %.not, label %.loopexit.sink.split, label %219
 
 219:                                              ; preds = %.critedge.thread.thread, %.critedge.thread
-  %.sroa.3.0157 = phi i8 [ %spec.select146, %.critedge.thread.thread ], [ %.sroa.3.0.extract.trunc, %.critedge.thread ]
-  %.sroa.0110.0155 = phi i32 [ %spec.select145, %.critedge.thread.thread ], [ %.sroa.0110.0.extract.trunc, %.critedge.thread ]
+  %.sroa.3.0158 = phi i8 [ %spec.select147, %.critedge.thread.thread ], [ %.sroa.3.0.extract.trunc, %.critedge.thread ]
+  %.sroa.0110.0156 = phi i32 [ %spec.select146, %.critedge.thread.thread ], [ %.sroa.0110.0.extract.trunc, %.critedge.thread ]
   %220 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %221 = load i16, ptr %220, align 2
   %222 = or i16 %221, 64
@@ -16105,8 +16105,8 @@ _ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17Diagnosti
 
 .preheader:                                       ; preds = %219
   %230 = load ptr, ptr %1, align 8
-  %.not64149 = icmp eq ptr %230, %62
-  br i1 %.not64149, label %.loopexit, label %.lr.ph
+  %.not64150 = icmp eq ptr %230, %62
+  br i1 %.not64150, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit
   %231 = phi ptr [ %storemerge, %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit ], [ %230, %.preheader ]
@@ -16134,47 +16134,49 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit: ; preds = %233, %235
   br i1 %.not64, label %.loopexit, label %.lr.ph, !llvm.loop !135
 
 .loopexit.sink.split:                             ; preds = %.critedge.thread, %219
-  %.sroa.3.0156.ph = phi i8 [ %.sroa.3.0157, %219 ], [ %.sroa.3.0.extract.trunc, %.critedge.thread ]
-  %.sroa.0110.0154.ph = phi i32 [ %.sroa.0110.0155, %219 ], [ %.sroa.0110.0.extract.trunc, %.critedge.thread ]
+  %.sroa.3.0157.ph = phi i8 [ %.sroa.3.0158, %219 ], [ %.sroa.3.0.extract.trunc, %.critedge.thread ]
+  %.sroa.0110.0155.ph = phi i32 [ %.sroa.0110.0156, %219 ], [ %.sroa.0110.0.extract.trunc, %.critedge.thread ]
   store ptr %62, ptr %1, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit, %.loopexit.sink.split, %.preheader
-  %.sroa.3.0156 = phi i8 [ %.sroa.3.0157, %.preheader ], [ %.sroa.3.0156.ph, %.loopexit.sink.split ], [ %.sroa.3.0157, %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit ]
-  %.sroa.0110.0154 = phi i32 [ %.sroa.0110.0155, %.preheader ], [ %.sroa.0110.0154.ph, %.loopexit.sink.split ], [ %.sroa.0110.0155, %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit ]
-  %spec.select = and i8 %.sroa.3.0156, 1
-  %239 = load i8, ptr %111, align 8
-  %240 = trunc i8 %239 to i1
-  br i1 %240, label %241, label %_ZN5clang17DiagnosticBuilderD2Ev.exit83
+  %.sroa.3.0157 = phi i8 [ %.sroa.3.0158, %.preheader ], [ %.sroa.3.0157.ph, %.loopexit.sink.split ], [ %.sroa.3.0158, %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit ]
+  %.sroa.0110.0155 = phi i32 [ %.sroa.0110.0156, %.preheader ], [ %.sroa.0110.0155.ph, %.loopexit.sink.split ], [ %.sroa.0110.0156, %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit ]
+  %239 = trunc i8 %.sroa.3.0157 to i1
+  %spec.select = select i1 %239, i32 %.sroa.0110.0155, i32 undef
+  %spec.select143 = and i8 %.sroa.3.0157, 1
+  %240 = load i8, ptr %111, align 8
+  %241 = trunc i8 %240 to i1
+  br i1 %241, label %242, label %_ZN5clang17DiagnosticBuilderD2Ev.exit83
 
-241:                                              ; preds = %.loopexit
+242:                                              ; preds = %.loopexit
   store i8 0, ptr %111, align 8
-  %242 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %243 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %242) #24
-  %244 = load ptr, ptr %242, align 8
-  %245 = getelementptr inbounds i8, ptr %8, i64 32
-  %246 = icmp eq ptr %244, %245
-  br i1 %246, label %_ZN5clang17DiagnosticBuilderD2Ev.exit83, label %247
+  %243 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %244 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(88) %243) #24
+  %245 = load ptr, ptr %243, align 8
+  %246 = getelementptr inbounds i8, ptr %8, i64 32
+  %247 = icmp eq ptr %245, %246
+  br i1 %247, label %_ZN5clang17DiagnosticBuilderD2Ev.exit83, label %248
 
-247:                                              ; preds = %241
-  call void @free(ptr noundef %244) #24
+248:                                              ; preds = %242
+  call void @free(ptr noundef %245) #24
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit83
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit83:          ; preds = %247, %241, %.loopexit, %.thread, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78, %93, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i82
-  %.sroa.0128.1 = phi i32 [ undef, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i82 ], [ undef, %93 ], [ undef, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78 ], [ undef, %.thread ], [ %.sroa.0110.0154, %.loopexit ], [ %.sroa.0110.0154, %241 ], [ %.sroa.0110.0154, %247 ]
-  %.sroa.2129.1 = phi i8 [ 0, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i82 ], [ 0, %93 ], [ 0, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78 ], [ 0, %.thread ], [ %spec.select, %.loopexit ], [ %spec.select, %241 ], [ %spec.select, %247 ]
-  %248 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(54) %6) #24
-  %249 = load ptr, ptr %6, align 8
-  %250 = icmp eq ptr %249, %57
-  br i1 %250, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %251
+_ZN5clang17DiagnosticBuilderD2Ev.exit83:          ; preds = %248, %242, %.loopexit, %.thread, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78, %93, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i82
+  %.sroa.0128.1 = phi i32 [ undef, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i82 ], [ undef, %93 ], [ undef, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78 ], [ undef, %.thread ], [ %spec.select, %.loopexit ], [ %spec.select, %242 ], [ %spec.select, %248 ]
+  %.sroa.2129.1 = phi i8 [ 0, %_ZN5clang19StreamingDiagnostic20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE.exit.i.i.i.i82 ], [ 0, %93 ], [ 0, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i78 ], [ 0, %.thread ], [ %spec.select143, %.loopexit ], [ %spec.select143, %242 ], [ %spec.select143, %248 ]
+  %249 = call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(54) %6) #24
+  %250 = load ptr, ptr %6, align 8
+  %251 = icmp eq ptr %250, %57
+  br i1 %251, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %252
 
-251:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit83
-  call void @free(ptr noundef %249) #24
+252:                                              ; preds = %_ZN5clang17DiagnosticBuilderD2Ev.exit83
+  call void @free(ptr noundef %250) #24
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %48, %54, %251, %_ZN5clang17DiagnosticBuilderD2Ev.exit83, %28, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %41
-  %.sroa.0128.0 = phi i32 [ undef, %41 ], [ undef, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i ], [ undef, %28 ], [ %.sroa.0128.1, %_ZN5clang17DiagnosticBuilderD2Ev.exit83 ], [ %.sroa.0128.1, %251 ], [ undef, %54 ], [ undef, %48 ]
-  %.sroa.2129.0 = phi i8 [ 0, %41 ], [ 0, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i ], [ 0, %28 ], [ %.sroa.2129.1, %_ZN5clang17DiagnosticBuilderD2Ev.exit83 ], [ %.sroa.2129.1, %251 ], [ 0, %54 ], [ 0, %48 ]
+_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %48, %54, %252, %_ZN5clang17DiagnosticBuilderD2Ev.exit83, %28, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %41
+  %.sroa.0128.0 = phi i32 [ undef, %41 ], [ undef, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i ], [ undef, %28 ], [ %.sroa.0128.1, %_ZN5clang17DiagnosticBuilderD2Ev.exit83 ], [ %.sroa.0128.1, %252 ], [ undef, %54 ], [ undef, %48 ]
+  %.sroa.2129.0 = phi i8 [ 0, %41 ], [ 0, %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i ], [ 0, %28 ], [ %.sroa.2129.1, %_ZN5clang17DiagnosticBuilderD2Ev.exit83 ], [ %.sroa.2129.1, %252 ], [ 0, %54 ], [ 0, %48 ]
   %.sroa.2129.0.insert.ext = zext nneg i8 %.sroa.2129.0 to i64
   %.sroa.2129.0.insert.shift = shl nuw nsw i64 %.sroa.2129.0.insert.ext, 32
   %.sroa.0128.0.insert.ext = zext i32 %.sroa.0128.0 to i64

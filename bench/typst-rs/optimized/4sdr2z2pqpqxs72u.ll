@@ -10555,8 +10555,8 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i49: ; preds = %.noexc60
   invoke void @"_ZN68_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h666d9eefed63d937E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %76)
           to label %"_ZN4core3ptr44drop_in_place$LT$ecow..string..EcoString$GT$17hf3f3b40f07eae2f8E.exit226.i" unwind label %852, !noalias !1881
 
-512:                                              ; preds = %.noexc258.i, %646, %.noexc256.i, %642, %640, %"_ZN4core3ptr56drop_in_place$LT$pdf_writer..structure..DocumentInfo$GT$17h77ddb91ec3c41402E.exit.i", %633, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.i, %621, %.noexc254.i, %.noexc253.i, %.noexc252.i, %.noexc251.i, %608, %602, %596, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i, %.noexc241.i, %.noexc240.i, %590, %584, %577, %568, %552, %537, %524, %514
-  %.2.i = phi i8 [ 0, %640 ], [ 0, %"_ZN4core3ptr56drop_in_place$LT$pdf_writer..structure..DocumentInfo$GT$17h77ddb91ec3c41402E.exit.i" ], [ 1, %633 ], [ 1, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.i ], [ 1, %621 ], [ 1, %596 ], [ 1, %537 ], [ 1, %524 ], [ 1, %514 ], [ 1, %552 ], [ 1, %568 ], [ 1, %577 ], [ 1, %584 ], [ 1, %590 ], [ 1, %.noexc240.i ], [ 1, %.noexc241.i ], [ 0, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i ], [ 1, %602 ], [ 1, %608 ], [ 1, %.noexc251.i ], [ 1, %.noexc252.i ], [ 1, %.noexc253.i ], [ 1, %.noexc254.i ], [ 0, %642 ], [ 0, %.noexc256.i ], [ 0, %646 ], [ 0, %.noexc258.i ]
+512:                                              ; preds = %.noexc258.i, %646, %.noexc256.i, %642, %640, %"_ZN4core3ptr56drop_in_place$LT$pdf_writer..structure..DocumentInfo$GT$17h77ddb91ec3c41402E.exit.i", %633, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.i, %621, %.noexc254.i, %.noexc253.i, %.noexc252.i, %.noexc251.i, %608, %602, %596, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i, %.noexc240.i, %.noexc239.i, %590, %584, %577, %568, %552, %537, %524, %514
+  %.2.i = phi i8 [ 0, %640 ], [ 0, %"_ZN4core3ptr56drop_in_place$LT$pdf_writer..structure..DocumentInfo$GT$17h77ddb91ec3c41402E.exit.i" ], [ 1, %633 ], [ 1, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.i ], [ 1, %621 ], [ 1, %596 ], [ 1, %537 ], [ 1, %524 ], [ 1, %514 ], [ 1, %552 ], [ 1, %568 ], [ 1, %577 ], [ 1, %584 ], [ 1, %590 ], [ 1, %.noexc239.i ], [ 1, %.noexc240.i ], [ 0, %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i ], [ 1, %602 ], [ 1, %608 ], [ 1, %.noexc251.i ], [ 1, %.noexc252.i ], [ 1, %.noexc253.i ], [ 1, %.noexc254.i ], [ 0, %642 ], [ 0, %.noexc256.i ], [ 0, %646 ], [ 0, %.noexc258.i ]
   %513 = landingpad { ptr, i32 }
           cleanup
   br label %508
@@ -10683,9 +10683,9 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i49: ; preds = %.noexc60
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %42), !noalias !1892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %42, ptr noundef nonnull align 4 dereferenceable(12) %71, i64 12, i1 false), !noalias !1892
   %572 = invoke { i32, i32 } @_ZN5typst11foundations8datetime8Datetime4year17h7ccced476228fc19E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
-          to label %.noexc237.i unwind label %512, !noalias !1881
+          to label %.noexc236.i unwind label %512, !noalias !1881
 
-.noexc237.i:                                      ; preds = %568
+.noexc236.i:                                      ; preds = %568
   %573 = extractvalue { i32, i32 } %572, 0
   %574 = extractvalue { i32, i32 } %572, 1
   %575 = icmp eq i32 %573, 1
@@ -10693,60 +10693,60 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.exit.i49: ; preds = %.noexc60
   %or.cond.i.i.i = select i1 %575, i1 %576, i1 false
   br i1 %or.cond.i.i.i, label %577, label %_ZN9typst_pdf8pdf_date17ha3a176421769a463E.exit.thread.i
 
-_ZN9typst_pdf8pdf_date17ha3a176421769a463E.exit.thread.i: ; preds = %.noexc237.i
+_ZN9typst_pdf8pdf_date17ha3a176421769a463E.exit.thread.i: ; preds = %.noexc236.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %42), !noalias !1892
   br label %602
 
-577:                                              ; preds = %.noexc237.i
+577:                                              ; preds = %.noexc236.i
   %578 = trunc i32 %574 to i16
   %.0.sroa.speculated.i.i.i = call noundef range(i16 0, 10000) i16 @llvm.umin.i16(i16 %578, i16 9999)
   %579 = invoke { i1, i8 } @_ZN5typst11foundations8datetime8Datetime5month17hc99aac5170cf5405E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
-          to label %.noexc238.i unwind label %512, !noalias !1881
+          to label %.noexc237.i unwind label %512, !noalias !1881
 
-.noexc238.i:                                      ; preds = %577
+.noexc237.i:                                      ; preds = %577
   %580 = extractvalue { i1, i8 } %579, 0
   br i1 %580, label %581, label %584
 
-581:                                              ; preds = %.noexc238.i
+581:                                              ; preds = %.noexc237.i
   %582 = extractvalue { i1, i8 } %579, 1
   %583 = icmp eq i8 %582, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i = call i8 @llvm.umin.i8(i8 %582, i8 12)
   %.0.in.sroa.speculated.i.i.i = select i1 %583, i8 1, i8 %.0.in.sroa.speculate.load.4.sroa.speculated.i.i.i
   br label %584
 
-584:                                              ; preds = %581, %.noexc238.i
-  %.sroa.012.0.i.i = phi i8 [ 1, %581 ], [ 0, %.noexc238.i ]
-  %.sroa.3.0.i232.i = phi i8 [ %.0.in.sroa.speculated.i.i.i, %581 ], [ undef, %.noexc238.i ]
+584:                                              ; preds = %581, %.noexc237.i
+  %.sroa.012.0.i.i = phi i8 [ 1, %581 ], [ 0, %.noexc237.i ]
+  %.sroa.3.0.i232.i = phi i8 [ %.0.in.sroa.speculated.i.i.i, %581 ], [ undef, %.noexc237.i ]
   %585 = invoke { i1, i8 } @_ZN5typst11foundations8datetime8Datetime3day17h73d504fcfe83a6d1E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
-          to label %.noexc239.i unwind label %512, !noalias !1881
+          to label %.noexc238.i unwind label %512, !noalias !1881
 
-.noexc239.i:                                      ; preds = %584
+.noexc238.i:                                      ; preds = %584
   %586 = extractvalue { i1, i8 } %585, 0
   br i1 %586, label %587, label %590
 
-587:                                              ; preds = %.noexc239.i
+587:                                              ; preds = %.noexc238.i
   %588 = extractvalue { i1, i8 } %585, 1
   %589 = icmp eq i8 %588, 0
   %.0.in.sroa.speculate.load.4.sroa.speculated.i25.i.i = call i8 @llvm.umin.i8(i8 %588, i8 31)
   %.0.in.sroa.speculated.i26.i.i = select i1 %589, i8 1, i8 %.0.in.sroa.speculate.load.4.sroa.speculated.i25.i.i
   br label %590
 
-590:                                              ; preds = %587, %.noexc239.i
-  %.sroa.5.0.i233.i = phi i8 [ 1, %587 ], [ 0, %.noexc239.i ]
-  %.sroa.7.0.i234.i = phi i8 [ %.0.in.sroa.speculated.i26.i.i, %587 ], [ undef, %.noexc239.i ]
+590:                                              ; preds = %587, %.noexc238.i
+  %.sroa.5.0.i233.i = phi i8 [ 1, %587 ], [ 0, %.noexc238.i ]
+  %.sroa.7.0.i.i = phi i8 [ %.0.in.sroa.speculated.i26.i.i, %587 ], [ undef, %.noexc238.i ]
   %591 = invoke { i1, i8 } @_ZN5typst11foundations8datetime8Datetime4hour17h80cd172dd31c6bacE(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
-          to label %.noexc240.i unwind label %512, !noalias !1881
+          to label %.noexc239.i unwind label %512, !noalias !1881
 
-.noexc240.i:                                      ; preds = %590
+.noexc239.i:                                      ; preds = %590
   %592 = extractvalue { i1, i8 } %591, 0
   %593 = extractvalue { i1, i8 } %591, 1
   %.0.sroa.speculated.i27.i.i = call range(i8 0, 60) i8 @llvm.umin.i8(i8 %593, i8 23)
   %.sroa.9.0.i.i = zext i1 %592 to i8
   %.sroa.11.0.i.i = select i1 %592, i8 %.0.sroa.speculated.i27.i.i, i8 undef
   %594 = invoke { i1, i8 } @_ZN5typst11foundations8datetime8Datetime6minute17h4548b466331e9645E(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
-          to label %.noexc241.i unwind label %512, !noalias !1881
+          to label %.noexc240.i unwind label %512, !noalias !1881
 
-.noexc241.i:                                      ; preds = %.noexc240.i
+.noexc240.i:                                      ; preds = %.noexc239.i
   %595 = invoke { i1, i8 } @_ZN5typst11foundations8datetime8Datetime6second17hb39d1367d7efcfdfE(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %42)
           to label %596 unwind label %512, !noalias !1881
 
@@ -10757,7 +10757,7 @@ _ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i: ; preds = %.noexc250.i
   invoke void @"_ZN66_$LT$pdf_writer..object..Dict$u20$as$u20$core..ops..drop..Drop$GT$4drop17h9f75d0997aaeb05aE.llvm.17057414408856058071"(ptr noalias noundef nonnull align 8 dereferenceable(16) %68)
           to label %"_ZN4core3ptr56drop_in_place$LT$pdf_writer..structure..DocumentInfo$GT$17h77ddb91ec3c41402E.exit.i" unwind label %512, !noalias !1881
 
-596:                                              ; preds = %.noexc241.i
+596:                                              ; preds = %.noexc240.i
   %597 = extractvalue { i1, i8 } %594, 0
   %598 = extractvalue { i1, i8 } %594, 1
   %.0.sroa.speculated.i28.i.i = call range(i8 0, 60) i8 @llvm.umin.i8(i8 %598, i8 59)
@@ -10776,7 +10776,7 @@ _ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i: ; preds = %.noexc250.i
   %.sroa.7313.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 2
   store i8 %.sroa.5.0.i233.i, ptr %.sroa.7313.0..sroa_idx.i, align 2, !noalias !1892
   %.sroa.8314.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 3
-  store i8 %.sroa.7.0.i234.i, ptr %.sroa.8314.0..sroa_idx.i, align 1, !noalias !1892
+  store i8 %.sroa.7.0.i.i, ptr %.sroa.8314.0..sroa_idx.i, align 1, !noalias !1892
   %.sroa.9315.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 4
   store i8 %.sroa.9.0.i.i, ptr %.sroa.9315.0..sroa_idx.i, align 2, !noalias !1892
   %.sroa.10.0..sroa_idx.i = getelementptr inbounds i8, ptr %70, i64 5
@@ -10811,8 +10811,8 @@ _ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i: ; preds = %.noexc250.i
   %605 = extractvalue { i32, i32 } %603, 1
   %606 = icmp eq i32 %604, 1
   %607 = icmp sgt i32 %605, -1
-  %or.cond.i.i244.i = select i1 %606, i1 %607, i1 false
-  br i1 %or.cond.i.i244.i, label %608, label %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i
+  %or.cond.i.i243.i = select i1 %606, i1 %607, i1 false
+  br i1 %or.cond.i.i243.i, label %608, label %_ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.thread.i
 
 608:                                              ; preds = %.noexc250.i
   %609 = trunc i32 %605 to i16
@@ -10851,7 +10851,7 @@ _ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.i: ; preds = %.noexc254.i
   %624 = extractvalue { i1, i8 } %619, 0
   %625 = extractvalue { i1, i8 } %620, 0
   %626 = extractvalue { i1, i8 } %620, 1
-  %.11.i.i = select i1 %571, i8 0, i8 2
+  %..i244.i = select i1 %571, i8 0, i8 2
   %627 = zext i1 %611 to i8
   %628 = zext i1 %614 to i8
   %629 = zext i1 %617 to i8
@@ -10879,7 +10879,7 @@ _ZN9typst_pdf8xmp_date17hb20eb899dd12263fE.exit.i: ; preds = %.noexc254.i
   %.sroa.14330.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 10
   store i16 %609, ptr %.sroa.14330.0..sroa_idx.i, align 2, !noalias !1892
   %.sroa.15331.0..sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 12
-  store i8 %.11.i.i, ptr %.sroa.15331.0..sroa_idx.i, align 2, !noalias !1892
+  store i8 %..i244.i, ptr %.sroa.15331.0..sroa_idx.i, align 2, !noalias !1892
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %40), !noalias !1892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %40, ptr noundef nonnull align 2 dereferenceable(16) %69, i64 16, i1 false), !noalias !1892
   %632 = invoke noundef align 8 dereferenceable(48) ptr @_ZN10xmp_writer9XmpWriter11create_date17h8bef327edda36225E(ptr noalias noundef nonnull align 8 dereferenceable(48) %78, ptr noalias nocapture noundef nonnull align 2 dereferenceable(16) %40)

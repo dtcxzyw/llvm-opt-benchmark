@@ -1001,7 +1001,7 @@ define { ptr, ptr } @_ZN8uu_sleep5sleep17he4476011207b7f9cE(ptr noalias noundef 
 
 "_ZN10fundu_core5parse6Parser12parse_single28_$u7b$$u7b$closure$u7d$$u7d$17hd248ec13fc1a6ee2E.exit.i.i.i.i": ; preds = %96, %94, %93
   %.sroa.21.0.i.i.i = phi i64 [ %.sroa.21.0.copyload40.i.i.i, %93 ], [ undef, %96 ], [ undef, %94 ]
-  %.sroa.17.1.i.i.i = phi i8 [ %.sroa.17.0.copyload30.i.i.i, %93 ], [ %.sroa.2.0.copyload.i.i.i.i.i, %96 ], [ %.sroa.2.0.copyload.i.i.i.i.i, %94 ]
+  %.sroa.17.1.i.i.i = phi i8 [ %.sroa.17.0.copyload30.i.i.i, %93 ], [ %.sroa.2.0.copyload.i.i.i.i.i, %96 ], [ undef, %94 ]
   %.sroa.16.1.i.i.i = phi i32 [ %.sroa.16.0.copyload21.i.i.i, %93 ], [ %.sroa.16.8.copyload28.i.i.i, %96 ], [ undef, %94 ]
   %.sroa.15.1.i.i.i = phi i32 [ %.sroa.15.0.copyload12.i.i.i, %93 ], [ %.sroa.15.8.copyload19.i.i.i, %96 ], [ undef, %94 ]
   %.sroa.11.1.i.i.i = phi i64 [ %.sroa.11.0.copyload5.i.i.i, %93 ], [ %.sroa.11.8.copyload10.i.i.i, %96 ], [ undef, %94 ]
@@ -1121,6 +1121,10 @@ _ZN10fundu_core5parse6Parser12parse_single17h9657740233323b3bE.exit.i.i.i: ; pre
 
 112:                                              ; preds = %111, %105
   %.sroa.21.2.i.i.i = phi i64 [ undef, %111 ], [ %.sroa.977.0.copyload.i.i.i.i, %105 ]
+  %.sroa.17.3.i.i.i = phi i8 [ undef, %111 ], [ %.sroa.662.0.copyload.i.i.i.i, %105 ]
+  %.sroa.16.3.i.i.i = phi i32 [ undef, %111 ], [ %.sroa.561.0.copyload.i.i.i.i, %105 ]
+  %.sroa.15.3.i.i.i = phi i32 [ undef, %111 ], [ %.sroa.460.0.copyload.i.i.i.i, %105 ]
+  %.sroa.11.3.i.i.i = phi i64 [ undef, %111 ], [ %.sroa.059.0.copyload.i.i.i.i, %105 ]
   %.sroa.0.2.i.i.i = phi i64 [ 6, %111 ], [ %102, %105 ]
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15), !noalias !232
   br label %_ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i
@@ -1181,10 +1185,10 @@ _ZN10fundu_core5parse6Parser12parse_single17h9657740233323b3bE.exit.i.i.i: ; pre
 
 _ZN10fundu_core5parse6Parser14parse_multiple17hc4b9ab3e29304af8E.exit.i.i.i: ; preds = %123, %112, %._crit_edge.i.i.i.i
   %.sroa.21.3.i.i.i = phi i64 [ %.sroa.7.i.sroa.11.0.copyload60.i.i.i, %._crit_edge.i.i.i.i ], [ undef, %123 ], [ %.sroa.21.2.i.i.i, %112 ]
-  %.sroa.17.4.i.i.i = phi i8 [ %.sroa.7.i.sroa.9.0.copyload58.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.17.8.copyload35.i.i.i, %123 ], [ %.sroa.662.0.copyload.i.i.i.i, %112 ]
-  %.sroa.16.4.i.i.i = phi i32 [ %.sroa.7.i.sroa.8.0.copyload56.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.16.8.copyload26.i.i.i, %123 ], [ %.sroa.561.0.copyload.i.i.i.i, %112 ]
-  %.sroa.15.4.i.i.i = phi i32 [ %.sroa.7.i.sroa.7.0.copyload54.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.15.8.copyload17.i.i.i, %123 ], [ %.sroa.460.0.copyload.i.i.i.i, %112 ]
-  %.sroa.11.4.i.i.i = phi i64 [ %.sroa.7.i.sroa.6.0.copyload52.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.11.8.copyload9.i.i.i, %123 ], [ %.sroa.059.0.copyload.i.i.i.i, %112 ]
+  %.sroa.17.4.i.i.i = phi i8 [ %.sroa.7.i.sroa.9.0.copyload58.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.17.8.copyload35.i.i.i, %123 ], [ %.sroa.17.3.i.i.i, %112 ]
+  %.sroa.16.4.i.i.i = phi i32 [ %.sroa.7.i.sroa.8.0.copyload56.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.16.8.copyload26.i.i.i, %123 ], [ %.sroa.16.3.i.i.i, %112 ]
+  %.sroa.15.4.i.i.i = phi i32 [ %.sroa.7.i.sroa.7.0.copyload54.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.15.8.copyload17.i.i.i, %123 ], [ %.sroa.15.3.i.i.i, %112 ]
+  %.sroa.11.4.i.i.i = phi i64 [ %.sroa.7.i.sroa.6.0.copyload52.i.i.i, %._crit_edge.i.i.i.i ], [ %.sroa.11.8.copyload9.i.i.i, %123 ], [ %.sroa.11.3.i.i.i, %112 ]
   %.sroa.0.3.i.i.i = phi i64 [ %.sroa.7.i.sroa.0.0.copyload50.i.i.i, %._crit_edge.i.i.i.i ], [ 8, %123 ], [ %.sroa.0.2.i.i.i, %112 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %16), !noalias !232
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17), !noalias !232

@@ -14745,9 +14745,9 @@ common.resume:                                    ; preds = %25, %9
           to label %"_ZN86_$LT$project_model..manifest_path..ManifestPath$u20$as$u20$core..ops..deref..Deref$GT$5deref17h10c0bc75e32f51b9E.exit" unwind label %25
 
 23:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53fe519d3316dc4aE.exit.thread", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53fe519d3316dc4aE.exit"
-  %.sroa.5.091 = phi ptr [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53fe519d3316dc4aE.exit.thread" ], [ %.sroa.867.8.copyload69, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53fe519d3316dc4aE.exit" ]
+  %.sroa.5.090 = phi ptr [ %19, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53fe519d3316dc4aE.exit.thread" ], [ %.sroa.867.8.copyload69, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h53fe519d3316dc4aE.exit" ]
   %24 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.5.091, ptr %24, align 8
+  store ptr %.sroa.5.090, ptr %24, align 8
   store i64 3, ptr %0, align 8
   br label %.critedge
 
@@ -14767,8 +14767,8 @@ common.resume:                                    ; preds = %25, %9
   %31 = extractvalue { ptr, i64 } %29, 0
   %32 = icmp ne ptr %31, null
   %33 = extractvalue { ptr, i64 } %29, 1
-  %.not.i5295 = icmp eq i64 %33, 17
-  %.not.i52 = select i1 %32, i1 %.not.i5295, i1 false
+  %.not.i5294 = icmp eq i64 %33, 17
+  %.not.i52 = select i1 %32, i1 %.not.i5294, i1 false
   br i1 %.not.i52, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit": ; preds = %30
@@ -14796,8 +14796,8 @@ common.resume:                                    ; preds = %25, %9
   %41 = extractvalue { ptr, i64 } %39, 0
   %42 = icmp ne ptr %41, null
   %43 = extractvalue { ptr, i64 } %39, 1
-  %.not.i5496 = icmp eq i64 %43, 10
-  %.not.i54 = select i1 %42, i1 %.not.i5496, i1 false
+  %.not.i5495 = icmp eq i64 %43, 10
+  %.not.i54 = select i1 %42, i1 %.not.i5495, i1 false
   br i1 %.not.i54, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit57", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit57.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit57": ; preds = %40
@@ -14825,8 +14825,8 @@ common.resume:                                    ; preds = %25, %9
   %51 = extractvalue { ptr, i64 } %49, 0
   %52 = icmp ne ptr %51, null
   %53 = extractvalue { ptr, i64 } %49, 1
-  %.not.i5997 = icmp eq i64 %53, 2
-  %.not.i59 = select i1 %52, i1 %.not.i5997, i1 false
+  %.not.i5996 = icmp eq i64 %53, 2
+  %.not.i59 = select i1 %52, i1 %.not.i5996, i1 false
   br i1 %.not.i59, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit62", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit62.thread"
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc7a32f5c65f87f5dE.exit62": ; preds = %50
@@ -15736,7 +15736,7 @@ define hidden void @_ZN13project_model11utf8_stdout17h0711734f47f47c07E(ptr noal
           to label %33 unwind label %31
 
 .body:                                            ; preds = %196, %42, %31, %.thread142.thread, %.thread142
-  %.pn68 = phi { ptr, i32 } [ %.pn66132174, %.thread142.thread ], [ %.pn66133, %.thread142 ], [ %197, %196 ], [ %32, %31 ], [ %43, %42 ]
+  %.pn68 = phi { ptr, i32 } [ %.pn66132172, %.thread142.thread ], [ %.pn66133, %.thread142 ], [ %197, %196 ], [ %32, %31 ], [ %43, %42 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$std..sys..pal..unix..process..process_common..Command$GT$17hfc3efdbcb0d9d073E.llvm.9627074818807256315"(ptr noalias noundef nonnull align 8 dereferenceable(208) %1)
           to label %"_ZN4core3ptr42drop_in_place$LT$std..process..Command$GT$17he5442cab95f198a6E.exit" unwind label %119
 
@@ -16310,7 +16310,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.16283260474565314852.exit87: ; pre
           to label %.thread142 unwind label %119
 
 .thread142.thread:                                ; preds = %157, %76, %51, %.thread142
-  %.pn66132174 = phi { ptr, i32 } [ %.pn66133, %.thread142 ], [ %158, %157 ], [ %77, %76 ], [ %lpad.thr_comm.split-lp, %51 ]
+  %.pn66132172 = phi { ptr, i32 } [ %.pn66133, %.thread142 ], [ %158, %157 ], [ %77, %76 ], [ %lpad.thr_comm.split-lp, %51 ]
   %208 = getelementptr inbounds i8, ptr %30, i64 24
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb130281c96da2e5fE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %208) #33
           to label %.body unwind label %119

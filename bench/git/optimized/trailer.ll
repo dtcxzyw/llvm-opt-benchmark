@@ -2989,8 +2989,8 @@ if.end3:                                          ; preds = %if.end
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond116.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond116.not, label %return, label %for.body, !llvm.loop !31
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond118.not, label %return, label %for.body, !llvm.loop !31
 
 for.body:                                         ; preds = %if.end3, %for.cond
   %indvars.iv = phi i64 [ 0, %if.end3 ], [ %indvars.iv.next, %for.cond ]

@@ -400,15 +400,15 @@ define hidden void @_ZN10libloading2os4unix7Library4open17hd7cabb4d009a0ea2E(ptr
   br label %"_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdbeee70e30137753E.llvm.6082948530530484711.exit.i"
 
 "_ZN10libloading2os4unix7Library4open28_$u7b$$u7b$closure$u7d$$u7d$17hdbeee70e30137753E.llvm.6082948530530484711.exit.i": ; preds = %34, %.thread.i.i
-  %.sroa.522.0.ph49 = phi ptr [ undef, %.thread.i.i ], [ %38, %34 ]
-  %.sroa.9.sroa.0.0.ph47 = phi i64 [ undef, %.thread.i.i ], [ %39, %34 ]
+  %.sroa.55.i.sroa.0.0 = phi ptr [ undef, %.thread.i.i ], [ %38, %34 ]
+  %.sroa.55.i.sroa.4.0 = phi i64 [ undef, %.thread.i.i ], [ %39, %34 ]
   %.sroa.03.0.i = phi i64 [ -9223372036854775807, %.thread.i.i ], [ -9223372036854775808, %34 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !104
   store i64 %.sroa.03.0.i, ptr %0, align 8, !alias.scope !99, !noalias !102
   %.sroa.55.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.522.0.ph49, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !102
+  store ptr %.sroa.55.i.sroa.0.0, ptr %.sroa.55.0..sroa_idx.i, align 8, !noalias !102
   %.sroa.55.i.sroa.4.0..sroa.55.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.9.sroa.0.0.ph47, ptr %.sroa.55.i.sroa.4.0..sroa.55.0..sroa_idx.i.sroa_idx, align 8, !noalias !102
+  store i64 %.sroa.55.i.sroa.4.0, ptr %.sroa.55.i.sroa.4.0..sroa.55.0..sroa_idx.i.sroa_idx, align 8, !noalias !102
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc19f7036509a1e5cE.llvm.6082948530530484711.exit"
 
 40:                                               ; preds = %9

@@ -2231,17 +2231,17 @@ define hidden void @"_ZN4core3ptr127drop_in_place$LT$thread_local..ThreadLocal$L
   br label %4
 
 4:                                                ; preds = %.backedge.i, %1
-  %.sroa.0.0.idx8.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
-  %.sroa.7.07.i = phi i64 [ 0, %1 ], [ %5, %.backedge.i ]
-  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx8.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx8.i, 8
-  %5 = add nuw nsw i64 %.sroa.7.07.i, 1
+  %.sroa.0.0.idx9.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
+  %.sroa.7.08.i = phi i64 [ 0, %1 ], [ %5, %.backedge.i ]
+  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx9.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx9.i, 8
+  %5 = add nuw nsw i64 %.sroa.7.08.i, 1
   %6 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !774, !noundef !10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.backedge.i, label %8
 
 8:                                                ; preds = %4
-  %9 = shl nuw i64 1, %.sroa.7.07.i
+  %9 = shl nuw i64 1, %.sroa.7.08.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !774
   store ptr %6, ptr %2, align 8, !noalias !774
   store i64 %9, ptr %3, align 8, !noalias !774
@@ -3047,17 +3047,17 @@ define hidden void @"_ZN4core3ptr139drop_in_place$LT$thread_local..ThreadLocal$L
   br label %4
 
 4:                                                ; preds = %.backedge.i, %1
-  %.sroa.0.0.idx8.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
-  %.sroa.7.07.i = phi i64 [ 0, %1 ], [ %5, %.backedge.i ]
-  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx8.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx8.i, 8
-  %5 = add nuw nsw i64 %.sroa.7.07.i, 1
+  %.sroa.0.0.idx9.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
+  %.sroa.7.08.i = phi i64 [ 0, %1 ], [ %5, %.backedge.i ]
+  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx9.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx9.i, 8
+  %5 = add nuw nsw i64 %.sroa.7.08.i, 1
   %6 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !1096, !noundef !10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.backedge.i, label %8
 
 8:                                                ; preds = %4
-  %9 = shl nuw i64 1, %.sroa.7.07.i
+  %9 = shl nuw i64 1, %.sroa.7.08.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !1096
   store ptr %6, ptr %2, align 8, !noalias !1096
   store i64 %9, ptr %3, align 8, !noalias !1096
@@ -8807,17 +8807,17 @@ define hidden void @"_ZN4core3ptr63drop_in_place$LT$tracing_subscriber..filter..
   br label %70
 
 70:                                               ; preds = %.backedge.i.i, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h6950f45d578288d4E.llvm.1799741712541865863.exit"
-  %.sroa.0.0.idx8.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h6950f45d578288d4E.llvm.1799741712541865863.exit" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
-  %.sroa.7.07.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h6950f45d578288d4E.llvm.1799741712541865863.exit" ], [ %71, %.backedge.i.i ]
-  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.idx8.i.i
-  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx8.i.i, 8
-  %71 = add nuw nsw i64 %.sroa.7.07.i.i, 1
+  %.sroa.0.0.idx9.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h6950f45d578288d4E.llvm.1799741712541865863.exit" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
+  %.sroa.7.08.i.i = phi i64 [ 0, %"_ZN4core3ptr248drop_in_place$LT$std..sync..rwlock..RwLock$LT$std..collections..hash..map..HashMap$LT$tracing_core..callsite..Identifier$C$tracing_subscriber..filter..env..directive..MatchSet$LT$tracing_subscriber..filter..env..field..CallsiteMatch$GT$$GT$$GT$$GT$17h6950f45d578288d4E.llvm.1799741712541865863.exit" ], [ %71, %.backedge.i.i ]
+  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.idx9.i.i
+  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx9.i.i, 8
+  %71 = add nuw nsw i64 %.sroa.7.08.i.i, 1
   %72 = load ptr, ptr %.sroa.0.0.ptr.i.i, align 8, !alias.scope !3301, !noundef !10
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.backedge.i.i, label %74
 
 74:                                               ; preds = %70
-  %75 = shl nuw i64 1, %.sroa.7.07.i.i
+  %75 = shl nuw i64 1, %.sroa.7.08.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !3301
   store ptr %72, ptr %2, align 8, !noalias !3301
   store i64 %75, ptr %69, align 8, !noalias !3301
@@ -9557,17 +9557,17 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$tracing_subscriber..registry
   br label %13
 
 13:                                               ; preds = %.backedge.i.i, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17hd22a5a7a2b703aefE.llvm.1799741712541865863.exit"
-  %.sroa.0.0.idx8.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17hd22a5a7a2b703aefE.llvm.1799741712541865863.exit" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
-  %.sroa.7.07.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17hd22a5a7a2b703aefE.llvm.1799741712541865863.exit" ], [ %14, %.backedge.i.i ]
-  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %.sroa.0.0.idx8.i.i
-  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx8.i.i, 8
-  %14 = add nuw nsw i64 %.sroa.7.07.i.i, 1
+  %.sroa.0.0.idx9.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17hd22a5a7a2b703aefE.llvm.1799741712541865863.exit" ], [ %.sroa.0.0.add.i.i, %.backedge.i.i ]
+  %.sroa.7.08.i.i = phi i64 [ 0, %"_ZN4core3ptr101drop_in_place$LT$sharded_slab..pool..Pool$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17hd22a5a7a2b703aefE.llvm.1799741712541865863.exit" ], [ %14, %.backedge.i.i ]
+  %.sroa.0.0.ptr.i.i = getelementptr inbounds i8, ptr %11, i64 %.sroa.0.0.idx9.i.i
+  %.sroa.0.0.add.i.i = add nuw nsw i64 %.sroa.0.0.idx9.i.i, 8
+  %14 = add nuw nsw i64 %.sroa.7.08.i.i, 1
   %15 = load ptr, ptr %.sroa.0.0.ptr.i.i, align 8, !alias.scope !3609, !noundef !10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.backedge.i.i, label %17
 
 17:                                               ; preds = %13
-  %18 = shl nuw i64 1, %.sroa.7.07.i.i
+  %18 = shl nuw i64 1, %.sroa.7.08.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !3609
   store ptr %15, ptr %2, align 8, !noalias !3609
   store i64 %18, ptr %12, align 8, !noalias !3609
@@ -14296,17 +14296,17 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   ret void
 
 5:                                                ; preds = %1, %.backedge
-  %.sroa.0.0.idx8 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
-  %.sroa.7.07 = phi i64 [ 0, %1 ], [ %6, %.backedge ]
-  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx8
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx8, 8
-  %6 = add nuw nsw i64 %.sroa.7.07, 1
+  %.sroa.0.0.idx9 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
+  %.sroa.7.08 = phi i64 [ 0, %1 ], [ %6, %.backedge ]
+  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx9
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx9, 8
+  %6 = add nuw nsw i64 %.sroa.7.08, 1
   %7 = load ptr, ptr %.sroa.0.0.ptr, align 8, !noundef !10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.backedge, label %9
 
 9:                                                ; preds = %5
-  %10 = shl nuw i64 1, %.sroa.7.07
+  %10 = shl nuw i64 1, %.sroa.7.08
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %7, ptr %2, align 8
   store i64 %10, ptr %3, align 8
@@ -14366,17 +14366,17 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   ret void
 
 5:                                                ; preds = %1, %.backedge
-  %.sroa.0.0.idx8 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
-  %.sroa.7.07 = phi i64 [ 0, %1 ], [ %6, %.backedge ]
-  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx8
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx8, 8
-  %6 = add nuw nsw i64 %.sroa.7.07, 1
+  %.sroa.0.0.idx9 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
+  %.sroa.7.08 = phi i64 [ 0, %1 ], [ %6, %.backedge ]
+  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx9
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx9, 8
+  %6 = add nuw nsw i64 %.sroa.7.08, 1
   %7 = load ptr, ptr %.sroa.0.0.ptr, align 8, !noundef !10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.backedge, label %9
 
 9:                                                ; preds = %5
-  %10 = shl nuw i64 1, %.sroa.7.07
+  %10 = shl nuw i64 1, %.sroa.7.08
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %7, ptr %2, align 8
   store i64 %10, ptr %3, align 8

@@ -52,10 +52,10 @@ define { i1, i8 } @"_ZN94_$LT$cranelift_isle..trie_again..TupleIndex$u20$as$u20$
 define { i16, i16 } @"_ZN93_$LT$cranelift_isle..trie_again..BindingId$u20$as$u20$core..convert..TryFrom$LT$usize$GT$$GT$8try_from17h08bb0ddc19646a26E"(i64 %0) unnamed_addr #0 {
   %2 = icmp ugt i64 %0, 65535
   %3 = trunc nuw i64 %0 to i16
-  %.sroa.34.0 = select i1 %2, i16 undef, i16 %3
+  %.sroa.3.0 = select i1 %2, i16 undef, i16 %3
   %.sroa.0.0 = zext i1 %2 to i16
   %4 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %5 = insertvalue { i16, i16 } %4, i16 %.sroa.34.0, 1
+  %5 = insertvalue { i16, i16 } %4, i16 %.sroa.3.0, 1
   ret { i16, i16 } %5
 }
 

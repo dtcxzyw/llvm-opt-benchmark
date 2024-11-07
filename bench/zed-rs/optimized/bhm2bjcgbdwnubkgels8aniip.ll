@@ -3225,10 +3225,10 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   br i1 %15, label %46, label %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h3b596e83ea4b080aE.exit.i"
 
 ._crit_edge.i:                                    ; preds = %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h3b596e83ea4b080aE.exit.i", %6
-  %.lcssa12.i = phi ptr [ %9, %6 ], [ %41, %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h3b596e83ea4b080aE.exit.i" ]
+  %.lcssa11.i = phi ptr [ %9, %6 ], [ %41, %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h3b596e83ea4b080aE.exit.i" ]
   %.lcssa.i = phi ptr [ %11, %6 ], [ %43, %"_ZN15futures_channel4mpsc5queue14Queue$LT$T$GT$3pop17h3b596e83ea4b080aE.exit.i" ]
   store ptr %.lcssa.i, ptr %8, align 8, !noalias !551
-  %16 = load ptr, ptr %.lcssa12.i, align 8, !noalias !551, !noundef !5
+  %16 = load ptr, ptr %.lcssa11.i, align 8, !noalias !551, !noundef !5
   %17 = icmp eq ptr %16, null
   br i1 %17, label %19, label %18
 
@@ -3251,13 +3251,13 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   store ptr null, ptr %.lcssa.i, align 8, !noalias !551
   tail call void @llvm.experimental.noalias.scope.decl(metadata !554)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !557)
-  %26 = load ptr, ptr %.lcssa12.i, align 8, !alias.scope !560, !noalias !551, !noundef !5
+  %26 = load ptr, ptr %.lcssa11.i, align 8, !alias.scope !560, !noalias !551, !noundef !5
   %27 = icmp eq ptr %26, null
   br i1 %27, label %50, label %28
 
 28:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
-  %29 = getelementptr inbounds i8, ptr %.lcssa12.i, i64 8
+  %29 = getelementptr inbounds i8, ptr %.lcssa11.i, i64 8
   %30 = load ptr, ptr %29, align 8, !alias.scope !564, !noalias !551, !nonnull !5, !align !6, !noundef !5
   %31 = load ptr, ptr %30, align 8, !invariant.load !5, !noalias !565
   %.not.i.i.i.i.i.i = icmp eq ptr %31, null
@@ -3270,7 +3270,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
 33:                                               ; preds = %32
   %34 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8cb0b0e7dfc5ad87E.llvm.1367251721182104800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.lcssa12.i) #28
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8cb0b0e7dfc5ad87E.llvm.1367251721182104800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.lcssa11.i) #28
           to label %.body.i.i unwind label %35, !noalias !551
 
 35:                                               ; preds = %33
@@ -3280,7 +3280,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
   unreachable
 
 "_ZN4core3ptr328drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h9ae44eede7b45ac7E.llvm.1367251721182104800.exit.i.i.i.i.i": ; preds = %32, %28
-  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8cb0b0e7dfc5ad87E.llvm.1367251721182104800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.lcssa12.i)
+  invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8cb0b0e7dfc5ad87E.llvm.1367251721182104800"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.lcssa11.i)
           to label %50 unwind label %37, !noalias !551
 
 37:                                               ; preds = %"_ZN4core3ptr328drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h9ae44eede7b45ac7E.llvm.1367251721182104800.exit.i.i.i.i.i"
@@ -3290,7 +3290,7 @@ define hidden void @"_ZN15futures_channel4mpsc26UnboundedReceiver$LT$T$GT$12next
 
 .body.i.i:                                        ; preds = %37, %33
   %eh.lpad-body.i.i.i = phi { ptr, i32 } [ %38, %37 ], [ %34, %33 ]
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa12.i, i64 noundef 24, i64 noundef 8) #29, !noalias !551
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa11.i, i64 noundef 24, i64 noundef 8) #29, !noalias !551
   invoke fastcc void @"_ZN4core3ptr328drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h9ae44eede7b45ac7E"(ptr nonnull %20, ptr nonnull %25) #28
           to label %common.resume unwind label %39, !noalias !551
 
@@ -3323,7 +3323,7 @@ common.resume:                                    ; preds = %.body.i.i, %61
   br i1 %or.cond, label %54, label %53
 
 50:                                               ; preds = %"_ZN4core3ptr328drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnOnce$LT$$LP$gpui..app..async_context..AsyncAppContext$C$$RP$$GT$$u2b$Output$u20$$u3d$$u20$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$$GT$$GT$17h9ae44eede7b45ac7E.llvm.1367251721182104800.exit.i.i.i.i.i", %23
-  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa12.i, i64 noundef 24, i64 noundef 8) #29, !noalias !551
+  tail call void @__rust_dealloc(ptr noundef nonnull %.lcssa11.i, i64 noundef 24, i64 noundef 8) #29, !noalias !551
   %51 = load ptr, ptr %1, align 8, !noundef !5
   %52 = icmp eq ptr %51, null
   br i1 %52, label %66, label %63

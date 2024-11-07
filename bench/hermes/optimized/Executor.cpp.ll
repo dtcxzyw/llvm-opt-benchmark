@@ -2126,30 +2126,30 @@ if.end661.us:                                     ; preds = %while.body.us
 if.end590.split:                                  ; preds = %if.end590
   %247 = and i8 %bf.load.fr, 8
   %tobool596.not = icmp eq i8 %247, 0
-  %cmp.i702.us11981283 = icmp eq i32 %cr.sroa.0.0.copyload, %cr.sroa.3.0.copyload
+  %cmp.i702.us11981267 = icmp eq i32 %cr.sroa.0.0.copyload, %cr.sroa.3.0.copyload
   br i1 %tobool596.not, label %land.rhs.us1195.preheader, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %if.end590.split
-  br i1 %cmp.i702.us11981283, label %if.end679, label %while.body
+  br i1 %cmp.i702.us11981267, label %if.end679, label %while.body
 
 land.rhs.us1195.preheader:                        ; preds = %if.end590.split
-  br i1 %cmp.i702.us11981283, label %if.end679, label %while.body.us1199
+  br i1 %cmp.i702.us11981267, label %if.end679, label %while.body.us1199
 
 while.body.us1199:                                ; preds = %land.rhs.us1195.preheader, %land.rhs.us1195.backedge
-  %cursor1.sroa.3.01193.us11971285 = phi ptr [ %add.ptr.i726.us, %land.rhs.us1195.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.us1195.preheader ]
-  %cursor2.sroa.4.01194.us11961284 = phi ptr [ %add.ptr.i733.us, %land.rhs.us1195.backedge ], [ %cond608, %land.rhs.us1195.preheader ]
-  %cmp.i705.us1200 = icmp eq ptr %cursor1.sroa.3.01193.us11971285, %cursor1.sroa.12.0.copyload
+  %cursor1.sroa.3.01193.us11971269 = phi ptr [ %add.ptr.i726.us, %land.rhs.us1195.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.us1195.preheader ]
+  %cursor2.sroa.4.01194.us11961268 = phi ptr [ %add.ptr.i733.us, %land.rhs.us1195.backedge ], [ %cond608, %land.rhs.us1195.preheader ]
+  %cmp.i705.us1200 = icmp eq ptr %cursor1.sroa.3.01193.us11971269, %cursor1.sroa.12.0.copyload
   br i1 %cmp.i705.us1200, label %do.body664, label %if.else616.us1201
 
 if.else616.us1201:                                ; preds = %while.body.us1199
-  %248 = getelementptr i16, ptr %cursor1.sroa.3.01193.us11971285, i64 %conv.i.i.i768
+  %248 = getelementptr i16, ptr %cursor1.sroa.3.01193.us11971269, i64 %conv.i.i.i768
   %arrayidx.i.i723.us = getelementptr i8, ptr %248, i64 -2
   %249 = load i16, ptr %arrayidx.i.i723.us, align 2
-  %add.ptr.i726.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01193.us11971285, i64 %idx.ext.i.i770
-  %250 = getelementptr i16, ptr %cursor2.sroa.4.01194.us11961284, i64 %conv.i.i.i768
+  %add.ptr.i726.us = getelementptr inbounds i16, ptr %cursor1.sroa.3.01193.us11971269, i64 %idx.ext.i.i770
+  %250 = getelementptr i16, ptr %cursor2.sroa.4.01194.us11961268, i64 %conv.i.i.i768
   %arrayidx.i.i730.us = getelementptr i8, ptr %250, i64 -2
   %251 = load i16, ptr %arrayidx.i.i730.us, align 2
-  %add.ptr.i733.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01194.us11961284, i64 %idx.ext.i.i770
+  %add.ptr.i733.us = getelementptr inbounds i16, ptr %cursor2.sroa.4.01194.us11961268, i64 %idx.ext.i.i770
   %cmp632.us = icmp eq i16 %249, %251
   br i1 %cmp632.us, label %land.rhs.us1195.backedge, label %lor.rhs633.us
 
@@ -2196,14 +2196,14 @@ land.rhs.us1195.backedge:                         ; preds = %if.else616.us1201, 
   br i1 %cmp.i702.us1198, label %if.end679, label %while.body.us1199, !llvm.loop !9
 
 while.body:                                       ; preds = %land.rhs.preheader, %land.rhs.backedge
-  %cursor1.sroa.3.011931282 = phi ptr [ %cursor1.sroa.3.2, %land.rhs.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ]
-  %cursor2.sroa.4.011941281 = phi ptr [ %cursor2.sroa.4.2, %land.rhs.backedge ], [ %cond608, %land.rhs.preheader ]
-  %cmp.i705 = icmp eq ptr %cursor1.sroa.3.011931282, %cursor1.sroa.12.0.copyload
+  %cursor1.sroa.3.011931266 = phi ptr [ %cursor1.sroa.3.2, %land.rhs.backedge ], [ %cursor1.sroa.3.0.copyload, %land.rhs.preheader ]
+  %cursor2.sroa.4.011941265 = phi ptr [ %cursor2.sroa.4.2, %land.rhs.backedge ], [ %cond608, %land.rhs.preheader ]
+  %cmp.i705 = icmp eq ptr %cursor1.sroa.3.011931266, %cursor1.sroa.12.0.copyload
   br i1 %cmp.i705, label %do.body664, label %if.else616
 
 if.else616:                                       ; preds = %while.body
-  %.sink1.i.i756 = select i1 %tobool.i692, ptr %cursor1.sroa.2.0.copyload, ptr %cursor1.sroa.3.011931282
-  %.sink.i.i757 = select i1 %tobool.i692, ptr %cursor1.sroa.3.011931282, ptr %cursor1.sroa.0.0.copyload
+  %.sink1.i.i756 = select i1 %tobool.i692, ptr %cursor1.sroa.2.0.copyload, ptr %cursor1.sroa.3.011931266
+  %.sink.i.i757 = select i1 %tobool.i692, ptr %cursor1.sroa.3.011931266, ptr %cursor1.sroa.0.0.copyload
   %sub.ptr.lhs.cast3.i.i758 = ptrtoint ptr %.sink1.i.i756 to i64
   %sub.ptr.rhs.cast4.i.i759 = ptrtoint ptr %.sink.i.i757 to i64
   %sub.ptr.sub5.i.i760 = sub i64 %sub.ptr.lhs.cast3.i.i758, %sub.ptr.rhs.cast4.i.i759
@@ -2212,7 +2212,7 @@ if.else616:                                       ; preds = %while.body
   br i1 %cmp.not.i761, label %if.end25.i767, label %if.then.i762
 
 if.then.i762:                                     ; preds = %if.else616
-  %cond.in.i764 = getelementptr inbounds i8, ptr %cursor1.sroa.3.011931282, i64 %cond.in.idx.i763
+  %cond.in.i764 = getelementptr inbounds i8, ptr %cursor1.sroa.3.011931266, i64 %cond.in.idx.i763
   %cond.i765 = load i16, ptr %cond.in.i764, align 2
   %conv.i766 = zext i16 %cond.i765 to i32
   %257 = and i32 %conv.i766, 64512
@@ -2220,7 +2220,7 @@ if.then.i762:                                     ; preds = %if.else616
   br i1 %258, label %land.lhs.true.i774, label %if.end25.i767
 
 land.lhs.true.i774:                               ; preds = %if.then.i762
-  %cond13.in.i776 = getelementptr inbounds i8, ptr %cursor1.sroa.3.011931282, i64 %cond13.in.v.i775
+  %cond13.in.i776 = getelementptr inbounds i8, ptr %cursor1.sroa.3.011931266, i64 %cond13.in.v.i775
   %cond13.i777 = load i16, ptr %cond13.in.i776, align 2
   %conv15.i778 = zext i16 %cond13.i777 to i32
   %259 = and i32 %conv15.i778, 64512
@@ -2234,7 +2234,7 @@ if.then17.i779:                                   ; preds = %land.lhs.true.i774
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit784
 
 if.end25.i767:                                    ; preds = %land.lhs.true.i774, %if.then.i762, %if.else616
-  %261 = getelementptr i16, ptr %cursor1.sroa.3.011931282, i64 %conv.i.i.i768
+  %261 = getelementptr i16, ptr %cursor1.sroa.3.011931266, i64 %conv.i.i.i768
   %arrayidx.i.i.i769 = getelementptr i8, ptr %261, i64 -2
   %262 = load i16, ptr %arrayidx.i.i.i769, align 2
   %conv27.i772 = zext i16 %262 to i32
@@ -2243,9 +2243,9 @@ if.end25.i767:                                    ; preds = %land.lhs.true.i774,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit784: ; preds = %if.then17.i779, %if.end25.i767
   %idx.ext.i.i770.pn = phi i64 [ %idx.ext.i.i770, %if.end25.i767 ], [ %cond13.in.v.i775, %if.then17.i779 ]
   %retval.0.i773 = phi i32 [ %conv27.i772, %if.end25.i767 ], [ %add2.i.i783, %if.then17.i779 ]
-  %cursor1.sroa.3.2 = getelementptr inbounds i16, ptr %cursor1.sroa.3.011931282, i64 %idx.ext.i.i770.pn
-  %.sink1.i.i789 = select i1 %tobool.i692, ptr %add.ptr603, ptr %cursor2.sroa.4.011941281
-  %.sink.i.i790 = select i1 %tobool.i692, ptr %cursor2.sroa.4.011941281, ptr %add.ptr599
+  %cursor1.sroa.3.2 = getelementptr inbounds i16, ptr %cursor1.sroa.3.011931266, i64 %idx.ext.i.i770.pn
+  %.sink1.i.i789 = select i1 %tobool.i692, ptr %add.ptr603, ptr %cursor2.sroa.4.011941265
+  %.sink.i.i790 = select i1 %tobool.i692, ptr %cursor2.sroa.4.011941265, ptr %add.ptr599
   %sub.ptr.lhs.cast3.i.i791 = ptrtoint ptr %.sink1.i.i789 to i64
   %sub.ptr.rhs.cast4.i.i792 = ptrtoint ptr %.sink.i.i790 to i64
   %sub.ptr.sub5.i.i793 = sub i64 %sub.ptr.lhs.cast3.i.i791, %sub.ptr.rhs.cast4.i.i792
@@ -2254,7 +2254,7 @@ _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit784: ; pred
   br i1 %cmp.not.i794, label %if.end25.i800, label %if.then.i795
 
 if.then.i795:                                     ; preds = %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit784
-  %cond.in.i797 = getelementptr inbounds i8, ptr %cursor2.sroa.4.011941281, i64 %cond.in.idx.i763
+  %cond.in.i797 = getelementptr inbounds i8, ptr %cursor2.sroa.4.011941265, i64 %cond.in.idx.i763
   %cond.i798 = load i16, ptr %cond.in.i797, align 2
   %conv.i799 = zext i16 %cond.i798 to i32
   %264 = and i32 %conv.i799, 64512
@@ -2262,7 +2262,7 @@ if.then.i795:                                     ; preds = %_ZN6hermes5regex6Cu
   br i1 %265, label %land.lhs.true.i807, label %if.end25.i800
 
 land.lhs.true.i807:                               ; preds = %if.then.i795
-  %cond13.in.i809 = getelementptr inbounds i8, ptr %cursor2.sroa.4.011941281, i64 %cond13.in.v.i775
+  %cond13.in.i809 = getelementptr inbounds i8, ptr %cursor2.sroa.4.011941265, i64 %cond13.in.v.i775
   %cond13.i810 = load i16, ptr %cond13.in.i809, align 2
   %conv15.i811 = zext i16 %cond13.i810 to i32
   %266 = and i32 %conv15.i811, 64512
@@ -2276,7 +2276,7 @@ if.then17.i812:                                   ; preds = %land.lhs.true.i807
   br label %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit817
 
 if.end25.i800:                                    ; preds = %land.lhs.true.i807, %if.then.i795, %_ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit784
-  %268 = getelementptr i16, ptr %cursor2.sroa.4.011941281, i64 %conv.i.i.i768
+  %268 = getelementptr i16, ptr %cursor2.sroa.4.011941265, i64 %conv.i.i.i768
   %arrayidx.i.i.i802 = getelementptr i8, ptr %268, i64 -2
   %269 = load i16, ptr %arrayidx.i.i.i802, align 2
   %conv27.i805 = zext i16 %269 to i32
@@ -2285,7 +2285,7 @@ if.end25.i800:                                    ; preds = %land.lhs.true.i807,
 _ZN6hermes5regex6CursorINS0_16UTF16RegexTraitsEE12consumeUTF16Ev.exit817: ; preds = %if.then17.i812, %if.end25.i800
   %idx.ext.i.i803.pn = phi i64 [ %idx.ext.i.i770, %if.end25.i800 ], [ %cond13.in.v.i775, %if.then17.i812 ]
   %retval.0.i806 = phi i32 [ %conv27.i805, %if.end25.i800 ], [ %add2.i.i816, %if.then17.i812 ]
-  %cursor2.sroa.4.2 = getelementptr inbounds i16, ptr %cursor2.sroa.4.011941281, i64 %idx.ext.i.i803.pn
+  %cursor2.sroa.4.2 = getelementptr inbounds i16, ptr %cursor2.sroa.4.011941265, i64 %idx.ext.i.i803.pn
   %cmp648 = icmp eq i32 %retval.0.i773, %retval.0.i806
   br i1 %cmp648, label %land.rhs.backedge, label %lor.rhs649
 
@@ -3161,7 +3161,7 @@ _ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.ex
 
 cleanup930:                                       ; preds = %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit, %do.body911, %do.body807, %do.body766, %do.body742, %do.body664, %do.body514, %do.body458, %do.body429, %do.body402, %do.body352, %do.body323, %do.body294, %do.body259, %do.body233, %do.body207, %do.body179, %do.body153, %do.body127, %do.body101, %do.body74, %do.body51, %do.body26, %do.body, %sw.bb898, %if.end858, %if.then825, %for.cond5, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i1024, %lor.lhs.false.i1029, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i987, %lor.lhs.false.i992, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i965, %lor.lhs.false.i970, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i643, %lor.lhs.false.i648, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i, %lor.lhs.false.i, %if.then.i.i3.i, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i
   %retval.sroa.0.0 = phi i8 [ 1, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i ], [ 1, %if.then.i.i3.i ], [ %btRes912.sroa.0.0.extract.trunc, %do.body911 ], [ %btRes808.sroa.0.0.extract.trunc, %do.body807 ], [ %btRes767.sroa.0.0.extract.trunc, %do.body766 ], [ %btRes743.sroa.0.0.extract.trunc, %do.body742 ], [ %btRes665.sroa.0.0.extract.trunc, %do.body664 ], [ %btRes515.sroa.0.0.extract.trunc, %do.body514 ], [ %btRes459.sroa.0.0.extract.trunc, %do.body458 ], [ %btRes430.sroa.0.0.extract.trunc, %do.body429 ], [ %btRes403.sroa.0.0.extract.trunc, %do.body402 ], [ %btRes353.sroa.0.0.extract.trunc, %do.body352 ], [ %btRes324.sroa.0.0.extract.trunc, %do.body323 ], [ %btRes295.sroa.0.0.extract.trunc, %do.body294 ], [ %btRes260.sroa.0.0.extract.trunc, %do.body259 ], [ %btRes234.sroa.0.0.extract.trunc, %do.body233 ], [ %btRes208.sroa.0.0.extract.trunc, %do.body207 ], [ %btRes180.sroa.0.0.extract.trunc, %do.body179 ], [ %btRes154.sroa.0.0.extract.trunc, %do.body153 ], [ %btRes128.sroa.0.0.extract.trunc, %do.body127 ], [ %btRes102.sroa.0.0.extract.trunc, %do.body101 ], [ %btRes75.sroa.0.0.extract.trunc, %do.body74 ], [ %btRes52.sroa.0.0.extract.trunc, %do.body51 ], [ %btRes27.sroa.0.0.extract.trunc, %do.body26 ], [ %btRes.sroa.0.0.extract.trunc, %do.body ], [ %matchRes.sroa.0.0.extract.trunc, %sw.bb898 ], [ %call859, %if.end858 ], [ %call827, %if.then825 ], [ %5, %for.cond5 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i1024 ], [ 1, %lor.lhs.false.i1029 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i987 ], [ 1, %lor.lhs.false.i992 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i965 ], [ 1, %lor.lhs.false.i970 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i643 ], [ 1, %lor.lhs.false.i648 ], [ 1, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i ], [ 1, %lor.lhs.false.i ], [ 0, %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit ]
-  %retval.sroa.35.0 = phi ptr [ undef, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i ], [ undef, %if.then.i.i3.i ], [ %add.ptr, %lor.lhs.false.i ], [ %add.ptr, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i ], [ %add.ptr, %lor.lhs.false.i648 ], [ %add.ptr, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i643 ], [ %add.ptr, %lor.lhs.false.i970 ], [ %add.ptr, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i965 ], [ %add.ptr, %lor.lhs.false.i992 ], [ %add.ptr, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i987 ], [ %add.ptr, %lor.lhs.false.i1029 ], [ %add.ptr, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i1024 ], [ %add.ptr, %for.cond5 ], [ %add.ptr, %if.then825 ], [ %add.ptr, %if.end858 ], [ %add.ptr, %sw.bb898 ], [ %add.ptr, %do.body ], [ %add.ptr, %do.body26 ], [ %add.ptr, %do.body51 ], [ %add.ptr, %do.body74 ], [ %add.ptr, %do.body101 ], [ %add.ptr, %do.body127 ], [ %add.ptr, %do.body153 ], [ %add.ptr, %do.body179 ], [ %add.ptr, %do.body207 ], [ %add.ptr, %do.body233 ], [ %add.ptr, %do.body259 ], [ %add.ptr, %do.body294 ], [ %add.ptr, %do.body323 ], [ %add.ptr, %do.body352 ], [ %add.ptr, %do.body402 ], [ %add.ptr, %do.body429 ], [ %add.ptr, %do.body458 ], [ %add.ptr, %do.body514 ], [ %add.ptr, %do.body664 ], [ %add.ptr, %do.body742 ], [ %add.ptr, %do.body766 ], [ %add.ptr, %do.body807 ], [ %add.ptr, %do.body911 ], [ null, %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit ]
+  %retval.sroa.35.0 = phi ptr [ undef, %_ZN4llvh11SmallVectorIN6hermes5regex8LoopDataELj16EED2Ev.exit.i ], [ undef, %if.then.i.i3.i ], [ undef, %do.body911 ], [ undef, %do.body807 ], [ undef, %do.body766 ], [ undef, %do.body742 ], [ undef, %do.body664 ], [ undef, %do.body514 ], [ undef, %do.body458 ], [ undef, %do.body429 ], [ undef, %do.body402 ], [ undef, %do.body352 ], [ undef, %do.body323 ], [ undef, %do.body294 ], [ undef, %do.body259 ], [ undef, %do.body233 ], [ undef, %do.body207 ], [ undef, %do.body179 ], [ undef, %do.body153 ], [ undef, %do.body127 ], [ undef, %do.body101 ], [ undef, %do.body74 ], [ undef, %do.body51 ], [ undef, %do.body26 ], [ undef, %do.body ], [ undef, %sw.bb898 ], [ undef, %if.end858 ], [ undef, %if.then825 ], [ %add.ptr, %for.cond5 ], [ undef, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i1024 ], [ undef, %lor.lhs.false.i1029 ], [ undef, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i987 ], [ undef, %lor.lhs.false.i992 ], [ undef, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i965 ], [ undef, %lor.lhs.false.i970 ], [ undef, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i643 ], [ undef, %lor.lhs.false.i648 ], [ undef, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELb1EE9push_backERKS6_.exit.i ], [ undef, %lor.lhs.false.i ], [ null, %_ZNK6hermes5regex7ContextINS0_16UTF16RegexTraitsEE18advanceStringIndexEPKDsmm.exit ]
   %407 = load ptr, ptr %backtrackStack, align 8
   %cmp.i.i.i1051 = icmp eq ptr %407, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i1051, label %_ZN4llvh11SmallVectorIN6hermes5regex7ContextINS2_16UTF16RegexTraitsEE13BacktrackInsnELj64EED2Ev.exit, label %if.then.i.i1052

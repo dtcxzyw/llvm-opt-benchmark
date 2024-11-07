@@ -1263,22 +1263,22 @@ common.resume:                                    ; preds = %.body, %97, %26
   br i1 %51, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4076ec50eabf8685E.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc35, %53
-  %.sroa.10.029.i = phi i64 [ %54, %53 ], [ %48, %.noexc35 ]
-  %.sroa.013.028.i = phi ptr [ %56, %53 ], [ %40, %.noexc35 ]
-  %.sroa.7.027.i = phi i64 [ %55, %53 ], [ 0, %.noexc35 ]
-  %52 = icmp eq ptr %.sroa.013.028.i, %50
+  %.sroa.10.030.i = phi i64 [ %54, %53 ], [ %48, %.noexc35 ]
+  %.sroa.013.029.i = phi ptr [ %56, %53 ], [ %40, %.noexc35 ]
+  %.sroa.7.028.i = phi i64 [ %55, %53 ], [ 0, %.noexc35 ]
+  %52 = icmp eq ptr %.sroa.013.029.i, %50
   br i1 %52, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4076ec50eabf8685E.exit", label %53
 
 53:                                               ; preds = %.lr.ph.i
-  %54 = add i64 %.sroa.10.029.i, -1
-  %55 = add nuw nsw i64 %.sroa.7.027.i, 1
-  %56 = getelementptr inbounds i8, ptr %.sroa.013.028.i, i64 12
-  %57 = load i32, ptr %.sroa.013.028.i, align 4, !alias.scope !258, !noalias !263, !noundef !12
-  %58 = getelementptr inbounds i8, ptr %.sroa.013.028.i, i64 4
+  %54 = add i64 %.sroa.10.030.i, -1
+  %55 = add nuw nsw i64 %.sroa.7.028.i, 1
+  %56 = getelementptr inbounds i8, ptr %.sroa.013.029.i, i64 12
+  %57 = load i32, ptr %.sroa.013.029.i, align 4, !alias.scope !258, !noalias !263, !noundef !12
+  %58 = getelementptr inbounds i8, ptr %.sroa.013.029.i, i64 4
   %59 = load float, ptr %58, align 4, !alias.scope !258, !noalias !263, !noundef !12
-  %60 = getelementptr inbounds i8, ptr %.sroa.013.028.i, i64 8
+  %60 = getelementptr inbounds i8, ptr %.sroa.013.029.i, i64 8
   %61 = load float, ptr %60, align 4, !alias.scope !258, !noalias !263, !noundef !12
-  %62 = getelementptr inbounds [0 x { [3 x i32] }], ptr %49, i64 0, i64 %.sroa.7.027.i
+  %62 = getelementptr inbounds [0 x { [3 x i32] }], ptr %49, i64 0, i64 %.sroa.7.028.i
   store i32 %57, ptr %62, align 4
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %62, i64 4
   store float %59, ptr %.sroa.06.sroa.4.0..sroa_idx.i, align 4

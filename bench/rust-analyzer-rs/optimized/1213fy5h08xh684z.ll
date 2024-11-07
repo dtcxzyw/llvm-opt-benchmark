@@ -166,10 +166,10 @@ define hidden { i64, i64 } @_ZN9itertools9Itertools12position_min17h6dfda8075a43
   br i1 %18, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit, label %13
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h2e080b2cf696ca41E.llvm.15541551792649785771.exit: ; preds = %13, %2, %5
-  %.sroa.0.0.i = phi i64 [ undef, %2 ], [ 0, %5 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
-  %. = zext i1 %4 to i64
-  %19 = insertvalue { i64, i64 } poison, i64 %., 0
-  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.0.0.i, 1
+  %.sroa.3.0 = phi i64 [ undef, %2 ], [ 0, %5 ], [ %.sroa.0.0.sroa.speculated.i.i.i.i.i.i, %13 ]
+  %.sroa.0.0 = zext i1 %4 to i64
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.3.0, 1
   ret { i64, i64 } %20
 }
 

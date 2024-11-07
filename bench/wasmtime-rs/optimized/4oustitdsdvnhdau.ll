@@ -434,8 +434,9 @@ define { i64, i64 } @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..o
 define { i64, i64 } @"_ZN75_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h40fa3056fcfbefc0E"(i64 %0, i64 %1) unnamed_addr #4 {
   %3 = icmp eq i64 %0, 0
   %. = zext i1 %3 to i64
+  %.2 = select i1 %3, i64 undef, i64 %1
   %4 = insertvalue { i64, i64 } poison, i64 %., 0
-  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %5 = insertvalue { i64, i64 } %4, i64 %.2, 1
   ret { i64, i64 } %5
 }
 

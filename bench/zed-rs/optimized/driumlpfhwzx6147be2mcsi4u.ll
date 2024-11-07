@@ -6753,12 +6753,12 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   %22 = icmp ne i8 %21, 2
   %23 = icmp eq ptr %5, null
   %or.cond = and i1 %23, %22
-  %.sink75.sroa.gep = getelementptr inbounds i8, ptr %15, i64 8
-  %.sink75.sroa.gep76 = getelementptr inbounds i8, ptr %16, i64 8
-  %.sink75.sroa.gep78 = getelementptr inbounds i8, ptr %15, i64 16
-  %.sink75.sroa.gep79 = getelementptr inbounds i8, ptr %16, i64 16
-  %.sink72.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
-  %.sink72.sroa.gep80 = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink77.sroa.gep = getelementptr inbounds i8, ptr %15, i64 8
+  %.sink77.sroa.gep78 = getelementptr inbounds i8, ptr %16, i64 8
+  %.sink77.sroa.gep80 = getelementptr inbounds i8, ptr %15, i64 16
+  %.sink77.sroa.gep81 = getelementptr inbounds i8, ptr %16, i64 16
+  %.sink74.sroa.gep = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink74.sroa.gep82 = getelementptr inbounds i8, ptr %9, i64 8
   br i1 %or.cond, label %24, label %30
 
 24:                                               ; preds = %8
@@ -6792,6 +6792,7 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   store i32 %34, ptr %35, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %17)
   %spec.select = select i1 %23, i64 -9223372036854775807, i64 -9223372036854775808
+  %spec.select68 = select i1 %23, i64 undef, i64 %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
   invoke void @_ZN3std4time10SystemTime14duration_since17hc7f08fc4f3a79aa4E(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %18, i64 noundef 0, i32 noundef 0)
           to label %38 unwind label %36
@@ -6812,16 +6813,16 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   br label %.invoke
 
 .invoke:                                          ; preds = %56, %40
-  %.sink75.sroa.phi = phi ptr [ %.sink75.sroa.gep, %56 ], [ %.sink75.sroa.gep76, %40 ]
-  %.sink75.sroa.phi77 = phi ptr [ %.sink75.sroa.gep78, %56 ], [ %.sink75.sroa.gep79, %40 ]
-  %.sink72.sroa.phi = phi ptr [ %.sink72.sroa.gep, %56 ], [ %.sink72.sroa.gep80, %40 ]
-  %.sink72 = phi ptr [ %10, %56 ], [ %9, %40 ]
+  %.sink77.sroa.phi = phi ptr [ %.sink77.sroa.gep, %56 ], [ %.sink77.sroa.gep78, %40 ]
+  %.sink77.sroa.phi79 = phi ptr [ %.sink77.sroa.gep80, %56 ], [ %.sink77.sroa.gep81, %40 ]
+  %.sink74.sroa.phi = phi ptr [ %.sink74.sroa.gep, %56 ], [ %.sink74.sroa.gep82, %40 ]
+  %.sink74 = phi ptr [ %10, %56 ], [ %9, %40 ]
   %41 = phi ptr [ @anon.f30f52926dc71cf68155f5df76d1ac53.79, %56 ], [ @anon.f30f52926dc71cf68155f5df76d1ac53.78, %40 ]
-  %42 = load i64, ptr %.sink75.sroa.phi, align 8, !noalias !4, !noundef !4
-  %43 = load i32, ptr %.sink75.sroa.phi77, align 8, !range !1497, !noalias !4, !noundef !4
-  store i64 %42, ptr %.sink72, align 8, !noalias !4
-  store i32 %43, ptr %.sink72.sroa.phi, align 8, !noalias !4
-  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.f30f52926dc71cf68155f5df76d1ac53.35, i64 noundef 43, ptr noundef nonnull align 1 %.sink72, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.f30f52926dc71cf68155f5df76d1ac53.34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41) #32
+  %42 = load i64, ptr %.sink77.sroa.phi, align 8, !noalias !4, !noundef !4
+  %43 = load i32, ptr %.sink77.sroa.phi79, align 8, !range !1497, !noalias !4, !noundef !4
+  store i64 %42, ptr %.sink74, align 8, !noalias !4
+  store i32 %43, ptr %.sink74.sroa.phi, align 8, !noalias !4
+  invoke void @_ZN4core6result13unwrap_failed17hfa79a499befff387E(ptr noalias noundef nonnull readonly align 1 @anon.f30f52926dc71cf68155f5df76d1ac53.35, i64 noundef 43, ptr noundef nonnull align 1 %.sink74, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.f30f52926dc71cf68155f5df76d1ac53.34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %41) #32
           to label %.cont unwind label %36
 
 .cont:                                            ; preds = %.invoke
@@ -6873,7 +6874,7 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   %.sroa.6.0..sroa_idx46 = getelementptr inbounds i8, ptr %17, i64 32
   store ptr %5, ptr %.sroa.6.0..sroa_idx46, align 8
   %.sroa.748.0..sroa_idx49 = getelementptr inbounds i8, ptr %17, i64 40
-  store i64 %6, ptr %.sroa.748.0..sroa_idx49, align 8
+  store i64 %spec.select68, ptr %.sroa.748.0..sroa_idx49, align 8
   %62 = getelementptr inbounds i8, ptr %17, i64 112
   store i64 %46, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %17, i64 120
@@ -6885,7 +6886,7 @@ define void @_ZN15live_kit_server5token6create17he5fdaaabb0a5ee86E(ptr dead_on_u
   %.sroa.511.0..sroa_idx = getelementptr inbounds i8, ptr %17, i64 56
   store ptr %5, ptr %.sroa.511.0..sroa_idx, align 8
   %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %17, i64 64
-  store i64 %6, ptr %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx, align 8
+  store i64 %spec.select68, ptr %.sroa.511.sroa.4.0..sroa.511.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %12)

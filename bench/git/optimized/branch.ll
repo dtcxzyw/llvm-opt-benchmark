@@ -1298,11 +1298,12 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i26, label %do.body.i, label %skip_prefix.exit, !llvm.loop !5
 
 skip_prefix.exit:                                 ; preds = %do.body.i, %do.cond.i
+  %tracked_branch.0 = phi ptr [ undef, %do.cond.i ], [ %scevgep.i, %do.body.i ]
   %tobool.not.i27 = icmp eq i8 %28, 0
   br i1 %tobool.not.i27, label %lor.lhs.false, label %cleanup
 
 lor.lhs.false:                                    ; preds = %skip_prefix.exit
-  %call37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep.i, ptr noundef nonnull dereferenceable(1) %new_ref) #15
+  %call37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %tracked_branch.0, ptr noundef nonnull dereferenceable(1) %new_ref) #15
   %tobool38.not = icmp eq i32 %call37, 0
   br i1 %tobool38.not, label %if.end41, label %cleanup
 

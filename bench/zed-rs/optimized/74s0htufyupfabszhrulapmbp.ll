@@ -1400,8 +1400,8 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
 
 .body:                                            ; preds = %63, %47
   %eh.lpad-body = phi { ptr, i32 } [ %48, %47 ], [ %64, %63 ]
-  %cond152 = icmp eq i64 %27, 0
-  br i1 %cond152, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i"
+  %cond151 = icmp eq i64 %27, 0
+  br i1 %cond151, label %common.resume, label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i": ; preds = %.body
   %49 = icmp ne ptr %30, null
@@ -1474,8 +1474,6 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
   store i64 %70, ptr %.sroa.253.0..sroa_idx, align 8
   %.sroa.253.sroa.2.0..sroa.253.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.29eebd7db1f9a93b7f855764ee7d5248.9.llvm.8271119346295809160, ptr %.sroa.253.sroa.2.0..sroa.253.0..sroa_idx.sroa_idx, align 8
-  %.sroa.253.sroa.3.0..sroa.253.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr @anon.29eebd7db1f9a93b7f855764ee7d5248.9.llvm.8271119346295809160, ptr %.sroa.253.sroa.3.0..sroa.253.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
   %cond = icmp eq i64 %27, 0
@@ -1490,8 +1488,8 @@ common.resume:                                    ; preds = %"_ZN63_$LT$alloc..a
 72:                                               ; preds = %84, %74, %67
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %cond153 = icmp eq i64 %27, 0
-  br i1 %cond153, label %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h8ed10a10f7d4df4aE.exit68", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i67"
+  %cond152 = icmp eq i64 %27, 0
+  br i1 %cond152, label %"_ZN4core3ptr59drop_in_place$LT$alloc..borrow..Cow$LT$$u5b$u8$u5d$$GT$$GT$17h8ed10a10f7d4df4aE.exit68", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i67"
 
 "_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i67": ; preds = %72
   %73 = icmp ne ptr %30, null
@@ -6043,10 +6041,11 @@ define hidden void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$3new17h642d75
   %storemerge = phi i64 [ 0, %3 ], [ %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.5005022800651993668.exit.i.i1.i.i1.i" ], [ %10, %14 ]
   %17 = getelementptr inbounds i8, ptr %2, i64 24
   %18 = load i8, ptr %17, align 8, !range !645, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %2, i64 25
-  %20 = load i8, ptr %19, align 1
-  %21 = icmp eq i8 %18, 47
-  %. = select i1 %21, i8 0, i8 %18
+  %19 = icmp eq i8 %18, 47
+  %20 = getelementptr inbounds i8, ptr %2, i64 25
+  %21 = load i8, ptr %20, align 1
+  %.sroa.014.0 = select i1 %19, i8 0, i8 %18
+  %.sroa.3.0 = select i1 %19, i8 undef, i8 %21
   %22 = getelementptr inbounds i8, ptr %2, i64 27
   %23 = load i8, ptr %22, align 1, !range !24, !noundef !4
   %.sroa.656.0..sroa_idx57 = getelementptr inbounds i8, ptr %0, i64 312
@@ -6058,9 +6057,9 @@ define hidden void @"_ZN9html5ever9tokenizer21Tokenizer$LT$Sink$GT$3new17h642d75
   %.sroa.553.0..sroa_idx54 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %.sroa.5.sroa.0.0.copyload, ptr %.sroa.553.0..sroa_idx54, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 468
-  store i8 %., ptr %26, align 4
+  store i8 %.sroa.014.0, ptr %26, align 4
   %27 = getelementptr inbounds i8, ptr %0, i64 469
-  store i8 %20, ptr %27, align 1
+  store i8 %.sroa.3.0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %0, i64 470
   store i8 0, ptr %28, align 2
   %29 = getelementptr inbounds i8, ptr %0, i64 328

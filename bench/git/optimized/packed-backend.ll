@@ -463,6 +463,7 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i43.i, label %do.body.i.i, label %skip_prefix.exit.i, !llvm.loop !5
 
 skip_prefix.exit.i:                               ; preds = %do.cond.i.i, %do.body.i.i
+  %p.0.i = phi ptr [ undef, %do.cond.i.i ], [ %scevgep.i.i, %do.body.i.i ]
   %tobool.not.i44.i = icmp eq i8 %23, 0
   br i1 %tobool.not.i44.i, label %if.end35.i, label %if.then27.i
 
@@ -477,7 +478,7 @@ if.then27.i:                                      ; preds = %skip_prefix.exit.i
   unreachable
 
 if.end35.i:                                       ; preds = %skip_prefix.exit.i
-  %call36.i = call i32 @string_list_split_in_place(ptr noundef nonnull %traits.i, ptr noundef %scevgep.i.i, ptr noundef nonnull @.str.16, i32 noundef -1) #18
+  %call36.i = call i32 @string_list_split_in_place(ptr noundef nonnull %traits.i, ptr noundef %p.0.i, ptr noundef nonnull @.str.16, i32 noundef -1) #18
   %call37.i = call i32 @unsorted_string_list_has_string(ptr noundef nonnull %traits.i, ptr noundef nonnull @.str.17) #18
   %tobool38.not.i = icmp eq i32 %call37.i, 0
   br i1 %tobool38.not.i, label %if.else.i, label %if.end46.sink.split.i

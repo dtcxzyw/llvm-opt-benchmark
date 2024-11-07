@@ -6681,11 +6681,11 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   %169 = icmp ult i64 %168, -9223372036854775807
   call void @llvm.assume(i1 %169)
   %170 = icmp eq i64 %166, 0
-  br i1 %170, label %.thread208.thread218, label %171
+  br i1 %170, label %.thread208.thread220, label %171
 
 171:                                              ; preds = %164
   call void @__rust_dealloc(ptr noundef nonnull %.sroa.515.0.copyload, i64 noundef range(i64 1, -9223372036854775808) %166, i64 noundef range(i64 1, -9223372036854775807) %168) #26
-  br label %.thread208.thread218
+  br label %.thread208.thread220
 
 172:                                              ; preds = %16
   %173 = landingpad { ptr, i32 }
@@ -6841,14 +6841,14 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   store i8 3, ptr %229, align 8
   br label %.thread208.thread
 
-.thread208.thread218:                             ; preds = %171, %164, %.thread208.thread
+.thread208.thread220:                             ; preds = %171, %164, %.thread208.thread
   %230 = getelementptr inbounds i8, ptr %1, i64 680
   call void @llvm.experimental.noalias.scope.decl(metadata !1193)
   %231 = load i64, ptr %230, align 8, !range !72, !alias.scope !1193, !noundef !4
   %232 = icmp eq i64 %231, -9223372036854775808
   br i1 %232, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit157", label %233
 
-233:                                              ; preds = %.thread208.thread218
+233:                                              ; preds = %.thread208.thread220
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1196
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h316187016974866fE.llvm.4248407042397360440"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %230)
           to label %.noexc155 unwind label %246
@@ -6873,7 +6873,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
 
 .thread208.thread:                                ; preds = %224, %216, %225, %.thread208
   invoke void @"_ZN4core3ptr54drop_in_place$LT$rustls..record_layer..RecordLayer$GT$17hd5f893b95cab0259E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1)
-          to label %.thread208.thread218 unwind label %241
+          to label %.thread208.thread220 unwind label %241
 
 241:                                              ; preds = %.thread208.thread
   %242 = landingpad { ptr, i32 }
@@ -6893,7 +6893,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
           cleanup
   br label %244
 
-"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit157": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i154", %.thread208.thread218
+"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571.exit157": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h8e8ccce731b64633E.exit.i154", %.thread208.thread220
   %248 = getelementptr inbounds i8, ptr %1, i64 704
   call void @llvm.experimental.noalias.scope.decl(metadata !1203)
   %249 = load i64, ptr %248, align 8, !range !72, !alias.scope !1203, !noundef !4
@@ -7589,7 +7589,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   call void @"_ZN4core3ptr93drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h7adb95181317fa0bE.llvm.4248407042397360440"(ptr noalias noundef nonnull align 8 dereferenceable(32) %160)
   ret void
 
-161:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit192", %351, %342, %323, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit168", %.body164, %212, %210, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit144", %200, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit136", %165, %154, %135, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit", %.body112, %355, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit194", %349, %.thread218, %347, %"_ZN4core3ptr60drop_in_place$LT$rustls..msgs..deframer..MessageDeframer$GT$17h82e594d061919037E.exit181", %314, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit172", %270, %267, %.body151, %"_ZN4core3ptr60drop_in_place$LT$rustls..msgs..deframer..MessageDeframer$GT$17h82e594d061919037E.exit148", %204, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit146", %198, %197, %195, %191, %.thread, %169, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit138", %163, %"_ZN4core3ptr60drop_in_place$LT$rustls..msgs..deframer..MessageDeframer$GT$17h82e594d061919037E.exit", %126, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit118", %83, %68, %45, %31
+161:                                              ; preds = %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit192", %351, %342, %323, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit168", %.body164, %212, %210, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit144", %200, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit136", %165, %154, %135, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit", %.body112, %355, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit194", %349, %.thread220, %347, %"_ZN4core3ptr60drop_in_place$LT$rustls..msgs..deframer..MessageDeframer$GT$17h82e594d061919037E.exit181", %314, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit172", %270, %267, %.body151, %"_ZN4core3ptr60drop_in_place$LT$rustls..msgs..deframer..MessageDeframer$GT$17h82e594d061919037E.exit148", %204, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit146", %198, %197, %195, %191, %.thread, %169, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit138", %163, %"_ZN4core3ptr60drop_in_place$LT$rustls..msgs..deframer..MessageDeframer$GT$17h82e594d061919037E.exit", %126, %"_ZN4core3ptr51drop_in_place$LT$rustls..vecbuf..ChunkVecBuffer$GT$17hd717f10e93db0f27E.exit118", %83, %68, %45, %31
   %162 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
@@ -7815,12 +7815,12 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   %eh.lpad-body152 = phi { ptr, i32 } [ %249, %248 ], [ %231, %238 ], [ %231, %230 ]
   %250 = getelementptr inbounds i8, ptr %1, i64 864
   invoke void @"_ZN4core3ptr70drop_in_place$LT$rustls..server..server_conn..ServerConnectionData$GT$17h3a004a2bba0de8a0E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %250) #27
-          to label %.thread218 unwind label %161
+          to label %.thread220 unwind label %161
 
 251:                                              ; preds = %"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$$C$rustls..error..Error$GT$$GT$17h26508744fda35395E.llvm.13848472603100435571.exit"
   %252 = landingpad { ptr, i32 }
           cleanup
-  br i1 %.268211, label %.thread218, label %347
+  br i1 %.268211, label %.thread220, label %347
 
 253:                                              ; preds = %"_ZN4core3ptr189drop_in_place$LT$core..result..Result$LT$alloc..boxed..Box$LT$dyn$u20$rustls..common_state..State$LT$rustls..server..server_conn..ServerConnectionData$GT$$GT$$C$rustls..error..Error$GT$$GT$17h26508744fda35395E.llvm.13848472603100435571.exit"
   br i1 %.268211, label %266, label %254
@@ -8018,7 +8018,7 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
           to label %326 unwind label %324
 
 319:                                              ; preds = %355, %324, %314
-  %.pn102 = phi { ptr, i32 } [ %325, %324 ], [ %.pn100, %314 ], [ %.pn90221, %355 ]
+  %.pn102 = phi { ptr, i32 } [ %325, %324 ], [ %.pn100, %314 ], [ %.pn90223, %355 ]
   %320 = getelementptr inbounds i8, ptr %1, i64 832
   %321 = load i8, ptr %320, align 8, !range !45, !alias.scope !1387, !noundef !4
   %322 = icmp eq i8 %321, 20
@@ -8089,14 +8089,14 @@ define hidden void @"_ZN6rustls4conn28ConnectionCommon$LT$Data$GT$25dangerous_ex
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1397
   br label %159
 
-347:                                              ; preds = %.thread218, %251
-  %.pn90221 = phi { ptr, i32 } [ %.pn90222, %.thread218 ], [ %252, %251 ]
+347:                                              ; preds = %.thread220, %251
+  %.pn90223 = phi { ptr, i32 } [ %.pn90224, %.thread220 ], [ %252, %251 ]
   %348 = getelementptr inbounds i8, ptr %1, i64 680
   invoke void @"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17hc8740a9f73fdbab3E.llvm.13848472603100435571"(ptr noalias noundef nonnull align 8 dereferenceable(24) %348) #27
           to label %349 unwind label %161
 
-.thread218:                                       ; preds = %.body151, %251
-  %.pn90222 = phi { ptr, i32 } [ %252, %251 ], [ %eh.lpad-body152, %.body151 ]
+.thread220:                                       ; preds = %.body151, %251
+  %.pn90224 = phi { ptr, i32 } [ %252, %251 ], [ %eh.lpad-body152, %.body151 ]
   invoke void @"_ZN4core3ptr54drop_in_place$LT$rustls..record_layer..RecordLayer$GT$17hd5f893b95cab0259E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %1) #27
           to label %347 unwind label %161
 

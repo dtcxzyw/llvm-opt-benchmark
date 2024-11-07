@@ -4607,8 +4607,8 @@ define hidden void @"_ZN13tracing_error5layer23ErrorLayer$LT$S$C$F$GT$11get_cont
   %28 = load ptr, ptr %27, align 8, !invariant.load !4, !alias.scope !843, !nonnull !4
   %29 = tail call { i64, ptr } %28(ptr noundef nonnull align 1 %.sroa.08.0, i128 noundef 62793767160623940916714380623486827931), !noalias !843
   %.fca.0.extract.i = extractvalue { i64, ptr } %29, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %29, 1
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, ptr } %29, 1
   %30 = icmp eq ptr %.fca.1.extract.i, null
   %31 = select i1 %switch.i, i1 true, i1 %30
   br i1 %31, label %32, label %33
@@ -4908,8 +4908,8 @@ define hidden void @_ZN18tracing_subscriber5layer5Layer15with_subscriber17h07e40
 
 5:                                                ; preds = %3
   %.fca.0.extract.i = extractvalue { i64, ptr } %4, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %4, 1
   %switch.i = icmp ne i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, ptr } %4, 1
   %6 = icmp ne ptr %.fca.1.extract.i, null
   %7 = select i1 %switch.i, i1 %6, i1 false
   %8 = getelementptr inbounds i8, ptr %0, i64 2336
@@ -4947,8 +4947,8 @@ define hidden void @_ZN18tracing_subscriber5layer5Layer15with_subscriber17ha0348
 
 5:                                                ; preds = %3
   %.fca.0.extract.i = extractvalue { i64, ptr } %4, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %4, 1
   %switch.i = icmp ne i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, ptr } %4, 1
   %6 = icmp ne ptr %.fca.1.extract.i, null
   %7 = select i1 %switch.i, i1 %6, i1 false
   tail call void @llvm.experimental.noalias.scope.decl(metadata !905)
@@ -5304,7 +5304,7 @@ common.resume:                                    ; preds = %.body, %25
   %34 = load i64, ptr %33, align 8, !noalias !970, !noundef !4
   %35 = and i64 %34, %32
   %.not = icmp eq i64 %35, 0
-  br i1 %.not, label %.thread41, label %36
+  br i1 %.not, label %.thread38, label %36
 
 36:                                               ; preds = %30
   store ptr null, ptr %11, align 8, !alias.scope !965
@@ -5323,7 +5323,7 @@ common.resume:                                    ; preds = %.body, %25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %"_ZN4core3ptr446drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h99476b32532c16f9E.exit"
 
-.thread41:                                        ; preds = %30
+.thread38:                                        ; preds = %30
   store ptr %13, ptr %11, align 8, !alias.scope !965
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %21, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !982
@@ -5348,8 +5348,8 @@ common.resume:                                    ; preds = %.body, %25
 
 .noexc:                                           ; preds = %41
   %.fca.0.extract.i.i = extractvalue { i64, ptr } %42, 0
-  %.fca.1.extract.i.i = extractvalue { i64, ptr } %42, 1
   %switch.i.i = icmp eq i64 %.fca.0.extract.i.i, 0
+  %.fca.1.extract.i.i = extractvalue { i64, ptr } %42, 1
   %43 = icmp eq ptr %.fca.1.extract.i.i, null
   %44 = select i1 %switch.i.i, i1 true, i1 %43
   br i1 %44, label %.thread, label %45
@@ -5493,7 +5493,7 @@ common.resume:                                    ; preds = %.body, %25
   call void @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$19clear_after_release17h1787f6b8cb356a61E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %79, i64 noundef %81), !noalias !1045
   br label %"_ZN4core3ptr446drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h99476b32532c16f9E.exit"
 
-"_ZN4core3ptr446drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h99476b32532c16f9E.exit": ; preds = %67, %.thread41, %73, %77, %.thread, %40, %29, %19
+"_ZN4core3ptr446drop_in_place$LT$tracing_subscriber..registry..SpanRef$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_error..layer..ErrorLayer$LT$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$C$tracing_subscriber..layer..layered..Layered$LT$tracing_subscriber..filter..env..EnvFilter$C$tracing_subscriber..registry..sharded..Registry$GT$$GT$$GT$$GT$17h99476b32532c16f9E.exit": ; preds = %67, %.thread38, %73, %77, %.thread, %40, %29, %19
   ret void
 
 82:                                               ; preds = %.body

@@ -3709,8 +3709,8 @@ _ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit: ; preds = %64, %66
   br i1 %78, label %43, label %.loopexit, !llvm.loop !145
 
 .loopexit:                                        ; preds = %73, %.critedge16, %75, %.critedge, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit
-  %.sroa.014.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ %indvars.iv, %75 ], [ %indvars.iv, %.critedge16 ], [ %indvars.iv, %73 ]
-  %.sroa.215.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ 4294967296, %73 ], [ 0, %.critedge16 ], [ 0, %75 ]
+  %.sroa.014.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ 0, %75 ], [ 0, %.critedge16 ], [ %indvars.iv, %73 ]
+  %.sroa.215.0 = phi i64 [ 0, %_ZNK4llvm21AppleAcceleratorTable13readIthBucketEj.exit ], [ 0, %_ZNK4llvm21AppleAcceleratorTable11readIthHashEj.exit ], [ 0, %.critedge ], [ 0, %75 ], [ 0, %.critedge16 ], [ 4294967296, %73 ]
   %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.215.0, %.sroa.014.0
   ret i64 %.sroa.014.0.insert.insert
 }

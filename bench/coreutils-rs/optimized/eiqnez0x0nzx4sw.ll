@@ -492,7 +492,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   store i64 %44, ptr %24, align 8, !alias.scope !66, !noalias !69
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8), !noalias !71
   invoke void @_ZN6uucore8features6format4spec4Spec5parse17h54cdf70247337d05E(ptr noalias nocapture noundef nonnull sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %8, ptr noalias noundef nonnull align 8 dereferenceable(16) %14)
-          to label %.noexc unwind label %.loopexit281
+          to label %.noexc unwind label %.loopexit276
 
 .noexc:                                           ; preds = %.thread.i
   %45 = load i8, ptr %8, align 8, !range !72, !noalias !71, !noundef !16
@@ -523,20 +523,20 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %53 = load ptr, ptr %.sroa.6138.0..sroa_idx, align 8, !noalias !71, !nonnull !16, !align !35, !noundef !16
   %54 = load i64, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !71, !noundef !16
   %55 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba04b1a039f9eca0E"(i64 noundef %54, i1 noundef zeroext false)
-          to label %59 unwind label %.loopexit.split-lp282
+          to label %59 unwind label %.loopexit.split-lp277
 
-56:                                               ; preds = %.loopexit281, %.loopexit.split-lp282, %108, %147
-  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %lpad.phi, %108 ], [ %lpad.loopexit283, %.loopexit281 ], [ %lpad.loopexit.split-lp284, %.loopexit.split-lp282 ]
+56:                                               ; preds = %.loopexit276, %.loopexit.split-lp277, %108, %147
+  %.pn = phi { ptr, i32 } [ %148, %147 ], [ %lpad.phi, %108 ], [ %lpad.loopexit278, %.loopexit276 ], [ %lpad.loopexit.split-lp279, %.loopexit.split-lp277 ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h673f08bfa51de6caE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13) #15
           to label %18 unwind label %150
 
-.loopexit281:                                     ; preds = %.thread.i, %68
-  %lpad.loopexit283 = landingpad { ptr, i32 }
+.loopexit276:                                     ; preds = %.thread.i, %68
+  %lpad.loopexit278 = landingpad { ptr, i32 }
           cleanup
   br label %56
 
-.loopexit.split-lp282:                            ; preds = %69, %161, %52
-  %lpad.loopexit.split-lp284 = landingpad { ptr, i32 }
+.loopexit.split-lp277:                            ; preds = %69, %161, %52
+  %lpad.loopexit.split-lp279 = landingpad { ptr, i32 }
           cleanup
   br label %56
 
@@ -579,7 +579,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
 
 68:                                               ; preds = %64
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7e612a99dfe1bb5dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %65)
-          to label %.noexc78 unwind label %.loopexit281
+          to label %.noexc78 unwind label %.loopexit276
 
 .noexc78:                                         ; preds = %68
   %.pre.i77 = load i64, ptr %26, align 8, !alias.scope !73
@@ -603,7 +603,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   store i64 %.sroa.17.1.ph.ph, ptr %.sroa.514.sroa.6.0..sroa.514.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
   invoke void @"_ZN117_$LT$uucore..features..format..num_format..UnsignedInt$u20$as$u20$uucore..features..format..num_format..Formatter$GT$13try_from_spec17h5a69fbc4996897d7E"(ptr noalias nocapture noundef nonnull sret({ i32, [7 x i32] }) align 8 dereferenceable(32) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %12)
-          to label %70 unwind label %.loopexit.split-lp282
+          to label %70 unwind label %.loopexit.split-lp277
 
 70:                                               ; preds = %69
   %71 = load i32, ptr %11, align 8, !range !76, !noundef !16
@@ -663,7 +663,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
 
 92:                                               ; preds = %88
   %93 = getelementptr inbounds i8, ptr %85, i64 2
-  br label %.thread265
+  br label %.thread260
 
 .thread.i83:                                      ; preds = %88, %82
   %94 = phi ptr [ %85, %88 ], [ %.pre.i79, %82 ]
@@ -684,7 +684,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %99 = phi ptr [ %.pre.i79, %82 ], [ %85, %84 ]
   %100 = phi i8 [ %.pre19.i80, %82 ], [ %86, %84 ]
   %101 = getelementptr inbounds i8, ptr %99, i64 1
-  br label %.thread265
+  br label %.thread260
 
 102:                                              ; preds = %.noexc89
   %103 = getelementptr inbounds i8, ptr %7, i64 8
@@ -692,7 +692,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %105 = getelementptr inbounds i8, ptr %7, i64 16
   %106 = load i64, ptr %105, align 8, !noalias !82, !noundef !16
   %107 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba04b1a039f9eca0E"(i64 noundef %106, i1 noundef zeroext false)
-          to label %.thread250 unwind label %.loopexit.split-lp
+          to label %.thread245 unwind label %.loopexit.split-lp
 
 .loopexit:                                        ; preds = %127
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -746,7 +746,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
 119:                                              ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9239ef85e225ffc1E.exit100", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9239ef85e225ffc1E.exit"
   ret void
 
-.thread250:                                       ; preds = %102
+.thread245:                                       ; preds = %102
   %120 = extractvalue { i64, ptr } %107, 1
   %121 = icmp ne ptr %120, null
   call void @llvm.assume(i1 %121)
@@ -754,12 +754,12 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7), !noalias !82
   br label %131
 
-.thread265:                                       ; preds = %92, %.thread20.i81
+.thread260:                                       ; preds = %92, %.thread20.i81
   %.sink = phi i64 [ -2, %92 ], [ -1, %.thread20.i81 ]
-  %storemerge280 = phi ptr [ %93, %92 ], [ %101, %.thread20.i81 ]
+  %storemerge275 = phi ptr [ %93, %92 ], [ %101, %.thread20.i81 ]
   %.sroa.10103.1.ph.ph.ph = phi i8 [ 37, %92 ], [ %100, %.thread20.i81 ]
   %122 = add i64 %81, %.sink
-  store ptr %storemerge280, ptr %14, align 8, !alias.scope !77, !noalias !80
+  store ptr %storemerge275, ptr %14, align 8, !alias.scope !77, !noalias !80
   store i64 %122, ptr %24, align 8, !alias.scope !77, !noalias !80
   %123 = load i64, ptr %10, align 8, !alias.scope !92, !noundef !16
   %124 = icmp eq i64 %80, %123
@@ -772,7 +772,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %126 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba04b1a039f9eca0E"(i64 noundef %.val75, i1 noundef zeroext false)
           to label %128 unwind label %.loopexit.split-lp
 
-127:                                              ; preds = %.thread265
+127:                                              ; preds = %.thread260
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h7e612a99dfe1bb5dE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %80)
           to label %.noexc93 unwind label %.loopexit
 
@@ -787,18 +787,18 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %129, ptr nonnull align 1 %.val74, i64 %.val75, i1 false)
   br label %131
 
-131:                                              ; preds = %128, %.thread250
-  %.sink308 = phi i32 [ 10, %128 ], [ 6, %.thread250 ]
-  %.pn310 = phi { i64, ptr } [ %126, %128 ], [ %107, %.thread250 ]
-  %.sink306 = phi ptr [ %129, %128 ], [ %120, %.thread250 ]
-  %.val75.sink = phi i64 [ %.val75, %128 ], [ %106, %.thread250 ]
-  %.sink307 = extractvalue { i64, ptr } %.pn310, 0
+131:                                              ; preds = %128, %.thread245
+  %.sink303 = phi i32 [ 10, %128 ], [ 6, %.thread245 ]
+  %.pn305 = phi { i64, ptr } [ %126, %128 ], [ %107, %.thread245 ]
+  %.sink301 = phi ptr [ %129, %128 ], [ %120, %.thread245 ]
+  %.val75.sink = phi i64 [ %.val75, %128 ], [ %106, %.thread245 ]
+  %.sink302 = extractvalue { i64, ptr } %.pn305, 0
   %132 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink308, ptr %132, align 8
+  store i32 %.sink303, ptr %132, align 8
   %.sroa.439.sroa.3.0..sroa.439.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink307, ptr %.sroa.439.sroa.3.0..sroa.439.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sink302, ptr %.sroa.439.sroa.3.0..sroa.439.0..sroa_idx.sroa_idx, align 8
   %.sroa.439.sroa.4.0..sroa.439.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr %.sink306, ptr %.sroa.439.sroa.4.0..sroa.439.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sink301, ptr %.sroa.439.sroa.4.0..sroa.439.0..sroa_idx.sroa_idx, align 8
   %.sroa.439.sroa.5.0..sroa.439.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.val75.sink, ptr %.sroa.439.sroa.5.0..sroa.439.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -823,8 +823,8 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   call void @__rust_dealloc(ptr noundef nonnull %140, i64 noundef %137, i64 noundef %134) #16
   br label %149
 
-141:                                              ; preds = %.noexc93, %.thread265
-  %142 = phi i64 [ %.pre.i92, %.noexc93 ], [ %80, %.thread265 ]
+141:                                              ; preds = %.noexc93, %.thread260
+  %142 = phi i64 [ %.pre.i92, %.noexc93 ], [ %80, %.thread260 ]
   %143 = load ptr, ptr %75, align 8, !alias.scope !92, !nonnull !16, !noundef !16
   %144 = getelementptr inbounds i8, ptr %143, i64 %142
   store i8 %.sroa.10103.1.ph.ph.ph, ptr %144, align 1
@@ -874,7 +874,7 @@ define hidden void @"_ZN6uucore8features6format15Format$LT$F$GT$5parse17h9b4aad5
   %.val72 = load ptr, ptr %15, align 8, !nonnull !16, !noundef !16
   %.val73 = load i64, ptr %16, align 8, !noundef !16
   %162 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hba04b1a039f9eca0E"(i64 noundef %.val73, i1 noundef zeroext false)
-          to label %163 unwind label %.loopexit.split-lp282
+          to label %163 unwind label %.loopexit.split-lp277
 
 163:                                              ; preds = %161
   %164 = extractvalue { i64, ptr } %162, 0

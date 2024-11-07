@@ -3811,10 +3811,11 @@ _ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE.ex
   br label %_ZN4llvm5ErrorD2Ev.exit2
 
 _ZN4llvm5ErrorD2Ev.exit2:                         ; preds = %2, %20, %_ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE.exit
+  %.sroa.07.0 = phi i32 [ %7, %_ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE.exit ], [ undef, %20 ], [ %7, %2 ]
   %.sroa.2.1 = phi i8 [ 1, %_ZN4llvm8codeview24LazyRandomTypeCollection16ensureTypeExistsENS0_9TypeIndexE.exit ], [ 0, %20 ], [ 1, %2 ]
   %.sroa.2.0.insert.ext = zext nneg i8 %.sroa.2.1 to i40
   %.sroa.2.0.insert.shift = shl nuw nsw i40 %.sroa.2.0.insert.ext, 32
-  %.sroa.07.0.insert.ext = zext i32 %7 to i40
+  %.sroa.07.0.insert.ext = zext i32 %.sroa.07.0 to i40
   %.sroa.07.0.insert.insert = or disjoint i40 %.sroa.2.0.insert.shift, %.sroa.07.0.insert.ext
   ret i40 %.sroa.07.0.insert.insert
 }

@@ -10235,8 +10235,9 @@ define { i32, i32 } @_ZN15context_servers5types15CompletionTotal12from_options17
 
 6:                                                ; preds = %9, %4, %3
   %.sroa.03.0 = phi i32 [ 0, %3 ], [ 2, %4 ], [ %spec.select, %9 ]
+  %.sroa.4.0 = phi i32 [ %2, %3 ], [ undef, %4 ], [ undef, %9 ]
   %7 = insertvalue { i32, i32 } poison, i32 %.sroa.03.0, 0
-  %8 = insertvalue { i32, i32 } %7, i32 %2, 1
+  %8 = insertvalue { i32, i32 } %7, i32 %.sroa.4.0, 1
   ret { i32, i32 } %8
 
 9:                                                ; preds = %4

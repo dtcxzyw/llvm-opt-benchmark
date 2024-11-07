@@ -892,18 +892,22 @@ define hidden void @"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I
   br label %.loopexit103.i
 
 .loopexit103.i:                                   ; preds = %.loopexit103.loopexit.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread77.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread62.i"
+  %.sroa.010.176.i = phi i64 [ undef, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread62.i" ], [ %.sroa.0.i.sroa.0.0.copyload.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread77.i" ], [ %.sroa.0.i.sroa.0.0.copyload.i, %.loopexit103.loopexit.i ]
+  %.sroa.512.174.i = phi i32 [ undef, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread62.i" ], [ %.sroa.0.i.sroa.5.0.copyload.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread77.i" ], [ %.sroa.0.i.sroa.5.0.copyload.i, %.loopexit103.loopexit.i ]
+  %.sroa.613.173.i = phi i64 [ undef, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread62.i" ], [ %.sroa.58.0.copyload.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread77.i" ], [ %.sroa.58.0.copyload.i.i, %.loopexit103.loopexit.i ]
+  %.sroa.815.171.i = phi i32 [ undef, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread62.i" ], [ %.sroa.4.i.sroa.0.0.copyload.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread77.i" ], [ %.sroa.4.i.sroa.0.0.copyload.i, %.loopexit103.loopexit.i ]
   %.sroa.916.070.i = phi i8 [ 2, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread62.i" ], [ 0, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17h25c80aa1a824c473E.exit.thread77.i" ], [ 1, %.loopexit103.loopexit.i ]
-  store i64 %.sroa.0.i.sroa.0.0.copyload.i, ptr %0, align 8, !alias.scope !131, !noalias !135
+  store i64 %.sroa.010.176.i, ptr %0, align 8, !alias.scope !131, !noalias !135
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.0.i.sroa.4.0.copyload.i, ptr %.sroa.225.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
   %.sroa.326.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.0.i.sroa.5.0.copyload.i, ptr %.sroa.326.0..sroa_idx.i, align 4, !alias.scope !131, !noalias !135
+  store i32 %.sroa.512.174.i, ptr %.sroa.326.0..sroa_idx.i, align 4, !alias.scope !131, !noalias !135
   %.sroa.427.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.58.0.copyload.i.i, ptr %.sroa.427.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
+  store i64 %.sroa.613.173.i, ptr %.sroa.427.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
   %.sroa.528.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %.sroa.69.0.copyload.i.i, ptr %.sroa.528.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
   %.sroa.629.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %.sroa.4.i.sroa.0.0.copyload.i, ptr %.sroa.629.0..sroa_idx.i, align 4, !alias.scope !131, !noalias !135
+  store i32 %.sroa.815.171.i, ptr %.sroa.629.0..sroa_idx.i, align 4, !alias.scope !131, !noalias !135
   %.sroa.730.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %.sroa.916.070.i, ptr %.sroa.730.0..sroa_idx.i, align 8, !alias.scope !131, !noalias !135
   %.sroa.831.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 33
@@ -982,18 +986,22 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h8154947221ec3dbfE.exit: ; pred
 
 98:                                               ; preds = %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h876564662b098d7eE.exit.i", %84
   %.sroa.9.0 = phi i8 [ 2, %84 ], [ %26, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h876564662b098d7eE.exit.i" ]
+  %.sroa.818.0 = phi i32 [ undef, %84 ], [ %.sroa.4.i.sroa.0.0.copyload.i.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h876564662b098d7eE.exit.i" ]
+  %.sroa.616.0 = phi i64 [ undef, %84 ], [ %.sroa.58.0.copyload.i.i.i, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h876564662b098d7eE.exit.i" ]
+  %.sroa.515.0 = phi i32 [ undef, %84 ], [ %.sroa.0.i.i.i.sroa.7.0.copyload, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h876564662b098d7eE.exit.i" ]
+  %.sroa.013.0 = phi i64 [ undef, %84 ], [ %.sroa.0.i.i.i.sroa.0.0.copyload, %"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h876564662b098d7eE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %.sroa.1426)
-  store i64 %.sroa.0.i.i.i.sroa.0.0.copyload, ptr %0, align 8, !alias.scope !175
+  store i64 %.sroa.013.0, ptr %0, align 8, !alias.scope !175
   %.sroa.227.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %.sroa.0.i.i.i.sroa.6.0.copyload, ptr %.sroa.227.0..sroa_idx, align 8, !alias.scope !175
   %.sroa.328.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i32 %.sroa.0.i.i.i.sroa.7.0.copyload, ptr %.sroa.328.0..sroa_idx, align 4, !alias.scope !175
+  store i32 %.sroa.515.0, ptr %.sroa.328.0..sroa_idx, align 4, !alias.scope !175
   %.sroa.429.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.58.0.copyload.i.i.i, ptr %.sroa.429.0..sroa_idx, align 8, !alias.scope !175
+  store i64 %.sroa.616.0, ptr %.sroa.429.0..sroa_idx, align 8, !alias.scope !175
   %.sroa.530.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %.sroa.69.0.copyload.i.i.i, ptr %.sroa.530.0..sroa_idx, align 8, !alias.scope !175
   %.sroa.631.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  store i32 %.sroa.4.i.sroa.0.0.copyload.i.i, ptr %.sroa.631.0..sroa_idx, align 4, !alias.scope !175
+  store i32 %.sroa.818.0, ptr %.sroa.631.0..sroa_idx, align 4, !alias.scope !175
   %.sroa.732.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %.sroa.9.0, ptr %.sroa.732.0..sroa_idx, align 8, !alias.scope !175
   %.sroa.833.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 33

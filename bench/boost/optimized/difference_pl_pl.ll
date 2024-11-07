@@ -157816,8 +157816,8 @@ define linkonce_odr hidden ptr @_ZN5boost8geometry6detail7overlay22point_multipo
   %6 = load ptr, ptr %1, align 8, !tbaa !173
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !173
-  %.not17 = icmp eq ptr %6, %8
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %6, %8
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = load double, ptr %0, align 8, !tbaa !2484
@@ -157826,8 +157826,8 @@ define linkonce_odr hidden ptr @_ZN5boost8geometry6detail7overlay22point_multipo
   %11 = fcmp ueq double %10, 0x7FF0000000000000
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load double, ptr %12, align 8
-  %.fr26 = freeze double %13
-  %14 = tail call double @llvm.fabs.f64(double %.fr26)
+  %.fr27 = freeze double %13
+  %14 = tail call double @llvm.fabs.f64(double %.fr27)
   %15 = fcmp ueq double %14, 0x7FF0000000000000
   br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -157835,32 +157835,32 @@ define linkonce_odr hidden ptr @_ZN5boost8geometry6detail7overlay22point_multipo
   br i1 %15, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %21
-  %.sroa.07.018.us.us = phi ptr [ %22, %21 ], [ %6, %.lr.ph.split.us ]
-  %16 = load double, ptr %.sroa.07.018.us.us, align 8, !tbaa !2484
+  %.sroa.07.019.us.us = phi ptr [ %22, %21 ], [ %6, %.lr.ph.split.us ]
+  %16 = load double, ptr %.sroa.07.019.us.us, align 8, !tbaa !2484
   %17 = fcmp oeq double %16, %.fr
   br i1 %17, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us.us, label %21
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us.us: ; preds = %.lr.ph.split.us.split.us
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.us.us, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.us.us, i64 8
   %19 = load double, ptr %18, align 8, !tbaa !2484
-  %20 = fcmp oeq double %19, %.fr26
+  %20 = fcmp oeq double %19, %.fr27
   br i1 %20, label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit, label %21
 
 21:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us.us, %.lr.ph.split.us.split.us
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.us.us, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.us.us, i64 16
   %.not.us.us = icmp eq ptr %22, %8
   br i1 %.not.us.us, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !2761
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %38
-  %.sroa.07.018.us = phi ptr [ %39, %38 ], [ %6, %.lr.ph.split.us ]
-  %23 = load double, ptr %.sroa.07.018.us, align 8, !tbaa !2484
+  %.sroa.07.019.us = phi ptr [ %39, %38 ], [ %6, %.lr.ph.split.us ]
+  %23 = load double, ptr %.sroa.07.019.us, align 8, !tbaa !2484
   %24 = fcmp oeq double %23, %.fr
   br i1 %24, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us, label %38
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us: ; preds = %.lr.ph.split.us.split
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.us, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.us, i64 8
   %26 = load double, ptr %25, align 8, !tbaa !2484
-  %27 = fcmp oeq double %26, %.fr26
+  %27 = fcmp oeq double %26, %.fr27
   br i1 %27, label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit, label %28
 
 28:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us
@@ -157869,7 +157869,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us: ; preds = %
   br i1 %30, label %38, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us: ; preds = %28
-  %31 = fsub double %26, %.fr26
+  %31 = fsub double %26, %.fr27
   %32 = tail call noundef double @llvm.fabs.f64(double %31)
   %33 = fcmp olt double %29, %14
   %34 = select i1 %33, double %14, double %29
@@ -157880,7 +157880,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us: ; preds = %28
   br i1 %37, label %38, label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit
 
 38:                                               ; preds = %.lr.ph.split.us.split, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us, %28
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.us, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.us, i64 16
   %.not.us = icmp eq ptr %39, %8
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !2761
 
@@ -157888,10 +157888,10 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us: ; preds = %28
   br i1 %15, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %55
-  %.sroa.07.018.us19 = phi ptr [ %56, %55 ], [ %6, %.lr.ph.split ]
-  %40 = load double, ptr %.sroa.07.018.us19, align 8, !tbaa !2484
+  %.sroa.07.019.us20 = phi ptr [ %56, %55 ], [ %6, %.lr.ph.split ]
+  %40 = load double, ptr %.sroa.07.019.us20, align 8, !tbaa !2484
   %41 = fcmp oeq double %40, %.fr
-  br i1 %41, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us20, label %42
+  br i1 %41, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us21, label %42
 
 42:                                               ; preds = %.lr.ph.split.split.us
   %43 = tail call double @llvm.fabs.f64(double %40)
@@ -157907,22 +157907,22 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.us: ; preds = %42
   %.sroa.speculated.i.i.i.i.i.i.us = select i1 %49, double 1.000000e+00, double %48
   %50 = fmul double %.sroa.speculated.i.i.i.i.i.i.us, 0x3CB0000000000000
   %51 = fcmp ugt double %46, %50
-  br i1 %51, label %55, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us20
+  br i1 %51, label %55, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us21
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us20: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.us, %.lr.ph.split.split.us
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.us19, i64 8
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us21: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.us, %.lr.ph.split.split.us
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.us20, i64 8
   %53 = load double, ptr %52, align 8, !tbaa !2484
-  %54 = fcmp oeq double %53, %.fr26
+  %54 = fcmp oeq double %53, %.fr27
   br i1 %54, label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit, label %55
 
-55:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us20, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.us, %42
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.us19, i64 16
-  %.not.us21 = icmp eq ptr %56, %8
-  br i1 %.not.us21, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2761
+55:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us21, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.us, %42
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.07.019.us20, i64 16
+  %.not.us22 = icmp eq ptr %56, %8
+  br i1 %.not.us22, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !2761
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %82
-  %.sroa.07.018 = phi ptr [ %83, %82 ], [ %6, %.lr.ph.split ]
-  %57 = load double, ptr %.sroa.07.018, align 8, !tbaa !2484
+  %.sroa.07.019 = phi ptr [ %83, %82 ], [ %6, %.lr.ph.split ]
+  %57 = load double, ptr %.sroa.07.019, align 8, !tbaa !2484
   %58 = fcmp oeq double %57, %.fr
   br i1 %58, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, label %59
 
@@ -157943,9 +157943,9 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %59
   br i1 %68, label %82, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i, %.lr.ph.split.split
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 8
   %70 = load double, ptr %69, align 8, !tbaa !2484
-  %71 = fcmp oeq double %70, %.fr26
+  %71 = fcmp oeq double %70, %.fr27
   br i1 %71, label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit, label %72
 
 72:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i
@@ -157954,7 +157954,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i: ; preds = %_ZN
   br i1 %74, label %82, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i
 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i: ; preds = %72
-  %75 = fsub double %70, %.fr26
+  %75 = fsub double %70, %.fr27
   %76 = tail call noundef double @llvm.fabs.f64(double %75)
   %77 = fcmp olt double %73, %14
   %78 = select i1 %77, double %14, double %73
@@ -157965,7 +157965,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i: ; preds = %72
   br i1 %81, label %82, label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit
 
 82:                                               ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %72, %59
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 16
   %.not = icmp eq ptr %83, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !2761
 
@@ -158039,7 +158039,7 @@ _ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_
   store ptr %113, ptr %86, align 8, !tbaa !1448
   br label %_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit
 
-_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us20, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us.us, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i.i, %88
+_ZN5boost8geometry6detail7overlay18action_selector_plINS0_5model5pointIdLm2ENS0_2cs9cartesianEEELNS0_12overlay_typeE2EE5applyIS8_NS0_5range20back_insert_iteratorINS4_11multi_pointIS8_St6vectorSaEEEEEEvRKT_bRT0_.exit: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us21, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.us, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.us.us, %_ZNSt6vectorIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i.i.i.i, %88
   ret ptr %3
 }
 

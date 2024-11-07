@@ -3485,9 +3485,9 @@ if.then4:                                         ; preds = %land.lhs.true
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %if.then4
-  %i.011.i = phi i32 [ 0, %if.then4 ], [ %inc.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
-  %result.010.i = phi i32 [ 0, %if.then4 ], [ %add.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
-  %3 = phi ptr [ %incdec.ptr.i, %if.then4 ], [ %incdec.ptr.i.i19.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %i.010.i = phi i32 [ 0, %if.then4 ], [ %inc.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %result.09.i = phi i32 [ 0, %if.then4 ], [ %add.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %3 = phi ptr [ %incdec.ptr.i, %if.then4 ], [ %incdec.ptr.i.i17.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
   %cmp.not.i.i = icmp eq ptr %3, %2
   br i1 %cmp.not.i.i, label %if.end9, label %land.rhs.i.i
 
@@ -3515,37 +3515,37 @@ switch.early.test.i.i:                            ; preds = %land.rhs.i.i
   ]
 
 if.then.i4.i:                                     ; preds = %land.rhs.i.i
-  %incdec.ptr.i.i15.i = getelementptr inbounds i8, ptr %3, i64 2
-  store ptr %incdec.ptr.i.i15.i, ptr %current_, align 8
-  %conv.i17.i = zext nneg i16 %.fr3.i.i to i32
-  %sub.i.i = add nsw i32 %conv.i17.i, -48
+  %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %3, i64 2
+  store ptr %incdec.ptr.i.i13.i, ptr %current_, align 8
+  %conv.i15.i = zext nneg i16 %.fr3.i.i to i32
+  %sub.i.i = add nsw i32 %conv.i15.i, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end.i.i:                                       ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i
-  %incdec.ptr.i.i25.i = getelementptr inbounds i8, ptr %3, i64 2
-  store ptr %incdec.ptr.i.i25.i, ptr %current_, align 8
-  %conv.i27.i = zext nneg i16 %.fr3.i.i to i32
+  %incdec.ptr.i.i23.i = getelementptr inbounds i8, ptr %3, i64 2
+  store ptr %incdec.ptr.i.i23.i, ptr %current_, align 8
+  %conv.i25.i = zext nneg i16 %.fr3.i.i to i32
   %6 = add nsw i16 %.fr3.i.i, -97
   %or.cond1.i.i = icmp ult i16 %6, 6
   br i1 %or.cond1.i.i, label %if.then10.i.i, label %if.end14.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
-  %add.i.i = add nsw i32 %conv.i27.i, -87
+  %add.i.i = add nsw i32 %conv.i25.i, -87
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %7 = add nsw i16 %.fr3.i.i, -65
   %or.cond2.i.i = icmp ult i16 %7, 6
-  %add24.i.i = add nsw i32 %conv.i27.i, -55
+  %add24.i.i = add nsw i32 %conv.i25.i, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i32 %add24.i.i, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 _ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i: ; preds = %if.end14.i.i, %if.then10.i.i, %if.then.i4.i
-  %incdec.ptr.i.i19.i = phi ptr [ %incdec.ptr.i.i15.i, %if.then.i4.i ], [ %incdec.ptr.i.i25.i, %if.then10.i.i ], [ %incdec.ptr.i.i25.i, %if.end14.i.i ]
+  %incdec.ptr.i.i17.i = phi ptr [ %incdec.ptr.i.i13.i, %if.then.i4.i ], [ %incdec.ptr.i.i23.i, %if.then10.i.i ], [ %incdec.ptr.i.i23.i, %if.end14.i.i ]
   %retval.sroa.0.0.i2.i = phi i32 [ %sub.i.i, %if.then.i4.i ], [ %add.i.i, %if.then10.i.i ], [ %spec.select.i.i, %if.end14.i.i ]
-  %mul21.i = shl i32 %result.010.i, 4
-  %add.i = add i32 %retval.sroa.0.0.i2.i, %mul21.i
-  %inc.i = add nuw nsw i32 %i.011.i, 1
+  %mul19.i = shl i32 %result.09.i, 4
+  %add.i = add i32 %retval.sroa.0.0.i2.i, %mul19.i
+  %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 4
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !55
 
@@ -3572,12 +3572,12 @@ if.then13:                                        ; preds = %_ZNK6hermes5regex6P
   store ptr %incdec.ptr.i.i, ptr %current_, align 8
   br label %while.cond
 
-while.cond:                                       ; preds = %while.body, %if.then13
-  %10 = phi ptr [ %incdec.ptr.i.i, %if.then13 ], [ %.ph, %while.body ]
-  %result.0 = phi i32 [ 0, %if.then13 ], [ %add, %while.body ]
-  %digitCount.0 = phi i64 [ 0, %if.then13 ], [ %inc, %while.body ]
+while.cond:                                       ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43, %if.then13
+  %10 = phi ptr [ %incdec.ptr.i.i, %if.then13 ], [ %incdec.ptr.i.i17.i26, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43 ]
+  %result.0 = phi i32 [ 0, %if.then13 ], [ %add, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43 ]
+  %digitCount.0 = phi i64 [ 0, %if.then13 ], [ %inc, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43 ]
   %cmp.not.i.i12 = icmp eq ptr %10, %8
-  br i1 %cmp.not.i.i12, label %while.end, label %land.rhs.i.i13
+  br i1 %cmp.not.i.i12, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43.thread, label %land.rhs.i.i13
 
 land.rhs.i.i13:                                   ; preds = %while.cond
   %11 = load i16, ptr %10, align 2
@@ -3587,7 +3587,7 @@ land.rhs.i.i13:                                   ; preds = %while.cond
   br i1 %or.cond.i.i.i15, label %if.then.i4.i39, label %switch.early.test.i.i16
 
 switch.early.test.i.i16:                          ; preds = %land.rhs.i.i13
-  switch i16 %.fr3.i.i14, label %while.end [
+  switch i16 %.fr3.i.i14, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43.thread [
     i16 102, label %if.end.i.i17
     i16 101, label %if.end.i.i17
     i16 100, label %if.end.i.i17
@@ -3603,41 +3603,46 @@ switch.early.test.i.i16:                          ; preds = %land.rhs.i.i13
   ]
 
 if.then.i4.i39:                                   ; preds = %land.rhs.i.i13
-  %incdec.ptr.i.i15.i40 = getelementptr inbounds i8, ptr %10, i64 2
-  store ptr %incdec.ptr.i.i15.i40, ptr %current_, align 8
-  %conv.i17.i41 = zext nneg i16 %.fr3.i.i14 to i32
-  %sub.i.i42 = add nsw i32 %conv.i17.i41, -48
-  br label %while.body
+  %incdec.ptr.i.i13.i40 = getelementptr inbounds i8, ptr %10, i64 2
+  store ptr %incdec.ptr.i.i13.i40, ptr %current_, align 8
+  %conv.i15.i41 = zext nneg i16 %.fr3.i.i14 to i32
+  %sub.i.i42 = add nsw i32 %conv.i15.i41, -48
+  br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43
 
 if.end.i.i17:                                     ; preds = %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16, %switch.early.test.i.i16
-  %incdec.ptr.i.i25.i18 = getelementptr inbounds i8, ptr %10, i64 2
-  store ptr %incdec.ptr.i.i25.i18, ptr %current_, align 8
-  %conv.i27.i19 = zext nneg i16 %.fr3.i.i14 to i32
+  %incdec.ptr.i.i23.i18 = getelementptr inbounds i8, ptr %10, i64 2
+  store ptr %incdec.ptr.i.i23.i18, ptr %current_, align 8
+  %conv.i25.i19 = zext nneg i16 %.fr3.i.i14 to i32
   %13 = add nsw i16 %.fr3.i.i14, -97
   %or.cond1.i.i20 = icmp ult i16 %13, 6
   br i1 %or.cond1.i.i20, label %if.then10.i.i36, label %if.end14.i.i21
 
 if.then10.i.i36:                                  ; preds = %if.end.i.i17
-  %add.i.i37 = add nsw i32 %conv.i27.i19, -87
-  br label %while.body
+  %add.i.i37 = add nsw i32 %conv.i25.i19, -87
+  br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43
 
 if.end14.i.i21:                                   ; preds = %if.end.i.i17
   %14 = add nsw i16 %.fr3.i.i14, -65
   %or.cond2.i.i22 = icmp ult i16 %14, 6
-  %add24.i.i23 = add nsw i32 %conv.i27.i19, -55
+  %add24.i.i23 = add nsw i32 %conv.i25.i19, -55
   %spec.select.i.i24 = select i1 %or.cond2.i.i22, i32 %add24.i.i23, i32 undef
-  br label %while.body
+  br label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43
 
-while.body:                                       ; preds = %if.end14.i.i21, %if.then10.i.i36, %if.then.i4.i39
-  %.ph = phi ptr [ %incdec.ptr.i.i25.i18, %if.end14.i.i21 ], [ %incdec.ptr.i.i25.i18, %if.then10.i.i36 ], [ %incdec.ptr.i.i15.i40, %if.then.i4.i39 ]
-  %result.08.i32.ph = phi i32 [ %spec.select.i.i24, %if.end14.i.i21 ], [ %add.i.i37, %if.then10.i.i36 ], [ %sub.i.i42, %if.then.i4.i39 ]
+_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43.thread: ; preds = %while.cond, %switch.early.test.i.i16
+  store ptr %10, ptr %current_, align 8
+  %cmp.not.i.i51 = icmp eq ptr %10, %8
+  br i1 %cmp.not.i.i51, label %if.then21, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i52
+
+_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43: ; preds = %if.then.i4.i39, %if.then10.i.i36, %if.end14.i.i21
+  %incdec.ptr.i.i17.i26 = phi ptr [ %incdec.ptr.i.i13.i40, %if.then.i4.i39 ], [ %incdec.ptr.i.i23.i18, %if.then10.i.i36 ], [ %incdec.ptr.i.i23.i18, %if.end14.i.i21 ]
+  %retval.sroa.0.0.i2.i27 = phi i32 [ %sub.i.i42, %if.then.i4.i39 ], [ %add.i.i37, %if.then10.i.i36 ], [ %spec.select.i.i24, %if.end14.i.i21 ]
   %inc = add i64 %digitCount.0, 1
   %mul = shl nuw nsw i32 %result.0, 4
-  %add = add i32 %result.08.i32.ph, %mul
+  %add = add i32 %mul, %retval.sroa.0.0.i2.i27
   %cmp = icmp ugt i32 %add, 1114111
   br i1 %cmp, label %if.then18, label %while.cond, !llvm.loop !56
 
-if.then18:                                        ; preds = %while.body
+if.then18:                                        ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43
   %error_.i = getelementptr inbounds i8, ptr %this, i64 24
   %15 = load i32, ptr %error_.i, align 8
   %cmp.i = icmp eq i32 %15, 0
@@ -3648,17 +3653,12 @@ if.then.i:                                        ; preds = %if.then18
   store ptr %8, ptr %current_, align 8
   br label %return
 
-while.end:                                        ; preds = %switch.early.test.i.i16, %while.cond
-  store ptr %10, ptr %current_, align 8
-  %cmp.not.i.i51 = icmp eq ptr %10, %8
-  br i1 %cmp.not.i.i51, label %if.then21, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i52
-
-_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i52: ; preds = %while.end
+_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i52: ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43.thread
   %16 = load i16, ptr %10, align 2
   %cmp4.i.i53 = icmp eq i16 %16, 125
   br i1 %cmp4.i.i53, label %if.end23, label %if.then21
 
-if.then21:                                        ; preds = %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i52, %while.end
+if.then21:                                        ; preds = %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i52, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit43.thread
   %error_.i57 = getelementptr inbounds i8, ptr %this, i64 24
   %17 = load i32, ptr %error_.i57, align 8
   %cmp.i58 = icmp eq i32 %17, 0
@@ -3687,11 +3687,11 @@ if.then.i68:                                      ; preds = %if.then25
   br label %return
 
 for.body.i76:                                     ; preds = %for.body.i76.preheader, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
-  %i.011.i77 = phi i32 [ %inc.i97, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92 ], [ 0, %for.body.i76.preheader ]
-  %result.010.i78 = phi i32 [ %add.i96, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92 ], [ 0, %for.body.i76.preheader ]
-  %19 = phi ptr [ %incdec.ptr.i.i19.i93, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92 ], [ %incdec.ptr.i, %for.body.i76.preheader ]
+  %i.010.i77 = phi i32 [ %inc.i97, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92 ], [ 0, %for.body.i76.preheader ]
+  %result.09.i78 = phi i32 [ %add.i96, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92 ], [ 0, %for.body.i76.preheader ]
+  %19 = phi ptr [ %incdec.ptr.i.i17.i93, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92 ], [ %incdec.ptr.i, %for.body.i76.preheader ]
   %cmp.not.i.i79 = icmp eq ptr %19, %8
-  br i1 %cmp.not.i.i79, label %if.end56, label %land.rhs.i.i80
+  br i1 %cmp.not.i.i79, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread, label %land.rhs.i.i80
 
 land.rhs.i.i80:                                   ; preds = %for.body.i76
   %20 = load i16, ptr %19, align 2
@@ -3701,7 +3701,7 @@ land.rhs.i.i80:                                   ; preds = %for.body.i76
   br i1 %or.cond.i.i.i82, label %if.then.i4.i106, label %switch.early.test.i.i83
 
 switch.early.test.i.i83:                          ; preds = %land.rhs.i.i80
-  switch i16 %.fr3.i.i81, label %if.end56 [
+  switch i16 %.fr3.i.i81, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread [
     i16 102, label %if.end.i.i84
     i16 101, label %if.end.i.i84
     i16 100, label %if.end.i.i84
@@ -3717,60 +3717,67 @@ switch.early.test.i.i83:                          ; preds = %land.rhs.i.i80
   ]
 
 if.then.i4.i106:                                  ; preds = %land.rhs.i.i80
-  %incdec.ptr.i.i15.i107 = getelementptr inbounds i8, ptr %19, i64 2
-  store ptr %incdec.ptr.i.i15.i107, ptr %current_, align 8
-  %conv.i17.i108 = zext nneg i16 %.fr3.i.i81 to i32
-  %sub.i.i109 = add nsw i32 %conv.i17.i108, -48
+  %incdec.ptr.i.i13.i107 = getelementptr inbounds i8, ptr %19, i64 2
+  store ptr %incdec.ptr.i.i13.i107, ptr %current_, align 8
+  %conv.i15.i108 = zext nneg i16 %.fr3.i.i81 to i32
+  %sub.i.i109 = add nsw i32 %conv.i15.i108, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
 
 if.end.i.i84:                                     ; preds = %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83, %switch.early.test.i.i83
-  %incdec.ptr.i.i25.i85 = getelementptr inbounds i8, ptr %19, i64 2
-  store ptr %incdec.ptr.i.i25.i85, ptr %current_, align 8
-  %conv.i27.i86 = zext nneg i16 %.fr3.i.i81 to i32
+  %incdec.ptr.i.i23.i85 = getelementptr inbounds i8, ptr %19, i64 2
+  store ptr %incdec.ptr.i.i23.i85, ptr %current_, align 8
+  %conv.i25.i86 = zext nneg i16 %.fr3.i.i81 to i32
   %22 = add nsw i16 %.fr3.i.i81, -97
   %or.cond1.i.i87 = icmp ult i16 %22, 6
   br i1 %or.cond1.i.i87, label %if.then10.i.i103, label %if.end14.i.i88
 
 if.then10.i.i103:                                 ; preds = %if.end.i.i84
-  %add.i.i104 = add nsw i32 %conv.i27.i86, -87
+  %add.i.i104 = add nsw i32 %conv.i25.i86, -87
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
 
 if.end14.i.i88:                                   ; preds = %if.end.i.i84
   %23 = add nsw i16 %.fr3.i.i81, -65
   %or.cond2.i.i89 = icmp ult i16 %23, 6
-  %add24.i.i90 = add nsw i32 %conv.i27.i86, -55
+  %add24.i.i90 = add nsw i32 %conv.i25.i86, -55
   %spec.select.i.i91 = select i1 %or.cond2.i.i89, i32 %add24.i.i90, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
 
 _ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92: ; preds = %if.end14.i.i88, %if.then10.i.i103, %if.then.i4.i106
-  %incdec.ptr.i.i19.i93 = phi ptr [ %incdec.ptr.i.i15.i107, %if.then.i4.i106 ], [ %incdec.ptr.i.i25.i85, %if.then10.i.i103 ], [ %incdec.ptr.i.i25.i85, %if.end14.i.i88 ]
+  %incdec.ptr.i.i17.i93 = phi ptr [ %incdec.ptr.i.i13.i107, %if.then.i4.i106 ], [ %incdec.ptr.i.i23.i85, %if.then10.i.i103 ], [ %incdec.ptr.i.i23.i85, %if.end14.i.i88 ]
   %retval.sroa.0.0.i2.i94 = phi i32 [ %sub.i.i109, %if.then.i4.i106 ], [ %add.i.i104, %if.then10.i.i103 ], [ %spec.select.i.i91, %if.end14.i.i88 ]
-  %mul21.i95 = shl i32 %result.010.i78, 4
-  %add.i96 = add i32 %retval.sroa.0.0.i2.i94, %mul21.i95
-  %inc.i97 = add nuw nsw i32 %i.011.i77, 1
+  %mul19.i95 = shl i32 %result.09.i78, 4
+  %add.i96 = add i32 %retval.sroa.0.0.i2.i94, %mul19.i95
+  %inc.i97 = add nuw nsw i32 %i.010.i77, 1
   %exitcond.not.i98 = icmp eq i32 %inc.i97, 4
-  br i1 %exitcond.not.i98, label %if.then32, label %for.body.i76, !llvm.loop !55
+  br i1 %exitcond.not.i98, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110, label %for.body.i76, !llvm.loop !55
 
-if.then32:                                        ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
-  %24 = and i32 %add.i96, -1024
-  %25 = icmp eq i32 %24, 55296
-  br i1 %25, label %if.then35, label %return
+_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread: ; preds = %for.body.i76, %switch.early.test.i.i83
+  store ptr %incdec.ptr.i, ptr %current_, align 8
+  %error_.i161 = getelementptr inbounds i8, ptr %this, i64 24
+  %24 = load i32, ptr %error_.i161, align 8
+  %cmp.i162 = icmp eq i32 %24, 0
+  br i1 %cmp.i162, label %if.then.i164, label %return
 
-if.then35:                                        ; preds = %if.then32
+_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110: ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i92
+  %25 = and i32 %add.i96, -1024
+  %26 = icmp eq i32 %25, 55296
+  br i1 %26, label %if.then35, label %return
+
+if.then35:                                        ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110
   %scevgep = getelementptr i8, ptr %19, i64 6
   br label %for.body.i115
 
 for.body.i115:                                    ; preds = %if.end.i117, %if.then35
-  %26 = phi i8 [ 92, %if.then35 ], [ %28, %if.end.i117 ]
+  %27 = phi i8 [ 92, %if.then35 ], [ %29, %if.end.i117 ]
   %i.012.i = phi i64 [ 0, %if.then35 ], [ %inc.i119, %if.end.i117 ]
-  %cursor.011.i = phi ptr [ %incdec.ptr.i.i19.i93, %if.then35 ], [ %incdec.ptr.i118, %if.end.i117 ]
+  %cursor.011.i = phi ptr [ %incdec.ptr.i.i17.i93, %if.then35 ], [ %incdec.ptr.i118, %if.end.i117 ]
   %cmp.i116 = icmp eq ptr %cursor.011.i, %8
   br i1 %cmp.i116, label %if.end52, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %for.body.i115
-  %27 = load i16, ptr %cursor.011.i, align 2
-  %conv.i = zext i16 %27 to i32
-  %conv3.i = sext i8 %26 to i32
+  %28 = load i16, ptr %cursor.011.i, align 2
+  %conv.i = zext i16 %28 to i32
+  %conv3.i = sext i8 %27 to i32
   %cmp4.not.i = icmp eq i32 %conv.i, %conv3.i
   br i1 %cmp4.not.i, label %if.end.i117, label %if.end52
 
@@ -3778,7 +3785,7 @@ if.end.i117:                                      ; preds = %lor.lhs.false.i
   %incdec.ptr.i118 = getelementptr inbounds i8, ptr %cursor.011.i, i64 2
   %inc.i119 = add nuw nsw i64 %i.012.i, 1
   %arrayidx.i = getelementptr inbounds i8, ptr @.str.10, i64 %inc.i119
-  %28 = load i8, ptr %arrayidx.i, align 1
+  %29 = load i8, ptr %arrayidx.i, align 1
   %exitcond = icmp eq i64 %inc.i119, 2
   br i1 %exitcond, label %if.then38, label %for.body.i115, !llvm.loop !10
 
@@ -3787,17 +3794,17 @@ if.then38:                                        ; preds = %if.end.i117
   br label %for.body.i122
 
 for.body.i122:                                    ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138, %if.then38
-  %i.011.i123 = phi i32 [ 0, %if.then38 ], [ %inc.i143, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138 ]
-  %result.010.i124 = phi i32 [ 0, %if.then38 ], [ %add.i142, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138 ]
-  %29 = phi ptr [ %scevgep, %if.then38 ], [ %incdec.ptr.i.i19.i139, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138 ]
-  %cmp.not.i.i125 = icmp eq ptr %29, %8
+  %i.010.i123 = phi i32 [ 0, %if.then38 ], [ %inc.i143, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138 ]
+  %result.09.i124 = phi i32 [ 0, %if.then38 ], [ %add.i142, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138 ]
+  %30 = phi ptr [ %scevgep, %if.then38 ], [ %incdec.ptr.i.i17.i139, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138 ]
+  %cmp.not.i.i125 = icmp eq ptr %30, %8
   br i1 %cmp.not.i.i125, label %if.end52, label %land.rhs.i.i126
 
 land.rhs.i.i126:                                  ; preds = %for.body.i122
-  %30 = load i16, ptr %29, align 2
-  %.fr3.i.i127 = freeze i16 %30
-  %31 = add i16 %.fr3.i.i127, -48
-  %or.cond.i.i.i128 = icmp ult i16 %31, 10
+  %31 = load i16, ptr %30, align 2
+  %.fr3.i.i127 = freeze i16 %31
+  %32 = add i16 %.fr3.i.i127, -48
+  %or.cond.i.i.i128 = icmp ult i16 %32, 10
   br i1 %or.cond.i.i.i128, label %if.then.i4.i152, label %switch.early.test.i.i129
 
 switch.early.test.i.i129:                         ; preds = %land.rhs.i.i126
@@ -3817,44 +3824,44 @@ switch.early.test.i.i129:                         ; preds = %land.rhs.i.i126
   ]
 
 if.then.i4.i152:                                  ; preds = %land.rhs.i.i126
-  %incdec.ptr.i.i15.i153 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %incdec.ptr.i.i15.i153, ptr %current_, align 8
-  %conv.i17.i154 = zext nneg i16 %.fr3.i.i127 to i32
-  %sub.i.i155 = add nsw i32 %conv.i17.i154, -48
+  %incdec.ptr.i.i13.i153 = getelementptr inbounds i8, ptr %30, i64 2
+  store ptr %incdec.ptr.i.i13.i153, ptr %current_, align 8
+  %conv.i15.i154 = zext nneg i16 %.fr3.i.i127 to i32
+  %sub.i.i155 = add nsw i32 %conv.i15.i154, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138
 
 if.end.i.i130:                                    ; preds = %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129, %switch.early.test.i.i129
-  %incdec.ptr.i.i25.i131 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %incdec.ptr.i.i25.i131, ptr %current_, align 8
-  %conv.i27.i132 = zext nneg i16 %.fr3.i.i127 to i32
-  %32 = add nsw i16 %.fr3.i.i127, -97
-  %or.cond1.i.i133 = icmp ult i16 %32, 6
+  %incdec.ptr.i.i23.i131 = getelementptr inbounds i8, ptr %30, i64 2
+  store ptr %incdec.ptr.i.i23.i131, ptr %current_, align 8
+  %conv.i25.i132 = zext nneg i16 %.fr3.i.i127 to i32
+  %33 = add nsw i16 %.fr3.i.i127, -97
+  %or.cond1.i.i133 = icmp ult i16 %33, 6
   br i1 %or.cond1.i.i133, label %if.then10.i.i149, label %if.end14.i.i134
 
 if.then10.i.i149:                                 ; preds = %if.end.i.i130
-  %add.i.i150 = add nsw i32 %conv.i27.i132, -87
+  %add.i.i150 = add nsw i32 %conv.i25.i132, -87
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138
 
 if.end14.i.i134:                                  ; preds = %if.end.i.i130
-  %33 = add nsw i16 %.fr3.i.i127, -65
-  %or.cond2.i.i135 = icmp ult i16 %33, 6
-  %add24.i.i136 = add nsw i32 %conv.i27.i132, -55
+  %34 = add nsw i16 %.fr3.i.i127, -65
+  %or.cond2.i.i135 = icmp ult i16 %34, 6
+  %add24.i.i136 = add nsw i32 %conv.i25.i132, -55
   %spec.select.i.i137 = select i1 %or.cond2.i.i135, i32 %add24.i.i136, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138
 
 _ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138: ; preds = %if.end14.i.i134, %if.then10.i.i149, %if.then.i4.i152
-  %incdec.ptr.i.i19.i139 = phi ptr [ %incdec.ptr.i.i15.i153, %if.then.i4.i152 ], [ %incdec.ptr.i.i25.i131, %if.then10.i.i149 ], [ %incdec.ptr.i.i25.i131, %if.end14.i.i134 ]
+  %incdec.ptr.i.i17.i139 = phi ptr [ %incdec.ptr.i.i13.i153, %if.then.i4.i152 ], [ %incdec.ptr.i.i23.i131, %if.then10.i.i149 ], [ %incdec.ptr.i.i23.i131, %if.end14.i.i134 ]
   %retval.sroa.0.0.i2.i140 = phi i32 [ %sub.i.i155, %if.then.i4.i152 ], [ %add.i.i150, %if.then10.i.i149 ], [ %spec.select.i.i137, %if.end14.i.i134 ]
-  %mul21.i141 = shl i32 %result.010.i124, 4
-  %add.i142 = add i32 %retval.sroa.0.0.i2.i140, %mul21.i141
-  %inc.i143 = add nuw nsw i32 %i.011.i123, 1
+  %mul19.i141 = shl i32 %result.09.i124, 4
+  %add.i142 = add i32 %retval.sroa.0.0.i2.i140, %mul19.i141
+  %inc.i143 = add nuw nsw i32 %i.010.i123, 1
   %exitcond.not.i144 = icmp eq i32 %inc.i143, 4
   br i1 %exitcond.not.i144, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit156, label %for.body.i122, !llvm.loop !55
 
 _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit156: ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i138
-  %34 = and i32 %add.i142, -1024
-  %35 = icmp eq i32 %34, 56320
-  br i1 %35, label %if.then45, label %if.end52
+  %35 = and i32 %add.i142, -1024
+  %36 = icmp eq i32 %35, 56320
+  br i1 %36, label %if.then45, label %if.end52
 
 if.then45:                                        ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit156
   %sub.i = shl nuw nsw i32 %add.i96, 10
@@ -3863,24 +3870,17 @@ if.then45:                                        ; preds = %_ZN6hermes5regex6Pa
   br label %return
 
 if.end52:                                         ; preds = %for.body.i115, %lor.lhs.false.i, %switch.early.test.i.i129, %for.body.i122, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit156
-  store ptr %incdec.ptr.i.i19.i93, ptr %current_, align 8
+  store ptr %incdec.ptr.i.i17.i93, ptr %current_, align 8
   br label %return
 
-if.end56:                                         ; preds = %switch.early.test.i.i83, %for.body.i76
-  store ptr %incdec.ptr.i, ptr %current_, align 8
-  %error_.i161 = getelementptr inbounds i8, ptr %this, i64 24
-  %36 = load i32, ptr %error_.i161, align 8
-  %cmp.i162 = icmp eq i32 %36, 0
-  br i1 %cmp.i162, label %if.then.i164, label %return
-
-if.then.i164:                                     ; preds = %if.end56
+if.then.i164:                                     ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread
   store i32 3, ptr %error_.i161, align 8
   store ptr %8, ptr %current_, align 8
   br label %return
 
-return:                                           ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %if.then.i164, %if.end56, %if.then32, %if.end52, %if.end23, %if.then.i68, %if.then25, %if.then.i60, %if.then21, %if.then.i, %if.then18, %if.then45, %if.end9
-  %retval.sroa.0.0 = phi i32 [ %add2.i, %if.then45 ], [ undef, %if.end9 ], [ 0, %if.then18 ], [ 0, %if.then.i ], [ 0, %if.then21 ], [ 0, %if.then.i60 ], [ 0, %if.then25 ], [ 0, %if.then.i68 ], [ %result.0, %if.end23 ], [ %add.i96, %if.end52 ], [ %add.i96, %if.then32 ], [ 0, %if.end56 ], [ 0, %if.then.i164 ], [ %add.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
-  %retval.sroa.9.0 = phi i64 [ 4294967296, %if.then45 ], [ 0, %if.end9 ], [ 4294967296, %if.then18 ], [ 4294967296, %if.then.i ], [ 4294967296, %if.then21 ], [ 4294967296, %if.then.i60 ], [ 4294967296, %if.then25 ], [ 4294967296, %if.then.i68 ], [ 4294967296, %if.end23 ], [ 4294967296, %if.end52 ], [ 4294967296, %if.then32 ], [ 4294967296, %if.end56 ], [ 4294967296, %if.then.i164 ], [ 4294967296, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+return:                                           ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %if.then.i164, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110, %if.end52, %if.end23, %if.then.i68, %if.then25, %if.then.i60, %if.then21, %if.then.i, %if.then18, %if.then45, %if.end9
+  %retval.sroa.0.0 = phi i32 [ %add2.i, %if.then45 ], [ undef, %if.end9 ], [ 0, %if.then18 ], [ 0, %if.then.i ], [ 0, %if.then21 ], [ 0, %if.then.i60 ], [ 0, %if.then25 ], [ 0, %if.then.i68 ], [ %result.0, %if.end23 ], [ %add.i96, %if.end52 ], [ %add.i96, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110 ], [ 0, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread ], [ 0, %if.then.i164 ], [ %add.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %retval.sroa.9.0 = phi i64 [ 4294967296, %if.then45 ], [ 0, %if.end9 ], [ 4294967296, %if.then18 ], [ 4294967296, %if.then.i ], [ 4294967296, %if.then21 ], [ 4294967296, %if.then.i60 ], [ 4294967296, %if.then25 ], [ 4294967296, %if.then.i68 ], [ 4294967296, %if.end23 ], [ 4294967296, %if.end52 ], [ 4294967296, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110 ], [ 4294967296, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit110.thread ], [ 4294967296, %if.then.i164 ], [ 4294967296, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
   %retval.sroa.0.0.insert.ext = zext i32 %retval.sroa.0.0 to i64
   %retval.sroa.0.0.insert.insert = or disjoint i64 %retval.sroa.9.0, %retval.sroa.0.0.insert.ext
   ret i64 %retval.sroa.0.0.insert.insert
@@ -11409,11 +11409,11 @@ sw.bb46:                                          ; preds = %if.end
   br label %for.body.i
 
 for.body.i:                                       ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %sw.bb46
-  %i.011.i = phi i32 [ 0, %sw.bb46 ], [ %inc.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
-  %result.010.i = phi i32 [ 0, %sw.bb46 ], [ %add.i35, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
-  %29 = phi ptr [ %incdec.ptr.i31, %sw.bb46 ], [ %incdec.ptr.i.i19.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %i.010.i = phi i32 [ 0, %sw.bb46 ], [ %inc.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %result.09.i = phi i32 [ 0, %sw.bb46 ], [ %add.i35, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+  %29 = phi ptr [ %incdec.ptr.i31, %sw.bb46 ], [ %incdec.ptr.i.i17.i, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
   %cmp.not.i.i34 = icmp eq ptr %29, %1
-  br i1 %cmp.not.i.i34, label %if.else54, label %land.rhs.i.i
+  br i1 %cmp.not.i.i34, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %for.body.i
   %30 = load i16, ptr %29, align 2
@@ -11423,7 +11423,7 @@ land.rhs.i.i:                                     ; preds = %for.body.i
   br i1 %or.cond.i.i.i, label %if.then.i4.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %land.rhs.i.i
-  switch i16 %.fr3.i.i, label %if.else54 [
+  switch i16 %.fr3.i.i, label %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread [
     i16 102, label %if.end.i.i
     i16 101, label %if.end.i.i
     i16 100, label %if.end.i.i
@@ -11439,41 +11439,41 @@ switch.early.test.i.i:                            ; preds = %land.rhs.i.i
   ]
 
 if.then.i4.i:                                     ; preds = %land.rhs.i.i
-  %incdec.ptr.i.i15.i38 = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %incdec.ptr.i.i15.i38, ptr %current_, align 8
-  %conv.i17.i = zext nneg i16 %.fr3.i.i to i32
-  %sub.i.i = add nsw i32 %conv.i17.i, -48
+  %incdec.ptr.i.i13.i = getelementptr inbounds i8, ptr %29, i64 2
+  store ptr %incdec.ptr.i.i13.i, ptr %current_, align 8
+  %conv.i15.i = zext nneg i16 %.fr3.i.i to i32
+  %sub.i.i = add nsw i32 %conv.i15.i, -48
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end.i.i:                                       ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i
-  %incdec.ptr.i.i25.i = getelementptr inbounds i8, ptr %29, i64 2
-  store ptr %incdec.ptr.i.i25.i, ptr %current_, align 8
-  %conv.i27.i = zext nneg i16 %.fr3.i.i to i32
+  %incdec.ptr.i.i23.i = getelementptr inbounds i8, ptr %29, i64 2
+  store ptr %incdec.ptr.i.i23.i, ptr %current_, align 8
+  %conv.i25.i = zext nneg i16 %.fr3.i.i to i32
   %32 = add nsw i16 %.fr3.i.i, -97
   %or.cond1.i.i = icmp ult i16 %32, 6
   br i1 %or.cond1.i.i, label %if.then10.i.i, label %if.end14.i.i
 
 if.then10.i.i:                                    ; preds = %if.end.i.i
-  %add.i.i = add nsw i32 %conv.i27.i, -87
+  %add.i.i = add nsw i32 %conv.i25.i, -87
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 if.end14.i.i:                                     ; preds = %if.end.i.i
   %33 = add nsw i16 %.fr3.i.i, -65
   %or.cond2.i.i = icmp ult i16 %33, 6
-  %add24.i.i = add nsw i32 %conv.i27.i, -55
+  %add24.i.i = add nsw i32 %conv.i25.i, -55
   %spec.select.i.i = select i1 %or.cond2.i.i, i32 %add24.i.i, i32 undef
   br label %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i
 
 _ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i: ; preds = %if.end14.i.i, %if.then10.i.i, %if.then.i4.i
-  %incdec.ptr.i.i19.i = phi ptr [ %incdec.ptr.i.i15.i38, %if.then.i4.i ], [ %incdec.ptr.i.i25.i, %if.then10.i.i ], [ %incdec.ptr.i.i25.i, %if.end14.i.i ]
+  %incdec.ptr.i.i17.i = phi ptr [ %incdec.ptr.i.i13.i, %if.then.i4.i ], [ %incdec.ptr.i.i23.i, %if.then10.i.i ], [ %incdec.ptr.i.i23.i, %if.end14.i.i ]
   %retval.sroa.0.0.i2.i = phi i32 [ %sub.i.i, %if.then.i4.i ], [ %add.i.i, %if.then10.i.i ], [ %spec.select.i.i, %if.end14.i.i ]
-  %mul21.i = shl i32 %result.010.i, 4
-  %add.i35 = add i32 %retval.sroa.0.0.i2.i, %mul21.i
-  %inc.i = add nuw nsw i32 %i.011.i, 1
+  %mul19.i = shl i32 %result.09.i, 4
+  %add.i35 = add i32 %retval.sroa.0.0.i2.i, %mul19.i
+  %inc.i = add nuw nsw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, 2
   br i1 %exitcond.not.i, label %return, label %for.body.i, !llvm.loop !55
 
-if.else54:                                        ; preds = %switch.early.test.i.i, %for.body.i
+_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread: ; preds = %for.body.i, %switch.early.test.i.i
   store ptr %incdec.ptr.i31, ptr %current_, align 8
   %call55 = tail call noundef i32 @_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs(ptr noundef nonnull align 8 dereferenceable(41) %this, i16 noundef zeroext 120)
   br label %return
@@ -11513,8 +11513,8 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscap
   %conv9.i = zext i16 %3 to i32
   br label %return
 
-return:                                           ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit, %sw.bb37, %25, %if.then.i.i, %if.then.i22, %if.then.i, %if.then, %sw.bb19, %lor.lhs.false, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit, %if.else54, %if.else43, %if.else32, %if.else, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb
-  %retval.0 = phi i32 [ %conv9.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %call55, %if.else54 ], [ %call45, %if.else43 ], [ %call34, %if.else32 ], [ %call18, %if.else ], [ 11, %sw.bb9 ], [ 9, %sw.bb7 ], [ 13, %sw.bb5 ], [ 10, %sw.bb3 ], [ 12, %sw.bb ], [ 0, %lor.lhs.false ], [ 0, %sw.bb19 ], [ 0, %if.then ], [ 0, %if.then.i ], [ %conv24.i, %25 ], [ 0, %if.then.i22 ], [ 0, %if.then.i.i ], [ %ret.sroa.0.0.extract.trunc, %sw.bb37 ], [ %9, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit ], [ %add.i35, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
+return:                                           ; preds = %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit, %sw.bb37, %25, %if.then.i.i, %if.then.i22, %if.then.i, %if.then, %sw.bb19, %lor.lhs.false, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread, %if.else43, %if.else32, %if.else, %sw.bb9, %sw.bb7, %sw.bb5, %sw.bb3, %sw.bb
+  %retval.0 = phi i32 [ %conv9.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %call55, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEj.exit.thread ], [ %call45, %if.else43 ], [ %call34, %if.else32 ], [ %call18, %if.else ], [ 11, %sw.bb9 ], [ 9, %sw.bb7 ], [ 13, %sw.bb5 ], [ 10, %sw.bb3 ], [ 12, %sw.bb ], [ 0, %lor.lhs.false ], [ 0, %sw.bb19 ], [ 0, %if.then ], [ 0, %if.then.i ], [ %conv24.i, %25 ], [ 0, %if.then.i22 ], [ 0, %if.then.i.i ], [ %ret.sroa.0.0.extract.trunc, %sw.bb37 ], [ %9, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIZNS7_22consumeCharacterEscapeEvEUlDsE_EEN4llvh8OptionalIDsEERKT_.exit ], [ %add.i35, %_ZZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE19tryConsumeHexDigitsEjENKUlDsE_clEDs.exit.i ]
   ret i32 %retval.0
 }
 

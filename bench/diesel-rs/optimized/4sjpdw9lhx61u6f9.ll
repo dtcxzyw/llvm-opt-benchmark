@@ -584,13 +584,14 @@ define internal void @"_ZN67_$LT$T$u20$as$u20$diesel..pg..metadata_lookup..PgMet
   %15 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15)
   %16 = icmp eq ptr %4, null
-  %spec.select = select i1 %16, i64 -9223372036854775807, i64 -9223372036854775808
+  %spec.select = select i1 %16, i64 undef, i64 %5
+  %spec.select30 = select i1 %16, i64 -9223372036854775807, i64 -9223372036854775808
   %17 = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 %spec.select, ptr %17, align 8
+  store i64 %spec.select30, ptr %17, align 8
   %.sroa.5.0..sroa_idx4 = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %4, ptr %.sroa.5.0..sroa_idx4, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx4.sroa_idx = getelementptr inbounds i8, ptr %15, i64 40
-  store i64 %5, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx4.sroa_idx, align 8
+  store i64 %spec.select, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx4.sroa_idx, align 8
   store i64 -9223372036854775808, ptr %15, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %2, ptr %.sroa.4.0..sroa_idx, align 8
@@ -988,9 +989,9 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store i32 4, ptr %15, align 8, !noalias !133
   %103 = load ptr, ptr %36, align 8, !alias.scope !134, !noalias !137, !noundef !5
   %.not.i21.i = icmp eq ptr %103, null
-  br i1 %.not.i21.i, label %.thread44.i, label %105
+  br i1 %.not.i21.i, label %.thread43.i, label %105
 
-.thread44.i:                                      ; preds = %98
+.thread43.i:                                      ; preds = %98
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15), !noalias !133
   %104 = getelementptr inbounds i8, ptr %19, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.431.i, ptr noundef nonnull align 8 dereferenceable(32) %104, i64 32, i1 false), !noalias !110
@@ -1018,7 +1019,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br i1 %109, label %133, label %110
 
 110:                                              ; preds = %108, %.thread.i
-  %.sroa.6.0.copyload39.i = phi i64 [ %.sroa.6.0.copyload36.i, %.thread.i ], [ %.sroa.6.0.copyload.i, %108 ]
+  %.sroa.6.0.copyload38.i = phi i64 [ %.sroa.6.0.copyload36.i, %.thread.i ], [ %.sroa.6.0.copyload.i, %108 ]
   %.sroa.0.0.copyload37.i = phi ptr [ %93, %.thread.i ], [ %.sroa.0.0.copyload.pr.pre.i, %108 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.431.i, i64 32, i1 false), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.431.i)
@@ -1028,7 +1029,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !110
   store ptr %.sroa.0.0.copyload37.i, ptr %16, align 8, !noalias !110
   %.sroa.6.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %16, i64 40
-  store i64 %.sroa.6.0.copyload39.i, ptr %.sroa.6.0..sroa_idx.i47, align 8, !noalias !110
+  store i64 %.sroa.6.0.copyload38.i, ptr %.sroa.6.0..sroa_idx.i47, align 8, !noalias !110
   %111 = load ptr, ptr %20, align 8, !noalias !110, !align !41, !noundef !5
   %112 = load ptr, ptr %83, align 8, !noalias !110, !align !41, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !139)
@@ -1108,7 +1109,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11, !noalias !156
   unreachable
 
-133:                                              ; preds = %108, %.thread44.i
+133:                                              ; preds = %108, %.thread43.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.431.i, i64 32, i1 false), !noalias !110
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.431.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !169
@@ -1644,9 +1645,9 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store i32 4, ptr %13, align 8, !noalias !284
   %95 = load ptr, ptr %32, align 8, !alias.scope !285, !noalias !288, !noundef !5
   %.not.i21.i = icmp eq ptr %95, null
-  br i1 %.not.i21.i, label %.thread44.i, label %97
+  br i1 %.not.i21.i, label %.thread43.i, label %97
 
-.thread44.i:                                      ; preds = %90
+.thread43.i:                                      ; preds = %90
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !284
   %96 = getelementptr inbounds i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.431.i, ptr noundef nonnull align 8 dereferenceable(32) %96, i64 32, i1 false), !noalias !262
@@ -1674,7 +1675,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br i1 %101, label %122, label %102
 
 102:                                              ; preds = %100, %.thread.i
-  %.sroa.6.0.copyload39.i = phi i64 [ %.sroa.6.0.copyload36.i, %.thread.i ], [ %.sroa.6.0.copyload.i, %100 ]
+  %.sroa.6.0.copyload38.i = phi i64 [ %.sroa.6.0.copyload36.i, %.thread.i ], [ %.sroa.6.0.copyload.i, %100 ]
   %.sroa.0.0.copyload37.i = phi ptr [ %85, %.thread.i ], [ %.sroa.0.0.copyload.pr.pre.i, %100 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.431.i, i64 32, i1 false), !noalias !262
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.431.i)
@@ -1684,7 +1685,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !262
   store ptr %.sroa.0.0.copyload37.i, ptr %15, align 8, !noalias !262
   %.sroa.6.0..sroa_idx.i47 = getelementptr inbounds i8, ptr %15, i64 40
-  store i64 %.sroa.6.0.copyload39.i, ptr %.sroa.6.0..sroa_idx.i47, align 8, !noalias !262
+  store i64 %.sroa.6.0.copyload38.i, ptr %.sroa.6.0..sroa_idx.i47, align 8, !noalias !262
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14), !noalias !262
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef nonnull align 8 dereferenceable(40) %73, i64 40, i1 false), !noalias !291
   call void @llvm.experimental.noalias.scope.decl(metadata !292)
@@ -1760,7 +1761,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11, !noalias !308
   unreachable
 
-122:                                              ; preds = %100, %.thread44.i
+122:                                              ; preds = %100, %.thread43.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.431.i, i64 32, i1 false), !noalias !262
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.431.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !321
@@ -2300,9 +2301,9 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   store i32 4, ptr %13, align 8, !noalias !435
   %97 = load ptr, ptr %32, align 8, !alias.scope !436, !noalias !439, !noundef !5
   %.not.i21.i = icmp eq ptr %97, null
-  br i1 %.not.i21.i, label %.thread59.i, label %99
+  br i1 %.not.i21.i, label %.thread58.i, label %99
 
-.thread59.i:                                      ; preds = %92
+.thread58.i:                                      ; preds = %92
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %13), !noalias !435
   %98 = getelementptr inbounds i8, ptr %18, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.438.i, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false), !noalias !414
@@ -2330,7 +2331,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   br i1 %103, label %130, label %104
 
 104:                                              ; preds = %102, %.thread.i
-  %.sroa.6.0.copyload54.i = phi i64 [ %.sroa.6.0.copyload51.i, %.thread.i ], [ %.sroa.6.0.copyload.i, %102 ]
+  %.sroa.6.0.copyload53.i = phi i64 [ %.sroa.6.0.copyload51.i, %.thread.i ], [ %.sroa.6.0.copyload.i, %102 ]
   %.sroa.0.0.copyload52.i = phi ptr [ %87, %.thread.i ], [ %.sroa.0.0.copyload.pr.pre.i, %102 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.438.i, i64 32, i1 false), !noalias !414
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.438.i)
@@ -2340,7 +2341,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16), !noalias !414
   store ptr %.sroa.0.0.copyload52.i, ptr %15, align 8, !noalias !414
   %.sroa.6.0..sroa_idx.i53 = getelementptr inbounds i8, ptr %15, i64 40
-  store i64 %.sroa.6.0.copyload54.i, ptr %.sroa.6.0..sroa_idx.i53, align 8, !noalias !414
+  store i64 %.sroa.6.0.copyload53.i, ptr %.sroa.6.0..sroa_idx.i53, align 8, !noalias !414
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %14), !noalias !414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %75, i64 72, i1 false), !noalias !442
   call void @llvm.experimental.noalias.scope.decl(metadata !443)
@@ -2439,7 +2440,7 @@ define hidden void @_ZN6diesel2pg10connection12PgConnection19with_prepared_query
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11, !noalias !451
   unreachable
 
-130:                                              ; preds = %102, %.thread59.i
+130:                                              ; preds = %102, %.thread58.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.438.i, i64 32, i1 false), !noalias !414
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.438.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.i, i64 32, i1 false), !noalias !475

@@ -1864,14 +1864,14 @@ define internal fastcc { i64, ptr } @"_ZN8async_fs14create_dir_all28_$u7b$$u7b$c
   %7 = alloca [24 x i8], align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load i8, ptr %8, align 8, !range !4, !noundef !5
-  switch i8 %9, label %default.unreachable22 [
+  switch i8 %9, label %default.unreachable24 [
     i8 0, label %11
     i8 1, label %29
     i8 2, label %30
     i8 3, label %10
   ]
 
-default.unreachable22:                            ; preds = %2
+default.unreachable24:                            ; preds = %2
   unreachable
 
 10:                                               ; preds = %2
@@ -2986,6 +2986,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h4a3ce6b36fa21449E.exit.i.i.i"
 
 "_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h4a3ce6b36fa21449E.exit.i.i.i": ; preds = %.noexc.i.i.i, %346
+  %.sroa.048.0.i.i.i = phi ptr [ undef, %.noexc.i.i.i ], [ %.sroa.041.0.copyload.i.i.i, %346 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !676)
   %349 = load i64, ptr %145, align 8, !range !9, !alias.scope !676, !noalias !643, !noundef !5
   %350 = icmp eq i64 %349, -9223372036854775808
@@ -3085,7 +3086,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %.body36.i
 
 376:                                              ; preds = %373, %309
-  %.sroa.052.0.i.i = phi ptr [ %.sroa.041.0.copyload.i.i.i, %373 ], [ undef, %309 ]
+  %.sroa.052.0.i.i = phi ptr [ %.sroa.048.0.i.i.i, %373 ], [ undef, %309 ]
   %.sroa.3.0.i.i = phi i8 [ %339, %373 ], [ 2, %309 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.469.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.649.i.i, i64 32, i1 false), !noalias !565
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.671.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1051.i.i, i64 7, i1 false), !noalias !565
@@ -5104,6 +5105,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %"_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h6d900c205029b292E.exit.i.i.i"
 
 "_ZN78_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$util..ResultExt$LT$E$GT$$GT$7log_err17h6d900c205029b292E.exit.i.i.i": ; preds = %.noexc.i.i.i, %346
+  %.sroa.048.0.i.i.i = phi ptr [ undef, %.noexc.i.i.i ], [ %.sroa.041.0.copyload.i.i.i, %346 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !1001)
   %349 = load i64, ptr %145, align 8, !range !9, !alias.scope !1001, !noalias !968, !noundef !5
   %350 = icmp eq i64 %349, -9223372036854775808
@@ -5203,7 +5205,7 @@ _ZN3log13__private_api3log17h8dd56d914befeeedE.exit.i.i.i: ; preds = %321
   br label %.body36.i
 
 376:                                              ; preds = %373, %309
-  %.sroa.052.0.i.i = phi ptr [ %.sroa.041.0.copyload.i.i.i, %373 ], [ undef, %309 ]
+  %.sroa.052.0.i.i = phi ptr [ %.sroa.048.0.i.i.i, %373 ], [ undef, %309 ]
   %.sroa.3.0.i.i = phi i8 [ %339, %373 ], [ 2, %309 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.469.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.649.i.i, i64 32, i1 false), !noalias !891
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.671.0..sroa_idx.i, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.1051.i.i, i64 7, i1 false), !noalias !891

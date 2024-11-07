@@ -3395,8 +3395,8 @@ define noundef zeroext i1 @_ZN4ring3rsa12verification11verify_rsa_17h1b39523efd2
 
 33:                                               ; preds = %27
   %.fca.0.extract18 = extractvalue { ptr, i64 } %29, 0
-  %.fca.1.extract19 = extractvalue { ptr, i64 } %29, 1
   %34 = icmp eq ptr %.fca.0.extract18, null
+  %.fca.1.extract19 = extractvalue { ptr, i64 } %29, 1
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %33

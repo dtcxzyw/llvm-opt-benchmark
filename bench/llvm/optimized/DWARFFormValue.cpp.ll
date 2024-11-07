@@ -2840,13 +2840,13 @@ define dso_local { i64, i8 } @_ZNK4llvm14DWARFFormValue12getAsAddressEv(ptr noca
   br i1 %.not36.i.i, label %12, label %13
 
 12:                                               ; preds = %8, %1
-  switch i16 %4, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread [
+  switch i16 %4, label %29 [
     i16 8193, label %.critedge.i.i
     i16 7937, label %.thread35.i.i
   ]
 
 13:                                               ; preds = %8
-  switch i16 %4, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread6 [
+  switch i16 %4, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 [
     i16 27, label %.thread35.i.i
     i16 44, label %.thread35.i.i
     i16 43, label %.thread35.i.i
@@ -2866,7 +2866,7 @@ define dso_local { i64, i8 } @_ZNK4llvm14DWARFFormValue12getAsAddressEv(ptr noca
 17:                                               ; preds = %.thread35.i.i, %.critedge.i.i
   %18 = phi i1 [ true, %.critedge.i.i ], [ false, %.thread35.i.i ]
   %19 = phi i64 [ %15, %.critedge.i.i ], [ %16, %.thread35.i.i ]
-  br i1 %.not.i.i, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread, label %20
+  br i1 %.not.i.i, label %29, label %20
 
 20:                                               ; preds = %17
   %21 = trunc i64 %19 to i32
@@ -2874,7 +2874,7 @@ define dso_local { i64, i8 } @_ZNK4llvm14DWARFFormValue12getAsAddressEv(ptr noca
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread
+  br i1 %24, label %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit, label %29
 
 _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit: ; preds = %20
   %.sroa.0.0.copyload.pre = load i64, ptr %2, align 8
@@ -2882,23 +2882,17 @@ _ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit: ; preds = %20
   %26 = and i64 %25, 4294967295
   %27 = select i1 %18, i64 %26, i64 0
   %.sroa.0.0.copyload = add i64 %.sroa.0.0.copyload.pre, %27
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !163
-  %spec.select = and i8 %23, 1
   br label %29
 
-_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread6: ; preds = %13
+_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4: ; preds = %13
   %28 = load i64, ptr %3, align 8, !noalias !166
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !163
   br label %29
 
-_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread: ; preds = %12, %17, %20
+29:                                               ; preds = %12, %17, %20, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4
+  %.sroa.2.0 = phi i8 [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ], [ 0, %20 ], [ 0, %17 ], [ 0, %12 ]
+  %.sroa.01.0 = phi i64 [ %28, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread4 ], [ %.sroa.0.0.copyload, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ], [ undef, %20 ], [ undef, %17 ], [ undef, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !163
-  br label %29
-
-29:                                               ; preds = %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread6
-  %.sroa.0.04 = phi i64 [ %28, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread6 ], [ undef, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread ], [ %.sroa.0.0.copyload, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
-  %.sroa.2.0 = phi i8 [ 1, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread6 ], [ 0, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit.thread ], [ %spec.select, %_ZNK4llvm14DWARFFormValue21getAsSectionedAddressEv.exit ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.04, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.01.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

@@ -171,9 +171,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !9
   %66 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9alternate17ha2f6c36f5ecbd9a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %spec.select.i = select i1 %66, ptr @anon.9778260fc09332ba06167c6343bedf99.8, ptr @anon.9778260fc09332ba06167c6343bedf99.16
-  %spec.select47.i = select i1 %66, i64 5, i64 1
+  %spec.select48.i = select i1 %66, i64 5, i64 1
   store ptr %spec.select.i, ptr %6, align 8, !noalias !9
-  store i64 %spec.select47.i, ptr %40, align 8, !noalias !9
+  store i64 %spec.select48.i, ptr %40, align 8, !noalias !9
   store ptr %6, ptr %7, align 8, !noalias !9
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h743c6ddf7f5b9dfaE", ptr %41, align 8, !noalias !9
   store ptr @anon.9778260fc09332ba06167c6343bedf99.15, ptr %8, align 8, !alias.scope !23, !noalias !26
@@ -317,11 +317,11 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   br i1 %44, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea9ef6dc98c4b671E.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea9ef6dc98c4b671E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea9ef6dc98c4b671E.exit": ; preds = %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit", %.backedge
-  %.sroa.0.049 = phi ptr [ %45, %.backedge ], [ %.sroa.0.0.i, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
-  %.sroa.8.048 = phi i64 [ %46, %.backedge ], [ 0, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
-  %45 = getelementptr inbounds i8, ptr %.sroa.0.049, i64 1
-  %46 = add i64 %.sroa.8.048, 1
-  %.not = icmp eq i64 %.sroa.8.048, 0
+  %.sroa.0.050 = phi ptr [ %45, %.backedge ], [ %.sroa.0.0.i, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
+  %.sroa.8.049 = phi i64 [ %46, %.backedge ], [ 0, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit" ]
+  %45 = getelementptr inbounds i8, ptr %.sroa.0.050, i64 1
+  %46 = add i64 %.sroa.8.049, 1
+  %.not = icmp eq i64 %.sroa.8.049, 0
   br i1 %.not, label %60, label %70
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hea9ef6dc98c4b671E.exit.thread": ; preds = %.backedge, %"_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17hd0dbc12b9ae2f7aaE.exit"
@@ -371,15 +371,15 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   br i1 %63, label %66, label %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit"
 
 64:                                               ; preds = %60
-  %65 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17h0165a118c0043447E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.049, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %65 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u8$GT$3fmt17h0165a118c0043447E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.050, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %65, label %.loopexit, label %.backedge
 
 66:                                               ; preds = %62
-  %67 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h596afddd40ccdb90E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.049, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %67 = call noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$u8$GT$3fmt17h596afddd40ccdb90E"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.050, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %67, label %.loopexit, label %.backedge
 
 "_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit": ; preds = %62
-  %68 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h43ec4bf23aea5d3aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.049, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
+  %68 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17h43ec4bf23aea5d3aE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %.sroa.0.050, ptr noalias noundef nonnull align 8 dereferenceable(64) %1)
   br i1 %68, label %.loopexit, label %.backedge
 
 .backedge:                                        ; preds = %"_ZN4core3fmt3num49_$LT$impl$u20$core..fmt..Debug$u20$for$u20$u8$GT$3fmt17h6972c654782f5edeE.exit", %64, %66
@@ -392,9 +392,9 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %71 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9alternate17ha2f6c36f5ecbd9a4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1)
   %spec.select = select i1 %71, ptr @anon.9778260fc09332ba06167c6343bedf99.8, ptr @anon.9778260fc09332ba06167c6343bedf99.16
-  %spec.select47 = select i1 %71, i64 5, i64 1
+  %spec.select48 = select i1 %71, i64 5, i64 1
   store ptr %spec.select, ptr %5, align 8
-  store i64 %spec.select47, ptr %38, align 8
+  store i64 %spec.select48, ptr %38, align 8
   store ptr %5, ptr %6, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h743c6ddf7f5b9dfaE", ptr %39, align 8
   store ptr @anon.9778260fc09332ba06167c6343bedf99.15, ptr %7, align 8, !alias.scope !47, !noalias !50

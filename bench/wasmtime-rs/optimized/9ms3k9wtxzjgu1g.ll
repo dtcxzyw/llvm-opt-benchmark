@@ -2106,29 +2106,29 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
 
 .lr.ph:                                           ; preds = %2, %15
   %12 = phi ptr [ %18, %15 ], [ %6, %2 ]
-  %.011 = phi i64 [ %16, %15 ], [ 0, %2 ]
+  %.010 = phi i64 [ %16, %15 ], [ 0, %2 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 56
   store ptr %13, ptr %0, align 8
   %14 = call zeroext i1 @"_ZN14cranelift_isle3ast7Pattern19make_macro_template28_$u7b$$u7b$closure$u7d$$u7d$17h7f746af6fbf8a3f6E"(ptr nonnull align 8 %3, ptr nonnull align 8 %12)
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = add i64 %.011, 1
+  %16 = add i64 %.010, 1
   %17 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %18 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf723613c10b1c955E.exit.thread", label %.lr.ph
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp ult i64 %.011, %10
+  %21 = icmp ult i64 %.010, %10
   call void @llvm.assume(i1 %21)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf723613c10b1c955E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf723613c10b1c955E.exit.thread": ; preds = %15, %2, %20
-  %.010 = phi i64 [ %.011, %20 ], [ 0, %2 ], [ %16, %15 ]
+  %.sroa.3.0 = phi i64 [ %.010, %20 ], [ undef, %2 ], [ undef, %15 ]
   %.sroa.0.0 = phi i64 [ 1, %20 ], [ 0, %2 ], [ 0, %15 ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.010, 1
+  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.3.0, 1
   ret { i64, i64 } %23
 }
 
@@ -2148,29 +2148,29 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
 
 .lr.ph:                                           ; preds = %2, %15
   %12 = phi ptr [ %18, %15 ], [ %6, %2 ]
-  %.011 = phi i64 [ %16, %15 ], [ 0, %2 ]
+  %.010 = phi i64 [ %16, %15 ], [ 0, %2 ]
   %13 = getelementptr inbounds i8, ptr %12, i64 56
   store ptr %13, ptr %0, align 8
   %14 = call zeroext i1 @"_ZN14cranelift_isle3ast7Pattern19make_macro_template28_$u7b$$u7b$closure$u7d$$u7d$17h4942d21901dda892E"(ptr nonnull align 8 %3, ptr nonnull align 8 %12)
   br i1 %14, label %20, label %15
 
 15:                                               ; preds = %.lr.ph
-  %16 = add i64 %.011, 1
+  %16 = add i64 %.010, 1
   %17 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %18 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %19 = icmp eq ptr %18, %17
   br i1 %19, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf723613c10b1c955E.exit.thread", label %.lr.ph
 
 20:                                               ; preds = %.lr.ph
-  %21 = icmp ult i64 %.011, %10
+  %21 = icmp ult i64 %.010, %10
   call void @llvm.assume(i1 %21)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf723613c10b1c955E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf723613c10b1c955E.exit.thread": ; preds = %15, %2, %20
-  %.010 = phi i64 [ %.011, %20 ], [ 0, %2 ], [ %16, %15 ]
+  %.sroa.3.0 = phi i64 [ %.010, %20 ], [ undef, %2 ], [ undef, %15 ]
   %.sroa.0.0 = phi i64 [ 1, %20 ], [ 0, %2 ], [ 0, %15 ]
   %22 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %23 = insertvalue { i64, i64 } %22, i64 %.010, 1
+  %23 = insertvalue { i64, i64 } %22, i64 %.sroa.3.0, 1
   ret { i64, i64 } %23
 }
 
@@ -2189,29 +2189,29 @@ define { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core
 
 .lr.ph:                                           ; preds = %1, %14
   %11 = phi ptr [ %17, %14 ], [ %5, %1 ]
-  %.011 = phi i64 [ %15, %14 ], [ 0, %1 ]
+  %.010 = phi i64 [ %15, %14 ], [ 0, %1 ]
   %12 = getelementptr inbounds i8, ptr %11, i64 64
   store ptr %12, ptr %0, align 8
   %13 = call zeroext i1 @"_ZN14cranelift_isle7codegen7Codegen10emit_block28_$u7b$$u7b$closure$u7d$$u7d$17h9f505d334ca0b89cE"(ptr nonnull align 1 %2, ptr nonnull align 8 %11)
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i64 %.011, 1
+  %15 = add i64 %.010, 1
   %16 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %17 = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
   %18 = icmp eq ptr %17, %16
   br i1 %18, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E.exit.thread", label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
-  %20 = icmp ult i64 %.011, %9
+  %20 = icmp ult i64 %.010, %9
   call void @llvm.assume(i1 %20)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5ee5228e768db773E.exit.thread": ; preds = %14, %1, %19
-  %.010 = phi i64 [ %.011, %19 ], [ 0, %1 ], [ %15, %14 ]
+  %.sroa.3.0 = phi i64 [ %.010, %19 ], [ undef, %1 ], [ undef, %14 ]
   %.sroa.0.0 = phi i64 [ 1, %19 ], [ 0, %1 ], [ 0, %14 ]
   %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.010, 1
+  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.3.0, 1
   ret { i64, i64 } %22
 }
 

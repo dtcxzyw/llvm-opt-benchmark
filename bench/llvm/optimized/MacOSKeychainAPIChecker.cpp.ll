@@ -3513,11 +3513,11 @@ define internal fastcc noundef ptr @_ZL18getAsPointeeSymbolPKN5clang4ExprERNS_4e
   tail call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #20
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 56
-  %.pre26 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds = %2, %9
-  %10 = phi ptr [ null, %2 ], [ %.pre26, %9 ]
+  %10 = phi ptr [ null, %2 ], [ %.pre28, %9 ]
   %11 = phi ptr [ %6, %2 ], [ %.pre, %9 ]
   %.sroa.1.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %11, i64 24
   %.sroa.1.0.copyload.i.i.i = load i64, ptr %.sroa.1.0..sroa_idx.i.i.i, align 8
@@ -3553,19 +3553,19 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit: ; preds
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %31 = call noundef ptr @_ZNK5clang4ento4SVal14getAsLocSymbolEb(ptr noundef nonnull align 8 dereferenceable(9) %4, i1 noundef zeroext false) #20
-  br label %.thread25
+  br label %.thread27
 
 32:                                               ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit
-  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %.thread25
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %.thread27
 
-.thread25:                                        ; preds = %21, %32
-  %.023 = phi ptr [ null, %32 ], [ %31, %21 ]
+.thread27:                                        ; preds = %21, %32
+  %.025 = phi ptr [ null, %32 ], [ %31, %21 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %8) #20
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %32, %.thread25
-  %.024 = phi ptr [ null, %32 ], [ %.023, %.thread25 ]
-  ret ptr %.024
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %32, %.thread27
+  %.026 = phi ptr [ null, %32 ], [ %.025, %.thread27 ]
+  ret ptr %.026
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

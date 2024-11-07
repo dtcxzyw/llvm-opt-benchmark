@@ -11178,14 +11178,14 @@ define hidden noundef zeroext i1 @"_ZN4call4room4Room13app_will_quit28_$u7b$$u7b
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i8, ptr %5, align 8, !range !342, !noundef !4
-  switch i8 %6, label %default.unreachable25 [
+  switch i8 %6, label %default.unreachable22 [
     i8 0, label %7
     i8 1, label %10
     i8 2, label %11
     i8 3, label %12
   ]
 
-default.unreachable25:                            ; preds = %2
+default.unreachable22:                            ; preds = %2
   unreachable
 
 7:                                                ; preds = %2
@@ -11322,14 +11322,14 @@ common.ret:                                       ; preds = %"_ZN4core3ptr101dro
   br label %9
 
 "_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h1bfad4d86f0bdeb0E.llvm.11385237746541577265.exit": ; preds = %17, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17he1a615857a8602c2E.exit.i", %29, %27, %32
-  %.sroa.3.0.i1824 = phi ptr [ %28, %27 ], [ %28, %29 ], [ %28, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17he1a615857a8602c2E.exit.i" ], [ %28, %32 ], [ %18, %17 ]
-  %48 = icmp eq ptr %.sroa.3.0.i1824, null
+  %.sroa.3.0.i.ph21 = phi ptr [ %28, %27 ], [ %28, %29 ], [ %28, %"_ZN4core3ptr103drop_in_place$LT$async_task..task..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17he1a615857a8602c2E.exit.i" ], [ %28, %32 ], [ %18, %17 ]
+  %48 = icmp eq ptr %.sroa.3.0.i.ph21, null
   br i1 %48, label %common.ret, label %49
 
 49:                                               ; preds = %"_ZN4core3ptr101drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$$GT$17h1bfad4d86f0bdeb0E.llvm.11385237746541577265.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !2439
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @anon.7f1f3e2ea84494735018032667b2473c.63, i64 24, i1 false)
-  invoke void @_ZN4util21log_error_with_caller17h238004aeacb22037E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i1824, i64 noundef 1)
+  invoke void @_ZN4util21log_error_with_caller17h238004aeacb22037E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull %.sroa.3.0.i.ph21, i64 noundef 1)
           to label %.noexc14 unwind label %46
 
 .noexc14:                                         ; preds = %49
@@ -14110,7 +14110,7 @@ define noalias noundef ptr @_ZN4call4room4Room17apply_room_update17hf382e9078637
   br label %26
 
 26:                                               ; preds = %34, %.lr.ph.i
-  %.sroa.02.013.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %34 ]
+  %.sroa.02.012.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %34 ]
   %27 = phi ptr [ %18, %.lr.ph.i ], [ %28, %34 ]
   %28 = getelementptr inbounds i8, ptr %27, i64 72
   %29 = getelementptr i8, ptr %27, i64 40
@@ -14127,7 +14127,7 @@ define noalias noundef ptr @_ZN4call4room4Room17apply_room_update17hf382e9078637
   br i1 %.sroa.0.0.i9.i, label %37, label %34
 
 34:                                               ; preds = %.noexc
-  %35 = add nuw nsw i64 %.sroa.02.013.i, 1
+  %35 = add nuw nsw i64 %.sroa.02.012.i, 1
   %36 = icmp eq ptr %28, %21
   br i1 %36, label %.loopexit, label %26
 
@@ -14147,16 +14147,16 @@ define noalias noundef ptr @_ZN4call4room4Room17apply_room_update17hf382e9078637
   br label %41
 
 37:                                               ; preds = %.noexc
-  %38 = icmp ult i64 %.sroa.02.013.i, %20
+  %38 = icmp ult i64 %.sroa.02.012.i, %20
   tail call void @llvm.assume(i1 %38)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2867)
   %39 = load i64, ptr %19, align 8, !alias.scope !2867, !noalias !2870, !noundef !4
-  %.not.i = icmp ult i64 %.sroa.02.013.i, %39
+  %.not.i = icmp ult i64 %.sroa.02.012.i, %39
   br i1 %.not.i, label %48, label %40
 
 40:                                               ; preds = %37
-  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove13assert_failed17h6d18e2d2c57285fcE"(i64 noundef %.sroa.02.013.i, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f1f3e2ea84494735018032667b2473c.47) #42
+  invoke void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11swap_remove13assert_failed17h6d18e2d2c57285fcE"(i64 noundef %.sroa.02.012.i, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7f1f3e2ea84494735018032667b2473c.47) #42
           to label %.noexc11 unwind label %.thread.loopexit.split-lp
 
 .noexc11:                                         ; preds = %40
@@ -14175,7 +14175,7 @@ define noalias noundef ptr @_ZN4call4room4Room17apply_room_update17hf382e9078637
 
 48:                                               ; preds = %37
   %49 = load ptr, ptr %17, align 8, !alias.scope !2867, !noalias !2870, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %49, i64 %.sroa.02.013.i
+  %50 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %49, i64 %.sroa.02.012.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, ptr noundef nonnull align 8 dereferenceable(72) %50, i64 72, i1 false)
   %51 = add i64 %39, -1
   %52 = getelementptr inbounds { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, { i32, [2 x i32] }, i32, i32, [1 x i32] }, ptr %49, i64 %51

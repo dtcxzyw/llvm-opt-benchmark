@@ -4803,13 +4803,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41.i.i:           ; preds = %1054, %1052
   %1057 = load ptr, ptr %24, align 8, !noalias !49
   %1058 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %24) #20, !noalias !49
   %1059 = getelementptr inbounds ptr, ptr %1057, i64 %1058
-  %.not56115.i.i.i = icmp eq i64 %1058, 0
-  br i1 %.not56115.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not56117.i.i.i = icmp eq i64 %1058, 0
+  br i1 %.not56117.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit41.i.i, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
-  %.052117.i.i.i = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i.i ]
-  %.054116.i.i.i = phi ptr [ %1068, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ], [ %1057, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i.i ]
-  br i1 %.052117.i.i.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i, label %1060
+  %.052119.i.i.i = phi i1 [ false, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ], [ true, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i.i ]
+  %.054118.i.i.i = phi ptr [ %1068, %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i ], [ %1057, %_ZN4llvm11raw_ostreamlsEPKc.exit41.i.i ]
+  br i1 %.052119.i.i.i, label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i, label %1060
 
 1060:                                             ; preds = %.lr.ph.i.i.i
   %1061 = load ptr, ptr %549, align 8, !noalias !49
@@ -4828,9 +4828,9 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41.i.i:           ; preds = %1054, %1052
   br label %_ZN4llvm11raw_ostreamlsEc.exit.i.i.i
 
 _ZN4llvm11raw_ostreamlsEc.exit.i.i.i:             ; preds = %1065, %1063, %.lr.ph.i.i.i
-  %1067 = load ptr, ptr %.054116.i.i.i, align 8, !noalias !49
+  %1067 = load ptr, ptr %.054118.i.i.i, align 8, !noalias !49
   call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %1067, ptr noundef nonnull align 8 dereferenceable(48) %27) #20, !noalias !49
-  %1068 = getelementptr inbounds i8, ptr %.054116.i.i.i, i64 8
+  %1068 = getelementptr inbounds i8, ptr %.054118.i.i.i, i64 8
   %.not56.i.i.i = icmp eq ptr %1068, %1059
   br i1 %.not56.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !58
 

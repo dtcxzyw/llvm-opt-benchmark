@@ -415,7 +415,7 @@ define range(i32 -2147483648, 1) i32 @fdt_generate_phandle(ptr noundef %0, ptr n
 
 ._crit_edge.i.thread:                             ; preds = %2
   %6 = icmp eq i32 %3, -1
-  br i1 %6, label %fdt_find_max_phandle.exit.thread14, label %fdt_find_max_phandle.exit.thread
+  br i1 %6, label %fdt_find_max_phandle.exit.thread15, label %fdt_find_max_phandle.exit.thread
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %7 = phi i32 [ %9, %.lr.ph.i ], [ %3, %2 ]
@@ -428,20 +428,20 @@ define range(i32 -2147483648, 1) i32 @fdt_generate_phandle(ptr noundef %0, ptr n
 
 fdt_find_max_phandle.exit:                        ; preds = %._crit_edge.i
   %11 = icmp eq i32 %spec.select.i, -2
-  br i1 %11, label %fdt_find_max_phandle.exit.thread, label %fdt_find_max_phandle.exit.thread14
+  br i1 %11, label %fdt_find_max_phandle.exit.thread, label %fdt_find_max_phandle.exit.thread15
 
-fdt_find_max_phandle.exit.thread14:               ; preds = %._crit_edge.i.thread, %fdt_find_max_phandle.exit
-  %.014.lcssa.i1216 = phi i32 [ %spec.select.i, %fdt_find_max_phandle.exit ], [ 0, %._crit_edge.i.thread ]
+fdt_find_max_phandle.exit.thread15:               ; preds = %._crit_edge.i.thread, %fdt_find_max_phandle.exit
+  %.014.lcssa.i1317 = phi i32 [ %spec.select.i, %fdt_find_max_phandle.exit ], [ 0, %._crit_edge.i.thread ]
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %fdt_find_max_phandle.exit.thread, label %12
 
-12:                                               ; preds = %fdt_find_max_phandle.exit.thread14
-  %13 = add i32 %.014.lcssa.i1216, 1
+12:                                               ; preds = %fdt_find_max_phandle.exit.thread15
+  %13 = add i32 %.014.lcssa.i1317, 1
   store i32 %13, ptr %1, align 4
   br label %fdt_find_max_phandle.exit.thread
 
-fdt_find_max_phandle.exit.thread:                 ; preds = %._crit_edge.i, %._crit_edge.i.thread, %fdt_find_max_phandle.exit.thread14, %12, %fdt_find_max_phandle.exit
-  %.0 = phi i32 [ -17, %fdt_find_max_phandle.exit ], [ 0, %12 ], [ 0, %fdt_find_max_phandle.exit.thread14 ], [ %3, %._crit_edge.i.thread ], [ %9, %._crit_edge.i ]
+fdt_find_max_phandle.exit.thread:                 ; preds = %._crit_edge.i, %._crit_edge.i.thread, %fdt_find_max_phandle.exit.thread15, %12, %fdt_find_max_phandle.exit
+  %.0 = phi i32 [ -17, %fdt_find_max_phandle.exit ], [ 0, %12 ], [ 0, %fdt_find_max_phandle.exit.thread15 ], [ %3, %._crit_edge.i.thread ], [ %9, %._crit_edge.i ]
   ret i32 %.0
 }
 

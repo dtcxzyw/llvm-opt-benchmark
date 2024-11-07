@@ -231,9 +231,9 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next
   %.sroa.01.0 = select i1 %2, i64 0, i64 %5
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.01.0, i64 1)
   %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
   %not. = xor i1 %7, true
   %.sroa.0.0 = zext i1 %not. to i64
-  %8 = extractvalue { i64, i1 } %6, 0
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %10 = insertvalue { i64, i64 } %9, i64 %8, 1
   ret { i64, i64 } %10
@@ -248,9 +248,9 @@ define hidden { i64, i64 } @_ZN4core3ops8function6FnOnce9call_once17h7a514adfc92
   %.sroa.01.0.i = select i1 %2, i64 0, i64 %5
   %6 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.01.0.i, i64 1)
   %7 = extractvalue { i64, i1 } %6, 1
+  %8 = extractvalue { i64, i1 } %6, 0
   %not..i = xor i1 %7, true
   %.sroa.0.0.i = zext i1 %not..i to i64
-  %8 = extractvalue { i64, i1 } %6, 0
   %9 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %10 = insertvalue { i64, i64 } %9, i64 %8, 1
   ret { i64, i64 } %10

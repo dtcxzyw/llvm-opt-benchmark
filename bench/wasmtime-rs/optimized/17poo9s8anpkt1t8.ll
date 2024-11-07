@@ -5005,15 +5005,15 @@ define hidden void @_ZN14cranelift_wasm19sections_translator18parse_type_section
   br label %49
 
 47:                                               ; preds = %46, %41, %.thread.i
-  %.sroa.510.0.i11.i = phi i32 [ %42, %46 ], [ 3, %41 ], [ 3, %.thread.i ]
-  %.sroa.09.0.i10.i = phi i64 [ %.sroa.09.0.copyload.i.i, %46 ], [ %.sroa.09.0.copyload.i.i, %41 ], [ %40, %.thread.i ]
+  %.sroa.510.0.i10.i = phi i32 [ %42, %46 ], [ 3, %41 ], [ 3, %.thread.i ]
+  %.sroa.5.014.i.i = phi i64 [ %.sroa.09.0.copyload.i.i, %46 ], [ undef, %41 ], [ undef, %.thread.i ]
   %.sink.i.i.i = phi i64 [ %33, %46 ], [ %.sroa.09.0.copyload.i.i, %41 ], [ %40, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 44, ptr nonnull %.sroa.9.i.i)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7), !noalias !71
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !71
   store i64 %.sink.i.i.i, ptr %5, align 8, !noalias !72
-  store i64 %.sroa.09.0.i10.i, ptr %.sroa.45.0..sroa_idx.i, align 8, !noalias !72
-  store i32 %.sroa.510.0.i11.i, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !72
+  store i64 %.sroa.5.014.i.i, ptr %.sroa.45.0..sroa_idx.i, align 8, !noalias !72
+  store i32 %.sroa.510.0.i10.i, ptr %.sroa.56.0..sroa_idx.i, align 8, !noalias !72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %.sroa.67.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(44) %.sroa.78.i.i, i64 44, i1 false), !noalias !71
   call void @"_ZN10wasmparser7readers4core5types103_$LT$impl$u20$wasmparser..readers..SectionLimited$LT$wasmparser..readers..core..types..RecGroup$GT$$GT$25into_iter_err_on_gc_types28_$u7b$$u7b$closure$u7d$$u7d$17hee5c589524d1a1a2E.llvm.14349183512120193719"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull align 1 %28, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %5), !noalias !76
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5), !noalias !71

@@ -347,20 +347,20 @@ define hidden { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %5 = load ptr, ptr %4, align 8, !alias.scope !49, !noalias !52, !nonnull !5, !noundef !5
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !49, !noalias !52
   %6 = load i8, ptr %1, align 1, !range !4, !alias.scope !45, !noalias !53
-  %.fr12.i = freeze i8 %6
-  %7 = trunc i8 %.fr12.i to i1
+  %.fr13.i = freeze i8 %6
+  %7 = trunc i8 %.fr13.i to i1
   %.val.i.i.i.i = load ptr, ptr %2, align 8, !alias.scope !47, !noalias !54, !nonnull !5, !align !6
   br i1 %7, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i", label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i"
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i": ; preds = %3
   %8 = icmp eq ptr %.promoted.i, %5
-  br i1 %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b0ebd18ca69280cE.llvm.5281214010887716636.exit, label %.split11.us.i
+  br i1 %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b0ebd18ca69280cE.llvm.5281214010887716636.exit, label %.split12.us.i
 
-.split11.us.i:                                    ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i"
+.split12.us.i:                                    ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i"
   %9 = getelementptr inbounds i8, ptr %.promoted.i, i64 8
   store ptr %9, ptr %0, align 8, !alias.scope !49, !noalias !52
   %.val7.us.i = load i64, ptr %.promoted.i, align 8, !noalias !55, !noundef !5
-  br label %.split11.i
+  br label %.split12.i
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i": ; preds = %3, %12
   %10 = phi ptr [ %13, %12 ], [ %.promoted.i, %3 ]
@@ -373,16 +373,16 @@ define hidden { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %.val7.i = load i64, ptr %10, align 8, !noalias !55, !noundef !5
   %14 = load i64, ptr %.val.i.i.i.i, align 8, !noalias !55, !noundef !5
   %15 = icmp ult i64 %.val7.i, %14
-  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i", label %.split11.i
+  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i", label %.split12.i
 
-.split11.i:                                       ; preds = %12, %.split11.us.i
-  %.us-phi.i = phi i64 [ %.val7.us.i, %.split11.us.i ], [ %.val7.i, %12 ]
+.split12.i:                                       ; preds = %12, %.split12.us.i
+  %.us-phi.i = phi i64 [ %.val7.us.i, %.split12.us.i ], [ %.val7.i, %12 ]
   store i8 1, ptr %1, align 1, !alias.scope !45, !noalias !53
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b0ebd18ca69280cE.llvm.5281214010887716636.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b0ebd18ca69280cE.llvm.5281214010887716636.exit: ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i", %.split11.i
-  %.sroa.3.0.i = phi i64 [ %.us-phi.i, %.split11.i ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i" ]
-  %.sroa.0.0.i = phi i64 [ 1, %.split11.i ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b0ebd18ca69280cE.llvm.5281214010887716636.exit: ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i", %.split12.i
+  %.sroa.3.0.i = phi i64 [ %.us-phi.i, %.split12.i ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i" ]
+  %.sroa.0.0.i = phi i64 [ 1, %.split12.i ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us.i" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.i" ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %17
@@ -397,20 +397,20 @@ define hidden { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %5 = load ptr, ptr %4, align 8, !alias.scope !63, !noalias !66, !nonnull !5, !noundef !5
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !63, !noalias !66
   %6 = load i8, ptr %1, align 1, !range !4, !alias.scope !59, !noalias !67
-  %.fr12.i = freeze i8 %6
-  %7 = trunc i8 %.fr12.i to i1
+  %.fr13.i = freeze i8 %6
+  %7 = trunc i8 %.fr13.i to i1
   %.val.i.i.i.i = load ptr, ptr %2, align 8, !alias.scope !61, !noalias !68, !nonnull !5, !align !6
   br i1 %7, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i", label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i"
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i": ; preds = %3
   %8 = icmp eq ptr %.promoted.i, %5
-  br i1 %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0b009a818313449E.llvm.5281214010887716636.exit, label %.split11.us.i
+  br i1 %8, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0b009a818313449E.llvm.5281214010887716636.exit, label %.split12.us.i
 
-.split11.us.i:                                    ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i"
+.split12.us.i:                                    ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i"
   %9 = getelementptr inbounds i8, ptr %.promoted.i, i64 8
   store ptr %9, ptr %0, align 8, !alias.scope !63, !noalias !66
   %.val7.us.i = load i64, ptr %.promoted.i, align 8, !noalias !69, !noundef !5
-  br label %.split11.i
+  br label %.split12.i
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i": ; preds = %3, %12
   %10 = phi ptr [ %13, %12 ], [ %.promoted.i, %3 ]
@@ -423,16 +423,16 @@ define hidden { i64, i64 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %.val7.i = load i64, ptr %10, align 8, !noalias !69, !noundef !5
   %14 = load i64, ptr %.val.i.i.i.i, align 8, !noalias !69, !noundef !5
   %15 = icmp ult i64 %.val7.i, %14
-  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i", label %.split11.i
+  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i", label %.split12.i
 
-.split11.i:                                       ; preds = %12, %.split11.us.i
-  %.us-phi.i = phi i64 [ %.val7.us.i, %.split11.us.i ], [ %.val7.i, %12 ]
+.split12.i:                                       ; preds = %12, %.split12.us.i
+  %.us-phi.i = phi i64 [ %.val7.us.i, %.split12.us.i ], [ %.val7.i, %12 ]
   store i8 1, ptr %1, align 1, !alias.scope !59, !noalias !67
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0b009a818313449E.llvm.5281214010887716636.exit
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0b009a818313449E.llvm.5281214010887716636.exit: ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i", %.split11.i
-  %.sroa.3.0.i = phi i64 [ %.us-phi.i, %.split11.i ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i" ]
-  %.sroa.0.0.i = phi i64 [ 1, %.split11.i ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i" ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0b009a818313449E.llvm.5281214010887716636.exit: ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i", %.split12.i
+  %.sroa.3.0.i = phi i64 [ %.us-phi.i, %.split12.i ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i" ]
+  %.sroa.0.0.i = phi i64 [ 1, %.split12.i ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us.i" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.i" ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0.i, 1
   ret { i64, i64 } %17
@@ -12105,20 +12105,20 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b
   %5 = load ptr, ptr %4, align 8, !alias.scope !2433, !nonnull !5, !noundef !5
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !2433
   %6 = load i8, ptr %1, align 1, !range !4
-  %.fr12 = freeze i8 %6
-  %7 = trunc i8 %.fr12 to i1
+  %.fr13 = freeze i8 %6
+  %7 = trunc i8 %.fr13 to i1
   %.val.i.i.i = load ptr, ptr %2, align 8, !nonnull !5, !align !6
   br i1 %7, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us", label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit"
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us": ; preds = %3
   %8 = icmp eq ptr %.promoted, %5
-  br i1 %8, label %.loopexit, label %.split11.us
+  br i1 %8, label %.loopexit, label %.split12.us
 
-.split11.us:                                      ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us"
+.split12.us:                                      ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us"
   %9 = getelementptr inbounds i8, ptr %.promoted, i64 8
   store ptr %9, ptr %0, align 8, !alias.scope !2433
   %.val7.us = load i64, ptr %.promoted, align 8, !noundef !5
-  br label %.split11
+  br label %.split12
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit": ; preds = %3, %12
   %10 = phi ptr [ %13, %12 ], [ %.promoted, %3 ]
@@ -12131,16 +12131,16 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h9b
   %.val7 = load i64, ptr %10, align 8, !noundef !5
   %14 = load i64, ptr %.val.i.i.i, align 8, !noundef !5
   %15 = icmp ult i64 %.val7, %14
-  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit", label %.split11
+  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit", label %.split12
 
-.split11:                                         ; preds = %12, %.split11.us
-  %.us-phi = phi i64 [ %.val7.us, %.split11.us ], [ %.val7, %12 ]
+.split12:                                         ; preds = %12, %.split12.us
+  %.us-phi = phi i64 [ %.val7.us, %.split12.us ], [ %.val7, %12 ]
   store i8 1, ptr %1, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us", %.split11
-  %.sroa.3.0 = phi i64 [ %.us-phi, %.split11 ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %.split11 ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit" ]
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us", %.split12
+  %.sroa.3.0 = phi i64 [ %.us-phi, %.split12 ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %.split12 ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit.us" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hccdec038c95079dbE.exit" ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
   ret { i64, i64 } %17
@@ -12152,20 +12152,20 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0
   %5 = load ptr, ptr %4, align 8, !alias.scope !2436, !nonnull !5, !noundef !5
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !2436
   %6 = load i8, ptr %1, align 1, !range !4
-  %.fr12 = freeze i8 %6
-  %7 = trunc i8 %.fr12 to i1
+  %.fr13 = freeze i8 %6
+  %7 = trunc i8 %.fr13 to i1
   %.val.i.i.i = load ptr, ptr %2, align 8, !nonnull !5, !align !6
   br i1 %7, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us", label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit"
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us": ; preds = %3
   %8 = icmp eq ptr %.promoted, %5
-  br i1 %8, label %.loopexit, label %.split11.us
+  br i1 %8, label %.loopexit, label %.split12.us
 
-.split11.us:                                      ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us"
+.split12.us:                                      ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us"
   %9 = getelementptr inbounds i8, ptr %.promoted, i64 8
   store ptr %9, ptr %0, align 8, !alias.scope !2436
   %.val7.us = load i64, ptr %.promoted, align 8, !noundef !5
-  br label %.split11
+  br label %.split12
 
 "_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit": ; preds = %3, %12
   %10 = phi ptr [ %13, %12 ], [ %.promoted, %3 ]
@@ -12178,16 +12178,16 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb0
   %.val7 = load i64, ptr %10, align 8, !noundef !5
   %14 = load i64, ptr %.val.i.i.i, align 8, !noundef !5
   %15 = icmp ult i64 %.val7, %14
-  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit", label %.split11
+  br i1 %15, label %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit", label %.split12
 
-.split11:                                         ; preds = %12, %.split11.us
-  %.us-phi = phi i64 [ %.val7.us, %.split11.us ], [ %.val7, %12 ]
+.split12:                                         ; preds = %12, %.split12.us
+  %.us-phi = phi i64 [ %.val7.us, %.split12.us ], [ %.val7, %12 ]
   store i8 1, ptr %1, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us", %.split11
-  %.sroa.3.0 = phi i64 [ %.us-phi, %.split11 ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit" ]
-  %.sroa.0.0 = phi i64 [ 1, %.split11 ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit" ]
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit", %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us", %.split12
+  %.sroa.3.0 = phi i64 [ %.us-phi, %.split12 ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us" ], [ undef, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit" ]
+  %.sroa.0.0 = phi i64 [ 1, %.split12 ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit.us" ], [ 0, %"_ZN4core4iter8adapters6copied13copy_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h148233643a0055d9E.exit" ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1
   ret { i64, i64 } %17
@@ -45764,19 +45764,19 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h208c7c95d87cdffeE.exit: ; preds = %4
   unreachable
 
 108:                                              ; preds = %120, %.lr.ph.i.i
-  %.sroa.10.035.i.i = phi i64 [ %96, %.lr.ph.i.i ], [ %109, %120 ]
-  %.sroa.014.034.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %112, %120 ]
-  %.sroa.7.033.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %113, %120 ]
-  %109 = add nsw i64 %.sroa.10.035.i.i, -1
-  %110 = icmp eq ptr %.sroa.014.034.i.i, %102
+  %.sroa.10.036.i.i = phi i64 [ %96, %.lr.ph.i.i ], [ %109, %120 ]
+  %.sroa.014.035.i.i = phi ptr [ %91, %.lr.ph.i.i ], [ %112, %120 ]
+  %.sroa.7.034.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %113, %120 ]
+  %109 = add nsw i64 %.sroa.10.036.i.i, -1
+  %110 = icmp eq ptr %.sroa.014.035.i.i, %102
   br i1 %110, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha03aee0c09f5f2e7E.exit.i", label %111
 
 111:                                              ; preds = %108
-  %112 = getelementptr inbounds i8, ptr %.sroa.014.034.i.i, i64 24
-  %113 = add nuw nsw i64 %.sroa.7.033.i.i, 1
-  %114 = getelementptr i8, ptr %.sroa.014.034.i.i, i64 8
+  %112 = getelementptr inbounds i8, ptr %.sroa.014.035.i.i, i64 24
+  %113 = add nuw nsw i64 %.sroa.7.034.i.i, 1
+  %114 = getelementptr i8, ptr %.sroa.014.035.i.i, i64 8
   %.val11.i.i = load ptr, ptr %114, align 8, !alias.scope !8234, !noalias !8237, !nonnull !5, !noundef !5
-  %115 = getelementptr i8, ptr %.sroa.014.034.i.i, i64 16
+  %115 = getelementptr i8, ptr %.sroa.014.035.i.i, i64 16
   %.val12.i.i = load i64, ptr %115, align 8, !alias.scope !8234, !noalias !8237, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14), !noalias !8239
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h863013e325b93a6aE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %14, i64 noundef %.val12.i.i, i1 noundef zeroext false)
@@ -45800,7 +45800,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h208c7c95d87cdffeE.exit: ; preds = %4
   %121 = load ptr, ptr %105, align 8, !noalias !8239, !nonnull !5, !noundef !5
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14), !noalias !8239
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %121, ptr nonnull readonly align 1 %.val11.i.i, i64 %.val12.i.i, i1 false), !noalias !8249
-  %122 = getelementptr inbounds [0 x { [3 x i64] }], ptr %99, i64 0, i64 %.sroa.7.033.i.i
+  %122 = getelementptr inbounds [0 x { [3 x i64] }], ptr %99, i64 0, i64 %.sroa.7.034.i.i
   store i64 %117, ptr %122, align 8, !noalias !8248
   %.sroa.422.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %122, i64 8
   store ptr %121, ptr %.sroa.422.0..sroa_idx.i.i, align 8, !noalias !8248
@@ -45827,7 +45827,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h208c7c95d87cdffeE.exit: ; preds = %4
 
 126:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
-  store i64 %.sroa.7.033.i.i, ptr %101, align 8, !noalias !8232
+  store i64 %.sroa.7.034.i.i, ptr %101, align 8, !noalias !8232
   invoke void @"_ZN4core3ptr62drop_in_place$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$17h4db1c7af0d37b01aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %16) #48
           to label %342 unwind label %124, !noalias !8248
 

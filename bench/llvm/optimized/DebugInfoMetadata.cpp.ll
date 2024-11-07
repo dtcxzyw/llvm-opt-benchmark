@@ -2553,19 +2553,19 @@ define dso_local range(i64 0, 8589934592) i64 @_ZN4llvm10DILocation19encodeDiscr
   br i1 %.not.i, label %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader, label %.lr.ph.i, !llvm.loop !55
 
 _ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader:  ; preds = %.lr.ph.i
-  %.not27 = icmp eq i64 %9, 0
-  br i1 %.not27, label %.thread, label %.lr.ph
+  %.not28 = icmp eq i64 %9, 0
+  br i1 %.not28, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader, %_ZL15encodeComponentj.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
-  %.031 = phi i64 [ %13, %_ZL15encodeComponentj.exit ], [ %9, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
-  %.01729 = phi i32 [ %32, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
-  %.02628 = phi i32 [ %28, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
+  %.032 = phi i64 [ %13, %_ZL15encodeComponentj.exit ], [ %9, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
+  %.01730 = phi i32 [ %32, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
+  %.02629 = phi i32 [ %28, %_ZL15encodeComponentj.exit ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = getelementptr inbounds [3 x i32], ptr %4, i64 0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4
   %12 = zext i32 %11 to i64
-  %13 = sub i64 %.031, %12
+  %13 = sub i64 %.032, %12
   %14 = icmp eq i32 %11, 0
   br i1 %14, label %_ZL15encodeComponentj.exit, label %15
 
@@ -2589,12 +2589,12 @@ _ZL29getPrefixEncodingFromUnsignedj.exit.i:       ; preds = %18, %15
 
 _ZL15encodeComponentj.exit:                       ; preds = %.lr.ph, %_ZL29getPrefixEncodingFromUnsignedj.exit.i
   %26 = phi i32 [ %25, %_ZL29getPrefixEncodingFromUnsignedj.exit.i ], [ 1, %.lr.ph ]
-  %27 = shl i32 %26, %.01729
-  %28 = or i32 %27, %.02628
+  %27 = shl i32 %26, %.01730
+  %28 = or i32 %27, %.02629
   %29 = icmp ugt i32 %11, 31
   %30 = select i1 %29, i32 14, i32 7
   %31 = select i1 %14, i32 1, i32 %30
-  %32 = add i32 %31, %.01729
+  %32 = add i32 %31, %.01730
   %.not = icmp eq i64 %13, 0
   br i1 %.not, label %_ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge, label %.lr.ph, !llvm.loop !56
 
@@ -2618,15 +2618,15 @@ _ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge: ; preds = %_ZL15encodeComponen
 
 .thread:                                          ; preds = %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader, %34
   %42 = phi i32 [ %35, %34 ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
-  %.026.lcssa3740 = phi i32 [ %28, %34 ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
+  %.026.lcssa3841 = phi i32 [ %28, %34 ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit.preheader ]
   %43 = and i32 %42, 31
   br label %_ZL29getUnsignedFromPrefixEncodingj.exit.i
 
 _ZL29getUnsignedFromPrefixEncodingj.exit.i:       ; preds = %.thread, %37, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge
-  %.026.lcssa36 = phi i32 [ %28, %37 ], [ %.026.lcssa3740, %.thread ], [ %28, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge ]
+  %.026.lcssa37 = phi i32 [ %28, %37 ], [ %.026.lcssa3841, %.thread ], [ %28, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge ]
   %.pn.i.i = phi i32 [ 14, %37 ], [ 7, %.thread ], [ 1, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge ]
   %.0.i.i = phi i32 [ %41, %37 ], [ %43, %.thread ], [ 0, %_ZSt10accumulateIPjmET0_T_S2_S1_.exit._crit_edge ]
-  %.0.i6.i = lshr i32 %.026.lcssa36, %.pn.i.i
+  %.0.i6.i = lshr i32 %.026.lcssa37, %.pn.i.i
   %44 = and i32 %.0.i6.i, 1
   %.not.i7.i = icmp eq i32 %44, 0
   br i1 %.not.i7.i, label %45, label %_ZL29getUnsignedFromPrefixEncodingj.exit10.i
@@ -2680,9 +2680,9 @@ _ZN4llvm10DILocation19decodeDiscriminatorEjRjS1_S1_.exit: ; preds = %_ZL29getUns
   %or.cond = select i1 %66, i1 %67, i1 false
   %68 = icmp eq i32 %.0.i18.i, %2
   %or.cond20 = select i1 %or.cond, i1 %68, i1 false
-  %.sroa.2.0.insert.shift = select i1 %or.cond20, i64 4294967296, i64 0
-  %.sroa.0.0.insert.ext = zext i32 %.026.lcssa36 to i64
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.shift, %.sroa.0.0.insert.ext
+  %69 = zext i32 %.026.lcssa37 to i64
+  %70 = or disjoint i64 %69, 4294967296
+  %.sroa.0.0.insert.insert = select i1 %or.cond20, i64 %70, i64 0
   ret i64 %.sroa.0.0.insert.insert
 }
 

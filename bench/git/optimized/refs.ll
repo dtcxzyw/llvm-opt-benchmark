@@ -690,8 +690,8 @@ do.body:                                          ; preds = %skip_prefix.exit, %
   %8 = and i8 %7, 4
   %cmp.not.i = icmp ne i8 %8, 0
   %9 = and i8 %6, 32
-  %tobool16.not11 = icmp eq i8 %9, 0
-  %tobool16.not = and i1 %tobool16.not11, %cmp.not.i
+  %tobool16.not13 = icmp eq i8 %9, 0
+  %tobool16.not = and i1 %tobool16.not13, %cmp.not.i
   %cmp18.not = icmp eq i8 %6, 95
   %or.cond = or i1 %cmp18.not, %tobool16.not
   br i1 %or.cond, label %if.end21, label %return
@@ -3077,14 +3077,14 @@ if.end19.else:                                    ; preds = %if.end19.cont90
   br label %if.end19.cont
 
 if.end19.cont:                                    ; preds = %if.end19.cont90, %if.end19.else
-  %scevgep112 = getelementptr i8, ptr %maybe_worktree_ref, i64 14
+  %scevgep116 = getelementptr i8, ptr %maybe_worktree_ref, i64 14
   br label %do.body.i25
 
 do.body.i25:                                      ; preds = %do.cond.i29, %if.end19.cont
   %str.addr.0.i26 = phi ptr [ %maybe_worktree_ref, %if.end19.cont ], [ %incdec.ptr.i30, %do.cond.i29 ]
   %prefix.addr.0.i27.idx = phi i64 [ 0, %if.end19.cont ], [ %prefix.addr.0.i27.add, %do.cond.i29 ]
-  %exitcond113 = icmp eq i64 %prefix.addr.0.i27.idx, 14
-  br i1 %exitcond113, label %if.then.i33, label %do.cond.i29
+  %exitcond117 = icmp eq i64 %prefix.addr.0.i27.idx, 14
+  br i1 %exitcond117, label %if.then.i33, label %do.cond.i29
 
 if.then.i33:                                      ; preds = %do.body.i25
   br i1 %tobool4.not, label %land.lhs.true.cont, label %land.lhs.true.else
@@ -3099,17 +3099,17 @@ do.cond.i29:                                      ; preds = %do.body.i25
   br i1 %cmp.i32, label %do.body.i25, label %if.end25, !llvm.loop !7
 
 land.lhs.true.else:                               ; preds = %if.then.i33
-  store ptr %scevgep112, ptr %bare_refname, align 8
+  store ptr %scevgep116, ptr %bare_refname, align 8
   br label %land.lhs.true.cont
 
 land.lhs.true.cont:                               ; preds = %if.then.i33, %land.lhs.true.else
-  %12 = load i8, ptr %scevgep112, align 1
+  %12 = load i8, ptr %scevgep116, align 1
   %tobool.not6.i.i35 = icmp eq i8 %12, 0
   br i1 %tobool.not6.i.i35, label %return, label %for.body.i.i36
 
 for.body.i.i36:                                   ; preds = %land.lhs.true.cont, %for.inc.i.i43
   %13 = phi i8 [ %17, %for.inc.i.i43 ], [ %12, %land.lhs.true.cont ]
-  %c.07.i.i37 = phi ptr [ %incdec.ptr.i.i44, %for.inc.i.i43 ], [ %scevgep112, %land.lhs.true.cont ]
+  %c.07.i.i37 = phi ptr [ %incdec.ptr.i.i44, %for.inc.i.i43 ], [ %scevgep116, %land.lhs.true.cont ]
   %idxprom.i.i.i38 = zext i8 %13 to i64
   %arrayidx.i.i.i39 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i38
   %14 = load i8, ptr %arrayidx.i.i.i39, align 1
@@ -3133,17 +3133,17 @@ for.inc.i.i43:                                    ; preds = %land.lhs.true.i.i47
   br i1 %tobool.not.i.i45, label %return, label %for.body.i.i36, !llvm.loop !14
 
 lor.rhs.i48:                                      ; preds = %land.lhs.true.i.i47
-  %call.i.i49 = tail call i32 @starts_with(ptr noundef nonnull %scevgep112, ptr noundef nonnull @.str.26) #23
+  %call.i.i49 = tail call i32 @starts_with(ptr noundef nonnull %scevgep116, ptr noundef nonnull @.str.26) #23
   %tobool.not.i2.i50 = icmp eq i32 %call.i.i49, 0
   br i1 %tobool.not.i2.i50, label %lor.lhs.false.i.i51, label %return
 
 lor.lhs.false.i.i51:                              ; preds = %lor.rhs.i48
-  %call1.i.i52 = tail call i32 @starts_with(ptr noundef nonnull %scevgep112, ptr noundef nonnull @.str.27) #23
+  %call1.i.i52 = tail call i32 @starts_with(ptr noundef nonnull %scevgep116, ptr noundef nonnull @.str.27) #23
   %tobool2.not.i.i53 = icmp eq i32 %call1.i.i52, 0
   br i1 %tobool2.not.i.i53, label %is_current_worktree_ref.exit57, label %return
 
 is_current_worktree_ref.exit57:                   ; preds = %lor.lhs.false.i.i51
-  %call3.i.i55 = tail call i32 @starts_with(ptr noundef nonnull %scevgep112, ptr noundef nonnull @.str.9) #23
+  %call3.i.i55 = tail call i32 @starts_with(ptr noundef nonnull %scevgep116, ptr noundef nonnull @.str.9) #23
   %tobool4.i.i56.not = icmp eq i32 %call3.i.i55, 0
   br i1 %tobool4.i.i56.not, label %if.end25, label %return
 

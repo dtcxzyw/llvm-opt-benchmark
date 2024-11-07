@@ -7434,16 +7434,16 @@ _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8: ; preds = %if
 
 _ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit: ; preds = %lor.rhs.critedge.i
   %68 = extractvalue { i8, i64 } %call225.i, 1
-  %conv229.i = trunc i64 %68 to i32
+  %69 = trunc i64 %68 to i32
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %argv.i)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %callback_scope.i)
-  %cmp = icmp eq i32 %conv229.i, 0
+  %cmp = icmp eq i32 %69, 0
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit
   %pending_pause_.i = getelementptr inbounds i8, ptr %1, i64 1801
-  %69 = load i8, ptr %pending_pause_.i, align 1
-  %tobool.i3 = trunc i8 %69 to i1
+  %70 = load i8, ptr %pending_pause_.i, align 1
+  %tobool.i3 = trunc i8 %70 to i1
   br i1 %tobool.i3, label %if.end.i5, label %if.end
 
 if.end.i5:                                        ; preds = %if.then
@@ -7453,7 +7453,7 @@ if.end.i5:                                        ; preds = %if.then
   br label %if.end
 
 if.end:                                           ; preds = %if.end.i5, %if.then, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit
-  %rv.0 = phi i32 [ %conv229.i, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit ], [ -1, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8 ], [ 21, %if.end.i5 ], [ 0, %if.then ]
+  %rv.0 = phi i32 [ %69, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit ], [ -1, %_ZN4node12_GLOBAL__N_16Parser19on_headers_completeEv.exit.thread8 ], [ 21, %if.end.i5 ], [ 0, %if.then ]
   ret i32 %rv.0
 }
 

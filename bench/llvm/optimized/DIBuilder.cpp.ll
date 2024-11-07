@@ -1690,6 +1690,7 @@ define dso_local noundef ptr @_ZN4llvm9DIBuilder10createFileENS_9StringRefES1_St
 
 _ZNSt8optionalIN4llvm6DIFile12ChecksumInfoIPNS0_8MDStringEEEE7emplaceIJRNS1_12ChecksumKindES4_EEENSt9enable_ifIX18is_constructible_vIS5_DpT_EERS5_E4typeEDpOSB_.exit.i.i: ; preds = %14, %12, %7
   %.sroa.223.0.i.i = phi ptr [ undef, %7 ], [ %15, %14 ], [ null, %12 ]
+  %.sroa.0.0.i.i = phi i32 [ undef, %7 ], [ %.sroa.07.sroa.0.0.copyload, %14 ], [ %.sroa.07.sroa.0.0.copyload, %12 ]
   %.sroa.3.0.i.i = phi i8 [ 0, %7 ], [ 1, %14 ], [ 1, %12 ]
   %16 = icmp eq i64 %2, 0
   br i1 %16, label %_ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit17.i.i, label %17
@@ -1709,7 +1710,7 @@ _ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit17.i.
 
 _ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit19.i.i: ; preds = %20, %_ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit17.i.i
   %.0.i18.i.i = phi ptr [ %21, %20 ], [ null, %_ZN4llvm6DINode20getCanonicalMDStringERNS_11LLVMContextENS_9StringRefE.exit17.i.i ]
-  store i32 %.sroa.07.sroa.0.0.copyload, ptr %8, align 8
+  store i32 %.sroa.0.0.i.i, ptr %8, align 8
   %.sroa.223.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.sroa.223.0.i.i, ptr %.sroa.223.0..sroa_idx.i.i, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %8, i64 16

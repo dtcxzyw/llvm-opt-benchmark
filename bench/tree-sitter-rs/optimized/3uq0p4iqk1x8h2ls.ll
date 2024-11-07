@@ -2476,8 +2476,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
           to label %68 unwind label %66, !noalias !465
 
 65:                                               ; preds = %57, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i"
-  %.sroa.17.1 = phi i64 [ %.sroa.12.8.copyload.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ undef, %57 ]
-  %.sroa.16.1 = phi i64 [ %.sroa.11.8.copyload.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ undef, %57 ]
+  %.sroa.17.1 = phi i64 [ %.sroa.17.0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ undef, %57 ]
+  %.sroa.16.1 = phi i64 [ %.sroa.16.0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ undef, %57 ]
   %.sroa.8.1 = phi i64 [ %.sroa.8.0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ undef, %57 ]
   %.sroa.0.130 = phi i64 [ %.sroa.0.029, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ -9223372036854775808, %57 ]
   %.6.i = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i" ], [ 1, %57 ]
@@ -2587,6 +2587,8 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha3ed41a3cb0be9b3E.exit.i": ; preds = %"_ZN18tree_sitter_loader21LanguageConfiguration11tags_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc38b4047c97fd5e0E.exit.i.i", %72
+  %.sroa.17.0 = phi i64 [ undef, %"_ZN18tree_sitter_loader21LanguageConfiguration11tags_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc38b4047c97fd5e0E.exit.i.i" ], [ %.sroa.12.8.copyload.i, %72 ]
+  %.sroa.16.0 = phi i64 [ undef, %"_ZN18tree_sitter_loader21LanguageConfiguration11tags_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc38b4047c97fd5e0E.exit.i.i" ], [ %.sroa.11.8.copyload.i, %72 ]
   %.sroa.8.0 = phi i64 [ %94, %"_ZN18tree_sitter_loader21LanguageConfiguration11tags_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc38b4047c97fd5e0E.exit.i.i" ], [ %.sroa.6.8.copyload.i, %72 ]
   %.sroa.0.029 = phi i64 [ -9223372036854775807, %"_ZN18tree_sitter_loader21LanguageConfiguration11tags_config28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc38b4047c97fd5e0E.exit.i.i" ], [ %69, %72 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.8.i)

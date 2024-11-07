@@ -48,13 +48,23 @@ switch.lookup:
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint13Elem$LT$M$GT$20from_be_bytes_padded17h97516350b1ca1237E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN4ring10arithmetic6bigint11boxed_limbs19BoxedLimbs$LT$M$GT$30from_be_bytes_padded_less_than17h29379d812c6fbe19E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
-  ret { ptr, i64 } %4
+  %.fca.0.extract = extractvalue { ptr, i64 } %4, 0
+  %5 = icmp eq ptr %.fca.0.extract, null
+  %.fca.1.extract = extractvalue { ptr, i64 } %4, 1
+  %.sroa.3.0 = select i1 %5, i64 undef, i64 %.fca.1.extract
+  %6 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN4ring10arithmetic6bigint13Elem$LT$M$GT$20from_be_bytes_padded17hc099ba267b39138cE"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 {
   %4 = tail call { ptr, i64 } @"_ZN4ring10arithmetic6bigint11boxed_limbs19BoxedLimbs$LT$M$GT$30from_be_bytes_padded_less_than17hcc1c8cde7baf9932E"(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %2)
-  ret { ptr, i64 } %4
+  %.fca.0.extract = extractvalue { ptr, i64 } %4, 0
+  %5 = icmp eq ptr %.fca.0.extract, null
+  %.fca.1.extract = extractvalue { ptr, i64 } %4, 1
+  %.sroa.3.0 = select i1 %5, i64 undef, i64 %.fca.1.extract
+  %6 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

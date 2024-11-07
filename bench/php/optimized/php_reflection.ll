@@ -31302,7 +31302,7 @@ define hidden void @zim_ReflectionFiber___construct(ptr noundef %0, ptr nocaptur
 
 8:                                                ; preds = %2
   tail call void @zend_wrong_parameters_count_error(i32 noundef 1, i32 noundef 1) #13
-  br label %.critedge
+  br label %29
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %0, i64 80
@@ -31314,18 +31314,18 @@ define hidden void @zim_ReflectionFiber___construct(ptr noundef %0, ptr nocaptur
 
 15:                                               ; preds = %9
   %.not67 = icmp eq ptr %11, null
-  br i1 %.not67, label %29, label %16
+  br i1 %.not67, label %30, label %16
 
 16:                                               ; preds = %15
   %17 = load ptr, ptr %10, align 8
   %18 = getelementptr inbounds i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %11
-  br i1 %20, label %29, label %21
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %16
   %22 = tail call zeroext i1 @instanceof_function_slow(ptr noundef %19, ptr noundef nonnull %11) #13
-  br i1 %22, label %29, label %thread-pre-split
+  br i1 %22, label %30, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %21
   %.pr = load ptr, ptr @zend_ce_fiber, align 8
@@ -31334,48 +31334,48 @@ thread-pre-split:                                 ; preds = %21
 23:                                               ; preds = %thread-pre-split, %9
   %24 = phi ptr [ %.pr, %thread-pre-split ], [ %11, %9 ]
   %.not68 = icmp eq ptr %24, null
-  br i1 %.not68, label %.critedge, label %25
+  br i1 %.not68, label %29, label %25
 
 25:                                               ; preds = %23
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %27, i64 24
-  br label %.critedge
+  br label %29
 
-.critedge:                                        ; preds = %8, %25, %23
+29:                                               ; preds = %8, %25, %23
   %.061 = phi i32 [ 0, %8 ], [ 0, %25 ], [ 18, %23 ]
   %.060 = phi ptr [ null, %8 ], [ %28, %25 ], [ null, %23 ]
   %.059 = phi ptr [ null, %8 ], [ %10, %25 ], [ %10, %23 ]
   %.058 = phi i32 [ 1, %8 ], [ 3, %25 ], [ 9, %23 ]
   %.057 = phi i32 [ 0, %8 ], [ 1, %25 ], [ 1, %23 ]
   tail call void @zend_wrong_parameter_error(i32 noundef %.058, i32 noundef %.057, ptr noundef %.060, i32 noundef %.061, ptr noundef %.059) #13
-  br label %40
+  br label %41
 
-29:                                               ; preds = %15, %21, %16
-  %30 = getelementptr inbounds i8, ptr %4, i64 -16
-  %31 = load ptr, ptr %30, align 8
-  %.not70 = icmp eq ptr %31, null
-  br i1 %.not70, label %33, label %32
+30:                                               ; preds = %16, %21, %15
+  %31 = getelementptr inbounds i8, ptr %4, i64 -16
+  %32 = load ptr, ptr %31, align 8
+  %.not70 = icmp eq ptr %32, null
+  br i1 %.not70, label %34, label %33
 
-32:                                               ; preds = %29
+33:                                               ; preds = %30
   tail call void @zval_ptr_dtor(ptr noundef nonnull %5) #13
-  br label %33
+  br label %34
 
-33:                                               ; preds = %32, %29
-  %34 = getelementptr inbounds i8, ptr %4, i64 -8
-  store i32 3, ptr %34, align 8
-  %35 = load ptr, ptr %10, align 8
-  %36 = load i32, ptr %35, align 4
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 4
-  store ptr %35, ptr %5, align 8
-  %38 = getelementptr inbounds i8, ptr %4, i64 -32
-  store i32 776, ptr %38, align 8
-  %39 = load ptr, ptr @zend_ce_fiber, align 8
-  store ptr %39, ptr %30, align 8
-  br label %40
+34:                                               ; preds = %33, %30
+  %35 = getelementptr inbounds i8, ptr %4, i64 -8
+  store i32 3, ptr %35, align 8
+  %36 = load ptr, ptr %10, align 8
+  %37 = load i32, ptr %36, align 4
+  %38 = add i32 %37, 1
+  store i32 %38, ptr %36, align 4
+  store ptr %36, ptr %5, align 8
+  %39 = getelementptr inbounds i8, ptr %4, i64 -32
+  store i32 776, ptr %39, align 8
+  %40 = load ptr, ptr @zend_ce_fiber, align 8
+  store ptr %40, ptr %31, align 8
+  br label %41
 
-40:                                               ; preds = %33, %.critedge
+41:                                               ; preds = %34, %29
   ret void
 }
 

@@ -4056,27 +4056,27 @@ define dso_local noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanEN
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %11, %3
-  %.tr52 = phi ptr [ %1, %3 ], [ %.sroa.0.0.copyload.i.i.i.i25, %11 ]
-  %.tr53 = phi i8 [ %2, %3 ], [ %.sroa.2.0.copyload.i.i.i.i27, %11 ]
-  store ptr %.tr52, ptr %5, align 8
-  store i8 %.tr53, ptr %6, align 8
-  switch i8 %.tr53, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit [
+  %.tr58 = phi ptr [ %1, %3 ], [ %.sroa.0.0.copyload.i.i.i.i25, %11 ]
+  %.tr59 = phi i8 [ %2, %3 ], [ %.sroa.2.0.copyload.i.i.i.i27, %11 ]
+  store ptr %.tr58, ptr %5, align 8
+  store i8 %.tr59, ptr %6, align 8
+  switch i8 %.tr59, label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit [
     i8 4, label %7
     i8 7, label %9
     i8 8, label %11
   ]
 
 7:                                                ; preds = %tailrecurse
-  %8 = tail call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.tr52)
+  %8 = tail call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanEPKNS0_9MemRegionE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %.tr58)
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
 9:                                                ; preds = %tailrecurse
-  %10 = tail call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc15LazyCompoundValE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.tr52, i8 7)
+  %10 = tail call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc15LazyCompoundValE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.tr58, i8 7)
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
 11:                                               ; preds = %tailrecurse
-  %.sroa.0.0.copyload.i.i.i.i25 = load ptr, ptr %.tr52, align 8
-  %.sroa.2.0..sroa_idx.i.i.i.i26 = getelementptr inbounds i8, ptr %.tr52, i64 8
+  %.sroa.0.0.copyload.i.i.i.i25 = load ptr, ptr %.tr58, align 8
+  %.sroa.2.0..sroa_idx.i.i.i.i26 = getelementptr inbounds i8, ptr %.tr58, i64 8
   %.sroa.2.0.copyload.i.i.i.i27 = load i8, ptr %.sroa.2.0..sroa_idx.i.i.i.i26, align 8
   br label %tailrecurse
 
@@ -4102,31 +4102,31 @@ _ZNK5clang4ento4SVal5getAsINS0_6nonloc12LocAsIntegerEEESt8optionalIT_Ev.exit: ; 
   store i8 5, ptr %18, align 8
   %19 = call ptr @_ZNK5clang4ento6nonloc11CompoundVal5beginEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #18
   %20 = call ptr @_ZNK5clang4ento6nonloc11CompoundVal3endEv(ptr noundef nonnull align 8 dereferenceable(9) %4) #18
-  %.not5158 = icmp eq ptr %19, %20
-  br i1 %.not5158, label %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit, label %.lr.ph
+  %.not5764 = icmp eq ptr %19, %20
+  br i1 %.not5764, label %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %23
-  %.sroa.042.059 = phi ptr [ %25, %23 ], [ %19, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.042.059, i64 8
+  %.sroa.042.065 = phi ptr [ %25, %23 ], [ %19, %17 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.042.065, i64 8
   %.sroa.01.0.copyload.i = load ptr, ptr %21, align 8
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.042.059, i64 16
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.042.065, i64 16
   %.sroa.22.0.copyload.i = load i8, ptr %.sroa.22.0..sroa_idx.i, align 8
   %22 = call noundef zeroext i1 @_ZN5clang4ento20ScanReachableSymbols4scanENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr %.sroa.01.0.copyload.i, i8 %.sroa.22.0.copyload.i)
   br i1 %22, label %23, label %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit
 
 23:                                               ; preds = %.lr.ph
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.042.059, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.042.065, i64 24
   %25 = load ptr, ptr %24, align 8
-  %.not51 = icmp eq ptr %25, %20
-  br i1 %.not51, label %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit, label %.lr.ph
+  %.not57 = icmp eq ptr %25, %20
+  br i1 %.not57, label %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit, label %.lr.ph
 
 _ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit: ; preds = %.lr.ph, %23, %17
-  %.not51.lcssa = phi i1 [ true, %17 ], [ %22, %23 ], [ %22, %.lr.ph ]
+  %.not57.lcssa = phi i1 [ true, %17 ], [ %22, %23 ], [ %22, %.lr.ph ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit
 
 _ZNK5clang4ento4SVal5getAsINS0_6nonloc11CompoundValEEESt8optionalIT_Ev.exit: ; preds = %15, %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit, %13, %9, %7
-  %.0 = phi i1 [ %8, %7 ], [ %10, %9 ], [ %14, %13 ], [ %.not51.lcssa, %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit ], [ true, %15 ]
+  %.0 = phi i1 [ %8, %7 ], [ %10, %9 ], [ %14, %13 ], [ %.not57.lcssa, %_ZN5clang4ento20ScanReachableSymbols4scanENS0_6nonloc11CompoundValE.exit ], [ true, %15 ]
   ret i1 %.0
 }
 

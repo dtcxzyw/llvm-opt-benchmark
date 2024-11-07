@@ -1083,16 +1083,16 @@ define void @_ZN4ring2ec7suite_b5ecdsa12verification14split_rs_fixed17he1e47c4be
 23:                                               ; preds = %16
   %24 = sub nuw i64 %11, %9
   %25 = getelementptr inbounds i8, ptr %17, i64 %9
-  %26 = getelementptr inbounds i8, ptr %17, i64 %11
-  %27 = sub nuw i64 %19, %11
+  %26 = sub nuw i64 %19, %11
+  %27 = getelementptr inbounds i8, ptr %17, i64 %11
   store i64 %19, ptr %8, align 8, !alias.scope !208
   store ptr %25, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %24, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.513.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %26, ptr %.sroa.513.0..sroa_idx, align 8
+  store ptr %27, ptr %.sroa.513.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %27, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %26, ptr %.sroa.6.0..sroa_idx, align 8
   br label %29
 
 28:                                               ; preds = %16

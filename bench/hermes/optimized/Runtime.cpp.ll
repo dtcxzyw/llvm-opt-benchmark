@@ -9245,11 +9245,11 @@ if.end8.i.i:                                      ; preds = %if.then21
   br label %_ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit
 
 _ZN6hermes2vmplERKNS0_11TwineChar16ES3_.exit:     ; preds = %if.then21, %if.end8.i.i
-  %agg.tmp.sroa.0.0.copyload.sink = phi ptr [ %agg.tmp.sroa.0.0.copyload, %if.end8.i.i ], [ @.str.134, %if.then21 ]
+  %ref.tmp23.sroa.0.0.sink = phi ptr [ %agg.tmp.sroa.0.0.copyload, %if.end8.i.i ], [ @.str.134, %if.then21 ]
   %.sink100 = phi i32 [ 3, %if.end8.i.i ], [ 1, %if.then21 ]
   %agg.tmp.sroa.2.0.copyload.sink = phi i64 [ %agg.tmp.sroa.2.0.copyload, %if.end8.i.i ], [ 26, %if.then21 ]
   %.sink = phi i64 [ 26, %if.end8.i.i ], [ 0, %if.then21 ]
-  store ptr %agg.tmp.sroa.0.0.copyload.sink, ptr %ref.tmp22, align 8
+  store ptr %ref.tmp23.sroa.0.0.sink, ptr %ref.tmp22, align 8
   %17 = getelementptr inbounds i8, ptr %ref.tmp22, i64 8
   store i32 3, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %ref.tmp22, i64 24

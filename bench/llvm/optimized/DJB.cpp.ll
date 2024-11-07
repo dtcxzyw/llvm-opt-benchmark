@@ -18,29 +18,30 @@ define dso_local noundef i32 @_ZN4llvm18caseFoldingDjbHashENS_9StringRefEj(ptr %
   %9 = alloca ptr, align 8
   %10 = alloca %"struct.std::array", align 1
   %11 = getelementptr inbounds i8, ptr %0, i64 %1
-  %.not19.i = icmp eq i64 %1, 0
-  br i1 %.not19.i, label %.loopexit, label %.lr.ph.i
+  %.not20.i = icmp eq i64 %1, 0
+  br i1 %.not20.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
-  %.022.i = phi i1 [ %20, %.lr.ph.i ], [ true, %3 ]
-  %.01421.i = phi ptr [ %21, %.lr.ph.i ], [ %0, %3 ]
-  %.01820.i = phi i32 [ %18, %.lr.ph.i ], [ %2, %3 ]
-  %12 = load i8, ptr %.01421.i, align 1
-  %13 = mul i32 %.01820.i, 33
-  %14 = zext i8 %12 to i32
-  %15 = add i8 %12, -65
+  %.023.i = phi i1 [ %20, %.lr.ph.i ], [ true, %3 ]
+  %.01422.i = phi ptr [ %21, %.lr.ph.i ], [ %0, %3 ]
+  %.01821.i = phi i32 [ %18, %.lr.ph.i ], [ %2, %3 ]
+  %12 = load i8, ptr %.01422.i, align 1
+  %.fr30.i = freeze i8 %12
+  %13 = mul i32 %.01821.i, 33
+  %14 = zext i8 %.fr30.i to i32
+  %15 = add i8 %.fr30.i, -65
   %or.cond.i = icmp ult i8 %15, 26
   %16 = add nuw nsw i32 %14, 32
   %17 = select i1 %or.cond.i, i32 %16, i32 %14
   %18 = add i32 %17, %13
-  %19 = icmp sgt i8 %12, -1
-  %20 = and i1 %.022.i, %19
-  %21 = getelementptr inbounds i8, ptr %.01421.i, i64 1
+  %19 = icmp sgt i8 %.fr30.i, -1
+  %20 = and i1 %.023.i, %19
+  %21 = getelementptr inbounds i8, ptr %.01422.i, i64 1
   %.not.i = icmp eq ptr %21, %11
   br i1 %.not.i, label %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, label %.lr.ph.i
 
 _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %.lr.ph.i
-  %.mux = select i1 %20, i32 %18, i32 %2
+  %.sroa.014.0.extract.trunc.mux = select i1 %20, i32 %18, i32 %2
   br i1 %20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
@@ -50,7 +51,7 @@ _ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit: ; preds = %.lr.ph.i
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN4llvm7djbHashENS_9StringRefEj.exit
-  %.0924 = phi i32 [ %2, %.lr.ph ], [ %.0.lcssa.i13, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
+  %.0924 = phi i32 [ %2, %.lr.ph ], [ %.0.lcssa.i, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   %.sroa.4.023 = phi i64 [ %1, %.lr.ph ], [ %33, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   %.sroa.016.022 = phi ptr [ %0, %.lr.ph ], [ %32, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -107,12 +108,12 @@ _ZL13foldCharDwarfj.exit:                         ; preds = %25, %36
   br i1 %.not.i12, label %_ZN4llvm7djbHashENS_9StringRefEj.exit, label %.lr.ph.i11
 
 _ZN4llvm7djbHashENS_9StringRefEj.exit:            ; preds = %.lr.ph.i11, %_ZL13foldCharDwarfj.exit
-  %.0.lcssa.i13 = phi i32 [ %.0924, %_ZL13foldCharDwarfj.exit ], [ %43, %.lr.ph.i11 ]
+  %.0.lcssa.i = phi i32 [ %.0924, %_ZL13foldCharDwarfj.exit ], [ %43, %.lr.ph.i11 ]
   %45 = icmp eq i64 %33, 0
   br i1 %45, label %.loopexit, label %25, !llvm.loop !4
 
-.loopexit:                                        ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit, %3
-  %.0 = phi i32 [ %.mux, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit ], [ %2, %3 ], [ %.0.lcssa.i13, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
+.loopexit:                                        ; preds = %_ZN4llvm7djbHashENS_9StringRefEj.exit, %3, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit
+  %.0 = phi i32 [ %.sroa.014.0.extract.trunc.mux, %_ZL22fastCaseFoldingDjbHashN4llvm9StringRefEj.exit ], [ %2, %3 ], [ %.0.lcssa.i, %_ZN4llvm7djbHashENS_9StringRefEj.exit ]
   ret i32 %.0
 }
 

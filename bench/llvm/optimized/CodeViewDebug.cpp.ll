@@ -7010,7 +7010,7 @@ define hidden void @_ZN4llvm13CodeViewDebug26emitInlineeLinesSubsectionEv(ptr no
   %13 = alloca %"class.llvm::Twine", align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1056
   %15 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #23
-  br i1 %15, label %227, label %16
+  br i1 %15, label %228, label %16
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 480
@@ -7120,7 +7120,7 @@ define hidden void @_ZN4llvm13CodeViewDebug26emitInlineeLinesSubsectionEv(ptr no
 
 92:                                               ; preds = %.lr.ph, %_ZN4llvmplERKNS_5TwineES2_.exit55
   %.sroa.0.0 = phi i64 [ undef, %.lr.ph ], [ %.sroa.0.0.insert.insert100, %_ZN4llvmplERKNS_5TwineES2_.exit55 ]
-  %.065 = phi ptr [ %65, %.lr.ph ], [ %218, %_ZN4llvmplERKNS_5TwineES2_.exit55 ]
+  %.065 = phi ptr [ %65, %.lr.ph ], [ %219, %_ZN4llvmplERKNS_5TwineES2_.exit55 ]
   %93 = load ptr, ptr %.065, align 8
   store ptr %93, ptr %5, align 8
   store ptr null, ptr %69, align 8
@@ -7318,99 +7318,100 @@ _ZN4llvmplERKNS_5TwineES2_.exit25:                ; preds = %_ZNK4llvm7DIScope11
   %storemerge = phi i8 [ 1, %176 ], [ 5, %_ZN4llvmplERKNS_5TwineES2_.exit25 ]
   %178 = phi ptr [ %.sroa.0.0.i, %176 ], [ %8, %_ZN4llvmplERKNS_5TwineES2_.exit25 ]
   %179 = phi i8 [ 5, %176 ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit25 ]
+  %180 = phi i64 [ %.sroa.3.0.i, %176 ], [ undef, %_ZN4llvmplERKNS_5TwineES2_.exit25 ]
   store i8 %storemerge133, ptr %77, align 8
   store i8 %storemerge, ptr %78, align 1
   store ptr %178, ptr %7, align 8, !alias.scope !114
-  store i64 %.sroa.3.0.i, ptr %.sroa.23.0..sroa_idx.i.i.i38, align 8, !alias.scope !114
+  store i64 %180, ptr %.sroa.23.0..sroa_idx.i.i.i38, align 8, !alias.scope !114
   store ptr inttoptr (i64 58 to ptr), ptr %82, align 8, !alias.scope !114
   store i8 %179, ptr %80, align 8, !alias.scope !114
   store i8 8, ptr %81, align 1, !alias.scope !114
-  %180 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %181 = load i32, ptr %180, align 8
-  %.sroa.0.0.insert.ext = zext i32 %181 to i64
+  %181 = getelementptr inbounds nuw i8, ptr %93, i64 16
+  %182 = load i32, ptr %181, align 8
+  %.sroa.0.0.insert.ext = zext i32 %182 to i64
   %.sroa.0.0.insert.mask = and i64 %.sroa.0.0, -4294967296
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.mask, %.sroa.0.0.insert.ext
-  %182 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
+  %183 = inttoptr i64 %.sroa.0.0.insert.insert to ptr
   store ptr %7, ptr %6, align 8, !alias.scope !119
-  store ptr %182, ptr %85, align 8, !alias.scope !119
+  store ptr %183, ptr %85, align 8, !alias.scope !119
   br label %_ZN4llvmplERKNS_5TwineES2_.exit55
 
 _ZN4llvmplERKNS_5TwineES2_.exit55:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit25.thread81, %177
   %.sink132 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit25.thread81 ], [ 2, %177 ]
   %.sink = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit25.thread81 ], [ 9, %177 ]
   %.sroa.0.0.insert.insert100 = phi i64 [ %.sroa.0.0.insert.insert105, %_ZN4llvmplERKNS_5TwineES2_.exit25.thread81 ], [ %.sroa.0.0.insert.insert, %177 ]
-  %183 = phi ptr [ %172, %_ZN4llvmplERKNS_5TwineES2_.exit25.thread81 ], [ %180, %177 ]
+  %184 = phi ptr [ %172, %_ZN4llvmplERKNS_5TwineES2_.exit25.thread81 ], [ %181, %177 ]
   store i8 %.sink132, ptr %83, align 8, !alias.scope !119
   store i8 %.sink, ptr %84, align 1, !alias.scope !119
-  %184 = load ptr, ptr %119, align 8
-  %185 = getelementptr inbounds i8, ptr %184, i64 120
-  %186 = load ptr, ptr %185, align 8
-  call void %186(ptr noundef nonnull align 8 dereferenceable(288) %119, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #23
-  %187 = load ptr, ptr %17, align 8
-  %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds i8, ptr %188, i64 160
-  %190 = load ptr, ptr %189, align 8
-  call void %190(ptr noundef nonnull align 8 dereferenceable(288) %187) #23
-  %191 = load ptr, ptr %17, align 8
+  %185 = load ptr, ptr %119, align 8
+  %186 = getelementptr inbounds i8, ptr %185, i64 120
+  %187 = load ptr, ptr %186, align 8
+  call void %187(ptr noundef nonnull align 8 dereferenceable(288) %119, ptr noundef nonnull align 8 dereferenceable(34) %6, i1 noundef zeroext true) #23
+  %188 = load ptr, ptr %17, align 8
+  %189 = load ptr, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %189, i64 160
+  %191 = load ptr, ptr %190, align 8
+  call void %191(ptr noundef nonnull align 8 dereferenceable(288) %188) #23
+  %192 = load ptr, ptr %17, align 8
   store i8 1, ptr %87, align 1
   store ptr @.str.29, ptr %11, align 8
   store i8 3, ptr %86, align 8
-  %192 = load ptr, ptr %191, align 8
-  %193 = getelementptr inbounds i8, ptr %192, i64 120
-  %194 = load ptr, ptr %193, align 8
-  call void %194(ptr noundef nonnull align 8 dereferenceable(288) %191, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true) #23
-  %195 = load ptr, ptr %17, align 8
-  %196 = zext i32 %96 to i64
-  %197 = load ptr, ptr %195, align 8
-  %198 = getelementptr inbounds i8, ptr %197, i64 520
-  %199 = load ptr, ptr %198, align 8
-  call void %199(ptr noundef nonnull align 8 dereferenceable(288) %195, i64 noundef %196, i32 noundef 4) #23
-  %200 = load ptr, ptr %17, align 8
+  %193 = load ptr, ptr %192, align 8
+  %194 = getelementptr inbounds i8, ptr %193, i64 120
+  %195 = load ptr, ptr %194, align 8
+  call void %195(ptr noundef nonnull align 8 dereferenceable(288) %192, ptr noundef nonnull align 8 dereferenceable(34) %11, i1 noundef zeroext true) #23
+  %196 = load ptr, ptr %17, align 8
+  %197 = zext i32 %96 to i64
+  %198 = load ptr, ptr %196, align 8
+  %199 = getelementptr inbounds i8, ptr %198, i64 520
+  %200 = load ptr, ptr %199, align 8
+  call void %200(ptr noundef nonnull align 8 dereferenceable(288) %196, i64 noundef %197, i32 noundef 4) #23
+  %201 = load ptr, ptr %17, align 8
   store i8 1, ptr %89, align 1
   store ptr @.str.30, ptr %12, align 8
   store i8 3, ptr %88, align 8
-  %201 = load ptr, ptr %200, align 8
-  %202 = getelementptr inbounds i8, ptr %201, i64 120
-  %203 = load ptr, ptr %202, align 8
-  call void %203(ptr noundef nonnull align 8 dereferenceable(288) %200, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #23
-  %204 = load ptr, ptr %17, align 8
-  %205 = load ptr, ptr %204, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 832
-  %207 = load ptr, ptr %206, align 8
-  call void %207(ptr noundef nonnull align 8 dereferenceable(288) %204, i32 noundef %118) #23
-  %208 = load ptr, ptr %17, align 8
+  %202 = load ptr, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %202, i64 120
+  %204 = load ptr, ptr %203, align 8
+  call void %204(ptr noundef nonnull align 8 dereferenceable(288) %201, ptr noundef nonnull align 8 dereferenceable(34) %12, i1 noundef zeroext true) #23
+  %205 = load ptr, ptr %17, align 8
+  %206 = load ptr, ptr %205, align 8
+  %207 = getelementptr inbounds i8, ptr %206, i64 832
+  %208 = load ptr, ptr %207, align 8
+  call void %208(ptr noundef nonnull align 8 dereferenceable(288) %205, i32 noundef %118) #23
+  %209 = load ptr, ptr %17, align 8
   store i8 1, ptr %91, align 1
   store ptr @.str.31, ptr %13, align 8
   store i8 3, ptr %90, align 8
-  %209 = load ptr, ptr %208, align 8
-  %210 = getelementptr inbounds i8, ptr %209, i64 120
-  %211 = load ptr, ptr %210, align 8
-  call void %211(ptr noundef nonnull align 8 dereferenceable(288) %208, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true) #23
-  %212 = load ptr, ptr %17, align 8
-  %213 = load i32, ptr %183, align 8
-  %214 = zext i32 %213 to i64
-  %215 = load ptr, ptr %212, align 8
-  %216 = getelementptr inbounds i8, ptr %215, i64 520
-  %217 = load ptr, ptr %216, align 8
-  call void %217(ptr noundef nonnull align 8 dereferenceable(288) %212, i64 noundef %214, i32 noundef 4) #23
-  %218 = getelementptr inbounds i8, ptr %.065, i64 8
-  %.not = icmp eq ptr %218, %67
+  %210 = load ptr, ptr %209, align 8
+  %211 = getelementptr inbounds i8, ptr %210, i64 120
+  %212 = load ptr, ptr %211, align 8
+  call void %212(ptr noundef nonnull align 8 dereferenceable(288) %209, ptr noundef nonnull align 8 dereferenceable(34) %13, i1 noundef zeroext true) #23
+  %213 = load ptr, ptr %17, align 8
+  %214 = load i32, ptr %184, align 8
+  %215 = zext i32 %214 to i64
+  %216 = load ptr, ptr %213, align 8
+  %217 = getelementptr inbounds i8, ptr %216, i64 520
+  %218 = load ptr, ptr %217, align 8
+  call void %218(ptr noundef nonnull align 8 dereferenceable(288) %213, i64 noundef %215, i32 noundef 4) #23
+  %219 = getelementptr inbounds i8, ptr %.065, i64 8
+  %.not = icmp eq ptr %219, %67
   br i1 %.not, label %._crit_edge, label %92
 
 ._crit_edge:                                      ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit55, %16
-  %219 = load ptr, ptr %17, align 8
-  %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 200
-  %222 = load ptr, ptr %221, align 8
-  call void %222(ptr noundef nonnull align 8 dereferenceable(288) %219, ptr noundef %36, ptr null) #23
-  %223 = load ptr, ptr %17, align 8
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 640
-  %226 = load ptr, ptr %225, align 8
-  call void %226(ptr noundef nonnull align 8 dereferenceable(288) %223, i8 2, i64 noundef 0, i32 noundef 1, i32 noundef 0) #23
-  br label %227
+  %220 = load ptr, ptr %17, align 8
+  %221 = load ptr, ptr %220, align 8
+  %222 = getelementptr inbounds i8, ptr %221, i64 200
+  %223 = load ptr, ptr %222, align 8
+  call void %223(ptr noundef nonnull align 8 dereferenceable(288) %220, ptr noundef %36, ptr null) #23
+  %224 = load ptr, ptr %17, align 8
+  %225 = load ptr, ptr %224, align 8
+  %226 = getelementptr inbounds i8, ptr %225, i64 640
+  %227 = load ptr, ptr %226, align 8
+  call void %227(ptr noundef nonnull align 8 dereferenceable(288) %224, i8 2, i64 noundef 0, i32 noundef 1, i32 noundef 0) #23
+  br label %228
 
-227:                                              ; preds = %1, %._crit_edge
+228:                                              ; preds = %1, %._crit_edge
   ret void
 }
 

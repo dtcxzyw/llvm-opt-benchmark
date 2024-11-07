@@ -2384,7 +2384,7 @@ common.resume:                                    ; preds = %125, %51, %57, %61,
   %.sroa.8.i.sroa.4.0..sroa.8.1..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
   %.sroa.8.i.sroa.4.0.copyload = load ptr, ptr %.sroa.8.i.sroa.4.0..sroa.8.1..sroa_idx.i.sroa_idx, align 1, !alias.scope !632, !noalias !572
   %.sroa.8.i.sroa.5.0..sroa.8.1..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
-  %.sroa.8.i.sroa.5.0.copyload401 = load i8, ptr %.sroa.8.i.sroa.5.0..sroa.8.1..sroa_idx.i.sroa_idx, align 1, !alias.scope !632, !noalias !572
+  %.sroa.8.i.sroa.5.0.copyload403 = load i8, ptr %.sroa.8.i.sroa.5.0..sroa.8.1..sroa_idx.i.sroa_idx, align 1, !alias.scope !632, !noalias !572
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %19), !noalias !572
   %.sroa.0104.sroa.0.1.vec.expand = shufflevector <6 x i8> %.sroa.8.i.sroa.0.0.copyload, <6 x i8> poison, <16 x i32> <i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.0104.sroa.0.1.vecblend = insertelement <16 x i8> %.sroa.0104.sroa.0.1.vec.expand, i8 %36, i64 0
@@ -2392,7 +2392,7 @@ common.resume:                                    ; preds = %125, %51, %57, %61,
   %88 = bitcast i64 %87 to <8 x i8>
   %.sroa.0104.sroa.0.7.vec.expand = shufflevector <8 x i8> %88, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
   %.sroa.0104.sroa.0.7.vecblend = shufflevector <16 x i8> %.sroa.0104.sroa.0.1.vecblend, <16 x i8> %.sroa.0104.sroa.0.7.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 poison>
-  %.sroa.0104.sroa.0.15.vec.insert = insertelement <16 x i8> %.sroa.0104.sroa.0.7.vecblend, i8 %.sroa.8.i.sroa.5.0.copyload401, i64 15
+  %.sroa.0104.sroa.0.15.vec.insert = insertelement <16 x i8> %.sroa.0104.sroa.0.7.vecblend, i8 %.sroa.8.i.sroa.5.0.copyload403, i64 15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !633)
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %14), !noalias !636
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %14, i8 0, i64 5, i1 false), !noalias !636
@@ -2416,12 +2416,10 @@ common.resume:                                    ; preds = %125, %51, %57, %61,
   store i8 %36, ptr %95, align 1, !noalias !639
   %.sroa.9238.1.extract.shift = lshr i64 ptrtoint (ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183 to i64), 8
   %.sroa.9238.1.extract.trunc = trunc nuw i64 %.sroa.9238.1.extract.shift to i56
-  %.sroa.4107.sroa.0.1.vecblend = insertelement <16 x i8> <i8 poison, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison>, i8 %36, i64 0
   %96 = ptrtoint ptr %95 to i64
   %97 = bitcast i64 %96 to <8 x i8>
   %.sroa.4107.sroa.0.7.vec.expand = shufflevector <8 x i8> %97, <8 x i8> poison, <16 x i32> <i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 poison>
-  %.sroa.4107.sroa.0.7.vecblend = shufflevector <16 x i8> %.sroa.4107.sroa.0.1.vecblend, <16 x i8> %.sroa.4107.sroa.0.7.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 poison>
-  %.sroa.4107.sroa.0.15.vec.insert = insertelement <16 x i8> %.sroa.4107.sroa.0.7.vecblend, i8 ptrtoint (ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183 to i8), i64 15
+  %.sroa.4107.sroa.0.15.vec.insert = shufflevector <16 x i8> <i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 undef, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 poison, i8 ptrtoint (ptr @anon.3459e9c811a6d28c77b5d7b0f168ab32.9.llvm.9114549357374491183 to i8)>, <16 x i8> %.sroa.4107.sroa.0.7.vec.expand, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 23, i32 24, i32 25, i32 26, i32 27, i32 28, i32 29, i32 30, i32 15>
   store i8 7, ptr %0, align 8
   %.sroa.2110.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store <16 x i8> %.sroa.4107.sroa.0.15.vec.insert, ptr %.sroa.2110.0..sroa_idx, align 1

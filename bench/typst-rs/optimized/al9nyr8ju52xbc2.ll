@@ -2159,11 +2159,11 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   br i1 %11, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %28
-  %.sroa.10.032 = phi i64 [ %12, %28 ], [ %6, %3 ]
-  %.sroa.013.031 = phi ptr [ %15, %28 ], [ %1, %3 ]
-  %.sroa.7.030 = phi i64 [ %16, %28 ], [ 0, %3 ]
-  %12 = add i64 %.sroa.10.032, -1
-  %13 = icmp eq ptr %.sroa.013.031, %10
+  %.sroa.10.033 = phi i64 [ %12, %28 ], [ %6, %3 ]
+  %.sroa.013.032 = phi ptr [ %15, %28 ], [ %1, %3 ]
+  %.sroa.7.031 = phi i64 [ %16, %28 ], [ 0, %3 ]
+  %12 = add i64 %.sroa.10.033, -1
+  %13 = icmp eq ptr %.sroa.013.032, %10
   br i1 %13, label %.thread, label %14
 
 .thread:                                          ; preds = %28, %.lr.ph, %3
@@ -2173,19 +2173,19 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   ret void
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 32
-  %16 = add nuw nsw i64 %.sroa.7.030, 1
+  %15 = getelementptr inbounds i8, ptr %.sroa.013.032, i64 32
+  %16 = add nuw nsw i64 %.sroa.7.031, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !340)
-  %17 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 16
+  %17 = getelementptr inbounds i8, ptr %.sroa.013.032, i64 16
   %18 = load i8, ptr %17, align 8, !range !343, !alias.scope !344, !noalias !345, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
-  %19 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 15
+  %19 = getelementptr inbounds i8, ptr %.sroa.013.032, i64 15
   %20 = load i8, ptr %19, align 1, !alias.scope !353, !noalias !354, !noundef !4
   %21 = icmp slt i8 %20, 0
-  %.sroa.01.0.copyload2.i.i = load ptr, ptr %.sroa.013.031, align 8, !alias.scope !355, !noalias !345
-  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.013.031, i64 8
+  %.sroa.01.0.copyload2.i.i = load ptr, ptr %.sroa.013.032, align 8, !alias.scope !355, !noalias !345
+  %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.013.032, i64 8
   %.sroa.5.0.copyload3.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !355, !noalias !345
   br i1 %21, label %28, label %22
 
@@ -2208,9 +2208,9 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 
 28:                                               ; preds = %23, %22, %14
   %.sroa.01.0.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i, %23 ], [ inttoptr (i64 16 to ptr), %22 ], [ %.sroa.01.0.copyload2.i.i, %14 ]
-  %29 = getelementptr inbounds i8, ptr %.sroa.013.031, i64 24
+  %29 = getelementptr inbounds i8, ptr %.sroa.013.032, i64 24
   %30 = load i64, ptr %29, align 8, !alias.scope !357, !noalias !360, !noundef !4
-  %31 = getelementptr inbounds [0 x { [4 x i64] }], ptr %7, i64 0, i64 %.sroa.7.030
+  %31 = getelementptr inbounds [0 x { [4 x i64] }], ptr %7, i64 0, i64 %.sroa.7.031
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.06.sroa.6)
   store ptr %.sroa.01.0.i.i, ptr %31, align 8
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %31, i64 8
@@ -2234,7 +2234,7 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
 35:                                               ; preds = %27
   %36 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.030, ptr %9, align 8
+  store i64 %.sroa.7.031, ptr %9, align 8
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst_pdf..page..PageResource$C$usize$RP$$GT$$GT$17h855e770ab8a4518eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #23
           to label %37 unwind label %33
 
@@ -3484,27 +3484,27 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   br i1 %14, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4e420f578d795cabE.llvm.7091670428431571743.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %31
-  %.sroa.10.032.i = phi i64 [ %15, %31 ], [ %9, %2 ]
-  %.sroa.013.031.i = phi ptr [ %18, %31 ], [ %6, %2 ]
-  %.sroa.7.030.i = phi i64 [ %19, %31 ], [ 0, %2 ]
-  %15 = add i64 %.sroa.10.032.i, -1
-  %16 = icmp eq ptr %.sroa.013.031.i, %13
+  %.sroa.10.033.i = phi i64 [ %15, %31 ], [ %9, %2 ]
+  %.sroa.013.032.i = phi ptr [ %18, %31 ], [ %6, %2 ]
+  %.sroa.7.031.i = phi i64 [ %19, %31 ], [ 0, %2 ]
+  %15 = add i64 %.sroa.10.033.i, -1
+  %16 = icmp eq ptr %.sroa.013.032.i, %13
   br i1 %16, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h4e420f578d795cabE.llvm.7091670428431571743.exit", label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 32
-  %19 = add nuw nsw i64 %.sroa.7.030.i, 1
+  %18 = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 32
+  %19 = add nuw nsw i64 %.sroa.7.031.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !727)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !730)
-  %20 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 16
+  %20 = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 16
   %21 = load i8, ptr %20, align 8, !range !343, !alias.scope !733, !noalias !734, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
-  %22 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 15
+  %22 = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 15
   %23 = load i8, ptr %22, align 1, !alias.scope !742, !noalias !743, !noundef !4
   %24 = icmp slt i8 %23, 0
-  %.sroa.01.0.copyload2.i.i.i = load ptr, ptr %.sroa.013.031.i, align 8, !alias.scope !744, !noalias !734
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 8
+  %.sroa.01.0.copyload2.i.i.i = load ptr, ptr %.sroa.013.032.i, align 8, !alias.scope !744, !noalias !734
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 8
   %.sroa.5.0.copyload3.i.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !744, !noalias !734
   br i1 %24, label %31, label %25
 
@@ -3527,9 +3527,9 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 
 31:                                               ; preds = %26, %25, %17
   %.sroa.01.0.i.i.i = phi ptr [ %.sroa.01.0.copyload2.i.i.i, %26 ], [ inttoptr (i64 16 to ptr), %25 ], [ %.sroa.01.0.copyload2.i.i.i, %17 ]
-  %32 = getelementptr inbounds i8, ptr %.sroa.013.031.i, i64 24
+  %32 = getelementptr inbounds i8, ptr %.sroa.013.032.i, i64 24
   %33 = load i64, ptr %32, align 8, !alias.scope !747, !noalias !750, !noundef !4
-  %34 = getelementptr inbounds [0 x { [4 x i64] }], ptr %10, i64 0, i64 %.sroa.7.030.i
+  %34 = getelementptr inbounds [0 x { [4 x i64] }], ptr %10, i64 0, i64 %.sroa.7.031.i
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.06.sroa.6.i)
   store ptr %.sroa.01.0.i.i.i, ptr %34, align 8
   %.sroa.06.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 8
@@ -3553,7 +3553,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
 38:                                               ; preds = %30
   %39 = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.030.i, ptr %12, align 8, !noalias !725
+  store i64 %.sroa.7.031.i, ptr %12, align 8, !noalias !725
   invoke void @"_ZN4core3ptr89drop_in_place$LT$alloc..vec..Vec$LT$$LP$typst_pdf..page..PageResource$C$usize$RP$$GT$$GT$17h855e770ab8a4518eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #23
           to label %40 unwind label %36, !noalias !746
 
@@ -3712,11 +3712,11 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$1
   %20 = add i8 %19, -64
   store i8 %20, ptr %5, align 8
   %21 = sub i8 %2, %20
-  %22 = and i8 %21, 63
-  %23 = zext nneg i8 %22 to i64
-  %24 = lshr i64 %1, %23
-  %25 = icmp ugt i8 %21, 63
-  %spec.select = select i1 %25, i64 0, i64 %24
+  %22 = icmp ugt i8 %21, 63
+  %23 = and i8 %21, 63
+  %24 = zext nneg i8 %23 to i64
+  %25 = lshr i64 %1, %24
+  %spec.select = select i1 %22, i64 0, i64 %25
   store i64 %spec.select, ptr %10, align 8
   br label %26
 
@@ -3823,11 +3823,11 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %54 = add i8 %53, -64
   store i8 %54, ptr %31, align 8, !alias.scope !759
   %55 = sub i8 %42, %54
-  %56 = and i8 %55, 63
-  %57 = zext nneg i8 %56 to i64
-  %58 = lshr i64 %40, %57
-  %59 = icmp ugt i8 %55, 63
-  %spec.select.i = select i1 %59, i64 0, i64 %58
+  %56 = icmp ugt i8 %55, 63
+  %57 = and i8 %55, 63
+  %58 = zext nneg i8 %57 to i64
+  %59 = lshr i64 %40, %58
+  %spec.select.i = select i1 %56, i64 0, i64 %59
   store i64 %spec.select.i, ptr %32, align 8, !alias.scope !759
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit"
 
@@ -3963,11 +3963,11 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %143 = load i8, ptr %14, align 8, !alias.scope !771, !noundef !4
   %144 = add i8 %143, -64
   %145 = sub i8 %130, %144
-  %146 = and i8 %145, 63
-  %147 = zext nneg i8 %146 to i64
-  %148 = lshr i64 %129, %147
-  %149 = icmp ugt i8 %145, 63
-  %spec.select.i103 = select i1 %149, i64 0, i64 %148
+  %146 = icmp ugt i8 %145, 63
+  %147 = and i8 %145, 63
+  %148 = zext nneg i8 %147 to i64
+  %149 = lshr i64 %129, %148
+  %spec.select.i103 = select i1 %146, i64 0, i64 %149
   br label %150
 
 150:                                              ; preds = %91, %142
@@ -4035,11 +4035,11 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %202 = add i8 %201, -64
   store i8 %202, ptr %14, align 8, !alias.scope !774
   %203 = sub i8 %190, %202
-  %204 = and i8 %203, 63
-  %205 = zext nneg i8 %204 to i64
-  %206 = lshr i64 %189, %205
-  %207 = icmp ugt i8 %203, 63
-  %spec.select.i106 = select i1 %207, i64 0, i64 %206
+  %204 = icmp ugt i8 %203, 63
+  %205 = and i8 %203, 63
+  %206 = zext nneg i8 %205 to i64
+  %207 = lshr i64 %189, %206
+  %spec.select.i106 = select i1 %204, i64 0, i64 %207
   store i64 %spec.select.i106, ptr %15, align 8, !alias.scope !774
   br label %.backedge
 
@@ -4084,11 +4084,11 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %230 = add i8 %229, -64
   store i8 %230, ptr %14, align 8, !alias.scope !768
   %231 = sub i8 %217, %230
-  %232 = and i8 %231, 63
-  %233 = zext nneg i8 %232 to i64
-  %234 = lshr i64 %215, %233
-  %235 = icmp ugt i8 %231, 63
-  %spec.select.i111 = select i1 %235, i64 0, i64 %234
+  %232 = icmp ugt i8 %231, 63
+  %233 = and i8 %231, 63
+  %234 = zext nneg i8 %233 to i64
+  %235 = lshr i64 %215, %234
+  %spec.select.i111 = select i1 %232, i64 0, i64 %235
   store i64 %spec.select.i111, ptr %15, align 8, !alias.scope !768
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit112"
 
@@ -4134,11 +4134,11 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
   %260 = add i8 %259, -64
   store i8 %260, ptr %14, align 8, !alias.scope !765
   %261 = sub i8 %248, %260
-  %262 = and i8 %261, 63
-  %263 = zext nneg i8 %262 to i64
-  %264 = lshr i64 %246, %263
-  %265 = icmp ugt i8 %261, 63
-  %spec.select.i116 = select i1 %265, i64 0, i64 %264
+  %262 = icmp ugt i8 %261, 63
+  %263 = and i8 %261, 63
+  %264 = zext nneg i8 %263 to i64
+  %265 = lshr i64 %246, %264
+  %spec.select.i116 = select i1 %262, i64 0, i64 %265
   store i64 %spec.select.i116, ptr %15, align 8, !alias.scope !765
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit117"
 
@@ -4240,11 +4240,11 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$3new17h5b294bcf7d
   %39 = add i8 %38, -64
   store i8 %39, ptr %11, align 8, !alias.scope !790
   %40 = sub i8 67, %38
-  %41 = and i8 %40, 63
-  %42 = zext nneg i8 %41 to i64
-  %43 = lshr i64 4, %42
-  %44 = icmp ugt i8 %40, 63
-  %spec.select.i114.i = select i1 %44, i64 0, i64 %43
+  %41 = icmp ugt i8 %40, 63
+  %42 = and i8 %40, 63
+  %43 = zext nneg i8 %42 to i64
+  %44 = lshr i64 4, %43
+  %spec.select.i114.i = select i1 %41, i64 0, i64 %44
   store i64 %spec.select.i114.i, ptr %10, align 8, !alias.scope !790
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit115.i"
 
@@ -4291,11 +4291,11 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$3new17h5b294bcf7d
   %64 = add i8 %63, -64
   store i8 %64, ptr %11, align 8, !alias.scope !791
   %65 = sub i8 68, %63
-  %66 = and i8 %65, 63
-  %67 = zext nneg i8 %66 to i64
-  %68 = lshr i64 %52, %67
-  %69 = icmp ugt i8 %65, 63
-  %spec.select.i = select i1 %69, i64 0, i64 %68
+  %66 = icmp ugt i8 %65, 63
+  %67 = and i8 %65, 63
+  %68 = zext nneg i8 %67 to i64
+  %69 = lshr i64 %52, %68
+  %spec.select.i = select i1 %66, i64 0, i64 %69
   store i64 %spec.select.i, ptr %10, align 8, !alias.scope !791
   br label %.noexc15
 
@@ -4430,11 +4430,11 @@ define hidden void @"_ZN8fdeflate8compress19Compressor$LT$W$GT$6finish17h2914202
   %25 = add i8 %24, -64
   store i8 %25, ptr %10, align 8, !alias.scope !805
   %26 = sub i8 76, %24
-  %27 = and i8 %26, 63
-  %28 = zext nneg i8 %27 to i64
-  %29 = lshr i64 2303, %28
-  %30 = icmp ugt i8 %26, 63
-  %spec.select.i = select i1 %30, i64 0, i64 %29
+  %27 = icmp ugt i8 %26, 63
+  %28 = and i8 %26, 63
+  %29 = zext nneg i8 %28 to i64
+  %30 = lshr i64 2303, %29
+  %spec.select.i = select i1 %27, i64 0, i64 %30
   store i64 %spec.select.i, ptr %15, align 8, !alias.scope !805
   br label %33
 
@@ -4691,11 +4691,11 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %41 = add i8 %40, -64
   store i8 %41, ptr %8, align 8, !alias.scope !835
   %42 = sub i8 74, %40
-  %43 = and i8 %42, 63
-  %44 = zext nneg i8 %43 to i64
-  %45 = lshr i64 343, %44
-  %46 = icmp ugt i8 %42, 63
-  %spec.select.i = select i1 %46, i64 0, i64 %45
+  %43 = icmp ugt i8 %42, 63
+  %44 = and i8 %42, 63
+  %45 = zext nneg i8 %44 to i64
+  %46 = lshr i64 343, %45
+  %spec.select.i = select i1 %43, i64 0, i64 %46
   store i64 %spec.select.i, ptr %10, align 8, !alias.scope !835
   br label %121
 
@@ -4761,11 +4761,11 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %82 = add i8 %81, -64
   store i8 %82, ptr %8, align 8, !alias.scope !842
   %83 = sub i8 %70, %82
-  %84 = and i8 %83, 63
-  %85 = zext nneg i8 %84 to i64
-  %86 = lshr i64 %68, %85
-  %87 = icmp ugt i8 %83, 63
-  %spec.select.i59 = select i1 %87, i64 0, i64 %86
+  %84 = icmp ugt i8 %83, 63
+  %85 = and i8 %83, 63
+  %86 = zext nneg i8 %85 to i64
+  %87 = lshr i64 %68, %86
+  %spec.select.i59 = select i1 %84, i64 0, i64 %87
   store i64 %spec.select.i59, ptr %10, align 8, !alias.scope !842
   br label %89
 
@@ -4813,11 +4813,11 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
   %114 = add i8 %113, -64
   store i8 %114, ptr %8, align 8, !alias.scope !845
   %115 = sub i8 %102, %114
-  %116 = and i8 %115, 63
-  %117 = zext nneg i8 %116 to i64
-  %118 = lshr i64 %101, %117
-  %119 = icmp ugt i8 %115, 63
-  %spec.select.i62 = select i1 %119, i64 0, i64 %118
+  %116 = icmp ugt i8 %115, 63
+  %117 = and i8 %115, 63
+  %118 = zext nneg i8 %117 to i64
+  %119 = lshr i64 %101, %118
+  %spec.select.i62 = select i1 %116, i64 0, i64 %119
   br label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit.sink.split"
 
 120:                                              ; preds = %89

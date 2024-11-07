@@ -7451,7 +7451,7 @@ define hidden { i64, ptr } @"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$
   %7 = load ptr, ptr %5, align 8
   store i64 0, ptr %0, align 8
   %switch = icmp eq i64 %3, 0
-  br i1 %switch, label %15, label %16
+  br i1 %switch, label %15, label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit"
 
 8:                                                ; preds = %2
   %9 = tail call { i64, ptr } @"_ZN10async_task4task17Task$LT$T$C$M$GT$9poll_task17h2735a7a50f3bc48eE.llvm.8527929428270855737"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
@@ -7470,23 +7470,19 @@ define hidden { i64, ptr } @"_ZN78_$LT$gpui..executor..Task$LT$T$GT$$u20$as$u20$
   unreachable
 
 13:                                               ; preds = %8
-  br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit"
-
-"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit": ; preds = %8, %13
-  %.sroa.0.0.i = phi i64 [ 0, %13 ], [ 1, %8 ]
   %14 = extractvalue { i64, ptr } %9, 1
-  br label %16
+  br label %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit"
 
 15:                                               ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.ac2134d14bdf5fda6a2f66757d79699a.48.llvm.8961673575186234826) #38
   unreachable
 
-16:                                               ; preds = %6, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit"
-  %.sroa.3.0 = phi ptr [ %14, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit" ], [ %7, %6 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.i, %"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit" ], [ 0, %6 ]
-  %17 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %18 = insertvalue { i64, ptr } %17, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %18
+"_ZN84_$LT$async_task..task..Task$LT$T$C$M$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h64bde81c3686e19eE.exit": ; preds = %13, %8, %6
+  %.sroa.3.0 = phi ptr [ %7, %6 ], [ %14, %13 ], [ undef, %8 ]
+  %.sroa.0.0 = phi i64 [ 0, %6 ], [ 0, %13 ], [ 1, %8 ]
+  %16 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %17 = insertvalue { i64, ptr } %16, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -8852,14 +8848,14 @@ define hidden void @"_ZN9workspace21register_project_item28_$u7b$$u7b$closure$u7
   %7 = alloca [32 x i8], align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 176
   %9 = load i8, ptr %8, align 8, !range !192, !noundef !7
-  switch i8 %9, label %default.unreachable76 [
+  switch i8 %9, label %default.unreachable77 [
     i8 0, label %11
     i8 1, label %14
     i8 2, label %15
     i8 3, label %10
   ]
 
-default.unreachable76:                            ; preds = %3
+default.unreachable77:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -8894,7 +8890,7 @@ default.unreachable76:                            ; preds = %3
 20:                                               ; preds = %16
   store i64 0, ptr %17, align 8, !alias.scope !1636, !noalias !1638
   %switch.i = icmp eq i64 %18, 0
-  br i1 %switch.i, label %25, label %.thread77
+  br i1 %switch.i, label %25, label %.thread78
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %1, i64 144
@@ -8923,7 +8919,7 @@ default.unreachable76:                            ; preds = %3
 .noexc15:                                         ; preds = %25
   unreachable
 
-.thread77:                                        ; preds = %20
+.thread78:                                        ; preds = %20
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 144
   %.sroa.7.sroa.0.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1645, !noalias !1646
   %.sroa.7.sroa.7.0..sroa.4.0..sroa_idx.i.sroa_idx = getelementptr inbounds i8, ptr %1, i64 148
@@ -9015,21 +9011,21 @@ common.ret:                                       ; preds = %"_ZN4core3ptr65drop
           cleanup
   br label %.body24
 
-"_ZN4core3ptr152drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$C$anyhow..Error$GT$$GT$$GT$17h31b25ba6517c9a9aE.exit": ; preds = %.thread77, %28, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i", %39, %41
-  %.sroa.7.sroa.8.16283 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread77 ], [ %.sroa.7.sroa.8.0.copyload47, %28 ], [ %.sroa.7.sroa.8.0.copyload47, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload47, %39 ], [ %.sroa.7.sroa.8.0.copyload47, %41 ]
-  %.sroa.7.sroa.7.16382 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread77 ], [ %.sroa.7.sroa.7.0.copyload46, %28 ], [ %.sroa.7.sroa.7.0.copyload46, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload46, %39 ], [ %.sroa.7.sroa.7.0.copyload46, %41 ]
-  %.sroa.7.sroa.0.16481 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread77 ], [ %.sroa.7.sroa.0.0.copyload45, %28 ], [ %.sroa.7.sroa.0.0.copyload45, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload45, %39 ], [ %.sroa.7.sroa.0.0.copyload45, %41 ]
-  %46 = icmp eq i32 %.sroa.7.sroa.0.16481, 0
+"_ZN4core3ptr152drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$C$anyhow..Error$GT$$GT$$GT$17h31b25ba6517c9a9aE.exit": ; preds = %.thread78, %28, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i", %39, %41
+  %.sroa.7.sroa.8.16284 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread78 ], [ %.sroa.7.sroa.8.0.copyload47, %28 ], [ %.sroa.7.sroa.8.0.copyload47, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload47, %39 ], [ %.sroa.7.sroa.8.0.copyload47, %41 ]
+  %.sroa.7.sroa.7.16383 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread78 ], [ %.sroa.7.sroa.7.0.copyload46, %28 ], [ %.sroa.7.sroa.7.0.copyload46, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload46, %39 ], [ %.sroa.7.sroa.7.0.copyload46, %41 ]
+  %.sroa.7.sroa.0.16482 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread78 ], [ %.sroa.7.sroa.0.0.copyload45, %28 ], [ %.sroa.7.sroa.0.0.copyload45, %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload45, %39 ], [ %.sroa.7.sroa.0.0.copyload45, %41 ]
+  %46 = icmp eq i32 %.sroa.7.sroa.0.16482, 0
   br i1 %46, label %82, label %47
 
 47:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$C$anyhow..Error$GT$$GT$$GT$17h31b25ba6517c9a9aE.exit"
   %.sroa.651.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.651.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  store i32 %.sroa.7.sroa.0.16481, ptr %7, align 8
+  store i32 %.sroa.7.sroa.0.16482, ptr %7, align 8
   %.sroa.449.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %.sroa.7.sroa.7.16382, ptr %.sroa.449.0..sroa_idx, align 4
+  store i32 %.sroa.7.sroa.7.16383, ptr %.sroa.449.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx50 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.sroa.7.sroa.8.16283, ptr %.sroa.5.0..sroa_idx50, align 8
+  store ptr %.sroa.7.sroa.8.16284, ptr %.sroa.5.0..sroa_idx50, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   %48 = getelementptr inbounds i8, ptr %1, i64 40
   invoke void @"_ZN75_$LT$gpui..app..async_context..AsyncAppContext$u20$as$u20$gpui..Context$GT$10read_model17h7d5d8ee27eb29862E.llvm.18356957349943586886"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %48, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
@@ -9163,9 +9159,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr65drop
   unreachable
 
 82:                                               ; preds = %"_ZN4core3ptr152drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$C$anyhow..Error$GT$$GT$$GT$17h31b25ba6517c9a9aE.exit"
-  %83 = icmp ne ptr %.sroa.7.sroa.8.16283, null
+  %83 = icmp ne ptr %.sroa.7.sroa.8.16284, null
   tail call void @llvm.assume(i1 %83)
-  %84 = ptrtoint ptr %.sroa.7.sroa.8.16283 to i64
+  %84 = ptrtoint ptr %.sroa.7.sroa.8.16284 to i64
   br label %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit"
 
 85:                                               ; preds = %"_ZN4core3ptr80drop_in_place$LT$gpui..app..entity_map..Model$LT$image_viewer..ImageItem$GT$$GT$17h9f022a5ea8a69940E.exit"
@@ -9218,14 +9214,14 @@ define hidden void @"_ZN9workspace26register_serializable_item28_$u7b$$u7b$closu
   %.sroa.7.sroa.9 = alloca [16 x i8], align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 80
   %7 = load i8, ptr %6, align 8, !range !192, !noundef !7
-  switch i8 %7, label %default.unreachable43 [
+  switch i8 %7, label %default.unreachable44 [
     i8 0, label %8
     i8 1, label %10
     i8 2, label %11
     i8 3, label %12
   ]
 
-default.unreachable43:                            ; preds = %3
+default.unreachable44:                            ; preds = %3
   unreachable
 
 8:                                                ; preds = %3
@@ -9363,9 +9359,9 @@ default.unreachable43:                            ; preds = %3
           to label %"_ZN4core3ptr140drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$C$anyhow..Error$GT$$GT$$GT$17hf412b8827eb8bad3E.exit" unwind label %40
 
 common.ret:                                       ; preds = %53, %39
-  %storemerge50 = phi i64 [ 1, %39 ], [ 0, %53 ]
+  %storemerge51 = phi i64 [ 1, %39 ], [ 0, %53 ]
   %storemerge = phi i8 [ 3, %39 ], [ 1, %53 ]
-  store i64 %storemerge50, ptr %0, align 8
+  store i64 %storemerge51, ptr %0, align 8
   store i8 %storemerge, ptr %6, align 8
   ret void
 
@@ -9380,20 +9376,20 @@ common.ret:                                       ; preds = %53, %39
   br label %.body6
 
 "_ZN4core3ptr140drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$C$anyhow..Error$GT$$GT$$GT$17hf412b8827eb8bad3E.exit": ; preds = %.thread, %24, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i", %35, %37
-  %.sroa.7.sroa.7.13249 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread ], [ %.sroa.7.sroa.7.0.copyload22, %24 ], [ %.sroa.7.sroa.7.0.copyload22, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload22, %35 ], [ %.sroa.7.sroa.7.0.copyload22, %37 ]
-  %.sroa.7.sroa.0.13348 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread ], [ %.sroa.7.sroa.0.0.copyload21, %24 ], [ %.sroa.7.sroa.0.0.copyload21, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload21, %35 ], [ %.sroa.7.sroa.0.0.copyload21, %37 ]
-  %.sroa.7.sroa.8.13447 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread ], [ %.sroa.7.sroa.8.0.copyload23, %24 ], [ %.sroa.7.sroa.8.0.copyload23, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload23, %35 ], [ %.sroa.7.sroa.8.0.copyload23, %37 ]
-  %42 = icmp eq i32 %.sroa.7.sroa.0.13348, 0
+  %.sroa.7.sroa.7.13250 = phi i32 [ %.sroa.7.sroa.7.0.copyload, %.thread ], [ %.sroa.7.sroa.7.0.copyload22, %24 ], [ %.sroa.7.sroa.7.0.copyload22, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i" ], [ %.sroa.7.sroa.7.0.copyload22, %35 ], [ %.sroa.7.sroa.7.0.copyload22, %37 ]
+  %.sroa.7.sroa.0.13349 = phi i32 [ %.sroa.7.sroa.0.0.copyload, %.thread ], [ %.sroa.7.sroa.0.0.copyload21, %24 ], [ %.sroa.7.sroa.0.0.copyload21, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i" ], [ %.sroa.7.sroa.0.0.copyload21, %35 ], [ %.sroa.7.sroa.0.0.copyload21, %37 ]
+  %.sroa.7.sroa.8.13448 = phi ptr [ %.sroa.7.sroa.8.0.copyload, %.thread ], [ %.sroa.7.sroa.8.0.copyload23, %24 ], [ %.sroa.7.sroa.8.0.copyload23, %"_ZN4core3ptr68drop_in_place$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$GT$17h06df8ff49f2567d2E.exit.i.i.i" ], [ %.sroa.7.sroa.8.0.copyload23, %35 ], [ %.sroa.7.sroa.8.0.copyload23, %37 ]
+  %42 = icmp eq i32 %.sroa.7.sroa.0.13349, 0
   br i1 %42, label %55, label %43
 
 43:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$C$anyhow..Error$GT$$GT$$GT$17hf412b8827eb8bad3E.exit"
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.12.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
-  store i32 %.sroa.7.sroa.0.13348, ptr %5, align 8
+  store i32 %.sroa.7.sroa.0.13349, ptr %5, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 %.sroa.7.sroa.7.13249, ptr %.sroa.10.0..sroa_idx, align 4
+  store i32 %.sroa.7.sroa.7.13250, ptr %.sroa.10.0..sroa_idx, align 4
   %.sroa.1015.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.sroa.7.sroa.8.13447, ptr %.sroa.1015.0..sroa_idx, align 8
+  store ptr %.sroa.7.sroa.8.13448, ptr %.sroa.1015.0..sroa_idx, align 8
   %44 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !1687
   %45 = tail call noalias noundef align 8 dereferenceable_or_null(32) ptr @__rust_alloc(i64 noundef range(i64 1, 0) 32, i64 noundef 8) #37, !noalias !1687
   %46 = icmp eq ptr %45, null
@@ -9424,7 +9420,7 @@ common.ret:                                       ; preds = %53, %39
 
 53:                                               ; preds = %55, %52
   %.sroa.024.0 = phi ptr [ null, %55 ], [ %45, %52 ]
-  %.sroa.325.0 = phi ptr [ %.sroa.7.sroa.8.13447, %55 ], [ @anon.ac2134d14bdf5fda6a2f66757d79699a.65, %52 ]
+  %.sroa.325.0 = phi ptr [ %.sroa.7.sroa.8.13448, %55 ], [ @anon.ac2134d14bdf5fda6a2f66757d79699a.65, %52 ]
   %54 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.024.0, ptr %54, align 8
   %.sroa.325.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -9432,7 +9428,7 @@ common.ret:                                       ; preds = %53, %39
   br label %common.ret
 
 55:                                               ; preds = %"_ZN4core3ptr140drop_in_place$LT$gpui..executor..Task$LT$core..result..Result$LT$gpui..view..View$LT$image_viewer..ImageView$GT$$C$anyhow..Error$GT$$GT$$GT$17hf412b8827eb8bad3E.exit"
-  %56 = icmp ne ptr %.sroa.7.sroa.8.13447, null
+  %56 = icmp ne ptr %.sroa.7.sroa.8.13448, null
   tail call void @llvm.assume(i1 %56)
   br label %53
 
@@ -9451,13 +9447,13 @@ define hidden void @"_ZN57_$LT$image_viewer..ImageItem$u20$as$u20$project..Item$
   %7 = alloca [24 x i8], align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 96
   %9 = load i8, ptr %8, align 8, !range !304, !noundef !7
-  switch i8 %9, label %default.unreachable52 [
+  switch i8 %9, label %default.unreachable54 [
     i8 0, label %10
     i8 1, label %79
     i8 2, label %80
   ]
 
-default.unreachable52:                            ; preds = %3
+default.unreachable54:                            ; preds = %3
   unreachable
 
 10:                                               ; preds = %3
@@ -9713,13 +9709,13 @@ define hidden void @"_ZN77_$LT$image_viewer..ImageView$u20$as$u20$workspace..ite
   %10 = alloca [24 x i8], align 8
   %11 = getelementptr inbounds i8, ptr %1, i64 80
   %12 = load i8, ptr %11, align 8, !range !304, !noundef !7
-  switch i8 %12, label %default.unreachable45 [
+  switch i8 %12, label %default.unreachable47 [
     i8 0, label %13
     i8 1, label %56
     i8 2, label %57
   ]
 
-default.unreachable45:                            ; preds = %3
+default.unreachable47:                            ; preds = %3
   unreachable
 
 13:                                               ; preds = %3

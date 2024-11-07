@@ -4721,8 +4721,8 @@ do.cond.i:                                        ; preds = %do.body.i
 
 for.cond:                                         ; preds = %for.body
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond64.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond64.not, label %for.end, label %for.body, !llvm.loop !35
+  %exitcond65.not = icmp eq i64 %indvars.iv.next, 9
+  br i1 %exitcond65.not, label %for.end, label %for.body, !llvm.loop !35
 
 for.body:                                         ; preds = %for.cond.preheader, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %for.cond.preheader ]
@@ -4734,17 +4734,17 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 for.end:                                          ; preds = %for.cond, %for.cond.preheader
   %4 = load i64, ptr @commit_formats_len, align 8
-  %cmp953 = icmp ugt i64 %4, %0
-  br i1 %cmp953, label %for.body11, label %do.body
+  %cmp954 = icmp ugt i64 %4, %0
+  br i1 %cmp954, label %for.body11, label %do.body
 
 for.cond7:                                        ; preds = %for.body11
-  %indvars.iv.next66 = add nuw i64 %indvars.iv65, 1
-  %exitcond68.not = icmp eq i64 %indvars.iv.next66, %4
-  br i1 %exitcond68.not, label %do.body, label %for.body11, !llvm.loop !36
+  %indvars.iv.next67 = add nuw i64 %indvars.iv66, 1
+  %exitcond69.not = icmp eq i64 %indvars.iv.next67, %4
+  br i1 %exitcond69.not, label %do.body, label %for.body11, !llvm.loop !36
 
 for.body11:                                       ; preds = %for.end, %for.cond7
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %for.cond7 ], [ %0, %for.end ]
-  %arrayidx13 = getelementptr inbounds %struct.cmt_fmt_map, ptr %.pre.pre.pre, i64 %indvars.iv65
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %for.cond7 ], [ %0, %for.end ]
+  %arrayidx13 = getelementptr inbounds %struct.cmt_fmt_map, ptr %.pre.pre.pre, i64 %indvars.iv66
   %5 = load ptr, ptr %arrayidx13, align 8
   %call15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %scevgep) #19
   %tobool16.not = icmp eq i32 %call15, 0
@@ -4765,11 +4765,11 @@ if.then28:                                        ; preds = %do.body
   %mul.i = mul nuw nsw i64 %add.div16, 40
   %call40 = tail call ptr @xrealloc(ptr noundef %.pre.pre.pre, i64 noundef %mul.i) #18
   store ptr %call40, ptr @commit_formats, align 8
-  %.pre73 = load i64, ptr @commit_formats_len, align 8
+  %.pre74 = load i64, ptr @commit_formats_len, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.body, %if.then28
-  %8 = phi i64 [ %4, %do.body ], [ %.pre73, %if.then28 ]
+  %8 = phi i64 [ %4, %do.body ], [ %.pre74, %if.then28 ]
   %9 = phi ptr [ %.pre.pre.pre, %do.body ], [ %call40, %if.then28 ]
   %arrayidx42 = getelementptr inbounds %struct.cmt_fmt_map, ptr %9, i64 %8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx42, i8 0, i64 40, i1 false)
@@ -4789,14 +4789,14 @@ if.end44:                                         ; preds = %for.body11, %do.end
 
 if.end50:                                         ; preds = %if.end44
   %10 = load ptr, ptr %fmt, align 8
-  %scevgep69 = getelementptr i8, ptr %10, i64 7
+  %scevgep70 = getelementptr i8, ptr %10, i64 7
   br label %do.body.i19
 
 do.body.i19:                                      ; preds = %do.cond.i23, %if.end50
   %str.addr.0.i20 = phi ptr [ %10, %if.end50 ], [ %incdec.ptr.i24, %do.cond.i23 ]
   %prefix.addr.0.i21.idx = phi i64 [ 0, %if.end50 ], [ %prefix.addr.0.i21.add, %do.cond.i23 ]
-  %exitcond70 = icmp eq i64 %prefix.addr.0.i21.idx, 7
-  br i1 %exitcond70, label %if.end62, label %do.cond.i23
+  %exitcond71 = icmp eq i64 %prefix.addr.0.i21.idx, 7
+  br i1 %exitcond71, label %if.end62, label %do.cond.i23
 
 do.cond.i23:                                      ; preds = %do.body.i19
   %prefix.addr.0.i21.ptr = getelementptr inbounds i8, ptr @.str, i64 %prefix.addr.0.i21.idx
@@ -4808,14 +4808,14 @@ do.cond.i23:                                      ; preds = %do.body.i19
   br i1 %cmp.i26, label %do.body.i19, label %if.else53, !llvm.loop !5
 
 if.else53:                                        ; preds = %do.cond.i23
-  %scevgep71 = getelementptr i8, ptr %10, i64 8
+  %scevgep72 = getelementptr i8, ptr %10, i64 8
   br label %do.body.i29
 
 do.body.i29:                                      ; preds = %do.cond.i33, %if.else53
   %str.addr.0.i30 = phi ptr [ %10, %if.else53 ], [ %incdec.ptr.i34, %do.cond.i33 ]
   %prefix.addr.0.i31.idx = phi i64 [ 0, %if.else53 ], [ %prefix.addr.0.i31.add, %do.cond.i33 ]
-  %exitcond72 = icmp eq i64 %prefix.addr.0.i31.idx, 8
-  br i1 %exitcond72, label %if.end62, label %do.cond.i33
+  %exitcond73 = icmp eq i64 %prefix.addr.0.i31.idx, 8
+  br i1 %exitcond73, label %if.end62, label %do.cond.i33
 
 do.cond.i33:                                      ; preds = %do.body.i29
   %prefix.addr.0.i31.ptr = getelementptr inbounds i8, ptr @.str.1, i64 %prefix.addr.0.i31.idx
@@ -4833,10 +4833,10 @@ lor.lhs.false:                                    ; preds = %do.cond.i33
   br label %if.end62
 
 if.end62:                                         ; preds = %do.body.i19, %do.body.i29, %lor.lhs.false
-  %.sink76 = phi i64 [ %spec.select, %lor.lhs.false ], [ 12, %do.body.i29 ], [ 12, %do.body.i19 ]
+  %.sink77 = phi i64 [ %spec.select, %lor.lhs.false ], [ 12, %do.body.i29 ], [ 12, %do.body.i19 ]
   %.sink = phi i32 [ 1, %lor.lhs.false ], [ 1, %do.body.i29 ], [ 0, %do.body.i19 ]
-  %15 = phi ptr [ %10, %lor.lhs.false ], [ %scevgep71, %do.body.i29 ], [ %scevgep69, %do.body.i19 ]
-  %is_tformat59 = getelementptr inbounds i8, ptr %commit_format.1, i64 %.sink76
+  %15 = phi ptr [ %10, %lor.lhs.false ], [ %scevgep72, %do.body.i29 ], [ %scevgep70, %do.body.i19 ]
+  %is_tformat59 = getelementptr inbounds i8, ptr %commit_format.1, i64 %.sink77
   store i32 %.sink, ptr %is_tformat59, align 4
   %user_format = getelementptr inbounds i8, ptr %commit_format.1, i64 32
   store ptr %15, ptr %user_format, align 8

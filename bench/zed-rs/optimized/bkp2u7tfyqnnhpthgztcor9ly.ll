@@ -18826,7 +18826,7 @@ define hidden void @"_ZN8worktree17BackgroundScanner24reload_entries_for_paths28
   %6 = alloca [40 x i8], align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load i8, ptr %7, align 8, !range !1680, !noundef !4
-  switch i8 %8, label %default.unreachable103 [
+  switch i8 %8, label %default.unreachable104 [
     i8 0, label %13
     i8 1, label %35
     i8 2, label %36
@@ -18834,22 +18834,22 @@ define hidden void @"_ZN8worktree17BackgroundScanner24reload_entries_for_paths28
     i8 4, label %10
   ]
 
-default.unreachable103:                           ; preds = %3
+default.unreachable104:                           ; preds = %3
   unreachable
 
 9:                                                ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !4575, !noalias !4580
-  %.phi.trans.insert96 = getelementptr inbounds i8, ptr %1, i64 32
-  %.pre97 = load ptr, ptr %.phi.trans.insert96, align 8, !alias.scope !4575, !noalias !4580
+  %.phi.trans.insert97 = getelementptr inbounds i8, ptr %1, i64 32
+  %.pre98 = load ptr, ptr %.phi.trans.insert97, align 8, !alias.scope !4575, !noalias !4580
   br label %37
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  %.phi.trans.insert98 = getelementptr inbounds i8, ptr %1, i64 64
-  %.pre99 = load ptr, ptr %.phi.trans.insert98, align 8, !alias.scope !4583, !noalias !4588
-  %.phi.trans.insert100 = getelementptr inbounds i8, ptr %1, i64 72
-  %.pre101 = load ptr, ptr %.phi.trans.insert100, align 8, !alias.scope !4583, !noalias !4588
+  %.phi.trans.insert99 = getelementptr inbounds i8, ptr %1, i64 64
+  %.pre100 = load ptr, ptr %.phi.trans.insert99, align 8, !alias.scope !4583, !noalias !4588
+  %.phi.trans.insert101 = getelementptr inbounds i8, ptr %1, i64 72
+  %.pre102 = load ptr, ptr %.phi.trans.insert101, align 8, !alias.scope !4583, !noalias !4588
   br label %99
 
 11:                                               ; preds = %13
@@ -18898,7 +18898,7 @@ default.unreachable103:                           ; preds = %3
   unreachable
 
 37:                                               ; preds = %9, %30
-  %38 = phi ptr [ %.pre97, %9 ], [ %32, %30 ]
+  %38 = phi ptr [ %.pre98, %9 ], [ %32, %30 ]
   %39 = phi ptr [ %.pre, %9 ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %40 = getelementptr inbounds i8, ptr %1, i64 24
@@ -19029,7 +19029,7 @@ common.ret:                                       ; preds = %129, %94, %68
   br label %99
 
 94:                                               ; preds = %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit", %167, %166, %95
-  %.sroa.067.0 = phi ptr [ %.sroa.359.0.copyload, %166 ], [ %.sroa.087.0.copyload, %167 ], [ %96, %95 ], [ undef, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
+  %.sroa.067.0 = phi ptr [ %.sroa.067.1, %166 ], [ %.sroa.087.0.copyload, %167 ], [ %96, %95 ], [ undef, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
   %.sroa.673.0 = phi i64 [ %.sroa.673.1, %166 ], [ %.sroa.085.0.copyload, %167 ], [ -9223372036854775807, %95 ], [ -9223372036854775808, %"_ZN4core3ptr237drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$core..option..Option$LT$fs..Metadata$GT$$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h4a3a2fdced155558E.exit" ]
   store ptr %.sroa.067.0, ptr %0, align 8
   %.sroa.671.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -19056,8 +19056,8 @@ common.ret:                                       ; preds = %129, %94, %68
   resume { ptr, i32 } %.pn20.pn.pn
 
 99:                                               ; preds = %10, %89
-  %100 = phi ptr [ %.pre101, %10 ], [ %91, %89 ]
-  %101 = phi ptr [ %.pre99, %10 ], [ %90, %89 ]
+  %100 = phi ptr [ %.pre102, %10 ], [ %91, %89 ]
+  %101 = phi ptr [ %.pre100, %10 ], [ %90, %89 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   %102 = getelementptr inbounds i8, ptr %1, i64 64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4610)
@@ -19222,6 +19222,7 @@ common.ret:                                       ; preds = %129, %94, %68
   br label %.body45
 
 166:                                              ; preds = %170, %.thread
+  %.sroa.067.1 = phi ptr [ %.sroa.359.0.copyload, %170 ], [ undef, %.thread ]
   %.sroa.673.1 = phi i64 [ -9223372036854775807, %170 ], [ -9223372036854775808, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %94

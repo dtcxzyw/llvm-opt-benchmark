@@ -97,13 +97,13 @@ _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4t
   %19 = add i64 %17, %1
   %20 = icmp uge i64 %19, %17
   %spec.select.i.i = select i1 %20, i64 %19, i64 -1
-  %spec.select = zext i1 %20 to i8
+  %spec.select10 = zext i1 %20 to i8
   br label %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.thread
 
 _ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit.thread: ; preds = %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit, %16, %10, %13, %12
-  %.0.i5 = phi i64 [ -1, %12 ], [ -1, %13 ], [ %17, %16 ], [ %11, %10 ], [ %spec.select.i.i, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ]
-  %.sroa.2.0 = phi i8 [ 0, %12 ], [ 0, %13 ], [ 1, %16 ], [ 1, %10 ], [ %spec.select, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.0.i5, 0
+  %.sroa.02.0 = phi i64 [ undef, %12 ], [ undef, %13 ], [ %17, %16 ], [ %11, %10 ], [ %spec.select.i.i, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ]
+  %.sroa.2.0 = phi i8 [ 0, %12 ], [ 0, %13 ], [ 1, %16 ], [ 1, %10 ], [ %spec.select10, %_ZN4llvm18SaturatingMultiplyImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4typeES2_S2_Pb.exit ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.02.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

@@ -572,14 +572,14 @@ define hidden void @"_ZN128_$LT$diesel..query_dsl..load_dsl..private..LoadIter$L
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit.i": ; preds = %21, %18
-  %.sroa.5.031.i = phi ptr [ %20, %18 ], [ %22, %21 ]
   %.sroa.4.0.i = phi ptr [ %20, %18 ], [ %12, %21 ]
+  %.sroa.7.0.i = phi ptr [ undef, %18 ], [ %22, %21 ]
   %.sink.i.i = phi i64 [ -9223372036854775798, %18 ], [ -9223372036854775805, %21 ]
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !160, !noalias !163
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !160, !noalias !163
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.5.031.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !160, !noalias !163
+  store ptr %.sroa.7.0.i, ptr %.sroa.7.0..sroa_idx.i, align 8, !alias.scope !160, !noalias !163
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !166
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !166
   br label %"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$ST$C$DB$GT$7map_row17h7d43ed3952523b18E.llvm.851902657794911491.exit"
@@ -641,16 +641,16 @@ define hidden void @"_ZN128_$LT$diesel..query_dsl..load_dsl..private..LoadIter$L
   %15 = load i32, ptr %14, align 8, !noalias !177
   %16 = load ptr, ptr %14, align 8, !noalias !177, !nonnull !11, !align !20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !177
-  %.sroa.5.8.insert.ext.i = zext i32 %15 to i64
-  %17 = inttoptr i64 %.sroa.5.8.insert.ext.i to ptr
-  %.sroa.5.027.i = select i1 %13, ptr %17, ptr %16
+  %.sroa.4.0.insert.ext.i = zext i32 %15 to i64
+  %17 = inttoptr i64 %.sroa.4.0.insert.ext.i to ptr
   %.sroa.4.0.i = select i1 %13, ptr %17, ptr %12
+  %.sroa.6.0.i = select i1 %13, ptr undef, ptr %16
   %.sink.i.i = select i1 %13, i64 -9223372036854775798, i64 -9223372036854775805
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !171, !noalias !174
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0.i, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !171, !noalias !174
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.5.027.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !171, !noalias !174
+  store ptr %.sroa.6.0.i, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !171, !noalias !174
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4), !noalias !176
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !176
   br label %"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$ST$C$DB$GT$7map_row17h847753430c8fef1fE.llvm.851902657794911491.exit"
@@ -2504,7 +2504,7 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
 
 .thread:                                          ; preds = %2
   store i64 -9223372036854775797, ptr %0, align 8
-  br label %26
+  br label %24
 
 8:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -2521,7 +2521,7 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
   %11 = load ptr, ptr %3, align 8, !noalias !553, !noundef !11
   %12 = icmp eq ptr %11, null
   %13 = getelementptr inbounds i8, ptr %3, i64 8
-  br i1 %12, label %17, label %22
+  br i1 %12, label %17, label %20
 
 14:                                               ; preds = %7
   %.sroa.613.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
@@ -2533,46 +2533,40 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
   store i64 %.sroa.512.0.copyload, ptr %.sroa.58.0..sroa_idx, align 8
   %.sroa.69.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.613.0.copyload, ptr %.sroa.69.0..sroa_idx, align 8
-  br label %26
+  br label %24
 
 15:                                               ; preds = %8
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %"_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row..PgRow$GT$17h774a092152e920a7E.exit" unwind label %24
+          to label %"_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row..PgRow$GT$17h774a092152e920a7E.exit" unwind label %22
 
 17:                                               ; preds = %.noexc
-  %18 = load i32, ptr %13, align 8, !noalias !553, !noundef !11
-  %19 = getelementptr inbounds i8, ptr %3, i64 12
-  %20 = load i32, ptr %19, align 4, !noalias !553, !noundef !11
+  %18 = load i64, ptr %13, align 8, !noalias !553
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !553
-  %.sroa.5.8.insert.ext = zext i32 %18 to i64
-  %.sroa.5.12.insert.ext = zext i32 %20 to i64
-  %.sroa.5.12.insert.shift = shl nuw i64 %.sroa.5.12.insert.ext, 32
-  %.sroa.5.12.insert.insert = or disjoint i64 %.sroa.5.12.insert.shift, %.sroa.5.8.insert.ext
-  %21 = inttoptr i64 %.sroa.5.12.insert.insert to ptr
+  %19 = inttoptr i64 %18 to ptr
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit"
 
-22:                                               ; preds = %.noexc
-  %23 = load ptr, ptr %13, align 8, !noalias !553, !nonnull !11, !align !20, !noundef !11
+20:                                               ; preds = %.noexc
+  %21 = load ptr, ptr %13, align 8, !noalias !553, !nonnull !11, !align !20, !noundef !11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !553
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit"
 
-"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit": ; preds = %22, %17
-  %.sroa.5.031 = phi ptr [ %21, %17 ], [ %23, %22 ]
-  %.sroa.4.0 = phi ptr [ %21, %17 ], [ %11, %22 ]
-  %.sink.i = phi i64 [ -9223372036854775798, %17 ], [ -9223372036854775805, %22 ]
+"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit": ; preds = %20, %17
+  %.sroa.4.0 = phi ptr [ %19, %17 ], [ %11, %20 ]
+  %.sroa.7.0 = phi ptr [ undef, %17 ], [ %21, %20 ]
+  %.sink.i = phi i64 [ -9223372036854775798, %17 ], [ -9223372036854775805, %20 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.5.031, ptr %.sroa.7.0..sroa_idx, align 8
+  store ptr %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  br label %26
+  br label %24
 
-24:                                               ; preds = %15
-  %25 = landingpad { ptr, i32 }
+22:                                               ; preds = %15
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #11
   unreachable
@@ -2580,7 +2574,7 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
 "_ZN4core3ptr55drop_in_place$LT$diesel..pg..connection..row..PgRow$GT$17h774a092152e920a7E.exit": ; preds = %15
   resume { ptr, i32 } %16
 
-26:                                               ; preds = %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit", %.thread
+24:                                               ; preds = %14, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h37b35e3924573354E.exit", %.thread
   ret void
 }
 
@@ -2622,16 +2616,16 @@ define hidden void @"_ZN6diesel9query_dsl8load_dsl7private31LoadIter$LT$U$C$C$C$
   %14 = load i32, ptr %13, align 8, !noalias !557
   %15 = load ptr, ptr %13, align 8, !noalias !557, !nonnull !11, !align !20
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3), !noalias !557
-  %.sroa.5.8.insert.ext = zext i32 %14 to i64
-  %16 = inttoptr i64 %.sroa.5.8.insert.ext to ptr
-  %.sroa.5.027 = select i1 %12, ptr %16, ptr %15
+  %.sroa.4.0.insert.ext = zext i32 %14 to i64
+  %16 = inttoptr i64 %.sroa.4.0.insert.ext to ptr
   %.sroa.4.0 = select i1 %12, ptr %16, ptr %11
+  %.sroa.6.0 = select i1 %12, ptr undef, ptr %15
   %.sink.i = select i1 %12, i64 -9223372036854775798, i64 -9223372036854775805
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.5.027, ptr %.sroa.6.0..sroa_idx, align 8
+  store ptr %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf0f17790619d26cE.llvm.14992767593304109899"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %22

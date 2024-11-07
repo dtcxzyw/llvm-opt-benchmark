@@ -1135,12 +1135,12 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exi
   br i1 %cmp.i2.i, label %cleanup100, label %if.end27
 
 if.end27:                                         ; preds = %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.thread.i
-  %retval.sroa.3.0.i10.i = phi i64 [ %15, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.thread.i ], [ undef, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i ]
-  %and.i.i.i = and i64 %retval.sroa.3.0.i10.i, 281474976710655
+  %retval.sroa.3.0.i9.i = phi i64 [ %15, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.thread.i ], [ undef, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj.exit.i ]
+  %and.i.i.i = and i64 %retval.sroa.3.0.i9.i, 281474976710655
   %16 = inttoptr i64 %and.i.i.i to ptr
   %heapStorage_.i.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
   call void @_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7HadesGCEj(ptr noundef %16, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef %12) #15
-  %or.i.i.i.i.i24 = or i64 %retval.sroa.3.0.i10.i, -281474976710656
+  %or.i.i.i.i.i24 = or i64 %retval.sroa.3.0.i9.i, -281474976710656
   %17 = load ptr, ptr %topGCScope_.i, align 8
   %next_.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %17, i64 192
   %18 = load ptr, ptr %next_.i.i.i.i.i.i.i26, align 8

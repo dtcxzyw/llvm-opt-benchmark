@@ -1830,22 +1830,22 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit.t
   br label %74
 
 .thread:                                          ; preds = %24, %5, %34, %59, %53
-  %.sroa.741.085.ph = phi ptr [ null, %34 ], [ %3, %59 ], [ null, %53 ], [ null, %5 ], [ null, %24 ]
-  %.sroa.20.081.ph = phi i64 [ 0, %34 ], [ %68, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
+  %.sroa.741.084.ph = phi ptr [ null, %34 ], [ %3, %59 ], [ null, %53 ], [ null, %5 ], [ null, %24 ]
   %.sroa.17.079.ph = phi i64 [ 0, %34 ], [ %63, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
   %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i5077.ph = phi ptr [ %32, %34 ], [ %32, %59 ], [ %32, %53 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %24 ]
   %.sink23.i5275.ph = phi i64 [ 0, %34 ], [ %33, %59 ], [ %33, %53 ], [ 0, %5 ], [ 0, %24 ]
+  %.sroa.12.sroa.5.0.ph = phi i64 [ 0, %34 ], [ %68, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
   store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i5077.ph, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sink23.i5275.ph, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.741.085.ph, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.sroa.741.084.ph, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.17.079.ph, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i64 %.sroa.20.081.ph, ptr %.sroa.5.sroa.5.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.12.sroa.5.0.ph, ptr %.sroa.5.sroa.5.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %74
 
 71:                                               ; preds = %50, %41, %39, %52

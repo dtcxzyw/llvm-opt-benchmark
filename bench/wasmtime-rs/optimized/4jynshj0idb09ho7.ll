@@ -44,10 +44,11 @@ define { i64, i64 } @"_ZN112_$LT$alloc..collections..btree..set..IntoIter$LT$T$C
   %2 = tail call { i64, i64 } @"_ZN116_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb57311bec5a6b0b2E"(ptr align 8 %0)
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = icmp ne i64 %3, 0
-  %. = zext i1 %4 to i64
   %5 = extractvalue { i64, i64 } %2, 1
-  %6 = insertvalue { i64, i64 } poison, i64 %., 0
-  %7 = insertvalue { i64, i64 } %6, i64 %5, 1
+  %.sroa.3.0 = select i1 %4, i64 %5, i64 undef
+  %.sroa.0.0 = zext i1 %4 to i64
+  %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %7 = insertvalue { i64, i64 } %6, i64 %.sroa.3.0, 1
   ret { i64, i64 } %7
 }
 

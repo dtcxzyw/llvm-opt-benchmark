@@ -3336,28 +3336,28 @@ define internal fastcc noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9hash
   %.pn.i.i = phi i64 [ %37, %8 ], [ %60, %58 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i, %.val5
   %42 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
-  %.0.copyload.i30.i.i = load <16 x i8>, ptr %42, align 1, !noalias !1462
-  %43 = icmp eq <16 x i8> %.0.copyload.i30.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i32.i.i = load <16 x i8>, ptr %42, align 1, !noalias !1462
+  %43 = icmp eq <16 x i8> %.0.copyload.i32.i.i, %.15.vec.insert.i.i.i
   %44 = bitcast <16 x i1> %43 to i16
   br label %45
 
 45:                                               ; preds = %49, %41
-  %.021.i.i = phi i16 [ %44, %41 ], [ %51, %49 ]
-  %.not.not.i.i.i = icmp eq i16 %.021.i.i, 0
+  %.022.i.i = phi i16 [ %44, %41 ], [ %53, %49 ]
+  %.not.not.i.i.i = icmp eq i16 %.022.i.i, 0
   br i1 %.not.not.i.i.i, label %46, label %49
 
 46:                                               ; preds = %45
-  %47 = icmp eq <16 x i8> %.0.copyload.i30.i.i, splat (i8 -1)
+  %47 = icmp eq <16 x i8> %.0.copyload.i32.i.i, splat (i8 -1)
   %48 = bitcast <16 x i1> %47 to i16
   %.not.i.i.i = icmp eq i16 %48, 0
   br i1 %.not.i.i.i, label %58, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17h891f0761efde93dbE.exit"
 
 49:                                               ; preds = %45
-  %50 = add i16 %.021.i.i, -1
-  %51 = and i16 %50, %.021.i.i
-  %52 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.021.i.i, i1 true)
-  %53 = zext nneg i16 %52 to i64
-  %54 = add i64 %.sroa.01.0.i.i.i, %53
+  %50 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i, i1 true)
+  %51 = zext nneg i16 %50 to i64
+  %52 = add i16 %.022.i.i, -1
+  %53 = and i16 %52, %.022.i.i
+  %54 = add i64 %.sroa.01.0.i.i.i, %51
   %55 = and i64 %54, %.val5
   %56 = sub nsw i64 0, %55
   %gep.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i, i64 %56
@@ -3755,28 +3755,28 @@ default.unreachable784:                           ; preds = %456, %310, %"_ZN4co
   %.pn.i.i.i = phi i64 [ %168, %.noexc334 ], [ %191, %189 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %173 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i30.i.i.i = load <16 x i8>, ptr %173, align 1, !noalias !1543
-  %174 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i32.i.i.i = load <16 x i8>, ptr %173, align 1, !noalias !1543
+  %174 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i, %.15.vec.insert.i.i.i.i
   %175 = bitcast <16 x i1> %174 to i16
   br label %176
 
 176:                                              ; preds = %180, %172
-  %.021.i.i.i = phi i16 [ %175, %172 ], [ %182, %180 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.021.i.i.i, 0
+  %.022.i.i.i = phi i16 [ %175, %172 ], [ %184, %180 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.022.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %177, label %180
 
 177:                                              ; preds = %176
-  %178 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
+  %178 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i, splat (i8 -1)
   %179 = bitcast <16 x i1> %178 to i16
   %.not.i.i.i.i = icmp eq i16 %179, 0
   br i1 %.not.i.i.i.i, label %189, label %select.unfold
 
 180:                                              ; preds = %176
-  %181 = add i16 %.021.i.i.i, -1
-  %182 = and i16 %181, %.021.i.i.i
-  %183 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.021.i.i.i, i1 true)
-  %184 = zext nneg i16 %183 to i64
-  %185 = add i64 %.sroa.01.0.i.i.i.i, %184
+  %181 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
+  %182 = zext nneg i16 %181 to i64
+  %183 = add i16 %.022.i.i.i, -1
+  %184 = and i16 %183, %.022.i.i.i
+  %185 = add i64 %.sroa.01.0.i.i.i.i, %182
   %186 = and i64 %185, %.val5.i
   %187 = sub nsw i64 0, %186
   %gep.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i, i64 %187
@@ -10838,28 +10838,28 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h0a014631f851c40cE
   %.pn.i.i.i = phi i64 [ %313, %.noexc227 ], [ %336, %334 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i, %.val5.i
   %318 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i30.i.i.i = load <16 x i8>, ptr %318, align 1, !noalias !2510
-  %319 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i32.i.i.i = load <16 x i8>, ptr %318, align 1, !noalias !2510
+  %319 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i, %.15.vec.insert.i.i.i.i
   %320 = bitcast <16 x i1> %319 to i16
   br label %321
 
 321:                                              ; preds = %325, %317
-  %.021.i.i.i = phi i16 [ %320, %317 ], [ %327, %325 ]
-  %.not.not.i.i.i.i = icmp eq i16 %.021.i.i.i, 0
+  %.022.i.i.i = phi i16 [ %320, %317 ], [ %329, %325 ]
+  %.not.not.i.i.i.i = icmp eq i16 %.022.i.i.i, 0
   br i1 %.not.not.i.i.i.i, label %322, label %325
 
 322:                                              ; preds = %321
-  %323 = icmp eq <16 x i8> %.0.copyload.i30.i.i.i, splat (i8 -1)
+  %323 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i, splat (i8 -1)
   %324 = bitcast <16 x i1> %323 to i16
   %.not.i.i.i.i = icmp eq i16 %324, 0
   br i1 %.not.i.i.i.i, label %334, label %select.unfold
 
 325:                                              ; preds = %321
-  %326 = add i16 %.021.i.i.i, -1
-  %327 = and i16 %326, %.021.i.i.i
-  %328 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.021.i.i.i, i1 true)
-  %329 = zext nneg i16 %328 to i64
-  %330 = add i64 %.sroa.01.0.i.i.i.i, %329
+  %326 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.022.i.i.i, i1 true)
+  %327 = zext nneg i16 %326 to i64
+  %328 = add i16 %.022.i.i.i, -1
+  %329 = and i16 %328, %.022.i.i.i
+  %330 = add i64 %.sroa.01.0.i.i.i.i, %327
   %331 = and i64 %330, %.val5.i
   %332 = sub nsw i64 0, %331
   %gep.i.i.i = getelementptr { i64, ptr }, ptr %invariant.gep.i.i.i, i64 %332

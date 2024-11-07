@@ -183,6 +183,7 @@ common.resume:                                    ; preds = %66, %.body, %82, %7
           to label %.sink.split.i.i unwind label %53, !noalias !11
 
 .sink.split.i.i:                                  ; preds = %52, %49, %44
+  %.sroa.4.0.ph.i.i = phi ptr [ undef, %49 ], [ undef, %52 ], [ %47, %44 ]
   %.sroa.0.0.ph.i.i = phi i64 [ 1, %49 ], [ 1, %52 ], [ 0, %44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !11
   store atomic i8 0, ptr %42 seq_cst, align 1, !noalias !11
@@ -199,7 +200,7 @@ common.resume:                                    ; preds = %66, %.body, %82, %7
   unreachable
 
 56:                                               ; preds = %41, %.sink.split.i.i
-  %.sroa.4.0.i.i.ph = phi ptr [ %47, %.sink.split.i.i ], [ undef, %41 ]
+  %.sroa.4.0.i.i.ph = phi ptr [ %.sroa.4.0.ph.i.i, %.sink.split.i.i ], [ undef, %41 ]
   %.sroa.0.0.i.i.ph = phi i64 [ %.sroa.0.0.ph.i.i, %.sink.split.i.i ], [ 1, %41 ]
   store i64 %.sroa.0.0.i.i.ph, ptr %5, align 8
   %57 = getelementptr inbounds i8, ptr %5, i64 8

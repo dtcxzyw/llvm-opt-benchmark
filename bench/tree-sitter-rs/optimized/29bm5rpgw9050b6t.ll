@@ -455,7 +455,7 @@ _ZN3std4path7PathBuf4push17h9d0236832608fd14E.exit: ; preds = %23
   br label %103
 
 106:                                              ; preds = %99
-  br i1 %100, label %.thread140, label %107
+  br i1 %100, label %.thread141, label %107
 
 107:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
@@ -465,7 +465,7 @@ _ZN3std4path7PathBuf4push17h9d0236832608fd14E.exit: ; preds = %23
   invoke void @_ZN4dirs8home_dir17hb0394191be07d6e8E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %14)
           to label %108 unwind label %104
 
-.thread140:                                       ; preds = %106
+.thread141:                                       ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   br label %169
 
@@ -648,7 +648,7 @@ _ZN3std4path4Path4join17h84f4ebb217df78a7E.exit104: ; preds = %_ZN3std4path4Path
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %79
 
-169:                                              ; preds = %.thread140, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbab172fb28d8c7eE.exit120", %101
+169:                                              ; preds = %.thread141, %"_ZN4core3ptr39drop_in_place$LT$std..path..PathBuf$GT$17hcbab172fb28d8c7eE.exit120", %101
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %79
 
@@ -2299,11 +2299,11 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.
           to label %331 unwind label %369
 
 328:                                              ; preds = %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit, %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit.thread
-  %.sroa.6.05662 = phi ptr [ %.0.i.i26.i, %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit.thread ], [ %.sroa.6.0.copyload, %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit ]
-  %329 = icmp ne ptr %.sroa.6.05662, null
+  %.sroa.6.05660 = phi ptr [ %.0.i.i26.i, %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit.thread ], [ %.sroa.6.0.copyload, %_ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit ]
+  %329 = icmp ne ptr %.sroa.6.05660, null
   call void @llvm.assume(i1 %329)
-  %330 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6e9967e7afbab40eE"(ptr noalias noundef nonnull align 8 %.sroa.6.05662)
-  br label %.thread75
+  %330 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h6e9967e7afbab40eE"(ptr noalias noundef nonnull align 8 %.sroa.6.05660)
+  br label %.thread74
 
 331:                                              ; preds = %322
   %.fca.0.extract = extractvalue { ptr, i64 } %327, 0
@@ -2377,13 +2377,13 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !717
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   %359 = icmp eq ptr %345, null
-  br i1 %359, label %.thread75, label %360
+  br i1 %359, label %.thread74, label %360
 
 360:                                              ; preds = %358
   %361 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h90a2b3cf05d36a42E"(ptr noundef nonnull %345)
-  br label %.thread75
+  br label %.thread74
 
-.thread75:                                        ; preds = %358, %328, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit", %360
+.thread74:                                        ; preds = %358, %328, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit", %360
   %.1 = phi ptr [ %330, %328 ], [ %357, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit" ], [ %361, %360 ], [ null, %358 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   ret ptr %.1
@@ -2405,7 +2405,7 @@ _ZN10serde_json3ser13to_vec_pretty17h45b722346972ff9aE.exit: ; preds = %.thread.
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdc7e74606c77ffE.exit": ; preds = %362, %365
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !726
-  br label %.thread75
+  br label %.thread74
 
 369:                                              ; preds = %333, %356, %322, %334
   %lpad.thr_comm = landingpad { ptr, i32 }

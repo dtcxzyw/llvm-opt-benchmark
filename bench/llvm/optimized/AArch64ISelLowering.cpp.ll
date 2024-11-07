@@ -43320,6 +43320,7 @@ _ZNK4llvm3EVT9isIntegerEv.exit.thread:            ; preds = %326, %330
   br label %334
 
 334:                                              ; preds = %326, %330, %_ZNK4llvm3EVT9isIntegerEv.exit.thread, %333
+  %.sroa.43.2 = phi i32 [ %.sroa.340.0.i, %333 ], [ undef, %_ZNK4llvm3EVT9isIntegerEv.exit.thread ], [ undef, %330 ], [ undef, %326 ]
   %switch671 = phi i1 [ false, %333 ], [ true, %_ZNK4llvm3EVT9isIntegerEv.exit.thread ], [ true, %330 ], [ true, %326 ]
   %335 = load i32, ptr %301, align 8
   %336 = icmp ugt i32 %335, 64
@@ -44700,7 +44701,7 @@ _ZN4llvm14SmallMapVectorINS_7SDValueEjLj16EED2Ev.exit: ; preds = %_ZN4llvm11Smal
   br label %_ZN4llvm5SDLocD2Ev.exit789
 
 _ZN4llvm5SDLocD2Ev.exit789:                       ; preds = %163, %160, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i, %_ZN4llvm5SDLocD2Ev.exit, %343, %792, %_ZN4llvm14SmallMapVectorINS_7SDValueEjLj16EED2Ev.exit, %_ZL20NormalizeBuildVectorN4llvm7SDValueERNS_12SelectionDAGE.exit, %_ZN4llvm5APIntD2Ev.exit708, %355
-  %.sroa.43.1 = phi i32 [ %.fca.1.extract471, %355 ], [ %.sroa.340.0.i, %_ZN4llvm5APIntD2Ev.exit708 ], [ 0, %_ZL20NormalizeBuildVectorN4llvm7SDValueERNS_12SelectionDAGE.exit ], [ %.sroa.43.3, %_ZN4llvm14SmallMapVectorINS_7SDValueEjLj16EED2Ev.exit ], [ %.sroa.43.3, %792 ], [ %.sroa.340.0.i, %343 ], [ %spec.select940, %_ZN4llvm5SDLocD2Ev.exit ], [ %spec.select940, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i ], [ %spec.select940, %160 ], [ %spec.select940, %163 ]
+  %.sroa.43.1 = phi i32 [ %.fca.1.extract471, %355 ], [ %.sroa.43.2, %_ZN4llvm5APIntD2Ev.exit708 ], [ 0, %_ZL20NormalizeBuildVectorN4llvm7SDValueERNS_12SelectionDAGE.exit ], [ %.sroa.43.3, %_ZN4llvm14SmallMapVectorINS_7SDValueEjLj16EED2Ev.exit ], [ %.sroa.43.3, %792 ], [ %.sroa.340.0.i, %343 ], [ %spec.select940, %_ZN4llvm5SDLocD2Ev.exit ], [ %spec.select940, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i ], [ %spec.select940, %160 ], [ %spec.select940, %163 ]
   %.sroa.0890.1 = phi ptr [ %.fca.0.extract470, %355 ], [ %.sroa.039.0.i, %_ZN4llvm5APIntD2Ev.exit708 ], [ null, %_ZL20NormalizeBuildVectorN4llvm7SDValueERNS_12SelectionDAGE.exit ], [ %.sroa.0890.3, %_ZN4llvm14SmallMapVectorINS_7SDValueEjLj16EED2Ev.exit ], [ %.sroa.0890.3, %792 ], [ %.sroa.039.0.i, %343 ], [ %spec.select941, %_ZN4llvm5SDLocD2Ev.exit ], [ %spec.select941, %_ZN4llvm5APIntD2Ev.exit.i.i.i.i.i.i ], [ %spec.select941, %160 ], [ %spec.select941, %163 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0890.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.43.1, 1

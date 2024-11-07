@@ -250,14 +250,14 @@ if.end:                                           ; preds = %entry
   %call25 = tail call { i8, i64 } @_ZN4node11StringBytes11StorageSizeEPN2v87IsolateENS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef nonnull %isolate, ptr nonnull %call10, i32 noundef 1) #19
   %0 = extractvalue { i8, i64 } %call25, 0
   %tobool.i63 = trunc i8 %0 to i1
+  %1 = extractvalue { i8, i64 } %call25, 1
+  %2 = add i64 %1, 1
   br i1 %tobool.i63, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end
-  %1 = extractvalue { i8, i64 } %call25, 1
-  %add = add i64 %1, 1
   %buf_.i.i = getelementptr inbounds i8, ptr %target, i64 16
-  %2 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i8 = icmp eq ptr %2, null
+  %3 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i8 = icmp eq ptr %3, null
   br i1 %cmp.i.i8, label %do.body5.i, label %do.end6.i
 
 do.body5.i:                                       ; preds = %if.end29
@@ -267,38 +267,38 @@ do.body5.i:                                       ; preds = %if.end29
 
 do.end6.i:                                        ; preds = %if.end29
   %capacity_.i.i = getelementptr inbounds i8, ptr %target, i64 8
-  %3 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.i = icmp ugt i64 %add, %3
+  %4 = load i64, ptr %capacity_.i.i, align 8
+  %cmp.i = icmp ugt i64 %2, %4
   br i1 %cmp.i, label %if.then8.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
 
 if.then8.i:                                       ; preds = %do.end6.i
   %buf_st_.i.i = getelementptr inbounds i8, ptr %target, i64 24
-  %cmp.i5.not.i = icmp eq ptr %2, %buf_st_.i.i
-  %cond.i = select i1 %cmp.i5.not.i, ptr null, ptr %2
-  %call10.i = tail call noundef ptr @_ZN4node7ReallocIcEEPT_S2_m(ptr noundef %cond.i, i64 noundef %add)
+  %cmp.i5.not.i = icmp eq ptr %3, %buf_st_.i.i
+  %cond.i = select i1 %cmp.i5.not.i, ptr null, ptr %3
+  %call10.i = tail call noundef ptr @_ZN4node7ReallocIcEEPT_S2_m(ptr noundef %cond.i, i64 noundef %2)
   store ptr %call10.i, ptr %buf_.i.i, align 8
-  store i64 %add, ptr %capacity_.i.i, align 8
+  store i64 %2, ptr %capacity_.i.i, align 8
   br i1 %cmp.i5.not.i, label %land.lhs.true.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
 
 land.lhs.true.i:                                  ; preds = %if.then8.i
-  %4 = load i64, ptr %target, align 8
-  %cmp13.not.i = icmp eq i64 %4, 0
+  %5 = load i64, ptr %target, align 8
+  %cmp13.not.i = icmp eq i64 %5, 0
   br i1 %cmp13.not.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit, label %if.then14.i
 
 if.then14.i:                                      ; preds = %land.lhs.true.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call10.i, ptr nonnull align 8 %buf_st_.i.i, i64 %4, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call10.i, ptr nonnull align 8 %buf_st_.i.i, i64 %5, i1 false)
   %.pre = load ptr, ptr %buf_.i.i, align 8
   br label %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
 
 _ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit: ; preds = %do.end6.i, %if.then8.i, %land.lhs.true.i, %if.then14.i
-  %5 = phi ptr [ %2, %do.end6.i ], [ %call10.i, %if.then8.i ], [ %call10.i, %land.lhs.true.i ], [ %.pre, %if.then14.i ]
-  store i64 %add, ptr %target, align 8
-  %conv = trunc i64 %add to i32
-  %call32 = tail call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %call10, ptr noundef nonnull %isolate, ptr noundef %5, i32 noundef %conv, ptr noundef null, i32 noundef 10) #19
+  %6 = phi ptr [ %3, %do.end6.i ], [ %call10.i, %if.then8.i ], [ %call10.i, %land.lhs.true.i ], [ %.pre, %if.then14.i ]
+  store i64 %2, ptr %target, align 8
+  %conv = trunc i64 %2 to i32
+  %call32 = tail call noundef i32 @_ZNK2v86String9WriteUtf8EPNS_7IsolateEPciPii(ptr noundef nonnull align 1 dereferenceable(1) %call10, ptr noundef nonnull %isolate, ptr noundef %6, i32 noundef %conv, ptr noundef null, i32 noundef 10) #19
   %conv33 = sext i32 %call32 to i64
   %add.i = add nsw i64 %conv33, 1
-  %6 = load i64, ptr %capacity_.i.i, align 8
-  %cmp.not.i = icmp ugt i64 %add.i, %6
+  %7 = load i64, ptr %capacity_.i.i, align 8
+  %cmp.not.i = icmp ugt i64 %add.i, %7
   br i1 %cmp.not.i, label %do.body4.i, label %do.end5.i
 
 do.body4.i:                                       ; preds = %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
@@ -307,7 +307,7 @@ do.body4.i:                                       ; preds = %_ZN4node16MaybeStac
   unreachable
 
 do.end5.i:                                        ; preds = %_ZN4node16MaybeStackBufferIcLm1024EE25AllocateSufficientStorageEm.exit
-  %cmp.not.i.i = icmp ult i64 %6, %conv33
+  %cmp.not.i.i = icmp ult i64 %7, %conv33
   br i1 %cmp.not.i.i, label %do.body4.i.i, label %_ZN4node16MaybeStackBufferIcLm1024EE25SetLengthAndZeroTerminateEm.exit
 
 do.body4.i.i:                                     ; preds = %do.end5.i
@@ -317,8 +317,8 @@ do.body4.i.i:                                     ; preds = %do.end5.i
 
 _ZN4node16MaybeStackBufferIcLm1024EE25SetLengthAndZeroTerminateEm.exit: ; preds = %do.end5.i
   store i64 %conv33, ptr %target, align 8
-  %7 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %7, i64 %conv33
+  %8 = load ptr, ptr %buf_.i.i, align 8
+  %arrayidx.i = getelementptr inbounds i8, ptr %8, i64 %conv33
   store i8 0, ptr %arrayidx.i, align 1
   br label %return
 

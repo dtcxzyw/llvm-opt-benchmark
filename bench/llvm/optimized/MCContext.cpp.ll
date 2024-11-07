@@ -3967,11 +3967,11 @@ define dso_local noundef ptr @_ZN4llvm9MCContext27getOrCreateFrameAllocSymbolERK
   %11 = load i8, ptr %10, align 8, !noalias !52
   switch i8 %11, label %16 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit16.thread
-    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67
+    i8 1, label %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71
   ]
 
-_ZN4llvmplERKNS_5TwineES2_.exit16.thread67:       ; preds = %3
-  %.sink79.sroa.gep80 = getelementptr inbounds i8, ptr %6, i64 8
+_ZN4llvmplERKNS_5TwineES2_.exit16.thread71:       ; preds = %3
+  %.sink83.sroa.gep84 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %.sroa.0.0.copyload.i, ptr %6, align 8
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
@@ -3987,7 +3987,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.thread:         ; preds = %3
   br label %_ZN4llvmplERKNS_5TwineES2_.exit31
 
 16:                                               ; preds = %3
-  %.sink79.sroa.gep = getelementptr inbounds i8, ptr %6, i64 24
+  %.sink83.sroa.gep = getelementptr inbounds i8, ptr %6, i64 24
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %18 = load i8, ptr %17, align 1, !noalias !52
   %19 = icmp eq i8 %18, 1
@@ -4004,18 +4004,18 @@ _ZN4llvmplERKNS_5TwineES2_.exit16.thread:         ; preds = %3
   store ptr %.sroa.04.0.i.i, ptr %20, align 8, !alias.scope !52
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
-_ZN4llvmplERKNS_5TwineES2_.exit16:                ; preds = %16, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67
-  %.sink79.sroa.phi = phi ptr [ %.sink79.sroa.gep, %16 ], [ %.sink79.sroa.gep80, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67 ]
-  %.sroa.3.0.i.i.sink = phi i64 [ %.sroa.3.0.i.i, %16 ], [ %.sroa.2.0.copyload.i, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67 ]
-  %.0.i.i.sink = phi i8 [ %.0.i.i, %16 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67 ]
-  %.sink72 = phi ptr [ %6, %16 ], [ %.sroa.0.0.copyload.i, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67 ]
-  %.sink = phi i8 [ 2, %16 ], [ 5, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread67 ]
-  store i64 %.sroa.3.0.i.i.sink, ptr %.sink79.sroa.phi, align 8
+_ZN4llvmplERKNS_5TwineES2_.exit16:                ; preds = %16, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71
+  %.sink83.sroa.phi = phi ptr [ %.sink83.sroa.gep, %16 ], [ %.sink83.sroa.gep84, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71 ]
+  %.sroa.3.0.i.i.sink = phi i64 [ %.sroa.3.0.i.i, %16 ], [ %.sroa.2.0.copyload.i, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71 ]
+  %.0.i.i.sink = phi i8 [ %.0.i.i, %16 ], [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71 ]
+  %.sink76 = phi ptr [ %6, %16 ], [ %.sroa.0.0.copyload.i, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71 ]
+  %.sink = phi i8 [ 2, %16 ], [ 5, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread71 ]
+  store i64 %.sroa.3.0.i.i.sink, ptr %.sink83.sroa.phi, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 32
   store i8 5, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 33
   store i8 %.0.i.i.sink, ptr %22, align 1
-  store ptr %.sink72, ptr %5, align 8, !alias.scope !53
+  store ptr %.sink76, ptr %5, align 8, !alias.scope !53
   %.sroa.23.0..sroa_idx.i.i.i14 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %.sroa.2.0.copyload.i, ptr %.sroa.23.0..sroa_idx.i.i.i14, align 8, !alias.scope !53
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4032,12 +4032,12 @@ _ZN4llvmplERKNS_5TwineES2_.exit16:                ; preds = %16, %_ZN4llvmplERKN
   br label %_ZN4llvmplERKNS_5TwineES2_.exit31
 
 _ZN4llvmplERKNS_5TwineES2_.exit31:                ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit16.thread, %_ZN4llvmplERKNS_5TwineES2_.exit16
-  %.sink75 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit16 ]
-  %.sink73 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread ], [ 9, %_ZN4llvmplERKNS_5TwineES2_.exit16 ]
+  %.sink79 = phi i8 [ 0, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread ], [ 2, %_ZN4llvmplERKNS_5TwineES2_.exit16 ]
+  %.sink77 = phi i8 [ 1, %_ZN4llvmplERKNS_5TwineES2_.exit16.thread ], [ 9, %_ZN4llvmplERKNS_5TwineES2_.exit16 ]
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 %.sink75, ptr %28, align 8, !alias.scope !58
+  store i8 %.sink79, ptr %28, align 8, !alias.scope !58
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 33
-  store i8 %.sink73, ptr %29, align 1, !alias.scope !58
+  store i8 %.sink77, ptr %29, align 1, !alias.scope !58
   %30 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(34) %4)
   ret ptr %30
 }
@@ -4058,11 +4058,11 @@ define dso_local noundef ptr @_ZN4llvm9MCContext34getOrCreateParentFrameOffsetSy
   %9 = load i8, ptr %8, align 8, !noalias !69
   switch i8 %9, label %13 [
     i8 0, label %10
-    i8 1, label %.thread38
+    i8 1, label %.thread42
   ]
 
-.thread38:                                        ; preds = %2
-  %.sink46.sroa.gep47 = getelementptr inbounds i8, ptr %4, i64 8
+.thread42:                                        ; preds = %2
+  %.sink50.sroa.gep51 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %.sroa.0.0.copyload.i, ptr %4, align 8
   br label %18
 
@@ -4074,7 +4074,7 @@ define dso_local noundef ptr @_ZN4llvm9MCContext34getOrCreateParentFrameOffsetSy
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
 13:                                               ; preds = %2
-  %.sink46.sroa.gep = getelementptr inbounds i8, ptr %4, i64 24
+  %.sink50.sroa.gep = getelementptr inbounds i8, ptr %4, i64 24
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 33
   %15 = load i8, ptr %14, align 1, !noalias !69
   %16 = icmp eq i8 %15, 1
@@ -4091,13 +4091,13 @@ define dso_local noundef ptr @_ZN4llvm9MCContext34getOrCreateParentFrameOffsetSy
   store ptr %.sroa.04.0.i.i, ptr %17, align 8, !alias.scope !69
   br label %18
 
-18:                                               ; preds = %13, %.thread38
-  %.sink46.sroa.phi = phi ptr [ %.sink46.sroa.gep, %13 ], [ %.sink46.sroa.gep47, %.thread38 ]
-  %.sroa.3.0.i.i.sink = phi i64 [ %.sroa.3.0.i.i, %13 ], [ %.sroa.2.0.copyload.i, %.thread38 ]
-  %.0.i.i.sink = phi i8 [ %.0.i.i, %13 ], [ 1, %.thread38 ]
-  %19 = phi ptr [ %4, %13 ], [ %.sroa.0.0.copyload.i, %.thread38 ]
-  %20 = phi i8 [ 2, %13 ], [ 5, %.thread38 ]
-  store i64 %.sroa.3.0.i.i.sink, ptr %.sink46.sroa.phi, align 8
+18:                                               ; preds = %13, %.thread42
+  %.sink50.sroa.phi = phi ptr [ %.sink50.sroa.gep, %13 ], [ %.sink50.sroa.gep51, %.thread42 ]
+  %.sroa.3.0.i.i.sink = phi i64 [ %.sroa.3.0.i.i, %13 ], [ %.sroa.2.0.copyload.i, %.thread42 ]
+  %.0.i.i.sink = phi i8 [ %.0.i.i, %13 ], [ 1, %.thread42 ]
+  %19 = phi ptr [ %4, %13 ], [ %.sroa.0.0.copyload.i, %.thread42 ]
+  %20 = phi i8 [ 2, %13 ], [ 5, %.thread42 ]
+  store i64 %.sroa.3.0.i.i.sink, ptr %.sink50.sroa.phi, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 32
   store i8 5, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 33
@@ -4110,10 +4110,10 @@ define dso_local noundef ptr @_ZN4llvm9MCContext34getOrCreateParentFrameOffsetSy
   br label %_ZN4llvmplERKNS_5TwineES2_.exit16
 
 _ZN4llvmplERKNS_5TwineES2_.exit16:                ; preds = %10, %18
-  %.sink42 = phi i8 [ 0, %10 ], [ %20, %18 ]
+  %.sink46 = phi i8 [ 0, %10 ], [ %20, %18 ]
   %.sink = phi i8 [ 1, %10 ], [ 3, %18 ]
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store i8 %.sink42, ptr %24, align 8, !alias.scope !70
+  store i8 %.sink46, ptr %24, align 8, !alias.scope !70
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 33
   store i8 %.sink, ptr %25, align 1, !alias.scope !70
   %26 = call noundef ptr @_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(34) %3)
@@ -5620,12 +5620,12 @@ _ZN4llvm5TwineC2EPKc.exit.thread:                 ; preds = %30
   br label %_ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i
 
 _ZN4llvmplERKNS_5TwineES2_.exit.sink.split.i:     ; preds = %41, %37
-  %.sroa.2.0.copyload.i.i70 = phi i64 [ %.sroa.2.0.copyload.i.i, %37 ], [ %.sroa.2.0.copyload.i.i64, %41 ]
   %.sroa.0.0.copyload.i.i67 = phi ptr [ %.sroa.0.0.copyload.i.i, %37 ], [ %.sroa.0.0.copyload.i.i62, %41 ]
   %storemerge.i6065 = phi i8 [ 1, %37 ], [ 3, %41 ]
   %.sink7.i.sroa.phi = phi ptr [ %.sink7.i.sroa.gep, %37 ], [ %.sink7.i.sroa.gep49, %41 ]
+  %.sroa.2.0.copyload.i.sink.i = phi i64 [ %.sroa.2.0.copyload.i.i, %37 ], [ undef, %41 ]
   store ptr %.sroa.0.0.copyload.i.i67, ptr %9, align 8
-  store i64 %.sroa.2.0.copyload.i.i70, ptr %.sink7.i.sroa.phi, align 8
+  store i64 %.sroa.2.0.copyload.i.sink.i, ptr %.sink7.i.sroa.phi, align 8
   %46 = getelementptr inbounds i8, ptr %9, i64 32
   store i8 5, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %9, i64 33

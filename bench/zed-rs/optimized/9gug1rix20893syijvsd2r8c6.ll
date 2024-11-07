@@ -7279,11 +7279,11 @@ switch.lookup:                                    ; preds = %124
   br label %_ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView28get_block_index_under_cursor17he035baaa1a28f7e2E.exit.i.i.i
 
 137:                                              ; preds = %switch.lookup
-  %switch.gep73 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN4gpui4view17WeakView$LT$V$GT$6update17h8aac61e31d366cb2E.115", i64 0, i64 %131
-  %switch.load74 = load i64, ptr %switch.gep73, align 8
+  %switch.gep71 = getelementptr inbounds [7 x i64], ptr @"switch.table._ZN4gpui4view17WeakView$LT$V$GT$6update17h8aac61e31d366cb2E.115", i64 0, i64 %131
+  %switch.load72 = load i64, ptr %switch.gep71, align 8
   %138 = add nuw nsw i64 %.sroa.8.0.i.i.i.i, 1
   %139 = getelementptr inbounds i8, ptr %.sroa.0.012.i.i.i.i, i64 136
-  %140 = getelementptr inbounds i8, ptr %.sroa.0.012.i.i.i.i, i64 %switch.load74
+  %140 = getelementptr inbounds i8, ptr %.sroa.0.012.i.i.i.i, i64 %switch.load72
   %.pn3.i.i.i.i.i = load i64, ptr %140, align 8, !alias.scope !1799, !noalias !1802, !noundef !4
   %141 = icmp ule i64 %.pn5.i.i.i.i.i, %114
   %142 = icmp uge i64 %.pn3.i.i.i.i.i, %114

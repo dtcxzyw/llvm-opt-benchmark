@@ -3564,7 +3564,8 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   br label %51
 
 51:                                               ; preds = %"_ZN76_$LT$hmac..simple..SimpleHmac$LT$D$GT$$u20$as$u20$crypto_common..KeyInit$GT$3new17hd9059917ab405a50E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit59"
-  %.sroa.0.0..sroa.0.0. = phi i8 [ 0, %"_ZN76_$LT$hmac..simple..SimpleHmac$LT$D$GT$$u20$as$u20$crypto_common..KeyInit$GT$3new17hd9059917ab405a50E.exit" ], [ 1, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit59" ]
+  %not. = phi i1 [ false, %"_ZN76_$LT$hmac..simple..SimpleHmac$LT$D$GT$$u20$as$u20$crypto_common..KeyInit$GT$3new17hd9059917ab405a50E.exit" ], [ true, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit59" ]
+  %spec.select73 = zext i1 %not. to i8
   call void @llvm.experimental.noalias.scope.decl(metadata !1107)
   call void @llvm.experimental.noalias.scope.decl(metadata !1110)
   call void @llvm.experimental.noalias.scope.decl(metadata !1113)
@@ -3594,7 +3595,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   store i64 %63, ptr %36, align 8, !alias.scope !1127, !noalias !1132
   call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %33, ptr noalias noundef nonnull readonly align 1 dereferenceable(65) %34, i64 noundef range(i64 1, 0) 1), !noalias !1121
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %34, ptr nonnull readonly align 1 %59, i64 %60, i1 false), !alias.scope !1137
-  %storemerge.i.i.i75 = trunc nuw nsw i64 %60 to i8
+  %storemerge.i.i.i78 = trunc nuw nsw i64 %60 to i8
   %64 = icmp ult i64 %60, 64
   call void @llvm.assume(i1 %64)
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27"
@@ -3613,31 +3614,31 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   br i1 %.not, label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread", label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27"
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit.thread"
-  %storemerge.i.i.i78 = phi i8 [ %storemerge.i.i.i75, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit.thread" ], [ %storemerge.i.i.i, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit" ]
-  %storemerge.in.i.i.i77 = phi i64 [ %60, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit.thread" ], [ %66, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit" ]
-  %67 = getelementptr inbounds i8, ptr %34, i64 %storemerge.in.i.i.i77
-  store i8 %.sroa.0.0..sroa.0.0., ptr %67, align 1, !alias.scope !1156, !noalias !1162
-  %68 = add nuw nsw i8 %storemerge.i.i.i78, 1
+  %storemerge.i.i.i81 = phi i8 [ %storemerge.i.i.i78, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit.thread" ], [ %storemerge.i.i.i, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit" ]
+  %storemerge.in.i.i.i80 = phi i64 [ %60, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit.thread" ], [ %66, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit" ]
+  %67 = getelementptr inbounds i8, ptr %34, i64 %storemerge.in.i.i.i80
+  store i8 %spec.select73, ptr %67, align 1, !alias.scope !1156, !noalias !1162
+  %68 = add nuw nsw i8 %storemerge.i.i.i81, 1
   store i8 %68, ptr %35, align 8, !alias.scope !1165, !noalias !1166
   call void @llvm.experimental.noalias.scope.decl(metadata !1167)
   call void @llvm.experimental.noalias.scope.decl(metadata !1170)
   call void @llvm.experimental.noalias.scope.decl(metadata !1173)
   call void @llvm.experimental.noalias.scope.decl(metadata !1176)
   %69 = zext nneg i8 %68 to i64
-  %70 = icmp ult i8 %storemerge.i.i.i78, 63
+  %70 = icmp ult i8 %storemerge.i.i.i81, 63
   call void @llvm.assume(i1 %70)
   %71 = sub nuw nsw i64 64, %69
   %72 = icmp ult i64 %2, %71
   br i1 %72, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i34", label %78
 
 "_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit"
-  store i8 %.sroa.0.0..sroa.0.0., ptr %46, align 1, !alias.scope !1178, !noalias !1182
+  store i8 %spec.select73, ptr %46, align 1, !alias.scope !1178, !noalias !1182
   %73 = load i64, ptr %36, align 8, !alias.scope !1184, !noalias !1189, !noundef !4
   %74 = add i64 %73, 1
   store i64 %74, ptr %36, align 8, !alias.scope !1184, !noalias !1189
   call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %33, ptr noalias noundef nonnull readonly align 1 dereferenceable(65) %34, i64 noundef range(i64 1, 0) 1), !noalias !1166
   store i8 0, ptr %35, align 8, !alias.scope !1165, !noalias !1166
-  br i1 %47, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i34", label %.thread82
+  br i1 %47, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i34", label %.thread85
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit.i.i.i34": ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread", %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27"
   %75 = phi i64 [ 0, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ], [ %69, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27" ]
@@ -3659,23 +3660,23 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   %85 = and i64 %80, 63
   %86 = getelementptr inbounds i8, ptr %79, i64 %84
   %87 = icmp ult i64 %80, 64
-  br i1 %87, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit46.i.i.i31", label %.thread82
+  br i1 %87, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit46.i.i.i31", label %.thread85
 
-.thread82:                                        ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread", %78
+.thread85:                                        ; preds = %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread", %78
   %88 = phi ptr [ %86, %78 ], [ %50, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ]
   %89 = phi i64 [ %85, %78 ], [ %49, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ]
-  %.sroa.0.0.i.i.i3086 = phi ptr [ %79, %78 ], [ %1, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ]
-  %.sroa.5.0.i.i.i2985 = phi i64 [ %80, %78 ], [ %2, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ]
-  %90 = lshr i64 %.sroa.5.0.i.i.i2985, 6
+  %.sroa.0.0.i.i.i3089 = phi ptr [ %79, %78 ], [ %1, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ]
+  %.sroa.5.0.i.i.i2988 = phi i64 [ %80, %78 ], [ %2, %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit27.thread" ]
+  %90 = lshr i64 %.sroa.5.0.i.i.i2988, 6
   %91 = load i64, ptr %36, align 8, !alias.scope !1220, !noalias !1225, !noundef !4
   %92 = add i64 %91, %90
   store i64 %92, ptr %36, align 8, !alias.scope !1220, !noalias !1225
-  call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %33, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i3086, i64 noundef range(i64 1, 0) %90), !noalias !1230
+  call void @_ZN4sha26sha25611compress25617hbd384aa2f8354284E(ptr noalias noundef nonnull align 8 dereferenceable(112) %33, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i3089, i64 noundef range(i64 1, 0) %90), !noalias !1230
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit46.i.i.i31"
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit46.i.i.i31": ; preds = %.thread82, %78
-  %93 = phi ptr [ %88, %.thread82 ], [ %86, %78 ]
-  %94 = phi i64 [ %89, %.thread82 ], [ %85, %78 ]
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit46.i.i.i31": ; preds = %.thread85, %78
+  %93 = phi ptr [ %88, %.thread85 ], [ %86, %78 ]
+  %94 = phi i64 [ %89, %.thread85 ], [ %85, %78 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 dereferenceable(65) %34, ptr nonnull readonly align 1 %93, i64 %94, i1 false), !alias.scope !1231, !noalias !1235
   br label %"_ZN44_$LT$D$u20$as$u20$digest..digest..Digest$GT$6update17h11512bd44f1962b5E.exit35"
 
@@ -3928,8 +3929,7 @@ define hidden void @"_ZN7rfc697917HmacDrbg$LT$D$GT$3new17h6d92fe29c86a4cd3E"(ptr
   call void @"_ZN78_$LT$hmac..simple..SimpleHmac$LT$D$GT$$u20$as$u20$digest..FixedOutputReset$GT$19finalize_into_reset17h7b1c2cadd824b7e8E"(ptr noalias noundef nonnull align 8 dereferenceable(240) %29, ptr noalias noundef nonnull align 1 dereferenceable(32) %9), !noalias !1473
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 1 dereferenceable(32) %9, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9), !noalias !1466
-  %161 = trunc nuw i8 %.sroa.0.0..sroa.0.0. to i1
-  br i1 %161, label %56, label %51
+  br i1 %not., label %56, label %51
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

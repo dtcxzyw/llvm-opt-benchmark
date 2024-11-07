@@ -727,8 +727,8 @@ _ZNK5clang23DeclContextLookupResult5frontEv.exit.i.i.i: ; preds = %96, %92
   %100 = and i32 %99, 127
   %101 = add nsw i32 %100, -49
   %102 = icmp ult i32 %101, -3
-  %.not14.i.i.i = icmp eq ptr %.0.i.i.i.i30.i, null
-  %.not.i.i.i = or i1 %.not14.i.i.i, %102
+  %.not16.i.i.i = icmp eq ptr %.0.i.i.i.i30.i, null
+  %.not.i.i.i = or i1 %.not16.i.i.i, %102
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang13CXXRecordDeclENS1_4ento4SValEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE.exit.i.i, label %103
 
 103:                                              ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i.i.i
@@ -782,8 +782,8 @@ _ZNK5clang23DeclContextLookupResult5frontEv.exit.i53.i.i: ; preds = %115, %111
   %119 = and i32 %118, 127
   %120 = add nsw i32 %119, -49
   %121 = icmp ult i32 %120, -3
-  %.not14.i55.i.i = icmp eq ptr %.0.i.i.i54.i.i, null
-  %.not.i56.i.i = or i1 %.not14.i55.i.i, %121
+  %.not16.i55.i.i = icmp eq ptr %.0.i.i.i54.i.i, null
+  %.not.i56.i.i = or i1 %.not16.i55.i.i, %121
   br i1 %.not.i56.i.i, label %_ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang13CXXRecordDeclENS1_4ento4SValEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE.exit66.i.i, label %122
 
 122:                                              ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i53.i.i
@@ -1085,8 +1085,8 @@ _ZNK5clang23DeclContextLookupResult5frontEv.exit.i: ; preds = %52, %48
   %56 = and i32 %55, 127
   %57 = add nsw i32 %56, -49
   %58 = icmp ult i32 %57, -3
-  %.not14.i = icmp eq ptr %.0.i.i.i, null
-  %.not.i = or i1 %.not14.i, %58
+  %.not16.i = icmp eq ptr %.0.i.i.i, null
+  %.not.i = or i1 %.not16.i, %58
   br i1 %.not.i, label %_ZNK12_GLOBAL__N_112GTestChecker35getAssertionResultSuccessFieldValueEPKN5clang13CXXRecordDeclENS1_4ento4SValEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE.exit, label %59
 
 59:                                               ; preds = %_ZNK5clang23DeclContextLookupResult5frontEv.exit.i
@@ -1565,8 +1565,8 @@ _ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit:
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %.not.i.i.i.not = icmp eq i8 %2, 0
   %.not.i.i.i12.not = icmp eq i8 %4, 0
-  %or.cond = select i1 %.not.i.i.i.not, i1 true, i1 %.not.i.i.i12.not
-  br i1 %or.cond, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28, label %10
+  %brmerge = select i1 %.not.i.i.i.not, i1 true, i1 %.not.i.i.i12.not
+  br i1 %brmerge, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit28, label %10
 
 10:                                               ; preds = %_ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit
   %11 = load ptr, ptr %6, align 8

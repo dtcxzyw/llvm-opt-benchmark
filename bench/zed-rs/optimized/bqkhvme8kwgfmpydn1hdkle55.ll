@@ -11445,7 +11445,7 @@ define { i64, i64 } @_ZN7channel13channel_store12ChannelStore16index_of_channel1
   %11 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10de235af6c2c9cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !2306
   %12 = extractvalue { ptr, ptr } %11, 0
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit, label %.lr.ph.i
+  br i1 %13, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i"
   %14 = phi ptr [ %19, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i" ], [ %12, %2 ]
@@ -11459,15 +11459,18 @@ define { i64, i64 } @_ZN7channel13channel_store12ChannelStore16index_of_channel1
   %18 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf10de235af6c2c9cE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %3), !noalias !2306
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit, label %.lr.ph.i
+  br i1 %20, label %.loopexit, label %.lr.ph.i
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit: ; preds = %.lr.ph.i, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i", %2
-  %.sroa.3.0.i = phi i64 [ undef, %2 ], [ %15, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i" ], [ %15, %.lr.ph.i ]
-  %.sroa.0.0.i = phi i64 [ 0, %2 ], [ 1, %.lr.ph.i ], [ 0, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i" ]
-  %21 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
-  %22 = insertvalue { i64, i64 } %21, i64 %.sroa.3.0.i, 1
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit: ; preds = %.lr.ph.i
+  %21 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %15, 1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i", %2, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit
+  %22 = phi { i64, i64 } [ %21, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit ], [ { i64 0, i64 undef }, %2 ], [ { i64 0, i64 undef }, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i" ]
+  %23 = phi i64 [ %15, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6f59551d7d603fa2E.exit ], [ undef, %2 ], [ undef, %"_ZN4core4iter6traits8iterator8Iterator8position5check28_$u7b$$u7b$closure$u7d$$u7d$17h017b93b92e98570eE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %3)
-  ret { i64, i64 } %22
+  %24 = insertvalue { i64, i64 } %22, i64 %23, 1
+  ret { i64, i64 } %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -2056,13 +2056,13 @@ _ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit: ; preds = %"_ZN58_$LT$g
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h2e58978da9f7b028E.exit": ; preds = %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit.thread, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit
-  %.sroa.8.011 = phi i64 [ 3625302490712893676, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit ]
-  %.sroa.9.010 = phi i64 [ -8473282350106487373, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit ]
+  %.sroa.8.012 = phi i64 [ 3625302490712893676, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit ]
+  %.sroa.9.011 = phi i64 [ -8473282350106487373, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h63783951aaa1a138E.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !206
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
-  store i64 %.sroa.8.011, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !206
+  store i64 %.sroa.8.012, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !206
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 %.sroa.9.010, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !206
+  store i64 %.sroa.9.011, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !206
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   invoke void @"_ZN67_$LT$gpui..window..WindowContext$u20$as$u20$gpui..VisualContext$GT$11update_view17h3009047544bda065E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8)
           to label %268 unwind label %266

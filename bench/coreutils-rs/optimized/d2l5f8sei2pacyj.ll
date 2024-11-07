@@ -1216,7 +1216,7 @@ common.resume:                                    ; preds = %32, %18
 
 .loopexit.sink.split.i:                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17heebb2d7d3177bb0dE.exit.i", %88
   %anon.c26689b4b3f0ec1139c0701bc8b1e935.44.sink.i = phi ptr [ @anon.c26689b4b3f0ec1139c0701bc8b1e935.44, %88 ], [ @anon.c26689b4b3f0ec1139c0701bc8b1e935.46, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17heebb2d7d3177bb0dE.exit.i" ]
-  %78 = add nuw nsw i64 %.012.i.i, 1
+  %78 = add nuw nsw i64 %.011.i.i, 1
   %79 = getelementptr inbounds [10 x double], ptr %anon.c26689b4b3f0ec1139c0701bc8b1e935.44.sink.i, i64 0, i64 %78
   %80 = load double, ptr %79, align 8, !noalias !232, !noundef !5
   %81 = call i64 @llvm.fptoui.sat.i64.f64(double %80)
@@ -1234,7 +1234,7 @@ common.resume:                                    ; preds = %32, %18
   br label %83
 
 83:                                               ; preds = %85, %.lr.ph.i.i
-  %.012.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %86, %85 ]
+  %.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %86, %85 ]
   %.idx.i = phi i64 [ 0, %.lr.ph.i.i ], [ %.add.i, %85 ]
   %.ptr.i = getelementptr inbounds i8, ptr @anon.c26689b4b3f0ec1139c0701bc8b1e935.43, i64 %.idx.i
   %.val7.i.i = load i32, ptr %.ptr.i, align 4, !range !93, !noalias !238, !noundef !5
@@ -1243,12 +1243,12 @@ common.resume:                                    ; preds = %32, %18
 
 85:                                               ; preds = %83
   %.add.i = add nuw nsw i64 %.idx.i, 4
-  %86 = add nuw nsw i64 %.012.i.i, 1
+  %86 = add nuw nsw i64 %.011.i.i, 1
   %87 = icmp eq i64 %.add.i, 24
   br i1 %87, label %.loopexit, label %83
 
 88:                                               ; preds = %83
-  %89 = icmp samesign ult i64 %.012.i.i, 6
+  %89 = icmp samesign ult i64 %.011.i.i, 6
   call void @llvm.assume(i1 %89)
   switch i64 %38, label %.loopexit [
     i64 1, label %.loopexit.sink.split.i

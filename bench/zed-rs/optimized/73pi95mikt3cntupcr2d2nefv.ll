@@ -28746,9 +28746,9 @@ default.unreachable:                              ; preds = %38, %18
   br label %50
 
 48:                                               ; preds = %21, %28, %50, %43
-  %.sink136 = phi i8 [ 2, %21 ], [ 2, %28 ], [ 2, %50 ], [ %.sroa.05.0.i61, %43 ]
+  %.sink144 = phi i8 [ 2, %21 ], [ 2, %28 ], [ 2, %50 ], [ %.sroa.05.0.i61, %43 ]
   %49 = getelementptr inbounds i8, ptr %0, i64 56
-  store i8 %.sink136, ptr %49, align 8
+  store i8 %.sink144, ptr %49, align 8
   ret void
 
 50:                                               ; preds = %46, %41
@@ -29629,8 +29629,8 @@ default.unreachable:                              ; preds = %33, %16
   %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %1, i64 80
   %.sroa.66.sroa.8.0.copyload = load i32, ptr %.sroa.66.sroa.8.0..sroa.66.0..sroa_idx.sroa_idx, align 8
   %24 = and i64 %.sroa.04.0.copyload, -2
-  %switch110 = icmp eq i64 %24, 2
-  br i1 %switch110, label %37, label %25
+  %switch114 = icmp eq i64 %24, 2
+  br i1 %switch114, label %37, label %25
 
 25:                                               ; preds = %22
   %trunc.i27 = trunc nuw i64 %.sroa.04.0.copyload to i1

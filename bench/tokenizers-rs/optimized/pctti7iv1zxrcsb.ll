@@ -39828,35 +39828,36 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections11linked_list23LinkedList$LT$
   %2 = load ptr, ptr %0, align 8, !noundef !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = icmp eq ptr %2, null
-  br i1 %5, label %15, label %6
+  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = icmp eq ptr %2, null
+  br i1 %6, label %16, label %7
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %2, i64 24
-  %8 = load ptr, ptr %7, align 8, !noalias !19483, !noundef !4
-  store ptr %8, ptr %0, align 8, !noalias !19483
-  %9 = icmp eq ptr %8, null
-  br i1 %9, label %10, label %11
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds i8, ptr %2, i64 24
+  %9 = load ptr, ptr %8, align 8, !noalias !19483, !noundef !4
+  store ptr %9, ptr %0, align 8, !noalias !19483
+  %10 = icmp eq ptr %9, null
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %7
   store ptr null, ptr %3, align 8, !noalias !19483
   br label %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit"
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %12, align 8, !noalias !19483
+12:                                               ; preds = %7
+  %13 = getelementptr inbounds i8, ptr %9, i64 32
+  store ptr null, ptr %13, align 8, !noalias !19483
   br label %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit"
 
-"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit": ; preds = %10, %11
-  %13 = load i64, ptr %4, align 8, !noalias !19483, !noundef !4
-  %14 = add i64 %13, -1
-  store i64 %14, ptr %4, align 8, !noalias !19483
-  br label %15
+"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit": ; preds = %11, %12
+  %14 = load i64, ptr %4, align 8, !noalias !19483, !noundef !4
+  %15 = add i64 %14, -1
+  store i64 %15, ptr %4, align 8, !noalias !19483
+  br label %16
 
-15:                                               ; preds = %1, %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit"
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
+16:                                               ; preds = %1, %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit"
+  %.sroa.3.0 = phi ptr [ %5, %"_ZN5alloc11collections11linked_list23LinkedList$LT$T$C$A$GT$14pop_front_node28_$u7b$$u7b$closure$u7d$$u7d$17hfb3a8f20fab47819E.llvm.1287153784043347726.exit" ], [ undef, %1 ]
   %17 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %18 = insertvalue { ptr, ptr } %17, ptr %16, 1
+  %18 = insertvalue { ptr, ptr } %17, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %18
 }
 

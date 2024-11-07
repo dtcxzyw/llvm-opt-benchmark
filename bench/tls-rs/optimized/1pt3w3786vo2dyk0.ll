@@ -12435,30 +12435,30 @@ define void @"_ZN88_$LT$rustls..msgs..handshake..ServerEcdhParams$u20$as$u20$rus
   br i1 %trunc, label %35, label %34
 
 32:                                               ; preds = %18, %2, %24
-  %.sroa.721.061.ph = phi i8 [ %.sroa.451.0.copyload.i, %24 ], [ undef, %2 ], [ undef, %18 ]
-  %.sroa.922.059.ph = phi i16 [ %.sroa.552.0.copyload.i, %24 ], [ undef, %2 ], [ undef, %18 ]
-  %.sroa.12.057.ph = phi i16 [ %.sroa.653.0.copyload.i, %24 ], [ undef, %2 ], [ undef, %18 ]
-  %.sroa.14.055.ph = phi i8 [ %.sroa.559.i.sroa.0.0.copyload, %24 ], [ undef, %2 ], [ undef, %18 ]
-  %.sroa.16.053.ph = phi i8 [ %.sroa.559.i.sroa.4.0.copyload, %24 ], [ undef, %2 ], [ undef, %18 ]
-  %.sroa.17.051.ph = phi ptr [ %.sroa.559.i.sroa.5.0.copyload, %24 ], [ @anon.a568c7da4921ec2ed34cb4ede4839d57.78.llvm.17726792709170085280, %2 ], [ undef, %18 ]
-  %.sroa.19.049.ph = phi i64 [ %.sroa.559.i.sroa.6.0.copyload, %24 ], [ 11, %2 ], [ undef, %18 ]
+  %.sroa.922.057.ph = phi i16 [ %.sroa.552.0.copyload.i, %24 ], [ undef, %2 ], [ undef, %18 ]
+  %.sroa.12.055.ph = phi i16 [ %.sroa.653.0.copyload.i, %24 ], [ undef, %2 ], [ undef, %18 ]
+  %.sroa.14.053.ph = phi i8 [ %.sroa.559.i.sroa.0.0.copyload, %24 ], [ undef, %2 ], [ undef, %18 ]
+  %.sroa.16.051.ph = phi i8 [ %.sroa.559.i.sroa.4.0.copyload, %24 ], [ undef, %2 ], [ undef, %18 ]
+  %.sroa.7.sroa.0.0.ph = phi i8 [ %.sroa.451.0.copyload.i, %24 ], [ undef, %2 ], [ undef, %18 ]
+  %.sroa.9.sroa.0.0.ph = phi ptr [ %.sroa.559.i.sroa.5.0.copyload, %24 ], [ @anon.a568c7da4921ec2ed34cb4ede4839d57.78.llvm.17726792709170085280, %2 ], [ undef, %18 ]
+  %.sroa.9.sroa.5.0.ph = phi i64 [ %.sroa.559.i.sroa.6.0.copyload, %24 ], [ 11, %2 ], [ undef, %18 ]
   %.sroa.0.0.ph = phi i8 [ %22, %24 ], [ 11, %2 ], [ 18, %18 ]
   %33 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %.sroa.0.0.ph, ptr %33, align 8
   %.sroa.214.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
-  store i8 %.sroa.721.061.ph, ptr %.sroa.214.0..sroa_idx, align 1
+  store i8 %.sroa.7.sroa.0.0.ph, ptr %.sroa.214.0..sroa_idx, align 1
   %.sroa.214.sroa.2.0..sroa.214.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 10
-  store i16 %.sroa.922.059.ph, ptr %.sroa.214.sroa.2.0..sroa.214.0..sroa_idx.sroa_idx, align 2
+  store i16 %.sroa.922.057.ph, ptr %.sroa.214.sroa.2.0..sroa.214.0..sroa_idx.sroa_idx, align 2
   %.sroa.214.sroa.3.0..sroa.214.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 12
-  store i16 %.sroa.12.057.ph, ptr %.sroa.214.sroa.3.0..sroa.214.0..sroa_idx.sroa_idx, align 4
+  store i16 %.sroa.12.055.ph, ptr %.sroa.214.sroa.3.0..sroa.214.0..sroa_idx.sroa_idx, align 4
   %.sroa.214.sroa.4.0..sroa.214.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 14
-  store i8 %.sroa.14.055.ph, ptr %.sroa.214.sroa.4.0..sroa.214.0..sroa_idx.sroa_idx, align 2
+  store i8 %.sroa.14.053.ph, ptr %.sroa.214.sroa.4.0..sroa.214.0..sroa_idx.sroa_idx, align 2
   %.sroa.214.sroa.5.0..sroa.214.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 15
-  store i8 %.sroa.16.053.ph, ptr %.sroa.214.sroa.5.0..sroa.214.0..sroa_idx.sroa_idx, align 1
+  store i8 %.sroa.16.051.ph, ptr %.sroa.214.sroa.5.0..sroa.214.0..sroa_idx.sroa_idx, align 1
   %.sroa.315.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %.sroa.17.051.ph, ptr %.sroa.315.0..sroa_idx, align 8
+  store ptr %.sroa.9.sroa.0.0.ph, ptr %.sroa.315.0..sroa_idx, align 8
   %.sroa.315.sroa.2.0..sroa.315.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.19.049.ph, ptr %.sroa.315.sroa.2.0..sroa.315.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.9.sroa.5.0.ph, ptr %.sroa.315.sroa.2.0..sroa.315.0..sroa_idx.sroa_idx, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %37
 
@@ -15086,6 +15086,7 @@ define void @"_ZN97_$LT$rustls..msgs..handshake..NewSessionTicketExtension$u20$a
 
 .thread.i:                                        ; preds = %62, %.thread197
   %.sroa.7.0 = phi ptr [ %65, %62 ], [ %58, %.thread197 ]
+  %.sroa.11.0 = phi i16 [ undef, %62 ], [ %23, %.thread197 ]
   %.sroa.0.0 = phi i64 [ -9223372036854775807, %62 ], [ %57, %.thread197 ]
   store i64 %.sroa.0.0, ptr %0, align 8, !alias.scope !3682, !noalias !3686
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -15095,7 +15096,7 @@ define void @"_ZN97_$LT$rustls..msgs..handshake..NewSessionTicketExtension$u20$a
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i16 %22, ptr %.sroa.7.0..sroa_idx, align 8, !alias.scope !3682, !noalias !3686
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 26
-  store i16 %23, ptr %.sroa.8.0..sroa_idx, align 2, !alias.scope !3682, !noalias !3686
+  store i16 %.sroa.11.0, ptr %.sroa.8.0..sroa_idx, align 2, !alias.scope !3682, !noalias !3686
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc6d126cd4b8a1225E.exit"
 
 66:                                               ; preds = %62
@@ -16981,7 +16982,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.24.sroa.23.sroa.0.0 = phi i48 [ -140737488355328, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ undef, %213 ], [ %.sroa.24.sroa.23.0.extract.trunc620, %210 ], [ -140737488355328, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ -140737488355328, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ %.sroa.24.sroa.23.0.extract.trunc, %207 ], [ %.sroa.24.sroa.23.0.extract.trunc604, %202 ], [ %.sroa.24.sroa.23.0.extract.trunc602, %199 ], [ %.sroa.24.sroa.23.0.extract.trunc606, %188 ], [ %.sroa.24.sroa.23.0.extract.trunc608, %185 ], [ %.sroa.24.sroa.23.0.extract.trunc622, %182 ], [ %.sroa.24.sroa.23.0.extract.trunc624, %172 ], [ %.sroa.24.sroa.23.0.extract.trunc612, %167 ], [ %.sroa.24.sroa.23.0.extract.trunc610, %164 ], [ %.sroa.24.sroa.23.sroa.0.1, %150 ], [ %.sroa.24.sroa.23.0.extract.trunc618, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
   %.sroa.24.sroa.22.0 = phi i8 [ 0, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ %113, %213 ], [ %.sroa.24.sroa.22.0.extract.trunc592, %210 ], [ 0, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ 0, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ %.sroa.24.sroa.22.0.extract.trunc, %207 ], [ %.sroa.24.sroa.22.0.extract.trunc576, %202 ], [ %.sroa.24.sroa.22.0.extract.trunc574, %199 ], [ %.sroa.24.sroa.22.0.extract.trunc578, %188 ], [ %.sroa.24.sroa.22.0.extract.trunc580, %185 ], [ %.sroa.24.sroa.22.0.extract.trunc594, %182 ], [ %.sroa.24.sroa.22.0.extract.trunc596, %172 ], [ %.sroa.24.sroa.22.0.extract.trunc584, %167 ], [ %.sroa.24.sroa.22.0.extract.trunc582, %164 ], [ %.sroa.24.sroa.22.1, %150 ], [ %.sroa.24.sroa.22.0.extract.trunc590, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
   %.sroa.24.sroa.0.0 = phi i8 [ 0, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ %111, %213 ], [ %.sroa.24.sroa.0.0.extract.trunc566, %210 ], [ 0, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ 0, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ %.sroa.24.sroa.0.0.extract.trunc, %207 ], [ %.sroa.24.sroa.0.0.extract.trunc558, %202 ], [ %.sroa.24.sroa.0.0.extract.trunc557, %199 ], [ %.sroa.24.sroa.0.0.extract.trunc559, %188 ], [ %.sroa.24.sroa.0.0.extract.trunc560, %185 ], [ %.sroa.24.sroa.0.0.extract.trunc567, %182 ], [ %.sroa.24.sroa.0.0.extract.trunc568, %172 ], [ %.sroa.24.sroa.0.0.extract.trunc562, %167 ], [ %.sroa.24.sroa.0.0.extract.trunc561, %164 ], [ %.sroa.24.sroa.0.1, %150 ], [ %.sroa.24.sroa.0.0.extract.trunc565, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
-  %.sroa.68.0 = phi i16 [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ undef, %213 ], [ undef, %210 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ undef, %207 ], [ undef, %202 ], [ undef, %199 ], [ %.sroa.5266.sroa.11.0.copyload, %188 ], [ undef, %185 ], [ undef, %182 ], [ undef, %172 ], [ undef, %167 ], [ undef, %164 ], [ %129, %150 ], [ %.sroa.5226.sroa.12.0.copyload, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
+  %.sroa.68.0 = phi i16 [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ undef, %213 ], [ undef, %210 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ undef, %207 ], [ undef, %202 ], [ undef, %199 ], [ %.sroa.5266.sroa.11.0.copyload, %188 ], [ undef, %185 ], [ undef, %182 ], [ undef, %172 ], [ undef, %167 ], [ undef, %164 ], [ %.sroa.68.1, %150 ], [ %.sroa.5226.sroa.12.0.copyload, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
   %.sroa.67547.0 = phi i16 [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ undef, %213 ], [ undef, %210 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ undef, %207 ], [ undef, %202 ], [ undef, %199 ], [ %.sroa.5266.sroa.10.0.copyload, %188 ], [ undef, %185 ], [ undef, %182 ], [ undef, %172 ], [ undef, %167 ], [ undef, %164 ], [ %127, %150 ], [ %.sroa.5226.sroa.11.0.copyload, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
   %.sroa.66.0 = phi i32 [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ undef, %213 ], [ undef, %210 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ undef, %207 ], [ undef, %202 ], [ %.sroa.5280.sroa.7.0.copyload, %199 ], [ %.sroa.5266.sroa.7.0.copyload, %188 ], [ undef, %185 ], [ undef, %182 ], [ undef, %172 ], [ %.sroa.5287.sroa.7.0.copyload, %167 ], [ undef, %164 ], [ %.sroa.66.1, %150 ], [ %.sroa.5226.sroa.8.0.copyload, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
   %.sroa.65.0 = phi i16 [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit ], [ undef, %213 ], [ undef, %210 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368 ], [ undef, %_ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit367 ], [ undef, %207 ], [ undef, %202 ], [ %.sroa.5280.sroa.6.0.copyload, %199 ], [ %.sroa.5266.sroa.6.0.copyload, %188 ], [ undef, %185 ], [ undef, %182 ], [ undef, %172 ], [ %.sroa.5287.sroa.6.0.copyload, %167 ], [ undef, %164 ], [ %.sroa.65.1, %150 ], [ %.sroa.5226.sroa.7.0.copyload, %121 ], [ undef, %74 ], [ undef, %85 ], [ undef, %99 ]
@@ -17169,6 +17170,7 @@ _ZN6rustls4msgs4base7Payload4read17h4acee0a0ee63cd8eE.exit368: ; preds = %70
   %.sroa.57.sroa.0.1 = phi i64 [ %.sroa.6732.0.copyload, %152 ], [ %.sroa.081.sroa.0.0.copyload, %147 ]
   %.sroa.67.sroa.0.1 = phi i64 [ undef, %152 ], [ %.sroa.5253.sroa.8.0.copyload, %147 ]
   %.sroa.24.sroa.23.sroa.0.1.in.in = phi i64 [ %144, %152 ], [ %140, %147 ]
+  %.sroa.68.1 = phi i16 [ undef, %152 ], [ %129, %147 ]
   %.sroa.66.1 = phi i32 [ %.sroa.8.0.copyload, %152 ], [ %.sroa.5253.sroa.7.0.copyload, %147 ]
   %.sroa.65.1 = phi i16 [ %129, %152 ], [ %.sroa.5253.sroa.6.0.copyload, %147 ]
   %.sroa.64.1 = phi i16 [ %127, %152 ], [ %.sroa.5253.sroa.5.0.copyload, %147 ]

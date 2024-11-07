@@ -440,9 +440,9 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   %105 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 0, ptr %105, align 8
   %106 = invoke fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h72a43e378e179026E(ptr noalias nocapture noundef align 8 dereferenceable(48) %15)
-          to label %.thread127 unwind label %93
+          to label %.thread137 unwind label %93
 
-.thread127:                                       ; preds = %101
+.thread137:                                       ; preds = %101
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   store ptr %106, ptr %0, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 24
@@ -727,7 +727,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19)
   br label %200
 
-200:                                              ; preds = %99, %.thread127, %198
+200:                                              ; preds = %99, %.thread137, %198
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !178
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h5a44943ef5d01882E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %23)
   %201 = getelementptr inbounds i8, ptr %5, i64 8

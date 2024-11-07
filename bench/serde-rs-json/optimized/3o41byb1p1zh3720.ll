@@ -186,25 +186,26 @@ define void @_ZN10serde_json5value2de15MapDeserializer3new17h7c5a7eea0dd06c00E(p
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.not.i = icmp ne ptr %.sroa.0.0.copyload, null
-  %spec.select = zext i1 %.not.i to i64
-  %spec.select4 = select i1 %.not.i, i64 %.sroa.3.0.copyload, i64 0
-  store i64 %spec.select, ptr %0, align 8
+  %.sroa.6.0 = select i1 %.not.i, i64 %.sroa.2.0.copyload, i64 undef
+  %.sink27.i = zext i1 %.not.i to i64
+  %.sroa.7.0.copyload.sink.i = select i1 %.not.i, i64 %.sroa.3.0.copyload, i64 0
+  store i64 %.sink27.i, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %.sroa.0.0.copyload, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.6.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %spec.select, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  store i64 %.sink27.i, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %.sroa.0.sroa.8.0..sroa_idx, align 8
   %.sroa.0.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %.sroa.0.0.copyload, ptr %.sroa.0.sroa.9.0..sroa_idx, align 8
   %.sroa.0.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store i64 %.sroa.2.0.copyload, ptr %.sroa.0.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.6.0, ptr %.sroa.0.sroa.10.0..sroa_idx, align 8
   %.sroa.0.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i64 %spec.select4, ptr %.sroa.0.sroa.11.0..sroa_idx, align 8
+  store i64 %.sroa.7.0.copyload.sink.i, ptr %.sroa.0.sroa.11.0..sroa_idx, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 6, ptr %2, align 8
   ret void

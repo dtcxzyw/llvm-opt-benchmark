@@ -437,10 +437,10 @@ define void @_ZN9text_edit8TextEdit5union17hca7b303c320859c6E(ptr noalias nocapt
   store ptr null, ptr %.sroa.5.0..sroa_idx.i5, align 8, !alias.scope !85, !noalias !88
   %18 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %14, ptr %18, align 8, !alias.scope !85, !noalias !88
-  %.sroa.45.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr %17, ptr %.sroa.45.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !88
-  %.sroa.56.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 40
-  store ptr null, ptr %.sroa.56.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !88
+  %.sroa.46.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 32
+  store ptr %17, ptr %.sroa.46.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !88
+  %.sroa.57.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 40
+  store ptr null, ptr %.sroa.57.0..sroa_idx.i, align 8, !alias.scope !85, !noalias !88
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4), !noalias !90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %19 = getelementptr inbounds i8, ptr %4, i64 16
@@ -542,12 +542,12 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   br i1 %7, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit"
-  %.01630 = phi i32 [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %1, %2 ]
-  %.sroa.0.02429 = phi ptr [ %8, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %.val22, %2 ]
-  %8 = getelementptr inbounds i8, ptr %.sroa.0.02429, i64 32
-  %9 = getelementptr inbounds i8, ptr %.sroa.0.02429, i64 24
+  %.01629 = phi i32 [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %1, %2 ]
+  %.sroa.0.02428 = phi ptr [ %8, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %.val22, %2 ]
+  %8 = getelementptr inbounds i8, ptr %.sroa.0.02428, i64 32
+  %9 = getelementptr inbounds i8, ptr %.sroa.0.02428, i64 24
   %10 = load i32, ptr %9, align 8, !noundef !16
-  %11 = getelementptr inbounds i8, ptr %.sroa.0.02429, i64 28
+  %11 = getelementptr inbounds i8, ptr %.sroa.0.02428, i64 28
   %12 = load i32, ptr %11, align 4, !noundef !16
   %switch.not = icmp ult i32 %10, %1
   br i1 %switch.not, label %13, label %.critedge
@@ -557,7 +557,7 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
   br i1 %14, label %.critedge, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr i8, ptr %.sroa.0.02429, i64 16
+  %16 = getelementptr i8, ptr %.sroa.0.02428, i64 16
   %.val = load i64, ptr %16, align 8, !noundef !16
   %17 = icmp ult i64 %.val, 4294967296
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
@@ -570,17 +570,17 @@ define { i32, i32 } @_ZN9text_edit8TextEdit15apply_to_offset17ha87deef8c32a5b56E
 "_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit": ; preds = %15
   %19 = trunc nuw i64 %.val to i32
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3)
-  %20 = add i32 %10, %.01630
+  %20 = add i32 %10, %.01629
   %.neg = sub i32 %20, %12
   %21 = add i32 %.neg, %19
   %22 = icmp eq ptr %8, %6
   br i1 %22, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %13, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit", %2
-  %.016.lcssa = phi i32 [ %1, %2 ], [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ %.01630, %13 ], [ %.01630, %.lr.ph ]
+  %.sroa.3.0 = phi i32 [ %1, %2 ], [ %21, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ undef, %13 ], [ %.01629, %.lr.ph ]
   %.sroa.0.0 = phi i32 [ 1, %2 ], [ 1, %"_ZN72_$LT$$RF$alloc..string..String$u20$as$u20$text_size..traits..TextLen$GT$8text_len17hefcca76eddf96b6fE.exit" ], [ 0, %13 ], [ 1, %.lr.ph ]
   %23 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %24 = insertvalue { i32, i32 } %23, i32 %.016.lcssa, 1
+  %24 = insertvalue { i32, i32 } %23, i32 %.sroa.3.0, 1
   ret { i32, i32 } %24
 }
 

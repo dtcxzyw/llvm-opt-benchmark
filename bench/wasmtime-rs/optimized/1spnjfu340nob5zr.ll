@@ -5762,45 +5762,36 @@ define hidden range(i64 0, 17179869184) i64 @_ZN16wasmtime_runtime8libcalls20mem
   call void %38(ptr noalias nocapture noundef nonnull sret({ ptr, { i64 } }) align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 %35), !noalias !681
   %39 = and i64 %2, 3
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %47
+  br i1 %40, label %41, label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E.llvm.12299150788236080081(ptr noundef nonnull %42, i8 noundef 0), !noalias !685
   %44 = call i64 @llvm.uadd.sat.i64(i64 %2, i64 4)
   %45 = icmp ult i64 %44, %43
-  br i1 %45, label %46, label %47
-
-46:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !672
-  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread
-
-47:                                               ; preds = %41, %34
-  %.sroa.4.0.ph.i = phi i8 [ 1, %41 ], [ 2, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !672
-  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread
+  %spec.select = select i1 %45, i8 13, i8 1
+  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split
 
 _ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit: ; preds = %18
-  %48 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait3217hcf69b5299a54f587E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, i64 noundef %2, i32 noundef %3, i64 %.sroa.07.0, i32 noundef %.sroa.38.0)
-  %49 = extractvalue { i1, i8 } %48, 0
-  %50 = extractvalue { i1, i8 } %48, 1
-  br i1 %49, label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread, label %51
-
-51:                                               ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit
-  %52 = icmp ult i8 %50, 3
-  tail call void @llvm.assume(i1 %52)
-  %53 = zext nneg i8 %50 to i64
-  %54 = shl nuw nsw i64 %53, 32
+  %46 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait3217hcf69b5299a54f587E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, i64 noundef %2, i32 noundef %3, i64 %.sroa.07.0, i32 noundef %.sroa.38.0)
+  %47 = extractvalue { i1, i8 } %46, 0
+  %48 = extractvalue { i1, i8 } %46, 1
+  %spec.select18 = select i1 %47, i64 8, i64 32
+  %spec.select19 = zext i1 %47 to i64
   br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread
 
-_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread: ; preds = %46, %47, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit, %51
-  %.sroa.4.1.i16 = phi i8 [ %50, %51 ], [ %50, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit ], [ 13, %46 ], [ %.sroa.4.0.ph.i, %47 ]
-  %.sroa.41.0 = phi i64 [ %54, %51 ], [ 0, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit ], [ 0, %46 ], [ 0, %47 ]
-  %.sroa.0.0 = phi i64 [ 0, %51 ], [ 1, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit ], [ 1, %46 ], [ 1, %47 ]
-  %.sroa.3.0.insert.ext = zext i8 %.sroa.4.1.i16 to i64
-  %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 8
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.41.0
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
+_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split: ; preds = %41, %34
+  %.sroa.4.1.i16.ph = phi i8 [ 2, %34 ], [ %spec.select, %41 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !672
+  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread
+
+_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread: ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split
+  %.sroa.4.1.i16.sink = phi i8 [ %.sroa.4.1.i16.ph, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split ], [ %48, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit ]
+  %.sink17 = phi i64 [ 8, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split ], [ %spec.select18, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit.thread.sink.split ], [ %spec.select19, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait3217h4af2aa4aa4b72315E.exit ]
+  %49 = zext i8 %.sroa.4.1.i16.sink to i64
+  %50 = shl nuw nsw i64 %49, %.sink17
+  %.sroa.0.0.insert.insert = or disjoint i64 %50, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
 
@@ -5868,45 +5859,36 @@ define hidden range(i64 0, 17179869184) i64 @_ZN16wasmtime_runtime8libcalls20mem
   call void %38(ptr noalias nocapture noundef nonnull sret({ ptr, { i64 } }) align 8 dereferenceable(16) %6, ptr noundef nonnull align 1 %35), !noalias !700
   %39 = and i64 %2, 7
   %40 = icmp eq i64 %39, 0
-  br i1 %40, label %41, label %47
+  br i1 %40, label %41, label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split
 
 41:                                               ; preds = %34
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17hf3d221024a2fb983E.llvm.12299150788236080081(ptr noundef nonnull %42, i8 noundef 0), !noalias !704
   %44 = call i64 @llvm.uadd.sat.i64(i64 %2, i64 8)
   %45 = icmp ult i64 %44, %43
-  br i1 %45, label %46, label %47
-
-46:                                               ; preds = %41
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !691
-  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread
-
-47:                                               ; preds = %41, %34
-  %.sroa.4.0.ph.i = phi i8 [ 1, %41 ], [ 2, %34 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !691
-  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread
+  %spec.select = select i1 %45, i8 13, i8 1
+  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split
 
 _ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit: ; preds = %18
-  %48 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait6417h3c2c2bbcab804de1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, i64 noundef %2, i64 noundef %3, i64 %.sroa.07.0, i32 noundef %.sroa.38.0)
-  %49 = extractvalue { i1, i8 } %48, 0
-  %50 = extractvalue { i1, i8 } %48, 1
-  br i1 %49, label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread, label %51
-
-51:                                               ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit
-  %52 = icmp ult i8 %50, 3
-  tail call void @llvm.assume(i1 %52)
-  %53 = zext nneg i8 %50 to i64
-  %54 = shl nuw nsw i64 %53, 32
+  %46 = tail call { i1, i8 } @_ZN16wasmtime_runtime7threads13shared_memory12SharedMemory13atomic_wait6417h3c2c2bbcab804de1E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %26, i64 noundef %2, i64 noundef %3, i64 %.sroa.07.0, i32 noundef %.sroa.38.0)
+  %47 = extractvalue { i1, i8 } %46, 0
+  %48 = extractvalue { i1, i8 } %46, 1
+  %spec.select18 = select i1 %47, i64 8, i64 32
+  %spec.select19 = zext i1 %47 to i64
   br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread
 
-_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread: ; preds = %46, %47, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit, %51
-  %.sroa.4.1.i16 = phi i8 [ %50, %51 ], [ %50, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit ], [ 13, %46 ], [ %.sroa.4.0.ph.i, %47 ]
-  %.sroa.41.0 = phi i64 [ %54, %51 ], [ 0, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit ], [ 0, %46 ], [ 0, %47 ]
-  %.sroa.0.0 = phi i64 [ 0, %51 ], [ 1, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit ], [ 1, %46 ], [ 1, %47 ]
-  %.sroa.3.0.insert.ext = zext i8 %.sroa.4.1.i16 to i64
-  %.sroa.3.0.insert.shift = shl nuw nsw i64 %.sroa.3.0.insert.ext, 8
-  %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.41.0
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.0.0
+_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split: ; preds = %41, %34
+  %.sroa.4.1.i16.ph = phi i8 [ 2, %34 ], [ %spec.select, %41 ]
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !691
+  br label %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread
+
+_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread: ; preds = %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split
+  %.sroa.4.1.i16.sink = phi i8 [ %.sroa.4.1.i16.ph, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split ], [ %48, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit ]
+  %.sink17 = phi i64 [ 8, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split ], [ %spec.select18, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit ]
+  %.sroa.0.0 = phi i64 [ 1, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit.thread.sink.split ], [ %spec.select19, %_ZN16wasmtime_runtime6memory6Memory13atomic_wait6417h8cc656b7b14c78a2E.exit ]
+  %49 = zext i8 %.sroa.4.1.i16.sink to i64
+  %50 = shl nuw nsw i64 %49, %.sink17
+  %.sroa.0.0.insert.insert = or disjoint i64 %50, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
 }
 

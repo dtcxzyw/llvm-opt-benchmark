@@ -4310,6 +4310,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit70:                ; preds = %_ZN4llvmplERKNS_5Tw
   store i8 %.sink, ptr %109, align 1
   %110 = load i8, ptr %.0.i.i34, align 1
   %.not.i71 = icmp eq i8 %110, 0
+  %.sroa.0119.0 = select i1 %.not.i71, ptr undef, ptr %.0.i.i34
   %storemerge.i72 = select i1 %.not.i71, i8 1, i8 3
   switch i8 %.sink148, label %114 [
     i8 0, label %_ZN4llvmplERKNS_5TwineES2_.exit88.thread
@@ -4324,7 +4325,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit88.thread:         ; preds = %_ZN4llvmplERKNS_5Tw
   br label %_ZN4llvmplERKNS_5TwineES2_.exit104
 
 113:                                              ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit70
-  store ptr %.0.i.i34, ptr %22, align 8
+  store ptr %.sroa.0119.0, ptr %22, align 8
   %.sroa.4121.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 32
   store i8 %storemerge.i72, ptr %.sroa.4121.0..sroa_idx, align 8
   %.sroa.6122.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 33
@@ -4348,7 +4349,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit88.thread:         ; preds = %_ZN4llvmplERKNS_5Tw
   %.sroa.23.0..sroa_idx.i.i.i86 = getelementptr inbounds i8, ptr %22, i64 8
   store i64 %.sroa.36.0.i.i79, ptr %.sroa.23.0..sroa_idx.i.i.i86, align 8, !alias.scope !333
   %117 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store ptr %.0.i.i34, ptr %117, align 8, !alias.scope !333
+  store ptr %.sroa.0119.0, ptr %117, align 8, !alias.scope !333
   %118 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store i8 %.014.i.i77, ptr %118, align 8, !alias.scope !333
   %119 = getelementptr inbounds nuw i8, ptr %22, i64 33

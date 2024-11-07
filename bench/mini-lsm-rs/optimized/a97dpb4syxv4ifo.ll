@@ -2464,30 +2464,36 @@ define hidden { i64, i32 } @_ZN17crossbeam_channel6select17SelectedOperation4rec
   %11 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 0, ptr %11, align 8
   invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2d959d102d7682cc7cbcc0dd1a59e417.15.llvm.7682092217504716512) #26
-          to label %15 unwind label %18
+          to label %15 unwind label %23
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = invoke { i64, i32 } @_ZN17crossbeam_channel7channel4read17hcbda3e4009f252f2E.llvm.7682092217504716512(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull align 8 dereferenceable(72) %13)
-          to label %16 unwind label %18
+          to label %16 unwind label %23
 
 15:                                               ; preds = %7
   unreachable
 
 16:                                               ; preds = %12
-  ret { i64, i32 } %14
+  %17 = extractvalue { i64, i32 } %14, 0
+  %18 = extractvalue { i64, i32 } %14, 1
+  %19 = icmp eq i32 %18, 1000000000
+  %spec.select.i = select i1 %19, i64 undef, i64 %17
+  %20 = insertvalue { i64, i32 } poison, i64 %spec.select.i, 0
+  %21 = insertvalue { i64, i32 } %20, i32 %18, 1
+  ret { i64, i32 } %21
 
-17:                                               ; preds = %18
-  resume { ptr, i32 } %19
+22:                                               ; preds = %23
+  resume { ptr, i32 } %24
 
-18:                                               ; preds = %7, %12
-  %19 = landingpad { ptr, i32 }
+23:                                               ; preds = %7, %12
+  %24 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN86_$LT$crossbeam_channel..select..SelectedOperation$u20$as$u20$core..ops..drop..Drop$GT$4drop17h79ec0f24d4043fe2E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %0)
-          to label %17 unwind label %20
+          to label %22 unwind label %25
 
-20:                                               ; preds = %18
-  %21 = landingpad { ptr, i32 }
+25:                                               ; preds = %23
+  %26 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #28
   unreachable
@@ -3240,13 +3246,13 @@ define hidden void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$8try_send17h
   %8 = load i64, ptr %1, align 8, !range !233, !noundef !5
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noundef !5
-  switch i64 %8, label %default.unreachable2 [
+  switch i64 %8, label %default.unreachable3 [
     i64 0, label %11
     i64 1, label %12
     i64 2, label %40
   ]
 
-default.unreachable2:                             ; preds = %3
+default.unreachable3:                             ; preds = %3
   unreachable
 
 11:                                               ; preds = %3
@@ -6133,9 +6139,11 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h55d51fd97b4c
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { i64, i32 } @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc7c63fdc5119b5a9E.llvm.7682092217504716512"(i64 %0, i32 noundef %1) unnamed_addr #3 {
-  %3 = insertvalue { i64, i32 } poison, i64 %0, 0
-  %4 = insertvalue { i64, i32 } %3, i32 %1, 1
-  ret { i64, i32 } %4
+  %3 = icmp eq i32 %1, 1000000000
+  %spec.select = select i1 %3, i64 undef, i64 %0
+  %4 = insertvalue { i64, i32 } poison, i64 %spec.select, 0
+  %5 = insertvalue { i64, i32 } %4, i32 %1, 1
+  ret { i64, i32 } %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

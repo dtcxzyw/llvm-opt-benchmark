@@ -2634,13 +2634,13 @@ common.resume:                                    ; preds = %.body, %68, %73, %7
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72abede61bfbba57E.exit": ; preds = %16, %13, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit
-  %.sroa.8.014 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ], [ -2668253006608383607, %13 ], [ -2668253006608383607, %16 ]
-  %.sroa.9.013 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ], [ 5392315070826929775, %13 ], [ 5392315070826929775, %16 ]
+  %.sroa.8.015 = phi i64 [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ], [ -2668253006608383607, %13 ], [ -2668253006608383607, %16 ]
+  %.sroa.9.014 = phi i64 [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ], [ 5392315070826929775, %13 ], [ 5392315070826929775, %16 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !893, !noalias !894
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.sroa.8.014, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !893, !noalias !894
+  store i64 %.sroa.8.015, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !893, !noalias !894
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %9, i64 24
-  store i64 %.sroa.9.013, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !893, !noalias !894
+  store i64 %.sroa.9.014, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !893, !noalias !894
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !6, !noundef !4
   %26 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3279,13 +3279,13 @@ common.resume:                                    ; preds = %.body, %94, %99, %1
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h72abede61bfbba57E.exit": ; preds = %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit.thread, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit
-  %.sroa.8.017 = phi i64 [ -2668253006608383607, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ]
-  %.sroa.9.016 = phi i64 [ 5392315070826929775, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ]
+  %.sroa.8.018 = phi i64 [ -2668253006608383607, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ]
+  %.sroa.9.017 = phi i64 [ 5392315070826929775, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h9ee04b5afa2dce05E.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !1066, !noalias !1067
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  store i64 %.sroa.8.017, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1066, !noalias !1067
+  store i64 %.sroa.8.018, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1066, !noalias !1067
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 %.sroa.9.016, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !1066, !noalias !1067
+  store i64 %.sroa.9.017, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !1066, !noalias !1067
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !6, !noundef !4
   %32 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3646,13 +3646,13 @@ common.resume:                                    ; preds = %.body, %94, %99, %1
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4995051f15c07646E.exit": ; preds = %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit.thread, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit
-  %.sroa.8.017 = phi i64 [ -3984398628665469292, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit ]
-  %.sroa.9.016 = phi i64 [ 8799823301571370412, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit ]
+  %.sroa.8.018 = phi i64 [ -3984398628665469292, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit ]
+  %.sroa.9.017 = phi i64 [ 8799823301571370412, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17h13ab3c2b628d4453E.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !1144
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  store i64 %.sroa.8.017, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1144
+  store i64 %.sroa.8.018, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1144
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 %.sroa.9.016, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !1144
+  store i64 %.sroa.9.017, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !1144
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !6, !noundef !4
   %32 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4013,13 +4013,13 @@ common.resume:                                    ; preds = %.body, %94, %99, %1
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h280f0177153a18beE.exit": ; preds = %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit.thread, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit
-  %.sroa.8.017 = phi i64 [ -5941419906207682186, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit ]
-  %.sroa.9.016 = phi i64 [ 1886147047593047683, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit ]
+  %.sroa.8.018 = phi i64 [ -5941419906207682186, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.5.0.copyload, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit ]
+  %.sroa.9.017 = phi i64 [ 1886147047593047683, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit.thread ], [ %.sroa.0.sroa.0.i.sroa.6.0.copyload, %_ZN4gpui4view7AnyView8downcast17ha81fa2880b8d21fcE.exit ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !alias.scope !1221
   %.sroa.8.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 16
-  store i64 %.sroa.8.017, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1221
+  store i64 %.sroa.8.018, ptr %.sroa.8.8..sroa_idx, align 8, !alias.scope !1221
   %.sroa.9.8..sroa_idx = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 %.sroa.9.016, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !1221
+  store i64 %.sroa.9.017, ptr %.sroa.9.8..sroa_idx, align 8, !alias.scope !1221
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
   %.val = load ptr, ptr %2, align 8, !nonnull !4, !align !6, !noundef !4
   %32 = getelementptr inbounds i8, ptr %2, i64 8

@@ -5903,7 +5903,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_115DarwinAsmParser12checkVersionEN4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 68
   %22 = load i32, ptr %21, align 4
   %.not = icmp eq i32 %22, %6
-  br i1 %.not, label %49, label %23
+  br i1 %.not, label %50, label %23
 
 23:                                               ; preds = %7
   %24 = icmp eq i64 %4, 0
@@ -5940,70 +5940,71 @@ _ZN4llvmplERKNS_5TwineES2_.exit50:                ; preds = %30, %25
   %.sink = phi i8 [ 1, %30 ], [ 2, %25 ]
   %33 = phi ptr [ %1, %30 ], [ %10, %25 ]
   %34 = phi i8 [ 5, %30 ], [ 2, %25 ]
+  %35 = phi i64 [ %2, %30 ], [ undef, %25 ]
   %.sroa.371.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 32
   store i8 5, ptr %.sroa.371.0..sroa_idx, align 8
   %.sroa.472.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 33
   store i8 %.sink, ptr %.sroa.472.0..sroa_idx, align 1
   store ptr %33, ptr %9, align 8, !alias.scope !88
   %.sroa.23.0..sroa_idx.i.i.i33 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %2, ptr %.sroa.23.0..sroa_idx.i.i.i33, align 8, !alias.scope !88
-  %35 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store ptr @.str.187, ptr %35, align 8, !alias.scope !88
-  %36 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i8 %34, ptr %36, align 8, !alias.scope !88
-  %37 = getelementptr inbounds nuw i8, ptr %9, i64 33
-  store i8 3, ptr %37, align 1, !alias.scope !88
-  %38 = call { ptr, i64 } @_ZNK4llvm6Triple9getOSNameEv(ptr noundef nonnull align 8 dereferenceable(56) %20) #15
-  %39 = extractvalue { ptr, i64 } %38, 1
-  %40 = extractvalue { ptr, i64 } %38, 0
+  store i64 %35, ptr %.sroa.23.0..sroa_idx.i.i.i33, align 8, !alias.scope !88
+  %36 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store ptr @.str.187, ptr %36, align 8, !alias.scope !88
+  %37 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  store i8 %34, ptr %37, align 8, !alias.scope !88
+  %38 = getelementptr inbounds nuw i8, ptr %9, i64 33
+  store i8 3, ptr %38, align 1, !alias.scope !88
+  %39 = call { ptr, i64 } @_ZNK4llvm6Triple9getOSNameEv(ptr noundef nonnull align 8 dereferenceable(56) %20) #15
+  %40 = extractvalue { ptr, i64 } %39, 1
+  %41 = extractvalue { ptr, i64 } %39, 0
   store ptr %9, ptr %8, align 8, !alias.scope !93
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %40, ptr %41, align 8, !alias.scope !93
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %41, ptr %42, align 8, !alias.scope !93
   %.sroa.2.0..sroa_idx.i.i.i49 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 %39, ptr %.sroa.2.0..sroa_idx.i.i.i49, align 8, !alias.scope !93
-  %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 2, ptr %42, align 8, !alias.scope !93
-  %43 = getelementptr inbounds nuw i8, ptr %8, i64 33
-  store i8 5, ptr %43, align 1, !alias.scope !93
-  %44 = load ptr, ptr %14, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 168
-  %47 = load ptr, ptr %46, align 8
-  %48 = call noundef zeroext i1 %47(ptr noundef nonnull align 8 dereferenceable(34) %44, ptr %5, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #15
-  br label %49
+  store i64 %40, ptr %.sroa.2.0..sroa_idx.i.i.i49, align 8, !alias.scope !93
+  %43 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 2, ptr %43, align 8, !alias.scope !93
+  %44 = getelementptr inbounds nuw i8, ptr %8, i64 33
+  store i8 5, ptr %44, align 1, !alias.scope !93
+  %45 = load ptr, ptr %14, align 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 168
+  %48 = load ptr, ptr %47, align 8
+  %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(34) %45, ptr %5, ptr noundef nonnull align 8 dereferenceable(34) %8, ptr null, ptr null) #15
+  br label %50
 
-49:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit50, %7
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = load ptr, ptr %50, align 8
-  %.not56 = icmp eq ptr %51, null
-  br i1 %.not56, label %66, label %52
+50:                                               ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit50, %7
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %52 = load ptr, ptr %51, align 8
+  %.not56 = icmp eq ptr %52, null
+  br i1 %.not56, label %67, label %53
 
-52:                                               ; preds = %49
-  %53 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %54 = getelementptr inbounds nuw i8, ptr %12, i64 33
-  store i8 1, ptr %54, align 1
+53:                                               ; preds = %50
+  %54 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %12, i64 33
+  store i8 1, ptr %55, align 1
   store ptr @.str.188, ptr %12, align 8
-  store i8 3, ptr %53, align 8
-  %55 = load ptr, ptr %14, align 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 168
-  %58 = load ptr, ptr %57, align 8
-  %59 = call noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(34) %55, ptr %5, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr null, ptr null) #15
-  %.sroa.0.0.copyload = load ptr, ptr %50, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  %61 = getelementptr inbounds nuw i8, ptr %13, i64 33
-  store i8 1, ptr %61, align 1
+  store i8 3, ptr %54, align 8
+  %56 = load ptr, ptr %14, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 168
+  %59 = load ptr, ptr %58, align 8
+  %60 = call noundef zeroext i1 %59(ptr noundef nonnull align 8 dereferenceable(34) %56, ptr %5, ptr noundef nonnull align 8 dereferenceable(34) %12, ptr null, ptr null) #15
+  %.sroa.0.0.copyload = load ptr, ptr %51, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %13, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %13, i64 33
+  store i8 1, ptr %62, align 1
   store ptr @.str.189, ptr %13, align 8
-  store i8 3, ptr %60, align 8
-  %62 = load ptr, ptr %14, align 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 160
-  %65 = load ptr, ptr %64, align 8
-  call void %65(ptr noundef nonnull align 8 dereferenceable(34) %62, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr null, ptr null) #15
-  br label %66
+  store i8 3, ptr %61, align 8
+  %63 = load ptr, ptr %14, align 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %64, i64 160
+  %66 = load ptr, ptr %65, align 8
+  call void %66(ptr noundef nonnull align 8 dereferenceable(34) %63, ptr %.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(34) %13, ptr null, ptr null) #15
+  br label %67
 
-66:                                               ; preds = %52, %49
-  store ptr %5, ptr %50, align 8
+67:                                               ; preds = %53, %50
+  store ptr %5, ptr %51, align 8
   ret void
 }
 

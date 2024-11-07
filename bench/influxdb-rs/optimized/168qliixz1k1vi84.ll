@@ -7226,7 +7226,7 @@ define void @_ZN16influxdb3_server17CommonServerState3new17h6a1397aee0c4b9caE(pt
 .thread:                                          ; preds = %..thread_crit_edge, %6
   %18 = phi ptr [ %.pre82, %..thread_crit_edge ], [ %2, %6 ]
   %19 = phi ptr [ %.pre, %..thread_crit_edge ], [ %1, %6 ]
-  %.sroa.88.sroa.5.072.ph = phi i64 [ %.sroa.88.sroa.5.0.copyload, %..thread_crit_edge ], [ undef, %6 ]
+  %.sroa.64.sroa.7.sroa.7.0.ph = phi i64 [ %.sroa.88.sroa.5.0.copyload, %..thread_crit_edge ], [ undef, %6 ]
   %.sroa.64.sroa.7.sroa.0.0.ph = phi i64 [ %.sroa.88.sroa.0.0.copyload, %..thread_crit_edge ], [ undef, %6 ]
   %.sroa.64.sroa.0.0.ph = phi ptr [ %.sroa.56.8.copyload, %..thread_crit_edge ], [ null, %6 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %9, i64 32, i1 false)
@@ -7246,7 +7246,7 @@ define void @_ZN16influxdb3_server17CommonServerState3new17h6a1397aee0c4b9caE(pt
   %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %.sroa.64.sroa.7.sroa.0.0.ph, ptr %.sroa.8.sroa.5.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 104
-  store i64 %.sroa.88.sroa.5.072.ph, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.64.sroa.7.sroa.7.0.ph, ptr %.sroa.8.sroa.6.0..sroa.8.0..sroa_idx.sroa_idx, align 8
   store i8 42, ptr %0, align 8
   br label %21
 

@@ -12980,7 +12980,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i.i999: ; preds = %4181, %.lr.ph4
   %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %4191, i64 8
   %.sroa.15.0.copyload = load i32, ptr %.sroa.15.0..sroa_idx, align 8
   %.sroa.15.sroa.0.0.extract.trunc = trunc i32 %.sroa.15.0.copyload to i8
-  %.sroa.15.sroa.21.0.extract.shift = and i32 %.sroa.15.0.copyload, -256
+  %.sroa.15.sroa.21.0.extract.shift = lshr i32 %.sroa.15.0.copyload, 8
+  %.sroa.15.sroa.21.0.extract.trunc = trunc nuw i32 %.sroa.15.sroa.21.0.extract.shift to i24
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %4191, i64 12
   %.sroa.32.0.copyload = load i32, ptr %.sroa.32.0..sroa_idx, align 4
   %.sroa.15.sroa.0.0.insert.ext2730 = and i32 %.sroa.15.0.copyload, 255
@@ -14313,6 +14314,7 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1070: 
 
 4799:                                             ; preds = %.noexc1018.thread, %4409, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit1027, %.loopexit3196, %.loopexit3193
   %.sroa.15.sroa.0.0 = phi i8 [ %.sroa.15.sroa.0.0.extract.trunc, %.loopexit3193 ], [ %.sroa.15.sroa.0.0.extract.trunc, %.loopexit3196 ], [ %.sroa.15.sroa.0.0.extract.trunc, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit1027 ], [ %.sroa.15.sroa.0.0.extract.trunc, %4409 ], [ 0, %.noexc1018.thread ]
+  %.sroa.15.sroa.21.sroa.0.0 = phi i24 [ %.sroa.15.sroa.21.0.extract.trunc, %.loopexit3193 ], [ %.sroa.15.sroa.21.0.extract.trunc, %.loopexit3196 ], [ %.sroa.15.sroa.21.0.extract.trunc, %_ZNK5Yosys5RTLIL6SigBitneERKS1_.exit1027 ], [ %.sroa.15.sroa.21.0.extract.trunc, %4409 ], [ undef, %.noexc1018.thread ]
   %4800 = load ptr, ptr %1777, align 8
   %4801 = load ptr, ptr %1778, align 8
   %.not.i1084 = icmp eq ptr %4800, %4801
@@ -14321,8 +14323,10 @@ _ZN5Yosys7hashlib8hash_opsINS_5RTLIL6SigBitEE3cmpERKS3_S6_.exit.thread.i.i1070: 
 4802:                                             ; preds = %4799
   store ptr %.fr.i1066, ptr %4800, align 8
   %.sroa.15.0..sroa_idx2696 = getelementptr inbounds i8, ptr %4800, i64 8
+  %.sroa.15.sroa.21.0.insert.ext2761 = zext i24 %.sroa.15.sroa.21.sroa.0.0 to i32
+  %.sroa.15.sroa.21.0.insert.shift2762 = shl nuw i32 %.sroa.15.sroa.21.0.insert.ext2761, 8
   %.sroa.15.sroa.0.0.insert.ext2724 = zext i8 %.sroa.15.sroa.0.0 to i32
-  %.sroa.15.sroa.0.0.insert.insert2726 = or disjoint i32 %.sroa.15.sroa.21.0.extract.shift, %.sroa.15.sroa.0.0.insert.ext2724
+  %.sroa.15.sroa.0.0.insert.insert2726 = or disjoint i32 %.sroa.15.sroa.21.0.insert.shift2762, %.sroa.15.sroa.0.0.insert.ext2724
   store i32 %.sroa.15.sroa.0.0.insert.insert2726, ptr %.sroa.15.0..sroa_idx2696, align 8
   %.sroa.32.0..sroa_idx2717 = getelementptr inbounds i8, ptr %4800, i64 12
   store i32 %.sroa.32.0.copyload, ptr %.sroa.32.0..sroa_idx2717, align 4
@@ -14367,8 +14371,10 @@ _ZNSt12_Vector_baseIN5Yosys5RTLIL6SigBitESaIS2_EE11_M_allocateEm.exit.i.i: ; pre
   %4821 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %4820, i64 %4812
   store ptr %.fr.i1066, ptr %4821, align 8
   %.sroa.15.0..sroa_idx2698 = getelementptr inbounds i8, ptr %4821, i64 8
+  %.sroa.15.sroa.21.0.insert.ext2765 = zext i24 %.sroa.15.sroa.21.sroa.0.0 to i32
+  %.sroa.15.sroa.21.0.insert.shift2766 = shl nuw i32 %.sroa.15.sroa.21.0.insert.ext2765, 8
   %.sroa.15.sroa.0.0.insert.ext2727 = zext i8 %.sroa.15.sroa.0.0 to i32
-  %.sroa.15.sroa.0.0.insert.insert2729 = or disjoint i32 %.sroa.15.sroa.21.0.extract.shift, %.sroa.15.sroa.0.0.insert.ext2727
+  %.sroa.15.sroa.0.0.insert.insert2729 = or disjoint i32 %.sroa.15.sroa.21.0.insert.shift2766, %.sroa.15.sroa.0.0.insert.ext2727
   store i32 %.sroa.15.sroa.0.0.insert.insert2729, ptr %.sroa.15.0..sroa_idx2698, align 8
   %.sroa.32.0..sroa_idx2719 = getelementptr inbounds i8, ptr %4821, i64 12
   store i32 %.sroa.32.0.copyload, ptr %.sroa.32.0..sroa_idx2719, align 4

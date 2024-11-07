@@ -872,30 +872,26 @@ define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections.
   %4 = alloca [0 x i8], align 1
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread", label %8
+  br i1 %6, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread", label %7
 
-"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread": ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  br label %13
+7:                                                ; preds = %3
+  %8 = add i64 %2, 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 140
+  %10 = load i16, ptr %9, align 4
+  %11 = zext i16 %10 to i64
+  br label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread"
 
-8:                                                ; preds = %3
-  %9 = add i64 %2, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 140
-  %11 = load i16, ptr %10, align 4
-  %12 = zext i16 %11 to i64
-  br label %13
-
-13:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread", %8
-  %.sink28.i14 = phi i64 [ %12, %8 ], [ %2, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread" ]
-  %.sink29.i13 = phi i64 [ %9, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread" ]
+"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17h788c18261e636261E.exit.thread": ; preds = %3, %7
+  %.sroa.3.sroa.0.0 = phi i64 [ %8, %7 ], [ undef, %3 ]
+  %.sroa.3.sroa.2.0 = phi i64 [ %11, %7 ], [ undef, %3 ]
   %.not9 = icmp eq i64 %2, 0
   %. = select i1 %.not9, i64 144, i64 240
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %4, ptr nonnull %1, i64 8, i64 %.)
   store ptr %5, ptr %0, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink29.i13, ptr %.sroa.3.0..sroa_idx2, align 8
+  store i64 %.sroa.3.sroa.0.0, ptr %.sroa.3.0..sroa_idx2, align 8
   %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink28.i14, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx, align 8
+  store i64 %.sroa.3.sroa.2.0, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx, align 8
   ret void
 }
 
@@ -905,30 +901,26 @@ define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections.
   %5 = getelementptr inbounds i8, ptr %1, i64 528
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread", label %9
+  br i1 %7, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread", label %8
 
-"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread": ; preds = %3
-  %8 = ptrtoint ptr %1 to i64
-  br label %14
+8:                                                ; preds = %3
+  %9 = add i64 %2, 1
+  %10 = getelementptr inbounds i8, ptr %1, i64 580
+  %11 = load i16, ptr %10, align 4
+  %12 = zext i16 %11 to i64
+  br label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread"
 
-9:                                                ; preds = %3
-  %10 = add i64 %2, 1
-  %11 = getelementptr inbounds i8, ptr %1, i64 580
-  %12 = load i16, ptr %11, align 4
-  %13 = zext i16 %12 to i64
-  br label %14
-
-14:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread", %9
-  %.sink28.i14 = phi i64 [ %13, %9 ], [ %2, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread" ]
-  %.sink29.i13 = phi i64 [ %10, %9 ], [ %8, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread" ]
+"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17ha86a9cbd32c1cdabE.exit.thread": ; preds = %3, %8
+  %.sroa.3.sroa.0.0 = phi i64 [ %9, %8 ], [ undef, %3 ]
+  %.sroa.3.sroa.2.0 = phi i64 [ %12, %8 ], [ undef, %3 ]
   %.not9 = icmp eq i64 %2, 0
   %. = select i1 %.not9, i64 584, i64 680
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %4, ptr nonnull %1, i64 8, i64 %.)
   store ptr %6, ptr %0, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink29.i13, ptr %.sroa.3.0..sroa_idx2, align 8
+  store i64 %.sroa.3.sroa.0.0, ptr %.sroa.3.0..sroa_idx2, align 8
   %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink28.i14, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx, align 8
+  store i64 %.sroa.3.sroa.2.0, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx, align 8
   ret void
 }
 
@@ -937,30 +929,26 @@ define void @"_ZN5alloc11collections5btree4node127NodeRef$LT$alloc..collections.
   %4 = alloca [0 x i8], align 1
   %5 = load ptr, ptr %1, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread", label %8
+  br i1 %6, label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread", label %7
 
-"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread": ; preds = %3
-  %7 = ptrtoint ptr %1 to i64
-  br label %13
+7:                                                ; preds = %3
+  %8 = add i64 %2, 1
+  %9 = getelementptr inbounds i8, ptr %1, i64 140
+  %10 = load i16, ptr %9, align 4
+  %11 = zext i16 %10 to i64
+  br label %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread"
 
-8:                                                ; preds = %3
-  %9 = add i64 %2, 1
-  %10 = getelementptr inbounds i8, ptr %1, i64 140
-  %11 = load i16, ptr %10, align 4
-  %12 = zext i16 %11 to i64
-  br label %13
-
-13:                                               ; preds = %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread", %8
-  %.sink28.i14 = phi i64 [ %12, %8 ], [ %2, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread" ]
-  %.sink29.i13 = phi i64 [ %9, %8 ], [ %7, %"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread" ]
+"_ZN5alloc11collections5btree4node40NodeRef$LT$BorrowType$C$K$C$V$C$Type$GT$6ascend17hff11e0127f88c519E.exit.thread": ; preds = %3, %7
+  %.sroa.3.sroa.0.0 = phi i64 [ %8, %7 ], [ undef, %3 ]
+  %.sroa.3.sroa.2.0 = phi i64 [ %11, %7 ], [ undef, %3 ]
   %.not9 = icmp eq i64 %2, 0
   %. = select i1 %.not9, i64 144, i64 240
   call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17he0a09263608ace75E"(ptr nonnull align 1 %4, ptr nonnull %1, i64 8, i64 %.)
   store ptr %5, ptr %0, align 8
   %.sroa.3.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink29.i13, ptr %.sroa.3.0..sroa_idx2, align 8
+  store i64 %.sroa.3.sroa.0.0, ptr %.sroa.3.0..sroa_idx2, align 8
   %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink28.i14, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx, align 8
+  store i64 %.sroa.3.sroa.2.0, ptr %.sroa.3.sroa.2.0..sroa.3.0..sroa_idx2.sroa_idx, align 8
   ret void
 }
 

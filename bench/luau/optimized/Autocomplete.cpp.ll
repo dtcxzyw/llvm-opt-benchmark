@@ -18550,7 +18550,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i: ; preds = %_ZN4Luau8Vec
           to label %_ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit unwind label %.loopexit.split-lp
 
 82:                                               ; preds = %13, %46, %47, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit, %29
-  %.0.i.i35 = phi i8 [ %.sroa.218.0, %13 ], [ 0, %46 ], [ 0, %47 ], [ 0, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ %.sroa.218.0, %29 ]
+  %.0.i.i36 = phi i1 [ true, %13 ], [ false, %46 ], [ false, %47 ], [ false, %_ZN4Luau3getINS_12FunctionTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %29 ]
   %83 = getelementptr inbounds i8, ptr %3, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not.i.i.i = icmp eq ptr %84, null
@@ -18582,8 +18582,10 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit16: ; preds = %_ZN4Luau12TypeIter
   %94 = load i64, ptr %8, align 8
   %95 = shl i64 %94, 4
   call void @_ZdlPvm(ptr noundef %93, i64 noundef %95) #23
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.017.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.0.i.i35, 1
+  %spec.select = select i1 %.0.i.i36, ptr %.sroa.017.0, ptr undef
+  %spec.select22 = select i1 %.0.i.i36, i8 %.sroa.218.0, i8 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %spec.select, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %spec.select22, 1
   ret { ptr, i8 } %.fca.1.insert
 
 96:                                               ; preds = %32, %30
@@ -28774,7 +28776,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEE7advanceEv.exit.i: ; preds = %_ZN4Luau8Vec
           to label %_ZN4Luau12TypeIteratorINS_9UnionTypeEEppEv.exit unwind label %.loopexit.split-lp
 
 82:                                               ; preds = %13, %46, %47, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit, %29
-  %.0.i.i35 = phi i8 [ %.sroa.218.0, %13 ], [ 0, %46 ], [ 0, %47 ], [ 0, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit ], [ %.sroa.218.0, %29 ]
+  %.0.i.i36 = phi i1 [ true, %13 ], [ false, %46 ], [ false, %47 ], [ false, %_ZN4Luau3getINS_9ClassTypeEEEPKT_PKNS_4TypeE.exit ], [ true, %29 ]
   %83 = getelementptr inbounds i8, ptr %3, i64 32
   %84 = load ptr, ptr %83, align 8
   %.not.i.i.i = icmp eq ptr %84, null
@@ -28806,8 +28808,10 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit16: ; preds = %_ZN4Luau12TypeIter
   %94 = load i64, ptr %8, align 8
   %95 = shl i64 %94, 4
   call void @_ZdlPvm(ptr noundef %93, i64 noundef %95) #23
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.017.0, 0
-  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.0.i.i35, 1
+  %spec.select = select i1 %.0.i.i36, ptr %.sroa.017.0, ptr undef
+  %spec.select22 = select i1 %.0.i.i36, i8 %.sroa.218.0, i8 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %spec.select, 0
+  %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %spec.select22, 1
   ret { ptr, i8 } %.fca.1.insert
 
 96:                                               ; preds = %32, %30

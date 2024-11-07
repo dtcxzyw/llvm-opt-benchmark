@@ -15592,25 +15592,25 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
   unreachable
 
 35:                                               ; preds = %39, %.lr.ph.i
-  %.sroa.10.020.i = phi i64 [ %24, %.lr.ph.i ], [ %36, %39 ]
-  %.sroa.011.019.i = phi ptr [ %20, %.lr.ph.i ], [ %41, %39 ]
-  %.sroa.7.018.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %39 ]
-  %36 = add nsw i64 %.sroa.10.020.i, -1
-  %37 = icmp eq ptr %.sroa.011.019.i, %30
+  %.sroa.10.021.i = phi i64 [ %24, %.lr.ph.i ], [ %36, %39 ]
+  %.sroa.011.020.i = phi ptr [ %20, %.lr.ph.i ], [ %41, %39 ]
+  %.sroa.7.019.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %39 ]
+  %36 = add nsw i64 %.sroa.10.021.i, -1
+  %37 = icmp eq ptr %.sroa.011.020.i, %30
   br i1 %37, label %.loopexit43, label %38
 
 38:                                               ; preds = %35
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2390)
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.011.019.i)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17h307f40ef8d5b52e5E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.011.020.i)
           to label %39 unwind label %48, !noalias !2393
 
 39:                                               ; preds = %38
-  %40 = add nuw nsw i64 %.sroa.7.018.i, 1
-  %41 = getelementptr inbounds i8, ptr %.sroa.011.019.i, i64 32
-  %42 = getelementptr inbounds i8, ptr %.sroa.011.019.i, i64 24
+  %40 = add nuw nsw i64 %.sroa.7.019.i, 1
+  %41 = getelementptr inbounds i8, ptr %.sroa.011.020.i, i64 32
+  %42 = getelementptr inbounds i8, ptr %.sroa.011.020.i, i64 24
   %43 = load i32, ptr %42, align 4, !alias.scope !2394, !noalias !2398, !noundef !4
   store i32 %43, ptr %32, align 8, !alias.scope !2390, !noalias !2388
-  %44 = getelementptr inbounds [0 x { [4 x i64] }], ptr %27, i64 0, i64 %.sroa.7.018.i
+  %44 = getelementptr inbounds [0 x { [4 x i64] }], ptr %27, i64 0, i64 %.sroa.7.019.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %44, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !noalias !2393
   %45 = icmp eq i64 %36, 0
   br i1 %45, label %.loopexit43, label %35
@@ -15624,7 +15624,7 @@ define void @"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigatu
 48:                                               ; preds = %38
   %lpad.loopexit.i = landingpad { ptr, i32 }
           cleanup
-  store i64 %.sroa.7.018.i, ptr %29, align 8, !noalias !2388
+  store i64 %.sroa.7.019.i, ptr %29, align 8, !noalias !2388
   invoke void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc..string..String$C$u32$RP$$GT$$GT$17h639be542349160f2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7) #31
           to label %common.resume unwind label %46, !noalias !2393
 
@@ -15648,7 +15648,7 @@ common.resume:                                    ; preds = %.thread27, %.thread
   br i1 %52, label %.loopexit, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %.loopexit43, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i"
-  %.sroa.02.013.i = phi i64 [ %58, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ 0, %.loopexit43 ]
+  %.sroa.02.012.i = phi i64 [ %58, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ 0, %.loopexit43 ]
   %53 = phi ptr [ %54, %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i" ], [ %.pre, %.loopexit43 ]
   %54 = getelementptr inbounds i8, ptr %53, i64 32
   %55 = getelementptr i8, ptr %53, i64 16
@@ -15664,7 +15664,7 @@ common.resume:                                    ; preds = %.thread27, %.thread
   br i1 %57, label %62, label %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i"
 
 "_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.thread.i": ; preds = %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.i", %.lr.ph.i12
-  %58 = add nuw nsw i64 %.sroa.02.013.i, 1
+  %58 = add nuw nsw i64 %.sroa.02.012.i, 1
   %59 = icmp eq ptr %54, %51
   br i1 %59, label %.loopexit, label %.lr.ph.i12
 
@@ -15674,9 +15674,9 @@ common.resume:                                    ; preds = %.thread27, %.thread
   br label %.thread27
 
 62:                                               ; preds = %"_ZN144_$LT$settings_ui..appearance_settings_controls..UiFontLigaturesControl$u20$as$u20$settings..editable_setting_control..EditableSettingControl$GT$5apply28_$u7b$$u7b$closure$u7d$$u7d$17h3c0bb226fd47e419E.exit.i"
-  %63 = icmp ult i64 %.sroa.02.013.i, %.pre41
+  %63 = icmp ult i64 %.sroa.02.012.i, %.pre41
   tail call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }], ptr %.pre, i64 0, i64 %.sroa.02.013.i, i32 1
+  %64 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }], ptr %.pre, i64 0, i64 %.sroa.02.012.i, i32 1
   store i32 %., ptr %64, align 8
   br label %73
 

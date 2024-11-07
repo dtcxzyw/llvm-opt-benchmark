@@ -52,8 +52,8 @@ _ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit: ; preds = %1
   %25 = getelementptr inbounds i8, ptr %0, i64 56
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
-  %or.cond142 = select i1 %or.cond14.i97, i1 %27, i1 false
-  br i1 %or.cond142, label %139, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
+  %or.cond145 = select i1 %or.cond14.i97, i1 %27, i1 false
+  br i1 %or.cond145, label %139, label %_ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread
 
 _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit, %23
   %28 = phi i64 [ %21, %_ZN9softposit7quire325Q32E27is_zero17h3d5652a3c8069b49E.exit ], [ %26, %23 ]
@@ -100,8 +100,8 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %47, label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader", label %.lr.ph
 
 .lr.ph:                                           ; preds = %45, %.lr.ph
-  %.sroa.4.0153 = phi ptr [ %48, %.lr.ph ], [ %43, %45 ]
-  %48 = getelementptr inbounds i8, ptr %.sroa.4.0153, i64 -8
+  %.sroa.4.0156 = phi ptr [ %48, %.lr.ph ], [ %43, %45 ]
+  %48 = getelementptr inbounds i8, ptr %.sroa.4.0156, i64 -8
   %49 = load i64, ptr %48, align 8, !noundef !4
   %50 = xor i64 %49, -1
   store i64 %50, ptr %48, align 8
@@ -112,11 +112,11 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
 
 "_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread": ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader", %64
-  %.079157 = phi i64 [ %66, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
-  %.sroa.0112.0.idx156 = phi i64 [ %.sroa.0112.0.add, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
-  %.sroa.11.0155 = phi i64 [ %65, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
-  %.sroa.0112.0.ptr = getelementptr inbounds i8, ptr %2, i64 %.sroa.0112.0.idx156
-  %.sroa.0112.0.add = add nuw nsw i64 %.sroa.0112.0.idx156, 8
+  %.079160 = phi i64 [ %66, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
+  %.sroa.0112.0.idx159 = phi i64 [ %.sroa.0112.0.add, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
+  %.sroa.11.0158 = phi i64 [ %65, %64 ], [ 0, %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread.preheader" ]
+  %.sroa.0112.0.ptr = getelementptr inbounds i8, ptr %2, i64 %.sroa.0112.0.idx159
+  %.sroa.0112.0.add = add nuw nsw i64 %.sroa.0112.0.idx159, 8
   %52 = load i64, ptr %.sroa.0112.0.ptr, align 8, !noundef !4
   %53 = icmp eq i64 %52, 0
   br i1 %53, label %64, label %.preheader
@@ -124,7 +124,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
 .preheader:                                       ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
   %.ptr.ptr.le = getelementptr inbounds i8, ptr %2, i64 %.sroa.0112.0.add
   %54 = icmp sgt i64 %52, -1
-  br i1 %54, label %.lr.ph160, label %._crit_edge.thread
+  br i1 %54, label %.lr.ph163, label %._crit_edge.thread
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread": ; preds = %64, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread"
   %.180 = phi i64 [ %74, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit107.thread" ], [ 512, %64 ]
@@ -142,28 +142,28 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %63, label %99, label %92
 
 64:                                               ; preds = %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
-  %65 = add nuw nsw i64 %.sroa.11.0155, 1
-  %66 = add nuw nsw i64 %.079157, 64
+  %65 = add nuw nsw i64 %.sroa.11.0158, 1
+  %66 = add nuw nsw i64 %.079160, 64
   %67 = icmp eq i64 %.sroa.0112.0.add, 64
   br i1 %67, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha54595ee08877e97E.exit.thread", label %"_ZN109_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17ha5cc3784aa0d10b4E.exit.thread"
 
-.lr.ph160:                                        ; preds = %.preheader, %.lr.ph160
-  %.176159 = phi i64 [ %69, %.lr.ph160 ], [ %52, %.preheader ]
-  %.078158 = phi i64 [ %68, %.lr.ph160 ], [ 0, %.preheader ]
-  %68 = add i64 %.078158, 1
-  %69 = shl nuw i64 %.176159, 1
+.lr.ph163:                                        ; preds = %.preheader, %.lr.ph163
+  %.176162 = phi i64 [ %69, %.lr.ph163 ], [ %52, %.preheader ]
+  %.078161 = phi i64 [ %68, %.lr.ph163 ], [ 0, %.preheader ]
+  %68 = add i64 %.078161, 1
+  %69 = shl nuw i64 %.176162, 1
   %70 = icmp sgt i64 %69, -1
-  br i1 %70, label %.lr.ph160, label %._crit_edge
+  br i1 %70, label %.lr.ph163, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph160
-  %71 = add i64 %68, %.079157
-  %72 = icmp eq i64 %.sroa.11.0155, 7
+._crit_edge:                                      ; preds = %.lr.ph163
+  %71 = add i64 %68, %.079160
+  %72 = icmp eq i64 %.sroa.11.0158, 7
   %73 = icmp eq i64 %68, 0
   %or.cond = select i1 %72, i1 true, i1 %73
   br i1 %or.cond, label %._crit_edge.thread, label %75
 
 ._crit_edge.thread:                               ; preds = %.preheader, %78, %._crit_edge
-  %74 = phi i64 [ %71, %._crit_edge ], [ %71, %78 ], [ %.079157, %.preheader ]
+  %74 = phi i64 [ %71, %._crit_edge ], [ %71, %78 ], [ %.079160, %.preheader ]
   %.sroa.0112.1.idx = phi i64 [ %.sroa.0112.0.add, %._crit_edge ], [ %.ptr.add, %78 ], [ %.sroa.0112.0.add, %.preheader ]
   %.277 = phi i64 [ %69, %._crit_edge ], [ %83, %78 ], [ %52, %.preheader ]
   %.1 = phi i8 [ 0, %._crit_edge ], [ %spec.select, %78 ], [ 0, %.preheader ]
@@ -178,9 +178,9 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   unreachable
 
 78:                                               ; preds = %75
-  %.ptr.add = add nuw nsw i64 %.sroa.0112.0.idx156, 16
+  %.ptr.add = add nuw nsw i64 %.sroa.0112.0.idx159, 16
   %79 = load i64, ptr %.ptr.ptr.le, align 8, !noundef !4
-  %80 = and i64 %.078158, 63
+  %80 = and i64 %.078161, 63
   %81 = xor i64 %80, 63
   %82 = lshr i64 %79, %81
   %83 = add i64 %82, %69

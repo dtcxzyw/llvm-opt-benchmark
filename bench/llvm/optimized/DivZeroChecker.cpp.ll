@@ -1157,8 +1157,8 @@ _ZNK12_GLOBAL__N_114DivZeroChecker14reportTaintBugEN4llvm9StringRefENS1_18Intrus
   %.pre.i.i = load ptr, ptr %50, align 8
   %207 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 56
   %208 = load ptr, ptr %207, align 8
-  %.not108.i = icmp eq ptr %70, %208
-  br i1 %.not108.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i
+  %.not110.i = icmp eq ptr %70, %208
+  br i1 %.not110.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit40.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i.i: ; preds = %206
   %209 = getelementptr inbounds nuw i8, ptr %2, i64 16

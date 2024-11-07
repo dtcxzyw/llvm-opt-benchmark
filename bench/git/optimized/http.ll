@@ -455,14 +455,14 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
   br i1 %cmp.i.i.i.i, label %do.body.i.i.i.i, label %do.body.i5.preheader.i.i.i, !llvm.loop !5
 
 do.body.i5.preheader.i.i.i:                       ; preds = %do.cond.i.i.i.i
-  %scevgep64.i.i.i = getelementptr i8, ptr %0, i64 4
+  %scevgep65.i.i.i = getelementptr i8, ptr %0, i64 4
   br label %do.body.i5.i.i.i
 
 do.body.i5.i.i.i:                                 ; preds = %do.cond.i9.i.i.i, %do.body.i5.preheader.i.i.i
   %str.addr.0.i6.i.i.i = phi ptr [ %incdec.ptr.i10.i.i.i, %do.cond.i9.i.i.i ], [ %0, %do.body.i5.preheader.i.i.i ]
   %prefix.addr.0.i7.idx.i.i.i = phi i64 [ %prefix.addr.0.i7.add.i.i.i, %do.cond.i9.i.i.i ], [ 0, %do.body.i5.preheader.i.i.i ]
-  %exitcond65.i.i.i = icmp eq i64 %prefix.addr.0.i7.idx.i.i.i, 4
-  br i1 %exitcond65.i.i.i, label %if.then.i.i, label %do.cond.i9.i.i.i
+  %exitcond66.i.i.i = icmp eq i64 %prefix.addr.0.i7.idx.i.i.i, 4
+  br i1 %exitcond66.i.i.i, label %if.then.i.i, label %do.cond.i9.i.i.i
 
 do.cond.i9.i.i.i:                                 ; preds = %do.body.i5.i.i.i
   %prefix.addr.0.i7.ptr.i.i.i = getelementptr inbounds i8, ptr @.str.61, i64 %prefix.addr.0.i7.idx.i.i.i
@@ -486,17 +486,17 @@ do.cond.i9.i.i.i:                                 ; preds = %do.body.i5.i.i.i
   br i1 %cmp.i18.i.i.i, label %do.body.i5.i.i.i, label %do.body.i22.preheader.i.i.i, !llvm.loop !5
 
 do.body.i22.preheader.i.i.i:                      ; preds = %do.cond.i9.i.i.i
-  %scevgep66.i.i.i = getelementptr i8, ptr %0, i64 10
+  %scevgep67.i.i.i = getelementptr i8, ptr %0, i64 10
   br label %do.body.i22.i.i.i
 
 do.body.i22.i.i.i:                                ; preds = %do.cond.i26.i.i.i, %do.body.i22.preheader.i.i.i
   %str.addr.0.i23.i.i.i = phi ptr [ %incdec.ptr.i27.i.i.i, %do.cond.i26.i.i.i ], [ %0, %do.body.i22.preheader.i.i.i ]
   %prefix.addr.0.i24.idx.i.i.i = phi i64 [ %prefix.addr.0.i24.add.i.i.i, %do.cond.i26.i.i.i ], [ 0, %do.body.i22.preheader.i.i.i ]
-  %exitcond67.i.i.i = icmp eq i64 %prefix.addr.0.i24.idx.i.i.i, 10
-  br i1 %exitcond67.i.i.i, label %while.cond.preheader.i.i.i, label %do.cond.i26.i.i.i
+  %exitcond68.i.i.i = icmp eq i64 %prefix.addr.0.i24.idx.i.i.i, 10
+  br i1 %exitcond68.i.i.i, label %while.cond.preheader.i.i.i, label %do.cond.i26.i.i.i
 
 while.cond.preheader.i.i.i:                       ; preds = %do.body.i22.i.i.i
-  %scevgep68.i.i.i = getelementptr i8, ptr %0, i64 13
+  %scevgep69.i.i.i = getelementptr i8, ptr %0, i64 13
   br label %while.cond.i.i.i
 
 do.cond.i26.i.i.i:                                ; preds = %do.body.i22.i.i.i
@@ -521,8 +521,8 @@ do.cond.i26.i.i.i:                                ; preds = %do.body.i22.i.i.i
   br i1 %cmp.i35.i.i.i, label %do.body.i22.i.i.i, label %redact_sensitive_info_header.exit.i, !llvm.loop !5
 
 while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %while.cond.preheader.i.i.i
-  %indvars.iv.i.i.i = phi ptr [ %scevgep68.i.i.i, %while.cond.preheader.i.i.i ], [ %scevgep69.i.i.i, %while.cond.i.i.i ]
-  %p.0.i.i.i = phi ptr [ %scevgep66.i.i.i, %while.cond.preheader.i.i.i ], [ %incdec.ptr.i.i.i, %while.cond.i.i.i ]
+  %indvars.iv.i.i.i = phi ptr [ %scevgep69.i.i.i, %while.cond.preheader.i.i.i ], [ %scevgep70.i.i.i, %while.cond.i.i.i ]
+  %p.0.i.i.i = phi ptr [ %scevgep67.i.i.i, %while.cond.preheader.i.i.i ], [ %incdec.ptr.i.i.i, %while.cond.i.i.i ]
   %25 = load i8, ptr %p.0.i.i.i, align 1
   %idxprom.i.i.i = zext i8 %25 to i64
   %arrayidx.i.i.i = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom.i.i.i
@@ -530,14 +530,14 @@ while.cond.i.i.i:                                 ; preds = %while.cond.i.i.i, %
   %27 = and i8 %26, 2
   %cmp.not.i.i.i = icmp eq i8 %27, 0
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %p.0.i.i.i, i64 1
-  %scevgep69.i.i.i = getelementptr i8, ptr %indvars.iv.i.i.i, i64 1
+  %scevgep70.i.i.i = getelementptr i8, ptr %indvars.iv.i.i.i, i64 1
   br i1 %cmp.not.i.i.i, label %do.body.i39.i.i.i, label %while.cond.i.i.i, !llvm.loop !7
 
 do.body.i39.i.i.i:                                ; preds = %while.cond.i.i.i, %do.cond.i43.i.i.i
   %str.addr.0.i40.i.i.i = phi ptr [ %incdec.ptr.i44.i.i.i, %do.cond.i43.i.i.i ], [ %p.0.i.i.i, %while.cond.i.i.i ]
   %prefix.addr.0.i41.idx.i.i.i = phi i64 [ %prefix.addr.0.i41.add.i.i.i, %do.cond.i43.i.i.i ], [ 0, %while.cond.i.i.i ]
-  %exitcond70.i.i.i = icmp eq i64 %prefix.addr.0.i41.idx.i.i.i, 3
-  br i1 %exitcond70.i.i.i, label %if.then.i.i, label %do.cond.i43.i.i.i
+  %exitcond71.i.i.i = icmp eq i64 %prefix.addr.0.i41.idx.i.i.i, 3
+  br i1 %exitcond71.i.i.i, label %if.then.i.i, label %do.cond.i43.i.i.i
 
 do.cond.i43.i.i.i:                                ; preds = %do.body.i39.i.i.i
   %prefix.addr.0.i41.ptr.i.i.i = getelementptr inbounds i8, ptr @.str.63, i64 %prefix.addr.0.i41.idx.i.i.i
@@ -549,7 +549,7 @@ do.cond.i43.i.i.i:                                ; preds = %do.body.i39.i.i.i
   br i1 %cmp.i46.i.i.i, label %do.body.i39.i.i.i, label %redact_sensitive_info_header.exit.i, !llvm.loop !8
 
 if.then.i.i:                                      ; preds = %do.body.i.i.i.i, %do.body.i5.i.i.i, %do.body.i39.i.i.i
-  %sensitive_header.0.ph.i.i = phi ptr [ %indvars.iv.i.i.i, %do.body.i39.i.i.i ], [ %scevgep64.i.i.i, %do.body.i5.i.i.i ], [ %scevgep.i.i.i, %do.body.i.i.i.i ]
+  %sensitive_header.0.ph.i.i = phi ptr [ %indvars.iv.i.i.i, %do.body.i39.i.i.i ], [ %scevgep65.i.i.i, %do.body.i5.i.i.i ], [ %scevgep.i.i.i, %do.body.i.i.i.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %sensitive_header.0.ph.i.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -5278,17 +5278,17 @@ do.cond.i:                                        ; preds = %do.body.i
 
 do.body.i21.preheader:                            ; preds = %do.cond.i
   %10 = getelementptr i8, ptr %0, i64 %offset
-  %scevgep99 = getelementptr i8, ptr %10, i64 20
+  %scevgep100 = getelementptr i8, ptr %10, i64 20
   br label %do.body.i21
 
 do.body.i21:                                      ; preds = %do.body.i21.preheader, %do.cond.i25
   %str.addr.0.i22 = phi ptr [ %incdec.ptr.i26, %do.cond.i25 ], [ %add.ptr, %do.body.i21.preheader ]
   %prefix.addr.0.i23.idx = phi i64 [ %prefix.addr.0.i23.add, %do.cond.i25 ], [ 0, %do.body.i21.preheader ]
-  %exitcond100 = icmp eq i64 %prefix.addr.0.i23.idx, 20
-  br i1 %exitcond100, label %while.cond.preheader, label %do.cond.i25
+  %exitcond101 = icmp eq i64 %prefix.addr.0.i23.idx, 20
+  br i1 %exitcond101, label %while.cond.preheader, label %do.cond.i25
 
 while.cond.preheader:                             ; preds = %do.body.i, %do.body.i21
-  %sensitive_header.2.ph = phi ptr [ %scevgep99, %do.body.i21 ], [ %scevgep, %do.body.i ]
+  %sensitive_header.2.ph = phi ptr [ %scevgep100, %do.body.i21 ], [ %scevgep, %do.body.i ]
   br label %while.cond
 
 do.cond.i25:                                      ; preds = %do.body.i21
@@ -5324,12 +5324,12 @@ while.cond:                                       ; preds = %while.cond.preheade
   br i1 %cmp.not, label %while.cond7.preheader, label %while.cond, !llvm.loop !42
 
 while.cond7.preheader:                            ; preds = %while.cond
-  %tobool9.not92 = icmp eq i8 %19, 0
-  br i1 %tobool9.not92, label %while.end18, label %land.rhs
+  %tobool9.not93 = icmp eq i8 %19, 0
+  br i1 %tobool9.not93, label %while.end18, label %land.rhs
 
 land.rhs:                                         ; preds = %while.cond7.preheader, %while.body16
   %22 = phi i8 [ %25, %while.body16 ], [ %19, %while.cond7.preheader ]
-  %sensitive_header.393 = phi ptr [ %incdec.ptr17, %while.body16 ], [ %sensitive_header.2, %while.cond7.preheader ]
+  %sensitive_header.394 = phi ptr [ %incdec.ptr17, %while.body16 ], [ %sensitive_header.2, %while.cond7.preheader ]
   %idxprom10 = zext i8 %22 to i64
   %arrayidx11 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom10
   %23 = load i8, ptr %arrayidx11, align 1
@@ -5338,13 +5338,13 @@ land.rhs:                                         ; preds = %while.cond7.prehead
   br i1 %cmp14.not, label %while.body16, label %while.end18
 
 while.body16:                                     ; preds = %land.rhs
-  %incdec.ptr17 = getelementptr inbounds i8, ptr %sensitive_header.393, i64 1
+  %incdec.ptr17 = getelementptr inbounds i8, ptr %sensitive_header.394, i64 1
   %25 = load i8, ptr %incdec.ptr17, align 1
   %tobool9.not = icmp eq i8 %25, 0
   br i1 %tobool9.not, label %while.end18, label %land.rhs, !llvm.loop !43
 
 while.end18:                                      ; preds = %land.rhs, %while.body16, %while.cond7.preheader
-  %sensitive_header.3.lcssa = phi ptr [ %sensitive_header.2, %while.cond7.preheader ], [ %incdec.ptr17, %while.body16 ], [ %sensitive_header.393, %land.rhs ]
+  %sensitive_header.3.lcssa = phi ptr [ %sensitive_header.2, %while.cond7.preheader ], [ %incdec.ptr17, %while.body16 ], [ %sensitive_header.394, %land.rhs ]
   %sub.ptr.lhs.cast = ptrtoint ptr %sensitive_header.3.lcssa to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
@@ -5374,14 +5374,14 @@ strbuf_setlen.exit:                               ; preds = %if.end.i, %if.then4
 
 land.lhs.true21:                                  ; preds = %do.cond.i25
   %27 = getelementptr i8, ptr %0, i64 %offset
-  %scevgep101 = getelementptr i8, ptr %27, i64 7
+  %scevgep102 = getelementptr i8, ptr %27, i64 7
   br label %do.body.i40
 
 do.body.i40:                                      ; preds = %do.cond.i44, %land.lhs.true21
   %str.addr.0.i41 = phi ptr [ %add.ptr, %land.lhs.true21 ], [ %incdec.ptr.i45, %do.cond.i44 ]
   %prefix.addr.0.i42.idx = phi i64 [ 0, %land.lhs.true21 ], [ %prefix.addr.0.i42.add, %do.cond.i44 ]
-  %exitcond102 = icmp eq i64 %prefix.addr.0.i42.idx, 7
-  br i1 %exitcond102, label %if.then26, label %do.cond.i44
+  %exitcond103 = icmp eq i64 %prefix.addr.0.i42.idx, 7
+  br i1 %exitcond103, label %if.then26, label %do.cond.i44
 
 do.cond.i44:                                      ; preds = %do.body.i40
   %prefix.addr.0.i42.ptr = getelementptr inbounds i8, ptr @.str.67, i64 %prefix.addr.0.i42.idx
@@ -5409,7 +5409,7 @@ if.then26:                                        ; preds = %do.body.i40
   br label %while.cond27
 
 while.cond27:                                     ; preds = %while.cond27, %if.then26
-  %sensitive_header.4 = phi ptr [ %scevgep101, %if.then26 ], [ %incdec.ptr35, %while.cond27 ]
+  %sensitive_header.4 = phi ptr [ %scevgep102, %if.then26 ], [ %incdec.ptr35, %while.cond27 ]
   %36 = load i8, ptr %sensitive_header.4, align 1
   %idxprom28 = zext i8 %36 to i64
   %arrayidx29 = getelementptr inbounds [256 x i8], ptr @sane_ctype, i64 0, i64 %idxprom28
@@ -5420,7 +5420,7 @@ while.cond27:                                     ; preds = %while.cond27, %if.t
   br i1 %cmp32.not, label %while.body39.preheader, label %while.cond27, !llvm.loop !44
 
 while.body39:                                     ; preds = %while.body39.preheader, %if.then45
-  %call40 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %cookie.0.ph90, ptr noundef nonnull dereferenceable(1) @.str.68) #22
+  %call40 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %cookie.0.ph91, ptr noundef nonnull dereferenceable(1) @.str.68) #22
   %tobool41.not = icmp eq ptr %call40, null
   br i1 %tobool41.not, label %if.end, label %if.then42
 
@@ -5429,20 +5429,20 @@ if.then42:                                        ; preds = %while.body39
   br label %if.end
 
 if.end:                                           ; preds = %if.then42, %while.body39
-  %call43 = call ptr @strchrnul(ptr noundef nonnull %cookie.0.ph90, i32 noundef 61) #22
+  %call43 = call ptr @strchrnul(ptr noundef nonnull %cookie.0.ph91, i32 noundef 61) #22
   %tobool44.not = icmp eq ptr %call43, null
   br i1 %tobool44.not, label %if.then45, label %if.end46
 
 if.then45:                                        ; preds = %if.end
-  %call.i57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cookie.0.ph90) #22
-  call void @strbuf_add(ptr noundef nonnull %redacted_header, ptr noundef nonnull %cookie.0.ph90, i64 noundef %call.i57) #21
+  %call.i57 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cookie.0.ph91) #22
+  call void @strbuf_add(ptr noundef nonnull %redacted_header, ptr noundef nonnull %cookie.0.ph91, i64 noundef %call.i57) #21
   br label %while.body39
 
 if.end46:                                         ; preds = %if.end
   %sub.ptr.lhs.cast47 = ptrtoint ptr %call43 to i64
-  %sub.ptr.rhs.cast48 = ptrtoint ptr %cookie.0.ph90 to i64
+  %sub.ptr.rhs.cast48 = ptrtoint ptr %cookie.0.ph91 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast48
-  call void @strbuf_add(ptr noundef nonnull %redacted_header, ptr noundef nonnull %cookie.0.ph90, i64 noundef %sub.ptr.sub49) #21
+  call void @strbuf_add(ptr noundef nonnull %redacted_header, ptr noundef nonnull %cookie.0.ph91, i64 noundef %sub.ptr.sub49) #21
   call void @strbuf_add(ptr noundef nonnull %redacted_header, ptr noundef nonnull @.str.69, i64 noundef 11) #21
   br i1 %tobool41.not, label %while.end55, label %if.end54
 
@@ -5452,7 +5452,7 @@ if.end54:                                         ; preds = %if.end46
   br label %while.body39.preheader, !llvm.loop !45
 
 while.body39.preheader:                           ; preds = %while.cond27, %if.end54
-  %cookie.0.ph90 = phi ptr [ %add.ptr52, %if.end54 ], [ %sensitive_header.4, %while.cond27 ]
+  %cookie.0.ph91 = phi ptr [ %add.ptr52, %if.end54 ], [ %sensitive_header.4, %while.cond27 ]
   br label %while.body39
 
 while.end55:                                      ; preds = %if.end46
@@ -6165,8 +6165,8 @@ do.body.i18:                                      ; preds = %land.rhs.i25, %if.e
   %buf.addr.0.i21 = phi ptr [ %ptr, %if.end20 ], [ %incdec.ptr.i27, %land.rhs.i25 ]
   %prefix.addr.0.i20.ptr = getelementptr inbounds i8, ptr @.str.178, i64 %prefix.addr.0.i20.idx
   %18 = load i8, ptr %prefix.addr.0.i20.ptr, align 1
-  %exitcond52 = icmp eq i64 %prefix.addr.0.i20.idx, 5
-  br i1 %exitcond52, label %if.then26, label %do.cond.i23
+  %exitcond53 = icmp eq i64 %prefix.addr.0.i20.idx, 5
+  br i1 %exitcond53, label %if.then26, label %do.cond.i23
 
 do.cond.i23:                                      ; preds = %do.body.i18
   %cmp.not.i24 = icmp eq i64 %len.addr.0.i19, 0

@@ -1964,12 +1964,12 @@ define dso_local { ptr, i8 } @_ZN5clang4ento11SValBuilder9evalBinOpEN4llvm18Intr
   %25 = icmp eq i8 %21, 1
   %or.cond = or i1 %24, %25
   %26 = icmp eq i8 %4, 7
-  %or.cond177 = or i1 %26, %or.cond
+  %or.cond179 = or i1 %26, %or.cond
   %27 = icmp eq i8 %21, 7
-  %or.cond178 = or i1 %27, %or.cond177
+  %or.cond180 = or i1 %27, %or.cond179
   %28 = icmp eq i32 %2, 9
-  %or.cond179 = or i1 %28, %or.cond178
-  br i1 %or.cond179, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %29
+  %or.cond181 = or i1 %28, %or.cond180
+  br i1 %or.cond181, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, label %29
 
 29:                                               ; preds = %23
   %30 = add i8 %4, -2

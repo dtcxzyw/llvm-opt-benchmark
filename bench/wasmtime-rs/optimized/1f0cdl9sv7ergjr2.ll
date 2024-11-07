@@ -2769,9 +2769,9 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling10table_pool
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = tail call { i32, i32 } @_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator28ModuleAffinityIndexAllocator6_alloc17hb00b0175565bc7baE.llvm.2708031191408783576(ptr noundef nonnull align 8 %7, i64 noundef 0, i32 undef, i1 noundef zeroext true)
   %9 = extractvalue { i32, i32 } %8, 0
+  %switch = icmp eq i32 %9, 0
   %10 = extractvalue { i32, i32 } %8, 1
-  %switch15 = icmp eq i32 %9, 0
-  br i1 %switch15, label %36, label %11
+  br i1 %switch, label %36, label %11
 
 11:                                               ; preds = %4
   %12 = zext i32 %10 to i64

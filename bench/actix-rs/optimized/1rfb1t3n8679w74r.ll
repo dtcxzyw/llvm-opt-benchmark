@@ -7494,10 +7494,11 @@ common.ret:                                       ; preds = %"_ZN4core3ptr121dro
 
 "_ZN4core3ptr121drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$alloc..boxed..Box$LT$dyn$u20$actix_web..guard..Guard$GT$$GT$$GT$$GT$17h1cbe3880b7411ae3E.exit": ; preds = %60, %.noexc, %48, %43
   %.sroa.4.0 = phi ptr [ %46, %43 ], [ undef, %48 ], [ undef, %.noexc ], [ undef, %60 ]
+  %.sroa.3.0 = phi ptr [ %30, %43 ], [ undef, %48 ], [ undef, %.noexc ], [ undef, %60 ]
   %47 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %28, ptr %47, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %30, ptr %.sroa.3.0..sroa_idx, align 8
+  store ptr %.sroa.3.0, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx10 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx10, align 8
   br label %common.ret

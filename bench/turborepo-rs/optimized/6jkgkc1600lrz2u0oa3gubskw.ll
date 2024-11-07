@@ -892,10 +892,10 @@ define void @_RNvMs1_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_10GroupInnerNt
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   br label %31
 
-31:                                               ; preds = %.thread91, %.thread100
-  %.sroa.8.sroa.7.098 = phi i64 [ %.sroa.8.sroa.7.0.copyload, %.thread100 ], [ undef, %.thread91 ]
-  %.sroa.8.sroa.6.097 = phi i64 [ %.sroa.8.sroa.6.0.copyload, %.thread100 ], [ undef, %.thread91 ]
-  %.sroa.8.sroa.0.096 = phi i64 [ %.sroa.8.sroa.0.0.copyload, %.thread100 ], [ undef, %.thread91 ]
+31:                                               ; preds = %.thread91, %.thread97
+  %.sroa.68.sroa.0.0 = phi i64 [ %.sroa.8.sroa.0.0.copyload, %.thread97 ], [ undef, %.thread91 ]
+  %.sroa.68.sroa.5.0 = phi i64 [ %.sroa.8.sroa.6.0.copyload, %.thread97 ], [ undef, %.thread91 ]
+  %.sroa.68.sroa.6.0 = phi i64 [ %.sroa.8.sroa.7.0.copyload, %.thread97 ], [ undef, %.thread91 ]
   %32 = load i64, ptr %18, align 8, !noundef !5
   %33 = load i64, ptr %19, align 8, !noundef !5
   %.not36 = icmp eq i64 %32, %33
@@ -927,7 +927,7 @@ define void @_RNvMs1_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_10GroupInnerNt
 
 39:                                               ; preds = %34
   %40 = icmp eq i64 %.sroa.017.0.copyload, %28
-  br i1 %40, label %41, label %.thread100
+  br i1 %40, label %41, label %.thread97
 
 41:                                               ; preds = %39
   %trunc.i.i = trunc nuw i64 %28 to i1
@@ -939,14 +939,14 @@ define void @_RNvMs1_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_10GroupInnerNt
   call void @llvm.assume(i1 %44)
   %45 = icmp eq i64 %.sroa.619.sroa.5.0.copyload, %.sroa.8.sroa.6.0.copyload
   %or.cond = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond, label %36, label %.thread100
+  br i1 %or.cond, label %36, label %.thread97
 
 46:                                               ; preds = %41
   %47 = icmp eq i64 %28, 0
   call void @llvm.assume(i1 %47)
-  br i1 %42, label %36, label %.thread100
+  br i1 %42, label %36, label %.thread97
 
-.thread100:                                       ; preds = %43, %39, %46
+.thread97:                                        ; preds = %43, %39, %46
   store i64 %28, ptr %1, align 8
   store i64 %.sroa.8.sroa.0.0.copyload, ptr %.sroa.619.0..sroa_idx, align 8
   store i64 %.sroa.8.sroa.6.0.copyload, ptr %.sroa.619.sroa.5.0..sroa.619.0..sroa_idx.sroa_idx, align 8
@@ -1001,11 +1001,11 @@ define void @_RNvMs1_NtCslyFhtC9DD08_9itertools11groupbylazyINtB5_10GroupInnerNt
 65:                                               ; preds = %60, %62
   store i64 %28, ptr %0, align 8
   %.sroa.68.0..sroa_idx10 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.8.sroa.0.096, ptr %.sroa.68.0..sroa_idx10, align 8
+  store i64 %.sroa.68.sroa.0.0, ptr %.sroa.68.0..sroa_idx10, align 8
   %.sroa.68.sroa.5.0..sroa.68.0..sroa_idx10.sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.8.sroa.6.097, ptr %.sroa.68.sroa.5.0..sroa.68.0..sroa_idx10.sroa_idx, align 8
+  store i64 %.sroa.68.sroa.5.0, ptr %.sroa.68.sroa.5.0..sroa.68.0..sroa_idx10.sroa_idx, align 8
   %.sroa.68.sroa.6.0..sroa.68.0..sroa_idx10.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.8.sroa.7.098, ptr %.sroa.68.sroa.6.0..sroa.68.0..sroa_idx10.sroa_idx, align 8
+  store i64 %.sroa.68.sroa.6.0, ptr %.sroa.68.sroa.6.0..sroa.68.0..sroa_idx10.sroa_idx, align 8
   br i1 %.not36, label %66, label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit
 
 _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtCs68wO5nsWeTG_5alloc3vec3VecTNtNtCseG2FYMysgNb_3wax5token8PositionRNtB1g_5TokenEEEB1i_.exit: ; preds = %69, %66, %65
@@ -5377,7 +5377,7 @@ _RINvMs3_NtCseG2FYMysgNb_3wax4ruleINtB6_9TerminalsRNtNtB8_5token5TokenE3mapTBL_R
   %8 = load i64, ptr %7, align 8, !range !20, !noundef !5
   br i1 %6, label %9, label %10
 
-default.unreachable115:                           ; preds = %18
+default.unreachable127:                           ; preds = %18
   unreachable
 
 9:                                                ; preds = %_RINvMs3_NtCseG2FYMysgNb_3wax4ruleINtB6_9TerminalsRNtNtB8_5token5TokenE3mapTBL_RINtBO_9TokenKindTjjEEENCNvNvB6_5group11check_group0EB8_.exit
@@ -5404,7 +5404,7 @@ default.unreachable115:                           ; preds = %18
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %7, i64 8
   %20 = load i8, ptr %19, align 8, !range !26, !noundef !5
-  switch i8 %20, label %default.unreachable115 [
+  switch i8 %20, label %default.unreachable127 [
     i8 1, label %41
     i8 2, label %43
     i8 0, label %15
@@ -5431,20 +5431,22 @@ default.unreachable115:                           ; preds = %18
   br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit
 
 _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds = %23, %27
+  %.sroa.6.0.i = phi i64 [ %.sroa.03.0.val, %27 ], [ undef, %23 ]
+  %.sroa.7.0.i = phi i64 [ %.sroa.03.0.val16, %27 ], [ undef, %23 ]
   %.sink1.i.i = phi i64 [ %29, %27 ], [ %.sroa.03.0.val, %23 ]
   %.sink.i.i = phi i64 [ %31, %27 ], [ %.sroa.03.0.val16, %23 ]
   %storemerge.i.i = phi i64 [ 1, %27 ], [ 0, %23 ]
   store i64 %storemerge.i.i, ptr %0, align 8
-  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1.i.i, ptr %.sroa.474.0..sroa_idx, align 8
-  %.sroa.575.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink.i.i, ptr %.sroa.575.0..sroa_idx, align 8
-  %.sroa.676.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.03.0.val, ptr %.sroa.676.0..sroa_idx, align 8
-  %.sroa.777.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.03.0.val16, ptr %.sroa.777.0..sroa_idx, align 8
-  %.sroa.878.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 3, ptr %.sroa.878.0..sroa_idx, align 8
+  %.sroa.486.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1.i.i, ptr %.sroa.486.0..sroa_idx, align 8
+  %.sroa.587.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink.i.i, ptr %.sroa.587.0..sroa_idx, align 8
+  %.sroa.688.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.6.0.i, ptr %.sroa.688.0..sroa_idx, align 8
+  %.sroa.789.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sroa.7.0.i, ptr %.sroa.789.0..sroa_idx, align 8
+  %.sroa.890.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 3, ptr %.sroa.890.0..sroa_idx, align 8
   br label %66
 
 32:                                               ; preds = %67, %16
@@ -5453,28 +5455,30 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds =
   %34 = getelementptr i8, ptr %7, i64 56
   %.sroa.01.0.val15 = load i64, ptr %34, align 8
   %35 = icmp eq ptr %2, null
-  br i1 %35, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit24, label %36
+  br i1 %35, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit26, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds i8, ptr %2, i64 48
   %38 = load i64, ptr %37, align 8, !alias.scope !1406, !noalias !1409, !noundef !5
   %39 = getelementptr inbounds i8, ptr %2, i64 56
   %40 = load i64, ptr %39, align 8, !alias.scope !1406, !noalias !1409, !noundef !5
-  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit24
+  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit26
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit24: ; preds = %32, %36
-  %.sink1.i.i17 = phi i64 [ %38, %36 ], [ %.sroa.01.0.val, %32 ]
-  %.sink.i.i18 = phi i64 [ %40, %36 ], [ %.sroa.01.0.val15, %32 ]
-  %storemerge.i.i19 = phi i64 [ 1, %36 ], [ 0, %32 ]
-  store i64 %storemerge.i.i19, ptr %0, align 8
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit26: ; preds = %32, %36
+  %.sroa.6.0.i17 = phi i64 [ %.sroa.01.0.val, %36 ], [ undef, %32 ]
+  %.sroa.7.0.i18 = phi i64 [ %.sroa.01.0.val15, %36 ], [ undef, %32 ]
+  %.sink1.i.i19 = phi i64 [ %38, %36 ], [ %.sroa.01.0.val, %32 ]
+  %.sink.i.i20 = phi i64 [ %40, %36 ], [ %.sroa.01.0.val15, %32 ]
+  %storemerge.i.i21 = phi i64 [ 1, %36 ], [ 0, %32 ]
+  store i64 %storemerge.i.i21, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1.i.i17, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink1.i.i19, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink.i.i18, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sink.i.i20, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.01.0.val, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.6.0.i17, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.01.0.val15, ptr %.sroa.7.0..sroa_idx, align 8
+  store i64 %.sroa.7.0.i18, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
   store i8 3, ptr %.sroa.8.0..sroa_idx, align 8
   br label %66
@@ -5489,16 +5493,12 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit24: ; preds
   %45 = getelementptr i8, ptr %7, i64 56
   %.val14 = load i64, ptr %45, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.481.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.val13, ptr %.sroa.481.0..sroa_idx, align 8
-  %.sroa.582.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.val14, ptr %.sroa.582.0..sroa_idx, align 8
-  %.sroa.683.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val13, ptr %.sroa.683.0..sroa_idx, align 8
-  %.sroa.784.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.val14, ptr %.sroa.784.0..sroa_idx, align 8
-  %.sroa.885.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 1, ptr %.sroa.885.0..sroa_idx, align 8
+  %.sroa.493.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.val13, ptr %.sroa.493.0..sroa_idx, align 8
+  %.sroa.594.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.val14, ptr %.sroa.594.0..sroa_idx, align 8
+  %.sroa.897.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 1, ptr %.sroa.897.0..sroa_idx, align 8
   br label %66
 
 46:                                               ; preds = %41
@@ -5512,30 +5512,32 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit24: ; preds
   %50 = getelementptr i8, ptr %.sroa.07.0, i64 56
   %.sroa.07.0.val12 = load i64, ptr %50, align 8
   %51 = icmp eq ptr %3, null
-  br i1 %51, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39, label %52
+  br i1 %51, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit45, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds i8, ptr %3, i64 48
   %54 = load i64, ptr %53, align 8, !alias.scope !1411, !noalias !1414, !noundef !5
   %55 = getelementptr inbounds i8, ptr %3, i64 56
   %56 = load i64, ptr %55, align 8, !alias.scope !1411, !noalias !1414, !noundef !5
-  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39
+  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit45
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39: ; preds = %48, %52
-  %.sink1.i.i32 = phi i64 [ %54, %52 ], [ %.sroa.07.0.val, %48 ]
-  %.sink.i.i33 = phi i64 [ %56, %52 ], [ %.sroa.07.0.val12, %48 ]
-  %storemerge.i.i34 = phi i64 [ 1, %52 ], [ 0, %48 ]
-  store i64 %storemerge.i.i34, ptr %0, align 8
-  %.sroa.4109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1.i.i32, ptr %.sroa.4109.0..sroa_idx, align 8
-  %.sroa.5110.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink.i.i33, ptr %.sroa.5110.0..sroa_idx, align 8
-  %.sroa.6111.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.07.0.val, ptr %.sroa.6111.0..sroa_idx, align 8
-  %.sroa.7112.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.07.0.val12, ptr %.sroa.7112.0..sroa_idx, align 8
-  %.sroa.8113.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 4, ptr %.sroa.8113.0..sroa_idx, align 8
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit45: ; preds = %48, %52
+  %.sroa.6.0.i36 = phi i64 [ %.sroa.07.0.val, %52 ], [ undef, %48 ]
+  %.sroa.7.0.i37 = phi i64 [ %.sroa.07.0.val12, %52 ], [ undef, %48 ]
+  %.sink1.i.i38 = phi i64 [ %54, %52 ], [ %.sroa.07.0.val, %48 ]
+  %.sink.i.i39 = phi i64 [ %56, %52 ], [ %.sroa.07.0.val12, %48 ]
+  %storemerge.i.i40 = phi i64 [ 1, %52 ], [ 0, %48 ]
+  store i64 %storemerge.i.i40, ptr %0, align 8
+  %.sroa.4121.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1.i.i38, ptr %.sroa.4121.0..sroa_idx, align 8
+  %.sroa.5122.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink.i.i39, ptr %.sroa.5122.0..sroa_idx, align 8
+  %.sroa.6123.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.6.0.i36, ptr %.sroa.6123.0..sroa_idx, align 8
+  %.sroa.7124.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sroa.7.0.i37, ptr %.sroa.7124.0..sroa_idx, align 8
+  %.sroa.8125.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 4, ptr %.sroa.8125.0..sroa_idx, align 8
   br label %66
 
 57:                                               ; preds = %117, %41
@@ -5544,33 +5546,35 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39: ; preds
   %59 = getelementptr i8, ptr %7, i64 56
   %.sroa.05.0.val11 = load i64, ptr %59, align 8
   %60 = icmp eq ptr %2, null
-  br i1 %60, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit47, label %61
+  br i1 %60, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds i8, ptr %2, i64 48
   %63 = load i64, ptr %62, align 8, !alias.scope !1416, !noalias !1419, !noundef !5
   %64 = getelementptr inbounds i8, ptr %2, i64 56
   %65 = load i64, ptr %64, align 8, !alias.scope !1416, !noalias !1419, !noundef !5
-  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit47
+  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit47: ; preds = %57, %61
-  %.sink1.i.i40 = phi i64 [ %63, %61 ], [ %.sroa.05.0.val, %57 ]
-  %.sink.i.i41 = phi i64 [ %65, %61 ], [ %.sroa.05.0.val11, %57 ]
-  %storemerge.i.i42 = phi i64 [ 1, %61 ], [ 0, %57 ]
-  store i64 %storemerge.i.i42, ptr %0, align 8
-  %.sroa.4102.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1.i.i40, ptr %.sroa.4102.0..sroa_idx, align 8
-  %.sroa.5103.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink.i.i41, ptr %.sroa.5103.0..sroa_idx, align 8
-  %.sroa.6104.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.05.0.val, ptr %.sroa.6104.0..sroa_idx, align 8
-  %.sroa.7105.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.05.0.val11, ptr %.sroa.7105.0..sroa_idx, align 8
-  %.sroa.8106.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 4, ptr %.sroa.8106.0..sroa_idx, align 8
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55: ; preds = %57, %61
+  %.sroa.6.0.i46 = phi i64 [ %.sroa.05.0.val, %61 ], [ undef, %57 ]
+  %.sroa.7.0.i47 = phi i64 [ %.sroa.05.0.val11, %61 ], [ undef, %57 ]
+  %.sink1.i.i48 = phi i64 [ %63, %61 ], [ %.sroa.05.0.val, %57 ]
+  %.sink.i.i49 = phi i64 [ %65, %61 ], [ %.sroa.05.0.val11, %57 ]
+  %storemerge.i.i50 = phi i64 [ 1, %61 ], [ 0, %57 ]
+  store i64 %storemerge.i.i50, ptr %0, align 8
+  %.sroa.4114.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1.i.i48, ptr %.sroa.4114.0..sroa_idx, align 8
+  %.sroa.5115.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink.i.i49, ptr %.sroa.5115.0..sroa_idx, align 8
+  %.sroa.6116.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.6.0.i46, ptr %.sroa.6116.0..sroa_idx, align 8
+  %.sroa.7117.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sroa.7.0.i47, ptr %.sroa.7117.0..sroa_idx, align 8
+  %.sroa.8118.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 4, ptr %.sroa.8118.0..sroa_idx, align 8
   br label %66
 
-66:                                               ; preds = %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit63, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit47, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39, %43, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit24, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, %15
+66:                                               ; preds = %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit75, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit65, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit45, %43, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit26, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, %15
   ret void
 
 67:                                               ; preds = %10
@@ -5613,30 +5617,32 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit47: ; preds
   %89 = getelementptr i8, ptr %7, i64 56
   %.val10 = load i64, ptr %89, align 8
   %90 = icmp eq ptr %2, null
-  br i1 %90, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55, label %91
+  br i1 %90, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit65, label %91
 
 91:                                               ; preds = %87
   %92 = getelementptr inbounds i8, ptr %2, i64 48
   %93 = load i64, ptr %92, align 8, !alias.scope !1421, !noalias !1424, !noundef !5
   %94 = getelementptr inbounds i8, ptr %2, i64 56
   %95 = load i64, ptr %94, align 8, !alias.scope !1421, !noalias !1424, !noundef !5
-  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55
+  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit65
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55: ; preds = %87, %91
-  %.sink1.i.i48 = phi i64 [ %93, %91 ], [ %.val9, %87 ]
-  %.sink.i.i49 = phi i64 [ %95, %91 ], [ %.val10, %87 ]
-  %storemerge.i.i50 = phi i64 [ 1, %91 ], [ 0, %87 ]
-  store i64 %storemerge.i.i50, ptr %0, align 8
-  %.sroa.488.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1.i.i48, ptr %.sroa.488.0..sroa_idx, align 8
-  %.sroa.589.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink.i.i49, ptr %.sroa.589.0..sroa_idx, align 8
-  %.sroa.690.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val9, ptr %.sroa.690.0..sroa_idx, align 8
-  %.sroa.791.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.val10, ptr %.sroa.791.0..sroa_idx, align 8
-  %.sroa.892.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 3, ptr %.sroa.892.0..sroa_idx, align 8
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit65: ; preds = %87, %91
+  %.sroa.6.0.i56 = phi i64 [ %.val9, %91 ], [ undef, %87 ]
+  %.sroa.7.0.i57 = phi i64 [ %.val10, %91 ], [ undef, %87 ]
+  %.sink1.i.i58 = phi i64 [ %93, %91 ], [ %.val9, %87 ]
+  %.sink.i.i59 = phi i64 [ %95, %91 ], [ %.val10, %87 ]
+  %storemerge.i.i60 = phi i64 [ 1, %91 ], [ 0, %87 ]
+  store i64 %storemerge.i.i60, ptr %0, align 8
+  %.sroa.4100.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1.i.i58, ptr %.sroa.4100.0..sroa_idx, align 8
+  %.sroa.5101.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink.i.i59, ptr %.sroa.5101.0..sroa_idx, align 8
+  %.sroa.6102.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.6.0.i56, ptr %.sroa.6102.0..sroa_idx, align 8
+  %.sroa.7103.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sroa.7.0.i57, ptr %.sroa.7103.0..sroa_idx, align 8
+  %.sroa.8104.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 3, ptr %.sroa.8104.0..sroa_idx, align 8
   br label %66
 
 96:                                               ; preds = %83
@@ -5658,30 +5664,32 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit55: ; preds
   %105 = getelementptr i8, ptr %5, i64 56
   %.val8 = load i64, ptr %105, align 8
   %106 = icmp eq ptr %3, null
-  br i1 %106, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit63, label %107
+  br i1 %106, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit75, label %107
 
 107:                                              ; preds = %103
   %108 = getelementptr inbounds i8, ptr %3, i64 48
   %109 = load i64, ptr %108, align 8, !alias.scope !1426, !noalias !1429, !noundef !5
   %110 = getelementptr inbounds i8, ptr %3, i64 56
   %111 = load i64, ptr %110, align 8, !alias.scope !1426, !noalias !1429, !noundef !5
-  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit63
+  br label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit75
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit63: ; preds = %103, %107
-  %.sink1.i.i56 = phi i64 [ %109, %107 ], [ %.val, %103 ]
-  %.sink.i.i57 = phi i64 [ %111, %107 ], [ %.val8, %103 ]
-  %storemerge.i.i58 = phi i64 [ 1, %107 ], [ 0, %103 ]
-  store i64 %storemerge.i.i58, ptr %0, align 8
-  %.sroa.495.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sink1.i.i56, ptr %.sroa.495.0..sroa_idx, align 8
-  %.sroa.596.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sink.i.i57, ptr %.sroa.596.0..sroa_idx, align 8
-  %.sroa.697.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val, ptr %.sroa.697.0..sroa_idx, align 8
-  %.sroa.798.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.val8, ptr %.sroa.798.0..sroa_idx, align 8
-  %.sroa.899.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 3, ptr %.sroa.899.0..sroa_idx, align 8
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit75: ; preds = %103, %107
+  %.sroa.6.0.i66 = phi i64 [ %.val, %107 ], [ undef, %103 ]
+  %.sroa.7.0.i67 = phi i64 [ %.val8, %107 ], [ undef, %103 ]
+  %.sink1.i.i68 = phi i64 [ %109, %107 ], [ %.val, %103 ]
+  %.sink.i.i69 = phi i64 [ %111, %107 ], [ %.val8, %103 ]
+  %storemerge.i.i70 = phi i64 [ 1, %107 ], [ 0, %103 ]
+  store i64 %storemerge.i.i70, ptr %0, align 8
+  %.sroa.4107.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sink1.i.i68, ptr %.sroa.4107.0..sroa_idx, align 8
+  %.sroa.5108.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sink.i.i69, ptr %.sroa.5108.0..sroa_idx, align 8
+  %.sroa.6109.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.sroa.6.0.i66, ptr %.sroa.6109.0..sroa_idx, align 8
+  %.sroa.7110.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.sroa.7.0.i67, ptr %.sroa.7110.0..sroa_idx, align 8
+  %.sroa.8111.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 3, ptr %.sroa.8111.0..sroa_idx, align 8
   br label %66
 
 112:                                              ; preds = %100
@@ -5752,14 +5760,10 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds =
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.07.0.val, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.07.0.val12, ptr %.sroa.523.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.07.0.val, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.07.0.val12, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.824.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 0, ptr %.sroa.824.0..sroa_idx, align 8
+  %.sroa.525.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.07.0.val12, ptr %.sroa.525.0..sroa_idx, align 8
+  %.sroa.826.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 0, ptr %.sroa.826.0..sroa_idx, align 8
   br label %33
 
 20:                                               ; preds = %14
@@ -5768,24 +5772,20 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds =
   %23 = trunc nuw i8 %22 to i1
   %24 = icmp eq ptr %2, null
   %or.cond = and i1 %24, %23
-  br i1 %or.cond, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit20, label %11
+  br i1 %or.cond, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit22, label %11
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit20: ; preds = %20, %34
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit22: ; preds = %20, %34
   %25 = getelementptr i8, ptr %7, i64 48
   %.sroa.09.0.val = load i64, ptr %25, align 8
   %26 = getelementptr i8, ptr %7, i64 56
   %.sroa.09.0.val11 = load i64, ptr %26, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.426.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.09.0.val, ptr %.sroa.426.0..sroa_idx, align 8
-  %.sroa.527.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.09.0.val11, ptr %.sroa.527.0..sroa_idx, align 8
-  %.sroa.628.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.09.0.val, ptr %.sroa.628.0..sroa_idx, align 8
-  %.sroa.729.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.09.0.val11, ptr %.sroa.729.0..sroa_idx, align 8
-  %.sroa.830.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 0, ptr %.sroa.830.0..sroa_idx, align 8
+  %.sroa.428.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.09.0.val, ptr %.sroa.428.0..sroa_idx, align 8
+  %.sroa.529.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.09.0.val11, ptr %.sroa.529.0..sroa_idx, align 8
+  %.sroa.832.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 0, ptr %.sroa.832.0..sroa_idx, align 8
   br label %33
 
 27:                                               ; preds = %10
@@ -5798,7 +5798,7 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit20: ; preds
   %32 = icmp eq i8 %31, 2
   br i1 %32, label %34, label %11
 
-33:                                               ; preds = %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit20, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, %11
+33:                                               ; preds = %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit22, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, %11
   ret void
 
 34:                                               ; preds = %29
@@ -5807,7 +5807,7 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit20: ; preds
   %37 = trunc nuw i8 %36 to i1
   %38 = icmp eq ptr %2, null
   %or.cond10 = and i1 %38, %37
-  br i1 %or.cond10, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit20, label %11
+  br i1 %or.cond10, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit22, label %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -5821,7 +5821,7 @@ _RINvMs3_NtCseG2FYMysgNb_3wax4ruleINtB6_9TerminalsRNtNtB8_5token5TokenE3mapTBL_R
   %10 = load i64, ptr %9, align 8, !range !20, !noundef !5
   br i1 %8, label %11, label %12
 
-default.unreachable82:                            ; preds = %16
+default.unreachable88:                            ; preds = %16
   unreachable
 
 11:                                               ; preds = %_RINvMs3_NtCseG2FYMysgNb_3wax4ruleINtB6_9TerminalsRNtNtB8_5token5TokenE3mapTBL_RINtBO_9TokenKindTjjEEENCNvNvB6_5group22check_group_repetition0EB8_.exit
@@ -5836,7 +5836,7 @@ default.unreachable82:                            ; preds = %16
     i64 7, label %40
   ]
 
-.thread:                                          ; preds = %40, %12, %32, %.thread81, %52, %28, %16, %11
+.thread:                                          ; preds = %40, %12, %32, %.thread87, %52, %28, %16, %11
   store i64 2, ptr %0, align 8
   br label %24
 
@@ -5849,7 +5849,7 @@ default.unreachable82:                            ; preds = %16
 16:                                               ; preds = %11
   %17 = getelementptr inbounds i8, ptr %9, i64 8
   %18 = load i8, ptr %17, align 8, !range !26, !noundef !5
-  switch i8 %18, label %default.unreachable82 [
+  switch i8 %18, label %default.unreachable88 [
     i8 1, label %25
     i8 2, label %28
     i8 0, label %.thread
@@ -5861,16 +5861,12 @@ default.unreachable82:                            ; preds = %16
   %21 = getelementptr i8, ptr %9, i64 56
   %.val20 = load i64, ptr %21, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.468.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.val19, ptr %.sroa.468.0..sroa_idx, align 8
-  %.sroa.569.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.val20, ptr %.sroa.569.0..sroa_idx, align 8
-  %.sroa.670.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val19, ptr %.sroa.670.0..sroa_idx, align 8
-  %.sroa.771.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.val20, ptr %.sroa.771.0..sroa_idx, align 8
-  %.sroa.872.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 3, ptr %.sroa.872.0..sroa_idx, align 8
+  %.sroa.474.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.val19, ptr %.sroa.474.0..sroa_idx, align 8
+  %.sroa.575.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.val20, ptr %.sroa.575.0..sroa_idx, align 8
+  %.sroa.878.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 3, ptr %.sroa.878.0..sroa_idx, align 8
   br label %24
 
 _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds = %13, %37
@@ -5883,15 +5879,11 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds =
   store i64 %.sroa.010.0.val, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.010.0.val18, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.010.0.val, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.010.0.val18, ptr %.sroa.7.0..sroa_idx, align 8
-  %.sroa.852.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 0, ptr %.sroa.852.0..sroa_idx, align 8
+  %.sroa.858.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 0, ptr %.sroa.858.0..sroa_idx, align 8
   br label %24
 
-24:                                               ; preds = %56, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39, %25, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, %19, %.thread
+24:                                               ; preds = %56, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit43, %25, %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, %19, %.thread
   ret void
 
 25:                                               ; preds = %16
@@ -5900,16 +5892,12 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds =
   %27 = getelementptr i8, ptr %9, i64 56
   %.val17 = load i64, ptr %27, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.475.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.val16, ptr %.sroa.475.0..sroa_idx, align 8
-  %.sroa.576.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.val17, ptr %.sroa.576.0..sroa_idx, align 8
-  %.sroa.677.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val16, ptr %.sroa.677.0..sroa_idx, align 8
-  %.sroa.778.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.val17, ptr %.sroa.778.0..sroa_idx, align 8
-  %.sroa.879.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 2, ptr %.sroa.879.0..sroa_idx, align 8
+  %.sroa.481.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.val16, ptr %.sroa.481.0..sroa_idx, align 8
+  %.sroa.582.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.val17, ptr %.sroa.582.0..sroa_idx, align 8
+  %.sroa.885.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 2, ptr %.sroa.885.0..sroa_idx, align 8
   br label %24
 
 28:                                               ; preds = %16
@@ -5922,31 +5910,27 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit: ; preds =
   %33 = icmp eq ptr %2, null
   %34 = icmp eq i64 %5, 0
   %or.cond1 = and i1 %33, %34
-  br i1 %or.cond1, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39, label %.thread
+  br i1 %or.cond1, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit43, label %.thread
 
-_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39: ; preds = %32, %48
+_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit43: ; preds = %32, %48
   %35 = getelementptr i8, ptr %9, i64 48
   %.sroa.012.0.val = load i64, ptr %35, align 8
   %36 = getelementptr i8, ptr %9, i64 56
   %.sroa.012.0.val15 = load i64, ptr %36, align 8
   store i64 0, ptr %0, align 8
-  %.sroa.454.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.012.0.val, ptr %.sroa.454.0..sroa_idx, align 8
-  %.sroa.555.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.012.0.val15, ptr %.sroa.555.0..sroa_idx, align 8
-  %.sroa.656.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.012.0.val, ptr %.sroa.656.0..sroa_idx, align 8
-  %.sroa.757.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.012.0.val15, ptr %.sroa.757.0..sroa_idx, align 8
-  %.sroa.858.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 0, ptr %.sroa.858.0..sroa_idx, align 8
+  %.sroa.460.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.012.0.val, ptr %.sroa.460.0..sroa_idx, align 8
+  %.sroa.561.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %.sroa.012.0.val15, ptr %.sroa.561.0..sroa_idx, align 8
+  %.sroa.864.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 0, ptr %.sroa.864.0..sroa_idx, align 8
   br label %24
 
 37:                                               ; preds = %12
   %38 = icmp eq ptr %2, null
   %39 = icmp eq i64 %5, 0
   %or.cond2 = and i1 %38, %39
-  br i1 %or.cond2, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, label %.thread81
+  br i1 %or.cond2, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit, label %.thread87
 
 40:                                               ; preds = %12
   %41 = getelementptr inbounds i8, ptr %9, i64 8
@@ -5958,28 +5942,28 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39: ; preds
   %45 = getelementptr inbounds i8, ptr %9, i64 9
   %46 = load i8, ptr %45, align 1, !range !235, !noundef !5
   %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %.thread81
+  br i1 %47, label %48, label %.thread87
 
 48:                                               ; preds = %44
   %49 = icmp eq ptr %2, null
   %50 = icmp eq i64 %5, 0
   %or.cond3 = and i1 %49, %50
-  br i1 %or.cond3, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39, label %.thread81
+  br i1 %or.cond3, label %_RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit43, label %.thread87
 
-.thread81:                                        ; preds = %48, %44, %37
+.thread87:                                        ; preds = %48, %44, %37
   %51 = load i64, ptr %7, align 8, !range !20, !noundef !5
   switch i64 %51, label %.thread [
     i64 6, label %56
     i64 7, label %52
   ]
 
-52:                                               ; preds = %.thread81
+52:                                               ; preds = %.thread87
   %53 = getelementptr inbounds i8, ptr %7, i64 8
   %54 = load i8, ptr %53, align 8, !range !26, !noundef !5
   %55 = icmp eq i8 %54, 2
   br i1 %55, label %56, label %.thread
 
-56:                                               ; preds = %.thread81, %52
+56:                                               ; preds = %.thread87, %52
   %57 = getelementptr i8, ptr %7, i64 48
   %.val = load i64, ptr %57, align 8
   %58 = getelementptr i8, ptr %7, i64 56
@@ -5989,16 +5973,16 @@ _RNvMNvNtCseG2FYMysgNb_3wax4rule5groupNtB2_15CorrelatedError3new.exit39: ; preds
   %61 = getelementptr inbounds i8, ptr %9, i64 56
   %62 = load i64, ptr %61, align 8, !alias.scope !1441, !noalias !1444, !noundef !5
   store i64 1, ptr %0, align 8
-  %.sroa.461.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %60, ptr %.sroa.461.0..sroa_idx, align 8
-  %.sroa.562.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %62, ptr %.sroa.562.0..sroa_idx, align 8
-  %.sroa.663.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.val, ptr %.sroa.663.0..sroa_idx, align 8
-  %.sroa.764.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.val14, ptr %.sroa.764.0..sroa_idx, align 8
-  %.sroa.865.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
-  store i8 3, ptr %.sroa.865.0..sroa_idx, align 8
+  %.sroa.467.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %60, ptr %.sroa.467.0..sroa_idx, align 8
+  %.sroa.568.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store i64 %62, ptr %.sroa.568.0..sroa_idx, align 8
+  %.sroa.669.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %.val, ptr %.sroa.669.0..sroa_idx, align 8
+  %.sroa.770.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  store i64 %.val14, ptr %.sroa.770.0..sroa_idx, align 8
+  %.sroa.871.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  store i8 3, ptr %.sroa.871.0..sroa_idx, align 8
   br label %24
 }
 

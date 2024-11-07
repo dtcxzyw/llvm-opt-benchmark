@@ -3055,13 +3055,13 @@ _ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValE.exit: ; preds =
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load ptr, ptr %12, align 8
-  %.not19 = icmp eq ptr %24, null
-  br i1 %.not19, label %25, label %62
+  %.not21 = icmp eq ptr %24, null
+  br i1 %.not21, label %25, label %62
 
 25:                                               ; preds = %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValE.exit
   %26 = load ptr, ptr %23, align 8
-  %.not20 = icmp eq ptr %26, null
-  br i1 %.not20, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit17.thread, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
+  %.not22 = icmp eq ptr %26, null
+  br i1 %.not22, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit17.thread, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit17.thread: ; preds = %25
   store ptr null, ptr %0, align 8

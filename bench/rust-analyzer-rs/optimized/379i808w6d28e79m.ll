@@ -2425,6 +2425,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
 66:                                               ; preds = %58, %60
   %.sroa.526.0.ph = phi i64 [ %62, %60 ], [ %59, %58 ]
   %.sroa.927.0.ph = phi i64 [ %65, %60 ], [ %.sroa.4.0.copyload.i.i.i.i, %58 ]
+  %.sroa.11.0.ph = phi i64 [ %.sroa.4.0.copyload.i.i.i.i, %60 ], [ undef, %58 ]
   %.sink.sink.i.i.i.i.ph = phi i8 [ 12, %60 ], [ 13, %58 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !428
   store i8 %.sink.sink.i.i.i.i.ph, ptr %0, align 8, !alias.scope !433
@@ -2433,7 +2434,7 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   %.sroa.927.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.927.0.ph, ptr %.sroa.927.0..sroa_idx, align 8, !alias.scope !433
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %.sroa.4.0.copyload.i.i.i.i, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !433
+  store i64 %.sroa.11.0.ph, ptr %.sroa.11.0..sroa_idx, align 8, !alias.scope !433
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h4227e139bac5d454E.exit"
 
 67:                                               ; preds = %49
@@ -4697,6 +4698,7 @@ switch.lookup:                                    ; preds = %95
   %.sroa.084.1 = phi i8 [ 13, %130 ], [ 12, %132 ]
   %.sroa.2393.1 = phi i64 [ %131, %130 ], [ %134, %132 ]
   %.sroa.35.1 = phi i64 [ %.sroa.4.0.copyload, %130 ], [ %137, %132 ]
+  %.sroa.37.1 = phi i64 [ undef, %130 ], [ %.sroa.4.0.copyload, %132 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %.thread
 
@@ -5216,7 +5218,7 @@ switch.lookup349:                                 ; preds = %272
   br label %283
 
 .thread:                                          ; preds = %81, %65, %49, %switch.lookup, %138, %switch.lookup349, %117
-  %.sroa.37.0146 = phi i64 [ %.sroa.37.0, %117 ], [ undef, %switch.lookup ], [ %.sroa.4.0.copyload, %138 ], [ undef, %switch.lookup349 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
+  %.sroa.37.0146 = phi i64 [ %.sroa.37.0, %117 ], [ undef, %switch.lookup ], [ %.sroa.37.1, %138 ], [ undef, %switch.lookup349 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
   %.sroa.35.0145 = phi i64 [ %.sroa.35.0, %117 ], [ undef, %switch.lookup ], [ %.sroa.35.1, %138 ], [ undef, %switch.lookup349 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
   %.sroa.2393.0144 = phi i64 [ %.sroa.2393.0, %117 ], [ %.sroa.2.0.copyload, %switch.lookup ], [ %.sroa.2393.1, %138 ], [ %.sroa.2109.0.copyload, %switch.lookup349 ], [ undef, %49 ], [ undef, %65 ], [ undef, %81 ]
   %.sroa.21.0143 = phi i8 [ %.sroa.21.0, %117 ], [ undef, %switch.lookup ], [ undef, %138 ], [ undef, %switch.lookup349 ], [ undef, %49 ], [ 1, %65 ], [ 0, %81 ]

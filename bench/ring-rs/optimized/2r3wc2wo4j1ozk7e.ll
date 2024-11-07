@@ -2617,7 +2617,7 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit, %17
-  %.011.i = phi i64 [ %19, %17 ], [ 0, %_ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit ]
+  %.010.i = phi i64 [ %19, %17 ], [ 0, %_ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit ]
   %16 = phi ptr [ %18, %17 ], [ %4, %_ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit ]
   %.val.i = load i8, ptr %16, align 1, !noalias !736, !noundef !9
   %.not.i = icmp eq i8 %.val.i, 0
@@ -2625,7 +2625,7 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
 
 17:                                               ; preds = %.lr.ph.i
   %18 = getelementptr inbounds i8, ptr %16, i64 1
-  %19 = add nuw nsw i64 %.011.i, 1
+  %19 = add nuw nsw i64 %.010.i, 1
   %20 = icmp eq ptr %18, %15
   br i1 %20, label %21, label %.lr.ph.i
 
@@ -2634,13 +2634,13 @@ _ZN4ring2ec7suite_b3ops9ScalarOps10leak_limbs17h08faba48ba6090eeE.exit: ; preds 
   unreachable
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = icmp ule i64 %.011.i, %8
+  %23 = icmp ule i64 %.010.i, %8
   call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.011.i
+  %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %.010.i
   %25 = load i8, ptr %24, align 1, !noundef !9
   %.lobit = ashr i8 %25, 7
   %26 = sext i8 %.lobit to i64
-  %.0 = add i64 %.011.i, %26
+  %.0 = add i64 %.010.i, %26
   %27 = icmp ugt i64 %.0, %9
   br i1 %27, label %30, label %28
 

@@ -31477,6 +31477,7 @@ stbi__skip.exit.else208:                          ; preds = %stbi__skip.exit
   br label %stbi__skip.exit.cont206
 
 stbi__skip.exit.cont206:                          ; preds = %stbi__skip.exit, %stbi__skip.exit.else208
+  %dummy.1 = phi i32 [ undef, %stbi__skip.exit.else208 ], [ %call10, %stbi__skip.exit ]
   %call11 = tail call i32 @stbi__get16be(ptr noundef nonnull %s)
   br i1 %tobool1.not, label %stbi__skip.exit.cont, label %stbi__skip.exit.else
 
@@ -31485,7 +31486,7 @@ stbi__skip.exit.else:                             ; preds = %stbi__skip.exit.con
   br label %stbi__skip.exit.cont
 
 stbi__skip.exit.cont:                             ; preds = %stbi__skip.exit.cont206, %stbi__skip.exit.else
-  %dummy.0 = phi i32 [ %call10, %stbi__skip.exit.else ], [ %call11, %stbi__skip.exit.cont206 ]
+  %dummy.0 = phi i32 [ %dummy.1, %stbi__skip.exit.else ], [ %call11, %stbi__skip.exit.cont206 ]
   %18 = load ptr, ptr %io.i.i.i, align 8
   %tobool.not.i32 = icmp eq ptr %18, null
   br i1 %tobool.not.i32, label %stbi__at_eof.exit, label %if.then.i

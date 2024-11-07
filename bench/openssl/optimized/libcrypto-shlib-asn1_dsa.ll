@@ -489,16 +489,16 @@ declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 define i64 @ossl_decode_der_dsa_sig(ptr noundef %r, ptr noundef %s, ptr nocapture noundef %ppin, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %contpkt = alloca %struct.PACKET, align 8
-  %or.cond28 = icmp slt i64 %len, 1
-  br i1 %or.cond28, label %return, label %PACKET_get_1.exit
+  %or.cond29 = icmp slt i64 %len, 1
+  br i1 %or.cond29, label %return, label %PACKET_get_1.exit
 
 PACKET_get_1.exit:                                ; preds = %entry
   %0 = load ptr, ptr %ppin, align 8
   %1 = load i8, ptr %0, align 1
   %cmp = icmp ne i8 %1, 48
   %tobool.not.i.i.i = icmp eq i64 %len, 1
-  %or.cond29 = or i1 %tobool.not.i.i.i, %cmp
-  br i1 %or.cond29, label %return, label %if.end.i6
+  %or.cond30 = or i1 %tobool.not.i.i.i, %cmp
+  br i1 %or.cond30, label %return, label %if.end.i6
 
 if.end.i6:                                        ; preds = %PACKET_get_1.exit
   %add.ptr.i.i = getelementptr inbounds i8, ptr %0, i64 1
@@ -581,8 +581,8 @@ lor.lhs.false10:                                  ; preds = %lor.lhs.false7
   %6 = getelementptr inbounds i8, ptr %contpkt, i64 8
   %contpkt.val = load i64, ptr %6, align 8
   %cmp15.not = icmp eq i64 %contpkt.val, 0
-  %or.cond30 = select i1 %tobool12.not, i1 %cmp15.not, i1 false
-  br i1 %or.cond30, label %if.end, label %return
+  %or.cond31 = select i1 %tobool12.not, i1 %cmp15.not, i1 false
+  br i1 %or.cond31, label %if.end, label %return
 
 if.end:                                           ; preds = %lor.lhs.false10
   %7 = load ptr, ptr %ppin, align 8

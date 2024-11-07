@@ -4430,8 +4430,8 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %10
   %35 = load ptr, ptr %25, align 8
   call void @_ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS4_EUlRKS5_E_EEvRT_T0_(ptr noundef nonnull align 8 dereferenceable(128) %35, i32 0)
   %36 = getelementptr inbounds ptr, ptr %17, i64 %18
-  %.not27 = icmp eq i64 %18, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq i64 %18, 0
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm8DebugLocD2Ev.exit
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -4440,8 +4440,8 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %10
   br label %40
 
 40:                                               ; preds = %.lr.ph, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit
-  %.01828 = phi ptr [ %17, %.lr.ph ], [ %59, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit ]
-  %41 = load ptr, ptr %.01828, align 8
+  %.01829 = phi ptr [ %17, %.lr.ph ], [ %59, %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit ]
+  %41 = load ptr, ptr %.01829, align 8
   %42 = load ptr, ptr %25, align 8
   %43 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %41) #17
   %44 = extractvalue { ptr, i64 } %43, 0
@@ -4477,7 +4477,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %10
   br i1 %.not.i.i21, label %_ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit, label %.lr.ph.i.i20
 
 _ZNK4llvm13IRBuilderBase6InsertINS_11InstructionEEEPT_S4_RKNS_5TwineE.exit: ; preds = %.lr.ph.i.i20, %40
-  %59 = getelementptr inbounds i8, ptr %.01828, i64 8
+  %59 = getelementptr inbounds i8, ptr %.01829, i64 8
   %.not = icmp eq ptr %59, %36
   br i1 %.not, label %._crit_edge, label %40
 

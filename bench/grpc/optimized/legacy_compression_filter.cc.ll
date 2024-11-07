@@ -5268,8 +5268,8 @@ lpad.i.i:                                         ; preds = %_ZN9grpc_core10GetC
 if.then.i.thread:                                 ; preds = %entry
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i), !noalias !67
   store i8 1, ptr %agg.result, align 8, !alias.scope !76
-  %_M_engaged.i.i.i.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i5, align 8, !alias.scope !76
+  %_M_engaged.i.i.i.i.i.i.i.i.i6 = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store i8 0, ptr %_M_engaged.i.i.i.i.i.i.i.i.i6, align 8, !alias.scope !76
   br label %_ZN9grpc_core4PollISt8optionalISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEED2Ev.exit
 
 _ZNSt22_Optional_payload_baseISt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEEE10_M_destroyEv.exit.i.i.i.i.i.i: ; preds = %call2.i.i.noexc.i.i, %land.lhs.true.i.i.i.i

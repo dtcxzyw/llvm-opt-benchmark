@@ -946,10 +946,11 @@ define hidden void @"_ZN122_$LT$wasmparser..readers..SectionLimitedIntoIterWithO
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h55926f0d166158d4E.llvm.1622313557807394724.exit": ; preds = %28, %30
+  %.sroa.5.014 = phi i64 [ %.sroa.09.0, %30 ], [ undef, %28 ]
   %.sink.i = phi i64 [ %8, %30 ], [ %.sroa.09.0, %28 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.09.0, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.5.014, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %.sroa.510.0, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.78.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20

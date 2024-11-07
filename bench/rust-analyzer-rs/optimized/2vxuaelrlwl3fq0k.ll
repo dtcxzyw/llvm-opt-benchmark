@@ -15902,7 +15902,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit80, label %9
+  br i1 %.not, label %.loopexit77, label %9
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6338)
@@ -15912,7 +15912,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !alias.scope !6348, !noalias !6351, !nonnull !4, !noundef !4
   %12 = icmp eq ptr %8, %11
-  br i1 %12, label %.loopexit80, label %.lr.ph.i.i
+  br i1 %12, label %.loopexit77, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -15972,18 +15972,18 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %36 = phi ptr [ %.pre.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.i._ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i_crit_edge.i" ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !6354
   %37 = icmp eq ptr %35, %36
-  br i1 %37, label %.loopexit80, label %15
+  br i1 %37, label %.loopexit77, label %15
 
-.loopexit80:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i.i", %9, %3
+.loopexit77:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i.i", %9, %3
   store ptr null, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6391)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6394)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6396)
   %38 = load i64, ptr %1, align 8, !range !6007, !alias.scope !6391, !noalias !6398, !noundef !4
   %.not.i = icmp eq i64 %38, 0
-  br i1 %.not.i, label %.loopexit79, label %39
+  br i1 %.not.i, label %.loopexit76, label %39
 
-39:                                               ; preds = %.loopexit80
+39:                                               ; preds = %.loopexit77
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6400)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6403)
@@ -15992,7 +15992,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %41 = load ptr, ptr %40, align 8, !alias.scope !6410, !noalias !6413, !align !51, !noundef !4
   store ptr null, ptr %40, align 8, !alias.scope !6410, !noalias !6413
   %.not20.i.i.i = icmp eq ptr %41, null
-  br i1 %.not20.i.i.i, label %.loopexit79, label %.lr.ph.i.i.i
+  br i1 %.not20.i.i.i, label %.loopexit76, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39
   %42 = getelementptr inbounds i8, ptr %1, i64 24
@@ -16018,7 +16018,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 
 .loopexit.thread.i.i.i:                           ; preds = %45
   store ptr null, ptr %40, align 8, !alias.scope !6410, !noalias !6413
-  br label %.loopexit79
+  br label %.loopexit76
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %45, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i.i.i.i.i.i.i"
   %53 = phi ptr [ %73, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i.i.i.i.i.i.i" ], [ %50, %45 ]
@@ -16079,7 +16079,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %.pre.i.i.i = load ptr, ptr %40, align 8, !alias.scope !6410, !noalias !6413
   store ptr null, ptr %40, align 8, !alias.scope !6410, !noalias !6413
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not.i.i.i, label %.loopexit79, label %45
+  br i1 %.not.i.i.i, label %.loopexit76, label %45
 
 75:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.i.i"
   %76 = getelementptr inbounds i8, ptr %6, i64 8
@@ -16093,7 +16093,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   store ptr %79, ptr %81, align 8, !alias.scope !6481
   br label %127
 
-.loopexit79:                                      ; preds = %.loopexit.i.i.i, %.loopexit80, %39, %.loopexit.thread.i.i.i
+.loopexit76:                                      ; preds = %.loopexit.i.i.i, %.loopexit77, %39, %.loopexit.thread.i.i.i
   store ptr null, ptr %7, align 8
   %82 = getelementptr inbounds i8, ptr %1, i64 32
   %83 = load ptr, ptr %82, align 8, !noundef !4
@@ -16112,7 +16112,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   store ptr %88, ptr %90, align 8, !alias.scope !6484
   br label %127
 
-91:                                               ; preds = %.loopexit79
+91:                                               ; preds = %.loopexit76
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6487)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6490)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6492)
@@ -16194,7 +16194,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   store ptr %124, ptr %126, align 8, !alias.scope !6540
   br label %127
 
-.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i.i22", %91, %.loopexit79
+.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h7c9ec1f49696411cE.exit.thread.i.i22", %91, %.loopexit76
   store ptr null, ptr %82, align 8
   br label %127
 
@@ -16483,7 +16483,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !noundef !4
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.loopexit80, label %9
+  br i1 %.not, label %.loopexit77, label %9
 
 9:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6638)
@@ -16493,7 +16493,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %10 = getelementptr inbounds i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8, !alias.scope !6648, !noalias !6651, !nonnull !4, !noundef !4
   %12 = icmp eq ptr %8, %11
-  br i1 %12, label %.loopexit80, label %.lr.ph.i.i
+  br i1 %12, label %.loopexit77, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -16553,18 +16553,18 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %36 = phi ptr [ %.pre.i, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.i._ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i_crit_edge.i" ], [ %16, %15 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !6654
   %37 = icmp eq ptr %35, %36
-  br i1 %37, label %.loopexit80, label %15
+  br i1 %37, label %.loopexit77, label %15
 
-.loopexit80:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i.i", %9, %3
+.loopexit77:                                      ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i.i", %9, %3
   store ptr null, ptr %7, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6691)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6694)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6696)
   %38 = load i64, ptr %1, align 8, !range !6007, !alias.scope !6691, !noalias !6698, !noundef !4
   %.not.i = icmp eq i64 %38, 0
-  br i1 %.not.i, label %.loopexit79, label %39
+  br i1 %.not.i, label %.loopexit76, label %39
 
-39:                                               ; preds = %.loopexit80
+39:                                               ; preds = %.loopexit77
   %40 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6700)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6703)
@@ -16573,7 +16573,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %41 = load ptr, ptr %40, align 8, !alias.scope !6710, !noalias !6713, !align !51, !noundef !4
   store ptr null, ptr %40, align 8, !alias.scope !6710, !noalias !6713
   %.not20.i.i.i = icmp eq ptr %41, null
-  br i1 %.not20.i.i.i, label %.loopexit79, label %.lr.ph.i.i.i
+  br i1 %.not20.i.i.i, label %.loopexit76, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %39
   %42 = getelementptr inbounds i8, ptr %1, i64 24
@@ -16599,7 +16599,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
 
 .loopexit.thread.i.i.i:                           ; preds = %45
   store ptr null, ptr %40, align 8, !alias.scope !6710, !noalias !6713
-  br label %.loopexit79
+  br label %.loopexit76
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %45, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i.i.i.i.i.i.i"
   %53 = phi ptr [ %73, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i.i.i.i.i.i.i" ], [ %50, %45 ]
@@ -16660,7 +16660,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   %.pre.i.i.i = load ptr, ptr %40, align 8, !alias.scope !6710, !noalias !6713
   store ptr null, ptr %40, align 8, !alias.scope !6710, !noalias !6713
   %.not.i.i.i = icmp eq ptr %.pre.i.i.i, null
-  br i1 %.not.i.i.i, label %.loopexit79, label %45
+  br i1 %.not.i.i.i, label %.loopexit76, label %45
 
 75:                                               ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.i.i"
   %76 = getelementptr inbounds i8, ptr %6, i64 8
@@ -16674,7 +16674,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   store ptr %79, ptr %81, align 8, !alias.scope !6781
   br label %127
 
-.loopexit79:                                      ; preds = %.loopexit.i.i.i, %.loopexit80, %39, %.loopexit.thread.i.i.i
+.loopexit76:                                      ; preds = %.loopexit.i.i.i, %.loopexit77, %39, %.loopexit.thread.i.i.i
   store ptr null, ptr %7, align 8
   %82 = getelementptr inbounds i8, ptr %1, i64 32
   %83 = load ptr, ptr %82, align 8, !noundef !4
@@ -16693,7 +16693,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   store ptr %88, ptr %90, align 8, !alias.scope !6784
   br label %127
 
-91:                                               ; preds = %.loopexit79
+91:                                               ; preds = %.loopexit76
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6787)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6790)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6792)
@@ -16775,7 +16775,7 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   store ptr %124, ptr %126, align 8, !alias.scope !6840
   br label %127
 
-.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i.i22", %91, %.loopexit79
+.loopexit:                                        ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2c541b17fc60ca23E.exit.thread.i.i22", %91, %.loopexit76
   store ptr null, ptr %82, align 8
   br label %127
 

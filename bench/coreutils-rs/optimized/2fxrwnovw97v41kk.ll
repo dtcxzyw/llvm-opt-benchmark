@@ -3175,7 +3175,9 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit: ; 
   %.sroa.01.sroa.3.sroa.0.0 = phi ptr [ %.sroa.4.0.copyload, %49 ], [ @"_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17he6c0b9d4bec73499E", %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
   %.sroa.01.sroa.3.sroa.3.0 = phi ptr [ %.sroa.5.0.copyload, %49 ], [ @"_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17he6c0b9d4bec73499E", %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
   %.sroa.01.sroa.3.sroa.4.0 = phi ptr [ %.sroa.6.0.copyload, %49 ], [ null, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
+  %.sroa.01.sroa.3.sroa.5.0 = phi ptr [ %.sroa.7.0.copyload, %49 ], [ undef, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
   %.sroa.01.sroa.3.sroa.6.0 = phi ptr [ %.sroa.8.0.copyload, %49 ], [ null, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
+  %.sroa.01.sroa.3.sroa.7.0 = phi ptr [ %.sroa.9.0.copyload, %49 ], [ undef, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
   %.sroa.01.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %49 ], [ @_ZN4core3ops8function6FnOnce9call_once17h0361775e47fa3298E, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
   %.sroa.3.0 = phi i64 [ %.sroa.10.0.copyload, %49 ], [ 0, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit ]
   store ptr %.sroa.01.sroa.0.0, ptr %35, align 8
@@ -3186,11 +3188,11 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit: ; 
   %.sroa.034.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 24
   store ptr %.sroa.01.sroa.3.sroa.4.0, ptr %.sroa.034.sroa.6.0..sroa_idx, align 8
   %.sroa.034.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 32
-  store ptr %.sroa.7.0.copyload, ptr %.sroa.034.sroa.7.0..sroa_idx, align 8
+  store ptr %.sroa.01.sroa.3.sroa.5.0, ptr %.sroa.034.sroa.7.0..sroa_idx, align 8
   %.sroa.034.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 40
   store ptr %.sroa.01.sroa.3.sroa.6.0, ptr %.sroa.034.sroa.8.0..sroa_idx, align 8
   %.sroa.034.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 48
-  store ptr %.sroa.9.0.copyload, ptr %.sroa.034.sroa.9.0..sroa_idx, align 8
+  store ptr %.sroa.01.sroa.3.sroa.7.0, ptr %.sroa.034.sroa.9.0..sroa_idx, align 8
   %.sroa.034.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 56
   store i64 %.sroa.3.0, ptr %.sroa.034.sroa.10.0..sroa_idx, align 8
   %.sroa.435.0..sroa_idx = getelementptr inbounds i8, ptr %35, i64 64
@@ -3282,7 +3284,9 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit: ; 
   %.sroa.047.sroa.3.sroa.0.0 = phi ptr [ %.sroa.4121.0.copyload, %66 ], [ @"_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17he6c0b9d4bec73499E", %63 ]
   %.sroa.047.sroa.3.sroa.3.0 = phi ptr [ %.sroa.5122.0.copyload, %66 ], [ @"_ZN105_$LT$clap_builder..parser..matches..arg_matches..ValuesRef$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default5EMPTY17he6c0b9d4bec73499E", %63 ]
   %.sroa.047.sroa.3.sroa.4.0 = phi ptr [ %.sroa.6123.0.copyload, %66 ], [ null, %63 ]
+  %.sroa.047.sroa.3.sroa.5.0 = phi ptr [ %.sroa.7124.0.copyload, %66 ], [ undef, %63 ]
   %.sroa.047.sroa.3.sroa.6.0 = phi ptr [ %.sroa.8125.0.copyload, %66 ], [ null, %63 ]
+  %.sroa.047.sroa.3.sroa.7.0 = phi ptr [ %.sroa.9126.0.copyload, %66 ], [ undef, %63 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
   store i64 0, ptr %34, align 8
   %70 = getelementptr inbounds i8, ptr %34, i64 8
@@ -3302,11 +3306,11 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h885389b06f358e19E.exit: ; 
   %.sroa.6133.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 160
   store ptr %.sroa.047.sroa.3.sroa.4.0, ptr %.sroa.6133.0..sroa_idx, align 8
   %.sroa.7134.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 168
-  store ptr %.sroa.7124.0.copyload, ptr %.sroa.7134.0..sroa_idx, align 8
+  store ptr %.sroa.047.sroa.3.sroa.5.0, ptr %.sroa.7134.0..sroa_idx, align 8
   %.sroa.8135.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 176
   store ptr %.sroa.047.sroa.3.sroa.6.0, ptr %.sroa.8135.0..sroa_idx, align 8
   %.sroa.9136.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 184
-  store ptr %.sroa.9126.0.copyload, ptr %.sroa.9136.0..sroa_idx, align 8
+  store ptr %.sroa.047.sroa.3.sroa.7.0, ptr %.sroa.9136.0..sroa_idx, align 8
   %.sroa.10137.0..sroa_idx = getelementptr inbounds i8, ptr %33, i64 192
   store i64 %.sroa.348.0, ptr %.sroa.10137.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx7.i = getelementptr inbounds i8, ptr %13, i64 8

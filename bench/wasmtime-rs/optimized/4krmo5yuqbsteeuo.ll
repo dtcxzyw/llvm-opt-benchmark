@@ -3316,7 +3316,7 @@ define internal void @"_ZN83_$LT$wasi_common..sync..net..TcpListener$u20$as$u20$
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 34
   %6 = load i8, ptr %5, align 2, !range !35, !noundef !4
-  switch i8 %6, label %default.unreachable53 [
+  switch i8 %6, label %default.unreachable51 [
     i8 0, label %9
     i8 1, label %40
     i8 2, label %41
@@ -3326,16 +3326,16 @@ define internal void @"_ZN83_$LT$wasi_common..sync..net..TcpListener$u20$as$u20$
 ._crit_edge:                                      ; preds = %3
   %.pre = load ptr, ptr %1, align 8, !alias.scope !347, !noalias !352
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
-  %.pre52 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !347, !noalias !352
+  %.pre50 = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !347, !noalias !352
   br label %42
 
-default.unreachable53:                            ; preds = %3
+default.unreachable51:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf852f32293bfdb5eE.exit", %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit"
-  %storemerge51 = phi i64 [ 0, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit" ], [ 1, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf852f32293bfdb5eE.exit" ]
+  %storemerge49 = phi i64 [ 0, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit" ], [ 1, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf852f32293bfdb5eE.exit" ]
   %storemerge = phi i8 [ 1, %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h33a25ed2a47c122aE.exit" ], [ 3, %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf852f32293bfdb5eE.exit" ]
-  store i64 %storemerge51, ptr %0, align 8
+  store i64 %storemerge49, ptr %0, align 8
   store i8 %storemerge, ptr %5, align 2
   ret void
 
@@ -3450,7 +3450,7 @@ common.ret:                                       ; preds = %"_ZN72_$LT$core..pi
   unreachable
 
 42:                                               ; preds = %._crit_edge, %31
-  %43 = phi ptr [ @anon.bfa31fafe4958aae8e9727502c2557cc.221, %31 ], [ %.pre52, %._crit_edge ]
+  %43 = phi ptr [ @anon.bfa31fafe4958aae8e9727502c2557cc.221, %31 ], [ %.pre50, %._crit_edge ]
   %44 = phi ptr [ %27, %31 ], [ %.pre, %._crit_edge ]
   %.0 = phi i32 [ %.sroa.03.0.copyload.i.i, %31 ], [ undef, %._crit_edge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !371)
@@ -5214,13 +5214,13 @@ define void @"_ZN81_$LT$wasi_common..sync..net..TcpStream$u20$as$u20$wasi_common
   %5 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
   %6 = call i64 @_ZN6rustix5ioctl6_ioctl17hc144b875c59ed86eE(i32 noundef %5, i32 noundef 21531, ptr noundef nonnull %2)
   %7 = and i64 %6, 65535
-  %switch.i.not.i = icmp eq i64 %7, 0
-  %.val16.i.i = load i32, ptr %2, align 4, !noalias !567
+  %switch16.i.not.i = icmp eq i64 %7, 0
+  %.val18.i.i = load i32, ptr %2, align 4, !noalias !567
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !563
-  br i1 %switch.i.not.i, label %8, label %11
+  br i1 %switch16.i.not.i, label %8, label %11
 
 8:                                                ; preds = %.noexc
-  %9 = sext i32 %.val16.i.i to i64
+  %9 = sext i32 %.val18.i.i to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %10 = inttoptr i64 %9 to ptr
   br label %16
@@ -6542,10 +6542,10 @@ define void @"_ZN82_$LT$wasi_common..sync..net..UnixStream$u20$as$u20$wasi_commo
   %5 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3)
   %6 = call i64 @_ZN6rustix5ioctl6_ioctl17hc144b875c59ed86eE(i32 noundef %5, i32 noundef 21531, ptr noundef nonnull %2)
   %7 = and i64 %6, 65535
-  %switch.i.not.i = icmp eq i64 %7, 0
+  %switch16.i.not.i = icmp eq i64 %7, 0
   %.val.i.i = load i32, ptr %2, align 4, !noalias !676
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !672
-  br i1 %switch.i.not.i, label %8, label %11
+  br i1 %switch16.i.not.i, label %8, label %11
 
 8:                                                ; preds = %.noexc
   %9 = sext i32 %.val.i.i to i64

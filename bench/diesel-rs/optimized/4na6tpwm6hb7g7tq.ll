@@ -100,10 +100,10 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.thread, %43
-  %.sroa.411.055 = phi ptr [ %39, %.thread ], [ %.sroa.411.0.copyload, %43 ]
-  %.14754 = phi i8 [ 0, %.thread ], [ %.1.ph, %43 ]
+  %.sroa.411.057 = phi ptr [ %39, %.thread ], [ %.sroa.411.0.copyload, %43 ]
+  %.14856 = phi i8 [ 0, %.thread ], [ %.1.ph, %43 ]
   %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.411.055, ptr %46, align 8
+  store ptr %.sroa.411.057, ptr %46, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %48
 
@@ -118,7 +118,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
   br label %48
 
 48:                                               ; preds = %47, %45
-  %.14753 = phi i8 [ %.1.ph, %47 ], [ %.14754, %45 ]
+  %.14855 = phi i8 [ %.1.ph, %47 ], [ %.14856, %45 ]
   %49 = load i64, ptr %10, align 8, !range !4, !noundef !3
   %50 = icmp samesign ult i64 %49, 39
   br i1 %50, label %51, label %53
@@ -156,11 +156,11 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
 64:                                               ; preds = %61
   %65 = landingpad { ptr, i32 }
           cleanup
-  %66 = trunc nuw i8 %.14753 to i1
+  %66 = trunc nuw i8 %.14855 to i1
   br i1 %66, label %71, label %96
 
 67:                                               ; preds = %61
-  %68 = trunc nuw i8 %.14753 to i1
+  %68 = trunc nuw i8 %.14855 to i1
   br i1 %68, label %69, label %82
 
 69:                                               ; preds = %67
@@ -189,7 +189,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hb27ef18fb378b1b7E(
           to label %96 unwind label %73
 
 78:                                               ; preds = %75
-  %79 = trunc nuw i8 %.14753 to i1
+  %79 = trunc nuw i8 %.14855 to i1
   br i1 %79, label %80, label %96
 
 80:                                               ; preds = %78
@@ -328,10 +328,10 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %.thread, %43
-  %.sroa.411.055 = phi ptr [ %39, %.thread ], [ %.sroa.411.0.copyload, %43 ]
-  %.14754 = phi i8 [ 0, %.thread ], [ %.1.ph, %43 ]
+  %.sroa.411.057 = phi ptr [ %39, %.thread ], [ %.sroa.411.0.copyload, %43 ]
+  %.14856 = phi i8 [ 0, %.thread ], [ %.1.ph, %43 ]
   %46 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.411.055, ptr %46, align 8
+  store ptr %.sroa.411.057, ptr %46, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %48
 
@@ -346,7 +346,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
   br label %48
 
 48:                                               ; preds = %47, %45
-  %.14753 = phi i8 [ %.1.ph, %47 ], [ %.14754, %45 ]
+  %.14855 = phi i8 [ %.1.ph, %47 ], [ %.14856, %45 ]
   %49 = load i64, ptr %10, align 8, !range !4, !noundef !3
   %50 = icmp samesign ult i64 %49, 39
   br i1 %50, label %51, label %53
@@ -384,11 +384,11 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
 64:                                               ; preds = %61
   %65 = landingpad { ptr, i32 }
           cleanup
-  %66 = trunc nuw i8 %.14753 to i1
+  %66 = trunc nuw i8 %.14855 to i1
   br i1 %66, label %71, label %96
 
 67:                                               ; preds = %61
-  %68 = trunc nuw i8 %.14753 to i1
+  %68 = trunc nuw i8 %.14855 to i1
   br i1 %68, label %69, label %82
 
 69:                                               ; preds = %67
@@ -417,7 +417,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hc46ece7033020f23E(
           to label %96 unwind label %73
 
 78:                                               ; preds = %75
-  %79 = trunc nuw i8 %.14753 to i1
+  %79 = trunc nuw i8 %.14855 to i1
   br i1 %79, label %80, label %96
 
 80:                                               ; preds = %78

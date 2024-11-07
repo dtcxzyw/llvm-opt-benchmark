@@ -351,9 +351,9 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 23:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hf9bea7e77cb3773eE.exit"
   %24 = shl nuw i32 %13, 4
   %25 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %24, i32 48)
-  %26 = extractvalue { i32, i1 } %25, 0
-  %27 = extractvalue { i32, i1 } %25, 1
-  br i1 %27, label %28, label %29
+  %26 = extractvalue { i32, i1 } %25, 1
+  %27 = extractvalue { i32, i1 } %25, 0
+  br i1 %26, label %28, label %29
 
 28:                                               ; preds = %23
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.11) #19
@@ -370,10 +370,10 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 
 33:                                               ; preds = %29
   %34 = extractvalue { i32, i1 } %30, 0
-  %35 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %26, i32 %34)
-  %36 = extractvalue { i32, i1 } %35, 0
-  %37 = extractvalue { i32, i1 } %35, 1
-  br i1 %37, label %38, label %39
+  %35 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %27, i32 %34)
+  %36 = extractvalue { i32, i1 } %35, 1
+  %37 = extractvalue { i32, i1 } %35, 0
+  br i1 %36, label %38, label %39
 
 38:                                               ; preds = %33
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.11) #19
@@ -389,10 +389,10 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 
 42:                                               ; preds = %39
   %43 = shl nuw i32 %5, 4
-  %44 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %36, i32 %43)
-  %45 = extractvalue { i32, i1 } %44, 0
-  %46 = extractvalue { i32, i1 } %44, 1
-  br i1 %46, label %47, label %48
+  %44 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %37, i32 %43)
+  %45 = extractvalue { i32, i1 } %44, 1
+  %46 = extractvalue { i32, i1 } %44, 0
+  br i1 %45, label %47, label %48
 
 47:                                               ; preds = %42
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.11) #19
@@ -408,10 +408,10 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 
 51:                                               ; preds = %48
   %52 = shl nuw i32 %7, 3
-  %53 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %45, i32 %52)
-  %54 = extractvalue { i32, i1 } %53, 0
-  %55 = extractvalue { i32, i1 } %53, 1
-  br i1 %55, label %56, label %57
+  %53 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %46, i32 %52)
+  %54 = extractvalue { i32, i1 } %53, 1
+  %55 = extractvalue { i32, i1 } %53, 0
+  br i1 %54, label %56, label %57
 
 56:                                               ; preds = %51
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.11) #19
@@ -427,10 +427,10 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 
 60:                                               ; preds = %57
   %61 = shl nuw i32 %9, 3
-  %62 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %54, i32 %61)
-  %63 = extractvalue { i32, i1 } %62, 0
-  %64 = extractvalue { i32, i1 } %62, 1
-  br i1 %64, label %65, label %66
+  %62 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %55, i32 %61)
+  %63 = extractvalue { i32, i1 } %62, 1
+  %64 = extractvalue { i32, i1 } %62, 0
+  br i1 %63, label %65, label %66
 
 65:                                               ; preds = %60
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.11) #19
@@ -446,10 +446,10 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 
 69:                                               ; preds = %66
   %70 = shl nuw i32 %11, 3
-  %71 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %63, i32 %70)
-  %72 = extractvalue { i32, i1 } %71, 0
-  %73 = extractvalue { i32, i1 } %71, 1
-  br i1 %73, label %74, label %75
+  %71 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %64, i32 %70)
+  %72 = extractvalue { i32, i1 } %71, 1
+  %73 = extractvalue { i32, i1 } %71, 0
+  br i1 %72, label %74, label %75
 
 74:                                               ; preds = %69
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.492294c038c93200376e988bc5c46dd0.11) #19
@@ -465,7 +465,7 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
 
 78:                                               ; preds = %75
   %79 = shl nuw i32 %20, 3
-  %80 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %72, i32 %79)
+  %80 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %73, i32 %79)
   %81 = extractvalue { i32, i1 } %80, 1
   br i1 %81, label %82, label %83
 
@@ -499,17 +499,17 @@ define hidden void @"_ZN16wasmtime_environ9component19vmcomponent_offsets27VMCom
   %.sroa.18.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 44
   store i32 48, ptr %.sroa.18.0..sroa_idx, align 4
   %.sroa.20.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
-  store i32 %26, ptr %.sroa.20.0..sroa_idx, align 4
+  store i32 %27, ptr %.sroa.20.0..sroa_idx, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %36, ptr %.sroa.22.0..sroa_idx, align 4
+  store i32 %37, ptr %.sroa.22.0..sroa_idx, align 4
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
-  store i32 %45, ptr %.sroa.24.0..sroa_idx, align 4
+  store i32 %46, ptr %.sroa.24.0..sroa_idx, align 4
   %.sroa.26.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
-  store i32 %54, ptr %.sroa.26.0..sroa_idx, align 4
+  store i32 %55, ptr %.sroa.26.0..sroa_idx, align 4
   %.sroa.28.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
-  store i32 %63, ptr %.sroa.28.0..sroa_idx, align 4
+  store i32 %64, ptr %.sroa.28.0..sroa_idx, align 4
   %.sroa.30.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
-  store i32 %72, ptr %.sroa.30.0..sroa_idx, align 4
+  store i32 %73, ptr %.sroa.30.0..sroa_idx, align 4
   %.sroa.32.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %84, ptr %.sroa.32.0..sroa_idx, align 4
   ret void

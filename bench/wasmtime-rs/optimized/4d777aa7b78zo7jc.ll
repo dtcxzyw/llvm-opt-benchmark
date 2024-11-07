@@ -1634,14 +1634,15 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %45 = select i1 %switch.i, i64 16, i64 8
   %.05.i = select i1 %brmerge.not.i, i64 %45, i64 0
   %46 = select i1 %switch.i, i64 20, i64 12
-  %.05.i206 = select i1 %brmerge.not.i, i64 %46, i64 0
+  %.05.i207 = select i1 %brmerge.not.i, i64 %46, i64 0
   %47 = getelementptr inbounds i8, ptr %2, i64 16
   %.sroa.014.0.copyload = load i64, ptr %47, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.415.0.copyload = load i64, ptr %.sroa.415.0..sroa_idx, align 8
   %.sroa.014.0.copyload.off = add i64 %.sroa.014.0.copyload, -3
   %switch189 = icmp ult i64 %.sroa.014.0.copyload.off, 2
-  %spec.select = zext i1 %switch189 to i64
+  %spec.select = select i1 %switch189, i64 %.sroa.415.0.copyload, i64 undef
+  %spec.select190 = zext i1 %switch189 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %25, ptr noundef nonnull align 8 dereferenceable(80) %2, i64 80, i1 false)
   %48 = getelementptr inbounds i8, ptr %25, i64 344
   store ptr %38, ptr %48, align 8
@@ -1658,27 +1659,27 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %55 = getelementptr inbounds i8, ptr %25, i64 400
   store i64 0, ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %25, i64 408
-  store i64 %.05.i206, ptr %56, align 8
+  store i64 %.05.i207, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %25, i64 416
-  store i64 %.05.i206, ptr %57, align 8
+  store i64 %.05.i207, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %25, i64 96
   store i64 47, ptr %58, align 8
   %.sroa.596.0..sroa_idx = getelementptr inbounds i8, ptr %25, i64 104
   %59 = getelementptr inbounds i8, ptr %25, i64 80
-  store i64 %spec.select, ptr %59, align 8
+  store i64 %spec.select190, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %25, i64 88
-  store i64 %.sroa.415.0.copyload, ptr %60, align 8
+  store i64 %spec.select, ptr %60, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.927)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %24)
   %61 = getelementptr inbounds i8, ptr %25, i64 40
-  %.val197 = load ptr, ptr %61, align 8, !nonnull !4, !align !177, !noundef !4
+  %.val198 = load ptr, ptr %61, align 8, !nonnull !4, !align !177, !noundef !4
   %62 = getelementptr inbounds i8, ptr %25, i64 48
-  %.val198 = load i64, ptr %62, align 8, !noundef !4
+  %.val199 = load i64, ptr %62, align 8, !noundef !4
   %63 = getelementptr inbounds i8, ptr %38, i64 16
-  store ptr %.val197, ptr %24, align 8
+  store ptr %.val198, ptr %24, align 8
   %64 = getelementptr inbounds i8, ptr %24, i64 8
-  store i64 %.val198, ptr %64, align 8
+  store i64 %.val199, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %24, i64 16
   store ptr %25, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %24, i64 24
@@ -1692,7 +1693,7 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   invoke void @"_ZN5gimli4read4unit22EntriesCursor$LT$R$GT$8next_dfs17h171ee3f37a430ddeE"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull align 8 dereferenceable(96) %24)
           to label %71 unwind label %69
 
-69:                                               ; preds = %.thread236, %36
+69:                                               ; preds = %.thread237, %36
   %70 = landingpad { ptr, i32 }
           cleanup
   br label %249
@@ -1710,15 +1711,15 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
 74:                                               ; preds = %71
   %75 = load ptr, ptr %67, align 8, !noundef !4
   %76 = icmp eq ptr %75, null
-  br i1 %76, label %83, label %.thread236
+  br i1 %76, label %83, label %.thread237
 
-.thread236:                                       ; preds = %74
+.thread237:                                       ; preds = %74
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %22)
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
   %77 = load ptr, ptr %67, align 8, !alias.scope !225, !noalias !222, !nonnull !4, !align !177, !noundef !4
   %78 = load i64, ptr %.sroa.4135.0..sroa_idx, align 8, !alias.scope !225, !noalias !222, !noundef !4
-  %.sroa.gep217 = getelementptr inbounds i8, ptr %24, i64 48
-  %79 = load ptr, ptr %.sroa.gep217, align 8, !noalias !222, !nonnull !4, !align !5, !noundef !4
+  %.sroa.gep218 = getelementptr inbounds i8, ptr %24, i64 48
+  %79 = load ptr, ptr %.sroa.gep218, align 8, !noalias !222, !nonnull !4, !align !5, !noundef !4
   %80 = invoke { ptr, i64 } @"_ZN75_$LT$gimli..read..abbrev..Attributes$u20$as$u20$core..ops..deref..Deref$GT$5deref17h68fff95f64e09a66E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %79)
           to label %"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit" unwind label %69
 
@@ -1738,7 +1739,7 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   store i64 2, ptr %0, align 8
   br label %248
 
-"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit": ; preds = %.thread236
+"_ZN5gimli4read4unit43DebuggingInformationEntry$LT$R$C$Offset$GT$5attrs17h5cf4e204878ace1eE.exit": ; preds = %.thread237
   %85 = extractvalue { ptr, i64 } %80, 0
   %86 = extractvalue { ptr, i64 } %80, 1
   store ptr %77, ptr %22, align 8, !alias.scope !222
@@ -1750,8 +1751,8 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   store i64 %86, ptr %89, align 8, !alias.scope !222
   %90 = getelementptr inbounds i8, ptr %22, i64 32
   store ptr %67, ptr %90, align 8, !alias.scope !222
-  %.sroa.4230.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  %.sroa.5231.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
+  %.sroa.4231.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.5232.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 24
   %.sroa.766.0..sroa_idx67 = getelementptr inbounds i8, ptr %21, i64 8
   %.sroa.766.sroa.6.0..sroa.766.0..sroa_idx67.sroa_idx = getelementptr inbounds i8, ptr %21, i64 24
   %91 = getelementptr inbounds i8, ptr %12, i64 8
@@ -1784,18 +1785,18 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %102 = getelementptr inbounds i8, ptr %101, i64 40
   %103 = load i64, ptr %102, align 8, !range !201, !noalias !233, !noundef !4
   %.not.i = icmp eq i64 %103, 0
-  br i1 %.not.i, label %.noexc, label %.thread238
+  br i1 %.not.i, label %.noexc, label %.thread239
 
 .noexc:                                           ; preds = %100
   %104 = getelementptr inbounds i8, ptr %101, i64 48
   %.val = load ptr, ptr %22, align 8, !nonnull !4, !align !177, !noundef !4
-  %.val196 = load ptr, ptr %101, align 8, !nonnull !4, !align !177, !noundef !4
-  %105 = ptrtoint ptr %.val196 to i64
+  %.val197 = load ptr, ptr %101, align 8, !nonnull !4, !align !177, !noundef !4
+  %105 = ptrtoint ptr %.val197 to i64
   %106 = ptrtoint ptr %.val to i64
   %107 = sub i64 %106, %105
   store i64 1, ptr %102, align 8, !noalias !231
   store i64 %107, ptr %104, align 8, !noalias !231
-  br label %.thread238
+  br label %.thread239
 
 108:                                              ; preds = %97
   %109 = load ptr, ptr %88, align 8, !alias.scope !228, !noalias !231, !nonnull !4, !align !5, !noundef !4
@@ -1807,9 +1808,9 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %113 = getelementptr inbounds i8, ptr %112, i64 72
   %.sroa.04.0.copyload.i = load i32, ptr %113, align 8, !noalias !233
   invoke void @_ZN5gimli4read4unit15parse_attribute17h1c0fab4e2bdd62e2E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull align 8 dereferenceable(40) %22, i32 %.sroa.04.0.copyload.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %6)
-          to label %.noexc193 unwind label %116
+          to label %.noexc194 unwind label %116
 
-.noexc193:                                        ; preds = %108
+.noexc194:                                        ; preds = %108
   %114 = load i64, ptr %5, align 8, !range !234, !noalias !233, !noundef !4
   %115 = icmp eq i64 %114, 46
   br i1 %115, label %121, label %118
@@ -1819,27 +1820,27 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
           cleanup
   br label %249
 
-118:                                              ; preds = %.noexc193
+118:                                              ; preds = %.noexc194
   %119 = getelementptr inbounds i8, ptr %109, i64 16
   %120 = add i64 %98, -1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4230.0..sroa_idx, i64 16, i1 false), !noalias !228
-  %.sroa.5231.0.copyload = load i64, ptr %.sroa.5231.0..sroa_idx, align 8, !noalias !233
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4231.0..sroa_idx, i64 16, i1 false), !noalias !228
+  %.sroa.5232.0.copyload = load i64, ptr %.sroa.5232.0..sroa_idx, align 8, !noalias !233
   store ptr %119, ptr %88, align 8, !alias.scope !228, !noalias !231
   store i64 %120, ptr %89, align 8, !alias.scope !228, !noalias !231
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !233
-  br label %.thread238
+  br label %.thread239
 
-.thread238:                                       ; preds = %.noexc, %100, %118
-  %.sroa.0.1243 = phi i64 [ %114, %118 ], [ 46, %100 ], [ 46, %.noexc ]
-  %.sroa.10219.2242 = phi i64 [ %.sroa.5231.0.copyload, %118 ], [ undef, %100 ], [ undef, %.noexc ]
+.thread239:                                       ; preds = %.noexc, %100, %118
+  %.sroa.0.1244 = phi i64 [ %114, %118 ], [ 46, %100 ], [ 46, %.noexc ]
+  %.sroa.10220.2243 = phi i64 [ %.sroa.5232.0.copyload, %118 ], [ undef, %100 ], [ undef, %.noexc ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.6)
-  %.not171 = icmp eq i64 %.sroa.0.1243, 46
+  %.not171 = icmp eq i64 %.sroa.0.1244, 46
   br i1 %.not171, label %176, label %123
 
-121:                                              ; preds = %.noexc193
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4230.0..sroa_idx, i64 16, i1 false), !noalias !228
+121:                                              ; preds = %.noexc194
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4231.0..sroa_idx, i64 16, i1 false), !noalias !228
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !233
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false)
@@ -1850,12 +1851,12 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   br label %248
 
-123:                                              ; preds = %.thread238
+123:                                              ; preds = %.thread239
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  store i64 %.sroa.0.1243, ptr %21, align 8
+  store i64 %.sroa.0.1244, ptr %21, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.766.0..sroa_idx67, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.8, i64 16, i1 false)
-  store i64 %.sroa.10219.2242, ptr %.sroa.766.sroa.6.0..sroa.766.0..sroa_idx67.sroa_idx, align 8
-  %124 = trunc i64 %.sroa.10219.2242 to i16
+  store i64 %.sroa.10220.2243, ptr %.sroa.766.sroa.6.0..sroa.766.0..sroa_idx67.sroa_idx, align 8
+  %124 = trunc i64 %.sroa.10220.2243 to i16
   switch i16 %124, label %175 [
     i16 3, label %125
     i16 27, label %126
@@ -2034,7 +2035,7 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %.pre = load i64, ptr %89, align 8, !alias.scope !228, !noalias !231
   br label %97
 
-176:                                              ; preds = %.thread238
+176:                                              ; preds = %.thread239
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %24)
   %177 = icmp eq i64 %.sroa.018.2, 46
@@ -2066,7 +2067,7 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   store ptr %.sroa.088.0, ptr %49, align 8
   store i64 %.sroa.689.0, ptr %50, align 8
   %186 = icmp eq i64 %.sroa.023.2, 46
-  br i1 %186, label %.thread252, label %187
+  br i1 %186, label %.thread253, label %187
 
 187:                                              ; preds = %185
   store i64 %.sroa.023.2, ptr %9, align 8
@@ -2091,19 +2092,19 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %switch185 = icmp eq i64 %.sroa.084.0, 0
   br i1 %switch185, label %196, label %200
 
-.thread252:                                       ; preds = %185
+.thread253:                                       ; preds = %185
   store ptr null, ptr %51, align 8
-  %switch185255 = icmp eq i64 %.sroa.084.0, 0
-  br i1 %switch185255, label %196, label %.thread257
+  %switch185256 = icmp eq i64 %.sroa.084.0, 0
+  br i1 %switch185256, label %196, label %.thread258
 
-.thread257:                                       ; preds = %.thread252
+.thread258:                                       ; preds = %.thread253
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %7)
   %194 = getelementptr inbounds i8, ptr %25, i64 72
   %195 = load i8, ptr %194, align 8, !noundef !4
   br label %203
 
-196:                                              ; preds = %.thread252, %188, %214
-  %.sroa.092.0 = phi i64 [ %211, %214 ], [ 47, %188 ], [ 47, %.thread252 ]
+196:                                              ; preds = %.thread253, %188, %214
+  %.sroa.092.0 = phi i64 [ %211, %214 ], [ 47, %188 ], [ 47, %.thread253 ]
   %197 = load i64, ptr %58, align 8, !range !236, !alias.scope !237, !noundef !4
   %198 = icmp eq i64 %197, 47
   br i1 %198, label %"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$$GT$17h4e31d566387925feE.exit", label %199
@@ -2116,19 +2117,19 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %7)
   %201 = getelementptr inbounds i8, ptr %25, i64 72
   %202 = load i8, ptr %201, align 8, !noundef !4
-  %spec.select335 = select i1 %trunc173, ptr null, ptr %191
-  %spec.select336 = select i1 %trunc173, i64 undef, i64 %193
+  %spec.select336 = select i1 %trunc173, ptr null, ptr %191
+  %spec.select337 = select i1 %trunc173, i64 undef, i64 %193
   br label %203
 
-203:                                              ; preds = %200, %.thread257
-  %204 = phi i8 [ %195, %.thread257 ], [ %202, %200 ]
-  %.sroa.0106.0 = phi ptr [ null, %.thread257 ], [ %spec.select335, %200 ]
-  %.sroa.5107.0 = phi i64 [ undef, %.thread257 ], [ %spec.select336, %200 ]
+203:                                              ; preds = %200, %.thread258
+  %204 = phi i8 [ %195, %.thread258 ], [ %202, %200 ]
+  %.sroa.0106.0 = phi ptr [ null, %.thread258 ], [ %spec.select336, %200 ]
+  %.sroa.5107.0 = phi i64 [ undef, %.thread258 ], [ %spec.select337, %200 ]
   %205 = getelementptr inbounds i8, ptr %1, i64 64
   %206 = load ptr, ptr %49, align 8, !noundef !4
   %207 = icmp eq ptr %206, null
-  %.val202 = load i64, ptr %50, align 8
-  %.sroa.5109.0 = select i1 %207, i64 undef, i64 %.val202
+  %.val203 = load i64, ptr %50, align 8
+  %.sroa.5109.0 = select i1 %207, i64 undef, i64 %.val203
   invoke void @"_ZN5gimli4read4line18DebugLine$LT$R$GT$7program17h001248ec3aa1b03bE"(ptr noalias nocapture noundef nonnull sret({ i64, [30 x i64] }) align 8 dereferenceable(248) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %205, i64 noundef %.sroa.385.0, i8 noundef %204, ptr noalias noundef readonly align 1 %.sroa.0106.0, i64 %.sroa.5107.0, ptr noalias noundef readonly align 1 %206, i64 %.sroa.5109.0)
           to label %210 unwind label %208
 
@@ -2175,7 +2176,7 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
 219:                                              ; preds = %"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$$GT$17h4e31d566387925feE.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   switch i64 %.sroa.029.2, label %229 [
-    i64 0, label %.thread278
+    i64 0, label %.thread279
     i64 12, label %220
   ]
 
@@ -2186,42 +2187,42 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   %223 = load i8, ptr %222, align 8, !alias.scope !240, !noalias !246, !noundef !4
   %224 = load i64, ptr %55, align 8, !alias.scope !240, !noalias !246, !noundef !4
   invoke void @"_ZN5gimli4read4addr18DebugAddr$LT$R$GT$11get_address17h82f5480978dc68aeE"(ptr noalias nocapture noundef nonnull sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %221, i8 noundef %223, i64 noundef %224, i64 noundef %.sroa.10.sroa.0.0)
-          to label %.noexc212 unwind label %34
+          to label %.noexc213 unwind label %34
 
-.noexc212:                                        ; preds = %220
+.noexc213:                                        ; preds = %220
   call void @llvm.experimental.noalias.scope.decl(metadata !247)
   %225 = load i8, ptr %4, align 8, !range !221, !alias.scope !250, !noalias !252, !noundef !4
   %226 = icmp eq i8 %225, 75
-  br i1 %226, label %.thread274, label %230
+  br i1 %226, label %.thread275, label %230
 
-.thread274:                                       ; preds = %.noexc212
+.thread275:                                       ; preds = %.noexc213
   %227 = getelementptr inbounds i8, ptr %4, i64 8
   %228 = load i64, ptr %227, align 8, !alias.scope !250, !noalias !252, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !243
-  br label %.thread278
+  br label %.thread279
 
-229:                                              ; preds = %219, %.thread278, %"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$$GT$17h4e31d566387925feE.exit"
+229:                                              ; preds = %219, %.thread279, %"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$gimli..read..line..IncompleteLineProgram$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$$GT$17h4e31d566387925feE.exit"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %0, ptr noundef nonnull align 8 dereferenceable(424) %25, i64 424, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.927)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
   call void @llvm.lifetime.end.p0(i64 424, ptr nonnull %25)
   br label %247
 
-230:                                              ; preds = %.noexc212
-  %.sroa.6224.8.copyload = load i64, ptr %4, align 8, !alias.scope !253, !noalias !254
+230:                                              ; preds = %.noexc213
+  %.sroa.6225.8.copyload = load i64, ptr %4, align 8, !alias.scope !253, !noalias !254
   %.sroa.11.8..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   %.sroa.11.8.copyload = load i64, ptr %.sroa.11.8..sroa_idx, align 8, !alias.scope !253, !noalias !254
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !243
   %231 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.6224.8.copyload, ptr %231, align 8
+  store i64 %.sroa.6225.8.copyload, ptr %231, align 8
   %.sroa.2164.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.11.8.copyload, ptr %.sroa.2164.0..sroa_idx, align 8
   store i64 2, ptr %0, align 8
   br label %232
 
-.thread278:                                       ; preds = %219, %.thread274
-  %.sroa.11.1266277 = phi i64 [ %228, %.thread274 ], [ %.sroa.10.sroa.0.0, %219 ]
-  store i64 %.sroa.11.1266277, ptr %53, align 8
+.thread279:                                       ; preds = %219, %.thread275
+  %.sroa.11.1267278 = phi i64 [ %228, %.thread275 ], [ %.sroa.10.sroa.0.0, %219 ]
+  store i64 %.sroa.11.1267278, ptr %53, align 8
   br label %229
 
 232:                                              ; preds = %248, %230, %215
@@ -2269,8 +2270,8 @@ define internal fastcc void @"_ZN5gimli4read5dwarf13Unit$LT$R$GT$3new17hc5fa53aa
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-common.resume:                                    ; preds = %258, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit214", %237, %241
-  %common.resume.op = phi { ptr, i32 } [ %238, %241 ], [ %238, %237 ], [ %.pn, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit214" ], [ %.pn, %258 ]
+common.resume:                                    ; preds = %258, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit215", %237, %241
+  %common.resume.op = phi { ptr, i32 } [ %238, %241 ], [ %238, %237 ], [ %.pn, %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit215" ], [ %.pn, %258 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core3ptr137drop_in_place$LT$gimli..read..dwarf..Unit$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17hf2551b88f550ab9bE.exit": ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.llvm.3191862155771161713.exit.i", %244
@@ -2291,12 +2292,12 @@ common.resume:                                    ; preds = %258, %"_ZN4core3ptr
   %250 = load ptr, ptr %48, align 8, !alias.scope !277, !nonnull !4, !noundef !4
   %251 = atomicrmw sub ptr %250, i64 1 release, align 8, !noalias !277
   %252 = icmp eq i64 %251, 1
-  br i1 %252, label %253, label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit214"
+  br i1 %252, label %253, label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit215"
 
 253:                                              ; preds = %249
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h495e54025727d358E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %48)
-          to label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit214" unwind label %254
+          to label %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit215" unwind label %254
 
 254:                                              ; preds = %258, %253
   %255 = landingpad { ptr, i32 }
@@ -2304,12 +2305,12 @@ common.resume:                                    ; preds = %258, %"_ZN4core3ptr
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit214": ; preds = %249, %253
+"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit215": ; preds = %249, %253
   %256 = load i64, ptr %58, align 8, !range !236, !alias.scope !278, !noundef !4
   %257 = icmp eq i64 %256, 47
   br i1 %257, label %common.resume, label %258
 
-258:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit214"
+258:                                              ; preds = %"_ZN4core3ptr79drop_in_place$LT$alloc..sync..Arc$LT$gimli..read..abbrev..Abbreviations$GT$$GT$17h232f699d574f5d77E.exit215"
   invoke void @"_ZN4core3ptr149drop_in_place$LT$gimli..read..line..LineProgramHeader$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$C$usize$GT$$GT$17hcd5e081a0ada3b2dE.llvm.3191862155771161713"(ptr noalias noundef nonnull align 8 dereferenceable(248) %58)
           to label %common.resume unwind label %254
 }
@@ -15267,11 +15268,12 @@ define hidden void @_ZN18wasmtime_cranelift5debug9transform4attr17clone_attr_str
 190:                                              ; preds = %187, %189
   %.sroa.058.0 = phi i64 [ %.sroa.066.0.copyload, %189 ], [ -9223372036854775808, %187 ]
   %.sroa.660.0 = phi i64 [ %.sroa.467.0.copyload, %189 ], [ %188, %187 ]
+  %.sroa.763.0 = phi i64 [ %.sroa.5.0.copyload, %189 ], [ undef, %187 ]
   store i64 %.sroa.058.0, ptr %0, align 8
   %.sroa.660.0..sroa_idx61 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.660.0, ptr %.sroa.660.0..sroa_idx61, align 8
   %.sroa.763.0..sroa_idx64 = getelementptr inbounds i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.copyload, ptr %.sroa.763.0..sroa_idx64, align 8
+  store i64 %.sroa.763.0, ptr %.sroa.763.0..sroa_idx64, align 8
   br label %191
 
 191:                                              ; preds = %36, %104, %169, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17heb06b14f8da13fcaE.exit", %146, %123, %190

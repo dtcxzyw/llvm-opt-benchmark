@@ -2944,8 +2944,8 @@ if.end30:                                         ; preds = %if.end.i, %if.else
 
 if.end45:                                         ; preds = %if.end30
   %8 = extractvalue { i8, i64 } %call40, 1
-  %add = add i64 %8, 1
-  %call46 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #28
+  %9 = add i64 %8, 1
+  %call46 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #28
   %call55 = tail call noundef i64 @_ZN4node11StringBytes5WriteEPN2v87IsolateEPcmNS1_5LocalINS1_5ValueEEENS_8encodingE(ptr noundef %1, ptr noundef nonnull %call46, i64 noundef -1, ptr nonnull %js_string.sroa.0.0, i32 noundef 1) #25
   %arrayidx = getelementptr inbounds i8, ptr %call46, i64 %call55
   store i8 0, ptr %arrayidx, align 1

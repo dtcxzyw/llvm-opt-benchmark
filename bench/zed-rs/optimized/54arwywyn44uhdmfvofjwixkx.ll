@@ -10398,7 +10398,7 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br label %14
 
 14:                                               ; preds = %.lr.ph, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread"
-  %.sroa.02.015 = phi i64 [ 0, %.lr.ph ], [ %26, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread" ]
+  %.sroa.02.014 = phi i64 [ 0, %.lr.ph ], [ %26, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread" ]
   %15 = phi ptr [ %5, %.lr.ph ], [ %16, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread" ]
   %16 = getelementptr inbounds i8, ptr %15, i64 40
   store ptr %16, ptr %0, align 8, !alias.scope !2557
@@ -10420,20 +10420,20 @@ define hidden { i64, i64 } @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u
   br i1 %25, label %28, label %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread"
 
 "_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread": ; preds = %14, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit"
-  %26 = add i64 %.sroa.02.015, 1
+  %26 = add i64 %.sroa.02.014, 1
   %27 = icmp eq ptr %16, %4
   br i1 %27, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08b8cdeedb817be0E.exit.thread", label %14
 
 28:                                               ; preds = %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit"
-  %29 = icmp ult i64 %.sroa.02.015, %9
+  %29 = icmp ult i64 %.sroa.02.014, %9
   tail call void @llvm.assume(i1 %29)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08b8cdeedb817be0E.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08b8cdeedb817be0E.exit.thread": ; preds = %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread", %2, %28
-  %.sroa.02.014 = phi i64 [ %.sroa.02.015, %28 ], [ 0, %2 ], [ %26, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread" ]
+  %.sroa.3.0 = phi i64 [ %.sroa.02.014, %28 ], [ undef, %2 ], [ undef, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread" ]
   %.sroa.0.0 = phi i64 [ 1, %28 ], [ 0, %2 ], [ 0, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread" ]
   %30 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %31 = insertvalue { i64, i64 } %30, i64 %.sroa.02.014, 1
+  %31 = insertvalue { i64, i64 } %30, i64 %.sroa.3.0, 1
   ret { i64, i64 } %31
 }
 
@@ -10588,15 +10588,16 @@ define hidden void @_ZN12tab_switcher11TabSwitcher3new17h765d4dccb1edead1E(ptr d
           to label %14 unwind label %8
 
 14:                                               ; preds = %12
-  %.sroa.08.0.extract.trunc = trunc i40 %13 to i8
-  %.sroa.0.0 = select i1 %11, i8 %.sroa.08.0.extract.trunc, i8 2
   %.sroa.08.1.extract.shift = lshr i40 %13, 8
   %.sroa.08.1.extract.trunc = trunc nuw i40 %.sroa.08.1.extract.shift to i32
+  %.sroa.08.0.extract.trunc = trunc i40 %13 to i8
+  %.sroa.5.0 = select i1 %11, i32 %.sroa.08.1.extract.trunc, i32 undef
+  %.sroa.0.0 = select i1 %11, i8 %.sroa.08.0.extract.trunc, i8 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   %15 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %.sroa.0.0, ptr %15, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds i8, ptr %0, i64 33
-  store i32 %.sroa.08.1.extract.trunc, ptr %.sroa.5.0..sroa_idx2, align 1
+  store i32 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx2, align 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %4)
   ret void
@@ -11706,7 +11707,7 @@ define hidden void @_ZN12tab_switcher19TabSwitcherDelegate11select_item17hdf6aa4
   br i1 %10, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i"
-  %.sroa.02.015.i = phi i64 [ %22, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i" ], [ 0, %4 ]
+  %.sroa.02.014.i = phi i64 [ %22, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i" ], [ 0, %4 ]
   %11 = phi ptr [ %12, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i" ], [ %6, %4 ]
   %12 = getelementptr inbounds i8, ptr %11, i64 40
   %.val8.i = load ptr, ptr %11, align 8, !noalias !2821, !nonnull !4, !align !147, !noundef !4
@@ -11727,17 +11728,17 @@ define hidden void @_ZN12tab_switcher19TabSwitcherDelegate11select_item17hdf6aa4
   br i1 %21, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h389a80cc948d9e63E.llvm.11372070486381688224.exit", label %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i"
 
 "_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i": ; preds = %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.i", %.lr.ph.i
-  %22 = add nuw nsw i64 %.sroa.02.015.i, 1
+  %22 = add nuw nsw i64 %.sroa.02.014.i, 1
   %23 = icmp eq ptr %12, %9
   br i1 %23, label %.loopexit, label %.lr.ph.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h389a80cc948d9e63E.llvm.11372070486381688224.exit": ; preds = %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.i"
-  %24 = icmp ult i64 %.sroa.02.015.i, %8
+  %24 = icmp ult i64 %.sroa.02.014.i, %8
   tail call void @llvm.assume(i1 %24)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i", %4, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h389a80cc948d9e63E.llvm.11372070486381688224.exit"
-  %25 = phi i64 [ %.sroa.02.015.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h389a80cc948d9e63E.llvm.11372070486381688224.exit" ], [ 0, %4 ], [ 0, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i" ]
+  %25 = phi i64 [ %.sroa.02.014.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h389a80cc948d9e63E.llvm.11372070486381688224.exit" ], [ 0, %4 ], [ 0, %"_ZN12tab_switcher19TabSwitcherDelegate11select_item28_$u7b$$u7b$closure$u7d$$u7d$17h5f6974ba20d92aebE.exit.thread.i" ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2825)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2828)
   %26 = getelementptr inbounds i8, ptr %0, i64 88

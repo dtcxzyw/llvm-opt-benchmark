@@ -5982,17 +5982,17 @@ define hidden void @"_ZN89_$LT$sec1..point..EncodedPoint$LT$Size$GT$$u20$as$u20$
   ret void
 
 21:                                               ; preds = %21, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hb0c3ff03390896d1E.exit"
-  %.sroa.0.0.idx22 = phi i64 [ 0, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hb0c3ff03390896d1E.exit" ], [ %.sroa.0.0.add, %21 ]
-  %.sroa.0.0.ptr23 = getelementptr inbounds i8, ptr %9, i64 %.sroa.0.0.idx22
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx22, 1
-  %22 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.0.0.idx22
-  %23 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.sroa.0.0.idx22
+  %.sroa.0.0.idx23 = phi i64 [ 0, %"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hb0c3ff03390896d1E.exit" ], [ %.sroa.0.0.add, %21 ]
+  %.sroa.0.0.ptr24 = getelementptr inbounds i8, ptr %9, i64 %.sroa.0.0.idx23
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx23, 1
+  %22 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %.sroa.0.0.idx23
+  %23 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %.sroa.0.0.idx23
   %24 = load i8, ptr %22, align 1, !noundef !31
   %25 = load i8, ptr %23, align 1, !noundef !31
   %26 = xor i8 %25, %24
   %27 = and i8 %26, %19
   %28 = xor i8 %27, %24
-  store i8 %28, ptr %.sroa.0.0.ptr23, align 1
+  store i8 %28, ptr %.sroa.0.0.ptr24, align 1
   %29 = icmp eq i64 %.sroa.0.0.add, 65
   br i1 %29, label %20, label %21
 }
@@ -7002,9 +7002,9 @@ default.unreachable45:                            ; preds = %3
   br label %.noexc12
 
 183:                                              ; preds = %.noexc34, %.noexc28
-  %.pn76.i = phi { ptr, ptr } [ %135, %.noexc28 ], [ %.pn.i, %.noexc34 ]
-  %.sroa.79.1.ph.i = extractvalue { ptr, ptr } %.pn76.i, 0
-  %.sroa.1310.1.ph.i = extractvalue { ptr, ptr } %.pn76.i, 1
+  %.pn71.i = phi { ptr, ptr } [ %135, %.noexc28 ], [ %.pn.i, %.noexc34 ]
+  %.sroa.79.1.ph.i = extractvalue { ptr, ptr } %.pn71.i, 0
+  %.sroa.1310.1.ph.i = extractvalue { ptr, ptr } %.pn71.i, 1
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %16), !noalias !1951
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %.sroa.016.i.i.i)

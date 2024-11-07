@@ -4951,13 +4951,14 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
   br label %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_0clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i"
 
 "_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_0clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i": ; preds = %190, %188, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i
+  %.sroa.4.0.i.i.i = phi i64 [ undef, %188 ], [ undef, %190 ], [ %.sroa.6.0.i.i.i, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i ]
   %.sroa.0.sroa.0.0.i7.i.i = phi i32 [ %189, %188 ], [ %191, %190 ], [ %.sroa.0.sroa.0.0.i.i.i, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i ]
   %.sroa.0.sroa.4.0.i.i.i = phi i64 [ 0, %188 ], [ 0, %190 ], [ %.sroa.0.sroa.6.0.i.i.i, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i ]
   %.sroa.0.sroa.0.0.insert.ext.i8.i.i = zext i32 %.sroa.0.sroa.0.0.i7.i.i to i64
   %.sroa.0.sroa.0.0.insert.insert.i9.i.i = or disjoint i64 %.sroa.0.sroa.4.0.i.i.i, %.sroa.0.sroa.0.0.insert.ext.i8.i.i
   store i64 %.sroa.0.sroa.0.0.insert.insert.i9.i.i, ptr %.0710.i, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.0710.i, i64 8
-  store i64 %.sroa.6.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.4.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %192 = getelementptr inbounds i8, ptr %.011.i, i64 16
   %193 = getelementptr inbounds i8, ptr %.0710.i, i64 16
   %.not.i = icmp eq ptr %192, %174
@@ -4976,9 +4977,9 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
   br label %200
 
 200:                                              ; preds = %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i", %.lr.ph.i119
-  %.sroa.0145.0 = phi ptr [ %195, %.lr.ph.i119 ], [ %201, %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i" ]
-  %.sroa.0141.0 = phi ptr [ %197, %.lr.ph.i119 ], [ %215, %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i" ]
-  %201 = getelementptr inbounds i8, ptr %.sroa.0145.0, i64 -16
+  %.sroa.0146.0 = phi ptr [ %195, %.lr.ph.i119 ], [ %201, %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i" ]
+  %.sroa.0142.0 = phi ptr [ %197, %.lr.ph.i119 ], [ %215, %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i" ]
+  %201 = getelementptr inbounds i8, ptr %.sroa.0146.0, i64 -16
   %.val1.val.i = load i8, ptr %198, align 2, !noalias !73
   %.off.i.i.i.i120 = add i8 %.val1.val.i, -119
   %switch.i.i.i.i121 = icmp ult i8 %.off.i.i.i.i120, 2
@@ -4986,8 +4987,8 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
 
 202:                                              ; preds = %200
   %203 = load i32, ptr %201, align 4, !noalias !73
-  %switch.i.i.i140 = icmp eq i8 %.val1.val.i, 120
-  br i1 %switch.i.i.i140, label %204, label %206
+  %switch.i.i.i141 = icmp eq i8 %.val1.val.i, 120
+  br i1 %switch.i.i.i141, label %204, label %206
 
 204:                                              ; preds = %202
   %205 = and i32 %203, 255
@@ -5000,7 +5001,7 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
 208:                                              ; preds = %200
   %.sroa.0.0.copyload.i.i.i122 = load i64, ptr %201, align 16, !noalias !73
   %.sroa.0.sroa.0.0.extract.trunc.i.i.i123 = trunc i64 %.sroa.0.0.copyload.i.i.i122 to i32
-  %.sroa.6.0..sroa_idx.i.i.i124 = getelementptr inbounds i8, ptr %.sroa.0145.0, i64 -8
+  %.sroa.6.0..sroa_idx.i.i.i124 = getelementptr inbounds i8, ptr %.sroa.0146.0, i64 -8
   %.sroa.6.0.copyload.i.i.i125 = load i64, ptr %.sroa.6.0..sroa_idx.i.i.i124, align 8, !noalias !73
   %209 = and i64 %.sroa.0.0.copyload.i.i.i122, -4294967296
   br label %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126
@@ -5015,8 +5016,8 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
   br i1 %switch.i.i4.i.i132, label %210, label %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i"
 
 210:                                              ; preds = %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126
-  %switch.i12.i.i139 = icmp eq i8 %.val.i.i130, 120
-  br i1 %switch.i12.i.i139, label %211, label %213
+  %switch.i12.i.i140 = icmp eq i8 %.val.i.i130, 120
+  br i1 %switch.i12.i.i140, label %211, label %213
 
 211:                                              ; preds = %210
   %212 = and i32 %.sroa.0.sroa.0.0.i.i.i128, 255
@@ -5027,16 +5028,17 @@ _ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlf
   br label %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i"
 
 "_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i": ; preds = %213, %211, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126
-  %.sroa.0.sroa.0.0.i7.i.i133 = phi i32 [ %212, %211 ], [ %214, %213 ], [ %.sroa.0.sroa.0.0.i.i.i128, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126 ]
-  %.sroa.0.sroa.4.0.i.i.i134 = phi i64 [ 0, %211 ], [ 0, %213 ], [ %.sroa.0.sroa.6.0.i.i.i129, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126 ]
-  %.sroa.0.sroa.0.0.insert.ext.i8.i.i135 = zext i32 %.sroa.0.sroa.0.0.i7.i.i133 to i64
-  %.sroa.0.sroa.0.0.insert.insert.i9.i.i136 = or disjoint i64 %.sroa.0.sroa.4.0.i.i.i134, %.sroa.0.sroa.0.0.insert.ext.i8.i.i135
-  %215 = getelementptr inbounds i8, ptr %.sroa.0141.0, i64 -16
-  store i64 %.sroa.0.sroa.0.0.insert.insert.i9.i.i136, ptr %215, align 16, !noalias !73
-  %.sroa.2.0..sroa_idx.i137 = getelementptr inbounds i8, ptr %.sroa.0141.0, i64 -8
-  store i64 %.sroa.6.0.i.i.i127, ptr %.sroa.2.0..sroa_idx.i137, align 8, !noalias !73
-  %.not.i138 = icmp eq ptr %201, %172
-  br i1 %.not.i138, label %"_ZSt9transformIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESF_ZNKS0_8Executor8Executor14runArrayCopyOpEjjRKSC_jSJ_RKNS0_3AST13CompositeTypeESN_RKNSK_11InstructionEE3$_0ET0_T_ST_SS_T1_.exit", label %200, !llvm.loop !76
+  %.sroa.4.0.i.i.i133 = phi i64 [ undef, %211 ], [ undef, %213 ], [ %.sroa.6.0.i.i.i127, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126 ]
+  %.sroa.0.sroa.0.0.i7.i.i134 = phi i32 [ %212, %211 ], [ %214, %213 ], [ %.sroa.0.sroa.0.0.i.i.i128, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126 ]
+  %.sroa.0.sroa.4.0.i.i.i135 = phi i64 [ 0, %211 ], [ 0, %213 ], [ %.sroa.0.sroa.6.0.i.i.i129, %_ZN8WasmEdge8Executor12_GLOBAL__N_19unpackValERKNS_7ValTypeERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEEb.exit.i.i126 ]
+  %.sroa.0.sroa.0.0.insert.ext.i8.i.i136 = zext i32 %.sroa.0.sroa.0.0.i7.i.i134 to i64
+  %.sroa.0.sroa.0.0.insert.insert.i9.i.i137 = or disjoint i64 %.sroa.0.sroa.4.0.i.i.i135, %.sroa.0.sroa.0.0.insert.ext.i8.i.i136
+  %215 = getelementptr inbounds i8, ptr %.sroa.0142.0, i64 -16
+  store i64 %.sroa.0.sroa.0.0.insert.insert.i9.i.i137, ptr %215, align 16, !noalias !73
+  %.sroa.2.0..sroa_idx.i138 = getelementptr inbounds i8, ptr %.sroa.0142.0, i64 -8
+  store i64 %.sroa.4.0.i.i.i133, ptr %.sroa.2.0..sroa_idx.i138, align 8, !noalias !73
+  %.not.i139 = icmp eq ptr %201, %172
+  br i1 %.not.i139, label %"_ZSt9transformIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESF_ZNKS0_8Executor8Executor14runArrayCopyOpEjjRKSC_jSJ_RKNS0_3AST13CompositeTypeESN_RKNSK_11InstructionEE3$_0ET0_T_ST_SS_T1_.exit", label %200, !llvm.loop !76
 
 "_ZSt9transformIPN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS0_10RefVariantENS0_10StrVariantEEEESF_ZNKS0_8Executor8Executor14runArrayCopyOpEjjRKSC_jSJ_RKNS0_3AST13CompositeTypeESN_RKNSK_11InstructionEE3$_0ET0_T_ST_SS_T1_.exit": ; preds = %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_0clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i", %"_ZZNK8WasmEdge8Executor8Executor14runArrayCopyOpEjjRKNS_10RefVariantEjS4_RKNS_3AST13CompositeTypeES8_RKNS5_11InstructionEENK3$_1clERKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dS2_NS_10StrVariantEEEE.exit.i", %194, %173
   store i64 1, ptr %0, align 4
@@ -5753,20 +5755,21 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
   %.079.i = phi ptr [ %159, %.lr.ph.i ], [ %166, %163 ]
   %.val.val.i = load i8, ptr %162, align 2
   %.sroa.0.0.copyload.i.i = load i64, ptr %.010.i, align 16
-  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.010.i, i64 8
-  %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.off.i.i.i.i = add i8 %.val.val.i, -119
   %switch.i.i.i.i = icmp ult i8 %.off.i.i.i.i, 2
+  %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.010.i, i64 8
+  %.sroa.3.0.copyload.i.i = load i64, ptr %.sroa.3.0..sroa_idx.i.i, align 8
   %.sroa.0.sroa.4.0.extract.shift.i.i.i = and i64 %.sroa.0.0.copyload.i.i, -4294967296
   %switch.i.i.i = icmp eq i8 %.val.val.i, 120
   %..i.i = select i1 %switch.i.i.i, i64 255, i64 65535
   %.sink.i.i = select i1 %switch.i.i.i.i, i64 %..i.i, i64 4294967295
+  %.sroa.4.0.i.i.i = select i1 %switch.i.i.i.i, i64 undef, i64 %.sroa.3.0.copyload.i.i
   %.sroa.0.sroa.4.0.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 %.sroa.0.sroa.4.0.extract.shift.i.i.i
   %164 = and i64 %.sink.i.i, %.sroa.0.0.copyload.i.i
   %.sroa.0.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %164, %.sroa.0.sroa.4.0.i.i.i
   store i64 %.sroa.0.sroa.0.0.insert.insert.i.i.i, ptr %.079.i, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %.079.i, i64 8
-  store i64 %.sroa.3.0.copyload.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
+  store i64 %.sroa.4.0.i.i.i, ptr %.sroa.2.0..sroa_idx.i, align 8
   %165 = getelementptr inbounds i8, ptr %.010.i, i64 16
   %166 = getelementptr inbounds i8, ptr %.079.i, i64 16
   %.not.i = icmp eq ptr %165, %158

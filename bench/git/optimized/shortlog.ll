@@ -1069,7 +1069,7 @@ do.cond.i:                                        ; preds = %do.body.i
   br i1 %cmp.i, label %do.body.i, label %do.body.i17.preheader, !llvm.loop !7
 
 do.body.i17.preheader:                            ; preds = %do.cond.i
-  %scevgep34 = getelementptr i8, ptr %arg, i64 7
+  %scevgep36 = getelementptr i8, ptr %arg, i64 7
   br label %do.body.i17
 
 if.then12:                                        ; preds = %do.body.i
@@ -1084,8 +1084,8 @@ if.then12:                                        ; preds = %do.body.i
 do.body.i17:                                      ; preds = %do.body.i17.preheader, %do.cond.i21
   %str.addr.0.i18 = phi ptr [ %incdec.ptr.i22, %do.cond.i21 ], [ %arg, %do.body.i17.preheader ]
   %prefix.addr.0.i19.idx = phi i64 [ %prefix.addr.0.i19.add, %do.cond.i21 ], [ 0, %do.body.i17.preheader ]
-  %exitcond35 = icmp eq i64 %prefix.addr.0.i19.idx, 7
-  br i1 %exitcond35, label %if.then19, label %do.cond.i21
+  %exitcond37 = icmp eq i64 %prefix.addr.0.i19.idx, 7
+  br i1 %exitcond37, label %if.then19, label %do.cond.i21
 
 do.cond.i21:                                      ; preds = %do.body.i17
   %prefix.addr.0.i19.ptr = getelementptr inbounds i8, ptr @.str.32, i64 %prefix.addr.0.i19.idx
@@ -1102,7 +1102,7 @@ if.then19:                                        ; preds = %do.body.i17
   %or21 = or i32 %8, 8
   store i32 %or21, ptr %groups20, align 8
   %format22 = getelementptr inbounds i8, ptr %0, i64 144
-  %call23 = tail call ptr @string_list_append(ptr noundef nonnull %format22, ptr noundef %scevgep34) #16
+  %call23 = tail call ptr @string_list_append(ptr noundef nonnull %format22, ptr noundef %scevgep36) #16
   br label %return
 
 if.else24:                                        ; preds = %do.cond.i21

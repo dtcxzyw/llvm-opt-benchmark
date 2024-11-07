@@ -26,9 +26,9 @@ define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h16720
   %16 = and i64 %14, %15
   %17 = add i64 %3, 16
   %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %17)
-  %19 = extractvalue { i64, i1 } %18, 0
-  %20 = extractvalue { i64, i1 } %18, 1
-  br i1 %20, label %25, label %22
+  %19 = extractvalue { i64, i1 } %18, 1
+  %20 = extractvalue { i64, i1 } %18, 0
+  br i1 %19, label %25, label %22
 
 21:                                               ; preds = %7
   store i64 0, ptr %0, align 8
@@ -36,7 +36,7 @@ define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h16720
 
 22:                                               ; preds = %13
   %23 = sub i64 -9223372036854775808, %2
-  %24 = icmp ugt i64 %19, %23
+  %24 = icmp ugt i64 %20, %23
   br i1 %24, label %27, label %26
 
 25:                                               ; preds = %13
@@ -46,7 +46,7 @@ define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h16720
 26:                                               ; preds = %22
   store i64 %2, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %19, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %20, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.312.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %16, ptr %.sroa.312.0..sroa_idx, align 8
   br label %28

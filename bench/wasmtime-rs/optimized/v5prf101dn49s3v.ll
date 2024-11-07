@@ -10178,12 +10178,6 @@ define void @"_ZN13wasmtime_wasi4host7network141_$LT$impl$u20$std..net..socket_a
   %.sroa.04.0.copyload = load i16, ptr %1, align 4
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 2
   %.sroa.45.0.copyload = load i48, ptr %.sroa.45.0..sroa_idx, align 2
-  %.sroa.67.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
-  %.sroa.67.0.copyload = load i32, ptr %.sroa.67.0..sroa_idx, align 4
-  %.sroa.78.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.78.0.copyload = load i32, ptr %.sroa.78.0..sroa_idx, align 4
-  %.sroa.89.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
-  %.sroa.89.0.copyload = load i16, ptr %.sroa.89.0..sroa_idx, align 4
   %trunc.i = trunc nuw i16 %.sroa.04.0.copyload to i1
   br i1 %trunc.i, label %6, label %4
 
@@ -10207,6 +10201,12 @@ define void @"_ZN13wasmtime_wasi4host7network141_$LT$impl$u20$std..net..socket_a
 
 6:                                                ; preds = %2
   %.sroa.66.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
+  %.sroa.89.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 28
+  %.sroa.89.0.copyload = load i16, ptr %.sroa.89.0..sroa_idx, align 4
+  %.sroa.78.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.78.0.copyload = load i32, ptr %.sroa.78.0..sroa_idx, align 4
+  %.sroa.67.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 20
+  %.sroa.67.0.copyload = load i32, ptr %.sroa.67.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1910
   %.sroa.45.2.extract.shift = lshr i48 %.sroa.45.0.copyload, 16
   %.sroa.45.2.extract.trunc = trunc nuw i48 %.sroa.45.2.extract.shift to i32
@@ -10225,6 +10225,9 @@ define void @"_ZN13wasmtime_wasi4host7network141_$LT$impl$u20$std..net..socket_a
   br label %"_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$$u20$for$u20$core..net..socket_addr..SocketAddr$GT$4from17h3aae719447208b1fE.exit"
 
 "_ZN13wasmtime_wasi4host7network166_$LT$impl$u20$core..convert..From$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpSocketAddress$GT$$u20$for$u20$core..net..socket_addr..SocketAddr$GT$4from17h3aae719447208b1fE.exit": ; preds = %4, %6
+  %.sroa.8.0 = phi i16 [ %.sroa.89.0.copyload, %6 ], [ undef, %4 ]
+  %.sroa.7.0 = phi i32 [ %.sroa.78.0.copyload, %6 ], [ undef, %4 ]
+  %.sroa.63.0 = phi i32 [ %.sroa.67.0.copyload, %6 ], [ undef, %4 ]
   %.sroa.4.0 = phi i48 [ %.sroa.4.2.insert.shift, %6 ], [ %.sroa.0.0.insert.insert.i.i, %4 ]
   %.sink.i = phi i16 [ 1, %6 ], [ 0, %4 ]
   store i16 %.sink.i, ptr %0, align 8
@@ -10233,11 +10236,11 @@ define void @"_ZN13wasmtime_wasi4host7network141_$LT$impl$u20$std..net..socket_a
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.sroa.5.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.6, i64 12, i1 false)
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  store i32 %.sroa.67.0.copyload, ptr %.sroa.0.sroa.6.0..sroa_idx, align 4
+  store i32 %.sroa.63.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 4
   %.sroa.0.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 %.sroa.78.0.copyload, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
+  store i32 %.sroa.7.0, ptr %.sroa.0.sroa.7.0..sroa_idx, align 8
   %.sroa.0.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28
-  store i16 %.sroa.89.0.copyload, ptr %.sroa.0.sroa.8.0..sroa_idx, align 4
+  store i16 %.sroa.8.0, ptr %.sroa.0.sroa.8.0..sroa_idx, align 4
   ret void
 }
 
@@ -16154,12 +16157,12 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket10start_bind17ha6223082bf1b8
 19:                                               ; preds = %15
   %20 = icmp ne i16 %17, 0
   %or.cond.not.i = or i1 %20, %trunc913.i
-  br i1 %or.cond.not.i, label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread52, label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread
+  br i1 %or.cond.not.i, label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54, label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread
 
 .thread.i:                                        ; preds = %15
-  br i1 %trunc913.i, label %22, label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread52
+  br i1 %trunc913.i, label %22, label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54
 
-_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread52: ; preds = %19, %.thread.i
+_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54: ; preds = %19, %.thread.i
   %21 = tail call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.75.llvm.11181120138937278269, i64 noundef 23), !noalias !3144
   br label %81
 
@@ -16181,13 +16184,13 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
 
 28:                                               ; preds = %22
   %29 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.74.llvm.11181120138937278269, i64 noundef 48), !noalias !3144
-  br label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54
+  br label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread56
 
 30:                                               ; preds = %25
   %31 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17hd944edcd26ddd364E(i8 noundef 20, ptr noalias noundef nonnull readonly align 1 @anon.c420570445454ec1f72c86a983c80bbb.73.llvm.11181120138937278269, i64 noundef 54), !noalias !3144
-  br label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54
+  br label %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread56
 
-_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54: ; preds = %28, %30
+_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread56: ; preds = %28, %30
   %.1.i.ph = phi ptr [ %31, %30 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6), !noalias !3144
   br label %81
@@ -16279,8 +16282,8 @@ _ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37e
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
   unreachable
 
-common.resume:                                    ; preds = %82, %90, %.thread61, %53
-  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %.pn59, %90 ], [ %86, %.thread61 ], [ %83, %82 ]
+common.resume:                                    ; preds = %82, %90, %.thread63, %53
+  %common.resume.op = phi { ptr, i32 } [ %54, %53 ], [ %.pn61, %90 ], [ %86, %.thread63 ], [ %83, %82 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ad3e32dd4d4c906E.exit": ; preds = %44, %47, %55, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17habe7f7bd14bd89feE.exit.i.i"
@@ -16330,8 +16333,8 @@ common.resume:                                    ; preds = %82, %90, %.thread61
   call fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %7)
   br label %79
 
-81:                                               ; preds = %14, %65, %2, %10, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread52, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ad3e32dd4d4c906E.exit", %79
-  %.1 = phi ptr [ null, %79 ], [ inttoptr (i64 489626271746 to ptr), %14 ], [ %69, %65 ], [ inttoptr (i64 455266533378 to ptr), %2 ], [ %12, %10 ], [ %.014.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ad3e32dd4d4c906E.exit" ], [ %21, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread52 ], [ %.1.i.ph, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54 ]
+81:                                               ; preds = %14, %65, %2, %10, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread56, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ad3e32dd4d4c906E.exit", %79
+  %.1 = phi ptr [ null, %79 ], [ inttoptr (i64 489626271746 to ptr), %14 ], [ %69, %65 ], [ inttoptr (i64 455266533378 to ptr), %2 ], [ %12, %10 ], [ %.014.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h8ad3e32dd4d4c906E.exit" ], [ %21, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread54 ], [ %.1.i.ph, %_ZN13wasmtime_wasi4host7network4util23validate_address_family17h1c352f4e9308f37eE.exit.thread56 ]
   ret ptr %.1
 
 82:                                               ; preds = %72
@@ -16348,23 +16351,23 @@ common.resume:                                    ; preds = %82, %90, %.thread61
           cleanup
   %87 = load i64, ptr %7, align 8, !range !921, !noundef !5
   %88 = icmp eq i64 %87, 2
-  br i1 %88, label %.thread61, label %90
+  br i1 %88, label %.thread63, label %90
 
 89:                                               ; preds = %75
   unreachable
 
 90:                                               ; preds = %.thread, %82
-  %.pn59 = phi { ptr, i32 } [ %86, %.thread ], [ %83, %82 ]
+  %.pn61 = phi { ptr, i32 } [ %86, %.thread ], [ %83, %82 ]
   invoke fastcc void @"_ZN4core3ptr49drop_in_place$LT$wasmtime_wasi..tcp..TcpState$GT$17h4f489a3b2e17a767E"(ptr noalias noundef align 8 dereferenceable(64) %7) #36
           to label %common.resume unwind label %94
 
-.thread61:                                        ; preds = %.thread
+.thread63:                                        ; preds = %.thread
   %91 = getelementptr inbounds i8, ptr %7, i64 8
   %92 = load i32, ptr %91, align 8, !alias.scope !3158, !noundef !5
   %93 = invoke noundef i32 @close(i32 noundef %92)
           to label %common.resume unwind label %94
 
-94:                                               ; preds = %.thread61, %90
+94:                                               ; preds = %.thread63, %90
   %95 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #35
@@ -18258,8 +18261,8 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket18keep_alive_enabled17hf69113576865
   %23 = inttoptr i64 %22 to ptr
   %24 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %23, ptr nonnull inttoptr (i64 1 to ptr), ptr nonnull inttoptr (i64 9 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !srcloc !3375
   %25 = extractvalue { ptr, i32, i32 } %24, 0
-  %.not.i.i.i.not = icmp eq ptr %25, null
-  br i1 %.not.i.i.i.not, label %26, label %.noexc24
+  %.not.i.i.i = icmp eq ptr %25, null
+  br i1 %.not.i.i.i, label %26, label %.noexc24
 
 26:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !3372
@@ -18285,31 +18288,31 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket18keep_alive_enabled17hf69113576865
   %31 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef 9), !noalias !3371
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %31, ptr %32, align 8
-  br label %42
+  br label %41
 
 33:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !3372
   %34 = load i32, ptr %5, align 4, !noalias !3372
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3372
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3372
-  %35 = icmp ne i32 %34, 0
-  %36 = zext i1 %35 to i8
-  %37 = getelementptr inbounds i8, ptr %0, i64 1
-  store i8 %36, ptr %37, align 1
-  br label %42
+  %.not.i.i = icmp ne i32 %34, 0
+  %35 = zext i1 %.not.i.i to i8
+  %36 = getelementptr inbounds i8, ptr %0, i64 1
+  store i8 %35, ptr %36, align 1
+  br label %41
 
 .noexc24:                                         ; preds = %.noexc
+  %37 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3372
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3372
-  %38 = ptrtoint ptr %25 to i64
-  %.sroa.512.0.extract.trunc = trunc i64 %38 to i16
-  %39 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.512.0.extract.trunc)
-  %40 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %39)
-  %41 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %40, ptr %41, align 8
-  br label %42
+  %.sroa.512.0.extract.trunc = trunc i64 %37 to i16
+  %38 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.512.0.extract.trunc)
+  %39 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %38)
+  %40 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %39, ptr %40, align 8
+  br label %41
 
-42:                                               ; preds = %.noexc24, %33, %30
+41:                                               ; preds = %.noexc24, %33, %30
   %.sink = phi i8 [ 1, %.noexc24 ], [ 0, %33 ], [ 1, %30 ]
   store i8 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
@@ -18482,9 +18485,9 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket20keep_alive_idle_time17h152338cb8b
   br label %38
 
 .noexc13:                                         ; preds = %.noexc
+  %35 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3391
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3391
-  %35 = ptrtoint ptr %25 to i64
   %.sroa.44.0.extract.trunc.i.i = trunc i64 %35 to i16
   %36 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.44.0.extract.trunc.i.i)
   %37 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %36)
@@ -18567,27 +18570,27 @@ _ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i: ; preds = %22, %"_ZN62_$LT$co
   %.sroa.0.0.in.sroa.speculated.i.i = phi i64 [ 1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ], [ %spec.select12.i, %22 ]
   %26 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   %spec.select.i = add nuw nsw i64 %.sroa.0.0.in.sroa.speculated.i.i, %.sroa.4.0.i.i
-  %27 = trunc nuw nsw i64 %spec.select.i to i32
+  %.sroa.56.0.extract.trunc.i.i.i = trunc nuw nsw i64 %spec.select.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !3404
-  store i32 %27, ptr %4, align 4, !noalias !3404
-  %28 = zext i32 %26 to i64
-  %29 = inttoptr i64 %28 to ptr
-  %30 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %29, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 4 to ptr), ptr nonnull %4, ptr nonnull inttoptr (i64 4 to ptr)) #37, !srcloc !3113
-  %31 = extractvalue { ptr, i32, i32 } %30, 0
-  %.not.i.i.i.i.not = icmp eq ptr %31, null
-  %32 = ptrtoint ptr %31 to i64
-  %33 = trunc i64 %32 to i16
+  store i32 %.sroa.56.0.extract.trunc.i.i.i, ptr %4, align 4, !noalias !3404
+  %27 = zext i32 %26 to i64
+  %28 = inttoptr i64 %27 to ptr
+  %29 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %28, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 4 to ptr), ptr nonnull %4, ptr nonnull inttoptr (i64 4 to ptr)) #37, !srcloc !3113
+  %30 = extractvalue { ptr, i32, i32 } %29, 0
+  %.not.i.i.i.i.not = icmp eq ptr %30, null
+  %31 = ptrtoint ptr %30 to i64
+  %32 = trunc i64 %31 to i16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !3404
   br i1 %.not.i.i.i.i.not, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread
 
 .thread:                                          ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i", %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i
-  %.sroa.3.0.i34 = phi i16 [ %33, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ], [ -22, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ]
-  %34 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.3.0.i34)
-  %35 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %34)
+  %.sroa.63.035 = phi i16 [ %32, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ], [ -22, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ]
+  %33 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.035)
+  %34 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %33)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
 "_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread28, %.thread
-  %.1 = phi ptr [ %19, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread28 ], [ %35, %.thread ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
+  %.1 = phi ptr [ %19, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread28 ], [ %34, %.thread ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret ptr %.1
 }
@@ -18685,9 +18688,9 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19keep_alive_interval17h7e7da89f099
   br label %38
 
 .noexc13:                                         ; preds = %.noexc
+  %35 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3415
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3415
-  %35 = ptrtoint ptr %25 to i64
   %.sroa.44.0.extract.trunc.i.i = trunc i64 %35 to i16
   %36 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.44.0.extract.trunc.i.i)
   %37 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %36)
@@ -18714,14 +18717,14 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket23set_keep_alive_interval17h
   %9 = select i1 %8, i64 %7, i64 4
   switch i64 %9, label %10 [
     i64 0, label %17
-    i64 1, label %33
+    i64 1, label %32
     i64 2, label %17
-    i64 3, label %33
+    i64 3, label %32
     i64 4, label %11
-    i64 5, label %33
-    i64 6, label %33
+    i64 5, label %32
+    i64 6, label %32
     i64 7, label %13
-    i64 8, label %33
+    i64 8, label %32
   ]
 
 10:                                               ; preds = %3
@@ -18766,31 +18769,31 @@ _ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i: ; preds = %21, %"_ZN62_$LT$co
   %.sroa.0.0.in.sroa.speculated.i.i = phi i64 [ 1, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ], [ %spec.select12.i, %21 ]
   %25 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
   %spec.select.i = add nuw nsw i64 %.sroa.0.0.in.sroa.speculated.i.i, %.sroa.4.0.i.i
-  %26 = trunc nuw nsw i64 %spec.select.i to i32
+  %.sroa.56.0.extract.trunc.i.i.i = trunc nuw nsw i64 %spec.select.i to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !3428
-  store i32 %26, ptr %4, align 4, !noalias !3428
-  %27 = zext i32 %25 to i64
-  %28 = inttoptr i64 %27 to ptr
-  %29 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %28, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 5 to ptr), ptr nonnull %4, ptr nonnull inttoptr (i64 4 to ptr)) #37, !srcloc !3113
-  %30 = extractvalue { ptr, i32, i32 } %29, 0
-  %.not.i.i.i.i.not = icmp eq ptr %30, null
-  %31 = ptrtoint ptr %30 to i64
-  %32 = trunc i64 %31 to i16
+  store i32 %.sroa.56.0.extract.trunc.i.i.i, ptr %4, align 4, !noalias !3428
+  %26 = zext i32 %25 to i64
+  %27 = inttoptr i64 %26 to ptr
+  %28 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 54 to ptr), ptr %27, ptr nonnull inttoptr (i64 6 to ptr), ptr nonnull inttoptr (i64 5 to ptr), ptr nonnull %4, ptr nonnull inttoptr (i64 4 to ptr)) #37, !srcloc !3113
+  %29 = extractvalue { ptr, i32, i32 } %28, 0
+  %.not.i.i.i.i.not = icmp eq ptr %29, null
+  %30 = ptrtoint ptr %29 to i64
+  %31 = trunc i64 %30 to i16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4), !noalias !3428
-  br i1 %.not.i.i.i.i.not, label %37, label %.thread
+  br i1 %.not.i.i.i.i.not, label %36, label %.thread
 
-33:                                               ; preds = %3, %3, %3, %3, %3
-  %34 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef 9), !noalias !3427
-  br label %37
+32:                                               ; preds = %3, %3, %3, %3, %3
+  %33 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef 9), !noalias !3427
+  br label %36
 
 .thread:                                          ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i", %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i
-  %.sroa.3.0.i34 = phi i16 [ %32, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ], [ -22, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ]
-  %35 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.3.0.i34)
-  %36 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %35)
-  br label %37
+  %.sroa.63.035 = phi i16 [ %31, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ], [ -22, %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.i" ]
+  %34 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.035)
+  %35 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %34)
+  br label %36
 
-37:                                               ; preds = %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i, %.thread, %33
-  %.0 = phi ptr [ %34, %33 ], [ %36, %.thread ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
+36:                                               ; preds = %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i, %.thread, %32
+  %.0 = phi ptr [ %33, %32 ], [ %35, %.thread ], [ null, %_ZN4core3cmp3Ord5clamp17hdddcdb2b344de44eE.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret ptr %.0
 }
@@ -18889,9 +18892,9 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16keep_alive_count17h058114c2176fa4
   br label %40
 
 .noexc24:                                         ; preds = %.noexc
+  %36 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3439
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3439
-  %36 = ptrtoint ptr %25 to i64
   %.sroa.411.0.extract.trunc = trunc i64 %36 to i16
   %37 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.411.0.extract.trunc)
   %38 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %37)
@@ -18973,8 +18976,8 @@ define noundef ptr @_ZN13wasmtime_wasi3tcp9TcpSocket20set_keep_alive_count17h950
   br label %32
 
 .thread:                                          ; preds = %18, %20
-  %.sroa.3.0.i34 = phi i16 [ %27, %20 ], [ -22, %18 ]
-  %30 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.3.0.i34)
+  %.sroa.63.035 = phi i16 [ %27, %20 ], [ -22, %18 ]
+  %30 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.035)
   %31 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %30)
   br label %32
 
@@ -19041,7 +19044,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   %28 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11)
   %29 = zext i32 %28 to i64
   %30 = inttoptr i64 %29 to ptr
-  br i1 %trunc26, label %.noexc46, label %.noexc
+  br i1 %trunc26, label %.noexc45, label %.noexc
 
 31:                                               ; preds = %2, %2, %2, %2, %2
   %32 = tail call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef 9), !noalias !3458
@@ -19054,7 +19057,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   %33 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr null, ptr nonnull inttoptr (i64 2 to ptr), ptr nonnull align 4 dereferenceable(4) %9, ptr nonnull align 4 dereferenceable(4) %10) #37, !srcloc !3375
   %34 = extractvalue { ptr, i32, i32 } %33, 0
   %.not.i.i.i.not.i = icmp eq ptr %34, null
-  br i1 %.not.i.i.i.not.i, label %35, label %_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i
+  br i1 %.not.i.i.i.not.i, label %35, label %.thread
 
 35:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !3459
@@ -19062,7 +19065,7 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   %37 = zext i32 %36 to i64
   store i64 %37, ptr %8, align 8, !noalias !3459
   %38 = icmp eq i32 %36, 4
-  br i1 %38, label %41, label %.noexc44
+  br i1 %38, label %48, label %.noexc44
 
 .noexc44:                                         ; preds = %35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !3459
@@ -19076,44 +19079,31 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket9hop_limit17h30a853fb5de4c14dE(ptr 
   call void @_ZN4core9panicking13assert_failed17h4328bdaa3a812737E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.e0d190dfcd430a6cce254ddb52ad54a9.93, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.96) #34
   unreachable
 
-_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i: ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !3459
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !3459
+.thread:                                          ; preds = %.noexc
   %39 = ptrtoint ptr %34 to i64
-  %.tr.i = trunc i64 %39 to i32
-  %40 = shl i32 %.tr.i, 16
-  br label %53
-
-41:                                               ; preds = %35
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !3459
-  %42 = load i32, ptr %9, align 4, !noalias !3459
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !3459
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !3459
-  %tr.sh.diff.i = shl i32 %42, 8
-  %43 = icmp ugt i32 %42, 255
-  %spec.select.i.i = zext i1 %43 to i32
-  %44 = and i32 %tr.sh.diff.i, 65280
-  %.sroa.3.0.insert.shift.i.i = select i1 %43, i32 0, i32 %44
-  br label %53
+  %40 = trunc i64 %39 to i16
+  br label %.noexc47
 
-.noexc46:                                         ; preds = %25
+.noexc45:                                         ; preds = %25
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6), !noalias !3464
   store i32 4, ptr %6, align 4, !noalias !3464
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5), !noalias !3464
-  %45 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr nonnull inttoptr (i64 41 to ptr), ptr nonnull inttoptr (i64 16 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !srcloc !3375
-  %46 = extractvalue { ptr, i32, i32 } %45, 0
-  %.not.i.i.i.not = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.not, label %47, label %.noexc50
+  %41 = call { ptr, i32, i32 } asm sideeffect inteldialect "syscall", "={ax},={cx},={r11},{ax},{di},{si},{dx},{r10},{r8},~{memory}"(ptr nonnull inttoptr (i64 55 to ptr), ptr %30, ptr nonnull inttoptr (i64 41 to ptr), ptr nonnull inttoptr (i64 16 to ptr), ptr nonnull align 4 dereferenceable(4) %5, ptr nonnull align 4 dereferenceable(4) %6) #37, !srcloc !3375
+  %42 = extractvalue { ptr, i32, i32 } %41, 0
+  %.not.i.i.i.not = icmp eq ptr %42, null
+  br i1 %.not.i.i.i.not, label %43, label %.noexc49
 
-47:                                               ; preds = %.noexc46
+43:                                               ; preds = %.noexc45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !3464
-  %48 = load i32, ptr %6, align 4, !noalias !3464, !noundef !5
-  %49 = zext i32 %48 to i64
-  store i64 %49, ptr %4, align 8, !noalias !3464
-  %50 = icmp eq i32 %48, 4
-  br i1 %50, label %.thread, label %.noexc47
+  %44 = load i32, ptr %6, align 4, !noalias !3464, !noundef !5
+  %45 = zext i32 %44 to i64
+  store i64 %45, ptr %4, align 8, !noalias !3464
+  %46 = icmp eq i32 %44, 4
+  br i1 %46, label %.thread68, label %.noexc46
 
-.noexc47:                                         ; preds = %47
+.noexc46:                                         ; preds = %43
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !3464
   store ptr @anon.e0d190dfcd430a6cce254ddb52ad54a9.95, ptr %3, align 8, !noalias !3464
   %.sroa.47.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
@@ -19125,42 +19115,43 @@ _ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i: ; preds = %.noexc
   call void @_ZN4core9panicking13assert_failed17h4328bdaa3a812737E(i8 noundef 0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.e0d190dfcd430a6cce254ddb52ad54a9.93, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e0d190dfcd430a6cce254ddb52ad54a9.96) #34
   unreachable
 
-.thread:                                          ; preds = %47
+.thread68:                                        ; preds = %43
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !3464
-  %51 = load i32, ptr %5, align 4, !noalias !3464
+  %47 = load i32, ptr %5, align 4, !noalias !3464
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3464
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3464
-  %52 = shl i32 %51, 8
   br label %56
 
-53:                                               ; preds = %41, %_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i
-  %.sroa.31.0.i = phi i32 [ -6225920, %41 ], [ %40, %_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i ]
-  %.sroa.3.0.i = phi i32 [ %.sroa.3.0.insert.shift.i.i, %41 ], [ 0, %_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i ]
-  %.sroa.0.0.i = phi i32 [ %spec.select.i.i, %41 ], [ 1, %_ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i ]
-  %.sroa.3.0.insert.insert.i = or disjoint i32 %.sroa.3.0.i, %.sroa.31.0.i
-  %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.3.0.insert.insert.i, %.sroa.0.0.i
-  %trunc30 = trunc i32 %.sroa.0.0.insert.insert.i to i1
-  br i1 %trunc30, label %.noexc48, label %56
+48:                                               ; preds = %35
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !3459
+  %49 = load i32, ptr %9, align 4, !noalias !3459
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9), !noalias !3459
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10), !noalias !3459
+  %tr.sh.diff.i = shl i32 %49, 8
+  %50 = icmp ugt i32 %49, 255
+  %51 = and i32 %tr.sh.diff.i, 65280
+  %.sroa.01.0.insert.insert.i.i = select i1 %50, i32 -6225919, i32 %51
+  %52 = trunc i32 %.sroa.01.0.insert.insert.i.i to i1
+  %53 = lshr i32 %.sroa.01.0.insert.insert.i.i, 8
+  br i1 %52, label %.noexc47, label %56
 
-.noexc48:                                         ; preds = %53
-  %.sroa.521.0.extract.shift = lshr i32 %.sroa.3.0.insert.insert.i, 16
-  %.sroa.521.0.extract.trunc = trunc nuw i32 %.sroa.521.0.extract.shift to i16
-  %54 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.521.0.extract.trunc)
+.noexc47:                                         ; preds = %.thread, %48
+  %.sroa.31.0.i67 = phi i16 [ %40, %.thread ], [ -95, %48 ]
+  %54 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.31.0.i67)
   %55 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %54)
   br label %62
 
-56:                                               ; preds = %.thread, %53
-  %.0.in.in = phi i32 [ %.sroa.0.0.insert.insert.i, %53 ], [ %52, %.thread ]
-  %.0.in = lshr i32 %.0.in.in, 8
+56:                                               ; preds = %.thread68, %48
+  %.0.in = phi i32 [ %53, %48 ], [ %47, %.thread68 ]
   %.0 = trunc i32 %.0.in to i8
   %57 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %.0, ptr %57, align 1
   br label %61
 
-.noexc50:                                         ; preds = %.noexc46
+.noexc49:                                         ; preds = %.noexc45
+  %58 = ptrtoint ptr %42 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3464
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3464
-  %58 = ptrtoint ptr %46 to i64
   %.sroa.524.0.extract.trunc = trunc i64 %58 to i16
   %59 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.524.0.extract.trunc)
   %60 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %59)
@@ -19172,10 +19163,10 @@ _ZN6rustix3net7sockopt10get_ip_ttl17hb89327314b8f2e71E.exit.i: ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11)
   ret void
 
-62:                                               ; preds = %.noexc48, %.noexc50, %31
-  %.sink65 = phi ptr [ %55, %.noexc48 ], [ %60, %.noexc50 ], [ %32, %31 ]
+62:                                               ; preds = %.noexc47, %.noexc49, %31
+  %.sink72 = phi ptr [ %55, %.noexc47 ], [ %60, %.noexc49 ], [ %32, %31 ]
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sink65, ptr %63, align 8
+  store ptr %.sink72, ptr %63, align 8
   br label %61
 }
 
@@ -19253,7 +19244,7 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47:
   br i1 %.not.i.i.i.not, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread
 
 34:                                               ; preds = %20
-  br i1 %23, label %.thread54, label %35
+  br i1 %23, label %.thread55, label %35
 
 35:                                               ; preds = %34
   %36 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5)
@@ -19268,22 +19259,22 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47:
   %42 = ptrtoint ptr %41 to i64
   %43 = trunc i64 %42 to i16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3), !noalias !3478
-  br i1 %.not.i.i.i.i.not, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread54
+  br i1 %.not.i.i.i.i.not, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread55
 
 .thread:                                          ; preds = %24, %25
-  %.sroa.3.0.i53 = phi i16 [ %33, %25 ], [ -22, %24 ]
-  %44 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.3.0.i53)
+  %.sroa.63.054 = phi i16 [ %33, %25 ], [ -22, %24 ]
+  %44 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.054)
   %45 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %44)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
-.thread54:                                        ; preds = %34, %35
-  %.sroa.3.0.i3158 = phi i16 [ %43, %35 ], [ -22, %34 ]
-  %46 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.3.0.i3158)
+.thread55:                                        ; preds = %34, %35
+  %.sroa.66.060 = phi i16 [ %43, %35 ], [ -22, %34 ]
+  %46 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.66.060)
   %47 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %46)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
-"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %25, %35, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47, %.thread, %.thread54
-  %.1 = phi ptr [ %19, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47 ], [ %45, %.thread ], [ %47, %.thread54 ], [ null, %35 ], [ null, %25 ]
+"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %25, %35, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47, %.thread, %.thread55
+  %.1 = phi ptr [ %19, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread47 ], [ %45, %.thread ], [ %47, %.thread55 ], [ null, %35 ], [ null, %25 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   ret ptr %.1
 }
@@ -19384,9 +19375,9 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket19receive_buffer_size17h65874498138
   br label %42
 
 .noexc20:                                         ; preds = %.noexc
+  %38 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3489
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3489
-  %38 = ptrtoint ptr %25 to i64
   %.sroa.4.0.extract.trunc.i.i.i = trunc i64 %38 to i16
   %39 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.4.0.extract.trunc.i.i.i)
   %40 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %39)
@@ -19450,13 +19441,13 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29:
   %.sroa.4.0.ph = phi i32 [ %17, %16 ], [ %11, %10 ], [ %15, %12 ]
   store i32 %.sroa.4.0.ph, ptr %4, align 4
   %20 = icmp eq i64 %1, 0
-  br i1 %20, label %.thread35, label %.noexc
+  br i1 %20, label %.thread36, label %.noexc
 
 .noexc:                                           ; preds = %19
   %21 = tail call noundef i64 @_ZN4core3cmp3Ord5clamp17h93d812e144883df6E(i64 noundef %1, i64 noundef 1, i64 noundef 2147483647)
   %22 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   %23 = icmp ugt i64 %21, 2147483647
-  br i1 %23, label %.thread35, label %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i
+  br i1 %23, label %.thread36, label %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i
 
 _ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i: ; preds = %.noexc
   %.sroa.58.0.extract.trunc.i.i.i = trunc nuw i64 %21 to i32
@@ -19472,16 +19463,16 @@ _ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i: 
   %30 = icmp eq i16 %29, -105
   %.not.i.i.i.i.not = icmp eq ptr %27, null
   %or.cond = or i1 %.not.i.i.i.i.not, %30
-  br i1 %or.cond, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread35
+  br i1 %or.cond, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread36
 
-.thread35:                                        ; preds = %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, %.noexc, %19
-  %.sroa.5.0.i39 = phi i16 [ -22, %19 ], [ -22, %.noexc ], [ %29, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
-  %31 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.5.0.i39)
+.thread36:                                        ; preds = %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, %.noexc, %19
+  %.sroa.63.041 = phi i16 [ -22, %19 ], [ -22, %.noexc ], [ %29, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
+  %31 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.041)
   %32 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %31)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
-"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29, %.thread35
-  %.1 = phi ptr [ %18, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29 ], [ %32, %.thread35 ], [ null, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
+"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29, %.thread36
+  %.1 = phi ptr [ %18, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29 ], [ %32, %.thread36 ], [ null, %_ZN6rustix3net7sockopt27set_socket_recv_buffer_size17hfabbda6c87e765e9E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret ptr %.1
 }
@@ -19582,9 +19573,9 @@ define void @_ZN13wasmtime_wasi3tcp9TcpSocket16send_buffer_size17h1f259a0f55ae15
   br label %42
 
 .noexc20:                                         ; preds = %.noexc
+  %38 = ptrtoint ptr %25 to i64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5), !noalias !3514
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6), !noalias !3514
-  %38 = ptrtoint ptr %25 to i64
   %.sroa.4.0.extract.trunc.i.i.i = trunc i64 %38 to i16
   %39 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.4.0.extract.trunc.i.i.i)
   %40 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %39)
@@ -19648,13 +19639,13 @@ _ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29:
   %.sroa.4.0.ph = phi i32 [ %17, %16 ], [ %11, %10 ], [ %15, %12 ]
   store i32 %.sroa.4.0.ph, ptr %4, align 4
   %20 = icmp eq i64 %1, 0
-  br i1 %20, label %.thread35, label %.noexc
+  br i1 %20, label %.thread36, label %.noexc
 
 .noexc:                                           ; preds = %19
   %21 = tail call noundef i64 @_ZN4core3cmp3Ord5clamp17h93d812e144883df6E(i64 noundef %1, i64 noundef 1, i64 noundef 2147483647)
   %22 = call noundef range(i32 0, -1) i32 @"_ZN77_$LT$std..sys..pal..unix..net..Socket$u20$as$u20$std..os..fd..owned..AsFd$GT$5as_fd17hdcdac1773c251759E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4)
   %23 = icmp ugt i64 %21, 2147483647
-  br i1 %23, label %.thread35, label %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i
+  br i1 %23, label %.thread36, label %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i
 
 _ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i: ; preds = %.noexc
   %.sroa.58.0.extract.trunc.i.i.i = trunc nuw i64 %21 to i32
@@ -19670,16 +19661,16 @@ _ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i: 
   %30 = icmp eq i16 %29, -105
   %.not.i.i.i.i.not = icmp eq ptr %27, null
   %or.cond = or i1 %.not.i.i.i.i.not, %30
-  br i1 %or.cond, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread35
+  br i1 %or.cond, label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit", label %.thread36
 
-.thread35:                                        ; preds = %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, %.noexc, %19
-  %.sroa.5.0.i39 = phi i16 [ -22, %19 ], [ -22, %.noexc ], [ %29, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
-  %31 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.5.0.i39)
+.thread36:                                        ; preds = %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, %.noexc, %19
+  %.sroa.63.041 = phi i16 [ -22, %19 ], [ -22, %.noexc ], [ %29, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
+  %31 = call noundef i8 @"_ZN13wasmtime_wasi4host7network159_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$4from17hf4b34ad6c53ffc1cE"(i16 noundef %.sroa.63.041)
   %32 = call noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17hebeb8afbd5050ce3E"(i8 noundef %31)
   br label %"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit"
 
-"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29, %.thread35
-  %.1 = phi ptr [ %18, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29 ], [ %32, %.thread35 ], [ null, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
+"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17hcd75bcfe307e1be8E.exit": ; preds = %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29, %.thread36
+  %.1 = phi ptr [ %18, %_ZN13wasmtime_wasi3tcp9TcpSocket11as_std_view17he3618059f31bdf8bE.exit.thread29 ], [ %32, %.thread36 ], [ null, %_ZN6rustix3net7sockopt27set_socket_send_buffer_size17h7d3f0e3520f30892E.exit.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   ret ptr %.1
 }

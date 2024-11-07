@@ -298,8 +298,8 @@ _ZN4core5slice6memchr12memchr_naive17h481c51c45c886aadE.exit.us.i: ; preds = %30
   store i64 %38, ptr %8, align 8, !alias.scope !29, !noalias !32
   %.not.us.i = icmp ult i64 %38, %17
   %39 = icmp ugt i64 %38, %.val5
-  %or.cond100.i = or i1 %.not.us.i, %39
-  br i1 %or.cond100.i, label %40, label %.split60.us.i
+  %or.cond95.i = or i1 %.not.us.i, %39
+  br i1 %or.cond95.i, label %40, label %.split60.us.i
 
 40:                                               ; preds = %36
   %41 = icmp ugt i64 %38, %10

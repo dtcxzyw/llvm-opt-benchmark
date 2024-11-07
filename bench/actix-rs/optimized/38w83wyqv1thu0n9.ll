@@ -7136,6 +7136,7 @@ common.ret:                                       ; preds = %46, %38
   br label %46
 
 46:                                               ; preds = %51, %43
+  %.sroa.4.0 = phi ptr [ undef, %51 ], [ %30, %43 ]
   %.sroa.0.0 = phi i64 [ 2, %51 ], [ %.sroa.011.0.copyload, %43 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -7143,7 +7144,7 @@ common.ret:                                       ; preds = %46, %38
   %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %28, ptr %.sroa.310.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr %30, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   br label %common.ret
 
 47:                                               ; preds = %41
@@ -8427,8 +8428,8 @@ define void @_ZN9actix_web4rmap11ResourceMap13match_pattern17h20487f79678cda64E(
 define hidden { i64, ptr } @_ZN9actix_web4rmap11ResourceMap19_find_matching_node17h4ba6c5561c1cc5fbE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call { i64, i64 } @_ZN12actix_router8resource11ResourceDef10find_match17h10362aa561f958ffE(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = extractvalue { i64, i64 } %4, 0
-  %6 = extractvalue { i64, i64 } %4, 1
   %switch = icmp eq i64 %5, 0
+  %6 = extractvalue { i64, i64 } %4, 1
   br i1 %switch, label %.loopexit, label %7
 
 7:                                                ; preds = %3
@@ -8630,6 +8631,7 @@ common.ret:                                       ; preds = %46, %38
   br label %46
 
 46:                                               ; preds = %51, %43
+  %.sroa.4.0 = phi ptr [ undef, %51 ], [ %30, %43 ]
   %.sroa.0.0 = phi i64 [ 2, %51 ], [ %.sroa.011.0.copyload, %43 ]
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -8637,7 +8639,7 @@ common.ret:                                       ; preds = %46, %38
   %.sroa.310.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %28, ptr %.sroa.310.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 184
-  store ptr %30, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
   br label %common.ret
 
 47:                                               ; preds = %41

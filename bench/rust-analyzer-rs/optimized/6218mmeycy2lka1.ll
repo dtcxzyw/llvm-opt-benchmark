@@ -19763,8 +19763,8 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8f
   %3 = alloca ptr, align 8
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !7880
   store ptr null, ptr %0, align 8, !alias.scope !7880
-  %.not20 = icmp eq ptr %.promoted, null
-  br i1 %.not20, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..VariantList$GT$$GT$17h8c67810a91c73f20E.exit", label %.lr.ph.split.us
+  %.not21 = icmp eq ptr %.promoted, null
+  br i1 %.not21, label %"_ZN4core3ptr91drop_in_place$LT$core..option..Option$LT$syntax..ast..generated..nodes..VariantList$GT$$GT$17h8c67810a91c73f20E.exit", label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %2
   %.val3 = load ptr, ptr %1, align 8
@@ -19821,8 +19821,8 @@ define hidden { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8f
   call void @llvm.experimental.noalias.scope.decl(metadata !7909)
   call void @llvm.experimental.noalias.scope.decl(metadata !7912)
   %24 = call noundef ptr @_ZN4core4iter6traits8iterator8Iterator8try_fold17h93d893ab9e03b66aE.llvm.6887668541773461223(ptr noalias noundef nonnull align 8 dereferenceable(8) %7), !noalias !7915
-  %.not5.i.i.i.i.us = icmp eq ptr %24, null
-  br i1 %.not5.i.i.i.i.us, label %.loopexit.us, label %.lr.ph.i.i.i.i.us
+  %.not6.i.i.i.i.us = icmp eq ptr %24, null
+  br i1 %.not6.i.i.i.i.us, label %.loopexit.us, label %.lr.ph.i.i.i.i.us
 
 .lr.ph.i.i.i.i.us:                                ; preds = %"_ZN4core6option15Option$LT$T$GT$6insert17h6dc8da4708682292E.exit.i.i.us", %29
   %25 = phi ptr [ %31, %29 ], [ %24, %"_ZN4core6option15Option$LT$T$GT$6insert17h6dc8da4708682292E.exit.i.i.us" ]

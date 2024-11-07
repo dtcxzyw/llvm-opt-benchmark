@@ -1317,8 +1317,8 @@ do.cond.i:                                        ; preds = %do.body.i
 do.body.i31:                                      ; preds = %do.cond.i, %do.cond.i35
   %str.addr.0.i32 = phi ptr [ %incdec.ptr.i36, %do.cond.i35 ], [ %var, %do.cond.i ]
   %prefix.addr.0.i33.idx = phi i64 [ %prefix.addr.0.i33.add, %do.cond.i35 ], [ 0, %do.cond.i ]
-  %exitcond62 = icmp eq i64 %prefix.addr.0.i33.idx, 11
-  br i1 %exitcond62, label %if.then7, label %do.cond.i35
+  %exitcond63 = icmp eq i64 %prefix.addr.0.i33.idx, 11
+  br i1 %exitcond63, label %if.then7, label %do.cond.i35
 
 do.cond.i35:                                      ; preds = %do.body.i31
   %prefix.addr.0.i33.ptr = getelementptr inbounds i8, ptr @.str.32, i64 %prefix.addr.0.i33.idx
@@ -1340,7 +1340,7 @@ parse_diff_color_slot.exit:                       ; preds = %if.then7
   br i1 %cmp9, label %return, label %if.end11
 
 if.end11:                                         ; preds = %if.then7, %parse_diff_color_slot.exit
-  %retval.0.i54 = phi i32 [ %call1.i, %parse_diff_color_slot.exit ], [ 1, %if.then7 ]
+  %retval.0.i55 = phi i32 [ %call1.i, %parse_diff_color_slot.exit ], [ 1, %if.then7 ]
   %tobool12.not = icmp eq ptr %value, null
   br i1 %tobool12.not, label %if.then13, label %if.end16
 
@@ -1349,7 +1349,7 @@ if.then13:                                        ; preds = %if.end11
   br label %return
 
 if.end16:                                         ; preds = %if.end11
-  %idxprom = zext nneg i32 %retval.0.i54 to i64
+  %idxprom = zext nneg i32 %retval.0.i55 to i64
   %arrayidx = getelementptr inbounds [23 x [75 x i8]], ptr @diff_colors, i64 0, i64 %idxprom
   %call17 = tail call i32 @color_parse(ptr noundef nonnull %value, ptr noundef nonnull %arrayidx) #31
   br label %return
@@ -18067,11 +18067,11 @@ land.lhs.true12.i:                                ; preds = %land.lhs.true.i
   %tobool14.not.i = icmp ne i16 %94, 0
   %95 = and i16 %94, -4096
   %cmp19.i = icmp ne i16 %95, -8192
-  %or.cond179.not409.i = and i1 %tobool14.not.i, %cmp19.i
+  %or.cond179.not411.i = and i1 %tobool14.not.i, %cmp19.i
   %96 = or i16 %94, %92
-  %or.cond398.demorgan.not.i = icmp eq i16 %96, 0
-  %or.cond401.i = or i1 %or.cond398.demorgan.not.i, %or.cond179.not409.i
-  br i1 %or.cond401.i, label %if.end71.i, label %if.then24.i
+  %or.cond400.demorgan.not.i = icmp eq i16 %96, 0
+  %or.cond403.i = or i1 %or.cond400.demorgan.not.i, %or.cond179.not411.i
+  br i1 %or.cond403.i, label %if.end71.i, label %if.then24.i
 
 if.then24.i:                                      ; preds = %land.lhs.true12.i
   %path.i = getelementptr inbounds i8, ptr %one, i64 40
@@ -18109,11 +18109,11 @@ land.lhs.true42.i:                                ; preds = %land.lhs.true33.i
   %tobool44.not.i = icmp ne i16 %101, 0
   %102 = and i16 %101, -4096
   %cmp49.i = icmp ne i16 %102, -8192
-  %or.cond181.not408.i = and i1 %tobool44.not.i, %cmp49.i
+  %or.cond181.not410.i = and i1 %tobool44.not.i, %cmp49.i
   %103 = or i16 %101, %99
-  %or.cond399.demorgan.not.i = icmp eq i16 %103, 0
-  %or.cond402.i = or i1 %or.cond399.demorgan.not.i, %or.cond181.not408.i
-  br i1 %or.cond402.i, label %if.end71.i, label %if.then54.i
+  %or.cond401.demorgan.not.i = icmp eq i16 %103, 0
+  %or.cond404.i = or i1 %or.cond401.demorgan.not.i, %or.cond181.not410.i
+  br i1 %or.cond404.i, label %if.end71.i, label %if.then54.i
 
 if.then54.i:                                      ; preds = %land.lhs.true42.i
   %path55.i = getelementptr inbounds i8, ptr %one, i64 40
@@ -18249,8 +18249,8 @@ if.end78.i:                                       ; preds = %diff_filespec_load_
   %cond120.i = select i1 %cmp115.not.i, ptr %call104.i, ptr @.str.249
   %arrayidx121.i = getelementptr inbounds i8, ptr %lbl.i, i64 8
   store ptr %cond120.i, ptr %arrayidx121.i, align 8
-  %or.cond400.i = select i1 %cmp107.not.i, i1 true, i1 %cmp115.not.i
-  br i1 %or.cond400.i, label %if.end127.i, label %if.then124.i
+  %or.cond402.i = select i1 %cmp107.not.i, i1 true, i1 %cmp115.not.i
+  br i1 %or.cond402.i, label %if.end127.i, label %if.then124.i
 
 if.then124.i:                                     ; preds = %if.end78.i
   store ptr %call98.i, ptr %lbl.i, align 16
@@ -18828,10 +18828,10 @@ land.lhs.true224.i:                               ; preds = %if.then222.i
   %data225.i = getelementptr inbounds i8, ptr %two, i64 48
   %199 = load ptr, ptr %data225.i, align 8
   %tobool226.not.i = icmp eq ptr %199, null
-  %.pr.pre417.i = load i16, ptr %mode79.i, align 8
-  %cmp231.i = icmp slt i16 %.pr.pre417.i, -28672
-  %or.cond425.i = select i1 %tobool226.not.i, i1 %cmp231.i, i1 false
-  br i1 %or.cond425.i, label %land.lhs.true233.i, label %if.end264.i
+  %.pr.pre419.i = load i16, ptr %mode79.i, align 8
+  %cmp231.i = icmp slt i16 %.pr.pre419.i, -28672
+  %or.cond427.i = select i1 %tobool226.not.i, i1 %cmp231.i, i1 false
+  br i1 %or.cond427.i, label %land.lhs.true233.i, label %if.end264.i
 
 land.lhs.true233.i:                               ; preds = %land.lhs.true224.i
   %200 = load i16, ptr %mode87.i, align 8
@@ -18846,10 +18846,10 @@ land.lhs.true239.i:                               ; preds = %land.lhs.true233.i
   %binary.i106 = getelementptr inbounds i8, ptr %o, i64 112
   %201 = load i32, ptr %binary.i106, align 8
   %tobool241.not.i = icmp eq i32 %201, 0
-  br i1 %tobool241.not.i, label %if.then242.i, label %if.end264.thread419.i
+  br i1 %tobool241.not.i, label %if.then242.i, label %if.end264.thread421.i
 
-if.end264.thread419.i:                            ; preds = %land.lhs.true239.i
-  %repo265420.i = getelementptr inbounds i8, ptr %o, i64 576
+if.end264.thread421.i:                            ; preds = %land.lhs.true239.i
+  %repo265422.i = getelementptr inbounds i8, ptr %o, i64 576
   br label %if.else.i253.i
 
 if.then242.i:                                     ; preds = %land.lhs.true239.i
@@ -18904,7 +18904,7 @@ diff_line_prefix.exit250.i:                       ; preds = %if.end.i245.i, %if.
   br label %free_ab_and_return.i
 
 if.end264.i:                                      ; preds = %land.lhs.true224.i, %if.then222.if.end264thread-pre-split_crit_edge.i
-  %213 = phi i16 [ %.pr.pre.i, %if.then222.if.end264thread-pre-split_crit_edge.i ], [ %.pr.pre417.i, %land.lhs.true224.i ]
+  %213 = phi i16 [ %.pr.pre.i, %if.then222.if.end264thread-pre-split_crit_edge.i ], [ %.pr.pre419.i, %land.lhs.true224.i ]
   %repo265.i = getelementptr inbounds i8, ptr %o, i64 576
   %cmp.not.i252.i = icmp eq i16 %213, 0
   br i1 %cmp.not.i252.i, label %if.then.i258.i, label %if.else.i253.i
@@ -18913,8 +18913,8 @@ if.then.i258.i:                                   ; preds = %if.end264.i
   store ptr @.str.38, ptr %mf1.i, align 8
   br label %lor.lhs.false269.i
 
-if.else.i253.i:                                   ; preds = %if.end264.i, %if.end264.thread419.i, %if.end264.thread.i
-  %repo265390.i = phi ptr [ %repo265386.i, %if.end264.thread.i ], [ %repo265.i, %if.end264.i ], [ %repo265420.i, %if.end264.thread419.i ]
+if.else.i253.i:                                   ; preds = %if.end264.i, %if.end264.thread421.i, %if.end264.thread.i
+  %repo265390.i = phi ptr [ %repo265386.i, %if.end264.thread.i ], [ %repo265.i, %if.end264.i ], [ %repo265422.i, %if.end264.thread421.i ]
   %214 = load ptr, ptr %repo265390.i, align 8
   %call.i254.i = call i32 @diff_populate_filespec(ptr noundef %214, ptr noundef nonnull %one, ptr noundef null)
   %tobool.not.i255.i = icmp eq i32 %call.i254.i, 0
@@ -19267,14 +19267,14 @@ do.cond.i.i:                                      ; preds = %do.body.i.i
   br i1 %cmp.i318.i, label %do.body.i.i, label %do.body.i320.preheader.i, !llvm.loop !7
 
 do.body.i320.preheader.i:                         ; preds = %do.cond.i.i
-  %scevgep415.i = getelementptr i8, ptr %call368.i, i64 2
+  %scevgep417.i = getelementptr i8, ptr %call368.i, i64 2
   br label %do.body.i320.i
 
 do.body.i320.i:                                   ; preds = %do.cond.i324.i, %do.body.i320.preheader.i
   %str.addr.0.i321.i = phi ptr [ %incdec.ptr.i325.i, %do.cond.i324.i ], [ %call368.i, %do.body.i320.preheader.i ]
   %prefix.addr.0.i322.idx.i = phi i64 [ %prefix.addr.0.i322.add.i, %do.cond.i324.i ], [ 0, %do.body.i320.preheader.i ]
-  %exitcond416.i = icmp eq i64 %prefix.addr.0.i322.idx.i, 2
-  br i1 %exitcond416.i, label %if.end383.sink.split.i, label %do.cond.i324.i
+  %exitcond418.i = icmp eq i64 %prefix.addr.0.i322.idx.i, 2
+  br i1 %exitcond418.i, label %if.end383.sink.split.i, label %do.cond.i324.i
 
 do.cond.i324.i:                                   ; preds = %do.body.i320.i
   %prefix.addr.0.i322.ptr.i = getelementptr inbounds i8, ptr @.str.434, i64 %prefix.addr.0.i322.idx.i
@@ -19286,7 +19286,7 @@ do.cond.i324.i:                                   ; preds = %do.body.i320.i
   br i1 %cmp.i327.i, label %do.body.i320.i, label %if.end383.i, !llvm.loop !7
 
 if.end383.sink.split.i:                           ; preds = %do.body.i.i, %do.body.i320.i
-  %scevgep.sink.i = phi ptr [ %scevgep415.i, %do.body.i320.i ], [ %scevgep.i, %do.body.i.i ]
+  %scevgep.sink.i = phi ptr [ %scevgep417.i, %do.body.i320.i ], [ %scevgep.i, %do.body.i.i ]
   %call374.i = call i64 @strtoul(ptr nocapture noundef nonnull %scevgep.sink.i, ptr noundef null, i32 noundef 10) #31
   store i64 %call374.i, ptr %xecfg.i, align 8
   br label %if.end383.i

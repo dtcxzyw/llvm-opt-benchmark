@@ -13363,9 +13363,9 @@ default.unreachable239:                           ; preds = %136, %62, %2
 "_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbda1164e99140a7cE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3838115190227029238.exit.i.i.i.i", %105
   %122 = load i64, ptr %32, align 8, !range !72, !noalias !2372, !noundef !4
   %.not.i = icmp eq i64 %122, -9223372036854775808
-  br i1 %.not.i, label %123, label %.thread198
+  br i1 %.not.i, label %123, label %.thread196
 
-.thread198:                                       ; preds = %"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbda1164e99140a7cE.exit.i"
+.thread196:                                       ; preds = %"_ZN4core3ptr218drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$alloc..string..String$C$anyhow..Error$GT$$u2b$core..marker..Send$GT$$GT$$GT$17hbda1164e99140a7cE.exit.i"
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 8
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !2372
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %32, i64 16
@@ -13639,16 +13639,16 @@ common.ret:                                       ; preds = %"_ZN4core3ptr138dro
   %211 = icmp eq i64 %154, -9223372036854775808
   br i1 %211, label %262, label %212
 
-212:                                              ; preds = %.thread198, %210
-  %.sroa.4.1.i196.ph = phi ptr [ %161, %210 ], [ %.sroa.4.0.copyload.i, %.thread198 ]
-  %.sroa.5.1.i194.ph = phi i64 [ %.val32.i, %210 ], [ %.sroa.5.0.copyload.i, %.thread198 ]
-  %.sroa.0.0.ph = phi i64 [ %154, %210 ], [ %122, %.thread198 ]
+212:                                              ; preds = %.thread196, %210
+  %.sroa.4.1.i194.ph = phi ptr [ %161, %210 ], [ %.sroa.4.0.copyload.i, %.thread196 ]
+  %.sroa.12.0.ph = phi i64 [ %.val32.i, %210 ], [ %.sroa.5.0.copyload.i, %.thread196 ]
+  %.sroa.0.0.ph = phi i64 [ %154, %210 ], [ %122, %.thread196 ]
   %213 = getelementptr inbounds i8, ptr %0, i64 131
   store i64 %.sroa.0.0.ph, ptr %42, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %.sroa.4.1.i196.ph, ptr %.sroa.4.0..sroa_idx, align 8
+  store ptr %.sroa.4.1.i194.ph, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %42, i64 16
-  store i64 %.sroa.5.1.i194.ph, ptr %.sroa.5.0..sroa_idx, align 8
+  store i64 %.sroa.12.0.ph, ptr %.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
   %214 = getelementptr inbounds i8, ptr %0, i64 48
@@ -13760,12 +13760,12 @@ common.ret:                                       ; preds = %"_ZN4core3ptr138dro
   br i1 %261, label %613, label %272
 
 262:                                              ; preds = %210, %.thread190
-  %.sroa.4.1.i197 = phi ptr [ %130, %.thread190 ], [ %161, %210 ]
+  %.sroa.4.1.i195 = phi ptr [ %130, %.thread190 ], [ %161, %210 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %41)
   br label %263
 
 263:                                              ; preds = %262, %255
-  %.sroa.020.1 = phi ptr [ %.sroa.020.0, %255 ], [ %.sroa.4.1.i197, %262 ]
+  %.sroa.020.1 = phi ptr [ %.sroa.020.0, %255 ], [ %.sroa.4.1.i195, %262 ]
   %264 = getelementptr inbounds i8, ptr %0, i64 131
   store i8 0, ptr %264, align 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
@@ -15461,7 +15461,7 @@ define hidden void @_ZN14theme_selector21ThemeSelectorDelegate3new17he398f7fc4e4
   unreachable
 
 .lr.ph.i.i19:                                     ; preds = %69, %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i"
-  %.sroa.02.014.i.i = phi i64 [ %84, %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i" ], [ 0, %69 ]
+  %.sroa.02.013.i.i = phi i64 [ %84, %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i" ], [ 0, %69 ]
   %79 = phi ptr [ %80, %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i" ], [ %.sroa.5.24.copyload, %69 ]
   %80 = getelementptr inbounds i8, ptr %79, i64 64
   %81 = getelementptr i8, ptr %79, i64 40
@@ -15477,17 +15477,17 @@ define hidden void @_ZN14theme_selector21ThemeSelectorDelegate3new17he398f7fc4e4
   br i1 %83, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d7d548eed4969fE.exit.i", label %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i"
 
 "_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i": ; preds = %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.i.i", %.lr.ph.i.i19
-  %84 = add nuw nsw i64 %.sroa.02.014.i.i, 1
+  %84 = add nuw nsw i64 %.sroa.02.013.i.i, 1
   %85 = icmp eq ptr %80, %76
   br i1 %85, label %.loopexit, label %.lr.ph.i.i19
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d7d548eed4969fE.exit.i": ; preds = %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.i.i"
-  %86 = icmp ult i64 %.sroa.02.014.i.i, %.sroa.6.24.copyload
+  %86 = icmp ult i64 %.sroa.02.013.i.i, %.sroa.6.24.copyload
   call void @llvm.assume(i1 %86)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d7d548eed4969fE.exit.i", %69
-  %87 = phi i64 [ %.sroa.02.014.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d7d548eed4969fE.exit.i" ], [ 0, %69 ], [ 0, %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i" ]
+  %87 = phi i64 [ %.sroa.02.013.i.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h46d7d548eed4969fE.exit.i" ], [ 0, %69 ], [ 0, %"_ZN14theme_selector21ThemeSelectorDelegate18select_if_matching28_$u7b$$u7b$closure$u7d$$u7d$17h78ce4f340f36924fE.exit.thread.i.i" ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0, i64 24, i1 false)
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %71, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

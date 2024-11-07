@@ -2589,11 +2589,11 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList9first_fi
   br label %14
 
 14:                                               ; preds = %3, %9
-  %.sink34 = phi i64 [ 1, %9 ], [ 0, %3 ]
+  %.sink35 = phi i64 [ 1, %9 ], [ 0, %3 ]
   %.sink = phi i64 [ %13, %9 ], [ 0, %3 ]
-  store i64 %.sink34, ptr %5, align 8
+  store i64 %.sink35, ptr %5, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 32
-  store i64 %.sink34, ptr %15, align 8
+  store i64 %.sink35, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 64
   store i64 %.sink, ptr %16, align 8
   br label %17
@@ -2633,8 +2633,8 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h55c4cf39da64dd0eE.exit: ; pred
   br label %29
 
 29:                                               ; preds = %28, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h55c4cf39da64dd0eE.exit
-  %.sink35 = phi i32 [ 0, %28 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h55c4cf39da64dd0eE.exit ]
-  store i32 %.sink35, ptr %0, align 4
+  %.sink36 = phi i32 [ 0, %28 ], [ 1, %_ZN4core4iter6traits8iterator8Iterator8try_fold17h55c4cf39da64dd0eE.exit ]
+  store i32 %.sink36, ptr %0, align 4
   ret void
 }
 
@@ -2729,11 +2729,11 @@ define hidden void @_ZN16wasmtime_runtime2gc7enabled9free_list8FreeList5alloc17h
   br label %24
 
 24:                                               ; preds = %16, %19
-  %.sink34.i = phi i64 [ 1, %19 ], [ 0, %16 ]
+  %.sink35.i = phi i64 [ 1, %19 ], [ 0, %16 ]
   %.sink.i = phi i64 [ %23, %19 ], [ 0, %16 ]
-  store i64 %.sink34.i, ptr %8, align 8, !noalias !388
+  store i64 %.sink35.i, ptr %8, align 8, !noalias !388
   %25 = getelementptr inbounds i8, ptr %8, i64 32
-  store i64 %.sink34.i, ptr %25, align 8, !noalias !388
+  store i64 %.sink35.i, ptr %25, align 8, !noalias !388
   %26 = getelementptr inbounds i8, ptr %8, i64 64
   store i64 %.sink.i, ptr %26, align 8, !noalias !388
   br label %27

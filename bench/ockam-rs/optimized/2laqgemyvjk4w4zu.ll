@@ -4462,8 +4462,8 @@ define hidden void @"_ZN10ockam_core7routing7message13opentelemetry20OpenTelemet
   %28 = load ptr, ptr %27, align 8, !invariant.load !10, !alias.scope !892, !nonnull !10
   %29 = tail call { i64, ptr } %28(ptr noundef nonnull align 1 %.sroa.0.0, i128 noundef 377731369611698580506231877142650986), !noalias !892
   %.fca.0.extract.i = extractvalue { i64, ptr } %29, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %29, 1
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, ptr } %29, 1
   %.not49 = icmp eq ptr %.fca.1.extract.i, null
   %.not = select i1 %switch.i, i1 true, i1 %.not49
   br i1 %.not, label %33, label %30
@@ -4814,8 +4814,8 @@ define hidden void @"_ZN10ockam_core7routing7message13opentelemetry20OpenTelemet
   %30 = load ptr, ptr %29, align 8, !invariant.load !10, !alias.scope !946, !nonnull !10
   %31 = tail call { i64, ptr } %30(ptr noundef nonnull align 1 %.sroa.0.0, i128 noundef 377731369611698580506231877142650986), !noalias !946
   %.fca.0.extract.i = extractvalue { i64, ptr } %31, 0
-  %.fca.1.extract.i = extractvalue { i64, ptr } %31, 1
   %switch.i = icmp eq i64 %.fca.0.extract.i, 0
+  %.fca.1.extract.i = extractvalue { i64, ptr } %31, 1
   %.not70 = icmp eq ptr %.fca.1.extract.i, null
   %.not = select i1 %switch.i, i1 true, i1 %.not70
   br i1 %.not, label %35, label %32

@@ -4630,6 +4630,7 @@ split.i.i:                                        ; preds = %889, %885
 
 .loopexit.i419:                                   ; preds = %827, %1021
   %.sroa.19.0.i = phi i64 [ %1022, %1021 ], [ undef, %827 ]
+  %.sroa.16.0.i = phi ptr [ %101, %1021 ], [ undef, %827 ]
   %.sroa.5.1.i = phi i8 [ 1, %1021 ], [ 3, %827 ]
   %.sroa.042.0.i = phi i64 [ %1006, %1021 ], [ undef, %827 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !372)
@@ -4704,7 +4705,7 @@ split.i.i:                                        ; preds = %889, %885
 
 "_ZN14pulldown_cmark5parse15Parser$LT$F$GT$15scan_link_title17h959639b38363d3d9E.exit.i": ; preds = %.noexc.i422, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i.i1.i.i143.i.i", %.loopexit.i419
   %.sroa.19.1.i = phi i64 [ %.sroa.19.0.i, %.loopexit.i419 ], [ %.sroa.19.0.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i.i1.i.i143.i.i" ], [ %.sroa.8.8.copyload.i.i, %.noexc.i422 ]
-  %.sroa.16.1.i = phi ptr [ %101, %.loopexit.i419 ], [ %101, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i.i1.i.i143.i.i" ], [ %.sroa.7.8.copyload.i.i, %.noexc.i422 ]
+  %.sroa.16.1.i = phi ptr [ %.sroa.16.0.i, %.loopexit.i419 ], [ %.sroa.16.0.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i.i1.i.i143.i.i" ], [ %.sroa.7.8.copyload.i.i, %.noexc.i422 ]
   %.sroa.5.2.i = phi i8 [ %.sroa.5.1.i, %.loopexit.i419 ], [ %.sroa.5.1.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i.i1.i.i143.i.i" ], [ %.sroa.411.8.copyload.i.i, %.noexc.i422 ]
   %.sroa.042.1.i = phi i64 [ %.sroa.042.0.i, %.loopexit.i419 ], [ %.sroa.042.0.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.15385039395483765890.exit.i.i1.i.i143.i.i" ], [ %1039, %.noexc.i422 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13), !noalias !304

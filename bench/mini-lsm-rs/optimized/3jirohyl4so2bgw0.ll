@@ -2580,13 +2580,13 @@ define hidden void @"_ZN17crossbeam_channel7channel15Sender$LT$T$GT$8try_send17h
   %8 = load i64, ptr %1, align 8, !range !244, !noundef !5
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !noundef !5
-  switch i64 %8, label %default.unreachable2 [
+  switch i64 %8, label %default.unreachable3 [
     i64 0, label %11
     i64 1, label %12
     i64 2, label %40
   ]
 
-default.unreachable2:                             ; preds = %3
+default.unreachable3:                             ; preds = %3
   unreachable
 
 11:                                               ; preds = %3

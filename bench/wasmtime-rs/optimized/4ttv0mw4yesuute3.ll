@@ -148,9 +148,11 @@ define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h147c40e271dfbfe1E"(i64 %0, i64 %1) unnamed_addr #2 {
-  %3 = insertvalue { i64, i64 } poison, i64 %0, 0
-  %4 = insertvalue { i64, i64 } %3, i64 %1, 1
-  ret { i64, i64 } %4
+  %3 = icmp eq i64 %0, 2
+  %.5 = select i1 %3, i64 undef, i64 %1
+  %4 = insertvalue { i64, i64 } poison, i64 %0, 0
+  %5 = insertvalue { i64, i64 } %4, i64 %.5, 1
+  ret { i64, i64 } %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -193,8 +195,9 @@ define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as
 define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h9d92c13d349d4d95E"(i64 %0, i64 %1) unnamed_addr #2 {
   %3 = icmp ne i64 %0, 0
   %. = zext i1 %3 to i64
+  %.2 = select i1 %3, i64 %1, i64 undef
   %4 = insertvalue { i64, i64 } poison, i64 %., 0
-  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %5 = insertvalue { i64, i64 } %4, i64 %.2, 1
   ret { i64, i64 } %5
 }
 
@@ -225,8 +228,9 @@ define zeroext i1 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
 define { i64, i64 } @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hcc5cf1593977d161E"(i64 %0, i64 %1) unnamed_addr #2 {
   %3 = icmp ne i64 %0, 0
   %. = zext i1 %3 to i64
+  %.2 = select i1 %3, i64 %1, i64 undef
   %4 = insertvalue { i64, i64 } poison, i64 %., 0
-  %5 = insertvalue { i64, i64 } %4, i64 %1, 1
+  %5 = insertvalue { i64, i64 } %4, i64 %.2, 1
   ret { i64, i64 } %5
 }
 

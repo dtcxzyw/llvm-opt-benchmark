@@ -34569,52 +34569,52 @@ declare noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVecto
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc { i64, i8 } @_ZL13parseOptLevelN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) unnamed_addr #7 {
-  %3 = load i64, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %.not.i.i = icmp eq i64 %1, 2
-  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154
+  br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %2
+  %3 = load i64, ptr @_ZN4llvm17OptimizationLevel2O0E, align 4
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.646, i64 2)
   %4 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %4, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154, label %_ZN4llvmeqENS_9StringRefES0_.exit.i36
+  br i1 %4, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156, label %_ZN4llvmeqENS_9StringRefES0_.exit.i36
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i36:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
   %5 = load i64, ptr @_ZN4llvm17OptimizationLevel2O1E, align 4
   %bcmp.i.i37 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.647, i64 2)
   %6 = icmp eq i32 %bcmp.i.i37, 0
-  br i1 %6, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154, label %_ZN4llvmeqENS_9StringRefES0_.exit.i45
+  br i1 %6, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156, label %_ZN4llvmeqENS_9StringRefES0_.exit.i45
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i45:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i36
   %7 = load i64, ptr @_ZN4llvm17OptimizationLevel2O2E, align 4
   %bcmp.i.i46 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.648, i64 2)
   %8 = icmp eq i32 %bcmp.i.i46, 0
-  br i1 %8, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154, label %_ZN4llvmeqENS_9StringRefES0_.exit.i54
+  br i1 %8, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156, label %_ZN4llvmeqENS_9StringRefES0_.exit.i54
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i54:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i45
   %9 = load i64, ptr @_ZN4llvm17OptimizationLevel2O3E, align 4
   %bcmp.i.i55 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.649, i64 2)
   %10 = icmp eq i32 %bcmp.i.i55, 0
-  br i1 %10, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154, label %_ZN4llvmeqENS_9StringRefES0_.exit.i63
+  br i1 %10, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156, label %_ZN4llvmeqENS_9StringRefES0_.exit.i63
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i63:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i54
   %11 = load i64, ptr @_ZN4llvm17OptimizationLevel2OsE, align 4
   %bcmp.i.i64 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.650, i64 2)
   %12 = icmp eq i32 %bcmp.i.i64, 0
-  br i1 %12, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76
+  br i1 %12, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156, label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76
 
 _ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i63
   %13 = load i64, ptr @_ZN4llvm17OptimizationLevel2OzE, align 4
   %bcmp.i.i73 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.651, i64 2)
   %14 = icmp eq i32 %bcmp.i.i73, 0
-  %spec.select = select i1 %14, i64 %13, i64 %3
+  %spec.select = select i1 %14, i64 %13, i64 undef
   %15 = zext i1 %14 to i8
-  br label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154
+  br label %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156
 
-_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread154: ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i63, %_ZN4llvmeqENS_9StringRefES0_.exit.i54, %_ZN4llvmeqENS_9StringRefES0_.exit.i45, %_ZN4llvmeqENS_9StringRefES0_.exit.i36, %2
-  %.sroa.28.5152 = phi i8 [ %15, %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76 ], [ 0, %2 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i36 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i45 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i54 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i63 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76.thread156: ; preds = %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i63, %_ZN4llvmeqENS_9StringRefES0_.exit.i54, %_ZN4llvmeqENS_9StringRefES0_.exit.i45, %_ZN4llvmeqENS_9StringRefES0_.exit.i36, %2
+  %.sroa.28.5154 = phi i8 [ %15, %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76 ], [ 0, %2 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i36 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i45 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i54 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i63 ], [ 1, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %16 = phi i64 [ %spec.select, %_ZN4llvm12StringSwitchISt8optionalINS_17OptimizationLevelEES3_E4CaseENS_13StringLiteralES3_.exit76 ], [ undef, %2 ], [ %5, %_ZN4llvmeqENS_9StringRefES0_.exit.i36 ], [ %7, %_ZN4llvmeqENS_9StringRefES0_.exit.i45 ], [ %9, %_ZN4llvmeqENS_9StringRefES0_.exit.i54 ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.i63 ], [ %3, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %.fca.0.insert.i = insertvalue { i64, i8 } poison, i64 %16, 0
-  %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %.sroa.28.5152, 1
+  %.fca.1.insert.i = insertvalue { i64, i8 } %.fca.0.insert.i, i8 %.sroa.28.5154, 1
   ret { i64, i8 } %.fca.1.insert.i
 }
 

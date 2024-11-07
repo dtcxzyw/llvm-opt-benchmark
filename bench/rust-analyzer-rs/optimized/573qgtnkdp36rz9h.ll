@@ -1174,15 +1174,15 @@ _ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit: ; preds = %2
   %20 = getelementptr inbounds [0 x i8], ptr %.val9, i64 0, i64 %17
   %21 = load i8, ptr %20, align 1, !range !304, !noalias !301, !noundef !20
   %switch.i.i = icmp samesign ult i8 %21, 2
-  %spec.select.i = zext i1 %switch.i.i to i32
+  %spec.select2.i = zext i1 %switch.i.i to i32
   br label %"_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6filter17h7b8d4edcdbf59eabE.exit": ; preds = %2, %6, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i"
-  %22 = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %16, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ %11, %6 ], [ undef, %2 ]
-  %.sroa.02.0.i = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %spec.select.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %6 ], [ 0, %2 ]
-  %23 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.i, 0
-  %24 = insertvalue { i32, i32 } %23, i32 %22, 1
-  ret { i32, i32 } %24
+  %.sroa.33.0.i = phi i32 [ undef, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %16, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ undef, %6 ], [ undef, %2 ]
+  %.sroa.02.0.i = phi i32 [ 0, %_ZN3vfs13path_interner12PathInterner3get17hff490a5fdea2d6faE.exit ], [ %spec.select2.i, %"_ZN3vfs3Vfs7file_id28_$u7b$$u7b$closure$u7d$$u7d$17hafd88f902d402bbaE.exit.i" ], [ 0, %6 ], [ 0, %2 ]
+  %22 = insertvalue { i32, i32 } poison, i32 %.sroa.02.0.i, 0
+  %23 = insertvalue { i32, i32 } %22, i32 %.sroa.33.0.i, 1
+  ret { i32, i32 } %23
 }
 
 ; Function Attrs: nonlazybind uwtable

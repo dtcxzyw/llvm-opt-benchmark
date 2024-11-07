@@ -1088,17 +1088,17 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %90, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hb075c6d7ab18b50fE.exit"
-  %lpad.loopexit21 = landingpad { ptr, i32 }
+  %lpad.loopexit20 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %66, %63
-  %lpad.loopexit.split-lp22 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp22, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1ffcad1400618953E"(ptr nonnull align 8 %12) #14
           to label %111 unwind label %109
 
@@ -1219,7 +1219,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   resume { ptr, i32 } %lpad.phi
 
 _ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i: ; preds = %._crit_edge, %65
-  %.sroa.9.018 = phi i64 [ 16, %._crit_edge ], [ %.sroa.10.030.i, %65 ]
+  %.sroa.3.0.i.i = phi i64 [ undef, %._crit_edge ], [ %.sroa.10.030.i, %65 ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %._crit_edge ], [ %.sroa.5.031.i, %65 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -1233,7 +1233,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17ha0299a2f5df73191E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17ha0299a2f5df73191E.exit: ; preds = %29, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i, %112
-  %.sroa.4.0.i = phi i64 [ %32, %29 ], [ undef, %112 ], [ %.sroa.9.018, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i ]
+  %.sroa.4.0.i = phi i64 [ %32, %29 ], [ undef, %112 ], [ %.sroa.3.0.i.i, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i ]
   %.sroa.0.0.i = phi i64 [ %31, %29 ], [ -9223372036854775807, %112 ], [ %.sroa.0.0.i.i, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i ]
   %113 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %114 = insertvalue { i64, i64 } %113, i64 %.sroa.4.0.i, 1
@@ -1376,17 +1376,17 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %90, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hbab429a388469525E.exit"
-  %lpad.loopexit21 = landingpad { ptr, i32 }
+  %lpad.loopexit20 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %66, %63
-  %lpad.loopexit.split-lp22 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit21, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp22, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit20, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr196drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$hashbrown..raw..RawTableInner$C$hashbrown..raw..RawTableInner..prepare_resize$LT$alloc..alloc..Global$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h1ffcad1400618953E"(ptr nonnull align 8 %12) #14
           to label %111 unwind label %109
 
@@ -1507,7 +1507,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hd0450544930f6639E.exi
   resume { ptr, i32 } %lpad.phi
 
 _ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i: ; preds = %._crit_edge, %65
-  %.sroa.9.018 = phi i64 [ 16, %._crit_edge ], [ %.sroa.10.030.i, %65 ]
+  %.sroa.3.0.i.i = phi i64 [ undef, %._crit_edge ], [ %.sroa.10.030.i, %65 ]
   %.sroa.0.0.i.i = phi i64 [ -9223372036854775807, %._crit_edge ], [ %.sroa.5.031.i, %65 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
@@ -1521,7 +1521,7 @@ _ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i: ; pre
   br label %_ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17ha0299a2f5df73191E.exit
 
 _ZN9hashbrown3raw13RawTableInner20reserve_rehash_inner17ha0299a2f5df73191E.exit: ; preds = %29, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i, %112
-  %.sroa.4.0.i = phi i64 [ %32, %29 ], [ undef, %112 ], [ %.sroa.9.018, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i ]
+  %.sroa.4.0.i = phi i64 [ %32, %29 ], [ undef, %112 ], [ %.sroa.3.0.i.i, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i ]
   %.sroa.0.0.i = phi i64 [ %31, %29 ], [ -9223372036854775807, %112 ], [ %.sroa.0.0.i.i, %_ZN9hashbrown3raw13RawTableInner12resize_inner17h09e59be4010c373bE.exit.i ]
   %113 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i, 0
   %114 = insertvalue { i64, i64 } %113, i64 %.sroa.4.0.i, 1

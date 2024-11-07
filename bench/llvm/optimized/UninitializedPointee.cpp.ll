@@ -364,7 +364,7 @@ _ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i
 
 .sink.split.i:                                    ; preds = %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i, %111, %.lr.ph.i.i41.i, %155, %.lr.ph.i, %151, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i
   %.sroa.078.0 = phi ptr [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %.168.i, %151 ], [ %158, %155 ], [ %.278.i, %.lr.ph.i ], [ %110, %.lr.ph.i.i41.i ], [ %110, %111 ], [ %110, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i ]
-  %.sroa.2.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %73, %151 ], [ true, %.lr.ph.i ], [ true, %155 ], [ %73, %.lr.ph.i.i41.i ], [ %73, %111 ], [ %73, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i ]
+  %.sroa.2.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ %73, %151 ], [ true, %.lr.ph.i ], [ true, %155 ], [ %73, %.lr.ph.i.i41.i ], [ %73, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i ], [ undef, %111 ]
   %.sroa.4.0 = phi i1 [ undef, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ false, %151 ], [ false, %.lr.ph.i ], [ false, %155 ], [ true, %.lr.ph.i.i41.i ], [ true, %111 ], [ true, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i ]
   %.sink.i = phi i1 [ false, %_ZL13isVoidPointerN5clang8QualTypeE.exit.i ], [ true, %151 ], [ true, %.lr.ph.i ], [ true, %155 ], [ true, %.lr.ph.i.i41.i ], [ %115, %111 ], [ %115, %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento16TypedValueRegionEE6insertES5_.exit45.i ]
   %163 = load ptr, ptr %46, align 8, !noalias !4

@@ -5428,7 +5428,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   br i1 %15, label %.loopexit, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i"
 
 "_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i": ; preds = %2, %28
-  %.sroa.7.0.i2.i.i = phi ptr [ %.pn16.i.i.i.i, %28 ], [ %9, %2 ]
+  %.sroa.7.0.i2.i.i = phi ptr [ %.pn17.i.i.i.i, %28 ], [ %9, %2 ]
   %16 = phi ptr [ %17, %28 ], [ %.promoted.i.i, %2 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1651)
   %17 = getelementptr inbounds i8, ptr %16, i64 56
@@ -5488,7 +5488,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
   unreachable
 
 28:                                               ; preds = %22, %21
-  %.pn16.i.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.7.0.i2.i.i, %21 ]
+  %.pn17.i.i.i.i = phi ptr [ %23, %22 ], [ %.sroa.7.0.i2.i.i, %21 ]
   %29 = icmp eq ptr %17, %14
   br i1 %29, label %..loopexit.loopexit_crit_edge, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i"
 
@@ -5498,7 +5498,7 @@ define hidden void @"_ZN5alloc3vec16in_place_collect108_$LT$impl$u20$alloc..vec.
 
 .loopexit.loopexit:                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i", %..loopexit.loopexit_crit_edge
   %.pre = phi ptr [ %.pre.pre, %..loopexit.loopexit_crit_edge ], [ %17, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i" ]
-  %.sroa.7.0.i.lcssa.i.i.ph = phi ptr [ %.pn16.i.i.i.i, %..loopexit.loopexit_crit_edge ], [ %.sroa.7.0.i2.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i" ]
+  %.sroa.7.0.i.lcssa.i.i.ph = phi ptr [ %.pn17.i.i.i.i, %..loopexit.loopexit_crit_edge ], [ %.sroa.7.0.i2.i.i, %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h31893a6fd1798399E.exit.i.i.i" ]
   %.pre29 = load ptr, ptr %12, align 8, !alias.scope !1672, !noalias !1677
   br label %.loopexit
 

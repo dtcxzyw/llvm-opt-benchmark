@@ -923,8 +923,10 @@ define hidden { ptr, i64 } @"_ZN6uu_env14native_int_str9NativeStr12strip_prefix2
   %.sroa.3.0.i = phi i64 [ undef, %3 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i" ], [ %.sroa.6.0.copyload.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i" ]
   %.sroa.0.0.i3 = phi ptr [ null, %3 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i" ], [ %spec.select.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i" ]
   %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i3, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0.i, 1
-  ret { ptr, i64 } %16
+  %16 = icmp eq ptr %.sroa.0.0.i3, null
+  %.sroa.3.0 = select i1 %16, i64 undef, i64 %.sroa.3.0.i
+  %17 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1060,8 +1062,10 @@ define hidden { ptr, i64 } @"_ZN6uu_env14native_int_str9NativeStr19strip_prefix_
   %.sroa.3.0.i = phi i64 [ undef, %3 ], [ undef, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i" ], [ %.sroa.6.0.copyload.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i" ]
   %.sroa.0.0.i3 = phi ptr [ null, %3 ], [ null, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17hd25f77d3ec9c6f4bE.llvm.16827823597129230134.exit.i" ], [ %spec.select.i, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hc69811a976f956e9E.exit.i" ]
   %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i3, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0.i, 1
-  ret { ptr, i64 } %16
+  %16 = icmp eq ptr %.sroa.0.0.i3, null
+  %.sroa.3.0 = select i1 %16, i64 undef, i64 %.sroa.3.0.i
+  %17 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0, 1
+  ret { ptr, i64 } %17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

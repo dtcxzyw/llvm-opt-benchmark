@@ -6467,8 +6467,8 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23, !noalias !1054
   unreachable
 
-.body111:                                         ; preds = %.thread397, %125, %106, %119, %169
-  %.pn94 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %169 ], [ %107, %106 ], [ %120, %119 ], [ %126, %125 ], [ %lpad.thr_comm, %.thread397 ]
+.body111:                                         ; preds = %.thread395, %125, %106, %119, %169
+  %.pn94 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %169 ], [ %107, %106 ], [ %120, %119 ], [ %126, %125 ], [ %lpad.thr_comm, %.thread395 ]
   invoke void @"_ZN4core3ptr113drop_in_place$LT$influxdb3_server..http..Error..response..ErrorMessage$LT$influxdb3_write..WriteLineError$GT$$GT$17he16b88b534e3eb8bE"(ptr noalias noundef nonnull align 8 dereferenceable(80) %52) #22
           to label %.thread unwind label %170
 
@@ -6486,11 +6486,11 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br i1 %122, label %123, label %130
 
 123:                                              ; preds = %121, %.thread384
-  %.sroa.7240.0390 = phi ptr [ %105, %.thread384 ], [ %.sroa.7240.0.copyload242, %121 ]
-  %124 = icmp ne ptr %.sroa.7240.0390, null
+  %.sroa.7240.0388 = phi ptr [ %105, %.thread384 ], [ %.sroa.7240.0.copyload242, %121 ]
+  %124 = icmp ne ptr %.sroa.7240.0388, null
   call void @llvm.assume(i1 %124)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21), !noalias !1063
-  store ptr %.sroa.7240.0390, ptr %21, align 8, !noalias !1063
+  store ptr %.sroa.7240.0388, ptr %21, align 8, !noalias !1063
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.234) #20
           to label %127 unwind label %125, !noalias !1068
 
@@ -6561,7 +6561,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   invoke void @_ZN4http8response5Parts3new17he4f6ef0c90ee86f4E(ptr noalias nocapture noundef nonnull sret({ { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }) align 8 dereferenceable(112) %42)
           to label %145 unwind label %169
 
-.thread397:                                       ; preds = %.critedge454, %148
+.thread395:                                       ; preds = %.critedge448, %148
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.body111
@@ -6582,7 +6582,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.lifetime.start.p0(i64 94, ptr nonnull %.sroa.7254.sroa.0)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7254.sroa.5)
   %146 = icmp eq i64 %.sroa.024.0.copyload, 3
-  br i1 %146, label %.critedge454, label %147
+  br i1 %146, label %.critedge448, label %147
 
 147:                                              ; preds = %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(94) %.sroa.7254.sroa.0, ptr noundef nonnull align 2 dereferenceable(94) %.sroa.7.sroa.0, i64 94, i1 false)
@@ -6625,7 +6625,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2a6f3122bc871979E.llvm.9135219245553044050"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %52)
           to label %.noexc.i119 unwind label %156
 
-.critedge454:                                     ; preds = %145
+.critedge448:                                     ; preds = %145
   call void @llvm.lifetime.end.p0(i64 94, ptr nonnull %.sroa.7.sroa.0)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.7.sroa.5)
   call void @llvm.lifetime.start.p0(i64 94, ptr nonnull %.sroa.9263)
@@ -6637,9 +6637,9 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %41)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %51, i64 48, i1 false)
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %41)
-          to label %148 unwind label %.thread397
+          to label %148 unwind label %.thread395
 
-148:                                              ; preds = %.critedge454
+148:                                              ; preds = %.critedge448
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %41)
   call void @llvm.lifetime.end.p0(i64 94, ptr nonnull %.sroa.9263)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11265)
@@ -6648,7 +6648,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %149 = getelementptr inbounds i8, ptr %20, i64 1
   store i8 %.sroa.525.0.copyload, ptr %149, align 1, !noalias !1106
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.235) #20
-          to label %.noexc118 unwind label %.thread397
+          to label %.noexc118 unwind label %.thread395
 
 .noexc118:                                        ; preds = %148
   unreachable
@@ -6719,10 +6719,10 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23
   unreachable
 
-.thread:                                          ; preds = %.thread447, %63, %81, %175, %160, %156, %.body111, %93, %375, %326, %325, %.body128, %173
-  %.pn98 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp446, %375 ], [ %.pn90, %326 ], [ %.pn90, %325 ], [ %.pn92, %.body128 ], [ %174, %173 ], [ %94, %93 ], [ %.pn94, %.body111 ], [ %157, %156 ], [ %157, %160 ], [ %64, %63 ], [ %176, %175 ], [ %82, %81 ], [ %lpad.thr_comm445, %.thread447 ]
-  %.079 = phi i1 [ true, %375 ], [ true, %326 ], [ true, %325 ], [ true, %.body128 ], [ false, %173 ], [ false, %93 ], [ false, %.body111 ], [ false, %156 ], [ false, %160 ], [ true, %63 ], [ true, %175 ], [ true, %81 ], [ true, %.thread447 ]
-  %.1 = phi i1 [ true, %375 ], [ false, %326 ], [ false, %325 ], [ true, %.body128 ], [ true, %173 ], [ true, %93 ], [ true, %.body111 ], [ true, %156 ], [ true, %160 ], [ true, %63 ], [ %.0, %175 ], [ true, %81 ], [ true, %.thread447 ]
+.thread:                                          ; preds = %.thread441, %63, %81, %175, %160, %156, %.body111, %93, %375, %326, %325, %.body128, %173
+  %.pn98 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp440, %375 ], [ %.pn90, %326 ], [ %.pn90, %325 ], [ %.pn92, %.body128 ], [ %174, %173 ], [ %94, %93 ], [ %.pn94, %.body111 ], [ %157, %156 ], [ %157, %160 ], [ %64, %63 ], [ %176, %175 ], [ %82, %81 ], [ %lpad.thr_comm439, %.thread441 ]
+  %.079 = phi i1 [ true, %375 ], [ true, %326 ], [ true, %325 ], [ true, %.body128 ], [ false, %173 ], [ false, %93 ], [ false, %.body111 ], [ false, %156 ], [ false, %160 ], [ true, %63 ], [ true, %175 ], [ true, %81 ], [ true, %.thread441 ]
+  %.1 = phi i1 [ true, %375 ], [ false, %326 ], [ false, %325 ], [ true, %.body128 ], [ true, %173 ], [ true, %93 ], [ true, %.body111 ], [ true, %156 ], [ true, %160 ], [ true, %63 ], [ %.0, %175 ], [ true, %81 ], [ true, %.thread441 ]
   %172 = load i8, ptr %1, align 8, !range !178, !noundef !4
   switch i8 %172, label %376 [
     i8 21, label %378
@@ -6785,16 +6785,16 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %190 = getelementptr inbounds i8, ptr %16, i64 8
   %191 = load i64, ptr %190, align 8, !range !17, !noalias !1122, !noundef !4
   %.not.i.i.i.i123 = icmp eq i64 %191, 0
-  br i1 %.not.i.i.i.i123, label %.thread401, label %192
+  br i1 %.not.i.i.i.i123, label %.thread399, label %192
 
 192:                                              ; preds = %.noexc126
   %193 = load ptr, ptr %16, align 8, !noalias !1122, !nonnull !4, !noundef !4
   %194 = getelementptr inbounds i8, ptr %16, i64 16
   %195 = load i64, ptr %194, align 8, !noalias !1122, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050"(ptr noalias noundef nonnull readonly align 1 %183, ptr noundef nonnull %193, i64 noundef %191, i64 noundef %195)
-          to label %.thread401 unwind label %198
+          to label %.thread399 unwind label %198
 
-.thread401:                                       ; preds = %.noexc126, %192
+.thread399:                                       ; preds = %.noexc126, %192
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !1122
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !1113
   br label %202
@@ -6805,8 +6805,8 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23, !noalias !1121
   unreachable
 
-.body128:                                         ; preds = %.thread418, %204, %185, %198, %237
-  %.pn92 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp417, %237 ], [ %186, %185 ], [ %199, %198 ], [ %205, %204 ], [ %lpad.thr_comm416, %.thread418 ]
+.body128:                                         ; preds = %.thread414, %204, %185, %198, %237
+  %.pn92 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp413, %237 ], [ %186, %185 ], [ %199, %198 ], [ %205, %204 ], [ %lpad.thr_comm412, %.thread414 ]
   invoke void @"_ZN4core3ptr90drop_in_place$LT$influxdb3_server..http..Error..response..ErrorMessage$LT$$LP$$RP$$GT$$GT$17h8b91b20a750ac680E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %50) #22
           to label %.thread unwind label %170
 
@@ -6823,12 +6823,12 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %201 = icmp eq ptr %.sroa.0266.0.copyload267, null
   br i1 %201, label %202, label %209
 
-202:                                              ; preds = %200, %.thread401
-  %.sroa.7268.0405 = phi ptr [ %184, %.thread401 ], [ %.sroa.7268.0.copyload270, %200 ]
-  %203 = icmp ne ptr %.sroa.7268.0405, null
+202:                                              ; preds = %200, %.thread399
+  %.sroa.7268.0403 = phi ptr [ %184, %.thread399 ], [ %.sroa.7268.0.copyload270, %200 ]
+  %203 = icmp ne ptr %.sroa.7268.0403, null
   call void @llvm.assume(i1 %203)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15), !noalias !1130
-  store ptr %.sroa.7268.0405, ptr %15, align 8, !noalias !1130
+  store ptr %.sroa.7268.0403, ptr %15, align 8, !noalias !1130
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.236) #20
           to label %206 unwind label %204, !noalias !1135
 
@@ -6897,8 +6897,8 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   invoke void @_ZN4http8response5Parts3new17he4f6ef0c90ee86f4E(ptr noalias nocapture noundef nonnull sret({ { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }) align 8 dereferenceable(112) %38)
           to label %224 unwind label %237
 
-.thread418:                                       ; preds = %.critedge, %227
-  %lpad.thr_comm416 = landingpad { ptr, i32 }
+.thread414:                                       ; preds = %.critedge, %227
+  %lpad.thr_comm412 = landingpad { ptr, i32 }
           cleanup
   br label %.body128
 
@@ -6952,7 +6952,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %37, ptr noundef nonnull align 8 dereferenceable(48) %49, i64 48, i1 false)
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %37)
-          to label %227 unwind label %.thread418
+          to label %227 unwind label %.thread414
 
 227:                                              ; preds = %.critedge
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %37)
@@ -6961,7 +6961,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %228 = getelementptr inbounds i8, ptr %14, i64 1
   store i8 %.sroa.541.0.copyload, ptr %228, align 1, !noalias !1169
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.237) #20
-          to label %.noexc139 unwind label %.thread418
+          to label %.noexc139 unwind label %.thread414
 
 .noexc139:                                        ; preds = %227
   unreachable
@@ -6986,7 +6986,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br label %167
 
 237:                                              ; preds = %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit136"
-  %lpad.thr_comm.split-lp417 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp413 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %49) #22
           to label %.body128 unwind label %170
@@ -7054,16 +7054,16 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %257 = getelementptr inbounds i8, ptr %10, i64 8
   %258 = load i64, ptr %257, align 8, !range !17, !noalias !1179, !noundef !4
   %.not.i.i.i.i144 = icmp eq i64 %258, 0
-  br i1 %.not.i.i.i.i144, label %.thread422, label %259
+  br i1 %.not.i.i.i.i144, label %.thread418, label %259
 
 259:                                              ; preds = %.noexc147
   %260 = load ptr, ptr %10, align 8, !noalias !1179, !nonnull !4, !noundef !4
   %261 = getelementptr inbounds i8, ptr %10, i64 16
   %262 = load i64, ptr %261, align 8, !noalias !1179, !noundef !4
   invoke void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h2e41f254f515f243E.llvm.9135219245553044050"(ptr noalias noundef nonnull readonly align 1 %250, ptr noundef nonnull %260, i64 noundef %258, i64 noundef %262)
-          to label %.thread422 unwind label %265
+          to label %.thread418 unwind label %265
 
-.thread422:                                       ; preds = %.noexc147, %259
+.thread418:                                       ; preds = %.noexc147, %259
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !1179
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !1170
   br label %269
@@ -7074,8 +7074,8 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #23, !noalias !1178
   unreachable
 
-.body149:                                         ; preds = %.thread439, %271, %252, %265, %324
-  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp438, %324 ], [ %253, %252 ], [ %266, %265 ], [ %272, %271 ], [ %lpad.thr_comm437, %.thread439 ]
+.body149:                                         ; preds = %.thread433, %271, %252, %265, %324
+  %.pn = phi { ptr, i32 } [ %lpad.thr_comm.split-lp432, %324 ], [ %253, %252 ], [ %266, %265 ], [ %272, %271 ], [ %lpad.thr_comm431, %.thread433 ]
   invoke void @"_ZN4core3ptr136drop_in_place$LT$influxdb3_server..http..Error..response..ErrorMessage$LT$alloc..vec..Vec$LT$influxdb3_write..WriteLineError$GT$$GT$$GT$17hb750dd0894bb8719E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %47) #22
           to label %.body165 unwind label %170
 
@@ -7092,12 +7092,12 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %268 = icmp eq ptr %.sroa.0300.0.copyload301, null
   br i1 %268, label %269, label %276
 
-269:                                              ; preds = %267, %.thread422
-  %.sroa.7302.0426 = phi ptr [ %251, %.thread422 ], [ %.sroa.7302.0.copyload304, %267 ]
-  %270 = icmp ne ptr %.sroa.7302.0426, null
+269:                                              ; preds = %267, %.thread418
+  %.sroa.7302.0422 = phi ptr [ %251, %.thread418 ], [ %.sroa.7302.0.copyload304, %267 ]
+  %270 = icmp ne ptr %.sroa.7302.0422, null
   call void @llvm.assume(i1 %270)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1187
-  store ptr %.sroa.7302.0426, ptr %9, align 8, !noalias !1187
+  store ptr %.sroa.7302.0422, ptr %9, align 8, !noalias !1187
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.41, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.239) #20
           to label %273 unwind label %271, !noalias !1192
 
@@ -7168,8 +7168,8 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   invoke void @_ZN4http8response5Parts3new17he4f6ef0c90ee86f4E(ptr noalias nocapture noundef nonnull sret({ { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }) align 8 dereferenceable(112) %34)
           to label %291 unwind label %324
 
-.thread439:                                       ; preds = %.critedge456, %294
-  %lpad.thr_comm437 = landingpad { ptr, i32 }
+.thread433:                                       ; preds = %.critedge450, %294
+  %lpad.thr_comm431 = landingpad { ptr, i32 }
           cleanup
   br label %.body149
 
@@ -7189,7 +7189,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.lifetime.start.p0(i64 94, ptr nonnull %.sroa.7317.sroa.0)
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %.sroa.7317.sroa.5)
   %292 = icmp eq i64 %.sroa.055.0.copyload, 3
-  br i1 %292, label %.critedge456, label %293
+  br i1 %292, label %.critedge450, label %293
 
 293:                                              ; preds = %291
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(94) %.sroa.7317.sroa.0, ptr noundef nonnull align 2 dereferenceable(94) %.sroa.754.sroa.0, i64 94, i1 false)
@@ -7232,7 +7232,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2a6f3122bc871979E.llvm.9135219245553044050"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %47)
           to label %.noexc.i162 unwind label %302
 
-.critedge456:                                     ; preds = %291
+.critedge450:                                     ; preds = %291
   call void @llvm.lifetime.end.p0(i64 94, ptr nonnull %.sroa.754.sroa.0)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.754.sroa.5)
   call void @llvm.lifetime.start.p0(i64 94, ptr nonnull %.sroa.9328)
@@ -7244,9 +7244,9 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %33, ptr noundef nonnull align 8 dereferenceable(48) %46, i64 48, i1 false)
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %33)
-          to label %294 unwind label %.thread439
+          to label %294 unwind label %.thread433
 
-294:                                              ; preds = %.critedge456
+294:                                              ; preds = %.critedge450
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %33)
   call void @llvm.lifetime.end.p0(i64 94, ptr nonnull %.sroa.9328)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.11330)
@@ -7255,7 +7255,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   %295 = getelementptr inbounds i8, ptr %8, i64 1
   store i8 %.sroa.557.0.copyload, ptr %295, align 1, !noalias !1230
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.240) #20
-          to label %.noexc160 unwind label %.thread439
+          to label %.noexc160 unwind label %.thread433
 
 .noexc160:                                        ; preds = %294
   unreachable
@@ -7337,7 +7337,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   br label %167
 
 324:                                              ; preds = %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit157"
-  %lpad.thr_comm.split-lp438 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp432 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %46) #22
           to label %.body149 unwind label %170
@@ -7397,8 +7397,8 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   invoke void @_ZN4http8response5Parts3new17he4f6ef0c90ee86f4E(ptr noalias nocapture noundef nonnull sret({ { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, ptr, i16, i8, {}, [5 x i8] }) align 8 dereferenceable(112) %30)
           to label %342 unwind label %375
 
-.thread447:                                       ; preds = %.critedge452, %345
-  %lpad.thr_comm445 = landingpad { ptr, i32 }
+.thread441:                                       ; preds = %.critedge446, %345
+  %lpad.thr_comm439 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -7416,7 +7416,7 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %.sroa.769.sroa.5, ptr noundef nonnull align 2 dereferenceable(6) %.sroa.673.sroa.5.0..sroa.673.0..sroa_idx.sroa_idx, i64 6, i1 false)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %30)
   %343 = icmp eq i64 %.sroa.070.0.copyload, 3
-  br i1 %343, label %.critedge452, label %344
+  br i1 %343, label %.critedge446, label %344
 
 344:                                              ; preds = %342
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(94) %.sroa.7337.sroa.0, ptr noundef nonnull align 2 dereferenceable(94) %.sroa.769.sroa.0, i64 94, i1 false)
@@ -7444,22 +7444,22 @@ define void @_ZN16influxdb3_server4http5Error8response17hbffa9dcedbd24067E(ptr n
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %45)
   br label %167
 
-.critedge452:                                     ; preds = %342
+.critedge446:                                     ; preds = %342
   call void @llvm.lifetime.end.p0(i64 94, ptr nonnull %.sroa.769.sroa.0)
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %.sroa.769.sroa.5)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %29)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull align 8 dereferenceable(48) %45, i64 48, i1 false)
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %29)
-          to label %345 unwind label %.thread447
+          to label %345 unwind label %.thread441
 
-345:                                              ; preds = %.critedge452
+345:                                              ; preds = %.critedge446
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %29)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5), !noalias !1275
   store i8 %.sroa.471.0.copyload, ptr %5, align 1, !noalias !1275
   %346 = getelementptr inbounds i8, ptr %5, i64 1
   store i8 %.sroa.572.0.copyload, ptr %346, align 1, !noalias !1275
   invoke void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.7463256388310ca230f95e7a445731de.40, i64 noundef 43, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.7463256388310ca230f95e7a445731de.241) #20
-          to label %.noexc174 unwind label %.thread447
+          to label %.noexc174 unwind label %.thread441
 
 .noexc174:                                        ; preds = %345
   unreachable
@@ -7546,7 +7546,7 @@ common.resume:                                    ; preds = %376, %377, %382, %3
   br label %349
 
 375:                                              ; preds = %"_ZN90_$LT$hyper..body..body..Body$u20$as$u20$core..convert..From$LT$bytes..bytes..Bytes$GT$$GT$4from17he6088acfa9ab5e32E.exit171"
-  %lpad.thr_comm.split-lp446 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp440 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..body..body..Body$GT$17h4165c35d612fc315E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %45) #22
           to label %.thread unwind label %170
@@ -8787,12 +8787,12 @@ define void @"_ZN16influxdb3_server4http27record_batch_stream_to_body28_$u7b$$u7
   ret void
 
 70:                                               ; preds = %.thread74, %52
-  %.sroa.6.080 = phi ptr [ %36, %.thread74 ], [ %.sroa.6.0.copyload, %52 ]
-  %71 = icmp ne ptr %.sroa.6.080, null
+  %.sroa.6.078 = phi ptr [ %36, %.thread74 ], [ %.sroa.6.0.copyload, %52 ]
+  %71 = icmp ne ptr %.sroa.6.078, null
   call void @llvm.assume(i1 %71)
   store i8 24, ptr %0, align 8
   %.sroa.470.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.6.080, ptr %.sroa.470.0..sroa_idx, align 8
+  store ptr %.sroa.6.078, ptr %.sroa.470.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !1412
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h60de4c02003663beE.llvm.9135219245553044050"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %13)

@@ -2098,7 +2098,8 @@ _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %20, %_ZNSt10unique_
   br label %_ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit
 
 _ZN4llvm18expectedToOptionalIN5clang12FileEntryRefEEESt8optionalIT_EONS_8ExpectedIS4_EE.exit: ; preds = %3, %_ZN4llvm5ErrorD2Ev.exit.i
-  %24 = phi i8 [ %13, %3 ], [ %.pre, %_ZN4llvm5ErrorD2Ev.exit.i ]
+  %24 = phi i8 [ %.pre, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %13, %3 ]
+  %.sroa.04.0.i = phi ptr [ undef, %_ZN4llvm5ErrorD2Ev.exit.i ], [ %16, %3 ]
   %25 = trunc i8 %24 to i1
   br i1 %25, label %26, label %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit
 
@@ -2127,7 +2128,7 @@ _ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %26, %_ZNKSt14defa
   br i1 %37, label %.preheader11, label %45
 
 .preheader11:                                     ; preds = %31, %.preheader11
-  %.0.i.i.i = phi ptr [ %41, %.preheader11 ], [ %16, %31 ]
+  %.0.i.i.i = phi ptr [ %41, %.preheader11 ], [ %.sroa.04.0.i, %31 ]
   %38 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %38, align 8
   %39 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i, 4
@@ -2153,7 +2154,7 @@ _ZNK5clang12FileEntryRef7getSizeEv.exit:          ; preds = %.preheader11
   br i1 %49, label %.preheader, label %57
 
 .preheader:                                       ; preds = %45, %.preheader
-  %.0.i.i.i4 = phi ptr [ %53, %.preheader ], [ %16, %45 ]
+  %.0.i.i.i4 = phi ptr [ %53, %.preheader ], [ %.sroa.04.0.i, %45 ]
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i4, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i.i5 = load i64, ptr %50, align 8
   %51 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i5, 4
@@ -2175,7 +2176,7 @@ _ZNK5clang12FileEntryRef19getModificationTimeEv.exit: ; preds = %.preheader
   br label %58
 
 58:                                               ; preds = %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit, %_ZNK5clang12FileEntryRef7getSizeEv.exit, %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit, %57
-  %.sroa.010.0 = phi ptr [ %16, %57 ], [ null, %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit ], [ null, %_ZNK5clang12FileEntryRef7getSizeEv.exit ], [ null, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit ]
+  %.sroa.010.0 = phi ptr [ %.sroa.04.0.i, %57 ], [ null, %_ZNK5clang12FileEntryRef19getModificationTimeEv.exit ], [ null, %_ZNK5clang12FileEntryRef7getSizeEv.exit ], [ null, %_ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit ]
   ret ptr %.sroa.010.0
 }
 

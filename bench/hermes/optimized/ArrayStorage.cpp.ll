@@ -436,11 +436,11 @@ define weak_odr hidden { i32, i64 } @_ZN6hermes2vm16ArrayStorageBaseINS0_11Herme
 entry:
   %call = tail call { i32, i64 } @_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %capacity)
   %0 = extractvalue { i32, i64 } %call, 0
+  %1 = extractvalue { i32, i64 } %call, 1
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = extractvalue { i32, i64 } %call, 1
   %and.i.i = and i64 %1, 281474976710655
   %2 = inttoptr i64 %and.i.i to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
@@ -497,7 +497,9 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RN
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit
-  ret { i32, i64 } %call
+  %retval.sroa.4.0 = phi i64 [ %1, %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit ], [ undef, %entry ]
+  %.fca.1.insert = insertvalue { i32, i64 } %call, i64 %retval.sroa.4.0, 1
+  ret { i32, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1754,11 +1756,11 @@ define weak_odr hidden { i32, i64 } @_ZN6hermes2vm16ArrayStorageBaseINS0_13Herme
 entry:
   %call = tail call { i32, i64 } @_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEj(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %capacity)
   %0 = extractvalue { i32, i64 } %call, 0
+  %1 = extractvalue { i32, i64 } %call, 1
   %cmp.i = icmp eq i32 %0, 0
   br i1 %cmp.i, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %1 = extractvalue { i32, i64 } %call, 1
   %and.i.i = and i64 %1, 281474976710655
   %2 = inttoptr i64 %and.i.i to ptr
   %heapStorage_.i.i = getelementptr inbounds i8, ptr %runtime, i64 840
@@ -1815,7 +1817,9 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_
   br label %return
 
 return:                                           ; preds = %entry, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit
-  ret { i32, i64 } %call
+  %retval.sroa.4.0 = phi i64 [ %1, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7RuntimeEj.exit ], [ undef, %entry ]
+  %.fca.1.insert = insertvalue { i32, i64 } %call, i64 %retval.sroa.4.0, 1
+  ret { i32, i64 } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

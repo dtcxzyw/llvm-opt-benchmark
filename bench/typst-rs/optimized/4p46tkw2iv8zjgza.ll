@@ -4592,7 +4592,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17h
   %8 = getelementptr inbounds i8, ptr %2, i64 36
   %9 = load i32, ptr %8, align 4, !noundef !4
   %10 = icmp eq i32 %9, 0
-  br i1 %10, label %21, label %11, !prof !596
+  br i1 %10, label %20, label %11, !prof !596
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds i8, ptr %2, i64 32
@@ -4605,24 +4605,24 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17h
   %17 = getelementptr inbounds i8, ptr %7, i64 28
   %18 = load i32, ptr %17, align 4, !noundef !4
   %19 = or i32 %18, %16
-  %20 = icmp ult i32 %19, 65536
-  br i1 %20, label %25, label %.noexc
+  %or.cond = icmp ult i32 %19, 65536
+  br i1 %or.cond, label %24, label %.noexc
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   invoke void @_ZN4core9panicking5panic17h90e84101c01877efE(ptr noalias noundef nonnull readonly align 1 @str.1, i64 noundef 25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.34ad03ac7dbb51fd0fc21b39122f0032.74) #21
-          to label %22 unwind label %59
+          to label %21 unwind label %59
 
-22:                                               ; preds = %21
+21:                                               ; preds = %20
   unreachable
 
-23:                                               ; preds = %25
-  %24 = landingpad { ptr, i32 }
+22:                                               ; preds = %24
+  %23 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr112drop_in_place$LT$image..buffer_..ImageBuffer$LT$image..color..Rgba$LT$u8$GT$$C$alloc..vec..Vec$LT$u8$GT$$GT$$GT$17h814b7e38a724ac6eE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7) #22
           to label %.thread unwind label %57
 
-25:                                               ; preds = %11
-  %.sroa.511.0.extract.trunc.i = trunc nuw i32 %18 to i16
+24:                                               ; preds = %11
+  %25 = trunc nuw i32 %18 to i16
   %.sroa.410.0.extract.trunc.i = trunc nuw i32 %16 to i16
   %26 = getelementptr inbounds i8, ptr %7, i64 8
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
@@ -4630,8 +4630,8 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17h
   %29 = load i64, ptr %28, align 8, !noundef !4
   %30 = getelementptr inbounds i8, ptr %1, i64 52
   %31 = load i32, ptr %30, align 4, !noundef !4
-  invoke void @_ZN3gif6common5Frame15from_rgba_speed17h151f09b0da5fa0efE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(64) %6, i16 noundef %.sroa.410.0.extract.trunc.i, i16 noundef %.sroa.511.0.extract.trunc.i, ptr noalias noundef nonnull align 1 %27, i64 noundef %29, i32 noundef %31)
-          to label %.noexc43 unwind label %23
+  invoke void @_ZN3gif6common5Frame15from_rgba_speed17h151f09b0da5fa0efE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(64) %6, i16 noundef %.sroa.410.0.extract.trunc.i, i16 noundef %25, ptr noalias noundef nonnull align 1 %27, i64 noundef %29, i32 noundef %31)
+          to label %.noexc43 unwind label %22
 
 .noexc:                                           ; preds = %11
   %32 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4659,7 +4659,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17h
   call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %37, i64 noundef %34) #24
   br label %56
 
-.noexc43:                                         ; preds = %25
+.noexc43:                                         ; preds = %24
   %41 = icmp ult i32 %14, 655360
   %42 = udiv i32 %14, 10
   %43 = trunc nuw i32 %42 to i16
@@ -4699,17 +4699,17 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$13convert_frame17h
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !1347
   br label %55
 
-57:                                               ; preds = %59, %23
+57:                                               ; preds = %59, %22
   %58 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #23
   unreachable
 
-.thread:                                          ; preds = %23, %59
-  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %24, %23 ]
+.thread:                                          ; preds = %22, %59
+  %.pn52 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %59 ], [ %23, %22 ]
   resume { ptr, i32 } %.pn52
 
-59:                                               ; preds = %21
+59:                                               ; preds = %20
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr44drop_in_place$LT$image..animation..Frame$GT$17h728baa83334f2da8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %2) #22
@@ -4755,11 +4755,11 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
   %10 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, align 8
   %11 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }, align 8
   %12 = or i32 %5, %4
-  %13 = icmp ult i32 %12, 65536
-  br i1 %13, label %14, label %15
+  %or.cond = icmp ult i32 %12, 65536
+  br i1 %or.cond, label %13, label %15
 
-14:                                               ; preds = %7
-  %.sroa.511.0.extract.trunc.i = trunc nuw i32 %5 to i16
+13:                                               ; preds = %7
+  %14 = trunc nuw i32 %5 to i16
   %.sroa.410.0.extract.trunc.i = trunc nuw i32 %4 to i16
   switch i8 %6, label %16 [
     i8 2, label %24
@@ -4782,38 +4782,38 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
   store ptr null, ptr %.sroa.539.sroa.4.0..sroa.539.0..sroa_idx.sroa_idx, align 8
   br label %30
 
-16:                                               ; preds = %14
+16:                                               ; preds = %13
   unreachable
 
-17:                                               ; preds = %14
+17:                                               ; preds = %13
   br label %46
 
-18:                                               ; preds = %14
+18:                                               ; preds = %13
   br label %46
 
-19:                                               ; preds = %14
+19:                                               ; preds = %13
   br label %46
 
-20:                                               ; preds = %14
+20:                                               ; preds = %13
   br label %46
 
-21:                                               ; preds = %14
+21:                                               ; preds = %13
   br label %46
 
-22:                                               ; preds = %14
+22:                                               ; preds = %13
   br label %46
 
-23:                                               ; preds = %14
+23:                                               ; preds = %13
   br label %46
 
-24:                                               ; preds = %14
+24:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %11)
-  call void @_ZN3gif6common5Frame8from_rgb17h8997030b811239caE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(64) %11, i16 noundef %.sroa.410.0.extract.trunc.i, i16 noundef %.sroa.511.0.extract.trunc.i, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
+  call void @_ZN3gif6common5Frame8from_rgb17h8997030b811239caE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(64) %11, i16 noundef %.sroa.410.0.extract.trunc.i, i16 noundef %14, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3)
   call void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$10encode_gif17h6d0ade635826ae95E.llvm.1563996087720595280"(ptr noalias nocapture noundef nonnull sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %11)
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11)
   br label %30
 
-25:                                               ; preds = %14
+25:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   %26 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hc988fb703286e816E"(i64 noundef %3, i1 noundef zeroext false)
@@ -4827,7 +4827,7 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
   store ptr %28, ptr %.sroa.441.0..sroa_idx, align 8
   %.sroa.642.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %3, ptr %.sroa.642.0..sroa_idx, align 8
-  invoke void @_ZN3gif6common5Frame9from_rgba17h9c5d849fa36cd4baE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(64) %10, i16 noundef %.sroa.410.0.extract.trunc.i, i16 noundef %.sroa.511.0.extract.trunc.i, ptr noalias noundef nonnull align 1 %28, i64 noundef %3)
+  invoke void @_ZN3gif6common5Frame9from_rgba17h9c5d849fa36cd4baE(ptr noalias nocapture noundef nonnull sret({ { i64, [2 x i64] }, { i64, [2 x i64] }, { i8, [1 x i8] }, i16, i16, i16, i16, i16, i8, i8, i8, [1 x i8] }) align 8 dereferenceable(64) %10, i16 noundef %.sroa.410.0.extract.trunc.i, i16 noundef %14, ptr noalias noundef nonnull align 1 %28, i64 noundef %3)
           to label %33 unwind label %31
 
 30:                                               ; preds = %46, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h143f67c2e511aaccE.exit", %24, %15
@@ -4877,8 +4877,8 @@ define hidden void @"_ZN5image6codecs3gif19GifEncoder$LT$W$GT$6encode17h85640bf5
 45:                                               ; preds = %31
   resume { ptr, i32 } %32
 
-46:                                               ; preds = %14, %23, %22, %21, %20, %19, %18, %17
-  %.sroa.0.0.i = phi i8 [ 24, %23 ], [ 23, %22 ], [ 20, %21 ], [ 19, %20 ], [ 18, %19 ], [ 17, %18 ], [ 14, %17 ], [ 13, %14 ]
+46:                                               ; preds = %13, %23, %22, %21, %20, %19, %18, %17
+  %.sroa.0.0.i = phi i8 [ 24, %23 ], [ 23, %22 ], [ 20, %21 ], [ 19, %20 ], [ 18, %19 ], [ 17, %18 ], [ 14, %17 ], [ 13, %13 ]
   store i8 0, ptr %0, align 8
   %.sroa.020.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 2, ptr %.sroa.020.sroa.4.0..sroa_idx, align 1

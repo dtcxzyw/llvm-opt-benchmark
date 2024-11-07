@@ -10934,12 +10934,13 @@ common.resume:                                    ; preds = %153, %51, %.body55.
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7c8433e1223cec87E.exit.i": ; preds = %138, %139, %33
-  %.sroa.10.1 = phi i8 [ undef, %33 ], [ %.sroa.3.0.copyload.i, %139 ], [ %.sroa.3.0.copyload.i, %138 ]
+  %.sroa.10.1 = phi i8 [ undef, %33 ], [ %.sroa.3.0.copyload.i, %138 ], [ undef, %139 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !1138
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !1138
   br label %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit"
 
 "_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread": ; preds = %41, %42
+  %.sroa.10.2.ph = phi i8 [ undef, %42 ], [ %32, %41 ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
@@ -10956,7 +10957,7 @@ common.resume:                                    ; preds = %153, %51, %.body55.
 
 143:                                              ; preds = %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread", %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit"
   %.sroa.0.219 = phi i64 [ %29, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread" ], [ %.sroa.0.2, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit" ]
-  %.sroa.10.218 = phi i8 [ %32, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread" ], [ %.sroa.10.2, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit" ]
+  %.sroa.10.218 = phi i8 [ %.sroa.10.2.ph, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit.thread" ], [ %.sroa.10.2, %"_ZN5flume5async16RecvFut$LT$T$GT$10poll_inner17he2e5d2049d5c76a7E.exit" ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %19)
   store i64 %.sroa.0.219, ptr %19, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8

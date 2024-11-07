@@ -79339,17 +79339,17 @@ define hidden void @"_ZN4core3ptr83drop_in_place$LT$thread_local..ThreadLocal$LT
   br label %4
 
 4:                                                ; preds = %.backedge.i, %1
-  %.sroa.0.0.idx7.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
-  %.sroa.7.06.i = phi i64 [ 0, %1 ], [ %5, %.backedge.i ]
-  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx7.i
-  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx7.i, 8
-  %5 = add nuw nsw i64 %.sroa.7.06.i, 1
+  %.sroa.0.0.idx8.i = phi i64 [ 0, %1 ], [ %.sroa.0.0.add.i, %.backedge.i ]
+  %.sroa.7.07.i = phi i64 [ 0, %1 ], [ %5, %.backedge.i ]
+  %.sroa.0.0.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx8.i
+  %.sroa.0.0.add.i = add nuw nsw i64 %.sroa.0.0.idx8.i, 8
+  %5 = add nuw nsw i64 %.sroa.7.07.i, 1
   %6 = load ptr, ptr %.sroa.0.0.ptr.i, align 8, !alias.scope !27085, !noundef !4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.backedge.i, label %8
 
 8:                                                ; preds = %4
-  %9 = shl nuw i64 1, %.sroa.7.06.i
+  %9 = shl nuw i64 1, %.sroa.7.07.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !27085
   store ptr %6, ptr %2, align 8, !noalias !27085
   store i64 %9, ptr %3, align 8, !noalias !27085
@@ -97899,17 +97899,17 @@ define hidden void @"_ZN76_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$cor
   ret void
 
 5:                                                ; preds = %1, %.backedge
-  %.sroa.0.0.idx7 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
-  %.sroa.7.06 = phi i64 [ 0, %1 ], [ %6, %.backedge ]
-  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx7
-  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx7, 8
-  %6 = add nuw nsw i64 %.sroa.7.06, 1
+  %.sroa.0.0.idx8 = phi i64 [ 0, %1 ], [ %.sroa.0.0.add, %.backedge ]
+  %.sroa.7.07 = phi i64 [ 0, %1 ], [ %6, %.backedge ]
+  %.sroa.0.0.ptr = getelementptr inbounds i8, ptr %0, i64 %.sroa.0.0.idx8
+  %.sroa.0.0.add = add nuw nsw i64 %.sroa.0.0.idx8, 8
+  %6 = add nuw nsw i64 %.sroa.7.07, 1
   %7 = load ptr, ptr %.sroa.0.0.ptr, align 8, !noundef !4
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.backedge, label %9
 
 9:                                                ; preds = %5
-  %10 = shl nuw i64 1, %.sroa.7.06
+  %10 = shl nuw i64 1, %.sroa.7.07
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr %7, ptr %2, align 8
   store i64 %10, ptr %3, align 8

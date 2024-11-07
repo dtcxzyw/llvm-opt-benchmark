@@ -2487,14 +2487,14 @@ if.then6.i:                                       ; preds = %if.end.i58
 if.end8.i:                                        ; preds = %if.end.i58
   %line.i = getelementptr inbounds i8, ptr %reader.i, i64 48
   %47 = load ptr, ptr %line.i, align 8
-  %scevgep15.i = getelementptr i8, ptr %47, i64 10
+  %scevgep17.i = getelementptr i8, ptr %47, i64 10
   br label %do.body.i17.i
 
 do.body.i17.i:                                    ; preds = %do.cond.i21.i, %if.end8.i
   %str.addr.0.i18.i = phi ptr [ %47, %if.end8.i ], [ %incdec.ptr.i22.i, %do.cond.i21.i ]
   %prefix.addr.0.i19.idx.i = phi i64 [ 0, %if.end8.i ], [ %prefix.addr.0.i19.add.i, %do.cond.i21.i ]
-  %exitcond16.i = icmp eq i64 %prefix.addr.0.i19.idx.i, 10
-  br i1 %exitcond16.i, label %land.lhs.true.i, label %do.cond.i21.i
+  %exitcond18.i = icmp eq i64 %prefix.addr.0.i19.idx.i, 10
+  br i1 %exitcond18.i, label %land.lhs.true.i, label %do.cond.i21.i
 
 do.cond.i21.i:                                    ; preds = %do.body.i17.i
   %prefix.addr.0.i19.ptr.i = getelementptr inbounds i8, ptr @.str.48, i64 %prefix.addr.0.i19.idx.i
@@ -2506,7 +2506,7 @@ do.cond.i21.i:                                    ; preds = %do.body.i17.i
   br i1 %cmp.i24.i, label %do.body.i17.i, label %if.else.i, !llvm.loop !5
 
 land.lhs.true.i:                                  ; preds = %do.body.i17.i
-  %call10.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep15.i, ptr noundef nonnull readonly dereferenceable(1) %service) #18
+  %call10.i = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %scevgep17.i, ptr noundef nonnull readonly dereferenceable(1) %service) #18
   %tobool11.not.i = icmp eq i32 %call10.i, 0
   br i1 %tobool11.not.i, label %for.cond.preheader.i, label %if.else.i
 

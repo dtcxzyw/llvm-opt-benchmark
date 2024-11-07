@@ -1201,19 +1201,19 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %22, ptr %23, align 8
-  br label %83
+  br label %82
 
-24:                                               ; preds = %80, %9
-  %.sroa.015.0 = phi ptr [ %11, %9 ], [ %.sroa.015.1, %80 ]
-  %.sroa.10.0 = phi i16 [ 0, %9 ], [ %.sroa.10.1, %80 ]
-  %.sroa.15.0 = phi ptr [ %3, %9 ], [ %81, %80 ]
-  %.0 = phi i64 [ 0, %9 ], [ %82, %80 ]
+24:                                               ; preds = %79, %9
+  %.sroa.015.0 = phi ptr [ %11, %9 ], [ %.sroa.015.1, %79 ]
+  %.sroa.10.0 = phi i16 [ 0, %9 ], [ %.sroa.10.1, %79 ]
+  %.sroa.15.0 = phi ptr [ %3, %9 ], [ %80, %79 ]
+  %.0 = phi i64 [ 0, %9 ], [ %81, %79 ]
   %25 = icmp eq i16 %.sroa.10.0, 0
   br i1 %25, label %26, label %76
 
 26:                                               ; preds = %24
   %27 = icmp eq ptr %.sroa.015.0, %14
-  br i1 %27, label %78, label %28
+  br i1 %27, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa277ac6947ae61bE.exit.thread23", label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds i8, ptr %.sroa.015.0, i64 1
@@ -1266,7 +1266,7 @@ define internal fastcc void @_ZN16wasmtime_runtime9component8libcalls17run_utf8_
   %63 = or disjoint i32 %60, %62
   %64 = or disjoint i32 %63, %59
   %65 = icmp eq i32 %64, 1114112
-  br i1 %65, label %78, label %.thread8.i.i
+  br i1 %65, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa277ac6947ae61bE.exit.thread23", label %.thread8.i.i
 
 .thread8.i.i:                                     ; preds = %54, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i"
   %.sroa.015.3 = phi ptr [ %56, %54 ], [ %45, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcc82d61b7f5d2dadE.exit15.i.i.i" ]
@@ -1295,22 +1295,22 @@ _ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i: ; preds = 
   %.sroa.10.1 = phi i16 [ 0, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %75, %68 ], [ 0, %24 ]
   %.sroa.4.0.i.ph.i = phi i16 [ %67, %_ZN4core4char7methods16encode_utf16_raw17h320237ac03d2da94E.exit.i.i ], [ %72, %68 ], [ %.sroa.10.0, %24 ]
   %77 = icmp eq ptr %.sroa.15.0, %15
-  br i1 %77, label %78, label %80
+  br i1 %77, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa277ac6947ae61bE.exit.thread23", label %79
 
-78:                                               ; preds = %26, %54, %76
-  %.0.lcssa = phi i64 [ %.0, %26 ], [ %.0, %54 ], [ %16, %76 ]
-  %79 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.0.lcssa, ptr %79, align 8
-  br label %83
+"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa277ac6947ae61bE.exit.thread23": ; preds = %54, %26, %76
+  %.0.lcssa = phi i64 [ %.0, %54 ], [ %.0, %26 ], [ %16, %76 ]
+  %78 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.0.lcssa, ptr %78, align 8
+  br label %82
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %.sroa.15.0, i64 2
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %.sroa.15.0, i64 2
   store i16 %.sroa.4.0.i.ph.i, ptr %.sroa.15.0, align 2
-  %82 = add nuw i64 %.0, 1
+  %81 = add nuw i64 %.0, 1
   br label %24
 
-83:                                               ; preds = %78, %17
-  %storemerge = phi i64 [ 0, %78 ], [ 1, %17 ]
+82:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa277ac6947ae61bE.exit.thread23", %17
+  %storemerge = phi i64 [ 0, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17hfa277ac6947ae61bE.exit.thread23" ], [ 1, %17 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

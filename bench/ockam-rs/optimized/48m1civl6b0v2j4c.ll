@@ -3505,7 +3505,7 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
   %9 = alloca { ptr, ptr }, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 32
   %11 = load i8, ptr %10, align 8, !range !73, !noundef !13
-  switch i8 %11, label %default.unreachable95 [
+  switch i8 %11, label %default.unreachable112 [
     i8 0, label %12
     i8 1, label %86
     i8 2, label %87
@@ -3515,11 +3515,11 @@ define internal fastcc void @"_ZN11ockam_vault8software25vault_for_secure_channe
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !622, !noalias !627
-  %.phi.trans.insert93 = getelementptr inbounds i8, ptr %1, i64 24
-  %.pre94 = load ptr, ptr %.phi.trans.insert93, align 8, !alias.scope !622, !noalias !627
+  %.phi.trans.insert110 = getelementptr inbounds i8, ptr %1, i64 24
+  %.pre111 = load ptr, ptr %.phi.trans.insert110, align 8, !alias.scope !622, !noalias !627
   br label %88
 
-default.unreachable95:                            ; preds = %3
+default.unreachable112:                           ; preds = %3
   unreachable
 
 12:                                               ; preds = %3
@@ -3602,7 +3602,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
 .noexc35:                                         ; preds = %37
   %40 = load i64, ptr %6, align 8, !range !24, !noalias !644, !noundef !13
   %trunc4.i.i = trunc nuw i64 %40 to i1
-  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %.loopexit92
+  br i1 %trunc4.i.i, label %.lr.ph.i.i, label %.loopexit109
 
 .lr.ph.i.i:                                       ; preds = %.noexc35
   %41 = getelementptr inbounds i8, ptr %6, i64 8
@@ -3639,7 +3639,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
 .noexc37:                                         ; preds = %45
   %50 = load i64, ptr %6, align 8, !range !24, !noalias !644, !noundef !13
   %trunc.i.i = trunc nuw i64 %50 to i1
-  br i1 %trunc.i.i, label %43, label %.loopexit92
+  br i1 %trunc.i.i, label %43, label %.loopexit109
 
 "_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h2037989bfa983610E.exit.i": ; preds = %.noexc36
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !644
@@ -3673,7 +3673,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 %17, i32 noundef %54)
           to label %65 unwind label %63
 
-.loopexit92:                                      ; preds = %.noexc37, %.noexc35
+.loopexit109:                                     ; preds = %.noexc37, %.noexc35
   %57 = getelementptr inbounds i8, ptr %6, i64 8
   %.sroa.5.sroa.0.0.copyload.i = load ptr, ptr %57, align 8, !noalias !656, !nonnull !13, !noundef !13
   %.sroa.5.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 24
@@ -3688,7 +3688,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   %or.cond.not.i.i39 = icmp eq i32 %61, -2147483648
   br i1 %or.cond.not.i.i39, label %62, label %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41"
 
-62:                                               ; preds = %.loopexit92
+62:                                               ; preds = %.loopexit109
   invoke void @_ZN3std3sys4unix5locks12futex_rwlock6RwLock22wake_writer_or_readers17h18502b593df6c008E(ptr noundef nonnull align 4 %17, i32 noundef %60)
           to label %"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41" unwind label %63
 
@@ -3702,7 +3702,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
           cleanup
   br label %.body
 
-"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41": ; preds = %.loopexit92, %62
+"_ZN4core3ptr236drop_in_place$LT$std..sync..rwlock..RwLockReadGuard$LT$alloc..collections..btree..map..BTreeMap$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_vault..software..vault_for_secure_channels..types..X25519SecretKey$GT$$GT$$GT$17h0838b2e7c5b9a8a6E.exit41": ; preds = %.loopexit109, %62
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
   br label %117
 
@@ -3757,7 +3757,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
   unreachable
 
 88:                                               ; preds = %._crit_edge, %79
-  %89 = phi ptr [ %.pre94, %._crit_edge ], [ %81, %79 ]
+  %89 = phi ptr [ %.pre111, %._crit_edge ], [ %81, %79 ]
   %90 = phi ptr [ %.pre, %._crit_edge ], [ %80, %79 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   %91 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4927,7 +4927,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
   %23 = alloca { i64, [3 x i64] }, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 33
   %25 = load i8, ptr %24, align 1, !range !116, !noundef !13
-  switch i8 %25, label %default.unreachable184 [
+  switch i8 %25, label %default.unreachable186 [
     i8 0, label %29
     i8 1, label %41
     i8 2, label %42
@@ -4935,7 +4935,7 @@ define internal void @"_ZN198_$LT$ockam_vault..software..vault_for_secure_channe
     i8 4, label %26
   ]
 
-default.unreachable184:                           ; preds = %3
+default.unreachable186:                           ; preds = %3
   unreachable
 
 26:                                               ; preds = %3
@@ -4943,9 +4943,9 @@ default.unreachable184:                           ; preds = %3
   br label %62
 
 common.ret:                                       ; preds = %68, %49, %27
-  %.sink185 = phi i64 [ 1, %68 ], [ 1, %49 ], [ 0, %27 ]
+  %.sink187 = phi i64 [ 1, %68 ], [ 1, %49 ], [ 0, %27 ]
   %.sink = phi i8 [ 4, %68 ], [ 3, %49 ], [ 1, %27 ]
-  store i64 %.sink185, ptr %0, align 8
+  store i64 %.sink187, ptr %0, align 8
   store i8 %.sink, ptr %24, align 1
   ret void
 

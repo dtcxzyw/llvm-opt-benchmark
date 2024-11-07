@@ -353,7 +353,7 @@ define internal fastcc { ptr, i64 } @"_ZN4core3str4iter22SplitInternal$LT$P$GT$9
   br i1 %106, label %107, label %16
 
 107:                                              ; preds = %104, %10, %1, %124
-  %.sroa.6.0 = phi i64 [ %.pn13, %124 ], [ undef, %1 ], [ %13, %10 ], [ %13, %104 ]
+  %.sroa.6.0 = phi i64 [ %.pn13, %124 ], [ undef, %1 ], [ %13, %10 ], [ undef, %104 ]
   %.sroa.0.0 = phi ptr [ %.pn15, %124 ], [ null, %1 ], [ %12, %10 ], [ null, %104 ]
   %108 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %109 = insertvalue { ptr, i64 } %108, i64 %.sroa.6.0, 1

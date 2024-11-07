@@ -29441,53 +29441,55 @@ _ZN3std9panicking3try17hd027ffbafbaec7c7E.exit:   ; preds = %1, %5
   %12 = phi ptr [ %8, %5 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %13 = load i64, ptr %0, align 8, !noundef !7
+  %14 = icmp eq ptr %12, null
+  %spec.select9 = select i1 %14, ptr undef, ptr %11
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
   store i64 17, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %11, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store ptr %spec.select9, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %13, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !5272
-  %14 = invoke { i64, i64 } @_ZN5tokio7runtime4task4core11TaskIdGuard5enter17h37d18785748bffe5E(i64 noundef %13)
-          to label %15 unwind label %23, !noalias !5272
+  %15 = invoke { i64, i64 } @_ZN5tokio7runtime4task4core11TaskIdGuard5enter17h37d18785748bffe5E(i64 noundef %13)
+          to label %16 unwind label %24, !noalias !5272
 
-15:                                               ; preds = %_ZN3std9panicking3try17hd027ffbafbaec7c7E.exit
-  %16 = extractvalue { i64, i64 } %14, 0
-  %17 = extractvalue { i64, i64 } %14, 1
-  store i64 %16, ptr %2, align 8, !noalias !5272
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %17, ptr %18, align 8, !noalias !5272
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr202drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h3109ab2bda3f4ac5E.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(80) %19)
+16:                                               ; preds = %_ZN3std9panicking3try17hd027ffbafbaec7c7E.exit
+  %17 = extractvalue { i64, i64 } %15, 0
+  %18 = extractvalue { i64, i64 } %15, 1
+  store i64 %17, ptr %2, align 8, !noalias !5272
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %18, ptr %19, align 8, !noalias !5272
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  invoke void @"_ZN4core3ptr202drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h3109ab2bda3f4ac5E.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(80) %20)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17he119df5e410db988E.exit" unwind label %.body.i, !noalias !5275
 
-.body.i:                                          ; preds = %15
-  %20 = landingpad { ptr, i32 }
+.body.i:                                          ; preds = %16
+  %21 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h41c4e38ca1e60cdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %.thread.i unwind label %21, !noalias !5272
+          to label %.thread.i unwind label %22, !noalias !5272
 
-21:                                               ; preds = %23, %.body.i
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %24, %.body.i
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-.thread.i:                                        ; preds = %23, %.body.i
-  %.pn5.i = phi { ptr, i32 } [ %24, %23 ], [ %20, %.body.i ]
+.thread.i:                                        ; preds = %24, %.body.i
+  %.pn5.i = phi { ptr, i32 } [ %25, %24 ], [ %21, %.body.i ]
   resume { ptr, i32 } %.pn5.i
 
-23:                                               ; preds = %_ZN3std9panicking3try17hd027ffbafbaec7c7E.exit
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN3std9panicking3try17hd027ffbafbaec7c7E.exit
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr202drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$object_store..GetResult..bytes..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h3109ab2bda3f4ac5E.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(80) %4) #36
-          to label %.thread.i unwind label %21
+          to label %.thread.i unwind label %22
 
-"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17he119df5e410db988E.exit": ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %19, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
+"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17he119df5e410db988E.exit": ; preds = %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %20, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h41c4e38ca1e60cdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !5272
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !5272
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %4)
@@ -29519,53 +29521,55 @@ _ZN3std9panicking3try17ha90ccec968e41b81E.exit:   ; preds = %1, %5
   %12 = phi ptr [ %8, %5 ], [ null, %1 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %13 = load i64, ptr %0, align 8, !noundef !7
+  %14 = icmp eq ptr %12, null
+  %spec.select8 = select i1 %14, ptr undef, ptr %11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store i64 1, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %12, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %11, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store ptr %spec.select8, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %13, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !5278
-  %14 = invoke { i64, i64 } @_ZN5tokio7runtime4task4core11TaskIdGuard5enter17h37d18785748bffe5E(i64 noundef %13)
-          to label %15 unwind label %23, !noalias !5278
+  %15 = invoke { i64, i64 } @_ZN5tokio7runtime4task4core11TaskIdGuard5enter17h37d18785748bffe5E(i64 noundef %13)
+          to label %16 unwind label %24, !noalias !5278
 
-15:                                               ; preds = %_ZN3std9panicking3try17ha90ccec968e41b81E.exit
-  %16 = extractvalue { i64, i64 } %14, 0
-  %17 = extractvalue { i64, i64 } %14, 1
-  store i64 %16, ptr %2, align 8, !noalias !5278
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
-  store i64 %17, ptr %18, align 8, !noalias !5278
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr424drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$aws_types..sdk_config..SdkConfig$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h56ebc495b183418aE.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
+16:                                               ; preds = %_ZN3std9panicking3try17ha90ccec968e41b81E.exit
+  %17 = extractvalue { i64, i64 } %15, 0
+  %18 = extractvalue { i64, i64 } %15, 1
+  store i64 %17, ptr %2, align 8, !noalias !5278
+  %19 = getelementptr inbounds i8, ptr %2, i64 8
+  store i64 %18, ptr %19, align 8, !noalias !5278
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  invoke void @"_ZN4core3ptr424drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$aws_types..sdk_config..SdkConfig$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h56ebc495b183418aE.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
           to label %"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha2ede29c35caf714E.exit" unwind label %.body.i, !noalias !5281
 
-.body.i:                                          ; preds = %15
-  %20 = landingpad { ptr, i32 }
+.body.i:                                          ; preds = %16
+  %21 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   invoke void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h41c4e38ca1e60cdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2)
-          to label %.thread.i unwind label %21, !noalias !5278
+          to label %.thread.i unwind label %22, !noalias !5278
 
-21:                                               ; preds = %23, %.body.i
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %24, %.body.i
+  %23 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable
 
-.thread.i:                                        ; preds = %23, %.body.i
-  %.pn5.i = phi { ptr, i32 } [ %24, %23 ], [ %20, %.body.i ]
+.thread.i:                                        ; preds = %24, %.body.i
+  %.pn5.i = phi { ptr, i32 } [ %25, %24 ], [ %21, %.body.i ]
   resume { ptr, i32 } %.pn5.i
 
-23:                                               ; preds = %_ZN3std9panicking3try17ha90ccec968e41b81E.exit
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %_ZN3std9panicking3try17ha90ccec968e41b81E.exit
+  %25 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr424drop_in_place$LT$tokio..runtime..task..core..Stage$LT$tokio..runtime..blocking..task..BlockingTask$LT$tokio..runtime..scheduler..multi_thread..worker..block_in_place$LT$deltalake_aws..storage..execute_sdk_future$LT$aws_config..loader..ConfigLoader..load..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$C$aws_types..sdk_config..SdkConfig$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h56ebc495b183418aE.llvm.8209374114036670355"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4) #36
-          to label %.thread.i unwind label %21
+          to label %.thread.i unwind label %22
 
-"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha2ede29c35caf714E.exit": ; preds = %15
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
+"_ZN5tokio7runtime4task4core17Core$LT$T$C$S$GT$9set_stage17ha2ede29c35caf714E.exit": ; preds = %16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   call void @"_ZN81_$LT$tokio..runtime..task..core..TaskIdGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h41c4e38ca1e60cdcE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2), !noalias !5278
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !5278
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)

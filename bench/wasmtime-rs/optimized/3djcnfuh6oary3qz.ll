@@ -616,8 +616,8 @@ define { ptr, i16 } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = tail call { i16, i16 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h78da46909af47153E"(ptr nonnull align 8 %5)
   %7 = extractvalue { i16, i16 } %6, 0
-  %8 = extractvalue { i16, i16 } %6, 1
   %.not10 = icmp eq i16 %7, 0
+  %8 = extractvalue { i16, i16 } %6, 1
   %spec.select = select i1 %.not10, i16 undef, i16 %8
   %spec.select11 = select i1 %.not10, ptr null, ptr %2
   br label %9
@@ -669,8 +669,8 @@ define { ptr, i16 } @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = tail call { i16, i16 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h78da46909af47153E"(ptr nonnull align 8 %5)
   %7 = extractvalue { i16, i16 } %6, 0
-  %8 = extractvalue { i16, i16 } %6, 1
   %.not10 = icmp eq i16 %7, 0
+  %8 = extractvalue { i16, i16 } %6, 1
   %spec.select = select i1 %.not10, i16 undef, i16 %8
   %spec.select11 = select i1 %.not10, ptr null, ptr %2
   br label %9

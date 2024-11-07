@@ -6052,9 +6052,9 @@ define dso_local { i64, i8 } @_ZNK4llvm9symbolize12MarkupFilter16parseFrameNumbe
   br label %9
 
 9:                                                ; preds = %7, %6
-  %.06 = phi i64 [ undef, %6 ], [ %8, %7 ]
+  %.sroa.03.0 = phi i64 [ undef, %6 ], [ %8, %7 ]
   %.sroa.24.0 = phi i8 [ 0, %6 ], [ 1, %7 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.06, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.24.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
@@ -6103,9 +6103,9 @@ define dso_local { i64, i8 } @_ZNK4llvm9symbolize12MarkupFilter13parseModuleIDEN
   br label %9
 
 9:                                                ; preds = %7, %6
-  %.06 = phi i64 [ undef, %6 ], [ %8, %7 ]
+  %.sroa.03.0 = phi i64 [ undef, %6 ], [ %8, %7 ]
   %.sroa.24.0 = phi i8 [ 0, %6 ], [ 1, %7 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.06, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.24.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
@@ -6144,9 +6144,9 @@ define dso_local { i64, i8 } @_ZNK4llvm9symbolize12MarkupFilter9parseSizeENS_9St
   br label %9
 
 9:                                                ; preds = %7, %6
-  %.06 = phi i64 [ undef, %6 ], [ %8, %7 ]
+  %.sroa.03.0 = phi i64 [ undef, %6 ], [ %8, %7 ]
   %.sroa.24.0 = phi i8 [ 0, %6 ], [ 1, %7 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.06, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.03.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.24.0, 1
   ret { i64, i8 } %.fca.1.insert
 }

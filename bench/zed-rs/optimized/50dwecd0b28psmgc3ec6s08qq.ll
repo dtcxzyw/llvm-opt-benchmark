@@ -9620,7 +9620,7 @@ _ZN4gpui3app10entity_map9EntityMap4read17h1cf2e90be0009b20E.exit124.i: ; preds =
   %.sroa.0.1 = phi i64 [ %.sroa.0.0, %.lr.ph.i ], [ %.sroa.0.2, %768 ]
   %.sroa.19.0.i = phi i32 [ %.sroa.13.i.i.0..sroa.13.i.i.0..sroa.13.i.i.0..sroa.13.i.0..sroa.13.i.0..sroa.13.0..sroa.13.0..sroa.13.0.copyload.i.i, %.lr.ph.i ], [ %.sroa.13.i198.i.0..sroa.13.i198.i.0..sroa.13.i198.i.0..sroa.13.i198.0..sroa.13.i198.0..sroa.13.0..sroa.13.0..sroa.13.0.copyload.i220.i, %768 ]
   %.sroa.6334.0..sroa.6334.8.570.i = phi i32 [ %.sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.i.0..sroa.4.i.0..sroa.4.i.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i.i, %.lr.ph.i ], [ %.sroa.4.i197.i.0..sroa.4.i197.i.0..sroa.4.i197.i.0..sroa.4.i197.0..sroa.4.i197.0..sroa.4.0..sroa.4.0..sroa.4.0.copyload.i219.i, %768 ]
-  %.sroa.0.0569.i = phi i64 [ %storemerge, %.lr.ph.i ], [ %.sroa.0.1, %768 ]
+  %.sroa.0.0569.i = phi i64 [ %storemerge, %.lr.ph.i ], [ %.sroa.0.0.i216.i, %768 ]
   %.sroa.15.0568.i = phi i32 [ %.sroa.6.0.i.i, %.lr.ph.i ], [ %.sroa.6.0.i215.i, %768 ]
   %.sroa.18.0567.i = phi i32 [ %.sroa.7.0.i.i, %.lr.ph.i ], [ %.sroa.7.0.i214.i, %768 ]
   %.sroa.20.0566.i = phi i32 [ %.sroa.8.0.i.i, %.lr.ph.i ], [ %.sroa.8.0.i213.i, %768 ]
@@ -10075,6 +10075,7 @@ _ZN4text14BufferSnapshot9anchor_at17h4e9188738f93ffc2E.exit180.i: ; preds = %.no
   %.sroa.8.0.i213.i = phi i32 [ undef, %647 ], [ %.sroa.8.0.ph.i.i.i201.i, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49722f994f0dea34E.exit.i.i.i207.i" ]
   %.sroa.7.0.i214.i = phi i32 [ undef, %647 ], [ %.sroa.7.0.ph.i.i.i202.i, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49722f994f0dea34E.exit.i.i.i207.i" ]
   %.sroa.6.0.i215.i = phi i32 [ undef, %647 ], [ %.sroa.6.0.ph.i.i.i203.i, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49722f994f0dea34E.exit.i.i.i207.i" ]
+  %.sroa.0.0.i216.i = phi i64 [ undef, %647 ], [ %.sroa.0.1, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49722f994f0dea34E.exit.i.i.i207.i" ]
   %.sink39.i.i.sroa.phi.i217.i = phi ptr [ %.sroa.4.i197.i, %647 ], [ %.sroa.13.i198.i, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49722f994f0dea34E.exit.i.i.i207.i" ]
   %.sink.i.i.i218.i = phi i32 [ 2, %647 ], [ %658, %"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h49722f994f0dea34E.exit.i.i.i207.i" ]
   store i32 %.sink.i.i.i218.i, ptr %.sink39.i.i.sroa.phi.i217.i, align 8, !alias.scope !3064, !noalias !3065

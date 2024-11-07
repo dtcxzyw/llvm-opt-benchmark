@@ -107,7 +107,7 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   br label %9
 
 9:                                                ; preds = %.loopexit.i, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
+  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %.loopexit.i ]
   %.ptr = getelementptr inbounds i8, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
@@ -163,17 +163,17 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
   br i1 %.not.i.i.i.i, label %19, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %21, %9
-  %31 = add nuw nsw i64 %.015.i, 1
+  %31 = add nuw nsw i64 %.014.i, 1
   %32 = icmp eq i64 %.add, 96
   br i1 %32, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit", label %9
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit": ; preds = %19
-  %33 = icmp samesign ult i64 %.015.i, 6
+  %33 = icmp samesign ult i64 %.014.i, 6
   call void @llvm.assume(i1 %33)
   br label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit"
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h19ce84a97ce69529E.exit": ; preds = %.loopexit.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit"
-  %.0.i = phi i64 [ %.015.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit" ], [ 0, %.loopexit.i ]
+  %.0.i = phi i64 [ %.014.i, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17hedc9a746eb35aaffE.exit" ], [ 0, %.loopexit.i ]
   ret i64 %.0.i
 }
 
@@ -228,7 +228,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   br label %9
 
 9:                                                ; preds = %.loopexit.i, %.lr.ph.i
-  %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
+  %.014.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %.loopexit.i ]
   %.idx = phi i64 [ 0, %.lr.ph.i ], [ %.add, %.loopexit.i ]
   %.ptr = getelementptr inbounds i8, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %.idx
   %.add = add nuw nsw i64 %.idx, 16
@@ -284,17 +284,17 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
   br i1 %.not.i.i.i.i, label %19, label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %21, %9
-  %31 = add nuw nsw i64 %.015.i, 1
+  %31 = add nuw nsw i64 %.014.i, 1
   %32 = icmp eq i64 %.add, 96
   br i1 %32, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread", label %9
 
 switch.lookup:                                    ; preds = %19
-  %33 = icmp samesign ult i64 %.015.i, 6
+  %33 = icmp samesign ult i64 %.014.i, 6
   call void @llvm.assume(i1 %33)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8position17h45c01db3aff8e53eE.exit.thread": ; preds = %.loopexit.i, %switch.lookup
-  %.07 = phi i64 [ %.015.i, %switch.lookup ], [ 6, %.loopexit.i ]
+  %.07 = phi i64 [ %.014.i, %switch.lookup ], [ 6, %.loopexit.i ]
   ret i64 %.07
 }
 

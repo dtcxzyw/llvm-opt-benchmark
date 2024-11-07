@@ -1511,7 +1511,7 @@ define hidden { i64, i64 } @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zip
   br i1 %6, label %.lr.ph, label %15
 
 .lr.ph:                                           ; preds = %2
-  %.promoted12 = load i64, ptr %1, align 8
+  %.promoted13 = load i64, ptr %1, align 8
   %.val2.i.i = load ptr, ptr %0, align 8, !alias.scope !319, !nonnull !4, !noundef !4
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %7, align 8, !alias.scope !319, !nonnull !4, !noundef !4
@@ -1519,7 +1519,7 @@ define hidden { i64, i64 } @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3zip
 
 8:                                                ; preds = %.lr.ph, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit
   %9 = phi i64 [ %.promoted, %.lr.ph ], [ %11, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit ]
-  %10 = phi i64 [ %.promoted12, %.lr.ph ], [ %14, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit ]
+  %10 = phi i64 [ %.promoted13, %.lr.ph ], [ %14, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit ]
   %11 = add i64 %9, 1
   %12 = getelementptr inbounds i8, ptr %.val2.i.i, i64 %9
   %13 = getelementptr inbounds i8, ptr %.val.i.i, i64 %9
@@ -1536,12 +1536,13 @@ _RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5chec
 
 .sink.split:                                      ; preds = %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit, %8
   %.sink = phi i64 [ %11, %8 ], [ %5, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit ]
+  %.sroa.3.0.ph = phi i64 [ %10, %8 ], [ undef, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit ]
   %.sroa.0.0.ph = phi i64 [ 1, %8 ], [ 0, %_RNCINvNvNtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator8position5checkTRhB1h_ENCNvXsk_NtCsaPKTPzkFU9s_3nom6traitsRShINtB1w_7CompareB1X_E7compare0E0CseG2FYMysgNb_3wax.exit ]
   store i64 %.sink, ptr %3, align 8, !alias.scope !319
   br label %15
 
 15:                                               ; preds = %.sink.split, %2
-  %.sroa.3.0 = phi i64 [ undef, %2 ], [ %10, %.sink.split ]
+  %.sroa.3.0 = phi i64 [ undef, %2 ], [ %.sroa.3.0.ph, %.sink.split ]
   %.sroa.0.0 = phi i64 [ 0, %2 ], [ %.sroa.0.0.ph, %.sink.split ]
   %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %17 = insertvalue { i64, i64 } %16, i64 %.sroa.3.0, 1

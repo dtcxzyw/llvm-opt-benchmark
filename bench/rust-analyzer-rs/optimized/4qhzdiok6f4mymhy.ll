@@ -356,48 +356,48 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %trunc.i.i.i.i.i.i.i, label %.split.us.i.i.i.i.i, label %.split.i.i.i.i.i
 
 .split.us.i.i.i.i.i:                              ; preds = %20
-  br i1 %26, label %.split14.us.i.i.i.i.i, label %.lr.ph22.i.i.i.i.i
+  br i1 %26, label %.split12.us.i.i.i.i.i, label %.lr.ph19.i.i.i.i.i
 
-.lr.ph22.i.i.i.i.i:                               ; preds = %.split.us.i.i.i.i.i, %31
-  %.0.us21.i.i.i.i.i = phi i64 [ %32, %31 ], [ %21, %.split.us.i.i.i.i.i ]
+.lr.ph19.i.i.i.i.i:                               ; preds = %.split.us.i.i.i.i.i, %31
+  %.0.us18.i.i.i.i.i = phi i64 [ %32, %31 ], [ %21, %.split.us.i.i.i.i.i ]
   %27 = phi i64 [ %29, %31 ], [ %17, %.split.us.i.i.i.i.i ]
   %28 = getelementptr inbounds { i64, [2 x i64] }, ptr %16, i64 %27
   store i64 1, ptr %28, align 8, !noalias !113
-  %.sroa.3.sroa.8.0..sroa_idx42.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %.val.i.i.i.i.i.i.i, ptr %.sroa.3.sroa.8.0..sroa_idx42.i.i.i.i.i, align 8, !noalias !113
-  %.sroa.3.sroa.10.0..sroa_idx44.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
-  store i64 %.val1.i.i.i.i.i.i.i, ptr %.sroa.3.sroa.10.0..sroa_idx44.i.i.i.i.i, align 8, !noalias !113
+  %.sroa.3.sroa.8.0..sroa_idx37.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %.val.i.i.i.i.i.i.i, ptr %.sroa.3.sroa.8.0..sroa_idx37.i.i.i.i.i, align 8, !noalias !113
+  %.sroa.3.sroa.10.0..sroa_idx39.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 16
+  store i64 %.val1.i.i.i.i.i.i.i, ptr %.sroa.3.sroa.10.0..sroa_idx39.i.i.i.i.i, align 8, !noalias !113
   %29 = add i64 %27, 1
-  %30 = icmp eq i64 %.0.us21.i.i.i.i.i, 0
+  %30 = icmp eq i64 %.0.us18.i.i.i.i.i, 0
   br i1 %30, label %.loopexit.i.i.i.i, label %31
 
-31:                                               ; preds = %.lr.ph22.i.i.i.i.i
-  %32 = add i64 %.0.us21.i.i.i.i.i, -1
+31:                                               ; preds = %.lr.ph19.i.i.i.i.i
+  %32 = add i64 %.0.us18.i.i.i.i.i, -1
   %33 = atomicrmw add ptr %.val.i.i.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !118
   %34 = icmp slt i64 %33, 0
-  br i1 %34, label %.split14.us.i.i.i.i.i, label %.lr.ph22.i.i.i.i.i
+  br i1 %34, label %.split12.us.i.i.i.i.i, label %.lr.ph19.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %20
   br i1 %26, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %39, %.split.i.i.i.i.i
-  %.val448.i.i.i.i.i = phi i64 [ %17, %.split.i.i.i.i.i ], [ %37, %39 ]
+  %.val443.i.i.i.i.i = phi i64 [ %17, %.split.i.i.i.i.i ], [ %37, %39 ]
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %.noexc.i.i.i.i.i unwind label %.body.i.i.i.i, !noalias !122
 
 .noexc.i.i.i.i.i:                                 ; preds = %._crit_edge.i.i.i.i.i
   unreachable
 
-.split14.us.i.i.i.i.i:                            ; preds = %31, %.split.us.i.i.i.i.i
-  %.val447.i.i.i.i.i = phi i64 [ %17, %.split.us.i.i.i.i.i ], [ %29, %31 ]
+.split12.us.i.i.i.i.i:                            ; preds = %31, %.split.us.i.i.i.i.i
+  %.val442.i.i.i.i.i = phi i64 [ %17, %.split.us.i.i.i.i.i ], [ %29, %31 ]
   invoke void @_ZN3std7process5abort17h1cffb1827d7e6c16E() #17
           to label %.noexc9.i.i.i.i.i unwind label %.body.i.i.i.i, !noalias !122
 
-.noexc9.i.i.i.i.i:                                ; preds = %.split14.us.i.i.i.i.i
+.noexc9.i.i.i.i.i:                                ; preds = %.split12.us.i.i.i.i.i
   unreachable
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.split.i.i.i.i.i, %39
-  %.018.i.i.i.i.i = phi i64 [ %40, %39 ], [ %21, %.split.i.i.i.i.i ]
+  %.015.i.i.i.i.i = phi i64 [ %40, %39 ], [ %21, %.split.i.i.i.i.i ]
   %35 = phi i64 [ %37, %39 ], [ %17, %.split.i.i.i.i.i ]
   %36 = getelementptr inbounds { i64, [2 x i64] }, ptr %16, i64 %35
   store i64 0, ptr %36, align 8, !noalias !113
@@ -406,25 +406,25 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.3.sroa.10.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %36, i64 16
   store i64 %.val1.i.i.i.i.i.i.i, ptr %.sroa.3.sroa.10.0..sroa_idx.i.i.i.i.i, align 8, !noalias !113
   %37 = add i64 %35, 1
-  %38 = icmp eq i64 %.018.i.i.i.i.i, 0
+  %38 = icmp eq i64 %.015.i.i.i.i.i, 0
   br i1 %38, label %.loopexit.i.i.i.i, label %39
 
 39:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %40 = add i64 %.018.i.i.i.i.i, -1
+  %40 = add i64 %.015.i.i.i.i.i, -1
   %41 = atomicrmw add ptr %.val.i.i.i.i.i.i.i, i64 1 monotonic, align 8, !noalias !123
   %42 = icmp slt i64 %41, 0
   br i1 %42, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
-.body.i.i.i.i:                                    ; preds = %.split14.us.i.i.i.i.i, %._crit_edge.i.i.i.i.i
-  %.val4.i.i.i.i.i = phi i64 [ %.val448.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %.val447.i.i.i.i.i, %.split14.us.i.i.i.i.i ]
+.body.i.i.i.i:                                    ; preds = %.split12.us.i.i.i.i.i, %._crit_edge.i.i.i.i.i
+  %.val4.i.i.i.i.i = phi i64 [ %.val443.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %.val442.i.i.i.i.i, %.split12.us.i.i.i.i.i ]
   %43 = landingpad { ptr, i32 }
           cleanup
   store i64 %.val4.i.i.i.i.i, ptr %12, align 8, !alias.scope !87, !noalias !122
   invoke void @"_ZN4core3ptr193drop_in_place$LT$core..iter..adapters..take..Take$LT$core..iter..sources..repeat..Repeat$LT$core..result..Result$LT$triomphe..arc..Arc$LT$str$GT$$C$triomphe..arc..Arc$LT$str$GT$$GT$$GT$$GT$$GT$17h85668c9a3f1e5cadE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3) #15
           to label %.body unwind label %57, !noalias !127
 
-.loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph22.i.i.i.i.i
-  %.us-phi.i.i.i.i.i = phi i64 [ %29, %.lr.ph22.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i ]
+.loopexit.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %.lr.ph19.i.i.i.i.i
+  %.us-phi.i.i.i.i.i = phi i64 [ %29, %.lr.ph19.i.i.i.i.i ], [ %37, %.lr.ph.i.i.i.i.i ]
   store i64 %.us-phi.i.i.i.i.i, ptr %12, align 8, !alias.scope !87, !noalias !122
   br label %.critedge.i.i.i.i
 

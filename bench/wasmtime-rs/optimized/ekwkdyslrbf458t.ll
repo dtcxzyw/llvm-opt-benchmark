@@ -21,10 +21,10 @@ define hidden noundef zeroext i1 @"_ZN4core3num20_$LT$impl$u20$u8$GT$17is_ascii_
 define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$11checked_add17h7713e8021d28c244E"(i64 %0, i64 %1) unnamed_addr #1 {
   %3 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %0, i64 %1)
   %4 = extractvalue { i64, i1 } %3, 1
-  %not. = xor i1 %4, true
-  %. = zext i1 %not. to i64
   %5 = extractvalue { i64, i1 } %3, 0
-  %6 = insertvalue { i64, i64 } poison, i64 %., 0
+  %not. = xor i1 %4, true
+  %.sroa.0.0 = zext i1 %not. to i64
+  %6 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %7 = insertvalue { i64, i64 } %6, i64 %5, 1
   ret { i64, i64 } %7
 }

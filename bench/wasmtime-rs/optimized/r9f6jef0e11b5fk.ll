@@ -6884,17 +6884,17 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$wasmtime_environ..module..Mo
   %38 = and i64 %37, -16
   %39 = add i64 %.val1.i.i, 17
   %40 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %38, i64 %39)
-  %41 = extractvalue { i64, i1 } %40, 0
-  %42 = extractvalue { i64, i1 } %40, 1
-  %43 = xor i1 %42, true
+  %41 = extractvalue { i64, i1 } %40, 1
+  %42 = extractvalue { i64, i1 } %40, 0
+  %43 = xor i1 %41, true
   tail call void @llvm.assume(i1 %43)
-  %44 = icmp ult i64 %41, 9223372036854775793
+  %44 = icmp ult i64 %42, 9223372036854775793
   tail call void @llvm.assume(i1 %44)
   %45 = icmp ne ptr %.val.i.i, null
   tail call void @llvm.assume(i1 %45)
   %46 = sub nsw i64 0, %38
   %47 = getelementptr inbounds i8, ptr %.val.i.i, i64 %46
-  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %41, i64 noundef range(i64 0, -9223372036854775807) 16) #26, !noalias !2793
+  tail call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %42, i64 noundef range(i64 0, -9223372036854775807) 16) #26, !noalias !2793
   br label %"_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc768a29fa2b09b1cE.exit.i.i"
 
 "_ZN4core3ptr65drop_in_place$LT$hashbrown..raw..inner..RawTable$LT$usize$GT$$GT$17hc768a29fa2b09b1cE.exit.i.i": ; preds = %30, %"_ZN4core3ptr81drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_environ..module..Initializer$GT$$GT$17h92df2a85c47e00d1E.exit"

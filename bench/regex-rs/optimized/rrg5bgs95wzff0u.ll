@@ -436,31 +436,26 @@ define void @"_ZN100_$LT$$RF$regex..regexset..bytes..SetMatches$u20$as$u20$core.
 define { i64, i64 } @"_ZN101_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h760f56d3244834d1E"(ptr noalias noundef align 8 dereferenceable(40) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 32
-  %4 = load i64, ptr %2, align 8, !noundef !5
-  %5 = load i64, ptr %3, align 8, !noundef !5
-  %6 = icmp ult i64 %4, %5
-  br i1 %6, label %.lr.ph, label %._crit_edge
+  br label %4
 
-7:                                                ; preds = %.lr.ph
-  %8 = load i64, ptr %2, align 8, !noundef !5
-  %9 = load i64, ptr %3, align 8, !noundef !5
-  %10 = icmp ult i64 %8, %9
-  br i1 %10, label %.lr.ph, label %._crit_edge
+4:                                                ; preds = %8, %1
+  %5 = load i64, ptr %2, align 8, !noundef !5
+  %6 = load i64, ptr %3, align 8, !noundef !5
+  %7 = icmp ult i64 %5, %6
+  br i1 %7, label %8, label %12
 
-.lr.ph:                                           ; preds = %1, %7
-  %11 = phi i64 [ %8, %7 ], [ %4, %1 ]
-  %12 = add nuw i64 %11, 1
-  store i64 %12, ptr %2, align 8
-  %13 = trunc i64 %11 to i32
-  %14 = tail call noundef zeroext i1 @_ZN14regex_automata4util6search10PatternSet8contains17h1c2309dc407ea328E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %13)
-  br i1 %14, label %._crit_edge, label %7
+8:                                                ; preds = %4
+  %9 = add nuw i64 %5, 1
+  store i64 %9, ptr %2, align 8
+  %10 = trunc i64 %5 to i32
+  %11 = tail call noundef zeroext i1 @_ZN14regex_automata4util6search10PatternSet8contains17h1c2309dc407ea328E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef %10)
+  br i1 %11, label %12, label %4
 
-._crit_edge:                                      ; preds = %.lr.ph, %7, %1
-  %.sroa.5.17 = phi i64 [ undef, %1 ], [ %11, %7 ], [ %11, %.lr.ph ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 1, %.lr.ph ], [ 0, %7 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.5.17, 1
-  ret { i64, i64 } %16
+12:                                               ; preds = %4, %8
+  %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %4 ]
+  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %14 = insertvalue { i64, i64 } %13, i64 %5, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

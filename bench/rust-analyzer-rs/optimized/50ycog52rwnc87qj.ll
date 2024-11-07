@@ -257,8 +257,8 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
   %34 = getelementptr inbounds [0 x { i32, i32 }], ptr %12, i64 0, i64 %23
   %35 = load i32, ptr %34, align 4, !noundef !4
   %.not.i.not.i13 = icmp ult i32 %2, %35
-  %.not.i11.not.i = icmp ult i32 %3, %35
-  %or.cond.i = or i1 %.not.i.not.i13, %.not.i11.not.i
+  %.not.i10.not.i = icmp ult i32 %3, %35
+  %or.cond.i = or i1 %.not.i.not.i13, %.not.i10.not.i
   br i1 %or.cond.i, label %37, label %38
 
 36:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E.exit"

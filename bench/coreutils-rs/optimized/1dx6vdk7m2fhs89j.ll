@@ -3013,36 +3013,36 @@ define void @_ZN7uu_shuf11parse_range17h5d91bdffba6a71a9E(ptr noalias nocapture 
   br label %.lr.ph.split.split.i.i
 
 .lr.ph.split.split.i.i:                           ; preds = %41, %3
-  %.sroa.3.0.i47.i.i = phi i64 [ %42, %41 ], [ %2, %3 ]
+  %.sroa.7.049.i.i = phi i64 [ %42, %41 ], [ %2, %3 ]
   %22 = phi i64 [ %38, %41 ], [ 0, %3 ]
-  %.49.i.i = getelementptr inbounds i8, ptr %1, i64 %22
-  %23 = icmp ult i64 %.sroa.3.0.i47.i.i, 16
+  %.sroa.0.050.i.i = getelementptr inbounds i8, ptr %1, i64 %22
+  %23 = icmp ult i64 %.sroa.7.049.i.i, 16
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %.lr.ph.split.split.i.i
-  %25 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %.49.i.i, i64 noundef %.sroa.3.0.i47.i.i), !noalias !822
+  %25 = tail call { i64, i64 } @_ZN4core5slice6memchr14memchr_aligned17h70c951369894823fE(i8 noundef 45, ptr noalias noundef nonnull readonly align 1 %.sroa.0.050.i.i, i64 noundef %.sroa.7.049.i.i), !noalias !822
   br label %34
 
 26:                                               ; preds = %.lr.ph.split.split.i.i
-  %.not.i.i.i = icmp eq i64 %2, %22
+  %.not.i.i.i = icmp eq i64 %.sroa.7.049.i.i, 0
   br i1 %.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %26, %30
   %.05.i.i.i = phi i64 [ %31, %30 ], [ 0, %26 ]
-  %27 = getelementptr inbounds [0 x i8], ptr %.49.i.i, i64 0, i64 %.05.i.i.i
+  %27 = getelementptr inbounds [0 x i8], ptr %.sroa.0.050.i.i, i64 0, i64 %.05.i.i.i
   %28 = load i8, ptr %27, align 1, !alias.scope !828, !noalias !822, !noundef !4
   %29 = icmp eq i8 %28, 45
   br i1 %29, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i.i
   %31 = add nuw nsw i64 %.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %31, %.sroa.3.0.i47.i.i
+  %exitcond.not.i.i.i = icmp eq i64 %31, %.sroa.7.049.i.i
   br i1 %exitcond.not.i.i.i, label %_ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i, label %.lr.ph.i.i.i
 
 _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i: ; preds = %30, %.lr.ph.i.i.i, %26
-  %.0.lcssa.i.i.i = phi i64 [ 0, %26 ], [ %.sroa.3.0.i47.i.i, %30 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
-  %.sroa.0.0.i25.i.i = phi i64 [ 0, %26 ], [ 0, %30 ], [ 1, %.lr.ph.i.i.i ]
-  %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i25.i.i, 0
+  %.0.lcssa.i.i.i = phi i64 [ 0, %26 ], [ %.sroa.7.049.i.i, %30 ], [ %.05.i.i.i, %.lr.ph.i.i.i ]
+  %.sroa.0.0.i24.i.i = phi i64 [ 0, %26 ], [ 0, %30 ], [ 1, %.lr.ph.i.i.i ]
+  %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.i24.i.i, 0
   %33 = insertvalue { i64, i64 } %32, i64 %.0.lcssa.i.i.i, 1
   br label %34
 

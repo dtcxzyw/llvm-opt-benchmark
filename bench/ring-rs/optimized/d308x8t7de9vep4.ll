@@ -141,9 +141,10 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
   br i1 %.not, label %26, label %25
 
 22:                                               ; preds = %18, %26
+  %.sroa.3.0 = phi i8 [ undef, %26 ], [ %.sroa.6.0, %18 ]
   %.sroa.0.0 = phi i8 [ 0, %26 ], [ 1, %18 ]
   %23 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %24 = insertvalue { i8, i8 } %23, i8 %.sroa.6.0, 1
+  %24 = insertvalue { i8, i8 } %23, i8 %.sroa.3.0, 1
   ret { i8, i8 } %24
 
 25:                                               ; preds = %20
@@ -202,9 +203,10 @@ define hidden { i8, i8 } @"_ZN4core4iter8adapters8peekable17Peekable$LT$I$GT$7ne
   br i1 %.not, label %26, label %25
 
 22:                                               ; preds = %18, %26
+  %.sroa.3.0 = phi i8 [ undef, %26 ], [ %.sroa.6.0, %18 ]
   %.sroa.0.0 = phi i8 [ 0, %26 ], [ 1, %18 ]
   %23 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %24 = insertvalue { i8, i8 } %23, i8 %.sroa.6.0, 1
+  %24 = insertvalue { i8, i8 } %23, i8 %.sroa.3.0, 1
   ret { i8, i8 } %24
 
 25:                                               ; preds = %20

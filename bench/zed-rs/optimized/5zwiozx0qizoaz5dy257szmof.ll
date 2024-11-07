@@ -755,8 +755,8 @@ define hidden { i64, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %.promoted = load ptr, ptr %6, align 8
-  %.not26 = icmp eq ptr %.promoted, %5
-  br i1 %.not26, label %.loopexit11, label %.lr.ph
+  %.not25 = icmp eq ptr %.promoted, %5
+  br i1 %.not25, label %.loopexit10, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = load ptr, ptr %2, align 8, !alias.scope !169, !nonnull !4, !align !79, !noundef !4
@@ -788,7 +788,7 @@ define hidden { i64, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
   %27 = load i64, ptr %11, align 8, !alias.scope !173, !noalias !176, !noundef !4
   %28 = icmp eq i64 %27, 0
-  br i1 %28, label %.loopexit11.split.loop.exit17, label %29
+  br i1 %28, label %.loopexit10.split.loop.exit16, label %29
 
 29:                                               ; preds = %25
   %30 = mul i64 %21, 5871781006564002453
@@ -830,7 +830,7 @@ define hidden { i64, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %46 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i.i.i.i.i.i, splat (i8 -1)
   %47 = bitcast <16 x i1> %46 to i16
   %.not.i.i.i.i.i.i.i.i = icmp eq i16 %47, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %52, label %.loopexit10
+  br i1 %.not.i.i.i.i.i.i.i.i, label %52, label %.loopexit9
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
   %49 = add i16 %.sroa.06.0.i26.i.i.i.i.i.i.i, -1
@@ -874,23 +874,23 @@ define hidden { i64, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit": ; preds = %66, %"_ZN13outline_panel12OutlinePanel16outline_location28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h359adc1484ec9d31E.exit.i.i.i.i.i.i", %19
   %.not = icmp eq ptr %22, %5
-  br i1 %.not, label %.loopexit11, label %19
+  br i1 %.not, label %.loopexit10, label %19
 
 .loopexit:                                        ; preds = %63
   %72 = getelementptr inbounds { { { { { i32, i32 } } }, { { { i32, i32 } } } }, ptr }, ptr %26, i64 %21
-  br label %.loopexit11
+  br label %.loopexit10
 
-.loopexit10:                                      ; preds = %._crit_edge.i.i.i.i.i.i.i
+.loopexit9:                                       ; preds = %._crit_edge.i.i.i.i.i.i.i
   %73 = getelementptr inbounds { { { { { i32, i32 } } }, { { { i32, i32 } } } }, ptr }, ptr %26, i64 %21
-  br label %.loopexit11
+  br label %.loopexit10
 
-.loopexit11.split.loop.exit17:                    ; preds = %25
+.loopexit10.split.loop.exit16:                    ; preds = %25
   %74 = getelementptr inbounds { { { { { i32, i32 } } }, { { { i32, i32 } } } }, ptr }, ptr %26, i64 %21
-  br label %.loopexit11
+  br label %.loopexit10
 
-.loopexit11:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit", %.loopexit11.split.loop.exit17, %3, %.loopexit10, %.loopexit
-  %.sroa.3.0 = phi ptr [ %72, %.loopexit ], [ %73, %.loopexit10 ], [ %74, %.loopexit11.split.loop.exit17 ], [ null, %3 ], [ null, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit" ]
-  %.sroa.0.0 = phi i64 [ %21, %.loopexit ], [ %21, %.loopexit10 ], [ %21, %.loopexit11.split.loop.exit17 ], [ undef, %3 ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit" ]
+.loopexit10:                                      ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit", %.loopexit10.split.loop.exit16, %3, %.loopexit9, %.loopexit
+  %.sroa.3.0 = phi ptr [ %72, %.loopexit ], [ %73, %.loopexit9 ], [ %74, %.loopexit10.split.loop.exit16 ], [ null, %3 ], [ null, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit" ]
+  %.sroa.0.0 = phi i64 [ %21, %.loopexit ], [ %21, %.loopexit9 ], [ %21, %.loopexit10.split.loop.exit16 ], [ undef, %3 ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9c60b9cec4ad2bc4E.exit" ]
   %75 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %76 = insertvalue { i64, ptr } %75, ptr %.sroa.3.0, 1
   ret { i64, ptr } %76

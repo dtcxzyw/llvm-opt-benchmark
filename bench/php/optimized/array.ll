@@ -2330,99 +2330,101 @@ define hidden void @zif_current(ptr noundef %0, ptr nocapture noundef writeonly 
   br i1 %switch, label %11, label %10
 
 10:                                               ; preds = %.thread, %5
-  %.07093 = phi i32 [ 0, %.thread ], [ 1, %5 ]
-  %.07292 = phi ptr [ null, %.thread ], [ %6, %5 ]
-  %.07391 = phi i32 [ 1, %.thread ], [ 9, %5 ]
-  %.07490 = phi i32 [ 0, %.thread ], [ 6, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.07391, i32 noundef %.07093, ptr noundef null, i32 noundef %.07490, ptr noundef %.07292) #18
-  br label %56
+  %.07094 = phi i32 [ 0, %.thread ], [ 1, %5 ]
+  %.07293 = phi ptr [ null, %.thread ], [ %6, %5 ]
+  %.07392 = phi i32 [ 1, %.thread ], [ 9, %5 ]
+  %.07491 = phi i32 [ 0, %.thread ], [ 6, %5 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.07392, i32 noundef %.07094, ptr noundef null, i32 noundef %.07491, ptr noundef %.07293) #18
+  br label %58
 
 11:                                               ; preds = %5
-  %12 = icmp eq i8 %8, 7
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %11
-  %14 = load ptr, ptr %6, align 8
-  br label %get_ht_for_iap.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = load i8, ptr %12, align 8
+  %14 = icmp eq i8 %13, 7
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @get_active_function_name() #18
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.38, ptr noundef %16) #18
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr %21(ptr noundef %17) #18
+  %16 = load ptr, ptr %6, align 8
   br label %get_ht_for_iap.exit
 
-get_ht_for_iap.exit:                              ; preds = %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %22, %15 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 36
-  %24 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %.0.i, ptr noundef nonnull %23) #18
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %26, label %28
+17:                                               ; preds = %11
+  %18 = tail call ptr @get_active_function_name() #18
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.38, ptr noundef %18) #18
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr %23(ptr noundef %19) #18
+  br label %get_ht_for_iap.exit
 
-26:                                               ; preds = %get_ht_for_iap.exit
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 2, ptr %27, align 8
-  br label %56
+get_ht_for_iap.exit:                              ; preds = %15, %17
+  %.0.i = phi ptr [ %16, %15 ], [ %24, %17 ]
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  %26 = tail call ptr @zend_hash_get_current_data_ex(ptr noundef %.0.i, ptr noundef nonnull %25) #18
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %28, label %30
 
 28:                                               ; preds = %get_ht_for_iap.exit
-  %29 = getelementptr inbounds i8, ptr %24, i64 8
-  %30 = load i8, ptr %29, align 8
-  %31 = icmp eq i8 %30, 12
-  br i1 %31, label %32, label %34
+  %29 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 2, ptr %29, align 8
+  br label %58
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr %24, align 8
-  br label %34
+30:                                               ; preds = %get_ht_for_iap.exit
+  %31 = getelementptr inbounds i8, ptr %26, i64 8
+  %32 = load i8, ptr %31, align 8
+  %33 = icmp eq i8 %32, 12
+  br i1 %33, label %34, label %36
 
-34:                                               ; preds = %32, %28
-  %.069 = phi ptr [ %33, %32 ], [ %24, %28 ]
-  %35 = getelementptr inbounds i8, ptr %.069, i64 8
-  %36 = load i32, ptr %35, align 8
-  %37 = and i32 %36, 65280
-  %.not80 = icmp eq i32 %37, 0
-  br i1 %.not80, label %51, label %38
+34:                                               ; preds = %30
+  %35 = load ptr, ptr %26, align 8
+  br label %36
 
-38:                                               ; preds = %34
-  %39 = and i32 %36, 255
-  %40 = icmp eq i32 %39, 10
-  br i1 %40, label %41, label %.sink.split
+36:                                               ; preds = %34, %30
+  %.069 = phi ptr [ %35, %34 ], [ %26, %30 ]
+  %37 = getelementptr inbounds i8, ptr %.069, i64 8
+  %38 = load i32, ptr %37, align 8
+  %39 = and i32 %38, 65280
+  %.not80 = icmp eq i32 %39, 0
+  br i1 %.not80, label %53, label %40
 
-41:                                               ; preds = %38
-  %42 = load ptr, ptr %.069, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 8
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %45, 65280
-  %.not81 = icmp eq i32 %46, 0
-  br i1 %.not81, label %51, label %.sink.split
+40:                                               ; preds = %36
+  %41 = and i32 %38, 255
+  %42 = icmp eq i32 %41, 10
+  br i1 %42, label %43, label %.sink.split
 
-.sink.split:                                      ; preds = %38, %41
-  %.sink98 = phi i32 [ %45, %41 ], [ %36, %38 ]
-  %.sink.in = phi ptr [ %43, %41 ], [ %.069, %38 ]
-  %47 = and i32 %.sink98, 65280
-  %48 = icmp ne i32 %47, 0
-  tail call void @llvm.assume(i1 %48)
+43:                                               ; preds = %40
+  %44 = load ptr, ptr %.069, align 8
+  %45 = getelementptr inbounds i8, ptr %44, i64 8
+  %46 = getelementptr inbounds i8, ptr %44, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = and i32 %47, 65280
+  %.not81 = icmp eq i32 %48, 0
+  br i1 %.not81, label %53, label %.sink.split
+
+.sink.split:                                      ; preds = %40, %43
+  %.sink99 = phi i32 [ %47, %43 ], [ %38, %40 ]
+  %.sink.in = phi ptr [ %45, %43 ], [ %.069, %40 ]
+  %49 = and i32 %.sink99, 65280
+  %50 = icmp ne i32 %49, 0
+  tail call void @llvm.assume(i1 %50)
   %.sink = load ptr, ptr %.sink.in, align 8
-  %49 = load i32, ptr %.sink, align 4
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %.sink, align 4
-  br label %51
+  %51 = load i32, ptr %.sink, align 4
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %.sink, align 4
+  br label %53
 
-51:                                               ; preds = %.sink.split, %34, %41
-  %.071 = phi ptr [ %43, %41 ], [ %.069, %34 ], [ %.sink.in, %.sink.split ]
-  %52 = load ptr, ptr %.071, align 8
-  %53 = getelementptr inbounds i8, ptr %.071, i64 8
-  %54 = load i32, ptr %53, align 8
-  store ptr %52, ptr %1, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %54, ptr %55, align 8
-  br label %56
+53:                                               ; preds = %.sink.split, %36, %43
+  %.071 = phi ptr [ %45, %43 ], [ %.069, %36 ], [ %.sink.in, %.sink.split ]
+  %54 = load ptr, ptr %.071, align 8
+  %55 = getelementptr inbounds i8, ptr %.071, i64 8
+  %56 = load i32, ptr %55, align 8
+  store ptr %54, ptr %1, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 8
+  store i32 %56, ptr %57, align 8
+  br label %58
 
-56:                                               ; preds = %51, %26, %10
+58:                                               ; preds = %53, %28, %10
   ret void
 }
 
@@ -2446,39 +2448,41 @@ define hidden void @zif_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   br i1 %switch, label %11, label %10
 
 10:                                               ; preds = %.thread, %5
-  %.04665 = phi i32 [ 1, %.thread ], [ 9, %5 ]
-  %.04764 = phi i32 [ 0, %.thread ], [ 1, %5 ]
-  %.04863 = phi ptr [ null, %.thread ], [ %6, %5 ]
-  %.04962 = phi i32 [ 0, %.thread ], [ 6, %5 ]
-  tail call void @zend_wrong_parameter_error(i32 noundef %.04665, i32 noundef %.04764, ptr noundef null, i32 noundef %.04962, ptr noundef %.04863) #18
-  br label %24
+  %.04666 = phi i32 [ 1, %.thread ], [ 9, %5 ]
+  %.04765 = phi i32 [ 0, %.thread ], [ 1, %5 ]
+  %.04864 = phi ptr [ null, %.thread ], [ %6, %5 ]
+  %.04963 = phi i32 [ 0, %.thread ], [ 6, %5 ]
+  tail call void @zend_wrong_parameter_error(i32 noundef %.04666, i32 noundef %.04765, ptr noundef null, i32 noundef %.04963, ptr noundef %.04864) #18
+  br label %26
 
 11:                                               ; preds = %5
-  %12 = icmp eq i8 %8, 7
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %11
-  %14 = load ptr, ptr %6, align 8
-  br label %get_ht_for_iap.exit
+  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %13 = load i8, ptr %12, align 8
+  %14 = icmp eq i8 %13, 7
+  br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @get_active_function_name() #18
-  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.38, ptr noundef %16) #18
-  %17 = load ptr, ptr %6, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 104
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call ptr %21(ptr noundef %17) #18
+  %16 = load ptr, ptr %6, align 8
   br label %get_ht_for_iap.exit
 
-get_ht_for_iap.exit:                              ; preds = %13, %15
-  %.0.i = phi ptr [ %14, %13 ], [ %22, %15 ]
-  %23 = getelementptr inbounds i8, ptr %.0.i, i64 36
-  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %.0.i, ptr noundef %1, ptr noundef nonnull %23) #18
-  br label %24
+17:                                               ; preds = %11
+  %18 = tail call ptr @get_active_function_name() #18
+  tail call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 8192, ptr noundef nonnull @.str.38, ptr noundef %18) #18
+  %19 = load ptr, ptr %6, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %21, i64 104
+  %23 = load ptr, ptr %22, align 8
+  %24 = tail call ptr %23(ptr noundef %19) #18
+  br label %get_ht_for_iap.exit
 
-24:                                               ; preds = %get_ht_for_iap.exit, %10
+get_ht_for_iap.exit:                              ; preds = %15, %17
+  %.0.i = phi ptr [ %16, %15 ], [ %24, %17 ]
+  %25 = getelementptr inbounds i8, ptr %.0.i, i64 36
+  tail call void @zend_hash_get_current_key_zval_ex(ptr noundef %.0.i, ptr noundef %1, ptr noundef nonnull %25) #18
+  br label %26
+
+26:                                               ; preds = %get_ht_for_iap.exit, %10
   ret void
 }
 

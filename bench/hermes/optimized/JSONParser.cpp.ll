@@ -1096,16 +1096,20 @@ entry:
   br i1 %tobool.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %1 = load ptr, ptr %lexer_, align 8
-  %messageCount_.i.i = getelementptr inbounds i8, ptr %1, i64 296
-  %2 = load i32, ptr %messageCount_.i.i, align 4
-  %cmp.not = icmp eq i32 %2, 0
-  %spec.select = zext i1 %cmp.not to i8
+  %1 = extractvalue { i64, i8 } %call2, 0
+  %2 = load ptr, ptr %lexer_, align 8
+  %messageCount_.i.i = getelementptr inbounds i8, ptr %2, i64 296
+  %3 = load i32, ptr %messageCount_.i.i, align 4
+  %cmp.not = icmp eq i32 %3, 0
+  %spec.select = select i1 %cmp.not, i64 %1, i64 undef
+  %spec.select3 = zext i1 %cmp.not to i8
   br label %return
 
 return:                                           ; preds = %if.end, %entry
-  %retval.sroa.2.0 = phi i8 [ 0, %entry ], [ %spec.select, %if.end ]
-  %.fca.1.insert = insertvalue { i64, i8 } %call2, i8 %retval.sroa.2.0, 1
+  %retval.sroa.0.0 = phi i64 [ undef, %entry ], [ %spec.select, %if.end ]
+  %retval.sroa.2.0 = phi i8 [ 0, %entry ], [ %spec.select3, %if.end ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %retval.sroa.0.0, 0
+  %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert
 }
 

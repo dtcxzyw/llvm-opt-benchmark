@@ -7556,7 +7556,7 @@ define void @_ZNK10open_spiel12crazy_eights16CrazyEightsState14ChanceOutcomesEv(
   %18 = load i32, ptr %17, align 8
   %19 = load i32, ptr %16, align 8
   %20 = icmp sgt i32 %19, -1
-  br i1 %20, label %.lr.ph191, label %._crit_edge
+  br i1 %20, label %.lr.ph197, label %._crit_edge
 
 .preheader:                                       ; preds = %2
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -7686,15 +7686,16 @@ _ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit: ; preds = %
   %67 = getelementptr inbounds [52 x i32], ptr %16, i64 0, i64 %indvars.iv.next
   %68 = load i32, ptr %67, align 4
   %69 = icmp sgt i32 %68, -1
-  br i1 %69, label %.lr.ph191, label %._crit_edge, !llvm.loop !117
+  br i1 %69, label %.lr.ph197, label %._crit_edge, !llvm.loop !117
 
 ._crit_edge:                                      ; preds = %66, %.preheader69
-  %.lcssa185 = phi i32 [ undef, %.preheader69 ], [ %74, %66 ]
-  %.lcssa182 = phi i32 [ %19, %.preheader69 ], [ %68, %66 ]
-  store i32 %.lcssa182, ptr %3, align 4
+  %.lcssa191 = phi i32 [ undef, %.preheader69 ], [ %74, %66 ]
+  %.lcssa188 = phi i32 [ undef, %.preheader69 ], [ %18, %66 ]
+  %.lcssa185 = phi i32 [ %19, %.preheader69 ], [ %68, %66 ]
+  store i32 %.lcssa185, ptr %3, align 4
   store i32 0, ptr %4, align 4
-  store i32 %.lcssa185, ptr %7, align 4
-  store i32 %18, ptr %8, align 4
+  store i32 %.lcssa191, ptr %7, align 4
+  store i32 %.lcssa188, ptr %8, align 4
   store i32 358, ptr %6, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA144_KcRA2_S2_iS6_RA24_S2_RA20_S2_RA4_S2_RiRA7_S2_SD_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 1 dereferenceable(144) @.str.20, ptr noundef nonnull align 1 dereferenceable(2) @.str.21, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 1 dereferenceable(2) @.str.22, ptr noundef nonnull align 1 dereferenceable(24) @.str.61, ptr noundef nonnull align 1 dereferenceable(20) @.str.62, ptr noundef nonnull align 1 dereferenceable(4) @.str.25, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(7) @.str.35, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %70 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -7712,14 +7713,14 @@ _ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit: ; preds = %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
-.lr.ph191:                                        ; preds = %.preheader69, %66
+.lr.ph197:                                        ; preds = %.preheader69, %66
   %74 = phi i32 [ %68, %66 ], [ %19, %.preheader69 ]
-  %.01484190 = phi i32 [ %81, %66 ], [ 0, %.preheader69 ]
-  %indvars.iv189 = phi i64 [ %indvars.iv.next, %66 ], [ 0, %.preheader69 ]
+  %.01484196 = phi i32 [ %81, %66 ], [ 0, %.preheader69 ]
+  %indvars.iv195 = phi i64 [ %indvars.iv.next, %66 ], [ 0, %.preheader69 ]
   %.not19 = icmp sgt i32 %74, %18
   br i1 %.not19, label %75, label %80
 
-75:                                               ; preds = %.lr.ph191
+75:                                               ; preds = %.lr.ph197
   store i32 %74, ptr %3, align 4
   store i32 0, ptr %4, align 4
   store i32 %74, ptr %7, align 4
@@ -7741,9 +7742,9 @@ _ZNSt6vectorISt4pairIldESaIS1_EE12emplace_backIJidEEERS1_DpOT_.exit: ; preds = %
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #25
   br label %_ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit
 
-80:                                               ; preds = %.lr.ph191
-  %81 = add nuw nsw i32 %74, %.01484190
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv189, 1
+80:                                               ; preds = %.lr.ph197
+  %81 = add nuw nsw i32 %74, %.01484196
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv195, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 52
   br i1 %exitcond.not, label %82, label %66, !llvm.loop !117
 

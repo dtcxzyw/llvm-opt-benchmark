@@ -934,8 +934,8 @@ do.cond.i:                                        ; preds = %do.body.i
 do.body.i74:                                      ; preds = %do.cond.i, %do.cond.i78
   %str.addr.0.i75 = phi ptr [ %incdec.ptr.i79, %do.cond.i78 ], [ %k, %do.cond.i ]
   %prefix.addr.0.i76.idx = phi i64 [ %prefix.addr.0.i76.add, %do.cond.i78 ], [ 0, %do.cond.i ]
-  %exitcond93 = icmp eq i64 %prefix.addr.0.i76.idx, 13
-  br i1 %exitcond93, label %if.then51, label %do.cond.i78
+  %exitcond94 = icmp eq i64 %prefix.addr.0.i76.idx, 13
+  br i1 %exitcond94, label %if.then51, label %do.cond.i78
 
 do.cond.i78:                                      ; preds = %do.body.i74
   %prefix.addr.0.i76.ptr = getelementptr inbounds i8, ptr @.str.154, i64 %prefix.addr.0.i76.idx
@@ -998,8 +998,8 @@ sub_0:                                            ; preds = %if.then69
 sub_1:                                            ; preds = %sub_0
   %7 = getelementptr inbounds i8, ptr %v, i64 1
   %8 = load i8, ptr %7, align 1
-  %.not88 = icmp eq i8 %8, 111
-  br i1 %.not88, label %if.else74.tail, label %if.else78
+  %.not89 = icmp eq i8 %8, 111
+  br i1 %.not89, label %if.else74.tail, label %if.else78
 
 if.else74.tail:                                   ; preds = %sub_1
   %9 = getelementptr inbounds i8, ptr %v, i64 2

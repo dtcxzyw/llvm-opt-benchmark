@@ -1168,7 +1168,7 @@ _ZN6parser6parser6Parser2at17h7ee6f9696108a2acE.exit97.i: ; preds = %293
   br label %_ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit
 
 common.resume:                                    ; preds = %385, %391, %403, %414, %439, %.thread.i
-  %common.resume.op = phi { ptr, i32 } [ %.pn101.i, %.thread.i ], [ %lpad.thr_comm89, %439 ], [ %lpad.thr_comm81, %414 ], [ %lpad.thr_comm, %403 ], [ %392, %391 ], [ %386, %385 ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn101.i, %.thread.i ], [ %lpad.thr_comm90, %439 ], [ %lpad.thr_comm82, %414 ], [ %lpad.thr_comm, %403 ], [ %392, %391 ], [ %386, %385 ]
   resume { ptr, i32 } %common.resume.op
 
 .thread.i:                                        ; preds = %276, %.loopexit.split-lp121.i, %.loopexit120.i, %.thread103.loopexit.split-lp.loopexit.split-lp.i, %.thread103.loopexit.split-lp.loopexit.i, %.thread103.loopexit.i
@@ -1177,8 +1177,8 @@ common.resume:                                    ; preds = %385, %391, %403, %4
           to label %common.resume unwind label %277
 
 _ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit: ; preds = %210, %279, %299
-  %.pn98 = phi { i32, i16 } [ %300, %299 ], [ %280, %279 ], [ %211, %210 ]
-  %.sroa.5.0.i = extractvalue { i32, i16 } %.pn98, 1
+  %.pn99 = phi { i32, i16 } [ %300, %299 ], [ %280, %279 ], [ %211, %210 ]
+  %.sroa.5.0.i = extractvalue { i32, i16 } %.pn99, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %27), !noalias !67
   %301 = icmp eq i16 %.sroa.5.0.i, 273
   br i1 %301, label %441, label %440
@@ -1224,8 +1224,8 @@ _ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit: ; p
 
 _ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit: ; preds = %306, %313
   %323 = phi i16 [ %317, %313 ], [ 1, %306 ]
-  %.not95 = icmp eq i32 %304, 15000000
-  br i1 %.not95, label %327, label %324
+  %.not96 = icmp eq i32 %304, 15000000
+  br i1 %.not96, label %327, label %324
 
 324:                                              ; preds = %_ZN6parser6parser6Parser3nth17hd61dceb9a6b1841bE.exit
   %325 = add nuw nsw i32 %304, 2
@@ -1527,7 +1527,7 @@ _ZN6parser7grammar9BlockLike12is_blocklike17hd3a14046a29f94baE.exit: ; preds = %
   br label %381
 
 414:                                              ; preds = %410, %393
-  %lpad.thr_comm81 = landingpad { ptr, i32 }
+  %lpad.thr_comm82 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$parser..parser..Marker$GT$17h537f17968311df0dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %35) #10
           to label %common.resume unwind label %387
@@ -1618,13 +1618,13 @@ _ZN6parser7grammar9BlockLike12is_blocklike17hd3a14046a29f94baE.exit: ; preds = %
   br label %59
 
 439:                                              ; preds = %432, %419, %421, %416, %415
-  %lpad.thr_comm89 = landingpad { ptr, i32 }
+  %lpad.thr_comm90 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$parser..parser..Marker$GT$17h537f17968311df0dE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %41) #10
           to label %common.resume unwind label %387
 
 440:                                              ; preds = %_ZN6parser7grammar11expressions4atom12builtin_expr17ha4dc409baf8a9169E.exit
-  %.sroa.0.0.i = extractvalue { i32, i16 } %.pn98, 0
+  %.sroa.0.0.i = extractvalue { i32, i16 } %.pn99, 0
   store i32 %.sroa.0.0.i, ptr %0, align 4
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %.sroa.5.0.i, ptr %.sroa.56.0..sroa_idx, align 4

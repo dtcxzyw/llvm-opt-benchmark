@@ -356,14 +356,14 @@ define hidden { i8, i8 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$
   %8 = call { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h12820251cad19d26E.llvm.3198005069098508149(ptr noalias noundef nonnull align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3), !noalias !37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !28
   %.fca.0.extract1.i = extractvalue { i8, i8 } %8, 0
-  %9 = icmp eq i8 %.fca.0.extract1.i, 2
   %.fca.1.extract2.i = extractvalue { i8, i8 } %8, 1
-  %10 = and i8 %.fca.0.extract1.i, 1
-  %.sroa.3.0.i = select i1 %9, i8 undef, i8 %.fca.1.extract2.i
-  %11 = insertvalue { i8, i8 } poison, i8 %10, 0
-  %12 = insertvalue { i8, i8 } %11, i8 %.sroa.3.0.i, 1
+  %9 = and i8 %.fca.0.extract1.i, 1
+  %10 = insertvalue { i8, i8 } poison, i8 %9, 0
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  ret { i8, i8 } %12
+  %trunc = trunc i8 %.fca.0.extract1.i to i1
+  %.sroa.3.0 = select i1 %trunc, i8 %.fca.1.extract2.i, i8 undef
+  %11 = insertvalue { i8, i8 } %10, i8 %.sroa.3.0, 1
+  ret { i8, i8 } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

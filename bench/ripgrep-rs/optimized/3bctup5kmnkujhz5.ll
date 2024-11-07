@@ -957,10 +957,11 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN10grep_regex7matcher1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define noundef nonnull align 8 dereferenceable(40) ptr @_ZN10grep_regex7matcher19RegexMatcherBuilder15line_terminator17he34c6413e2d1c96dE(ptr noalias noundef returned writeonly align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #10 {
   %spec.select = select i1 %1, i8 0, i8 2
+  %spec.select2 = select i1 %1, i8 %2, i8 undef
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 %spec.select, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 21
-  store i8 %2, ptr %5, align 1
+  store i8 %spec.select2, ptr %5, align 1
   ret ptr %0
 }
 
@@ -1341,17 +1342,17 @@ default.unreachable:                              ; preds = %86
   %92 = load i8, ptr %.sroa.031.066, align 1, !noundef !7
   %93 = getelementptr inbounds i8, ptr %.sroa.031.066, i64 1
   %94 = load i8, ptr %93, align 1, !noundef !7
-  %.not.i7.i = icmp ugt i8 %92, %94
-  br i1 %.not.i7.i, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit, label %.lr.ph.i
+  %.not.i8.i = icmp ugt i8 %92, %94
+  br i1 %.not.i8.i, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph68, %.lr.ph.i
-  %.sroa.5.08.i = phi i8 [ %spec.select.i, %.lr.ph.i ], [ %92, %.lr.ph68 ]
-  %95 = icmp ult i8 %.sroa.5.08.i, %94
+  %.sroa.5.09.i = phi i8 [ %spec.select.i, %.lr.ph.i ], [ %92, %.lr.ph68 ]
+  %95 = icmp ult i8 %.sroa.5.09.i, %94
   %96 = zext i1 %95 to i8
-  %spec.select.i = add nuw i8 %.sroa.5.08.i, %96
-  %97 = lshr i8 %.sroa.5.08.i, 6
+  %spec.select.i = add nuw i8 %.sroa.5.09.i, %96
+  %97 = lshr i8 %.sroa.5.09.i, 6
   %98 = zext nneg i8 %97 to i64
-  %99 = and i8 %.sroa.5.08.i, 63
+  %99 = and i8 %.sroa.5.09.i, 63
   %100 = zext nneg i8 %99 to i64
   %101 = shl nuw i64 1, %100
   %102 = xor i64 %101, -1
@@ -1385,17 +1386,17 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.p
   %111 = load i8, ptr %110, align 1, !noundef !7
   %112 = getelementptr inbounds i8, ptr %110, i64 1
   %113 = load i8, ptr %112, align 1, !noundef !7
-  %.not.i7.i21 = icmp ugt i8 %111, %113
-  br i1 %.not.i7.i21, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit27, label %.lr.ph.i22
+  %.not.i8.i21 = icmp ugt i8 %111, %113
+  br i1 %.not.i8.i21, label %_ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit27, label %.lr.ph.i22
 
 .lr.ph.i22:                                       ; preds = %.lr.ph65, %.lr.ph.i22
-  %.sroa.5.08.i23 = phi i8 [ %spec.select.i24, %.lr.ph.i22 ], [ %111, %.lr.ph65 ]
-  %114 = icmp ult i8 %.sroa.5.08.i23, %113
+  %.sroa.5.09.i23 = phi i8 [ %spec.select.i24, %.lr.ph.i22 ], [ %111, %.lr.ph65 ]
+  %114 = icmp ult i8 %.sroa.5.09.i23, %113
   %115 = zext i1 %114 to i8
-  %spec.select.i24 = add nuw i8 %.sroa.5.08.i23, %115
-  %116 = lshr i8 %.sroa.5.08.i23, 6
+  %spec.select.i24 = add nuw i8 %.sroa.5.09.i23, %115
+  %116 = lshr i8 %.sroa.5.09.i23, 6
   %117 = zext nneg i8 %116 to i64
-  %118 = and i8 %.sroa.5.08.i23, 63
+  %118 = and i8 %.sroa.5.09.i23, 63
   %119 = zext nneg i8 %118 to i64
   %120 = shl nuw i64 1, %119
   %121 = xor i64 %120, -1

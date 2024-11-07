@@ -954,10 +954,10 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit45.i.i.i:
 
 109:                                              ; preds = %82
   call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %17, i64 noundef %57, i1 noundef zeroext false) #17
-  %.pre13.i.i.i = load i32, ptr %100, align 8
-  %.pre14.i.i.i = load ptr, ptr %17, align 8
-  %110 = icmp ult i32 %.pre13.i.i.i, 65
-  %111 = select i1 %110, ptr %17, ptr %.pre14.i.i.i
+  %.pre15.i.i.i = load i32, ptr %100, align 8
+  %.pre16.i.i.i = load ptr, ptr %17, align 8
+  %110 = icmp ult i32 %.pre15.i.i.i, 65
+  %111 = select i1 %110, ptr %17, ptr %.pre16.i.i.i
   %.0.i.i.pre.i.i = load i64, ptr %111, align 8
   br label %_ZN4llvm5APIntC2Ejmbb.exit.i.i.i
 

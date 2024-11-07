@@ -4034,12 +4034,13 @@ define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as
 define hidden void @"_ZN112_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17hf01c2c31e30c9c90E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([52 x i8]) align 4 dereferenceable(52) %0, i16 noundef %1, i16 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
 ._crit_edge.split.us.i:
   %3 = icmp ne i16 %1, 2
-  %spec.select = zext i1 %3 to i32
-  store i32 %spec.select, ptr %0, align 4
+  %spec.select = select i1 %3, i16 %2, i16 undef
+  %spec.select9 = zext i1 %3 to i32
+  store i32 %spec.select9, ptr %0, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 4
   store i16 %1, ptr %.sroa.5.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 6
-  store i16 %2, ptr %.sroa.7.0..sroa_idx, align 2
+  store i16 %spec.select, ptr %.sroa.7.0..sroa_idx, align 2
   ret void
 }
 
@@ -25571,9 +25572,10 @@ define hidden { i16, i16 } @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8try_push17
   br label %12
 
 12:                                               ; preds = %3, %6
+  %.sroa.3.0 = phi i16 [ undef, %6 ], [ %2, %3 ]
   %.sroa.0.0 = phi i16 [ 2, %6 ], [ %1, %3 ]
   %13 = insertvalue { i16, i16 } poison, i16 %.sroa.0.0, 0
-  %14 = insertvalue { i16, i16 } %13, i16 %2, 1
+  %14 = insertvalue { i16, i16 } %13, i16 %.sroa.3.0, 1
   ret { i16, i16 } %14
 }
 
@@ -38516,7 +38518,7 @@ define hidden void @"_ZN8language14diagnostic_set13DiagnosticSet6groups28_$u7b$$
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %23
-  %.sroa.02.011.i = phi i64 [ %25, %23 ], [ 0, %.lr.ph.i.preheader ]
+  %.sroa.02.010.i = phi i64 [ %25, %23 ], [ 0, %.lr.ph.i.preheader ]
   %20 = phi ptr [ %24, %23 ], [ %7, %.lr.ph.i.preheader ]
   %21 = getelementptr i8, ptr %20, i64 156
   %.val.i = load i8, ptr %21, align 4, !range !608, !noalias !9090, !noundef !6
@@ -38525,7 +38527,7 @@ define hidden void @"_ZN8language14diagnostic_set13DiagnosticSet6groups28_$u7b$$
 
 23:                                               ; preds = %.lr.ph.i
   %24 = getelementptr inbounds i8, ptr %20, i64 224
-  %25 = add nuw nsw i64 %.sroa.02.011.i, 1
+  %25 = add nuw nsw i64 %.sroa.02.010.i, 1
   %26 = icmp eq ptr %24, %19
   br i1 %26, label %.loopexit, label %.lr.ph.i
 
@@ -38587,7 +38589,7 @@ define hidden void @"_ZN8language14diagnostic_set13DiagnosticSet6groups28_$u7b$$
   br label %"_ZN4core3ptr126drop_in_place$LT$language..diagnostic_set..DiagnosticSet..groups..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5859857f5becc40aE.exit"
 
 46:                                               ; preds = %.lr.ph.i
-  %47 = icmp ult i64 %.sroa.02.011.i, %9
+  %47 = icmp ult i64 %.sroa.02.010.i, %9
   call void @llvm.assume(i1 %47)
   %48 = getelementptr inbounds i8, ptr %1, i64 8
   %49 = load ptr, ptr %48, align 8, !nonnull !6, !align !7, !noundef !6
@@ -38601,7 +38603,7 @@ define hidden void @"_ZN8language14diagnostic_set13DiagnosticSet6groups28_$u7b$$
   %.sroa.43.sroa.0.sroa.5.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %9, ptr %.sroa.43.sroa.0.sroa.5.0..sroa.43.0..sroa_idx.sroa_idx, align 8
   %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
-  store i64 %.sroa.02.011.i, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.02.010.i, ptr %.sroa.43.sroa.4.0..sroa.43.0..sroa_idx.sroa_idx, align 8
   br label %"_ZN4core3ptr126drop_in_place$LT$language..diagnostic_set..DiagnosticSet..groups..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5859857f5becc40aE.exit"
 
 "_ZN4core3ptr126drop_in_place$LT$language..diagnostic_set..DiagnosticSet..groups..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h5859857f5becc40aE.exit": ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2a170230ab18d169E.llvm.17800909824106940392.exit.i", %44, %46

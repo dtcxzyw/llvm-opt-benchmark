@@ -2338,7 +2338,7 @@ define hidden void @"_ZN55_$LT$T$u20$as$u20$pkcs1..traits..EncodeRsaPublicKey$GT
   %.sroa.13.sroa.10.sroa.0.1251 = phi i64 [ %55, %.thread ], [ 0, %.thread254 ]
   %.sroa.13.sroa.10193.1250 = phi i32 [ %.sroa.13.sroa.10193.1.ph, %.thread ], [ %.sroa.13.sroa.10193.0.ph, %.thread254 ]
   %.sroa.13.sroa.0.1249 = phi i64 [ %.sroa.13.sroa.0.1.ph.in, %.thread ], [ %.sroa.13.sroa.0.0.ph, %.thread254 ]
-  %.sroa.21177.1248 = phi i8 [ %.sroa.21177.1.ph, %.thread ], [ %.sroa.06.i.sroa.10.0.copyload, %.thread254 ]
+  %.sroa.21177.1248 = phi i8 [ %.sroa.21177.1.ph, %.thread ], [ undef, %.thread254 ]
   %.sroa.18.1247 = phi i32 [ %.sroa.18.1.ph, %.thread ], [ %.sroa.18.0.ph, %.thread254 ]
   %.sroa.13.sroa.10193.0.insert.ext198 = zext i32 %.sroa.13.sroa.10193.1250 to i64
   %.sroa.13.sroa.10193.0.insert.shift199 = shl nuw i64 %.sroa.13.sroa.10193.0.insert.ext198, 32
@@ -2423,7 +2423,7 @@ define hidden void @"_ZN55_$LT$T$u20$as$u20$pkcs1..traits..EncodeRsaPublicKey$GT
   %.sroa.218.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %.sroa.218.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(36) %.sroa.6.i142, i64 36, i1 false), !noalias !399
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %.sroa.6.i142)
-  br label %.thread262
+  br label %.thread263
 
 71:                                               ; preds = %.noexc145
   %72 = getelementptr inbounds i8, ptr %5, i64 8
@@ -2444,9 +2444,9 @@ define hidden void @"_ZN55_$LT$T$u20$as$u20$pkcs1..traits..EncodeRsaPublicKey$GT
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.225.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.68.i, i64 52, i1 false), !noalias !399
   call void @llvm.lifetime.end.p0(i64 52, ptr nonnull %.sroa.68.i)
-  br label %.thread262
+  br label %.thread263
 
-.thread262:                                       ; preds = %73, %70
+.thread263:                                       ; preds = %73, %70
   %.ph = phi i32 [ %64, %70 ], [ %68, %73 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !395
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
@@ -2469,8 +2469,8 @@ define hidden void @"_ZN55_$LT$T$u20$as$u20$pkcs1..traits..EncodeRsaPublicKey$GT
   invoke void @"_ZN5pkcs110public_key115_$LT$impl$u20$core..convert..TryFrom$LT$pkcs1..public_key..RsaPublicKey$GT$$u20$for$u20$der..document..Document$GT$8try_from17hbdb92dd032a96a66E"(ptr noalias nocapture noundef nonnull sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
           to label %81 unwind label %52
 
-78:                                               ; preds = %.thread262, %74
-  %79 = phi i32 [ %.ph, %.thread262 ], [ %.pr, %74 ]
+78:                                               ; preds = %.thread263, %74
+  %79 = phi i32 [ %.ph, %.thread263 ], [ %.pr, %74 ]
   %.sroa.5126.0..sroa_idx = getelementptr inbounds i8, ptr %15, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %.sroa.655, ptr noundef nonnull align 4 dereferenceable(52) %.sroa.5126.0..sroa_idx, i64 52, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %15)
