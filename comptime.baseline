@@ -20287,7 +20287,7 @@ openblas/dgemmt.c.ll 118026512
 openblas/dgemv_n.c.ll 195200239
 openblas/dgemv_t.c.ll 196164448
 openblas/dgemv_thread_n.c.ll 87751954
-openblas/dgeqr.c.ll 75469029
+openblas/dgeqr.c.ll 75393481
 openblas/dgeqrf.c.ll 72890147
 openblas/dgeqrfp.c.ll 72937088
 openblas/dgerfs.c.ll 122521959
