@@ -39712,8 +39712,8 @@ common.resume:                                    ; preds = %67, %30
   br label %66
 
 66:                                               ; preds = %59, %57
-  %storemerge.i = phi i64 [ 0, %57 ], [ 1, %59 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !7678, !noalias !7681
+  %.sink.i = phi i64 [ 1, %59 ], [ 0, %57 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !7678, !noalias !7681
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %21
@@ -48947,8 +48947,8 @@ common.resume:                                    ; preds = %67, %30
   br label %66
 
 66:                                               ; preds = %59, %57
-  %storemerge.i = phi i64 [ 0, %57 ], [ 1, %59 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !9268, !noalias !9271
+  %.sink.i = phi i64 [ 1, %59 ], [ 0, %57 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !9268, !noalias !9271
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %21
@@ -50238,8 +50238,8 @@ common.resume:                                    ; preds = %63, %29
   br label %62
 
 62:                                               ; preds = %55, %53
-  %storemerge.i = phi i64 [ 0, %53 ], [ 1, %55 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !9492, !noalias !9495
+  %.sink.i = phi i64 [ 1, %55 ], [ 0, %53 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !9492, !noalias !9495
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %20
@@ -54051,12 +54051,12 @@ common.resume:                                    ; preds = %78, %.body.thread.i
   %.sink42 = phi ptr [ %132, %131 ], [ %.sroa.618.0.copyload, %129 ]
   %.sink41 = phi i64 [ 16, %131 ], [ 24, %129 ]
   %.sink = phi i64 [ %133, %131 ], [ %.sroa.821.0.copyload, %129 ]
-  %storemerge.i = phi i64 [ 1, %131 ], [ 0, %129 ]
+  %.sink.i = phi i64 [ 1, %131 ], [ 0, %129 ]
   %135 = getelementptr inbounds i8, ptr %0, i64 %.sink44
   store ptr %.sink42, ptr %135, align 8, !alias.scope !10152
   %136 = getelementptr inbounds i8, ptr %0, i64 %.sink41
   store i64 %.sink, ptr %136, align 8, !alias.scope !10152
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !10154, !noalias !10149
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !10154, !noalias !10149
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %24
 
@@ -65093,8 +65093,8 @@ common.resume:                                    ; preds = %65, %31
   br label %64
 
 64:                                               ; preds = %57, %55
-  %storemerge.i = phi i64 [ 0, %55 ], [ 1, %57 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !11401, !noalias !11404
+  %.sink.i = phi i64 [ 1, %57 ], [ 0, %55 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !11401, !noalias !11404
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7)
   br label %17
@@ -65814,8 +65814,8 @@ common.resume:                                    ; preds = %70, %33
   br label %69
 
 69:                                               ; preds = %62, %60
-  %storemerge.i = phi i64 [ 0, %60 ], [ 1, %62 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !11541, !noalias !11544
+  %.sink.i = phi i64 [ 1, %62 ], [ 0, %60 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !11541, !noalias !11544
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8)
   br label %18

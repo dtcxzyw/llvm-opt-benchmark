@@ -291,10 +291,11 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %9, %
 define internal noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb6900885e47503f2E(ptr noalias noundef align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 {
 "_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h8f10a16b2ae42770E.exit":
   %2 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !52
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.459d8b08ea2588afbae4ca480db2a462.38, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !53
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !48
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !51
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !53
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.459d8b08ea2588afbae4ca480db2a462.38, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !48
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !51
   ret i1 %3
 }
 
@@ -1280,12 +1281,12 @@ attributes #21 = { cold noreturn nounwind }
 !45 = !{!46}
 !46 = distinct !{!46, !47, !"_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E: argument 0"}
 !47 = distinct !{!47, !"_ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E"}
-!48 = !{!49, !51}
-!49 = distinct !{!49, !50, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h8f10a16b2ae42770E: argument 0"}
+!48 = !{!49}
+!49 = distinct !{!49, !50, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h8f10a16b2ae42770E: argument 1"}
 !50 = distinct !{!50, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h8f10a16b2ae42770E"}
-!51 = distinct !{!51, !50, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h8f10a16b2ae42770E: argument 1"}
-!52 = !{!49}
-!53 = !{!51}
+!51 = !{!52, !49}
+!52 = distinct !{!52, !50, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h8f10a16b2ae42770E: argument 0"}
+!53 = !{!52}
 !54 = !{i8 0, i8 2}
 !55 = !{i64 1}
 !56 = !{!57}

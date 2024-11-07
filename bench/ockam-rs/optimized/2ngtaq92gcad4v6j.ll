@@ -96853,8 +96853,8 @@ define hidden void @"_ZN9sqlx_core8query_as25QueryAs$LT$DB$C$O$C$A$GT$10fetch_ma
   br label %32
 
 32:                                               ; preds = %29, %27
-  %storemerge.i = phi i64 [ 0, %27 ], [ 1, %29 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !18991, !noalias !18994
+  %.sink.i = phi i64 [ 1, %29 ], [ 0, %27 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !18991, !noalias !18994
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4)
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sqlx_sqlite..value..SqliteValue$u5d$$GT$$GT$17h47e97caa95a9e0eeE.llvm.1425447921696267910"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %36 unwind label %33

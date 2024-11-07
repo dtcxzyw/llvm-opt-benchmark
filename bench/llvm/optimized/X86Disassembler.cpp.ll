@@ -4705,7 +4705,7 @@ define internal fastcc noundef zeroext i1 @_ZL17translateRMMemoryRN4llvm6MCInstE
   br i1 %11, label %switch.lookup, label %147
 
 switch.lookup:                                    ; preds = %10
-  %switch.tableidx = add nsw i32 %9, -1
+  %switch.tableidx = add i32 %9, -1
   %12 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [64 x i64], ptr @switch.table._ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb, i64 0, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8

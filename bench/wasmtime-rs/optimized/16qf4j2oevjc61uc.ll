@@ -27732,7 +27732,7 @@ switch.lookup1435:                                ; preds = %301
   br i1 %786, label %switch.lookup1438, label %_ZN17cranelift_codegen3isa3x643pcc10check_load17h6d58419052474314E.exit
 
 switch.lookup1438:                                ; preds = %783
-  %switch.tableidx = add nsw i8 %trunc1292, -118
+  %switch.tableidx = add i8 %trunc1292, -118
   %787 = sext i8 %switch.tableidx to i64
   %switch.gep1439 = getelementptr inbounds [10 x i32], ptr @"switch.table._ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10fits_in_1617h1be43d6933153e3bE", i64 0, i64 %787
   %switch.load1440 = load i32, ptr %switch.gep1439, align 4
@@ -30993,7 +30993,7 @@ _ZN17cranelift_codegen15inst_predicates26trivially_has_side_effects17h275acca303
   br i1 %59, label %_ZN17cranelift_codegen15inst_predicates26trivially_has_side_effects17h275acca30341ad12E.llvm.14502953478370073462.exit.thread, label %53
 
 switch.hole_check:                                ; preds = %switch.early.test
-  %switch.tableidx = add nsw i8 %48, -1
+  %switch.tableidx = add i8 %48, -1
   %switch.maskindex = zext nneg i8 %switch.tableidx to i16
   %switch.shifted = lshr i16 15895, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1

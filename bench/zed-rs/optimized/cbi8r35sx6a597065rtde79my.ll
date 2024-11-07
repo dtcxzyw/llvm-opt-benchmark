@@ -880,10 +880,11 @@ _ZN4core4char7methods15encode_utf8_raw17h922ae18bb09655a8E.exit: ; preds = %10, 
 define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb3514908361e4425E(ptr noalias noundef align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4b09cee2d8f750ebE.exit":
   %2 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !281
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !285
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.543b8a2a2da43130450bcad08e5f059d.82, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !286
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !281
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !281)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !284
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !286
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.543b8a2a2da43130450bcad08e5f059d.82, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !281
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !284
   ret i1 %3
 }
 
@@ -891,10 +892,11 @@ define hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hb3514908361e442
 define internal noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17hdb303d92d1cdd81dE(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 {
 "_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hc4f8427122c58965E.exit":
   %2 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !287
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !291
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.543b8a2a2da43130450bcad08e5f059d.5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !292
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !287
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !287)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !290
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !292
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h4b5a1270214bc4a7E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.543b8a2a2da43130450bcad08e5f059d.5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !287
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !290
   ret i1 %3
 }
 
@@ -9947,18 +9949,18 @@ attributes #41 = { nounwind }
 !278 = !{!279}
 !279 = distinct !{!279, !280, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h50b98ea317fd5258E.llvm.13500094979475201679: argument 0"}
 !280 = distinct !{!280, !"_ZN4core3ptr101drop_in_place$LT$std..io..error..ErrorData$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$$GT$17h50b98ea317fd5258E.llvm.13500094979475201679"}
-!281 = !{!282, !284}
-!282 = distinct !{!282, !283, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4b09cee2d8f750ebE: argument 0"}
+!281 = !{!282}
+!282 = distinct !{!282, !283, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4b09cee2d8f750ebE: argument 1"}
 !283 = distinct !{!283, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4b09cee2d8f750ebE"}
-!284 = distinct !{!284, !283, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4b09cee2d8f750ebE: argument 1"}
-!285 = !{!282}
-!286 = !{!284}
-!287 = !{!288, !290}
-!288 = distinct !{!288, !289, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hc4f8427122c58965E: argument 0"}
+!284 = !{!285, !282}
+!285 = distinct !{!285, !283, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17h4b09cee2d8f750ebE: argument 0"}
+!286 = !{!285}
+!287 = !{!288}
+!288 = distinct !{!288, !289, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hc4f8427122c58965E: argument 1"}
 !289 = distinct !{!289, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hc4f8427122c58965E"}
-!290 = distinct !{!290, !289, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hc4f8427122c58965E: argument 1"}
-!291 = !{!288}
-!292 = !{!290}
+!290 = !{!291, !288}
+!291 = distinct !{!291, !289, !"_ZN75_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt..Write..write_fmt..SpecWriteFmt$GT$14spec_write_fmt17hc4f8427122c58965E: argument 0"}
+!292 = !{!291}
 !293 = !{!294}
 !294 = distinct !{!294, !295, !"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$language..language_registry..LanguageName$GT$$GT$17h6a5aba15bf252ddfE: argument 0"}
 !295 = distinct !{!295, !"_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$language..language_registry..LanguageName$GT$$GT$17h6a5aba15bf252ddfE"}

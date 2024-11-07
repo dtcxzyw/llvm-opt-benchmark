@@ -87492,8 +87492,8 @@ define hidden void @"_ZN83_$LT$core..option..Option$LT$T$GT$$u20$as$u20$minicbor
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hc41e249755aa67b3E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hc41e249755aa67b3E.exit": ; preds = %17, %19
-  %storemerge.i = phi i64 [ 0, %17 ], [ 1, %19 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !13747, !noalias !13750
+  %.sink.i = phi i64 [ 1, %19 ], [ 0, %17 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !13747, !noalias !13750
   call void @llvm.lifetime.end.p0(i64 192, ptr nonnull %4)
   br label %25
 
@@ -90884,8 +90884,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h5af871e573d55445E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h5af871e573d55445E.exit": ; preds = %19, %21
-  %storemerge.i.i = phi i64 [ 0, %19 ], [ 1, %21 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !14451, !noalias !14452
+  %.sink.i.i = phi i64 [ 1, %21 ], [ 0, %19 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !14451, !noalias !14452
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !14441
   br label %43
 
@@ -91130,8 +91130,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h92c2887bcd05f34fE.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h92c2887bcd05f34fE.exit": ; preds = %19, %21
-  %storemerge.i.i = phi i64 [ 0, %19 ], [ 1, %21 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !14541, !noalias !14542
+  %.sink.i.i = phi i64 [ 1, %21 ], [ 0, %19 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !14541, !noalias !14542
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5), !noalias !14531
   br label %43
 

@@ -67245,13 +67245,13 @@ define hidden void @_ZN12multi_buffer19MultiBufferSnapshot20diagnostics_in_range
   %.sroa.717.sroa.6.0..sroa.717.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.717.sroa.6.0..sroa.717.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %6 = zext i1 %3 to i8
+  %.sroa.717.sroa.5.0..sroa.717.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.717.sroa.5.0..sroa.717.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.515.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 -9223372036854775808, ptr %.sroa.515.0..sroa_idx, align 8
   %.sroa.717.sroa.4.0..sroa.717.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %.sroa.717.sroa.4.0..sroa.717.0..sroa_idx.sroa_idx, align 8
-  %.sroa.717.sroa.5.0..sroa.717.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.717.sroa.5.0..sroa.717.0..sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %.sroa.717.sroa.7.0..sroa.717.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 192
   store i8 %6, ptr %.sroa.717.sroa.7.0..sroa.717.0..sroa_idx.sroa_idx, align 8
   ret void

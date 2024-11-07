@@ -20440,7 +20440,7 @@ if.end:                                           ; preds = %init.end
   br i1 %5, label %switch.lookup, label %_ZN7testing8internal16GetAnsiColorCodeENS0_10GTestColorE.exit
 
 switch.lookup:                                    ; preds = %if.end
-  %switch.tableidx = add nsw i32 %color, -1
+  %switch.tableidx = add i32 %color, -1
   %6 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7testing8internal13ColoredPrintfENS0_10GTestColorEPKcz, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8

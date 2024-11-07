@@ -681,8 +681,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0169673f03fd5654
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

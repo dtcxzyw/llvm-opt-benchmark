@@ -18911,6 +18911,7 @@ define hidden noundef i64 @_ZN4core3ops8function5FnMut8call_mut17he2751de54fbb1a
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ops8function5impls68_$LT$impl$u20$core..ops..function..Fn$LT$A$GT$$u20$for$u20$$RF$F$GT$4call17h388ad94c66a83c34E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = alloca [24 x i8], align 8
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !2516)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !2516
   call void @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$17h034f79e74ed47dd3E.llvm.12408969533158119881"(ptr noalias nonnull readonly align 1 poison, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3), !noalias !2519

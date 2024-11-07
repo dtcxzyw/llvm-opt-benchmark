@@ -5560,7 +5560,7 @@ define hidden void @"_ZN15futures_channel7oneshot14Inner$LT$T$GT$4send17h528a1d2
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #61
   unreachable
 
-.sink.split:                                      ; preds = %88, %69, %65, %60, %8
+.sink.split:                                      ; preds = %60, %65, %69, %88, %8
   %.pn1447.ph = phi { ptr, i32 } [ %eh.lpad-body, %8 ], [ %89, %88 ], [ %61, %69 ], [ %61, %65 ], [ %61, %60 ]
   %94 = getelementptr inbounds i8, ptr %1, i64 40
   store atomic i8 0, ptr %94 seq_cst, align 8, !noalias !4

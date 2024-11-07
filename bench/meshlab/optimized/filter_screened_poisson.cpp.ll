@@ -42865,10 +42865,10 @@ _ZNSt12_Vector_baseISt6vectorIS0_IiSaIiEESaIS2_EESaIS4_EEC2EmRKS5_.exit.thread.i
           to label %179 unwind label %252
 
 179:                                              ; preds = %168
-  %180 = sitofp i64 %172 to double
-  %181 = fdiv double %180, 1.000000e+06
-  %182 = sitofp i64 %171 to double
-  %183 = fadd double %181, %182
+  %180 = sitofp i64 %171 to double
+  %181 = sitofp i64 %172 to double
+  %182 = fdiv double %181, 1.000000e+06
+  %183 = fadd double %182, %180
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %17)
   %184 = call i32 @gettimeofday(ptr noundef nonnull %17, ptr noundef null) #25
   %185 = load i64, ptr %17, align 8

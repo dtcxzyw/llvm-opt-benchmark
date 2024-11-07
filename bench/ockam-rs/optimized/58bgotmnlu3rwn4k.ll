@@ -2948,10 +2948,10 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17he17f2658610c2d20E.llvm.281566960213045120.exit": ; preds = %19, %20
   %.sink = phi ptr [ %18, %20 ], [ %15, %19 ]
-  %storemerge.i = phi i64 [ 1, %20 ], [ 0, %19 ]
+  %.sink.i = phi i64 [ 1, %20 ], [ 0, %19 ]
   %22 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %22, align 8
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !902, !noalias !897
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !902, !noalias !897
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.7)
   br label %40
 
@@ -3009,10 +3009,10 @@ _ZN5serde2de13VariantAccess15newtype_variant17he0abead1061517d4E.llvm.2815669602
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bb9179bfb563cb1E.llvm.281566960213045120.exit": ; preds = %_ZN5serde2de13VariantAccess15newtype_variant17he0abead1061517d4E.llvm.281566960213045120.exit, %38
   %.sink2.i = phi ptr [ null, %38 ], [ %37, %_ZN5serde2de13VariantAccess15newtype_variant17he0abead1061517d4E.llvm.281566960213045120.exit ]
-  %.sink.i = phi i64 [ 0, %38 ], [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17he0abead1061517d4E.llvm.281566960213045120.exit ]
+  %.sink.i1 = phi i64 [ 0, %38 ], [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17he0abead1061517d4E.llvm.281566960213045120.exit ]
   %39 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink2.i, ptr %39, align 8, !alias.scope !927
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !927
+  store i64 %.sink.i1, ptr %0, align 8, !alias.scope !927
   br label %40
 
 40:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$3map17he17f2658610c2d20E.llvm.281566960213045120.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h8bb9179bfb563cb1E.llvm.281566960213045120.exit", %12
@@ -4094,8 +4094,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17he17f2658610c2d20
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

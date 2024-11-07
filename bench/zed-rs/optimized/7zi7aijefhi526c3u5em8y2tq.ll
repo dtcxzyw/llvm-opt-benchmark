@@ -10511,6 +10511,7 @@ define hidden noundef zeroext i1 @"_ZN50_$LT$$RF$mut$u20$W$u20$as$u20$core..fmt.
   %2 = alloca [48 x i8], align 8
   %3 = load ptr, ptr %0, align 8, !nonnull !5, !align !591, !noundef !5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1913)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1916)
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8, !alias.scope !1913, !noalias !1916, !nonnull !5, !align !591, !noundef !5
   %6 = getelementptr inbounds i8, ptr %3, i64 32

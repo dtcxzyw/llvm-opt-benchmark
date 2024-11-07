@@ -46614,7 +46614,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePr
 7:                                                ; preds = %2
   %8 = ptrtoint ptr %6 to i64
   call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePrefixEN5clang10GlobalDeclEb(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %8, i1 noundef zeroext false)
-  br label %82
+  br label %83
 
 9:                                                ; preds = %2
   %10 = call noundef ptr @_ZNK5clang12TemplateName26getAsDependentTemplateNameEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #24
@@ -46643,7 +46643,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler20mangleTemplatePr
 
 _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit.thread: ; preds = %18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %82
+  br label %83
 
 20:                                               ; preds = %18
   %21 = load ptr, ptr %17, align 8
@@ -46665,7 +46665,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   %.sink.i = phi i64 [ %25, %20 ], [ %30, %26 ]
   %31 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEm(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, i64 noundef %.sink.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br i1 %31, label %82, label %32
+  br i1 %31, label %83, label %32
 
 32:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit, %9
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -46696,7 +46696,7 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
 
 _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit23.thread: ; preds = %40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br label %82
+  br label %83
 
 42:                                               ; preds = %40
   %43 = load ptr, ptr %39, align 8
@@ -46718,22 +46718,22 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   %.sink.i21 = phi i64 [ %47, %42 ], [ %52, %48 ]
   %53 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEm(ptr noundef nonnull readonly align 8 dereferenceable(280) %0, i64 noundef %.sink.i21)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %53, label %82, label %54
+  br i1 %53, label %83, label %54
 
 54:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit23, %37
   %55 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not16 = icmp eq ptr %56, null
-  br i1 %.not16, label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit, label %57
+  %57 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val18 = load ptr, ptr %57, align 8
+  br i1 %.not16, label %82, label %58
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val17 = load ptr, ptr %58, align 8
+58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load i64, ptr %60, align 8
   %62 = and i64 %61, 4294967295
-  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.val17, i64 noundef %62) #24
+  %63 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.val18, i64 noundef %62) #24
   %64 = load ptr, ptr %59, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 16
   %66 = load i64, ptr %64, align 8
@@ -46748,11 +46748,11 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   %75 = icmp ugt i64 %67, %74
   br i1 %75, label %76, label %78
 
-76:                                               ; preds = %57
+76:                                               ; preds = %58
   %77 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %63, ptr noundef nonnull %65, i64 noundef %67) #24
   br label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
 
-78:                                               ; preds = %57
+78:                                               ; preds = %58
   %.not.i.i = icmp eq i64 %67, 0
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit, label %79
 
@@ -46763,12 +46763,16 @@ _ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exi
   store ptr %81, ptr %70, align 8
   br label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
 
-_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit: ; preds = %54, %79, %78, %76
+82:                                               ; preds = %54
+  call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler18mangleOperatorNameEN5clang22OverloadedOperatorKindEj(ptr %.val18, i32 noundef 0, i32 noundef -1)
+  br label %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit
+
+_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit: ; preds = %79, %78, %76, %82
   %.sroa.0.0.copyload = load i64, ptr %5, align 8
   call fastcc void @_ZN12_GLOBAL__N_114CXXNameMangler15addSubstitutionEN5clang12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(280) %0, i64 %.sroa.0.0.copyload)
-  br label %82
+  br label %83
 
-82:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit23.thread, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit.thread, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit23, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit, %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit, %7
+83:                                               ; preds = %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit23.thread, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit.thread, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit23, %_ZN12_GLOBAL__N_114CXXNameMangler18mangleSubstitutionEN5clang12TemplateNameE.exit, %_ZN12_GLOBAL__N_114CXXNameMangler16mangleSourceNameEPKN5clang14IdentifierInfoE.exit, %7
   ret void
 }
 

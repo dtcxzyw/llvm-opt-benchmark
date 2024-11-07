@@ -1109,11 +1109,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb14NamedStreamMap3getENS_9Strin
 
 _ZNK4llvm3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEeqERKS7_.exit.thread12: ; preds = %4
   %.fca.0.extract1 = extractvalue { ptr, i64 } %8, 0
-  %10 = and i64 %.fca.1.extract2, 4294967295
-  %11 = load ptr, ptr %.fca.0.extract1, align 8
-  %12 = getelementptr inbounds %"struct.std::pair", ptr %11, i64 %10, i32 1
-  call void @llvm.assume(i1 true) [ "align"(ptr %12, i64 1) ]
-  %.0.copyload.i.i.i = load i32, ptr %12, align 1
+  %.pre = and i64 %.fca.1.extract2, 4294967295
+  %10 = load ptr, ptr %.fca.0.extract1, align 8
+  %11 = getelementptr inbounds %"struct.std::pair", ptr %10, i64 %.pre, i32 1
+  call void @llvm.assume(i1 true) [ "align"(ptr %11, i64 1) ]
+  %.0.copyload.i.i.i = load i32, ptr %11, align 1
   store i32 %.0.copyload.i.i.i, ptr %3, align 4
   br label %_ZNK4llvm3pdb17HashTableIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEeqERKS7_.exit.thread
 

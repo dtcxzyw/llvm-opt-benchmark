@@ -13528,13 +13528,13 @@ define dso_local void @fonsLineBounds(ptr nocapture noundef readonly %0, float n
   %92 = fadd float %1, %.0.i
   %93 = getelementptr inbounds i8, ptr %21, i64 136
   %94 = load float, ptr %93, align 8
-  %95 = fmul float %94, %.pre-phi35
+  %95 = fmul float %.pre-phi35, %94
   %96 = fdiv float %95, 1.000000e+01
   %97 = fsub float %92, %96
   store float %97, ptr %2, align 4
   %98 = getelementptr inbounds i8, ptr %21, i64 144
   %99 = load float, ptr %98, align 8
-  %100 = fmul float %99, %.pre-phi35
+  %100 = fmul float %.pre-phi35, %99
   %101 = fdiv float %100, 1.000000e+01
   %102 = fadd float %97, %101
   store float %102, ptr %3, align 4
@@ -13546,13 +13546,13 @@ define dso_local void @fonsLineBounds(ptr nocapture noundef readonly %0, float n
   %104 = fadd float %1, %.0.i.ph
   %105 = getelementptr inbounds i8, ptr %21, i64 140
   %106 = load float, ptr %105, align 4
-  %107 = fmul float %106, %.pre-phi
+  %107 = fmul float %.pre-phi, %106
   %108 = fdiv float %107, 1.000000e+01
   %109 = fadd float %104, %108
   store float %109, ptr %3, align 4
   %110 = getelementptr inbounds i8, ptr %21, i64 144
   %111 = load float, ptr %110, align 8
-  %112 = fmul float %111, %.pre-phi
+  %112 = fmul float %.pre-phi, %111
   %113 = fdiv float %112, 1.000000e+01
   %114 = fsub float %109, %113
   store float %114, ptr %2, align 4

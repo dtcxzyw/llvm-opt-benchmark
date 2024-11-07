@@ -30624,8 +30624,8 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6eb55556f78358b2E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6eb55556f78358b2E.exit": ; preds = %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit", %65, %63
-  %.sroa.025.0 = phi i64 [ 0, %63 ], [ 1, %65 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
-  %.sroa.326.0 = phi ptr [ %64, %63 ], [ %.sroa.2.sroa.3.0.copyload, %65 ], [ null, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
+  %.sroa.025.0 = phi i64 [ 1, %65 ], [ 0, %63 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
+  %.sroa.326.0 = phi ptr [ %.sroa.2.sroa.3.0.copyload, %65 ], [ %64, %63 ], [ null, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
   store i64 %.sroa.025.0, ptr %0, align 8
   %.sroa.326.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.326.0, ptr %.sroa.326.0..sroa_idx, align 8
@@ -30852,8 +30852,8 @@ common.ret:                                       ; preds = %"_ZN4core6result19R
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6eb55556f78358b2E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6eb55556f78358b2E.exit": ; preds = %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit", %65, %63
-  %.sroa.025.0 = phi i64 [ 0, %63 ], [ 1, %65 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
-  %.sroa.326.0 = phi ptr [ %64, %63 ], [ %.sroa.2.sroa.3.0.copyload, %65 ], [ null, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
+  %.sroa.025.0 = phi i64 [ 1, %65 ], [ 0, %63 ], [ 0, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
+  %.sroa.326.0 = phi ptr [ %.sroa.2.sroa.3.0.copyload, %65 ], [ %64, %63 ], [ null, %"_ZN4core3ptr119drop_in_place$LT$futures_util..future..future..fuse..Fuse$LT$futures_channel..oneshot..Receiver$LT$$LP$$RP$$GT$$GT$$GT$17hfec15e5807f15c32E.exit" ]
   store i64 %.sroa.025.0, ptr %0, align 8
   %.sroa.326.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sroa.326.0, ptr %.sroa.326.0..sroa_idx, align 8

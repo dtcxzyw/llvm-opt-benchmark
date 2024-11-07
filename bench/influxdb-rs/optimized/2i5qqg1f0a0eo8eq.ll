@@ -9866,8 +9866,8 @@ define hidden void @"_ZN75_$LT$serde_json..de..MapAccess$LT$R$GT$$u20$as$u20$ser
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h645b1bd2f5503a13E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h645b1bd2f5503a13E.exit": ; preds = %50, %52
-  %storemerge.i = phi i64 [ 0, %50 ], [ 1, %52 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !2545, !noalias !2548
+  %.sink.i = phi i64 [ 1, %52 ], [ 0, %50 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !2545, !noalias !2548
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %59
 

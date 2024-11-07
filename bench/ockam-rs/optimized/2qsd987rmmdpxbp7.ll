@@ -292,7 +292,7 @@ define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F
   %.sroa.15.0 = phi i64 [ %.sroa.15.8.copyload27, %31 ], [ %.sroa.15.8.copyload25, %29 ]
   %.sroa.16.0 = phi i64 [ %.sroa.16.8.copyload30, %31 ], [ %.sroa.16.8.copyload28, %29 ]
   %.sroa.17.0 = phi i64 [ %.sroa.17.8.copyload33, %31 ], [ %.sroa.17.8.copyload31, %29 ]
-  %storemerge.i.i.i = phi i64 [ 1, %31 ], [ 0, %29 ]
+  %.sink.i.i.i = phi i64 [ 1, %31 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !18
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sqlx_sqlite..value..SqliteValue$u5d$$GT$$GT$17h32201f6031f27825E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %36 unwind label %34, !noalias !18
@@ -360,7 +360,7 @@ common.resume.i.i:                                ; preds = %41, %24
   unreachable
 
 "_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$GT$8call_mut17h9a64add77c285f21E.exit": ; preds = %19, %21, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i"
-  %.sroa.015.0 = phi i64 [ %storemerge.i.i.i, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ 1, %21 ], [ 0, %19 ]
+  %.sroa.015.0 = phi i64 [ %.sink.i.i.i, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ 1, %21 ], [ 0, %19 ]
   %.sroa.616.1 = phi i64 [ %.sroa.616.0, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ %12, %21 ], [ 0, %19 ]
   %.sroa.11.1 = phi i64 [ %.sroa.11.0, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ %22, %21 ], [ %.sroa.4.sroa.4.0.copyload, %19 ]
   %.sroa.13.1 = phi i64 [ %.sroa.13.0, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ %.sroa.4.sroa.4.0.copyload, %21 ], [ %.sroa.4.sroa.5.0.copyload, %19 ]
@@ -517,7 +517,7 @@ define internal void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C
   %.sroa.15.0 = phi i64 [ %.sroa.15.8.copyload27, %31 ], [ %.sroa.15.8.copyload25, %29 ]
   %.sroa.16.0 = phi i64 [ %.sroa.16.8.copyload30, %31 ], [ %.sroa.16.8.copyload28, %29 ]
   %.sroa.17.0 = phi i64 [ %.sroa.17.8.copyload33, %31 ], [ %.sroa.17.8.copyload31, %29 ]
-  %storemerge.i.i.i = phi i64 [ 1, %31 ], [ 0, %29 ]
+  %.sink.i.i.i = phi i64 [ 1, %31 ], [ 0, %29 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !62
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sqlx_sqlite..value..SqliteValue$u5d$$GT$$GT$17h32201f6031f27825E.llvm.6910714394678848989"(ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %36 unwind label %34, !noalias !62
@@ -585,7 +585,7 @@ common.resume.i.i:                                ; preds = %41, %24
   unreachable
 
 "_ZN56_$LT$T$u20$as$u20$futures_util..fns..FnMut1$LT$A$GT$$GT$8call_mut17h5f39d6175ae282d1E.exit": ; preds = %19, %21, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i"
-  %.sroa.015.0 = phi i64 [ %storemerge.i.i.i, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ 1, %21 ], [ 0, %19 ]
+  %.sroa.015.0 = phi i64 [ %.sink.i.i.i, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ 1, %21 ], [ 0, %19 ]
   %.sroa.616.1 = phi i64 [ %.sroa.616.0, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ %12, %21 ], [ 0, %19 ]
   %.sroa.11.1 = phi i64 [ %.sroa.11.0, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ %22, %21 ], [ %.sroa.4.sroa.4.0.copyload, %19 ]
   %.sroa.13.1 = phi i64 [ %.sroa.13.0, %"_ZN4core3ptr48drop_in_place$LT$sqlx_sqlite..row..SqliteRow$GT$17h7d2061c76f8c00e3E.exit.i.i" ], [ %.sroa.4.sroa.4.0.copyload, %21 ], [ %.sroa.4.sroa.5.0.copyload, %19 ]

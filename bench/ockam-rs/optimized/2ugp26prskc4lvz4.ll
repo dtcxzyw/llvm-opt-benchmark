@@ -2979,8 +2979,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   br label %28
 
 28:                                               ; preds = %24, %22
-  %storemerge.i.i9 = phi i64 [ 0, %22 ], [ 1, %24 ]
-  store i64 %storemerge.i.i9, ptr %0, align 8, !alias.scope !689, !noalias !690
+  %.sink.i.i9 = phi i64 [ 1, %24 ], [ 0, %22 ]
+  store i64 %.sink.i.i9, ptr %0, align 8, !alias.scope !689, !noalias !690
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !679
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   tail call void @__rust_dealloc(ptr noundef nonnull %19, i64 noundef 32, i64 noundef 8) #58, !noalias !691
@@ -3004,8 +3004,8 @@ define hidden void @"_ZN103_$LT$serde..__private..de..content..ContentDeserializ
   unreachable
 
 .thread16:                                        ; preds = %11, %13
-  %storemerge.i.i = phi i64 [ 0, %11 ], [ 1, %13 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !674, !noalias !675
+  %.sink.i.i = phi i64 [ 1, %13 ], [ 0, %11 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !674, !noalias !675
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !664
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %36
@@ -65472,8 +65472,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h21e3ba6bc79d61e7
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -141605,8 +141605,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h21e3ba6bc79d61e7E.llvm.7819687297340404219.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h21e3ba6bc79d61e7E.llvm.7819687297340404219.exit": ; preds = %6, %8
-  %storemerge.i = phi i64 [ 0, %6 ], [ 1, %8 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !35604, !noalias !35607
+  %.sink.i = phi i64 [ 1, %8 ], [ 0, %6 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !35604, !noalias !35607
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   ret void
 }

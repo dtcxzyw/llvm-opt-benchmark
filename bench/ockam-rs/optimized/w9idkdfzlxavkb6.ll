@@ -1857,11 +1857,11 @@ define hidden void @"_ZN183_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   br label %23
 
 23:                                               ; preds = %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcef99eb2b5ab5b8cE.exit.i.i", %18, %2
-  %.sroa.61.0.ph = phi ptr [ %19, %18 ], [ %13, %2 ], [ %22, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcef99eb2b5ab5b8cE.exit.i.i" ]
-  %24 = icmp ne ptr %.sroa.61.0.ph, null
+  %.sroa.62.0.ph = phi ptr [ %19, %18 ], [ %13, %2 ], [ %22, %"_ZN81_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$serde..de..DeserializeSeed$GT$11deserialize17hcef99eb2b5ab5b8cE.exit.i.i" ]
+  %24 = icmp ne ptr %.sroa.62.0.ph, null
   call void @llvm.assume(i1 %24)
   %25 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.61.0.ph, ptr %25, align 8
+  store ptr %.sroa.62.0.ph, ptr %25, align 8
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535E.llvm.15328536302644105373.exit"
 
 26:                                               ; preds = %16
@@ -1984,14 +1984,14 @@ _ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.1532853630
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit": ; preds = %_ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.15328536302644105373.exit, %59
   %.sink2.i = phi ptr [ null, %59 ], [ %58, %_ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.15328536302644105373.exit ]
-  %.sink.i = phi i64 [ 0, %59 ], [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.15328536302644105373.exit ]
+  %.sink.i1 = phi i64 [ 0, %59 ], [ 1, %_ZN5serde2de13VariantAccess15newtype_variant17h7557839ff92fa0c5E.llvm.15328536302644105373.exit ]
   %60 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink2.i, ptr %60, align 8, !alias.scope !578
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535E.llvm.15328536302644105373.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535E.llvm.15328536302644105373.exit": ; preds = %42, %40, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit", %23
-  %storemerge.i.sink = phi i64 [ %.sink.i, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit" ], [ 1, %23 ], [ 0, %40 ], [ 1, %42 ]
-  store i64 %storemerge.i.sink, ptr %0, align 8
+  %.sink.i.sink = phi i64 [ %.sink.i1, %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h5c61a6c19d58b127E.llvm.15328536302644105373.exit" ], [ 1, %23 ], [ 1, %42 ], [ 0, %40 ]
+  store i64 %.sink.i.sink, ptr %0, align 8
   ret void
 }
 
@@ -4202,8 +4202,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h84f0f6767076d535
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 

@@ -805,7 +805,7 @@ ItemPointerIsValid.exit:                          ; preds = %3
   br i1 %or.cond, label %switch.lookup, label %ItemPointerIsValid.exit.thread
 
 switch.lookup:                                    ; preds = %8
-  %switch.tableidx = add nsw i32 %2, -1
+  %switch.tableidx = add i32 %2, -1
   %12 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.XactLockTableWaitErrorCb, i64 0, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8

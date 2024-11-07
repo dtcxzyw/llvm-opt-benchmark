@@ -2613,8 +2613,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %15
 
 15:                                               ; preds = %11, %9
-  %storemerge.i.i = phi i64 [ 0, %9 ], [ 1, %11 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !622, !noalias !623
+  %.sink.i.i = phi i64 [ 1, %11 ], [ 0, %9 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !622, !noalias !623
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !612
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   br label %16
@@ -4380,8 +4380,8 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   br label %15
 
 15:                                               ; preds = %11, %9
-  %storemerge.i.i = phi i64 [ 0, %9 ], [ 1, %11 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !1299, !noalias !1300
+  %.sink.i.i = phi i64 [ 1, %11 ], [ 0, %9 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !1299, !noalias !1300
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1289
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4)
   br label %16
@@ -24313,8 +24313,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6b6861164a332703
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -24615,8 +24615,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbde7cf1c31842b2e
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -29431,8 +29431,8 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br label %15
 
 15:                                               ; preds = %11, %9
-  %storemerge.i.i.i = phi i64 [ 0, %9 ], [ 1, %11 ]
-  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !6667, !noalias !6668
+  %.sink.i.i.i = phi i64 [ 1, %11 ], [ 0, %9 ]
+  store i64 %.sink.i.i.i, ptr %0, align 8, !alias.scope !6667, !noalias !6668
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !6657
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !6653
   br label %"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$18deserialize_option17hef188f18e2278c63E.llvm.15439407322995335751.exit"
@@ -30970,8 +30970,8 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   br label %15
 
 15:                                               ; preds = %11, %9
-  %storemerge.i.i.i = phi i64 [ 0, %9 ], [ 1, %11 ]
-  store i64 %storemerge.i.i.i, ptr %0, align 8, !alias.scope !7429, !noalias !7430
+  %.sink.i.i.i = phi i64 [ 1, %11 ], [ 0, %9 ]
+  store i64 %.sink.i.i.i, ptr %0, align 8, !alias.scope !7429, !noalias !7430
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !7419
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4), !noalias !7415
   br label %"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserializer$u20$for$u20$serde_json..value..Value$GT$18deserialize_option17h0def14c7e7215decE.llvm.15439407322995335751.exit"
@@ -45185,8 +45185,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17hbde7cf1c31842b2eE.llvm.15439407322995335751.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hbde7cf1c31842b2eE.llvm.15439407322995335751.exit": ; preds = %6, %8
-  %storemerge.i = phi i64 [ 0, %6 ], [ 1, %8 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !11709, !noalias !11712
+  %.sink.i = phi i64 [ 1, %8 ], [ 0, %6 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !11709, !noalias !11712
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
   ret void
 }
@@ -45823,8 +45823,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h6b6861164a332703E.llvm.15439407322995335751.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17h6b6861164a332703E.llvm.15439407322995335751.exit": ; preds = %6, %8
-  %storemerge.i = phi i64 [ 0, %6 ], [ 1, %8 ]
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !11896, !noalias !11899
+  %.sink.i = phi i64 [ 1, %8 ], [ 0, %6 ]
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !11896, !noalias !11899
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3)
   ret void
 }

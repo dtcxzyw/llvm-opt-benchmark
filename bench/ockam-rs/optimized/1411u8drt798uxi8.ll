@@ -68056,8 +68056,8 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hcf63227c1c085019
   br label %11
 
 11:                                               ; preds = %5, %7
-  %storemerge = phi i64 [ 0, %5 ], [ 1, %7 ]
-  store i64 %storemerge, ptr %0, align 8
+  %.sink = phi i64 [ 1, %7 ], [ 0, %5 ]
+  store i64 %.sink, ptr %0, align 8
   ret void
 }
 
@@ -76997,10 +76997,10 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
 
 "_ZN4core6result19Result$LT$T$C$E$GT$3map17hcf63227c1c085019E.llvm.18141648412879468590.exit": ; preds = %8, %9
   %.sink = phi ptr [ %7, %9 ], [ %4, %8 ]
-  %storemerge.i = phi i64 [ 1, %9 ], [ 0, %8 ]
+  %.sink.i = phi i64 [ 1, %9 ], [ 0, %8 ]
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink, ptr %11, align 8
-  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !10566, !noalias !10561
+  store i64 %.sink.i, ptr %0, align 8, !alias.scope !10566, !noalias !10561
   ret void
 }
 
@@ -79417,10 +79417,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_bare..de..Deserializer$LT$R$GT$
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h80fb42402da0c035E.llvm.18141648412879468590.exit": ; preds = %18, %19
   %.sink.i7 = phi ptr [ %17, %19 ], [ %14, %18 ]
-  %storemerge.i.i = phi i64 [ 1, %19 ], [ 0, %18 ]
+  %.sink.i.i = phi i64 [ 1, %19 ], [ 0, %18 ]
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %.sink.i7, ptr %21, align 8, !alias.scope !10934, !noalias !10958
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !10959, !noalias !10960
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !10959, !noalias !10960
   br label %22
 
 22:                                               ; preds = %12, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h80fb42402da0c035E.llvm.18141648412879468590.exit", %10

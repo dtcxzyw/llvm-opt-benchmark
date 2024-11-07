@@ -1766,7 +1766,7 @@ if.end:                                           ; preds = %if.then
   br i1 %6, label %switch.lookup, label %mig_state_to_str.exit47
 
 switch.lookup:                                    ; preds = %if.end
-  %switch.tableidx66 = add nsw i32 %recover_state, -1
+  %switch.tableidx66 = add i32 %recover_state, -1
   %7 = sext i32 %switch.tableidx66 to i64
   %switch.gep67 = getelementptr inbounds [7 x ptr], ptr @switch.table.vfio_migration_set_state.10, i64 0, i64 %7
   %switch.load68 = load ptr, ptr %switch.gep67, align 8

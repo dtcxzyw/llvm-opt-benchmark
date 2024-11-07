@@ -12602,8 +12602,8 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hed7c74e140f45698E.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hed7c74e140f45698E.exit": ; preds = %21, %23
-  %storemerge.i.i = phi i64 [ 0, %21 ], [ 1, %23 ]
-  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !3334, !noalias !3335
+  %.sink.i.i = phi i64 [ 1, %23 ], [ 0, %21 ]
+  store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !3334, !noalias !3335
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6), !noalias !3324
   br label %50
 

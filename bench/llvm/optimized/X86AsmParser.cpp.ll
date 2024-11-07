@@ -35947,56 +35947,56 @@ switch.lookup333:                                 ; preds = %179
   br label %773
 
 switch.lookup339:                                 ; preds = %368
-  %switch.tableidx340 = add nsw i8 %trunc229, -90
+  %switch.tableidx340 = add i8 %trunc229, -90
   %switch.cast341 = zext nneg i8 %switch.tableidx340 to i38
   %switch.downshift343 = lshr i38 -136331590655, %switch.cast341
   %switch.masked344 = trunc i38 %switch.downshift343 to i1
   br label %773
 
 switch.lookup345:                                 ; preds = %370
-  %switch.tableidx346 = add nsw i8 %trunc228, -84
+  %switch.tableidx346 = add i8 %trunc228, -84
   %switch.cast347 = zext nneg i8 %switch.tableidx346 to i44
   %switch.downshift349 = lshr i44 -8690859442111, %switch.cast347
   %switch.masked350 = trunc i44 %switch.downshift349 to i1
   br label %773
 
 switch.lookup351:                                 ; preds = %372
-  %switch.tableidx352 = add nsw i8 %trunc227, -75
+  %switch.tableidx352 = add i8 %trunc227, -75
   %switch.cast353 = zext nneg i8 %switch.tableidx352 to i53
   %switch.downshift355 = lshr i53 -4449719891737915, %switch.cast353
   %switch.masked356 = trunc i53 %switch.downshift355 to i1
   br label %773
 
 switch.lookup357:                                 ; preds = %374
-  %switch.tableidx358 = add nsw i8 %trunc226, -84
+  %switch.tableidx358 = add i8 %trunc226, -84
   %switch.cast359 = zext nneg i8 %switch.tableidx358 to i44
   %switch.downshift361 = lshr i44 -8690859442111, %switch.cast359
   %switch.masked362 = trunc i44 %switch.downshift361 to i1
   br label %773
 
 switch.lookup363:                                 ; preds = %376
-  %switch.tableidx364 = add nsw i8 %trunc225, -69
+  %switch.tableidx364 = add i8 %trunc225, -69
   %switch.cast365 = zext nneg i8 %switch.tableidx364 to i59
   %switch.downshift367 = lshr i59 -284782082199093247, %switch.cast365
   %switch.masked368 = trunc i59 %switch.downshift367 to i1
   br label %773
 
 switch.lookup369:                                 ; preds = %524
-  %switch.tableidx370 = add nsw i8 %trunc215, -79
+  %switch.tableidx370 = add i8 %trunc215, -79
   %switch.cast371 = zext nneg i8 %switch.tableidx370 to i49
   %switch.downshift373 = lshr i49 -278107516829183, %switch.cast371
   %switch.masked374 = trunc i49 %switch.downshift373 to i1
   br label %773
 
 switch.lookup375:                                 ; preds = %528
-  %switch.tableidx376 = add nsw i8 %trunc214, -65
+  %switch.tableidx376 = add i8 %trunc214, -65
   %switch.cast377 = zext nneg i8 %switch.tableidx376 to i63
   %switch.downshift379 = lshr i63 -4556513100407513327, %switch.cast377
   %switch.masked380 = trunc i63 %switch.downshift379 to i1
   br label %773
 
 switch.lookup381:                                 ; preds = %544
-  %switch.tableidx382 = add nsw i8 %trunc212, -74
+  %switch.tableidx382 = add i8 %trunc212, -74
   %switch.cast383 = zext nneg i8 %switch.tableidx382 to i54
   %switch.downshift385 = lshr i54 -8934626705710775, %switch.cast383
   %switch.masked386 = trunc i54 %switch.downshift385 to i1
@@ -36009,133 +36009,133 @@ switch.lookup387:                                 ; preds = %546
   br label %773
 
 switch.lookup393:                                 ; preds = %569
-  %switch.tableidx394 = add nsw i8 %trunc208, -84
+  %switch.tableidx394 = add i8 %trunc208, -84
   %switch.cast395 = zext nneg i8 %switch.tableidx394 to i44
   %switch.downshift397 = lshr i44 -8690859442111, %switch.cast395
   %switch.masked398 = trunc i44 %switch.downshift397 to i1
   br label %773
 
 switch.lookup399:                                 ; preds = %579
-  %switch.tableidx400 = add nsw i8 %trunc205, -76
+  %switch.tableidx400 = add i8 %trunc205, -76
   %switch.cast401 = zext nneg i8 %switch.tableidx400 to i52
   %switch.downshift403 = lshr i52 -2224859929102279, %switch.cast401
   %switch.masked404 = trunc i52 %switch.downshift403 to i1
   br label %773
 
 switch.lookup405:                                 ; preds = %581
-  %switch.tableidx406 = add nsw i8 %trunc204, -82
+  %switch.tableidx406 = add i8 %trunc204, -82
   %switch.cast407 = zext nneg i8 %switch.tableidx406 to i46
   %switch.downshift409 = lshr i46 -35175780319199, %switch.cast407
   %switch.masked410 = trunc i46 %switch.downshift409 to i1
   br label %773
 
 switch.lookup411:                                 ; preds = %583
-  %switch.tableidx412 = add nsw i8 %trunc203, -77
+  %switch.tableidx412 = add i8 %trunc203, -77
   %switch.cast413 = zext nneg i8 %switch.tableidx412 to i51
   %switch.downshift415 = lshr i51 -1112429972934479, %switch.cast413
   %switch.masked416 = trunc i51 %switch.downshift415 to i1
   br label %773
 
 switch.lookup417:                                 ; preds = %585
-  %switch.tableidx418 = add nsw i8 %trunc202, -79
+  %switch.tableidx418 = add i8 %trunc202, -79
   %switch.cast419 = zext nneg i8 %switch.tableidx418 to i49
   %switch.downshift421 = lshr i49 -278107507915005, %switch.cast419
   %switch.masked422 = trunc i49 %switch.downshift421 to i1
   br label %773
 
 switch.lookup423:                                 ; preds = %587
-  %switch.tableidx424 = add nsw i8 %trunc201, -82
+  %switch.tableidx424 = add i8 %trunc201, -82
   %switch.cast425 = zext nneg i8 %switch.tableidx424 to i46
   %switch.downshift427 = lshr i46 -34900886093567, %switch.cast425
   %switch.masked428 = trunc i46 %switch.downshift427 to i1
   br label %773
 
 switch.lookup429:                                 ; preds = %589
-  %switch.tableidx430 = add nsw i8 %trunc200, -88
+  %switch.tableidx430 = add i8 %trunc200, -88
   %switch.cast431 = zext nneg i8 %switch.tableidx430 to i40
   %switch.downshift433 = lshr i40 -543178743807, %switch.cast431
   %switch.masked434 = trunc i40 %switch.downshift433 to i1
   br label %773
 
 switch.lookup435:                                 ; preds = %591
-  %switch.tableidx436 = add nsw i8 %trunc199, -87
+  %switch.tableidx436 = add i8 %trunc199, -87
   %switch.cast437 = zext nneg i8 %switch.tableidx436 to i41
   %switch.downshift439 = lshr i41 -1090652682237, %switch.cast437
   %switch.masked440 = trunc i41 %switch.downshift439 to i1
   br label %773
 
 switch.lookup441:                                 ; preds = %593
-  %switch.tableidx442 = add nsw i8 %trunc198, -89
+  %switch.tableidx442 = add i8 %trunc198, -89
   %switch.cast443 = zext nneg i8 %switch.tableidx442 to i39
   %switch.downshift445 = lshr i39 -271589350911, %switch.cast443
   %switch.masked446 = trunc i39 %switch.downshift445 to i1
   br label %773
 
 switch.lookup447:                                 ; preds = %595
-  %switch.tableidx448 = add nsw i8 %trunc197, -100
+  %switch.tableidx448 = add i8 %trunc197, -100
   %switch.cast449 = zext nneg i8 %switch.tableidx448 to i28
   %switch.downshift451 = lshr i28 -134184955, %switch.cast449
   %switch.masked452 = trunc i28 %switch.downshift451 to i1
   br label %773
 
 switch.lookup453:                                 ; preds = %608
-  %switch.tableidx454 = add nsw i8 %trunc195, -90
+  %switch.tableidx454 = add i8 %trunc195, -90
   %switch.cast455 = zext nneg i8 %switch.tableidx454 to i38
   %switch.downshift457 = lshr i38 -135794678783, %switch.cast455
   %switch.masked458 = trunc i38 %switch.downshift457 to i1
   br label %773
 
 switch.lookup459:                                 ; preds = %612
-  %switch.tableidx460 = add nsw i8 %trunc194, -101
+  %switch.tableidx460 = add i8 %trunc194, -101
   %switch.cast461 = zext nneg i8 %switch.tableidx460 to i27
   %switch.downshift463 = lshr i27 -67092477, %switch.cast461
   %switch.masked464 = trunc i27 %switch.downshift463 to i1
   br label %773
 
 switch.lookup465:                                 ; preds = %614
-  %switch.tableidx466 = add nsw i8 %trunc193, -101
+  %switch.tableidx466 = add i8 %trunc193, -101
   %switch.cast467 = zext nneg i8 %switch.tableidx466 to i27
   %switch.downshift469 = lshr i27 -66568159, %switch.cast467
   %switch.masked470 = trunc i27 %switch.downshift469 to i1
   br label %773
 
 switch.lookup471:                                 ; preds = %616
-  %switch.tableidx472 = add nsw i8 %trunc192, -98
+  %switch.tableidx472 = add i8 %trunc192, -98
   %switch.cast473 = zext nneg i8 %switch.tableidx472 to i30
   %switch.downshift475 = lshr i30 -530447983, %switch.cast473
   %switch.masked476 = trunc i30 %switch.downshift475 to i1
   br label %773
 
 switch.lookup477:                                 ; preds = %618
-  %switch.tableidx478 = add nsw i8 %trunc191, -100
+  %switch.tableidx478 = add i8 %trunc191, -100
   %switch.cast479 = zext nneg i8 %switch.tableidx478 to i28
   %switch.downshift481 = lshr i28 -133136319, %switch.cast479
   %switch.masked482 = trunc i28 %switch.downshift481 to i1
   br label %773
 
 switch.lookup483:                                 ; preds = %630
-  %switch.tableidx484 = add nsw i8 %trunc187, -102
+  %switch.tableidx484 = add i8 %trunc187, -102
   %switch.cast485 = zext nneg i8 %switch.tableidx484 to i26
   %switch.downshift487 = lshr i26 -33284079, %switch.cast485
   %switch.masked488 = trunc i26 %switch.downshift487 to i1
   br label %773
 
 switch.lookup489:                                 ; preds = %639
-  %switch.tableidx490 = add nsw i8 %trunc182, -105
+  %switch.tableidx490 = add i8 %trunc182, -105
   %switch.cast491 = zext nneg i8 %switch.tableidx490 to i23
   %switch.downshift493 = lshr i23 -4144125, %switch.cast491
   %switch.masked494 = trunc i23 %switch.downshift493 to i1
   br label %773
 
 switch.lookup495:                                 ; preds = %649
-  %switch.tableidx496 = add nsw i8 %trunc180, -106
+  %switch.tableidx496 = add i8 %trunc180, -106
   %switch.cast497 = zext nneg i8 %switch.tableidx496 to i22
   %switch.downshift499 = lshr i22 -2072063, %switch.cast497
   %switch.masked500 = trunc i22 %switch.downshift499 to i1
   br label %773
 
 switch.lookup501:                                 ; preds = %651
-  %switch.tableidx502 = add nsw i8 %trunc179, -115
+  %switch.tableidx502 = add i8 %trunc179, -115
   %switch.cast503 = zext nneg i8 %switch.tableidx502 to i13
   %switch.downshift505 = lshr i13 -4063, %switch.cast503
   %switch.masked506 = trunc i13 %switch.downshift505 to i1

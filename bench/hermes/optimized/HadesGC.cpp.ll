@@ -10979,9 +10979,9 @@ if.end12:                                         ; preds = %if.end
   unreachable
 
 return:                                           ; preds = %if.end, %entry
-  %storemerge = phi ptr [ %add.ptr.i4, %entry ], [ %add.ptr.i9, %if.end ]
+  %add.ptr.i9.sink = phi ptr [ %add.ptr.i4, %entry ], [ %add.ptr.i9, %if.end ]
   %.pn29 = phi ptr [ %0, %entry ], [ %2, %if.end ]
-  store ptr %storemerge, ptr %level_.i, align 8
+  store ptr %add.ptr.i9.sink, ptr %level_.i, align 8
   ret ptr %.pn29
 }
 

@@ -1251,8 +1251,8 @@ _ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE.exit: ; preds = %39, %_ZNK4llvm6Tr
 
 _ZNK4llvm6Triple10isOSDarwinEv.exit.i23:          ; preds = %72
   %74 = icmp eq i32 %.val17, 14
-  %brmerge.not.i = and i1 %67, %74
-  %spec.select.i24 = zext i1 %brmerge.not.i to i32
+  %brmerge.i.not = and i1 %67, %74
+  %spec.select.i24 = zext i1 %brmerge.i.not to i32
   br label %_ZL22getEffectiveRelocModelRKN4llvm6TripleEbSt8optionalINS_5Reloc5ModelEE.exit
 
 75:                                               ; preds = %_ZL17computeDataLayoutB5cxx11RKN4llvm6TripleE.exit

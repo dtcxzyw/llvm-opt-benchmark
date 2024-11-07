@@ -7873,7 +7873,7 @@ common.ret:                                       ; preds = %313, %267, %201, %8
   %.sroa.8.i.sroa.0.1 = phi ptr [ %.sroa.8.i.sroa.0.0.copyload272, %169 ], [ %.sroa.8.i.sroa.0.0.copyload, %167 ]
   %.sroa.439.2.i = phi i64 [ %.sroa.439.8.copyload40.i, %169 ], [ %168, %167 ]
   %.sroa.10.2.i = phi i64 [ %.sroa.10.8.copyload43.i, %169 ], [ %.sroa.10.8.copyload.i, %167 ]
-  %storemerge.i.i = phi i64 [ 1, %169 ], [ 0, %167 ]
+  %.sink.i.i = phi i64 [ 1, %169 ], [ 0, %167 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %14), !noalias !1230
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sqlx_sqlite..value..SqliteValue$u5d$$GT$$GT$17h4abfda8ebbe59b74E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
           to label %174 unwind label %171, !noalias !1234
@@ -7968,7 +7968,7 @@ common.ret:                                       ; preds = %313, %267, %201, %8
 
 200:                                              ; preds = %160, %197, %.thread.i
   %.sroa.8.i.sroa.0.0 = phi ptr [ %.sroa.8.i.sroa.0.1, %.thread.i ], [ %.sroa.3.i.sroa.0.0.copyload, %197 ], [ undef, %160 ]
-  %.sroa.038.1.i = phi i64 [ %storemerge.i.i, %.thread.i ], [ 1, %197 ], [ 0, %160 ]
+  %.sroa.038.1.i = phi i64 [ %.sink.i.i, %.thread.i ], [ 1, %197 ], [ 0, %160 ]
   %.sroa.439.1.i = phi i64 [ %.sroa.439.2.i, %.thread.i ], [ %147, %197 ], [ 0, %160 ]
   %.sroa.10.1.i = phi i64 [ %.sroa.10.2.i, %.thread.i ], [ %.sroa.5.0.copyload.i, %197 ], [ undef, %160 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9211.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i.sroa.6, i64 24, i1 false), !noalias !1278
@@ -9172,7 +9172,7 @@ common.ret:                                       ; preds = %134, %22
   %.sroa.8.i.sroa.0.1 = phi ptr [ %.sroa.8.i.sroa.0.0.copyload85, %102 ], [ %.sroa.8.i.sroa.0.0.copyload, %100 ]
   %.sroa.441.2.i = phi i64 [ %.sroa.441.8.copyload42.i, %102 ], [ %101, %100 ]
   %.sroa.10.2.i = phi i64 [ %.sroa.10.8.copyload45.i, %102 ], [ %.sroa.10.8.copyload.i, %100 ]
-  %storemerge.i.i = phi i64 [ 1, %102 ], [ 0, %100 ]
+  %.sink.i.i = phi i64 [ 1, %102 ], [ 0, %100 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !1417
   invoke void @"_ZN4core3ptr87drop_in_place$LT$alloc..boxed..Box$LT$$u5b$sqlx_sqlite..value..SqliteValue$u5d$$GT$$GT$17h4abfda8ebbe59b74E.llvm.9153531805506995525"(ptr noalias noundef nonnull align 8 dereferenceable(32) %8)
           to label %107 unwind label %104, !noalias !1444
@@ -9267,7 +9267,7 @@ common.ret:                                       ; preds = %134, %22
 
 133:                                              ; preds = %93, %130, %.thread.i
   %.sroa.8.i.sroa.0.0 = phi ptr [ %.sroa.8.i.sroa.0.1, %.thread.i ], [ %.sroa.3.i.sroa.0.0.copyload, %130 ], [ undef, %93 ]
-  %.sroa.040.1.i = phi i64 [ %storemerge.i.i, %.thread.i ], [ 1, %130 ], [ 0, %93 ]
+  %.sroa.040.1.i = phi i64 [ %.sink.i.i, %.thread.i ], [ 1, %130 ], [ 0, %93 ]
   %.sroa.441.1.i = phi i64 [ %.sroa.441.2.i, %.thread.i ], [ %80, %130 ], [ 0, %93 ]
   %.sroa.10.1.i = phi i64 [ %.sroa.10.2.i, %.thread.i ], [ %.sroa.5.0.copyload.i, %130 ], [ undef, %93 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.952.sroa.6, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.8.i.sroa.6, i64 24, i1 false), !noalias !1478

@@ -36729,7 +36729,7 @@ define internal fastcc noundef nonnull ptr @context_human(i32 noundef range(i32 
   br i1 %2, label %switch.lookup, label %4
 
 switch.lookup:                                    ; preds = %1
-  %switch.tableidx = add nsw i32 %0, -1
+  %switch.tableidx = add i32 %0, -1
   %3 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [33 x ptr], ptr @switch.table.context_human, i64 0, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8

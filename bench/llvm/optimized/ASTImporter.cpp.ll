@@ -28440,6 +28440,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %4, %_ZNK5clang14Dec
   br i1 %30, label %_ZN4llvm8ExpectedIPN5clang21TemplateParameterListEED2Ev.exit, label %18
 
 _ZN4llvm8ExpectedIPN5clang21TemplateParameterListEED2Ev.exit: ; preds = %22
+  call void @llvm.experimental.noalias.scope.decl(metadata !1970)
   %31 = load i64, ptr %6, align 8, !noalias !1970
   %32 = inttoptr i64 %31 to ptr
   br label %38
@@ -49926,6 +49927,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %4, %_ZNK5clang7TagD
   br i1 %30, label %_ZN4llvm8ExpectedIPN5clang21TemplateParameterListEED2Ev.exit, label %18
 
 _ZN4llvm8ExpectedIPN5clang21TemplateParameterListEED2Ev.exit: ; preds = %22
+  call void @llvm.experimental.noalias.scope.decl(metadata !3679)
   %31 = load i64, ptr %6, align 8, !noalias !3679
   %32 = inttoptr i64 %31 to ptr
   br label %38

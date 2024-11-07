@@ -478,8 +478,8 @@ entry:
   %cmp.not = icmp ult i64 %1, %2
   %_read_pos = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load ptr, ptr %_read_pos, align 8
-  %storemerge3 = select i1 %cmp.not, ptr %0, ptr %3
-  store ptr %storemerge3, ptr %data_, align 8
+  %.sink = select i1 %cmp.not, ptr %0, ptr %3
+  store ptr %.sink, ptr %data_, align 8
   %_allocator.val = load i64, ptr %_allocator, align 8
   %_to_read.val = load i64, ptr %_to_read, align 8
   %storemerge = select i1 %cmp.not, i64 %_allocator.val, i64 %_to_read.val

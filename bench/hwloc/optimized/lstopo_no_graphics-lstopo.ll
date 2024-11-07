@@ -4905,7 +4905,7 @@ define internal fastcc noundef nonnull ptr @output_format_name(i32 noundef range
   unreachable
 
 switch.lookup:                                    ; preds = %1
-  %switch.tableidx = add nsw i32 %0, -1
+  %switch.tableidx = add i32 %0, -1
   %4 = sext i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.output_format_name, i64 0, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8

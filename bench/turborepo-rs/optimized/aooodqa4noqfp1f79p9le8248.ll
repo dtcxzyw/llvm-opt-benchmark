@@ -31,10 +31,11 @@ define noundef zeroext i1 @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5
 define noundef zeroext i1 @_RNvYNtNtCs68wO5nsWeTG_5alloc6string6StringNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtCslOtZNRIhnDi_7pidlock(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #0 {
 _RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCslOtZNRIhnDi_7pidlock.exit:
   %2 = alloca [48 x i8], align 8
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !10
-  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7163babbdb6ac538066eca50e5ee6ad7.4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !6
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2), !noalias !9
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !11
+  %3 = call noundef zeroext i1 @_ZN4core3fmt5write17h70fe4701d8d7a171E(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.7163babbdb6ac538066eca50e5ee6ad7.4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %2), !noalias !6
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %2), !noalias !9
   ret i1 %3
 }
 
@@ -230,12 +231,12 @@ attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessib
 !3 = !{!"rustc version 1.81.0-nightly (5affbb171 2024-07-18)"}
 !4 = !{}
 !5 = !{i64 8}
-!6 = !{!7, !9}
-!7 = distinct !{!7, !8, !"_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCslOtZNRIhnDi_7pidlock: argument 0"}
+!6 = !{!7}
+!7 = distinct !{!7, !8, !"_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCslOtZNRIhnDi_7pidlock: argument 1"}
 !8 = distinct !{!8, !"_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCslOtZNRIhnDi_7pidlock"}
-!9 = distinct !{!9, !8, !"_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCslOtZNRIhnDi_7pidlock: argument 1"}
-!10 = !{!7}
-!11 = !{!9}
+!9 = !{!10, !7}
+!10 = distinct !{!10, !8, !"_RNvXs_NvNtNtCs1LoaDTb72WA_4core3fmt5Write9write_fmtQNtNtCs68wO5nsWeTG_5alloc6string6StringNtB4_12SpecWriteFmt14spec_write_fmtCslOtZNRIhnDi_7pidlock: argument 0"}
+!11 = !{!10}
 !12 = !{!13}
 !13 = distinct !{!13, !14, !"_ZN5alloc6string6String4push17h2eefef5338b5c74cE: argument 0"}
 !14 = distinct !{!14, !"_ZN5alloc6string6String4push17h2eefef5338b5c74cE"}
