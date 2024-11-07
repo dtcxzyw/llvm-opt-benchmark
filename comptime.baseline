@@ -6498,7 +6498,7 @@ draco/options.cc.ll 295432147
 draco/parser_utils.cc.ll 189867898
 draco/ply_decoder.cc.ll 2170767393
 draco/ply_encoder.cc.ll 398103622
-draco/ply_reader.cc.ll 1462218011
+draco/ply_reader.cc.ll 1460755679
 draco/point_attribute.cc.ll 3645598330
 draco/point_cloud.cc.ll 1498635834
 draco/point_cloud_builder.cc.ll 122253424
