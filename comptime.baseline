@@ -1172,7 +1172,7 @@ abseil-cpp/ostringstream_test.cc.ll 614663815
 abseil-cpp/output_test.cc.ll 340438915
 abseil-cpp/overload_test.cc.ll 648811059
 abseil-cpp/parse.cc.ll 2576068611
-abseil-cpp/parse_test.cc.ll 5238147895
+abseil-cpp/parse_test.cc.ll 5232902122
 abseil-cpp/parser.cc.ll 610623323
 abseil-cpp/parser_test.cc.ll 2733761222
 abseil-cpp/path_util_test.cc.ll 477247932
@@ -5698,7 +5698,7 @@ cvc5/statistics_public.cpp.ll 861312601
 cvc5/statistics_registry.cpp.ll 1003723937
 cvc5/statistics_stats.cpp.ll 57547983
 cvc5/statistics_value.cpp.ll 275415511
-cvc5/stats.cpp.ll 57536431
+cvc5/stats.cpp.ll 57478768
 cvc5/strategy.cpp.ll 632255736
 cvc5/string.cpp.ll 922637093
 cvc5/strings_eager_pp.cpp.ll 643529913
@@ -26374,7 +26374,7 @@ openssl/libcrypto-shlib-cmeth_lib.ll 59117357
 openssl/libcrypto-shlib-cmp_client.ll 216942081
 openssl/libcrypto-shlib-cmp_ctx.ll 271505093
 openssl/libcrypto-shlib-cmp_genm.ll 138310092
-openssl/libcrypto-shlib-cmp_hdr.ll 122355511
+openssl/libcrypto-shlib-cmp_hdr.ll 122233144
 openssl/libcrypto-shlib-cmp_msg.ll 323917512
 openssl/libcrypto-shlib-cmp_protect.ll 92849142
 openssl/libcrypto-shlib-cmp_server.ll 155223230
